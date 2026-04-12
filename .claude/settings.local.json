@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init:*)",
+      "WebSearch",
+      "Bash(pip install:*)",
+      "Bash(python3 -m venv .venv)",
+      "Bash(source .venv/bin/activate)",
+      "Bash(python benchmarks/runner.py --quick --models minimax-m2.7 qwen-3.6-plus deepseek-v3)",
+      "Bash(ps -p 10498 -o etime=)",
+      "Bash(kill 10498 10495)",
+      "Bash(python3 -c \":*)",
+      "Bash(python benchmarks/runner.py --quick --tests startup_content --models deepseek-v3 minimax-m2.7 minimax-m2.7-highspeed qwen-3.6-plus)",
+      "Bash(python benchmarks/runner.py --quick --models minimax-m2.7-direct minimax-m2.7-highspeed)",
+      "Bash(git add:*)",
+      "Bash(git rm:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}

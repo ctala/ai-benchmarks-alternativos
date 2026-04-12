@@ -1,0 +1,7 @@
+benchmarks/config.py
+# Los resultados se versionan para analisis historico
+__pycache__/
+*.pyc
+.env
+.venv/
+.claude/
