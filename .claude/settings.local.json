@@ -42,7 +42,9 @@
       "Bash(python benchmarks/runner.py --quick --models kimi-k2 kimi-k2.5 devstral)",
       "Bash(python benchmarks/runner.py --quick --models gpt-4.1 gpt-4.1-mini mistral-large)",
       "Bash(python benchmarks/runner.py --quick --models claude-opus-4.6)",
-      "WebFetch(domain:assets.nyx.cristiantala.com)"
+      "WebFetch(domain:assets.nyx.cristiantala.com)",
+      "Bash(pip3 list:*)",
+      "Bash(python cheatsheet/generate_pdf.py)"
     ]
   }
 }

@@ -1,0 +1,647 @@
+#!/usr/bin/env python3
+"""
+Genera el CheatSheet PDF con branding de cristiantala.com
+Usa WeasyPrint para convertir HTML a PDF.
+"""
+
+import json
+from pathlib import Path
+from weasyprint import HTML
+
+# Cargar resultados
+all_results = []
+for f in sorted(Path("benchmarks/results").glob("benchmark_*.json")):
+    with open(f) as fh:
+        all_results.extend(json.load(fh))
+
+# Deduplicar
+seen = {}
+for r in all_results:
+    key = f"{r['model']}|{r['test_name']}"
+    seen[key] = r
+results = list(seen.values())
+
+# Agrupar
+models = {}
+for r in results:
+    m = r["model"]
+    if m not in models:
+        models[m] = {"scores": [], "tps": [], "lat": [], "cost": [], "err": 0, "tot": 0}
+    models[m]["tot"] += 1
+    if r.get("success"):
+        models[m]["scores"].append(r["final"])
+        models[m]["tps"].append(r["tokens_per_second"])
+        models[m]["lat"].append(r["latency_total"])
+        models[m]["cost"].append(r.get("cost_usd", 0))
+    else:
+        models[m]["err"] += 1
+
+ranked = []
+for m, d in models.items():
+    if d["scores"] and len(d["scores"]) >= 5:
+        ranked.append({
+            "name": m,
+            "score": round(sum(d["scores"]) / len(d["scores"]), 2),
+            "tps": round(sum(d["tps"]) / len(d["tps"])),
+            "lat": round(sum(d["lat"]) / len(d["lat"]), 1),
+            "cost": round(sum(d["cost"]) / len(d["cost"]), 5),
+            "ok": f"{d['tot']-d['err']}/{d['tot']}",
+        })
+
+ranked.sort(key=lambda x: x["score"], reverse=True)
+
+# Info de open source
+open_source_map = {
+    "Devstral Small": ("Si", "Apache 2.0"),
+    "DeepSeek V3.2": ("Si", "MIT"),
+    "Llama 4 Maverick": ("Si", "Llama Community"),
+    "Qwen3 Coder": ("Si", "Apache 2.0"),
+    "Qwen 3.6 Plus": ("Si", "Apache 2.0"),
+    "Gemma 4 26B MoE (3.8B activos)": ("Si", "Apache 2.0"),
+    "Gemma 4 31B": ("Si", "Apache 2.0"),
+    "Mistral Large": ("Si", "Apache 2.0"),
+    "MiniMax M2.7": ("Parcial", "MIT (M2.5)"),
+    "MiniMax M2.7 (directo)": ("Parcial", "MIT (M2.5)"),
+    "MiniMax M2.7 Highspeed": ("Parcial", "MIT (M2.5)"),
+    "Kimi K2": ("No", "-"),
+    "Kimi K2.5": ("No", "-"),
+}
+
+
+def get_os(name):
+    return open_source_map.get(name, ("No", "-"))
+
+
+def ranking_rows():
+    rows = ""
+    for i, m in enumerate(ranked, 1):
+        os_status, license = get_os(m["name"])
+        os_class = "os-yes" if os_status == "Si" else "os-partial" if os_status == "Parcial" else "os-no"
+        highlight = ' class="top3"' if i <= 3 else ""
+        rows += f"""<tr{highlight}>
+            <td class="rank">{i}</td>
+            <td class="model-name">{m['name']}</td>
+            <td class="score">{m['score']}</td>
+            <td>{m['tps']}</td>
+            <td>{m['lat']}s</td>
+            <td>${m['cost']}</td>
+            <td class="{os_class}">{os_status}</td>
+        </tr>\n"""
+    return rows
+
+
+html_content = f"""<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+@page {{
+    size: A4 landscape;
+    margin: 15mm 12mm 20mm 12mm;
+    @bottom-center {{
+        content: "cristiantala.com | Benchmark de Modelos AI | Abril 2026";
+        font-family: 'Inter', sans-serif;
+        font-size: 8pt;
+        color: #b0b0b0;
+    }}
+    @bottom-right {{
+        content: counter(page) " / " counter(pages);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8pt;
+        color: #39ff14;
+    }}
+}}
+
+* {{ margin: 0; padding: 0; box-sizing: border-box; }}
+
+body {{
+    font-family: 'Inter', sans-serif;
+    background: #0a0a1a;
+    color: #ffffff;
+    font-size: 9pt;
+    line-height: 1.4;
+}}
+
+/* ===== PAGE 1: COVER ===== */
+.cover {{
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 170mm;
+    text-align: center;
+    background: linear-gradient(180deg, #0a0a1a 0%, #1a0a2e 50%, #0a0a1a 100%);
+}}
+
+.cover h1 {{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28pt;
+    color: #39ff14;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}}
+
+.cover .subtitle {{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14pt;
+    color: #00d4ff;
+    margin-bottom: 25px;
+}}
+
+.cover .meta {{
+    font-size: 10pt;
+    color: #b0b0b0;
+    margin-top: 10px;
+}}
+
+.cover .stats {{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 25px;
+}}
+
+.cover .stat-box {{
+    text-align: center;
+    padding: 10px 20px;
+    border: 1px solid #39ff14;
+    border-radius: 6px;
+}}
+
+.cover .stat-number {{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24pt;
+    color: #39ff14;
+    display: block;
+}}
+
+.cover .stat-label {{
+    font-size: 8pt;
+    color: #b0b0b0;
+    text-transform: uppercase;
+}}
+
+/* ===== GENERAL ===== */
+.page {{
+    page-break-after: always;
+}}
+
+h2 {{
+    font-family: 'JetBrains Mono', monospace;
+    color: #39ff14;
+    font-size: 14pt;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #39ff1444;
+}}
+
+h3 {{
+    font-family: 'JetBrains Mono', monospace;
+    color: #00d4ff;
+    font-size: 11pt;
+    margin: 12px 0 6px 0;
+}}
+
+/* ===== TABLES ===== */
+table {{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+    font-size: 8pt;
+}}
+
+th {{
+    font-family: 'JetBrains Mono', monospace;
+    background: #1a0a2e;
+    color: #00d4ff;
+    padding: 5px 6px;
+    text-align: left;
+    font-size: 7pt;
+    text-transform: uppercase;
+    border-bottom: 2px solid #39ff14;
+}}
+
+td {{
+    padding: 4px 6px;
+    border-bottom: 1px solid #1a0a2e;
+}}
+
+tr:nth-child(even) {{ background: #0f0f25; }}
+tr.top3 {{ background: #1a0a2e; }}
+tr.top3 td {{ font-weight: 600; }}
+
+.rank {{ font-family: 'JetBrains Mono', monospace; color: #39ff14; font-weight: 700; text-align: center; }}
+.score {{ font-family: 'JetBrains Mono', monospace; color: #39ff14; font-weight: 700; }}
+.model-name {{ font-weight: 600; }}
+
+.os-yes {{ color: #39ff14; font-weight: 600; }}
+.os-partial {{ color: #ffa500; }}
+.os-no {{ color: #b0b0b0; }}
+
+/* ===== RECOMMENDATION BOXES ===== */
+.rec-grid {{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0;
+}}
+
+.rec-box {{
+    flex: 1 1 30%;
+    background: #1a0a2e;
+    border: 1px solid #39ff1444;
+    border-radius: 6px;
+    padding: 8px 10px;
+}}
+
+.rec-box .rec-title {{
+    font-family: 'JetBrains Mono', monospace;
+    color: #00d4ff;
+    font-size: 8pt;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}}
+
+.rec-box .rec-model {{
+    font-family: 'JetBrains Mono', monospace;
+    color: #39ff14;
+    font-size: 10pt;
+    font-weight: 700;
+}}
+
+.rec-box .rec-why {{
+    font-size: 7pt;
+    color: #b0b0b0;
+    margin-top: 2px;
+}}
+
+/* ===== NOTES ===== */
+.note {{
+    background: #1a0a2e;
+    border-left: 3px solid #ff006e;
+    padding: 6px 10px;
+    margin: 8px 0;
+    font-size: 8pt;
+    color: #b0b0b0;
+}}
+
+.note strong {{ color: #ff006e; }}
+
+.two-col {{
+    display: flex;
+    gap: 15px;
+}}
+
+.two-col > div {{
+    flex: 1;
+}}
+
+.footer-url {{
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    color: #00d4ff;
+    font-size: 9pt;
+    margin-top: 15px;
+}}
+</style>
+</head>
+<body>
+
+<!-- ===== PAGE 1: COVER ===== -->
+<div class="cover">
+    <h1>AI Model Benchmark</h1>
+    <div class="subtitle">Guia Definitiva para Elegir tu Modelo de IA</div>
+    <p class="meta">21 modelos probados con 27 tests reales | Abril 2026</p>
+    <div class="stats">
+        <div class="stat-box">
+            <span class="stat-number">21</span>
+            <span class="stat-label">Modelos</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number">27</span>
+            <span class="stat-label">Tests</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number">8</span>
+            <span class="stat-label">Categorias</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number">567</span>
+            <span class="stat-label">Runs totales</span>
+        </div>
+    </div>
+    <p class="meta" style="margin-top: 20px;">Medido desde Chile via OpenRouter, OpenAI API y MiniMax API</p>
+    <div class="footer-url">cristiantala.com</div>
+</div>
+
+<!-- ===== PAGE 2: RANKING GLOBAL ===== -->
+<div class="page">
+    <h2>Ranking Global - Todos los Modelos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Modelo</th>
+                <th>Score</th>
+                <th>tok/s</th>
+                <th>Latencia</th>
+                <th>Costo/call</th>
+                <th>Open Source</th>
+            </tr>
+        </thead>
+        <tbody>
+            {ranking_rows()}
+        </tbody>
+    </table>
+
+    <div class="note">
+        <strong>Sobre el scoring:</strong> Evalua formato, estructura, tool calling y velocidad de forma automatica.
+        No captura profundidad de razonamiento ni calidad subjetiva del contenido.
+        Modelos como Claude Opus destacan en areas que este scoring no mide bien.
+    </div>
+</div>
+
+<!-- ===== PAGE 3: RECOMENDACIONES POR CASO DE USO ===== -->
+<div class="page">
+    <h2>Que Modelo Usar: Recomendaciones por Caso de Uso</h2>
+
+    <h3>Para Agentes (N8N / OpenClaw)</h3>
+    <div class="rec-grid">
+        <div class="rec-box">
+            <div class="rec-title">Agente Economico</div>
+            <div class="rec-model">DeepSeek V3.2</div>
+            <div class="rec-why">#4 global, $0.14/$0.28 per M, MIT open-source</div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Agente Rapido</div>
+            <div class="rec-model">Devstral Small</div>
+            <div class="rec-why">#1 global, 171 tok/s, Apache 2.0</div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Agente con Suscripcion Fija</div>
+            <div class="rec-model">MiniMax M2.7</div>
+            <div class="rec-why">$20-69/mes, tool calling SOTA, imagenes incluidas</div>
+        </div>
+    </div>
+
+    <h3>Para Generacion de Contenido</h3>
+    <div class="rec-grid">
+        <div class="rec-box">
+            <div class="rec-title">Blog / Newsletter</div>
+            <div class="rec-model">GPT-4.1</div>
+            <div class="rec-why">#2 global, excelente en espanol, via API OpenAI</div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Feature Images (WordPress)</div>
+            <div class="rec-model">MiniMax Image-01</div>
+            <div class="rec-why">5/5 exitosos, 16:9, 16-60s por imagen</div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Alto Volumen / Batch</div>
+            <div class="rec-model">Gemini 2.5 Flash Lite</div>
+            <div class="rec-why">212 tok/s, 4.7s latencia, $0.10/$0.40 per M</div>
+        </div>
+    </div>
+
+    <h3>Para Coding y Automatizacion</h3>
+    <div class="rec-grid">
+        <div class="rec-box">
+            <div class="rec-title">Coding General</div>
+            <div class="rec-model">Devstral Small</div>
+            <div class="rec-why">#1, especializado en codigo, Apache 2.0</div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Coding Open-Source Local</div>
+            <div class="rec-model">MiniMax M2.5</div>
+            <div class="rec-why">80.2% SWE-Bench, MIT, cabe en DGX Spark</div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Coding IDE (Cursor/VSCode)</div>
+            <div class="rec-model">Qwen3 Coder</div>
+            <div class="rec-why">#12, Apache 2.0, bueno para automatizaciones</div>
+        </div>
+    </div>
+
+    <h3>Para Maxima Calidad (sin importar costo)</h3>
+    <div class="rec-grid">
+        <div class="rec-box">
+            <div class="rec-title">Razonamiento Profundo</div>
+            <div class="rec-model">Claude Opus 4.6</div>
+            <div class="rec-why">#1 en Arena (1504 Elo), $15/$75 per M</div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Tool Calling Premium</div>
+            <div class="rec-model">GPT-5.4 Mini</div>
+            <div class="rec-why">Score 7.5 en tool calling, 142 tok/s</div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Open-Source Premium</div>
+            <div class="rec-model">Llama 4 Maverick</div>
+            <div class="rec-why">#10, empata con Claude Sonnet, open-source</div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE 4: PRECIOS Y SUSCRIPCIONES ===== -->
+<div class="page">
+    <h2>Comparativa de Precios y Suscripciones</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Pay-as-you-go (por millon de tokens)</h3>
+            <table>
+                <thead><tr><th>Modelo</th><th>Input/M</th><th>Output/M</th><th>Open Source</th></tr></thead>
+                <tbody>
+                    <tr><td>Mistral Nemo</td><td>$0.02</td><td>$0.02</td><td class="os-yes">Apache 2.0</td></tr>
+                    <tr><td>Devstral Small</td><td>$0.10</td><td>$0.30</td><td class="os-yes">Apache 2.0</td></tr>
+                    <tr><td>Gemini Flash Lite</td><td>$0.10</td><td>$0.40</td><td class="os-no">No</td></tr>
+                    <tr><td>DeepSeek V3.2</td><td>$0.14</td><td>$0.28</td><td class="os-yes">MIT</td></tr>
+                    <tr><td>MiniMax M2.7</td><td>$0.30</td><td>$1.20</td><td class="os-partial">Parcial</td></tr>
+                    <tr><td>GPT-4.1 Mini</td><td>$0.40</td><td>$1.60</td><td class="os-no">No</td></tr>
+                    <tr><td>Llama 4 Maverick</td><td>$0.50</td><td>$1.00</td><td class="os-yes">Llama</td></tr>
+                    <tr><td>GPT-4.1</td><td>$2.00</td><td>$8.00</td><td class="os-no">No</td></tr>
+                    <tr><td>GPT-4o</td><td>$2.50</td><td>$10.00</td><td class="os-no">No</td></tr>
+                    <tr><td>Claude Sonnet 4.6</td><td>$3.00</td><td>$15.00</td><td class="os-no">No</td></tr>
+                    <tr><td>Claude Opus 4.6</td><td>$15.00</td><td>$75.00</td><td class="os-no">No</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3>Suscripciones Mensuales Fijas</h3>
+            <table>
+                <thead><tr><th>Servicio</th><th>Precio</th><th>Mejor Modelo</th></tr></thead>
+                <tbody>
+                    <tr><td>MiniMax Starter</td><td>$10/mes</td><td>M2.1</td></tr>
+                    <tr><td>Mistral Le Chat</td><td>~$15/mes</td><td>Mistral Large</td></tr>
+                    <tr><td>MiniMax Agent Pro</td><td>$19/mes</td><td>M2.7</td></tr>
+                    <tr><td>Google AI Pro</td><td>$20/mes</td><td>Gemini 2.5 Pro</td></tr>
+                    <tr><td>ChatGPT Plus</td><td>$20/mes</td><td>GPT-4o</td></tr>
+                    <tr><td>MiniMax Coding Plus</td><td>$20/mes</td><td>M2.1</td></tr>
+                    <tr><td>Ollama Cloud Pro</td><td>$20/mes</td><td>Todos open-source</td></tr>
+                    <tr><td>Claude Pro</td><td>$20/mes</td><td>Sonnet 4.5 (solo chat)</td></tr>
+                    <tr><td>SuperGrok</td><td>$30/mes</td><td>Grok 4.20</td></tr>
+                    <tr><td>Qwen Coding Pro</td><td>$50/mes</td><td>Qwen-Coder-Max</td></tr>
+                    <tr><td>MiniMax Agent Pro+</td><td>$69/mes</td><td>M2.7</td></tr>
+                    <tr><td>Ollama Cloud Max</td><td>$100/mes</td><td>Todos open-source</td></tr>
+                    <tr><td>ChatGPT Pro</td><td>$200/mes</td><td>GPT-5.2, o3</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE 5: ESTRATEGIA LOCAL + NUBE ===== -->
+<div class="page">
+    <h2>Estrategia Local + Nube (NVIDIA DGX Spark 128GB)</h2>
+
+    <h3>Modelos Open-Source para Correr Local</h3>
+    <table>
+        <thead><tr><th>Modelo</th><th>RAM</th><th>Licencia</th><th>Calidad</th><th>Contexto</th><th>Ideal para</th></tr></thead>
+        <tbody>
+            <tr><td>Gemma 4 E4B</td><td>4 GB</td><td>Apache 2.0</td><td>Buena</td><td>128K</td><td>Edge/mobile</td></tr>
+            <tr><td>Mistral Nemo 12B</td><td>8 GB</td><td>Apache 2.0</td><td>Buena</td><td>128K</td><td>Tareas simples</td></tr>
+            <tr><td>Phi-4 14B</td><td>10 GB</td><td>MIT</td><td>Buena</td><td>16K</td><td>Razonamiento compacto</td></tr>
+            <tr><td>Gemma 4 26B MoE</td><td>16 GB</td><td>Apache 2.0</td><td>Muy buena</td><td>256K</td><td>Solo 3.8B activos, rapido</td></tr>
+            <tr><td>Qwen 3.5 25B</td><td>16 GB</td><td>Apache 2.0</td><td>Muy buena</td><td>128K</td><td>General, multiidioma</td></tr>
+            <tr><td>Gemma 4 31B</td><td>20 GB</td><td>Apache 2.0</td><td>Excelente</td><td>256K</td><td>#3 open en Arena</td></tr>
+            <tr><td>Llama 3.3 70B</td><td>40 GB</td><td>Llama</td><td>Muy buena</td><td>128K</td><td>Clasico confiable</td></tr>
+            <tr><td>Qwen 3.5 72B</td><td>42 GB</td><td>Apache 2.0</td><td>Excelente</td><td>128K</td><td>Top coding local</td></tr>
+            <tr><td>Llama 4 Maverick</td><td>~60 GB</td><td>Llama</td><td>Excelente</td><td>128K</td><td>Multimodal</td></tr>
+            <tr><td>MiniMax M2.5</td><td>~90 GB</td><td>MIT</td><td>Excelente</td><td>128K</td><td>80.2% SWE-Bench</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Regla de Routing: Cuando Usar Local vs Nube</h3>
+    <div class="rec-grid">
+        <div class="rec-box">
+            <div class="rec-title">Usar LOCAL cuando</div>
+            <div class="rec-why" style="color: #39ff14;">
+                - Privacidad es critica<br>
+                - No hay internet confiable<br>
+                - Coding/debug largo<br>
+                - Presupuesto $0<br>
+                - Fine-tuning necesario
+            </div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Usar NUBE cuando</div>
+            <div class="rec-why" style="color: #00d4ff;">
+                - Velocidad maxima (Devstral 171 tok/s)<br>
+                - Tool calling para agentes<br>
+                - Contexto >128K tokens<br>
+                - Imagenes/audio (MiniMax)<br>
+                - Fallback si local falla
+            </div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Combo Optimo ($0/mes)</div>
+            <div class="rec-why" style="color: #ffffff;">
+                <strong>Local:</strong> Gemma 4 26B MoE (rapido)<br>
+                + Qwen 3.5 72B (calidad)<br>
+                <strong>Nube:</strong> DeepSeek V3.2 (backup)<br>
+                Costo: $0 + electricidad
+            </div>
+        </div>
+    </div>
+
+    <h3>Escenarios de Costo</h3>
+    <table>
+        <thead><tr><th>Escenario</th><th>Local</th><th>Nube</th><th>Costo/mes</th></tr></thead>
+        <tbody>
+            <tr><td>Solo local, independencia total</td><td>Gemma 4 + Qwen 72B</td><td>Ninguna</td><td><strong>$0</strong></td></tr>
+            <tr><td>Local + backup nube</td><td>Qwen 72B</td><td>DeepSeek V3.2 paygo</td><td><strong>~$5</strong></td></tr>
+            <tr><td>Agente 24/7 alta calidad</td><td>MiniMax M2.5</td><td>MiniMax Agent Pro</td><td><strong>$19</strong></td></tr>
+            <tr><td>Maximo rendimiento</td><td>MiniMax M2.5</td><td>OpenRouter + Qwen Pro</td><td><strong>~$65</strong></td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- ===== PAGE 6: PROVEEDORES ===== -->
+<div class="page">
+    <h2>Mapa de Proveedores</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Propietarios</h3>
+            <table>
+                <thead><tr><th>Proveedor</th><th>Pais</th><th>Mejor Modelo</th><th>Fortaleza</th></tr></thead>
+                <tbody>
+                    <tr><td>OpenAI</td><td>USA</td><td>GPT-4.1</td><td>Tool calling, ecosistema</td></tr>
+                    <tr><td>Anthropic</td><td>USA</td><td>Opus 4.6</td><td>Razonamiento, coding</td></tr>
+                    <tr><td>Google</td><td>USA</td><td>Gemini 2.5 Pro</td><td>Velocidad, multimodal</td></tr>
+                    <tr><td>xAI</td><td>USA</td><td>Grok 4.20</td><td>RPM alto, X integration</td></tr>
+                    <tr><td>Moonshot</td><td>China</td><td>Kimi K2</td><td>Contexto largo</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Open Source</h3>
+            <table>
+                <thead><tr><th>Proveedor</th><th>Pais</th><th>Mejor Modelo</th><th>Licencia</th></tr></thead>
+                <tbody>
+                    <tr><td>Mistral</td><td>Francia</td><td>Devstral (#1!)</td><td>Apache 2.0</td></tr>
+                    <tr><td>DeepSeek</td><td>China</td><td>V3.2</td><td>MIT</td></tr>
+                    <tr><td>Meta</td><td>USA</td><td>Llama 4 Maverick</td><td>Llama Community</td></tr>
+                    <tr><td>Alibaba</td><td>China</td><td>Qwen 3.6 Plus</td><td>Apache 2.0</td></tr>
+                    <tr><td>Google</td><td>USA</td><td>Gemma 4 31B</td><td>Apache 2.0</td></tr>
+                    <tr><td>MiniMax</td><td>China</td><td>M2.5 (MIT)</td><td>MIT</td></tr>
+                    <tr><td>Microsoft</td><td>USA</td><td>Phi-4</td><td>MIT</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3>Infraestructura (sirven modelos)</h3>
+            <table>
+                <thead><tr><th>Servicio</th><th>Ventaja</th><th>Modelos</th></tr></thead>
+                <tbody>
+                    <tr><td>OpenRouter</td><td>1 API key, 290+ modelos</td><td>Todos</td></tr>
+                    <tr><td>Ollama</td><td>Local + Cloud</td><td>Open-source</td></tr>
+                    <tr><td>Groq</td><td>544 tok/s (LPU)</td><td>Llama, Mixtral</td></tr>
+                    <tr><td>Cerebras</td><td>1800 tok/s record</td><td>Llama</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Capacidades Multimodales</h3>
+            <table>
+                <thead><tr><th>Proveedor</th><th>Texto</th><th>Imagen</th><th>Audio</th><th>Video</th></tr></thead>
+                <tbody>
+                    <tr><td>MiniMax</td><td class="os-yes">Si</td><td class="os-yes">Image-01</td><td class="os-yes">Speech-02</td><td class="os-yes">Si</td></tr>
+                    <tr><td>OpenAI</td><td class="os-yes">Si</td><td class="os-yes">DALL-E 3</td><td class="os-yes">Whisper/TTS</td><td class="os-no">No</td></tr>
+                    <tr><td>Google</td><td class="os-yes">Si</td><td class="os-yes">Imagen 3</td><td class="os-yes">Si</td><td class="os-yes">Veo</td></tr>
+                    <tr><td>Meta</td><td class="os-yes">Si</td><td class="os-yes">Muse Spark</td><td class="os-no">No</td><td class="os-no">No</td></tr>
+                </tbody>
+            </table>
+
+            <div class="note" style="margin-top: 15px;">
+                <strong>Tip:</strong> Para agentes N8N/OpenClaw, usa OpenRouter con fallback automatico:
+                Devstral -> DeepSeek V3.2 -> Llama 3.3 (gratis).
+                Una sola API key para todo.
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-url" style="margin-top: 20px;">
+        cristiantala.com | @ctala | Abril 2026
+    </div>
+</div>
+
+</body>
+</html>"""
+
+# Generar PDF
+output_dir = Path("cheatsheet")
+output_dir.mkdir(exist_ok=True)
+
+html_file = output_dir / "cheatsheet.html"
+pdf_file = output_dir / "AI_Model_Benchmark_CheatSheet_2026.pdf"
+
+with open(html_file, "w") as f:
+    f.write(html_content)
+
+HTML(string=html_content).write_pdf(str(pdf_file))
+
+print(f"PDF generado: {pdf_file}")
+print(f"HTML guardado: {html_file}")
