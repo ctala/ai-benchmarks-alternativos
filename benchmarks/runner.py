@@ -42,6 +42,7 @@ from providers.adapters import UnifiedProvider, BenchmarkResult
 from benchmarks.tests import content_generation, tool_calling, task_management
 from benchmarks.tests import code_generation, reasoning, summarization, presentation
 from benchmarks.tests import startup_content, deep_reasoning, customer_support, structured_output
+from benchmarks.tests import hallucination, creativity
 
 console = Console()
 
@@ -57,6 +58,8 @@ ALL_TEST_SUITES = {
     "deep_reasoning": deep_reasoning.TESTS,
     "customer_support": customer_support.TESTS,
     "structured_output": structured_output.TESTS,
+    "hallucination": hallucination.TESTS,
+    "creativity": creativity.TESTS,
 }
 
 

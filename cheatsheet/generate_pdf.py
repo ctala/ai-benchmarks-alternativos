@@ -402,6 +402,8 @@ tr.top3 td {{ font-weight: 600; }}
                     <tr><td>task_management</td><td>3</td><td>Planning, action items</td></tr>
                     <tr><td>summarization</td><td>2</td><td>Resumen, extraccion datos</td></tr>
                     <tr><td>presentation</td><td>2</td><td>Slides, reportes</td></tr>
+                    <tr><td>hallucination</td><td>3</td><td>Precision factual, trampas</td></tr>
+                    <tr><td>creativity</td><td>4</td><td>Originalidad, cliches, profundidad</td></tr>
                 </tbody>
             </table>
         </div>
@@ -558,9 +560,35 @@ tr.top3 td {{ font-weight: 600; }}
         </div>
     </div>
 
+    <h3>Alucinaciones (precision factual)</h3>
+    <table>
+        <thead><tr><th>#</th><th>Modelo</th><th>Score</th><th>Notas</th></tr></thead>
+        <tbody>
+            <tr class="top3"><td class="rank">1</td><td>Claude Sonnet 4.6</td><td class="score">7.62</td><td>Mas honesto del benchmark</td></tr>
+            <tr class="top3"><td class="rank">2</td><td>Mistral Large</td><td class="score">7.52</td><td>Muy confiable</td></tr>
+            <tr class="top3"><td class="rank">3</td><td>Gemini Flash Lite</td><td class="score">7.47</td><td>Rapido Y honesto</td></tr>
+            <tr><td class="rank">4</td><td>Claude Opus 4.6</td><td>7.45</td><td>Anthropic = honestidad</td></tr>
+            <tr><td class="rank">...</td><td>MiniMax M2.7</td><td>7.02</td><td></td></tr>
+            <tr><td class="rank">...</td><td style="color:#ff006e">Qwen 3.6 Plus</td><td style="color:#ff006e">6.50</td><td style="color:#ff006e">Mas propenso a alucinar</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Creatividad y originalidad</h3>
+    <table>
+        <thead><tr><th>#</th><th>Modelo</th><th>Score</th><th>Notas</th></tr></thead>
+        <tbody>
+            <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">6.93</td><td>Menos cliches</td></tr>
+            <tr class="top3"><td class="rank">2</td><td>Gemini 2.5 Flash</td><td class="score">6.85</td><td>Sorprendente creatividad</td></tr>
+            <tr class="top3"><td class="rank">3</td><td>DeepSeek V3.2</td><td class="score">6.75</td><td>Bueno y barato</td></tr>
+            <tr><td class="rank">...</td><td>Claude Opus 4.6</td><td>6.47</td><td></td></tr>
+            <tr><td class="rank">...</td><td style="color:#ff006e">GPT-5.4</td><td style="color:#ff006e">5.56</td><td style="color:#ff006e">Generico</td></tr>
+            <tr><td class="rank">...</td><td style="color:#ff006e">MiniMax M2.7</td><td style="color:#ff006e">5.19</td><td style="color:#ff006e">Muy generico, cliches</td></tr>
+        </tbody>
+    </table>
+
     <div class="note">
-        <strong>Insight clave:</strong> No existe un "mejor modelo para todo". Claude Opus es #3 en Agentes
-        pero #16 en JSON. DeepSeek lidera en Razonamiento pero cae en Soporte. Elige segun tu caso de uso.
+        <strong>Insight clave:</strong> No existe un "mejor modelo para todo". Claude es #1 en honestidad
+        pero #16 en JSON. MiniMax es bueno para agentes pero ultimo en creatividad. Elige segun tu caso de uso.
     </div>
 </div>
 
