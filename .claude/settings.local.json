@@ -28,7 +28,10 @@
       "Bash(python3 -m json.tool)",
       "WebFetch(domain:platform.minimax.io)",
       "Bash(python benchmarks/runner.py --quick --models gemma-4-31b gemma-4-26b claude-sonnet-4.6 gemini-flash-lite)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(kill 30791 30788 30455)",
+      "Bash(python benchmarks/runner.py --quick --models claude-sonnet-4.6 gemini-flash-lite)",
+      "Bash(python benchmarks/runner.py --quick --models gpt-5.4 gpt-5.4-mini)"
     ]
   }
 }

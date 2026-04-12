@@ -71,33 +71,28 @@ python benchmarks/runner.py --list-tests                     # Ver tests disponi
 
 ## Resultados (11 Abril 2026)
 
-### Benchmark General (22 tests x 3 modelos via OpenRouter)
+### Ranking Global (27 tests x modelo, medidos desde Chile)
 
 | # | Modelo | Score | tok/s | Latencia | Costo/call | Open Source |
 |---|--------|-------|-------|----------|------------|-------------|
-| 1 | **DeepSeek V3.2** | **7.05** | 37 | 16.8s | $0.00023 | Si (MIT) |
-| 2 | MiniMax M2.7 | 6.40 | 52 | 24.2s | $0.00382 | Parcial |
-| 3 | Qwen 3.6 Plus | 6.08 | 46 | 85.3s | $0.00944 | Si (Apache 2.0) |
+| 1 | **DeepSeek V3.2** | **7.09** | 36 | 18.8s | $0.00024 | Si (MIT) |
+| 2 | **Gemini 2.5 Flash Lite** | **6.95** | **212** | **4.7s** | $0.00362 | No |
+| 3 | MiniMax M2.7 Highspeed | 6.74 | 51 | 26.1s | $0.00421 | Parcial |
+| 4 | Claude Sonnet 4.6 | 6.70 | 62 | 21.1s | $0.00415 | No |
+| 5 | MiniMax M2.7 | 6.68 | 57 | 26.5s | $0.00431 | Parcial |
+| 6 | MiniMax M2.7 (OpenRouter) | 6.39 | 49 | 29.9s | $0.00423 | Parcial |
+| 7 | Qwen 3.6 Plus | 6.07 | 47 | 83.1s | $0.00995 | Si (Apache) |
 
-### MiniMax M2.7 vs M2.7 Highspeed (API directa, 27 tests)
+> GPT-5.4 y GPT-5.4-mini pendientes de medicion
 
-| Modelo | Score | tok/s | Latencia | Veredicto |
-|--------|-------|-------|----------|-----------|
-| M2.7 Highspeed | 6.74 | 51 | 26.1s | Ligeramente mejor score |
-| M2.7 Normal | 6.68 | 57 | 26.5s | Ligeramente mas rapido |
+### Hallazgos Clave
 
-> Diferencia marginal (~1%). Usar el que incluya tu suscripcion.
-
-### Ganador por Categoria
-
-| Categoria | 1ro | 2do | 3ro |
-|-----------|-----|-----|-----|
-| Content | DeepSeek V3.2 (6.7) | MiniMax M2.7 (6.2) | Qwen 3.6 Plus (6.0) |
-| Tool Calling | MiniMax M2.7 (6.7) | DeepSeek V3.2 (6.5) | Qwen 3.6 Plus (6.5) |
-| Task Mgmt | DeepSeek V3.2 (7.2) | MiniMax M2.7 (6.5) | Qwen 3.6 Plus (5.8) |
-| Coding | DeepSeek V3.2 (7.3) | Qwen 3.6 Plus (6.2) | MiniMax M2.7 (6.2) |
-| Reasoning | DeepSeek V3.2 (7.5) | MiniMax M2.7 (6.2) | Qwen 3.6 Plus (6.1) |
-| Startup Content | DeepSeek V3.2 (7.3) | MiniMax M2.7 (6.4) | Qwen 3.6 Plus (6.0) |
+- **Mejor valor absoluto**: DeepSeek V3.2 - gana en score y es 17x mas barato que Claude
+- **Mas rapido**: Gemini 2.5 Flash Lite - 212 tok/s, 4.7s latencia, y 30x mas barato que Claude
+- **Mejor tool calling**: MiniMax M2.7 - ideal para agentes N8N/OpenClaw
+- **MiniMax M2.7 vs Highspeed**: Diferencia marginal (~1%)
+- **Claude Sonnet 4.6**: Buena calidad pero caro, no justifica el precio vs DeepSeek o Gemini
+- **Gemma 4 via OpenRouter**: Muy lento (~8 tok/s), mejor correr local en DGX Spark
 
 > Los resultados JSON completos estan en `benchmarks/results/`
 

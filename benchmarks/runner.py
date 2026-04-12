@@ -188,6 +188,15 @@ def run_benchmark(args):
     except ImportError:
         pass
 
+    # OpenAI directo (para GPT-5.4, GPT-5.4-mini)
+    openai_direct = None
+    try:
+        from benchmarks.config import OPENAI_API_KEY, OPENAI_BASE_URL
+        if OPENAI_API_KEY:
+            openai_direct = UnifiedProvider("openai", OPENAI_API_KEY, OPENAI_BASE_URL)
+    except ImportError:
+        pass
+
     ollama = None
     if INCLUDE_OLLAMA:
         ollama = UnifiedProvider("ollama", "ollama", "http://localhost:11434/v1")
@@ -217,6 +226,8 @@ def run_benchmark(args):
             provider = ollama
         elif model_config.get("provider") == "minimax_direct" and minimax_direct:
             provider = minimax_direct
+        elif model_config.get("provider") == "openai_direct" and openai_direct:
+            provider = openai_direct
         else:
             provider = openrouter
 

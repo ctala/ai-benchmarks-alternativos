@@ -84,11 +84,16 @@ class UnifiedProvider:
 
         start = time.perf_counter()
         try:
+            # GPT-5.4+ usa max_completion_tokens en vez de max_tokens
+            token_param = "max_tokens"
+            if model.startswith(("gpt-5", "o3", "o1")):
+                token_param = "max_completion_tokens"
+
             kwargs = {
                 "model": model,
                 "messages": messages,
                 "temperature": temperature,
-                "max_tokens": max_tokens,
+                token_param: max_tokens,
             }
             if tools:
                 kwargs["tools"] = tools
