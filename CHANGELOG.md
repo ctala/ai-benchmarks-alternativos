@@ -19,6 +19,27 @@
 - GPT-4.1 consistentemente supera GPT-5.4 en tests estructurados
 - Devstral Small de Mistral es una joya oculta
 
+## [1.1.0] - 2026-04-12
+
+### Agregado
+- Suite hallucination: 3 tests (trampas factuales, fidelidad al contexto, citas falsas)
+- Suite creativity: 4 tests (hooks sin cliches, analogias, profundidad, storytelling)
+- DESCUBRIMIENTOS.md con observaciones no obvias
+- Ranking global actualizado con 48 tests por modelo, 951 runs totales
+- Recomendaciones expandidas: 11 casos de uso con modelo recomendado
+- CheatSheet PDF actualizado a 9 paginas con alucinaciones y creatividad
+
+### Resultados
+- Alucinaciones: Claude Sonnet #1 (7.62), Anthropic = mas honesto
+- Creatividad: Devstral #1 (6.93), MiniMax ultimo (5.19)
+- Claude Opus sube a #9 global (desde #13) con los tests de calidad
+- Claude Sonnet sube a #7 global (desde #12)
+
+### Hallazgos
+- Claude es el modelo mas honesto pero no el mas creativo
+- MiniMax M2.7 es generico y con cliches en contenido
+- MiniMax y Qwen a veces responden con caracteres chinos
+
 ## [0.7.0] - 2026-04-12
 
 ### Agregado

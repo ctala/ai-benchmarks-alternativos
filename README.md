@@ -71,43 +71,40 @@ python benchmarks/runner.py --list-tests                     # Ver tests disponi
 
 ## Resultados (11 Abril 2026)
 
-### Ranking Global - 21 Modelos (27 tests x modelo, desde Chile)
+### Ranking Global - 48 tests x modelo, 951 runs, desde Chile
 
-| # | Modelo | Score | tok/s | Latencia | Costo/call | Open Source |
-|---|--------|-------|-------|----------|------------|-------------|
-| 1 | **Devstral Small** | **7.40** | **171** | **3.8s** | $0.00233 | Si (Apache) |
-| 2 | **GPT-4.1** | **7.28** | 118 | 6.4s | $0.00233 | No |
-| 3 | **GPT-4.1 Mini** | **7.20** | 110 | 6.6s | $0.00247 | No |
-| 4 | DeepSeek V3.2 | 7.09 | 36 | 18.8s | $0.00024 | Si (MIT) |
-| 5 | Gemini 2.5 Flash Lite | 6.95 | 212 | 4.7s | $0.00362 | No |
-| 6 | Mistral Large | 6.80 | 54 | 19.0s | $0.00341 | Si (Apache) |
-| 7 | GPT-5.4 Mini | 6.74 | 142 | 6.4s | $0.00316 | No |
-| 8 | MiniMax M2.7 Highspeed | 6.74 | 51 | 26.1s | $0.00421 | Parcial |
-| 9 | Claude Sonnet 4.6 | 6.70 | 62 | 21.1s | $0.00415 | No |
-| 10 | Llama 4 Maverick | 6.70 | 58 | 15.8s | $0.00231 | Si (Llama) |
-| 11 | MiniMax M2.7 | 6.68 | 57 | 26.5s | $0.00431 | Parcial |
-| 12 | Qwen3 Coder | 6.62 | 52 | 27.0s | $0.00287 | Si (Apache) |
-| 13 | Claude Opus 4.6 | 6.59 | 54 | 24.3s | $0.00417 | No |
-| 14 | Gemma 4 26B MoE | 6.53 | 19 | 42.2s | $0.00246 | Si (Apache) |
-| 15 | Kimi K2 | 6.49 | 31 | 27.5s | $0.00294 | No |
-| 16 | GPT-5.4 | 6.25 | 65 | 14.8s | $0.00320 | No |
-| 17 | Qwen 3.6 Plus | 6.07 | 47 | 83.1s | $0.00995 | Si (Apache) |
-| 18 | Kimi K2.5 | 5.78 | 45 | 47.1s | $0.00529 | No |
+| # | Modelo | Score | tok/s | Latencia | Costo/call | Open Source | Tests |
+|---|--------|-------|-------|----------|------------|-------------|-------|
+| 1 | **Devstral Small** | **7.38** | **161** | **3.2s** | $0.00194 | Si (Apache) | 48 |
+| 2 | **GPT-4.1** | **7.14** | 110 | 5.4s | $0.00203 | No | 48 |
+| 3 | **GPT-4.1 Mini** | **7.08** | 98 | 5.8s | $0.00206 | No | 48 |
+| 4 | DeepSeek V3.2 | 7.01 | 34 | 16.9s | $0.00022 | Si (MIT) | 48 |
+| 5 | Gemini 2.5 Flash Lite | 6.88 | 195 | 4.1s | $0.00311 | No | 48 |
+| 6 | Mistral Large | 6.86 | 52 | 16.5s | $0.00296 | Si (Apache) | 48 |
+| 7 | Claude Sonnet 4.6 | 6.83 | 59 | 17.6s | $0.00346 | No | 48 |
+| 8 | GPT-5.4 Mini | 6.78 | 131 | 5.5s | $0.00265 | No | 48 |
+| 9 | Claude Opus 4.6 | 6.77 | 49 | 20.7s | $0.00345 | No | 48 |
+| 10 | Kimi K2 | 6.67 | 30 | 22.7s | $0.00248 | No | 48 |
+| 11 | Llama 4 Maverick | 6.65 | 53 | 13.0s | $0.00195 | Si (Llama) | 48 |
+| 12 | Qwen3 Coder | 6.61 | 60 | 20.1s | $0.00244 | Si (Apache) | 48 |
+| 13 | GPT-5.4 | 6.33 | 58 | 14.0s | $0.00278 | No | 48 |
+| 14 | MiniMax M2.7 | 6.27 | 45 | 29.4s | $0.00397 | Parcial | 48 |
+| 15 | Qwen 3.6 Plus | 6.19 | 46 | 87.7s | $0.01033 | Si (Apache) | 48 |
+| 16 | Kimi K2.5 | 5.78 | 45 | 47.1s | $0.00529 | No | 27 |
 
 ### Ranking Solo Alternativas (sin Anthropic/OpenAI)
 
 | # | Modelo | Score | tok/s | Costo/call | Open Source | Suscripcion |
 |---|--------|-------|-------|------------|-------------|-------------|
-| 1 | **Devstral Small** | **7.40** | 171 | $0.00233 | Si (Apache) | Pay-as-you-go |
-| 2 | DeepSeek V3.2 | 7.09 | 36 | $0.00024 | Si (MIT) | Pay-as-you-go |
-| 3 | Gemini 2.5 Flash Lite | 6.95 | 212 | $0.00362 | No | Google AI Pro $20/mes |
-| 4 | Mistral Large | 6.80 | 54 | $0.00341 | Si (Apache) | Le Chat ~$15/mes |
-| 5 | MiniMax M2.7 HS | 6.74 | 51 | $0.00421 | Parcial | MiniMax $20-$69/mes |
-| 6 | Llama 4 Maverick | 6.70 | 58 | $0.00231 | Si (Llama) | Pay-as-you-go |
-| 7 | MiniMax M2.7 | 6.68 | 57 | $0.00431 | Parcial | MiniMax $20-$69/mes |
-| 8 | Qwen3 Coder | 6.62 | 52 | $0.00287 | Si (Apache) | Pay-as-you-go |
-| 9 | Kimi K2 | 6.49 | 31 | $0.00294 | No | Pay-as-you-go |
-| 10 | Qwen 3.6 Plus | 6.07 | 47 | $0.00995 | Si (Apache) | Qwen $50/mes |
+| 1 | **Devstral Small** | **7.38** | 161 | $0.00194 | Si (Apache) | Pay-as-you-go |
+| 2 | DeepSeek V3.2 | 7.01 | 34 | $0.00022 | Si (MIT) | Pay-as-you-go |
+| 3 | Gemini 2.5 Flash Lite | 6.88 | 195 | $0.00311 | No | Google AI Pro $20/mes |
+| 4 | Mistral Large | 6.86 | 52 | $0.00296 | Si (Apache) | Le Chat ~$15/mes |
+| 5 | Kimi K2 | 6.67 | 30 | $0.00248 | No | Pay-as-you-go |
+| 6 | Llama 4 Maverick | 6.65 | 53 | $0.00195 | Si (Llama) | Pay-as-you-go |
+| 7 | Qwen3 Coder | 6.61 | 60 | $0.00244 | Si (Apache) | Pay-as-you-go |
+| 8 | MiniMax M2.7 | 6.27 | 45 | $0.00397 | Parcial | MiniMax $20-$69/mes |
+| 9 | Qwen 3.6 Plus | 6.19 | 46 | $0.01033 | Si (Apache) | Qwen $50/mes |
 
 ### Mejor por Categoria
 
@@ -124,28 +121,34 @@ python benchmarks/runner.py --list-tests                     # Ver tests disponi
 
 ### Hallazgos Clave
 
-- **#1 Devstral Small**: Open-source (Apache 2.0), 171 tok/s, ultra barato. Sorpresa total.
-- **GPT-4.1 > GPT-5.4**: Generaciones anteriores superan a las nuevas en nuestros tests
-- **Mas rapido**: Gemini 2.5 Flash Lite (212 tok/s) y Devstral (171 tok/s)
-- **Mas barato con calidad**: DeepSeek V3.2 - $0.00024/call, #4 global
-- **Claude Opus 4.6 es #13**: El modelo mas caro no rinde en scoring automatico
-- **Mejor suscripcion fija**: MiniMax ($20-69/mes) con M2.7
-- **Nota sobre scoring**: Evalua formato y estructura, no profundidad de razonamiento. Opus destaca en calidad que no se captura automaticamente
+- **#1 Devstral Small**: Open-source (Apache 2.0), 161 tok/s, $0.10/$0.30 per M. Sorpresa total.
+- **GPT-4.1 > GPT-5.4**: GPT-4.1 (#2) supera consistentemente a GPT-5.4 (#13) en todos los tests
+- **Claude sube con tests de calidad**: Sonnet #7 y Opus #9 gracias a honestidad y soporte al cliente
+- **Mas honesto**: Claude Sonnet 4.6 - #1 en alucinaciones (7.62)
+- **Menos creativo**: MiniMax M2.7 ultimo en creatividad (5.19) - respuestas genericas
+- **Mas rapido**: Gemini Flash Lite (195 tok/s) y Devstral (161 tok/s)
+- **Mas barato**: DeepSeek V3.2 - $0.00022/call, #4 global
+- **Modelos chinos**: MiniMax y Qwen a veces responden con caracteres chinos en espanol
+- **Scoring**: Evalua formato, estructura, tool calling, honestidad y creatividad. Ver [DESCUBRIMIENTOS.md](DESCUBRIMIENTOS.md) para limitaciones.
 
-### Recomendacion para Agentes N8N/OpenClaw
+### Recomendacion por Caso de Uso
 
 | Uso | Modelo Recomendado | Por que |
 |-----|-------------------|---------|
-| Agente con tool calling | GPT-4.1 Mini o GPT-5.4 Mini | Top en tool calling |
+| Agente general | Devstral Small | #1 global, rapido, open-source |
+| Agente con tool calling | GPT-4.1 Mini | Top en tool calling, rapido |
 | Agente economico | DeepSeek V3.2 | #4 global, el mas barato |
-| Agente ultra rapido | Devstral Small o Gemini Flash Lite | 171-212 tok/s |
+| Agente ultra rapido | Gemini 2.5 Flash Lite | 195 tok/s, 4.1s latencia |
 | Agente con suscripcion fija | MiniMax M2.7 | $20-69/mes, sin sorpresas |
-| Agente open-source | Llama 4 Maverick | Empata con Claude, open-source |
-| Coding/automatizaciones | Qwen3 Coder o DeepSeek V3.2 | Top en coding |
-| Contenido ecosistemastartup.com | DeepSeek V3.2 | #1 en startup content |
-| Feature images WordPress | MiniMax Image-01 | 5/5 exitosos, 16-60s |
+| Soporte al cliente | Claude Opus 4.6 | #3 en agentes, empatia superior |
+| Contenido sin alucinaciones | Claude Sonnet 4.6 | #1 en honestidad (7.62) |
+| Contenido creativo | Devstral Small o Gemini Flash | Top en creatividad |
+| Coding/automatizaciones | Devstral o DeepSeek V3.2 | Top en coding |
+| JSON/datos estructurados | Devstral o Gemini Flash Lite | Empatan #1 (7.33) |
+| Open-source para DGX Spark | Llama 4 Maverick | #11, open-source, barato |
 
 > Los resultados JSON completos estan en `benchmarks/results/`
+> Ver tambien: [DESCUBRIMIENTOS.md](DESCUBRIMIENTOS.md) | [PACKS.md](PACKS.md) | [PROVEEDORES.md](PROVEEDORES.md)
 
 ## Estructura
 
