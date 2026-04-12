@@ -189,12 +189,12 @@ def compute_final_score(
         cost_score = 1.0
 
     weights = {
-        "quality": 0.25,
-        "cost": 0.25,
-        "speed": 0.10,
-        "latency": 0.10,
-        "tool_calling": 0.20,
-        "availability": 0.10,  # hardcoded por ahora basado en proveedor
+        "quality": 0.35,
+        "cost": 0.15,
+        "speed": 0.05,
+        "latency": 0.05,
+        "tool_calling": 0.25,
+        "availability": 0.15,  # hardcoded por ahora basado en proveedor
     }
 
     final = (

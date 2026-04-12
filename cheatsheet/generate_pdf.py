@@ -99,7 +99,8 @@ html_content = f"""<!DOCTYPE html>
 
 @page {{
     size: A4 landscape;
-    margin: 15mm 12mm 20mm 12mm;
+    margin: 10mm;
+    background: #0a0a1a;
     @bottom-center {{
         content: "cristiantala.com | Benchmark de Modelos AI | Abril 2026";
         font-family: 'Inter', sans-serif;
@@ -115,6 +116,10 @@ html_content = f"""<!DOCTYPE html>
 }}
 
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+
+html {{
+    background: #0a0a1a;
+}}
 
 body {{
     font-family: 'Inter', sans-serif;
@@ -334,8 +339,25 @@ tr.top3 td {{ font-weight: 600; }}
             <span class="stat-label">Runs totales</span>
         </div>
     </div>
-    <p class="meta" style="margin-top: 20px;">Medido desde Chile via OpenRouter, OpenAI API y MiniMax API</p>
-    <div class="footer-url">cristiantala.com</div>
+    <p class="meta" style="margin-top: 15px;">Medido desde Chile via OpenRouter, OpenAI API y MiniMax API</p>
+
+    <div style="margin-top: 18px; text-align: left; max-width: 650px; background: #1a0a2e; border: 1px solid #39ff1444; border-radius: 6px; padding: 10px 14px;">
+        <p style="font-family: 'JetBrains Mono', monospace; color: #00d4ff; font-size: 9pt; margin-bottom: 5px;">Como se calcula el Score</p>
+        <p style="font-size: 8pt; color: #b0b0b0; line-height: 1.5;">
+            <span style="color:#39ff14; font-family:'JetBrains Mono',monospace;">35%</span> Calidad (formato, estructura, seguimiento de instrucciones)<br>
+            <span style="color:#39ff14; font-family:'JetBrains Mono',monospace;">25%</span> Tool Calling (precision de function calling para agentes)<br>
+            <span style="color:#39ff14; font-family:'JetBrains Mono',monospace;">15%</span> Costo (menos costo = mejor score)<br>
+            <span style="color:#39ff14; font-family:'JetBrains Mono',monospace;">15%</span> Disponibilidad (rate limits, cuotas)<br>
+            <span style="color:#39ff14; font-family:'JetBrains Mono',monospace;">5%</span> Velocidad (tokens por segundo)<br>
+            <span style="color:#39ff14; font-family:'JetBrains Mono',monospace;">5%</span> Latencia (tiempo hasta primera respuesta)
+        </p>
+        <p style="font-size: 7pt; color: #ff006e; margin-top: 5px;">
+            Nota: El scoring automatico evalua formato y estructura, no profundidad de razonamiento.
+            Modelos como Claude Opus destacan en areas que este scoring no captura bien.
+        </p>
+    </div>
+
+    <div class="footer-url" style="margin-top: 12px;">cristiantala.com</div>
 </div>
 
 <!-- ===== PAGE 2: RANKING GLOBAL ===== -->
@@ -396,9 +418,9 @@ tr.top3 td {{ font-weight: 600; }}
             <div class="rec-why">#2 global, excelente en espanol, via API OpenAI</div>
         </div>
         <div class="rec-box">
-            <div class="rec-title">Feature Images (WordPress)</div>
-            <div class="rec-model">MiniMax Image-01</div>
-            <div class="rec-why">5/5 exitosos, 16:9, 16-60s por imagen</div>
+            <div class="rec-title">Contenido en Espanol</div>
+            <div class="rec-model">DeepSeek V3.2</div>
+            <div class="rec-why">#4 global, excelente en espanol, $0.14/$0.28 per M</div>
         </div>
         <div class="rec-box">
             <div class="rec-title">Alto Volumen / Batch</div>
@@ -604,14 +626,16 @@ tr.top3 td {{ font-weight: 600; }}
                 </tbody>
             </table>
 
-            <h3>Capacidades Multimodales</h3>
+            <h3>Rate Limits (riesgo de corte)</h3>
             <table>
-                <thead><tr><th>Proveedor</th><th>Texto</th><th>Imagen</th><th>Audio</th><th>Video</th></tr></thead>
+                <thead><tr><th>Proveedor</th><th>RPM</th><th>TPM</th><th>Riesgo</th></tr></thead>
                 <tbody>
-                    <tr><td>MiniMax</td><td class="os-yes">Si</td><td class="os-yes">Image-01</td><td class="os-yes">Speech-02</td><td class="os-yes">Si</td></tr>
-                    <tr><td>OpenAI</td><td class="os-yes">Si</td><td class="os-yes">DALL-E 3</td><td class="os-yes">Whisper/TTS</td><td class="os-no">No</td></tr>
-                    <tr><td>Google</td><td class="os-yes">Si</td><td class="os-yes">Imagen 3</td><td class="os-yes">Si</td><td class="os-yes">Veo</td></tr>
-                    <tr><td>Meta</td><td class="os-yes">Si</td><td class="os-yes">Muse Spark</td><td class="os-no">No</td><td class="os-no">No</td></tr>
+                    <tr><td>Qwen (Alibaba)</td><td>15,000</td><td>10M</td><td class="os-yes">Muy bajo</td></tr>
+                    <tr><td>xAI</td><td>1,200</td><td>-</td><td class="os-yes">Bajo</td></tr>
+                    <tr><td>Google Gemini</td><td>1,000</td><td>4M</td><td class="os-yes">Bajo</td></tr>
+                    <tr><td>OpenAI</td><td>500</td><td>800K</td><td class="os-yes">Bajo</td></tr>
+                    <tr><td>Ollama (local)</td><td>Ilimitado</td><td>Ilimitado</td><td class="os-yes">Ninguno</td></tr>
+                    <tr><td>Groq</td><td>30</td><td>100K</td><td class="os-no">Alto</td></tr>
                 </tbody>
             </table>
 
@@ -624,7 +648,7 @@ tr.top3 td {{ font-weight: 600; }}
     </div>
 
     <div class="footer-url" style="margin-top: 20px;">
-        cristiantala.com | @ctala | Abril 2026
+        cristiantala.com | Abril 2026
     </div>
 </div>
 
