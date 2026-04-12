@@ -32,7 +32,12 @@
       "Bash(kill 30791 30788 30455)",
       "Bash(python benchmarks/runner.py --quick --models claude-sonnet-4.6 gemini-flash-lite)",
       "Bash(python benchmarks/runner.py --quick --models gpt-5.4 gpt-5.4-mini)",
-      "Bash(ls benchmarks/results/benchmark_*.json)"
+      "Bash(ls benchmarks/results/benchmark_*.json)",
+      "Bash(curl -s http://localhost:11434/api/tags)",
+      "Bash(python benchmarks/runner.py --quick --models llama-4-maverick qwen3-coder gemma-4-31b gemma-4-26b)",
+      "Bash(xargs kill:*)",
+      "Bash(python benchmarks/runner.py --quick --models llama-4-maverick qwen3-coder)",
+      "Bash(python benchmarks/runner.py --quick --models gemma-4-31b gemma-4-26b --tests tool_calling content_generation startup_content)"
     ]
   }
 }

@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.7.0] - 2026-04-11
+
+### Agregado
+- Llama 4 Maverick via OpenRouter - #6 global, empata con Claude, open-source
+- Qwen3 Coder via OpenRouter - #8 global, bueno para coding
+- Gemma 4 31B y 26B MoE via OpenRouter - lentos pero funcionales
+- Ranking actualizado con 12 modelos (14 contando variantes)
+- Tabla solo alternativas (sin Anthropic/OpenAI) con 8 modelos
+
+### Resultados
+- Llama 4 Maverick (6.70): Sorpresa, empata con Claude Sonnet 4.6 y es open-source
+- Qwen3 Coder (6.62): Solido para coding
+- Gemma 4 26B MoE (6.53): Decente pero lento via OpenRouter (19 tok/s)
+- Gemma 4 31B (6.42): Mas lento aun (11 tok/s), rate limits frecuentes
+
 ## [0.6.0] - 2026-04-11
 
 ### Agregado
