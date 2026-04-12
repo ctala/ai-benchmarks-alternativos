@@ -1,0 +1,38 @@
+[
+  {
+    "name": "intro_newsletter",
+    "success": true,
+    "time": 1.4,
+    "response_keys": [
+      "base_resp"
+    ],
+    "raw": "{\"base_resp\": {\"status_code\": 2061, \"status_msg\": \"your current token plan not support model, speech-02-turbo\"}}"
+  },
+  {
+    "name": "resumen_articulo",
+    "success": true,
+    "time": 0.9,
+    "response_keys": [
+      "base_resp"
+    ],
+    "raw": "{\"base_resp\": {\"status_code\": 2061, \"status_msg\": \"your current token plan not support model, speech-02-turbo\"}}"
+  },
+  {
+    "name": "intro_curso",
+    "success": true,
+    "time": 1.0,
+    "response_keys": [
+      "base_resp"
+    ],
+    "raw": "{\"base_resp\": {\"status_code\": 2061, \"status_msg\": \"your current token plan not support model, speech-02-turbo\"}}"
+  },
+  {
+    "name": "podcast_snippet_en",
+    "success": true,
+    "time": 0.9,
+    "response_keys": [
+      "base_resp"
+    ],
+    "raw": "{\"base_resp\": {\"status_code\": 2061, \"status_msg\": \"your current token plan not support model, speech-02-turbo\"}}"
+  }
+]

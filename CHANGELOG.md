@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.5.0] - 2026-04-11
+
+### Agregado
+- CLAUDE.md para continuidad entre sesiones de agentes
+- Tests de generacion de imagenes MiniMax Image-01 (5/5 exitosos)
+- Tests de TTS MiniMax (requiere plan Agent, no funciona con Coding Plan)
+- Modelos nuevos: Gemma 4 31B, Gemma 4 26B MoE, Claude Sonnet 4.6, Gemini 2.5 Flash Lite, Qwen3 Coder 480B
+- PROVEEDORES.md actualizado
+- Image generation results en benchmarks/results/images/
+
+### Descubierto
+- MiniMax Coding Plan no incluye TTS (speech-02). Requiere plan Agent ($19/$69)
+- MiniMax Image-01 funciona con Coding Plan token key
+- Gemma 4 via OpenRouter es lento (~8 tok/s) - mejor correr local en DGX Spark
+
 ## [0.4.0] - 2026-04-11
 
 ### Agregado

@@ -66,6 +66,8 @@ python benchmarks/runner.py --list-tests                     # Ver tests disponi
 | summarization | 2 | Resumen ejecutivo, extraccion JSON |
 | presentation | 2 | Slide outline, reportes de datos |
 | startup_content | 5 | Blog ecosistemastartup.com, cursos, workshops, newsletters, research |
+| image_generation | 5 | Feature images WordPress (MiniMax Image-01) para Discover/SEO |
+| tts_generation | 4 | Text-to-speech (MiniMax Speech-02) para newsletters, cursos, podcasts |
 
 ## Resultados (11 Abril 2026)
 

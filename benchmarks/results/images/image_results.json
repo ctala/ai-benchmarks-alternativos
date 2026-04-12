@@ -1,0 +1,42 @@
+[
+  {
+    "name": "blog_startup_hero",
+    "success": true,
+    "time": 22.3,
+    "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-04-12%2F18bb9ca3-d68b-4417-b3d9-652991ad74e8_aigc.jpeg?Expires=1776040679&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=fkodHY0UjlLE0cNyIpWdOIYh3LE%3D",
+    "prompt": "Professional tech blog hero image: A diverse group of young Latin American entrepreneurs collaborati",
+    "use_case": "ecosistemastartup.com blog post"
+  },
+  {
+    "name": "ai_tools_comparison",
+    "success": true,
+    "time": 15.8,
+    "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-04-12%2Fc7b1dbf8-3e51-4e3c-9b04-f087c2aabe08_aigc.jpeg?Expires=1776040695&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=P6Rwu3cBDiBDjKKGznC9X1QArl0%3D",
+    "prompt": "Clean modern infographic-style illustration showing multiple AI robot assistants of different colors",
+    "use_case": "Articulo comparativo de modelos IA"
+  },
+  {
+    "name": "workshop_emprendimiento",
+    "success": true,
+    "time": 60.2,
+    "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-04-12%2F273955e5-209a-4c41-b03b-88e3d489e454_aigc.jpeg?Expires=1776040755&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=AJHzvQa9ngplzfGvLrFG8JAPZHw%3D",
+    "prompt": "Dynamic photo of a hands-on workshop session: people actively working on laptops with colorful stick",
+    "use_case": "Promocion de workshop en redes sociales y blog"
+  },
+  {
+    "name": "curso_online_emprendedores",
+    "success": true,
+    "time": 58.6,
+    "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-04-12%2Fe7663d73-e4ac-435e-9a3f-23f9c8e66056_aigc.jpeg?Expires=1776040814&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=MYDyDNmTXrLVllxtaCM1vE1qVLQ%3D",
+    "prompt": "Modern e-learning concept illustration: A glowing laptop screen showing a graduation cap icon, surro",
+    "use_case": "Landing page de curso para emprendedores"
+  },
+  {
+    "name": "newsletter_tech",
+    "success": true,
+    "time": 60.5,
+    "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-04-12%2Fe1aeb519-4399-479f-8503-e8881cd898bc_aigc.jpeg?Expires=1776040875&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=j1LTZqE956NJoR%2BbHYhjX8lxdbs%3D",
+    "prompt": "Stylized digital newspaper front page floating in a futuristic void with holographic tech news headl",
+    "use_case": "Header de newsletter semanal"
+  }
+]

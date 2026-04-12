@@ -21,7 +21,14 @@
       "Bash(brew install:*)",
       "Bash(gh auth:*)",
       "Bash(git remote:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(python benchmarks/tests/image_generation.py)",
+      "Bash(python benchmarks/tests/tts_generation.py)",
+      "Bash(python benchmarks/runner.py --quick --models gemma-4-31b gemma-4-26b claude-sonnet-4.6 gemini-3.1-flash-lite)",
+      "Bash(python3 -m json.tool)",
+      "WebFetch(domain:platform.minimax.io)",
+      "Bash(python benchmarks/runner.py --quick --models gemma-4-31b gemma-4-26b claude-sonnet-4.6 gemini-flash-lite)",
+      "Bash(python3:*)"
     ]
   }
 }
