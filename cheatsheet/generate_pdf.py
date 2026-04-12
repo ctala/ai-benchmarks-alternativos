@@ -5,8 +5,13 @@ Usa WeasyPrint para convertir HTML a PDF.
 """
 
 import json
+from datetime import datetime
 from pathlib import Path
 from weasyprint import HTML
+
+now = datetime.now()
+month_name = now.strftime("%B")
+year = now.year
 
 # Cargar resultados
 all_results = []
@@ -102,7 +107,7 @@ html_content = f"""<!DOCTYPE html>
     margin: 10mm;
     background: #0a0a1a;
     @bottom-center {{
-        content: "cristiantala.com | Benchmark de Modelos AI | Abril 2026";
+        content: "cristiantala.com | Benchmark de Modelos AI | {month_name} {year}";
         font-family: 'Inter', sans-serif;
         font-size: 8pt;
         color: #b0b0b0;
@@ -320,7 +325,7 @@ tr.top3 td {{ font-weight: 600; }}
 <div class="cover">
     <h1>AI Model Benchmark</h1>
     <div class="subtitle">Guia Definitiva para Elegir tu Modelo de IA</div>
-    <p class="meta">21 modelos probados con 27 tests reales | Abril 2026</p>
+    <p class="meta">{len(ranked)} modelos probados con {len(seen)} tests reales | {month_name} {year}</p>
     <div class="stats">
         <div class="stat-box">
             <span class="stat-number">21</span>
@@ -378,7 +383,7 @@ tr.top3 td {{ font-weight: 600; }}
                     <tr><td>Temperatura</td><td>0.7 (todos los modelos)</td></tr>
                     <tr><td>Max tokens</td><td>2048</td></tr>
                     <tr><td>Timeout</td><td>120 segundos por request</td></tr>
-                    <tr><td>Fecha</td><td>11-12 Abril 2026</td></tr>
+                    <tr><td>Fecha</td><td>11-12 {month_name} {year}</td></tr>
                 </tbody>
             </table>
 
@@ -820,19 +825,19 @@ tr.top3 td {{ font-weight: 600; }}
     </div>
 
     <div class="footer-url" style="margin-top: 20px;">
-        cristiantala.com | Abril 2026
+        cristiantala.com | {month_name} {year}
     </div>
 </div>
 
 </body>
 </html>"""
 
-# Generar PDF
+# Generar PDF con mes en el nombre
 output_dir = Path("cheatsheet")
 output_dir.mkdir(exist_ok=True)
 
-html_file = output_dir / "cheatsheet.html"
-pdf_file = output_dir / "AI_Model_Benchmark_CheatSheet_2026.pdf"
+html_file = output_dir / f"cheatsheet_{year}_{now.strftime('%m')}.html"
+pdf_file = output_dir / f"AI_Model_Benchmark_CheatSheet_{month_name}_{year}.pdf"
 
 with open(html_file, "w") as f:
     f.write(html_content)
