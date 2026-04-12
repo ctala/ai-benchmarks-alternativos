@@ -41,7 +41,7 @@ from providers.adapters import UnifiedProvider, BenchmarkResult
 # Importar tests
 from benchmarks.tests import content_generation, tool_calling, task_management
 from benchmarks.tests import code_generation, reasoning, summarization, presentation
-from benchmarks.tests import startup_content
+from benchmarks.tests import startup_content, deep_reasoning, customer_support, structured_output
 
 console = Console()
 
@@ -54,6 +54,9 @@ ALL_TEST_SUITES = {
     "summarization": summarization.TESTS,
     "presentation": presentation.TESTS,
     "startup_content": startup_content.TESTS,
+    "deep_reasoning": deep_reasoning.TESTS,
+    "customer_support": customer_support.TESTS,
+    "structured_output": structured_output.TESTS,
 }
 
 

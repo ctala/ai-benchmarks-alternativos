@@ -44,7 +44,11 @@
       "Bash(python benchmarks/runner.py --quick --models claude-opus-4.6)",
       "WebFetch(domain:assets.nyx.cristiantala.com)",
       "Bash(pip3 list:*)",
-      "Bash(python cheatsheet/generate_pdf.py)"
+      "Bash(python cheatsheet/generate_pdf.py)",
+      "Bash(python benchmarks/runner.py --quick --tests deep_reasoning customer_support structured_output --models devstral gpt-4.1 gpt-4.1-mini deepseek-v3 claude-opus-4.6 claude-sonnet-4.6 minimax-m2.7 gemini-flash-lite)",
+      "Bash(python benchmarks/runner.py --list-models)",
+      "Bash(grep -v \"^$\")",
+      "Bash(python benchmarks/runner.py --quick --tests deep_reasoning customer_support structured_output --models devstral deepseek-v3 minimax-m2.7 gemini-flash-lite gpt-4.1 gpt-4.1-mini claude-opus-4.6 claude-sonnet-4.6 gpt-5.4 gpt-5.4-mini mistral-large llama-4-maverick qwen3-coder kimi-k2 qwen-3.6-plus gemini-flash mistral-nemo)"
     ]
   }
 }
