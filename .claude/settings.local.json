@@ -14,7 +14,14 @@
       "Bash(python benchmarks/runner.py --quick --models minimax-m2.7-direct minimax-m2.7-highspeed)",
       "Bash(git add:*)",
       "Bash(git rm:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(gh repo:*)",
+      "Bash(brew list:*)",
+      "Bash(ssh -T git@github.com)",
+      "Bash(brew install:*)",
+      "Bash(gh auth:*)",
+      "Bash(git remote:*)",
+      "Bash(git push:*)"
     ]
   }
 }

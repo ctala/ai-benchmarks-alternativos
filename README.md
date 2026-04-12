@@ -1,6 +1,6 @@
 # Benchmark de Modelos AI Alternativos
 
-**Version 0.3.0** | Ultima actualizacion: 11 de Abril de 2026
+**Version 0.4.0** | Ultima actualizacion: 11 de Abril de 2026
 
 Proyecto para evaluar y comparar modelos de IA para uso con agentes (OpenClaw, N8N) y asistentes personales. Incluye benchmarks propios ejecutables, comparativas de precios, y guia de modelos open-source para hardware local (NVIDIA DGX Spark).
 
@@ -13,6 +13,7 @@ Proyecto para evaluar y comparar modelos de IA para uso con agentes (OpenClaw, N
 | [COMPARATIVA.md](COMPARATIVA.md) | 35+ modelos con precios, open-source/propietario, licencias, rankings por categoria |
 | [SUSCRIPCIONES.md](SUSCRIPCIONES.md) | Todas las suscripciones fijas ($0-$300/mes) + checklist de que probar |
 | [PACKS.md](PACKS.md) | Packs por suscripcion (MiniMax, Qwen, OpenAI, Google, Ollama, OpenRouter, xAI) + estrategia local+nube |
+| [PROVEEDORES.md](PROVEEDORES.md) | Guia de proveedores: quien los creo, foco, contexto, open-source vs propietario |
 | [CHANGELOG.md](CHANGELOG.md) | Historial de cambios del proyecto |
 
 ## Criterios de Evaluacion
@@ -65,6 +66,38 @@ python benchmarks/runner.py --list-tests                     # Ver tests disponi
 | summarization | 2 | Resumen ejecutivo, extraccion JSON |
 | presentation | 2 | Slide outline, reportes de datos |
 | startup_content | 5 | Blog ecosistemastartup.com, cursos, workshops, newsletters, research |
+
+## Resultados (11 Abril 2026)
+
+### Benchmark General (22 tests x 3 modelos via OpenRouter)
+
+| # | Modelo | Score | tok/s | Latencia | Costo/call | Open Source |
+|---|--------|-------|-------|----------|------------|-------------|
+| 1 | **DeepSeek V3.2** | **7.05** | 37 | 16.8s | $0.00023 | Si (MIT) |
+| 2 | MiniMax M2.7 | 6.40 | 52 | 24.2s | $0.00382 | Parcial |
+| 3 | Qwen 3.6 Plus | 6.08 | 46 | 85.3s | $0.00944 | Si (Apache 2.0) |
+
+### MiniMax M2.7 vs M2.7 Highspeed (API directa, 27 tests)
+
+| Modelo | Score | tok/s | Latencia | Veredicto |
+|--------|-------|-------|----------|-----------|
+| M2.7 Highspeed | 6.74 | 51 | 26.1s | Ligeramente mejor score |
+| M2.7 Normal | 6.68 | 57 | 26.5s | Ligeramente mas rapido |
+
+> Diferencia marginal (~1%). Usar el que incluya tu suscripcion.
+
+### Ganador por Categoria
+
+| Categoria | 1ro | 2do | 3ro |
+|-----------|-----|-----|-----|
+| Content | DeepSeek V3.2 (6.7) | MiniMax M2.7 (6.2) | Qwen 3.6 Plus (6.0) |
+| Tool Calling | MiniMax M2.7 (6.7) | DeepSeek V3.2 (6.5) | Qwen 3.6 Plus (6.5) |
+| Task Mgmt | DeepSeek V3.2 (7.2) | MiniMax M2.7 (6.5) | Qwen 3.6 Plus (5.8) |
+| Coding | DeepSeek V3.2 (7.3) | Qwen 3.6 Plus (6.2) | MiniMax M2.7 (6.2) |
+| Reasoning | DeepSeek V3.2 (7.5) | MiniMax M2.7 (6.2) | Qwen 3.6 Plus (6.1) |
+| Startup Content | DeepSeek V3.2 (7.3) | MiniMax M2.7 (6.4) | Qwen 3.6 Plus (6.0) |
+
+> Los resultados JSON completos estan en `benchmarks/results/`
 
 ## Estructura
 

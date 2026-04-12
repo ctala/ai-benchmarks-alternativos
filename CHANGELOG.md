@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.4.0] - 2026-04-11
+
+### Agregado
+- PROVEEDORES.md: Guia de contexto de cada proveedor (fundacion, foco, fortalezas, open-source)
+- Resultados de benchmark en README.md
+- Soporte API directa de MiniMax (M2.7 y M2.7 Highspeed)
+- Tests de startup_content: blog ecosistemastartup.com, cursos, workshops, newsletters
+- Repo privado en GitHub: ctala/ai-benchmarks-alternativos
+
+### Resultados
+- Benchmark general: DeepSeek V3.2 (7.05) > MiniMax M2.7 (6.40) > Qwen 3.6 Plus (6.08)
+- MiniMax M2.7 vs Highspeed: diferencia marginal (~1%), practicamente iguales
+- DeepSeek gana en 6/7 categorias, MiniMax gana en tool calling
+
+### Corregido
+- Runner: timeout robusto con signal alarm, output en texto plano
+- Model IDs: Qwen 3.6 Plus free deprecado, MiniMax highspeed solo via API directa
+
 ## [0.3.0] - 2026-04-11
 
 ### Agregado
