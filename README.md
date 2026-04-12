@@ -1,6 +1,6 @@
 # Benchmark de Modelos AI Alternativos
 
-**Version 0.4.0** | Ultima actualizacion: 11 de Abril de 2026
+**Version 0.6.0** | Ultima actualizacion: 11 de Abril de 2026
 
 Proyecto para evaluar y comparar modelos de IA para uso con agentes (OpenClaw, N8N) y asistentes personales. Incluye benchmarks propios ejecutables, comparativas de precios, y guia de modelos open-source para hardware local (NVIDIA DGX Spark).
 
