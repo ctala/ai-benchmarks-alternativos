@@ -1,6 +1,6 @@
 # Benchmark de Modelos AI Alternativos
 
-**Version 0.8.0** | Ultima actualizacion: 12 de Abril de 2026
+**Version 1.0.0** | Ultima actualizacion: 12 de Abril de 2026
 
 Proyecto para evaluar y comparar modelos de IA para uso con agentes (OpenClaw, N8N) y asistentes personales. Incluye benchmarks propios ejecutables, comparativas de precios, y guia de modelos open-source para hardware local (NVIDIA DGX Spark).
 
@@ -113,12 +113,12 @@ python benchmarks/runner.py --list-tests                     # Ver tests disponi
 
 | Categoria | 1ro | 2do | 3ro |
 |-----------|-----|-----|-----|
-| **Tool Calling** | GPT-5.4 Mini (7.5) | GPT-5.4 (7.3) | Claude Sonnet 4.6 (6.9) |
-| **Content** | GPT-5.4 Mini (7.2) | Gemini Flash Lite (7.2) | MiniMax M2.7 (6.8) |
-| **Coding** | DeepSeek V3.2 (7.3) | Gemini Flash Lite (7.2) | MiniMax M2.7 (7.0) |
-| **Reasoning** | DeepSeek V3.2 (7.5) | MiniMax M2.7 HS (6.8) | Claude Sonnet 4.6 (6.7) |
-| **Startup Content** | DeepSeek V3.2 (7.3) | Gemini Flash Lite (6.9) | MiniMax M2.7 HS (6.6) |
-| **Task Mgmt** | DeepSeek V3.2 (7.2) | Gemini Flash Lite (7.0) | MiniMax M2.7 HS (6.8) |
+| **Razonamiento** | DeepSeek V3.2 (7.65) | Devstral (7.64) | GPT-4.1 (7.45) |
+| **Agentes (tool+soporte)** | Devstral (7.21) | GPT-5.4 Mini (7.13) | Claude Opus 4.6 (7.02) |
+| **Contenido** | Devstral (7.37) | GPT-4.1 Mini (7.21) | GPT-4.1 (7.14) |
+| **Codigo** | Devstral (7.65) | GPT-4.1 (7.37) | DeepSeek V3.2 (7.34) |
+| **Productividad** | Devstral (7.39) | GPT-4.1 (7.26) | Gemini Flash Lite (7.13) |
+| **JSON/Datos** | Devstral (7.33) | Gemini Flash Lite (7.33) | GPT-4.1 (7.22) |
 
 ### Hallazgos Clave
 

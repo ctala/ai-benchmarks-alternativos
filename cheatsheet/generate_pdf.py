@@ -360,7 +360,92 @@ tr.top3 td {{ font-weight: 600; }}
     <div class="footer-url" style="margin-top: 12px;">cristiantala.com</div>
 </div>
 
-<!-- ===== PAGE 2: RANKING GLOBAL ===== -->
+<!-- ===== PAGE 2: METODOLOGIA ===== -->
+<div class="page">
+    <h2>Metodologia del Experimento</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Diseno del Experimento</h3>
+            <table>
+                <thead><tr><th>Parametro</th><th>Valor</th></tr></thead>
+                <tbody>
+                    <tr><td>Modelos evaluados</td><td><strong>17 modelos unicos</strong></td></tr>
+                    <tr><td>Tests totales</td><td><strong>41 tests en 11 suites</strong></td></tr>
+                    <tr><td>Runs ejecutados</td><td><strong>800+</strong></td></tr>
+                    <tr><td>Ubicacion</td><td>Santiago, Chile</td></tr>
+                    <tr><td>APIs usadas</td><td>OpenRouter, OpenAI, MiniMax</td></tr>
+                    <tr><td>Temperatura</td><td>0.7 (todos los modelos)</td></tr>
+                    <tr><td>Max tokens</td><td>2048</td></tr>
+                    <tr><td>Timeout</td><td>120 segundos por request</td></tr>
+                    <tr><td>Fecha</td><td>11-12 Abril 2026</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Suites de Tests</h3>
+            <table>
+                <thead><tr><th>Suite</th><th>Tests</th><th>Que Mide</th></tr></thead>
+                <tbody>
+                    <tr><td>deep_reasoning</td><td>6</td><td>Matematica, logica, causal, etica</td></tr>
+                    <tr><td>customer_support</td><td>4</td><td>Empatia, clasificacion, seguridad</td></tr>
+                    <tr><td>structured_output</td><td>4</td><td>JSON valido, arrays, anidado</td></tr>
+                    <tr><td>tool_calling</td><td>4</td><td>Function calling para agentes</td></tr>
+                    <tr><td>content_generation</td><td>4</td><td>Blog, email, social media</td></tr>
+                    <tr><td>startup_content</td><td>5</td><td>Blog startup, cursos, workshops</td></tr>
+                    <tr><td>code_generation</td><td>4</td><td>Python, N8N, SQL, debug</td></tr>
+                    <tr><td>reasoning</td><td>3</td><td>Analisis negocio, logica</td></tr>
+                    <tr><td>task_management</td><td>3</td><td>Planning, action items</td></tr>
+                    <tr><td>summarization</td><td>2</td><td>Resumen, extraccion datos</td></tr>
+                    <tr><td>presentation</td><td>2</td><td>Slides, reportes</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3>Que Mide el Score (y que NO mide)</h3>
+
+            <div class="rec-box" style="margin-bottom: 8px;">
+                <div class="rec-title" style="color: #39ff14;">SI mide</div>
+                <div class="rec-why" style="color: #ffffff; font-size: 8pt;">
+                    - Seguimiento de instrucciones<br>
+                    - Formato y estructura de la respuesta<br>
+                    - Precision de tool calling / function calling<br>
+                    - Velocidad de generacion (tok/s)<br>
+                    - Latencia hasta primera respuesta<br>
+                    - Eficiencia de costo por llamada
+                </div>
+            </div>
+
+            <div class="rec-box" style="border-color: #ff006e44;">
+                <div class="rec-title" style="color: #ff006e;">NO mide (limitaciones)</div>
+                <div class="rec-why" style="color: #ffffff; font-size: 8pt;">
+                    - Profundidad de razonamiento<br>
+                    - Creatividad y originalidad<br>
+                    - Precision factual / alucinaciones<br>
+                    - Calidad subjetiva del contenido<br>
+                    - Rendimiento en contextos muy largos<br>
+                    - Consistencia entre multiples runs
+                </div>
+            </div>
+
+            <div class="note" style="margin-top: 10px;">
+                <strong>Sobre la latencia:</strong> Medida desde Chile.
+                La latencia absoluta varia segun ubicacion, pero la
+                comparacion relativa entre modelos es valida ya que
+                todos se miden desde el mismo punto.
+                Los tok/s y calidad NO se ven afectados por la ubicacion.
+            </div>
+
+            <div class="note">
+                <strong>Sobre Claude Opus:</strong> Aparece bajo en el ranking
+                general porque el scoring automatico no captura la profundidad
+                de su razonamiento. En customer_support sube a #2, demostrando
+                que cada modelo tiene su fortaleza.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE 3: RANKING GLOBAL ===== -->
 <div class="page">
     <h2>Ranking Global - Todos los Modelos</h2>
     <table>
@@ -387,7 +472,94 @@ tr.top3 td {{ font-weight: 600; }}
     </div>
 </div>
 
-<!-- ===== PAGE 3: RECOMENDACIONES POR CASO DE USO ===== -->
+<!-- ===== PAGE 4: RANKINGS POR CATEGORIA ===== -->
+<div class="page">
+    <h2>Rankings por Categoria (Top 5 por area)</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Razonamiento (deep reasoning + reasoning)</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>DeepSeek V3.2</td><td class="score">7.65</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>Devstral Small</td><td class="score">7.64</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>GPT-4.1</td><td class="score">7.45</td></tr>
+                    <tr><td class="rank">4</td><td>GPT-4.1 Mini</td><td>7.36</td></tr>
+                    <tr><td class="rank">5</td><td>Gemini 2.5 Flash</td><td>7.30</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Agentes (tool calling + customer support)</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">7.21</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>GPT-5.4 Mini</td><td class="score">7.13</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>Claude Opus 4.6</td><td class="score">7.02</td></tr>
+                    <tr><td class="rank">4</td><td>Claude Sonnet 4.6</td><td>7.02</td></tr>
+                    <tr><td class="rank">5</td><td>Kimi K2</td><td>6.86</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Codigo</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">7.65</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>GPT-4.1</td><td class="score">7.37</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>DeepSeek V3.2</td><td class="score">7.34</td></tr>
+                    <tr><td class="rank">4</td><td>GPT-4.1 Mini</td><td>7.33</td></tr>
+                    <tr><td class="rank">5</td><td>Mistral Large</td><td>7.24</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3>Contenido (content + startup + presentation)</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">7.37</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>GPT-4.1 Mini</td><td class="score">7.21</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>GPT-4.1</td><td class="score">7.14</td></tr>
+                    <tr><td class="rank">4</td><td>DeepSeek V3.2</td><td>7.06</td></tr>
+                    <tr><td class="rank">5</td><td>Gemini Flash Lite</td><td>6.96</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Productividad (task mgmt + summarization)</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">7.39</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>GPT-4.1</td><td class="score">7.26</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>Gemini Flash Lite</td><td class="score">7.13</td></tr>
+                    <tr><td class="rank">4</td><td>DeepSeek V3.2</td><td>7.12</td></tr>
+                    <tr><td class="rank">5</td><td>GPT-4.1 Mini</td><td>7.01</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Datos Estructurados (JSON)</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">7.33</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>Gemini Flash Lite</td><td class="score">7.33</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>GPT-4.1</td><td class="score">7.22</td></tr>
+                    <tr><td class="rank">4</td><td>GPT-4.1 Mini</td><td>7.17</td></tr>
+                    <tr><td class="rank">5</td><td>Mistral Large</td><td>7.14</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="note">
+        <strong>Insight clave:</strong> No existe un "mejor modelo para todo". Claude Opus es #3 en Agentes
+        pero #16 en JSON. DeepSeek lidera en Razonamiento pero cae en Soporte. Elige segun tu caso de uso.
+    </div>
+</div>
+
+<!-- ===== PAGE 5: RECOMENDACIONES POR CASO DE USO ===== -->
 <div class="page">
     <h2>Que Modelo Usar: Recomendaciones por Caso de Uso</h2>
 

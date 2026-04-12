@@ -268,7 +268,92 @@ tr.top3 td { font-weight: 600; }
     <div class="footer-url" style="margin-top: 12px;">cristiantala.com</div>
 </div>
 
-<!-- ===== PAGE 2: RANKING GLOBAL ===== -->
+<!-- ===== PAGE 2: METODOLOGIA ===== -->
+<div class="page">
+    <h2>Metodologia del Experimento</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Diseno del Experimento</h3>
+            <table>
+                <thead><tr><th>Parametro</th><th>Valor</th></tr></thead>
+                <tbody>
+                    <tr><td>Modelos evaluados</td><td><strong>17 modelos unicos</strong></td></tr>
+                    <tr><td>Tests totales</td><td><strong>41 tests en 11 suites</strong></td></tr>
+                    <tr><td>Runs ejecutados</td><td><strong>800+</strong></td></tr>
+                    <tr><td>Ubicacion</td><td>Santiago, Chile</td></tr>
+                    <tr><td>APIs usadas</td><td>OpenRouter, OpenAI, MiniMax</td></tr>
+                    <tr><td>Temperatura</td><td>0.7 (todos los modelos)</td></tr>
+                    <tr><td>Max tokens</td><td>2048</td></tr>
+                    <tr><td>Timeout</td><td>120 segundos por request</td></tr>
+                    <tr><td>Fecha</td><td>11-12 Abril 2026</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Suites de Tests</h3>
+            <table>
+                <thead><tr><th>Suite</th><th>Tests</th><th>Que Mide</th></tr></thead>
+                <tbody>
+                    <tr><td>deep_reasoning</td><td>6</td><td>Matematica, logica, causal, etica</td></tr>
+                    <tr><td>customer_support</td><td>4</td><td>Empatia, clasificacion, seguridad</td></tr>
+                    <tr><td>structured_output</td><td>4</td><td>JSON valido, arrays, anidado</td></tr>
+                    <tr><td>tool_calling</td><td>4</td><td>Function calling para agentes</td></tr>
+                    <tr><td>content_generation</td><td>4</td><td>Blog, email, social media</td></tr>
+                    <tr><td>startup_content</td><td>5</td><td>Blog startup, cursos, workshops</td></tr>
+                    <tr><td>code_generation</td><td>4</td><td>Python, N8N, SQL, debug</td></tr>
+                    <tr><td>reasoning</td><td>3</td><td>Analisis negocio, logica</td></tr>
+                    <tr><td>task_management</td><td>3</td><td>Planning, action items</td></tr>
+                    <tr><td>summarization</td><td>2</td><td>Resumen, extraccion datos</td></tr>
+                    <tr><td>presentation</td><td>2</td><td>Slides, reportes</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3>Que Mide el Score (y que NO mide)</h3>
+
+            <div class="rec-box" style="margin-bottom: 8px;">
+                <div class="rec-title" style="color: #39ff14;">SI mide</div>
+                <div class="rec-why" style="color: #ffffff; font-size: 8pt;">
+                    - Seguimiento de instrucciones<br>
+                    - Formato y estructura de la respuesta<br>
+                    - Precision de tool calling / function calling<br>
+                    - Velocidad de generacion (tok/s)<br>
+                    - Latencia hasta primera respuesta<br>
+                    - Eficiencia de costo por llamada
+                </div>
+            </div>
+
+            <div class="rec-box" style="border-color: #ff006e44;">
+                <div class="rec-title" style="color: #ff006e;">NO mide (limitaciones)</div>
+                <div class="rec-why" style="color: #ffffff; font-size: 8pt;">
+                    - Profundidad de razonamiento<br>
+                    - Creatividad y originalidad<br>
+                    - Precision factual / alucinaciones<br>
+                    - Calidad subjetiva del contenido<br>
+                    - Rendimiento en contextos muy largos<br>
+                    - Consistencia entre multiples runs
+                </div>
+            </div>
+
+            <div class="note" style="margin-top: 10px;">
+                <strong>Sobre la latencia:</strong> Medida desde Chile.
+                La latencia absoluta varia segun ubicacion, pero la
+                comparacion relativa entre modelos es valida ya que
+                todos se miden desde el mismo punto.
+                Los tok/s y calidad NO se ven afectados por la ubicacion.
+            </div>
+
+            <div class="note">
+                <strong>Sobre Claude Opus:</strong> Aparece bajo en el ranking
+                general porque el scoring automatico no captura la profundidad
+                de su razonamiento. En customer_support sube a #2, demostrando
+                que cada modelo tiene su fortaleza.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE 3: RANKING GLOBAL ===== -->
 <div class="page">
     <h2>Ranking Global - Todos los Modelos</h2>
     <table>
@@ -287,59 +372,86 @@ tr.top3 td { font-weight: 600; }
             <tr class="top3">
             <td class="rank">1</td>
             <td class="model-name">Devstral Small</td>
-            <td class="score">7.4</td>
-            <td>171</td>
-            <td>3.8s</td>
-            <td>$0.00233</td>
+            <td class="score">7.42</td>
+            <td>166</td>
+            <td>3.3s</td>
+            <td>$0.00205</td>
             <td class="os-yes">Si</td>
         </tr>
 <tr class="top3">
             <td class="rank">2</td>
             <td class="model-name">GPT-4.1</td>
-            <td class="score">7.28</td>
-            <td>118</td>
-            <td>6.4s</td>
-            <td>$0.00233</td>
+            <td class="score">7.17</td>
+            <td>114</td>
+            <td>5.7s</td>
+            <td>$0.00217</td>
             <td class="os-no">No</td>
         </tr>
 <tr class="top3">
             <td class="rank">3</td>
             <td class="model-name">GPT-4.1 Mini</td>
-            <td class="score">7.2</td>
-            <td>110</td>
-            <td>6.6s</td>
-            <td>$0.00247</td>
+            <td class="score">7.1</td>
+            <td>100</td>
+            <td>6.2s</td>
+            <td>$0.00222</td>
             <td class="os-no">No</td>
         </tr>
 <tr>
             <td class="rank">4</td>
             <td class="model-name">DeepSeek V3.2</td>
-            <td class="score">7.09</td>
-            <td>36</td>
-            <td>18.8s</td>
-            <td>$0.00024</td>
+            <td class="score">7.03</td>
+            <td>35</td>
+            <td>17.6s</td>
+            <td>$0.00023</td>
             <td class="os-yes">Si</td>
         </tr>
 <tr>
             <td class="rank">5</td>
             <td class="model-name">Gemini 2.5 Flash Lite</td>
-            <td class="score">6.95</td>
-            <td>212</td>
-            <td>4.7s</td>
-            <td>$0.00362</td>
+            <td class="score">6.85</td>
+            <td>204</td>
+            <td>4.2s</td>
+            <td>$0.00331</td>
             <td class="os-no">No</td>
         </tr>
 <tr>
             <td class="rank">6</td>
-            <td class="model-name">Mistral Large</td>
-            <td class="score">6.8</td>
-            <td>54</td>
-            <td>19.0s</td>
-            <td>$0.00341</td>
-            <td class="os-yes">Si</td>
+            <td class="model-name">GPT-5.4 Mini</td>
+            <td class="score">6.83</td>
+            <td>137</td>
+            <td>5.5s</td>
+            <td>$0.00276</td>
+            <td class="os-no">No</td>
         </tr>
 <tr>
             <td class="rank">7</td>
+            <td class="model-name">Mistral Large</td>
+            <td class="score">6.83</td>
+            <td>54</td>
+            <td>16.9s</td>
+            <td>$0.0031</td>
+            <td class="os-yes">Si</td>
+        </tr>
+<tr>
+            <td class="rank">8</td>
+            <td class="model-name">Claude Sonnet 4.6 (ultimo Anthropic)</td>
+            <td class="score">6.81</td>
+            <td>61</td>
+            <td>18.2s</td>
+            <td>$0.0037</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">9</td>
+            <td class="model-name">Claude Opus 4.6</td>
+            <td class="score">6.75</td>
+            <td>51</td>
+            <td>21.1s</td>
+            <td>$0.00368</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">10</td>
             <td class="model-name">MiniMax M2.7 Highspeed</td>
             <td class="score">6.74</td>
             <td>51</td>
@@ -348,16 +460,16 @@ tr.top3 td { font-weight: 600; }
             <td class="os-partial">Parcial</td>
         </tr>
 <tr>
-            <td class="rank">8</td>
-            <td class="model-name">GPT-5.4 Mini</td>
-            <td class="score">6.74</td>
-            <td>142</td>
-            <td>6.4s</td>
-            <td>$0.00316</td>
+            <td class="rank">11</td>
+            <td class="model-name">Kimi K2</td>
+            <td class="score">6.72</td>
+            <td>30</td>
+            <td>24.1s</td>
+            <td>$0.00266</td>
             <td class="os-no">No</td>
         </tr>
 <tr>
-            <td class="rank">9</td>
+            <td class="rank">12</td>
             <td class="model-name">Claude Sonnet 4.6</td>
             <td class="score">6.7</td>
             <td>62</td>
@@ -366,16 +478,7 @@ tr.top3 td { font-weight: 600; }
             <td class="os-no">No</td>
         </tr>
 <tr>
-            <td class="rank">10</td>
-            <td class="model-name">Llama 4 Maverick</td>
-            <td class="score">6.7</td>
-            <td>58</td>
-            <td>15.8s</td>
-            <td>$0.00231</td>
-            <td class="os-yes">Si</td>
-        </tr>
-<tr>
-            <td class="rank">11</td>
+            <td class="rank">13</td>
             <td class="model-name">MiniMax M2.7 (directo)</td>
             <td class="score">6.68</td>
             <td>57</td>
@@ -384,34 +487,34 @@ tr.top3 td { font-weight: 600; }
             <td class="os-partial">Parcial</td>
         </tr>
 <tr>
-            <td class="rank">12</td>
-            <td class="model-name">Claude Sonnet 4.6 (ultimo Anthropic)</td>
-            <td class="score">6.67</td>
-            <td>63</td>
-            <td>20.8s</td>
-            <td>$0.00414</td>
-            <td class="os-no">No</td>
-        </tr>
-<tr>
-            <td class="rank">13</td>
-            <td class="model-name">Qwen3 Coder</td>
-            <td class="score">6.62</td>
-            <td>52</td>
-            <td>27.0s</td>
-            <td>$0.00287</td>
-            <td class="os-yes">Si</td>
-        </tr>
-<tr>
             <td class="rank">14</td>
-            <td class="model-name">Claude Opus 4.6</td>
-            <td class="score">6.59</td>
-            <td>54</td>
-            <td>24.3s</td>
-            <td>$0.00417</td>
+            <td class="model-name">Gemini 2.5 Flash</td>
+            <td class="score">6.68</td>
+            <td>136</td>
+            <td>5.1s</td>
+            <td>$0.00244</td>
             <td class="os-no">No</td>
         </tr>
 <tr>
             <td class="rank">15</td>
+            <td class="model-name">Llama 4 Maverick</td>
+            <td class="score">6.63</td>
+            <td>56</td>
+            <td>13.4s</td>
+            <td>$0.00209</td>
+            <td class="os-yes">Si</td>
+        </tr>
+<tr>
+            <td class="rank">16</td>
+            <td class="model-name">Qwen3 Coder</td>
+            <td class="score">6.58</td>
+            <td>57</td>
+            <td>21.6s</td>
+            <td>$0.0026</td>
+            <td class="os-yes">Si</td>
+        </tr>
+<tr>
+            <td class="rank">17</td>
             <td class="model-name">Gemma 4 26B MoE (3.8B activos)</td>
             <td class="score">6.53</td>
             <td>19</td>
@@ -420,16 +523,7 @@ tr.top3 td { font-weight: 600; }
             <td class="os-yes">Si</td>
         </tr>
 <tr>
-            <td class="rank">16</td>
-            <td class="model-name">Kimi K2</td>
-            <td class="score">6.49</td>
-            <td>31</td>
-            <td>27.5s</td>
-            <td>$0.00294</td>
-            <td class="os-no">No</td>
-        </tr>
-<tr>
-            <td class="rank">17</td>
+            <td class="rank">18</td>
             <td class="model-name">Gemma 4 31B</td>
             <td class="score">6.42</td>
             <td>11</td>
@@ -438,34 +532,43 @@ tr.top3 td { font-weight: 600; }
             <td class="os-yes">Si</td>
         </tr>
 <tr>
-            <td class="rank">18</td>
-            <td class="model-name">MiniMax M2.7</td>
-            <td class="score">6.39</td>
-            <td>49</td>
-            <td>29.9s</td>
-            <td>$0.00423</td>
-            <td class="os-partial">Parcial</td>
-        </tr>
-<tr>
             <td class="rank">19</td>
-            <td class="model-name">GPT-5.4</td>
-            <td class="score">6.25</td>
-            <td>65</td>
-            <td>14.8s</td>
-            <td>$0.0032</td>
+            <td class="model-name">Mistral Nemo</td>
+            <td class="score">6.41</td>
+            <td>53</td>
+            <td>8.7s</td>
+            <td>$1e-05</td>
             <td class="os-no">No</td>
         </tr>
 <tr>
             <td class="rank">20</td>
-            <td class="model-name">Qwen 3.6 Plus</td>
-            <td class="score">6.07</td>
-            <td>47</td>
-            <td>83.1s</td>
-            <td>$0.00995</td>
-            <td class="os-yes">Si</td>
+            <td class="model-name">GPT-5.4</td>
+            <td class="score">6.35</td>
+            <td>60</td>
+            <td>13.8s</td>
+            <td>$0.00292</td>
+            <td class="os-no">No</td>
         </tr>
 <tr>
             <td class="rank">21</td>
+            <td class="model-name">MiniMax M2.7</td>
+            <td class="score">6.32</td>
+            <td>46</td>
+            <td>27.5s</td>
+            <td>$0.00393</td>
+            <td class="os-partial">Parcial</td>
+        </tr>
+<tr>
+            <td class="rank">22</td>
+            <td class="model-name">Qwen 3.6 Plus</td>
+            <td class="score">6.23</td>
+            <td>47</td>
+            <td>82.2s</td>
+            <td>$0.0102</td>
+            <td class="os-yes">Si</td>
+        </tr>
+<tr>
+            <td class="rank">23</td>
             <td class="model-name">Kimi K2.5</td>
             <td class="score">5.78</td>
             <td>45</td>
@@ -484,7 +587,94 @@ tr.top3 td { font-weight: 600; }
     </div>
 </div>
 
-<!-- ===== PAGE 3: RECOMENDACIONES POR CASO DE USO ===== -->
+<!-- ===== PAGE 4: RANKINGS POR CATEGORIA ===== -->
+<div class="page">
+    <h2>Rankings por Categoria (Top 5 por area)</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Razonamiento (deep reasoning + reasoning)</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>DeepSeek V3.2</td><td class="score">7.65</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>Devstral Small</td><td class="score">7.64</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>GPT-4.1</td><td class="score">7.45</td></tr>
+                    <tr><td class="rank">4</td><td>GPT-4.1 Mini</td><td>7.36</td></tr>
+                    <tr><td class="rank">5</td><td>Gemini 2.5 Flash</td><td>7.30</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Agentes (tool calling + customer support)</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">7.21</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>GPT-5.4 Mini</td><td class="score">7.13</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>Claude Opus 4.6</td><td class="score">7.02</td></tr>
+                    <tr><td class="rank">4</td><td>Claude Sonnet 4.6</td><td>7.02</td></tr>
+                    <tr><td class="rank">5</td><td>Kimi K2</td><td>6.86</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Codigo</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">7.65</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>GPT-4.1</td><td class="score">7.37</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>DeepSeek V3.2</td><td class="score">7.34</td></tr>
+                    <tr><td class="rank">4</td><td>GPT-4.1 Mini</td><td>7.33</td></tr>
+                    <tr><td class="rank">5</td><td>Mistral Large</td><td>7.24</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3>Contenido (content + startup + presentation)</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">7.37</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>GPT-4.1 Mini</td><td class="score">7.21</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>GPT-4.1</td><td class="score">7.14</td></tr>
+                    <tr><td class="rank">4</td><td>DeepSeek V3.2</td><td>7.06</td></tr>
+                    <tr><td class="rank">5</td><td>Gemini Flash Lite</td><td>6.96</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Productividad (task mgmt + summarization)</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">7.39</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>GPT-4.1</td><td class="score">7.26</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>Gemini Flash Lite</td><td class="score">7.13</td></tr>
+                    <tr><td class="rank">4</td><td>DeepSeek V3.2</td><td>7.12</td></tr>
+                    <tr><td class="rank">5</td><td>GPT-4.1 Mini</td><td>7.01</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Datos Estructurados (JSON)</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">7.33</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>Gemini Flash Lite</td><td class="score">7.33</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>GPT-4.1</td><td class="score">7.22</td></tr>
+                    <tr><td class="rank">4</td><td>GPT-4.1 Mini</td><td>7.17</td></tr>
+                    <tr><td class="rank">5</td><td>Mistral Large</td><td>7.14</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="note">
+        <strong>Insight clave:</strong> No existe un "mejor modelo para todo". Claude Opus es #3 en Agentes
+        pero #16 en JSON. DeepSeek lidera en Razonamiento pero cae en Soporte. Elige segun tu caso de uso.
+    </div>
+</div>
+
+<!-- ===== PAGE 5: RECOMENDACIONES POR CASO DE USO ===== -->
 <div class="page">
     <h2>Que Modelo Usar: Recomendaciones por Caso de Uso</h2>
 
