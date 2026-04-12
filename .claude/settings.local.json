@@ -37,7 +37,12 @@
       "Bash(python benchmarks/runner.py --quick --models llama-4-maverick qwen3-coder gemma-4-31b gemma-4-26b)",
       "Bash(xargs kill:*)",
       "Bash(python benchmarks/runner.py --quick --models llama-4-maverick qwen3-coder)",
-      "Bash(python benchmarks/runner.py --quick --models gemma-4-31b gemma-4-26b --tests tool_calling content_generation startup_content)"
+      "Bash(python benchmarks/runner.py --quick --models gemma-4-31b gemma-4-26b --tests tool_calling content_generation startup_content)",
+      "WebFetch(domain:cristiantala.com)",
+      "Bash(python benchmarks/runner.py --quick --models kimi-k2 kimi-k2.5 devstral)",
+      "Bash(python benchmarks/runner.py --quick --models gpt-4.1 gpt-4.1-mini mistral-large)",
+      "Bash(python benchmarks/runner.py --quick --models claude-opus-4.6)",
+      "WebFetch(domain:assets.nyx.cristiantala.com)"
     ]
   }
 }

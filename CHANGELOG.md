@@ -1,6 +1,25 @@
 # Changelog
 
-## [0.7.0] - 2026-04-11
+## [0.8.0] - 2026-04-12
+
+### Agregado
+- 6 modelos nuevos: Devstral Small, GPT-4.1, GPT-4.1 Mini, Mistral Large, Kimi K2, Kimi K2.5
+- Claude Opus 4.6 (el #1 del mundo en Arena)
+- 21 modelos en ranking global total
+- Nota sobre limitaciones del scoring automatico
+
+### Resultados Destacados
+- Devstral Small es #1 (7.40) - open-source Apache 2.0, 171 tok/s, ultra barato
+- GPT-4.1 es #2 (7.28) - supera a GPT-5.4 (#19), confirma hallazgo previo
+- Claude Opus 4.6 es #13 (6.59) - scoring no captura calidad de razonamiento
+- Kimi K2 es #16 (6.49) - decente pero no tan bueno como en benchmark manual previo
+
+### Descubierto
+- Scoring automatico favorece formato sobre sustancia
+- GPT-4.1 consistentemente supera GPT-5.4 en tests estructurados
+- Devstral Small de Mistral es una joya oculta
+
+## [0.7.0] - 2026-04-12
 
 ### Agregado
 - Llama 4 Maverick via OpenRouter - #6 global, empata con Claude, open-source
