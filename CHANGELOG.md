@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.6.0] - 2026-04-11
+
+### Agregado
+- GPT-5.4 y GPT-5.4-mini via API directa de OpenAI
+- Ranking global con 9 modelos medidos (10 contando duplicados de MiniMax por provider)
+- Tabla separada "Solo Alternativas" (sin Anthropic/OpenAI)
+- Tabla "Mejor por Categoria" con top 3
+- Tabla "Recomendacion para Agentes N8N/OpenClaw"
+- Soporte max_completion_tokens para GPT-5.4+
+
+### Resultados
+- GPT-5.4 Mini: Sorpresa, gana al GPT-5.4 en todas las categorias
+- GPT-5.4 Mini: #1 en tool calling (7.5), ideal para agentes
+- DeepSeek V3.2 se mantiene #1 global (7.09)
+- Gemini 2.5 Flash Lite: 212 tok/s, el mas rapido por lejos
+
 ## [0.5.0] - 2026-04-11
 
 ### Agregado

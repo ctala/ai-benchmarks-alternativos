@@ -71,28 +71,60 @@ python benchmarks/runner.py --list-tests                     # Ver tests disponi
 
 ## Resultados (11 Abril 2026)
 
-### Ranking Global (27 tests x modelo, medidos desde Chile)
+### Ranking Global - Todos los Modelos (27 tests x modelo, desde Chile)
 
-| # | Modelo | Score | tok/s | Latencia | Costo/call | Open Source |
-|---|--------|-------|-------|----------|------------|-------------|
-| 1 | **DeepSeek V3.2** | **7.09** | 36 | 18.8s | $0.00024 | Si (MIT) |
-| 2 | **Gemini 2.5 Flash Lite** | **6.95** | **212** | **4.7s** | $0.00362 | No |
-| 3 | MiniMax M2.7 Highspeed | 6.74 | 51 | 26.1s | $0.00421 | Parcial |
-| 4 | Claude Sonnet 4.6 | 6.70 | 62 | 21.1s | $0.00415 | No |
-| 5 | MiniMax M2.7 | 6.68 | 57 | 26.5s | $0.00431 | Parcial |
-| 6 | MiniMax M2.7 (OpenRouter) | 6.39 | 49 | 29.9s | $0.00423 | Parcial |
-| 7 | Qwen 3.6 Plus | 6.07 | 47 | 83.1s | $0.00995 | Si (Apache) |
+| # | Modelo | Score | tok/s | Latencia | Costo/call | Open Source | Proveedor |
+|---|--------|-------|-------|----------|------------|-------------|-----------|
+| 1 | **DeepSeek V3.2** | **7.09** | 36 | 18.8s | $0.00024 | Si (MIT) | OpenRouter |
+| 2 | **Gemini 2.5 Flash Lite** | **6.95** | **212** | **4.7s** | $0.00362 | No | OpenRouter |
+| 3 | **GPT-5.4 Mini** | **6.74** | 142 | 6.4s | $0.00316 | No | OpenAI |
+| 4 | MiniMax M2.7 Highspeed | 6.74 | 51 | 26.1s | $0.00421 | Parcial | MiniMax |
+| 5 | Claude Sonnet 4.6 | 6.70 | 62 | 21.1s | $0.00415 | No | OpenRouter |
+| 6 | MiniMax M2.7 | 6.68 | 57 | 26.5s | $0.00431 | Parcial | MiniMax |
+| 7 | GPT-5.4 | 6.25 | 65 | 14.8s | $0.00320 | No | OpenAI |
+| 8 | Qwen 3.6 Plus | 6.07 | 47 | 83.1s | $0.00995 | Si (Apache) | OpenRouter |
 
-> GPT-5.4 y GPT-5.4-mini pendientes de medicion
+### Ranking Solo Alternativas (sin Anthropic/OpenAI)
+
+| # | Modelo | Score | tok/s | Costo/call | Open Source | Suscripcion |
+|---|--------|-------|-------|------------|-------------|-------------|
+| 1 | **DeepSeek V3.2** | **7.09** | 36 | $0.00024 | Si (MIT) | Pay-as-you-go |
+| 2 | **Gemini 2.5 Flash Lite** | **6.95** | 212 | $0.00362 | No | Google AI Pro $20/mes |
+| 3 | MiniMax M2.7 HS | 6.74 | 51 | $0.00421 | Parcial | MiniMax $20-$69/mes |
+| 4 | MiniMax M2.7 | 6.68 | 57 | $0.00431 | Parcial | MiniMax $20-$69/mes |
+| 5 | Qwen 3.6 Plus | 6.07 | 47 | $0.00995 | Si (Apache) | Qwen $50/mes |
+
+### Mejor por Categoria
+
+| Categoria | 1ro | 2do | 3ro |
+|-----------|-----|-----|-----|
+| **Tool Calling** | GPT-5.4 Mini (7.5) | GPT-5.4 (7.3) | Claude Sonnet 4.6 (6.9) |
+| **Content** | GPT-5.4 Mini (7.2) | Gemini Flash Lite (7.2) | MiniMax M2.7 (6.8) |
+| **Coding** | DeepSeek V3.2 (7.3) | Gemini Flash Lite (7.2) | MiniMax M2.7 (7.0) |
+| **Reasoning** | DeepSeek V3.2 (7.5) | MiniMax M2.7 HS (6.8) | Claude Sonnet 4.6 (6.7) |
+| **Startup Content** | DeepSeek V3.2 (7.3) | Gemini Flash Lite (6.9) | MiniMax M2.7 HS (6.6) |
+| **Task Mgmt** | DeepSeek V3.2 (7.2) | Gemini Flash Lite (7.0) | MiniMax M2.7 HS (6.8) |
 
 ### Hallazgos Clave
 
-- **Mejor valor absoluto**: DeepSeek V3.2 - gana en score y es 17x mas barato que Claude
-- **Mas rapido**: Gemini 2.5 Flash Lite - 212 tok/s, 4.7s latencia, y 30x mas barato que Claude
-- **Mejor tool calling**: MiniMax M2.7 - ideal para agentes N8N/OpenClaw
-- **MiniMax M2.7 vs Highspeed**: Diferencia marginal (~1%)
-- **Claude Sonnet 4.6**: Buena calidad pero caro, no justifica el precio vs DeepSeek o Gemini
+- **Mejor valor absoluto**: DeepSeek V3.2 - #1 en score y 17x mas barato que Claude
+- **Mas rapido**: Gemini 2.5 Flash Lite - 212 tok/s, 4.7s latencia, 30x mas barato que Claude
+- **Mejor tool calling**: GPT-5.4 Mini (7.5) - ideal para agentes N8N/OpenClaw
+- **Sorpresa**: GPT-5.4 Mini le gana al GPT-5.4 en TODAS las categorias y es mas rapido
+- **Mejor suscripcion fija para agentes**: MiniMax ($20-69/mes) con M2.7
+- **Claude Sonnet 4.6**: #5, buena calidad pero no justifica 17x mas caro que DeepSeek
 - **Gemma 4 via OpenRouter**: Muy lento (~8 tok/s), mejor correr local en DGX Spark
+
+### Recomendacion para Agentes N8N/OpenClaw
+
+| Uso | Modelo Recomendado | Por que |
+|-----|-------------------|---------|
+| Agente con tool calling | GPT-5.4 Mini | #1 en tool calling (7.5) |
+| Agente economico | DeepSeek V3.2 | #1 global, 17x mas barato |
+| Agente ultra rapido | Gemini 2.5 Flash Lite | 212 tok/s, 4.7s latencia |
+| Agente con suscripcion fija | MiniMax M2.7 | $20-69/mes, sin sorpresas |
+| Contenido ecosistemastartup.com | DeepSeek V3.2 | #1 en startup content |
+| Feature images WordPress | MiniMax Image-01 | 5/5 exitosos, 16-60s |
 
 > Los resultados JSON completos estan en `benchmarks/results/`
 
