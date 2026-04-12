@@ -54,22 +54,29 @@ python benchmarks/runner.py --list-tests                     # Ver tests disponi
 ### Open Source para NVIDIA DGX Spark (128GB)
 - Gemma 4 26B MoE, Gemma 4 31B, Qwen 3.5 25B/72B, Llama 3.3/4 70B, MiniMax M2.5, DeepSeek V3.2
 
-## Benchmark Suites (18 tests)
+## Benchmark Suites (48 tests en 13 suites)
 
 | Suite | Tests | Que Evalua |
 |-------|-------|-----------|
-| content_generation | 4 | Blog, email, social media, product descriptions |
+| **deep_reasoning** | 6 | Matematica, logica, causal, code bugs, Fermi, etica |
+| **hallucination** | 3 | Trampas factuales, fidelidad al contexto, citas falsas |
+| **creativity** | 4 | Hooks sin cliches, analogias, profundidad, storytelling |
+| **customer_support** | 4 | Empatia, clasificacion, multi-issue, ingenieria social |
+| **structured_output** | 4 | JSON simple, arrays, anidado, estricto |
 | tool_calling | 4 | Single/multi tool, razonamiento, no-tool |
-| task_management | 3 | Action items, planning, project breakdown |
+| content_generation | 4 | Blog, email, social media, product descriptions |
+| startup_content | 5 | Blog ecosistemastartup.com, cursos, workshops, newsletters |
 | code_generation | 4 | API integration, N8N workflows, SQL, debugging |
 | reasoning | 3 | Analisis de negocio, logica, decisiones |
-| summarization | 2 | Resumen ejecutivo, extraccion JSON |
+| task_management | 3 | Action items, planning, project breakdown |
+| summarization | 2 | Resumen ejecutivo, extraccion datos |
 | presentation | 2 | Slide outline, reportes de datos |
-| startup_content | 5 | Blog ecosistemastartup.com, cursos, workshops, newsletters, research |
-| image_generation | 5 | Feature images WordPress (MiniMax Image-01) para Discover/SEO |
-| tts_generation | 4 | Text-to-speech (MiniMax Speech-02) para newsletters, cursos, podcasts |
 
-## Resultados (11 Abril 2026)
+Scripts adicionales (no incluidos en el scoring global):
+- `image_generation.py` - Feature images con MiniMax Image-01
+- `tts_generation.py` - Text-to-speech con MiniMax Speech-02
+
+## Resultados (12 Abril 2026)
 
 ### Ranking Global - 48 tests x modelo, 951 runs, desde Chile
 
@@ -162,7 +169,7 @@ python benchmarks/runner.py --list-tests                     # Ver tests disponi
 │   ├── config.py                    # Tu configuracion (gitignored)
 │   ├── runner.py                    # Motor de benchmarks
 │   ├── scoring.py                   # Sistema de puntuacion
-│   ├── tests/                       # 7 suites de tests
+│   ├── tests/                       # 13 suites de tests
 │   └── results/                     # Resultados JSON
 ├── providers/
 │   └── adapters.py                  # Adaptador unificado OpenAI-compatible

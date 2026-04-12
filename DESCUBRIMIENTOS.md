@@ -12,7 +12,7 @@
 
 - **GPT-5.4 Mini gana a GPT-5.4**: El modelo "mini" supera al modelo completo en todas las categorias. OpenAI parece haber optimizado el mini para respuestas mas directas.
 
-- **Claude Opus es #13 global pero #2 en Customer Support**: El scoring automatico no captura la profundidad de razonamiento de Opus. Donde realmente brilla es en tareas que requieren empatia, protocolos de seguridad y juicio situacional.
+- **Claude Opus es #9 global y #3 en Agentes**: Con los tests de alucinaciones y creatividad, Opus sube de #13 a #9. Sonnet sube a #7 gracias a ser #1 en honestidad (7.62). Donde Claude realmente brilla es en tareas que requieren empatia, protocolos de seguridad y juicio situacional.
 
 - **Devstral Small es la sorpresa del benchmark**: Un modelo de Mistral que cuesta $0.10/$0.30 per M tokens y es open-source (Apache 2.0) lidera en 5 de 6 categorias agrupadas. Su debilidad: customer support (#1 pero otros le pisan los talones).
 

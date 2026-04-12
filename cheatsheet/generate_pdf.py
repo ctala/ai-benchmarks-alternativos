@@ -357,8 +357,8 @@ tr.top3 td {{ font-weight: 600; }}
             <span style="color:#39ff14; font-family:'JetBrains Mono',monospace;">5%</span> Latencia (tiempo hasta primera respuesta)
         </p>
         <p style="font-size: 7pt; color: #ff006e; margin-top: 5px;">
-            Nota: El scoring automatico evalua formato y estructura, no profundidad de razonamiento.
-            Modelos como Claude Opus destacan en areas que este scoring no captura bien.
+            Nota: El scoring automatico tiene limitaciones. No captura profundidad subjetiva
+            de razonamiento ni calidad editorial humana. Ver pagina de Metodologia.
         </p>
     </div>
 
@@ -376,7 +376,7 @@ tr.top3 td {{ font-weight: 600; }}
                 <thead><tr><th>Parametro</th><th>Valor</th></tr></thead>
                 <tbody>
                     <tr><td>Modelos evaluados</td><td><strong>17 modelos unicos</strong></td></tr>
-                    <tr><td>Tests totales</td><td><strong>41 tests en 11 suites</strong></td></tr>
+                    <tr><td>Tests totales</td><td><strong>48 tests en 13 suites</strong></td></tr>
                     <tr><td>Runs ejecutados</td><td><strong>800+</strong></td></tr>
                     <tr><td>Ubicacion</td><td>Santiago, Chile</td></tr>
                     <tr><td>APIs usadas</td><td>OpenRouter, OpenAI, MiniMax</td></tr>
@@ -411,13 +411,15 @@ tr.top3 td {{ font-weight: 600; }}
             <h3>Que Mide el Score (y que NO mide)</h3>
 
             <div class="rec-box" style="margin-bottom: 8px;">
-                <div class="rec-title" style="color: #39ff14;">SI mide</div>
+                <div class="rec-title" style="color: #39ff14;">SI mide (13 suites, 48 tests)</div>
                 <div class="rec-why" style="color: #ffffff; font-size: 8pt;">
-                    - Seguimiento de instrucciones<br>
-                    - Formato y estructura de la respuesta<br>
+                    - Seguimiento de instrucciones y formato<br>
                     - Precision de tool calling / function calling<br>
-                    - Velocidad de generacion (tok/s)<br>
-                    - Latencia hasta primera respuesta<br>
+                    - Creatividad y originalidad (penaliza cliches)<br>
+                    - Precision factual / alucinaciones (trampas verificables)<br>
+                    - Soporte al cliente (empatia, seguridad)<br>
+                    - Salida JSON estructurada<br>
+                    - Velocidad (tok/s) y latencia<br>
                     - Eficiencia de costo por llamada
                 </div>
             </div>
@@ -425,12 +427,11 @@ tr.top3 td {{ font-weight: 600; }}
             <div class="rec-box" style="border-color: #ff006e44;">
                 <div class="rec-title" style="color: #ff006e;">NO mide (limitaciones)</div>
                 <div class="rec-why" style="color: #ffffff; font-size: 8pt;">
-                    - Profundidad de razonamiento<br>
-                    - Creatividad y originalidad<br>
-                    - Precision factual / alucinaciones<br>
-                    - Calidad subjetiva del contenido<br>
-                    - Rendimiento en contextos muy largos<br>
-                    - Consistencia entre multiples runs
+                    - Profundidad subjetiva de razonamiento<br>
+                    - Calidad editorial humana del contenido<br>
+                    - Rendimiento en contextos muy largos (>128K)<br>
+                    - Consistencia entre multiples runs<br>
+                    - Rendimiento multimodal (imagenes/audio)
                 </div>
             </div>
 
@@ -443,10 +444,9 @@ tr.top3 td {{ font-weight: 600; }}
             </div>
 
             <div class="note">
-                <strong>Sobre Claude Opus:</strong> Aparece bajo en el ranking
-                general porque el scoring automatico no captura la profundidad
-                de su razonamiento. En customer_support sube a #2, demostrando
-                que cada modelo tiene su fortaleza.
+                <strong>Sobre Claude Opus:</strong> Sube a #9 global gracias
+                a los tests de honestidad (Sonnet #1) y soporte al cliente (Opus #3 en agentes).
+                Cada modelo tiene su fortaleza segun el caso de uso.
             </div>
         </div>
     </div>
@@ -475,7 +475,7 @@ tr.top3 td {{ font-weight: 600; }}
     <div class="note">
         <strong>Sobre el scoring:</strong> Evalua formato, estructura, tool calling y velocidad de forma automatica.
         No captura profundidad de razonamiento ni calidad subjetiva del contenido.
-        Modelos como Claude Opus destacan en areas que este scoring no mide bien.
+        Ver pagina de Metodologia para detalles de que mide y que no mide.
     </div>
 </div>
 

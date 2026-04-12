@@ -58,7 +58,8 @@ python benchmarks/runner.py --list-tests
 ## Providers configurados
 
 - **OpenRouter**: API key en `OPENROUTER_API_KEY` - acceso a 290+ modelos
-- **MiniMax directo**: API key en `MINIMAX_API_KEY` - para M2.7-highspeed, imagenes, TTS
+- **OpenAI directo**: API key en `OPENAI_API_KEY` - para GPT-4.1, GPT-5.4 (usa max_completion_tokens)
+- **MiniMax directo**: API key en `MINIMAX_API_KEY` - para M2.7-highspeed, imagenes
 - **Ollama**: Local en localhost:11434 - activar con `INCLUDE_OLLAMA = True`
 
 ## Reglas del proyecto
@@ -67,6 +68,8 @@ python benchmarks/runner.py --list-tests
 - Actualizar README.md con resultados cada vez que se corra un benchmark nuevo
 - Actualizar CHANGELOG.md con cada version
 - No re-medir modelos ya medidos en tests existentes (solo en tests nuevos)
+- Actualizar TODOS los archivos cuando cambien datos (README, CHANGELOG, CheatSheet, DESCUBRIMIENTOS)
+- Verificar que numeros de tests/suites/modelos esten actualizados en todos los documentos
 - Hacer commit y push despues de cada sesion de benchmarks
 - Los precios cambian frecuentemente - verificar antes de actualizar docs
 
