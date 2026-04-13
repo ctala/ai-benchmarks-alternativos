@@ -42,7 +42,7 @@ from providers.adapters import UnifiedProvider, BenchmarkResult
 from benchmarks.tests import content_generation, tool_calling, task_management
 from benchmarks.tests import code_generation, reasoning, summarization, presentation
 from benchmarks.tests import startup_content, deep_reasoning, customer_support, structured_output
-from benchmarks.tests import hallucination, creativity
+from benchmarks.tests import hallucination, creativity, string_precision, news_seo_writing
 
 console = Console()
 
@@ -60,6 +60,8 @@ ALL_TEST_SUITES = {
     "structured_output": structured_output.TESTS,
     "hallucination": hallucination.TESTS,
     "creativity": creativity.TESTS,
+    "string_precision": string_precision.TESTS,
+    "news_seo_writing": news_seo_writing.TESTS,
 }
 
 
@@ -109,14 +111,54 @@ def run_single_test(
     return result
 
 
+def score_string_precision(response: str, expected_answer: dict) -> float:
+    """Evalua precision de copia de strings (0-10)."""
+    answer_type = expected_answer.get("type", "")
+
+    if answer_type == "exact_string":
+        expected = expected_answer["expected"]
+        cleaned = response.strip().strip('"').strip("'").strip("`")
+        if cleaned == expected:
+            return 10.0
+        # Medir similitud caracter por caracter
+        matches = sum(1 for a, b in zip(cleaned, expected) if a == b)
+        max_len = max(len(cleaned), len(expected))
+        if max_len == 0:
+            return 0.0
+        ratio = matches / max_len
+        # Penalizar fuerte: 99% match = 5.0, 95% = 2.0
+        if ratio >= 0.99:
+            return 7.0
+        elif ratio >= 0.95:
+            return 4.0
+        elif ratio >= 0.90:
+            return 2.0
+        return 1.0
+
+    elif answer_type == "multi_string_check":
+        must_contain = expected_answer.get("must_contain_exact", [])
+        if not must_contain:
+            return 5.0
+        found = sum(1 for s in must_contain if s in response)
+        return 10.0 * (found / len(must_contain))
+
+    return 5.0
+
+
 def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict) -> dict:
     """Evalua un resultado y calcula scores."""
-    # Score de calidad
-    criteria = test.get("criteria", {})
-    if criteria:
-        quality = score_content_quality(result.response, criteria)
+    # Score de calidad - usa precision de strings si hay expected_answer
+    expected_answer = test.get("expected_answer", {})
+    answer_type = expected_answer.get("type", "")
+
+    if answer_type in ("exact_string", "multi_string_check"):
+        quality = score_string_precision(result.response, expected_answer)
     else:
-        quality = 5.0 if result.success else 0.0
+        criteria = test.get("criteria", {})
+        if criteria:
+            quality = score_content_quality(result.response, criteria)
+        else:
+            quality = 5.0 if result.success else 0.0
 
     # Score de tool calling
     expected_tools = test.get("expected_tools", None)
