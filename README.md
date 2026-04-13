@@ -54,7 +54,7 @@ python benchmarks/runner.py --list-tests                     # Ver tests disponi
 ### Open Source para NVIDIA DGX Spark (128GB)
 - Gemma 4 26B MoE, Gemma 4 31B, Qwen 3.5 25B/72B, Llama 3.3/4 70B, MiniMax M2.5, DeepSeek V3.2
 
-## Benchmark Suites (48 tests en 13 suites)
+## Benchmark Suites (59 tests en 15 suites)
 
 | Suite | Tests | Que Evalua |
 |-------|-------|-----------|
@@ -70,6 +70,8 @@ python benchmarks/runner.py --list-tests                     # Ver tests disponi
 | reasoning | 3 | Analisis de negocio, logica, decisiones |
 | task_management | 3 | Action items, planning, project breakdown |
 | summarization | 2 | Resumen ejecutivo, extraccion datos |
+| **string_precision** | 6 | Copia exacta de hex, API keys, JWT, config files |
+| **news_seo_writing** | 5 | Articulos SEO, JSON N8N, solo espanol, anti-alucinacion, Perplexity |
 | presentation | 2 | Slide outline, reportes de datos |
 
 Scripts adicionales (no incluidos en el scoring global):
