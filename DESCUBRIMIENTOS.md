@@ -26,6 +26,12 @@
 
 - **Qwen 3.6 Plus :free fue deprecado**: La version gratuita en OpenRouter fue removida. Solo la version pagada funciona.
 
+- **Ningun modelo copia strings perfectamente**: En el test de string_precision, ningun modelo logro 10/10 en ningun test. Devstral fue el mejor (8.58) y Claude Opus el peor (7.47). Claude falla especificamente en write_config_file (escribir credenciales en archivos .env).
+
+- **Kimi K2 y Mistral Large no sirven para articulos largos**: 100% timeout en news_seo_writing. No pueden generar articulos de 1500+ palabras sin cortarse.
+
+- **DeepSeek V3.2 es el mejor para noticias SEO**: #1 en news_seo_writing (7.67), ideal para el workflow de ecosistemastartup.com que actualmente usa Claude Sonnet.
+
 ### Sobre el Scoring
 
 - **El scoring favorece formato sobre sustancia**: Modelos que producen respuestas bien estructuradas (headers, listas, longitud adecuada) obtienen scores altos aunque el contenido sea generico. Esto explica por que Devstral y DeepSeek lideran.
