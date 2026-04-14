@@ -1,6 +1,6 @@
 # Benchmark de Modelos AI Alternativos
 
-**Version 1.1.0** | Ultima actualizacion: 12 de Abril de 2026
+**Version 1.2.0** | Ultima actualizacion: 14 de Abril de 2026
 
 Proyecto para evaluar y comparar modelos de IA para uso con agentes (OpenClaw, N8N) y asistentes personales. Incluye benchmarks propios ejecutables, comparativas de precios, y guia de modelos open-source para hardware local (NVIDIA DGX Spark).
 
@@ -127,6 +127,8 @@ Scripts adicionales (no incluidos en el scoring global):
 | **JSON/Datos** | Devstral (7.33) | Gemini Flash Lite (7.33) | GPT-4.1 (7.22) |
 | **Alucinaciones** | Claude Sonnet 4.6 (7.62) | Mistral Large (7.52) | Gemini Flash Lite (7.47) |
 | **Creatividad** | Devstral (6.93) | Gemini Flash (6.85) | DeepSeek V3.2 (6.75) |
+| **String Precision** | Devstral (8.58) | Gemini Flash Lite (8.43) | GPT-5.4 Mini (8.38) |
+| **Noticias SEO** | DeepSeek V3.2 (7.67) | Gemini Flash Lite (7.38) | Gemini Flash (7.35) |
 
 ### Hallazgos Clave
 
