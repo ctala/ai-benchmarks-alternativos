@@ -166,3 +166,12 @@ RUNS_PER_TEST = 3          # Veces que se ejecuta cada test para promediar
 REQUEST_TIMEOUT = 120      # Timeout en segundos
 RESULTS_DIR = "benchmarks/results"
 INCLUDE_OLLAMA = False     # Cambiar a True si tienes Ollama corriendo
+
+# --- Opcional: APIs directas (descomentar si se usan) ---
+# MiniMax directo (para M2.7 Highspeed y Image-01)
+# MINIMAX_API_KEY = "eyJ..."
+# MINIMAX_BASE_URL = "https://api.minimaxi.chat/v1"
+
+# OpenAI directo (para GPT-5.4, GPT-4.1 - usa max_completion_tokens)
+# OPENAI_API_KEY = "sk-..."
+# OPENAI_BASE_URL = "https://api.openai.com/v1"

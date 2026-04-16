@@ -118,39 +118,6 @@ def run_single_test(
     return result
 
 
-def score_string_precision(response: str, expected_answer: dict) -> float:
-    """Evalua precision de copia de strings (0-10)."""
-    answer_type = expected_answer.get("type", "")
-
-    if answer_type == "exact_string":
-        expected = expected_answer["expected"]
-        cleaned = response.strip().strip('"').strip("'").strip("`")
-        if cleaned == expected:
-            return 10.0
-        # Medir similitud caracter por caracter
-        matches = sum(1 for a, b in zip(cleaned, expected) if a == b)
-        max_len = max(len(cleaned), len(expected))
-        if max_len == 0:
-            return 0.0
-        ratio = matches / max_len
-        # Penalizar fuerte: 99% match = 5.0, 95% = 2.0
-        if ratio >= 0.99:
-            return 7.0
-        elif ratio >= 0.95:
-            return 4.0
-        elif ratio >= 0.90:
-            return 2.0
-        return 1.0
-
-    elif answer_type == "multi_string_check":
-        must_contain = expected_answer.get("must_contain_exact", [])
-        if not must_contain:
-            return 5.0
-        found = sum(1 for s in must_contain if s in response)
-        return 10.0 * (found / len(must_contain))
-
-    return 5.0
-
 
 def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
                     judge: LLMJudge = None, suite_name: str = "") -> dict:
