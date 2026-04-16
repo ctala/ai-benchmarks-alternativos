@@ -1,6 +1,6 @@
 # Comparativa Completa de Proveedores y Modelos
 
-> Ultima actualizacion: 11 de Abril de 2026
+> Ultima actualizacion: 16 de Abril de 2026
 > Los precios, benchmarks y rankings pueden cambiar. Verifica datos actuales antes de tomar decisiones de compra.
 
 ## 1. Ranking por Costo (Pay-as-you-go)
@@ -10,6 +10,7 @@
 | Modelo | Input/M | Output/M | Tool Calling | Open Source | Licencia | Proveedor | Notas |
 |--------|---------|----------|--------------|-------------|----------|-----------|-------|
 | Mistral Nemo | $0.02 | $0.02 | Si | **Si** | Apache 2.0 | Mistral / OpenRouter | El mas barato, correr local |
+| MiMo-V2-Flash | $0.09 | $0.29 | Si | **Si** | MIT | Xiaomi / OpenRouter | 309B MoE, 15B activos, 73.4% SWE-Bench |
 | Gemini 2.5 Flash-Lite | $0.10 | $0.40 | Si | No | Propietario | Google | Muy rapido, buena calidad |
 | DeepSeek V3.2 | $0.14 | $0.28 | Si | **Si** | MIT | DeepSeek / OpenRouter | Excelente calidad/precio, correr local |
 | Gemma 4 26B MoE | $0.15 | $0.30 | Si | **Si** | Apache 2.0 | Google / OpenRouter | Solo 3.8B activos, ideal DGX Spark |
@@ -28,6 +29,7 @@
 | Gemini 2.5 Flash | $0.30 | $2.50 | Si | No | Propietario | Google | Muy rapido |
 | Qwen 3.6 Plus | $0.33 | ~$0.65 | Si | **Si** | Apache 2.0 | Alibaba / OpenRouter | 1M ctx |
 | Mistral Medium 3 | $0.40 | $2.00 | Si | **Si** | Apache 2.0 | Mistral | Near-proprietary quality |
+| MiMo-V2-Omni | $0.40 | $2.00 | Si | No | Propietario | Xiaomi / OpenRouter | Multimodal: imagen, video, audio, 260K ctx |
 | Llama 4 Maverick | $0.50 | $1.00 | Si | **Si** | Llama Community | Meta / OpenRouter | 128K ctx, multimodal |
 | Qwen 3.5 Plus | $1.20 | ~$2.00 | Si | **Si** | Apache 2.0 | Alibaba Cloud | Muy bueno para agentes |
 
@@ -35,6 +37,7 @@
 
 | Modelo | Input/M | Output/M | Tool Calling | Open Source | Licencia | Proveedor | Notas |
 |--------|---------|----------|--------------|-------------|----------|-----------|-------|
+| MiMo-V2-Pro | $1.00 | $3.00 | Si | No | Propietario | Xiaomi / OpenRouter | 1T MoE, 42B activos, ~Opus 4.6 en ClawEval |
 | Gemini 2.5 Pro | $1.25 | $10.00 | Si | No | Propietario | Google | Top 3 global |
 | GPT-4o | ~$2.50 | ~$10.00 | Si | No | Propietario | OpenAI | Lider en tool calling |
 | Claude Sonnet 4.5 | $3.00 | $15.00 | Si | No | Propietario | Anthropic | API key (no suscripcion) |
@@ -192,7 +195,8 @@ Todos estos modelos se pueden correr localmente con Ollama. Organizados por tama
 |------|--------|-------------------|-------------|----------------|-----------|
 | 1 | DeepSeek V3.2 | $0.14/$0.28 | **Si** | ~88% BFCL | **Mejor valor absoluto** |
 | 2 | Qwen 3.6 Plus | GRATIS (preview) | **Si** | ~87% BFCL | Gratis y excelente |
-| 3 | Gemma 4 26B MoE | $0.15/$0.30 | **Si** | Muy buena | Ultra eficiente, rapido |
+| 3 | MiMo-V2-Flash | $0.09/$0.29 | **Si** | 73.4% SWE | Ultra barato, MIT license |
+| 4 | Gemma 4 26B MoE | $0.15/$0.30 | **Si** | Muy buena | Ultra eficiente, rapido |
 | 4 | MiniMax M2.7 | $0.30/$1.20 | Parcial | ~92% BFCL | Mejor agente economico |
 | 5 | Gemma 4 31B | $0.30/$0.60 | **Si** | Excelente | #3 open en Arena |
 | 6 | Gemini 2.5 Flash | $0.30/$2.50 | No | Muy buena | Rapido y confiable |

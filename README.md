@@ -1,6 +1,6 @@
 # Benchmark de Modelos AI Alternativos
 
-**Version 1.2.0** | Ultima actualizacion: 14 de Abril de 2026
+**Version 1.3.0** | Ultima actualizacion: 16 de Abril de 2026
 
 Proyecto para evaluar y comparar modelos de IA para uso con agentes (OpenClaw, N8N) y asistentes personales. Incluye benchmarks propios ejecutables, comparativas de precios, y guia de modelos open-source para hardware local (NVIDIA DGX Spark).
 
@@ -43,18 +43,18 @@ python benchmarks/runner.py --list-tests                     # Ver tests disponi
 ## Modelos Incluidos (via OpenRouter)
 
 ### Gratuitos
-- DeepSeek R1, Llama 3.3 70B, Qwen 3.6 Plus (preview)
+- DeepSeek R1, Llama 3.3 70B, Qwen 3.6 Plus (preview), **MiMo-V2-Flash (free)**
 
 ### Economicos ($0.02 - $1.20/M tokens)
-- Mistral Nemo, DeepSeek V3.2, Gemma 4 (26B MoE, 31B), MiniMax M2.7, MiniMax M2.7 Highspeed, Gemini 2.5 Flash, Qwen 3.6 Plus, Llama 4 Maverick, Qwen 3.5 Plus
+- Mistral Nemo, **MiMo-V2-Flash**, DeepSeek V3.2, Gemma 4 (26B MoE, 31B), MiniMax M2.7, MiniMax M2.7 Highspeed, Gemini 2.5 Flash, Qwen 3.6 Plus, **MiMo-V2-Omni**, Llama 4 Maverick, Qwen 3.5 Plus
 
-### Medio ($1.25 - $15/M tokens)
-- Gemini 2.5 Pro, GPT-4o, Claude Sonnet 4
+### Medio ($1.00 - $15/M tokens)
+- **MiMo-V2-Pro**, Gemini 2.5 Pro, GPT-4o, Claude Sonnet 4
 
 ### Open Source para NVIDIA DGX Spark (128GB)
 - Gemma 4 26B MoE, Gemma 4 31B, Qwen 3.5 25B/72B, Llama 3.3/4 70B, MiniMax M2.5, DeepSeek V3.2
 
-## Benchmark Suites (59 tests en 15 suites)
+## Benchmark Suites (69 tests en 17 suites)
 
 | Suite | Tests | Que Evalua |
 |-------|-------|-----------|
@@ -72,6 +72,8 @@ python benchmarks/runner.py --list-tests                     # Ver tests disponi
 | summarization | 2 | Resumen ejecutivo, extraccion datos |
 | **string_precision** | 6 | Copia exacta de hex, API keys, JWT, config files |
 | **news_seo_writing** | 5 | Articulos SEO, JSON N8N, solo espanol, anti-alucinacion, Perplexity |
+| **ocr_extraction** | 5 | Facturas, tarjetas, recibos con verificacion, dashboards, notas manuscritas |
+| **orchestration** | 5 | Planificacion multi-paso, error recovery, tool selection, paralelizacion |
 | presentation | 2 | Slide outline, reportes de datos |
 
 Scripts adicionales (no incluidos en el scoring global):
@@ -140,7 +142,9 @@ Scripts adicionales (no incluidos en el scoring global):
 - **Mas rapido**: Gemini Flash Lite (195 tok/s) y Devstral (161 tok/s)
 - **Mas barato**: DeepSeek V3.2 - $0.00022/call, #4 global
 - **Modelos chinos**: MiniMax y Qwen a veces responden con caracteres chinos en espanol
-- **Scoring**: Evalua formato, estructura, tool calling, honestidad y creatividad. Ver [DESCUBRIMIENTOS.md](DESCUBRIMIENTOS.md) para limitaciones.
+- **Scoring v2 (Abril 16)**: Corregido sesgo de formato. Ahora valida sustancia (razonamiento, honestidad, creatividad real, datos correctos). Los rankings pueden cambiar al re-correr benchmarks. Ver [CHANGELOG.md](CHANGELOG.md) para detalles.
+- **Nuevos tests**: OCR/extraccion (facturas, recibos, dashboards) y Orquestacion (planificacion, error recovery, tool selection)
+- **Xiaomi MiMo**: 4 modelos nuevos incluyendo MiMo-V2-Flash (MIT, $0.09/$0.29, 73.4% SWE-Bench) - candidato serio a top 5
 
 ### Recomendacion por Caso de Uso
 
@@ -173,7 +177,7 @@ Scripts adicionales (no incluidos en el scoring global):
 │   ├── config.py                    # Tu configuracion (gitignored)
 │   ├── runner.py                    # Motor de benchmarks
 │   ├── scoring.py                   # Sistema de puntuacion
-│   ├── tests/                       # 13 suites de tests
+│   ├── tests/                       # 17 suites de tests
 │   └── results/                     # Resultados JSON
 ├── providers/
 │   └── adapters.py                  # Adaptador unificado OpenAI-compatible

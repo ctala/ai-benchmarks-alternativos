@@ -34,7 +34,7 @@
 
 ### Sobre el Scoring
 
-- **El scoring favorece formato sobre sustancia**: Modelos que producen respuestas bien estructuradas (headers, listas, longitud adecuada) obtienen scores altos aunque el contenido sea generico. Esto explica por que Devstral y DeepSeek lideran.
+- **[CORREGIDO en v1.3.0] El scoring favorecia formato sobre sustancia**: Modelos que producen respuestas bien estructuradas (headers, listas, longitud adecuada) obtenian scores altos aunque el contenido sea generico. Formato valia 3/10 puntos (30% de calidad). Ahora vale 2/10 (20%) y se valida contenido real con score_expected_answer (60% del score de calidad cuando hay expected_answer). Ver CHANGELOG para detalles.
 
 - **La latencia desde Chile penaliza a modelos lentos**: Qwen 3.6 Plus tiene 83s de latencia promedio, lo que baja su score significativamente vs Gemini Flash Lite con 4.7s.
 

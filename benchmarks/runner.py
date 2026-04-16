@@ -30,6 +30,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from benchmarks.scoring import (
     score_content_quality,
+    score_expected_answer,
     score_tool_calling,
     score_speed,
     score_latency,
@@ -43,6 +44,7 @@ from benchmarks.tests import content_generation, tool_calling, task_management
 from benchmarks.tests import code_generation, reasoning, summarization, presentation
 from benchmarks.tests import startup_content, deep_reasoning, customer_support, structured_output
 from benchmarks.tests import hallucination, creativity, string_precision, news_seo_writing
+from benchmarks.tests import ocr_extraction, orchestration
 
 console = Console()
 
@@ -62,6 +64,8 @@ ALL_TEST_SUITES = {
     "creativity": creativity.TESTS,
     "string_precision": string_precision.TESTS,
     "news_seo_writing": news_seo_writing.TESTS,
+    "ocr_extraction": ocr_extraction.TESTS,
+    "orchestration": orchestration.TESTS,
 }
 
 
@@ -146,19 +150,28 @@ def score_string_precision(response: str, expected_answer: dict) -> float:
 
 
 def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict) -> dict:
-    """Evalua un resultado y calcula scores."""
-    # Score de calidad - usa precision de strings si hay expected_answer
+    """Evalua un resultado y calcula scores.
+
+    Si el test tiene expected_answer, combina el score de contenido (40%)
+    con el score de expected_answer (60%) para priorizar sustancia sobre formato.
+    """
     expected_answer = test.get("expected_answer", {})
     answer_type = expected_answer.get("type", "")
 
-    if answer_type in ("exact_string", "multi_string_check"):
-        quality = score_string_precision(result.response, expected_answer)
+    # Score base de contenido
+    criteria = test.get("criteria", {})
+    if criteria:
+        content_score = score_content_quality(result.response, criteria)
     else:
-        criteria = test.get("criteria", {})
-        if criteria:
-            quality = score_content_quality(result.response, criteria)
-        else:
-            quality = 5.0 if result.success else 0.0
+        content_score = 5.0 if result.success else 0.0
+
+    # Score de expected_answer (sustancia)
+    if expected_answer and answer_type:
+        answer_score = score_expected_answer(result.response, expected_answer)
+        # Combinar: 40% formato/estructura + 60% sustancia
+        quality = content_score * 0.4 + answer_score * 0.6
+    else:
+        quality = content_score
 
     # Score de tool calling
     expected_tools = test.get("expected_tools", None)

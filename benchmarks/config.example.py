@@ -31,6 +31,15 @@ MODELS = {
         "cost_output": 0.0,
         "tier": "free",
     },
+    "mimo-v2-flash-free": {
+        "id": "xiaomi/mimo-v2-flash:free",
+        "name": "MiMo-V2-Flash (free)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "free",
+        "open_source": True,
+        "license": "MIT",
+    },
 
     # --- ULTRA ECONOMICOS (<$0.10/M) ---
     "mistral-nemo": {
@@ -39,6 +48,15 @@ MODELS = {
         "cost_input": 0.02,
         "cost_output": 0.02,
         "tier": "ultra_cheap",
+    },
+    "mimo-v2-flash": {
+        "id": "xiaomi/mimo-v2-flash",
+        "name": "MiMo-V2-Flash",
+        "cost_input": 0.09,
+        "cost_output": 0.29,
+        "tier": "ultra_cheap",
+        "open_source": True,
+        "license": "MIT",
     },
 
     # --- ECONOMICOS ($0.10 - $1.00/M) ---
@@ -70,6 +88,13 @@ MODELS = {
         "cost_output": 0.65,
         "tier": "cheap",
     },
+    "mimo-v2-omni": {
+        "id": "xiaomi/mimo-v2-omni",
+        "name": "MiMo-V2-Omni",
+        "cost_input": 0.40,
+        "cost_output": 2.00,
+        "tier": "cheap",
+    },
     "qwen-3.5-plus": {
         "id": "qwen/qwen3.5-plus",
         "name": "Qwen 3.5 Plus",
@@ -79,6 +104,13 @@ MODELS = {
     },
 
     # --- MEDIO ($1.00 - $5.00/M) ---
+    "mimo-v2-pro": {
+        "id": "xiaomi/mimo-v2-pro",
+        "name": "MiMo-V2-Pro",
+        "cost_input": 1.00,
+        "cost_output": 3.00,
+        "tier": "medium",
+    },
     "gemini-pro": {
         "id": "google/gemini-2.5-pro",
         "name": "Gemini 2.5 Pro",

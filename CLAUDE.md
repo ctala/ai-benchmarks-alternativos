@@ -55,11 +55,19 @@ python benchmarks/runner.py --list-tests
 - `providers/adapters.py` - Adaptador unificado OpenAI-compatible con timeout
 - `benchmarks/results/*.json` - Resultados historicos (versionados en git)
 
+## Scoring v2 (Abril 2026)
+
+- `score_content_quality`: formato reducido a 2/10 pts, secciones subidas a 4/10 pts, busqueda Unicode-aware
+- `score_expected_answer`: nuevo, valida sustancia (reasoning, hallucination, creativity, depth, honesty, etc.)
+- Tests con `expected_answer` usan 40% formato + 60% sustancia para el score de calidad
+- Penalizacion de cliches en tests de creatividad, bonificacion por datos concretos en tests de profundidad
+
 ## Providers configurados
 
 - **OpenRouter**: API key en `OPENROUTER_API_KEY` - acceso a 290+ modelos
 - **OpenAI directo**: API key en `OPENAI_API_KEY` - para GPT-4.1, GPT-5.4 (usa max_completion_tokens)
 - **MiniMax directo**: API key en `MINIMAX_API_KEY` - para M2.7-highspeed, imagenes
+- **Xiaomi MiMo**: Via OpenRouter (`xiaomi/mimo-v2-pro`, `xiaomi/mimo-v2-flash`, `xiaomi/mimo-v2-omni`)
 - **Ollama**: Local en localhost:11434 - activar con `INCLUDE_OLLAMA = True`
 
 ## Reglas del proyecto
