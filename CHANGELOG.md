@@ -10,8 +10,10 @@
 - **Suite policy_adherence** (4 tests): Politicas de reembolso bajo presion, proteccion de datos ante ingenieria social, reglas de idioma/tono, limites de alcance de servicio
 - **LLM-as-Judge** (`--judge`): Sistema de evaluacion con auto-deteccion de juez. Prioridad: 1) Gemma 4 31B local via Ollama ($0, bajo sesgo), 2) Claude Haiku via OpenRouter (~$0.07/modelo). Evalua 5 dimensiones (precision, relevancia, profundidad, claridad, utilidad) + criterios extra por suite (originalidad, empatia, planificacion, coherencia contextual, cumplimiento de politicas). Combina 30% score automatico + 70% juez. Presets: gemma4, glm4, qwen3.5, haiku, gemini-flash. Tambien acepta model IDs directos.
 - **Documentacion de sesgo del juez**: El modelo juez introduce sesgo (~5-7% de inflacion para modelos del mismo proveedor). Documentado en README, llm_judge.py, y CHANGELOG con tabla de tradeoffs por juez. Resultados JSON registran que juez se uso.
+- **9 modelos nuevos de Abril 2026**: Nemotron 3 Nano ($0.05/$0.20), Nemotron 3 Super ($0.10/$0.50), Mistral Small 4 ($0.15/$0.60, Apache), Grok 4.1 Fast ($0.20/$0.50), Gemini 3.1 Flash Lite ($0.25/$1.50), Devstral 2 ($0.40/$2.00, MIT), GLM-5.1 ($0.95/$3.15, MIT, #1 SWE-Bench Pro), Gemini 3.1 Pro ($2.00/$12.00), Grok 4.20 ($2.00/$6.00)
+- **Seccion "Como Replicar el Benchmark"** en README: guia paso a paso desde cero, costos estimados, como agregar modelos
 - Total: 77 tests en 19 suites (antes: 59 tests en 15 suites)
-- Xiaomi como nuevo proveedor en PROVEEDORES.md y COMPARATIVA.md
+- 3 proveedores nuevos: Xiaomi (MiMo), NVIDIA (Nemotron), xAI (Grok) en PROVEEDORES.md y COMPARATIVA.md
 
 ### Mejorado (Scoring v2 - correccion de sesgo)
 - **Formato reducido de 3 a 2 puntos** en score_content_quality (era 30% del score de calidad, ahora 20%)
