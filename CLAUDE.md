@@ -9,10 +9,16 @@ Benchmark de modelos AI alternativos para uso con agentes (OpenClaw, N8N). Compa
 source .venv/bin/activate
 # Todos los modelos, modo rapido
 python benchmarks/runner.py --quick
-# Con LLM-as-Judge (usa Claude Haiku, ~$0.07/modelo)
+# Con LLM-as-Judge (auto: Gemma 4 local si Ollama, sino Haiku API)
 python benchmarks/runner.py --quick --judge
-# Con otro modelo juez
+# Con juez local especifico (requiere Ollama)
+python benchmarks/runner.py --quick --judge --judge-model gemma4
+python benchmarks/runner.py --quick --judge --judge-model glm4   # minimo sesgo
+# Con juez API
+python benchmarks/runner.py --quick --judge --judge-model haiku
 python benchmarks/runner.py --quick --judge --judge-model google/gemini-2.5-flash
+# Listar jueces disponibles
+python benchmarks/runner.py --list-judges
 # Modelos especificos
 python benchmarks/runner.py --quick --models deepseek-v3 minimax-m2.7 mimo-v2-flash
 # Solo un suite de tests

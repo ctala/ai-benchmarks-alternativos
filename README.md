@@ -54,7 +54,7 @@ flowchart TD
         datos numericos, precision"]
 
         S3["<b>Capa 3: LLM-as-Judge</b>
-        Claude Haiku evalua:
+        Gemma 4 31B local o API
         precision, relevancia,
         profundidad, claridad,
         utilidad practica"]
@@ -109,9 +109,30 @@ flowchart TD
 1. **Entrada**: Cada test (prompt + criterios + expected_answer) se envia a cada modelo via OpenRouter
 2. **Scoring automatico** (Capa 1): Regex verifica longitud, secciones, idioma, formato. Penaliza caracteres chinos en espanol.
 3. **Expected answer** (Capa 2): Valida que la respuesta contenga los insights correctos, no alucine, sea creativa sin cliches, y tenga datos precisos.
-4. **LLM-as-Judge** (Capa 3, opcional con `--judge`): Claude Haiku 4.5 lee la respuesta y la evalua con rubrica en 5 dimensiones + criterios extras por suite.
+4. **LLM-as-Judge** (Capa 3, opcional con `--judge`): Un modelo juez lee la respuesta y la evalua con rubrica en 5 dimensiones + criterios extras por suite.
 5. **Combinacion**: Sin juez usa 40% formato + 60% sustancia. Con juez usa 30% automatico + 70% evaluacion del juez.
 6. **Score final**: Pondera calidad (35%), tool calling (25%), costo (15%), disponibilidad (15%), velocidad (5%), latencia (5%).
+
+### Eleccion del modelo juez y sesgo
+
+El modelo juez introduce sesgo: un LLM tiende a puntuar mejor respuestas de su propio proveedor (~5-7% de inflacion documentada). Por eso la eleccion importa:
+
+| Juez | Costo | Sesgo | Recomendacion |
+|------|-------|-------|---------------|
+| **Gemma 4 31B (local)** | **$0** | **Bajo** | **Default - buena calidad, gratis, Apache 2.0** |
+| GLM-4.7 9B (local) | $0 | Minimo | No esta en benchmark = 0 conflicto de interes |
+| Qwen 3.5 72B (local) | $0 | Bajo | Maxima calidad si tienes 42GB+ RAM |
+| Claude Haiku (API) | ~$0.07/modelo | Medio | Rapido pero sesga modelos Anthropic |
+| Gemini Flash (API) | ~$0.05/modelo | Medio | Rapido pero sesga modelos Google |
+
+El default es **Gemma 4 31B via Ollama** si esta disponible (local, gratis, bajo sesgo). Si Ollama no esta corriendo, usa Claude Haiku via OpenRouter como fallback. Los resultados JSON siempre registran que juez se uso para trazabilidad.
+
+```bash
+python benchmarks/runner.py --list-judges                     # Ver jueces disponibles
+python benchmarks/runner.py --quick --judge                   # Auto-detecta (local > API)
+python benchmarks/runner.py --quick --judge --judge-model glm4  # GLM-4.7 local (minimo sesgo)
+python benchmarks/runner.py --quick --judge --judge-model haiku # Claude Haiku via API
+```
 
 ## Quick Start
 
@@ -232,7 +253,7 @@ Scripts adicionales (no incluidos en el scoring global):
 - **Mas rapido**: Gemini Flash Lite (195 tok/s) y Devstral (161 tok/s)
 - **Mas barato**: DeepSeek V3.2 - $0.00022/call, #4 global
 - **Modelos chinos**: MiniMax y Qwen a veces responden con caracteres chinos en espanol
-- **LLM-as-Judge (Abril 16)**: Nuevo modo `--judge` que usa Claude Haiku como evaluador. Califica precision, relevancia, profundidad, claridad y utilidad practica en escala 1-5. Combina 30% score automatico + 70% juez. Costo ~$0.07 por modelo.
+- **LLM-as-Judge (Abril 16)**: Nuevo modo `--judge` con auto-deteccion: usa Gemma 4 31B local ($0, bajo sesgo) si Ollama disponible, sino Claude Haiku via API. Califica 5 dimensiones + criterios por suite. 30% auto + 70% juez. Ver seccion Metodologia para analisis de sesgo.
 - **Scoring v2 (Abril 16)**: Corregido sesgo de formato. Ahora valida sustancia (razonamiento, honestidad, creatividad real, datos correctos). Los rankings pueden cambiar al re-correr benchmarks. Ver [CHANGELOG.md](CHANGELOG.md) para detalles.
 - **Nuevos tests (18 nuevos)**: OCR/extraccion, orquestacion, multi-turno, y adherencia a politicas. Total: 77 tests en 19 suites.
 - **Xiaomi MiMo**: 4 modelos nuevos incluyendo MiMo-V2-Flash (MIT, $0.09/$0.29, 73.4% SWE-Bench) - candidato serio a top 5
