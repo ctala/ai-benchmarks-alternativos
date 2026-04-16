@@ -37,6 +37,7 @@ from benchmarks.scoring import (
     estimate_cost,
     compute_final_score,
 )
+from benchmarks.llm_judge import LLMJudge, judge_score_to_10
 from providers.adapters import UnifiedProvider, BenchmarkResult
 
 # Importar tests
@@ -44,7 +45,7 @@ from benchmarks.tests import content_generation, tool_calling, task_management
 from benchmarks.tests import code_generation, reasoning, summarization, presentation
 from benchmarks.tests import startup_content, deep_reasoning, customer_support, structured_output
 from benchmarks.tests import hallucination, creativity, string_precision, news_seo_writing
-from benchmarks.tests import ocr_extraction, orchestration
+from benchmarks.tests import ocr_extraction, orchestration, multi_turn, policy_adherence
 
 console = Console()
 
@@ -66,6 +67,8 @@ ALL_TEST_SUITES = {
     "news_seo_writing": news_seo_writing.TESTS,
     "ocr_extraction": ocr_extraction.TESTS,
     "orchestration": orchestration.TESTS,
+    "multi_turn": multi_turn.TESTS,
+    "policy_adherence": policy_adherence.TESTS,
 }
 
 
@@ -149,29 +152,45 @@ def score_string_precision(response: str, expected_answer: dict) -> float:
     return 5.0
 
 
-def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict) -> dict:
+def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
+                    judge: LLMJudge = None, suite_name: str = "") -> dict:
     """Evalua un resultado y calcula scores.
 
-    Si el test tiene expected_answer, combina el score de contenido (40%)
-    con el score de expected_answer (60%) para priorizar sustancia sobre formato.
+    Si hay LLM judge disponible, combina:
+    - 30% score automatico (formato + expected_answer)
+    - 70% score del juez LLM
+    Sin juez, usa solo score automatico con 40/60 formato/sustancia.
     """
     expected_answer = test.get("expected_answer", {})
     answer_type = expected_answer.get("type", "")
 
-    # Score base de contenido
+    # Score base de contenido (automatico)
     criteria = test.get("criteria", {})
     if criteria:
         content_score = score_content_quality(result.response, criteria)
     else:
         content_score = 5.0 if result.success else 0.0
 
-    # Score de expected_answer (sustancia)
+    # Score de expected_answer (sustancia automatica)
     if expected_answer and answer_type:
         answer_score = score_expected_answer(result.response, expected_answer)
-        # Combinar: 40% formato/estructura + 60% sustancia
-        quality = content_score * 0.4 + answer_score * 0.6
+        auto_quality = content_score * 0.4 + answer_score * 0.6
     else:
-        quality = content_score
+        auto_quality = content_score
+
+    # LLM-as-Judge (si esta habilitado)
+    judge_result = None
+    judge_quality = -1.0
+    if judge and result.success and result.response:
+        judge_result = judge.evaluate(result.response, test, suite_name)
+        judge_quality = judge_score_to_10(judge_result)
+
+    # Combinar scores
+    if judge_quality >= 0:
+        # Con juez: 30% automatico + 70% juez
+        quality = auto_quality * 0.3 + judge_quality * 0.7
+    else:
+        quality = auto_quality
 
     # Score de tool calling
     expected_tools = test.get("expected_tools", None)
@@ -200,6 +219,17 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict) -> 
     scores["input_tokens"] = result.input_tokens
     scores["output_tokens"] = result.output_tokens
     scores["response_preview"] = result.response[:300] if result.response else ""
+    scores["auto_quality"] = round(auto_quality, 2)
+
+    # Guardar datos del juez si disponible
+    if judge_result and judge_quality >= 0:
+        scores["judge_score"] = judge_result.get("score_final", -1)
+        scores["judge_precision"] = judge_result.get("precision", 0)
+        scores["judge_relevancia"] = judge_result.get("relevancia", 0)
+        scores["judge_profundidad"] = judge_result.get("profundidad", 0)
+        scores["judge_claridad"] = judge_result.get("claridad", 0)
+        scores["judge_utilidad"] = judge_result.get("utilidad", 0)
+        scores["judge_justificacion"] = judge_result.get("justificacion", "")
 
     return scores
 
@@ -262,6 +292,16 @@ def run_benchmark(args):
     if INCLUDE_OLLAMA:
         ollama = UnifiedProvider("ollama", "ollama", "http://localhost:11434/v1")
 
+    # LLM-as-Judge (opcional)
+    judge = None
+    if args.judge:
+        judge_model = args.judge_model or None
+        judge_kwargs = {"api_key": OPENROUTER_API_KEY}
+        if judge_model:
+            judge_kwargs["judge_model"] = judge_model
+        judge = LLMJudge(**judge_kwargs)
+        print(f"  LLM-as-Judge habilitado: {judge.judge_model}", flush=True)
+
     # Conteo total
     total_tests = sum(len(tests) for tests in test_suites.values())
     total_runs = total_tests * len(models) * runs
@@ -306,7 +346,7 @@ def run_benchmark(args):
                     print(f"{label}...", end=" ", flush=True)
 
                     result = run_single_test(provider, model_id, test, REQUEST_TIMEOUT)
-                    scores = evaluate_result(result, test, model_config)
+                    scores = evaluate_result(result, test, model_config, judge=judge, suite_name=suite_name)
                     scores["suite"] = suite_name
                     scores["run"] = run_num + 1
                     scores["timestamp"] = timestamp
@@ -333,6 +373,9 @@ def run_benchmark(args):
 
     print(f"\n{'=' * 70}", flush=True)
     print(f"  COMPLETADO: {completed} runs, {errors} errores", flush=True)
+    if judge:
+        stats = judge.get_stats()
+        print(f"  LLM-as-Judge: {stats['evaluations']} evaluaciones, costo ~${stats['estimated_cost_usd']:.4f}", flush=True)
     print(f"{'=' * 70}", flush=True)
 
     # Guardar resultados
@@ -463,6 +506,9 @@ def main():
     parser.add_argument("--tier", help="Solo modelos de un tier",
                        choices=["free", "ultra_cheap", "cheap", "medium", "premium", "local"])
     parser.add_argument("--quick", action="store_true", help="1 run por test (rapido)")
+    parser.add_argument("--judge", action="store_true", help="Usar LLM-as-Judge (Claude Haiku) para evaluar calidad")
+    parser.add_argument("--judge-model", type=str, default=None,
+                       help="Modelo juez alternativo (default: Claude Haiku 4.5)")
     parser.add_argument("--list-models", action="store_true", help="Listar modelos disponibles")
     parser.add_argument("--list-tests", action="store_true", help="Listar tests disponibles")
 
