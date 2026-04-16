@@ -1,6 +1,6 @@
 # Guia de Proveedores y Modelos
 
-> Ultima actualizacion: 11 de Abril de 2026
+> Ultima actualizacion: 16 de Abril de 2026
 
 Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 
@@ -97,6 +97,15 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 - **Fortalezas**: Calidad sorprendente para su tamano, MIT license
 - **Open-source**: MIT license
 
+### Xiaomi / MiMo (China, Beijing)
+- **Fundada**: 2010 (Xiaomi), equipo MiMo lanzado 2025
+- **Foco**: Modelos agenticos, razonamiento, multimodal (omni)
+- **Modelos**: MiMo-V2-Pro (1T params, flagship), MiMo-V2-Flash (309B MoE, open-source), MiMo-V2-Omni (multimodal)
+- **Fortalezas**: MiMo-V2-Pro rinde cerca de Opus 4.6 en ClawEval. Flash tiene 73.4% SWE-Bench (mejor open-source). Tool calling optimizado via RL. Flash es ultra barato ($0.09/$0.29).
+- **Debilidades**: Pro y Omni son API-only (no open-source). Empresa china.
+- **API**: platform.xiaomimimo.com | Tambien via OpenRouter
+- **Open-source**: MiMo-V2-Flash (MIT license, 309B params, 15B activos)
+
 ### Zhipu AI / GLM (China, Beijing)
 - **Fundada**: 2019, spin-off de Tsinghua University
 - **Foco**: Modelos agenticos, tool calling
@@ -152,6 +161,9 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 | Meta | Llama 3.3/4 | **Si** | Llama Community | Si (40-60 GB) |
 | Mistral | Nemo, Mixtral | **Si** | Apache 2.0 | Si (8-30 GB) |
 | Microsoft | Phi-4 | **Si** | MIT | Si (10 GB) |
+| Xiaomi | MiMo-V2-Flash | **Si** | MIT | Si (~40 GB Q4) |
+| Xiaomi | MiMo-V2-Pro | No | Propietario | No |
+| Xiaomi | MiMo-V2-Omni | No | Propietario | No |
 | Zhipu | GLM-4.7 | **Si** | Apache 2.0 | Si (7 GB) |
 | OpenAI | GPT-4o, o3 | No | Propietario | No |
 | Anthropic | Claude | No | Propietario | No |

@@ -1,5 +1,35 @@
 # Changelog
 
+## [1.3.0] - 2026-04-16
+
+### Agregado
+- **4 modelos Xiaomi MiMo**: MiMo-V2-Pro ($1/$3, 1T params), MiMo-V2-Flash ($0.09/$0.29, MIT), MiMo-V2-Flash free, MiMo-V2-Omni ($0.40/$2, multimodal)
+- **Suite ocr_extraction** (5 tests): Facturas, tarjetas de presentacion, recibos con verificacion matematica, tablas de dashboard, notas manuscritas con OCR errors
+- **Suite orchestration** (5 tests): Planificacion multi-paso, recuperacion de errores, descomposicion de workflows, seleccion precisa de herramientas, juicio paralelo vs secuencial
+- Total: 69 tests en 17 suites (antes: 59 tests en 15 suites)
+- Xiaomi como nuevo proveedor en PROVEEDORES.md y COMPARATIVA.md
+
+### Mejorado (Scoring v2 - correccion de sesgo)
+- **Formato reducido de 3 a 2 puntos** en score_content_quality (era 30% del score de calidad, ahora 20%)
+- **Secciones requeridas subidas de 3 a 4 puntos** para priorizar contenido sobre formato
+- **Busqueda de secciones ahora ignora acentos** ("titulo" encuentra "título") via normalizacion Unicode
+- **Nuevo score_expected_answer()** que valida respuestas contra criterios especificos:
+  - `reasoning`: verifica que key_insights esten presentes (60% de palabras clave)
+  - `hallucination_check`: evalua si el modelo dice "no se" en preguntas trampa
+  - `creativity_check`: penaliza cliches (-1.5 a -5 puntos segun cantidad)
+  - `depth_check`: penaliza frases genericas, premia datos concretos y riesgos
+  - `honesty_check`: evalua transparencia sobre incertidumbre
+  - `numeric`, `sequence`, `range`: validacion de respuestas factuales
+- **Combinacion 40/60**: tests con expected_answer usan 40% formato + 60% sustancia
+- **Motivacion**: Devstral Small era #1 global pero el scoring premiaba formato markdown sobre razonamiento real. Un modelo que usa `##` y `**` recibia 3 puntos gratis sin importar si el contenido era correcto.
+
+### Contexto del cambio de scoring
+- El scoring anterior daba 30% de los puntos de calidad por formato markdown (headers, bold, listas)
+- Tests como deep_reasoning, creativity, hallucination tenian `expected_answer` definido pero NUNCA se validaba
+- La lista de cliches en creativity.py existia pero no se usaba en el scoring
+- Esto hacia que modelos rapidos y baratos que formateaban bien (Devstral) dominaran sobre modelos con mejor razonamiento
+- El nuevo scoring valida sustancia: insights correctos, honestidad, creatividad real, datos precisos
+
 ## [0.8.0] - 2026-04-12
 
 ### Agregado
