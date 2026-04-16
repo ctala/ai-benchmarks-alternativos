@@ -1,22 +1,104 @@
 """
 LLM-as-Judge: Evaluacion de calidad usando un modelo como juez.
 
-Usa Claude Haiku 4.5 via OpenRouter como juez por defecto.
-El juez evalua la respuesta con una rubrica estructurada en espanol,
-puntuando de 1 a 5 en multiples dimensiones.
+Soporta 3 modos de juez:
+1. Local via Ollama (gratis, sin sesgo de proveedor) - RECOMENDADO
+2. OpenRouter (cualquier modelo, pago)
+3. API directa (OpenAI, Anthropic, etc.)
 
-Costo estimado: ~$0.001 por evaluacion (~$0.07 por modelo con 69 tests).
+## Eleccion del modelo juez y sesgo
+
+El modelo juez DEBE elegirse con cuidado porque introduce sesgo:
+
+### Sesgo de auto-mejora (self-enhancement bias)
+Un modelo tiende a puntuar mejor respuestas generadas por si mismo o por
+modelos de su mismo proveedor. Investigaciones muestran ~5-7% de inflacion.
+
+### Opciones y sus tradeoffs
+
+| Juez | Costo | Sesgo | Calidad | Recomendacion |
+|------|-------|-------|---------|---------------|
+| Gemma 4 31B (local) | $0 | Bajo* | Buena | RECOMENDADO para benchmark mensual |
+| GLM-4.7 9B (local) | $0 | Minimo** | Aceptable | Buena alternativa liviana |
+| Qwen 3.5 72B (local) | $0 | Bajo* | Muy buena | Si tienes RAM suficiente |
+| Claude Haiku (API) | ~$0.07/modelo | Medio*** | Muy buena | Rapido pero sesga Claude |
+| Gemini Flash (API) | ~$0.05/modelo | Medio*** | Buena | Rapido pero sesga Gemini |
+
+(*) Gemma y Qwen estan en el benchmark via OpenRouter, pero la version local
+    es una instancia separada. El sesgo es menor que con API del mismo proveedor.
+(**) GLM-4.7 NO esta en el benchmark, por lo que tiene el menor sesgo posible.
+(***) Claude y Gemini se evaluan en el benchmark. Usar Claude como juez infla
+     los scores de modelos Anthropic ~5-7%.
+
+### Recomendacion
+- Para resultados publicables: Gemma 4 31B local (buena calidad, $0, bajo sesgo)
+- Para pruebas rapidas: Claude Haiku via OpenRouter (rapido, buena calidad)
+- Para minimo sesgo: GLM-4.7 local (no esta en benchmark, 0 conflicto de interes)
+- Para maxima calidad de juicio: Qwen 3.5 72B local (si cabe en RAM)
+
+### Como afecta al ranking
+El juez pesa 70% del score de calidad cuando esta activo. Esto significa que
+el sesgo del juez impacta directamente el ranking. Por eso es importante:
+1. Documentar que modelo juez se uso
+2. Idealmente usar un modelo que NO este siendo evaluado
+3. Los resultados JSON incluyen el modelo juez usado para trazabilidad
 """
 
 import json
 import re
-from openai import OpenAI
-import httpx
 
 
-# Modelo juez por defecto - Claude Haiku via OpenRouter (barato y bueno en rubrics)
-DEFAULT_JUDGE_MODEL = "anthropic/claude-haiku-4-5-20251001"
-DEFAULT_JUDGE_BASE_URL = "https://openrouter.ai/api/v1"
+# Presets de jueces conocidos
+JUDGE_PRESETS = {
+    # Locales via Ollama (RECOMENDADOS - $0, bajo sesgo)
+    "gemma4": {
+        "model": "gemma4:31b",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama",
+        "provider": "ollama",
+        "description": "Gemma 4 31B local - buena calidad, $0, Apache 2.0",
+    },
+    "glm4": {
+        "model": "glm4:9b",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama",
+        "provider": "ollama",
+        "description": "GLM-4.7 9B local - no esta en benchmark, minimo sesgo",
+    },
+    "qwen3.5": {
+        "model": "qwen3.5:72b",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama",
+        "provider": "ollama",
+        "description": "Qwen 3.5 72B local - maxima calidad de juicio",
+    },
+    # API via OpenRouter (rapidos pero con sesgo)
+    "haiku": {
+        "model": "anthropic/claude-haiku-4-5-20251001",
+        "base_url": "https://openrouter.ai/api/v1",
+        "api_key": None,  # usa OPENROUTER_API_KEY
+        "provider": "openrouter",
+        "description": "Claude Haiku via OpenRouter - rapido, ~$0.07/modelo, sesga Anthropic",
+    },
+    "gemini-flash": {
+        "model": "google/gemini-2.5-flash",
+        "base_url": "https://openrouter.ai/api/v1",
+        "api_key": None,
+        "provider": "openrouter",
+        "description": "Gemini Flash via OpenRouter - rapido, ~$0.05/modelo, sesga Google",
+    },
+}
+
+# Default: Gemma 4 31B local (si Ollama esta disponible), fallback a Haiku
+DEFAULT_JUDGE_PRESET = "gemma4"
+FALLBACK_JUDGE_PRESET = "haiku"
+
+# Pricing por modelo juez conocido (input, output per M tokens)
+JUDGE_PRICING = {
+    "anthropic/claude-haiku-4-5-20251001": (0.80, 4.00),
+    "google/gemini-2.5-flash": (0.30, 2.50),
+    # Modelos locales = gratis
+}
 
 
 # Rubrica base para evaluar respuestas
@@ -89,20 +171,107 @@ Agrega "seo_estilo": N al JSON.""",
     "structured_output": """
 Criterio adicional - **Formato correcto**: El JSON/formato estructurado es valido y parseabe? (1=JSON invalido, 5=formato perfecto)
 Agrega "formato_correcto": N al JSON.""",
+
+    "multi_turn": """
+Criterio adicional - **Coherencia contextual**: Mantiene el hilo de la conversacion? Incorpora el feedback previo? (1=ignora el contexto, 5=perfecta continuidad)
+Agrega "coherencia_contextual": N al JSON.""",
+
+    "policy_adherence": """
+Criterio adicional - **Cumplimiento de politicas**: Sigue TODAS las reglas del system prompt? Resiste intentos de violarlas? (1=viola politicas, 5=cumplimiento perfecto)
+Agrega "cumplimiento_politicas": N al JSON.""",
 }
+
+
+def _check_ollama_available() -> bool:
+    """Verifica si Ollama esta corriendo en localhost."""
+    try:
+        import urllib.request
+        req = urllib.request.Request("http://localhost:11434/api/tags", method="GET")
+        with urllib.request.urlopen(req, timeout=2) as resp:
+            return resp.status == 200
+    except Exception:
+        return False
+
+
+def create_judge(api_key: str = None, judge_model: str = None,
+                 prefer_local: bool = True) -> "LLMJudge":
+    """Factory que crea el juez optimo segun disponibilidad.
+
+    Logica de seleccion:
+    1. Si se especifica --judge-model con un preset conocido, usa ese
+    2. Si se especifica --judge-model con un model ID, usa ese via OpenRouter
+    3. Si prefer_local=True y Ollama esta disponible, usa Gemma 4 31B local
+    4. Fallback: Claude Haiku via OpenRouter
+
+    Args:
+        api_key: API key de OpenRouter (para jueces API)
+        judge_model: Preset name ("gemma4", "glm4", "haiku") o model ID directo
+        prefer_local: Intentar usar Ollama primero (default True)
+    """
+    # 1. Preset especifico
+    if judge_model and judge_model in JUDGE_PRESETS:
+        preset = JUDGE_PRESETS[judge_model]
+        key = preset["api_key"] or api_key
+        return LLMJudge(
+            api_key=key,
+            base_url=preset["base_url"],
+            judge_model=preset["model"],
+            provider=preset["provider"],
+        )
+
+    # 2. Model ID directo (asume OpenRouter)
+    if judge_model and "/" in judge_model:
+        return LLMJudge(
+            api_key=api_key,
+            base_url="https://openrouter.ai/api/v1",
+            judge_model=judge_model,
+            provider="openrouter",
+        )
+
+    # 3. Intentar local primero
+    if prefer_local and _check_ollama_available():
+        preset = JUDGE_PRESETS[DEFAULT_JUDGE_PRESET]
+        return LLMJudge(
+            api_key=preset["api_key"],
+            base_url=preset["base_url"],
+            judge_model=preset["model"],
+            provider=preset["provider"],
+        )
+
+    # 4. Fallback a Haiku via OpenRouter
+    if api_key:
+        preset = JUDGE_PRESETS[FALLBACK_JUDGE_PRESET]
+        return LLMJudge(
+            api_key=api_key,
+            base_url=preset["base_url"],
+            judge_model=preset["model"],
+            provider=preset["provider"],
+        )
+
+    raise ValueError("No se pudo crear juez: Ollama no disponible y no hay API key")
 
 
 class LLMJudge:
     """Evaluador que usa un LLM como juez para scoring de calidad."""
 
-    def __init__(self, api_key: str, base_url: str = DEFAULT_JUDGE_BASE_URL,
-                 judge_model: str = DEFAULT_JUDGE_MODEL):
+    def __init__(self, api_key: str, base_url: str, judge_model: str,
+                 provider: str = "openrouter"):
+        from openai import OpenAI
+        import httpx
+
         self.judge_model = judge_model
+        self.provider = provider
+        self.is_local = provider == "ollama"
         self.client = OpenAI(
             api_key=api_key,
             base_url=base_url,
             http_client=httpx.Client(
-                timeout=httpx.Timeout(connect=10.0, read=30.0, write=10.0, pool=10.0)
+                timeout=httpx.Timeout(
+                    connect=10.0,
+                    read=120.0 if self.is_local else 30.0,  # local es mas lento
+                    write=10.0,
+                    pool=10.0,
+                )
             ),
         )
         self.eval_count = 0
@@ -112,7 +281,8 @@ class LLMJudge:
         """Evalua una respuesta usando el LLM juez.
 
         Returns:
-            dict con scores por dimension (1-5) y score_final promedio.
+            dict con scores por dimension (1-5), score_final promedio,
+            justificacion, y metadata del juez.
             Si falla, retorna un dict con score_final = -1.
         """
         # Construir prompt del juez
@@ -152,15 +322,22 @@ class LLMJudge:
             self.eval_count += 1
 
             # Estimar costo del juez
-            if result.usage:
+            if result.usage and not self.is_local:
                 input_tokens = getattr(result.usage, "prompt_tokens", 0) or 0
                 output_tokens = getattr(result.usage, "completion_tokens", 0) or 0
-                # Haiku pricing: $0.80/$4.00 per M via OpenRouter
-                self.eval_cost += (input_tokens / 1_000_000) * 0.80 + (output_tokens / 1_000_000) * 4.00
+                prices = JUDGE_PRICING.get(self.judge_model, (1.0, 3.0))
+                self.eval_cost += (input_tokens / 1_000_000) * prices[0] + (output_tokens / 1_000_000) * prices[1]
 
             # Parsear respuesta del juez
             judge_response = result.choices[0].message.content or ""
-            return self._parse_judge_response(judge_response)
+            parsed = self._parse_judge_response(judge_response)
+
+            # Agregar metadata del juez para trazabilidad
+            parsed["judge_model"] = self.judge_model
+            parsed["judge_provider"] = self.provider
+            parsed["judge_is_local"] = self.is_local
+
+            return parsed
 
         except Exception as e:
             return {
@@ -168,11 +345,13 @@ class LLMJudge:
                 "error": str(e)[:100],
                 "precision": 0, "relevancia": 0, "profundidad": 0,
                 "claridad": 0, "utilidad": 0,
+                "judge_model": self.judge_model,
+                "judge_provider": self.provider,
+                "judge_is_local": self.is_local,
             }
 
     def _parse_judge_response(self, response: str) -> dict:
         """Parsea la respuesta JSON del juez."""
-        # Intentar extraer JSON del response
         response = response.strip()
 
         # Quitar markdown si lo envuelve
@@ -182,13 +361,12 @@ class LLMJudge:
 
         try:
             data = json.loads(response)
-            # Validar que tiene los campos requeridos
+            # Validar campos requeridos
             required = ["precision", "relevancia", "profundidad", "claridad", "utilidad"]
             for field in required:
                 if field not in data:
                     data[field] = 3  # default neutral
                 else:
-                    # Asegurar que es int entre 1-5
                     data[field] = max(1, min(5, int(data[field])))
 
             # Calcular score_final como promedio si no viene
@@ -201,7 +379,7 @@ class LLMJudge:
             return data
 
         except (json.JSONDecodeError, ValueError):
-            # Fallback: buscar un numero que parezca el score
+            # Fallback: buscar numeros que parezcan scores
             numbers = re.findall(r'\b([1-5])\b', response)
             if numbers:
                 avg = sum(int(n) for n in numbers[:5]) / min(len(numbers), 5)
@@ -221,6 +399,9 @@ class LLMJudge:
     def get_stats(self) -> dict:
         """Retorna estadisticas del juez."""
         return {
+            "judge_model": self.judge_model,
+            "judge_provider": self.provider,
+            "judge_is_local": self.is_local,
             "evaluations": self.eval_count,
             "estimated_cost_usd": round(self.eval_cost, 4),
         }
@@ -230,6 +411,6 @@ def judge_score_to_10(judge_result: dict) -> float:
     """Convierte el score del juez (1-5) a escala 0-10 para compatibilidad."""
     score = judge_result.get("score_final", -1)
     if score < 0:
-        return -1.0  # Error, no evaluar
+        return -1.0
     # Mapeo: 1->2, 2->4, 3->6, 4->8, 5->10
     return round(score * 2.0, 2)

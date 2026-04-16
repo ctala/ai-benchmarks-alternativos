@@ -8,7 +8,8 @@
 - **Suite orchestration** (5 tests): Planificacion multi-paso, recuperacion de errores, descomposicion de workflows, seleccion precisa de herramientas, juicio paralelo vs secuencial
 - **Suite multi_turn** (4 tests): Iteracion de contenido con feedback, soporte que escala, cambio de requisitos a mitad de camino, debugging iterativo
 - **Suite policy_adherence** (4 tests): Politicas de reembolso bajo presion, proteccion de datos ante ingenieria social, reglas de idioma/tono, limites de alcance de servicio
-- **LLM-as-Judge** (`--judge`): Usa Claude Haiku 4.5 via OpenRouter como evaluador automatico. Evalua 5 dimensiones (precision, relevancia, profundidad, claridad, utilidad) + criterios extra por suite (originalidad, empatia, planificacion, etc.). Combina 30% score automatico + 70% juez. Costo ~$0.07 por modelo (~$0.001/evaluacion).
+- **LLM-as-Judge** (`--judge`): Sistema de evaluacion con auto-deteccion de juez. Prioridad: 1) Gemma 4 31B local via Ollama ($0, bajo sesgo), 2) Claude Haiku via OpenRouter (~$0.07/modelo). Evalua 5 dimensiones (precision, relevancia, profundidad, claridad, utilidad) + criterios extra por suite (originalidad, empatia, planificacion, coherencia contextual, cumplimiento de politicas). Combina 30% score automatico + 70% juez. Presets: gemma4, glm4, qwen3.5, haiku, gemini-flash. Tambien acepta model IDs directos.
+- **Documentacion de sesgo del juez**: El modelo juez introduce sesgo (~5-7% de inflacion para modelos del mismo proveedor). Documentado en README, llm_judge.py, y CHANGELOG con tabla de tradeoffs por juez. Resultados JSON registran que juez se uso.
 - Total: 77 tests en 19 suites (antes: 59 tests en 15 suites)
 - Xiaomi como nuevo proveedor en PROVEEDORES.md y COMPARATIVA.md
 

@@ -37,7 +37,7 @@ from benchmarks.scoring import (
     estimate_cost,
     compute_final_score,
 )
-from benchmarks.llm_judge import LLMJudge, judge_score_to_10
+from benchmarks.llm_judge import LLMJudge, create_judge, judge_score_to_10, JUDGE_PRESETS
 from providers.adapters import UnifiedProvider, BenchmarkResult
 
 # Importar tests
@@ -293,14 +293,20 @@ def run_benchmark(args):
         ollama = UnifiedProvider("ollama", "ollama", "http://localhost:11434/v1")
 
     # LLM-as-Judge (opcional)
+    # Prioridad: 1) modelo especificado, 2) Ollama local (Gemma 4), 3) Haiku via OpenRouter
     judge = None
     if args.judge:
-        judge_model = args.judge_model or None
-        judge_kwargs = {"api_key": OPENROUTER_API_KEY}
-        if judge_model:
-            judge_kwargs["judge_model"] = judge_model
-        judge = LLMJudge(**judge_kwargs)
-        print(f"  LLM-as-Judge habilitado: {judge.judge_model}", flush=True)
+        try:
+            judge = create_judge(
+                api_key=OPENROUTER_API_KEY,
+                judge_model=args.judge_model,
+                prefer_local=True,
+            )
+            local_tag = " (LOCAL)" if judge.is_local else f" (API, ~${0.07:.2f}/modelo)"
+            print(f"  LLM-as-Judge: {judge.judge_model}{local_tag}", flush=True)
+        except ValueError as e:
+            print(f"  [WARN] No se pudo crear juez: {e}", flush=True)
+            print(f"  Continuando sin LLM-as-Judge...", flush=True)
 
     # Conteo total
     total_tests = sum(len(tests) for tests in test_suites.values())
@@ -382,8 +388,19 @@ def run_benchmark(args):
     results_dir = Path(RESULTS_DIR)
     results_dir.mkdir(parents=True, exist_ok=True)
     results_file = results_dir / f"benchmark_{timestamp}.json"
+
+    # Incluir metadata del juez en el archivo de resultados
+    output = {
+        "metadata": {
+            "timestamp": timestamp,
+            "total_runs": completed,
+            "errors": errors,
+            "judge": judge.get_stats() if judge else None,
+        },
+        "results": all_results,
+    }
     with open(results_file, "w") as f:
-        json.dump(all_results, f, indent=2, ensure_ascii=False)
+        json.dump(output, f, indent=2, ensure_ascii=False)
 
     console.print(f"\n[green]Resultados guardados en {results_file}[/green]")
 
@@ -506,9 +523,11 @@ def main():
     parser.add_argument("--tier", help="Solo modelos de un tier",
                        choices=["free", "ultra_cheap", "cheap", "medium", "premium", "local"])
     parser.add_argument("--quick", action="store_true", help="1 run por test (rapido)")
-    parser.add_argument("--judge", action="store_true", help="Usar LLM-as-Judge (Claude Haiku) para evaluar calidad")
+    parser.add_argument("--judge", action="store_true",
+                       help="Usar LLM-as-Judge (Gemma 4 local si Ollama disponible, sino Claude Haiku)")
     parser.add_argument("--judge-model", type=str, default=None,
-                       help="Modelo juez alternativo (default: Claude Haiku 4.5)")
+                       help="Preset (gemma4, glm4, qwen3.5, haiku, gemini-flash) o model ID directo")
+    parser.add_argument("--list-judges", action="store_true", help="Listar jueces disponibles")
     parser.add_argument("--list-models", action="store_true", help="Listar modelos disponibles")
     parser.add_argument("--list-tests", action="store_true", help="Listar tests disponibles")
 
@@ -530,6 +549,20 @@ def main():
             console.print(f"\n  [cyan]{suite}[/cyan] ({len(tests)} tests):")
             for t in tests:
                 console.print(f"    - {t['name']}: {t['description']}")
+        return
+
+    if args.list_judges:
+        from benchmarks.llm_judge import _check_ollama_available
+        ollama_ok = _check_ollama_available()
+        console.print("[bold]Modelos juez disponibles:[/bold]\n")
+        for name, preset in JUDGE_PRESETS.items():
+            local = preset["provider"] == "ollama"
+            status = "[green]disponible[/green]" if (local and ollama_ok) or not local else "[red]Ollama no detectado[/red]"
+            console.print(f"  [cyan]{name}[/cyan]: {preset['description']}")
+            console.print(f"    Modelo: {preset['model']} | Estado: {status}")
+        console.print(f"\n  Ollama: {'[green]corriendo[/green]' if ollama_ok else '[yellow]no detectado[/yellow]'}")
+        console.print("\n  Uso: --judge --judge-model gemma4")
+        console.print("  Tambien acepta model IDs: --judge-model google/gemini-2.5-flash")
         return
 
     run_benchmark(args)
