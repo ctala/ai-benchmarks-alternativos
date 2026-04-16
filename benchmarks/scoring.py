@@ -496,6 +496,20 @@ PRICING = {
     "qwen/qwen-3.5-72b": (1.20, 2.00),
     # Grok
     "grok-2": (2.00, 10.00),
+    # NVIDIA Nemotron
+    "nvidia/nemotron-3-nano-30b-a3b": (0.05, 0.20),
+    "nvidia/nemotron-3-super-120b-a12b": (0.10, 0.50),
+    # Mistral (nuevos Abril 2026)
+    "mistralai/mistral-small-2603": (0.15, 0.60),
+    "mistralai/devstral-2512": (0.40, 2.00),
+    # xAI Grok
+    "x-ai/grok-4.1-fast": (0.20, 0.50),
+    "x-ai/grok-4.20": (2.00, 6.00),
+    # Google Gemini (nuevos Abril 2026)
+    "google/gemini-3.1-flash-lite-preview": (0.25, 1.50),
+    "google/gemini-3.1-pro-preview": (2.00, 12.00),
+    # Zhipu GLM
+    "z-ai/glm-5.1": (0.95, 3.15),
     # Xiaomi MiMo
     "xiaomi/mimo-v2-flash:free": (0.0, 0.0),
     "xiaomi/mimo-v2-flash": (0.09, 0.29),

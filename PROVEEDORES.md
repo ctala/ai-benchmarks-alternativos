@@ -36,15 +36,24 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 
 ### xAI (USA)
 - **Fundada**: 2023, por Elon Musk
-- **Foco**: Razonamiento, integracion con X/Twitter
-- **Modelos**: Grok 4.20, Grok 4
-- **Fortalezas**: #4 en Arena, RPM mas alto del mercado (1200), acceso a datos de X
+- **Foco**: Razonamiento, integracion con X/Twitter, agentes
+- **Modelos**: Grok 4.20 (multi-agent interno), Grok 4.1 Fast (mejor tool calling), Grok 4
+- **Fortalezas**: #4 en Arena, RPM mas alto del mercado (1200), 2M contexto, Grok 4.1 Fast a $0.20/$0.50
 - **Debilidades**: Ecosistema joven, SuperGrok Heavy es carisimo ($300/mes)
 - **API**: api.x.ai | Suscripcion: SuperGrok $30/mes
 
 ---
 
 ## Proveedores Open-Source
+
+### NVIDIA (USA)
+- **Fundada**: 1993, Jensen Huang
+- **Foco**: Modelos agenticos open-source optimizados para sus GPUs
+- **Modelos**: Nemotron 3 Super (120B MoE, 12B activos, 1M ctx), Nemotron 3 Nano (30B MoE, 3B activos)
+- **Fortalezas**: Modelos disenados para agentes, tool calling de primera clase, ultra baratos ($0.05-$0.10/M), corren eficientemente en DGX Spark
+- **Debilidades**: Modelos nuevos, ecosistema aun madurando
+- **API**: Via OpenRouter | Tambien descargables para inferencia local
+- **Open-source**: NVIDIA Nemotron Open Model License (permisiva, uso comercial)
 
 ### MiniMax (China, Beijing)
 - **Fundada**: 2021, por Yan Junjie (ex-SenseTime)
@@ -108,10 +117,10 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 
 ### Zhipu AI / GLM (China, Beijing)
 - **Fundada**: 2019, spin-off de Tsinghua University
-- **Foco**: Modelos agenticos, tool calling
-- **Modelos**: GLM-4.7, GLM-4.7 Thinking
-- **Fortalezas**: 90%+ accuracy en tool calling, excelente para agentes locales
-- **Open-source**: Apache 2.0
+- **Foco**: Modelos agenticos, tool calling, sesiones autonomas largas
+- **Modelos**: GLM-5.1 (754B MoE, MIT, #1 SWE-Bench Pro), GLM-4.7, GLM-4.7 Thinking
+- **Fortalezas**: GLM-5.1 disenado para 8h de sesiones autonomas con miles de tool calls. #1 SWE-Bench Pro (58.4%). $0.95/$3.15.
+- **Open-source**: MIT (GLM-5.1), Apache 2.0 (GLM-4.7)
 
 ---
 
@@ -164,7 +173,11 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 | Xiaomi | MiMo-V2-Flash | **Si** | MIT | Si (~40 GB Q4) |
 | Xiaomi | MiMo-V2-Pro | No | Propietario | No |
 | Xiaomi | MiMo-V2-Omni | No | Propietario | No |
+| Zhipu | GLM-5.1 | **Si** | MIT | No (754B MoE) |
 | Zhipu | GLM-4.7 | **Si** | Apache 2.0 | Si (7 GB) |
+| NVIDIA | Nemotron 3 Super | **Si** | NVIDIA Open | Si (~16 GB) |
+| NVIDIA | Nemotron 3 Nano | **Si** | NVIDIA Open | Si (~4 GB) |
 | OpenAI | GPT-4o, o3 | No | Propietario | No |
+| xAI | Grok 4.1/4.20 | No | Propietario | No |
 | Anthropic | Claude | No | Propietario | No |
 | xAI | Grok | No | Propietario | No |

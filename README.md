@@ -149,19 +149,96 @@ python benchmarks/runner.py --list-models                    # Ver modelos dispo
 python benchmarks/runner.py --list-tests                     # Ver tests disponibles
 ```
 
+## Como Replicar el Benchmark
+
+Guia paso a paso para correr el benchmark completo desde cero.
+
+### Requisitos
+- Python 3.11+
+- API key de [OpenRouter](https://openrouter.ai/) (unica key necesaria, da acceso a 290+ modelos)
+- (Opcional) [Ollama](https://ollama.ai/) para modelos locales y LLM-as-Judge local
+
+### Paso 1: Setup
+
+```bash
+git clone https://github.com/ctala/ai-benchmarks-alternativos.git
+cd ai-benchmarks-alternativos
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+cp benchmarks/config.example.py benchmarks/config.py
+```
+
+Edita `benchmarks/config.py` y agrega tu `OPENROUTER_API_KEY`.
+
+### Paso 2: Elegir modelos
+
+En `config.py`, comenta/descomenta los modelos que quieras evaluar. Para una prueba rapida:
+
+```bash
+# Solo 2 modelos baratos, 1 run por test
+python benchmarks/runner.py --quick --models deepseek-v3 mimo-v2-flash
+```
+
+### Paso 3: Correr benchmark
+
+```bash
+# Rapido sin juez (~5 min por modelo)
+python benchmarks/runner.py --quick
+
+# Con LLM-as-Judge para resultados confiables (~8 min por modelo)
+python benchmarks/runner.py --quick --judge
+
+# Con juez local via Ollama ($0, requiere Ollama + modelo descargado)
+ollama pull gemma4:31b
+python benchmarks/runner.py --quick --judge --judge-model gemma4
+
+# Benchmark completo (3 runs por test, mas preciso, ~15 min por modelo)
+python benchmarks/runner.py --judge
+```
+
+### Paso 4: Resultados
+
+Los resultados se guardan en `benchmarks/results/benchmark_YYYYMMDD_HHMMSS.json` con:
+- Scores por test y modelo (calidad, tool calling, velocidad, costo)
+- Metadata del juez usado (modelo, proveedor, local/API) para trazabilidad
+- Rankings global y por categoria en la consola
+
+### Paso 5: Agregar un modelo nuevo
+
+```bash
+# 1. Agregar en config.py (ver config.example.py para formato)
+# 2. Agregar pricing en scoring.py dict PRICING
+# 3. Correr
+python benchmarks/runner.py --quick --judge --models mi-nuevo-modelo
+# 4. Actualizar docs con resultados
+```
+
+### Costo estimado por run completo
+
+| Componente | Costo |
+|------------|-------|
+| 1 modelo, 77 tests, modo --quick | ~$0.01-0.05 (depende del modelo) |
+| LLM-as-Judge (Haiku, 77 evals) | ~$0.07 |
+| LLM-as-Judge (local Ollama) | $0.00 |
+| Run completo 10 modelos con juez | ~$0.50-1.00 |
+| Run completo 10 modelos, 3 runs, con juez | ~$1.50-3.00 |
+
 ## Modelos Incluidos (via OpenRouter)
 
 ### Gratuitos
-- DeepSeek R1, Llama 3.3 70B, Qwen 3.6 Plus (preview), **MiMo-V2-Flash (free)**
+- DeepSeek R1, Llama 3.3 70B, Qwen 3.6 Plus (preview), MiMo-V2-Flash (free)
 
-### Economicos ($0.02 - $1.20/M tokens)
-- Mistral Nemo, **MiMo-V2-Flash**, DeepSeek V3.2, Gemma 4 (26B MoE, 31B), MiniMax M2.7, MiniMax M2.7 Highspeed, Gemini 2.5 Flash, Qwen 3.6 Plus, **MiMo-V2-Omni**, Llama 4 Maverick, Qwen 3.5 Plus
+### Ultra Economicos (<$0.10/M tokens)
+- Mistral Nemo, **Nemotron 3 Nano**, MiMo-V2-Flash
+
+### Economicos ($0.10 - $1.20/M tokens)
+- **Nemotron 3 Super**, DeepSeek V3.2, **Mistral Small 4**, **Grok 4.1 Fast**, **Gemini 3.1 Flash Lite**, MiniMax M2.7, Gemini 2.5 Flash, Qwen 3.6 Plus, **Devstral 2**, MiMo-V2-Omni, **GLM-5.1**, Qwen 3.5 Plus, Llama 4 Maverick
 
 ### Medio ($1.00 - $15/M tokens)
-- **MiMo-V2-Pro**, Gemini 2.5 Pro, GPT-4o, Claude Sonnet 4
+- MiMo-V2-Pro, Gemini 2.5 Pro, **Gemini 3.1 Pro**, **Grok 4.20**, GPT-4o, Claude Sonnet 4
 
 ### Open Source para NVIDIA DGX Spark (128GB)
-- Gemma 4 26B MoE, Gemma 4 31B, Qwen 3.5 25B/72B, Llama 3.3/4 70B, MiniMax M2.5, DeepSeek V3.2
+- **Nemotron 3 Super** (16 GB), **Nemotron 3 Nano** (4 GB), Gemma 4 26B MoE, Gemma 4 31B, Qwen 3.5 25B/72B, Llama 3.3/4 70B, MiniMax M2.5, DeepSeek V3.2
 
 ## Benchmark Suites (77 tests en 19 suites)
 
