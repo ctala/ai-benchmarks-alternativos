@@ -26,6 +26,93 @@ Proyecto para evaluar y comparar modelos de IA para uso con agentes (OpenClaw, N
 | Tool Calling | 20% | Capacidad de function calling para agentes |
 | Disponibilidad | 10% | Rate limits, cuotas, que no se quede sin servicio |
 
+## Metodologia
+
+```mermaid
+flowchart TD
+    subgraph INPUT["Entrada"]
+        T["77 Tests en 19 Suites"]
+        M["20+ Modelos via OpenRouter"]
+    end
+
+    subgraph EXEC["Ejecucion"]
+        R["runner.py envia test al modelo"]
+        RESP["Modelo genera respuesta"]
+        R --> RESP
+    end
+
+    subgraph SCORING["Scoring (3 capas)"]
+        direction TB
+        S1["<b>Capa 1: Automatico</b>
+        Longitud, secciones, idioma, formato
+        Penalizacion: chino en espanol
+        Busqueda Unicode-aware"]
+
+        S2["<b>Capa 2: Expected Answer</b>
+        Razonamiento, alucinaciones,
+        creatividad, honestidad,
+        datos numericos, precision"]
+
+        S3["<b>Capa 3: LLM-as-Judge</b>
+        Claude Haiku evalua:
+        precision, relevancia,
+        profundidad, claridad,
+        utilidad practica"]
+
+        S1 --> COMBINE
+        S2 --> COMBINE
+        S3 -->|"--judge"| COMBINE
+    end
+
+    subgraph COMBINE["Combinacion"]
+        direction TB
+        NOJUDGE["Sin juez: 40% formato + 60% sustancia"]
+        WITHJUDGE["Con juez: 30% auto + 70% juez"]
+    end
+
+    subgraph METRICS["Score Final Ponderado"]
+        direction LR
+        Q["Calidad 35%"]
+        TC["Tool Calling 25%"]
+        CO["Costo 15%"]
+        AV["Disponibilidad 15%"]
+        SP["Velocidad 5%"]
+        LA["Latencia 5%"]
+    end
+
+    subgraph OUTPUT["Salida"]
+        JSON["results/*.json"]
+        RANK["Ranking Global"]
+        CAT["Mejor por Categoria"]
+    end
+
+    T --> R
+    M --> R
+    RESP --> S1
+    RESP --> S2
+    RESP --> S3
+    COMBINE --> METRICS
+    METRICS --> JSON
+    JSON --> RANK
+    JSON --> CAT
+
+    style INPUT fill:#1a1a2e,stroke:#e94560,color:#fff
+    style EXEC fill:#16213e,stroke:#0f3460,color:#fff
+    style SCORING fill:#0f3460,stroke:#533483,color:#fff
+    style COMBINE fill:#533483,stroke:#e94560,color:#fff
+    style METRICS fill:#1a1a2e,stroke:#e94560,color:#fff
+    style OUTPUT fill:#16213e,stroke:#0f3460,color:#fff
+```
+
+### Flujo detallado
+
+1. **Entrada**: Cada test (prompt + criterios + expected_answer) se envia a cada modelo via OpenRouter
+2. **Scoring automatico** (Capa 1): Regex verifica longitud, secciones, idioma, formato. Penaliza caracteres chinos en espanol.
+3. **Expected answer** (Capa 2): Valida que la respuesta contenga los insights correctos, no alucine, sea creativa sin cliches, y tenga datos precisos.
+4. **LLM-as-Judge** (Capa 3, opcional con `--judge`): Claude Haiku 4.5 lee la respuesta y la evalua con rubrica en 5 dimensiones + criterios extras por suite.
+5. **Combinacion**: Sin juez usa 40% formato + 60% sustancia. Con juez usa 30% automatico + 70% evaluacion del juez.
+6. **Score final**: Pondera calidad (35%), tool calling (25%), costo (15%), disponibilidad (15%), velocidad (5%), latencia (5%).
+
 ## Quick Start
 
 ```bash
