@@ -34,6 +34,7 @@ pip install -r requirements.txt
 cp benchmarks/config.example.py benchmarks/config.py
 # Editar config.py con tu OPENROUTER_API_KEY
 python benchmarks/runner.py --quick                          # Todos los modelos, 1 run
+python benchmarks/runner.py --quick --judge                  # Con LLM-as-Judge (Claude Haiku)
 python benchmarks/runner.py --models minimax-m2.7 deepseek-v3  # Modelos especificos
 python benchmarks/runner.py --tier cheap                     # Solo tier economico
 python benchmarks/runner.py --list-models                    # Ver modelos disponibles
@@ -54,7 +55,7 @@ python benchmarks/runner.py --list-tests                     # Ver tests disponi
 ### Open Source para NVIDIA DGX Spark (128GB)
 - Gemma 4 26B MoE, Gemma 4 31B, Qwen 3.5 25B/72B, Llama 3.3/4 70B, MiniMax M2.5, DeepSeek V3.2
 
-## Benchmark Suites (69 tests en 17 suites)
+## Benchmark Suites (77 tests en 19 suites)
 
 | Suite | Tests | Que Evalua |
 |-------|-------|-----------|
@@ -74,6 +75,8 @@ python benchmarks/runner.py --list-tests                     # Ver tests disponi
 | **news_seo_writing** | 5 | Articulos SEO, JSON N8N, solo espanol, anti-alucinacion, Perplexity |
 | **ocr_extraction** | 5 | Facturas, tarjetas, recibos con verificacion, dashboards, notas manuscritas |
 | **orchestration** | 5 | Planificacion multi-paso, error recovery, tool selection, paralelizacion |
+| **multi_turn** | 4 | Iteracion de contenido, soporte escalado, cambio de requisitos, debugging |
+| **policy_adherence** | 4 | Politicas de reembolso, privacidad de datos, reglas de idioma, limites de alcance |
 | presentation | 2 | Slide outline, reportes de datos |
 
 Scripts adicionales (no incluidos en el scoring global):
@@ -142,8 +145,9 @@ Scripts adicionales (no incluidos en el scoring global):
 - **Mas rapido**: Gemini Flash Lite (195 tok/s) y Devstral (161 tok/s)
 - **Mas barato**: DeepSeek V3.2 - $0.00022/call, #4 global
 - **Modelos chinos**: MiniMax y Qwen a veces responden con caracteres chinos en espanol
+- **LLM-as-Judge (Abril 16)**: Nuevo modo `--judge` que usa Claude Haiku como evaluador. Califica precision, relevancia, profundidad, claridad y utilidad practica en escala 1-5. Combina 30% score automatico + 70% juez. Costo ~$0.07 por modelo.
 - **Scoring v2 (Abril 16)**: Corregido sesgo de formato. Ahora valida sustancia (razonamiento, honestidad, creatividad real, datos correctos). Los rankings pueden cambiar al re-correr benchmarks. Ver [CHANGELOG.md](CHANGELOG.md) para detalles.
-- **Nuevos tests**: OCR/extraccion (facturas, recibos, dashboards) y Orquestacion (planificacion, error recovery, tool selection)
+- **Nuevos tests (18 nuevos)**: OCR/extraccion, orquestacion, multi-turno, y adherencia a politicas. Total: 77 tests en 19 suites.
 - **Xiaomi MiMo**: 4 modelos nuevos incluyendo MiMo-V2-Flash (MIT, $0.09/$0.29, 73.4% SWE-Bench) - candidato serio a top 5
 
 ### Recomendacion por Caso de Uso
@@ -177,7 +181,7 @@ Scripts adicionales (no incluidos en el scoring global):
 │   ├── config.py                    # Tu configuracion (gitignored)
 │   ├── runner.py                    # Motor de benchmarks
 │   ├── scoring.py                   # Sistema de puntuacion
-│   ├── tests/                       # 17 suites de tests
+│   ├── tests/                       # 19 suites de tests
 │   └── results/                     # Resultados JSON
 ├── providers/
 │   └── adapters.py                  # Adaptador unificado OpenAI-compatible
