@@ -67,7 +67,8 @@
       "Bash(sysctl -n hw.memsize)",
       "Bash(python benchmarks/runner.py --quick --tests agent_capabilities --models devstral deepseek-v3 gpt-4.1 gpt-4.1-mini claude-sonnet-4.6 claude-opus-4.6 gemini-flash-lite minimax-m2.7 llama-4-maverick qwen3-coder kimi-k2 gpt-5.4-mini mistral-large)",
       "Bash(grep -rn \"77 test\\\\|19 suite\\\\|59 test\\\\|15 suite\\\\|48 test\\\\|13 suite\\\\|951 run\\\\|20 suite\" --include=*.md --include=*.py /Users/cristiantala/Playground/Benchmarks/alternativos/)",
-      "Bash(grep -rn \"11 de Abril\\\\|12 de Abril\\\\|14 de Abril\\\\|16 de Abril\" --include=*.md /Users/cristiantala/Playground/Benchmarks/alternativos/)"
+      "Bash(grep -rn \"11 de Abril\\\\|12 de Abril\\\\|14 de Abril\\\\|16 de Abril\" --include=*.md /Users/cristiantala/Playground/Benchmarks/alternativos/)",
+      "Bash(python benchmarks/runner.py --quick --judge --judge-model phi4 --models kimi-k2.6 claude-opus-4.7 claude-opus-4.6)"
     ]
   }
 }
