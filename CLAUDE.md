@@ -103,3 +103,35 @@ python benchmarks/runner.py --list-tests
 - Tiene NVIDIA DGX Spark (128GB RAM) para modelos locales
 - Ubicado en Chile (latencia a servidores USA)
 - Suscripciones activas: OpenRouter, MiniMax (highspeed), Anthropic (API)
+- Claude Code ya no viene en suscripcion Pro $20 (desde 21 abril 2026)
+- DGX Spark llega la proxima semana (comprado, en camino)
+
+## Estado actual (22 Abril 2026)
+
+### YA COMPLETADO (no re-hacer)
+- Kimi K2.6 vs Claude Opus 4.7/4.6: 91 tests con juez Phi-4 -> resultados en benchmark_20260422_082319.json
+- Agent capabilities: 13 modelos x 5 tests -> resultados en benchmark_20260422_062137.json
+- Todos los tests anteriores (sin juez): 15+ archivos en benchmarks/results/
+
+### EN PROGRESO (puede haber terminado)
+- Lote 1 con juez Phi-4: devstral, deepseek-v3, gemini-flash-lite, gpt-4.1-mini, minimax-m2.7, claude-sonnet-4.6, mimo-v2-flash, llama-4-maverick (91 tests cada uno, 728 runs total)
+- Verificar: `ls -lt benchmarks/results/ | head -5` - si hay un archivo nuevo con 728+ entradas, ya termino
+
+### PENDIENTE (hacer en la proxima sesion)
+- Lote 2 con juez: gpt-4.1, gpt-5.4-mini, mistral-large, kimi-k2, qwen-3.6-plus, qwen3-coder, nemotron-super, glm-5.1, claude-opus-4.7
+- Modelos nuevos sin testear en suites nuevas: strategy, sales_outreach, translation
+- Regenerar CheatSheet PDF con resultados v2
+- Actualizar ranking global en README con todos los resultados con juez
+- Ver ROADMAP.md para el pipeline completo
+
+### COMO CONTINUAR
+```bash
+# 1. Verificar si el lote 1 termino
+ls -lt benchmarks/results/ | head -5
+
+# 2. Si termino, correr lote 2
+source .venv/bin/activate
+python benchmarks/runner.py --quick --judge --judge-model phi4 --models gpt-4.1 gpt-5.4-mini mistral-large kimi-k2 qwen-3.6-plus qwen3-coder nemotron-super glm-5.1 claude-opus-4.7
+
+# 3. Cuando termine, actualizar README, CheatSheet, commit y push
+```
