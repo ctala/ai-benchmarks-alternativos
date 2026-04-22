@@ -61,7 +61,11 @@
       "Bash(git pull:*)",
       "Bash(ls benchmarks/tests/*.py)",
       "Bash(xargs -I{} basename {} .py)",
-      "Bash(grep -l \"skill\\\\|agent_team\\\\|orchestrat\\\\|delegate\\\\|hermes\\\\|openclaw\\\\|mcp\\\\|sub-agent\\\\|subagent\" benchmarks/tests/*.py)"
+      "Bash(grep -l \"skill\\\\|agent_team\\\\|orchestrat\\\\|delegate\\\\|hermes\\\\|openclaw\\\\|mcp\\\\|sub-agent\\\\|subagent\" benchmarks/tests/*.py)",
+      "Bash(ollama list:*)",
+      "Bash(curl -s https://ollama.com/library/gemma4/tags)",
+      "Bash(sysctl -n hw.memsize)",
+      "Bash(python benchmarks/runner.py --quick --tests agent_capabilities --models devstral deepseek-v3 gpt-4.1 gpt-4.1-mini claude-sonnet-4.6 claude-opus-4.6 gemini-flash-lite minimax-m2.7 llama-4-maverick qwen3-coder kimi-k2 gpt-5.4-mini mistral-large)"
     ]
   }
 }
