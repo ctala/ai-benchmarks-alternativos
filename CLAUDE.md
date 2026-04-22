@@ -113,9 +113,9 @@ python benchmarks/runner.py --list-tests
 - Agent capabilities: 13 modelos x 5 tests -> resultados en benchmark_20260422_062137.json
 - Todos los tests anteriores (sin juez): 15+ archivos en benchmarks/results/
 
-### EN PROGRESO (puede haber terminado)
-- Lote 1 con juez Phi-4: devstral, deepseek-v3, gemini-flash-lite, gpt-4.1-mini, minimax-m2.7, claude-sonnet-4.6, mimo-v2-flash, llama-4-maverick (91 tests cada uno, 728 runs total)
-- Verificar: `ls -lt benchmarks/results/ | head -5` - si hay un archivo nuevo con 728+ entradas, ya termino
+### NECESITA RE-CORRER (se corto en 704/728, no guardo resultados)
+- Lote 1 con juez Phi-4: devstral, deepseek-v3, gemini-flash-lite, gpt-4.1-mini, minimax-m2.7, claude-sonnet-4.6, mimo-v2-flash, llama-4-maverick (91 tests cada uno)
+- Comando: `python benchmarks/runner.py --quick --judge --judge-model phi4 --models devstral deepseek-v3 gemini-flash-lite gpt-4.1-mini minimax-m2.7 claude-sonnet-4.6 mimo-v2-flash llama-4-maverick`
 
 ### PENDIENTE (hacer en la proxima sesion)
 - Lote 2 con juez: gpt-4.1, gpt-5.4-mini, mistral-large, kimi-k2, qwen-3.6-plus, qwen3-coder, nemotron-super, glm-5.1, claude-opus-4.7
