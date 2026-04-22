@@ -84,9 +84,10 @@ class UnifiedProvider:
 
         start = time.perf_counter()
         try:
-            # GPT-5.4+ usa max_completion_tokens en vez de max_tokens
+            # Modelos con thinking mode usan max_completion_tokens
             token_param = "max_tokens"
-            if model.startswith(("gpt-5", "o3", "o1")):
+            thinking_models = ("gpt-5", "o3", "o1", "glm-5", "GLM-5", "kimi-k2.6", "Kimi", "nemotron", "Nemotron")
+            if any(model.startswith(p) or p in model for p in thinking_models):
                 token_param = "max_completion_tokens"
 
             kwargs = {

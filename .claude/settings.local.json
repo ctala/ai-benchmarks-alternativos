@@ -55,7 +55,13 @@
       "Bash(python benchmarks/runner.py --quick --tests string_precision --models devstral deepseek-v3 minimax-m2.7 gemini-flash-lite gpt-4.1 gpt-4.1-mini claude-opus-4.6 claude-sonnet-4.6 gpt-5.4 gpt-5.4-mini mistral-large llama-4-maverick qwen3-coder kimi-k2 qwen-3.6-plus gemini-flash mistral-nemo)",
       "Bash(python benchmarks/runner.py --quick --tests news_seo_writing --models devstral deepseek-v3 minimax-m2.7 gemini-flash-lite gpt-4.1 gpt-4.1-mini claude-opus-4.6 claude-sonnet-4.6 gpt-5.4 gpt-5.4-mini mistral-large llama-4-maverick qwen3-coder kimi-k2 qwen-3.6-plus gemini-flash mistral-nemo)",
       "Bash(ls -la benchmarks/results/benchmark_*.json)",
-      "Bash(python benchmarks/runner.py --quick --tests news_seo_writing --models qwen-3.6-plus kimi-k2 mistral-large devstral)"
+      "Bash(python benchmarks/runner.py --quick --tests news_seo_writing --models qwen-3.6-plus kimi-k2 mistral-large devstral)",
+      "WebFetch(domain:codingplan.org)",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(ls benchmarks/tests/*.py)",
+      "Bash(xargs -I{} basename {} .py)",
+      "Bash(grep -l \"skill\\\\|agent_team\\\\|orchestrat\\\\|delegate\\\\|hermes\\\\|openclaw\\\\|mcp\\\\|sub-agent\\\\|subagent\" benchmarks/tests/*.py)"
     ]
   }
 }
