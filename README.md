@@ -16,6 +16,7 @@ Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw,
 | [PROVEEDORES.md](PROVEEDORES.md) | Proveedores: fundacion, foco, contexto, open-source |
 | [CASOS_DE_USO.md](CASOS_DE_USO.md) | 50+ casos de uso reales de IA para emprendedores |
 | [DESCUBRIMIENTOS.md](DESCUBRIMIENTOS.md) | Hallazgos no obvios y bugs de modelos |
+| [ROADMAP.md](ROADMAP.md) | Roadmap y pipeline de mejoras futuras |
 | [CHANGELOG.md](CHANGELOG.md) | Historial de cambios |
 
 ## Criterios de Evaluacion
