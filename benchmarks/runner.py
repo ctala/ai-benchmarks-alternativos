@@ -46,6 +46,7 @@ from benchmarks.tests import code_generation, reasoning, summarization, presenta
 from benchmarks.tests import startup_content, deep_reasoning, customer_support, structured_output
 from benchmarks.tests import hallucination, creativity, string_precision, news_seo_writing
 from benchmarks.tests import ocr_extraction, orchestration, multi_turn, policy_adherence
+from benchmarks.tests import agent_capabilities
 
 console = Console()
 
@@ -69,6 +70,7 @@ ALL_TEST_SUITES = {
     "orchestration": orchestration.TESTS,
     "multi_turn": multi_turn.TESTS,
     "policy_adherence": policy_adherence.TESTS,
+    "agent_capabilities": agent_capabilities.TESTS,
 }
 
 
