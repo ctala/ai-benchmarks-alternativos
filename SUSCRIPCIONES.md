@@ -1,6 +1,6 @@
 # Comparacion de Suscripciones Mensuales Fijas
 
-> Ultima actualizacion: 11 de Abril de 2026
+> Ultima actualizacion: 22 de Abril de 2026
 > Los precios y planes pueden cambiar. Verifica datos actuales antes de suscribirte.
 > **Objetivo**: Encontrar la mejor suscripcion fija para usar con agentes (OpenClaw, N8N) sin sorpresas de costo.
 
@@ -31,7 +31,7 @@
 | **Google AI Pro** | $19.99/mes | Gemini 2.5 Pro | Generosos | Si | Muy bueno - rapido y capaz |
 | **MiniMax Agent Pro** | $19/mes | MiniMax M2.7 | Generosos | Si | Excelente para agentes |
 | **Ollama Cloud Pro** | $20/mes | Todos los open-source | Session limits (reset 5h) | Si | Bueno - costo predecible |
-| **Claude Pro** | $20/mes | Claude Sonnet 4.5 | ~100 msg/dia | NO (suscripcion no da API) | Solo chat web |
+| **Claude Pro** | $20/mes | Claude Sonnet 4.5 | ~100 msg/dia | NO (sin API, sin Claude Code desde 21/04) | Solo chat web |
 | **Perplexity Pro** | $20/mes | Sonar, GPT-4o | 600+ queries/dia | No (orientado a busqueda) | No es para agentes |
 | **Mistral Le Chat** | ~$15/mes | Mistral Large | Generosos | Parcial | Bueno para texto |
 

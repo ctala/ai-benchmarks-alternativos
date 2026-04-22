@@ -1,6 +1,6 @@
 # Packs por Suscripcion: Que Obtienes y Como Usarlo
 
-> Ultima actualizacion: 11 de Abril de 2026
+> Ultima actualizacion: 22 de Abril de 2026
 
 Guia practica de que modelos usar y para que con cada suscripcion. Incluye estrategia de optimizacion local + nube.
 

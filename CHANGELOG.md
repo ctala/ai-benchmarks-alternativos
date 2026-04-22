@@ -1,5 +1,33 @@
 # Changelog
 
+## [2.0.0] - 2026-04-22
+
+### Por que v2.0 (breaking changes)
+- Scoring v2 + LLM-as-Judge cambia todos los scores. Rankings anteriores no son comparables.
+- Tests reorganizados en 4 pilares del emprendedor (razonamiento, coding, contenido, agentes)
+- Juez cambiado de Gemma 4 a Phi-4 (Microsoft) por cero conflicto de interes
+- Claude Code removido de suscripcion Pro $20 (21 abril 2026) - contexto actualizado
+
+### Agregado
+- **4 suites nuevas**: strategy (3 tests), sales_outreach (3 tests), translation (3 tests), agent_capabilities (5 tests)
+- **Phi-4 como juez local**: Microsoft no tiene modelos en el benchmark = cero sesgo. MIT license, 14B, 3-9s/eval, $0.
+- **6 modelos nuevos**: GLM-5.1 (#1 SWE-Bench Pro), Kimi K2.6, MiMo-V2-Flash/Pro, Nemotron 3 Super, Claude Opus 4.7
+- **CASOS_DE_USO.md**: 50+ casos reales de IA para emprendedores organizados en 8 categorias
+- **Compatibilidad con coding tools**: Info sobre que modelos funcionan con Claude Code, Roo Code, Cursor, etc.
+- Total: **91 tests en 23 suites**, 30+ modelos configurados
+
+### Mejorado
+- Tests organizados en 4 pilares: Razonamiento, Coding, Contenido/Marketing, Agentes/Operaciones
+- Adapter soporta thinking models (max_completion_tokens) para GLM-5.1, Kimi K2.6, Nemotron, GPT-5.4
+- Judge usa /api/generate nativo para Ollama (fix: gemma4 devuelve vacio en /api/chat)
+- Timeout subido a 300s para articulos largos
+- Contexto actualizado: Claude Code ya no en suscripcion Pro $20
+
+### Documentado
+- Por que Phi-4 como juez (cero conflicto, MIT, replicable)
+- Sesgo de LLM-as-Judge con referencias a papers (NeurIPS 2024, self-enhancement bias 5-7%)
+- DESCUBRIMIENTOS.md actualizado con hallazgos de string precision y news SEO
+
 ## [1.3.0] - 2026-04-16
 
 ### Agregado

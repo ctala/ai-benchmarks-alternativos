@@ -376,7 +376,7 @@ tr.top3 td {{ font-weight: 600; }}
                 <thead><tr><th>Parametro</th><th>Valor</th></tr></thead>
                 <tbody>
                     <tr><td>Modelos evaluados</td><td><strong>17 modelos unicos</strong></td></tr>
-                    <tr><td>Tests totales</td><td><strong>48 tests en 13 suites</strong></td></tr>
+                    <tr><td>Tests totales</td><td><strong>91 tests en 23 suites</strong></td></tr>
                     <tr><td>Runs ejecutados</td><td><strong>800+</strong></td></tr>
                     <tr><td>Ubicacion</td><td>Santiago, Chile</td></tr>
                     <tr><td>APIs usadas</td><td>OpenRouter, OpenAI, MiniMax</td></tr>

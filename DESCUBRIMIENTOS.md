@@ -4,6 +4,14 @@
 
 ## Abril 2026
 
+### Cambios en el Ecosistema
+
+- **Claude Code removido de suscripcion Pro $20/mes (21 abril 2026)**: Ahora requiere Max $100-200/mes. Alternativas viables: MiniMax M2.7-HS ($40/mes), Gemini CLI (gratis), DeepSeek + Roo Code. Setup de ~$50/mes reemplaza lo que costaba $20.
+
+- **Gemma 4 tiene bug en Ollama**: Tanto el 8B como el 26B devuelven respuestas vacias en `/api/chat` y `/api/generate` con prompts largos. No sirve como juez local. Alternativa: Phi-4 o Qwen 2.5 14B.
+
+- **Coding Plans (nuevos)**: GLM $3/mes, MiniMax $10-150/mes, Kimi ~$7/semana, Qwen $10-50/mes. Todos compatibles con Claude Code como wrapper.
+
 ### Comportamiento de Modelos
 
 - **MiniMax y Qwen a veces responden en chino**: Tanto MiniMax M2.7 como Qwen 3.6 Plus ocasionalmente incluyen caracteres chinos en sus respuestas en espanol. Esto ocurre mas frecuentemente en tareas de razonamiento y menos en content generation.
