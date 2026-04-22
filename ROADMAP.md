@@ -81,6 +81,28 @@ Generar una seccion (o documento separado) con recomendaciones especificas basad
 - [ ] **$50/mes**: Combo optimo de 2-3 servicios
 - [ ] **$100+/mes**: Setup enterprise con fallbacks
 
+## SEO y Comunidad
+
+El repo es publico y debe servir como funnel para la comunidad de emprendedores en Skool.
+
+### Pendiente
+- [ ] Descripcion del repo en GitHub optimizada para SEO (keywords: AI benchmark, emprendedores, N8N, agentes)
+- [ ] Topics/tags en GitHub: ai-benchmark, llm-comparison, n8n, openclaw, startup-tools, ai-agents
+- [ ] README con badges (modelos testeados, ultima actualizacion, license)
+- [ ] Link a la comunidad Skool en footer de README y CheatSheet
+- [ ] Blog post en cristiantala.com con resultados y link al repo
+- [ ] Social cards (Open Graph image) para cuando se comparta en redes
+- [ ] CheatSheet PDF descargable desde el README (link directo)
+- [ ] Seccion "Contributing" para que otros emprendedores agreguen tests/modelos
+- [ ] Issue templates: "Agregar modelo", "Reportar resultado", "Sugerir test"
+- [ ] Hacer el CheatSheet visualmente atractivo para compartir en LinkedIn
+
+### Seguridad (repo publico)
+- [x] config.py en .gitignore (API keys nunca commiteadas)
+- [x] config.example.py solo tiene placeholders
+- [ ] Revisar historial de git por si alguna key fue commiteada antes
+- [ ] Agregar .env.example como alternativa a config.py
+
 ## Decisiones Tomadas (documentacion)
 
 ### Por que Phi-4 como juez
