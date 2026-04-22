@@ -52,11 +52,11 @@ import re
 JUDGE_PRESETS = {
     # Locales via Ollama (RECOMENDADOS - $0, bajo sesgo)
     "gemma4": {
-        "model": "gemma4:31b",
+        "model": "qwen2.5:14b",
         "base_url": "http://localhost:11434/v1",
         "api_key": "ollama",
         "provider": "ollama",
-        "description": "Gemma 4 31B local - buena calidad, $0, Apache 2.0",
+        "description": "Qwen 2.5 14B local - buena calidad como juez, $0 (gemma4 tiene bug de output vacio en Ollama)",
     },
     "glm4": {
         "model": "glm4:9b",
@@ -312,12 +312,45 @@ class LLMJudge:
         )
 
         try:
-            result = self.client.chat.completions.create(
-                model=self.judge_model,
-                messages=[{"role": "user", "content": rubric}],
-                temperature=0.1,  # Bajo para consistencia
-                max_tokens=300,
-            )
+            # Ollama local: usar /api/generate (mas confiable que /api/chat para gemma4)
+            if self.is_local:
+                import httpx as _httpx
+                try:
+                    _r = _httpx.post(
+                        "http://localhost:11434/api/generate",
+                        json={
+                            "model": self.judge_model,
+                            "prompt": rubric,
+                            "stream": False,
+                            "options": {"temperature": 0.1, "num_predict": 500},
+                        },
+                        timeout=120.0,
+                    )
+                    _data = _r.json()
+                    _content = _data.get("response", "")
+                    class _MockResult:
+                        class _Choice:
+                            class _Msg:
+                                pass
+                            message = _Msg()
+                            message.content = _content
+                        choices = [_Choice()]
+                        usage = None
+                    result = _MockResult()
+                except Exception:
+                    result = self.client.chat.completions.create(
+                        model=self.judge_model,
+                        messages=[{"role": "user", "content": rubric}],
+                        temperature=0.1,
+                        max_tokens=300,
+                    )
+            else:
+                result = self.client.chat.completions.create(
+                    model=self.judge_model,
+                    messages=[{"role": "user", "content": rubric}],
+                    temperature=0.1,
+                    max_tokens=300,
+                )
 
             self.eval_count += 1
 
