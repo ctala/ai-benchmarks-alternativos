@@ -51,12 +51,19 @@ import re
 # Presets de jueces conocidos
 JUDGE_PRESETS = {
     # Locales via Ollama (RECOMENDADOS - $0, bajo sesgo)
+    "phi4": {
+        "model": "phi4:latest",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama",
+        "provider": "ollama",
+        "description": "Phi-4 14B (Microsoft, MIT) - cero conflicto de interes, no evaluamos modelos Microsoft",
+    },
     "gemma4": {
         "model": "qwen2.5:14b",
         "base_url": "http://localhost:11434/v1",
         "api_key": "ollama",
         "provider": "ollama",
-        "description": "Qwen 2.5 14B local - buena calidad como juez, $0 (gemma4 tiene bug de output vacio en Ollama)",
+        "description": "Qwen 2.5 14B local - backup, gemma4 tiene bug en Ollama",
     },
     "glm4": {
         "model": "glm4:9b",
@@ -90,7 +97,7 @@ JUDGE_PRESETS = {
 }
 
 # Default: Gemma 4 31B local (si Ollama esta disponible), fallback a Haiku
-DEFAULT_JUDGE_PRESET = "gemma4"
+DEFAULT_JUDGE_PRESET = "phi4"
 FALLBACK_JUDGE_PRESET = "haiku"
 
 # Pricing por modelo juez conocido (input, output per M tokens)

@@ -1,20 +1,22 @@
 # Benchmark de Modelos AI Alternativos
 
-**Version 1.3.0** | Ultima actualizacion: 16 de Abril de 2026
+**Version 2.0.0** | Ultima actualizacion: 22 de Abril de 2026
 
-Proyecto para evaluar y comparar modelos de IA para uso con agentes (OpenClaw, N8N) y asistentes personales. Incluye benchmarks propios ejecutables, comparativas de precios, y guia de modelos open-source para hardware local (NVIDIA DGX Spark).
+Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw, N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes).
 
-> **Contexto**: La suscripcion de Anthropic no provee API key para agentes. Buscamos alternativas priorizando costo, calidad, velocidad, tool calling y disponibilidad continua.
+> **Contexto**: Desde el 21 de abril 2026, Claude Code ya no viene en la suscripcion Pro de $20/mes. Este benchmark ayuda a encontrar las mejores alternativas por caso de uso y presupuesto.
 
 ## Documentos Principales
 
 | Documento | Contenido |
 |-----------|-----------|
-| [COMPARATIVA.md](COMPARATIVA.md) | 35+ modelos con precios, open-source/propietario, licencias, rankings por categoria |
-| [SUSCRIPCIONES.md](SUSCRIPCIONES.md) | Todas las suscripciones fijas ($0-$300/mes) + checklist de que probar |
-| [PACKS.md](PACKS.md) | Packs por suscripcion (MiniMax, Qwen, OpenAI, Google, Ollama, OpenRouter, xAI) + estrategia local+nube |
-| [PROVEEDORES.md](PROVEEDORES.md) | Guia de proveedores: quien los creo, foco, contexto, open-source vs propietario |
-| [CHANGELOG.md](CHANGELOG.md) | Historial de cambios del proyecto |
+| [COMPARATIVA.md](COMPARATIVA.md) | 35+ modelos con precios, open-source/propietario, licencias |
+| [SUSCRIPCIONES.md](SUSCRIPCIONES.md) | Suscripciones fijas ($0-$300/mes) + coding plans |
+| [PACKS.md](PACKS.md) | Packs por suscripcion + estrategia local+nube |
+| [PROVEEDORES.md](PROVEEDORES.md) | Proveedores: fundacion, foco, contexto, open-source |
+| [CASOS_DE_USO.md](CASOS_DE_USO.md) | 50+ casos de uso reales de IA para emprendedores |
+| [DESCUBRIMIENTOS.md](DESCUBRIMIENTOS.md) | Hallazgos no obvios y bugs de modelos |
+| [CHANGELOG.md](CHANGELOG.md) | Historial de cambios |
 
 ## Criterios de Evaluacion
 
@@ -125,13 +127,18 @@ El modelo juez introduce sesgo: un LLM tiende a puntuar mejor respuestas de su p
 | Claude Haiku (API) | ~$0.07/modelo | Medio | Rapido pero sesga modelos Anthropic |
 | Gemini Flash (API) | ~$0.05/modelo | Medio | Rapido pero sesga modelos Google |
 
-El default es **Gemma 4 31B via Ollama** si esta disponible (local, gratis, bajo sesgo). Si Ollama no esta corriendo, usa Claude Haiku via OpenRouter como fallback. Los resultados JSON siempre registran que juez se uso para trazabilidad.
+El default es **Phi-4 (Microsoft, 14B, MIT)** via Ollama. Phi-4 fue elegido porque:
+- Microsoft **no tiene modelos en nuestro benchmark** = cero conflicto de interes
+- 14B parametros = buena calidad de evaluacion
+- MIT license = cualquiera puede replicar
+- ~9 GB, cabe en hardware modesto
+- 3-9 segundos por evaluacion
 
 ```bash
-python benchmarks/runner.py --list-judges                     # Ver jueces disponibles
-python benchmarks/runner.py --quick --judge                   # Auto-detecta (local > API)
-python benchmarks/runner.py --quick --judge --judge-model glm4  # GLM-4.7 local (minimo sesgo)
-python benchmarks/runner.py --quick --judge --judge-model haiku # Claude Haiku via API
+python benchmarks/runner.py --list-judges                      # Ver jueces disponibles
+python benchmarks/runner.py --quick --judge                    # Auto: Phi-4 local
+python benchmarks/runner.py --quick --judge --judge-model phi4 # Phi-4 explicito
+python benchmarks/runner.py --quick --judge --judge-model haiku # Claude Haiku via API (backup)
 ```
 
 ## Quick Start
@@ -142,7 +149,7 @@ pip install -r requirements.txt
 cp benchmarks/config.example.py benchmarks/config.py
 # Editar config.py con tu OPENROUTER_API_KEY
 python benchmarks/runner.py --quick                          # Todos los modelos, 1 run
-python benchmarks/runner.py --quick --judge                  # Con LLM-as-Judge (Claude Haiku)
+python benchmarks/runner.py --quick --judge                  # Con LLM-as-Judge (Phi-4 local)
 python benchmarks/runner.py --models minimax-m2.7 deepseek-v3  # Modelos especificos
 python benchmarks/runner.py --tier cheap                     # Solo tier economico
 python benchmarks/runner.py --list-models                    # Ver modelos disponibles
@@ -217,7 +224,7 @@ python benchmarks/runner.py --quick --judge --models mi-nuevo-modelo
 
 | Componente | Costo |
 |------------|-------|
-| 1 modelo, 77 tests, modo --quick | ~$0.01-0.05 (depende del modelo) |
+| 1 modelo, 91 tests, modo --quick | ~$0.01-0.05 (depende del modelo) |
 | LLM-as-Judge (Haiku, 77 evals) | ~$0.07 |
 | LLM-as-Judge (local Ollama) | $0.00 |
 | Run completo 10 modelos con juez | ~$0.50-1.00 |
@@ -226,51 +233,69 @@ python benchmarks/runner.py --quick --judge --models mi-nuevo-modelo
 ## Modelos Incluidos (via OpenRouter)
 
 ### Gratuitos
-- DeepSeek R1, Llama 3.3 70B, Qwen 3.6 Plus (preview), MiMo-V2-Flash (free)
+- DeepSeek R1, Llama 3.3 70B, MiMo-V2-Flash (free)
 
 ### Ultra Economicos (<$0.10/M tokens)
 - Mistral Nemo, **Nemotron 3 Nano**, MiMo-V2-Flash
 
 ### Economicos ($0.10 - $1.20/M tokens)
-- **Nemotron 3 Super**, DeepSeek V3.2, **Mistral Small 4**, **Grok 4.1 Fast**, **Gemini 3.1 Flash Lite**, MiniMax M2.7, Gemini 2.5 Flash, Qwen 3.6 Plus, **Devstral 2**, MiMo-V2-Omni, **GLM-5.1**, Qwen 3.5 Plus, Llama 4 Maverick
+- Nemotron 3 Super, DeepSeek V3.2, Mistral Small 4, Grok 4.1 Fast, Gemini 3.1 Flash Lite, MiniMax M2.7, Gemini 2.5 Flash, Qwen 3.6 Plus, Devstral 2, MiMo-V2-Omni, **GLM-5.1**, **Kimi K2.6**, Qwen 3.5 Plus, Llama 4 Maverick, Qwen3 Coder
 
-### Medio ($1.00 - $15/M tokens)
-- MiMo-V2-Pro, Gemini 2.5 Pro, **Gemini 3.1 Pro**, **Grok 4.20**, GPT-4o, Claude Sonnet 4
+### Medio y Premium ($1.00+/M tokens)
+- MiMo-V2-Pro, Gemini 2.5 Pro, Gemini 3.1 Pro, Grok 4.20, GPT-4o, GPT-4.1, Claude Sonnet 4.6, **Claude Opus 4.7**, GPT-5.4/Mini
 
 ### Open Source para NVIDIA DGX Spark (128GB)
 - **Nemotron 3 Super** (16 GB), **Nemotron 3 Nano** (4 GB), Gemma 4 26B MoE, Gemma 4 31B, Qwen 3.5 25B/72B, Llama 3.3/4 70B, MiniMax M2.5, DeepSeek V3.2
 
-## Benchmark Suites (77 tests en 19 suites)
+## Benchmark Suites (91 tests en 23 suites)
 
+Organizadas en los 4 pilares del emprendedor:
+
+### Pilar 1: Razonamiento y Estrategia
 | Suite | Tests | Que Evalua |
 |-------|-------|-----------|
-| **deep_reasoning** | 6 | Matematica, logica, causal, code bugs, Fermi, etica |
-| **hallucination** | 3 | Trampas factuales, fidelidad al contexto, citas falsas |
-| **creativity** | 4 | Hooks sin cliches, analogias, profundidad, storytelling |
-| **customer_support** | 4 | Empatia, clasificacion, multi-issue, ingenieria social |
-| **structured_output** | 4 | JSON simple, arrays, anidado, estricto |
-| tool_calling | 4 | Single/multi tool, razonamiento, no-tool |
+| deep_reasoning | 6 | Matematica, logica, causal, code bugs, Fermi, etica |
+| reasoning | 3 | Analisis de negocio, logica, decisiones |
+| hallucination | 3 | Trampas factuales, fidelidad al contexto, citas falsas |
+| **strategy** | 3 | Competitor analysis, pricing, business model validation |
+
+### Pilar 2: Coding y Datos
+| Suite | Tests | Que Evalua |
+|-------|-------|-----------|
+| code_generation | 4 | API integration, N8N workflows, SQL, debugging |
+| structured_output | 4 | JSON simple, arrays, anidado, estricto |
+| string_precision | 6 | Copia exacta de hex, API keys, JWT, config files |
+| ocr_extraction | 5 | Facturas, tarjetas, recibos, dashboards, notas manuscritas |
+
+### Pilar 3: Contenido y Marketing
+| Suite | Tests | Que Evalua |
+|-------|-------|-----------|
 | content_generation | 4 | Blog, email, social media, product descriptions |
 | startup_content | 5 | Blog ecosistemastartup.com, cursos, workshops, newsletters |
-| code_generation | 4 | API integration, N8N workflows, SQL, debugging |
-| reasoning | 3 | Analisis de negocio, logica, decisiones |
-| task_management | 3 | Action items, planning, project breakdown |
-| summarization | 2 | Resumen ejecutivo, extraccion datos |
-| **string_precision** | 6 | Copia exacta de hex, API keys, JWT, config files |
-| **news_seo_writing** | 5 | Articulos SEO, JSON N8N, solo espanol, anti-alucinacion, Perplexity |
-| **ocr_extraction** | 5 | Facturas, tarjetas, recibos con verificacion, dashboards, notas manuscritas |
-| **orchestration** | 5 | Planificacion multi-paso, error recovery, tool selection, paralelizacion |
-| **multi_turn** | 4 | Iteracion de contenido, soporte escalado, cambio de requisitos, debugging |
-| **policy_adherence** | 4 | Politicas de reembolso, privacidad de datos, reglas de idioma, limites de alcance |
+| news_seo_writing | 5 | Articulos SEO, JSON N8N, solo espanol, Perplexity |
+| creativity | 4 | Hooks sin cliches, analogias, profundidad, storytelling |
+| **sales_outreach** | 3 | Cold email, lead qualification, campaign optimization |
+| **translation** | 3 | Marketing es-en, tecnica en-es, deteccion de problemas idioma |
 | presentation | 2 | Slide outline, reportes de datos |
 
-Scripts adicionales (no incluidos en el scoring global):
-- `image_generation.py` - Feature images con MiniMax Image-01
-- `tts_generation.py` - Text-to-speech con MiniMax Speech-02
+### Pilar 4: Agentes y Operaciones
+| Suite | Tests | Que Evalua |
+|-------|-------|-----------|
+| tool_calling | 4 | Single/multi tool, razonamiento, no-tool |
+| customer_support | 4 | Empatia, clasificacion, multi-issue, ingenieria social |
+| orchestration | 5 | Planificacion multi-paso, error recovery, tool selection |
+| multi_turn | 4 | Iteracion, soporte escalado, cambio de requisitos |
+| policy_adherence | 4 | Reembolsos, privacidad, reglas de idioma, limites |
+| **agent_capabilities** | 5 | Skills, delegacion sub-agentes, agent teams, routing |
+| task_management | 3 | Action items, planning, project breakdown |
+| summarization | 2 | Resumen ejecutivo, extraccion datos |
 
-## Resultados (12 Abril 2026)
+## Resultados (Abril 2026)
 
-### Ranking Global - 48 tests x modelo, 951 runs, desde Chile
+> Run completo con scoring v2 + LLM-as-Judge (Phi-4, Microsoft) en progreso.
+> Los resultados debajo son del scoring v1. Se actualizaran cuando termine el run con juez.
+
+### Ranking Global (scoring v1, sin juez)
 
 | # | Modelo | Score | tok/s | Latencia | Costo/call | Open Source | Tests |
 |---|--------|-------|-------|----------|------------|-------------|-------|
@@ -332,7 +357,7 @@ Scripts adicionales (no incluidos en el scoring global):
 - **Modelos chinos**: MiniMax y Qwen a veces responden con caracteres chinos en espanol
 - **LLM-as-Judge (Abril 16)**: Nuevo modo `--judge` con auto-deteccion: usa Gemma 4 31B local ($0, bajo sesgo) si Ollama disponible, sino Claude Haiku via API. Califica 5 dimensiones + criterios por suite. 30% auto + 70% juez. Ver seccion Metodologia para analisis de sesgo.
 - **Scoring v2 (Abril 16)**: Corregido sesgo de formato. Ahora valida sustancia (razonamiento, honestidad, creatividad real, datos correctos). Los rankings pueden cambiar al re-correr benchmarks. Ver [CHANGELOG.md](CHANGELOG.md) para detalles.
-- **Nuevos tests (18 nuevos)**: OCR/extraccion, orquestacion, multi-turno, y adherencia a politicas. Total: 77 tests en 19 suites.
+- **91 tests en 23 suites**: Organizados en 4 pilares del emprendedor. Incluye strategy, sales_outreach, translation, agent_capabilities.
 - **Xiaomi MiMo**: 4 modelos nuevos incluyendo MiMo-V2-Flash (MIT, $0.09/$0.29, 73.4% SWE-Bench) - candidato serio a top 5
 
 ### Recomendacion por Caso de Uso
@@ -366,7 +391,8 @@ Scripts adicionales (no incluidos en el scoring global):
 │   ├── config.py                    # Tu configuracion (gitignored)
 │   ├── runner.py                    # Motor de benchmarks
 │   ├── scoring.py                   # Sistema de puntuacion
-│   ├── tests/                       # 19 suites de tests
+│   ├── llm_judge.py                 # LLM-as-Judge (Phi-4 local, cero sesgo)
+│   ├── tests/                       # 23 suites de tests
 │   └── results/                     # Resultados JSON
 ├── providers/
 │   └── adapters.py                  # Adaptador unificado OpenAI-compatible

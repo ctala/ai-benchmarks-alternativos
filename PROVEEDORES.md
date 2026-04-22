@@ -1,6 +1,6 @@
 # Guia de Proveedores y Modelos
 
-> Ultima actualizacion: 16 de Abril de 2026
+> Ultima actualizacion: 22 de Abril de 2026
 
 Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 

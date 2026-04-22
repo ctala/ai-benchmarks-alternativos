@@ -66,12 +66,14 @@ python benchmarks/runner.py --list-tests
 - `providers/adapters.py` - Adaptador unificado OpenAI-compatible con timeout
 - `benchmarks/results/*.json` - Resultados historicos (versionados en git)
 
-## Scoring v2 (Abril 2026)
+## Scoring v2 + LLM-as-Judge (Abril 2026)
 
-- `score_content_quality`: formato reducido a 2/10 pts, secciones subidas a 4/10 pts, busqueda Unicode-aware
-- `score_expected_answer`: nuevo, valida sustancia (reasoning, hallucination, creativity, depth, honesty, etc.)
-- Tests con `expected_answer` usan 40% formato + 60% sustancia para el score de calidad
-- Penalizacion de cliches en tests de creatividad, bonificacion por datos concretos en tests de profundidad
+- `score_content_quality`: formato 2/10, secciones 4/10, idioma 2/10, penaliza chino en espanol
+- `score_expected_answer`: valida sustancia (reasoning, hallucination, creativity, depth, honesty, etc.)
+- Sin juez: 40% formato + 60% sustancia
+- Con juez (`--judge`): 30% automatico + 70% evaluacion del juez
+- **Juez default**: Phi-4 (Microsoft, 14B, MIT) via Ollama local - cero conflicto de interes
+- Tests organizados en 4 pilares: Razonamiento, Coding, Contenido/Marketing, Agentes/Operaciones
 
 ## Providers configurados
 
