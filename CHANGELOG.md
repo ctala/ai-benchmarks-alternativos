@@ -2,13 +2,15 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
-## [2.1.1] - 2026-04-23
+## [2.1.1] - 2026-04-23 / 2026-04-24
 
 ### Agregado
 - **MDs navegables por modelo** en `benchmarks/results/per-model/` (17 archivos + index README). Cada MD tiene resumen global, tabla por pilar/suite, tests expandibles con judge score y preview de respuesta. Directamente auditable desde GitHub, sin infra.
 - **Script `benchmarks/generate_per_model_md.py`**: regenera los MDs desde los JSON sin re-correr tests. Acepta `--inputs` para consolidar varios lotes.
 - **Log del runner mejorado**: cada línea muestra progreso global + nombre corto del modelo + progreso local por modelo (N/91) + suite/test + descripción corta del test + elapsed total + ETA basado en promedio móvil de últimos 20 tests.
 - **Devstral Medium** (`mistralai/devstral-medium`, $0.40/$2.00, Apache 2.0) y **Devstral 2** (`mistralai/devstral-2512`, $0.40/$2.00, Apache 2.0) agregados al config. Pendiente: correr benchmark en Lote 3.
+- **Provider Ollama Cloud**: nuevo `UnifiedProvider("ollama_cloud", ..., "https://ollama.com/v1")` en runner. Activar con `OLLAMA_CLOUD_API_KEY` en config.py (crear key en https://ollama.com/settings/keys). Modelos con `"provider": "ollama_cloud"` rutean al endpoint cloud. `config.example.py` incluye ejemplos: `qwen3.5:397b-cloud` (el que Cristian usa en prod para ecosistemastartup.com), `qwen3.5:cloud`, `gpt-oss:120b-cloud`.
+- **Lote 3 en curso** (arrancado 2026-04-24): 10 modelos × 91 tests = 910 runs. Modelos: devstral-medium, devstral-2, gpt-5.4, mimo-v2-pro, gemini-flash, gemini-pro, kimi-k2.6, claude-opus-4.6, gemma-4-26b, mistral-nemo.
 
 ### Documentado
 - **ROADMAP.md** re-escrito desde cero: estado real v2.1, queue inmediato (modelos nuevos identificados), skills propuestos (`/add-model`, `/run-benchmark`), plan para DGX Spark y Ollama Cloud.

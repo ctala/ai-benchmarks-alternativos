@@ -235,10 +235,25 @@ MODELS = {
 }
 
 # Modelos locales via Ollama (agregar si tienes Ollama instalado)
+# Ver tags actuales en https://ollama.com/library/<modelo>/tags
 OLLAMA_MODELS = {
-    "qwen3.5-25b": {
-        "id": "qwen3.5:25b",
-        "name": "Qwen 3.5 25B (local)",
+    "qwen3.5-27b": {
+        "id": "qwen3.5:27b",
+        "name": "Qwen 3.5 27B (local)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "local",
+    },
+    "qwen3.5-35b": {
+        "id": "qwen3.5:35b",
+        "name": "Qwen 3.5 35B (local)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "local",
+    },
+    "qwen3.5-122b": {
+        "id": "qwen3.5:122b",
+        "name": "Qwen 3.5 122B (local, para DGX Spark)",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
@@ -249,6 +264,37 @@ OLLAMA_MODELS = {
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
+    },
+    # Cloud-only (requieren suscripción Ollama Cloud + OLLAMA_CLOUD_API_KEY)
+    "qwen3.5-397b-cloud": {
+        "id": "qwen3.5:397b-cloud",
+        "name": "Qwen 3.5 397B (Ollama Cloud)",
+        "cost_input": 0.0,   # flat fee via subscription
+        "cost_output": 0.0,
+        "tier": "cloud_ollama",
+        "provider": "ollama_cloud",
+        "open_source": True,
+        "license": "Apache 2.0",
+    },
+    "qwen3.5-cloud": {
+        "id": "qwen3.5:cloud",
+        "name": "Qwen 3.5 (Ollama Cloud, default)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "cloud_ollama",
+        "provider": "ollama_cloud",
+        "open_source": True,
+        "license": "Apache 2.0",
+    },
+    "gpt-oss-120b-cloud": {
+        "id": "gpt-oss:120b-cloud",
+        "name": "GPT-OSS 120B (Ollama Cloud)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "cloud_ollama",
+        "provider": "ollama_cloud",
+        "open_source": True,
+        "license": "Apache 2.0",
     },
 }
 
@@ -266,3 +312,8 @@ INCLUDE_OLLAMA = False     # Cambiar a True si tienes Ollama corriendo
 # OpenAI directo (para GPT-5.4, GPT-4.1 - usa max_completion_tokens)
 # OPENAI_API_KEY = "sk-..."
 # OPENAI_BASE_URL = "https://api.openai.com/v1"
+
+# Ollama Cloud (requiere suscripcion; crear key en https://ollama.com/settings/keys)
+# Permite correr modelos cloud-only como qwen3.5:397b-cloud, gpt-oss:120b-cloud
+# OLLAMA_CLOUD_API_KEY = "..."
+# OLLAMA_CLOUD_BASE_URL = "https://ollama.com/v1"  # opcional, default
