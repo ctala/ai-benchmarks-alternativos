@@ -501,6 +501,8 @@ PRICING = {
     "nvidia/nemotron-3-super-120b-a12b": (0.10, 0.50),
     # Mistral (nuevos Abril 2026)
     "mistralai/mistral-small-2603": (0.15, 0.60),
+    "mistralai/devstral-small": (0.10, 0.30),
+    "mistralai/devstral-medium": (0.40, 2.00),
     "mistralai/devstral-2512": (0.40, 2.00),
     # xAI Grok
     "x-ai/grok-4.1-fast": (0.20, 0.50),

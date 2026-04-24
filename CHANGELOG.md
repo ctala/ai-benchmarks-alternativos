@@ -1,5 +1,19 @@
 # Changelog
 
+> **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
+
+## [2.1.1] - 2026-04-23
+
+### Agregado
+- **MDs navegables por modelo** en `benchmarks/results/per-model/` (17 archivos + index README). Cada MD tiene resumen global, tabla por pilar/suite, tests expandibles con judge score y preview de respuesta. Directamente auditable desde GitHub, sin infra.
+- **Script `benchmarks/generate_per_model_md.py`**: regenera los MDs desde los JSON sin re-correr tests. Acepta `--inputs` para consolidar varios lotes.
+- **Log del runner mejorado**: cada línea muestra progreso global + nombre corto del modelo + progreso local por modelo (N/91) + suite/test + descripción corta del test + elapsed total + ETA basado en promedio móvil de últimos 20 tests.
+- **Devstral Medium** (`mistralai/devstral-medium`, $0.40/$2.00, Apache 2.0) y **Devstral 2** (`mistralai/devstral-2512`, $0.40/$2.00, Apache 2.0) agregados al config. Pendiente: correr benchmark en Lote 3.
+
+### Documentado
+- **ROADMAP.md** re-escrito desde cero: estado real v2.1, queue inmediato (modelos nuevos identificados), skills propuestos (`/add-model`, `/run-benchmark`), plan para DGX Spark y Ollama Cloud.
+- **CLAUDE.md** actualizado: archivos clave nuevos, workflow con regeneración de MDs, regla de flujo ROADMAP↔CHANGELOG.
+
 ## [2.1.0] - 2026-04-23
 
 ### Por que v2.1 (first full Phi-4 run)
