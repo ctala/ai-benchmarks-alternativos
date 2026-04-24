@@ -294,6 +294,21 @@ def run_benchmark(args):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     completed = 0
     errors = 0
+    benchmark_start = time.time()
+    # Ventana móvil de los últimos N tests para estimar ETA
+    recent_test_seconds: list[float] = []
+
+    def _fmt_duration(secs: float) -> str:
+        if secs < 60:
+            return f"{secs:.0f}s"
+        if secs < 3600:
+            return f"{secs // 60:.0f}m{secs % 60:.0f}s"
+        h = secs // 3600
+        m = (secs % 3600) // 60
+        return f"{h:.0f}h{m:02.0f}m"
+
+    def _short_name(name: str, max_len: int = 28) -> str:
+        return name if len(name) <= max_len else name[: max_len - 1] + "…"
 
     # Setup del archivo de resultados para guardado incremental
     results_dir = Path(RESULTS_DIR)
@@ -364,9 +379,13 @@ def run_benchmark(args):
             f.write("\n".join(header))
         scores["response_file"] = str(path.relative_to(results_dir.parent))
 
-    for model_key, model_config in models.items():
+    # Progreso local por modelo: tests totales de este modelo
+    tests_per_model = sum(len(t) for t in test_suites.values())
+
+    for model_idx, (model_key, model_config) in enumerate(models.items(), 1):
         model_id = model_config["id"]
         model_name = model_config["name"]
+        short_model = _short_name(model_name)
         is_local = model_config.get("tier") == "local"
 
         # Seleccionar provider segun configuracion del modelo
@@ -380,22 +399,44 @@ def run_benchmark(args):
             provider = openrouter
 
         print(f"\n{'─' * 70}", flush=True)
-        print(f"  MODELO: {model_name} ({model_id})", flush=True)
+        print(f"  MODELO [{model_idx}/{len(models)}]: {model_name} ({model_id})", flush=True)
         print(f"{'─' * 70}", flush=True)
+
+        local_completed = 0  # contador local por modelo
 
         for suite_name, tests in test_suites.items():
             for test in tests:
+                local_completed += 1
+                test_desc = test.get("description", "")
+                test_desc_short = _short_name(test_desc, 40) if test_desc else ""
+
                 # Skip si ya fue completado (resume)
                 if (model_id, suite_name, test["name"]) in done_keys:
                     completed += 1
-                    print(f"  [{completed}/{total_runs}] {suite_name}/{test['name']}... SKIP (resume)", flush=True)
+                    print(f"  [{completed}/{total_runs}] {short_model} ({local_completed}/{tests_per_model}) | "
+                          f"{suite_name}/{test['name']}... SKIP (resume)", flush=True)
                     continue
 
                 run_scores = []
 
                 for run_num in range(runs):
                     completed += 1
-                    label = f"  [{completed}/{total_runs}] {suite_name}/{test['name']}"
+                    t_start = time.time()
+                    # ETA basado en promedio móvil de los últimos ~20 tests
+                    window = recent_test_seconds[-20:]
+                    if window:
+                        avg_s = sum(window) / len(window)
+                        eta_secs = avg_s * (total_runs - completed + 1)
+                        eta_str = _fmt_duration(eta_secs)
+                    else:
+                        eta_str = "?"
+                    elapsed_str = _fmt_duration(time.time() - benchmark_start)
+
+                    label = (f"  [{completed}/{total_runs}] {short_model} ({local_completed}/{tests_per_model}) | "
+                             f"{suite_name}/{test['name']}")
+                    if test_desc_short:
+                        label += f" — {test_desc_short}"
+                    label += f" [elapsed {elapsed_str} | eta {eta_str}]"
                     print(f"{label}...", end=" ", flush=True)
 
                     result = run_single_test(provider, model_id, test, REQUEST_TIMEOUT)
@@ -405,6 +446,9 @@ def run_benchmark(args):
                     scores["timestamp"] = timestamp
                     _save_response(result, scores, model_key, suite_name, test["name"])
                     run_scores.append(scores)
+
+                    # Registrar duración real en ventana móvil
+                    recent_test_seconds.append(time.time() - t_start)
 
                     if result.success:
                         tps = f"{result.tokens_per_second:.0f} tok/s" if result.tokens_per_second else "?"
