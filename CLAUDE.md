@@ -106,32 +106,47 @@ python benchmarks/runner.py --list-tests
 - Claude Code ya no viene en suscripcion Pro $20 (desde 21 abril 2026)
 - DGX Spark llega la proxima semana (comprado, en camino)
 
-## Estado actual (22 Abril 2026)
+## Estado actual (23 Abril 2026)
 
 ### YA COMPLETADO (no re-hacer)
-- Kimi K2.6 vs Claude Opus 4.7/4.6: 91 tests con juez Phi-4 -> resultados en benchmark_20260422_082319.json
-- Agent capabilities: 13 modelos x 5 tests -> resultados en benchmark_20260422_062137.json
-- Todos los tests anteriores (sin juez): 15+ archivos en benchmarks/results/
+- **Lote 1 con juez Phi-4**: 8 modelos × 91 tests = 728 runs -> `benchmark_20260422_204025.json` (partial=false, 17 errores en Llama 4 Maverick por tools 404 en OpenRouter)
+- **Lote 2 con juez Phi-4**: 9 modelos × 91 tests = 819 runs -> `benchmark_20260423_051248.json` (partial=false, 18 errores 429 en Kimi K2 por rate limits)
+- **Ranking consolidado**: 17 modelos en README.md v2.1.0 con tabla global, solo alternativas, mejor por categoría (12), recomendaciones por caso de uso
+- Kimi K2.6 vs Claude Opus 4.7/4.6 (otro lote): `benchmark_20260422_082319.json`
+- Agent capabilities: 13 modelos x 5 tests -> `benchmark_20260422_062137.json`
 
-### NECESITA RE-CORRER (se corto en 704/728, no guardo resultados)
-- Lote 1 con juez Phi-4: devstral, deepseek-v3, gemini-flash-lite, gpt-4.1-mini, minimax-m2.7, claude-sonnet-4.6, mimo-v2-flash, llama-4-maverick (91 tests cada uno)
-- Comando: `python benchmarks/runner.py --quick --judge --judge-model phi4 --models devstral deepseek-v3 gemini-flash-lite gpt-4.1-mini minimax-m2.7 claude-sonnet-4.6 mimo-v2-flash llama-4-maverick`
+### MEJORAS AL RUNNER (aplicar para futuros lotes)
+- **Guardado incremental atomico**: `_dump_results(partial=True)` tras cada test
+- **`--resume <archivo.json>`**: retoma desde un benchmark parcial, saltea tests ya completados (match por model_id + suite + test_name)
+- **Respuestas completas auditables**: cada test escribe un `.md` en `benchmarks/results/responses/<timestamp>/<modelo>__<suite>__<test>.md` con el output completo. El JSON lleva `response_file` con path relativo. **Solo aplica a corridas nuevas** — los Lotes 1 y 2 sólo tienen `response_preview[:300]`.
 
-### PENDIENTE (hacer en la proxima sesion)
-- Lote 2 con juez: gpt-4.1, gpt-5.4-mini, mistral-large, kimi-k2, qwen-3.6-plus, qwen3-coder, nemotron-super, glm-5.1, claude-opus-4.7
-- Modelos nuevos sin testear en suites nuevas: strategy, sales_outreach, translation
-- Regenerar CheatSheet PDF con resultados v2
-- Actualizar ranking global en README con todos los resultados con juez
-- Ver ROADMAP.md para el pipeline completo
+### Ranking actual (top 5)
+1. Devstral Small 7.35 (Apache 2.0)
+2. GPT-5.4 Mini 7.32
+3. GPT-4.1 7.29
+4. Gemini 2.5 Flash Lite 7.22 (165 tok/s — el más rápido)
+5. MiMo-V2-Flash 7.20 (MIT, $0.09/$0.29, el más barato del top)
+
+### PENDIENTE (proximas sesiones)
+- **#8 MD por modelo** en `benchmarks/results/per-model/<modelo>.md` con tabla por suite + link a `response_file` (estilo GitHub, navegable sin infra)
+- **#9 HTML con sliders** (calculadora personalizable) — publicable en GitHub Pages
+- **#10 Devstral 2 (dic 2025) + Devstral Medium** — nuevas versiones post-Small 1.1
+- **#11 Candidatos Ollama**: Qwen 3-Next 80B, Qwen3-Coder-Next, Ministral-3, LFM2 24B, GLM-OCR
+- **#12 Ollama Cloud provider**: Cristian tiene suscripción → testear `qwen3.5:397b-cloud` (el que usa en prod para ecosistemastartup.com)
+- **#7 Providers directos (Groq/Fireworks/Together)**: desbloquea Llama 4 Maverick + tools (hoy falla con 404 en OpenRouter)
+- **#5 Log mejorado**: incluir modelo en cada línea + elapsed + ETA basado en seg/test recientes
+- **Llegada DGX Spark**: correr todos los Ollama locales que quepan (~110B Q4, 70B FP16)
+- Ver ROADMAP.md para pipeline completo
 
 ### COMO CONTINUAR
 ```bash
-# 1. Verificar si el lote 1 termino
-ls -lt benchmarks/results/ | head -5
+# Ver último resultado
+ls -lt benchmarks/results/benchmark_*.json | head -3
 
-# 2. Si termino, correr lote 2
+# Correr modelos nuevos (ejemplo Devstral 2)
 source .venv/bin/activate
-python benchmarks/runner.py --quick --judge --judge-model phi4 --models gpt-4.1 gpt-5.4-mini mistral-large kimi-k2 qwen-3.6-plus qwen3-coder nemotron-super glm-5.1 claude-opus-4.7
+python benchmarks/runner.py --quick --judge --judge-model phi4 --models devstral-2
 
-# 3. Cuando termine, actualizar README, CheatSheet, commit y push
+# Si se corta, resume desde archivo parcial
+python benchmarks/runner.py --quick --judge --judge-model phi4 --models <modelos> --resume benchmarks/results/benchmark_YYYYMMDD_HHMMSS.json
 ```
