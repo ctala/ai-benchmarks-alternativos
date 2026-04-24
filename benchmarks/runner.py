@@ -264,6 +264,21 @@ def run_benchmark(args):
     if INCLUDE_OLLAMA:
         ollama = UnifiedProvider("ollama", "ollama", "http://localhost:11434/v1")
 
+    # Ollama Cloud (requiere suscripción y API key en OLLAMA_CLOUD_API_KEY)
+    ollama_cloud = None
+    try:
+        from benchmarks.config import OLLAMA_CLOUD_API_KEY
+        OLLAMA_CLOUD_BASE_URL = "https://ollama.com/v1"
+        try:
+            from benchmarks.config import OLLAMA_CLOUD_BASE_URL as _url_override
+            OLLAMA_CLOUD_BASE_URL = _url_override
+        except ImportError:
+            pass
+        if OLLAMA_CLOUD_API_KEY:
+            ollama_cloud = UnifiedProvider("ollama_cloud", OLLAMA_CLOUD_API_KEY, OLLAMA_CLOUD_BASE_URL)
+    except ImportError:
+        pass
+
     # LLM-as-Judge (opcional)
     # Prioridad: 1) modelo especificado, 2) Ollama local (Gemma 4), 3) Haiku via OpenRouter
     judge = None
@@ -391,6 +406,8 @@ def run_benchmark(args):
         # Seleccionar provider segun configuracion del modelo
         if is_local and ollama:
             provider = ollama
+        elif model_config.get("provider") == "ollama_cloud" and ollama_cloud:
+            provider = ollama_cloud
         elif model_config.get("provider") == "minimax_direct" and minimax_direct:
             provider = minimax_direct
         elif model_config.get("provider") == "openai_direct" and openai_direct:
