@@ -295,6 +295,75 @@ def run_benchmark(args):
     completed = 0
     errors = 0
 
+    # Setup del archivo de resultados para guardado incremental
+    results_dir = Path(RESULTS_DIR)
+    results_dir.mkdir(parents=True, exist_ok=True)
+    results_file = results_dir / f"benchmark_{timestamp}.json"
+
+    # --resume: cargar resultados previos y saltear tests ya completados
+    done_keys: set[tuple[str, str, str]] = set()
+    if getattr(args, "resume", None):
+        resume_path = Path(args.resume)
+        if not resume_path.exists():
+            console.print(f"[red]--resume: archivo no existe: {resume_path}[/red]")
+            sys.exit(1)
+        with open(resume_path) as f:
+            prev = json.load(f)
+        all_results = prev.get("results", [])
+        prev_meta = prev.get("metadata", {})
+        timestamp = prev_meta.get("timestamp", timestamp)
+        completed = prev_meta.get("total_runs", len(all_results))
+        errors = prev_meta.get("errors", 0)
+        results_file = resume_path  # sobreescribe el mismo archivo
+        for r in all_results:
+            done_keys.add((r.get("model_id", ""), r.get("suite", ""), r.get("test_name", "")))
+        console.print(f"[cyan]--resume: {len(all_results)} tests ya completados cargados de {resume_path.name}[/cyan]")
+
+    def _dump_results(partial: bool):
+        """Vuelca resultados al JSON. Se llama tras cada modelo y al final."""
+        output = {
+            "metadata": {
+                "timestamp": timestamp,
+                "total_runs": completed,
+                "errors": errors,
+                "judge": judge.get_stats() if judge else None,
+                "partial": partial,
+            },
+            "results": all_results,
+        }
+        with open(results_file, "w") as f:
+            json.dump(output, f, indent=2, ensure_ascii=False)
+
+    # Directorio para respuestas completas (output auditable por test)
+    responses_dir = results_dir / "responses" / timestamp
+    responses_dir.mkdir(parents=True, exist_ok=True)
+
+    def _safe_slug(s: str) -> str:
+        return "".join(c if c.isalnum() or c in "-_." else "_" for c in s)[:80]
+
+    def _save_response(result, scores, model_key, suite, test_name):
+        """Guarda la respuesta completa del modelo en un archivo .md auditable."""
+        if not getattr(result, "response", None):
+            return
+        fname = f"{_safe_slug(model_key)}__{_safe_slug(suite)}__{_safe_slug(test_name)}.md"
+        path = responses_dir / fname
+        header = [
+            f"# {scores.get('model','?')} — {suite}/{test_name}",
+            "",
+            f"- model_id: `{scores.get('model_id','?')}`",
+            f"- success: {scores.get('success')}  | final: {scores.get('final')} | quality: {scores.get('quality')}",
+            f"- latency_total: {scores.get('latency_total')}s | tokens_per_second: {scores.get('tokens_per_second')}",
+            f"- input_tokens: {scores.get('input_tokens')} | output_tokens: {scores.get('output_tokens')}",
+        ]
+        if scores.get("judge_score", -1) >= 0:
+            header.append(f"- judge_score: {scores.get('judge_score')} | justificación: {scores.get('judge_justificacion','')}")
+        if scores.get("error"):
+            header.append(f"- error: {scores.get('error')}")
+        header += ["", "## Respuesta completa", "", result.response]
+        with open(path, "w") as f:
+            f.write("\n".join(header))
+        scores["response_file"] = str(path.relative_to(results_dir.parent))
+
     for model_key, model_config in models.items():
         model_id = model_config["id"]
         model_name = model_config["name"]
@@ -316,6 +385,12 @@ def run_benchmark(args):
 
         for suite_name, tests in test_suites.items():
             for test in tests:
+                # Skip si ya fue completado (resume)
+                if (model_id, suite_name, test["name"]) in done_keys:
+                    completed += 1
+                    print(f"  [{completed}/{total_runs}] {suite_name}/{test['name']}... SKIP (resume)", flush=True)
+                    continue
+
                 run_scores = []
 
                 for run_num in range(runs):
@@ -328,6 +403,7 @@ def run_benchmark(args):
                     scores["suite"] = suite_name
                     scores["run"] = run_num + 1
                     scores["timestamp"] = timestamp
+                    _save_response(result, scores, model_key, suite_name, test["name"])
                     run_scores.append(scores)
 
                     if result.success:
@@ -349,6 +425,12 @@ def run_benchmark(args):
                 else:
                     all_results.append(run_scores[0])
 
+                # Checkpoint incremental tras cada test (silencioso para no ruidar el log)
+                _dump_results(partial=True)
+
+        # Checkpoint visible al cerrar cada modelo
+        print(f"  [checkpoint] {len(all_results)} resultados guardados en {results_file.name}", flush=True)
+
     print(f"\n{'=' * 70}", flush=True)
     print(f"  COMPLETADO: {completed} runs, {errors} errores", flush=True)
     if judge:
@@ -356,23 +438,8 @@ def run_benchmark(args):
         print(f"  LLM-as-Judge: {stats['evaluations']} evaluaciones, costo ~${stats['estimated_cost_usd']:.4f}", flush=True)
     print(f"{'=' * 70}", flush=True)
 
-    # Guardar resultados
-    results_dir = Path(RESULTS_DIR)
-    results_dir.mkdir(parents=True, exist_ok=True)
-    results_file = results_dir / f"benchmark_{timestamp}.json"
-
-    # Incluir metadata del juez en el archivo de resultados
-    output = {
-        "metadata": {
-            "timestamp": timestamp,
-            "total_runs": completed,
-            "errors": errors,
-            "judge": judge.get_stats() if judge else None,
-        },
-        "results": all_results,
-    }
-    with open(results_file, "w") as f:
-        json.dump(output, f, indent=2, ensure_ascii=False)
+    # Guardar resultados (final, marca partial=False)
+    _dump_results(partial=False)
 
     console.print(f"\n[green]Resultados guardados en {results_file}[/green]")
 
@@ -502,6 +569,8 @@ def main():
     parser.add_argument("--list-judges", action="store_true", help="Listar jueces disponibles")
     parser.add_argument("--list-models", action="store_true", help="Listar modelos disponibles")
     parser.add_argument("--list-tests", action="store_true", help="Listar tests disponibles")
+    parser.add_argument("--resume", type=str, default=None,
+                       help="Path a un benchmark_*.json previo: carga resultados y saltea tests ya completados (mismo archivo se sobreescribe)")
 
     args = parser.parse_args()
 

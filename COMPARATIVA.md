@@ -1,7 +1,8 @@
 # Comparativa Completa de Proveedores y Modelos
 
-> Ultima actualizacion: 22 de Abril de 2026
+> Ultima actualizacion: 23 de Abril de 2026
 > Los precios, benchmarks y rankings pueden cambiar. Verifica datos actuales antes de tomar decisiones de compra.
+> **Ranking propio v2.1** (17 modelos × 91 tests con juez Phi-4) en [README.md](README.md#resultados-abril-2026--scoring-v2--phi-4-judge). Los "Benchmarks Publicos" de la sección 4 son de terceros (Arena, BFCL, SWE-Bench).
 
 ## 1. Ranking por Costo (Pay-as-you-go)
 

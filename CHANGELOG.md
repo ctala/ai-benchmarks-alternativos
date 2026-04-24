@@ -1,5 +1,34 @@
 # Changelog
 
+## [2.1.0] - 2026-04-23
+
+### Por que v2.1 (first full Phi-4 run)
+- **1512 corridas** evaluadas con Phi-4 judge: 17 modelos × 91 tests. Primer run completo del benchmark v2 con juez local.
+- Ranking v1 (sin juez) queda obsoleto. v2.1 es la primera "verdad" con scoring completo.
+
+### Agregado
+- **Guardado incremental atomico en runner.py**: dump a JSON tras cada test, no al final. Si se corta no se pierde nada.
+- **Flag `--resume <archivo.json>`**: retoma desde un benchmark parcial, saltea tests ya completados.
+- **Guardado de respuesta completa por test**: cada request genera un `.md` auditable en `benchmarks/results/responses/<timestamp>/<modelo>__<suite>__<test>.md`. El JSON lleva `response_file` con path relativo.
+
+### Resultados destacados (Phi-4 judge, 91 tests/modelo)
+- **Top 5**: 1) Devstral Small 7.35, 2) GPT-5.4 Mini 7.32, 3) GPT-4.1 7.29, 4) Gemini 2.5 Flash Lite 7.22, 5) MiMo-V2-Flash 7.20
+- **Devstral Small domina** como #1 overall y top en creatividad (7.70), string precision (7.66), traducción (7.87)
+- **MiMo-V2-Flash sorprende**: #1 en razonamiento (7.58), contenido ES (7.51), code (7.74), strategy (7.78), productividad (7.66) — a $0.09/$0.29 per M (MIT)
+- **GPT-5.4 Mini sube del #8 (v1) al #2**: el juez revaloriza su equilibrio calidad/velocidad (117 tok/s)
+- **Llama 4 Maverick top en agentes (7.32)** pero 17 tests fallan por falta de tool calling nativo en OpenRouter
+- **Kimi K2 17 errores 429** por rate limits sostenidos del provider
+- **GLM-5.1 último (6.25)**: muy flojo en code/reasoning/contenido a pesar del branding agentic
+- **Modelos chinos (MiniMax, Qwen, GLM) y Nemotron** agrupados al final del ranking
+
+### Modelos nuevos evaluados en este run
+- GPT-4.1 (directo, no Mini), GPT-5.4 Mini, Claude Opus 4.7, Kimi K2, Qwen 3.6 Plus, Qwen3 Coder, Mistral Large, Nemotron 3 Super, GLM-5.1
+
+### Documentado
+- README.md actualizado con ranking real de 17 modelos × 91 tests
+- Mejor por categoría expandido a 12 categorías con Phi-4 judge
+- Recomendaciones por caso de uso re-escritas con los nuevos datos
+
 ## [2.0.0] - 2026-04-22
 
 ### Por que v2.0 (breaking changes)
