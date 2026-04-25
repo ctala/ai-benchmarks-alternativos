@@ -1,6 +1,6 @@
 # Benchmark de Modelos AI Alternativos
 
-**Version 2.1.0** | Ultima actualizacion: 23 de Abril de 2026
+**Version 2.2.0** | Ultima actualizacion: 25 de Abril de 2026
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw, N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes).
 
@@ -294,9 +294,11 @@ Organizadas en los 4 pilares del emprendedor:
 
 ## Resultados (Abril 2026) — Scoring v2 + Phi-4 Judge
 
-> Ranking completo con **17 modelos × 91 tests cada uno = 1512 corridas** evaluadas por Phi-4 (Microsoft, 14B, MIT) corriendo local via Ollama. Juez local sin conflicto de interes. Resultados JSON: `benchmarks/results/benchmark_20260422_204025.json` (Lote 1) + `benchmark_20260423_051248.json` (Lote 2).
+> Ranking completo con **27 modelos × 91 tests = 2457 corridas** evaluadas por Phi-4 (Microsoft, 14B, MIT) local via Ollama. Juez sin conflicto de interés. Total cómputo: **~65h wall-clock** distribuidas en 3 lotes (22-25 abril).
+>
+> JSON: `benchmark_20260422_204025.json` (Lote 1) + `benchmark_20260423_051248.json` (Lote 2) + `benchmark_20260424_053942.json` (Lote 3). Detalle por modelo navegable en [`results/per-model/`](benchmarks/results/per-model/).
 
-### Ranking Global (Phi-4 judge, 91 tests)
+### Ranking Global (Phi-4 judge, 91 tests/modelo)
 
 | # | Modelo | Final | Calidad | tok/s | Open Source | OK/Total |
 |---|--------|-------|---------|-------|-------------|----------|
@@ -304,88 +306,124 @@ Organizadas en los 4 pilares del emprendedor:
 | 2 | **GPT-5.4 Mini** | **7.32** | 7.88 | 117 | No | 91/91 |
 | 3 | **GPT-4.1** | **7.29** | 7.73 | 80 | No | 91/91 |
 | 4 | Gemini 2.5 Flash Lite | 7.22 | 7.87 | **165** | No | 91/91 |
-| 5 | MiMo-V2-Flash | 7.20 | 7.60 | 52 | Si (MIT) | 91/91 |
-| 6 | Llama 4 Maverick* | 7.20 | **8.13** | 46 | Si (Llama) | 74/91 |
-| 7 | Claude Opus 4.7 | 7.17 | 8.09 | 63 | No | 91/91 |
-| 8 | Claude Sonnet 4.6 | 7.15 | 7.98 | 54 | No | 91/91 |
-| 9 | GPT-4.1 Mini | 7.11 | 7.53 | 59 | No | 91/91 |
-| 10 | DeepSeek V3.2 | 7.11 | 7.69 | 22 | Si (MIT) | 91/91 |
-| 11 | Kimi K2* | 7.05 | 7.86 | 28 | No | 74/91 |
-| 12 | Qwen3 Coder | 7.04 | 7.73 | 52 | Si (Apache) | 91/91 |
-| 13 | Mistral Large | 7.03 | 7.70 | 50 | Si (Apache) | 91/91 |
-| 14 | MiniMax M2.7 | 6.71 | 7.38 | 35 | Parcial | 91/91 |
-| 15 | Nemotron 3 Super | 6.63 | 6.76 | 32 | Si (NVIDIA) | 91/91 |
-| 16 | Qwen 3.6 Plus | 6.57 | 7.41 | 50 | Si (Apache) | 90/91 |
-| 17 | GLM-5.1 | 6.25 | 6.28 | 38 | Si (MIT) | 91/91 |
+| 5 | **Devstral 2 (Dic 2025)** | 7.22 | 7.78 | 65 | Si (Apache 2.0) | 91/91 |
+| 6 | MiMo-V2-Flash | 7.20 | 7.60 | 52 | Si (MIT) | 91/91 |
+| 7 | Llama 4 Maverick* | 7.20 | **8.13** | 46 | Si (Llama) | 74/91 |
+| 8 | **Gemini 2.5 Flash** | 7.20 | 7.80 | 115 | No | 91/91 |
+| 9 | Claude Opus 4.7 | 7.17 | 8.09 | 63 | No | 91/91 |
+| 10 | **Gemma 4 26B MoE** (3.8B activos) | 7.15 | 7.85 | 48 | Si (Apache 2.0) | 91/91 |
+| 11 | Claude Sonnet 4.6 | 7.15 | 7.98 | 54 | No | 91/91 |
+| 12 | **Claude Opus 4.6** | 7.11 | **8.16** | 46 | No | 91/91 |
+| 13 | GPT-4.1 Mini | 7.11 | 7.53 | 59 | No | 91/91 |
+| 14 | **GPT-5.4** | 7.11 | 7.62 | 57 | No | 91/91 |
+| 15 | DeepSeek V3.2 | 7.11 | 7.69 | 22 | Si (MIT) | 91/91 |
+| 16 | **Devstral Medium** | 7.09 | 7.89 | 60 | Si (Apache 2.0) | 88/91 |
+| 17 | Kimi K2* | 7.05 | 7.86 | 28 | No | 74/91 |
+| 18 | Qwen3 Coder | 7.04 | 7.73 | 52 | Si (Apache) | 91/91 |
+| 19 | Mistral Large | 7.03 | 7.70 | 50 | Si (Apache) | 91/91 |
+| 20 | **MiMo-V2-Pro** | 6.88 | 7.52 | 52 | No (Xiaomi) | 91/91 |
+| 21 | **Mistral Nemo** | 6.86 | 7.08 | 30 | Si (Apache) | 90/91 |
+| 22 | MiniMax M2.7 | 6.71 | 7.38 | 35 | Parcial | 91/91 |
+| 23 | Nemotron 3 Super | 6.63 | 6.76 | 32 | Si (NVIDIA) | 91/91 |
+| 24 | Qwen 3.6 Plus | 6.57 | 7.41 | 50 | Si (Apache) | 90/91 |
+| 25 | **Gemini 2.5 Pro** | 6.45 | 6.52 | 91 | No | 91/91 |
+| 26 | GLM-5.1 | 6.25 | 6.28 | 38 | Si (MIT) | 91/91 |
+| 27 | **Kimi K2.6** | 5.76 | 5.13 | 34 | No | 91/91 |
 
-*Llama 4 Maverick: 17 errores 404 en suites con tools (OpenRouter no tiene endpoint con function calling nativo). Kimi K2: 17 errores 429 por rate limits del provider. No afecta los scores de los tests que sí se ejecutaron.
+*Llama 4 Maverick: 17 errores 404 en suites con tools (OpenRouter sin endpoint con function calling). Kimi K2: 17 errores 429 por rate limits. Devstral Medium: 3 errores 503 puntuales del provider. Mistral Nemo: 1 error 400. Negrita = nuevos modelos del Lote 3 (24-25 abril).
 
 ### Ranking Solo Alternativas (sin Anthropic/OpenAI)
 
-| # | Modelo | Final | tok/s | Open Source | Suscripcion |
-|---|--------|-------|-------|-------------|-------------|
-| 1 | **Devstral Small** | **7.35** | 146 | Si (Apache 2.0) | Pay-as-you-go |
-| 2 | Gemini 2.5 Flash Lite | 7.22 | 165 | No | Google AI Pro $20/mes |
-| 3 | MiMo-V2-Flash | 7.20 | 52 | Si (MIT) | Pay-as-you-go |
-| 4 | Llama 4 Maverick | 7.20 | 46 | Si (Llama) | Pay-as-you-go |
-| 5 | DeepSeek V3.2 | 7.11 | 22 | Si (MIT) | Pay-as-you-go |
-| 6 | Kimi K2 | 7.05 | 28 | No | Pay-as-you-go |
-| 7 | Qwen3 Coder | 7.04 | 52 | Si (Apache) | Pay-as-you-go |
-| 8 | Mistral Large | 7.03 | 50 | Si (Apache) | Le Chat ~$15/mes |
-| 9 | MiniMax M2.7 | 6.71 | 35 | Parcial | MiniMax $20-$69/mes |
-| 10 | Nemotron 3 Super | 6.63 | 32 | Si (NVIDIA) | Pay-as-you-go |
-| 11 | Qwen 3.6 Plus | 6.57 | 50 | Si (Apache) | Qwen $50/mes |
-| 12 | GLM-5.1 | 6.25 | 38 | Si (MIT) | Pay-as-you-go |
+| # | Modelo | Final | tok/s | Open Source |
+|---|--------|-------|-------|-------------|
+| 1 | **Devstral Small** | **7.35** | 146 | Si (Apache 2.0) |
+| 2 | Gemini 2.5 Flash Lite | 7.22 | 165 | No |
+| 3 | **Devstral 2** | 7.22 | 65 | Si (Apache 2.0) |
+| 4 | MiMo-V2-Flash | 7.20 | 52 | Si (MIT) |
+| 5 | Llama 4 Maverick | 7.20 | 46 | Si (Llama) |
+| 6 | Gemini 2.5 Flash | 7.20 | 115 | No |
+| 7 | Gemma 4 26B MoE | 7.15 | 48 | Si (Apache 2.0) |
+| 8 | DeepSeek V3.2 | 7.11 | 22 | Si (MIT) |
+| 9 | Devstral Medium | 7.09 | 60 | Si (Apache 2.0) |
+| 10 | Kimi K2 | 7.05 | 28 | No |
+| 11 | Qwen3 Coder | 7.04 | 52 | Si (Apache) |
+| 12 | Mistral Large | 7.03 | 50 | Si (Apache) |
+| 13 | MiMo-V2-Pro | 6.88 | 52 | No |
+| 14 | Mistral Nemo | 6.86 | 30 | Si (Apache) |
+| 15 | MiniMax M2.7 | 6.71 | 35 | Parcial |
+| 16 | Nemotron 3 Super | 6.63 | 32 | Si (NVIDIA) |
+| 17 | Qwen 3.6 Plus | 6.57 | 50 | Si (Apache) |
+| 18 | Gemini 2.5 Pro | 6.45 | 91 | No |
+| 19 | GLM-5.1 | 6.25 | 38 | Si (MIT) |
+| 20 | Kimi K2.6 | 5.76 | 34 | No |
 
-### Mejor por Categoria (Phi-4 judge)
+### Ranking Solo Open-Source
+
+| # | Modelo | Final | tok/s | Licencia |
+|---|--------|-------|-------|----------|
+| 1 | **Devstral Small** | **7.35** | 146 | Apache 2.0 |
+| 2 | **Devstral 2 (Dic 2025)** | 7.22 | 65 | Apache 2.0 |
+| 3 | MiMo-V2-Flash | 7.20 | 52 | MIT |
+| 4 | Llama 4 Maverick | 7.20 | 46 | Llama Community |
+| 5 | **Gemma 4 26B MoE** | 7.15 | 48 | Apache 2.0 |
+| 6 | DeepSeek V3.2 | 7.11 | 22 | MIT |
+| 7 | Devstral Medium | 7.09 | 60 | Apache 2.0 |
+| 8 | Qwen3 Coder | 7.04 | 52 | Apache 2.0 |
+| 9 | Mistral Large | 7.03 | 50 | Apache 2.0 |
+| 10 | Mistral Nemo | 6.86 | 30 | Apache 2.0 |
+| 11 | Nemotron 3 Super | 6.63 | 32 | NVIDIA Open |
+| 12 | Qwen 3.6 Plus | 6.57 | 50 | Apache 2.0 |
+| 13 | GLM-5.1 | 6.25 | 38 | MIT |
+
+### Mejor por Categoria
 
 | Categoria | 1ro | 2do | 3ro |
 |-----------|-----|-----|-----|
-| **Razonamiento** | MiMo-V2-Flash (7.58) | Devstral (7.36) | GPT-5.4 Mini (7.32) |
-| **Agentes (tool+orch+agent)** | Llama 4 Maverick (7.32) | Claude Opus 4.7 (7.09) | Claude Sonnet 4.6 (7.02) |
-| **Contenido ES** | MiMo-V2-Flash (7.51) | DeepSeek V3.2 (7.40) | Devstral (7.39) |
-| **Codigo** | MiMo-V2-Flash (7.74) | Qwen3 Coder (7.72) | Devstral (7.65) |
-| **Customer/Policy/Multi-turn** | GPT-5.4 Mini (7.32) | Kimi K2 (7.27) | Devstral (7.22) |
-| **Creatividad** | Devstral (7.70) | Gemini Flash Lite (7.63) | MiMo-V2-Flash (7.58) |
-| **Estructurado/Hallucination** | Devstral (7.63) | Gemini Flash Lite (7.63) | GPT-4.1 (7.57) |
-| **Strategy/Sales** | MiMo-V2-Flash (7.78) | GPT-4.1 (7.59) | GPT-4.1 Mini (7.57) |
-| **Traduccion** | Devstral (7.87) | Gemini Flash Lite (7.84) | MiMo-V2-Flash (7.67) |
+| **Razonamiento** | MiMo-V2-Flash (7.58) | Devstral Small (7.36) | GPT-5.4 Mini (7.32) |
+| **Contenido ES** | MiMo-V2-Flash (7.51) | DeepSeek V3.2 (7.40) | Devstral Small (7.39) |
+| **Code** | MiMo-V2-Flash (7.74) | Qwen3 Coder (7.72) | GPT-4.1 (7.65) |
+| **Agentes (tool+orch)** | Llama 4 Maverick (7.32) | Claude Opus 4.7 (7.09) | Claude Sonnet 4.6 (7.02) |
+| **Customer/Policy** | GPT-5.4 Mini (7.32) | Kimi K2 (7.27) | Devstral Small (7.22) |
+| **Creatividad** | Devstral Small (7.70) | Gemini Flash Lite (7.63) | Devstral Medium (7.59) |
+| **Estructurado/Hallucination** | Devstral Small (7.63) | Gemini Flash Lite (7.63) | GPT-4.1 (7.57) |
+| **Strategy/Sales** | MiMo-V2-Flash (7.78) | Devstral 2 (7.63) | GPT-4.1 (7.59) |
+| **Traduccion** | Devstral Small (7.87) | Gemini Flash Lite (7.84) | Devstral 2 (7.69) |
 | **OCR** | GPT-4.1 (7.28) | MiMo-V2-Flash (7.21) | Gemini Flash Lite (7.18) |
-| **String Precision** | Devstral (7.66) | GPT-5.4 Mini (7.58) | GPT-4.1 (7.53) |
-| **Productividad (resumen/planning)** | MiMo-V2-Flash (7.66) | Devstral (7.47) | GPT-5.4 Mini (7.45) |
+| **String Precision** | Devstral Small (7.66) | GPT-5.4 Mini (7.58) | Gemini Flash Lite (7.53) |
+| **Productividad** | MiMo-V2-Flash (7.66) | Devstral Small (7.47) | Devstral 2 (7.47) |
 
-### Hallazgos Clave
+### Hallazgos Clave (v2.2)
 
-- **#1 Devstral Small**: Open-source Apache 2.0, 146 tok/s, $0.10/$0.30 per M. Campeón en creatividad, string precision y traducción. Increíble para un 24B.
-- **#2 GPT-5.4 Mini sorprende**: sube del #8 (v1 sin juez) al #2 con el juez Phi-4. Muy equilibrado, rapido (117 tok/s) y bueno en customer/policy.
-- **#3 GPT-4.1 mantiene fortaleza**: especialmente en OCR (líder) y strategy/sales.
-- **MiMo-V2-Flash dispara en 4 categorias**: reasoning (7.58), contenido ES (7.51), code (7.74), strategy (7.78). Precio minúsculo ($0.09/$0.29 per M, MIT).
-- **Llama 4 Maverick top en agentes (7.32)** pero 17 tests fallan: OpenRouter no soporta tool calling nativo en ese endpoint. Para usarlo con tools: pasar por provider directo (Fireworks, Together, Groq).
-- **Claude Opus 4.7 y Sonnet 4.6 parejos**: calidad raw muy alta (8.09, 7.98) pero penalizan en sales/strategy y customer_support genérico.
-- **Kimi K2 bajó por rate limits**: 17 errores 429 sostenidos del provider en OpenRouter — no es problema del modelo.
-- **GLM-5.1 último (6.25)**: flojo en casi todas las suites salvo agents. Bajo agente coding a pesar del branding.
-- **Modelos chinos (MiniMax, Qwen, GLM)**: tienden a bajar por traducción y honestidad. MiniMax sigue último en creatividad (7.00 vs 7.70 de Devstral).
-- **Juez Phi-4 local**: cero conflicto de interés (Microsoft, 14B, MIT). Ollama en localhost, gratis. Scoring: 30% auto + 70% juez. 1512 evaluaciones sin costo de API.
+- **Devstral Small mantiene #1** tras agregar 10 modelos nuevos. Impecable para un 24B Apache 2.0.
+- **Devstral 2 (dic 2025) entra #5** pero NO supera al Small original — el Small sigue siendo más eficiente.
+- **Gemma 4 26B (3.8B activos) sorprende #10** — modelo open-source pequeño compitiendo con Claude Opus a $0.15/M.
+- **MiMo-V2-Pro decepciona #20** ($1.00/$3.00) — el flagship de Xiaomi rinde MENOS que MiMo-V2-Flash (#6, $0.09/$0.29).
+- **GPT-5.4 #14 vs Mini #2**: el Mini supera consistentemente al modelo grande.
+- **Gemini 2.5 Pro inesperadamente bajo (#25)** — el flagship de Google rinde peor que su propio Flash Lite.
+- **Kimi K2.6 ÚLTIMO (#27, 5.76)** — peor que K2 (#17). El modelo nuevo de Moonshot tiene problemas serios.
+- **Mistral Nemo top de los baratos (#21, $0.02/$0.02)** — baseline ultra económico aceptable.
+- **Llama 4 Maverick top en agentes (7.32)** — pero requiere provider directo para tool calling.
+- **Juez Phi-4 local**: 2457 evaluaciones, cero conflicto, $0 costo, replicable con MIT license.
 
-### Recomendacion por Caso de Uso (Phi-4 judge)
+### Recomendacion por Caso de Uso (v2.2)
 
 | Uso | Modelo Recomendado | Por que |
 |-----|-------------------|---------|
 | Agente general | Devstral Small | #1 global, 146 tok/s, Apache 2.0 |
-| Agente con tool calling | Llama 4 Maverick (via Fireworks/Together/Groq) | Top en agentes (7.32) — evitar OpenRouter |
-| Agente economico (API) | DeepSeek V3.2 o MiMo-V2-Flash | #10 a $0.14/M, #5 a $0.09/M |
-| Agente ultra rapido | Gemini 2.5 Flash Lite | 165 tok/s, #4 global |
-| Agente con suscripcion fija | MiniMax M2.7 | $20-69/mes, sin sorpresas |
-| Soporte al cliente | GPT-5.4 Mini o Kimi K2 | Top 2 en customer (7.32, 7.27) |
-| Contenido sin alucinaciones | Claude Opus 4.7 | #3 en estructurado/hallucination, calidad raw 8.09 |
-| Contenido en español | MiMo-V2-Flash | #1 en contenido ES (7.51) — y el más barato |
-| Coding/automatizaciones | MiMo-V2-Flash o Qwen3 Coder | Empatan top en code (7.74, 7.72) |
-| OCR/extracción documentos | GPT-4.1 | Líder en OCR (7.28) |
-| Traducción es↔en | Devstral Small | #1 en traducción (7.87) |
-| Razonamiento profundo | MiMo-V2-Flash | #1 en reasoning (7.58), precio minúsculo |
-| Creatividad/storytelling | Devstral Small | #1 en creatividad (7.70) |
-| String precision (API keys, JWT) | Devstral Small | #1 en string precision (7.66) |
-| Open-source para DGX Spark | MiMo-V2-Flash o Devstral | Ambos top, MIT/Apache |
+| Agente con tool calling | Llama 4 Maverick (via Fireworks/Together/Groq) | Top en agentes (7.32), evitar OpenRouter |
+| Agente económico API | MiMo-V2-Flash o DeepSeek V3.2 | #6 a $0.09/M, #15 a $0.14/M |
+| Agente ultra rápido | Gemini 2.5 Flash Lite | 165 tok/s, #4 global |
+| Agente con suscripción fija | MiniMax M2.7 | $20-69/mes |
+| Soporte al cliente | GPT-5.4 Mini o Kimi K2 | Top 2 customer (7.32, 7.27) |
+| Contenido sin alucinaciones | Claude Opus 4.6 o 4.7 | Calidad raw 8.16 / 8.09 |
+| Contenido en español | MiMo-V2-Flash | #1 contenido ES (7.51), el más barato |
+| Coding | MiMo-V2-Flash, Qwen3 Coder, GPT-4.1 | Top 3 code (7.74, 7.72, 7.65) |
+| OCR/documentos | GPT-4.1 | Líder OCR (7.28) |
+| Traducción es↔en | Devstral Small | #1 traducción (7.87) |
+| Razonamiento profundo | MiMo-V2-Flash | #1 reasoning (7.58), precio minúsculo |
+| Creatividad/storytelling | Devstral Small | #1 creatividad (7.70) |
+| String precision | Devstral Small | #1 string precision (7.66) |
+| Open-source para DGX Spark | Devstral Small/2, MiMo-V2-Flash, Gemma 4 26B | Top 4 open-source |
 
 > Los resultados JSON completos estan en `benchmarks/results/`
 > Ver tambien: [DESCUBRIMIENTOS.md](DESCUBRIMIENTOS.md) | [PACKS.md](PACKS.md) | [PROVEEDORES.md](PROVEEDORES.md)
