@@ -455,6 +455,54 @@ OLLAMA_MODELS = {
         "tier": "cloud_nim", "provider": "nvidia_nim",
         "open_source": True, "license": "Apache 2.0",
     },
+
+    # --- Nous Research Hermes 4 (open, abril 2026, hybrid reasoning) ---
+    "hermes-4-70b": {
+        "id": "nousresearch/hermes-4-70b",
+        "name": "Hermes 4 70B",
+        "cost_input": 0.13, "cost_output": 0.40,
+        "tier": "cheap",
+        "open_source": True, "license": "Llama 3 community",
+    },
+    "hermes-4-405b": {
+        "id": "nousresearch/hermes-4-405b",
+        "name": "Hermes 4 405B",
+        "cost_input": 1.00, "cost_output": 3.00,
+        "tier": "cheap",
+        "open_source": True, "license": "Llama 3 community",
+    },
+
+    # --- StepFun Step3 (multimodal MoE 321B/38B) ---
+    "step3": {
+        "id": "stepfun-ai/step3",
+        "name": "Step3 (StepFun)",
+        "cost_input": 1.00, "cost_output": 3.00,
+        "tier": "cheap",
+        "open_source": True, "license": "Apache 2.0",
+    },
+
+    # --- Xiaomi MiMo V2.5 (omnimodal abril 2026, 1M context) ---
+    "mimo-v2.5": {
+        "id": "xiaomi/mimo-v2.5",
+        "name": "MiMo-V2.5 (omnimodal)",
+        "cost_input": 0.40, "cost_output": 2.00,
+        "tier": "cheap",
+    },
+    "mimo-v2.5-pro": {
+        "id": "xiaomi/mimo-v2.5-pro",
+        "name": "MiMo-V2.5 Pro",
+        "cost_input": 1.00, "cost_output": 3.00,
+        "tier": "medium",
+    },
+
+    # --- ByteDance Seed-OSS 36B (Apache 2.0) ---
+    "seed-oss-36b": {
+        "id": "bytedance/seed-oss-36b-instruct",
+        "name": "Seed-OSS 36B Instruct",
+        "cost_input": 0.20, "cost_output": 0.60,
+        "tier": "cheap",
+        "open_source": True, "license": "Apache 2.0",
+    },
 }
 
 # Configuracion

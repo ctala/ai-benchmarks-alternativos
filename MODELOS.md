@@ -122,24 +122,77 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 
 ---
 
-## Plan de ejecución sugerido (Lote 6)
+## Plan de ejecución sugerido (Lote 6 — actualizado abril 25 con sync completo)
 
-> Foco: modelos producción + mercado abril, NO re-medir cubiertos.
+> Foco: cubrir TODOS los modelos del mercado abril 2026 + provider-direct sin probar.
+> Total config: 73 modelos · 28 probados · **45 pendientes**.
 
-| # | Modelo | Tiempo estimado | Justificación |
-|---|---|---|---|
-| 1 | `qwen3.5-397b-cloud` | ~30-45min | Cristian lo usa en producción |
-| 2 | `groq-llama-3.3-70b` | ~10-15min | Latencia Groq ultra baja |
-| 3 | `groq-gpt-oss-120b` | ~10-15min | Comparar vs versión OpenRouter |
-| 4 | `groq-llama-4-scout` | ~10-15min | Multimodal Llama 4 |
-| 5 | `deepseek-v4-flash` | ~30min | Nuevo, posible reemplazo V3.2 |
-| 6 | `deepseek-v4-pro` | ~45-60min | Flagship V4 |
-| 7 | `mistral-small-4` | ~20min | Apache, low-cost |
-| 8 | `grok-4.1-fast` | ~20min | xAI rápido |
+### Sub-lote 6A: NIM gratis (8 modelos, ~2-3h, $0)
+Prioridad alta — gratis con 40 RPM, joyas no disponibles en otros providers:
+1. `nim-nemotron-super-1.5` (Nemotron Super 49B v1.5)
+2. `nim-nemotron-ultra-253b` (más grande de la familia)
+3. `nim-qwen3-next-instruct` (Qwen 3-Next 80B)
+4. `nim-qwen3-next-thinking` (Qwen 3-Next thinking)
+5. `nim-mistral-nemotron` (colab Mistral × NVIDIA)
+6. `nim-kimi-k2-thinking` (variante explícita de K2)
+7. `nim-deepseek-v4-flash` (vs OpenRouter, comparar)
+8. `nim-qwen3.5-397b` (Cristian lo usa en producción via Ollama Cloud — comparar)
 
-**Total ~3-4h wall clock**, ~8 modelos × 91 tests = 728 runs, costo estimado <$10.
+### Sub-lote 6B: Mercado nuevo OpenRouter (15 modelos, ~3-4h, ~$30-50)
+Prioridad alta — productos lanzados abril 2026 sin medir:
+1. `deepseek-v4-flash` ($0.14/$0.28, 1M context, MIT) — sucesor V3.2
+2. `deepseek-v4-pro` ($1.74/$3.48, 1.6T params) — flagship V4
+3. `gemini-3.1-flash-lite` ($0.25/$1.50)
+4. `gemini-3.1-pro` ($2.00/$12.00)
+5. `grok-4.1-fast` ($0.20/$0.50, xAI rápido)
+6. `grok-4.20` ($2.00/$6.00, flagship xAI)
+7. `mistral-small-4` ($0.15/$0.60, Apache 2.0)
+8. `nemotron-nano` (30B, $0.05/$0.20, NVIDIA Open)
+9. `mimo-v2-omni` ($0.40/$2.00, multimodal)
+10. `mimo-v2.5` ($0.40/$2.00, omnimodal nuevo)
+11. `mimo-v2.5-pro` ($1.00/$3.00, flagship Xiaomi)
+12. `hermes-4-70b` ($0.13/$0.40, Nous Research, hybrid reasoning)
+13. `hermes-4-405b` ($1.00/$3.00, flagship Hermes 4)
+14. `step3` ($1.00/$3.00, MoE 321B multimodal)
+15. `seed-oss-36b` ($0.20/$0.60, Apache 2.0, ByteDance)
 
-Lote 7 cubre el resto: `kimi-k2.5`, `gpt-4o`, `gpt-4o-high`, `claude-sonnet`, `gemma-4-31b`, `groq-gpt-oss-20b`, `groq-llama-3.1-8b`, `gpt-oss-120b-cloud`, `qwen3.5-cloud`.
+### Sub-lote 6C: Cloud Ollama (3 modelos, ~1.5h, $0 con suscripción)
+1. `qwen3.5-397b-cloud` (el que Cristian usa en producción)
+2. `qwen3.5-cloud` (default Ollama Cloud)
+3. `gpt-oss-120b-cloud`
+
+### Sub-lote 6D: Groq direct (5 modelos, ~1h, ~$5-10)
+1. `groq-llama-3.3-70b` ($0.59/$0.79)
+2. `groq-llama-3.1-8b` ($0.05/$0.08, ultra-cheap)
+3. `groq-llama-4-scout` ($0.11/$0.34, multimodal)
+4. `groq-gpt-oss-120b` ($0.15/$0.60)
+5. `groq-gpt-oss-20b` ($0.075/$0.30)
+
+### Sub-lote 6E: Free tier (5 modelos, ~1h, $0)
+1. `deepseek-r1-free`
+2. `llama-3.3-70b-free`
+3. `qwen3-coder-free`
+4. `mimo-v2-flash-free`
+5. `qwen-3.6-plus-free`
+
+### Sub-lote 6F: Otros pendientes OpenRouter (9 modelos, ~2h, ~$15-25)
+1. `kimi-k2.5` (cobertura entre K2 y K2.6)
+2. `gpt-4o` ($2.5/$10)
+3. `gpt-4o-high` ($5/$15, premium)
+4. `claude-sonnet` (Sonnet 4 base)
+5. `gemma-4-31b` (variante 31B vs 26B ya probado)
+6. `qwen-3.5-plus` (vs 3.6 Plus)
+7. `minimax-m2.7-direct` (provider directo, comparar latencia)
+8. `minimax-m2.7-highspeed`
+9. `gpt-5.5-pro` ($30/$180 — caro, ~$72/lote completo, decidir si vale)
+
+### Resumen Lote 6 completo
+- **45 modelos × 91 tests = 4095 runs**
+- **Tiempo total**: ~10-14h wall clock (en serial), ~6-8h en 2 parallel runs
+- **Costo total**: ~$50-100 OpenRouter (NIM/Cloud/Free son $0)
+
+### Recomendación de ejecución
+Empezar con **6A + 6E + 6C** (todo gratis, ~16 modelos). Mientras corre, decidir si vale 6F (OpenAI/Claude/MiniMax legacy) y revisar pricing de 6B antes de commitear el costo OpenRouter.
 
 ---
 
