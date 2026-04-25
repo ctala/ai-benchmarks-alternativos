@@ -225,6 +225,9 @@ MODELS = {
         "cost_input": 1.00,
         "cost_output": 3.00,
         "tier": "medium",
+        "open_source": False,
+        "license": "Proprietary",
+        "notes": "API-only Xiaomi. MiMo V2 Flash sí es MIT en HF, el Pro NO se publica.",
     },
     "gemini-pro": {
         "id": "google/gemini-2.5-pro",
@@ -284,7 +287,8 @@ MODELS = {
     "gpt-5.5-pro": {
         "id": "gpt-5.5-pro", "name": "GPT-5.5 Pro",
         "cost_input": 30.00, "cost_output": 180.00,
-        "tier": "premium", "provider": "openai_direct",
+        "tier": "premium", "provider": "openai_responses",
+        "notes": "Sólo /v1/responses (no chat/completions). Requiere OPENAI_API_KEY.",
     },
 
     # --- Groq directo (LPU, super rápido — requiere GROQ_API_KEY en .env) ---

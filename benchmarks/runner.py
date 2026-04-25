@@ -38,7 +38,7 @@ from benchmarks.scoring import (
     compute_final_score,
 )
 from benchmarks.llm_judge import LLMJudge, create_judge, judge_score_to_10, JUDGE_PRESETS
-from providers.adapters import UnifiedProvider, BenchmarkResult
+from providers.adapters import UnifiedProvider, OpenAIResponsesProvider, BenchmarkResult
 
 # Importar tests
 from benchmarks.tests import content_generation, tool_calling, task_management
@@ -253,10 +253,13 @@ def run_benchmark(args):
 
     # OpenAI directo (para GPT-5.4, GPT-5.4-mini)
     openai_direct = None
+    # OpenAI Responses API (para gpt-5.5-pro, o1-pro — endpoint /v1/responses)
+    openai_responses = None
     try:
         from benchmarks.config import OPENAI_API_KEY, OPENAI_BASE_URL
         if OPENAI_API_KEY:
             openai_direct = UnifiedProvider("openai", OPENAI_API_KEY, OPENAI_BASE_URL)
+            openai_responses = OpenAIResponsesProvider("openai_responses", OPENAI_API_KEY, OPENAI_BASE_URL)
     except ImportError:
         pass
 
@@ -452,6 +455,8 @@ def run_benchmark(args):
             provider = minimax_direct
         elif model_config.get("provider") == "openai_direct" and openai_direct:
             provider = openai_direct
+        elif model_config.get("provider") == "openai_responses" and openai_responses:
+            provider = openai_responses
         else:
             provider = openrouter
 

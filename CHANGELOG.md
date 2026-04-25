@@ -2,6 +2,38 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [Unreleased] - 2026-04-25 (continúa)
+
+### Agregado
+- **`OpenAIResponsesProvider`** en `providers/adapters.py` — soporta el endpoint `/v1/responses` de OpenAI requerido por `gpt-5.5-pro` y `o1-pro`. Estos modelos NO funcionan en `/v1/chat/completions` (404 en 58/58 tests del Lote 4).
+- Mapping de `messages` → `instructions` (system) + `input` (user concatenado).
+- Captura `reasoning_tokens` separados en `result.metadata` cuando el SDK los expone (`usage.output_tokens_details.reasoning_tokens`).
+- Smoke test con `gpt-5.5-pro` "Di solo hola": 15 input + 46 output + **39 reasoning** tokens. Confirma cuantitativamente que el reasoning interno de pro models es ~85% del costo facturado.
+- Provider key `"openai_responses"` en config para rutear modelos a este endpoint.
+- `gpt-5.5-pro` ya no está bloqueado para correr en lotes futuros.
+
+### Documentación de costos honesta (`Lo que te ahorras` en README)
+- `PRICING` dict en `scoring.py` ampliado: agregados Anthropic (Claude Opus/Sonnet/Haiku 4.x), Kimi K2/K2.5/K2.6, Mistral Large, Llama 4 family, Qwen 3.6 Plus, MiniMax, DeepSeek V4 Flash/Pro, DeepSeek R1, gpt-oss 20/120B. Corregidos GPT-5.4/5.4-mini/5.5 con tarifas reales.
+- Recálculo: $14 → $48 sobre runs preservados (antes Claude/Kimi caían en fallback `(1.0, 3.0)`).
+- Documentadas 4 categorías de costo invisible: iteración de metodología, vacíos facturados, timeouts cobrados, retries.
+- Dashboard real OpenRouter: $100+ acumulado al cierre de v2.2.1 (vs los $48 calculados — diferencia es la iteración pre-tracking no preservada en JSONs).
+
+### Reglas y estándares
+- **Corte "Solo Alternativas"** ahora excluye también modelos Google propietarios (Gemini Flash/Flash-Lite/Pro). Sí permite open-source de Google (Gemma). Tabla del README reducida de 20 a 17 modelos. Documentado en `CLAUDE.md` y `ROADMAP.md`.
+- **Estándar de no re-medir** en `CLAUDE.md`: re-correr SÓLO si versión nueva del modelo, suites/tests cambiados, bug del runner, o cambio visible del proveedor. NO por refactors/cosméticos.
+
+### Inventario y documentación pública
+- **`MODELOS.md`** (nuevo) — inventario único de cobertura: 28 probados + 20 en config sin probar + ~10 mercado por agregar. Plan Lote 6 priorizado.
+- **`TESTS.md`** (nuevo, auto-generado) — 91 tests en 23 suites con prompt + criterios visibles. Script `benchmarks/generate_tests_md.py` para regenerar tras agregar/cambiar tests.
+- **`benchmarks/calculate_costs.py`** (nuevo) — calcula costos reales sumando todos los JSONs y recalculando con `PRICING` actual. Comando `--markdown` para tabla pegable.
+
+### DeepSeek V4
+- Agregados al config: `deepseek-v4-flash` (0.14/0.28, 284B params, 1M context) y `deepseek-v4-pro` (1.74/3.48, 1.6T params, 1M context). IDs verificados via OpenRouter.
+
+### Recovery 402 (post-saldo bajo OpenRouter)
+- Detectado: thinking models con `max_completion_tokens=8192` requieren reserva worst-case ~$74/request. Con saldo bajo, OpenRouter rechazó con 402 todos los Kimi K2.6 (47 + 9 = 56 tests + 1 GLM-5.1).
+- Tras recarga del usuario: `--rerun-failed` recupera los runs sin afectar los exitosos. Recovery 1 (GLM-5.1, 1 test) y Recovery 2 (Kimi K2.6 Lote 3, 9 tests) completados. Recovery 3 (Kimi vs Opus, 47 tests) en curso.
+
 ## [2.2.1] - 2026-04-25 (post-Lote 3 / Lote 4 GPT-5.5)
 
 ### Por que v2.2.1

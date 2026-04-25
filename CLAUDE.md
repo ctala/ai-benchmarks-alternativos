@@ -119,11 +119,12 @@ Constantes en `providers/adapters.py` (cima del archivo) — **este es el están
 ## Providers configurados
 
 - **OpenRouter** (`OPENROUTER_API_KEY`) — acceso a 290+ modelos
-- **OpenAI directo** (`OPENAI_API_KEY`) — GPT-4.1, GPT-5.4, GPT-5.5 (usa `max_completion_tokens` para thinking models)
+- **OpenAI directo** (`OPENAI_API_KEY`) — `/v1/chat/completions` para GPT-4.1, GPT-5.4, GPT-5.5 (usa `max_completion_tokens` para thinking)
+- **OpenAI Responses** (`OPENAI_API_KEY`) — `/v1/responses` para gpt-5.5-pro / o1-pro (no funcionan en chat/completions). Provider key: `openai_responses`. Captura `reasoning_tokens` aparte en `metadata`.
 - **MiniMax directo** (`MINIMAX_API_KEY`) — M2.7-highspeed
-- **Xiaomi MiMo** — via OpenRouter (`xiaomi/mimo-v2-pro|flash|omni`)
+- **Groq directo** (`GROQ_API_KEY`) — Llama 3.3 70B, GPT-OSS 120/20B (LPU latencia ultra baja)
 - **Ollama local** — `localhost:11434`, activar con `INCLUDE_OLLAMA = True`
-- **Ollama Cloud** — pendiente implementar (el usuario tiene suscripción activa)
+- **Ollama Cloud** (`OLLAMA_CLOUD_API_KEY`) — qwen3.5:397b-cloud (Cristian usa este en producción)
 
 ## Familia Qwen: Base (open) vs Plus/Max (closed)
 

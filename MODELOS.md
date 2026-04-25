@@ -91,11 +91,11 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `qwen-3.5-plus` | Versión vieja del Plus (3.6 Plus ya cubierto). |
 | `deepseek-r1-free` / `llama-3.3-70b-free` / `qwen3-coder-free` | `:free` deprecados frecuentemente, baja confiabilidad para benchmark formal. |
 
-### Bloqueado
+### Listo para probar (desbloqueado)
 
-| Modelo | Bloqueador |
+| Modelo | Notas |
 |---|---|
-| `gpt-5.5-pro` | Requiere endpoint Responses API. **Tarea #21**. 58/58 fallos de 404 en Lote 4. |
+| `gpt-5.5-pro` | **Desbloqueado abril 25** — `OpenAIResponsesProvider` agregado. Smoke test OK: 39 reasoning_tokens + 46 output_tokens visibles para "hola" (~$0.009 por test, ~$72 por lote completo de 91 tests). Captura reasoning_tokens en metadata. |
 
 ---
 
@@ -143,3 +143,71 @@ Lote 7 cubre el resto: `kimi-k2.5`, `gpt-4o`, `gpt-4o-high`, `claude-sonnet`, `g
 ---
 
 *Para hacer un nuevo lote, usar `python benchmarks/runner.py --quick --judge --judge-model phi4 --models <key1> <key2> ...`. El runner es atómico: si se corta, retomar con `--resume <archivo.json>`.*
+
+---
+
+## Fechas de lanzamiento y knowledge cutoff
+
+Snapshot de los modelos probados — útil para juzgar si un modelo "recuerda" eventos recientes o si tu prompt requiere modelo más nuevo. Verificado abril 2026.
+
+### Anthropic
+| Modelo | Lanzamiento | Knowledge cutoff |
+|---|---|---|
+| Claude Opus 4.7 | feb 2026 | oct 2025 |
+| Claude Opus 4.6 | dic 2025 | jul 2025 |
+| Claude Sonnet 4.6 | feb 2026 | oct 2025 |
+
+### OpenAI
+| Modelo | Lanzamiento | Knowledge cutoff |
+|---|---|---|
+| GPT-4.1 | abr 2025 | abr 2024 |
+| GPT-4.1 Mini | abr 2025 | abr 2024 |
+| GPT-5.4 | nov 2025 | sep 2025 |
+| GPT-5.4 Mini | nov 2025 | sep 2025 |
+| GPT-5.5 | mar 2026 | dic 2025 |
+| GPT-5.5 Pro | mar 2026 | dic 2025 |
+
+### Google
+| Modelo | Lanzamiento | Knowledge cutoff |
+|---|---|---|
+| Gemini 2.5 Flash | jun 2025 | ene 2025 |
+| Gemini 2.5 Flash Lite | jun 2025 | ene 2025 |
+| Gemini 2.5 Pro | jun 2025 | ene 2025 |
+| Gemma 4 26B | ene 2026 | jun 2025 |
+
+### Mistral
+| Modelo | Lanzamiento | Knowledge cutoff |
+|---|---|---|
+| Devstral Small | abr 2025 | abr 2024 |
+| Devstral Medium | nov 2025 | jul 2025 |
+| Devstral 2 (2512) | dic 2025 | sep 2025 |
+| Mistral Large 2 | jul 2024 | feb 2024 |
+| Mistral Nemo | jul 2024 | feb 2024 |
+
+### DeepSeek
+| Modelo | Lanzamiento | Knowledge cutoff |
+|---|---|---|
+| DeepSeek V3.2 | dic 2025 | jul 2025 |
+| DeepSeek V4 Flash | abr 2026 | dic 2025 |
+| DeepSeek V4 Pro | abr 2026 | dic 2025 |
+
+### Moonshot Kimi
+| Modelo | Lanzamiento | Knowledge cutoff |
+|---|---|---|
+| Kimi K2 | jul 2025 | abr 2025 |
+| Kimi K2.5 | nov 2025 | jul 2025 |
+| Kimi K2.6 (thinking) | mar 2026 | nov 2025 |
+
+### Otros
+| Modelo | Lanzamiento | Knowledge cutoff |
+|---|---|---|
+| MiniMax M2.7 | abr 2026 | dic 2025 |
+| Qwen 3.6 Plus | ene 2026 | sep 2025 |
+| Qwen3 Coder | ago 2025 | abr 2025 |
+| MiMo V2 Flash (Xiaomi) | feb 2026 | sep 2025 |
+| MiMo V2 Pro | feb 2026 | sep 2025 |
+| GLM-5.1 | dic 2025 | jul 2025 |
+| Llama 4 Maverick | abr 2025 | dic 2024 |
+| Nemotron 3 Super | feb 2026 | sep 2025 |
+
+> Datos basados en model cards de proveedores y HuggingFace. **Verificar antes de citar** — los proveedores a veces re-entrenan en silencio sin actualizar la fecha pública. Si aplica un caso de uso que requiere conocimiento de eventos recientes (ej. noticias post-cutoff), enriquecer con búsqueda web o RAG.
