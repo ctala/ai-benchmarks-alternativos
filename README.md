@@ -1,6 +1,6 @@
 # Benchmark de Modelos AI Alternativos
 
-**Version 2.2.0** | Ultima actualizacion: 25 de Abril de 2026
+**Version 2.2.1** | Ultima actualizacion: 25 de Abril de 2026
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw, N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes).
 
@@ -117,17 +117,23 @@ flowchart TD
 5. **Combinacion**: Sin juez usa 40% formato + 60% sustancia. Con juez usa 30% automatico + 70% evaluacion del juez.
 6. **Score final**: Pondera calidad (35%), tool calling (25%), costo (15%), disponibilidad (15%), velocidad (5%), latencia (5%).
 
-### Configuracion del runner: max_tokens y temperature
+### Estandar del benchmark para thinking models
 
-Definido en `providers/adapters.py` — podes ajustarlo a tu presupuesto:
+Todas las constantes estan en `providers/adapters.py` (cima del archivo, con razones inline). Este es el estandar oficial aplicado a todos los lotes — editalo si tu hardware/budget difiere.
 
-- **`max_tokens` = 2048** por defecto (apto para blog/email; suficientemente acotado para no quemar API).
-- **Thinking models reciben `max_tokens × 4` (mínimo 8192)**. Lista actual: `gpt-5*`, `o1*`, `o3*`, `glm-5*`, `kimi-k2.6`, `nemotron*`. ¿Por qué? Estos modelos consumen tokens internos en su cadena de razonamiento que se contabilizan como `completion_tokens` aunque no aparezcan en la respuesta. Con sólo 2048, GPT-5.5/Kimi K2.6 agotan el budget razonando y devuelven `content=""` (descubrimos 165 runs vacíos en abril 2026 por este bug).
-- **`temperature` = 0.7** para todos los modelos que lo aceptan. GPT-5.5/o1/o3 rechazan otro valor que no sea 1.0 (su default), así que el adapter omite el parámetro para esos.
+| Constante | Valor | Aplica a |
+|---|---|---|
+| `THINKING_MODELS` | `gpt-5*`, `o1*`, `o3*`, `glm-5*`, `kimi-k2.6`, `nemotron*` | Modelos que consumen reasoning interno facturado |
+| `THINKING_TOKEN_MULTIPLIER` | `4` | max_tokens × 4 para thinking. Sin esto, agotan budget razonando y devuelven `content=""` |
+| `THINKING_MIN_TOKENS` | `8192` | Piso absoluto de output para que blog/workshop largos no queden cortados |
+| `HTTP_READ_TIMEOUT_S` | `240.0` | httpx read_timeout. Antes 60s causaba timeouts a 181s (3 retries × 60s) |
+| `FIXED_TEMP_MODELS` | `gpt-5.5`, `gpt-5-pro`, `gpt-5.5-pro`, `o1`, `o3` | Sólo aceptan temperature=1.0. El adapter omite el parámetro |
+| `max_tokens` default (runner.py) | `2048` | Para non-thinking. Thinking reciben 8192 |
+| `temperature` default | `0.7` | Para los no-FIXED_TEMP_MODELS |
 
-**Ajustar para tu uso**: editar `providers/adapters.py:89` (lista `thinking_models`) o `benchmarks/runner.py` (`max_tokens=2048` en `run_single_test`). Bajar a 1024 ahorra costo, subir a 4096 da respuestas más largas pero suben tokens facturados, especialmente en thinking models (multiplicar mentalmente × 4).
+**Origen**: detectado abril 25 2026 que 165 runs de thinking models tenían `content=""` (agotaban max_tokens=2048 en reasoning interno) + 6 timeouts en GPT-5.5 strategy/workshop por httpx 60s. Tras el fix, los scores subieron 2-3 puntos. Documentado en CHANGELOG v2.2.1.
 
-> **Hallazgo importante para tu billetera**: thinking models facturan ~3-4× más tokens de lo que parece (incluyen reasoning tokens). Una respuesta de 500 tokens visibles en GPT-5.5 puede haber consumido 2000+ tokens facturados. Las suscripciones flat-rate (ChatGPT Pro, Anthropic Pro Max) se consumen igualmente más rápido con thinking models.
+> **Implicación para tu billetera**: thinking models facturan ~3-4× más tokens de lo que parece (reasoning tokens cuentan como `completion_tokens`). Una respuesta de 500 tokens visibles en GPT-5.5 puede haber consumido 2000+ tokens facturados. Las suscripciones flat-rate (ChatGPT Pro, Anthropic Pro Max) se consumen 3-4× más rápido con thinking models. Tabla concreta en COMPARATIVA.md.
 
 ### Eleccion del modelo juez y sesgo
 
