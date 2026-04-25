@@ -4,6 +4,20 @@
 
 ## [Unreleased] - 2026-04-25 (continúa)
 
+### NVIDIA NIM provider (#19)
+- Provider `nvidia_nim` agregado al runner. Base URL `https://integrate.api.nvidia.com/v1` (OpenAI-compatible).
+- Free tier 40 RPM = perfecto para benchmarks secuenciales (cada test ~5-30s, no excede el límite).
+- `NVIDIA_NIM_API_KEY` en `.env`, smoke test OK con Nemotron Super 49B v1.5 (8.3s para "hola").
+- 135+ modelos en el catálogo. 8 agregados al config (claves `nim-*`):
+  - `nim-nemotron-super-1.5` (versión v1.5 del Nemotron Super que ya medimos)
+  - `nim-nemotron-ultra-253b` (más grande de la familia)
+  - `nim-qwen3-next-instruct` y `nim-qwen3-next-thinking` (Qwen 3-Next 80B, próxima gen)
+  - `nim-mistral-nemotron` (colab Mistral × NVIDIA)
+  - `nim-kimi-k2-thinking` (variante thinking del K2 — comparar con K2.6)
+  - `nim-deepseek-v4-flash` (mismo modelo que OpenRouter, comparar latencia/calidad)
+  - `nim-qwen3.5-397b` (mismo Cristian usa en producción via Ollama Cloud — comparar)
+- 8 nuevos modelos = potencial de 8 × 91 = 728 tests gratis en próximo Lote 6.
+
 ### Agregado
 - **`OpenAIResponsesProvider`** en `providers/adapters.py` — soporta el endpoint `/v1/responses` de OpenAI requerido por `gpt-5.5-pro` y `o1-pro`. Estos modelos NO funcionan en `/v1/chat/completions` (404 en 58/58 tests del Lote 4).
 - Mapping de `messages` → `instructions` (system) + `input` (user concatenado).

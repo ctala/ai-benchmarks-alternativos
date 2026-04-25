@@ -123,6 +123,7 @@ Constantes en `providers/adapters.py` (cima del archivo) — **este es el están
 - **OpenAI Responses** (`OPENAI_API_KEY`) — `/v1/responses` para gpt-5.5-pro / o1-pro (no funcionan en chat/completions). Provider key: `openai_responses`. Captura `reasoning_tokens` aparte en `metadata`.
 - **MiniMax directo** (`MINIMAX_API_KEY`) — M2.7-highspeed
 - **Groq directo** (`GROQ_API_KEY`) — Llama 3.3 70B, GPT-OSS 120/20B (LPU latencia ultra baja)
+- **NVIDIA NIM** (`NVIDIA_NIM_API_KEY`) — catálogo de 135+ modelos GRATIS con 40 RPM (suficiente para benchmarks secuenciales). Provider key: `nvidia_nim`. Joyas no disponibles en otros providers: Nemotron Ultra 253B, Qwen 3-Next 80B (instruct + thinking), Mistral-Nemotron, Kimi K2 thinking, DeepSeek V4. Catálogo en build.nvidia.com.
 - **Ollama local** — `localhost:11434`, activar con `INCLUDE_OLLAMA = True`
 - **Ollama Cloud** (`OLLAMA_CLOUD_API_KEY`) — qwen3.5:397b-cloud (Cristian usa este en producción)
 
