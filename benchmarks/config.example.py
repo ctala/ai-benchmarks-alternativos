@@ -402,6 +402,59 @@ OLLAMA_MODELS = {
         "open_source": True,
         "license": "Apache 2.0",
     },
+
+    # --- NVIDIA NIM (gratis con 40 RPM, OpenAI-compatible) ---
+    # Catálogo 100+ modelos en https://build.nvidia.com/explore/discover
+    # Free tier suficiente para benchmarks (secuenciales). Crear key en build.nvidia.com.
+    "nim-nemotron-super-1.5": {
+        "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+        "name": "Nemotron Super 49B v1.5 (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim", "provider": "nvidia_nim",
+        "open_source": True, "license": "NVIDIA Open Model",
+    },
+    "nim-qwen3-next-instruct": {
+        "id": "qwen/qwen3-next-80b-a3b-instruct",
+        "name": "Qwen 3-Next 80B Instruct (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim", "provider": "nvidia_nim",
+        "open_source": True, "license": "Apache 2.0",
+    },
+    "nim-qwen3-next-thinking": {
+        "id": "qwen/qwen3-next-80b-a3b-thinking",
+        "name": "Qwen 3-Next 80B Thinking (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim", "provider": "nvidia_nim",
+        "open_source": True, "license": "Apache 2.0",
+    },
+    "nim-mistral-nemotron": {
+        "id": "mistralai/mistral-nemotron",
+        "name": "Mistral-Nemotron (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim", "provider": "nvidia_nim",
+        "open_source": True, "license": "Apache 2.0",
+    },
+    "nim-kimi-k2-thinking": {
+        "id": "moonshotai/kimi-k2-thinking",
+        "name": "Kimi K2 Thinking (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim", "provider": "nvidia_nim",
+        "open_source": True, "license": "Modified MIT",
+    },
+    "nim-deepseek-v4-flash": {
+        "id": "deepseek-ai/deepseek-v4-flash",
+        "name": "DeepSeek V4 Flash (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim", "provider": "nvidia_nim",
+        "open_source": True, "license": "MIT",
+    },
+    "nim-qwen3.5-397b": {
+        "id": "qwen/qwen3.5-397b-a17b",
+        "name": "Qwen 3.5 397B (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim", "provider": "nvidia_nim",
+        "open_source": True, "license": "Apache 2.0",
+    },
 }
 
 # Configuracion

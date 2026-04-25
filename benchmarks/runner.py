@@ -291,6 +291,15 @@ def run_benchmark(args):
     except ImportError:
         pass
 
+    # NVIDIA NIM (catálogo de 100+ modelos, gratis con 40 RPM — ideal para benchmarks)
+    nvidia_nim = None
+    try:
+        from benchmarks.config import NVIDIA_NIM_API_KEY, NVIDIA_NIM_BASE_URL
+        if NVIDIA_NIM_API_KEY:
+            nvidia_nim = UnifiedProvider("nvidia_nim", NVIDIA_NIM_API_KEY, NVIDIA_NIM_BASE_URL)
+    except ImportError:
+        pass
+
     # LLM-as-Judge (opcional)
     # Prioridad: 1) modelo especificado, 2) Ollama local (Gemma 4), 3) Haiku via OpenRouter
     judge = None
@@ -457,6 +466,8 @@ def run_benchmark(args):
             provider = openai_direct
         elif model_config.get("provider") == "openai_responses" and openai_responses:
             provider = openai_responses
+        elif model_config.get("provider") == "nvidia_nim" and nvidia_nim:
+            provider = nvidia_nim
         else:
             provider = openrouter
 
