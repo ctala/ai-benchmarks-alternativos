@@ -52,10 +52,11 @@ def _timeout_handler(signum, frame):
 # Modelos que consumen tokens internos en reasoning (su "thinking" se factura
 # como completion_tokens aunque no aparezca en la respuesta visible).
 THINKING_MODELS = (
-    "gpt-5", "o3", "o1",         # OpenAI thinking
-    "glm-5", "GLM-5",            # Zhipu agentic
-    "kimi-k2.6", "Kimi",         # Moonshot K2.6+
-    "nemotron", "Nemotron",      # NVIDIA Nemotron 3+
+    "gpt-5", "o3", "o1",                    # OpenAI thinking
+    "glm-5", "GLM-5",                       # Zhipu agentic
+    "kimi-k2.6", "Kimi",                    # Moonshot K2.6+
+    "nemotron", "Nemotron",                 # NVIDIA Nemotron 3+
+    "gemini-2.5-pro", "gemini-3-pro",       # Google Pro tier (reasoning interno)
 )
 
 # Modelos que sólo aceptan temperature=1.0 (rechazan otros con error 400).

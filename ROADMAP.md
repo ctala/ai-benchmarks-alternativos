@@ -9,7 +9,7 @@
 
 Cada vez que se actualice el ranking en README, mantener siempre estas 3 vistas:
 1. **Ranking global** — todos los modelos
-2. **Ranking solo alternativas** — sin Anthropic/OpenAI (para quienes quieren evitar Claude/GPT)
+2. **Ranking solo alternativas** — sin Anthropic, sin OpenAI y **sin Google propietarios** (Gemini Flash / Flash Lite / Pro). Sí se permiten modelos open-source de Google (Gemma). Para quienes quieren evitar los proveedores propietarios populares.
 3. **Ranking solo open-source** — todos los modelos con `open_source: True` en config (para quienes necesitan licencia abierta, self-hosted, o planean correr en DGX Spark)
 
 El script `generate_per_model_md.py` ya tiene los datos; al migrar a HTML sliders (#9) debe exponer el filtro por licencia además de los sliders existentes.

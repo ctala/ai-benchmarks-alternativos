@@ -6,10 +6,39 @@ Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw,
 
 > **Contexto**: Desde el 21 de abril 2026, Claude Code ya no viene en la suscripcion Pro de $20/mes. Este benchmark ayuda a encontrar las mejores alternativas por caso de uso y presupuesto.
 
+## Lo que te ahorras al usar este benchmark
+
+Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2.6 vs DeepSeek / cuál es el mejor open-source para code"* tendrías que correr esto tú mismo. Acá ya está hecho:
+
+| Recurso invertido | Cantidad |
+|---|---|
+| Modelos comparados | **30 únicos** |
+| Tests por modelo | **91 tests en 23 suites** |
+| Runs preservados en JSON | **4,142** (3,873 exitosos) |
+| Tokens consumidos (preservados) | 1.26M input + 3.72M output |
+| **Costo calculado (`calculate_costs.py`)** | **~$48 USD** sobre runs preservados con PRICING actual |
+| **Costo real OpenRouter dashboard** | **$100+ USD** (incluye iteración no preservada) |
+| **+ recargas posteriores para retries y nuevos lotes** | **$120+ adicional** abril 25 |
+| **Tiempo wall-clock** | **~67h** desde 11 de abril |
+| Iteración de metodología | cientos de runs no documentados antes del scoring v2 |
+
+> El número "$200+" no es solo lo medido. Hay 4 categorías de costo que el `cost_usd` calculado **NO captura**:
+>
+> 1. **Iteración de metodología** (cientos de runs antes de instrumentar `cost_usd`/`output_tokens`): exploración de qué tests, qué scoring, qué juez, cómo medir thinking models.
+> 2. **Respuestas vacías facturadas a precio completo**: 165+ corridas de thinking models (Kimi K2.6, GPT-5.5, GLM-5.1, Nemotron) consumieron `max_tokens=2048` razonando y devolvieron `content=""`. **OpenRouter cobra esos tokens igual** — el modelo razonó, los tokens se generaron. Solo que no llegaron como respuesta visible.
+> 3. **Timeouts cobrados**: requests que sobrepasaron el timeout cliente fueron abortados desde nuestro lado, pero el provider ya había generado la respuesta y nos la facturó.
+> 4. **Retries del usuario y del runner**: cada retry con `--rerun-empty` / `--rerun-failed` es una invocación nueva. Algunos tests se corrieron 3-4 veces hasta llegar a un score válido.
+>
+> El cálculo automático con `python benchmarks/calculate_costs.py --markdown` ahora da **~$48** sobre los runs preservados (PRICING actualizado abril 25 con Claude Opus/GPT-5.5/Kimi/Mistral Large que faltaban). **El dashboard de OpenRouter reporta $100+** acumulado — la diferencia es la iteración no preservada en JSONs y otros consumos del usuario en OpenRouter.
+
+Regla práctica: **un emprendedor que quiera replicar este benchmark desde cero gastaría ~$100-200 en APIs + ~50h de trabajo + el costo invisible de iterar la metodología**. Acá ya está hecho con todos los hallazgos — abre [RECOMENDACIONES.md](RECOMENDACIONES.md) y elegí por plataforma + tarea + presupuesto.
+
 ## Documentos Principales
 
 | Documento | Contenido |
 |-----------|-----------|
+| [MODELOS.md](MODELOS.md) | Inventario completo: probados, en cola y por agregar al config |
+| [TESTS.md](TESTS.md) | 91 tests en 23 suites (auto-generado desde benchmarks/tests/) |
 | [COMPARATIVA.md](COMPARATIVA.md) | 35+ modelos con precios, open-source/propietario, licencias |
 | [SUSCRIPCIONES.md](SUSCRIPCIONES.md) | Suscripciones fijas ($0-$300/mes) + coding plans |
 | [PACKS.md](PACKS.md) | Packs por suscripcion + estrategia local+nube |
@@ -350,30 +379,29 @@ Organizadas en los 4 pilares del emprendedor:
 
 *Llama 4 Maverick: 17 errores 404 en suites con tools (OpenRouter sin endpoint con function calling). Kimi K2: 17 errores 429 por rate limits. Devstral Medium: 3 errores 503 puntuales del provider. Mistral Nemo: 1 error 400. Negrita = nuevos modelos del Lote 3 (24-25 abril).
 
-### Ranking Solo Alternativas (sin Anthropic/OpenAI)
+### Ranking Solo Alternativas (sin Anthropic, OpenAI, ni Google propietarios)
+
+> Excluye los 3 proveedores propietarios populares (Anthropic, OpenAI, Gemini Flash/Flash-Lite/Pro). **Gemma sí queda** porque es open-source.
 
 | # | Modelo | Final | tok/s | Open Source |
 |---|--------|-------|-------|-------------|
 | 1 | **Devstral Small** | **7.35** | 146 | Si (Apache 2.0) |
-| 2 | Gemini 2.5 Flash Lite | 7.22 | 165 | No |
-| 3 | **Devstral 2** | 7.22 | 65 | Si (Apache 2.0) |
-| 4 | MiMo-V2-Flash | 7.20 | 52 | Si (MIT) |
-| 5 | Llama 4 Maverick | 7.20 | 46 | Si (Llama) |
-| 6 | Gemini 2.5 Flash | 7.20 | 115 | No |
-| 7 | Gemma 4 26B MoE | 7.15 | 48 | Si (Apache 2.0) |
-| 8 | DeepSeek V3.2 | 7.11 | 22 | Si (MIT) |
-| 9 | Devstral Medium | 7.09 | 60 | Si (Apache 2.0) |
-| 10 | Kimi K2 | 7.05 | 28 | No |
-| 11 | Qwen3 Coder | 7.04 | 52 | Si (Apache) |
-| 12 | Mistral Large | 7.03 | 50 | Si (Apache) |
-| 13 | MiMo-V2-Pro | 6.88 | 52 | No |
-| 14 | Mistral Nemo | 6.86 | 30 | Si (Apache) |
-| 15 | MiniMax M2.7 | 6.71 | 35 | Parcial |
-| 16 | Nemotron 3 Super | 6.63 | 32 | Si (NVIDIA) |
-| 17 | Qwen 3.6 Plus | 6.57 | 50 | Si (Apache) |
-| 18 | Gemini 2.5 Pro | 6.45 | 91 | No |
-| 19 | GLM-5.1 | 6.25 | 38 | Si (MIT) |
-| 20 | Kimi K2.6 | 5.76 | 34 | No |
+| 2 | **Devstral 2** | 7.22 | 65 | Si (Apache 2.0) |
+| 3 | MiMo-V2-Flash | 7.20 | 52 | Si (MIT) |
+| 4 | Llama 4 Maverick | 7.20 | 46 | Si (Llama) |
+| 5 | Gemma 4 26B MoE | 7.15 | 48 | Si (Apache 2.0) |
+| 6 | DeepSeek V3.2 | 7.11 | 22 | Si (MIT) |
+| 7 | Devstral Medium | 7.09 | 60 | Si (Apache 2.0) |
+| 8 | Kimi K2 | 7.05 | 28 | No |
+| 9 | Qwen3 Coder | 7.04 | 52 | Si (Apache) |
+| 10 | Mistral Large | 7.03 | 50 | Si (Apache) |
+| 11 | MiMo-V2-Pro | 6.88 | 52 | No |
+| 12 | Mistral Nemo | 6.86 | 30 | Si (Apache) |
+| 13 | MiniMax M2.7 | 6.71 | 35 | Parcial |
+| 14 | Nemotron 3 Super | 6.63 | 32 | Si (NVIDIA) |
+| 15 | Qwen 3.6 Plus | 6.57 | 50 | No (proprietary) |
+| 16 | GLM-5.1 | 6.25 | 38 | Si (MIT) |
+| 17 | Kimi K2.6 | 5.76 | 34 | No |
 
 ### Ranking Solo Open-Source
 
