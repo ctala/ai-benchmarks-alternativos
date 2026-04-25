@@ -85,17 +85,28 @@ class UnifiedProvider:
         start = time.perf_counter()
         try:
             # Modelos con thinking mode usan max_completion_tokens
+            # Y necesitan budget mayor porque consumen tokens internos en reasoning.
+            # Sin esto, GPT-5/5.5 agota max_tokens en reasoning y devuelve content="".
             token_param = "max_tokens"
             thinking_models = ("gpt-5", "o3", "o1", "glm-5", "GLM-5", "kimi-k2.6", "Kimi", "nemotron", "Nemotron")
-            if any(model.startswith(p) or p in model for p in thinking_models):
+            is_thinking = any(model.startswith(p) or p in model for p in thinking_models)
+            if is_thinking:
                 token_param = "max_completion_tokens"
+                # Cuadruplicar el budget para dejar espacio al reasoning interno.
+                # Mínimo 8192 para que las respuestas largas (blog, workshop) tengan output visible.
+                effective_max = max(max_tokens * 4, 8192)
+            else:
+                effective_max = max_tokens
 
             kwargs = {
                 "model": model,
                 "messages": messages,
-                "temperature": temperature,
-                token_param: max_tokens,
+                token_param: effective_max,
             }
+            # GPT-5.5+ y gpt-5-pro sólo aceptan temperature=1 (default). Omitir.
+            fixed_temp_models = ("gpt-5.5", "gpt-5-pro", "gpt-5.5-pro", "o1", "o3")
+            if not any(p in model.lower() for p in fixed_temp_models):
+                kwargs["temperature"] = temperature
             if tools:
                 kwargs["tools"] = tools
                 kwargs["tool_choice"] = "auto"
