@@ -353,20 +353,30 @@ def run_benchmark(args):
         timestamp = prev_meta.get("timestamp", timestamp)
         results_file = resume_path  # sobreescribe el mismo archivo
 
-        # Si --rerun-empty, descartar runs con response_preview vacío (se re-correrán)
-        # Sólo afecta a los modelos que entran en este run (filtrado por --models si aplica)
+        # --rerun-empty: descartar runs con response_preview vacío
+        # --rerun-failed: descartar runs con success=False (timeouts, errores)
+        # Sólo afectan a los modelos que entran en este run (filtrado por --models si aplica)
         rerun_empty = getattr(args, "rerun_empty", False)
-        if rerun_empty:
+        rerun_failed = getattr(args, "rerun_failed", False)
+        if rerun_empty or rerun_failed:
             target_model_ids = {m["id"] for m in models.values()}
             def keep(r):
-                # Mantener si: (a) tiene response, o (b) es de un modelo que NO se va a re-correr
-                has_response = bool(r.get("response_preview", ""))
+                # Mantener si: (a) está fuera del target, o (b) cumple las condiciones
                 in_target = r.get("model_id", "") in target_model_ids
-                return has_response or not in_target
+                if not in_target:
+                    return True
+                if rerun_empty and not r.get("response_preview", ""):
+                    return False  # vacío en target → re-correr
+                if rerun_failed and not r.get("success", False):
+                    return False  # failed en target → re-correr
+                return True
             kept = [r for r in prev_results if keep(r)]
             dropped = len(prev_results) - len(kept)
             all_results = kept
-            console.print(f"[yellow]--rerun-empty: {dropped} runs vacíos de los modelos seleccionados descartados, se re-correrán[/yellow]")
+            flags_msg = []
+            if rerun_empty: flags_msg.append("vacíos")
+            if rerun_failed: flags_msg.append("failed")
+            console.print(f"[yellow]--rerun-{'/'.join(flags_msg)}: {dropped} runs descartados de los modelos seleccionados[/yellow]")
         else:
             all_results = prev_results
 
@@ -664,6 +674,8 @@ def main():
                        help="Path a un benchmark_*.json previo: carga resultados y saltea tests ya completados (mismo archivo se sobreescribe)")
     parser.add_argument("--rerun-empty", action="store_true",
                        help="Con --resume: re-correr los tests que tienen response_preview vacío (típicamente thinking models que agotaron max_tokens en reasoning)")
+    parser.add_argument("--rerun-failed", action="store_true",
+                       help="Con --resume: re-correr los tests que fallaron (timeouts, errores 4xx/5xx). Compatible con --rerun-empty.")
 
     args = parser.parse_args()
 

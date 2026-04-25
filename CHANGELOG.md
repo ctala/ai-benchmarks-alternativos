@@ -2,6 +2,42 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [2.2.1] - 2026-04-25 (post-Lote 3 / Lote 4 GPT-5.5)
+
+### Por que v2.2.1
+- Auditoria sistematica de empty responses revelo 165+ runs con `success=True` y `content=""` distribuidos en 4 lotes. Detectada raiz: thinking models agotando max_tokens en reasoning interno.
+- 6 timeouts de GPT-5.5 a 181s causados por httpx read_timeout=60s × 3 retries.
+- GPT-5.5 Pro inservible en chat/completions (404), requiere endpoint Responses.
+
+### Mejorado (`providers/adapters.py`)
+- **Constantes a nivel de modulo** para que el estandar este visible y editable sin tocar la logica:
+  - `THINKING_MODELS`: tupla de prefijos (gpt-5*, o1*, o3*, glm-5*, kimi-k2.6, nemotron*)
+  - `FIXED_TEMP_MODELS`: tupla de modelos que solo aceptan temperature=1.0
+  - `THINKING_TOKEN_MULTIPLIER = 4` (era hardcoded)
+  - `THINKING_MIN_TOKENS = 8192` (piso absoluto para thinking)
+  - `HTTP_READ_TIMEOUT_S = 240.0` (era 60.0)
+- Adapter omite `temperature` para FIXED_TEMP_MODELS para evitar HTTP 400.
+- Adapter usa `max_completion_tokens` en thinking models y aplica el multiplicador automaticamente.
+
+### Resultados Lote 4 (GPT-5.5)
+- GPT-5.5 score final: **6.42** (era 5.76 antes del fix de max_tokens, antes de eso quedaba `content=""` por agotar budget razonando).
+- 6 tests strategy/workshop/creativity recuperados con scores 6.3-6.7 tras subir HTTP_READ_TIMEOUT a 240s.
+- 10 tests tool_calling/customer_support/orchestration/agent siguen empty: bug cosmetico #23 (content=None cuando hay tool_calls), no afecta el scoring.
+- GPT-5.5 Pro: 58/58 tests fallaron con 404. Requiere endpoint Responses API. Excluido del benchmark hasta task #21.
+
+### Documentado (este commit)
+- README.md: tabla de "Estandar del benchmark para thinking models" con las 7 constantes, sus valores y razones (nivel etiqueta).
+- CLAUDE.md: misma tabla mas explicacion de cuando editar cada constante.
+- DESCUBRIMIENTOS.md: seccion "Lote 4 + Hallazgos tecnicos" con
+  - Cost multiplier de thinking models (3-4× facturacion real)
+  - Audit de 165+ runs vacios por agotar max_tokens
+  - Patron 8-empty = bug cosmetico de tool_calling
+  - HTTP read_timeout 60s vs 240s
+  - FIXED_TEMP_MODELS rechazo de temperature distinta de 1.0
+  - GPT-5.5 Pro endpoint Responses (404 en chat/completions)
+  - Atomic incremental save: 10.5h perdidos en Lote 1 sin checkpoint
+  - Qwen 3.6 Plus marcado proprietary (no open-source)
+
 ## [2.2.0] - 2026-04-25
 
 ### Por que v2.2 (Lote 3 + 10 modelos nuevos)

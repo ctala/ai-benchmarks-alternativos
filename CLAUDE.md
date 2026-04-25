@@ -84,16 +84,28 @@ El runner **guarda incrementalmente** tras cada test y puede continuar desde cua
 - `benchmarks/results/responses/<timestamp>/` — Respuestas completas por test (nuevas corridas)
 - `benchmarks/results/per-model/` — MDs navegables por modelo con ranking + link a responses
 
-## Configuración del runner: max_tokens y temperature
+## Estándar del benchmark para thinking models
 
-Definidos en `providers/adapters.py` (método `UnifiedProvider.chat`):
+Constantes en `providers/adapters.py` (cima del archivo) — **este es el estándar oficial** que aplica a todos los lotes. Editar si tu hardware/budget difiere.
 
-- **`max_tokens` default: 2048** — pensado para respuestas largas estilo blog/email pero acotado para no quemar API.
-- **Thinking models reciben `max_tokens × 4` con mínimo 8192** — lista en `thinking_models`: `gpt-5*`, `o1*`, `o3*`, `glm-5*`, `kimi-k2.6`, `nemotron*`. Razón: estos modelos consumen tokens internos en reasoning (cadena de pensamiento) que se contabilizan como `completion_tokens`. Sin el ×4, GPT-5.5/Kimi K2.6 agotaban el budget en thinking y devolvían `content=""` → score artificialmente bajo. Detectado abril 25 2026: 165 runs vacíos de thinking models antes del fix.
-- **`temperature` default: 0.7** — para todos los modelos no-fixed.
-- **`fixed_temp_models` (`gpt-5.5`, `gpt-5-pro`, `gpt-5.5-pro`, `o1`, `o3`)**: omiten el parámetro, la API usa su default (1.0). Estos modelos rechazan otros valores con error 400.
+| Constante | Valor | Razón |
+|---|---|---|
+| `THINKING_MODELS` | `gpt-5*`, `o1*`, `o3*`, `glm-5*`, `kimi-k2.6`, `nemotron*` | Modelos que consumen tokens internos de reasoning facturados como output |
+| `FIXED_TEMP_MODELS` | `gpt-5.5`, `gpt-5-pro`, `gpt-5.5-pro`, `o1`, `o3` | Modelos que rechazan `temperature` ≠ 1.0 (error 400). El adapter omite el parámetro |
+| `THINKING_TOKEN_MULTIPLIER` | `4` | max_tokens × 4 para thinking. Sin esto agotan el budget razonando y retornan `content=""` |
+| `THINKING_MIN_TOKENS` | `8192` | Piso absoluto de output para thinking. Para que respuestas largas (blog, workshop) no queden cortadas |
+| `HTTP_READ_TIMEOUT_S` | `240.0` | httpx read_timeout. Subido de 60s a 240s — el 60s causaba timeouts a 181s (3 retries × 60s) en GPT-5.5/Kimi K2.6 thinking-heavy |
+| `REQUEST_TIMEOUT` (en `config.py`) | `300` | signal alarm timeout total — backup si httpx no aborta |
+| `max_tokens` default (en `runner.py`) | `2048` | Output estándar para non-thinking. Multiplicado por 4 = 8192 para thinking |
+| `temperature` default | `0.7` | Para todos los no-FIXED_TEMP_MODELS |
 
-**Si querés modificarlos**: editar la lista `thinking_models` en `providers/adapters.py:89` para agregar nuevos modelos, o cambiar `max_tokens` en `run_single_test` (`benchmarks/runner.py`). Para tu propio benchmark con presupuesto distinto, podés bajar `max_tokens` a 1024 (ahorra) o subir a 4096 (respuestas más largas, más caro).
+**Cómo modificar**: editar las constantes en `providers/adapters.py` (todas con sus razones explicadas inline). Cambios típicos:
+- Bajar `max_tokens` a 1024 → ahorra costo, respuestas más cortas
+- Subir `max_tokens` a 4096 → respuestas más largas (cuidado: thinking models facturarán 16384)
+- Agregar nuevo modelo a `THINKING_MODELS` cuando lance otro proveedor un thinking model
+- Subir `HTTP_READ_TIMEOUT_S` si tu modelo razona >240s (raro)
+
+**Origen del estándar**: detectado abril 25 2026 — 165 runs vacíos de thinking models con `max_tokens=2048` original + 6 timeouts de GPT-5.5 con `read=60s`. Tras el fix, GPT-5.5 subió de 5.76 a 6.41+ (sigue subiendo con la re-corrida de timeouts).
 
 ## Scoring v2 + LLM-as-Judge
 
@@ -112,6 +124,18 @@ Definidos en `providers/adapters.py` (método `UnifiedProvider.chat`):
 - **Xiaomi MiMo** — via OpenRouter (`xiaomi/mimo-v2-pro|flash|omni`)
 - **Ollama local** — `localhost:11434`, activar con `INCLUDE_OLLAMA = True`
 - **Ollama Cloud** — pendiente implementar (el usuario tiene suscripción activa)
+
+## Familia Qwen: Base (open) vs Plus/Max (closed)
+
+Tres tiers en la oferta Alibaba — distinción importante para el ranking "open source":
+
+| Tier | Pesos | Ejemplos | Cómo usar |
+|---|---|---|---|
+| **Base** | ✅ Apache 2.0 (HuggingFace) | Qwen 3.6, Qwen3-Coder, Qwen 3.5 base | Ollama local, OpenRouter |
+| **Plus** | ❌ API-only propietario | Qwen 3.6 Plus, Qwen 3.5 Plus | Alibaba DashScope, OpenRouter |
+| **Max** | ❌ API-only premium | Qwen Max | Alibaba DashScope |
+
+⚠️ Error común en los configs: poner `open_source: True` para "Qwen 3.6 Plus" porque el nombre dice "Qwen 3.6". El Plus es **derivado y propietario** — no se publican pesos. Verificar siempre antes de marcar open_source.
 
 ## Reglas del proyecto
 

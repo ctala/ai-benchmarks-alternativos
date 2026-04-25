@@ -44,17 +44,49 @@ def _timeout_handler(signum, frame):
     raise TimeoutError("Request excedio el tiempo limite")
 
 
+# =============================================================================
+# Estándares del benchmark para thinking models
+# Editables si tu hardware/budget difiere — todos los lotes usan estos valores.
+# =============================================================================
+
+# Modelos que consumen tokens internos en reasoning (su "thinking" se factura
+# como completion_tokens aunque no aparezca en la respuesta visible).
+THINKING_MODELS = (
+    "gpt-5", "o3", "o1",         # OpenAI thinking
+    "glm-5", "GLM-5",            # Zhipu agentic
+    "kimi-k2.6", "Kimi",         # Moonshot K2.6+
+    "nemotron", "Nemotron",      # NVIDIA Nemotron 3+
+)
+
+# Modelos que sólo aceptan temperature=1.0 (rechazan otros con error 400).
+# El adapter omite el parámetro y deja que la API use su default.
+FIXED_TEMP_MODELS = ("gpt-5.5", "gpt-5-pro", "gpt-5.5-pro", "o1", "o3")
+
+# Multiplicador de max_tokens para thinking models. Sin esto, agotan el budget
+# en reasoning interno y devuelven content="" (descubierto abril 2026 con 165
+# runs vacíos en Kimi K2.6/GPT-5.5/GLM-5.1/Nemotron).
+THINKING_TOKEN_MULTIPLIER = 4
+# Mínimo absoluto para thinking models, aunque el max_tokens base sea bajo.
+THINKING_MIN_TOKENS = 8192
+
+# Tiempo de espera del cliente HTTP. Subido de 60s a 240s para que thinking
+# models con razonamiento extenso (workshop_outline, business_validation, etc)
+# puedan terminar. 60s causaba timeouts a 181s (3 retries × 60s) en GPT-5.5.
+HTTP_READ_TIMEOUT_S = 240.0
+
+
 class UnifiedProvider:
     """Adaptador unificado que funciona con cualquier API compatible OpenAI."""
 
     def __init__(self, provider_name: str, api_key: str, base_url: str):
         self.provider_name = provider_name
-        # httpx timeout: 10s connect, 60s total read
         self.client = OpenAI(
             api_key=api_key,
             base_url=base_url,
             http_client=httpx.Client(
-                timeout=httpx.Timeout(connect=10.0, read=60.0, write=10.0, pool=10.0)
+                timeout=httpx.Timeout(
+                    connect=10.0, read=HTTP_READ_TIMEOUT_S, write=10.0, pool=10.0
+                )
             ),
         )
 
@@ -84,18 +116,13 @@ class UnifiedProvider:
 
         start = time.perf_counter()
         try:
-            # Modelos con thinking mode usan max_completion_tokens
-            # Y necesitan budget mayor porque consumen tokens internos en reasoning.
-            # Sin esto, GPT-5/5.5 agota max_tokens en reasoning y devuelve content="".
-            token_param = "max_tokens"
-            thinking_models = ("gpt-5", "o3", "o1", "glm-5", "GLM-5", "kimi-k2.6", "Kimi", "nemotron", "Nemotron")
-            is_thinking = any(model.startswith(p) or p in model for p in thinking_models)
+            # Detectar thinking models y aplicar el estándar definido al inicio del módulo
+            is_thinking = any(model.startswith(p) or p in model for p in THINKING_MODELS)
             if is_thinking:
                 token_param = "max_completion_tokens"
-                # Cuadruplicar el budget para dejar espacio al reasoning interno.
-                # Mínimo 8192 para que las respuestas largas (blog, workshop) tengan output visible.
-                effective_max = max(max_tokens * 4, 8192)
+                effective_max = max(max_tokens * THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS)
             else:
+                token_param = "max_tokens"
                 effective_max = max_tokens
 
             kwargs = {
@@ -104,8 +131,7 @@ class UnifiedProvider:
                 token_param: effective_max,
             }
             # GPT-5.5+ y gpt-5-pro sólo aceptan temperature=1 (default). Omitir.
-            fixed_temp_models = ("gpt-5.5", "gpt-5-pro", "gpt-5.5-pro", "o1", "o3")
-            if not any(p in model.lower() for p in fixed_temp_models):
+            if not any(p in model.lower() for p in FIXED_TEMP_MODELS):
                 kwargs["temperature"] = temperature
             if tools:
                 kwargs["tools"] = tools

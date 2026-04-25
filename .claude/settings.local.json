@@ -70,7 +70,26 @@
       "Bash(grep -rn \"11 de Abril\\\\|12 de Abril\\\\|14 de Abril\\\\|16 de Abril\" --include=*.md /Users/cristiantala/Playground/Benchmarks/alternativos/)",
       "Bash(python benchmarks/runner.py --quick --judge --judge-model phi4 --models kimi-k2.6 claude-opus-4.7 claude-opus-4.6)",
       "Bash(grep -rn \"sk-or-v1\\\\|sk-proj-\\\\|sk-cp-\\\\|API_KEY.*=.*[a-zA-Z0-9]\" --include=*.py --include=*.md /Users/cristiantala/Playground/Benchmarks/alternativos/)",
-      "Bash(grep -v \".venv\\\\|config.py$\\\\|__pycache__\")"
+      "Bash(grep -v \".venv\\\\|config.py$\\\\|__pycache__\")",
+      "Bash(ps -p 26630 -o pid,etime,pcpu,pmem,command)",
+      "Bash(kill 26630)",
+      "Bash(awk '{print $2, $10}')",
+      "Bash(pkill -f \"runner.py --quick --judge\")",
+      "Bash(awk '{print \"PID:\"$2, \"ELAPSED:\"$10}')",
+      "Bash(ps -p 32778 -o pid,etime,pcpu)",
+      "Bash(awk '{print \"PID:\"$2}')",
+      "WebFetch(domain:openrouter.ai)",
+      "WebFetch(domain:ollama.com)",
+      "Bash(grep -c \"^\\\\s*\\\\[\" /tmp/lote2.log echo echo \"--- RESPONSES TEMP? ---\")",
+      "Bash(awk '{print $5, $9}')",
+      "Bash(grep -c \"^benchmarks/config.py$\\\\|^\\\\*.py.local\\\\|config.py\" .gitignore)",
+      "Bash(awk '{print \"PID:\", $2, \"RUNTIME:\", $10, \"CMD:\", $11, $12, $13}')",
+      "Bash(pip freeze *)",
+      "WebFetch(domain:share.google)",
+      "WebFetch(domain:decrypt.co)",
+      "WebFetch(domain:developers.openai.com)",
+      "Bash(awk '{print \"PID:\", $2, \"ELAPSED:\", $10}')",
+      "WebFetch(domain:console.groq.com)"
     ]
   }
 }

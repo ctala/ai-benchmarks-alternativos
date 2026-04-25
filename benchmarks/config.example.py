@@ -143,6 +143,9 @@ MODELS = {
         "cost_input": 0.33,
         "cost_output": 0.65,
         "tier": "cheap",
+        "open_source": False,
+        "license": "Proprietary",
+        "notes": "Plus = API-only propietario (NO confundir con Qwen 3.6 base que es Apache 2.0)",
     },
     "devstral": {
         "id": "mistralai/devstral-small",
