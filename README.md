@@ -117,6 +117,18 @@ flowchart TD
 5. **Combinacion**: Sin juez usa 40% formato + 60% sustancia. Con juez usa 30% automatico + 70% evaluacion del juez.
 6. **Score final**: Pondera calidad (35%), tool calling (25%), costo (15%), disponibilidad (15%), velocidad (5%), latencia (5%).
 
+### Configuracion del runner: max_tokens y temperature
+
+Definido en `providers/adapters.py` — podes ajustarlo a tu presupuesto:
+
+- **`max_tokens` = 2048** por defecto (apto para blog/email; suficientemente acotado para no quemar API).
+- **Thinking models reciben `max_tokens × 4` (mínimo 8192)**. Lista actual: `gpt-5*`, `o1*`, `o3*`, `glm-5*`, `kimi-k2.6`, `nemotron*`. ¿Por qué? Estos modelos consumen tokens internos en su cadena de razonamiento que se contabilizan como `completion_tokens` aunque no aparezcan en la respuesta. Con sólo 2048, GPT-5.5/Kimi K2.6 agotan el budget razonando y devuelven `content=""` (descubrimos 165 runs vacíos en abril 2026 por este bug).
+- **`temperature` = 0.7** para todos los modelos que lo aceptan. GPT-5.5/o1/o3 rechazan otro valor que no sea 1.0 (su default), así que el adapter omite el parámetro para esos.
+
+**Ajustar para tu uso**: editar `providers/adapters.py:89` (lista `thinking_models`) o `benchmarks/runner.py` (`max_tokens=2048` en `run_single_test`). Bajar a 1024 ahorra costo, subir a 4096 da respuestas más largas pero suben tokens facturados, especialmente en thinking models (multiplicar mentalmente × 4).
+
+> **Hallazgo importante para tu billetera**: thinking models facturan ~3-4× más tokens de lo que parece (incluyen reasoning tokens). Una respuesta de 500 tokens visibles en GPT-5.5 puede haber consumido 2000+ tokens facturados. Las suscripciones flat-rate (ChatGPT Pro, Anthropic Pro Max) se consumen igualmente más rápido con thinking models.
+
 ### Eleccion del modelo juez y sesgo
 
 El modelo juez introduce sesgo: un LLM tiende a puntuar mejor respuestas de su propio proveedor (~5-7% de inflacion documentada). Por eso la eleccion importa:

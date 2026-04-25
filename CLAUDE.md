@@ -84,6 +84,17 @@ El runner **guarda incrementalmente** tras cada test y puede continuar desde cua
 - `benchmarks/results/responses/<timestamp>/` — Respuestas completas por test (nuevas corridas)
 - `benchmarks/results/per-model/` — MDs navegables por modelo con ranking + link a responses
 
+## Configuración del runner: max_tokens y temperature
+
+Definidos en `providers/adapters.py` (método `UnifiedProvider.chat`):
+
+- **`max_tokens` default: 2048** — pensado para respuestas largas estilo blog/email pero acotado para no quemar API.
+- **Thinking models reciben `max_tokens × 4` con mínimo 8192** — lista en `thinking_models`: `gpt-5*`, `o1*`, `o3*`, `glm-5*`, `kimi-k2.6`, `nemotron*`. Razón: estos modelos consumen tokens internos en reasoning (cadena de pensamiento) que se contabilizan como `completion_tokens`. Sin el ×4, GPT-5.5/Kimi K2.6 agotaban el budget en thinking y devolvían `content=""` → score artificialmente bajo. Detectado abril 25 2026: 165 runs vacíos de thinking models antes del fix.
+- **`temperature` default: 0.7** — para todos los modelos no-fixed.
+- **`fixed_temp_models` (`gpt-5.5`, `gpt-5-pro`, `gpt-5.5-pro`, `o1`, `o3`)**: omiten el parámetro, la API usa su default (1.0). Estos modelos rechazan otros valores con error 400.
+
+**Si querés modificarlos**: editar la lista `thinking_models` en `providers/adapters.py:89` para agregar nuevos modelos, o cambiar `max_tokens` en `run_single_test` (`benchmarks/runner.py`). Para tu propio benchmark con presupuesto distinto, podés bajar `max_tokens` a 1024 (ahorra) o subir a 4096 (respuestas más largas, más caro).
+
 ## Scoring v2 + LLM-as-Judge
 
 - `score_content_quality` — formato 2/10, secciones 4/10, idioma 2/10, penaliza chino en español

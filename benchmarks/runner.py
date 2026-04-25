@@ -279,6 +279,15 @@ def run_benchmark(args):
     except ImportError:
         pass
 
+    # Groq directo (LPU, super rápido, OpenAI-compatible)
+    groq_direct = None
+    try:
+        from benchmarks.config import GROQ_API_KEY, GROQ_BASE_URL
+        if GROQ_API_KEY:
+            groq_direct = UnifiedProvider("groq", GROQ_API_KEY, GROQ_BASE_URL)
+    except ImportError:
+        pass
+
     # LLM-as-Judge (opcional)
     # Prioridad: 1) modelo especificado, 2) Ollama local (Gemma 4), 3) Haiku via OpenRouter
     judge = None
@@ -339,12 +348,31 @@ def run_benchmark(args):
             sys.exit(1)
         with open(resume_path) as f:
             prev = json.load(f)
-        all_results = prev.get("results", [])
+        prev_results = prev.get("results", [])
         prev_meta = prev.get("metadata", {})
         timestamp = prev_meta.get("timestamp", timestamp)
-        completed = prev_meta.get("total_runs", len(all_results))
-        errors = prev_meta.get("errors", 0)
         results_file = resume_path  # sobreescribe el mismo archivo
+
+        # Si --rerun-empty, descartar runs con response_preview vacío (se re-correrán)
+        # Sólo afecta a los modelos que entran en este run (filtrado por --models si aplica)
+        rerun_empty = getattr(args, "rerun_empty", False)
+        if rerun_empty:
+            target_model_ids = {m["id"] for m in models.values()}
+            def keep(r):
+                # Mantener si: (a) tiene response, o (b) es de un modelo que NO se va a re-correr
+                has_response = bool(r.get("response_preview", ""))
+                in_target = r.get("model_id", "") in target_model_ids
+                return has_response or not in_target
+            kept = [r for r in prev_results if keep(r)]
+            dropped = len(prev_results) - len(kept)
+            all_results = kept
+            console.print(f"[yellow]--rerun-empty: {dropped} runs vacíos de los modelos seleccionados descartados, se re-correrán[/yellow]")
+        else:
+            all_results = prev_results
+
+        completed = prev_meta.get("total_runs", len(all_results))
+        # Recontar errores actuales (los que siguen en all_results)
+        errors = sum(1 for r in all_results if not r.get("success", False))
         for r in all_results:
             done_keys.add((r.get("model_id", ""), r.get("suite", ""), r.get("test_name", "")))
         console.print(f"[cyan]--resume: {len(all_results)} tests ya completados cargados de {resume_path.name}[/cyan]")
@@ -408,6 +436,8 @@ def run_benchmark(args):
             provider = ollama
         elif model_config.get("provider") == "ollama_cloud" and ollama_cloud:
             provider = ollama_cloud
+        elif model_config.get("provider") == "groq_direct" and groq_direct:
+            provider = groq_direct
         elif model_config.get("provider") == "minimax_direct" and minimax_direct:
             provider = minimax_direct
         elif model_config.get("provider") == "openai_direct" and openai_direct:
@@ -632,6 +662,8 @@ def main():
     parser.add_argument("--list-tests", action="store_true", help="Listar tests disponibles")
     parser.add_argument("--resume", type=str, default=None,
                        help="Path a un benchmark_*.json previo: carga resultados y saltea tests ya completados (mismo archivo se sobreescribe)")
+    parser.add_argument("--rerun-empty", action="store_true",
+                       help="Con --resume: re-correr los tests que tienen response_preview vacío (típicamente thinking models que agotaron max_tokens en reasoning)")
 
     args = parser.parse_args()
 

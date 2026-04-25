@@ -231,6 +231,70 @@ MODELS = {
         "cost_output": 10.00,
         "tier": "medium",
     },
+
+    # --- OpenAI directo (requiere OPENAI_API_KEY en .env) ---
+    "gpt-4.1": {
+        "id": "gpt-4.1", "name": "GPT-4.1",
+        "cost_input": 2.00, "cost_output": 8.00,
+        "tier": "medium", "provider": "openai_direct",
+    },
+    "gpt-4.1-mini": {
+        "id": "gpt-4.1-mini", "name": "GPT-4.1 Mini",
+        "cost_input": 0.40, "cost_output": 1.60,
+        "tier": "cheap", "provider": "openai_direct",
+    },
+    "gpt-5.4": {
+        "id": "gpt-5.4", "name": "GPT-5.4",
+        "cost_input": 2.50, "cost_output": 10.00,
+        "tier": "medium", "provider": "openai_direct",
+    },
+    "gpt-5.4-mini": {
+        "id": "gpt-5.4-mini", "name": "GPT-5.4 Mini",
+        "cost_input": 0.50, "cost_output": 1.50,
+        "tier": "cheap", "provider": "openai_direct",
+    },
+    "gpt-5.5": {
+        "id": "gpt-5.5", "name": "GPT-5.5",
+        "cost_input": 5.00, "cost_output": 30.00,
+        "tier": "premium", "provider": "openai_direct",
+    },
+    "gpt-5.5-pro": {
+        "id": "gpt-5.5-pro", "name": "GPT-5.5 Pro",
+        "cost_input": 30.00, "cost_output": 180.00,
+        "tier": "premium", "provider": "openai_direct",
+    },
+
+    # --- Groq directo (LPU, super rápido — requiere GROQ_API_KEY en .env) ---
+    "groq-llama-3.3-70b": {
+        "id": "llama-3.3-70b-versatile", "name": "Llama 3.3 70B (Groq)",
+        "cost_input": 0.59, "cost_output": 0.79,
+        "tier": "cheap", "provider": "groq_direct",
+        "open_source": True, "license": "Llama Community",
+    },
+    "groq-llama-3.1-8b": {
+        "id": "llama-3.1-8b-instant", "name": "Llama 3.1 8B Instant (Groq)",
+        "cost_input": 0.05, "cost_output": 0.08,
+        "tier": "ultra_cheap", "provider": "groq_direct",
+        "open_source": True, "license": "Llama Community",
+    },
+    "groq-llama-4-scout": {
+        "id": "meta-llama/llama-4-scout-17b-16e-instruct", "name": "Llama 4 Scout 17B (Groq preview)",
+        "cost_input": 0.11, "cost_output": 0.34,
+        "tier": "cheap", "provider": "groq_direct",
+        "open_source": True, "license": "Llama Community",
+    },
+    "groq-gpt-oss-120b": {
+        "id": "openai/gpt-oss-120b", "name": "GPT-OSS 120B (Groq)",
+        "cost_input": 0.15, "cost_output": 0.60,
+        "tier": "cheap", "provider": "groq_direct",
+        "open_source": True, "license": "Apache 2.0",
+    },
+    "groq-gpt-oss-20b": {
+        "id": "openai/gpt-oss-20b", "name": "GPT-OSS 20B (Groq)",
+        "cost_input": 0.075, "cost_output": 0.30,
+        "tier": "ultra_cheap", "provider": "groq_direct",
+        "open_source": True, "license": "Apache 2.0",
+    },
     "claude-sonnet": {
         "id": "anthropic/claude-sonnet-4",
         "name": "Claude Sonnet 4",
@@ -331,3 +395,6 @@ OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
 
 OLLAMA_CLOUD_API_KEY = os.getenv("OLLAMA_CLOUD_API_KEY", "")
 OLLAMA_CLOUD_BASE_URL = os.getenv("OLLAMA_CLOUD_BASE_URL", "https://ollama.com/v1")
+
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+GROQ_BASE_URL = os.getenv("GROQ_BASE_URL", "https://api.groq.com/openai/v1")
