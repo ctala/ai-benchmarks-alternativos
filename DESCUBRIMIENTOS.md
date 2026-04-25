@@ -86,6 +86,29 @@ Lote 1 original (abril 22) se corto en 704/728 sin guardar nada. **Costo**: ~10.
 
 **Bonus**: `--resume <archivo.json>` permite retomar un benchmark parcial salteando los tests ya completados. `--rerun-empty` y `--rerun-failed` permiten re-correr solo los que fallaron, sin tocar los exitosos.
 
+### Benchmark single-turn subestima modelos diseñados para workflow con tools
+
+Ejemplo concreto detectado en Lote 6: **Qwen 3.5 397B Cloud** scoreó:
+- 7.7-8.5 en contenido, customer_support, code, agentes
+- **4.8-5.8 en `news_seo_writing` suite (5 tests)**
+
+Pero el caso real de Cristian (https://ecosistemastartup.com/apple-pay-y-google-pay-80-menos-fraude-que-tarjetas-fisicas/) usa exactamente Qwen 3.5 397B y los artículos salen excelentes. ¿Por qué la discrepancia?
+
+**El benchmark mide "Qwen solo, sin tools"** — un test single-turn con extracto + system prompt. La cadena real de producción tiene 3 capas:
+
+1. **Perplexity tool** que enriquece runtime con datos verificados (cifras, fuentes, contexto reciente)
+2. **Workflow N8N** que preprocesa el input y postprocesa el output
+3. **Qwen 3.5 397B** que sólo tiene que **integrar** los datos provistos, no inventarlos
+
+Tests específicos que castigan al modelo bien-comportado:
+- `news_no_hallucination_sources`: system prompt dice "NO inventes datos". Si el modelo expande contexto natural → score bajo. En producción **esa expansión sí está respaldada por la tool**.
+- `news_seo_article_full`: pide 1500-2500 palabras desde extracto corto. Sin tool, debe rellenar con conocimiento estático (penalizado) o quedarse corto (penalizado). Con tool, tiene fuentes para 1500+ palabras.
+- `news_perplexity_enrichment`: datos hardcodeados en prompt en lugar de tool real. El modelo a veces los "embellece" inventando — penalizado por anti-hallucination.
+
+**Implicación**: el ranking global del benchmark refleja "modelo solo". Para uso con workflow + tools, **el ranking puede invertirse**. Modelos como Qwen 3.5 397B (diseñados para integrarse con tools en producción) aparecen "regulares" en el benchmark pero son excelentes en su entorno real.
+
+**Mitigación pendiente**: Lote 7 podría incluir tests con tool calls reales (Perplexity, web search) para diferenciar capacidad-bruta vs capacidad-con-tools. Por ahora, el ranking sirve como baseline pero **no debería ser la única señal** para decidir uso en producción.
+
 ### Qwen 3.6 Plus es proprietary, no open-source
 
 `Qwen 3.6` (base) es Apache 2.0. `Qwen 3.6 Plus` es un producto comercial de Alibaba **sin pesos publicos**. La confusion venia del prefijo "Qwen" asociado historicamente a open-source.
