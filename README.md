@@ -6,6 +6,12 @@ Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw,
 
 > **Contexto**: Desde el 21 de abril 2026, Claude Code ya no viene en la suscripcion Pro de $20/mes. Este benchmark ayuda a encontrar las mejores alternativas por caso de uso y presupuesto.
 
+## 🎛️ Calculadora interactiva
+
+**[https://ctala.github.io/ai-benchmarks-alternativos/](https://ctala.github.io/ai-benchmarks-alternativos/)** — encuentra el modelo IA perfecto en 30 segundos.
+
+Filtros: presupuesto mensual, calls/mes, calidad mínima, velocidad mínima, tarea (razonamiento / coding / contenido / agentes), open-source, excluir Anthropic+OpenAI+Google propietarios. Ranking por mejor balance calidad/costo. Datos del último benchmark, regenerados automáticamente vía GitHub Actions cuando se agregan tests.
+
 ## Lo que te ahorras al usar este benchmark
 
 Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2.6 vs DeepSeek / cuál es el mejor open-source para code"* tendrías que correr esto tú mismo. Acá ya está hecho:
