@@ -136,3 +136,82 @@ Para quien prefiere pagar solo lo que usa:
 - [ ] **Together AI** (pay-as-you-go) - Alternativa a OpenRouter
 - [ ] **Cerebras** (pay-as-you-go) - Si la velocidad es critica
 - [ ] **Fireworks AI** (pay-as-you-go) - Buen balance general
+
+---
+
+## Análisis de Break-Even por Perfil de Uso
+
+> Generado por `python benchmarks/calculate_breakeven.py --markdown`. Re-correr cuando cambien precios o se agreguen suscripciones.
+
+Asumimos **300 input + 1500 output tokens por call** (escenario realista de agente con prompt detallado y respuesta sustantiva).
+
+### Perfiles de usuario
+
+| Perfil | Calls/mes | Escenario típico |
+|---|---:|---|
+| Light (test/dev) | 100 | Probar 1-2 modelos, debuggear flujos |
+| Casual (agente ocasional) | 500 | 1 flow N8N corriendo cada hora laboral |
+| Active (agente diario) | 2,000 | 3-5 agentes activos, equipo pequeño |
+| Heavy (N8N 24/7) | 10,000 | Workflows constantes, múltiples agentes |
+| Power (multi-agente prod) | 30,000 | SaaS con agentes en producción |
+
+### Costo mensual pay-per-use por perfil
+
+| Modelo | Light | Casual | Active | Heavy | Power |
+|---|---:|---:|---:|---:|---:|
+| **Devstral Small** (#1 ranking, open) | $0.05 | $0.24 | $0.96 | $4.80 | $14.40 |
+| **DeepSeek V3.2** (#7, open MIT) | $0.06 | $0.32 | $1.29 | $6.43 | $19.28 |
+| **DeepSeek V4 Flash** (open MIT) | $0.05 | $0.23 | $0.92 | $4.62 | $13.86 |
+| **Nemotron 3 Super** (NIM gratis 40 RPM) | $0 | $0 | $0 | $0 | $0 |
+| **Gemini 2.5 Flash Lite** | $0.05 | $0.24 | $0.94 | $4.72 | $14.18 |
+| **MiniMax M2.7** (SOTA agentes) | $0.19 | $0.94 | $3.78 | $18.90 | $56.70 |
+| **Qwen3 Coder** (open Apache) | $0.09 | $0.47 | $1.89 | $9.45 | $28.35 |
+| **GPT-4.1 Mini** | $0.25 | $1.26 | $5.04 | $25.20 | $75.60 |
+| **GPT-4.1** | $1.26 | $6.30 | $25.20 | **$126** | **$378** |
+| **GPT-5.5** (thinking, 4× output real) | $6.99 | $34.95 | **$140** | **$699** | **$2,097** |
+| **Claude Sonnet 4.6** | $2.34 | $11.70 | **$46.80** | **$234** | **$702** |
+| **Claude Opus 4.7** | $11.70 | $58.50 | **$234** | **$1,170** | **$3,510** |
+| **Kimi K2.6 thinking** (4× output real) | $1.39 | $6.97 | $27.90 | $139.50 | $418.50 |
+
+### Break-even por suscripción
+
+Calls/mes en que la suscripción cuesta lo mismo que pagar API. Por encima → la suscripción es más barata.
+
+| Suscripción | Modelo equivalente | Break-even | Perfil |
+|---|---|---:|---|
+| **$10 MiniMax Coding Starter** | MiniMax M2.7 | 5,291 | Active → Heavy |
+| **$19 MiniMax Agent Pro** | MiniMax M2.7 | 10,052 | Heavy → Power |
+| **$20 MiniMax Coding Plus** | MiniMax M2.7 | 10,582 | Heavy → Power |
+| **$20 Ollama Cloud Pro** | Devstral Small | 41,666 | Power+ (no conviene si solo Devstral) |
+| **$20 Google AI Pro** | Gemini Flash Lite | 42,328 | Power+ |
+| **$30 SuperGrok** | ≈ GPT-4.1 | 2,380 | Active → Heavy |
+| **$50 MiniMax Coding Max** | MiniMax M2.7 | 26,455 | Heavy → Power |
+| **$50 Qwen Coding Pro** | Qwen3 Coder | 52,910 | Power+ |
+| **$69 MiniMax Agent Pro+** | MiniMax M2.7 | 36,507 | Power+ |
+| **$100 Ollama Cloud Max** | Devstral Small | 208,333 | Power+ |
+| **$150 MiniMax Coding Ultra** | MiniMax M2.7 | 79,365 | Power+ |
+| **$200 ChatGPT Pro** | GPT-5.5 (thinking) | 2,861 | Active → Heavy |
+
+### Recomendación por perfil
+
+| Perfil | Mejor opción | Por qué |
+|---|---|---|
+| **Light** (100 calls) | Pay-per-use OpenRouter + Devstral / DeepSeek V3.2 (~$0.05-0.30/mes) o NVIDIA NIM gratis | Suscripción es overkill — pagás $20 para usar $0.30 |
+| **Casual** (500 calls) | Pay-per-use con Devstral o DeepSeek (~$0.24/mes) **o** $20 Ollama Cloud Pro si querés más calidad fija | Por debajo de 1K calls cualquier sub es derroche |
+| **Active** (2K calls) | **MiniMax Agent Pro $19** *o* **Google AI Pro $19.99** | A 2K calls Claude Sonnet API ya cuesta $46.80, GPT-5.5 thinking $140. Sub gana fácil |
+| **Heavy** (10K calls) | **MiniMax Coding Max $50** *o* **Qwen Coding Pro $50** | Claude Sonnet API = $234, GPT-4.1 = $126. Sub a $50 = ahorro ~70% |
+| **Power** (30K calls) | Stack mixto: **ChatGPT Pro $200** (razonamiento) + **MiniMax Coding Ultra $150** (volumen) + **Ollama Cloud Max $100** (open fallback) | Combinar suscripciones específicas vs pagar $702/mes Claude API |
+
+### Hallazgos cualitativos
+
+1. **ChatGPT Plus ($20) y Claude Pro ($20) son chat web only — NO dan API**. Inservibles para agentes (OpenClaw, N8N, Hermes). El equivalente "premium con API" es ChatGPT Pro ($200) o Anthropic API directa pay-per-use.
+
+2. **Modelos open-source ultra baratos hacen suscripciones casi nunca rentables hasta nivel Heavy**: Devstral, DeepSeek V3.2/V4, Gemini Flash Lite — todos rondan $5-20/mes incluso en Heavy. Pagás API directa con tranquilidad.
+
+3. **NVIDIA NIM gratis (40 RPM)** cubre perfectamente el perfil Light/Casual sin pagar nada. Limita el volumen pero da acceso a Nemotron Ultra 253B, Qwen 3-Next 80B, Kimi K2 thinking.
+
+4. **GPT-5.5 thinking infla 4× el costo** por reasoning interno facturado: en Active (2K calls) cuesta $140/mes vs $25 que cuesta GPT-4.1. Si no necesitás razonamiento, NO uses thinking models.
+
+5. **MiniMax es la suscripción con mejor break-even** por su precio bajo de tokens base ($0.30/$1.20). Active→Heavy ya gana vs API.
+
+6. **Suscripciones con cap por hora** (300 prompts/5h, 1000 prompts/5h, etc.) imponen un techo real: en Power profile (30K/mes = ~1000/día), incluso $50 MiniMax Max puede llenarse.
