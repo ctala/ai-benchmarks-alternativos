@@ -3,6 +3,20 @@
 ## Que es este proyecto
 Benchmark de modelos AI alternativos para uso con agentes (OpenClaw, N8N). Compara precios, calidad, velocidad, tool calling y disponibilidad. Incluye tests ejecutables, LLM-as-Judge local (Phi-4) y documentación comparativa.
 
+## Setup inicial
+
+```bash
+# Deps
+pip install -r requirements.txt  # incluye python-dotenv
+
+# API keys: crear .env a partir del template (gitignored)
+cp .env.example .env
+# Editar .env con tus keys reales (OPENROUTER, OPENAI, MINIMAX, OLLAMA_CLOUD)
+
+# Config de modelos: primera vez
+cp benchmarks/config.example.py benchmarks/config.py
+```
+
 ## Como correr benchmarks
 
 ```bash
@@ -93,6 +107,8 @@ El runner **guarda incrementalmente** tras cada test y puede continuar desde cua
 - **Guardado atómico**: el runner vuelca JSON tras cada test, no esperar al final
 - **Versionar resultados JSON** siempre en git
 - **Flujo ROADMAP↔CHANGELOG**: todo lo que se marca completo en ROADMAP.md migra a CHANGELOG.md con el commit
+- **3 cortes de ranking en README**: global, solo alternativas (sin Anthropic/OpenAI), y solo open-source — siempre los 3 al actualizar resultados
+- **API keys**: las 4 keys (OPENROUTER, OPENAI, MINIMAX, OLLAMA_CLOUD) viven en `.env` (gitignored). Nunca hardcodear en config.py ni imprimir en chat. Usar `len()` para validar presencia.
 - **Regenerar MDs** tras cada lote: `python benchmarks/generate_per_model_md.py`
 - **README.md + CHANGELOG.md** se actualizan cuando cambia el ranking o se agrega un modelo
 - **No re-medir** modelos ya medidos en tests existentes (solo en tests nuevos)
@@ -113,31 +129,35 @@ El runner **guarda incrementalmente** tras cada test y puede continuar desde cua
 - Suscripciones: OpenRouter, MiniMax (highspeed), Anthropic API, **Ollama Cloud**
 - Claude Code ya no viene en suscripción Pro $20 (desde 21 abril 2026)
 
-## Estado actual (23 Abril 2026) — ver ROADMAP.md para plan completo
+## Estado actual (25 Abril 2026) — ver ROADMAP.md para plan completo
 
-### Ranking v2.1 top 5 (Phi-4 judge)
+### Ranking v2.2 top 5 (27 modelos × 91 tests, Phi-4 judge)
 1. **Devstral Small** 7.35 (Apache 2.0, $0.10/$0.30, 146 tok/s)
 2. **GPT-5.4 Mini** 7.32 (117 tok/s)
 3. **GPT-4.1** 7.29 (80 tok/s)
 4. **Gemini 2.5 Flash Lite** 7.22 (165 tok/s — el más rápido)
-5. **MiMo-V2-Flash** 7.20 (MIT, $0.09/$0.29 — el más barato del top)
+5. **Devstral 2 (Dic 2025)** 7.22 (Apache 2.0, $0.40/$2.00) — empate técnico con Flash Lite
 
-### JSON de resultados v2.1
-- `benchmark_20260422_204025.json` — Lote 1 (8 modelos × 91 tests, 17 errores Llama Maverick tools 404)
-- `benchmark_20260423_051248.json` — Lote 2 (9 modelos × 91 tests, 18 errores Kimi K2 rate limits 429)
+### JSON de resultados v2.2
+- `benchmark_20260422_204025.json` — Lote 1 (8 modelos × 91)
+- `benchmark_20260423_051248.json` — Lote 2 (9 modelos × 91)
+- `benchmark_20260424_053942.json` — Lote 3 (10 modelos × 91)
+- `benchmark_20260424_071523.json` — Smoke test Ollama Cloud (qwen3.5:397b-cloud, 3 tests)
 - Otros: `benchmark_20260422_082319.json` (Kimi K2.6 vs Claude), `benchmark_20260422_062137.json` (agent_capabilities)
 
 ### Próximo trabajo inmediato (queue)
 
-1. **Agregar GPT-OSS 120B + 20B** (`openai/gpt-oss-120b`, `openai/gpt-oss-20b`) — Apache 2.0, $0.03-0.19/M
-2. **Esperar/agregar GPT-5.5** — anunciado 23 abril, OpenRouter TBD
-3. **Alta prioridad sin agregar**: Grok 4.1 Fast, DeepSeek R1, DeepSeek V4, Hermes 4, Gemini 3.1 Flash Lite
-4. **#12 Ollama Cloud provider** → testear `qwen3.5:397b-cloud`
-5. **#7 Providers directos** (Groq/Fireworks/Together) → desbloquea Llama 4 Maverick + tools
-6. **Lote 3**: correr los nuevos (incluyendo Devstral Medium + Devstral 2 ya en config)
+1. **#15 DeepSeek V4** — lanzado 24 abril, verificar ID OpenRouter y agregar
+2. **MiMo V2.5 + V2.5-Pro** (Xiaomi) — multimodal nuevo abril 2026, agregar al config
+3. **Modelos pendientes sin testear**: GPT-OSS 120B/20B, GPT-5.5 (cuando aparezca), Grok 4.1 Fast, Hermes 4, Gemini 3.1 Flash Lite, Muse Spark, Step 3.5 Flash
+4. **#7 Providers directos** (Groq/Fireworks/Together) → desbloquea Llama 4 Maverick + tools
+5. **Lote 4** con todos los nuevos (~12-15 modelos)
+6. **#16 Investigación de suscripciones** — comparar costo-eficiencia con ranking v2.2
 7. **#9 HTML con sliders** (calculadora personalizable)
-8. **DGX Spark cuando llegue** — barrido de modelos locales que quepan
+8. **DGX Spark cuando llegue** — barrido modelos Ollama locales
 
-### Modelos ya en config pero sin ejecutar benchmark aún
-- `devstral-medium` → `mistralai/devstral-medium`
-- `devstral-2` → `mistralai/devstral-2512`
+### Modelos cloud_ollama configurados (Ollama Cloud)
+- `qwen3.5-397b-cloud` (qwen3.5:397b-cloud) — usado por Cristian en producción
+- `qwen3.5-cloud` (qwen3.5:cloud)
+- `gpt-oss-120b-cloud` (gpt-oss:120b-cloud)
+Smoke test confirmó endpoint funcional.

@@ -2,6 +2,41 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [2.2.0] - 2026-04-25
+
+### Por que v2.2 (Lote 3 + 10 modelos nuevos)
+- Lote 3 con juez Phi-4 (10 modelos × 91 tests = 910 runs). Total acumulado: **27 modelos × 91 tests = 2457 runs evaluados**. Ranking global re-calculado.
+- 3 cortes en README: global, sin Anthropic/OpenAI, **solo open-source** (nuevo).
+
+### Resultados destacados Lote 3
+- **Devstral Small mantiene #1 (7.35)** tras agregar 10 modelos.
+- **Devstral 2 (dic 2025) entra #5** pero NO supera al Small original.
+- **Gemma 4 26B sorprende #10** — open-source pequeño compitiendo con Claude Opus.
+- **MiMo-V2-Pro decepciona #20** — el flagship Xiaomi rinde MENOS que MiMo-V2-Flash (#6).
+- **GPT-5.4 #14 vs GPT-5.4 Mini #2** — el Mini supera al grande.
+- **Gemini 2.5 Pro #25** — el flagship Google rinde peor que su propio Flash Lite.
+- **Kimi K2.6 ÚLTIMO #27 (5.76)** — peor que K2 original.
+- **Mistral Nemo aceptable #21 ($0.02/$0.02)** — baseline ultra económico.
+
+### Tiempo invertido (todos los lotes desde abril 11)
+| Concepto | Wall-clock |
+|---|---|
+| Pre-v2.1 (16 sesiones abril 11-15) | ~12 h |
+| Kimi K2.6 vs Claude (abril 22) | 2.9 h |
+| Agent capabilities 13 modelos (abril 22) | 0.5 h |
+| Lote 1 PERDIDO sin checkpoint (704/728) | 10.5 h |
+| Lote 1 v2.1 oficial (728 runs) | 7.0 h |
+| Lote 2 v2.1 (819 runs) | 14.0 h |
+| Lote 3 v2.2 (910 runs) | 17.7 h |
+| **Total** | **≈ 65 h wall-clock** |
+
+3515 runs ejecutados (2811 guardados, 704 perdidos en Lote 1 sin checkpoint), equivalentes a 8 jornadas laborales o 2.7 días de cómputo continuo. No incluye refactors del runner, investigación, ni documentación.
+
+### Documentado
+- README v2.2 con 3 cortes de ranking + tabla por categoría con 27 modelos
+- Mejor por categoría re-calculado con los 10 nuevos
+- Recomendaciones por caso de uso actualizadas
+
 ## [2.1.1] - 2026-04-23 / 2026-04-24
 
 ### Agregado
@@ -11,6 +46,8 @@
 - **Devstral Medium** (`mistralai/devstral-medium`, $0.40/$2.00, Apache 2.0) y **Devstral 2** (`mistralai/devstral-2512`, $0.40/$2.00, Apache 2.0) agregados al config. Pendiente: correr benchmark en Lote 3.
 - **Provider Ollama Cloud**: nuevo `UnifiedProvider("ollama_cloud", ..., "https://ollama.com/v1")` en runner. Activar con `OLLAMA_CLOUD_API_KEY` en config.py (crear key en https://ollama.com/settings/keys). Modelos con `"provider": "ollama_cloud"` rutean al endpoint cloud. `config.example.py` incluye ejemplos: `qwen3.5:397b-cloud` (el que Cristian usa en prod para ecosistemastartup.com), `qwen3.5:cloud`, `gpt-oss:120b-cloud`.
 - **Lote 3 en curso** (arrancado 2026-04-24): 10 modelos × 91 tests = 910 runs. Modelos: devstral-medium, devstral-2, gpt-5.4, mimo-v2-pro, gemini-flash, gemini-pro, kimi-k2.6, claude-opus-4.6, gemma-4-26b, mistral-nemo.
+- **Migración a `.env`**: todas las API keys (OPENROUTER, OPENAI, MINIMAX, OLLAMA_CLOUD) ahora viven en `.env` gitignored en lugar de hardcoded en `config.py`. Usa `python-dotenv`. `.env.example` committed como template. `config.py` y `config.example.py` sólo definen dicts (MODELS, OLLAMA_MODELS) y leen keys via `os.getenv()`.
+- **Regla de 3 cortes en README**: al actualizar rankings mantener siempre (1) global, (2) sin Anthropic/OpenAI, y (3) solo open-source. Documentado en CLAUDE.md y ROADMAP.md.
 
 ### Documentado
 - **ROADMAP.md** re-escrito desde cero: estado real v2.1, queue inmediato (modelos nuevos identificados), skills propuestos (`/add-model`, `/run-benchmark`), plan para DGX Spark y Ollama Cloud.

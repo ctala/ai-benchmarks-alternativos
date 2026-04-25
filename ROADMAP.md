@@ -5,6 +5,17 @@
 
 ---
 
+## Regla: mantener 3 cortes de ranking
+
+Cada vez que se actualice el ranking en README, mantener siempre estas 3 vistas:
+1. **Ranking global** — todos los modelos
+2. **Ranking solo alternativas** — sin Anthropic/OpenAI (para quienes quieren evitar Claude/GPT)
+3. **Ranking solo open-source** — todos los modelos con `open_source: True` en config (para quienes necesitan licencia abierta, self-hosted, o planean correr en DGX Spark)
+
+El script `generate_per_model_md.py` ya tiene los datos; al migrar a HTML sliders (#9) debe exponer el filtro por licencia además de los sliders existentes.
+
+---
+
 ## Completado en v2.1.0 (23 Abril 2026)
 
 - [x] Lote 1 con juez Phi-4: 8 modelos × 91 tests → `benchmark_20260422_204025.json`
@@ -39,6 +50,7 @@
 - [ ] **DeepSeek V4** ($0.30/$0.50, MIT) — sucesor del V3.2 que quedó #10
 - [ ] **Hermes 4** (Nous Research) — modelo agentic open-source
 - [ ] **Gemini 3.1 Flash Lite** ($0.25/$1.50) — sucesor del #4 actual
+- [ ] **Gemini Flash más nuevo** (Gemini 3.1 Flash o superior, no la Lite) — verificar ID exacto en OpenRouter/Google; supera al 2.5 Flash que hoy está corriendo en Lote 3
 
 **Media prioridad**:
 - [ ] Command R+ (Cohere) — enterprise RAG

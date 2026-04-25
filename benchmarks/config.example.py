@@ -1,10 +1,25 @@
 """
 Configuracion de proveedores para benchmarks.
-Copia este archivo como config.py y agrega tu API key de OpenRouter.
-"""
 
-# Tu API key de OpenRouter (unica key necesaria para todos los modelos)
-OPENROUTER_API_KEY = "sk-or-v1-..."
+Las API keys se leen desde el archivo .env (crear desde .env.example).
+Este archivo define MODELS, OLLAMA_MODELS y constantes. NO editarlo con
+valores de keys — ponelos en .env (que esta gitignored).
+
+Setup:
+    pip install python-dotenv
+    cp .env.example .env   # editar con tus keys
+    cp benchmarks/config.example.py benchmarks/config.py  # este archivo
+"""
+import os
+from pathlib import Path
+
+try:
+    from dotenv import load_dotenv
+    load_dotenv(Path(__file__).parent.parent / ".env")
+except ImportError:
+    pass
+
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 
 # Modelos a evaluar via OpenRouter
 # Organizados por tier de costo
@@ -299,21 +314,20 @@ OLLAMA_MODELS = {
 }
 
 # Configuracion
-RUNS_PER_TEST = 3          # Veces que se ejecuta cada test para promediar
-REQUEST_TIMEOUT = 120      # Timeout en segundos
+RUNS_PER_TEST = 3
+REQUEST_TIMEOUT = 300
 RESULTS_DIR = "benchmarks/results"
-INCLUDE_OLLAMA = False     # Cambiar a True si tienes Ollama corriendo
 
-# --- Opcional: APIs directas (descomentar si se usan) ---
-# MiniMax directo (para M2.7 Highspeed y Image-01)
-# MINIMAX_API_KEY = "eyJ..."
-# MINIMAX_BASE_URL = "https://api.minimaxi.chat/v1"
+# Las API keys se leen desde .env (copiar de .env.example)
+# Cada var devuelve "" si no esta en .env; los providers opcionales se
+# autodesactivan cuando la key esta vacia (ver runner.py).
+INCLUDE_OLLAMA = os.getenv("INCLUDE_OLLAMA", "false").lower() == "true"
 
-# OpenAI directo (para GPT-5.4, GPT-4.1 - usa max_completion_tokens)
-# OPENAI_API_KEY = "sk-..."
-# OPENAI_BASE_URL = "https://api.openai.com/v1"
+MINIMAX_API_KEY = os.getenv("MINIMAX_API_KEY", "")
+MINIMAX_BASE_URL = os.getenv("MINIMAX_BASE_URL", "https://api.minimax.io/v1")
 
-# Ollama Cloud (requiere suscripcion; crear key en https://ollama.com/settings/keys)
-# Permite correr modelos cloud-only como qwen3.5:397b-cloud, gpt-oss:120b-cloud
-# OLLAMA_CLOUD_API_KEY = "..."
-# OLLAMA_CLOUD_BASE_URL = "https://ollama.com/v1"  # opcional, default
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
+
+OLLAMA_CLOUD_API_KEY = os.getenv("OLLAMA_CLOUD_API_KEY", "")
+OLLAMA_CLOUD_BASE_URL = os.getenv("OLLAMA_CLOUD_BASE_URL", "https://ollama.com/v1")
