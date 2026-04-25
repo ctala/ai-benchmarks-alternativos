@@ -142,11 +142,16 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - **Guardado atómico**: el runner vuelca JSON tras cada test, no esperar al final
 - **Versionar resultados JSON** siempre en git
 - **Flujo ROADMAP↔CHANGELOG**: todo lo que se marca completo en ROADMAP.md migra a CHANGELOG.md con el commit
-- **3 cortes de ranking en README**: global, solo alternativas (sin Anthropic/OpenAI), y solo open-source — siempre los 3 al actualizar resultados
+- **3 cortes de ranking en README**: (1) **global** = todos los modelos. (2) **solo alternativas** = sin Anthropic + sin OpenAI + sin Google propietarios (Gemini Flash / Flash Lite / Pro). Sí se permiten modelos Google open-source (Gemma). (3) **solo open-source** = todos los modelos con `open_source: True`. Siempre los 3 al actualizar resultados.
 - **API keys**: las 4 keys (OPENROUTER, OPENAI, MINIMAX, OLLAMA_CLOUD) viven en `.env` (gitignored). Nunca hardcodear en config.py ni imprimir en chat. Usar `len()` para validar presencia.
 - **Regenerar MDs** tras cada lote: `python benchmarks/generate_per_model_md.py`
 - **README.md + CHANGELOG.md** se actualizan cuando cambia el ranking o se agrega un modelo
-- **No re-medir** modelos ya medidos en tests existentes (solo en tests nuevos)
+- **No re-medir modelos ya cubiertos**. Re-correr SÓLO si:
+  1. Sale **versión nueva** del modelo (ej. Kimi K2.7, Devstral 3) — distinto ID = distinto modelo, se mide.
+  2. Cambian las **suites/tests** del benchmark (suite nueva, criterios de scoring diferentes).
+  3. Se detecta un **bug del runner/adapter** que invalida runs previos (ej. fix de max_tokens para thinking, abril 2026 → re-run sólo de los empties con `--rerun-empty`).
+  4. El modelo tuvo cambios visibles del proveedor (silent retraining anunciado, cambio de pricing radical, etc).
+  No re-medir por: refactor del runner, mejoras cosméticas, formato de output, regeneración de MDs por modelo.
 - **Verificar consistencia** entre docs: conteos de modelos/tests/suites deben coincidir
 - **Commit y push** después de cada sesión
 - **Precios cambian** — verificar antes de actualizar docs

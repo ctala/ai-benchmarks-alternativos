@@ -472,59 +472,111 @@ def score_latency(first_token_seconds: float) -> float:
 
 # Precios por millon de tokens (input, output)
 PRICING = {
-    # OpenAI
+    # ====== Anthropic (faltaban — causaban under-estimation grande) ======
+    "anthropic/claude-opus-4-7": (15.00, 75.00),
+    "anthropic/claude-opus-4-6": (15.00, 75.00),
+    "anthropic/claude-sonnet-4-6": (3.00, 15.00),
+    "anthropic/claude-sonnet-4": (3.00, 15.00),
+    "anthropic/claude-haiku-4-5": (0.80, 4.00),
+
+    # ====== OpenAI ======
     "gpt-4o": (2.50, 10.00),
     "gpt-4o-mini": (0.15, 0.60),
-    # OpenAI directo
+    "gpt-4o:high": (5.00, 15.00),
+    "openai/gpt-4o": (2.50, 10.00),
+    "openai/gpt-4o:high": (5.00, 15.00),
     "gpt-4.1": (2.00, 8.00),
     "gpt-4.1-mini": (0.40, 1.60),
-    "gpt-5.4": (2.50, 10.00),
-    "gpt-5.4-mini": (0.50, 1.50),
-    "gpt-5.5": (5.00, 30.00),
+    "gpt-5.4": (1.25, 10.00),     # corregido: era 2.50/10
+    "gpt-5.4-mini": (0.25, 2.00), # corregido: era 0.50/1.50
+    "gpt-5.5": (8.00, 45.00),     # corregido: era 5.00/30
     "gpt-5.5-pro": (30.00, 180.00),
     "o3-mini": (1.10, 4.40),
-    # DeepSeek
-    "deepseek-chat": (0.14, 0.28),
-    "deepseek/deepseek-chat": (0.14, 0.28),
-    "deepseek-reasoner": (0.0, 0.0),  # gratis en OpenRouter
+    # OpenAI OSS (Groq + OpenRouter)
+    "openai/gpt-oss-120b": (0.15, 0.60),
+    "openai/gpt-oss-20b": (0.075, 0.30),
+
+    # ====== DeepSeek ======
+    "deepseek-chat": (0.252, 0.378),  # V3.2 actualizado abril 2026
+    "deepseek/deepseek-chat": (0.252, 0.378),
+    "deepseek/deepseek-v4-flash": (0.14, 0.28),
+    "deepseek/deepseek-v4-pro": (1.74, 3.48),
+    "deepseek-reasoner": (0.0, 0.0),
     "deepseek/deepseek-reasoner": (0.0, 0.0),
-    # Google
+    "deepseek/deepseek-r1": (0.70, 2.50),
+    "deepseek/deepseek-r1-0528": (0.50, 2.15),
+
+    # ====== Google ======
     "gemini-2.5-flash": (0.30, 2.50),
     "google/gemini-2.5-flash": (0.30, 2.50),
     "gemini-2.5-pro": (1.25, 10.00),
-    # Mistral
+    "google/gemini-2.5-pro": (1.25, 10.00),
+    "google/gemini-2.5-flash-lite": (0.075, 0.30),
+    "google/gemma-4-26b-a4b-it": (0.05, 0.20),
+    "google/gemma-4-31b-it": (0.30, 0.60),
+    "google/gemini-3.1-flash-lite-preview": (0.25, 1.50),
+    "google/gemini-3.1-pro-preview": (2.00, 12.00),
+
+    # ====== Mistral ======
     "mistral-medium-latest": (0.40, 2.00),
     "mistral-nemo": (0.02, 0.02),
     "mistralai/mistral-nemo": (0.02, 0.02),
-    # Llama (gratis en OpenRouter)
-    "meta-llama/llama-3.3-70b": (0.0, 0.0),
-    "llama-3.3-70b-versatile": (0.05, 0.08),  # Groq
-    # Qwen
-    "qwen/qwen-3.5-72b": (1.20, 2.00),
-    # Grok
-    "grok-2": (2.00, 10.00),
-    # NVIDIA Nemotron
-    "nvidia/nemotron-3-nano-30b-a3b": (0.05, 0.20),
-    "nvidia/nemotron-3-super-120b-a12b": (0.10, 0.50),
-    # Mistral (nuevos Abril 2026)
+    "mistralai/mistral-large": (2.00, 6.00),  # NUEVO
     "mistralai/mistral-small-2603": (0.15, 0.60),
     "mistralai/devstral-small": (0.10, 0.30),
     "mistralai/devstral-medium": (0.40, 2.00),
     "mistralai/devstral-2512": (0.40, 2.00),
-    # xAI Grok
+
+    # ====== Meta Llama ======
+    "meta-llama/llama-3.3-70b": (0.0, 0.0),
+    "meta-llama/llama-3.3-70b-instruct": (0.0, 0.0),
+    "meta-llama/llama-4-maverick": (0.40, 2.40),
+    "meta-llama/llama-4-scout-17b-16e-instruct": (0.11, 0.34),
+    "llama-3.3-70b-versatile": (0.59, 0.79),  # Groq corregido
+    "llama-3.1-8b-instant": (0.05, 0.08),     # Groq
+
+    # ====== Qwen ======
+    "qwen/qwen-3.5-72b": (1.20, 2.00),
+    "qwen/qwen3.5-plus": (1.20, 2.00),
+    "qwen/qwen3.6-plus": (0.33, 0.65),  # API-only Alibaba
+    "qwen/qwen3-coder": (0.15, 0.60),
+    "qwen/qwen3-coder-480b:free": (0.0, 0.0),
+
+    # ====== Moonshot Kimi (faltaban — agentic thinking caro) ======
+    "moonshotai/kimi-k2": (1.00, 3.00),
+    "moonshotai/kimi-k2.5": (0.20, 0.80),
+    "moonshotai/kimi-k2.6": (1.50, 9.00),  # thinking — causaba under-estimation
+
+    # ====== xAI Grok ======
+    "grok-2": (2.00, 10.00),
     "x-ai/grok-4.1-fast": (0.20, 0.50),
     "x-ai/grok-4.20": (2.00, 6.00),
-    # Google Gemini (nuevos Abril 2026)
-    "google/gemini-3.1-flash-lite-preview": (0.25, 1.50),
-    "google/gemini-3.1-pro-preview": (2.00, 12.00),
-    # Zhipu GLM
+
+    # ====== NVIDIA Nemotron ======
+    "nvidia/nemotron-3-nano-30b-a3b": (0.05, 0.20),
+    "nvidia/nemotron-3-super-120b-a12b": (0.10, 0.50),
+
+    # ====== Zhipu GLM ======
     "z-ai/glm-5.1": (0.95, 3.15),
-    # Xiaomi MiMo
+
+    # ====== Xiaomi MiMo ======
     "xiaomi/mimo-v2-flash:free": (0.0, 0.0),
     "xiaomi/mimo-v2-flash": (0.09, 0.29),
     "xiaomi/mimo-v2-omni": (0.40, 2.00),
     "xiaomi/mimo-v2-pro": (1.00, 3.00),
-    # Ollama (local = gratis)
+
+    # ====== MiniMax ======
+    "minimax/minimax-m2.7": (0.30, 1.20),
+    "MiniMax-M2.7": (0.30, 1.20),                # provider directo
+    "MiniMax-M2.7-highspeed": (0.30, 1.20),
+    "minimax/minimax-m2.7-highspeed": (0.30, 1.20),
+
+    # ====== Ollama Cloud ======
+    "qwen3.5:397b-cloud": (0.0, 0.0),     # incluido en suscripción
+    "qwen3.5:cloud": (0.0, 0.0),
+    "gpt-oss:120b-cloud": (0.0, 0.0),
+
+    # ====== Ollama local ======
     "llama3.3": (0.0, 0.0),
     "qwen3.5": (0.0, 0.0),
     "deepseek-coder-v2": (0.0, 0.0),
