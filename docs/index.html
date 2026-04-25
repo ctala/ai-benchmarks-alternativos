@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Modelos IA · Benchmark Alternativos</title>
+<meta name="description" content="Encuentra el mejor modelo de IA para tu agente N8N, OpenClaw o uso personal. Calculadora basada en 4,000+ tests reales por Cristian Tala.">
+
+<meta property="og:title" content="Calculadora de Modelos IA">
+<meta property="og:description" content="Encuentra el mejor modelo según tu presupuesto, calidad y tarea.">
+<meta property="og:image" content="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
+<meta property="og:type" content="website">
+
+<link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="https://cristiantala.com" class="logo-link" target="_blank" rel="noopener">
+      <img src="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-horizontal-2026.png" alt="Cristian Tala" class="logo">
+    </a>
+    <nav>
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/MODELOS.md" target="_blank" rel="noopener">Modelos</a>
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Tests</a>
+      <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <h1>Encuentra el modelo IA perfecto en 30 segundos</h1>
+    <p class="lead">
+      Calculadora basada en <strong id="hero-runs">—</strong> tests reales contra <strong id="hero-models">—</strong> modelos.
+      Filtra por presupuesto, calidad, velocidad y open-source. Datos del benchmark v2.2.1 (abril 2026).
+    </p>
+    <p class="meta">
+      Última actualización del dataset: <span id="hero-updated">—</span> ·
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">ver repo</a>
+    </p>
+  </section>
+
+  <section class="filters">
+    <h2>Tus criterios</h2>
+
+    <div class="filter-grid">
+
+      <div class="filter">
+        <label for="budget">Presupuesto mensual: <output id="budget-out">$50</output></label>
+        <input type="range" id="budget" min="0" max="500" step="5" value="50">
+        <small>USD/mes para API (sin contar suscripciones fijas)</small>
+      </div>
+
+      <div class="filter">
+        <label for="calls">Calls/mes esperadas: <output id="calls-out">2,000</output></label>
+        <input type="range" id="calls" min="100" max="50000" step="100" value="2000">
+        <small>~300 input + 1500 output tokens por call</small>
+      </div>
+
+      <div class="filter">
+        <label for="quality">Calidad mínima (score 0-10): <output id="quality-out">6.5</output></label>
+        <input type="range" id="quality" min="0" max="10" step="0.1" value="6.5">
+        <small>Score ponderado del benchmark (Phi-4 judge)</small>
+      </div>
+
+      <div class="filter">
+        <label for="speed">Velocidad mínima: <output id="speed-out">0</output> tok/s</label>
+        <input type="range" id="speed" min="0" max="200" step="5" value="0">
+        <small>0 = sin restricción</small>
+      </div>
+
+      <div class="filter">
+        <label for="task">Tarea principal:</label>
+        <select id="task">
+          <option value="score_global">Cualquiera (score global)</option>
+          <option value="Razonamiento">Razonamiento (deep reasoning, lógica, hallucinations)</option>
+          <option value="Coding">Coding (generar código, JSON, OCR)</option>
+          <option value="Contenido">Contenido (blog, marketing, traducciones)</option>
+          <option value="Agentes">Agentes (tool calling, orquestación, customer support)</option>
+        </select>
+      </div>
+
+      <div class="filter checkboxes">
+        <label class="check">
+          <input type="checkbox" id="only-open" />
+          Sólo open-source
+        </label>
+        <label class="check">
+          <input type="checkbox" id="excl-prop" />
+          Excluir Anthropic + OpenAI + Gemini propietarios
+        </label>
+        <label class="check">
+          <input type="checkbox" id="only-tested" checked />
+          Sólo modelos con cobertura completa (≥50 runs)
+        </label>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="results">
+    <div class="results-header">
+      <h2>Mejores modelos para ti</h2>
+      <p id="results-summary" class="meta">—</p>
+    </div>
+    <div id="results-table-wrap"></div>
+    <p class="meta" id="empty-state" hidden>
+      Ningún modelo cumple todos tus criterios. Probá relajando alguno (ej. bajar calidad o subir presupuesto).
+    </p>
+  </section>
+
+  <section class="cta-block">
+    <h2>¿Querés ir más a fondo?</h2>
+    <p>
+      En la comunidad <strong>Cágala, Aprende, Repite</strong> compartimos workshops, casos reales y
+      el behind-the-scenes de cómo emprendedores latinoamericanos están usando IA para crecer sin financiamiento.
+    </p>
+    <a href="https://www.skool.com/cagala-aprende-repite" class="cta-primary" target="_blank" rel="noopener">
+      Unirme a la comunidad →
+    </a>
+    <p class="meta" style="margin-top: 1rem;">
+      También: <a href="https://cristiantala.com/newsletter/" target="_blank" rel="noopener">newsletter</a> ·
+      <a href="https://www.youtube.com/@cristiantalasanchez" target="_blank" rel="noopener">YouTube</a> ·
+      <a href="https://linkedin.com/in/ctala" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+  </section>
+
+  <section class="methodology">
+    <details>
+      <summary><strong>¿Cómo funciona el ranking?</strong></summary>
+      <p>
+        Cada modelo corre 91 tests organizados en 23 suites (4 pilares: Razonamiento, Coding, Contenido, Agentes).
+        Cada test se evalúa en 3 capas: scoring automático (formato + sustancia), validación de respuesta esperada,
+        y LLM-as-Judge con Phi-4 local (Microsoft, MIT, cero conflicto de interés).
+        El score final pondera calidad (35%), tool calling (25%), costo (15%), disponibilidad (15%), velocidad (5%) y latencia (5%).
+      </p>
+      <p>
+        Los datos del benchmark se versionan en JSON en el repo y se regeneran tras cada lote.
+        Esta calculadora lee directamente <code>docs/data/models.json</code> que se commitea con cada release.
+      </p>
+      <p>
+        <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/README.md#metodologia" target="_blank" rel="noopener">Ver metodología completa →</a>
+      </p>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>
+      Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
+      <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener">Skool</a>
+    </p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

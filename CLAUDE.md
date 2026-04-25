@@ -147,6 +147,7 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - **3 cortes de ranking en README**: (1) **global** = todos los modelos. (2) **solo alternativas** = sin Anthropic + sin OpenAI + sin Google propietarios (Gemini Flash / Flash Lite / Pro). Sí se permiten modelos Google open-source (Gemma). (3) **solo open-source** = todos los modelos con `open_source: True`. Siempre los 3 al actualizar resultados.
 - **API keys**: las 4 keys (OPENROUTER, OPENAI, MINIMAX, OLLAMA_CLOUD) viven en `.env` (gitignored). Nunca hardcodear en config.py ni imprimir en chat. Usar `len()` para validar presencia.
 - **Regenerar MDs** tras cada lote: `python benchmarks/generate_per_model_md.py`
+- **Regenerar calculadora** tras cada lote: `python benchmarks/export_for_pages.py` regenera `docs/data/models.json`. La calculadora en GitHub Pages (https://ctala.github.io/ai-benchmarks-alternativos/) lo lee directo. **Hay GitHub Action** (`.github/workflows/update-calculator.yml`) que lo regenera automáticamente cuando cambia algún `benchmarks/results/*.json` o el config — sólo asegurate de no usar `[skip ci]` en commits que tocan datos del benchmark.
 - **README.md + CHANGELOG.md** se actualizan cuando cambia el ranking o se agrega un modelo
 - **No re-medir modelos ya cubiertos**. Re-correr SÓLO si:
   1. Sale **versión nueva** del modelo (ej. Kimi K2.7, Devstral 3) — distinto ID = distinto modelo, se mide.
