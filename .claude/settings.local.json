@@ -89,7 +89,14 @@
       "WebFetch(domain:decrypt.co)",
       "WebFetch(domain:developers.openai.com)",
       "Bash(awk '{print \"PID:\", $2, \"ELAPSED:\", $10}')",
-      "WebFetch(domain:console.groq.com)"
+      "WebFetch(domain:console.groq.com)",
+      "Bash(ps -eo pid,ppid,etime,command)",
+      "WebFetch(domain:platform.openai.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(ps -eo pid,etime,command)",
+      "WebFetch(domain:docs.nvidia.com)",
+      "WebFetch(domain:build.nvidia.com)",
+      "Bash(git stash *)"
     ]
   }
 }
