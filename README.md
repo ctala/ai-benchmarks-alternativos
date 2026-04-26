@@ -1,6 +1,8 @@
-# Benchmark de Modelos AI Alternativos
+# Benchmark de Modelos AI Alternativos: comparación abierta de 44 LLMs en español para N8N, OpenClaw y emprendedores
 
 **Version 2.3.0** | Ultima actualizacion: 26 de Abril de 2026
+
+> **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con 5,000+ tests reales: precio, calidad, velocidad y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N, OpenClaw o Hermes con presupuestos reales.
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw, N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes).
 
