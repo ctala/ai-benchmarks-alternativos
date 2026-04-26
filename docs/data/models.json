@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-26T22:36:05",
+  "generated_at": "2026-04-26T22:54:52",
   "total_models": 41,
   "tested_count": 22,
   "tokens_per_call_assumption": {
@@ -602,6 +602,31 @@
       "total_output_tokens": 100795
     },
     {
+      "key": "groq-llama-3.1-8b",
+      "id": "llama-3.1-8b-instant",
+      "name": "Llama 3.1 8B Instant (Groq)",
+      "tier": "ultra_cheap",
+      "provider": "groq_direct",
+      "open_source": true,
+      "license": "Llama Community",
+      "cost_input_per_M": 0.05,
+      "cost_output_per_M": 0.08,
+      "cost_per_1k_calls_usd": 0.135,
+      "notes": "",
+      "tested": false,
+      "runs": 10,
+      "score_global": 8.11,
+      "score_by_pillar": {
+        "Contenido": 8.03,
+        "Agentes": 8.17
+      },
+      "judge_score_avg": 4.34,
+      "tokens_per_second": 321.6,
+      "latency_avg_s": 1.2,
+      "total_input_tokens": 2811,
+      "total_output_tokens": 4572
+    },
+    {
       "key": "deepseek-r1-free",
       "id": "deepseek/deepseek-r1:free",
       "name": "DeepSeek R1 (free)",
@@ -877,28 +902,6 @@
       "cost_output_per_M": 180.0,
       "cost_per_1k_calls_usd": 279.0,
       "notes": "Sólo /v1/responses (no chat/completions). Requiere OPENAI_API_KEY.",
-      "tested": false,
-      "runs": 0,
-      "score_global": null,
-      "score_by_pillar": {},
-      "judge_score_avg": null,
-      "tokens_per_second": null,
-      "latency_avg_s": null,
-      "total_input_tokens": 0,
-      "total_output_tokens": 0
-    },
-    {
-      "key": "groq-llama-3.1-8b",
-      "id": "llama-3.1-8b-instant",
-      "name": "Llama 3.1 8B Instant (Groq)",
-      "tier": "ultra_cheap",
-      "provider": "groq_direct",
-      "open_source": true,
-      "license": "Llama Community",
-      "cost_input_per_M": 0.05,
-      "cost_output_per_M": 0.08,
-      "cost_per_1k_calls_usd": 0.135,
-      "notes": "",
       "tested": false,
       "runs": 0,
       "score_global": null,
