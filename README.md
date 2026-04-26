@@ -520,3 +520,31 @@ Organizadas en los 4 pilares del emprendedor:
 │   └── adapters.py                  # Adaptador unificado OpenAI-compatible
 └── requirements.txt
 ```
+
+## Preguntas frecuentes (FAQ)
+
+**¿Cuál es la mejor alternativa a Claude para agentes N8N en 2026?**
+Devstral Small (Apache 2.0, $0.10/$0.30 per M tokens), Mistral Small 4 ($0.15/$0.60) y Llama 3.3 70B en Groq (270 tok/s) son las top 3 por relación calidad/precio. El ranking cambia según la tarea — ver [calculadora](https://ctala.github.io/ai-benchmarks-alternativos/) para filtrar por caso de uso.
+
+**¿Vale la pena pagar GPT-5 o Claude Opus si hay alternativas más baratas?**
+Para tareas estándar (contenido, traducción, agentes simples), no — modelos de $0.10-0.60 dan resultados comparables. Para razonamiento profundo, código complejo o tool calling crítico, los premium siguen siendo superiores. El delta real está cuantificado en [DESCUBRIMIENTOS.md](DESCUBRIMIENTOS.md).
+
+**¿Qué modelos open-source recomiendan para correr local?**
+Para hardware ≥64GB RAM: Devstral Small (24B), Qwen 3.6 base, Mistral Small 4 (24B) y GPT-OSS 120B. Todos Apache 2.0 o MIT. Ver [RECOMENDACIONES.md](RECOMENDACIONES.md) para guía completa por hardware.
+
+**¿Por qué usar Phi-4 como juez en vez de GPT-4 o Claude?**
+Cero conflicto de interés (ningún proveedor del benchmark es también el juez), corre 100% local, gratis, licencia MIT y rúbrica en español. Detalles en sección [Eleccion del modelo juez y sesgo](#eleccion-del-modelo-juez-y-sesgo).
+
+**¿Cómo replico el benchmark en mi propio hardware?**
+Ver [Quick Start](#quick-start) y [Como Replicar el Benchmark](#como-replicar-el-benchmark). Necesitás Python 3.10+, Ollama (para Phi-4 judge) y al menos OPENROUTER_API_KEY para empezar.
+
+**¿Puedo usar este benchmark para decidir qué modelo poner en producción?**
+Sí — fue diseñado para eso. Pero validá en tu caso específico: replicá 5-10 prompts típicos de tu producto contra los 2-3 finalistas. Ningún benchmark sustituye prompts reales de tu negocio. En la [comunidad Skool](https://www.skool.com/cagala-aprende-repite) compartimos plantillas y workshops para esa validación.
+
+## Comunidad y soporte
+
+- 💬 **[Cágala, Aprende, Repite (Skool)](https://www.skool.com/cagala-aprende-repite)** — comunidad de emprendedores latinoamericanos usando IA
+- 📧 **[Newsletter Cristian Tala](https://cristiantala.com/newsletter/)** — análisis de modelos y casos reales
+- 📺 **[YouTube](https://www.youtube.com/@cristiantalasanchez)** — workshops y tutoriales
+- 💼 **[LinkedIn](https://linkedin.com/in/ctala)** — ecosistema startup chileno
+- 🐛 **[Issues en GitHub](https://github.com/ctala/ai-benchmarks-alternativos/issues)** — bugs, sugerencias, modelos a agregar

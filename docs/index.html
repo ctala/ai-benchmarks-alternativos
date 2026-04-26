@@ -215,7 +215,147 @@
     </details>
   </section>
 
+  <section class="faq" id="faq">
+    <h2>Preguntas frecuentes</h2>
+
+    <details>
+      <summary><strong>¿Cuál es la mejor alternativa a Claude para agentes N8N?</strong></summary>
+      <p>
+        Según el benchmark v2.3, las mejores alternativas a Claude por relación calidad/precio para agentes
+        N8N y OpenClaw son <strong>Devstral Small</strong> (Apache 2.0, $0.10/$0.30 per M tokens),
+        <strong>Mistral Small 4</strong> ($0.15/$0.60) y <strong>Llama 3.3 70B en Groq</strong> (270 tok/s,
+        $0.59/$0.79). El ranking cambia según la tarea (razonamiento, coding, contenido o agentes) — usa
+        la calculadora arriba para filtrar por tu caso específico.
+      </p>
+    </details>
+
+    <details>
+      <summary><strong>¿Vale la pena pagar GPT-5 o Claude Opus si hay alternativas más baratas?</strong></summary>
+      <p>
+        Depende del caso. Para tareas estándar (contenido, traducción, agentes simples), modelos como Devstral
+        Small o Mistral Small 4 dan resultados comparables a GPT-4.1 a 1/20 del costo. Para razonamiento
+        profundo, código complejo o tool calling crítico, los premium (GPT-5.5, Claude Opus 4.7) siguen
+        siendo superiores. El benchmark muestra el delta real por tarea.
+      </p>
+    </details>
+
+    <details>
+      <summary><strong>¿Qué modelos open-source recomiendan para correr local en una DGX Spark?</strong></summary>
+      <p>
+        Con 128GB de RAM unified, podés correr cómodamente modelos de hasta ~120B parámetros cuantizados.
+        Las mejores opciones probadas: <strong>Devstral Small</strong> (24B, Apache 2.0), <strong>Qwen 3.6
+        base</strong> (Apache 2.0), <strong>Mistral Small 4</strong> (24B, Apache 2.0) y <strong>GPT-OSS 120B</strong>
+        (Apache 2.0). Para coding específicamente, Devstral 2 (Diciembre 2025) es la opción top.
+      </p>
+    </details>
+
+    <details>
+      <summary><strong>¿Por qué usan Phi-4 como LLM-as-Judge y no GPT-4 o Claude?</strong></summary>
+      <p>
+        Phi-4 (Microsoft, 14B parámetros, licencia MIT) corre 100% local vía Ollama, eliminando costos
+        de API y, más importante, conflictos de interés: ningún proveedor del benchmark es también el juez.
+        Sus evaluaciones correlacionan bien con jueces más grandes pero sin sesgo comercial. La rúbrica está
+        en español y publicada en el repo.
+      </p>
+    </details>
+
+    <details>
+      <summary><strong>¿Cómo se calcula el costo mensual estimado en la calculadora?</strong></summary>
+      <p>
+        Usamos un perfil promedio de 300 tokens input + 1,500 tokens output por call (típico de un agente
+        N8N o asistente de contenido). Multiplicamos por las calls/mes y aplicamos los precios oficiales
+        de cada proveedor (OpenRouter, OpenAI directo, Groq, Ollama Cloud). Los precios se actualizan
+        manualmente con cada lote del benchmark.
+      </p>
+    </details>
+
+    <details>
+      <summary><strong>¿El benchmark incluye tests multimodales o de contexto largo?</strong></summary>
+      <p>
+        La versión actual (v2.3) se enfoca en text-only y contexto medio (≤8K tokens). Multimodal real
+        (imágenes, audio) y contexto largo (>32K) están en el roadmap para v2.4. Los tests actuales cubren
+        tool calling estructurado, JSON generation, código, razonamiento, contenido en español y agentes.
+      </p>
+    </details>
+
+    <details>
+      <summary><strong>¿Puedo usar este benchmark para decidir qué modelo poner en producción?</strong></summary>
+      <p>
+        Sí — para eso fue diseñado. Pero recomendamos validar en tu caso específico antes del switch:
+        replicar 5-10 prompts típicos de tu producto contra los 2-3 modelos finalistas del ranking.
+        El benchmark es buen filtro inicial pero ningún benchmark sustituye prompts reales de tu negocio.
+        Para ayudarte con esa validación, en la <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener">comunidad Skool</a>
+        publicamos plantillas y workshops.
+      </p>
+    </details>
+  </section>
+
 </main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la mejor alternativa a Claude para agentes N8N?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Según el benchmark v2.3, las mejores alternativas a Claude por relación calidad/precio para agentes N8N y OpenClaw son Devstral Small (Apache 2.0, $0.10/$0.30 per M tokens), Mistral Small 4 ($0.15/$0.60) y Llama 3.3 70B en Groq (270 tok/s, $0.59/$0.79). El ranking cambia según la tarea (razonamiento, coding, contenido o agentes)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Vale la pena pagar GPT-5 o Claude Opus si hay alternativas más baratas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del caso. Para tareas estándar modelos como Devstral Small o Mistral Small 4 dan resultados comparables a GPT-4.1 a 1/20 del costo. Para razonamiento profundo, código complejo o tool calling crítico, los premium (GPT-5.5, Claude Opus 4.7) siguen siendo superiores."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué modelos open-source recomiendan para correr local en una DGX Spark?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Con 128GB de RAM unified, podés correr modelos de hasta ~120B parámetros cuantizados. Las mejores opciones probadas: Devstral Small (24B, Apache 2.0), Qwen 3.6 base (Apache 2.0), Mistral Small 4 (24B, Apache 2.0) y GPT-OSS 120B (Apache 2.0)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué usan Phi-4 como LLM-as-Judge y no GPT-4 o Claude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Phi-4 (Microsoft, 14B parámetros, licencia MIT) corre 100% local vía Ollama, eliminando costos de API y conflictos de interés. Ningún proveedor del benchmark es también el juez. La rúbrica está en español y publicada en el repo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se calcula el costo mensual estimado en la calculadora?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usamos un perfil promedio de 300 tokens input + 1,500 tokens output por call. Multiplicamos por calls/mes y aplicamos precios oficiales de cada proveedor (OpenRouter, OpenAI directo, Groq, Ollama Cloud). Los precios se actualizan con cada lote del benchmark."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El benchmark incluye tests multimodales o de contexto largo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La versión actual (v2.3) se enfoca en text-only y contexto medio (≤8K tokens). Multimodal real y contexto largo (>32K) están en el roadmap para v2.4. Los tests actuales cubren tool calling estructurado, JSON generation, código, razonamiento, contenido en español y agentes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo usar este benchmark para decidir qué modelo poner en producción?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Pero recomendamos validar en tu caso específico antes del switch: replicar 5-10 prompts típicos de tu producto contra los 2-3 finalistas del ranking. El benchmark es buen filtro inicial pero ningún benchmark sustituye prompts reales de tu negocio."
+      }
+    }
+  ]
+}
+</script>
 
 <footer>
   <div class="container">
