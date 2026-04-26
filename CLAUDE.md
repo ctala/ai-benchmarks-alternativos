@@ -139,6 +139,16 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 
 ⚠️ Error común en los configs: poner `open_source: True` para "Qwen 3.6 Plus" porque el nombre dice "Qwen 3.6". El Plus es **derivado y propietario** — no se publican pesos. Verificar siempre antes de marcar open_source.
 
+## Agentes disponibles (`.claude/agents/`)
+
+7 agentes pre-hechos descargados de [wshobson/agents](https://github.com/wshobson/agents) para tareas de SEO + marketing del repositorio:
+
+- `seo-content-writer` / `seo-content-auditor` / `seo-content-planner`: contenido SEO
+- `seo-keyword-strategist` / `seo-structure-architect` / `seo-meta-optimizer`: SEO técnico
+- `content-marketer` / `search-specialist`: marketing de contenido + investigación
+
+Invocar con `Agent({ subagent_type: "<name>", ... })`. Detalles en [.claude/agents/README.md](.claude/agents/README.md).
+
 ## Reglas del proyecto
 
 - **Guardado atómico**: el runner vuelca JSON tras cada test, no esperar al final

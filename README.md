@@ -1,8 +1,27 @@
 # Benchmark de Modelos AI Alternativos
 
-**Version 2.2.1** | Ultima actualizacion: 25 de Abril de 2026
+**Version 2.3.0** | Ultima actualizacion: 26 de Abril de 2026
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw, N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes).
+
+**Cobertura actual**: 44 modelos con ≥50 runs cada uno, 5,000+ tests ejecutados, 7 lotes con juez Phi-4 + Lote 8 en curso.
+
+## Top 10 Global Ranking
+
+| # | Modelo | Score | $ in/$ out per M | Provider | Notas |
+|---|---|---:|---|---|---|
+| 1 | **Llama 3.3 70B Groq** | **7.64** | $0.59/$0.79 | Groq | 270 tok/s avg ⚡ |
+| 2 | **Mistral Small 4** | **7.54** | $0.15/$0.60 | OpenRouter | Apache 2.0, baratísimo |
+| 3 | **Gemini 3.1 Flash Lite** | **7.50** | $0.25/$1.50 | OpenRouter | Sucesor del 2.5 Flash Lite |
+| 4 | GPT-OSS 120B Cloud | 7.41 | $0/$0 (sub) | Ollama Cloud | Apache 2.0, gratis con sub |
+| 5 | Devstral Small | 7.35 | $0.10/$0.30 | OpenRouter | #1 anterior, Apache 2.0 |
+| 6 | Hermes 4 70B | 7.24 | $0.13/$0.40 | OpenRouter | Nous Research, hybrid reasoning |
+| 7 | GPT-4.1 | 7.23 | $2.00/$8.00 | OpenAI | Premium baseline |
+| 8 | Devstral 2 (Dic 2025) | 7.22 | $0.40/$2.00 | OpenRouter | Apache 2.0 |
+| 9 | MiMo V2 Flash | 7.20 | $0.09/$0.29 | OpenRouter | MIT |
+| 10 | Gemini 2.5 Flash | 7.19 | $0.30/$2.50 | OpenRouter | Velocidad alta |
+
+> 4 de los 10 son **modelos nuevos abril 2026** (Llama Groq #1, Mistral Small 4, Gemini 3.1 Flash Lite, Hermes 4) — el ecosistema cambia rápido.
 
 > **Contexto**: Desde el 21 de abril 2026, Claude Code ya no viene en la suscripcion Pro de $20/mes. Este benchmark ayuda a encontrar las mejores alternativas por caso de uso y presupuesto.
 
