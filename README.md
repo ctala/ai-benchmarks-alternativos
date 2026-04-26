@@ -4,6 +4,8 @@
 
 > **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con 5,000+ tests reales: precio, calidad, velocidad y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N, OpenClaw o Hermes con presupuestos reales.
 
+> ⚠️ **No existe un "mejor modelo" universal.** "Coding" significa cosas distintas si desarrollás *plugins de WordPress*, *templates de N8N*, *scripts de automatización* o *proyectos grandes*. Lo mismo con contenido (blog técnico ≠ copy de marketing ≠ newsletter), soporte al cliente o agentes. **Este benchmark nació porque, como emprendedor, no encontré tests que me ayudaran a decidir para mis casos reales** — ahora existen y son tuyos.
+
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw, N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes).
 
 **Cobertura actual**: 44 modelos con ≥50 runs cada uno, 5,000+ tests ejecutados, 7 lotes con juez Phi-4 + Lote 8 en curso.
@@ -540,6 +542,31 @@ Ver [Quick Start](#quick-start) y [Como Replicar el Benchmark](#como-replicar-el
 
 **¿Puedo usar este benchmark para decidir qué modelo poner en producción?**
 Sí — fue diseñado para eso. Pero validá en tu caso específico: replicá 5-10 prompts típicos de tu producto contra los 2-3 finalistas. Ningún benchmark sustituye prompts reales de tu negocio. En la [comunidad Skool](https://www.skool.com/cagala-aprende-repite) compartimos plantillas y workshops para esa validación.
+
+## Para agentes IA consumidores (Claude Code, Cursor, etc.)
+
+Este repo está pensado también para que **agentes IA puedan consumirlo y recomendar modelos basados en datos reales**, no en su entrenamiento (que probablemente está desactualizado).
+
+- **[AGENTS.md](AGENTS.md)** — guía de decisión completa con reglas, anti-patterns y templates de respuesta
+- **[docs/data/models.json](https://benchmarks.cristiantala.com/data/models.json)** — JSON con todos los modelos, scores por pilar, costos, licencias
+- **[docs/data/agents-decision-guide.json](https://benchmarks.cristiantala.com/data/agents-decision-guide.json)** — schema estructurado de casos de uso → modelos recomendados
+
+Ejemplo mínimo en Python:
+
+```python
+import json, urllib.request
+
+GUIDE = json.loads(urllib.request.urlopen(
+    'https://benchmarks.cristiantala.com/data/agents-decision-guide.json'
+).read())
+
+# Agente recibe pregunta sobre N8N templates
+caso = next(uc for uc in GUIDE['use_cases'] if uc['id'] == 'coding_n8n_templates')
+print(f"Recomendación: {caso['top_models'][0]['model_id']}")
+print(f"Razón: {caso['top_models'][0]['reason']}")
+```
+
+Si construís un agente que recomiende modelos, leé AGENTS.md primero — la regla #0 es **"no existe un mejor modelo universal"**.
 
 ## Comunidad y soporte
 
