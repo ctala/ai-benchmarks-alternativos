@@ -427,6 +427,72 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
   word-break: break-all;
 }
 
+/* ====== Landing nav (links a paginas dedicadas) ====== */
+.landing-nav {
+  margin: 1rem 0 2rem;
+  padding: 0.875rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  font-size: 0.85rem;
+}
+.landing-nav strong {
+  color: var(--green);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  white-space: nowrap;
+}
+.landing-nav a {
+  color: var(--cyan);
+  white-space: nowrap;
+}
+.landing-nav a:hover { color: var(--green); }
+
+@media (min-width: 640px) {
+  .landing-nav { font-size: 0.9rem; }
+}
+
+/* ====== Tabla resultados landing pages ====== */
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+}
+.results-table thead {
+  background: var(--bg-grid);
+}
+.results-table th,
+.results-table td {
+  padding: 0.6rem 0.875rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.results-table th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.results-table tbody tr:last-child td { border-bottom: none; }
+.results-table tbody tr:hover { background: rgba(57, 255, 20, 0.04); }
+.results-table strong { color: var(--white); }
+
+@media (max-width: 640px) {
+  .results-table { font-size: 0.78rem; }
+  .results-table th, .results-table td { padding: 0.5rem 0.6rem; }
+}
+
 /* ====== FAQ ====== */
 .faq { margin: 2rem 0 3rem; }
 .faq h2 {
