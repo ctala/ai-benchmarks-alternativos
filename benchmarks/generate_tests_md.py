@@ -167,14 +167,30 @@ def build_md() -> str:
         for j, t in enumerate(mod.TESTS, 1):
             tname = t.get("name", f"test_{j}")
             tdesc = t.get("description", "")
-            prompt = truncate(first_user_prompt(t), 280)
+            prompt = first_user_prompt(t).strip()
             validation = summarize_validation(t)
+
+            # System prompt si existe (algunos tests usan instrucción de sistema importante)
+            system_prompt = ""
+            for m in t.get("messages", []):
+                if m.get("role") == "system":
+                    system_prompt = (m.get("content") or "").strip()
+                    break
 
             out.append(f"<details><summary><b>{j}. {tname}</b> — {tdesc}</summary>")
             out.append("")
-            out.append("**Prompt**:")
+            if system_prompt:
+                out.append("**System prompt**:")
+                out.append("")
+                out.append("```")
+                out.append(system_prompt)
+                out.append("```")
+                out.append("")
+            out.append("**Prompt completo**:")
             out.append("")
-            out.append(f"> {prompt}")
+            out.append("```")
+            out.append(prompt)
+            out.append("```")
             out.append("")
             out.append(f"**Validacion**: {validation}")
             out.append("")
