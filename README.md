@@ -29,7 +29,7 @@ Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw,
 
 ## 🎛️ Calculadora interactiva
 
-**[https://ctala.github.io/ai-benchmarks-alternativos/](https://ctala.github.io/ai-benchmarks-alternativos/)** — encuentra el modelo IA perfecto en 30 segundos.
+**[https://benchmarks.cristiantala.com/](https://benchmarks.cristiantala.com/)** — encuentra el modelo IA perfecto en 30 segundos.
 
 Filtros: presupuesto mensual, calls/mes, calidad mínima, velocidad mínima, tarea (razonamiento / coding / contenido / agentes), open-source, excluir Anthropic+OpenAI+Google propietarios. Ranking por mejor balance calidad/costo. Datos del último benchmark, regenerados automáticamente vía GitHub Actions cuando se agregan tests.
 
@@ -524,7 +524,7 @@ Organizadas en los 4 pilares del emprendedor:
 ## Preguntas frecuentes (FAQ)
 
 **¿Cuál es la mejor alternativa a Claude para agentes N8N en 2026?**
-Devstral Small (Apache 2.0, $0.10/$0.30 per M tokens), Mistral Small 4 ($0.15/$0.60) y Llama 3.3 70B en Groq (270 tok/s) son las top 3 por relación calidad/precio. El ranking cambia según la tarea — ver [calculadora](https://ctala.github.io/ai-benchmarks-alternativos/) para filtrar por caso de uso.
+Devstral Small (Apache 2.0, $0.10/$0.30 per M tokens), Mistral Small 4 ($0.15/$0.60) y Llama 3.3 70B en Groq (270 tok/s) son las top 3 por relación calidad/precio. El ranking cambia según la tarea — ver [calculadora](https://benchmarks.cristiantala.com/) para filtrar por caso de uso.
 
 **¿Vale la pena pagar GPT-5 o Claude Opus si hay alternativas más baratas?**
 Para tareas estándar (contenido, traducción, agentes simples), no — modelos de $0.10-0.60 dan resultados comparables. Para razonamiento profundo, código complejo o tool calling crítico, los premium siguen siendo superiores. El delta real está cuantificado en [DESCUBRIMIENTOS.md](DESCUBRIMIENTOS.md).

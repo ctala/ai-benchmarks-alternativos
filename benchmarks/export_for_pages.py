@@ -9,7 +9,7 @@ Consolida:
 - Recalcula costo con PRICING actualizado (más fiable que cost_usd guardado)
 
 El JSON resultante se commitea con el repo y se sirve estáticamente desde
-GitHub Pages en https://ctala.github.io/ai-benchmarks-alternativos/data/models.json
+GitHub Pages en https://benchmarks.cristiantala.com/data/models.json
 
 Uso:
     python benchmarks/export_for_pages.py
