@@ -22,7 +22,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 
 | Modelo | OS | $ in/out | Avg score | Runs | Per-model MD | Responses |
 |---|---|---|---:|---:|---|---|
-| `llama-3.3-70b-versatile` | ✅ Llama Community | $0.59/0.79 | **7.67** | 55 | — | — |
+| `llama-3.3-70b-versatile` | ✅ Llama Community | $0.59/0.79 | **7.64** | 88 | — | — |
 | `gpt-oss:120b-cloud` | ✅ Apache 2.0 | $0.0/0.0 | **7.41** | 91 | — | — |
 | `mistralai/devstral-small` | ✅ Apache 2.0 | $0.1/0.3 | **7.35** | 157 | [per-model](benchmarks/results/per-model/mistralai_devstral-small.md) | — |
 | `gpt-4.1` | ?  | $2.0/8.0 | **7.23** | 155 | [per-model](benchmarks/results/per-model/gpt-4_1.md) | — |
@@ -40,7 +40,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `google/gemma-4-26b-a4b-it` | ✅ Apache 2.0 | $0.15/0.3 | **7.07** | 104 | [per-model](benchmarks/results/per-model/google_gemma-4-26b-a4b-it.md) | [responses](benchmarks/results/responses/20260424_053942/) |
 | `anthropic/claude-opus-4-6` | ?  | $15.0/75.0 | **7.04** | 246 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-6.md) | — |
 | `meta-llama/llama-4-maverick` | ✅ Llama Community | $0.5/1.0 | **7.03** | 134 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-maverick.md) | — |
-| `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.0/0.0 | **7.02** | 63 | — | — |
+| `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.0/0.0 | **7.02** | 91 | — | — |
 | `anthropic/claude-sonnet-4-6` | ?  | $3.0/15.0 | **6.99** | 182 | [per-model](benchmarks/results/per-model/anthropic_claude-sonnet-4-6.md) | — |
 | `mistralai/mistral-large` | ✅ Apache 2.0 | $2.0/6.0 | **6.98** | 152 | [per-model](benchmarks/results/per-model/mistralai_mistral-large.md) | — |
 | `moonshotai/kimi-k2` | ✅ Modified MIT | $0.2/0.8 | **6.93** | 138 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2.md) | [responses](benchmarks/results/responses/20260425_145813/) |
