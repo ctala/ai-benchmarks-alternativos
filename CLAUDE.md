@@ -146,8 +146,12 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - **Flujo ROADMAP↔CHANGELOG**: todo lo que se marca completo en ROADMAP.md migra a CHANGELOG.md con el commit
 - **3 cortes de ranking en README**: (1) **global** = todos los modelos. (2) **solo alternativas** = sin Anthropic + sin OpenAI + sin Google propietarios (Gemini Flash / Flash Lite / Pro). Sí se permiten modelos Google open-source (Gemma). (3) **solo open-source** = todos los modelos con `open_source: True`. Siempre los 3 al actualizar resultados.
 - **API keys**: las 4 keys (OPENROUTER, OPENAI, MINIMAX, OLLAMA_CLOUD) viven en `.env` (gitignored). Nunca hardcodear en config.py ni imprimir en chat. Usar `len()` para validar presencia.
-- **Regenerar MDs** tras cada lote: `python benchmarks/generate_per_model_md.py`
-- **Regenerar calculadora** tras cada lote: `python benchmarks/export_for_pages.py` regenera `docs/data/models.json`. La calculadora en GitHub Pages (https://ctala.github.io/ai-benchmarks-alternativos/) lo lee directo. **Hay GitHub Action** (`.github/workflows/update-calculator.yml`) que lo regenera automáticamente cuando cambia algún `benchmarks/results/*.json` o el config — sólo asegurate de no usar `[skip ci]` en commits que tocan datos del benchmark.
+- **Regla de auto-generación**: antes de cualquier commit que toque benchmarks/results/, config, o tests, ejecutar EN ORDEN:
+  1. `python benchmarks/generate_per_model_md.py` — regenera MDs por modelo
+  2. `python benchmarks/generate_modelos_md_table.py -i` — regenera tabla de MODELOS.md con links
+  3. `python benchmarks/generate_tests_md.py` — regenera TESTS.md con prompts completos
+  4. `python benchmarks/export_for_pages.py` — regenera docs/data/models.json para la calculadora
+- **GitHub Action de seguridad** (`.github/workflows/regenerate-auto-artifacts.yml`): si olvidás los pasos manualmente, el bot regenera los 3 artefactos al hacer push. Pero hacelo manual primero para que el commit principal lleve los cambios sincronizados (mejor experiencia de revisión).
 - **README.md + CHANGELOG.md** se actualizan cuando cambia el ranking o se agrega un modelo
 - **No re-medir modelos ya cubiertos**. Re-correr SÓLO si:
   1. Sale **versión nueva** del modelo (ej. Kimi K2.7, Devstral 3) — distinto ID = distinto modelo, se mide.
