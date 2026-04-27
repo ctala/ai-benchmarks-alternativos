@@ -4,4 +4,6 @@ __pycache__/
 *.pyc
 .env
 .venv/
-.claude/
+.claude/*
+!.claude/agents/
+.claude/agents/**/.cache/

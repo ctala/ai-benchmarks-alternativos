@@ -169,14 +169,46 @@ Wrapper con chequeos previos:
 
 El repo es público y debe servir como funnel para la comunidad de emprendedores.
 
-- [ ] Topics/tags GitHub: ai-benchmark, llm-comparison, n8n, openclaw, startup-tools, ai-agents
+- [x] Topics/tags GitHub: 19 topics agregados (llm-benchmark, claude-alternatives, gpt-alternatives, n8n, openclaw, etc) — abril 26
+- [x] Subdominio propio: `benchmarks.cristiantala.com` con CNAME en GitHub Pages — abril 26
+- [x] JSON-LD Schema.org (Dataset + SoftwareApplication + FAQPage) en calculadora — abril 26
+- [x] sitemap.xml + robots.txt auto-generado por `generate_sitemap.py` — abril 26
+- [x] 6 landing pages dedicadas (alternativas-claude, -chatgpt, -gemini, modelos-n8n, -open-source-local, -baratos-emprendedores) — abril 26
+- [x] AGENTS.md + agents-decision-guide.json para que agentes IA consuman el repo — abril 26
 - [ ] Badges en README (modelos testeados, última actualización, license, CI)
 - [ ] Link a Skool en footer del README y CheatSheet
 - [ ] Blog post en cristiantala.com con resultados y link al repo
-- [ ] Social cards (Open Graph image) para compartir
-- [ ] CheatSheet PDF regenerado con resultados v2.1
+- [ ] Social cards (Open Graph image dinámica con top 5 actual)
+- [ ] CheatSheet PDF regenerado con resultados v2.3
 - [ ] Sección "Contributing" + issue templates (agregar modelo, reportar resultado, sugerir test)
 - [ ] CheatSheet visualmente atractivo para LinkedIn
+- [ ] Submit a Google Search Console + Bing Webmaster
+
+## Estrategia con agentes IA (abril 2026)
+
+11 agentes pre-hechos en `.claude/agents/`. Estrategia por fase:
+
+### Fase 1 — Inteligencia del benchmark (post-cada-lote)
+- [ ] **data-scientist**: análisis cuantitativo de los JSONs → `INSIGHTS.md`. Correlaciones, outliers, Pareto frontier, regresiones cross-lote.
+- [ ] **business-analyst**: traduce insights a decisiones de negocio (break-even, ROI por perfil)
+
+### Fase 2 — Documentación profunda (cuando cambia arquitectura)
+- [ ] **docs-architect**: `ARQUITECTURA.md` con explicación deep del runner, scoring, judge, decisiones de diseño
+- [ ] **tutorial-engineer**: `tutoriales/` con 5 guías paso-a-paso (quick start, agregar modelo, tests custom, Phi-4 setup, elegir modelo)
+
+### Fase 3 — Contenido SEO desde insights (semanal)
+- [ ] **seo-keyword-strategist**: research keywords trending del mercado IA
+- [ ] **seo-content-writer**: blog posts desde hallazgos del data-scientist
+- [ ] **content-marketer**: adaptar 1 blog post → LinkedIn / Skool / newsletter / Twitter thread
+
+### Fase 4 — Optimización continua (pre-commit)
+- [ ] **seo-content-auditor**: audit cada 2 semanas
+- [ ] **seo-meta-optimizer**: optimiza meta tags HTML al cambiar landing pages
+- [ ] **seo-structure-architect**: reorganiza si docs crecen mucho
+
+### Automatización pendiente
+- [ ] GitHub Action `weekly-content.yml` que invoca Fase 3 semanal y abre PR con drafts de blog/social
+- [ ] Hook en `regenerate-auto-artifacts.yml` que invoca Fase 1 post-lote nuevo
 
 ### Seguridad (repo público)
 - [x] `config.py` en `.gitignore`

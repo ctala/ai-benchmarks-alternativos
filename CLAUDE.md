@@ -141,13 +141,23 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 
 ## Agentes disponibles (`.claude/agents/`)
 
-7 agentes pre-hechos descargados de [wshobson/agents](https://github.com/wshobson/agents) para tareas de SEO + marketing del repositorio:
+11 agentes pre-hechos descargados de [wshobson/agents](https://github.com/wshobson/agents). Detalles + estrategia por fase en [.claude/agents/README.md](.claude/agents/README.md).
 
-- `seo-content-writer` / `seo-content-auditor` / `seo-content-planner`: contenido SEO
-- `seo-keyword-strategist` / `seo-structure-architect` / `seo-meta-optimizer`: SEO técnico
-- `content-marketer` / `search-specialist`: marketing de contenido + investigación
+**SEO + Marketing (7)**:
+- `seo-content-writer`, `seo-content-auditor`, `seo-keyword-strategist`, `seo-structure-architect`, `seo-meta-optimizer`, `content-marketer`, `search-specialist`
 
-Invocar con `Agent({ subagent_type: "<name>", ... })`. Detalles en [.claude/agents/README.md](.claude/agents/README.md).
+**Análisis y Documentación (4 — abril 26)**:
+- `data-scientist` — análisis cuantitativo de benchmark JSONs → `INSIGHTS.md` (Fase 1)
+- `business-analyst` — traduce insights a decisiones de negocio
+- `docs-architect` — `ARQUITECTURA.md` con depth técnica del repo (Fase 2)
+- `tutorial-engineer` — `tutoriales/` con 5 guías paso a paso
+
+**Workaround actual**: los `.md` locales en `.claude/agents/` no se registran como `subagent_type` invocable hasta reload de Claude Code. Mientras tanto se invocan via `general-purpose` pasando el contenido del agente como contexto. Todos tienen `Use PROACTIVELY` para auto-invocación post-reload.
+
+**Outputs auto-generados por agentes** (NO editar a mano):
+- `INSIGHTS.md` — regenerado post-cada-lote por data-scientist
+- `ARQUITECTURA.md` — regenerado cuando cambia arquitectura del runner/scoring
+- `tutoriales/*.md` — actualizar al cambiar API del runner o agregar features
 
 ## Reglas del proyecto
 
