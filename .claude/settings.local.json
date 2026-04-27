@@ -96,7 +96,13 @@
       "Bash(ps -eo pid,etime,command)",
       "WebFetch(domain:docs.nvidia.com)",
       "WebFetch(domain:build.nvidia.com)",
-      "Bash(git stash *)"
+      "Bash(git stash *)",
+      "Bash(python *)",
+      "Bash(curl -sL https://api.github.com/repos/wshobson/agents/contents)",
+      "Bash(curl -sL https://api.github.com/repos/wshobson/agents/contents/plugins)",
+      "Bash(curl -sL https://api.github.com/repos/wshobson/agents/contents/plugins/__TRACKED_VAR__)",
+      "Bash(curl -sL https://api.github.com/repos/wshobson/agents/contents/plugins/__TRACKED_VAR__/agents)",
+      "Bash(git check-ignore *)"
     ]
   }
 }
