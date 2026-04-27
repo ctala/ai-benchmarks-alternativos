@@ -1,4 +1,5 @@
-benchmarks/config.py
+# benchmarks/config.py ya NO se ignora — quedo publico desde abril 2026
+# (refactor: catalogo de modelos vive en benchmarks/models.py, secrets en .env)
 # Los resultados se versionan para analisis historico
 __pycache__/
 *.pyc

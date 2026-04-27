@@ -1,0 +1,905 @@
+"""
+Catalogo de modelos del benchmark — metadata publica (sin API keys).
+
+Este archivo es la fuente unica de verdad para los modelos. Lo importan
+config.py, runner.py y los scripts de auto-generacion. Versionado en git.
+
+Para agregar un modelo nuevo:
+- OpenRouter: agregar entry al dict MODELS con id provider/model
+- Provider directo: agregar entry con campo "provider": "<provider_key>"
+- Local Ollama: agregar a OLLAMA_MODELS
+
+Para agregar un provider nuevo: editar runner.py + adapters.py.
+"""
+
+# Modelos a evaluar via OpenRouter
+# Organizados por tier de costo
+MODELS = {
+    # --- GRATIS (subsidiados por OpenRouter) ---
+    "deepseek-r1-free": {
+        "id": "deepseek/deepseek-r1:free",
+        "name": "DeepSeek R1 (free)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "free",
+    },
+    "llama-3.3-70b-free": {
+        "id": "meta-llama/llama-3.3-70b-instruct:free",
+        "name": "Llama 3.3 70B (free)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "free",
+    },
+    # Qwen 3.6 Plus free fue deprecado, usar version pagada
+    "qwen3-coder-free": {
+        "id": "qwen/qwen3-coder-480b:free",
+        "name": "Qwen3 Coder 480B (free)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "free",
+        "open_source": True,
+    },
+
+    # --- ULTRA ECONOMICOS (<$0.10/M) ---
+    "mistral-nemo": {
+        "id": "mistralai/mistral-nemo",
+        "name": "Mistral Nemo",
+        "cost_input": 0.02,
+        "cost_output": 0.02,
+        "tier": "ultra_cheap",
+    },
+
+    # --- ECONOMICOS ($0.10 - $1.00/M) ---
+    "deepseek-v3": {
+        "id": "deepseek/deepseek-chat",
+        "name": "DeepSeek V3.2",
+        "cost_input": 0.14,
+        "cost_output": 0.28,
+        "tier": "cheap",
+    },
+    "minimax-m2.7": {
+        "id": "minimax/minimax-m2.7",
+        "name": "MiniMax M2.7",
+        "cost_input": 0.30,
+        "cost_output": 1.20,
+        "tier": "cheap",
+    },
+    # MiniMax M2.7 Highspeed requiere API directa de MiniMax (no OpenRouter)
+    # Configurar MINIMAX_API_KEY abajo para habilitarlo
+    "minimax-m2.7-direct": {
+        "id": "MiniMax-M2.7",
+        "name": "MiniMax M2.7 (directo)",
+        "cost_input": 0.30,
+        "cost_output": 1.20,
+        "tier": "cheap",
+        "provider": "minimax_direct",
+    },
+    "minimax-m2.7-highspeed": {
+        "id": "MiniMax-M2.7-highspeed",
+        "name": "MiniMax M2.7 Highspeed",
+        "cost_input": 0.30,
+        "cost_output": 1.20,
+        "tier": "cheap",
+        "provider": "minimax_direct",
+    },
+    "gemini-flash": {
+        "id": "google/gemini-2.5-flash",
+        "name": "Gemini 2.5 Flash",
+        "cost_input": 0.30,
+        "cost_output": 2.50,
+        "tier": "cheap",
+    },
+    "qwen-3.6-plus": {
+        "id": "qwen/qwen3.6-plus",
+        "name": "Qwen 3.6 Plus",
+        "cost_input": 0.33,
+        "cost_output": 0.65,
+        "tier": "cheap",
+        "open_source": False,
+        "license": "Proprietary",
+        "notes": "Plus = API-only propietario de Alibaba (NO confundir con Qwen 3.6 base que es Apache 2.0)",
+    },
+    "qwen-3.5-plus": {
+        "id": "qwen/qwen3.5-plus",
+        "name": "Qwen 3.5 Plus",
+        "cost_input": 1.20,
+        "cost_output": 2.00,
+        "tier": "cheap",
+        "open_source": False,
+        "license": "Proprietary",
+        "notes": "Plus = API-only propietario de Alibaba",
+    },
+
+    # --- Kimi (Moonshot AI) — pesos públicos en HuggingFace, Modified MIT ---
+    "kimi-k2": {
+        "id": "moonshotai/kimi-k2",
+        "name": "Kimi K2",
+        "cost_input": 0.20,
+        "cost_output": 0.80,
+        "tier": "cheap",
+        "open_source": True,
+        "license": "Modified MIT",
+    },
+    "kimi-k2.5": {
+        "id": "moonshotai/kimi-k2.5",
+        "name": "Kimi K2.5",
+        "cost_input": 0.20,
+        "cost_output": 0.80,
+        "tier": "cheap",
+        "open_source": True,
+        "license": "Modified MIT",
+    },
+
+    "kimi-k2.6": {
+        "id": "moonshotai/kimi-k2.6",
+        "name": "Kimi K2.6",
+        "cost_input": 0.80,
+        "cost_output": 3.50,
+        "tier": "cheap",
+        "open_source": True,
+        "license": "Modified MIT",
+        "notes": "Thinking model. Pesos públicos en HF (1.1T params)",
+    },
+
+    # --- GLM (Zhipu AI / Z.ai) ---
+    "glm-5.1": {
+        "id": "z-ai/glm-5.1",
+        "name": "GLM-5.1",
+        "cost_input": 0.95,
+        "cost_output": 3.15,
+        "tier": "cheap",
+        "open_source": True,
+        "license": "MIT",
+    },
+
+    # --- Xiaomi MiMo ---
+    "mimo-v2-flash": {
+        "id": "xiaomi/mimo-v2-flash",
+        "name": "MiMo-V2-Flash",
+        "cost_input": 0.09,
+        "cost_output": 0.29,
+        "tier": "ultra_cheap",
+        "open_source": True,
+        "license": "MIT",
+    },
+    "mimo-v2-pro": {
+        "id": "xiaomi/mimo-v2-pro",
+        "name": "MiMo-V2-Pro",
+        "cost_input": 1.00,
+        "cost_output": 3.00,
+        "tier": "medium",
+        "open_source": False,
+        "license": "Proprietary",
+        "notes": "API-only Xiaomi (NO confundir con MiMo V2 Flash que sí es MIT en HF). El Pro no se publica en HuggingFace.",
+    },
+
+    # --- NVIDIA Nemotron ---
+    "nemotron-super": {
+        "id": "nvidia/nemotron-3-super-120b-a12b",
+        "name": "Nemotron 3 Super",
+        "cost_input": 0.10,
+        "cost_output": 0.50,
+        "tier": "ultra_cheap",
+        "open_source": True,
+        "license": "NVIDIA Open",
+    },
+
+    # --- Anthropic nuevos ---
+    "claude-opus-4.7": {
+        "id": "anthropic/claude-opus-4-7",
+        "name": "Claude Opus 4.7",
+        "cost_input": 15.00,
+        "cost_output": 75.00,
+        "tier": "premium",
+    },
+
+    # --- Mistral ---
+    "mistral-large": {
+        "id": "mistralai/mistral-large",
+        "name": "Mistral Large",
+        "cost_input": 2.00,
+        "cost_output": 6.00,
+        "tier": "medium",
+        "open_source": True,
+        "license": "Apache 2.0",
+    },
+    "devstral": {
+        "id": "mistralai/devstral-small",
+        "name": "Devstral Small",
+        "cost_input": 0.10,
+        "cost_output": 0.30,
+        "tier": "ultra_cheap",
+        "open_source": True,
+        "license": "Apache 2.0",
+    },
+    "devstral-medium": {
+        "id": "mistralai/devstral-medium",
+        "name": "Devstral Medium",
+        "cost_input": 0.40,
+        "cost_output": 2.00,
+        "tier": "cheap",
+        "open_source": True,
+        "license": "Apache 2.0",
+    },
+    "devstral-2": {
+        "id": "mistralai/devstral-2512",
+        "name": "Devstral 2 (Dic 2025)",
+        "cost_input": 0.40,
+        "cost_output": 2.00,
+        "tier": "cheap",
+        "open_source": True,
+        "license": "Apache 2.0",
+    },
+
+    # --- GPT-4.1 via OpenAI directo ---
+    "gpt-4.1": {
+        "id": "gpt-4.1",
+        "name": "GPT-4.1",
+        "cost_input": 2.00,
+        "cost_output": 8.00,
+        "tier": "medium",
+        "provider": "openai_direct",
+    },
+    "gpt-4.1-mini": {
+        "id": "gpt-4.1-mini",
+        "name": "GPT-4.1 Mini",
+        "cost_input": 0.40,
+        "cost_output": 1.60,
+        "tier": "cheap",
+        "provider": "openai_direct",
+    },
+
+    # --- MEDIO ($1.00 - $5.00/M) ---
+    "gemini-pro": {
+        "id": "google/gemini-2.5-pro",
+        "name": "Gemini 2.5 Pro",
+        "cost_input": 1.25,
+        "cost_output": 10.00,
+        "tier": "medium",
+    },
+    "gpt-4o": {
+        "id": "openai/gpt-4o",
+        "name": "GPT-4o",
+        "cost_input": 2.50,
+        "cost_output": 10.00,
+        "tier": "medium",
+    },
+    "claude-sonnet": {
+        "id": "anthropic/claude-sonnet-4",
+        "name": "Claude Sonnet 4",
+        "cost_input": 3.00,
+        "cost_output": 15.00,
+        "tier": "medium",
+    },
+
+    # --- MEDIO - Nuevos modelos Abril 2026 ---
+    "gemma-4-31b": {
+        "id": "google/gemma-4-31b-it",
+        "name": "Gemma 4 31B",
+        "cost_input": 0.30,
+        "cost_output": 0.60,
+        "tier": "cheap",
+        "open_source": True,
+        "license": "Apache 2.0",
+    },
+    "gemma-4-26b": {
+        "id": "google/gemma-4-26b-a4b-it",
+        "name": "Gemma 4 26B MoE (3.8B activos)",
+        "cost_input": 0.15,
+        "cost_output": 0.30,
+        "tier": "cheap",
+        "open_source": True,
+        "license": "Apache 2.0",
+    },
+    "llama-4-maverick": {
+        "id": "meta-llama/llama-4-maverick",
+        "name": "Llama 4 Maverick",
+        "cost_input": 0.50,
+        "cost_output": 1.00,
+        "tier": "cheap",
+        "open_source": True,
+        "license": "Llama Community",
+    },
+    "qwen3-coder": {
+        "id": "qwen/qwen3-coder",
+        "name": "Qwen3 Coder",
+        "cost_input": 0.20,
+        "cost_output": 0.60,
+        "tier": "cheap",
+        "open_source": True,
+        "license": "Apache 2.0",
+    },
+
+    # --- MEDIO - Ultimos modelos de cada proveedor ---
+    "claude-opus-4.6": {
+        "id": "anthropic/claude-opus-4-6",
+        "name": "Claude Opus 4.6",
+        "cost_input": 15.00,
+        "cost_output": 75.00,
+        "tier": "premium",
+    },
+    "claude-sonnet-4.6": {
+        "id": "anthropic/claude-sonnet-4-6",
+        "name": "Claude Sonnet 4.6 (ultimo Anthropic)",
+        "cost_input": 3.00,
+        "cost_output": 15.00,
+        "tier": "medium",
+    },
+    "gemini-flash-lite": {
+        "id": "google/gemini-2.5-flash-lite",
+        "name": "Gemini 2.5 Flash Lite",
+        "cost_input": 0.10,
+        "cost_output": 0.40,
+        "tier": "ultra_cheap",
+    },
+
+    # --- PREMIUM ($5.00+/M) ---
+    # GPT-5.4 y GPT-5.4-mini via API directa de OpenAI
+    "gpt-5.4": {
+        "id": "gpt-5.4",
+        "name": "GPT-5.4",
+        "cost_input": 5.00,
+        "cost_output": 15.00,
+        "tier": "premium",
+        "provider": "openai_direct",
+    },
+    "gpt-5.4-mini": {
+        "id": "gpt-5.4-mini",
+        "name": "GPT-5.4 Mini",
+        "cost_input": 0.50,
+        "cost_output": 1.50,
+        "tier": "cheap",
+        "provider": "openai_direct",
+    },
+    "gpt-5.5": {
+        "id": "gpt-5.5",
+        "name": "GPT-5.5",
+        "cost_input": 5.00,
+        "cost_output": 30.00,
+        "tier": "premium",
+        "provider": "openai_direct",
+    },
+    "gpt-5.5-pro": {
+        "id": "gpt-5.5-pro",
+        "name": "GPT-5.5 Pro",
+        "cost_input": 30.00,
+        "cost_output": 180.00,
+        "tier": "premium",
+        "provider": "openai_responses",
+        "notes": "Sólo /v1/responses (no chat/completions)",
+    },
+
+    # --- Groq directo (LPU - super rapido, requiere GROQ_API_KEY) ---
+    "groq-llama-3.3-70b": {
+        "id": "llama-3.3-70b-versatile",
+        "name": "Llama 3.3 70B (Groq)",
+        "cost_input": 0.59, "cost_output": 0.79,
+        "tier": "cheap", "provider": "groq_direct",
+        "open_source": True, "license": "Llama Community",
+    },
+    "groq-llama-3.1-8b": {
+        "id": "llama-3.1-8b-instant",
+        "name": "Llama 3.1 8B Instant (Groq)",
+        "cost_input": 0.05, "cost_output": 0.08,
+        "tier": "ultra_cheap", "provider": "groq_direct",
+        "open_source": True, "license": "Llama Community",
+    },
+    "groq-llama-4-scout": {
+        "id": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "name": "Llama 4 Scout 17B (Groq preview)",
+        "cost_input": 0.11, "cost_output": 0.34,
+        "tier": "cheap", "provider": "groq_direct",
+        "open_source": True, "license": "Llama Community",
+    },
+    "groq-gpt-oss-120b": {
+        "id": "openai/gpt-oss-120b",
+        "name": "GPT-OSS 120B (Groq)",
+        "cost_input": 0.15, "cost_output": 0.60,
+        "tier": "cheap", "provider": "groq_direct",
+        "open_source": True, "license": "Apache 2.0",
+    },
+    "groq-gpt-oss-20b": {
+        "id": "openai/gpt-oss-20b",
+        "name": "GPT-OSS 20B (Groq)",
+        "cost_input": 0.075, "cost_output": 0.30,
+        "tier": "ultra_cheap", "provider": "groq_direct",
+        "open_source": True, "license": "Apache 2.0",
+    },
+    "gpt-4o-high": {
+        "id": "openai/gpt-4o:high",
+        "name": "GPT-4o High",
+        "cost_input": 5.00,
+        "cost_output": 15.00,
+        "tier": "premium",
+    },
+
+    # --- Ollama Cloud (suscripcion, requiere OLLAMA_CLOUD_API_KEY abajo) ---
+    "qwen3.5-397b-cloud": {
+        "id": "qwen3.5:397b-cloud",
+        "name": "Qwen 3.5 397B (Ollama Cloud)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "cloud_ollama",
+        "provider": "ollama_cloud",
+        "open_source": True,
+        "license": "Apache 2.0",
+    },
+    "qwen3.5-cloud": {
+        "id": "qwen3.5:cloud",
+        "name": "Qwen 3.5 (Ollama Cloud default)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "cloud_ollama",
+        "provider": "ollama_cloud",
+        "open_source": True,
+        "license": "Apache 2.0",
+    },
+    "gpt-oss-120b-cloud": {
+        "id": "gpt-oss:120b-cloud",
+        "name": "GPT-OSS 120B (Ollama Cloud)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "cloud_ollama",
+        "provider": "ollama_cloud",
+        "open_source": True,
+        "license": "Apache 2.0",
+    },
+
+    # --- NVIDIA NIM (gratis con 40 RPM, OpenAI-compatible, 100+ modelos) ---
+    # Ideal para benchmarks: secuencial, mismo formato API. Free tier suficiente.
+    # Catálogo completo: https://build.nvidia.com/explore/discover
+    "nim-nemotron-super-1.5": {
+        "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+        "name": "Nemotron Super 49B v1.5 (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "NVIDIA Open Model",
+        "notes": "Versión iterada del Nemotron Super 120B que ya medimos en Lote 2",
+    },
+    "nim-nemotron-ultra-253b": {
+        "id": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+        "name": "Nemotron Ultra 253B (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "NVIDIA Open Model",
+        "notes": "Modelo más grande de la familia Nemotron",
+    },
+    "nim-qwen3-next-instruct": {
+        "id": "qwen/qwen3-next-80b-a3b-instruct",
+        "name": "Qwen 3-Next 80B Instruct (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "Apache 2.0",
+        "notes": "Próxima generación Qwen — pendiente desde Lote 4",
+    },
+    "nim-qwen3-next-thinking": {
+        "id": "qwen/qwen3-next-80b-a3b-thinking",
+        "name": "Qwen 3-Next 80B Thinking (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "Apache 2.0",
+        "notes": "Variante thinking — comparar con Qwen 3-Next Instruct",
+    },
+    "nim-mistral-nemotron": {
+        "id": "mistralai/mistral-nemotron",
+        "name": "Mistral-Nemotron (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "Apache 2.0",
+        "notes": "Colaboración Mistral × NVIDIA, optimizado en Nemo",
+    },
+    "nim-kimi-k2-thinking": {
+        "id": "moonshotai/kimi-k2-thinking",
+        "name": "Kimi K2 Thinking (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "Modified MIT",
+        "notes": "Variante thinking de K2 — comparar con K2.6 thinking",
+    },
+    "nim-deepseek-v4-flash": {
+        "id": "deepseek-ai/deepseek-v4-flash",
+        "name": "DeepSeek V4 Flash (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "MIT",
+        "notes": "Mismo modelo que probamos via OpenRouter — comparar latencia/calidad NIM vs OR",
+    },
+    "nim-deepseek-v4-pro": {
+        "id": "deepseek-ai/deepseek-v4-pro",
+        "name": "DeepSeek V4 Pro (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "MIT",
+        "notes": "Re-test del flagship via NIM (vs OpenRouter que dio 76% cobertura en Lote 7-8)",
+    },
+
+    # --- Lote 9 candidatos NIM (todos gratis, 40 RPM) ---
+    "nim-kimi-k2.5": {
+        "id": "moonshotai/kimi-k2.5",
+        "name": "Kimi K2.5 (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "Modified MIT",
+        "notes": "Version nueva 2026, no tenemos K2.5 antes. Comparar con K2.6 thinking",
+    },
+    "nim-mistral-large-3": {
+        "id": "mistralai/mistral-large-3-675b-instruct-2512",
+        "name": "Mistral Large 3 675B (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "Apache 2.0",
+        "notes": "Flagship Mistral diciembre 2025. Comparar contra Mistral Small 4 (#4 ranking).",
+    },
+    "nim-step-3.5-flash": {
+        "id": "stepfun-ai/step-3.5-flash",
+        "name": "Step 3.5 Flash (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "Apache 2.0",
+        "notes": "Step 3.5 Flash - reemplazo de Step3 que fallo 91/91 con 404 en OpenRouter",
+    },
+    "nim-glm-5.1": {
+        "id": "z-ai/glm-5.1",
+        "name": "GLM 5.1 (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "MIT",
+        "notes": "Z.AI agentic, no tenemos. Variante GLM 5 con mejoras",
+    },
+    "nim-glm5": {
+        "id": "z-ai/glm5",
+        "name": "GLM 5 (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "MIT",
+        "notes": "Z.AI flagship base, comparar con 5.1",
+    },
+    "nim-magistral-small": {
+        "id": "mistralai/magistral-small-2506",
+        "name": "Mistral Magistral Small (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "Apache 2.0",
+        "notes": "Mistral con razonamiento, tamano medio",
+    },
+    "nim-ministral-14b": {
+        "id": "mistralai/ministral-14b-instruct-2512",
+        "name": "Ministral 14B (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "Apache 2.0",
+        "notes": "Mistral chico nuevo dic 2025 - comparar con Mistral Small 4",
+    },
+    "nim-devstral-2-123b": {
+        "id": "mistralai/devstral-2-123b-instruct-2512",
+        "name": "Devstral 2 123B (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "Apache 2.0",
+        "notes": "Mismo modelo que probamos via OpenRouter - comparar provider stability",
+    },
+    "nim-nemotron-nano-9b-v2": {
+        "id": "nvidia/nvidia-nemotron-nano-9b-v2",
+        "name": "Nemotron Nano 9B v2 (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": False, "license": "NVIDIA Open License",
+        "notes": "Variante chica de Nemotron 3, comparar con Nano 30B",
+    },
+    "nim-qwen3.5-397b": {
+        "id": "qwen/qwen3.5-397b-a17b",
+        "name": "Qwen 3.5 397B (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "Apache 2.0",
+        "notes": "Mismo modelo que Cristian usa via Ollama Cloud para producción — comparar",
+    },
+
+    # --- DeepSeek V4 (lanzado abril 2026, MIT, 1M context) ---
+    "deepseek-v4-flash": {
+        "id": "deepseek/deepseek-v4-flash",
+        "name": "DeepSeek V4 Flash",
+        "cost_input": 0.14, "cost_output": 0.28,
+        "tier": "cheap",
+        "open_source": True, "license": "MIT",
+        "notes": "284B params, 13B activos, 1M context. Sucesor V3.2.",
+    },
+    "deepseek-v4-pro": {
+        "id": "deepseek/deepseek-v4-pro",
+        "name": "DeepSeek V4 Pro",
+        "cost_input": 1.74, "cost_output": 3.48,
+        "tier": "medium",
+        "open_source": True, "license": "MIT",
+        "notes": "1.6T params, 49B activos, 1M context. Flagship V4.",
+    },
+
+    # --- Google Gemini 3.1 (preview, abril 2026) ---
+    "gemini-3.1-flash-lite": {
+        "id": "google/gemini-3.1-flash-lite-preview",
+        "name": "Gemini 3.1 Flash Lite",
+        "cost_input": 0.25, "cost_output": 1.50,
+        "tier": "cheap",
+    },
+    "gemini-3.1-pro": {
+        "id": "google/gemini-3.1-pro-preview",
+        "name": "Gemini 3.1 Pro",
+        "cost_input": 2.00, "cost_output": 12.00,
+        "tier": "medium",
+    },
+
+    # --- xAI Grok ---
+    "grok-4.1-fast": {
+        "id": "x-ai/grok-4.1-fast",
+        "name": "Grok 4.1 Fast",
+        "cost_input": 0.20, "cost_output": 0.50,
+        "tier": "cheap",
+    },
+    "grok-4.20": {
+        "id": "x-ai/grok-4.20",
+        "name": "Grok 4.20",
+        "cost_input": 2.00, "cost_output": 6.00,
+        "tier": "medium",
+    },
+
+    # --- Mistral Small 4 (Apache 2.0) ---
+    "mistral-small-4": {
+        "id": "mistralai/mistral-small-2603",
+        "name": "Mistral Small 4",
+        "cost_input": 0.15, "cost_output": 0.60,
+        "tier": "cheap",
+        "open_source": True, "license": "Apache 2.0",
+    },
+
+    # --- NVIDIA Nemotron Nano (más chico de la familia) ---
+    "nemotron-nano": {
+        "id": "nvidia/nemotron-3-nano-30b-a3b",
+        "name": "Nemotron 3 Nano 30B",
+        "cost_input": 0.05, "cost_output": 0.20,
+        "tier": "ultra_cheap",
+        "open_source": True, "license": "NVIDIA Open",
+    },
+
+    # --- Xiaomi MiMo extras ---
+    "mimo-v2-flash-free": {
+        "id": "xiaomi/mimo-v2-flash:free",
+        "name": "MiMo-V2-Flash (free)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "free",
+        "open_source": True, "license": "MIT",
+    },
+    "mimo-v2-omni": {
+        "id": "xiaomi/mimo-v2-omni",
+        "name": "MiMo-V2-Omni (multimodal)",
+        "cost_input": 0.40, "cost_output": 2.00,
+        "tier": "cheap",
+    },
+
+    # --- Qwen 3.6 Plus free (a veces deprecado, probar a su disponibilidad) ---
+    "qwen-3.6-plus-free": {
+        "id": "qwen/qwen3.6-plus:free",
+        "name": "Qwen 3.6 Plus (free)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "free",
+    },
+
+    # --- Nous Research Hermes 4 (open, abril 2026) ---
+    "hermes-4-70b": {
+        "id": "nousresearch/hermes-4-70b",
+        "name": "Hermes 4 70B",
+        "cost_input": 0.13, "cost_output": 0.40,
+        "tier": "cheap",
+        "open_source": True, "license": "Llama 3 community",
+        "notes": "Hybrid reasoning mode. Open-source de Nous Research.",
+    },
+    "hermes-4-405b": {
+        "id": "nousresearch/hermes-4-405b",
+        "name": "Hermes 4 405B",
+        "cost_input": 1.00, "cost_output": 3.00,
+        "tier": "cheap",
+        "open_source": True, "license": "Llama 3 community",
+        "notes": "Flagship Hermes 4 con reasoning híbrido.",
+    },
+
+    # --- StepFun Step3 (multimodal MoE) ---
+    "step3": {
+        "id": "stepfun-ai/step3",
+        "name": "Step3 (StepFun)",
+        "cost_input": 1.00, "cost_output": 3.00,  # estimado, verificar
+        "tier": "cheap",
+        "open_source": True, "license": "Apache 2.0",
+        "notes": "MoE 321B/38B activos, multimodal reasoning. 65K context. Lanzado ago 2025.",
+    },
+
+    # --- Xiaomi MiMo V2.5 (omnimodal nuevos abril 2026, 1M context) ---
+    "mimo-v2.5": {
+        "id": "xiaomi/mimo-v2.5",
+        "name": "MiMo-V2.5 (omnimodal)",
+        "cost_input": 0.40, "cost_output": 2.00,
+        "tier": "cheap",
+        "notes": "Omnimodal Pro-level a mitad de costo del Pro. 1.05M context.",
+    },
+    "mimo-v2.5-pro": {
+        "id": "xiaomi/mimo-v2.5-pro",
+        "name": "MiMo-V2.5 Pro",
+        "cost_input": 1.00, "cost_output": 3.00,
+        "tier": "medium",
+        "notes": "Flagship Xiaomi 2026, agentic capabilities. 1.05M context.",
+    },
+
+    # --- ByteDance Seed-OSS (Apache 2.0, reasoning + agentic) ---
+    "seed-oss-36b": {
+        "id": "bytedance/seed-oss-36b-instruct",
+        "name": "Seed-OSS 36B Instruct",
+        "cost_input": 0.20, "cost_output": 0.60,  # estimado, verificar
+        "tier": "cheap",
+        "open_source": True, "license": "Apache 2.0",
+        "notes": "Reasoning + math + coding + agentic. 131K context. ByteDance.",
+    },
+
+    # --- Xiaomi MiMo Token Plan (lanzado 22 abril 2026, requiere XIAOMI_API_KEY) ---
+    # API OpenAI-compatible. Pricing en USD calculado del Standard plan ($14.08
+    # first / $16 normal por 200M credits = $0.0704/M credits). Off-peak 16-24
+    # UTC = 0.8x = 20% off. 1 token = 1 credit en V2.5; 2 credits en V2.5-Pro.
+    "mimo-v2.5": {
+        "id": "mimo-v2.5",
+        "name": "MiMo V2.5 (Xiaomi)",
+        "cost_input": 0.07, "cost_output": 0.07,
+        "tier": "subscription",
+        "provider": "xiaomi_direct",
+        "open_source": False, "license": "Xiaomi Commercial",
+        "notes": "All-in-one multimodal nativo, 1M context, lanzado 22 abril 2026",
+    },
+    "mimo-v2.5-pro": {
+        "id": "mimo-v2.5-pro",
+        "name": "MiMo V2.5-Pro (Xiaomi)",
+        "cost_input": 0.14, "cost_output": 0.14,
+        "tier": "subscription",
+        "provider": "xiaomi_direct",
+        "open_source": False, "license": "Xiaomi Commercial",
+        "notes": "Flagship reasoning, agentic, 1M context, lanzado 22 abril 2026",
+    },
+    "mimo-v2-pro-xiaomi": {
+        "id": "mimo-v2-pro",
+        "name": "MiMo V2-Pro (Xiaomi direct)",
+        "cost_input": 0.07, "cost_output": 0.07,
+        "tier": "subscription",
+        "provider": "xiaomi_direct",
+        "open_source": True, "license": "MIT",
+        "notes": "Mismo modelo que via OpenRouter — comparar provider stability",
+    },
+    "mimo-v2-omni-xiaomi": {
+        "id": "mimo-v2-omni",
+        "name": "MiMo V2-Omni (Xiaomi direct)",
+        "cost_input": 0.07, "cost_output": 0.07,
+        "tier": "subscription",
+        "provider": "xiaomi_direct",
+        "open_source": True, "license": "MIT",
+        "notes": "Mismo modelo que via OpenRouter — comparar provider stability",
+    },
+}
+
+# Modelos locales via Ollama - Optimizados para NVIDIA DGX Spark (128GB RAM unificada)
+# Con 128GB puedes correr modelos de hasta ~200B parametros
+OLLAMA_MODELS = {
+    # --- Modelos que corren en DGX Spark (128GB) ---
+    "qwen3.5-25b": {
+        "id": "qwen3.5:25b",
+        "name": "Qwen 3.5 25B (local)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "local",
+        "open_source": True,
+        "license": "Apache 2.0",
+        "vram_gb": 16,
+    },
+    "qwen3.5-72b": {
+        "id": "qwen3.5:72b",
+        "name": "Qwen 3.5 72B (local)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "local",
+        "open_source": True,
+        "license": "Apache 2.0",
+        "vram_gb": 42,
+    },
+    "llama3.3-70b": {
+        "id": "llama3.3:70b",
+        "name": "Llama 3.3 70B (local)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "local",
+        "open_source": True,
+        "license": "Llama Community",
+        "vram_gb": 40,
+    },
+    "llama4-maverick": {
+        "id": "llama4-maverick",
+        "name": "Llama 4 Maverick (local)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "local",
+        "open_source": True,
+        "license": "Llama Community",
+        "vram_gb": 60,
+    },
+    "gemma4-31b": {
+        "id": "gemma4:31b",
+        "name": "Gemma 4 31B (local)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "local",
+        "open_source": True,
+        "license": "Apache 2.0",
+        "vram_gb": 20,
+    },
+    "gemma4-26b-moe": {
+        "id": "gemma4:26b",
+        "name": "Gemma 4 26B MoE (local, solo 3.8B activos)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "local",
+        "open_source": True,
+        "license": "Apache 2.0",
+        "vram_gb": 16,
+    },
+    "deepseek-v3": {
+        "id": "deepseek-v3",
+        "name": "DeepSeek V3 (local)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "local",
+        "open_source": True,
+        "license": "MIT",
+        "vram_gb": 120,
+        "note": "Cabe justo en DGX Spark 128GB con cuantizacion",
+    },
+    "mistral-nemo-12b": {
+        "id": "mistral-nemo",
+        "name": "Mistral Nemo 12B (local)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "local",
+        "open_source": True,
+        "license": "Apache 2.0",
+        "vram_gb": 8,
+    },
+    "phi-4-14b": {
+        "id": "phi4",
+        "name": "Phi-4 14B (local)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "local",
+        "open_source": True,
+        "license": "MIT",
+        "vram_gb": 10,
+    },
+    "minimax-m2.5": {
+        "id": "MiniMax-M2.5",
+        "name": "MiniMax M2.5 (local, open-source)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "local",
+        "open_source": True,
+        "license": "MIT",
+        "vram_gb": 90,
+        "note": "80.2% SWE-Bench, cabe en DGX Spark",
+    },
+}
