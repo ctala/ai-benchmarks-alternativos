@@ -1,0 +1,89 @@
+# MiMo V2.5-Pro (Xiaomi) — orchestration/parallel_vs_sequential_judgment
+
+- model_id: `mimo-v2.5-pro`
+- success: True  | final: 7.56 | quality: 8.47
+- latency_total: 23.347s | tokens_per_second: 65.1
+- input_tokens: 1469 | output_tokens: 1520
+- judge_score: 4.6 | justificación: 
+
+## Respuesta completa
+
+# 🚀 Análisis de Dependencias - Lanzamiento de Producto
+
+## 1. Diagrama de Dependencias
+
+```
+                    ┌─────────────────────────────────────────────────────────┐
+                    │              FASE 1 - INDEPENDIENTES (Paralelo)          │
+                    └─────────────────────────────────────────────────────────┘
+                    
+        ┌───────────────────────┐              ┌───────────────────────┐
+        │  A. Buscar precios    │              │  B. Generar descrip.  │
+        │     competidores      │              │     (lee specs.md)    │
+        └───────────┬───────────┘              └───────────┬───────────┘
+                    │                                      │
+                    ▼                                      │
+        ┌───────────────────────┐                          │
+        │  C. Calcular precio   │◄─────────────────────────┤
+        │     óptimo            │   (necesita ambos)       │
+        └───────────┬───────────┘                          │
+                    │                                      │
+                    ▼                                      ▼
+        ┌─────────────────────────────────────────────────────────┐
+        │            D. Crear landing page                        │
+        │         (necesita descripción + precio)                 │
+        └───────────────────────┬─────────────────────────────────┘
+                                │
+                    ┌───────────┴───────────┐
+                    ▼                       ▼
+        ┌───────────────────────┐  ┌───────────────────────┐
+        │  E. Email marketing   │  │  F. Publicar en redes │
+        │     (enlace landing)  │  │     (enlace landing)  │
+        └───────────────────────┘  └───────────────────────┘
+        
+                    ┌─────────────────────────────────────────────────────────┐
+                    │              FASE 4 - INDEPENDIENTES (Paralelo)          │
+                    └─────────────────────────────────────────────────────────┘
+```
+
+## 2. Clasificación de Tareas
+
+| Tarea | Tipo | Justificación |
+|-------|------|---------------|
+| **A** | 🔄 Paralela | No depende de ninguna otra tarea |
+| **B** | 🔄 Paralela | Solo necesita leer archivo local, independiente de A |
+| **C** | ⏳ Secuencial | **Depende de A** (necesita precios competidores) |
+| **D** | ⏳ Secuencial | **Depende de B y C** (necesita descripción + precio) |
+| **E** | 🔄 Paralela* | Depende de D, pero luego es independiente de F |
+| **F** | 🔄 Paralela* | Depende de D, pero luego es independiente de E |
+
+## 3. Plan de Ejecución Optimizado
+
+```
+TIEMPO ──────────────────────────────────────────────────────────────────►
+
+Fase 1 [0-5 min]    Fase 2 [5-10 min]    Fase 3 [10-15 min]    Fase 4 [15-20 min]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ┌─────────┐         ┌─────────┐          ┌─────────┐          ┌─────────┐
+  │ A: Prec │         │ C: Calc │          │ D: Land │          │ E: Email│
+  │ compet. │────────►│ precio  │─────────►│  page   │────────►│         │
+  └─────────┘         └─────────┘          └────┬────┘          └─────────┘
+                                                 │
+  ┌─────────┐                                    │               ┌─────────┐
+  │ B: Desc │────────────────────────────────────┘               │ F: Ads  │
+  │ producto│                                                    │ redes   │
+  └─────────┘                                                    └─────────┘
+
+  ══════════                                                     ══════════
+  PARALELO                                                       PARALELO
+```
+
+**Tiempo total estimado: ~20 minutos** (vs ~30 min si fuera todo secuencial)
+**Ahorro: 33%** 🎯
+
+---
+
+## 4. Ejecutando Tareas Iniciales (Fase 1)
+
+Ejecuto **A** y **B** en paralelo ahora:

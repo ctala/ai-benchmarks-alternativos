@@ -1,0 +1,11 @@
+# GPT-OSS 20B (Groq) — structured_output/json_nested_complex
+
+- model_id: `openai/gpt-oss-20b`
+- success: True  | final: 7.85 | quality: 8.57
+- latency_total: 2.064s | tokens_per_second: 766.4
+- input_tokens: 274 | output_tokens: 1582
+- judge_score: 4.8 | justificación: 
+
+## Respuesta completa
+
+{"project":"Rediseno sitio web","start_date":"2026-05-01","end_date":"2026-06-30","team":[{"name":"Ana Pérez","role":"Designer","allocation_pct":25},{"name":"Luis Gómez","role":"Developer","allocation_pct":30},{"name":"María Torres","role":"Developer","allocation_pct":30},{"name":"Carlos Ruiz","role":"QA Engineer","allocation_pct":15}],"phases":[{"name":"Planning","start":"2026-05-01","end":"2026-05-07","tasks":[{"title":"Kickoff meeting","assignee":"Luis Gómez","hours":4,"depends_on":null},{"title":"Requirements gathering","assignee":"Ana Pérez","hours":8,"depends_on":"Kickoff meeting"}]},{"name":"Design","start":"2026-05-08","end":"2026-05-21","tasks":[{"title":"Wireframes creation","assignee":"Ana Pérez","hours":16,"depends_on":"Kickoff meeting"},{"title":"UI mockups","assignee":"Ana Pérez","hours":20,"depends_on":"Wireframes creation"}]},{"name":"Development","start":"2026-05-22","end":"2026-06-10","tasks":[{"title":"Frontend development","assignee":"Luis Gómez","hours":60,"depends_on":"UI mockups"},{"title":"Backend development","assignee":"María Torres","hours":60,"depends_on":"UI mockups"},{"title":"API integration","assignee":"Luis Gómez","hours":20,"depends_on":"Backend development"}]},{"name":"Testing","start":"2026-06-11","end":"2026-06-20","tasks":[{"title":"Unit testing","assignee":"Carlos Ruiz","hours":20,"depends_on":"API integration"},{"title":"Integration testing","assignee":"Carlos Ruiz","hours":20,"depends_on":"Unit testing"},{"title":"User Acceptance Testing","assignee":"Ana Pérez","hours":10,"depends_on":"Integration testing"}]},{"name":"Deployment","start":"2026-06-21","end":"2026-06-30","tasks":[{"title":"Deployment to staging","assignee":"Luis Gómez","hours":8,"depends_on":"User Acceptance Testing"},{"title":"Final launch","assignee":"Luis Gómez","hours":8,"depends_on":"Deployment to staging"}]}],"budget":{"total":25000,"breakdown":{"design":8000,"development":14000,"testing":4000}}}
