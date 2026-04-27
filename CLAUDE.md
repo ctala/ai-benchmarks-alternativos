@@ -127,6 +127,7 @@ Constantes en `providers/adapters.py` (cima del archivo) — **este es el están
 - **Ollama local** — `localhost:11434`, activar con `INCLUDE_OLLAMA = True`
 - **Ollama Cloud** (`OLLAMA_CLOUD_API_KEY`) — qwen3.5:397b-cloud (Cristian usa este en producción)
 - **Xiaomi MiMo** (`XIAOMI_API_KEY`) — suscripción mensual con 8 modelos (V2.5-Pro, V2.5, V2-Pro, V2-Omni, V2.5-TTS family). Provider key: `xiaomi_direct`. Base URL: `https://token-plan-sgp.xiaomimimo.com/v1`. Off-peak 16-24 UTC = 0.8x consumption.
+- **NVIDIA NIM Local** (`NIM_LOCAL_BASE_URL`) — containers NIM corriendo en DGX Spark u otro hardware NVIDIA propio. Provider key: `nim_local`. Default vacío = desactivado. Setear a `http://localhost:8000/v1` (same machine) o `http://<ip-dgx>:8000/v1` (remoto). Cero costo, latencia baja, modelos optimizados con TensorRT.
 
 ## Familia Qwen: Base (open) vs Plus/Max (closed)
 

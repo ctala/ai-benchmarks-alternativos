@@ -666,3 +666,11 @@ NVIDIA_NIM_BASE_URL = os.getenv("NVIDIA_NIM_BASE_URL", "https://integrate.api.nv
 # Obtener key en platform.xiaomimimo.com -> API Keys
 XIAOMI_API_KEY = os.getenv("XIAOMI_API_KEY", "")
 XIAOMI_BASE_URL = os.getenv("XIAOMI_BASE_URL", "https://token-plan-sgp.xiaomimimo.com/v1")
+
+# NVIDIA NIM Local (containers NIM corriendo en DGX Spark / GPU server propio)
+# OpenAI-compatible. No requiere key real (el adapter pasa string dummy).
+# Setup: docker pull nvcr.io/nim/<vendor>/<model> + run --gpus all -p 8000:8000.
+# Default vacio = NIM local desactivado. Setear cuando NIM este corriendo.
+# Same machine: http://localhost:8000/v1
+# Remote DGX: http://<dgx-ip>:8000/v1
+NIM_LOCAL_BASE_URL = os.getenv("NIM_LOCAL_BASE_URL", "")
