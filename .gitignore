@@ -7,3 +7,10 @@ __pycache__/
 .claude/*
 !.claude/agents/
 .claude/agents/**/.cache/
+
+# Drafts de blog y social posts generados por scripts/generate_blog_post.py
+# Son borradores privados — el usuario los edita y publica en cristiantala.com,
+# LinkedIn, Skool, etc. Mantener blog/README.md para documentar el sistema.
+blog/*.md
+!blog/README.md
+blog/social/
