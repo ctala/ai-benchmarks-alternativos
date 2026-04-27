@@ -329,6 +329,13 @@ MODELS = {
         "cost_output": 15.00,
         "tier": "medium",
     },
+    "claude-sonnet-4.6": {
+        "id": "anthropic/claude-sonnet-4-6",
+        "name": "Claude Sonnet 4.6",
+        "cost_input": 3.00,
+        "cost_output": 15.00,
+        "tier": "medium",
+    },
 
     # --- PREMIUM ($5.00+/M) ---
     "gpt-4o-high": {
@@ -336,6 +343,20 @@ MODELS = {
         "name": "GPT-4o High",
         "cost_input": 5.00,
         "cost_output": 15.00,
+        "tier": "premium",
+    },
+    "claude-opus-4.6": {
+        "id": "anthropic/claude-opus-4-6",
+        "name": "Claude Opus 4.6",
+        "cost_input": 15.00,
+        "cost_output": 75.00,
+        "tier": "premium",
+    },
+    "claude-opus-4.7": {
+        "id": "anthropic/claude-opus-4-7",
+        "name": "Claude Opus 4.7",
+        "cost_input": 15.00,
+        "cost_output": 75.00,
         "tier": "premium",
     },
 }
