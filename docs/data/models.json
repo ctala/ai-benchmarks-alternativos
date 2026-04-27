@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-04-27T10:57:24",
-  "total_models": 41,
-  "tested_count": 22,
+  "generated_at": "2026-04-27T11:15:43",
+  "total_models": 44,
+  "tested_count": 25,
   "tokens_per_call_assumption": {
     "input": 300,
     "output": 1500
@@ -251,6 +251,33 @@
       "total_output_tokens": 108242
     },
     {
+      "key": "claude-opus-4.7",
+      "id": "anthropic/claude-opus-4-7",
+      "name": "Claude Opus 4.7",
+      "tier": "premium",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 15.0,
+      "cost_output_per_M": 75.0,
+      "cost_per_1k_calls_usd": 117.0,
+      "notes": "",
+      "tested": true,
+      "runs": 182,
+      "score_global": 7.16,
+      "score_by_pillar": {
+        "Contenido": 7.14,
+        "Agentes": 7.13,
+        "Coding": 7.21,
+        "Razonamiento": 7.16
+      },
+      "judge_score_avg": 4.22,
+      "tokens_per_second": 62.2,
+      "latency_avg_s": 15.33,
+      "total_input_tokens": 106856,
+      "total_output_tokens": 178325
+    },
+    {
       "key": "gpt-4.1-mini",
       "id": "gpt-4.1-mini",
       "name": "GPT-4.1 Mini",
@@ -330,6 +357,60 @@
       "latency_avg_s": 23.72,
       "total_input_tokens": 27995,
       "total_output_tokens": 45938
+    },
+    {
+      "key": "claude-opus-4.6",
+      "id": "anthropic/claude-opus-4-6",
+      "name": "Claude Opus 4.6",
+      "tier": "premium",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 15.0,
+      "cost_output_per_M": 75.0,
+      "cost_per_1k_calls_usd": 117.0,
+      "notes": "",
+      "tested": true,
+      "runs": 246,
+      "score_global": 7.04,
+      "score_by_pillar": {
+        "Contenido": 6.95,
+        "Agentes": 6.99,
+        "Coding": 7.09,
+        "Razonamiento": 7.2
+      },
+      "judge_score_avg": 4.18,
+      "tokens_per_second": 46.7,
+      "latency_avg_s": 19.14,
+      "total_input_tokens": 105497,
+      "total_output_tokens": 232473
+    },
+    {
+      "key": "claude-sonnet-4.6",
+      "id": "anthropic/claude-sonnet-4-6",
+      "name": "Claude Sonnet 4.6",
+      "tier": "medium",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 3.0,
+      "cost_output_per_M": 15.0,
+      "cost_per_1k_calls_usd": 23.4,
+      "notes": "",
+      "tested": true,
+      "runs": 182,
+      "score_global": 6.99,
+      "score_by_pillar": {
+        "Contenido": 6.9,
+        "Agentes": 6.98,
+        "Coding": 7.13,
+        "Razonamiento": 7.04
+      },
+      "judge_score_avg": 4.13,
+      "tokens_per_second": 55.7,
+      "latency_avg_s": 16.87,
+      "total_input_tokens": 74379,
+      "total_output_tokens": 176468
     },
     {
       "key": "gpt-5.4",
