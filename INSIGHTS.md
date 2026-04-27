@@ -13,6 +13,21 @@ fuente_datos: "docs/data/models.json + benchmarks/results/*.json"
 
 # Insights del benchmark — qué dice la data, no el marketing
 
+## ⚠️ Limitaciones críticas a leer ANTES del análisis
+
+Este documento se generó con la data del repo (45 modelos, 91 tests, single-turn). Tres limitaciones que cambian la interpretación de varios hallazgos:
+
+1. **Single-turn ≠ producción real con tools.** El benchmark mide al modelo solo, sin acceso a herramientas externas. En producción, un modelo "más débil" + Perplexity como tool de búsqueda web puede superar a un modelo "más fuerte" sin tools. Caso real: Cristian usa **Qwen 3.5 397B Cloud en N8N con tool de Perplexity** para ecosistemastartup.com — el modelo recibe contexto enriquecido que el benchmark no captura. **No comparar modelos de producción tool-augmented contra scores single-turn directamente**.
+
+2. **Cobertura desigual entre modelos cloud.** Algunos modelos sólo tienen smoke tests (3-10 runs) en lugar de los 91 completos. Cualquier afirmación sobre `qwen3.5:397b-cloud`, `gpt-oss-120b-cloud` y similares debe re-validarse cuando alcancen ≥50 runs. Mientras tanto, las recomendaciones específicas a esos modelos en este doc son **provisorias**.
+
+3. **El provider importa tanto como el modelo.** Mismo modelo en Groq vs OpenRouter vs NIM puede tener latencia 5× distinta y a veces score ±0.5. El ranking global esconde estas diferencias.
+
+**Para acciones concretas**: combiná los hallazgos cuantitativos de este doc con tu propio testing de 5-10 prompts típicos de tu caso real, idealmente en el mismo provider y configuración (con/sin tools) que vas a usar en producción. El benchmark filtra el 80% de modelos malos — no decide el 20% final.
+
+---
+
+
 Este documento es el análisis **cuantitativo** de los resultados del benchmark `ai-benchmarks-alternativos` al **26 de abril de 2026**. No es un ranking más: es la lectura de un data scientist sobre 45 modelos × 91 tests, organizada en torno a las decisiones reales que tiene que tomar un emprendedor latinoamericano antes de poner un modelo en producción (OpenClaw, N8N, content pipelines).
 
 > "No existe un mejor modelo universal." Lo que existe son modelos buenos para **una tarea, en un volumen, con una restricción**. Este informe te da el mapa.
