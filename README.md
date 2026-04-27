@@ -43,14 +43,13 @@ Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2
 
 | Recurso invertido | Cantidad |
 |---|---|
-| Modelos comparados | **30 únicos** |
+| Modelos en config | **74 únicos** |
+| Modelos con cobertura completa (≥50 runs) | **53** |
 | Tests por modelo | **91 tests en 23 suites** |
-| Runs preservados en JSON | **4,142** (3,873 exitosos) |
-| Tokens consumidos (preservados) | 1.26M input + 3.72M output |
-| **Costo calculado (`calculate_costs.py`)** | **~$48 USD** sobre runs preservados con PRICING actual |
-| **Costo real OpenRouter dashboard** | **$100+ USD** (incluye iteración no preservada) |
-| **+ recargas posteriores para retries y nuevos lotes** | **$120+ adicional** abril 25 |
-| **Tiempo wall-clock** | **~67h** desde 11 de abril |
+| Runs preservados en JSON | **7,547** (6,272 exitosos, 83% success rate) |
+| Tokens consumidos (preservados) | 2.11M input + 6.55M output |
+| **Costo total estimado** (incluye iteración + retries + recargas) | **~$300+ USD** desde el 11 de abril |
+| **Tiempo wall-clock** | **~150h** acumuladas desde 11 de abril |
 | Iteración de metodología | cientos de runs no documentados antes del scoring v2 |
 
 > El número "$200+" no es solo lo medido. Hay 4 categorías de costo que el `cost_usd` calculado **NO captura**:
@@ -60,7 +59,7 @@ Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2
 > 3. **Timeouts cobrados**: requests que sobrepasaron el timeout cliente fueron abortados desde nuestro lado, pero el provider ya había generado la respuesta y nos la facturó.
 > 4. **Retries del usuario y del runner**: cada retry con `--rerun-empty` / `--rerun-failed` es una invocación nueva. Algunos tests se corrieron 3-4 veces hasta llegar a un score válido.
 >
-> El cálculo automático con `python benchmarks/calculate_costs.py --markdown` ahora da **~$48** sobre los runs preservados (PRICING actualizado abril 25 con Claude Opus/GPT-5.5/Kimi/Mistral Large que faltaban). **El dashboard de OpenRouter reporta $100+** acumulado — la diferencia es la iteración no preservada en JSONs y otros consumos del usuario en OpenRouter.
+> El cálculo automático con `python benchmarks/calculate_costs.py --markdown` da una estimación sobre los runs preservados con PRICING actualizado. **El dashboard de OpenRouter reporta más** acumulado — la diferencia incluye iteración de metodología no preservada en JSONs, retries, y otros consumos del usuario en OpenRouter.
 
 Regla práctica: **un emprendedor que quiera replicar este benchmark desde cero gastaría ~$100-200 en APIs + ~50h de trabajo + el costo invisible de iterar la metodología**. Acá ya está hecho con todos los hallazgos — abre [RECOMENDACIONES.md](RECOMENDACIONES.md) y elegí por plataforma + tarea + presupuesto.
 

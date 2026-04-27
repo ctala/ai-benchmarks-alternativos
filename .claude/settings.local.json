@@ -102,7 +102,16 @@
       "Bash(curl -sL https://api.github.com/repos/wshobson/agents/contents/plugins)",
       "Bash(curl -sL https://api.github.com/repos/wshobson/agents/contents/plugins/__TRACKED_VAR__)",
       "Bash(curl -sL https://api.github.com/repos/wshobson/agents/contents/plugins/__TRACKED_VAR__/agents)",
-      "Bash(git check-ignore *)"
+      "Bash(git check-ignore *)",
+      "Bash(git checkout *)",
+      "WebFetch(domain:mimo.xiaomi.com)",
+      "WebFetch(domain:platform.xiaomimimo.com)",
+      "Bash(awk -F'score:' '{print $2}')",
+      "Bash(awk '{print $1}')",
+      "Bash(awk -F: '{print $2}')",
+      "WebFetch(domain:claw-eval.github.io)",
+      "Bash(curl -sL https://api.github.com/repos/claw-eval/claw-eval/contents)",
+      "Bash(curl -sL https://raw.githubusercontent.com/claw-eval/claw-eval/main/README.md)"
     ]
   }
 }
