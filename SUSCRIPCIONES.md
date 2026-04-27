@@ -60,6 +60,47 @@
 | **Google AI Ultra** | $249.99/mes | Gemini 3.1 Pro | Ilimitado* | Si | Excelente |
 | **SuperGrok Heavy** | $300/mes | Grok 4 | Generosos | Si | Top tier |
 
+### Xiaomi MiMo Token Plan (NUEVO, abril 2026 — pendiente testear V2.5)
+
+Lanzado 22 abril 2026. **Una suscripción = 8 modelos** (V2.5 series + V2 series + TTS). Compatible con OpenClaw, Claude Code, OpenCode, KiloCode. API: `platform.xiaomimimo.com`.
+
+| Plan | Mensual (first) | Mensual normal | Anual | Credits/mes | Multiplicador Lite |
+|------|-----------------|----------------|-------|-------------|---------------------|
+| **Lite** | $5.28 | $6 | save 12% | 60M | 1x (baseline) |
+| **Standard** | $14.08 | $16 | save 12% | 200M | 3.3x |
+| **Pro** | $44.00 | $50 | save 12% | 700M | 11.7x |
+| **Max** | $88.00 | $100 | save 12% | 1,600M | 26.7x |
+
+**Cómo se calculan los credits**:
+- 1 token = 1 credit en MiMo-V2.5 (multimodal base)
+- 1 token = 2 credits en MiMo-V2.5-Pro (flagship reasoning)
+- **Off-peak** (16:00-24:00 UTC, perfecto para LATAM que cae 13:00-21:00 hora local) = 0.8x consumption (20% descuento)
+
+**Modelos accesibles** (todos los planes tienen acceso a los 8):
+- MiMo-V2.5-Pro: flagship reasoning (1M context)
+- MiMo-V2.5: all-in-one multimodal nativo
+- MiMo-V2.5-TTS / VoiceClone / VoiceDesign: text-to-speech (gratis por tiempo limitado)
+- MiMo-V2-Pro, V2-Omni, V2-TTS: serie anterior
+
+**Descuentos disponibles**:
+- 12% off primera compra (incluido en precios "first" arriba)
+- 23% off primera renovación auto (nuevo usuario) → $33.88 Pro tras renovar
+- 30% off primera renovación auto (existing user)
+- Annual save 12% adicional vs mensual auto-renewal
+
+**Recomendación por volumen** (asume 1800 tokens promedio per call: 300 input + 1500 output):
+
+| Volumen mensual | Plan recomendado | Razón |
+|---|---|---|
+| <30K calls (~54M credits con V2.5) | **Lite $5.28-6** | Cabe holgado |
+| 30K-110K calls (~200M credits) | **Standard $14-16** ⭐ | Balance ideal para emprendedor con varios agentes |
+| 110K-380K calls | Pro $44-50 | Si tenés 5+ workflows N8N en producción |
+| 380K+ calls | Max $88-100 | Volumen industrial |
+
+**Para benchmarkear V2.5 + V2.5-Pro**: requiere **Standard mínimo** (~110M credits para 91 tests × 2 modelos). Lite no alcanza.
+
+⚠️ **Pendiente del benchmark**: testear MiMo-V2.5 y V2.5-Pro en los 91 tests para validar si justifica la suscripción vs alternativas. Estado actual: solo V2 series (MiMo-V2-Flash, V2-Pro, V2-Omni) están en `docs/data/models.json`.
+
 ---
 
 ## Opcion Pay-as-you-go (Sin Suscripcion)
