@@ -234,8 +234,8 @@ def main():
 
     client = LLMClient(args.provider, args.model_blog, args.model_social)
 
-    BLOG_DIR.mkdir(exist_ok=True)
-    SOCIAL_DIR.mkdir(exist_ok=True)
+    BLOG_DIR.mkdir(parents=True, exist_ok=True)
+    SOCIAL_DIR.mkdir(parents=True, exist_ok=True)
 
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     slug = slugify(args.topic + "-" + args.insight)
