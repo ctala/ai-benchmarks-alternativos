@@ -15,7 +15,7 @@ fuente_datos: "docs/data/models.json + benchmarks/results/*.json"
 
 ## ⚠️ Limitaciones críticas a leer ANTES del análisis
 
-Este documento se generó con la data del repo (45 modelos, 91 tests, single-turn). Tres limitaciones que cambian la interpretación de varios hallazgos:
+Este documento se generó con la data del repo (53 modelos, 91 tests, single-turn). Tres limitaciones que cambian la interpretación de varios hallazgos:
 
 1. **Single-turn ≠ producción real con tools.** El benchmark mide al modelo solo, sin acceso a herramientas externas. En producción, un modelo "más débil" + Perplexity como tool de búsqueda web puede superar a un modelo "más fuerte" sin tools. Caso real: Cristian usa **Qwen 3.5 397B Cloud en N8N con tool de Perplexity** para ecosistemastartup.com — el modelo recibe contexto enriquecido que el benchmark no captura. **No comparar modelos de producción tool-augmented contra scores single-turn directamente**.
 
@@ -28,7 +28,7 @@ Este documento se generó con la data del repo (45 modelos, 91 tests, single-tur
 ---
 
 
-Este documento es el análisis **cuantitativo** de los resultados del benchmark `ai-benchmarks-alternativos` al **26 de abril de 2026**. No es un ranking más: es la lectura de un data scientist sobre 45 modelos × 91 tests, organizada en torno a las decisiones reales que tiene que tomar un emprendedor latinoamericano antes de poner un modelo en producción (OpenClaw, N8N, content pipelines).
+Este documento es el análisis **cuantitativo** de los resultados del benchmark `ai-benchmarks-alternativos` al **26 de abril de 2026**. No es un ranking más: es la lectura de un data scientist sobre 53 modelos × 91 tests, organizada en torno a las decisiones reales que tiene que tomar un emprendedor latinoamericano antes de poner un modelo en producción (OpenClaw, N8N, content pipelines).
 
 > "No existe un mejor modelo universal." Lo que existe son modelos buenos para **una tarea, en un volumen, con una restricción**. Este informe te da el mapa.
 
@@ -136,7 +136,7 @@ El **Lote 8** (modelos nuevos: Hermes 4 405B, Step3, Seed-OSS 36B, Grok 4.1 Fast
 
 **Pregunta de negocio**: ¿pagar más siempre da más calidad? ¿En qué pilar el precio importa MENOS?
 
-Calculé el coeficiente de **Spearman** (rank correlation, robusto a outliers) entre `cost_per_1k_calls_usd` y el score de cada pilar para los 45 modelos con ≥50 runs. Los modelos gratis (NIM, Ollama Cloud) se incluyeron — pagar 0 ≠ calidad mala, y la data lo confirma.
+Calculé el coeficiente de **Spearman** (rank correlation, robusto a outliers) entre `cost_per_1k_calls_usd` y el score de cada pilar para los 53 modelos con ≥50 runs. Los modelos gratis (NIM, Ollama Cloud) se incluyeron — pagar 0 ≠ calidad mala, y la data lo confirma.
 
 | Pilar | Spearman ρ (precio ↔ score) | Interpretación |
 |---|---|---|
@@ -606,7 +606,7 @@ Cuando llegue Step3, Seed-OSS 36B, Hermes 4 405B, Grok 4.1 Fast y Nemotron Nano 
 ---
 
 **Documento generado el 2026-04-26 por análisis directo de**:
-- `docs/data/models.json` (45 modelos con ≥50 runs)
+- `docs/data/models.json` (53 modelos con ≥50 runs)
 - `benchmarks/results/benchmark_*.json` (raw runs por test)
 - `benchmarks/scoring.py` (rúbrica)
 - `benchmarks/config.example.py` (metadata)

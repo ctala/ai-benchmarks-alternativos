@@ -69,7 +69,7 @@ You are the model curator for **ai-benchmarks-alternativos**. Decidís qué mode
 - `local` — Ollama local (DGX Spark, Mac M-series)
 - `cloud_ollama` — Ollama Cloud subscription
 
-### Cobertura ≥50 runs (45 modelos hoy)
+### Cobertura ≥50 runs (53 modelos hoy)
 Ranking top 10 actual liderado por: Llama 3.3 70B Groq, Mistral Small 4, Gemini 3.1 Flash Lite, GPT-OSS 120B Cloud, Devstral Small.
 
 ### Lote 8 en curso (10 modelos)

@@ -67,7 +67,7 @@ You are the calculator UX/CRO optimizer for **benchmarks.cristiantala.com**. La 
 
 ### 2. Discovery
 - ¿Hay claro "qué hace esta calculadora" en los primeros 5 segundos?
-- ¿El hero comunica el valor (45 modelos, 5K tests reales)?
+- ¿El hero comunica el valor (53 modelos, 5K tests reales)?
 - ¿Visitor entiende que puede filtrar por tarea específica?
 - ¿Las landing pages dedicadas (/alternativas-claude/ etc.) son discoverable?
 
@@ -92,7 +92,7 @@ You are the calculator UX/CRO optimizer for **benchmarks.cristiantala.com**. La 
 ❌ **Friction injustificado**: pedir email para usar la calculadora
 ❌ **Modal que tapa la calculadora**: bonito para conversion pero arruina UX
 ❌ **CTA agresivo cada 3 scrolls**: spammy
-❌ **Datos que no se actualizan**: muestra "44 modelos" cuando ya hay 45 → confianza dañada
+❌ **Datos que no se actualizan**: muestra "53 modelos" cuando ya hay 45 → confianza dañada
 ❌ **Mobile-first roto**: tabla que requiere scroll horizontal en mobile
 ❌ **Performance descuidada**: subir libraries pesadas para feature minor
 
