@@ -126,6 +126,7 @@ Constantes en `providers/adapters.py` (cima del archivo) — **este es el están
 - **NVIDIA NIM** (`NVIDIA_NIM_API_KEY`) — catálogo de 135+ modelos GRATIS con 40 RPM (suficiente para benchmarks secuenciales). Provider key: `nvidia_nim`. Joyas no disponibles en otros providers: Nemotron Ultra 253B, Qwen 3-Next 80B (instruct + thinking), Mistral-Nemotron, Kimi K2 thinking, DeepSeek V4. Catálogo en build.nvidia.com.
 - **Ollama local** — `localhost:11434`, activar con `INCLUDE_OLLAMA = True`
 - **Ollama Cloud** (`OLLAMA_CLOUD_API_KEY`) — qwen3.5:397b-cloud (Cristian usa este en producción)
+- **Xiaomi MiMo** (`XIAOMI_API_KEY`) — suscripción mensual con 8 modelos (V2.5-Pro, V2.5, V2-Pro, V2-Omni, V2.5-TTS family). Provider key: `xiaomi_direct`. Base URL: `https://token-plan-sgp.xiaomimimo.com/v1`. Off-peak 16-24 UTC = 0.8x consumption.
 
 ## Familia Qwen: Base (open) vs Plus/Max (closed)
 
