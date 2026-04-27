@@ -1,0 +1,92 @@
+name: Generar contenido SEO semanal
+
+# Workflow MANUAL (workflow_dispatch) — no es cron automático para
+# controlar costos de API. Cada run cuesta ~$0.30 USD (1 blog post Opus
+# + 4 social posts Sonnet).
+#
+# Cuando lo querés correr:
+#   1. Ir a Actions → "Generar contenido SEO semanal" → Run workflow
+#   2. (Opcional) override topic/insight, default usa lo más impactante
+#   3. El workflow abre un PR con los drafts en blog/ y blog/social/
+#
+# Pre-requisito: ANTHROPIC_API_KEY como repo secret.
+
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Topic principal del blog post'
+        required: false
+        default: 'alternativas-claude'
+        type: choice
+        options:
+          - alternativas-claude
+          - alternativas-chatgpt
+          - alternativas-gemini
+          - modelos-n8n
+          - modelos-open-source-local
+          - modelos-baratos-emprendedores
+      insight_focus:
+        description: 'Insight específico a destacar (de INSIGHTS.md)'
+        required: false
+        default: 'provider matters'
+      channels:
+        description: 'Canales a adaptar (separados por espacios)'
+        required: false
+        default: 'linkedin skool twitter newsletter'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: pip install anthropic
+
+      - name: Generar blog + social
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python scripts/generate_blog_post.py \
+            --topic "${{ inputs.topic }}" \
+            --insight "${{ inputs.insight_focus }}" \
+            --channels ${{ inputs.channels }}
+
+      - name: Crear PR con los drafts
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: content/auto-${{ github.run_number }}
+          title: "content: drafts SEO sobre ${{ inputs.topic }} (${{ inputs.insight_focus }})"
+          body: |
+            ## Drafts auto-generados por workflow weekly-content
+
+            **Topic**: ${{ inputs.topic }}
+            **Insight focus**: ${{ inputs.insight_focus }}
+            **Canales**: ${{ inputs.channels }}
+
+            ## Por revisar antes de mergear
+
+            - [ ] Verificar que los datos del blog post coincidan con INSIGHTS.md actual
+            - [ ] Editar tono / añadir voz personal si querés
+            - [ ] Validar links internos (/alternativas-*, /modelos-*)
+            - [ ] Confirmar CTAs (calculadora + Skool)
+            - [ ] Programar publicación según calendario
+
+            ## Costos
+
+            ~$0.20-0.50 USD invertidos por la API. Si los drafts son buenos
+            mergear; si no son buenos cerrar PR sin merge y ajustar el prompt
+            del agente en `.claude/agents/seo-content-writer.md`.
+          commit-message: "content: blog + social drafts (auto)"
+          add-paths: |
+            blog/
