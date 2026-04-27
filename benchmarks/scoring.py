@@ -496,6 +496,15 @@ PRICING = {
     "openai/gpt-oss-120b": (0.15, 0.60),
     "openai/gpt-oss-20b": (0.075, 0.30),
 
+    # ====== Xiaomi MiMo Token Plan ======
+    # Pricing calculado del Standard $14.08 first / $16 normal x 200M credits
+    # = $0.0704/M credits. 1 token = 1 credit en V2.5; 2 credits en V2.5-Pro.
+    # Off-peak 16-24 UTC = 0.8x = $0.056 V2.5 / $0.113 V2.5-Pro
+    "mimo-v2.5": (0.07, 0.07),
+    "mimo-v2.5-pro": (0.14, 0.14),
+    "mimo-v2-pro": (0.07, 0.07),  # via Xiaomi direct (subscription)
+    "mimo-v2-omni": (0.07, 0.07),  # via Xiaomi direct (subscription)
+
     # ====== DeepSeek ======
     "deepseek-chat": (0.252, 0.378),  # V3.2 actualizado abril 2026
     "deepseek/deepseek-chat": (0.252, 0.378),

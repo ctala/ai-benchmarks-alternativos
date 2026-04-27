@@ -300,6 +300,23 @@ def run_benchmark(args):
     except ImportError:
         pass
 
+    # Xiaomi MiMo Token Plan (suscripción mensual con 8 modelos: V2.5-Pro, V2.5, V2-Pro,
+    # V2-Omni, TTS variantes. OpenAI-compatible. 1 token = 1 credit en V2.5, 2 credits
+    # en V2.5-Pro. Off-peak 16-24 UTC = 0.8x consumption)
+    xiaomi_direct = None
+    try:
+        from benchmarks.config import XIAOMI_API_KEY
+        XIAOMI_BASE_URL = "https://token-plan-sgp.xiaomimimo.com/v1"
+        try:
+            from benchmarks.config import XIAOMI_BASE_URL as _xiaomi_url_override
+            XIAOMI_BASE_URL = _xiaomi_url_override
+        except ImportError:
+            pass
+        if XIAOMI_API_KEY:
+            xiaomi_direct = UnifiedProvider("xiaomi", XIAOMI_API_KEY, XIAOMI_BASE_URL)
+    except ImportError:
+        pass
+
     # LLM-as-Judge (opcional)
     # Prioridad: 1) modelo especificado, 2) Ollama local (Gemma 4), 3) Haiku via OpenRouter
     judge = None
@@ -468,6 +485,8 @@ def run_benchmark(args):
             provider = openai_responses
         elif model_config.get("provider") == "nvidia_nim" and nvidia_nim:
             provider = nvidia_nim
+        elif model_config.get("provider") == "xiaomi_direct" and xiaomi_direct:
+            provider = xiaomi_direct
         else:
             provider = openrouter
 

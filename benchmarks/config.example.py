@@ -359,6 +359,48 @@ MODELS = {
         "cost_output": 75.00,
         "tier": "premium",
     },
+
+    # --- Xiaomi MiMo Token Plan (requiere XIAOMI_API_KEY en .env, suscripcion ---
+    # --- platform.xiaomimimo.com lanzada 22 abril 2026, OpenAI-compatible)   ---
+    # Pricing en USD calculado del plan Standard ($14.08 first / $16 normal por
+    # 200M credits = $0.0704 per M credits). Off-peak 16-24 UTC = 0.8x = 20% off.
+    # 1 token = 1 credit en V2.5; 2 credits en V2.5-Pro.
+    "mimo-v2.5": {
+        "id": "mimo-v2.5",
+        "name": "MiMo V2.5 (Xiaomi)",
+        "cost_input": 0.07, "cost_output": 0.07,  # 1 credit/token = $0.0704/M
+        "tier": "subscription",
+        "provider": "xiaomi_direct",
+        "open_source": False, "license": "Xiaomi Commercial",
+        "notes": "All-in-one multimodal nativo, 1M context, lanzado 22 abril 2026",
+    },
+    "mimo-v2.5-pro": {
+        "id": "mimo-v2.5-pro",
+        "name": "MiMo V2.5-Pro (Xiaomi)",
+        "cost_input": 0.14, "cost_output": 0.14,  # 2 credits/token = $0.1408/M
+        "tier": "subscription",
+        "provider": "xiaomi_direct",
+        "open_source": False, "license": "Xiaomi Commercial",
+        "notes": "Flagship reasoning model, agentic, 1M context, lanzado 22 abril 2026",
+    },
+    "mimo-v2-pro-xiaomi": {
+        "id": "mimo-v2-pro",
+        "name": "MiMo V2-Pro (Xiaomi direct)",
+        "cost_input": 0.07, "cost_output": 0.07,
+        "tier": "subscription",
+        "provider": "xiaomi_direct",
+        "open_source": True, "license": "MIT",
+        "notes": "Mismo modelo que probamos en OpenRouter — comparar provider stability/calidad",
+    },
+    "mimo-v2-omni-xiaomi": {
+        "id": "mimo-v2-omni",
+        "name": "MiMo V2-Omni (Xiaomi direct)",
+        "cost_input": 0.07, "cost_output": 0.07,
+        "tier": "subscription",
+        "provider": "xiaomi_direct",
+        "open_source": True, "license": "MIT",
+        "notes": "Mismo modelo que probamos en OpenRouter — comparar provider stability/calidad",
+    },
 }
 
 # Modelos locales via Ollama (agregar si tienes Ollama instalado)
@@ -547,3 +589,12 @@ OLLAMA_CLOUD_BASE_URL = os.getenv("OLLAMA_CLOUD_BASE_URL", "https://ollama.com/v
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 GROQ_BASE_URL = os.getenv("GROQ_BASE_URL", "https://api.groq.com/openai/v1")
+
+NVIDIA_NIM_API_KEY = os.getenv("NVIDIA_NIM_API_KEY", "")
+NVIDIA_NIM_BASE_URL = os.getenv("NVIDIA_NIM_BASE_URL", "https://integrate.api.nvidia.com/v1")
+
+# Xiaomi MiMo Token Plan (suscripcion mensual con 8 modelos: V2.5-Pro, V2.5,
+# V2-Pro, V2-Omni, TTS variantes). API OpenAI-compatible.
+# Obtener key en platform.xiaomimimo.com -> API Keys
+XIAOMI_API_KEY = os.getenv("XIAOMI_API_KEY", "")
+XIAOMI_BASE_URL = os.getenv("XIAOMI_BASE_URL", "https://token-plan-sgp.xiaomimimo.com/v1")
