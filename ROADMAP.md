@@ -184,6 +184,50 @@ El repo es público y debe servir como funnel para la comunidad de emprendedores
 - [ ] CheatSheet visualmente atractivo para LinkedIn
 - [ ] Submit a Google Search Console + Bing Webmaster
 
+## Mejoras inspiradas en Claw-Eval (decidido 27 abril 2026)
+
+[Claw-Eval](https://github.com/claw-eval/claw-eval) es el benchmark académico de referencia para agentes (PKU + HKU, 498 stars, usado por Meta/Kimi/Qwen/Xiaomi/GLM). Análisis y decisiones para incorporar mejor lo suyo:
+
+### ✅ Sí implementar (priorizado)
+
+- [ ] **HuggingFace dataset publication** (S effort, alta visibilidad)
+  - Subir 91 tests + criteria + responses históricos a HuggingFace Datasets
+  - Card markdown con metodología, licencia MIT, citation BibTeX
+  - SEO académico — facilita que investigadores citen y deriven
+  - Backlink desde HF a `benchmarks.cristiantala.com` y al repo
+
+- [ ] **Sub-categorías por pilar** (M effort)
+  - Dentro de "Coding" → wordpress, n8n_workflow, scripts, refactor, debugging
+  - Dentro de "Contenido" → blog_tecnico, marketing_copy, traduccion, newsletter
+  - Dentro de "Agentes" → tool_calling, orquestacion, multi_step
+  - Permite filtrar calculadora por sub-caso (no solo el 4-pilar agregado)
+  - Score por sub-categoría visible en MD por modelo + JSON
+
+- [ ] **Multi-turn tests NUEVOS diseñados específicamente** (M effort)
+  - NO convertir tests existentes — diseñar 8-10 tests fresh para multi-turn
+  - Usuario simulado (Phi-4 actuando) hace follow-ups, cambia requisitos
+  - Captura: ¿el modelo mantiene contexto? ¿pide clarification cuando hay ambigüedad? ¿maneja cambios de plan?
+  - Categoria nueva: `multi_turn/` con tests propios
+
+### 🔄 Considerar al final (por modelo, no para todos)
+
+- [ ] **Pass^N metric** (3x costo × N modelos)
+  - **NO aplicar a todos** — definir caso por caso si modelo "lo merece"
+  - Útil para: top 5-10 ranking final, modelos que entran a producción de Cristian
+  - Validar reproducibilidad sin gastar 3x en cada lote completo
+
+### ⏳ Pipeline largo (interesado, no inmediato)
+
+- [ ] **Sandbox Docker para coding ejecutable** (L effort)
+- [ ] **Multimodal real** — image/video/PDF analysis (L effort, requiere V2.5 + Gemini Pro testeo)
+- [ ] **Safety dimension explícita** — peso 5-10% del scoring para adversarial tests
+- [ ] **arXiv paper** o whitepaper técnico (M effort, autoridad académica)
+
+### ❌ NO implementar (justificado)
+
+- ❌ **Complementar Claw-Eval directamente** — no competimos, complementamos. Audiencias distintas (académicos vs emprendedores). Mantener foco propio.
+- ❌ **300 human-verified tasks** — su ventaja es budget académico (PKU + HKU). Nuestro foco es operatividad práctica.
+
 ## Estrategia con agentes IA (abril 2026)
 
 11 agentes pre-hechos en `.claude/agents/`. Estrategia por fase:
