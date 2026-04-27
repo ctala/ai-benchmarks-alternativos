@@ -55,6 +55,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/INSIGHTS.md</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/ARQUITECTURA.md</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/RECOMENDACIONES.md</loc>
     <lastmod>2026-04-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -62,7 +74,7 @@
   </url>
   <url>
     <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/MODELOS.md</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -83,6 +95,42 @@
     <lastmod>2026-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/tutoriales/01-quick-start.md</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/tutoriales/02-agregar-tu-modelo.md</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/tutoriales/03-disenar-test-custom.md</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/tutoriales/04-configurar-phi4-judge.md</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/tutoriales/05-elegir-modelo-para-tu-caso.md</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/tutoriales/README.md</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://github.com/ctala/ai-benchmarks-alternativos</loc>
