@@ -64,6 +64,15 @@ Regla práctica: **un emprendedor que quiera replicar este benchmark desde cero 
 
 ## Documentos Principales
 
+### Análisis y decisión
+| Documento | Contenido |
+|-----------|-----------|
+| ⭐ [INSIGHTS.md](INSIGHTS.md) | **Análisis cuantitativo del benchmark**: correlaciones, outliers, Pareto, regresiones, hallazgos sorpresivos |
+| [RECOMENDACIONES.md](RECOMENDACIONES.md) | Qué modelo usar por plataforma (OpenClaw, N8N, Hermes), tarea y presupuesto |
+| [CASOS_DE_USO.md](CASOS_DE_USO.md) | 50+ casos de uso reales de IA para emprendedores |
+| [DESCUBRIMIENTOS.md](DESCUBRIMIENTOS.md) | Hallazgos no obvios y bugs de modelos |
+
+### Inventarios y referencia
 | Documento | Contenido |
 |-----------|-----------|
 | [MODELOS.md](MODELOS.md) | Inventario completo: probados, en cola y por agregar al config |
@@ -72,9 +81,13 @@ Regla práctica: **un emprendedor que quiera replicar este benchmark desde cero 
 | [SUSCRIPCIONES.md](SUSCRIPCIONES.md) | Suscripciones fijas ($0-$300/mes) + coding plans |
 | [PACKS.md](PACKS.md) | Packs por suscripcion + estrategia local+nube |
 | [PROVEEDORES.md](PROVEEDORES.md) | Proveedores: fundacion, foco, contexto, open-source |
-| [RECOMENDACIONES.md](RECOMENDACIONES.md) | Que modelo usar por plataforma (OpenClaw, N8N, Hermes), tarea y presupuesto |
-| [CASOS_DE_USO.md](CASOS_DE_USO.md) | 50+ casos de uso reales de IA para emprendedores |
-| [DESCUBRIMIENTOS.md](DESCUBRIMIENTOS.md) | Hallazgos no obvios y bugs de modelos |
+
+### Para contribuir o forkear
+| Documento | Contenido |
+|-----------|-----------|
+| 🛠️ [ARQUITECTURA.md](ARQUITECTURA.md) | **Documentación técnica deep**: runner, scoring, judge, decisiones de diseño, recetas para extender |
+| 📚 [tutoriales/](tutoriales/) | **5 guías paso a paso**: replicar benchmark, agregar modelo, tests custom, Phi-4 setup, elegir modelo |
+| [AGENTS.md](AGENTS.md) | Guía para agentes IA consumidores (Claude Code, Cursor) — JSON machine-readable |
 | [ROADMAP.md](ROADMAP.md) | Roadmap y pipeline de mejoras futuras |
 | [CHANGELOG.md](CHANGELOG.md) | Historial de cambios |
 

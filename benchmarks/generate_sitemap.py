@@ -35,11 +35,18 @@ GH_BASE = "https://github.com/ctala/ai-benchmarks-alternativos/blob/main"
 REPO_MDS = [
     ("README.md", 0.9),
     ("AGENTS.md", 0.8),
+    ("INSIGHTS.md", 0.8),
+    ("ARQUITECTURA.md", 0.7),
     ("RECOMENDACIONES.md", 0.8),
     ("MODELOS.md", 0.7),
     ("TESTS.md", 0.7),
     ("DESCUBRIMIENTOS.md", 0.6),
     ("CHANGELOG.md", 0.5),
+]
+
+# Carpetas con MDs que se descubren automaticamente (cualquier *.md)
+REPO_MD_DIRS = [
+    ("tutoriales", 0.7),
 ]
 
 PRIORITY_OVERRIDES = {
@@ -89,6 +96,15 @@ def repo_mds():
         path = ROOT / name
         if path.exists():
             url = f"{GH_BASE}/{name}"
+            out.append((url, path, priority))
+    # Carpetas con MDs descubiertos automaticamente
+    for dirname, priority in REPO_MD_DIRS:
+        d = ROOT / dirname
+        if not d.exists():
+            continue
+        for path in sorted(d.glob("*.md")):
+            rel = path.relative_to(ROOT).as_posix()
+            url = f"{GH_BASE}/{rel}"
             out.append((url, path, priority))
     return out
 
