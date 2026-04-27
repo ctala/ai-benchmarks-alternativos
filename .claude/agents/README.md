@@ -27,7 +27,18 @@ Para análisis cuantitativo del benchmark y documentación profunda.
 | **docs-architect** | Documentación técnica de profundidad. Genera `ARQUITECTURA.md` con explicación deep del runner, scoring v2, LLM-as-Judge, decisiones de diseño |
 | **tutorial-engineer** | Tutoriales paso a paso para emprendedores: replicar benchmark, agregar modelo, diseñar tests custom, configurar Phi-4 judge |
 
-Todos tienen `Use PROACTIVELY` en su description — Claude Code los invocará automáticamente cuando el contexto matchee (post-reload).
+## Estrategia y Curación (4 agentes custom — abril 26)
+
+Específicos al repo (no en wshobson/agents). Escritos desde cero con contexto profundo del proyecto, marca personal de Cristian, audiencia LATAM.
+
+| Agente | Para qué |
+|---|---|
+| **repo-strategist** | Decisiones de roadmap, priorización entre features competing, alineación con marca personal y comunidad Skool. Análisis multi-lente (user/repo/brand/competition). Modelo: Opus |
+| **test-designer** | Diseña nuevos tests basados en casos REALES (no académicos). Identifica gaps (multimodal, long context, tool use real con búsqueda web). Decide re-correr modelos. Modelo: Opus |
+| **model-curator** | Decide qué modelos del mercado vale agregar al benchmark, cuáles deprecar, cómo balancear cobertura. Pareto frontier check + gap analysis. Modelo: Opus |
+| **calculator-optimizer** | UX/CRO/performance de la calculadora en benchmarks.cristiantala.com. Lighthouse audits, friction analysis, drill-down, mobile-first. Modelo: Sonnet |
+
+Todos los agentes tienen `Use PROACTIVELY` en su description — Claude Code los invocará automáticamente cuando el contexto matchee (post-reload).
 
 ## Estrategia de uso por fase
 
@@ -81,10 +92,10 @@ Agent({
 |---|---|---|
 | `social-media-content-creator` | (custom) | Posts X/Twitter, IG, TikTok desde insights |
 | `youtube-script-writer` | (custom) | Scripts para canal YouTube de Cristian |
-| `landing-page-optimizer` | (custom) | A/B testing y CRO de landing pages |
 | `email-marketer` | (custom) | Newsletter automation desde insights |
 | `code-reviewer` | code-documentation | Review pre-commit del código del benchmark |
 | `python-pro` | python-development | Refactor del runner cuando crezca |
+| `community-manager` | (custom) | Engagement de comunidad Skool desde benchmark insights |
 
 ## Fuentes
 
