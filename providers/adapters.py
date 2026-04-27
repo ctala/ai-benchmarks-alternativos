@@ -57,6 +57,7 @@ THINKING_MODELS = (
     "kimi-k2.6", "Kimi",                    # Moonshot K2.6+
     "nemotron", "Nemotron",                 # NVIDIA Nemotron 3+
     "gemini-2.5-pro", "gemini-3-pro",       # Google Pro tier (reasoning interno)
+    "deepseek-v4", "deepseek-r",            # DeepSeek V4+ (R1, V4 Pro, V4 Flash) — descubierto abril 27 con 30/91 NoneType en V4 Pro
 )
 
 # Modelos que sólo aceptan temperature=1.0 (rechazan otros con error 400).
@@ -70,10 +71,11 @@ THINKING_TOKEN_MULTIPLIER = 4
 # Mínimo absoluto para thinking models, aunque el max_tokens base sea bajo.
 THINKING_MIN_TOKENS = 8192
 
-# Tiempo de espera del cliente HTTP. Subido de 60s a 240s para que thinking
-# models con razonamiento extenso (workshop_outline, business_validation, etc)
-# puedan terminar. 60s causaba timeouts a 181s (3 retries × 60s) en GPT-5.5.
-HTTP_READ_TIMEOUT_S = 240.0
+# Tiempo de espera del cliente HTTP. Subido a 360s tras detectar timeouts
+# residuales en DeepSeek V4 Pro (abril 27, 2026). Original 60s → 240s →
+# 360s. Algunos thinking models con prompts largos (workshop_outline,
+# perplexity_research) razonan >240s y timean.
+HTTP_READ_TIMEOUT_S = 360.0
 
 
 class UnifiedProvider:
@@ -144,7 +146,21 @@ class UnifiedProvider:
             # Cancelar alarm
             signal.alarm(0)
 
+            # Guard contra responses malformadas — algunos providers devuelven
+            # choices=None o choices=[] bajo errores internos en lugar de raise.
+            # Descubierto abril 27 con DeepSeek V4 Pro: 30/91 runs con
+            # "'NoneType' object is not subscriptable" antes del fix.
+            if not response.choices:
+                result.success = False
+                result.error = "Response sin choices (provider devolvio respuesta vacia)"
+                return result
+
             choice = response.choices[0]
+            if choice.message is None:
+                result.success = False
+                result.error = "Choice sin message (provider devolvio choice malformada)"
+                return result
+
             content = choice.message.content or ""
             result.latency_total = end - start
             result.latency_first_token = result.latency_total  # sin streaming = mismo
