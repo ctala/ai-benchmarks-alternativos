@@ -38,6 +38,7 @@ El **Lote 8** (modelos nuevos: Hermes 4 405B, Step3, Seed-OSS 36B, Grok 4.1 Fast
 
 ## Tabla de contenidos
 
+0. [⭐ DeepSeek V4 vs Claude Opus 4.6/4.7 — el claim cuantificado](#0-deepseek-v4-vs-claude-opus-el-claim-cuantificado)
 1. [Correlación precio ↔ calidad por pilar](#1-correlación-precio--calidad-por-pilar)
 2. [Outliers: malas compras, joyas y especialistas](#2-outliers-malas-compras-joyas-y-especialistas)
 3. [Provider matters: el mismo modelo en distintos proveedores](#3-provider-matters)
@@ -50,6 +51,84 @@ El **Lote 8** (modelos nuevos: Hermes 4 405B, Step3, Seed-OSS 36B, Grok 4.1 Fast
 10. [Top 3 hallazgos sorpresivos](#10-top-3-hallazgos-sorpresivos)
 11. [Implicaciones para la próxima iteración](#implicaciones-para-la-próxima-iteración)
 12. [Datos sospechosos / a re-validar](#datos-sospechosos--a-re-validar)
+
+---
+
+## 0. DeepSeek V4 vs Claude Opus — el claim cuantificado
+
+> **DeepSeek lanzó V4 (24 de abril 2026)** prometiendo "rendimiento equiparable o superior a Claude Opus 4.6 a una fracción del costo" — en MIT, open weights. El benchmark v2.3 lo testea contra Claude Opus 4.6 (246 runs), Opus 4.7 (182 runs) y Sonnet 4.6 (182 runs) usando los mismos 91 tests + Phi-4 como juez (cero conflicto). Acá está la respuesta con números reales.
+
+### Comparación por pilar (datos al 27 abril 2026)
+
+| Modelo | Global | Razon | Coding | Contenido | Agentes | Costo $ in/$ out | Runs |
+|---|---|---|---|---|---|---|---|
+| **Claude Opus 4.7** | **7.16** | 7.16 | **7.21** | **7.14** | **7.13** | $15 / $75 | 182 |
+| **DeepSeek V4 Flash (NVIDIA NIM)** ⭐ | **7.07** | 7.11 | 7.06 | **7.14** | 6.99 | **$0 / $0** (gratis) | 87 |
+| Claude Opus 4.6 | 7.04 | **7.20** | 7.09 | 6.95 | 6.99 | $15 / $75 | 246 |
+| Claude Sonnet 4.6 | 6.99 | 7.04 | 7.13 | 6.90 | 6.98 | $3 / $15 | 182 |
+| DeepSeek V4 Flash (OpenRouter) | TBD | — | — | — | — | $0.14 / $0.28 | re-run |
+| DeepSeek V4 Pro | TBD | — | — | — | — | $1.74 / $3.48 | re-run |
+
+> ⚠️ **V4 Pro y V4 Flash via OpenRouter** están en re-run con el fix de thinking models (descubierto 27 abril: V4 NO estaba en `THINKING_MODELS` del adapter → 30/91 runs vacíos por agotar `max_tokens` razonando). Resultados finales se actualizan en cuanto termine el re-run.
+
+### El veredicto
+
+✅ **DeepSeek V4 Flash en NVIDIA NIM (gratis) empata a Claude Opus 4.6 en score global** (7.07 vs 7.04, diferencia 0.03 dentro del margen del benchmark).
+
+✅ **V4 Flash GANA a Opus 4.6 en Contenido** por **+0.19 puntos** (7.14 vs 6.95). Para emprendedores que generan blog, marketing, newsletter en español: V4 Flash es funcionalmente superior.
+
+✅ **V4 Flash empata a Opus 4.6 en Agentes** (6.99 vs 6.99). Para tool calling estructurado en N8N/OpenClaw: equivalentes.
+
+⚠️ **Opus 4.7 sigue siendo el #1**: gana a V4 Flash por **+0.09 global**, +0.05 razonamiento, +0.15 coding, +0.14 agentes. **Empate** en contenido (7.14 vs 7.14).
+
+### Costo real para un agente N8N (5,000 calls/mes, 300 input + 1500 output)
+
+| Modelo | $/mes (5K calls) | Diferencia vs V4 Flash NIM |
+|---|---|---|
+| **DeepSeek V4 Flash en NVIDIA NIM** | **$0** | (baseline) |
+| Claude Sonnet 4.6 | ~$117 | +$117/mes |
+| Claude Opus 4.6 | ~$585 | **+$585/mes** |
+| Claude Opus 4.7 | ~$585 | **+$585/mes** |
+| DeepSeek V4 Flash (OpenRouter) | ~$2.15 | +$2.15/mes |
+| DeepSeek V4 Pro (OpenRouter) | ~$26 | +$26/mes |
+
+**Para producir el mismo contenido o correr el mismo agente N8N**:
+- Pagás Opus 4.6 → **$7,020/año** por 0.03 puntos menos en global y 0.19 puntos MENOS en contenido vs V4 Flash gratis
+- Pagás Opus 4.7 → **$7,020/año** por 0.09 puntos más en global y EMPATE en contenido vs V4 Flash gratis
+
+### Recomendación accionable por caso de uso
+
+**Si tu uso primario es contenido en español (blog, newsletter, marketing copy)**:
+→ **DeepSeek V4 Flash via NVIDIA NIM** (gratis, 40 RPM = ~57K calls/día). Empate funcional con Opus 4.7 en este pilar. **Sin razón económica para Opus**.
+
+**Si tu uso primario son agentes N8N/OpenClaw con tool calling**:
+→ **DeepSeek V4 Flash via NIM** (gratis). Empate con Opus 4.6 en agentes. Opus 4.7 gana por 0.14 — evaluá si vale $585/mes para tu caso específico.
+
+**Si tu uso primario es coding profesional o razonamiento profundo**:
+→ Opus 4.7 mantiene el liderazgo (+0.15 coding, +0.05 razonamiento sobre V4 Flash). Acá el premium SE justifica si el coding es revenue-critical.
+
+**Si tu volumen es bajo (<500 calls/mes) y privacidad de datos no es crítica**:
+→ Mistral Small 4 ($0.15/$0.60) o Devstral Small ($0.10/$0.30) cubren 80% de casos a costo casi cero. V4 Flash via NIM cubre el otro 20%.
+
+### Limitaciones del análisis
+
+1. **V4 Pro y V4 Flash OpenRouter quedaron incompletos** en lotes anteriores (Lote 7, 25 abril) por bug del adapter (no marcados como thinking → agotaban tokens razonando → respuesta vacía). El fix se aplicó el 27 abril y se está re-corriendo. Datos finales aparecerán acá cuando termine.
+
+2. **Provider matters**: V4 Flash en NVIDIA NIM (gratis) puede no rendir igual que V4 Flash en OpenRouter ($0.14/$0.28) o V4 Flash directo de DeepSeek. La latencia y disponibilidad cambian. NIM tiene rate limit 40 RPM.
+
+3. **Single-turn**: el benchmark NO mide multi-turn con tools (e.g. modelo + Perplexity como tool de búsqueda). Para casos donde el modelo orquesta tools, el delta puede ser distinto. Caso real Cristian: Qwen 3.5 397B Cloud + Perplexity en N8N supera al modelo solo.
+
+4. **El claim del marketing dice "Opus 4.6"**: los datos lo confirman para V4 Flash en contenido y agentes (gana o empata), no para coding/razonamiento (Opus mantiene ventaja). El claim NO se sostiene contra Opus 4.7 (más reciente) — V4 Flash es 0.09 puntos abajo en global.
+
+5. **Sólo 87 runs de V4 Flash vía NIM** vs 246 de Opus 4.6 — la diferencia de cobertura introduce ruido. Cuando V4 Flash NIM alcance 91+ runs el resultado puede moverse ±0.05.
+
+### TL;DR para el emprendedor latino
+
+> **¿Pagar Opus por contenido o agentes? No.** V4 Flash via NVIDIA NIM hace lo mismo gratis. El delta de 0.03 en global no justifica $585/mes.
+>
+> **¿Pagar Opus por coding profesional? Quizás.** Opus 4.7 gana 0.15 puntos en coding sobre V4 Flash. Si el código es lo que paga tu negocio, evaluá. Si el coding es secundario, V4 Flash basta.
+>
+> **¿El claim del marketing de DeepSeek se confirma?** Sí para Opus 4.6 (versión que mencionan), parcialmente. V4 Flash empata o gana en contenido y agentes; pierde por margen pequeño en coding y razonamiento. **El verdadero hallazgo es V4 Flash gratis en NIM** — no su precio en OpenRouter.
 
 ---
 

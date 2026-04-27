@@ -2,12 +2,25 @@
 """
 Genera blog posts SEO desde INSIGHTS.md usando agentes de .claude/agents/.
 
-Uso local:
-    python scripts/generate_blog_post.py --topic "alternativas-claude" --insight "qwen vs gpt-oss"
-    python scripts/generate_blog_post.py --auto  # elige el insight más impactante automáticamente
+Soporta dos backends:
+  - anthropic (default): usa Claude Opus + Sonnet, requiere ANTHROPIC_API_KEY
+  - openrouter: usa cualquier modelo OpenAI-compatible, requiere OPENROUTER_API_KEY
+  - nvidia_nim: usa modelos via NVIDIA NIM gratis (40 RPM), requiere NVIDIA_NIM_API_KEY
 
-Uso en CI (GitHub Action workflow_dispatch):
-    Mismo script, requiere ANTHROPIC_API_KEY como secret.
+Eat your own dog food: si el benchmark dice que DeepSeek V4 Flash empata a
+Claude Opus 4.6 en contenido a costo cero, generemos el contenido con V4 Flash.
+
+Uso local:
+    # Default Anthropic (Opus + Sonnet, ~$0.30/run)
+    python scripts/generate_blog_post.py --topic "alternativas-claude"
+
+    # DeepSeek V4 Flash via OpenRouter (~$0.01/run)
+    python scripts/generate_blog_post.py --provider openrouter \
+        --model deepseek/deepseek-v4-flash --topic "alternativas-claude"
+
+    # DeepSeek V4 Flash via NVIDIA NIM (gratis con 40 RPM)
+    python scripts/generate_blog_post.py --provider nvidia_nim \
+        --model deepseek-ai/deepseek-v4-flash --topic "alternativas-claude"
 
 Output:
     blog/<fecha>-<slug>.md con frontmatter completo + adapter posts en
@@ -27,12 +40,6 @@ AGENTS_DIR = ROOT / ".claude" / "agents"
 INSIGHTS = ROOT / "INSIGHTS.md"
 BLOG_DIR = ROOT / "blog"
 SOCIAL_DIR = BLOG_DIR / "social"
-
-try:
-    from anthropic import Anthropic
-except ImportError:
-    print("ERROR: pip install anthropic", file=sys.stderr)
-    sys.exit(1)
 
 
 def read_agent(name: str) -> str:
@@ -57,7 +64,73 @@ def slugify(text: str) -> str:
     return text[:50]
 
 
-def generate_blog_post(client: Anthropic, topic: str, insight_focus: str) -> str:
+class LLMClient:
+    """Wrapper que abstrae anthropic vs openrouter/nvidia_nim."""
+
+    def __init__(self, provider: str, model_blog: str, model_social: str):
+        self.provider = provider
+        self.model_blog = model_blog
+        self.model_social = model_social
+
+        if provider == "anthropic":
+            try:
+                from anthropic import Anthropic
+            except ImportError:
+                print("ERROR: pip install anthropic", file=sys.stderr); sys.exit(1)
+            api_key = os.environ.get("ANTHROPIC_API_KEY")
+            if not api_key:
+                print("ERROR: setear ANTHROPIC_API_KEY", file=sys.stderr); sys.exit(1)
+            self.client = Anthropic(api_key=api_key)
+
+        elif provider in ("openrouter", "nvidia_nim"):
+            try:
+                from openai import OpenAI
+            except ImportError:
+                print("ERROR: pip install openai", file=sys.stderr); sys.exit(1)
+
+            if provider == "openrouter":
+                api_key = os.environ.get("OPENROUTER_API_KEY")
+                if not api_key:
+                    print("ERROR: setear OPENROUTER_API_KEY", file=sys.stderr); sys.exit(1)
+                base_url = "https://openrouter.ai/api/v1"
+            else:  # nvidia_nim
+                api_key = os.environ.get("NVIDIA_NIM_API_KEY")
+                if not api_key:
+                    print("ERROR: setear NVIDIA_NIM_API_KEY", file=sys.stderr); sys.exit(1)
+                base_url = "https://integrate.api.nvidia.com/v1"
+
+            self.client = OpenAI(api_key=api_key, base_url=base_url)
+        else:
+            raise ValueError(f"Provider no soportado: {provider}")
+
+    def generate(self, system: str, user: str, role: str = "blog", max_tokens: int = 8000) -> str:
+        """Genera texto. role='blog' usa model_blog (mas potente), 'social' usa model_social."""
+        model = self.model_blog if role == "blog" else self.model_social
+
+        if self.provider == "anthropic":
+            response = self.client.messages.create(
+                model=model,
+                max_tokens=max_tokens,
+                system=system,
+                messages=[{"role": "user", "content": user}],
+            )
+            return response.content[0].text
+
+        # OpenAI-compatible (openrouter, nvidia_nim)
+        response = self.client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": system},
+                {"role": "user", "content": user},
+            ],
+            max_completion_tokens=max_tokens,
+        )
+        if not response.choices or response.choices[0].message.content is None:
+            raise RuntimeError("Provider devolvio respuesta vacia. Reintentar o cambiar modelo.")
+        return response.choices[0].message.content
+
+
+def generate_blog_post(client: LLMClient, topic: str, insight_focus: str) -> str:
     """Invoca seo-content-writer con INSIGHTS.md como contexto."""
     system = read_agent("seo-content-writer")
     insights = read_insights()
@@ -69,81 +142,97 @@ def generate_blog_post(client: Anthropic, topic: str, insight_focus: str) -> str
 
 **Contexto** (INSIGHTS.md del benchmark, usá data real, no inventes):
 
-{insights[:8000]}
+{insights[:12000]}
 
 **Requisitos**:
-- 1200-1800 palabras
-- Frontmatter Markdown con: title, description (150-160 chars), slug, fecha (2026-04-26), tags, canonical_url
-- Hook en primer párrafo con keyword cola larga
-- 4-6 secciones con H2, sub-secciones con H3
+- 1500-2200 palabras
+- Frontmatter Markdown con: title, description (150-160 chars), slug, fecha (2026-04-27), tags, canonical_url
+- Hook en primer parrafo con keyword cola larga
+- 5-7 secciones con H2, sub-secciones con H3
 - Tabla con datos reales del benchmark (sacar de INSIGHTS.md)
-- FAQ section al final (5 preguntas)
+- FAQ section al final (5-7 preguntas)
 - CTA a https://benchmarks.cristiantala.com/ y a la comunidad Skool
-- Backlinks internos a /alternativas-claude/, /modelos-n8n/, etc según corresponda
+- Backlinks internos a /alternativas-claude/, /modelos-n8n/, etc segun corresponda
 
-**Filosofía**:
+**Filosofia**:
 - "No existe un mejor modelo universal" — recordar siempre
-- Audiencia: emprendedor latino, no académico
+- Audiencia: emprendedor latino, no academico
 - Tono honesto, sin hype, datos reales
-- Si el benchmark muestra una limitación, decirla
+- Si el benchmark muestra una limitacion, decirla (ej. V4 Pro/Flash con runs incompletos)
 
-Output: SOLO el contenido Markdown del blog post, sin preámbulo."""
+Output: SOLO el contenido Markdown del blog post, sin preambulo."""
 
-    response = client.messages.create(
-        model="claude-opus-4-7",
-        max_tokens=8000,
-        system=system,
-        messages=[{"role": "user", "content": user_prompt}],
-    )
-    return response.content[0].text
+    return client.generate(system, user_prompt, role="blog", max_tokens=8000)
 
 
-def adapt_to_channel(client: Anthropic, blog_post: str, channel: str) -> str:
+def adapt_to_channel(client: LLMClient, blog_post: str, channel: str) -> str:
     """Invoca content-marketer para adaptar blog post a un canal."""
     system = read_agent("content-marketer")
 
     channel_specs = {
-        "linkedin": "Post LinkedIn (1200-1500 chars, storytelling, hook fuerte primer línea, 3-4 párrafos cortos, 3 hashtags al final, CTA a comentar)",
-        "skool": "Post comunidad Skool (1500-2000 chars, tono más casual con la comunidad Cágala-Aprende-Repite, formato pregunta abierta + respuesta, invita a debate)",
-        "twitter": "Thread Twitter/X (8-12 tweets, primer tweet con hook fuerte sub-280 chars, números en cada tweet, último tweet con CTA al blog post completo)",
-        "newsletter": "Sección newsletter (300-400 palabras, tono Cristian Tala, intro personal, dato impactante, recomendación accionable, link al blog)",
+        "linkedin": "Post LinkedIn (1200-1500 chars, storytelling, hook fuerte primer linea, 3-4 parrafos cortos, 3 hashtags al final, CTA a comentar)",
+        "skool": "Post comunidad Skool (1500-2000 chars, tono casual con la comunidad Cagala-Aprende-Repite, formato pregunta abierta + respuesta, invita a debate)",
+        "twitter": "Thread Twitter/X (8-12 tweets, primer tweet con hook fuerte sub-280 chars, numeros en cada tweet, ultimo tweet con CTA al blog post completo)",
+        "newsletter": "Seccion newsletter (300-400 palabras, tono Cristian Tala, intro personal, dato impactante, recomendacion accionable, link al blog)",
     }
 
-    user_prompt = f"""Adaptá este blog post al canal **{channel}**.
+    user_prompt = f"""Adapta este blog post al canal **{channel}**.
 
-**Especificación del canal**: {channel_specs[channel]}
+**Especificacion del canal**: {channel_specs[channel]}
 
 **Blog post completo**:
-{blog_post[:6000]}
+{blog_post[:8000]}
 
 **Audiencia**: emprendedores latinoamericanos.
 
-Output: SOLO el contenido del post adaptado, sin preámbulo."""
+Output: SOLO el contenido del post adaptado, sin preambulo."""
 
-    response = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=2000,
-        system=system,
-        messages=[{"role": "user", "content": user_prompt}],
-    )
-    return response.content[0].text
+    return client.generate(system, user_prompt, role="social", max_tokens=2500)
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--topic", default="alternativas-claude", help="Topic principal del post")
-    ap.add_argument("--insight", default="provider matters", help="Insight específico a destacar")
-    ap.add_argument("--auto", action="store_true", help="Modo auto: elige insight impactante de INSIGHTS.md")
+    ap.add_argument("--insight", default="DeepSeek V4 Flash empata a Opus 4.6 gratis",
+                    help="Insight especifico a destacar")
     ap.add_argument("--channels", nargs="+", default=["linkedin", "skool", "twitter", "newsletter"],
                     help="Canales a generar adaptaciones")
+    ap.add_argument("--provider", default="anthropic",
+                    choices=["anthropic", "openrouter", "nvidia_nim"],
+                    help="Backend para generar el contenido")
+    ap.add_argument("--model-blog", default=None,
+                    help="Modelo para blog post (default: claude-opus-4-7 / deepseek/deepseek-v4-flash)")
+    ap.add_argument("--model-social", default=None,
+                    help="Modelo para adaptaciones sociales (default: claude-sonnet-4-6 / mismo blog)")
     args = ap.parse_args()
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        print("ERROR: setear ANTHROPIC_API_KEY en el environment", file=sys.stderr)
-        sys.exit(1)
+    # Defaults por provider
+    if args.model_blog is None:
+        args.model_blog = {
+            "anthropic": "claude-opus-4-7",
+            "openrouter": "deepseek/deepseek-v4-flash",
+            "nvidia_nim": "deepseek-ai/deepseek-v4-flash",
+        }[args.provider]
+    if args.model_social is None:
+        args.model_social = {
+            "anthropic": "claude-sonnet-4-6",
+            "openrouter": "deepseek/deepseek-v4-flash",
+            "nvidia_nim": "deepseek-ai/deepseek-v4-flash",
+        }[args.provider]
 
-    client = Anthropic(api_key=api_key)
+    # Cargar .env si existe
+    try:
+        from dotenv import load_dotenv
+        load_dotenv()
+    except ImportError:
+        pass
+
+    print(f"Provider: {args.provider}")
+    print(f"Modelo blog: {args.model_blog}")
+    print(f"Modelo social: {args.model_social}")
+    print()
+
+    client = LLMClient(args.provider, args.model_blog, args.model_social)
 
     BLOG_DIR.mkdir(exist_ok=True)
     SOCIAL_DIR.mkdir(exist_ok=True)
@@ -159,13 +248,22 @@ def main():
 
     for channel in args.channels:
         print(f"Adaptando a {channel}...")
-        adapted = adapt_to_channel(client, blog_post, channel)
-        adapted_path = SOCIAL_DIR / f"{today}-{slug}-{channel}.md"
-        adapted_path.write_text(adapted, encoding="utf-8")
-        print(f"OK: {adapted_path} ({len(adapted)} chars)")
+        try:
+            adapted = adapt_to_channel(client, blog_post, channel)
+            adapted_path = SOCIAL_DIR / f"{today}-{slug}-{channel}.md"
+            adapted_path.write_text(adapted, encoding="utf-8")
+            print(f"OK: {adapted_path} ({len(adapted)} chars)")
+        except Exception as e:
+            print(f"ERROR adaptando a {channel}: {e}", file=sys.stderr)
 
-    print(f"\n✅ Done. Generated 1 blog post + {len(args.channels)} social adaptations.")
-    print(f"   Total cost estimado: ~$0.20-0.50 USD (Opus para blog + Sonnet para socials).")
+    cost_estimate = {
+        "anthropic": "$0.20-0.50 (Opus + Sonnet)",
+        "openrouter": "$0.01-0.05 (V4 Flash $0.14/$0.28)",
+        "nvidia_nim": "$0 (gratis, 40 RPM)",
+    }[args.provider]
+
+    print(f"\nDone. Generated 1 blog post + {len(args.channels)} social adaptations.")
+    print(f"Costo estimado: {cost_estimate}")
 
 
 if __name__ == "__main__":
