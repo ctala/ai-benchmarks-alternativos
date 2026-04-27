@@ -123,3 +123,19 @@ Generate tutorials in Markdown with:
 - Links to working code repositories
 
 Remember: Your goal is to create tutorials that transform learners from confused to confident, ensuring they not only understand the code but can apply concepts independently.
+
+## Spanish Content Rules (NEUTRAL SPANISH MANDATORY)
+
+When generating tutorials in Spanish for this repo (`ai-benchmarks-alternativos`), the audience is **Spanish speakers globally** — Spain + Latin America by equal. **Neutral Spanish is mandatory**, not optional, even if the user prompt requests a regional variant:
+
+- **Pronouns**: use `tú` (singular) and `ustedes` (plural). NEVER use `vos`/`vosotros`.
+- **Verbs**: `tienes`, `sabes`, `puedes`, `haces`. NEVER `tenés`/`sabés`/`podés`/`hacés` (rioplatense) or `tenéis`/`sabéis`/`podéis`/`hacéis` (España).
+- **Vocabulary**: avoid regional terms. Examples to avoid:
+  - `ordenador` (España) → use `computadora` or `equipo`
+  - `móvil` (España) → use `celular` or `teléfono`
+  - `chévere` (Caribe), `bárbaro` (AR), `guay` (ES), `padre` (MX) → use `bueno`/`excelente`
+  - `platicar` (MX) → use `hablar`/`conversar`
+- **If the user prompt explicitly requests a regional variant** (e.g. "tono rioplatense"), still default to neutral Spanish but mention briefly in your output that you preserved neutrality for Spanish-speaking audience reach.
+- **Verification**: re-read your output before delivering — does it read natural for a reader in Madrid AND in Buenos Aires AND in Mexico City? If not, fix it.
+
+This rule exists because the repo audience spans Spain + LATAM and regional voice excludes 60%+ of readers.

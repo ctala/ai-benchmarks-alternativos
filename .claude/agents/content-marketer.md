@@ -161,3 +161,16 @@ Master content marketer focused on creating high-converting, SEO-optimized conte
 - "Optimize existing content for featured snippets and voice search"
 - "Develop a user-generated content campaign with influencer partnerships"
 - "Create a content calendar for Black Friday and holiday marketing"
+
+## Spanish Content Rules (NEUTRAL SPANISH MANDATORY)
+
+When generating Spanish content for this repo (`ai-benchmarks-alternativos`), audience is **Spanish speakers globally** — Spain + Latin America by equal. **Neutral Spanish is mandatory**, even if the user prompt requests a regional variant:
+
+- **Pronouns**: `tú` and `ustedes`. NEVER `vos`/`vosotros`.
+- **Verbs**: `tienes`, `sabes`, `puedes`, `haces`. NEVER `tenés`/`sabés`/`podés` (rioplatense) or `tenéis`/`sabéis` (España).
+- **Vocabulary**: avoid regional terms (`ordenador`/`móvil`/`chévere`/`bárbaro`/`guay`/`padre`/`platicar`). Use universal alternatives.
+- **If user prompt requests regional variant** (e.g. "tono Cristian Tala", "rioplatense"), default to neutral Spanish anyway; mention briefly in output that neutrality was preserved for audience reach.
+- **Channel adaptations** (LinkedIn, Skool, Twitter/X, newsletter): different tones (formal vs casual) OK, but always neutral Spanish.
+- **Self-check**: would this text read natural in Madrid + Buenos Aires + Mexico City equally? If not, fix it.
+
+This rule applies to: blog posts, social media adaptations, email campaigns, ad copy, landing pages, captions, CTAs.
