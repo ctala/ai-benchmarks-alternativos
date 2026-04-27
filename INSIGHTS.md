@@ -1,5 +1,5 @@
 ---
-title: "Insights del benchmark — qué dice la data antes de elegir tu modelo"
+title: "Insights del benchmark — qué dice la data antes de elegir un modelo en producción"
 fecha: "2026-04-26"
 version_benchmark: "v2.3"
 modelos_analizados: 45
@@ -23,7 +23,7 @@ Este documento se generó con la data del repo (53 modelos, 91 tests, single-tur
 
 3. **El provider importa tanto como el modelo.** Mismo modelo en Groq vs OpenRouter vs NIM puede tener latencia 5× distinta y a veces score ±0.5. El ranking global esconde estas diferencias.
 
-**Para acciones concretas**: combiná los hallazgos cuantitativos de este doc con tu propio testing de 5-10 prompts típicos de tu caso real, idealmente en el mismo provider y configuración (con/sin tools) que vas a usar en producción. El benchmark filtra el 80% de modelos malos — no decide el 20% final.
+**Para acciones concretas**: los hallazgos cuantitativos de este documento se complementan con testing propio de 5-10 prompts típicos del caso real, idealmente en el mismo provider y configuración (con/sin tools) que se usará en producción. El benchmark filtra el 80% de modelos malos — no decide el 20% final.
 
 ---
 
@@ -102,24 +102,24 @@ El **Lote 8** (modelos nuevos: Hermes 4 405B, Step3, Seed-OSS 36B, Grok 4.1 Fast
 | DeepSeek V4 Pro (OpenRouter) | ~$26 | +$12 |
 
 **Para producir el mismo contenido o correr el mismo agente N8N**:
-- Pagás Opus 4.7 → **$7,020/año** y obtenés 7.16 score vs MiMo V2.5 a $168/año con 7.32 score = **42x más caro y peor score**
-- Pagás Opus 4.6 → mismo costo, score 7.04 (peor que V2.5 y V2.5-Pro)
+- Pagar Opus 4.7 → **$7,020/año** con score 7.16 vs MiMo V2.5 a $168/año con 7.32 score = **42x más caro y peor score**
+- Pagar Opus 4.6 → mismo costo, score 7.04 (peor que V2.5 y V2.5-Pro)
 
 ### Recomendación accionable por caso de uso
 
-**Si tu uso primario es contenido en español (blog, newsletter, marketing copy)**:
+**Para uso primario en contenido en español (blog, newsletter, marketing copy)**:
 → **MiMo V2.5 vía Xiaomi Standard $14/mes** (200M credits, score Contenido 7.36 — mejor que TODOS los flagships). Backup gratis: V4 Flash NIM (Contenido 7.14). **Sin razón económica para Opus**.
 
-**Si tu uso primario son agentes N8N/OpenClaw con tool calling**:
+**Para uso primario en agentes N8N/OpenClaw con tool calling**:
 → **MiMo V2.5** (Agentes 7.34) o **MiMo V2.5-Pro** (Agentes 7.33). Ambos superan a Opus 4.7 (7.13). Backup: V4 Flash NIM gratis (Agentes 6.99).
 
-**Si tu uso primario es coding profesional**:
+**Para uso primario en coding profesional**:
 → **MiMo V2.5-Pro** (Coding 7.36) — único caso donde la versión "Pro" supera a la base. Opus 4.7 (7.21) sigue cerca. Para coding revenue-critical evaluá ambos.
 
-**Si tu uso primario es razonamiento profundo**:
+**Para uso primario en razonamiento profundo**:
 → **MiMo V2.5** (Razonamiento 7.39) lidera. Opus 4.6 (7.20) segundo, Opus 4.7 (7.16) tercero.
 
-**Si tu volumen es bajo (<500 calls/mes) o querés cero costo**:
+**Para volumen bajo (<500 calls/mes) o cero costo**:
 → DeepSeek V4 Flash via NIM (gratis 40 RPM). Cubre 90% de casos sin abrir cartera.
 
 ### Provider matters: Xiaomi direct vs OpenRouter (cuantificado)
@@ -184,7 +184,7 @@ Calculé el coeficiente de **Spearman** (rank correlation, robusto a outliers) e
 
 ### Recomendación accionable
 
-Pagar premium **sólo se justifica** si tenés casos donde el modelo más barato falla repetidamente y verificaste el fallo en tu pipeline real. Para volumen alto en Contenido o Razonamiento general, **el premium destruye unit economics sin retorno medible**.
+Pagar premium **sólo se justifica** cuando hay casos donde el modelo más barato falla repetidamente y el fallo se verifica en pipelines reales. Para volumen alto en Contenido o Razonamiento general, **el premium destruye unit economics sin retorno medible**.
 
 ---
 
@@ -224,14 +224,14 @@ Identifiqué modelos donde un pilar destaca mucho sobre los otros (delta ≥ 0.5
 | **Nemotron 3 Super** | Contenido | 7.27 | Agentes | 6.02 | **1.25** |
 | **GPT-5.4** | Coding | 7.34 | Contenido | 6.77 | 0.57 |
 
-**Hallazgo**: el patrón "specialist coder" es real (Devstral, Qwen3 Coder, GPT-5.4, MiniMax). Pero ojo con los **specialist hidden bombs**: Qwen 3.5 397B Ollama Cloud (el modelo que Cristian usa en producción) **suelta razonamiento** — 6.04 contra 7.25 en Agentes. Si tu workflow N8N empieza con un paso de razonamiento (decidir qué tool usar), este modelo va a fallar antes de llegar al paso donde brilla.
+**Hallazgo**: el patrón "specialist coder" es real (Devstral, Qwen3 Coder, GPT-5.4, MiniMax). Pero hay **specialist hidden bombs**: Qwen 3.5 397B Ollama Cloud (un modelo común en producción para contenido) **suelta razonamiento** — 6.04 contra 7.25 en Agentes. En workflows N8N que empiezan con un paso de razonamiento (decidir qué tool usar), este modelo falla antes de llegar al paso donde brilla.
 
 ### Recomendación accionable
 
-- Si tu uso es **mayoritariamente contenido**: Llama 3.1 8B Groq, Mistral Small 4 o GPT-OSS 120B (Ollama Cloud, gratis).
+- Para uso **mayoritariamente contenido**: Llama 3.1 8B Groq, Mistral Small 4 o GPT-OSS 120B (Ollama Cloud, gratis).
 - Si es **mayoritariamente coding**: Devstral Small. Si necesitás más contexto/tokens: Devstral 2.
 - Si es **agentes con N8N/OpenClaw**: Llama 3.1 8B Groq (Agentes 7.70, latencia 1.27s) — gana 4 de 4 dimensiones (calidad, velocidad, costo, latencia).
-- **Evitá specialists si tu workflow es mixto** — su debilidad oculta te va a romper en producción.
+- **Evitar specialists en workflows mixtos** — su debilidad oculta rompe la cadena en producción.
 
 ---
 
@@ -256,7 +256,7 @@ Mismo modelo (Apache 2.0), distintos infra/inference:
 | Latencia | 32.0s | 46.9s | **47% mejor Ollama** |
 | Costo | gratis | gratis | empate |
 
-**Lectura**: NIM da **+0.88 puntos en Razonamiento** vs Ollama Cloud. Pero Ollama es **3.7x más rápido**. Si Cristian tiene latencia crítica (UX en vivo), Ollama gana. Si tiene tareas batch donde calidad importa más, NIM debería ser el default. Sospecha: **Ollama Cloud está cuantizando agresivamente** (degradación de razonamiento es típica de quantización 4-bit). Habría que verificar.
+**Lectura**: NIM da **+0.88 puntos en Razonamiento** vs Ollama Cloud. Pero Ollama es **3.7x más rápido**. Para latencia crítica (UX en vivo), Ollama gana. Para tareas batch donde calidad importa más, NIM debería ser el default. Sospecha: **Ollama Cloud está cuantizando agresivamente** (degradación de razonamiento es típica de quantización 4-bit). Habría que verificar.
 
 ### 3b. Llama 3.1 8B y 3.3 70B en Groq
 
@@ -345,12 +345,12 @@ Los modelos chinos (Kimi, Qwen Plus, MiniMax, MiMo) son los principales sospecho
 
 - **Los modelos chinos producen Contenido peor que Coding** consistentemente (+0.39 a +0.67). Esto es coherente con el fenómeno de **respuestas que mezclan caracteres chinos** en outputs supuestamente en español, que el scoring penaliza explícitamente.
 - **Llama 3.1 8B (Groq)** es el caso ideal: Contenido > Coding, indicando que la calidad de prosa española es genuina, no un artefacto.
-- **Qwen 3.5 397B (Ollama Cloud)** es el más alarmante para emprendedores latinos: lo usa Cristian en producción para `ecosistemastartup.com` (blog en español) y saca **6.36** en Contenido. Compare con Llama 3.1 8B (7.77, **+1.41 puntos**, gratis a través de Groq).
+- **Qwen 3.5 397B (Ollama Cloud)** es el caso más alarmante para hispanohablantes: usado en producción real para blogs en español (ej. `ecosistemastartup.com`) saca solo **6.36** en Contenido. Comparar con Llama 3.1 8B (7.77, **+1.41 puntos**, gratis vía Groq).
 
 ### Recomendación accionable
 
-- **Si generás contenido en español como tarea principal**: NO uses modelos chinos como default. Llama 3.1 8B Groq, Mistral Small 4 o GPT-OSS 120B (Ollama Cloud, también gratis) son superiores.
-- **Cristian, urgente**: el modelo `qwen3.5:397b-cloud` que estás usando en producción para ecosistemastartup.com está en el **percentil 33** de Contenido. Migrar a `gpt-oss:120b-cloud` (mismo costo $0, +1.43 puntos en Contenido) o Llama 3.1 8B Groq parece justificado por data.
+- **Para generar contenido en español como tarea principal**: NO usar modelos chinos como default. Llama 3.1 8B Groq, Mistral Small 4 o GPT-OSS 120B (Ollama Cloud, también gratis) son superiores.
+- **Hallazgo aplicable**: cualquier producción usando `qwen3.5:397b-cloud` para contenido en español está en el **percentil 33** del benchmark. Migrar a `gpt-oss:120b-cloud` (mismo costo $0 en Ollama Cloud sub, +1.43 puntos en Contenido) o Llama 3.1 8B Groq se justifica con data.
 - **Para code reviews / migración / SQL** de modelos chinos: sí están bien (Qwen3 Coder, MiniMax M2.7) — son specialists.
 
 ---
@@ -414,7 +414,7 @@ A 50K calls/mes, **Claude Opus 4.6 cuesta $5,850 vs $6.75 de Llama 3.1 8B Groq**
 
 - **Default de producción para volumen alto**: Llama 3.1 8B en Groq. $6.75/mes a 50K calls cubre el 90% de los casos.
 - **Si necesitás un poco más de robustez en razonamiento**: Mistral Small 4 ($47/mes a 50K).
-- **Si tenés Ollama infra propia**: GPT-OSS 120B Ollama Cloud — $0/mes y mejor score.
+- **Con suscripción Ollama Cloud activa**: GPT-OSS 120B — $0/mes adicional y mejor score.
 - **Reserva premium (Claude/GPT-4.1)** SÓLO para tareas críticas baja-frecuencia (decisiones de producto, contracts, finanzas).
 
 ---
@@ -436,7 +436,7 @@ A 50K calls/mes, **Claude Opus 4.6 cuesta $5,850 vs $6.75 de Llama 3.1 8B Groq**
 | Tok/s | 147 | 65 | -56% |
 | Latencia | 5.26s | 10.06s | 91% peor |
 
-**Lectura**: Devstral 2 es **peor en 4 de 4 pilares relevantes y 6.5x más caro**. La única explicación posible es que Mistral lanzó "Medium" antes y Devstral 2 sería un puente al "Medium" — pero el data dice que el Devstral original (mayo 2025) sigue siendo el mejor. **Si tenés Devstral Small en producción, no migres.**
+**Lectura**: Devstral 2 es **peor en 4 de 4 pilares relevantes y 6.5x más caro**. La única explicación posible es que Mistral lanzó "Medium" antes y Devstral 2 sería un puente al "Medium" — pero el data dice que el Devstral original (mayo 2025) sigue siendo el mejor. **Quien tenga Devstral Small en producción no debería migrar.**
 
 ### 7b. Kimi K2 vs Kimi K2.6
 
@@ -472,7 +472,7 @@ V2.5 Pro **es peor que V2.5** y cuesta lo mismo que V2-Pro. La nomenclatura "Pro
 
 ### Recomendación accionable
 
-- **No actualices versiones automáticamente**. Re-medí en tu pipeline antes de migrar.
+- **No actualizar versiones automáticamente**. Re-medir en el pipeline propio antes de migrar.
 - **Devstral Small (mayo 2025)** sigue siendo la opción correcta. No te sumes a Devstral 2 sin razón fuerte.
 - **Mini-versiones suelen ganar en ROI** — siempre comparalas antes del flagship.
 
@@ -554,7 +554,7 @@ Sé directo. Estas son las desconexiones marketing-vs-data que la gente debería
 | Llama 3.1 8B (Groq, 128K) | 128K | **7.44** | **7.77** |
 | Mistral Small 4 (128K) | 128K | 7.55 | 7.62 |
 
-**Context window largo no se traduce en mejor performance** en tareas estándar de un emprendedor. Los benchmarks usan prompts típicos (no necesitan 1M tokens). Si tu caso es chunked retrieval (RAG), 128K es suficiente para 99% de los workflows N8N.
+**Context window largo no se traduce en mejor performance** en tareas estándar. Los benchmarks usan prompts típicos (no necesitan 1M tokens). Para chunked retrieval (RAG), 128K es suficiente para 99% de los workflows N8N.
 
 ### 9d. "Multimodal/Omnimodal premium"
 
@@ -562,9 +562,9 @@ MiMo-V2.5 Pro vende "omnimodal pro-level" pero saca 6.85 (texto). **Probablement
 
 ### Recomendación accionable
 
-- **Nunca pagues por features que no tu caso de uso**. Context >128K, thinking, multimodal: opcional, no default.
+- **Nunca pagar por features que no aplican al caso de uso**. Context >128K, thinking, multimodal: opcional, no default.
 - **Premium por nombre** (Opus, Pro, Ultra, 5.5) ≠ premium por capacidad medida.
-- **Pedí a tu proveedor el data específico de TU caso** antes de firmar enterprise plans.
+- **Pedir al proveedor data específica del caso real** antes de firmar enterprise plans.
 
 ---
 
@@ -574,19 +574,19 @@ MiMo-V2.5 Pro vende "omnimodal pro-level" pero saca 6.85 (texto). **Probablement
 
 Un modelo de 8B parámetros, gratis para uso comercial (Llama Community), servido a 368 tok/s y latencia 1.27s, supera a Claude Opus 4.7, GPT-5.5, GPT-4.1, Gemini 2.5 Pro y DeepSeek V4 Pro en **score global** (7.66 vs 7.16, 6.44, 7.23, 6.47, 6.41 respectivamente). El más barato del top 10 cuesta **0.135 USD/1k calls** vs Claude Opus a 117 USD — diferencia de **867x**.
 
-Antes de elegir cualquier otra cosa, **probá Llama 3.1 8B Groq en tu pipeline real**. La mayoría de los workflows N8N + content + customer support funcionan ya. Cualquier elección "premium" que tomes después debería justificarse contra este baseline.
+Antes de elegir cualquier otra cosa, **probar Llama 3.1 8B Groq en el pipeline propio**. La mayoría de los workflows N8N + content + customer support funcionan ya. Cualquier elección "premium" debería justificarse contra este baseline.
 
-### Hallazgo #2: Pagar premium daña tu Contenido en español
+### Hallazgo #2: Pagar premium daña la generación de contenido en español
 
 Spearman ρ = **-0.12** entre precio y score Contenido. Esto significa que estadísticamente, **los modelos caros tienden a generar peor Contenido**. La explicación más probable: los flagships son entrenados para tareas de razonamiento abstracto y pierden personalidad / naturalidad en prosa española. Un Llama 3.1 8B (Groq, $0.135/1k) saca 7.77 en Contenido — Claude Opus 4.6 ($117/1k) saca **6.95**. **867x más caro, 0.82 puntos menos.**
 
-Si la mayor parte de tu pipeline es content generation (blogs, emails, social, newsletters), estás regalando dinero al usar premium.
+Cuando la mayor parte del pipeline es content generation (blogs, emails, social, newsletters), usar premium destruye unit economics sin beneficio medible.
 
-### Hallazgo #3: El modelo que Cristian usa en producción está subóptimo
+### Hallazgo #3: Qwen 3.5 397B Ollama Cloud es subóptimo para contenido en español
 
-`qwen3.5:397b-cloud` (Qwen 3.5 397B Ollama Cloud) — usado para `ecosistemastartup.com` — saca **6.72 score global**, y específicamente en Contenido **6.36** (percentil 33 desde abajo). Sufre de las dos debilidades documentadas: (1) modelo chino genera Contenido en español por debajo de modelos USA-trained, (2) Razonamiento 6.04 (peor que un Llama 3.1 8B). El mismo Ollama Cloud ofrece **GPT-OSS 120B** (mismo costo $0) que saca **7.41 global** y **7.79 en Contenido** — diferencia de **+0.69 global y +1.43 en Contenido**.
+`qwen3.5:397b-cloud` (Qwen 3.5 397B Ollama Cloud) saca **6.72 score global**, y específicamente en Contenido **6.36** (percentil 33 desde abajo). Sufre dos debilidades documentadas: (1) modelo chino genera Contenido en español por debajo de modelos USA-trained, (2) Razonamiento 6.04 (peor que un Llama 3.1 8B). El mismo Ollama Cloud ofrece **GPT-OSS 120B** (mismo costo $0) que saca **7.41 global** y **7.79 en Contenido** — diferencia de **+0.69 global y +1.43 en Contenido**.
 
-**Recomendación urgente para Cristian**: migrar `ecosistemastartup.com` de `qwen3.5:397b-cloud` a `gpt-oss:120b-cloud`. Mismo Ollama Cloud, mismo $0, +1.43 puntos en Contenido medidos. Si querés latencia menor, **Llama 3.1 8B Groq** te da 7.77 Contenido a 368 tok/s por <$1/mes.
+**Recomendación general**: para casos productivos en Ollama Cloud que generen contenido en español, GPT-OSS 120B supera a Qwen 3.5 397B en el mismo plan a costo cero. Para latencia menor con costo casi cero, **Llama 3.1 8B Groq** entrega 7.77 Contenido a 368 tok/s por <$1/mes a 5K calls.
 
 ---
 
