@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://benchmarks.cristiantala.com/</loc>
+    <loc>https://benchmarks.cristiantala.com/alternativas-chatgpt/</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://benchmarks.cristiantala.com/alternativas-claude/</loc>
@@ -13,13 +13,19 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://benchmarks.cristiantala.com/alternativas-chatgpt/</loc>
+    <loc>https://benchmarks.cristiantala.com/alternativas-gemini/</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://benchmarks.cristiantala.com/alternativas-gemini/</loc>
+    <loc>https://benchmarks.cristiantala.com/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/modelos-baratos-emprendedores/</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -34,19 +40,25 @@
     <loc>https://benchmarks.cristiantala.com/modelos-open-source-local/</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://benchmarks.cristiantala.com/modelos-baratos-emprendedores/</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://github.com/ctala/ai-benchmarks-alternativos</loc>
+    <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/README.md</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/AGENTS.md</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/RECOMENDACIONES.md</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/MODELOS.md</loc>
@@ -61,27 +73,21 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/RECOMENDACIONES.md</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/AGENTS.md</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/DESCUBRIMIENTOS.md</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://github.com/ctala/ai-benchmarks-alternativos/blob/main/CHANGELOG.md</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://github.com/ctala/ai-benchmarks-alternativos</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>

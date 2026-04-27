@@ -3,6 +3,7 @@ name: Regenerar artefactos auto-generados
 # Cuando cambian los benchmark JSONs, el config, o los scripts de generación,
 # regenera todos los artefactos auto-generables del repo:
 #   - docs/data/models.json (calculadora HTML)
+#   - docs/sitemap.xml (descubre landing pages + lastmod desde git)
 #   - MODELOS.md (tabla con links a per-model + responses)
 #   - TESTS.md (lista de 91 tests con prompts completos)
 #
@@ -20,9 +21,11 @@ on:
       - 'benchmarks/export_for_pages.py'
       - 'benchmarks/generate_modelos_md_table.py'
       - 'benchmarks/generate_tests_md.py'
+      - 'benchmarks/generate_sitemap.py'
       - 'benchmarks/scoring.py'
       - 'benchmarks/tests/**'
       - 'providers/adapters.py'
+      - 'docs/**/*.html'
   workflow_dispatch:  # permite re-correr manualmente
 
 permissions:
@@ -36,6 +39,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Historial completo para que generate_sitemap.py lea lastmod desde git log
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -59,11 +65,15 @@ jobs:
       - name: Regenerar TESTS.md (prompts completos)
         run: python benchmarks/generate_tests_md.py -o TESTS.md
 
+      - name: Regenerar docs/sitemap.xml
+        # checkout@v4 con fetch-depth:0 ya nos da historial completo para git log lastmod
+        run: python benchmarks/generate_sitemap.py
+
       - name: Commit si hay cambios
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data/models.json MODELOS.md TESTS.md
+          git add docs/data/models.json docs/sitemap.xml MODELOS.md TESTS.md
           if git diff --cached --quiet; then
             echo "Sin cambios en artefactos auto-generados"
           else
