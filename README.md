@@ -240,8 +240,8 @@ python benchmarks/runner.py --quick --judge --judge-model haiku # Claude Haiku v
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-cp benchmarks/config.example.py benchmarks/config.py
-# Editar config.py con tu OPENROUTER_API_KEY
+cp .env.example .env
+# Editar .env con tu OPENROUTER_API_KEY (única key obligatoria)
 python benchmarks/runner.py --quick                          # Todos los modelos, 1 run
 python benchmarks/runner.py --quick --judge                  # Con LLM-as-Judge (Phi-4 local)
 python benchmarks/runner.py --models minimax-m2.7 deepseek-v3  # Modelos especificos
@@ -266,14 +266,14 @@ git clone https://github.com/ctala/ai-benchmarks-alternativos.git
 cd ai-benchmarks-alternativos
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-cp benchmarks/config.example.py benchmarks/config.py
+cp .env.example .env
 ```
 
-Edita `benchmarks/config.py` y agrega tu `OPENROUTER_API_KEY`.
+Edita `.env` y agrega tu `OPENROUTER_API_KEY` (única clave obligatoria; las demás son opcionales según los providers que quieras usar).
 
 ### Paso 2: Elegir modelos
 
-En `config.py`, comenta/descomenta los modelos que quieras evaluar. Para una prueba rapida:
+El catálogo de modelos vive en `benchmarks/models.py` (público, en git). Para una prueba rápida desde la línea de comandos:
 
 ```bash
 # Solo 2 modelos baratos, 1 run por test

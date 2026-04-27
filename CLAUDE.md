@@ -14,7 +14,8 @@ cp .env.example .env
 # Editar .env con tus keys reales (OPENROUTER, OPENAI, MINIMAX, OLLAMA_CLOUD)
 
 # Config de modelos: primera vez
-cp benchmarks/config.example.py benchmarks/config.py
+# benchmarks/config.py y benchmarks/models.py YA están en el repo
+# (refactor abril 2026). Solo necesitas .env con tus API keys.
 ```
 
 ## Como correr benchmarks
@@ -47,14 +48,14 @@ El runner **guarda incrementalmente** tras cada test y puede continuar desde cua
 
 ## Como agregar un modelo nuevo
 
-1. **`benchmarks/config.py`** — agregar al dict `MODELS`:
+1. **`benchmarks/models.py`** — agregar al dict `MODELS` (publico, en git):
 ```python
 "nuevo-modelo": {
     "id": "provider/model-id",       # ID de OpenRouter o del provider directo
     "name": "Nombre Legible",
     "cost_input": 0.30,              # USD por millon de tokens input
     "cost_output": 1.20,             # USD por millon de tokens output
-    "tier": "cheap",                 # free|ultra_cheap|cheap|medium|premium|local|cloud_ollama
+    "tier": "cheap",                 # free|ultra_cheap|cheap|medium|premium|local|cloud_*
     "open_source": True,             # opcional
     "license": "Apache 2.0",         # opcional
     "provider": "openai_direct",     # opcional si no es OpenRouter
@@ -74,7 +75,8 @@ El runner **guarda incrementalmente** tras cada test y puede continuar desde cua
 
 ## Archivos clave
 
-- `benchmarks/config.py` — API keys y dict `MODELS` (gitignored, copiar de `config.example.py`)
+- `benchmarks/models.py` — Catálogo público de modelos: `MODELS` + `OLLAMA_MODELS` (en git, fuente única)
+- `benchmarks/config.py` — Lee env vars de `.env`, importa MODELS de models.py (público, en git)
 - `benchmarks/runner.py` — Motor principal, acepta `--resume`
 - `benchmarks/scoring.py` — Sistema de puntuación y dict `PRICING`
 - `benchmarks/llm_judge.py` — LLM-as-Judge con rúbrica en español

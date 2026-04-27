@@ -17,7 +17,8 @@ on:
       - 'benchmarks/results/*.json'
       - 'benchmarks/results/responses/**'
       - 'benchmarks/results/per-model/**'
-      - 'benchmarks/config.example.py'
+      - 'benchmarks/models.py'
+      - 'benchmarks/config.py'
       - 'benchmarks/export_for_pages.py'
       - 'benchmarks/generate_modelos_md_table.py'
       - 'benchmarks/generate_tests_md.py'
@@ -51,10 +52,9 @@ jobs:
         run: |
           pip install python-dotenv
 
-      - name: Copiar config.example.py como config.py
-        # config.py está en .gitignore (lleva keys); para los scripts solo
-        # necesitamos el dict MODELS, que está en config.example.py
-        run: cp benchmarks/config.example.py benchmarks/config.py
+      # Tras refactor abril 2026: benchmarks/models.py + benchmarks/config.py
+      # estan ambos en git. CI usa los mismos archivos que dev local. No se
+      # copian ni sincronizan (eliminado config.example.py).
 
       - name: Regenerar docs/data/models.json
         run: python benchmarks/export_for_pages.py
