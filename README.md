@@ -1,6 +1,6 @@
-# Benchmark de Modelos AI Alternativos: comparación abierta de 53 LLMs en español para N8N, OpenClaw y emprendedores
+# Benchmark de Modelos AI Alternativos: comparación abierta de 56 LLMs en español para N8N, OpenClaw y emprendedores
 
-**Version 2.3.1** | Ultima actualizacion: 27 de Abril de 2026
+**Version 2.3.2** | Ultima actualizacion: 27 de Abril de 2026
 
 > **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con 5,000+ tests reales: precio, calidad, velocidad y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N, OpenClaw o Hermes con presupuestos reales.
 
@@ -8,26 +8,28 @@
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw, N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes).
 
-**Cobertura actual**: 53 modelos con ≥50 runs cada uno, 5,000+ tests ejecutados, 8 lotes con juez Phi-4 (Lote 8 incluido).
+**Cobertura actual**: 56 modelos con ≥50 runs cada uno, 7,500+ tests ejecutados, 8 lotes con juez Phi-4 (Lote 8 + benchmark Xiaomi).
 
 ## Top 10 Global Ranking
 
-| # | Modelo | Score | $ in/$ out per M | Provider | Notas |
-|---|---|---:|---|---|---|
-| 1 | **Llama 4 Scout 17B** | **7.67** | $0.59/$0.79 | Groq (preview) | 🆕 NUEVO #1 — Apache 2.0 |
+| # | Modelo | Score | $/M tokens | Provider | Notas |
+|---|---:|---:|---|---|---|
+| 1 | **Llama 4 Scout 17B** | **7.67** | $0.59/$0.79 | Groq (preview) | Apache 2.0 |
 | 2 | **Llama 3.1 8B Instant** | **7.66** | $0.05/$0.08 | Groq | Llama 3, ultra rápido |
 | 3 | **Llama 3.3 70B** | **7.64** | $0.59/$0.79 | Groq | 270 tok/s avg ⚡ |
 | 4 | Mistral Small 4 | 7.54 | $0.15/$0.60 | OpenRouter | Apache 2.0, baratísimo |
-| 5 | **GPT-OSS 20B** | **7.53** | $0.10/$0.30 | Groq | 🆕 Apache 2.0 |
+| 5 | GPT-OSS 20B | 7.53 | $0.10/$0.30 | Groq | Apache 2.0 |
 | 6 | Gemini 3.1 Flash Lite | 7.50 | $0.25/$1.50 | OpenRouter | Sucesor del 2.5 Flash Lite |
-| 7 | **Grok 4.1 Fast** | **7.50** | $0.20/$0.50 | OpenRouter | 🆕 NUEVO en top 10 |
-| 8 | GPT-OSS 120B Cloud | 7.41 | $0/$0 (sub) | Ollama Cloud | Apache 2.0, gratis con sub |
-| 9 | Devstral Small | 7.35 | $0.10/$0.30 | OpenRouter | Apache 2.0, ex #1 |
-| 10 | Hermes 4 70B | 7.24 | $0.13/$0.40 | OpenRouter | Nous Research |
+| 7 | Grok 4.1 Fast | 7.50 | $0.20/$0.50 | OpenRouter | xAI |
+| 8 | GPT-OSS 120B Cloud | 7.41 | $0 (sub) | Ollama Cloud | Apache 2.0, gratis con sub |
+| 9 | Devstral Small | 7.35 | $0.10/$0.30 | OpenRouter | Apache 2.0 |
+| 10 | **MiMo V2.5 (Xiaomi)** | **7.32** | $0.07 (sub $14) | Xiaomi direct | 🆕 supera a Opus 4.7 |
 
-> **Groq domina el top 5** con 3 modelos. Apache 2.0 / MIT en 7 de los 10. **3 modelos nuevos** del Lote 8 (Scout, GPT-OSS 20B Groq, Grok 4.1).
+> **Hallazgo destacado v2.3.2**: ver [INSIGHTS.md sección 0](INSIGHTS.md#0-deepseek-v4-vs-claude-opus--el-claim-cuantificado) — **MiMo V2.5 (Xiaomi $14/mes Standard plan) supera a Claude Opus 4.7 ($585/mes API) en 3 de 4 pilares** y cuesta 42x menos. DeepSeek V4 Flash via NIM gratis empata a Opus 4.6.
 
-> **Hallazgo destacado v2.3.1**: ver [INSIGHTS.md sección 0](INSIGHTS.md#0-deepseek-v4-vs-claude-opus--el-claim-cuantificado) — DeepSeek V4 Flash via NVIDIA NIM (gratis, MIT) **empata a Claude Opus 4.6** en score global y **gana en Contenido**, ahorrando $585/mes para un agente N8N típico.
+> **Posición #11-15** (resultados recientes): MiMo V2.5-Pro (7.26), Hermes 4 70B (7.24), GPT-4.1 (7.23), Devstral 2 (7.22), MiMo V2-Flash (7.20). Claude Opus 4.7 cae a posición fuera del top 10.
+
+> **Groq domina top 5** (3 modelos). Apache 2.0 / MIT en 7 de los 10. **Provider matters**: el mismo modelo en provider directo (Xiaomi/Groq/NIM) rinde +0.17 a +0.25 puntos sobre OpenRouter.
 
 > **Contexto**: Desde el 21 de abril 2026, Claude Code ya no viene en la suscripcion Pro de $20/mes. Este benchmark ayuda a encontrar las mejores alternativas por caso de uso y presupuesto.
 

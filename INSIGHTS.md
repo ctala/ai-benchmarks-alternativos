@@ -58,57 +58,82 @@ El **Lote 8** (modelos nuevos: Hermes 4 405B, Step3, Seed-OSS 36B, Grok 4.1 Fast
 
 > **DeepSeek lanzó V4 (24 de abril 2026)** prometiendo "rendimiento equiparable o superior a Claude Opus 4.6 a una fracción del costo" — en MIT, open weights. El benchmark v2.3 lo testea contra Claude Opus 4.6 (246 runs), Opus 4.7 (182 runs) y Sonnet 4.6 (182 runs) usando los mismos 91 tests + Phi-4 como juez (cero conflicto). Acá está la respuesta con números reales.
 
-### Comparación por pilar (datos al 27 abril 2026)
+### Comparación por pilar (datos finales al 27 abril 2026, post-Lote 8 + benchmark Xiaomi MiMo)
 
-| Modelo | Global | Razon | Coding | Contenido | Agentes | Costo $ in/$ out | Runs |
+| Modelo | Global | Razon | Coding | Contenido | Agentes | Costo $/M tokens | Runs |
 |---|---|---|---|---|---|---|---|
-| **Claude Opus 4.7** | **7.16** | 7.16 | **7.21** | **7.14** | **7.13** | $15 / $75 | 182 |
-| **DeepSeek V4 Flash (NVIDIA NIM)** ⭐ | **7.07** | 7.11 | 7.06 | **7.14** | 6.99 | **$0 / $0** (gratis) | 87 |
+| **MiMo V2.5 (Xiaomi)** ⭐ | **7.32** | 7.39 | 7.20 | **7.36** | **7.34** | **$0.07** (sub) | 91 |
+| **MiMo V2.5-Pro (Xiaomi)** | **7.26** | 7.30 | **7.36** | 7.04 | 7.33 | $0.14 (sub) | 91 |
+| **Claude Opus 4.7** | **7.16** | 7.16 | 7.21 | 7.14 | 7.13 | $15 / $75 | 182 |
+| **DeepSeek V4 Flash (NVIDIA NIM)** ⭐ | **7.07** | 7.11 | 7.06 | 7.14 | 6.99 | **$0 / $0** (gratis) | 87 |
 | Claude Opus 4.6 | 7.04 | **7.20** | 7.09 | 6.95 | 6.99 | $15 / $75 | 246 |
 | Claude Sonnet 4.6 | 6.99 | 7.04 | 7.13 | 6.90 | 6.98 | $3 / $15 | 182 |
-| DeepSeek V4 Flash (OpenRouter) | TBD | — | — | — | — | $0.14 / $0.28 | re-run |
-| DeepSeek V4 Pro | TBD | — | — | — | — | $1.74 / $3.48 | re-run |
+| **DeepSeek V4 Pro** ⚠️ | **6.48** | 6.38 | 6.60 | 6.34 | 6.65 | $1.74 / $3.48 | 69 (76% cobertura) |
 
-> ⚠️ **V4 Pro y V4 Flash via OpenRouter** están en re-run con el fix de thinking models (descubierto 27 abril: V4 NO estaba en `THINKING_MODELS` del adapter → 30/91 runs vacíos por agotar `max_tokens` razonando). Resultados finales se actualizan en cuanto termine el re-run.
+### El veredicto refinado (con datos Xiaomi finales)
 
-### El veredicto
+🥇 **MiMo V2.5 (Xiaomi, $0.07/M) supera a TODOS los flagships occidentales** en score global y en 3 de 4 pilares:
+- vs Opus 4.7: +0.16 global, +0.23 Razonamiento, +0.22 Contenido, +0.21 Agentes (-0.01 Coding)
+- vs Opus 4.6: +0.28 global, +0.41 Contenido, +0.35 Agentes
+- Costo: **214x más barato que Opus** ($0.07 vs $15 input)
 
-✅ **DeepSeek V4 Flash en NVIDIA NIM (gratis) empata a Claude Opus 4.6 en score global** (7.07 vs 7.04, diferencia 0.03 dentro del margen del benchmark).
+✅ **DeepSeek V4 Flash en NVIDIA NIM (gratis) empata a Claude Opus 4.6** (7.07 vs 7.04). Para emprendedor sin presupuesto, V4 Flash NIM es la opción cero-costo equivalente a Opus 4.6.
 
-✅ **V4 Flash GANA a Opus 4.6 en Contenido** por **+0.19 puntos** (7.14 vs 6.95). Para emprendedores que generan blog, marketing, newsletter en español: V4 Flash es funcionalmente superior.
+✅ **V4 Flash GANA a Opus 4.6 en Contenido** (+0.19) — empata a Opus 4.7 en este pilar.
 
-✅ **V4 Flash empata a Opus 4.6 en Agentes** (6.99 vs 6.99). Para tool calling estructurado en N8N/OpenClaw: equivalentes.
+⚠️ **MiMo V2.5-Pro NO supera a V2.5 base** (7.26 vs 7.32) y cuesta 2x credits. **La versión "Pro" pierde 0.06 puntos en global pero gana 0.16 en Coding** (7.36 vs 7.20). Para coding profesional, V2.5-Pro vale la pena. Para todo lo demás, V2.5 base.
 
-⚠️ **Opus 4.7 sigue siendo el #1**: gana a V4 Flash por **+0.09 global**, +0.05 razonamiento, +0.15 coding, +0.14 agentes. **Empate** en contenido (7.14 vs 7.14).
+⚠️ **DeepSeek V4 Pro tiene problemas de disponibilidad real**: 76% cobertura en OpenRouter (22 fallos con 402 / Response sin choices) + timeouts en smoke tests via NIM. El "flagship reasoning" de DeepSeek **NO es production-ready** — V4 Flash gratis NIM es funcionalmente superior para producción.
+
+⚠️ **Opus 4.7 ya no es el #1 global**: cae a posición #3 detrás de los dos MiMo V2.5. Mantiene ventaja en Coding sobre V2.5 base (+0.01) y Razonamiento (-0.23 — pierde por margen amplio).
 
 ### Costo real para un agente N8N (5,000 calls/mes, 300 input + 1500 output)
 
-| Modelo | $/mes (5K calls) | Diferencia vs V4 Flash NIM |
+| Modelo | $/mes (5K calls) | Diferencia vs MiMo V2.5 (Standard) |
 |---|---|---|
-| **DeepSeek V4 Flash en NVIDIA NIM** | **$0** | (baseline) |
-| Claude Sonnet 4.6 | ~$117 | +$117/mes |
-| Claude Opus 4.6 | ~$585 | **+$585/mes** |
-| Claude Opus 4.7 | ~$585 | **+$585/mes** |
-| DeepSeek V4 Flash (OpenRouter) | ~$2.15 | +$2.15/mes |
-| DeepSeek V4 Pro (OpenRouter) | ~$26 | +$26/mes |
+| **DeepSeek V4 Flash en NVIDIA NIM** | **$0** | -$14 (cero costo) |
+| **MiMo V2.5 (Xiaomi Standard plan)** ⭐ | **$14** | (baseline plan mensual) |
+| MiMo V2.5-Pro (Xiaomi Standard) | $14 (incluido) | (mismo plan) |
+| Claude Sonnet 4.6 | ~$117 | +$103/mes |
+| Claude Opus 4.6 | ~$585 | **+$571/mes** |
+| Claude Opus 4.7 | ~$585 | **+$571/mes** |
+| GPT-4.1 | ~$60 | +$46/mes |
+| DeepSeek V4 Flash (OpenRouter) | ~$2.15 | -$11.85 |
+| DeepSeek V4 Pro (OpenRouter) | ~$26 | +$12 |
 
 **Para producir el mismo contenido o correr el mismo agente N8N**:
-- Pagás Opus 4.6 → **$7,020/año** por 0.03 puntos menos en global y 0.19 puntos MENOS en contenido vs V4 Flash gratis
-- Pagás Opus 4.7 → **$7,020/año** por 0.09 puntos más en global y EMPATE en contenido vs V4 Flash gratis
+- Pagás Opus 4.7 → **$7,020/año** y obtenés 7.16 score vs MiMo V2.5 a $168/año con 7.32 score = **42x más caro y peor score**
+- Pagás Opus 4.6 → mismo costo, score 7.04 (peor que V2.5 y V2.5-Pro)
 
 ### Recomendación accionable por caso de uso
 
 **Si tu uso primario es contenido en español (blog, newsletter, marketing copy)**:
-→ **DeepSeek V4 Flash via NVIDIA NIM** (gratis, 40 RPM = ~57K calls/día). Empate funcional con Opus 4.7 en este pilar. **Sin razón económica para Opus**.
+→ **MiMo V2.5 vía Xiaomi Standard $14/mes** (200M credits, score Contenido 7.36 — mejor que TODOS los flagships). Backup gratis: V4 Flash NIM (Contenido 7.14). **Sin razón económica para Opus**.
 
 **Si tu uso primario son agentes N8N/OpenClaw con tool calling**:
-→ **DeepSeek V4 Flash via NIM** (gratis). Empate con Opus 4.6 en agentes. Opus 4.7 gana por 0.14 — evaluá si vale $585/mes para tu caso específico.
+→ **MiMo V2.5** (Agentes 7.34) o **MiMo V2.5-Pro** (Agentes 7.33). Ambos superan a Opus 4.7 (7.13). Backup: V4 Flash NIM gratis (Agentes 6.99).
 
-**Si tu uso primario es coding profesional o razonamiento profundo**:
-→ Opus 4.7 mantiene el liderazgo (+0.15 coding, +0.05 razonamiento sobre V4 Flash). Acá el premium SE justifica si el coding es revenue-critical.
+**Si tu uso primario es coding profesional**:
+→ **MiMo V2.5-Pro** (Coding 7.36) — único caso donde la versión "Pro" supera a la base. Opus 4.7 (7.21) sigue cerca. Para coding revenue-critical evaluá ambos.
 
-**Si tu volumen es bajo (<500 calls/mes) y privacidad de datos no es crítica**:
-→ Mistral Small 4 ($0.15/$0.60) o Devstral Small ($0.10/$0.30) cubren 80% de casos a costo casi cero. V4 Flash via NIM cubre el otro 20%.
+**Si tu uso primario es razonamiento profundo**:
+→ **MiMo V2.5** (Razonamiento 7.39) lidera. Opus 4.6 (7.20) segundo, Opus 4.7 (7.16) tercero.
+
+**Si tu volumen es bajo (<500 calls/mes) o querés cero costo**:
+→ DeepSeek V4 Flash via NIM (gratis 40 RPM). Cubre 90% de casos sin abrir cartera.
+
+### Provider matters: Xiaomi direct vs OpenRouter (cuantificado)
+
+Comparación del MISMO modelo en distintos providers (datos benchmark Xiaomi 27 abril):
+
+| Modelo | Xiaomi direct | OpenRouter | Delta | Cobertura |
+|---|---|---|---|---|
+| MiMo V2-Pro | **7.13** | 6.88 | **+0.25** | 91/91 vs 91/91 |
+| MiMo V2-Omni | **7.13** | 6.96 | **+0.17** | 90/91 vs 91/91 |
+
+**El "wrapper layer" de OpenRouter degrada calidad medible**. No solo agrega latencia y fee — degrada el score del output en 2.5-3.6% para los mismos modelos. Para uso productivo, ir al provider oficial siempre que sea posible.
+
+Patrón consistente con Llama 3.3 70B (Groq direct >> OpenRouter) y DeepSeek V4 Pro (OpenRouter 76% cobertura, mucho peor que provider directo si estuviera disponible).
 
 ### Limitaciones del análisis
 
@@ -122,13 +147,19 @@ El **Lote 8** (modelos nuevos: Hermes 4 405B, Step3, Seed-OSS 36B, Grok 4.1 Fast
 
 5. **Sólo 87 runs de V4 Flash vía NIM** vs 246 de Opus 4.6 — la diferencia de cobertura introduce ruido. Cuando V4 Flash NIM alcance 91+ runs el resultado puede moverse ±0.05.
 
-### TL;DR para el emprendedor latino
+### TL;DR para el emprendedor hispanohablante (España + LATAM)
 
-> **¿Pagar Opus por contenido o agentes? No.** V4 Flash via NVIDIA NIM hace lo mismo gratis. El delta de 0.03 en global no justifica $585/mes.
+> **¿Pagar Opus 4.7 ($585/mes) cuando MiMo V2.5 cuesta $14/mes y rinde MEJOR?** No.
 >
-> **¿Pagar Opus por coding profesional? Quizás.** Opus 4.7 gana 0.15 puntos en coding sobre V4 Flash. Si el código es lo que paga tu negocio, evaluá. Si el coding es secundario, V4 Flash basta.
+> **MiMo V2.5 (Xiaomi Standard plan, $14/mes) es la nueva referencia**: supera a Opus 4.7 en 3 de 4 pilares (Razonamiento, Contenido, Agentes) y solo pierde 0.01 en Coding. Costo 42x menor a igual volumen.
 >
-> **¿El claim del marketing de DeepSeek se confirma?** Sí para Opus 4.6 (versión que mencionan), parcialmente. V4 Flash empata o gana en contenido y agentes; pierde por margen pequeño en coding y razonamiento. **El verdadero hallazgo es V4 Flash gratis en NIM** — no su precio en OpenRouter.
+> **Para coding profesional**: MiMo V2.5-Pro (Coding 7.36) es el #1 — único caso donde la versión "Pro" justifica los 2x credits.
+>
+> **Para cero costo**: DeepSeek V4 Flash via NVIDIA NIM (gratis, 40 RPM) empata a Opus 4.6 en global y gana en Contenido. Backup perfecto cuando el plan Xiaomi se queda sin credits.
+>
+> **¿El claim del marketing de DeepSeek se confirma?** Sí para V4 Flash (gratis NIM ≥ Opus 4.6). NO para V4 Pro ($1.74/$3.48 OpenRouter, 76% cobertura — modelo no production-ready).
+>
+> **Provider matters cuantificado**: el mismo modelo en provider directo (Xiaomi, Groq, NIM) rinde **+0.17 a +0.25 puntos sobre el ranking de OpenRouter**. Para producción siempre ir al provider oficial.
 
 ---
 

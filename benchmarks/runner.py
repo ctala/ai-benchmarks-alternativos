@@ -300,6 +300,21 @@ def run_benchmark(args):
     except ImportError:
         pass
 
+    # NVIDIA NIM Local — containers NIM corriendo en hardware propio (DGX Spark,
+    # GPU server). OpenAI-compatible. No requiere API key real (string dummy).
+    # Setup: Docker pull nvcr.io/nim/<vendor>/<model> + run con --gpus all.
+    # Cada modelo escucha en su propio puerto (default 8000). Para multiples
+    # modelos usar puertos distintos y NIM_LOCAL_BASE_URL apunta a uno o un
+    # router (LiteLLM, OpenRouter local, etc).
+    nim_local = None
+    try:
+        from benchmarks.config import NIM_LOCAL_BASE_URL
+        if NIM_LOCAL_BASE_URL:
+            # Key dummy: NIM local no la valida, pero el SDK la requiere
+            nim_local = UnifiedProvider("nim_local", "nim-local-no-auth", NIM_LOCAL_BASE_URL)
+    except ImportError:
+        pass
+
     # Xiaomi MiMo Token Plan (suscripción mensual con 8 modelos: V2.5-Pro, V2.5, V2-Pro,
     # V2-Omni, TTS variantes. OpenAI-compatible. 1 token = 1 credit en V2.5, 2 credits
     # en V2.5-Pro. Off-peak 16-24 UTC = 0.8x consumption)
@@ -457,6 +472,10 @@ def run_benchmark(args):
         if scores.get("error"):
             header.append(f"- error: {scores.get('error')}")
         header += ["", "## Respuesta completa", "", result.response]
+        # Garantizar que el directorio existe (defensa contra race conditions
+        # o cwd inesperados — el primer mkdir en linea 436 puede no alcanzar
+        # si el script se ejecuta desde fuera de la raiz del repo)
+        path.parent.mkdir(parents=True, exist_ok=True)
         with open(path, "w") as f:
             f.write("\n".join(header))
         scores["response_file"] = str(path.relative_to(results_dir.parent))
@@ -487,6 +506,8 @@ def run_benchmark(args):
             provider = nvidia_nim
         elif model_config.get("provider") == "xiaomi_direct" and xiaomi_direct:
             provider = xiaomi_direct
+        elif model_config.get("provider") == "nim_local" and nim_local:
+            provider = nim_local
         else:
             provider = openrouter
 
