@@ -156,12 +156,13 @@ Invocar con `Agent({ subagent_type: "<name>", ... })`. Detalles en [.claude/agen
 - **Flujo ROADMAP↔CHANGELOG**: todo lo que se marca completo en ROADMAP.md migra a CHANGELOG.md con el commit
 - **3 cortes de ranking en README**: (1) **global** = todos los modelos. (2) **solo alternativas** = sin Anthropic + sin OpenAI + sin Google propietarios (Gemini Flash / Flash Lite / Pro). Sí se permiten modelos Google open-source (Gemma). (3) **solo open-source** = todos los modelos con `open_source: True`. Siempre los 3 al actualizar resultados.
 - **API keys**: las 4 keys (OPENROUTER, OPENAI, MINIMAX, OLLAMA_CLOUD) viven en `.env` (gitignored). Nunca hardcodear en config.py ni imprimir en chat. Usar `len()` para validar presencia.
-- **Regla de auto-generación**: antes de cualquier commit que toque benchmarks/results/, config, o tests, ejecutar EN ORDEN:
+- **Regla de auto-generación**: antes de cualquier commit que toque benchmarks/results/, config, tests o docs/, ejecutar EN ORDEN:
   1. `python benchmarks/generate_per_model_md.py` — regenera MDs por modelo
   2. `python benchmarks/generate_modelos_md_table.py -i` — regenera tabla de MODELOS.md con links
   3. `python benchmarks/generate_tests_md.py` — regenera TESTS.md con prompts completos
   4. `python benchmarks/export_for_pages.py` — regenera docs/data/models.json para la calculadora
-- **GitHub Action de seguridad** (`.github/workflows/regenerate-auto-artifacts.yml`): si olvidás los pasos manualmente, el bot regenera los 3 artefactos al hacer push. Pero hacelo manual primero para que el commit principal lleve los cambios sincronizados (mejor experiencia de revisión).
+  5. `python benchmarks/generate_sitemap.py` — regenera docs/sitemap.xml (lee lastmod desde git, descubre landing pages auto)
+- **GitHub Action de seguridad** (`.github/workflows/regenerate-auto-artifacts.yml`): si olvidás los pasos manualmente, el bot regenera los artefactos al hacer push. Pero hacelo manual primero para que el commit principal lleve los cambios sincronizados (mejor experiencia de revisión).
 - **README.md + CHANGELOG.md** se actualizan cuando cambia el ranking o se agrega un modelo
 - **No re-medir modelos ya cubiertos**. Re-correr SÓLO si:
   1. Sale **versión nueva** del modelo (ej. Kimi K2.7, Devstral 3) — distinto ID = distinto modelo, se mide.

@@ -8,7 +8,7 @@
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw, N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes).
 
-**Cobertura actual**: 44 modelos con ≥50 runs cada uno, 5,000+ tests ejecutados, 7 lotes con juez Phi-4 + Lote 8 en curso.
+**Cobertura actual**: 45 modelos con ≥50 runs cada uno, 5,000+ tests ejecutados, 7 lotes con juez Phi-4 + Lote 8 en curso.
 
 ## Top 10 Global Ranking
 

@@ -34,8 +34,8 @@ docs/data/models.json                # JSON consolidado para programs (ver schem
 ```json
 {
   "generated_at": "ISO 8601 UTC",
-  "total_models": 44,
-  "tested_count": 44,
+  "total_models": 73,
+  "tested_count": 45,
   "tokens_per_call_assumption": { "input": 300, "output": 1500 },
   "models": [
     {
