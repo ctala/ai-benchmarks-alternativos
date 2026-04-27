@@ -90,7 +90,7 @@ Cada uno requiere capacidades distintas y los modelos rinden distinto.
 
 7. **Precio en LATAM real** — calcular costos en CLP/MXN/ARS con tipo de cambio actual, no solo USD.
 
-8. **Soporte técnico en español rioplatense** — voseo, modismos chilenos/argentinos. Modelos pueden saber español "neutro" pero fallar con voz local.
+8. **Soporte técnico en español neutro vs regional** — verificar que modelos manejen español neutro (entendible España + LATAM) sin caer en regionalismos. Test específico: detectar si fuerzan voseo rioplatense o "vosotros" español cuando se les pide neutro.
 
 9. **Refactoring sin context loss** — dar 5 archivos relacionados, pedir cambio que requiere consistency entre archivos.
 

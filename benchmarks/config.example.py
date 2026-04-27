@@ -566,6 +566,69 @@ OLLAMA_MODELS = {
         "tier": "cheap",
         "open_source": True, "license": "Apache 2.0",
     },
+
+    # --- NVIDIA NIM (gratis con 40 RPM, requiere NVIDIA_NIM_API_KEY) ---
+    # Catalogo de 130+ modelos hosted. Lote 9 candidatos pendientes:
+    "nim-deepseek-v4-pro": {
+        "id": "deepseek-ai/deepseek-v4-pro", "name": "DeepSeek V4 Pro (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0, "tier": "cloud_nim",
+        "provider": "nvidia_nim", "open_source": True, "license": "MIT",
+    },
+    "nim-deepseek-v4-flash": {
+        "id": "deepseek-ai/deepseek-v4-flash", "name": "DeepSeek V4 Flash (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0, "tier": "cloud_nim",
+        "provider": "nvidia_nim", "open_source": True, "license": "MIT",
+    },
+    "nim-kimi-k2.5": {
+        "id": "moonshotai/kimi-k2.5", "name": "Kimi K2.5 (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0, "tier": "cloud_nim",
+        "provider": "nvidia_nim", "open_source": True, "license": "Modified MIT",
+    },
+    "nim-mistral-large-3": {
+        "id": "mistralai/mistral-large-3-675b-instruct-2512", "name": "Mistral Large 3 675B (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0, "tier": "cloud_nim",
+        "provider": "nvidia_nim", "open_source": True, "license": "Apache 2.0",
+    },
+    "nim-step-3.5-flash": {
+        "id": "stepfun-ai/step-3.5-flash", "name": "Step 3.5 Flash (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0, "tier": "cloud_nim",
+        "provider": "nvidia_nim", "open_source": True, "license": "Apache 2.0",
+    },
+    "nim-glm-5.1": {
+        "id": "z-ai/glm-5.1", "name": "GLM 5.1 (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0, "tier": "cloud_nim",
+        "provider": "nvidia_nim", "open_source": True, "license": "MIT",
+    },
+    "nim-glm5": {
+        "id": "z-ai/glm5", "name": "GLM 5 (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0, "tier": "cloud_nim",
+        "provider": "nvidia_nim", "open_source": True, "license": "MIT",
+    },
+    "nim-qwen3-next-thinking": {
+        "id": "qwen/qwen3-next-80b-a3b-thinking", "name": "Qwen 3-Next 80B Thinking (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0, "tier": "cloud_nim",
+        "provider": "nvidia_nim", "open_source": True, "license": "Apache 2.0",
+    },
+    "nim-magistral-small": {
+        "id": "mistralai/magistral-small-2506", "name": "Mistral Magistral Small (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0, "tier": "cloud_nim",
+        "provider": "nvidia_nim", "open_source": True, "license": "Apache 2.0",
+    },
+    "nim-ministral-14b": {
+        "id": "mistralai/ministral-14b-instruct-2512", "name": "Ministral 14B (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0, "tier": "cloud_nim",
+        "provider": "nvidia_nim", "open_source": True, "license": "Apache 2.0",
+    },
+    "nim-devstral-2-123b": {
+        "id": "mistralai/devstral-2-123b-instruct-2512", "name": "Devstral 2 123B (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0, "tier": "cloud_nim",
+        "provider": "nvidia_nim", "open_source": True, "license": "Apache 2.0",
+    },
+    "nim-nemotron-nano-9b-v2": {
+        "id": "nvidia/nvidia-nemotron-nano-9b-v2", "name": "Nemotron Nano 9B v2 (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0, "tier": "cloud_nim",
+        "provider": "nvidia_nim", "open_source": False, "license": "NVIDIA Open License",
+    },
 }
 
 # Configuracion
@@ -590,6 +653,11 @@ OLLAMA_CLOUD_BASE_URL = os.getenv("OLLAMA_CLOUD_BASE_URL", "https://ollama.com/v
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 GROQ_BASE_URL = os.getenv("GROQ_BASE_URL", "https://api.groq.com/openai/v1")
 
+# NVIDIA NIM (catalogo de 100+ modelos hosted, gratis con 40 RPM en free tier)
+# Crear key en build.nvidia.com -> account > API keys
+# Modelos relevantes ya soportados:
+#   - deepseek-ai/deepseek-v4-pro, deepseek-ai/deepseek-v4-flash
+#   - llama 3.3 70B, qwen 3.5 series, nemotron series
 NVIDIA_NIM_API_KEY = os.getenv("NVIDIA_NIM_API_KEY", "")
 NVIDIA_NIM_BASE_URL = os.getenv("NVIDIA_NIM_BASE_URL", "https://integrate.api.nvidia.com/v1")
 

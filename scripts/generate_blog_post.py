@@ -135,12 +135,12 @@ def generate_blog_post(client: LLMClient, topic: str, insight_focus: str) -> str
     system = read_agent("seo-content-writer")
     insights = read_insights()
 
-    user_prompt = f"""Generá un blog post SEO en español para emprendedores latinoamericanos.
+    user_prompt = f"""Genera un blog post SEO en **español neutro** para emprendedores hispanohablantes.
 
 **Topic principal**: {topic}
 **Insight a destacar**: {insight_focus}
 
-**Contexto** (INSIGHTS.md del benchmark, usá data real, no inventes):
+**Contexto** (INSIGHTS.md del benchmark, usa data real, no inventes):
 
 {insights[:12000]}
 
@@ -154,9 +154,15 @@ def generate_blog_post(client: LLMClient, topic: str, insight_focus: str) -> str
 - CTA a https://benchmarks.cristiantala.com/ y a la comunidad Skool
 - Backlinks internos a /alternativas-claude/, /modelos-n8n/, etc segun corresponda
 
+**Idioma — ESPAÑOL NEUTRO obligatorio**:
+- Pronombres: usar **tú** (singular) y **ustedes** (plural). NO uses "vosotros" (España exclusivo) ni "vos/voseo" (rioplatense exclusivo).
+- Verbos: forma de "tú" → "tienes", "sabes", "puedes". NO "tenés", "sabés", "podés".
+- Vocabulario universal: evita modismos regionales (ni "guay", ni "platicar", ni "chévere", ni "bárbaro", ni "ordenador").
+- El texto debe leerse natural para un lector en España, México, Argentina, Chile, Colombia o cualquier país hispanohablante.
+
 **Filosofia**:
 - "No existe un mejor modelo universal" — recordar siempre
-- Audiencia: emprendedor latino, no academico
+- Audiencia: emprendedor hispanohablante (España + LATAM), no academico
 - Tono honesto, sin hype, datos reales
 - Si el benchmark muestra una limitacion, decirla (ej. V4 Pro/Flash con runs incompletos)
 
