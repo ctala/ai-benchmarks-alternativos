@@ -90,11 +90,11 @@ Constantes en `providers/adapters.py` (cima del archivo) — **este es el están
 
 | Constante | Valor | Razón |
 |---|---|---|
-| `THINKING_MODELS` | `gpt-5*`, `o1*`, `o3*`, `glm-5*`, `kimi-k2.6`, `nemotron*` | Modelos que consumen tokens internos de reasoning facturados como output |
+| `THINKING_MODELS` | `gpt-5*`, `o1*`, `o3*`, `glm-5*`, `kimi-k2.6`, `nemotron*`, `gemini-2.5-pro`, `gemini-3-pro`, `deepseek-v4`, `deepseek-r` | Modelos que consumen tokens internos de reasoning facturados como output |
 | `FIXED_TEMP_MODELS` | `gpt-5.5`, `gpt-5-pro`, `gpt-5.5-pro`, `o1`, `o3` | Modelos que rechazan `temperature` ≠ 1.0 (error 400). El adapter omite el parámetro |
 | `THINKING_TOKEN_MULTIPLIER` | `4` | max_tokens × 4 para thinking. Sin esto agotan el budget razonando y retornan `content=""` |
 | `THINKING_MIN_TOKENS` | `8192` | Piso absoluto de output para thinking. Para que respuestas largas (blog, workshop) no queden cortadas |
-| `HTTP_READ_TIMEOUT_S` | `240.0` | httpx read_timeout. Subido de 60s a 240s — el 60s causaba timeouts a 181s (3 retries × 60s) en GPT-5.5/Kimi K2.6 thinking-heavy |
+| `HTTP_READ_TIMEOUT_S` | `360.0` | httpx read_timeout. Subido de 60s → 240s → 360s. Última subida abril 27 tras 2 timeouts residuales en DeepSeek V4 Pro con prompts largos (workshop_outline, perplexity_research razonan >240s). |
 | `REQUEST_TIMEOUT` (en `config.py`) | `300` | signal alarm timeout total — backup si httpx no aborta |
 | `max_tokens` default (en `runner.py`) | `2048` | Output estándar para non-thinking. Multiplicado por 4 = 8192 para thinking |
 | `temperature` default | `0.7` | Para todos los no-FIXED_TEMP_MODELS |
