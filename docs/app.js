@@ -159,8 +159,9 @@ function scorePill(score) {
 
 function modelTags(m) {
   const tags = [];
+  // Solo mostrar tag de OSS cuando aplica — "propietario" es default implícito
+  // (si no es OS), no necesita tag explícito que agrega ruido visual
   if (m.open_source) tags.push(`<span class="tag os">${m.license || "OSS"}</span>`);
-  else tags.push(`<span class="tag">propietario</span>`);
   // Capabilities (vienen del JSON, inferidas en export_for_pages.py)
   if (m.tool_calling) tags.push(`<span class="tag tools" title="Soporta tool calling">🔧 tools</span>`);
   if (m.thinking) tags.push(`<span class="tag thinking" title="Razonamiento interno">🧠 thinking</span>`);
