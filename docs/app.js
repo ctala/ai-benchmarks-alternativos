@@ -21,7 +21,8 @@ const state = {
     task: "score_global",
     onlyOpen: false,
     exclProprietary: false,
-    onlyTested: false,        // Default: mostrar todos (también los sin medir)
+    onlyTested: false,        // Solo cobertura completa (≥50 runs) — restrictivo
+    includeUnmeasured: false, // Default OFF: oculta los runs=0 (sin medir aun)
     onlyTools: false,         // Solo modelos con tool calling
     onlyThinking: false,      // Solo thinking models
     onlyMultimodal: false,    // Solo multimodal (texto + imagen/audio)
@@ -76,6 +77,7 @@ function bindFilters() {
     onlyOpen: "only-open",
     exclProprietary: "excl-prop",
     onlyTested: "only-tested",
+    includeUnmeasured: "include-unmeasured",
     onlyTools: "only-tools",
     onlyThinking: "only-thinking",
     onlyMultimodal: "only-multimodal",
@@ -107,11 +109,10 @@ function isProprietary(model) {
 
 function filterAndRank(models, f) {
   const passes = models.filter(m => {
+    // Cobertura completa (estricto): solo modelos con ≥50 runs
     if (f.onlyTested && !m.tested) return false;
-    if (!f.onlyTested && m.runs === 0) {
-      // sin runs: solo mostrar si pasamos onlyTested off
-      // pero aún dejamos pasar para ver pricing
-    }
+    // Sin medir aun: por default oculta los runs=0 (modelos en cola, smoke tests)
+    if (!f.includeUnmeasured && (m.runs || 0) === 0) return false;
 
     const score = getScore(m, f.task);
     if (score == null && m.runs > 0) return false;
