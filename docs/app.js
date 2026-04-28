@@ -4,6 +4,42 @@
 const TOKENS_IN = 300;
 const TOKENS_OUT = 1500;
 
+// Sub-categorías (suites) por pilar — sincronizado con SUITE_TO_PILLAR del export.
+// Las labels son user-facing en español neutro.
+const SUITES_BY_PILLAR = {
+  Razonamiento: [
+    { value: "reasoning", label: "Razonamiento general (lógica, decisiones)" },
+    { value: "deep_reasoning", label: "Razonamiento profundo (matemática, Fermi)" },
+    { value: "hallucination", label: "Anti-hallucination (citas, contexto)" },
+    { value: "customer_support", label: "Soporte al cliente (clasificación)" },
+  ],
+  Coding: [
+    { value: "code_generation", label: "Generación de código (Python, SQL, debug)" },
+    { value: "structured_output", label: "JSON estructurado (extracción, schemas)" },
+    { value: "string_precision", label: "Precisión strings (hex, JWT, configs)" },
+  ],
+  Contenido: [
+    { value: "content_generation", label: "Contenido genérico (blog, email, social)" },
+    { value: "creativity", label: "Creatividad (hooks, analogías, narrativa)" },
+    { value: "startup_content", label: "Contenido startup (newsletter, blog actualidad)" },
+    { value: "summarization", label: "Resúmenes y extracción de datos" },
+    { value: "presentation", label: "Presentaciones (slides, reportes)" },
+    { value: "task_management", label: "Gestión de tareas (action items, plans)" },
+    { value: "translation", label: "Traducción (es↔en, problemas idioma)" },
+    { value: "news_seo_writing", label: "News + SEO (artículos completos)" },
+    { value: "sales_outreach", label: "Sales outreach (cold email, campañas)" },
+    { value: "strategy", label: "Estrategia (pricing, planning)" },
+    { value: "ocr_extraction", label: "OCR / extracción de imágenes" },
+  ],
+  Agentes: [
+    { value: "tool_calling", label: "Tool calling (function calls)" },
+    { value: "orchestration", label: "Orquestación (workflows complejos)" },
+    { value: "multi_turn", label: "Multi-turn (debugging, requirements)" },
+    { value: "agent_capabilities", label: "Capacidades agente (delegación, skills)" },
+    { value: "policy_adherence", label: "Policy adherence (límites, idioma)" },
+  ],
+};
+
 // Presets de uso — calibrados para emprendedores hispanohablantes.
 // Cada preset configura los 4 sliders + tarea principal.
 const PRESETS = {
@@ -52,6 +88,7 @@ const state = {
     quality: 6.5,
     speed: 0,
     task: "score_global",
+    subtask: "",  // suite específica (opcional). Vacío = promedio del pilar
     onlyOpen: false,
     exclProprietary: false,
     onlyTested: false,        // Default OFF: muestra todos. Si marca, filtra a ≥50 runs
@@ -104,6 +141,13 @@ function bindFilters() {
 
   document.getElementById("task").addEventListener("change", e => {
     state.filters.task = e.target.value;
+    state.filters.subtask = "";  // reset al cambiar pilar
+    updateSubtaskOptions();
+    render();
+  });
+
+  document.getElementById("subtask").addEventListener("change", e => {
+    state.filters.subtask = e.target.value;
     render();
   });
 
@@ -166,9 +210,34 @@ function costPerMonth(model, calls) {
   return ((TOKENS_IN * ci) + (TOKENS_OUT * co)) * calls / 1_000_000;
 }
 
-function getScore(model, taskKey) {
+function getScore(model, taskKey, subtaskKey) {
+  // Si hay sub-categoría seleccionada, usar score por suite específica
+  if (subtaskKey) {
+    return model.score_by_suite?.[subtaskKey] ?? null;
+  }
   if (taskKey === "score_global") return model.score_global;
   return model.score_by_pillar?.[taskKey] ?? null;
+}
+
+function updateSubtaskOptions() {
+  const wrap = document.getElementById("subtask-wrap");
+  const select = document.getElementById("subtask");
+  const pillar = state.filters.task;
+
+  // Solo mostrar el sub-select cuando hay un pilar específico (no global)
+  if (pillar === "score_global" || !SUITES_BY_PILLAR[pillar]) {
+    wrap.hidden = true;
+    select.value = "";
+    state.filters.subtask = "";
+    return;
+  }
+
+  // Poblar opciones del pilar correspondiente
+  const suites = SUITES_BY_PILLAR[pillar];
+  select.innerHTML = `<option value="">Todas (promedio del pilar)</option>` +
+    suites.map(s => `<option value="${s.value}">${s.label}</option>`).join("");
+  select.value = state.filters.subtask || "";
+  wrap.hidden = false;
 }
 
 function isProprietary(model) {
@@ -184,7 +253,7 @@ function filterAndRank(models, f) {
     // siempre del ranking porque no se pueden ordenar.
     if ((m.runs || 0) === 0) return false;
 
-    const score = getScore(m, f.task);
+    const score = getScore(m, f.task, f.subtask);
     if (score == null && m.runs > 0) return false;
     if (score != null && score < f.quality) return false;
 
@@ -207,7 +276,7 @@ function filterAndRank(models, f) {
   // Calcula costo mensual + score + ratio costo-beneficio para cada modelo
   passes.forEach(m => {
     const cost = costPerMonth(m, f.calls);
-    const score = getScore(m, f.task) ?? 0;
+    const score = getScore(m, f.task, f.subtask) ?? 0;
     m._cost_month = cost;
     m._task_score = score;
     // Eficiencia: puntos de score por dólar mensual.
@@ -286,16 +355,34 @@ function render() {
 
   // Sin límite — mostramos todos los que pasan los filtros.
   const top = ranked;
-  const taskLabel = f.task === "score_global" ? "Global" : f.task;
+  // Etiqueta de la columna Score: subtask > pillar > global
+  let taskLabel = "Global";
+  if (f.subtask) {
+    const suite = (SUITES_BY_PILLAR[f.task] || []).find(s => s.value === f.subtask);
+    taskLabel = suite ? suite.label.split(" (")[0] : f.subtask;
+  } else if (f.task !== "score_global") {
+    taskLabel = f.task;
+  }
 
   // Costo-beneficio: clasifica cada modelo según su eficiencia (score² / costo)
-  // relativa al mejor de la lista filtrada actual. Etiquetas semánticas en
-  // lugar de % para que el lector entienda de un vistazo si pagar la pena.
+  // relativa al mejor de la lista filtrada actual. Etiquetas semánticas con
+  // contexto del provider — "gratis" no es honesto sin aclarar el límite.
   const maxEfficiency = Math.max(...top.map(m => m._efficiency || 0));
+
+  // Etiqueta para modelos sin costo per-call según provider (más honesta que "Gratis"):
+  const freeLabel = (m) => {
+    if (m.provider === "nvidia_nim") return { label: "★ NIM 40rpm", tip: "Sin costo por call vía NVIDIA NIM. Límite: 40 requests/minuto en free tier." };
+    if (m.provider === "ollama_cloud") return { label: "★ Sub Ollama", tip: "Incluido en suscripción Ollama Cloud (~$30/mes). Sin costo por call adicional." };
+    if (m.provider === "xiaomi_direct") return { label: "★ Sub Xiaomi", tip: "Incluido en plan Xiaomi MiMo. Consume credits del plan (200M-1.6B según tier)." };
+    if (m.tier === "local") return { label: "★ Local", tip: "Corre en hardware propio. Sin costo por call, requiere setup Ollama/NIM local." };
+    return { label: "★ Sin pago", tip: "Sin costo per-call. Verificar límites del provider antes de producción." };
+  };
+
   const formatEfficiency = (m) => {
     if (!m._efficiency || maxEfficiency === 0) return "—";
     if (m._cost_month <= 0.01 && m._task_score >= 6) {
-      return `<span class="cb-badge cb-free" title="Cero costo + score decente — la mejor compra del mercado">★ Gratis</span>`;
+      const f = freeLabel(m);
+      return `<span class="cb-badge cb-free" title="${f.tip}">${f.label}</span>`;
     }
     const pct = Math.round((m._efficiency / maxEfficiency) * 100);
     let label, cls;

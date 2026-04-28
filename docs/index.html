@@ -79,7 +79,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260428e">
+<link rel="stylesheet" href="style.css?v=20260428f">
 </head>
 <body>
 
@@ -187,11 +187,20 @@
         <label for="task">Tarea principal:</label>
         <select id="task">
           <option value="score_global">Cualquiera (score global)</option>
-          <option value="Razonamiento">Razonamiento (deep reasoning, lógica, hallucinations)</option>
-          <option value="Coding">Coding (generar código, JSON, OCR)</option>
-          <option value="Contenido">Contenido (blog, marketing, traducciones)</option>
-          <option value="Agentes">Agentes (tool calling, orquestación, customer support)</option>
+          <option value="Razonamiento">Razonamiento</option>
+          <option value="Coding">Coding</option>
+          <option value="Contenido">Contenido</option>
+          <option value="Agentes">Agentes</option>
         </select>
+        <small id="task-hint">4 pilares + 23 sub-categorías para precisar tu uso real</small>
+      </div>
+
+      <div class="filter" id="subtask-wrap" hidden>
+        <label for="subtask">Sub-categoría (opcional):</label>
+        <select id="subtask">
+          <option value="">Todas (promedio del pilar)</option>
+        </select>
+        <small>Filtrá por la suite específica que más se parece a tu caso real.</small>
       </div>
 
       <div class="filter checkboxes">
@@ -538,6 +547,6 @@
   </div>
 </footer>
 
-<script src="app.js?v=20260428e"></script>
+<script src="app.js?v=20260428f"></script>
 </body>
 </html>

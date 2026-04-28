@@ -76,7 +76,7 @@ def load_all_results():
 
 
 def aggregate_metrics(runs):
-    """Reduce lista de runs a métricas: score, latencia, tok/s, por pilar."""
+    """Reduce lista de runs a métricas: score, latencia, tok/s, por pilar y por suite."""
     scores = [r.get("final", 0) for r in runs if r.get("final") is not None]
     judge_scores = [r.get("judge_score") for r in runs if r.get("judge_score") is not None]
     speeds = [r.get("tokens_per_second", 0) for r in runs if r.get("tokens_per_second", 0) > 0]
@@ -84,19 +84,25 @@ def aggregate_metrics(runs):
     in_tokens = sum(r.get("input_tokens", 0) or 0 for r in runs)
     out_tokens = sum(r.get("output_tokens", 0) or 0 for r in runs)
 
-    # Score por pilar
+    # Score por pilar Y por suite (sub-categoría granular)
     by_pillar = defaultdict(list)
+    by_suite = defaultdict(list)
     for r in runs:
         suite = r.get("suite", "")
+        if not suite or r.get("final") is None:
+            continue
+        by_suite[suite].append(r["final"])
         pillar = SUITE_TO_PILLAR.get(suite)
-        if pillar and r.get("final") is not None:
+        if pillar:
             by_pillar[pillar].append(r["final"])
     pillars = {p: round(sum(s) / len(s), 2) for p, s in by_pillar.items() if s}
+    suites = {s: round(sum(v) / len(v), 2) for s, v in by_suite.items() if v}
 
     return {
         "runs": len(runs),
         "score_global": round(sum(scores) / len(scores), 2) if scores else None,
         "score_by_pillar": pillars,
+        "score_by_suite": suites,
         "judge_score_avg": round(sum(judge_scores) / len(judge_scores), 2) if judge_scores else None,
         "tokens_per_second": round(sum(speeds) / len(speeds), 1) if speeds else None,
         "latency_avg_s": round(sum(latencies) / len(latencies), 2) if latencies else None,
@@ -173,6 +179,7 @@ def build_export():
             "runs": 0,
             "score_global": None,
             "score_by_pillar": {},
+            "score_by_suite": {},
             "judge_score_avg": None,
             "tokens_per_second": None,
             "latency_avg_s": None,
