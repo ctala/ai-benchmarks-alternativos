@@ -343,6 +343,85 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
 .tag.tools { color: var(--cyan); border-color: rgba(0, 212, 255, 0.3); }
 .tag.multimodal { color: #ffaa00; border-color: rgba(255, 170, 0, 0.3); }
 
+/* ====== Capabilities Guide (collapsible) ====== */
+.capabilities-guide {
+  grid-column: 1 / -1;
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.capabilities-guide summary {
+  cursor: pointer;
+  color: var(--cyan);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  padding: 0.5rem 0;
+  list-style: none;
+  position: relative;
+  padding-right: 1.5rem;
+}
+.capabilities-guide summary::-webkit-details-marker { display: none; }
+.capabilities-guide summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cyan);
+  font-size: 1.2rem;
+}
+.capabilities-guide details[open] summary::after { content: '−'; color: var(--green); }
+.capabilities-guide[open] summary { color: var(--green); margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; }
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.cap-card {
+  background: rgba(20, 20, 42, 0.6);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.875rem 1rem;
+}
+.cap-card h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cap-card .cap-icon { font-size: 1.1rem; }
+.cap-card p {
+  font-size: 0.83rem;
+  color: var(--gray);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+.cap-card strong { color: var(--white); }
+.cap-card .cap-note {
+  font-size: 0.75rem;
+  color: var(--gray-dark);
+  font-style: italic;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border);
+  margin-bottom: 0;
+}
+
+@media (min-width: 720px) {
+  .capabilities-grid { grid-template-columns: repeat(2, 1fr); }
+  .capabilities-guide summary { font-size: 0.95rem; }
+  .cap-card p { font-size: 0.875rem; }
+}
+@media (min-width: 1100px) {
+  .capabilities-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
 .model-name {
   font-weight: 600;
   color: var(--white);

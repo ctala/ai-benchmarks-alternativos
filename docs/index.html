@@ -195,6 +195,52 @@
         </label>
       </div>
 
+      <details class="capabilities-guide">
+        <summary><strong>¿Qué tipo de modelo necesitás? Guía rápida</strong></summary>
+        <div class="capabilities-grid">
+          <div class="cap-card">
+            <h4><span class="cap-icon">🔧</span> Tool calling</h4>
+            <p><strong>Sí, si...</strong> construyes agentes N8N/OpenClaw, usas Perplexity como tool, integras APIs externas, function calling estructurado.</p>
+            <p><strong>No, si...</strong> solo necesitás chat o generación de texto sin acceso a herramientas.</p>
+            <p class="cap-note">Casi todos los modelos modernos lo soportan; la calidad varía. Score "Agentes" del benchmark mide esto directamente.</p>
+          </div>
+
+          <div class="cap-card">
+            <h4><span class="cap-icon">🧠</span> Thinking models</h4>
+            <p><strong>Sí, si...</strong> tu uso requiere razonamiento profundo: matemática, lógica multi-step, debugging complejo, planificación estratégica, problemas de Fermi.</p>
+            <p><strong>No, si...</strong> generás contenido, traducciones, resúmenes, soporte al cliente — el thinking agrega latencia y costo sin beneficio claro.</p>
+            <p class="cap-note">Costo: thinking models consumen ~4× tokens (razonamiento interno facturado como output). Más lentos pero más precisos en lógica.</p>
+          </div>
+
+          <div class="cap-card">
+            <h4><span class="cap-icon">🎨</span> Multimodal</h4>
+            <p><strong>Sí, si...</strong> procesás imágenes, PDFs, screenshots, audio. Casos: OCR, descripción de imágenes, análisis de UI/diseños, transcripción.</p>
+            <p><strong>No, si...</strong> tu input es solo texto. Modelos multimodal grandes no son mejores en texto puro.</p>
+            <p class="cap-note">Limitación del benchmark v2.3: solo testea capacidad text-only. Multimodal real está en roadmap v2.4.</p>
+          </div>
+
+          <div class="cap-card">
+            <h4><span class="cap-icon">📜</span> Open-source vs propietario</h4>
+            <p><strong>Open-source si...</strong> requerís privacidad (datos no salen de tu infra), reproducibilidad, evitar lock-in del proveedor, controlar costos a largo plazo.</p>
+            <p><strong>Propietario si...</strong> necesitás el flagship absoluto y volumen es bajo (Claude Opus, GPT-5).</p>
+            <p class="cap-note">Apache 2.0 / MIT permiten uso comercial sin restricción. Llama 3 tiene cláusula de >700M MAU (irrelevante para 99% startups).</p>
+          </div>
+
+          <div class="cap-card">
+            <h4><span class="cap-icon">⚡</span> Velocidad alta (>200 tok/s)</h4>
+            <p><strong>Sí, si...</strong> tu agente hace muchos pasos secuenciales (UX en vivo, chat conversacional, workflows con 5+ LLM calls).</p>
+            <p><strong>No, si...</strong> son tareas batch o procesos asincrónicos (newsletter diario, análisis nocturno).</p>
+            <p class="cap-note">Groq es el rey de velocidad (270+ tok/s). Trade-off: catálogo limitado vs OpenRouter.</p>
+          </div>
+
+          <div class="cap-card">
+            <h4><span class="cap-icon">💰</span> Cobertura completa</h4>
+            <p>Modelos con <strong>≥50 runs</strong> del benchmark tienen score estadísticamente robusto. Smoke tests (1-49 runs) pueden tener variación alta.</p>
+            <p>Por default mostramos solo cobertura completa. Activá el checkbox para ver los modelos en cola.</p>
+          </div>
+        </div>
+      </details>
+
     </div>
   </section>
 
