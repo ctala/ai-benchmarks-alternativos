@@ -265,9 +265,11 @@ function render() {
     return;
   }
   empty.hidden = true;
-  summary.textContent = `${ranked.length} modelos cumplen tus criterios. Top 15 ordenados por mejor balance calidad/costo.`;
+  summary.textContent = `${ranked.length} modelos cumplen tus criterios, ordenados por mejor balance calidad/costo.`;
 
-  const top = ranked.slice(0, 15);
+  // Sin límite — mostramos todos los que pasan los filtros. El usuario es quien
+  // decide cuándo ajustar criterios para ver menos.
+  const top = ranked;
   const taskLabel = f.task === "score_global" ? "Global" : f.task;
 
   const html = `
