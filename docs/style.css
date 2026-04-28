@@ -348,6 +348,61 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
   background: rgba(255, 215, 0, 0.06);
 }
 
+/* Anchor "Ir a resultados" — visible solo en mobile (cuando filtros tapan el ranking) */
+.jump-to-results {
+  display: block;
+  text-align: center;
+  margin: 1rem auto 0;
+  padding: 0.625rem 1rem;
+  background: rgba(57, 255, 20, 0.08);
+  border: 1px solid rgba(57, 255, 20, 0.3);
+  border-radius: 8px;
+  color: var(--green);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+  width: fit-content;
+  min-height: 44px;             /* WCAG touch target */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.jump-to-results:hover {
+  background: rgba(57, 255, 20, 0.16);
+  border-color: var(--green);
+  color: var(--green);
+}
+@media (min-width: 960px) {
+  .jump-to-results { display: none; }  /* Solo en mobile/tablet */
+}
+
+/* scroll-margin-top para anchors (sticky header tapa el target en algunos casos) */
+#results, #faq, .faq, .methodology { scroll-margin-top: 2rem; }
+
+/* Touch targets WCAG AA — slider thumb más grande para mobile */
+input[type="range"]::-webkit-slider-thumb {
+  width: 28px !important;
+  height: 28px !important;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border: none;
+}
+.check input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+.check {
+  cursor: pointer;
+  min-height: 44px;
+  align-items: center;
+  display: flex;
+  gap: 0.625rem;
+}
+
 /* ====== Capabilities Guide (collapsible card-based) ====== */
 .capabilities-guide {
   grid-column: 1 / -1;
