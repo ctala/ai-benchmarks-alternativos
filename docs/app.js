@@ -21,7 +21,7 @@ const state = {
     task: "score_global",
     onlyOpen: false,
     exclProprietary: false,
-    includeIncomplete: false, // Default OFF: solo cobertura completa (≥50 runs)
+    onlyTested: false,        // Default OFF: muestra todos. Si marca, filtra a ≥50 runs
     onlyTools: false,         // Solo modelos con tool calling
     onlyThinking: false,      // Solo thinking models
     onlyMultimodal: false,    // Solo multimodal (texto + imagen/audio)
@@ -38,10 +38,12 @@ async function load() {
       "Error cargando datos. Verifica que docs/data/models.json esté generado.";
     return;
   }
-  // Hero stats
+  // Hero stats — mostramos modelos con AL MENOS 1 run (excluye los en cola)
+  // para que el conteo coincida con lo que se muestra en el ranking
+  const benchmarkedCount = state.data.models.filter(m => (m.runs || 0) > 0).length;
   document.getElementById("hero-runs").textContent =
     state.data.models.reduce((acc, m) => acc + (m.runs || 0), 0).toLocaleString();
-  document.getElementById("hero-models").textContent = state.data.tested_count;
+  document.getElementById("hero-models").textContent = benchmarkedCount;
   document.getElementById("hero-updated").textContent =
     state.data.generated_at?.replace("T", " ") || "—";
 
@@ -75,7 +77,7 @@ function bindFilters() {
   const checkboxMap = {
     onlyOpen: "only-open",
     exclProprietary: "excl-prop",
-    includeIncomplete: "include-incomplete",
+    onlyTested: "only-tested",
     onlyTools: "only-tools",
     onlyThinking: "only-thinking",
     onlyMultimodal: "only-multimodal",
@@ -107,9 +109,12 @@ function isProprietary(model) {
 
 function filterAndRank(models, f) {
   const passes = models.filter(m => {
-    // Default: solo modelos con cobertura completa (≥50 runs).
-    // Si el usuario activa "incluir no probados", se muestran todos.
-    if (!f.includeIncomplete && !m.tested) return false;
+    // Default: muestra todos los modelos (incluye parciales y en cola).
+    // Si "Sólo cobertura completa" está marcado, filtra a >=50 runs.
+    if (f.onlyTested && !m.tested) return false;
+    // Modelos con runs=0 (en cola) no tienen score real — los ocultamos
+    // siempre del ranking porque no se pueden ordenar.
+    if ((m.runs || 0) === 0) return false;
 
     const score = getScore(m, f.task);
     if (score == null && m.runs > 0) return false;
