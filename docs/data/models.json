@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-27T22:48:33",
-  "total_models": 85,
+  "generated_at": "2026-04-28T15:03:14",
+  "total_models": 86,
   "tested_count": 56,
   "tokens_per_call_assumption": {
     "input": 300,
@@ -1635,6 +1635,31 @@
       "cost_output_per_M": 0.6,
       "cost_per_1k_calls_usd": 0.99,
       "notes": "",
+      "tested": false,
+      "runs": 10,
+      "score_global": 6.42,
+      "score_by_pillar": {
+        "Contenido": 6.42,
+        "Agentes": 6.4
+      },
+      "judge_score_avg": null,
+      "tokens_per_second": 10.9,
+      "latency_avg_s": 61.16,
+      "total_input_tokens": 2549,
+      "total_output_tokens": 7446
+    },
+    {
+      "key": "nim-gemma-4-31b",
+      "id": "google/gemma-4-31b-it",
+      "name": "Gemma 4 31B (NIM)",
+      "tier": "cloud_nim",
+      "provider": "nvidia_nim",
+      "open_source": true,
+      "license": "Gemma Terms",
+      "cost_input_per_M": 0,
+      "cost_output_per_M": 0,
+      "cost_per_1k_calls_usd": 0.0,
+      "notes": "Mismo modelo que via OpenRouter (10 runs parciales) - completar via NIM gratis",
       "tested": false,
       "runs": 10,
       "score_global": 6.42,
