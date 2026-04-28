@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-04-28T13:06:40",
+  "generated_at": "2026-04-28T15:00:19",
   "total_models": 86,
-  "tested_count": 60,
+  "tested_count": 61,
   "tokens_per_call_assumption": {
     "input": 300,
     "output": 1500
@@ -1268,6 +1268,36 @@
       "total_output_tokens": 42864
     },
     {
+      "key": "nim-glm5",
+      "id": "z-ai/glm5",
+      "name": "GLM 5 (NIM)",
+      "tier": "cloud_nim",
+      "provider": "nvidia_nim",
+      "open_source": true,
+      "license": "MIT",
+      "cost_input_per_M": 0,
+      "cost_output_per_M": 0,
+      "cost_per_1k_calls_usd": 0.0,
+      "notes": "Z.AI flagship base, comparar con 5.1",
+      "tested": true,
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 79,
+      "score_global": 6.87,
+      "score_by_pillar": {
+        "Contenido": 6.88,
+        "Agentes": 6.84,
+        "Coding": 6.91,
+        "Razonamiento": 6.88
+      },
+      "judge_score_avg": 4.05,
+      "tokens_per_second": 7.2,
+      "latency_avg_s": 109.81,
+      "total_input_tokens": 24666,
+      "total_output_tokens": 57512
+    },
+    {
       "key": "nemotron-super",
       "id": "nvidia/nemotron-3-super-120b-a12b",
       "name": "Nemotron 3 Super",
@@ -1861,36 +1891,6 @@
       "latency_avg_s": 176.92,
       "total_input_tokens": 881,
       "total_output_tokens": 1584
-    },
-    {
-      "key": "nim-glm5",
-      "id": "z-ai/glm5",
-      "name": "GLM 5 (NIM)",
-      "tier": "cloud_nim",
-      "provider": "nvidia_nim",
-      "open_source": true,
-      "license": "MIT",
-      "cost_input_per_M": 0,
-      "cost_output_per_M": 0,
-      "cost_per_1k_calls_usd": 0.0,
-      "notes": "Z.AI flagship base, comparar con 5.1",
-      "tested": false,
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": false,
-      "runs": 28,
-      "score_global": 6.99,
-      "score_by_pillar": {
-        "Contenido": 6.94,
-        "Agentes": 6.94,
-        "Coding": 7.04,
-        "Razonamiento": 7.17
-      },
-      "judge_score_avg": 4.14,
-      "tokens_per_second": 8.1,
-      "latency_avg_s": 159.56,
-      "total_input_tokens": 6227,
-      "total_output_tokens": 29852
     },
     {
       "key": "nim-mistral-nemotron",
