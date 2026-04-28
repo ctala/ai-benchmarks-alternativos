@@ -288,17 +288,22 @@ function render() {
   const top = ranked;
   const taskLabel = f.task === "score_global" ? "Global" : f.task;
 
-  // Para mostrar la columna "Costo/beneficio" usamos el efficiency (score² / costo).
-  // Normalizamos sobre el max para que el más eficiente tenga 100 y los demás un %.
+  // Costo-beneficio: clasifica cada modelo según su eficiencia (score² / costo)
+  // relativa al mejor de la lista filtrada actual. Etiquetas semánticas en
+  // lugar de % para que el lector entienda de un vistazo si pagar la pena.
   const maxEfficiency = Math.max(...top.map(m => m._efficiency || 0));
   const formatEfficiency = (m) => {
     if (!m._efficiency || maxEfficiency === 0) return "—";
-    if (m._cost_month <= 0.01) return `<span class="cb-badge cb-best" title="Gratis o casi gratis con score decente">★ free</span>`;
+    if (m._cost_month <= 0.01 && m._task_score >= 6) {
+      return `<span class="cb-badge cb-free" title="Cero costo + score decente — la mejor compra del mercado">★ Gratis</span>`;
+    }
     const pct = Math.round((m._efficiency / maxEfficiency) * 100);
-    let cls = "cb-low";
-    if (pct >= 70) cls = "cb-best";
-    else if (pct >= 40) cls = "cb-mid";
-    return `<span class="cb-badge ${cls}" title="$/punto-score: cuanto más alto el % mejor el costo-beneficio">${pct}%</span>`;
+    let label, cls;
+    if (pct >= 75)      { label = "Excelente"; cls = "cb-excellent"; }
+    else if (pct >= 50) { label = "Bueno";     cls = "cb-good"; }
+    else if (pct >= 25) { label = "Aceptable"; cls = "cb-ok"; }
+    else                { label = "Caro";      cls = "cb-poor"; }
+    return `<span class="cb-badge ${cls}" title="Costo-beneficio relativo a la mejor opción de la lista (eficiencia ${pct}%). Score² ÷ costo mensual.">${label}</span>`;
   };
 
   const html = `
