@@ -603,6 +603,15 @@ MODELS = {
         "open_source": False, "license": "NVIDIA Open License",
         "notes": "Variante chica de Nemotron 3, comparar con Nano 30B",
     },
+    "nim-gemma-4-31b": {
+        "id": "google/gemma-4-31b-it",
+        "name": "Gemma 4 31B (NIM)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "open_source": True, "license": "Gemma Terms",
+        "notes": "Mismo modelo que via OpenRouter (10 runs parciales) - completar via NIM gratis",
+    },
     "nim-qwen3.5-397b": {
         "id": "qwen/qwen3.5-397b-a17b",
         "name": "Qwen 3.5 397B (NIM)",
@@ -800,6 +809,28 @@ MODELS = {
 # Con 128GB puedes correr modelos de hasta ~200B parametros
 OLLAMA_MODELS = {
     # --- Modelos que corren en DGX Spark (128GB) ---
+    "local-gemma4-31b": {
+        "id": "gemma4:31b",
+        "name": "Gemma 4 31B (DGX Spark Q4_K_M)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "local",
+        "open_source": True,
+        "license": "Gemma Terms",
+        "vram_gb": 20,
+        "notes": "Q4_K_M en DGX Spark via Ollama. Comparar con Gemma 4 31B NIM y OpenRouter.",
+    },
+    "local-nemotron-3-super-120b": {
+        "id": "nemotron-3-super:120b",
+        "name": "Nemotron 3 Super 120B (DGX Spark Q4_K_M)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "local",
+        "open_source": False,
+        "license": "NVIDIA Open License",
+        "vram_gb": 87,
+        "notes": "Q4_K_M en DGX Spark. Modelo gigante, primer test post cold start tarda ~3-5min.",
+    },
     "qwen3.5-25b": {
         "id": "qwen3.5:25b",
         "name": "Qwen 3.5 25B (local)",

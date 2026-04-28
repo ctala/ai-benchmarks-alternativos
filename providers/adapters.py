@@ -58,6 +58,7 @@ THINKING_MODELS = (
     "nemotron", "Nemotron",                 # NVIDIA Nemotron 3+
     "gemini-2.5-pro", "gemini-3-pro",       # Google Pro tier (reasoning interno)
     "deepseek-v4", "deepseek-r",            # DeepSeek V4+ (R1, V4 Pro, V4 Flash) — descubierto abril 27 con 30/91 NoneType en V4 Pro
+    "gemma4", "gemma-4",                    # Gemma 4 — descubierto abril 28 en Ollama DGX: expone "reasoning" field separado del "content"
 )
 
 # Modelos que sólo aceptan temperature=1.0 (rechazan otros con error 400).
@@ -140,7 +141,18 @@ class UnifiedProvider:
                 kwargs["tools"] = tools
                 kwargs["tool_choice"] = "auto"
 
-            response = self.client.chat.completions.create(**kwargs)
+            # Ollama (local o cloud) acepta `keep_alive` como extension del body.
+            # Mantiene el modelo cargado en VRAM 30 min entre requests durante el
+            # benchmark (91 tests por modelo) — evita cold start repetido. Default
+            # Ollama es 5min, queda corto si el run es lento.
+            extra_body = {}
+            if "ollama" in self.provider_name.lower():
+                extra_body["keep_alive"] = "30m"
+
+            if extra_body:
+                response = self.client.chat.completions.create(**kwargs, extra_body=extra_body)
+            else:
+                response = self.client.chat.completions.create(**kwargs)
             end = time.perf_counter()
 
             # Cancelar alarm
@@ -162,6 +174,19 @@ class UnifiedProvider:
                 return result
 
             content = choice.message.content or ""
+
+            # Algunos providers (Ollama con Gemma 4, DeepSeek V4 Pro via NIM, otros
+            # thinking models) exponen el razonamiento interno en un campo separado
+            # `reasoning` o `thinking`. Si content esta vacio pero hay reasoning,
+            # usar reasoning como fallback para no perder la respuesta. Capturar
+            # ambos en metadata para auditoria.
+            reasoning = getattr(choice.message, "reasoning", None) or getattr(choice.message, "thinking", None)
+            if reasoning:
+                result.metadata["reasoning"] = reasoning[:5000]  # cap 5K chars
+                if not content.strip():
+                    # Fallback: usar reasoning como respuesta (caso Gemma 4 thinking
+                    # con max_tokens insuficiente). Mejor algo que nada.
+                    content = reasoning
             result.latency_total = end - start
             result.latency_first_token = result.latency_total  # sin streaming = mismo
             result.success = True
