@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-28T17:11:21",
+  "generated_at": "2026-04-28T17:13:36",
   "total_models": 88,
   "tested_count": 61,
   "tokens_per_call_assumption": {
@@ -3431,13 +3431,13 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
-      "runs": 27,
-      "score_global": 7.11,
+      "runs": 28,
+      "score_global": 7.12,
       "score_by_pillar": {
         "Contenido": 7.09,
         "Agentes": 7.2,
         "Coding": 7.01,
-        "Razonamiento": 7.11
+        "Razonamiento": 7.15
       },
       "score_by_suite": {
         "content_generation": 7.25,
@@ -3447,13 +3447,14 @@
         "reasoning": 7.11,
         "summarization": 7.09,
         "presentation": 6.88,
-        "startup_content": 7.05
+        "startup_content": 7.05,
+        "deep_reasoning": 7.28
       },
       "judge_score_avg": 4.3,
-      "tokens_per_second": 26.3,
-      "latency_avg_s": 57.4,
-      "total_input_tokens": 6145,
-      "total_output_tokens": 34410
+      "tokens_per_second": 26.4,
+      "latency_avg_s": 56.4,
+      "total_input_tokens": 6238,
+      "total_output_tokens": 35245
     },
     {
       "key": "nim-mistral-nemotron",
