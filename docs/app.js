@@ -47,7 +47,7 @@ const PROPRIETARY_GROUPS = {
 const state = {
   data: null,
   filters: {
-    budget: 50,
+    budget: 500,        // Default para emprendedor con producto en producción
     calls: 2000,
     quality: 6.5,
     speed: 0,

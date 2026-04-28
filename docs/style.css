@@ -350,70 +350,103 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
 
 /* ====== Presets de uso (Personal / Solopreneur / Pyme / Producción) ====== */
 .presets {
-  margin-bottom: 1.5rem;
-  padding: 0.875rem 1rem;
-  background: rgba(0, 212, 255, 0.04);
-  border: 1px solid rgba(0, 212, 255, 0.15);
-  border-radius: 10px;
+  margin-bottom: 1.75rem;
+  padding: 1.125rem 1.25rem;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(57, 255, 20, 0.04));
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
 }
 .presets-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--cyan);
-  margin: 0 0 0.625rem;
+  margin: 0 0 0.875rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  font-weight: 700;
 }
 .presets-buttons {
-  display: grid;
+  display: grid !important;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
+  gap: 0.625rem;
 }
-.preset-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.25rem;
-  min-height: 72px;
-  padding: 0.5rem 0.75rem;
+button.preset-btn {
+  /* Reset button defaults agresivamente */
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  text-align: left;
+  /* Layout */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 0.4rem !important;
+  min-height: 96px;
+  padding: 0.875rem 1rem;
+  /* Visual */
   background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
   color: var(--white);
-  font-family: 'Inter', sans-serif;
   cursor: pointer;
-  transition: transform 0.15s, border-color 0.15s, background 0.15s;
+  transition: transform 0.15s, border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  position: relative;
+  overflow: hidden;
 }
-.preset-btn:hover {
-  transform: translateY(-1px);
+button.preset-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+button.preset-btn:hover {
+  transform: translateY(-2px);
   border-color: var(--cyan);
   background: rgba(0, 212, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.12);
 }
-.preset-btn.active {
+button.preset-btn:hover::before { opacity: 1; }
+button.preset-btn.active {
   border-color: var(--green);
   background: rgba(57, 255, 20, 0.10);
-  box-shadow: 0 0 16px rgba(57, 255, 20, 0.15);
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
 }
-.preset-btn.active .preset-name { color: var(--green); }
-.preset-icon { font-size: 1.4rem; line-height: 1; }
+button.preset-btn.active::before {
+  background: linear-gradient(90deg, transparent, var(--green), transparent);
+  opacity: 1;
+}
+button.preset-btn.active .preset-name { color: var(--green); }
+.preset-icon {
+  font-size: 1.75rem !important;
+  line-height: 1 !important;
+  display: block !important;
+  margin-bottom: 0.1rem;
+}
 .preset-name {
+  display: block !important;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--white);
+  line-height: 1.2;
 }
 .preset-meta {
-  font-size: 0.7rem;
+  display: block !important;
+  font-size: 0.72rem;
   color: var(--gray);
   font-family: 'JetBrains Mono', monospace;
+  line-height: 1.3;
 }
 
 @media (min-width: 640px) {
   .presets-buttons { grid-template-columns: repeat(4, 1fr); }
-  .preset-btn { min-height: 84px; }
-  .preset-icon { font-size: 1.6rem; }
-  .preset-name { font-size: 0.9rem; }
+  button.preset-btn { min-height: 108px; padding: 1rem 1.125rem; }
+  .preset-icon { font-size: 2rem !important; }
+  .preset-name { font-size: 1rem; }
   .preset-meta { font-size: 0.75rem; }
 }
 
