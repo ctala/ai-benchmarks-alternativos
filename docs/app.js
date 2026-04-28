@@ -204,17 +204,34 @@ function filterAndRank(models, f) {
     return true;
   });
 
-  // Score "match": balance calidad / costo. Usamos quality * (1 + budget_room).
+  // Calcula costo mensual + score + ratio costo-beneficio para cada modelo
   passes.forEach(m => {
     const cost = costPerMonth(m, f.calls);
     const score = getScore(m, f.task) ?? 0;
-    const budgetRatio = cost > 0 ? (f.budget - cost) / f.budget : 1;
     m._cost_month = cost;
     m._task_score = score;
+    // Eficiencia: puntos de score por dólar mensual.
+    // Mayor = mejor costo-beneficio. Usamos score² para penalizar
+    // modelos con score muy bajo aunque sean baratos.
+    // Para modelos gratis (cost=0) usamos un valor alto fijo (best efficiency).
+    if (cost <= 0.01) {
+      m._efficiency = score >= 6 ? 999 : 0;  // Free + score decente = top
+    } else {
+      m._efficiency = (score * score) / cost;
+    }
+    // _match queda como referencia interna pero ya no es el sort key
+    const budgetRatio = cost > 0 ? (f.budget - cost) / f.budget : 1;
     m._match = score * (0.7 + 0.3 * Math.max(0, budgetRatio));
   });
 
-  return passes.sort((a, b) => (b._match - a._match));
+  // Default: ordenar por score puro (mayor → menor). El usuario quiere ver
+  // los mejores primero. La columna "$/score" muestra eficiencia para
+  // que cada uno juzgue costo-beneficio según su contexto.
+  return passes.sort((a, b) => {
+    const scoreA = a._task_score ?? 0;
+    const scoreB = b._task_score ?? 0;
+    return scoreB - scoreA;
+  });
 }
 
 function scorePill(score) {
@@ -265,12 +282,24 @@ function render() {
     return;
   }
   empty.hidden = true;
-  summary.textContent = `${ranked.length} modelos cumplen tus criterios, ordenados por mejor balance calidad/costo.`;
+  summary.textContent = `${ranked.length} modelos cumplen tus criterios, ordenados por score (mayor a menor).`;
 
-  // Sin límite — mostramos todos los que pasan los filtros. El usuario es quien
-  // decide cuándo ajustar criterios para ver menos.
+  // Sin límite — mostramos todos los que pasan los filtros.
   const top = ranked;
   const taskLabel = f.task === "score_global" ? "Global" : f.task;
+
+  // Para mostrar la columna "Costo/beneficio" usamos el efficiency (score² / costo).
+  // Normalizamos sobre el max para que el más eficiente tenga 100 y los demás un %.
+  const maxEfficiency = Math.max(...top.map(m => m._efficiency || 0));
+  const formatEfficiency = (m) => {
+    if (!m._efficiency || maxEfficiency === 0) return "—";
+    if (m._cost_month <= 0.01) return `<span class="cb-badge cb-best" title="Gratis o casi gratis con score decente">★ free</span>`;
+    const pct = Math.round((m._efficiency / maxEfficiency) * 100);
+    let cls = "cb-low";
+    if (pct >= 70) cls = "cb-best";
+    else if (pct >= 40) cls = "cb-mid";
+    return `<span class="cb-badge ${cls}" title="$/punto-score: cuanto más alto el % mejor el costo-beneficio">${pct}%</span>`;
+  };
 
   const html = `
     <table class="results-table">
@@ -280,6 +309,7 @@ function render() {
           <th>Modelo</th>
           <th class="num">Score ${taskLabel}</th>
           <th class="num">Costo/mes</th>
+          <th class="num" title="Costo-beneficio relativo: score² / costo. 100% = mejor de la lista.">C/B</th>
           <th class="num">tok/s</th>
           <th>Tier</th>
         </tr>
@@ -294,6 +324,7 @@ function render() {
             </td>
             <td class="num">${scorePill(m._task_score)}</td>
             <td class="num">$${m._cost_month.toFixed(2)}</td>
+            <td class="num">${formatEfficiency(m)}</td>
             <td class="num">${m.tokens_per_second?.toFixed(0) ?? "—"}</td>
             <td>${m.tier}</td>
           </tr>
