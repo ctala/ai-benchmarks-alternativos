@@ -4,6 +4,39 @@
 const TOKENS_IN = 300;
 const TOKENS_OUT = 1500;
 
+// Presets de uso — calibrados para emprendedores hispanohablantes.
+// Cada preset configura los 4 sliders + tarea principal.
+const PRESETS = {
+  personal: {
+    budget: 5,
+    calls: 300,        // ~10 calls/día
+    quality: 6.0,      // aceptable para chat personal
+    speed: 0,
+    task: "score_global",
+  },
+  solopreneur: {
+    budget: 25,
+    calls: 3000,       // ~100 calls/día (1-2 agentes N8N pequeños)
+    quality: 6.5,
+    speed: 0,
+    task: "score_global",
+  },
+  pyme: {
+    budget: 100,
+    calls: 30000,      // ~1000 calls/día (varios workflows en paralelo)
+    quality: 7.0,      // calidad relevante para producto
+    speed: 50,         // latencia importa
+    task: "score_global",
+  },
+  produccion: {
+    budget: 500,
+    calls: 300000,     // ~10K calls/día (tráfico de producto SaaS)
+    quality: 7.0,
+    speed: 100,        // alta velocidad crítica
+    task: "score_global",
+  },
+};
+
 const PROPRIETARY_GROUPS = {
   anthropic: m => m.id?.includes("anthropic/") || m.id?.startsWith("claude"),
   openai: m => m.id?.startsWith("gpt-") || m.id?.startsWith("openai/") || m.provider === "openai_direct" || m.provider === "openai_responses",
@@ -87,6 +120,41 @@ function bindFilters() {
     if (!el) return;
     el.addEventListener("change", e => {
       state.filters[key] = e.target.checked;
+      render();
+    });
+  });
+
+  // Presets de uso
+  document.querySelectorAll(".preset-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const presetKey = btn.dataset.preset;
+      const preset = PRESETS[presetKey];
+      if (!preset) return;
+      // Aplicar valores a los sliders + state
+      ["budget", "calls", "quality", "speed"].forEach(k => {
+        const el = document.getElementById(k);
+        const out = document.getElementById(k + "-out");
+        if (!el) return;
+        el.value = preset[k];
+        state.filters[k] = preset[k];
+        // Re-format del output según el slider
+        const formatters = {
+          budget: v => `$${v}`,
+          calls: v => Number(v).toLocaleString(),
+          quality: v => Number(v).toFixed(1),
+          speed: v => v,
+        };
+        if (out) out.textContent = formatters[k](preset[k]);
+      });
+      // Aplicar tarea
+      const taskEl = document.getElementById("task");
+      if (taskEl) {
+        taskEl.value = preset.task;
+        state.filters.task = preset.task;
+      }
+      // Marcar visualmente el preset activo
+      document.querySelectorAll(".preset-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
       render();
     });
   });
