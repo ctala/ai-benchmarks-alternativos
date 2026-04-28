@@ -160,7 +160,20 @@ function modelTags(m) {
   if (m.tool_calling) tags.push(`<span class="tag tools" title="Soporta tool calling">🔧 tools</span>`);
   if (m.thinking) tags.push(`<span class="tag thinking" title="Razonamiento interno">🧠 thinking</span>`);
   if (m.multimodal) tags.push(`<span class="tag multimodal" title="Texto + imagen/audio">🎨 multimodal</span>`);
-  if (!m.tested) tags.push(`<span class="tag">sin medir</span>`);
+  // Tag de cobertura: sólo cuando es <50 runs (parcial). El default oculta estos
+  // del listado, pero si el usuario activó "incluir no probados" aparecen.
+  // Mejor mostrar runs reales que un genérico "sin medir" — más informativo
+  // y evita confusión cuando el mismo modelo está medido en otra variante.
+  const runs = m.runs || 0;
+  if (!m.tested) {
+    if (runs === 0) {
+      tags.push(`<span class="tag tag-warn" title="Pendiente de benchmarkear (en cola para próximo lote)">en cola</span>`);
+    } else if (runs < 10) {
+      tags.push(`<span class="tag tag-warn" title="Smoke test — pocos runs, score con alta variación">smoke test (${runs} runs)</span>`);
+    } else {
+      tags.push(`<span class="tag tag-warn" title="Cobertura parcial — score puede variar al completar 91 tests">parcial (${runs}/91)</span>`);
+    }
+  }
   return tags.join("");
 }
 
