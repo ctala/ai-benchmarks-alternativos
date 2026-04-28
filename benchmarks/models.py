@@ -414,6 +414,26 @@ MODELS = {
     },
 
     # --- Ollama Cloud (suscripcion, requiere OLLAMA_CLOUD_API_KEY abajo) ---
+    "deepseek-v4-pro-cloud": {
+        "id": "deepseek-v4-pro",
+        "name": "DeepSeek V4 Pro (Ollama Cloud)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_ollama",
+        "provider": "ollama_cloud",
+        "open_source": True,
+        "license": "MIT",
+        "notes": "Recien agregado a Ollama Cloud (abril 28). Smoke test 22s OK, sin timeouts vs OpenRouter (76% cobertura) y NIM (504s timeouts).",
+    },
+    "deepseek-v4-flash-cloud": {
+        "id": "deepseek-v4-flash",
+        "name": "DeepSeek V4 Flash (Ollama Cloud)",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_ollama",
+        "provider": "ollama_cloud",
+        "open_source": True,
+        "license": "MIT",
+        "notes": "Variante mas chica de V4. Comparar con V4 Flash NIM (7.07 score).",
+    },
     "qwen3.5-397b-cloud": {
         "id": "qwen3.5:397b-cloud",
         "name": "Qwen 3.5 397B (Ollama Cloud)",
@@ -625,7 +645,7 @@ MODELS = {
     # --- DeepSeek V4 (lanzado abril 2026, MIT, 1M context) ---
     "deepseek-v4-flash": {
         "id": "deepseek/deepseek-v4-flash",
-        "name": "DeepSeek V4 Flash",
+        "name": "DeepSeek V4 Flash (OpenRouter)",
         "cost_input": 0.14, "cost_output": 0.28,
         "tier": "cheap",
         "open_source": True, "license": "MIT",
