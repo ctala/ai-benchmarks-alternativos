@@ -342,6 +342,11 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
 .tag.thinking { color: var(--magenta); border-color: rgba(255, 0, 110, 0.3); }
 .tag.tools { color: var(--cyan); border-color: rgba(0, 212, 255, 0.3); }
 .tag.multimodal { color: #ffaa00; border-color: rgba(255, 170, 0, 0.3); }
+.tag.tag-warn {
+  color: #ffd700;
+  border-color: rgba(255, 215, 0, 0.4);
+  background: rgba(255, 215, 0, 0.06);
+}
 
 /* ====== Capabilities Guide (collapsible card-based) ====== */
 .capabilities-guide {
