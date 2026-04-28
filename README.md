@@ -45,14 +45,20 @@ Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2
 
 | Recurso invertido | Cantidad |
 |---|---|
-| Modelos en config | **74 únicos** |
-| Modelos con cobertura completa (≥50 runs) | **53** |
+| Modelos en config | **88 únicos** |
+| Modelos con cobertura completa (≥50 runs) | **56** |
+| Modelos con datos parciales (1-49 runs) | **8** |
 | Tests por modelo | **91 tests en 23 suites** |
-| Runs preservados en JSON | **7,547** (6,272 exitosos, 83% success rate) |
-| Tokens consumidos (preservados) | 2.11M input + 6.55M output |
-| **Costo total estimado** (incluye iteración + retries + recargas) | **~$300+ USD** desde el 11 de abril |
-| **Tiempo wall-clock** | **~150h** acumuladas desde 11 de abril |
+| Runs preservados en JSON | **6,455** (con éxito) |
+| Tokens consumidos (preservados) | ~2.5M input + ~7M output |
+| **Costo APIs (OpenAI/OpenRouter/MiniMax/Anthropic/Xiaomi)** | **~$350-400 USD** desde el 11 de abril |
+| **Suscripciones activas** (Ollama Cloud + Xiaomi Standard) | **~$45/mes** |
+| **Tiempo wall-clock** del benchmark (cómputo cloud) | **~190h** acumuladas |
+| **Tiempo de cómputo local** (Phi-4 judge en Mac M-series + DGX Spark) | **~50h GPU** |
+| **Tiempo humano** (diseño de tests, debugging, análisis, docs) | **~80-100h** |
 | Iteración de metodología | cientos de runs no documentados antes del scoring v2 |
+
+**Costo total para replicar este benchmark desde cero**: APIs **$350-400** + suscripciones **~$45-90** según plan + **130-150h de cómputo** entre cloud y local + **80-100h de trabajo humano** (research, debugging, análisis, docs). Acá ya está hecho — disponible bajo MIT.
 
 > El número "$200+" no es solo lo medido. Hay 4 categorías de costo que el `cost_usd` calculado **NO captura**:
 >
