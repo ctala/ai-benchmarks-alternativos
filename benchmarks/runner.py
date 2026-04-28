@@ -265,7 +265,10 @@ def run_benchmark(args):
 
     ollama = None
     if INCLUDE_OLLAMA:
-        ollama = UnifiedProvider("ollama", "ollama", "http://localhost:11434/v1")
+        # OLLAMA_BASE_URL puede apuntar a localhost o a una DGX/server remoto
+        # (ej. http://192.168.88.190:11434/v1 para DGX Spark via LAN)
+        ollama_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434/v1")
+        ollama = UnifiedProvider("ollama", "ollama", ollama_url)
 
     # Ollama Cloud (requiere suscripción y API key en OLLAMA_CLOUD_API_KEY)
     ollama_cloud = None

@@ -21,7 +21,10 @@ const state = {
     task: "score_global",
     onlyOpen: false,
     exclProprietary: false,
-    onlyTested: true,
+    onlyTested: false,        // Default: mostrar todos (también los sin medir)
+    onlyTools: false,         // Solo modelos con tool calling
+    onlyThinking: false,      // Solo thinking models
+    onlyMultimodal: false,    // Solo multimodal (texto + imagen/audio)
   },
 };
 
@@ -69,10 +72,17 @@ function bindFilters() {
     render();
   });
 
-  ["onlyOpen", "exclProprietary", "onlyTested"].forEach(key => {
-    const el = document.getElementById(
-      key === "onlyOpen" ? "only-open" : key === "exclProprietary" ? "excl-prop" : "only-tested"
-    );
+  const checkboxMap = {
+    onlyOpen: "only-open",
+    exclProprietary: "excl-prop",
+    onlyTested: "only-tested",
+    onlyTools: "only-tools",
+    onlyThinking: "only-thinking",
+    onlyMultimodal: "only-multimodal",
+  };
+  Object.entries(checkboxMap).forEach(([key, id]) => {
+    const el = document.getElementById(id);
+    if (!el) return;
     el.addEventListener("change", e => {
       state.filters[key] = e.target.checked;
       render();
@@ -115,6 +125,11 @@ function filterAndRank(models, f) {
     if (f.onlyOpen && !m.open_source) return false;
     if (f.exclProprietary && isProprietary(m)) return false;
 
+    // Filtros por capacidad
+    if (f.onlyTools && !m.tool_calling) return false;
+    if (f.onlyThinking && !m.thinking) return false;
+    if (f.onlyMultimodal && !m.multimodal) return false;
+
     return true;
   });
 
@@ -143,10 +158,10 @@ function modelTags(m) {
   const tags = [];
   if (m.open_source) tags.push(`<span class="tag os">${m.license || "OSS"}</span>`);
   else tags.push(`<span class="tag">propietario</span>`);
-  // Detectar thinking por nombre
-  if (/thinking|gpt-5|kimi.*k2\.6|nemotron|glm-5|gemini.*pro|o1|o3/i.test(m.id)) {
-    tags.push(`<span class="tag thinking">thinking</span>`);
-  }
+  // Capabilities (vienen del JSON, inferidas en export_for_pages.py)
+  if (m.tool_calling) tags.push(`<span class="tag tools" title="Soporta tool calling">🔧 tools</span>`);
+  if (m.thinking) tags.push(`<span class="tag thinking" title="Razonamiento interno">🧠 thinking</span>`);
+  if (m.multimodal) tags.push(`<span class="tag multimodal" title="Texto + imagen/audio">🎨 multimodal</span>`);
   if (!m.tested) tags.push(`<span class="tag">sin medir</span>`);
   return tags.join("");
 }

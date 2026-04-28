@@ -340,6 +340,8 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
 }
 .tag.os { color: var(--green); border-color: rgba(57, 255, 20, 0.3); }
 .tag.thinking { color: var(--magenta); border-color: rgba(255, 0, 110, 0.3); }
+.tag.tools { color: var(--cyan); border-color: rgba(0, 212, 255, 0.3); }
+.tag.multimodal { color: #ffaa00; border-color: rgba(255, 170, 0, 0.3); }
 
 .model-name {
   font-weight: 600;

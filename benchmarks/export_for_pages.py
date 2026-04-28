@@ -105,6 +105,59 @@ def aggregate_metrics(runs):
     }
 
 
+def _infer_capabilities(cfg, cfg_key):
+    """Infiere flags tool_calling/thinking/multimodal del config y patrones del id.
+
+    Permite override manual: si el cfg define el campo, lo respeta.
+    Si no, infiere basado en patrones conocidos.
+    """
+    model_id = cfg.get("id", "").lower()
+    name = cfg.get("name", "").lower()
+    notes = cfg.get("notes", "").lower()
+    haystack = f"{model_id} {name} {cfg_key.lower()}"
+
+    # Thinking models (en sync con providers/adapters.py THINKING_MODELS)
+    thinking_patterns = [
+        "gpt-5", "o1", "o3", "glm-5", "kimi-k2.6", "kimi-k2.5",
+        "nemotron", "gemini-2.5-pro", "gemini-3-pro", "gemini-3.1-pro",
+        "deepseek-v4", "deepseek-r", "gemma4", "gemma-4",
+        "qwen3-next-80b-a3b-thinking", "thinking",
+        "magistral",  # Mistral con razonamiento
+    ]
+    thinking = cfg.get("thinking")
+    if thinking is None:
+        thinking = any(p in haystack for p in thinking_patterns)
+
+    # Multimodal: tiene visión/audio/video además de texto
+    multimodal_patterns = [
+        "omni", "vision", "vl", "multimodal",
+        "gemini",  # Todo Gemini es multimodal
+        "gpt-4o", "gpt-5",  # GPT-4o+ multimodal
+        "claude-opus", "claude-sonnet",  # Claude 3+ multimodal (vision)
+        "mimo-v2.5", "mimo-v2-omni",  # MiMo Xiaomi multimodal
+        "llama-4",  # Llama 4 multimodal
+    ]
+    multimodal = cfg.get("multimodal")
+    if multimodal is None:
+        multimodal = any(p in haystack for p in multimodal_patterns)
+
+    # Tool calling: la mayoría sí, raras excepciones
+    no_tool_patterns = [
+        "tts", "voice", "embed", "rerank", "moderation",  # modelos especializados sin tools
+        "phi-4", "phi-3",  # Phi (no soporta tool calling estándar)
+        "deepseek-coder-6.7b",  # legacy sin tools
+    ]
+    tool_calling = cfg.get("tool_calling")
+    if tool_calling is None:
+        tool_calling = not any(p in haystack for p in no_tool_patterns)
+
+    return {
+        "tool_calling": bool(tool_calling),
+        "thinking": bool(thinking),
+        "multimodal": bool(multimodal),
+    }
+
+
 def build_export():
     by_model = load_all_results()
     models_export = []
@@ -132,6 +185,8 @@ def build_export():
         co = cfg.get("cost_output", 0) or 0
         cost_per_1k_calls = (300_000 * ci + 1_500_000 * co) / 1_000_000
 
+        capabilities = _infer_capabilities(cfg, cfg_key)
+
         models_export.append({
             "key": cfg_key,
             "id": model_id,
@@ -145,6 +200,7 @@ def build_export():
             "cost_per_1k_calls_usd": round(cost_per_1k_calls, 3),
             "notes": cfg.get("notes", ""),
             "tested": metrics["runs"] >= 50,  # >= 50 runs = cobertura completa
+            **capabilities,  # tool_calling, thinking, multimodal
             **metrics,
         })
 
