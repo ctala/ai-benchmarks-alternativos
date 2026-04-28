@@ -348,6 +348,35 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
   background: rgba(255, 215, 0, 0.06);
 }
 
+/* ====== Costo-beneficio (columna C/B) ====== */
+.cb-badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.18rem 0.5rem;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  min-width: 48px;
+  text-align: center;
+  cursor: help;
+}
+.cb-badge.cb-best {
+  color: var(--green);
+  background: rgba(57, 255, 20, 0.10);
+  border-color: rgba(57, 255, 20, 0.4);
+}
+.cb-badge.cb-mid {
+  color: var(--cyan);
+  background: rgba(0, 212, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+.cb-badge.cb-low {
+  color: var(--gray);
+  background: rgba(176, 176, 176, 0.06);
+  border-color: rgba(176, 176, 176, 0.2);
+}
+
 /* ====== Presets de uso (Personal / Solopreneur / Pyme / Producción) ====== */
 .presets {
   margin-bottom: 1.75rem;
