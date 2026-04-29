@@ -22,8 +22,12 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from benchmarks.config import MODELS
+from benchmarks.config import MODELS as _CLOUD_MODELS
+from benchmarks.models import OLLAMA_MODELS
 from benchmarks.scoring import PRICING
+
+# Merge cloud + local models para que DGX y otros locales aparezcan en la calculadora
+MODELS = {**_CLOUD_MODELS, **OLLAMA_MODELS}
 
 
 # Mapeo suite → pilar (mismo orden que en generate_tests_md.py)

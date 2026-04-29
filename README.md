@@ -1,14 +1,14 @@
-# Benchmark de Modelos AI Alternativos: comparación abierta de 56 LLMs en español para N8N, OpenClaw y emprendedores
+# Benchmark de Modelos AI Alternativos: comparación abierta de 68 LLMs en español para N8N, OpenClaw y emprendedores
 
-**Version 2.3.2** | Ultima actualizacion: 27 de Abril de 2026
+**Version 2.4.0** | Ultima actualizacion: 29 de Abril de 2026
 
-> **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con 5,000+ tests reales: precio, calidad, velocidad y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N, OpenClaw o Hermes con presupuestos reales.
+> **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con 7,000+ tests reales: precio, calidad, velocidad y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N, OpenClaw o Hermes con presupuestos reales.
 
 > ⚠️ **No existe un "mejor modelo" universal.** "Coding" significa cosas distintas si desarrollás *plugins de WordPress*, *templates de N8N*, *scripts de automatización* o *proyectos grandes*. Lo mismo con contenido (blog técnico ≠ copy de marketing ≠ newsletter), soporte al cliente o agentes. **Este benchmark nació porque, como emprendedor, no encontré tests que me ayudaran a decidir para mis casos reales** — ahora existen y son tuyos.
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw, N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes).
 
-**Cobertura actual**: 56 modelos con ≥50 runs cada uno, 7,500+ tests ejecutados, 8 lotes con juez Phi-4 (Lote 8 + benchmark Xiaomi).
+**Cobertura actual**: 68 modelos con ≥50 runs cada uno, 7,725 runs ejecutados, juez Phi-4 (v2.4.0 = Lote 9 NIM completo + DGX Spark Lote 1: Gemma 4 31B + Nemotron 3 Super 120B).
 
 ## Top 10 Global Ranking
 
@@ -45,11 +45,11 @@ Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2
 
 | Recurso invertido | Cantidad |
 |---|---|
-| Modelos en config | **88 únicos** |
-| Modelos con cobertura completa (≥50 runs) | **56** |
-| Modelos con datos parciales (1-49 runs) | **8** |
+| Modelos en config | **99 únicos** |
+| Modelos con cobertura completa (≥50 runs) | **68** |
+| Modelos con datos parciales (1-49 runs) | **6** |
 | Tests por modelo | **91 tests en 23 suites** |
-| Runs preservados en JSON | **6,455** (con éxito) |
+| Runs preservados en JSON | **7,725** (con éxito) |
 | Tokens consumidos (preservados) | ~2.5M input + ~7M output |
 | **Costo APIs (OpenAI/OpenRouter/MiniMax/Anthropic/Xiaomi)** | **~$350-400 USD** desde el 11 de abril |
 | **Suscripciones activas** (Ollama Cloud + Xiaomi Standard) | **~$45/mes** |
@@ -392,7 +392,7 @@ Organizadas en los 4 pilares del emprendedor:
 
 ## Resultados (Abril 2026) — Scoring v2 + Phi-4 Judge
 
-> Ranking completo con **27 modelos × 91 tests = 2457 corridas** evaluadas por Phi-4 (Microsoft, 14B, MIT) local via Ollama. Juez sin conflicto de interés. Total cómputo: **~65h wall-clock** distribuidas en 3 lotes (22-25 abril).
+> Ranking completo con **27 modelos × 91 tests = 2457 corridas** evaluadas por Phi-4 (Microsoft, 14B, MIT) local via Ollama. Juez sin conflicto de interés. Total cómputo: **~65h wall-clock** distribuidas en 16 lotes (22-25 abril).
 >
 > JSON: `benchmark_20260422_204025.json` (Lote 1) + `benchmark_20260423_051248.json` (Lote 2) + `benchmark_20260424_053942.json` (Lote 3). Detalle por modelo navegable en [`results/per-model/`](benchmarks/results/per-model/).
 

@@ -174,8 +174,9 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
   1. `python benchmarks/generate_per_model_md.py` — regenera MDs por modelo
   2. `python benchmarks/generate_modelos_md_table.py -i` — regenera tabla de MODELOS.md con links
   3. `python benchmarks/generate_tests_md.py` — regenera TESTS.md con prompts completos
-  4. `python benchmarks/export_for_pages.py` — regenera docs/data/models.json para la calculadora
+  4. `python benchmarks/export_for_pages.py` — regenera docs/data/models.json para la calculadora (single source of truth, merge MODELS + OLLAMA_MODELS)
   5. `python benchmarks/generate_sitemap.py` — regenera docs/sitemap.xml (lee lastmod desde git, descubre landing pages auto)
+  6. `python benchmarks/sync_doc_counts.py` — sincroniza counts (modelos/tests/lotes) en README, AGENTS, INSIGHTS, ARQUITECTURA, MODELOS, agentes y landing pages SEO desde docs/data/models.json. Evita la deriva entre docs.
 - **GitHub Action de seguridad** (`.github/workflows/regenerate-auto-artifacts.yml`): si olvidás los pasos manualmente, el bot regenera los artefactos al hacer push. Pero hacelo manual primero para que el commit principal lleve los cambios sincronizados (mejor experiencia de revisión).
 - **README.md + CHANGELOG.md** se actualizan cuando cambia el ranking o se agrega un modelo
 - **No re-medir modelos ya cubiertos**. Re-correr SÓLO si:

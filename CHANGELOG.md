@@ -2,6 +2,37 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v2.4.0] - 2026-04-29 — Lote 9 NIM + DGX Spark Lote 1
+
+### Cobertura
+- **68 modelos con ≥50 runs** (antes 61), **7,725 runs** ejecutados (antes 7,223), 99 modelos en config (antes 88).
+- **Lote 9 NIM** completado: 1,358 runs, 117 errores. Top 3 NIM: 🥇 Gemma 4 31B (NIM) 7.20 — 🥈 Nemotron Nano 9B v2 (NIM) 6.91 — 🥉 GLM 5.1 (NIM) 6.79.
+- **DGX Spark Lote 1** completado: Gemma 4 31B Q4_K_M (89/91 = 6.84) + Nemotron 3 Super 120B Q4_K_M (90/91 = 6.74). 9-18 tok/s sostenido en hardware propio.
+- **Hallazgo Gemma 4 31B**: NIM 7.20 vs DGX Q4_K_M 6.84 = -0.36 puntos por cuantización. Sigue siendo competitivo para correrlo local sin pagar.
+- **Magistral Small (NIM) descartado**: error 400 instant en 91/91 — modelo rechaza algún parámetro en el adapter.
+- **DeepSeek V4 Pro (NIM) descartado**: 502/504 timeouts en NIM gateway con prompts largos. Funciona bien via Ollama Cloud (smoke test confirmado).
+
+### Sincronización de docs (#desync)
+- **`benchmarks/sync_doc_counts.py`** (nuevo) — script preventivo que lee `docs/data/models.json` (single source of truth) y reescribe counts (X modelos, X+ tests, X lotes) en README, AGENTS, INSIGHTS, ARQUITECTURA, MODELOS, agentes y landing pages SEO. Excluye blogs y CHANGELOG (históricos dated).
+- **Agregado a la regla de auto-generación** en `CLAUDE.md` como paso 6.
+- **30+ referencias desactualizadas** corregidas en una sola pasada (53→68, 5K→7K tests, 7→16 lotes, 45 modelos × 91 → recalculado).
+
+### Refactor export
+- `export_for_pages.py` ahora hace merge de `MODELS` (cloud) + `OLLAMA_MODELS` (locales DGX/Mac) → los DGX models aparecen en la calculadora.
+- Total catálogo: 99 modelos (antes 88).
+
+### Capability flags
+- `_infer_capabilities()` en `export_for_pages.py` infiere `tool_calling`, `thinking`, `multimodal` por modelo desde patterns conocidos. Permite override manual en config.
+- Calculator UX: filtros por capability con guía colapsable de 6 categorías + cards semánticos.
+
+### Calidad calculadora (UX)
+- Sub-categorías cascade: 4 pilares × 23 suites con dropdown que se expande al elegir tarea.
+- Presets: Personal/Solopreneur/Pyme/Producción con preset de defaults razonable.
+- Costo-Beneficio columna con badges semánticos (Excelente/Bueno/Aceptable/Caro/Gratis-contextual).
+- Free labels específicos por provider: ★ NIM 40rpm / ★ Sub Ollama / ★ Sub Xiaomi / ★ Local / ★ Sin pago.
+- Default budget=500, calidad=6.5, sin límite de resultados.
+- WCAG AA touch targets, cache busting via `?v=YYYYMMDDx`.
+
 ## [Unreleased] - 2026-04-25 (continúa)
 
 ### NVIDIA NIM provider (#19)
