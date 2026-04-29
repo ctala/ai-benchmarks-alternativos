@@ -2,6 +2,37 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v2.4.1] - 2026-04-29 (PM) — Nemotron 3 Nano Omni Reasoning + DGX Lote 2 + suite agent_long_horizon
+
+### Nuevos modelos benchmarkeados (3)
+- **Nemotron 3 Nano Omni 30B-A3B Reasoning (NIM)** — 91/91, score **6.97**. Thinking + multimodal MoE 30B/3B. Lanzado 20 abril 2026 por NVIDIA. Pierde frente a Gemma 4 31B (NIM) 7.20 y Devstral 2 123B 7.12 — confirma patrón "thinking models no ayuda en single-turn".
+- **Nemotron 3 Base 33B (DGX Spark Q4_K_M)** — 103/103 (incluyendo agent_long_horizon), score **6.74**. Idéntico al Nemotron 3 Super 120B también en DGX → modelo 75% más pequeño rinde igual en hardware propio Q4. Mejor C/B en local.
+- **Llama 3.3 70B + Mistral Small 4** corridos en suite agent_long_horizon (12 tests c/u) para validación.
+
+### Suite `agent_long_horizon` (12 tests multi-turno)
+- 4 pilares × 3 tests c/u: context retention, skill orchestration, interruption recovery, goal persistence.
+- Plantilla rígida: script de usuario pre-escrito (sin LLM dinámico haciendo de user).
+- Tools simulados via stubs hardcoded (sin Docker sandbox).
+- Rúbricas regex-based con 6 kinds de check, weights = 1.0 por test.
+- Smoke Llama 3.3 70B Groq: 7.69 avg, varianza intra-modelo 6.4-8.3 (1.9 puntos = buena discriminación).
+- Validación inter-modelo: Llama 7.50 / Mistral 7.41 / Nemotron 3 Base 33B 6.59 — la suite mantiene ranking pero con drop de ~0.15 puntos vs single-turn (mide algo diferente pero correlacionado).
+- Inspirado en Claw-Eval pero adaptado al runner sin Docker.
+
+### Sub-agent `agent-eval-designer`
+- `.claude/agents/agent-eval-designer.md` — especialista en evals agénticas multi-turno.
+- Workflow para generar tests, refinar rúbricas, validar discriminación.
+- Generó los 9 tests fase 2 de la suite agent_long_horizon en una pasada batch.
+
+### Runner extension
+- `run_multi_turn_script()` — N llamadas en cadena con historial completo.
+- `_score_long_horizon()` — aplica rúbrica con 6 kinds de check.
+- `evaluate_result()` dispatcheado por `test["type"] == "multi_turn_script"`.
+
+### Cobertura final v2.4.1
+- 70 modelos con ≥50 runs (antes 68)
+- 7,958 runs totales (antes 7,725)
+- 102 modelos en config (antes 99)
+
 ## [v2.4.0] - 2026-04-29 — Lote 9 NIM + DGX Spark Lote 1
 
 ### Cobertura

@@ -1,8 +1,8 @@
 ---
 title: "Insights del benchmark — qué dice la data antes de elegir un modelo en producción"
 fecha: "2026-04-29"
-version_benchmark: "v2.4"
-modelos_analizados: 68
+version_benchmark: "v2.4.1"
+modelos_analizados: 70
 runs_minimas_por_modelo: 50
 tests_por_modelo: 91
 pilares: ["Razonamiento", "Coding", "Contenido/Marketing", "Agentes/Operaciones"]
@@ -16,6 +16,60 @@ fuente_datos: "docs/data/models.json + benchmarks/results/*.json"
 Este documento es el análisis cuantitativo del benchmark `ai-benchmarks-alternativos` al **29 de abril de 2026** (v2.4). 68 modelos con cobertura ≥50 runs, 91 tests por modelo, juez Phi-4 local. La pregunta que respondemos no es "cuál es el mejor", sino: **qué patrones aparecen en la data cuando comparas precio, velocidad, capacidades y proveedor a la vez**.
 
 Audiencia: emprendedores latinoamericanos eligiendo modelos para producción (OpenClaw, N8N, blogs de actualidad, atención al cliente, herramientas internas). Tono neutro: lo que dice la data, no lo que el marketing quiere que pienses.
+
+---
+
+## 🆕 Update v2.4.1 — Nemotron 3 Nano Omni Reasoning + DGX Lote 2 + suite agent_long_horizon (29 abril 2026, 19:00 ET)
+
+Tres adiciones desde v2.4:
+
+### Nemotron 3 Nano Omni 30B-A3B Reasoning (NIM)
+
+Lanzado por NVIDIA el 20 abril 2026. MoE 30B totales / 3B activos (A3B), thinking + multimodal. Corrido en NIM gateway gratis.
+
+| Métrica | Valor |
+|---|---|
+| Score global | **6.97** (91/91 OK) |
+| Posición global | ~#22 (entre Qwen 3-Next 80B y Nemotron Nano 9B v2) |
+| tok/s | ~16 |
+| Costo | $0 (NIM gratis) |
+
+**Lectura**: a pesar del thinking + multimodal (que en marketing prometen mejor performance), saca **menos** que Gemma 4 31B (NIM) 7.20 y que Devstral 2 123B 7.12 con la mitad de parámetros activos. Confirma el patrón ya documentado: thinking models pierden en single-turn (consumen budget razonando para tareas que no lo requieren) y multimodal solo brilla en tests donde hay imagen/audio (este benchmark es 100% texto).
+
+### Nemotron 3 Base 33B (DGX Spark Q4_K_M)
+
+Versión base de la familia Nemotron 3, 33B en Q4_K_M corriendo en DGX Spark vía Ollama oficial.
+
+| Métrica | Valor |
+|---|---|
+| Score global | **6.74** (103/103 OK) |
+| tok/s | ~65 (lento por modelo grande Q4) |
+| Costo | $0 (hardware propio) |
+| Comparable | Idéntico al Nemotron 3 Super 120B también en DGX (6.74 = 6.74). |
+
+**Hallazgo importante — paridad Q4 Base 33B = Q4 Super 120B en DGX**: el modelo 75% más pequeño rinde igual en hardware propio cuantizado. Para uso local en DGX Spark, el Base 33B es la mejor opción C/B (carga más rápido, ocupa 26 GB vs 87 GB del Super). El Super solo valdría si tenés una task que escala con parámetros (long-context, código complejo). Para todo lo demás, el 33B Q4 entrega lo mismo gastando 70% menos VRAM.
+
+### Suite `agent_long_horizon` (nueva)
+
+12 tests multi-turno (8+ turnos) que miden capacidades agénticas reales: context retention, skill orchestration, interruption recovery, goal persistence. Plantilla rígida (sin LLM dinámico haciendo de usuario), tools simulados via stubs, rúbrica regex-based con weights = 1.0.
+
+Smoke + validación con 3 modelos:
+
+| Modelo | Single-turn avg | agent_long_horizon avg | Delta |
+|---|---|---|---|
+| Llama 3.3 70B (Groq) | 7.64 | 7.50 | -0.14 |
+| Mistral Small 4 | 7.54 | 7.41 | -0.13 |
+| Nemotron 3 Base 33B (DGX) | 6.74 (global) | 6.59 (12 tests) | -0.15 |
+| MiMo-V2-Flash (free) | 7.20 | 0.00 (12/12 fail) | API issue, no representativo |
+
+**Hallazgo**: los 3 modelos top mantienen ranking, con un drop consistente de ~0.15 puntos en agent_long_horizon vs single-turn. La suite NO duplica el ranking single-turn; está midiendo algo diferente pero correlacionado. Próximo paso: validar con un modelo realmente flojo (Step 3.5 Flash 6.38 single-turn, p.ej.) para confirmar que la varianza inter-modelo crece.
+
+**Tests más difíciles** (donde Llama 3.3 70B saca <7.5):
+- `context_decay_constraint_12turns` (6.4): tras 13 turnos largos, olvida un constraint inicial
+- `constraint_under_pressure` (7.0): bajo presión a inventar fuentes, mantiene línea pero con margen
+- `distractor_resistance` (7.2): vuelve al objetivo tras 3 distractores
+
+**Tests fáciles para todos**: `skill_orchestration_correct_choice`, `skill_with_failure_recovery` — los modelos top eligen tools correctamente en tareas estructuradas.
 
 ---
 
