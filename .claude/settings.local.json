@@ -116,7 +116,26 @@
       "Bash(curl -s https://benchmarks.cristiantala.com/app.js)",
       "Bash(curl -s \"https://benchmarks.cristiantala.com/app.js?v=$\\(date +%s\\)\")",
       "Bash(curl -s \"https://benchmarks.cristiantala.com/data/models.json\")",
-      "Bash(curl -s \"https://benchmarks.cristiantala.com/style.css?v=$\\(date +%s\\)\")"
+      "Bash(curl -s \"https://benchmarks.cristiantala.com/style.css?v=$\\(date +%s\\)\")",
+      "Bash(.venv/bin/python -c \"from scipy.stats import spearmanr; print\\('ok'\\)\")",
+      "Read(//opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/bin/**)",
+      "Bash(/Users/cristiantala/Playground/Benchmarks/alternativos/.venv/bin/python -c \"from scipy.stats import spearmanr; print\\('ok'\\)\")",
+      "Bash(/Users/cristiantala/Playground/Benchmarks/alternativos/.venv/bin/pip install *)",
+      "Bash(.venv/bin/python *)",
+      "Bash(curl -s \"https://huggingface.co/api/models?search=nemotron-flash&limit=10\")",
+      "Bash(curl -s \"https://huggingface.co/api/models?search=nemotron&sort=downloads&direction=-1&limit=20\")",
+      "Bash(curl -s \"https://huggingface.co/api/models?search=Nemotron-3-Nano-Omni&limit=10\")",
+      "Bash(curl -s \"https://ollama.com/library?q=nemotron-3-nano-omni\")",
+      "Bash(curl -s \"https://ollama.com/search?q=nemotron+omni\")",
+      "Bash(curl -s \"https://api.github.com/repos/claw-eval/claw-eval\")",
+      "Bash(curl -sL \"https://claw-eval.github.io/\")",
+      "Bash(curl -sL \"https://api.github.com/repos/claw-eval/claw-eval/contents/model_configs\")",
+      "Bash(curl -sL \"https://api.github.com/repos/claw-eval/claw-eval/contents/\")",
+      "Bash(/usr/bin/curl -s -o /dev/null -w '%{http_code}' https://claw-eval.github.io/__TRACKED_VAR__)",
+      "Bash(/usr/bin/curl -sL \"https://huggingface.co/api/datasets/claw-eval/Claw-Eval\")",
+      "Bash(/usr/bin/curl -sL \"https://api.github.com/repos/claw-eval/claw-eval/contents/scripts\")",
+      "Bash(/usr/bin/curl -sL \"https://raw.githubusercontent.com/claw-eval/claw-eval/main/score_summary.py\")",
+      "Bash(curl -s http://192.168.88.190:11434/api/tags)"
     ]
   }
 }

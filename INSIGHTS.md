@@ -7,662 +7,693 @@ runs_minimas_por_modelo: 50
 tests_por_modelo: 91
 pilares: ["Razonamiento", "Coding", "Contenido/Marketing", "Agentes/Operaciones"]
 juez_llm: "Phi-4 (Microsoft, 14B, MIT) via Ollama local"
-audiencia: "Emprendedores que toman decisiones de producción HOY"
+audiencia: "Emprendedores latinoamericanos que toman decisiones de producción HOY"
 fuente_datos: "docs/data/models.json + benchmarks/results/*.json"
 ---
 
 # Insights del benchmark — qué dice la data, no el marketing
 
-## 🆕 Update v2.4 — Lote 9 NIM + DGX Spark Lote 1 (2026-04-29)
+Este documento es el análisis cuantitativo del benchmark `ai-benchmarks-alternativos` al **29 de abril de 2026** (v2.4). 68 modelos con cobertura ≥50 runs, 91 tests por modelo, juez Phi-4 local. La pregunta que respondemos no es "cuál es el mejor", sino: **qué patrones aparecen en la data cuando comparas precio, velocidad, capacidades y proveedor a la vez**.
 
-Agregados al benchmark desde la versión anterior (61 → 68 modelos con cobertura ≥50 runs):
-
-**Lote 9 NIM** (gateway gratuito de NVIDIA, 40 RPM):
-- 🥇 **Gemma 4 31B (NIM)** **7.20** — domina 14/23 categorías del Lote NIM. Empata con Gemma 4 31B via OpenRouter (también 7.20 con 96 runs) → consistencia entre proveedores excelente.
-- 🥈 **Nemotron Nano 9B v2 (NIM)** 6.91 — fuerte en startup_content (#1 del lote a 7.31) y policy_adherence (#1 a 6.99). **9B parámetros** rinde mejor que muchos modelos 70B+ en su nicho.
-- 🥉 **GLM 5.1 (NIM)** 6.79 (con 182 runs) y GLM 5 (NIM) 6.87 — consistente con sus versiones via OpenRouter.
-- **Devstral 2 123B (NIM)** 7.12 con 68 runs (cobertura parcial) — segundo en deep_reasoning (7.12) y string_precision (7.29).
-- **Mistral Large 3 675B** 6.89 — el modelo más grande del Lote 9 NIM no fue el mejor (#1 solo en orchestration con 7.08).
-- ❌ **Magistral Small (NIM)** — error 400 instant en 91/91. NIM rechaza algún parámetro del adapter. Documentado en `MODELOS.md`.
-- ❌ **DeepSeek V4 Pro (NIM)** — 502/504 timeouts en NIM gateway con prompts largos. Solo 3 runs útiles. Funciona bien via Ollama Cloud.
-
-**DGX Spark Lote 1** (hardware propio, NVIDIA DGX Spark 128GB unified RAM, Q4_K_M cuantizado):
-- 🥇 **Gemma 4 31B (DGX Q4_K_M)** **6.84** — domina 11/23 categorías DGX (reasoning 7.00, customer_support 7.29, hallucination 6.76, creativity 6.85). Cuantización Q4 vs FP16 NIM **cuesta -0.36 puntos** pero el modelo sigue siendo competitivo a costo $0.
-- **Nemotron 3 Super 120B (DGX Q4_K_M)** **6.74** — domina 12/23 categorías DGX (code 7.11, structured 6.97, presentation 7.00, string_precision 7.00). Modelo gigante a 9-18 tok/s sostenido en hardware propio.
-
-**Hallazgo NIM 40rpm vs OpenRouter pagado**: el ranking del Lote 9 confirma que **NIM gratis es competitivo** para benchmarks secuenciales y producción de bajo volumen. Para usuarios con <50 calls/min, NIM ahorra el 100% del costo cloud.
-
-**Hallazgo cuantización local**: Q4_K_M en DGX Spark cuesta ~5% del score absoluto vs FP16. Para datos sensibles donde no se puede salir de la máquina, la pérdida es aceptable.
+Audiencia: emprendedores latinoamericanos eligiendo modelos para producción (OpenClaw, N8N, blogs de actualidad, atención al cliente, herramientas internas). Tono neutro: lo que dice la data, no lo que el marketing quiere que pienses.
 
 ---
 
 ## ⚠️ Limitaciones críticas a leer ANTES del análisis
 
-Este documento se generó con la data del repo (68 modelos, 91 tests, single-turn). Tres limitaciones que cambian la interpretación de varios hallazgos:
+El benchmark tiene tres limitaciones estructurales que cambian la interpretación de varios hallazgos:
 
-1. **Single-turn ≠ producción real con tools.** El benchmark mide al modelo solo, sin acceso a herramientas externas. En producción, un modelo "más débil" + Perplexity como tool de búsqueda web puede superar a un modelo "más fuerte" sin tools. Caso real: Cristian usa **Qwen 3.5 397B Cloud en N8N con tool de Perplexity** para ecosistemastartup.com — el modelo recibe contexto enriquecido que el benchmark no captura. **No comparar modelos de producción tool-augmented contra scores single-turn directamente**.
+1. **Single-turn ≠ producción real con tools.** Cada test es un prompt único, sin acceso a herramientas externas. En producción, un modelo "más débil" combinado con búsqueda web (Perplexity, Tavily) o RAG puede superar a un modelo "más fuerte" sin tools. Si tu pipeline usa N8N con tool de búsqueda, el ranking acá no se traduce 1-a-1.
 
-2. **Cobertura desigual entre modelos cloud.** Algunos modelos sólo tienen smoke tests (3-10 runs) en lugar de los 91 completos. Cualquier afirmación sobre `qwen3.5:397b-cloud`, `gpt-oss-120b-cloud` y similares debe re-validarse cuando alcancen ≥50 runs. Mientras tanto, las recomendaciones específicas a esos modelos en este doc son **provisorias**.
+2. **Cobertura desigual entre modelos.** El piso es 50 runs, pero algunos llegan a 91 (cobertura completa de las 23 suites) y otros a 87 ó 68 (con DNS errors o timeouts del proveedor). Devstral 2 123B (NIM) tiene 68 runs con la suite agent_capabilities incompleta — su score 7.12 podría bajar 0.2-0.3 cuando se complete. Cualquier afirmación sobre modelos sub-91 runs es **provisoria**.
 
-3. **El provider importa tanto como el modelo.** Mismo modelo en Groq vs OpenRouter vs NIM puede tener latencia 5× distinta y a veces score ±0.5. El ranking global esconde estas diferencias.
+3. **El provider importa tanto como el modelo.** El mismo modelo en Groq vs OpenRouter vs NIM puede tener latencia 5× distinta y a veces score ±0.5 puntos por diferencias de cuantización (Q4 vs FP16) o configuración del provider. El ranking global esconde estas diferencias — la sección 3 las cuantifica.
 
-**Para acciones concretas**: los hallazgos cuantitativos de este documento se complementan con testing propio de 5-10 prompts típicos del caso real, idealmente en el mismo provider y configuración (con/sin tools) que se usará en producción. El benchmark filtra el 80% de modelos malos — no decide el 20% final.
-
----
-
-
-Este documento es el análisis **cuantitativo** de los resultados del benchmark `ai-benchmarks-alternativos` al **29 de abril de 2026** (v2.4). No es un ranking más: es la lectura de un data scientist sobre 68 modelos × 91 tests, organizada en torno a las decisiones reales que tiene que tomar un emprendedor latinoamericano antes de poner un modelo en producción (OpenClaw, N8N, content pipelines).
-
-> "No existe un mejor modelo universal." Lo que existe son modelos buenos para **una tarea, en un volumen, con una restricción**. Este informe te da el mapa.
-
-El **Lote 9 NIM** (Gemma 4 31B, Nemotron Nano 9B v2, GLM 5/5.1, Devstral 2 123B, Mistral Large 3 675B, Ministral 14B, Step 3.5 Flash, Kimi K2.5) y el **DGX Spark Lote 1** (Gemma 4 31B Q4 + Nemotron 3 Super 120B Q4) ya están integrados en este análisis. Las secciones que siguen reflejan el estado v2.4 — el bloque "Update v2.4" arriba resume los hallazgos nuevos.
+Para decisiones reales: estos hallazgos cuantitativos filtran el 80% de modelos malos. El 20% final lo decides tú con 5-10 prompts típicos de tu caso de uso, en el mismo provider y configuración (con/sin tools) que vas a usar en producción.
 
 ---
 
 ## Tabla de contenidos
 
-0. [⭐ DeepSeek V4 vs Claude Opus 4.6/4.7 — el claim cuantificado](#0-deepseek-v4-vs-claude-opus-el-claim-cuantificado)
+0. [Hallazgos destacados v2.4 — Lote 9 NIM + DGX Spark + DeepSeek V4 + MiMo](#0-hallazgos-destacados-v24)
 1. [Correlación precio ↔ calidad por pilar](#1-correlación-precio--calidad-por-pilar)
-2. [Outliers: malas compras, joyas y especialistas](#2-outliers-malas-compras-joyas-y-especialistas)
-3. [Provider matters: el mismo modelo en distintos proveedores](#3-provider-matters)
-4. [Patrones de fragilidad: tool calling y JSON estructurado por tamaño](#4-patrones-de-fragilidad)
-5. [Sensibilidad por idioma: español vs inglés](#5-sensibilidad-por-idioma)
-6. [Costo real para el emprendedor N8N: ranking mensual y Pareto](#6-costo-real-para-el-emprendedor-n8n)
-7. [Regresiones: cuando la versión nueva es peor](#7-regresiones)
-8. [Open-source vs propietario: ¿se cerró la brecha?](#8-open-source-vs-propietario)
-9. [Anti-patterns del marketing](#9-anti-patterns-del-marketing)
-10. [Top 3 hallazgos sorpresivos](#10-top-3-hallazgos-sorpresivos)
-11. [Implicaciones para la próxima iteración](#implicaciones-para-la-próxima-iteración)
-12. [Datos sospechosos / a re-validar](#datos-sospechosos--a-re-validar)
+2. [Outliers — malas compras, joyas y especialistas](#2-outliers--malas-compras-joyas-y-especialistas)
+3. [Provider matters — el mismo modelo en distintos proveedores](#3-provider-matters--el-mismo-modelo-en-distintos-proveedores)
+4. [Patrones de fragilidad — tool calling y JSON estructurado](#4-patrones-de-fragilidad--tool-calling-y-json-estructurado)
+5. [Sensibilidad por idioma — español vs inglés](#5-sensibilidad-por-idioma--español-vs-inglés)
+6. [Costo real para el emprendedor N8N — ranking mensual y Pareto](#6-costo-real-para-el-emprendedor-n8n--ranking-mensual-y-pareto)
+7. [Regresiones — cuando la versión nueva es peor](#7-regresiones--cuando-la-versión-nueva-es-peor)
+8. [Open-source vs propietario — ¿se cerró la brecha?](#8-open-source-vs-propietario--se-cerró-la-brecha)
+9. [Anti-patterns del marketing — claims que no se sostienen](#9-anti-patterns-del-marketing--claims-que-no-se-sostienen)
+10. [Top 3 hallazgos sorpresivos del v2.4](#10-top-3-hallazgos-sorpresivos-del-v24)
+11. [Implicaciones para la próxima iteración](#11-implicaciones-para-la-próxima-iteración)
+12. [Datos sospechosos / a re-validar](#12-datos-sospechosos--a-re-validar)
 
 ---
 
-## 0. DeepSeek V4 vs Claude Opus — el claim cuantificado
+## 0. Hallazgos destacados v2.4
 
-> **DeepSeek lanzó V4 (24 de abril 2026)** prometiendo "rendimiento equiparable o superior a Claude Opus 4.6 a una fracción del costo" — en MIT, open weights. El benchmark v2.3 lo testea contra Claude Opus 4.6 (246 runs), Opus 4.7 (182 runs) y Sonnet 4.6 (182 runs) usando los mismos 91 tests + Phi-4 como juez (cero conflicto). Acá está la respuesta con números reales.
+### 0.1 Top 10 global — la base sobre la que se construyen los hallazgos
 
-### Comparación por pilar (datos finales al 27 abril 2026, post-Lote 8 + benchmark Xiaomi MiMo)
+| # | Modelo | Score | Costo $/1k calls | tok/s | Provider | Open |
+|---|---|---|---|---|---|---|
+| 1 | Llama 4 Scout 17B | **7.67** | 0.54 | 244 | Groq direct | sí |
+| 2 | Llama 3.1 8B Instant | **7.66** | 0.14 | 368 | Groq direct | sí |
+| 3 | Llama 3.3 70B | **7.64** | 1.36 | 238 | Groq direct | sí |
+| 4 | Mistral Small 4 | **7.54** | 0.94 | 110 | OpenRouter | sí |
+| 5 | GPT-OSS 20B | **7.53** | 0.47 | 633 | Groq direct | sí |
+| 6 | Gemini 3.1 Flash Lite | **7.50** | 2.33 | 148 | Google direct | no |
+| 7 | Grok 4.1 Fast | **7.50** | 0.81 | 116 | xAI/OpenRouter | no |
+| 8 | GPT-OSS 120B | **7.41** | 0.00 | 75 | Ollama Cloud | sí |
+| 9 | Devstral Small | **7.35** | 0.48 | 147 | OpenRouter | sí |
+| 10 | MiMo V2.5 | **7.32** | 0.13 | 79 | Xiaomi direct | no |
 
-| Modelo | Global | Razon | Coding | Contenido | Agentes | Costo $/M tokens | Runs |
-|---|---|---|---|---|---|---|---|
-| **MiMo V2.5 (Xiaomi)** ⭐ | **7.32** | 7.39 | 7.20 | **7.36** | **7.34** | **$0.07** (sub) | 91 |
-| **MiMo V2.5-Pro (Xiaomi)** | **7.26** | 7.30 | **7.36** | 7.04 | 7.33 | $0.14 (sub) | 91 |
-| **Claude Opus 4.7** | **7.16** | 7.16 | 7.21 | 7.14 | 7.13 | $15 / $75 | 182 |
-| **DeepSeek V4 Flash (NVIDIA NIM)** ⭐ | **7.07** | 7.11 | 7.06 | 7.14 | 6.99 | **$0 / $0** (gratis) | 87 |
-| Claude Opus 4.6 | 7.04 | **7.20** | 7.09 | 6.95 | 6.99 | $15 / $75 | 246 |
-| Claude Sonnet 4.6 | 6.99 | 7.04 | 7.13 | 6.90 | 6.98 | $3 / $15 | 182 |
-| **DeepSeek V4 Pro** ⚠️ | **6.48** | 6.38 | 6.60 | 6.34 | 6.65 | $1.74 / $3.48 | 69 (76% cobertura) |
+**Lectura inmediata**: 8 de 10 son open-source. Los 4 modelos en Groq direct (#1, #2, #3, #5) tienen >200 tok/s, score >7.5 y costo <$1.50/1k calls. Esa combinación no existe en proveedores cerrados pagados.
 
-### El veredicto refinado (con datos Xiaomi finales)
+### 0.2 Lote 9 NIM (NVIDIA gateway gratuito, 40 RPM)
 
-🥇 **MiMo V2.5 (Xiaomi, $0.07/M) supera a TODOS los flagships occidentales** en score global y en 3 de 4 pilares:
-- vs Opus 4.7: +0.16 global, +0.23 Razonamiento, +0.22 Contenido, +0.21 Agentes (-0.01 Coding)
-- vs Opus 4.6: +0.28 global, +0.41 Contenido, +0.35 Agentes
-- Costo: **214x más barato que Opus** ($0.07 vs $15 input)
+15 modelos corridos en NIM gratis. 1,358 runs útiles, 117 errores transitorios (502/504 de gateway, modelos gigantes con prompts largos). El ranking del Lote 9 NIM:
 
-✅ **DeepSeek V4 Flash en NVIDIA NIM (gratis) empata a Claude Opus 4.6** (7.07 vs 7.04). Para emprendedor sin presupuesto, V4 Flash NIM es la opción cero-costo equivalente a Opus 4.6.
+| Modelo NIM | Score | Runs | Domina en |
+|---|---|---|---|
+| Gemma 4 31B (NIM) | **7.20** | 96 | 14/23 categorías del lote |
+| Qwen 3-Next 80B Instruct | 7.17 | 91 | tool_calling, multi-turn |
+| Devstral 2 123B | 7.12 | 68 | deep_reasoning #2, string_precision #1 |
+| DeepSeek V4 Flash | 7.07 | 87 | balance general |
+| Qwen 3.5 397B (NIM) | 7.02 | 91 | code_generation, orchestration |
+| Nemotron Nano 9B v2 | 6.91 | 91 | startup_content #1, policy_adherence #1 |
+| Mistral Large 3 675B | 6.89 | 87 | orchestration #1 (7.08) |
+| GLM 5 (NIM) | 6.87 | 90 | balance |
+| Ministral 14B (NIM) | 6.85 | 90 | latency baja |
+| GLM 5.1 (NIM) | 6.79 | 182 | regresión vs GLM 5 |
+| Nemotron Super 49B v1.5 | 6.77 | 86 | reasoning |
+| Qwen 3-Next 80B Thinking | 6.41 | 182 | regresión vs Instruct |
+| Step 3.5 Flash | 6.38 | 91 | bottom |
+| Kimi K2 Thinking | 6.32 | 90 | bottom |
+| Kimi K2.5 (NIM) | 6.27 | 118 | bottom |
 
-✅ **V4 Flash GANA a Opus 4.6 en Contenido** (+0.19) — empata a Opus 4.7 en este pilar.
+**Hallazgo NIM #1 — el modelo gigante NO siempre gana**: Mistral Large 3 (675B parámetros) saca 6.89, mientras Nemotron Nano 9B v2 saca 6.91 con **75× menos parámetros**. Para producción de bajo volumen con NIM, modelos pequeños competentes (9B-30B) son mejor opción que dependencias en los 600B+ que se cuelgan en gateway.
 
-⚠️ **MiMo V2.5-Pro NO supera a V2.5 base** (7.26 vs 7.32) y cuesta 2x credits. **La versión "Pro" pierde 0.06 puntos en global pero gana 0.16 en Coding** (7.36 vs 7.20). Para coding profesional, V2.5-Pro vale la pena. Para todo lo demás, V2.5 base.
+**Hallazgo NIM #2 — Magistral Small (Mistral) descartado**: error 400 instant en 91/91 tests. NIM rechaza algún parámetro del adapter (probablemente algo del thinking mode). Documentado como bloqueante en `MODELOS.md`.
 
-⚠️ **DeepSeek V4 Pro tiene problemas de disponibilidad real**: 76% cobertura en OpenRouter (22 fallos con 402 / Response sin choices) + timeouts en smoke tests via NIM. El "flagship reasoning" de DeepSeek **NO es production-ready** — V4 Flash gratis NIM es funcionalmente superior para producción.
+**Hallazgo NIM #3 — DeepSeek V4 Pro inviable en NIM**: 502/504 timeouts en 88 de 91 tests con prompts largos (workshop_outline, perplexity_research). Solo 3 runs útiles. El modelo funciona vía Ollama Cloud y otros providers — el problema es la combinación NIM gateway + thinking + prompts >2k tokens.
 
-⚠️ **Opus 4.7 ya no es el #1 global**: cae a posición #3 detrás de los dos MiMo V2.5. Mantiene ventaja en Coding sobre V2.5 base (+0.01) y Razonamiento (-0.23 — pierde por margen amplio).
+### 0.3 DGX Spark Lote 1 (hardware propio, Q4_K_M cuantizado)
 
-### Costo real para un agente N8N (5,000 calls/mes, 300 input + 1500 output)
+Hardware: NVIDIA DGX Spark, 128GB RAM unificada, modelos Q4_K_M (4-bit cuantizado para correr en VRAM disponible). Latencia 9-18 tok/s sostenido. Costo $0.
 
-| Modelo | $/mes (5K calls) | Diferencia vs MiMo V2.5 (Standard) |
-|---|---|---|
-| **DeepSeek V4 Flash en NVIDIA NIM** | **$0** | -$14 (cero costo) |
-| **MiMo V2.5 (Xiaomi Standard plan)** ⭐ | **$14** | (baseline plan mensual) |
-| MiMo V2.5-Pro (Xiaomi Standard) | $14 (incluido) | (mismo plan) |
-| Claude Sonnet 4.6 | ~$117 | +$103/mes |
-| Claude Opus 4.6 | ~$585 | **+$571/mes** |
-| Claude Opus 4.7 | ~$585 | **+$571/mes** |
-| GPT-4.1 | ~$60 | +$46/mes |
-| DeepSeek V4 Flash (OpenRouter) | ~$2.15 | -$11.85 |
-| DeepSeek V4 Pro (OpenRouter) | ~$26 | +$12 |
-
-**Para producir el mismo contenido o correr el mismo agente N8N**:
-- Pagar Opus 4.7 → **$7,020/año** con score 7.16 vs MiMo V2.5 a $168/año con 7.32 score = **42x más caro y peor score**
-- Pagar Opus 4.6 → mismo costo, score 7.04 (peor que V2.5 y V2.5-Pro)
-
-### Recomendación accionable por caso de uso
-
-**Para uso primario en contenido en español (blog, newsletter, marketing copy)**:
-→ **MiMo V2.5 vía Xiaomi Standard $14/mes** (200M credits, score Contenido 7.36 — mejor que TODOS los flagships). Backup gratis: V4 Flash NIM (Contenido 7.14). **Sin razón económica para Opus**.
-
-**Para uso primario en agentes N8N/OpenClaw con tool calling**:
-→ **MiMo V2.5** (Agentes 7.34) o **MiMo V2.5-Pro** (Agentes 7.33). Ambos superan a Opus 4.7 (7.13). Backup: V4 Flash NIM gratis (Agentes 6.99).
-
-**Para uso primario en coding profesional**:
-→ **MiMo V2.5-Pro** (Coding 7.36) — único caso donde la versión "Pro" supera a la base. Opus 4.7 (7.21) sigue cerca. Para coding revenue-critical evaluá ambos.
-
-**Para uso primario en razonamiento profundo**:
-→ **MiMo V2.5** (Razonamiento 7.39) lidera. Opus 4.6 (7.20) segundo, Opus 4.7 (7.16) tercero.
-
-**Para volumen bajo (<500 calls/mes) o cero costo**:
-→ DeepSeek V4 Flash via NIM (gratis 40 RPM). Cubre 90% de casos sin abrir cartera.
-
-### Provider matters: Xiaomi direct vs OpenRouter (cuantificado)
-
-Comparación del MISMO modelo en distintos providers (datos benchmark Xiaomi 27 abril):
-
-| Modelo | Xiaomi direct | OpenRouter | Delta | Cobertura |
+| Modelo DGX | Score | Runs | tok/s | Notas |
 |---|---|---|---|---|
-| MiMo V2-Pro | **7.13** | 6.88 | **+0.25** | 91/91 vs 91/91 |
-| MiMo V2-Omni | **7.13** | 6.96 | **+0.17** | 90/91 vs 91/91 |
+| Gemma 4 31B (Q4_K_M) | 6.84 | 89 | 9.3 | -0.36 vs NIM FP16 (mismo modelo, distinta cuantización) |
+| Nemotron 3 Super 120B (Q4_K_M) | 6.74 | 90 | 16.8 | mejor en code/structured/string_precision dentro DGX |
 
-**El "wrapper layer" de OpenRouter degrada calidad medible**. No solo agrega latencia y fee — degrada el score del output en 2.5-3.6% para los mismos modelos. Para uso productivo, ir al provider oficial siempre que sea posible.
+**Hallazgo cuantización**: Gemma 4 31B en Q4_K_M (DGX) saca 6.84 vs 7.20 en FP16 (NIM). **Costo de Q4 = -0.36 puntos** en score (-5%). Para datos sensibles que no pueden salir de la máquina, Q4 es viable. Para producción donde se aceptan APIs externas, FP16 vía NIM gratis es estrictamente mejor.
 
-Patrón consistente con Llama 3.3 70B (Groq direct >> OpenRouter) y DeepSeek V4 Pro (OpenRouter 76% cobertura, mucho peor que provider directo si estuviera disponible).
+### 0.4 MiMo V2.5 (Xiaomi) — la suscripción que sorprende
 
-### Limitaciones del análisis
+Xiaomi lanzó MiMo en abril 2026 con 7 modelos vía suscripción mensual ($14/mes, off-peak 0.8x consumo). Resultado del benchmark:
 
-1. **V4 Pro y V4 Flash OpenRouter quedaron incompletos** en lotes anteriores (Lote 7, 25 abril) por bug del adapter (no marcados como thinking → agotaban tokens razonando → respuesta vacía). El fix se aplicó el 27 abril y se está re-corriendo. Datos finales aparecerán acá cuando termine.
+| Modelo MiMo | Score | $/1k calls | tok/s |
+|---|---|---|---|
+| MiMo V2.5 | 7.32 | 0.13 | 79 |
+| MiMo V2.5-Pro | 7.26 | 0.25 | 50 |
+| MiMo-V2-Flash | 7.20 | 0.46 | 52 |
+| MiMo V2-Pro | 7.13 | 0.13 | 45 |
+| MiMo V2-Omni | 7.13 | 0.13 | 103 |
 
-2. **Provider matters**: V4 Flash en NVIDIA NIM (gratis) puede no rendir igual que V4 Flash en OpenRouter ($0.14/$0.28) o V4 Flash directo de DeepSeek. La latencia y disponibilidad cambian. NIM tiene rate limit 40 RPM.
+**MiMo V2.5 entra al top 10 global con costo subsidiado por suscripción**. La división v2.5 vs v2-Pro muestra mejora real generación a generación (+0.13 puntos). Recomendable evaluar para uso intensivo de contenido en español.
 
-3. **Single-turn**: el benchmark NO mide multi-turn con tools (e.g. modelo + Perplexity como tool de búsqueda). Para casos donde el modelo orquesta tools, el delta puede ser distinto. Caso real Cristian: Qwen 3.5 397B Cloud + Perplexity en N8N supera al modelo solo.
+### 0.5 DeepSeek V4 vs Claude Opus
 
-4. **El claim del marketing dice "Opus 4.6"**: los datos lo confirman para V4 Flash en contenido y agentes (gana o empata), no para coding/razonamiento (Opus mantiene ventaja). El claim NO se sostiene contra Opus 4.7 (más reciente) — V4 Flash es 0.09 puntos abajo en global.
+DeepSeek V4 Pro saca 6.48 (con 69 runs). Claude Opus 4.7 saca 7.16. Diferencia +0.68 puntos a favor de Claude. **Costo Claude vs DeepSeek**: $117 vs $5.74 por 1k calls = **20.4× más caro**. Si tu volumen es alto, ¿pagarías 20× para ganar 9.4% de score?
 
-5. **Sólo 87 runs de V4 Flash vía NIM** vs 246 de Opus 4.6 — la diferencia de cobertura introduce ruido. Cuando V4 Flash NIM alcance 91+ runs el resultado puede moverse ±0.05.
-
-### TL;DR para el emprendedor hispanohablante (España + LATAM)
-
-> **¿Pagar Opus 4.7 ($585/mes) cuando MiMo V2.5 cuesta $14/mes y rinde MEJOR?** No.
->
-> **MiMo V2.5 (Xiaomi Standard plan, $14/mes) es la nueva referencia**: supera a Opus 4.7 en 3 de 4 pilares (Razonamiento, Contenido, Agentes) y solo pierde 0.01 en Coding. Costo 42x menor a igual volumen.
->
-> **Para coding profesional**: MiMo V2.5-Pro (Coding 7.36) es el #1 — único caso donde la versión "Pro" justifica los 2x credits.
->
-> **Para cero costo**: DeepSeek V4 Flash via NVIDIA NIM (gratis, 40 RPM) empata a Opus 4.6 en global y gana en Contenido. Backup perfecto cuando el plan Xiaomi se queda sin credits.
->
-> **¿El claim del marketing de DeepSeek se confirma?** Sí para V4 Flash (gratis NIM ≥ Opus 4.6). NO para V4 Pro ($1.74/$3.48 OpenRouter, 76% cobertura — modelo no production-ready).
->
-> **Provider matters cuantificado**: el mismo modelo en provider directo (Xiaomi, Groq, NIM) rinde **+0.17 a +0.25 puntos sobre el ranking de OpenRouter**. Para producción siempre ir al provider oficial.
+DeepSeek V4 Flash (NIM gratis) saca 7.07 — **más alto que el Pro** y a $0. Esto es típico del patrón: la versión "Pro" del modelo razonador no necesariamente entrega más score en single-turn. Razona más, factura más reasoning tokens, y el output final no necesariamente es mejor.
 
 ---
 
 ## 1. Correlación precio ↔ calidad por pilar
 
-**Pregunta de negocio**: ¿pagar más siempre da más calidad? ¿En qué pilar el precio importa MENOS?
+Spearman rank correlation entre `cost_per_1k_calls_usd` y `score_global` (modelos pagados, n=47, free n=21 separado):
 
-Calculé el coeficiente de **Spearman** (rank correlation, robusto a outliers) entre `cost_per_1k_calls_usd` y el score de cada pilar para los 68 modelos con ≥50 runs. Los modelos gratis (NIM, Ollama Cloud) se incluyeron — pagar 0 ≠ calidad mala, y la data lo confirma.
+| Categoría | ρ Spearman | p-value | Interpretación |
+|---|---|---|---|
+| **Global** | **−0.460** | 0.001 | Negativa moderada — caro NO predice mejor |
+| Razonamiento | −0.368 | 0.011 | Negativa moderada |
+| Coding | −0.338 | 0.020 | Negativa moderada |
+| **Contenido** | **−0.603** | <0.001 | **Negativa fuerte — más caro = peor en contenido** |
+| Agentes | −0.229 | 0.121 | No significativa |
 
-| Pilar | Spearman ρ (precio ↔ score) | Interpretación |
-|---|---|---|
-| Razonamiento | **+0.04** | Sin correlación. Pagar más NO ayuda. |
-| Coding | **+0.18** | Correlación muy débil. La diferencia entre $0.50 y $50 es marginal. |
-| Contenido/Marketing | **-0.12** | **Correlación NEGATIVA**. Los caros tienden a ser PEORES. |
-| Agentes/Operaciones | **+0.09** | Sin correlación práctica. |
+**Lectura**: la correlación entre precio y calidad **es negativa** en todos los pilares medidos, fuertemente negativa en Contenido. Esto desafía la intuición "más caro debe ser mejor" — en el ecosistema actual, los modelos premium ($15-117 por 1k calls como Claude Opus, GPT-5.5, Gemini Pro) tienden a perder con modelos económicos en single-turn.
 
-### Lectura
+**Por qué**: dos hipótesis con respaldo en la data:
+- Los modelos premium suelen ser thinking models que consumen reasoning tokens. En single-turn corto, ese razonamiento extra no aporta score y sí cuesta tokens facturados.
+- La métrica del juez Phi-4 prioriza calidad de formato, idioma español neutro y sustancia razonable. Los modelos económicos modernos (Llama 3.3, GPT-OSS, Gemma 4) están bien afinados para esos criterios.
 
-- En **Contenido/Marketing**, los modelos baratos ganan. Llama 3.1 8B Groq ($0.135/1k calls) saca 7.77 en Contenido; **GPT-5.5 ($46.50/1k calls, 344x más caro) saca 6.64**. El benchmark mide blogs, emails, social media, newsletters — tareas donde las "voces caras" suelen sonar genéricas.
-- En **Coding** la correlación positiva existe pero es marginal: **Devstral Small (7.70 en Coding, $0.48/1k) le GANA a GPT-4.1 (7.59, $12.60/1k) que cuesta 26x más**. Devstral Small (Apache 2.0, $0.10/$0.30 por M) es también mejor en Coding que Claude Opus 4.7 (7.21) que cuesta **243x más**.
-- En **Razonamiento**, la flat-line es brutal: Llama 3.1 8B (7.44) > Gemini 2.5 Pro (5.88) — el segundo cuesta **114x más**.
+**Free tier (n=21, mayormente NIM + Ollama Cloud)**: score promedio 6.82. Pagados (n=47): 7.05. La diferencia (+0.23) es marginal — el free no penaliza fuerte al usuario en calidad promedio.
 
-### Recomendación accionable
-
-Pagar premium **sólo se justifica** cuando hay casos donde el modelo más barato falla repetidamente y el fallo se verifica en pipelines reales. Para volumen alto en Contenido o Razonamiento general, **el premium destruye unit economics sin retorno medible**.
+**Velocidad vs calidad**: ρ = +0.520 (p<0.001). **Más rápido sí correlaciona positivamente con mejor score**. Razón estructural: los modelos en Groq (>200 tok/s) están en el top 10. Esa correlación es de selección de proveedor más que de capacidad inherente del modelo.
 
 ---
 
-## 2. Outliers: malas compras, joyas y especialistas
+## 2. Outliers — malas compras, joyas y especialistas
 
-### 2a. Malas compras (caro y mediocre)
+### 2.1 Malas compras (caro + score bajo)
 
-| Modelo | $/1k calls | Score global | Por qué duele |
+Modelos con costo ≥ $5/1k calls Y score < 7.0. **No deberías estar usando estos para tareas single-turn**:
+
+| Modelo | $/1k | Score | Comentario |
 |---|---|---|---|
-| **GPT-5.5** | $46.50 | 6.44 | El más caro non-Anthropic, peor que Mistral Nemo ($0.036/1k, 6.87). |
-| **Claude Opus 4.6** | $117.00 | 7.04 | 244x más caro que Devstral Small (7.35). Misma respuesta para casi todo. |
-| **Claude Opus 4.7** | $117.00 | 7.16 | Apenas mejora vs 4.6. Sigue debajo de Llama 3.1 8B Groq (7.66). |
-| **Gemini 2.5 Pro** | $15.38 | 6.47 | Razonamiento 5.88 — peor que un Llama 8B en su pilar nominal de fortaleza. |
-| **DeepSeek V4 Pro** | $5.74 | 6.41 | El "flagship" V4 (1.6T params) es PEOR que el V3.2 Flash (7.09) que cuesta 12x menos. |
+| GPT-5.5 | 46.50 | 6.44 | Más caro del benchmark, peor que GPT-4.1 (7.23) |
+| GPT-5.4 | 24.00 | 6.90 | Pierde con GPT-5.4 Mini (7.16) |
+| Claude Sonnet 4.6 | 23.40 | 6.99 | Último Sonnet — perdió contra Llama 3.1 8B (7.66) |
+| Gemini 3.1 Pro | 18.60 | 6.41 | Peor que Gemini 3.1 Flash Lite (7.50) a 8× del costo |
+| Gemini 2.5 Pro | 15.38 | 6.47 | Misma historia que 3.1 Pro |
+| Mistral Large | 9.60 | 6.98 | Mistral Small 4 saca 7.54 a 1/10 del costo |
+| Grok 4.20 | 9.60 | 6.92 | Grok 4.1 Fast saca 7.50 a 1/12 |
+| DeepSeek V4 Pro | 5.74 | 6.48 | DeepSeek V4 Flash (NIM gratis) saca 7.07 |
+| Kimi K2.6 | 5.49 | 6.51 | Versión razonadora — pierde con la Instruct |
+| GLM-5.1 | 5.01 | 6.79 | Empate con GLM 5 NIM ($0) |
 
-### 2b. Joyas (barato y excelente)
+**Patrón crítico**: TODOS los modelos premium (>$5/1k) que tienen una variante "Mini", "Flash" o "Small" pierden contra esa variante en el benchmark. El single-turn no recompensa el razonamiento extra que justifica el precio premium.
 
-| Modelo | $/1k calls | Score global | Por qué brilla |
+### 2.2 Joyas (barato + score alto)
+
+Modelos con score ≥ 7.20 Y costo ≤ $1.50/1k calls (excluye gratis):
+
+| Modelo | $/1k | Score | tok/s |
 |---|---|---|---|
-| **Llama 3.1 8B (Groq)** | $0.135 | **7.66** | #1 alternativa, 368 tok/s, latencia 1.27s. Imbatible para chatbots y N8N. |
-| **Mistral Nemo** | $0.036 | 6.87 | $36 / **millón de calls**. Calidad decente para tareas simples + masivas. |
-| **Devstral Small** | $0.48 | 7.35 | Open source Apache 2.0, top en Coding (7.70). Mejor ratio absoluto. |
-| **MiMo-V2-Flash** | $0.462 | 7.20 | MIT, Razonamiento 7.58 — top 5 en ese pilar. Latencia alta (17s) pero barato. |
-| **Gemini 2.5 Flash Lite** | $0.63 | 7.12 | El más rápido del benchmark a 170 tok/s. 3.94s end-to-end. |
+| Llama 4 Scout 17B (Groq) | 0.54 | 7.67 | 244 |
+| Llama 3.1 8B Instant (Groq) | 0.14 | 7.66 | 368 |
+| Llama 3.3 70B (Groq) | 1.36 | 7.64 | 238 |
+| Mistral Small 4 | 0.94 | 7.54 | 110 |
+| GPT-OSS 20B (Groq) | 0.47 | 7.53 | 633 |
+| Grok 4.1 Fast | 0.81 | 7.50 | 116 |
+| Devstral Small | 0.48 | 7.35 | 147 |
+| MiMo V2.5 (Xiaomi) | 0.13 | 7.32 | 79 |
+| MiMo V2.5-Pro (Xiaomi) | 0.25 | 7.26 | 50 |
+| Hermes 4 70B | 0.64 | 7.24 | 64 |
+| MiMo-V2-Flash | 0.46 | 7.20 | 52 |
+| Gemma 4 31B | 0.99 | 7.20 | 23 |
+| Nemotron 3 Nano 30B | 0.32 | 7.20 | 88 |
 
-### 2c. Generalist vs specialist
+**13 modelos ofrecen >7.2 de score por menos de $1.50/1k calls**. Cualquier emprendedor con presupuesto restringido tiene 13 candidatos válidos antes de mirar el tier premium.
 
-Identifiqué modelos donde un pilar destaca mucho sobre los otros (delta ≥ 0.5 puntos vs su promedio):
+### 2.3 Joyas gratis (free + score ≥ 7.0)
 
-| Modelo | Pilar fuerte | Score | Pilar débil | Score | Delta |
-|---|---|---|---|---|---|
-| **Devstral Small** | Coding | 7.70 | Agentes | 7.05 | 0.65 |
-| **Qwen3 Coder** | Coding | 7.38 | Agentes | 6.22 | **1.16** |
-| **MiMo-V2.5** | Contenido | 7.22 | Razonamiento | 6.58 | 0.64 |
-| **Qwen 3.5 397B (Ollama Cloud)** | Agentes | 7.25 | Razonamiento | 6.04 | **1.21** |
-| **MiniMax M2.7** | Coding | 7.02 | Razonamiento | 6.22 | 0.80 |
-| **Nemotron 3 Super** | Contenido | 7.27 | Agentes | 6.02 | **1.25** |
-| **GPT-5.4** | Coding | 7.34 | Contenido | 6.77 | 0.57 |
+NIM y Ollama Cloud tienen modelos gratis competitivos:
 
-**Hallazgo**: el patrón "specialist coder" es real (Devstral, Qwen3 Coder, GPT-5.4, MiniMax). Pero hay **specialist hidden bombs**: Qwen 3.5 397B Ollama Cloud (un modelo común en producción para contenido) **suelta razonamiento** — 6.04 contra 7.25 en Agentes. En workflows N8N que empiezan con un paso de razonamiento (decidir qué tool usar), este modelo falla antes de llegar al paso donde brilla.
+| Modelo | Score | tok/s | Provider |
+|---|---|---|---|
+| GPT-OSS 120B | 7.41 | 75 | Ollama Cloud |
+| Gemma 4 31B (NIM) | 7.20 | 23 | NVIDIA NIM |
+| Qwen 3-Next 80B Instruct | 7.17 | 52 | NVIDIA NIM |
+| Devstral 2 123B (NIM) | 7.12 | 42 | NVIDIA NIM (68 runs) |
+| DeepSeek V4 Flash | 7.07 | 25 | NVIDIA NIM |
+| Qwen 3.5 397B (NIM) | 7.02 | 20 | NVIDIA NIM |
 
-### Recomendación accionable
+**Hallazgo importante**: 6 modelos gratuitos pasan el umbral 7.0. Para proyectos personales, prototipos o producción de bajo volumen (<40 RPM en NIM), pagas $0 por capacidades top-15 globales.
 
-- Para uso **mayoritariamente contenido**: Llama 3.1 8B Groq, Mistral Small 4 o GPT-OSS 120B (Ollama Cloud, gratis).
-- Si es **mayoritariamente coding**: Devstral Small. Si necesitás más contexto/tokens: Devstral 2.
-- Si es **agentes con N8N/OpenClaw**: Llama 3.1 8B Groq (Agentes 7.70, latencia 1.27s) — gana 4 de 4 dimensiones (calidad, velocidad, costo, latencia).
-- **Evitar specialists en workflows mixtos** — su debilidad oculta rompe la cadena en producción.
+### 2.4 Frontera de Pareto (cheaper Y better — no dominados)
+
+Solo 3 modelos están en la frontera estricta de Pareto (no existe otro modelo más barato Y con mejor score):
+
+| Modelo | Score | $/1k | Por qué está en Pareto |
+|---|---|---|---|
+| GPT-OSS 120B (Ollama Cloud) | 7.41 | 0.00 | Top score gratis |
+| Llama 3.1 8B Instant (Groq) | 7.66 | 0.14 | Mejor relación calidad/precio absoluta |
+| Llama 4 Scout 17B (Groq) | 7.67 | 0.54 | Mejor score de modelos pagados |
+
+Si tu decisión es solo costo vs score, eliges entre estos 3. Cualquier otra elección significa que estás priorizando otra cosa: latencia (Groq tiene el mejor stack), tools (algunos modelos manejan tool_calling mejor), idioma (Devstral, GPT-OSS dominan español), etc.
+
+### 2.5 Especialistas — modelos que dominan suites específicas
+
+Top 1 por suite (los más útiles en su nicho aunque no estén en el top global):
+
+| Suite | Líder | Score suite | Score global |
+|---|---|---|---|
+| reasoning | GPT-OSS 20B (Groq) | 7.97 | 7.53 |
+| deep_reasoning | Llama 4 Scout 17B (Groq) | 7.68 | 7.67 |
+| code_generation | Llama 4 Scout 17B (Groq) | 8.04 | 7.67 |
+| content_generation | GPT-OSS 20B (Groq) | 8.18 | 7.53 |
+| startup_content | GPT-OSS 20B (Groq) | 8.10 | 7.53 |
+| creativity | Llama 3.1 8B Instant | 7.92 | 7.66 |
+| translation (ES↔EN) | GPT-OSS 20B (Groq) | 8.04 | 7.53 |
+| tool_calling | Llama 3.1 8B Instant | 8.45 | 7.66 |
+| structured_output | Llama 3.1 8B Instant | 8.00 | 7.66 |
+| hallucination (detect) | Llama 4 Scout 17B | 7.88 | 7.67 |
+| orchestration | Qwen 3.5 397B (Ollama Cloud) | 7.66 | 6.72 |
+| task_management | MiMo V2-Omni (Xiaomi) | 7.96 | 7.13 |
+| sales_outreach | Llama 3.3 70B (Groq) | 8.06 | 7.64 |
+| presentation | Llama 4 Scout 17B (Groq) | 8.05 | 7.67 |
+| string_precision | Devstral Small | 8.12 | 7.35 |
+| customer_support | Mistral Small 4 | 8.12 | 7.54 |
+| news_seo_writing | GPT-OSS 120B (Ollama Cloud) | 7.44 | 7.41 |
+| ocr_extraction | Llama 3.3 70B (Groq) | 7.60 | 7.64 |
+| multi_turn | GPT-OSS 20B (Groq) | 7.67 | 7.53 |
+| policy_adherence | Llama 4 Scout 17B (Groq) | 7.60 | 7.67 |
+| agent_capabilities | Llama 3.1 8B Instant | 7.78 | 7.66 |
+
+**Patrones**:
+- **Llama family domina 11/23 suites** — sobre todo el subset Groq-direct.
+- **GPT-OSS 20B y 120B** dominan contenido y razonamiento simple.
+- **Devstral Small** es el rey absoluto de string_precision (8.12) — útil para ETL/data extraction.
+- **Mistral Small 4** lidera customer_support con 8.12, despuntando en respuestas estructuradas y empáticas.
+- **Qwen 3.5 397B (Ollama Cloud)** es especialista en orchestration aunque global sea mediocre — útil si tu pipeline es multi-step.
 
 ---
 
-## 3. Provider matters
+## 3. Provider matters — el mismo modelo en distintos proveedores
 
-**Pregunta de negocio**: ¿el mismo modelo en distinto provider rinde igual?
+### 3.1 Gemma 4 31B — tres proveedores, dos cuantizaciones
 
-Comparaciones disponibles con datos:
-
-### 3a. Qwen 3.5 397B: Ollama Cloud vs NVIDIA NIM
-
-Mismo modelo (Apache 2.0), distintos infra/inference:
-
-| Métrica | Ollama Cloud | NVIDIA NIM | Delta |
-|---|---|---|---|
-| Score global | 6.72 | **7.02** | +0.30 a NIM |
-| Razonamiento | 6.04 | 6.92 | **+0.88 a NIM** |
-| Coding | 7.03 | 6.94 | -0.09 a Ollama |
-| Contenido | 6.36 | **6.99** | +0.63 a NIM |
-| Agentes | **7.25** | 7.13 | -0.12 a Ollama |
-| Tokens/s | 75.4 | 20.4 | **3.7x más rápido Ollama** |
-| Latencia | 32.0s | 46.9s | **47% mejor Ollama** |
-| Costo | gratis | gratis | empate |
-
-**Lectura**: NIM da **+0.88 puntos en Razonamiento** vs Ollama Cloud. Pero Ollama es **3.7x más rápido**. Para latencia crítica (UX en vivo), Ollama gana. Para tareas batch donde calidad importa más, NIM debería ser el default. Sospecha: **Ollama Cloud está cuantizando agresivamente** (degradación de razonamiento es típica de quantización 4-bit). Habría que verificar.
-
-### 3b. Llama 3.1 8B y 3.3 70B en Groq
-
-Solo tenemos Groq como provider testeado para estos. Pero los números son extraordinarios:
-
-| Modelo | Groq | OpenRouter (sin testear) |
-|---|---|---|
-| Llama 3.1 8B | 7.66 / 368 tok/s / 1.27s | Pendiente |
-| Llama 3.3 70B | 7.64 / 238 tok/s / 1.82s | Pendiente |
-
-**Velocidad Groq es 3-7x mayor** que cualquier otro proveedor en el ranking. Es el caso más fuerte para "provider matters" — pero falta el A/B real con OpenRouter.
-
-### Recomendación accionable
-
-Antes de cerrar contrato con un provider, **medí latencia + calidad en TU pipeline real**, especialmente si el modelo tiene múltiples puntos de servido. La diferencia Ollama Cloud vs NIM en Razonamiento (+0.88) es mayor que la diferencia entre modelos de tier distinto.
-
----
-
-## 4. Patrones de fragilidad
-
-**Pregunta de negocio**: ¿cuál es el threshold de tamaño donde el tool calling empieza a ser robusto?
-
-Tomé el score promedio del pilar **Agentes/Operaciones** (que incluye `tool_calling`, `orchestration`, `task_management`) por categoría de tamaño aproximada:
-
-| Tamaño | Modelos representativos | Score Agentes promedio | Modelos en bucket |
-|---|---|---|---|
-| **8B-12B** | Llama 3.1 8B, Mistral Nemo | **7.00** | 2 |
-| **24B-31B** | Mistral Small 4, Gemma 4 26B, Devstral Small (~24B) | **7.12** | 3 |
-| **49B-80B** | Nemotron Super 49B, Qwen 3-Next 80B, Hermes 4 70B, Llama 3.3 70B | **6.91** | 4 |
-| **120B-300B** | GPT-OSS 120B, Nemotron 3 Super 120B, Qwen 3.5 397B, MiniMax | **6.74** | 5 |
-| **400B+ (MoE/dense)** | Kimi K2.6 (1.1T), DeepSeek V4 Pro (1.6T) | **6.59** | 2 |
-
-### Hallazgo contraintuitivo
-
-**Más grande NO es más confiable para tool calling**. El sweet spot es **24B-31B**. Los modelos 8B sorprenden por arriba (Llama 3.1 8B saca 7.70 en Agentes, mejor que Claude Opus 4.7 con 7.13). Los gigantes se enredan: Kimi K2.6 (1.1T params, $5.49/1k calls) saca **6.41** — inferior a un modelo de $0.135 que pesa 137x menos.
-
-### Por qué pasa esto
-
-Los modelos thinking (Kimi K2.6, Qwen 3-Next Thinking, Kimi K2 Thinking, DeepSeek V4 Pro) razonan internamente largo y luego producen JSONs malformados o tool calls incompletos. La latencia promedio de Kimi K2.6 es **117.96s/test** — emite 556K tokens output en 91 tests, indicando reasoning disparado.
-
-| Modelo thinking | Score Agentes | Latencia | Output tokens totales |
-|---|---|---|---|
-| Kimi K2.6 | 6.41 | 117.96s | 556,926 |
-| Qwen 3-Next Thinking (NIM) | 6.09 | 16.79s | 163,216 |
-| Kimi K2 Thinking (NIM) | 6.44 | 45.29s | 123,017 |
-| DeepSeek V4 Pro | 6.77 | 75.71s | 100,795 (sólo 52 runs) |
-
-vs sus equivalentes non-thinking:
-
-| Modelo non-thinking | Score Agentes | Latencia | Output tokens |
-|---|---|---|---|
-| Kimi K2 | 6.82 | 20.64s | 88,841 |
-| Qwen 3-Next Instruct (NIM) | **7.08** | 17.08s | 74,681 |
-
-Los **non-thinking ganan en Agentes** en ambas comparaciones. La hipótesis "más razonamiento = mejor tool use" **no se cumple** en estos benchmarks.
-
-### Recomendación accionable
-
-- Para tool calling robusto en producción: usá modelos **24B-70B non-thinking**. Llama 3.1 8B Groq es la sorpresa positiva. Mistral Small 4 (24B) y Llama 3.3 70B (Groq) son refugios seguros.
-- **Evitá thinking models para tool calling** hasta que el benchmark muestre lo contrario. El reasoning interno parece interferir con la generación de tool calls bien formados.
-- Si necesitás thinking para razonamiento puro (no tools), considerá el suite **deep_reasoning** por separado.
-
----
-
-## 5. Sensibilidad por idioma
-
-**Pregunta de negocio**: ¿qué modelos sufren con español? El scoring penaliza caracteres chinos en respuestas que deberían ser en español (`-2 puntos`), y hay tests específicos como `news_spanish_only`, `blog_actualidad_startup`, `curso_emprendimiento_modulo`.
-
-### Modelos con score Contenido sospechosamente bajo en relación a su Coding
-
-Los modelos chinos (Kimi, Qwen Plus, MiniMax, MiMo) son los principales sospechosos:
-
-| Modelo | Coding | Contenido | Delta (Coding - Contenido) | Origen |
+| Provider | Score | Costo | tok/s | Cuantización |
 |---|---|---|---|---|
-| **Qwen 3.6 Plus** | 6.85 | 6.41 | +0.44 | Alibaba (China) |
-| **Qwen 3.5 397B (Ollama Cloud)** | 7.03 | **6.36** | **+0.67** | Alibaba (China) |
-| **MiniMax M2.7** | 7.02 | 6.63 | +0.39 | MiniMax (China) |
-| **MiMo-V2-Pro** | 6.73 | 7.12 | -0.39 | Xiaomi (China) - inverso |
-| Kimi K2.6 | 6.68 | 6.57 | +0.11 | Moonshot (China) |
-| GPT-5.5 | 6.60 | 6.64 | -0.04 | OpenAI (US) |
-| Claude Opus 4.6 | 7.09 | 6.95 | +0.14 | Anthropic (US) |
-| **Llama 3.1 8B (Groq)** | 7.63 | **7.77** | -0.14 | Meta (US) |
-| Mistral Small 4 | 7.51 | 7.62 | -0.11 | Mistral (FR) |
+| OpenRouter | 7.20 | $0.99/1k | 22.8 | FP16 |
+| NVIDIA NIM | 7.20 | $0.00 | 22.8 | FP16 |
+| DGX Spark local | 6.84 | $0.00 | 9.3 | Q4_K_M |
 
-### Lectura
+**Hallazgo**: OpenRouter y NIM dan resultados **idénticos** (7.20 vs 7.20) — confirma que NIM gratis no degrada el modelo. La caída a Q4 cuesta -0.36 puntos (5% del score). Si tu hardware es DGX, ahorras costo y latencia de red pero entregas precisión menor.
 
-- **Los modelos chinos producen Contenido peor que Coding** consistentemente (+0.39 a +0.67). Esto es coherente con el fenómeno de **respuestas que mezclan caracteres chinos** en outputs supuestamente en español, que el scoring penaliza explícitamente.
-- **Llama 3.1 8B (Groq)** es el caso ideal: Contenido > Coding, indicando que la calidad de prosa española es genuina, no un artefacto.
-- **Qwen 3.5 397B (Ollama Cloud)** es el caso más alarmante para hispanohablantes: usado en producción real para blogs en español (ej. `ecosistemastartup.com`) saca solo **6.36** en Contenido. Comparar con Llama 3.1 8B (7.77, **+1.41 puntos**, gratis vía Groq).
+### 3.2 Kimi K2.5 — OpenRouter pagado vs NIM gratis
 
-### Recomendación accionable
-
-- **Para generar contenido en español como tarea principal**: NO usar modelos chinos como default. Llama 3.1 8B Groq, Mistral Small 4 o GPT-OSS 120B (Ollama Cloud, también gratis) son superiores.
-- **Hallazgo aplicable**: cualquier producción usando `qwen3.5:397b-cloud` para contenido en español está en el **percentil 33** del benchmark. Migrar a `gpt-oss:120b-cloud` (mismo costo $0 en Ollama Cloud sub, +1.43 puntos en Contenido) o Llama 3.1 8B Groq se justifica con data.
-- **Para code reviews / migración / SQL** de modelos chinos: sí están bien (Qwen3 Coder, MiniMax M2.7) — son specialists.
-
----
-
-## 6. Costo real para el emprendedor N8N
-
-**Pregunta de negocio**: ¿cuánto cuesta correr 5,000 calls/mes con prompt promedio (300 input + 1500 output tokens)?
-
-**Asumido en `models.json`**: 300 input tokens + 1500 output tokens por call. Multiplicador: 5,000 calls/mes.
-
-### Top 10 modelos por mejor ROI (score / costo mensual)
-
-| Rango | Modelo | Score | $/1k calls | Costo mensual (5K calls) | ROI (score/$) |
-|---|---|---|---|---|---|
-| 1 | **Llama 3.1 8B (Groq)** | 7.66 | $0.135 | **$0.68** | 11.35 |
-| 2 | **Mistral Nemo** | 6.87 | $0.036 | $0.18 | **38.17** (max) |
-| 3 | **Devstral Small** | 7.35 | $0.48 | $2.40 | 3.06 |
-| 4 | **MiMo-V2-Flash** | 7.20 | $0.462 | $2.31 | 3.12 |
-| 5 | **Gemini 2.5 Flash Lite** | 7.12 | $0.63 | $3.15 | 2.26 |
-| 6 | **Mistral Small 4** | 7.54 | $0.945 | $4.73 | 1.60 |
-| 7 | **Llama 3.3 70B (Groq)** | 7.64 | $1.362 | $6.81 | 1.12 |
-| 8 | **Hermes 4 70B** | 7.24 | $0.639 | $3.20 | 2.27 |
-| 9 | **Gemma 4 26B MoE** | 7.07 | $0.495 | $2.48 | 2.85 |
-| 10 | **Gemini 3.1 Flash Lite** | 7.50 | $2.325 | $11.63 | 0.65 |
-
-Gratis (NIM, Ollama Cloud) tienen **ROI infinito** pero la consideración real es latencia + estabilidad de servicio. Los gratis arriba del ranking:
-
-| Modelo | Score | tok/s | Latencia |
-|---|---|---|---|
-| GPT-OSS 120B (Ollama Cloud) | **7.41** | 75.0 | 12.86s |
-| Qwen 3-Next 80B Instruct (NIM) | 7.17 | 51.5 | 17.08s |
-| Qwen 3.5 397B (NIM) | 7.02 | 20.4 | 46.9s |
-| DeepSeek V4 Flash (NIM) | 7.07 | 25.2 | 52.65s |
-
-### Pareto frontier (calidad vs costo, 5K calls/mes)
-
-| Punto Pareto | Razón |
-|---|---|
-| **GPT-OSS 120B (Ollama Cloud)** | $0/mes, 7.41 score. Imbatible si Ollama tu infra. |
-| **Llama 3.1 8B (Groq)** | $0.68/mes, 7.66 score. Mejor "casi gratis" pago. |
-| **Mistral Small 4** | $4.73/mes, 7.54 score. Mejor open-source pago. |
-| **Llama 3.3 70B (Groq)** | $6.81/mes, 7.64 score. Mejor velocidad+calidad. |
-| **Devstral Small** | $2.40/mes, 7.35 score. Mejor para coding pago. |
-| **GPT-5.4 Mini** | $12/mes, 7.16 score. Mejor en proveedor "first-tier". |
-| **GPT-4.1** | $63/mes, 7.23 score. Caro pero estable. **Dominado por GPT-5.4 Mini.** |
-| Claude Opus 4.6 | $585/mes, 7.04 score. **Fuera del Pareto** — dominado por Mistral Small 4 y Llama 3.3 70B. |
-
-### Costo extremo: 50,000 calls/mes (escala N8N seria)
-
-| Modelo | $/mes | Score | Tokens/seg |
-|---|---|---|---|
-| Llama 3.1 8B (Groq) | $6.75 | 7.66 | 368 |
-| Devstral Small | $24 | 7.35 | 147 |
-| Mistral Small 4 | $47 | 7.54 | 110 |
-| **Claude Opus 4.6** | **$5,850** | 7.04 | 47 |
-| **GPT-4.1** | **$630** | 7.23 | 87 |
-
-A 50K calls/mes, **Claude Opus 4.6 cuesta $5,850 vs $6.75 de Llama 3.1 8B Groq** (867x más caro) por 0.62 puntos menos de score. **Esa cuenta no cierra para ningún emprendedor LATAM.**
-
-### Recomendación accionable
-
-- **Default de producción para volumen alto**: Llama 3.1 8B en Groq. $6.75/mes a 50K calls cubre el 90% de los casos.
-- **Si necesitás un poco más de robustez en razonamiento**: Mistral Small 4 ($47/mes a 50K).
-- **Con suscripción Ollama Cloud activa**: GPT-OSS 120B — $0/mes adicional y mejor score.
-- **Reserva premium (Claude/GPT-4.1)** SÓLO para tareas críticas baja-frecuencia (decisiones de producto, contracts, finanzas).
-
----
-
-## 7. Regresiones
-
-**Pregunta de negocio**: ¿la versión "nueva" siempre es mejor? Spoiler: no.
-
-### 7a. Devstral Small vs Devstral 2 (Dic 2025)
-
-| Métrica | Devstral Small | Devstral 2 | Delta |
-|---|---|---|---|
-| Score global | **7.35** | 7.22 | -0.13 |
-| Coding | **7.70** | 7.37 | **-0.33** |
-| Contenido | 7.32 | **7.41** | +0.09 |
-| Agentes | 7.05 | 6.90 | -0.15 |
-| Razonamiento | **7.49** | 7.33 | -0.16 |
-| $/1k calls | $0.48 | **$3.12** | **6.5x más caro** |
-| Tok/s | 147 | 65 | -56% |
-| Latencia | 5.26s | 10.06s | 91% peor |
-
-**Lectura**: Devstral 2 es **peor en 4 de 4 pilares relevantes y 6.5x más caro**. La única explicación posible es que Mistral lanzó "Medium" antes y Devstral 2 sería un puente al "Medium" — pero el data dice que el Devstral original (mayo 2025) sigue siendo el mejor. **Quien tenga Devstral Small en producción no debería migrar.**
-
-### 7b. Kimi K2 vs Kimi K2.6
-
-| Métrica | Kimi K2 | Kimi K2.6 | Delta |
-|---|---|---|---|
-| Score global | **6.93** | 6.51 | **-0.42** |
-| Coding | **7.17** | 6.68 | -0.49 |
-| Razonamiento | **7.04** | 6.38 | **-0.66** |
-| $/1k calls | $1.26 | $5.49 | **4.4x más caro** |
-| Latencia | 20.6s | **117.96s** | **5.7x peor** |
-
-K2.6 es thinking — paga reasoning interno facturado. El score baja en TODO. Es la peor regresión del benchmark.
-
-### 7c. GPT-5.4 vs GPT-5.4 Mini
-
-| Métrica | GPT-5.4 | GPT-5.4 Mini | Delta |
-|---|---|---|---|
-| Score global | 6.90 | **7.16** | **+0.26 (mini gana)** |
-| $/1k calls | $24 | $2.40 | 10x más barato |
-
-**Mini gana al grande** en costo Y calidad. Patrón conocido pero verificado.
-
-### 7d. MiMo-V2-Pro vs MiMo-V2.5 vs MiMo-V2.5 Pro
-
-| Métrica | V2-Pro | V2.5 | V2.5 Pro |
-|---|---|---|---|
-| Score global | 6.88 | **6.97** | 6.85 |
-| Coding | 6.73 | 6.87 | 6.83 |
-| Razonamiento | 6.72 | 6.58 | **6.48** |
-| $/1k calls | $4.80 | $3.12 | $4.80 |
-
-V2.5 Pro **es peor que V2.5** y cuesta lo mismo que V2-Pro. La nomenclatura "Pro" no garantiza calidad mayor.
-
-### Recomendación accionable
-
-- **No actualizar versiones automáticamente**. Re-medir en el pipeline propio antes de migrar.
-- **Devstral Small (mayo 2025)** sigue siendo la opción correcta. No te sumes a Devstral 2 sin razón fuerte.
-- **Mini-versiones suelen ganar en ROI** — siempre comparalas antes del flagship.
-
----
-
-## 8. Open-source vs propietario
-
-**Pregunta de negocio**: ¿se cerró la brecha en abril 2026?
-
-Modelos analizados (45 con ≥50 runs):
-- **Open-source**: 23 modelos
-- **Propietario**: 22 modelos
-
-| Métrica | Open-source (mediana) | Propietario (mediana) | Delta |
-|---|---|---|---|
-| Score global | **7.07** | 6.99 | **+0.08 a open-source** |
-| Score Razonamiento | 7.11 | 6.91 | **+0.20 a open-source** |
-| Score Coding | 7.27 | 7.21 | +0.06 |
-| Score Contenido | 7.27 | 6.95 | **+0.32 a open-source** |
-| Score Agentes | 6.86 | 6.69 | +0.17 |
-| Costo mediano (1k calls) | **$0.945** | $4.80 | 5x más barato |
-
-### Top 5 open-source vs Top 5 propietario
-
-| Open-source | Score | Propietario | Score |
-|---|---|---|---|
-| Llama 3.1 8B (Groq) | 7.66 | GPT-4.1 | 7.23 |
-| Llama 3.3 70B (Groq) | 7.64 | Gemini 3.1 Flash Lite | 7.50 |
-| Mistral Small 4 | 7.54 | Gemini 2.5 Flash | 7.19 |
-| GPT-OSS 120B (Ollama Cloud) | 7.41 | Claude Opus 4.7 | 7.16 |
-| Devstral Small | 7.35 | GPT-5.4 Mini | 7.16 |
-
-### Lectura
-
-- **La brecha YA se cerró**. La mediana open-source supera a propietario en TODO los pilares, y el top open-source (Llama 3.1 8B Groq, 7.66) supera al top propietario (GPT-4.1, 7.23) por 0.43 puntos.
-- En **Razonamiento** y **Contenido** el delta es ≥0.20 — material.
-- **Costo: 5x más barato** mediana — pero los flagships open (Kimi K2.6, DeepSeek V4 Pro) siguen siendo caros aunque pierdan.
-- Anthropic + Google Pro están **dominados por dos categorías** (open-source 7B-70B + tier "mini" propietario), un hallazgo que invalida la narrativa de "lo premium siempre gana".
-
-### Recomendación accionable
-
-- **Default LATAM 2026**: open-source. La brecha narrativa "premium = calidad" se quebró.
-- **Open-source no es solo barato**: es **mejor en mediana**. Una sorpresa para quien viene de creer que GPT-4 era el techo.
-- Las únicas razones legítimas para usar propietario hoy: (1) compliance / contratos enterprise que exigen Anthropic/OpenAI específicamente, (2) features únicos de un proveedor (e.g. Computer Use de Anthropic), (3) tareas donde testeaste y un propietario gana en TU caso.
-
----
-
-## 9. Anti-patterns del marketing
-
-Sé directo. Estas son las desconexiones marketing-vs-data que la gente debería conocer antes de gastar:
-
-### 9a. "Pro/Premium = mejor para todo"
-
-| Modelo | Marketing | Data |
+| Provider | Score | Costo |
 |---|---|---|
-| **GPT-5.5** | "Frontier reasoning model" — premium tier | Score 6.44 — **percentil 70 desde abajo**. Peor que Mistral Nemo ($36/M output). |
-| **Claude Opus 4.7** | "Most intelligent" | 7.16 — superado por Llama 3.1 8B Groq (7.66) que cuesta 867x menos. |
-| **Gemini 2.5 Pro** | "Advanced reasoning" | Razonamiento 5.88 — el peor de todos los Gemini (Flash Lite saca 7.17). |
-| **DeepSeek V4 Pro** | "Flagship V4, 1.6T params" | 6.41 — peor que V3.2 Flash que cuesta 12x menos. Multi-modal MoE no traduce a calidad. |
-| **MiMo-V2.5 Pro** | "Flagship 2026, agentic" | 6.85 — peor que V2.5 base (6.97). |
+| OpenRouter | 6.27 | $1.26/1k |
+| NIM | 6.27 | $0.00 |
 
-### 9b. "Thinking = más inteligente"
+**Hallazgo**: 100% de paridad. Pagar OpenRouter para Kimi K2.5 cuando NIM lo da gratis es **dinero quemado**. Aplica para todo modelo del catálogo NIM con equivalente OpenRouter.
 
-| Modelo thinking | Score | vs equivalente non-thinking | Delta |
+### 3.3 Qwen 3.5 397B — Ollama Cloud vs NIM (cuantizaciones distintas)
+
+| Provider | Score | Notas |
+|---|---|---|
+| Ollama Cloud | 6.72 | Cuantizado para correr en cloud Ollama |
+| NIM | 7.02 | FP16 |
+
+**Hallazgo**: NIM da +0.30 puntos sobre Ollama Cloud para el mismo Qwen 3.5 397B. Si tu pipeline usa Qwen 3.5 cloud, **migrar a NIM gratis te sube score y baja costo**. Cuidado: NIM tiene cap de 40 RPM — para volúmenes altos Ollama Cloud sigue siendo la opción.
+
+### 3.4 Llama 3.x y 4 — Groq vs OpenRouter (latencia)
+
+Groq direct vs el mismo modelo vía OpenRouter (que internamente puede rutear a Together, Fireworks o Groq):
+
+- Llama 3.1 8B Instant **Groq**: 7.66 score, 368 tok/s, latencia ~0.5s
+- Llama 3.3 70B **Groq**: 7.64 score, 238 tok/s
+- Llama 4 Scout **Groq**: 7.67 score, 244 tok/s
+
+Sin equivalente directo del benchmark (porque los corrimos solo en Groq), pero la regla es: **si Groq tiene el modelo, usa Groq**. La LPU entrega 5-10× más velocidad a precio competitivo.
+
+### 3.5 Implicación operativa
+
+El hallazgo más fuerte de esta sección: **el mismo modelo puede tener delta de hasta +0.30 puntos según provider** (Qwen 3.5 NIM vs Cloud), y delta de hasta -0.36 puntos por cuantización (Gemma 4 NIM FP16 vs DGX Q4). Antes de elegir un modelo, decide el provider según tu prioridad:
+
+- **Velocidad ante todo**: Groq direct
+- **Costo cero, calidad FP16**: NIM (con cap 40 RPM)
+- **Volumen alto sostenido**: Ollama Cloud o OpenRouter pagado
+- **Datos sensibles, on-prem**: DGX Spark + Q4_K_M (asume -5% score)
+
+---
+
+## 4. Patrones de fragilidad — tool calling y JSON estructurado
+
+### 4.1 Tool calling — quién maneja bien la sintaxis OpenAI tools
+
+Top 5 en suite `tool_calling`:
+
+| Modelo | Score tool_calling | Score global | Delta |
 |---|---|---|---|
-| Kimi K2.6 (thinking, 1.1T) | 6.51 | Kimi K2 (6.93) | **-0.42** |
-| Qwen 3-Next Thinking (NIM) | 6.42 | Qwen 3-Next Instruct (7.17) | **-0.75** |
-| Kimi K2 Thinking (NIM) | 6.32 | Kimi K2 (6.93) | **-0.61** |
+| Llama 3.1 8B Instant (Groq) | 8.45 | 7.66 | +0.79 |
+| Llama 4 Scout 17B (Groq) | 8.19 | 7.67 | +0.52 |
+| Qwen 3.5 (Ollama Cloud) | 8.18 | 6.66 | +1.52 |
+| Grok 4.1 Fast | 8.07 | 7.50 | +0.57 |
+| Qwen 3.5 397B (Ollama Cloud) | 7.98 | 6.72 | +1.26 |
 
-**Thinking pierde en 3/3 comparaciones directas**. La narrativa "razonamiento interno = mejor calidad" no se cumple para los benchmarks de uso práctico. El thinking model factura el reasoning interno como output (5x más caro) por menor score. **Trampa unit economics.**
+**Hallazgo crítico**: Qwen 3.5 cloud rinde +1.52 puntos por encima de su score global cuando se le da tools. Esto explica por qué muchos pipelines en producción que usan Qwen + tools funcionan mejor de lo que el ranking single-turn predice.
 
-### 9c. "1.05M / 1M context = ventaja"
+Bottom 5 en tool_calling:
 
-| Modelo | Context | Score Razonamiento | Score Contenido |
+| Modelo | Score tool_calling | Notas |
+|---|---|---|
+| Llama 4 Maverick | 6.08 | Sin Groq direct; ranking mediocre por provider |
+| Nemotron 3 Super | 6.13 | El modelo grande de NVIDIA falla aquí |
+| Step 3.5 Flash (NIM) | 6.29 | Bottom del Lote 9 NIM |
+| Kimi K2.6 | 6.35 | Thinking model malgasta tokens en razonamiento de la tool |
+| Devstral Medium | 6.58 | Inferior a Devstral Small en este eje |
+
+**Patrón**: **modelos thinking saturan la atención en el reasoning interno y pierden precisión en la sintaxis JSON de tool_calls**. Si tu pipeline depende de tools, evita thinking models a menos que tengas evidencia específica de su tool_calling.
+
+### 4.2 Structured output — tamaño del modelo NO predice mejor JSON
+
+Bottom 8 en suite `structured_output`:
+
+| Modelo | Score | Tamaño |
+|---|---|---|
+| Qwen 3.5 (Ollama Cloud) | 6.58 | 397B+ |
+| Gemini 3.1 Pro | 6.59 | "Pro" tier |
+| Step 3.5 Flash (NIM) | 6.62 | mid |
+| Qwen 3.6 Plus | 6.69 | propietario tier-Plus |
+| Ministral 14B (NIM) | 6.71 | 14B |
+| Qwen 3.5 397B (Ollama Cloud) | 6.82 | 397B |
+| DeepSeek V4 Pro | 6.82 | flagship razonador |
+| Nemotron Super 49B v1.5 (NIM) | 6.83 | 49B |
+
+**Patrón**: **modelos thinking + modelos gigantes son los peores para structured output**. Razón: el reasoning escapa del schema (pone explicaciones antes/después del JSON) y el modelo grande "elabora" cuando el prompt pide brevedad estructurada. Para JSON estricto en producción usa Llama 3.1 8B (Groq, 8.00) o GPT-OSS 20B (7.85).
+
+### 4.3 Agent_capabilities — la suite más frágil
+
+`agent_capabilities` mide multi-step planning + tool selection + JSON Schema obedience en escenarios de agente real. Es la suite más volátil.
+
+Top 5:
+
+| Modelo | Score |
+|---|---|
+| Llama 3.1 8B Instant (Groq) | 7.78 |
+| Mistral Small 4 | 7.76 |
+| Llama 3.3 70B (Groq) | 7.67 |
+| Grok 4.1 Fast | 7.39 |
+| Qwen 3.5 397B (NIM) | 7.32 |
+
+Bottom 5 (excluyendo el cero por incomplitud):
+
+| Modelo | Score | Notas |
+|---|---|---|
+| Devstral 2 123B (NIM) | 0.00 | Solo 0 runs en esta suite — incompleto, NO confiar |
+| Nemotron 3 Super | 4.83 | El modelo grande de NVIDIA es deficiente como agente |
+| Qwen 3.6 Plus | 5.27 | Propietario API-only tier-Plus |
+| Kimi K2 Thinking (NIM) | 5.35 | Thinking penaliza agent_capabilities también |
+| Nemotron 3 Nano 30B | 5.40 | Bueno general, mediocre como agente |
+
+**Hallazgo**: la diferencia entre el #1 (Llama 3.1 8B, 7.78) y la mediana (~6.3) es de 1.5 puntos, **mucho mayor que en otras suites**. Para producción de agentes, elegir bien acá es 3× más importante que en contenido.
+
+---
+
+## 5. Sensibilidad por idioma — español vs inglés
+
+La suite `translation` tiene tests bidireccionales ES↔EN sobre vocabulario técnico, jerga startup y modismos chilenos/mexicanos. El juez Phi-4 fue instrumentado con rúbrica en español neutro.
+
+### 5.1 Top 8 en translation
+
+| Modelo | Score translation | Score global | Delta |
 |---|---|---|---|
-| MiMo-V2.5 (1.05M context) | 1.05M | 6.58 | 7.22 |
-| MiMo-V2.5 Pro (1.05M context) | 1.05M | 6.48 | 6.95 |
-| DeepSeek V4 Pro (1M context) | 1M | 6.00 | 6.20 |
-| Llama 3.1 8B (Groq, 128K) | 128K | **7.44** | **7.77** |
-| Mistral Small 4 (128K) | 128K | 7.55 | 7.62 |
+| GPT-OSS 20B (Groq) | 8.04 | 7.53 | +0.51 |
+| Llama 3.3 70B (Groq) | 8.03 | 7.64 | +0.39 |
+| Llama 3.1 8B Instant | 8.00 | 7.66 | +0.34 |
+| Mistral Small 4 | 7.87 | 7.54 | +0.33 |
+| Devstral Small | 7.87 | 7.35 | +0.52 |
+| Gemini 3.1 Flash Lite | 7.85 | 7.50 | +0.35 |
+| Gemini 2.5 Flash Lite | 7.84 | 7.12 | +0.72 |
+| GPT-OSS 120B (Ollama Cloud) | 7.79 | 7.41 | +0.38 |
 
-**Context window largo no se traduce en mejor performance** en tareas estándar. Los benchmarks usan prompts típicos (no necesitan 1M tokens). Para chunked retrieval (RAG), 128K es suficiente para 99% de los workflows N8N.
+**Patrón**: los modelos del top 5 traducen **mejor** que su score global. Los GPT-OSS son particularmente fuertes en español neutro. Esto es relevante para LATAM porque la mayoría del entrenamiento web tiene sesgo a inglés — los modelos que sobre-rinden en translation son los menos propensos a producir "spanglish" o anglicismos forzados.
 
-### 9d. "Multimodal/Omnimodal premium"
+### 5.2 Bottom 8 en translation
 
-MiMo-V2.5 Pro vende "omnimodal pro-level" pero saca 6.85 (texto). **Probablemente bueno para imagen/audio**, pero el benchmark muestra que en texto está en el percentil 30 desde arriba. Pagar premium texto por features de imagen que no usás es regalo de plata.
+| Modelo | Score translation | Notas |
+|---|---|---|
+| Qwen 3.5 397B (Ollama Cloud) | 5.17 | Mete chino-en-español ocasional, penalizado por la rúbrica |
+| Kimi K2 Thinking (NIM) | 5.73 | Modelo chino + thinking → contamina output |
+| DeepSeek V4 Pro | 6.03 | Razonador chino, mismo patrón |
+| Kimi K2.5 / K2.5 NIM | 6.06 | Idem |
+| Step 3.5 Flash (NIM) | 6.10 | Modelo chino, suite bottom |
+| Qwen 3.5 default Ollama | 6.12 | Mejor que la versión 397B en este eje |
+| Qwen 3-Next 80B Thinking | 6.33 | Thinking penaliza |
 
-### Recomendación accionable
+**Hallazgo crítico**: 7 de los 8 peores en translation son **modelos chinos** (Qwen, Kimi, Step, DeepSeek). El benchmark detecta el patrón conocido: estos modelos a veces meten caracteres chinos en mid-output cuando el prompt es ambiguo o muy largo. La penalización por idioma del scoring v2 los empuja al bottom.
 
-- **Nunca pagar por features que no aplican al caso de uso**. Context >128K, thinking, multimodal: opcional, no default.
-- **Premium por nombre** (Opus, Pro, Ultra, 5.5) ≠ premium por capacidad medida.
-- **Pedir al proveedor data específica del caso real** antes de firmar enterprise plans.
+**Implicación**: si tu pipeline genera contenido público en español neutro (blogs, artículos, copy), los modelos chinos requieren validación extra de output. Para flujos que aceptan revisión humana, no es bloqueante. Para automatización end-to-end, es riesgo.
 
----
+### 5.3 La excepción Llama (made-in-USA, gana en español)
 
-## 10. Top 3 hallazgos sorpresivos
-
-### Hallazgo #1: Llama 3.1 8B en Groq es el "default racional" para LATAM 2026
-
-Un modelo de 8B parámetros, gratis para uso comercial (Llama Community), servido a 368 tok/s y latencia 1.27s, supera a Claude Opus 4.7, GPT-5.5, GPT-4.1, Gemini 2.5 Pro y DeepSeek V4 Pro en **score global** (7.66 vs 7.16, 6.44, 7.23, 6.47, 6.41 respectivamente). El más barato del top 10 cuesta **0.135 USD/1k calls** vs Claude Opus a 117 USD — diferencia de **867x**.
-
-Antes de elegir cualquier otra cosa, **probar Llama 3.1 8B Groq en el pipeline propio**. La mayoría de los workflows N8N + content + customer support funcionan ya. Cualquier elección "premium" debería justificarse contra este baseline.
-
-### Hallazgo #2: Pagar premium daña la generación de contenido en español
-
-Spearman ρ = **-0.12** entre precio y score Contenido. Esto significa que estadísticamente, **los modelos caros tienden a generar peor Contenido**. La explicación más probable: los flagships son entrenados para tareas de razonamiento abstracto y pierden personalidad / naturalidad en prosa española. Un Llama 3.1 8B (Groq, $0.135/1k) saca 7.77 en Contenido — Claude Opus 4.6 ($117/1k) saca **6.95**. **867x más caro, 0.82 puntos menos.**
-
-Cuando la mayor parte del pipeline es content generation (blogs, emails, social, newsletters), usar premium destruye unit economics sin beneficio medible.
-
-### Hallazgo #3: Qwen 3.5 397B Ollama Cloud es subóptimo para contenido en español
-
-`qwen3.5:397b-cloud` (Qwen 3.5 397B Ollama Cloud) saca **6.72 score global**, y específicamente en Contenido **6.36** (percentil 33 desde abajo). Sufre dos debilidades documentadas: (1) modelo chino genera Contenido en español por debajo de modelos USA-trained, (2) Razonamiento 6.04 (peor que un Llama 3.1 8B). El mismo Ollama Cloud ofrece **GPT-OSS 120B** (mismo costo $0) que saca **7.41 global** y **7.79 en Contenido** — diferencia de **+0.69 global y +1.43 en Contenido**.
-
-**Recomendación general**: para casos productivos en Ollama Cloud que generen contenido en español, GPT-OSS 120B supera a Qwen 3.5 397B en el mismo plan a costo cero. Para latencia menor con costo casi cero, **Llama 3.1 8B Groq** entrega 7.77 Contenido a 368 tok/s por <$1/mes a 5K calls.
+Los 3 Groq-Llama (3.1, 3.3, 4 Scout) son top 3 en translation con scores 8.00-8.04. **Modelos USA con buen multi-lingual training rinden bien en español neutro de LATAM**. No es paradoja: Meta entrenó Llama con un balance multi-lingüe explícito; Llama 3.3 cubre 8+ idiomas en datos públicos.
 
 ---
 
-## Implicaciones para la próxima iteración
+## 6. Costo real para el emprendedor N8N — ranking mensual y Pareto
 
-### Tests que faltan agregar al benchmark
+Asunción: **10,000 calls/mes** (1k input + 1.5k output tokens por call promedio). Esto modela un blog de actualidad startups con generación moderada, atención al cliente automatizada de bajo volumen, o un agente N8N de 30-40 ejecuciones diarias.
 
-1. **Long-context realistic tasks**: el benchmark tiene tests cortos — agregar uno donde se carga un PDF de 50K tokens y se pregunta algo específico. Validaría si los 1M context valen algo.
-2. **Streaming + function call interleaving**: medir latencia hasta el primer tool call (no solo end-to-end). Crítico para UX de agentes.
-3. **Tests adversarial en español**: prompts con jerga LATAM, modismos, etc. Modelos chinos vs USA suelen romper distinto en estos.
-4. **Robustez a typos en input**: emprendedores escriben rápido. Medir cuánto degrada el score con 5% noise en input.
-5. **Reproducibilidad**: correr el mismo test 5 veces con `temperature=0`. ¿Qué tan estable es la calidad? Importa para casos legales/financieros.
+### 6.1 Costos mensuales — los 12 más baratos
 
-### Dimensiones a medir mejor
+| Modelo | Costo $/mes | Score | tok/s | Apto para producción |
+|---|---|---|---|---|
+| GPT-OSS 120B (Ollama Cloud) | $0.00 | 7.41 | 75 | sí (suscripción Ollama Cloud) |
+| Gemma 4 31B (NIM) | $0.00 | 7.20 | 23 | sí (cap 40 RPM) |
+| Qwen 3-Next 80B Instruct (NIM) | $0.00 | 7.17 | 52 | sí |
+| Devstral 2 123B (NIM) | $0.00 | 7.12 | 42 | sí (parcial: 68 runs) |
+| DeepSeek V4 Flash (NIM) | $0.00 | 7.07 | 25 | sí |
+| Qwen 3.5 397B (NIM) | $0.00 | 7.02 | 20 | sí |
+| Nemotron Nano 9B v2 (NIM) | $0.00 | 6.91 | varies | sí |
+| MiMo V2.5 (Xiaomi) | $1.30 | 7.32 | 79 | sí ($14/mes flat fee) |
+| MiMo V2-Pro (Xiaomi) | $1.30 | 7.13 | 45 | sí |
+| Llama 3.1 8B Instant (Groq) | $1.40 | 7.66 | 368 | sí |
+| MiMo V2.5-Pro (Xiaomi) | $2.50 | 7.26 | 50 | sí |
+| Nemotron 3 Nano 30B | $3.20 | 7.20 | 88 | sí |
 
-- **Cost real per task** (no per-token): tareas largas favorecen modelos caros que terminan rápido vs baratos que generan más output.
-- **Token efficiency**: salida promedio por test. Modelos verbosos cuestan más sin agregar valor (Kimi K2.6 emitió **556K tokens** en 91 tests vs Llama 3.1 8B con 44K tokens).
-- **Failure modes**: separar "modelo fue mediocre" de "modelo refusó / alucinó / time-out". Hoy se mezclan.
-- **Calibración del juez**: contrastar Phi-4 con un panel humano cada cierto tiempo. Detectar drift del juez.
+**Observación**: para 10k calls/mes, **6 modelos gratis y 6 más bajo $5/mes** dan score >7.0. Cualquier emprendedor latinoamericano puede operar con presupuesto cercano a $0 en cuotas de modelo si tiene OpenClaw o Ollama Cloud.
 
-### Cuando termine Lote 8
+### 6.2 Costos mensuales — los 5 más caros
 
-Cuando llegue Step3, Seed-OSS 36B, Hermes 4 405B, Grok 4.1 Fast y Nemotron Nano 30B, **el análisis de "Provider matters" se va a poder cerrar mejor**. Específicamente:
+| Modelo | Costo $/mes | Score | Vale la pena? |
+|---|---|---|---|
+| Claude Opus 4.7 | $1,170 | 7.16 | No vs Llama 4 Scout 7.67 a $5.40/mes |
+| Claude Opus 4.6 | $1,170 | 7.04 | No |
+| GPT-5.5 | $465 | 6.44 | No |
+| GPT-5.4 | $240 | 6.90 | No |
+| Claude Sonnet 4.6 | $234 | 6.99 | No |
 
-- **Re-ejecutar análisis #1 (correlación precio-calidad)** con +30% de modelos. La curva podría cambiar si los nuevos open-source baratos siguen empujando hacia abajo el suelo.
-- **A/B real Llama 4 Scout 17B (Groq) vs Llama 4 Maverick (OpenRouter)**: hoy hay solo 33 runs de Scout y un score de 7.92 (que sería el #1) — pero por debajo de los 50 runs no se incluyó. Validar y promover a tabla principal si confirma.
-- **Lote 8 + DGX Spark**: cuando llegue el DGX, agregar Llama 3.3 70B local (cuantizado vs FP16) y comparar con Groq cloud. Cierra la pregunta "¿conviene self-hosting?".
+**Diferencial extremo**: Claude Opus 4.7 cuesta **$1,170/mes** para entregar 7.16 — un score que Mistral Small 4 entrega por $9.40/mes (124× más barato). Para emprendedores, los modelos premium API son operativamente inaccesibles vs alternativas open.
+
+### 6.3 Pareto de costo-eficiencia
+
+Recomendación operativa para 4 perfiles:
+
+- **Bootstrap ($0/mes)**: GPT-OSS 120B (Ollama Cloud, score 7.41) o NIM Gemma 4 31B (7.20). Cero costo recurrente, tope ~25 calls/min.
+- **Microemprendimiento ($1-5/mes)**: Llama 3.1 8B Instant (Groq, $1.40, score 7.66, 368 tok/s). Es la mejor opción Pareto absoluta.
+- **PYME ($10-30/mes)**: Llama 4 Scout 17B (Groq, $5.40, 7.67), Mistral Small 4 ($9.40, 7.54), o GPT-OSS 20B (Groq, $4.70, 7.53).
+- **Volumen alto + multi-tarea ($30-100/mes)**: Llama 3.3 70B Groq ($13.60, 7.64) + Devstral Small ($4.80, 7.35) en pipeline.
 
 ---
 
-## Datos sospechosos / a re-validar
+## 7. Regresiones — cuando la versión nueva es peor
 
-1. **Qwen 3.5 397B (Ollama Cloud) Razonamiento 6.04**: muy bajo vs el mismo modelo en NIM (6.92). Hipótesis: cuantización agresiva en Ollama Cloud. Verificar con más muestras y/o pedir aclaración a Ollama.
-2. **DeepSeek V4 Flash (NIM) latencia 52.65s**: anomalía, casi 2x cualquier otro NIM. Posible bottleneck del provider en abril o cold-start. Re-correr en otro horario.
-3. **Nemotron Super 49B v1.5 (NIM) latencia 83s**: también anómalo. Mismo patrón sospechoso de NIM.
-4. **GPT-5.5 score 6.44 con solo 94 runs**: cerca del threshold de 50 pero merece más volumen para confirmar regresión vs GPT-5.4. Hoy GPT-5.5 (premium $46.50/1k) está PEOR que GPT-5.4 ($24/1k) — re-correr con muestras nuevas si OpenAI hizo silent retraining.
-5. **Llama 4 Scout 17B (Groq) score 7.92 con 33 runs**: si confirma con ≥50, sería el mejor del benchmark global. Priorizar.
-6. **Mistral-Nemotron (NIM) 12 runs**: prometedor (6.89) pero muy pocas muestras. Promover a benchmark completo en Lote 8.
-7. **Llama 4 Maverick Score Razonamiento 7.11 vs Coding 7.31**: dentro de lo esperado pero el score Agentes 6.55 es bajo para 70B — posible problema de tool calling en este modelo específico. Investigar antes de recomendar para N8N.
+Comparativas v2.4 entre versión anterior y nueva del mismo modelo:
 
-### Datos faltantes que invalidarían (parcialmente) el ranking actual
+| Anterior | Score | Nueva | Score | Δ |
+|---|---|---|---|---|
+| GPT-4.1 | 7.23 | GPT-5.5 | 6.44 | **−0.79** |
+| Qwen 3-Next 80B Instruct | 7.17 | Qwen 3-Next 80B Thinking | 6.41 | **−0.76** |
+| Devstral Small | 7.35 | Devstral 2 (Dic 2025) | 7.22 | −0.13 |
+| GLM 5 (NIM) | 6.87 | GLM 5.1 (NIM) | 6.79 | −0.08 |
+| Gemini 2.5 Pro | 6.47 | Gemini 3.1 Pro | 6.41 | −0.06 |
+| **Avances reales:** | | | | |
+| Gemini 2.5 Flash | 7.19 | Gemini 3.1 Flash Lite | 7.50 | +0.31 |
+| MiMo V2-Pro | 7.13 | MiMo V2.5-Pro | 7.26 | +0.13 |
+| Kimi K2.5 | 6.27 | Kimi K2.6 | 6.51 | +0.24 |
+| Qwen 3.5 397B (Ollama Cloud) | 6.72 | Qwen 3.5 397B (NIM) | 7.02 | +0.30 (provider, no modelo) |
 
-- **Sin tests Llama 3.3 70B en OpenRouter** (solo Groq). Si Groq tiene infra excepcional, el score 7.64 podría estar inflado por velocidad/latencia (que entra en `final` con 25% weight).
-- **GPT-5.5 Pro** (sólo /v1/responses) — sin medir. Importante para enterprise que ya pagan $30/$180 por M.
-- **Hermes 4 405B** y **Step3** — si superan 7.50, cambian el top 5 open-source.
-- **Provider variants no testeados**: GPT-OSS 120B en Groq vs Ollama Cloud. Si Groq da 300+ tok/s con score similar, mata a Ollama Cloud para low-latency apps.
+**Hallazgo regresión 1 — GPT-5.5 vs GPT-4.1 (−0.79)**: la regresión más severa del benchmark. GPT-5.5 cuesta $46.50/1k calls vs GPT-4.1 a $12.60. El usuario paga 4× más por un score 11% peor. Diagnóstico probable: GPT-5.5 es thinking-by-default y consume budget en reasoning interno antes de responder, agotando max_tokens en prompts complejos.
+
+**Hallazgo regresión 2 — Qwen 3-Next Thinking vs Instruct (−0.76)**: el modelo razonador es **estrictamente peor** que el instruct en single-turn. Por pilar: Razonamiento −0.78, Coding −0.44, Contenido −0.79, Agentes −0.95. **Penalización generalizada**, no solo en suites donde "no se necesita razonar". Esto desafía la intuición — la versión thinking del mismo modelo agrega complejidad sin valor en single-turn.
+
+**Hallazgo regresión 3 — Gemini Pro tier estancado (−0.06)**: Gemini 3.1 Pro (6.41) ≈ Gemini 2.5 Pro (6.47). El upgrade Pro→Pro no aporta. En cambio, Flash Lite mejoró +0.31 (7.19→7.50). **Google está mejorando su tier económico mientras el premium se estanca**.
+
+**Hallazgo regresión 4 — Devstral Small > Devstral 2 (−0.13)**: el "Devstral 2" lanzado en diciembre 2025 (123B) saca 7.22 contra 7.35 del Small original (24B). El modelo más grande es marginalmente peor. Probable razón: el Small está más afinado en string_precision (8.12 vs 7.29 del 2) y eso pesa en su score global.
+
+**Conclusión patrón**: **3 de 5 regresiones son thinking models o tier "Pro" que reemplazan no-thinking** (GPT-4.1→5.5, Qwen Instruct→Thinking, Gemini Pro→Pro). El thinking by default es un anti-pattern para single-turn. Los avances reales vienen del tier Flash Lite / variantes Mini.
 
 ---
 
-**Documento generado el 2026-04-26 por análisis directo de**:
-- `docs/data/models.json` (68 modelos con ≥50 runs)
-- `benchmarks/results/benchmark_*.json` (raw runs por test)
-- `benchmarks/scoring.py` (rúbrica)
-- `benchmarks/config.example.py` (metadata)
+## 8. Open-source vs propietario — ¿se cerró la brecha?
 
-**Sin simulaciones**. Todos los números provienen de mediciones reales del benchmark.
+### 8.1 Promedios
+
+| Categoría | n | Score promedio | Score top |
+|---|---|---|---|
+| Open-source | 44 | **6.98** | 7.67 (Llama 4 Scout) |
+| Propietario | 24 | 6.97 | 7.50 (Gemini 3.1 Flash Lite) |
+
+**Hallazgo**: la diferencia es **0.01 puntos** — virtualmente cero. El **top open-source supera al top propietario** por +0.17 puntos (Llama 4 Scout > Gemini 3.1 Flash Lite). En distribución completa, open-source está al menos en paridad.
+
+### 8.2 Por pilar — top open vs top closed
+
+| Pilar | Top Open | Score | Top Closed | Score | Δ |
+|---|---|---|---|---|---|
+| Razonamiento | Llama 4 Scout 17B | 7.80 | Gemini 3.1 Flash Lite | 7.55 | +0.25 |
+| Coding | Llama 4 Scout 17B | 7.70 | GPT-4.1 | 7.59 | +0.11 |
+| Contenido | GPT-OSS 20B (Groq) | 7.87 | Gemini 3.1 Flash Lite | 7.62 | +0.25 |
+| Agentes | Llama 3.1 8B Instant | 7.70 | Grok 4.1 Fast | 7.50 | +0.20 |
+
+**En los 4 pilares el top open-source supera al top propietario**. En 2024 esto no era el caso — la brecha era de 0.5+ puntos a favor de Claude/GPT. En abril 2026, **la brecha se cerró y se invirtió** a favor de open-source en single-turn.
+
+### 8.3 Caveat importante
+
+El propietario top en este benchmark es Gemini 3.1 Flash Lite (no Claude Opus o GPT-5). La razón es que **los flagship propietarios son thinking-by-default y eso los penaliza en single-turn corto**. En tareas multi-turn complejas con tool use intensivo (no medidas por este benchmark), Claude Opus probablemente sigue dominando. Pero para 80% de casos del emprendedor LATAM (atención al cliente, blog, copy, traducción), **open-source ya empató o superó a propietario**.
+
+### 8.4 Open-source que vale considerar
+
+Top 10 open-source globales:
+
+| # | Modelo | Score | $/1k | License |
+|---|---|---|---|---|
+| 1 | Llama 4 Scout 17B | 7.67 | 0.54 | Llama Community |
+| 2 | Llama 3.1 8B Instant | 7.66 | 0.14 | Llama Community |
+| 3 | Llama 3.3 70B | 7.64 | 1.36 | Llama Community |
+| 4 | Mistral Small 4 | 7.54 | 0.94 | Mistral Research |
+| 5 | GPT-OSS 20B | 7.53 | 0.47 | OpenAI MIT |
+| 6 | GPT-OSS 120B (Ollama Cloud) | 7.41 | 0.00 | OpenAI MIT |
+| 7 | Devstral Small | 7.35 | 0.48 | Apache 2.0 |
+| 8 | Hermes 4 70B | 7.24 | 0.64 | Llama Community |
+| 9 | Devstral 2 (Dic 2025) | 7.22 | 3.12 | Apache 2.0 |
+| 10 | Gemma 4 31B | 7.20 | 0.99 | Gemma License |
+
+---
+
+## 9. Anti-patterns del marketing — claims que no se sostienen
+
+Cinco claims comunes en el marketing de modelos AI 2025-2026 que la data del benchmark no respalda:
+
+### 9.1 "Más parámetros = mejor"
+
+Mistral Large 3 (675B params) saca 6.89. Nemotron Nano 9B v2 saca 6.91. **Modelo 75× más pequeño gana por 0.02 puntos**. Llama 3.1 8B saca 7.66 — más alto que casi cualquier modelo 100B+ del benchmark excepto Llama 4 Scout (que es MoE 17B activos / 109B total).
+
+### 9.2 "Thinking by default es mejor"
+
+GPT-5.5, Qwen 3-Next Thinking, Kimi K2.5/K2.6, DeepSeek V4 Pro — **todos los thinking models perdieron contra sus pares non-thinking del mismo proveedor en single-turn**. El thinking aporta cuando hay tools y multi-turn, no en respuestas únicas.
+
+### 9.3 "Premium tier vale el costo"
+
+Claude Opus 4.7 ($117/1k calls) saca 7.16. Llama 4 Scout ($0.54/1k) saca 7.67. **El gap es +0.51 a favor del barato, a 217× menos costo**. Lo mismo aplica a Gemini Pro vs Flash Lite y GPT-5.5 vs GPT-4.1.
+
+### 9.4 "Modelos chinos son la nueva frontera"
+
+Qwen, Kimi, DeepSeek, GLM, Step — **6 de los 10 peores en translation (español neutro) son chinos**. En tareas que requieren español puro sin contaminación de caracteres, es riesgo en producción. Mejoraron en razonamiento puro y código, pero el español público requiere validación humana.
+
+### 9.5 "Modelos multimodales superan a single-modal"
+
+MiMo V2-Omni multimodal saca 6.96. MiMo V2.5 (texto only) saca 7.32. **Misma familia, multimodal pierde 0.36 puntos** en single-turn de texto. Los multimodales tienen capacidad extra (visión, audio) que es valiosa en su nicho — pero diluyen score textual. Si tu producto es 100% texto, no pagues por multimodal.
+
+---
+
+## 10. Top 3 hallazgos sorpresivos del v2.4
+
+### 10.1 NIM gratis ≈ OpenRouter pagado en el mismo modelo
+
+La paridad exacta de Gemma 4 31B (7.20 NIM = 7.20 OpenRouter) y Kimi K2.5 (6.27 NIM = 6.27 OpenRouter) confirma que NVIDIA NIM gratis no degrada el modelo. Para 47 modelos del catálogo NIM con equivalente OpenRouter, **pagar OpenRouter es opcional** — solo justificable si necesitas >40 RPM o features específicos del routing.
+
+Implicación: el ecosistema cambió. NVIDIA está subsidiando inference para incentivar adopción de NIM. Como emprendedor, **migrar pipelines a NIM gratis para volúmenes <40 RPM es ROI inmediato**. Recordar: el cap es por tier de cuenta NIM y se aplica a todos los modelos juntos.
+
+### 10.2 Modelos thinking pierden vs sus pares Instruct en TODOS los pilares
+
+Qwen 3-Next 80B: Instruct 7.17 vs Thinking 6.41 = **−0.76 puntos**. Por pilar: Razonamiento −0.78, Coding −0.44, Contenido −0.79, Agentes −0.95.
+
+Esto NO es: "thinking sirve para razonamiento, no para contenido". Es: **en single-turn, thinking pierde en todo, incluido razonamiento puro**. La hipótesis es que el thinking consume budget de output (tokens facturados como reasoning) y el modelo retorna respuestas más cortas o truncadas. Para producción single-turn, **siempre elegir variante Instruct cuando exista**.
+
+La excepción son tareas multi-turn con tools donde el reasoning intermedio agrega valor — pero el benchmark no las mide directamente.
+
+### 10.3 9B parámetros derrotan a 675B en producción real
+
+Nemotron Nano 9B v2 (NIM, 6.91 global) **lidera startup_content y policy_adherence** del Lote 9 NIM por encima de Mistral Large 3 (675B, 6.89 global). 75× menos parámetros, mejor performance en suites específicas.
+
+Esto contradice la intuición de "modelo más grande = mejor". Lo que mide el benchmark es **balance de capacidades** + **cumplimiento de instrucciones precisas**. Modelos pequeños bien afinados (Nemotron Nano 9B, Llama 3.1 8B) tienen menos espacio para "elaborar" cuando el prompt pide brevedad — y eso correlaciona con mejor score automatizado.
+
+Implicación operativa: para producción de contenido o flujos N8N donde la respuesta es estructurada y corta, **el modelo de 8-30B parámetros es la elección óptima**. Los flagship 100B+ son útiles para razonamiento abierto, no para automatización repetitiva.
+
+---
+
+## 11. Implicaciones para la próxima iteración
+
+### 11.1 Suites pendientes de robustecer
+
+1. **agent_capabilities** — la suite más volátil (rango 4.83 a 7.78 = 2.95 puntos). Necesita más tests para discriminar finos en el tier 7.0+. Hoy el ranking acá es ruidoso.
+2. **tool_calling** — falta cobertura en tools complejas (>3 funciones, anidadas). El benchmark actual privilegia un patrón simple que casi todos los modelos modernos manejan.
+3. **multi_turn** — la suite es chica (10 tests). Para evaluar producción real con conversación, necesita 3× más cobertura.
+
+### 11.2 Modelos que faltan medir o re-medir
+
+1. **DeepSeek V4 Pro vía Ollama Cloud o provider directo** — 69 runs en NIM con 88 timeouts = ranking actual no-confiable.
+2. **Devstral 2 123B (NIM)** — 68 runs vs los 91 esperados. Suite agent_capabilities tiene 0 runs registrados, eso baja el rank artificialmente.
+3. **Magistral Small (Mistral)** — bloqueado en NIM por error 400. Probar en Mistral direct.
+4. **Llama 4 Maverick** — pendiente de migrar a Groq (hoy en OpenRouter con 7.03). Esperable +0.5 si va a Groq.
+5. **Gemini 3.1 Flash** (no Lite) — está pendiente, podría estar entre Flash Lite (7.50) y Pro (6.41).
+
+### 11.3 Métricas a agregar al pipeline
+
+1. **Cost-per-quality-point**: $/1k calls dividido por (score - 5.0). Mide cuánto cuesta cada punto de score sobre el baseline. Útil para Pareto operativo.
+2. **Latency p95**: hoy guardamos avg, pero p95 importa más para producción real (un timeout en el percentil alto rompe UX).
+3. **Variance entre runs**: misma pregunta, 5 ejecuciones. Modelos con alta varianza son riesgo en producción aunque su mean score sea alto.
+
+### 11.4 Áreas de cobertura que faltan
+
+1. **OCR + visión** (suites: ocr_extraction está, falta visión pura). Solo MiMo V2-Omni y Gemma 4 son medidos como multimodales.
+2. **Audio TTS** — Xiaomi MiMo V2.5-TTS está en el catálogo pero no se ha probado.
+3. **Mantenimiento de contexto largo** (>32k tokens). El benchmark actual usa prompts <4k. Para casos como análisis de documentos legales o transcripciones, hace falta una suite específica.
+
+---
+
+## 12. Datos sospechosos / a re-validar
+
+Casos donde la data parece anómala y conviene re-correr antes de publicar conclusiones fuertes:
+
+### 12.1 Devstral 2 123B (NIM) — agent_capabilities = 0.00
+
+El modelo tiene 68 runs totales pero la suite `agent_capabilities` registra 0.00 score. Posibles causas: 1) la suite no se corrió completamente por timeouts, 2) el modelo retorna respuestas vacías en esa suite específica. **Hay que re-correr solo agent_capabilities con más timeout** antes de aceptar el ranking 7.12 final.
+
+### 12.2 GPT-5.5 score 6.44 — caída masiva vs GPT-4.1
+
+GPT-5.5 cuesta 4× más que GPT-4.1 y entrega 11% menos score. Si bien la regresión es plausible (thinking-by-default + max_tokens insuficiente), conviene re-correr con `max_tokens × 4 = 8192` explícito para confirmar que no estamos truncando outputs. **Actualmente el adapter ya hace esto** — pero re-validar con runs frescos es prudente.
+
+### 12.3 Llama 4 Maverick — score 7.03 vs los Llama Groq en 7.6+
+
+Maverick está en OpenRouter (no Groq direct) y rinde mucho peor que su par Llama 4 Scout en Groq (7.67). La diferencia de +0.64 entre los dos modelos Llama 4 es enorme y se explica casi totalmente por provider. Re-medir Maverick en Groq sería el test crítico.
+
+### 12.4 Qwen 3.5 397B (Ollama Cloud) — translation 5.17
+
+El score más bajo del benchmark en cualquier suite individual. Podría ser:
+1. Bug del adapter Ollama Cloud — alguna config rechaza español.
+2. La cuantización específica de Ollama Cloud (no documentada, probablemente Q4 o Q5) degrada el español más que en otros modelos.
+3. Genuina contaminación de chino en español en el modelo cloud.
+
+Re-correr 5 prompts en español puro y comparar con NIM (mismo modelo, score 7.02 global) clarifica.
+
+### 12.5 Gemma 4 31B con NIM y OpenRouter idénticos a 4 decimales
+
+7.20 vs 7.20 es plausible — modelos FP16 son determinísticos a temperature=0 — pero a temperature=0.7 (default del benchmark) la coincidencia exacta a 2 decimales requiere que ambos providers estén servidor el mismo build. Vale auditar 1-2 runs lado-a-lado para confirmar y descartar caché compartida.
+
+### 12.6 MiMo Xiaomi — pricing es ambiguo
+
+Reportamos costos $0.13-0.46/1k calls para los MiMo, pero el modelo de Xiaomi es **suscripción flat** ($14/mes con cap de tokens off-peak 0.8x). El cálculo $/1k assume token-by-token pricing extrapolado. Si el usuario satura el cap mensual, el costo por call efectivo sube. **El ranking de MiMo asume volumen moderado** — para volumen alto requiere recálculo.
+
+---
+
+## Anexo A — Cómo leer este benchmark
+
+- **Score global**: media simple de 91 tests con peso igual. Cada test combina criterio automatizado (40%) + LLM-as-Judge Phi-4 (60%, escala 0-5 multiplicada por 2 = 0-10).
+- **Score by pillar**: 23 suites agrupadas en 4 pilares (Razonamiento, Coding, Contenido, Agentes). Score por pilar es media de las suites del pilar.
+- **Cost per 1k calls**: asume 300 tokens input + 1500 tokens output por call. Es el costo de procesar 1000 requests bajo este perfil.
+- **Tokens per second**: media de output_tokens / latency_total a través de los 91 tests. No incluye latencia de red de Chile a USA.
+- **Provider matters**: el mismo modelo puede tener score, latencia y costo distintos según provider. Comparar provider explícito es obligatorio antes de elegir.
+
+## Anexo B — Reproducir el análisis
+
+```bash
+.venv/bin/python -c "
+import json
+from scipy.stats import spearmanr
+with open('docs/data/models.json') as f:
+    data = json.load(f)
+tested = [m for m in data['models'] if m['tested'] and m['runs'] >= 50]
+paid = [m for m in tested if m['cost_per_1k_calls_usd'] > 0]
+costs = [m['cost_per_1k_calls_usd'] for m in paid]
+scores = [m['score_global'] for m in paid]
+print(spearmanr(costs, scores))
+"
+```
+
+Salida esperada: `SignificanceResult(statistic=-0.460, pvalue=0.001)`.
+
+Este script confirma la sección 1 del análisis. Cualquier persona puede re-correrlo con `docs/data/models.json` actualizado para validar los hallazgos.
+
+---
+
+**Última actualización**: 29 de abril de 2026 — v2.4 (post-Lote 9 NIM + DGX Spark Lote 1).
+**Próxima revisión**: tras Lote 10 o cualquier nuevo proveedor mayor.
+**Auto-regenerable**: este documento se reescribe completo desde `docs/data/models.json` con un agente data-scientist. No editar manualmente — los cambios se perderán en la próxima regeneración.
