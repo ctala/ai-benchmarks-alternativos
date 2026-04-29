@@ -47,6 +47,7 @@ from benchmarks.tests import startup_content, deep_reasoning, customer_support, 
 from benchmarks.tests import hallucination, creativity, string_precision, news_seo_writing
 from benchmarks.tests import ocr_extraction, orchestration, multi_turn, policy_adherence
 from benchmarks.tests import agent_capabilities, strategy, sales_outreach, translation
+from benchmarks.tests import agent_long_horizon
 
 console = Console()
 
@@ -74,6 +75,7 @@ ALL_TEST_SUITES = {
     "strategy": strategy.TESTS,
     "sales_outreach": sales_outreach.TESTS,
     "translation": translation.TESTS,
+    "agent_long_horizon": agent_long_horizon.TESTS,
 }
 
 
@@ -123,6 +125,109 @@ def run_single_test(
     return result
 
 
+def run_multi_turn_script(
+    provider: UnifiedProvider,
+    model_id: str,
+    test: dict,
+    timeout: int = 120,
+) -> BenchmarkResult:
+    """Ejecuta un test multi-turn con script de usuario pre-escrito.
+
+    Para suite agent_long_horizon: el modelo responde a N turnos del usuario,
+    manteniendo historial completo. La trayectoria se guarda en metadata.
+    """
+    messages = [{"role": "system", "content": test["system_prompt"]}]
+    trajectory = []  # lista de (user_turn, assistant_response)
+    last_result = None
+    total_input = 0
+    total_output = 0
+    total_latency = 0.0
+
+    for turn in test["script"]:
+        messages.append({"role": "user", "content": turn["user"]})
+        last_result = provider.chat(
+            model=model_id,
+            messages=messages,
+            tools=None,
+            temperature=0.7,
+            max_tokens=2048,
+            timeout=timeout,
+        )
+        if not last_result.success:
+            # Cortar trayectoria temprano si falla; el rubric se aplica sobre lo que haya
+            trajectory.append({"user": turn["user"], "assistant": last_result.error or "<fail>"})
+            break
+        assistant_response = last_result.response or ""
+        trajectory.append({"user": turn["user"], "assistant": assistant_response})
+        messages.append({"role": "assistant", "content": assistant_response})
+        total_input += last_result.input_tokens or 0
+        total_output += last_result.output_tokens or 0
+        total_latency += last_result.latency_total or 0.0
+
+    # Construir resultado compuesto: response = última respuesta del modelo
+    last_result.test_name = test["name"]
+    last_result.response = trajectory[-1]["assistant"] if trajectory else ""
+    last_result.input_tokens = total_input
+    last_result.output_tokens = total_output
+    last_result.latency_total = total_latency
+    if not hasattr(last_result, "metadata") or last_result.metadata is None:
+        last_result.metadata = {}
+    last_result.metadata["trajectory"] = trajectory
+    last_result.metadata["turns_executed"] = len(trajectory)
+    last_result.metadata["turns_total"] = len(test["script"])
+    return last_result
+
+
+def _score_long_horizon(result: BenchmarkResult, test: dict) -> float:
+    """Scorea un test agent_long_horizon contra su rúbrica.
+
+    Cada check del rubric tiene un weight (suma 1.0). El score final es 0-10.
+    """
+    import re
+
+    rubric = test.get("rubric", {})
+    checks = rubric.get("checks", [])
+    if not checks:
+        return 0.0
+
+    final_response = result.response or ""
+    trajectory = (result.metadata or {}).get("trajectory", [])
+    full_trajectory_text = "\n\n".join(
+        f"USER: {t['user']}\nASSISTANT: {t['assistant']}" for t in trajectory
+    )
+
+    total_weight = sum(c.get("weight", 0) for c in checks) or 1.0
+    score_acc = 0.0
+
+    for check in checks:
+        kind = check.get("kind", "")
+        patterns = check.get("patterns", [])
+        weight = check.get("weight", 0)
+        if not patterns or weight == 0:
+            continue
+
+        target = full_trajectory_text if kind.startswith("trajectory_") else final_response
+
+        passed = False
+        if kind in ("must_match_any", "trajectory_must_contain"):
+            passed = any(re.search(p, target, re.IGNORECASE | re.DOTALL) for p in patterns)
+        elif kind in ("must_not_match", "trajectory_must_not_match"):
+            passed = not any(re.search(p, target, re.IGNORECASE | re.DOTALL) for p in patterns)
+        elif kind == "must_match_count":
+            min_count = check.get("min_count", 1)
+            count = sum(len(re.findall(p, target, re.IGNORECASE)) for p in patterns)
+            passed = count >= min_count
+        elif kind == "must_not_match_at_density":
+            max_count = check.get("max_count", 0)
+            count = sum(len(re.findall(p, target, re.IGNORECASE)) for p in patterns)
+            passed = count <= max_count
+
+        if passed:
+            score_acc += weight
+
+    return round((score_acc / total_weight) * 10.0, 2)
+
+
 
 def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
                     judge: LLMJudge = None, suite_name: str = "") -> dict:
@@ -132,7 +237,34 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     - 30% score automatico (formato + expected_answer)
     - 70% score del juez LLM
     Sin juez, usa solo score automatico con 40/60 formato/sustancia.
+
+    Para tests tipo "multi_turn_script" (suite agent_long_horizon), usa la
+    rúbrica específica del test (regex-based) sin juez automático.
     """
+    # Path especial para agent_long_horizon: rúbrica regex-based
+    if test.get("type") == "multi_turn_script":
+        quality = _score_long_horizon(result, test) if result.success else 0.0
+        speed = score_speed(result.tokens_per_second)
+        latency = score_latency(result.latency_first_token)
+        cost = estimate_cost(model_config["id"], result.input_tokens, result.output_tokens)
+        # Tool-calling N/A en este formato (los tools son simulados via stubs)
+        scores = compute_final_score(quality, speed, latency, 7.0, cost)
+        scores["test_name"] = test["name"]
+        scores["model"] = model_config["name"]
+        scores["model_id"] = model_config["id"]
+        scores["success"] = result.success
+        scores["error"] = result.error
+        scores["tokens_per_second"] = round(result.tokens_per_second, 1) if result.tokens_per_second else 0
+        scores["latency_first_token"] = round(result.latency_first_token or 0, 3)
+        scores["latency_total"] = round(result.latency_total or 0, 3)
+        scores["input_tokens"] = result.input_tokens or 0
+        scores["output_tokens"] = result.output_tokens or 0
+        scores["response_preview"] = (result.response or "")[:300]
+        scores["auto_quality"] = round(quality, 2)
+        scores["turns_executed"] = (result.metadata or {}).get("turns_executed", 0)
+        scores["turns_total"] = (result.metadata or {}).get("turns_total", 0)
+        return scores
+
     expected_answer = test.get("expected_answer", {})
     answer_type = expected_answer.get("type", "")
 
@@ -555,7 +687,10 @@ def run_benchmark(args):
                     label += f" [elapsed {elapsed_str} | eta {eta_str}]"
                     print(f"{label}...", end=" ", flush=True)
 
-                    result = run_single_test(provider, model_id, test, REQUEST_TIMEOUT)
+                    if test.get("type") == "multi_turn_script":
+                        result = run_multi_turn_script(provider, model_id, test, REQUEST_TIMEOUT)
+                    else:
+                        result = run_single_test(provider, model_id, test, REQUEST_TIMEOUT)
                     scores = evaluate_result(result, test, model_config, judge=judge, suite_name=suite_name)
                     scores["suite"] = suite_name
                     scores["run"] = run_num + 1

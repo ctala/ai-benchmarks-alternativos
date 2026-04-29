@@ -1,0 +1,45 @@
+# Mistral Small 4 — agent_long_horizon/interruption_recovery_topic_switch
+
+- model_id: `mistralai/mistral-small-2603`
+- success: True  | final: 7.3 | quality: 10.0
+- latency_total: 97.991s | tokens_per_second: 139.5
+- input_tokens: 37835 | output_tokens: 12858
+
+## Respuesta completa
+
+¡Perfecto! Aquí tienes la **tabla completa y detallada** de los **4 semanas previas al lanzamiento (17 de abril al 14 de mayo)**, con:
+✅ **Todos los hitos clave** (de la primera tabla).
+✅ **Tareas día por día** (incluyendo la Semana 4 que ya empezamos y el detalle de la Semana 3).
+✅ **Herramientas, horarios sugeridos y ejemplos** para cada acción.
+✅ **Enfoque en productividad para emprendedores** (tu nicho).
+
+---
+
+### **📅 Plan de Lanzamiento Completo: 4 Semanas Previas al 15 de Mayo**
+**Producto:** Curso online *"Productividad para Emprendedores"*
+**Fecha de lanzamiento:** 15 de mayo
+
+---
+
+### **📌 Semana 1 (17 al 23 de abril): Preparación y Sensibilización**
+**Objetivo:** Crear expectativa y validar el interés en el curso.
+
+| **Día**       | **Hora**   | **Tarea**                                                                                     | **Detalles**                                                                                     | **Herramienta**          | **Ejemplo/Notas**                                                                                     |
+|---------------|------------|-----------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------|-------------------------------------------------------------------------------------------------------|
+| **Lunes 17**  | 9:00 AM    | **Email 1: "¿Sabías que el 80% de los emprendedores pierden tiempo?"**                        | Asunto: *"¿Sabías que el 80% de los emprendedores pierden tiempo en tareas que no suman?"* <br>Contenido: <br>- Fragmento gratuito (ej: plantilla para priorizar tareas). <br>- Enlace a landing page. <br>- Frase: *"¿Quieres aprender más? El curso lanza el 15/5"*. | Mailchimp/ConvertKit     | Plantilla: *"Hola [Nombre], ¿sabías que el 80% de los emprendedores dedican tiempo a tareas que no suman valor? Aquí tienes mi [plantilla gratuita] para priorizar tu día. 👇 [Enlace] ¿Te gustaría aprender más en mi curso? ¡Próximamente!"*. |
+|               | 12:00 PM   | **Post en Instagram (Lead Magnet)**                                                          | Contenido: <br>- Imagen/Reel con estadística: *"Los emprendedores pierden un promedio de 10h/semana en tareas sin impacto. ¿Quieres mi plantilla para recuperarlas? 👇"*. <br>- Enlace en bio a landing page. | Canva/CapCut             | Hashtags: #Productividad #Emprendedores #GestiónDelTiempo                                            |
+|               | 3:00 PM    | **Contactar a 2-3 microinfluencers**                                                          | Mensaje: *"Hola [Nombre], me encanta tu contenido sobre [tema]. ¿Te gustaría colaborar compartiendo mi plantilla gratuita sobre productividad? Te daría acceso anticipado a mi curso"*. | WhatsApp/DM/Email        | Ofrecer acceso gratuito al curso como agradecimiento.                                               |
+|               | 6:00 PM    | **Comentarios y engagement**                                                                  | Responder a todos los comentarios/mensajes de la semana.                                         | Instagram/Facebook       | Usar respuestas preguardadas si es necesario.                                                       |
+| **Martes 18** | 8:00 AM    | **Publicación en LinkedIn (Caso de estudio ficticio)**                                        | Artículo corto: *"Cómo [Nombre ficticio] ahorró 15h/semana aplicando el método XYZ"*. <br>Incluir enlace a landing page. | LinkedIn/WordPress       | Ejemplo: *"Ana, emprendedora, pasó de trabajar 12h/día a 5h con este sistema. ¿Quieres saber cómo? El curso lanza el 15/5"*. |
+|               | 11:00 AM   | **Email 2: "La verdad sobre la productividad para emprendedores"**                            | Asunto: *"La verdad que nadie te cuenta sobre la productividad"* <br>Contenido: <br>- 3 mitos comunes (ej: "Más horas = más productividad"). <br>- Enlace a plantilla gratuita. | Email marketing          | *"La mayoría de emprendedores creen que ser productivos es trabajar más horas. La realidad es otra..."*. |
+|               | 2:00 PM    | **Historias en Instagram (Encuesta)**                                                         | Story 1: *"¿Qué te bloquea más en tu productividad?"* (Opciones: Procrastinación, Falta de enfoque, Demasiadas reuniones). <br>Story 2: *"Responde en DM y te diré cómo solucionarlo"*. | Instagram Stories        | Usar la función de encuestas para generar engagement.                                              |
+|               | 4:00 PM    | **Revisión de landing page**                                                                   | Asegurarte de que la landing page esté funcional y con CTAs claros (ej: "Regístrate para recibir acceso anticipado"). | Carrd/Leadpages          | Probar enlaces y formularios.                                                                        |
+| **Miércoles 19** | 9:00 AM  | **Publicación en blog (si tienes web)**                                                       | Post: *"5 errores que te roban tiempo como emprendedor"* (con CTAs al curso). <br>Incluir plantilla gratuita para descargar. | WordPress/Medium         | Usar herramientas como **SurferSEO** para optimizar el SEO del post.                               |
+|               | 12:00 PM   | **Email 3: "Los 3 pilares de la productividad para emprendedores"**                          | Asunto: *"Los 3 pilares que nadie te enseña (y que cambiarán tu negocio)"* <br>Contenido: <br>- Explicar los 3 pilares (ej: Priorización, Automatización, Enfoque). <br>- Enlace a landing page. | Email marketing          | *"Estos 3 pilares son la base de mi curso. ¿Quieres dominarlos? ¡El lanzamiento es el 15/5!"*.      |
+|               | 3:00 PM    | **Live en Instagram (15 min): "Preguntas sobre productividad"**                               | Temas: <br>- "¿Cómo priorizar cuando todo es urgente?". <br>- "¿Qué herramientas usas para no distraerte?". <br>Promocionar curso. | Instagram Live           | Grabar el live y subirlo a IGTV/YouTube como contenido evergreen.                                  |
+|               | 6:00 PM    | **Seguimiento a colaboraciones**                                                              | Enviar recordatorio a influencers que compartieron tu contenido.                                 | WhatsApp/Email           | Ejemplo: *"Hola [Nombre], ¡gracias por compartir mi plantilla! ¿Te gustaría que te envíe acceso anticipado a mi curso?"*. |
+| **Jueves 20** | 8:00 AM    | **Email 4: "¿Listo para transformar tu negocio?"**                                            | Asunto: *"¿Listo para dejar de perder tiempo en lo irrelevante?"* <br>Contenido: <br>- Resumen de los beneficios del curso. <br>- Enlace a testimonios (si los tienes). <br>- Frase: *"En 2 semanas, esto será tuyo"*. | Email marketing          | Personalizar con el nombre del destinatario.                                                        |
+|               | 11:00 AM   | **Post en Instagram (Testimonio ficticio o real)**                                            | Video corto o imagen: *"[Nombre de cliente] pasó de trabajar 12h a 6h con este método. ¿Quieres ser el próximo?"*. <br>Incluir enlace a landing page. | Canva/CapCut             | Si no tienes testimonios reales, crea uno ficticio basado en datos reales.                          |
+|               | 2:00 PM    | **Publicación en grupos de Facebook/LinkedIn**                                                | Contenido: *"¿Cansado de perder tiempo en tu negocio? Este curso te ayudará a enfocarte en lo importante. ¡Lanza el 15/5!"*. <br>Incluir enlace. | Facebook Groups/LinkedIn | Buscar grupos de emprendedores (ej: "Emprendedores Digitales España").                             |
+|               | 4:00 PM    | **Configuración de publicidad paga (opcional)**                                               | Campaña en Meta Ads o Google Ads dirigida a emprendedores con el mensaje: *"¿Pierdes tiempo en tu negocio? Este curso te cambiará la vida"*. | Meta Ads/Google Ads       | Presupuesto sugerido: $20-$50 para probar.                                                          |
+| **Viernes 21** | 9:00 AM    | **Email 5: "Last chance: Plantilla gratuita"**                                                 | Asunto: *"🚨 Última oportunidad: Descarga mi plantilla antes de que desaparezca"* <br>Conten
