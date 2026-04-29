@@ -282,3 +282,87 @@ El repo es público y debe servir como funnel para la comunidad de emprendedores
 - Nuestros tests simulan tareas reales: blog, leads, workflows N8N
 - Medimos desde Chile (latencia real para LATAM)
 - Incluimos costo por llamada en el score (crítico para startups)
+
+---
+
+## Suite `agent_long_horizon` (decisión 29 abril 2026)
+
+Suite multi-turno (8+ turnos) que mide capacidades agénticas reales: context retention, skill orchestration, interruption recovery, goal persistence. Inspirada en Claw-Eval pero adaptada al runner sin Docker sandbox. Plantilla rígida (script de usuario pre-escrito), tools simulados via stubs, rúbricas regex-based.
+
+### ✅ Completado en v2.4.1
+
+- [x] **3 tests piloto** validados con smoke test sobre Llama 3.3 70B Groq (1 por pilar)
+- [x] Extension del runner: `run_multi_turn_script()` + `_score_long_horizon()` + dispatch en `evaluate_result()` por `test["type"] == "multi_turn_script"`
+- [x] **Sub-agent `agent-eval-designer`** en `.claude/agents/agent-eval-designer.md` — workflow para diseñar tests, refinar rúbricas, validar discriminación
+- [x] **Fase 2 — 9 tests restantes** generados batch por el sub-agent (3 por pilar restante)
+- [x] Suite total = 12 tests, integrada al benchmark principal (24 suites en lugar de 23)
+- [x] Validación con 3 modelos: Llama 3.3 70B (7.50), Mistral Small 4 (7.41), Nemotron 3 Base 33B (6.59) — drop de ~0.15 vs single-turn confirmado
+
+### 🔄 En curso (Lote 10, 29 abril)
+
+- [ ] **27 modelos × 12 tests = 324 runs** corriendo en background
+  - Top 20 single-turn (Llama 4 Scout, Llama 3.1 8B, GPT-OSS 20B Groq, Mistral Small 4, Gemini 3.1 Flash Lite, Grok 4.1 Fast, GPT-OSS 120B Cloud, Devstral, MiMo V2.5, MiMo V2.5-Pro, Hermes 4 70B, GPT-4.1, Devstral 2, MiMo V2-Flash, Gemma 4 31B OR/NIM, Nemotron Nano 30B, Gemini 2.5 Flash, Qwen 3-Next 80B Instruct NIM)
+  - Must-include MiMo/DeepSeek/Qwen: MiMo V2-Pro Xiaomi, MiMo V2-Omni Xiaomi, MiMo V2-Omni multimodal, DeepSeek V4 Flash NIM, Qwen 3.5 397B NIM
+  - Calibradores low: Gemini 3.1 Pro, Step 3.5 Flash, Kimi K2 Thinking, Kimi K2.5
+- [ ] **Lote 10b MiniMax** — M2.7, M2.7-Direct, M2.7-Highspeed (suscripción) en paralelo
+
+### ⏳ Pendiente (post-Lote 10)
+
+- [ ] **Ranking inter-modelo `agent_long_horizon` consolidado** publicado en INSIGHTS sección 0
+- [ ] **Cross-reference single-turn vs agentic**: identificar modelos que suben (buenos agentes ocultos) y caen (overrated single-turn)
+- [ ] **Stack recomendado por rol**: LLM cabecera (orquestador) + sub-agents/skills (coding, content, research, customer support, tool calling) — diferenciado por proveedor disponible
+- [ ] **Fase 3 — calibración con Claw-Eval**: para los 6 modelos en común (MiMo V2.5/Pro, Kimi K2.5/K2.6, Qwen 3.5 397B, GPT-5.4, Nemotron 3 Super), comparar agent_long_horizon avg vs Pass³ Claw-Eval. Si r > 0.7 nuestra suite está alineada
+- [ ] **Fase 4 — cobertura completa**: correr `agent_long_horizon` en los 70 modelos con ≥50 runs (faltarían ~40 tras Lote 10). 40 × 12 = 480 runs adicionales, ~$10-15
+- [ ] **Fase 5 — integración UX**: filtro `min_agent_score` en calculadora, columna agent score en ranking, recomendaciones N8N/OpenClaw priorizan este pilar
+
+---
+
+## Validación cruzada con benchmarks académicos estándar (decidido 29 abril 2026)
+
+Para credibilidad académica (paper arXiv) y triangulación con literatura existente.
+
+### Approach 1 — Cita y compara (esta semana, ~2-3h)
+
+NO replicar HumanEval/GSM8K/IFEval/MMLU desde cero — los proveedores ya los reportan. Recopilar y citar.
+
+- [ ] Recopilar scores oficiales de los **top 30 modelos** del benchmark en:
+  - **HumanEval** (Pass@1, coding Python aislado)
+  - **GSM8K** (math word problems)
+  - **IFEval** (instruction following, prompt-level strict)
+  - **MMLU** (general knowledge, 5-shot)
+  - Fuentes: technical reports oficiales, Open LLM Leaderboard, Papers With Code, blog posts del proveedor
+- [ ] Crear archivo `BENCHMARKS_EXTERNOS.md` con tabla cruzada: modelo / nuestro score / HumanEval / GSM8K / IFEval / MMLU / fuente
+- [ ] Sección en INSIGHTS: **"Triangulación con benchmarks externos"** — correlación de Spearman entre nuestro ranking y cada uno de los 4
+- [ ] Identificar **discrepancias notables**: modelos overrated en HumanEval que fallan en coding aplicado nuestro, modelos underrated que rinden mejor de lo esperado
+- [ ] Actualizar paper draft con sección "Cross-validation with established benchmarks" citando los originales con BibTeX
+
+### Approach 2 — Réplica selectiva en español (próxima semana, ~1 semana)
+
+Aporte original donde el gap es real.
+
+- [ ] **NIAH-ES** (Needle-in-Haystack en español)
+  - 5 niveles de contexto: 4K, 16K, 64K, 256K, 1M tokens
+  - Plantilla bilingüe: needle en español, haystack puede ser corpus español o inglés mixto
+  - Top 15 modelos con context window suficiente
+  - Suite 25 nueva: `benchmarks/tests/long_context_es.py`
+  - Costo estimado: $15-30 (gratis y NIM no soportan >32K en mayoría)
+  - Validar con cita a OpenCompass NIAH para metodología
+- [ ] **IFEval-ES** (instruction following en español, traducción curada)
+  - 500 prompts oficiales de IFEval traducidos al español neutro (no MT, curado humano)
+  - Misma rúbrica strict del original
+  - Aporte único: primer IFEval-ES público
+  - Top 30 modelos
+  - Suite 26 nueva: `benchmarks/tests/ifeval_es.py`
+  - Costo: ~$5-15 + ~10h trabajo humano de curación
+
+### ❌ NO replicar (justificado)
+
+- **HumanEval-ES**: poco valor incremental, ya está estandarizado en EN, los modelos no se evalúan distinto en coding por idioma del prompt
+- **GSM8K-ES**: traducción de problemas matemáticos no agrega — la matemática es language-agnostic
+- **MMLU completo**: 14K preguntas, costo prohibitivo, los proveedores ya reportan
+- **MT-Bench**: medir preferencia humana ya cubierto por LMSYS Arena, no es nuestro foco
+
+### 🔍 A monitorear (decisión futura)
+
+- **AgentBench / OSWorld / Terminal-Bench 2.0** — cuando crezcamos en agéntica multi-turno con sandbox, evaluar adopción
+- **TruthfulQA-ES** — si el gap "modelos que mienten menos" se vuelve más relevante para usuarios LATAM (políticas regulatorias?)
