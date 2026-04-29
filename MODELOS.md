@@ -37,6 +37,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `gpt-4.1` | ?  | $2.0/8.0 | **7.23** | 155 | [per-model](benchmarks/results/per-model/gpt-4_1.md) | — |
 | `mistralai/devstral-2512` | ✅ Apache 2.0 | $0.4/2.0 | **7.22** | 91 | [per-model](benchmarks/results/per-model/mistralai_devstral-2512.md) | [responses](benchmarks/results/responses/20260424_053942/) |
 | `xiaomi/mimo-v2-flash` | ✅ MIT | $0.09/0.29 | **7.20** | 91 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2-flash.md) | — |
+| `google/gemma-4-31b-it` | ✅ Gemma Terms | $0.0/0.0 | **7.20** | 96 | — | — |
 | `nvidia/nemotron-3-nano-30b-a3b` | ✅ NVIDIA Open | $0.05/0.2 | **7.20** | 91 | — | — |
 | `google/gemini-2.5-flash` | ?  | $0.3/2.5 | **7.19** | 123 | [per-model](benchmarks/results/per-model/google_gemini-2_5-flash.md) | — |
 | `qwen/qwen3-next-80b-a3b-instruct` | ✅ Apache 2.0 | $0.0/0.0 | **7.17** | 91 | — | — |
@@ -46,6 +47,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `mimo-v2-pro` | ✅ MIT | $0.07/0.07 | **7.13** | 91 | — | [responses](benchmarks/results/responses/20260427_092138/) |
 | `mimo-v2-omni` | ✅ MIT | $0.07/0.07 | **7.13** | 90 | — | [responses](benchmarks/results/responses/20260427_092138/) |
 | `gpt-4.1-mini` | ?  | $0.4/1.6 | **7.13** | 155 | [per-model](benchmarks/results/per-model/gpt-4_1-mini.md) | — |
+| `mistralai/devstral-2-123b-instruct-2512` | ✅ Apache 2.0 | $0.0/0.0 | **7.12** | 68 | — | [responses](benchmarks/results/responses/20260424_053942/) |
 | `google/gemini-2.5-flash-lite` | ?  | $0.1/0.4 | **7.12** | 155 | [per-model](benchmarks/results/per-model/google_gemini-2_5-flash-lite.md) | — |
 | `mistralai/devstral-medium` | ✅ Apache 2.0 | $0.4/2.0 | **7.09** | 88 | [per-model](benchmarks/results/per-model/mistralai_devstral-medium.md) | [responses](benchmarks/results/responses/20260424_053942/) |
 | `deepseek/deepseek-chat` | ?  | $0.14/0.28 | **7.09** | 155 | [per-model](benchmarks/results/per-model/deepseek_deepseek-chat.md) | — |
@@ -60,17 +62,20 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `xiaomi/mimo-v2-omni` | ?  | $0.4/2.0 | **6.96** | 91 | — | [responses](benchmarks/results/responses/20260427_092138/) |
 | `moonshotai/kimi-k2` | ✅ Modified MIT | $0.2/0.8 | **6.93** | 138 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2.md) | [responses](benchmarks/results/responses/20260427_185648/) |
 | `x-ai/grok-4.20` | ?  | $2.0/6.0 | **6.92** | 91 | — | — |
+| `nvidia/nvidia-nemotron-nano-9b-v2` | ❌ NVIDIA Open License | $0.0/0.0 | **6.91** | 91 | — | [responses](benchmarks/results/responses/20260426_184826/) |
 | `gpt-5.4` | ?  | $5.0/15.0 | **6.90** | 150 | [per-model](benchmarks/results/per-model/gpt-5_4.md) | — |
 | `mistralai/mistral-large-3-675b-instruct-2512` | ✅ Apache 2.0 | $0.0/0.0 | **6.89** | 87 | — | — |
 | `qwen/qwen3-coder` | ✅ Apache 2.0 | $0.2/0.6 | **6.89** | 155 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder.md) | — |
 | `xiaomi/mimo-v2-pro` | ❌ Proprietary | $1.0/3.0 | **6.88** | 91 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2-pro.md) | [responses](benchmarks/results/responses/20260427_092138/) |
 | `mistralai/mistral-nemo` | ?  | $0.02/0.02 | **6.87** | 122 | [per-model](benchmarks/results/per-model/mistralai_mistral-nemo.md) | [responses](benchmarks/results/responses/20260425_145813/) |
-| `gemma4:31b` | ?  | $— | **6.87** | 60 | — | — |
 | `z-ai/glm5` | ✅ MIT | $0.0/0.0 | **6.87** | 90 | — | [responses](benchmarks/results/responses/20260427_185648/) |
 | `xiaomi/mimo-v2.5-pro` | ?  | $— | **6.85** | 91 | — | — |
+| `mistralai/ministral-14b-instruct-2512` | ✅ Apache 2.0 | $0.0/0.0 | **6.85** | 90 | — | — |
+| `gemma4:31b` | ?  | $— | **6.84** | 89 | — | — |
 | `nvidia/nemotron-3-super-120b-a12b` | ✅ NVIDIA Open | $0.1/0.5 | **6.81** | 91 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-super-120b-a12b.md) | — |
 | `z-ai/glm-5.1` | ✅ MIT | $0.0/0.0 | **6.79** | 182 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
 | `nvidia/llama-3.3-nemotron-super-49b-v1.5` | ✅ NVIDIA Open Model | $0.0/0.0 | **6.77** | 86 | — | [responses](benchmarks/results/responses/20260423_051248/) |
+| `nemotron-3-super:120b` | ?  | $— | **6.74** | 90 | — | — |
 | `qwen3.5:397b-cloud` | ✅ Apache 2.0 | $0.0/0.0 | **6.72** | 94 | — | — |
 | `qwen3.5:cloud` | ✅ Apache 2.0 | $0.0/0.0 | **6.66** | 91 | — | — |
 | `minimax/minimax-m2.7` | ?  | $0.3/1.2 | **6.62** | 155 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_7.md) | — |
@@ -87,7 +92,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 
 <!-- AUTO-TABLE-END -->
 
-#### Tabla manual (legacy): (28 modelos × 91 tests = 2548 runs)
+#### Tabla manual (legacy): (68 modelos × 91 tests = 5,551 runs)
 
 > Cobertura completa con juez Phi-4. **No re-medir** estos a menos que se cumpla la regla de mantenimiento.
 
@@ -260,7 +265,7 @@ Prioridad alta — productos lanzados abril 2026 sin medir:
 9. `gpt-5.5-pro` ($30/$180 — caro, ~$72/lote completo, decidir si vale)
 
 ### Resumen Lote 6 completo
-- **45 modelos × 91 tests = 4095 runs**
+- **68 modelos × 91 tests = 5,551 runs**
 - **Tiempo total**: ~10-14h wall clock (en serial), ~6-8h en 2 parallel runs
 - **Costo total**: ~$50-100 OpenRouter (NIM/Cloud/Free son $0)
 

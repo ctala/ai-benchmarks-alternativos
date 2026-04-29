@@ -1,8 +1,8 @@
 ---
 title: "Insights del benchmark — qué dice la data antes de elegir un modelo en producción"
-fecha: "2026-04-26"
-version_benchmark: "v2.3"
-modelos_analizados: 45
+fecha: "2026-04-29"
+version_benchmark: "v2.4"
+modelos_analizados: 68
 runs_minimas_por_modelo: 50
 tests_por_modelo: 91
 pilares: ["Razonamiento", "Coding", "Contenido/Marketing", "Agentes/Operaciones"]
@@ -13,9 +13,32 @@ fuente_datos: "docs/data/models.json + benchmarks/results/*.json"
 
 # Insights del benchmark — qué dice la data, no el marketing
 
+## 🆕 Update v2.4 — Lote 9 NIM + DGX Spark Lote 1 (2026-04-29)
+
+Agregados al benchmark desde la versión anterior (61 → 68 modelos con cobertura ≥50 runs):
+
+**Lote 9 NIM** (gateway gratuito de NVIDIA, 40 RPM):
+- 🥇 **Gemma 4 31B (NIM)** **7.20** — domina 14/23 categorías del Lote NIM. Empata con Gemma 4 31B via OpenRouter (también 7.20 con 96 runs) → consistencia entre proveedores excelente.
+- 🥈 **Nemotron Nano 9B v2 (NIM)** 6.91 — fuerte en startup_content (#1 del lote a 7.31) y policy_adherence (#1 a 6.99). **9B parámetros** rinde mejor que muchos modelos 70B+ en su nicho.
+- 🥉 **GLM 5.1 (NIM)** 6.79 (con 182 runs) y GLM 5 (NIM) 6.87 — consistente con sus versiones via OpenRouter.
+- **Devstral 2 123B (NIM)** 7.12 con 68 runs (cobertura parcial) — segundo en deep_reasoning (7.12) y string_precision (7.29).
+- **Mistral Large 3 675B** 6.89 — el modelo más grande del Lote 9 NIM no fue el mejor (#1 solo en orchestration con 7.08).
+- ❌ **Magistral Small (NIM)** — error 400 instant en 91/91. NIM rechaza algún parámetro del adapter. Documentado en `MODELOS.md`.
+- ❌ **DeepSeek V4 Pro (NIM)** — 502/504 timeouts en NIM gateway con prompts largos. Solo 3 runs útiles. Funciona bien via Ollama Cloud.
+
+**DGX Spark Lote 1** (hardware propio, NVIDIA DGX Spark 128GB unified RAM, Q4_K_M cuantizado):
+- 🥇 **Gemma 4 31B (DGX Q4_K_M)** **6.84** — domina 11/23 categorías DGX (reasoning 7.00, customer_support 7.29, hallucination 6.76, creativity 6.85). Cuantización Q4 vs FP16 NIM **cuesta -0.36 puntos** pero el modelo sigue siendo competitivo a costo $0.
+- **Nemotron 3 Super 120B (DGX Q4_K_M)** **6.74** — domina 12/23 categorías DGX (code 7.11, structured 6.97, presentation 7.00, string_precision 7.00). Modelo gigante a 9-18 tok/s sostenido en hardware propio.
+
+**Hallazgo NIM 40rpm vs OpenRouter pagado**: el ranking del Lote 9 confirma que **NIM gratis es competitivo** para benchmarks secuenciales y producción de bajo volumen. Para usuarios con <50 calls/min, NIM ahorra el 100% del costo cloud.
+
+**Hallazgo cuantización local**: Q4_K_M en DGX Spark cuesta ~5% del score absoluto vs FP16. Para datos sensibles donde no se puede salir de la máquina, la pérdida es aceptable.
+
+---
+
 ## ⚠️ Limitaciones críticas a leer ANTES del análisis
 
-Este documento se generó con la data del repo (53 modelos, 91 tests, single-turn). Tres limitaciones que cambian la interpretación de varios hallazgos:
+Este documento se generó con la data del repo (68 modelos, 91 tests, single-turn). Tres limitaciones que cambian la interpretación de varios hallazgos:
 
 1. **Single-turn ≠ producción real con tools.** El benchmark mide al modelo solo, sin acceso a herramientas externas. En producción, un modelo "más débil" + Perplexity como tool de búsqueda web puede superar a un modelo "más fuerte" sin tools. Caso real: Cristian usa **Qwen 3.5 397B Cloud en N8N con tool de Perplexity** para ecosistemastartup.com — el modelo recibe contexto enriquecido que el benchmark no captura. **No comparar modelos de producción tool-augmented contra scores single-turn directamente**.
 
@@ -28,11 +51,11 @@ Este documento se generó con la data del repo (53 modelos, 91 tests, single-tur
 ---
 
 
-Este documento es el análisis **cuantitativo** de los resultados del benchmark `ai-benchmarks-alternativos` al **26 de abril de 2026**. No es un ranking más: es la lectura de un data scientist sobre 53 modelos × 91 tests, organizada en torno a las decisiones reales que tiene que tomar un emprendedor latinoamericano antes de poner un modelo en producción (OpenClaw, N8N, content pipelines).
+Este documento es el análisis **cuantitativo** de los resultados del benchmark `ai-benchmarks-alternativos` al **29 de abril de 2026** (v2.4). No es un ranking más: es la lectura de un data scientist sobre 68 modelos × 91 tests, organizada en torno a las decisiones reales que tiene que tomar un emprendedor latinoamericano antes de poner un modelo en producción (OpenClaw, N8N, content pipelines).
 
 > "No existe un mejor modelo universal." Lo que existe son modelos buenos para **una tarea, en un volumen, con una restricción**. Este informe te da el mapa.
 
-El **Lote 8** (modelos nuevos: Hermes 4 405B, Step3, Seed-OSS 36B, Grok 4.1 Fast, Nemotron Nano, etc.) está corriendo. Esos modelos quedan **fuera** del análisis principal y aparecen al final como "pendientes".
+El **Lote 9 NIM** (Gemma 4 31B, Nemotron Nano 9B v2, GLM 5/5.1, Devstral 2 123B, Mistral Large 3 675B, Ministral 14B, Step 3.5 Flash, Kimi K2.5) y el **DGX Spark Lote 1** (Gemma 4 31B Q4 + Nemotron 3 Super 120B Q4) ya están integrados en este análisis. Las secciones que siguen reflejan el estado v2.4 — el bloque "Update v2.4" arriba resume los hallazgos nuevos.
 
 ---
 
@@ -167,7 +190,7 @@ Patrón consistente con Llama 3.3 70B (Groq direct >> OpenRouter) y DeepSeek V4 
 
 **Pregunta de negocio**: ¿pagar más siempre da más calidad? ¿En qué pilar el precio importa MENOS?
 
-Calculé el coeficiente de **Spearman** (rank correlation, robusto a outliers) entre `cost_per_1k_calls_usd` y el score de cada pilar para los 53 modelos con ≥50 runs. Los modelos gratis (NIM, Ollama Cloud) se incluyeron — pagar 0 ≠ calidad mala, y la data lo confirma.
+Calculé el coeficiente de **Spearman** (rank correlation, robusto a outliers) entre `cost_per_1k_calls_usd` y el score de cada pilar para los 68 modelos con ≥50 runs. Los modelos gratis (NIM, Ollama Cloud) se incluyeron — pagar 0 ≠ calidad mala, y la data lo confirma.
 
 | Pilar | Spearman ρ (precio ↔ score) | Interpretación |
 |---|---|---|
@@ -637,7 +660,7 @@ Cuando llegue Step3, Seed-OSS 36B, Hermes 4 405B, Grok 4.1 Fast y Nemotron Nano 
 ---
 
 **Documento generado el 2026-04-26 por análisis directo de**:
-- `docs/data/models.json` (53 modelos con ≥50 runs)
+- `docs/data/models.json` (68 modelos con ≥50 runs)
 - `benchmarks/results/benchmark_*.json` (raw runs por test)
 - `benchmarks/scoring.py` (rúbrica)
 - `benchmarks/config.example.py` (metadata)

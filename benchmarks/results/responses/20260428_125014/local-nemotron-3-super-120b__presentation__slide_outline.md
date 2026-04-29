@@ -1,0 +1,40 @@
+# Nemotron 3 Super 120B (DGX Spark Q4_K_M) — presentation/slide_outline
+
+- model_id: `nemotron-3-super:120b`
+- success: True  | final: 6.87 | quality: 8.76
+- latency_total: 149.367s | tokens_per_second: 18.5
+- input_tokens: 146 | output_tokens: 2761
+- judge_score: 4.4 | justificación: 
+
+## Respuesta completa
+
+**Outline de presentación – “Plataforma Digital 2.0” (15 slides)**  
+*Audiencia: Junta de Directores*  
+
+| # | Título del slide | Bullet points (3‑5) | Tipo de visual sugerido | Notas del presentador (1‑2 oraciones) |
+|---|------------------|----------------------|--------------------------|----------------------------------------|
+| 1 | **Portada** | • Plataforma Digital 2.0  <br>• Fecha de presentación  <br>• Nombre y cargo del presentador  <br>• Logo de la compañía | Imagen de fondo con logo y título centrado | “Gracias por estar aquí. Hoy revisaremos el estado, los avances y lo que necesitamos del Board para seguir impulsando la plataforma.” |
+| 2 | **Agenda** | 1. Estado actual  <br>2. Métricas de progreso  <br>3. Riesgos y mitigación  <br>4. Presupuesto ejecutado vs planeado  <br>5. Roadmap Q2‑Q3  <br>6. Asks al Board | Lista numerada con iconos de checklist | “Esta es la hoja de ruta de la presentación; seguiremos el orden para mantenernos enfocados en lo que más importa al Board.” |
+| 3 | **Objetivos estratégicos** | • Acelerar la transformación digital de los canales de venta  <br>• Incrementar la adopción de usuarios en un 30 % FY24  <br>• Reducir el tiempo de lanzamiento de nuevas funcionalidades de 8 a 4 semanas  <br>• Garantizar cumplimiento de normativas de seguridad y privacidad | Diagrama de Objetivos‑Key Results (OKR) con 3‑4 columnas | “Los OKRs alinean la plataforma con la visión de crecimiento y eficiencia de la empresa.” |
+| 4 | **Estado actual del proyecto** | • Fase: Integración de módulos core (80 % completado)  <br>• Equipo: 12 desarrolladores, 4 QA, 2 PO, 1 Scrum Master  <br>• Entregables recientes: API de pagos, motor de personalización  <br>• Próximo hito: MVP de gestión de catálogo (fin de abril) | Diagrama de arquitectura de alto nivel (bloques con porcentaje de completado) | “Estamos en la fase de construcción del núcleo; la arquitectura muestra qué componentes ya están operativos y cuáles están en desarrollo.” |
+| 5 | **Métricas de progreso – KPIs clave** | • Velocidad promedio del sprint: 28 pts (↑12 % vs Q1)  <br>• % de historias de usuario cumplidas: 78 %  <br>• Lead time de cambios: 9 días (meta ≤10)  <br>• Satisfacción interna del equipo (eNPS): +42 | Gauges o barras horizontales con objetivo vs actual | “Los indicadores muestran una tendencia positiva en velocidad y predictibilidad, aunque el cumplimiento de historias aún tiene espacio para mejorar.” |
+| 6 | **Avance de funcionalidades (Feature Completion)** | • Módulo de autenticación: 100 %  <br>• Motor de recomendaciones: 65 %  <br>• Integración ERP: 40 %  <br>• Panel de analytics: 20 % | Barra de progreso apilada por funcionalidad | “Cada barra indica cuánto hemos avanzado en los bloques funcionales más críticos para el valor de negocio.” |
+| 7 | **Calidad y pruebas** | • Cobertura de pruebas unitarias: 82 % (meta 80 %)  <br>• Defectos encontrados por release: 3,2 (↓22 % vs release anterior)  <br>• Tiempo medio de resolución (MTTR): 4,5 h  <br>• % de pruebas automatizadas en regresión: 70 % | Línea de tendencia (defectos por release) + barra de cobertura | “La calidad está bajo control; la reducción de defectos y el buen MTTR reflejan madurez en nuestras prácticas de QA.” |
+| 8 | **Riesgos identificados** | • Dependencia de proveedor externo de servicios de pago (riesgo de retraso)  <br>• Escasez de talento en arquitectura cloud senior  <br>• Cambios regulatorios de privacidad de datos (GDPR‑like)  <br>• Sobrecarga del entorno de pruebas integrado | Matriz de riesgo (probabilidad vs impacto) con 4‑5 riesgos destacados | “Hemos mapeado los riesgos más críticos según su probabilidad y el impacto potencial en plazo, costo y calidad.” |
+| 9 | **Plan de mitigación de riesgos** | • Negociar SLA cláusulas de penalización y crear plan de pago alternativo  <br>• Programa de upskilling y alianza con universidad para pipelines de talento  <br>• Equipo legal revisa impacto regulatorio y actualiza políticas de datos  <br>• Ambiente de pruebas en la nube escalable (auto‑scale) | Tabla de riesgo → mitigación → estado (pendiente/en curso/completado) | “Cada riesgo tiene un plan de acción concreto; la mayoría ya está en ejecución y monitoreamos su avance quincenalmente.” |
+|10| **Presupuesto ejecutado vs planeado (YTD)** | • Presupuesto aprobado FY24: US$ 4,2 M  <br>• Gastos reales a fin de marzo: US$ 2,9 M (69 %)  <br>• Desviación por concepto: +5 % en licencias cloud, ‑8 % en consultoría externa  <br>• Forecast fin de año: US$ 4,0 M (‑5 % vs plan) | Gráfico de barras agrupado (Planeado vs Ejecutado) + línea de forecast | “Estamos dentro del rango esperado; la ligera sobre‑ejecución en cloud se compensa con ahorros en consultoría.” |
+|11| **Análisis de variaciones de costo** | • Licencias cloud: consumo mayor por carga de pruebas de rendimiento  <br>• Consultoría externa: reducción por internalización de tareas de integración  <br>• Capacitación: inversión adicional en certificación cloud (planned)  <br>• Contingencia: 10 % del presupuesto sin usar aún | Diagrama de waterfall que muestra cómo cada partida afecta el total | “El waterfall ilustra de dónde provienen las variaciones y nos ayuda a tomar decisiones de re‑asignación si fuera necesario.” |
+|12| **Roadmap Q2‑Q3** | • Q2: Lanzamiento MVP de gestión de catálogo (abril)  <br>• Q2: Integración completa de motor de pagos (mayo)  <br>• Q3: Release de panel de analytics y recomendaciones (julio)  <br>• Q3: Migración total a entorno cloud híbrido (septiembre) | Diagrama de Gantt trimestral con hitos clave | “El roadmap muestra la secuencia lógica de entregas que nos permitirán capturar valor temprano y cumplir con los OKRs.” |
+|13| **Próximos hitos y dependencias** | • Hito 1: Fin de pruebas de carga del motor de pagos (15 abr)  <br>• Hito 2: Aprobación de arquitectura de datos por el Comité de Gobernanza (30 abr)  <br>• Hito 3: Disponibilidad de entorno de pre‑producción (15 may)  <br>• Dependencia: Entrega de API del socio de pagos (proveedor X) | Línea de tiempo (timeline) con íconos de hito y flechas de dependencia | “Los hitos críticos están alineados con las fechas de liberación; cualquier retraso en la dependencia del proveedor impacta directamente el lanzamiento de pagos.” |
+|14| **Asks al Board** | • Aprobación de presupuesto adicional de US$ 250 K para licencias de seguridad avanzada  <br>• Autorización para crear un puesto de Arquitecto Cloud Senior (band L5)  <br>• Endorsement para escalar el modelo de gobernanza de datos a nivel corporativo  <br>• Soporte en la negociación de SLA con el proveedor de pagos (reunión ejecutiva) | Lista de asks con iconos de check y señal de aprobación pendiente | “Estas solicitudes son esenciales para mitigar riesgos, asegurar calidad y acelerar el roadmap; agradeceríamos su decisión en la próxima reunión de dirección.” |
+|15| **Conclusiones y próximos pasos** | • Proyecto en buen ritmo: 69 % de presupuesto ejecutado, KPIs dentro de rango  <br>• Riesgos bajo control con planes de mitigación activos  <br>• Roadmap Q2‑Q3 definido y alineado con OKRs estratégicos  <br>• Próximos pasos: obtener aprobación de asks y iniciar ejecución de Q2 milestones | Visual de resumen (cuatro cuadros con íconos: progreso, riesgo, roadmap, asks) + espacio para Q&A | “En síntesis, la Plataforma Digital 2.0 avanza conforme a lo planificado; con el apoyo del Board podemos asegurar su éxito y capturar el valor esperado de la transformación digital.” |
+
+---  
+
+**Tips para el presentador**  
+
+- Mantenga cada slide bajo 2 minutos de exposición para respetar el tiempo de la junta.  
+- Use los visuales como apoyo, no como texto para leer; hable de los insights que cada gráfico revela.  
+- Reserve los últimos 2‑3 minutos para preguntas y para enfatizar los **asks** (slide 14) como el punto de decisión clave.  
+
+¡Éxito en la presentación!

@@ -111,7 +111,12 @@
       "Bash(awk -F: '{print $2}')",
       "WebFetch(domain:claw-eval.github.io)",
       "Bash(curl -sL https://api.github.com/repos/claw-eval/claw-eval/contents)",
-      "Bash(curl -sL https://raw.githubusercontent.com/claw-eval/claw-eval/main/README.md)"
+      "Bash(curl -sL https://raw.githubusercontent.com/claw-eval/claw-eval/main/README.md)",
+      "Bash(curl -s https://benchmarks.cristiantala.com/data/models.json)",
+      "Bash(curl -s https://benchmarks.cristiantala.com/app.js)",
+      "Bash(curl -s \"https://benchmarks.cristiantala.com/app.js?v=$\\(date +%s\\)\")",
+      "Bash(curl -s \"https://benchmarks.cristiantala.com/data/models.json\")",
+      "Bash(curl -s \"https://benchmarks.cristiantala.com/style.css?v=$\\(date +%s\\)\")"
     ]
   }
 }
