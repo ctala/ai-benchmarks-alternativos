@@ -12,6 +12,43 @@ Para agregar un modelo nuevo:
 Para agregar un provider nuevo: editar runner.py + adapters.py.
 """
 
+# Suscripciones mensuales disponibles que dan acceso a modelos.
+# Un modelo puede estar incluido en MÚLTIPLES suscripciones — usar
+# `subscriptions: ["key1", "key2"]` en cada entry de MODELS.
+# Precios al 30 abril 2026, verificar antes de actualizar docs.
+SUBSCRIPTIONS = {
+    "ollama_cloud_pro": {
+        "name": "Ollama Cloud",
+        "plan": "Pro",
+        "price_month_usd": 30,
+        "url": "https://ollama.com/cloud",
+        "notes": "Rate limit varía por modelo. Recomendado para uso a volumen mid (1-10k calls/día).",
+    },
+    "xiaomi_standard": {
+        "name": "Xiaomi MiMo Standard",
+        "plan": "Standard",
+        "price_month_usd": 14,
+        "url": "https://mimo.xiaomi.com",
+        "notes": "200M credits/mes. Off-peak 16-24 UTC = 0.8x consumption. Acceso a 8 modelos MiMo.",
+    },
+    "minimax_agent_pro": {
+        "name": "MiniMax Agent Pro",
+        "plan": "Agent Pro",
+        "price_month_usd": 19,
+        "url": "https://api.minimax.io",
+        "notes": "Acceso a M2.7 highspeed + límites generosos para agentes (1k+ calls/día).",
+    },
+    "anthropic_pro": {
+        "name": "Anthropic Pro",
+        "plan": "Pro",
+        "price_month_usd": 20,
+        "url": "https://www.anthropic.com/pricing",
+        "notes": "Sub Anthropic Pro $20/mes. NO incluye API access (solo claude.ai web).",
+    },
+    # Nota: Groq, OpenRouter, OpenAI tienen pricing por token (pay-as-you-go)
+    # sin suscripción mensual fija. NIM gratis tiene 40 RPM sin sub.
+}
+
 # Modelos a evaluar via OpenRouter
 # Organizados por tier de costo
 MODELS = {
@@ -73,6 +110,8 @@ MODELS = {
         "cost_output": 1.20,
         "tier": "cheap",
         "provider": "minimax_direct",
+        "subscriptions": ["minimax_agent_pro"],
+        "notes": "API directa MiniMax. Disponible también en sub Agent Pro $19/mes.",
     },
     "minimax-m2.7-highspeed": {
         "id": "MiniMax-M2.7-highspeed",
@@ -81,6 +120,8 @@ MODELS = {
         "cost_output": 1.20,
         "tier": "cheap",
         "provider": "minimax_direct",
+        "subscriptions": ["minimax_agent_pro"],
+        "notes": "Acceso vía sub Agent Pro $19/mes. Misma calidad que M2.7 directo, latencia ultra baja.",
     },
     "gemini-flash": {
         "id": "google/gemini-2.5-flash",
@@ -492,6 +533,7 @@ MODELS = {
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_ollama",
         "provider": "ollama_cloud",
+        "subscriptions": ["ollama_cloud_pro"],
         "open_source": True,
         "license": "MIT",
         "notes": "Recien agregado a Ollama Cloud (abril 28). Smoke test 22s OK, sin timeouts vs OpenRouter (76% cobertura) y NIM (504s timeouts).",
@@ -502,6 +544,7 @@ MODELS = {
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_ollama",
         "provider": "ollama_cloud",
+        "subscriptions": ["ollama_cloud_pro"],
         "open_source": True,
         "license": "MIT",
         "notes": "Variante mas chica de V4. Comparar con V4 Flash NIM (7.07 score).",
@@ -513,6 +556,7 @@ MODELS = {
         "cost_output": 0.0,
         "tier": "cloud_ollama",
         "provider": "ollama_cloud",
+        "subscriptions": ["ollama_cloud_pro"],
         "open_source": True,
         "license": "Apache 2.0",
     },
@@ -523,6 +567,7 @@ MODELS = {
         "cost_output": 0.0,
         "tier": "cloud_ollama",
         "provider": "ollama_cloud",
+        "subscriptions": ["ollama_cloud_pro"],
         "open_source": True,
         "license": "Apache 2.0",
     },
@@ -533,6 +578,7 @@ MODELS = {
         "cost_output": 0.0,
         "tier": "cloud_ollama",
         "provider": "ollama_cloud",
+        "subscriptions": ["ollama_cloud_pro"],
         "open_source": True,
         "license": "Apache 2.0",
     },
@@ -914,6 +960,7 @@ MODELS = {
         "cost_input": 0.07, "cost_output": 0.07,
         "tier": "subscription",
         "provider": "xiaomi_direct",
+        "subscriptions": ["xiaomi_standard"],
         "open_source": False, "license": "Xiaomi Commercial",
         "notes": "All-in-one multimodal nativo, 1M context, lanzado 22 abril 2026",
     },
@@ -923,6 +970,7 @@ MODELS = {
         "cost_input": 0.14, "cost_output": 0.14,
         "tier": "subscription",
         "provider": "xiaomi_direct",
+        "subscriptions": ["xiaomi_standard"],
         "open_source": False, "license": "Xiaomi Commercial",
         "notes": "Flagship reasoning, agentic, 1M context, lanzado 22 abril 2026",
     },
@@ -932,6 +980,7 @@ MODELS = {
         "cost_input": 0.07, "cost_output": 0.07,
         "tier": "subscription",
         "provider": "xiaomi_direct",
+        "subscriptions": ["xiaomi_standard"],
         "open_source": True, "license": "MIT",
         "notes": "Mismo modelo que via OpenRouter — comparar provider stability",
     },
@@ -941,6 +990,7 @@ MODELS = {
         "cost_input": 0.07, "cost_output": 0.07,
         "tier": "subscription",
         "provider": "xiaomi_direct",
+        "subscriptions": ["xiaomi_standard"],
         "open_source": True, "license": "MIT",
         "notes": "Mismo modelo que via OpenRouter — comparar provider stability",
     },
