@@ -282,6 +282,66 @@ Smoke + validación con 3 modelos:
 
 ---
 
+## 🚨 Limitación crítica: NO medimos debugging agentic real
+
+**Caso real reportado** (30 abril 2026): un emprendedor enfrentó un **problema técnico complejo en un contenedor OpenClaw corriendo en VPS Hetzner**. Probó resolverlo con MiniMax M2.7 (top #7 en nuestro benchmark) usando OpenCode como agente — **NO pudo solucionarlo**. Cambió a Claude Opus 4.7 (posición fuera del top 10 en nuestro benchmark) — **resolvió el problema en pocos minutos**.
+
+Este caso expone una **limitación seria de nuestro benchmark** que hay que reconocer:
+
+### Lo que NO medimos
+
+| Dimensión | Lo mide | Nosotros lo medimos |
+|---|---|---|
+| Debugging agentic con sandbox real (Docker, FS, exec) | **SWE-bench Verified** | ❌ NO |
+| Multi-turn 20+ con tool feedback real del sistema | **Claw-Eval** (300 tareas verificadas humanamente) | ⚠️ Parcial — `agent_long_horizon` simula tools con stubs hardcoded |
+| Resolución de problemas en infra real (K8s, VPS, networking) | **Terminal-Bench 2.0**, OSWorld | ❌ NO |
+| Long-context bajo carga (>32K tokens) | **NIAH** (Needle-in-Haystack) | ❌ NO (en ROADMAP como Approach 2) |
+| Persistencia / judgment en sesiones largas con hipótesis fallidas | (No hay benchmark estándar) | ❌ NO |
+
+### Por qué nuestro coding score NO predice debugging real
+
+Nuestros tests de coding miden **"¿el modelo PUEDE escribir código correcto?"**, no **"¿el modelo PUEDE resolver un bug real iterando con tools en sandbox hasta que funcione?"**:
+
+- `code_generation`: "Genera función Python para X" — single-turn, criterio determinístico, 1 disparo
+- `string_precision`: "Copia exactamente esta API key" — formato verificable
+- `news_seo_writing/news_json_output_strict`: JSON estructurado — schema-validable
+- `agent_long_horizon`: multi-turn con tools **simulados** (stubs hardcoded) — sin Docker sandbox
+
+Son preguntas distintas. Un modelo puede sacar 8.0+ en quality de coding aplicado y fallar en debugging real porque no tiene el judgment para iterar tras hipótesis fallidas, la tolerancia a contexto largo de 50+ turnos con logs reales, o la persistencia para mantener un objetivo cuando 5 intentos no funcionaron.
+
+### Para debugging agentic real, prioriza estos benchmarks externos
+
+Para tareas tipo "tengo un bug en producción, resuélvemelo", **mirá las métricas que SÍ lo miden**, NO nuestro coding score:
+
+| Modelo | Nuestro Coding | SWE-bench Verified | Aprox |
+|---|---|---|---|
+| **Claude Opus 4.7** | 7.39 (top 5) | **87.6%** ⭐ | #1 globalmente |
+| Claude Sonnet 4.6 | ~7.3 | 77.2% | top 5 |
+| Devstral Small (specialist) | 8.03 | N/A reportado | (specialist coding) |
+| Llama 3.3 70B (Groq) | 8.01 | ~50% (Llama family base) | mid |
+| MiniMax M2.7 | 6.86 | N/A reportado | sin data oficial |
+| GPT-5.4 | 7.37 | reportado en system card | top |
+
+**SWE-bench Verified** (Anthropic, 500 tareas debugging reales con repos + tests verificados humanamente) es el benchmark de referencia para esta dimensión. **Opus 4.7 es #1 globalmente con 87.6%** — eso predice mejor su comportamiento en tu VPS Hetzner que cualquier número de nuestro benchmark.
+
+### Implicaciones honestas
+
+1. **Si tu task es generar código nuevo aplicado** (workflows N8N, plugins WP, scripts Python, blog posts en español): nuestro ranking es útil. Devstral Small, Llama 3.3 70B Groq, Mistral Small 4 ganan porque entregan calidad+velocidad+costo.
+
+2. **Si tu task es debugging real con tools en producción**: nuestro ranking NO es predictivo. **Mirá SWE-bench Verified, Claw-Eval (Pass³ multi-trial), Terminal-Bench**. Para casos críticos (incident response, hot-fixes, debugging de infra), Opus 4.7 / GPT-5.x premium siguen valiendo lo que cuestan.
+
+3. **No existe ranking universal**. Esta es la regla #0 del benchmark: "no existe el mejor modelo universal — existen modelos buenos para una tarea, en un volumen, con una restricción". Esta limitación es ejemplo concreto.
+
+### Cómo lo vamos a abordar (ROADMAP)
+
+- ✅ Documentado HOY como caso real validado
+- ⏳ **Suite `agentic_debugging` propia** (5-10 tests con escenarios de bugs reales en Docker/K8s/VPS, multi-turn 10-20 con stubs detallados, rúbrica focused en root cause + fix correcto + iteración tras feedback "no funcionó"). Costo estimado: ~$30-50 corriendo en top 10. ETA: 1 semana
+- ⏳ **Cross-reference SWE-bench Verified más prominente** en tabla principal cuando hay dato oficial
+- ⏳ **Replicar SWE-bench Verified en top 15** (es reproducible, infra pública). Costo: $50-100. ETA: 2-3 días post-paper
+- ⏳ **NIAH-ES** (long-context español) en ROADMAP como Approach 2 — cubre parcialmente la dimensión "tolerancia a contexto largo"
+
+---
+
 ## ⚠️ Limitaciones críticas a leer ANTES del análisis
 
 El benchmark tiene tres limitaciones estructurales que cambian la interpretación de varios hallazgos:

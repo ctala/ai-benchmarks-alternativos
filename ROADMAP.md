@@ -351,6 +351,37 @@ Test concreto de la sospecha de Approach 1: ¿modelos hybrid suben de score con 
 
 ---
 
+## Suite `agentic_debugging` (decidido 30 abril 2026 tras caso real)
+
+**Contexto**: caso real reportado donde MiniMax M2.7 (top #7 nuestro) NO pudo resolver un problema técnico complejo en contenedor OpenClaw / VPS Hetzner, mientras Opus 4.7 (fuera del top 10 nuestro) lo resolvió en pocos minutos. Esto expone que nuestro coding score NO predice debugging agentic real.
+
+### Qué medirla
+
+Suite nueva (suite 25) con 5-10 tests de debugging real:
+- Cada test es un escenario "tengo este bug, resolvelo": Dockerfile mal configurado, env var faltante, networking K8s, permisos, race condition, OOM, etc.
+- Multi-turn 10-20 con stubs detallados de logs/configs (similar al approach de `agent_long_horizon` pero con escenarios técnicos de infra)
+- Rúbrica focused en:
+  1. ¿Identificó root cause correcto?
+  2. ¿Propuso fix correcto?
+  3. ¿Iteró bien tras feedback "no funcionó"?
+  4. ¿Mantuvo hipótesis sobre 10+ turnos sin perder contexto?
+
+### Implementación
+- `benchmarks/tests/agentic_debugging.py` (nuevo)
+- Reusar el formato `multi_turn_script` del runner (ya está implementado)
+- Considera usar el caso real del usuario como **piloto 1** (problema OpenClaw en VPS Hetzner — anonimizado)
+
+### Inversión
+- Diseño de 5 tests piloto: 1 día humano
+- Smoke test en Llama 3.3 70B + Opus 4.7 + MiniMax: ~$5
+- Validación discriminación inter-modelo
+- Lote completo en top 10: ~$30-50
+
+### Hallazgo esperado
+Hipótesis: Opus 4.7 / GPT-5.x / Claude Sonnet 4.6 dominarán esta suite (consistente con SWE-bench Verified 87.6% Opus). Modelos cheap top single-turn caerán fuerte. **Esto ratifica el aporte académico**: mostrar que el benchmark single-turn NO es predictor de debugging agentic — hay que medir AMBOS.
+
+---
+
 ## Validación cruzada con benchmarks académicos estándar (decidido 29 abril 2026)
 
 Para credibilidad académica (paper arXiv) y triangulación con literatura existente.
