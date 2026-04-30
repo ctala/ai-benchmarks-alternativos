@@ -96,6 +96,8 @@ const state = {
     onlyThinking: false,      // Solo thinking models
     onlyMultimodal: false,    // Solo multimodal (texto + imagen/audio)
   },
+  // Sorting state — null usa el orden default (por _task_score desc)
+  sort: { column: null, direction: "desc" },
 };
 
 async function load() {
@@ -311,6 +313,58 @@ function scorePill(score) {
   return `<span class="score-pill ${cls}">${score.toFixed(2)}</span>`;
 }
 
+// Pill genérico para componentes (Quality, Cost, Tools, Speed, Latency).
+// Mismo color-coding que scorePill: ≥7 verde, ≥6 amarillo, <6 rojo.
+function componentPill(value) {
+  if (value == null || value === undefined) {
+    return `<span class="score-pill low">—</span>`;
+  }
+  let cls = "low";
+  if (value >= 7) cls = "";
+  else if (value >= 6) cls = "mid";
+  return `<span class="score-pill ${cls}">${value.toFixed(2)}</span>`;
+}
+
+// Sorting: aplica state.sort sobre un array ya rankeado.
+// Si sort.column === null, deja el orden original (default por _task_score).
+function applySort(rows) {
+  const { column, direction } = state.sort;
+  if (!column) return rows;
+
+  const getter = {
+    final: m => m._task_score ?? -Infinity,
+    quality: m => m.quality_avg ?? -Infinity,
+    cost: m => m.cost_score_avg ?? -Infinity,
+    tools: m => m.tool_calling_score_avg ?? -Infinity,
+    cost_month: m => m._cost_month ?? Infinity,  // menos = mejor para costo total
+    cb: m => m._efficiency ?? -Infinity,
+    tps: m => m.tokens_per_second ?? -Infinity,
+  }[column];
+
+  if (!getter) return rows;
+  const mult = direction === "asc" ? 1 : -1;
+  return [...rows].sort((a, b) => (getter(a) - getter(b)) * mult);
+}
+
+// Click handler para sortable columns. Toggle direction si misma columna,
+// reset a desc si es columna distinta.
+window.toggleSort = function(column) {
+  if (state.sort.column === column) {
+    state.sort.direction = state.sort.direction === "asc" ? "desc" : "asc";
+  } else {
+    state.sort.column = column;
+    state.sort.direction = "desc";
+  }
+  render();
+};
+
+function sortIndicator(column) {
+  if (state.sort.column !== column) return "<span class='sort-ind'>↕</span>";
+  return state.sort.direction === "asc"
+    ? "<span class='sort-ind active'>↑</span>"
+    : "<span class='sort-ind active'>↓</span>";
+}
+
 function modelTags(m) {
   const tags = [];
   // Solo mostrar tag de OSS cuando aplica — "propietario" es default implícito
@@ -393,10 +447,13 @@ function render() {
     return `<span class="cb-badge ${cls}" title="Costo-beneficio relativo a la mejor opción de la lista (eficiencia ${pct}%). Score² ÷ costo mensual.">${label}</span>`;
   };
 
-  // Mostrar columnas de componentes (Quality + Cost score) solo en vista global.
-  // Cuando el usuario filtra por pilar/suite específica, esas columnas no aplican
-  // y agregaríamos ruido visual.
+  // Mostrar columnas de componentes (Quality + Cost score + Tools) solo en
+  // vista global. Cuando el usuario filtra por pilar/suite específica, esas
+  // columnas no aplican y agregaríamos ruido visual.
   const showComponents = (f.task === "score_global" && !f.subtask);
+
+  // Sorting custom del usuario (si seleccionó una columna haciendo click en header)
+  const sorted = applySort(top);
 
   const html = `
     <table class="results-table">
@@ -404,20 +461,20 @@ function render() {
         <tr>
           <th>#</th>
           <th>Modelo</th>
-          <th class="num">Score ${taskLabel}</th>
+          <th class="num sortable" onclick="toggleSort('final')" title="Click para ordenar">Score ${taskLabel} ${sortIndicator("final")}</th>
           ${showComponents ? `
-            <th class="num" title="Quality (50% del Final): combinación de score automático + LLM-as-Judge Phi-4 (formato + sustancia)">Quality</th>
-            <th class="num" title="Cost score (20% del Final): curva log inversa. $0.001/call → 8.0, $0.01 → 5.0, $0.10 → 2.0, $1.00 → 0">Cost</th>
-            <th class="num" title="Tool calling (15% del Final): adherencia a OpenAI tools schema. 8/91 tests usan tools, el resto recibe 7.0 default">Tools</th>
+            <th class="num sortable" onclick="toggleSort('quality')" title="Quality (50% del Final): score automático + LLM-as-Judge Phi-4. Click para ordenar">Quality ${sortIndicator("quality")}</th>
+            <th class="num sortable" onclick="toggleSort('cost')" title="Cost score (20%): curva log. $0.001/call → 8.0, $0.01 → 5.0, $0.10 → 2.0. Click para ordenar">Cost ${sortIndicator("cost")}</th>
+            <th class="num sortable" onclick="toggleSort('tools')" title="Tool calling (15%): adherencia al schema OpenAI tools. Click para ordenar">Tools ${sortIndicator("tools")}</th>
           ` : ""}
-          <th class="num">Costo/mes</th>
-          <th class="num" title="Costo-beneficio relativo: score² / costo. 100% = mejor de la lista.">C/B</th>
-          <th class="num">tok/s</th>
+          <th class="num sortable" onclick="toggleSort('cost_month')" title="Costo total/mes según presupuesto y calls. Click para ordenar">Costo/mes ${sortIndicator("cost_month")}</th>
+          <th class="num sortable" onclick="toggleSort('cb')" title="Costo-beneficio relativo: score² / costo. 100% = mejor. Click para ordenar">C/B ${sortIndicator("cb")}</th>
+          <th class="num sortable" onclick="toggleSort('tps')" title="Tokens por segundo. Click para ordenar">tok/s ${sortIndicator("tps")}</th>
           <th>Tier</th>
         </tr>
       </thead>
       <tbody>
-        ${top.map((m, i) => `
+        ${sorted.map((m, i) => `
           <tr>
             <td class="num">${i + 1}</td>
             <td>
@@ -426,9 +483,9 @@ function render() {
             </td>
             <td class="num">${scorePill(m._task_score)}</td>
             ${showComponents ? `
-              <td class="num">${m.quality_avg !== null && m.quality_avg !== undefined ? m.quality_avg.toFixed(2) : "—"}</td>
-              <td class="num">${m.cost_score_avg !== null && m.cost_score_avg !== undefined ? m.cost_score_avg.toFixed(2) : "—"}</td>
-              <td class="num">${m.tool_calling_score_avg !== null && m.tool_calling_score_avg !== undefined ? m.tool_calling_score_avg.toFixed(2) : "—"}</td>
+              <td class="num">${componentPill(m.quality_avg)}</td>
+              <td class="num">${componentPill(m.cost_score_avg)}</td>
+              <td class="num">${componentPill(m.tool_calling_score_avg)}</td>
             ` : ""}
             <td class="num">$${m._cost_month.toFixed(2)}</td>
             <td class="num">${formatEfficiency(m)}</td>
