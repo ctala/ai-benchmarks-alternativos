@@ -393,6 +393,11 @@ function render() {
     return `<span class="cb-badge ${cls}" title="Costo-beneficio relativo a la mejor opción de la lista (eficiencia ${pct}%). Score² ÷ costo mensual.">${label}</span>`;
   };
 
+  // Mostrar columnas de componentes (Quality + Cost score) solo en vista global.
+  // Cuando el usuario filtra por pilar/suite específica, esas columnas no aplican
+  // y agregaríamos ruido visual.
+  const showComponents = (f.task === "score_global" && !f.subtask);
+
   const html = `
     <table class="results-table">
       <thead>
@@ -400,6 +405,11 @@ function render() {
           <th>#</th>
           <th>Modelo</th>
           <th class="num">Score ${taskLabel}</th>
+          ${showComponents ? `
+            <th class="num" title="Quality (50% del Final): combinación de score automático + LLM-as-Judge Phi-4 (formato + sustancia)">Quality</th>
+            <th class="num" title="Cost score (20% del Final): curva log inversa. $0.001/call → 8.0, $0.01 → 5.0, $0.10 → 2.0, $1.00 → 0">Cost</th>
+            <th class="num" title="Tool calling (15% del Final): adherencia a OpenAI tools schema. 8/91 tests usan tools, el resto recibe 7.0 default">Tools</th>
+          ` : ""}
           <th class="num">Costo/mes</th>
           <th class="num" title="Costo-beneficio relativo: score² / costo. 100% = mejor de la lista.">C/B</th>
           <th class="num">tok/s</th>
@@ -415,6 +425,11 @@ function render() {
               <div class="model-meta">${modelTags(m)} · ${m.id}</div>
             </td>
             <td class="num">${scorePill(m._task_score)}</td>
+            ${showComponents ? `
+              <td class="num">${m.quality_avg !== null && m.quality_avg !== undefined ? m.quality_avg.toFixed(2) : "—"}</td>
+              <td class="num">${m.cost_score_avg !== null && m.cost_score_avg !== undefined ? m.cost_score_avg.toFixed(2) : "—"}</td>
+              <td class="num">${m.tool_calling_score_avg !== null && m.tool_calling_score_avg !== undefined ? m.tool_calling_score_avg.toFixed(2) : "—"}</td>
+            ` : ""}
             <td class="num">$${m._cost_month.toFixed(2)}</td>
             <td class="num">${formatEfficiency(m)}</td>
             <td class="num">${m.tokens_per_second?.toFixed(0) ?? "—"}</td>
