@@ -600,49 +600,74 @@ def estimate_cost(model: str, input_tokens: int, output_tokens: int) -> float:
     return input_cost + output_cost
 
 
+import math
+
+# Pesos default v2.4.2 (30 abril 2026): "Quality-first" para emprendedor LATAM.
+# Cambios vs v2.3:
+# - Eliminado `availability` (era hardcoded a 7.0, no discriminaba)
+# - quality subió 35% → 50% (es el factor principal en decisiones reales)
+# - tool_calling bajó 25% → 15% (era inflado: solo ~8/91 tests usan tools, el
+#   resto recibe 7.0 default, lo cual infla a TODOS los modelos por igual)
+# - cost subió 15% → 20% (presupuesto es factor real para emprendedor LATAM)
+# - speed/latency 5% + 5% → 7.5% + 7.5% (más relevante en pipelines async)
+DEFAULT_WEIGHTS = {
+    "quality": 0.50,
+    "cost": 0.20,
+    "tool_calling": 0.15,
+    "speed": 0.075,
+    "latency": 0.075,
+}
+
+
+def cost_score_log(cost_per_call: float) -> float:
+    """Curva logarítmica para cost score (reemplaza buckets discretos).
+
+    Pivote: $0.001/call (1$/1k calls) = score 8.0
+    Pendiente: -3 puntos por cada orden de magnitud.
+
+    Resultado:
+    - free / <$0.0001 → 10.0
+    - $0.0001 → 11 → clip 10.0
+    - $0.001 → 8.0
+    - $0.005 → 5.91
+    - $0.01 → 5.0
+    - $0.05 → 3.09
+    - $0.10 → 2.0
+    - $1.00 (Opus 4.7) → -1 → clip 0.0
+    """
+    if cost_per_call <= 1e-6:  # essentially free
+        return 10.0
+    score = 8.0 - 3.0 * math.log10(cost_per_call / 0.001)
+    return max(0.0, min(10.0, score))
+
+
 def compute_final_score(
     quality: float,
     speed: float,
     latency: float,
     tool_calling: float,
     cost_per_call: float,
+    weights: dict | None = None,
 ) -> dict:
-    """Calcula el puntaje final ponderado."""
-    # Normalizar costo (inverso - menos costo = mejor score)
-    if cost_per_call <= 0:
-        cost_score = 10.0  # gratis
-    elif cost_per_call <= 0.001:
-        cost_score = 9.0
-    elif cost_per_call <= 0.005:
-        cost_score = 7.0
-    elif cost_per_call <= 0.01:
-        cost_score = 5.0
-    elif cost_per_call <= 0.05:
-        cost_score = 3.0
-    else:
-        cost_score = 1.0
+    """Calcula el puntaje final ponderado.
 
-    weights = {
-        "quality": 0.35,
-        "cost": 0.15,
-        "speed": 0.05,
-        "latency": 0.05,
-        "tool_calling": 0.25,
-        "availability": 0.15,  # hardcoded por ahora basado en proveedor
-    }
+    weights: opcional, override de DEFAULT_WEIGHTS. Útil para que la calculadora
+    pueda recalcular con sliders sin re-correr los benchmarks.
+    """
+    w = weights or DEFAULT_WEIGHTS
+    cost_s = cost_score_log(cost_per_call)
 
     final = (
-        quality * weights["quality"]
-        + cost_score * weights["cost"]
-        + speed * weights["speed"]
-        + latency * weights["latency"]
-        + tool_calling * weights["tool_calling"]
-        + 7.0 * weights["availability"]  # default availability
+        quality * w.get("quality", 0)
+        + cost_s * w.get("cost", 0)
+        + speed * w.get("speed", 0)
+        + latency * w.get("latency", 0)
+        + tool_calling * w.get("tool_calling", 0)
     )
 
     return {
         "quality": round(quality, 2),
-        "cost_score": round(cost_score, 2),
+        "cost_score": round(cost_s, 2),
         "cost_usd": round(cost_per_call, 6),
         "speed": round(speed, 2),
         "latency": round(latency, 2),

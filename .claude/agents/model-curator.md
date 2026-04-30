@@ -110,7 +110,7 @@ Cobertura desperdiciada:
 ### Caso 3: "Hay que cleanear el catálogo"
 
 1. Identificar modelos con success_rate <70% — probablemente deprecated
-2. Modelos con runs <50 que llevan >17 lotes sin completarse — investigar adapter
+2. Modelos con runs <50 que llevan >18 lotes sin completarse — investigar adapter
 3. Modelos duplicados (mismo capacity en distinto provider) — consolidar o justificar
 4. Output: PR con cambios al config + nota en CHANGELOG
 

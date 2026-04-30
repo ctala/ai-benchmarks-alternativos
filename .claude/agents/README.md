@@ -82,7 +82,7 @@ Agent({
 Agent({
   description: "Análisis cuantitativo benchmark",
   subagent_type: "data-scientist",
-  prompt: "Generá INSIGHTS.md con análisis de los 17 lotes consolidados..."
+  prompt: "Generá INSIGHTS.md con análisis de los 18 lotes consolidados..."
 })
 ```
 
