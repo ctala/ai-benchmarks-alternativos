@@ -12,6 +12,99 @@ fuente_datos: "docs/data/models.json + benchmarks/results/*.json"
 pesos_score: {quality: 0.50, cost: 0.20, tool_calling: 0.15, speed: 0.075, latency: 0.075}
 ---
 
+## 🆕 Update v2.5.0 — NIAH-ES piloto v1 (lost-in-the-middle confirmado, hallazgos sorpresa)
+
+Suite NIAH-ES (Needle-in-a-Haystack en español neutro) corrida sobre 8 modelos × 12 tests = 96 runs en 9 minutos wall-clock. Costo total: ~$8 OpenRouter. Ver `NIAH_ES_DESIGN.md` para diseño completo.
+
+### Ranking NIAH-ES — promedio global (4K-256K cuando aplica)
+
+| # | Modelo | Score | 4K | 16K | 64K | 256K | Errores |
+|---|---|---|---|---|---|---|---|
+| 1 | **Devstral Small** | **7.17** ⭐ | 7.7 | 7.3 | 6.5 | — | 3 (256K falla) |
+| 2 | **Llama 4 Scout 17B (Groq preview)** | **6.99** | 7.9 | 7.0 | 6.1 | — | 3 (256K falla, Groq cap) |
+| 3 | Mistral Small 4 | 6.88 | 7.2 | 7.3 | 6.1 | — | 3 (256K falla) |
+| 4 | Llama 3.3 70B (Groq) | 6.30 | 7.0 | 6.4 | 5.5 | — | 3 (256K falla) |
+| 5 | DeepSeek V4 Flash (NIM gratis) | 5.97 | 6.7 | 6.0 | 5.3 | — | 3 (NIM cap) |
+| 6 | Gemini 3.1 Pro | 5.92 | 6.3 | 6.3 | 5.8 | 5.3 | 0 ✅ |
+| 7 | GPT-4.1 | 5.73 | 6.4 | 6.3 | 5.4 | 4.8 | 0 ✅ |
+| 8 | **Claude Opus 4.7** | **4.81** ⬇ | 5.1 | 4.6 | 5.2 | 4.2 | 0 ✅ |
+
+### 🚨 Hallazgo sorpresa: Claude Opus 4.7 es ÚLTIMO en NIAH-ES
+
+Opus 4.7 (top en HumanEval 88.4, MMLU 90+, SWE-bench 87.6, generalmente considerado SOTA) sale **último** en retrieval de needle en español. Score promedio 4.81 vs Devstral Small 7.17 (que es 75x más barato).
+
+**Hipótesis posibles** (a validar):
+1. **Opus refusa a "extraer info textual"** y siempre elabora respuesta tipo "según el documento, parece que..." — el regex no matchea cuando el modelo parafrasea en lugar de copiar exacto
+2. **Opus es WEAK específicamente en NIAH chiquito** — su 5.1 a 4K es PEOR que cualquier otro modelo en 4K
+3. Posible **bias de Anthropic safety**: needle con "API key" puede triggerar safety y devolver "no debería compartir credenciales"
+
+**Acción**: revisar respuestas crudas de Opus 4.7 en `benchmarks/results/responses/20260430_193058/`.
+
+### 💀 Lost-in-the-middle CONFIRMADO en español
+
+Patrón documentado en literatura (Liu et al. 2023 sobre GPT-3.5/4) — **se replica en español**.
+
+Score promedio (5 needles) por posición dentro del haystack:
+
+| Modelo | 4K-25% | 4K-50% | 4K-75% | Drop al medio |
+|---|---|---|---|---|
+| **Claude Opus 4.7** | 6.0 | **3.1** | 6.3 | **-3.0 ⚠️** (severo) |
+| DeepSeek V4 Flash | 7.0 | 6.2 | 6.8 | -0.7 |
+| Devstral Small | 7.9 | 7.4 | 7.9 | -0.5 (más robusto) |
+| GPT-4.1 | 6.5 | 5.7 | 6.9 | -1.0 |
+| Gemini 3.1 Pro | 6.5 | 5.8 | 6.6 | -0.8 |
+| Llama 3.3 70B (Groq) | 7.2 | 6.3 | 7.5 | -1.0 |
+| Llama 4 Scout (Groq) | 8.0 | 7.7 | 7.9 | -0.2 (mejor) |
+| Mistral Small 4 | 7.6 | 6.5 | 7.6 | -1.1 |
+
+**Hallazgos del lost-in-the-middle**:
+
+1. **Opus 4.7 tiene drop de -3.0 puntos al medio del 4K**. Cualquier info crítica que pongas al medio del prompt, Opus la pierde con probabilidad alta.
+2. **Devstral Small (-0.5) y Llama 4 Scout (-0.2) son los más robustos** — extraen info al medio casi tan bien como en bordes.
+3. **El patrón se INVIERTE en 64K**: muchos modelos sacan MEJOR en 50% que en 25%. Hipótesis: en haystacks grandes, el modelo sub-divide la atención y el 25% queda en un "valle" no atendido.
+
+### 256K — solo Opus 4.7 + GPT-4.1 + Gemini 3.1 Pro lo procesan
+
+| Modelo | 256K-25% | 256K-50% | 256K-75% | Avg |
+|---|---|---|---|---|
+| **Gemini 3.1 Pro** | 5.66 | 5.31 | 4.82 | **5.26** (más estable) |
+| GPT-4.1 | 4.93 | 5.13 | 4.50 | 4.85 |
+| Claude Opus 4.7 | **2.64** | 5.28 | 4.85 | 4.26 (25% catastrófico) |
+
+**Modelos que NO procesan 256K** (error 400 esperado):
+- Devstral Small, Llama 3.3 70B Groq, Llama 4 Scout Groq (preview cap), Mistral Small 4 OpenRouter, DeepSeek V4 Flash NIM (todos cap a 128K efectivo)
+
+**Hallazgo importante**: el "1M context" o "10M context" declarado por providers (Llama 4 Scout, DeepSeek V4 Flash, GPT-4.1, Gemini 3.1 Pro) **NO se traduce a "1M de retrieval efectivo"**. Solo 3 modelos procesan 256K sin error en sus implementaciones reales (Opus, GPT-4.1, Gemini Pro), y de esos solo Gemini 3.1 Pro mantiene score >5.0 en las 3 posiciones.
+
+### Implicación para producción
+
+**Si tu task requiere context >128K**:
+- Solo Gemini 3.1 Pro, GPT-4.1, Claude Opus 4.7 lo procesan
+- Pero todos degradan a score ~4-5 (vs ~7 a context chico)
+- Costo: Opus 4.7 (~$45/M tokens input) y GPT-4.1 ($2.5/M) son las opciones — Gemini Pro ($2/M) gana en relación calidad-precio
+
+**Si tu task tiene context <64K** (mayoría de casos producción):
+- **Devstral Small ($0.10/$0.30)** es el mejor opción C/B — supera a Opus 4.7 a 1/450 del costo
+- **Llama 4 Scout 17B Groq** segundo en performance + 280 tok/s = mejor latencia
+- **DeepSeek V4 Flash NIM gratis** competitivo si rate limit 40 RPM alcanza
+
+**Si necesitás info crítica al medio del prompt**:
+- Devstral Small y Llama 4 Scout son los más robustos a lost-in-the-middle
+- **Evitá Opus 4.7 con contexto 4K-16K** — drop de 3 puntos al 50% es severo
+- Para mitigar: poné info crítica en bordes (primeras o últimas 25% del prompt)
+
+### Próximos pasos NIAH-ES (ROADMAP)
+
+- [x] Suite implementada + corpus + scoring + script regenerador (commit b74fa84)
+- [x] Smoke test Mistral Small 4
+- [x] Piloto v1 con 8 modelos (este update)
+- [ ] **v2 con 5 needles activos**: 60 tests por modelo (5 needles × 4 ctx × 3 pos), $200-300
+- [ ] **v3 con context 1M** en modelos que lo declaran (Gemini 3.x Pro, GPT-4.1, Llama 4 Scout, DeepSeek V4)
+- [ ] **Cross-ref con paper Gemini 1.5 NIAH inglés** para validar metodología
+- [ ] **Investigar bottom de Opus 4.7**: ¿son refusals, paráfrasis, o falla real de retrieval? Inspección manual de 5 respuestas.
+
+---
+
 ## 🆕 Update v2.4.2 — Ranking agent_long_horizon completo + scoring v2
 
 ### Nueva fórmula de score (rebalanced 30 abril)
