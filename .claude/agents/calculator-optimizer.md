@@ -67,7 +67,7 @@ You are the calculator UX/CRO optimizer for **benchmarks.cristiantala.com**. La 
 
 ### 2. Discovery
 - ¿Hay claro "qué hace esta calculadora" en los primeros 5 segundos?
-- ¿El hero comunica el valor (68 modelos, 7,000+ tests reales)?
+- ¿El hero comunica el valor (68 modelos, 8,000+ tests reales)?
 - ¿Visitor entiende que puede filtrar por tarea específica?
 - ¿Las landing pages dedicadas (/alternativas-claude/ etc.) son discoverable?
 

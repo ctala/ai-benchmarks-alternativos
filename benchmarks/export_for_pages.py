@@ -24,10 +24,28 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from benchmarks.config import MODELS as _CLOUD_MODELS
 from benchmarks.models import OLLAMA_MODELS
-from benchmarks.scoring import PRICING
+from benchmarks.scoring import PRICING, compute_final_score, DEFAULT_WEIGHTS
 
 # Merge cloud + local models para que DGX y otros locales aparezcan en la calculadora
 MODELS = {**_CLOUD_MODELS, **OLLAMA_MODELS}
+
+
+def _recalc_final(r: dict) -> float:
+    """Recalcula el `final` de un run con los pesos default actuales.
+
+    Útil cuando cambian los pesos en `scoring.py` — recalculamos sin re-correr
+    los benchmarks. Usa los componentes raw guardados en cada run (quality,
+    speed, latency, tool_calling, cost_usd).
+    """
+    q = r.get("quality")
+    s = r.get("speed", 0) or 0
+    lat = r.get("latency", 0) or 0
+    tc = r.get("tool_calling", 0) or 0
+    cost = r.get("cost_usd", 0) or 0
+    if q is None:
+        return r.get("final", 0) or 0
+    scores = compute_final_score(q, s, lat, tc, cost)
+    return scores["final"]
 
 
 # Mapeo suite → pilar (mismo orden que en generate_tests_md.py)
@@ -59,9 +77,15 @@ SUITE_TO_PILLAR = {
 
 
 def load_all_results():
-    """Carga y consolida todos los runs exitosos de benchmark JSONs."""
+    """Carga y consolida todos los runs exitosos de benchmark JSONs.
+
+    Agrupa por (model_id, model_name) para distinguir variantes thinking que
+    comparten el mismo id base (ej. claude-opus-4.7 vs claude-opus-4.7-thinking
+    ambos tienen id `anthropic/claude-opus-4-7`).
+    """
     results_dir = Path(__file__).parent / "results"
-    by_model = defaultdict(list)
+    by_id = defaultdict(list)        # match por id (compat)
+    by_id_and_name = defaultdict(list)  # match por (id, name) para thinking variants
 
     for fn in sorted(os.listdir(results_dir)):
         if not (fn.startswith("benchmark_") and fn.endswith(".json")):
@@ -74,39 +98,69 @@ def load_all_results():
         for r in results:
             if not r.get("success"):
                 continue
-            mid = r.get("model_id") or r.get("model") or "?"
-            by_model[mid].append(r)
-    return by_model
+            mid = r.get("model_id") or "?"
+            mname = r.get("model") or ""
+            by_id[mid].append(r)
+            by_id_and_name[(mid, mname)].append(r)
+    return by_id, by_id_and_name
 
 
 def aggregate_metrics(runs):
-    """Reduce lista de runs a métricas: score, latencia, tok/s, por pilar y por suite."""
-    scores = [r.get("final", 0) for r in runs if r.get("final") is not None]
+    """Reduce lista de runs a métricas: score, latencia, tok/s, por pilar y por suite.
+
+    Recalcula `final` por run con los pesos default actuales — permite cambiar
+    los pesos en `scoring.py` sin re-correr benchmarks. Además expone los
+    componentes promedio (quality, cost_score, speed, latency, tool_calling)
+    para mostrar en tablas y permitir que la calculadora aplique pesos custom.
+    """
+    # Recalcular final por run con los pesos actuales
+    finals_recalc = []
+    for r in runs:
+        if r.get("final") is None:
+            continue
+        new_final = _recalc_final(r)
+        r["_final_recalc"] = new_final
+        finals_recalc.append(new_final)
+
     judge_scores = [r.get("judge_score") for r in runs if r.get("judge_score") is not None]
     speeds = [r.get("tokens_per_second", 0) for r in runs if r.get("tokens_per_second", 0) > 0]
     latencies = [r.get("latency_total", 0) for r in runs if r.get("latency_total", 0) > 0]
     in_tokens = sum(r.get("input_tokens", 0) or 0 for r in runs)
     out_tokens = sum(r.get("output_tokens", 0) or 0 for r in runs)
 
-    # Score por pilar Y por suite (sub-categoría granular)
+    # Componentes promedio (para mostrar en tabla, no solo el final compuesto)
+    qualities = [r.get("quality") for r in runs if r.get("quality") is not None]
+    cost_scores = [r.get("cost_score") for r in runs if r.get("cost_score") is not None]
+    speed_scores = [r.get("speed") for r in runs if r.get("speed") is not None]
+    latency_scores = [r.get("latency") for r in runs if r.get("latency") is not None]
+    tc_scores = [r.get("tool_calling") for r in runs if r.get("tool_calling") is not None]
+
+    # Score por pilar Y por suite usando el final recalculado
     by_pillar = defaultdict(list)
     by_suite = defaultdict(list)
     for r in runs:
         suite = r.get("suite", "")
-        if not suite or r.get("final") is None:
+        if not suite or r.get("_final_recalc") is None:
             continue
-        by_suite[suite].append(r["final"])
+        by_suite[suite].append(r["_final_recalc"])
         pillar = SUITE_TO_PILLAR.get(suite)
         if pillar:
-            by_pillar[pillar].append(r["final"])
+            by_pillar[pillar].append(r["_final_recalc"])
     pillars = {p: round(sum(s) / len(s), 2) for p, s in by_pillar.items() if s}
     suites = {s: round(sum(v) / len(v), 2) for s, v in by_suite.items() if v}
+    scores = finals_recalc  # mantener naming downstream
 
     return {
         "runs": len(runs),
         "score_global": round(sum(scores) / len(scores), 2) if scores else None,
         "score_by_pillar": pillars,
         "score_by_suite": suites,
+        # Componentes raw promedio (permite mostrar columnas separadas + recalcular pesos en calculadora)
+        "quality_avg": round(sum(qualities) / len(qualities), 2) if qualities else None,
+        "cost_score_avg": round(sum(cost_scores) / len(cost_scores), 2) if cost_scores else None,
+        "speed_score_avg": round(sum(speed_scores) / len(speed_scores), 2) if speed_scores else None,
+        "latency_score_avg": round(sum(latency_scores) / len(latency_scores), 2) if latency_scores else None,
+        "tool_calling_score_avg": round(sum(tc_scores) / len(tc_scores), 2) if tc_scores else None,
         "judge_score_avg": round(sum(judge_scores) / len(judge_scores), 2) if judge_scores else None,
         "tokens_per_second": round(sum(speeds) / len(speeds), 1) if speeds else None,
         "latency_avg_s": round(sum(latencies) / len(latencies), 2) if latencies else None,
@@ -169,15 +223,25 @@ def _infer_capabilities(cfg, cfg_key):
 
 
 def build_export():
-    by_model = load_all_results()
+    by_id, by_id_and_name = load_all_results()
     models_export = []
 
     for cfg_key, cfg in MODELS.items():
         model_id = cfg["id"]
-        runs = by_model.get(model_id, [])
-        # Si el id de OpenRouter difiere, intentar matching loose
-        if not runs:
-            runs = by_model.get(cfg_key, [])
+        cfg_name = cfg.get("name", cfg_key)
+
+        # Variantes thinking (force_reasoning=True) comparten el id con la base
+        # → matching estricto por (id, name) para no heredar runs de la base.
+        if cfg.get("force_reasoning"):
+            runs = by_id_and_name.get((model_id, cfg_name), [])
+        else:
+            # Modelos normales: match por id, excluir runs cuyo `model` name
+            # contenga "(thinking)" para no contaminar al modelo base con runs
+            # de la variante thinking.
+            all_runs = by_id.get(model_id, [])
+            runs = [r for r in all_runs if "(thinking)" not in (r.get("model") or "")]
+            if not runs:
+                runs = by_id.get(cfg_key, [])
 
         metrics = aggregate_metrics(runs) if runs else {
             "runs": 0,
@@ -223,6 +287,7 @@ def build_export():
         "total_models": len(models_export),
         "tested_count": sum(1 for m in models_export if m["tested"]),
         "tokens_per_call_assumption": {"input": 300, "output": 1500},
+        "default_weights": DEFAULT_WEIGHTS,  # los pesos aplicados en score_global
         "models": models_export,
     }
 

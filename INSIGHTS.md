@@ -1,7 +1,7 @@
 ---
 title: "Insights del benchmark — qué dice la data antes de elegir un modelo en producción"
-fecha: "2026-04-29"
-version_benchmark: "v2.4.1"
+fecha: "2026-04-30"
+version_benchmark: "v2.4.2"
 modelos_analizados: 70
 runs_minimas_por_modelo: 50
 tests_por_modelo: 91
@@ -9,6 +9,142 @@ pilares: ["Razonamiento", "Coding", "Contenido/Marketing", "Agentes/Operaciones"
 juez_llm: "Phi-4 (Microsoft, 14B, MIT) via Ollama local"
 audiencia: "Emprendedores latinoamericanos que toman decisiones de producción HOY"
 fuente_datos: "docs/data/models.json + benchmarks/results/*.json"
+pesos_score: {quality: 0.50, cost: 0.20, tool_calling: 0.15, speed: 0.075, latency: 0.075}
+---
+
+## 🆕 Update v2.4.2 — Ranking agent_long_horizon completo + scoring v2
+
+### Nueva fórmula de score (rebalanced 30 abril)
+
+Pesos default ajustados para reflejar mejor las decisiones reales de un emprendedor LATAM:
+
+| Componente | Peso v2.3 (anterior) | Peso v2.4.2 (nuevo) | Por qué cambió |
+|---|---|---|---|
+| Quality | 35% | **50%** | Es el factor #1 en decisiones reales |
+| Cost | 15% | **20%** | Presupuesto importa para emprendedor LATAM |
+| Tool calling | 25% | **15%** | Estaba inflado: 83/91 tests reciben 7.0 default (no usan tools) |
+| Speed | 5% | **7.5%** | Pipelines async pero la velocidad afecta UX agente |
+| Latency | 5% | **7.5%** | Idem |
+| Availability | 15% (hardcoded a 7.0) | **eliminado** | No discriminaba |
+
+Curva de cost también mejorada: de buckets discretos (cliffs de 2 puntos en $0.0001 de diferencia) a curva logarítmica suave: $0.001/call → 8.0, $0.01 → 5.0, $0.10 → 2.0, $1.00 → 0.
+
+Ver `THINKING_EXPLAINED.md` y `BENCHMARKS_EXTERNOS.md` para contexto adicional.
+
+### Nuevo Top 10 score compuesto (v2.4.2)
+
+| # | Modelo | Final | Quality | Cost | Provider |
+|---|---|---|---|---|---|
+| 1 | Llama 4 Scout 17B | 8.11 | 7.93 | 8.83 | Groq direct |
+| 2 | Llama 3.1 8B Instant | 8.11 | 7.61 | 8.98 | Groq direct |
+| 3 | Llama 3.3 70B | 7.86 | 8.01 | 8.17 | Groq direct |
+| 4 | GPT-OSS 20B | 7.84 | 7.51 | 8.80 | Groq direct |
+| 5 | Mistral Small 4 | 7.81 | 8.08 | 8.30 | OpenRouter |
+| 6 | Gemini 3.1 Flash Lite | 7.73 | 8.01 | 7.85 | OpenRouter |
+| 7 | GPT-OSS 120B Cloud | 7.69 | 7.81 | 10.00 | Ollama Cloud |
+| 8 | Grok 4.1 Fast | 7.62 | 8.13 | 8.18 | OpenRouter |
+| 9 | MiMo V2.5 (Xiaomi) | 7.62 | 7.68 | 8.84 | Xiaomi direct |
+| 10 | Devstral Small | 7.61 | 8.03 | 7.63 | OpenRouter |
+
+### Why Opus 4.7 doesn't top our benchmark — y por qué eso valida la metodología
+
+El benchmark v2.4.1 puso a Claude Opus 4.7 en posición ~#30 (final 7.16). Pregunta legítima: ¿está bien si Opus es top en HumanEval (88.4), MMLU (90+), GPQA Diamond (94+), SWE-bench Verified (87)?
+
+Datos cuantitativos descomponen la respuesta:
+
+| Métrica | Opus 4.7 | Llama 3.3 70B (Groq) | Lectura |
+|---|---|---|---|
+| Score automático (formato + sustancia) | 7.33 | 7.43 | Empate — Opus marginal abajo en formato/criterios |
+| Score juez Phi-4 | **4.22** ⬆ | 4.00 | Opus MEJOR para Phi-4 (descarta sesgo del juez) |
+| Output tokens promedio (verbosity) | 980 | 991 | Idéntico — Opus NO es más verboso |
+| **Quality** (combinado, 50% del final) | 8.08 | 8.01 | Opus marginal arriba |
+| **Cost score** (20% del final) | 6.67 | 8.17 | Llama 1.5 puntos arriba |
+| **Speed score** (7.5%) | ~3 | ~9 | Llama 6 puntos arriba |
+| **Latency score** (7.5%) | ~5 | ~7 | Llama arriba |
+| Score final | **7.16** | **7.86** | Llama gana por costo + speed |
+
+**Conclusión metodológica**:
+
+1. **No es sesgo del juez** — Phi-4 (Microsoft, neutral) califica a Opus por encima de Llama. Si hubiera sesgo anti-Anthropic, Opus saldría peor en quality automática.
+2. **No es problema de API** — los componentes raw (quality, output tokens) están en el rango esperado.
+3. **Es la fórmula** — el score compuesto pondera costo y velocidad. Opus 4.7 es **40-100x más caro** que las alternativas top y **5-10x más lento** (50 tok/s vs 270 tok/s en Groq). Para un emprendedor con $500/mes de presupuesto, pagar 40x más por marginal +0.07 puntos de quality NO es decisión racional.
+4. **Esto valida el benchmark** — si tu decisión de producción solo dependiera de quality, los benchmarks académicos (HumanEval/MMLU) ya cubren esa pregunta. Nuestro aporte es medir quality + costo + velocidad + tool calling juntos, en español neutro, simulando casos reales de un emprendedor.
+
+Si solo quieres ranking por quality pura:
+
+| Top quality (sin pesar costo/speed) | Score |
+|---|---|
+| Gemma 4 31B | 8.19 |
+| Grok 4.1 Fast | 8.13 |
+| Gemini 3.1 Flash Lite | 8.11 |
+| Qwen 3-Next 80B Instruct (NIM) | 8.11 |
+| Mistral Small 4 | 8.08 |
+| **Claude Opus 4.7** | **8.08** |
+| Hermes 4 70B | 8.04 |
+| Claude Opus 4.6 | 8.04 |
+| Devstral Small | 8.03 |
+| Llama 3.3 70B (Groq) | 8.01 |
+
+En quality pura Opus es **top 6**, indistinguible de Llama 3.3 70B y Devstral Small. Es decir: en un test de quality solo, Opus 4.7 es excelente. **Para producción, costo y velocidad cambian la decisión**.
+
+### Ranking inter-modelo agent_long_horizon (multi-turn 8+ turnos)
+
+Suite agéntica con 12 tests multi-turno corridos en **38 modelos**. Top 10 inter-modelo:
+
+| # | Modelo | Score | Tests | Notas |
+|---|---|---|---|---|
+| 1 | **GPT-OSS 120B (Ollama Cloud)** | **8.15** | 12 | Apache 2.0, gratis con sub Ollama Cloud |
+| 2 | Llama 4 Scout 17B (Groq) | 7.86 | 12 | Apache 2.0 |
+| 3 | Llama 3.1 8B Instant (Groq) | 7.85 | 12 | Llama 3 small + ultra rápido |
+| 4 | Devstral Small | 7.77 | 12 | Apache 2.0 |
+| 5 | MiMo V2-Omni (Xiaomi direct) | 7.75 | 12 | Multimodal |
+| 6 | GPT-OSS 20B (Groq) | 7.67 | 9/12 | (3 errores 400 Groq + tools) |
+| 7 | MiMo V2.5 (Xiaomi) | 7.65 | 12 | Sub $14/mes |
+| 8 | Llama 3.3 70B (Groq) | 7.60 | 27 | Validado en múltiples runs |
+| 9 | MiMo V2-Pro (Xiaomi direct) | 7.47 | 12 | |
+| 10 | Mistral Small 4 | 7.41 | 12 | Apache 2.0 |
+
+**Bottom (modelos top single-turn que pierden agéntica)**:
+
+| # | Modelo | Score | Single-turn ref | Delta |
+|---|---|---|---|---|
+| 41 | Claude Opus 4.7 (thinking) | 6.33 | 7.16 | -0.83 ⬇ |
+| 42 | Kimi K2.6 (thinking) | 6.32 | ~6.5 | -0.18 ⬇ |
+| 43 | Hermes 4 405B (thinking) | 6.30 | ~6.5 | -0.20 ⬇ |
+| 44 | Qwen 3.5 397B (NIM) | 6.14 | 7.02 | -0.88 ⬇ (cobertura parcial 6/12 OK por 429) |
+
+**Hallazgo crítico para tu pipeline**:
+
+- **Modelos hybrid forzados a thinking EMPEORAN multi-turn agéntico** en 8/9 casos (Hermes 4 70B/405B, Opus 4.7, Sonnet 4.6, Haiku 4.5, Kimi K2.6, Gemini 3.1 Pro, Gemini 2.5 Flash). Excepción: Kimi K2.5 que sube +0.73.
+- Hipótesis: el modelo "razona demasiado" en cada turn, pierde foco/contexto del usuario, y se desvía del objetivo en multi-turn.
+- **Implicación**: para OpenClaw/Hermes/N8N, **NO actives thinking por default**. Solo activá si tu task específica requiere razonamiento puro (matemática, lógica formal). Para conversación, customer support, content marketing → thinking puede empeorar.
+
+### Stack recomendado para OpenClaw / Hermes / N8N (basado en datos v2.4.2)
+
+**LLM cabecera (orquestador)** — necesita context retention + skill orchestration + cost-effective:
+
+| Recomendación | Score agente | Justificación |
+|---|---|---|
+| 🥇 **GPT-OSS 120B (Ollama Cloud)** | 8.15 | #1 agéntico inter-modelo. **Gratis con sub Ollama Cloud**. Apache 2.0. Para usuarios que ya pagan Ollama Cloud. |
+| 🥈 **Llama 3.3 70B (Groq)** | 7.60 | Score robusto en multi-turno. 270 tok/s = latencia ultra baja. $1.36/1k calls. Apache 2.0. |
+| 🥉 **MiMo V2.5 (Xiaomi sub)** | 7.65 | Excelente C/B con sub $14/mes. Suscripción te da costo predecible. |
+
+**Skills especializados** (delegan tareas específicas desde el cabecera):
+
+| Skill | Modelo recomendado | Score |
+|---|---|---|
+| **Coding** (workflows N8N, plugins, scripts) | Devstral Small (Apache 2.0) | 7.77 agéntica, 7.61 single-turn |
+| **Content** (blog, social, newsletter) | MiMo V2.5 Xiaomi sub o Gemini 3.1 Flash Lite | 7.65 / 7.31 agéntica |
+| **Research con tools** (Perplexity-style) | DeepSeek V4 Flash (NIM gratis) o Mistral Small 4 | 6.48 / 7.41 |
+| **Customer support multi-turno** | GPT-OSS 120B Cloud o Llama 3.3 70B | 8.15 / 7.60 |
+| **Tool calling estructurado** (JSON estricto) | MiMo V2.5 (7.21 tool_calling), Gemini 3.1 Flash Lite (7.10) | |
+| **Multimodal** (OCR, video) | MiMo V2-Omni Xiaomi direct | 7.75 |
+
+**Lo que NO recomendamos** para producción a volumen:
+- ❌ Claude Opus/Sonnet/Haiku con thinking forzado en multi-turn (empeora)
+- ❌ Modelos NIM gigantes (>500B) con prompts largos en NIM (timeouts/429 cascada)
+- ❌ Forzar reasoning en cualquier modelo hybrid sin testear primero (excepto Kimi K2.5)
+
 ---
 
 # Insights del benchmark — qué dice la data, no el marketing

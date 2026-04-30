@@ -135,7 +135,10 @@
       "Bash(/usr/bin/curl -sL \"https://huggingface.co/api/datasets/claw-eval/Claw-Eval\")",
       "Bash(/usr/bin/curl -sL \"https://api.github.com/repos/claw-eval/claw-eval/contents/scripts\")",
       "Bash(/usr/bin/curl -sL \"https://raw.githubusercontent.com/claw-eval/claw-eval/main/score_summary.py\")",
-      "Bash(curl -s http://192.168.88.190:11434/api/tags)"
+      "Bash(curl -s http://192.168.88.190:11434/api/tags)",
+      "Bash(grep -n \"^---$\" /Users/cristiantala/Playground/Benchmarks/alternativos/ROADMAP.md)",
+      "Bash(awk '{print $2, $11\" \"$12\" \"$13\" \"$14, \"args:\", substr\\($0, index\\($0,\"--models\"\\)\\)}')",
+      "Bash(awk '{print \"PID\", $2, \"args:\", substr\\($0, index\\($0,\"--models\"\\)+9, 60\\)}')"
     ]
   }
 }

@@ -2,6 +2,90 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v2.4.2] - 2026-04-30 — Lote 10 + 11/11b/11c thinking + scoring rebalanced
+
+### Cobertura final v2.4.2
+- **70 modelos** con ≥50 runs single-turn
+- **38 modelos** con ≥9 runs en agent_long_horizon (multi-turno 8+ turnos)
+- **8,000+ runs** preservados en JSONs
+- **113 modelos** en config (era 102) con 12 variantes thinking de modelos hybrid
+
+### Lote 10 completo (agent_long_horizon × 27 modelos = 324 runs, 17h wall-clock)
+Top 10 inter-modelo agéntico:
+1. GPT-OSS 120B (Ollama Cloud) — 8.15 ⭐ #1, gratis con sub
+2. Llama 4 Scout 17B (Groq) — 7.86
+3. Llama 3.1 8B Instant (Groq) — 7.85
+4. Devstral Small — 7.77
+5. MiMo V2-Omni (Xiaomi direct) — 7.75
+6-10: GPT-OSS 20B, MiMo V2.5, Llama 3.3 70B, MiMo V2-Pro, Mistral Small 4
+
+### Lote 10b MiniMax (3 modelos, 36 runs)
+- MiniMax M2.7 (directo): 6.86 ⬆ provider directo
+- MiniMax M2.7 OpenRouter: 6.70
+- MiniMax M2.7 Highspeed (sub): 6.69 (highspeed = velocidad, NO mejor calidad)
+- Provider matters reconfirmado: +0.16 directo vs OpenRouter
+
+### Lote 11 thinking (Hermes 4 70B/405B + Kimi K2.5)
+- Kimi K2.5 (thinking): 7.00 (+0.73 vs sin thinking — única excepción que SUBE)
+- Hermes 4 70B (thinking): 6.70 (-0.54 vs sin)
+- Hermes 4 405B (thinking): 6.30 (-0.5 vs sin)
+
+### Lote 11b Anthropic thinking (4 modelos, 48 runs, $17.44)
+- Claude Haiku 4.5 (sin thinking): 6.86 — el MEJOR de Anthropic en agéntica
+- Claude Haiku 4.5 (thinking): 6.57 (-0.29)
+- Claude Sonnet 4.6 (thinking): 6.47 (-0.5)
+- Claude Opus 4.7 (thinking): 6.33 (-0.67)
+- **Hallazgo bestial**: Haiku sin thinking ($0.029/test) > Opus thinking ($1.18/test). 40x más barato y mejor en agéntica.
+
+### Lote 11c Gemini family + Kimi K2.6 thinking (4 modelos)
+- Gemini 2.5 Flash (thinking): 7.10 (-0.09 vs sin, casi igual)
+- Gemini 3.1 Flash Lite (thinking): 7.17
+- Gemini 3.1 Pro (thinking): 6.50 (apenas +0.06 vs sin)
+- Kimi K2.6 (thinking): 6.32
+
+### Hallazgo robustamente confirmado: thinking forzado EMPEORA multi-turn agéntico
+8 de 9 modelos hybrid empeoran con `force_reasoning=high` en agent_long_horizon vs sin thinking. Solo Kimi K2.5 sube. Hipótesis: el modelo razona demasiado por cada turn, pierde foco del usuario, se desvía del objetivo. Implicación para producción: NO activar thinking default en pipelines agente N8N/OpenClaw.
+
+### Scoring v2.4.2 rebalanced
+Pesos default cambiados:
+- quality 35% → **50%** (factor #1 en decisiones reales)
+- cost 15% → **20%** (presupuesto importa para emprendedor LATAM)
+- tool_calling 25% → **15%** (era inflado: 83/91 tests reciben default 7.0)
+- speed 5% → **7.5%**, latency 5% → **7.5%** (afectan UX de agente)
+- availability 15% (hardcoded a 7.0) → **eliminado** (no discriminaba)
+- Curva de cost: buckets discretos → log suave ($0.001 → 8.0, $0.01 → 5.0, $0.10 → 2.0)
+
+### Nuevo Top 10 con scoring v2.4.2
+1. Llama 4 Scout 17B (Groq) — 8.11
+2. Llama 3.1 8B Instant (Groq) — 8.11
+3. Llama 3.3 70B (Groq) — 7.86
+4. GPT-OSS 20B (Groq) — 7.84
+5. Mistral Small 4 — 7.81
+6. Gemini 3.1 Flash Lite — 7.73
+7. GPT-OSS 120B Cloud — 7.69
+8. Grok 4.1 Fast — 7.62
+9. MiMo V2.5 (Xiaomi) — 7.62
+10. Devstral Small — 7.61
+
+### Why Opus 4.7 doesn't top the benchmark
+Sección dedicada en INSIGHTS.md. Opus 4.7 saca **quality 8.08** (top 6 entre todos los modelos), juez Phi-4 le da **4.22** (más alto que Llama 3.3 70B 4.00). NO es sesgo del juez ni problema de API. Lo que cambia: en el score compuesto, Opus es 40-100x más caro y 5-10x más lento → cost score 6.67 vs Llama 8.17, speed score 3 vs 9. Para emprendedor LATAM con presupuesto $500/mes, marginal +0.07 quality NO justifica 40x precio. Si solo quieres quality, ordená por columna `quality_avg`.
+
+### Stack OpenClaw/Hermes recomendado (basado en datos)
+- **Cabecera**: GPT-OSS 120B Cloud (8.15 agéntica, gratis con sub)
+- **Coding**: Devstral Small (7.77 agéntica, Apache 2.0)
+- **Content**: MiMo V2.5 Xiaomi sub o Gemini 3.1 Flash Lite
+- **Customer support**: GPT-OSS 120B Cloud o Llama 3.3 70B Groq
+- **Tool calling estructurado**: MiMo V2.5 (7.21) o Gemini 3.1 Flash Lite (7.10)
+
+### Infraestructura
+- `providers/adapters.py`: parámetro `force_reasoning` que activa `reasoning={effort:high}` + `include_reasoning=true` vía OpenRouter para modelos hybrid
+- `benchmarks/runner.py`: propaga `force_reasoning` desde config
+- `benchmarks/scoring.py`: nueva fórmula `compute_final_score` con pesos rebalanced + curva log de cost
+- `benchmarks/export_for_pages.py`: recalcula `final` desde componentes raw para reflejar nuevos pesos sin re-correr benchmarks; expone componentes (quality/cost/speed/etc.) por modelo para que la calculadora pueda recalcular con sliders custom
+- `THINKING_EXPLAINED.md`: nuevo documento que explica los 3 tipos de modelos según thinking, cómo medimos, hallazgos
+- `BENCHMARKS_EXTERNOS.md`: nuevo documento con triangulación HumanEval/GSM8K/IFEval/MMLU oficiales
+- `.claude/agents/agent-eval-designer.md`: nuevo sub-agent especialista en evals agénticas multi-turn
+
 ## [v2.4.1] - 2026-04-29 (PM) — Nemotron 3 Nano Omni Reasoning + DGX Lote 2 + suite agent_long_horizon
 
 ### Nuevos modelos benchmarkeados (3)
