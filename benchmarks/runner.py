@@ -110,9 +110,15 @@ def run_single_test(
     model_id: str,
     test: dict,
     timeout: int = 120,
+    model_config: dict | None = None,
 ) -> BenchmarkResult:
-    """Ejecuta un solo test contra un modelo."""
+    """Ejecuta un solo test contra un modelo.
+
+    Si model_config tiene force_reasoning=True (modelos hybrid como Hermes 4,
+    Kimi K2.5), el adapter activa reasoning vía OpenRouter extra_body.
+    """
     tools = test.get("tools")
+    force_reasoning = bool((model_config or {}).get("force_reasoning", False))
     result = provider.chat(
         model=model_id,
         messages=test["messages"],
@@ -120,6 +126,7 @@ def run_single_test(
         temperature=0.7,
         max_tokens=2048,
         timeout=timeout,
+        force_reasoning=force_reasoning,
     )
     result.test_name = test["name"]
     return result
@@ -130,12 +137,14 @@ def run_multi_turn_script(
     model_id: str,
     test: dict,
     timeout: int = 120,
+    model_config: dict | None = None,
 ) -> BenchmarkResult:
     """Ejecuta un test multi-turn con script de usuario pre-escrito.
 
     Para suite agent_long_horizon: el modelo responde a N turnos del usuario,
     manteniendo historial completo. La trayectoria se guarda en metadata.
     """
+    force_reasoning = bool((model_config or {}).get("force_reasoning", False))
     messages = [{"role": "system", "content": test["system_prompt"]}]
     trajectory = []  # lista de (user_turn, assistant_response)
     last_result = None
@@ -152,6 +161,7 @@ def run_multi_turn_script(
             temperature=0.7,
             max_tokens=2048,
             timeout=timeout,
+            force_reasoning=force_reasoning,
         )
         if not last_result.success:
             # Cortar trayectoria temprano si falla; el rubric se aplica sobre lo que haya
@@ -688,9 +698,9 @@ def run_benchmark(args):
                     print(f"{label}...", end=" ", flush=True)
 
                     if test.get("type") == "multi_turn_script":
-                        result = run_multi_turn_script(provider, model_id, test, REQUEST_TIMEOUT)
+                        result = run_multi_turn_script(provider, model_id, test, REQUEST_TIMEOUT, model_config=model_config)
                     else:
-                        result = run_single_test(provider, model_id, test, REQUEST_TIMEOUT)
+                        result = run_single_test(provider, model_id, test, REQUEST_TIMEOUT, model_config=model_config)
                     scores = evaluate_result(result, test, model_config, judge=judge, suite_name=suite_name)
                     scores["suite"] = suite_name
                     scores["run"] = run_num + 1

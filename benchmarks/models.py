@@ -129,6 +129,18 @@ MODELS = {
         "open_source": True,
         "license": "Modified MIT",
     },
+    "kimi-k2.5-thinking": {
+        "id": "moonshotai/kimi-k2.5",
+        "name": "Kimi K2.5 (thinking)",
+        "cost_input": 0.20,
+        "cost_output": 0.80,
+        "tier": "cheap",
+        "open_source": True,
+        "license": "Modified MIT",
+        "thinking": True,
+        "force_reasoning": True,
+        "notes": "Misma versión que kimi-k2.5 pero con reasoning forzado vía OpenRouter (effort=high).",
+    },
 
     "kimi-k2.6": {
         "id": "moonshotai/kimi-k2.6",
@@ -191,6 +203,16 @@ MODELS = {
         "cost_input": 15.00,
         "cost_output": 75.00,
         "tier": "premium",
+    },
+    "claude-opus-4.7-thinking": {
+        "id": "anthropic/claude-opus-4-7",
+        "name": "Claude Opus 4.7 (thinking)",
+        "cost_input": 15.00,
+        "cost_output": 75.00,
+        "tier": "premium",
+        "thinking": True,
+        "force_reasoning": True,
+        "notes": "Mismo modelo que claude-opus-4.7 con extended thinking forzado (effort=high). Reasoning tokens facturados como output a $75/M — ~5-7x más caro por test que sin thinking.",
     },
 
     # --- Mistral ---
@@ -324,6 +346,16 @@ MODELS = {
         "cost_input": 3.00,
         "cost_output": 15.00,
         "tier": "medium",
+    },
+    "claude-sonnet-4.6-thinking": {
+        "id": "anthropic/claude-sonnet-4-6",
+        "name": "Claude Sonnet 4.6 (thinking)",
+        "cost_input": 3.00,
+        "cost_output": 15.00,
+        "tier": "medium",
+        "thinking": True,
+        "force_reasoning": True,
+        "notes": "Mismo modelo que claude-sonnet-4.6 con extended thinking forzado (effort=high). Reasoning tokens facturados como output a $15/M — ~5-7x más caro por test que sin thinking.",
     },
     "gemini-flash-lite": {
         "id": "google/gemini-2.5-flash-lite",
@@ -747,7 +779,17 @@ MODELS = {
         "cost_input": 0.13, "cost_output": 0.40,
         "tier": "cheap",
         "open_source": True, "license": "Llama 3 community",
-        "notes": "Hybrid reasoning mode. Open-source de Nous Research.",
+        "notes": "Hybrid reasoning mode. Open-source de Nous Research. Sin reasoning explícito en este config.",
+    },
+    "hermes-4-70b-thinking": {
+        "id": "nousresearch/hermes-4-70b",
+        "name": "Hermes 4 70B (thinking)",
+        "cost_input": 0.13, "cost_output": 0.40,
+        "tier": "cheap",
+        "open_source": True, "license": "Llama 3 community",
+        "thinking": True,
+        "force_reasoning": True,
+        "notes": "Misma versión que hermes-4-70b pero con reasoning forzado vía OpenRouter (effort=high). Technical report reporta +12 puntos MMLU al activar reasoning (76.7 → 88.4).",
     },
     "hermes-4-405b": {
         "id": "nousresearch/hermes-4-405b",
@@ -755,7 +797,17 @@ MODELS = {
         "cost_input": 1.00, "cost_output": 3.00,
         "tier": "cheap",
         "open_source": True, "license": "Llama 3 community",
-        "notes": "Flagship Hermes 4 con reasoning híbrido.",
+        "notes": "Flagship Hermes 4 con reasoning híbrido. Sin reasoning explícito en este config.",
+    },
+    "hermes-4-405b-thinking": {
+        "id": "nousresearch/hermes-4-405b",
+        "name": "Hermes 4 405B (thinking)",
+        "cost_input": 1.00, "cost_output": 3.00,
+        "tier": "cheap",
+        "open_source": True, "license": "Llama 3 community",
+        "thinking": True,
+        "force_reasoning": True,
+        "notes": "Misma versión que hermes-4-405b pero con reasoning forzado.",
     },
 
     # --- StepFun Step3 (multimodal MoE) ---

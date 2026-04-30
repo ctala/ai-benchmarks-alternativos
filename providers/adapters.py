@@ -102,10 +102,17 @@ class UnifiedProvider:
         temperature: float = 0.7,
         max_tokens: int = 2048,
         timeout: int = 90,
+        force_reasoning: bool = False,
     ) -> BenchmarkResult:
         """
         Llama al modelo SIN streaming (mas confiable para benchmarks).
         Timeout real via signal alarm como respaldo.
+
+        force_reasoning: para modelos hybrid (Hermes 4, Kimi K2.5, Kimi K2.6,
+        Qwen3-Next instruct con thinking opt-in) que NO activan reasoning por
+        default. Inyecta `reasoning: {effort: "high"}` + `include_reasoning: true`
+        via extra_body. Aplica el mismo tratamiento de THINKING_MODELS
+        (max_tokens × 4, min 8192) para que el modelo tenga budget suficiente.
         """
         result = BenchmarkResult(
             provider=self.provider_name,
@@ -120,8 +127,13 @@ class UnifiedProvider:
 
         start = time.perf_counter()
         try:
-            # Detectar thinking models y aplicar el estándar definido al inicio del módulo
-            is_thinking = any(model.startswith(p) or p in model for p in THINKING_MODELS)
+            # Detectar thinking models y aplicar el estándar definido al inicio del módulo.
+            # `force_reasoning=True` (config flag) trata al modelo como thinking aunque
+            # no esté en la tupla — para modelos hybrid (Hermes 4, Kimi K2.5) que solo
+            # activan reasoning cuando se les pasa el parámetro explícito.
+            is_thinking = force_reasoning or any(
+                model.startswith(p) or p in model for p in THINKING_MODELS
+            )
             if is_thinking:
                 token_param = "max_completion_tokens"
                 effective_max = max(max_tokens * THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS)
@@ -148,6 +160,14 @@ class UnifiedProvider:
             extra_body = {}
             if "ollama" in self.provider_name.lower():
                 extra_body["keep_alive"] = "30m"
+            # Hybrid reasoning models (Hermes 4 70B/405B, Kimi K2.5/K2.6,
+            # Qwen3-Next 80B Instruct con thinking opt-in): activar reasoning
+            # explícitamente vía OpenRouter. effort="high" usa ~80% del max_tokens
+            # para razonar, dejando ~20% para la respuesta visible — coherente con
+            # nuestro multiplier 4× y min 8192.
+            if force_reasoning:
+                extra_body["reasoning"] = {"effort": "high"}
+                extra_body["include_reasoning"] = True
 
             if extra_body:
                 response = self.client.chat.completions.create(**kwargs, extra_body=extra_body)
