@@ -2,6 +2,75 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v2.5.0] - 2026-04-30 — NIAH-ES + sección "Why Opus" + suscripciones explícitas + sortable calculadora
+
+### Suite NIAH-ES (Needle-in-a-Haystack en español neutro) — APORTE ÚNICO
+
+**Primer NIAH público en español neutro LATAM** (suite 25 del benchmark).
+
+- 12 tests piloto: 1 needle × 4 contextos (4K, 16K, 64K, 256K tokens) × 3 posiciones (25%, 50%, 75%)
+- 5 needles distintos con elementos no-alucinables (códigos, números, fechas, identificadores)
+- Corpus 9 artículos Wikipedia ES (~1.1MB / ~285K tokens) committeado al repo
+- Scoring híbrido: regex `exact_patterns` (70%) + keywords semántico (30%)
+- Smoke test Mistral Small 4: scores 7.3 (4K) → 6.0 (64K) → ERROR 400 (256K) — patrón esperado de degradación + falla por context overflow
+- `benchmarks/regenerate_niah_test.py` para reproducibilidad: anyone puede regenerar el prompt EXACTO de cualquier test desde corpus + config
+- `NIAH_ES_DESIGN.md` con diseño completo + ROADMAP de fases (smoke → piloto v1 → v2 con 5 needles → v3 cobertura completa con 1M context)
+
+### Limitación crítica documentada — debugging agentic real
+
+Caso real reportado (30 abril): MiniMax M2.7 (top #7 nuestro) NO pudo resolver problema técnico complejo en VPS Hetzner / contenedor OpenClaw. Opus 4.7 (fuera del top 10 nuestro) lo resolvió en minutos.
+
+INSIGHTS.md ahora abre con sección "Limitación crítica: NO medimos debugging agentic real":
+- Tabla qué mide cada benchmark (SWE-bench, Claw-Eval, Terminal-Bench, NIAH, nuestro)
+- Cross-reference SWE-bench Verified con scores oficiales (Opus 4.7 #1 con 87.6%)
+- Implicaciones honestas: cuándo confiar en nuestro ranking vs cuándo NO
+
+ROADMAP: nueva suite `agentic_debugging` agendada (5-10 tests bug real con stubs detallados, ETA 1 semana, $30-50). Considera usar caso real del usuario como piloto 1.
+
+### Catálogo de suscripciones explícito
+
+Modelos con `cost=0` ya NO son ambiguos. Nuevo dict `SUBSCRIPTIONS` en `benchmarks/models.py`:
+- Ollama Cloud Pro $30/mes (5 modelos)
+- Xiaomi MiMo Standard $14/mes (4 modelos)
+- MiniMax Agent Pro $19/mes (M2.7 Highspeed)
+- Anthropic Pro $20/mes (informativo, web only)
+
+11 modelos con campo `subscriptions: ["key1", "key2"]` (lista — un modelo puede estar en múltiples planes).
+
+Calculadora muestra "★ Sub $14/mes" en lugar de genérico "★ Sub Xiaomi". Tooltip aclara: "NO es gratis — requiere pagar la sub mensual".
+
+README sección dedicada "Modelos en suscripción mensual (NO son gratis)" con tabla de 4 planes + clarificación de qué modelos SÍ son realmente $0 (NIM 40 RPM, local hardware, pay-as-you-go).
+
+### Calculadora — sortable + pills coloreados
+
+- Click en cualquier header (Score, Quality, Costo, Tools, Costo/mes, C/B, tok/s) ordena la tabla
+- Toggle asc/desc al re-clickear. Indicador visual ↕/↓/↑
+- Pills coloreados en componentes (verde ≥7, amarillo ≥6, rojo <6) consistente con Score global
+- Header "Costo↓" + tooltip explícito: "10 = gratis o muy barato, 5 = $0.01/call, 0 = $1.00+/call. Más alto = más barato"
+
+### Documento "Why Opus 4.7 doesn't top our benchmark" + 6 hipótesis
+
+INSIGHTS sección dedicada con datos cuantitativos:
+- Phi-4 califica Opus 4.22 vs Llama 4.00 (descarta sesgo del juez)
+- Output tokens 980 vs 991 (descarta verbosity)
+- Opus es 40-100x más caro y 5-10x más lento — la fórmula compuesta lo penaliza por costo+speed, NO por quality
+
+6 hipótesis cualitativas con evidencia (extracto de respuesta real Opus 4.6 en news_json_output_strict):
+1. Opus es ELABORADAMENTE verboso (8 sub-secciones tipo Wikipedia vs 4-5 compactas Llama)
+2. Meta-comentarios "voy a abordar esto paso a paso..." que el juez no premia
+3. JSON con texto antes/después en tests con rúbrica strict
+4. Estilo "asistente formal" no encaja con criterios "estilo emprendedor LATAM"
+5. Posible saturación juez Phi-4 con respuestas tipo tutor universitario
+6. Tests agent_capabilities favorecen ejecución directa, Opus tiende a explicar antes de hacer
+
+### Cobertura final v2.5.0
+- **70 modelos** con ≥50 runs single-turn
+- **38 modelos** con ≥9 runs en agent_long_horizon multi-turno
+- **NIAH-ES**: 1 modelo (smoke) + 8 modelos planeados para piloto v1
+- **113 modelos** catalogados (incluye 12 variantes thinking)
+- **8,475+ runs** preservados en JSONs
+- **Suite count**: 23 single-turn + agent_long_horizon + niah_es = **25 suites**
+
 ## [v2.4.2] - 2026-04-30 — Lote 10 + 11/11b/11c thinking + scoring rebalanced
 
 ### Cobertura final v2.4.2

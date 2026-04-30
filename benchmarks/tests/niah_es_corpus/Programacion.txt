@@ -1,0 +1,111 @@
+La programación es el proceso de crear un conjunto de instrucciones que le dicen a una computadora como realizar algún tipo de tarea. Pero no solo la acción de escribir un código para que la computadora o el software lo ejecute. Incluye, además, todas las tareas necesarias para que el código funcione correctamente y cumpla el objetivo para el cual se escribió.​
+En la actualidad, la noción de programación se encuentra muy asociada a la creación de aplicaciones de informática y videojuegos. En este sentido, es el proceso por el cual una persona desarrolla un programa, valiéndose de una herramienta que le permita escribir el código (el cual puede estar en uno o varios lenguajes, como C++, Java y Python, entre muchos otros) y de otra que sea capaz de “traducirlo” a lo que se conoce como lenguaje de máquina, que puede "comprender" el microprocesador.​
+
+
+== Funcionamiento de un programa ==
+Para crear un programa y que la computadora lo interprete y ejecute, las instrucciones deben escribirse en un lenguaje de programación.
+El lenguaje entendido por una computadora se conoce como código máquina. Consiste en secuencias de instrucciones básicas que el procesador reconoce, codificadas como cadenas de números 1 y 0 (sistema binario). En los primeros tiempos de la computación se programaba directamente en código máquina. Escribir programas así resultaba demasiado complicado, también era difícil entenderlos y mantenerlos una vez escritos. Con el tiempo, se fueron desarrollando herramientas para facilitar el trabajo.
+Los primeros científicos que trabajaron en el área decidieron reemplazar las secuencias de unos y ceros por mnemónicos, que son abreviaturas en inglés de la función que cumple una instrucción de procesador. Por ejemplo, para sumar se podría usar la letra A de la palabra inglesa add (añadir). Crearon así una familia de lenguajes de mayor nivel, que se conocen como lenguaje ensamblador o simplemente ensamblador (en inglés, assembly). Con el tiempo los ensambladores incorporaron facilidades adicionales, pero siempre manteniendo una correspondencia directa con las instrucciones de procesador. A nivel conceptual, entonces, programar en ensamblador es muy similar a hacerlo en lenguaje máquina, solo que de una forma más amigable.
+A medida que la complejidad de las tareas que realizaban las computadoras aumentaba, el lenguaje ensamblador fue mostrando limitaciones. Para hacer un programa había que conocer en detalle el funcionamiento de la computadora donde se iba a ejecutar, qué instrucciones proveía y cómo emplearlas. A veces las instrucciones eran demasiado básicas, por ejemplo podía haber una para sumar dos números pero no para multiplicar, y entonces era necesario programar un algoritmo que realizara la multiplicación con base en instrucciones más básicas. Otras veces, la forma de emplear las instrucciones era engorrosa. Además, si se usaba otro modelo de computadora, en muchos casos había que reescribir el programa con otras instrucciones. El siguiente paso fue crear los lenguajes de alto nivel.
+Una vez que se termina de escribir un programa, es necesario de alguna forma traducirlo a lenguaje máquina, que es lo único que entiende el procesador. Esta tarea es automática, por medio de un programa adicional que toma el código escrito y lo procesa. Hay distintos enfoques para este procesamiento. El enfoque clásico se llama compilación: el programa toma el código en un lenguaje y genera código en el otro; al programa traductor se lo llama compilador. En general se habla de compilación y compiladores cuando el lenguaje de origen es de alto nivel; si la traducción es desde lenguaje ensamblador, se llama ensamblado y el programa se llama ensamblador (hay que distinguir el lenguaje ensamblador del programa ensamblador; en inglés es más claro, son assembly language y assembler respectivamente).​
+Generalmente existe una fase posterior a la compilación denominada enlace o enlazado (linking en inglés). Los programas pueden escribirse en partes separadas y además pueden usar recursos provistos por bibliotecas. El enlazado, realizado por un programa llamado enlazador, combina todos los componentes y así genera un programa ejecutable completo.
+En algunos lenguajes de programación, puede usarse un enfoque diferente que no requiera compilación y enlace: un programa llamado intérprete va leyendo el código y realizando en el momento las acciones que haría el programa. Se evita generar código separado y la experiencia es que se está ejecutando el código en el lenguaje de alto nivel, a pesar de que el procesador no lo entienda de forma nativa.
+
+
+== Léxico y programación ==
+La programación se rige por reglas y un conjunto más o menos reducido de órdenes, expresiones, instrucciones y comandos que tienden a asemejarse a una lengua natural acotada; y que además tienen la particularidad de una reducida ambigüedad.
+En los lenguajes de programación se distinguen diversos elementos entre los que se incluyen el léxico propio del lenguaje y las reglas semánticas y sintácticas. Dentro del léxico, generalmente se utilizan símbolos y palabras con funciones específicas dentro del lenguaje. Estas palabras suelen tomarse del inglés y no se las puede utilizar de manera diferente: son las denominadas palabras reservadas. Otra particularidad de los lenguajes es el permitir a los programadores el uso de comentarios: frases o párrafos sin funcionalidad en el programa, que los compiladores o intérpretes descartan y solo están destinados a ser leídos por personas; así se pueden dejar explicaciones que ayuden a entender el código a quien lo lea.​
+
+
+== Programas y algoritmos ==
+Un algoritmo es una secuencia no ambigua, finita y ordenada de instrucciones que han de seguirse para resolver un determinado problema.​ Un programa normalmente implementa y contiene uno o más algoritmos. Un algoritmo puede expresarse de distintas maneras: en forma gráfica, como un diagrama de flujo, en forma de código como en pseudocódigo o un lenguaje de programación, en forma explicativa.
+Los programas suelen subdividirse en partes menores, llamadas módulos, de modo que la complejidad algorítmica de cada una de las partes sea menor que la del programa completo, lo cual ayuda a simplificar el desarrollo del programa. Esta es una práctica muy utilizada y se conoce como "refino progresivo".
+Según Niklaus Wirth, un programa está formado por los algoritmos y estructuras de datos.
+La programación puede seguir muchos enfoques, o paradigmas, es decir, diversas maneras de formular la resolución de un problema dado. Algunos de los principales paradigmas de programación son:
+
+Programación declarativa
+Programación imperativa
+Programación estructurada
+Programación modular
+Programación orientada a objetos
+Programación orientada a eventos
+
+
+== Compilación ==
+
+El programa escrito en un lenguaje de programación de alto nivel (fácilmente comprensible por el programador) es llamado programa fuente y no se puede ejecutar directamente en una computadora. La opción más común es compilar el programa obteniendo un módulo objeto, aunque también, si el lenguaje lo soporta, puede ejecutarse en forma directa pero solo a través de un intérprete. Algunos lenguajes, tal como BASIC, disponen de ambas formas de ejecución, lo cual facilita la tarea de depuración y prueba del programa.
+El código fuente del programa se debe someter a un proceso de traducción para convertirlo a lenguaje máquina o bien a un código intermedio, generando así un módulo denominado "objeto". A este proceso se le llama compilación.
+Habitualmente la creación de un programa ejecutable (un típico.exe para Microsoft Windows o DOS) conlleva dos pasos: el primer paso se llama compilación (propiamente dicho) y traduce el código fuente, escrito en un lenguaje de programación y almacenado en un archivo de texto, a código en bajo nivel (normalmente a código objeto, no directamente a lenguaje máquina). El segundo paso se llama enlazado en el cual se enlaza el código de bajo nivel generado de todos los ficheros y subprogramas que se han mandado a compilar y se añade el código de las funciones necesarias que residen en bibliotecas externas, para que el ejecutable pueda comunicarse directamente con el sistema operativo, traduciendo así finalmente el código objeto a código máquina, y generando un módulo ejecutable.
+Estos dos pasos se pueden hacer por separado, almacenando el resultado de la fase de compilación en archivos objetos (un típico.o para Unix,.obj para MS-Windows y DOS); para enlazarlos en fases posteriores, o crear directamente el ejecutable; con lo que la fase de compilación puede almacenarse de forma temporal. Un programa podría tener partes escritas en varios lenguajes, por ejemplo, Java, C, C++ y ensamblador, que se podrían compilar de forma independiente y luego combinarse para formar un único módulo ejecutable.
+
+
+== Programación e ingeniería del software ==
+
+Existe una tendencia a identificar el proceso de creación de un programa informático con la programación, que es cierta cuando se trata de programas pequeños para uso personal, y que dista de la realidad cuando se trata de grandes proyectos.
+El proceso de creación de software, desde el punto de vista de la ingeniería, incluye mínimamente los siguientes pasos:
+
+Reconocer la necesidad de un programa para solucionar un problema o identificar la posibilidad de automatización de una tarea.
+Recolectar los requisitos del programa. Debe quedar claro qué es lo que debe hacer el programa y para qué se necesita.
+Realizar el análisis de los requisitos del programa. Debe quedar claro qué tareas debe realizar el programa. Las pruebas que comprueben la validez del programa se pueden especificar en esta fase.
+Diseñar la arquitectura del programa. Se debe descomponer el programa en partes de complejidad abordable.
+Implementar el programa. Consiste en realizar un diseño detallado, especificando completamente todo el funcionamiento del programa, tras lo cual la codificación (programación propiamente dicha) debería resultar inmediata.
+Probar el programa. Comprobar que pasan pruebas que se han definido en el análisis de requisitos.
+Implantar (instalar) el programa. Consiste en poner el programa en funcionamiento junto con los componentes que sean necesarios (bases de datos, redes de comunicaciones, etc.).
+La ingeniería del software se centra en los pasos de planificación y diseño del programa, mientras que antiguamente (programación artesanal) la realización de un programa consistía casi únicamente en escribir el código, bajo solo el conocimiento de los requisitos y con una modesta fase de análisis y diseño.
+
+
+== Referencias históricas ==
+El trabajo de Ada Lovelace, hija de Anabella Milbanke Byron y Lord Byron, que realizó para la máquina de Babbage le hizo ganarse el título de primera programadora de computadoras del mundo, aunque Babbage nunca completó la construcción de la máquina. El nombre del lenguaje de programación Ada fue escogido como homenaje a esta programadora.
+
+
+== Objetivos de la programación ==
+La programación debe perseguir la obtención de programas de calidad. Para ello se establece una serie de factores que determinan la calidad de un programa. Algunos de los factores de calidad más importantes son los siguientes:
+
+Correctitud. Un programa es correcto si hace lo que debe hacer tal y como se estableció en las fases previas a su desarrollo. Para determinar si un programa hace lo que debe, es muy importante especificar claramente qué debe hacer el programa antes de su desarrollo y, una vez acabado, compararlo con lo que realmente hace. Al verificar este comportamiento está cumpliendo dicho objetivo.
+Claridad. Es muy importante que el programa sea lo más claro y legible posible, para facilitar tanto su desarrollo como su posterior mantenimiento. Al elaborar un programa se debe intentar que su estructura sea sencilla y coherente, así como cuidar el estilo de programación. De esta forma se ve facilitado el trabajo del programador, tanto en la fase de creación como en las fases posteriores de corrección de errores, ampliaciones, modificaciones, etc. Fases que pueden ser realizadas incluso por otro programador, con lo cual la claridad es aún más necesaria para que otros puedan continuar el trabajo fácilmente. Algunos programadores llegan incluso a utilizar Arte ASCII para delimitar secciones de código; una práctica común es realizar aclaraciones en el mismo código fuente utilizando líneas de comentarios. Contrariamente, algunos programadores realizan acciones que tienden a introducir confusión para impedir un análisis cómodo a otros programadores, recurren al uso de código ofuscado,
+Eficiencia. Se trata de que el programa, además de realizar aquello para lo que fue creado (es decir, que sea correcto), lo haga gestionando de la mejor forma posible los recursos que utiliza. Normalmente, al hablar de eficiencia de un programa, se suele hacer referencia al tiempo que tarda en realizar la tarea para la que ha sido creado y a la cantidad de memoria que necesita, pero hay otros recursos que también pueden ser de consideración para mejorar la eficiencia de un programa, dependiendo de su naturaleza (espacio en disco que utiliza, tráfico en la red que genera, etc.).
+Portabilidad. Un programa es portable cuando tiene la capacidad de poder ejecutarse en una plataforma, ya sea hardware o software, diferente a aquella en la que se desarrolló. La portabilidad es una característica muy deseable para un programa, ya que permite, por ejemplo, a un programa que se ha elaborado para el sistema GNU/Linux que también pueda ejecutarse en la familia de sistemas operativos Windows. Consecuentemente el programa puede llegar a más usuarios.
+
+
+== Ciclo de vida del software ==
+
+El término ciclo de vida del software describe el desarrollo de software, desde la fase inicial hasta la fase final, incluyendo su estado funcional. El propósito es definir las distintas fases intermedias que se requieren para validar el desarrollo de la aplicación, es decir, para garantizar que el software cumpla los requisitos para la aplicación y verificación de los procedimientos de desarrollo: se asegura que los métodos utilizados son apropiados. Estos métodos se originan en el hecho de que es muy costoso corregir los errores que se detectan tarde dentro de la fase de implementación (programación propiamente dicha), o peor aún, durante la fase funcional. En el modelo de ciclo de vida se intenta que los errores se detecten lo antes posible y por lo tanto, permite a los desarrolladores concentrarse en la calidad del software, en los plazos de implementación y en los costos asociados. El ciclo de vida básico de un software consta de, al menos, los siguientes procedimientos:
+
+Análisis de requisitos, viabilidad de diseño y especificación de funciones definidas en lenguaje de programación.
+Análisis de la arquitectura en la creación, desarrollo, corrección e implementación del sistema.
+Pruebas en la integración de módulos, y subprograma(s) con cada conjunto o subconjunto.
+Pruebas beta o de validación que garanticen que en el procedimiento de ejecución del software se cumple con todas las especificaciones originales.
+Mantenimiento de corrección de errores y restricciones.
+Documentación de toda la información.
+El orden y la presencia de cada uno de estos procedimientos dependen del tipo de modelo de ciclo de vida acordado entre el cliente y el equipo de desarrolladores. En el caso del software libre se tiene un ciclo de vida mucho más dinámico, puesto que muchos programadores trabajan en simultáneo desarrollando sus eliminaciones.
+
+
+== Véase también ==
+
+ Portal:Programación. Contenido relacionado con  Programación.
+Wikiproyecto:Informática/Programación
+error de software
+filosofías del desarrollo de software
+historia de la ingeniería del software
+ingeniería en computación
+ingeniería en informática
+línea de código fuente
+lenguaje de programación
+programación automática
+programación dirigida por eventos
+programación estructurada
+programación extrema
+programación en pareja
+programación dinámica
+programación orientada a objetos
+pruebas de software
+software
+
+
+== Referencias ==
+
+
+== Enlaces externos ==
+ Wikimedia Commons alberga una categoría multimedia sobre Programación.
+ Wikcionario  tiene definiciones y otra información sobre programación.
+ Wikilibros alberga un libro o manual sobre Fundamentos de programación.

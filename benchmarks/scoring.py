@@ -106,8 +106,45 @@ def score_expected_answer(response: str, expected_answer: dict) -> float:
         return _score_depth(response, expected_answer)
     elif answer_type == "range":
         return _score_range(response, expected_answer)
+    elif answer_type == "niah_extraction":
+        return _score_niah_extraction(response, expected_answer)
     else:
         return 5.0  # tipo desconocido, score neutral
+
+
+def _score_niah_extraction(response: str, expected: dict) -> float:
+    """NIAH: ¿el modelo extrajo la info exacta del needle?
+
+    Combina:
+    - exact_patterns (regex que DEBEN matchear): peso 0.7
+    - keywords (presencia de strings clave): peso 0.3
+
+    Si todos los patterns matchean: 10.0
+    Si solo algunos: proporcional
+    Si ninguno: 0.0
+    """
+    import re
+    patterns = expected.get("exact_patterns", [])
+    keywords = expected.get("keywords", [])
+    if not patterns and not keywords:
+        return 5.0
+
+    # Score de patterns regex
+    pattern_score = 0.0
+    if patterns:
+        matched = sum(1 for p in patterns if re.search(p, response, re.IGNORECASE))
+        pattern_score = (matched / len(patterns)) * 10.0
+
+    # Score de keywords (case-insensitive substring match)
+    keyword_score = 0.0
+    if keywords:
+        resp_lower = response.lower()
+        matched = sum(1 for k in keywords if k.lower() in resp_lower)
+        keyword_score = (matched / len(keywords)) * 10.0
+
+    if patterns and keywords:
+        return round(pattern_score * 0.7 + keyword_score * 0.3, 2)
+    return round(pattern_score or keyword_score, 2)
 
 
 def _score_exact_string(response: str, expected: dict) -> float:
