@@ -119,6 +119,79 @@ Suite agéntica con 12 tests multi-turno corridos en **38 modelos**. Top 10 inte
 - Hipótesis: el modelo "razona demasiado" en cada turn, pierde foco/contexto del usuario, y se desvía del objetivo en multi-turn.
 - **Implicación**: para OpenClaw/Hermes/N8N, **NO actives thinking por default**. Solo activá si tu task específica requiere razonamiento puro (matemática, lógica formal). Para conversación, customer support, content marketing → thinking puede empeorar.
 
+### Hipótesis sobre el desempeño de Opus 4.7 (en investigación)
+
+Aunque la fórmula del score compuesto explica gran parte de la diferencia (Opus 4.7 saca quality 8.08 = top 6, pero costo 40-100x más caro y velocidad 5-10x más lenta lo bajan), **el componente quality automático (7.33) es marginalmente menor** que Llama 3.3 70B (7.43). Eso requiere explicación adicional. Análisis cualitativo de respuestas reales sugiere las siguientes hipótesis (a validar con más data):
+
+#### Tests donde Llama 3.3 70B Groq vence a Opus 4.7 (top 5 deltas)
+
+| Test | Δ score | Hipótesis |
+|---|---|---|
+| `tool_calling/multi_tool_sequential` | +1.9 | Opus over-thinking en cadenas simples — agrega contexto/justificación entre tool calls |
+| `agent_capabilities/skill_execution_complex` | +1.3 | Opus expande con disclaimers; Llama ejecuta directo |
+| `multi_turn/content_iteration` | +1.1 | Opus reescribe TODO en cada iter; Llama hace deltas |
+| `translation/detect_language_issues` | +1.0 | Opus explica el problema; Llama lo arregla |
+| `news_seo_writing/news_json_output_strict` | +1.0 | Opus genera HTML 1.8K tokens en cada artículo (ver ejemplo abajo) |
+
+#### Tests donde Opus vence a Llama (las pocas donde gana)
+
+| Test | Δ score | Hipótesis |
+|---|---|---|
+| `tool_calling/no_tool_needed` | -2.3 | **Opus es mejor en JUDGMENT — sabe cuándo NO usar tool**. Llama llama tools innecesarios |
+| `string_precision/write_config_file` | -1.4 | Opus precisión exacta de strings/configuración técnica |
+| `orchestration/error_recovery` | -0.5 | Opus mejor para razonar sobre fallas |
+
+#### Hipótesis 1 — Opus es ELABORADAMENTE verboso (no solo largo)
+
+Output tokens promedio Opus vs Llama: 980 vs 991 (idéntico en agregado). PERO el contenido difiere: en `news_json_output_strict`, el campo `Contenido_HTML` de Opus tiene 8 sub-secciones con párrafos descriptivos largos (judge_score 2.6/5), mientras Llama produce 4-5 sub-secciones más compactas (judge_score esperado >3.5).
+
+**Ejemplo real** (Opus 4.6 en news_json_output_strict, judge=2.6):
+> "Este logro es particularmente notable porque se trata de un modelo completamente abierto que compite directamente con soluciones cerradas y propietarias de empresas como OpenAI, Anthropic y Meta. El hecho de que un modelo de código abierto pueda posicionarse tan alto en rankings competitivos demuestra que la brecha entre los modelos abiertos y cerrados se está cerrando rápidamente."
+
+Frases tipo Wikipedia con poca densidad informativa. Un emprendedor publicando un blog quiere "Gemma 4 (31B) es #3 en Arena Leaderboard, Apache 2.0", no 80 palabras de contexto. Phi-4 castiga esto.
+
+#### Hipótesis 2 — Opus expande con meta-comentarios que el juez no premia
+
+Patrón observado en `agent_capabilities/skill_execution_complex`:
+- Llama 3.3 70B: ejecuta el skill directamente, devuelve resultado.
+- Opus 4.7: "Voy a abordar esta tarea paso a paso. Primero, déjame entender qué necesita el usuario..." → razona inline → ejecuta.
+
+El meta-razonamiento es **útil para el usuario humano** pero el juez automático evalúa el resultado final, no el proceso. Y en agent_long_horizon multi-turn, el meta-razonamiento puede contaminar contexto futuro (de ahí la regresión con thinking forzado).
+
+#### Hipótesis 3 — Output structure: JSON con texto antes/después
+
+En `news_json_output_strict` (rúbrica espera SOLO JSON), Opus a veces agrega prefijos como "Aquí está el JSON solicitado:" o markdown wrapping ` ```json ... ``` `. Llama 3.3 70B produce el JSON crudo. La rúbrica regex penaliza el extra.
+
+⚠️ A validar revisando 5+ respuestas concretas de cada modelo en este test.
+
+#### Hipótesis 4 — Tests con criterios "estilo emprendedor LATAM" no premian estilo asistente formal
+
+Nuestros tests piden cosas como "redacta un email de cold outreach para una startup chilena de SaaS". El "buen email" según los criterios:
+- Conciso (60-100 palabras)
+- Hook directo
+- Call-to-action específico
+
+Opus tiende a producir **emails de 150-200 palabras** con párrafos contextuales tipo "consulting profesional". Técnicamente correcto pero no lo que un emprendedor solo quiere copy-pegar a 200 prospects.
+
+**Llama 3.3 70B genera el email de 80 palabras con CTA directo.** El juez prefiere el de Llama porque cumple los criterios.
+
+#### Hipótesis 5 — Saturación del juez Phi-4
+
+Phi-4 puede tener un techo en cuánto puntúa "muy bien escrito" porque su entrenamiento se basa en respuestas concisas y directas. Modelos como Opus que producen "respuestas de tutor universitario" pueden chocar con ese techo.
+
+Validación pendiente: comparar judge_score con un segundo juez (Claude Haiku 4.5 o Gemma 4 31B) en una muestra de 30 tests para ver si la divergencia Opus-vs-Llama es consistente.
+
+#### Hipótesis 6 — Tests de `agent_capabilities` favorecen ejecución directa, no consulta-asesor
+
+En `agent_team_delegation`, `skill_execution_complex`, etc., el modelo debe **delegar y coordinar**, no explicar. Opus tiene un prior fuerte hacia "asistente que orienta" — explica QUÉ va a hacer antes de hacerlo. Llama 3.3 70B (post-trained más para ejecución) hace primero, explica si pregunta.
+
+#### Plan de validación (próximos pasos)
+
+1. **Inspección manual de 30 respuestas Opus vs Llama** en los 5 tests con mayor delta (multi_tool_sequential, skill_execution_complex, content_iteration, translation/detect_language_issues, news_json_output_strict).
+2. **Re-correr Opus 4.7 con sistema "be concise"** en el system prompt — ver si quality sube.
+3. **Segundo juez (Gemma 4 31B local)** sobre muestra de 50 tests para verificar consistencia con Phi-4.
+4. **Análisis de output tokens distribución** — no solo promedio, sino histograma. Si Opus tiene runs de 3K+ tokens en algunos tests, eso indica verbosidad concentrada.
+
 ### Stack recomendado para OpenClaw / Hermes / N8N (basado en datos v2.4.2)
 
 **LLM cabecera (orquestador)** — necesita context retention + skill orchestration + cost-effective:
