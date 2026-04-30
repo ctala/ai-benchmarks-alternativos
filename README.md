@@ -86,6 +86,8 @@ Regla práctica: **un emprendedor que quiera replicar este benchmark desde cero 
 |-----------|-----------|
 | [MODELOS.md](MODELOS.md) | Inventario completo: probados, en cola y por agregar al config |
 | [TESTS.md](TESTS.md) | 91 tests en 23 suites (auto-generado desde benchmarks/tests/) |
+| ⭐ [THINKING_EXPLAINED.md](THINKING_EXPLAINED.md) | **Extended thinking explicado**: qué es, qué modelos lo tienen (thinking-only / hybrid / sin reasoning), cómo lo medimos en el benchmark, hallazgos clave (thinking no siempre ayuda) |
+| [BENCHMARKS_EXTERNOS.md](BENCHMARKS_EXTERNOS.md) | Triangulación con HumanEval/GSM8K/IFEval/MMLU oficiales — top 30 modelos, 50/120 celdas con score numérico, hallazgos de validez convergente y discriminante |
 | [COMPARATIVA.md](COMPARATIVA.md) | 35+ modelos con precios, open-source/propietario, licencias |
 | [SUSCRIPCIONES.md](SUSCRIPCIONES.md) | Suscripciones fijas ($0-$300/mes) + coding plans |
 | [PACKS.md](PACKS.md) | Packs por suscripcion + estrategia local+nube |
