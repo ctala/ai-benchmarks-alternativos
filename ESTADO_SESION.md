@@ -6,9 +6,17 @@
 
 ---
 
-## ✅ Estado al cierre de v2.4.2 (30 abril 2026)
+## ✅ Estado al cierre de sesión (30 abril 2026, post-v2.4.2)
 
 **Todo pusheado, sin procesos en background, repo en estado limpio**.
+
+Último commit: `eaddea5` (calculadora con columnas ordenables + pills coloreados).
+
+### Calculadora — features adicionales en este cierre
+
+- **Columnas ordenables**: click en header de Score, Quality, Cost, Tools, Costo/mes, C/B, tok/s. Toggle asc/desc al re-clickear. Indicador `↕` / `↓` / `↑`.
+- **Pills coloreados** en componentes (Quality, Cost, Tools): mismo color-coding que Score global (verde ≥7, amarillo ≥6, rojo <6).
+- Cache busting `?v=20260430b`.
 
 ### Tags semver creados y pusheados
 

@@ -138,7 +138,9 @@
       "Bash(curl -s http://192.168.88.190:11434/api/tags)",
       "Bash(grep -n \"^---$\" /Users/cristiantala/Playground/Benchmarks/alternativos/ROADMAP.md)",
       "Bash(awk '{print $2, $11\" \"$12\" \"$13\" \"$14, \"args:\", substr\\($0, index\\($0,\"--models\"\\)\\)}')",
-      "Bash(awk '{print \"PID\", $2, \"args:\", substr\\($0, index\\($0,\"--models\"\\)+9, 60\\)}')"
+      "Bash(awk '{print \"PID\", $2, \"args:\", substr\\($0, index\\($0,\"--models\"\\)+9, 60\\)}')",
+      "Bash(git tag *)",
+      "Bash(git tag -a v2.4.2 d62a4cb -m 'v2.4.2 - scoring rebalanced + síntesis final agent_long_horizon \\(30 abril 2026\\) *)"
     ]
   }
 }
