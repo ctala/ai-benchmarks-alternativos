@@ -317,6 +317,40 @@ Suite multi-turno (8+ turnos) que mide capacidades agénticas reales: context re
 
 ---
 
+## Hallazgos del bloque "thinking variants" (29-30 abril 2026)
+
+Test concreto de la sospecha de Approach 1: ¿modelos hybrid suben de score con extended thinking forzado?
+
+### Implementación
+- Adapter (`providers/adapters.py`): nuevo parámetro `force_reasoning: bool = False`. Activa via OpenRouter extra_body `{"reasoning": {"effort": "high"}, "include_reasoning": True}`.
+- Runner: propaga `force_reasoning` desde config (`model_config.get("force_reasoning")`) al adapter.
+- Config: 5 entradas nuevas con `force_reasoning=True` para variantes thinking de Hermes 4 70B/405B, Kimi K2.5, Claude Opus 4.7, Claude Sonnet 4.6.
+
+### Resultados Lote 11 (Hermes 4 + Kimi)
+
+| Modelo | Sin thinking (single-turn) | Con thinking (agent_lh) | Delta |
+|---|---|---|---|
+| Kimi K2.5 | 6.27 | **7.00** | **+0.73 ⬆** |
+| Hermes 4 70B | 7.24 | 6.70 | -0.54 ⬇ SORPRESA |
+| Hermes 4 405B | ~6.5-6.8 | 6.30 | -0.3 a -0.5 ⬇ |
+
+⚠️ **Comparación NO exacta**: scores "sin thinking" son single-turn (91 tests promediados), "con thinking" son agent_long_horizon (12 tests). El patrón cualitativo es robusto — Kimi K2.5 GANA con thinking, Hermes 4 PIERDE — pero para una comparación rigurosa hay que correr ambas variantes en agent_long_horizon.
+
+### Hipótesis revisada
+
+- **Thinking ayuda algunos modelos y empeora a otros**. NO es seguro asumir que `reasoning=high` siempre mejora.
+- Para Hermes 4 (post-trained sobre Llama 3 con reasoning), forzar reasoning probablemente degrada su capa agéntica multi-turn — "razona demasiado" y pierde foco.
+- Para Kimi K2.5 (diseñado hybrid desde el principio por Moonshot), thinking aporta consistentemente.
+- **Implicancia para el paper**: hay que reportar AMBAS variantes (con y sin thinking) de modelos hybrid, no asumir cuál es mejor.
+
+### Pendiente del bloque
+
+- [ ] **Claude Opus 4.7 (thinking) + Sonnet 4.6 (thinking)** — variantes agregadas al config, NO lanzadas (esperando confirmación del usuario, costo ~$10)
+- [ ] Re-correr Hermes 4 70B y Kimi K2.5 (sin thinking) en suite agent_long_horizon para tener comparación fair
+- [ ] Documentar metodología en INSIGHTS sección "Thinking matters: el costo del reasoning explícito"
+
+---
+
 ## Validación cruzada con benchmarks académicos estándar (decidido 29 abril 2026)
 
 Para credibilidad académica (paper arXiv) y triangulación con literatura existente.
