@@ -26,8 +26,8 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `llama-3.1-8b-instant` | ✅ Llama Community | $0.05/0.08 | **7.68** | 100 | — | — |
 | `llama-3.3-70b-versatile` | ✅ Llama Community | $0.59/0.79 | **7.63** | 115 | — | — |
 | `openai/gpt-oss-20b` | ✅ Apache 2.0 | $0.075/0.3 | **7.54** | 99 | — | [responses](benchmarks/results/responses/20260429_165839/) |
-| `mistralai/mistral-small-2603` | ✅ Apache 2.0 | $0.15/0.6 | **7.52** | 103 | — | — |
 | `gpt-oss:120b-cloud` | ✅ Apache 2.0 | $0.0/0.0 | **7.50** | 103 | — | — |
+| `mistralai/mistral-small-2603` | ✅ Apache 2.0 | $0.15/0.6 | **7.47** | 112 | — | — |
 | `x-ai/grok-4.1-fast` | ?  | $0.2/0.5 | **7.47** | 103 | — | — |
 | `google/gemini-3.1-flash-lite-preview` | ?  | $0.25/1.5 | **7.45** | 115 | — | — |
 | `mistralai/devstral-small` | ✅ Apache 2.0 | $0.1/0.3 | **7.38** | 169 | [per-model](benchmarks/results/per-model/mistralai_devstral-small.md) | [responses](benchmarks/results/responses/20260429_165839/) |
