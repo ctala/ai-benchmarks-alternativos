@@ -423,13 +423,40 @@ function render() {
   // contexto del provider — "gratis" no es honesto sin aclarar el límite.
   const maxEfficiency = Math.max(...top.map(m => m._efficiency || 0));
 
-  // Etiqueta para modelos sin costo per-call según provider (más honesta que "Gratis"):
+  // Etiqueta para modelos sin costo per-call según provider (más honesta que "Gratis").
+  // Si el modelo está en una suscripción del catálogo, mostramos su precio mensual.
   const freeLabel = (m) => {
-    if (m.provider === "nvidia_nim") return { label: "★ NIM 40rpm", tip: "Sin costo por call vía NVIDIA NIM. Límite: 40 requests/minuto en free tier." };
-    if (m.provider === "ollama_cloud") return { label: "★ Sub Ollama", tip: "Incluido en suscripción Ollama Cloud (~$30/mes). Sin costo por call adicional." };
-    if (m.provider === "xiaomi_direct") return { label: "★ Sub Xiaomi", tip: "Incluido en plan Xiaomi MiMo. Consume credits del plan (200M-1.6B según tier)." };
-    if (m.tier === "local") return { label: "★ Local", tip: "Corre en hardware propio. Sin costo por call, requiere setup Ollama/NIM local." };
-    return { label: "★ Sin pago", tip: "Sin costo per-call. Verificar límites del provider antes de producción." };
+    // Modelos en suscripción mensual: priorizar el más barato (más accesible)
+    if (m.subscriptions && m.subscriptions.length > 0) {
+      const cheapest = m.subscriptions.reduce((a, b) =>
+        a.price_month_usd <= b.price_month_usd ? a : b
+      );
+      const allSubs = m.subscriptions
+        .map(s => `${s.name} ($${s.price_month_usd}/mes)`)
+        .join(", ");
+      return {
+        label: `★ Sub $${cheapest.price_month_usd}/mes`,
+        tip: `Incluido en: ${allSubs}. NO es gratis — requiere pagar la suscripción mensual.`,
+      };
+    }
+    // NIM gratis: realmente $0 con rate limit
+    if (m.provider === "nvidia_nim") {
+      return {
+        label: "★ NIM 40rpm",
+        tip: "Sin costo por call vía NVIDIA NIM. Límite: 40 requests/minuto en free tier. Apto para benchmarks secuenciales y producción de bajo volumen.",
+      };
+    }
+    // Local: corre en hardware propio
+    if (m.tier === "local") {
+      return {
+        label: "★ Local",
+        tip: "Corre en hardware propio (DGX Spark, Mac M-series, etc). Sin costo por call, requiere setup Ollama. Costo real: electricidad + amortización del hardware.",
+      };
+    }
+    return {
+      label: "★ Sin pago",
+      tip: "Sin costo per-call. Verificar límites del provider antes de producción.",
+    };
   };
 
   const formatEfficiency = (m) => {
@@ -463,9 +490,9 @@ function render() {
           <th>Modelo</th>
           <th class="num sortable" onclick="toggleSort('final')" title="Click para ordenar">Score ${taskLabel} ${sortIndicator("final")}</th>
           ${showComponents ? `
-            <th class="num sortable" onclick="toggleSort('quality')" title="Quality (50% del Final): score automático + LLM-as-Judge Phi-4. Click para ordenar">Quality ${sortIndicator("quality")}</th>
-            <th class="num sortable" onclick="toggleSort('cost')" title="Cost score (20%): curva log. $0.001/call → 8.0, $0.01 → 5.0, $0.10 → 2.0. Click para ordenar">Cost ${sortIndicator("cost")}</th>
-            <th class="num sortable" onclick="toggleSort('tools')" title="Tool calling (15%): adherencia al schema OpenAI tools. Click para ordenar">Tools ${sortIndicator("tools")}</th>
+            <th class="num sortable" onclick="toggleSort('quality')" title="Quality (50% del Final): score automático + LLM-as-Judge Phi-4. 10 = excelente, 0 = malo. Click para ordenar">Quality ${sortIndicator("quality")}</th>
+            <th class="num sortable" onclick="toggleSort('cost')" title="Cost score (20%): INVERSO al precio — 10 = gratis o muy barato, 5 = $0.01/call, 2 = $0.10/call, 0 = $1.00+/call. Más alto = más barato. Click para ordenar">Costo↓ ${sortIndicator("cost")}</th>
+            <th class="num sortable" onclick="toggleSort('tools')" title="Tool calling (15%): adherencia al schema OpenAI tools. 10 = perfecto, 7 = N/A (test sin tools). Click para ordenar">Tools ${sortIndicator("tools")}</th>
           ` : ""}
           <th class="num sortable" onclick="toggleSort('cost_month')" title="Costo total/mes según presupuesto y calls. Click para ordenar">Costo/mes ${sortIndicator("cost_month")}</th>
           <th class="num sortable" onclick="toggleSort('cb')" title="Costo-beneficio relativo: score² / costo. 100% = mejor. Click para ordenar">C/B ${sortIndicator("cb")}</th>

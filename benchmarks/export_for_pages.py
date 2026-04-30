@@ -23,7 +23,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from benchmarks.config import MODELS as _CLOUD_MODELS
-from benchmarks.models import OLLAMA_MODELS
+from benchmarks.models import OLLAMA_MODELS, SUBSCRIPTIONS
 from benchmarks.scoring import PRICING, compute_final_score, DEFAULT_WEIGHTS
 
 # Merge cloud + local models para que DGX y otros locales aparezcan en la calculadora
@@ -262,6 +262,20 @@ def build_export():
 
         capabilities = _infer_capabilities(cfg, cfg_key)
 
+        # Expandir suscripciones: las keys del cfg → info completa para el JSON
+        sub_keys = cfg.get("subscriptions", []) or []
+        subscriptions_expanded = [
+            {
+                "key": k,
+                "name": SUBSCRIPTIONS[k]["name"],
+                "plan": SUBSCRIPTIONS[k]["plan"],
+                "price_month_usd": SUBSCRIPTIONS[k]["price_month_usd"],
+                "url": SUBSCRIPTIONS[k]["url"],
+                "notes": SUBSCRIPTIONS[k]["notes"],
+            }
+            for k in sub_keys if k in SUBSCRIPTIONS
+        ]
+
         models_export.append({
             "key": cfg_key,
             "id": model_id,
@@ -273,6 +287,7 @@ def build_export():
             "cost_input_per_M": ci,
             "cost_output_per_M": co,
             "cost_per_1k_calls_usd": round(cost_per_1k_calls, 3),
+            "subscriptions": subscriptions_expanded,
             "notes": cfg.get("notes", ""),
             "tested": metrics["runs"] >= 50,  # >= 50 runs = cobertura completa
             **capabilities,  # tool_calling, thinking, multimodal
@@ -288,6 +303,7 @@ def build_export():
         "tested_count": sum(1 for m in models_export if m["tested"]),
         "tokens_per_call_assumption": {"input": 300, "output": 1500},
         "default_weights": DEFAULT_WEIGHTS,  # los pesos aplicados en score_global
+        "subscriptions_catalog": SUBSCRIPTIONS,  # catálogo completo de suscripciones disponibles
         "models": models_export,
     }
 

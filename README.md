@@ -87,6 +87,22 @@ Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2
 
 Regla práctica: **un emprendedor que quiera replicar este benchmark desde cero gastaría ~$100-200 en APIs + ~50h de trabajo + el costo invisible de iterar la metodología**. Acá ya está hecho con todos los hallazgos — abre [RECOMENDACIONES.md](RECOMENDACIONES.md) y elegí por plataforma + tarea + presupuesto.
 
+## Modelos en suscripción mensual (NO son gratis)
+
+⚠️ **Algunos modelos aparecen con `$0/call` pero requieren pagar suscripción mensual**. La calculadora los marca con `★ Sub $X/mes`. Catálogo de suscripciones disponibles:
+
+| Suscripción | Plan | Precio/mes | Modelos incluidos | Notas |
+|---|---|---|---|---|
+| **Ollama Cloud** | Pro | **$30** | GPT-OSS 120B, DeepSeek V4 Pro, V4 Flash, Qwen 3.5 397B, Qwen 3.5 default | Rate limit varía. Recomendado para uso mid (1-10k calls/día). |
+| **Xiaomi MiMo Standard** | Standard | **$14** | MiMo V2.5, V2.5-Pro, V2-Pro, V2-Omni (4 modelos) | 200M credits/mes. Off-peak 16-24 UTC = 0.8x consumption. |
+| **MiniMax Agent Pro** | Agent Pro | **$19** | MiniMax M2.7 Highspeed (acceso a baja latencia) | Generosos límites para agentes (1k+ calls/día). |
+| **Anthropic Pro** | Pro | $20 | Claude (web only — NO API access) | NO da acceso API, solo claude.ai. No aplica para automatización. |
+
+**Modelos realmente $0/call (sin suscripción)**:
+- **NIM gratis (NVIDIA)**: 20 modelos. Rate limit 40 RPM. Marcados `★ NIM 40rpm`.
+- **Local**: corren en tu hardware (DGX Spark, Mac M-series, GPU dedicada). Marcados `★ Local`. Costo real = electricidad + amortización del hardware.
+- **Groq, OpenRouter, OpenAI, Anthropic API**: pay-as-you-go por token, sin suscripción mensual fija. Costos reales en `$/1k calls` en la calculadora.
+
 ## Documentos Principales
 
 ### Análisis y decisión
