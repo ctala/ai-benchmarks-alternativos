@@ -8,13 +8,18 @@ posición específica, y debe extraer la info concreta de la needle.
 Aporte único: primer NIAH-ES público (en abril 2026 sólo había NIAH en
 inglés/chino o variantes ad-hoc no reproducibles).
 
-# Diseño piloto v1 (30 abril 2026)
+# Diseño v2 (30 abril 2026, full grid)
 
-- 1 needle por test (rotamos entre 5 needles para no overfit)
+- 5 needles distintos (todos activos, no rotación)
 - 4 contextos: 4K, 16K, 64K, 256K tokens
 - 3 posiciones: 25%, 50%, 75% (lost-in-the-middle más severo)
-- Total tests por modelo: 4 × 3 = 12 (1 needle por slot, rotación
-  determinística para reproducibilidad)
+- Total tests por modelo: 5 × 4 × 3 = 60 (full grid)
+
+# Diseño piloto v1 (descontinuado tras v2)
+
+- 12 tests con 1 needle por slot, rotación determinística
+- Validó la suite y reveló patrón lost-in-the-middle. Resultados en
+  `benchmarks/results/benchmark_20260430_193058.json`.
 
 # Corpus
 
@@ -237,12 +242,9 @@ def _build_test(needle_idx: int, ctx_tokens: int, pos_pct: int) -> dict:
     }
 
 
-# Genera 12 tests piloto: rotación determinística entre los 5 needles
-# para que cada combinación (ctx, pos) tenga un needle distinto pero el set
-# total sea reproducible.
+# v2 full grid: 5 needles × 4 contextos × 3 posiciones = 60 tests por modelo
 TESTS = []
-_needle_idx = 0
-for ctx in CONTEXT_SIZES:
-    for pos in POSITIONS:
-        TESTS.append(_build_test(_needle_idx, ctx, pos))
-        _needle_idx += 1
+for needle_idx in range(len(NEEDLES)):
+    for ctx in CONTEXT_SIZES:
+        for pos in POSITIONS:
+            TESTS.append(_build_test(needle_idx, ctx, pos))
