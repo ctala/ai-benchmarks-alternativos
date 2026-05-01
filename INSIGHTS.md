@@ -87,13 +87,57 @@ Opus 4.7 en 60 tests sigue **último** con 4.98 promedio. Worse que Llama 3.3 70
 
 **Acción pendiente**: inspección manual de 5-10 respuestas Opus 4.7 en `benchmarks/results/responses/20260430_200512/` para confirmar la hipótesis.
 
+### Cross-reference con literatura NIAH inglesa (NIAH_CROSSREF.md)
+
+Triangulación con scores oficiales reportados por los proveedores. Hallazgos de la cross-ref (data robusta de papers Gemini 1.5/2.5/3, DeepSeek V4, Llama 3.3/4, Mistral, Anthropic system cards, OpenAI announcement, Greg Kamradt leaderboard):
+
+#### 1. Ranking inglés ≠ ranking NIAH-ES (sorpresa metodológica)
+
+En literatura inglesa los frontier reportan retrieval casi perfecto:
+- Gemini 1.5 Pro: 99.7% hasta 1M (single-needle)
+- GPT-4.1: 100% all positions all lengths (single-needle, OpenAI announcement)
+- Claude 3 Opus: >99% NIAH single-needle 200K
+
+**En NIAH-ES los mismos modelos quedan mid-table** (5.86–5.96 / 10). **Devstral Small (7.25) y Mistral Small 4 (7.06) lideran** — coherente con su entrenamiento multilingüe europeo más fuerte que los frontier US-centric.
+
+**Implicación**: el "100% en NIAH inglés" NO se traduce a "100% en NIAH-ES". El idioma del prompt + needle es factor real en retrieval, no solo el context window.
+
+#### 2. Opus 4.7 último es CONSISTENTE con literatura reciente
+
+Anthropic mismo reporta degradación en variantes multi-needle:
+- Claude Opus 4.6: 76% MRCR v2 8-needle 1M
+- Claude Sonnet 4.5: 18.5% MRCR v2 8-needle 1M (drop dramático)
+- Opus 4.7: regresión adicional según trackers terceros
+
+La familia Claude prioriza razonamiento sobre retrieval puro. Nuestro hallazgo (Opus 4.7 = 4.98 en NIAH-ES) **valida** esa observación de literatura.
+
+#### 3. Llama 4 Scout > Llama 3.3 70B respeta ranking oficial Meta
+
+- Meta: Llama 4 Scout 98% retrieval @10M, Llama 3.3 70B 97.5% multi-needle @128K
+- Nuestro: Llama 4 Scout 6.89 > Llama 3.3 70B 6.26
+- ✅ El delta cualitativo se preserva (aunque magnitud distinta por idioma)
+
+#### 4. Devstral / Mistral Small son APORTE ÚNICO
+
+Mistral Small NO publica score numérico NIAH oficial (Inspect Evals UK BEIS lo evalúa cualitativamente sin %). Devstral tampoco. **NIAH-ES es el primer benchmark público con número concreto para estos modelos.**
+
+#### 5. Limitaciones declaradas
+
+- Idioma: 100% literatura es inglés
+- Métrica: binaria oficial vs 0-10 nuestra
+- Variantes: single-needle vs MRCR multi-needle mezcladas
+- Generaciones: no medimos Gemini 1.5/2.5 ni Claude 3 (nuestros mediciones son 3.1/4.7 actuales)
+
+Ver `NIAH_CROSSREF.md` para tabla completa con 12 fuentes oficiales citadas.
+
 ### Próximo NIAH (futuro)
 
 - [x] Piloto v1 (12 tests/modelo) — validó la suite
-- [x] **v2 full grid (60 tests/modelo) — DATOS ROBUSTOS** ← este update
-- [ ] **v3 con context 1M** en modelos que lo declaran (Gemini 3.1 Pro, GPT-4.1, DeepSeek V4 Flash NIM, Llama 4 Scout). Costo: $50-100. Validaría effective context window real.
-- [ ] **Inspección cualitativa Opus 4.7**: ¿paráfrasis o refusal o falla de retrieval real?
-- [ ] **Cross-ref con paper Gemini 1.5 NIAH inglés**: ¿score patterns similares?
+- [x] v2 full grid (60 tests/modelo) — datos robustos
+- [x] **Cross-ref con literatura NIAH inglesa** ← este update (NIAH_CROSSREF.md)
+- [ ] **v3 con context 1M** (corriendo ahora, 4 modelos × 15 tests = 60 runs, ETA ~30 min)
+- [ ] **Inspección cualitativa Opus 4.7**: paráfrasis vs extraction exacta
+- [ ] Reportar resultados v3 1M en próximo update
 
 ---
 
