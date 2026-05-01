@@ -71,12 +71,12 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `mistralai/ministral-14b-instruct-2512` | ✅ Apache 2.0 | $0.0/0.0 | **6.85** | 90 | — | — |
 | `gemma4:31b` | ?  | $— | **6.84** | 89 | — | — |
 | `nvidia/nemotron-3-super-120b-a12b` | ✅ NVIDIA Open | $0.1/0.5 | **6.81** | 91 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-super-120b-a12b.md) | — |
-| `gpt-4.1` | ?  | $2.0/8.0 | **6.80** | 239 | [per-model](benchmarks/results/per-model/gpt-4_1.md) | — |
 | `z-ai/glm-5.1` | ✅ MIT | $0.0/0.0 | **6.79** | 182 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
 | `nvidia/llama-3.3-nemotron-super-49b-v1.5` | ✅ NVIDIA Open Model | $0.0/0.0 | **6.77** | 86 | — | [responses](benchmarks/results/responses/20260423_051248/) |
 | `nemotron-3-super:120b` | ?  | $— | **6.74** | 90 | — | — |
 | `nemotron3:33b-q4_K_M` | ?  | $— | **6.74** | 103 | — | — |
 | `qwen3.5:397b-cloud` | ✅ Apache 2.0 | $0.0/0.0 | **6.72** | 94 | — | — |
+| `gpt-4.1` | ?  | $2.0/8.0 | **6.69** | 254 | [per-model](benchmarks/results/per-model/gpt-4_1.md) | — |
 | `qwen3.5:cloud` | ✅ Apache 2.0 | $0.0/0.0 | **6.66** | 91 | — | — |
 | `minimax/minimax-m2.7` | ?  | $0.3/1.2 | **6.62** | 167 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_7.md) | — |
 | `deepseek-ai/deepseek-v4-flash` | ✅ MIT | $0.0/0.0 | **6.62** | 153 | — | [responses](benchmarks/results/responses/20260430_200512/) |
