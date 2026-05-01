@@ -12,7 +12,92 @@ fuente_datos: "docs/data/models.json + benchmarks/results/*.json"
 pesos_score: {quality: 0.50, cost: 0.20, tool_calling: 0.15, speed: 0.075, latency: 0.075}
 ---
 
-## 🆕 Update v2.5.0 — NIAH-ES piloto v1 (lost-in-the-middle confirmado, hallazgos sorpresa)
+## 🆕 Update v2.5.1 — NIAH-ES v2 full grid (5 needles × 60 tests por modelo)
+
+Lote v2 corrido sobre 8 modelos × 60 tests (5 needles × 4 ctx × 3 pos) = **480 runs en 43 min**, costo ~$50 OpenRouter. La data más robusta del benchmark hasta ahora.
+
+### Ranking NIAH-ES v2 (consolidado)
+
+| # | Modelo | Avg | 4K | 16K | 64K | 256K | Cobertura |
+|---|---|---|---|---|---|---|---|
+| 1 | **Devstral Small** | **7.25** ⭐ | 7.80 | 7.40 | 6.56 | — | 45/60 |
+| 2 | Mistral Small 4 | **7.06** | 7.59 | 7.15 | 6.44 | — | 45/60 |
+| 3 | Llama 4 Scout 17B (Groq) | 6.89 | 7.70 | 6.96 | 6.01 | — | 45/60 |
+| 4 | Llama 3.3 70B (Groq) | 6.26 | 7.05 | 6.30 | 5.43 | — | 45/60 |
+| 5 | Gemini 3.1 Pro | 5.96 | 6.45 | 6.18 | 5.84 | 5.37 | **60/60** ✅ |
+| 6 | DeepSeek V4 Flash (NIM gratis) | 5.92 | 6.32 | 5.93 | 5.49 | — | 45/60 |
+| 7 | GPT-4.1 | 5.86 | 6.63 | 6.22 | 5.67 | 4.91 | **60/60** ✅ |
+| 8 | **Claude Opus 4.7** | **4.98** ⬇ | 5.44 | 5.09 | 4.85 | 4.53 | **60/60** ✅ |
+
+Confirma v1: **Devstral Small es #1 y Opus 4.7 es #último** — patrón robusto con 5 needles.
+
+### ⚠️ Corrección importante de v1: NO hay lost-in-the-middle severo
+
+El piloto v1 (12 tests, 1 needle por slot) reportó "Opus 4.7 cae -3.0 puntos al 50% del 4K (6.0 → 3.1 → 6.3)". **Eso fue ARTEFACTO de N=1**. Con 5 needles promediados (v2), los scores son MUY parecidos entre las 3 posiciones:
+
+| Modelo | 4K-25% | 4K-50% | 4K-75% | Delta máx |
+|---|---|---|---|---|
+| Claude Opus 4.7 | 5.38 | 5.41 | 5.53 | 0.15 ⬅️ NO drop |
+| Devstral Small | 7.81 | 7.84 | 7.75 | 0.09 |
+| Mistral Small 4 | 7.54 | 7.54 | 7.69 | 0.15 |
+| Llama 3.3 70B | 7.00 | 7.06 | 7.08 | 0.08 |
+| Llama 4 Scout | 7.63 | 7.77 | 7.71 | 0.14 |
+| GPT-4.1 | 6.51 | 6.72 | 6.67 | 0.21 |
+| Gemini 3.1 Pro | 6.47 | 6.43 | 6.44 | 0.04 |
+| DeepSeek V4 Flash | 6.24 | 6.39 | 6.33 | 0.15 |
+
+**Lecciones metodológicas**:
+1. **N=1 puede generar patrones fantasma**. Lost-in-the-middle reportado en literatura (Liu et al. 2023) puede ser real — pero **no en español neutro con estos needles, en estos modelos, con N=5**.
+2. **El needle `discount_code` específicamente sufre al 50%**: en v1 ese era el único needle a esa posición. Necesitaría inspección cualitativa para entender por qué.
+3. **Para hallazgos publicables: N≥5 es mínimo**. v1 sirvió de validación de la suite, no de hallazgo definitivo.
+
+### Lo que SÍ es robusto
+
+#### 1. Devstral Small ($0.10/$0.30) supera a Opus 4.7 ($45/M) en NIAH
+
+Con 60 tests cada uno:
+- Devstral Small: 7.25 avg
+- Claude Opus 4.7: 4.98 avg
+- **Delta: +2.27 puntos a favor de Devstral, a 1/450 del costo**
+
+Para tareas de retrieval con context <128K, Devstral Small es mejor opción que Opus 4.7.
+
+#### 2. Gemini 3.1 Pro es el más estable a 256K
+
+- Gemini 3.1 Pro: 5.37 avg en 256K (5.30 / 5.39 / 5.40)
+- GPT-4.1: 4.91 avg (4.96 / 4.88 / 4.88)
+- Claude Opus 4.7: 4.53 avg (4.46 / 4.52 / 4.61)
+
+**Gemini 3.1 Pro gana cuando el contexto es >128K**. Es la mejor opción premium para long-context retrieval.
+
+#### 3. "1M context declarado" ≠ "retrieval efectivo a 256K"
+
+Solo 3/8 modelos procesan 256K sin error 400 (Opus, GPT-4.1, Gemini 3.1 Pro). Y los 3 degradan a score 4.5-5.4 (vs 6-8 a context chico).
+
+**Modelos con context <256K efectivo en su provider** (todos cap a 128K):
+- Devstral Small (declared 256K → OpenRouter cap)
+- Llama 4 Scout 17B (declared 10M → Groq preview cap)
+- Mistral Small 4 (declared 128K → ✓ correcto)
+- DeepSeek V4 Flash (declared 1M → NIM cap)
+- Llama 3.3 70B (declared 131K → ✓ correcto)
+
+#### 4. Claude Opus 4.7 es el peor en NIAH-ES (sigue como hipótesis)
+
+Opus 4.7 en 60 tests sigue **último** con 4.98 promedio. Worse que Llama 3.3 70B Groq (6.26) que es 75x más barato. Hipótesis abierta: Opus parafrasea en lugar de extraer texto exacto, lo que no matchea con regex/keywords scoring.
+
+**Acción pendiente**: inspección manual de 5-10 respuestas Opus 4.7 en `benchmarks/results/responses/20260430_200512/` para confirmar la hipótesis.
+
+### Próximo NIAH (futuro)
+
+- [x] Piloto v1 (12 tests/modelo) — validó la suite
+- [x] **v2 full grid (60 tests/modelo) — DATOS ROBUSTOS** ← este update
+- [ ] **v3 con context 1M** en modelos que lo declaran (Gemini 3.1 Pro, GPT-4.1, DeepSeek V4 Flash NIM, Llama 4 Scout). Costo: $50-100. Validaría effective context window real.
+- [ ] **Inspección cualitativa Opus 4.7**: ¿paráfrasis o refusal o falla de retrieval real?
+- [ ] **Cross-ref con paper Gemini 1.5 NIAH inglés**: ¿score patterns similares?
+
+---
+
+## 🆕 Update v2.5.0 — NIAH-ES piloto v1 (datos preliminares, ver v2 arriba para resultados consolidados)
 
 Suite NIAH-ES (Needle-in-a-Haystack en español neutro) corrida sobre 8 modelos × 12 tests = 96 runs en 9 minutos wall-clock. Costo total: ~$8 OpenRouter. Ver `NIAH_ES_DESIGN.md` para diseño completo.
 

@@ -2,6 +2,48 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v2.5.1] - 2026-04-30 (PM) — NIAH-ES v2 full grid (5 needles × 60 tests, 480 runs)
+
+### Lote NIAH-ES v2 — datos consolidados con N=5
+
+8 modelos × 60 tests (5 needles × 4 ctx × 3 pos) = 480 runs en 43min.
+Costo: ~$50 OpenRouter.
+
+Ranking v2 confirma v1:
+1. Devstral Small — 7.25 ⭐
+2. Mistral Small 4 — 7.06
+3. Llama 4 Scout 17B Groq — 6.89
+4. Llama 3.3 70B Groq — 6.26
+5. Gemini 3.1 Pro — 5.96
+6. DeepSeek V4 Flash NIM — 5.92
+7. GPT-4.1 — 5.86
+8. Claude Opus 4.7 — 4.98 (último, robusto con N=5)
+
+### CORRECCIÓN HONESTA: lost-in-the-middle severo de v1 era ARTEFACTO N=1
+
+v1 reportaba "Opus 4.7 cae -3.0 puntos al 50% del 4K". Con 5 needles
+promediados (v2), el delta máximo entre 25%/50%/75% es 0.04-0.21
+puntos en TODOS los modelos. NO hay lost-in-the-middle severo en
+español neutro con estos modelos top.
+
+Lección metodológica: N=1 puede generar patrones fantasma.
+Para hallazgos publicables N≥5 es mínimo. v1 sirvió de validación
+de la suite, NO de hallazgo definitivo.
+
+### Lo que SÍ es robusto con N=5
+
+1. **Devstral Small ($0.10/$0.30) supera a Opus 4.7 ($45/M) por +2.27
+   puntos en NIAH a 1/450 del costo**.
+2. **Gemini 3.1 Pro es el más estable a 256K** (5.37 vs Opus 4.53 /
+   GPT-4.1 4.91).
+3. **"1M context declarado" ≠ retrieval efectivo a 256K**. Solo 3/8
+   modelos procesan 256K sin error.
+4. **Opus 4.7 sigue último** (hipótesis paráfrasis vs extraction
+   exacta — pendiente inspección manual).
+
+INSIGHTS.md sección "Update v2.5.1 NIAH-ES v2" con tabla, breakdown
+por posición (sin lost-in-the-middle), análisis 256K, próximos pasos.
+
 ## [v2.5.0] - 2026-04-30 — NIAH-ES + sección "Why Opus" + suscripciones explícitas + sortable calculadora
 
 ### Suite NIAH-ES (Needle-in-a-Haystack en español neutro) — APORTE ÚNICO
