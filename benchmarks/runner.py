@@ -49,6 +49,7 @@ from benchmarks.tests import ocr_extraction, orchestration, multi_turn, policy_a
 from benchmarks.tests import agent_capabilities, strategy, sales_outreach, translation
 from benchmarks.tests import agent_long_horizon
 from benchmarks.tests import niah_es
+from benchmarks.tests import niah_es_1m
 
 console = Console()
 
@@ -78,6 +79,7 @@ ALL_TEST_SUITES = {
     "translation": translation.TESTS,
     "agent_long_horizon": agent_long_horizon.TESTS,
     "niah_es": niah_es.TESTS,
+    "niah_es_1m": niah_es_1m.TESTS,
 }
 
 
