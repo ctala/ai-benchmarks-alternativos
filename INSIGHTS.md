@@ -130,14 +130,38 @@ Mistral Small NO publica score numérico NIAH oficial (Inspect Evals UK BEIS lo 
 
 Ver `NIAH_CROSSREF.md` para tabla completa con 12 fuentes oficiales citadas.
 
+### v3 con context 1M (5h elapsed, 1 mayo) — HALLAZGO BRUTAL
+
+Lote v3 corrido con 4 modelos × 15 tests (5 needles × 1 ctx 1M × 3 pos) = 60 runs.
+
+**Solo 1 de 4 modelos procesa 1M tokens efectivamente**:
+
+| Modelo | Declared | Tests OK | Score 1M | Causa |
+|---|---|---|---|---|
+| **GPT-4.1** | 1M | **15/15** ✅ | **4.91** | Único que cumple la promesa |
+| Llama 4 Scout 17B Groq | 10M | 0/15 ❌ | — | Groq preview cap a 131K |
+| DeepSeek V4 Flash NIM | 1M | 0/15 ❌ | — | NIM cap (~128K efectivo) |
+| Gemini 3.1 Pro | 1M | 0/15 ❌ | — | OpenRouter cap |
+
+**3 de 4 proveedores capan el context window declarado por el modelo**. El "1M" o "10M" del marketing solo aplica si:
+- El modelo realmente tiene capacidad arquitectural (sí, todos)
+- **Y** el provider que usás expone la capacidad completa (no, solo OpenAI directo / OpenRouter para GPT-4.1)
+
+**Implicación crítica**: para tasks que requieren context >256K en producción con esos modelos via los providers que medimos, la mayoría de modelos "1M" son falsa promesa. **GPT-4.1 vía OpenAI directo o OpenRouter es la única opción confirmada.**
+
+**GPT-4.1 a 1M tokens**: score 4.91 promedio, idéntico a su 256K (4.91). NO degrada al duplicar el context — esto SÍ valida el effective 1M de OpenAI.
+
+**Pendiente**: probar Gemini 3.1 Pro vía Google directo (no OpenRouter) y DeepSeek V4 Pro vía Ollama Cloud para confirmar si el cap es del provider intermediario, no del modelo. ETA: 1 día.
+
 ### Próximo NIAH (futuro)
 
 - [x] Piloto v1 (12 tests/modelo) — validó la suite
 - [x] v2 full grid (60 tests/modelo) — datos robustos
-- [x] **Cross-ref con literatura NIAH inglesa** ← este update (NIAH_CROSSREF.md)
-- [ ] **v3 con context 1M** (corriendo ahora, 4 modelos × 15 tests = 60 runs, ETA ~30 min)
-- [ ] **Inspección cualitativa Opus 4.7**: paráfrasis vs extraction exacta
-- [ ] Reportar resultados v3 1M en próximo update
+- [x] Cross-ref con literatura NIAH inglesa (NIAH_CROSSREF.md)
+- [x] **v3 con context 1M** ← este update (60 runs, GPT-4.1 único que procesa)
+- [ ] v3b: Gemini 3.1 Pro vía Google directo (validar si el cap es OpenRouter o Google)
+- [ ] DeepSeek V4 Pro vía Ollama Cloud (validar cap NIM vs Ollama)
+- [ ] Inspección cualitativa Opus 4.7: paráfrasis vs extraction exacta
 
 ---
 

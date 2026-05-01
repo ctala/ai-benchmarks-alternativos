@@ -2,6 +2,53 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v2.5.2] - 2026-05-01 — NIAH-ES v3 1M context + cross-ref con literatura
+
+### Suite niah_es_1m (variante 1M context)
+- 4 modelos × 15 tests (5 needles × 1M × 3 pos) = 60 runs
+- HALLAZGO BRUTAL: solo 1 de 4 modelos procesa 1M tokens efectivamente
+
+| Modelo | Declared | Tests OK | Score 1M | Causa |
+|---|---|---|---|---|
+| GPT-4.1 | 1M | 15/15 ✅ | 4.91 | Único que cumple |
+| Llama 4 Scout 17B Groq | 10M | 0/15 ❌ | — | Groq preview cap 131K |
+| DeepSeek V4 Flash NIM | 1M | 0/15 ❌ | — | NIM cap ~128K |
+| Gemini 3.1 Pro | 1M | 0/15 ❌ | — | OpenRouter cap |
+
+GPT-4.1 a 1M score 4.91 — idéntico a su 256K. NO degrada al duplicar
+context. Valida effective 1M de OpenAI.
+
+3 de 4 providers capan el context declarado. "1M context" solo aplica
+si el modelo tiene capacidad arquitectural Y el provider expone
+completa. En 4/2026, para context >256K en producción con estos
+modelos via providers populares, GPT-4.1 vía OpenAI directo / OpenRouter
+es la única opción confirmada.
+
+### Cross-reference con literatura NIAH inglesa (NIAH_CROSSREF.md)
+
+12 fuentes oficiales citadas: Gemini 1.5/2.5/3 paper, GPT-4.1
+announcement, Anthropic system cards, DeepSeek V4 Pro paper, Llama
+3.3/4 reports, Mistral Inspect Evals UK BEIS.
+
+Hallazgos del cross-ref:
+1. Ranking inglés ≠ ranking NIAH-ES. Frontier reportan 99-100% en
+   inglés. Devstral/Mistral lideran NIAH-ES — coherente con
+   entrenamiento multilingüe europeo.
+2. Opus 4.7 último (4.98) CONSISTENTE con literatura reciente:
+   Anthropic mismo reporta degradación en MRCR multi-needle de Claude
+   4.x family. Validación cruzada.
+3. Llama 4 Scout > Llama 3.3 70B respeta ranking oficial Meta
+   (98% @10M vs 97.5% @128K).
+4. Mistral Small / Devstral: APORTE ÚNICO. NO publican NIAH oficial.
+   NIAH-ES es primer benchmark público con número concreto.
+5. Limitaciones: idioma (literatura toda inglés), métrica (binaria
+   vs 0-10), variantes (single vs MRCR mezcladas).
+
+### Cobertura post-v3
+- 8 modelos con datos NIAH-ES v2 (60 tests cada uno = 480 runs)
+- 1 modelo con datos NIAH-ES 1M (GPT-4.1, 15 tests)
+- 540 runs NIAH-ES totales preservados
+
 ## [v2.5.1] - 2026-04-30 (PM) — NIAH-ES v2 full grid (5 needles × 60 tests, 480 runs)
 
 ### Lote NIAH-ES v2 — datos consolidados con N=5
