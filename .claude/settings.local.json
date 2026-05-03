@@ -140,7 +140,15 @@
       "Bash(awk '{print $2, $11\" \"$12\" \"$13\" \"$14, \"args:\", substr\\($0, index\\($0,\"--models\"\\)\\)}')",
       "Bash(awk '{print \"PID\", $2, \"args:\", substr\\($0, index\\($0,\"--models\"\\)+9, 60\\)}')",
       "Bash(git tag *)",
-      "Bash(git tag -a v2.4.2 d62a4cb -m 'v2.4.2 - scoring rebalanced + síntesis final agent_long_horizon \\(30 abril 2026\\) *)"
+      "Bash(git tag -a v2.4.2 d62a4cb -m 'v2.4.2 - scoring rebalanced + síntesis final agent_long_horizon \\(30 abril 2026\\) *)",
+      "Bash(xargs -I {} ls benchmarks/results/responses/{})",
+      "Bash(grep -E --line-buffered \"MODELO \\\\[|\\\\\\(60/60\\\\\\)|ERROR \\\\\\(.{1,80}429|Traceback|COMPLETADO\")",
+      "Bash(awk '{print $2, substr\\($0, index\\($0,\"--models\"\\)+9, 80\\)}')",
+      "Bash(awk '{print $2}')",
+      "Bash(xargs -I {} kill {} sleep 3 echo \"Procesos vivos: $\\(ps aux)",
+      "Bash(grep -i datasheet find . -iname \"*datasheet*\")",
+      "Bash(chmod +x benchmarks/commit_model_results.sh)",
+      "Bash(bash benchmarks/commit_model_results.sh 20260503_074942 devstral-2 'data: Devstral 2 cerró NIAH-ES lite \\(45/45 OK\\)')"
     ]
   }
 }
