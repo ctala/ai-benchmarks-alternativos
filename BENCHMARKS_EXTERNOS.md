@@ -7,6 +7,8 @@ nota: "Recopilados para triangulacion con nuestro ranking aplicado-en-espanol"
 
 # Triangulacion con benchmarks academicos estandar
 
+> 📍 **Por que este documento existe**: `ai-benchmarks-alternativos` es un benchmark **complementario** a los oficiales — disenado para emprendedores hispanohablantes decidiendo produccion real, NO para sustituir validacion academica. Este archivo documenta como nuestros resultados se triangulan con HumanEval/MMLU/GSM8K/IFEval/SWE-bench oficiales. Para investigacion academica o capacidades fundamentales, prioriza los originales. Para decidir que modelo poner en produccion para tu caso aplicado en espanol neutro LATAM, suma esta data con los oficiales — son complementarios, no excluyentes.
+
 Para validar nuestro ranking aplicado-en-espanol contra literatura academica, recopilamos scores oficialmente reportados de los **top 30 modelos del benchmark** en 4 benchmarks estandar:
 
 - **HumanEval** (Chen et al., 2021): 164 problemas Python coding, Pass@1

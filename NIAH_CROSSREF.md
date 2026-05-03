@@ -6,6 +6,8 @@ fuente_principal: "Papers oficiales (Gemini 1.5, Gemini 2.5/3, DeepSeek V4, Llam
 
 # Cross-reference NIAH-ES con literatura NIAH (inglés)
 
+> 📍 **Posición epistémica**: NIAH-ES es **complemento** del NIAH original (no sustituto). Mide retrieval en **español neutro LATAM** con datos realistas para emprendedores hispanohablantes. La literatura NIAH inglesa (Greg Kamradt, Gemini 1.5 paper, Anthropic system cards) sigue siendo la referencia para capacidad fundamental. Acá triangulamos para validez convergente y discriminante. Si tu task es retrieval en inglés con prompts académicos, **usá los benchmarks oficiales**. Si tu task es "extraer info concreta de un documento de 64K tokens en español neutro LATAM en producción", NIAH-ES suma data que los oficiales no cubren.
+
 NIAH-ES (nuestro benchmark) mide retrieval en español neutro LATAM con scoring 0–10
 basado en sustancia + formato + LLM-as-Judge. La literatura inglesa reporta
 **% de retrieval accuracy** (binario: needle encontrado o no), generalmente sobre
