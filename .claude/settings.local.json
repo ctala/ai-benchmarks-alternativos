@@ -148,7 +148,9 @@
       "Bash(xargs -I {} kill {} sleep 3 echo \"Procesos vivos: $\\(ps aux)",
       "Bash(grep -i datasheet find . -iname \"*datasheet*\")",
       "Bash(chmod +x benchmarks/commit_model_results.sh)",
-      "Bash(bash benchmarks/commit_model_results.sh 20260503_074942 devstral-2 'data: Devstral 2 cerró NIAH-ES lite \\(45/45 OK\\)')"
+      "Bash(bash benchmarks/commit_model_results.sh 20260503_074942 devstral-2 'data: Devstral 2 cerró NIAH-ES lite \\(45/45 OK\\)')",
+      "Bash(xargs -I {} kill {} sleep 2 echo \"Procesos vivos restantes:\" ps aux)",
+      "Bash(awk '{print $2, substr\\($0, index\\($0,\"--models\"\\)+9, 50\\)}')"
     ]
   }
 }
