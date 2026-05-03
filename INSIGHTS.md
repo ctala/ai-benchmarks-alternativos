@@ -468,6 +468,8 @@ En `agent_team_delegation`, `skill_execution_complex`, etc., el modelo debe **de
 
 # Insights del benchmark — qué dice la data, no el marketing
 
+> 📍 **Disclaimer prominente**: este benchmark **NO sustituye** a los benchmarks académicos validados (HumanEval, MMLU, GSM8K, SWE-bench Verified, NIAH original inglés, MT-Bench, LMSYS Arena). Es un **complemento** para emprendedores hispanohablantes que deciden qué modelo poner en producción para casos aplicados en español neutro (N8N, OpenClaw, Hermes, blogs LATAM, soporte cliente, agentes). Para investigación académica o capacidades fundamentales, prioriza los benchmarks oficiales. Cross-references documentadas en [BENCHMARKS_EXTERNOS.md](BENCHMARKS_EXTERNOS.md) y [NIAH_CROSSREF.md](NIAH_CROSSREF.md).
+
 Este documento es el análisis cuantitativo del benchmark `ai-benchmarks-alternativos` al **29 de abril de 2026** (v2.4). 68 modelos con cobertura ≥50 runs, 91 tests por modelo, juez Phi-4 local. La pregunta que respondemos no es "cuál es el mejor", sino: **qué patrones aparecen en la data cuando comparas precio, velocidad, capacidades y proveedor a la vez**.
 
 Audiencia: emprendedores latinoamericanos eligiendo modelos para producción (OpenClaw, N8N, blogs de actualidad, atención al cliente, herramientas internas). Tono neutro: lo que dice la data, no lo que el marketing quiere que pienses.

@@ -50,6 +50,7 @@ from benchmarks.tests import agent_capabilities, strategy, sales_outreach, trans
 from benchmarks.tests import agent_long_horizon
 from benchmarks.tests import niah_es
 from benchmarks.tests import niah_es_1m
+from benchmarks.tests import niah_es_lite
 
 console = Console()
 
@@ -80,6 +81,7 @@ ALL_TEST_SUITES = {
     "agent_long_horizon": agent_long_horizon.TESTS,
     "niah_es": niah_es.TESTS,
     "niah_es_1m": niah_es_1m.TESTS,
+    "niah_es_lite": niah_es_lite.TESTS,
 }
 
 
