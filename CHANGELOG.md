@@ -2,6 +2,40 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v2.6.0] - 2026-05-03 — NIAH-ES extension + GPT-5.5 completo + DeepSeek V4 family + datasheets
+
+### Cobertura mayo
+- 72 modelos con ≥50 runs single-turn (era 70)
+- 49 modelos con runs en agent_long_horizon (era 38)
+- 21 modelos con runs en NIAH-ES (era 8)
+- ~9,500+ runs preservados (era 8,475)
+
+### Lotes mayo (3 mayo)
+- GPT-5.5 completar: 57/57 OK (12 agent_long_horizon + 45 niah_es_lite)
+- NIAH-ES extension lite: 9 modelos × 45 = 405/405 OK
+- DeepSeek V4 family: V4 Pro Cloud 55/57, V4 Flash Cloud 57/57, V4 Pro NIM 0/7 (descartado), V4 Pro OpenRouter 57/57 OK
+
+### Suite niah_es_lite (nueva)
+45 tests sin contexto 256K (5 needles × 3 ctx 4K-64K × 3 pos). Para correr más modelos sin el costo del 256K cap. Decisión user 3 mayo.
+
+### Datasheets mensuales
+- DATASHEET_2026-04.md (snapshot retroactivo abril)
+- DATASHEET_2026-05.md (estado mayo + comparación vs abril)
+Convención mensual establecida: cada 1ro de mes datasheet con cambios vs anterior.
+
+### Disclaimer "complemento, NO sustituto" en 7 docs principales
+README, INSIGHTS, NIAH_ES_DESIGN, THINKING_EXPLAINED, BENCHMARKS_EXTERNOS, NIAH_CROSSREF, calculadora (docs/index.html). Posicionamiento: complementarios a HumanEval/MMLU/GSM8K/SWE-bench/NIAH inglés/MT-Bench, NO los reemplazamos.
+
+### Tooling
+- benchmarks/commit_model_results.sh (nuevo): commits incrementales por modelo terminado en lugar de esperar al final del lote. Política de publicación inmediata desde 3 mayo.
+
+### Hallazgos confirmados o nuevos
+- DeepSeek V4 Pro NIM no funciona en producción (cascada 504 reproducible 2x).
+- DeepSeek V4 Pro/Flash Ollama Cloud sub funciona estable (>97% OK).
+- DeepSeek V4 Pro OpenRouter funciona pero es caro ($1.74/$3.48 per M).
+- Devstral Small mantiene #1 en NIAH-ES con 17 modelos cubiertos (vs 8 abril).
+- Cambio metodológico: ranking compuesto ahora integra NIAH-ES — modelos con NIAH corrido tienen score promedio ligeramente menor.
+
 ## [v2.5.2] - 2026-05-01 — NIAH-ES v3 1M context + cross-ref con literatura
 
 ### Suite niah_es_1m (variante 1M context)
