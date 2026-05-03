@@ -6,6 +6,8 @@ audiencia: "Lectores del benchmark que ven scores de modelos thinking vs no-thin
 
 # Extended Thinking — guía rápida
 
+> 📍 **Contexto del benchmark**: este documento explica cómo medimos thinking models en `ai-benchmarks-alternativos` — un benchmark **complementario** (no sustituto) de los oficiales (HumanEval, MMLU, GSM8K, SWE-bench), pensado para emprendedores hispanohablantes que deciden producción real. Los hallazgos sobre "thinking puede empeorar multi-turn" aplican a nuestras suites en español neutro — para validar contra literatura inglesa, ver [BENCHMARKS_EXTERNOS.md](BENCHMARKS_EXTERNOS.md).
+
 ## Qué es
 
 **Extended thinking** (también llamado *reasoning*, *chain-of-thought interno*, *deep think*) es la capacidad de un LLM de **razonar antes de responder**, generando tokens internos de planificación que NO van directo al usuario pero que mejoran la calidad de la respuesta final en tareas complejas (matemática, lógica, planning multi-paso).

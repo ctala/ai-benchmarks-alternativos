@@ -8,6 +8,8 @@ licencia_corpus: "Wikipedia ES (CC BY-SA 4.0)"
 
 # NIAH-ES — diseño y proceso
 
+> 📍 **Disclaimer**: NIAH-ES es **complemento** del NIAH original (Greg Kamradt, en inglés). NO lo sustituye. Para evaluar capacidad fundamental de retrieval long-context, usá el NIAH oficial inglés. NIAH-ES agrega valor específico: **retrieval en español neutro LATAM con datos realistas para emprendedores** (códigos, fechas, identificadores de producción). Cross-reference con literatura inglesa documentada en [NIAH_CROSSREF.md](NIAH_CROSSREF.md).
+
 Suite 25 del benchmark `ai-benchmarks-alternativos`. **Aporte único**: primer NIAH público en español neutro LATAM. En abril 2026 sólo había NIAH en inglés/chino o variantes ad-hoc no reproducibles.
 
 ## Por qué NIAH
