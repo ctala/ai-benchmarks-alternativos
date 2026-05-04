@@ -1,6 +1,6 @@
 # Benchmark de Modelos AI Alternativos: comparación abierta de 70 LLMs en español para N8N, OpenClaw y emprendedores
 
-**Version 2.6.0** | Ultima actualizacion: 3 de Mayo de 2026 | [📊 Datasheet mayo](DATASHEET_2026-05.md) · [📊 Datasheet abril](DATASHEET_2026-04.md)
+**Version 2.6.1** | Ultima actualizacion: 4 de Mayo de 2026 | [📊 Datasheet mayo](DATASHEET_2026-05.md) · [📊 Datasheet abril](DATASHEET_2026-04.md) · [📄 CheatSheet PDF mayo](cheatsheet/AI_Model_Benchmark_CheatSheet_Mayo_2026.pdf)
 
 > **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con 8,000+ tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N, OpenClaw o Hermes con presupuestos reales.
 

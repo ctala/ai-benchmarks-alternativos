@@ -2,6 +2,39 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v2.6.1] - 2026-05-04 — CheatSheet PDF refactor (data-driven, 10 páginas, QR codes)
+
+### Refactor del cheatsheet PDF
+- Nuevo script `cheatsheet/generate_cheatsheet.py` (data-driven desde models.json)
+- Script viejo movido a `cheatsheet/generate_pdf_deprecated.py`
+
+### Cambios visuales/contenido
+- **"Mayo 2026" destacado** en cover con color magenta + glow + borde
+- **Mes en español** (Mayo en lugar de May vía dict explícito)
+- **10 páginas** organizadas por valor descendente:
+  1. Cover · 2. Hallazgos clave · 3. Top 10 · 4. Recomendaciones · 5. Rankings categoría
+  6. Precios y suscripciones · 7. Estrategia local · 8. Proveedores · 9. Metodología · 10. CTA + QR
+
+### Fixes específicos del feedback de usuario
+- ✅ Página 2 vacía eliminada (refactor de page-breaks)
+- ✅ "Mayo 2026" prominente en cover (magenta + glow)
+- ✅ Hallazgos con fechas individuales (28 abr, 29 abr, 30 abr, 1 mayo, 3 mayo, etc.)
+- ✅ Sección "Que medimos" actualizada con suites nuevas: agent_long_horizon (multi-step) + NIAH-ES (aguja en pajar)
+- ✅ Latencia confirmada en sección metodología (sí se mide)
+- ✅ Suscripciones incluyen MiMo Xiaomi $14/mes (era omisión crítica)
+- ✅ Estrategia local generalizada por VRAM/RAM disponible (no solo DGX Spark)
+- ✅ Mapa de proveedores actualizado (10 providers: NIM, Local, Xiaomi, MiniMax, Ollama Cloud, Groq, OpenRouter, OpenAI, Anthropic, Google)
+- ✅ Página final CTA con QR codes a calculadora + comunidad Skool
+- ✅ "Guiños" al repo/calculadora en cada sección
+
+### QR codes embebidos
+- QR principal: https://benchmarks.cristiantala.com/ (calculadora interactiva)
+- QR comunidad: https://www.skool.com/cagala-aprende-repite (Cágala, Aprende, Repite)
+- Generación con qrcode[pil] (`pip install "qrcode[pil]"`)
+
+### Convención release mensual
+Cada 1ro de mes: regen models.json + INSIGHTS update + DATASHEET nuevo + PDF cheatsheet + tag semver.
+
 ## [v2.6.0] - 2026-05-03 — NIAH-ES extension + GPT-5.5 completo + DeepSeek V4 family + datasheets
 
 ### Cobertura mayo

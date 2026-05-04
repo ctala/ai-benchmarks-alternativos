@@ -77,7 +77,7 @@ contenido en español. Cada caso de uso tiene un ganador distinto.
 GitHub Pages (calculadora), GitHub Actions (auto-regen).
 
 **Estado actual** (v2.3.0, 26 abril 2026): 27 modelos con cobertura completa
-(91 tests cada uno), 18 lotes consolidados, ~21 horas por lote, juez Phi-4
+(91 tests cada uno), 21 lotes consolidados, ~21 horas por lote, juez Phi-4
 default.
 
 ---
@@ -1332,7 +1332,7 @@ Re-correr **solo** si:
 Razón: cada lote son ~21 horas de cómputo + 27 modelos pagados. Re-medir
 sin causa real es desperdicio puro.
 
-### 15.8 18 lotes "vivos" en lugar de 1 mega-lote
+### 15.8 21 lotes "vivos" en lugar de 1 mega-lote
 
 Cada vez que llega una nueva tanda de modelos a probar (Lote 1, Lote 2,
 ...), se corre como un benchmark separado y se commitea su JSON. Razón:
@@ -1597,7 +1597,7 @@ Si tu caso de uso es radicalmente distinto (legal, médico, etc.):
 | **Suite** | Conjunto de tests sobre un mismo subdominio (ej. `tool_calling`, `creativity`). |
 | **Test** | Caso individual con prompt + criterios + validador. |
 | **Run** | Una ejecución de un test contra un modelo. Hay 1-3 runs por (modelo, test). |
-| **Lote** | Conjunto de modelos benchmarkeados juntos (genera 1 JSON). 18 lotes hasta v2.3.0. |
+| **Lote** | Conjunto de modelos benchmarkeados juntos (genera 1 JSON). 21 lotes hasta v2.3.0. |
 | **`final`** | Score final ponderado 0-10. Combina quality+cost+speed+latency+tools. |
 | **`quality`** | Calidad de la respuesta. 30% auto + 70% judge cuando juez activo. |
 | **`auto_quality`** | Calidad calculada solo con heurísticas (sin juez). 40% formato + 60% sustancia. |
