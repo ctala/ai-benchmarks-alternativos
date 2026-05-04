@@ -1,15 +1,79 @@
 ---
 title: "Insights del benchmark — qué dice la data antes de elegir un modelo en producción"
-fecha: "2026-04-30"
-version_benchmark: "v2.4.2"
-modelos_analizados: 70
+fecha: "2026-05-03"
+version_benchmark: "v2.6.0"
+modelos_analizados: 72
+modelos_catalogados: 113
 runs_minimas_por_modelo: 50
-tests_por_modelo: 91
-pilares: ["Razonamiento", "Coding", "Contenido/Marketing", "Agentes/Operaciones"]
+tests_por_modelo: "91 single-turn + 12 agent_long_horizon + 45 niah_es_lite + 60 niah_es"
+pilares: ["Razonamiento", "Coding", "Contenido/Marketing", "Agentes/Operaciones", "Long-context retrieval (NIAH-ES)"]
 juez_llm: "Phi-4 (Microsoft, 14B, MIT) via Ollama local"
 audiencia: "Emprendedores latinoamericanos que toman decisiones de producción HOY"
 fuente_datos: "docs/data/models.json + benchmarks/results/*.json"
 pesos_score: {quality: 0.50, cost: 0.20, tool_calling: 0.15, speed: 0.075, latency: 0.075}
+total_runs: "9,500+"
+---
+
+## 🆕 Update v2.6.0 — Mayo 2026: NIAH ext + GPT-5.5 completo + DeepSeek V4 family + datasheets
+
+Tres avances grandes desde v2.5.2 (1 mayo):
+
+### Lotes mayo (3 mayo, ~9 horas wall-clock)
+
+| Lote | Tests | Modelos | Resultado |
+|---|---|---|---|
+| **GPT-5.5 completar** | 12 ALH + 45 NIAH-lite = 57 | 1 | ✅ 57/57 OK |
+| **NIAH-ES extension lite** | 9 modelos × 45 = 405 | 9 | ✅ 405/405 OK |
+| **DeepSeek V4 family** | 3 variantes × 57 = 171 | 3 | V4 Pro Cloud 55/57, V4 Flash Cloud 57/57, V4 Pro NIM 0/7 ❌ |
+| **DeepSeek V4 Pro OpenRouter** | 12 ALH + 45 NIAH-lite | 1 | ✅ 57/57 OK |
+
+### Top 10 score compuesto v2.6.0
+
+| # | Modelo | Final | Quality | Cambio vs abril |
+|---|---|---|---|---|
+| 1 | Llama 4 Scout 17B (Groq) | 7.69 | 7.70 | = (era 8.11, baja por NIAH integrado) |
+| 2 | Llama 3.1 8B Instant (Groq) | 7.67 | 7.33 | = |
+| 3 | **Devstral Small** | **7.52** | 7.89 | ⬆ de #10 a #3 (NIAH alto sube ranking) |
+| 4 | Mistral Small 4 | 7.51 | 7.88 | ⬆ |
+| 5 | GPT-OSS 20B (Groq) | 7.47 | 7.10 | ⬇ -1 |
+| 6 | **MiMo V2-Omni Xiaomi sub** | **7.46** | 7.27 | ⬆ ingresa al top 10 |
+| 7 | MiMo V2.5 (Xiaomi sub) | 7.45 | 7.63 | = |
+| 8 | Gemini 3.1 Flash Lite | 7.44 | 7.82 | ⬇ |
+| 9 | Nemotron 3 Nano 30B | 7.43 | 7.79 | ⬆ |
+| 10 | MiMo V2.5-Pro (Xiaomi sub) | 7.42 | 7.65 | ⬆ |
+
+**Cambio metodológico crítico**: el ranking compuesto ahora **integra NIAH-ES**. Modelos con NIAH-ES corrido tienen score promedio menor (NIAH 5-7 vs single-turn 7-8). NO significa regresión — significa nueva dimensión medida. Devstral Small sube porque su NIAH-ES (7.25) es el mejor, mientras Llama 4 Scout cae de 8.11 a 7.69 absoluto pero mantiene #1.
+
+### Hallazgo crítico mayo: DeepSeek V4 Pro NIM NO funciona en producción
+
+Cascada 504 reproducible **2 veces** (abril 28 + mayo 3). NIM gateway no maneja modelo gigante con prompts largos. Para producción con DeepSeek V4 Pro: usar **OpenRouter pagado** ($1.74/$3.48 per M) o **Ollama Cloud sub** ($30/mes, 97% éxito). **Descartado** NIM Pro como opción productiva.
+
+### MiMo Xiaomi sub family — confirmación como mejor C/B en español
+
+4 modelos MiMo en top 10 (V2-Omni, V2.5, V2.5-Pro, V2-Flash). Suscripción $14/mes da acceso a 4 modelos competentes con español neutro fuerte. **Mejor opción para emprendedores LATAM con presupuesto fijo predecible**.
+
+### NIAH-ES extension — 21 modelos cubiertos (vs 8 abril)
+
+Top 5 NIAH-ES con 21 modelos:
+
+| # | Modelo | Score |
+|---|---|---|
+| 1 | Devstral Small | **7.25** |
+| 2 | Mistral Small 4 | 7.06 |
+| 3 | Llama 4 Scout 17B Groq | 6.89 |
+| 4 | Llama 3.1 8B Instant Groq | 6.66 |
+| 5 | Gemini 3.1 Flash Lite | 6.51 |
+| ... | ... | ... |
+| último | Claude Opus 4.7 | **4.98** ⬇ |
+
+**Devstral Small mantiene #1 NIAH-ES con cobertura ampliada** — confirmación robusta del hallazgo.
+
+### Datasheets mensuales (convención nueva desde mayo 2026)
+
+- [DATASHEET_2026-04.md](DATASHEET_2026-04.md) — snapshot retroactivo abril
+- [DATASHEET_2026-05.md](DATASHEET_2026-05.md) — estado mayo + comparación vs abril
+- Convención: cada 1ro de mes datasheet con evolución del benchmark (data, hallazgos, regresiones, modelos agregados)
+
 ---
 
 ## 🆕 Update v2.5.1 — NIAH-ES v2 full grid (5 needles × 60 tests por modelo)

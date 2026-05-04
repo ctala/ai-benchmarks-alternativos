@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+@page {
+    size: A4 landscape;
+    margin: 10mm;
+    background: #0a0a1a;
+    @bottom-center {
+        content: "cristiantala.com | Benchmark de Modelos AI | Mayo 2026";
+        font-family: 'Inter', sans-serif;
+        font-size: 8pt;
+        color: #b0b0b0;
+    }
+    @bottom-right {
+        content: counter(page) " / " counter(pages);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8pt;
+        color: #39ff14;
+    }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+    background: #0a0a1a;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a1a;
+    color: #ffffff;
+    font-size: 9pt;
+    line-height: 1.4;
+}
+
+/* ===== PAGE 1: COVER ===== */
+.cover {
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 170mm;
+    text-align: center;
+    background: linear-gradient(180deg, #0a0a1a 0%, #1a0a2e 50%, #0a0a1a 100%);
+}
+
+.cover h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28pt;
+    color: #39ff14;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.cover .subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14pt;
+    color: #00d4ff;
+    margin-bottom: 25px;
+}
+
+.cover .meta {
+    font-size: 10pt;
+    color: #b0b0b0;
+    margin-top: 10px;
+}
+
+.cover .stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 25px;
+}
+
+.cover .stat-box {
+    text-align: center;
+    padding: 10px 20px;
+    border: 1px solid #39ff14;
+    border-radius: 6px;
+}
+
+.cover .stat-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24pt;
+    color: #39ff14;
+    display: block;
+}
+
+.cover .stat-label {
+    font-size: 8pt;
+    color: #b0b0b0;
+    text-transform: uppercase;
+}
+
+/* ===== GENERAL ===== */
+.page {
+    page-break-after: always;
+}
+
+h2 {
+    font-family: 'JetBrains Mono', monospace;
+    color: #39ff14;
+    font-size: 14pt;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #39ff1444;
+}
+
+h3 {
+    font-family: 'JetBrains Mono', monospace;
+    color: #00d4ff;
+    font-size: 11pt;
+    margin: 12px 0 6px 0;
+}
+
+/* ===== TABLES ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+    font-size: 8pt;
+}
+
+th {
+    font-family: 'JetBrains Mono', monospace;
+    background: #1a0a2e;
+    color: #00d4ff;
+    padding: 5px 6px;
+    text-align: left;
+    font-size: 7pt;
+    text-transform: uppercase;
+    border-bottom: 2px solid #39ff14;
+}
+
+td {
+    padding: 4px 6px;
+    border-bottom: 1px solid #1a0a2e;
+}
+
+tr:nth-child(even) { background: #0f0f25; }
+tr.top3 { background: #1a0a2e; }
+tr.top3 td { font-weight: 600; }
+
+.rank { font-family: 'JetBrains Mono', monospace; color: #39ff14; font-weight: 700; text-align: center; }
+.score { font-family: 'JetBrains Mono', monospace; color: #39ff14; font-weight: 700; }
+.model-name { font-weight: 600; }
+
+.os-yes { color: #39ff14; font-weight: 600; }
+.os-partial { color: #ffa500; }
+.os-no { color: #b0b0b0; }
+
+/* ===== RECOMMENDATION BOXES ===== */
+.rec-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0;
+}
+
+.rec-box {
+    flex: 1 1 30%;
+    background: #1a0a2e;
+    border: 1px solid #39ff1444;
+    border-radius: 6px;
+    padding: 8px 10px;
+}
+
+.rec-box .rec-title {
+    font-family: 'JetBrains Mono', monospace;
+    color: #00d4ff;
+    font-size: 8pt;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+
+.rec-box .rec-model {
+    font-family: 'JetBrains Mono', monospace;
+    color: #39ff14;
+    font-size: 10pt;
+    font-weight: 700;
+}
+
+.rec-box .rec-why {
+    font-size: 7pt;
+    color: #b0b0b0;
+    margin-top: 2px;
+}
+
+/* ===== NOTES ===== */
+.note {
+    background: #1a0a2e;
+    border-left: 3px solid #ff006e;
+    padding: 6px 10px;
+    margin: 8px 0;
+    font-size: 8pt;
+    color: #b0b0b0;
+}
+
+.note strong { color: #ff006e; }
+
+.two-col {
+    display: flex;
+    gap: 15px;
+}
+
+.two-col > div {
+    flex: 1;
+}
+
+.footer-url {
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    color: #00d4ff;
+    font-size: 9pt;
+    margin-top: 15px;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== PAGE 1: COVER ===== -->
+<div class="cover">
+    <h1>AI Model Benchmark</h1>
+    <div class="subtitle">Guia Definitiva para Elegir tu Modelo de IA</div>
+    <p class="meta">90 modelos probados con 9204 tests reales | Mayo 2026</p>
+    <div class="stats">
+        <div class="stat-box">
+            <span class="stat-number">21</span>
+            <span class="stat-label">Modelos</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number">27</span>
+            <span class="stat-label">Tests</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number">8</span>
+            <span class="stat-label">Categorias</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number">567</span>
+            <span class="stat-label">Runs totales</span>
+        </div>
+    </div>
+    <p class="meta" style="margin-top: 15px;">Medido desde Chile via OpenRouter, OpenAI API y MiniMax API</p>
+
+    <div style="margin-top: 18px; text-align: left; max-width: 650px; background: #1a0a2e; border: 1px solid #39ff1444; border-radius: 6px; padding: 10px 14px;">
+        <p style="font-family: 'JetBrains Mono', monospace; color: #00d4ff; font-size: 9pt; margin-bottom: 5px;">Como se calcula el Score</p>
+        <p style="font-size: 8pt; color: #b0b0b0; line-height: 1.5;">
+            <span style="color:#39ff14; font-family:'JetBrains Mono',monospace;">35%</span> Calidad (formato, estructura, seguimiento de instrucciones)<br>
+            <span style="color:#39ff14; font-family:'JetBrains Mono',monospace;">25%</span> Tool Calling (precision de function calling para agentes)<br>
+            <span style="color:#39ff14; font-family:'JetBrains Mono',monospace;">15%</span> Costo (menos costo = mejor score)<br>
+            <span style="color:#39ff14; font-family:'JetBrains Mono',monospace;">15%</span> Disponibilidad (rate limits, cuotas)<br>
+            <span style="color:#39ff14; font-family:'JetBrains Mono',monospace;">5%</span> Velocidad (tokens por segundo)<br>
+            <span style="color:#39ff14; font-family:'JetBrains Mono',monospace;">5%</span> Latencia (tiempo hasta primera respuesta)
+        </p>
+        <p style="font-size: 7pt; color: #ff006e; margin-top: 5px;">
+            Nota: El scoring automatico tiene limitaciones. No captura profundidad subjetiva
+            de razonamiento ni calidad editorial humana. Ver pagina de Metodologia.
+        </p>
+    </div>
+
+    <div class="footer-url" style="margin-top: 12px;">cristiantala.com</div>
+</div>
+
+<!-- ===== PAGE 2: METODOLOGIA ===== -->
+<div class="page">
+    <h2>Metodologia del Experimento</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Diseno del Experimento</h3>
+            <table>
+                <thead><tr><th>Parametro</th><th>Valor</th></tr></thead>
+                <tbody>
+                    <tr><td>Modelos evaluados</td><td><strong>90 modelos unicos con cobertura</strong></td></tr>
+                    <tr><td>Tests por modelo</td><td><strong>91 single-turn (23 suites) + 12 agent_long_horizon + 45 niah_es_lite</strong></td></tr>
+                    <tr><td>Runs ejecutados</td><td><strong>9,204+ runs preservados</strong></td></tr>
+                    <tr><td>Ubicacion</td><td>Santiago, Chile</td></tr>
+                    <tr><td>APIs/Providers usados</td><td>OpenRouter, OpenAI, Anthropic, Groq, NVIDIA NIM, Xiaomi MiMo, Ollama Cloud, MiniMax</td></tr>
+                    <tr><td>Juez LLM-as-Judge</td><td>Phi-4 14B local (Microsoft, MIT) — cero conflicto de interes</td></tr>
+                    <tr><td>Temperatura</td><td>0.7 (default para no-thinking)</td></tr>
+                    <tr><td>Max tokens</td><td>2048 base, x4 multiplier para thinking models</td></tr>
+                    <tr><td>Timeout HTTP</td><td>360s read timeout</td></tr>
+                    <tr><td>Snapshot</td><td>Mayo 2026</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Suites de Tests</h3>
+            <table>
+                <thead><tr><th>Suite</th><th>Tests</th><th>Que Mide</th></tr></thead>
+                <tbody>
+                    <tr><td>deep_reasoning</td><td>6</td><td>Matematica, logica, causal, etica</td></tr>
+                    <tr><td>customer_support</td><td>4</td><td>Empatia, clasificacion, seguridad</td></tr>
+                    <tr><td>structured_output</td><td>4</td><td>JSON valido, arrays, anidado</td></tr>
+                    <tr><td>tool_calling</td><td>4</td><td>Function calling para agentes</td></tr>
+                    <tr><td>content_generation</td><td>4</td><td>Blog, email, social media</td></tr>
+                    <tr><td>startup_content</td><td>5</td><td>Blog startup, cursos, workshops</td></tr>
+                    <tr><td>code_generation</td><td>4</td><td>Python, N8N, SQL, debug</td></tr>
+                    <tr><td>reasoning</td><td>3</td><td>Analisis negocio, logica</td></tr>
+                    <tr><td>task_management</td><td>3</td><td>Planning, action items</td></tr>
+                    <tr><td>summarization</td><td>2</td><td>Resumen, extraccion datos</td></tr>
+                    <tr><td>presentation</td><td>2</td><td>Slides, reportes</td></tr>
+                    <tr><td>hallucination</td><td>3</td><td>Precision factual, trampas</td></tr>
+                    <tr><td>creativity</td><td>4</td><td>Originalidad, cliches, profundidad</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3>Que Mide el Score (y que NO mide)</h3>
+
+            <div class="rec-box" style="margin-bottom: 8px;">
+                <div class="rec-title" style="color: #39ff14;">SI mide (13 suites, 48 tests)</div>
+                <div class="rec-why" style="color: #ffffff; font-size: 8pt;">
+                    - Seguimiento de instrucciones y formato<br>
+                    - Precision de tool calling / function calling<br>
+                    - Creatividad y originalidad (penaliza cliches)<br>
+                    - Precision factual / alucinaciones (trampas verificables)<br>
+                    - Soporte al cliente (empatia, seguridad)<br>
+                    - Salida JSON estructurada<br>
+                    - Velocidad (tok/s) y latencia<br>
+                    - Eficiencia de costo por llamada
+                </div>
+            </div>
+
+            <div class="rec-box" style="border-color: #ff006e44;">
+                <div class="rec-title" style="color: #ff006e;">NO mide (limitaciones)</div>
+                <div class="rec-why" style="color: #ffffff; font-size: 8pt;">
+                    - Profundidad subjetiva de razonamiento<br>
+                    - Calidad editorial humana del contenido<br>
+                    - Rendimiento en contextos muy largos (>128K)<br>
+                    - Consistencia entre multiples runs<br>
+                    - Rendimiento multimodal (imagenes/audio)
+                </div>
+            </div>
+
+            <div class="note" style="margin-top: 10px;">
+                <strong>Sobre la latencia:</strong> Medida desde Chile.
+                La latencia absoluta varia segun ubicacion, pero la
+                comparacion relativa entre modelos es valida ya que
+                todos se miden desde el mismo punto.
+                Los tok/s y calidad NO se ven afectados por la ubicacion.
+            </div>
+
+            <div class="note">
+                <strong>Sobre Claude Opus:</strong> Sube a #9 global gracias
+                a los tests de honestidad (Sonnet #1) y soporte al cliente (Opus #3 en agentes).
+                Cada modelo tiene su fortaleza segun el caso de uso.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE 3: RANKING GLOBAL ===== -->
+<div class="page">
+    <h2>Ranking Global - Todos los Modelos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Modelo</th>
+                <th>Score</th>
+                <th>tok/s</th>
+                <th>Latencia</th>
+                <th>Costo/call</th>
+                <th>Open Source</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="top3">
+            <td class="rank">1</td>
+            <td class="model-name">Llama 4 Scout 17B (Groq preview)</td>
+            <td class="score">7.45</td>
+            <td>178</td>
+            <td>2.8s</td>
+            <td>$0.00113</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr class="top3">
+            <td class="rank">2</td>
+            <td class="model-name">Mistral Small 4</td>
+            <td class="score">7.38</td>
+            <td>88</td>
+            <td>10.9s</td>
+            <td>$0.00206</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr class="top3">
+            <td class="rank">3</td>
+            <td class="model-name">Llama 3.1 8B Instant (Groq)</td>
+            <td class="score">7.38</td>
+            <td>262</td>
+            <td>3.0s</td>
+            <td>$0.00057</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">4</td>
+            <td class="model-name">Devstral Small</td>
+            <td class="score">7.36</td>
+            <td>141</td>
+            <td>3.5s</td>
+            <td>$0.00209</td>
+            <td class="os-yes">Si</td>
+        </tr>
+<tr>
+            <td class="rank">5</td>
+            <td class="model-name">GPT-5.4 Mini</td>
+            <td class="score">7.32</td>
+            <td>117</td>
+            <td>4.9s</td>
+            <td>$0.00225</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">6</td>
+            <td class="model-name">Gemma 4 31B (NIM)</td>
+            <td class="score">7.28</td>
+            <td>23</td>
+            <td>136.9s</td>
+            <td>$0.001</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">7</td>
+            <td class="model-name">Gemini 3.1 Flash Lite</td>
+            <td class="score">7.27</td>
+            <td>110</td>
+            <td>4.1s</td>
+            <td>$0.00313</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">8</td>
+            <td class="model-name">MiMo V2.5 (Xiaomi)</td>
+            <td class="score">7.27</td>
+            <td>71</td>
+            <td>20.0s</td>
+            <td>$0.00089</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">9</td>
+            <td class="model-name">GPT-OSS 20B (Groq)</td>
+            <td class="score">7.26</td>
+            <td>474</td>
+            <td>2.9s</td>
+            <td>$0.00105</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">10</td>
+            <td class="model-name">MiMo V2.5-Pro (Xiaomi)</td>
+            <td class="score">7.25</td>
+            <td>49</td>
+            <td>31.8s</td>
+            <td>$0.00051</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">11</td>
+            <td class="model-name">GPT-OSS 120B (Ollama Cloud)</td>
+            <td class="score">7.24</td>
+            <td>68</td>
+            <td>14.3s</td>
+            <td>$0.0</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">12</td>
+            <td class="model-name">MiMo-V2-Flash</td>
+            <td class="score">7.23</td>
+            <td>54</td>
+            <td>33.7s</td>
+            <td>$0.00057</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">13</td>
+            <td class="model-name">Gemini 2.5 Flash Lite</td>
+            <td class="score">7.22</td>
+            <td>165</td>
+            <td>4.0s</td>
+            <td>$0.00274</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">14</td>
+            <td class="model-name">Nemotron 3 Nano 30B</td>
+            <td class="score">7.22</td>
+            <td>86</td>
+            <td>37.5s</td>
+            <td>$0.00079</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">15</td>
+            <td class="model-name">MiMo V2-Omni (Xiaomi direct)</td>
+            <td class="score">7.21</td>
+            <td>102</td>
+            <td>21.7s</td>
+            <td>$0.00025</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">16</td>
+            <td class="model-name">Llama 4 Maverick</td>
+            <td class="score">7.2</td>
+            <td>46</td>
+            <td>13.6s</td>
+            <td>$0.00192</td>
+            <td class="os-yes">Si</td>
+        </tr>
+<tr>
+            <td class="rank">17</td>
+            <td class="model-name">Llama 3.3 70B (Groq)</td>
+            <td class="score">7.2</td>
+            <td>173</td>
+            <td>3.3s</td>
+            <td>$0.00667</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">18</td>
+            <td class="model-name">Gemini 2.5 Flash</td>
+            <td class="score">7.18</td>
+            <td>114</td>
+            <td>8.9s</td>
+            <td>$0.00378</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">19</td>
+            <td class="model-name">MiMo V2-Pro (Xiaomi direct)</td>
+            <td class="score">7.17</td>
+            <td>45</td>
+            <td>36.8s</td>
+            <td>$0.00028</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">20</td>
+            <td class="model-name">Gemini 3.1 Flash Lite (thinking)</td>
+            <td class="score">7.17</td>
+            <td>203</td>
+            <td>41.1s</td>
+            <td>$0.01586</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">21</td>
+            <td class="model-name">Gemma 4 26B MoE (3.8B activos)</td>
+            <td class="score">7.15</td>
+            <td>48</td>
+            <td>13.8s</td>
+            <td>$0.00226</td>
+            <td class="os-yes">Si</td>
+        </tr>
+<tr>
+            <td class="rank">22</td>
+            <td class="model-name">Qwen 3-Next 80B Instruct (NIM)</td>
+            <td class="score">7.15</td>
+            <td>52</td>
+            <td>24.8s</td>
+            <td>$0.00645</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">23</td>
+            <td class="model-name">Hermes 4 405B</td>
+            <td class="score">7.14</td>
+            <td>33</td>
+            <td>15.4s</td>
+            <td>$0.00184</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">24</td>
+            <td class="model-name">Devstral 2 123B (NIM)</td>
+            <td class="score">7.12</td>
+            <td>42</td>
+            <td>17.6s</td>
+            <td>$0.0023</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">25</td>
+            <td class="model-name">DeepSeek V3.2</td>
+            <td class="score">7.11</td>
+            <td>22</td>
+            <td>31.0s</td>
+            <td>$0.0002</td>
+            <td class="os-yes">Si</td>
+        </tr>
+<tr>
+            <td class="rank">26</td>
+            <td class="model-name">GPT-5.4</td>
+            <td class="score">7.11</td>
+            <td>57</td>
+            <td>11.3s</td>
+            <td>$0.00244</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">27</td>
+            <td class="model-name">GPT-4.1 Mini</td>
+            <td class="score">7.11</td>
+            <td>59</td>
+            <td>8.9s</td>
+            <td>$0.00173</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">28</td>
+            <td class="model-name">Claude Opus 4.6</td>
+            <td class="score">7.11</td>
+            <td>46</td>
+            <td>18.9s</td>
+            <td>$0.00322</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">29</td>
+            <td class="model-name">Grok 4.1 Fast</td>
+            <td class="score">7.11</td>
+            <td>105</td>
+            <td>21.4s</td>
+            <td>$0.00259</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">30</td>
+            <td class="model-name">Gemini 2.5 Flash (thinking)</td>
+            <td class="score">7.1</td>
+            <td>136</td>
+            <td>86.4s</td>
+            <td>$0.02781</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">31</td>
+            <td class="model-name">Devstral Medium</td>
+            <td class="score">7.09</td>
+            <td>60</td>
+            <td>23.7s</td>
+            <td>$0.00117</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">32</td>
+            <td class="model-name">Kimi K2</td>
+            <td class="score">7.05</td>
+            <td>28</td>
+            <td>20.0s</td>
+            <td>$0.00214</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">33</td>
+            <td class="model-name">Qwen3 Coder</td>
+            <td class="score">7.04</td>
+            <td>52</td>
+            <td>17.4s</td>
+            <td>$0.00217</td>
+            <td class="os-yes">Si</td>
+        </tr>
+<tr>
+            <td class="rank">34</td>
+            <td class="model-name">Devstral 2 (Dic 2025)</td>
+            <td class="score">7.04</td>
+            <td>56</td>
+            <td>14.0s</td>
+            <td>$0.00592</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">35</td>
+            <td class="model-name">Mistral Large</td>
+            <td class="score">7.03</td>
+            <td>50</td>
+            <td>16.0s</td>
+            <td>$0.00289</td>
+            <td class="os-yes">Si</td>
+        </tr>
+<tr>
+            <td class="rank">36</td>
+            <td class="model-name">Kimi K2.5 (thinking)</td>
+            <td class="score">7.0</td>
+            <td>36</td>
+            <td>318.1s</td>
+            <td>$0.01117</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">37</td>
+            <td class="model-name">MiMo-V2.5 (omnimodal)</td>
+            <td class="score">6.97</td>
+            <td>95</td>
+            <td>10.4s</td>
+            <td>$0.00381</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">38</td>
+            <td class="model-name">MiMo-V2-Omni (multimodal)</td>
+            <td class="score">6.97</td>
+            <td>86</td>
+            <td>18.5s</td>
+            <td>$0.00417</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">39</td>
+            <td class="model-name">Nemotron 3 Nano Omni 30B-A3B Reasoning (NIM)</td>
+            <td class="score">6.97</td>
+            <td>203</td>
+            <td>10.2s</td>
+            <td>$0.00695</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">40</td>
+            <td class="model-name">Qwen 3.5 397B (NIM)</td>
+            <td class="score">6.96</td>
+            <td>21</td>
+            <td>57.3s</td>
+            <td>$0.00514</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">41</td>
+            <td class="model-name">Gemma 4 31B</td>
+            <td class="score">6.92</td>
+            <td>19</td>
+            <td>150.3s</td>
+            <td>$0.00404</td>
+            <td class="os-yes">Si</td>
+        </tr>
+<tr>
+            <td class="rank">42</td>
+            <td class="model-name">Grok 4.20</td>
+            <td class="score">6.92</td>
+            <td>51</td>
+            <td>10.8s</td>
+            <td>$0.00433</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">43</td>
+            <td class="model-name">Hermes 4 70B</td>
+            <td class="score">6.91</td>
+            <td>50</td>
+            <td>7.3s</td>
+            <td>$0.01278</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">44</td>
+            <td class="model-name">Nemotron Nano 9B v2 (NIM)</td>
+            <td class="score">6.91</td>
+            <td>54</td>
+            <td>26.4s</td>
+            <td>$0.00472</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">45</td>
+            <td class="model-name">Mistral-Nemotron (NIM)</td>
+            <td class="score">6.89</td>
+            <td>38</td>
+            <td>20.0s</td>
+            <td>$0.0017</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">46</td>
+            <td class="model-name">Mistral Large 3 675B (NIM)</td>
+            <td class="score">6.89</td>
+            <td>11</td>
+            <td>141.0s</td>
+            <td>$0.00265</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">47</td>
+            <td class="model-name">MiMo-V2-Pro</td>
+            <td class="score">6.88</td>
+            <td>52</td>
+            <td>20.9s</td>
+            <td>$0.00369</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">48</td>
+            <td class="model-name">GLM 5.1 (NIM)</td>
+            <td class="score">6.87</td>
+            <td>8</td>
+            <td>104.8s</td>
+            <td>$0.00271</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">49</td>
+            <td class="model-name">GLM 5 (NIM)</td>
+            <td class="score">6.87</td>
+            <td>7</td>
+            <td>123.2s</td>
+            <td>$0.00254</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">50</td>
+            <td class="model-name">Mistral Nemo</td>
+            <td class="score">6.86</td>
+            <td>30</td>
+            <td>20.4s</td>
+            <td>$1e-05</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">51</td>
+            <td class="model-name">Claude Haiku 4.5</td>
+            <td class="score">6.86</td>
+            <td>102</td>
+            <td>44.3s</td>
+            <td>$0.02946</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">52</td>
+            <td class="model-name">MiMo-V2.5 Pro</td>
+            <td class="score">6.85</td>
+            <td>61</td>
+            <td>18.5s</td>
+            <td>$0.0037</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">53</td>
+            <td class="model-name">Ministral 14B (NIM)</td>
+            <td class="score">6.85</td>
+            <td>21</td>
+            <td>49.5s</td>
+            <td>$0.00319</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">54</td>
+            <td class="model-name">Gemma 4 31B (DGX Spark Q4_K_M)</td>
+            <td class="score">6.84</td>
+            <td>9</td>
+            <td>153.4s</td>
+            <td>$0.00426</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">55</td>
+            <td class="model-name">Nemotron 3 Super</td>
+            <td class="score">6.81</td>
+            <td>31</td>
+            <td>46.1s</td>
+            <td>$0.00057</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">56</td>
+            <td class="model-name">Qwen 3.5 397B (Ollama Cloud)</td>
+            <td class="score">6.78</td>
+            <td>76</td>
+            <td>30.5s</td>
+            <td>$0.0</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">57</td>
+            <td class="model-name">Nemotron Super 49B v1.5 (NIM)</td>
+            <td class="score">6.77</td>
+            <td>25</td>
+            <td>83.0s</td>
+            <td>$0.00523</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">58</td>
+            <td class="model-name">MiniMax M2.7 (directo)</td>
+            <td class="score">6.74</td>
+            <td>52</td>
+            <td>52.2s</td>
+            <td>$0.00557</td>
+            <td class="os-partial">Parcial</td>
+        </tr>
+<tr>
+            <td class="rank">59</td>
+            <td class="model-name">Nemotron 3 Super 120B (DGX Spark Q4_K_M)</td>
+            <td class="score">6.74</td>
+            <td>17</td>
+            <td>123.7s</td>
+            <td>$0.00563</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">60</td>
+            <td class="model-name">Nemotron 3 Base 33B (DGX Spark Q4_K_M)</td>
+            <td class="score">6.74</td>
+            <td>63</td>
+            <td>58.3s</td>
+            <td>$0.0126</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">61</td>
+            <td class="model-name">MiniMax M2.7 Highspeed</td>
+            <td class="score">6.73</td>
+            <td>49</td>
+            <td>54.5s</td>
+            <td>$0.0059</td>
+            <td class="os-partial">Parcial</td>
+        </tr>
+<tr>
+            <td class="rank">62</td>
+            <td class="model-name">MiniMax M2.7</td>
+            <td class="score">6.71</td>
+            <td>36</td>
+            <td>38.6s</td>
+            <td>$0.00382</td>
+            <td class="os-partial">Parcial</td>
+        </tr>
+<tr>
+            <td class="rank">63</td>
+            <td class="model-name">Claude Sonnet 4.6</td>
+            <td class="score">6.7</td>
+            <td>62</td>
+            <td>21.1s</td>
+            <td>$0.00415</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">64</td>
+            <td class="model-name">GLM-5.1</td>
+            <td class="score">6.7</td>
+            <td>39</td>
+            <td>60.1s</td>
+            <td>$0.00631</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">65</td>
+            <td class="model-name">Hermes 4 70B (thinking)</td>
+            <td class="score">6.7</td>
+            <td>73</td>
+            <td>95.4s</td>
+            <td>$0.04671</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">66</td>
+            <td class="model-name">Qwen 3.5 (Ollama Cloud default)</td>
+            <td class="score">6.66</td>
+            <td>70</td>
+            <td>33.2s</td>
+            <td>$0.0</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">67</td>
+            <td class="model-name">DeepSeek V4 Flash (NIM)</td>
+            <td class="score">6.66</td>
+            <td>18</td>
+            <td>86.6s</td>
+            <td>$0.01292</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">68</td>
+            <td class="model-name">Kimi K2.6</td>
+            <td class="score">6.62</td>
+            <td>37</td>
+            <td>123.7s</td>
+            <td>$0.00973</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">69</td>
+            <td class="model-name">GPT-4.1</td>
+            <td class="score">6.58</td>
+            <td>51</td>
+            <td>27.6s</td>
+            <td>$0.21226</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">70</td>
+            <td class="model-name">Qwen 3.6 Plus</td>
+            <td class="score">6.57</td>
+            <td>50</td>
+            <td>60.1s</td>
+            <td>$0.00935</td>
+            <td class="os-yes">Si</td>
+        </tr>
+<tr>
+            <td class="rank">71</td>
+            <td class="model-name">Claude Haiku 4.5 (thinking)</td>
+            <td class="score">6.57</td>
+            <td>117</td>
+            <td>141.3s</td>
+            <td>$0.04809</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">72</td>
+            <td class="model-name">Gemini 3.1 Pro (thinking)</td>
+            <td class="score">6.5</td>
+            <td>84</td>
+            <td>133.4s</td>
+            <td>$0.13929</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">73</td>
+            <td class="model-name">Gemini 2.5 Pro</td>
+            <td class="score">6.47</td>
+            <td>91</td>
+            <td>18.5s</td>
+            <td>$0.00507</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">74</td>
+            <td class="model-name">Claude Sonnet 4.6 (thinking)</td>
+            <td class="score">6.47</td>
+            <td>58</td>
+            <td>149.1s</td>
+            <td>$0.19813</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">75</td>
+            <td class="model-name">Kimi K2.5 (NIM)</td>
+            <td class="score">6.42</td>
+            <td>22</td>
+            <td>90.1s</td>
+            <td>$0.0012</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">76</td>
+            <td class="model-name">Qwen 3-Next 80B Thinking (NIM)</td>
+            <td class="score">6.4</td>
+            <td>98</td>
+            <td>18.1s</td>
+            <td>$0.00566</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">77</td>
+            <td class="model-name">Step 3.5 Flash (NIM)</td>
+            <td class="score">6.4</td>
+            <td>41</td>
+            <td>69.3s</td>
+            <td>$0.00871</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">78</td>
+            <td class="model-name">Kimi K2 Thinking (NIM)</td>
+            <td class="score">6.37</td>
+            <td>31</td>
+            <td>78.4s</td>
+            <td>$0.00813</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">79</td>
+            <td class="model-name">Claude Sonnet 4.6 (ultimo Anthropic)</td>
+            <td class="score">6.36</td>
+            <td>47</td>
+            <td>12.4s</td>
+            <td>$0.03585</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">80</td>
+            <td class="model-name">Claude Opus 4.7 (thinking)</td>
+            <td class="score">6.33</td>
+            <td>63</td>
+            <td>204.3s</td>
+            <td>$1.17794</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">81</td>
+            <td class="model-name">Kimi K2.6 (thinking)</td>
+            <td class="score">6.32</td>
+            <td>40</td>
+            <td>494.2s</td>
+            <td>$0.12073</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">82</td>
+            <td class="model-name">Claude Opus 4.7</td>
+            <td class="score">6.3</td>
+            <td>48</td>
+            <td>11.8s</td>
+            <td>$0.82335</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">83</td>
+            <td class="model-name">Hermes 4 405B (thinking)</td>
+            <td class="score">6.3</td>
+            <td>36</td>
+            <td>189.0s</td>
+            <td>$0.04135</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">84</td>
+            <td class="model-name">Gemini 3.1 Pro</td>
+            <td class="score">6.25</td>
+            <td>85</td>
+            <td>18.8s</td>
+            <td>$0.08188</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">85</td>
+            <td class="model-name">GPT-5.5</td>
+            <td class="score">6.13</td>
+            <td>53</td>
+            <td>24.4s</td>
+            <td>$0.12423</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">86</td>
+            <td class="model-name">Kimi K2.5</td>
+            <td class="score">6.04</td>
+            <td>45</td>
+            <td>100.9s</td>
+            <td>$0.00669</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">87</td>
+            <td class="model-name">DeepSeek V4 Pro</td>
+            <td class="score">5.73</td>
+            <td>27</td>
+            <td>70.0s</td>
+            <td>$0.02792</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">88</td>
+            <td class="model-name">Mistral Magistral Small (NIM)</td>
+            <td class="score">5.71</td>
+            <td>24</td>
+            <td>43.6s</td>
+            <td>$0.00375</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">89</td>
+            <td class="model-name">DeepSeek V4 Flash (Ollama Cloud)</td>
+            <td class="score">4.96</td>
+            <td>29</td>
+            <td>48.3s</td>
+            <td>$0.02957</td>
+            <td class="os-no">No</td>
+        </tr>
+<tr>
+            <td class="rank">90</td>
+            <td class="model-name">DeepSeek V4 Pro (Ollama Cloud)</td>
+            <td class="score">4.86</td>
+            <td>19</td>
+            <td>91.5s</td>
+            <td>$0.029</td>
+            <td class="os-no">No</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <div class="note">
+        <strong>Sobre el scoring:</strong> Evalua formato, estructura, tool calling y velocidad de forma automatica.
+        No captura profundidad de razonamiento ni calidad subjetiva del contenido.
+        Ver pagina de Metodologia para detalles de que mide y que no mide.
+    </div>
+</div>
+
+<!-- ===== PAGE 4: RANKINGS POR CATEGORIA ===== -->
+<div class="page">
+    <h2>Rankings por Categoria (Top 5 por area)</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Razonamiento (deep reasoning + reasoning)</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>DeepSeek V3.2</td><td class="score">7.65</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>Devstral Small</td><td class="score">7.64</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>GPT-4.1</td><td class="score">7.45</td></tr>
+                    <tr><td class="rank">4</td><td>GPT-4.1 Mini</td><td>7.36</td></tr>
+                    <tr><td class="rank">5</td><td>Gemini 2.5 Flash</td><td>7.30</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Agentes (tool calling + customer support)</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">7.21</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>GPT-5.4 Mini</td><td class="score">7.13</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>Claude Opus 4.6</td><td class="score">7.02</td></tr>
+                    <tr><td class="rank">4</td><td>Claude Sonnet 4.6</td><td>7.02</td></tr>
+                    <tr><td class="rank">5</td><td>Kimi K2</td><td>6.86</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Codigo</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">7.65</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>GPT-4.1</td><td class="score">7.37</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>DeepSeek V3.2</td><td class="score">7.34</td></tr>
+                    <tr><td class="rank">4</td><td>GPT-4.1 Mini</td><td>7.33</td></tr>
+                    <tr><td class="rank">5</td><td>Mistral Large</td><td>7.24</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3>Contenido (content + startup + presentation)</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">7.37</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>GPT-4.1 Mini</td><td class="score">7.21</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>GPT-4.1</td><td class="score">7.14</td></tr>
+                    <tr><td class="rank">4</td><td>DeepSeek V3.2</td><td>7.06</td></tr>
+                    <tr><td class="rank">5</td><td>Gemini Flash Lite</td><td>6.96</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Productividad (task mgmt + summarization)</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">7.39</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>GPT-4.1</td><td class="score">7.26</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>Gemini Flash Lite</td><td class="score">7.13</td></tr>
+                    <tr><td class="rank">4</td><td>DeepSeek V3.2</td><td>7.12</td></tr>
+                    <tr><td class="rank">5</td><td>GPT-4.1 Mini</td><td>7.01</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Datos Estructurados (JSON)</h3>
+            <table>
+                <thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead>
+                <tbody>
+                    <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">7.33</td></tr>
+                    <tr class="top3"><td class="rank">2</td><td>Gemini Flash Lite</td><td class="score">7.33</td></tr>
+                    <tr class="top3"><td class="rank">3</td><td>GPT-4.1</td><td class="score">7.22</td></tr>
+                    <tr><td class="rank">4</td><td>GPT-4.1 Mini</td><td>7.17</td></tr>
+                    <tr><td class="rank">5</td><td>Mistral Large</td><td>7.14</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h3>Alucinaciones (precision factual)</h3>
+    <table>
+        <thead><tr><th>#</th><th>Modelo</th><th>Score</th><th>Notas</th></tr></thead>
+        <tbody>
+            <tr class="top3"><td class="rank">1</td><td>Claude Sonnet 4.6</td><td class="score">7.62</td><td>Mas honesto del benchmark</td></tr>
+            <tr class="top3"><td class="rank">2</td><td>Mistral Large</td><td class="score">7.52</td><td>Muy confiable</td></tr>
+            <tr class="top3"><td class="rank">3</td><td>Gemini Flash Lite</td><td class="score">7.47</td><td>Rapido Y honesto</td></tr>
+            <tr><td class="rank">4</td><td>Claude Opus 4.6</td><td>7.45</td><td>Anthropic = honestidad</td></tr>
+            <tr><td class="rank">...</td><td>MiniMax M2.7</td><td>7.02</td><td></td></tr>
+            <tr><td class="rank">...</td><td style="color:#ff006e">Qwen 3.6 Plus</td><td style="color:#ff006e">6.50</td><td style="color:#ff006e">Mas propenso a alucinar</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Creatividad y originalidad</h3>
+    <table>
+        <thead><tr><th>#</th><th>Modelo</th><th>Score</th><th>Notas</th></tr></thead>
+        <tbody>
+            <tr class="top3"><td class="rank">1</td><td>Devstral Small</td><td class="score">6.93</td><td>Menos cliches</td></tr>
+            <tr class="top3"><td class="rank">2</td><td>Gemini 2.5 Flash</td><td class="score">6.85</td><td>Sorprendente creatividad</td></tr>
+            <tr class="top3"><td class="rank">3</td><td>DeepSeek V3.2</td><td class="score">6.75</td><td>Bueno y barato</td></tr>
+            <tr><td class="rank">...</td><td>Claude Opus 4.6</td><td>6.47</td><td></td></tr>
+            <tr><td class="rank">...</td><td style="color:#ff006e">GPT-5.4</td><td style="color:#ff006e">5.56</td><td style="color:#ff006e">Generico</td></tr>
+            <tr><td class="rank">...</td><td style="color:#ff006e">MiniMax M2.7</td><td style="color:#ff006e">5.19</td><td style="color:#ff006e">Muy generico, cliches</td></tr>
+        </tbody>
+    </table>
+
+    <div class="note">
+        <strong>Insight clave:</strong> No existe un "mejor modelo para todo". Claude es #1 en honestidad
+        pero #16 en JSON. MiniMax es bueno para agentes pero ultimo en creatividad. Elige segun tu caso de uso.
+    </div>
+</div>
+
+<!-- ===== PAGE 5: RECOMENDACIONES POR CASO DE USO ===== -->
+<div class="page">
+    <h2>Que Modelo Usar: Recomendaciones por Caso de Uso</h2>
+
+    <h3>Para Agentes (N8N / OpenClaw)</h3>
+    <div class="rec-grid">
+        <div class="rec-box">
+            <div class="rec-title">Agente Economico</div>
+            <div class="rec-model">DeepSeek V3.2</div>
+            <div class="rec-why">#4 global, $0.14/$0.28 per M, MIT open-source</div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Agente Rapido</div>
+            <div class="rec-model">Devstral Small</div>
+            <div class="rec-why">#1 global, 171 tok/s, Apache 2.0</div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Agente con Suscripcion Fija</div>
+            <div class="rec-model">MiniMax M2.7</div>
+            <div class="rec-why">$20-69/mes, tool calling SOTA, imagenes incluidas</div>
+        </div>
+    </div>
+
+    <h3>Para Generacion de Contenido</h3>
+    <div class="rec-grid">
+        <div class="rec-box">
+            <div class="rec-title">Blog / Newsletter</div>
+            <div class="rec-model">GPT-4.1</div>
+            <div class="rec-why">#2 global, excelente en espanol, via API OpenAI</div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Contenido en Espanol</div>
+            <div class="rec-model">DeepSeek V3.2</div>
+            <div class="rec-why">#4 global, excelente en espanol, $0.14/$0.28 per M</div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Alto Volumen / Batch</div>
+            <div class="rec-model">Gemini 2.5 Flash Lite</div>
+            <div class="rec-why">212 tok/s, 4.7s latencia, $0.10/$0.40 per M</div>
+        </div>
+    </div>
+
+    <h3>Para Coding y Automatizacion</h3>
+    <div class="rec-grid">
+        <div class="rec-box">
+            <div class="rec-title">Coding General</div>
+            <div class="rec-model">Devstral Small</div>
+            <div class="rec-why">#1, especializado en codigo, Apache 2.0</div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Coding Open-Source Local</div>
+            <div class="rec-model">MiniMax M2.5</div>
+            <div class="rec-why">80.2% SWE-Bench, MIT, cabe en DGX Spark</div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Coding IDE (Cursor/VSCode)</div>
+            <div class="rec-model">Qwen3 Coder</div>
+            <div class="rec-why">#12, Apache 2.0, bueno para automatizaciones</div>
+        </div>
+    </div>
+
+    <h3>Para Maxima Calidad (sin importar costo)</h3>
+    <div class="rec-grid">
+        <div class="rec-box">
+            <div class="rec-title">Razonamiento Profundo</div>
+            <div class="rec-model">Claude Opus 4.6</div>
+            <div class="rec-why">#1 en Arena (1504 Elo), $15/$75 per M</div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Tool Calling Premium</div>
+            <div class="rec-model">GPT-5.4 Mini</div>
+            <div class="rec-why">Score 7.5 en tool calling, 142 tok/s</div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Open-Source Premium</div>
+            <div class="rec-model">Llama 4 Maverick</div>
+            <div class="rec-why">#10, empata con Claude Sonnet, open-source</div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE 4: PRECIOS Y SUSCRIPCIONES ===== -->
+<div class="page">
+    <h2>Comparativa de Precios y Suscripciones</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Pay-as-you-go (por millon de tokens)</h3>
+            <table>
+                <thead><tr><th>Modelo</th><th>Input/M</th><th>Output/M</th><th>Open Source</th></tr></thead>
+                <tbody>
+                    <tr><td>Mistral Nemo</td><td>$0.02</td><td>$0.02</td><td class="os-yes">Apache 2.0</td></tr>
+                    <tr><td>Devstral Small</td><td>$0.10</td><td>$0.30</td><td class="os-yes">Apache 2.0</td></tr>
+                    <tr><td>Gemini Flash Lite</td><td>$0.10</td><td>$0.40</td><td class="os-no">No</td></tr>
+                    <tr><td>DeepSeek V3.2</td><td>$0.14</td><td>$0.28</td><td class="os-yes">MIT</td></tr>
+                    <tr><td>MiniMax M2.7</td><td>$0.30</td><td>$1.20</td><td class="os-partial">Parcial</td></tr>
+                    <tr><td>GPT-4.1 Mini</td><td>$0.40</td><td>$1.60</td><td class="os-no">No</td></tr>
+                    <tr><td>Llama 4 Maverick</td><td>$0.50</td><td>$1.00</td><td class="os-yes">Llama</td></tr>
+                    <tr><td>GPT-4.1</td><td>$2.00</td><td>$8.00</td><td class="os-no">No</td></tr>
+                    <tr><td>GPT-4o</td><td>$2.50</td><td>$10.00</td><td class="os-no">No</td></tr>
+                    <tr><td>Claude Sonnet 4.6</td><td>$3.00</td><td>$15.00</td><td class="os-no">No</td></tr>
+                    <tr><td>Claude Opus 4.6</td><td>$15.00</td><td>$75.00</td><td class="os-no">No</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3>Suscripciones Mensuales Fijas</h3>
+            <table>
+                <thead><tr><th>Servicio</th><th>Precio</th><th>Mejor Modelo</th></tr></thead>
+                <tbody>
+                    <tr><td>MiniMax Starter</td><td>$10/mes</td><td>M2.1</td></tr>
+                    <tr><td>Mistral Le Chat</td><td>~$15/mes</td><td>Mistral Large</td></tr>
+                    <tr><td>MiniMax Agent Pro</td><td>$19/mes</td><td>M2.7</td></tr>
+                    <tr><td>Google AI Pro</td><td>$20/mes</td><td>Gemini 2.5 Pro</td></tr>
+                    <tr><td>ChatGPT Plus</td><td>$20/mes</td><td>GPT-4o</td></tr>
+                    <tr><td>MiniMax Coding Plus</td><td>$20/mes</td><td>M2.1</td></tr>
+                    <tr><td>Ollama Cloud Pro</td><td>$20/mes</td><td>Todos open-source</td></tr>
+                    <tr><td>Claude Pro</td><td>$20/mes</td><td>Sonnet 4.5 (solo chat)</td></tr>
+                    <tr><td>SuperGrok</td><td>$30/mes</td><td>Grok 4.20</td></tr>
+                    <tr><td>Qwen Coding Pro</td><td>$50/mes</td><td>Qwen-Coder-Max</td></tr>
+                    <tr><td>MiniMax Agent Pro+</td><td>$69/mes</td><td>M2.7</td></tr>
+                    <tr><td>Ollama Cloud Max</td><td>$100/mes</td><td>Todos open-source</td></tr>
+                    <tr><td>ChatGPT Pro</td><td>$200/mes</td><td>GPT-5.2, o3</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE 5: ESTRATEGIA LOCAL + NUBE ===== -->
+<div class="page">
+    <h2>Estrategia Local + Nube (NVIDIA DGX Spark 128GB)</h2>
+
+    <h3>Modelos Open-Source para Correr Local</h3>
+    <table>
+        <thead><tr><th>Modelo</th><th>RAM</th><th>Licencia</th><th>Calidad</th><th>Contexto</th><th>Ideal para</th></tr></thead>
+        <tbody>
+            <tr><td>Gemma 4 E4B</td><td>4 GB</td><td>Apache 2.0</td><td>Buena</td><td>128K</td><td>Edge/mobile</td></tr>
+            <tr><td>Mistral Nemo 12B</td><td>8 GB</td><td>Apache 2.0</td><td>Buena</td><td>128K</td><td>Tareas simples</td></tr>
+            <tr><td>Phi-4 14B</td><td>10 GB</td><td>MIT</td><td>Buena</td><td>16K</td><td>Razonamiento compacto</td></tr>
+            <tr><td>Gemma 4 26B MoE</td><td>16 GB</td><td>Apache 2.0</td><td>Muy buena</td><td>256K</td><td>Solo 3.8B activos, rapido</td></tr>
+            <tr><td>Qwen 3.5 25B</td><td>16 GB</td><td>Apache 2.0</td><td>Muy buena</td><td>128K</td><td>General, multiidioma</td></tr>
+            <tr><td>Gemma 4 31B</td><td>20 GB</td><td>Apache 2.0</td><td>Excelente</td><td>256K</td><td>#3 open en Arena</td></tr>
+            <tr><td>Llama 3.3 70B</td><td>40 GB</td><td>Llama</td><td>Muy buena</td><td>128K</td><td>Clasico confiable</td></tr>
+            <tr><td>Qwen 3.5 72B</td><td>42 GB</td><td>Apache 2.0</td><td>Excelente</td><td>128K</td><td>Top coding local</td></tr>
+            <tr><td>Llama 4 Maverick</td><td>~60 GB</td><td>Llama</td><td>Excelente</td><td>128K</td><td>Multimodal</td></tr>
+            <tr><td>MiniMax M2.5</td><td>~90 GB</td><td>MIT</td><td>Excelente</td><td>128K</td><td>80.2% SWE-Bench</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Regla de Routing: Cuando Usar Local vs Nube</h3>
+    <div class="rec-grid">
+        <div class="rec-box">
+            <div class="rec-title">Usar LOCAL cuando</div>
+            <div class="rec-why" style="color: #39ff14;">
+                - Privacidad es critica<br>
+                - No hay internet confiable<br>
+                - Coding/debug largo<br>
+                - Presupuesto $0<br>
+                - Fine-tuning necesario
+            </div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Usar NUBE cuando</div>
+            <div class="rec-why" style="color: #00d4ff;">
+                - Velocidad maxima (Devstral 171 tok/s)<br>
+                - Tool calling para agentes<br>
+                - Contexto >128K tokens<br>
+                - Imagenes/audio (MiniMax)<br>
+                - Fallback si local falla
+            </div>
+        </div>
+        <div class="rec-box">
+            <div class="rec-title">Combo Optimo ($0/mes)</div>
+            <div class="rec-why" style="color: #ffffff;">
+                <strong>Local:</strong> Gemma 4 26B MoE (rapido)<br>
+                + Qwen 3.5 72B (calidad)<br>
+                <strong>Nube:</strong> DeepSeek V3.2 (backup)<br>
+                Costo: $0 + electricidad
+            </div>
+        </div>
+    </div>
+
+    <h3>Escenarios de Costo</h3>
+    <table>
+        <thead><tr><th>Escenario</th><th>Local</th><th>Nube</th><th>Costo/mes</th></tr></thead>
+        <tbody>
+            <tr><td>Solo local, independencia total</td><td>Gemma 4 + Qwen 72B</td><td>Ninguna</td><td><strong>$0</strong></td></tr>
+            <tr><td>Local + backup nube</td><td>Qwen 72B</td><td>DeepSeek V3.2 paygo</td><td><strong>~$5</strong></td></tr>
+            <tr><td>Agente 24/7 alta calidad</td><td>MiniMax M2.5</td><td>MiniMax Agent Pro</td><td><strong>$19</strong></td></tr>
+            <tr><td>Maximo rendimiento</td><td>MiniMax M2.5</td><td>OpenRouter + Qwen Pro</td><td><strong>~$65</strong></td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- ===== PAGE 6: PROVEEDORES ===== -->
+<div class="page">
+    <h2>Mapa de Proveedores</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Propietarios</h3>
+            <table>
+                <thead><tr><th>Proveedor</th><th>Pais</th><th>Mejor Modelo</th><th>Fortaleza</th></tr></thead>
+                <tbody>
+                    <tr><td>OpenAI</td><td>USA</td><td>GPT-4.1</td><td>Tool calling, ecosistema</td></tr>
+                    <tr><td>Anthropic</td><td>USA</td><td>Opus 4.6</td><td>Razonamiento, coding</td></tr>
+                    <tr><td>Google</td><td>USA</td><td>Gemini 2.5 Pro</td><td>Velocidad, multimodal</td></tr>
+                    <tr><td>xAI</td><td>USA</td><td>Grok 4.20</td><td>RPM alto, X integration</td></tr>
+                    <tr><td>Moonshot</td><td>China</td><td>Kimi K2</td><td>Contexto largo</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Open Source</h3>
+            <table>
+                <thead><tr><th>Proveedor</th><th>Pais</th><th>Mejor Modelo</th><th>Licencia</th></tr></thead>
+                <tbody>
+                    <tr><td>Mistral</td><td>Francia</td><td>Devstral (#1!)</td><td>Apache 2.0</td></tr>
+                    <tr><td>DeepSeek</td><td>China</td><td>V3.2</td><td>MIT</td></tr>
+                    <tr><td>Meta</td><td>USA</td><td>Llama 4 Maverick</td><td>Llama Community</td></tr>
+                    <tr><td>Alibaba</td><td>China</td><td>Qwen 3.6 Plus</td><td>Apache 2.0</td></tr>
+                    <tr><td>Google</td><td>USA</td><td>Gemma 4 31B</td><td>Apache 2.0</td></tr>
+                    <tr><td>MiniMax</td><td>China</td><td>M2.5 (MIT)</td><td>MIT</td></tr>
+                    <tr><td>Microsoft</td><td>USA</td><td>Phi-4</td><td>MIT</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3>Infraestructura (sirven modelos)</h3>
+            <table>
+                <thead><tr><th>Servicio</th><th>Ventaja</th><th>Modelos</th></tr></thead>
+                <tbody>
+                    <tr><td>OpenRouter</td><td>1 API key, 290+ modelos</td><td>Todos</td></tr>
+                    <tr><td>Ollama</td><td>Local + Cloud</td><td>Open-source</td></tr>
+                    <tr><td>Groq</td><td>544 tok/s (LPU)</td><td>Llama, Mixtral</td></tr>
+                    <tr><td>Cerebras</td><td>1800 tok/s record</td><td>Llama</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Rate Limits (riesgo de corte)</h3>
+            <table>
+                <thead><tr><th>Proveedor</th><th>RPM</th><th>TPM</th><th>Riesgo</th></tr></thead>
+                <tbody>
+                    <tr><td>Qwen (Alibaba)</td><td>15,000</td><td>10M</td><td class="os-yes">Muy bajo</td></tr>
+                    <tr><td>xAI</td><td>1,200</td><td>-</td><td class="os-yes">Bajo</td></tr>
+                    <tr><td>Google Gemini</td><td>1,000</td><td>4M</td><td class="os-yes">Bajo</td></tr>
+                    <tr><td>OpenAI</td><td>500</td><td>800K</td><td class="os-yes">Bajo</td></tr>
+                    <tr><td>Ollama (local)</td><td>Ilimitado</td><td>Ilimitado</td><td class="os-yes">Ninguno</td></tr>
+                    <tr><td>Groq</td><td>30</td><td>100K</td><td class="os-no">Alto</td></tr>
+                </tbody>
+            </table>
+
+            <div class="note" style="margin-top: 15px;">
+                <strong>Tip:</strong> Para agentes N8N/OpenClaw, usa OpenRouter con fallback automatico:
+                Devstral -> DeepSeek V4 Flash NIM (gratis) -> MiMo V2.5 Xiaomi sub.
+                Una sola API key para top 3 vias por costo.
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-url" style="margin-top: 20px;">
+        cristiantala.com | Mayo 2026
+    </div>
+</div>
+
+<!-- ===== INSIGHTS DESTACADOS DEL MES ===== -->
+<div class="page">
+    <h2>Hallazgos clave de Mayo 2026</h2>
+    <p style="margin-bottom: 12px; font-size: 9pt; color: #b0b0b0;">
+        Insights cuantitativos del benchmark v2.6.0 — basados en 9,204+ runs reales en 90 modelos.
+    </p>
+
+    <div class="two-col">
+        <div>
+            <h3>1. Provider matters cuantificado</h3>
+            <p style="font-size: 9pt;">
+                Mismo modelo en provider directo vs OpenRouter: <strong>+0.16 a +0.25 puntos</strong>.
+                Confirmado en 4 proveedores (Xiaomi direct, Groq direct, NIM gratis, MiniMax direct).
+                Para producción: <strong>provider directo siempre cuando esté disponible</strong>.
+            </p>
+
+            <h3>2. Thinking forzado EMPEORA agéntica multi-turn</h3>
+            <p style="font-size: 9pt;">
+                En 8/9 modelos hybrid medidos con <code>reasoning=high</code> en agent_long_horizon,
+                el score baja vs sin thinking: Opus 4.7 -0.67, Sonnet 4.6 -0.50, Hermes 4 70B -0.54.
+                Solo Kimi K2.5 sube (+0.73). <strong>Para N8N/OpenClaw: NO actives thinking default</strong>.
+            </p>
+
+            <h3>3. Why Opus 4.7 NO está en top 10 de nuestro benchmark</h3>
+            <p style="font-size: 9pt;">
+                Opus 4.7 saca quality 8.08 (top 6 entre todos), pero <strong>40-100x mas caro y 5-10x mas lento</strong>
+                que las alternativas. El score compuesto pondera costo+speed → cae fuera del top 10.
+                Para investigación académica: <strong>SI uses Opus</strong>. Para producción a volumen LATAM con presupuesto: alternativas top.
+            </p>
+
+            <h3>4. Modelo gigante NO siempre gana</h3>
+            <p style="font-size: 9pt;">
+                Mistral Large 3 (675B params) saca 6.89. Nemotron Nano 9B v2 saca 6.91.
+                <strong>Modelo 75x más pequeño rinde más</strong> en NIM benchmark.
+            </p>
+        </div>
+        <div>
+            <h3>5. "1M context declarado" ≠ retrieval efectivo</h3>
+            <p style="font-size: 9pt;">
+                Solo <strong>GPT-4.1 procesa 1M tokens efectivamente</strong> via OpenAI/OpenRouter.
+                Llama 4 Scout (10M declarado), DeepSeek V4 Flash (1M), Gemini 3.1 Pro (1M) —
+                todos cap por sus providers a 128K-256K real.
+            </p>
+
+            <h3>6. DeepSeek V4 Pro NIM NO funciona en producción</h3>
+            <p style="font-size: 9pt;">
+                Cascada 504 reproducible <strong>2 veces</strong> (28 abril + 3 mayo). NIM gateway
+                no maneja modelo gigante con prompts largos. Para V4 Pro:
+                <strong>OpenRouter pagado o Ollama Cloud sub</strong> (97% éxito).
+            </p>
+
+            <h3>7. MiMo Xiaomi sub family — mejor C/B en español</h3>
+            <p style="font-size: 9pt;">
+                <strong>4 modelos MiMo en top 10</strong> (V2-Omni, V2.5, V2.5-Pro, V2-Flash).
+                Sub $14/mes da acceso a 4 modelos competentes con español neutro fuerte.
+                Mejor opción para emprendedores LATAM con presupuesto fijo predecible.
+            </p>
+
+            <h3>8. Devstral Small lidera NIAH-ES</h3>
+            <p style="font-size: 9pt;">
+                Specialist coding model gana retrieval en español neutro: <strong>7.25 vs Opus 4.7 4.98</strong>.
+                <strong>+2.27 puntos a 1/450 del costo</strong>. Para tasks de extracción de info
+                con contexto &lt;128K: Devstral es la mejor opción.
+            </p>
+
+            <h3>9. Limitación honesta: NO medimos debugging real</h3>
+            <p style="font-size: 9pt;">
+                Caso reportado: MiniMax M2.7 NO pudo resolver bug en VPS Hetzner. Opus 4.7 sí en minutos.
+                Para debugging agentic real (Docker, K8s, networking), <strong>mira SWE-bench Verified</strong>
+                (Opus 4.7 = 87.6% top 1 globalmente).
+            </p>
+        </div>
+    </div>
+
+    <div class="note" style="margin-top: 15px;">
+        <strong>📍 Recordatorio importante</strong>: este benchmark NO sustituye a los oficiales (HumanEval, MMLU, GSM8K, SWE-bench, NIAH inglés). Es un <strong>complemento</strong> para emprendedores hispanohablantes que deciden producción real (N8N, OpenClaw, Hermes, blogs LATAM, agentes). Para investigación académica: prioriza los oficiales. Para producción aplicada en español: este suma datos no cubiertos por los académicos (costo provider real, latencia LATAM, español neutro, agentes multi-turno).
+    </div>
+
+    <div class="footer-url" style="margin-top: 20px;">
+        cristiantala.com | Mayo 2026 | github.com/ctala/ai-benchmarks-alternativos
+    </div>
+</div>
+
+</body>
+</html>
