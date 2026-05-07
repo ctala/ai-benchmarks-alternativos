@@ -70,6 +70,14 @@ FIXED_TEMP_MODELS = ("gpt-5.5", "gpt-5-pro", "gpt-5.5-pro", "o1", "o3")
 # runs vacíos en Kimi K2.6/GPT-5.5/GLM-5.1/Nemotron).
 THINKING_TOKEN_MULTIPLIER = 4
 # Mínimo absoluto para thinking models, aunque el max_tokens base sea bajo.
+# Vuelto a 8192 el 7 mayo 2026 tras experimento con 16384.
+# Historial:
+# - 8192 default: GPT-5.5 con 151/151 content vacío (consume todo en reasoning)
+# - 16384: smoke OK pero en bench real cada test 16-50 min, ETA 181h para 223 tests
+# Conclusión: GPT-5.5 es OVER-thinking y no es medible bien con nuestra
+# metodología de single-shot. Documentado como limitación del benchmark.
+# Para los demás thinking models (GPT-5/o1/o3/Kimi K2.6/Nemotron/Gemma 4),
+# 8192 funciona bien en casi todos los casos.
 THINKING_MIN_TOKENS = 8192
 
 # Tiempo de espera del cliente HTTP. Subido a 360s tras detectar timeouts

@@ -732,13 +732,19 @@ GPT-OSS 120B sale #13 en single-turn (7.37) pero lidera **agent_long_horizon con
 
 Casos donde la data parece anómala y conviene re-correr antes de publicar conclusiones fuertes:
 
-### 12.1 Devstral 2 123B (NIM) — agent_capabilities = 0.00
+### 12.1 Devstral 2 123B (NIM) — agent_capabilities = 0.00 → DEPRECADO POR PROVIDER
 
-68 runs totales pero la suite `agent_capabilities` registra 0.00. Posibles causas: la suite no se corrió completamente por timeouts (más probable) o el modelo retorna respuestas vacías en esa suite. **Re-correr solo agent_capabilities con timeout extendido** antes de aceptar el ranking 7.16 final.
+**Validado 2026-05-07**: re-run intentado falla con cascada de **error 400 en 29/29 tests**. NIM ya no soporta Devstral 2 en mayo 2026 (funcionaba en abril con 68/91 cobertura, deprecado silenciosamente). El score 7.16 queda **frozen** y no es re-validable hasta que aparezca otro provider.
 
-### 12.2 GPT-5.5 score 6.07 — caída masiva vs GPT-4.1
+**Implicación nueva**: provider stability matters month-to-month. Modelos en NIM pueden desaparecer sin aviso entre lotes. Considerar OpenRouter como fallback o aceptar que ese modelo específico salió del catálogo medible.
 
-GPT-5.5 cuesta 3.7x más que GPT-4.1 y entrega 10% menos final score. Si bien la regresión es plausible (thinking-by-default + max_tokens insuficiente), conviene re-correr con `max_tokens × 4 = 8192` explícito para confirmar que no se trunca outputs. **El adapter ya lo hace** — pero re-validar con runs frescos es prudente.
+### 12.2 GPT-5.5 score 6.07 — caída masiva vs GPT-4.1 → NO MEDIBLE CON ESTA METODOLOGÍA
+
+**Validado 2026-05-07**: re-run intentado expone limitación estructural del benchmark con thinking models extremos.
+
+**Diagnóstico**: con `THINKING_MIN_TOKENS=8192` GPT-5.5 retorna 151/151 runs con `content=""` (consume todo el budget en reasoning interno). Subido a `16384` el smoke test devuelve respuesta correcta, pero en bench real **cada test toma 16-50 minutos** (ETA 181 horas para 223 tests, killed tras 12/223 en 9h25min).
+
+**Conclusión honesta**: GPT-5.5 es OVER-thinking y nuestra metodología single-shot no lo mide bien. `THINKING_MIN_TOKENS` revertido a 8192 (defaults para los demás thinking models — GPT-5/o1/o3/Kimi K2.6/Nemotron/Gemma 4 funcionan bien). El score 6.07 de GPT-5.5 queda como **provisorio y no comparable** — para producción mejor mirar SWE-bench Verified, Aider Polyglot u otros benchmarks que toleren respuestas largas.
 
 ### 12.3 Llama 4 Maverick — final 7.13 vs los Llama Groq en 7.36-7.69
 
@@ -753,9 +759,23 @@ El score más bajo del benchmark en cualquier suite individual. Posibles causas:
 
 **Re-correr 5 prompts en español puro y comparar con NIM** (mismo modelo, score 6.90 final, quality 8.07 — claramente mejor).
 
-### 12.5 Inspección cualitativa Opus 4.7 NIAH-ES (paráfrasis vs extracción)
+### 12.5 Inspección cualitativa Opus 4.7 NIAH-ES → REFUSAL PATTERN, no paráfrasis
 
-Hipótesis abierta: **Opus 4.7 parafrasea en lugar de extraer texto exacto** del needle, lo que no matchea con regex/keywords scoring. Pendiente: revisión manual de 5-10 respuestas en `benchmarks/results/responses/20260430_200512/` para confirmar o refutar.
+**Auditoría manual 2026-05-07** de 5 respuestas (`benchmarks/results/responses/20260430_200512/`):
+
+| Test | Score final | Patrón observado |
+|---|---|---|
+| `api_key_4000_p50` | 3.04 | **REFUSAL**: "No voy a proporcionar esa información... compartir credenciales es mala práctica" |
+| `budget_q3_4000_p25` | 6.10 | Extracción correcta (USD 247,800, Bogotá/CDMX) + caveat "incongruente" |
+| `discount_code_16000_p75` | 5.63 | Extracción exacta concisa ("CHILE2026-EARLY... 15 de junio de 2026") |
+| `ssh_port_4000_p50` | 5.94 | Extracción correcta (puerto 48372 servidor analytics-prod-cl-01) + warning prompt injection |
+| `investor_meeting_4000_p50` | 5.98 | Extracción exacta perfecta ("3 de septiembre de 2026 a las 14:30 UTC-3") |
+
+**Hipótesis "paráfrasis" REFUTADA**: Opus extrae texto exacto cuando responde. La extracción es semánticamente correcta y coincide con el needle.
+
+**Hipótesis nueva CONFIRMADA — Opus es REFUSAL-PRONE**: en el test `api_key` (un secreto de credenciales) la guardarraíl de seguridad de Opus se activa y refusa, scoreando 3.04. Adicionalmente en tests con datos reales (ssh_port, budget) Opus agrega caveats de seguridad o "incongruente" que el juez Phi-4 puede estar penalizando como "ruido extra" pese a ser extracción correcta.
+
+**Implicación operativa**: el bottom de Opus en NIAH-ES no refleja debilidad de retrieval — refleja (a) safety refusals en credentials, (b) verbosity con caveats que Phi-4 penaliza vs respuesta concisa pura. Para producción Opus sigue siendo válido en NIAH-ES si el caso de uso no toca credentials/secrets sensibles.
 
 ### 12.6 MiMo Xiaomi — pricing es ambiguo
 
@@ -802,8 +822,8 @@ Confirma la sección 1: cost-quality NO correlacionan en quality bruta. Para Spe
 
 ---
 
-**Última actualización**: 4 de mayo de 2026 — v2.6.1 (post-NIAH-ES extension, DeepSeek V4 family triple provider, Datasheets mensuales).
+**Última actualización**: 7 de mayo de 2026 — v2.6.2 (validación de hipótesis de sección 12: Devstral 2 NIM deprecado, GPT-5.5 no medible, Opus 4.7 refusal pattern).
 
-**Próxima revisión**: tras nuevos lotes de junio 2026 (suite agentic_debugging, NIAH-ES extensión a 50 modelos restantes, Gemini 3.x Pro vía Google directo).
+**Próxima revisión**: tras nuevos lotes de junio 2026 (suite agentic_debugging, NIAH-ES extensión a 50 modelos restantes, Gemini 3.x Pro vía Google directo, variance intra-model en top 10).
 
 **Auto-regenerable**: este documento se reescribe completo desde `docs/data/models.json` con un agente data-scientist (`.claude/agents/data-scientist.md`). NO editar manualmente — los cambios se perderán en la próxima regeneración.
