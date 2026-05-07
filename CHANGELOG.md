@@ -2,6 +2,26 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v2.6.2] - 2026-05-07 — Validación de hipótesis sección 12 INSIGHTS
+
+### Hallazgos validados (no nuevos benchmarks, validación cualitativa de los anteriores)
+
+- **Devstral 2 123B (NIM) — DEPRECADO POR PROVIDER**: re-run intentado falla con cascada de error 400 en 29/29 tests. NIM ya no soporta Devstral 2 en mayo 2026 (funcionaba en abril con 68/91 cobertura). Score 7.16 queda **frozen y no re-validable** desde NIM. Nueva implicación documentada: provider stability matters month-to-month.
+
+- **GPT-5.5 — NO MEDIBLE CON ESTA METODOLOGÍA**: experimento con `THINKING_MIN_TOKENS=16384` (vs 8192 default). Smoke OK pero en bench real cada test toma 16-50 min, ETA 181h para 223 tests. Killed tras 12/223 en 9h25min. GPT-5.5 es OVER-thinking — single-shot benchmark no es metodología adecuada. **Revertido a 8192** con comentarios explicativos en `providers/adapters.py`. Score 6.07 queda **provisorio y no comparable**.
+
+- **Opus 4.7 NIAH-ES — REFUSAL PATTERN, no paráfrasis**: auditoría manual de 5 respuestas refuta hipótesis "paráfrasis" (Opus extrae texto exacto cuando responde). Confirma nueva hipótesis: **refusal-prone en credentials/secrets** (test `api_key` scoreó 3.04 por refusal completo). Phi-4 además puede penalizar caveats de seguridad que Opus añade a respuestas correctas (ssh_port, budget). Bottom de Opus en NIAH-ES NO refleja debilidad de retrieval — refleja safety + verbosity penalty.
+
+### Cambios al código
+- `providers/adapters.py`: `THINKING_MIN_TOKENS` mantiene 8192, agregado bloque de comentarios documentando el experimento de mayo 7 y la conclusión.
+
+### Cambios a documentación
+- `INSIGHTS.md` secciones 12.1, 12.2, 12.5 actualizadas con outcomes validados (vs hipótesis abiertas anteriores).
+
+### Pendiente (próximos pasos)
+- Re-run Llama 4 Maverick Groq direct (validar +0.56 atribuido a provider).
+- Variance intra-model análisis: 5 runs same prompt para top 10 (medir desviación estándar).
+
 ## [v2.6.1] - 2026-05-04 — CheatSheet PDF refactor (data-driven, 10 páginas, QR codes)
 
 ### Refactor del cheatsheet PDF
