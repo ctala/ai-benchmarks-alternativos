@@ -1,0 +1,1575 @@
+{
+  "started_at": "2026-05-13T07:55:05.635996",
+  "reps": 5,
+  "model_keys": [
+    "groq-llama-4-scout",
+    "groq-llama-3.1-8b",
+    "devstral",
+    "mistral-small-4",
+    "groq-gpt-oss-20b"
+  ],
+  "prompts": [
+    {
+      "pilar": "razonamiento",
+      "name": "multi_constraint_decision",
+      "suite": ""
+    },
+    {
+      "pilar": "coding",
+      "name": "sql_query_complex",
+      "suite": ""
+    },
+    {
+      "pilar": "contenido",
+      "name": "blog_actualidad_startup",
+      "suite": ""
+    },
+    {
+      "pilar": "agentes",
+      "name": "single_tool_calendar",
+      "suite": ""
+    },
+    {
+      "pilar": "niah_es",
+      "name": "niah_es_discount_code_4000_p50",
+      "suite": ""
+    }
+  ],
+  "runs": [
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 0,
+      "score_10": 8.8,
+      "response_chars": 3634,
+      "latency_s": 2.7002431671135128,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 1,
+      "score_10": 8.8,
+      "response_chars": 3865,
+      "latency_s": 2.460207415977493,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 2,
+      "score_10": 8.8,
+      "response_chars": 3781,
+      "latency_s": 2.55790091608651,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 3,
+      "score_10": 8.8,
+      "response_chars": 3934,
+      "latency_s": 2.520827541826293,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 4,
+      "score_10": 8.8,
+      "response_chars": 3550,
+      "latency_s": 2.3015992080327123,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 0,
+      "score_10": 9.2,
+      "response_chars": 2632,
+      "latency_s": 2.06434587482363,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 1,
+      "score_10": 7.6,
+      "response_chars": 3380,
+      "latency_s": 2.759752833051607,
+      "judge_score_raw": 3.8
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 2,
+      "score_10": 9.2,
+      "response_chars": 2732,
+      "latency_s": 2.380984958028421,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 3,
+      "score_10": 9.2,
+      "response_chars": 2640,
+      "latency_s": 1.820479999994859,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 4,
+      "score_10": 9.2,
+      "response_chars": 2564,
+      "latency_s": 2.022787625202909,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 0,
+      "score_10": 7.6,
+      "response_chars": 4458,
+      "latency_s": 2.576117292046547,
+      "judge_score_raw": 3.8
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 1,
+      "score_10": 7.6,
+      "response_chars": 4218,
+      "latency_s": 2.119171124882996,
+      "judge_score_raw": 3.8
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 2,
+      "score_10": 7.6,
+      "response_chars": 4146,
+      "latency_s": 4.99267008411698,
+      "judge_score_raw": 3.8
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 3,
+      "score_10": 7.6,
+      "response_chars": 3970,
+      "latency_s": 2.901203707791865,
+      "judge_score_raw": 3.8
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 4,
+      "score_10": 7.6,
+      "response_chars": 3888,
+      "latency_s": 4.417225375073031,
+      "judge_score_raw": 3.8
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 0,
+      "score_10": 8.0,
+      "response_chars": 2130,
+      "latency_s": 1.9228565420489758,
+      "judge_score_raw": 4.0
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 1,
+      "score_10": 8.8,
+      "response_chars": 902,
+      "latency_s": 1.0370571250095963,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 2,
+      "score_10": 8.8,
+      "response_chars": 891,
+      "latency_s": 2.5722993339877576,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 3,
+      "score_10": 9.2,
+      "response_chars": 445,
+      "latency_s": 2.4640522918198258,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 4,
+      "score_10": 8.8,
+      "response_chars": 238,
+      "latency_s": 1.1665414171293378,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 0,
+      "score_10": 3.2,
+      "response_chars": 83,
+      "latency_s": 0.6605958328582346,
+      "judge_score_raw": 1.6
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 1,
+      "score_10": 2.8,
+      "response_chars": 83,
+      "latency_s": 0.7948149160947651,
+      "judge_score_raw": 1.4
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 2,
+      "score_10": 2.8,
+      "response_chars": 83,
+      "latency_s": 0.8660036660730839,
+      "judge_score_raw": 1.4
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 3,
+      "score_10": 3.2,
+      "response_chars": 130,
+      "latency_s": 0.7366826250217855,
+      "judge_score_raw": 1.6
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 4,
+      "score_10": 2.8,
+      "response_chars": 83,
+      "latency_s": 0.9110752078704536,
+      "judge_score_raw": 1.4
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 0,
+      "score_10": 8.8,
+      "response_chars": 2977,
+      "latency_s": 1.4738954580388963,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 1,
+      "score_10": 8.8,
+      "response_chars": 3669,
+      "latency_s": 1.911789458943531,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 2,
+      "score_10": 8.0,
+      "response_chars": 3667,
+      "latency_s": 1.6852882918901742,
+      "judge_score_raw": 4.0
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 3,
+      "score_10": 8.0,
+      "response_chars": 3518,
+      "latency_s": 1.526796791004017,
+      "judge_score_raw": 4.0
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 4,
+      "score_10": 8.4,
+      "response_chars": 3055,
+      "latency_s": 2.10395733313635,
+      "judge_score_raw": 4.2
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 0,
+      "score_10": 7.2,
+      "response_chars": 2352,
+      "latency_s": 1.0406615000683814,
+      "judge_score_raw": 3.6
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 1,
+      "score_10": 5.2,
+      "response_chars": 2045,
+      "latency_s": 1.114077374804765,
+      "judge_score_raw": 2.6
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 2,
+      "score_10": 7.2,
+      "response_chars": 3039,
+      "latency_s": 1.8495804169215262,
+      "judge_score_raw": 3.6
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 3,
+      "score_10": 5.2,
+      "response_chars": 2510,
+      "latency_s": 1.134947249898687,
+      "judge_score_raw": 2.6
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 4,
+      "score_10": 5.2,
+      "response_chars": 1898,
+      "latency_s": 1.0943733339663595,
+      "judge_score_raw": 2.6
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 0,
+      "score_10": 7.6,
+      "response_chars": 3598,
+      "latency_s": 2.356865916866809,
+      "judge_score_raw": 3.8
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 1,
+      "score_10": 7.6,
+      "response_chars": 4188,
+      "latency_s": 2.070477790897712,
+      "judge_score_raw": 3.8
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 2,
+      "score_10": 7.6,
+      "response_chars": 3969,
+      "latency_s": 2.1470749999862164,
+      "judge_score_raw": 3.8
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 3,
+      "score_10": 7.6,
+      "response_chars": 4213,
+      "latency_s": 2.4500415828078985,
+      "judge_score_raw": 3.8
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 4,
+      "score_10": 8.0,
+      "response_chars": 4405,
+      "latency_s": 2.8890393748879433,
+      "judge_score_raw": 4.0
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 0,
+      "score_10": 6.4,
+      "response_chars": 1531,
+      "latency_s": 0.9745797500945628,
+      "judge_score_raw": 3.2
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 1,
+      "score_10": 6.8,
+      "response_chars": 1365,
+      "latency_s": 1.700747709022835,
+      "judge_score_raw": 3.4
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 2,
+      "score_10": 8.4,
+      "response_chars": 1072,
+      "latency_s": 0.8263973330613226,
+      "judge_score_raw": 4.2
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 3,
+      "score_10": 8.0,
+      "response_chars": 1856,
+      "latency_s": 1.164129041833803,
+      "judge_score_raw": 4.0
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 4,
+      "score_10": 8.0,
+      "response_chars": 1538,
+      "latency_s": 1.3592004589736462,
+      "judge_score_raw": 4.0
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 0,
+      "score_10": 3.2,
+      "response_chars": 141,
+      "latency_s": 0.7447408330626786,
+      "judge_score_raw": 1.6
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 1,
+      "score_10": 3.2,
+      "response_chars": 83,
+      "latency_s": 0.7236732910387218,
+      "judge_score_raw": 1.6
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 2,
+      "score_10": 3.2,
+      "response_chars": 122,
+      "latency_s": 0.8367969170212746,
+      "judge_score_raw": 1.6
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 3,
+      "score_10": 2.8,
+      "response_chars": 46,
+      "latency_s": 0.6374527500011027,
+      "judge_score_raw": 1.4
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 4,
+      "score_10": 2.8,
+      "response_chars": 46,
+      "latency_s": 0.7841304999310523,
+      "judge_score_raw": 1.4
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 0,
+      "score_10": 8.8,
+      "response_chars": 3585,
+      "latency_s": 4.3233106669504195,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 1,
+      "score_10": 8.8,
+      "response_chars": 5367,
+      "latency_s": 6.931625124998391,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 2,
+      "score_10": 8.8,
+      "response_chars": 4107,
+      "latency_s": 4.412737374892458,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 3,
+      "score_10": 8.8,
+      "response_chars": 3727,
+      "latency_s": 4.444851957960054,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 4,
+      "score_10": 8.8,
+      "response_chars": 3663,
+      "latency_s": 5.1648478750139475,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 0,
+      "score_10": 8.4,
+      "response_chars": 2487,
+      "latency_s": 4.3991397090721875,
+      "judge_score_raw": 4.2
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 1,
+      "score_10": 6.4,
+      "response_chars": 2190,
+      "latency_s": 4.491629250114784,
+      "judge_score_raw": 3.2
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 2,
+      "score_10": 8.4,
+      "response_chars": 2314,
+      "latency_s": 4.180598833831027,
+      "judge_score_raw": 4.2
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 3,
+      "score_10": 9.2,
+      "response_chars": 2026,
+      "latency_s": 3.957027625059709,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 4,
+      "score_10": 9.2,
+      "response_chars": 2711,
+      "latency_s": 5.3974635421764106,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 0,
+      "score_10": 8.8,
+      "response_chars": 4760,
+      "latency_s": 6.253945874981582,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 1,
+      "score_10": 8.8,
+      "response_chars": 4560,
+      "latency_s": 7.226090957876295,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 2,
+      "score_10": 8.8,
+      "response_chars": 3831,
+      "latency_s": 5.971199834020808,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 3,
+      "score_10": 8.8,
+      "response_chars": 5038,
+      "latency_s": 6.6301068749744445,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 4,
+      "score_10": 8.8,
+      "response_chars": 4257,
+      "latency_s": 6.204978249967098,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 0,
+      "score_10": 8.8,
+      "response_chars": 1335,
+      "latency_s": 2.323210082948208,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 1,
+      "score_10": 8.0,
+      "response_chars": 1477,
+      "latency_s": 3.0315357090439647,
+      "judge_score_raw": 4.0
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 2,
+      "score_10": 6.8,
+      "response_chars": 1037,
+      "latency_s": 1.9601508749183267,
+      "judge_score_raw": 3.4
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 3,
+      "score_10": 7.6,
+      "response_chars": 1165,
+      "latency_s": 2.3998250840231776,
+      "judge_score_raw": 3.8
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 4,
+      "score_10": 8.4,
+      "response_chars": 1031,
+      "latency_s": 1.9192190831527114,
+      "judge_score_raw": 4.2
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 0,
+      "score_10": 3.2,
+      "response_chars": 121,
+      "latency_s": 1.287092792103067,
+      "judge_score_raw": 1.6
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 1,
+      "score_10": 3.2,
+      "response_chars": 121,
+      "latency_s": 0.6488163750618696,
+      "judge_score_raw": 1.6
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 2,
+      "score_10": 3.2,
+      "response_chars": 121,
+      "latency_s": 0.6324450001120567,
+      "judge_score_raw": 1.6
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 3,
+      "score_10": 3.2,
+      "response_chars": 129,
+      "latency_s": 0.7012726659886539,
+      "judge_score_raw": 1.6
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 4,
+      "score_10": 3.2,
+      "response_chars": 129,
+      "latency_s": 0.9394874169956893,
+      "judge_score_raw": 1.6
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 0,
+      "score_10": 8.8,
+      "response_chars": 6514,
+      "latency_s": 12.00318183307536,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 1,
+      "score_10": -1.0,
+      "response_chars": 0,
+      "latency_s": 0.0,
+      "judge_score_raw": -1
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 2,
+      "score_10": 9.2,
+      "response_chars": 7066,
+      "latency_s": 12.978365833172575,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 3,
+      "score_10": 9.2,
+      "response_chars": 7248,
+      "latency_s": 10.992809582967311,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 4,
+      "score_10": 9.2,
+      "response_chars": 6767,
+      "latency_s": 13.30650708405301,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 0,
+      "score_10": 9.2,
+      "response_chars": 2005,
+      "latency_s": 3.295331000117585,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 1,
+      "score_10": 9.2,
+      "response_chars": 1527,
+      "latency_s": 3.2728658749256283,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 2,
+      "score_10": 9.2,
+      "response_chars": 1380,
+      "latency_s": 2.8989051249809563,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 3,
+      "score_10": 9.2,
+      "response_chars": 2151,
+      "latency_s": 4.210160208167508,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 4,
+      "score_10": 9.2,
+      "response_chars": 2632,
+      "latency_s": 4.912751374999061,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 0,
+      "score_10": 8.8,
+      "response_chars": 7258,
+      "latency_s": 9.751485084183514,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 1,
+      "score_10": 8.8,
+      "response_chars": 5910,
+      "latency_s": 12.102584332926199,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 2,
+      "score_10": 8.8,
+      "response_chars": 6836,
+      "latency_s": 20.583291625138372,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 3,
+      "score_10": 8.8,
+      "response_chars": 5555,
+      "latency_s": 11.807225916069001,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 4,
+      "score_10": 8.8,
+      "response_chars": 7735,
+      "latency_s": 15.665098499972373,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 0,
+      "score_10": 8.8,
+      "response_chars": 2274,
+      "latency_s": 5.1988723748363554,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 1,
+      "score_10": 8.0,
+      "response_chars": 1748,
+      "latency_s": 4.323294624919072,
+      "judge_score_raw": 4.0
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 2,
+      "score_10": 8.0,
+      "response_chars": 1774,
+      "latency_s": 7.126117957988754,
+      "judge_score_raw": 4.0
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 3,
+      "score_10": 8.8,
+      "response_chars": 2615,
+      "latency_s": 5.385051124962047,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 4,
+      "score_10": 9.2,
+      "response_chars": 2705,
+      "latency_s": 5.67984166694805,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 0,
+      "score_10": 2.8,
+      "response_chars": 84,
+      "latency_s": 1.2479683749843389,
+      "judge_score_raw": 1.4
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 1,
+      "score_10": 4.0,
+      "response_chars": 149,
+      "latency_s": 1.027872582897544,
+      "judge_score_raw": 2.0
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 2,
+      "score_10": 3.2,
+      "response_chars": 149,
+      "latency_s": 0.788213541964069,
+      "judge_score_raw": 1.6
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 3,
+      "score_10": 3.2,
+      "response_chars": 125,
+      "latency_s": 0.9166764160618186,
+      "judge_score_raw": 1.6
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 4,
+      "score_10": 2.8,
+      "response_chars": 79,
+      "latency_s": 1.8051469170022756,
+      "judge_score_raw": 1.4
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 0,
+      "score_10": 8.8,
+      "response_chars": 3814,
+      "latency_s": 4.352402250049636,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 1,
+      "score_10": 8.8,
+      "response_chars": 4879,
+      "latency_s": 2.7873716249596328,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 2,
+      "score_10": 8.8,
+      "response_chars": 4811,
+      "latency_s": 2.543754084035754,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 3,
+      "score_10": 9.2,
+      "response_chars": 3842,
+      "latency_s": 3.1905172090046108,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "razonamiento",
+      "test_name": "multi_constraint_decision",
+      "rep": 4,
+      "score_10": 9.2,
+      "response_chars": 3070,
+      "latency_s": 3.0664244170766324,
+      "judge_score_raw": 4.6
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 0,
+      "score_10": 9.6,
+      "response_chars": 2307,
+      "latency_s": 2.1570214161183685,
+      "judge_score_raw": 4.8
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 1,
+      "score_10": 9.6,
+      "response_chars": 2494,
+      "latency_s": 2.071188624948263,
+      "judge_score_raw": 4.8
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 2,
+      "score_10": 9.6,
+      "response_chars": 3516,
+      "latency_s": 3.5899736671708524,
+      "judge_score_raw": 4.8
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 3,
+      "score_10": 9.6,
+      "response_chars": 3299,
+      "latency_s": 2.894636958837509,
+      "judge_score_raw": 4.8
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "coding",
+      "test_name": "sql_query_complex",
+      "rep": 4,
+      "score_10": 9.6,
+      "response_chars": 2638,
+      "latency_s": 2.5385984999593347,
+      "judge_score_raw": 4.8
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 0,
+      "score_10": 8.8,
+      "response_chars": 3760,
+      "latency_s": 3.0071533338632435,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 1,
+      "score_10": 8.8,
+      "response_chars": 4307,
+      "latency_s": 3.4134692910593003,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 2,
+      "score_10": 8.8,
+      "response_chars": 5006,
+      "latency_s": 3.8544654159341007,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 3,
+      "score_10": 8.8,
+      "response_chars": 5460,
+      "latency_s": 3.782359499949962,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "contenido",
+      "test_name": "blog_actualidad_startup",
+      "rep": 4,
+      "score_10": 8.8,
+      "response_chars": 4773,
+      "latency_s": 2.6891860000323504,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 0,
+      "score_10": 8.4,
+      "response_chars": 414,
+      "latency_s": 1.7277861658949405,
+      "judge_score_raw": 4.2
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 1,
+      "score_10": 9.6,
+      "response_chars": 1717,
+      "latency_s": 1.110218625050038,
+      "judge_score_raw": 4.8
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 2,
+      "score_10": 8.4,
+      "response_chars": 270,
+      "latency_s": 0.9751937079709023,
+      "judge_score_raw": 4.2
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 3,
+      "score_10": 6.8,
+      "response_chars": 388,
+      "latency_s": 0.5504388329572976,
+      "judge_score_raw": 3.4
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "agentes",
+      "test_name": "single_tool_calendar",
+      "rep": 4,
+      "score_10": 8.8,
+      "response_chars": 558,
+      "latency_s": 1.1684015840291977,
+      "judge_score_raw": 4.4
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 0,
+      "score_10": 2.8,
+      "response_chars": 37,
+      "latency_s": 1.6090227090753615,
+      "judge_score_raw": 1.4
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 1,
+      "score_10": 2.8,
+      "response_chars": 57,
+      "latency_s": 0.8919513749424368,
+      "judge_score_raw": 1.4
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 2,
+      "score_10": 2.8,
+      "response_chars": 70,
+      "latency_s": 1.4272237501572818,
+      "judge_score_raw": 1.4
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 3,
+      "score_10": 2.8,
+      "response_chars": 70,
+      "latency_s": 0.8515832079574466,
+      "judge_score_raw": 1.4
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "niah_es",
+      "test_name": "niah_es_discount_code_4000_p50",
+      "rep": 4,
+      "score_10": 2.8,
+      "response_chars": 54,
+      "latency_s": 1.6101844999939203,
+      "judge_score_raw": 1.4
+    }
+  ],
+  "stats_per_model_pilar": [
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "razonamiento",
+      "n": 5,
+      "mean": 8.8,
+      "stdev": 0.0,
+      "min": 8.8,
+      "max": 8.8,
+      "range": 0.0
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "coding",
+      "n": 5,
+      "mean": 8.88,
+      "stdev": 0.716,
+      "min": 7.6,
+      "max": 9.2,
+      "range": 1.6
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "contenido",
+      "n": 5,
+      "mean": 7.6,
+      "stdev": 0.0,
+      "min": 7.6,
+      "max": 7.6,
+      "range": 0.0
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "agentes",
+      "n": 5,
+      "mean": 8.72,
+      "stdev": 0.438,
+      "min": 8.0,
+      "max": 9.2,
+      "range": 1.2
+    },
+    {
+      "model_key": "groq-llama-4-scout",
+      "pilar": "niah_es",
+      "n": 5,
+      "mean": 2.96,
+      "stdev": 0.219,
+      "min": 2.8,
+      "max": 3.2,
+      "range": 0.4
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "razonamiento",
+      "n": 5,
+      "mean": 8.4,
+      "stdev": 0.4,
+      "min": 8.0,
+      "max": 8.8,
+      "range": 0.8
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "coding",
+      "n": 5,
+      "mean": 6.0,
+      "stdev": 1.095,
+      "min": 5.2,
+      "max": 7.2,
+      "range": 2.0
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "contenido",
+      "n": 5,
+      "mean": 7.68,
+      "stdev": 0.179,
+      "min": 7.6,
+      "max": 8.0,
+      "range": 0.4
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "agentes",
+      "n": 5,
+      "mean": 7.52,
+      "stdev": 0.867,
+      "min": 6.4,
+      "max": 8.4,
+      "range": 2.0
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "pilar": "niah_es",
+      "n": 5,
+      "mean": 3.04,
+      "stdev": 0.219,
+      "min": 2.8,
+      "max": 3.2,
+      "range": 0.4
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "razonamiento",
+      "n": 5,
+      "mean": 8.8,
+      "stdev": 0.0,
+      "min": 8.8,
+      "max": 8.8,
+      "range": 0.0
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "coding",
+      "n": 5,
+      "mean": 8.32,
+      "stdev": 1.145,
+      "min": 6.4,
+      "max": 9.2,
+      "range": 2.8
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "contenido",
+      "n": 5,
+      "mean": 8.8,
+      "stdev": 0.0,
+      "min": 8.8,
+      "max": 8.8,
+      "range": 0.0
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "agentes",
+      "n": 5,
+      "mean": 7.92,
+      "stdev": 0.769,
+      "min": 6.8,
+      "max": 8.8,
+      "range": 2.0
+    },
+    {
+      "model_key": "devstral",
+      "pilar": "niah_es",
+      "n": 5,
+      "mean": 3.2,
+      "stdev": 0.0,
+      "min": 3.2,
+      "max": 3.2,
+      "range": 0.0
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "razonamiento",
+      "n": 4,
+      "mean": 9.1,
+      "stdev": 0.2,
+      "min": 8.8,
+      "max": 9.2,
+      "range": 0.4
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "coding",
+      "n": 5,
+      "mean": 9.2,
+      "stdev": 0.0,
+      "min": 9.2,
+      "max": 9.2,
+      "range": 0.0
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "contenido",
+      "n": 5,
+      "mean": 8.8,
+      "stdev": 0.0,
+      "min": 8.8,
+      "max": 8.8,
+      "range": 0.0
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "agentes",
+      "n": 5,
+      "mean": 8.56,
+      "stdev": 0.537,
+      "min": 8.0,
+      "max": 9.2,
+      "range": 1.2
+    },
+    {
+      "model_key": "mistral-small-4",
+      "pilar": "niah_es",
+      "n": 5,
+      "mean": 3.2,
+      "stdev": 0.49,
+      "min": 2.8,
+      "max": 4.0,
+      "range": 1.2
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "razonamiento",
+      "n": 5,
+      "mean": 8.96,
+      "stdev": 0.219,
+      "min": 8.8,
+      "max": 9.2,
+      "range": 0.4
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "coding",
+      "n": 5,
+      "mean": 9.6,
+      "stdev": 0.0,
+      "min": 9.6,
+      "max": 9.6,
+      "range": 0.0
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "contenido",
+      "n": 5,
+      "mean": 8.8,
+      "stdev": 0.0,
+      "min": 8.8,
+      "max": 8.8,
+      "range": 0.0
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "agentes",
+      "n": 5,
+      "mean": 8.4,
+      "stdev": 1.02,
+      "min": 6.8,
+      "max": 9.6,
+      "range": 2.8
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "pilar": "niah_es",
+      "n": 5,
+      "mean": 2.8,
+      "stdev": 0.0,
+      "min": 2.8,
+      "max": 2.8,
+      "range": 0.0
+    }
+  ],
+  "overall_per_model": [
+    {
+      "model_key": "groq-llama-4-scout",
+      "n": 25,
+      "mean": 7.39,
+      "stdev_pooled": 2.338
+    },
+    {
+      "model_key": "groq-llama-3.1-8b",
+      "n": 25,
+      "mean": 6.53,
+      "stdev_pooled": 2.042
+    },
+    {
+      "model_key": "devstral",
+      "n": 25,
+      "mean": 7.41,
+      "stdev_pooled": 2.245
+    },
+    {
+      "model_key": "mistral-small-4",
+      "n": 24,
+      "mean": 7.72,
+      "stdev_pooled": 2.398
+    },
+    {
+      "model_key": "groq-gpt-oss-20b",
+      "n": 25,
+      "mean": 7.71,
+      "stdev_pooled": 2.573
+    }
+  ],
+  "finished_at": "2026-05-13T10:30:48.920141"
+}
