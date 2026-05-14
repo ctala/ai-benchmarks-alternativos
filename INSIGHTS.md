@@ -86,6 +86,7 @@ Estos hallazgos cuantitativos filtran el 80% de modelos malos. El 20% final lo d
 10. [Top 5 hallazgos sorpresivos del v2.6.1](#10-top-5-hallazgos-sorpresivos-del-v261)
 11. [Implicaciones para próxima iteración (junio 2026)](#11-implicaciones-para-próxima-iteración-junio-2026)
 12. [Datos sospechosos / a re-validar](#12-datos-sospechosos--a-re-validar)
+13. [Análisis de varianza intra-model (validado 2026-05-13)](#13-análisis-de-varianza-intra-model-validado-2026-05-13)
 
 ---
 
@@ -746,9 +747,13 @@ Casos donde la data parece anómala y conviene re-correr antes de publicar concl
 
 **Conclusión honesta**: GPT-5.5 es OVER-thinking y nuestra metodología single-shot no lo mide bien. `THINKING_MIN_TOKENS` revertido a 8192 (defaults para los demás thinking models — GPT-5/o1/o3/Kimi K2.6/Nemotron/Gemma 4 funcionan bien). El score 6.07 de GPT-5.5 queda como **provisorio y no comparable** — para producción mejor mirar SWE-bench Verified, Aider Polyglot u otros benchmarks que toleren respuestas largas.
 
-### 12.3 Llama 4 Maverick — final 7.13 vs los Llama Groq en 7.36-7.69
+### 12.3 Llama 4 Maverick — final 7.13 vs los Llama Groq en 7.36-7.69 → DIFERENCIA NO ES AISLABLE
 
-Maverick está en OpenRouter (no Groq direct) y rinde mucho peor que su par Llama 4 Scout en Groq (7.69). La diferencia de +0.56 entre los dos modelos Llama 4 se explica casi totalmente por provider. **Re-medir Maverick en Groq es el test crítico**.
+**Validado 2026-05-08**: Groq **NO hostea Llama 4 Maverick** (catálogo confirmado vía API: solo tiene Scout 17B/16E). Tampoco hay credenciales para Together/Fireworks/DeepInfra configuradas.
+
+**Reformulación de hipótesis**: el +0.56 entre Scout (Groq, 7.69) vs Maverick (OpenRouter, 7.13) NO es atribuible cleanly a provider — son **modelos distintos** (Scout 17B/16E vs Maverick 17B/128E, arquitecturas MoE diferentes). La diferencia es modelo+provider combinado, no aislable con providers actuales.
+
+**Test crítico real**: requeriría agregar Together/Fireworks como providers para testear Maverick fuera de OpenRouter. Pendiente para próxima iteración.
 
 ### 12.4 Qwen 3.5 397B (Ollama Cloud) — translation 4.41
 
@@ -788,6 +793,47 @@ Caso raro: el upgrade entrega quality bruta materialmente mejor (6.52 → 7.40) 
 ### 12.8 DeepSeek V4 Pro NIM cascada 504 — patrón sistemático
 
 Reproducible **2 veces** (abril 28 + mayo 3). NIM gateway no maneja modelo gigante con prompts largos. Para producción: usar OpenRouter pagado o aceptar que NIM no está disponible para ese modelo específico. **Documentado en MODELOS.md como bloqueante de producción**.
+
+---
+
+## 13. Análisis de varianza intra-model (validado 2026-05-13)
+
+**Pregunta**: ¿el ranking top 5 es estadísticamente significativo, o el delta entre posiciones está dentro del ruido intra-model?
+
+**Diseño**: 5 prompts representativos (1 por pilar) × top 5 modelos × 5 reps = 124 runs OK (1 mistral falló empty response). Temperatura 0.7, juez Phi-4 local. Script: [`benchmarks/variance_analysis.py`](benchmarks/variance_analysis.py). Data: `benchmarks/results/variance_20260513_075505.json`.
+
+### 13.1 Stdev por (modelo, pilar) — 5 reps
+
+| Modelo | Razonamiento | Coding | Contenido | Agentes | NIAH-ES |
+|---|---|---|---|---|---|
+| devstral | 8.80 ± **0.000** | 8.32 ± **1.145** | 8.80 ± 0.000 | 7.92 ± 0.769 | 3.20 ± 0.000 |
+| groq-gpt-oss-20b | 8.96 ± 0.219 | 9.60 ± 0.000 | 8.80 ± 0.000 | 8.40 ± **1.020** | 2.80 ± 0.000 |
+| groq-llama-3.1-8b | 8.40 ± 0.400 | 6.00 ± **1.095** | 7.68 ± 0.179 | 7.52 ± 0.867 | 3.04 ± 0.219 |
+| groq-llama-4-scout | 8.80 ± 0.000 | 8.88 ± 0.716 | 7.60 ± 0.000 | 8.72 ± 0.438 | 2.96 ± 0.219 |
+| mistral-small-4 | 9.10 ± 0.200 | 9.20 ± 0.000 | 8.80 ± 0.000 | 8.56 ± 0.537 | 3.20 ± 0.490 |
+
+### 13.2 Hallazgos cuantitativos
+
+1. **Razonamiento, contenido y NIAH-ES son MUY estables run-to-run**: stdev ≤ 0.5 en todos los casos, mayoría con stdev=0.000 (los 5 reps coinciden en score exacto). Phi-4 es consistente y los modelos no oscilan en respuesta. Diferencias de 0.2-0.3 pts entre modelos en estos pilares son señal, no ruido.
+
+2. **Coding tiene varianza alta en algunos modelos**: devstral (stdev 1.145, range 2.80) y llama-3.1-8b (stdev 1.095, range 2.00). Un único run extremo puede mover el ranking 0.2-0.4 puntos. **Implicación**: para modelos con baseline coding ~7.5-8.0, el ranking inter-modelo dentro de ±0.3 puntos es estadísticamente indistinguible con N=1.
+
+3. **Agentes (tool calling) es el pilar más inestable**: 4 de 5 modelos con stdev 0.4-1.0, range hasta 2.80. Confirma que tool calling es el pilar más frágil — cualquier ranking inter-modelo en agentes con N<5 hay que interpretarlo con asterisco.
+
+4. **NIAH-ES uniformemente bajo en top 5 (~3.0)**: confirma que el prompt específico (`niah_es_discount_code_4000_p50`) es difícil universalmente, no defecto de un modelo. Refuerza la validez del ranking NIAH-ES global como medida de capacidad real, no artefacto.
+
+### 13.3 Implicaciones operativas
+
+- **El ranking global con N=91+ tests es robusto** — la integración inter-suite cancela varianza intra-suite. Para los top 5, el orden es relativamente estable.
+- **Diferencias <0.3 puntos en ranking top 5 son indistinguibles estadísticamente** dentro de single-run noise — usar quality_avg (sin pesar costo/velocidad) como tie-breaker o aceptar empate técnico.
+- **Cuando un modelo tiene cobertura <50 runs**, su score puede estar inflado/deflado por un solo outlier de coding o agentes. Cobertura ≥91 (full single-turn) o ≥150 (single + NIAH + multi-turn) es lo mínimo defendible para usar como ranking publicado.
+- **Phi-4 como juez es consistente**: cuando el modelo produce respuestas similares run-to-run, Phi-4 da el mismo score exacto. No introduce ruido adicional.
+
+### 13.4 Caveats del análisis
+
+- Solo top 5 — la varianza puede ser mayor en modelos del tier medio (score 6.5-7.0). Pendiente expandir a top 10-15.
+- Solo 5 prompts (1 por pilar). Otros prompts del mismo pilar pueden tener varianza distinta.
+- Temperatura 0.7 es el default. A temperatura 0 (algunos providers permiten) la varianza intra-pilar debería caer a ~0.0 en todos los pilares.
 
 ---
 

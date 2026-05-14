@@ -18,9 +18,22 @@
 ### Cambios a documentación
 - `INSIGHTS.md` secciones 12.1, 12.2, 12.5 actualizadas con outcomes validados (vs hipótesis abiertas anteriores).
 
-### Pendiente (próximos pasos)
-- Re-run Llama 4 Maverick Groq direct (validar +0.56 atribuido a provider).
-- Variance intra-model análisis: 5 runs same prompt para top 10 (medir desviación estándar).
+### Validados también este día (cierre completo de próximos pasos)
+
+- **Llama 4 Maverick Groq direct — NO TESTEABLE**: catálogo Groq confirmado vía API solo tiene Scout 17B, NO Maverick 128E. El +0.56 entre Scout (Groq, 7.69) vs Maverick (OpenRouter, 7.13) NO es atribuible cleanly a provider — son modelos distintos. Sin keys de Together/Fireworks/DeepInfra configuradas. INSIGHTS sección 12.3 reformulada.
+
+- **Variance intra-model análisis — EJECUTADO**: 5 modelos × 5 prompts × 5 reps = 124 runs OK (1 mistral falló empty response). Script `benchmarks/variance_analysis.py`, data `benchmarks/results/variance_20260513_075505.json`. Hallazgos clave:
+  - Razonamiento/contenido/NIAH-ES son muy estables run-to-run (stdev ≤ 0.5, mayoría stdev=0.000).
+  - **Coding** tiene varianza alta en devstral (stdev 1.145, range 2.80) y llama-3.1-8b (stdev 1.095).
+  - **Agentes** es el pilar más inestable: 4/5 modelos con stdev 0.4-1.0.
+  - Diferencias <0.3 puntos en ranking top 5 son **indistinguibles estadísticamente** con N=1 single-shot.
+  - Phi-4 como juez es consistente: respuestas similares → mismo score exacto.
+  - NIAH-ES uniformemente bajo en top 5 (~3.0 todos) con stdev mínimo → ranking NIAH-ES global es robusto.
+  - INSIGHTS sección 13 nueva con tabla completa y caveats.
+
+### Pendiente para próxima iteración
+- Variance expansion a top 10-15 (tier medio puede tener varianza mayor).
+- Variance a temperatura 0 para validar que stdev intra-pilar → 0.0 en todos los pilares.
 
 ## [v2.6.1] - 2026-05-04 — CheatSheet PDF refactor (data-driven, 10 páginas, QR codes)
 
