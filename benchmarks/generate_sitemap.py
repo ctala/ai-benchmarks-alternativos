@@ -113,12 +113,14 @@ def build_sitemap() -> str:
     lines = ['<?xml version="1.0" encoding="UTF-8"?>']
     lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
 
-    entries = docs_pages() + repo_mds()
-    # Repo URL como entrada propia (no es archivo, lastmod del README)
-    readme_lastmod = git_lastmod(ROOT / "README.md")
-    repo_url_entry = ("https://github.com/ctala/ai-benchmarks-alternativos", None, 0.9, readme_lastmod)
+    # IMPORTANTE: un sitemap.xml solo puede listar URLs del PROPIO dominio.
+    # Las URLs github.com/.../blob/... las rechaza Google Search Console
+    # ("URL no permitida — no se puede enviar esta URL para un sitemap"), porque
+    # benchmarks.cristiantala.com no es dueño de github.com. Los .md del repo se
+    # descubren por sus enlaces desde las páginas del dominio, NO desde este sitemap.
+    # (repo_mds() se conserva por si en el futuro se publica un sitemap aparte para GitHub.)
+    entries = docs_pages()
 
-    # Render docs + mds
     for url, path, priority in entries:
         lastmod = git_lastmod(path)
         lines.append("  <url>")
@@ -127,15 +129,6 @@ def build_sitemap() -> str:
         lines.append("    <changefreq>weekly</changefreq>")
         lines.append(f"    <priority>{priority}</priority>")
         lines.append("  </url>")
-
-    # Repo root al final
-    url, _, priority, lastmod = repo_url_entry
-    lines.append("  <url>")
-    lines.append(f"    <loc>{escape(url)}</loc>")
-    lines.append(f"    <lastmod>{lastmod}</lastmod>")
-    lines.append("    <changefreq>weekly</changefreq>")
-    lines.append(f"    <priority>{priority}</priority>")
-    lines.append("  </url>")
 
     lines.append("</urlset>")
     return "\n".join(lines) + "\n"
