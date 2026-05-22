@@ -20,6 +20,8 @@ total_runs: "9,500+"
 
 Este es el análisis cuantitativo del benchmark `ai-benchmarks-alternativos` al **4 de mayo de 2026** (v2.6.1). 72 modelos con cobertura ≥50 runs, 91 tests single-turn + 12 multi-turno + 45 retrieval long-context, juez Phi-4 local. La pregunta que respondemos no es "cuál es el mejor modelo", sino: **qué patrones aparecen en la data cuando se comparan precio, velocidad, capacidades, retrieval y proveedor a la vez, en español neutro LATAM**.
 
+> ⚠️ **Actualización v2.7 (22 may 2026) — tablas de ranking de abajo desactualizadas**: se aplicó un **rescore de costo provider-aware**. Antes, la mayoría de runs tenía el costo calculado con un fallback `(1.0,3.0)` → `cost_score≈7.0` para casi todos → **el costo (20% del peso) era casi inerte** y este análisis es de facto quality-dominado. Tras el rescore, el costo discrimina: open-source barato y gratis (NIM/local) suben (Devstral Small #1, Nemotron/Qwen-Next NIM), y los premium caros bajan (Gemini 2.5 Pro −0.49, GPT-5.4 −0.47, Opus 4.7 → #66/72). **Las tablas y correlaciones de este documento reflejan el estado pre-v2.7 y deben regenerarse** (data-scientist sobre `docs/data/models.json` actual). Ver [CHANGELOG v2.7.0](CHANGELOG.md) y [README](README.md) para el ranking vigente.
+
 ---
 
 ## 🚨 Limitación crítica: NO medimos debugging agentic real
