@@ -2,6 +2,32 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v2.6.3] - 2026-05-22 — Corrección de precios verificada (OpenRouter API) + costeo provider-aware
+
+### Precios corregidos (verificados vía OpenRouter `/v1/models`)
+Se detectó que varios precios del catálogo estaban stale (pricing viejo copiado) y que `models.py` y el `PRICING` de `scoring.py` tenían drift. Corregidos en ambos:
+
+| Modelo | Antes | Ahora (OpenRouter) |
+|---|---|---|
+| Claude Opus 4.7 (+thinking) | $15/$75 | **$5/$25** |
+| Claude Opus 4.6 | $15/$75 | **$5/$25** |
+| DeepSeek V4 Pro (OpenRouter) | $1.74/$3.48 | **$0.435/$0.87** (tier medium→cheap) |
+| DeepSeek V4 Flash (OpenRouter) | $0.14/$0.28 | $0.112/$0.224 |
+| Kimi K2.6 (+thinking) | $0.80/$3.50 (scoring $1.50/$9) | **$0.73/$3.49** |
+| Grok 4.20 | $2/$6 | **$1.25/$2.50** |
+| Qwen 3.6 Plus | $0.33/$0.65 | **$0.18/$1.07** |
+
+### Costeo provider-aware
+- `estimate_cost(model, in, out, prices=...)` ahora acepta el precio por-entrada del config (provider-specific); `PRICING` queda solo como fallback. El runner pasa `(cost_input, cost_output)` del `model_config` en cada corrida. Arregla la ambigüedad de costear por `id` (un mismo id en NIM gratis vs OpenRouter pago se costeaba igual).
+- Nuevo `benchmarks/rescore_costs.py`: re-scorea cost_usd/cost_score/final del histórico desde el config (fuente única), sin re-correr. `--only "n1,n2"` para scoped; sin flag = total.
+
+### Re-score aplicado (scoped a los 9 verificados, 1.072 runs)
+- Opus 4.6 −0.47, Opus 4.7 −0.33 (estaban **sub-costeados** con el fallback `(1.0,3.0)`), Qwen 3.6 Plus +0.34, DeepSeek V4 Pro +0.26, Grok 4.20 +0.19, Kimi K2.6 ≈0. Top-10 global sin cambios (ninguno de los 9 estaba ahí).
+- Solo se tocaron campos derivados de precio (cost_usd, cost_score, final); quality/tokens/respuestas intactos.
+
+### Hallazgo mayor (pendiente de decisión, ver ROADMAP)
+- El costo histórico de la **mayoría** de modelos se guardó con el fallback `(1.0,3.0)` → casi todos con `cost_score ≈ 7.0` → **la dimensión costo (20%) ha sido casi inerte**. Un rescore provider-aware TOTAL arreglaría esto pero reordena todo el ranking (gratis/NIM suben, premium bajan). No aplicado — decisión nivel v2.7.
+
 ## [v2.6.2] - 2026-05-07 — Validación de hipótesis sección 12 INSIGHTS
 
 ### Hallazgos validados (no nuevos benchmarks, validación cualitativa de los anteriores)

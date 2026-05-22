@@ -143,8 +143,8 @@ MODELS = {
     "qwen-3.6-plus": {
         "id": "qwen/qwen3.6-plus",
         "name": "Qwen 3.6 Plus",
-        "cost_input": 0.33,
-        "cost_output": 0.65,
+        "cost_input": 0.18,
+        "cost_output": 1.07,
         "tier": "cheap",
         "open_source": False,
         "license": "Proprietary",
@@ -196,18 +196,18 @@ MODELS = {
     "kimi-k2.6": {
         "id": "moonshotai/kimi-k2.6",
         "name": "Kimi K2.6",
-        "cost_input": 0.80,
-        "cost_output": 3.50,
+        "cost_input": 0.73,
+        "cost_output": 3.49,
         "tier": "cheap",
         "open_source": True,
         "license": "Modified MIT",
-        "notes": "Thinking model. Pesos públicos en HF (1.1T params)",
+        "notes": "Thinking model. Pesos públicos en HF (1.1T params). Precio corregido may 2026 vía OpenRouter API ($0.73/$3.49).",
     },
     "kimi-k2.6-thinking": {
         "id": "moonshotai/kimi-k2.6",
         "name": "Kimi K2.6 (thinking)",
-        "cost_input": 0.80,
-        "cost_output": 3.50,
+        "cost_input": 0.73,
+        "cost_output": 3.49,
         "tier": "cheap",
         "open_source": True,
         "license": "Modified MIT",
@@ -263,19 +263,20 @@ MODELS = {
     "claude-opus-4.7": {
         "id": "anthropic/claude-opus-4-7",
         "name": "Claude Opus 4.7",
-        "cost_input": 15.00,
-        "cost_output": 75.00,
+        "cost_input": 5.00,
+        "cost_output": 25.00,
         "tier": "premium",
+        "notes": "Precio corregido may 2026 vía OpenRouter API: $5/$25 (antes teníamos $15/$75, era pricing viejo de Claude-3 Opus).",
     },
     "claude-opus-4.7-thinking": {
         "id": "anthropic/claude-opus-4-7",
         "name": "Claude Opus 4.7 (thinking)",
-        "cost_input": 15.00,
-        "cost_output": 75.00,
+        "cost_input": 5.00,
+        "cost_output": 25.00,
         "tier": "premium",
         "thinking": True,
         "force_reasoning": True,
-        "notes": "Mismo modelo que claude-opus-4.7 con extended thinking forzado (effort=high). Reasoning tokens facturados como output a $75/M — ~5-7x más caro por test que sin thinking.",
+        "notes": "Mismo modelo que claude-opus-4.7 con extended thinking forzado (effort=high). Reasoning tokens facturados como output a $25/M — ~5-7x más caro por test que sin thinking.",
     },
 
     # --- Mistral ---
@@ -399,9 +400,10 @@ MODELS = {
     "claude-opus-4.6": {
         "id": "anthropic/claude-opus-4-6",
         "name": "Claude Opus 4.6",
-        "cost_input": 15.00,
-        "cost_output": 75.00,
+        "cost_input": 5.00,
+        "cost_output": 25.00,
         "tier": "premium",
+        "notes": "Precio corregido may 2026 vía web/OpenRouter: $5/$25 (antes $15/$75 stale).",
     },
     "claude-sonnet-4.6": {
         "id": "anthropic/claude-sonnet-4-6",
@@ -775,18 +777,18 @@ MODELS = {
     "deepseek-v4-flash": {
         "id": "deepseek/deepseek-v4-flash",
         "name": "DeepSeek V4 Flash (OpenRouter)",
-        "cost_input": 0.14, "cost_output": 0.28,
+        "cost_input": 0.112, "cost_output": 0.224,
         "tier": "cheap",
         "open_source": True, "license": "MIT",
-        "notes": "284B params, 13B activos, 1M context. Sucesor V3.2.",
+        "notes": "284B params, 13B activos, 1M context. Sucesor V3.2. Precio corregido may 2026 vía OpenRouter API ($0.112/$0.224).",
     },
     "deepseek-v4-pro": {
         "id": "deepseek/deepseek-v4-pro",
         "name": "DeepSeek V4 Pro",
-        "cost_input": 1.74, "cost_output": 3.48,
-        "tier": "medium",
+        "cost_input": 0.435, "cost_output": 0.87,
+        "tier": "cheap",
         "open_source": True, "license": "MIT",
-        "notes": "1.6T params, 49B activos, 1M context. Flagship V4.",
+        "notes": "1.6T params, 49B activos, 1M context. Flagship V4. Precio corregido may 2026 vía OpenRouter API ($0.435/$0.87, antes teníamos $1.74/$3.48 — 4x sobreprecio). Re-clasificado a tier cheap.",
     },
 
     # --- Google Gemini 3.1 (preview, abril 2026) ---
@@ -831,8 +833,9 @@ MODELS = {
     "grok-4.20": {
         "id": "x-ai/grok-4.20",
         "name": "Grok 4.20",
-        "cost_input": 2.00, "cost_output": 6.00,
+        "cost_input": 1.25, "cost_output": 2.50,
         "tier": "medium",
+        "notes": "Precio corregido may 2026 vía OpenRouter API ($1.25/$2.50, antes $2/$6).",
     },
 
     # --- Mistral Small 4 (Apache 2.0) ---

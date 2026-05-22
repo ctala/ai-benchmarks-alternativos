@@ -510,8 +510,8 @@ def score_latency(first_token_seconds: float) -> float:
 # Precios por millon de tokens (input, output)
 PRICING = {
     # ====== Anthropic (faltaban — causaban under-estimation grande) ======
-    "anthropic/claude-opus-4-7": (15.00, 75.00),
-    "anthropic/claude-opus-4-6": (15.00, 75.00),
+    "anthropic/claude-opus-4-7": (5.00, 25.00),   # corregido may 2026 (OpenRouter API)
+    "anthropic/claude-opus-4-6": (5.00, 25.00),   # corregido may 2026 (era 15/75 stale)
     "anthropic/claude-sonnet-4-6": (3.00, 15.00),
     "anthropic/claude-sonnet-4": (3.00, 15.00),
     "anthropic/claude-haiku-4-5": (0.80, 4.00),
@@ -545,8 +545,8 @@ PRICING = {
     # ====== DeepSeek ======
     "deepseek-chat": (0.252, 0.378),  # V3.2 actualizado abril 2026
     "deepseek/deepseek-chat": (0.252, 0.378),
-    "deepseek/deepseek-v4-flash": (0.14, 0.28),
-    "deepseek/deepseek-v4-pro": (1.74, 3.48),
+    "deepseek/deepseek-v4-flash": (0.112, 0.224),  # corregido may 2026 (OpenRouter API)
+    "deepseek/deepseek-v4-pro": (0.435, 0.87),     # corregido may 2026 (era 1.74/3.48, 4x sobreprecio)
     "deepseek-reasoner": (0.0, 0.0),
     "deepseek/deepseek-reasoner": (0.0, 0.0),
     "deepseek/deepseek-r1": (0.70, 2.50),
@@ -584,19 +584,19 @@ PRICING = {
     # ====== Qwen ======
     "qwen/qwen-3.5-72b": (1.20, 2.00),
     "qwen/qwen3.5-plus": (1.20, 2.00),
-    "qwen/qwen3.6-plus": (0.33, 0.65),  # API-only Alibaba
+    "qwen/qwen3.6-plus": (0.18, 1.07),  # API-only Alibaba; corregido may 2026 (OpenRouter API)
     "qwen/qwen3-coder": (0.15, 0.60),
     "qwen/qwen3-coder-480b:free": (0.0, 0.0),
 
     # ====== Moonshot Kimi (faltaban — agentic thinking caro) ======
     "moonshotai/kimi-k2": (1.00, 3.00),
     "moonshotai/kimi-k2.5": (0.20, 0.80),
-    "moonshotai/kimi-k2.6": (1.50, 9.00),  # thinking — causaba under-estimation
+    "moonshotai/kimi-k2.6": (0.73, 3.49),  # corregido may 2026 (OpenRouter API; era 1.50/9.00 sobre-estimado)
 
     # ====== xAI Grok ======
     "grok-2": (2.00, 10.00),
     "x-ai/grok-4.1-fast": (0.20, 0.50),
-    "x-ai/grok-4.20": (2.00, 6.00),
+    "x-ai/grok-4.20": (1.25, 2.50),   # corregido may 2026 (OpenRouter API; era 2/6)
 
     # ====== NVIDIA Nemotron ======
     "nvidia/nemotron-3-nano-30b-a3b": (0.05, 0.20),
@@ -629,12 +629,21 @@ PRICING = {
 }
 
 
-def estimate_cost(model: str, input_tokens: int, output_tokens: int) -> float:
-    """Estima el costo en USD de una llamada."""
-    prices = PRICING.get(model, (1.0, 3.0))  # default conservador
-    input_cost = (input_tokens / 1_000_000) * prices[0]
-    output_cost = (output_tokens / 1_000_000) * prices[1]
-    return input_cost + output_cost
+def estimate_cost(model: str, input_tokens: int, output_tokens: int,
+                  prices: tuple | None = None) -> float:
+    """Estima el costo en USD de una llamada.
+
+    El costo **depende del proveedor**: el mismo modelo puede costar distinto
+    (o $0) según se acceda por OpenRouter / Groq / NIM / suscripción. Por eso la
+    fuente de verdad es el precio por-entrada del config (`models.py`), que se
+    pasa explícito en `prices=(cost_input, cost_output)`. El dict `PRICING`
+    (keyed por id) queda solo como fallback para llamadas sin precio explícito.
+    """
+    if prices is not None and prices[0] is not None and prices[1] is not None:
+        pin, pout = float(prices[0]), float(prices[1])
+    else:
+        pin, pout = PRICING.get(model, (1.0, 3.0))  # fallback conservador
+    return (input_tokens / 1_000_000) * pin + (output_tokens / 1_000_000) * pout
 
 
 import math
