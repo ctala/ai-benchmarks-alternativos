@@ -45,6 +45,13 @@ SUBSCRIPTIONS = {
         "url": "https://www.anthropic.com/pricing",
         "notes": "Sub Anthropic Pro $20/mes. NO incluye API access (solo claude.ai web).",
     },
+    "xai_supergrok": {
+        "name": "xAI SuperGrok",
+        "plan": "Standard",
+        "price_month_usd": 30,
+        "url": "https://grok.com/plans",
+        "notes": "$30/mes o $300/año. Acceso consumer a Grok 4/4.1 (128K, DeepSearch, Big Brain, voz). NO incluye API access (igual que Anthropic Pro). Grok 4.3 + multi-agente requieren SuperGrok Heavy $300/mes.",
+    },
     # Nota: Groq, OpenRouter, OpenAI tienen pricing por token (pay-as-you-go)
     # sin suscripción mensual fija. NIM gratis tiene 40 RPM sin sub.
 }
@@ -836,6 +843,20 @@ MODELS = {
         "cost_input": 1.25, "cost_output": 2.50,
         "tier": "medium",
         "notes": "Precio corregido may 2026 vía OpenRouter API ($1.25/$2.50, antes $2/$6).",
+    },
+    "grok-4.3": {
+        "id": "x-ai/grok-4.3",
+        "name": "Grok 4.3",
+        "cost_input": 1.25, "cost_output": 2.50,
+        "tier": "medium",
+        "notes": "Flagship xAI (30 abr 2026), contexto 1M. Precio vía OpenRouter API may 2026.",
+    },
+    "grok-4.20-multi-agent": {
+        "id": "x-ai/grok-4.20-multi-agent",
+        "name": "Grok 4.20 Multi-Agent",
+        "cost_input": 2.00, "cost_output": 6.00,
+        "tier": "premium",
+        "notes": "Variante multi-agente (Heavy) de Grok 4.20, contexto 2M. Precio vía OpenRouter API may 2026.",
     },
 
     # --- Mistral Small 4 (Apache 2.0) ---

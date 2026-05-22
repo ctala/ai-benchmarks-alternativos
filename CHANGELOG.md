@@ -2,6 +2,21 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v2.7.1] - 2026-05-22 — Catálogo: modelos Grok + suscripción xAI SuperGrok
+
+### Agregado al catálogo (config, PENDIENTE de benchmark)
+IDs y precios verificados vía la API pública de OpenRouter (`/api/v1/models`), no aggregators.
+- **Grok 4.3** (`x-ai/grok-4.3`, $1.25/$2.50, 1M ctx) — flagship xAI del 30 abr 2026.
+- **Grok 4.20 Multi-Agent** (`x-ai/grok-4.20-multi-agent`, $2.00/$6.00, 2M ctx) — variante multi-agente (equivalente "Heavy"; no existe un ID literal `grok-4-heavy` en OpenRouter).
+- Pricing añadido a `scoring.py` para ambos.
+- Catálogo: 113 → 115 modelos. Quedan `tested=false` hasta correr el runner (requiere `OPENROUTER_API_KEY`; no disponible en el entorno remoto de esta sesión).
+
+### Suscripción
+- **xAI SuperGrok** ($30/mes, $300/año) agregada a `SUBSCRIPTIONS`. Siguiendo el precedente de `anthropic_pro`: es plan **consumer sin API access**, así que NO se enlaza a ningún modelo (los Grok se miden vía OpenRouter pay-as-you-go). Listada en README "Modelos en suscripción mensual" y en `subscriptions_catalog` de la calculadora. Nota: Grok 4.3 + multi-agente requieren SuperGrok Heavy $300/mes.
+
+### Hallazgo
+- OpenRouter ya **no lista `grok-4.1-fast`** (delistado/renombrado; conserva sus resultados históricos en el ranking) y **no existe `grok-4.1` full** en OpenRouter → no se pudo agregar la versión completa de 4.1 pedida. Documentado en ROADMAP.
+
 ## [v2.7.0] - 2026-05-22 — Rescore de costo provider-aware (el costo por fin discrimina)
 
 ### Cambio de metodología
