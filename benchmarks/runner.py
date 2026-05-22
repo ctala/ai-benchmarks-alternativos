@@ -262,7 +262,8 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
         quality = _score_long_horizon(result, test) if result.success else 0.0
         speed = score_speed(result.tokens_per_second)
         latency = score_latency(result.latency_first_token)
-        cost = estimate_cost(model_config["id"], result.input_tokens, result.output_tokens)
+        cost = estimate_cost(model_config["id"], result.input_tokens, result.output_tokens,
+                             prices=(model_config.get("cost_input"), model_config.get("cost_output")))
         # Tool-calling N/A en este formato (los tools son simulados via stubs)
         scores = compute_final_score(quality, speed, latency, 7.0, cost)
         scores["test_name"] = test["name"]

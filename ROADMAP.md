@@ -87,9 +87,9 @@ Phi-4 es **el juez** del benchmark y toda la metodología se apoya en que Micros
 - **Tier 2 (si alcanza budget/tiempo)**: Mistral Medium 3.5, DeepSeek V4 Flash-Max/Pro-Max, Qwen 3.6 base, GPT-5.4 Nano, Amazon Nova.
 - **Tier 3 (oportunista)**: Kimi K2.7, Devstral 3, GLM 5.5, Llama 4.1, Sonnet 4.7, GPT-5.5 Instant, AI21 Jamba.
 
-### Higiene de precios — correcciones detectadas (aplicar con regen)
+### Higiene de precios — correcciones verificadas APLICADAS (22 may)
 
-> Auditoría 22 may 2026. Dos problemas: (1) **drift interno** entre `models.py` (alimenta la calculadora) y el `PRICING` de `scoring.py` (alimenta el score) — deben coincidir; y (2) **precios stale** vs la API de OpenRouter (fuente primaria de este universo). ⚠️ Aplicar estas correcciones **recomputa el ranking** (cost = 20% del score; `export_for_pages.py` recalcula `score_global`) → requiere regen completo + documentar el cambio. Por eso quedan **staged acá, NO aplicadas aún**.
+> ✅ **Aplicado 22 may 2026**. Se corrigieron en `models.py` + `scoring.py` los precios **verificados vía OpenRouter API**, y se re-scoreó el histórico SOLO de esos modelos con `benchmarks/rescore_costs.py --only "..."` (1.072 runs, 9 modelos). Efecto en el ranking: Opus 4.6 −0.47, Opus 4.7 −0.33 (estaban **sub-costeados**, no sobre-costeados), Qwen 3.6 Plus +0.34, DeepSeek V4 Pro +0.26, Grok 4.20 +0.19, Kimi K2.6 ≈0. **Además el costeo es ahora provider-aware**: `estimate_cost` usa el precio por-entrada del config y el runner lo pasa en cada corrida → el costo depende del proveedor por el que se mide.
 
 | Modelo | Hoy (models.py / scoring.py) | Verificado (OpenRouter API) | Impacto |
 |---|---|---|---|
@@ -104,10 +104,12 @@ Phi-4 es **el juez** del benchmark y toda la metodología se apoya en que Micros
 | **Gemini 2.5 Flash Lite** | $0.10/$0.40 (models) · $0.075/$0.30 (scoring) | verificar | Drift interno |
 | **Claude Haiku 4.5** | $1.00/$5.00 (models) · $0.80/$4.00 (scoring) | verificar | Drift interno |
 
-**Causa raíz**: dos fuentes de precio editadas por separado. **Fix recomendado (proceso, no parche)**:
-1. Hacer que `PRICING` derive de `models.py` (fuente única), o agregar un test que falle si difieren.
-2. Script `update_prices.py` que consulte la **API `/v1/models` de OpenRouter** y proponga diffs (no aggregators) para los modelos OpenRouter.
-3. Aplicar correcciones → regen completo → documentar el cambio de ranking en `DATASHEET_2026-06.md` + INSIGHTS.
+**⚠️ Hallazgo mayor (PENDIENTE de decisión del usuario)**: al auditar descubrimos que el costo histórico de la **mayoría** de modelos se guardó con el fallback `(1.0, 3.0)` de `PRICING` (muchas corridas son previas a que el modelo estuviera en el dict). Efecto: casi todos quedaron con `cost_score ≈ 7.0` → **la dimensión costo (20% del peso) ha sido casi inerte** y el ranking publicado es de facto quality-dominado. Un **rescore provider-aware TOTAL** (todos los modelos, no solo los 9 verificados) arreglaría esto y haría que el costo discrimine de verdad — pero **reordena todo el ranking**: los gratis/NIM/cheap suben (Nemotron Omni NIM, Devstral, Qwen-Next NIM, Gemma NIM al top), y los premium bajan (Gemini 2.5 Pro −0.49, GPT-5.4 −0.47, Sonnet 4.6 −0.25, Opus 4.x). Es un cambio de metodología nivel **v2.7** → no aplicado. Tooling listo: `python benchmarks/rescore_costs.py` (sin `--only` = total). **Caveat a resolver antes**: el rescore total premia el tier gratis NIM ($0/call) que tiene rate-limit 40 RPM — quizás convenga modelar distinto el "gratis con límite" antes de publicarlo como #1.
+
+**Fix de raíz (estado)**:
+1. ✅ `estimate_cost(model, in, out, prices=...)` acepta precio explícito del config (provider-aware); el runner lo pasa → corridas futuras costean por proveedor.
+2. ✅ `benchmarks/rescore_costs.py` reescribe el costo histórico desde el config (fuente única); corrió scoped a los 9 verificados.
+3. ⏳ Pendiente: decidir el **rescore TOTAL** (arregla el fallback inerte) + hacer que `PRICING` derive de `models.py` o un test que falle si difieren + script `update_prices.py` que consulte la API de OpenRouter y proponga diffs (no aggregators).
 
 ### Eje a diseñar: eficiencia operativa ("cost-to-complete")
 

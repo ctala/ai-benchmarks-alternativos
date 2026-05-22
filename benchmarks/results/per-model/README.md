@@ -12,16 +12,16 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 4 | [Gemini 2.5 Flash Lite](google_gemini-2_5-flash-lite.md) | 7.22 | 7.87 | 165 | 91/91 | [ver detalles](google_gemini-2_5-flash-lite.md) |
 | 5 | [MiMo-V2-Flash](xiaomi_mimo-v2-flash.md) | 7.20 | 7.60 | 52 | 91/91 | [ver detalles](xiaomi_mimo-v2-flash.md) |
 | 6 | [Llama 4 Maverick](meta-llama_llama-4-maverick.md) | 7.20 | 8.13 | 46 | 74/91 | [ver detalles](meta-llama_llama-4-maverick.md) |
-| 7 | [Claude Opus 4.7](anthropic_claude-opus-4-7.md) | 7.17 | 8.09 | 63 | 91/91 | [ver detalles](anthropic_claude-opus-4-7.md) |
-| 8 | [Claude Sonnet 4.6 (ultimo Anthropic)](anthropic_claude-sonnet-4-6.md) | 7.15 | 7.98 | 54 | 91/91 | [ver detalles](anthropic_claude-sonnet-4-6.md) |
-| 9 | [GPT-4.1 Mini](gpt-4_1-mini.md) | 7.11 | 7.53 | 59 | 91/91 | [ver detalles](gpt-4_1-mini.md) |
-| 10 | [DeepSeek V3.2](deepseek_deepseek-chat.md) | 7.11 | 7.69 | 22 | 91/91 | [ver detalles](deepseek_deepseek-chat.md) |
-| 11 | [Kimi K2](moonshotai_kimi-k2.md) | 7.05 | 7.86 | 28 | 74/91 | [ver detalles](moonshotai_kimi-k2.md) |
-| 12 | [Qwen3 Coder](qwen_qwen3-coder.md) | 7.04 | 7.73 | 52 | 91/91 | [ver detalles](qwen_qwen3-coder.md) |
-| 13 | [Mistral Large](mistralai_mistral-large.md) | 7.03 | 7.70 | 50 | 91/91 | [ver detalles](mistralai_mistral-large.md) |
-| 14 | [Nemotron 3 Super](nvidia_nemotron-3-super-120b-a12b.md) | 6.81 | 7.17 | 31 | 91/91 | [ver detalles](nvidia_nemotron-3-super-120b-a12b.md) |
+| 7 | [Claude Sonnet 4.6 (ultimo Anthropic)](anthropic_claude-sonnet-4-6.md) | 7.15 | 7.98 | 54 | 91/91 | [ver detalles](anthropic_claude-sonnet-4-6.md) |
+| 8 | [GPT-4.1 Mini](gpt-4_1-mini.md) | 7.11 | 7.53 | 59 | 91/91 | [ver detalles](gpt-4_1-mini.md) |
+| 9 | [DeepSeek V3.2](deepseek_deepseek-chat.md) | 7.11 | 7.69 | 22 | 91/91 | [ver detalles](deepseek_deepseek-chat.md) |
+| 10 | [Kimi K2](moonshotai_kimi-k2.md) | 7.05 | 7.86 | 28 | 74/91 | [ver detalles](moonshotai_kimi-k2.md) |
+| 11 | [Qwen3 Coder](qwen_qwen3-coder.md) | 7.04 | 7.73 | 52 | 91/91 | [ver detalles](qwen_qwen3-coder.md) |
+| 12 | [Mistral Large](mistralai_mistral-large.md) | 7.03 | 7.70 | 50 | 91/91 | [ver detalles](mistralai_mistral-large.md) |
+| 13 | [Nemotron 3 Super](nvidia_nemotron-3-super-120b-a12b.md) | 6.81 | 7.17 | 31 | 91/91 | [ver detalles](nvidia_nemotron-3-super-120b-a12b.md) |
+| 14 | [Qwen 3.6 Plus](qwen_qwen3_6-plus.md) | 6.78 | 7.41 | 50 | 90/91 | [ver detalles](qwen_qwen3_6-plus.md) |
 | 15 | [MiniMax M2.7](minimax_minimax-m2_7.md) | 6.71 | 7.38 | 35 | 91/91 | [ver detalles](minimax_minimax-m2_7.md) |
 | 16 | [GLM-5.1](z-ai_glm-5_1.md) | 6.70 | 7.72 | 39 | 91/91 | [ver detalles](z-ai_glm-5_1.md) |
-| 17 | [Qwen 3.6 Plus](qwen_qwen3_6-plus.md) | 6.57 | 7.41 | 50 | 90/91 | [ver detalles](qwen_qwen3_6-plus.md) |
+| 17 | [Claude Opus 4.7](anthropic_claude-opus-4-7.md) | 6.64 | 8.09 | 63 | 91/91 | [ver detalles](anthropic_claude-opus-4-7.md) |
 
 > Generado con `python benchmarks/generate_per_model_md.py`
