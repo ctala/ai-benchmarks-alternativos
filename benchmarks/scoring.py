@@ -597,6 +597,8 @@ PRICING = {
     "grok-2": (2.00, 10.00),
     "x-ai/grok-4.1-fast": (0.20, 0.50),
     "x-ai/grok-4.20": (1.25, 2.50),   # corregido may 2026 (OpenRouter API; era 2/6)
+    "x-ai/grok-4.3": (1.25, 2.50),    # flagship 30 abr 2026 (OpenRouter API)
+    "x-ai/grok-4.20-multi-agent": (2.00, 6.00),  # variante Heavy multi-agente (OpenRouter API)
 
     # ====== NVIDIA Nemotron ======
     "nvidia/nemotron-3-nano-30b-a3b": (0.05, 0.20),

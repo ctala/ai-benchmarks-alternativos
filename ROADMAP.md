@@ -38,11 +38,13 @@ Cada mes salen modelos nuevos y los proveedores re-entrenan los existentes. Pero
 | Modelo | Proveedor | Salió | $ in/out /1M | Notas | Por qué para emprendedores |
 |---|---|---|---|---|---|
 | **Gemini 3.5 Flash** | Google | 19 may | $1.50 / $9.00 | 1M ctx; sucesor del 2.5 Flash | Velocidad+calidad para contenido/agentes — releva al Flash que ya medimos |
-| **Grok 4.3** | xAI | 6 may | $1.25 / $2.50 | 2M ctx | Tool calling + contexto largo; sucesor real de 4.20 (no "Grok 5") |
+| **Grok 4.3** | xAI | 6 may | $1.25 / $2.50 | 2M ctx | Tool calling + contexto largo; sucesor real de 4.20 (no "Grok 5"). **✅ en config 22 may + Grok 4.20 Multi-Agent ($2/$6) + sub SuperGrok $30 — PENDIENTE correr benchmark** |
 | **Mistral Medium 3.5** | Mistral | 29 abr | TBD (open) | Coding + multilingüe fuerte | Open, coding barato, español |
 | **DeepSeek V4 Flash-Max / Pro-Max** | DeepSeek | 23 abr | TBD (open weights) | Variantes "Max" agentic de V4 | Workhorse open agentic |
 | **GPT-5.4 Nano** | OpenAI | may | ~$0.20 / $1.25 | Tier ultra-barato OpenAI | Baseline OpenAI económico |
 | **GPT-5.5 Instant** | OpenAI | 23 abr | familia 5.5 | Variante low-latency de 5.5 | Latencia para agentes |
+
+> **Nota Grok (22 may 2026)**: OpenRouter lista hoy solo 4 modelos x-ai: `grok-4.20`, `grok-4.20-multi-agent`, `grok-4.3`, `grok-build-0.1`. **`grok-4.1-fast` ya NO aparece** (delistado/renombrado; conserva resultados históricos en el ranking) y **`grok-4.1` full no existe en OpenRouter** → no se pudo agregar la versión completa de 4.1. Se agregaron al config los disponibles: Grok 4.3 + Grok 4.20 Multi-Agent. `grok-build-0.1` ($1/$2, coding) queda como candidato sin agregar.
 
 #### B. Sucesores probables aún SIN confirmar release (vigilar)
 

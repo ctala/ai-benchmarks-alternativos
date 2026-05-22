@@ -103,6 +103,7 @@ Regla práctica: **un emprendedor que quiera replicar este benchmark desde cero 
 | **Xiaomi MiMo Standard** | Standard | **$14** | MiMo V2.5, V2.5-Pro, V2-Pro, V2-Omni (4 modelos) | 200M credits/mes. Off-peak 16-24 UTC = 0.8x consumption. |
 | **MiniMax Agent Pro** | Agent Pro | **$19** | MiniMax M2.7 Highspeed (acceso a baja latencia) | Generosos límites para agentes (1k+ calls/día). |
 | **Anthropic Pro** | Pro | $20 | Claude (web only — NO API access) | NO da acceso API, solo claude.ai. No aplica para automatización. |
+| **xAI SuperGrok** | Standard | $30 | Grok 4 / 4.1 (web only — NO API access) | $30/mes o $300/año. Grok 4.3 + multi-agente requieren SuperGrok Heavy $300/mes. No aplica para automatización. |
 
 **Modelos realmente $0/call (sin suscripción)**:
 - **NIM gratis (NVIDIA)**: 20 modelos. Rate limit 40 RPM. Marcados `★ NIM 40rpm`.
