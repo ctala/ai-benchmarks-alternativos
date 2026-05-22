@@ -106,11 +106,17 @@ def esc(s):
     return html.escape(str(s))
 
 
+def pcell(m, p):
+    """Celda de pilar: '—' si no se midió (0), en vez de un 0.0 que parece mala nota."""
+    v = pillar(m, p)
+    return f"{v:.1f}" if v > 0 else "—"
+
+
 def row(rank, m, top=False):
     nm = f"<strong>{esc(m.get('name'))}</strong>" if top else esc(m.get("name"))
     return (f"<tr><td>{rank}</td><td>{nm}</td><td>{m.get('score_global',0):.2f}</td>"
-            f"<td>{pillar(m,'Coding'):.1f}</td><td>{pillar(m,'Contenido'):.1f}</td>"
-            f"<td>{pillar(m,'Razonamiento'):.1f}</td><td>{pillar(m,'Agentes'):.1f}</td>"
+            f"<td>{pcell(m,'Coding')}</td><td>{pcell(m,'Contenido')}</td>"
+            f"<td>{pcell(m,'Razonamiento')}</td><td>{pcell(m,'Agentes')}</td>"
             f"<td>{fmt_cost(m)}</td><td>{round(m.get('tokens_per_second') or 0)} tok/s</td></tr>")
 
 
