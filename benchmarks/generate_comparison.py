@@ -85,6 +85,10 @@ def family(models, cfg):
             continue
         if (m.get("score_global") or 0) <= 0:
             continue
+        # Mínimo de runs para confiabilidad (estándar del benchmark: ≥50 runs). Evita que un
+        # outlier con 3-12 runs (varianza alta) aparezca liderando por azar.
+        if (m.get("runs") or 0) < 50:
+            continue
         # Requiere score por pilar: los variantes 'thinking' a veces traen score_global
         # pero no score_by_pillar → mostrarían 0.0 en la tabla. Sin pillars no entran a
         # una comparación por pilar (queda el variante hermano que sí los tiene).
@@ -225,14 +229,9 @@ def faq(a_name, b_name, A, B):
 </section>"""
 
 
-def render(cfg, A, B):
-    a_name, b_name = cfg["a"]["name"], cfg["b"]["name"]
+def page_shell(title, desc, kw, url, body):
+    """Shell HTML reusable (head + header + main + footer). Lo comparten comparaciones y rankings."""
     today = date.today().isoformat()
-    title = cfg["title"]
-    desc = (f"{a_name} vs {b_name} comparados con 8.000+ tests reales: coding, contenido en español, "
-            f"razonamiento, agentes, costo y velocidad. Benchmark abierto, datos en español.")
-    url = f"{SITE}/{cfg['slug']}/"
-    rows = "\n        ".join(row(i + 1, m, top=(i == 0)) for i, m in enumerate(A[:5] + B[:5]))
     jsonld = json.dumps({
         "@context": "https://schema.org", "@type": "Article", "headline": title,
         "description": desc, "author": {"@type": "Person", "name": "Cristian Tala", "url": "https://cristiantala.com"},
@@ -247,7 +246,7 @@ def render(cfg, A, B):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
-<meta name="keywords" content="{esc(cfg['intent_kw'])}">
+<meta name="keywords" content="{esc(kw)}">
 <meta name="author" content="Cristian Tala">
 <link rel="canonical" href="{url}">
 <meta property="og:title" content="{esc(title)}">
@@ -280,7 +279,28 @@ def render(cfg, A, B):
   </div>
 </header>
 <main class="container">
-  <section class="hero">
+{body}
+</main>
+<footer>
+  <div class="container">
+    <p>Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
+    <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
+    <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener">Skool</a></p>
+  </div>
+</footer>
+</body>
+</html>
+"""
+
+
+def render(cfg, A, B):
+    a_name, b_name = cfg["a"]["name"], cfg["b"]["name"]
+    today = date.today().isoformat()
+    desc = (f"{a_name} vs {b_name} comparados con 8.000+ tests reales: coding, contenido en español, "
+            f"razonamiento, agentes, costo y velocidad. Benchmark abierto, datos en español.")
+    url = f"{SITE}/{cfg['slug']}/"
+    rows = "\n        ".join(row(i + 1, m, top=(i == 0)) for i, m in enumerate(A[:5] + B[:5]))
+    body = f"""  <section class="hero">
     <h1>{esc(a_name)} vs {esc(b_name)}: cuál elegir en 2026 (benchmark real)</h1>
     <p class="lead">Comparamos las familias <strong>{esc(a_name)}</strong> y <strong>{esc(b_name)}</strong> con datos, no opiniones:
     <strong>8.000+ tests reales</strong> evaluados con LLM-as-Judge Phi-4 local, en los 4 pilares del emprendedor
@@ -309,18 +329,8 @@ def render(cfg, A, B):
     <h2>Probá la calculadora con tu caso real</h2>
     <p>Filtrá {esc(a_name)}, {esc(b_name)} y 100+ modelos más por presupuesto, calidad y tipo de tarea. En 30 segundos encontrás el mejor para vos.</p>
     <a href="/" class="cta-primary">Ir a la calculadora →</a>
-  </section>
-</main>
-<footer>
-  <div class="container">
-    <p>Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
-    <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
-    <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener">Skool</a></p>
-  </div>
-</footer>
-</body>
-</html>
-"""
+  </section>"""
+    return page_shell(cfg["title"], desc, cfg["intent_kw"], url, body)
 
 
 def main():
