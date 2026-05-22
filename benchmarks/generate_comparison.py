@@ -138,22 +138,23 @@ def analysis(a_name, b_name, A, B):
         if not ba or not bb:
             continue
         diff = pillar(ba, pil) - pillar(bb, pil)
-        if abs(diff) < 0.1:  # empate técnico → desempata costo
+        if abs(diff) < 0.1:  # empate técnico en CALIDAD — la prioridad del lector desempata, no nosotros
             cheaper = ba if (ba.get("cost_input_per_M") or 99) <= (bb.get("cost_input_per_M") or 99) else bb
-            win_name = f"{esc(cheaper.get('name'))} (por costo)"
-            body = (f"Empate técnico: <strong>{esc(ba.get('name'))}</strong> y <strong>{esc(bb.get('name'))}</strong> "
-                    f"rinden casi igual (≈{max(pillar(ba,pil),pillar(bb,pil)):.1f}/10). Ahí desempata el bolsillo: "
-                    f"<strong>{esc(cheaper.get('name'))}</strong> sale {fmt_cost(cheaper)} por millón. "
-                    f"Si ya pagás uno de los dos, quedate con ese.")
+            other = bb if cheaper is ba else ba
+            win_name = f"Empate — {esc(ba.get('name'))} o {esc(bb.get('name'))}"
+            body = (f"Empate técnico en calidad: <strong>{esc(ba.get('name'))}</strong> y <strong>{esc(bb.get('name'))}</strong> "
+                    f"rinden casi igual (≈{max(pillar(ba,pil),pillar(bb,pil)):.1f}/10). Acá no decidimos por vos: "
+                    f"si te importa el costo, <strong>{esc(cheaper.get('name'))}</strong> sale {fmt_cost(cheaper)} por millón; "
+                    f"si ya tenés {esc(other.get('name'))} en tu stack, no hay razón para cambiar — la calidad es la misma.")
         else:
             w = ba if diff > 0 else bb
             l = bb if w is ba else ba
             margin = abs(diff)
             strength = "claramente" if margin >= 0.5 else "por poco"
-            win_name = esc(w.get("name"))
-            body = (f"Gana <strong>{esc(w.get('name'))}</strong> {strength}: {pillar(w,pil):.1f}/10 "
-                    f"contra {pillar(l,pil):.1f}/10 de {esc(l.get('name'))} (Δ {margin:.1f}). "
-                    f"A {fmt_cost(w)} por millón. {esc(l.get('name'))} solo lo justifica si ya está en tu stack.")
+            win_name = f"{esc(w.get('name'))} (por calidad)"
+            body = (f"En calidad pura de este pilar gana <strong>{esc(w.get('name'))}</strong> {strength}: {pillar(w,pil):.1f}/10 "
+                    f"contra {pillar(l,pil):.1f}/10 de {esc(l.get('name'))} (Δ {margin:.1f}). A {fmt_cost(w)} por millón. "
+                    f"Si tu prioridad es costo o velocidad, el ganador puede cambiar — ajustalo en la calculadora.")
         secs.append(f"""  <h3>{label}: ¿{esc(a_name)} o {esc(b_name)}?</h3>
   <p><em>Qué medimos: {what}.</em><br>{body}</p>""")
         verdict_rows.append(f"<tr><td>{label}</td><td><strong>{win_name}</strong></td></tr>")
@@ -174,7 +175,7 @@ def analysis(a_name, b_name, A, B):
       {"".join(verdict_rows)}
     </tbody>
   </table>
-  <p class="meta">Para volumen real (1.000+ calls/mes) priorizá costo y velocidad sobre un punto de calidad. Filtralo por presupuesto en la <a href="/">calculadora</a>.</p>
+  <p class="meta">Este cuadro muestra el mejor por <strong>calidad de cada pilar</strong> — pero el "ganador" real depende de <strong>tu</strong> prioridad: calidad, costo o velocidad. No sabemos tu caso, así que ajustá esos pesos en la <a href="/">calculadora</a> y obtené el ganador para vos.</p>
 </section>""")
     return "\n".join(secs)
 
