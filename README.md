@@ -1,6 +1,6 @@
 # Benchmark de Modelos AI Alternativos: comparación abierta de 70 LLMs en español para N8N, OpenClaw y emprendedores
 
-**Version 2.6.2** | Ultima actualizacion: 13 de Mayo de 2026 | [📊 Datasheet mayo](DATASHEET_2026-05.md) · [📊 Datasheet abril](DATASHEET_2026-04.md) · [📄 CheatSheet PDF mayo](cheatsheet/AI_Model_Benchmark_CheatSheet_Mayo_2026.pdf)
+**Version 2.7.0** | Ultima actualizacion: 22 de Mayo de 2026 | [📊 Datasheet mayo](DATASHEET_2026-05.md) · [📊 Datasheet abril](DATASHEET_2026-04.md) · [📄 CheatSheet PDF mayo](cheatsheet/AI_Model_Benchmark_CheatSheet_Mayo_2026.pdf)
 
 > **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con 8,000+ tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N, OpenClaw o Hermes con presupuestos reales.
 
@@ -10,7 +10,7 @@
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw, N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes) y la nueva suite **`agent_long_horizon`** que mide capacidades agénticas en multi-turno largo (lo que el single-turn no captura).
 
-**Cobertura actual**: 70 modelos con ≥50 runs cada uno, 8,000+ runs ejecutados, juez Phi-4 (v2.4.2 = Lote 9 NIM + DGX Spark Lote 1 + suite agent_long_horizon completa con 12 tests + 38 modelos corridos en multi-turno + nueva fórmula de scoring).
+**Cobertura actual**: 72 modelos con ≥50 runs cada uno, 9,400+ runs ejecutados, juez Phi-4 (v2.7 = **rescore de costo provider-aware**: el costo ahora se calcula con el precio real por proveedor del config — antes la mayoría de runs usaba un fallback `(1.0,3.0)` que dejaba la dimensión costo casi inerte. Ahora el componente costo del score discrimina de verdad).
 
 ## Score = combinación ponderada (NO solo calidad)
 
@@ -24,30 +24,34 @@ Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw,
 | **Speed** | 7.5% | Tokens/s del modelo |
 | **Latency** | 7.5% | Latencia first-token |
 
-Por eso modelos académicamente top (Opus 4.7 con HumanEval 88+, MMLU 90+, GPQA 94+) caen a #~30 en nuestro benchmark — **no porque sean peores en calidad** (Opus 4.7 saca quality 8.08, top 5 entre todos) **sino porque son 40-100x más caros que las alternativas** y eso entra al score final. Para más contexto, ver [INSIGHTS.md sección "Why Opus doesn't top our benchmark"](INSIGHTS.md).
+Por eso modelos académicamente top (Opus con HumanEval 88+, MMLU 90+, GPQA 94+) caen al fondo en nuestro benchmark — **no porque sean peores en calidad** (Opus 4.6 saca quality 8.04, top 10 entre todos) **sino porque son mucho más caros que las alternativas gratis/open-source** ($5/$25 por millón de tokens vs $0/call en NIM o local) y eso entra al score final. Con el rescore de costo provider-aware (v2.7), Opus 4.7 queda **#66 de 72**. Para más contexto, ver [INSIGHTS.md](INSIGHTS.md).
 
 **Si solo te importa quality** (y costo no es factor), ordená por la columna `quality_avg` en [docs/data/models.json](docs/data/models.json) o usá los sliders de la [calculadora](https://benchmarks.cristiantala.com/) para ajustar pesos a tu caso.
 
-## Top 10 Global Ranking — score compuesto v2.4.2
+## Top 10 Global Ranking — score compuesto v2.7 (costo provider-aware)
 
 | # | Modelo | Final | Quality | Cost | Tools | Provider | $/1k calls |
 |---|---|---:|---:|---:|---:|---|---:|
-| 1 | **Llama 4 Scout 17B** | **8.11** | 7.93 | 8.83 | 7.06 | Groq direct | $0.54 |
-| 2 | **Llama 3.1 8B Instant** | **8.11** | 7.61 | 8.98 | 7.15 | Groq direct | $0.14 |
-| 3 | **Llama 3.3 70B** | **7.86** | 8.01 | 8.17 | 7.14 | Groq direct | $1.36 |
-| 4 | GPT-OSS 20B | 7.84 | 7.51 | 8.80 | 6.91 | Groq direct | $0.47 |
-| 5 | Mistral Small 4 | 7.81 | 8.08 | 8.30 | 7.11 | OpenRouter | $0.94 |
-| 6 | Gemini 3.1 Flash Lite | 7.73 | 8.01 | 7.85 | 7.11 | OpenRouter | $2.33 |
-| 7 | GPT-OSS 120B Cloud | 7.69 | 7.81 | **10.00** | 6.82 | Ollama Cloud | $0 (sub) |
-| 8 | Grok 4.1 Fast | 7.62 | **8.13** | 8.18 | 7.21 | OpenRouter | $0.81 |
-| 9 | **MiMo V2.5 (Xiaomi)** | **7.62** | 7.68 | 8.84 | 7.21 | Xiaomi direct | $0.13 |
-| 10 | Devstral Small | 7.61 | 8.03 | 7.63 | 6.75 | OpenRouter | $0.48 |
+| 1 | **Devstral Small** | **7.84** | 7.89 | 9.13 | 6.81 | OpenRouter | $0.48 |
+| 2 | Nemotron 3 Nano Omni 30B | 7.84 | 7.75 | **10.00** | 6.87 | NIM (free) | $0 |
+| 3 | **Qwen 3-Next 80B Instruct** | **7.83** | 8.11 | **10.00** | 7.11 | NIM (free) | $0 |
+| 4 | Gemini 2.5 Flash Lite | 7.74 | 7.79 | 9.34 | 6.42 | OpenRouter | $0.63 |
+| 5 | **Llama 4 Scout 17B** | **7.69** | 7.70 | 8.81 | 7.04 | Groq direct | $0.54 |
+| 6 | Devstral 2 123B | 7.68 | 7.98 | **10.00** | 6.87 | NIM (free) | $0 |
+| 7 | **Llama 3.1 8B Instant** | **7.67** | 7.33 | 9.33 | 7.10 | Groq direct | $0.14 |
+| 8 | Nemotron 3 Base 33B | 7.63 | 7.83 | **10.00** | 6.74 | Local DGX | $0 |
+| 9 | Nemotron Nano 9B v2 | 7.59 | 7.73 | **10.00** | 7.10 | NIM (free) | $0 |
+| 10 | Gemma 4 26B MoE | 7.52 | 7.80 | 9.65 | 7.20 | OpenRouter | $0.50 |
 
-> **Top quality (sin pesar costo)**: Gemma 4 31B 8.19, Grok 4.1 Fast 8.13, Gemini 3.1 Flash Lite 8.11, Qwen 3-Next 80B 8.11, Mistral Small 4 8.08, **Claude Opus 4.7 8.08**, Hermes 4 70B 8.04, Claude Opus 4.6 8.04, Devstral Small 8.03, Llama 3.3 70B 8.01.
+> **Cambio v2.7**: con el rescore de costo provider-aware, el componente costo (20%) por fin discrimina. Resultado: open-source barato y modelos **gratis** (NIM 40rpm, local DGX) suben al top; los premium caros bajan (Opus 4.x, GPT-5.4, Gemini 2.5 Pro: −0.3 a −0.5). Antes casi todos tenían `cost_score≈7.0` por un fallback de precio → el ranking era de facto solo-calidad.
+
+> ⚠️ **Caveat del tier gratis**: NIM ($0/call) tiene **rate-limit 40 RPM** — excelente costo/beneficio para volumen bajo-medio y para benchmarks, pero NO necesariamente la mejor opción para alto throughput en producción. Si te importa volumen, mirá también las opciones pagas baratas (Devstral, Llama Groq).
+
+> **Top quality (sin pesar costo)**: Gemma 4 31B 8.19-8.22, Mistral Large 3 675B 8.18, Qwen 3-Next 80B 8.11, Qwen 3.5 397B 8.07, Hermes 4 405B 8.05, **Claude Opus 4.6 8.04**, Ministral 14B 8.02. (La calidad NO cambió con el rescore v2.7 — solo el costo.)
 
 > **Hallazgo: thinking forzado EMPEORA multi-turn agéntico**. En 8 de 9 modelos hybrid medidos con `force_reasoning=high` en agent_long_horizon, el score baja vs sin thinking (Opus 4.7: -0.67, Sonnet 4.6: -0.50, Hermes 4 70B: -0.54, Kimi K2.6: -0.7). Solo Kimi K2.5 sube (+0.73). Ver [THINKING_EXPLAINED.md](THINKING_EXPLAINED.md).
 
-> **Groq domina top 5** (3 de 5 modelos = Llama family + GPT-OSS 20B). Apache 2.0 / MIT en 8 de los 10. **Provider matters cuantificado**: mismo modelo en provider directo (Xiaomi/Groq/NIM) rinde +0.16 a +0.25 puntos vs OpenRouter (4 proveedores con el mismo patrón).
+> **Open-source + gratis domina el top 10** (Devstral, Nemotron, Qwen-Next, Gemma — casi todos Apache/MIT y/o NIM gratis). **Provider matters**: el mismo modelo en provider directo (Xiaomi/Groq/NIM) rinde mejor que vía OpenRouter.
 
 > **Contexto**: Desde el 21 de abril 2026, Claude Code ya no viene en la suscripcion Pro de $20/mes. Este benchmark ayuda a encontrar las mejores alternativas por caso de uso y presupuesto.
 

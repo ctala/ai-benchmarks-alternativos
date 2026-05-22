@@ -2,6 +2,24 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v2.7.0] - 2026-05-22 — Rescore de costo provider-aware (el costo por fin discrimina)
+
+### Cambio de metodología
+Tras la corrección de precios (v2.6.3) se detectó que el costo histórico de la **mayoría** de modelos se había guardado con el fallback `(1.0,3.0)` de `PRICING` (muchas corridas previas a que el modelo entrara al dict) → casi todos con `cost_score ≈ 7.0` → **la dimensión costo (20% del peso) era casi inerte** y el ranking de facto solo-calidad.
+
+Decisión del usuario: aplicar **rescore provider-aware TOTAL**. `benchmarks/rescore_costs.py` (sin `--only`) recalculó cost_usd/cost_score/final de **7.483 runs** usando el precio por-proveedor del config (`models.py`) × tokens reales. Solo cambian campos derivados de precio (verificado: 0 cambios fuera de cost_usd/cost_score/final en 11.013 runs comparados).
+
+### Efecto en el ranking (reordenamiento grande, esperado)
+- **Suben** los gratis/NIM/local y open-source baratos: Devstral Small (ahora **#1**, 7.84), Nemotron Omni NIM, Qwen 3-Next NIM, Gemma, Devstral 2 123B NIM, Llama Groq. Deltas de +0.3 a +1.15 (DeepSeek V4 Cloud +1.15, Nemotron NIM +0.86).
+- **Bajan** los premium caros: Gemini 2.5 Pro −0.49, GPT-5.4 −0.47, Sonnet 4.6 −0.25, Opus 4.x. Opus 4.7 pasa a **#66/72**.
+- Nuevo top-5 global: Devstral Small · Nemotron 3 Nano Omni (NIM) · Qwen 3-Next 80B (NIM) · Gemini 2.5 Flash Lite · Llama 4 Scout (Groq).
+
+### Caveat documentado
+- El tier gratis NIM ($0/call) tiene rate-limit 40 RPM: gran C/B para volumen bajo-medio, no necesariamente para alto throughput. README y calculadora lo marcan.
+
+### Docs actualizadas
+- README (top-10 v2.7, cobertura, framing de Opus, nota de provider), models.json + MODELOS + per-model MDs regenerados, INSIGHTS con callout v2.7 (tablas detalladas pendientes de regen por data-scientist).
+
 ## [v2.6.3] - 2026-05-22 — Corrección de precios verificada (OpenRouter API) + costeo provider-aware
 
 ### Precios corregidos (verificados vía OpenRouter `/v1/models`)
