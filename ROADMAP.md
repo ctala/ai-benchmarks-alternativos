@@ -1,7 +1,108 @@
 # Roadmap del Benchmark
 
-> Ultima actualizacion: 23 de Abril de 2026
-> Estado del ranking: **v2.1.0 con 17 modelos × 91 tests = 1512 runs** evaluados con juez Phi-4. Top 5: Devstral Small, GPT-5.4 Mini, GPT-4.1, Gemini 2.5 Flash Lite, MiMo-V2-Flash. Ver [README.md](README.md).
+> Ultima actualizacion: 22 de Mayo de 2026
+> Estado del ranking: **v2.6.2 — 113 modelos en config, 72 con cobertura ≥50 runs, 8,000+ runs** evaluados con juez Phi-4. Top 5 compuesto: Llama 4 Scout 17B, Llama 3.1 8B, Llama 3.3 70B, GPT-OSS 20B, Mistral Small 4. Ver [README.md](README.md) y [DATASHEET_2026-05.md](DATASHEET_2026-05.md).
+> **Próximo release: Junio 2026** (cadencia mensual). El release de mayo ya salió — ver sección [Ciclo Junio 2026](#ciclo-junio-2026--modelos-nuevos-por-probar) abajo.
+
+---
+
+## Ciclo Junio 2026 — modelos nuevos por probar
+
+> Sección agregada el 22 de mayo 2026 para preparar el **release de junio**. Cadencia mensual establecida en v2.6.1: cada 1ro de mes → regen `models.json` + update INSIGHTS + `DATASHEET` nuevo + CheatSheet PDF + tag semver. El release de **mayo ya salió** (v2.6.x, ver [DATASHEET_2026-05.md](DATASHEET_2026-05.md)). Esta cola reemplaza la de "Lote 3" de abril, ya completada (DeepSeek V4, GPT-OSS, GPT-5.5, Grok, Hermes 4, Gemini 3.1, MiMo V2.5, Mistral Small 4 / Large 3, GLM 5/5.1, Qwen 3-Next, Seed-OSS — todos en config).
+>
+> Estado base: **113 modelos en config · 72 con cobertura ≥50 runs**.
+
+### Qué entra en el release de junio (checklist)
+
+- [ ] **Probar los modelos nuevos salidos en mayo** (lista candidatos abajo) — al menos los Tier 1 con cobertura ≥50 runs.
+- [ ] **`DATASHEET_2026-06.md`**: cambios mayo→junio (ranking, modelos nuevos, hallazgos) comparado contra `DATASHEET_2026-05.md`.
+- [ ] **Documentar lo que pasó en mayo** que aún no quede en datasheet/INSIGHTS (cierre del ciclo previo).
+- [ ] **Regen estándar** (orden CLAUDE.md): per-model MD → tabla MODELOS → TESTS → `export_for_pages` → sitemap → `sync_doc_counts`.
+- [ ] **CheatSheet PDF "Junio 2026"** + **tag semver** (probable v2.7.0).
+- [ ] Si avanza el eje de eficiencia operativa (abajo): incluir el piloto en INSIGHTS.
+
+### Por qué seguimos agregando modelos (y por qué esto es una *referencia*, no un veredicto)
+
+Cada mes salen modelos nuevos y los proveedores re-entrenan los existentes. Pero el objetivo NO es coronar un "mejor modelo" universal — es darle a un emprendedor una **base** para decidir, que después valida contra SU workload. El score compuesto pesa quality + costo + tool calling + velocidad + latencia para un perfil LATAM, no es una verdad absoluta.
+
+**Caso real de mayo 2026 que lo deja claro**: Cristian evaluó migrar de **MiniMax M2.7** (su suscripción actual) a **Xiaomi MiMo** (suscripción más cara). En nuestro ranking MiMo V2.5 sale **top-10** (quality 7.27, ~$0.13/1k calls) → "se ve mejor". Pero en uso real **MiMo no completaba las tareas: consumía muchos más tokens** y reventaba el budget de créditos de la suscripción antes de terminar. **El score actual no predijo esto** — porque mide costo por-llamada con un supuesto fijo de tokens, no cuántos tokens gasta cada modelo para *completar* la tarea. De ahí el eje nuevo más abajo.
+
+→ Lección para el lector del benchmark: usalo para **acotar candidatos**, no para cerrar la decisión. El último filtro lo da tu propia tarea, tu proveedor y tu presupuesto.
+
+### Modelos candidatos para junio (verificar ID/pricing antes de agregar)
+
+⚠️ **IDs sin confirmar**. Son candidatos propuestos por (a) trayectoria de cada familia ya cubierta y (b) gaps de mercado que seguimos sin medir. Antes de agregar al `config`: verificar el **ID exacto** en OpenRouter / provider directo y el **pricing real** (los precios cambian). Aplica la regla: distinto ID = modelo distinto = se mide.
+
+#### A. Sucesores de familias que ya cubrimos
+
+| Familia | Candidato (verificar) | Por qué medirlo | Relevancia para Cristian |
+|---|---|---|---|
+| **MiniMax** | M2.8 / sucesor de M2.7 | Es su sub actual; sucesor directo = re-medir | **Caso activo** — la migración que está evaluando |
+| **Xiaomi MiMo** | V3 / V2.6 | V2.5/Pro cubiertos; sub $14 bajo evaluación | **Caso activo** — el modelo del caso de tokens |
+| **Qwen** | Qwen 3.6 **base** (Apache, pesos en HF) | Solo tenemos 3.6 *Plus* (propietario); falta el base abierto | Usa Qwen 3.5 397B en producción — comparar |
+| **DeepSeek** | V4.1 y/o **R2** (reasoning sucesor de R1) | V4 cubierto; R1 free quedó viejo, falta reasoning nuevo | Workhorse barato + razonamiento |
+| **Kimi (Moonshot)** | K2.7 | Cada minor = ID nuevo, se mide | Open-weights agentic alternativo |
+| **Mistral** | Devstral 3, Magistral Medium | Devstral Small es nuestro top coding; v3 = re-medir | Coding/agentes baratos |
+| **GLM (Z.ai)** | GLM 5.5 | 5/5.1 cubiertos; agentic chino fuerte | Agentes |
+| **Google Gemini** | 3.1 **Flash** (no la Lite), o 3.5 si sale | Tenemos Flash Lite y Pro 3.1; falta el Flash medio | Velocidad/calidad |
+| **Meta Llama** | Llama 4.1 / Behemoth | 4 Scout/Maverick cubiertos | Open + Groq (domina nuestro top 5) |
+| **xAI Grok** | Grok 5 / 4.5 | 4.1 Fast y 4.20 cubiertos | Tool calling, contexto largo |
+| **Anthropic** | Sonnet 4.7 | 4.6 cubierto; baseline premium | Techo de calidad de referencia |
+| **NVIDIA Nemotron** | Nemotron 4 (solo si hay salto real) | Familia ya muy cubierta | Local DGX Spark |
+
+#### B. Familias / proveedores que NO tenemos en absoluto (gaps de mercado)
+
+| Proveedor | Modelos a verificar | Por qué nos importa | Prioridad |
+|---|---|---|---|
+| **Cohere** | Command A / Command R+ | Multilingüe fuerte (**español**), RAG enterprise, tool calling nativo | **Alta** (español) |
+| **AI21** | Jamba 2 Large / Mini | Híbrido SSM-Transformer, 256K+ ctx barato → long-context español | **Alta** (long ctx) |
+| **Amazon** | Nova Pro / Lite / Micro | Ultra-barato, ecosistema AWS, buen tool calling | Media |
+| **IBM** | Granite 4 (Apache 2.0) | Enterprise, agentic, open y eficiente en tokens | Media (open) |
+| **Perplexity** | Sonar / Sonar Pro | Search-augmented — encaja con el test `perplexity_research` | Media |
+| **Liquid AI** | LFM2 (8B/24B) | Eficiente, edge; ya estaba en el roadmap DGX | Media (local) |
+| **Microsoft** | Phi-4 / Phi-5 **como modelo** (hoy solo es juez) | Ya corre local; medirlo como competidor 14B | Media |
+| **OpenAI** | o3 / o4-mini (reasoning) | El adapter ya los contempla en `THINKING_MODELS`, ninguno medido | Media |
+| **Reka** | Reka Flash 3 / Core | Multimodal, pesos abiertos | Baja |
+| **TII** | Falcon 3 / H1 | Apache, multilingüe | Baja |
+| **Tencent** | Hunyuan Turbo / Large | MoE chino open | Baja |
+
+#### C. Priorización del lote de junio
+
+- **Tier 1 (correr sí o sí)**: MiniMax M2.8, MiMo V3 (los dos casos activos del usuario), Qwen 3.6 base, DeepSeek V4.1/R2, **Cohere Command A** (gap español), **AI21 Jamba 2** (gap long-context).
+- **Tier 2 (si alcanza budget/tiempo)**: Kimi K2.7, Devstral 3, GLM 5.5, Gemini 3.1 Flash, Amazon Nova, IBM Granite 4, Phi-4 como modelo, Perplexity Sonar.
+- **Tier 3 (oportunista)**: Grok 5, Llama 4.1, Sonnet 4.7, o3/o4-mini, Reka, Falcon, Hunyuan.
+
+### Eje a diseñar: eficiencia operativa ("cost-to-complete")
+
+**Estado: idea aprobada, medición POR DISEÑAR.** No implementar todavía — primero definir cómo medirlo bien (y que sirva tanto a emprendedores tech como no-tech).
+
+**Motivación**: el caso MiMo/MiniMax de arriba. Nuestro componente Cost (20% del score) asume `tokens_per_call = {input:300, output:1500}` **fijo para todos los modelos**. Eso esconde dos cosas que importan en producción:
+1. Un modelo verboso o que sobre-razona gasta 3-5x los tokens para la misma respuesta (caso MiMo → revienta créditos de la sub).
+2. Un modelo agentic puede necesitar más *pasadas* (turnos / tool calls) para llegar al objetivo.
+
+**La tensión a capturar** (planteada por el usuario): *"Opus puede demorarse menos pasadas en hacer algo que MiniMax tarda más — pero con MiniMax puedo hacer eso y mucho más."* Hay un frontier, no un ganador único:
+- **Capacidad-por-pasada**: modelos premium (Opus, GPT-5.x) terminan en menos turnos → menos fricción y a veces menos tokens totales.
+- **Volumen-por-presupuesto**: modelos baratos / de suscripción necesitan más turnos, pero alcanzan para muchas más tareas con el mismo gasto.
+
+El "mejor" depende de dónde caés en ese frontier para TU workload — y eso es justo lo que el benchmark debe ayudar a ubicar, no decidir por vos.
+
+**Candidatos de métrica (a pilotear, ninguno decidido)**:
+1. **`turns_to_completion`** — en una tarea agentic de objetivo abierto, ¿cuántos turnos / tool calls necesitó hasta cumplir el objetivo (o rendirse)? Requiere tests con criterio de éxito binario + tope de turnos. El runner ya tiene `multi_turn_script`, pero con turnos fijos — habría que agregar un modo "objetivo abierto / hasta lograrlo".
+2. **`tokens_to_completion`** — tokens reales end-to-end (input + output + reasoning) para resolver la tarea, NO por-call. Reemplaza el supuesto fijo de 1500. Captura directo el problema MiMo.
+3. **`tasks_per_budget`** — dado $X (o N créditos de sub), ¿cuántas tareas completas rinde cada modelo? = presupuesto / cost-to-complete real. Operacionaliza el "con MiniMax hago eso y mucho más".
+4. **Proxy para no-tech** — etiqueta simple por modelo: *"suele resolver al primer intento / necesita 2-3 / itera mucho"* + *"con $20/mes te alcanza para ~N tareas de este tipo"*. En la calculadora: slider de presupuesto → "tareas estimadas/mes" por modelo.
+
+**Preguntas abiertas antes de implementar**:
+- ¿Cómo definimos "tarea completada" sin humano en el loop? → rúbrica binaria por test, como ya hacemos en `agent_long_horizon`.
+- ¿Los reasoning tokens cuentan? → **Sí**: se facturan y son justo lo que hace caro a Opus "en pocas pasadas". Hay que sumarlos.
+- Costo/varianza: los tests open-ended son caros y el pilar Agentes ya mostró alta varianza intra-modelo (INSIGHTS §13). Piloto chico primero.
+- ¿Métrica nueva o re-pesar Cost? → probablemente **dimensión nueva** (`efficiency`) + opción en la calculadora, sin romper el score histórico.
+
+**Piloto propuesto (S effort, ~$10-20)**:
+- 3-5 tareas open-ended con criterio de éxito (1 coding-debug, 1 contenido-iterativo, 1 agente-N8N, 1 research).
+- Modelos: top 10 compuesto + **MiniMax M2.7 + MiMo V2.5 + Opus 4.7** (los 3 del caso real).
+- Reportar: `turns_to_completion`, `tokens_to_completion`, `tasks_per_$20`, `completion_rate`.
+- Hallazgo esperado: MiMo/MiniMax ganan en `tasks_per_$` pero pueden perder en `completion_rate`/`turns`; Opus gana en turns/completion pero pierde en volumen. **Mostrar ese trade-off explícito ES el aporte** — no coronar un único "mejor".
 
 ---
 
