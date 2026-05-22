@@ -29,48 +29,85 @@ Cada mes salen modelos nuevos y los proveedores re-entrenan los existentes. Pero
 
 → Lección para el lector del benchmark: usalo para **acotar candidatos**, no para cerrar la decisión. El último filtro lo da tu propia tarea, tu proveedor y tu presupuesto.
 
-### Modelos candidatos para junio (verificar ID/pricing antes de agregar)
+### Modelos candidatos para junio
 
-⚠️ **IDs sin confirmar**. Son candidatos propuestos por (a) trayectoria de cada familia ya cubierta y (b) gaps de mercado que seguimos sin medir. Antes de agregar al `config`: verificar el **ID exacto** en OpenRouter / provider directo y el **pricing real** (los precios cambian). Aplica la regla: distinto ID = modelo distinto = se mide.
+> Investigación hecha el 22 de mayo 2026 vía web + **OpenRouter `/v1/models` (fuente primaria)**. ⚠️ Los aggregators de precios (costgoat, pricepertoken, llm-stats) **se contradicen y traen errores de parsing** (uno listó Gemini 3.5 Flash a "$150/1M", GPT-4.1 a $0.10/$0.40). Para precios confiamos en la **API de OpenRouter** o la página oficial del proveedor, NO en aggregators. Igual verificar el ID exacto al momento de agregar. Regla: distinto ID = modelo distinto = se mide.
 
-#### A. Sucesores de familias que ya cubrimos
+#### A. Confirmados salidos en mayo 2026 (datos verificados — agregar en junio)
 
-| Familia | Candidato (verificar) | Por qué medirlo | Relevancia para Cristian |
+| Modelo | Proveedor | Salió | $ in/out /1M | Notas | Por qué para emprendedores |
+|---|---|---|---|---|---|
+| **Gemini 3.5 Flash** | Google | 19 may | $1.50 / $9.00 | 1M ctx; sucesor del 2.5 Flash | Velocidad+calidad para contenido/agentes — releva al Flash que ya medimos |
+| **Grok 4.3** | xAI | 6 may | $1.25 / $2.50 | 2M ctx | Tool calling + contexto largo; sucesor real de 4.20 (no "Grok 5") |
+| **Mistral Medium 3.5** | Mistral | 29 abr | TBD (open) | Coding + multilingüe fuerte | Open, coding barato, español |
+| **DeepSeek V4 Flash-Max / Pro-Max** | DeepSeek | 23 abr | TBD (open weights) | Variantes "Max" agentic de V4 | Workhorse open agentic |
+| **GPT-5.4 Nano** | OpenAI | may | ~$0.20 / $1.25 | Tier ultra-barato OpenAI | Baseline OpenAI económico |
+| **GPT-5.5 Instant** | OpenAI | 23 abr | familia 5.5 | Variante low-latency de 5.5 | Latencia para agentes |
+
+#### B. Sucesores probables aún SIN confirmar release (vigilar)
+
+| Familia | Candidato | Por qué medirlo | Relevancia para Cristian |
 |---|---|---|---|
-| **MiniMax** | M2.8 / sucesor de M2.7 | Es su sub actual; sucesor directo = re-medir | **Caso activo** — la migración que está evaluando |
+| **MiniMax** | M2.8 / sucesor de M2.7 | Es su sub actual; sucesor directo = re-medir | **Caso activo** — la migración que evalúa |
 | **Xiaomi MiMo** | V3 / V2.6 | V2.5/Pro cubiertos; sub $14 bajo evaluación | **Caso activo** — el modelo del caso de tokens |
 | **Qwen** | Qwen 3.6 **base** (Apache, pesos en HF) | Solo tenemos 3.6 *Plus* (propietario); falta el base abierto | Usa Qwen 3.5 397B en producción — comparar |
-| **DeepSeek** | V4.1 y/o **R2** (reasoning sucesor de R1) | V4 cubierto; R1 free quedó viejo, falta reasoning nuevo | Workhorse barato + razonamiento |
+| **DeepSeek** | **R2** (reasoning sucesor de R1) | R1 free quedó viejo; falta reasoning nuevo (V4 ya cubierto) | Razonamiento barato |
 | **Kimi (Moonshot)** | K2.7 | Cada minor = ID nuevo, se mide | Open-weights agentic alternativo |
-| **Mistral** | Devstral 3, Magistral Medium | Devstral Small es nuestro top coding; v3 = re-medir | Coding/agentes baratos |
+| **Mistral** | Devstral 3 | Devstral Small es nuestro top coding; v3 = re-medir | Coding/agentes baratos |
 | **GLM (Z.ai)** | GLM 5.5 | 5/5.1 cubiertos; agentic chino fuerte | Agentes |
-| **Google Gemini** | 3.1 **Flash** (no la Lite), o 3.5 si sale | Tenemos Flash Lite y Pro 3.1; falta el Flash medio | Velocidad/calidad |
-| **Meta Llama** | Llama 4.1 / Behemoth | 4 Scout/Maverick cubiertos | Open + Groq (domina nuestro top 5) |
-| **xAI Grok** | Grok 5 / 4.5 | 4.1 Fast y 4.20 cubiertos | Tool calling, contexto largo |
+| **Meta Llama** | Llama 4.1 / Behemoth | 4 Scout/Maverick cubiertos (Groq domina nuestro top 5) | Open + Groq |
 | **Anthropic** | Sonnet 4.7 | 4.6 cubierto; baseline premium | Techo de calidad de referencia |
-| **NVIDIA Nemotron** | Nemotron 4 (solo si hay salto real) | Familia ya muy cubierta | Local DGX Spark |
 
-#### B. Familias / proveedores que NO tenemos en absoluto (gaps de mercado)
+#### C. Gaps de mercado — filtrados por el lente emprendedor
 
-| Proveedor | Modelos a verificar | Por qué nos importa | Prioridad |
+> Tu punto: no todos los gaps valen para ESTE público. Filtrados para LATAM, agentes N8N/OpenClaw, contenido en español, budget real:
+
+| Proveedor | Modelos | Veredicto | Por qué |
 |---|---|---|---|
-| **Cohere** | Command A / Command R+ | Multilingüe fuerte (**español**), RAG enterprise, tool calling nativo | **Alta** (español) |
-| **AI21** | Jamba 2 Large / Mini | Híbrido SSM-Transformer, 256K+ ctx barato → long-context español | **Alta** (long ctx) |
-| **Amazon** | Nova Pro / Lite / Micro | Ultra-barato, ecosistema AWS, buen tool calling | Media |
-| **IBM** | Granite 4 (Apache 2.0) | Enterprise, agentic, open y eficiente en tokens | Media (open) |
-| **Perplexity** | Sonar / Sonar Pro | Search-augmented — encaja con el test `perplexity_research` | Media |
-| **Liquid AI** | LFM2 (8B/24B) | Eficiente, edge; ya estaba en el roadmap DGX | Media (local) |
-| **Microsoft** | Phi-4 / Phi-5 **como modelo** (hoy solo es juez) | Ya corre local; medirlo como competidor 14B | Media |
-| **OpenAI** | o3 / o4-mini (reasoning) | El adapter ya los contempla en `THINKING_MODELS`, ninguno medido | Media |
-| **Reka** | Reka Flash 3 / Core | Multimodal, pesos abiertos | Baja |
-| **TII** | Falcon 3 / H1 | Apache, multilingüe | Baja |
-| **Tencent** | Hunyuan Turbo / Large | MoE chino open | Baja |
+| **Cohere** | Command A / R+ | ✅ **Sí (alta)** | Multilingüe fuerte (español), RAG, tool calling nativo — encaja directo con el público |
+| **Amazon Nova** | Pro / Lite / Micro | ✅ Sí (media) | Ultra-barato + AWS; varios emprendedores ya están en AWS |
+| **AI21 Jamba** | 2 Large / Mini | 🟡 Opcional | Solo si aparece caso de docs largos (contratos, libros). NIAH-ES ya cubre long-ctx con GPT-4.1 |
+| **Perplexity Sonar** | Sonar / Pro | 🟡 Opcional | Search-augmented útil para research, pero producto nicho con API limitada |
+| **IBM Granite** | Granite 4 | ❌ No por ahora | Enterprise; poca tracción en la comunidad emprendedora |
+| **OpenAI o3 / o4-mini** | reasoning | ❌ No | GPT-5.x ya cubre OpenAI; thinking es caro y **empeora** multi-turn (hallazgo nuestro) |
+| **Reka / Falcon / Hunyuan** | varios | ❌ No | Nicho, sin demanda en el público objetivo |
+| **Liquid LFM2** | 8B / 24B | → mover a lista **DGX local** | Tiene sentido como local, no como API de pago |
 
-#### C. Priorización del lote de junio
+#### D. Phi-4 como modelo: NO incluir (decisión)
 
-- **Tier 1 (correr sí o sí)**: MiniMax M2.8, MiMo V3 (los dos casos activos del usuario), Qwen 3.6 base, DeepSeek V4.1/R2, **Cohere Command A** (gap español), **AI21 Jamba 2** (gap long-context).
-- **Tier 2 (si alcanza budget/tiempo)**: Kimi K2.7, Devstral 3, GLM 5.5, Gemini 3.1 Flash, Amazon Nova, IBM Granite 4, Phi-4 como modelo, Perplexity Sonar.
-- **Tier 3 (oportunista)**: Grok 5, Llama 4.1, Sonnet 4.7, o3/o4-mini, Reka, Falcon, Hunyuan.
+Phi-4 es **el juez** del benchmark y toda la metodología se apoya en que Microsoft NO tiene modelos compitiendo → cero conflicto de interés (ver "Por qué Phi-4 como juez" más abajo). Si lo metemos como competidor:
+- Se evaluaría a sí mismo (Phi-4 juzga Phi-4) = **self-enhancement bias**, justo lo que el diseño evita (papers NeurIPS reportan 5-7% de sesgo cuando juez y evaluado comparten origen).
+- El workaround (juzgarlo con Gemma/Haiku) lo deja **no comparable** con el resto del ranking (juzgado por Phi-4).
+
+**Veredicto**: mantener Phi-4 **solo como juez**. Si hay curiosidad genuina, correr un experimento aparte ("Phi-4 concursante juzgado por Gemma"), claramente marcado como no-comparable y fuera del ranking principal.
+
+#### E. Priorización del lote de junio
+
+- **Tier 1 (correr sí o sí)**: Gemini 3.5 Flash, Grok 4.3 (confirmados, sucesores de modelos top nuestros) + **MiniMax M2.8** y **MiMo V3** (tus casos activos) + **Cohere Command A** (gap español).
+- **Tier 2 (si alcanza budget/tiempo)**: Mistral Medium 3.5, DeepSeek V4 Flash-Max/Pro-Max, Qwen 3.6 base, GPT-5.4 Nano, Amazon Nova.
+- **Tier 3 (oportunista)**: Kimi K2.7, Devstral 3, GLM 5.5, Llama 4.1, Sonnet 4.7, GPT-5.5 Instant, AI21 Jamba.
+
+### Higiene de precios — correcciones detectadas (aplicar con regen)
+
+> Auditoría 22 may 2026. Dos problemas: (1) **drift interno** entre `models.py` (alimenta la calculadora) y el `PRICING` de `scoring.py` (alimenta el score) — deben coincidir; y (2) **precios stale** vs la API de OpenRouter (fuente primaria de este universo). ⚠️ Aplicar estas correcciones **recomputa el ranking** (cost = 20% del score; `export_for_pages.py` recalcula `score_global`) → requiere regen completo + documentar el cambio. Por eso quedan **staged acá, NO aplicadas aún**.
+
+| Modelo | Hoy (models.py / scoring.py) | Verificado (OpenRouter API) | Impacto |
+|---|---|---|---|
+| **Claude Opus 4.7** | $15 / $75 (ambos) | **$5 / $25** | **ALTO** — deja de ser "40-100x más caro"; sube fuerte. Reescribe la narrativa de README/INSIGHTS ("Why Opus doesn't top our benchmark") |
+| **DeepSeek V4 Pro** | $1.74 / $3.48 (ambos) | **$0.435 / $0.87** | **ALTO** — 4x más barato; pasa de "medium" a candidato cheap top |
+| **DeepSeek V4 Flash** | $0.14 / $0.28 | $0.112 / $0.224 | Bajo |
+| **Kimi K2.6** | $0.80/$3.50 (models) · **$1.50/$9.00** (scoring) | $0.73 / $3.49 | Medio — scoring.py muy sobre-estimado; models.py casi ok |
+| **Kimi K2** | $0.20/$0.80 (models) · $1.00/$3.00 (scoring) | verificar | Drift interno grande |
+| **GPT-5.4** | $5/$15 (models) · $1.25/$10 (scoring) | verificar | Drift interno |
+| **GPT-5.5** | $5/$30 (models) · $8/$45 (scoring) | ~$5/$30 (web) | Drift interno; models.py parece correcto |
+| **Llama 4 Maverick** | $0.50/$1.00 (models) · $0.40/$2.40 (scoring) | verificar | Drift interno |
+| **Gemini 2.5 Flash Lite** | $0.10/$0.40 (models) · $0.075/$0.30 (scoring) | verificar | Drift interno |
+| **Claude Haiku 4.5** | $1.00/$5.00 (models) · $0.80/$4.00 (scoring) | verificar | Drift interno |
+
+**Causa raíz**: dos fuentes de precio editadas por separado. **Fix recomendado (proceso, no parche)**:
+1. Hacer que `PRICING` derive de `models.py` (fuente única), o agregar un test que falle si difieren.
+2. Script `update_prices.py` que consulte la **API `/v1/models` de OpenRouter** y proponga diffs (no aggregators) para los modelos OpenRouter.
+3. Aplicar correcciones → regen completo → documentar el cambio de ranking en `DATASHEET_2026-06.md` + INSIGHTS.
 
 ### Eje a diseñar: eficiencia operativa ("cost-to-complete")
 
