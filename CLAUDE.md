@@ -177,7 +177,12 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
   4. `python benchmarks/export_for_pages.py` — regenera docs/data/models.json para la calculadora (single source of truth, merge MODELS + OLLAMA_MODELS)
   5. `python benchmarks/generate_sitemap.py` — regenera docs/sitemap.xml (lee lastmod desde git, descubre landing pages auto)
   6. `python benchmarks/sync_doc_counts.py` — sincroniza counts (modelos/tests/lotes) en README, AGENTS, INSIGHTS, ARQUITECTURA, MODELOS, agentes y landing pages SEO desde docs/data/models.json. Evita la deriva entre docs.
-- **GitHub Action de seguridad** (`.github/workflows/regenerate-auto-artifacts.yml`): si olvidás los pasos manualmente, el bot regenera los artefactos al hacer push. Pero hacelo manual primero para que el commit principal lleve los cambios sincronizados (mejor experiencia de revisión).
+  7. **Páginas pSEO programáticas** (usan docs/data/models.json — regenerar tras cada lote para que reflejen la data nueva):
+     - `python benchmarks/generate_comparison.py` — comparaciones `[A] vs [B]` (gemini/claude/chatgpt/deepseek/qwen-llama)
+     - `python benchmarks/generate_rankings.py` — "mejor LLM para [caso]" (programar, n8n, español, barato, open source)
+     - `python benchmarks/generate_llms_txt.py` — docs/llms.txt (citación por LLMs)
+     Ambos generadores comparten `page_shell` (HTML reusable) y filtran **≥50 runs + score por pilar** (evita outliers liderando). El veredicto es honesto: "ganador por calidad del pilar; tu prioridad real la ajusta la calculadora". El `generate_sitemap.py` (paso 5) las descubre auto. Dominio en GSC vía `sc-domain:cristiantala.com`; IndexNow key en `docs/<key>.txt`. Para agregar una página = agregar una entrada a `COMPARISONS` / `RANKINGS`, cero HTML a mano.
+- **GitHub Action de seguridad** (`.github/workflows/regenerate-auto-artifacts.yml`): si olvidás los pasos manualmente, el bot regenera los artefactos al hacer push. Pero hacelo manual primero para que el commit principal lleve los cambios sincronizados (mejor experiencia de revisión). **Pendiente:** agregar los generadores pSEO (paso 7) a esta Action para que las páginas se actualicen solas con cada lote.
 - **README.md + CHANGELOG.md** se actualizan cuando cambia el ranking o se agrega un modelo
 - **No re-medir modelos ya cubiertos**. Re-correr SÓLO si:
   1. Sale **versión nueva** del modelo (ej. Kimi K2.7, Devstral 3) — distinto ID = distinto modelo, se mide.
