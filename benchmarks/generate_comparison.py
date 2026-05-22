@@ -35,14 +35,37 @@ PILLAR_DESC = {
 }
 
 # --- Comparaciones a generar (cada una = una página pSEO) ---------------------
+GPT = {"name": "ChatGPT (GPT)", "match": ["gpt-", "gpt5", "gpt-5", "chatgpt"], "exclude": ["oss"]}
 COMPARISONS = [
     {
         "slug": "gemini-vs-chatgpt",
-        "a": {"name": "Gemini", "match": ["gemini"]},
-        "b": {"name": "ChatGPT (GPT)", "match": ["gpt-", "gpt5", "gpt-5", "chatgpt"],
-              "exclude": ["oss"]},
+        "a": {"name": "Gemini", "match": ["gemini"]}, "b": GPT,
         "title": "Gemini vs ChatGPT en 2026: comparación con benchmark real",
-        "intent_kw": "gemini vs chatgpt, claude vs chatgpt, comparativa gemini gpt, gemini o chatgpt, mejor ia google openai",
+        "intent_kw": "gemini vs chatgpt, comparativa gemini gpt, gemini o chatgpt, mejor ia google openai",
+    },
+    {
+        "slug": "claude-vs-chatgpt",
+        "a": {"name": "Claude", "match": ["claude"]}, "b": GPT,
+        "title": "Claude vs ChatGPT en 2026: comparación con benchmark real",
+        "intent_kw": "claude vs chatgpt, claude o gpt, comparativa claude gpt, anthropic vs openai, claude vs gpt 5",
+    },
+    {
+        "slug": "gemini-vs-claude",
+        "a": {"name": "Gemini", "match": ["gemini"]}, "b": {"name": "Claude", "match": ["claude"]},
+        "title": "Gemini vs Claude en 2026: comparación con benchmark real",
+        "intent_kw": "gemini vs claude, claude o gemini, comparativa gemini claude, google vs anthropic",
+    },
+    {
+        "slug": "deepseek-vs-chatgpt",
+        "a": {"name": "DeepSeek", "match": ["deepseek"]}, "b": GPT,
+        "title": "DeepSeek vs ChatGPT en 2026: comparación con benchmark real",
+        "intent_kw": "deepseek vs chatgpt, deepseek vs gpt, deepseek o gpt, comparativa deepseek openai",
+    },
+    {
+        "slug": "qwen-vs-llama",
+        "a": {"name": "Qwen", "match": ["qwen"]}, "b": {"name": "Llama", "match": ["llama"]},
+        "title": "Qwen vs Llama en 2026: comparación open source con benchmark real",
+        "intent_kw": "qwen vs llama, llama vs qwen, mejor llm open source, comparativa qwen llama, modelos open source",
     },
 ]
 
