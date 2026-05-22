@@ -24,6 +24,15 @@ SITE = "https://benchmarks.cristiantala.com"
 LOGO = "https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png"
 LOGO_DARK = "https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-dark-2026.png"
 PILLARS = ["Coding", "Contenido", "Razonamiento", "Agentes"]
+# Qué mide cada pilar (para el V/S por tipo de trabajo) — descripciones del README
+PILLAR_DESC = {
+    "Coding": ("Coding", "generar código, JSON estructurado y debugging en tareas reales "
+               "(plugins WordPress, scripts, templates de N8N)", "lo que hacés"),
+    "Contenido": ("Contenido y marketing", "blogs, copy y textos largos en español neutro "
+                  "(no traducción del inglés)", "lo que escribís"),
+    "Razonamiento": ("Razonamiento", "matemáticas, lógica formal y planificación multi-paso", "cómo decide"),
+    "Agentes": ("Agentes y operaciones", "multi-turno largo, tool calling y flujos tipo N8N / OpenClaw", "cómo opera"),
+}
 
 # --- Comparaciones a generar (cada una = una página pSEO) ---------------------
 COMPARISONS = [
@@ -86,50 +95,86 @@ def best_in(arr, pil):
     return max(arr, key=lambda m: pillar(m, pil)) if arr else None
 
 
+def methodology():
+    """Sección fija: qué mide el benchmark (autoridad / E-E-A-T)."""
+    items = "\n    ".join(
+        f"<li><strong>{PILLAR_DESC[p][0]}</strong> — {PILLAR_DESC[p][1]}.</li>" for p in PILLARS)
+    return f"""<section>
+  <h2>¿Qué mide este benchmark?</h2>
+  <p>No es un benchmark académico (para eso están MMLU, HumanEval o SWE-bench). Es un benchmark
+  <strong>aplicado para emprendedores hispanohablantes</strong>: mide qué modelo conviene poner en
+  producción para casos reales, con lo que los benchmarks oficiales no cubren — costo en provider real,
+  velocidad, español neutro y agentes multi-turno.</p>
+  <p>Cada modelo corre <strong>8.000+ tests reales</strong> evaluados por un
+  <strong>LLM-as-Judge local (Phi-4, de Microsoft — sin conflicto de interés)</strong>, en 4 pilares:</p>
+  <ul>
+    {items}
+  </ul>
+  <p>El <strong>score global</strong> es una función ponderada: calidad 50% + costo 20% + tool calling 15%
+  + velocidad 7,5% + latencia 7,5%. Por eso un modelo barato y rápido puede ganarle a uno "más inteligente"
+  pero caro — porque mide <em>valor para producción</em>, no solo capacidad bruta.
+  <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
+</section>"""
+
+
 def analysis(a_name, b_name, A, B):
-    """Secciones de análisis data-driven (cero invención: todo sale de los scores)."""
+    """V/S real por tipo de trabajo (data-driven, cero invención: todo sale de los scores)."""
     a0, b0 = A[0], B[0]
     winner = a0 if a0["score_global"] >= b0["score_global"] else b0
     loser = b0 if winner is a0 else a0
-    secs = []
+    secs = [methodology()]
     secs.append(f"""<section>
   <h2>Veredicto rápido</h2>
-  <p>Según nuestro benchmark (score ponderado: calidad 50% + costo 20% + tool calling 15% + velocidad/latencia 15%),
-  el mejor modelo de <strong>{esc(winner.get('name'))}</strong> ({winner['score_global']:.2f}) queda por delante del mejor de
-  {esc(loser.get('name'))} ({loser['score_global']:.2f}) en el cómputo global — empujado sobre todo por costo y velocidad.
-  Pero <strong>no hay un ganador universal</strong>: cambia según la tarea. Abajo, el detalle por pilar con datos reales.</p>
+  <p>En el cómputo global gana <strong>{esc(winner.get('name'))}</strong> ({winner['score_global']:.2f} vs
+  {loser['score_global']:.2f} de {esc(loser.get('name'))}) — empujado por costo y velocidad. Pero
+  <strong>no hay ganador universal</strong>: cambia por tipo de trabajo. El enfrentamiento real, abajo.</p>
 </section>""")
-    for pil, label, blurb in [
-        ("Coding", "Para coding", "generación de código, JSON estructurado y debugging"),
-        ("Contenido", "Para contenido en español", "blogs, marketing y textos largos en español neutro"),
-        ("Razonamiento", "Para razonamiento", "matemáticas, lógica y planificación"),
-        ("Agentes", "Para agentes (N8N / OpenClaw)", "multi-turno, tool calling y operaciones"),
-    ]:
+
+    secs.append(f"<section>\n  <h2>{esc(a_name)} vs {esc(b_name)} por tipo de trabajo</h2>")
+    verdict_rows = []
+    for pil in PILLARS:
+        label, what, _ = PILLAR_DESC[pil]
         ba, bb = best_in(A, pil), best_in(B, pil)
         if not ba or not bb:
             continue
-        w = ba if pillar(ba, pil) >= pillar(bb, pil) else bb
-        l = bb if w is ba else ba
-        if abs(pillar(ba, pil) - pillar(bb, pil)) < 0.1:  # empate técnico
+        diff = pillar(ba, pil) - pillar(bb, pil)
+        if abs(diff) < 0.1:  # empate técnico → desempata costo
             cheaper = ba if (ba.get("cost_input_per_M") or 99) <= (bb.get("cost_input_per_M") or 99) else bb
-            body = (f"<strong>{esc(ba.get('name'))}</strong> y <strong>{esc(bb.get('name'))}</strong> "
-                    f"empatan (≈{pillar(w,pil):.1f}/10). Desempata el costo: <strong>{esc(cheaper.get('name'))}</strong> "
-                    f"sale {fmt_cost(cheaper)} por millón.")
+            win_name = f"{esc(cheaper.get('name'))} (por costo)"
+            body = (f"Empate técnico: <strong>{esc(ba.get('name'))}</strong> y <strong>{esc(bb.get('name'))}</strong> "
+                    f"rinden casi igual (≈{max(pillar(ba,pil),pillar(bb,pil)):.1f}/10). Ahí desempata el bolsillo: "
+                    f"<strong>{esc(cheaper.get('name'))}</strong> sale {fmt_cost(cheaper)} por millón. "
+                    f"Si ya pagás uno de los dos, quedate con ese.")
         else:
-            body = (f"<strong>{esc(w.get('name'))}</strong> ({pillar(w,pil):.1f}/10) supera a "
-                    f"{esc(l.get('name'))} ({pillar(l,pil):.1f}/10) en nuestra suite. {fmt_cost(w)} por millón de tokens.")
-        secs.append(f"""<section>
-  <h3>{label}</h3>
-  <p>En {blurb}, {body}</p>
-</section>""")
+            w = ba if diff > 0 else bb
+            l = bb if w is ba else ba
+            margin = abs(diff)
+            strength = "claramente" if margin >= 0.5 else "por poco"
+            win_name = esc(w.get("name"))
+            body = (f"Gana <strong>{esc(w.get('name'))}</strong> {strength}: {pillar(w,pil):.1f}/10 "
+                    f"contra {pillar(l,pil):.1f}/10 de {esc(l.get('name'))} (Δ {margin:.1f}). "
+                    f"A {fmt_cost(w)} por millón. {esc(l.get('name'))} solo lo justifica si ya está en tu stack.")
+        secs.append(f"""  <h3>{label}: ¿{esc(a_name)} o {esc(b_name)}?</h3>
+  <p><em>Qué medimos: {what}.</em><br>{body}</p>""")
+        verdict_rows.append(f"<tr><td>{label}</td><td><strong>{win_name}</strong></td></tr>")
+    secs.append("</section>")
+
     # cost / speed
     cheap = min(A + B, key=lambda m: (m.get("cost_input_per_M") or 99) + (m.get("cost_output_per_M") or 99))
     fast = max(A + B, key=lambda m: m.get("tokens_per_second") or 0)
-    secs.append(f"""<section>
-  <h3>Para costo y velocidad</h3>
-  <p>El más barato del cruce es <strong>{esc(cheap.get('name'))}</strong> ({fmt_cost(cheap)} por millón), y el más rápido
-  <strong>{esc(fast.get('name'))}</strong> ({round(fast.get('tokens_per_second') or 0)} tok/s). Para agentes con volumen real
-  (1.000+ calls/mes), costo y velocidad pesan más que un punto extra de calidad.</p>
+    verdict_rows.append(f"<tr><td>Costo más bajo</td><td><strong>{esc(cheap.get('name'))}</strong> ({fmt_cost(cheap)})</td></tr>")
+    verdict_rows.append(f"<tr><td>Más rápido</td><td><strong>{esc(fast.get('name'))}</strong> ({round(fast.get('tokens_per_second') or 0)} tok/s)</td></tr>")
+
+    # tabla resumen "ganador por caso"
+    secs.append(f"""<section class="results">
+  <div class="results-header"><h2>Resumen: quién gana según tu caso</h2></div>
+  <table class="results-table">
+    <thead><tr><th>Tu caso</th><th>Ganador</th></tr></thead>
+    <tbody>
+      {"".join(verdict_rows)}
+    </tbody>
+  </table>
+  <p class="meta">Para volumen real (1.000+ calls/mes) priorizá costo y velocidad sobre un punto de calidad. Filtralo por presupuesto en la <a href="/">calculadora</a>.</p>
 </section>""")
     return "\n".join(secs)
 
