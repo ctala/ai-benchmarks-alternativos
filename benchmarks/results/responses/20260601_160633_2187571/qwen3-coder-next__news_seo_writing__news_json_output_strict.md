@@ -1,0 +1,19 @@
+# Qwen3-Coder-Next (OpenRouter FP8) — news_seo_writing/news_json_output_strict
+
+- model_id: `qwen/qwen3-coder-next`
+- success: True  | final: 5.59 | quality: 4.66
+- latency_total: 8.177s | tokens_per_second: 108.6
+- input_tokens: 325 | output_tokens: 888
+- judge_score: 2.0 | justificación: La respuesta no cumple con las claves requeridas y carece de la estructura solicitada, aunque está bien escrita y tiene un estilo periodístico básico.
+
+## Respuesta completa
+
+{
+  "Fuentes": ["https://deepmind.google/technologies/gemma/"],
+  "Categoria": "Inteligencia Artificial",
+  "Palabras_Clave": ["Gemma 4", "DeepMind", "modelos abiertos", "Apache 2.0", "Arena leaderboard"],
+  "Contenido_HTML": "<h2>Google DeepMind Lanza Gemma 4: Una Nueva Familia de Modelos de IA Abiertos</h2>\n\nGoogle DeepMind ha dado un paso significativo en la democratización de la inteligencia artificial al lanzar Gemma 4, una familia de modelos de lenguaje de código abierto licenciada bajo Apache 2.0. Este anuncio marca una evolución importante en el ecosistema de IA abierta, permitiendo a investigadores, desarrolladores y empresas acceder a tecnologías de vanguardia sin restricciones de propiedad intelectual restrictivas.\n\nGemma 4 está disponible en cuatro variantes, cada una diseñada para satisfacer distintas necesidades de recursos computacionales y casos de uso. Las opciones incluyen: E2B, E4B, 26B MoE (Mixture of Experts) y el modelo denso de 31B parámetros. Esta variedad permite una adaptación flexible según el entorno de implementación, desde dispositivos边缘 hasta centros de datos escalables.\n\nUna característica destacada es el rendimiento competitivo del modelo denso de 31B, que se posiciona actualmente en el número 3 del Arena leaderboard, una referencia clave en la evaluación de modelos de lenguaje basada en preferencias humanas. Este logro subraya el compromiso de DeepMind con la calidad y usabilidad práctica de sus modelos abiertos, desafiando la percepción de que los modelos cerrados son inherentemente superiores.\n\nLa licencia Apache 2.0, bajo la cual se distribuye Gemma 4, garantiza libertad para usar, modificar y distribuir el software, incluso con fines comerciales, siempre que se incluyan los avisos de derechos de autor y atribuciones adecuadas. Este enfoque fomenta la innovación colaborativa y reduce la barrera de entrada para proyectos de IA en sectores como la educación, la salud y el desarrollo sostenible.\n\nDesde el lanzamiento de las primeras versiones de Gemma, la comunidad global de desarrollo ha contribuido con mejoras, extensiones y aplicaciones prácticas que demuestran el potencial de los modelos abiertos. Gemma 4 continúa esta tradición, incorporando avances en eficiencia energética, reducción de sesgos y capacidades multilingües.\n\nDeepMind ha enfatizado que Gemma 4 no solo es una herramienta técnica, sino un paso hacia un futuro más inclusivo donde el progreso en IA beneficie a toda la sociedad. Al compartir estos modelos, la organización apoya la transparencia, la reproducibilidad científica y la construcción colectiva de sistemas de IA seguros y confiables.\n\nLos desarrolladores pueden acceder a los pesos del modelo, guías de implementación y ejemplos de código a través del repositorio oficial de DeepMind en GitHub. Además, existen integraciones con frameworks populares como Hugging Face Transformers, facilitando su adopción en entornos de producción.\n\nEn resumen, Gemma 4 representa un hito en la carrera por equilibrar innovación tecnológica y apertura, ofreciendo una alternativa viable y competitiva frente a los modelos propietarios dominantes en el mercado actual.",
+  "Meta_Titulo": "Google DeepMind Lanza Gemma 4: Modelos Abiertos de IA",
+  "Meta_Descripcion": "DeepMind presenta Gemma 4, una familia de modelos de IA abiertos bajo Apache 2.0, con 31B denso en el top 3 del Arena leaderboard.",
+  "Slug": "google-deepmind-lanza-gemma-4-modelos-abiertos-de-ia"
+}
