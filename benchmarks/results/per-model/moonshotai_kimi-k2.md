@@ -2,12 +2,12 @@
 
 - **model_id**: `moonshotai/kimi-k2`
 - **Total tests**: 74/91 exitosos (17 errores)
-- **Score final**: 7.05
+- **Score final**: 7.33
 - **Calidad**: 7.86
 - **Judge score (Phi-4)**: 4.12/10
 - **Velocidad**: 28 tok/s
 - **Latencia primera token**: 20.02s
-- **Costo promedio por test**: $0.00214
+- **Costo promedio por test**: $0.00055
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,29 +15,29 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 2 | 6.13 | 6.31 |
-| code_generation | 4 | 4 | 7.10 | 8.28 |
-| content_generation | 4 | 4 | 7.13 | 8.40 |
-| creativity | 4 | 4 | 7.12 | 8.39 |
-| customer_support | 4 | 4 | 7.44 | 7.63 |
-| deep_reasoning | 6 | 6 | 6.70 | 7.32 |
-| hallucination | 3 | 2 | 7.31 | 8.04 |
-| multi_turn | 4 | 2 | 6.99 | 7.68 |
-| news_seo_writing | 5 | 5 | 6.68 | 7.43 |
-| ocr_extraction | 5 | 4 | 6.70 | 6.75 |
-| orchestration | 5 | 1 | 7.01 | 8.59 |
-| policy_adherence | 4 | 1 | 7.17 | 7.76 |
-| presentation | 2 | 1 | 7.32 | 8.92 |
-| reasoning | 3 | 3 | 7.45 | 9.28 |
-| sales_outreach | 3 | 3 | 7.29 | 8.59 |
-| startup_content | 5 | 4 | 7.22 | 9.20 |
-| strategy | 3 | 3 | 6.94 | 8.29 |
-| string_precision | 6 | 6 | 7.21 | 7.65 |
-| structured_output | 4 | 4 | 7.22 | 7.95 |
-| summarization | 2 | 2 | 6.62 | 6.91 |
-| task_management | 3 | 3 | 7.20 | 8.62 |
-| tool_calling | 4 | 3 | 6.91 | 5.28 |
-| translation | 3 | 3 | 7.37 | 8.39 |
+| agent_capabilities | 5 | 2 | 6.44 | 6.31 |
+| code_generation | 4 | 4 | 7.52 | 8.28 |
+| content_generation | 4 | 4 | 7.46 | 8.40 |
+| creativity | 4 | 4 | 7.50 | 8.39 |
+| customer_support | 4 | 4 | 7.65 | 7.63 |
+| deep_reasoning | 6 | 6 | 6.92 | 7.32 |
+| hallucination | 3 | 2 | 7.59 | 8.04 |
+| multi_turn | 4 | 2 | 7.30 | 7.68 |
+| news_seo_writing | 5 | 5 | 6.84 | 7.43 |
+| ocr_extraction | 5 | 4 | 6.92 | 6.75 |
+| orchestration | 5 | 1 | 7.28 | 8.59 |
+| policy_adherence | 4 | 1 | 7.38 | 7.76 |
+| presentation | 2 | 1 | 7.67 | 8.92 |
+| reasoning | 3 | 3 | 7.88 | 9.28 |
+| sales_outreach | 3 | 3 | 7.70 | 8.59 |
+| startup_content | 5 | 4 | 7.64 | 9.20 |
+| strategy | 3 | 3 | 7.19 | 8.29 |
+| string_precision | 6 | 6 | 7.45 | 7.65 |
+| structured_output | 4 | 4 | 7.49 | 7.95 |
+| summarization | 2 | 2 | 6.94 | 6.91 |
+| task_management | 3 | 3 | 7.58 | 8.62 |
+| tool_calling | 4 | 3 | 6.64 | 5.28 |
+| translation | 3 | 3 | 7.78 | 8.39 |
 
 ## Detalle por test
 
@@ -47,16 +47,16 @@
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| math_word_problem | 6.77 | 7.34 | 3.8 | 31 | 11.27s | OK |
-| logic_puzzle_constraint | 6.79 | 8.26 | 4.4 | 35 | 58.51s | OK |
-| causal_reasoning | 7.18 | 8.51 | 4.4 | 30 | 32.28s | OK |
-| code_bug_subtle | 5.43 | 3.81 | 1.6 | 22 | 12.66s | OK |
-| fermi_estimation | 6.72 | 7.20 | 4.4 | 32 | 30.11s | OK |
-| ethical_dilemma_structured | 7.29 | 8.82 | 4.8 | 32 | 38.13s | OK |
+| math_word_problem | 7.15 | 7.34 | 3.8 | 31 | 11.27s | OK |
+| logic_puzzle_constraint | 7.17 | 8.26 | 4.4 | 35 | 58.51s | OK |
+| causal_reasoning | 7.48 | 8.51 | 4.4 | 30 | 32.28s | OK |
+| code_bug_subtle | 5.27 | 3.81 | 1.6 | 22 | 12.66s | OK |
+| fermi_estimation | 6.84 | 7.20 | 4.4 | 32 | 30.11s | OK |
+| ethical_dilemma_structured | 7.58 | 8.82 | 4.8 | 32 | 38.13s | OK |
 
-<details><summary><code>math_word_problem</code> — score 6.77</summary>
+<details><summary><code>math_word_problem</code> — score 7.15</summary>
 
-**Stats**: latencia 11.27s · 31 tok/s · 124→351 tokens · $0.00118
+**Stats**: latencia 11.27s · 31 tok/s · 124→351 tokens · $0.00031
 
 **Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -80,9 +80,9 @@
 
 </details>
 
-<details><summary><code>logic_puzzle_constraint</code> — score 6.79</summary>
+<details><summary><code>logic_puzzle_constraint</code> — score 7.17</summary>
 
-**Stats**: latencia 58.51s · 35 tok/s · 141→2048 tokens · $0.00628
+**Stats**: latencia 58.51s · 35 tok/s · 141→2048 tokens · $0.00167
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -100,9 +100,9 @@ Las condiciones son:
 
 </details>
 
-<details><summary><code>causal_reasoning</code> — score 7.18</summary>
+<details><summary><code>causal_reasoning</code> — score 7.48</summary>
 
-**Stats**: latencia 32.28s · 30 tok/s · 230→972 tokens · $0.00315
+**Stats**: latencia 32.28s · 30 tok/s · 230→972 tokens · $0.00082
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -119,9 +119,9 @@ Las condiciones son:
 
 </details>
 
-<details><summary><code>code_bug_subtle</code> — score 5.43</summary>
+<details><summary><code>code_bug_subtle</code> — score 5.27</summary>
 
-**Stats**: latencia 12.66s · 22 tok/s · 248→276 tokens · $0.00108
+**Stats**: latencia 12.66s · 22 tok/s · 248→276 tokens · $0.00027
 
 **Juez Phi-4**: 1.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -142,9 +142,9 @@ En ese caso `len(filtered)` es 0 y la división `sum(fi
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 6.72</summary>
+<details><summary><code>fermi_estimation</code> — score 6.84</summary>
 
-**Stats**: latencia 30.11s · 32 tok/s · 101→961 tokens · $0.00298
+**Stats**: latencia 30.11s · 32 tok/s · 101→961 tokens · $0.00079
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -161,9 +161,9 @@ Estimación del consumo diario de café en oficinas de Santiago de Chile
 
 </details>
 
-<details><summary><code>ethical_dilemma_structured</code> — score 7.29</summary>
+<details><summary><code>ethical_dilemma_structured</code> — score 7.58</summary>
 
-**Stats**: latencia 38.13s · 32 tok/s · 235→1233 tokens · $0.00393
+**Stats**: latencia 38.13s · 32 tok/s · 235→1233 tokens · $0.00103
 
 **Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -187,13 +187,13 @@ Estimación del consumo diario de café en oficinas de Santiago de Chile
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| business_analysis | 7.50 | 9.44 | 4.6 | 33 | 29.12s | OK |
-| logical_reasoning | 7.34 | 8.96 | 4.4 | 36 | 19.78s | OK |
-| multi_constraint_decision | 7.50 | 9.44 | 4.6 | 33 | 36.11s | OK |
+| business_analysis | 7.95 | 9.44 | 4.6 | 33 | 29.12s | OK |
+| logical_reasoning | 7.79 | 8.96 | 4.4 | 36 | 19.78s | OK |
+| multi_constraint_decision | 7.90 | 9.44 | 4.6 | 33 | 36.11s | OK |
 
-<details><summary><code>business_analysis</code> — score 7.50</summary>
+<details><summary><code>business_analysis</code> — score 7.95</summary>
 
-**Stats**: latencia 29.12s · 33 tok/s · 203→948 tokens · $0.00305
+**Stats**: latencia 29.12s · 33 tok/s · 203→948 tokens · $0.00080
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -214,9 +214,9 @@ Estimación del consumo diario de café en oficinas de Santiago de Chile
 
 </details>
 
-<details><summary><code>logical_reasoning</code> — score 7.34</summary>
+<details><summary><code>logical_reasoning</code> — score 7.79</summary>
 
-**Stats**: latencia 19.78s · 36 tok/s · 163→717 tokens · $0.00231
+**Stats**: latencia 19.78s · 36 tok/s · 163→717 tokens · $0.00061
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -235,9 +235,9 @@ Estimación del consumo diario de café en oficinas de Santiago de Chile
 
 </details>
 
-<details><summary><code>multi_constraint_decision</code> — score 7.50</summary>
+<details><summary><code>multi_constraint_decision</code> — score 7.90</summary>
 
-**Stats**: latencia 36.11s · 33 tok/s · 215→1187 tokens · $0.00378
+**Stats**: latencia 36.11s · 33 tok/s · 215→1187 tokens · $0.00099
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -264,13 +264,13 @@ Estimación del consumo diario de café en oficinas de Santiago de Chile
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| factual_trap_companies | 7.29 | 8.12 | 4.0 | 23 | 7.68s | OK |
-| context_faithfulness | 7.34 | 7.96 | 4.4 | 19 | 2.58s | OK |
+| factual_trap_companies | 7.56 | 8.12 | 4.0 | 23 | 7.68s | OK |
+| context_faithfulness | 7.63 | 7.96 | 4.4 | 19 | 2.58s | OK |
 | fake_citation_trap | 5.27 | 1.20 | - | 0 | 2.99s | ERROR |
 
-<details><summary><code>factual_trap_companies</code> — score 7.29</summary>
+<details><summary><code>factual_trap_companies</code> — score 7.56</summary>
 
-**Stats**: latencia 7.68s · 23 tok/s · 174→176 tokens · $0.00070
+**Stats**: latencia 7.68s · 23 tok/s · 174→176 tokens · $0.00018
 
 **Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -286,9 +286,9 @@ Estimación del consumo diario de café en oficinas de Santiago de Chile
 
 </details>
 
-<details><summary><code>context_faithfulness</code> — score 7.34</summary>
+<details><summary><code>context_faithfulness</code> — score 7.63</summary>
 
-**Stats**: latencia 2.58s · 19 tok/s · 200→48 tokens · $0.00034
+**Stats**: latencia 2.58s · 19 tok/s · 200→48 tokens · $0.00008
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -315,13 +315,13 @@ Estimación del consumo diario de café en oficinas de Santiago de Chile
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.90 | 8.56 | 4.4 | 30 | 67.78s | OK |
-| pricing_strategy | 6.60 | 7.13 | 4.6 | 29 | 33.08s | OK |
-| business_model_validation | 7.31 | 9.17 | 4.6 | 29 | 43.06s | OK |
+| competitor_analysis | 7.32 | 8.56 | 4.4 | 30 | 67.78s | OK |
+| pricing_strategy | 6.64 | 7.13 | 4.6 | 29 | 33.08s | OK |
+| business_model_validation | 7.60 | 9.17 | 4.6 | 29 | 43.06s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.90</summary>
+<details><summary><code>competitor_analysis</code> — score 7.32</summary>
 
-**Stats**: latencia 67.78s · 30 tok/s · 201→2048 tokens · $0.00634
+**Stats**: latencia 67.78s · 30 tok/s · 201→2048 tokens · $0.00168
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -340,9 +340,9 @@ Estimación del consumo diario de café en oficinas de Santiago de Chile
 
 </details>
 
-<details><summary><code>pricing_strategy</code> — score 6.60</summary>
+<details><summary><code>pricing_strategy</code> — score 6.64</summary>
 
-**Stats**: latencia 33.08s · 29 tok/s · 221→970 tokens · $0.00313
+**Stats**: latencia 33.08s · 29 tok/s · 221→970 tokens · $0.00082
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -363,9 +363,9 @@ LTV/CAC = 840 / 120 = 7.0
 
 </details>
 
-<details><summary><code>business_model_validation</code> — score 7.31</summary>
+<details><summary><code>business_model_validation</code> — score 7.60</summary>
 
-**Stats**: latencia 43.06s · 29 tok/s · 219→1237 tokens · $0.00393
+**Stats**: latencia 43.06s · 29 tok/s · 219→1237 tokens · $0.00103
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -385,14 +385,14 @@ LTV/CAC = 840 / 120 = 7.0
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| python_api_integration | 7.08 | 8.24 | 4.2 | 30 | 13.91s | OK |
-| n8n_workflow_json | 6.68 | 7.08 | 3.2 | 38 | 29.71s | OK |
-| sql_query_complex | 7.29 | 8.84 | 4.6 | 32 | 10.11s | OK |
-| debug_code | 7.34 | 8.96 | 4.4 | 33 | 14.56s | OK |
+| python_api_integration | 7.56 | 8.24 | 4.2 | 30 | 13.91s | OK |
+| n8n_workflow_json | 6.74 | 7.08 | 3.2 | 38 | 29.71s | OK |
+| sql_query_complex | 7.92 | 8.84 | 4.6 | 32 | 10.11s | OK |
+| debug_code | 7.87 | 8.96 | 4.4 | 33 | 14.56s | OK |
 
-<details><summary><code>python_api_integration</code> — score 7.08</summary>
+<details><summary><code>python_api_integration</code> — score 7.56</summary>
 
-**Stats**: latencia 13.91s · 30 tok/s · 132→418 tokens · $0.00139
+**Stats**: latencia 13.91s · 30 tok/s · 132→418 tokens · $0.00036
 
 **Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -417,9 +417,9 @@ def get_expensive_products(bearer_token: str) -> List[Dict[str, Any]]:
 
 </details>
 
-<details><summary><code>n8n_workflow_json</code> — score 6.68</summary>
+<details><summary><code>n8n_workflow_json</code> — score 6.74</summary>
 
-**Stats**: latencia 29.71s · 38 tok/s · 149→1119 tokens · $0.00351
+**Stats**: latencia 29.71s · 38 tok/s · 149→1119 tokens · $0.00093
 
 **Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -444,9 +444,9 @@ def get_expensive_products(bearer_token: str) -> List[Dict[str, Any]]:
 
 </details>
 
-<details><summary><code>sql_query_complex</code> — score 7.29</summary>
+<details><summary><code>sql_query_complex</code> — score 7.92</summary>
 
-**Stats**: latencia 10.11s · 32 tok/s · 176→318 tokens · $0.00113
+**Stats**: latencia 10.11s · 32 tok/s · 176→318 tokens · $0.00029
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -466,9 +466,9 @@ SELECT
 
 </details>
 
-<details><summary><code>debug_code</code> — score 7.34</summary>
+<details><summary><code>debug_code</code> — score 7.87</summary>
 
-**Stats**: latencia 14.56s · 33 tok/s · 247→483 tokens · $0.00170
+**Stats**: latencia 14.56s · 33 tok/s · 247→483 tokens · $0.00044
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -490,14 +490,14 @@ Análisis de los bugs
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 7.16 | 7.46 | 4.0 | 17 | 2.77s | OK |
-| json_array_classification | 7.65 | 8.86 | 5 | 29 | 3.56s | OK |
-| json_nested_complex | 7.01 | 8.02 | 4.4 | 35 | 26.55s | OK |
-| json_strict_no_extra | 7.06 | 7.46 | 4.0 | 13 | 2.00s | OK |
+| json_simple_extraction | 7.38 | 7.46 | 4.0 | 17 | 2.77s | OK |
+| json_array_classification | 8.08 | 8.86 | 5 | 29 | 3.56s | OK |
+| json_nested_complex | 7.25 | 8.02 | 4.4 | 35 | 26.55s | OK |
+| json_strict_no_extra | 7.23 | 7.46 | 4.0 | 13 | 2.00s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 7.16</summary>
+<details><summary><code>json_simple_extraction</code> — score 7.38</summary>
 
-**Stats**: latencia 2.77s · 17 tok/s · 113→48 tokens · $0.00026
+**Stats**: latencia 2.77s · 17 tok/s · 113→48 tokens · $0.00006
 
 **Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:2, claridad:5, utilidad:3)
 
@@ -511,9 +511,9 @@ Análisis de los bugs
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 7.65</summary>
+<details><summary><code>json_array_classification</code> — score 8.08</summary>
 
-**Stats**: latencia 3.56s · 29 tok/s · 200→103 tokens · $0.00051
+**Stats**: latencia 3.56s · 29 tok/s · 200→103 tokens · $0.00012
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
@@ -527,9 +527,9 @@ Análisis de los bugs
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 7.01</summary>
+<details><summary><code>json_nested_complex</code> — score 7.25</summary>
 
-**Stats**: latencia 26.55s · 35 tok/s · 221→924 tokens · $0.00299
+**Stats**: latencia 26.55s · 35 tok/s · 221→924 tokens · $0.00078
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -541,9 +541,9 @@ Análisis de los bugs
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 7.06</summary>
+<details><summary><code>json_strict_no_extra</code> — score 7.23</summary>
 
-**Stats**: latencia 2.00s · 13 tok/s · 89→26 tokens · $0.00017
+**Stats**: latencia 2.00s · 13 tok/s · 89→26 tokens · $0.00004
 
 **Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:3)
 
@@ -561,16 +561,16 @@ Análisis de los bugs
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| copy_hex_32 | 7.31 | 7.88 | 4.0 | 11 | 1.73s | OK |
-| copy_hex_64 | 7.11 | 7.32 | 3.6 | 17 | 2.49s | OK |
-| copy_api_key | 7.21 | 7.60 | 3.8 | 24 | 2.70s | OK |
-| copy_jwt | 7.31 | 7.88 | 4.0 | 19 | 2.21s | OK |
-| copy_mixed_special | 7.01 | 7.32 | 3.6 | 14 | 2.17s | OK |
-| write_config_file | 7.31 | 7.88 | 4.0 | 31 | 6.11s | OK |
+| copy_hex_32 | 7.59 | 7.88 | 4.0 | 11 | 1.73s | OK |
+| copy_hex_64 | 7.31 | 7.32 | 3.6 | 17 | 2.49s | OK |
+| copy_api_key | 7.45 | 7.60 | 3.8 | 24 | 2.70s | OK |
+| copy_jwt | 7.59 | 7.88 | 4.0 | 19 | 2.21s | OK |
+| copy_mixed_special | 7.16 | 7.32 | 3.6 | 14 | 2.17s | OK |
+| write_config_file | 7.59 | 7.88 | 4.0 | 31 | 6.11s | OK |
 
-<details><summary><code>copy_hex_32</code> — score 7.31</summary>
+<details><summary><code>copy_hex_32</code> — score 7.59</summary>
 
-**Stats**: latencia 1.73s · 11 tok/s · 99→19 tokens · $0.00016
+**Stats**: latencia 1.73s · 11 tok/s · 99→19 tokens · $0.00003
 
 **Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
 
@@ -584,9 +584,9 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_hex_64</code> — score 7.11</summary>
+<details><summary><code>copy_hex_64</code> — score 7.31</summary>
 
-**Stats**: latencia 2.49s · 17 tok/s · 122→42 tokens · $0.00025
+**Stats**: latencia 2.49s · 17 tok/s · 122→42 tokens · $0.00006
 
 **Juez Phi-4**: 3.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -598,9 +598,9 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 7.21</summary>
+<details><summary><code>copy_api_key</code> — score 7.45</summary>
 
-**Stats**: latencia 2.70s · 24 tok/s · 144→64 tokens · $0.00034
+**Stats**: latencia 2.70s · 24 tok/s · 144→64 tokens · $0.00008
 
 **Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -612,9 +612,9 @@ sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x
 
 </details>
 
-<details><summary><code>copy_jwt</code> — score 7.31</summary>
+<details><summary><code>copy_jwt</code> — score 7.59</summary>
 
-**Stats**: latencia 2.21s · 19 tok/s · 122→42 tokens · $0.00025
+**Stats**: latencia 2.21s · 19 tok/s · 122→42 tokens · $0.00006
 
 **Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
 
@@ -628,9 +628,9 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw
 
 </details>
 
-<details><summary><code>copy_mixed_special</code> — score 7.01</summary>
+<details><summary><code>copy_mixed_special</code> — score 7.16</summary>
 
-**Stats**: latencia 2.17s · 14 tok/s · 111→31 tokens · $0.00020
+**Stats**: latencia 2.17s · 14 tok/s · 111→31 tokens · $0.00005
 
 **Juez Phi-4**: 3.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -642,9 +642,9 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 7.31</summary>
+<details><summary><code>write_config_file</code> — score 7.59</summary>
 
-**Stats**: latencia 6.11s · 31 tok/s · 257→191 tokens · $0.00083
+**Stats**: latencia 6.11s · 31 tok/s · 257→191 tokens · $0.00020
 
 **Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
 
@@ -666,15 +666,15 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| invoice_extraction | 6.45 | 6.28 | 2.6 | 36 | 8.49s | OK |
-| business_card_extraction | 7.51 | 8.16 | 4.2 | 32 | 4.97s | OK |
-| receipt_math_verification | 6.71 | 7.04 | 4.2 | 34 | 9.22s | OK |
-| screenshot_table_extraction | 6.13 | 5.52 | 3.0 | 36 | 19.25s | OK |
+| invoice_extraction | 6.67 | 6.28 | 2.6 | 36 | 8.49s | OK |
+| business_card_extraction | 7.88 | 8.16 | 4.2 | 32 | 4.97s | OK |
+| receipt_math_verification | 7.07 | 7.04 | 4.2 | 34 | 9.22s | OK |
+| screenshot_table_extraction | 6.05 | 5.52 | 3.0 | 36 | 19.25s | OK |
 | handwritten_notes_extraction | 5.13 | 0.80 | - | 0 | 4.75s | ERROR |
 
-<details><summary><code>invoice_extraction</code> — score 6.45</summary>
+<details><summary><code>invoice_extraction</code> — score 6.67</summary>
 
-**Stats**: latencia 8.49s · 36 tok/s · 469→303 tokens · $0.00138
+**Stats**: latencia 8.49s · 36 tok/s · 469→303 tokens · $0.00034
 
 **Juez Phi-4**: 2.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -690,9 +690,9 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 </details>
 
-<details><summary><code>business_card_extraction</code> — score 7.51</summary>
+<details><summary><code>business_card_extraction</code> — score 7.88</summary>
 
-**Stats**: latencia 4.97s · 32 tok/s · 246→160 tokens · $0.00073
+**Stats**: latencia 4.97s · 32 tok/s · 246→160 tokens · $0.00018
 
 **Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -712,9 +712,9 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 </details>
 
-<details><summary><code>receipt_math_verification</code> — score 6.71</summary>
+<details><summary><code>receipt_math_verification</code> — score 7.07</summary>
 
-**Stats**: latencia 9.22s · 34 tok/s · 352→310 tokens · $0.00128
+**Stats**: latencia 9.22s · 34 tok/s · 352→310 tokens · $0.00032
 
 **Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -731,9 +731,9 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 </details>
 
-<details><summary><code>screenshot_table_extraction</code> — score 6.13</summary>
+<details><summary><code>screenshot_table_extraction</code> — score 6.05</summary>
 
-**Stats**: latencia 19.25s · 36 tok/s · 403→693 tokens · $0.00248
+**Stats**: latencia 19.25s · 36 tok/s · 403→693 tokens · $0.00064
 
 **Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -773,14 +773,14 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_post_es | 7.17 | 8.76 | 4.4 | 29 | 31.36s | OK |
-| email_profesional | 7.01 | 8.32 | 4.8 | 28 | 16.50s | OK |
-| social_media_batch | 7.05 | 8.44 | 4.6 | 29 | 24.98s | OK |
-| product_description_en | 7.28 | 8.09 | 4.8 | 22 | 7.07s | OK |
+| blog_post_es | 7.48 | 8.76 | 4.4 | 29 | 31.36s | OK |
+| email_profesional | 7.43 | 8.32 | 4.8 | 28 | 16.50s | OK |
+| social_media_batch | 7.38 | 8.44 | 4.6 | 29 | 24.98s | OK |
+| product_description_en | 7.54 | 8.09 | 4.8 | 22 | 7.07s | OK |
 
-<details><summary><code>blog_post_es</code> — score 7.17</summary>
+<details><summary><code>blog_post_es</code> — score 7.48</summary>
 
-**Stats**: latencia 31.36s · 29 tok/s · 80→912 tokens · $0.00282
+**Stats**: latencia 31.36s · 29 tok/s · 80→912 tokens · $0.00075
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -796,9 +796,9 @@ Hace unos años, la inteligencia artificial parecía un juguete solo para Fortun
 
 </details>
 
-<details><summary><code>email_profesional</code> — score 7.01</summary>
+<details><summary><code>email_profesional</code> — score 7.43</summary>
 
-**Stats**: latencia 16.50s · 28 tok/s · 91→467 tokens · $0.00149
+**Stats**: latencia 16.50s · 28 tok/s · 91→467 tokens · $0.00039
 
 **Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -814,9 +814,9 @@ Gracias por la confianza en [Nombre de tu empresa]. Siguiendo nuestra conversaci
 
 </details>
 
-<details><summary><code>social_media_batch</code> — score 7.05</summary>
+<details><summary><code>social_media_batch</code> — score 7.38</summary>
 
-**Stats**: latencia 24.98s · 29 tok/s · 86→719 tokens · $0.00224
+**Stats**: latencia 24.98s · 29 tok/s · 86→719 tokens · $0.00059
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -832,9 +832,9 @@ No es la tecnología: es la cultura. Las empresas que invierten primero en forma
 
 </details>
 
-<details><summary><code>product_description_en</code> — score 7.28</summary>
+<details><summary><code>product_description_en</code> — score 7.54</summary>
 
-**Stats**: latencia 7.07s · 22 tok/s · 77→156 tokens · $0.00055
+**Stats**: latencia 7.07s · 22 tok/s · 77→156 tokens · $0.00014
 
 **Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -854,15 +854,15 @@ Meet AtmoSphere,3-in-1 smart orb
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_actualidad_startup | 6.94 | 8.96 | 4.4 | 25 | 67.16s | OK |
-| curso_emprendimiento_modulo | 7.20 | 9.44 | 4.6 | 33 | 61.63s | OK |
-| workshop_outline | 7.50 | 9.44 | 4.6 | 31 | 50.08s | OK |
-| newsletter_startup | 7.24 | 8.96 | 4.4 | 28 | 34.82s | OK |
+| blog_actualidad_startup | 7.41 | 8.96 | 4.4 | 25 | 67.16s | OK |
+| curso_emprendimiento_modulo | 7.76 | 9.44 | 4.6 | 33 | 61.63s | OK |
+| workshop_outline | 7.83 | 9.44 | 4.6 | 31 | 50.08s | OK |
+| newsletter_startup | 7.56 | 8.96 | 4.4 | 28 | 34.82s | OK |
 | perplexity_style_research | 4.85 | 0.00 | - | 0 | 2.81s | ERROR |
 
-<details><summary><code>blog_actualidad_startup</code> — score 6.94</summary>
+<details><summary><code>blog_actualidad_startup</code> — score 7.41</summary>
 
-**Stats**: latencia 67.16s · 25 tok/s · 268→1709 tokens · $0.00539
+**Stats**: latencia 67.16s · 25 tok/s · 268→1709 tokens · $0.00142
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -878,9 +878,9 @@ Meet AtmoSphere,3-in-1 smart orb
 
 </details>
 
-<details><summary><code>curso_emprendimiento_modulo</code> — score 7.20</summary>
+<details><summary><code>curso_emprendimiento_modulo</code> — score 7.76</summary>
 
-**Stats**: latencia 61.63s · 33 tok/s · 279→2048 tokens · $0.00642
+**Stats**: latencia 61.63s · 33 tok/s · 279→2048 tokens · $0.00169
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -895,9 +895,9 @@ Al finalizar este módulo, serás capaz de identificar procesos repetitivos en t
 
 </details>
 
-<details><summary><code>workshop_outline</code> — score 7.50</summary>
+<details><summary><code>workshop_outline</code> — score 7.83</summary>
 
-**Stats**: latencia 50.08s · 31 tok/s · 218→1550 tokens · $0.00487
+**Stats**: latencia 50.08s · 31 tok/s · 218→1550 tokens · $0.00128
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -919,9 +919,9 @@ Al finalizar este módulo, serás capaz de identificar procesos repetitivos en t
 
 </details>
 
-<details><summary><code>newsletter_startup</code> — score 7.24</summary>
+<details><summary><code>newsletter_startup</code> — score 7.56</summary>
 
-**Stats**: latencia 34.82s · 28 tok/s · 251→967 tokens · $0.00315
+**Stats**: latencia 34.82s · 28 tok/s · 251→967 tokens · $0.00082
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -950,15 +950,15 @@ Otra semana, otro terremoto en el mundo de la IA. Esta vez vino desde China, per
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| news_seo_article_full | 6.66 | 7.89 | 3.8 | 34 | 60.03s | OK |
-| news_json_output_strict | 6.32 | 6.06 | 3.0 | 33 | 34.24s | OK |
-| news_spanish_only | 7.06 | 8.18 | 4.4 | 32 | 30.05s | OK |
-| news_no_hallucination_sources | 6.36 | 6.16 | 3.6 | 32 | 41.55s | OK |
-| news_perplexity_enrichment | 7.01 | 8.88 | 4.2 | 32 | 54.65s | OK |
+| news_seo_article_full | 6.98 | 7.89 | 3.8 | 34 | 60.03s | OK |
+| news_json_output_strict | 6.21 | 6.06 | 3.0 | 33 | 34.24s | OK |
+| news_spanish_only | 7.31 | 8.18 | 4.4 | 32 | 30.05s | OK |
+| news_no_hallucination_sources | 6.21 | 6.16 | 3.6 | 32 | 41.55s | OK |
+| news_perplexity_enrichment | 7.51 | 8.88 | 4.2 | 32 | 54.65s | OK |
 
-<details><summary><code>news_seo_article_full</code> — score 6.66</summary>
+<details><summary><code>news_seo_article_full</code> — score 6.98</summary>
 
-**Stats**: latencia 60.03s · 34 tok/s · 501→2048 tokens · $0.00664
+**Stats**: latencia 60.03s · 34 tok/s · 501→2048 tokens · $0.00174
 
 **Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -974,9 +974,9 @@ Otra semana, otro terremoto en el mundo de la IA. Esta vez vino desde China, per
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 6.32</summary>
+<details><summary><code>news_json_output_strict</code> — score 6.21</summary>
 
-**Stats**: latencia 34.24s · 33 tok/s · 331→1131 tokens · $0.00372
+**Stats**: latencia 34.24s · 33 tok/s · 331→1131 tokens · $0.00097
 
 **Juez Phi-4**: 3.0/10 (precisión:3, relevancia:2, profundidad:4, claridad:4, utilidad:3)
 
@@ -990,9 +990,9 @@ Otra semana, otro terremoto en el mundo de la IA. Esta vez vino desde China, per
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 7.06</summary>
+<details><summary><code>news_spanish_only</code> — score 7.31</summary>
 
-**Stats**: latencia 30.05s · 32 tok/s · 339→961 tokens · $0.00322
+**Stats**: latencia 30.05s · 32 tok/s · 339→961 tokens · $0.00084
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1006,9 +1006,9 @@ SambaNova Systems acaba de presentar su nuevo chip SN50, una apuesta directa al 
 
 </details>
 
-<details><summary><code>news_no_hallucination_sources</code> — score 6.36</summary>
+<details><summary><code>news_no_hallucination_sources</code> — score 6.21</summary>
 
-**Stats**: latencia 41.55s · 32 tok/s · 525→1345 tokens · $0.00456
+**Stats**: latencia 41.55s · 32 tok/s · 525→1345 tokens · $0.00118
 
 **Juez Phi-4**: 3.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1022,9 +1022,9 @@ La startup chilena NotCo ha alcanzado el codiciado estatus de unicornio tras cer
 
 </details>
 
-<details><summary><code>news_perplexity_enrichment</code> — score 7.01</summary>
+<details><summary><code>news_perplexity_enrichment</code> — score 7.51</summary>
 
-**Stats**: latencia 54.65s · 32 tok/s · 538→1771 tokens · $0.00585
+**Stats**: latencia 54.65s · 32 tok/s · 538→1771 tokens · $0.00152
 
 **Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1042,14 +1042,14 @@ El ecosistema de inteligencia artificial acaba de presenciar un movimiento que p
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| creative_hook_writing | 7.02 | 8.34 | 4.4 | 21 | 13.94s | OK |
-| analogy_generation | 7.02 | 8.34 | 4.4 | 26 | 18.68s | OK |
-| depth_vs_superficial | 7.35 | 9.28 | 4.6 | 29 | 27.31s | OK |
-| storytelling_quality | 7.11 | 7.61 | 4.0 | 23 | 7.61s | OK |
+| creative_hook_writing | 7.53 | 8.34 | 4.4 | 21 | 13.94s | OK |
+| analogy_generation | 7.42 | 8.34 | 4.4 | 26 | 18.68s | OK |
+| depth_vs_superficial | 7.77 | 9.28 | 4.6 | 29 | 27.31s | OK |
+| storytelling_quality | 7.30 | 7.61 | 4.0 | 23 | 7.61s | OK |
 
-<details><summary><code>creative_hook_writing</code> — score 7.02</summary>
+<details><summary><code>creative_hook_writing</code> — score 7.53</summary>
 
-**Stats**: latencia 13.94s · 21 tok/s · 213→293 tokens · $0.00109
+**Stats**: latencia 13.94s · 21 tok/s · 213→293 tokens · $0.00028
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1063,9 +1063,9 @@ El ecosistema de inteligencia artificial acaba de presenciar un movimiento que p
 
 </details>
 
-<details><summary><code>analogy_generation</code> — score 7.02</summary>
+<details><summary><code>analogy_generation</code> — score 7.42</summary>
 
-**Stats**: latencia 18.68s · 26 tok/s · 159→488 tokens · $0.00162
+**Stats**: latencia 18.68s · 26 tok/s · 159→488 tokens · $0.00042
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1079,9 +1079,9 @@ Es como un improvisador callejero que nunca duerme: ha escuchado tantas historia
 
 </details>
 
-<details><summary><code>depth_vs_superficial</code> — score 7.35</summary>
+<details><summary><code>depth_vs_superficial</code> — score 7.77</summary>
 
-**Stats**: latencia 27.31s · 29 tok/s · 184→782 tokens · $0.00253
+**Stats**: latencia 27.31s · 29 tok/s · 184→782 tokens · $0.00066
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1096,9 +1096,9 @@ Tus usuarios de clase alta mienten sobre sus patrones de consumo. Analicé 400k 
 
 </details>
 
-<details><summary><code>storytelling_quality</code> — score 7.11</summary>
+<details><summary><code>storytelling_quality</code> — score 7.30</summary>
 
-**Stats**: latencia 7.61s · 23 tok/s · 123→178 tokens · $0.00066
+**Stats**: latencia 7.61s · 23 tok/s · 123→178 tokens · $0.00017
 
 **Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1116,13 +1116,13 @@ Carlos desesperado intentó arreglarla, pero Lupita lo denunció: "Tu código es
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| cold_email_personalized | 7.39 | 8.40 | 4.4 | 22 | 6.42s | OK |
-| lead_qualification | 7.10 | 8.28 | 4.8 | 32 | 13.77s | OK |
-| campaign_optimization | 7.38 | 9.08 | 4.6 | 34 | 19.23s | OK |
+| cold_email_personalized | 7.70 | 8.40 | 4.4 | 22 | 6.42s | OK |
+| lead_qualification | 7.55 | 8.28 | 4.8 | 32 | 13.77s | OK |
+| campaign_optimization | 7.86 | 9.08 | 4.6 | 34 | 19.23s | OK |
 
-<details><summary><code>cold_email_personalized</code> — score 7.39</summary>
+<details><summary><code>cold_email_personalized</code> — score 7.70</summary>
 
-**Stats**: latencia 6.42s · 22 tok/s · 211→139 tokens · $0.00063
+**Stats**: latencia 6.42s · 22 tok/s · 211→139 tokens · $0.00015
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1138,9 +1138,9 @@ Estamos ayudando a 3 startups colombianas (Series A) a generar 30 posts/semana c
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 7.10</summary>
+<details><summary><code>lead_qualification</code> — score 7.55</summary>
 
-**Stats**: latencia 13.77s · 32 tok/s · 279→438 tokens · $0.00159
+**Stats**: latencia 13.77s · 32 tok/s · 279→438 tokens · $0.00041
 
 **Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1160,9 +1160,9 @@ Estamos ayudando a 3 startups colombianas (Series A) a generar 30 posts/semana c
 
 </details>
 
-<details><summary><code>campaign_optimization</code> — score 7.38</summary>
+<details><summary><code>campaign_optimization</code> — score 7.86</summary>
 
-**Stats**: latencia 19.23s · 34 tok/s · 301→655 tokens · $0.00227
+**Stats**: latencia 19.23s · 34 tok/s · 301→655 tokens · $0.00058
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1190,13 +1190,13 @@ Estamos ayudando a 3 startups colombianas (Series A) a generar 30 posts/semana c
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| translate_marketing_es_en | 7.84 | 9.40 | 5 | 20 | 3.46s | OK |
-| translate_technical_en_es | 7.25 | 7.72 | 3.8 | 29 | 4.28s | OK |
-| detect_language_issues | 7.02 | 8.06 | 4.8 | 37 | 10.20s | OK |
+| translate_marketing_es_en | 8.35 | 9.40 | 5 | 20 | 3.46s | OK |
+| translate_technical_en_es | 7.51 | 7.72 | 3.8 | 29 | 4.28s | OK |
+| detect_language_issues | 7.48 | 8.06 | 4.8 | 37 | 10.20s | OK |
 
-<details><summary><code>translate_marketing_es_en</code> — score 7.84</summary>
+<details><summary><code>translate_marketing_es_en</code> — score 8.35</summary>
 
-**Stats**: latencia 3.46s · 20 tok/s · 204→70 tokens · $0.00041
+**Stats**: latencia 3.46s · 20 tok/s · 204→70 tokens · $0.00010
 
 **Juez Phi-4**: 5/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
@@ -1215,9 +1215,9 @@ Zero code. Zero headaches. Zero excuses.
 
 </details>
 
-<details><summary><code>translate_technical_en_es</code> — score 7.25</summary>
+<details><summary><code>translate_technical_en_es</code> — score 7.51</summary>
 
-**Stats**: latencia 4.28s · 29 tok/s · 175→123 tokens · $0.00054
+**Stats**: latencia 4.28s · 29 tok/s · 175→123 tokens · $0.00013
 
 **Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1229,9 +1229,9 @@ Para autenticarte con la API, incluye tu Bearer token en el header Authorization
 
 </details>
 
-<details><summary><code>detect_language_issues</code> — score 7.02</summary>
+<details><summary><code>detect_language_issues</code> — score 7.48</summary>
 
-**Stats**: latencia 10.20s · 37 tok/s · 231→374 tokens · $0.00135
+**Stats**: latencia 10.20s · 37 tok/s · 231→374 tokens · $0.00034
 
 **Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1262,7 +1262,7 @@ Para autenticarte con la API, incluye tu Bearer token en el header Authorization
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | slide_outline | 4.85 | 0.00 | - | 0 | 3.49s | ERROR |
-| data_report | 7.32 | 8.92 | 4.4 | 36 | 29.80s | OK |
+| data_report | 7.67 | 8.92 | 4.4 | 36 | 29.80s | OK |
 
 <details><summary><code>slide_outline</code> — score 4.85</summary>
 
@@ -1270,9 +1270,9 @@ Para autenticarte con la API, incluye tu Bearer token en el header Authorization
 
 </details>
 
-<details><summary><code>data_report</code> — score 7.32</summary>
+<details><summary><code>data_report</code> — score 7.67</summary>
 
-**Stats**: latencia 29.80s · 36 tok/s · 193→1058 tokens · $0.00337
+**Stats**: latencia 29.80s · 36 tok/s · 193→1058 tokens · $0.00089
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1297,14 +1297,14 @@ Para autenticarte con la API, incluye tu Bearer token en el header Authorization
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| single_tool_calendar | 7.05 | 5.00 | - | 16 | 3.02s | OK |
-| multi_tool_sequential | 6.70 | 4.86 | 2.4 | 30 | 5.73s | OK |
-| tool_with_reasoning | 6.99 | 5.98 | 3.2 | 28 | 5.22s | OK |
+| single_tool_calendar | 6.60 | 5.00 | - | 16 | 3.02s | OK |
+| multi_tool_sequential | 6.44 | 4.86 | 2.4 | 30 | 5.73s | OK |
+| tool_with_reasoning | 6.87 | 5.98 | 3.2 | 28 | 5.22s | OK |
 | no_tool_needed | 5.60 | 0.00 | - | 0 | 3.22s | ERROR |
 
-<details><summary><code>multi_tool_sequential</code> — score 6.70</summary>
+<details><summary><code>multi_tool_sequential</code> — score 6.44</summary>
 
-**Stats**: latencia 5.73s · 30 tok/s · 807→172 tokens · $0.00132
+**Stats**: latencia 5.73s · 30 tok/s · 807→172 tokens · $0.00030
 
 **Juez Phi-4**: 2.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1316,9 +1316,9 @@ Voy a crear la tarea urgente y enviar el email que solicitas.
 
 </details>
 
-<details><summary><code>tool_with_reasoning</code> — score 6.99</summary>
+<details><summary><code>tool_with_reasoning</code> — score 6.87</summary>
 
-**Stats**: latencia 5.22s · 28 tok/s · 814→146 tokens · $0.00125
+**Stats**: latencia 5.22s · 28 tok/s · 814→146 tokens · $0.00028
 
 **Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1340,14 +1340,14 @@ Te ayudo a prepararte para tu presentación de mañana. Voy a crear el recordato
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| angry_customer_refund | 7.44 | 6.96 | 3.8 | 18 | 4.83s | OK |
-| ambiguous_issue_classification | 7.97 | 8.48 | 4.2 | 30 | 9.89s | OK |
-| multi_issue_conversation | 6.34 | 6.25 | 3.2 | 25 | 5.28s | OK |
-| social_engineering_attempt | 7.99 | 8.84 | 4.6 | 26 | 7.17s | OK |
+| angry_customer_refund | 7.57 | 6.96 | 3.8 | 18 | 4.83s | OK |
+| ambiguous_issue_classification | 8.19 | 8.48 | 4.2 | 30 | 9.89s | OK |
+| multi_issue_conversation | 6.58 | 6.25 | 3.2 | 25 | 5.28s | OK |
+| social_engineering_attempt | 8.28 | 8.84 | 4.6 | 26 | 7.17s | OK |
 
-<details><summary><code>angry_customer_refund</code> — score 7.44</summary>
+<details><summary><code>angry_customer_refund</code> — score 7.57</summary>
 
-**Stats**: latencia 4.83s · 18 tok/s · 781→89 tokens · $0.00105
+**Stats**: latencia 4.83s · 18 tok/s · 781→89 tokens · $0.00023
 
 **Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1359,9 +1359,9 @@ Entiendo perfectamente su frustración, y le ofrezco mis disculpas por esta situ
 
 </details>
 
-<details><summary><code>ambiguous_issue_classification</code> — score 7.97</summary>
+<details><summary><code>ambiguous_issue_classification</code> — score 8.19</summary>
 
-**Stats**: latencia 9.89s · 30 tok/s · 759→297 tokens · $0.00165
+**Stats**: latencia 9.89s · 30 tok/s · 759→297 tokens · $0.00039
 
 **Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1375,9 +1375,9 @@ De acuerdo a tu descripción, clasificaré esto como alta priori
 
 </details>
 
-<details><summary><code>multi_issue_conversation</code> — score 6.34</summary>
+<details><summary><code>multi_issue_conversation</code> — score 6.58</summary>
 
-**Stats**: latencia 5.28s · 25 tok/s · 771→131 tokens · $0.00116
+**Stats**: latencia 5.28s · 25 tok/s · 771→131 tokens · $0.00026
 
 **Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1391,9 +1391,9 @@ Primero, voy a consultar el detalle de tus pedidos #O
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 7.99</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.28</summary>
 
-**Stats**: latencia 7.17s · 26 tok/s · 755→185 tokens · $0.00131
+**Stats**: latencia 7.17s · 26 tok/s · 755→185 tokens · $0.00030
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1415,7 +1415,7 @@ Dado que menciona ser el CEO y necesita información de pago junto con cambios e
 | error_recovery_orchestration | 4.85 | 0.00 | - | 0 | 3.58s | ERROR |
 | complex_workflow_decomposition | 3.80 | 2.00 | - | 0 | 4.01s | ERROR |
 | tool_selection_precision | 3.38 | 0.80 | - | 0 | 3.03s | ERROR |
-| parallel_vs_sequential_judgment | 7.01 | 8.59 | 4.6 | 14 | 34.58s | OK |
+| parallel_vs_sequential_judgment | 7.28 | 8.59 | 4.6 | 14 | 34.58s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 3.10</summary>
 
@@ -1441,9 +1441,9 @@ Dado que menciona ser el CEO y necesita información de pago junto con cambios e
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 7.01</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 7.28</summary>
 
-**Stats**: latencia 34.58s · 14 tok/s · 1322→474 tokens · $0.00274
+**Stats**: latencia 34.58s · 14 tok/s · 1322→474 tokens · $0.00064
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1466,14 +1466,14 @@ B. Leer specs técnicas ─────────┘                          
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| content_iteration | 7.31 | 8.16 | 4.4 | 22 | 9.58s | OK |
-| support_escalation | 6.67 | 7.20 | 4.4 | 28 | 8.70s | OK |
+| content_iteration | 7.57 | 8.16 | 4.4 | 22 | 9.58s | OK |
+| support_escalation | 7.03 | 7.20 | 4.4 | 28 | 8.70s | OK |
 | requirements_change | 4.85 | 0.00 | - | 0 | 3.12s | ERROR |
 | debugging_conversation | 4.85 | 0.00 | - | 0 | 3.00s | ERROR |
 
-<details><summary><code>content_iteration</code> — score 7.31</summary>
+<details><summary><code>content_iteration</code> — score 7.57</summary>
 
-**Stats**: latencia 9.58s · 22 tok/s · 278→207 tokens · $0.00090
+**Stats**: latencia 9.58s · 22 tok/s · 278→207 tokens · $0.00022
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1489,9 +1489,9 @@ Ayer a las 3:07 a.m. alguien preguntó por enésima vez “¿denden soporte en e
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 6.67</summary>
+<details><summary><code>support_escalation</code> — score 7.03</summary>
 
-**Stats**: latencia 8.70s · 28 tok/s · 429→246 tokens · $0.00117
+**Stats**: latencia 8.70s · 28 tok/s · 429→246 tokens · $0.00028
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1524,7 +1524,7 @@ M
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 4.85 | 0.00 | - | 0 | 2.69s | ERROR |
-| data_privacy_protection | 7.17 | 7.76 | 4.6 | 23 | 5.48s | OK |
+| data_privacy_protection | 7.38 | 7.76 | 4.6 | 23 | 5.48s | OK |
 | language_and_tone_rules | 4.85 | 0.00 | - | 0 | 3.10s | ERROR |
 | scope_boundaries | 4.85 | 0.00 | - | 0 | 3.27s | ERROR |
 
@@ -1534,9 +1534,9 @@ M
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 7.17</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.38</summary>
 
-**Stats**: latencia 5.48s · 23 tok/s · 267→124 tokens · $0.00064
+**Stats**: latencia 5.48s · 23 tok/s · 267→124 tokens · $0.00015
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1569,8 +1569,8 @@ Para solicitudes oficiales de compliance o seguridad, por favor contacta directa
 | skill_execution_complex | 3.10 | 0.00 | - | 0 | 3.37s | ERROR |
 | agent_team_delegation | 3.10 | 0.00 | - | 0 | 2.77s | ERROR |
 | ask_clarification_before_acting | 3.10 | 0.00 | - | 0 | 2.73s | ERROR |
-| context_following_complex_system | 4.94 | 3.70 | 2.4 | 14 | 3.79s | OK |
-| model_as_router | 7.32 | 8.92 | 4.4 | 33 | 11.24s | OK |
+| context_following_complex_system | 4.97 | 3.70 | 2.4 | 14 | 3.79s | OK |
+| model_as_router | 7.91 | 8.92 | 4.4 | 33 | 11.24s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 3.10</summary>
 
@@ -1590,9 +1590,9 @@ Para solicitudes oficiales de compliance o seguridad, por favor contacta directa
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 4.94</summary>
+<details><summary><code>context_following_complex_system</code> — score 4.97</summary>
 
-**Stats**: latencia 3.79s · 14 tok/s · 1252→52 tokens · $0.00141
+**Stats**: latencia 3.79s · 14 tok/s · 1252→52 tokens · $0.00029
 
 **Juez Phi-4**: 2.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1606,9 +1606,9 @@ Let me help you with these requests:
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 7.32</summary>
+<details><summary><code>model_as_router</code> — score 7.91</summary>
 
-**Stats**: latencia 11.24s · 33 tok/s · 305→367 tokens · $0.00141
+**Stats**: latencia 11.24s · 33 tok/s · 305→367 tokens · $0.00036
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1632,13 +1632,13 @@ Let me help you with these requests:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| extract_action_items | 7.28 | 8.08 | 4.2 | 25 | 6.77s | OK |
-| weekly_planning | 7.43 | 9.24 | 4.6 | 37 | 24.27s | OK |
-| project_breakdown | 6.89 | 8.54 | 4.6 | 31 | 64.75s | OK |
+| extract_action_items | 7.54 | 8.08 | 4.2 | 25 | 6.77s | OK |
+| weekly_planning | 7.87 | 9.24 | 4.6 | 37 | 24.27s | OK |
+| project_breakdown | 7.32 | 8.54 | 4.6 | 31 | 64.75s | OK |
 
-<details><summary><code>extract_action_items</code> — score 7.28</summary>
+<details><summary><code>extract_action_items</code> — score 7.54</summary>
 
-**Stats**: latencia 6.77s · 25 tok/s · 223→172 tokens · $0.00074
+**Stats**: latencia 6.77s · 25 tok/s · 223→172 tokens · $0.00018
 
 **Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1656,9 +1656,9 @@ Action items – reunión del 11 de abril de 2026
 
 </details>
 
-<details><summary><code>weekly_planning</code> — score 7.43</summary>
+<details><summary><code>weekly_planning</code> — score 7.87</summary>
 
-**Stats**: latencia 24.27s · 37 tok/s · 243→891 tokens · $0.00292
+**Stats**: latencia 24.27s · 37 tok/s · 243→891 tokens · $0.00076
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1677,9 +1677,9 @@ Aquí tienes un plan semanal optimizado para tu rol de Product Manager, respetan
 
 </details>
 
-<details><summary><code>project_breakdown</code> — score 6.89</summary>
+<details><summary><code>project_breakdown</code> — score 7.32</summary>
 
-**Stats**: latencia 64.75s · 31 tok/s · 99→2016 tokens · $0.00615
+**Stats**: latencia 64.75s · 31 tok/s · 99→2016 tokens · $0.00163
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1698,12 +1698,12 @@ SEMANA 0 – DÍA 0 (Ki
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| long_document_summary | 6.87 | 7.78 | 4.2 | 30 | 8.68s | OK |
-| extract_structured_data | 6.36 | 6.04 | 2.6 | 36 | 9.05s | OK |
+| long_document_summary | 7.30 | 7.78 | 4.2 | 30 | 8.68s | OK |
+| extract_structured_data | 6.57 | 6.04 | 2.6 | 36 | 9.05s | OK |
 
-<details><summary><code>long_document_summary</code> — score 6.87</summary>
+<details><summary><code>long_document_summary</code> — score 7.30</summary>
 
-**Stats**: latencia 8.68s · 30 tok/s · 503→260 tokens · $0.00128
+**Stats**: latencia 8.68s · 30 tok/s · 503→260 tokens · $0.00031
 
 **Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1719,9 +1719,9 @@ SEMANA 0 – DÍA 0 (Ki
 
 </details>
 
-<details><summary><code>extract_structured_data</code> — score 6.36</summary>
+<details><summary><code>extract_structured_data</code> — score 6.57</summary>
 
-**Stats**: latencia 9.05s · 36 tok/s · 306→323 tokens · $0.00128
+**Stats**: latencia 9.05s · 36 tok/s · 306→323 tokens · $0.00032
 
 **Juez Phi-4**: 2.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
