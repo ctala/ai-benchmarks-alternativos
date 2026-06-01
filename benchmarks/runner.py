@@ -532,7 +532,10 @@ def run_benchmark(args):
     print(f"=" * 70, flush=True)
 
     all_results = []
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    # Timestamp único por proceso: incluye PID para evitar colisión cuando se
+    # lanzan varios runners en el mismo segundo (cada uno reescribe su JSON
+    # completo; sin PID se clobbean entre sí). Bug detectado 1 jun 2026.
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S") + f"_{os.getpid()}"
     completed = 0
     errors = 0
     benchmark_start = time.time()
