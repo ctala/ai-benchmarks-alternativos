@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T09:22:04",
+  "generated_at": "2026-06-01T09:24:12",
   "total_models": 115,
   "tested_count": 72,
   "tokens_per_call_assumption": {
@@ -3246,7 +3246,7 @@
       "cost_output_per_M": 6.0,
       "cost_per_1k_calls_usd": 9.6,
       "subscriptions": [],
-      "notes": "Precio corregido may 2026 vía OpenRouter API ($1.25/$2.50, antes $2/$6).",
+      "notes": "",
       "tested": true,
       "tool_calling": true,
       "thinking": false,
