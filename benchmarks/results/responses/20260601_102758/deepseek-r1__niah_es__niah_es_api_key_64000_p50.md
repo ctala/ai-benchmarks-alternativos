@@ -1,0 +1,11 @@
+# DeepSeek R1 (reasoning) — niah_es/niah_es_api_key_64000_p50
+
+- model_id: `deepseek/deepseek-r1`
+- success: True  | final: 3.69 | quality: 3.64
+- latency_total: 22.203s | tokens_per_second: 14.9
+- input_tokens: 67163 | output_tokens: 331
+- judge_score: 1 | justificación: La respuesta no está relacionada con el documento proporcionado sobre historia latinoamericana y es irrelevante para la instrucción dada.
+
+## Respuesta completa
+
+La API key de producción del equipo de growth es **sk-prod-grw-cl-2026-7f9a2b4e8c1d** y rota automáticamente cada **90 días**.
