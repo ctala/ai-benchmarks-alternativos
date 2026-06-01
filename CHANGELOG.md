@@ -2,6 +2,65 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v2.7.1] - 2026-05-22 — Catálogo: modelos Grok + suscripción xAI SuperGrok
+
+### Agregado al catálogo (config, PENDIENTE de benchmark)
+IDs y precios verificados vía la API pública de OpenRouter (`/api/v1/models`), no aggregators.
+- **Grok 4.3** (`x-ai/grok-4.3`, $1.25/$2.50, 1M ctx) — flagship xAI del 30 abr 2026.
+- **Grok 4.20 Multi-Agent** (`x-ai/grok-4.20-multi-agent`, $2.00/$6.00, 2M ctx) — variante multi-agente (equivalente "Heavy"; no existe un ID literal `grok-4-heavy` en OpenRouter).
+- Pricing añadido a `scoring.py` para ambos.
+- Catálogo: 113 → 115 modelos. Quedan `tested=false` hasta correr el runner (requiere `OPENROUTER_API_KEY`; no disponible en el entorno remoto de esta sesión).
+
+### Suscripción
+- **xAI SuperGrok** ($30/mes, $300/año) agregada a `SUBSCRIPTIONS`. Siguiendo el precedente de `anthropic_pro`: es plan **consumer sin API access**, así que NO se enlaza a ningún modelo (los Grok se miden vía OpenRouter pay-as-you-go). Listada en README "Modelos en suscripción mensual" y en `subscriptions_catalog` de la calculadora. Nota: Grok 4.3 + multi-agente requieren SuperGrok Heavy $300/mes.
+
+### Hallazgo
+- OpenRouter ya **no lista `grok-4.1-fast`** (delistado/renombrado; conserva sus resultados históricos en el ranking) y **no existe `grok-4.1` full** en OpenRouter → no se pudo agregar la versión completa de 4.1 pedida. Documentado en ROADMAP.
+
+## [v2.7.0] - 2026-05-22 — Rescore de costo provider-aware (el costo por fin discrimina)
+
+### Cambio de metodología
+Tras la corrección de precios (v2.6.3) se detectó que el costo histórico de la **mayoría** de modelos se había guardado con el fallback `(1.0,3.0)` de `PRICING` (muchas corridas previas a que el modelo entrara al dict) → casi todos con `cost_score ≈ 7.0` → **la dimensión costo (20% del peso) era casi inerte** y el ranking de facto solo-calidad.
+
+Decisión del usuario: aplicar **rescore provider-aware TOTAL**. `benchmarks/rescore_costs.py` (sin `--only`) recalculó cost_usd/cost_score/final de **7.483 runs** usando el precio por-proveedor del config (`models.py`) × tokens reales. Solo cambian campos derivados de precio (verificado: 0 cambios fuera de cost_usd/cost_score/final en 11.013 runs comparados).
+
+### Efecto en el ranking (reordenamiento grande, esperado)
+- **Suben** los gratis/NIM/local y open-source baratos: Devstral Small (ahora **#1**, 7.84), Nemotron Omni NIM, Qwen 3-Next NIM, Gemma, Devstral 2 123B NIM, Llama Groq. Deltas de +0.3 a +1.15 (DeepSeek V4 Cloud +1.15, Nemotron NIM +0.86).
+- **Bajan** los premium caros: Gemini 2.5 Pro −0.49, GPT-5.4 −0.47, Sonnet 4.6 −0.25, Opus 4.x. Opus 4.7 pasa a **#66/72**.
+- Nuevo top-5 global: Devstral Small · Nemotron 3 Nano Omni (NIM) · Qwen 3-Next 80B (NIM) · Gemini 2.5 Flash Lite · Llama 4 Scout (Groq).
+
+### Caveat documentado
+- El tier gratis NIM ($0/call) tiene rate-limit 40 RPM: gran C/B para volumen bajo-medio, no necesariamente para alto throughput. README y calculadora lo marcan.
+
+### Docs actualizadas
+- README (top-10 v2.7, cobertura, framing de Opus, nota de provider), models.json + MODELOS + per-model MDs regenerados, INSIGHTS con callout v2.7 (tablas detalladas pendientes de regen por data-scientist).
+
+## [v2.6.3] - 2026-05-22 — Corrección de precios verificada (OpenRouter API) + costeo provider-aware
+
+### Precios corregidos (verificados vía OpenRouter `/v1/models`)
+Se detectó que varios precios del catálogo estaban stale (pricing viejo copiado) y que `models.py` y el `PRICING` de `scoring.py` tenían drift. Corregidos en ambos:
+
+| Modelo | Antes | Ahora (OpenRouter) |
+|---|---|---|
+| Claude Opus 4.7 (+thinking) | $15/$75 | **$5/$25** |
+| Claude Opus 4.6 | $15/$75 | **$5/$25** |
+| DeepSeek V4 Pro (OpenRouter) | $1.74/$3.48 | **$0.435/$0.87** (tier medium→cheap) |
+| DeepSeek V4 Flash (OpenRouter) | $0.14/$0.28 | $0.112/$0.224 |
+| Kimi K2.6 (+thinking) | $0.80/$3.50 (scoring $1.50/$9) | **$0.73/$3.49** |
+| Grok 4.20 | $2/$6 | **$1.25/$2.50** |
+| Qwen 3.6 Plus | $0.33/$0.65 | **$0.18/$1.07** |
+
+### Costeo provider-aware
+- `estimate_cost(model, in, out, prices=...)` ahora acepta el precio por-entrada del config (provider-specific); `PRICING` queda solo como fallback. El runner pasa `(cost_input, cost_output)` del `model_config` en cada corrida. Arregla la ambigüedad de costear por `id` (un mismo id en NIM gratis vs OpenRouter pago se costeaba igual).
+- Nuevo `benchmarks/rescore_costs.py`: re-scorea cost_usd/cost_score/final del histórico desde el config (fuente única), sin re-correr. `--only "n1,n2"` para scoped; sin flag = total.
+
+### Re-score aplicado (scoped a los 9 verificados, 1.072 runs)
+- Opus 4.6 −0.47, Opus 4.7 −0.33 (estaban **sub-costeados** con el fallback `(1.0,3.0)`), Qwen 3.6 Plus +0.34, DeepSeek V4 Pro +0.26, Grok 4.20 +0.19, Kimi K2.6 ≈0. Top-10 global sin cambios (ninguno de los 9 estaba ahí).
+- Solo se tocaron campos derivados de precio (cost_usd, cost_score, final); quality/tokens/respuestas intactos.
+
+### Hallazgo mayor (pendiente de decisión, ver ROADMAP)
+- El costo histórico de la **mayoría** de modelos se guardó con el fallback `(1.0,3.0)` → casi todos con `cost_score ≈ 7.0` → **la dimensión costo (20%) ha sido casi inerte**. Un rescore provider-aware TOTAL arreglaría esto pero reordena todo el ranking (gratis/NIM suben, premium bajan). No aplicado — decisión nivel v2.7.
+
 ## [v2.6.2] - 2026-05-07 — Validación de hipótesis sección 12 INSIGHTS
 
 ### Hallazgos validados (no nuevos benchmarks, validación cualitativa de los anteriores)
