@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "timestamp": "20260601_102758",
+    "total_runs": 1,
+    "errors": 0,
+    "judge": {
+      "judge_model": "phi4",
+      "judge_provider": "vllm",
+      "judge_is_local": false,
+      "evaluations": 1,
+      "estimated_cost_usd": 0.0
+    },
+    "partial": true
+  },
+  "results": [
+    {
+      "quality": 8.8,
+      "cost_score": 5.78,
+      "cost_usd": 0.005513,
+      "speed": 10.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 7.43,
+      "test_name": "blog_post_es",
+      "model": "Qwen 3.6 35B base (OpenRouter FP8)",
+      "model_id": "qwen/qwen3.6-35b-a3b",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 117.6,
+      "latency_first_token": 15.424,
+      "latency_total": 15.424,
+      "input_tokens": 71,
+      "output_tokens": 1814,
+      "response_preview": "# Automatización con IA para Pequeñas Empresas: 3 Ventajas Clave para Crecer Sin Límites\n\nEn un mercado cada vez más competitivo, las pequeñas empresas no pueden permitirse el lujo de trabajar de la misma manera que hace una década. La inteligencia artificial ha dejado de ser un lujo exclusivo de la",
+      "auto_quality": 6.0,
+      "judge_score": 5,
+      "judge_precision": 5,
+      "judge_relevancia": 5,
+      "judge_profundidad": 4,
+      "judge_claridad": 5,
+      "judge_utilidad": 5,
+      "judge_justificacion": "La respuesta es precisa, relevante, clara y ofrece insights útiles sobre la automatización con IA para pequeñas empresas, siendo altamente útil para emprendedores.",
+      "suite": "content_generation",
+      "run": 1,
+      "timestamp": "20260601_102758",
+      "response_file": "results/responses/20260601_102758/qwen3.6-35b__content_generation__blog_post_es.md"
+    }
+  ]
+}
