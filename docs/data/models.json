@@ -3246,7 +3246,7 @@
       "cost_output_per_M": 6.0,
       "cost_per_1k_calls_usd": 9.6,
       "subscriptions": [],
-      "notes": "",
+      "notes": "Precio corregido may 2026 vía OpenRouter API ($1.25/$2.50, antes $2/$6).",
       "tested": true,
       "tool_calling": true,
       "thinking": false,
