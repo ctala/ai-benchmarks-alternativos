@@ -54,6 +54,27 @@ from benchmarks.tests import niah_es_lite
 
 console = Console()
 
+# Redacción de secretos en artefactos auditables (responses .md + JSON).
+# Los modelos a veces alucinan webhooks de Slack o claves en tests de
+# orquestación/n8n; GitHub push-protection los bloquea. Redactamos al guardar
+# para que el repo público quede limpio sin perder el valor de la respuesta.
+import re as _re
+_SECRET_PATTERNS = [
+    (_re.compile(r'https://hooks\.slack\.com/services/[A-Za-z0-9/_+=-]+'),
+     'https://hooks.slack.com/services/REDACTED'),
+    (_re.compile(r'https://discord(?:app)?\.com/api/webhooks/[A-Za-z0-9/_-]+'),
+     'https://discord.com/api/webhooks/REDACTED'),
+    (_re.compile(r'sk-(?:or-v1|proj|cp|ant)-[A-Za-z0-9_-]{8,}'), 'REDACTED-SECRET'),
+    (_re.compile(r'xox[baprs]-[A-Za-z0-9-]{10,}'), 'REDACTED-SLACK-TOKEN'),
+]
+
+def _redact_secrets(text):
+    if not text or not isinstance(text, str):
+        return text
+    for pat, repl in _SECRET_PATTERNS:
+        text = pat.sub(repl, text)
+    return text
+
 ALL_TEST_SUITES = {
     "content_generation": content_generation.TESTS,
     "tool_calling": tool_calling.TESTS,
@@ -585,6 +606,11 @@ def run_benchmark(args):
 
     def _dump_results(partial: bool):
         """Vuelca resultados al JSON. Se llama tras cada modelo y al final."""
+        for _r in all_results:
+            if "response_preview" in _r:
+                _r["response_preview"] = _redact_secrets(_r["response_preview"])
+            if "judge_justificacion" in _r:
+                _r["judge_justificacion"] = _redact_secrets(_r["judge_justificacion"])
         output = {
             "metadata": {
                 "timestamp": timestamp,
@@ -623,7 +649,7 @@ def run_benchmark(args):
             header.append(f"- judge_score: {scores.get('judge_score')} | justificación: {scores.get('judge_justificacion','')}")
         if scores.get("error"):
             header.append(f"- error: {scores.get('error')}")
-        header += ["", "## Respuesta completa", "", result.response]
+        header += ["", "## Respuesta completa", "", _redact_secrets(result.response)]
         # Garantizar que el directorio existe (defensa contra race conditions
         # o cwd inesperados — el primer mkdir en linea 436 puede no alcanzar
         # si el script se ejecuta desde fuera de la raiz del repo)
