@@ -29,7 +29,11 @@
 - ⚙️ **3 sweeps concurrentes sobre Ollama dispararon el ETA a 32h**: Ollama serializa gen + juicio en una sola cola. La concurrencia sobre Ollama es contraproducente.
 - ⚙️ **vLLM Phi-4 como juez** (idea del usuario, "que esté siempre andando"): Ollama sirve Phi-4 cuantizado (~Q4) y serializa el juicio = techo de throughput. vLLM sirve Phi-4 **FP16 con continuous batching** → juicio paralelo real. **Compat sm_121 (Blackwell) CONFIRMADA**: vLLM 0.21.0 levanta, captura CUDA graphs sin error en el GB10. Preset `phi4-vllm` (:8001) agregado a `llm_judge.py`. Decisión: la cuantización del juez no se considera material para el ranking → OK usar vLLM FP16 por velocidad sin re-juzgar el histórico.
 
-**Corriendo / pendiente:** sweeps API (Qwen 3.6 FP8 + DeepSeek) en curso; switch a juez vLLM al quedar el server arriba; sweep local Q4 resumible (`--resume`) para el delta. Pendiente del plan original "Tier 1 junio": Gemini 3.5 Flash + Cohere Command A (disponibles en OR); ⚠️ **MiniMax M2.8 y MiMo V3 NO existen aún en OpenRouter** (lo último es M2.7 / V2.5).
+**Actualización throughput (10:30):** switch a juez **vLLM Phi-4 confirmado funcionando** + arquitectura **1 proceso por modelo** (gen paralela vía OpenRouter, juicio batcheado por vLLM) → ETA cayó de ~8h a **~1.5h/modelo**. 6 sweeps corriendo: qwen3.6-27b/35b, qwen3-coder-next, deepseek-v4-flash, deepseek-r1.
+
+**MiniMax M3 (lanzado 1 jun 2026):** sucesor de M2.7 (caso activo de Cristian). En OpenRouter `minimax/minimax-m3`, $0.30/$1.20, **contexto 1M** (vs 200k de M2.7). Agregado al config + lanzado como 6º sweep paralelo. Es exactamente el "MiniMax M2.8 / sucesor" que el roadmap marcaba como Tier 1.
+
+**Corriendo / pendiente:** 6 sweeps API en curso con juez vLLM; sweep local Q4 resumible (`--resume`) para el delta. Pendiente del plan original "Tier 1 junio": Gemini 3.5 Flash + Cohere Command A (disponibles en OR); ⚠️ **MiniMax M2.8 y MiMo V3 NO existen aún en OpenRouter** (lo último es M2.7 / V2.5).
 
 ### Qué entra en el release de junio (checklist)
 

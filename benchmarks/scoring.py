@@ -614,6 +614,7 @@ PRICING = {
     "xiaomi/mimo-v2-pro": (1.00, 3.00),
 
     # ====== MiniMax ======
+    "minimax/minimax-m3": (0.30, 1.20),       # lanzado 1 jun 2026, ctx 1M
     "minimax/minimax-m2.7": (0.30, 1.20),
     "MiniMax-M2.7": (0.30, 1.20),                # provider directo
     "MiniMax-M2.7-highspeed": (0.30, 1.20),
