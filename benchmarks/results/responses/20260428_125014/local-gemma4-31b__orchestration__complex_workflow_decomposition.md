@@ -44,7 +44,7 @@ Let's refine the steps.
 **Step 5: Notify Slack**
 - Tool: `http_request`
 - Method: `POST`
-- URL: `https://hooks.slack.com/services/T000/B000/XXXX` (Hypothetical webhook).
+- URL: `https://hooks.slack.com/services/REDACTED` (Hypothetical webhook).
 - Body: `{"text": "Nuevo cliente onboarded: Andres Morales de DataPulse SpA"}`
 
 Let's start executing.
