@@ -1,7 +1,149 @@
 # Roadmap del Benchmark
 
-> Ultima actualizacion: 23 de Abril de 2026
-> Estado del ranking: **v2.1.0 con 17 modelos × 91 tests = 1512 runs** evaluados con juez Phi-4. Top 5: Devstral Small, GPT-5.4 Mini, GPT-4.1, Gemini 2.5 Flash Lite, MiMo-V2-Flash. Ver [README.md](README.md).
+> Ultima actualizacion: 22 de Mayo de 2026
+> Estado del ranking: **v2.6.2 — 113 modelos en config, 72 con cobertura ≥50 runs, 8,000+ runs** evaluados con juez Phi-4. Top 5 compuesto: Llama 4 Scout 17B, Llama 3.1 8B, Llama 3.3 70B, GPT-OSS 20B, Mistral Small 4. Ver [README.md](README.md) y [DATASHEET_2026-05.md](DATASHEET_2026-05.md).
+> **Próximo release: Junio 2026** (cadencia mensual). El release de mayo ya salió — ver sección [Ciclo Junio 2026](#ciclo-junio-2026--modelos-nuevos-por-probar) abajo.
+
+---
+
+## Ciclo Junio 2026 — modelos nuevos por probar
+
+> Sección agregada el 22 de mayo 2026 para preparar el **release de junio**. Cadencia mensual establecida en v2.6.1: cada 1ro de mes → regen `models.json` + update INSIGHTS + `DATASHEET` nuevo + CheatSheet PDF + tag semver. El release de **mayo ya salió** (v2.6.x, ver [DATASHEET_2026-05.md](DATASHEET_2026-05.md)). Esta cola reemplaza la de "Lote 3" de abril, ya completada (DeepSeek V4, GPT-OSS, GPT-5.5, Grok, Hermes 4, Gemini 3.1, MiMo V2.5, Mistral Small 4 / Large 3, GLM 5/5.1, Qwen 3-Next, Seed-OSS — todos en config).
+>
+> Estado base: **113 modelos en config · 72 con cobertura ≥50 runs**.
+
+### Qué entra en el release de junio (checklist)
+
+- [ ] **Probar los modelos nuevos salidos en mayo** (lista candidatos abajo) — al menos los Tier 1 con cobertura ≥50 runs.
+- [ ] **`DATASHEET_2026-06.md`**: cambios mayo→junio (ranking, modelos nuevos, hallazgos) comparado contra `DATASHEET_2026-05.md`.
+- [ ] **Documentar lo que pasó en mayo** que aún no quede en datasheet/INSIGHTS (cierre del ciclo previo).
+- [ ] **Regen estándar** (orden CLAUDE.md): per-model MD → tabla MODELOS → TESTS → `export_for_pages` → sitemap → `sync_doc_counts`.
+- [ ] **CheatSheet PDF "Junio 2026"** + **tag semver** (probable v2.7.0).
+- [ ] Si avanza el eje de eficiencia operativa (abajo): incluir el piloto en INSIGHTS.
+
+### Por qué seguimos agregando modelos (y por qué esto es una *referencia*, no un veredicto)
+
+Cada mes salen modelos nuevos y los proveedores re-entrenan los existentes. Pero el objetivo NO es coronar un "mejor modelo" universal — es darle a un emprendedor una **base** para decidir, que después valida contra SU workload. El score compuesto pesa quality + costo + tool calling + velocidad + latencia para un perfil LATAM, no es una verdad absoluta.
+
+**Caso real de mayo 2026 que lo deja claro**: Cristian evaluó migrar de **MiniMax M2.7** (su suscripción actual) a **Xiaomi MiMo** (suscripción más cara). En nuestro ranking MiMo V2.5 sale **top-10** (quality 7.27, ~$0.13/1k calls) → "se ve mejor". Pero en uso real **MiMo no completaba las tareas: consumía muchos más tokens** y reventaba el budget de créditos de la suscripción antes de terminar. **El score actual no predijo esto** — porque mide costo por-llamada con un supuesto fijo de tokens, no cuántos tokens gasta cada modelo para *completar* la tarea. De ahí el eje nuevo más abajo.
+
+→ Lección para el lector del benchmark: usalo para **acotar candidatos**, no para cerrar la decisión. El último filtro lo da tu propia tarea, tu proveedor y tu presupuesto.
+
+### Modelos candidatos para junio
+
+> Investigación hecha el 22 de mayo 2026 vía web + **OpenRouter `/v1/models` (fuente primaria)**. ⚠️ Los aggregators de precios (costgoat, pricepertoken, llm-stats) **se contradicen y traen errores de parsing** (uno listó Gemini 3.5 Flash a "$150/1M", GPT-4.1 a $0.10/$0.40). Para precios confiamos en la **API de OpenRouter** o la página oficial del proveedor, NO en aggregators. Igual verificar el ID exacto al momento de agregar. Regla: distinto ID = modelo distinto = se mide.
+
+#### A. Confirmados salidos en mayo 2026 (datos verificados — agregar en junio)
+
+| Modelo | Proveedor | Salió | $ in/out /1M | Notas | Por qué para emprendedores |
+|---|---|---|---|---|---|
+| **Gemini 3.5 Flash** | Google | 19 may | $1.50 / $9.00 | 1M ctx; sucesor del 2.5 Flash | Velocidad+calidad para contenido/agentes — releva al Flash que ya medimos |
+| **Grok 4.3** | xAI | 6 may | $1.25 / $2.50 | 2M ctx | Tool calling + contexto largo; sucesor real de 4.20 (no "Grok 5"). **✅ en config 22 may + Grok 4.20 Multi-Agent ($2/$6) + sub SuperGrok $30 — PENDIENTE correr benchmark** |
+| **Mistral Medium 3.5** | Mistral | 29 abr | TBD (open) | Coding + multilingüe fuerte | Open, coding barato, español |
+| **DeepSeek V4 Flash-Max / Pro-Max** | DeepSeek | 23 abr | TBD (open weights) | Variantes "Max" agentic de V4 | Workhorse open agentic |
+| **GPT-5.4 Nano** | OpenAI | may | ~$0.20 / $1.25 | Tier ultra-barato OpenAI | Baseline OpenAI económico |
+| **GPT-5.5 Instant** | OpenAI | 23 abr | familia 5.5 | Variante low-latency de 5.5 | Latencia para agentes |
+
+> **Nota Grok (22 may 2026)**: OpenRouter lista hoy solo 4 modelos x-ai: `grok-4.20`, `grok-4.20-multi-agent`, `grok-4.3`, `grok-build-0.1`. **`grok-4.1-fast` ya NO aparece** (delistado/renombrado; conserva resultados históricos en el ranking) y **`grok-4.1` full no existe en OpenRouter** → no se pudo agregar la versión completa de 4.1. Se agregaron al config los disponibles: Grok 4.3 + Grok 4.20 Multi-Agent. `grok-build-0.1` ($1/$2, coding) queda como candidato sin agregar.
+
+#### B. Sucesores probables aún SIN confirmar release (vigilar)
+
+| Familia | Candidato | Por qué medirlo | Relevancia para Cristian |
+|---|---|---|---|
+| **MiniMax** | M2.8 / sucesor de M2.7 | Es su sub actual; sucesor directo = re-medir | **Caso activo** — la migración que evalúa |
+| **Xiaomi MiMo** | V3 / V2.6 | V2.5/Pro cubiertos; sub $14 bajo evaluación | **Caso activo** — el modelo del caso de tokens |
+| **Qwen** | Qwen 3.6 **base** (Apache, pesos en HF) | Solo tenemos 3.6 *Plus* (propietario); falta el base abierto | Usa Qwen 3.5 397B en producción — comparar |
+| **DeepSeek** | **R2** (reasoning sucesor de R1) | R1 free quedó viejo; falta reasoning nuevo (V4 ya cubierto) | Razonamiento barato |
+| **Kimi (Moonshot)** | K2.7 | Cada minor = ID nuevo, se mide | Open-weights agentic alternativo |
+| **Mistral** | Devstral 3 | Devstral Small es nuestro top coding; v3 = re-medir | Coding/agentes baratos |
+| **GLM (Z.ai)** | GLM 5.5 | 5/5.1 cubiertos; agentic chino fuerte | Agentes |
+| **Meta Llama** | Llama 4.1 / Behemoth | 4 Scout/Maverick cubiertos (Groq domina nuestro top 5) | Open + Groq |
+| **Anthropic** | Sonnet 4.7 | 4.6 cubierto; baseline premium | Techo de calidad de referencia |
+
+#### C. Gaps de mercado — filtrados por el lente emprendedor
+
+> Tu punto: no todos los gaps valen para ESTE público. Filtrados para LATAM, agentes N8N/OpenClaw, contenido en español, budget real:
+
+| Proveedor | Modelos | Veredicto | Por qué |
+|---|---|---|---|
+| **Cohere** | Command A / R+ | ✅ **Sí (alta)** | Multilingüe fuerte (español), RAG, tool calling nativo — encaja directo con el público |
+| **Amazon Nova** | Pro / Lite / Micro | ✅ Sí (media) | Ultra-barato + AWS; varios emprendedores ya están en AWS |
+| **AI21 Jamba** | 2 Large / Mini | 🟡 Opcional | Solo si aparece caso de docs largos (contratos, libros). NIAH-ES ya cubre long-ctx con GPT-4.1 |
+| **Perplexity Sonar** | Sonar / Pro | 🟡 Opcional | Search-augmented útil para research, pero producto nicho con API limitada |
+| **IBM Granite** | Granite 4 | ❌ No por ahora | Enterprise; poca tracción en la comunidad emprendedora |
+| **OpenAI o3 / o4-mini** | reasoning | ❌ No | GPT-5.x ya cubre OpenAI; thinking es caro y **empeora** multi-turn (hallazgo nuestro) |
+| **Reka / Falcon / Hunyuan** | varios | ❌ No | Nicho, sin demanda en el público objetivo |
+| **Liquid LFM2** | 8B / 24B | → mover a lista **DGX local** | Tiene sentido como local, no como API de pago |
+
+#### D. Phi-4 como modelo: NO incluir (decisión)
+
+Phi-4 es **el juez** del benchmark y toda la metodología se apoya en que Microsoft NO tiene modelos compitiendo → cero conflicto de interés (ver "Por qué Phi-4 como juez" más abajo). Si lo metemos como competidor:
+- Se evaluaría a sí mismo (Phi-4 juzga Phi-4) = **self-enhancement bias**, justo lo que el diseño evita (papers NeurIPS reportan 5-7% de sesgo cuando juez y evaluado comparten origen).
+- El workaround (juzgarlo con Gemma/Haiku) lo deja **no comparable** con el resto del ranking (juzgado por Phi-4).
+
+**Veredicto**: mantener Phi-4 **solo como juez**. Si hay curiosidad genuina, correr un experimento aparte ("Phi-4 concursante juzgado por Gemma"), claramente marcado como no-comparable y fuera del ranking principal.
+
+#### E. Priorización del lote de junio
+
+- **Tier 1 (correr sí o sí)**: Gemini 3.5 Flash, Grok 4.3 (confirmados, sucesores de modelos top nuestros) + **MiniMax M2.8** y **MiMo V3** (tus casos activos) + **Cohere Command A** (gap español).
+- **Tier 2 (si alcanza budget/tiempo)**: Mistral Medium 3.5, DeepSeek V4 Flash-Max/Pro-Max, Qwen 3.6 base, GPT-5.4 Nano, Amazon Nova.
+- **Tier 3 (oportunista)**: Kimi K2.7, Devstral 3, GLM 5.5, Llama 4.1, Sonnet 4.7, GPT-5.5 Instant, AI21 Jamba.
+
+### Higiene de precios — correcciones verificadas APLICADAS (22 may)
+
+> ✅ **Aplicado 22 may 2026**. Se corrigieron en `models.py` + `scoring.py` los precios **verificados vía OpenRouter API**, y se re-scoreó el histórico SOLO de esos modelos con `benchmarks/rescore_costs.py --only "..."` (1.072 runs, 9 modelos). Efecto en el ranking: Opus 4.6 −0.47, Opus 4.7 −0.33 (estaban **sub-costeados**, no sobre-costeados), Qwen 3.6 Plus +0.34, DeepSeek V4 Pro +0.26, Grok 4.20 +0.19, Kimi K2.6 ≈0. **Además el costeo es ahora provider-aware**: `estimate_cost` usa el precio por-entrada del config y el runner lo pasa en cada corrida → el costo depende del proveedor por el que se mide.
+
+| Modelo | Hoy (models.py / scoring.py) | Verificado (OpenRouter API) | Impacto |
+|---|---|---|---|
+| **Claude Opus 4.7** | $15 / $75 (ambos) | **$5 / $25** | **ALTO** — deja de ser "40-100x más caro"; sube fuerte. Reescribe la narrativa de README/INSIGHTS ("Why Opus doesn't top our benchmark") |
+| **DeepSeek V4 Pro** | $1.74 / $3.48 (ambos) | **$0.435 / $0.87** | **ALTO** — 4x más barato; pasa de "medium" a candidato cheap top |
+| **DeepSeek V4 Flash** | $0.14 / $0.28 | $0.112 / $0.224 | Bajo |
+| **Kimi K2.6** | $0.80/$3.50 (models) · **$1.50/$9.00** (scoring) | $0.73 / $3.49 | Medio — scoring.py muy sobre-estimado; models.py casi ok |
+| **Kimi K2** | $0.20/$0.80 (models) · $1.00/$3.00 (scoring) | verificar | Drift interno grande |
+| **GPT-5.4** | $5/$15 (models) · $1.25/$10 (scoring) | verificar | Drift interno |
+| **GPT-5.5** | $5/$30 (models) · $8/$45 (scoring) | ~$5/$30 (web) | Drift interno; models.py parece correcto |
+| **Llama 4 Maverick** | $0.50/$1.00 (models) · $0.40/$2.40 (scoring) | verificar | Drift interno |
+| **Gemini 2.5 Flash Lite** | $0.10/$0.40 (models) · $0.075/$0.30 (scoring) | verificar | Drift interno |
+| **Claude Haiku 4.5** | $1.00/$5.00 (models) · $0.80/$4.00 (scoring) | verificar | Drift interno |
+
+**✅ Hallazgo mayor — RESUELTO con rescore total (v2.7, 22 may)**: al auditar descubrimos que el costo histórico de la **mayoría** de modelos se guardó con el fallback `(1.0, 3.0)` de `PRICING` (corridas previas a que el modelo estuviera en el dict). Efecto: casi todos quedaron con `cost_score ≈ 7.0` → **la dimensión costo (20% del peso) era casi inerte** y el ranking publicado era de facto quality-dominado. Decisión del usuario: aplicar **rescore provider-aware TOTAL** (`python benchmarks/rescore_costs.py`, 7.483 runs). Resultado: el costo por fin discrimina; gratis/NIM/local y open-source baratos suben (Devstral Small #1, Nemotron Omni NIM, Qwen-Next NIM, Gemma), premium bajan (Gemini 2.5 Pro −0.49, GPT-5.4 −0.47, Opus 4.7 → #66/72). Ver CHANGELOG v2.7.0. **Caveat documentado en README/calculadora**: el tier gratis NIM ($0/call) tiene rate-limit 40 RPM — gran C/B para volumen bajo-medio, no para alto throughput.
+
+**Fix de raíz (estado)**:
+1. ✅ `estimate_cost(model, in, out, prices=...)` acepta precio explícito del config (provider-aware); el runner lo pasa → corridas futuras costean por proveedor.
+2. ✅ `benchmarks/rescore_costs.py` reescribe el costo histórico desde el config (fuente única); corrió **total** (v2.7).
+3. ⏳ Pendiente (deuda menor): hacer que `PRICING` derive de `models.py` o un test que falle si difieren + script `update_prices.py` que consulte la API de OpenRouter y proponga diffs (no aggregators) para verificar el resto del catálogo.
+
+### Eje a diseñar: eficiencia operativa ("cost-to-complete")
+
+**Estado: idea aprobada, medición POR DISEÑAR.** No implementar todavía — primero definir cómo medirlo bien (y que sirva tanto a emprendedores tech como no-tech).
+
+**Motivación**: el caso MiMo/MiniMax de arriba. Nuestro componente Cost (20% del score) asume `tokens_per_call = {input:300, output:1500}` **fijo para todos los modelos**. Eso esconde dos cosas que importan en producción:
+1. Un modelo verboso o que sobre-razona gasta 3-5x los tokens para la misma respuesta (caso MiMo → revienta créditos de la sub).
+2. Un modelo agentic puede necesitar más *pasadas* (turnos / tool calls) para llegar al objetivo.
+
+**La tensión a capturar** (planteada por el usuario): *"Opus puede demorarse menos pasadas en hacer algo que MiniMax tarda más — pero con MiniMax puedo hacer eso y mucho más."* Hay un frontier, no un ganador único:
+- **Capacidad-por-pasada**: modelos premium (Opus, GPT-5.x) terminan en menos turnos → menos fricción y a veces menos tokens totales.
+- **Volumen-por-presupuesto**: modelos baratos / de suscripción necesitan más turnos, pero alcanzan para muchas más tareas con el mismo gasto.
+
+El "mejor" depende de dónde caés en ese frontier para TU workload — y eso es justo lo que el benchmark debe ayudar a ubicar, no decidir por vos.
+
+**Candidatos de métrica (a pilotear, ninguno decidido)**:
+1. **`turns_to_completion`** — en una tarea agentic de objetivo abierto, ¿cuántos turnos / tool calls necesitó hasta cumplir el objetivo (o rendirse)? Requiere tests con criterio de éxito binario + tope de turnos. El runner ya tiene `multi_turn_script`, pero con turnos fijos — habría que agregar un modo "objetivo abierto / hasta lograrlo".
+2. **`tokens_to_completion`** — tokens reales end-to-end (input + output + reasoning) para resolver la tarea, NO por-call. Reemplaza el supuesto fijo de 1500. Captura directo el problema MiMo.
+3. **`tasks_per_budget`** — dado $X (o N créditos de sub), ¿cuántas tareas completas rinde cada modelo? = presupuesto / cost-to-complete real. Operacionaliza el "con MiniMax hago eso y mucho más".
+4. **Proxy para no-tech** — etiqueta simple por modelo: *"suele resolver al primer intento / necesita 2-3 / itera mucho"* + *"con $20/mes te alcanza para ~N tareas de este tipo"*. En la calculadora: slider de presupuesto → "tareas estimadas/mes" por modelo.
+
+**Preguntas abiertas antes de implementar**:
+- ¿Cómo definimos "tarea completada" sin humano en el loop? → rúbrica binaria por test, como ya hacemos en `agent_long_horizon`.
+- ¿Los reasoning tokens cuentan? → **Sí**: se facturan y son justo lo que hace caro a Opus "en pocas pasadas". Hay que sumarlos.
+- Costo/varianza: los tests open-ended son caros y el pilar Agentes ya mostró alta varianza intra-modelo (INSIGHTS §13). Piloto chico primero.
+- ¿Métrica nueva o re-pesar Cost? → probablemente **dimensión nueva** (`efficiency`) + opción en la calculadora, sin romper el score histórico.
+
+**Piloto propuesto (S effort, ~$10-20)**:
+- 3-5 tareas open-ended con criterio de éxito (1 coding-debug, 1 contenido-iterativo, 1 agente-N8N, 1 research).
+- Modelos: top 10 compuesto + **MiniMax M2.7 + MiMo V2.5 + Opus 4.7** (los 3 del caso real).
+- Reportar: `turns_to_completion`, `tokens_to_completion`, `tasks_per_$20`, `completion_rate`.
+- Hallazgo esperado: MiMo/MiniMax ganan en `tasks_per_$` pero pueden perder en `completion_rate`/`turns`; Opus gana en turns/completion pero pierde en volumen. **Mostrar ese trade-off explícito ES el aporte** — no coronar un único "mejor".
 
 ---
 
