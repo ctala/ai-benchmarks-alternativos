@@ -545,7 +545,7 @@ PRICING = {
     # ====== DeepSeek ======
     "deepseek-chat": (0.252, 0.378),  # V3.2 actualizado abril 2026
     "deepseek/deepseek-chat": (0.252, 0.378),
-    "deepseek/deepseek-v4-flash": (0.112, 0.224),  # corregido may 2026 (OpenRouter API)
+    "deepseek/deepseek-v4-flash": (0.098, 0.197),  # re-verificado 1 jun 2026 (OpenRouter API)
     "deepseek/deepseek-v4-pro": (0.435, 0.87),     # corregido may 2026 (era 1.74/3.48, 4x sobreprecio)
     "deepseek-reasoner": (0.0, 0.0),
     "deepseek/deepseek-reasoner": (0.0, 0.0),
@@ -628,6 +628,18 @@ PRICING = {
     "llama3.3": (0.0, 0.0),
     "qwen3.5": (0.0, 0.0),
     "deepseek-coder-v2": (0.0, 0.0),
+    # Tags reales instalados en DGX Spark (sweep 1 jun 2026).
+    # Corren gratis en local, pero el costo del ranking usa el precio OpenRouter
+    # del mismo modelo (instrucción del usuario: comparaciones a costo OpenRouter).
+    # Verificado vía OpenRouter /api/v1/models el 1 jun 2026.
+    "qwen3.5:35b": (0.0, 0.0),            # sin equivalente exacto en OpenRouter → local $0
+    "qwen3.6:27b": (0.29, 3.20),          # qwen/qwen3.6-27b
+    "qwen3.6:35b": (0.14, 1.00),          # qwen/qwen3.6-35b-a3b
+    "qwen3-coder-next:q4_K_M": (0.11, 0.80),  # qwen/qwen3-coder-next
+    "qwen2.5:72b": (0.36, 0.40),          # qwen/qwen-2.5-72b-instruct
+    "gemma4:31b": (0.30, 0.60),           # google/gemma-4-31b-it (ya en config OR)
+    "nemotron3:33b-q4_K_M": (0.10, 0.50), # equiv Nemotron Super OR
+    "nemotron-3-super:120b": (0.10, 0.50),# nvidia/nemotron-3-super-120b-a12b
 }
 
 
