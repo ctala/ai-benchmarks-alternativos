@@ -108,6 +108,14 @@ MODELS = {
         "cost_output": 1.20,
         "tier": "cheap",
     },
+    "minimax-m3": {
+        "id": "minimax/minimax-m3",
+        "name": "MiniMax M3",
+        "cost_input": 0.30,
+        "cost_output": 1.20,
+        "tier": "cheap",
+        "notes": "Lanzado 1 jun 2026 (https://www.minimax.io/models/text/m3). Sucesor de M2.7 — caso activo de Cristian (sub MiniMax). Contexto 1M (vs 200k de M2.7), mismo precio $0.30/$1.20. Verificado vía OpenRouter API 1 jun 2026.",
+    },
     # MiniMax M2.7 Highspeed requiere API directa de MiniMax (no OpenRouter)
     # Configurar MINIMAX_API_KEY abajo para habilitarlo
     "minimax-m2.7-direct": {
