@@ -1,13 +1,13 @@
 ---
 title: "Insights del benchmark — qué dice la data, no el marketing"
-fecha: "2026-05-22"
-version_benchmark: "v2.7"
-modelos_analizados: 72
-modelos_catalogados: 113
+fecha: "2026-06-02"
+version_benchmark: "v2.8"
+modelos_analizados: 80
+modelos_catalogados: 127
 runs_minimas_por_modelo: 50
-tests_por_modelo: "91 single-turn + 12 agent_long_horizon + 45 niah_es_lite"
-pilares: ["Razonamiento", "Coding", "Contenido/Marketing", "Agentes/Operaciones", "Long-context retrieval"]
-juez_llm: "Phi-4 (Microsoft, 14B, MIT) via Ollama local"
+tests_por_modelo: "91 single-turn + 12 agent_long_horizon + niah_es (8K–800K) + prompt_injection_es"
+pilares: ["Razonamiento", "Coding", "Contenido/Marketing", "Agentes/Operaciones", "Long-context (usable)", "Seguridad (anti-fuga)"]
+juez_llm: "Phi-4 (Microsoft, 14B, MIT) — vLLM FP16 en DGX Spark"
 audiencia: "Emprendedores latinoamericanos que toman decisiones de producción HOY"
 fuente_datos: "docs/data/models.json + benchmarks/results/*.json"
 pesos_score: {quality: 0.50, cost: 0.20, tool_calling: 0.15, speed: 0.075, latency: 0.075}
@@ -21,6 +21,25 @@ total_runs: "9,390 single-turn (+ NIAH-ES y multi-turn integrados en quality)"
 Este es el análisis cuantitativo del benchmark `ai-benchmarks-alternativos` al **22 de mayo de 2026** (v2.7). 72 modelos con cobertura ≥50 runs, 91 tests single-turn + 12 multi-turno + 45 retrieval long-context, juez Phi-4 local. La pregunta que respondemos no es "cuál es el mejor modelo", sino: **qué patrones aparecen en la data cuando se comparan precio, velocidad, capacidades, retrieval y proveedor a la vez, en español neutro LATAM**.
 
 > 🔄 **Rescore de costo provider-aware (v2.7, 22 may 2026)**: hasta v2.6.x la mayoría de runs tenía el costo calculado con un fallback `(1.0, 3.0)` → `cost_score≈7.0` para casi todos los modelos → **el costo (20% del peso) era casi inerte** y el ranking era de facto solo-calidad. En v2.7 se recalculó `cost_usd`/`cost_score`/`final` de **7.483 runs** con el precio real por proveedor (`benchmarks/models.py`) × tokens reales. **Sólo cambiaron esos 3 campos**; `quality_avg`, `tool_calling`, `speed` y `latency` NO cambiaron. Efecto: el costo ahora **discrimina de verdad** y reordena el ranking. Lo gratis/barato (NIM, Groq, open-source local) sube; lo premium-caro baja (Gemini 2.5 Pro, GPT-5.4 y Sonnet 4.6 caen ~0.25–0.49 puntos; **Opus 4.7 baja a #66/72**). Todas las tablas de este documento ya reflejan el estado **post-v2.7** calculado desde `docs/data/models.json`. Ver [CHANGELOG v2.7.0](CHANGELOG.md) y [README](README.md) para el ranking vigente.
+
+---
+
+## 🌟 Insight estrella de junio (v2.8): cómo un benchmark de long-context en español puede mentirte de 5 formas
+
+El hallazgo más valioso de junio no es sobre un modelo — es sobre **nuestra propia medición**. Creíamos medir *retrieval de contexto largo en español*. Descubrimos, capa por capa, que la suite NIAH-es **mentía de 5 formas distintas**. Vale como caso de estudio de por qué hay que auditar tu propio benchmark:
+
+1. **Needles-secreto → medías fuga, no retrieval.** Los needles eran credenciales ("API key — NO COMPARTIR"). Los modelos seguros **rehúsan** (el juez los premia); los que extraen el dato son penalizados por "filtrar". MiniMax M3 "lideraba" long-context por rehusar, no por su contexto. → needles neutros.
+2. **NIAH lumped en el score general** (~54% del conteo de tests, medido desigual entre modelos) → distorsionaba el ranking. → dimensión separada. **DeepSeek V4 Flash saltó #63 → #9.**
+3. **El juez no ve el needle** (recibe `prompt_preview[:500]`, el needle está al 25–75% de 8K–800K) → marca extracciones correctas como alucinación. → niah se puntúa solo con el regex de extracción (DeepSeek 8K: 4.96 → 8.6).
+4. **La heurística 4 char/token excedía la ventana** (1M → ~1.14M reales → error 400). → tramo top 800K + cada modelo medido hasta su `context_window` real (skip de tamaños mayores).
+5. **Needles distintos por tamaño → rankings FALSOS.** La grilla escalonada usa más needles abajo; promediar por tamaño mezclaba needles → "Gemini 3.5 peor que 2.5 Lite", "zigzag DeepSeek" eran **artefactos del needle**. → la curva usa solo needles comunes a todos los tamaños.
+
+**La verdad con medición limpia**: sobre needles neutros, **todos los modelos top retrievean ~10 en todos los tamaños hasta su techo. El NIAH-es neutro NO discrimina.** Los diferenciadores reales son:
+
+- **Contexto USABLE** (`effective_context`, declarado ≠ usable): Gemini 2.5/3.5 Flash Lite, DeepSeek V4 Flash y Llama 4 Maverick llegan a **800K**; **MiniMax M3 declara 1M pero erorea a 800K → usable 512K** (OR: 256K).
+- **Seguridad** (anti-fuga de credenciales, suite `prompt_injection_es`): **Opus 4.8 8.79** y **MiniMax M3 ~8.05 rehúsan**; DeepSeek/Gemini/Llama/Qwen/Nemotron **~1.7–2.0 filtran** el secreto. Los premium NO filtran; los cheap sí.
+
+> **Lección para cualquiera que construye un benchmark**: el needle, el scoring, el juez, la heurística de tokens y la grilla — cada uno puede inyectar un sesgo que parece un hallazgo. Auditá cada respuesta individual antes de publicar un ranking. Ver [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
 
 ---
 

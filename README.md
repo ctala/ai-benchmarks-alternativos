@@ -1,6 +1,6 @@
 # Benchmark de Modelos AI Alternativos: comparación abierta de 70 LLMs en español para N8N, OpenClaw y emprendedores
 
-**Version 2.7.0** | Ultima actualizacion: 22 de Mayo de 2026 | [📊 Datasheet mayo](DATASHEET_2026-05.md) · [📊 Datasheet abril](DATASHEET_2026-04.md) · [📄 CheatSheet PDF mayo](cheatsheet/AI_Model_Benchmark_CheatSheet_Mayo_2026.pdf)
+**Version 2.8.0** | Ultima actualizacion: 2 de Junio de 2026 | [📊 Datasheet junio](DATASHEET_2026-06.md) · [📊 Datasheet mayo](DATASHEET_2026-05.md) · [📄 CheatSheet PDF mayo](cheatsheet/AI_Model_Benchmark_CheatSheet_Mayo_2026.pdf)
 
 > **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con 8,000+ tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N, OpenClaw o Hermes con presupuestos reales.
 
@@ -10,7 +10,7 @@
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw, N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes) y la nueva suite **`agent_long_horizon`** que mide capacidades agénticas en multi-turno largo (lo que el single-turn no captura).
 
-**Cobertura actual**: 72 modelos con ≥50 runs cada uno, 9,400+ runs ejecutados, juez Phi-4 (v2.7 = **rescore de costo provider-aware**: el costo ahora se calcula con el precio real por proveedor del config — antes la mayoría de runs usaba un fallback `(1.0,3.0)` que dejaba la dimensión costo casi inerte. Ahora el componente costo del score discrimina de verdad).
+**Cobertura actual**: 80 modelos con ≥50 runs (127 catalogados), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
 
 ## Score = combinación ponderada (NO solo calidad)
 
@@ -47,18 +47,27 @@ Por eso modelos académicamente top (Opus con HumanEval 88+, MMLU 90+, GPQA 94+)
 >
 > **Cambio v2.7** (se mantiene): rescore de costo provider-aware — el componente costo (20%) por fin discrimina; gratis (NIM 40rpm, local DGX) y open-source barato suben, premium caros bajan.
 
-### 🔍 Dimensión `niah_es` — ⚠️ mide resistencia a fuga de credenciales, NO retrieval
+### 🔍 Long-context + Seguridad (dimensiones separadas — v2.8)
 
-> **Hallazgo (2 jun 2026): la suite `niah_es` está confundida.** Los needles se diseñaron como **secretos** (`API key`, `CREDENCIAL DE PRODUCCIÓN — NO COMPARTIR`, códigos de descuento). Eso convirtió el test, sin querer, en uno de **resistencia a inyección de prompt / fuga de credenciales**, no de retrieval de contexto largo. El juez Phi-4 premia al modelo que **rehúsa** ("no voy a revelar esa credencial") y penaliza al que **extrae** el dato — aunque el que extrae demostró el retrieval perfecto.
->
-> **Evidencia**: con el mismo needle (API key a 16K ctx), **DeepSeek V4 Flash extrajo el valor exacto** → quality 3.64 (juez lo trata como fuga); **MiniMax M3 rehusó** → quality 7.98. Por eso M3 "lideraba" long-context: gana por NO filtrar, no por su ventana de 1M.
->
-> **Acción**: `niah_es` se rediseña con **needles neutros** (un hecho, no un secreto) para medir retrieval puro; el ángulo de inyección/fuga se conserva como **suite de seguridad aparte e intencional**. Hasta entonces, esta dimensión NO entra al ranking y se interpreta como señal de *seguridad*, no de contexto largo.
+> **Junio 2026: descubrimos que nuestra suite NIAH-es mentía de [5 formas](DATASHEET_2026-06.md)** (needles diseñados como secretos → medía fuga; lumping en el score; el juez no ve el needle; heurística de tokens que excedía el contexto; needles distintos por tamaño que creaban rankings falsos). Tras arreglar las 5, la verdad limpia: **sobre needles neutros, todos los modelos top retrievean ~10 en todos los tamaños hasta su techo. El NIAH-es no discrimina.** Los diferenciadores reales son otros dos:
 
-| # | Modelo | "niah_es" (= resistencia a fuga) | Runs |
-|---|---|---:|---:|
-| 1 | **MiniMax M3** (sub/directo) 🆕 | 8.37 (rehúsa filtrar) | 105 |
-| — | DeepSeek V4 Flash / Qwen 3.6 | ~3.6 (extraen → "filtran") | 54 |
+**📏 Contexto USABLE** (declarado ≠ usable):
+
+| Modelo | Declarado | Usable real |
+|---|---|---|
+| Gemini 2.5/3.5 Flash Lite, DeepSeek V4 Flash, Llama 4 Maverick | 1M | **800K** ✅ |
+| **MiniMax M3** (directo/sub) | **1M** | **512K** ⚠️ (erorea a 800K) |
+| MiniMax M3 (OpenRouter) | 1M | **256K** ⚠️ |
+
+**🛡️ Seguridad** (resistencia a fuga de credenciales, suite `prompt_injection_es`):
+
+| Modelo | Seguridad | Comportamiento |
+|---|---|---|
+| **Claude Opus 4.8** | **8.79** 🥇 | rehúsa filtrar el secreto |
+| MiniMax M3 (OR + sub) | 8.04–8.07 | rehúsa |
+| DeepSeek / Gemini / Llama / Qwen / Nemotron | **~1.7–2.0** | **filtran** el secreto plantado |
+
+> **Premium NO filtra credenciales; cheap sí.** Si tu agente procesa documentos con datos sensibles, este eje pesa — y es invisible en cualquier ranking de calidad/costo.
 
 > ⚠️ **Caveat del tier gratis**: NIM ($0/call) tiene **rate-limit 40 RPM** — excelente costo/beneficio para volumen bajo-medio y para benchmarks, pero NO necesariamente la mejor opción para alto throughput en producción. Si te importa volumen, mirá también las opciones pagas baratas (Devstral, Llama Groq).
 
@@ -448,7 +457,7 @@ Organizadas en los 4 pilares del emprendedor:
 
 ## Resultados (Abril 2026) — Scoring v2 + Phi-4 Judge
 
-> Ranking completo con **27 modelos × 91 tests = 2457 corridas** evaluadas por Phi-4 (Microsoft, 14B, MIT) local via Ollama. Juez sin conflicto de interés. Total cómputo: **~65h wall-clock** distribuidas en 30 lotes (22-25 abril).
+> Ranking completo con **27 modelos × 91 tests = 2457 corridas** evaluadas por Phi-4 (Microsoft, 14B, MIT) local via Ollama. Juez sin conflicto de interés. Total cómputo: **~65h wall-clock** distribuidas en 31 lotes (22-25 abril).
 >
 > JSON: `benchmark_20260422_204025.json` (Lote 1) + `benchmark_20260423_051248.json` (Lote 2) + `benchmark_20260424_053942.json` (Lote 3). Detalle por modelo navegable en [`results/per-model/`](benchmarks/results/per-model/).
 
