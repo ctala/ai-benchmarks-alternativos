@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T07:41:53",
+  "generated_at": "2026-06-02T14:28:00",
   "total_models": 127,
   "tested_count": 80,
   "tokens_per_call_assumption": {
@@ -682,8 +682,9 @@
         "sales_outreach": 8.25,
         "translation": 8.21,
         "agent_long_horizon": 7.9,
-        "niah_es": 4.7,
-        "niah_es_lite": 4.99
+        "niah_es": 6.65,
+        "niah_es_lite": 4.99,
+        "prompt_injection_es": 4.31
       },
       "quality_avg": 8.34,
       "cost_score_avg": 9.37,
@@ -695,18 +696,22 @@
       "latency_avg_s": 27.64,
       "total_input_tokens": 171757,
       "total_output_tokens": 227357,
-      "long_context_runs": 105,
-      "long_context_quality": 3.7,
-      "long_context_score": 4.82,
+      "long_context_runs": 219,
+      "long_context_quality": 6.98,
+      "long_context_score": 6.31,
       "long_context_by_size": {
         "4000": 3.82,
+        "8000": 10.0,
         "16000": 3.63,
-        "64000": 3.67,
-        "256000": 3.65
+        "64000": 6.84,
+        "128000": 10.0,
+        "256000": 6.47,
+        "512000": 10.0,
+        "800000": 10.0
       },
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "effective_context": 800000,
+      "security_runs": 40,
+      "security_score": 2.06
     },
     {
       "key": "hermes-4-70b",
@@ -827,7 +832,9 @@
         "policy_adherence": 8.03,
         "strategy": 7.77,
         "sales_outreach": 8.47,
-        "translation": 8.51
+        "translation": 8.51,
+        "niah_es": 7.66,
+        "prompt_injection_es": 4.39
       },
       "quality_avg": 7.79,
       "cost_score_avg": 9.34,
@@ -839,13 +846,20 @@
       "latency_avg_s": 3.94,
       "total_input_tokens": 40134,
       "total_output_tokens": 129841,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "long_context_runs": 114,
+      "long_context_quality": 9.88,
+      "long_context_score": 7.66,
+      "long_context_by_size": {
+        "8000": 9.75,
+        "64000": 9.95,
+        "128000": 9.85,
+        "256000": 10.0,
+        "512000": 10.0,
+        "800000": 10.0
+      },
+      "effective_context": 800000,
+      "security_runs": 40,
+      "security_score": 1.86
     },
     {
       "key": "gemini-3.1-flash-lite",
@@ -1620,7 +1634,9 @@
         "strategy": 7.95,
         "sales_outreach": 7.95,
         "translation": 7.49,
-        "agent_long_horizon": 7.66
+        "agent_long_horizon": 7.66,
+        "niah_es": 7.2,
+        "prompt_injection_es": 3.74
       },
       "quality_avg": 8.19,
       "cost_score_avg": 9.58,
@@ -1632,13 +1648,17 @@
       "latency_avg_s": 139.35,
       "total_input_tokens": 293775,
       "total_output_tokens": 129546,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "long_context_runs": 45,
+      "long_context_quality": 9.93,
+      "long_context_score": 7.2,
+      "long_context_by_size": {
+        "8000": 10.0,
+        "64000": 10.0,
+        "128000": 9.78
+      },
+      "effective_context": 128000,
+      "security_runs": 20,
+      "security_score": 1.82
     },
     {
       "key": "nim-gemma-4-31b",
@@ -1689,7 +1709,9 @@
         "strategy": 7.95,
         "sales_outreach": 7.95,
         "translation": 7.49,
-        "agent_long_horizon": 7.66
+        "agent_long_horizon": 7.66,
+        "niah_es": 7.2,
+        "prompt_injection_es": 3.74
       },
       "quality_avg": 8.19,
       "cost_score_avg": 9.58,
@@ -1701,13 +1723,17 @@
       "latency_avg_s": 139.35,
       "total_input_tokens": 293775,
       "total_output_tokens": 129546,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "long_context_runs": 45,
+      "long_context_quality": 9.93,
+      "long_context_score": 7.2,
+      "long_context_by_size": {
+        "8000": 10.0,
+        "64000": 10.0,
+        "128000": 9.78
+      },
+      "effective_context": 128000,
+      "security_runs": 20,
+      "security_score": 1.82
     },
     {
       "key": "qwen3-coder-next",
@@ -1759,8 +1785,9 @@
         "sales_outreach": 7.86,
         "translation": 8.07,
         "agent_long_horizon": 7.33,
-        "niah_es": 4.4,
-        "niah_es_lite": 4.5
+        "niah_es": 5.76,
+        "niah_es_lite": 4.5,
+        "prompt_injection_es": 3.61
       },
       "quality_avg": 8.22,
       "cost_score_avg": 7.03,
@@ -1772,17 +1799,19 @@
       "latency_avg_s": 14.47,
       "total_input_tokens": 280397,
       "total_output_tokens": 143223,
-      "long_context_runs": 90,
-      "long_context_quality": 3.7,
-      "long_context_score": 4.45,
+      "long_context_runs": 135,
+      "long_context_quality": 5.8,
+      "long_context_score": 5.34,
       "long_context_by_size": {
         "4000": 3.69,
+        "8000": 10.0,
         "16000": 3.73,
-        "64000": 3.68
+        "64000": 5.79,
+        "128000": 10.0
       },
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "effective_context": 128000,
+      "security_runs": 20,
+      "security_score": 1.78
     },
     {
       "key": "mimo-v2-omni-xiaomi",
@@ -2679,7 +2708,9 @@
         "policy_adherence": 7.52,
         "strategy": 7.38,
         "sales_outreach": 7.96,
-        "translation": 7.95
+        "translation": 7.95,
+        "niah_es": 7.21,
+        "prompt_injection_es": 3.96
       },
       "quality_avg": 7.93,
       "cost_score_avg": 8.74,
@@ -2691,13 +2722,20 @@
       "latency_avg_s": 13.17,
       "total_input_tokens": 31998,
       "total_output_tokens": 72629,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "long_context_runs": 114,
+      "long_context_quality": 9.78,
+      "long_context_score": 7.21,
+      "long_context_by_size": {
+        "8000": 9.83,
+        "64000": 9.75,
+        "128000": 9.75,
+        "256000": 9.75,
+        "512000": 10.0,
+        "800000": 9.5
+      },
+      "effective_context": 800000,
+      "security_runs": 40,
+      "security_score": 1.8
     },
     {
       "key": "gemini-flash",
@@ -3309,8 +3347,9 @@
         "sales_outreach": 7.68,
         "translation": 7.77,
         "agent_long_horizon": 6.52,
-        "niah_es": 6.59,
-        "niah_es_lite": 6.87
+        "niah_es": 7.12,
+        "niah_es_lite": 6.87,
+        "prompt_injection_es": 6.87
       },
       "quality_avg": 8.47,
       "cost_score_avg": 7.21,
@@ -3322,18 +3361,21 @@
       "latency_avg_s": 104.65,
       "total_input_tokens": 339970,
       "total_output_tokens": 267894,
-      "long_context_runs": 105,
-      "long_context_quality": 8.37,
-      "long_context_score": 6.71,
+      "long_context_runs": 215,
+      "long_context_quality": 9.2,
+      "long_context_score": 7.07,
       "long_context_by_size": {
         "4000": 7.76,
+        "8000": 10.0,
         "16000": 8.58,
-        "64000": 8.65,
-        "256000": 8.55
+        "64000": 9.33,
+        "128000": 10.0,
+        "256000": 9.2,
+        "512000": 10.0
       },
-      "effective_context": 256000,
-      "security_runs": 0,
-      "security_score": null
+      "effective_context": 512000,
+      "security_runs": 40,
+      "security_score": 8.04
     },
     {
       "key": "hermes-4-405b",
@@ -3450,8 +3492,9 @@
         "sales_outreach": 7.62,
         "translation": 7.42,
         "agent_long_horizon": 6.65,
-        "niah_es": 5.58,
-        "niah_es_lite": 5.87
+        "niah_es": 6.78,
+        "niah_es_lite": 5.87,
+        "prompt_injection_es": 6.88
       },
       "quality_avg": 8.37,
       "cost_score_avg": 7.37,
@@ -3463,18 +3506,20 @@
       "latency_avg_s": 86.82,
       "total_input_tokens": 261919,
       "total_output_tokens": 215807,
-      "long_context_runs": 105,
-      "long_context_quality": 6.36,
-      "long_context_score": 5.71,
+      "long_context_runs": 207,
+      "long_context_quality": 8.15,
+      "long_context_score": 6.59,
       "long_context_by_size": {
         "4000": 6.38,
+        "8000": 10.0,
         "16000": 6.5,
-        "64000": 6.38,
-        "256000": 6.0
+        "64000": 8.19,
+        "128000": 10.0,
+        "256000": 7.78
       },
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "effective_context": 256000,
+      "security_runs": 40,
+      "security_score": 8.07
     },
     {
       "key": "grok-4.20",
@@ -3594,8 +3639,9 @@
         "sales_outreach": 7.39,
         "translation": 7.28,
         "agent_long_horizon": 6.8,
-        "niah_es": 4.41,
-        "niah_es_lite": 4.66
+        "niah_es": 5.85,
+        "niah_es_lite": 4.66,
+        "prompt_injection_es": 3.77
       },
       "quality_avg": 8.19,
       "cost_score_avg": 5.72,
@@ -3607,17 +3653,19 @@
       "latency_avg_s": 18.16,
       "total_input_tokens": 166186,
       "total_output_tokens": 296122,
-      "long_context_runs": 90,
-      "long_context_quality": 3.61,
-      "long_context_score": 4.54,
+      "long_context_runs": 135,
+      "long_context_quality": 5.64,
+      "long_context_score": 5.46,
       "long_context_by_size": {
         "4000": 3.59,
+        "8000": 9.7,
         "16000": 3.62,
-        "64000": 3.62
+        "64000": 5.65,
+        "128000": 9.7
       },
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "effective_context": 128000,
+      "security_runs": 20,
+      "security_score": 1.7
     },
     {
       "key": "gpt-4.1",
@@ -4157,8 +4205,9 @@
         "sales_outreach": 7.36,
         "translation": 7.29,
         "agent_long_horizon": 6.81,
-        "niah_es": 4.48,
-        "niah_es_lite": 4.42
+        "niah_es": 5.28,
+        "niah_es_lite": 4.42,
+        "prompt_injection_es": 3.58
       },
       "quality_avg": 8.69,
       "cost_score_avg": 5.91,
@@ -4170,17 +4219,19 @@
       "latency_avg_s": 142.41,
       "total_input_tokens": 209432,
       "total_output_tokens": 319410,
-      "long_context_runs": 90,
-      "long_context_quality": 4.26,
-      "long_context_score": 4.45,
+      "long_context_runs": 131,
+      "long_context_quality": 5.14,
+      "long_context_score": 4.98,
       "long_context_by_size": {
         "4000": 4.36,
+        "8000": 10.0,
         "16000": 4.83,
-        "64000": 3.61
+        "64000": 5.64,
+        "128000": 0.0
       },
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "effective_context": 8000,
+      "security_runs": 20,
+      "security_score": 2.12
     },
     {
       "key": "mistral-large",
@@ -4300,8 +4351,9 @@
         "sales_outreach": 7.2,
         "translation": 7.25,
         "agent_long_horizon": 6.76,
-        "niah_es": 4.19,
-        "niah_es_lite": 4.28
+        "niah_es": 5.62,
+        "niah_es_lite": 4.28,
+        "prompt_injection_es": 3.46
       },
       "quality_avg": 8.21,
       "cost_score_avg": 5.61,
@@ -4313,17 +4365,19 @@
       "latency_avg_s": 65.04,
       "total_input_tokens": 190337,
       "total_output_tokens": 348547,
-      "long_context_runs": 90,
-      "long_context_quality": 3.63,
-      "long_context_score": 4.23,
+      "long_context_runs": 135,
+      "long_context_quality": 5.71,
+      "long_context_score": 5.17,
       "long_context_by_size": {
         "4000": 3.76,
+        "8000": 9.8,
         "16000": 3.49,
-        "64000": 3.65
+        "64000": 5.74,
+        "128000": 9.9
       },
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "effective_context": 128000,
+      "security_runs": 20,
+      "security_score": 1.7
     },
     {
       "key": "qwen-3.6-plus",
@@ -4441,7 +4495,9 @@
         "agent_capabilities": 4.43,
         "strategy": 7.42,
         "sales_outreach": 7.72,
-        "translation": 7.72
+        "translation": 7.72,
+        "niah_es": 6.81,
+        "prompt_injection_es": 3.78
       },
       "quality_avg": 7.17,
       "cost_score_avg": 8.97,
@@ -4453,13 +4509,17 @@
       "latency_avg_s": 46.1,
       "total_input_tokens": 35068,
       "total_output_tokens": 96589,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "long_context_runs": 45,
+      "long_context_quality": 8.64,
+      "long_context_score": 6.81,
+      "long_context_by_size": {
+        "8000": 8.81,
+        "64000": 8.32,
+        "128000": 8.8
+      },
+      "effective_context": 128000,
+      "security_runs": 20,
+      "security_score": 1.69
     },
     {
       "key": "minimax-m2.7",
@@ -4615,13 +4675,13 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
-      "runs": 83,
+      "runs": 101,
       "score_global": 6.78,
       "score_by_pillar": {
-        "Contenido": 6.74,
+        "Contenido": 6.78,
         "Agentes": 6.82,
         "Coding": 6.71,
-        "Razonamiento": 6.84
+        "Razonamiento": 6.87
       },
       "score_by_suite": {
         "content_generation": 7.03,
@@ -4644,18 +4704,21 @@
         "multi_turn": 6.44,
         "policy_adherence": 7.0,
         "agent_capabilities": 6.46,
-        "strategy": 6.58
+        "strategy": 6.92,
+        "sales_outreach": 7.16,
+        "translation": 6.7,
+        "agent_long_horizon": 6.69
       },
-      "quality_avg": 8.49,
-      "cost_score_avg": 4.56,
+      "quality_avg": 8.62,
+      "cost_score_avg": 4.32,
       "speed_score_avg": 6.0,
-      "latency_score_avg": 1.05,
-      "tool_calling_score_avg": 7.26,
-      "judge_score_avg": 4.46,
-      "tokens_per_second": 39.5,
-      "latency_avg_s": 73.17,
-      "total_input_tokens": 30387,
-      "total_output_tokens": 240277,
+      "latency_score_avg": 1.06,
+      "tool_calling_score_avg": 7.21,
+      "judge_score_avg": 4.5,
+      "tokens_per_second": 39.1,
+      "latency_avg_s": 105.37,
+      "total_input_tokens": 228098,
+      "total_output_tokens": 408755,
       "long_context_runs": 0,
       "long_context_quality": null,
       "long_context_score": null,
@@ -5367,7 +5430,9 @@
         "presentation": 6.78,
         "startup_content": 6.95,
         "creativity": 6.75,
-        "strategy": 6.13
+        "strategy": 6.13,
+        "niah_es": 6.88,
+        "prompt_injection_es": 3.62
       },
       "quality_avg": 7.68,
       "cost_score_avg": 5.48,
@@ -5379,13 +5444,17 @@
       "latency_avg_s": 117.96,
       "total_input_tokens": 52060,
       "total_output_tokens": 556926,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "long_context_runs": 45,
+      "long_context_quality": 9.71,
+      "long_context_score": 6.88,
+      "long_context_by_size": {
+        "8000": 9.7,
+        "64000": 9.63,
+        "128000": 9.8
+      },
+      "effective_context": 128000,
+      "security_runs": 20,
+      "security_score": 2.42
     },
     {
       "key": "gpt-5.4",
