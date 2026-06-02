@@ -322,15 +322,23 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     else:
         auto_quality = content_score
 
-    # LLM-as-Judge (si esta habilitado)
+    # niah_extraction es exact-match (retrieval): el juez NO ve el needle (está
+    # enterrado en 8K-1M de contexto y el rubric lo trunca a 500 chars) → marca
+    # extracciones CORRECTAS como alucinación y hunde el score. Para niah se
+    # puntúa SOLO con el regex de extracción (sin juez ni formato). Hallazgo 2 jun.
+    is_niah = answer_type == "niah_extraction"
+
+    # LLM-as-Judge (si esta habilitado) — saltear para niah
     judge_result = None
     judge_quality = -1.0
-    if judge and result.success and result.response:
+    if judge and result.success and result.response and not is_niah:
         judge_result = judge.evaluate(result.response, test, suite_name)
         judge_quality = judge_score_to_10(judge_result)
 
     # Combinar scores
-    if judge_quality >= 0:
+    if is_niah:
+        quality = answer_score  # retrieval puro: solo el regex de extracción
+    elif judge_quality >= 0:
         # Con juez: 30% automatico + 70% juez
         quality = auto_quality * 0.3 + judge_quality * 0.7
     else:
