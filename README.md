@@ -448,7 +448,7 @@ Organizadas en los 4 pilares del emprendedor:
 
 ## Resultados (Abril 2026) — Scoring v2 + Phi-4 Judge
 
-> Ranking completo con **27 modelos × 91 tests = 2457 corridas** evaluadas por Phi-4 (Microsoft, 14B, MIT) local via Ollama. Juez sin conflicto de interés. Total cómputo: **~65h wall-clock** distribuidas en 27 lotes (22-25 abril).
+> Ranking completo con **27 modelos × 91 tests = 2457 corridas** evaluadas por Phi-4 (Microsoft, 14B, MIT) local via Ollama. Juez sin conflicto de interés. Total cómputo: **~65h wall-clock** distribuidas en 30 lotes (22-25 abril).
 >
 > JSON: `benchmark_20260422_204025.json` (Lote 1) + `benchmark_20260423_051248.json` (Lote 2) + `benchmark_20260424_053942.json` (Lote 3). Detalle por modelo navegable en [`results/per-model/`](benchmarks/results/per-model/).
 

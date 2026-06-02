@@ -79,6 +79,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `nvidia/nemotron-3-super-120b-a12b` | ✅ NVIDIA Open | $0.1/0.5 | **6.83** | 91 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-super-120b-a12b.md) | — |
 | `minimax/minimax-m2.7` | ?  | $0.3/1.2 | **6.82** | 167 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_7.md) | — |
 | `xiaomi/mimo-v2-pro` | ❌ Proprietary | $1.0/3.0 | **6.80** | 91 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2-pro.md) | [responses](benchmarks/results/responses/20260429_165839/) |
+| `qwen/qwen3.6-max-preview` | ❌ Proprietary | $1.04/6.24 | **6.78** | 83 | — | — |
 | `gpt-4.1` | ?  | $2.0/8.0 | **6.60** | 254 | [per-model](benchmarks/results/per-model/gpt-4_1.md) | — |
 | `anthropic/claude-opus-4-6` | ?  | $5.0/25.0 | **6.57** | 246 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-6.md) | — |
 | `moonshotai/kimi-k2.5` | ✅ Modified MIT | $0.0/0.0 | **6.55** | 142 | — | — |
@@ -98,7 +99,10 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `deepseek/deepseek-v4-pro` | ✅ MIT | $0.435/0.87 | **5.99** | 126 | — | [responses](benchmarks/results/responses/20260503_125944/) |
 | `google/gemini-2.5-pro` | ?  | $1.25/10.0 | **5.98** | 91 | [per-model](benchmarks/results/per-model/google_gemini-2_5-pro.md) | — |
 | `qwen/qwen3.6-35b-a3b` | ✅ Apache 2.0 | $0.14/1.0 | **5.90** | 193 | — | — |
+| `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.29/3.2 | **5.82** | 225 | — | — |
 | `deepseek/deepseek-r1` | ✅ MIT | $0.7/2.5 | **5.77** | 193 | — | [responses](benchmarks/results/responses/20260601_102758/) |
+| `anthropic/claude-opus-4.8` | ?  | $5.0/25.0 | **5.64** | 208 | — | — |
+| `google/gemini-3.5-flash` | ?  | $1.5/9.0 | **5.50** | 208 | — | — |
 
 <!-- AUTO-TABLE-END -->
 
