@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-02T05:21:23",
-  "total_models": 124,
-  "tested_count": 76,
+  "generated_at": "2026-06-02T06:41:55",
+  "total_models": 127,
+  "tested_count": 79,
   "tokens_per_call_assumption": {
     "input": 300,
     "output": 1500
@@ -115,7 +115,15 @@
       "total_output_tokens": 75460,
       "long_context_runs": 45,
       "long_context_quality": 6.68,
-      "long_context_score": 6.7
+      "long_context_score": 6.7,
+      "long_context_by_size": {
+        "4000": 7.23,
+        "16000": 7.39,
+        "64000": 5.44
+      },
+      "effective_context": 16000,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "groq-llama-4-scout",
@@ -181,7 +189,15 @@
       "total_output_tokens": 71912,
       "long_context_runs": 54,
       "long_context_quality": 7.25,
-      "long_context_score": 6.91
+      "long_context_score": 6.91,
+      "long_context_by_size": {
+        "4000": 7.46,
+        "16000": 7.17,
+        "64000": 7.12
+      },
+      "effective_context": 64000,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "devstral",
@@ -247,7 +263,15 @@
       "total_output_tokens": 117403,
       "long_context_runs": 54,
       "long_context_quality": 7.47,
-      "long_context_score": 7.24
+      "long_context_score": 7.24,
+      "long_context_by_size": {
+        "4000": 7.46,
+        "16000": 7.51,
+        "64000": 7.43
+      },
+      "effective_context": 64000,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "groq-llama-3.3-70b",
@@ -313,7 +337,15 @@
       "total_output_tokens": 113972,
       "long_context_runs": 54,
       "long_context_quality": 7.09,
-      "long_context_score": 6.27
+      "long_context_score": 6.27,
+      "long_context_by_size": {
+        "4000": 7.13,
+        "16000": 7.14,
+        "64000": 7.0
+      },
+      "effective_context": 64000,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "groq-gpt-oss-20b",
@@ -379,7 +411,15 @@
       "total_output_tokens": 154049,
       "long_context_runs": 45,
       "long_context_quality": 6.2,
-      "long_context_score": 6.66
+      "long_context_score": 6.66,
+      "long_context_by_size": {
+        "4000": 6.08,
+        "16000": 6.18,
+        "64000": 6.35
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-nemotron-3-nano-omni-reasoning",
@@ -443,7 +483,11 @@
       "total_output_tokens": 198864,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-qwen3-next-instruct",
@@ -508,7 +552,11 @@
       "total_output_tokens": 137859,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "mistral-small-4",
@@ -574,7 +622,15 @@
       "total_output_tokens": 137500,
       "long_context_runs": 63,
       "long_context_quality": 7.54,
-      "long_context_score": 7.01
+      "long_context_score": 7.01,
+      "long_context_by_size": {
+        "4000": 7.43,
+        "16000": 7.66,
+        "64000": 7.55
+      },
+      "effective_context": 64000,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "deepseek-v4-flash",
@@ -641,7 +697,16 @@
       "total_output_tokens": 227357,
       "long_context_runs": 105,
       "long_context_quality": 3.7,
-      "long_context_score": 4.82
+      "long_context_score": 4.82,
+      "long_context_by_size": {
+        "4000": 3.82,
+        "16000": 3.63,
+        "64000": 3.67,
+        "256000": 3.65
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "hermes-4-70b",
@@ -704,7 +769,15 @@
       "total_output_tokens": 58662,
       "long_context_runs": 45,
       "long_context_quality": 7.46,
-      "long_context_score": 6.83
+      "long_context_score": 6.83,
+      "long_context_by_size": {
+        "4000": 7.52,
+        "16000": 7.39,
+        "64000": 7.48
+      },
+      "effective_context": 64000,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gemini-flash-lite",
@@ -768,7 +841,11 @@
       "total_output_tokens": 129841,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gemini-3.1-flash-lite",
@@ -834,7 +911,15 @@
       "total_output_tokens": 82184,
       "long_context_runs": 45,
       "long_context_quality": 7.38,
-      "long_context_score": 6.78
+      "long_context_score": 6.78,
+      "long_context_by_size": {
+        "4000": 7.4,
+        "16000": 7.4,
+        "64000": 7.34
+      },
+      "effective_context": 64000,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gpt-oss-120b-cloud",
@@ -909,7 +994,15 @@
       "total_output_tokens": 173375,
       "long_context_runs": 45,
       "long_context_quality": 5.63,
-      "long_context_score": 6.65
+      "long_context_score": 6.65,
+      "long_context_by_size": {
+        "4000": 5.75,
+        "16000": 5.68,
+        "64000": 5.46
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-devstral-2-123b",
@@ -967,7 +1060,11 @@
       "total_output_tokens": 45580,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "local-nemotron3-base-33b",
@@ -1032,7 +1129,11 @@
       "total_output_tokens": 344974,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "grok-4.1-fast",
@@ -1098,7 +1199,15 @@
       "total_output_tokens": 204926,
       "long_context_runs": 45,
       "long_context_quality": 6.15,
-      "long_context_score": 6.29
+      "long_context_score": 6.29,
+      "long_context_by_size": {
+        "4000": 5.87,
+        "16000": 6.47,
+        "64000": 6.12
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "mimo-v2.5",
@@ -1173,7 +1282,15 @@
       "total_output_tokens": 172634,
       "long_context_runs": 45,
       "long_context_quality": 7.53,
-      "long_context_score": 7.05
+      "long_context_score": 7.05,
+      "long_context_by_size": {
+        "4000": 7.4,
+        "16000": 7.52,
+        "64000": 7.67
+      },
+      "effective_context": 64000,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-nemotron-nano-9b-v2",
@@ -1237,7 +1354,11 @@
       "total_output_tokens": 132905,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-deepseek-v4-flash",
@@ -1303,7 +1424,15 @@
       "total_output_tokens": 111116,
       "long_context_runs": 54,
       "long_context_quality": 7.47,
-      "long_context_score": 7.06
+      "long_context_score": 7.06,
+      "long_context_by_size": {
+        "4000": 7.54,
+        "16000": 7.44,
+        "64000": 7.42
+      },
+      "effective_context": 64000,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gemma-4-26b",
@@ -1367,7 +1496,11 @@
       "total_output_tokens": 68689,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-qwen3.5-397b",
@@ -1432,7 +1565,11 @@
       "total_output_tokens": 110548,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gemma-4-31b",
@@ -1497,7 +1634,11 @@
       "total_output_tokens": 129546,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-gemma-4-31b",
@@ -1562,7 +1703,11 @@
       "total_output_tokens": 129546,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "qwen3-coder-next",
@@ -1629,7 +1774,15 @@
       "total_output_tokens": 143223,
       "long_context_runs": 90,
       "long_context_quality": 3.7,
-      "long_context_score": 4.45
+      "long_context_score": 4.45,
+      "long_context_by_size": {
+        "4000": 3.69,
+        "16000": 3.73,
+        "64000": 3.68
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "mimo-v2-omni-xiaomi",
@@ -1703,7 +1856,11 @@
       "total_output_tokens": 170549,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-ministral-14b",
@@ -1767,7 +1924,11 @@
       "total_output_tokens": 86481,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nemotron-nano",
@@ -1832,7 +1993,11 @@
       "total_output_tokens": 310848,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "mimo-v2.5-pro",
@@ -1906,7 +2071,11 @@
       "total_output_tokens": 164371,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "local-gemma4-31b",
@@ -1970,7 +2139,11 @@
       "total_output_tokens": 117243,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gemma4-31b",
@@ -2034,7 +2207,11 @@
       "total_output_tokens": 117243,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "mimo-v2-flash",
@@ -2099,7 +2276,11 @@
       "total_output_tokens": 129827,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-nemotron-super-1.5",
@@ -2163,7 +2344,11 @@
       "total_output_tokens": 139881,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "local-nemotron-3-super-120b",
@@ -2227,7 +2412,11 @@
       "total_output_tokens": 157283,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gpt-5.4-mini",
@@ -2291,7 +2480,11 @@
       "total_output_tokens": 108242,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "mimo-v2-pro-xiaomi",
@@ -2365,7 +2558,11 @@
       "total_output_tokens": 165247,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-mistral-large-3",
@@ -2429,7 +2626,11 @@
       "total_output_tokens": 67680,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "llama-4-maverick",
@@ -2492,7 +2693,11 @@
       "total_output_tokens": 72629,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gemini-flash",
@@ -2557,7 +2762,11 @@
       "total_output_tokens": 154266,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "devstral-2",
@@ -2624,7 +2833,15 @@
       "total_output_tokens": 135928,
       "long_context_runs": 57,
       "long_context_quality": 7.44,
-      "long_context_score": 6.62
+      "long_context_score": 6.62,
+      "long_context_by_size": {
+        "4000": 7.51,
+        "16000": 7.44,
+        "64000": 7.37
+      },
+      "effective_context": 64000,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gpt-4.1-mini",
@@ -2688,7 +2905,11 @@
       "total_output_tokens": 80931,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "qwen3-coder",
@@ -2752,7 +2973,11 @@
       "total_output_tokens": 95691,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "kimi-k2",
@@ -2816,7 +3041,11 @@
       "total_output_tokens": 88841,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-glm5",
@@ -2880,7 +3109,11 @@
       "total_output_tokens": 67035,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "devstral-medium",
@@ -2943,7 +3176,11 @@
       "total_output_tokens": 45938,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-qwen3-next-thinking",
@@ -3007,7 +3244,11 @@
       "total_output_tokens": 324760,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "minimax-m3-direct",
@@ -3083,7 +3324,16 @@
       "total_output_tokens": 267894,
       "long_context_runs": 105,
       "long_context_quality": 8.37,
-      "long_context_score": 6.71
+      "long_context_score": 6.71,
+      "long_context_by_size": {
+        "4000": 7.76,
+        "16000": 8.58,
+        "64000": 8.65,
+        "256000": 8.55
+      },
+      "effective_context": 256000,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "hermes-4-405b",
@@ -3144,7 +3394,11 @@
       "total_output_tokens": 39971,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "minimax-m3",
@@ -3211,7 +3465,16 @@
       "total_output_tokens": 215807,
       "long_context_runs": 105,
       "long_context_quality": 6.36,
-      "long_context_score": 5.71
+      "long_context_score": 5.71,
+      "long_context_by_size": {
+        "4000": 6.38,
+        "16000": 6.5,
+        "64000": 6.38,
+        "256000": 6.0
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "grok-4.20",
@@ -3275,7 +3538,11 @@
       "total_output_tokens": 53178,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "qwen3.6-35b",
@@ -3342,7 +3609,15 @@
       "total_output_tokens": 296122,
       "long_context_runs": 90,
       "long_context_quality": 3.61,
-      "long_context_score": 4.54
+      "long_context_score": 4.54,
+      "long_context_by_size": {
+        "4000": 3.59,
+        "16000": 3.62,
+        "64000": 3.62
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gpt-4.1",
@@ -3409,7 +3684,17 @@
       "total_output_tokens": 110731,
       "long_context_runs": 87,
       "long_context_quality": 7.43,
-      "long_context_score": 5.68
+      "long_context_score": 5.68,
+      "long_context_by_size": {
+        "4000": 7.38,
+        "16000": 7.43,
+        "64000": 7.48,
+        "256000": 7.41,
+        "1000000": 7.43
+      },
+      "effective_context": 1000000,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "mistral-nemo",
@@ -3473,7 +3758,11 @@
       "total_output_tokens": 42864,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-step-3.5-flash",
@@ -3538,7 +3827,11 @@
       "total_output_tokens": 215660,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "glm-5.1",
@@ -3602,7 +3895,11 @@
       "total_output_tokens": 243382,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-glm-5.1",
@@ -3666,7 +3963,11 @@
       "total_output_tokens": 243382,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-kimi-k2-thinking",
@@ -3731,7 +4032,11 @@
       "total_output_tokens": 209595,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "mimo-v2-omni",
@@ -3796,7 +4101,11 @@
       "total_output_tokens": 173093,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "deepseek-r1",
@@ -3863,7 +4172,15 @@
       "total_output_tokens": 319410,
       "long_context_runs": 90,
       "long_context_quality": 4.26,
-      "long_context_score": 4.45
+      "long_context_score": 4.45,
+      "long_context_by_size": {
+        "4000": 4.36,
+        "16000": 4.83,
+        "64000": 3.61
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "mistral-large",
@@ -3927,7 +4244,86 @@
       "total_output_tokens": 128547,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
+    },
+    {
+      "key": "qwen3.6-27b",
+      "id": "qwen/qwen3.6-27b",
+      "name": "Qwen 3.6 27B base (OpenRouter FP8)",
+      "tier": "cheap",
+      "provider": "openrouter",
+      "open_source": true,
+      "license": "Apache 2.0",
+      "cost_input_per_M": 0.29,
+      "cost_output_per_M": 3.2,
+      "cost_per_1k_calls_usd": 4.887,
+      "subscriptions": [],
+      "notes": "Qwen 3.6 BASE abierto vía OpenRouter (FP8). Par del local-qwen3.6-27b (Q4 en DGX Spark) para medir delta cuantización.",
+      "tested": true,
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 135,
+      "score_global": 6.88,
+      "score_by_pillar": {
+        "Contenido": 7.03,
+        "Agentes": 6.91,
+        "Coding": 6.92,
+        "Razonamiento": 6.49
+      },
+      "score_by_suite": {
+        "content_generation": 7.22,
+        "tool_calling": 6.81,
+        "task_management": 7.1,
+        "code_generation": 7.06,
+        "reasoning": 6.77,
+        "summarization": 6.88,
+        "presentation": 7.21,
+        "startup_content": 6.95,
+        "deep_reasoning": 6.5,
+        "customer_support": 7.33,
+        "structured_output": 7.3,
+        "hallucination": 5.88,
+        "creativity": 7.09,
+        "string_precision": 6.75,
+        "news_seo_writing": 6.46,
+        "ocr_extraction": 6.6,
+        "orchestration": 6.58,
+        "multi_turn": 6.51,
+        "policy_adherence": 7.25,
+        "agent_capabilities": 6.89,
+        "strategy": 6.51,
+        "sales_outreach": 7.2,
+        "translation": 7.25,
+        "agent_long_horizon": 6.76,
+        "niah_es": 4.19,
+        "niah_es_lite": 4.28
+      },
+      "quality_avg": 8.21,
+      "cost_score_avg": 5.61,
+      "speed_score_avg": 6.92,
+      "latency_score_avg": 1.13,
+      "tool_calling_score_avg": 7.01,
+      "judge_score_avg": 4.35,
+      "tokens_per_second": 54.2,
+      "latency_avg_s": 65.04,
+      "total_input_tokens": 190337,
+      "total_output_tokens": 348547,
+      "long_context_runs": 90,
+      "long_context_quality": 3.63,
+      "long_context_score": 4.23,
+      "long_context_by_size": {
+        "4000": 3.76,
+        "16000": 3.49,
+        "64000": 3.65
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "qwen-3.6-plus",
@@ -3991,7 +4387,11 @@
       "total_output_tokens": 463242,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nemotron-super",
@@ -4055,7 +4455,11 @@
       "total_output_tokens": 96589,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "minimax-m2.7",
@@ -4120,7 +4524,11 @@
       "total_output_tokens": 208835,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "mimo-v2-pro",
@@ -4184,7 +4592,83 @@
       "total_output_tokens": 97394,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
+    },
+    {
+      "key": "claude-opus-4.8",
+      "id": "anthropic/claude-opus-4.8",
+      "name": "Claude Opus 4.8",
+      "tier": "premium",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 5.0,
+      "cost_output_per_M": 25.0,
+      "cost_per_1k_calls_usd": 39.0,
+      "subscriptions": [],
+      "notes": "Flagship Anthropic más nuevo (jun 2026), contexto 1M. $5/$25 vía OpenRouter API. Techo de calidad de referencia. Sucesor de 4.7.",
+      "tested": true,
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 103,
+      "score_global": 6.75,
+      "score_by_pillar": {
+        "Contenido": 6.92,
+        "Agentes": 6.74,
+        "Coding": 6.9,
+        "Razonamiento": 6.73
+      },
+      "score_by_suite": {
+        "content_generation": 7.05,
+        "tool_calling": 5.87,
+        "task_management": 7.33,
+        "code_generation": 7.1,
+        "reasoning": 7.22,
+        "summarization": 6.82,
+        "presentation": 7.13,
+        "startup_content": 7.02,
+        "deep_reasoning": 6.26,
+        "customer_support": 6.63,
+        "structured_output": 7.51,
+        "hallucination": 6.84,
+        "creativity": 7.19,
+        "string_precision": 6.82,
+        "news_seo_writing": 6.12,
+        "ocr_extraction": 6.36,
+        "orchestration": 6.65,
+        "multi_turn": 7.0,
+        "policy_adherence": 6.78,
+        "agent_capabilities": 7.01,
+        "strategy": 7.06,
+        "sales_outreach": 7.18,
+        "translation": 7.24,
+        "agent_long_horizon": 6.16,
+        "niah_es": 4.35
+      },
+      "quality_avg": 8.39,
+      "cost_score_avg": 3.79,
+      "speed_score_avg": 7.63,
+      "latency_score_avg": 1.87,
+      "tool_calling_score_avg": 7.24,
+      "judge_score_avg": 4.41,
+      "tokens_per_second": 66.2,
+      "latency_avg_s": 23.05,
+      "total_input_tokens": 287887,
+      "total_output_tokens": 160147,
+      "long_context_runs": 2,
+      "long_context_quality": 3.76,
+      "long_context_score": 4.35,
+      "long_context_by_size": {
+        "4000": 3.76
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "claude-sonnet-4.6",
@@ -4249,7 +4733,15 @@
       "total_output_tokens": 176468,
       "long_context_runs": 45,
       "long_context_quality": 5.15,
-      "long_context_score": 4.77
+      "long_context_score": 4.77,
+      "long_context_by_size": {
+        "4000": 4.4,
+        "16000": 5.82,
+        "64000": 5.24
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "deepseek-v4-pro",
@@ -4314,7 +4806,15 @@
       "total_output_tokens": 229118,
       "long_context_runs": 45,
       "long_context_quality": 4.23,
-      "long_context_score": 4.65
+      "long_context_score": 4.65,
+      "long_context_by_size": {
+        "4000": 4.21,
+        "16000": 4.26,
+        "64000": 4.22
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "claude-opus-4.7",
@@ -4379,7 +4879,91 @@
       "total_output_tokens": 178325,
       "long_context_runs": 72,
       "long_context_quality": 6.51,
-      "long_context_score": 5.1
+      "long_context_score": 5.1,
+      "long_context_by_size": {
+        "4000": 6.54,
+        "16000": 6.6,
+        "64000": 6.64,
+        "256000": 6.27
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
+    },
+    {
+      "key": "gemini-3.5-flash",
+      "id": "google/gemini-3.5-flash",
+      "name": "Gemini 3.5 Flash",
+      "tier": "medium",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 1.5,
+      "cost_output_per_M": 9.0,
+      "cost_per_1k_calls_usd": 13.95,
+      "subscriptions": [],
+      "notes": "Sucesor del Flash (19 may 2026), contexto 1M. $1.50/$9 vía OpenRouter API. Releva al 2.5 Flash.",
+      "tested": true,
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 103,
+      "score_global": 6.59,
+      "score_by_pillar": {
+        "Contenido": 6.5,
+        "Agentes": 6.71,
+        "Coding": 6.66,
+        "Razonamiento": 6.21
+      },
+      "score_by_suite": {
+        "content_generation": 7.38,
+        "tool_calling": 6.65,
+        "task_management": 7.18,
+        "code_generation": 6.17,
+        "reasoning": 6.41,
+        "summarization": 6.57,
+        "presentation": 5.8,
+        "startup_content": 6.68,
+        "deep_reasoning": 5.64,
+        "customer_support": 6.78,
+        "structured_output": 7.37,
+        "hallucination": 6.94,
+        "creativity": 6.52,
+        "string_precision": 7.12,
+        "news_seo_writing": 5.2,
+        "ocr_extraction": 5.94,
+        "orchestration": 6.13,
+        "multi_turn": 6.87,
+        "policy_adherence": 7.23,
+        "agent_capabilities": 6.48,
+        "strategy": 6.42,
+        "sales_outreach": 6.99,
+        "translation": 7.11,
+        "agent_long_horizon": 6.87,
+        "niah_es": 4.34
+      },
+      "quality_avg": 7.55,
+      "cost_score_avg": 4.54,
+      "speed_score_avg": 9.69,
+      "latency_score_avg": 1.85,
+      "tool_calling_score_avg": 6.96,
+      "judge_score_avg": 3.97,
+      "tokens_per_second": 147.7,
+      "latency_avg_s": 14.91,
+      "total_input_tokens": 177020,
+      "total_output_tokens": 226525,
+      "long_context_runs": 45,
+      "long_context_quality": 3.58,
+      "long_context_score": 4.34,
+      "long_context_by_size": {
+        "4000": 3.59,
+        "16000": 3.59,
+        "64000": 3.59,
+        "256000": 3.54
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "claude-opus-4.6",
@@ -4443,7 +5027,11 @@
       "total_output_tokens": 232473,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "qwen3.5-397b-cloud",
@@ -4516,7 +5104,11 @@
       "total_output_tokens": 168538,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "kimi-k2.5",
@@ -4581,7 +5173,11 @@
       "total_output_tokens": 273771,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-kimi-k2.5",
@@ -4646,7 +5242,11 @@
       "total_output_tokens": 273771,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "kimi-k2.6",
@@ -4710,7 +5310,11 @@
       "total_output_tokens": 556926,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gpt-5.4",
@@ -4774,7 +5378,11 @@
       "total_output_tokens": 116069,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "qwen3.5-cloud",
@@ -4847,7 +5455,11 @@
       "total_output_tokens": 154433,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gpt-5.5",
@@ -4913,7 +5525,15 @@
       "total_output_tokens": 196019,
       "long_context_runs": 45,
       "long_context_quality": 6.68,
-      "long_context_score": 5.56
+      "long_context_score": 5.56,
+      "long_context_by_size": {
+        "4000": 6.56,
+        "16000": 6.86,
+        "64000": 6.63
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gemini-3.1-pro",
@@ -4979,7 +5599,16 @@
       "total_output_tokens": 247436,
       "long_context_runs": 72,
       "long_context_quality": 7.41,
-      "long_context_score": 5.95
+      "long_context_score": 5.95,
+      "long_context_by_size": {
+        "4000": 7.37,
+        "16000": 7.48,
+        "64000": 7.4,
+        "256000": 7.37
+      },
+      "effective_context": 256000,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gemini-pro",
@@ -5043,7 +5672,11 @@
       "total_output_tokens": 145620,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "deepseek-v4-pro-cloud",
@@ -5090,7 +5723,15 @@
       "total_output_tokens": 52848,
       "long_context_runs": 45,
       "long_context_quality": 4.22,
-      "long_context_score": 5.47
+      "long_context_score": 5.47,
+      "long_context_by_size": {
+        "4000": 4.21,
+        "16000": 4.2,
+        "64000": 4.25
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "deepseek-v4-flash-cloud",
@@ -5137,7 +5778,15 @@
       "total_output_tokens": 60876,
       "long_context_runs": 45,
       "long_context_quality": 4.25,
-      "long_context_score": 5.62
+      "long_context_score": 5.62,
+      "long_context_by_size": {
+        "4000": 4.33,
+        "16000": 4.2,
+        "64000": 4.21
+      },
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-deepseek-v4-pro",
@@ -5178,7 +5827,11 @@
       "total_output_tokens": 1584,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-mistral-nemotron",
@@ -5222,7 +5875,11 @@
       "total_output_tokens": 5806,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gemini-3.1-flash-lite-thinking",
@@ -5259,7 +5916,11 @@
       "total_output_tokens": 102530,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "hermes-4-70b-thinking",
@@ -5296,7 +5957,11 @@
       "total_output_tokens": 86335,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "minimax-m2.7-direct",
@@ -5355,7 +6020,11 @@
       "total_output_tokens": 86778,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "minimax-m2.7-highspeed",
@@ -5414,7 +6083,11 @@
       "total_output_tokens": 91414,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gemini-flash-thinking",
@@ -5451,7 +6124,11 @@
       "total_output_tokens": 111130,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "kimi-k2.5-thinking",
@@ -5488,57 +6165,67 @@
       "total_output_tokens": 113040,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
-      "key": "qwen3.6-27b",
-      "id": "qwen/qwen3.6-27b",
-      "name": "Qwen 3.6 27B base (OpenRouter FP8)",
-      "tier": "cheap",
+      "key": "qwen-3.6-max",
+      "id": "qwen/qwen3.6-max-preview",
+      "name": "Qwen 3.6 Max",
+      "tier": "medium",
       "provider": "openrouter",
-      "open_source": true,
-      "license": "Apache 2.0",
-      "cost_input_per_M": 0.29,
-      "cost_output_per_M": 3.2,
-      "cost_per_1k_calls_usd": 4.887,
+      "open_source": false,
+      "license": "Proprietary",
+      "cost_input_per_M": 1.04,
+      "cost_output_per_M": 6.24,
+      "cost_per_1k_calls_usd": 9.672,
       "subscriptions": [],
-      "notes": "Qwen 3.6 BASE abierto vía OpenRouter (FP8). Par del local-qwen3.6-27b (Q4 en DGX Spark) para medir delta cuantización.",
+      "notes": "Tier Max de Alibaba (API-only propietario, el más capaz de la familia). Completa base+Plus+Max. $1.04/$6.24 vía OpenRouter API jun 2026.",
       "tested": false,
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
-      "runs": 32,
-      "score_global": 6.96,
+      "runs": 39,
+      "score_global": 7.0,
       "score_by_pillar": {
-        "Contenido": 7.01,
-        "Agentes": 6.83,
-        "Coding": 7.14,
-        "Razonamiento": 6.79
+        "Contenido": 6.89,
+        "Agentes": 7.14,
+        "Coding": 7.07,
+        "Razonamiento": 6.94
       },
       "score_by_suite": {
-        "content_generation": 7.19,
-        "tool_calling": 6.64,
-        "task_management": 7.07,
-        "code_generation": 7.14,
-        "reasoning": 6.74,
-        "summarization": 6.38,
-        "presentation": 7.03,
-        "startup_content": 6.99,
-        "deep_reasoning": 6.96
+        "content_generation": 7.03,
+        "tool_calling": 6.65,
+        "task_management": 7.17,
+        "code_generation": 7.05,
+        "reasoning": 7.23,
+        "summarization": 6.17,
+        "presentation": 7.05,
+        "startup_content": 7.01,
+        "deep_reasoning": 6.8,
+        "customer_support": 7.61,
+        "structured_output": 7.11
       },
-      "quality_avg": 8.27,
-      "cost_score_avg": 5.73,
-      "speed_score_avg": 7.12,
-      "latency_score_avg": 1.12,
-      "tool_calling_score_avg": 7.06,
-      "judge_score_avg": 4.33,
-      "tokens_per_second": 54.5,
-      "latency_avg_s": 41.17,
-      "total_input_tokens": 7405,
-      "total_output_tokens": 62502,
+      "quality_avg": 8.98,
+      "cost_score_avg": 4.28,
+      "speed_score_avg": 5.95,
+      "latency_score_avg": 1.03,
+      "tool_calling_score_avg": 7.54,
+      "judge_score_avg": 4.67,
+      "tokens_per_second": 39.4,
+      "latency_avg_s": 86.98,
+      "total_input_tokens": 11042,
+      "total_output_tokens": 135123,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "claude-haiku-4.5",
@@ -5575,7 +6262,11 @@
       "total_output_tokens": 52340,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "local-qwen3.6-27b",
@@ -5616,7 +6307,11 @@
       "total_output_tokens": 7818,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "claude-sonnet-4.6-thinking",
@@ -5653,7 +6348,11 @@
       "total_output_tokens": 97264,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "claude-haiku-4.5-thinking",
@@ -5690,7 +6389,11 @@
       "total_output_tokens": 107160,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "kimi-k2.6-thinking",
@@ -5727,7 +6430,11 @@
       "total_output_tokens": 128021,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "gemini-3.1-pro-thinking",
@@ -5764,7 +6471,11 @@
       "total_output_tokens": 111329,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "hermes-4-405b-thinking",
@@ -5801,7 +6512,11 @@
       "total_output_tokens": 76894,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "nim-magistral-small",
@@ -5843,7 +6558,11 @@
       "total_output_tokens": 10999,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "claude-opus-4.7-thinking",
@@ -5880,7 +6599,11 @@
       "total_output_tokens": 113625,
       "long_context_runs": 0,
       "long_context_quality": null,
-      "long_context_score": null
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null
     },
     {
       "key": "deepseek-r1-free",
