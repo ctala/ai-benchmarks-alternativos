@@ -1,93 +1,9 @@
-#!/usr/bin/env python3
-"""
-Genera el CheatSheet PDF mensual del benchmark.
-
-Reescritura limpia (mayo 2026) reemplazando generate_pdf.py legacy.
-Cambios vs legacy:
-- Data-driven (sin hardcodes de v1.0)
-- Mes en español (Enero/Febrero/.../Diciembre)
-- Mayo destacado en cover con color
-- 9+ secciones reordenadas para valor descendente
-- Suscripciones incluyen MiMo Xiaomi $14, Ollama Cloud $30, MiniMax $19, Anthropic $20
-- Estrategia local generalizada por VRAM (8/16/24/32/128GB)
-- Mapa de proveedores actualizado
-- Hallazgos con fechas
-- Pagina final con CTA + QR a calculadora + comunidad Skool
-- "Guiño" en cada ranking: ver completo en repo/calculadora
-"""
-
-import base64
-import io
-import json
-from datetime import datetime
-from pathlib import Path
-from collections import defaultdict
-
-import qrcode
-from weasyprint import HTML
-
-ROOT = Path(__file__).parent.parent
-
-_MONTHS_ES = {
-    1: "Enero", 2: "Febrero", 3: "Marzo", 4: "Abril",
-    5: "Mayo", 6: "Junio", 7: "Julio", 8: "Agosto",
-    9: "Septiembre", 10: "Octubre", 11: "Noviembre", 12: "Diciembre",
-}
-
-now = datetime.now()
-MONTH = _MONTHS_ES[now.month]
-YEAR = now.year
-
-URL_CALC = "https://benchmarks.cristiantala.com/"
-URL_REPO = "https://github.com/ctala/ai-benchmarks-alternativos"
-URL_SKOOL = "https://www.skool.com/cagala-aprende-repite"
-
-
-def qr_b64(url: str, size: int = 200) -> str:
-    """QR code as base64 PNG embedable."""
-    qr = qrcode.QRCode(border=1, box_size=8)
-    qr.add_data(url)
-    qr.make(fit=True)
-    img = qr.make_image(fill_color="#0a0a1a", back_color="#39ff14")
-    buf = io.BytesIO()
-    img.save(buf, format="PNG")
-    return base64.b64encode(buf.getvalue()).decode()
-
-
-# ============================================================
-# CARGA DE DATOS
-# ============================================================
-
-def load_models() -> dict:
-    """Carga docs/data/models.json (single source of truth)."""
-    p = ROOT / "docs" / "data" / "models.json"
-    return json.loads(p.read_text())
-
-
-def load_runs() -> list:
-    """Carga todos los runs preservados (para counts agregados)."""
-    runs_dir = ROOT / "benchmarks" / "results"
-    all_runs = []
-    seen = set()
-    for f in sorted(runs_dir.glob("benchmark_*.json")):
-        try:
-            data = json.loads(f.read_text())
-            results = data if isinstance(data, list) else data.get("results", [])
-            for r in results:
-                key = f"{r.get('model_id','?')}|{r.get('test_name','?')}|{r.get('timestamp','?')}"
-                if key not in seen:
-                    seen.add(key)
-                    all_runs.append(r)
-        except Exception:
-            continue
-    return all_runs
-
-
-# ============================================================
-# RENDER
-# ============================================================
-
-CSS = """
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>AI Model Benchmark CheatSheet — Junio 2026</title>
+<style>
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap');
 
 @page {
@@ -95,7 +11,7 @@ CSS = """
     margin: 10mm;
     background: #0a0a1a;
     @bottom-center {
-        content: "cristiantala.com | Benchmark de Modelos AI | """ + MONTH + ' ' + str(YEAR) + """";
+        content: "cristiantala.com | Benchmark de Modelos AI | Junio 2026";
         font-family: 'Inter', sans-serif;
         font-size: 8pt;
         color: #b0b0b0;
@@ -343,51 +259,7 @@ strong { color: #ffffff; }
     font-size: 7pt;
     word-break: break-all;
 }
-"""
-
-
-def render(models: dict, runs: list) -> str:
-    """Renderiza el HTML completo del cheatsheet."""
-
-    # Métricas agregadas
-    ranked = [m for m in models["models"] if m.get("score_global") is not None and m.get("runs", 0) >= 50]
-    ranked.sort(key=lambda x: -x["score_global"])
-    total_runs = sum(m.get("runs", 0) for m in models["models"])
-
-    # Top 10 score compuesto
-    top10 = ranked[:10]
-    # Top 10 quality only (sin pesar costo)
-    top_quality = sorted(ranked, key=lambda x: -(x.get("quality_avg") or 0))[:10]
-
-    # Top NIAH-ES (modelos con suite niah_es o niah_es_lite)
-    niah_models = []
-    for m in models["models"]:
-        suites = m.get("score_by_suite", {}) or {}
-        niah_scores = [v for k, v in suites.items() if "niah" in k]
-        if niah_scores:
-            niah_models.append({
-                "name": m["name"],
-                "niah_avg": round(sum(niah_scores) / len(niah_scores), 2),
-            })
-    niah_models.sort(key=lambda x: -x["niah_avg"])
-
-    # Top agent_long_horizon
-    alh_models = []
-    for m in models["models"]:
-        suites = m.get("score_by_suite", {}) or {}
-        if "agent_long_horizon" in suites:
-            alh_models.append({"name": m["name"], "alh": suites["agent_long_horizon"]})
-    alh_models.sort(key=lambda x: -x["alh"])
-
-    qr_calc = qr_b64(URL_CALC)
-    qr_skool = qr_b64(URL_SKOOL)
-
-    html = f"""<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<title>AI Model Benchmark CheatSheet — {MONTH} {YEAR}</title>
-<style>{CSS}</style>
+</style>
 </head>
 <body>
 
@@ -397,12 +269,12 @@ def render(models: dict, runs: list) -> str:
 <div class="cover">
     <h1>AI Model Benchmark</h1>
     <div class="subtitle">Guia para Emprendedores Hispanohablantes</div>
-    <div class="month">{MONTH} {YEAR}</div>
-    <p class="meta">{len(ranked)} modelos con cobertura ≥50 runs · {total_runs:,}+ runs preservados · v2.8.0</p>
+    <div class="month">Junio 2026</div>
+    <p class="meta">80 modelos con cobertura ≥50 runs · 9,614+ runs preservados · v2.8.0</p>
 
     <div class="stats">
         <div class="stat-box">
-            <span class="stat-number">{len(ranked)}</span>
+            <span class="stat-number">80</span>
             <span class="stat-label">Modelos</span>
         </div>
         <div class="stat-box">
@@ -414,7 +286,7 @@ def render(models: dict, runs: list) -> str:
             <span class="stat-label">Tests/modelo</span>
         </div>
         <div class="stat-box">
-            <span class="stat-number">{total_runs:,}+</span>
+            <span class="stat-number">9,614+</span>
             <span class="stat-label">Runs totales</span>
         </div>
     </div>
@@ -440,7 +312,7 @@ def render(models: dict, runs: list) -> str:
 <!-- HALLAZGOS CLAVE DEL MES (P2) -->
 <!-- ============================================================ -->
 <div class="page">
-    <h2>Hallazgos clave de {MONTH} {YEAR}</h2>
+    <h2>Hallazgos clave de Junio 2026</h2>
     <p style="font-size: 9pt; color: #b0b0b0; margin-bottom: 12px;">
         Insights cuantitativos del benchmark v2.8.0. El hallazgo del mes es metodológico:
         descubrimos que nuestra propia medición de long-context en español mentía de 5 formas.
@@ -487,7 +359,7 @@ def render(models: dict, runs: list) -> str:
         </div>
     </div>
 
-    <p class="guino">Ver hallazgos completos con datos cuantitativos: {URL_REPO}/blob/main/INSIGHTS.md</p>
+    <p class="guino">Ver hallazgos completos con datos cuantitativos: https://github.com/ctala/ai-benchmarks-alternativos/blob/main/INSIGHTS.md</p>
 </div>
 
 <!-- ============================================================ -->
@@ -500,37 +372,149 @@ def render(models: dict, runs: list) -> str:
             <tr><th>#</th><th>Modelo</th><th>Score</th><th>Calidad</th><th>Costo$</th><th>Tool</th><th>Speed</th><th>Lat</th><th>Provider</th></tr>
         </thead>
         <tbody>
-"""
-
-    for i, m in enumerate(top10, 1):
-        html += f"""            <tr>
-                <td>{i}</td>
-                <td><strong>{m["name"]}</strong></td>
-                <td><strong>{m.get("score_global"):.2f}</strong></td>
-                <td>{m.get("quality_avg") or "—"}</td>
-                <td>{m.get("cost_score_avg") or "—"}</td>
-                <td>{m.get("tool_calling_score_avg") or "—"}</td>
-                <td>{m.get("speed_score_avg") or "—"}</td>
-                <td>{m.get("latency_score_avg") or "—"}</td>
-                <td>{m.get("provider", "openrouter")}</td>
-            </tr>\n"""
-
-    html += """        </tbody>
+            <tr>
+                <td>1</td>
+                <td><strong>Llama 3.1 8B Instant (Groq)</strong></td>
+                <td><strong>8.11</strong></td>
+                <td>7.61</td>
+                <td>9.87</td>
+                <td>7.15</td>
+                <td>9.82</td>
+                <td>6.88</td>
+                <td>groq_direct</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><strong>Llama 4 Scout 17B (Groq preview)</strong></td>
+                <td><strong>8.11</strong></td>
+                <td>7.93</td>
+                <td>9.58</td>
+                <td>7.06</td>
+                <td>9.63</td>
+                <td>5.9</td>
+                <td>groq_direct</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><strong>Devstral Small</strong></td>
+                <td><strong>8.03</strong></td>
+                <td>8.03</td>
+                <td>9.69</td>
+                <td>6.75</td>
+                <td>9.2</td>
+                <td>4.97</td>
+                <td>openrouter</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><strong>Llama 3.3 70B (Groq)</strong></td>
+                <td><strong>7.86</strong></td>
+                <td>8.01</td>
+                <td>8.15</td>
+                <td>7.14</td>
+                <td>9.62</td>
+                <td>5.83</td>
+                <td>groq_direct</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><strong>GPT-OSS 20B (Groq)</strong></td>
+                <td><strong>7.84</strong></td>
+                <td>7.51</td>
+                <td>9.15</td>
+                <td>6.91</td>
+                <td>10.0</td>
+                <td>6.24</td>
+                <td>groq_direct</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td><strong>Nemotron 3 Nano Omni 30B-A3B Reasoning (NIM)</strong></td>
+                <td><strong>7.84</strong></td>
+                <td>7.75</td>
+                <td>10.0</td>
+                <td>6.87</td>
+                <td>9.89</td>
+                <td>2.57</td>
+                <td>nvidia_nim</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td><strong>Qwen 3-Next 80B Instruct (NIM)</strong></td>
+                <td><strong>7.83</strong></td>
+                <td>8.11</td>
+                <td>10.0</td>
+                <td>7.11</td>
+                <td>6.91</td>
+                <td>2.54</td>
+                <td>nvidia_nim</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td><strong>Mistral Small 4</strong></td>
+                <td><strong>7.81</strong></td>
+                <td>8.08</td>
+                <td>8.84</td>
+                <td>7.11</td>
+                <td>8.69</td>
+                <td>3.69</td>
+                <td>openrouter</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td><strong>DeepSeek V4 Flash (OpenRouter)</strong></td>
+                <td><strong>7.80</strong></td>
+                <td>8.34</td>
+                <td>9.37</td>
+                <td>7.1</td>
+                <td>7.44</td>
+                <td>1.83</td>
+                <td>openrouter</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td><strong>Hermes 4 70B</strong></td>
+                <td><strong>7.77</strong></td>
+                <td>8.04</td>
+                <td>9.47</td>
+                <td>7.0</td>
+                <td>7.56</td>
+                <td>3.15</td>
+                <td>openrouter</td>
+            </tr>
+        </tbody>
     </table>
 
     <h3>Top 5 Quality (sin pesar costo)</h3>
     <table>
         <thead><tr><th>#</th><th>Modelo</th><th>Quality</th><th>Final compuesto</th></tr></thead>
         <tbody>
-"""
-    for i, m in enumerate(top_quality[:5], 1):
-        html += f"""            <tr>
-                <td>{i}</td><td>{m["name"]}</td>
-                <td><strong>{m.get("quality_avg")}</strong></td>
-                <td>{m.get("score_global"):.2f}</td>
-            </tr>\n"""
-
-    html += f"""        </tbody>
+            <tr>
+                <td>1</td><td>DeepSeek R1 (reasoning)</td>
+                <td><strong>8.69</strong></td>
+                <td>6.92</td>
+            </tr>
+            <tr>
+                <td>2</td><td>Qwen 3.6 Max</td>
+                <td><strong>8.62</strong></td>
+                <td>6.78</td>
+            </tr>
+            <tr>
+                <td>3</td><td>MiniMax M3 (directo / sub)</td>
+                <td><strong>8.47</strong></td>
+                <td>7.18</td>
+            </tr>
+            <tr>
+                <td>4</td><td>Claude Opus 4.8</td>
+                <td><strong>8.39</strong></td>
+                <td>6.75</td>
+            </tr>
+            <tr>
+                <td>5</td><td>MiniMax M3</td>
+                <td><strong>8.37</strong></td>
+                <td>7.15</td>
+            </tr>
+        </tbody>
     </table>
 
     <div class="tip">
@@ -539,7 +523,7 @@ def render(models: dict, runs: list) -> str:
         Opus/Gemini/Hermes 4 suben fuerte. Si el costo importa: top compuesto.
     </div>
 
-    <p class="guino">Ranking completo de {len(ranked)} modelos en {URL_CALC} · datos crudos en {URL_REPO}</p>
+    <p class="guino">Ranking completo de 80 modelos en https://benchmarks.cristiantala.com/ · datos crudos en https://github.com/ctala/ai-benchmarks-alternativos</p>
 </div>
 
 <!-- ============================================================ -->
@@ -618,7 +602,7 @@ def render(models: dict, runs: list) -> str:
         </div>
     </div>
 
-    <p class="guino">Recomendaciones detalladas por plataforma + tarea + presupuesto: {URL_REPO}/blob/main/RECOMENDACIONES.md</p>
+    <p class="guino">Recomendaciones detalladas por plataforma + tarea + presupuesto: https://github.com/ctala/ai-benchmarks-alternativos/blob/main/RECOMENDACIONES.md</p>
 </div>
 
 <!-- ============================================================ -->
@@ -631,74 +615,63 @@ def render(models: dict, runs: list) -> str:
         <div>
             <h3>Razonamiento (single-turn)</h3>
             <table><thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead><tbody>
-"""
-    # Razonamiento por pilar
-    razonamiento = sorted(
-        [m for m in ranked if (m.get("score_by_pillar") or {}).get("Razonamiento")],
-        key=lambda x: -x["score_by_pillar"]["Razonamiento"]
-    )[:5]
-    for i, m in enumerate(razonamiento, 1):
-        html += f'<tr><td>{i}</td><td>{m["name"][:20]}</td><td><strong>{m["score_by_pillar"]["Razonamiento"]:.2f}</strong></td></tr>\n'
-
-    html += """            </tbody></table>
+<tr><td>1</td><td>Llama 4 Scout 17B (G</td><td><strong>8.26</strong></td></tr>
+<tr><td>2</td><td>Devstral Small</td><td><strong>8.24</strong></td></tr>
+<tr><td>3</td><td>Nemotron 3 Nano Omni</td><td><strong>8.09</strong></td></tr>
+<tr><td>4</td><td>Qwen 3-Next 80B Inst</td><td><strong>7.94</strong></td></tr>
+<tr><td>5</td><td>DeepSeek V4 Flash (O</td><td><strong>7.93</strong></td></tr>
+            </tbody></table>
 
             <h3>Coding</h3>
             <table><thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead><tbody>
-"""
-    coding = sorted(
-        [m for m in ranked if (m.get("score_by_pillar") or {}).get("Coding")],
-        key=lambda x: -x["score_by_pillar"]["Coding"]
-    )[:5]
-    for i, m in enumerate(coding, 1):
-        html += f'<tr><td>{i}</td><td>{m["name"][:20]}</td><td><strong>{m["score_by_pillar"]["Coding"]:.2f}</strong></td></tr>\n'
-
-    html += """            </tbody></table>
+<tr><td>1</td><td>Devstral Small</td><td><strong>8.40</strong></td></tr>
+<tr><td>2</td><td>Gemini 2.5 Flash Lit</td><td><strong>8.18</strong></td></tr>
+<tr><td>3</td><td>Llama 4 Scout 17B (G</td><td><strong>8.15</strong></td></tr>
+<tr><td>4</td><td>Llama 3.1 8B Instant</td><td><strong>8.09</strong></td></tr>
+<tr><td>5</td><td>DeepSeek V4 Flash (O</td><td><strong>7.94</strong></td></tr>
+            </tbody></table>
         </div>
         <div>
             <h3>Contenido / Marketing</h3>
             <table><thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead><tbody>
-"""
-    contenido = sorted(
-        [m for m in ranked if (m.get("score_by_pillar") or {}).get("Contenido")],
-        key=lambda x: -x["score_by_pillar"]["Contenido"]
-    )[:5]
-    for i, m in enumerate(contenido, 1):
-        html += f'<tr><td>{i}</td><td>{m["name"][:20]}</td><td><strong>{m["score_by_pillar"]["Contenido"]:.2f}</strong></td></tr>\n'
-
-    html += """            </tbody></table>
+<tr><td>1</td><td>Llama 3.1 8B Instant</td><td><strong>8.27</strong></td></tr>
+<tr><td>2</td><td>Llama 4 Scout 17B (G</td><td><strong>8.26</strong></td></tr>
+<tr><td>3</td><td>GPT-OSS 20B (Groq)</td><td><strong>8.25</strong></td></tr>
+<tr><td>4</td><td>Nemotron 3 Nano Omni</td><td><strong>8.08</strong></td></tr>
+<tr><td>5</td><td>GPT-OSS 120B (Ollama</td><td><strong>8.07</strong></td></tr>
+            </tbody></table>
 
             <h3>Agentes / Operaciones</h3>
             <table><thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead><tbody>
-"""
-    agentes = sorted(
-        [m for m in ranked if (m.get("score_by_pillar") or {}).get("Agentes")],
-        key=lambda x: -x["score_by_pillar"]["Agentes"]
-    )[:5]
-    for i, m in enumerate(agentes, 1):
-        html += f'<tr><td>{i}</td><td>{m["name"][:20]}</td><td><strong>{m["score_by_pillar"]["Agentes"]:.2f}</strong></td></tr>\n'
-
-    html += """            </tbody></table>
+<tr><td>1</td><td>Llama 3.1 8B Instant</td><td><strong>8.06</strong></td></tr>
+<tr><td>2</td><td>Llama 4 Scout 17B (G</td><td><strong>7.79</strong></td></tr>
+<tr><td>3</td><td>Mistral Small 4</td><td><strong>7.70</strong></td></tr>
+<tr><td>4</td><td>Devstral Small</td><td><strong>7.63</strong></td></tr>
+<tr><td>5</td><td>Llama 3.3 70B (Groq)</td><td><strong>7.60</strong></td></tr>
+            </tbody></table>
         </div>
         <div>
             <h3>Multi-step (agent_long_horizon)</h3>
             <table><thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead><tbody>
-"""
-    for i, m in enumerate(alh_models[:5], 1):
-        html += f'<tr><td>{i}</td><td>{m["name"][:20]}</td><td><strong>{m["alh"]:.2f}</strong></td></tr>\n'
-
-    html += """            </tbody></table>
+<tr><td>1</td><td>GPT-OSS 120B (Ollama</td><td><strong>8.60</strong></td></tr>
+<tr><td>2</td><td>DeepSeek V4 Pro (Oll</td><td><strong>8.42</strong></td></tr>
+<tr><td>3</td><td>Llama 4 Scout 17B (G</td><td><strong>8.26</strong></td></tr>
+<tr><td>4</td><td>Qwen 3-Next 80B Inst</td><td><strong>8.24</strong></td></tr>
+<tr><td>5</td><td>Llama 3.1 8B Instant</td><td><strong>8.21</strong></td></tr>
+            </tbody></table>
 
             <h3>Aguja-en-Pajar (NIAH-ES)</h3>
             <table><thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead><tbody>
-"""
-    for i, m in enumerate(niah_models[:5], 1):
-        html += f'<tr><td>{i}</td><td>{m["name"][:20]}</td><td><strong>{m["niah_avg"]:.2f}</strong></td></tr>\n'
-
-    html += f"""            </tbody></table>
+<tr><td>1</td><td>Gemini 2.5 Flash Lit</td><td><strong>7.66</strong></td></tr>
+<tr><td>2</td><td>Devstral Small</td><td><strong>7.24</strong></td></tr>
+<tr><td>3</td><td>Llama 4 Maverick</td><td><strong>7.21</strong></td></tr>
+<tr><td>4</td><td>Gemma 4 31B</td><td><strong>7.20</strong></td></tr>
+<tr><td>5</td><td>Gemma 4 31B (NIM)</td><td><strong>7.20</strong></td></tr>
+            </tbody></table>
         </div>
     </div>
 
-    <p class="guino">Ranking completo + drill-down por subcategorías en {URL_CALC}</p>
+    <p class="guino">Ranking completo + drill-down por subcategorías en https://benchmarks.cristiantala.com/</p>
 </div>
 
 <!-- ============================================================ -->
@@ -751,7 +724,7 @@ def render(models: dict, runs: list) -> str:
         </div>
     </div>
 
-    <p class="guino">Detalle de suscripciones + cuándo conviene cada una: {URL_REPO}/blob/main/SUSCRIPCIONES.md</p>
+    <p class="guino">Detalle de suscripciones + cuándo conviene cada una: https://github.com/ctala/ai-benchmarks-alternativos/blob/main/SUSCRIPCIONES.md</p>
 </div>
 
 <!-- ============================================================ -->
@@ -828,7 +801,7 @@ def render(models: dict, runs: list) -> str:
         </div>
     </div>
 
-    <p class="guino">Modelos validados localmente + scripts setup: {URL_REPO}/blob/main/MODELOS.md</p>
+    <p class="guino">Modelos validados localmente + scripts setup: https://github.com/ctala/ai-benchmarks-alternativos/blob/main/MODELOS.md</p>
 </div>
 
 <!-- ============================================================ -->
@@ -932,7 +905,7 @@ def render(models: dict, runs: list) -> str:
         <strong>Estrategia recomendada</strong>: 1 sub barata (MiMo Xiaomi $14) para producción base + NIM gratis para modelos especializados + 1 cuenta OpenRouter como fallback con $20-50 de credit para emergencias.
     </div>
 
-    <p class="guino">Comparativa detallada de proveedores: {URL_REPO}/blob/main/PROVEEDORES.md</p>
+    <p class="guino">Comparativa detallada de proveedores: https://github.com/ctala/ai-benchmarks-alternativos/blob/main/PROVEEDORES.md</p>
 </div>
 
 <!-- ============================================================ -->
@@ -998,7 +971,7 @@ def render(models: dict, runs: list) -> str:
         </div>
     </div>
 
-    <p class="guino">Metodología completa + reproducibilidad: {URL_REPO}/blob/main/CLAUDE.md</p>
+    <p class="guino">Metodología completa + reproducibilidad: https://github.com/ctala/ai-benchmarks-alternativos/blob/main/CLAUDE.md</p>
 </div>
 
 <!-- ============================================================ -->
@@ -1010,17 +983,17 @@ def render(models: dict, runs: list) -> str:
 
     <div class="qr-container">
         <div class="qr-box">
-            <img src="data:image/png;base64,{qr_calc}" alt="QR Calculadora">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAIAAABOs7xcAAAE4UlEQVR4nO3dMXIlNRRAUUxRJKSzD2LvfwUshoTEbMAKREkjiXtOalf/tn1LwZue1x+fXz9+gf+7X0/fAPwMQidB6CQInQShkyB0EoROwm+jL/z1x+8/8z7+sz///mfq+0c/16rrjIyuv+p+Rnbf521G9+9EJ0HoJAidBKGTIHQShE6C0EkYztFHVs13Z70yxx2Zvf9VP+/uufgrPTjRSRA6CUInQegkCJ0EoZMgdBKm5+gjt81lZ5/z3j2nP/Xc/Mju+fdtPTjRSRA6CUInQegkCJ0EoZMgdBKWzdFfsXs+vepzV+2BOfXz3saJToLQSRA6CUInQegkCJ0EoZOQm6OPrNojvur7d1+nNl93opMgdBKEToLQSRA6CUInQegkLJujvzJ/ve09mq/M72fd1oMTnQShkyB0EoROgtBJEDoJQidheo7++vs+Z53ar7LqvaS797280oMTnQShkyB0EoROgtBJEDoJQidhOEe/7Xni2+zer7LKqnn56z040UkQOglCJ0HoJAidBKGTIHQSPj6/fnz7hd3PT69y6v2gI7e9r3TVdV7/+zrRSRA6CUInQegkCJ0EoZMgdBKWzdFn3bZX5LbPfWVfyqxT/TjRSRA6CUInQegkCJ0EoZMgdBKWvWd0ZPdzz7v3i++2++c9Naff/Vz+7PWd6CQInQShkyB0EoROgtBJEDoJy/aj735+fdU+71PPwZ+6/ivvH919P050EoROgtBJEDoJQidB6CQInYRj+9Ffmcue2ke++zqnnNo370QnQegkCJ0EoZMgdBKEToLQSRjO0Vc5tWd9ld3z9ZHb9rSsYj86bCR0EoROgtBJEDoJQidB6CRM70e/7bnw3Z87e/1Zr+wpv23fi70u8A2hkyB0EoROgtBJEDoJQifh+efRb/vckdt+DyO37ZmxHx0mCJ0EoZMgdBKEToLQSRA6CcPn0V+f+57af7Lqfl55nv6297OOONFJEDoJQidB6CQInQShkyB0Eo7tdVn1/bftR9+9f2Zk1e/htt/niP3o8A2hkyB0EoROgtBJEDoJQidheo5e24sycmoefNue8lPvN7XXBb4hdBKEToLQSRA6CUInQegkTM/RZ62as77y/tHZzx059R7WU3b/XZzoJAidBKGTIHQShE6C0EkQOgnL5uivvM9y9/6TVfPg255H381eF1hA6CQInQShkyB0EoROgtBJ+Pj8+nH6HrbY/Xz5bXtmRk49p37bvhcnOglCJ0HoJAidBKGTIHQShE7C8Hn0255XHln1PPeq6896ZR/LqX83WHV9JzoJQidB6CQInQShkyB0EoROwvPvGZ39/tn5+qn3cd62p+WVPfEjTnQShE6C0EkQOglCJ0HoJAidhGP70Ud2z+lve656978PzF7n1P9D2P13caKTIHQShE6C0EkQOglCJ0HoJCybo7/itvd3rrqf1/8dY9X3249OmtBJEDoJQidB6CQInQShk5Cbo4+8Mi+ftfs5+FPsdYFvCJ0EoZMgdBKEToLQSRA6Ccvm6Kf2po+cup/d7x899d7TU9dfNb93opMgdBKEToLQSRA6CUInQegkfHx+/fj2C7c9fzyye/66ym1z6N3vQ919n7Oc6CQInQShkyB0EoROgtBJEDoJwzk6/J840UkQOglCJ0HoJAidBKGTIHQS/gUuHSG+fjRQ4QAAAABJRU5ErkJggg==" alt="QR Calculadora">
             <div class="qr-label">🎛 Calculadora interactiva</div>
-            <div class="qr-url">{URL_CALC}</div>
+            <div class="qr-url">https://benchmarks.cristiantala.com/</div>
             <p style="font-size: 8pt; color: #b0b0b0; margin-top: 8px; line-height: 1.4;">
-                Filtra por presupuesto, calidad, velocidad. Top {len(ranked)} modelos actualizados.
+                Filtra por presupuesto, calidad, velocidad. Top 80 modelos actualizados.
             </p>
         </div>
         <div class="qr-box">
-            <img src="data:image/png;base64,{qr_skool}" alt="QR Comunidad">
+            <img src="data:image/png;base64,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" alt="QR Comunidad">
             <div class="qr-label">👥 Comunidad Skool</div>
-            <div class="qr-url">{URL_SKOOL}</div>
+            <div class="qr-url">https://www.skool.com/cagala-aprende-repite</div>
             <p style="font-size: 8pt; color: #b0b0b0; margin-top: 8px; line-height: 1.4;">
                 <strong>Cágala, Aprende, Repite</strong> — workshops, casos reales, stack de emprendedores LATAM.
             </p>
@@ -1042,7 +1015,7 @@ def render(models: dict, runs: list) -> str:
             github.com/ctala/ai-benchmarks-alternativos
         </p>
         <p style="font-family: 'JetBrains Mono', monospace; color: #00d4ff; font-size: 10pt; margin-top: 4px;">
-            cristiantala.com · {MONTH} {YEAR} · v2.8.0 · MIT
+            cristiantala.com · Junio 2026 · v2.8.0 · MIT
         </p>
     </div>
 
@@ -1053,32 +1026,4 @@ def render(models: dict, runs: list) -> str:
 </div>
 
 </body>
-</html>"""
-
-    return html
-
-
-# ============================================================
-# MAIN
-# ============================================================
-
-def main():
-    models = load_models()
-    runs = load_runs()
-    html = render(models, runs)
-
-    out_dir = ROOT / "cheatsheet"
-    out_dir.mkdir(exist_ok=True)
-    html_file = out_dir / f"cheatsheet_{YEAR}_{now.strftime('%m')}_v2.html"
-    pdf_file = out_dir / f"AI_Model_Benchmark_CheatSheet_{MONTH}_{YEAR}.pdf"
-
-    html_file.write_text(html)
-    HTML(string=html).write_pdf(str(pdf_file))
-
-    print(f"PDF generado: {pdf_file}")
-    print(f"HTML guardado: {html_file}")
-    print(f"  Páginas estimadas: 10 (cover + 9 secciones)")
-
-
-if __name__ == "__main__":
-    main()
+</html>
