@@ -33,7 +33,15 @@
 
 **MiniMax M3 (lanzado 1 jun 2026):** sucesor de M2.7 (caso activo de Cristian). En OpenRouter `minimax/minimax-m3`, $0.30/$1.20, **contexto 1M** (vs 200k de M2.7). Agregado al config + lanzado como 6º sweep paralelo. Es exactamente el "MiniMax M2.8 / sucesor" que el roadmap marcaba como Tier 1.
 
-**Corriendo / pendiente:** 6 sweeps API en curso con juez vLLM; sweep local Q4 resumible (`--resume`) para el delta. Pendiente del plan original "Tier 1 junio": Gemini 3.5 Flash + Cohere Command A (disponibles en OR); ⚠️ **MiniMax M2.8 y MiMo V3 NO existen aún en OpenRouter** (lo último es M2.7 / V2.5).
+**Corriendo / pendiente:** 6 sweeps API en curso con juez vLLM; sweep local Q4 resumible (`--resume`) para el delta.
+
+### 📓 Consolidación 2 jun 2026 — v2.8: long-context como pilar aparte
+
+- **7 modelos nuevos medidos** (223 tests c/u, juez vLLM Phi-4): deepseek-v4-flash, qwen3-coder-next, qwen3.6-35b base, deepseek-r1, minimax-m3 (OR), minimax-m3-direct (sub). `qwen3.6-27b` quedó para rerun nocturno (OR lo throttleó).
+- **Bug encontrado y arreglado**: 5 runners lanzados el mismo segundo clobbearon el JSON compartido (cada `_dump_results` reescribe el archivo). Fix: `timestamp + PID` en runner.py. Re-corridos los 4 afectados.
+- **Hallazgo de validez (v2.8)**: las suites `niah_es` (256K/1M ctx) eran ~54% del conteo de tests y se midieron desigual (nuevos con 120 niah, varios del top con 0) → el score general estaba distorsionado. **Decisión del usuario: long-context pasa a dimensión separada.** `export_for_pages.aggregate_metrics` ahora computa el score general solo con tareas no-niah y expone `long_context_score/quality/runs` aparte.
+- **Efecto**: DeepSeek V4 Flash #63→**#9**; top global vuelve a workhorses rápidos (Llama Groq, Devstral). **MiniMax M3 #1 en long-context** (q 8.37, su 1M real). README actualizado con los 3 cortes + tabla long-context.
+- **Pendiente**: rerun nocturno qwen3.6-27b; backfill niah para cobertura pareja; **lote flagship** (Opus 4.8, Gemini 3.5 Flash, Qwen 3.6 Max). Pendiente del plan original "Tier 1 junio": Gemini 3.5 Flash + Cohere Command A (disponibles en OR); ⚠️ **MiniMax M2.8 y MiMo V3 NO existen aún en OpenRouter** (lo último es M2.7 / V2.5).
 
 ### Qué entra en el release de junio (checklist)
 

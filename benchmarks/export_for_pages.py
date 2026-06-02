@@ -113,29 +113,40 @@ def aggregate_metrics(runs):
     componentes promedio (quality, cost_score, speed, latency, tool_calling)
     para mostrar en tablas y permitir que la calculadora aplique pesos custom.
     """
-    # Recalcular final por run con los pesos actuales
-    finals_recalc = []
+    # Recalcular final por run con los pesos actuales (para TODOS, así by_suite
+    # puede exponer también el long-context).
     for r in runs:
         if r.get("final") is None:
             continue
-        new_final = _recalc_final(r)
-        r["_final_recalc"] = new_final
-        finals_recalc.append(new_final)
+        r["_final_recalc"] = _recalc_final(r)
 
-    judge_scores = [r.get("judge_score") for r in runs if r.get("judge_score") is not None]
-    speeds = [r.get("tokens_per_second", 0) for r in runs if r.get("tokens_per_second", 0) > 0]
-    latencies = [r.get("latency_total", 0) for r in runs if r.get("latency_total", 0) > 0]
-    in_tokens = sum(r.get("input_tokens", 0) or 0 for r in runs)
-    out_tokens = sum(r.get("output_tokens", 0) or 0 for r in runs)
+    # Long-context (niah_*) es una DIMENSIÓN APARTE, no parte del score general.
+    # Decisión 2 jun 2026: las suites niah son 256K/1M ctx (~54% del conteo de
+    # tests) y se midieron desigual entre modelos → distorsionaban el ranking.
+    # El score general usa solo tareas prácticas (no-niah); long-context se
+    # reporta por separado para quien lo necesite.
+    def _is_niah(r):
+        return str(r.get("suite", "")).startswith("niah")
 
-    # Componentes promedio (para mostrar en tabla, no solo el final compuesto)
-    qualities = [r.get("quality") for r in runs if r.get("quality") is not None]
-    cost_scores = [r.get("cost_score") for r in runs if r.get("cost_score") is not None]
-    speed_scores = [r.get("speed") for r in runs if r.get("speed") is not None]
-    latency_scores = [r.get("latency") for r in runs if r.get("latency") is not None]
-    tc_scores = [r.get("tool_calling") for r in runs if r.get("tool_calling") is not None]
+    general = [r for r in runs if not _is_niah(r)]
+    niah = [r for r in runs if _is_niah(r)]
 
-    # Score por pilar Y por suite usando el final recalculado
+    finals_recalc = [r["_final_recalc"] for r in general if r.get("_final_recalc") is not None]
+
+    judge_scores = [r.get("judge_score") for r in general if r.get("judge_score") is not None]
+    speeds = [r.get("tokens_per_second", 0) for r in general if r.get("tokens_per_second", 0) > 0]
+    latencies = [r.get("latency_total", 0) for r in general if r.get("latency_total", 0) > 0]
+    in_tokens = sum(r.get("input_tokens", 0) or 0 for r in general)
+    out_tokens = sum(r.get("output_tokens", 0) or 0 for r in general)
+
+    # Componentes promedio (solo tareas prácticas, no-niah)
+    qualities = [r.get("quality") for r in general if r.get("quality") is not None]
+    cost_scores = [r.get("cost_score") for r in general if r.get("cost_score") is not None]
+    speed_scores = [r.get("speed") for r in general if r.get("speed") is not None]
+    latency_scores = [r.get("latency") for r in general if r.get("latency") is not None]
+    tc_scores = [r.get("tool_calling") for r in general if r.get("tool_calling") is not None]
+
+    # Score por pilar (general) Y por suite (incluye niah para visibilidad)
     by_pillar = defaultdict(list)
     by_suite = defaultdict(list)
     for r in runs:
@@ -150,8 +161,12 @@ def aggregate_metrics(runs):
     suites = {s: round(sum(v) / len(v), 2) for s, v in by_suite.items() if v}
     scores = finals_recalc  # mantener naming downstream
 
+    # Dimensión long-context separada (quality y final promedio de los niah)
+    niah_q = [r.get("quality") for r in niah if r.get("quality") is not None]
+    niah_f = [r["_final_recalc"] for r in niah if r.get("_final_recalc") is not None]
+
     return {
-        "runs": len(runs),
+        "runs": len(general),  # cobertura = tareas prácticas (umbral tested >=50)
         "score_global": round(sum(scores) / len(scores), 2) if scores else None,
         "score_by_pillar": pillars,
         "score_by_suite": suites,
@@ -166,6 +181,10 @@ def aggregate_metrics(runs):
         "latency_avg_s": round(sum(latencies) / len(latencies), 2) if latencies else None,
         "total_input_tokens": in_tokens,
         "total_output_tokens": out_tokens,
+        # --- Dimensión long-context (niah_es), separada del score general ---
+        "long_context_runs": len(niah),
+        "long_context_quality": round(sum(niah_q) / len(niah_q), 2) if niah_q else None,
+        "long_context_score": round(sum(niah_f) / len(niah_f), 2) if niah_f else None,
     }
 
 

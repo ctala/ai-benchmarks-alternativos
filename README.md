@@ -28,22 +28,38 @@ Por eso modelos académicamente top (Opus con HumanEval 88+, MMLU 90+, GPQA 94+)
 
 **Si solo te importa quality** (y costo no es factor), ordená por la columna `quality_avg` en [docs/data/models.json](docs/data/models.json) o usá los sliders de la [calculadora](https://benchmarks.cristiantala.com/) para ajustar pesos a tu caso.
 
-## Top 10 Global Ranking — score compuesto v2.7 (costo provider-aware)
+## Top 10 Global Ranking — score compuesto v2.8 (tareas prácticas, long-context aparte)
 
 | # | Modelo | Final | Quality | Cost | Tools | Provider | $/1k calls |
 |---|---|---:|---:|---:|---:|---|---:|
-| 1 | **Devstral Small** | **7.84** | 7.89 | 9.13 | 6.81 | OpenRouter | $0.48 |
-| 2 | Nemotron 3 Nano Omni 30B | 7.84 | 7.75 | **10.00** | 6.87 | NIM (free) | $0 |
-| 3 | **Qwen 3-Next 80B Instruct** | **7.83** | 8.11 | **10.00** | 7.11 | NIM (free) | $0 |
-| 4 | Gemini 2.5 Flash Lite | 7.74 | 7.79 | 9.34 | 6.42 | OpenRouter | $0.63 |
-| 5 | **Llama 4 Scout 17B** | **7.69** | 7.70 | 8.81 | 7.04 | Groq direct | $0.54 |
-| 6 | Devstral 2 123B | 7.68 | 7.98 | **10.00** | 6.87 | NIM (free) | $0 |
-| 7 | **Llama 3.1 8B Instant** | **7.67** | 7.33 | 9.33 | 7.10 | Groq direct | $0.14 |
-| 8 | Nemotron 3 Base 33B | 7.63 | 7.83 | **10.00** | 6.74 | Local DGX | $0 |
-| 9 | Nemotron Nano 9B v2 | 7.59 | 7.73 | **10.00** | 7.10 | NIM (free) | $0 |
-| 10 | Gemma 4 26B MoE | 7.52 | 7.80 | 9.65 | 7.20 | OpenRouter | $0.50 |
+| 1 | **Llama 3.1 8B Instant** | **8.11** | 7.61 | 9.87 | 7.15 | Groq | $0.14 |
+| 2 | **Llama 4 Scout 17B** | **8.11** | 7.93 | 9.58 | 7.06 | Groq | $0.54 |
+| 3 | **Devstral Small** | **8.03** | 8.03 | 9.69 | 6.75 | OpenRouter | $0.48 |
+| 4 | Llama 3.3 70B | 7.86 | 8.01 | 8.15 | 7.14 | Groq | $1.36 |
+| 5 | GPT-OSS 20B | 7.84 | 7.51 | 9.15 | 6.91 | Groq | $0.47 |
+| 6 | Nemotron 3 Nano Omni 30B | 7.84 | 7.75 | **10.00** | 6.87 | NIM (free) | $0 |
+| 7 | **Qwen 3-Next 80B Instruct** | **7.83** | 8.11 | **10.00** | 7.11 | NIM (free) | $0 |
+| 8 | Mistral Small 4 | 7.81 | 8.08 | 8.84 | 7.11 | OpenRouter | $0.94 |
+| 9 | **DeepSeek V4 Flash** 🆕 | **7.80** | 8.34 | 9.37 | 7.10 | OpenRouter | $0.33 |
+| 10 | Hermes 4 70B | 7.77 | 8.04 | 9.47 | 7.00 | OpenRouter | $0.64 |
 
-> **Cambio v2.7**: con el rescore de costo provider-aware, el componente costo (20%) por fin discrimina. Resultado: open-source barato y modelos **gratis** (NIM 40rpm, local DGX) suben al top; los premium caros bajan (Opus 4.x, GPT-5.4, Gemini 2.5 Pro: −0.3 a −0.5). Antes casi todos tenían `cost_score≈7.0` por un fallback de precio → el ranking era de facto solo-calidad.
+> **Cambio v2.8 (jun 2026): long-context es un pilar aparte.** Las suites `niah_es` (needle-in-haystack a 256K/1M tokens) llegaron a ser ~54% del conteo de tests y se midieron desigual entre modelos (unos con 120 tests niah, otros con 0) → distorsionaban el score general. Ahora **el ranking global mide solo tareas prácticas** (contenido, coding, agentes, razonamiento) y el long-context se reporta como **dimensión separada** (abajo). Efecto: modelos de calidad alta pero ventana de contexto chica dejan de ser penalizados injustamente — **DeepSeek V4 Flash** salta de #63 a **#9**.
+>
+> **Cambio v2.7** (se mantiene): rescore de costo provider-aware — el componente costo (20%) por fin discrimina; gratis (NIM 40rpm, local DGX) y open-source barato suben, premium caros bajan.
+
+### 🔍 Dimensión Long-Context (niah_es, separada del score general)
+
+Para quien SÍ necesita contexto largo (256K–1M tokens). Calidad de extracción en español:
+
+| # | Modelo | Quality long-ctx | Runs niah |
+|---|---|---:|---:|
+| 1 | **MiniMax M3** (sub/directo) 🆕 | **8.37** | 105 |
+| 2 | Mistral Small 4 | 7.54 | 63 |
+| 3 | MiMo V2.5 (Xiaomi) | 7.53 | 45 |
+| 4 | Devstral Small | 7.47 | 54 |
+| 5 | DeepSeek V4 Flash | 7.47 | 54 |
+
+> **MiniMax M3 domina el long-context** (su ventana de 1M es real) — algo que el score lumped escondía. La cobertura niah aún es despareja entre modelos; tratarlo como señal secundaria hasta backfillear.
 
 > ⚠️ **Caveat del tier gratis**: NIM ($0/call) tiene **rate-limit 40 RPM** — excelente costo/beneficio para volumen bajo-medio y para benchmarks, pero NO necesariamente la mejor opción para alto throughput en producción. Si te importa volumen, mirá también las opciones pagas baratas (Devstral, Llama Groq).
 
@@ -433,7 +449,7 @@ Organizadas en los 4 pilares del emprendedor:
 
 ## Resultados (Abril 2026) — Scoring v2 + Phi-4 Judge
 
-> Ranking completo con **27 modelos × 91 tests = 2457 corridas** evaluadas por Phi-4 (Microsoft, 14B, MIT) local via Ollama. Juez sin conflicto de interés. Total cómputo: **~65h wall-clock** distribuidas en 21 lotes (22-25 abril).
+> Ranking completo con **27 modelos × 91 tests = 2457 corridas** evaluadas por Phi-4 (Microsoft, 14B, MIT) local via Ollama. Juez sin conflicto de interés. Total cómputo: **~65h wall-clock** distribuidas en 27 lotes (22-25 abril).
 >
 > JSON: `benchmark_20260422_204025.json` (Lote 1) + `benchmark_20260423_051248.json` (Lote 2) + `benchmark_20260424_053942.json` (Lote 3). Detalle por modelo navegable en [`results/per-model/`](benchmarks/results/per-model/).
 
