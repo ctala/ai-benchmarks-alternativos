@@ -326,6 +326,45 @@ MODELS = {
         "niah_max_context": 262144,  # cap de costo: skip tramos 1M (evita ~$40 en niah)
         "notes": "Flagship Anthropic más nuevo (jun 2026), contexto 1M. $5/$25 vía OpenRouter API. Techo de calidad de referencia. Sucesor de 4.7.",
     },
+    # --- Anthropic vía SUSCRIPCIÓN Claude Code (CLI `claude -p`, tarifa plana) ---
+    # Costo del ranking = precio OpenRouter (free_runtime via sub). CAVEAT: ~8.8K
+    # scaffolding residual de Claude Code, NO usar para tool-calling. id = alias CLI.
+    "claude-opus-4.8-sub": {
+        "id": "claude-opus-4-8",
+        "name": "Claude Opus 4.8 (suscripción)",
+        "cost_input": 5.00, "cost_output": 25.00,
+        "tier": "subscription", "provider": "claude_code",
+        "subscriptions": ["anthropic_pro"], "free_runtime": True,
+        "context_window": 1000000,
+        "notes": "Opus 4.8 medido por la suscripción Claude Code (no API) — a costo $0. Costeado a precio OpenRouter ($5/$25). CAVEAT: subscription_measured.",
+    },
+    "claude-opus-4.7-sub": {
+        "id": "claude-opus-4-7",
+        "name": "Claude Opus 4.7 (suscripción)",
+        "cost_input": 5.00, "cost_output": 25.00,
+        "tier": "subscription", "provider": "claude_code",
+        "subscriptions": ["anthropic_pro"], "free_runtime": True,
+        "context_window": 1000000,
+        "notes": "Opus 4.7 vía suscripción Claude Code.",
+    },
+    "claude-sonnet-4.6-sub": {
+        "id": "claude-sonnet-4-6",
+        "name": "Claude Sonnet 4.6 (suscripción)",
+        "cost_input": 3.00, "cost_output": 15.00,
+        "tier": "subscription", "provider": "claude_code",
+        "subscriptions": ["anthropic_pro"], "free_runtime": True,
+        "context_window": 1000000,
+        "notes": "Sonnet 4.6 vía suscripción Claude Code.",
+    },
+    "claude-haiku-4.5-sub": {
+        "id": "claude-haiku-4-5",
+        "name": "Claude Haiku 4.5 (suscripción)",
+        "cost_input": 1.00, "cost_output": 5.00,
+        "tier": "subscription", "provider": "claude_code",
+        "subscriptions": ["anthropic_pro"], "free_runtime": True,
+        "context_window": 200000,
+        "notes": "Haiku 4.5 vía suscripción Claude Code.",
+    },
     "claude-opus-4.7-thinking": {
         "id": "anthropic/claude-opus-4-7",
         "name": "Claude Opus 4.7 (thinking)",

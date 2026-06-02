@@ -38,7 +38,7 @@ from benchmarks.scoring import (
     compute_final_score,
 )
 from benchmarks.llm_judge import LLMJudge, create_judge, judge_score_to_10, JUDGE_PRESETS
-from providers.adapters import UnifiedProvider, OpenAIResponsesProvider, BenchmarkResult
+from providers.adapters import UnifiedProvider, OpenAIResponsesProvider, ClaudeCodeProvider, BenchmarkResult
 
 # Importar tests
 from benchmarks.tests import content_generation, tool_calling, task_management
@@ -448,6 +448,11 @@ def run_benchmark(args):
     except ImportError:
         pass
 
+    # Claude Code (suscripción Anthropic vía CLI `claude -p`) — sin API key, usa
+    # el login de Claude Code. Modelos Anthropic a tarifa plana. Ver caveat en
+    # ClaudeCodeProvider (scaffolding residual, no tool-calling).
+    claude_code = ClaudeCodeProvider("claude_code")
+
     ollama = None
     if INCLUDE_OLLAMA:
         # OLLAMA_BASE_URL puede apuntar a localhost o a una DGX/server remoto
@@ -698,6 +703,8 @@ def run_benchmark(args):
             provider = openai_direct
         elif model_config.get("provider") == "openai_responses" and openai_responses:
             provider = openai_responses
+        elif model_config.get("provider") == "claude_code" and claude_code:
+            provider = claude_code
         elif model_config.get("provider") == "nvidia_nim" and nvidia_nim:
             provider = nvidia_nim
         elif model_config.get("provider") == "xiaomi_direct" and xiaomi_direct:
