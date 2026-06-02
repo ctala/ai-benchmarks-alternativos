@@ -719,7 +719,9 @@ def run_benchmark(args):
                 # comparar peras con manzanas). Si no hay context_window declarado,
                 # se corre igual (el adapter trunca o el provider devuelve error → N/A).
                 ctx_needed = test.get("context_tokens")
-                ctx_window = model_config.get("context_window")
+                # niah_max_context: cap de costo opcional (ej. premium capeado a
+                # 256K para no pagar los tramos 1M caros). Default = context window real.
+                ctx_window = model_config.get("niah_max_context") or model_config.get("context_window")
                 if ctx_needed and ctx_window and ctx_needed > ctx_window:
                     print(f"  [{completed}/{total_runs}] {short_model} ({local_completed}/{tests_per_model}) | "
                           f"{suite_name}/{test['name']}... SKIP (ctx {ctx_needed:,}>{ctx_window:,})", flush=True)
