@@ -108,6 +108,26 @@ MODELS = {
         "cost_output": 1.20,
         "tier": "cheap",
     },
+    "minimax-m3": {
+        "id": "minimax/minimax-m3",
+        "name": "MiniMax M3",
+        "cost_input": 0.30,
+        "cost_output": 1.20,
+        "tier": "cheap",
+        "thinking": True,
+        "notes": "Lanzado 1 jun 2026 (https://www.minimax.io/models/text/m3). Sucesor de M2.7 — caso activo de Cristian (sub MiniMax). Contexto 1M (vs 200k de M2.7), mismo precio $0.30/$1.20. Híbrido (emite <think>). Verificado vía OpenRouter API 1 jun 2026.",
+    },
+    "minimax-m3-direct": {
+        "id": "MiniMax-M3",
+        "name": "MiniMax M3 (directo / sub)",
+        "cost_input": 0.30,
+        "cost_output": 1.20,
+        "tier": "subscription",
+        "provider": "minimax_direct",
+        "thinking": True,
+        "subscriptions": ["minimax_agent_pro"],
+        "notes": "M3 vía API directa de MiniMax (token plan del usuario, key en .env). Mismo modelo que minimax-m3 (OpenRouter) — comparar provider stability + base para el eje cost-to-complete del caso real de Cristian. Costo del ranking = precio OpenRouter ($0.30/$1.20).",
+    },
     # MiniMax M2.7 Highspeed requiere API directa de MiniMax (no OpenRouter)
     # Configurar MINIMAX_API_KEY abajo para habilitarlo
     "minimax-m2.7-direct": {
@@ -130,6 +150,16 @@ MODELS = {
         "subscriptions": ["minimax_agent_pro"],
         "notes": "Acceso vía sub Agent Pro $19/mes. Misma calidad que M2.7 directo, latencia ultra baja.",
     },
+    "gemini-3.5-flash": {
+        "id": "google/gemini-3.5-flash",
+        "name": "Gemini 3.5 Flash",
+        "cost_input": 1.50,
+        "cost_output": 9.00,
+        "tier": "medium",
+        # niah sin cap: medir su curva completa hasta 800K para confirmar si el
+        # hallazgo (peor que 2.5 Flash Lite en español) se sostiene en contexto grande.
+        "notes": "Sucesor del Flash (19 may 2026), contexto 1M. $1.50/$9 vía OpenRouter API. Releva al 2.5 Flash.",
+    },
     "gemini-flash": {
         "id": "google/gemini-2.5-flash",
         "name": "Gemini 2.5 Flash",
@@ -146,6 +176,16 @@ MODELS = {
         "thinking": True,
         "force_reasoning": True,
         "notes": "Misma versión que gemini-flash con thinking forzado (effort=high).",
+    },
+    "qwen-3.6-max": {
+        "id": "qwen/qwen3.6-max-preview",
+        "name": "Qwen 3.6 Max",
+        "cost_input": 1.04,
+        "cost_output": 6.24,
+        "tier": "medium",
+        "open_source": False,
+        "license": "Proprietary",
+        "notes": "Tier Max de Alibaba (API-only propietario, el más capaz de la familia). Completa base+Plus+Max. $1.04/$6.24 vía OpenRouter API jun 2026.",
     },
     "qwen-3.6-plus": {
         "id": "qwen/qwen3.6-plus",
@@ -275,6 +315,15 @@ MODELS = {
         "tier": "premium",
         "notes": "Precio corregido may 2026 vía OpenRouter API: $5/$25 (antes teníamos $15/$75, era pricing viejo de Claude-3 Opus).",
     },
+    "claude-opus-4.8": {
+        "id": "anthropic/claude-opus-4.8",
+        "name": "Claude Opus 4.8",
+        "cost_input": 5.00,
+        "cost_output": 25.00,
+        "tier": "premium",
+        "niah_max_context": 262144,  # cap de costo: skip tramos 1M (evita ~$40 en niah)
+        "notes": "Flagship Anthropic más nuevo (jun 2026), contexto 1M. $5/$25 vía OpenRouter API. Techo de calidad de referencia. Sucesor de 4.7.",
+    },
     "claude-opus-4.7-thinking": {
         "id": "anthropic/claude-opus-4-7",
         "name": "Claude Opus 4.7 (thinking)",
@@ -401,6 +450,40 @@ MODELS = {
         "tier": "cheap",
         "open_source": True,
         "license": "Apache 2.0",
+    },
+
+    # --- Qwen 3.6 base + Coder-Next vía OpenRouter (FP8) — pares de los locales
+    #     del DGX Spark para medir el delta Q4(local) vs FP8(API). Precios
+    #     verificados vía OpenRouter /api/v1/models el 1 jun 2026. ---
+    "qwen3.6-27b": {
+        "id": "qwen/qwen3.6-27b",
+        "name": "Qwen 3.6 27B base (OpenRouter FP8)",
+        "cost_input": 0.29,
+        "cost_output": 3.20,
+        "tier": "cheap",
+        "open_source": True,
+        "license": "Apache 2.0",
+        "notes": "Qwen 3.6 BASE abierto vía OpenRouter (FP8). Par del local-qwen3.6-27b (Q4 en DGX Spark) para medir delta cuantización.",
+    },
+    "qwen3.6-35b": {
+        "id": "qwen/qwen3.6-35b-a3b",
+        "name": "Qwen 3.6 35B base (OpenRouter FP8)",
+        "cost_input": 0.14,
+        "cost_output": 1.00,
+        "tier": "cheap",
+        "open_source": True,
+        "license": "Apache 2.0",
+        "notes": "Qwen 3.6 BASE 35B (MoE a3b) vía OpenRouter (FP8). Par del local-qwen3.6-35b (Q4).",
+    },
+    "qwen3-coder-next": {
+        "id": "qwen/qwen3-coder-next",
+        "name": "Qwen3-Coder-Next (OpenRouter FP8)",
+        "cost_input": 0.11,
+        "cost_output": 0.80,
+        "tier": "cheap",
+        "open_source": True,
+        "license": "Apache 2.0",
+        "notes": "Coding next-gen vía OpenRouter (FP8). Par del local-qwen3-coder-next (Q4 en DGX Spark).",
     },
 
     # --- MEDIO - Ultimos modelos de cada proveedor ---
@@ -784,10 +867,19 @@ MODELS = {
     "deepseek-v4-flash": {
         "id": "deepseek/deepseek-v4-flash",
         "name": "DeepSeek V4 Flash (OpenRouter)",
-        "cost_input": 0.112, "cost_output": 0.224,
+        "cost_input": 0.098, "cost_output": 0.197,
         "tier": "cheap",
         "open_source": True, "license": "MIT",
-        "notes": "284B params, 13B activos, 1M context. Sucesor V3.2. Precio corregido may 2026 vía OpenRouter API ($0.112/$0.224).",
+        "notes": "284B params, 13B activos, 1M context. Sucesor V3.2. Precio re-verificado vía OpenRouter API 1 jun 2026 ($0.098/$0.197, antes $0.112/$0.224).",
+    },
+    "deepseek-r1": {
+        "id": "deepseek/deepseek-r1",
+        "name": "DeepSeek R1 (reasoning)",
+        "cost_input": 0.70, "cost_output": 2.50,
+        "tier": "cheap",
+        "open_source": True, "license": "MIT",
+        "thinking": True,
+        "notes": "Reasoning puro DeepSeek (versión paga estable). Llena el gap de razonamiento — el :free tenía 0 runs por flakiness. Verificado vía OpenRouter API 1 jun 2026 ($0.70/$2.50).",
     },
     "deepseek-v4-pro": {
         "id": "deepseek/deepseek-v4-pro",
@@ -1070,25 +1162,67 @@ OLLAMA_MODELS = {
         "vram_gb": 26,
         "notes": "Nemotron 3 base 33B (NO la versión Omni Reasoning) en Q4_K_M via Ollama oficial. Comparar con Nemotron 3 Super 120B (DGX, también Q4) y Nemotron 3 Nano Omni Reasoning cuando esté disponible.",
     },
-    "qwen3.5-25b": {
-        "id": "qwen3.5:25b",
-        "name": "Qwen 3.5 25B (local)",
+    # --- Tags actualizados al sweep DGX Spark (1 jun 2026) ---
+    # Reemplazan los tags obsoletos qwen3.5:25b / qwen3.5:72b que ya no existen
+    # en Ollama (deuda del roadmap). Verificados con `ollama list` en spark-8c1f.
+    "local-qwen3.5-35b": {
+        "id": "qwen3.5:35b",
+        "name": "Qwen 3.5 35B (DGX Spark)",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
         "open_source": True,
         "license": "Apache 2.0",
-        "vram_gb": 16,
+        "vram_gb": 23,
+        "notes": "Tag real instalado en DGX Spark. Comparar vs Qwen 3.5 397B Cloud/NIM (misma familia, distinto tamaño).",
     },
-    "qwen3.5-72b": {
-        "id": "qwen3.5:72b",
-        "name": "Qwen 3.5 72B (local)",
-        "cost_input": 0.0,
-        "cost_output": 0.0,
+    "local-qwen3.6-27b": {
+        "id": "qwen3.6:27b",
+        "name": "Qwen 3.6 27B base (DGX Spark)",
+        "cost_input": 0.29,
+        "cost_output": 3.20,
         "tier": "local",
         "open_source": True,
         "license": "Apache 2.0",
-        "vram_gb": 42,
+        "vram_gb": 17,
+        "or_id": "qwen/qwen3.6-27b",
+        "notes": "Qwen 3.6 BASE (Apache 2.0, pesos en HF) — cierra el gap del roadmap: solo teníamos Qwen 3.6 Plus (propietario API-only). Corre gratis local en DGX Spark; el costo del ranking usa el precio OpenRouter ($0.29/$3.20) para comparación justa.",
+    },
+    "local-qwen3.6-35b": {
+        "id": "qwen3.6:35b",
+        "name": "Qwen 3.6 35B base (DGX Spark)",
+        "cost_input": 0.14,
+        "cost_output": 1.00,
+        "tier": "local",
+        "open_source": True,
+        "license": "Apache 2.0",
+        "vram_gb": 23,
+        "or_id": "qwen/qwen3.6-35b-a3b",
+        "notes": "Qwen 3.6 BASE 35B (MoE a3b) abierto. Corre gratis local en DGX Spark; costo del ranking = precio OpenRouter ($0.14/$1.00). Comparar vs 3.6 Plus propietario y vs 3.6 27B.",
+    },
+    "local-qwen3-coder-next": {
+        "id": "qwen3-coder-next:q4_K_M",
+        "name": "Qwen3-Coder-Next (DGX Spark Q4_K_M)",
+        "cost_input": 0.11,
+        "cost_output": 0.80,
+        "tier": "local",
+        "open_source": True,
+        "license": "Apache 2.0",
+        "vram_gb": 51,
+        "or_id": "qwen/qwen3-coder-next",
+        "notes": "Coding-especializado next-gen. Corre gratis local en DGX Spark (Q4_K_M); costo del ranking = precio OpenRouter ($0.11/$0.80, FP8). Comparar vs Devstral Small (#1) y Qwen3 Coder en el pilar Coding. Caveat: la versión local Q4 puede rendir algo bajo la FP8 de OpenRouter.",
+    },
+    "local-qwen2.5-72b": {
+        "id": "qwen2.5:72b",
+        "name": "Qwen 2.5 72B (DGX Spark)",
+        "cost_input": 0.36,
+        "cost_output": 0.40,
+        "tier": "local",
+        "open_source": True,
+        "license": "Apache 2.0",
+        "vram_gb": 47,
+        "or_id": "qwen/qwen-2.5-72b-instruct",
+        "notes": "Generación previa instalada en el Spark — baseline para medir salto 2.5→3.5→3.6 a igual tamaño grande. Corre gratis local; costo del ranking = precio OpenRouter ($0.36/$0.40).",
     },
     "llama3.3-70b": {
         "id": "llama3.3:70b",
@@ -1173,3 +1307,80 @@ OLLAMA_MODELS = {
         "note": "80.2% SWE-Bench, cabe en DGX Spark",
     },
 }
+
+# ============================================================================
+# Context windows (max tokens) — fuente: OpenRouter /api/v1/models + manuales.
+# El runner saltea tests niah cuyo context_tokens supera este valor (cada
+# modelo se mide hasta su techo). Regenerar con scripts/update_context_windows
+# o consultando OpenRouter. Verificado 2 jun 2026.
+# ============================================================================
+CONTEXT_WINDOWS = {
+    'MiniMax-M2.7': 204800,
+    'MiniMax-M2.7-highspeed': 204800,
+    'MiniMax-M3': 1048576,
+    'anthropic/claude-haiku-4.5': 200000,
+    'anthropic/claude-opus-4.8': 1000000,
+    'anthropic/claude-sonnet-4': 1000000,
+    'deepseek-ai/deepseek-v4-flash': 1048576,
+    'deepseek-ai/deepseek-v4-pro': 1048576,
+    'deepseek-v4-flash': 1048576,
+    'deepseek-v4-pro': 1048576,
+    'deepseek/deepseek-chat': 131072,
+    'deepseek/deepseek-r1': 163840,
+    'deepseek/deepseek-v4-flash': 1048576,
+    'deepseek/deepseek-v4-pro': 1048576,
+    'google/gemini-2.5-flash': 1048576,
+    'google/gemini-2.5-flash-lite': 1048576,
+    'google/gemini-2.5-pro': 1048576,
+    'google/gemini-3.1-flash-lite-preview': 1048576,
+    'google/gemini-3.1-pro-preview': 1048576,
+    'google/gemini-3.5-flash': 1048576,
+    'google/gemma-4-26b-a4b-it': 262144,
+    'google/gemma-4-31b-it': 262144,
+    'meta-llama/llama-3.3-70b-instruct:free': 131072,
+    'meta-llama/llama-4-maverick': 1048576,
+    'mimo-v2.5': 1048576,
+    'mimo-v2.5-pro': 1048576,
+    'minimax/minimax-m2.7': 204800,
+    'minimax/minimax-m3': 1048576,
+    'mistralai/devstral-2512': 262144,
+    'mistralai/mistral-large': 128000,
+    'mistralai/mistral-nemo': 131072,
+    'mistralai/mistral-small-2603': 262144,
+    'moonshotai/kimi-k2': 131072,
+    'moonshotai/kimi-k2-thinking': 262144,
+    'moonshotai/kimi-k2.5': 262144,
+    'moonshotai/kimi-k2.6': 262144,
+    'nousresearch/hermes-4-405b': 131072,
+    'nousresearch/hermes-4-70b': 131072,
+    'nvidia/llama-3.1-nemotron-ultra-253b-v1': 131072,
+    'nvidia/llama-3.3-nemotron-super-49b-v1.5': 131072,
+    'nvidia/nemotron-3-nano-30b-a3b': 262144,
+    'nvidia/nemotron-3-super-120b-a12b': 1000000,
+    'openai/gpt-4o': 128000,
+    'openai/gpt-oss-120b': 131072,
+    'openai/gpt-oss-20b': 131072,
+    'qwen/qwen3-coder': 1048576,
+    'qwen/qwen3-coder-next': 262144,
+    'qwen/qwen3-next-80b-a3b-instruct': 262144,
+    'qwen/qwen3-next-80b-a3b-thinking': 262144,
+    'qwen/qwen3.5-397b-a17b': 262144,
+    'qwen/qwen3.6-27b': 262144,
+    'qwen/qwen3.6-35b-a3b': 262144,
+    'qwen/qwen3.6-max-preview': 262144,
+    'qwen/qwen3.6-plus': 1000000,
+    'qwen3.5:397b-cloud': 262144,
+    'x-ai/grok-4.20': 2000000,
+    'x-ai/grok-4.20-multi-agent': 2000000,
+    'x-ai/grok-4.3': 1000000,
+    'xiaomi/mimo-v2-flash': 262144,
+    'z-ai/glm-5.1': 202752,
+}
+
+# Inyectar context_window a cada modelo (por id). Los que no estén en el mapa
+# quedan sin context_window → el runner corre todos los tamaños (error→N/A).
+for _m in list(MODELS.values()) + list(OLLAMA_MODELS.values()):
+    if "context_window" not in _m:
+        _cw = CONTEXT_WINDOWS.get(_m.get("id"))
+        if _cw:
+            _m["context_window"] = _cw

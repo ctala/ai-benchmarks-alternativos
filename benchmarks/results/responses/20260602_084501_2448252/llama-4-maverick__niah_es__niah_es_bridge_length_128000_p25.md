@@ -1,0 +1,11 @@
+# Llama 4 Maverick — niah_es/niah_es_bridge_length_128000_p25
+
+- model_id: `meta-llama/llama-4-maverick`
+- success: True  | final: 3.65 | quality: 3.56
+- latency_total: 5.775s | tokens_per_second: 2.6
+- input_tokens: 118642 | output_tokens: 15
+- judge_score: 1 | justificación: La respuesta no proporciona información relevante o precisa sobre el contexto del documento, que trata sobre la historia de Argentina, y en su lugar ofrece datos que no están relacionados con el tema.
+
+## Respuesta completa
+
+1.847 metros, 12 de marzo de 1962.

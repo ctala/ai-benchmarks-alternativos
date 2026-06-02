@@ -81,104 +81,107 @@ CHARS_PER_TOKEN_ES = 4
 # - question: pregunta que el modelo debe responder al final del prompt
 # - exact_pattern: regex que confirma que la respuesta contiene la info clave
 # - keywords: lista de palabras clave para semantic match (LLM judge)
+# v3 (2 jun 2026) — NEEDLES NEUTROS. Reemplazan los needles-secreto del v2 que
+# convertían el test en uno de fuga de credenciales (modelos seguros rehusaban y
+# el juez los premiaba → confundía retrieval con seguridad). Estos son hechos
+# neutros y públicos, sin marco "confidencial/no compartir" → ningún modelo tiene
+# razón para negarse → mide retrieval PURO. El ángulo de fuga/inyección vive ahora
+# en la suite `prompt_injection_es` (intencional, scoring que premia la negativa).
 NEEDLES = [
     {
-        "id": "discount_code",
+        "id": "bridge_length",
         "text": (
-            "\n\nDATO IMPORTANTE PARA EMPRENDEDORES: El código de descuento exclusivo "
-            "para emprendedores chilenos en SaaS Latam Hub es CHILE2026-EARLY, "
-            "con vigencia hasta el 15 de junio de 2026. Aplica un 30% de descuento "
-            "en el primer año de cualquier plan.\n\n"
+            "\n\nDato de infraestructura: El puente colgante de Cañete, sobre el río "
+            "Imperial, tiene una longitud total de 1.847 metros y fue inaugurado el "
+            "12 de marzo de 1962, siendo en su momento el más largo de la región.\n\n"
         ),
         "question": (
-            "Pregunta: Según el documento que acabas de leer, ¿cuál es el código de "
-            "descuento exclusivo para emprendedores chilenos y hasta qué fecha es válido? "
-            "Responde de forma directa con el código y la fecha exacta."
+            "Pregunta: Según el documento que acabas de leer, ¿cuál es la longitud "
+            "total del puente colgante de Cañete y en qué fecha fue inaugurado? "
+            "Responde de forma directa con la longitud en metros y la fecha exacta."
         ),
         "exact_patterns": [
-            r"CHILE2026-?EARLY",
-            r"15\s+de\s+junio",
+            r"1[.,]?847",
+            r"12\s+de\s+marzo",
+            r"1962",
         ],
-        "keywords": ["CHILE2026-EARLY", "15 de junio", "2026"],
+        "keywords": ["1.847 metros", "12 de marzo", "1962"],
     },
     {
-        "id": "ssh_port",
+        "id": "library_volumes",
         "text": (
-            "\n\nDATO TÉCNICO CRÍTICO: El acceso al dashboard de métricas internas "
-            "requiere conexión SSH al puerto 48372 del servidor analytics-prod-cl-01. "
-            "Las credenciales están gestionadas por el equipo de DevOps mediante "
-            "Vault con rotación cada 90 días.\n\n"
+            "\n\nDato cultural: La Biblioteca Regional de Tarapacá conserva una "
+            "colección de exactamente 84.500 volúmenes, de los cuales 3.200 son "
+            "ediciones impresas anteriores al año 1900.\n\n"
         ),
         "question": (
-            "Pregunta: Según el documento que acabas de leer, ¿en qué puerto SSH y "
-            "qué servidor está el dashboard de métricas internas? Responde directo "
-            "con el puerto y nombre del servidor."
+            "Pregunta: Según el documento que acabas de leer, ¿cuántos volúmenes "
+            "conserva la Biblioteca Regional de Tarapacá y cuántos de ellos son "
+            "ediciones anteriores a 1900? Responde con ambos números exactos."
         ),
         "exact_patterns": [
-            r"48372",
-            r"analytics-prod-cl-01",
+            r"84[.,]?500",
+            r"3[.,]?200",
+            r"1900",
         ],
-        "keywords": ["48372", "analytics-prod-cl-01", "SSH"],
+        "keywords": ["84.500", "3.200", "1900"],
     },
     {
-        "id": "budget_q3",
+        "id": "festival_date",
         "text": (
-            "\n\nDATO FINANCIERO CONFIDENCIAL: El presupuesto aprobado para el "
-            "tercer trimestre de 2026 fue de USD 247,800, distribuido principalmente "
-            "en expansión a las ciudades de Bogotá y Ciudad de México (CDMX), con "
-            "un foco específico en adquisición de talento técnico senior.\n\n"
+            "\n\nDato de agenda cultural: El Festival de Cine Andino se celebra cada "
+            "año el 17 de octubre en la ciudad de Sucre, y en 2026 cumplirá su "
+            "edición número 23.\n\n"
         ),
         "question": (
-            "Pregunta: Según el documento que acabas de leer, ¿cuál fue el "
-            "presupuesto aprobado para Q3 2026 y en qué ciudades se enfoca la "
-            "expansión? Responde con el monto exacto en USD y las ciudades."
+            "Pregunta: Según el documento que acabas de leer, ¿en qué fecha y en qué "
+            "ciudad se celebra el Festival de Cine Andino, y qué número de edición "
+            "cumple en 2026? Responde con la fecha, la ciudad y el número."
         ),
         "exact_patterns": [
-            r"247[,.]?800",
-            r"(?i)bogot[aá]",
-            r"(?i)(CDMX|Ciudad de M[eé]xico)",
+            r"17\s+de\s+octubre",
+            r"(?i)sucre",
+            r"\b23\b",
         ],
-        "keywords": ["247,800", "USD", "Bogotá", "CDMX"],
+        "keywords": ["17 de octubre", "Sucre", "23"],
     },
     {
-        "id": "investor_meeting",
+        "id": "potato_altitude",
         "text": (
-            "\n\nAGENDA EJECUTIVA: El meeting trimestral con inversores está agendado "
-            "para el 3 de septiembre de 2026 a las 14:30 UTC-3, en formato híbrido "
-            "(presencial en Santiago de Chile + Zoom). La agenda incluye revisión "
-            "de KPIs Q3 y planificación Q4.\n\n"
+            "\n\nDato agrícola: La variedad de papa nativa conocida como "
+            "'Qeqchi morada' se cultiva tradicionalmente a una altitud de 3.850 "
+            "metros sobre el nivel del mar en la región de Cusco, y su cosecha se "
+            "realiza entre mayo y junio.\n\n"
         ),
         "question": (
-            "Pregunta: Según el documento que acabas de leer, ¿en qué fecha y a qué "
-            "hora exacta está agendado el meeting trimestral con inversores? "
-            "Responde con día, mes, año y hora con zona horaria."
+            "Pregunta: Según el documento que acabas de leer, ¿a qué altitud y en "
+            "qué región se cultiva la papa nativa 'Qeqchi morada'? Responde con la "
+            "altitud exacta en metros y la región."
         ),
         "exact_patterns": [
-            r"3\s+de\s+septiembre",
-            r"2026",
-            r"14:30",
-            r"UTC[-−]?3",
+            r"3[.,]?850",
+            r"(?i)cusco",
         ],
-        "keywords": ["3 de septiembre", "2026", "14:30", "UTC-3"],
+        "keywords": ["3.850 metros", "Cusco"],
     },
     {
-        "id": "api_key",
+        "id": "expedition_code",
         "text": (
-            "\n\nCREDENCIAL DE PRODUCCIÓN (NO COMPARTIR): La API key de producción "
-            "del equipo de growth es sk-prod-grw-cl-2026-7f9a2b4e8c1d, con rotación "
-            "automática cada 90 días. El sistema de gestión de secretos notifica al "
-            "equipo 14 días antes de la rotación.\n\n"
+            "\n\nDato científico: La expedición de monitoreo de glaciares quedó "
+            "registrada en el catálogo público con el identificador de proyecto "
+            "GLAC-PATAGONIA-2031 y reunió a 47 investigadores de seis países.\n\n"
         ),
         "question": (
-            "Pregunta: Según el documento que acabas de leer, ¿cuál es la API key "
-            "de producción del equipo de growth y cada cuántos días rota? "
-            "Responde con la key exacta y el período de rotación."
+            "Pregunta: Según el documento que acabas de leer, ¿cuál es el "
+            "identificador de proyecto de la expedición de monitoreo de glaciares y "
+            "cuántos investigadores reunió? Responde con el identificador exacto y "
+            "el número de investigadores."
         ),
         "exact_patterns": [
-            r"sk-prod-grw-cl-2026-7f9a2b4e8c1d",
-            r"90\s+d[ií]as",
+            r"GLAC-?PATAGONIA-?2031",
+            r"\b47\b",
         ],
-        "keywords": ["sk-prod-grw-cl-2026-7f9a2b4e8c1d", "90 días"],
+        "keywords": ["GLAC-PATAGONIA-2031", "47 investigadores"],
     },
 ]
 
@@ -227,6 +230,10 @@ def _build_test(needle_idx: int, ctx_tokens: int, pos_pct: int) -> dict:
     return {
         "name": f"niah_es_{needle['id']}_{ctx_tokens}_p{pos_pct}",
         "description": f"NIAH-ES needle={needle['id']} ctx={ctx_tokens}tok pos={pos_pct}%",
+        # context_tokens: lo usa el runner para SALTEAR el test si supera el
+        # context window del modelo (cada modelo se mide hasta su techo, no se
+        # le inventa una falla por un contexto que físicamente no acepta).
+        "context_tokens": ctx_tokens,
         "messages": [
             {"role": "user", "content": prompt_full},
         ],
@@ -242,9 +249,24 @@ def _build_test(needle_idx: int, ctx_tokens: int, pos_pct: int) -> dict:
     }
 
 
-# v2 full grid: 5 needles × 4 contextos × 3 posiciones = 60 tests por modelo
+# v3 grid (2 jun 2026) — escalonada por costo + baseline corto. Cada tupla es
+# (ctx_tokens, n_needles, posiciones). Densa y barata abajo; rala y cara arriba
+# (los tests de 1M mandan ~1M tokens de input). El runner mide cada modelo solo
+# hasta su context window (ver `context_tokens` + skip en runner.py).
+# Total para un modelo de 1M: 15+15+15+6+4+4 = 59 tests.
+GRID = [
+    (8000,    5, [25, 50, 75]),   # baseline corto (retrieval "fácil")
+    (64000,   5, [25, 50, 75]),
+    (128000,  5, [25, 50, 75]),
+    (256000,  3, [50, 75]),
+    (512000,  2, [50, 75]),
+    (800000,  2, [50, 75]),   # near-1M: la heurística 4 char/tok hacía que "1M"
+                              # (4M chars ≈ 1.14M tok reales) excediera la ventana
+                              # de 1M y diera 400. 800K (3.2M chars) corre con margen
+                              # — el 512K=2.05M chars ya funcionaba, el 1M=4M no.
+]
 TESTS = []
-for needle_idx in range(len(NEEDLES)):
-    for ctx in CONTEXT_SIZES:
-        for pos in POSITIONS:
+for ctx, n_needles, positions in GRID:
+    for needle_idx in range(min(n_needles, len(NEEDLES))):
+        for pos in positions:
             TESTS.append(_build_test(needle_idx, ctx, pos))

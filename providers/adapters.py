@@ -59,6 +59,7 @@ THINKING_MODELS = (
     "gemini-2.5-pro", "gemini-3-pro",       # Google Pro tier (reasoning interno)
     "deepseek-v4", "deepseek-r",            # DeepSeek V4+ (R1, V4 Pro, V4 Flash) — descubierto abril 27 con 30/91 NoneType en V4 Pro
     "gemma4", "gemma-4",                    # Gemma 4 — descubierto abril 28 en Ollama DGX: expone "reasoning" field separado del "content"
+    "minimax-m3", "MiniMax-M3",             # MiniMax M3 (1 jun 2026) — híbrido, emite <think> por default (verificado en API directa)
 )
 
 # Modelos que sólo aceptan temperature=1.0 (rechazan otros con error 400).

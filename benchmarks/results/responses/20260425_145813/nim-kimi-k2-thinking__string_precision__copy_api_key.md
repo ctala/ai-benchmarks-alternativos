@@ -8,4 +8,4 @@
 
 ## Respuesta completa
 
- sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x
+ REDACTED-SECRET

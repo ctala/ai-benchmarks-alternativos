@@ -1,6 +1,6 @@
 # Roadmap del Benchmark
 
-> Ultima actualizacion: 22 de Mayo de 2026
+> Ultima actualizacion: 1 de Junio de 2026 (sesión DGX Spark + vLLM judge en curso — ver log abajo)
 > Estado del ranking: **v2.6.2 — 113 modelos en config, 72 con cobertura ≥50 runs, 8,000+ runs** evaluados con juez Phi-4. Top 5 compuesto: Llama 4 Scout 17B, Llama 3.1 8B, Llama 3.3 70B, GPT-OSS 20B, Mistral Small 4. Ver [README.md](README.md) y [DATASHEET_2026-05.md](DATASHEET_2026-05.md).
 > **Próximo release: Junio 2026** (cadencia mensual). El release de mayo ya salió — ver sección [Ciclo Junio 2026](#ciclo-junio-2026--modelos-nuevos-por-probar) abajo.
 
@@ -11,6 +11,37 @@
 > Sección agregada el 22 de mayo 2026 para preparar el **release de junio**. Cadencia mensual establecida en v2.6.1: cada 1ro de mes → regen `models.json` + update INSIGHTS + `DATASHEET` nuevo + CheatSheet PDF + tag semver. El release de **mayo ya salió** (v2.6.x, ver [DATASHEET_2026-05.md](DATASHEET_2026-05.md)). Esta cola reemplaza la de "Lote 3" de abril, ya completada (DeepSeek V4, GPT-OSS, GPT-5.5, Grok, Hermes 4, Gemini 3.1, MiMo V2.5, Mistral Small 4 / Large 3, GLM 5/5.1, Qwen 3-Next, Seed-OSS — todos en config).
 >
 > Estado base: **113 modelos en config · 72 con cobertura ≥50 runs**.
+
+### 📓 Sesión 1 jun 2026 — Llegó el DGX Spark: sweep local + vLLM judge (Build In Public)
+
+> Log en vivo de la sesión. El DGX Spark (`spark-8c1f`, GB10, 121GB unificada) ya está operativo y se incorporó al benchmark.
+
+**Hecho (catálogo + pricing):**
+- 🐛 **Bug detectado**: keys `mimo-v2.5` / `mimo-v2.5-pro` están **duplicadas** en `models.py` (la def de Xiaomi pisa silenciosamente la de OpenRouter). Pendiente renombrar un par.
+- ✅ Tags Ollama obsoletos corregidos (`qwen3.5:25b/72b` ya no existen) a los reales instalados en el Spark.
+- ✅ **Agregado Qwen 3.6 base 27B/35B** (Apache 2.0) — cierra el gap del roadmap: solo teníamos el 3.6 *Plus* propietario. Más `qwen3-coder-next` y `qwen2.5:72b`.
+- ✅ **Pricing OpenRouter como fuente** (decisión del usuario): los modelos que corren gratis en el Spark se costean al **precio OpenRouter equivalente** (campo `or_id`), para que la dimensión costo compare manzanas con manzanas. Precios verificados vía `/api/v1/models` el 1 jun.
+- ✅ **DeepSeek**: corregido drift de precio V4 Flash ($0.112/$0.224 → **$0.098/$0.197**) + agregado **DeepSeek R1 pago** (gap de reasoning; el `:free` tenía 0 runs por flaky).
+- ✅ Pares **FP8 vía OpenRouter** de los Qwen 3.6 base agregados para medir el **delta Q4(local) vs FP8(API)**.
+
+**Hallazgos técnicos del Spark (documentados en detalle abajo):**
+- ⚙️ **El Spark es bandwidth-bound para inferencia**: ~10-16 tok/s en un 27B Q4 (LPDDR5X ~273 GB/s). Bajar `num_ctx` NO ayuda. → Sweep completo (223 tests/27 suites) ≈ **13h/modelo** local. Regla: modelos disponibles en API → correrlos por API (más rápido + FP8 = calidad real); reservar el Spark para modelos sin API, el delta Q4-vs-FP8, y el caso "$0/mes self-hosted".
+- ⚙️ **3 sweeps concurrentes sobre Ollama dispararon el ETA a 32h**: Ollama serializa gen + juicio en una sola cola. La concurrencia sobre Ollama es contraproducente.
+- ⚙️ **vLLM Phi-4 como juez** (idea del usuario, "que esté siempre andando"): Ollama sirve Phi-4 cuantizado (~Q4) y serializa el juicio = techo de throughput. vLLM sirve Phi-4 **FP16 con continuous batching** → juicio paralelo real. **Compat sm_121 (Blackwell) CONFIRMADA**: vLLM 0.21.0 levanta, captura CUDA graphs sin error en el GB10. Preset `phi4-vllm` (:8001) agregado a `llm_judge.py`. Decisión: la cuantización del juez no se considera material para el ranking → OK usar vLLM FP16 por velocidad sin re-juzgar el histórico.
+
+**Actualización throughput (10:30):** switch a juez **vLLM Phi-4 confirmado funcionando** + arquitectura **1 proceso por modelo** (gen paralela vía OpenRouter, juicio batcheado por vLLM) → ETA cayó de ~8h a **~1.5h/modelo**. 6 sweeps corriendo: qwen3.6-27b/35b, qwen3-coder-next, deepseek-v4-flash, deepseek-r1.
+
+**MiniMax M3 (lanzado 1 jun 2026):** sucesor de M2.7 (caso activo de Cristian). En OpenRouter `minimax/minimax-m3`, $0.30/$1.20, **contexto 1M** (vs 200k de M2.7). Agregado al config + lanzado como 6º sweep paralelo. Es exactamente el "MiniMax M2.8 / sucesor" que el roadmap marcaba como Tier 1.
+
+**Corriendo / pendiente:** 6 sweeps API en curso con juez vLLM; sweep local Q4 resumible (`--resume`) para el delta.
+
+### 📓 Consolidación 2 jun 2026 — v2.8: long-context como pilar aparte
+
+- **7 modelos nuevos medidos** (223 tests c/u, juez vLLM Phi-4): deepseek-v4-flash, qwen3-coder-next, qwen3.6-35b base, deepseek-r1, minimax-m3 (OR), minimax-m3-direct (sub). `qwen3.6-27b` quedó para rerun nocturno (OR lo throttleó).
+- **Bug encontrado y arreglado**: 5 runners lanzados el mismo segundo clobbearon el JSON compartido (cada `_dump_results` reescribe el archivo). Fix: `timestamp + PID` en runner.py. Re-corridos los 4 afectados.
+- **Hallazgo de validez (v2.8)**: las suites `niah_es` (256K/1M ctx) eran ~54% del conteo de tests y se midieron desigual (nuevos con 120 niah, varios del top con 0) → el score general estaba distorsionado. **Decisión del usuario: long-context pasa a dimensión separada.** `export_for_pages.aggregate_metrics` ahora computa el score general solo con tareas no-niah y expone `long_context_score/quality/runs` aparte.
+- **Efecto**: DeepSeek V4 Flash #63→**#9**; top global vuelve a workhorses rápidos (Llama Groq, Devstral). **MiniMax M3 #1 en long-context** (q 8.37, su 1M real). README actualizado con los 3 cortes + tabla long-context.
+- **Pendiente**: rerun nocturno qwen3.6-27b; backfill niah para cobertura pareja; **lote flagship** (Opus 4.8, Gemini 3.5 Flash, Qwen 3.6 Max). Pendiente del plan original "Tier 1 junio": Gemini 3.5 Flash + Cohere Command A (disponibles en OR); ⚠️ **MiniMax M2.8 y MiMo V3 NO existen aún en OpenRouter** (lo último es M2.7 / V2.5).
 
 ### Qué entra en el release de junio (checklist)
 
