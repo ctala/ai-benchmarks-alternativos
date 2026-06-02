@@ -1304,3 +1304,80 @@ OLLAMA_MODELS = {
         "note": "80.2% SWE-Bench, cabe en DGX Spark",
     },
 }
+
+# ============================================================================
+# Context windows (max tokens) — fuente: OpenRouter /api/v1/models + manuales.
+# El runner saltea tests niah cuyo context_tokens supera este valor (cada
+# modelo se mide hasta su techo). Regenerar con scripts/update_context_windows
+# o consultando OpenRouter. Verificado 2 jun 2026.
+# ============================================================================
+CONTEXT_WINDOWS = {
+    'MiniMax-M2.7': 204800,
+    'MiniMax-M2.7-highspeed': 204800,
+    'MiniMax-M3': 1048576,
+    'anthropic/claude-haiku-4.5': 200000,
+    'anthropic/claude-opus-4.8': 1000000,
+    'anthropic/claude-sonnet-4': 1000000,
+    'deepseek-ai/deepseek-v4-flash': 1048576,
+    'deepseek-ai/deepseek-v4-pro': 1048576,
+    'deepseek-v4-flash': 1048576,
+    'deepseek-v4-pro': 1048576,
+    'deepseek/deepseek-chat': 131072,
+    'deepseek/deepseek-r1': 163840,
+    'deepseek/deepseek-v4-flash': 1048576,
+    'deepseek/deepseek-v4-pro': 1048576,
+    'google/gemini-2.5-flash': 1048576,
+    'google/gemini-2.5-flash-lite': 1048576,
+    'google/gemini-2.5-pro': 1048576,
+    'google/gemini-3.1-flash-lite-preview': 1048576,
+    'google/gemini-3.1-pro-preview': 1048576,
+    'google/gemini-3.5-flash': 1048576,
+    'google/gemma-4-26b-a4b-it': 262144,
+    'google/gemma-4-31b-it': 262144,
+    'meta-llama/llama-3.3-70b-instruct:free': 131072,
+    'meta-llama/llama-4-maverick': 1048576,
+    'mimo-v2.5': 1048576,
+    'mimo-v2.5-pro': 1048576,
+    'minimax/minimax-m2.7': 204800,
+    'minimax/minimax-m3': 1048576,
+    'mistralai/devstral-2512': 262144,
+    'mistralai/mistral-large': 128000,
+    'mistralai/mistral-nemo': 131072,
+    'mistralai/mistral-small-2603': 262144,
+    'moonshotai/kimi-k2': 131072,
+    'moonshotai/kimi-k2-thinking': 262144,
+    'moonshotai/kimi-k2.5': 262144,
+    'moonshotai/kimi-k2.6': 262144,
+    'nousresearch/hermes-4-405b': 131072,
+    'nousresearch/hermes-4-70b': 131072,
+    'nvidia/llama-3.1-nemotron-ultra-253b-v1': 131072,
+    'nvidia/llama-3.3-nemotron-super-49b-v1.5': 131072,
+    'nvidia/nemotron-3-nano-30b-a3b': 262144,
+    'nvidia/nemotron-3-super-120b-a12b': 1000000,
+    'openai/gpt-4o': 128000,
+    'openai/gpt-oss-120b': 131072,
+    'openai/gpt-oss-20b': 131072,
+    'qwen/qwen3-coder': 1048576,
+    'qwen/qwen3-coder-next': 262144,
+    'qwen/qwen3-next-80b-a3b-instruct': 262144,
+    'qwen/qwen3-next-80b-a3b-thinking': 262144,
+    'qwen/qwen3.5-397b-a17b': 262144,
+    'qwen/qwen3.6-27b': 262144,
+    'qwen/qwen3.6-35b-a3b': 262144,
+    'qwen/qwen3.6-max-preview': 262144,
+    'qwen/qwen3.6-plus': 1000000,
+    'qwen3.5:397b-cloud': 262144,
+    'x-ai/grok-4.20': 2000000,
+    'x-ai/grok-4.20-multi-agent': 2000000,
+    'x-ai/grok-4.3': 1000000,
+    'xiaomi/mimo-v2-flash': 262144,
+    'z-ai/glm-5.1': 202752,
+}
+
+# Inyectar context_window a cada modelo (por id). Los que no estén en el mapa
+# quedan sin context_window → el runner corre todos los tamaños (error→N/A).
+for _m in list(MODELS.values()) + list(OLLAMA_MODELS.values()):
+    if "context_window" not in _m:
+        _cw = CONTEXT_WINDOWS.get(_m.get("id"))
+        if _cw:
+            _m["context_window"] = _cw

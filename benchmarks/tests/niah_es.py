@@ -230,6 +230,10 @@ def _build_test(needle_idx: int, ctx_tokens: int, pos_pct: int) -> dict:
     return {
         "name": f"niah_es_{needle['id']}_{ctx_tokens}_p{pos_pct}",
         "description": f"NIAH-ES needle={needle['id']} ctx={ctx_tokens}tok pos={pos_pct}%",
+        # context_tokens: lo usa el runner para SALTEAR el test si supera el
+        # context window del modelo (cada modelo se mide hasta su techo, no se
+        # le inventa una falla por un contexto que físicamente no acepta).
+        "context_tokens": ctx_tokens,
         "messages": [
             {"role": "user", "content": prompt_full},
         ],
@@ -245,9 +249,21 @@ def _build_test(needle_idx: int, ctx_tokens: int, pos_pct: int) -> dict:
     }
 
 
-# v2 full grid: 5 needles × 4 contextos × 3 posiciones = 60 tests por modelo
+# v3 grid (2 jun 2026) — escalonada por costo + baseline corto. Cada tupla es
+# (ctx_tokens, n_needles, posiciones). Densa y barata abajo; rala y cara arriba
+# (los tests de 1M mandan ~1M tokens de input). El runner mide cada modelo solo
+# hasta su context window (ver `context_tokens` + skip en runner.py).
+# Total para un modelo de 1M: 15+15+15+6+4+4 = 59 tests.
+GRID = [
+    (8000,    5, [25, 50, 75]),   # baseline corto (retrieval "fácil")
+    (64000,   5, [25, 50, 75]),
+    (128000,  5, [25, 50, 75]),
+    (256000,  3, [50, 75]),
+    (512000,  2, [50, 75]),
+    (1000000, 2, [50, 75]),
+]
 TESTS = []
-for needle_idx in range(len(NEEDLES)):
-    for ctx in CONTEXT_SIZES:
-        for pos in POSITIONS:
+for ctx, n_needles, positions in GRID:
+    for needle_idx in range(min(n_needles, len(NEEDLES))):
+        for pos in positions:
             TESTS.append(_build_test(needle_idx, ctx, pos))
