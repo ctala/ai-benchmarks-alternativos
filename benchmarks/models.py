@@ -91,6 +91,8 @@ MODELS = {
         "cost_input": 0.02,
         "cost_output": 0.02,
         "tier": "ultra_cheap",
+        "open_source": True,
+        "license": "Apache 2.0",
     },
 
     # --- ECONOMICOS ($0.10 - $1.00/M) ---
@@ -342,8 +344,8 @@ MODELS = {
         "cost_input": 2.00,
         "cost_output": 6.00,
         "tier": "medium",
-        "open_source": True,
-        "license": "Apache 2.0",
+        "open_source": False,
+        "license": "MRL (no comercial)",
     },
     "devstral": {
         "id": "mistralai/devstral-small",
@@ -1041,14 +1043,14 @@ MODELS = {
     },
 
     # --- Xiaomi MiMo V2.5 (omnimodal nuevos abril 2026, 1M context) ---
-    "mimo-v2.5": {
+    "mimo-v2.5-or": {
         "id": "xiaomi/mimo-v2.5",
         "name": "MiMo-V2.5 (omnimodal)",
         "cost_input": 0.40, "cost_output": 2.00,
         "tier": "cheap",
         "notes": "Omnimodal Pro-level a mitad de costo del Pro. 1.05M context.",
     },
-    "mimo-v2.5-pro": {
+    "mimo-v2.5-pro-or": {
         "id": "xiaomi/mimo-v2.5-pro",
         "name": "MiMo-V2.5 Pro",
         "cost_input": 1.00, "cost_output": 3.00,
@@ -1264,7 +1266,7 @@ OLLAMA_MODELS = {
         "license": "Apache 2.0",
         "vram_gb": 16,
     },
-    "deepseek-v3": {
+    "local-deepseek-v3": {
         "id": "deepseek-v3",
         "name": "DeepSeek V3 (local)",
         "cost_input": 0.0,
@@ -1384,3 +1386,53 @@ for _m in list(MODELS.values()) + list(OLLAMA_MODELS.values()):
         _cw = CONTEXT_WINDOWS.get(_m.get("id"))
         if _cw:
             _m["context_window"] = _cw
+
+
+# ============================================================================
+# Repricing a precio OpenRouter (2 jun 2026) — decisión del usuario: NINGÚN
+# modelo debe tener costo $0 porque infla el cost_score (~10) y arruina la
+# comparación. Los que corren gratis (NIM 40rpm, DGX local, Ollama Cloud sub)
+# se costean al precio OpenRouter del MISMO modelo (o el equivalente más cercano
+# para los NIM-exclusivos). Verificado vía OpenRouter /api/v1/models.
+# El campo `free_runtime: True` marca que el runtime real es $0 (la calculadora
+# puede mostrarlo), pero el cost del ranking usa el precio OR de abajo.
+# ============================================================================
+OR_COMPARISON_PRICING = {
+    'gemma4-31b': (0.12, 0.37),
+    'gpt-oss-120b-cloud': (0.039, 0.18),
+    'llama-3.3-70b-free': (0.0, 0.0),
+    'local-gemma4-31b': (0.12, 0.37),
+    'local-nemotron-3-nano-omni-reasoning': (0.1, 0.4),
+    'local-nemotron-3-super-120b': (0.09, 0.45),
+    'local-nemotron3-base-33b': (0.09, 0.45),
+    'nim-deepseek-v4-flash': (0.098, 0.197),
+    'nim-devstral-2-123b': (0.4, 2.0),
+    'nim-gemma-4-31b': (0.12, 0.37),
+    'nim-glm-5.1': (0.98, 3.08),
+    'nim-glm5': (0.98, 3.08),
+    'nim-kimi-k2-thinking': (0.6, 2.5),
+    'nim-kimi-k2.5': (0.4, 1.9),
+    'nim-magistral-small': (0.5, 1.5),
+    'nim-ministral-14b': (0.1, 0.4),
+    'nim-mistral-large-3': (2.0, 6.0),
+    'nim-mistral-nemotron': (0.3, 1.2),
+    'nim-nemotron-3-nano-omni-reasoning': (0.1, 0.4),
+    'nim-nemotron-nano-9b-v2': (0.05, 0.2),
+    'nim-nemotron-super-1.5': (0.1, 0.4),
+    'nim-nemotron-ultra-253b': (0.6, 1.8),
+    'nim-qwen3-next-instruct': (0.09, 1.1),
+    'nim-qwen3-next-thinking': (0.098, 0.78),
+    'nim-qwen3.5-397b': (0.39, 2.34),
+    'nim-step-3.5-flash': (1.0, 3.0),
+    'qwen3.5-397b-cloud': (0.39, 2.34),
+    'qwen3.5-cloud': (0.39, 2.34),
+}
+
+# Aplicar el repricing: a cada modelo con costo $0 que esté en el mapa, asignarle
+# el precio OpenRouter equivalente y marcar free_runtime=True (corre gratis pero
+# se costea a OR para la comparación). Ver memoria benchmark-pricing-openrouter-source.
+for _k, _price in OR_COMPARISON_PRICING.items():
+    _m = MODELS.get(_k) or OLLAMA_MODELS.get(_k)
+    if _m and float(_m.get("cost_input", 0)) == 0:
+        _m["free_runtime"] = True
+        _m["cost_input"], _m["cost_output"] = _price

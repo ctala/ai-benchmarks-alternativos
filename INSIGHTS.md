@@ -2,8 +2,8 @@
 title: "Insights del benchmark — qué dice la data, no el marketing"
 fecha: "2026-06-02"
 version_benchmark: "v2.8"
-modelos_analizados: 80
-modelos_catalogados: 127
+modelos_analizados: 83
+modelos_catalogados: 130
 runs_minimas_por_modelo: 50
 tests_por_modelo: "91 single-turn + 12 agent_long_horizon + niah_es (8K–800K) + prompt_injection_es"
 pilares: ["Razonamiento", "Coding", "Contenido/Marketing", "Agentes/Operaciones", "Long-context (usable)", "Seguridad (anti-fuga)"]

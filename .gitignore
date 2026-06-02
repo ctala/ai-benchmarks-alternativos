@@ -16,3 +16,4 @@ blog/*.md
 !blog/README.md
 blog/social/
 logs/
+*.contaminated

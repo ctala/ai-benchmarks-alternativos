@@ -10,7 +10,7 @@
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw, N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes) y la nueva suite **`agent_long_horizon`** que mide capacidades agénticas en multi-turno largo (lo que el single-turn no captura).
 
-**Cobertura actual**: 80 modelos con ≥50 runs (127 catalogados), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
+**Cobertura actual**: 83 modelos con ≥50 runs (130 catalogados), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
 
 ## Score = combinación ponderada (NO solo calidad)
 
@@ -37,15 +37,17 @@ Por eso modelos académicamente top (Opus con HumanEval 88+, MMLU 90+, GPQA 94+)
 | 3 | **Devstral Small** | **8.03** | 8.03 | 9.69 | 6.75 | OpenRouter | $0.48 |
 | 4 | Llama 3.3 70B | 7.86 | 8.01 | 8.15 | 7.14 | Groq | $1.36 |
 | 5 | GPT-OSS 20B | 7.84 | 7.51 | 9.15 | 6.91 | Groq | $0.47 |
-| 6 | Nemotron 3 Nano Omni 30B | 7.84 | 7.75 | **10.00** | 6.87 | NIM (free) | $0 |
-| 7 | **Qwen 3-Next 80B Instruct** | **7.83** | 8.11 | **10.00** | 7.11 | NIM (free) | $0 |
-| 8 | Mistral Small 4 | 7.81 | 8.08 | 8.84 | 7.11 | OpenRouter | $0.94 |
-| 9 | **DeepSeek V4 Flash** 🆕 | **7.80** | 8.34 | 9.37 | 7.10 | OpenRouter | $0.33 |
-| 10 | Hermes 4 70B | 7.77 | 8.04 | 9.47 | 7.00 | OpenRouter | $0.64 |
+| 6 | Mistral Small 4 | 7.81 | 8.08 | 8.84 | 7.11 | OpenRouter | $0.94 |
+| 7 | **DeepSeek V4 Flash** 🆕 | **7.80** | 8.34 | 9.37 | 7.10 | OpenRouter | $0.33 |
+| 8 | Hermes 4 70B | 7.77 | 8.04 | 9.47 | 7.00 | OpenRouter | $0.64 |
+| 9 | **Qwen3-Coder-Next** 🆕 | **7.76** | 8.22 | 8.55 | 6.78 | OpenRouter | $1.23 |
+| 10 | Gemini 2.5 Flash Lite | 7.74 | 7.79 | 9.34 | 6.42 | OpenRouter | $0.63 |
+
+> **Cambio v2.8.1 (jun 2026): NINGÚN modelo cuesta $0.** Los que corren gratis (NIM 40rpm, DGX local, Ollama Cloud sub) se **costean al precio OpenRouter del mismo modelo** — un $0/call inflaba el cost_score (~10) y los empujaba artificialmente al top. Con el fix, **Nemotron Omni y Qwen 3-Next (NIM gratis) salen del top 10**; quedan los genuinamente costo-efectivos. El runtime real $0 se marca aparte (`free_runtime`) para la calculadora.
 
 > **Cambio v2.8 (jun 2026): long-context es un pilar aparte.** Las suites `niah_es` (needle-in-haystack a 256K/1M tokens) llegaron a ser ~54% del conteo de tests y se midieron desigual entre modelos (unos con 120 tests niah, otros con 0) → distorsionaban el score general. Ahora **el ranking global mide solo tareas prácticas** (contenido, coding, agentes, razonamiento) y el long-context se reporta como **dimensión separada** (abajo). Efecto: modelos de calidad alta pero ventana de contexto chica dejan de ser penalizados injustamente — **DeepSeek V4 Flash** salta de #63 a **#9**.
 >
-> **Cambio v2.7** (se mantiene): rescore de costo provider-aware — el componente costo (20%) por fin discrimina; gratis (NIM 40rpm, local DGX) y open-source barato suben, premium caros bajan.
+> **Cambio v2.7** (se mantiene): rescore de costo provider-aware — el componente costo (20%) por fin discrimina.
 
 ### 🔍 Long-context + Seguridad (dimensiones separadas — v2.8)
 

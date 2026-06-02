@@ -18,8 +18,8 @@ El release de junio **no se trató de coronar un modelo nuevo** — se trató de
 
 | Métrica | Mayo (v2.6) | Junio (v2.8) | Δ |
 |---|---|---|---|
-| Modelos catalogados | 113 | **127** | **+14** |
-| Modelos con cobertura ≥50 runs | 72 | **80** | **+8** |
+| Modelos catalogados | 113 | **130** | **+14** |
+| Modelos con cobertura ≥50 runs | 72 | **83** | **+8** |
 | Modelos con NIAH-es (retrieval real, grilla nueva) | 21 (suite vieja) | **~17** (grilla 8K–800K) | rediseñada |
 | Modelos con suite de seguridad (`prompt_injection_es`) | 0 | **~17** | **NUEVO** |
 | Juez | Phi-4 Ollama (Q4) | **Phi-4 vLLM FP16** en DGX Spark | continuous batching |
