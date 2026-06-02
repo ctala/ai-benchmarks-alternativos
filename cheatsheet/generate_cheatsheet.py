@@ -398,7 +398,7 @@ def render(models: dict, runs: list) -> str:
     <h1>AI Model Benchmark</h1>
     <div class="subtitle">Guia para Emprendedores Hispanohablantes</div>
     <div class="month">{MONTH} {YEAR}</div>
-    <p class="meta">{len(ranked)} modelos con cobertura ≥50 runs · {total_runs:,}+ runs preservados · v2.6.0</p>
+    <p class="meta">{len(ranked)} modelos con cobertura ≥50 runs · {total_runs:,}+ runs preservados · v2.8.0</p>
 
     <div class="stats">
         <div class="stat-box">
@@ -422,7 +422,7 @@ def render(models: dict, runs: list) -> str:
     <p class="meta">Medido desde Santiago, Chile · 8 providers (OpenRouter, OpenAI, Anthropic, Groq, NVIDIA NIM, Xiaomi, Ollama Cloud, MiniMax)</p>
 
     <div class="score-formula">
-        <div class="title">Como se calcula el Score (v2.6.0)</div>
+        <div class="title">Como se calcula el Score (v2.8.0)</div>
         <div class="row"><span class="pct">50%</span>Calidad (formato + sustancia + LLM-as-Judge Phi-4 14B local, MIT)</div>
         <div class="row"><span class="pct">20%</span>Costo (curva log inversa: $0.001/call=8.0, $0.01=5.0, $0.10=2.0)</div>
         <div class="row"><span class="pct">15%</span>Tool Calling (precision de function calling para agentes)</div>
@@ -442,53 +442,48 @@ def render(models: dict, runs: list) -> str:
 <div class="page">
     <h2>Hallazgos clave de {MONTH} {YEAR}</h2>
     <p style="font-size: 9pt; color: #b0b0b0; margin-bottom: 12px;">
-        Insights cuantitativos del benchmark v2.6.0. Cada hallazgo con fecha de descubrimiento o validación.
+        Insights cuantitativos del benchmark v2.8.0. El hallazgo del mes es metodológico:
+        descubrimos que nuestra propia medición de long-context en español mentía de 5 formas.
     </p>
 
     <div class="two-col">
         <div>
-            <h3>1. Provider matters cuantificado <span style="font-size:8pt;color:#b0b0b0;">(28-30 abril 2026)</span></h3>
-            <p style="font-size:9pt;">Mismo modelo en provider directo vs OpenRouter: <strong>+0.16 a +0.25 puntos</strong>.
-            Confirmado en 4 proveedores (Xiaomi direct, Groq direct, NIM gratis, MiniMax direct).
-            <strong>Para producción: provider directo cuando esté disponible</strong>.</p>
+            <h3>★ Las 5 formas en que el NIAH-es nos mentía <span style="font-size:8pt;color:#b0b0b0;">(2 junio 2026)</span></h3>
+            <p style="font-size:9pt;"><strong>1. Needles-secreto</strong>: los needles eran credenciales → el test medía <em>fuga</em>, no retrieval (modelos seguros rehúsan, el juez los premia).
+            <strong>2. Lumping</strong>: niah era ~54% de los tests y desigual entre modelos → distorsionaba el ranking.
+            <strong>3. El juez no ve el needle</strong> (recibe 500 chars) → marca extracciones correctas como alucinación.
+            <strong>4. Heurística de tokens</strong> excedía la ventana (1M→1.14M reales→error).
+            <strong>5. Needles distintos por tamaño</strong> → rankings FALSOS ("Gemini 3.5 peor", "zigzag DeepSeek" eran artefactos).</p>
 
-            <h3>2. Thinking forzado EMPEORA agéntica multi-turn <span style="font-size:8pt;color:#b0b0b0;">(29-30 abril 2026)</span></h3>
-            <p style="font-size:9pt;">8/9 modelos hybrid bajan vs sin thinking: Opus 4.7 -0.67, Sonnet 4.6 -0.50,
-            Hermes 4 70B -0.54. Solo Kimi K2.5 sube (+0.73). <strong>Para N8N/OpenClaw: NO actives thinking default</strong>.</p>
+            <h3>La verdad con medición limpia</h3>
+            <p style="font-size:9pt;">Sobre needles neutros, <strong>todos los modelos top retrievean ~10 en todos los tamaños hasta su techo</strong>.
+            El NIAH-es neutro NO discrimina. Los diferenciadores reales son otros dos (→).</p>
 
-            <h3>3. Why Opus 4.7 NO está en top 10 <span style="font-size:8pt;color:#b0b0b0;">(29 abril 2026)</span></h3>
-            <p style="font-size:9pt;">Opus 4.7 quality 8.08 (top 6 entre todos), pero <strong>40-100x más caro y 5-10x más lento</strong>.
-            Score compuesto pondera costo+speed → fuera del top 10. Para producción a volumen LATAM con presupuesto: alternativas.</p>
-
-            <h3>4. Modelo gigante NO siempre gana <span style="font-size:8pt;color:#b0b0b0;">(28 abril 2026)</span></h3>
-            <p style="font-size:9pt;">Mistral Large 3 (675B params) saca 6.89. Nemotron Nano 9B v2 saca 6.91.
-            <strong>Modelo 75x más pequeño rinde más</strong>.</p>
-
-            <h3>5. "1M context declarado" ≠ retrieval efectivo <span style="font-size:8pt;color:#b0b0b0;">(1 mayo 2026)</span></h3>
-            <p style="font-size:9pt;">Solo <strong>GPT-4.1 procesa 1M tokens efectivamente</strong> via OpenAI/OpenRouter.
-            Llama 4 Scout (10M declarado), DeepSeek V4 Flash (1M), Gemini 3.1 Pro (1M) — todos cap por providers a 128K-256K real.</p>
+            <h3>Contexto USABLE ≠ declarado</h3>
+            <p style="font-size:9pt;">Gemini 2.5/3.5 Flash Lite, DeepSeek V4 Flash y Llama 4 Maverick llegan a <strong>800K</strong>.
+            <strong>MiniMax M3 declara 1M pero erorea a 800K → usable 512K</strong> (OpenRouter: 256K). El número de marketing no es el real.</p>
         </div>
         <div>
-            <h3>6. DeepSeek V4 Pro NIM NO funciona en producción <span style="font-size:8pt;color:#b0b0b0;">(28 abr + 3 mayo 2026)</span></h3>
-            <p style="font-size:9pt;">Cascada 504 reproducible <strong>2 veces</strong>. NIM gateway no maneja modelo gigante con prompts largos.
-            Para V4 Pro: <strong>OpenRouter pagado o Ollama Cloud sub</strong> (97% éxito).</p>
+            <h3>🛡️ Seguridad: premium NO filtra, cheap sí <span style="font-size:8pt;color:#b0b0b0;">(2 junio 2026)</span></h3>
+            <p style="font-size:9pt;">Suite nueva <strong>prompt_injection_es</strong> (secreto plantado en doc, ¿lo filtra?):
+            <strong>Claude Opus 4.8 8.79</strong> y <strong>MiniMax M3 ~8.05 rehúsan</strong>;
+            DeepSeek/Gemini/Llama/Qwen/Nemotron <strong>~1.7–2.0 filtran</strong>. Si tu agente procesa datos sensibles, esto pesa.</p>
 
-            <h3>7. MiMo Xiaomi sub family — mejor C/B en español <span style="font-size:8pt;color:#b0b0b0;">(2-3 mayo 2026)</span></h3>
-            <p style="font-size:9pt;"><strong>4 modelos MiMo en top 10</strong> (V2-Omni, V2.5, V2.5-Pro, V2-Flash).
-            Sub <strong>$14/mes</strong> da acceso a 4 modelos competentes con español neutro fuerte.
-            Mejor opción para emprendedores LATAM con presupuesto fijo predecible.</p>
+            <h3>DeepSeek V4 Flash entra al top 10 <span style="font-size:8pt;color:#b0b0b0;">(jun 2026)</span></h3>
+            <p style="font-size:9pt;">Al separar long-context del score general, <strong>DeepSeek V4 Flash saltó #63 → #9</strong>
+            (quality 8.34, $0.33/1k). Dejó de penalizarse por una capacidad que casi nadie usa.</p>
 
-            <h3>8. Devstral Small lidera NIAH-ES <span style="font-size:8pt;color:#b0b0b0;">(30 abr + 3 mayo 2026)</span></h3>
-            <p style="font-size:9pt;">Specialist coding model gana retrieval en español: <strong>7.25 vs Opus 4.7 4.98</strong>.
-            <strong>+2.27 puntos a 1/450 del costo</strong>. Tasks de extracción info con contexto &lt;128K: Devstral.</p>
+            <h3>Opus 4.8: techo de calidad, no de valor</h3>
+            <p style="font-size:9pt;">Quality 8.4 (de las más altas) pero <strong>#66</strong> — a $5/$25 el costo (20% del peso) lo hunde.
+            Es el rey de seguridad, pero para producción LATAM con presupuesto: alternativas baratas.</p>
 
-            <h3>9. Limitación honesta: NO medimos debugging real <span style="font-size:8pt;color:#b0b0b0;">(30 abril 2026)</span></h3>
-            <p style="font-size:9pt;">Caso reportado: MiniMax M2.7 NO pudo resolver bug en VPS Hetzner. Opus 4.7 sí en minutos.
-            Para debugging agentic real, mira <strong>SWE-bench Verified</strong> (Opus 4.7 = 87.6% top 1 globalmente).</p>
+            <h3>Infra: juez vLLM en DGX Spark</h3>
+            <p style="font-size:9pt;">Phi-4 servido en <strong>vLLM FP16</strong> (continuous batching, compat Blackwell sm_121 confirmada)
+            en lugar de Ollama → juicio paralelo. El Spark es bandwidth-bound (~10 tok/s), mejor como host del juez que para gen.</p>
 
-            <h3>10. GPT-5.5 cobertura completa <span style="font-size:8pt;color:#b0b0b0;">(3 mayo 2026)</span></h3>
-            <p style="font-size:9pt;">GPT-5.5 single-turn 6.32 (regresión vs GPT-5.4 7.23) + agent_long_horizon + NIAH-ES completos.
-            Confirma patrón: thinking puede empeorar en aplicación real.</p>
+            <h3>Lección para constructores de benchmarks</h3>
+            <p style="font-size:9pt;">El needle, el scoring, el juez, la heurística y la grilla — <strong>cada uno puede inyectar un sesgo que parece un hallazgo</strong>.
+            Auditá cada respuesta individual antes de publicar un ranking.</p>
         </div>
     </div>
 
@@ -1047,7 +1042,7 @@ def render(models: dict, runs: list) -> str:
             github.com/ctala/ai-benchmarks-alternativos
         </p>
         <p style="font-family: 'JetBrains Mono', monospace; color: #00d4ff; font-size: 10pt; margin-top: 4px;">
-            cristiantala.com · {MONTH} {YEAR} · v2.6.0 · MIT
+            cristiantala.com · {MONTH} {YEAR} · v2.8.0 · MIT
         </p>
     </div>
 

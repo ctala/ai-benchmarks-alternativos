@@ -724,7 +724,7 @@ a1b2c3d4e5f6789012345678abcdef90
 **Respuesta (preview 300 chars)**:
 
 ```
-sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x
+REDACTED-SECRET
 ```
 
 **Respuesta completa**: [`results/responses/20260424_053942/gemini-flash__string_precision__copy_api_key.md`](../results/responses/20260424_053942/gemini-flash__string_precision__copy_api_key.md)
@@ -779,7 +779,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
 AWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
 R2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com
-API_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x
+API_TOKEN=REDACTED-SECRET
 JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 ```
 

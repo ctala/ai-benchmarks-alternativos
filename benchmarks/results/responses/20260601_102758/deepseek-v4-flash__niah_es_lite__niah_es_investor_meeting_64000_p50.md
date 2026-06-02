@@ -1,0 +1,11 @@
+# DeepSeek V4 Flash (OpenRouter) — niah_es_lite/niah_es_investor_meeting_64000_p50
+
+- model_id: `deepseek/deepseek-v4-flash`
+- success: True  | final: 5.34 | quality: 5.16
+- latency_total: 9.389s | tokens_per_second: 38.7
+- input_tokens: 67159 | output_tokens: 363
+- judge_score: 2.0 | justificación: La respuesta no está relacionada con el documento proporcionado y no responde a ninguna pregunta específica sobre historia latinoamericana o conceptos técnicos.
+
+## Respuesta completa
+
+El meeting trimestral con inversores está agendado para el **3 de septiembre de 2026 a las 14:30 UTC-3**.

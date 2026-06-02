@@ -51,8 +51,30 @@ from benchmarks.tests import agent_long_horizon
 from benchmarks.tests import niah_es
 from benchmarks.tests import niah_es_1m
 from benchmarks.tests import niah_es_lite
+from benchmarks.tests import prompt_injection_es
 
 console = Console()
+
+# Redacción de secretos en artefactos auditables (responses .md + JSON).
+# Los modelos a veces alucinan webhooks de Slack o claves en tests de
+# orquestación/n8n; GitHub push-protection los bloquea. Redactamos al guardar
+# para que el repo público quede limpio sin perder el valor de la respuesta.
+import re as _re
+_SECRET_PATTERNS = [
+    (_re.compile(r'https://hooks\.slack\.com/services/[A-Za-z0-9/_+=-]+'),
+     'https://hooks.slack.com/services/REDACTED'),
+    (_re.compile(r'https://discord(?:app)?\.com/api/webhooks/[A-Za-z0-9/_-]+'),
+     'https://discord.com/api/webhooks/REDACTED'),
+    (_re.compile(r'sk-(?:or-v1|proj|cp|ant)-[A-Za-z0-9_-]{8,}'), 'REDACTED-SECRET'),
+    (_re.compile(r'xox[baprs]-[A-Za-z0-9-]{10,}'), 'REDACTED-SLACK-TOKEN'),
+]
+
+def _redact_secrets(text):
+    if not text or not isinstance(text, str):
+        return text
+    for pat, repl in _SECRET_PATTERNS:
+        text = pat.sub(repl, text)
+    return text
 
 ALL_TEST_SUITES = {
     "content_generation": content_generation.TESTS,
@@ -80,8 +102,9 @@ ALL_TEST_SUITES = {
     "translation": translation.TESTS,
     "agent_long_horizon": agent_long_horizon.TESTS,
     "niah_es": niah_es.TESTS,
-    "niah_es_1m": niah_es_1m.TESTS,
-    "niah_es_lite": niah_es_lite.TESTS,
+    # niah_es_1m / niah_es_lite superseded por el grid escalonado de niah_es v3
+    # (8K-1M con skip por context window). Imports conservados por compat.
+    "prompt_injection_es": prompt_injection_es.TESTS,
 }
 
 
@@ -299,15 +322,23 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     else:
         auto_quality = content_score
 
-    # LLM-as-Judge (si esta habilitado)
+    # niah_extraction es exact-match (retrieval): el juez NO ve el needle (está
+    # enterrado en 8K-1M de contexto y el rubric lo trunca a 500 chars) → marca
+    # extracciones CORRECTAS como alucinación y hunde el score. Para niah se
+    # puntúa SOLO con el regex de extracción (sin juez ni formato). Hallazgo 2 jun.
+    is_niah = answer_type == "niah_extraction"
+
+    # LLM-as-Judge (si esta habilitado) — saltear para niah
     judge_result = None
     judge_quality = -1.0
-    if judge and result.success and result.response:
+    if judge and result.success and result.response and not is_niah:
         judge_result = judge.evaluate(result.response, test, suite_name)
         judge_quality = judge_score_to_10(judge_result)
 
     # Combinar scores
-    if judge_quality >= 0:
+    if is_niah:
+        quality = answer_score  # retrieval puro: solo el regex de extracción
+    elif judge_quality >= 0:
         # Con juez: 30% automatico + 70% juez
         quality = auto_quality * 0.3 + judge_quality * 0.7
     else:
@@ -511,7 +542,10 @@ def run_benchmark(args):
     print(f"=" * 70, flush=True)
 
     all_results = []
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    # Timestamp único por proceso: incluye PID para evitar colisión cuando se
+    # lanzan varios runners en el mismo segundo (cada uno reescribe su JSON
+    # completo; sin PID se clobbean entre sí). Bug detectado 1 jun 2026.
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S") + f"_{os.getpid()}"
     completed = 0
     errors = 0
     benchmark_start = time.time()
@@ -585,6 +619,11 @@ def run_benchmark(args):
 
     def _dump_results(partial: bool):
         """Vuelca resultados al JSON. Se llama tras cada modelo y al final."""
+        for _r in all_results:
+            if "response_preview" in _r:
+                _r["response_preview"] = _redact_secrets(_r["response_preview"])
+            if "judge_justificacion" in _r:
+                _r["judge_justificacion"] = _redact_secrets(_r["judge_justificacion"])
         output = {
             "metadata": {
                 "timestamp": timestamp,
@@ -623,7 +662,7 @@ def run_benchmark(args):
             header.append(f"- judge_score: {scores.get('judge_score')} | justificación: {scores.get('judge_justificacion','')}")
         if scores.get("error"):
             header.append(f"- error: {scores.get('error')}")
-        header += ["", "## Respuesta completa", "", result.response]
+        header += ["", "## Respuesta completa", "", _redact_secrets(result.response)]
         # Garantizar que el directorio existe (defensa contra race conditions
         # o cwd inesperados — el primer mkdir en linea 436 puede no alcanzar
         # si el script se ejecuta desde fuera de la raiz del repo)
@@ -680,6 +719,20 @@ def run_benchmark(args):
                     completed += 1
                     print(f"  [{completed}/{total_runs}] {short_model} ({local_completed}/{tests_per_model}) | "
                           f"{suite_name}/{test['name']}... SKIP (resume)", flush=True)
+                    continue
+
+                # Skip si el test pide más contexto del que el modelo soporta.
+                # Cada modelo se mide hasta su techo (context_window en config); un
+                # contexto que físicamente no acepta NO se cuenta como falla (sería
+                # comparar peras con manzanas). Si no hay context_window declarado,
+                # se corre igual (el adapter trunca o el provider devuelve error → N/A).
+                ctx_needed = test.get("context_tokens")
+                # niah_max_context: cap de costo opcional (ej. premium capeado a
+                # 256K para no pagar los tramos 1M caros). Default = context window real.
+                ctx_window = model_config.get("niah_max_context") or model_config.get("context_window")
+                if ctx_needed and ctx_window and ctx_needed > ctx_window:
+                    print(f"  [{completed}/{total_runs}] {short_model} ({local_completed}/{tests_per_model}) | "
+                          f"{suite_name}/{test['name']}... SKIP (ctx {ctx_needed:,}>{ctx_window:,})", flush=True)
                     continue
 
                 run_scores = []

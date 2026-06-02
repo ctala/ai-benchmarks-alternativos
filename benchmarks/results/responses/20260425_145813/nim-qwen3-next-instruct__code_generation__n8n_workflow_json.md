@@ -155,7 +155,7 @@ Claro, aquí tienes un **workflow completo de n8n en formato JSON** que cumple c
     },
     {
       "parameters": {
-        "url": "https://hooks.slack.com/services/YOUR_SLACK_WEBHOOK_URL_FOR_SUPPORT",
+        "url": "https://hooks.slack.com/services/REDACTED",
         "options": {}
       },
       "name": "Slack - Support",
@@ -168,7 +168,7 @@ Claro, aquí tienes un **workflow completo de n8n en formato JSON** que cumple c
     },
     {
       "parameters": {
-        "url": "https://hooks.slack.com/services/YOUR_SLACK_WEBHOOK_URL_FOR_SALES",
+        "url": "https://hooks.slack.com/services/REDACTED",
         "options": {}
       },
       "name": "Slack - Sales",
@@ -181,7 +181,7 @@ Claro, aquí tienes un **workflow completo de n8n en formato JSON** que cumple c
     },
     {
       "parameters": {
-        "url": "https://hooks.slack.com/services/YOUR_SLACK_WEBHOOK_URL_FOR_GENERAL",
+        "url": "https://hooks.slack.com/services/REDACTED",
         "options": {}
       },
       "name": "Slack - General",

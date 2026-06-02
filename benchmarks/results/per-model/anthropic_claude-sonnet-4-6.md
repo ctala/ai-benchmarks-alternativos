@@ -707,7 +707,7 @@ a1b2c3d4e5f6789012345678abcdef90
 **Respuesta (preview 300 chars)**:
 
 ```
-sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x
+REDACTED-SECRET
 ```
 
 </details>

@@ -58,6 +58,13 @@ JUDGE_PRESETS = {
         "provider": "ollama",
         "description": "Phi-4 14B (Microsoft, MIT) - cero conflicto de interes, no evaluamos modelos Microsoft",
     },
+    "phi4-vllm": {
+        "model": "phi4",  # served-model-name del vllm serve
+        "base_url": "http://localhost:8001/v1",
+        "api_key": "vllm",  # vLLM no valida la key
+        "provider": "vllm",
+        "description": "Phi-4 14B FP16 servido por vLLM en :8001 (continuous batching). Mismo modelo/rubrica que el preset phi4 Ollama (Q4); se usa por velocidad para sweeps paralelos. La cuantizacion del juez no se considera material para el ranking.",
+    },
     "gemma4": {
         "model": "qwen2.5:14b",
         "base_url": "http://localhost:11434/v1",
@@ -275,7 +282,7 @@ class LLMJudge:
             http_client=httpx.Client(
                 timeout=httpx.Timeout(
                     connect=10.0,
-                    read=120.0 if self.is_local else 30.0,  # local es mas lento
+                    read=120.0 if provider in ("ollama", "vllm") else 30.0,  # local/vllm es mas lento
                     write=10.0,
                     pool=10.0,
                 )
@@ -362,7 +369,7 @@ class LLMJudge:
             self.eval_count += 1
 
             # Estimar costo del juez
-            if result.usage and not self.is_local:
+            if result.usage and self.provider not in ("ollama", "vllm"):
                 input_tokens = getattr(result.usage, "prompt_tokens", 0) or 0
                 output_tokens = getattr(result.usage, "completion_tokens", 0) or 0
                 prices = JUDGE_PRICING.get(self.judge_model, (1.0, 3.0))

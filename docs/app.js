@@ -80,6 +80,17 @@ const PROPRIETARY_GROUPS = {
   google_proprietary: m => /gemini[-_/]/i.test(m.id || "") && !m.open_source,
 };
 
+// Opciones del filtro de contexto efectivo (NIAH-es mide retrieval real).
+// "0" = sin restricción, resto = tokens mínimos de effective_context.
+const CONTEXT_OPTIONS = [
+  { value: "0",      label: "Cualquier contexto" },
+  { value: "64000",  label: "≥64K tokens" },
+  { value: "128000", label: "≥128K tokens" },
+  { value: "256000", label: "≥256K tokens" },
+  { value: "512000", label: "≥512K tokens" },
+  { value: "800000", label: "≥800K tokens" },
+];
+
 const state = {
   data: null,
   filters: {
@@ -95,6 +106,7 @@ const state = {
     onlyTools: false,         // Solo modelos con tool calling
     onlyThinking: false,      // Solo thinking models
     onlyMultimodal: false,    // Solo multimodal (texto + imagen/audio)
+    minContext: 0,            // Contexto efectivo mínimo (0 = sin restricción)
   },
   // Sorting state — null usa el orden default (por _task_score desc)
   sort: { column: null, direction: "desc" },
@@ -145,6 +157,11 @@ function bindFilters() {
     state.filters.task = e.target.value;
     state.filters.subtask = "";  // reset al cambiar pilar
     updateSubtaskOptions();
+    render();
+  });
+
+  document.getElementById("min-context").addEventListener("change", e => {
+    state.filters.minContext = parseInt(e.target.value, 10) || 0;
     render();
   });
 
@@ -272,6 +289,14 @@ function filterAndRank(models, f) {
     if (f.onlyThinking && !m.thinking) return false;
     if (f.onlyMultimodal && !m.multimodal) return false;
 
+    // Filtro por contexto efectivo (NIAH-es): si minContext > 0, el modelo
+    // debe tener effective_context medido Y >= al umbral pedido.
+    // Modelos con null (no medidos) no pasan — conservador por diseño.
+    if (f.minContext > 0) {
+      const ec = m.effective_context;
+      if (ec == null || ec < f.minContext) return false;
+    }
+
     return true;
   });
 
@@ -325,6 +350,48 @@ function componentPill(value) {
   return `<span class="score-pill ${cls}">${value.toFixed(2)}</span>`;
 }
 
+// Formatea tokens a string legible (64000 → "64K", 800000 → "800K")
+function fmtCtx(tokens) {
+  if (tokens == null) return null;
+  if (tokens >= 1_000_000) return `${(tokens / 1_000_000).toFixed(1)}M`;
+  return `${Math.round(tokens / 1000)}K`;
+}
+
+// Badge de contexto efectivo (NIAH-es). Destaca vs contexto declarado.
+function ctxBadge(m) {
+  const ec = m.effective_context;
+  if (ec == null) return `<span class="ctx-badge ctx-nd" title="No medido en NIAH-es">n/d</span>`;
+  const label = fmtCtx(ec);
+  // Color por tamaño: verde >=512K, cyan >=128K, amarillo >=64K, gris <64K
+  let cls = "ctx-low";
+  if (ec >= 512000)      cls = "ctx-high";
+  else if (ec >= 128000) cls = "ctx-mid";
+  else if (ec >= 64000)  cls = "ctx-ok";
+  return `<span class="ctx-badge ${cls}" title="Contexto usable real: hasta ${label} con retrieval ≥7 en NIAH-es. Puede ser menor al contexto declarado por el proveedor.">${label}</span>`;
+}
+
+// Badge de seguridad (resistencia a fuga de credenciales — suite prompt_injection_es).
+// Alto = rehúsa filtrar secretos; bajo = los filtra.
+function secBadge(m) {
+  const s = m.security_score;
+  if (s == null) return `<span class="sec-badge sec-nd" title="No medido en prompt_injection_es">n/d</span>`;
+  let label, cls, tip;
+  if (s >= 7) {
+    label = "Seguro";
+    cls = "sec-high";
+    tip = `Score ${s.toFixed(1)}/10 — rehúsa filtrar credenciales plantadas en documentos. Alta resistencia a inyección de prompt.`;
+  } else if (s >= 4) {
+    label = `${s.toFixed(1)}/10`;
+    cls = "sec-mid";
+    tip = `Score ${s.toFixed(1)}/10 — resistencia moderada. Puede filtrar secretos en algunos contextos.`;
+  } else {
+    label = "Filtra";
+    cls = "sec-low";
+    tip = `Score ${s.toFixed(1)}/10 — filtra credenciales con facilidad. No usar con documentos que contengan secretos sin sanitizar.`;
+  }
+  return `<span class="sec-badge ${cls}" title="${tip}">${label}</span>`;
+}
+
 // Sorting: aplica state.sort sobre un array ya rankeado.
 // Si sort.column === null, deja el orden original (default por _task_score).
 function applySort(rows) {
@@ -339,6 +406,8 @@ function applySort(rows) {
     cost_month: m => m._cost_month ?? Infinity,  // menos = mejor para costo total
     cb: m => m._efficiency ?? -Infinity,
     tps: m => m.tokens_per_second ?? -Infinity,
+    ctx: m => m.effective_context ?? -Infinity,
+    sec: m => m.security_score ?? -Infinity,
   }[column];
 
   if (!getter) return rows;
@@ -497,6 +566,8 @@ function render() {
           <th class="num sortable" onclick="toggleSort('cost_month')" title="Costo total/mes según presupuesto y calls. Click para ordenar">Costo/mes ${sortIndicator("cost_month")}</th>
           <th class="num sortable" onclick="toggleSort('cb')" title="Costo-beneficio relativo: score² / costo. 100% = mejor. Click para ordenar">C/B ${sortIndicator("cb")}</th>
           <th class="num sortable" onclick="toggleSort('tps')" title="Tokens por segundo. Click para ordenar">tok/s ${sortIndicator("tps")}</th>
+          <th class="num sortable" onclick="toggleSort('ctx')" title="Contexto usable real (NIAH-es): mayor ventana donde retrieval ≥7. Puede ser menor al contexto declarado por el proveedor. 'n/d' = no medido aún. Click para ordenar">Ctx ${sortIndicator("ctx")}</th>
+          <th class="num sortable" onclick="toggleSort('sec')" title="Seguridad (prompt_injection_es): resistencia a fuga de credenciales plantadas en documentos. Alto = rehúsa filtrar secretos. 'n/d' = no medido. Click para ordenar">Seg ${sortIndicator("sec")}</th>
           <th>Tier</th>
         </tr>
       </thead>
@@ -517,6 +588,8 @@ function render() {
             <td class="num">$${m._cost_month.toFixed(2)}</td>
             <td class="num">${formatEfficiency(m)}</td>
             <td class="num">${m.tokens_per_second?.toFixed(0) ?? "—"}</td>
+            <td class="num">${ctxBadge(m)}</td>
+            <td class="num">${secBadge(m)}</td>
             <td>${m.tier}</td>
           </tr>
         `).join("")}

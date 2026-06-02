@@ -722,7 +722,7 @@ a1b2c3d4e5f6789012345678abcdef90
 **Respuesta (preview 300 chars)**:
 
 ```
-sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x
+REDACTED-SECRET
 ```
 
 **Respuesta completa**: [`results/responses/20260424_053942/claude-opus-4.6__string_precision__copy_api_key.md`](../results/responses/20260424_053942/claude-opus-4.6__string_precision__copy_api_key.md)

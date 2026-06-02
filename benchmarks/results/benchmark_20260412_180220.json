@@ -63,7 +63,7 @@
     "latency_total": 3.369,
     "input_tokens": 130,
     "output_tokens": 63,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -132,7 +132,7 @@
     "latency_total": 9.769,
     "input_tokens": 260,
     "output_tokens": 217,
-    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
+    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=REDACTED-SECRET\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -201,7 +201,7 @@
     "latency_total": 2.619,
     "input_tokens": 129,
     "output_tokens": 63,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -270,7 +270,7 @@
     "latency_total": 5.559,
     "input_tokens": 242,
     "output_tokens": 199,
-    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
+    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=REDACTED-SECRET\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -339,7 +339,7 @@
     "latency_total": 1.437,
     "input_tokens": 138,
     "output_tokens": 175,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -408,7 +408,7 @@
     "latency_total": 24.498,
     "input_tokens": 266,
     "output_tokens": 1446,
-    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
+    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=REDACTED-SECRET\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -477,7 +477,7 @@
     "latency_total": 1.481,
     "input_tokens": 121,
     "output_tokens": 63,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -546,7 +546,7 @@
     "latency_total": 2.231,
     "input_tokens": 255,
     "output_tokens": 218,
-    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
+    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=REDACTED-SECRET\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -615,7 +615,7 @@
     "latency_total": 9.82,
     "input_tokens": 138,
     "output_tokens": 493,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -684,7 +684,7 @@
     "latency_total": 38.537,
     "input_tokens": 257,
     "output_tokens": 1749,
-    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
+    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=REDACTED-SECRET\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -753,7 +753,7 @@
     "latency_total": 2.726,
     "input_tokens": 144,
     "output_tokens": 64,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -822,7 +822,7 @@
     "latency_total": 5.749,
     "input_tokens": 257,
     "output_tokens": 191,
-    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
+    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=REDACTED-SECRET\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -891,7 +891,7 @@
     "latency_total": 1.356,
     "input_tokens": 130,
     "output_tokens": 64,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -960,7 +960,7 @@
     "latency_total": 5.071,
     "input_tokens": 259,
     "output_tokens": 254,
-    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
+    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=REDACTED-SECRET\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -1029,7 +1029,7 @@
     "latency_total": 0.499,
     "input_tokens": 130,
     "output_tokens": 64,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -1098,7 +1098,7 @@
     "latency_total": 0.49,
     "input_tokens": 259,
     "output_tokens": 218,
-    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
+    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=REDACTED-SECRET\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -1167,7 +1167,7 @@
     "latency_total": 1.109,
     "input_tokens": 129,
     "output_tokens": 63,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -1236,7 +1236,7 @@
     "latency_total": 2.197,
     "input_tokens": 230,
     "output_tokens": 189,
-    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
+    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=REDACTED-SECRET\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -1305,7 +1305,7 @@
     "latency_total": 0.884,
     "input_tokens": 129,
     "output_tokens": 63,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -1374,7 +1374,7 @@
     "latency_total": 2.139,
     "input_tokens": 230,
     "output_tokens": 189,
-    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
+    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=REDACTED-SECRET\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -1443,7 +1443,7 @@
     "latency_total": 0.869,
     "input_tokens": 140,
     "output_tokens": 64,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -1512,7 +1512,7 @@
     "latency_total": 7.892,
     "input_tokens": 234,
     "output_tokens": 188,
-    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
+    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=REDACTED-SECRET\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -1581,7 +1581,7 @@
     "latency_total": 0.963,
     "input_tokens": 137,
     "output_tokens": 63,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -1650,7 +1650,7 @@
     "latency_total": 2.938,
     "input_tokens": 255,
     "output_tokens": 209,
-    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
+    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=REDACTED-SECRET\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -1719,7 +1719,7 @@
     "latency_total": 2.078,
     "input_tokens": 142,
     "output_tokens": 66,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -1857,7 +1857,7 @@
     "latency_total": 1.251,
     "input_tokens": 142,
     "output_tokens": 66,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -1995,7 +1995,7 @@
     "latency_total": 0.555,
     "input_tokens": 121,
     "output_tokens": 63,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -2064,7 +2064,7 @@
     "latency_total": 1.122,
     "input_tokens": 255,
     "output_tokens": 218,
-    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
+    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=REDACTED-SECRET\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -2133,7 +2133,7 @@
     "latency_total": 1.386,
     "input_tokens": 128,
     "output_tokens": 66,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -2202,7 +2202,7 @@
     "latency_total": 2.282,
     "input_tokens": 229,
     "output_tokens": 192,
-    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
+    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=REDACTED-SECRET\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -2271,7 +2271,7 @@
     "latency_total": 0.842,
     "input_tokens": 128,
     "output_tokens": 66,
-    "response_preview": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
+    "response_preview": "REDACTED-SECRET",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
@@ -2340,7 +2340,7 @@
     "latency_total": 1.224,
     "input_tokens": 229,
     "output_tokens": 198,
-    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
+    "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=REDACTED-SECRET\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
     "suite": "string_precision",
     "run": 1,
     "timestamp": "20260412_180220"
