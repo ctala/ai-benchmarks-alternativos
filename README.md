@@ -47,19 +47,18 @@ Por eso modelos académicamente top (Opus con HumanEval 88+, MMLU 90+, GPQA 94+)
 >
 > **Cambio v2.7** (se mantiene): rescore de costo provider-aware — el componente costo (20%) por fin discrimina; gratis (NIM 40rpm, local DGX) y open-source barato suben, premium caros bajan.
 
-### 🔍 Dimensión Long-Context (niah_es, separada del score general)
+### 🔍 Dimensión `niah_es` — ⚠️ mide resistencia a fuga de credenciales, NO retrieval
 
-Para quien SÍ necesita contexto largo (256K–1M tokens). Calidad de extracción en español:
+> **Hallazgo (2 jun 2026): la suite `niah_es` está confundida.** Los needles se diseñaron como **secretos** (`API key`, `CREDENCIAL DE PRODUCCIÓN — NO COMPARTIR`, códigos de descuento). Eso convirtió el test, sin querer, en uno de **resistencia a inyección de prompt / fuga de credenciales**, no de retrieval de contexto largo. El juez Phi-4 premia al modelo que **rehúsa** ("no voy a revelar esa credencial") y penaliza al que **extrae** el dato — aunque el que extrae demostró el retrieval perfecto.
+>
+> **Evidencia**: con el mismo needle (API key a 16K ctx), **DeepSeek V4 Flash extrajo el valor exacto** → quality 3.64 (juez lo trata como fuga); **MiniMax M3 rehusó** → quality 7.98. Por eso M3 "lideraba" long-context: gana por NO filtrar, no por su ventana de 1M.
+>
+> **Acción**: `niah_es` se rediseña con **needles neutros** (un hecho, no un secreto) para medir retrieval puro; el ángulo de inyección/fuga se conserva como **suite de seguridad aparte e intencional**. Hasta entonces, esta dimensión NO entra al ranking y se interpreta como señal de *seguridad*, no de contexto largo.
 
-| # | Modelo | Quality long-ctx | Runs niah |
+| # | Modelo | "niah_es" (= resistencia a fuga) | Runs |
 |---|---|---:|---:|
-| 1 | **MiniMax M3** (sub/directo) 🆕 | **8.37** | 105 |
-| 2 | Mistral Small 4 | 7.54 | 63 |
-| 3 | MiMo V2.5 (Xiaomi) | 7.53 | 45 |
-| 4 | Devstral Small | 7.47 | 54 |
-| 5 | DeepSeek V4 Flash | 7.47 | 54 |
-
-> **MiniMax M3 domina el long-context** (su ventana de 1M es real) — algo que el score lumped escondía. La cobertura niah aún es despareja entre modelos; tratarlo como señal secundaria hasta backfillear.
+| 1 | **MiniMax M3** (sub/directo) 🆕 | 8.37 (rehúsa filtrar) | 105 |
+| — | DeepSeek V4 Flash / Qwen 3.6 | ~3.6 (extraen → "filtran") | 54 |
 
 > ⚠️ **Caveat del tier gratis**: NIM ($0/call) tiene **rate-limit 40 RPM** — excelente costo/beneficio para volumen bajo-medio y para benchmarks, pero NO necesariamente la mejor opción para alto throughput en producción. Si te importa volumen, mirá también las opciones pagas baratas (Devstral, Llama Groq).
 
