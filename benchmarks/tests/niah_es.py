@@ -260,7 +260,10 @@ GRID = [
     (128000,  5, [25, 50, 75]),
     (256000,  3, [50, 75]),
     (512000,  2, [50, 75]),
-    (1000000, 2, [50, 75]),
+    (800000,  2, [50, 75]),   # near-1M: la heurística 4 char/tok hacía que "1M"
+                              # (4M chars ≈ 1.14M tok reales) excediera la ventana
+                              # de 1M y diera 400. 800K (3.2M chars) corre con margen
+                              # — el 512K=2.05M chars ya funcionaba, el 1M=4M no.
 ]
 TESTS = []
 for ctx, n_needles, positions in GRID:
