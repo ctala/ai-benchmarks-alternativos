@@ -102,8 +102,8 @@ ALL_TEST_SUITES = {
     "translation": translation.TESTS,
     "agent_long_horizon": agent_long_horizon.TESTS,
     "niah_es": niah_es.TESTS,
-    "niah_es_1m": niah_es_1m.TESTS,
-    "niah_es_lite": niah_es_lite.TESTS,
+    # niah_es_1m / niah_es_lite superseded por el grid escalonado de niah_es v3
+    # (8K-1M con skip por context window). Imports conservados por compat.
     "prompt_injection_es": prompt_injection_es.TESTS,
 }
 
@@ -711,6 +711,18 @@ def run_benchmark(args):
                     completed += 1
                     print(f"  [{completed}/{total_runs}] {short_model} ({local_completed}/{tests_per_model}) | "
                           f"{suite_name}/{test['name']}... SKIP (resume)", flush=True)
+                    continue
+
+                # Skip si el test pide más contexto del que el modelo soporta.
+                # Cada modelo se mide hasta su techo (context_window en config); un
+                # contexto que físicamente no acepta NO se cuenta como falla (sería
+                # comparar peras con manzanas). Si no hay context_window declarado,
+                # se corre igual (el adapter trunca o el provider devuelve error → N/A).
+                ctx_needed = test.get("context_tokens")
+                ctx_window = model_config.get("context_window")
+                if ctx_needed and ctx_window and ctx_needed > ctx_window:
+                    print(f"  [{completed}/{total_runs}] {short_model} ({local_completed}/{tests_per_model}) | "
+                          f"{suite_name}/{test['name']}... SKIP (ctx {ctx_needed:,}>{ctx_window:,})", flush=True)
                     continue
 
                 run_scores = []
