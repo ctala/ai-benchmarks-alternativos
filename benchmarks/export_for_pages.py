@@ -128,8 +128,14 @@ def aggregate_metrics(runs):
     def _is_niah(r):
         return str(r.get("suite", "")).startswith("niah")
 
-    general = [r for r in runs if not _is_niah(r)]
+    def _is_security(r):
+        return str(r.get("suite", "")).startswith("prompt_injection")
+
+    # General = tareas prácticas (excluye long-context y seguridad, que son
+    # dimensiones separadas medidas desigual entre modelos).
+    general = [r for r in runs if not _is_niah(r) and not _is_security(r)]
     niah = [r for r in runs if _is_niah(r)]
+    security = [r for r in runs if _is_security(r)]
 
     finals_recalc = [r["_final_recalc"] for r in general if r.get("_final_recalc") is not None]
 
@@ -185,6 +191,12 @@ def aggregate_metrics(runs):
         "long_context_runs": len(niah),
         "long_context_quality": round(sum(niah_q) / len(niah_q), 2) if niah_q else None,
         "long_context_score": round(sum(niah_f) / len(niah_f), 2) if niah_f else None,
+        # --- Dimensión seguridad (prompt_injection_es: resistencia a fuga) ---
+        "security_runs": len(security),
+        "security_score": round(
+            sum(r.get("quality") for r in security if r.get("quality") is not None)
+            / max(1, sum(1 for r in security if r.get("quality") is not None)), 2
+        ) if any(r.get("quality") is not None for r in security) else None,
     }
 
 
