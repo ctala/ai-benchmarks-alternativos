@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T14:28:00",
+  "generated_at": "2026-06-02T16:11:54",
   "total_models": 127,
   "tested_count": 80,
   "tokens_per_call_assumption": {
@@ -116,12 +116,8 @@
       "long_context_runs": 45,
       "long_context_quality": 6.68,
       "long_context_score": 6.7,
-      "long_context_by_size": {
-        "4000": 7.23,
-        "16000": 7.39,
-        "64000": 5.44
-      },
-      "effective_context": 16000,
+      "long_context_by_size": {},
+      "effective_context": null,
       "security_runs": 0,
       "security_score": null
     },
@@ -190,12 +186,8 @@
       "long_context_runs": 54,
       "long_context_quality": 7.25,
       "long_context_score": 6.91,
-      "long_context_by_size": {
-        "4000": 7.46,
-        "16000": 7.17,
-        "64000": 7.12
-      },
-      "effective_context": 64000,
+      "long_context_by_size": {},
+      "effective_context": null,
       "security_runs": 0,
       "security_score": null
     },
@@ -264,12 +256,8 @@
       "long_context_runs": 54,
       "long_context_quality": 7.47,
       "long_context_score": 7.24,
-      "long_context_by_size": {
-        "4000": 7.46,
-        "16000": 7.51,
-        "64000": 7.43
-      },
-      "effective_context": 64000,
+      "long_context_by_size": {},
+      "effective_context": null,
       "security_runs": 0,
       "security_score": null
     },
@@ -338,12 +326,8 @@
       "long_context_runs": 54,
       "long_context_quality": 7.09,
       "long_context_score": 6.27,
-      "long_context_by_size": {
-        "4000": 7.13,
-        "16000": 7.14,
-        "64000": 7.0
-      },
-      "effective_context": 64000,
+      "long_context_by_size": {},
+      "effective_context": null,
       "security_runs": 0,
       "security_score": null
     },
@@ -412,11 +396,7 @@
       "long_context_runs": 45,
       "long_context_quality": 6.2,
       "long_context_score": 6.66,
-      "long_context_by_size": {
-        "4000": 6.08,
-        "16000": 6.18,
-        "64000": 6.35
-      },
+      "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
       "security_score": null
@@ -623,12 +603,8 @@
       "long_context_runs": 63,
       "long_context_quality": 7.54,
       "long_context_score": 7.01,
-      "long_context_by_size": {
-        "4000": 7.43,
-        "16000": 7.66,
-        "64000": 7.55
-      },
-      "effective_context": 64000,
+      "long_context_by_size": {},
+      "effective_context": null,
       "security_runs": 0,
       "security_score": null
     },
@@ -700,12 +676,10 @@
       "long_context_quality": 6.98,
       "long_context_score": 6.31,
       "long_context_by_size": {
-        "4000": 3.82,
         "8000": 10.0,
-        "16000": 3.63,
-        "64000": 6.84,
+        "64000": 10.0,
         "128000": 10.0,
-        "256000": 6.47,
+        "256000": 10.0,
         "512000": 10.0,
         "800000": 10.0
       },
@@ -775,12 +749,8 @@
       "long_context_runs": 45,
       "long_context_quality": 7.46,
       "long_context_score": 6.83,
-      "long_context_by_size": {
-        "4000": 7.52,
-        "16000": 7.39,
-        "64000": 7.48
-      },
-      "effective_context": 64000,
+      "long_context_by_size": {},
+      "effective_context": null,
       "security_runs": 0,
       "security_score": null
     },
@@ -850,9 +820,9 @@
       "long_context_quality": 9.88,
       "long_context_score": 7.66,
       "long_context_by_size": {
-        "8000": 9.75,
-        "64000": 9.95,
-        "128000": 9.85,
+        "8000": 10.0,
+        "64000": 10.0,
+        "128000": 10.0,
         "256000": 10.0,
         "512000": 10.0,
         "800000": 10.0
@@ -926,12 +896,8 @@
       "long_context_runs": 45,
       "long_context_quality": 7.38,
       "long_context_score": 6.78,
-      "long_context_by_size": {
-        "4000": 7.4,
-        "16000": 7.4,
-        "64000": 7.34
-      },
-      "effective_context": 64000,
+      "long_context_by_size": {},
+      "effective_context": null,
       "security_runs": 0,
       "security_score": null
     },
@@ -1009,11 +975,7 @@
       "long_context_runs": 45,
       "long_context_quality": 5.63,
       "long_context_score": 6.65,
-      "long_context_by_size": {
-        "4000": 5.75,
-        "16000": 5.68,
-        "64000": 5.46
-      },
+      "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
       "security_score": null
@@ -1214,11 +1176,7 @@
       "long_context_runs": 45,
       "long_context_quality": 6.15,
       "long_context_score": 6.29,
-      "long_context_by_size": {
-        "4000": 5.87,
-        "16000": 6.47,
-        "64000": 6.12
-      },
+      "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
       "security_score": null
@@ -1297,12 +1255,8 @@
       "long_context_runs": 45,
       "long_context_quality": 7.53,
       "long_context_score": 7.05,
-      "long_context_by_size": {
-        "4000": 7.4,
-        "16000": 7.52,
-        "64000": 7.67
-      },
-      "effective_context": 64000,
+      "long_context_by_size": {},
+      "effective_context": null,
       "security_runs": 0,
       "security_score": null
     },
@@ -1439,12 +1393,8 @@
       "long_context_runs": 54,
       "long_context_quality": 7.47,
       "long_context_score": 7.06,
-      "long_context_by_size": {
-        "4000": 7.54,
-        "16000": 7.44,
-        "64000": 7.42
-      },
-      "effective_context": 64000,
+      "long_context_by_size": {},
+      "effective_context": null,
       "security_runs": 0,
       "security_score": null
     },
@@ -1654,7 +1604,7 @@
       "long_context_by_size": {
         "8000": 10.0,
         "64000": 10.0,
-        "128000": 9.78
+        "128000": 9.45
       },
       "effective_context": 128000,
       "security_runs": 20,
@@ -1729,7 +1679,7 @@
       "long_context_by_size": {
         "8000": 10.0,
         "64000": 10.0,
-        "128000": 9.78
+        "128000": 9.45
       },
       "effective_context": 128000,
       "security_runs": 20,
@@ -1803,10 +1753,8 @@
       "long_context_quality": 5.8,
       "long_context_score": 5.34,
       "long_context_by_size": {
-        "4000": 3.69,
         "8000": 10.0,
-        "16000": 3.73,
-        "64000": 5.79,
+        "64000": 10.0,
         "128000": 10.0
       },
       "effective_context": 128000,
@@ -2726,10 +2674,10 @@
       "long_context_quality": 9.78,
       "long_context_score": 7.21,
       "long_context_by_size": {
-        "8000": 9.83,
+        "8000": 9.58,
         "64000": 9.75,
         "128000": 9.75,
-        "256000": 9.75,
+        "256000": 9.62,
         "512000": 10.0,
         "800000": 9.5
       },
@@ -2872,12 +2820,8 @@
       "long_context_runs": 57,
       "long_context_quality": 7.44,
       "long_context_score": 6.62,
-      "long_context_by_size": {
-        "4000": 7.51,
-        "16000": 7.44,
-        "64000": 7.37
-      },
-      "effective_context": 64000,
+      "long_context_by_size": {},
+      "effective_context": null,
       "security_runs": 0,
       "security_score": null
     },
@@ -3365,12 +3309,10 @@
       "long_context_quality": 9.2,
       "long_context_score": 7.07,
       "long_context_by_size": {
-        "4000": 7.76,
         "8000": 10.0,
-        "16000": 8.58,
-        "64000": 9.33,
+        "64000": 10.0,
         "128000": 10.0,
-        "256000": 9.2,
+        "256000": 10.0,
         "512000": 10.0
       },
       "effective_context": 512000,
@@ -3510,12 +3452,10 @@
       "long_context_quality": 8.15,
       "long_context_score": 6.59,
       "long_context_by_size": {
-        "4000": 6.38,
         "8000": 10.0,
-        "16000": 6.5,
-        "64000": 8.19,
+        "64000": 10.0,
         "128000": 10.0,
-        "256000": 7.78
+        "256000": 10.0
       },
       "effective_context": 256000,
       "security_runs": 40,
@@ -3657,11 +3597,9 @@
       "long_context_quality": 5.64,
       "long_context_score": 5.46,
       "long_context_by_size": {
-        "4000": 3.59,
-        "8000": 9.7,
-        "16000": 3.62,
-        "64000": 5.65,
-        "128000": 9.7
+        "8000": 10.0,
+        "64000": 10.0,
+        "128000": 10.0
       },
       "effective_context": 128000,
       "security_runs": 20,
@@ -3733,14 +3671,8 @@
       "long_context_runs": 87,
       "long_context_quality": 7.43,
       "long_context_score": 5.68,
-      "long_context_by_size": {
-        "4000": 7.38,
-        "16000": 7.43,
-        "64000": 7.48,
-        "256000": 7.41,
-        "1000000": 7.43
-      },
-      "effective_context": 1000000,
+      "long_context_by_size": {},
+      "effective_context": null,
       "security_runs": 0,
       "security_score": null
     },
@@ -4223,13 +4155,11 @@
       "long_context_quality": 5.14,
       "long_context_score": 4.98,
       "long_context_by_size": {
-        "4000": 4.36,
         "8000": 10.0,
-        "16000": 4.83,
-        "64000": 5.64,
+        "64000": 10.0,
         "128000": 0.0
       },
-      "effective_context": 8000,
+      "effective_context": 64000,
       "security_runs": 20,
       "security_score": 2.12
     },
@@ -4369,11 +4299,9 @@
       "long_context_quality": 5.71,
       "long_context_score": 5.17,
       "long_context_by_size": {
-        "4000": 3.76,
-        "8000": 9.8,
-        "16000": 3.49,
-        "64000": 5.74,
-        "128000": 9.9
+        "8000": 10.0,
+        "64000": 10.0,
+        "128000": 10.0
       },
       "effective_context": 128000,
       "security_runs": 20,
@@ -4513,9 +4441,9 @@
       "long_context_quality": 8.64,
       "long_context_score": 6.81,
       "long_context_by_size": {
-        "8000": 8.81,
-        "64000": 8.32,
-        "128000": 8.8
+        "8000": 9.11,
+        "64000": 7.06,
+        "128000": 8.0
       },
       "effective_context": 128000,
       "security_runs": 20,
@@ -4707,7 +4635,9 @@
         "strategy": 6.92,
         "sales_outreach": 7.16,
         "translation": 6.7,
-        "agent_long_horizon": 6.69
+        "agent_long_horizon": 6.69,
+        "niah_es": 7.03,
+        "prompt_injection_es": 3.37
       },
       "quality_avg": 8.62,
       "cost_score_avg": 4.32,
@@ -4719,13 +4649,17 @@
       "latency_avg_s": 105.37,
       "total_input_tokens": 228098,
       "total_output_tokens": 408755,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "long_context_runs": 45,
+      "long_context_quality": 9.77,
+      "long_context_score": 7.03,
+      "long_context_by_size": {
+        "8000": 10.0,
+        "64000": 10.0,
+        "128000": 10.0
+      },
+      "effective_context": 128000,
+      "security_runs": 20,
+      "security_score": 1.75
     },
     {
       "key": "claude-opus-4.8",
@@ -4777,8 +4711,9 @@
         "sales_outreach": 7.18,
         "translation": 7.24,
         "agent_long_horizon": 6.16,
-        "niah_es": 4.53,
-        "niah_es_lite": 4.59
+        "niah_es": 5.52,
+        "niah_es_lite": 4.59,
+        "prompt_injection_es": 6.6
       },
       "quality_avg": 8.39,
       "cost_score_avg": 3.79,
@@ -4790,18 +4725,18 @@
       "latency_avg_s": 23.05,
       "total_input_tokens": 287887,
       "total_output_tokens": 160147,
-      "long_context_runs": 105,
-      "long_context_quality": 5.19,
-      "long_context_score": 4.55,
+      "long_context_runs": 156,
+      "long_context_quality": 6.75,
+      "long_context_score": 5.25,
       "long_context_by_size": {
-        "4000": 4.78,
-        "16000": 5.11,
-        "64000": 5.61,
-        "256000": 5.35
+        "8000": 10.0,
+        "64000": 10.0,
+        "128000": 10.0,
+        "256000": 10.0
       },
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "effective_context": 256000,
+      "security_runs": 20,
+      "security_score": 8.79
     },
     {
       "key": "claude-sonnet-4.6",
@@ -4867,11 +4802,7 @@
       "long_context_runs": 45,
       "long_context_quality": 5.15,
       "long_context_score": 4.77,
-      "long_context_by_size": {
-        "4000": 4.4,
-        "16000": 5.82,
-        "64000": 5.24
-      },
+      "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
       "security_score": null
@@ -4940,11 +4871,7 @@
       "long_context_runs": 45,
       "long_context_quality": 4.23,
       "long_context_score": 4.65,
-      "long_context_by_size": {
-        "4000": 4.21,
-        "16000": 4.26,
-        "64000": 4.22
-      },
+      "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
       "security_score": null
@@ -5013,12 +4940,7 @@
       "long_context_runs": 72,
       "long_context_quality": 6.51,
       "long_context_score": 5.1,
-      "long_context_by_size": {
-        "4000": 6.54,
-        "16000": 6.6,
-        "64000": 6.64,
-        "256000": 6.27
-      },
+      "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
       "security_score": null
@@ -5073,8 +4995,9 @@
         "sales_outreach": 6.99,
         "translation": 7.11,
         "agent_long_horizon": 6.87,
-        "niah_es": 4.32,
-        "niah_es_lite": 4.57
+        "niah_es": 6.18,
+        "niah_es_lite": 4.57,
+        "prompt_injection_es": 3.91
       },
       "quality_avg": 7.55,
       "cost_score_avg": 4.54,
@@ -5086,18 +5009,20 @@
       "latency_avg_s": 14.91,
       "total_input_tokens": 177020,
       "total_output_tokens": 226525,
-      "long_context_runs": 105,
-      "long_context_quality": 3.64,
-      "long_context_score": 4.43,
+      "long_context_runs": 215,
+      "long_context_quality": 6.77,
+      "long_context_score": 5.84,
       "long_context_by_size": {
-        "4000": 3.63,
-        "16000": 3.63,
-        "64000": 3.67,
-        "256000": 3.63
+        "8000": 10.0,
+        "64000": 9.92,
+        "128000": 10.0,
+        "256000": 10.0,
+        "512000": 10.0,
+        "800000": 10.0
       },
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "effective_context": 800000,
+      "security_runs": 40,
+      "security_score": 2.0
     },
     {
       "key": "claude-opus-4.6",
@@ -5448,9 +5373,9 @@
       "long_context_quality": 9.71,
       "long_context_score": 6.88,
       "long_context_by_size": {
-        "8000": 9.7,
-        "64000": 9.63,
-        "128000": 9.8
+        "8000": 10.0,
+        "64000": 9.83,
+        "128000": 10.0
       },
       "effective_context": 128000,
       "security_runs": 20,
@@ -5666,11 +5591,7 @@
       "long_context_runs": 45,
       "long_context_quality": 6.68,
       "long_context_score": 5.56,
-      "long_context_by_size": {
-        "4000": 6.56,
-        "16000": 6.86,
-        "64000": 6.63
-      },
+      "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
       "security_score": null
@@ -5740,13 +5661,8 @@
       "long_context_runs": 72,
       "long_context_quality": 7.41,
       "long_context_score": 5.95,
-      "long_context_by_size": {
-        "4000": 7.37,
-        "16000": 7.48,
-        "64000": 7.4,
-        "256000": 7.37
-      },
-      "effective_context": 256000,
+      "long_context_by_size": {},
+      "effective_context": null,
       "security_runs": 0,
       "security_score": null
     },
@@ -5864,11 +5780,7 @@
       "long_context_runs": 45,
       "long_context_quality": 4.22,
       "long_context_score": 5.47,
-      "long_context_by_size": {
-        "4000": 4.21,
-        "16000": 4.2,
-        "64000": 4.25
-      },
+      "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
       "security_score": null
@@ -5919,11 +5831,7 @@
       "long_context_runs": 45,
       "long_context_quality": 4.25,
       "long_context_score": 5.62,
-      "long_context_by_size": {
-        "4000": 4.33,
-        "16000": 4.2,
-        "64000": 4.21
-      },
+      "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
       "security_score": null

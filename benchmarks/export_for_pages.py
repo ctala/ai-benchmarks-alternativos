@@ -176,11 +176,20 @@ def aggregate_metrics(runs):
     # un modelo de 64K no debe "ganarle" a uno de 1M por promediar solo contextos
     # chicos). Los errores de contexto-excedido ya están excluidos (success=False),
     # así que un tamaño sin runs exitosos = N/A, no 0.
+    # IMPORTANTE: la curva por tamaño SOLO usa los needles comunes a TODOS los
+    # tamaños (bridge_length, library_volumes), porque la grilla escalonada usa
+    # más needles en los tramos chicos. Mezclar needles distintos por tamaño crea
+    # rankings FALSOS (hallazgo 2 jun: "Gemini 3.5 peor", "zigzag DeepSeek" eran
+    # artefactos del needle, no del modelo). Comparación limpia = mismos needles.
+    COMMON_NEEDLES = ("bridge_length", "library_volumes")
     by_ctx = defaultdict(list)
     for r in niah:
         if r.get("quality") is None:
             continue
-        m = re.search(r"_(\d{3,7})_p\d", str(r.get("test_name", "")))
+        tn = str(r.get("test_name", ""))
+        if not any(("_" + n + "_") in tn for n in COMMON_NEEDLES):
+            continue
+        m = re.search(r"_(\d{3,7})_p\d", tn)
         if m:
             by_ctx[int(m.group(1))].append(r["quality"])
     long_context_by_size = {
