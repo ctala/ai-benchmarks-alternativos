@@ -280,7 +280,7 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
 
 .results-table {
   width: 100%;
-  min-width: 540px;
+  min-width: 640px;
   border-collapse: collapse;
   font-size: 0.8rem;
   background: var(--bg-card);
@@ -927,6 +927,80 @@ input[type="range"]::-moz-range-thumb {
   .faq h2 { font-size: 1.5rem; }
   .faq summary { font-size: 0.95rem; }
   .faq p { font-size: 0.95rem; }
+}
+
+/* ====== Contexto efectivo (NIAH-es) — badge en tabla ====== */
+/* Color-coding por tamaño: verde >=512K, cyan >=128K, amarillo >=64K, gris menor */
+.ctx-badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: help;
+  white-space: nowrap;
+}
+.ctx-badge.ctx-high {
+  color: var(--green);
+  background: rgba(57, 255, 20, 0.12);
+  border-color: rgba(57, 255, 20, 0.35);
+}
+.ctx-badge.ctx-mid {
+  color: var(--cyan);
+  background: rgba(0, 212, 255, 0.10);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+.ctx-badge.ctx-ok {
+  color: #ffd700;
+  background: rgba(255, 215, 0, 0.08);
+  border-color: rgba(255, 215, 0, 0.3);
+}
+.ctx-badge.ctx-low {
+  color: var(--magenta);
+  background: rgba(255, 0, 110, 0.08);
+  border-color: rgba(255, 0, 110, 0.25);
+}
+.ctx-badge.ctx-nd {
+  color: var(--gray-dark);
+  background: transparent;
+  border-color: var(--border);
+}
+
+/* ====== Seguridad (prompt_injection_es) — badge en tabla ====== */
+/* Alto (>=7) = seguro (verde), <4 = filtra credenciales (magenta) */
+.sec-badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: help;
+  white-space: nowrap;
+}
+.sec-badge.sec-high {
+  color: var(--green);
+  background: rgba(57, 255, 20, 0.12);
+  border-color: rgba(57, 255, 20, 0.35);
+  box-shadow: 0 0 6px rgba(57, 255, 20, 0.12);
+}
+.sec-badge.sec-mid {
+  color: #ffd700;
+  background: rgba(255, 215, 0, 0.08);
+  border-color: rgba(255, 215, 0, 0.3);
+}
+.sec-badge.sec-low {
+  color: var(--magenta);
+  background: rgba(255, 0, 110, 0.10);
+  border-color: rgba(255, 0, 110, 0.3);
+}
+.sec-badge.sec-nd {
+  color: var(--gray-dark);
+  background: transparent;
+  border-color: var(--border);
 }
 
 /* ====== Footer ====== */
