@@ -1,7 +1,7 @@
 {
   "metadata": {
     "timestamp": "20260601_160635_2187581",
-    "total_runs": 99,
+    "total_runs": 100,
     "errors": 0,
     "judge": {
       "judge_model": "phi4",
@@ -3140,6 +3140,33 @@
       "run": 1,
       "timestamp": "20260601_160635_2187581",
       "response_file": "results/responses/20260601_160635_2187581/qwen3.6-27b__agent_long_horizon__priority_change_midtask.md"
+    },
+    {
+      "quality": 8.0,
+      "cost_score": 4.16,
+      "cost_usd": 0.019031,
+      "speed": 8.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 6.56,
+      "test_name": "clarification_quality",
+      "model": "Qwen 3.6 27B base (OpenRouter FP8)",
+      "model_id": "qwen/qwen3.6-27b",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 75.5,
+      "latency_first_token": 27.124,
+      "latency_total": 110.268,
+      "input_tokens": 2318,
+      "output_tokens": 5737,
+      "response_preview": "Aquí tienes la propuesta comercial lista para enviar. He estructurado el documento para que sea directo, orientado a ROI y fácil de aprobar por un director comercial o gerente de operaciones. Al final indico explícitamente los supuestos que utilicé para cerrar la estructura comercial; puedes ajustar",
+      "auto_quality": 8.0,
+      "turns_executed": 4,
+      "turns_total": 4,
+      "suite": "agent_long_horizon",
+      "run": 1,
+      "timestamp": "20260601_160635_2187581",
+      "response_file": "results/responses/20260601_160635_2187581/qwen3.6-27b__agent_long_horizon__clarification_quality.md"
     }
   ]
 }
