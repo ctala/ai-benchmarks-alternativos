@@ -156,7 +156,8 @@ MODELS = {
         "cost_input": 1.50,
         "cost_output": 9.00,
         "tier": "medium",
-        "niah_max_context": 262144,  # cap de costo: skip tramos 1M (evita ~$40 en niah)
+        # niah sin cap: medir su curva completa hasta 800K para confirmar si el
+        # hallazgo (peor que 2.5 Flash Lite en español) se sostiene en contexto grande.
         "notes": "Sucesor del Flash (19 may 2026), contexto 1M. $1.50/$9 vía OpenRouter API. Releva al 2.5 Flash.",
     },
     "gemini-flash": {
