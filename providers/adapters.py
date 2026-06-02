@@ -291,6 +291,13 @@ class ClaudeCodeProvider:
              max_tokens=2048, timeout=90, force_reasoning=False):
         import subprocess
         import json as _json
+        import os as _os
+        # CRÍTICO: limpiar credenciales de API del env. Si el runner cargó
+        # ANTHROPIC_API_KEY/AUTH_TOKEN desde .env, `claude -p` intenta usarlas
+        # (y da 401 si son inválidas) en vez del login OAuth de la suscripción.
+        # Sin esas vars, claude usa la suscripción Claude Code (lo que queremos).
+        _env = {k: v for k, v in _os.environ.items()
+                if k not in ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN", "ANTHROPIC_BASE_URL")}
         result = BenchmarkResult(
             provider=self.provider_name, model=model, test_name="",
             prompt=(messages[-1].get("content", "") or "")[:200],
@@ -311,12 +318,20 @@ class ClaudeCodeProvider:
         cmd.append(user_prompt)
         start = time.perf_counter()
         try:
-            proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+            # stdin=DEVNULL: sin tty, `claude -p` espera datos de stdin y avisa
+            # "no stdin data received"; con DEVNULL usa el prompt pasado como arg.
+            proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout,
+                                  stdin=subprocess.DEVNULL, env=_env)
             elapsed = time.perf_counter() - start
-            if proc.returncode != 0:
-                result.error = f"claude cli rc={proc.returncode}: {(proc.stderr or '')[:200]}"
+            # NOTA: `claude -p` anidado dentro de otra sesión Claude Code puede
+            # salir con returncode=1 AUNQUE produzca JSON de resultado válido
+            # (warning no-fatal). Por eso parseamos el stdout y nos guiamos por
+            # `is_error`/`result`, no por el returncode.
+            try:
+                d = _json.loads((proc.stdout or "").strip())
+            except Exception:
+                result.error = f"claude cli rc={proc.returncode} sin JSON: err={(proc.stderr or '')[:150]} out={(proc.stdout or '')[:150]}"
                 return result
-            d = _json.loads(proc.stdout)
             result.response = d.get("result", "") or ""
             u = d.get("usage") or {}
             result.input_tokens = u.get("input_tokens", 0) or 0
@@ -326,6 +341,8 @@ class ClaudeCodeProvider:
             if result.output_tokens and result.latency_total:
                 result.tokens_per_second = result.output_tokens / result.latency_total
             result.success = bool(result.response) and not d.get("is_error")
+            if not result.success:
+                result.error = f"is_error={d.get('is_error')} subtype={d.get('subtype')} api_err={d.get('api_error_status')} result={(result.response or '')[:120]}"
             result.metadata = {"subscription_measured": True}
         except subprocess.TimeoutExpired:
             result.error = "claude cli timeout"
