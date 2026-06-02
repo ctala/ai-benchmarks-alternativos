@@ -511,7 +511,8 @@ def score_latency(first_token_seconds: float) -> float:
 PRICING = {
     # ====== Anthropic (faltaban — causaban under-estimation grande) ======
     "anthropic/claude-opus-4-7": (5.00, 25.00),   # corregido may 2026 (OpenRouter API)
-    "anthropic/claude-opus-4-6": (5.00, 25.00),   # corregido may 2026 (era 15/75 stale)
+    "anthropic/claude-opus-4-6": (5.00, 25.00),
+    "anthropic/claude-opus-4.8": (5.00, 25.00),  # flagship jun 2026   # corregido may 2026 (era 15/75 stale)
     "anthropic/claude-sonnet-4-6": (3.00, 15.00),
     "anthropic/claude-sonnet-4": (3.00, 15.00),
     "anthropic/claude-haiku-4-5": (0.80, 4.00),
@@ -555,6 +556,7 @@ PRICING = {
     # ====== Google ======
     "gemini-2.5-flash": (0.30, 2.50),
     "google/gemini-2.5-flash": (0.30, 2.50),
+    "google/gemini-3.5-flash": (1.50, 9.00),  # jun 2026
     "gemini-2.5-pro": (1.25, 10.00),
     "google/gemini-2.5-pro": (1.25, 10.00),
     "google/gemini-2.5-flash-lite": (0.075, 0.30),
@@ -585,6 +587,7 @@ PRICING = {
     "qwen/qwen-3.5-72b": (1.20, 2.00),
     "qwen/qwen3.5-plus": (1.20, 2.00),
     "qwen/qwen3.6-plus": (0.18, 1.07),  # API-only Alibaba; corregido may 2026 (OpenRouter API)
+    "qwen/qwen3.6-max-preview": (1.04, 6.24),  # tier Max jun 2026
     "qwen/qwen3-coder": (0.15, 0.60),
     "qwen/qwen3-coder-480b:free": (0.0, 0.0),
 

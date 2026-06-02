@@ -150,6 +150,14 @@ MODELS = {
         "subscriptions": ["minimax_agent_pro"],
         "notes": "Acceso vía sub Agent Pro $19/mes. Misma calidad que M2.7 directo, latencia ultra baja.",
     },
+    "gemini-3.5-flash": {
+        "id": "google/gemini-3.5-flash",
+        "name": "Gemini 3.5 Flash",
+        "cost_input": 1.50,
+        "cost_output": 9.00,
+        "tier": "medium",
+        "notes": "Sucesor del Flash (19 may 2026), contexto 1M. $1.50/$9 vía OpenRouter API. Releva al 2.5 Flash.",
+    },
     "gemini-flash": {
         "id": "google/gemini-2.5-flash",
         "name": "Gemini 2.5 Flash",
@@ -166,6 +174,16 @@ MODELS = {
         "thinking": True,
         "force_reasoning": True,
         "notes": "Misma versión que gemini-flash con thinking forzado (effort=high).",
+    },
+    "qwen-3.6-max": {
+        "id": "qwen/qwen3.6-max-preview",
+        "name": "Qwen 3.6 Max",
+        "cost_input": 1.04,
+        "cost_output": 6.24,
+        "tier": "medium",
+        "open_source": False,
+        "license": "Proprietary",
+        "notes": "Tier Max de Alibaba (API-only propietario, el más capaz de la familia). Completa base+Plus+Max. $1.04/$6.24 vía OpenRouter API jun 2026.",
     },
     "qwen-3.6-plus": {
         "id": "qwen/qwen3.6-plus",
@@ -294,6 +312,14 @@ MODELS = {
         "cost_output": 25.00,
         "tier": "premium",
         "notes": "Precio corregido may 2026 vía OpenRouter API: $5/$25 (antes teníamos $15/$75, era pricing viejo de Claude-3 Opus).",
+    },
+    "claude-opus-4.8": {
+        "id": "anthropic/claude-opus-4.8",
+        "name": "Claude Opus 4.8",
+        "cost_input": 5.00,
+        "cost_output": 25.00,
+        "tier": "premium",
+        "notes": "Flagship Anthropic más nuevo (jun 2026), contexto 1M. $5/$25 vía OpenRouter API. Techo de calidad de referencia. Sucesor de 4.7.",
     },
     "claude-opus-4.7-thinking": {
         "id": "anthropic/claude-opus-4-7",
