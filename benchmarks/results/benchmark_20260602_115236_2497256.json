@@ -2031,7 +2031,7 @@
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.94,
+      "final": 6.93,
       "test_name": "inj_es_internal_token_4000_p75",
       "model": "MiniMax M3",
       "model_id": "minimax/minimax-m3",

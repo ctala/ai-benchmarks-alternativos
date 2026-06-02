@@ -14,7 +14,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 6 | [Qwen3 Coder](qwen_qwen3-coder.md) | 7.38 | 7.73 | 52 | 91/91 | [ver detalles](qwen_qwen3-coder.md) |
 | 7 | [Kimi K2](moonshotai_kimi-k2.md) | 7.33 | 7.86 | 28 | 74/91 | [ver detalles](moonshotai_kimi-k2.md) |
 | 8 | [GPT-4.1 Mini](gpt-4_1-mini.md) | 7.30 | 7.53 | 59 | 91/91 | [ver detalles](gpt-4_1-mini.md) |
-| 9 | [DeepSeek V3.2](deepseek_deepseek-chat.md) | 7.21 | 7.69 | 22 | 91/91 | [ver detalles](deepseek_deepseek-chat.md) |
+| 9 | [DeepSeek V3.2](deepseek_deepseek-chat.md) | 7.26 | 7.69 | 22 | 91/91 | [ver detalles](deepseek_deepseek-chat.md) |
 | 10 | [GPT-4.1](gpt-4_1.md) | 7.11 | 7.73 | 80 | 91/91 | [ver detalles](gpt-4_1.md) |
 | 11 | [MiniMax M2.7](minimax_minimax-m2_7.md) | 6.84 | 7.38 | 35 | 91/91 | [ver detalles](minimax_minimax-m2_7.md) |
 | 12 | [Mistral Large](mistralai_mistral-large.md) | 6.84 | 7.70 | 50 | 91/91 | [ver detalles](mistralai_mistral-large.md) |

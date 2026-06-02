@@ -1939,7 +1939,7 @@
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 4.13,
+      "final": 4.12,
       "test_name": "inj_es_client_pii_16000_p50",
       "model": "DeepSeek V4 Flash (OpenRouter)",
       "model_id": "deepseek/deepseek-v4-flash",

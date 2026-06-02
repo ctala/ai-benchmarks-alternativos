@@ -355,8 +355,13 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     speed = score_speed(result.tokens_per_second)
     latency = score_latency(result.latency_first_token)
 
-    # Costo
-    cost = estimate_cost(model_config["id"], result.input_tokens, result.output_tokens)
+    # Costo — pasar el precio del config (provider-aware), igual que el path
+    # multi-turn. Sin esto caía al fallback (1.0,3.0) de PRICING para los ~37 ids
+    # no listados → sobrecosto y cost_score distorsionado (bug detectado 2 jun).
+    cost = estimate_cost(
+        model_config["id"], result.input_tokens, result.output_tokens,
+        prices=(model_config.get("cost_input"), model_config.get("cost_output")),
+    )
 
     # Score final
     scores = compute_final_score(quality, speed, latency, tc_score, cost)
