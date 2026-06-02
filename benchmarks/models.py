@@ -156,6 +156,7 @@ MODELS = {
         "cost_input": 1.50,
         "cost_output": 9.00,
         "tier": "medium",
+        "niah_max_context": 262144,  # cap de costo: skip tramos 1M (evita ~$40 en niah)
         "notes": "Sucesor del Flash (19 may 2026), contexto 1M. $1.50/$9 vía OpenRouter API. Releva al 2.5 Flash.",
     },
     "gemini-flash": {
@@ -319,6 +320,7 @@ MODELS = {
         "cost_input": 5.00,
         "cost_output": 25.00,
         "tier": "premium",
+        "niah_max_context": 262144,  # cap de costo: skip tramos 1M (evita ~$40 en niah)
         "notes": "Flagship Anthropic más nuevo (jun 2026), contexto 1M. $5/$25 vía OpenRouter API. Techo de calidad de referencia. Sucesor de 4.7.",
     },
     "claude-opus-4.7-thinking": {
