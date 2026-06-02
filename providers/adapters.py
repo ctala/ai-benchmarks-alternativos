@@ -268,6 +268,72 @@ class UnifiedProvider:
         return result
 
 
+class ClaudeCodeProvider:
+    """Mide modelos Anthropic via la SUSCRIPCIÓN Claude Code (CLI `claude -p`),
+    a tarifa plana en vez de pagar la API por token.
+
+    Provider key: "claude_code". El `id` del modelo en config debe ser el alias
+    del CLI (ej. "opus", "sonnet", "claude-opus-4-8").
+
+    ⚠️ CAVEAT metodológico: `claude -p` corre el modelo en modo Claude Code, con
+    ~8.8K tokens de scaffolding residual aun con tools deshabilitados y system
+    prompt mínimo (vs ~30K sin flags). NO es un chat completion 100% limpio →
+    los resultados se marcan `subscription_measured=True` y NO deben usarse para
+    tool-calling (las tools del CLI difieren del schema OpenAI del benchmark).
+    Costo real: $0 (suscripción); el ranking lo costea al precio OpenRouter.
+    """
+
+    def __init__(self, provider_name: str = "claude_code", cli: str = "claude"):
+        self.provider_name = provider_name
+        self.cli = cli
+
+    def chat(self, model, messages, tools=None, temperature=0.7,
+             max_tokens=2048, timeout=90, force_reasoning=False):
+        import subprocess
+        import json as _json
+        result = BenchmarkResult(
+            provider=self.provider_name, model=model, test_name="",
+            prompt=(messages[-1].get("content", "") or "")[:200],
+        )
+        system = "\n".join(m.get("content", "") for m in messages if m.get("role") == "system")
+        convo = []
+        for m in messages:
+            if m.get("role") == "system":
+                continue
+            c = m.get("content", "") or ""
+            convo.append(c if m.get("role") == "user" else f"[respuesta previa del asistente]:\n{c}")
+        user_prompt = "\n\n".join(convo)
+        cmd = [self.cli, "-p", "--output-format", "json", "--model", model,
+               "--disallowedTools", "*", "--exclude-dynamic-system-prompt-sections",
+               "--system-prompt", "Responde directamente la consulta del usuario."]
+        if system:
+            cmd += ["--append-system-prompt", system]
+        cmd.append(user_prompt)
+        start = time.perf_counter()
+        try:
+            proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+            elapsed = time.perf_counter() - start
+            if proc.returncode != 0:
+                result.error = f"claude cli rc={proc.returncode}: {(proc.stderr or '')[:200]}"
+                return result
+            d = _json.loads(proc.stdout)
+            result.response = d.get("result", "") or ""
+            u = d.get("usage") or {}
+            result.input_tokens = u.get("input_tokens", 0) or 0
+            result.output_tokens = u.get("output_tokens", 0) or 0
+            result.latency_total = (d.get("duration_ms", 0) or 0) / 1000.0 or elapsed
+            result.latency_first_token = (d.get("ttft_ms", 0) or 0) / 1000.0
+            if result.output_tokens and result.latency_total:
+                result.tokens_per_second = result.output_tokens / result.latency_total
+            result.success = bool(result.response) and not d.get("is_error")
+            result.metadata = {"subscription_measured": True}
+        except subprocess.TimeoutExpired:
+            result.error = "claude cli timeout"
+        except Exception as e:
+            result.error = f"claude cli error: {type(e).__name__}: {e}"
+        return result
+
+
 class OpenAIResponsesProvider:
     """
     Adaptador para el endpoint /v1/responses de OpenAI (Responses API).
