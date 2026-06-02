@@ -51,6 +51,7 @@ from benchmarks.tests import agent_long_horizon
 from benchmarks.tests import niah_es
 from benchmarks.tests import niah_es_1m
 from benchmarks.tests import niah_es_lite
+from benchmarks.tests import prompt_injection_es
 
 console = Console()
 
@@ -103,6 +104,7 @@ ALL_TEST_SUITES = {
     "niah_es": niah_es.TESTS,
     "niah_es_1m": niah_es_1m.TESTS,
     "niah_es_lite": niah_es_lite.TESTS,
+    "prompt_injection_es": prompt_injection_es.TESTS,
 }
 
 
