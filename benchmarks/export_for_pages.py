@@ -17,6 +17,7 @@ Uso:
 
 import json
 import os
+import re
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -171,6 +172,30 @@ def aggregate_metrics(runs):
     niah_q = [r.get("quality") for r in niah if r.get("quality") is not None]
     niah_f = [r["_final_recalc"] for r in niah if r.get("_final_recalc") is not None]
 
+    # Long-context POR TAMAÑO DE CONTEXTO (evita comparar peras con manzanas:
+    # un modelo de 64K no debe "ganarle" a uno de 1M por promediar solo contextos
+    # chicos). Los errores de contexto-excedido ya están excluidos (success=False),
+    # así que un tamaño sin runs exitosos = N/A, no 0.
+    by_ctx = defaultdict(list)
+    for r in niah:
+        if r.get("quality") is None:
+            continue
+        m = re.search(r"_(\d{3,7})_p\d", str(r.get("test_name", "")))
+        if m:
+            by_ctx[int(m.group(1))].append(r["quality"])
+    long_context_by_size = {
+        str(c): round(sum(v) / len(v), 2) for c, v in sorted(by_ctx.items()) if v
+    }
+    # "Contexto efectivo": el mayor tamaño donde el retrieval se mantiene ≥7.0.
+    # Es la métrica JUSTA de capacidad long-context (premia llegar más lejos,
+    # no promediar contextos fáciles).
+    PASS = 7.0
+    effective_ctx = None
+    for c in sorted(by_ctx):
+        avg = sum(by_ctx[c]) / len(by_ctx[c])
+        if avg >= PASS:
+            effective_ctx = c
+
     return {
         "runs": len(general),  # cobertura = tareas prácticas (umbral tested >=50)
         "score_global": round(sum(scores) / len(scores), 2) if scores else None,
@@ -191,6 +216,9 @@ def aggregate_metrics(runs):
         "long_context_runs": len(niah),
         "long_context_quality": round(sum(niah_q) / len(niah_q), 2) if niah_q else None,
         "long_context_score": round(sum(niah_f) / len(niah_f), 2) if niah_f else None,
+        # Retrieval por tamaño de contexto + contexto efectivo (comparación justa)
+        "long_context_by_size": long_context_by_size,
+        "effective_context": effective_ctx,
         # --- Dimensión seguridad (prompt_injection_es: resistencia a fuga) ---
         "security_runs": len(security),
         "security_score": round(
