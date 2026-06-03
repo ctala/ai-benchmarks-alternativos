@@ -406,11 +406,11 @@ def render(models: dict, runs: list) -> str:
             <span class="stat-label">Modelos</span>
         </div>
         <div class="stat-box">
-            <span class="stat-number">25</span>
+            <span class="stat-number">26</span>
             <span class="stat-label">Suites</span>
         </div>
         <div class="stat-box">
-            <span class="stat-number">148</span>
+            <span class="stat-number">182</span>
             <span class="stat-label">Tests/modelo</span>
         </div>
         <div class="stat-box">
@@ -419,7 +419,7 @@ def render(models: dict, runs: list) -> str:
         </div>
     </div>
 
-    <p class="meta">Medido desde Santiago, Chile · 8 providers (OpenRouter, OpenAI, Anthropic, Groq, NVIDIA NIM, Xiaomi, Ollama Cloud, MiniMax)</p>
+    <p class="meta">Medido desde Santiago, Chile · 9 vías (OpenRouter, OpenAI, Anthropic, Groq, NVIDIA NIM, Xiaomi, Ollama Cloud, MiniMax, suscripción Claude Code)</p>
 
     <div class="score-formula">
         <div class="title">Como se calcula el Score (v2.8.0)</div>
@@ -945,14 +945,14 @@ def render(models: dict, runs: list) -> str:
 
     <div class="two-col">
         <div>
-            <h3>148 tests por modelo en 25 suites</h3>
+            <h3>Tests por modelo en 26 suites</h3>
             <table>
                 <thead><tr><th>Tipo</th><th>Suites</th><th>Tests</th></tr></thead>
                 <tbody>
                     <tr><td><strong>Single-turn (4 pilares)</strong></td><td>23</td><td>91</td></tr>
-                    <tr><td><strong>Multi-step (agent_long_horizon)</strong> 🆕</td><td>1</td><td>12</td></tr>
-                    <tr><td><strong>Aguja en pajar (NIAH-ES)</strong> 🆕</td><td>2</td><td>45 (lite) o 60 (full)</td></tr>
-                    <tr><td><strong>Aguja en pajar 1M (NIAH-ES 1M)</strong> 🆕</td><td>1</td><td>15</td></tr>
+                    <tr><td><strong>Multi-step (agent_long_horizon)</strong></td><td>1</td><td>12</td></tr>
+                    <tr><td><strong>Long-context NIAH-ES v3</strong> 🆕</td><td>1</td><td>hasta 59 (8K–800K, por context window)</td></tr>
+                    <tr><td><strong>Seguridad prompt_injection_es</strong> 🆕</td><td>1</td><td>20</td></tr>
                 </tbody>
             </table>
 
@@ -981,7 +981,7 @@ def render(models: dict, runs: list) -> str:
                 <li>✅ <strong>Velocidad</strong> (7.5%): tokens por segundo</li>
                 <li>✅ <strong>Latencia</strong> (7.5%): primer token (medida desde Chile)</li>
                 <li>✅ Multi-turn long-horizon (8+ turnos)</li>
-                <li>✅ Long-context retrieval hasta 256K (1M parcial)</li>
+                <li>✅ Long-context retrieval hasta 800K (contexto usable, dimensión aparte)</li>
             </ul>
 
             <h3>Que NO medimos</h3>
