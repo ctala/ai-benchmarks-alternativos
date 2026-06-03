@@ -61,6 +61,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `xiaomi/mimo-v2.5` | ?  | $0.4/2.0 | **7.10** | 91 | — | — |
 | `mistralai/devstral-2512` | ✅ Apache 2.0 | $0.4/2.0 | **7.09** | 160 | [per-model](benchmarks/results/per-model/mistralai_devstral-2512.md) | [responses](benchmarks/results/responses/20260503_074942/) |
 | `MiniMax-M3` | ?  | $0.3/1.2 | **7.08** | 358 | — | [responses](benchmarks/results/responses/20260602_135949_2529847/) |
+| `claude-haiku-4-5` | ?  | $1.0/5.0 | **7.06** | 98 | — | — |
 | `nousresearch/hermes-4-405b` | ✅ Llama 3 community | $1.0/3.0 | **7.04** | 86 | — | [responses](benchmarks/results/responses/20260429_210054/) |
 | `mistralai/mistral-nemo` | ✅ Apache 2.0 | $0.02/0.02 | **7.03** | 122 | [per-model](benchmarks/results/per-model/mistralai_mistral-nemo.md) | [responses](benchmarks/results/responses/20260425_145813/) |
 | `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.39/2.34 | **7.00** | 97 | — | — |
@@ -74,10 +75,13 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `minimax/minimax-m3` | ?  | $0.3/1.2 | **6.79** | 352 | — | [responses](benchmarks/results/responses/20260602_135949_2529847/) |
 | `xiaomi/mimo-v2.5-pro` | ?  | $1.0/3.0 | **6.77** | 91 | — | — |
 | `z-ai/glm5` | ✅ MIT | $0.98/3.08 | **6.73** | 90 | — | [responses](benchmarks/results/responses/20260427_185648/) |
+| `claude-sonnet-4-6` | ?  | $3.0/15.0 | **6.72** | 98 | — | — |
 | `qwen/qwen3-next-80b-a3b-thinking` | ✅ Apache 2.0 | $0.098/0.78 | **6.71** | 182 | — | — |
 | `z-ai/glm-5.1` | ✅ MIT | $0.98/3.08 | **6.69** | 182 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
 | `mistralai/mistral-large-3-675b-instruct-2512` | ✅ Apache 2.0 | $2.0/6.0 | **6.65** | 87 | — | — |
+| `claude-opus-4-7` | ?  | $5.0/25.0 | **6.62** | 77 | — | — |
 | `deepseek/deepseek-v4-flash` | ✅ MIT | $0.098/0.197 | **6.61** | 392 | — | [responses](benchmarks/results/responses/20260602_135951_2529854/) |
+| `claude-opus-4-8` | ?  | $5.0/25.0 | **6.60** | 101 | — | — |
 | `gpt-4.1` | ?  | $2.0/8.0 | **6.60** | 254 | [per-model](benchmarks/results/per-model/gpt-4_1.md) | — |
 | `anthropic/claude-opus-4-6` | ?  | $5.0/25.0 | **6.57** | 246 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-6.md) | — |
 | `qwen/qwen3-coder-next` | ✅ Apache 2.0 | $0.11/0.8 | **6.52** | 258 | — | [responses](benchmarks/results/responses/20260602_125441_2513137/) |
