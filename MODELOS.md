@@ -79,8 +79,8 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `qwen/qwen3-next-80b-a3b-thinking` | ✅ Apache 2.0 | $0.098/0.78 | **6.71** | 182 | — | — |
 | `z-ai/glm-5.1` | ✅ MIT | $0.98/3.08 | **6.69** | 182 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
 | `mistralai/mistral-large-3-675b-instruct-2512` | ✅ Apache 2.0 | $2.0/6.0 | **6.65** | 87 | — | — |
-| `claude-opus-4-7` | ?  | $5.0/25.0 | **6.62** | 77 | — | — |
 | `deepseek/deepseek-v4-flash` | ✅ MIT | $0.098/0.197 | **6.61** | 392 | — | [responses](benchmarks/results/responses/20260602_135951_2529854/) |
+| `claude-opus-4-7` | ?  | $5.0/25.0 | **6.61** | 82 | — | — |
 | `claude-opus-4-8` | ?  | $5.0/25.0 | **6.60** | 101 | — | — |
 | `gpt-4.1` | ?  | $2.0/8.0 | **6.60** | 254 | [per-model](benchmarks/results/per-model/gpt-4_1.md) | — |
 | `anthropic/claude-opus-4-6` | ?  | $5.0/25.0 | **6.57** | 246 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-6.md) | — |
