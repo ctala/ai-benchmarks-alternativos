@@ -601,14 +601,15 @@ def render(models: dict, runs: list) -> str:
                 </tbody>
             </table>
 
-            <h3>Skill: Long-context retrieval (>32K tokens)</h3>
+            <h3>Skill: Long-context (contexto USABLE, v2.8)</h3>
             <table>
-                <thead><tr><th>Modelo</th><th>Notas</th></tr></thead>
+                <thead><tr><th>Modelo</th><th>Contexto usable real</th></tr></thead>
                 <tbody>
-                    <tr><td><strong>GPT-4.1</strong></td><td>Único modelo confirmado a 1M efectivo</td></tr>
-                    <tr><td>Gemini 3.1 Pro</td><td>Más estable a 256K (5.37 avg)</td></tr>
+                    <tr><td><strong>Gemini 2.5/3.5 Flash Lite, DeepSeek V4 Flash, Llama 4 Maverick</strong></td><td>800K ✅</td></tr>
+                    <tr><td>MiniMax M3 (sub/directo)</td><td>declara 1M, usable 512K ⚠️</td></tr>
                 </tbody>
             </table>
+            <p style="font-size:8pt;color:#b0b0b0;">El retrieval NO discrimina (todos ~10 hasta su techo); lo que importa es el contexto <em>usable</em> (declarado ≠ real). Ver Hallazgos.</p>
 
             <h3>Para debugging agentic real</h3>
             <div class="warning">
@@ -721,9 +722,10 @@ def render(models: dict, runs: list) -> str:
                     <tr><td>Grok 4.1 Fast</td><td>$0.20</td><td>$0.50</td></tr>
                     <tr><td>GPT-4.1</td><td>$2.50</td><td>$10.00</td></tr>
                     <tr><td>Claude Sonnet 4.6</td><td>$3.00</td><td>$15.00</td></tr>
-                    <tr><td>Claude Opus 4.7</td><td>$15.00</td><td>$75.00</td></tr>
+                    <tr><td>Claude Opus 4.7 / 4.8</td><td>$5.00</td><td>$25.00</td></tr>
                 </tbody>
             </table>
+            <p style="font-size:8pt;color:#b0b0b0;">💡 Claude (Opus/Sonnet/Haiku) también medible por la <strong>suscripción Claude Code a costo $0</strong> (validado: quality ≈ API). Ver Hallazgos.</p>
 
             <h3>NIM Gratis (NVIDIA)</h3>
             <p style="font-size:9pt;">Acceso a <strong>20+ modelos gratis</strong> con rate limit 40 RPM.
@@ -837,7 +839,7 @@ def render(models: dict, runs: list) -> str:
 <div class="page">
     <h2>Mapa de Proveedores</h2>
     <p style="font-size:9pt; color:#b0b0b0; margin-bottom:10px;">
-        8 providers cubiertos en mayo 2026. Ordenados por costo (de más barato a más caro).
+        9 providers (incl. suscripción Claude Code) — junio 2026. Ordenados por costo (de más barato a más caro).
     </p>
 
     <table>
@@ -915,7 +917,7 @@ def render(models: dict, runs: list) -> str:
                 <td>Claude Opus/Sonnet/Haiku 4.x</td>
                 <td>$0.25-75/M</td>
                 <td>Bajo</td>
-                <td>SOTA SWE-bench. Sub Pro $20 NO da API</td>
+                <td>SOTA SWE-bench. Sub Pro $20 NO da API, pero medimos por Claude Code (sub) a $0</td>
             </tr>
             <tr>
                 <td><strong>Google AI Studio</strong></td>
@@ -923,7 +925,7 @@ def render(models: dict, runs: list) -> str:
                 <td>Gemini 2.5/3.x Flash/Pro</td>
                 <td>$0.10-12/M</td>
                 <td>Bajo</td>
-                <td>Mejor a 256K context (NIAH 5.37)</td>
+                <td>1M ctx; usable hasta 800K (Flash Lite)</td>
             </tr>
         </tbody>
     </table>
@@ -966,9 +968,10 @@ def render(models: dict, runs: list) -> str:
             </table>
         </div>
         <div>
-            <h3>Suites nuevas (mayo 2026)</h3>
+            <h3>Suites nuevas (jun 2026)</h3>
             <p style="font-size:9pt;"><strong>agent_long_horizon</strong> (multi-step): 12 tests con conversaciones de 8+ turnos. Mide context retention, skill orchestration, interruption recovery, goal persistence. Plantilla rígida (script de usuario pre-escrito) para reproducibilidad. Tools simulados via stubs.</p>
-            <p style="font-size:9pt;"><strong>NIAH-ES</strong> (Needle-in-a-Haystack en español): primer NIAH público en español neutro LATAM. 5 needles × 4 contextos (4K-256K) × 3 posiciones. Mide retrieval de info específica en documentos largos. Datos LATAM realistas (códigos, fechas, identificadores).</p>
+            <p style="font-size:9pt;"><strong>NIAH-ES v3</strong> (Needle-in-a-Haystack en español): rediseñada en junio con <strong>needles neutros</strong> (no secretos) y grilla <strong>8K–800K</strong>, cada modelo medido hasta su context window real. Reporta contexto USABLE + curva por tamaño (no un agregado engañoso). Ver los 5 hallazgos de por qué la versión vieja mentía.</p>
+            <p style="font-size:9pt;"><strong>prompt_injection_es</strong> (seguridad, NUEVA): secreto plantado en un documento + se pide extraerlo. Premia rehusar, penaliza filtrar. Mide resistencia a fuga de credenciales (Opus 4.8 rehúsa, los cheap filtran).</p>
 
             <h3>Que SI medimos</h3>
             <ul style="font-size:9pt; padding-left: 20px;">
