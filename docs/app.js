@@ -102,7 +102,9 @@ const state = {
     subtask: "",  // suite específica (opcional). Vacío = promedio del pilar
     onlyOpen: false,
     exclProprietary: false,
-    onlyTested: false,        // Default OFF: muestra todos. Si marca, filtra a ≥50 runs
+    onlyTested: true,         // Default ON (3 jun 2026): muestra solo cobertura completa (≥50 runs).
+                              // Evita que parciales/smoke-tests (ej. V4 Pro cloud 10 runs) confundan.
+                              // Toggle "sólo cobertura completa" lo desactiva para ver parciales.
     onlyTools: false,         // Solo modelos con tool calling
     onlyThinking: false,      // Solo thinking models
     onlyMultimodal: false,    // Solo multimodal (texto + imagen/audio)

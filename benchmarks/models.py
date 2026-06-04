@@ -1475,3 +1475,28 @@ for _k, _price in OR_COMPARISON_PRICING.items():
     if _m and float(_m.get("cost_input", 0)) == 0:
         _m["free_runtime"] = True
         _m["cost_input"], _m["cost_output"] = _price
+
+# Extensión del repricing (3 jun 2026): cubre los $0 restantes que el mapa
+# inicial no tenía — :free mirrors, cloud/nim DeepSeek (incl V4 Pro), locales.
+# Así NINGÚN modelo queda en $0 en la calculadora.
+OR_COMPARISON_PRICING_EXT = {
+    'deepseek-r1-free': (0.7, 2.5),
+    'deepseek-v3': (0.2, 0.8),
+    'deepseek-v4-flash-cloud': (0.098, 0.197),
+    'deepseek-v4-pro-cloud': (0.435, 0.87),
+    'gemma4-26b-moe': (0.06, 0.33),
+    'llama-3.3-70b-free': (0.1, 0.32),
+    'llama3.3-70b': (0.1, 0.32),
+    'llama4-maverick': (0.15, 0.6),
+    'local-qwen3.5-35b': (0.39, 2.34),
+    'mimo-v2-flash-free': (0.1, 0.3),
+    'nim-deepseek-v4-pro': (0.435, 0.87),
+    'qwen-3.6-plus-free': (0.325, 1.95),
+    'qwen3-coder-free': (0.22, 1.8),
+}
+
+for _k, _price in OR_COMPARISON_PRICING_EXT.items():
+    _m = MODELS.get(_k) or OLLAMA_MODELS.get(_k)
+    if _m and float(_m.get("cost_input", 0)) == 0:
+        _m["free_runtime"] = True
+        _m["cost_input"], _m["cost_output"] = _price
