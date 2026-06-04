@@ -362,6 +362,35 @@ def build_export():
             **metrics,
         })
 
+    # --- v2.9: score_global Z-SCOREADO ---
+    # Recomputa score_global estandarizando cada dimensión (z-score) sobre los
+    # modelos tested → el peso pasa a ser la influencia REAL. Antes el costo
+    # dominaba de facto por su mayor varianza (1.85) vs la calidad apelotonada
+    # (0.59). tool_calling sale del compuesto (no discrimina; va de badge).
+    # norm_stats se guarda para que la calculadora replique el z-score client-side.
+    import statistics as _st
+    Z_COLS = {"quality_avg": "quality", "cost_score_avg": "cost",
+              "speed_score_avg": "speed", "latency_score_avg": "latency"}
+    _have = lambda m: m["tested"] and all(m.get(c) is not None for c in Z_COLS)
+    _tested = [m for m in models_export if _have(m)]
+    norm_stats = {}
+    for col in Z_COLS:
+        vals = [m[col] for m in _tested]
+        mu = _st.mean(vals) if vals else 0.0
+        sd = _st.pstdev(vals) if len(vals) > 1 else 1.0
+        norm_stats[col] = {"mean": round(mu, 4), "std": round(sd if sd > 0 else 1.0, 4)}
+    _wmap = {"quality_avg": DEFAULT_WEIGHTS["quality"], "cost_score_avg": DEFAULT_WEIGHTS["cost"],
+             "speed_score_avg": DEFAULT_WEIGHTS["speed"], "latency_score_avg": DEFAULT_WEIGHTS["latency"]}
+    for m in models_export:
+        if not _have(m):
+            continue
+        z_comp = sum(w * ((m[col] - norm_stats[col]["mean"]) / norm_stats[col]["std"])
+                     for col, w in _wmap.items())
+        m["score_global_linear"] = m.get("score_global")  # guardar el lineal por referencia
+        # rescale a 0-10: z=0 (promedio) → 5.5; pendiente 3.3 → el top (~z 0.9) ≈ 8.4,
+        # spread similar al score viejo para no confundir. Solo afecta el número, no el orden.
+        m["score_global"] = round(max(0.0, min(10.0, 5.5 + 3.3 * z_comp)), 2)
+
     # Sort: tested first, then by score desc
     models_export.sort(key=lambda m: (not m["tested"], -(m.get("score_global") or 0)))
 
@@ -371,6 +400,9 @@ def build_export():
         "tested_count": sum(1 for m in models_export if m["tested"]),
         "tokens_per_call_assumption": {"input": 300, "output": 1500},
         "default_weights": DEFAULT_WEIGHTS,  # los pesos aplicados en score_global
+        "score_method": "zscore_v2.9",  # score_global = rescale(Σ w·z(dim)); ver norm_stats
+        "norm_stats": norm_stats,  # mean/std por dimensión (para replicar el z-score en la calculadora)
+        "score_rescale": {"offset": 5.5, "slope": 3.3},  # display = clamp(offset + slope·z_comp, 0, 10)
         "subscriptions_catalog": SUBSCRIPTIONS,  # catálogo completo de suscripciones disponibles
         "models": models_export,
     }

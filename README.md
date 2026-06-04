@@ -1,6 +1,6 @@
 # Benchmark de Modelos AI Alternativos: comparación abierta de 70 LLMs en español para N8N, OpenClaw y emprendedores
 
-**Version 2.8.0** | Ultima actualizacion: 2 de Junio de 2026 | [📊 Datasheet junio](DATASHEET_2026-06.md) · [📊 Datasheet mayo](DATASHEET_2026-05.md) · [📄 CheatSheet PDF mayo](cheatsheet/AI_Model_Benchmark_CheatSheet_Mayo_2026.pdf)
+**Version 2.9.0** | Ultima actualizacion: 4 de Junio de 2026 | [📊 Datasheet junio](DATASHEET_2026-06.md) · [📊 Datasheet mayo](DATASHEET_2026-05.md) · [📄 CheatSheet PDF mayo](cheatsheet/AI_Model_Benchmark_CheatSheet_Mayo_2026.pdf)
 
 > **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con 8,000+ tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N, OpenClaw o Hermes con presupuestos reales.
 
@@ -10,40 +10,44 @@
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw, N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes) y la nueva suite **`agent_long_horizon`** que mide capacidades agénticas en multi-turno largo (lo que el single-turn no captura).
 
-**Cobertura actual**: 83 modelos con ≥50 runs (130 catalogados), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
+**Cobertura actual**: 87 modelos con ≥50 runs (134 catalogados), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
 
 ## Score = combinación ponderada (NO solo calidad)
 
-⚠️ **Disclaimer crítico**: nuestro `score_global` NO es solo quality. Es una **función ponderada** de 5 componentes que reflejan el valor real para un emprendedor LATAM:
+⚠️ **Disclaimer crítico**: nuestro `score_global` NO es solo quality. Es una **función ponderada** de los componentes que reflejan el valor real para un emprendedor LATAM. **Desde v2.9 el score se computa con z-score** (cada dimensión se estandariza antes de ponderar):
 
 | Componente | Peso default | Qué mide |
 |---|---|---|
-| **Quality** | 50% | Phi-4 judge + criterios automáticos (formato + sustancia) |
-| **Cost** | 20% | Curva log inversa: $0.001/call → 8.0, $0.01 → 5.0, $0.10 → 2.0 |
-| **Tool calling** | 15% | Adherencia al schema OpenAI tools (8/91 tests) |
-| **Speed** | 7.5% | Tokens/s del modelo |
-| **Latency** | 7.5% | Latencia first-token |
+| **Quality** | 60% | Phi-4 judge + criterios automáticos (formato + sustancia) |
+| **Cost** | 20% | Curva log inversa, precio OpenRouter por proveedor |
+| **Speed** | 10% | Tokens/s del modelo |
+| **Latency** | 10% | Latencia first-token |
+| ~~Tool calling~~ | 0% (badge) | No discriminaba (todos ~7; 8/91 tests) → fuera del score, se muestra como badge |
 
-Por eso modelos académicamente top (Opus con HumanEval 88+, MMLU 90+, GPQA 94+) caen al fondo en nuestro benchmark — **no porque sean peores en calidad** (Opus 4.6 saca quality 8.04, top 10 entre todos) **sino porque son mucho más caros que las alternativas gratis/open-source** ($5/$25 por millón de tokens vs $0/call en NIM o local) y eso entra al score final. Con el rescore de costo provider-aware (v2.7), Opus 4.7 queda **#66 de 72**. Para más contexto, ver [INSIGHTS.md](INSIGHTS.md).
+> **Por qué z-score (v2.9, jun 2026)**: descubrimos que el **costo decidía el ranking más que la calidad, aunque pesara menos** — porque la calidad casi no separa a los modelos (varianza 0.59, todos 7.5-8.5) mientras el costo va de gratis a $75/M (varianza 1.85). El peso nominal ≠ la influencia real. **Estandarizar cada dimensión (z-score) hace que 60% quality = 60% de influencia REAL.** Efecto: la calidad recupera su peso, los premium dejan de estar injustamente hundidos (**Opus 4.8 sube de #63 a #17**), y los líderes de calidad/coding (Devstral, DeepSeek V4 Flash, Qwen-Coder) suben. Además sacamos `tool_calling` del compuesto (era 15% de ruido: no discrimina). Ver [INSIGHTS.md](INSIGHTS.md).
+
+Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad** (Opus quality 8.4-8.65, de las más altas) sino por costo — pero ahora en su justa medida, no aplastados.
 
 **Si solo te importa quality** (y costo no es factor), ordená por la columna `quality_avg` en [docs/data/models.json](docs/data/models.json) o usá los sliders de la [calculadora](https://benchmarks.cristiantala.com/) para ajustar pesos a tu caso.
 
-## Top 10 Global Ranking — score compuesto v2.8 (tareas prácticas, long-context aparte)
+## Top 10 Global Ranking — score compuesto **v2.9 (z-score)**
 
-| # | Modelo | Final | Quality | Cost | Tools | Provider | $/1k calls |
-|---|---|---:|---:|---:|---:|---|---:|
-| 1 | **Llama 3.1 8B Instant** | **8.11** | 7.61 | 9.87 | 7.15 | Groq | $0.14 |
-| 2 | **Llama 4 Scout 17B** | **8.11** | 7.93 | 9.58 | 7.06 | Groq | $0.54 |
-| 3 | **Devstral Small** | **8.03** | 8.03 | 9.69 | 6.75 | OpenRouter | $0.48 |
-| 4 | Llama 3.3 70B | 7.86 | 8.01 | 8.15 | 7.14 | Groq | $1.36 |
-| 5 | GPT-OSS 20B | 7.84 | 7.51 | 9.15 | 6.91 | Groq | $0.47 |
-| 6 | Mistral Small 4 | 7.81 | 8.08 | 8.84 | 7.11 | OpenRouter | $0.94 |
-| 7 | **DeepSeek V4 Flash** 🆕 | **7.80** | 8.34 | 9.37 | 7.10 | OpenRouter | $0.33 |
-| 8 | Hermes 4 70B | 7.77 | 8.04 | 9.47 | 7.00 | OpenRouter | $0.64 |
-| 9 | **Qwen3-Coder-Next** 🆕 | **7.76** | 8.22 | 8.55 | 6.78 | OpenRouter | $1.23 |
-| 10 | Gemini 2.5 Flash Lite | 7.74 | 7.79 | 9.34 | 6.42 | OpenRouter | $0.63 |
+| # | Modelo | Score | Quality | Cost | Provider | $/1k calls |
+|---|---|---:|---:|---:|---|---:|
+| 1 | **Devstral Small** | **8.37** | 8.03 | 9.69 | OpenRouter | $0.48 |
+| 2 | **Llama 4 Scout 17B** | **8.31** | 7.93 | 9.58 | Groq | $0.54 |
+| 3 | **DeepSeek V4 Flash** 🆕 | **8.19** | 8.34 | 9.37 | OpenRouter | $0.33 |
+| 4 | **Qwen3-Coder-Next** 🆕 | **8.15** | 8.22 | 8.55 | OpenRouter | $1.23 |
+| 5 | Llama 3.3 70B | 8.05 | 8.01 | 8.15 | Groq | $1.36 |
+| 6 | Mistral Small 4 | 7.82 | 8.08 | 8.84 | OpenRouter | $0.94 |
+| 7 | Llama 3.1 8B Instant | 7.64 | 7.61 | 9.87 | Groq | $0.14 |
+| 8 | Gemini 3.1 Flash Lite | 7.63 | 8.01 | 8.27 | OpenRouter | $2.33 |
+| 9 | Hermes 4 70B | 7.59 | 8.04 | 9.47 | OpenRouter | $0.64 |
+| 10 | **Claude Haiku 4.5** (sub) | 7.48 | 8.44 | 5.14 | Claude Code | $7.80 |
 
-> **Cambio v2.8.1 (jun 2026): NINGÚN modelo cuesta $0.** Los que corren gratis (NIM 40rpm, DGX local, Ollama Cloud sub) se **costean al precio OpenRouter del mismo modelo** — un $0/call inflaba el cost_score (~10) y los empujaba artificialmente al top. Con el fix, **Nemotron Omni y Qwen 3-Next (NIM gratis) salen del top 10**; quedan los genuinamente costo-efectivos. El runtime real $0 se marca aparte (`free_runtime`) para la calculadora.
+> **Cambio v2.9 (jun 2026): score z-scoreado.** Antes el costo decidía el ranking de facto (mayor varianza que la calidad apelotonada). Ahora cada dimensión se estandariza → el peso = influencia real. **Opus 4.8 sube #63→#17; Haiku 4.5 (sub) entra al top 10.** Los líderes de calidad suben sin que el costo los aplaste. Ver el bloque de pesos arriba.
+
+> **Cambio v2.8.1 (jun 2026): NINGÚN modelo cuesta $0.** Los que corren gratis (NIM 40rpm, DGX local, Ollama Cloud sub) se **costean al precio OpenRouter del mismo modelo** — un $0/call inflaba el cost_score y los empujaba al top. El runtime real $0 se marca aparte (`free_runtime`).
 
 > **Cambio v2.8 (jun 2026): long-context es un pilar aparte.** Las suites `niah_es` (needle-in-haystack a 256K/1M tokens) llegaron a ser ~54% del conteo de tests y se midieron desigual entre modelos (unos con 120 tests niah, otros con 0) → distorsionaban el score general. Ahora **el ranking global mide solo tareas prácticas** (contenido, coding, agentes, razonamiento) y el long-context se reporta como **dimensión separada** (abajo). Efecto: modelos de calidad alta pero ventana de contexto chica dejan de ser penalizados injustamente — **DeepSeek V4 Flash** salta de #63 a **#9**.
 >

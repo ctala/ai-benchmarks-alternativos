@@ -1,9 +1,9 @@
 ---
 title: "Insights del benchmark — qué dice la data, no el marketing"
-fecha: "2026-06-02"
-version_benchmark: "v2.8"
-modelos_analizados: 83
-modelos_catalogados: 130
+fecha: "2026-06-04"
+version_benchmark: "v2.9"
+modelos_analizados: 87
+modelos_catalogados: 134
 runs_minimas_por_modelo: 50
 tests_por_modelo: "91 single-turn + 12 agent_long_horizon + niah_es (8K–800K) + prompt_injection_es"
 pilares: ["Razonamiento", "Coding", "Contenido/Marketing", "Agentes/Operaciones", "Long-context (usable)", "Seguridad (anti-fuga)"]
@@ -21,6 +21,28 @@ total_runs: "9,390 single-turn (+ NIAH-ES y multi-turn integrados en quality)"
 Este es el análisis cuantitativo del benchmark `ai-benchmarks-alternativos` al **22 de mayo de 2026** (v2.7). 72 modelos con cobertura ≥50 runs, 91 tests single-turn + 12 multi-turno + 45 retrieval long-context, juez Phi-4 local. La pregunta que respondemos no es "cuál es el mejor modelo", sino: **qué patrones aparecen en la data cuando se comparan precio, velocidad, capacidades, retrieval y proveedor a la vez, en español neutro LATAM**.
 
 > 🔄 **Rescore de costo provider-aware (v2.7, 22 may 2026)**: hasta v2.6.x la mayoría de runs tenía el costo calculado con un fallback `(1.0, 3.0)` → `cost_score≈7.0` para casi todos los modelos → **el costo (20% del peso) era casi inerte** y el ranking era de facto solo-calidad. En v2.7 se recalculó `cost_usd`/`cost_score`/`final` de **7.483 runs** con el precio real por proveedor (`benchmarks/models.py`) × tokens reales. **Sólo cambiaron esos 3 campos**; `quality_avg`, `tool_calling`, `speed` y `latency` NO cambiaron. Efecto: el costo ahora **discrimina de verdad** y reordena el ranking. Lo gratis/barato (NIM, Groq, open-source local) sube; lo premium-caro baja (Gemini 2.5 Pro, GPT-5.4 y Sonnet 4.6 caen ~0.25–0.49 puntos; **Opus 4.7 baja a #66/72**). Todas las tablas de este documento ya reflejan el estado **post-v2.7** calculado desde `docs/data/models.json`. Ver [CHANGELOG v2.7.0](CHANGELOG.md) y [README](README.md) para el ranking vigente.
+
+---
+
+## 🌟 Insight estrella v2.9 (4 jun 2026): el peso nominal NO es la influencia real — z-score
+
+Teníamos el score con pesos Quality 50% · Cost 20% · Tool 15% · Speed/Latency 7.5%. Suena razonable. Pero medimos la **influencia REAL** de cada dimensión = peso × cuánto separa a los modelos (varianza). Y el resultado fue contraintuitivo:
+
+| Dimensión | Peso nominal | Varianza | **Influencia real** (peso×var) |
+|---|---|---:|---:|
+| Quality | 50% | 0.59 | 0.30 |
+| **Cost** | 20% | **1.85** | **0.37** ← la mayor |
+| Speed | 7.5% | 2.10 | 0.16 |
+| Latency | 7.5% | 1.25 | 0.09 |
+| Tool calling | 15% | **0.24** | 0.04 ← casi nula |
+
+**El costo decidía el ranking más que la calidad, pese a pesar menos.** ¿Por qué? La calidad casi no separa (todos los modelos buenos se apelotonan en 7.5-8.5) mientras el costo va de gratis a $75/M. Entonces el costo "rompía los empates" de calidad → de facto mandaba. Y el tool_calling (15% nominal) era casi **puro ruido** (todos ~7, porque solo 8/91 tests usan tools y el resto es N/A=7).
+
+**Fix (v2.9): z-score.** Se estandariza cada dimensión (resta media, divide por desvío) ANTES de ponderar → ahora el peso **es** la influencia real. Pesos nuevos: Quality 60% · Cost 20% · Speed 10% · Latency 10% · **Tool calling 0%** (sale del compuesto, se muestra como badge). El `score_global` = `clamp(5.5 + 3.3·Σ wᵢ·z(dimᵢ), 0, 10)`; las stats de normalización van en `models.json` (`norm_stats`) para que la calculadora replique el z-score con pesos custom.
+
+**Efecto en el ranking**: la calidad recupera su peso. **Opus 4.8 sube de #63 a #17**, DeepSeek V4 Flash #7→#3, los líderes de calidad/coding (Devstral, Qwen-Coder) suben. Los premium dejan de estar injustamente aplastados por el costo, sin dejar de reflejar que son caros.
+
+> **Lección de método**: si tus dimensiones tienen varianzas muy distintas, los pesos nominales mienten sobre la influencia real. Estandarizá (z-score) o vas a estar ponderando sin saber cuánto pesa cada cosa de verdad. (Lo descubrimos porque un usuario preguntó "¿el costo no está pesando mucho?" — y la data le dio la razón.)
 
 ---
 

@@ -195,6 +195,56 @@
         <small>0 = sin restricción</small>
       </div>
 
+      <details class="filter weight-panel" id="weight-panel">
+        <summary>
+          <span class="weight-panel-title">Pesos del score global</span>
+          <span class="weight-panel-defaults">Quality 60 · Costo 20 · Velocidad 10 · Latencia 10</span>
+          <span class="weight-panel-hint">(clic para ajustar)</span>
+        </summary>
+        <div class="weight-panel-body">
+          <p class="weight-note" id="weight-warn" hidden>
+            Todos los pesos están en 0. El score no puede calcularse.
+          </p>
+          <p class="weight-note">
+            <strong>Pesos del score compuesto</strong> — cada dimensión se estandariza antes de ponderar (z-score v2.9),
+            así que el peso refleja influencia real. Con la escala lineal anterior, "costo" dominaba por su
+            mayor varianza aunque tuviera menos peso. Los pesos se normalizan automáticamente a 100%.
+            Solo aplican al score <em>Global</em>; los pilares (Razonamiento, Coding, Contenido, Agentes) no cambian.
+          </p>
+          <div class="weight-sliders">
+            <div class="filter">
+              <label for="w-quality">Calidad: <output id="w-quality-out">60%</output></label>
+              <input type="range" id="w-quality" min="0" max="100" step="5" value="60"
+                     aria-label="Peso de calidad en el score global">
+              <small>Score automático + LLM-as-Judge Phi-4. Principal señal de calidad real de las respuestas.</small>
+            </div>
+            <div class="filter">
+              <label for="w-cost">Costo: <output id="w-cost-out">20%</output></label>
+              <input type="range" id="w-cost" min="0" max="100" step="5" value="20"
+                     aria-label="Peso de costo en el score global">
+              <small>Inverso al precio por token. Subir si el presupuesto es tu restricción principal.</small>
+            </div>
+            <div class="filter">
+              <label for="w-speed">Velocidad: <output id="w-speed-out">10%</output></label>
+              <input type="range" id="w-speed" min="0" max="100" step="5" value="10"
+                     aria-label="Peso de velocidad en el score global">
+              <small>Tokens/segundo. Importante para agentes en tiempo real o workflows multi-step.</small>
+            </div>
+            <div class="filter">
+              <label for="w-latency">Latencia: <output id="w-latency-out">10%</output></label>
+              <input type="range" id="w-latency" min="0" max="100" step="5" value="10"
+                     aria-label="Peso de latencia en el score global">
+              <small>Tiempo hasta primer token. Relevante para chat conversacional en vivo.</small>
+            </div>
+          </div>
+          <p class="weight-note weight-note-tools">
+            Tool calling se sigue mostrando como columna informativa en la tabla pero ya no pondera el score global
+            (v2.9: peso = 0). Filtrá por "Sólo con tool calling" si es requisito duro, o usá el pilar "Agentes"
+            para ordenar por esa dimensión.
+          </p>
+        </div>
+      </details>
+
       <div class="filter">
         <label for="task">Tarea principal:</label>
         <select id="task">
@@ -408,7 +458,7 @@
         Cada modelo corre 91 tests organizados en 23 suites (4 pilares: Razonamiento, Coding, Contenido, Agentes).
         Cada test se evalúa en 3 capas: scoring automático (formato + sustancia), validación de respuesta esperada,
         y LLM-as-Judge con Phi-4 local (Microsoft, MIT, cero conflicto de interés).
-        El score final pondera calidad (35%), tool calling (25%), costo (15%), disponibilidad (15%), velocidad (5%) y latencia (5%).
+        El score global (v2.9) usa z-score: cada dimensión (calidad, costo, velocidad, latencia) se estandariza antes de ponderar, así que los pesos reflejan influencia real en lugar de varianza bruta. Pesos default: calidad 60%, costo 20%, velocidad 10%, latencia 10%. Tool calling ya no entra al score compuesto (permanece como columna informativa). Los pesos son ajustables en el panel "Pesos del score global" de los filtros.
       </p>
       <p>
         Los datos del benchmark se versionan en JSON en el repo y se regeneran tras cada lote.
