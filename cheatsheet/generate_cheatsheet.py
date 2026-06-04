@@ -398,7 +398,7 @@ def render(models: dict, runs: list) -> str:
     <h1>AI Model Benchmark</h1>
     <div class="subtitle">Guia para Emprendedores Hispanohablantes</div>
     <div class="month">{MONTH} {YEAR}</div>
-    <p class="meta">{len(ranked)} modelos con cobertura ≥50 runs · {total_runs:,}+ runs preservados · v2.8.0</p>
+    <p class="meta">{len(ranked)} modelos con cobertura ≥50 runs · {total_runs:,}+ runs preservados · v2.9.0</p>
 
     <div class="stats">
         <div class="stat-box">
@@ -422,13 +422,18 @@ def render(models: dict, runs: list) -> str:
     <p class="meta">Medido desde Santiago, Chile · 9 vías (OpenRouter, OpenAI, Anthropic, Groq, NVIDIA NIM, Xiaomi, Ollama Cloud, MiniMax, suscripción Claude Code)</p>
 
     <div class="score-formula">
-        <div class="title">Como se calcula el Score (v2.8.0)</div>
-        <div class="row"><span class="pct">50%</span>Calidad (formato + sustancia + LLM-as-Judge Phi-4 14B local, MIT)</div>
+        <div class="title">Como se calcula el Score (v2.9.0 · z-score)</div>
+        <div class="row"><span class="pct">60%</span>Calidad (formato + sustancia + LLM-as-Judge Phi-4 14B local, MIT)</div>
         <div class="row"><span class="pct">20%</span>Costo (curva log inversa: $0.001/call=8.0, $0.01=5.0, $0.10=2.0)</div>
-        <div class="row"><span class="pct">15%</span>Tool Calling (precision de function calling para agentes)</div>
-        <div class="row"><span class="pct">7.5%</span>Velocidad (tokens por segundo)</div>
-        <div class="row"><span class="pct">7.5%</span>Latencia (tiempo hasta primera respuesta)</div>
+        <div class="row"><span class="pct">10%</span>Velocidad (tokens por segundo)</div>
+        <div class="row"><span class="pct">10%</span>Latencia (tiempo hasta primera respuesta)</div>
+        <div class="row"><span class="pct">0%</span>Tool Calling — sale del compuesto, queda como badge (era ruido: var 0.24)</div>
     </div>
+    <p class="meta" style="margin-top:8px;font-size:7.5pt;max-width:700px;">
+        <strong>Nuevo en v2.9</strong>: cada dimensión se <strong>estandariza (z-score)</strong> antes de ponderar, así el
+        peso nominal = la influencia REAL. Antes el costo (varianza 1.85) decidía el ranking pese a su 20%,
+        aplastando a la calidad apelotonada (var 0.59). Fórmula: score = clamp(5.5 + 3.3·Σ wᵢ·z(dimᵢ), 0, 10).
+    </p>
 
     <p class="meta" style="margin-top: 14px; font-size: 8pt; max-width: 700px;">
         📍 <strong>Disclaimer</strong>: este benchmark NO sustituye a HumanEval, MMLU, GSM8K, SWE-bench, NIAH inglés, MT-Bench, LMSYS Arena.
@@ -442,8 +447,8 @@ def render(models: dict, runs: list) -> str:
 <div class="page">
     <h2>Hallazgos clave de {MONTH} {YEAR}</h2>
     <p style="font-size: 9pt; color: #b0b0b0; margin-bottom: 12px;">
-        Insights cuantitativos del benchmark v2.8.0. El hallazgo del mes es metodológico:
-        descubrimos que nuestra propia medición de long-context en español mentía de 5 formas.
+        Insights cuantitativos del benchmark v2.9.0. Dos hallazgos metodológicos: (1) el peso nominal NO
+        era la influencia real (lo arreglamos con z-score), y (2) nuestra medición de long-context mentía de 5 formas.
     </p>
 
     <div class="two-col">
@@ -469,13 +474,15 @@ def render(models: dict, runs: list) -> str:
             <strong>Claude Opus 4.8 8.79</strong> y <strong>MiniMax M3 ~8.05 rehúsan</strong>;
             DeepSeek/Gemini/Llama/Qwen/Nemotron <strong>~1.7–2.0 filtran</strong>. Si tu agente procesa datos sensibles, esto pesa.</p>
 
-            <h3>DeepSeek V4 Flash entra al top 10 <span style="font-size:8pt;color:#b0b0b0;">(jun 2026)</span></h3>
-            <p style="font-size:9pt;">Al separar long-context del score general, <strong>DeepSeek V4 Flash saltó #63 → #9</strong>
-            (quality 8.34, $0.33/1k). Dejó de penalizarse por una capacidad que casi nadie usa.</p>
+            <h3>★ El peso nominal ≠ la influencia real <span style="font-size:8pt;color:#b0b0b0;">(4 junio 2026)</span></h3>
+            <p style="font-size:9pt;">La influencia real = peso × varianza. El <strong>costo (var 1.85) decidía el ranking</strong>
+            pese a su 20% nominal, aplastando a la calidad apelotonada (var 0.59). El tool_calling (15%) era ruido (var 0.24).
+            Fix v2.9: <strong>z-score</strong> — estandarizamos cada dimensión antes de ponderar → 60% quality = 60% de influencia REAL.</p>
 
-            <h3>Opus 4.8: techo de calidad, no de valor</h3>
-            <p style="font-size:9pt;">Quality 8.4 (de las más altas) pero <strong>#66</strong> — a $5/$25 el costo (20% del peso) lo hunde.
-            Es el rey de seguridad, pero para producción LATAM con presupuesto: alternativas baratas.</p>
+            <h3>Efecto del z-score en el ranking</h3>
+            <p style="font-size:9pt;"><strong>Opus 4.8 saltó #63 → #17</strong> (dejó de hundirlo el costo);
+            <strong>DeepSeek V4 Flash #7 → #3</strong>; los líderes de calidad/coding (Devstral #1, Qwen-Coder #4) subieron.
+            Los premium dejan de estar aplastados — y el costo sigue importando, pero ya no manda solo.</p>
 
             <h3>Infra: juez vLLM en DGX Spark</h3>
             <p style="font-size:9pt;">Phi-4 servido en <strong>vLLM FP16</strong> (continuous batching, compat Blackwell sm_121 confirmada)
@@ -1045,7 +1052,7 @@ def render(models: dict, runs: list) -> str:
             github.com/ctala/ai-benchmarks-alternativos
         </p>
         <p style="font-family: 'JetBrains Mono', monospace; color: #00d4ff; font-size: 10pt; margin-top: 4px;">
-            cristiantala.com · {MONTH} {YEAR} · v2.8.0 · MIT
+            cristiantala.com · {MONTH} {YEAR} · v2.9.0 · MIT
         </p>
     </div>
 
