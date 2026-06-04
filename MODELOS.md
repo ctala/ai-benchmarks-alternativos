@@ -96,9 +96,9 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `anthropic/claude-opus-4-7` | ?  | $5.0/25.0 | **6.20** | 266 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-7.md) | — |
 | `google/gemini-3.1-pro-preview` | ?  | $2.0/12.0 | **6.19** | 187 | — | — |
 | `moonshotai/kimi-k2.5` | ✅ Modified MIT | $0.4/1.9 | **6.15** | 142 | — | — |
-| `deepseek-v4-flash` | ✅ MIT | $0.0/0.0 | **6.11** | 57 | — | [responses](benchmarks/results/responses/20260602_135951_2529854/) |
+| `deepseek-v4-flash` | ✅ MIT | $0.098/0.197 | **6.11** | 57 | — | [responses](benchmarks/results/responses/20260602_135951_2529854/) |
 | `gpt-5.5` | ?  | $5.0/30.0 | **6.10** | 151 | — | — |
-| `deepseek-v4-pro` | ✅ MIT | $0.0/0.0 | **6.01** | 55 | — | [responses](benchmarks/results/responses/20260503_125944/) |
+| `deepseek-v4-pro` | ✅ MIT | $0.435/0.87 | **6.01** | 55 | — | [responses](benchmarks/results/responses/20260503_125944/) |
 | `deepseek/deepseek-v4-pro` | ✅ MIT | $0.435/0.87 | **5.99** | 126 | — | [responses](benchmarks/results/responses/20260503_125944/) |
 | `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.29/3.2 | **5.98** | 290 | — | — |
 | `google/gemini-2.5-pro` | ?  | $1.25/10.0 | **5.98** | 91 | [per-model](benchmarks/results/per-model/google_gemini-2_5-pro.md) | — |
