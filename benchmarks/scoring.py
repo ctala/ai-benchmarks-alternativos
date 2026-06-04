@@ -701,12 +701,19 @@ import math
 #   resto recibe 7.0 default, lo cual infla a TODOS los modelos por igual)
 # - cost subió 15% → 20% (presupuesto es factor real para emprendedor LATAM)
 # - speed/latency 5% + 5% → 7.5% + 7.5% (más relevante en pipelines async)
+# v2.9 (4 jun 2026): pesos del score GLOBAL z-scoreado. Cambios vs v2.8:
+# - tool_calling 0.15 → 0.0: no discriminaba (var 0.24; solo 8/91 tests usan tools,
+#   el resto N/A=7) → era 15% de ruido. Se reporta como BADGE aparte, no en el score.
+# - su peso + rebalanceo van a quality (0.50→0.60) y speed/latency (0.075→0.10).
+# El score_global se computa con Z-SCORE (en export_for_pages): cada dimensión se
+# estandariza antes de ponderar, así el peso = influencia REAL. Antes el costo
+# dominaba de facto (var 1.85) porque la calidad casi no variaba (var 0.59). v2.9.
 DEFAULT_WEIGHTS = {
-    "quality": 0.50,
+    "quality": 0.60,
     "cost": 0.20,
-    "tool_calling": 0.15,
-    "speed": 0.075,
-    "latency": 0.075,
+    "tool_calling": 0.0,
+    "speed": 0.10,
+    "latency": 0.10,
 }
 
 
