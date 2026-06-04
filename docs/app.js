@@ -110,6 +110,9 @@ const state = {
     onlyMultimodal: false,    // Solo multimodal (texto + imagen/audio)
     minContext: 0,            // Contexto efectivo mínimo (0 = sin restricción)
   },
+  // Pesos del score global (v2.9 z-score). Siempre se normalizan a suma=1 antes de aplicar.
+  // tool_calling quedó en 0 — sigue como columna informativa pero no pondera el score.
+  weights: { quality: 60, cost: 20, speed: 10, latency: 10 },
   // Sorting state — null usa el orden default (por _task_score desc)
   sort: { column: null, direction: "desc" },
 };
@@ -137,6 +140,51 @@ async function load() {
   render();
 }
 
+// ============================================================
+// Z-SCORE SCORING (v2.9)
+// Computes a composite score using standardized (z-scored) dimensions
+// so each weight truly represents influence, not variance dominance.
+//
+// Formula:
+//   z(dim) = (model[col] - mean) / std       [from norm_stats in JSON]
+//   z_comp = Σ w_dim * z(dim)                [weights normalized to sum=1]
+//   score  = clamp(offset + slope * z_comp, 0, 10)  [from score_rescale in JSON]
+//
+// If any required dimension is missing, falls back to precomputed score_global.
+// ============================================================
+
+function computeZScore(model, weightsRaw) {
+  const ns = state.data.norm_stats;
+  const rs = state.data.score_rescale;
+  if (!ns || !rs) return model.score_global;
+
+  const dims = [
+    { col: "quality_avg",       w: weightsRaw.quality  || 0 },
+    { col: "cost_score_avg",    w: weightsRaw.cost     || 0 },
+    { col: "speed_score_avg",   w: weightsRaw.speed    || 0 },
+    { col: "latency_score_avg", w: weightsRaw.latency  || 0 },
+  ];
+
+  // Verify all dimensions are available for this model
+  for (const d of dims) {
+    if (model[d.col] == null || !ns[d.col]) return model.score_global;
+  }
+
+  // Normalize weights to sum=1
+  const total = dims.reduce((s, d) => s + d.w, 0);
+  if (total <= 0) return model.score_global;
+
+  let z_comp = 0;
+  for (const d of dims) {
+    const stat = ns[d.col];
+    const z = (model[d.col] - stat.mean) / stat.std;
+    z_comp += (d.w / total) * z;
+  }
+
+  const raw = rs.offset + rs.slope * z_comp;
+  return Math.max(0, Math.min(10, raw));
+}
+
 function bindFilters() {
   const sliders = [
     ["budget", v => `$${v}`],
@@ -151,6 +199,22 @@ function bindFilters() {
     el.addEventListener("input", () => {
       state.filters[id] = parseFloat(el.value);
       out.textContent = fmt(el.value);
+      render();
+    });
+  });
+
+  // Weight sliders (solo aplican cuando task === "score_global")
+  const weightSliders = ["w-quality", "w-cost", "w-speed", "w-latency"];
+  const weightKeys    = ["quality",   "cost",   "speed",   "latency"];
+  weightSliders.forEach((id, idx) => {
+    const el  = document.getElementById(id);
+    const out = document.getElementById(id + "-out");
+    if (!el || !out) return;
+    out.textContent = el.value + "%";
+    el.addEventListener("input", () => {
+      state.weights[weightKeys[idx]] = parseInt(el.value, 10);
+      out.textContent = el.value + "%";
+      updateWeightWarning();
       render();
     });
   });
@@ -225,6 +289,14 @@ function bindFilters() {
   });
 }
 
+// Shows a subtle warning when all weight sliders are at 0 (no score computed)
+function updateWeightWarning() {
+  const warn = document.getElementById("weight-warn");
+  if (!warn) return;
+  const total = Object.values(state.weights).reduce((s, v) => s + v, 0);
+  warn.hidden = total > 0;
+}
+
 function costPerMonth(model, calls) {
   const ci = model.cost_input_per_M || 0;
   const co = model.cost_output_per_M || 0;
@@ -236,7 +308,9 @@ function getScore(model, taskKey, subtaskKey) {
   if (subtaskKey) {
     return model.score_by_suite?.[subtaskKey] ?? null;
   }
-  if (taskKey === "score_global") return model.score_global;
+  // Score global: recomputar con z-score v2.9 y los pesos del usuario.
+  // computeZScore() hace fallback a score_global precomputado si faltan dimensiones.
+  if (taskKey === "score_global") return computeZScore(model, state.weights);
   return model.score_by_pillar?.[taskKey] ?? null;
 }
 

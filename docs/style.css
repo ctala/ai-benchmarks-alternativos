@@ -566,6 +566,88 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* ====== Capabilities Guide (collapsible card-based) ====== */
+/* ====== Weight panel (pesos del score global — z-score v2.9) ====== */
+.weight-panel {
+  grid-column: 1 / -1;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.04), rgba(57, 255, 20, 0.04));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.2s;
+}
+.weight-panel[open] { border-color: rgba(0, 212, 255, 0.35); padding-bottom: 1.25rem; }
+.weight-panel > summary {
+  cursor: pointer;
+  color: var(--white);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  padding: 0.5rem 1.5rem 0.5rem 0;
+  list-style: none;
+  position: relative;
+  user-select: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  align-items: baseline;
+}
+.weight-panel > summary::-webkit-details-marker { display: none; }
+.weight-panel > summary::after {
+  content: '▾';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cyan);
+  font-size: 0.9rem;
+  transition: transform 0.2s;
+}
+.weight-panel[open] > summary::after { transform: translateY(-50%) rotate(180deg); color: var(--green); }
+.weight-panel[open] > summary {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+}
+.weight-panel-title {
+  color: var(--cyan);
+  font-weight: 700;
+}
+.weight-panel-defaults {
+  color: var(--gray);
+  font-size: 0.78rem;
+}
+.weight-panel-hint {
+  color: var(--gray);
+  font-size: 0.75rem;
+  font-style: italic;
+}
+.weight-panel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.weight-sliders {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.875rem;
+}
+.weight-note {
+  color: var(--gray);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  margin: 0;
+}
+.weight-note strong { color: var(--white); }
+.weight-note-tools {
+  padding: 0.6rem 0.75rem;
+  border-left: 3px solid rgba(0, 212, 255, 0.4);
+  background: rgba(0, 212, 255, 0.04);
+  border-radius: 4px;
+}
+
+@media (min-width: 480px) {
+  .weight-sliders { grid-template-columns: repeat(2, 1fr); }
+}
+
 .capabilities-guide {
   grid-column: 1 / -1;
   margin-top: 1.5rem;
