@@ -141,21 +141,31 @@ class UnifiedProvider:
             # no esté en la tupla — para modelos hybrid (Hermes 4, Kimi K2.5) que solo
             # activan reasoning cuando se les pasa el parámetro explícito.
             # llama-server (llama.cpp) sirve los builds Gemma 4 del Spark, que razonan
-            # internamente por default (emiten reasoning_content). Para agentes/baja
-            # latencia los medimos SIN reasoning vía chat_template_kwargs (ver más abajo),
-            # así que acá los forzamos a NON-thinking (max_tokens normal, no 8192 ni
-            # max_completion_tokens que llama-server ignora). NO se toca el `gemma-4`
-            # global de THINKING_MODELS: el Gemma de Ollama sí necesita el trato thinking.
+            # internamente por default (emiten reasoning_content). Dos variantes:
+            #  - provider "llama_server"       → reasoning OFF (enable_thinking=false),
+            #    max_tokens normal. Uso agente/baja latencia.
+            #  - provider "llama_server_think" → reasoning ON, max_tokens ALTO (×4, min
+            #    8192) para que quepan razonamiento + respuesta.
+            # En ambos se usa el param `max_tokens` (llama.cpp NO acepta
+            # max_completion_tokens). NO se toca el `gemma-4` global de THINKING_MODELS:
+            # el Gemma de Ollama sí necesita su trato thinking aparte.
+            is_llama_server = self.provider_name.startswith("llama_server")
             reasoning_off = self.provider_name == "llama_server"
-            is_thinking = (not reasoning_off) and (force_reasoning or any(
-                model.startswith(p) or p in model for p in THINKING_MODELS
-            ))
-            if is_thinking:
-                token_param = "max_completion_tokens"
-                effective_max = max(max_tokens * THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS)
-            else:
+            reasoning_on_llama = self.provider_name == "llama_server_think"
+            if is_llama_server:
                 token_param = "max_tokens"
-                effective_max = max_tokens
+                effective_max = (max(max_tokens * THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS)
+                                 if reasoning_on_llama else max_tokens)
+            else:
+                is_thinking = force_reasoning or any(
+                    model.startswith(p) or p in model for p in THINKING_MODELS
+                )
+                if is_thinking:
+                    token_param = "max_completion_tokens"
+                    effective_max = max(max_tokens * THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS)
+                else:
+                    token_param = "max_tokens"
+                    effective_max = max_tokens
 
             kwargs = {
                 "model": model,

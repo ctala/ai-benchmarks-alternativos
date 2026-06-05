@@ -1182,6 +1182,37 @@ MODELS = {
         "vram_gb": 20,
         "notes": "Q4_K_M en DGX Spark via llama.cpp/llama-server (multimodal). Medido SIN reasoning (enable_thinking=false) — uso agente/baja latencia. Comparar con 12B llama-server y 31B Ollama/NIM (esos SÍ razonan).",
     },
+    # --- Variantes CON reasoning interno (mismos builds, provider llama_server_think) ---
+    "spark-gemma4-12b-think": {
+        "id": "gemma-4-12b-it-Q4_K_M.gguf",
+        "name": "Gemma 4 12B (Spark llama-server, reasoning)",
+        "cost_input": 0.05,
+        "cost_output": 0.20,
+        "tier": "local",
+        "open_source": True,
+        "license": "Gemma Terms",
+        "provider": "llama_server_think",
+        "base_url": "http://localhost:8091/v1",
+        "context_window": 131072,
+        "free_runtime": True,
+        "vram_gb": 9,
+        "notes": "Mismo build que spark-gemma4-12b pero CON reasoning interno (default). Comparar delta calidad vs latencia contra la variante sin reasoning.",
+    },
+    "spark-gemma4-31b-think": {
+        "id": "gemma-4-31B-it-Q4_K_M.gguf",
+        "name": "Gemma 4 31B (Spark llama-server, reasoning)",
+        "cost_input": 0.12,
+        "cost_output": 0.37,
+        "tier": "local",
+        "open_source": True,
+        "license": "Gemma Terms",
+        "provider": "llama_server_think",
+        "base_url": "http://localhost:8092/v1",
+        "context_window": 131072,
+        "free_runtime": True,
+        "vram_gb": 20,
+        "notes": "Mismo build que spark-gemma4-31b-llamacpp pero CON reasoning interno (default). Comparar delta calidad vs latencia contra la variante sin reasoning.",
+    },
 }
 
 # Modelos locales via Ollama - Optimizados para NVIDIA DGX Spark (128GB RAM unificada)
