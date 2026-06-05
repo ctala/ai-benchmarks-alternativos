@@ -294,13 +294,19 @@ def build_export():
     by_id, by_id_and_name = load_all_results()
     models_export = []
 
+    # ids usados por >1 config (variantes que comparten el mismo model id, p.ej.
+    # Gemma 4 12B con/sin reasoning en llama-server) → siempre match estricto por
+    # (id, name) para que cada variante reciba SOLO sus propios runs y no se fusionen.
+    from collections import Counter as _Counter
+    _id_counts = _Counter(c["id"] for c in MODELS.values())
+
     for cfg_key, cfg in MODELS.items():
         model_id = cfg["id"]
         cfg_name = cfg.get("name", cfg_key)
 
-        # Variantes thinking (force_reasoning=True) comparten el id con la base
-        # → matching estricto por (id, name) para no heredar runs de la base.
-        if cfg.get("force_reasoning"):
+        # Variantes thinking (force_reasoning=True) o cualquier id compartido por
+        # >1 config → matching estricto por (id, name) para no heredar/fusionar runs.
+        if cfg.get("force_reasoning") or _id_counts[model_id] > 1:
             runs = by_id_and_name.get((model_id, cfg_name), [])
         else:
             # Modelos normales: match por id, excluir runs cuyo `model` name
