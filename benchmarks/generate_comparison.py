@@ -23,6 +23,9 @@ MODELS_JSON = DOCS / "data" / "models.json"
 SITE = "https://benchmarks.cristiantala.com"
 LOGO = "https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png"
 LOGO_DARK = "https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-dark-2026.png"
+# OG image representativa del benchmark (ranking real, no el logo personal) — generada por
+# benchmarks/generate_og_image.py. Usada en og:image/twitter:image de todas las pSEO.
+OG_IMAGE = f"{SITE}/og-benchmark.png"
 PILLARS = ["Coding", "Contenido", "Razonamiento", "Agentes"]
 # Qué mide cada pilar (para el V/S por tipo de trabajo) — descripciones del README
 PILLAR_DESC = {
@@ -254,8 +257,11 @@ def page_shell(title, desc, kw, url, body):
 <meta property="og:url" content="{url}">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="es_CL">
-<meta property="og:image" content="{LOGO}">
+<meta property="og:image" content="{OG_IMAGE}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{OG_IMAGE}">
 <link rel="icon" type="image/png" href="{LOGO}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

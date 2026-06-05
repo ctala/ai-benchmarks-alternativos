@@ -175,6 +175,7 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
   2. `python benchmarks/generate_modelos_md_table.py -i` — regenera tabla de MODELOS.md con links
   3. `python benchmarks/generate_tests_md.py` — regenera TESTS.md con prompts completos
   4. `python benchmarks/export_for_pages.py` — regenera docs/data/models.json para la calculadora (single source of truth, merge MODELS + OLLAMA_MODELS)
+  4b. `python benchmarks/generate_og_image.py` — regenera docs/og-benchmark.png (Open Graph 1200x630 con el ranking top-5 real; la usan og:image/twitter:image de la calculadora y todas las pSEO). Lee models.json → va DESPUÉS del export.
   5. `python benchmarks/generate_sitemap.py` — regenera docs/sitemap.xml (lee lastmod desde git, descubre landing pages auto)
   6. `python benchmarks/sync_doc_counts.py` — sincroniza counts (modelos/tests/lotes) en README, AGENTS, INSIGHTS, ARQUITECTURA, MODELOS, agentes y landing pages SEO desde docs/data/models.json. Evita la deriva entre docs.
   7. **Páginas pSEO programáticas** (usan docs/data/models.json — regenerar tras cada lote para que reflejen la data nueva):
