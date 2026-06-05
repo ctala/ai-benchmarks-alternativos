@@ -60,6 +60,7 @@ THINKING_MODELS = (
     "deepseek-v4", "deepseek-r",            # DeepSeek V4+ (R1, V4 Pro, V4 Flash) — descubierto abril 27 con 30/91 NoneType en V4 Pro
     "gemma4", "gemma-4",                    # Gemma 4 — descubierto abril 28 en Ollama DGX: expone "reasoning" field separado del "content"
     "minimax-m3", "MiniMax-M3",             # MiniMax M3 (1 jun 2026) — híbrido, emite <think> por default (verificado en API directa)
+    "qwen3.7-max", "qwen3.7-plus",          # Qwen 3.7 (20 may 2026) — reasoning-agent, thinking tokens facturados
 )
 
 # Modelos que sólo aceptan temperature=1.0 (rechazan otros con error 400).

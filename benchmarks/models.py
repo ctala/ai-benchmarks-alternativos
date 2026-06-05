@@ -189,6 +189,18 @@ MODELS = {
         "license": "Proprietary",
         "notes": "Tier Max de Alibaba (API-only propietario, el más capaz de la familia). Completa base+Plus+Max. $1.04/$6.24 vía OpenRouter API jun 2026.",
     },
+    "qwen-3.7-max": {
+        "id": "qwen/qwen3.7-max",
+        "name": "Qwen 3.7 Max",
+        "cost_input": 2.50,
+        "cost_output": 7.50,
+        "tier": "premium",
+        "open_source": False,
+        "license": "Proprietary",
+        "context_window": 1000000,
+        "niah_max_context": 262144,   # cap de costo en niah (modelo caro), como Opus
+        "notes": "Flagship Qwen 3.7 (20 may 2026, API-only). Reasoning-agent, 1M contexto. Vence a Claude Opus 4.6 Max en Terminal-Bench 2.0, SWE-Bench Pro y MCP-Atlas. $2.50/$7.50 rate card vía OpenRouter (promo 50% a $1.25/$3.75 al lanzar). Plus (multimodal) no está en OR — pendiente para suite multimodal.",
+    },
     "qwen-3.6-plus": {
         "id": "qwen/qwen3.6-plus",
         "name": "Qwen 3.6 Plus",
