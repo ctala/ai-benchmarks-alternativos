@@ -614,6 +614,7 @@ PRICING = {
     "qwen/qwen3.5-plus": (1.20, 2.00),
     "qwen/qwen3.6-plus": (0.18, 1.07),  # API-only Alibaba; corregido may 2026 (OpenRouter API)
     "qwen/qwen3.6-max-preview": (1.04, 6.24),  # tier Max jun 2026
+    "qwen/qwen3.7-max": (2.50, 7.50),  # flagship 3.7 (20 may 2026), reasoning-agent 1M ctx
     "qwen/qwen3-coder": (0.15, 0.60),
     "qwen/qwen3-coder-480b:free": (0.0, 0.0),
 
