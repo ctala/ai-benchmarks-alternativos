@@ -140,9 +140,16 @@ class UnifiedProvider:
             # `force_reasoning=True` (config flag) trata al modelo como thinking aunque
             # no esté en la tupla — para modelos hybrid (Hermes 4, Kimi K2.5) que solo
             # activan reasoning cuando se les pasa el parámetro explícito.
-            is_thinking = force_reasoning or any(
+            # llama-server (llama.cpp) sirve los builds Gemma 4 del Spark, que razonan
+            # internamente por default (emiten reasoning_content). Para agentes/baja
+            # latencia los medimos SIN reasoning vía chat_template_kwargs (ver más abajo),
+            # así que acá los forzamos a NON-thinking (max_tokens normal, no 8192 ni
+            # max_completion_tokens que llama-server ignora). NO se toca el `gemma-4`
+            # global de THINKING_MODELS: el Gemma de Ollama sí necesita el trato thinking.
+            reasoning_off = self.provider_name == "llama_server"
+            is_thinking = (not reasoning_off) and (force_reasoning or any(
                 model.startswith(p) or p in model for p in THINKING_MODELS
-            )
+            ))
             if is_thinking:
                 token_param = "max_completion_tokens"
                 effective_max = max(max_tokens * THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS)
@@ -169,6 +176,11 @@ class UnifiedProvider:
             extra_body = {}
             if "ollama" in self.provider_name.lower():
                 extra_body["keep_alive"] = "30m"
+            # llama-server: apagar el reasoning interno de Gemma 4 (verificado:
+            # 232→6 tokens, content correcto, reasoning_content vacío). 3-4× más
+            # rápido y representativo del uso en agentes/baja latencia.
+            if reasoning_off:
+                extra_body["chat_template_kwargs"] = {"enable_thinking": False}
             # Hybrid reasoning models (Hermes 4 70B/405B, Kimi K2.5/K2.6,
             # Qwen3-Next 80B Instruct con thinking opt-in): activar reasoning
             # explícitamente vía OpenRouter. effort="high" usa ~80% del max_tokens

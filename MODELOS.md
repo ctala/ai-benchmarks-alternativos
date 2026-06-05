@@ -65,6 +65,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `nousresearch/hermes-4-405b` | ✅ Llama 3 community | $1.0/3.0 | **7.04** | 86 | — | [responses](benchmarks/results/responses/20260429_210054/) |
 | `mistralai/mistral-nemo` | ✅ Apache 2.0 | $0.02/0.02 | **7.03** | 122 | [per-model](benchmarks/results/per-model/mistralai_mistral-nemo.md) | [responses](benchmarks/results/responses/20260425_145813/) |
 | `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.39/2.34 | **7.00** | 97 | — | — |
+| `gemma-4-12b-it-Q4_K_M.gguf` | ✅ Gemma Terms | $0.05/0.2 | **6.97** | 154 | — | — |
 | `google/gemma-4-31b-it` | ✅ Gemma Terms | $0.12/0.37 | **6.96** | 184 | — | [responses](benchmarks/results/responses/20260602_125449_2513169/) |
 | `xiaomi/mimo-v2-omni` | ?  | $0.4/2.0 | **6.94** | 103 | — | [responses](benchmarks/results/responses/20260429_165839/) |
 | `mistralai/mistral-large` | ❌ MRL (no comercial) | $2.0/6.0 | **6.90** | 152 | [per-model](benchmarks/results/per-model/mistralai_mistral-large.md) | [responses](benchmarks/results/responses/20260427_185648/) |
@@ -84,6 +85,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `claude-opus-4-8` | ?  | $5.0/25.0 | **6.60** | 101 | — | — |
 | `gpt-4.1` | ?  | $2.0/8.0 | **6.60** | 254 | [per-model](benchmarks/results/per-model/gpt-4_1.md) | — |
 | `anthropic/claude-opus-4-6` | ?  | $5.0/25.0 | **6.57** | 246 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-6.md) | — |
+| `gemma-4-31B-it-Q4_K_M.gguf` | ✅ Gemma Terms | $0.12/0.37 | **6.52** | 124 | — | [responses](benchmarks/results/responses/20260602_125449_2513169/) |
 | `qwen/qwen3-coder-next` | ✅ Apache 2.0 | $0.11/0.8 | **6.52** | 258 | — | [responses](benchmarks/results/responses/20260602_125441_2513137/) |
 | `qwen/qwen3.6-max-preview` | ❌ Proprietary | $1.04/6.24 | **6.44** | 166 | — | — |
 | `nvidia/nemotron-3-super-120b-a12b` | ✅ NVIDIA Open | $0.1/0.5 | **6.44** | 156 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-super-120b-a12b.md) | — |

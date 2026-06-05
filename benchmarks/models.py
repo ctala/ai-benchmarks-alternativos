@@ -1151,6 +1151,37 @@ MODELS = {
         "open_source": True, "license": "MIT",
         "notes": "Mismo modelo que via OpenRouter — comparar provider stability",
     },
+    # --- Gemma 4 en DGX Spark via llama.cpp/llama-server (multimodal, puertos propios) ---
+    "spark-gemma4-12b": {
+        "id": "gemma-4-12b-it-Q4_K_M.gguf",
+        "context_window": 131072,
+        "name": "Gemma 4 12B (Spark llama-server Q4_K_M)",
+        "cost_input": 0.05,        # OR-equivalente (~12B dense); free_runtime real
+        "cost_output": 0.20,
+        "tier": "local",
+        "open_source": True,
+        "license": "Gemma Terms",
+        "provider": "llama_server",
+        "base_url": "http://localhost:8091/v1",
+        "free_runtime": True,
+        "vram_gb": 9,
+        "notes": "Q4_K_M en DGX Spark via llama.cpp/llama-server (multimodal). Medido SIN reasoning (enable_thinking=false) — uso agente/baja latencia. Comparar con el 31B llama-server.",
+    },
+    "spark-gemma4-31b-llamacpp": {
+        "id": "gemma-4-31B-it-Q4_K_M.gguf",
+        "context_window": 131072,
+        "name": "Gemma 4 31B (Spark llama-server Q4_K_M)",
+        "cost_input": 0.12,        # OR-equivalente; free_runtime real
+        "cost_output": 0.37,
+        "tier": "local",
+        "open_source": True,
+        "license": "Gemma Terms",
+        "provider": "llama_server",
+        "base_url": "http://localhost:8092/v1",
+        "free_runtime": True,
+        "vram_gb": 20,
+        "notes": "Q4_K_M en DGX Spark via llama.cpp/llama-server (multimodal). Medido SIN reasoning (enable_thinking=false) — uso agente/baja latencia. Comparar con 12B llama-server y 31B Ollama/NIM (esos SÍ razonan).",
+    },
 }
 
 # Modelos locales via Ollama - Optimizados para NVIDIA DGX Spark (128GB RAM unificada)
