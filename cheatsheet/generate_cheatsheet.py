@@ -484,9 +484,15 @@ def render(models: dict, runs: list) -> str:
             <strong>DeepSeek V4 Flash #7 → #3</strong>; los líderes de calidad/coding (Devstral #1, Qwen-Coder #4) subieron.
             Los premium dejan de estar aplastados — y el costo sigue importando, pero ya no manda solo.</p>
 
-            <h3>Infra: juez vLLM en DGX Spark</h3>
-            <p style="font-size:9pt;">Phi-4 servido en <strong>vLLM FP16</strong> (continuous batching, compat Blackwell sm_121 confirmada)
-            en lugar de Ollama → juicio paralelo. El Spark es bandwidth-bound (~10 tok/s), mejor como host del juez que para gen.</p>
+            <h3>🖥️ Local en Spark: el 12B le gana al 31B <span style="font-size:8pt;color:#b0b0b0;">(5 junio 2026)</span></h3>
+            <p style="font-size:9pt;">Gemma 4 en llama-server (Q4): el <strong>12B supera al 31B en los 6 pilares</strong> y es 2.6× más rápido
+            (21 vs 8 tok/s). Y el <strong>reasoning interno NO ayuda</strong>: misma calidad (8.12=8.12) y <strong>2× la latencia</strong>
+            (56→107s). Para agentes locales: cargá el 12B con reasoning OFF (<code>enable_thinking=false</code>).</p>
+
+            <h3>Qwen 3.7 Max: calidad sí, value no <span style="font-size:8pt;color:#b0b0b0;">(jun 2026)</span></h3>
+            <p style="font-size:9pt;">El flagship de Alibaba (1M ctx, $2.50/$7.50) tiene <strong>calidad real 8.13</strong> (sobre la media),
+            pero el z-score lo deja <strong>#55</strong> por caro + lento. Devstral da calidad similar a $0.10/$0.30. El número de
+            marketing ("vence a Opus en agéntico") no paga la cuenta para producción con presupuesto.</p>
 
             <h3>Lección para constructores de benchmarks</h3>
             <p style="font-size:9pt;">El needle, el scoring, el juez, la heurística y la grilla — <strong>cada uno puede inyectar un sesgo que parece un hallazgo</strong>.
