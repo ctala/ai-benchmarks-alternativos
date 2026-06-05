@@ -1,0 +1,19 @@
+# Gemma 4 12B (Spark llama-server Q4_K_M) — news_seo_writing/news_json_output_strict
+
+- model_id: `gemma-4-12b-it-Q4_K_M.gguf`
+- success: True  | final: 6.3 | quality: 6.34
+- latency_total: 30.285s | tokens_per_second: 25.3
+- input_tokens: 327 | output_tokens: 765
+- judge_score: 3.2 | justificación: 
+
+## Respuesta completa
+
+{
+"Fuentes": ["https://google-deepmind.github.io/gemma/"],
+"Categoria": "Inteligencia Artificial",
+"Palabras_Clave": ["Google DeepMind", "Gemma 4", "Open-source AI", "Apache 2.0", "MoE Model"],
+"Contenido_HTML": "<h2>Google DeepMind lanza Gemma 4: Una nueva era para modelos de código abierto</h2><p>Google DeepMind ha marcado un hito significativo en la industria tecnológica con el lanzamiento de Gemma 4, una familia de modelos de inteligencia artificial de código abierto bajo la licencia Apache 2.0. Este anuncio representa un paso fundamental para la democratización del acceso a tecnologías de vanguardia, permitiendo que desarrolladores, investigadores y entusiastas de todo el mundo puedan integrar capacidades de IA de nivel superior en sus propias aplicaciones y proyectos sin las barreras de las licencias propietarias restrictivas.</p><p>Uno de los aspectos más destacados de este lanzamiento es el rendimiento del modelo denso de 31B parámetros. Según las métricas actuales, este modelo se posiciona en el tercer lugar del Arena leaderboard, lo que demuestra una capacidad de razonamiento y generación de texto que compite directamente con modelos mucho más grandes y costosos. La arquitectura de Gemma 4 está diseñada para optimizar la eficiencia, equilibrando la potencia de procesamiento con la velocidad de inferencia necesaria para aplicaciones en tiempo real.</p><p>La versatilidad de la familia Gemma 4 es otro pilar fundamental de su propuesta. Google DeepMind ha estructurado la oferta en cuatro tamaños distintos para adaptarse a diversas necesidades de infraestructura y casos de uso específicos: E2B, E4B, el modelo MoE (Mixture of Experts) de 26B y el potente modelo denso de 31B. Esta variedad permite que los usuarios elijan la configuración que mejor se adapte a sus recursos, ya sea que busquen una implementación ligera en dispositivos de borde (edge computing) o una solución robusta para servidores de alto rendimiento.</p><p>El uso de la licencia Apache 2.0 es una decisión estratégica que fomenta la innovación colaborativa. Al permitir que la comunidad modifique y distribuya el modelo, Google DeepMind busca acelerar el ciclo de desarrollo de nuevas herramientas de IA. Esto es particularmente importante en un momento donde la transparencia y la auditabilidad de los modelos de lenguaje son prioridades para las empresas y los reguladores. La arquitectura MoE, en particular, destaca por su capacidad para activar solo una fracción de sus parámetros para cada tarea, lo que reduce drásticamente el costo computacional sin sacrificar la calidad de las respuestas.</p><p>En conclusión, Gemma 4 no es solo un lanzamiento de producto, sino una apuesta por el ecosistema de código abierto. Al proporcionar modelos que rinden a la vanguardia del estado del arte, Google DeepMind está empoderando a una nueva generación de creadores. La combinación de modelos denso y MoE asegura que, independientemente de la escala del proyecto, exista una herramienta de Gemma 4 capaz de ofrecer resultados excepcionales, consolidando su posición como un referente en la comunidad global de inteligencia artificial.</p>",
+"Meta_Titulo": "Google DeepMind lanza Gemma 4: Modelos de IA de Código Abierto",
+"Meta_Descripcion": "Google DeepMind presenta Gemma 4, una familia de modelos IA bajo licencia Apache 2.0, incluyendo el potente modelo denso de 31B en el Arena leaderboard.",
+"Slug": "google-deepmind-lanzamiento-gemma-4-modelos-ia"
+}
