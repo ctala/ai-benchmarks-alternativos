@@ -694,8 +694,8 @@ def run_benchmark(args):
         # llama_server: endpoint OpenAI-compatible local (llama.cpp/llama-server) con
         # base_url propio por modelo (permite varios puertos: 8091, 8092, ...). Va
         # PRIMERO para ganarle al routing is_local→ollama aunque tier sea "local".
-        if model_config.get("provider") == "llama_server" and model_config.get("base_url"):
-            provider = UnifiedProvider("llama_server", "no-auth", model_config["base_url"])
+        if model_config.get("provider") in ("llama_server", "llama_server_think") and model_config.get("base_url"):
+            provider = UnifiedProvider(model_config["provider"], "no-auth", model_config["base_url"])
         elif is_local and ollama:
             provider = ollama
         elif model_config.get("provider") == "ollama_cloud" and ollama_cloud:
