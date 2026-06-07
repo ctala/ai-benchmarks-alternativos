@@ -1574,3 +1574,23 @@ for _k, _price in OR_COMPARISON_PRICING_EXT.items():
     if _m and float(_m.get("cost_input", 0)) == 0:
         _m["free_runtime"] = True
         _m["cost_input"], _m["cost_output"] = _price
+
+
+# ── Backfill long-context top-20 (jun 2026) ────────────────────────────────
+# Cap de niah a 256K = techo justo de comparación + control de costo/tiempo (la
+# grilla niah escala a 800K; sin cap, los modelos de 1M razonarían contextos
+# enormes y caros). context_window real para los que estaban en None evita que
+# los tests sobre su ventana real den error en vez de saltarse limpio.
+_NIAH_CTX_DEFAULTS = {
+    "devstral": 131072, "groq-llama-4-scout": 131072, "groq-llama-3.3-70b": 131072,
+    "groq-llama-3.1-8b": 131072, "grok-4.1-fast": 2097152,
+}
+for _k in ("devstral", "groq-llama-4-scout", "groq-llama-3.3-70b", "mistral-small-4",
+           "gemini-3.1-flash-lite", "groq-llama-3.1-8b", "hermes-4-70b", "claude-haiku-4.5-sub",
+           "grok-4.1-fast", "claude-opus-4.8-sub", "claude-sonnet-4.6-sub",
+           "nim-qwen3-next-instruct", "spark-gemma4-12b", "nim-deepseek-v4-flash"):
+    _m = MODELS.get(_k)
+    if _m:
+        if _m.get("context_window") is None:
+            _m["context_window"] = _NIAH_CTX_DEFAULTS.get(_k, 131072)
+        _m["niah_max_context"] = 262144

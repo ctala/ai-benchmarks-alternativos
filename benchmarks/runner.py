@@ -303,6 +303,10 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
         scores["auto_quality"] = round(quality, 2)
         scores["turns_executed"] = (result.metadata or {}).get("turns_executed", 0)
         scores["turns_total"] = (result.metadata or {}).get("turns_total", 0)
+        # Auditable: marca que el modelo se midió vía suscripción (claude_code CLI,
+        # $0 tarifa plana) y NO vía API. Lo setea ClaudeCodeProvider.
+        if (result.metadata or {}).get("subscription_measured"):
+            scores["subscription_measured"] = True
         return scores
 
     expected_answer = test.get("expected_answer", {})
@@ -377,6 +381,9 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     scores["output_tokens"] = result.output_tokens
     scores["response_preview"] = result.response[:300] if result.response else ""
     scores["auto_quality"] = round(auto_quality, 2)
+    # Auditable: marca medición vía suscripción (claude_code CLI, $0) y NO vía API.
+    if (result.metadata or {}).get("subscription_measured"):
+        scores["subscription_measured"] = True
 
     # Guardar datos del juez si disponible
     if judge_result and judge_quality >= 0:

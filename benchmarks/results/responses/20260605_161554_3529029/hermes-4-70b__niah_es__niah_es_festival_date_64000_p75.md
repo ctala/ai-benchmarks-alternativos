@@ -1,0 +1,10 @@
+# Hermes 4 70B — niah_es/niah_es_festival_date_64000_p75
+
+- model_id: `nousresearch/hermes-4-70b`
+- success: True  | final: 7.62 | quality: 10.0
+- latency_total: 4.346s | tokens_per_second: 9.2
+- input_tokens: 70061 | output_tokens: 40
+
+## Respuesta completa
+
+El Festival de Cine Andino se celebra cada año el 17 de octubre en la ciudad de Sucre, y en 2026 cumplirá su edición número 23.
