@@ -338,13 +338,15 @@ class ClaudeCodeProvider:
                "--system-prompt", "Responde directamente la consulta del usuario."]
         if system:
             cmd += ["--append-system-prompt", system]
-        cmd.append(user_prompt)
+        # El prompt va por STDIN, no como argumento: prompts largos (niah long-context,
+        # ~256K tokens = ~1M chars) excedían ARG_MAX → OSError Errno 7 "arg list too
+        # long". Por stdin no hay límite de tamaño; `claude -p` lo lee igual. Verificado
+        # (jun 2026): prompt corto y de 324K tokens funcionan; arriba del contexto real
+        # del modelo devuelve "Prompt is too long" (error limpio, no crash).
         start = time.perf_counter()
         try:
-            # stdin=DEVNULL: sin tty, `claude -p` espera datos de stdin y avisa
-            # "no stdin data received"; con DEVNULL usa el prompt pasado como arg.
             proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout,
-                                  stdin=subprocess.DEVNULL, env=_env)
+                                  input=user_prompt, env=_env)
             elapsed = time.perf_counter() - start
             # NOTA: `claude -p` anidado dentro de otra sesión Claude Code puede
             # salir con returncode=1 AUNQUE produzca JSON de resultado válido

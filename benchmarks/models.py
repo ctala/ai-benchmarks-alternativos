@@ -1593,4 +1593,6 @@ for _k in ("devstral", "groq-llama-4-scout", "groq-llama-3.3-70b", "mistral-smal
     if _m:
         if _m.get("context_window") is None:
             _m["context_window"] = _NIAH_CTX_DEFAULTS.get(_k, 131072)
-        _m["niah_max_context"] = 262144
+        # cap 256K, pero nunca por encima del contexto real (Haiku=200K → cap a 128K
+        # para que el test de 256K se salte limpio en vez de dar "Prompt too long")
+        _m["niah_max_context"] = min(262144, _m.get("context_window") or 262144)
