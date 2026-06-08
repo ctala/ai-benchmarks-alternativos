@@ -485,10 +485,10 @@ def render(models: dict, runs: list) -> str:
             (21 vs 8 tok/s). Y el <strong>reasoning interno NO ayuda</strong>: misma calidad (8.12=8.12) y <strong>2× la latencia</strong>
             (56→107s). Para agentes locales: cargá el 12B con reasoning OFF (<code>enable_thinking=false</code>).</p>
 
-            <h3>Qwen 3.7 Max: calidad sí, value no <span style="font-size:8pt;color:#b0b0b0;">(jun 2026)</span></h3>
-            <p style="font-size:9pt;">El flagship de Alibaba (1M ctx, $2.50/$7.50) tiene <strong>calidad real 8.13</strong> (sobre la media),
-            pero el z-score lo deja <strong>#55</strong> por caro + lento. Devstral da calidad similar a $0.10/$0.30. El número de
-            marketing ("vence a Opus en agéntico") no paga la cuenta para producción con presupuesto.</p>
+            <h3>Qwen 3.7 Max: el marketing no se traslada al español <span style="font-size:8pt;color:#b0b0b0;">(jun 2026)</span></h3>
+            <p style="font-size:9pt;">El nuevo flagship de Alibaba (1M ctx, $2.50/$7.50) queda <strong>#20 en calidad (8.13)</strong> en nuestra
+            suite — su propio <strong>Qwen 3.6 Max lo supera (8.62)</strong> y además <strong>filtra credenciales</strong> (seguridad ~2).
+            Su fama de "vence a Opus en agéntico" (Terminal-Bench/SWE-Bench en inglés) NO se traslada a tareas en español. Caro + lento → <strong>#55</strong> en el compuesto.</p>
 
             <h3>🔑 Long-context de Claude medido por suscripción <span style="font-size:8pt;color:#b0b0b0;">(7 junio 2026)</span></h3>
             <p style="font-size:9pt;">Medimos Anthropic vía la <strong>suscripción Claude Code (CLI, $0)</strong>, no la API. El long-context fallaba:
