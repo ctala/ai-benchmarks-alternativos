@@ -103,14 +103,14 @@ Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2
 | Tests por modelo | **91 single-turn (23 suites) + 12 agent_long_horizon multi-turno = 103 tests** |
 | Runs preservados en JSON | **8,000+** (con éxito) |
 | Tokens consumidos (preservados) | ~2.5M input + ~7M output |
-| **Costo APIs (OpenAI/OpenRouter/MiniMax/Anthropic/Xiaomi)** | **~$350-400 USD** desde el 11 de abril |
-| **Suscripciones activas** (Ollama Cloud + Xiaomi Standard) | **~$45/mes** |
+| **Costo APIs (OpenAI/OpenRouter/MiniMax/Anthropic/Xiaomi)** | **~$350-400 USD** desde el 11 de abril, + gasto continuo de OpenRouter cada mes para las actualizaciones |
+| **Suscripciones + modelos simultáneos** (Xiaomi, MiniMax, Claude, Ollama Cloud — varias a la vez para poder probar) | **~$300/mes** |
 | **Tiempo wall-clock** del benchmark (cómputo cloud) | **~190h** acumuladas |
 | **Tiempo de cómputo local** (Phi-4 judge en Mac M-series + DGX Spark) | **~50h GPU** |
 | **Tiempo humano** (diseño de tests, debugging, análisis, docs) | **~80-100h** |
 | Iteración de metodología | cientos de runs no documentados antes del scoring v2 |
 
-**Costo total para replicar este benchmark desde cero**: APIs **$350-400** + suscripciones **~$45-90** según plan + **130-150h de cómputo** entre cloud y local + **80-100h de trabajo humano** (research, debugging, análisis, docs). Acá ya está hecho — disponible bajo MIT.
+**Costo real de mantener este benchmark**: APIs **$350-400** acumuladas + **~$300/mes en suscripciones simultáneas** (Xiaomi, MiniMax, Claude, Ollama Cloud — varias a la vez para probar modelos) + gasto continuo de OpenRouter cada mes para las actualizaciones + **130-150h de cómputo** entre cloud y local + **80-100h de trabajo humano** (research, debugging, análisis, docs). Acá ya está hecho — disponible bajo MIT.
 
 > El número "$200+" no es solo lo medido. Hay 4 categorías de costo que el `cost_usd` calculado **NO captura**:
 >
