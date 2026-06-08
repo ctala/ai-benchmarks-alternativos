@@ -1061,7 +1061,8 @@ def render(models: dict, runs: list) -> str:
     </div>
 
     <p style="text-align:center; font-size: 8pt; color: #b59cff; margin-top: 18px; max-width: 600px;">
-        Este benchmark se mantiene gracias a tiempo personal de Cristian Tala Sánchez (Chile) + suscripciones $45/mes.
+        Este benchmark se mantiene gracias a tiempo personal de Cristian Tala Sánchez (Chile) + ~$300/mes en suscripciones
+        simultáneas (Xiaomi, MiniMax, Claude, Ollama Cloud) y gasto continuo de OpenRouter para las actualizaciones.
         Si te ayudó, comparte el repo. Si querés contribuir, las contribuciones de comunidad se documentan en CHANGELOG.
     </p>
 </div>
