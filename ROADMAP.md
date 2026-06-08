@@ -43,6 +43,19 @@
 - **Efecto**: DeepSeek V4 Flash #63→**#9**; top global vuelve a workhorses rápidos (Llama Groq, Devstral). **MiniMax M3 #1 en long-context** (q 8.37, su 1M real). README actualizado con los 3 cortes + tabla long-context.
 - **Pendiente**: rerun nocturno qwen3.6-27b; backfill niah para cobertura pareja; **lote flagship** (Opus 4.8, Gemini 3.5 Flash, Qwen 3.6 Max). Pendiente del plan original "Tier 1 junio": Gemini 3.5 Flash + Cohere Command A (disponibles en OR); ⚠️ **MiniMax M2.8 y MiMo V3 NO existen aún en OpenRouter** (lo último es M2.7 / V2.5).
 
+### 📓 Sesión 7-8 jun 2026 — Backfill seguridad+long-context + fix suscripción
+
+- **Long-context de Claude por suscripción DESTRABADO**: el `ClaudeCodeProvider` pasaba el prompt como argumento CLI → a ~256K tokens excedía ARG_MAX (`Errno 7`). Fix: prompt por **stdin**. Ahora Opus 4.8 retrieva hasta 256K, Sonnet/Haiku 128K, **todo por suscripción, cero API**.
+- **Backfill top-20 (seguridad + long-context)**: +8 modelos con seguridad (cobertura 18→26), +9 con contexto (14→23). Sonnet 4.6 lidera seguridad (8.52). niah capeado a `min(256K, contexto real)`.
+- **Modelos nuevos**: Gemma 4 12B/31B local (Spark llama-server, reasoning OFF gana) + Qwen 3.7 Max (#20 calidad, el 3.6 Max lo supera; filtra credenciales).
+- **Corrección de costos**: el "$45/mes" era falso → real ~$300/mes (suscripciones simultáneas) + OpenRouter continuo. Corregido en README + PDF.
+
+**⏳ Pendiente para julio (no se pudo medir por drift de provider):**
+- **Drift de ids** — re-medir seguridad+contexto cuando se corrijan: `mistralai/devstral-small` → **404 "No endpoints" en OpenRouter**; `x-ai/grok-4.1-fast` → **404**; `deepseek-ai/deepseek-v4-flash` (NIM) → **400**. Investigar ids actuales del provider y actualizar `models.py`. (Sus scores de calidad actuales son de ids que el provider ya cambió.)
+- **Groq** (Llama 3.1 8B / 3.3 70B): falta `GROQ_API_KEY` → se misrutean. Usar la versión de **OpenRouter** en su lugar.
+- **Suite multimodal/visión** (Gemma 4, Qwen-VL, Qwen 3.7 Plus) — hoy el bench es solo texto.
+- **Qwen3.6-35B-A3B** quedó cargado en el Spark (8088) — benchmarkear (MoE A3B, candidato ideal para agentes locales).
+
 ### Qué entra en el release de junio (checklist)
 
 - [ ] **Probar los modelos nuevos salidos en mayo** (lista candidatos abajo) — al menos los Tier 1 con cobertura ≥50 runs.
