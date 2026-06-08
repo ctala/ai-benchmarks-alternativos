@@ -475,14 +475,10 @@ def render(models: dict, runs: list) -> str:
             DeepSeek/Gemini/Llama/Qwen/Nemotron <strong>~1.7–2.0 filtran</strong>. Si tu agente procesa datos sensibles, esto pesa.</p>
 
             <h3>★ El peso nominal ≠ la influencia real <span style="font-size:8pt;color:#b0b0b0;">(4 junio 2026)</span></h3>
-            <p style="font-size:9pt;">La influencia real = peso × varianza. El <strong>costo (var 1.85) decidía el ranking</strong>
-            pese a su 20% nominal, aplastando a la calidad apelotonada (var 0.59). El tool_calling (15%) era ruido (var 0.24).
-            Fix v2.9: <strong>z-score</strong> — estandarizamos cada dimensión antes de ponderar → 60% quality = 60% de influencia REAL.</p>
-
-            <h3>Efecto del z-score en el ranking</h3>
-            <p style="font-size:9pt;"><strong>Opus 4.8 saltó #63 → #17</strong> (dejó de hundirlo el costo);
-            <strong>DeepSeek V4 Flash #7 → #3</strong>; los líderes de calidad/coding (Devstral #1, Qwen-Coder #4) subieron.
-            Los premium dejan de estar aplastados — y el costo sigue importando, pero ya no manda solo.</p>
+            <p style="font-size:9pt;">La influencia real = peso × varianza. El <strong>costo (var 1.85) decidía el ranking</strong> pese a su 20%
+            nominal, aplastando a la calidad apelotonada (var 0.59). Fix v2.9: <strong>z-score</strong> — estandarizamos cada
+            dimensión antes de ponderar → 60% quality = 60% de influencia REAL. Efecto: <strong>Opus 4.8 #63→#17</strong>,
+            DeepSeek V4 Flash #7→#3, los líderes de calidad/coding suben. El costo sigue importando, pero ya no manda solo.</p>
 
             <h3>🖥️ Local en Spark: el 12B le gana al 31B <span style="font-size:8pt;color:#b0b0b0;">(5 junio 2026)</span></h3>
             <p style="font-size:9pt;">Gemma 4 en llama-server (Q4): el <strong>12B supera al 31B en los 6 pilares</strong> y es 2.6× más rápido
@@ -494,9 +490,11 @@ def render(models: dict, runs: list) -> str:
             pero el z-score lo deja <strong>#55</strong> por caro + lento. Devstral da calidad similar a $0.10/$0.30. El número de
             marketing ("vence a Opus en agéntico") no paga la cuenta para producción con presupuesto.</p>
 
-            <h3>Lección para constructores de benchmarks</h3>
-            <p style="font-size:9pt;">El needle, el scoring, el juez, la heurística y la grilla — <strong>cada uno puede inyectar un sesgo que parece un hallazgo</strong>.
-            Auditá cada respuesta individual antes de publicar un ranking.</p>
+            <h3>🔑 Long-context de Claude medido por suscripción <span style="font-size:8pt;color:#b0b0b0;">(7 junio 2026)</span></h3>
+            <p style="font-size:9pt;">Medimos Anthropic vía la <strong>suscripción Claude Code (CLI, $0)</strong>, no la API. El long-context fallaba:
+            el prompt de 256K iba como argumento → <code>Errno 7 arg too long</code>. Fix: pasarlo por <strong>stdin</strong>.
+            Ahora <strong>Opus 4.8 retrieva hasta 256K, Sonnet/Haiku 128K</strong> — sin pagar API. Lección: auditá cada
+            respuesta individual (needle, juez, heurística) — cada pieza puede inyectar un sesgo que parece un hallazgo.</p>
         </div>
     </div>
 
