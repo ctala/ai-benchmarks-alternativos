@@ -58,6 +58,13 @@ JUDGE_PRESETS = {
         "provider": "ollama",
         "description": "Phi-4 14B (Microsoft, MIT) - cero conflicto de interes, no evaluamos modelos Microsoft",
     },
+    "phi4-spark": {
+        "model": "phi4:latest",
+        "base_url": "http://192.168.88.190:11434/v1",
+        "api_key": "ollama",
+        "provider": "ollama",
+        "description": "Phi-4 14B en el DGX Spark (Ollama remoto LAN). Mismo modelo/rubrica que el preset phi4 local — comparable con el ranking historico. Util cuando la maquina local no tiene phi4 descargado.",
+    },
     "phi4-vllm": {
         "model": "phi4",  # served-model-name del vllm serve
         "base_url": "http://localhost:8001/v1",
