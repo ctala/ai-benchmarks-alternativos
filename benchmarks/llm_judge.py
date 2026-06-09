@@ -283,6 +283,7 @@ class LLMJudge:
         self.judge_model = judge_model
         self.provider = provider
         self.is_local = provider == "ollama"
+        self.base_url = base_url  # respetar host del preset (ej. phi4-spark → DGX)
         self.client = OpenAI(
             api_key=api_key,
             base_url=base_url,
@@ -333,12 +334,17 @@ class LLMJudge:
         )
 
         try:
-            # Ollama local: usar /api/generate (mas confiable que /api/chat para gemma4)
+            # Ollama: usar /api/generate (mas confiable que /api/chat para gemma4).
+            # BUG FIX jun 2026: la URL estaba hardcodeada a localhost e ignoraba el
+            # base_url del preset (phi4-spark apuntaba al DGX pero el juez le pegaba
+            # al Ollama local sin phi4 → error silencioso → fallback a score auto en
+            # el 100% de los tests). Ahora se deriva del preset.
             if self.is_local:
                 import httpx as _httpx
+                _ollama_root = self.base_url.replace("/v1", "").rstrip("/")
                 try:
                     _r = _httpx.post(
-                        "http://localhost:11434/api/generate",
+                        f"{_ollama_root}/api/generate",
                         json={
                             "model": self.judge_model,
                             "prompt": rubric,
@@ -349,6 +355,10 @@ class LLMJudge:
                     )
                     _data = _r.json()
                     _content = _data.get("response", "")
+                    if not _content:
+                        # ej. {"error": "model not found"} → forzar fallback al
+                        # cliente OpenAI-compatible del preset en vez de fallar mudo
+                        raise RuntimeError(f"ollama /api/generate sin contenido: {str(_data)[:120]}")
                     class _MockResult:
                         class _Choice:
                             class _Msg:
