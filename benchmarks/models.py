@@ -341,6 +341,15 @@ MODELS = {
     # --- Anthropic vía SUSCRIPCIÓN Claude Code (CLI `claude -p`, tarifa plana) ---
     # Costo del ranking = precio OpenRouter (free_runtime via sub). CAVEAT: ~8.8K
     # scaffolding residual de Claude Code, NO usar para tool-calling. id = alias CLI.
+    "claude-fable-5-sub": {
+        "id": "claude-fable-5",
+        "name": "Claude Fable 5 (suscripción)",
+        "cost_input": 10.00, "cost_output": 50.00,
+        "tier": "subscription", "provider": "claude_code",
+        "subscriptions": ["anthropic_pro"], "free_runtime": True,
+        "context_window": 1000000,
+        "notes": "Fable 5 medido por la suscripción Claude Code (no API) — a costo $0. Costeado a precio OpenRouter ($10/$50 = 2x Opus 4.8). Incluido en plan Max hasta 21-jun-2026; después solo API. CAVEAT: subscription_measured.",
+    },
     "claude-opus-4.8-sub": {
         "id": "claude-opus-4-8",
         "name": "Claude Opus 4.8 (suscripción)",
@@ -387,14 +396,6 @@ MODELS = {
         "force_reasoning": True,
         "notes": "Mismo modelo que claude-opus-4.7 con extended thinking forzado (effort=high). Reasoning tokens facturados como output a $25/M — ~5-7x más caro por test que sin thinking.",
     },
-    "claude-opus-4.8": {
-        "id": "anthropic/claude-opus-4-8",
-        "name": "Claude Opus 4.8",
-        "cost_input": 5.00,
-        "cost_output": 25.00,
-        "tier": "premium",
-        "notes": "Opus actual (jun 2026). Mismo pricing que 4.7, misma API surface (adaptive thinking only). Agregado jun 2026 junto a Fable 5.",
-    },
     "claude-fable-5": {
         "id": "anthropic/claude-fable-5",
         "name": "Claude Fable 5",
@@ -402,7 +403,7 @@ MODELS = {
         "cost_output": 50.00,
         "tier": "premium",
         "thinking": True,
-        "notes": "Tier nuevo SOBRE Opus (jun 2026). 2x el precio de Opus 4.8 ($10/$50, verificado vía OpenRouter API). Adaptive thinking nativo — no acepta temperature ni budget_tokens. Pregunta del benchmark: ¿vale el doble que Opus 4.8?",
+        "notes": "Tier nuevo SOBRE Opus (jun 2026). 2x el precio de Opus 4.8 ($10/$50, verificado vía OpenRouter API). Adaptive thinking nativo — no acepta temperature ni budget_tokens. ⚠️ Vía OpenRouter = paga API; para corridas usar claude-fable-5-sub (suscripción Max, $0).",
     },
 
     # --- Mistral ---
@@ -1604,7 +1605,7 @@ _NIAH_CTX_DEFAULTS = {
 }
 for _k in ("devstral", "groq-llama-4-scout", "groq-llama-3.3-70b", "mistral-small-4",
            "gemini-3.1-flash-lite", "groq-llama-3.1-8b", "hermes-4-70b", "claude-haiku-4.5-sub",
-           "grok-4.1-fast", "claude-opus-4.8-sub", "claude-sonnet-4.6-sub",
+           "grok-4.1-fast", "claude-fable-5-sub", "claude-opus-4.8-sub", "claude-sonnet-4.6-sub",
            "nim-qwen3-next-instruct", "spark-gemma4-12b", "nim-deepseek-v4-flash"):
     _m = MODELS.get(_k)
     if _m:
