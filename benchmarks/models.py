@@ -387,6 +387,23 @@ MODELS = {
         "force_reasoning": True,
         "notes": "Mismo modelo que claude-opus-4.7 con extended thinking forzado (effort=high). Reasoning tokens facturados como output a $25/M — ~5-7x más caro por test que sin thinking.",
     },
+    "claude-opus-4.8": {
+        "id": "anthropic/claude-opus-4-8",
+        "name": "Claude Opus 4.8",
+        "cost_input": 5.00,
+        "cost_output": 25.00,
+        "tier": "premium",
+        "notes": "Opus actual (jun 2026). Mismo pricing que 4.7, misma API surface (adaptive thinking only). Agregado jun 2026 junto a Fable 5.",
+    },
+    "claude-fable-5": {
+        "id": "anthropic/claude-fable-5",
+        "name": "Claude Fable 5",
+        "cost_input": 10.00,
+        "cost_output": 50.00,
+        "tier": "premium",
+        "thinking": True,
+        "notes": "Tier nuevo SOBRE Opus (jun 2026). 2x el precio de Opus 4.8 ($10/$50, verificado vía OpenRouter API). Adaptive thinking nativo — no acepta temperature ni budget_tokens. Pregunta del benchmark: ¿vale el doble que Opus 4.8?",
+    },
 
     # --- Mistral ---
     "mistral-large": {
