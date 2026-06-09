@@ -105,7 +105,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `deepseek/deepseek-v4-pro` | ✅ MIT | $0.435/0.87 | **5.99** | 126 | — | [responses](benchmarks/results/responses/20260503_125944/) |
 | `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.29/3.2 | **5.98** | 290 | — | — |
 | `google/gemini-2.5-pro` | ?  | $1.25/10.0 | **5.98** | 91 | [per-model](benchmarks/results/per-model/google_gemini-2_5-pro.md) | — |
-| `anthropic/claude-opus-4.8` | ?  | $— | **5.90** | 279 | — | — |
+| `anthropic/claude-opus-4.8` | ?  | $5.0/25.0 | **5.90** | 279 | — | — |
 | `google/gemini-3.5-flash` | ?  | $1.5/9.0 | **5.84** | 358 | — | — |
 | `qwen3.5:397b-cloud` | ✅ Apache 2.0 | $0.39/2.34 | **5.79** | 94 | — | — |
 | `qwen3.5:cloud` | ✅ Apache 2.0 | $0.39/2.34 | **5.67** | 91 | — | — |
