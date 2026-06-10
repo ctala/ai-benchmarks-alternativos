@@ -75,6 +75,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `minimax/minimax-m2.7` | ?  | $0.3/1.2 | **6.82** | 167 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_7.md) | — |
 | `meta-llama/llama-4-maverick` | ✅ Llama Community | $0.5/1.0 | **6.80** | 288 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-maverick.md) | [responses](benchmarks/results/responses/20260602_135955_2529872/) |
 | `xiaomi/mimo-v2-pro` | ❌ Proprietary | $1.0/3.0 | **6.80** | 91 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2-pro.md) | [responses](benchmarks/results/responses/20260429_165839/) |
+| `claude-fable-5` | ?  | $10.0/50.0 | **6.80** | 174 | — | [responses](benchmarks/results/responses/20260609_144836_25113/) |
 | `minimax/minimax-m3` | ?  | $0.3/1.2 | **6.79** | 352 | — | [responses](benchmarks/results/responses/20260602_135949_2529847/) |
 | `xiaomi/mimo-v2.5-pro` | ?  | $1.0/3.0 | **6.77** | 91 | — | — |
 | `z-ai/glm5` | ✅ MIT | $0.98/3.08 | **6.73** | 90 | — | [responses](benchmarks/results/responses/20260427_185648/) |
