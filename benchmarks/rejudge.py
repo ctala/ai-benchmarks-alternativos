@@ -119,6 +119,9 @@ def main():
         r["quality"] = new_scores["quality"]
         r["final"] = new_scores["final"]
         r["judge_quality"] = round(j10, 2)
+        # mismos campos que escribe el runner (export_for_pages lee judge_score 0-5)
+        r["judge_score"] = jr.get("score_final", -1)
+        r["judge_justificacion"] = jr.get("justificacion", "")
         r["rejudged"] = True
         rejudged += 1
         print(f"  [{i}/{len(pending)}] {suite}/{tname}: auto={auto_q} juez={j10:.1f} → quality={r['quality']} final={r['final']}")

@@ -10,7 +10,7 @@
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw, N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes) y la nueva suite **`agent_long_horizon`** que mide capacidades agénticas en multi-turno largo (lo que el single-turn no captura).
 
-**Cobertura actual**: 87 modelos con ≥50 runs (134 catalogados), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
+**Cobertura actual**: 89 modelos con ≥50 runs (141 catalogados, incluido **Claude Fable 5** medido el día 1), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
 
 ## Score = combinación ponderada (NO solo calidad)
 
@@ -44,6 +44,8 @@ Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad*
 | 8 | Gemini 3.1 Flash Lite | 7.63 | 8.01 | 8.27 | OpenRouter | $2.33 |
 | 9 | Hermes 4 70B | 7.59 | 8.04 | 9.47 | OpenRouter | $0.64 |
 | 10 | **Claude Haiku 4.5** (sub) | 7.48 | 8.44 | 5.14 | Claude Code | $7.80 |
+
+> **Nuevo (10-jun-2026): Claude Fable 5 medido el día 1** vía suscripción Claude Code (176 runs, 0 errores). El tier nuevo SOBRE Opus ($10/$50 = 2x Opus 4.8) **no supera a Opus 4.8 en quality promedio** (8.58 vs 8.81 en los 162 tests compartidos, mismo provider y juez). Gana solo en `agent_long_horizon` (+1.21 — su pitch exacto: tareas agénticas largas); pierde en tareas cortas de formato. Global composite **#38** (el costo 2x lo hunde). Veredicto: paga el 2x solo si tu caso es horizonte largo agéntico. Detalle en [CHANGELOG v2.9.1](CHANGELOG.md).
 
 > **Cambio v2.9 (jun 2026): score z-scoreado.** Antes el costo decidía el ranking de facto (mayor varianza que la calidad apelotonada). Ahora cada dimensión se estandariza → el peso = influencia real. **Opus 4.8 sube #63→#17; Haiku 4.5 (sub) entra al top 10.** Los líderes de calidad suben sin que el costo los aplaste. Ver el bloque de pesos arriba.
 
