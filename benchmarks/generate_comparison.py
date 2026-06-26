@@ -86,6 +86,49 @@ COMPARISONS = [
         "title": "Fable 5 vs GPT-5.5 en 2026: comparación con benchmark real",
         "intent_kw": "fable 5 vs gpt 5.5, claude fable vs chatgpt, anthropic vs openai 2026, fable 5 benchmark español",
     },
+    # --- Nuevas comparaciones junio 2026 (modelos recién disponibles / por medir) ---
+    {
+        "slug": "nemotron-3-ultra-vs-deepseek-v4-flash",
+        "a": {"name": "Nemotron 3 Ultra", "match": ["nemotron-3-ultra"]},
+        "b": {"name": "DeepSeek V4 Flash", "match": ["deepseek-v4-flash"], "exclude": ["deepseek-ai"]},
+        "title": "Nemotron 3 Ultra vs DeepSeek V4 Flash en 2026: comparación con benchmark real",
+        "intent_kw": "nemotron 3 ultra vs deepseek v4 flash, nvidia vs deepseek, mejor modelo barato 2026, llm calidad precio",
+    },
+    {
+        "slug": "glm-5.2-vs-qwen-3.7-plus",
+        "a": {"name": "GLM 5.2", "match": ["glm-5.2"]},
+        "b": {"name": "Qwen 3.7 Plus", "match": ["qwen3.7-plus"]},
+        "title": "GLM 5.2 vs Qwen 3.7 Plus en 2026: comparación con benchmark real",
+        "intent_kw": "glm 5.2 vs qwen 3.7 plus, zhipu vs alibaba, mejor llm chino barato, modelos chinos 2026",
+    },
+    {
+        "slug": "claude-opus-4.8-fast-vs-claude-fable-5",
+        "a": {"name": "Claude Opus 4.8 Fast", "match": ["opus-4.8-fast"]},
+        "b": {"name": "Claude Fable 5", "match": ["fable"]},
+        "title": "Claude Opus 4.8 Fast vs Fable 5 en 2026: comparación con benchmark real",
+        "intent_kw": "claude opus 4.8 fast vs fable 5, anthropic fast vs fable, mejor claude premium 2026",
+    },
+    {
+        "slug": "grok-4.3-vs-gpt-5.5",
+        "a": {"name": "Grok 4.3", "match": ["grok-4.3"]},
+        "b": {"name": "GPT-5.5", "match": ["gpt-5.5"]},
+        "title": "Grok 4.3 vs GPT-5.5 en 2026: comparación con benchmark real",
+        "intent_kw": "grok 4.3 vs gpt 5.5, xai vs openai, grok vs chatgpt, mejor modelo flagship 2026",
+    },
+    {
+        "slug": "gemini-3.5-flash-vs-gemini-2.5-flash",
+        "a": {"name": "Gemini 3.5 Flash", "match": ["gemini-3.5-flash"]},
+        "b": {"name": "Gemini 2.5 Flash", "match": ["gemini-2.5-flash"]},
+        "title": "Gemini 3.5 Flash vs Gemini 2.5 Flash en 2026: comparación con benchmark real",
+        "intent_kw": "gemini 3.5 flash vs gemini 2.5 flash, google gemini comparativa, gemini flash 3.5 vs 2.5",
+    },
+    {
+        "slug": "north-mini-code-vs-devstral-small",
+        "a": {"name": "North Mini Code", "match": ["north-mini-code"]},
+        "b": {"name": "Devstral Small", "match": ["devstral-small"]},
+        "title": "North Mini Code vs Devstral Small en 2026: comparación con benchmark real",
+        "intent_kw": "north mini code vs devstral small, mejor modelo para programar 2026, coding llm comparativa, cohere vs mistral coding",
+    },
 ]
 
 
