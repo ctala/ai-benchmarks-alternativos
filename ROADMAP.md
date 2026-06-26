@@ -1,7 +1,8 @@
 # Roadmap del Benchmark
 
-> Ultima actualizacion: 1 de Junio de 2026 (sesión DGX Spark + vLLM judge en curso — ver log abajo)
-> Estado del ranking: **v2.6.2 — 113 modelos en config, 72 con cobertura ≥50 runs, 8,000+ runs** evaluados con juez Phi-4. Top 5 compuesto: Llama 4 Scout 17B, Llama 3.1 8B, Llama 3.3 70B, GPT-OSS 20B, Mistral Small 4. Ver [README.md](README.md) y [DATASHEET_2026-05.md](DATASHEET_2026-05.md).
+> Ultima actualizacion: 25 de Junio de 2026 (post-merge Fable 5 + Kimi K2.7 Code + pesos v3.0)
+> Estado del ranking: **v3.0.0 — 125 modelos en config, 90 con cobertura ≥50 runs, ~12,000+ runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
+> Cobertura faltante: ver [TESTS_FALTANTES.md](TESTS_FALTANTES.md) (16 modelos sin runs, 45 con suites faltantes).
 > **Próximo release: Junio 2026** (cadencia mensual). El release de mayo ya salió — ver sección [Ciclo Junio 2026](#ciclo-junio-2026--modelos-nuevos-por-probar) abajo.
 
 ---
