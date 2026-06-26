@@ -38,7 +38,7 @@ from benchmarks.scoring import (
     compute_final_score,
 )
 from benchmarks.llm_judge import LLMJudge, create_judge, judge_score_to_10, JUDGE_PRESETS
-from providers.adapters import UnifiedProvider, OpenAIResponsesProvider, ClaudeCodeProvider, BenchmarkResult
+from providers.adapters import UnifiedProvider, OpenAIResponsesProvider, ClaudeCodeProvider, DiffusionGemmaProvider, BenchmarkResult
 
 # Importar tests
 from benchmarks.tests import content_generation, tool_calling, task_management
@@ -703,6 +703,15 @@ def run_benchmark(args):
         # PRIMERO para ganarle al routing is_local→ollama aunque tier sea "local".
         if model_config.get("provider") in ("llama_server", "llama_server_think") and model_config.get("base_url"):
             provider = UnifiedProvider(model_config["provider"], "no-auth", model_config["base_url"])
+        elif model_config.get("provider") == "diffusion_cli":
+            provider = DiffusionGemmaProvider(
+                "diffusion_cli",
+                bin_path=model_config["bin_path"],
+                gguf_path=model_config["gguf_path"],
+                ngl=model_config.get("ngl", 99),
+                ctx_size=model_config.get("ctx_size", 8192),
+                seed=model_config.get("seed", 42),
+            )
         elif is_local and ollama:
             provider = ollama
         elif model_config.get("provider") == "ollama_cloud" and ollama_cloud:

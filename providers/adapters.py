@@ -525,3 +525,169 @@ class OpenAIResponsesProvider:
             signal.signal(signal.SIGALRM, old_handler)
 
         return result
+
+
+class DiffusionGemmaProvider:
+    """
+    Adaptador para DiffusionGemma via llama-diffusion-cli (llama.cpp PR #24423).
+
+    DiffusionGemma NO es autoregresivo: genera bloques de 256 tokens mediante
+    denoising. El binario llama-diffusion-cli es un CLI, no un servidor, así que
+    este provider ejecuta un subprocess por request y parsea el output.
+
+    Soporta "multi-turn" de forma stateless: el runner le pasa el historial
+    completo en `messages` y se concatena en un único prompt. No es tan limpio
+    como una conversación real con -cnv, pero permite correr agent_long_horizon.
+
+    Provider key: "diffusion_cli". El config del modelo debe incluir:
+        - bin_path: ruta al binario llama-diffusion-cli
+        - gguf_path: ruta al .gguf
+        - ngl: capas en GPU (default 99)
+        - ctx_size: ventana de contexto (default 8192)
+        - seed: semilla para reproducibilidad (default 42)
+    """
+
+    def __init__(
+        self,
+        provider_name: str = "diffusion_cli",
+        bin_path: str = "",
+        gguf_path: str = "",
+        ngl: int = 99,
+        ctx_size: int = 8192,
+        seed: int = 42,
+    ):
+        self.provider_name = provider_name
+        self.bin_path = bin_path
+        self.gguf_path = gguf_path
+        self.ngl = ngl
+        self.ctx_size = ctx_size
+        self.seed = seed
+
+    @staticmethod
+    def _messages_to_prompt(messages: list[dict]) -> str:
+        """Convierte el historial de chat en un prompt de texto plano."""
+        parts = []
+        for m in messages:
+            role = m.get("role", "user")
+            content = (m.get("content", "") or "").strip()
+            if not content:
+                continue
+            if role == "system":
+                parts.append(f"System: {content}")
+            elif role == "user":
+                parts.append(f"User: {content}")
+            elif role == "assistant":
+                parts.append(f"Assistant: {content}")
+        return "\n\n".join(parts)
+
+    def chat(
+        self,
+        model: str,
+        messages: list[dict],
+        tools: list[dict] | None = None,
+        temperature: float = 0.7,
+        max_tokens: int = 2048,
+        timeout: int = 90,
+        force_reasoning: bool = False,
+    ) -> BenchmarkResult:
+        import subprocess
+        import re as _re
+
+        result = BenchmarkResult(
+            provider=self.provider_name,
+            model=model,
+            test_name="",
+            prompt=(messages[-1].get("content", "") or "")[:200],
+        )
+
+        prompt = self._messages_to_prompt(messages)
+        if not prompt:
+            result.error = "Prompt vacio"
+            return result
+
+        cmd = [
+            self.bin_path,
+            "-m", self.gguf_path,
+            "-ngl", str(self.ngl),
+            "--ctx-size", str(self.ctx_size),
+            "-n", str(max_tokens),
+            "--seed", str(self.seed),
+            "-p", prompt,
+        ]
+
+        start = time.perf_counter()
+        try:
+            proc = subprocess.run(
+                cmd,
+                capture_output=True,
+                text=True,
+                timeout=timeout,
+            )
+            elapsed = time.perf_counter() - start
+            stdout = proc.stdout or ""
+            stderr = proc.stderr or ""
+
+            if proc.returncode != 0:
+                result.latency_total = elapsed
+                result.error = f"llama-diffusion-cli exit {proc.returncode}: {stderr[:250]}"
+                return result
+
+            # Parsear metricas. Ejemplo de linea final:
+            # throughput: 23.2 tok/s (2048 tok in 88462.60ms), in-step parallel 472 tok/s
+            throughput_match = _re.search(
+                r"throughput:\s*([\d.]+)\s*tok/s\s*\((\d+)\s*tok\s+in\s+([\d.]+)\s*ms\)",
+                stdout,
+            )
+            total_time_match = _re.search(
+                r"total time:\s*([\d.]+)\s*ms",
+                stdout,
+            )
+
+            if throughput_match:
+                result.tokens_per_second = float(throughput_match.group(1))
+                result.output_tokens = int(throughput_match.group(2))
+                result.latency_total = float(throughput_match.group(3)) / 1000.0
+                result.latency_first_token = result.latency_total
+            elif total_time_match:
+                result.latency_total = float(total_time_match.group(1)) / 1000.0
+                result.latency_first_token = result.latency_total
+            else:
+                result.latency_total = elapsed
+                result.latency_first_token = elapsed
+
+            # La respuesta es todo lo anterior a la seccion de metricas.
+            lines = stdout.splitlines()
+            cutoff = len(lines)
+            for i, line in enumerate(lines):
+                if "total time:" in line or "throughput:" in line:
+                    cutoff = i
+                    break
+            response = "\n".join(lines[:cutoff]).strip()
+
+            # El CLI a veces repite el prompt al inicio; intentar limpiarlo.
+            if response.startswith(prompt):
+                response = response[len(prompt):].strip()
+
+            # Si force_reasoning, agregar token <|think|> al system prompt. DiffusionGemma
+            # soporta thinking mode incluyendo <|think|> al inicio del system prompt.
+            # Como ya concatenamos, no hacemos nada especial aqui; el usuario puede
+            # incluirlo en el system prompt del test si quiere.
+
+            result.response = response
+            result.success = bool(response)
+            if not result.success:
+                result.error = "Respuesta vacia del modelo"
+                result.error += f" (stderr: {stderr[:200]})" if stderr else ""
+
+        except subprocess.TimeoutExpired:
+            result.latency_total = time.perf_counter() - start
+            result.error = f"TIMEOUT: llama-diffusion-cli no respondio en {timeout}s"
+
+        except Exception as e:
+            result.latency_total = time.perf_counter() - start
+            error_msg = str(e)
+            if len(error_msg) > 200:
+                error_msg = error_msg[:200] + "..."
+            result.error = f"DiffusionGemmaProvider error: {error_msg}"
+
+        return result

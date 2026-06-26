@@ -1410,14 +1410,20 @@ OLLAMA_MODELS = {
         "vram_gb": 16,
     },
     "local-diffusiongemma-26b": {
-        "id": "hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q4_K_M",
-        "name": "DiffusionGemma 26B-A4B (DGX Spark Q4_K_M)",
+        "id": "hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q8_0",
+        "name": "DiffusionGemma 26B-A4B (DGX Spark Q8_0)",
+        "provider": "diffusion_cli",
+        "bin_path": "/home/ctala/llama.cpp-diffusion/build/bin/llama-diffusion-cli",
+        "gguf_path": "/home/ctala/models/diffusiongemma/diffusiongemma-26B-A4B-it-Q8_0.gguf",
+        "ngl": 99,
+        "ctx_size": 8192,
+        "seed": 42,
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
         "open_source": True,
         "license": "Apache 2.0",
-        "vram_gb": 18,
+        "vram_gb": 26,
         "thinking": True,
         "multimodal": True,
         "notes": (
@@ -1426,7 +1432,8 @@ OLLAMA_MODELS = {
             "Requiere llama.cpp PR #24423 (binario llama-diffusion-cli) o Unsloth Studio; Ollama todavía no lo soporta. "
             "Instrucciones: https://unsloth.ai/docs/models/diffusiongemma#llama.cpp-guide. "
             "Contexto 256K, vision nativa (OCR, documentos, UI, video frames), tool calling y thinking con <|think|>. "
-            "Para probar en Spark: descargar Q4_K_M (~16 GB) y servir con llama-diffusion-cli -ngl 99 -cnv."
+            "Q8_0 (~25 GB) para medir calidad real sin pérdida de cuantización. "
+            "Para probar en Spark: descargar Q8_0 y servir con llama-diffusion-cli -m gguf -ngl 99 -n 2048."
         ),
     },
     "local-deepseek-v3": {
@@ -1502,7 +1509,7 @@ CONTEXT_WINDOWS = {
     'google/gemini-3.5-flash': 1048576,
     'google/gemma-4-26b-a4b-it': 262144,
     'google/gemma-4-31b-it': 262144,
-    'hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q4_K_M': 262144,
+    'hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q8_0': 262144,
     'meta-llama/llama-3.3-70b-instruct:free': 131072,
     'meta-llama/llama-4-maverick': 1048576,
     'mimo-v2.5': 1048576,
