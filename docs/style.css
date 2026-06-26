@@ -430,7 +430,9 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
   grid-template-columns: repeat(2, 1fr);
   gap: 0.625rem;
 }
-button.preset-btn {
+button.preset-btn,
+button.preset-budget-btn,
+button.preset-usecase-btn {
   /* Reset button defaults agresivamente */
   appearance: none;
   -webkit-appearance: none;
@@ -454,7 +456,9 @@ button.preset-btn {
   position: relative;
   overflow: hidden;
 }
-button.preset-btn::before {
+button.preset-btn::before,
+button.preset-budget-btn::before,
+button.preset-usecase-btn::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
@@ -463,23 +467,33 @@ button.preset-btn::before {
   opacity: 0;
   transition: opacity 0.15s;
 }
-button.preset-btn:hover {
+button.preset-btn:hover,
+button.preset-budget-btn:hover,
+button.preset-usecase-btn:hover {
   transform: translateY(-2px);
   border-color: var(--cyan);
   background: rgba(0, 212, 255, 0.08);
   box-shadow: 0 4px 16px rgba(0, 212, 255, 0.12);
 }
-button.preset-btn:hover::before { opacity: 1; }
-button.preset-btn.active {
+button.preset-btn:hover::before,
+button.preset-budget-btn:hover::before,
+button.preset-usecase-btn:hover::before { opacity: 1; }
+button.preset-btn.active,
+button.preset-budget-btn.active,
+button.preset-usecase-btn.active {
   border-color: var(--green);
   background: rgba(57, 255, 20, 0.10);
   box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
 }
-button.preset-btn.active::before {
+button.preset-btn.active::before,
+button.preset-budget-btn.active::before,
+button.preset-usecase-btn.active::before {
   background: linear-gradient(90deg, transparent, var(--green), transparent);
   opacity: 1;
 }
-button.preset-btn.active .preset-name { color: var(--green); }
+button.preset-btn.active .preset-name,
+button.preset-budget-btn.active .preset-name,
+button.preset-usecase-btn.active .preset-name { color: var(--green); }
 .preset-icon {
   font-size: 1.75rem !important;
   line-height: 1 !important;
@@ -504,7 +518,9 @@ button.preset-btn.active .preset-name { color: var(--green); }
 
 @media (min-width: 640px) {
   .presets-buttons { grid-template-columns: repeat(4, 1fr); }
-  button.preset-btn { min-height: 108px; padding: 1rem 1.125rem; }
+  button.preset-btn,
+  button.preset-budget-btn,
+  button.preset-usecase-btn { min-height: 108px; padding: 1rem 1.125rem; }
   .preset-icon { font-size: 2rem !important; }
   .preset-name { font-size: 1rem; }
   .preset-meta { font-size: 0.75rem; }

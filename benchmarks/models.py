@@ -276,6 +276,18 @@ MODELS = {
         "force_reasoning": True,
         "notes": "Misma versión que kimi-k2.6 con thinking forzado vía OpenRouter (effort=high).",
     },
+    "kimi-k2.7-code": {
+        "id": "moonshotai/kimi-k2.7-code",
+        "name": "Kimi K2.7 Code",
+        "cost_input": 0.74,
+        "cost_output": 3.50,
+        "tier": "medium",
+        "open_source": True,
+        "license": "Modified MIT",
+        "thinking": True,
+        "niah_max_context": 131072,
+        "notes": "Coding-focused K2.7 family, reasoning mandatory. Precio vía OpenRouter API jun 2026 ($0.74/$3.50). Contexto 262K; niah capado a 128K porque 256K+output supera el límite real.",
+    },
 
     # --- GLM (Zhipu AI / Z.ai) ---
     "glm-5.1": {
@@ -1466,6 +1478,7 @@ CONTEXT_WINDOWS = {
     'moonshotai/kimi-k2-thinking': 262144,
     'moonshotai/kimi-k2.5': 262144,
     'moonshotai/kimi-k2.6': 262144,
+    'moonshotai/kimi-k2.7-code': 262144,
     'nousresearch/hermes-4-405b': 131072,
     'nousresearch/hermes-4-70b': 131072,
     'nvidia/llama-3.1-nemotron-ultra-253b-v1': 131072,

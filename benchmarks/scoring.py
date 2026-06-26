@@ -622,6 +622,7 @@ PRICING = {
     "moonshotai/kimi-k2": (1.00, 3.00),
     "moonshotai/kimi-k2.5": (0.20, 0.80),
     "moonshotai/kimi-k2.6": (0.73, 3.49),  # corregido may 2026 (OpenRouter API; era 1.50/9.00 sobre-estimado)
+    "moonshotai/kimi-k2.7-code": (0.74, 3.50),  # OpenRouter API jun 2026
 
     # ====== xAI Grok ======
     "grok-2": (2.00, 10.00),
@@ -706,15 +707,16 @@ import math
 # - tool_calling 0.15 → 0.0: no discriminaba (var 0.24; solo 8/91 tests usan tools,
 #   el resto N/A=7) → era 15% de ruido. Se reporta como BADGE aparte, no en el score.
 # - su peso + rebalanceo van a quality (0.50→0.60) y speed/latency (0.075→0.10).
-# El score_global se computa con Z-SCORE (en export_for_pages): cada dimensión se
-# estandariza antes de ponderar, así el peso = influencia REAL. Antes el costo
-# dominaba de facto (var 1.85) porque la calidad casi no variaba (var 0.59). v2.9.
+# v3.0 (jun 2026): ajuste de pesos para emprendedores tras auditoría de
+# comparabilidad. El costo/velocidad dominaban demasiado en v2.9 y ocultaban
+# diferencias de calidad real. Se sube quality a 70% y se rebajan costo/speed/
+# latency. El score_global sigue z-scoreado en export_for_pages.
 DEFAULT_WEIGHTS = {
-    "quality": 0.60,
-    "cost": 0.20,
+    "quality": 0.70,
+    "cost": 0.15,
     "tool_calling": 0.0,
-    "speed": 0.10,
-    "latency": 0.10,
+    "speed": 0.075,
+    "latency": 0.075,
 }
 
 

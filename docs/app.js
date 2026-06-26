@@ -40,9 +40,9 @@ const SUITES_BY_PILLAR = {
   ],
 };
 
-// Presets de uso — calibrados para emprendedores hispanohablantes.
-// Cada preset configura los 4 sliders + tarea principal.
-const PRESETS = {
+// Presets de presupuesto — calibrados para emprendedores hispanohablantes.
+// Cada preset configura los 4 sliders de filtros + tarea principal.
+const PRESETS_BUDGET = {
   personal: {
     budget: 5,
     calls: 300,        // ~10 calls/día
@@ -70,6 +70,53 @@ const PRESETS = {
     quality: 7.0,
     speed: 100,        // alta velocidad crítica
     task: "score_global",
+  },
+};
+
+// Presets por caso de uso — ajustan pesos del score y la tarea principal.
+const PRESETS_USE_CASE = {
+  calidad: {
+    label: "Calidad sobre todo",
+    weights: { quality: 90, cost: 5, speed: 2.5, latency: 2.5 },
+    task: "score_global",
+    quality: 7.5,
+  },
+  barato_rapido: {
+    label: "Barato y rápido",
+    weights: { quality: 40, cost: 35, speed: 15, latency: 10 },
+    task: "score_global",
+    quality: 6.0,
+  },
+  chat_vivo: {
+    label: "Chat en vivo (baja latencia)",
+    weights: { quality: 50, cost: 15, speed: 10, latency: 25 },
+    task: "score_global",
+    quality: 6.5,
+    speed: 100,
+  },
+  coding: {
+    label: "Coding",
+    weights: { quality: 70, cost: 15, speed: 7.5, latency: 7.5 },
+    task: "Coding",
+    quality: 7.0,
+  },
+  contenido: {
+    label: "Contenido / Marketing",
+    weights: { quality: 70, cost: 15, speed: 7.5, latency: 7.5 },
+    task: "Contenido",
+    quality: 7.0,
+  },
+  agentes: {
+    label: "Agentes / Tools",
+    weights: { quality: 70, cost: 15, speed: 7.5, latency: 7.5 },
+    task: "Agentes",
+    quality: 6.5,
+  },
+  razonamiento: {
+    label: "Razonamiento profundo",
+    weights: { quality: 90, cost: 5, speed: 2.5, latency: 2.5 },
+    task: "Razonamiento",
+    quality: 7.0,
   },
 };
 
@@ -110,9 +157,10 @@ const state = {
     onlyMultimodal: false,    // Solo multimodal (texto + imagen/audio)
     minContext: 0,            // Contexto efectivo mínimo (0 = sin restricción)
   },
-  // Pesos del score global (v2.9 z-score). Siempre se normalizan a suma=1 antes de aplicar.
+  // Pesos del score global (v3.0 z-score). Siempre se normalizan a suma=1 antes de aplicar.
+  // v3.0: quality sube a 70%, costo baja a 15%, speed/latency 7.5% cada uno.
   // tool_calling quedó en 0 — sigue como columna informativa pero no pondera el score.
-  weights: { quality: 60, cost: 20, speed: 10, latency: 10 },
+  weights: { quality: 70, cost: 15, speed: 7.5, latency: 7.5 },
   // Sorting state — null usa el orden default (por _task_score desc)
   sort: { column: null, direction: "desc" },
 };
@@ -253,40 +301,71 @@ function bindFilters() {
     });
   });
 
-  // Presets de uso
-  document.querySelectorAll(".preset-btn").forEach(btn => {
+  // Presets de presupuesto
+  document.querySelectorAll(".preset-budget-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const presetKey = btn.dataset.preset;
-      const preset = PRESETS[presetKey];
+      const preset = PRESETS_BUDGET[presetKey];
       if (!preset) return;
-      // Aplicar valores a los sliders + state
-      ["budget", "calls", "quality", "speed"].forEach(k => {
-        const el = document.getElementById(k);
-        const out = document.getElementById(k + "-out");
-        if (!el) return;
-        el.value = preset[k];
-        state.filters[k] = preset[k];
-        // Re-format del output según el slider
-        const formatters = {
-          budget: v => `$${v}`,
-          calls: v => Number(v).toLocaleString(),
-          quality: v => Number(v).toFixed(1),
-          speed: v => v,
-        };
-        if (out) out.textContent = formatters[k](preset[k]);
-      });
-      // Aplicar tarea
-      const taskEl = document.getElementById("task");
-      if (taskEl) {
-        taskEl.value = preset.task;
-        state.filters.task = preset.task;
+      applyPresetValues(preset);
+      markActive(btn, ".preset-budget-btn");
+    });
+  });
+
+  // Presets por caso de uso
+  document.querySelectorAll(".preset-usecase-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const presetKey = btn.dataset.preset;
+      const preset = PRESETS_USE_CASE[presetKey];
+      if (!preset) return;
+      applyPresetValues(preset);
+      // Aplicar pesos del score global
+      if (preset.weights) {
+        ["w-quality", "w-cost", "w-speed", "w-latency"].forEach((id, idx) => {
+          const key = ["quality", "cost", "speed", "latency"][idx];
+          const el = document.getElementById(id);
+          const out = document.getElementById(id + "-out");
+          if (el) {
+            el.value = preset.weights[key];
+            state.weights[key] = preset.weights[key];
+          }
+          if (out) out.textContent = preset.weights[key] + "%";
+        });
+        updateWeightWarning();
       }
-      // Marcar visualmente el preset activo
-      document.querySelectorAll(".preset-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
+      markActive(btn, ".preset-usecase-btn");
       render();
     });
   });
+
+  function applyPresetValues(preset) {
+    ["budget", "calls", "quality", "speed"].forEach(k => {
+      if (preset[k] == null) return;
+      const el = document.getElementById(k);
+      const out = document.getElementById(k + "-out");
+      if (!el) return;
+      el.value = preset[k];
+      state.filters[k] = preset[k];
+      const formatters = {
+        budget: v => `$${v}`,
+        calls: v => Number(v).toLocaleString(),
+        quality: v => Number(v).toFixed(1),
+        speed: v => v,
+      };
+      if (out) out.textContent = formatters[k](preset[k]);
+    });
+    const taskEl = document.getElementById("task");
+    if (taskEl && preset.task) {
+      taskEl.value = preset.task;
+      state.filters.task = preset.task;
+      updateSubtaskOptions();
+    }
+  }
+
+  function markActive(btn, selector) {
+    document.querySelectorAll(selector).forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+  }
 }
 
 // Shows a subtle warning when all weight sliders are at 0 (no score computed)
@@ -635,9 +714,9 @@ function render() {
           <th>Modelo</th>
           <th class="num sortable" onclick="toggleSort('final')" title="Click para ordenar">Score ${taskLabel} ${sortIndicator("final")}</th>
           ${showComponents ? `
-            <th class="num sortable" onclick="toggleSort('quality')" title="Quality (50% del Final): score automático + LLM-as-Judge Phi-4. 10 = excelente, 0 = malo. Click para ordenar">Quality ${sortIndicator("quality")}</th>
-            <th class="num sortable" onclick="toggleSort('cost')" title="Cost score (20%): INVERSO al precio — 10 = gratis o muy barato, 5 = $0.01/call, 2 = $0.10/call, 0 = $1.00+/call. Más alto = más barato. Click para ordenar">Costo↓ ${sortIndicator("cost")}</th>
-            <th class="num sortable" onclick="toggleSort('tools')" title="Tool calling (15%): adherencia al schema OpenAI tools. 10 = perfecto, 7 = N/A (test sin tools). Click para ordenar">Tools ${sortIndicator("tools")}</th>
+            <th class="num sortable" onclick="toggleSort('quality')" title="Quality (70% del score global por default): score automático + LLM-as-Judge Phi-4. 10 = excelente, 0 = malo. Click para ordenar">Quality ${sortIndicator("quality")}</th>
+            <th class="num sortable" onclick="toggleSort('cost')" title="Cost score (15% por default): INVERSO al precio — 10 = gratis o muy barato, 5 = $0.01/call, 2 = $0.10/call, 0 = $1.00+/call. Más alto = más barato. Click para ordenar">Costo↓ ${sortIndicator("cost")}</th>
+            <th class="num sortable" onclick="toggleSort('tools')" title="Tool calling (badge, no pondera el score global): adherencia al schema OpenAI tools. 10 = perfecto, 7 = N/A (test sin tools). Click para ordenar">Tools ${sortIndicator("tools")}</th>
           ` : ""}
           <th class="num sortable" onclick="toggleSort('cost_month')" title="Costo total/mes según presupuesto y calls. Click para ordenar">Costo/mes ${sortIndicator("cost_month")}</th>
           <th class="num sortable" onclick="toggleSort('cb')" title="Costo-beneficio relativo: score² / costo. 100% = mejor. Click para ordenar">C/B ${sortIndicator("cb")}</th>

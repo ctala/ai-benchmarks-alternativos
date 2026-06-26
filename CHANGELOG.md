@@ -2,6 +2,39 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v3.0.0] - 2026-06-25 — Benchmark de Kimi K2.7 Code, unificación de scores y ajuste de pesos v3.0
+
+### Benchmark nuevo
+- **Kimi K2.7 Code** (`moonshotai/kimi-k2.7-code`) corrido vía OpenRouter: 168 tests exitosos (105 tareas prácticas + 45 NIAH-es + 18 seguridad), score global **4.77** con pesos v2.9 / **5.07** con pesos v3.0.
+- Configurado como thinking model con `niah_max_context: 131072` (los tests de 256K superan el contexto real al sumar output).
+- Timeout por request elevado a **600s** para acomodar thinking models lentos.
+
+### Unificación de scores (MODELOS.md ↔ calculadora)
+- `generate_modelos_md_table.py` ahora lee `docs/data/models.json` y usa el mismo `score_global` z-scoreado que la calculadora web.
+- Eliminada la discrepancia donde `MODELOS.md` mostraba un promedio lineal distinto.
+
+### Ajuste de pesos v3.0
+Tras auditoría de comparabilidad, el score global ahora usa:
+- **Quality: 70%** (antes 60%)
+- **Costo: 15%** (antes 20%)
+- **Velocidad: 7.5%** (antes 10%)
+- **Latencia: 7.5%** (antes 10%)
+
+Efecto: el ranking global deja de estar tan sesgado hacia modelos baratos/rápidos y recupera más la señal de calidad real.
+
+### MODELOS.md: tablas por caso de uso
+Además del score global, `MODELOS.md` ahora incluye tablas separadas:
+- Mejor calidad pura
+- Mejor coding
+- Mejor razonamiento
+- Mejor contenido/marketing
+- Mejor relación calidad/costo (pesos v2.9 como referencia)
+
+### Docs actualizadas
+- `README.md`: versión 3.0.0, nueva tabla de pesos, top-10 v3.0, calculadora.
+- `benchmarks/scoring.py`: `DEFAULT_WEIGHTS` actualizados.
+- `docs/data/models.json` y `MODELOS.md` regenerados.
+
 ## [v2.7.1] - 2026-05-22 — Catálogo: modelos Grok + suscripción xAI SuperGrok
 
 ### Agregado al catálogo (config, PENDIENTE de benchmark)

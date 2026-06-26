@@ -1,6 +1,6 @@
 # Benchmark de Modelos AI Alternativos: comparación abierta de 70 LLMs en español para N8N, OpenClaw y emprendedores
 
-**Version 2.9.0** | Ultima actualizacion: 4 de Junio de 2026 | [📊 Datasheet junio](DATASHEET_2026-06.md) · [📊 Datasheet mayo](DATASHEET_2026-05.md) · [📄 CheatSheet PDF mayo](cheatsheet/AI_Model_Benchmark_CheatSheet_Mayo_2026.pdf)
+**Version 3.0.0** | Ultima actualizacion: 25 de Junio de 2026 | [📊 Datasheet junio](DATASHEET_2026-06.md) · [📊 Datasheet mayo](DATASHEET_2026-05.md) · [📄 CheatSheet PDF junio](cheatsheet/AI_Model_Benchmark_CheatSheet_Junio_2026.pdf)
 
 > **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con 8,000+ tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N, OpenClaw o Hermes con presupuestos reales.
 
@@ -14,38 +14,40 @@ Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw,
 
 ## Score = combinación ponderada (NO solo calidad)
 
-⚠️ **Disclaimer crítico**: nuestro `score_global` NO es solo quality. Es una **función ponderada** de los componentes que reflejan el valor real para un emprendedor LATAM. **Desde v2.9 el score se computa con z-score** (cada dimensión se estandariza antes de ponderar):
+⚠️ **Disclaimer crítico**: nuestro `score_global` NO es solo quality. Es una **función ponderada** de los componentes que reflejan el valor real para un emprendedor LATAM. **Desde v3.0 el score se computa con z-score** (cada dimensión se estandariza antes de ponderar):
 
 | Componente | Peso default | Qué mide |
 |---|---|---|
-| **Quality** | 60% | Phi-4 judge + criterios automáticos (formato + sustancia) |
-| **Cost** | 20% | Curva log inversa, precio OpenRouter por proveedor |
-| **Speed** | 10% | Tokens/s del modelo |
-| **Latency** | 10% | Latencia first-token |
+| **Quality** | **70%** | Phi-4 judge + criterios automáticos (formato + sustancia) |
+| **Cost** | **15%** | Curva log inversa, precio OpenRouter por proveedor |
+| **Speed** | **7.5%** | Tokens/s del modelo |
+| **Latency** | **7.5%** | Latencia first-token |
 | ~~Tool calling~~ | 0% (badge) | No discriminaba (todos ~7; 8/91 tests) → fuera del score, se muestra como badge |
 
-> **Por qué z-score (v2.9, jun 2026)**: descubrimos que el **costo decidía el ranking más que la calidad, aunque pesara menos** — porque la calidad casi no separa a los modelos (varianza 0.59, todos 7.5-8.5) mientras el costo va de gratis a $75/M (varianza 1.85). El peso nominal ≠ la influencia real. **Estandarizar cada dimensión (z-score) hace que 60% quality = 60% de influencia REAL.** Efecto: la calidad recupera su peso, los premium dejan de estar injustamente hundidos (**Opus 4.8 sube de #63 a #17**), y los líderes de calidad/coding (Devstral, DeepSeek V4 Flash, Qwen-Coder) suben. Además sacamos `tool_calling` del compuesto (era 15% de ruido: no discrimina). Ver [INSIGHTS.md](INSIGHTS.md).
+> **Por qué z-score (v3.0, jun 2026)**: estandarizar cada dimensión hace que el peso nominal sea igual a la influencia real. **Cambio clave en v3.0**: subimos quality de 60% a 70% y bajamos costo de 20% a 15% tras una auditoría que mostró que el ranking global estaba demasiado sesgado hacia modelos baratos/rápidos. Ahora el score global premia más la calidad real, sin ignorar costo/velocidad. Ver [INSIGHTS.md](INSIGHTS.md).
+>
+> **No existe un "mejor modelo" universal.** Para decisiones reales, usá las tablas por caso de uso en [MODELOS.md](MODELOS.md) (calidad pura, coding, razonamiento, contenido, relación calidad/costo) o los sliders de la [calculadora](https://benchmarks.cristiantala.com/).
 
 Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad** (Opus quality 8.4-8.65, de las más altas) sino por costo — pero ahora en su justa medida, no aplastados.
 
 **Si solo te importa quality** (y costo no es factor), ordená por la columna `quality_avg` en [docs/data/models.json](docs/data/models.json) o usá los sliders de la [calculadora](https://benchmarks.cristiantala.com/) para ajustar pesos a tu caso.
 
-## Top 10 Global Ranking — score compuesto **v2.9 (z-score)**
+## Top 10 Global Ranking — score compuesto **v3.0 (z-score)**
 
 | # | Modelo | Score | Quality | Cost | Provider | $/1k calls |
 |---|---|---:|---:|---:|---|---:|
-| 1 | **Devstral Small** | **8.37** | 8.03 | 9.69 | OpenRouter | $0.48 |
-| 2 | **Llama 4 Scout 17B** | **8.31** | 7.93 | 9.58 | Groq | $0.54 |
-| 3 | **DeepSeek V4 Flash** 🆕 | **8.19** | 8.34 | 9.37 | OpenRouter | $0.33 |
-| 4 | **Qwen3-Coder-Next** 🆕 | **8.15** | 8.22 | 8.55 | OpenRouter | $1.23 |
-| 5 | Llama 3.3 70B | 8.05 | 8.01 | 8.15 | Groq | $1.36 |
-| 6 | Mistral Small 4 | 7.82 | 8.08 | 8.84 | OpenRouter | $0.94 |
-| 7 | Llama 3.1 8B Instant | 7.64 | 7.61 | 9.87 | Groq | $0.14 |
-| 8 | Gemini 3.1 Flash Lite | 7.63 | 8.01 | 8.27 | OpenRouter | $2.33 |
-| 9 | Hermes 4 70B | 7.59 | 8.04 | 9.47 | OpenRouter | $0.64 |
-| 10 | **Claude Haiku 4.5** (sub) | 7.48 | 8.44 | 5.14 | Claude Code | $7.80 |
+| 1 | **DeepSeek V4 Flash** | **8.33** | 8.34 | 9.37 | OpenRouter | $0.33 |
+| 2 | **DeepSeek R1** | **8.27** | 8.69 | 5.52 | OpenRouter | $3.96 |
+| 3 | **Qwen3-Coder-Next** | **8.13** | 8.22 | 8.55 | OpenRouter | $1.23 |
+| 4 | **Claude Opus 4.8** | **8.07** | 8.39 | 2.02 | OpenRouter | $39.00 |
+| 5 | **Devstral Small** | **8.00** | 8.03 | 9.69 | OpenRouter | $0.48 |
+| 6 | **Claude Haiku 4.5** (sub) | **7.98** | 8.44 | 5.14 | Claude Code | $7.80 |
+| 7 | **Claude Sonnet 4.6** (sub) | **7.89** | 8.57 | 3.32 | Claude Code | $23.40 |
+| 8 | **MiniMax M3** | **7.83** | 8.37 | 7.29 | OpenRouter | $1.89 |
+| 9 | **Qwen 3.6 Max** | **7.82** | 8.62 | 4.79 | OpenRouter | $9.67 |
+| 10 | **Llama 4 Scout 17B** | **7.80** | 7.93 | 9.58 | Groq | $0.54 |
 
-> **Cambio v2.9 (jun 2026): score z-scoreado.** Antes el costo decidía el ranking de facto (mayor varianza que la calidad apelotonada). Ahora cada dimensión se estandariza → el peso = influencia real. **Opus 4.8 sube #63→#17; Haiku 4.5 (sub) entra al top 10.** Los líderes de calidad suben sin que el costo los aplaste. Ver el bloque de pesos arriba.
+> **Cambio v3.0 (jun 2026): ajuste de pesos.** Quality pasa de 60% a **70%** y costo baja de 20% a **15%**. Efecto: modelos de alta calidad (DeepSeek R1, Claude Opus 4.8, Qwen 3.6 Max) suben sin que el costo los aplaste. Devstral Small sigue top-5 porque también tiene calidad sólida (8.03). Ver el bloque de pesos arriba y las tablas por caso de uso en [MODELOS.md](MODELOS.md).
 
 > **Cambio v2.8.1 (jun 2026): NINGÚN modelo cuesta $0.** Los que corren gratis (NIM 40rpm, DGX local, Ollama Cloud sub) se **costean al precio OpenRouter del mismo modelo** — un $0/call inflaba el cost_score y los empujaba al top. El runtime real $0 se marca aparte (`free_runtime`).
 
@@ -89,7 +91,9 @@ Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad*
 
 **[https://benchmarks.cristiantala.com/](https://benchmarks.cristiantala.com/)** — encuentra el modelo IA perfecto en 30 segundos.
 
-Filtros: presupuesto mensual, calls/mes, calidad mínima, velocidad mínima, tarea (razonamiento / coding / contenido / agentes), open-source, excluir Anthropic+OpenAI+Google propietarios. Ranking por mejor balance calidad/costo. Datos del último benchmark, regenerados automáticamente vía GitHub Actions cuando se agregan tests.
+Filtros: presupuesto mensual, calls/mes, calidad mínima, velocidad mínima, tarea (razonamiento / coding / contenido / agentes), sub-categoría específica, contexto efectivo mínimo, open-source, excluir Big-3 propietarios, tool calling, thinking, multimodal. Ranking por score global ajustable con sliders (quality/costo/velocidad/latencia). Datos del último benchmark, regenerados automáticamente.
+
+> **Tip**: si no sabés qué pesos usar, empezá con el preset que se acerque a tu perfil (Personal, Solopreneur, PyME, Producción) o con las tablas por caso de uso en [MODELOS.md](MODELOS.md).
 
 ## Lo que te ahorras al usar este benchmark
 
