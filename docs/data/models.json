@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T17:24:21",
+  "generated_at": "2026-06-26T17:25:13",
   "total_models": 143,
   "tested_count": 91,
   "tokens_per_call_assumption": {
@@ -16,20 +16,20 @@
   "score_method": "zscore_v2.9",
   "norm_stats": {
     "quality_avg": {
-      "mean": 7.7779,
+      "mean": 7.7778,
       "std": 0.5719
     },
     "cost_score_avg": {
-      "mean": 7.4346,
-      "std": 1.946
+      "mean": 7.4343,
+      "std": 1.9458
     },
     "speed_score_avg": {
-      "mean": 6.6205,
-      "std": 2.0893
+      "mean": 6.6203,
+      "std": 2.0894
     },
     "latency_score_avg": {
-      "mean": 2.1685,
-      "std": 1.2345
+      "mean": 2.1684,
+      "std": 1.2346
     }
   },
   "score_rescale": {
@@ -814,7 +814,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 103,
-      "score_global": 7.76,
+      "score_global": 7.77,
       "score_by_pillar": {
         "Contenido": 8.35,
         "Agentes": 7.62,
@@ -1269,7 +1269,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 86,
-      "score_global": 7.38,
+      "score_global": 7.39,
       "score_by_pillar": {
         "Contenido": 7.93,
         "Agentes": 7.5,
@@ -1774,76 +1774,6 @@
       "score_global_linear": 7.56
     },
     {
-      "key": "local-diffusiongemma-26b",
-      "id": "hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q8_0",
-      "name": "DiffusionGemma 26B-A4B (DGX Spark Q8_0)",
-      "tier": "local",
-      "provider": "diffusion_cli",
-      "open_source": true,
-      "license": "Apache 2.0",
-      "cost_input_per_M": 0.06,
-      "cost_output_per_M": 0.33,
-      "cost_per_1k_calls_usd": 0.513,
-      "subscriptions": [],
-      "notes": "Modelo de difusión textual (NO autoregresivo) basado en Gemma 4 26B-A4B (3.8B activos). Genera bloques de 256 tokens en paralelo vía denoising, optimizado para velocidad y multimodalidad. Requiere llama.cpp PR #24423 (binario llama-diffusion-cli) o Unsloth Studio; Ollama todavía no lo soporta. Instrucciones: https://unsloth.ai/docs/models/diffusiongemma#llama.cpp-guide. Contexto 256K, vision nativa (OCR, documentos, UI, video frames), tool calling y thinking con <|think|>. Q8_0 (~25 GB) para medir calidad real sin pérdida de cuantización. Para probar en Spark: descargar Q8_0 y servir con llama-diffusion-cli -m gguf -ngl 99 -n 2048.",
-      "tested": true,
-      "tool_calling": true,
-      "thinking": true,
-      "multimodal": true,
-      "runs": 111,
-      "score_global": 7.1,
-      "score_by_pillar": {
-        "Coding": 7.02,
-        "Contenido": 7.72,
-        "Agentes": 7.73,
-        "Razonamiento": 7.67
-      },
-      "score_by_suite": {
-        "code_generation": 7.99,
-        "content_generation": 8.01,
-        "tool_calling": 7.19,
-        "task_management": 8.3,
-        "reasoning": 8.02,
-        "summarization": 7.52,
-        "presentation": 7.6,
-        "startup_content": 7.93,
-        "deep_reasoning": 7.3,
-        "customer_support": 8.06,
-        "structured_output": 7.66,
-        "hallucination": 7.87,
-        "creativity": 7.63,
-        "string_precision": 5.26,
-        "news_seo_writing": 6.98,
-        "ocr_extraction": 7.09,
-        "orchestration": 7.21,
-        "multi_turn": 7.65,
-        "policy_adherence": 7.9,
-        "agent_capabilities": 8.1,
-        "strategy": 7.88,
-        "sales_outreach": 8.27,
-        "translation": 7.62,
-        "agent_long_horizon": 7.79
-      },
-      "quality_avg": 8.15,
-      "cost_score_avg": 9.04,
-      "speed_score_avg": 5.64,
-      "latency_score_avg": 1.21,
-      "tool_calling_score_avg": 5.98,
-      "judge_score_avg": 4.2,
-      "tokens_per_second": 39.2,
-      "latency_avg_s": 48.72,
-      "total_input_tokens": 0,
-      "total_output_tokens": 162560,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null,
-      "score_global_linear": 7.58
-    },
-    {
       "key": "spark-gemma4-31b-llamacpp",
       "id": "gemma-4-31B-it-Q4_K_M.gguf",
       "name": "Gemma 4 31B (Spark llama-server Q4_K_M)",
@@ -1983,6 +1913,76 @@
       "security_runs": 0,
       "security_score": null,
       "score_global_linear": 7.53
+    },
+    {
+      "key": "local-diffusiongemma-26b",
+      "id": "hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q8_0",
+      "name": "DiffusionGemma 26B-A4B (DGX Spark Q8_0)",
+      "tier": "local",
+      "provider": "diffusion_cli",
+      "open_source": true,
+      "license": "Apache 2.0",
+      "cost_input_per_M": 0.06,
+      "cost_output_per_M": 0.33,
+      "cost_per_1k_calls_usd": 0.513,
+      "subscriptions": [],
+      "notes": "Modelo de difusión textual (NO autoregresivo) basado en Gemma 4 26B-A4B (3.8B activos). Genera bloques de 256 tokens en paralelo vía denoising, optimizado para velocidad y multimodalidad. Requiere llama.cpp PR #24423 (binario llama-diffusion-cli) o Unsloth Studio; Ollama todavía no lo soporta. Instrucciones: https://unsloth.ai/docs/models/diffusiongemma#llama.cpp-guide. Contexto 256K, vision nativa (OCR, documentos, UI, video frames), tool calling y thinking con <|think|>. Q8_0 (~25 GB) para medir calidad real sin pérdida de cuantización. Para probar en Spark: descargar Q8_0 y servir con llama-diffusion-cli -m gguf -ngl 99 -n 2048.",
+      "tested": true,
+      "tool_calling": true,
+      "thinking": true,
+      "multimodal": true,
+      "runs": 100,
+      "score_global": 7.05,
+      "score_by_pillar": {
+        "Coding": 7.02,
+        "Contenido": 7.68,
+        "Agentes": 7.76,
+        "Razonamiento": 7.67
+      },
+      "score_by_suite": {
+        "code_generation": 7.99,
+        "content_generation": 8.01,
+        "tool_calling": 7.29,
+        "task_management": 8.34,
+        "reasoning": 8.02,
+        "summarization": 7.52,
+        "presentation": 7.6,
+        "startup_content": 7.93,
+        "deep_reasoning": 7.3,
+        "customer_support": 8.06,
+        "structured_output": 7.66,
+        "hallucination": 7.87,
+        "creativity": 7.63,
+        "string_precision": 5.26,
+        "news_seo_writing": 6.98,
+        "ocr_extraction": 7.09,
+        "orchestration": 7.21,
+        "multi_turn": 7.65,
+        "policy_adherence": 7.9,
+        "agent_capabilities": 8.1,
+        "strategy": 7.88,
+        "sales_outreach": 8.27,
+        "translation": 7.62,
+        "agent_long_horizon": 7.79
+      },
+      "quality_avg": 8.14,
+      "cost_score_avg": 9.01,
+      "speed_score_avg": 5.62,
+      "latency_score_avg": 1.2,
+      "tool_calling_score_avg": 6.05,
+      "judge_score_avg": 4.18,
+      "tokens_per_second": 39.3,
+      "latency_avg_s": 50.14,
+      "total_input_tokens": 0,
+      "total_output_tokens": 150272,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 7.56
     },
     {
       "key": "claude-fable-5-sub",
@@ -2306,7 +2306,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 100,
-      "score_global": 6.76,
+      "score_global": 6.77,
       "score_by_pillar": {
         "Contenido": 8.33,
         "Agentes": 7.88,
@@ -2377,7 +2377,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
-      "score_global": 6.67,
+      "score_global": 6.68,
       "score_by_pillar": {
         "Contenido": 7.82,
         "Agentes": 6.73,
@@ -2794,7 +2794,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 134,
-      "score_global": 6.42,
+      "score_global": 6.43,
       "score_by_pillar": {
         "Contenido": 7.52,
         "Agentes": 6.86,
@@ -4143,7 +4143,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 86,
-      "score_global": 5.64,
+      "score_global": 5.65,
       "score_by_pillar": {
         "Contenido": 7.7,
         "Agentes": 6.57,
@@ -4718,7 +4718,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
-      "score_global": 5.22,
+      "score_global": 5.23,
       "score_by_pillar": {
         "Contenido": 8.02,
         "Agentes": 7.23,
@@ -6354,7 +6354,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
-      "score_global": 1.12,
+      "score_global": 1.13,
       "score_by_pillar": {
         "Contenido": 6.7,
         "Agentes": 6.38,
