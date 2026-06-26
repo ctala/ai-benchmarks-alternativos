@@ -30,7 +30,7 @@ except ImportError:
 
 # ====== Configuracion del runner ======
 RUNS_PER_TEST = 3
-REQUEST_TIMEOUT = 300  # segundos. signal.alarm como backup del timeout httpx
+REQUEST_TIMEOUT = 600  # segundos. signal.alarm como backup del timeout httpx
 RESULTS_DIR = "benchmarks/results"
 
 # ====== Toggle providers (desde .env) ======

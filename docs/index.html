@@ -34,7 +34,7 @@
       "@type": "Dataset",
       "@id": "https://benchmarks.cristiantala.com/#dataset",
       "name": "Benchmark de Modelos AI Alternativos",
-      "description": "Benchmark abierto de 80+ modelos LLM con 6,000+ tests organizados en 4 pilares (Razonamiento, Coding, Contenido, Agentes) y evaluación con LLM-as-Judge Phi-4 local.",
+      "description": "Benchmark abierto de 80+ modelos LLM con 8,000+ tests organizados en 4 pilares (Razonamiento, Coding, Contenido, Agentes) + long-context y seguridad como dimensiones separadas. Evaluación con LLM-as-Judge Phi-4 local.",
       "url": "https://benchmarks.cristiantala.com/",
       "sameAs": "https://github.com/ctala/ai-benchmarks-alternativos",
       "keywords": ["LLM benchmark", "AI models comparison", "Claude alternatives", "GPT alternatives", "OpenRouter", "N8N agents", "OpenClaw", "Spanish AI"],
@@ -60,7 +60,7 @@
       "name": "Calculadora de Modelos IA",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Web",
-      "description": "Calculadora interactiva para encontrar el mejor modelo IA según presupuesto, calidad, velocidad y tarea. Filtra entre 60+ modelos benchmarkeados.",
+      "description": "Calculadora interactiva para encontrar el mejor modelo IA según presupuesto, calidad, velocidad, tarea y caso de uso. Filtra entre 80+ modelos benchmarkeados con pesos ajustables.",
       "url": "https://benchmarks.cristiantala.com/",
       "offers": {
         "@type": "Offer",
@@ -82,7 +82,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260602a">
+<link rel="stylesheet" href="style.css?v=20260625a">
 </head>
 <body>
 
@@ -106,7 +106,7 @@
     <h1>Encuentra el modelo IA perfecto en 30 segundos</h1>
     <p class="lead">
       Calculadora basada en <strong id="hero-runs" aria-live="polite">6.500+</strong> tests reales contra <strong id="hero-models" aria-live="polite">60+</strong> modelos.
-      Filtra por presupuesto, calidad, velocidad, open-source, contexto largo y seguridad. Datos del benchmark v2.8 (junio 2026).
+      Filtra por presupuesto, calidad, velocidad, open-source, contexto largo y seguridad. Datos del benchmark v3.0 (junio 2026): score global ajustado a 70% calidad / 15% costo.
     </p>
     <p class="lead" style="margin-top: 1rem; font-size: 0.95rem;">
       ⚠️ <strong>No existe un "mejor modelo" universal.</strong> "Coding" significa cosas distintas
@@ -147,27 +147,63 @@
     <h2>Tus criterios</h2>
 
     <div class="presets">
-      <p class="presets-label">Presets rápidos por perfil:</p>
+      <p class="presets-label">Presets por presupuesto:</p>
       <div class="presets-buttons">
-        <button class="preset-btn" data-preset="personal" type="button">
+        <button class="preset-budget-btn" data-preset="personal" type="button">
           <span class="preset-icon">🧑</span>
           <span class="preset-name">Personal</span>
           <span class="preset-meta">~$5/mes · 300 calls</span>
         </button>
-        <button class="preset-btn" data-preset="solopreneur" type="button">
+        <button class="preset-budget-btn" data-preset="solopreneur" type="button">
           <span class="preset-icon">🚀</span>
           <span class="preset-name">Solopreneur</span>
           <span class="preset-meta">~$25/mes · 3K calls</span>
         </button>
-        <button class="preset-btn" data-preset="pyme" type="button">
+        <button class="preset-budget-btn" data-preset="pyme" type="button">
           <span class="preset-icon">🏢</span>
           <span class="preset-name">PyME / Startup</span>
           <span class="preset-meta">~$100/mes · 30K calls</span>
         </button>
-        <button class="preset-btn" data-preset="produccion" type="button">
+        <button class="preset-budget-btn" data-preset="produccion" type="button">
           <span class="preset-icon">⚙️</span>
           <span class="preset-name">Producción</span>
           <span class="preset-meta">~$500/mes · 300K calls</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="presets">
+      <p class="presets-label">Presets por caso de uso (ajustan pesos automáticamente):</p>
+      <div class="presets-buttons">
+        <button class="preset-usecase-btn" data-preset="calidad" type="button">
+          <span class="preset-icon">🏆</span>
+          <span class="preset-name">Calidad sobre todo</span>
+          <span class="preset-meta">90% calidad</span>
+        </button>
+        <button class="preset-usecase-btn" data-preset="coding" type="button">
+          <span class="preset-icon">💻</span>
+          <span class="preset-name">Coding</span>
+          <span class="preset-meta">Pilar Coding</span>
+        </button>
+        <button class="preset-usecase-btn" data-preset="contenido" type="button">
+          <span class="preset-icon">✍️</span>
+          <span class="preset-name">Contenido</span>
+          <span class="preset-meta">Pilar Contenido</span>
+        </button>
+        <button class="preset-usecase-btn" data-preset="agentes" type="button">
+          <span class="preset-icon">🔧</span>
+          <span class="preset-name">Agentes</span>
+          <span class="preset-meta">Pilar Agentes</span>
+        </button>
+        <button class="preset-usecase-btn" data-preset="chat_vivo" type="button">
+          <span class="preset-icon">💬</span>
+          <span class="preset-name">Chat en vivo</span>
+          <span class="preset-meta">Prioriza latencia</span>
+        </button>
+        <button class="preset-usecase-btn" data-preset="barato_rapido" type="button">
+          <span class="preset-icon">⚡</span>
+          <span class="preset-name">Barato y rápido</span>
+          <span class="preset-meta">35% costo</span>
         </button>
       </div>
     </div>
@@ -201,7 +237,7 @@
       <details class="filter weight-panel" id="weight-panel">
         <summary>
           <span class="weight-panel-title">Pesos del score global</span>
-          <span class="weight-panel-defaults">Quality 60 · Costo 20 · Velocidad 10 · Latencia 10</span>
+          <span class="weight-panel-defaults">Quality 70 · Costo 15 · Velocidad 7.5 · Latencia 7.5</span>
           <span class="weight-panel-hint">(clic para ajustar)</span>
         </summary>
         <div class="weight-panel-body">
@@ -209,40 +245,41 @@
             Todos los pesos están en 0. El score no puede calcularse.
           </p>
           <p class="weight-note">
-            <strong>Pesos del score compuesto</strong> — cada dimensión se estandariza antes de ponderar (z-score v2.9),
-            así que el peso refleja influencia real. Con la escala lineal anterior, "costo" dominaba por su
-            mayor varianza aunque tuviera menos peso. Los pesos se normalizan automáticamente a 100%.
-            Solo aplican al score <em>Global</em>; los pilares (Razonamiento, Coding, Contenido, Agentes) no cambian.
+            <strong>No existe un "mejor modelo" universal.</strong> El score global es solo una forma de ordenar
+            según tus prioridades. Cada dimensión se estandariza antes de ponderar (z-score v3.0), así que el peso
+            refleja influencia real. Los pesos se normalizan automáticamente a 100%.
+            Para decisiones concretas, usá los <strong>presets por caso de uso</strong> arriba o las tablas de
+            <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/MODELOS.md" target="_blank" rel="noopener">MODELOS.md</a>.
           </p>
           <div class="weight-sliders">
             <div class="filter">
-              <label for="w-quality">Calidad: <output id="w-quality-out">60%</output></label>
-              <input type="range" id="w-quality" min="0" max="100" step="5" value="60"
+              <label for="w-quality">Calidad: <output id="w-quality-out">70%</output></label>
+              <input type="range" id="w-quality" min="0" max="100" step="2.5" value="70"
                      aria-label="Peso de calidad en el score global">
               <small>Score automático + LLM-as-Judge Phi-4. Principal señal de calidad real de las respuestas.</small>
             </div>
             <div class="filter">
-              <label for="w-cost">Costo: <output id="w-cost-out">20%</output></label>
-              <input type="range" id="w-cost" min="0" max="100" step="5" value="20"
+              <label for="w-cost">Costo: <output id="w-cost-out">15%</output></label>
+              <input type="range" id="w-cost" min="0" max="100" step="2.5" value="15"
                      aria-label="Peso de costo en el score global">
               <small>Inverso al precio por token. Subir si el presupuesto es tu restricción principal.</small>
             </div>
             <div class="filter">
-              <label for="w-speed">Velocidad: <output id="w-speed-out">10%</output></label>
-              <input type="range" id="w-speed" min="0" max="100" step="5" value="10"
+              <label for="w-speed">Velocidad: <output id="w-speed-out">7.5%</output></label>
+              <input type="range" id="w-speed" min="0" max="100" step="2.5" value="7.5"
                      aria-label="Peso de velocidad en el score global">
               <small>Tokens/segundo. Importante para agentes en tiempo real o workflows multi-step.</small>
             </div>
             <div class="filter">
-              <label for="w-latency">Latencia: <output id="w-latency-out">10%</output></label>
-              <input type="range" id="w-latency" min="0" max="100" step="5" value="10"
+              <label for="w-latency">Latencia: <output id="w-latency-out">7.5%</output></label>
+              <input type="range" id="w-latency" min="0" max="100" step="2.5" value="7.5"
                      aria-label="Peso de latencia en el score global">
               <small>Tiempo hasta primer token. Relevante para chat conversacional en vivo.</small>
             </div>
           </div>
           <p class="weight-note weight-note-tools">
             Tool calling se sigue mostrando como columna informativa en la tabla pero ya no pondera el score global
-            (v2.9: peso = 0). Filtrá por "Sólo con tool calling" si es requisito duro, o usá el pilar "Agentes"
+            (v3.0: peso = 0). Filtrá por "Sólo con tool calling" si es requisito duro, o usá el pilar "Agentes"
             para ordenar por esa dimensión.
           </p>
         </div>
@@ -362,7 +399,7 @@
                 <span class="cap-badge">NO</span>
                 <span>Input solo texto. Multimodales grandes no son mejores en texto puro y suelen costar más.</span>
               </div>
-              <p class="cap-note">Limitación benchmark v2.3: testea text-only. Multimodal real está en roadmap v2.4.</p>
+              <p class="cap-note">Limitación actual: testea text-only. Multimodal real está en roadmap.</p>
             </div>
           </div>
 
@@ -458,10 +495,10 @@
     <details>
       <summary><strong>¿Cómo funciona el ranking?</strong></summary>
       <p>
-        Cada modelo corre 91 tests organizados en 23 suites (4 pilares: Razonamiento, Coding, Contenido, Agentes).
+        Cada modelo corre ~100 tests organizados en 26 suites (4 pilares: Razonamiento, Coding, Contenido, Agentes).
         Cada test se evalúa en 3 capas: scoring automático (formato + sustancia), validación de respuesta esperada,
         y LLM-as-Judge con Phi-4 local (Microsoft, MIT, cero conflicto de interés).
-        El score global (v2.9) usa z-score: cada dimensión (calidad, costo, velocidad, latencia) se estandariza antes de ponderar, así que los pesos reflejan influencia real en lugar de varianza bruta. Pesos default: calidad 60%, costo 20%, velocidad 10%, latencia 10%. Tool calling ya no entra al score compuesto (permanece como columna informativa). Los pesos son ajustables en el panel "Pesos del score global" de los filtros.
+        El score global (v3.0) usa z-score: cada dimensión (calidad, costo, velocidad, latencia) se estandariza antes de ponderar, así que los pesos reflejan influencia real. Pesos default: calidad 70%, costo 15%, velocidad 7.5%, latencia 7.5%. Tool calling no entra al score compuesto (permanece como columna informativa). Los pesos son ajustables en el panel "Pesos del score global" de los filtros.
       </p>
       <p>
         Los datos del benchmark se versionan en JSON en el repo y se regeneran tras cada lote.
@@ -479,11 +516,11 @@
     <details>
       <summary><strong>¿Cuál es la mejor alternativa a Claude para agentes N8N?</strong></summary>
       <p>
-        Según el benchmark v2.3, las mejores alternativas a Claude por relación calidad/precio para agentes
+        Según el benchmark v3.0, las mejores alternativas a Claude por relación calidad/precio para agentes
         N8N y OpenClaw son <strong>Devstral Small</strong> (Apache 2.0, $0.10/$0.30 per M tokens),
         <strong>Mistral Small 4</strong> ($0.15/$0.60) y <strong>Llama 3.3 70B en Groq</strong> (270 tok/s,
-        $0.59/$0.79). El ranking cambia según la tarea (razonamiento, coding, contenido o agentes) — usa
-        la calculadora arriba para filtrar por tu caso específico.
+        $0.59/$0.79). El ranking cambia según la tarea (razonamiento, coding, contenido o agentes) — usá
+        los presets de caso de uso o los sliders para tu caso específico.
       </p>
     </details>
 
@@ -540,7 +577,7 @@
         La columna <strong>"Seg"</strong> mide resistencia a fuga de credenciales
         (suite <em>prompt_injection_es</em>): se planta un secreto en el documento y se evalúa si el
         modelo lo filtra. "Seguro" (≥7) significa que rechaza correctamente — importante para agentes
-        que procesan documentos de terceros. Multimodal real (imágenes, audio) está en roadmap v2.9.
+        que procesan documentos de terceros. Multimodal real (imágenes, audio) está en roadmap.
       </p>
     </details>
 
@@ -568,7 +605,7 @@
       "name": "¿Cuál es la mejor alternativa a Claude para agentes N8N?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Según el benchmark v2.3, las mejores alternativas a Claude por relación calidad/precio para agentes N8N y OpenClaw son Devstral Small (Apache 2.0, $0.10/$0.30 per M tokens), Mistral Small 4 ($0.15/$0.60) y Llama 3.3 70B en Groq (270 tok/s, $0.59/$0.79). El ranking cambia según la tarea (razonamiento, coding, contenido o agentes)."
+        "text": "Según el benchmark v3.0, las mejores alternativas a Claude por relación calidad/precio para agentes N8N y OpenClaw son Devstral Small (Apache 2.0, $0.10/$0.30 per M tokens), Mistral Small 4 ($0.15/$0.60) y Llama 3.3 70B en Groq (270 tok/s, $0.59/$0.79). El ranking cambia según la tarea (razonamiento, coding, contenido o agentes) — usá los presets de caso de uso o los sliders."
       }
     },
     {
@@ -608,7 +645,7 @@
       "name": "¿El benchmark incluye tests multimodales o de contexto largo?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "La versión actual (v2.3) se enfoca en text-only y contexto medio (≤8K tokens). Multimodal real y contexto largo (>32K) están en el roadmap para v2.4. Los tests actuales cubren tool calling estructurado, JSON generation, código, razonamiento, contenido en español y agentes."
+        "text": "La versión actual se enfoca en text-only y contexto hasta 1M tokens medido vía NIAH-es. Multimodal real está en roadmap. Los tests actuales cubren tool calling estructurado, JSON generation, código, razonamiento, contenido en español, agentes multi-turno y seguridad (fuga de credenciales)."
       }
     },
     {
@@ -633,6 +670,6 @@
   </div>
 </footer>
 
-<script src="app.js?v=20260602a"></script>
+<script src="app.js?v=20260625a"></script>
 </body>
 </html>

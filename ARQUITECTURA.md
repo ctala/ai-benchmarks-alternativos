@@ -624,39 +624,35 @@ que cualquier heurística y tiene mejor correlación con humanos. Por eso
 domina el peso (70%). El 30% automático queda como "ancla" — si el juez
 falla (parsing error, JSON inválido), el score automático no es 0.
 
-### Score final ponderado
+### Score final ponderado (v3.0)
 
-`compute_final_score()` combina 5 dimensiones con pesos:
+`compute_final_score()` combina 4 dimensiones con pesos default para emprendedores:
 
 ```python
 weights = {
-    "quality":      0.35,   # calidad (mezcla auto + judge)
-    "tool_calling": 0.25,   # peso alto porque agentes
-    "cost":         0.15,   # piecewise: gratis=10, >$0.05=1
-    "availability": 0.15,   # hardcoded 7.0 (placeholder)
-    "speed":        0.05,   # >100 tok/s = 10
-    "latency":      0.05,   # <0.5s primer token = 10
+    "quality": 0.70,   # calidad (mezcla auto + judge)
+    "cost":    0.15,   # curva logarítmica inversa al precio
+    "speed":   0.075,  # tokens/segundo
+    "latency": 0.075,  # tiempo al primer token
 }
 ```
 
-Los pesos reflejan prioridad para casos agénticos (tool_calling alto).
-Si tu uso es solo "escribir un blog post", podés bajar tool_calling y
-subir quality usando la calculadora HTML con sliders.
+- `tool_calling` fue removido del score compuesto en v2.9 porque no discriminaba (la mayoría de modelos tenía ~7.0) → ahora es un badge/columna informativa.
+- `availability` fue removido porque era un placeholder constante.
+- En `export_for_pages.py` el score global se **z-scorea**: cada dimensión se estandariza (resta la media y divide por std) antes de ponderar, así el peso nominal = influencia real.
+- Los pesos son ajustables desde la calculadora HTML.
 
-### `cost_per_call` como step function (no lineal)
+Si tu uso es "razonamiento profundo", subí quality. Si es "chat en vivo", subí latencia. Si es "volumen alto", subí costo.
+
+### `cost_per_call` como curva logarítmica
 
 ```python
-if cost_per_call <= 0:    cost_score = 10.0   # gratis
-elif <= 0.001:            cost_score = 9.0
-elif <= 0.005:            cost_score = 7.0
-elif <= 0.01:             cost_score = 5.0
-elif <= 0.05:             cost_score = 3.0
-else:                     cost_score = 1.0
+def cost_score_log(cost_per_call):
+    if cost_per_call <= 1e-6: return 10.0
+    return max(0.0, min(10.0, 8.0 - 3.0 * log10(cost_per_call / 0.001)))
 ```
 
-Decisión: el costo no es lineal en valor para un emprendedor. La
-diferencia entre $0.0005 y $0.005 importa mucho menos que entre $0.005 y
-$0.05. La step function refleja esto.
+Pivote: $0.001/call → score 8.0. Cada orden de magnitud más caro resta ~3 puntos. $0.01/call → 5.0, $0.10/call → 2.0. Reemplaza la antigua step function porque la diferencia relativa importa más que los buckets fijos.
 
 ---
 
