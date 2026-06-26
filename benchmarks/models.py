@@ -1416,7 +1416,7 @@ OLLAMA_MODELS = {
         "bin_path": "/home/ctala/llama.cpp-diffusion/build/bin/llama-diffusion-cli",
         "gguf_path": "/home/ctala/models/diffusiongemma/diffusiongemma-26B-A4B-it-Q8_0.gguf",
         "ngl": 99,
-        "ctx_size": 8192,
+        "ctx_size": 262144,
         "seed": 42,
         "cost_input": 0.0,
         "cost_output": 0.0,
