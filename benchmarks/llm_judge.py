@@ -58,6 +58,13 @@ JUDGE_PRESETS = {
         "provider": "ollama",
         "description": "Phi-4 14B (Microsoft, MIT) - cero conflicto de interes, no evaluamos modelos Microsoft",
     },
+    "phi4-spark": {
+        "model": "phi4:latest",
+        "base_url": "http://192.168.88.190:11434/v1",
+        "api_key": "ollama",
+        "provider": "ollama",
+        "description": "Phi-4 14B en el DGX Spark (Ollama remoto LAN). Mismo modelo/rubrica que el preset phi4 local — comparable con el ranking historico. Util cuando la maquina local no tiene phi4 descargado.",
+    },
     "phi4-vllm": {
         "model": "phi4",  # served-model-name del vllm serve
         "base_url": "http://localhost:8001/v1",
@@ -276,6 +283,7 @@ class LLMJudge:
         self.judge_model = judge_model
         self.provider = provider
         self.is_local = provider == "ollama"
+        self.base_url = base_url  # respetar host del preset (ej. phi4-spark → DGX)
         self.client = OpenAI(
             api_key=api_key,
             base_url=base_url,
@@ -326,12 +334,17 @@ class LLMJudge:
         )
 
         try:
-            # Ollama local: usar /api/generate (mas confiable que /api/chat para gemma4)
+            # Ollama: usar /api/generate (mas confiable que /api/chat para gemma4).
+            # BUG FIX jun 2026: la URL estaba hardcodeada a localhost e ignoraba el
+            # base_url del preset (phi4-spark apuntaba al DGX pero el juez le pegaba
+            # al Ollama local sin phi4 → error silencioso → fallback a score auto en
+            # el 100% de los tests). Ahora se deriva del preset.
             if self.is_local:
                 import httpx as _httpx
+                _ollama_root = self.base_url.replace("/v1", "").rstrip("/")
                 try:
                     _r = _httpx.post(
-                        "http://localhost:11434/api/generate",
+                        f"{_ollama_root}/api/generate",
                         json={
                             "model": self.judge_model,
                             "prompt": rubric,
@@ -342,6 +355,10 @@ class LLMJudge:
                     )
                     _data = _r.json()
                     _content = _data.get("response", "")
+                    if not _content:
+                        # ej. {"error": "model not found"} → forzar fallback al
+                        # cliente OpenAI-compatible del preset en vez de fallar mudo
+                        raise RuntimeError(f"ollama /api/generate sin contenido: {str(_data)[:120]}")
                     class _MockResult:
                         class _Choice:
                             class _Msg:
