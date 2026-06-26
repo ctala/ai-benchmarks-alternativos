@@ -1409,6 +1409,26 @@ OLLAMA_MODELS = {
         "license": "Apache 2.0",
         "vram_gb": 16,
     },
+    "local-diffusiongemma-26b": {
+        "id": "hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q4_K_M",
+        "name": "DiffusionGemma 26B-A4B (DGX Spark Q4_K_M)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "local",
+        "open_source": True,
+        "license": "Apache 2.0",
+        "vram_gb": 18,
+        "thinking": True,
+        "multimodal": True,
+        "notes": (
+            "Modelo de difusión textual (NO autoregresivo) basado en Gemma 4 26B-A4B (3.8B activos). "
+            "Genera bloques de 256 tokens en paralelo vía denoising, optimizado para velocidad y multimodalidad. "
+            "Requiere llama.cpp PR #24423 (binario llama-diffusion-cli) o Unsloth Studio; Ollama todavía no lo soporta. "
+            "Instrucciones: https://unsloth.ai/docs/models/diffusiongemma#llama.cpp-guide. "
+            "Contexto 256K, vision nativa (OCR, documentos, UI, video frames), tool calling y thinking con <|think|>. "
+            "Para probar en Spark: descargar Q4_K_M (~16 GB) y servir con llama-diffusion-cli -ngl 99 -cnv."
+        ),
+    },
     "local-deepseek-v3": {
         "id": "deepseek-v3",
         "name": "DeepSeek V3 (local)",
@@ -1482,6 +1502,7 @@ CONTEXT_WINDOWS = {
     'google/gemini-3.5-flash': 1048576,
     'google/gemma-4-26b-a4b-it': 262144,
     'google/gemma-4-31b-it': 262144,
+    'hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q4_K_M': 262144,
     'meta-llama/llama-3.3-70b-instruct:free': 131072,
     'meta-llama/llama-4-maverick': 1048576,
     'mimo-v2.5': 1048576,
@@ -1593,6 +1614,7 @@ OR_COMPARISON_PRICING_EXT = {
     'llama-3.3-70b-free': (0.1, 0.32),
     'llama3.3-70b': (0.1, 0.32),
     'llama4-maverick': (0.15, 0.6),
+    'local-diffusiongemma-26b': (0.06, 0.33),
     'local-qwen3.5-35b': (0.39, 2.34),
     'mimo-v2-flash-free': (0.1, 0.3),
     'nim-deepseek-v4-pro': (0.435, 0.87),
