@@ -1,9 +1,9 @@
 # Roadmap del Benchmark
 
-> Ultima actualizacion: 25 de Junio de 2026 (post-merge Fable 5 + Kimi K2.7 Code + pesos v3.0)
-> Estado del ranking: **v3.0.0 — 125 modelos en config, 90 con cobertura ≥50 runs, ~12,000+ runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
+> Ultima actualizacion: 26 de Junio de 2026 (post-merge Fable 5 + Kimi K2.7 Code + pesos v3.0 + pipeline de regeneración)
+> Estado del ranking: **v3.0.0 — <!-- AUTO:total_models -->143<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->90<!-- /AUTO --> con cobertura ≥50 runs, ~<!-- AUTO:tests_marketing -->10,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
 > Cobertura faltante: ver [TESTS_FALTANTES.md](TESTS_FALTANTES.md) (16 modelos sin runs, 45 con suites faltantes).
-> **Próximo release: Junio 2026** (cadencia mensual). El release de mayo ya salió — ver sección [Ciclo Junio 2026](#ciclo-junio-2026--modelos-nuevos-por-probar) abajo.
+> **Próximo release: Julio 2026** (cadencia mensual). El release de junio ya salió — ver [DATASHEET_2026-06.md](DATASHEET_2026-06.md). La sección [Ciclo Junio 2026](#ciclo-junio-2026--modelos-nuevos-por-probar) queda como log histórico.
 
 ---
 
@@ -57,14 +57,63 @@
 - **Suite multimodal/visión** (Gemma 4, Qwen-VL, Qwen 3.7 Plus) — hoy el bench es solo texto.
 - **Qwen3.6-35B-A3B** quedó cargado en el Spark (8088) — benchmarkear (MoE A3B, candidato ideal para agentes locales).
 
-### Qué entra en el release de junio (checklist)
+### Qué entró en el release de junio 2026 (checklist cerrado)
 
-- [ ] **Probar los modelos nuevos salidos en mayo** (lista candidatos abajo) — al menos los Tier 1 con cobertura ≥50 runs.
-- [ ] **`DATASHEET_2026-06.md`**: cambios mayo→junio (ranking, modelos nuevos, hallazgos) comparado contra `DATASHEET_2026-05.md`.
-- [ ] **Documentar lo que pasó en mayo** que aún no quede en datasheet/INSIGHTS (cierre del ciclo previo).
-- [ ] **Regen estándar** (orden CLAUDE.md): per-model MD → tabla MODELOS → TESTS → `export_for_pages` → sitemap → `sync_doc_counts`.
-- [ ] **CheatSheet PDF "Junio 2026"** + **tag semver** (probable v2.7.0).
-- [ ] Si avanza el eje de eficiencia operativa (abajo): incluir el piloto en INSIGHTS.
+- [x] **Probar modelos nuevos** — Fable 5, Kimi K2.7 Code, MiniMax M3, DeepSeek R1, Qwen 3.6 base, Gemma 4 local, Qwen 3.7 Max.
+- [x] **`DATASHEET_2026-06.md`** — publicado.
+- [x] **Documentar hallazgos** en README, INSIGHTS, DATASHEET y MODELOS.
+- [x] **Regen estándar** automatizado vía `benchmarks/regenerate_all.py`.
+- [x] **CheatSheet PDF "Junio 2026"** + tag `v3.0.0`.
+- [x] **Pesos v3.0** (quality 70%, costo 15%) + z-score.
+
+---
+
+## Ciclo Julio 2026 — modelos prioritarios
+
+> Objetivo: cerrar backfills de junio, probar **DiffusionGemma local** y agregar los modelos nuevos de junio 2026 que ya aparecen en OpenRouter. Fuente de precios/IDs: `https://openrouter.ai/api/v1/models` (verificada 26 jun 2026).
+
+### 🥇 Tier 1 — must test (alta relevancia para el público del benchmark)
+
+| Modelo | ID en OpenRouter / local | Por qué medirlo | Acción inmediata |
+|---|---|---|---|
+| **DiffusionGemma 26B-A4B** | `hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q4_K_M` | Primera difusión textual en el bench: velocidad, multimodal nativa, 256K ctx. | Bajar Q4_K_M (~16 GB), compilar llama.cpp PR #24423, servir con `llama-diffusion-cli -ngl 99 -cnv`. |
+| **Nemotron 3 Ultra 550B-A55B** | `nvidia/nemotron-3-ultra-550b-a55b` (+ `:free`) | MoE gigante (550B/55B activos), sucesor del Super 120B. Gratis y pago. | Agregar al config; correr sweep ≥50 runs. |
+| **GLM 5.2** | `z-ai/glm-5.2` | Sucesor de GLM 5.1, agentic chino, muy barato ($0.95/$3.00 por M). | Agregar + medir. |
+| **Qwen 3.7 Plus** | `qwen/qwen3.7-plus` | Sucesor de Qwen 3.6 Plus/Max. $0.32/$1.28 por M. | Agregar + medir; comparar contra 3.6 Max y 3.7 Max. |
+| **Cohere North Mini Code** | `cohere/north-mini-code:free` | Coding especializado, gratis. | Agregar + medir en pilar Coding. |
+| **Poolside Laguna XS.2 / M.1** | `poolside/laguna-xs.2`, `poolside/laguna-m.1` (+ `:free`) | Coding francés, precio mínimo ($0.10/$0.20 por M en XS.2). | Agregar ambos; medir coding + agentes. |
+| **Claude Opus 4.8 Fast** | `anthropic/claude-opus-4.8-fast` | Variante rápida del flagship. $10/$50 por M. | Agregar + comparar contra Opus 4.8 normal. |
+| **Grok 4.3** | `x-ai/grok-4.3` | Ya en config, sin runs. $1.25/$2.50 por M, 2M ctx. | Correr sweep. |
+
+### 🥈 Tier 2 — backfill y modelos con runs insuficientes
+
+| Modelo | Config key | Por qué |
+|---|---|---|
+| Claude Sonnet 4 | `claude-sonnet` | Nuevo flagship Anthropic en config, sin runs. |
+| GPT-4o / GPT-4o High | `gpt-4o`, `gpt-4o-high` | GPT-5.x domina la familia OpenAI; validar si 4o sigue relevante. |
+| GPT-5.5 Pro | `gpt-5.5-pro` | Versión Pro del techo de calidad OpenAI. |
+| GPT-OSS 120B (Groq) | `groq-gpt-oss-120b` | Open weights en Groq (baja latencia). |
+| Seed-OSS 36B | `seed-oss-36b` | ByteDance open weights. |
+| Step3 | `step3` | StepFun, alternativa china. |
+| DeepSeek R1 (free) | `deepseek-r1-free` | Reintentar; antes fue flaky. |
+| Qwen3 Coder 480B (free) | `qwen3-coder-free` | Coding gratis, potencial top coding. |
+
+### 🔧 Tech debt pendiente
+
+- **Drift de ids** — re-medir/reparar: `mistralai/devstral-small`, `x-ai/grok-4.1-fast`, `deepseek-ai/deepseek-v4-flash` (NIM).
+- **Groq** — falta `GROQ_API_KEY`; los modelos Groq se misrutean. Usar OpenRouter como fallback.
+- **Suite multimodal/visión** — Gemma 4, Qwen-VL, Qwen 3.7 Plus, DiffusionGemma tienen visión nativa; el bench aún es solo texto.
+- **Adapter para DiffusionGemma** — `llama-diffusion-cli` no es servidor OpenAI. Decidir: wrapper local, Unsloth Studio API, o modo server si el PR lo incluye.
+- **TESTS_FALTANTES.md auto-regen** — actualmente desactualizado (dice 125 modelos; son 143). Conectar al pipeline o regenerar manualmente tras cada lote.
+
+### Qué entra en el release de julio 2026 (checklist)
+
+- [ ] **Tier 1**: al menos 4 de los 8 modelos con cobertura ≥50 runs.
+- [ ] **DiffusionGemma**: al menos un sweep local Q4_K_M con juiz Phi-4.
+- [ ] **DATASHEET_2026-07.md** con cambios junio→julio.
+- [ ] **CheatSheet PDF "Julio 2026"** + tag semver.
+- [ ] **Regen completo** vía `python benchmarks/regenerate_all.py`.
+- [ ] Actualizar [TESTS_FALTANTES.md](TESTS_FALTANTES.md) o automatizar su regeneración.
 
 ### Por qué seguimos agregando modelos (y por qué esto es una *referencia*, no un veredicto)
 
