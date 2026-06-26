@@ -536,6 +536,7 @@ def score_latency(first_token_seconds: float) -> float:
 # Precios por millon de tokens (input, output)
 PRICING = {
     # ====== Anthropic (faltaban — causaban under-estimation grande) ======
+    "anthropic/claude-fable-5": (10.00, 50.00),  # tier sobre Opus, verificado OpenRouter jun 2026
     "anthropic/claude-opus-4-7": (5.00, 25.00),   # corregido may 2026 (OpenRouter API)
     "anthropic/claude-opus-4-6": (5.00, 25.00),
     "anthropic/claude-opus-4.8": (5.00, 25.00),  # flagship jun 2026   # corregido may 2026 (era 15/75 stale)

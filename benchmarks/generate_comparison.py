@@ -70,6 +70,22 @@ COMPARISONS = [
         "title": "Qwen vs Llama en 2026: comparación open source con benchmark real",
         "intent_kw": "qwen vs llama, llama vs qwen, mejor llm open source, comparativa qwen llama, modelos open source",
     },
+    # Fable 5 (línea Mythos de Anthropic, jun-2026) — spike de búsquedas post-lanzamiento.
+    # Cobertura editorial: EP15 ELHDA + blog cristiantala.com/probe-fable-5-vs-opus-4-8/
+    {
+        "slug": "fable-5-vs-opus-4-8",
+        "a": {"name": "Claude Fable 5", "match": ["fable"]},
+        "b": {"name": "Claude Opus 4.8", "match": ["opus-4.8", "opus 4.8"]},
+        "title": "Fable 5 vs Opus 4.8 en 2026: comparación con benchmark real",
+        "intent_kw": "fable 5 vs opus 4.8, claude fable vs opus, fable 5 anthropic benchmark, fable 5 vale la pena, mythos 5 anthropic",
+    },
+    {
+        "slug": "fable-5-vs-gpt-5-5",
+        "a": {"name": "Claude Fable 5", "match": ["fable"]},
+        "b": {"name": "GPT-5.5", "match": ["gpt-5.5"]},
+        "title": "Fable 5 vs GPT-5.5 en 2026: comparación con benchmark real",
+        "intent_kw": "fable 5 vs gpt 5.5, claude fable vs chatgpt, anthropic vs openai 2026, fable 5 benchmark español",
+    },
 ]
 
 

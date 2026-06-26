@@ -35,6 +35,20 @@ Además del score global, `MODELOS.md` ahora incluye tablas separadas:
 - `benchmarks/scoring.py`: `DEFAULT_WEIGHTS` actualizados.
 - `docs/data/models.json` y `MODELOS.md` regenerados.
 
+## [v2.9.1] - 2026-06-10 — Claude Fable 5 medido (día 1) + fix del juez remoto + rejudge.py
+
+### Agregado
+- **Claude Fable 5** al catálogo: `claude-fable-5` (OpenRouter, $10/$50 verificado vía API — 2x Opus 4.8) + `claude-fable-5-sub` (suscripción Claude Code, costo real $0, mismo cap NIAH 256K que opus-4.8-sub). Tier nuevo SOBRE Opus, adaptive thinking nativo.
+- **Corrida completa de Fable 5-sub**: 176 runs, 0 errores, 26 suites, juez Phi-4 (Spark). Resultado: **quality 8.58 vs Opus 4.8 8.81 en los 162 tests compartidos** — Fable NO supera a Opus en promedio. Gana solo en `agent_long_horizon` (+1.21, el delta más grande de la tabla — exactamente su pitch). Pierde en tareas cortas de formato (multi_turn -1.22, policy_adherence -1.05, structured_output -0.98). Global composite: **#38** (el costo 2x lo hunde en un ranking cost-aware). Conclusión: pagar 2x solo se justifica para horizonte largo agéntico.
+- **`benchmarks/rejudge.py`**: re-juzgado post-hoc de un results JSON cuando el juez falló — relee respuestas completas de `results/responses/`, evalúa con el preset indicado y recalcula quality/final con la fórmula exacta del runner (30/70). Backup `.pre-rejudge`. Escribe `judge_score` (0-5) compatible con `export_for_pages`.
+- **Preset de juez `phi4-spark`**: Phi-4 vía Ollama del DGX Spark (LAN) — mismo modelo/rúbrica que `phi4` local, para máquinas sin phi4 descargado.
+
+### Arreglado
+- **Bug del juez con presets remotos** (`llm_judge.py`): el path Ollama hardcodeaba `localhost:11434` e ignoraba el `base_url` del preset → con `phi4-spark` el juez le pegaba al Ollama local sin phi4, recibía `{"error": "model not found"}` y **caía en silencio al score automático en el 100% de los tests**. Detectado auditando scores bajos sospechosos de Fable en `hallucination` (la respuesta era casi perfecta y el auto-scorer la castigaba por formato/concisión). Con juez real: context_faithfulness 5.7→8.2, news_no_hallucination 3.8→6.8. Las corridas previas (Opus 4.8 etc.) no se vieron afectadas — corrieron donde phi4 sí estaba en localhost.
+
+### Lección metodológica
+- Ante un score bajo inesperado, **auditar la medición antes de creerle al número**: leer la respuesta guardada, verificar que el juez realmente evaluó (señal: `quality == auto_quality` en todos los tests = juez ausente), y comparar contra el mismo provider (sub vs sub, no sub vs API).
+
 ## [v2.7.1] - 2026-05-22 — Catálogo: modelos Grok + suscripción xAI SuperGrok
 
 ### Agregado al catálogo (config, PENDIENTE de benchmark)
