@@ -2,7 +2,7 @@
 
 **Version 3.0.0** | Ultima actualizacion: 25 de Junio de 2026 | [📊 Datasheet junio](DATASHEET_2026-06.md) · [📊 Datasheet mayo](DATASHEET_2026-05.md) · [📄 CheatSheet PDF junio](cheatsheet/AI_Model_Benchmark_CheatSheet_Junio_2026.pdf)
 
-> **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con 8,000+ tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N, OpenClaw o Hermes con presupuestos reales.
+> **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con <!-- AUTO:tests_marketing -->10,000+<!-- /AUTO --> tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N, OpenClaw o Hermes con presupuestos reales.
 
 > 📍 **Qué es este benchmark (y qué NO es)**: este benchmark **NO sustituye** a los benchmarks académicos validados (HumanEval, MMLU, GSM8K, SWE-bench Verified, NIAH original en inglés, MT-Bench, LMSYS Arena). Es un **complemento** diseñado específicamente para **emprendedores hispanohablantes** que necesitan decidir qué modelo usar en situaciones reales (N8N, OpenClaw, Hermes, blogs de actualidad, soporte cliente, agentes, contenido en español neutro). Para investigación académica o capacidades fundamentales del modelo, prioriza los benchmarks oficiales — citados en [BENCHMARKS_EXTERNOS.md](BENCHMARKS_EXTERNOS.md). Para **decidir qué modelo poner en producción para un caso de uso aplicado en español**, esto suma información que los benchmarks oficiales no cubren: costo en provider real, latencia desde Latam, español neutro, agentes multi-turno, y debugging real (que medimos vía cross-ref con SWE-bench/Claw-Eval, NO replicamos).
 
@@ -10,7 +10,7 @@
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw, N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes) y la nueva suite **`agent_long_horizon`** que mide capacidades agénticas en multi-turno largo (lo que el single-turn no captura).
 
-**Cobertura actual**: 89 modelos con ≥50 runs (141 catalogados, incluido **Claude Fable 5** medido el día 1), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
+**Cobertura actual**: <!-- AUTO:tested_count -->90<!-- /AUTO --> modelos con ≥50 runs (<!-- AUTO:total_models -->143<!-- /AUTO --> catalogados, incluido **Claude Fable 5** medido el día 1), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
 
 ## Score = combinación ponderada (NO solo calidad)
 
@@ -105,11 +105,11 @@ Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2
 
 | Recurso invertido | Cantidad |
 |---|---|
-| Modelos en config | **113 únicos** |
-| Modelos con cobertura completa (≥50 runs) | **70** |
+| Modelos en config | **<!-- AUTO:total_models -->143<!-- /AUTO --> únicos** |
+| Modelos con cobertura completa (≥50 runs) | **<!-- AUTO:tested_count -->90<!-- /AUTO -->** |
 | Modelos con datos parciales (1-49 runs) | **9** (incluye 12 variantes thinking de modelos hybrid) |
 | Tests por modelo | **91 single-turn (23 suites) + 12 agent_long_horizon multi-turno = 103 tests** |
-| Runs preservados en JSON | **8,000+** (con éxito) |
+| Runs preservados en JSON | **<!-- AUTO:tests_marketing -->10,000+<!-- /AUTO -->** (con éxito) |
 | Tokens consumidos (preservados) | ~2.5M input + ~7M output |
 | **Costo APIs (OpenAI/OpenRouter/MiniMax/Anthropic/Xiaomi)** | **~$350-400 USD** desde el 11 de abril, + gasto continuo de OpenRouter cada mes para las actualizaciones |
 | **Suscripciones + modelos simultáneos** (Xiaomi, MiniMax, Claude, Ollama Cloud — varias a la vez para poder probar) | **~$300/mes** |

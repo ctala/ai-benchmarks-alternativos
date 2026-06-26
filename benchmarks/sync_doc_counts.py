@@ -3,19 +3,27 @@
 Sincroniza counts (modelos, tests, lotes) en archivos MD/HTML del repo
 desde docs/data/models.json (single source of truth).
 
-Idea: evita la deriva entre docs. Corre:
-    python benchmarks/sync_doc_counts.py
-y reescribe README.md, AGENTS.md, INSIGHTS.md, ARQUITECTURA.md, MODELOS.md,
-los agentes y las landing pages SEO con los counts actuales.
+Uso:
+    python benchmarks/sync_doc_counts.py              # aplica cambios
+    python benchmarks/sync_doc_counts.py --dry-run    # solo muestra
 
-Soporta dos modos de marcado:
-1. Marcadores explícitos: <!-- AUTO:total_models -->88<!-- /AUTO -->
-2. Patrones canónicos via regex (legacy, para textos ya escritos)
+Solo reemplaza marcadores explícitos:
+    <!-- AUTO:total_models -->88<!-- /AUTO -->
+    <!-- AUTO:tested_count -->45<!-- /AUTO -->
+    <!-- AUTO:with_runs -->87<!-- /AUTO -->
+    <!-- AUTO:total_runs -->8,000<!-- /AUTO -->
+    <!-- AUTO:tests_marketing -->7,000+<!-- /AUTO -->
+    <!-- AUTO:lotes -->15<!-- /AUTO -->
 
-Para evitar pisar valores históricos (blogs con fecha, INSIGHTS al día X),
-respeta archivos en blog/ y archivos con marker `# nosync` en la primera línea.
+Para proteger bloques históricos o ejemplos de agentes, envolver en:
+    <!-- nosync-start -->
+    ... texto que NO se toca ...
+    <!-- nosync-end -->
+
+Archivos excluidos: blog/, CHANGELOG.md (histórico por definición).
 """
 
+import argparse
 import json
 import re
 import sys
@@ -24,17 +32,44 @@ from pathlib import Path
 ROOT = Path(__file__).parent.parent
 MODELS_JSON = ROOT / "docs" / "data" / "models.json"
 
+# Marcadores soportados
+COUNT_KEYS = [
+    "total_models",
+    "tested_count",
+    "with_runs",
+    "total_runs",
+    "tests_marketing",
+    "lotes",
+]
+
+# Archivos a actualizar (relativos a ROOT)
+TARGET_GLOBS = [
+    "README.md",
+    "AGENTS.md",
+    "INSIGHTS.md",
+    "ARQUITECTURA.md",
+    "MODELOS.md",
+    "ESTADO_SESION.md",
+    "ROADMAP.md",
+    ".claude/agents/*.md",
+    "docs/alternativas-*/index.html",
+    "docs/modelos-*/index.html",
+]
+
+# Archivos/directorios que NUNCA se tocan
+EXCLUDED = {
+    "blog/",
+    "CHANGELOG.md",
+}
+
 
 def load_counts():
     data = json.loads(MODELS_JSON.read_text())
     total = data["total_models"]
-    tested = data["tested_count"]  # >= 50 runs
+    tested = data["tested_count"]
     with_runs = sum(1 for m in data["models"] if m.get("runs", 0) > 0)
     total_runs = sum(m.get("runs", 0) for m in data["models"])
 
-    # "Lotes" = archivos benchmark_*.json con >=100 runs (excluye smoke tests).
-    # Un lote canónico tiene ≥4 modelos × 91 tests ≈ 364 runs, pero relajamos
-    # a 100 para no perder lotes parciales/cortados.
     results_dir = ROOT / "benchmarks" / "results"
     lotes = 0
     for f in results_dir.glob("benchmark_*.json"):
@@ -52,9 +87,7 @@ def load_counts():
         "with_runs": with_runs,
         "total_runs": total_runs,
         "lotes": lotes,
-        # Marketing-friendly rounding
         "tests_marketing": _round_marketing(total_runs),
-        "models_marketing": tested,
     }
 
 
@@ -63,35 +96,12 @@ def _round_marketing(n: int) -> str:
     if n < 1000:
         return f"{n}"
     floor_k = (n // 1000) * 1000
-    return f"{floor_k:,}+".replace(",", ",")
+    return f"{floor_k:,}+"
 
 
-# Patrones legacy → reemplazo dinámico desde counts
-def build_substitutions(c: dict) -> list[tuple[re.Pattern, str]]:
-    return [
-        # "53 modelos" / "56 modelos" / "45 modelos" → "{tested} modelos"
-        (re.compile(r"\b(45|53|56|61)\s+modelos\b"), f"{c['tested_count']} modelos"),
-        # "5,000+ tests" / "7,500+ tests" → marketing rounded
-        (re.compile(r"\b(?:5,000\+|7,500\+|6,000\+|7,000\+|5K)\s+tests\s+reales"),
-         f"{c['tests_marketing']} tests reales"),
-        (re.compile(r"\b(?:5,000\+|7,500\+|6,000\+|7,000\+|5K)\s+tests"),
-         f"{c['tests_marketing']} tests"),
-        # "7 lotes" / "10 lotes" / "15 lotes" → "{lotes} lotes"
-        # (cualquier dígito 1-2 cifras antes de "lotes consolidados/del/etc")
-        (re.compile(r"\b\d{1,2}\s+lotes\b"), f"{c['lotes']} lotes"),
-        # "45 modelos × 91 tests = 4095 runs" → recalculado
-        (re.compile(r"\b\d+\s+modelos\s+×\s+91\s+tests\s*=\s*\d+\s+runs"),
-         f"{c['tested_count']} modelos × 91 tests = {c['tested_count'] * 91:,} runs"),
-        # "53 modelos × 91 tests" (sin =) → "{tested} modelos × 91 tests"
-        (re.compile(r"\b(?:45|53|56|61)\s+modelos\s+×\s+91\s+tests"),
-         f"{c['tested_count']} modelos × 91 tests"),
-    ]
-
-
-# Marcadores explícitos para nuevos archivos:
-# <!-- AUTO:KEY -->valor<!-- /AUTO -->
-def build_marker_substitutions(c: dict) -> list[tuple[re.Pattern, str]]:
-    keys = {
+def build_marker_substitutions(c: dict) -> dict[str, tuple[re.Pattern, str]]:
+    """Devuelve dict {key: (pattern, replacement)}."""
+    values = {
         "total_models": str(c["total_models"]),
         "tested_count": str(c["tested_count"]),
         "with_runs": str(c["with_runs"]),
@@ -99,41 +109,20 @@ def build_marker_substitutions(c: dict) -> list[tuple[re.Pattern, str]]:
         "tests_marketing": c["tests_marketing"],
         "lotes": str(c["lotes"]),
     }
-    subs = []
-    for key, value in keys.items():
+    subs = {}
+    for key, value in values.items():
         pattern = re.compile(
-            rf"<!-- AUTO:{key} -->.*?<!-- /AUTO -->", re.DOTALL
+            rf"<!-- AUTO:{re.escape(key)} -->.*?<!-- /AUTO -->", re.DOTALL
         )
         replacement = f"<!-- AUTO:{key} -->{value}<!-- /AUTO -->"
-        subs.append((pattern, replacement))
+        subs[key] = (pattern, replacement)
     return subs
-
-
-# Archivos a actualizar (relativos a ROOT)
-TARGET_GLOBS = [
-    "README.md",
-    "AGENTS.md",
-    "INSIGHTS.md",
-    "ARQUITECTURA.md",
-    "MODELOS.md",
-    ".claude/agents/*.md",
-    ".claude/agents/README.md",
-    "docs/alternativas-*/index.html",
-    "docs/modelos-*/index.html",
-]
-
-# Archivos que NUNCA se tocan (históricos/dated)
-EXCLUDED = {
-    "blog/",
-    "CHANGELOG.md",  # histórico, las versiones reflejan estado al momento del release
-}
 
 
 def should_skip(path: Path) -> bool:
     rel = str(path.relative_to(ROOT))
     if any(rel.startswith(p) for p in EXCLUDED):
         return True
-    # Skip si tiene marker `<!-- nosync -->` en las primeras 5 líneas
     try:
         with path.open() as f:
             head = "".join(f.readline() for _ in range(5))
@@ -144,28 +133,58 @@ def should_skip(path: Path) -> bool:
     return False
 
 
-def update_file(path: Path, subs: list, marker_subs: list) -> tuple[bool, int]:
-    """Aplica substituciones. Devuelve (changed, n_replacements)."""
+def split_nosync_blocks(text: str) -> list[tuple[str, bool]]:
+    """
+    Divide el texto en segmentos (texto, is_sync).
+    Los bloques entre <!-- nosync-start --> y <!-- nosync-end --> son is_sync=False.
+    """
+    pattern = re.compile(r"<!-- nosync-start -->.*?<!-- nosync-end -->", re.DOTALL)
+    segments = []
+    last_end = 0
+    for m in pattern.finditer(text):
+        if m.start() > last_end:
+            segments.append((text[last_end:m.start()], True))
+        segments.append((m.group(), False))
+        last_end = m.end()
+    if last_end < len(text):
+        segments.append((text[last_end:], True))
+    return segments
+
+
+def update_file(path: Path, marker_subs: dict[str, tuple], dry_run: bool = False) -> tuple[bool, dict[str, int]]:
+    """Aplica substituciones solo en segmentos sync. Devuelve (changed, counts_por_key)."""
     original = path.read_text()
-    text = original
-    n = 0
-    for pattern, repl in marker_subs + subs:
-        new_text, count = pattern.subn(repl, text)
-        if count > 0:
-            n += count
-            text = new_text
-    if text != original:
-        path.write_text(text)
-        return True, n
-    return False, 0
+    segments = split_nosync_blocks(original)
+    changed = False
+    key_counts = {}
+    new_segments = []
+
+    for seg_text, is_sync in segments:
+        if not is_sync:
+            new_segments.append(seg_text)
+            continue
+        new_text = seg_text
+        for key, (pattern, replacement) in marker_subs.items():
+            new_text, count = pattern.subn(replacement, new_text)
+            if count:
+                key_counts[key] = key_counts.get(key, 0) + count
+                changed = True
+        new_segments.append(new_text)
+
+    if changed and not dry_run:
+        path.write_text("".join(new_segments))
+    return changed, key_counts
 
 
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--dry-run", action="store_true", help="Muestra cambios sin escribir")
+    args = ap.parse_args()
+
     counts = load_counts()
     print(f"Counts actuales: {counts}")
     print()
 
-    subs = build_substitutions(counts)
     marker_subs = build_marker_substitutions(counts)
 
     targets = []
@@ -180,17 +199,20 @@ def main():
     targets = [p for p in sorted(set(targets)) if not should_skip(p)]
 
     changed_files = 0
-    total_replacements = 0
     for path in targets:
-        changed, n = update_file(path, subs, marker_subs)
+        changed, key_counts = update_file(path, marker_subs, dry_run=args.dry_run)
         if changed:
-            print(f"  ✓ {path.relative_to(ROOT)} ({n} reemplazos)")
             changed_files += 1
-            total_replacements += n
+            detail = ", ".join(f"{k}={v}" for k, v in key_counts.items())
+            action = "[dry-run]" if args.dry_run else "✓"
+            print(f"  {action} {path.relative_to(ROOT)} ({detail})")
 
     print()
-    print(f"Total: {changed_files} archivos actualizados, {total_replacements} reemplazos")
-    return 0 if changed_files >= 0 else 1
+    if args.dry_run:
+        print(f"Dry-run: {changed_files} archivos se modificarían")
+    else:
+        print(f"Total: {changed_files} archivos actualizados")
+    return 0
 
 
 if __name__ == "__main__":
