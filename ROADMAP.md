@@ -76,7 +76,7 @@
 
 | Modelo | ID en OpenRouter / local | Por qué medirlo | Acción inmediata |
 |---|---|---|---|
-| **DiffusionGemma 26B-A4B** | `hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q4_K_M` | Primera difusión textual en el bench: velocidad, multimodal nativa, 256K ctx. | Bajar Q4_K_M (~16 GB), compilar llama.cpp PR #24423, servir con `llama-diffusion-cli -ngl 99 -cnv`. |
+| **DiffusionGemma 26B-A4B** ✅ | `hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q8_0` | Primera difusión textual medida. Score 7.05, #25/91, empata con Gemma 4 31B local. | ~~Bajar Q4_K_M~~ — usamos Q8_0. Adapter `diffusion_cli` implementado. Próximo: re-correr `agent_long_horizon` con ctx 262K. |
 | **Nemotron 3 Ultra 550B-A55B** | `nvidia/nemotron-3-ultra-550b-a55b` (+ `:free`) | MoE gigante (550B/55B activos), sucesor del Super 120B. Gratis y pago. | Agregar al config; correr sweep ≥50 runs. |
 | **GLM 5.2** | `z-ai/glm-5.2` | Sucesor de GLM 5.1, agentic chino, muy barato ($0.95/$3.00 por M). | Agregar + medir. |
 | **Qwen 3.7 Plus** | `qwen/qwen3.7-plus` | Sucesor de Qwen 3.6 Plus/Max. $0.32/$1.28 por M. | Agregar + medir; comparar contra 3.6 Max y 3.7 Max. |
@@ -103,13 +103,13 @@
 - **Drift de ids** — re-medir/reparar: `mistralai/devstral-small`, `x-ai/grok-4.1-fast`, `deepseek-ai/deepseek-v4-flash` (NIM).
 - **Groq** — falta `GROQ_API_KEY`; los modelos Groq se misrutean. Usar OpenRouter como fallback.
 - **Suite multimodal/visión** — Gemma 4, Qwen-VL, Qwen 3.7 Plus, DiffusionGemma tienen visión nativa; el bench aún es solo texto.
-- **Adapter para DiffusionGemma** — `llama-diffusion-cli` no es servidor OpenAI. Decidir: wrapper local, Unsloth Studio API, o modo server si el PR lo incluye.
+- ~~**Adapter para DiffusionGemma**~~ — Resuelto con `DiffusionGemmaProvider` (`provider: diffusion_cli`) en `providers/adapters.py`.
 - **TESTS_FALTANTES.md auto-regen** — actualmente desactualizado (dice 125 modelos; son 143). Conectar al pipeline o regenerar manualmente tras cada lote.
 
 ### Qué entra en el release de julio 2026 (checklist)
 
 - [ ] **Tier 1**: al menos 4 de los 8 modelos con cobertura ≥50 runs.
-- [ ] **DiffusionGemma**: al menos un sweep local Q4_K_M con juiz Phi-4.
+- [x] **DiffusionGemma**: sweep local Q8_0 con juez Phi-4 (score 7.05, #25/91).
 - [ ] **DATASHEET_2026-07.md** con cambios junio→julio.
 - [ ] **CheatSheet PDF "Julio 2026"** + tag semver.
 - [ ] **Regen completo** vía `python benchmarks/regenerate_all.py`.
