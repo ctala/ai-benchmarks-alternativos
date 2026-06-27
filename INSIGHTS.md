@@ -1,26 +1,69 @@
 ---
 title: "Insights del benchmark — qué dice la data, no el marketing"
-fecha: "2026-06-04"
-version_benchmark: "v2.9"
-modelos_analizados: 87
-modelos_catalogados: 134
+fecha: "2026-06-26"
+version_benchmark: "v3.0.1"
+modelos_analizados: 91
+modelos_catalogados: 143
 runs_minimas_por_modelo: 50
-tests_por_modelo: "91 single-turn + 12 agent_long_horizon + niah_es (8K–800K) + prompt_injection_es"
-pilares: ["Razonamiento", "Coding", "Contenido/Marketing", "Agentes/Operaciones", "Long-context (usable)", "Seguridad (anti-fuga)"]
+tests_por_modelo: "91 single-turn + 12 agent_long_horizon"
+pilares: ["Razonamiento", "Coding", "Contenido/Marketing", "Agentes/Operaciones"]
 juez_llm: "Phi-4 (Microsoft, 14B, MIT) — vLLM FP16 en DGX Spark"
 audiencia: "Emprendedores latinoamericanos que toman decisiones de producción HOY"
 fuente_datos: "docs/data/models.json + benchmarks/results/*.json"
-pesos_score: {quality: 0.50, cost: 0.20, tool_calling: 0.15, speed: 0.075, latency: 0.075}
-total_runs: "9,390 single-turn (+ NIAH-ES y multi-turn integrados en quality)"
+pesos_score: {quality: 0.70, cost: 0.15, speed: 0.075, latency: 0.075}
+total_runs: "10,508 single-turn + multi-turn"
 ---
 
 # Insights del benchmark — qué dice la data, no el marketing
 
 > **Disclaimer epistemológico**: este documento es **complemento, NO sustituto** de los benchmarks académicos validados (HumanEval, MMLU, GSM8K, SWE-bench Verified, NIAH inglés, MT-Bench, LMSYS Arena). Está pensado para emprendedores hispanohablantes que deciden qué modelo poner en producción HOY para casos aplicados en español neutro (N8N, OpenClaw, Hermes, blogs LATAM, soporte cliente, agentes). Para investigación académica o capacidades fundamentales, prioriza los oficiales. Cross-references documentadas en [BENCHMARKS_EXTERNOS.md](BENCHMARKS_EXTERNOS.md) y [NIAH_CROSSREF.md](NIAH_CROSSREF.md).
 
-Este es el análisis cuantitativo del benchmark `ai-benchmarks-alternativos` al **22 de mayo de 2026** (v2.7). 72 modelos con cobertura ≥50 runs, 91 tests single-turn + 12 multi-turno + 45 retrieval long-context, juez Phi-4 local. La pregunta que respondemos no es "cuál es el mejor modelo", sino: **qué patrones aparecen en la data cuando se comparan precio, velocidad, capacidades, retrieval y proveedor a la vez, en español neutro LATAM**.
+Este es el análisis cuantitativo del benchmark `ai-benchmarks-alternativos` al **26 de junio de 2026** (v3.0.1). **91 modelos** con cobertura ≥50 runs, **143 catalogados**, 91 tests single-turn + 12 multi-turno, juez Phi-4 local. La pregunta que respondemos no es "cuál es el mejor modelo", sino: **qué patrones aparecen en la data cuando se comparan precio, velocidad, capacidades y proveedor a la vez, en español neutro LATAM**.
 
-> 🔄 **Rescore de costo provider-aware (v2.7, 22 may 2026)**: hasta v2.6.x la mayoría de runs tenía el costo calculado con un fallback `(1.0, 3.0)` → `cost_score≈7.0` para casi todos los modelos → **el costo (20% del peso) era casi inerte** y el ranking era de facto solo-calidad. En v2.7 se recalculó `cost_usd`/`cost_score`/`final` de **7.483 runs** con el precio real por proveedor (`benchmarks/models.py`) × tokens reales. **Sólo cambiaron esos 3 campos**; `quality_avg`, `tool_calling`, `speed` y `latency` NO cambiaron. Efecto: el costo ahora **discrimina de verdad** y reordena el ranking. Lo gratis/barato (NIM, Groq, open-source local) sube; lo premium-caro baja (Gemini 2.5 Pro, GPT-5.4 y Sonnet 4.6 caen ~0.25–0.49 puntos; **Opus 4.7 baja a #66/72**). Todas las tablas de este documento ya reflejan el estado **post-v2.7** calculado desde `docs/data/models.json`. Ver [CHANGELOG v2.7.0](CHANGELOG.md) y [README](README.md) para el ranking vigente.
+> 🔄 **Score global v3.0 (z-score, quality 70% · costo 15% · speed/latency 7.5%):** las dimensiones se estandarizan antes de ponderar para que el peso nominal coincida con la influencia real. El tool_calling dejó de formar parte del score compuesto y se muestra como badge. Ver [CHANGELOG v3.0.0](CHANGELOG.md) y [README](README.md) para el ranking vigente.
+
+---
+
+## 🌟 Insight estrella v3.0.1 (26 jun 2026): DiffusionGemma — la primera difusión textual del benchmark compite con Gemma 4 local
+
+Medimos **DiffusionGemma 26B-A4B** (modelo de difusión textual de Google, no autoregresivo) en el DGX Spark con llama.cpp PR #24423, quantización **Q8_0** y 103 tests. Resultado: **score global 7.05**, posición **#25/91** — es decir, **empata con Gemma 4 31B local** y supera a Claude Fable 5 en el ranking compuesto.
+
+Esto es relevante por tres razones:
+
+### 1. La difusión textual ya es viable para tareas prácticas en español
+
+| Modelo | Score global | Posición | Costo | Tok/s |
+|---|---|---:|---|---:|
+| DeepSeek V4 Flash (NIM) | 7.11 | #22 | $0 | — |
+| Gemma 4 31B (Spark Q4_K_M) | 7.07 | #23 | $0 | — |
+| Gemma 4 31B (NIM) | 7.06 | #24 | $0 | — |
+| **DiffusionGemma 26B-A4B (Spark Q8_0)** | **7.05** | **#25** | **$0** | **39** |
+| Claude Fable 5 (suscripción) | 6.95 | #26 | $0* | — |
+
+\*costo real $0 por suscripción, pero API equivalente $10/$50.
+
+**Conclusión**: un modelo de difusión con 26B total / 3.8B activos, corriendo local en un Spark, entrega la misma calidad práctica que Gemma 4 31B — y lo hace **sin costo por token**.
+
+### 2. El perfil de fortalezas es distinto al de un LLM autoregresivo
+
+| Pilar | DiffusionGemma | Gemma 4 31B (NIM) |
+|---|---:|---:|
+| Coding | 7.02 | 7.42 |
+| Contenido | 7.68 | 7.81 |
+| Agentes/Operaciones | **7.76** | 7.10 |
+| Razonamiento | 7.67 | **7.85** |
+
+DiffusionGemma es **mejor en agentes/operaciones** que Gemma 4 31B, comparable en contenido, pero **más débil en coding puro y razonamiento profundo**. Esto contradice la intuición de que la difusión solo sirve para generación creativa: en tareas de soporte, orquestación y políticas, funciona muy bien.
+
+### 3. Sus puntos débiles son predecibles y corregibles
+
+- **`string_precision` 5.26** — copiar exactamente API keys, JWTs y hex strings. Esto es un problema conocido de los modelos de difusión: generan bloques de tokens en paralelo y pierden precisión a nivel carácter. No lo uses para migrar configs o copiar credenciales.
+- **`agent_long_horizon` con ctx-size 8K** — 7 errores por exceder contexto. Ya ajustamos la config a **262K** para la próxima corrida; se espera que recupere el score de esta suite (ahora 7.79 gracias a los tests que sí entraron).
+- **Latencia**: 39 tok/s promedio. No es Groq (270 tok/s), pero es razonable para un modelo local de 26B en un mini-DGX.
+
+### Lección práctica
+
+DiffusionGemma no reemplaza a los top cloud (DeepSeek V4 Flash #1 con 8.29), pero **democratiza una calidad #25 mundial sin costo por token**. Para un emprendedor latinoamericano con privacidad de datos o presupuesto ajustado, es una alternativa real a pagar APIs premium.
 
 ---
 

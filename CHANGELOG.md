@@ -2,6 +2,25 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v3.0.1] - 2026-06-26 — DiffusionGemma medido local en DGX Spark
+
+### Benchmark nuevo
+- **DiffusionGemma 26B-A4B** (`local-diffusiongemma-26b`) medido vía `llama-diffusion-cli` (llama.cpp PR #24423) en DGX Spark, quantización Q8_0.
+- 103 tests (24 suites), 100 runs exitosos, score global **7.05**, posición **#25/91**.
+- Mejores pilares: Agentes/Operaciones 7.76, Contenido 7.68, Razonamiento 7.67.
+- Debilidad confirmada: `string_precision` 5.26 (copia exacta de credenciales/configs).
+- 7 errores en `agent_long_horizon` atribuidos a ctx-size 8K; config ajustado a 262144 para próximas corridas.
+
+### Infraestructura
+- Nuevo provider `diffusion_cli` en `providers/adapters.py` (`DiffusionGemmaProvider`): ejecuta el binario por subprocess y parsea métricas/respuesta.
+- Scripts auxiliares: `benchmarks/smoke_diffusiongemma.py` y `run_diffusiongemma_codegen.sh`.
+- Pipeline maestro de regeneración: `benchmarks/regenerate_all.py`.
+
+### Docs actualizadas
+- `INSIGHTS.md`: insight estrella v3.0.1 sobre DiffusionGemma y comparación con Gemma 4 31B.
+- `DATASHEET_2026-06.md`: reescrito con cobertura v3.0.1, ranking actualizado y hallazgo del mes.
+- `README.md` y `ROADMAP.md`: counts sincronizados vía marcadores AUTO.
+
 ## [v3.0.0] - 2026-06-25 — Benchmark de Kimi K2.7 Code, unificación de scores y ajuste de pesos v3.0
 
 ### Benchmark nuevo
