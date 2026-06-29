@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DiffusionGemma vs Gemma 4 en 2026: benchmark real de difusión textual</title>
+<meta name="description" content="DiffusionGemma vs Gemma 4 comparados con 100+ tests reales en español: calidad por pilar, velocidad, latencia y casos de uso. Benchmark abierto en DGX Spark.">
+<meta name="keywords" content="diffusiongemma, gemma 4, difusión textual, benchmark ia local, comparativa modelos google, mejor llm local, diffusiongemma vs gemma 4">
+<meta name="author" content="Cristian Tala">
+<link rel="canonical" href="https://benchmarks.cristiantala.com/diffusiongemma-vs-gemma-4/">
+<meta property="og:title" content="DiffusionGemma vs Gemma 4 en 2026: benchmark real de difusión textual">
+<meta property="og:description" content="DiffusionGemma vs Gemma 4 comparados con 100+ tests reales en español: calidad por pilar, velocidad, latencia y casos de uso. Benchmark abierto.">
+<meta property="og:url" content="https://benchmarks.cristiantala.com/diffusiongemma-vs-gemma-4/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_CL">
+<meta property="og:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "DiffusionGemma vs Gemma 4 en 2026: benchmark real de difusión textual",
+  "description": "DiffusionGemma vs Gemma 4 comparados con 100+ tests reales en español: calidad por pilar, velocidad, latencia y casos de uso. Benchmark abierto en DGX Spark.",
+  "author": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  },
+  "datePublished": "2026-06-26",
+  "dateModified": "2026-06-26",
+  "inLanguage": "es",
+  "url": "https://benchmarks.cristiantala.com/diffusiongemma-vs-gemma-4/",
+  "mainEntityOfPage": "https://benchmarks.cristiantala.com/diffusiongemma-vs-gemma-4/",
+  "publisher": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es DiffusionGemma?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DiffusionGemma es un modelo de lenguaje de Google basado en difusión textual. A diferencia de los modelos autoregresivos como Gemma 4, GPT o Claude, que generan un token a la vez, DiffusionGemma genera bloques de 256 tokens en paralelo mediante un proceso de denoising."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿DiffusionGemma es mejor que Gemma 4?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del caso de uso. En nuestro benchmark, DiffusionGemma obtuvo una calidad global de 8.14, muy cercana a los 8.22 de Gemma 4 31B local. DiffusionGemma es mejor en agentes, soporte y velocidad; Gemma 4 sigue siendo superior en coding, razonamiento profundo y precisión de strings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se puede correr DiffusionGemma local?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. DiffusionGemma corre localmente con llama.cpp usando el PR #24423 y el binario llama-diffusion-cli. En nuestras pruebas usamos un DGX Spark con la quantización Q8_0, que ocupa aproximadamente 25 GB."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Para qué sirve DiffusionGemma?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DiffusionGemma es ideal para chatbots de soporte, agentes N8N, orquestación de tareas, resúmenes y cualquier flujo conversacional en español donde la latencia y el costo cero sean importantes. No es recomendable para copiar credenciales, migrar configs o razonamiento matemático profundo."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header>
+  <div class="container header-inner">
+    <a href="https://cristiantala.com" class="logo-link" target="_blank" rel="noopener">
+      <img src="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-dark-2026.png" alt="Cristian Tala" class="logo">
+    </a>
+    <nav>
+      <a href="/">Calculadora</a>
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
+      <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <section class="hero">
+    <h1>DiffusionGemma vs Gemma 4: comparación real con benchmark en español</h1>
+    <p class="lead">¿La difusión textual puede competir con los LLM autoregresivos? Medimos <strong>DiffusionGemma 26B-A4B</strong> contra toda la familia <strong>Gemma 4</strong> con <strong>100+ tests reales</strong> evaluados por Phi-4 en español: calidad por pilar, velocidad, latencia y casos de uso.</p>
+    <p class="meta">Última actualización: 2026-06-26 ·
+    <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a> ·
+    <a href="../INSIGHTS.md">análisis completo en INSIGHTS.md</a></p>
+  </section>
+
+  <section>
+    <h2>¿Qué es DiffusionGemma?</h2>
+    <p><strong>DiffusionGemma</strong> es un modelo de lenguaje de Google basado en <strong>difusión textual</strong>. A diferencia de modelos autoregresivos como Gemma 4, GPT o Claude —que generan un token y luego el siguiente— DiffusionGemma empieza con un bloque de 256 tokens ruidosos y los refina en pasos de denoising. Eso le permite generar bloques enteros en paralelo.</p>
+    <p>La promesa: <strong>más velocidad sin sacrificar calidad</strong>. La duda: ¿funciona para tareas prácticas en español? Nuestro benchmark responde eso.</p>
+  </section>
+
+  <section class="results">
+    <div class="results-header">
+      <h2>Calidad global: empate técnico</h2>
+      <p class="meta">Quality global promedio del juez Phi-4. DiffusionGemma Q8_0 vs variantes Gemma 4.</p>
+    </div>
+    <table class="results-table">
+      <thead>
+        <tr><th>Modelo</th><th>Runs</th><th>Quality global</th><th>Tok/s</th><th>Latencia media</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Gemma 4 31B (Spark Q4_K_M)</strong></td><td>89</td><td><strong>8.22</strong></td><td>9.3</td><td>153.4s</td></tr>
+        <tr><td><strong>DiffusionGemma 26B-A4B (Spark Q8_0)</strong></td><td>100</td><td><strong>8.14</strong></td><td><strong>39.3</strong></td><td><strong>50.1s</strong></td></tr>
+        <tr><td>Gemma 4 31B (NIM)</td><td>184</td><td>7.93</td><td>22.9</td><td>—</td></tr>
+        <tr><td>Gemma 4 26B MoE (NIM)</td><td>104</td><td>7.80</td><td>44.3</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p class="meta">La diferencia de 0.08 puntos entre DiffusionGemma y Gemma 4 31B local es ruido estadístico. En la práctica, entregan la misma calidad media.</p>
+  </section>
+
+  <section>
+    <h2>DiffusionGemma gana en agentes, soporte y velocidad</h2>
+    <table class="results-table">
+      <thead>
+        <tr><th>Suite</th><th>DiffusionGemma</th><th>Gemma 4 31B (Spark)</th><th>Diferencia</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>customer_support</td><td><strong>8.76</strong></td><td>7.59</td><td class="positive">+1.17</td></tr>
+        <tr><td>policy_adherence</td><td><strong>8.41</strong></td><td>7.51</td><td class="positive">+0.89</td></tr>
+        <tr><td>agent_capabilities</td><td><strong>8.96</strong></td><td>8.22</td><td class="positive">+0.75</td></tr>
+        <tr><td>sales_outreach</td><td><strong>9.17</strong></td><td>8.76</td><td class="positive">+0.41</td></tr>
+        <tr><td>summarization</td><td><strong>7.92</strong></td><td>7.50</td><td class="positive">+0.42</td></tr>
+        <tr><td>task_management</td><td><strong>9.33</strong></td><td>8.96</td><td class="positive">+0.37</td></tr>
+        <tr><td>tool_calling</td><td><strong>7.31</strong></td><td>7.03</td><td class="positive">+0.28</td></tr>
+        <tr><td>multi_turn</td><td><strong>8.45</strong></td><td>8.02</td><td class="positive">+0.43</td></tr>
+      </tbody>
+    </table>
+    <p>DiffusionGemma destaca en todo lo conversacional y operativo. La generación por bloques de 256 tokens le da fluidez a nivel de párrafo, lo que mejora soporte, resúmenes, orquestación y multi-turno.</p>
+  </section>
+
+  <section>
+    <h2>Gemma 4 sigue ganando en coding, razonamiento y precisión</h2>
+    <table class="results-table">
+      <thead>
+        <tr><th>Suite</th><th>DiffusionGemma</th><th>Gemma 4 31B (Spark)</th><th>Diferencia</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>string_precision</td><td>4.34</td><td><strong>7.65</strong></td><td class="negative">-3.31</td></tr>
+        <tr><td>deep_reasoning</td><td>8.01</td><td><strong>8.64</strong></td><td class="negative">-0.63</td></tr>
+        <tr><td>strategy</td><td>8.90</td><td><strong>9.38</strong></td><td class="negative">-0.48</td></tr>
+        <tr><td>presentation</td><td>8.39</td><td><strong>8.81</strong></td><td class="negative">-0.42</td></tr>
+        <tr><td>reasoning</td><td>9.03</td><td><strong>9.44</strong></td><td class="negative">-0.41</td></tr>
+        <tr><td>content_generation</td><td>8.75</td><td><strong>9.14</strong></td><td class="negative">-0.39</td></tr>
+        <tr><td>creativity</td><td>8.35</td><td><strong>8.74</strong></td><td class="negative">-0.39</td></tr>
+        <tr><td>code_generation</td><td>8.78</td><td><strong>8.95</strong></td><td class="negative">-0.17</td></tr>
+      </tbody>
+    </table>
+    <p>La generación autoregresiva de Gemma 4 sigue siendo superior cuando la tarea exige precisión carácter a carácter (API keys, JWTs, configs), razonamiento multi-paso o código estructurado.</p>
+  </section>
+
+  <section>
+    <h2>Velocidad: el factor disruptivo</h2>
+    <p>En el mismo hardware (DGX Spark), <strong>DiffusionGemma genera 39.3 tok/s frente a 9.3 tok/s de Gemma 4 31B local</strong>. Eso significa que una respuesta de 1,500 tokens pasa de ~2.5 minutos a ~40 segundos.</p>
+    <p>Incluso contra la versión NIM de Gemma 4 (22.9 tok/s), DiffusionGemma local es <strong>1.7× más rápido</strong> y no paga costo por token.</p>
+  </section>
+
+  <section>
+    <h2>¿Por qué la difusión es mejor en agentes y peor en strings exactos?</h2>
+    <ul>
+      <li><strong>Bloques de 256 tokens en paralelo</strong> favorecen la fluidez conversacional, el seguimiento de instrucciones y la coherencia a escala de párrafo. De ahí los buenos resultados en soporte, orquestación y resúmenes.</li>
+      <li><strong>La misma paralelización penaliza la precisión carácter a carácter.</strong> Cuando el prompt pide copiar exactamente un JWT de 64 caracteres, el modelo pierde control fino. De ahí el <code>string_precision</code> 4.34 vs 7.65.</li>
+      <li><strong>Razonamiento profundo multi-paso</strong> sigue siendo territorio de los autoregresivos, que generan secuencialmente y refuerzan la coherencia lógica paso a paso.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Recomendaciones por caso de uso</h2>
+    <table class="results-table">
+      <thead>
+        <tr><th>Caso de uso</th><th>Ganador</th><th>Por qué</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Chatbot de soporte al cliente</td><td><strong>DiffusionGemma</strong></td><td>Mejor en customer_support, policy_adherence y multi_turn; 3× más rápido; sin costo por token.</td></tr>
+        <tr><td>Agentes N8N / orquestación</td><td><strong>DiffusionGemma</strong></td><td>Mejor en agent_capabilities, task_management y tool_calling.</td></tr>
+        <tr><td>Generación de contenido de blog</td><td><strong>Gemma 4 31B</strong></td><td>Gana en content_generation y creativity.</td></tr>
+        <tr><td>Coding / scripts / refactor</td><td><strong>Gemma 4 31B</strong></td><td>Gana en code_generation y, sobre todo, string_precision.</td></tr>
+        <tr><td>Razonamiento estratégico / análisis</td><td><strong>Gemma 4 31B</strong></td><td>Mejor en reasoning, deep_reasoning y strategy.</td></tr>
+        <tr><td>Copiar credenciales, JWTs, configs exactos</td><td><strong>Gemma 4 31B</strong></td><td>string_precision 7.65 vs 4.34.</td></tr>
+        <tr><td>Chat interactivo con latencia crítica</td><td><strong>DiffusionGemma</strong></td><td>39 tok/s y menor latencia total.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Veredicto final</h2>
+    <p><strong>DiffusionGemma no es un Gemma 4 más rápido; es un modelo con un perfil diferente.</strong></p>
+    <p>Si tu caso es <strong>conversación, soporte o agentes operativos en español</strong>, la difusión ya es competitiva y más barata. Si tu caso es <strong>código, credenciales o razonamiento profundo</strong>, los autoregresivos siguen siendo mejores.</p>
+    <p>Para un emprendedor latinoamericano con privacidad de datos o presupuesto ajustado, <strong>DiffusionGemma democratiza una calidad #25 mundial sin costo por token</strong>.</p>
+  </section>
+
+  <section>
+    <h2>Metodología</h2>
+    <p>Este benchmark mide <strong>capacidades aplicadas en español neutro latinoamericano</strong>, no reemplaza benchmarks académicos como MMLU o HumanEval. Cada modelo corre tests reales evaluados por un <strong>LLM-as-Judge local (Phi-4)</strong> en 4 pilares: coding, contenido, razonamiento y agentes.</p>
+    <p>DiffusionGemma se ejecutó con <code>llama-diffusion-cli</code> del PR #24423 de llama.cpp, quantización Q8_0, en un DGX Spark. Gemma 4 31B local usó la misma infraestructura con Q4_K_M. Ver <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">TESTS.md</a> para la metodología completa.</p>
+  </section>
+
+  <section>
+    <h2>Explorá más comparativas</h2>
+    <ul>
+      <li><a href="/">Calculadora interactiva de modelos IA</a></li>
+      <li><a href="../gemini-vs-chatgpt/">Gemini vs ChatGPT</a></li>
+      <li><a href="../claude-vs-chatgpt/">Claude vs ChatGPT</a></li>
+      <li><a href="../deepseek-vs-chatgpt/">DeepSeek vs ChatGPT</a></li>
+      <li><a href="../mejor-llm-open-source/">Mejor LLM open source</a></li>
+      <li><a href="../mejor-llm-para-programar/">Mejor LLM para programar</a></li>
+    </ul>
+  </section>
+</main>
+<footer>
+  <div class="container">
+    <p>Benchmark abierto por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a>. Datos reales, decisiones reales.</p>
+  </div>
+</footer>
+</body>
+</html>
