@@ -19,8 +19,17 @@ from collections import defaultdict
 from pathlib import Path
 from statistics import mean
 
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from benchmarks.config import MODELS as _CLOUD_MODELS
+from benchmarks.models import OLLAMA_MODELS
+
 RESULTS_DIR = Path(__file__).parent / "results"
 OUT_DIR = RESULTS_DIR / "per-model"
+
+# Catálogo completo tal como lo usa export_for_pages.py.
+# Solo generamos MDs para modelos que siguen vigentes en el catálogo.
+CATALOG = {**_CLOUD_MODELS, **OLLAMA_MODELS}
+VALID_MODEL_IDS = {cfg.get("id", "") for cfg in CATALOG.values()}
 
 # Agrupación de suites por pilar (matches README.md)
 PILARES = {
@@ -52,7 +61,8 @@ def load_results(input_files: list[str]) -> list[dict]:
         with open(p) as f:
             data = json.load(f)
         results = data if isinstance(data, list) else data.get("results", [])
-        all_results.extend(results)
+        # Filtrar resultados de modelos ya no presentes en el catálogo.
+        all_results.extend(r for r in results if r.get("model_id") in VALID_MODEL_IDS)
     return all_results
 
 
