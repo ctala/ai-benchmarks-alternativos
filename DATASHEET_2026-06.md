@@ -41,6 +41,7 @@ Junio consolidó tres cambios grandes:
 | **Claude Opus 4.8** | Flagship | Quality top (8.4), rey de seguridad (8.79), pero costo lo deja atrás en ranking compuesto. |
 | **Gemini 3.5 Flash** | Flagship | Long-context usable = 800K, igual que 2.5 Flash Lite. |
 | **DiffusionGemma 26B-A4B** | Local Spark | **Primera difusión textual**. Score 7.05, #25/91. Empata con Gemma 4 31B local. |
+| **GLM 5.2** | Z.ai | Sucesor de GLM 5.1. Score 6.93, #26/92. Rápido (51.8 tok/s) pero no supera a DiffusionGemma ni a Gemma 4. |
 
 ## 🌟 El hallazgo del mes: DiffusionGemma funciona
 

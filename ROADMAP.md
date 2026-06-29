@@ -78,7 +78,7 @@
 |---|---|---|---|
 | **DiffusionGemma 26B-A4B** ✅ | `hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q8_0` | Primera difusión textual medida. Score 7.05, #25/91, empata con Gemma 4 31B local. | ~~Bajar Q4_K_M~~ — usamos Q8_0. Adapter `diffusion_cli` implementado. Próximo: re-correr `agent_long_horizon` con ctx 262K. |
 | **Nemotron 3 Ultra 550B-A55B** | `nvidia/nemotron-3-ultra-550b-a55b` (+ `:free`) | MoE gigante (550B/55B activos), sucesor del Super 120B. Gratis y pago. | Agregar al config; correr sweep ≥50 runs. |
-| **GLM 5.2** | `z-ai/glm-5.2` | Sucesor de GLM 5.1, agentic chino, muy barato ($0.95/$3.00 por M). | Agregar + medir. |
+| **GLM 5.2** ✅ | `z-ai/glm-5.2` | Sucesor de GLM 5.1, agentic chino, muy barato ($0.95/$3.00 por M). | **Medido**: score global 6.93, #26/92, 51.8 tok/s. Cumple pero no revoluciona. |
 | **Qwen 3.7 Plus** | `qwen/qwen3.7-plus` | Sucesor de Qwen 3.6 Plus/Max. $0.32/$1.28 por M. | Agregar + medir; comparar contra 3.6 Max y 3.7 Max. |
 | **Cohere North Mini Code** | `cohere/north-mini-code:free` | Coding especializado, gratis. | Agregar + medir en pilar Coding. |
 | **Poolside Laguna XS.2 / M.1** | `poolside/laguna-xs.2`, `poolside/laguna-m.1` (+ `:free`) | Coding francés, precio mínimo ($0.10/$0.20 por M en XS.2). | Agregar ambos; medir coding + agentes. |
@@ -108,8 +108,9 @@
 
 ### Qué entra en el release de julio 2026 (checklist)
 
-- [ ] **Tier 1**: al menos 4 de los 8 modelos con cobertura ≥50 runs.
+- [ ] **Tier 1**: 2/8 probados (DiffusionGemma, GLM 5.2). Falta: Nemotron 3 Ultra, Qwen 3.7 Plus, Cohere North Mini Code, Poolside Laguna, Claude Opus 4.8 Fast, Grok 4.3.
 - [x] **DiffusionGemma**: sweep local Q8_0 con juez Phi-4 (score 7.05, #25/91).
+- [x] **GLM 5.2**: sweep completo (score 6.93, #26/92, 51.8 tok/s).
 - [ ] **DATASHEET_2026-07.md** con cambios junio→julio.
 - [ ] **CheatSheet PDF "Julio 2026"** + tag semver.
 - [ ] **Regen completo** vía `python benchmarks/regenerate_all.py`.
