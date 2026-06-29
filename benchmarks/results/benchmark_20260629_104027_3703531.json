@@ -1,13 +1,13 @@
 {
   "metadata": {
     "timestamp": "20260629_104027_3703531",
-    "total_runs": 54,
+    "total_runs": 55,
     "errors": 0,
     "judge": {
       "judge_model": "phi4:latest",
       "judge_provider": "ollama",
       "judge_is_local": true,
-      "evaluations": 54,
+      "evaluations": 55,
       "estimated_cost_usd": 0.0
     },
     "partial": true
@@ -1740,6 +1740,38 @@
       "run": 1,
       "timestamp": "20260629_104027_3703531",
       "response_file": "results/responses/20260629_104027_3703531/glm-5.2__string_precision__write_config_file.md"
+    },
+    {
+      "quality": 7.56,
+      "cost_score": 5.33,
+      "cost_usd": 0.007753,
+      "speed": 6.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 6.62,
+      "test_name": "news_seo_article_full",
+      "model": "GLM 5.2",
+      "model_id": "z-ai/glm-5.2",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 40.8,
+      "latency_first_token": 59.74,
+      "latency_total": 59.74,
+      "input_tokens": 468,
+      "output_tokens": 2436,
+      "response_preview": "# Mistral AI levanta USD 2.000M Serie C y lanza Devstral\n\n**Meta descripción:** Mistral AI cierra Serie C de USD 2.000M con valuación de USD 15.000M y lanza Devstral, modelo open-source que supera a OpenAI y Google en SWE-Bench.\n\n**Palabras clave SEO:** Mistral AI, Devstral, IA open-source, modelo d",
+      "auto_quality": 9.33,
+      "judge_score": 3.4,
+      "judge_precision": 3,
+      "judge_relevancia": 3,
+      "judge_profundidad": 3,
+      "judge_claridad": 3,
+      "judge_utilidad": 3,
+      "judge_justificacion": "",
+      "suite": "news_seo_writing",
+      "run": 1,
+      "timestamp": "20260629_104027_3703531",
+      "response_file": "results/responses/20260629_104027_3703531/glm-5.2__news_seo_writing__news_seo_article_full.md"
     }
   ]
 }
