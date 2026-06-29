@@ -361,6 +361,7 @@ MODELS = {
         "cost_input": 5.00,
         "cost_output": 25.00,
         "tier": "premium",
+        "context_window": 1000000,
         "niah_max_context": 262144,  # cap de costo: skip tramos 1M (evita ~$40 en niah)
         "notes": "Flagship Anthropic más nuevo (jun 2026), contexto 1M. $5/$25 vía OpenRouter API. Techo de calidad de referencia. Sucesor de 4.7.",
     },
@@ -428,6 +429,7 @@ MODELS = {
         "cost_input": 10.00,
         "cost_output": 50.00,
         "tier": "premium",
+        "context_window": 1000000,
         "thinking": True,
         "notes": "Tier nuevo SOBRE Opus (jun 2026). 2x el precio de Opus 4.8 ($10/$50, verificado vía OpenRouter API). Adaptive thinking nativo — no acepta temperature ni budget_tokens. ⚠️ Vía OpenRouter = paga API; para corridas usar claude-fable-5-sub (suscripción Max, $0).",
     },
@@ -1505,7 +1507,14 @@ CONTEXT_WINDOWS = {
     'MiniMax-M2.7-highspeed': 204800,
     'MiniMax-M3': 1048576,
     'anthropic/claude-haiku-4.5': 200000,
+    # Opus 4.8: OpenRouter/API usa punto; suscripción Claude Code usa guion sin provider prefix.
+    # Ambos IDs deben tener 1M para que el runner y la UI reporten context_window correcto.
     'anthropic/claude-opus-4.8': 1000000,
+    'anthropic/claude-opus-4-8': 1000000,
+    'claude-opus-4-8': 1000000,
+    # Fable 5: tier sobre Opus, mismo contexto 1M. API y suscripción usan IDs distintos.
+    'anthropic/claude-fable-5': 1000000,
+    'claude-fable-5': 1000000,
     'anthropic/claude-sonnet-4': 1000000,
     'deepseek-ai/deepseek-v4-flash': 1048576,
     'deepseek-ai/deepseek-v4-pro': 1048576,

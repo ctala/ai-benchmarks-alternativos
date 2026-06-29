@@ -4,19 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Qwen vs Llama en 2026: comparación open source con benchmark real</title>
-<meta name="description" content="Qwen vs Llama comparados con 8.000+ tests reales: coding, contenido en español, razonamiento, agentes, costo y velocidad. Benchmark abierto, datos en español.">
+<meta name="description" content="Qwen vs Llama comparados con 10.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.">
 <meta name="keywords" content="qwen vs llama, llama vs qwen, mejor llm open source, comparativa qwen llama, modelos open source">
 <meta name="author" content="Cristian Tala">
 <link rel="canonical" href="https://benchmarks.cristiantala.com/qwen-vs-llama/">
 <meta property="og:title" content="Qwen vs Llama en 2026: comparación open source con benchmark real">
-<meta property="og:description" content="Qwen vs Llama comparados con 8.000+ tests reales: coding, contenido en español, razonamiento, agentes, costo y velocidad. Benchmark abierto, datos en español.">
+<meta property="og:description" content="Qwen vs Llama comparados con 10.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.">
 <meta property="og:url" content="https://benchmarks.cristiantala.com/qwen-vs-llama/">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="es_CL">
 <meta property="og:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ranking de modelos IA del benchmark de Cristian Tala">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Qwen vs Llama en 2026: comparación open source con benchmark real">
+<meta name="twitter:description" content="Qwen vs Llama comparados con 10.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.">
 <meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
 <link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +31,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Qwen vs Llama en 2026: comparación open source con benchmark real",
-  "description": "Qwen vs Llama comparados con 8.000+ tests reales: coding, contenido en español, razonamiento, agentes, costo y velocidad. Benchmark abierto, datos en español.",
+  "description": "Qwen vs Llama comparados con 10.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.",
   "author": {
     "@type": "Person",
     "name": "Cristian Tala",
@@ -53,7 +56,7 @@
     <a href="https://cristiantala.com" class="logo-link" target="_blank" rel="noopener">
       <img src="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-dark-2026.png" alt="Cristian Tala" class="logo">
     </a>
-    <nav>
+    <nav aria-label="Principal">
       <a href="/">Calculadora</a>
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
       <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
@@ -64,7 +67,7 @@
   <section class="hero">
     <h1>Qwen vs Llama: cuál elegir en 2026 (benchmark real)</h1>
     <p class="lead">Comparamos las familias <strong>Qwen</strong> y <strong>Llama</strong> con datos, no opiniones:
-    <strong>8.000+ tests reales</strong> evaluados con LLM-as-Judge Phi-4 local, en los 4 pilares del emprendedor
+    <strong>10.000+ runs reales</strong> evaluados con LLM-as-Judge Phi-4 local, en los 4 pilares del emprendedor
     (coding, contenido, razonamiento, agentes) + costo y velocidad reales.</p>
     <p class="meta">Última actualización: 2026-06-29 ·
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a></p>
@@ -76,7 +79,7 @@
     </div>
     <table class="results-table">
       <thead>
-        <tr><th>#</th><th>Modelo</th><th>Global</th><th>Coding</th><th>Contenido</th><th>Razon.</th><th>Agentes</th><th>$ in/out per M</th><th>Velocidad</th></tr>
+        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Global</th><th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th><th scope="col">$ in/out per M</th><th scope="col">Velocidad</th></tr>
       </thead>
       <tbody>
         <tr><td>1</td><td><strong>Qwen3-Coder-Next (OpenRouter FP8)</strong></td><td>8.08</td><td>8.1</td><td>8.2</td><td>8.0</td><td>7.8</td><td>$0.11 / $0.80</td><td>104 tok/s</td></tr>
@@ -99,7 +102,8 @@
   <strong>aplicado para emprendedores hispanohablantes</strong>: mide qué modelo conviene poner en
   producción para casos reales, con lo que los benchmarks oficiales no cubren — costo en provider real,
   velocidad, español neutro y agentes multi-turno.</p>
-  <p>Cada modelo corre <strong>8.000+ tests reales</strong> evaluados por un
+  <p>Contamos con <strong>144 modelos catalogados</strong>, <strong>92 testeados</strong>
+  y <strong>10.000+ runs reales</strong> evaluados por un
   <strong>LLM-as-Judge local (Phi-4, de Microsoft — sin conflicto de interés)</strong>, en 4 pilares:</p>
   <ul>
     <li><strong>Coding</strong> — generar código, JSON estructurado y debugging en tareas reales (plugins WordPress, scripts, templates de N8N).</li>
@@ -107,9 +111,11 @@
     <li><strong>Razonamiento</strong> — matemáticas, lógica formal y planificación multi-paso.</li>
     <li><strong>Agentes y operaciones</strong> — multi-turno largo, tool calling y flujos tipo N8N / OpenClaw.</li>
   </ul>
-  <p>El <strong>score global</strong> es una función ponderada: calidad 50% + costo 20% + tool calling 15%
-  + velocidad 7,5% + latencia 7,5%. Por eso un modelo barato y rápido puede ganarle a uno "más inteligente"
-  pero caro — porque mide <em>valor para producción</em>, no solo capacidad bruta.
+  <p>El <strong>score global</strong> (v3.0) es una función ponderada: <strong>calidad 70% + costo 15%
+  + velocidad 7,5% + latencia 7,5%</strong>. Tool calling se reporta como <strong>insignia aparte</strong>
+  (no suma al score global): indica si el modelo soporta herramientas, no su calidad bruta. Por eso un modelo barato y
+  rápido puede ganarle a uno "más inteligente" pero caro — porque mide <em>valor para producción</em>,
+  no solo capacidad bruta.
   <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
 </section>
 <section>
@@ -132,7 +138,7 @@
 <section class="results">
   <div class="results-header"><h2>Resumen: quién gana según tu caso</h2></div>
   <table class="results-table">
-    <thead><tr><th>Tu caso</th><th>Ganador</th></tr></thead>
+    <thead><tr><th scope="col">Tu caso</th><th scope="col">Ganador</th></tr></thead>
     <tbody>
       <tr><td>Coding</td><td><strong>Llama 4 Scout 17B (Groq preview) (por calidad)</strong></td></tr><tr><td>Contenido y marketing</td><td><strong>Empate — Qwen3-Coder-Next (OpenRouter FP8) o Llama 4 Scout 17B (Groq preview)</strong></td></tr><tr><td>Razonamiento</td><td><strong>Llama 4 Scout 17B (Groq preview) (por calidad)</strong></td></tr><tr><td>Agentes y operaciones</td><td><strong>Llama 3.1 8B Instant (Groq) (por calidad)</strong></td></tr><tr><td>Costo más bajo</td><td><strong>Llama 3.1 8B Instant (Groq)</strong> ($0.05 / $0.08)</td></tr><tr><td>Más rápido</td><td><strong>Llama 3.1 8B Instant (Groq)</strong> (367 tok/s)</td></tr>
     </tbody>
@@ -140,16 +146,45 @@
   <p class="meta">Este cuadro muestra el mejor por <strong>calidad de cada pilar</strong> — pero el "ganador" real depende de <strong>tu</strong> prioridad: calidad, costo o velocidad. No sabemos tu caso, así que ajustá esos pesos en la <a href="/">calculadora</a> y obtené el ganador para vos.</p>
 </section>
   <section class="faq">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qwen o Llama es mejor en 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de la tarea. En el cómputo global de nuestro benchmark gana Qwen3-Coder-Next (OpenRouter FP8), pero el mejor por pilar cambia (ver arriba). La pregunta correcta es 'mejor para qué caso'."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Estos datos de dónde salen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De un benchmark abierto con 10.000+ runs reales y LLM-as-Judge local (Phi-4, Microsoft, sin conflicto de interés). Código y resultados en GitHub."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es más barato para agentes con volumen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mirá la columna de costo en la tabla. Para 1.000+ calls/mes, el costo por millón de tokens domina el ROI por encima de diferencias chicas de calidad. Filtralo por tu presupuesto en la calculadora."
+      }
+    }
+  ]
+}
+</script>
   <h2>Preguntas frecuentes</h2>
   <details><summary><strong>¿Qwen o Llama es mejor en 2026?</strong></summary>
-  <p>Depende de la tarea. En el cómputo global de nuestro benchmark gana Qwen3-Coder-Next (OpenRouter FP8),
-  pero el mejor por pilar cambia (ver arriba). La pregunta correcta es "mejor para qué caso".</p></details>
+  <p>Depende de la tarea. En el cómputo global de nuestro benchmark gana <strong>Qwen3-Coder-Next (OpenRouter FP8)</strong>, pero el mejor por pilar cambia (ver arriba). La pregunta correcta es "mejor para qué caso".</p></details>
   <details><summary><strong>¿Estos datos de dónde salen?</strong></summary>
-  <p>De un benchmark abierto con 8.000+ tests reales y LLM-as-Judge local (Phi-4, Microsoft, sin conflicto de interés).
-  Código y resultados en <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">GitHub</a>.</p></details>
+  <p>De un benchmark abierto con 10.000+ runs reales y LLM-as-Judge local (Phi-4, Microsoft, sin conflicto de interés). Código y resultados en <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">GitHub</a>.</p></details>
   <details><summary><strong>¿Cuál es más barato para agentes con volumen?</strong></summary>
-  <p>Mirá la columna de costo en la tabla. Para 1.000+ calls/mes, el costo por millón de tokens domina el ROI por encima de
-  diferencias chicas de calidad. Filtralo por tu presupuesto en la <a href="/">calculadora</a>.</p></details>
+  <p>Mirá la columna de costo en la tabla. Para 1.000+ calls/mes, el costo por millón de tokens domina el ROI por encima de diferencias chicas de calidad. Filtralo por tu presupuesto en la <a href="/">calculadora</a>.</p></details>
 </section>
   <section class="cta-block">
     <h2>Probá la calculadora con tu caso real</h2>

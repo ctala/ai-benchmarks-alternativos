@@ -65,6 +65,20 @@ COMPARISONS = [
         "intent_kw": "deepseek vs chatgpt, deepseek vs gpt, deepseek o gpt, comparativa deepseek openai",
     },
     {
+        "slug": "deepseek-vs-claude",
+        "a": {"name": "DeepSeek", "match": ["deepseek"]},
+        "b": {"name": "Claude", "match": ["claude"]},
+        "title": "DeepSeek vs Claude en 2026: comparación con benchmark real",
+        "intent_kw": "deepseek vs claude, deepseek o claude, comparativa deepseek anthropic, claude vs deepseek",
+    },
+    {
+        "slug": "deepseek-vs-gemini",
+        "a": {"name": "DeepSeek", "match": ["deepseek"]},
+        "b": {"name": "Gemini", "match": ["gemini"]},
+        "title": "DeepSeek vs Gemini en 2026: comparación con benchmark real",
+        "intent_kw": "deepseek vs gemini, deepseek o gemini, comparativa deepseek google, gemini vs deepseek",
+    },
+    {
         "slug": "qwen-vs-llama",
         "a": {"name": "Qwen", "match": ["qwen"]}, "b": {"name": "Llama", "match": ["llama"]},
         "title": "Qwen vs Llama en 2026: comparación open source con benchmark real",
@@ -146,9 +160,44 @@ COMPARISONS = [
 ]
 
 
+_JSON_CACHE = None
+
+
+def load_json():
+    global _JSON_CACHE
+    if _JSON_CACHE is None:
+        _JSON_CACHE = json.loads(MODELS_JSON.read_text())
+    return _JSON_CACHE
+
+
 def load_models():
-    d = json.loads(MODELS_JSON.read_text())
+    d = load_json()
     return d if isinstance(d, list) else (d.get("models") or list(d.values())[0])
+
+
+def get_meta():
+    return load_json()
+
+
+def get_counts():
+    d = load_json()
+    models = d.get("models", []) if isinstance(d, dict) else d
+    tested = [m for m in models if m.get("tested")]
+    return {
+        "total_models": d.get("total_models", len(models)) if isinstance(d, dict) else len(models),
+        "tested_count": d.get("tested_count", len(tested)) if isinstance(d, dict) else len(tested),
+        "total_runs": sum(m.get("runs", 0) for m in tested),
+    }
+
+
+def fmt_k(n):
+    """Redondea hacia abajo a miles y devuelve '10.000+'."""
+    return f"{(n // 1000) * 1000:,}".replace(",", ".") + "+"
+
+
+def fmt_pct(w):
+    p = w * 100
+    return f"{int(p)}" if p == int(p) else f"{p:.1f}".replace(".", ",")
 
 
 def family(models, cfg):
@@ -206,6 +255,14 @@ def best_in(arr, pil):
 
 def methodology():
     """Sección fija: qué mide el benchmark (autoridad / E-E-A-T)."""
+    c = get_counts()
+    w = get_meta().get("default_weights", {})
+    q = fmt_pct(w.get("quality", 0.7))
+    co = fmt_pct(w.get("cost", 0.15))
+    sp = fmt_pct(w.get("speed", 0.075))
+    la = fmt_pct(w.get("latency", 0.075))
+    tc = fmt_pct(w.get("tool_calling", 0))
+    tc_text = "no suma al score global" if w.get("tool_calling", 0) == 0 else f"{tc}% al score global"
     items = "\n    ".join(
         f"<li><strong>{PILLAR_DESC[p][0]}</strong> — {PILLAR_DESC[p][1]}.</li>" for p in PILLARS)
     return f"""<section>
@@ -214,14 +271,17 @@ def methodology():
   <strong>aplicado para emprendedores hispanohablantes</strong>: mide qué modelo conviene poner en
   producción para casos reales, con lo que los benchmarks oficiales no cubren — costo en provider real,
   velocidad, español neutro y agentes multi-turno.</p>
-  <p>Cada modelo corre <strong>8.000+ tests reales</strong> evaluados por un
+  <p>Contamos con <strong>{c['total_models']} modelos catalogados</strong>, <strong>{c['tested_count']} testeados</strong>
+  y <strong>{fmt_k(c['total_runs'])} runs reales</strong> evaluados por un
   <strong>LLM-as-Judge local (Phi-4, de Microsoft — sin conflicto de interés)</strong>, en 4 pilares:</p>
   <ul>
     {items}
   </ul>
-  <p>El <strong>score global</strong> es una función ponderada: calidad 50% + costo 20% + tool calling 15%
-  + velocidad 7,5% + latencia 7,5%. Por eso un modelo barato y rápido puede ganarle a uno "más inteligente"
-  pero caro — porque mide <em>valor para producción</em>, no solo capacidad bruta.
+  <p>El <strong>score global</strong> (v3.0) es una función ponderada: <strong>calidad {q}% + costo {co}%
+  + velocidad {sp}% + latencia {la}%</strong>. Tool calling se reporta como <strong>insignia aparte</strong>
+  ({tc_text}): indica si el modelo soporta herramientas, no su calidad bruta. Por eso un modelo barato y
+  rápido puede ganarle a uno "más inteligente" pero caro — porque mide <em>valor para producción</em>,
+  no solo capacidad bruta.
   <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
 </section>"""
 
@@ -279,7 +339,7 @@ def analysis(a_name, b_name, A, B):
     secs.append(f"""<section class="results">
   <div class="results-header"><h2>Resumen: quién gana según tu caso</h2></div>
   <table class="results-table">
-    <thead><tr><th>Tu caso</th><th>Ganador</th></tr></thead>
+    <thead><tr><th scope="col">Tu caso</th><th scope="col">Ganador</th></tr></thead>
     <tbody>
       {"".join(verdict_rows)}
     </tbody>
@@ -291,17 +351,48 @@ def analysis(a_name, b_name, A, B):
 
 def faq(a_name, b_name, A, B):
     a0, b0 = A[0], B[0]
+    tests_k = fmt_k(get_counts()["total_runs"])
+    winner = a0 if a0["score_global"] >= b0["score_global"] else b0
+    qas = [
+        (
+            f"¿{a_name} o {b_name} es mejor en 2026?",
+            f"Depende de la tarea. En el cómputo global de nuestro benchmark gana {winner.get('name')}, "
+            f"pero el mejor por pilar cambia (ver arriba). La pregunta correcta es 'mejor para qué caso'.",
+            f"Depende de la tarea. En el cómputo global de nuestro benchmark gana <strong>{esc(winner.get('name'))}</strong>, "
+            f"pero el mejor por pilar cambia (ver arriba). La pregunta correcta es \"mejor para qué caso\".",
+        ),
+        (
+            "¿Estos datos de dónde salen?",
+            f"De un benchmark abierto con {tests_k} runs reales y LLM-as-Judge local (Phi-4, Microsoft, sin conflicto de interés). "
+            "Código y resultados en GitHub.",
+            f"De un benchmark abierto con {tests_k} runs reales y LLM-as-Judge local (Phi-4, Microsoft, sin conflicto de interés). "
+            "Código y resultados en <a href=\"https://github.com/ctala/ai-benchmarks-alternativos\" target=\"_blank\" rel=\"noopener\">GitHub</a>.",
+        ),
+        (
+            "¿Cuál es más barato para agentes con volumen?",
+            "Mirá la columna de costo en la tabla. Para 1.000+ calls/mes, el costo por millón de tokens domina el ROI por encima de "
+            "diferencias chicas de calidad. Filtralo por tu presupuesto en la calculadora.",
+            "Mirá la columna de costo en la tabla. Para 1.000+ calls/mes, el costo por millón de tokens domina el ROI por encima de "
+            "diferencias chicas de calidad. Filtralo por tu presupuesto en la <a href=\"/\">calculadora</a>.",
+        ),
+    ]
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a_plain}}
+            for q, a_plain, _ in qas
+        ],
+    }
+    schema_script = f'<script type="application/ld+json">\n{json.dumps(schema, ensure_ascii=False, indent=2)}\n</script>'
+    details = "\n  ".join(
+        f'<details><summary><strong>{esc(q)}</strong></summary>\n  <p>{a_html}</p></details>'
+        for q, _, a_html in qas
+    )
     return f"""<section class="faq">
+  {schema_script}
   <h2>Preguntas frecuentes</h2>
-  <details><summary><strong>¿{esc(a_name)} o {esc(b_name)} es mejor en 2026?</strong></summary>
-  <p>Depende de la tarea. En el cómputo global de nuestro benchmark gana {esc((a0 if a0['score_global']>=b0['score_global'] else b0).get('name'))},
-  pero el mejor por pilar cambia (ver arriba). La pregunta correcta es "mejor para qué caso".</p></details>
-  <details><summary><strong>¿Estos datos de dónde salen?</strong></summary>
-  <p>De un benchmark abierto con 8.000+ tests reales y LLM-as-Judge local (Phi-4, Microsoft, sin conflicto de interés).
-  Código y resultados en <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">GitHub</a>.</p></details>
-  <details><summary><strong>¿Cuál es más barato para agentes con volumen?</strong></summary>
-  <p>Mirá la columna de costo en la tabla. Para 1.000+ calls/mes, el costo por millón de tokens domina el ROI por encima de
-  diferencias chicas de calidad. Filtralo por tu presupuesto en la <a href="/">calculadora</a>.</p></details>
+  {details}
 </section>"""
 
 
@@ -333,7 +424,10 @@ def page_shell(title, desc, kw, url, body):
 <meta property="og:image" content="{OG_IMAGE}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ranking de modelos IA del benchmark de Cristian Tala">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{esc(title)}">
+<meta name="twitter:description" content="{esc(desc)}">
 <meta name="twitter:image" content="{OG_IMAGE}">
 <link rel="icon" type="image/png" href="{LOGO}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -350,7 +444,7 @@ def page_shell(title, desc, kw, url, body):
     <a href="https://cristiantala.com" class="logo-link" target="_blank" rel="noopener">
       <img src="{LOGO_DARK}" alt="Cristian Tala" class="logo">
     </a>
-    <nav>
+    <nav aria-label="Principal">
       <a href="/">Calculadora</a>
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
       <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
@@ -375,14 +469,15 @@ def page_shell(title, desc, kw, url, body):
 def render(cfg, A, B):
     a_name, b_name = cfg["a"]["name"], cfg["b"]["name"]
     today = date.today().isoformat()
-    desc = (f"{a_name} vs {b_name} comparados con 8.000+ tests reales: coding, contenido en español, "
-            f"razonamiento, agentes, costo y velocidad. Benchmark abierto, datos en español.")
+    tests_k = fmt_k(get_counts()["total_runs"])
+    desc = (f"{a_name} vs {b_name} comparados con {tests_k} runs reales: coding, contenido, "
+            f"razonamiento, agentes, costo y velocidad. Benchmark abierto en español.")
     url = f"{SITE}/{cfg['slug']}/"
     rows = "\n        ".join(row(i + 1, m, top=(i == 0)) for i, m in enumerate(A[:5] + B[:5]))
     body = f"""  <section class="hero">
     <h1>{esc(a_name)} vs {esc(b_name)}: cuál elegir en 2026 (benchmark real)</h1>
     <p class="lead">Comparamos las familias <strong>{esc(a_name)}</strong> y <strong>{esc(b_name)}</strong> con datos, no opiniones:
-    <strong>8.000+ tests reales</strong> evaluados con LLM-as-Judge Phi-4 local, en los 4 pilares del emprendedor
+    <strong>{tests_k} runs reales</strong> evaluados con LLM-as-Judge Phi-4 local, en los 4 pilares del emprendedor
     (coding, contenido, razonamiento, agentes) + costo y velocidad reales.</p>
     <p class="meta">Última actualización: {today} ·
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a></p>
@@ -394,7 +489,7 @@ def render(cfg, A, B):
     </div>
     <table class="results-table">
       <thead>
-        <tr><th>#</th><th>Modelo</th><th>Global</th><th>Coding</th><th>Contenido</th><th>Razon.</th><th>Agentes</th><th>$ in/out per M</th><th>Velocidad</th></tr>
+        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Global</th><th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th><th scope="col">$ in/out per M</th><th scope="col">Velocidad</th></tr>
       </thead>
       <tbody>
         {rows}

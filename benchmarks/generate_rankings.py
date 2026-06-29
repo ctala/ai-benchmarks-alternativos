@@ -15,6 +15,7 @@ import argparse
 from datetime import date
 from generate_comparison import (
     load_models, pillar, fmt_cost, esc, row, methodology, page_shell, SITE, DOCS, PILLARS,
+    get_counts, fmt_k, get_meta, fmt_pct,
 )
 
 # --- Rankings a generar -------------------------------------------------------
@@ -69,6 +70,16 @@ RANKINGS = [
         "lead": "Si querés correr local o evitar lock-in, estos son los mejores modelos de pesos abiertos según el "
                 "benchmark — ordenados por score global. Verificamos la licencia (cuidado con los \"Plus\" propietarios).",
     },
+    {
+        "slug": "mejor-llm-para-razonamiento",
+        "title": "Mejor LLM para razonamiento 2026: ranking con benchmark",
+        "h1": "Mejor LLM para razonamiento (2026)",
+        "intent_kw": "mejor llm para razonamiento, mejor ia para razonar, modelo razonamiento logico, llm razonamiento matematico",
+        "criterion": "pillar", "pillar": "Razonamiento",
+        "case": "razonamiento (math, lógica y planning)",
+        "lead": "¿Qué modelo de IA razona mejor en 2026? Ranking por el pilar de razonamiento del benchmark: "
+                "matemáticas, lógica formal, análisis causal y planificación multi-paso en español.",
+    },
 ]
 
 
@@ -109,9 +120,14 @@ def analysis(cfg, ranked):
         tag = "open source" if m.get("open_source") else "propietario"
         alts.append(f"<li><strong>{esc(m.get('name'))}</strong> ({score_for(m, cfg):.1f}/10, {fmt_cost(m)}, {tag}) — "
                     f"buena alternativa si {'querés pesos abiertos' if m.get('open_source') else 'ya está en tu stack o priorizás otro factor'}.</li>")
+    w = get_meta().get("default_weights", {})
+    q = fmt_pct(w.get("quality", 0.7))
+    co = fmt_pct(w.get("cost", 0.15))
+    sp = fmt_pct(w.get("speed", 0.075))
+    la = fmt_pct(w.get("latency", 0.075))
     return f"""<section>
   <h2>Por qué {esc(top1.get('name'))} lidera</h2>
-  <p>{why} Recordá que el ranking pondera calidad + costo + velocidad — no es solo "el más inteligente",
+  <p>{why} Recordá que el score global v3.0 pondera calidad {q}% + costo {co}% + velocidad {sp}% + latencia {la}% — no es solo "el más inteligente",
   sino el que mejor rinde en producción para este caso.</p>
   <h3>Alternativas según tu situación</h3>
   <ul>
@@ -123,16 +139,47 @@ def analysis(cfg, ranked):
 
 def faq(cfg, ranked):
     top1 = ranked[0]
+    tests_k = fmt_k(get_counts()["total_runs"])
+    label = cfg['case'].split('(')[0].strip()
+    qas = [
+        (
+            f"¿Cuál es el mejor LLM para {label} hoy?",
+            f"Según nuestro benchmark, {top1.get('name')} lidera, pero el ranking completo te deja "
+            "elegir según tu presupuesto y prioridad. No hay un único 'mejor' universal.",
+            f"Según nuestro benchmark, <strong>{esc(top1.get('name'))}</strong> lidera, pero el ranking completo (arriba) te deja\n  "
+            "elegir según tu presupuesto y prioridad. No hay un único \"mejor\" universal.",
+        ),
+        (
+            "¿De dónde salen estos datos?",
+            f"De un benchmark abierto con {tests_k} runs reales y LLM-as-Judge local (Phi-4, Microsoft, sin conflicto de interés). "
+            "Código y resultados en GitHub.",
+            f"De un benchmark abierto con {tests_k} runs reales y LLM-as-Judge local (Phi-4, Microsoft, sin conflicto de interés). "
+            "Código y resultados en <a href=\"https://github.com/ctala/ai-benchmarks-alternativos\" target=\"_blank\" rel=\"noopener\">GitHub</a>.",
+        ),
+        (
+            "¿Cada cuánto se actualiza?",
+            "Con cada lote de modelos nuevos. La fecha de actualización está al inicio. Filtrá la versión más reciente en la calculadora.",
+            "Con cada lote de modelos nuevos. La fecha de actualización está al inicio. Filtrá la versión más reciente en la <a href=\"/\">calculadora</a>.",
+        ),
+    ]
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a_plain}}
+            for q, a_plain, _ in qas
+        ],
+    }
+    import json
+    schema_script = f'<script type="application/ld+json">\n{json.dumps(schema, ensure_ascii=False, indent=2)}\n</script>'
+    details = "\n  ".join(
+        f'<details><summary><strong>{esc(q)}</strong></summary>\n  <p>{a_html}</p></details>'
+        for q, _, a_html in qas
+    )
     return f"""<section class="faq">
+  {schema_script}
   <h2>Preguntas frecuentes</h2>
-  <details><summary><strong>¿Cuál es el mejor LLM para {cfg['case'].split('(')[0].strip()} hoy?</strong></summary>
-  <p>Según nuestro benchmark, <strong>{esc(top1.get('name'))}</strong> lidera, pero el ranking completo (arriba) te deja
-  elegir según tu presupuesto y prioridad. No hay un único "mejor" universal.</p></details>
-  <details><summary><strong>¿De dónde salen estos datos?</strong></summary>
-  <p>De un benchmark abierto con 8.000+ tests reales y LLM-as-Judge local (Phi-4, Microsoft, sin conflicto de interés).
-  Código y resultados en <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">GitHub</a>.</p></details>
-  <details><summary><strong>¿Cada cuánto se actualiza?</strong></summary>
-  <p>Con cada lote de modelos nuevos. La fecha de actualización está al inicio. Filtrá la versión más reciente en la <a href="/">calculadora</a>.</p></details>
+  {details}
 </section>"""
 
 
@@ -142,8 +189,9 @@ def render_ranking(cfg, models):
         return None
     ranked = ranked[:8]
     url = f"{SITE}/{cfg['slug']}/"
-    desc = (f"{cfg['h1']} con 8.000+ tests reales: ranking por {cfg['case']}, costo y velocidad. "
-            f"Benchmark abierto en español. #1: {ranked[0].get('name')}.")
+    tests_k = fmt_k(get_counts()["total_runs"])
+    desc = (f"{cfg['h1']} con {tests_k} runs reales: ranking por {cfg['case']}. "
+            f"Benchmark abierto. #1: {ranked[0].get('name')}.")
     today = date.today().isoformat()
     rows = "\n        ".join(row(i + 1, m, top=(i == 0)) for i, m in enumerate(ranked))
     body = f"""  <section class="hero">
@@ -159,7 +207,7 @@ def render_ranking(cfg, models):
     </div>
     <table class="results-table">
       <thead>
-        <tr><th>#</th><th>Modelo</th><th>Global</th><th>Coding</th><th>Contenido</th><th>Razon.</th><th>Agentes</th><th>$ in/out per M</th><th>Velocidad</th></tr>
+        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Global</th><th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th><th scope="col">$ in/out per M</th><th scope="col">Velocidad</th></tr>
       </thead>
       <tbody>
         {rows}

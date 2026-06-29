@@ -50,11 +50,17 @@ def _text_w(draw, txt, font):
 def main():
     d = json.load(open(MODELS_JSON))
     models = d.get("models", [])
-    ms = [m for m in models if m.get("tested") and m.get("score_global")]
-    ms.sort(key=lambda m: -m["score_global"])
-    n_tested = len(ms)
-    n_total = len(models)
-    top = ms[:5]
+    n_tested = d.get("tested_count", len([m for m in models if m.get("tested")]))
+    ms = [m for m in models if m.get("tested")]
+    ms.sort(key=lambda m: -m.get("score_global", 0))
+    top = [m for m in ms if m.get("score_global")][:5]
+    if not top and ms:
+        top = ms[:5]
+
+    suite_keys = set()
+    for m in ms:
+        suite_keys.update((m.get("score_by_suite") or {}).keys())
+    n_suites = len(suite_keys)
 
     img = Image.new("RGB", (W, H), BG)
     dr = ImageDraw.Draw(img)
@@ -72,7 +78,7 @@ def main():
     f_tag = _font(22)
     dr.ellipse([PAD, 40, PAD + 14, 54], fill=GREEN)
     dr.text((PAD + 24, 36), "benchmarks.cristiantala.com", font=f_tag, fill=GREEN)
-    tag_r = "v2.9 · z-score · juez local Phi-4"
+    tag_r = "v3.0 · quality 70% · cost 15% · speed/latency 7.5%"
     dr.text((W - PAD - _text_w(dr, tag_r, f_tag), 36), tag_r, font=f_tag, fill=GRAY)
 
     # --- título ---
@@ -83,7 +89,7 @@ def main():
 
     # --- stat strip ---
     f_stat = _font(24)
-    stats = f"{n_tested} modelos analizados   ·   23 suites   ·   tests reales en español"
+    stats = f"{n_tested} modelos analizados   ·   {n_suites} suites   ·   tests reales en español"
     dr.text((PAD, 206), stats, font=f_stat, fill=GRAY)
 
     # --- panel ranking top-5 ---
@@ -96,7 +102,7 @@ def main():
     row_h = 46
     bar_x0 = PAD + 360
     bar_x1 = W - PAD - 120
-    max_score = max((m["score_global"] for m in top), default=10) or 10
+    max_score = max((m.get("score_global", 0) for m in top), default=10) or 10
     f_rank = _font(26)
     f_name = _font(24)
     f_score = _font(28)
@@ -114,7 +120,7 @@ def main():
             name = name[:-2].rstrip() + "…" if not name.endswith("…") else name[:-2].rstrip() + "…"
         dr.text((name_x, y + 10), name, font=f_name, fill=WHITE)
         # barra proporcional al líder
-        frac = m["score_global"] / max_score
+        frac = m.get("score_global", 0) / max_score
         bx1 = bar_x0 + int((bar_x1 - bar_x0) * frac)
         dr.rounded_rectangle([bar_x0, cy - 11, bar_x1, cy + 11], radius=6, fill=(34, 34, 54))
         # relleno gradiente simple verde→cyan por pasos
@@ -127,7 +133,7 @@ def main():
             sx0 = bar_x0 + s * 6
             dr.rounded_rectangle([sx0, cy - 11, min(sx0 + 7, bx1), cy + 11], radius=6, fill=(r, g, b))
         # score
-        dr.text((bar_x1 + 16, y + 8), f"{m['score_global']:.2f}", font=f_score, fill=col)
+        dr.text((bar_x1 + 16, y + 8), f"{m.get('score_global', 0):.2f}", font=f_score, fill=col)
 
     # --- footer ---
     f_foot = _font(22)

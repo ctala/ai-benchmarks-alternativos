@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DiffusionGemma vs Gemma 4 en 2026: benchmark real de difusión textual</title>
-<meta name="description" content="DiffusionGemma vs Gemma 4 comparados con 100+ tests reales en español: calidad por pilar, velocidad, latencia y casos de uso. Benchmark abierto en DGX Spark.">
+<title>DiffusionGemma vs Gemma 4 2026: benchmark difusión textual</title>
+<meta name="description" content="DiffusionGemma vs Gemma 4 comparados con 100+ tests reales en español: calidad por pilar, velocidad, latencia y casos de uso. Benchmark abierto.">
 <meta name="keywords" content="diffusiongemma, gemma 4, difusión textual, benchmark ia local, comparativa modelos google, mejor llm local, diffusiongemma vs gemma 4">
 <meta name="author" content="Cristian Tala">
 <link rel="canonical" href="https://benchmarks.cristiantala.com/diffusiongemma-vs-gemma-4/">
-<meta property="og:title" content="DiffusionGemma vs Gemma 4 en 2026: benchmark real de difusión textual">
+<meta property="og:title" content="DiffusionGemma vs Gemma 4 2026: benchmark difusión textual">
 <meta property="og:description" content="DiffusionGemma vs Gemma 4 comparados con 100+ tests reales en español: calidad por pilar, velocidad, latencia y casos de uso. Benchmark abierto.">
+<meta property="og:image:alt" content="Comparativa DiffusionGemma vs Gemma 4 - Benchmark de Cristian Tala">
 <meta property="og:url" content="https://benchmarks.cristiantala.com/diffusiongemma-vs-gemma-4/">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="es_CL">
@@ -17,6 +18,8 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DiffusionGemma vs Gemma 4 2026: benchmark difusión textual">
+<meta name="twitter:description" content="DiffusionGemma vs Gemma 4 comparados con 100+ tests reales en español: calidad por pilar, velocidad, latencia y casos de uso.">
 <meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
 <link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,8 +30,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "DiffusionGemma vs Gemma 4 en 2026: benchmark real de difusión textual",
-  "description": "DiffusionGemma vs Gemma 4 comparados con 100+ tests reales en español: calidad por pilar, velocidad, latencia y casos de uso. Benchmark abierto en DGX Spark.",
+  "headline": "DiffusionGemma vs Gemma 4 2026: benchmark difusión textual",
+  "description": "DiffusionGemma vs Gemma 4 comparados con 100+ tests reales en español: calidad por pilar, velocidad, latencia y casos de uso. Benchmark abierto.",
   "author": {
     "@type": "Person",
     "name": "Cristian Tala",
@@ -93,7 +96,7 @@
     <a href="https://cristiantala.com" class="logo-link" target="_blank" rel="noopener">
       <img src="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-dark-2026.png" alt="Cristian Tala" class="logo">
     </a>
-    <nav>
+    <nav aria-label="Principal">
       <a href="/">Calculadora</a>
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
       <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
@@ -106,7 +109,7 @@
     <p class="lead">¿La difusión textual puede competir con los LLM autoregresivos? Medimos <strong>DiffusionGemma 26B-A4B</strong> contra toda la familia <strong>Gemma 4</strong> con <strong>100+ tests reales</strong> evaluados por Phi-4 en español: calidad por pilar, velocidad, latencia y casos de uso.</p>
     <p class="meta">Última actualización: 2026-06-26 ·
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a> ·
-    <a href="../INSIGHTS.md">análisis completo en INSIGHTS.md</a></p>
+    <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/INSIGHTS.md" target="_blank" rel="noopener">análisis completo en INSIGHTS.md</a></p>
   </section>
 
   <section>
@@ -122,7 +125,7 @@
     </div>
     <table class="results-table">
       <thead>
-        <tr><th>Modelo</th><th>Runs</th><th>Quality global</th><th>Tok/s</th><th>Latencia media</th></tr>
+        <tr><th scope="col">Modelo</th><th scope="col">Runs</th><th scope="col">Quality global</th><th scope="col">Tok/s</th><th scope="col">Latencia media</th></tr>
       </thead>
       <tbody>
         <tr><td><strong>Gemma 4 31B (Spark Q4_K_M)</strong></td><td>89</td><td><strong>8.22</strong></td><td>9.3</td><td>153.4s</td></tr>
@@ -138,7 +141,7 @@
     <h2>DiffusionGemma gana en agentes, soporte y velocidad</h2>
     <table class="results-table">
       <thead>
-        <tr><th>Suite</th><th>DiffusionGemma</th><th>Gemma 4 31B (Spark)</th><th>Diferencia</th></tr>
+        <tr><th scope="col">Suite</th><th scope="col">DiffusionGemma</th><th scope="col">Gemma 4 31B (Spark)</th><th scope="col">Diferencia</th></tr>
       </thead>
       <tbody>
         <tr><td>customer_support</td><td><strong>8.76</strong></td><td>7.59</td><td class="positive">+1.17</td></tr>
@@ -158,7 +161,7 @@
     <h2>Gemma 4 sigue ganando en coding, razonamiento y precisión</h2>
     <table class="results-table">
       <thead>
-        <tr><th>Suite</th><th>DiffusionGemma</th><th>Gemma 4 31B (Spark)</th><th>Diferencia</th></tr>
+        <tr><th scope="col">Suite</th><th scope="col">DiffusionGemma</th><th scope="col">Gemma 4 31B (Spark)</th><th scope="col">Diferencia</th></tr>
       </thead>
       <tbody>
         <tr><td>string_precision</td><td>4.34</td><td><strong>7.65</strong></td><td class="negative">-3.31</td></tr>
@@ -193,7 +196,7 @@
     <h2>Recomendaciones por caso de uso</h2>
     <table class="results-table">
       <thead>
-        <tr><th>Caso de uso</th><th>Ganador</th><th>Por qué</th></tr>
+        <tr><th scope="col">Caso de uso</th><th scope="col">Ganador</th><th scope="col">Por qué</th></tr>
       </thead>
       <tbody>
         <tr><td>Chatbot de soporte al cliente</td><td><strong>DiffusionGemma</strong></td><td>Mejor en customer_support, policy_adherence y multi_turn; 3× más rápido; sin costo por token.</td></tr>
