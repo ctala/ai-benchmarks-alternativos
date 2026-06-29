@@ -299,6 +299,20 @@ MODELS = {
         "open_source": True,
         "license": "MIT",
     },
+    "glm-5.2": {
+        "id": "z-ai/glm-5.2",
+        "name": "GLM 5.2",
+        "cost_input": 0.95,
+        "cost_output": 3.00,
+        "tier": "cheap",
+        "open_source": True,
+        "license": "MIT",
+        "notes": (
+            "Large-scale reasoning model de Z.ai con 1M de contexto y reasoning opcional. "
+            "Benchmarks de terceros lo ubican fuerte en coding agents y tareas visuales/dataviz. "
+            "Precio competitivo: $0.95/$3.00 por M tokens."
+        ),
+    },
 
     # --- Xiaomi MiMo ---
     "mimo-v2-flash": {
@@ -1549,6 +1563,7 @@ CONTEXT_WINDOWS = {
     'x-ai/grok-4.3': 1000000,
     'xiaomi/mimo-v2-flash': 262144,
     'z-ai/glm-5.1': 202752,
+    'z-ai/glm-5.2': 1048576,
 }
 
 # Inyectar context_window a cada modelo (por id). Los que no estén en el mapa

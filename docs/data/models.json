@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-29T10:33:19",
-  "total_models": 143,
-  "tested_count": 91,
+  "generated_at": "2026-06-29T11:40:44",
+  "total_models": 144,
+  "tested_count": 92,
   "tokens_per_call_assumption": {
     "input": 300,
     "output": 1500
@@ -16,20 +16,20 @@
   "score_method": "zscore_v2.9",
   "norm_stats": {
     "quality_avg": {
-      "mean": 7.7778,
-      "std": 0.5719
+      "mean": 7.7834,
+      "std": 0.5712
     },
     "cost_score_avg": {
-      "mean": 7.4343,
-      "std": 1.9458
+      "mean": 7.42,
+      "std": 1.9399
     },
     "speed_score_avg": {
-      "mean": 6.6203,
-      "std": 2.0894
+      "mean": 6.6188,
+      "std": 2.0781
     },
     "latency_score_avg": {
-      "mean": 2.1684,
-      "std": 1.2346
+      "mean": 2.1593,
+      "std": 1.2309
     }
   },
   "score_rescale": {
@@ -92,7 +92,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 133,
-      "score_global": 8.29,
+      "score_global": 8.28,
       "score_by_pillar": {
         "Contenido": 8.28,
         "Agentes": 7.18,
@@ -172,7 +172,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 103,
-      "score_global": 8.25,
+      "score_global": 8.24,
       "score_by_pillar": {
         "Contenido": 7.63,
         "Agentes": 7.09,
@@ -249,7 +249,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
-      "score_global": 8.09,
+      "score_global": 8.08,
       "score_by_pillar": {
         "Contenido": 8.25,
         "Agentes": 7.76,
@@ -335,7 +335,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 101,
-      "score_global": 8.08,
+      "score_global": 8.07,
       "score_by_pillar": {
         "Razonamiento": 7.59,
         "Contenido": 7.58,
@@ -420,7 +420,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 98,
-      "score_global": 7.97,
+      "score_global": 7.96,
       "score_by_pillar": {
         "Contenido": 7.85,
         "Agentes": 7.85,
@@ -495,7 +495,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 169,
-      "score_global": 7.96,
+      "score_global": 7.95,
       "score_by_pillar": {
         "Contenido": 8.09,
         "Agentes": 7.68,
@@ -575,7 +575,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 98,
-      "score_global": 7.89,
+      "score_global": 7.88,
       "score_by_pillar": {
         "Contenido": 7.49,
         "Agentes": 7.45,
@@ -650,7 +650,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 101,
-      "score_global": 7.81,
+      "score_global": 7.8,
       "score_by_pillar": {
         "Contenido": 7.28,
         "Agentes": 7.06,
@@ -735,7 +735,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 103,
-      "score_global": 7.8,
+      "score_global": 7.78,
       "score_by_pillar": {
         "Contenido": 7.86,
         "Agentes": 7.36,
@@ -814,7 +814,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 103,
-      "score_global": 7.77,
+      "score_global": 7.75,
       "score_by_pillar": {
         "Contenido": 8.35,
         "Agentes": 7.62,
@@ -891,7 +891,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 115,
-      "score_global": 7.71,
+      "score_global": 7.7,
       "score_by_pillar": {
         "Contenido": 8.23,
         "Agentes": 7.41,
@@ -962,7 +962,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
-      "score_global": 7.63,
+      "score_global": 7.62,
       "score_by_pillar": {
         "Contenido": 8.13,
         "Agentes": 7.59,
@@ -1047,7 +1047,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 82,
-      "score_global": 7.59,
+      "score_global": 7.57,
       "score_by_pillar": {
         "Contenido": 7.41,
         "Agentes": 7.44,
@@ -1113,7 +1113,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 105,
-      "score_global": 7.44,
+      "score_global": 7.42,
       "score_by_pillar": {
         "Contenido": 7.66,
         "Agentes": 7.08,
@@ -1191,7 +1191,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 103,
-      "score_global": 7.39,
+      "score_global": 7.38,
       "score_by_pillar": {
         "Contenido": 8.17,
         "Agentes": 7.34,
@@ -1269,7 +1269,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 86,
-      "score_global": 7.39,
+      "score_global": 7.37,
       "score_by_pillar": {
         "Contenido": 7.93,
         "Agentes": 7.5,
@@ -1342,7 +1342,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
-      "score_global": 7.37,
+      "score_global": 7.36,
       "score_by_pillar": {
         "Contenido": 7.87,
         "Agentes": 7.42,
@@ -1413,7 +1413,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
-      "score_global": 7.34,
+      "score_global": 7.32,
       "score_by_pillar": {
         "Contenido": 7.91,
         "Agentes": 7.69,
@@ -1490,7 +1490,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
-      "score_global": 7.18,
+      "score_global": 7.16,
       "score_by_pillar": {
         "Contenido": 7.94,
         "Agentes": 7.3,
@@ -1566,7 +1566,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 103,
-      "score_global": 7.12,
+      "score_global": 7.1,
       "score_by_pillar": {
         "Contenido": 7.85,
         "Agentes": 7.43,
@@ -1642,7 +1642,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 103,
-      "score_global": 7.11,
+      "score_global": 7.09,
       "score_by_pillar": {
         "Contenido": 7.47,
         "Agentes": 6.95,
@@ -1720,7 +1720,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 99,
-      "score_global": 7.11,
+      "score_global": 7.09,
       "score_by_pillar": {
         "Contenido": 7.91,
         "Agentes": 7.17,
@@ -1791,7 +1791,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 103,
-      "score_global": 7.07,
+      "score_global": 7.06,
       "score_by_pillar": {
         "Contenido": 7.64,
         "Agentes": 7.04,
@@ -1845,6 +1845,66 @@
       "score_global_linear": 7.41
     },
     {
+      "key": "glm-5.2",
+      "id": "z-ai/glm-5.2",
+      "name": "GLM 5.2",
+      "tier": "cheap",
+      "provider": "openrouter",
+      "open_source": true,
+      "license": "MIT",
+      "cost_input_per_M": 0.95,
+      "cost_output_per_M": 3.0,
+      "cost_per_1k_calls_usd": 4.785,
+      "subscriptions": [],
+      "notes": "Large-scale reasoning model de Z.ai con 1M de contexto y reasoning opcional. Benchmarks de terceros lo ubican fuerte en coding agents y tareas visuales/dataviz. Precio competitivo: $0.95/$3.00 por M tokens.",
+      "tested": true,
+      "tool_calling": true,
+      "thinking": true,
+      "multimodal": false,
+      "runs": 58,
+      "score_global": 7.04,
+      "score_by_pillar": {
+        "Coding": 7.52,
+        "Contenido": 7.55,
+        "Agentes": 6.62,
+        "Razonamiento": 7.27
+      },
+      "score_by_suite": {
+        "code_generation": 7.83,
+        "content_generation": 7.74,
+        "tool_calling": 5.38,
+        "task_management": 7.45,
+        "reasoning": 7.75,
+        "summarization": 6.53,
+        "presentation": 7.61,
+        "startup_content": 7.73,
+        "deep_reasoning": 7.0,
+        "customer_support": 7.24,
+        "structured_output": 7.36,
+        "hallucination": 7.31,
+        "creativity": 7.59,
+        "string_precision": 7.21
+      },
+      "quality_avg": 8.29,
+      "cost_score_avg": 6.12,
+      "speed_score_avg": 6.48,
+      "latency_score_avg": 1.34,
+      "tool_calling_score_avg": 7.36,
+      "judge_score_avg": 4.19,
+      "tokens_per_second": 52.6,
+      "latency_avg_s": 46.52,
+      "total_input_tokens": 12655,
+      "total_output_tokens": 111930,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 7.3
+    },
+    {
       "key": "nim-gemma-4-31b",
       "id": "google/gemma-4-31b-it",
       "name": "Gemma 4 31B (NIM)",
@@ -1862,7 +1922,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 97,
-      "score_global": 7.06,
+      "score_global": 7.04,
       "score_by_pillar": {
         "Contenido": 7.81,
         "Agentes": 7.1,
@@ -1932,7 +1992,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 100,
-      "score_global": 7.05,
+      "score_global": 7.04,
       "score_by_pillar": {
         "Coding": 7.02,
         "Contenido": 7.68,
@@ -2011,7 +2071,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
-      "score_global": 6.95,
+      "score_global": 6.93,
       "score_by_pillar": {
         "Contenido": 7.16,
         "Agentes": 7.06,
@@ -2088,7 +2148,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 89,
-      "score_global": 6.9,
+      "score_global": 6.88,
       "score_by_pillar": {
         "Contenido": 7.48,
         "Agentes": 7.13,
@@ -2157,7 +2217,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 155,
-      "score_global": 6.79,
+      "score_global": 6.77,
       "score_by_pillar": {
         "Contenido": 8.07,
         "Agentes": 7.22,
@@ -2235,7 +2295,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 103,
-      "score_global": 6.78,
+      "score_global": 6.77,
       "score_by_pillar": {
         "Contenido": 7.56,
         "Agentes": 7.32,
@@ -2306,7 +2366,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 100,
-      "score_global": 6.77,
+      "score_global": 6.75,
       "score_by_pillar": {
         "Contenido": 8.33,
         "Agentes": 7.88,
@@ -2377,7 +2437,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
-      "score_global": 6.68,
+      "score_global": 6.66,
       "score_by_pillar": {
         "Contenido": 7.82,
         "Agentes": 6.73,
@@ -2449,7 +2509,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 135,
-      "score_global": 6.61,
+      "score_global": 6.59,
       "score_by_pillar": {
         "Contenido": 7.41,
         "Agentes": 7.16,
@@ -2526,7 +2586,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 90,
-      "score_global": 6.51,
+      "score_global": 6.5,
       "score_by_pillar": {
         "Contenido": 7.78,
         "Agentes": 7.16,
@@ -2578,6 +2638,69 @@
       "score_global_linear": 7.42
     },
     {
+      "key": "nim-devstral-2-123b",
+      "id": "mistralai/devstral-2-123b-instruct-2512",
+      "name": "Devstral 2 123B (NIM)",
+      "tier": "cloud_nim",
+      "provider": "nvidia_nim",
+      "open_source": true,
+      "license": "Apache 2.0",
+      "cost_input_per_M": 0.4,
+      "cost_output_per_M": 2.0,
+      "cost_per_1k_calls_usd": 3.12,
+      "subscriptions": [],
+      "notes": "Mismo modelo que probamos via OpenRouter - comparar provider stability",
+      "tested": true,
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 68,
+      "score_global": 6.48,
+      "score_by_pillar": {
+        "Contenido": 7.65,
+        "Agentes": 7.13,
+        "Coding": 7.41,
+        "Razonamiento": 7.6
+      },
+      "score_by_suite": {
+        "content_generation": 8.01,
+        "tool_calling": 6.56,
+        "task_management": 8.14,
+        "code_generation": 7.88,
+        "reasoning": 8.01,
+        "presentation": 7.71,
+        "startup_content": 8.04,
+        "deep_reasoning": 7.38,
+        "customer_support": 6.67,
+        "structured_output": 7.7,
+        "hallucination": 7.63,
+        "creativity": 7.97,
+        "string_precision": 7.52,
+        "news_seo_writing": 6.71,
+        "ocr_extraction": 6.69,
+        "orchestration": 7.23,
+        "multi_turn": 7.43
+      },
+      "quality_avg": 7.98,
+      "cost_score_avg": 8.0,
+      "speed_score_avg": 6.22,
+      "latency_score_avg": 2.56,
+      "tool_calling_score_avg": 6.87,
+      "judge_score_avg": 4.1,
+      "tokens_per_second": 42.4,
+      "latency_avg_s": 17.58,
+      "total_input_tokens": 19474,
+      "total_output_tokens": 45580,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 7.45
+    },
+    {
       "key": "hermes-4-405b",
       "id": "nousresearch/hermes-4-405b",
       "name": "Hermes 4 405B",
@@ -2595,7 +2718,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 74,
-      "score_global": 6.5,
+      "score_global": 6.48,
       "score_by_pillar": {
         "Contenido": 7.45,
         "Agentes": 7.19,
@@ -2644,69 +2767,6 @@
       "score_global_linear": 7.35
     },
     {
-      "key": "nim-devstral-2-123b",
-      "id": "mistralai/devstral-2-123b-instruct-2512",
-      "name": "Devstral 2 123B (NIM)",
-      "tier": "cloud_nim",
-      "provider": "nvidia_nim",
-      "open_source": true,
-      "license": "Apache 2.0",
-      "cost_input_per_M": 0.4,
-      "cost_output_per_M": 2.0,
-      "cost_per_1k_calls_usd": 3.12,
-      "subscriptions": [],
-      "notes": "Mismo modelo que probamos via OpenRouter - comparar provider stability",
-      "tested": true,
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": false,
-      "runs": 68,
-      "score_global": 6.49,
-      "score_by_pillar": {
-        "Contenido": 7.65,
-        "Agentes": 7.13,
-        "Coding": 7.41,
-        "Razonamiento": 7.6
-      },
-      "score_by_suite": {
-        "content_generation": 8.01,
-        "tool_calling": 6.56,
-        "task_management": 8.14,
-        "code_generation": 7.88,
-        "reasoning": 8.01,
-        "presentation": 7.71,
-        "startup_content": 8.04,
-        "deep_reasoning": 7.38,
-        "customer_support": 6.67,
-        "structured_output": 7.7,
-        "hallucination": 7.63,
-        "creativity": 7.97,
-        "string_precision": 7.52,
-        "news_seo_writing": 6.71,
-        "ocr_extraction": 6.69,
-        "orchestration": 7.23,
-        "multi_turn": 7.43
-      },
-      "quality_avg": 7.98,
-      "cost_score_avg": 8.0,
-      "speed_score_avg": 6.22,
-      "latency_score_avg": 2.56,
-      "tool_calling_score_avg": 6.87,
-      "judge_score_avg": 4.1,
-      "tokens_per_second": 42.4,
-      "latency_avg_s": 17.58,
-      "total_input_tokens": 19474,
-      "total_output_tokens": 45580,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null,
-      "score_global_linear": 7.45
-    },
-    {
       "key": "gemini-flash",
       "id": "google/gemini-2.5-flash",
       "name": "Gemini 2.5 Flash",
@@ -2724,7 +2784,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 135,
-      "score_global": 6.43,
+      "score_global": 6.41,
       "score_by_pillar": {
         "Razonamiento": 7.64,
         "Agentes": 6.85,
@@ -2794,7 +2854,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 134,
-      "score_global": 6.43,
+      "score_global": 6.41,
       "score_by_pillar": {
         "Contenido": 7.52,
         "Agentes": 6.86,
@@ -2880,7 +2940,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
-      "score_global": 6.33,
+      "score_global": 6.32,
       "score_by_pillar": {
         "Contenido": 8.19,
         "Agentes": 6.69,
@@ -2951,7 +3011,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 97,
-      "score_global": 6.2,
+      "score_global": 6.18,
       "score_by_pillar": {
         "Contenido": 7.28,
         "Agentes": 7.18,
@@ -3021,7 +3081,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 88,
-      "score_global": 6.14,
+      "score_global": 6.13,
       "score_by_pillar": {
         "Contenido": 7.76,
         "Agentes": 6.96,
@@ -3089,7 +3149,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "score_global": 6.14,
+      "score_global": 6.12,
       "score_by_pillar": {
         "Contenido": 7.14,
         "Agentes": 6.71,
@@ -3158,7 +3218,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 91,
-      "score_global": 6.13,
+      "score_global": 6.12,
       "score_by_pillar": {
         "Contenido": 7.95,
         "Agentes": 7.16,
@@ -3227,7 +3287,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 104,
-      "score_global": 6.07,
+      "score_global": 6.06,
       "score_by_pillar": {
         "Contenido": 7.95,
         "Agentes": 6.72,
@@ -3296,7 +3356,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 99,
-      "score_global": 6.07,
+      "score_global": 6.06,
       "score_by_pillar": {
         "Contenido": 8.43,
         "Agentes": 7.11,
@@ -3367,7 +3427,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 103,
-      "score_global": 6.04,
+      "score_global": 6.02,
       "score_by_pillar": {
         "Contenido": 8.01,
         "Agentes": 6.66,
@@ -3437,7 +3497,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
-      "score_global": 6.02,
+      "score_global": 6.0,
       "score_by_pillar": {
         "Contenido": 7.17,
         "Agentes": 6.55,
@@ -3508,7 +3568,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 90,
-      "score_global": 5.99,
+      "score_global": 5.97,
       "score_by_pillar": {
         "Contenido": 7.59,
         "Agentes": 6.82,
@@ -3577,7 +3637,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 103,
-      "score_global": 5.91,
+      "score_global": 5.89,
       "score_by_pillar": {
         "Contenido": 7.83,
         "Agentes": 6.9,
@@ -3647,7 +3707,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 182,
-      "score_global": 5.88,
+      "score_global": 5.87,
       "score_by_pillar": {
         "Contenido": 7.14,
         "Agentes": 6.6,
@@ -3726,7 +3786,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 103,
-      "score_global": 5.8,
+      "score_global": 5.79,
       "score_by_pillar": {
         "Contenido": 8.1,
         "Agentes": 7.19,
@@ -3797,7 +3857,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 91,
-      "score_global": 5.77,
+      "score_global": 5.76,
       "score_by_pillar": {
         "Contenido": 8.01,
         "Agentes": 6.85,
@@ -3866,7 +3926,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
-      "score_global": 5.76,
+      "score_global": 5.74,
       "score_by_pillar": {
         "Contenido": 8.05,
         "Agentes": 6.31,
@@ -3936,7 +3996,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 91,
-      "score_global": 5.73,
+      "score_global": 5.71,
       "score_by_pillar": {
         "Contenido": 7.62,
         "Agentes": 6.63,
@@ -4005,7 +4065,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 91,
-      "score_global": 5.72,
+      "score_global": 5.7,
       "score_by_pillar": {
         "Contenido": 7.22,
         "Agentes": 6.51,
@@ -4074,7 +4134,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 246,
-      "score_global": 5.67,
+      "score_global": 5.65,
       "score_by_pillar": {
         "Contenido": 6.95,
         "Agentes": 6.57,
@@ -4143,7 +4203,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 86,
-      "score_global": 5.65,
+      "score_global": 5.63,
       "score_by_pillar": {
         "Contenido": 7.7,
         "Agentes": 6.57,
@@ -4212,7 +4272,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 138,
-      "score_global": 5.58,
+      "score_global": 5.57,
       "score_by_pillar": {
         "Contenido": 7.3,
         "Agentes": 6.7,
@@ -4281,7 +4341,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 167,
-      "score_global": 5.47,
+      "score_global": 5.46,
       "score_by_pillar": {
         "Contenido": 7.47,
         "Agentes": 6.09,
@@ -4353,7 +4413,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 90,
-      "score_global": 5.44,
+      "score_global": 5.42,
       "score_by_pillar": {
         "Contenido": 7.12,
         "Agentes": 6.51,
@@ -4422,7 +4482,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 152,
-      "score_global": 5.4,
+      "score_global": 5.38,
       "score_by_pillar": {
         "Contenido": 7.28,
         "Agentes": 6.05,
@@ -4500,7 +4560,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 103,
-      "score_global": 5.4,
+      "score_global": 5.38,
       "score_by_pillar": {
         "Contenido": 7.79,
         "Agentes": 7.14,
@@ -4570,7 +4630,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 155,
-      "score_global": 5.36,
+      "score_global": 5.34,
       "score_by_pillar": {
         "Contenido": 7.12,
         "Agentes": 6.42,
@@ -4640,7 +4700,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 155,
-      "score_global": 5.24,
+      "score_global": 5.23,
       "score_by_pillar": {
         "Contenido": 7.72,
         "Agentes": 6.05,
@@ -4718,7 +4778,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
-      "score_global": 5.23,
+      "score_global": 5.21,
       "score_by_pillar": {
         "Contenido": 8.02,
         "Agentes": 7.23,
@@ -4788,7 +4848,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 155,
-      "score_global": 5.11,
+      "score_global": 5.09,
       "score_by_pillar": {
         "Contenido": 7.59,
         "Agentes": 6.09,
@@ -4857,7 +4917,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 105,
-      "score_global": 5.05,
+      "score_global": 5.03,
       "score_by_pillar": {
         "Razonamiento": 7.07,
         "Contenido": 7.13,
@@ -4933,7 +4993,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 155,
-      "score_global": 5.01,
+      "score_global": 4.99,
       "score_by_pillar": {
         "Contenido": 7.68,
         "Agentes": 6.25,
@@ -5002,7 +5062,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 91,
-      "score_global": 4.92,
+      "score_global": 4.9,
       "score_by_pillar": {
         "Contenido": 7.77,
         "Agentes": 7.13,
@@ -5071,7 +5131,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 155,
-      "score_global": 4.74,
+      "score_global": 4.72,
       "score_by_pillar": {
         "Contenido": 7.42,
         "Agentes": 6.76,
@@ -5140,7 +5200,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 91,
-      "score_global": 4.56,
+      "score_global": 4.54,
       "score_by_pillar": {
         "Contenido": 6.87,
         "Agentes": 6.61,
@@ -5209,7 +5269,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 103,
-      "score_global": 4.46,
+      "score_global": 4.45,
       "score_by_pillar": {
         "Contenido": 7.55,
         "Agentes": 6.59,
@@ -5288,7 +5348,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 102,
-      "score_global": 4.31,
+      "score_global": 4.29,
       "score_by_pillar": {
         "Contenido": 7.84,
         "Agentes": 7.08,
@@ -5358,7 +5418,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 150,
-      "score_global": 4.28,
+      "score_global": 4.26,
       "score_by_pillar": {
         "Contenido": 7.14,
         "Agentes": 5.56,
@@ -5427,7 +5487,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 182,
-      "score_global": 4.22,
+      "score_global": 4.2,
       "score_by_pillar": {
         "Contenido": 6.9,
         "Agentes": 6.34,
@@ -5502,7 +5562,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 91,
-      "score_global": 4.15,
+      "score_global": 4.13,
       "score_by_pillar": {
         "Contenido": 7.55,
         "Agentes": 6.49,
@@ -5571,7 +5631,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 103,
-      "score_global": 4.14,
+      "score_global": 4.12,
       "score_by_pillar": {
         "Contenido": 6.74,
         "Agentes": 6.93,
@@ -5651,7 +5711,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 81,
-      "score_global": 3.81,
+      "score_global": 3.79,
       "score_by_pillar": {
         "Contenido": 6.52,
         "Agentes": 6.69,
@@ -5721,7 +5781,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 106,
-      "score_global": 3.77,
+      "score_global": 3.75,
       "score_by_pillar": {
         "Contenido": 7.04,
         "Agentes": 5.41,
@@ -5792,7 +5852,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 91,
-      "score_global": 3.61,
+      "score_global": 3.59,
       "score_by_pillar": {
         "Contenido": 7.19,
         "Agentes": 6.8,
@@ -5861,7 +5921,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 167,
-      "score_global": 3.43,
+      "score_global": 3.41,
       "score_by_pillar": {
         "Contenido": 7.06,
         "Agentes": 6.5,
@@ -5931,7 +5991,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 103,
-      "score_global": 3.16,
+      "score_global": 3.14,
       "score_by_pillar": {
         "Contenido": 6.54,
         "Agentes": 6.62,
@@ -6002,7 +6062,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 91,
-      "score_global": 2.99,
+      "score_global": 2.97,
       "score_by_pillar": {
         "Contenido": 7.64,
         "Agentes": 5.32,
@@ -6077,7 +6137,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 122,
-      "score_global": 2.75,
+      "score_global": 2.73,
       "score_by_pillar": {
         "Razonamiento": 6.97,
         "Agentes": 6.09,
@@ -6146,7 +6206,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 150,
-      "score_global": 2.39,
+      "score_global": 2.37,
       "score_by_pillar": {
         "Contenido": 6.53,
         "Agentes": 5.64,
@@ -6215,7 +6275,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 182,
-      "score_global": 2.06,
+      "score_global": 2.04,
       "score_by_pillar": {
         "Contenido": 6.76,
         "Agentes": 6.71,
@@ -6284,7 +6344,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 102,
-      "score_global": 1.44,
+      "score_global": 1.41,
       "score_by_pillar": {
         "Contenido": 6.45,
         "Agentes": 6.4,
@@ -6354,7 +6414,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
-      "score_global": 1.13,
+      "score_global": 1.1,
       "score_by_pillar": {
         "Contenido": 6.7,
         "Agentes": 6.38,
