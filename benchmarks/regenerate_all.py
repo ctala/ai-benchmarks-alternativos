@@ -80,6 +80,7 @@ def main() -> int:
     if not args.skip_comparisons:
         run_script("generate_rankings.py", [], dry_run=args.dry_run)
         run_script("generate_comparison.py", [], dry_run=args.dry_run)
+        run_script("generate_manual_landings.py", [], dry_run=args.dry_run)
 
     # 6. Sitemap y llms.txt
     if not args.skip_sitemap:

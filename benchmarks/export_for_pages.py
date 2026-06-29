@@ -361,6 +361,7 @@ def build_export():
             "cost_input_per_M": ci,
             "cost_output_per_M": co,
             "cost_per_1k_calls_usd": round(cost_per_1k_calls, 3),
+            "context_window": cfg.get("context_window"),
             "subscriptions": subscriptions_expanded,
             "notes": cfg.get("notes", ""),
             "tested": metrics["runs"] >= 50,  # >= 50 runs = cobertura completa
