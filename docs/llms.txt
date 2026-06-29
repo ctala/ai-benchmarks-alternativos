@@ -28,6 +28,7 @@
 - [Gemini 3.5 Flash vs Gemini 2.5 Flash en 2026: comparación con benchmark real](https://benchmarks.cristiantala.com/gemini-3.5-flash-vs-gemini-2.5-flash/): Gemini 3.5 Flash vs Gemini 2.5 Flash comparados con 8.000+ tests reales: coding, contenido en español, razonamiento, agentes, costo y velocidad. Benchmark abierto, datos en español.
 - [Gemini vs ChatGPT en 2026: comparación con benchmark real](https://benchmarks.cristiantala.com/gemini-vs-chatgpt/): Gemini vs ChatGPT (GPT) comparados con 8.000+ tests reales: coding, contenido en español, razonamiento, agentes, costo y velocidad. Benchmark abierto, datos en español.
 - [Gemini vs Claude en 2026: comparación con benchmark real](https://benchmarks.cristiantala.com/gemini-vs-claude/): Gemini vs Claude comparados con 8.000+ tests reales: coding, contenido en español, razonamiento, agentes, costo y velocidad. Benchmark abierto, datos en español.
+- [MiniMax M3 vs Kimi K2.7 Code en 2026: comparación con benchmark real](https://benchmarks.cristiantala.com/minimax-vs-kimi/): MiniMax M3 vs Kimi K2.7 Code comparados con 300+ tests reales en español: calidad, costo, velocidad, contexto y casos de uso. Datos abiertos, benchmark sin hype.
 - [Qwen vs Llama en 2026: comparación open source con benchmark real](https://benchmarks.cristiantala.com/qwen-vs-llama/): Qwen vs Llama comparados con 8.000+ tests reales: coding, contenido en español, razonamiento, agentes, costo y velocidad. Benchmark abierto, datos en español.
 
 ## Sobre el autor

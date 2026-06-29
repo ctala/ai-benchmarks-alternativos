@@ -103,6 +103,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://benchmarks.cristiantala.com/minimax-vs-kimi/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://benchmarks.cristiantala.com/modelos-baratos-emprendedores/</loc>
     <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
