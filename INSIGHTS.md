@@ -67,6 +67,97 @@ DiffusionGemma no reemplaza a los top cloud (DeepSeek V4 Flash #1 con 8.29), per
 
 ---
 
+## 🔬 Deep dive: DiffusionGemma vs Gemma 4 — misma familia, arquitecturas opuestas
+
+> **Texto listo para contenido/blog**. Datos: 100 runs de DiffusionGemma 26B-A4B Q8_0, 89-184 runs de variantes Gemma 4 31B, juez Phi-4 local, 24 suites, junio 2026.
+
+### Contexto: ¿qué estamos comparando?
+
+Ambos modelos comparten el backbone **Gemma 4**, pero difieren en cómo generan tokens:
+
+- **Gemma 4 31B**: modelo autoregresivo clásico. Genera un token, lo agrega al contexto, genera el siguiente. Es la arquitectura de GPT, Claude, Llama, etc.
+- **DiffusionGemma 26B-A4B**: modelo de **difusión textual**. Empieza con un bloque de 256 tokens ruidosos y los refina en pasos de denoising. Genera bloques enteros en paralelo, no token a token.
+
+La promesa de la difusión es velocidad y paralelismo. La duda era si sacrificaba calidad. La data dice que **no: la calidad global es comparable, pero el perfil de fortalezas cambia**.
+
+### Calidad global: empate técnico
+
+| Modelo | Runs | Quality global | Tok/s promedio | Latencia promedio |
+|---|---|---:|---:|---:|
+| Gemma 4 31B (Spark Q4_K_M) | 89 | 8.22 | 9.3 | 153.4s |
+| **DiffusionGemma 26B-A4B (Spark Q8_0)** | **100** | **8.14** | **39.3** | **50.1s** |
+| Gemma 4 31B (NIM) | 184 | 7.93 | 22.9 | — |
+| Gemma 4 26B MoE (NIM) | 104 | 7.80 | 44.3 | — |
+
+**0.08 puntos de diferencia en quality global es ruido estadístico.** En la práctica, DiffusionGemma y Gemma 4 31B local entregan la misma calidad media.
+
+### Rendimiento por suite: dónde gana cada uno
+
+**DiffusionGemma gana en suites de agentes, soporte y operaciones:**
+
+| Suite | DiffusionGemma | Gemma 4 31B (Spark) | Δ |
+|---|---|---:|---:|
+| customer_support | **8.76** | 7.59 | **+1.17** |
+| policy_adherence | **8.41** | 7.51 | **+0.89** |
+| agent_capabilities | **8.96** | 8.22 | **+0.75** |
+| sales_outreach | **9.17** | 8.76 | **+0.41** |
+| summarization | **7.92** | 7.50 | **+0.42** |
+| task_management | **9.33** | 8.96 | **+0.37** |
+| tool_calling | **7.31** | 7.03 | **+0.28** |
+| multi_turn | **8.45** | 8.02 | **+0.43** |
+
+**Gemma 4 31B gana en coding, razonamiento y precisión de formato:**
+
+| Suite | DiffusionGemma | Gemma 4 31B (Spark) | Δ |
+|---|---|---:|---:|
+| string_precision | 4.34 | **7.65** | **-3.31** |
+| deep_reasoning | 8.01 | **8.64** | **-0.63** |
+| strategy | 8.90 | **9.38** | **-0.48** |
+| presentation | 8.39 | **8.81** | **-0.42** |
+| reasoning | 9.03 | **9.44** | **-0.41** |
+| content_generation | 8.75 | **9.14** | **-0.39** |
+| creativity | 8.35 | **8.74** | **-0.39** |
+| code_generation | 8.78 | **8.95** | **-0.17** |
+
+### Velocidad: el factor disruptivo
+
+La diferencia más visible no es la calidad, sino la **velocidad real de generación**:
+
+- **DiffusionGemma: 39.3 tok/s promedio, latencia 50.1s**
+- **Gemma 4 31B local: 9.3 tok/s promedio, latencia 153.4s**
+
+Es decir: **DiffusionGemma genera respuestas 3× más rápido** que Gemma 4 31B en el mismo hardware (DGX Spark). En términos de productividad, una respuesta de 1,500 tokens pasa de ~2.5 minutos a ~40 segundos.
+
+Incluso contra la versión NIM de Gemma 4 (22.9 tok/s), DiffusionGemma local es **1.7× más rápido** y no paga costo por token.
+
+### ¿Por qué la difusión es mejor en agentes y peor en strings exactos?
+
+La hipótesis más parsimoniosa:
+
+1. **Bloques de 256 tokens en paralelo** favorecen fluidez conversacional, seguimiento de instrucciones y estructura general (agentes, soporte, resúmenes). El modelo "ve" el bloque completo mientras lo denoisa, lo que mejora coherencia a escala de párrafo.
+
+2. **La misma paralelización penaliza precisión carácter a carácter**. Cuando el juez pide "copiá exactamente este JWT de 64 caracteres", el modelo no genera el string carácter por carácter con el mismo control que un autoregresivo. De ahí el **string_precision 4.34 vs 7.65**.
+
+3. **Razonamiento profundo multi-paso** sigue siendo territorio de los autoregresivos. Gemma 4 31B gana en `reasoning`, `deep_reasoning` y `strategy` porque la generación secuencial forza más coherencia lógica paso a paso.
+
+### Recomendaciones por caso de uso
+
+| Caso de uso | Ganador | Justificación |
+|---|---|---|
+| **Chatbot de soporte al cliente** | **DiffusionGemma** | Mejor en `customer_support`, `policy_adherence` y `multi_turn`; 3× más rápido; sin costo por token. |
+| **Agentes N8N / orquestación** | **DiffusionGemma** | Mejor en `agent_capabilities`, `task_management` y `tool_calling`. |
+| **Generación de contenido de blog** | **Gemma 4 31B** | Gana en `content_generation` y `creativity` por ~0.4 puntos. |
+| **Coding / scripts / refactor** | **Gemma 4 31B** | Gana en `code_generation` y, sobre todo, `string_precision`. |
+| **Razonamiento estratégico / análisis** | **Gemma 4 31B** | Mejor en `reasoning`, `deep_reasoning` y `strategy`. |
+| **Copiar credenciales, JWTs, configs exactos** | **Gemma 4 31B** | `string_precision` 7.65 vs 4.34; no usar DiffusionGemma. |
+| **Chat interactivo con latencia crítica** | **DiffusionGemma** | 39 tok/s y menor latencia total. |
+
+### Lección para contenido
+
+> **"DiffusionGemma no es un Gemma 4 más rápido; es un modelo con un perfil diferente."** Si tu caso es conversación, soporte o agentes operativos en español, la difusión ya es competitiva y más barata. Si tu caso es código, credenciales o razonamiento profundo, los autoregresivos siguen siendo mejores. La elección depende de la tarea, no del hype.
+
+---
+
 ## 🌟 Insight estrella v2.9 (4 jun 2026): el peso nominal NO es la influencia real — z-score
 
 Teníamos el score con pesos Quality 50% · Cost 20% · Tool 15% · Speed/Latency 7.5%. Suena razonable. Pero medimos la **influencia REAL** de cada dimensión = peso × cuánto separa a los modelos (varianza). Y el resultado fue contraintuitivo:
