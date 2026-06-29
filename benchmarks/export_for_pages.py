@@ -207,6 +207,7 @@ def aggregate_metrics(runs):
 
     return {
         "runs": len(general),  # cobertura = tareas prácticas (umbral tested >=50)
+        "total_runs": len(runs),  # todos los runs exitosos incluyendo niah y seguridad
         "score_global": round(sum(scores) / len(scores), 2) if scores else None,
         "score_by_pillar": pillars,
         "score_by_suite": suites,
@@ -319,6 +320,7 @@ def build_export():
 
         metrics = aggregate_metrics(runs) if runs else {
             "runs": 0,
+            "total_runs": 0,
             "score_global": None,
             "score_by_pillar": {},
             "score_by_suite": {},

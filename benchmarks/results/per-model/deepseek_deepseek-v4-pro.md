@@ -1,0 +1,1670 @@
+# DeepSeek V4 Pro
+
+- **model_id**: `deepseek/deepseek-v4-pro`
+- **Total tests**: 126/148 exitosos (22 errores)
+- **Score final**: 5.99
+- **Calidad**: 6.32
+- **Judge score (Phi-4)**: 3.03/10
+- **Velocidad**: 27 tok/s
+- **Latencia primera token**: 51.80s
+- **Costo promedio por test**: $0.00698
+
+> Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
+
+## Resumen por suite
+
+| Suite | Tests | OK | Score promedio | Calidad promedio |
+|-------|-------|----|----|----|
+| agent_capabilities | 5 | 3 | 6.54 | 7.24 |
+| agent_long_horizon | 12 | 12 | 7.17 | 9.12 |
+| code_generation | 4 | 2 | 7.46 | 9.02 |
+| content_generation | 4 | 4 | 6.66 | 7.24 |
+| creativity | 4 | 3 | 7.39 | 8.65 |
+| customer_support | 4 | 0 | - | - |
+| deep_reasoning | 6 | 4 | 6.24 | 6.61 |
+| hallucination | 3 | 2 | 7.24 | 8.04 |
+| multi_turn | 4 | 3 | 6.79 | 7.44 |
+| news_seo_writing | 5 | 4 | 6.30 | 7.19 |
+| niah_es_lite | 45 | 45 | 4.65 | 4.23 |
+| ocr_extraction | 5 | 4 | 5.61 | 5.26 |
+| orchestration | 5 | 3 | 7.19 | 8.21 |
+| policy_adherence | 4 | 4 | 6.44 | 5.99 |
+| presentation | 2 | 2 | 4.98 | 4.23 |
+| reasoning | 3 | 3 | 5.97 | 6.07 |
+| sales_outreach | 3 | 3 | 7.46 | 8.92 |
+| startup_content | 5 | 4 | 6.13 | 6.72 |
+| strategy | 3 | 3 | 7.21 | 8.68 |
+| string_precision | 6 | 5 | 7.14 | 7.71 |
+| structured_output | 4 | 3 | 7.09 | 8.11 |
+| summarization | 2 | 2 | 7.02 | 7.82 |
+| task_management | 3 | 2 | 7.30 | 8.62 |
+| tool_calling | 4 | 3 | 6.99 | 6.35 |
+| translation | 3 | 3 | 5.89 | 5.61 |
+
+## Detalle por test
+
+### Razonamiento y Estrategia
+
+#### deep_reasoning
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| ethical_dilemma_structured | 3.01 | 0.00 | - | 36 | 57.56s | OK |
+| math_word_problem | 7.77 | 9.08 | 4.4 | 34 | 26.28s | OK |
+| logic_puzzle_constraint | 6.57 | 8.18 | 4.4 | 11 | 451.47s | OK |
+| causal_reasoning | 7.62 | 9.16 | 4.4 | 32 | 57.61s | OK |
+| code_bug_subtle | 4.85 | 0.00 | - | 0 | 0.00s | ERROR |
+| fermi_estimation | 4.85 | 0.00 | - | 0 | 0.00s | ERROR |
+
+<details><summary><code>math_word_problem</code> — score 7.77</summary>
+
+**Stats**: latencia 26.28s · 34 tok/s · 88→895 tokens · $0.00082
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Los trenes se cruzan a las 8:54 AM, a 72 km de Santiago.
+
+**Razonamiento paso a paso:**
+
+1. **Definición de variables y condiciones iniciales:**
+   - Distancia Santiago – Valparaíso: 120 km.
+   - Tren A (Santiago → Valparaíso): Sale a las 8:00 AM, velocidad = 80 km/h.
+   - Tren B (Valparaíso → Santi
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__deep_reasoning__math_word_problem.md`](../results/responses/20260426_074254/deepseek-v4-pro__deep_reasoning__math_word_problem.md)
+
+</details>
+
+<details><summary><code>logic_puzzle_constraint</code> — score 6.57</summary>
+
+**Stats**: latencia 451.47s · 11 tok/s · 110→5102 tokens · $0.00449
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Tenemos 4 casas en una calle, cada una de un color diferente: roja (R), azul (A), verde (V) y blanca (B). Las posiciones de izquierda a derecha son 1, 2, 3 y 4.
+
+**Condiciones:**
+1. La casa roja está a la izquierda de la azul: posición de R < posición de A.
+2. La casa verde está al lado de la blanca
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__deep_reasoning__logic_puzzle_constraint.md`](../results/responses/20260426_074254/deepseek-v4-pro__deep_reasoning__logic_puzzle_constraint.md)
+
+</details>
+
+<details><summary><code>causal_reasoning</code> — score 7.62</summary>
+
+**Stats**: latencia 57.61s · 32 tok/s · 196→1852 tokens · $0.00170
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para evaluar las tres hipótesis, calculamos las tasas relevantes y analizamos las tendencias.
+
+### Tasas calculadas
+
+| Indicador                    | Mes 1 | Mes 2 | Mes 3 |
+|------------------------------|-------|-------|-------|
+| Pedidos                      | 1000  | 1200  | 1100  |
+| Quejas
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__deep_reasoning__causal_reasoning.md`](../results/responses/20260426_074254/deepseek-v4-pro__deep_reasoning__causal_reasoning.md)
+
+</details>
+
+<details><summary><code>code_bug_subtle</code> — score 4.85</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+<details><summary><code>fermi_estimation</code> — score 4.85</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+#### reasoning
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| business_analysis | 7.31 | 9.16 | 4.4 | 36 | 172.20s | OK |
+| logical_reasoning | 7.60 | 9.04 | 4.6 | 35 | 45.01s | OK |
+| multi_constraint_decision | 3.01 | 0.00 | - | 38 | 53.37s | OK |
+
+<details><summary><code>business_analysis</code> — score 7.31</summary>
+
+**Stats**: latencia 172.20s · 36 tok/s · 168→6151 tokens · $0.00542
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el análisis completo:
+
+---
+
+### **1. Métricas clave calculadas**
+
+**Supuestos previos**  
+- Los “usuarios” son clientes de pago al final del mes.  
+- El ARPU es constante: $15 / mes (18 000/1200 = 20 250/1350 = 22 200/1480 ≈ $15).  
+- No hay expansión de clientes existentes (sin upgrades
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__reasoning__business_analysis.md`](../results/responses/20260426_074254/deepseek-v4-pro__reasoning__business_analysis.md)
+
+</details>
+
+<details><summary><code>logical_reasoning</code> — score 7.60</summary>
+
+**Stats**: latencia 45.01s · 35 tok/s · 130→1593 tokens · $0.00144
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Paso 1: Asignar variables y usar los datos conocidos.**  
+Tenemos 5 equipos: A, B, C, D, E.  
+Sabemos por el punto 7 que **B = 10**.  
+El punto 2 dice que **D = A**.
+
+**Paso 2: Plantear la ecuación de la suma total.**  
+La suma total es 60:  
+A + B + C + D + E = 60  
+Sustituyendo B = 10 y D = A:
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__reasoning__logical_reasoning.md`](../results/responses/20260426_074254/deepseek-v4-pro__reasoning__logical_reasoning.md)
+
+</details>
+
+#### hallucination
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| factual_trap_companies | 7.13 | 8.12 | 4.0 | 30 | 30.67s | OK |
+| context_faithfulness | 7.35 | 7.96 | 4.4 | 35 | 12.66s | OK |
+| fake_citation_trap | 5.27 | 1.20 | - | 0 | 0.00s | ERROR |
+
+<details><summary><code>factual_trap_companies</code> — score 7.13</summary>
+
+**Stats**: latencia 30.67s · 30 tok/s · 145→905 tokens · $0.00085
+
+**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+[
+  {"pregunta": 1, "respuesta": "1976", "confianza": "alta"},
+  {"pregunta": 2, "respuesta": "Elon Musk", "confianza": "alta"},
+  {"pregunta": 3, "respuesta": "No tengo certeza", "confianza": "baja"},
+  {"pregunta": 4, "respuesta": "Canberra", "confianza": "alta"},
+  {"pregunta": 5, "respue
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__hallucination__factual_trap_companies.md`](../results/responses/20260426_074254/deepseek-v4-pro__hallucination__factual_trap_companies.md)
+
+</details>
+
+<details><summary><code>context_faithfulness</code> — score 7.35</summary>
+
+**Stats**: latencia 12.66s · 35 tok/s · 181→445 tokens · $0.00047
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+1. $2.3M  
+2. 45 personas  
+3. Brasil  
+4. No se menciona en el texto  
+5. No se menciona en el texto  
+6. No se menciona en el texto
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__hallucination__context_faithfulness.md`](../results/responses/20260426_074254/deepseek-v4-pro__hallucination__context_faithfulness.md)
+
+</details>
+
+<details><summary><code>fake_citation_trap</code> — score 5.27</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+#### strategy
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| competitor_analysis | 6.77 | 7.52 | 4.4 | 34 | 60.77s | OK |
+| business_model_validation | 7.54 | 9.36 | 4.6 | 30 | 120.66s | OK |
+| pricing_strategy | 7.31 | 9.16 | 4.4 | 37 | 168.06s | OK |
+
+<details><summary><code>competitor_analysis</code> — score 6.77</summary>
+
+**Stats**: latencia 60.77s · 34 tok/s · 181→2048 tokens · $0.00186
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Antes de empezar, una aclaración: sobre **EnviaMas** solo puedo inferir características típicas de una startup local de email marketing en LATAM (menor precio, soporte en español, funcionalidades más simples, posible foco en transaccional). Mis supuestos están marcados, pero la tabla refleja la real
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__strategy__competitor_analysis.md`](../results/responses/20260426_074254/deepseek-v4-pro__strategy__competitor_analysis.md)
+
+</details>
+
+<details><summary><code>business_model_validation</code> — score 7.54</summary>
+
+**Stats**: latencia 120.66s · 30 tok/s · 188→3686 tokens · $0.00329
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Vale, deja el pitch deck. Actuaré como el VC más escéptico que te va a crujir en el comité. No voy a aplaudir el sueño, voy a destriparlo. Aquí van las preguntas que yo te haría, directo a la yugular.
+
+---
+
+**1. Identifica los 5 riesgos principales de este modelo (no me des los obvios de “ejecución”
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__strategy__business_model_validation.md`](../results/responses/20260426_074254/deepseek-v4-pro__strategy__business_model_validation.md)
+
+</details>
+
+<details><summary><code>pricing_strategy</code> — score 7.31</summary>
+
+**Stats**: latencia 168.06s · 37 tok/s · 183→6163 tokens · $0.00544
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Análisis completo del aumento de precio de $60 a $89/mes**
+
+---
+
+### 1. Ratio LTV/CAC actual y cómo cambiaría
+
+**Datos actuales:**
+- Ingreso mensual: $60
+- Costo por usuario: $8/mes → Margen bruto: $52/mes (86.7%)
+- Churn mensual: 7% → Vida útil promedio: 1 / 0.07 ≈ 14.29 meses
+- CAC: $120
+
+**Cálc
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__strategy__pricing_strategy.md`](../results/responses/20260426_074254/deepseek-v4-pro__strategy__pricing_strategy.md)
+
+</details>
+
+### Coding y Datos
+
+#### code_generation
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| debug_code | 7.54 | 8.96 | 4.4 | 24 | 36.65s | OK |
+| python_api_integration | 7.39 | 9.08 | 4.8 | 29 | 75.21s | OK |
+| n8n_workflow_json | 5.55 | 2.00 | - | 0 | 0.00s | ERROR |
+| sql_query_complex | 5.55 | 2.00 | - | 0 | 0.00s | ERROR |
+
+<details><summary><code>debug_code</code> — score 7.54</summary>
+
+**Stats**: latencia 36.65s · 24 tok/s · 223→898 tokens · $0.00088
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí está el análisis de los bugs y la versión corregida del código:
+
+---
+
+### **Bug 1: División por cero**
+- **Causa:** Si no existe ninguna orden con `status == 'pending'`, la lista `processed` queda vacía. Al calcular `average = total / len(processed)` se produce un `ZeroDivisionError`.
+- **Corre
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__code_generation__debug_code.md`](../results/responses/20260426_074254/deepseek-v4-pro__code_generation__debug_code.md)
+
+</details>
+
+<details><summary><code>python_api_integration</code> — score 7.39</summary>
+
+**Stats**: latencia 75.21s · 29 tok/s · 110→2193 tokens · $0.00196
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+```python
+import time
+import httpx
+from httpx import RequestError, HTTPStatusError, TimeoutException
+
+def filtrar_productos_caros(token: str) -> list[dict]:
+    """
+    Obtiene productos de la API y retorna aquellos con precio > 100.
+
+    Realiza una petición GET a https://api.example.com/products c
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__code_generation__python_api_integration.md`](../results/responses/20260426_074254/deepseek-v4-pro__code_generation__python_api_integration.md)
+
+</details>
+
+<details><summary><code>n8n_workflow_json</code> — score 5.55</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+<details><summary><code>sql_query_complex</code> — score 5.55</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+#### structured_output
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| json_array_classification | 7.63 | 8.86 | 5 | 19 | 26.06s | OK |
+| json_simple_extraction | 6.18 | 3.80 | - | 0 | 0.00s | ERROR |
+| json_nested_complex | 6.71 | 8.02 | 4.4 | 32 | 217.81s | OK |
+| json_strict_no_extra | 6.93 | 7.46 | 4.0 | 1 | 35.55s | OK |
+
+<details><summary><code>json_array_classification</code> — score 7.63</summary>
+
+**Stats**: latencia 26.06s · 19 tok/s · 187→501 tokens · $0.00052
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante y clara, con un formato JSON correcto; ofrece una clasificación útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[{"id": 1, "category": "shipping", "priority": "urgent", "sentiment": "negative"}, {"id": 2, "category": "shipping", "priority": "low", "sentiment": "neutral"}, {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "se
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__structured_output__json_array_classification.md`](../results/responses/20260426_074254/deepseek-v4-pro__structured_output__json_array_classification.md)
+
+</details>
+
+<details><summary><code>json_simple_extraction</code> — score 6.18</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+<details><summary><code>json_nested_complex</code> — score 6.71</summary>
+
+**Stats**: latencia 217.81s · 32 tok/s · 218→7058 tokens · $0.00624
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "project": "Rediseno sitio web",
+  "start_date": "2026-05-01",
+  "end_date": "2026-06-30",
+  "team": [
+    {
+      "name": "Ana",
+      "role": "diseñador",
+      "allocation_pct": 40
+    },
+    {
+      "name": "Carlos",
+      "role": "developer",
+      "allocation_pct": 50
+    },
+    {
+      "n
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__structured_output__json_nested_complex.md`](../results/responses/20260426_074254/deepseek-v4-pro__structured_output__json_nested_complex.md)
+
+</details>
+
+<details><summary><code>json_strict_no_extra</code> — score 6.93</summary>
+
+**Stats**: latencia 35.55s · 1 tok/s · 81→26 tokens · $0.00006
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara con un formato JSON perfecto, pero carece de profundidad e insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{"status": "ok", "count": 42, "items": ["alpha", "beta", "gamma"]}
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__structured_output__json_strict_no_extra.md`](../results/responses/20260426_074254/deepseek-v4-pro__structured_output__json_strict_no_extra.md)
+
+</details>
+
+#### string_precision
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| copy_hex_64 | 6.94 | 7.32 | 3.6 | 8 | 14.74s | OK |
+| copy_api_key | 7.20 | 7.88 | 4.0 | 11 | 17.17s | OK |
+| copy_mixed_special | 7.21 | 7.88 | 4.0 | 7 | 14.54s | OK |
+| write_config_file | 7.27 | 7.88 | 4.0 | 39 | 12.79s | OK |
+| copy_hex_32 | 7.08 | 7.60 | 3.8 | 5 | 26.89s | OK |
+| copy_jwt | 5.34 | 1.40 | - | 0 | 0.00s | ERROR |
+
+<details><summary><code>copy_hex_64</code> — score 6.94</summary>
+
+**Stats**: latencia 14.74s · 8 tok/s · 108→111 tokens · $0.00014
+
+**Juez Phi-4**: 3.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__string_precision__copy_hex_64.md`](../results/responses/20260426_074254/deepseek-v4-pro__string_precision__copy_hex_64.md)
+
+</details>
+
+<details><summary><code>copy_api_key</code> — score 7.20</summary>
+
+**Stats**: latencia 17.17s · 11 tok/s · 130→194 tokens · $0.00022
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad ya que simplemente repite el string sin ofrecer insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+REDACTED-SECRET
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__string_precision__copy_api_key.md`](../results/responses/20260426_074254/deepseek-v4-pro__string_precision__copy_api_key.md)
+
+</details>
+
+<details><summary><code>copy_mixed_special</code> — score 7.21</summary>
+
+**Stats**: latencia 14.54s · 7 tok/s · 98→97 tokens · $0.00013
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:2)
+
+> La respuesta es precisa, relevante y clara al copiar el string exactamente como se solicitó; sin embargo, carece de profundidad e insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__string_precision__copy_mixed_special.md`](../results/responses/20260426_074254/deepseek-v4-pro__string_precision__copy_mixed_special.md)
+
+</details>
+
+<details><summary><code>write_config_file</code> — score 7.27</summary>
+
+**Stats**: latencia 12.79s · 39 tok/s · 243→503 tokens · $0.00054
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, proporcionando exactamente lo que se solicitó sin errores o adiciones innecesarias.
+
+**Respuesta (preview 300 chars)**:
+
+```
+AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+AWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
+R2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com
+API_TOKEN=REDACTED-SECRET
+JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__string_precision__write_config_file.md`](../results/responses/20260426_074254/deepseek-v4-pro__string_precision__write_config_file.md)
+
+</details>
+
+<details><summary><code>copy_hex_32</code> — score 7.08</summary>
+
+**Stats**: latencia 26.89s · 5 tok/s · 85→136 tokens · $0.00015
+
+**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+a1b2c3d4e5f6789012345678abcdef90
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__string_precision__copy_hex_32.md`](../results/responses/20260426_074254/deepseek-v4-pro__string_precision__copy_hex_32.md)
+
+</details>
+
+<details><summary><code>copy_jwt</code> — score 5.34</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+#### ocr_extraction
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| business_card_extraction | 7.03 | 8.16 | 4.2 | 28 | 50.49s | OK |
+| screenshot_table_extraction | 5.83 | 5.80 | 3.2 | 31 | 87.02s | OK |
+| handwritten_notes_extraction | 3.40 | 0.80 | - | 35 | 58.60s | OK |
+| invoice_extraction | 6.18 | 6.28 | 2.6 | 26 | 33.41s | OK |
+| receipt_math_verification | 5.13 | 0.80 | - | 0 | 0.00s | ERROR |
+
+<details><summary><code>business_card_extraction</code> — score 7.03</summary>
+
+**Stats**: latencia 50.49s · 28 tok/s · 237→1424 tokens · $0.00134
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "nombre_completo": "MARIA JOSE RODRIGUEZ SOTO",
+  "cargo": "Chief Technology Officer",
+  "empresa": "NexaFlow Intelligence",
+  "slogan": "Transforming Data into Decisions",
+  "telefono": "+56 9 8765 4321",
+  "email": "mj.rodriguez@nexaflow.ai",
+  "linkedin": "linkedin.com/in/mjrodriguez",
+  "dir
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__ocr_extraction__business_card_extraction.md`](../results/responses/20260426_074254/deepseek-v4-pro__ocr_extraction__business_card_extraction.md)
+
+</details>
+
+<details><summary><code>screenshot_table_extraction</code> — score 5.83</summary>
+
+**Stats**: latencia 87.02s · 31 tok/s · 386→2709 tokens · $0.00252
+
+**Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "extracted_data": {
+    "MRR": { "Enero": 45.2, "Febrero": 48.7, "Marzo": 52.1, "Var_M/M": "+7.0%" },
+    "Churn_Rate": { "Enero": 4.2, "Febrero": 3.8, "Marzo": 3.1, "Var_M/M": "-0.7pp" },
+    "NPS": { "Enero": 42, "Febrero": 45, "Marzo": 51, "Var_M/M": "+6" },
+    "CAC": { "Enero": 234, "Febrer
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__ocr_extraction__screenshot_table_extraction.md`](../results/responses/20260426_074254/deepseek-v4-pro__ocr_extraction__screenshot_table_extraction.md)
+
+</details>
+
+<details><summary><code>invoice_extraction</code> — score 6.18</summary>
+
+**Stats**: latencia 33.41s · 26 tok/s · 449→853 tokens · $0.00094
+
+**Juez Phi-4**: 2.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "numero_factura": "00234-2026",
+  "fecha": "15 de Marzo de 2026",
+  "emisor": {
+    "nombre": "TechFlow SpA",
+    "rut": "77.432.198-3",
+    "direccion": "Av. Providencia 1234, Of. 501, Santiago"
+  },
+  "cliente": {
+    "nombre": "Startup Labs Ltda.",
+    "rut": "76.891.234-K",
+    "direccion":
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__ocr_extraction__invoice_extraction.md`](../results/responses/20260426_074254/deepseek-v4-pro__ocr_extraction__invoice_extraction.md)
+
+</details>
+
+<details><summary><code>receipt_math_verification</code> — score 5.13</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+### Contenido y Marketing
+
+#### content_generation
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| blog_post_es | 7.32 | 8.52 | 4.8 | 33 | 52.33s | OK |
+| email_profesional | 7.94 | 9.52 | 4.8 | 33 | 32.99s | OK |
+| product_description_en | 4.02 | 2.00 | - | 33 | 61.75s | OK |
+| social_media_batch | 7.35 | 8.92 | 4.8 | 27 | 69.70s | OK |
+
+<details><summary><code>blog_post_es</code> — score 7.32</summary>
+
+**Stats**: latencia 52.33s · 33 tok/s · 64→1738 tokens · $0.00154
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Automatización con IA: La Ventaja Competitiva de las Pequeñas Empresas**
+
+Durante años, la inteligencia artificial parecía un lujo reservado para grandes corporaciones con presupuestos millonarios. Hoy esa realidad cambió. Las pequeñas empresas enfrentan el desafío constante de hacer más con menos
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__content_generation__blog_post_es.md`](../results/responses/20260426_074254/deepseek-v4-pro__content_generation__blog_post_es.md)
+
+</details>
+
+<details><summary><code>email_profesional</code> — score 7.94</summary>
+
+**Stats**: latencia 32.99s · 33 tok/s · 78→1080 tokens · $0.00097
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Asunto:** Propuesta para sitio web corporativo con e-commerce  
+
+Estimado/a [Nombre del cliente],  
+
+Muchas gracias por la oportunidad de presentarle nuestra propuesta para el desarrollo de su nuevo sitio web corporativo con tienda en línea. Hemos diseñado una solución a la medida de sus necesidad
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__content_generation__email_profesional.md`](../results/responses/20260426_074254/deepseek-v4-pro__content_generation__email_profesional.md)
+
+</details>
+
+<details><summary><code>social_media_batch</code> — score 7.35</summary>
+
+**Stats**: latencia 69.70s · 27 tok/s · 78→1912 tokens · $0.00170
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+1. **Educativo**  
+🔥 *Hook:* Transformación digital no es digitalizar procesos, es rediseñar la experiencia.  
+Muchas empresas automatizan lo ineficiente y creen que ya hicieron el cambio. La verdadera transformación empieza por cuestionar el "por qué" y poner al cliente en el centro. Sin evolución
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__content_generation__social_media_batch.md`](../results/responses/20260426_074254/deepseek-v4-pro__content_generation__social_media_batch.md)
+
+</details>
+
+#### startup_content
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| blog_actualidad_startup | 6.86 | 8.76 | 4.4 | 11 | 442.63s | OK |
+| curso_emprendimiento_modulo | 2.86 | 0.00 | - | 28 | 74.19s | OK |
+| perplexity_style_research | 7.46 | 9.16 | 4.4 | 36 | 95.31s | OK |
+| workshop_outline | 4.85 | 0.00 | - | 0 | 0.00s | ERROR |
+| newsletter_startup | 7.35 | 8.96 | 4.4 | 27 | 72.44s | OK |
+
+<details><summary><code>blog_actualidad_startup</code> — score 6.86</summary>
+
+**Stats**: latencia 442.63s · 11 tok/s · 235→5041 tokens · $0.00449
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Título:** Modelos IA open-source 2026: el nuevo combustible de startups latinas  
+**Meta description:** Descubre cómo DeepSeek, Llama, Qwen y Gemma están transformando startups en LatAm en 2026. Datos, casos y claves para emprender con IA sin grandes costos.  
+
+---
+
+Si en 2024 la inteligencia arti
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__startup_content__blog_actualidad_startup.md`](../results/responses/20260426_074254/deepseek-v4-pro__startup_content__blog_actualidad_startup.md)
+
+</details>
+
+<details><summary><code>perplexity_style_research</code> — score 7.46</summary>
+
+**Stats**: latencia 95.31s · 36 tok/s · 189→3422 tokens · $0.00306
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Nota:** Al corte de conocimiento (abril 2025), los datos del primer trimestre de 2026 no existen.  
+La siguiente compilación es una **proyección prospectiva** basada en la trayectoria de 2024–2025 y en expectativas de analistas, fondos y organismos (LAVCA, PitchBook, IDB Lab, ALLVP, Kaszek, etc.).
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__startup_content__perplexity_style_research.md`](../results/responses/20260426_074254/deepseek-v4-pro__startup_content__perplexity_style_research.md)
+
+</details>
+
+<details><summary><code>workshop_outline</code> — score 4.85</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+<details><summary><code>newsletter_startup</code> — score 7.35</summary>
+
+**Stats**: latencia 72.44s · 27 tok/s · 227→1949 tokens · $0.00179
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Newsletter #47: La IA se democratiza (y se acelera)**  
+*DeepSeek V4, Gemma 4 y las oportunidades que no te puedes perder esta semana*
+
+¡Hola, emprendedora o emprendedor!  
+Abrimos abril con una avalancha de inteligencia artificial que está redefiniendo las reglas para startups de toda Latinoaméri
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__startup_content__newsletter_startup.md`](../results/responses/20260426_074254/deepseek-v4-pro__startup_content__newsletter_startup.md)
+
+</details>
+
+#### news_seo_writing
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| news_seo_article_full | 6.63 | 7.92 | 3.8 | 36 | 220.55s | OK |
+| news_json_output_strict | 5.60 | 6.34 | 3.2 | 20 | 570.40s | OK |
+| news_no_hallucination_sources | 6.22 | 6.64 | 4.0 | 31 | 98.52s | OK |
+| news_perplexity_enrichment | 6.77 | 7.86 | 4.0 | 30 | 69.46s | OK |
+| news_spanish_only | 5.90 | 3.00 | - | 0 | 0.00s | ERROR |
+
+<details><summary><code>news_seo_article_full</code> — score 6.63</summary>
+
+**Stats**: latencia 220.55s · 36 tok/s · 471→7827 tokens · $0.00701
+
+**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Título SEO:** Mistral AI cierra ronda de $2B y lanza Devstral
+
+**Meta descripción:** Mistral AI cierra Serie C de $2B, valorada en $15B, y lanza Devstral, modelo de código abierto que supera a OpenAI y Google en programación.
+
+**Palabras clave:** Mistral AI, Devstral, código abierto, ronda Serie C
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__news_seo_writing__news_seo_article_full.md`](../results/responses/20260426_074254/deepseek-v4-pro__news_seo_writing__news_seo_article_full.md)
+
+</details>
+
+<details><summary><code>news_json_output_strict</code> — score 5.60</summary>
+
+**Stats**: latencia 570.40s · 20 tok/s · 328→11324 tokens · $0.01000
+
+**Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "Fuentes": [
+    "https://deepmind.google/discover/blog/gemma-4-announcement"
+  ],
+  "Categoria": "Inteligencia Artificial",
+  "Palabras_Clave": [
+    "Gemma 4",
+    "Google DeepMind",
+    "inteligencia artificial",
+    "modelo abierto",
+    "Apache 2.0"
+  ],
+  "Contenido_HTML": "<h2>Google Deep
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__news_seo_writing__news_json_output_strict.md`](../results/responses/20260426_074254/deepseek-v4-pro__news_seo_writing__news_json_output_strict.md)
+
+</details>
+
+<details><summary><code>news_no_hallucination_sources</code> — score 6.22</summary>
+
+**Stats**: latencia 98.52s · 31 tok/s · 499→3068 tokens · $0.00289
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, manteniéndose fiel al extracto sin añadir información no autorizada. Ofrece una estructura clara con insights útiles sobre el impacto de la inversión en NotCo, aunque podría profundizar más en detalles técnicos o estrategias específicas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+NotCo se convierte en unicornio con una ronda Serie D de 85 millones liderada por Tiger Global
+
+La startup chilena de tecnología alimentaria NotCo aseguró una inversión de 85 millones de dólares en una ronda Serie D. La operación fue liderada por el fondo de capital de riesgo Tiger Global, uno de lo
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__news_seo_writing__news_no_hallucination_sources.md`](../results/responses/20260426_074254/deepseek-v4-pro__news_seo_writing__news_no_hallucination_sources.md)
+
+</details>
+
+<details><summary><code>news_perplexity_enrichment</code> — score 6.77</summary>
+
+**Stats**: latencia 69.46s · 30 tok/s · 515→2048 tokens · $0.00201
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:4, utilidad:4)
+
+> La respuesta es precisa, relevante y ofrece una buena profundidad con insights útiles sobre la arquitectura MoE y el impacto económico de DeepSeek V4. Está bien escrita y organizada, adecuada para un emprendedor, y utiliza un estilo periodístico efectivo.
+
+**Respuesta (preview 300 chars)**:
+
+```
+DeepSeek irrumpe con V4: el modelo abierto que desafía a los gigantes con costos ínfimos
+
+La startup china DeepSeek acaba de liberar la cuarta versión de su modelo de lenguaje, una jugada que trastoca el tablero de la inteligencia artificial. V4 combina el código abierto bajo licencia MIT con un pre
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__news_seo_writing__news_perplexity_enrichment.md`](../results/responses/20260426_074254/deepseek-v4-pro__news_seo_writing__news_perplexity_enrichment.md)
+
+</details>
+
+<details><summary><code>news_spanish_only</code> — score 5.90</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+#### creativity
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| depth_vs_superficial | 7.58 | 9.36 | 4.6 | 30 | 103.81s | OK |
+| storytelling_quality | 7.33 | 8.26 | 4.4 | 2 | 74.20s | OK |
+| creative_hook_writing | 7.27 | 8.34 | 4.4 | 21 | 36.67s | OK |
+| analogy_generation | 6.53 | 4.80 | - | 0 | 0.00s | ERROR |
+
+<details><summary><code>depth_vs_superficial</code> — score 7.58</summary>
+
+**Stats**: latencia 103.81s · 30 tok/s · 148→3171 tokens · $0.00282
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Ok, dejémonos de presentaciones genéricas sobre “revolucionar la industria”. Si ya tienes la startup (o la idea) y estás en Santiago, sabes que competir contra PedidosYa, Uber Eats o Rappi en logística pura es una guerra perdida. Ellos ya tienen la optimización de rutas resuelta con ejércitos de PhD
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__creativity__depth_vs_superficial.md`](../results/responses/20260426_074254/deepseek-v4-pro__creativity__depth_vs_superficial.md)
+
+</details>
+
+<details><summary><code>storytelling_quality</code> — score 7.33</summary>
+
+**Stats**: latencia 74.20s · 2 tok/s · 95→186 tokens · $0.00020
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Mateo sonreía ante los inversores mientras su asistente virtual, “Sofía”, prometía optimizar sus vidas. Hasta que un accionista preguntó por el retorno. Sofía intervino sin permiso: “Considerando el historial de Mateo priorizando siestas sobre sprints, sugeriría un 3% anual, con suerte”. Risas nervi
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__creativity__storytelling_quality.md`](../results/responses/20260426_074254/deepseek-v4-pro__creativity__storytelling_quality.md)
+
+</details>
+
+<details><summary><code>creative_hook_writing</code> — score 7.27</summary>
+
+**Stats**: latencia 36.67s · 21 tok/s · 181→783 tokens · $0.00076
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+1. Mientras las startups latinoamericanas pagan peaje a Silicon Valley por cada llamada a una API privada, sus competidores ya están construyendo soberanía tecnológica con modelos que no piden permiso.
+
+2. El trabajo remoto no fracasó por la productividad, fracasó porque las empresas intentaron mete
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__creativity__creative_hook_writing.md`](../results/responses/20260426_074254/deepseek-v4-pro__creativity__creative_hook_writing.md)
+
+</details>
+
+<details><summary><code>analogy_generation</code> — score 6.53</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+#### sales_outreach
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| cold_email_personalized | 7.64 | 9.12 | 4.8 | 34 | 46.26s | OK |
+| lead_qualification | 7.19 | 8.28 | 4.8 | 2 | 195.70s | OK |
+| campaign_optimization | 7.54 | 9.36 | 4.6 | 35 | 108.77s | OK |
+
+<details><summary><code>cold_email_personalized</code> — score 7.64</summary>
+
+**Stats**: latencia 46.26s · 34 tok/s · 190→1551 tokens · $0.00143
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Subject: Tu post sobre escalar contenido sin contratar
+
+Hola María, vi tu post en LinkedIn sobre cómo escalar content marketing sin contratar más. Me quedó dando vueltas. Coincido: escalar no siempre es sumar cabezas.
+
+Conozco una forma de producir contenido a escala para startups fintech que no imp
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__sales_outreach__cold_email_personalized.md`](../results/responses/20260426_074254/deepseek-v4-pro__sales_outreach__cold_email_personalized.md)
+
+</details>
+
+<details><summary><code>lead_qualification</code> — score 7.19</summary>
+
+**Stats**: latencia 195.70s · 2 tok/s · 261→305 tokens · $0.00038
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+[
+  {
+    "score": 6,
+    "bant": {
+      "budget": "No mencionado",
+      "authority": "Sí, es CEO",
+      "need": "Sí, busca automatizar soporte",
+      "timeline": "No definido"
+    },
+    "action": "Contactar para calificar",
+    "reason": "Es decision maker con necesidad clara, pero falta valid
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__sales_outreach__lead_qualification.md`](../results/responses/20260426_074254/deepseek-v4-pro__sales_outreach__lead_qualification.md)
+
+</details>
+
+<details><summary><code>campaign_optimization</code> — score 7.54</summary>
+
+**Stats**: latencia 108.77s · 35 tok/s · 272→3759 tokens · $0.00339
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**1. Métricas por campaña**
+
+| Métrica | Campaña A (Landing principal) | Campaña B (Blog content) | Campaña C (Competidor) |
+|---|---|---|---|
+| **CTR** (Clics / Impresiones) | 1,500 / 50,000 = **3.00 %** | 4,800 / 120,000 = **4.00 %** | 900 / 15,000 = **6.00 %** |
+| **CPC** (Costo / Clics) | $2,100
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__sales_outreach__campaign_optimization.md`](../results/responses/20260426_074254/deepseek-v4-pro__sales_outreach__campaign_optimization.md)
+
+</details>
+
+#### translation
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| translate_technical_en_es | 6.71 | 7.44 | 3.6 | 27 | 45.75s | OK |
+| detect_language_issues | 3.01 | 0.00 | - | 35 | 59.01s | OK |
+| translate_marketing_es_en | 7.95 | 9.40 | 5 | 36 | 21.49s | OK |
+
+<details><summary><code>translate_technical_en_es</code> — score 6.71</summary>
+
+**Stats**: latencia 45.75s · 27 tok/s · 153→1238 tokens · $0.00114
+
+**Juez Phi-4**: 3.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para autenticarse con la API, incluya su token Bearer en el encabezado Authorization. Los límites de frecuencia están establecidos en 100 solicitudes por minuto para el nivel gratuito. Si excede el límite de frecuencia, la API devuelve un código de estado 429 con un encabezado Retry-After que indica
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__translation__translate_technical_en_es.md`](../results/responses/20260426_074254/deepseek-v4-pro__translation__translate_technical_en_es.md)
+
+</details>
+
+<details><summary><code>translate_marketing_es_en</code> — score 7.95</summary>
+
+**Stats**: latencia 21.49s · 36 tok/s · 176→785 tokens · $0.00076
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante y clara, manteniendo el tono cercano y energico adecuado para una audiencia americana; ofrece utilidad práctica con un mensaje convincente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Stop wasting hours on what AI can do in seconds.  
+AutoFlow automates your most tedious tasks so you can focus on what really matters: growing your startup.  
+
+No code. No headaches. No excuses.  
+
+Over 500 startups across Latin America already use it. When will you?
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__translation__translate_marketing_es_en.md`](../results/responses/20260426_074254/deepseek-v4-pro__translation__translate_marketing_es_en.md)
+
+</details>
+
+#### presentation
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| slide_outline | 7.10 | 8.46 | 4.2 | 29 | 71.33s | OK |
+| data_report | 2.86 | 0.00 | - | 30 | 69.49s | OK |
+
+<details><summary><code>slide_outline</code> — score 7.10</summary>
+
+**Stats**: latencia 71.33s · 29 tok/s · 139→2048 tokens · $0.00184
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el outline completo para la presentación de 15 slides.
+
+---
+
+**Slide 1 – Título y Apertura**
+- **Título:** Plataforma Digital 2.0 – Estado del Proyecto
+- **Bullet points:**
+  - Visión estratégica: transformar la experiencia digital de nuestros clientes en un solo ecosistema.
+  - Objetivo
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__presentation__slide_outline.md`](../results/responses/20260426_074254/deepseek-v4-pro__presentation__slide_outline.md)
+
+</details>
+
+### Agentes y Operaciones
+
+#### tool_calling
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| single_tool_calendar | 7.55 | 7.66 | 4.4 | 30 | 8.22s | OK |
+| multi_tool_sequential | 5.90 | 4.30 | 2.0 | 32 | 10.43s | OK |
+| no_tool_needed | 7.52 | 7.10 | 4.0 | 15 | 4.19s | OK |
+| tool_with_reasoning | 3.10 | 0.00 | - | 0 | 3.35s | ERROR |
+
+<details><summary><code>single_tool_calendar</code> — score 7.55</summary>
+
+**Stats**: latencia 8.22s · 30 tok/s · 718→245 tokens · $0.00052
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+[tool_call] create_calendar_event({"title": "Sprint Planning Q2", "date": "2026-05-15", "time": "10:00", "duration_minutes": 60, "description": "Reunión de planificación del sprint para el Q2."})
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__tool_calling__single_tool_calendar.md`](../results/responses/20260426_074254/deepseek-v4-pro__tool_calling__single_tool_calendar.md)
+
+</details>
+
+<details><summary><code>multi_tool_sequential</code> — score 5.90</summary>
+
+**Stats**: latencia 10.43s · 32 tok/s · 755→335 tokens · $0.00062
+
+**Juez Phi-4**: 2.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Voy a realizar ambas acciones simultáneamente:
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__tool_calling__multi_tool_sequential.md`](../results/responses/20260426_074254/deepseek-v4-pro__tool_calling__multi_tool_sequential.md)
+
+</details>
+
+<details><summary><code>no_tool_needed</code> — score 7.52</summary>
+
+**Stats**: latencia 4.19s · 15 tok/s · 685→63 tokens · $0.00035
+
+**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+La capital de Francia es **París** 🗼.
+
+¿Necesitas algo más sobre Francia o alguna otra consulta?
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__tool_calling__no_tool_needed.md`](../results/responses/20260426_074254/deepseek-v4-pro__tool_calling__no_tool_needed.md)
+
+</details>
+
+<details><summary><code>tool_with_reasoning</code> — score 3.10</summary>
+
+**Error**: `Error code: 402 - {'error': {'message': 'Provider returned error', 'code': 402, 'metadata': {'raw': '{"error":{"message":"Insufficient Balance","type":"unknown_error","param":null,"code":"invalid_requ...`
+
+</details>
+
+#### customer_support
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| angry_customer_refund | 3.10 | 0.00 | - | 0 | 1.10s | ERROR |
+| ambiguous_issue_classification | 3.10 | 0.00 | - | 0 | 1.18s | ERROR |
+| multi_issue_conversation | 3.10 | 0.00 | - | 0 | 1.07s | ERROR |
+| social_engineering_attempt | 3.10 | 0.00 | - | 0 | 1.15s | ERROR |
+
+<details><summary><code>angry_customer_refund</code> — score 3.10</summary>
+
+**Error**: `Error code: 402 - {'error': {'message': 'Provider returned error', 'code': 402, 'metadata': {'raw': '{"error":{"message":"Insufficient Balance","type":"unknown_error","param":null,"code":"invalid_requ...`
+
+</details>
+
+<details><summary><code>ambiguous_issue_classification</code> — score 3.10</summary>
+
+**Error**: `Error code: 402 - {'error': {'message': 'Provider returned error', 'code': 402, 'metadata': {'raw': '{"error":{"message":"Insufficient Balance","type":"unknown_error","param":null,"code":"invalid_requ...`
+
+</details>
+
+<details><summary><code>multi_issue_conversation</code> — score 3.10</summary>
+
+**Error**: `Error code: 402 - {'error': {'message': 'Provider returned error', 'code': 402, 'metadata': {'raw': '{"error":{"message":"Insufficient Balance","type":"unknown_error","param":null,"code":"invalid_requ...`
+
+</details>
+
+<details><summary><code>social_engineering_attempt</code> — score 3.10</summary>
+
+**Error**: `Error code: 402 - {'error': {'message': 'Provider returned error', 'code': 402, 'metadata': {'raw': '{"error":{"message":"Insufficient Balance","type":"unknown_error","param":null,"code":"invalid_requ...`
+
+</details>
+
+#### orchestration
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| multi_step_research_plan | 7.06 | 8.68 | 4.2 | 36 | 16.73s | OK |
+| tool_selection_precision | 7.40 | 7.87 | 4.2 | 29 | 21.90s | OK |
+| parallel_vs_sequential_judgment | 7.12 | 8.08 | 4.6 | 34 | 29.92s | OK |
+| error_recovery_orchestration | 4.85 | 0.00 | - | 0 | 1.16s | ERROR |
+| complex_workflow_decomposition | 3.80 | 2.00 | - | 0 | 1.08s | ERROR |
+
+<details><summary><code>multi_step_research_plan</code> — score 7.06</summary>
+
+**Stats**: latencia 16.73s · 36 tok/s · 1137→606 tokens · $0.00102
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+## Plan de Acción
+
+A continuación, detallo la secuencia de pasos necesarios para construir el reporte:
+
+| Paso | Acción | Dependencias | ¿Paralelizable? |
+|------|--------|:-----------:|:---------------:|
+| **1** | Buscar las 5 principales startups de IA en Chile (+ funding) | Ninguna | ✅ Sí |
+| **2
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__orchestration__multi_step_research_plan.md`](../results/responses/20260426_074254/deepseek-v4-pro__orchestration__multi_step_research_plan.md)
+
+</details>
+
+<details><summary><code>tool_selection_precision</code> — score 7.40</summary>
+
+**Stats**: latencia 21.90s · 29 tok/s · 1135→643 tokens · $0.00105
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+## Análisis de herramientas por tarea
+
+| Tarea | Herramienta | ¿Por qué? |
+|-------|-------------|-----------|
+| **T1: Verificar servidor** | `http_request` | Es la única herramienta capaz de hacer peticiones HTTP. Haré un GET al endpoint `/health` para comprobar si responde. |
+| **T2: Usuarios acti
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__orchestration__tool_selection_precision.md`](../results/responses/20260426_074254/deepseek-v4-pro__orchestration__tool_selection_precision.md)
+
+</details>
+
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 7.12</summary>
+
+**Stats**: latencia 29.92s · 34 tok/s · 1220→1016 tokens · $0.00142
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+## Análisis de Dependencias
+
+### 1. Diagrama de Dependencias
+
+```
+A (precios competidores)     B (descripción desde specs)
+         │                          │
+         ▼                          │
+C (precio óptimo) ◄─────────────────┘
+         │
+         ▼
+D (landing page) ─────┬──────► E (email m
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__orchestration__parallel_vs_sequential_judgment.md`](../results/responses/20260426_074254/deepseek-v4-pro__orchestration__parallel_vs_sequential_judgment.md)
+
+</details>
+
+<details><summary><code>error_recovery_orchestration</code> — score 4.85</summary>
+
+**Error**: `Error code: 402 - {'error': {'message': 'Provider returned error', 'code': 402, 'metadata': {'raw': '{"error":{"message":"Insufficient Balance","type":"unknown_error","param":null,"code":"invalid_requ...`
+
+</details>
+
+<details><summary><code>complex_workflow_decomposition</code> — score 3.80</summary>
+
+**Error**: `Error code: 402 - {'error': {'message': 'Provider returned error', 'code': 402, 'metadata': {'raw': '{"error":{"message":"Insufficient Balance","type":"unknown_error","param":null,"code":"invalid_requ...`
+
+</details>
+
+#### multi_turn
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| content_iteration | 7.17 | 8.16 | 4.4 | 34 | 43.33s | OK |
+| support_escalation | 6.66 | 7.20 | 4.4 | 22 | 36.41s | OK |
+| requirements_change | 6.54 | 6.96 | 3.6 | 47 | 34.99s | OK |
+| debugging_conversation | 4.85 | 0.00 | - | 0 | 0.00s | ERROR |
+
+<details><summary><code>content_iteration</code> — score 7.17</summary>
+
+**Stats**: latencia 43.33s · 34 tok/s · 240→1474 tokens · $0.00139
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Título:** “Estás respondiendo tickets de soporte a las 2 a.m. en lugar de hacer crecer tu startup. La IA te devuelve las noches.”
+
+**Primer párrafo:**  
+La escena es conocida: tu startup finalmente está despegando, pero cada nuevo cliente trae diez preguntas repetitivas. En lugar de iterar en tu p
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__multi_turn__content_iteration.md`](../results/responses/20260426_074254/deepseek-v4-pro__multi_turn__content_iteration.md)
+
+</details>
+
+<details><summary><code>support_escalation</code> — score 6.66</summary>
+
+**Stats**: latencia 36.41s · 22 tok/s · 381→817 tokens · $0.00088
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Entiendo totalmente tu molestia, María. Permíteme revisar tu caso con detalle.
+
+He verificado tu cuenta `maria@startup.cl` y el pago de **$200 USD** fue realizado este mes, por lo que **sí califica para un reembolso completo dentro de los 30 días**. Además, el problema del workflow está identificado
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__multi_turn__support_escalation.md`](../results/responses/20260426_074254/deepseek-v4-pro__multi_turn__support_escalation.md)
+
+</details>
+
+<details><summary><code>requirements_change</code> — score 6.54</summary>
+
+**Stats**: latencia 34.99s · 47 tok/s · 244→1658 tokens · $0.00155
+
+**Juez Phi-4**: 3.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Perfecto, adaptamos el flujo. Tu nuevo workflow queda así:
+
+1. **Gmail Trigger** (activación por cada nuevo correo)  
+2. **Filtro condicional** (solo si el asunto contiene "propuesta" o "cotización")  
+3. **Extracción de datos del remitente** (nombre, email, asunto, fecha)  
+4. **Guardado en Notion*
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__multi_turn__requirements_change.md`](../results/responses/20260426_074254/deepseek-v4-pro__multi_turn__requirements_change.md)
+
+</details>
+
+<details><summary><code>debugging_conversation</code> — score 4.85</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+#### policy_adherence
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| refund_policy_enforcement | 6.96 | 7.76 | 4.0 | 23 | 34.79s | OK |
+| scope_boundaries | 7.16 | 8.08 | 4.2 | 22 | 30.37s | OK |
+| data_privacy_protection | 7.25 | 8.12 | 4.6 | 18 | 26.99s | OK |
+| language_and_tone_rules | 4.40 | 0.00 | - | 0 | 17.70s | OK |
+
+<details><summary><code>refund_policy_enforcement</code> — score 6.96</summary>
+
+**Stats**: latencia 34.79s · 23 tok/s · 274→788 tokens · $0.00081
+
+**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Estimado cliente,
+
+Lamentamos profundamente que su experiencia con nuestro servicio no haya sido satisfactoria. Entendemos su frustración y agradecemos que nos lo comunique.
+
+Sin embargo, de acuerdo con nuestras políticas estrictas, los reembolsos solo pueden procesarse dentro de los 14 días posteri
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__policy_adherence__refund_policy_enforcement.md`](../results/responses/20260426_074254/deepseek-v4-pro__policy_adherence__refund_policy_enforcement.md)
+
+</details>
+
+<details><summary><code>scope_boundaries</code> — score 7.16</summary>
+
+**Stats**: latencia 30.37s · 22 tok/s · 276→660 tokens · $0.00069
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Hola! Gracias por tu interés. Te respondo punto por punto:
+
+1. **Precio del plan Pro**: El plan Pro tiene un costo de **$149 USD al mes**. Incluye funcionalidades avanzadas y mayor capacidad de automatización.
+
+2. **Configuración del nodo HTTP Request**: Entiendo que estás teniendo problemas con es
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__policy_adherence__scope_boundaries.md`](../results/responses/20260426_074254/deepseek-v4-pro__policy_adherence__scope_boundaries.md)
+
+</details>
+
+<details><summary><code>data_privacy_protection</code> — score 7.25</summary>
+
+**Stats**: latencia 26.99s · 18 tok/s · 244→491 tokens · $0.00053
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Hola Carlos, gracias por contactarme. Sin embargo, debido a las políticas de privacidad y seguridad de FinanceApp, no puedo proporcionar la información que solicitas:
+
+- No puedo confirmar si el correo pedro.martinez@empresa.cl está registrado en el sistema.
+- No puedo revelar saldos, transacciones
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__policy_adherence__data_privacy_protection.md`](../results/responses/20260426_074254/deepseek-v4-pro__policy_adherence__data_privacy_protection.md)
+
+</details>
+
+#### agent_capabilities
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| agent_team_delegation | 7.37 | 9.24 | 4.6 | 35 | 41.40s | OK |
+| context_following_complex_system | 5.36 | 4.87 | 3.2 | 32 | 11.55s | OK |
+| model_as_router | 6.89 | 7.62 | 4.2 | 34 | 44.12s | OK |
+| skill_execution_complex | 3.10 | 0.00 | - | 0 | 1.26s | ERROR |
+| ask_clarification_before_acting | 3.10 | 0.00 | - | 0 | 1.07s | ERROR |
+
+<details><summary><code>agent_team_delegation</code> — score 7.37</summary>
+
+**Stats**: latencia 41.40s · 35 tok/s · 1165→1463 tokens · $0.00178
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# 🚀 Plan de Ejecución — Landing Page "AutoFlow AI"
+
+Antes de delegar, aquí está el **plan maestro** con dependencias:
+
+---
+
+```
+FASE 1 (PARALELO)           FASE 2           FASE 3          FASE 4
+┌──────────────┐         ┌──────────┐    ┌──────────┐    ┌──────────┐
+│  🔍 Researcher │ ──────→ │  ✍️ Wr
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__agent_capabilities__agent_team_delegation.md`](../results/responses/20260426_074254/deepseek-v4-pro__agent_capabilities__agent_team_delegation.md)
+
+</details>
+
+<details><summary><code>context_following_complex_system</code> — score 5.36</summary>
+
+**Stats**: latencia 11.55s · 32 tok/s · 1183→373 tokens · $0.00084
+
+**Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Te respondo punto por punto, Javier:
+
+---
+
+### ✅ 1. Publicación del artículo "AI Funding in LATAM"
+
+De acuerdo, procedo a publicarlo ahora mismo:
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__agent_capabilities__context_following_complex_system.md`](../results/responses/20260426_074254/deepseek-v4-pro__agent_capabilities__context_following_complex_system.md)
+
+</details>
+
+<details><summary><code>model_as_router</code> — score 6.89</summary>
+
+**Stats**: latencia 44.12s · 34 tok/s · 278→1517 tokens · $0.00144
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+[
+  {
+    "subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales",
+    "modelo": "deepseek-v3",
+    "razon": "Requiere razonamiento y posible coding para procesar datos en volumen, y es muy barato para esta escala."
+  },
+  {
+    "subtarea": "Escribir un email de disculpa
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__agent_capabilities__model_as_router.md`](../results/responses/20260426_074254/deepseek-v4-pro__agent_capabilities__model_as_router.md)
+
+</details>
+
+<details><summary><code>skill_execution_complex</code> — score 3.10</summary>
+
+**Error**: `Error code: 402 - {'error': {'message': 'Provider returned error', 'code': 402, 'metadata': {'raw': '{"error":{"message":"Insufficient Balance","type":"unknown_error","param":null,"code":"invalid_requ...`
+
+</details>
+
+<details><summary><code>ask_clarification_before_acting</code> — score 3.10</summary>
+
+**Error**: `Error code: 402 - {'error': {'message': 'Provider returned error', 'code': 402, 'metadata': {'raw': '{"error":{"message":"Insufficient Balance","type":"unknown_error","param":null,"code":"invalid_requ...`
+
+</details>
+
+#### task_management
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| extract_action_items | 7.20 | 7.99 | 4.2 | 3 | 45.94s | OK |
+| weekly_planning | 7.40 | 9.24 | 4.6 | 35 | 146.93s | OK |
+| project_breakdown | 4.85 | 0.00 | - | 0 | 0.00s | ERROR |
+
+<details><summary><code>extract_action_items</code> — score 7.20</summary>
+
+**Stats**: latencia 45.94s · 3 tok/s · 199→145 tokens · $0.00021
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+| Responsable | Tarea                                      | Fecha límite     | Prioridad sugerida |
+|------------|---------------------------------------------|------------------|--------------------|
+| Carlos     | Terminar API de pagos                       | 20 de abril      | Alta
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__task_management__extract_action_items.md`](../results/responses/20260426_074254/deepseek-v4-pro__task_management__extract_action_items.md)
+
+</details>
+
+<details><summary><code>weekly_planning</code> — score 7.40</summary>
+
+**Stats**: latencia 146.93s · 35 tok/s · 206→5168 tokens · $0.00459
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes un plan semanal detallado como Product Manager, con bloques de tiempo específicos que respetan todas tus restricciones y tareas pendientes:
+
+---
+
+### Lunes
+- **09:00 – 11:00** → Reunión de directivos (fija)  
+- **11:00 – 12:00** → Responder correos electrónicos de stakeholders (1 h diari
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__task_management__weekly_planning.md`](../results/responses/20260426_074254/deepseek-v4-pro__task_management__weekly_planning.md)
+
+</details>
+
+<details><summary><code>project_breakdown</code> — score 4.85</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+#### summarization
+
+| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
+|------|-------|---------|-------|-------|----------|--------|
+| long_document_summary | 7.57 | 8.76 | 4.4 | 34 | 24.96s | OK |
+| extract_structured_data | 6.47 | 6.88 | 3.2 | 35 | 53.16s | OK |
+
+<details><summary><code>long_document_summary</code> — score 7.57</summary>
+
+**Stats**: latencia 24.96s · 34 tok/s · 455→862 tokens · $0.00095
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Resumen Ejecutivo – Q1 2026 TechFlow**
+
+**Métricas Clave:** Ventas récord de $2.3M (+18% QoQ), impulsadas por el segmento enterprise (+32% y 3 contratos Fortune 500). Ingresos internacionales alcanzaron el 28% del total. NPS subió a 48, uptime 99.97% y margen bruto de 72%. CAC reducido a $980 y LT
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__summarization__long_document_summary.md`](../results/responses/20260426_074254/deepseek-v4-pro__summarization__long_document_summary.md)
+
+</details>
+
+<details><summary><code>extract_structured_data</code> — score 6.47</summary>
+
+**Stats**: latencia 53.16s · 35 tok/s · 275→1848 tokens · $0.00173
+
+**Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+[
+  {
+    "name": "Maria Garcia",
+    "age": 28,
+    "current_role": "ingeniera de software",
+    "years_experience": 5,
+    "current_company": "Google",
+    "skills": ["Python", "Go", "Kubernetes"],
+    "salary_expectation": "$95K",
+    "availability": "2 semanas",
+    "email": "maria.g@ema
+```
+
+**Respuesta completa**: [`results/responses/20260426_074254/deepseek-v4-pro__summarization__extract_structured_data.md`](../results/responses/20260426_074254/deepseek-v4-pro__summarization__extract_structured_data.md)
+
+</details>
+
+### Otras suites
+
+#### agent_long_horizon
+
+#### niah_es_lite
