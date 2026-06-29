@@ -102,6 +102,20 @@ COMPARISONS = [
         "intent_kw": "glm 5.2 vs qwen 3.7 plus, zhipu vs alibaba, mejor llm chino barato, modelos chinos 2026",
     },
     {
+        "slug": "glm-5.2-vs-glm-5.1",
+        "a": {"name": "GLM 5.2", "match": ["glm-5.2"]},
+        "b": {"name": "GLM 5.1", "match": ["glm-5.1"], "exclude": ["glm5"]},
+        "title": "GLM 5.2 vs GLM 5.1 en 2026: comparación con benchmark real",
+        "intent_kw": "glm 5.2 vs glm 5.1, zhipu glm 5.2, glm 5.2 benchmark, glm 5.1 vs 5.2, mejor glm",
+    },
+    {
+        "slug": "glm-5.2-vs-claude-opus-4-8",
+        "a": {"name": "GLM 5.2", "match": ["glm-5.2"]},
+        "b": {"name": "Claude Opus 4.8", "match": ["claude-opus-4-8", "opus-4.8"], "exclude": ["opus-4.8-fast"]},
+        "title": "GLM 5.2 vs Claude Opus 4.8 en 2026: comparación con benchmark real",
+        "intent_kw": "glm 5.2 vs claude opus 4.8, zhipu vs anthropic, glm 5.2 benchmark español, opus 4.8 vs glm",
+    },
+    {
         "slug": "claude-opus-4.8-fast-vs-claude-fable-5",
         "a": {"name": "Claude Opus 4.8 Fast", "match": ["opus-4.8-fast"]},
         "b": {"name": "Claude Fable 5", "match": ["fable"]},
