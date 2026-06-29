@@ -1,7 +1,7 @@
 # MiniMax M2.7 Highspeed
 
-- **model_id**: `minimax/minimax-m2.7-highspeed`
-- **Total tests**: 39/44 exitosos (5 errores)
+- **model_id**: `MiniMax-M2.7-highspeed`
+- **Total tests**: 39/39 exitosos (0 errores)
 - **Score final**: 7.31
 - **Calidad**: 8.36
 - **Velocidad**: 49 tok/s
@@ -19,7 +19,7 @@
 | content_generation | 4 | 4 | 7.58 | 8.75 |
 | presentation | 2 | 2 | 7.88 | 9.62 |
 | reasoning | 3 | 3 | 8.09 | 10.00 |
-| startup_content | 10 | 5 | 7.75 | 9.56 |
+| startup_content | 5 | 5 | 7.75 | 9.56 |
 | summarization | 2 | 2 | 7.65 | 8.50 |
 | task_management | 3 | 3 | 7.97 | 9.63 |
 | tool_calling | 4 | 4 | 6.50 | 5.00 |
@@ -269,46 +269,11 @@ So we need to p
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_actualidad_startup | 5.70 | 0.00 | - | 0 | 0.29s | ERROR |
-| curso_emprendimiento_modulo | 5.70 | 0.00 | - | 0 | 0.01s | ERROR |
-| workshop_outline | 5.70 | 0.00 | - | 0 | 0.01s | ERROR |
-| newsletter_startup | 5.70 | 0.00 | - | 0 | 0.01s | ERROR |
-| perplexity_style_research | 5.70 | 0.00 | - | 0 | 0.02s | ERROR |
 | blog_actualidad_startup | 7.43 | 9.00 | - | 41 | 50.49s | OK |
 | curso_emprendimiento_modulo | 7.63 | 9.40 | - | 42 | 49.03s | OK |
 | workshop_outline | 7.93 | 10.00 | - | 44 | 47.06s | OK |
 | newsletter_startup | 8.04 | 10.00 | - | 36 | 36.83s | OK |
 | perplexity_style_research | 7.70 | 9.40 | - | 43 | 37.20s | OK |
-
-<details><summary><code>blog_actualidad_startup</code> — score 5.70</summary>
-
-**Error**: `Error code: 400 - {'error': {'message': 'minimax/minimax-m2.7-highspeed is not a valid model ID', 'code': 400}, 'user_id': 'user_2vdCEjaT9wK3SkZiYPhzNuwzhNp'}`
-
-</details>
-
-<details><summary><code>curso_emprendimiento_modulo</code> — score 5.70</summary>
-
-**Error**: `Error code: 400 - {'error': {'message': 'minimax/minimax-m2.7-highspeed is not a valid model ID', 'code': 400}, 'user_id': 'user_2vdCEjaT9wK3SkZiYPhzNuwzhNp'}`
-
-</details>
-
-<details><summary><code>workshop_outline</code> — score 5.70</summary>
-
-**Error**: `Error code: 400 - {'error': {'message': 'minimax/minimax-m2.7-highspeed is not a valid model ID', 'code': 400}, 'user_id': 'user_2vdCEjaT9wK3SkZiYPhzNuwzhNp'}`
-
-</details>
-
-<details><summary><code>newsletter_startup</code> — score 5.70</summary>
-
-**Error**: `Error code: 400 - {'error': {'message': 'minimax/minimax-m2.7-highspeed is not a valid model ID', 'code': 400}, 'user_id': 'user_2vdCEjaT9wK3SkZiYPhzNuwzhNp'}`
-
-</details>
-
-<details><summary><code>perplexity_style_research</code> — score 5.70</summary>
-
-**Error**: `Error code: 400 - {'error': {'message': 'minimax/minimax-m2.7-highspeed is not a valid model ID', 'code': 400}, 'user_id': 'user_2vdCEjaT9wK3SkZiYPhzNuwzhNp'}`
-
-</details>
 
 <details><summary><code>blog_actualidad_startup</code> — score 7.43</summary>
 
