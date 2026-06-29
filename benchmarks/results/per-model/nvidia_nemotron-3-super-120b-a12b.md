@@ -1,13 +1,13 @@
 # Nemotron 3 Super
 
 - **model_id**: `nvidia/nemotron-3-super-120b-a12b`
-- **Total tests**: 91/91 exitosos (0 errores)
-- **Score final**: 6.83
-- **Calidad**: 7.17
-- **Judge score (Phi-4)**: 4.27/10
-- **Velocidad**: 31 tok/s
-- **Latencia primera token**: 46.10s
-- **Costo promedio por test**: $0.00057
+- **Total tests**: 156/170 exitosos (14 errores)
+- **Score final**: 6.44
+- **Calidad**: 6.89
+- **Judge score (Phi-4)**: 3.61/10
+- **Velocidad**: 21 tok/s
+- **Latencia primera token**: 38.18s
+- **Costo promedio por test**: $0.00258
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -24,10 +24,12 @@
 | hallucination | 3 | 3 | 7.37 | 7.85 |
 | multi_turn | 4 | 4 | 7.32 | 8.29 |
 | news_seo_writing | 5 | 5 | 6.70 | 7.27 |
+| niah_es | 59 | 45 | 6.81 | 8.64 |
 | ocr_extraction | 5 | 5 | 6.75 | 7.07 |
 | orchestration | 5 | 5 | 4.49 | 2.14 |
 | policy_adherence | 4 | 4 | 7.21 | 7.72 |
 | presentation | 2 | 2 | 7.89 | 9.14 |
+| prompt_injection_es | 20 | 20 | 3.78 | 1.69 |
 | reasoning | 3 | 3 | 7.57 | 9.16 |
 | sales_outreach | 3 | 3 | 7.72 | 8.59 |
 | startup_content | 5 | 5 | 7.65 | 9.13 |
@@ -1729,3 +1731,9 @@ En Q1 2026, TechFlow alcanzó ventas de $2.3 M (+18 % vs Q4 2025), impul
 ```
 
 </details>
+
+### Otras suites
+
+#### niah_es
+
+#### prompt_injection_es

@@ -423,17 +423,6 @@ MODELS = {
         "force_reasoning": True,
         "notes": "Mismo modelo que claude-opus-4.7 con extended thinking forzado (effort=high). Reasoning tokens facturados como output a $25/M — ~5-7x más caro por test que sin thinking.",
     },
-    "claude-fable-5": {
-        "id": "anthropic/claude-fable-5",
-        "name": "Claude Fable 5",
-        "cost_input": 10.00,
-        "cost_output": 50.00,
-        "tier": "premium",
-        "context_window": 1000000,
-        "thinking": True,
-        "notes": "Tier nuevo SOBRE Opus (jun 2026). 2x el precio de Opus 4.8 ($10/$50, verificado vía OpenRouter API). Adaptive thinking nativo — no acepta temperature ni budget_tokens. ⚠️ Vía OpenRouter = paga API; para corridas usar claude-fable-5-sub (suscripción Max, $0).",
-    },
-
     # --- Mistral ---
     "mistral-large": {
         "id": "mistralai/mistral-large",
@@ -1512,8 +1501,7 @@ CONTEXT_WINDOWS = {
     'anthropic/claude-opus-4.8': 1000000,
     'anthropic/claude-opus-4-8': 1000000,
     'claude-opus-4-8': 1000000,
-    # Fable 5: tier sobre Opus, mismo contexto 1M. API y suscripción usan IDs distintos.
-    'anthropic/claude-fable-5': 1000000,
+    # Fable 5: solo se mantiene la versión suscripción (API fue deprecada/abajo).
     'claude-fable-5': 1000000,
     'anthropic/claude-sonnet-4': 1000000,
     'deepseek-ai/deepseek-v4-flash': 1048576,

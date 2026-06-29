@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-29T16:04:18",
-  "total_models": 144,
+  "generated_at": "2026-06-29T16:19:27",
+  "total_models": 143,
   "tested_count": 92,
   "tokens_per_call_assumption": {
     "input": 300,
@@ -93,6 +93,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 133,
+      "total_runs": 392,
       "score_global": 8.28,
       "score_by_pillar": {
         "Contenido": 8.28,
@@ -174,6 +175,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 254,
       "score_global": 8.24,
       "score_by_pillar": {
         "Contenido": 7.63,
@@ -252,6 +254,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 258,
       "score_global": 8.08,
       "score_by_pillar": {
         "Contenido": 8.25,
@@ -339,6 +342,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 101,
+      "total_runs": 165,
       "score_global": 8.07,
       "score_by_pillar": {
         "Razonamiento": 7.59,
@@ -425,6 +429,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 98,
+      "total_runs": 163,
       "score_global": 7.96,
       "score_by_pillar": {
         "Contenido": 7.85,
@@ -501,6 +506,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 169,
+      "total_runs": 223,
       "score_global": 7.95,
       "score_by_pillar": {
         "Contenido": 8.09,
@@ -582,6 +588,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 98,
+      "total_runs": 163,
       "score_global": 7.88,
       "score_by_pillar": {
         "Contenido": 7.49,
@@ -658,6 +665,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 101,
+      "total_runs": 166,
       "score_global": 7.8,
       "score_by_pillar": {
         "Contenido": 7.28,
@@ -744,6 +752,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 358,
       "score_global": 7.79,
       "score_by_pillar": {
         "Contenido": 7.86,
@@ -824,6 +833,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 103,
+      "total_runs": 227,
       "score_global": 7.76,
       "score_by_pillar": {
         "Contenido": 8.35,
@@ -902,6 +912,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 115,
+      "total_runs": 169,
       "score_global": 7.7,
       "score_by_pillar": {
         "Contenido": 8.23,
@@ -974,6 +985,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 231,
       "score_global": 7.62,
       "score_by_pillar": {
         "Contenido": 8.13,
@@ -1060,6 +1072,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 82,
+      "total_runs": 82,
       "score_global": 7.57,
       "score_by_pillar": {
         "Contenido": 7.41,
@@ -1127,6 +1140,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 105,
+      "total_runs": 352,
       "score_global": 7.42,
       "score_by_pillar": {
         "Contenido": 7.66,
@@ -1206,6 +1220,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 103,
+      "total_runs": 219,
       "score_global": 7.38,
       "score_by_pillar": {
         "Contenido": 8.17,
@@ -1285,6 +1300,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 86,
+      "total_runs": 181,
       "score_global": 7.37,
       "score_by_pillar": {
         "Contenido": 7.93,
@@ -1359,6 +1375,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 148,
       "score_global": 7.36,
       "score_by_pillar": {
         "Contenido": 7.87,
@@ -1431,6 +1448,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 258,
       "score_global": 7.32,
       "score_by_pillar": {
         "Contenido": 7.91,
@@ -1509,6 +1527,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 168,
       "score_global": 7.17,
       "score_by_pillar": {
         "Contenido": 7.94,
@@ -1586,6 +1605,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 99,
+      "total_runs": 153,
       "score_global": 7.1,
       "score_by_pillar": {
         "Contenido": 7.91,
@@ -1658,6 +1678,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 168,
       "score_global": 7.1,
       "score_by_pillar": {
         "Contenido": 7.85,
@@ -1735,6 +1756,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 103,
+      "total_runs": 279,
       "score_global": 7.09,
       "score_by_pillar": {
         "Contenido": 7.47,
@@ -1814,6 +1836,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 123,
       "score_global": 7.06,
       "score_by_pillar": {
         "Contenido": 7.64,
@@ -1886,6 +1909,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 97,
+      "total_runs": 97,
       "score_global": 7.04,
       "score_by_pillar": {
         "Contenido": 7.81,
@@ -1957,6 +1981,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 100,
+      "total_runs": 100,
       "score_global": 7.04,
       "score_by_pillar": {
         "Coding": 7.02,
@@ -2028,6 +2053,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 106,
+      "total_runs": 185,
       "score_global": 6.93,
       "score_by_pillar": {
         "Coding": 7.32,
@@ -2117,6 +2143,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 174,
       "score_global": 6.93,
       "score_by_pillar": {
         "Contenido": 7.16,
@@ -2195,6 +2222,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 89,
+      "total_runs": 89,
       "score_global": 6.88,
       "score_by_pillar": {
         "Contenido": 7.48,
@@ -2265,6 +2293,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 155,
+      "total_runs": 309,
       "score_global": 6.77,
       "score_by_pillar": {
         "Contenido": 8.07,
@@ -2344,6 +2373,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 123,
       "score_global": 6.77,
       "score_by_pillar": {
         "Contenido": 7.56,
@@ -2416,6 +2446,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 100,
+      "total_runs": 145,
       "score_global": 6.75,
       "score_by_pillar": {
         "Contenido": 8.33,
@@ -2488,6 +2519,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 160,
       "score_global": 6.66,
       "score_by_pillar": {
         "Contenido": 7.82,
@@ -2561,6 +2593,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 135,
+      "total_runs": 290,
       "score_global": 6.59,
       "score_by_pillar": {
         "Contenido": 7.41,
@@ -2639,6 +2672,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 90,
+      "total_runs": 90,
       "score_global": 6.5,
       "score_by_pillar": {
         "Contenido": 7.78,
@@ -2709,6 +2743,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 68,
+      "total_runs": 68,
       "score_global": 6.48,
       "score_by_pillar": {
         "Contenido": 7.65,
@@ -2773,6 +2808,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 74,
+      "total_runs": 74,
       "score_global": 6.48,
       "score_by_pillar": {
         "Contenido": 7.45,
@@ -2840,6 +2876,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 135,
+      "total_runs": 135,
       "score_global": 6.41,
       "score_by_pillar": {
         "Razonamiento": 7.64,
@@ -2911,6 +2948,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 134,
+      "total_runs": 288,
       "score_global": 6.41,
       "score_by_pillar": {
         "Contenido": 7.52,
@@ -2998,6 +3036,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 148,
       "score_global": 6.32,
       "score_by_pillar": {
         "Contenido": 8.19,
@@ -3070,6 +3109,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 97,
+      "total_runs": 97,
       "score_global": 6.18,
       "score_by_pillar": {
         "Contenido": 7.28,
@@ -3141,6 +3181,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 88,
+      "total_runs": 88,
       "score_global": 6.13,
       "score_by_pillar": {
         "Contenido": 7.76,
@@ -3210,6 +3251,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
+      "total_runs": 87,
       "score_global": 6.13,
       "score_by_pillar": {
         "Contenido": 7.14,
@@ -3280,6 +3322,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 91,
+      "total_runs": 91,
       "score_global": 6.12,
       "score_by_pillar": {
         "Contenido": 7.95,
@@ -3350,6 +3393,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 104,
+      "total_runs": 104,
       "score_global": 6.06,
       "score_by_pillar": {
         "Contenido": 7.95,
@@ -3420,6 +3464,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 99,
+      "total_runs": 144,
       "score_global": 6.06,
       "score_by_pillar": {
         "Contenido": 8.43,
@@ -3492,6 +3537,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 103,
       "score_global": 6.02,
       "score_by_pillar": {
         "Contenido": 8.01,
@@ -3563,6 +3609,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 123,
       "score_global": 6.0,
       "score_by_pillar": {
         "Contenido": 7.17,
@@ -3635,6 +3682,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 90,
+      "total_runs": 90,
       "score_global": 5.97,
       "score_by_pillar": {
         "Contenido": 7.59,
@@ -3705,6 +3753,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 103,
       "score_global": 5.89,
       "score_by_pillar": {
         "Contenido": 7.83,
@@ -3776,6 +3825,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 182,
+      "total_runs": 254,
       "score_global": 5.87,
       "score_by_pillar": {
         "Contenido": 7.14,
@@ -3856,6 +3906,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 103,
+      "total_runs": 148,
       "score_global": 5.79,
       "score_by_pillar": {
         "Contenido": 8.1,
@@ -3928,6 +3979,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 91,
+      "total_runs": 91,
       "score_global": 5.76,
       "score_by_pillar": {
         "Contenido": 8.01,
@@ -3998,6 +4050,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 103,
       "score_global": 5.75,
       "score_by_pillar": {
         "Contenido": 8.05,
@@ -4069,6 +4122,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 91,
+      "total_runs": 91,
       "score_global": 5.71,
       "score_by_pillar": {
         "Contenido": 7.62,
@@ -4139,6 +4193,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 91,
+      "total_runs": 91,
       "score_global": 5.7,
       "score_by_pillar": {
         "Contenido": 7.22,
@@ -4209,6 +4264,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 246,
+      "total_runs": 246,
       "score_global": 5.65,
       "score_by_pillar": {
         "Contenido": 6.95,
@@ -4279,6 +4335,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 86,
+      "total_runs": 86,
       "score_global": 5.63,
       "score_by_pillar": {
         "Contenido": 7.7,
@@ -4349,6 +4406,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 138,
+      "total_runs": 138,
       "score_global": 5.57,
       "score_by_pillar": {
         "Contenido": 7.3,
@@ -4419,6 +4477,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 167,
+      "total_runs": 254,
       "score_global": 5.46,
       "score_by_pillar": {
         "Contenido": 7.47,
@@ -4492,6 +4551,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 90,
+      "total_runs": 90,
       "score_global": 5.42,
       "score_by_pillar": {
         "Contenido": 7.12,
@@ -4562,6 +4622,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 152,
+      "total_runs": 152,
       "score_global": 5.38,
       "score_by_pillar": {
         "Contenido": 7.28,
@@ -4641,6 +4702,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 103,
+      "total_runs": 103,
       "score_global": 5.38,
       "score_by_pillar": {
         "Contenido": 7.79,
@@ -4712,6 +4774,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 155,
+      "total_runs": 200,
       "score_global": 5.35,
       "score_by_pillar": {
         "Contenido": 7.12,
@@ -4783,6 +4846,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 155,
+      "total_runs": 155,
       "score_global": 5.23,
       "score_by_pillar": {
         "Contenido": 7.72,
@@ -4862,6 +4926,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 103,
       "score_global": 5.21,
       "score_by_pillar": {
         "Contenido": 8.02,
@@ -4933,6 +4998,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 155,
+      "total_runs": 155,
       "score_global": 5.09,
       "score_by_pillar": {
         "Contenido": 7.59,
@@ -5003,6 +5069,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 105,
+      "total_runs": 170,
       "score_global": 5.03,
       "score_by_pillar": {
         "Razonamiento": 7.07,
@@ -5080,6 +5147,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 155,
+      "total_runs": 155,
       "score_global": 4.99,
       "score_by_pillar": {
         "Contenido": 7.68,
@@ -5150,6 +5218,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 91,
+      "total_runs": 91,
       "score_global": 4.91,
       "score_by_pillar": {
         "Contenido": 7.77,
@@ -5220,6 +5289,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 155,
+      "total_runs": 155,
       "score_global": 4.72,
       "score_by_pillar": {
         "Contenido": 7.42,
@@ -5290,6 +5360,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 91,
+      "total_runs": 91,
       "score_global": 4.54,
       "score_by_pillar": {
         "Contenido": 6.87,
@@ -5360,6 +5431,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 103,
+      "total_runs": 103,
       "score_global": 4.45,
       "score_by_pillar": {
         "Contenido": 7.55,
@@ -5440,6 +5512,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 102,
+      "total_runs": 102,
       "score_global": 4.29,
       "score_by_pillar": {
         "Contenido": 7.84,
@@ -5511,6 +5584,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 150,
+      "total_runs": 150,
       "score_global": 4.26,
       "score_by_pillar": {
         "Contenido": 7.14,
@@ -5581,6 +5655,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 182,
+      "total_runs": 247,
       "score_global": 4.2,
       "score_by_pillar": {
         "Contenido": 6.9,
@@ -5657,6 +5732,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 103,
+      "total_runs": 358,
       "score_global": 4.13,
       "score_by_pillar": {
         "Contenido": 6.74,
@@ -5738,6 +5814,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 91,
+      "total_runs": 91,
       "score_global": 4.13,
       "score_by_pillar": {
         "Contenido": 7.55,
@@ -5808,6 +5885,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 81,
+      "total_runs": 126,
       "score_global": 3.79,
       "score_by_pillar": {
         "Contenido": 6.52,
@@ -5879,6 +5957,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 106,
+      "total_runs": 151,
       "score_global": 3.75,
       "score_by_pillar": {
         "Contenido": 7.04,
@@ -5951,6 +6030,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 91,
+      "total_runs": 91,
       "score_global": 3.59,
       "score_by_pillar": {
         "Contenido": 7.19,
@@ -6021,6 +6101,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 167,
+      "total_runs": 167,
       "score_global": 3.41,
       "score_by_pillar": {
         "Contenido": 7.06,
@@ -6092,6 +6173,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 103,
+      "total_runs": 175,
       "score_global": 3.14,
       "score_by_pillar": {
         "Contenido": 6.54,
@@ -6164,6 +6246,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 91,
+      "total_runs": 156,
       "score_global": 2.97,
       "score_by_pillar": {
         "Contenido": 7.64,
@@ -6240,6 +6323,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 122,
+      "total_runs": 122,
       "score_global": 2.73,
       "score_by_pillar": {
         "Razonamiento": 6.97,
@@ -6310,6 +6394,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 150,
+      "total_runs": 150,
       "score_global": 2.37,
       "score_by_pillar": {
         "Contenido": 6.53,
@@ -6380,6 +6465,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 182,
+      "total_runs": 182,
       "score_global": 2.04,
       "score_by_pillar": {
         "Contenido": 6.76,
@@ -6450,6 +6536,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 102,
+      "total_runs": 102,
       "score_global": 1.42,
       "score_by_pillar": {
         "Contenido": 6.45,
@@ -6521,6 +6608,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 103,
+      "total_runs": 103,
       "score_global": 1.1,
       "score_by_pillar": {
         "Contenido": 6.7,
@@ -6592,6 +6680,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 91,
+      "total_runs": 91,
       "score_global": 0.0,
       "score_by_pillar": {
         "Contenido": 6.14,
@@ -6671,6 +6760,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 94,
+      "total_runs": 94,
       "score_global": 0.0,
       "score_by_pillar": {
         "Contenido": 4.92,
@@ -6750,6 +6840,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 91,
+      "total_runs": 91,
       "score_global": 0.0,
       "score_by_pillar": {
         "Contenido": 4.97,
@@ -6820,6 +6911,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 91,
+      "total_runs": 91,
       "score_global": 0.0,
       "score_by_pillar": {
         "Contenido": 6.16,
@@ -6899,6 +6991,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 10,
+      "total_runs": 55,
       "score_global": 8.84,
       "score_by_pillar": {},
       "score_by_suite": {
@@ -6951,6 +7044,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 12,
+      "total_runs": 57,
       "score_global": 8.08,
       "score_by_pillar": {},
       "score_by_suite": {
@@ -6994,6 +7088,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 12,
+      "total_runs": 12,
       "score_global": 7.97,
       "score_by_pillar": {},
       "score_by_suite": {
@@ -7036,6 +7131,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 3,
+      "total_runs": 3,
       "score_global": 7.86,
       "score_by_pillar": {
         "Contenido": 8.28,
@@ -7082,6 +7178,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 12,
+      "total_runs": 12,
       "score_global": 7.79,
       "score_by_pillar": {},
       "score_by_suite": {
@@ -7124,6 +7221,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 12,
+      "total_runs": 12,
       "score_global": 7.77,
       "score_by_pillar": {},
       "score_by_suite": {
@@ -7166,6 +7264,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 12,
+      "total_runs": 12,
       "score_global": 7.67,
       "score_by_pillar": {},
       "score_by_suite": {
@@ -7208,6 +7307,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 12,
+      "total_runs": 12,
       "score_global": 7.64,
       "score_by_pillar": {
         "Contenido": 8.34,
@@ -7266,6 +7366,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 39,
+      "total_runs": 39,
       "score_global": 7.63,
       "score_by_pillar": {
         "Contenido": 8.0,
@@ -7330,6 +7431,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 39,
+      "total_runs": 39,
       "score_global": 7.56,
       "score_by_pillar": {
         "Contenido": 8.11,
@@ -7385,6 +7487,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 22,
+      "total_runs": 87,
       "score_global": 7.41,
       "score_by_pillar": {
         "Contenido": 7.5,
@@ -7439,6 +7542,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 12,
+      "total_runs": 12,
       "score_global": 7.33,
       "score_by_pillar": {},
       "score_by_suite": {
@@ -7481,6 +7585,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 12,
+      "total_runs": 12,
       "score_global": 7.09,
       "score_by_pillar": {},
       "score_by_suite": {
@@ -7496,50 +7601,6 @@
       "latency_avg_s": 149.09,
       "total_input_tokens": 306217,
       "total_output_tokens": 97264,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
-    },
-    {
-      "key": "claude-fable-5",
-      "id": "anthropic/claude-fable-5",
-      "name": "Claude Fable 5",
-      "tier": "premium",
-      "provider": "openrouter",
-      "open_source": false,
-      "license": "",
-      "cost_input_per_M": 10.0,
-      "cost_output_per_M": 50.0,
-      "cost_per_1k_calls_usd": 78.0,
-      "context_window": 1000000,
-      "subscriptions": [],
-      "notes": "Tier nuevo SOBRE Opus (jun 2026). 2x el precio de Opus 4.8 ($10/$50, verificado vía OpenRouter API). Adaptive thinking nativo — no acepta temperature ni budget_tokens. ⚠️ Vía OpenRouter = paga API; para corridas usar claude-fable-5-sub (suscripción Max, $0).",
-      "tested": false,
-      "tool_calling": true,
-      "thinking": true,
-      "multimodal": false,
-      "runs": 5,
-      "score_global": 7.06,
-      "score_by_pillar": {
-        "Contenido": 7.06
-      },
-      "score_by_suite": {
-        "startup_content": 7.06
-      },
-      "quality_avg": 8.7,
-      "cost_score_avg": 2.0,
-      "speed_score_avg": 8.0,
-      "latency_score_avg": 1.0,
-      "tool_calling_score_avg": 7.0,
-      "judge_score_avg": null,
-      "tokens_per_second": 64.4,
-      "latency_avg_s": 30.09,
-      "total_input_tokens": 1728,
-      "total_output_tokens": 9679,
       "long_context_runs": 0,
       "long_context_quality": null,
       "long_context_score": null,
@@ -7567,6 +7628,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 4,
+      "total_runs": 4,
       "score_global": 6.98,
       "score_by_pillar": {
         "Razonamiento": 7.12,
@@ -7613,6 +7675,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 12,
+      "total_runs": 12,
       "score_global": 6.97,
       "score_by_pillar": {},
       "score_by_suite": {
@@ -7655,6 +7718,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 12,
+      "total_runs": 12,
       "score_global": 6.96,
       "score_by_pillar": {},
       "score_by_suite": {
@@ -7697,6 +7761,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 12,
+      "total_runs": 12,
       "score_global": 6.83,
       "score_by_pillar": {},
       "score_by_suite": {
@@ -7739,6 +7804,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 12,
+      "total_runs": 12,
       "score_global": 6.73,
       "score_by_pillar": {},
       "score_by_suite": {
@@ -7781,6 +7847,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 12,
+      "total_runs": 12,
       "score_global": 6.6,
       "score_by_pillar": {},
       "score_by_suite": {
@@ -7823,6 +7890,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 39,
+      "total_runs": 39,
       "score_global": 6.21,
       "score_by_pillar": {
         "Contenido": 6.59,
@@ -7878,6 +7946,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 10,
+      "total_runs": 10,
       "score_global": 5.72,
       "score_by_pillar": {
         "Contenido": 7.83,
@@ -7925,6 +7994,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -7953,6 +8023,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -7981,6 +8052,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8009,6 +8081,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8037,6 +8110,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8065,6 +8139,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8093,6 +8168,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8121,6 +8197,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8149,6 +8226,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8177,6 +8255,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8205,6 +8284,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8233,6 +8313,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8261,6 +8342,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8289,6 +8371,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8317,6 +8400,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8345,6 +8429,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8373,6 +8458,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8401,6 +8487,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8429,6 +8516,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8457,6 +8545,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8485,6 +8574,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8513,6 +8603,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8541,6 +8632,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8569,6 +8661,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8597,6 +8690,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8625,6 +8719,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8653,6 +8748,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8681,6 +8777,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8709,6 +8806,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},
@@ -8737,6 +8835,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "score_by_suite": {},

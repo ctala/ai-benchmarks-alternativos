@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
 from statistics import mean
@@ -50,7 +51,8 @@ def load_results(input_files: list[str]) -> list[dict]:
             p = RESULTS_DIR / p
         with open(p) as f:
             data = json.load(f)
-        all_results.extend(data.get("results", []))
+        results = data if isinstance(data, list) else data.get("results", [])
+        all_results.extend(results)
     return all_results
 
 
@@ -216,19 +218,25 @@ def render_index_md(summaries: list[tuple[str, dict]]) -> str:
     return "\n".join(lines)
 
 
+def discover_result_files() -> list[str]:
+    """Descubre todos los benchmark_*.json en results/."""
+    files = sorted(p.name for p in RESULTS_DIR.glob("benchmark_*.json"))
+    return files
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--inputs", nargs="+", default=None,
-                        help="Archivos JSON de resultados. Si se omite, usa los 2 lotes del v2.1")
+                        help="Archivos JSON de resultados. Si se omite, descubre todos los benchmark_*.json")
     parser.add_argument("--out", default=str(OUT_DIR),
                         help="Directorio de salida")
     args = parser.parse_args()
 
     if args.inputs is None:
-        args.inputs = [
-            "benchmark_20260422_204025.json",
-            "benchmark_20260423_051248.json",
-        ]
+        args.inputs = discover_result_files()
+        if not args.inputs:
+            print("No se encontraron benchmark_*.json en", RESULTS_DIR, file=sys.stderr)
+            sys.exit(1)
 
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
