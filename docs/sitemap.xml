@@ -67,6 +67,24 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://benchmarks.cristiantala.com/glm-5.2-explicado/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/glm-5.2-vs-claude-opus-4-8/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/glm-5.2-vs-glm-5.1/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://benchmarks.cristiantala.com/</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>weekly</changefreq>
