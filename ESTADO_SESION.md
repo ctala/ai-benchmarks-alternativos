@@ -67,7 +67,7 @@ DEFAULT_WEIGHTS = {
 4. Devstral Small — 7.77
 5. MiMo V2-Omni (Xiaomi direct) — 7.75
 
-### Stack OpenClaw/Hermes recomendado (basado en datos)
+### Stack Hermes recomendado (basado en datos)
 
 | Rol | Modelo | Score |
 |---|---|---|

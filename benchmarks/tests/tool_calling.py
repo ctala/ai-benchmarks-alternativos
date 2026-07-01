@@ -1,6 +1,6 @@
 """
 Tests de function calling / tool use.
-Critico para agentes en OpenClaw y N8N.
+Critico para agentes en N8N y Hermes.
 """
 
 TOOLS_CALENDAR = [

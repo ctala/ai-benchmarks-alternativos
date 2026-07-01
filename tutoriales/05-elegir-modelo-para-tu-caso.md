@@ -253,7 +253,7 @@ Ineficiente. Cambiar de modelo en producción tiene costo de switching: re-ajust
 ## Recursos del repo para profundizar
 
 - `MODELOS.md` — tabla de todos los modelos con scores actuales.
-- `RECOMENDACIONES.md` — guía por plataforma (N8N, OpenClaw), tarea y presupuesto.
+- `RECOMENDACIONES.md` — guía por plataforma (N8N, Hermes), tarea y presupuesto.
 - `AGENTS.md` — el archivo que tu propio agente IA puede leer para auto-recomendar.
 - `CASOS_DE_USO.md` — ejemplos resueltos similares al tuyo.
 - `SUSCRIPCIONES.md` — análisis costo-eficiencia de planes (Pro $20, Enterprise, etc).

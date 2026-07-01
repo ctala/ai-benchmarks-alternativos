@@ -182,7 +182,7 @@ def methodology_block(c):
     <li><strong>Coding</strong> — generar código, JSON estructurado y debugging en tareas reales (plugins WordPress, scripts, templates de N8N).</li>
     <li><strong>Contenido</strong> — blogs, copy y textos largos en español neutro (no traducción del inglés).</li>
     <li><strong>Razonamiento</strong> — matemáticas, lógica formal y planificación multi-paso.</li>
-    <li><strong>Agentes</strong> — multi-turno largo, tool calling y flujos tipo N8N / OpenClaw.</li>
+    <li><strong>Agentes</strong> — multi-turno largo, tool calling y flujos tipo N8N / Hermes.</li>
   </ul>
   <p>El <strong>score global v3.0</strong> es una función ponderada: <strong>calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%</strong>.
   Tool calling se reporta como badge de capacidad, no entra en el score. Mide <em>valor para producción</em>, no solo capacidad bruta.
@@ -362,7 +362,7 @@ def gen_alternativas_claude(data):
     body = f"""  <section class="hero">
     <h1>Alternativas a Claude: 10 modelos comparados con benchmark real (Junio 2026)</h1>
     <p class="lead">
-      Si usás Claude para coding, agentes N8N, OpenClaw o generación de contenido, estas son las
+      Si usás Claude para coding, agentes N8N o Hermes, o generación de contenido, estas son las
       alternativas reales — no opiniones, datos: <strong><!-- AUTO:tested_count -->{c['tested_count']}<!-- /AUTO --> modelos testeados</strong>,
       evaluados con LLM-as-Judge Phi-4 local.
     </p>
@@ -401,7 +401,7 @@ def gen_alternativas_claude(data):
       generación de código y JSON estructurado a una fracción del costo de Claude Opus.
     </p>
 
-    <h3>Si usás Claude para agentes N8N u OpenClaw</h3>
+    <h3>Si usás Claude para agentes N8N o Hermes</h3>
     <p>
       <strong>Llama 3.3 70B en Groq</strong> domina por velocidad (240+ tok/s — mucho más rápido que
       Claude Sonnet) y precio ($0.59 input vs $3.00+ de Sonnet). Para agentes con muchas calls/mes
@@ -607,7 +607,7 @@ def gen_modelos_n8n(data):
     body = f"""  <section class="hero">
     <h1>Mejores modelos IA para agentes N8N: comparativa con benchmark real (Junio 2026)</h1>
     <p class="lead">
-      Si construís agentes en N8N (o OpenClaw, Hermes), elegir el modelo correcto importa más que casi
+      Si construís agentes en N8N o Hermes, elegir el modelo correcto importa más que casi
       cualquier otro factor: una decisión equivocada puede 10× tu factura mensual sin mejorar la calidad
       visible. Acá: <strong>10 modelos comparados con tests reales de tool calling, JSON workflows y latencia</strong>.
     </p>

@@ -91,7 +91,7 @@ docs/data/models.json                # JSON consolidado para programs (ver schem
 
 ⚠️ **Antes de recomendar para contenido**: ¿extensión típica? ¿audiencia (técnica, B2B, consumer)? ¿requiere SEO específico?
 
-### Agentes y operaciones (N8N, OpenClaw, Hermes)
+### Agentes y operaciones (N8N, Hermes)
 
 | Sub-tarea | Top recomendación | Por qué |
 |---|---|---|
@@ -100,6 +100,7 @@ docs/data/models.json                # JSON consolidado para programs (ver schem
 | Data extraction (JSON estricto) | Devstral 2 / GPT-4.1 | Robustez en schema adherence |
 | Orquestación multi-step | GPT-5.4 Mini / Hermes 4 70B (hybrid reasoning) | Manejo de estado entre turns |
 | Routing/clasificación rápida | Gemini 2.5 Flash Lite | 165 tok/s, costo mínimo |
+| Coding agent / Claude Code | MiniMax M3 / Claude Sonnet 4.6 | Alta calidad en coding + tool calling; probado por Cristian en producción |
 
 ⚠️ **Antes de recomendar para agentes**: ¿single-turn o multi-turn? ¿necesita herramientas (search, DB, APIs)? ¿latencia importa al usuario final?
 

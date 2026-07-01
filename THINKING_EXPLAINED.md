@@ -123,7 +123,7 @@ Modelos thinking-only no son automáticamente los mejores. Ejemplos del benchmar
 
 ## Implicancias para tu producción
 
-1. **Si tu pipeline es agente multi-turn (N8N, OpenClaw)**: empezá con la variante NO-thinking. Solo activá thinking si tu task específica lo necesita (lógica formal, planning multi-paso). Para conversación, customer support, content marketing → thinking puede empeorar.
+1. **Si tu pipeline es agente multi-turn (N8N, Hermes)**: empezá con la variante NO-thinking. Solo activá thinking si tu task específica lo necesita (lógica formal, planning multi-paso). Para conversación, customer support, content marketing → thinking puede empeorar.
 
 2. **Si tu task es razonamiento puro (matemática, lógica, debugging complejo)**: thinking puede ayudar. Mide ambas variantes (con y sin) en tus prompts típicos antes de comprometerte al costo extra.
 

@@ -2,13 +2,13 @@
 
 > Ultima actualizacion: 22 de Abril de 2026
 > Los precios y planes pueden cambiar. Verifica datos actuales antes de suscribirte.
-> **Objetivo**: Encontrar la mejor suscripcion fija para usar con agentes (OpenClaw, N8N) sin sorpresas de costo.
+> **Objetivo**: Encontrar la mejor suscripcion fija para usar con agentes (N8N, Hermes) sin sorpresas de costo.
 
 ## Suscripciones con Precio Fijo Mensual
 
 ### Tier Gratuito
 
-| Servicio | Precio | Modelos | Limites | Compatible N8N/OpenClaw | Notas |
+| Servicio | Precio | Modelos | Limites | Compatible N8N/Hermes | Notas |
 |----------|--------|---------|---------|------------------------|-------|
 | Ollama Local | $0 | Llama, Qwen, Mistral, etc. | Sin limites | Si (nativo) | Requiere hardware propio |
 | Ollama Cloud Free | $0 | Limitados | Muy restrictivos | Si | Para probar |
@@ -18,13 +18,13 @@
 
 ### Tier $10/mes
 
-| Servicio | Precio | Mejor Modelo | Limites | Compatible N8N/OpenClaw | Para Agentes |
+| Servicio | Precio | Mejor Modelo | Limites | Compatible N8N/Hermes | Para Agentes |
 |----------|--------|-------------|---------|------------------------|-------------|
 | **MiniMax Coding Starter** | $10/mes | MiniMax M2.1 | 100 prompts/5h | Si (API) | Basico para probar |
 
 ### Tier $20/mes (Estandar de la industria)
 
-| Servicio | Precio | Mejor Modelo | Limites | Compatible N8N/OpenClaw | Para Agentes |
+| Servicio | Precio | Mejor Modelo | Limites | Compatible N8N/Hermes | Para Agentes |
 |----------|--------|-------------|---------|------------------------|-------------|
 | **ChatGPT Plus** | $20/mes | GPT-4o, o3-mini | ~80 msg/3h (GPT-4o) | Si (API separada) | Bueno - lider en tool calling |
 | **MiniMax Coding Plus** | $20/mes | MiniMax M2.1 | 300 prompts/5h | Si (API) | Bueno - rapido y agentico |
@@ -37,14 +37,14 @@
 
 ### Tier $30/mes
 
-| Servicio | Precio | Mejor Modelo | Limites | Compatible N8N/OpenClaw | Para Agentes |
+| Servicio | Precio | Mejor Modelo | Limites | Compatible N8N/Hermes | Para Agentes |
 |----------|--------|-------------|---------|------------------------|-------------|
 | **SuperGrok** | $30/mes | Grok 4.20 | Generosos | Si (API compatible) | Bueno - #4 global |
 | **Claude Team** | $30/usuario | Claude Opus | Mas que Pro | NO (suscripcion no da API) | Solo chat web |
 
 ### Tier $50/mes
 
-| Servicio | Precio | Mejor Modelo | Limites | Compatible N8N/OpenClaw | Para Agentes |
+| Servicio | Precio | Mejor Modelo | Limites | Compatible N8N/Hermes | Para Agentes |
 |----------|--------|-------------|---------|------------------------|-------------|
 | **MiniMax Coding Max** | $50/mes | MiniMax M2.1 | 1000 prompts/5h | Si (API) | Muy bueno - alto volumen |
 | **Qwen Coding Pro** | $50/mes | Qwen-Coder-Max | 90K req/mes, 10x tokens | Si (API) | Excelente para coding |
@@ -52,7 +52,7 @@
 
 ### Tier Premium ($100+/mes)
 
-| Servicio | Precio | Mejor Modelo | Limites | Compatible N8N/OpenClaw | Para Agentes |
+| Servicio | Precio | Mejor Modelo | Limites | Compatible N8N/Hermes | Para Agentes |
 |----------|--------|-------------|---------|------------------------|-------------|
 | **Ollama Cloud Max** | $100/mes | Todos open-source | Generosos | Si | Bueno - sin sorpresas |
 | **MiniMax Coding Ultra** | $150/mes | MiniMax (ultra-speed) | 1000 prompts/5h, max speed | Si | Para uso intensivo |
@@ -62,7 +62,7 @@
 
 ### Xiaomi MiMo Token Plan (NUEVO, abril 2026 — pendiente testear V2.5)
 
-Lanzado 22 abril 2026. **Una suscripción = 8 modelos** (V2.5 series + V2 series + TTS). Compatible con OpenClaw, Claude Code, OpenCode, KiloCode. API: `platform.xiaomimimo.com`.
+Lanzado 22 abril 2026. **Una suscripción = 8 modelos** (V2.5 series + V2 series + TTS). Compatible con Hermes, Claude Code, OpenCode, KiloCode. API: `platform.xiaomimimo.com`.
 
 | Plan | Mensual (first) | Mensual normal | Anual | Credits/mes | Multiplicador Lite |
 |------|-----------------|----------------|-------|-------------|---------------------|
@@ -245,7 +245,7 @@ Calls/mes en que la suscripción cuesta lo mismo que pagar API. Por encima → l
 
 ### Hallazgos cualitativos
 
-1. **ChatGPT Plus ($20) y Claude Pro ($20) son chat web only — NO dan API**. Inservibles para agentes (OpenClaw, N8N, Hermes). El equivalente "premium con API" es ChatGPT Pro ($200) o Anthropic API directa pay-per-use.
+1. **ChatGPT Plus ($20) y Claude Pro ($20) son chat web only — NO dan API**. Inservibles para agentes (N8N, Hermes). El equivalente "premium con API" es ChatGPT Pro ($200) o Anthropic API directa pay-per-use.
 
 2. **Modelos open-source ultra baratos hacen suscripciones casi nunca rentables hasta nivel Heavy**: Devstral, DeepSeek V3.2/V4, Gemini Flash Lite — todos rondan $5-20/mes incluso en Heavy. Pagás API directa con tranquilidad.
 

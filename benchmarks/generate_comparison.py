@@ -34,7 +34,7 @@ PILLAR_DESC = {
     "Contenido": ("Contenido y marketing", "blogs, copy y textos largos en español neutro "
                   "(no traducción del inglés)", "lo que escribís"),
     "Razonamiento": ("Razonamiento", "matemáticas, lógica formal y planificación multi-paso", "cómo decide"),
-    "Agentes": ("Agentes y operaciones", "multi-turno largo, tool calling y flujos tipo N8N / OpenClaw", "cómo opera"),
+    "Agentes": ("Agentes y operaciones", "multi-turno largo, tool calling y flujos tipo N8N / Hermes", "cómo opera"),
 }
 
 # --- Comparaciones a generar (cada una = una página pSEO) ---------------------

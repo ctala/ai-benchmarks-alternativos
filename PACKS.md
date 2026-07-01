@@ -13,7 +13,7 @@ Guia practica de que modelos usar y para que con cada suscripcion. Incluye estra
 | Plan | Precio | Modelo | Limites | Mejor para |
 |------|--------|--------|---------|-----------|
 | Coding Starter | $10/mes | M2.1 | 100 prompts/5h | Probar, uso ligero |
-| Agent Pro | $19/mes | M2.7 | Generosos | **Agentes N8N/OpenClaw** |
+| Agent Pro | $19/mes | M2.7 | Generosos | **Agentes N8N/Hermes** |
 | Coding Plus | $20/mes | M2.1 | 300 prompts/5h | Coding diario |
 | Coding Plus HS | $40/mes | M2.1 (highspeed) | 300 prompts/5h | Coding rapido |
 | Coding Max | $50/mes | M2.1 | 1000 prompts/5h | Coding intensivo |
@@ -25,7 +25,7 @@ Guia practica de que modelos usar y para que con cada suscripcion. Incluye estra
 
 | Tarea | Modelo | Via | Notas |
 |-------|--------|-----|-------|
-| Agente en N8N/OpenClaw | **M2.7** | API / OpenRouter | SOTA en tool calling |
+| Agente en N8N/Hermes | **M2.7** | API / OpenRouter | SOTA en tool calling |
 | Agente rapido | **M2.7 Highspeed** | API / OpenRouter | Misma calidad, menor latencia |
 | Coding / debug | **M2.1** (via Coding Plan) | Cursor/VSCode | Integra con IDEs |
 | Tareas locales pesadas | **M2.5** (open-source) | Ollama local | MIT license, 80.2% SWE-Bench |
@@ -51,7 +51,7 @@ Guia practica de que modelos usar y para que con cada suscripcion. Incluye estra
 
 | Tarea | Modelo | Via | Notas |
 |-------|--------|-----|-------|
-| Agente en N8N/OpenClaw | **Qwen 3.6 Plus** | OpenRouter / API | 1M contexto, muy capaz |
+| Agente en N8N/Hermes | **Qwen 3.6 Plus** | OpenRouter / API | 1M contexto, muy capaz |
 | Coding / debug | **Qwen-Coder-Max** | Coding Pro plan | Especializado en codigo |
 | Razonamiento largo | **Qwen 3.6 Plus** | API | 1M tokens de contexto |
 | Tareas locales (ligeras) | **Qwen 3.5 25B** | Ollama local | Ya probado, funciona bien |
@@ -79,7 +79,7 @@ Guia practica de que modelos usar y para que con cada suscripcion. Incluye estra
 
 | Tarea | Modelo | Via | Notas |
 |-------|--------|-----|-------|
-| Agente en N8N/OpenClaw | **GPT-4o** | API key | #1 en tool calling precio/calidad |
+| Agente en N8N/Hermes | **GPT-4o** | API key | #1 en tool calling precio/calidad |
 | Agente premium | **GPT-5.2** | API key | Mejor tool calling absoluto |
 | Razonamiento complejo | **o3** | API key | Razonamiento step-by-step |
 | Tareas rapidas/baratas | **GPT-4o-mini** | API key | $0.15/$0.60 per M |
@@ -108,7 +108,7 @@ Guia practica de que modelos usar y para que con cada suscripcion. Incluye estra
 
 | Tarea | Modelo | Via | Notas |
 |-------|--------|-----|-------|
-| Agente en N8N/OpenClaw | **Gemini 2.5 Flash** | API key | Ultra rapido y barato |
+| Agente en N8N/Hermes | **Gemini 2.5 Flash** | API key | Ultra rapido y barato |
 | Agente de calidad | **Gemini 2.5 Pro** | API / AI Pro | Top 3 global |
 | Tareas rapidas | **Gemini 2.5 Flash-Lite** | API | $0.10/M, rapidisimo |
 | Google Workspace | **Gemini** | AI Pro | Integrado en Gmail, Docs, etc. |
@@ -136,7 +136,7 @@ Guia practica de que modelos usar y para que con cada suscripcion. Incluye estra
 
 | Tarea | Modelo | Via | Notas |
 |-------|--------|-----|-------|
-| Agente en N8N/OpenClaw | **Qwen 3.5 72B** | Cloud/Local | Excelente para agentes |
+| Agente en N8N/Hermes | **Qwen 3.5 72B** | Cloud/Local | Excelente para agentes |
 | Coding | **MiniMax M2.5** | Local (DGX Spark) | 80.2% SWE-Bench |
 | Tareas rapidas | **Gemma 4 26B MoE** | Local | Solo 3.8B activos |
 | RAG / contexto largo | **Qwen 3.6 Plus** | Cloud | 1M contexto |

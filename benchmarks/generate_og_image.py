@@ -137,7 +137,7 @@ def main():
 
     # --- footer ---
     f_foot = _font(22)
-    foot = "Para agentes N8N · OpenClaw · contenido · uso personal     |     open source · MIT"
+    foot = "Para agentes N8N · Hermes · contenido · uso personal     |     open source · MIT"
     dr.text((PAD, H - 44), foot, font=f_foot, fill=GRAY)
 
     img.save(OUT, "PNG")
