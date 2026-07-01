@@ -214,7 +214,7 @@ def aggregate_metrics(runs):
             effective_ctx = c
 
     return {
-        "runs": len(general),  # cobertura = tareas prácticas (umbral tested >=50)
+        "runs": len(general),  # cobertura = tareas prácticas (umbral tested >=20)
         "total_runs": len(runs),  # todos los runs exitosos incluyendo niah y seguridad
         "score_global": round(sum(scores) / len(scores), 2) if scores else None,
         "score_by_pillar": pillars,
@@ -440,7 +440,7 @@ def build_export():
             "context_window": cfg.get("context_window"),
             "subscriptions": subscriptions_expanded,
             "notes": cfg.get("notes", ""),
-            "tested": metrics["runs"] >= 50,  # >= 50 runs = cobertura completa
+            "tested": metrics["runs"] >= 20,  # >= 20 runs = cobertura suficiente
             **capabilities,  # tool_calling, thinking, multimodal
             **metrics,
         })
@@ -456,9 +456,12 @@ def build_export():
               "speed_score_avg": "speed", "latency_score_avg": "latency"}
     _have = lambda m: m["tested"] and all(m.get(c) is not None for c in Z_COLS)
     _tested = [m for m in models_export if _have(m)]
+    # Las norm_stats se calculan sobre modelos con base solida (>=50 runs)
+    # para que el z-score no se distorsione por emergentes con alta varianza.
+    _stable = [m for m in _tested if m["runs"] >= 50]
     norm_stats = {}
     for col in Z_COLS:
-        vals = [m[col] for m in _tested]
+        vals = [m[col] for m in _stable]
         mu = _st.mean(vals) if vals else 0.0
         sd = _st.pstdev(vals) if len(vals) > 1 else 1.0
         norm_stats[col] = {"mean": round(mu, 4), "std": round(sd if sd > 0 else 1.0, 4)}
@@ -498,7 +501,7 @@ def main():
     out_path.write_text(json.dumps(export, indent=2, ensure_ascii=False))
     print(f"OK escrito: {out_path}")
     print(f"  Total modelos: {export['total_models']}")
-    print(f"  Con cobertura (≥50 runs): {export['tested_count']}")
+    print(f"  Con cobertura (≥20 runs): {export['tested_count']}")
 
 
 if __name__ == "__main__":
