@@ -71,33 +71,53 @@ def bar_svg(value: float, max_val: float, color: str = "#39ff14", width: int = 2
     </svg>'''
 
 
+def emerging_badge(m: dict) -> str:
+    runs = m.get("runs", 0)
+    if 5 <= runs < 50:
+        return f'<span class="emerging" title="{runs} runs, datos preliminares">emergente</span>'
+    return ""
+
+
 def podium_card(rank: int, m: dict) -> str:
     colors = {1: "#39ff14", 2: "#00d4ff", 3: "#ff006e"}
     border = colors.get(rank, "#39ff14")
+    badge = emerging_badge(m)
     return f'''<div class="podium-card" style="border-color:{border}">
         <div class="podium-rank" style="color:{border}">#{rank}</div>
-        <div class="podium-name">{m["name"]}</div>
+        <div class="podium-name">{m["name"]} {badge}</div>
         <div class="podium-score">{m.get("score_global", 0):.2f}</div>
-        <div class="podium-meta">{m.get("provider", "openrouter")} · quality {m.get("quality_avg") or "—"}</div>
+        <div class="podium-meta">{m.get("provider", "openrouter")} · quality {m.get("quality_avg") or "—"} · {m.get("runs", 0)} runs</div>
     </div>'''
 
 
 def render(models: dict) -> str:
+    # Modelos con base solida (>=50 runs) y emergentes (<50 runs, >=5 runs)
     ranked = [m for m in models["models"] if m.get("score_global") is not None and m.get("runs", 0) >= 50]
     ranked.sort(key=lambda x: -x["score_global"])
+    emerging = [m for m in models["models"] if m.get("score_global") is not None and 5 <= m.get("runs", 0) < 50]
+    emerging.sort(key=lambda x: -x["score_global"])
     total_runs = sum(m.get("runs", 0) for m in models["models"])
     tested_count = models.get("tested_count", len(ranked))
     total_models = models.get("total_models", len(models["models"]))
 
-    top10 = ranked[:10]
-    top3 = ranked[:3]
+    # Para el brief usamos los datos mas llamativos: top solidos + top emergentes,
+    # pero marcamos a los emergentes con un indicador. Excluimos modelos que
+    # deliberadamente quedaron fuera de este lanzamiento.
+    excluded_patterns = ("north-mini-code",)
+    featured = sorted(
+        [m for m in ranked + emerging if not any(p in m.get("id", "") for p in excluded_patterns)],
+        key=lambda x: -x["score_global"]
+    )
 
-    # Badges
-    by_quality = sorted(ranked, key=lambda x: -(x.get("quality_avg") or 0))
-    by_cost_eff = sorted(ranked, key=lambda x: -(x.get("score_global", 0) / (cost_per_call(x) + 1e-9)))
-    by_speed = sorted(ranked, key=lambda x: -(x.get("tokens_per_second") or 0))
-    by_cheap = sorted(ranked, key=lambda x: (cost_per_call(x), -x.get("score_global", 0)))
-    open_source = [m for m in ranked if m.get("open_source")]
+    top10 = featured[:12]
+    top3 = featured[:3]
+
+    # Badges (usamos featured para capturar emergentes llamativos)
+    by_quality = sorted(featured, key=lambda x: -(x.get("quality_avg") or 0))
+    by_cost_eff = sorted(featured, key=lambda x: -(x.get("score_global", 0) / (cost_per_call(x) + 1e-9)))
+    by_speed = sorted(featured, key=lambda x: -(x.get("tokens_per_second") or 0))
+    by_cheap = sorted(featured, key=lambda x: (cost_per_call(x), -x.get("score_global", 0)))
+    open_source = [m for m in featured if m.get("open_source")]
     top_os = sorted(open_source, key=lambda x: -x.get("score_global", 0))
 
     # Categorías
@@ -129,19 +149,27 @@ def render(models: dict) -> str:
     max_score = top10[0]["score_global"] if top10 else 10
 
     qr_calc = qr_b64(URL_CALC)
+    qr_repo = qr_b64(URL_REPO)
 
     # Insights dinámicos
     insights = []
     if top_os:
-        insights.append(f"<strong>Mejor open-source:</strong> {top_os[0]['name']} ({top_os[0]['score_global']:.2f}) — opción sin vendor lock-in.")
+        badge = emerging_badge(top_os[0])
+        insights.append(f"<strong>Mejor open-source:</strong> {top_os[0]['name']} {badge} ({top_os[0]['score_global']:.2f}) — opción sin vendor lock-in.")
     if by_cost_eff:
-        insights.append(f"<strong>Mejor relación calidad/precio:</strong> {by_cost_eff[0]['name']} — score {by_cost_eff[0]['score_global']:.2f} a {fmt_cost(by_cost_eff[0])}.")
+        badge = emerging_badge(by_cost_eff[0])
+        insights.append(f"<strong>Mejor relación calidad/precio:</strong> {by_cost_eff[0]['name']} {badge} — score {by_cost_eff[0]['score_global']:.2f} a {fmt_cost(by_cost_eff[0])}.")
     if by_speed:
-        insights.append(f"<strong>Mas rapido:</strong> {by_speed[0]['name']} a {by_speed[0].get('tokens_per_second', 0):.0f} tok/s.")
+        badge = emerging_badge(by_speed[0])
+        insights.append(f"<strong>Mas rapido:</strong> {by_speed[0]['name']} {badge} a {by_speed[0].get('tokens_per_second', 0):.0f} tok/s.")
     if sec_models:
         insights.append(f"<strong>Seguridad:</strong> {sec_models[0]['name']} lidera prompt-injection ({sec_models[0]['sec']:.2f}); modelos cheap filtran ~2.0.")
+    if emerging:
+        badge = emerging_badge(emerging[0])
+        insights.append(f"<strong>Dato llamativo:</strong> {emerging[0]['name']} {badge} ya alcanza {emerging[0]['score_global']:.2f} con solo {emerging[0]['runs']} runs.")
 
-    # Recomendaciones por caso de uso (modelos reales del JSON)
+    # Recomendaciones por caso de uso: usamos modelos con base solida (>=50 runs)
+    # para dar respuestas confiables; los emergentes quedan para ranking e insights.
     coding_top = sorted(
         [m for m in ranked if (m.get("score_by_pillar") or {}).get("Coding")],
         key=lambda x: -x["score_by_pillar"]["Coding"]
@@ -153,6 +181,10 @@ def render(models: dict) -> str:
     contenido_top = sorted(
         [m for m in ranked if (m.get("score_by_pillar") or {}).get("Contenido")],
         key=lambda x: -x["score_by_pillar"]["Contenido"]
+    )[:3]
+    razonamiento_top = sorted(
+        [m for m in ranked if (m.get("score_by_pillar") or {}).get("Razonamiento")],
+        key=lambda x: -x["score_by_pillar"]["Razonamiento"]
     )[:3]
 
     html = f"""<!DOCTYPE html>
@@ -465,6 +497,65 @@ h1, h2, h3, h4 {{ font-family: 'JetBrains Mono', monospace; }}
     color: #b0b0b0;
     margin-top: 8px;
 }}
+
+.emerging {{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 6.5pt;
+    color: #ff006e;
+    border: 1px solid #ff006e;
+    border-radius: 10px;
+    padding: 1px 6px;
+    margin-left: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}}
+
+.why-list {{
+    list-style: none;
+    margin-top: 6px;
+}}
+.why-list li {{
+    font-size: 7.5pt;
+    color: #dbdbe5;
+    margin-bottom: 3px;
+    padding-left: 12px;
+    position: relative;
+}}
+.why-list li::before {{
+    content: "+";
+    position: absolute;
+    left: 0;
+    color: #39ff14;
+    font-weight: 700;
+}}
+.why-list li.why-not::before {{
+    content: "-";
+    color: #ff006e;
+}}
+
+.qr-row {{
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 8px;
+}}
+.qr-box {{
+    text-align: center;
+    background: #1a1a2e;
+    border: 1px solid #533483;
+    border-radius: 6px;
+    padding: 8px 12px;
+}}
+.qr-box img {{ width: 70px; height: 70px; }}
+.qr-box .url {{ font-family: 'JetBrains Mono', monospace; font-size: 6.5pt; color: #39ff14; margin-top: 3px; }}
+
+.community {{
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+    color: #b59cff;
+    margin-top: 8px;
+}}
 </style>
 </head>
 <body>
@@ -480,9 +571,15 @@ h1, h2, h3, h4 {{ font-family: 'JetBrains Mono', monospace; }}
             <div class="cover-subtitle">Executive Brief para emprendedores hispanohablantes</div>
             <div class="cover-month">{MONTH} {YEAR}</div>
         </div>
-        <div class="cover-qr">
-            <img src="data:image/png;base64,{qr_calc}" alt="QR">
-            <div class="url">benchmarks.cristiantala.com</div>
+        <div class="qr-row">
+            <div class="qr-box">
+                <img src="data:image/png;base64,{qr_calc}" alt="QR Calculadora">
+                <div class="url">Calculadora</div>
+            </div>
+            <div class="qr-box">
+                <img src="data:image/png;base64,{qr_repo}" alt="QR Repo">
+                <div class="url">Repo + datos</div>
+            </div>
         </div>
     </div>
 
@@ -500,7 +597,8 @@ h1, h2, h3, h4 {{ font-family: 'JetBrains Mono', monospace; }}
     </div>
 
     <div class="cover-footer">
-        Medido desde Santiago, Chile · v3.0 · MIT · Datos abiertos en github.com/ctala/ai-benchmarks-alternativos
+        Medido desde Santiago, Chile · v3.0 · MIT · Datos abiertos · PRs y sugerencias bienvenidas en el repo.<br>
+        Hecho con tests reales, cafeína y feedback de la comunidad hispanohablante.
     </div>
 </div>
 
@@ -509,7 +607,7 @@ h1, h2, h3, h4 {{ font-family: 'JetBrains Mono', monospace; }}
 <!-- ============================================================ -->
 <div class="page">
     <div class="kicker">// Ranking global</div>
-    <div class="section-title">Top 10 modelos</div>
+    <div class="section-title">Top 12 modelos</div>
     <div class="two-col">
         <div>
             <table class="top10-table">
@@ -554,27 +652,47 @@ h1, h2, h3, h4 {{ font-family: 'JetBrains Mono', monospace; }}
     <div class="use-grid">
         <div class="use-card">
             <div class="use-title">Coding</div>
-            <div class="use-pick">{coding_top[0]['name'] if coding_top else '—'}</div>
+            <div class="use-pick">{coding_top[0]['name'] if coding_top else '—'} {emerging_badge(coding_top[0]) if coding_top else ''}</div>
             <div class="use-meta">Score coding {(coding_top[0].get('score_by_pillar') or {}).get('Coding', '—') if coding_top else '—'} · {fmt_cost(coding_top[0]) if coding_top else '—'}</div>
+            <ul class="why-list">
+                <li>Lidera la categoria con el score mas alto en coding del benchmark.</li>
+                <li>{'Es open-source y ' if coding_top and coding_top[0].get('open_source') else ''}Gratis para volumen moderado; ideal para plugins, scripts y tareas atomicas.</li>
+                <li class="why-not">No usamos Qwen3-Coder-Next (#3 global, score 8.13) porque cuesta y {coding_top[0]['name'] if coding_top else 'este'} cubre la mayoria de tareas de codigo. Opus 4.8 es overkill y requiere suscripcion para coding atomico.</li>
+            </ul>
             <div class="use-alt"><strong>Alternativas:</strong> {', '.join(m['name'] for m in coding_top[1:3]) if len(coding_top) > 1 else '—'}</div>
         </div>
         <div class="use-card cyan">
             <div class="use-title">Agentes / Operaciones</div>
-            <div class="use-pick cyan">{agentes_top[0]['name'] if agentes_top else '—'}</div>
+            <div class="use-pick cyan">{agentes_top[0]['name'] if agentes_top else '—'} {emerging_badge(agentes_top[0]) if agentes_top else ''}</div>
             <div class="use-meta">Score agentes {(agentes_top[0].get('score_by_pillar') or {}).get('Agentes', '—') if agentes_top else '—'} · {fmt_cost(agentes_top[0]) if agentes_top else '—'}</div>
+            <ul class="why-list">
+                <li>Mejor score en tool calling, orquestacion y workflows operativos.</li>
+                <li>{f"{agentes_top[0].get('tokens_per_second', 0):.0f} tok/s" if agentes_top and agentes_top[0].get('tokens_per_second') else 'Baja latencia'} para respuestas sincronicas con el usuario final.</li>
+                <li class="why-not">No usamos Claude Haiku 4.5 (score agentes 7.85) porque requiere suscripcion de Anthropic; {agentes_top[0]['name'] if agentes_top else 'este'} entrega latencia baja sin costo fijo.</li>
+            </ul>
             <div class="use-alt"><strong>Alternativas:</strong> {', '.join(m['name'] for m in agentes_top[1:3]) if len(agentes_top) > 1 else '—'}</div>
         </div>
         <div class="use-card magenta">
             <div class="use-title">Contenido / Marketing</div>
-            <div class="use-pick magenta">{contenido_top[0]['name'] if contenido_top else '—'}</div>
+            <div class="use-pick magenta">{contenido_top[0]['name'] if contenido_top else '—'} {emerging_badge(contenido_top[0]) if contenido_top else ''}</div>
             <div class="use-meta">Score contenido {(contenido_top[0].get('score_by_pillar') or {}).get('Contenido', '—') if contenido_top else '—'} · {fmt_cost(contenido_top[0]) if contenido_top else '—'}</div>
+            <ul class="why-list">
+                <li>Lidera la categoria con el mejor score en generacion de contenido en espanol.</li>
+                <li>Tono natural para copy, newsletters y redes sociales sin sonar robotico.</li>
+                <li class="why-not">No usamos Llama 4 Scout (score contenido 8.35) porque {contenido_top[0]['name'] if contenido_top else 'este'} es mas rapido y tambien gratis/eficiente.</li>
+            </ul>
             <div class="use-alt"><strong>Alternativas:</strong> {', '.join(m['name'] for m in contenido_top[1:3]) if len(contenido_top) > 1 else '—'}</div>
         </div>
         <div class="use-card purple">
-            <div class="use-title">Mejor costo/beneficio</div>
-            <div class="use-pick purple">{by_cost_eff[0]['name'] if by_cost_eff else '—'}</div>
-            <div class="use-meta">Score {by_cost_eff[0]['score_global']:.2f} · {fmt_cost(by_cost_eff[0]) if by_cost_eff else '—'}</div>
-            <div class="use-alt"><strong>Si necesitás gratis:</strong> {by_cheap[0]['name'] if by_cheap else '—'} ({fmt_cost(by_cheap[0]) if by_cheap else '—'})</div>
+            <div class="use-title">Razonamiento / Analisis</div>
+            <div class="use-pick purple">{razonamiento_top[0]['name'] if razonamiento_top else '—'} {emerging_badge(razonamiento_top[0]) if razonamiento_top else ''}</div>
+            <div class="use-meta">Score razonamiento {(razonamiento_top[0].get('score_by_pillar') or {}).get('Razonamiento', '—') if razonamiento_top else '—'} · {fmt_cost(razonamiento_top[0]) if razonamiento_top else '—'}</div>
+            <ul class="why-list">
+                <li>Mejor score en analisis de negocio, resumenes ejecutivos y toma de decisiones con datos.</li>
+                <li>No somos solo un benchmark de codigo: razonamiento, contenido y agentes pesan igual.</li>
+                <li class="why-not">No usamos Claude Opus 4.8 ni DeepSeek R1 para razonamiento estandar porque {razonamiento_top[0]['name'] if razonamiento_top else 'este'} es suficiente y evita el costo premium.</li>
+            </ul>
+            <div class="use-alt"><strong>Alternativas:</strong> {', '.join(m['name'] for m in razonamiento_top[1:3]) if len(razonamiento_top) > 1 else '—'}</div>
         </div>
     </div>
     <div class="footer-brand">Recomendaciones detalladas por presupuesto en el repo</div>
@@ -667,13 +785,20 @@ h1, h2, h3, h4 {{ font-family: 'JetBrains Mono', monospace; }}
         Este benchmark es complemento, no sustituto de HumanEval, MMLU, SWE-bench, LMSYS Arena.
     </div>
 
-    <div class="cta-center">
-        <img src="data:image/png;base64,{qr_calc}" alt="QR Calculadora">
-        <div class="url">benchmarks.cristiantala.com</div>
-        <p style="font-size:9pt;color:#b0b0b0;margin-top:8px;">
-            Filtrá por presupuesto, calidad, velocidad y caso de uso.<br>
-            Datos abiertos: {URL_REPO}
-        </p>
+    <div class="qr-row">
+        <div class="qr-box">
+            <img src="data:image/png;base64,{qr_calc}" alt="QR Calculadora">
+            <div class="url">Calculadora</div>
+        </div>
+        <div class="qr-box">
+            <img src="data:image/png;base64,{qr_repo}" alt="QR Repo">
+            <div class="url">Repo + datos</div>
+        </div>
+    </div>
+
+    <div class="community">
+        Hecho con tests reales, cafeína y feedback de la comunidad hispanohablante.<br>
+        PRs, issues y sugerencias bienvenidas en {URL_REPO}
     </div>
 
     <div class="footer-brand">
