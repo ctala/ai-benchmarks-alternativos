@@ -73,34 +73,29 @@ def openrouter_cost_per_call(m: dict, openrouter_lookup: dict) -> float | None:
     return None
 
 
-def normalised_cost_per_call(m: dict, openrouter_lookup: dict | None = None) -> float:
-    """Costo normalizado: OpenRouter si existe, sino el provider real."""
+def normalised_cost_per_call(m: dict, openrouter_lookup: dict | None = None) -> float | None:
+    """Costo normalizado estricto: solo OpenRouter. Si no existe, devuelve None."""
     if openrouter_lookup:
-        or_cost = openrouter_cost_per_call(m, openrouter_lookup)
-        if or_cost is not None:
-            return or_cost
-    return cost_per_call(m)
+        return openrouter_cost_per_call(m, openrouter_lookup)
+    return None
 
 
 def fmt_cost(m: dict, openrouter_lookup: dict | None = None) -> str:
-    """Devuelve string formateado para costo por call.
+    """Devuelve string formateado para costo por call usando SOLO OpenRouter.
 
-    Si existe un equivalente en OpenRouter, se muestra ese precio como referencia
-    normalizada. Si no, se usa el costo real del provider.
+    Si el modelo no tiene equivalente en OpenRouter, se marca como N/A para
+    evitar comparaciones enganosas entre providers distintos.
     """
-    real = cost_per_call(m)
     or_cost = openrouter_cost_per_call(m, openrouter_lookup) if openrouter_lookup else None
-    c = or_cost if or_cost is not None else real
-    provider_note = ""
-    if or_cost is not None and or_cost != real:
-        provider_note = f" <span class='cost-note'>(ref. OpenRouter)</span>"
-    if c == 0:
-        return f"gratis{provider_note}"
-    if c < 0.001:
-        return f"${c:.6f}/call{provider_note}"
-    if c < 0.01:
-        return f"${c:.4f}/call{provider_note}"
-    return f"${c:.3f}/call{provider_note}"
+    if or_cost is None:
+        return "<span class='cost-note'>N/A en OpenRouter</span>"
+    if or_cost == 0:
+        return "gratis"
+    if or_cost < 0.001:
+        return f"${or_cost:.6f}/call"
+    if or_cost < 0.01:
+        return f"${or_cost:.4f}/call"
+    return f"${or_cost:.3f}/call"
 
 
 def bar_svg(value: float, max_val: float, color: str = "#39ff14", width: int = 260) -> str:
@@ -161,9 +156,16 @@ def render(models: dict) -> str:
 
     # Badges (usamos featured para capturar emergentes llamativos)
     by_quality = sorted(featured, key=lambda x: -(x.get("quality_avg") or 0))
-    by_cost_eff = sorted(featured, key=lambda x: -(x.get("score_global", 0) / (normalised_cost_per_call(x, openrouter_lookup) + 1e-9)))
+    featured_with_or_cost = [m for m in featured if normalised_cost_per_call(m, openrouter_lookup) is not None]
+    by_cost_eff = sorted(
+        featured_with_or_cost,
+        key=lambda x: -(x.get("score_global", 0) / (normalised_cost_per_call(x, openrouter_lookup) + 1e-9))
+    )
     by_speed = sorted(featured, key=lambda x: -(x.get("tokens_per_second") or 0))
-    by_cheap = sorted(featured, key=lambda x: (normalised_cost_per_call(x, openrouter_lookup), -x.get("score_global", 0)))
+    by_cheap = sorted(
+        featured_with_or_cost,
+        key=lambda x: (normalised_cost_per_call(x, openrouter_lookup), -x.get("score_global", 0))
+    )
     open_source = [m for m in featured if m.get("open_source")]
     top_os = sorted(open_source, key=lambda x: -x.get("score_global", 0))
 
@@ -732,7 +734,7 @@ h1, h2, h3, h4 {{ font-family: 'JetBrains Mono', monospace; }}
             <ul class="why-list">
                 <li>Lidera la categoria con el mejor score en generacion de contenido en espanol.</li>
                 <li>Tono natural para copy, newsletters y redes sociales sin sonar robotico.</li>
-                <li class="why-not">No usamos Llama 4 Scout (score contenido 8.35) porque {contenido_top[0]['name'] if contenido_top else 'este'} es mas rapido y con costo de referencia similar en OpenRouter.</li>
+                <li class="why-not">No usamos Llama 4 Scout (score contenido 8.35) porque {contenido_top[0]['name'] if contenido_top else 'este'} es mas rapido y mantiene un costo competitivo en su provider.</li>
             </ul>
             <div class="use-alt"><strong>Alternativas:</strong> {', '.join(m['name'] for m in contenido_top[1:3]) if len(contenido_top) > 1 else '—'}</div>
         </div>
