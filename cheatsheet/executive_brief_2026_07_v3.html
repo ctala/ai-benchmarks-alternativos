@@ -360,6 +360,12 @@ h1, h2, h3, h4 { font-family: 'JetBrains Mono', monospace; }
 .qr-box img { width: 70px; height: 70px; }
 .qr-box .url { font-family: 'JetBrains Mono', monospace; font-size: 6.5pt; color: #39ff14; margin-top: 3px; }
 
+.cost-note {
+    font-size: 6.5pt;
+    color: #b0b0b0;
+    font-weight: 400;
+}
+
 .community {
     text-align: center;
     font-family: 'JetBrains Mono', monospace;
@@ -417,7 +423,7 @@ h1, h2, h3, h4 { font-family: 'JetBrains Mono', monospace; }
     <div class="stats-row">
         <div class="stat-card"><div class="n">94</div><div class="l">Modelos testeados</div></div>
         <div class="stat-card"><div class="n">145</div><div class="l">En catálogo</div></div>
-        <div class="stat-card"><div class="n">10,860+</div><div class="l">Runs reales</div></div>
+        <div class="stat-card"><div class="n">10,853+</div><div class="l">Runs reales</div></div>
         <div class="stat-card"><div class="n">26</div><div class="l">Suites</div></div>
         <div class="stat-card"><div class="n">91</div><div class="l">Tests prácticos</div></div>
     </div>
@@ -553,7 +559,7 @@ h1, h2, h3, h4 { font-family: 'JetBrains Mono', monospace; }
         <div>
             <div class="section-title" style="font-size:14pt;border-color:#00d4ff;color:#00d4ff;">Insights del mes</div>
             <ul class="insight-list">
-                <li><strong>Mejor open-source:</strong> DeepSeek V4 Pro (Ollama Cloud) <span class="emerging" title="10 runs, datos preliminares">emergente</span> (8.84) — opción sin vendor lock-in.</li><li><strong>Mejor relación calidad/precio:</strong> DeepSeek V4 Pro (Ollama Cloud) <span class="emerging" title="10 runs, datos preliminares">emergente</span> — score 8.84 a gratis.</li><li><strong>Mas rapido:</strong> GPT-OSS 20B (Groq)  a 633 tok/s.</li><li><strong>Seguridad:</strong> Claude Sonnet 4.6 (suscripción) lidera prompt-injection (7.44); modelos cheap filtran ~2.0.</li>
+                <li><strong>Mejor open-source:</strong> DeepSeek V4 Pro (Ollama Cloud) <span class="emerging" title="10 runs, datos preliminares">emergente</span> (8.84) — opción sin vendor lock-in.</li><li><strong>Mejor relación calidad/precio:</strong> Mistral Nemo  — score 2.80 a $0.000036/call.</li><li><strong>Mas rapido:</strong> GPT-OSS 20B (Groq)  a 633 tok/s.</li><li><strong>Seguridad:</strong> Claude Sonnet 4.6 (suscripción) lidera prompt-injection (7.44); modelos cheap filtran ~2.0.</li>
             </ul>
 
             <div class="section-title" style="font-size:14pt;border-color:#ff006e;color:#ff006e;margin-top:12px;">Nuevos este mes</div>
@@ -577,10 +583,10 @@ h1, h2, h3, h4 { font-family: 'JetBrains Mono', monospace; }
         <div class="use-card">
             <div class="use-title">Coding</div>
             <div class="use-pick">Devstral Small </div>
-            <div class="use-meta">Score coding 8.52 · gratis</div>
+            <div class="use-meta">Score coding 8.52 · $0.000480/call</div>
             <ul class="why-list">
                 <li>Lidera la categoria con el score mas alto en coding del benchmark.</li>
-                <li>Es open-source y Gratis para volumen moderado; ideal para plugins, scripts y tareas atomicas.</li>
+                <li>Es open-source y Costo ultra bajo en OpenRouter; ideal para plugins, scripts y tareas atomicas.</li>
                 <li class="why-not">No usamos Qwen3-Coder-Next (#3 global, score 8.13) porque cuesta y Devstral Small cubre la mayoria de tareas de codigo. Opus 4.8 es overkill y requiere suscripcion para coding atomico.</li>
             </ul>
             <div class="use-alt"><strong>Alternativas:</strong> Gemini 2.5 Flash Lite, Llama 4 Scout 17B (Groq preview)</div>
@@ -588,7 +594,7 @@ h1, h2, h3, h4 { font-family: 'JetBrains Mono', monospace; }
         <div class="use-card cyan">
             <div class="use-title">Agentes / Operaciones</div>
             <div class="use-pick cyan">Llama 3.1 8B Instant (Groq) </div>
-            <div class="use-meta">Score agentes 7.88 · gratis</div>
+            <div class="use-meta">Score agentes 7.88 · $0.000135/call</div>
             <ul class="why-list">
                 <li>Mejor score en tool calling, orquestacion y workflows operativos.</li>
                 <li>367 tok/s para respuestas sincronicas con el usuario final.</li>
@@ -599,18 +605,18 @@ h1, h2, h3, h4 { font-family: 'JetBrains Mono', monospace; }
         <div class="use-card magenta">
             <div class="use-title">Contenido / Marketing</div>
             <div class="use-pick magenta">GPT-OSS 20B (Groq) </div>
-            <div class="use-meta">Score contenido 8.43 · gratis</div>
+            <div class="use-meta">Score contenido 8.43 · $0.000472/call</div>
             <ul class="why-list">
                 <li>Lidera la categoria con el mejor score en generacion de contenido en espanol.</li>
                 <li>Tono natural para copy, newsletters y redes sociales sin sonar robotico.</li>
-                <li class="why-not">No usamos Llama 4 Scout (score contenido 8.35) porque GPT-OSS 20B (Groq) es mas rapido y tambien gratis/eficiente.</li>
+                <li class="why-not">No usamos Llama 4 Scout (score contenido 8.35) porque GPT-OSS 20B (Groq) es mas rapido y con costo de referencia similar en OpenRouter.</li>
             </ul>
             <div class="use-alt"><strong>Alternativas:</strong> Llama 4 Scout 17B (Groq preview), Llama 3.1 8B Instant (Groq)</div>
         </div>
         <div class="use-card purple">
             <div class="use-title">Razonamiento / Analisis</div>
             <div class="use-pick purple">Devstral Small </div>
-            <div class="use-meta">Score razonamiento 8.39 · gratis</div>
+            <div class="use-meta">Score razonamiento 8.39 · $0.000480/call</div>
             <ul class="why-list">
                 <li>Mejor score en analisis de negocio, resumenes ejecutivos y toma de decisiones con datos.</li>
                 <li>No somos solo un benchmark de codigo: razonamiento, contenido y agentes pesan igual.</li>
