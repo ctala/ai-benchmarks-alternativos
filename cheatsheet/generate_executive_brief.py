@@ -73,29 +73,38 @@ def openrouter_cost_per_call(m: dict, openrouter_lookup: dict) -> float | None:
     return None
 
 
-def normalised_cost_per_call(m: dict, openrouter_lookup: dict | None = None) -> float | None:
-    """Costo normalizado estricto: solo OpenRouter. Si no existe, devuelve None."""
+def normalised_cost_per_call(m: dict, openrouter_lookup: dict | None = None) -> float:
+    """Costo normalizado: OpenRouter si existe, sino el costo real del provider.
+
+    Todos los modelos deben tener un costo asignado para que el score global
+    sea comparable; el costo real del provider actua como aproximacion estandar
+    cuando no hay equivalente OpenRouter.
+    """
     if openrouter_lookup:
-        return openrouter_cost_per_call(m, openrouter_lookup)
-    return None
+        or_cost = openrouter_cost_per_call(m, openrouter_lookup)
+        if or_cost is not None:
+            return or_cost
+    return cost_per_call(m)
 
 
 def fmt_cost(m: dict, openrouter_lookup: dict | None = None) -> str:
-    """Devuelve string formateado para costo por call usando SOLO OpenRouter.
+    """Devuelve string formateado para costo por call.
 
-    Si el modelo no tiene equivalente en OpenRouter, se marca como N/A para
-    evitar comparaciones enganosas entre providers distintos.
+    OpenRouter es la referencia principal; si no hay equivalente, se muestra
+    el costo real del provider como aproximacion estandar.
     """
     or_cost = openrouter_cost_per_call(m, openrouter_lookup) if openrouter_lookup else None
-    if or_cost is None:
-        return "<span class='cost-note'>N/A en OpenRouter</span>"
-    if or_cost == 0:
-        return "gratis"
-    if or_cost < 0.001:
-        return f"${or_cost:.6f}/call"
-    if or_cost < 0.01:
-        return f"${or_cost:.4f}/call"
-    return f"${or_cost:.3f}/call"
+    c = or_cost if or_cost is not None else cost_per_call(m)
+    provider_note = ""
+    if or_cost is not None and or_cost != cost_per_call(m):
+        provider_note = " <span class='cost-note'>(ref. OpenRouter)</span>"
+    if c == 0:
+        return f"gratis{provider_note}"
+    if c < 0.001:
+        return f"${c:.6f}/call{provider_note}"
+    if c < 0.01:
+        return f"${c:.4f}/call{provider_note}"
+    return f"${c:.3f}/call{provider_note}"
 
 
 def bar_svg(value: float, max_val: float, color: str = "#39ff14", width: int = 260) -> str:
@@ -156,14 +165,13 @@ def render(models: dict) -> str:
 
     # Badges (usamos featured para capturar emergentes llamativos)
     by_quality = sorted(featured, key=lambda x: -(x.get("quality_avg") or 0))
-    featured_with_or_cost = [m for m in featured if normalised_cost_per_call(m, openrouter_lookup) is not None]
     by_cost_eff = sorted(
-        featured_with_or_cost,
+        featured,
         key=lambda x: -(x.get("score_global", 0) / (normalised_cost_per_call(x, openrouter_lookup) + 1e-9))
     )
     by_speed = sorted(featured, key=lambda x: -(x.get("tokens_per_second") or 0))
     by_cheap = sorted(
-        featured_with_or_cost,
+        featured,
         key=lambda x: (normalised_cost_per_call(x, openrouter_lookup), -x.get("score_global", 0))
     )
     open_source = [m for m in featured if m.get("open_source")]
