@@ -25,7 +25,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from benchmarks.config import MODELS as _CLOUD_MODELS
 from benchmarks.models import OLLAMA_MODELS, SUBSCRIPTIONS
-from benchmarks.scoring import PRICING, compute_final_score, DEFAULT_WEIGHTS
+from benchmarks.scoring import PRICING, compute_final_score, cost_score_log, DEFAULT_WEIGHTS
 
 # Merge cloud + local models para que DGX y otros locales aparezcan en la calculadora
 MODELS = {**_CLOUD_MODELS, **OLLAMA_MODELS}
@@ -37,12 +37,15 @@ def _recalc_final(r: dict) -> float:
     Útil cuando cambian los pesos en `scoring.py` — recalculamos sin re-correr
     los benchmarks. Usa los componentes raw guardados en cada run (quality,
     speed, latency, tool_calling, cost_usd).
+
+    Si el run tiene costo normalizado OpenRouter (_cost_usd_or), se usa ese
+    para que el score global sea comparable entre providers.
     """
     q = r.get("quality")
     s = r.get("speed", 0) or 0
     lat = r.get("latency", 0) or 0
     tc = r.get("tool_calling", 0) or 0
-    cost = r.get("cost_usd", 0) or 0
+    cost = r.get("_cost_usd_or") or r.get("cost_usd", 0) or 0
     if q is None:
         return r.get("final", 0) or 0
     scores = compute_final_score(q, s, lat, tc, cost)
@@ -147,8 +150,13 @@ def aggregate_metrics(runs):
     out_tokens = sum(r.get("output_tokens", 0) or 0 for r in general)
 
     # Componentes promedio (solo tareas prácticas, no-niah)
+    # Si existe _cost_score_or (normalizado OpenRouter) lo usamos; si no, fallback al cost_score original.
     qualities = [r.get("quality") for r in general if r.get("quality") is not None]
-    cost_scores = [r.get("cost_score") for r in general if r.get("cost_score") is not None]
+    cost_scores = [
+        r.get("_cost_score_or") if r.get("_cost_score_or") is not None else r.get("cost_score")
+        for r in general
+        if (r.get("_cost_score_or") is not None or r.get("cost_score") is not None)
+    ]
     speed_scores = [r.get("speed") for r in general if r.get("speed") is not None]
     latency_scores = [r.get("latency") for r in general if r.get("latency") is not None]
     tc_scores = [r.get("tool_calling") for r in general if r.get("tool_calling") is not None]
@@ -291,8 +299,62 @@ def _infer_capabilities(cfg, cfg_key):
     }
 
 
+def build_openrouter_lookup():
+    """Construye lookup de configs OpenRouter por id y por nombre base.
+
+    Permite normalizar el costo de cualquier modelo al precio OpenRouter,
+    haciendo comparables modelos que corren en Groq, NIM, suscripciones, etc.
+    """
+    from collections import defaultdict
+    or_configs = [c for c in MODELS.values() if c.get("provider", "openrouter") == "openrouter"]
+    by_id = {}
+    by_name_base = defaultdict(list)
+    for c in or_configs:
+        by_id[c["id"]] = c
+        base = c.get("name", "").split("(")[0].strip()
+        if base:
+            by_name_base[base].append(c)
+    return {"by_id": by_id, "by_name_base": dict(by_name_base)}
+
+
+def _openrouter_config_for(cfg: dict, lookup: dict) -> dict | None:
+    """Devuelve la config OpenRouter equivalente para un modelo dado."""
+    model_id = cfg.get("id", "")
+    name_base = cfg.get("name", "").split("(")[0].strip()
+
+    # Match exacto por id
+    if model_id and model_id in lookup["by_id"]:
+        return lookup["by_id"][model_id]
+
+    # Match por nombre base
+    candidates = lookup["by_name_base"].get(name_base, [])
+    if not candidates:
+        return None
+
+    # Descartar variantes free si hay alternativas de pago
+    non_free = [c for c in candidates if ":free" not in c.get("id", "") and "(free)" not in c.get("name", "").lower()]
+    if non_free:
+        candidates = non_free
+
+    # Elegir la version estandar: preferir la de mayor costo ( suele ser la version no-cuantizada)
+    # o si hay una sola, usar esa.
+    return max(candidates, key=lambda c: (c.get("cost_input", 0) or 0) + (c.get("cost_output", 0) or 0))
+
+
+def _estimate_cost_openrouter(r: dict, or_cfg: dict) -> float:
+    """Estima el costo USD de un run usando precios OpenRouter."""
+    if or_cfg is None:
+        return 0.0
+    ci = or_cfg.get("cost_input", 0) or 0
+    co = or_cfg.get("cost_output", 0) or 0
+    inp = r.get("input_tokens", 0) or 0
+    out = r.get("output_tokens", 0) or 0
+    return (inp * ci + out * co) / 1_000_000
+
+
 def build_export():
     by_id, by_id_and_name = load_all_results()
+    or_lookup = build_openrouter_lookup()
     models_export = []
 
     # ids usados por >1 config (variantes que comparten el mismo model id, p.ej.
@@ -317,6 +379,19 @@ def build_export():
             runs = [r for r in all_runs if "(thinking)" not in (r.get("model") or "")]
             if not runs:
                 runs = by_id.get(cfg_key, [])
+
+        # Normalizar costo de cada run a precios OpenRouter para comparabilidad.
+        # Si el modelo no tiene equivalente OpenRouter, conservamos el cost_score
+        # original para no premiarlo artificialmente con score 10.0.
+        or_cfg = _openrouter_config_for(cfg, or_lookup)
+        for r in runs:
+            if or_cfg is not None:
+                cost_or = _estimate_cost_openrouter(r, or_cfg)
+                r["_cost_usd_or"] = cost_or
+                r["_cost_score_or"] = cost_score_log(cost_or)
+            else:
+                r["_cost_usd_or"] = None
+                r["_cost_score_or"] = None
 
         metrics = aggregate_metrics(runs) if runs else {
             "runs": 0,
