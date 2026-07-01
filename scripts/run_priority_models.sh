@@ -12,9 +12,9 @@ RUNNER="benchmarks/runner.py"
 echo "▶ Corriendo Grok 4.3 completo..."
 $PYTHON $RUNNER --models grok-4.3
 
-# 2) Nemotron 3 Ultra 550B — NVIDIA NIM (gratis con rate limit)
-# Requiere NVIDIA_NIM_API_KEY en .env
+# 2) Nemotron 3 Ultra 550B — OpenRouter (rápido y barato)
+# Requiere OPENROUTER_API_KEY en .env
 echo "▶ Corriendo Nemotron 3 Ultra 550B completo..."
-$PYTHON $RUNNER --models nim-nemotron-3-ultra-550b
+$PYTHON $RUNNER --models openrouter-nemotron-3-ultra-550b
 
 echo "✅ Benchmarks prioritarios completados."
