@@ -626,6 +626,19 @@ MODELS = {
         "tier": "ultra_cheap",
     },
 
+    # --- Cohere North (coding, gratis via OpenRouter) ---
+    "openrouter-north-mini-code": {
+        "id": "cohere/north-mini-code:free",
+        "name": "North Mini Code",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "free",
+        "provider": "openrouter",
+        "open_source": False,
+        "license": "Cohere Commercial",
+        "notes": "Modelo de Cohere enfocado en coding. Disponible gratis via OpenRouter (rate limit aplicado).",
+    },
+
     # --- PREMIUM ($5.00+/M) ---
     # GPT-5.4 y GPT-5.4-mini via API directa de OpenAI
     "gpt-5.4": {
@@ -1504,6 +1517,7 @@ CONTEXT_WINDOWS = {
     # Fable 5: solo se mantiene la versión suscripción (API fue deprecada/abajo).
     'claude-fable-5': 1000000,
     'anthropic/claude-sonnet-4': 1000000,
+    'cohere/north-mini-code:free': 128000,
     'deepseek-ai/deepseek-v4-flash': 1048576,
     'deepseek-ai/deepseek-v4-pro': 1048576,
     'deepseek-v4-flash': 1048576,
