@@ -47,20 +47,60 @@ def load_models() -> dict:
 
 
 def cost_per_call(m: dict) -> float:
-    """Costo estimado por call asumiendo 300 input + 1500 output tokens."""
-    return (300 * m.get("cost_input", 0) + 1500 * m.get("cost_output", 0)) / 1_000_000
+    """Costo real por call del provider del modelo (desde cost_per_1k_calls_usd)."""
+    return (m.get("cost_per_1k_calls_usd") or 0) / 1000
 
 
-def fmt_cost(m: dict) -> str:
-    """Devuelve string formateado para costo por call; 'gratis' si es 0."""
-    c = cost_per_call(m)
+def openrouter_cost_per_call(m: dict, openrouter_lookup: dict) -> float | None:
+    """Busca el costo equivalente en OpenRouter para normalizar comparaciones."""
+    key = m.get("key", "")
+    name = m.get("name", "")
+    # Intenta match por key o por nombre base sin parentesis de provider
+    name_base = name.split(" (")[0].strip()
+    candidates = []
+    for om in openrouter_lookup.values():
+        om_key = om.get("key", "")
+        om_name = om.get("name", "")
+        om_name_base = om_name.split(" (")[0].strip()
+        if key and key == om_key:
+            candidates.append(om)
+        elif name_base and name_base == om_name_base:
+            candidates.append(om)
+    if candidates:
+        # Elige el de mayor runs para mayor confiabilidad
+        best = max(candidates, key=lambda x: x.get("runs", 0))
+        return cost_per_call(best)
+    return None
+
+
+def normalised_cost_per_call(m: dict, openrouter_lookup: dict | None = None) -> float:
+    """Costo normalizado: OpenRouter si existe, sino el provider real."""
+    if openrouter_lookup:
+        or_cost = openrouter_cost_per_call(m, openrouter_lookup)
+        if or_cost is not None:
+            return or_cost
+    return cost_per_call(m)
+
+
+def fmt_cost(m: dict, openrouter_lookup: dict | None = None) -> str:
+    """Devuelve string formateado para costo por call.
+
+    Si existe un equivalente en OpenRouter, se muestra ese precio como referencia
+    normalizada. Si no, se usa el costo real del provider.
+    """
+    real = cost_per_call(m)
+    or_cost = openrouter_cost_per_call(m, openrouter_lookup) if openrouter_lookup else None
+    c = or_cost if or_cost is not None else real
+    provider_note = ""
+    if or_cost is not None and or_cost != real:
+        provider_note = f" <span class='cost-note'>(ref. OpenRouter)</span>"
     if c == 0:
-        return "gratis"
+        return f"gratis{provider_note}"
     if c < 0.001:
-        return f"${c:.6f}/call"
+        return f"${c:.6f}/call{provider_note}"
     if c < 0.01:
-        return f"${c:.4f}/call"
-    return f"${c:.3f}/call"
+        return f"${c:.4f}/call{provider_note}"
+    return f"${c:.3f}/call{provider_note}"
 
 
 def bar_svg(value: float, max_val: float, color: str = "#39ff14", width: int = 260) -> str:
@@ -112,11 +152,18 @@ def render(models: dict) -> str:
     top10 = featured[:12]
     top3 = featured[:3]
 
+    # Lookup de modelos en OpenRouter para normalizar precios de referencia
+    openrouter_lookup = {
+        m.get("key", m.get("id", "")): m
+        for m in models["models"]
+        if m.get("provider") == "openrouter" and m.get("cost_per_1k_calls_usd") is not None
+    }
+
     # Badges (usamos featured para capturar emergentes llamativos)
     by_quality = sorted(featured, key=lambda x: -(x.get("quality_avg") or 0))
-    by_cost_eff = sorted(featured, key=lambda x: -(x.get("score_global", 0) / (cost_per_call(x) + 1e-9)))
+    by_cost_eff = sorted(featured, key=lambda x: -(x.get("score_global", 0) / (normalised_cost_per_call(x, openrouter_lookup) + 1e-9)))
     by_speed = sorted(featured, key=lambda x: -(x.get("tokens_per_second") or 0))
-    by_cheap = sorted(featured, key=lambda x: (cost_per_call(x), -x.get("score_global", 0)))
+    by_cheap = sorted(featured, key=lambda x: (normalised_cost_per_call(x, openrouter_lookup), -x.get("score_global", 0)))
     open_source = [m for m in featured if m.get("open_source")]
     top_os = sorted(open_source, key=lambda x: -x.get("score_global", 0))
 
@@ -158,7 +205,7 @@ def render(models: dict) -> str:
         insights.append(f"<strong>Mejor open-source:</strong> {top_os[0]['name']} {badge} ({top_os[0]['score_global']:.2f}) — opción sin vendor lock-in.")
     if by_cost_eff:
         badge = emerging_badge(by_cost_eff[0])
-        insights.append(f"<strong>Mejor relación calidad/precio:</strong> {by_cost_eff[0]['name']} {badge} — score {by_cost_eff[0]['score_global']:.2f} a {fmt_cost(by_cost_eff[0])}.")
+        insights.append(f"<strong>Mejor relación calidad/precio:</strong> {by_cost_eff[0]['name']} {badge} — score {by_cost_eff[0]['score_global']:.2f} a {fmt_cost(by_cost_eff[0], openrouter_lookup)}.")
     if by_speed:
         badge = emerging_badge(by_speed[0])
         insights.append(f"<strong>Mas rapido:</strong> {by_speed[0]['name']} {badge} a {by_speed[0].get('tokens_per_second', 0):.0f} tok/s.")
@@ -549,6 +596,12 @@ h1, h2, h3, h4 {{ font-family: 'JetBrains Mono', monospace; }}
 .qr-box img {{ width: 70px; height: 70px; }}
 .qr-box .url {{ font-family: 'JetBrains Mono', monospace; font-size: 6.5pt; color: #39ff14; margin-top: 3px; }}
 
+.cost-note {{
+    font-size: 6.5pt;
+    color: #b0b0b0;
+    font-weight: 400;
+}}
+
 .community {{
     text-align: center;
     font-family: 'JetBrains Mono', monospace;
@@ -653,10 +706,10 @@ h1, h2, h3, h4 {{ font-family: 'JetBrains Mono', monospace; }}
         <div class="use-card">
             <div class="use-title">Coding</div>
             <div class="use-pick">{coding_top[0]['name'] if coding_top else '—'} {emerging_badge(coding_top[0]) if coding_top else ''}</div>
-            <div class="use-meta">Score coding {(coding_top[0].get('score_by_pillar') or {}).get('Coding', '—') if coding_top else '—'} · {fmt_cost(coding_top[0]) if coding_top else '—'}</div>
+            <div class="use-meta">Score coding {(coding_top[0].get('score_by_pillar') or {}).get('Coding', '—') if coding_top else '—'} · {fmt_cost(coding_top[0], openrouter_lookup) if coding_top else '—'}</div>
             <ul class="why-list">
                 <li>Lidera la categoria con el score mas alto en coding del benchmark.</li>
-                <li>{'Es open-source y ' if coding_top and coding_top[0].get('open_source') else ''}Gratis para volumen moderado; ideal para plugins, scripts y tareas atomicas.</li>
+                <li>{'Es open-source y ' if coding_top and coding_top[0].get('open_source') else ''}Costo ultra bajo en OpenRouter; ideal para plugins, scripts y tareas atomicas.</li>
                 <li class="why-not">No usamos Qwen3-Coder-Next (#3 global, score 8.13) porque cuesta y {coding_top[0]['name'] if coding_top else 'este'} cubre la mayoria de tareas de codigo. Opus 4.8 es overkill y requiere suscripcion para coding atomico.</li>
             </ul>
             <div class="use-alt"><strong>Alternativas:</strong> {', '.join(m['name'] for m in coding_top[1:3]) if len(coding_top) > 1 else '—'}</div>
@@ -664,7 +717,7 @@ h1, h2, h3, h4 {{ font-family: 'JetBrains Mono', monospace; }}
         <div class="use-card cyan">
             <div class="use-title">Agentes / Operaciones</div>
             <div class="use-pick cyan">{agentes_top[0]['name'] if agentes_top else '—'} {emerging_badge(agentes_top[0]) if agentes_top else ''}</div>
-            <div class="use-meta">Score agentes {(agentes_top[0].get('score_by_pillar') or {}).get('Agentes', '—') if agentes_top else '—'} · {fmt_cost(agentes_top[0]) if agentes_top else '—'}</div>
+            <div class="use-meta">Score agentes {(agentes_top[0].get('score_by_pillar') or {}).get('Agentes', '—') if agentes_top else '—'} · {fmt_cost(agentes_top[0], openrouter_lookup) if agentes_top else '—'}</div>
             <ul class="why-list">
                 <li>Mejor score en tool calling, orquestacion y workflows operativos.</li>
                 <li>{f"{agentes_top[0].get('tokens_per_second', 0):.0f} tok/s" if agentes_top and agentes_top[0].get('tokens_per_second') else 'Baja latencia'} para respuestas sincronicas con el usuario final.</li>
@@ -675,18 +728,18 @@ h1, h2, h3, h4 {{ font-family: 'JetBrains Mono', monospace; }}
         <div class="use-card magenta">
             <div class="use-title">Contenido / Marketing</div>
             <div class="use-pick magenta">{contenido_top[0]['name'] if contenido_top else '—'} {emerging_badge(contenido_top[0]) if contenido_top else ''}</div>
-            <div class="use-meta">Score contenido {(contenido_top[0].get('score_by_pillar') or {}).get('Contenido', '—') if contenido_top else '—'} · {fmt_cost(contenido_top[0]) if contenido_top else '—'}</div>
+            <div class="use-meta">Score contenido {(contenido_top[0].get('score_by_pillar') or {}).get('Contenido', '—') if contenido_top else '—'} · {fmt_cost(contenido_top[0], openrouter_lookup) if contenido_top else '—'}</div>
             <ul class="why-list">
                 <li>Lidera la categoria con el mejor score en generacion de contenido en espanol.</li>
                 <li>Tono natural para copy, newsletters y redes sociales sin sonar robotico.</li>
-                <li class="why-not">No usamos Llama 4 Scout (score contenido 8.35) porque {contenido_top[0]['name'] if contenido_top else 'este'} es mas rapido y tambien gratis/eficiente.</li>
+                <li class="why-not">No usamos Llama 4 Scout (score contenido 8.35) porque {contenido_top[0]['name'] if contenido_top else 'este'} es mas rapido y con costo de referencia similar en OpenRouter.</li>
             </ul>
             <div class="use-alt"><strong>Alternativas:</strong> {', '.join(m['name'] for m in contenido_top[1:3]) if len(contenido_top) > 1 else '—'}</div>
         </div>
         <div class="use-card purple">
             <div class="use-title">Razonamiento / Analisis</div>
             <div class="use-pick purple">{razonamiento_top[0]['name'] if razonamiento_top else '—'} {emerging_badge(razonamiento_top[0]) if razonamiento_top else ''}</div>
-            <div class="use-meta">Score razonamiento {(razonamiento_top[0].get('score_by_pillar') or {}).get('Razonamiento', '—') if razonamiento_top else '—'} · {fmt_cost(razonamiento_top[0]) if razonamiento_top else '—'}</div>
+            <div class="use-meta">Score razonamiento {(razonamiento_top[0].get('score_by_pillar') or {}).get('Razonamiento', '—') if razonamiento_top else '—'} · {fmt_cost(razonamiento_top[0], openrouter_lookup) if razonamiento_top else '—'}</div>
             <ul class="why-list">
                 <li>Mejor score en analisis de negocio, resumenes ejecutivos y toma de decisiones con datos.</li>
                 <li>No somos solo un benchmark de codigo: razonamiento, contenido y agentes pesan igual.</li>
