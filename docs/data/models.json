@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-30T17:12:58",
+  "generated_at": "2026-07-01T10:08:47",
   "total_models": 143,
-  "tested_count": 93,
+  "tested_count": 94,
   "tokens_per_call_assumption": {
     "input": 300,
     "output": 1500
@@ -16,20 +16,20 @@
   "score_method": "zscore_v2.9",
   "norm_stats": {
     "quality_avg": {
-      "mean": 7.7751,
-      "std": 0.5735
+      "mean": 7.7705,
+      "std": 0.5721
     },
     "cost_score_avg": {
-      "mean": 7.4074,
-      "std": 1.9337
+      "mean": 7.4004,
+      "std": 1.9245
     },
     "speed_score_avg": {
-      "mean": 6.6484,
-      "std": 2.086
+      "mean": 6.6704,
+      "std": 2.0857
     },
     "latency_score_avg": {
-      "mean": 2.1584,
-      "std": 1.2247
+      "mean": 2.1636,
+      "std": 1.2193
     }
   },
   "score_rescale": {
@@ -94,7 +94,7 @@
       "multimodal": false,
       "runs": 133,
       "total_runs": 392,
-      "score_global": 8.31,
+      "score_global": 8.33,
       "score_by_pillar": {
         "Contenido": 8.28,
         "Agentes": 7.18,
@@ -176,7 +176,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 254,
-      "score_global": 8.25,
+      "score_global": 8.28,
       "score_by_pillar": {
         "Contenido": 7.63,
         "Agentes": 7.09,
@@ -255,7 +255,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 258,
-      "score_global": 8.11,
+      "score_global": 8.13,
       "score_by_pillar": {
         "Contenido": 8.25,
         "Agentes": 7.76,
@@ -343,7 +343,7 @@
       "multimodal": true,
       "runs": 101,
       "total_runs": 165,
-      "score_global": 8.08,
+      "score_global": 8.1,
       "score_by_pillar": {
         "Razonamiento": 7.59,
         "Contenido": 7.58,
@@ -402,6 +402,79 @@
       "score_global_linear": 7.25
     },
     {
+      "key": "devstral",
+      "id": "mistralai/devstral-small",
+      "name": "Devstral Small",
+      "tier": "ultra_cheap",
+      "provider": "openrouter",
+      "open_source": true,
+      "license": "Apache 2.0",
+      "cost_input_per_M": 0.1,
+      "cost_output_per_M": 0.3,
+      "cost_per_1k_calls_usd": 0.48,
+      "context_window": 131072,
+      "subscriptions": [],
+      "notes": "",
+      "tested": true,
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 169,
+      "total_runs": 223,
+      "score_global": 8.01,
+      "score_by_pillar": {
+        "Contenido": 8.09,
+        "Agentes": 7.68,
+        "Coding": 8.52,
+        "Razonamiento": 8.39
+      },
+      "score_by_suite": {
+        "content_generation": 8.47,
+        "tool_calling": 6.44,
+        "task_management": 8.44,
+        "code_generation": 9.04,
+        "reasoning": 8.87,
+        "summarization": 7.77,
+        "presentation": 8.43,
+        "startup_content": 8.69,
+        "deep_reasoning": 8.36,
+        "customer_support": 7.74,
+        "structured_output": 7.95,
+        "hallucination": 7.94,
+        "creativity": 7.83,
+        "string_precision": 9.01,
+        "news_seo_writing": 7.28,
+        "agent_capabilities": 8.11,
+        "ocr_extraction": 7.44,
+        "orchestration": 7.55,
+        "multi_turn": 7.88,
+        "policy_adherence": 7.76,
+        "strategy": 8.47,
+        "sales_outreach": 8.27,
+        "translation": 8.77,
+        "agent_long_horizon": 8.42,
+        "niah_es": 7.31
+      },
+      "quality_avg": 8.03,
+      "cost_score_avg": 9.69,
+      "speed_score_avg": 9.2,
+      "latency_score_avg": 4.97,
+      "tool_calling_score_avg": 6.75,
+      "judge_score_avg": 4.1,
+      "tokens_per_second": 169.3,
+      "latency_avg_s": 6.08,
+      "total_input_tokens": 181926,
+      "total_output_tokens": 117403,
+      "long_context_runs": 54,
+      "long_context_quality": 7.47,
+      "long_context_score": 7.31,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 8.14
+    },
+    {
       "key": "claude-haiku-4.5-sub",
       "id": "claude-haiku-4-5",
       "name": "Claude Haiku 4.5 (suscripción)",
@@ -430,7 +503,7 @@
       "multimodal": false,
       "runs": 98,
       "total_runs": 163,
-      "score_global": 7.98,
+      "score_global": 8.0,
       "score_by_pillar": {
         "Contenido": 7.85,
         "Agentes": 7.85,
@@ -488,79 +561,6 @@
       "score_global_linear": 7.55
     },
     {
-      "key": "devstral",
-      "id": "mistralai/devstral-small",
-      "name": "Devstral Small",
-      "tier": "ultra_cheap",
-      "provider": "openrouter",
-      "open_source": true,
-      "license": "Apache 2.0",
-      "cost_input_per_M": 0.1,
-      "cost_output_per_M": 0.3,
-      "cost_per_1k_calls_usd": 0.48,
-      "context_window": 131072,
-      "subscriptions": [],
-      "notes": "",
-      "tested": true,
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": false,
-      "runs": 169,
-      "total_runs": 223,
-      "score_global": 7.98,
-      "score_by_pillar": {
-        "Contenido": 8.09,
-        "Agentes": 7.68,
-        "Coding": 8.52,
-        "Razonamiento": 8.39
-      },
-      "score_by_suite": {
-        "content_generation": 8.47,
-        "tool_calling": 6.44,
-        "task_management": 8.44,
-        "code_generation": 9.04,
-        "reasoning": 8.87,
-        "summarization": 7.77,
-        "presentation": 8.43,
-        "startup_content": 8.69,
-        "deep_reasoning": 8.36,
-        "customer_support": 7.74,
-        "structured_output": 7.95,
-        "hallucination": 7.94,
-        "creativity": 7.83,
-        "string_precision": 9.01,
-        "news_seo_writing": 7.28,
-        "agent_capabilities": 8.11,
-        "ocr_extraction": 7.44,
-        "orchestration": 7.55,
-        "multi_turn": 7.88,
-        "policy_adherence": 7.76,
-        "strategy": 8.47,
-        "sales_outreach": 8.27,
-        "translation": 8.77,
-        "agent_long_horizon": 8.42,
-        "niah_es": 7.31
-      },
-      "quality_avg": 8.03,
-      "cost_score_avg": 9.69,
-      "speed_score_avg": 9.2,
-      "latency_score_avg": 4.97,
-      "tool_calling_score_avg": 6.75,
-      "judge_score_avg": 4.1,
-      "tokens_per_second": 169.3,
-      "latency_avg_s": 6.08,
-      "total_input_tokens": 181926,
-      "total_output_tokens": 117403,
-      "long_context_runs": 54,
-      "long_context_quality": 7.47,
-      "long_context_score": 7.31,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null,
-      "score_global_linear": 8.14
-    },
-    {
       "key": "claude-sonnet-4.6-sub",
       "id": "claude-sonnet-4-6",
       "name": "Claude Sonnet 4.6 (suscripción)",
@@ -589,7 +589,7 @@
       "multimodal": true,
       "runs": 98,
       "total_runs": 163,
-      "score_global": 7.89,
+      "score_global": 7.92,
       "score_by_pillar": {
         "Contenido": 7.49,
         "Agentes": 7.45,
@@ -675,7 +675,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 358,
-      "score_global": 7.81,
+      "score_global": 7.83,
       "score_by_pillar": {
         "Contenido": 7.86,
         "Agentes": 7.36,
@@ -756,7 +756,7 @@
       "multimodal": false,
       "runs": 101,
       "total_runs": 166,
-      "score_global": 7.81,
+      "score_global": 7.83,
       "score_by_pillar": {
         "Contenido": 7.28,
         "Agentes": 7.06,
@@ -834,7 +834,7 @@
       "multimodal": true,
       "runs": 103,
       "total_runs": 227,
-      "score_global": 7.79,
+      "score_global": 7.81,
       "score_by_pillar": {
         "Contenido": 8.35,
         "Agentes": 7.62,
@@ -913,7 +913,7 @@
       "multimodal": false,
       "runs": 115,
       "total_runs": 169,
-      "score_global": 7.73,
+      "score_global": 7.75,
       "score_by_pillar": {
         "Contenido": 8.23,
         "Agentes": 7.41,
@@ -986,7 +986,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 231,
-      "score_global": 7.65,
+      "score_global": 7.67,
       "score_by_pillar": {
         "Contenido": 8.13,
         "Agentes": 7.59,
@@ -1073,7 +1073,7 @@
       "multimodal": true,
       "runs": 82,
       "total_runs": 82,
-      "score_global": 7.59,
+      "score_global": 7.61,
       "score_by_pillar": {
         "Contenido": 7.41,
         "Agentes": 7.44,
@@ -1141,7 +1141,7 @@
       "multimodal": false,
       "runs": 105,
       "total_runs": 352,
-      "score_global": 7.44,
+      "score_global": 7.47,
       "score_by_pillar": {
         "Contenido": 7.66,
         "Agentes": 7.08,
@@ -1221,7 +1221,7 @@
       "multimodal": true,
       "runs": 103,
       "total_runs": 219,
-      "score_global": 7.41,
+      "score_global": 7.43,
       "score_by_pillar": {
         "Contenido": 8.17,
         "Agentes": 7.34,
@@ -1301,7 +1301,7 @@
       "multimodal": false,
       "runs": 86,
       "total_runs": 181,
-      "score_global": 7.4,
+      "score_global": 7.43,
       "score_by_pillar": {
         "Contenido": 7.93,
         "Agentes": 7.5,
@@ -1376,7 +1376,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 148,
-      "score_global": 7.39,
+      "score_global": 7.41,
       "score_by_pillar": {
         "Contenido": 7.87,
         "Agentes": 7.42,
@@ -1449,7 +1449,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 258,
-      "score_global": 7.35,
+      "score_global": 7.37,
       "score_by_pillar": {
         "Contenido": 7.91,
         "Agentes": 7.69,
@@ -1528,7 +1528,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 168,
-      "score_global": 7.19,
+      "score_global": 7.21,
       "score_by_pillar": {
         "Contenido": 7.94,
         "Agentes": 7.3,
@@ -1606,7 +1606,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 168,
-      "score_global": 7.13,
+      "score_global": 7.16,
       "score_by_pillar": {
         "Contenido": 7.85,
         "Agentes": 7.43,
@@ -1684,7 +1684,7 @@
       "multimodal": false,
       "runs": 99,
       "total_runs": 153,
-      "score_global": 7.12,
+      "score_global": 7.15,
       "score_by_pillar": {
         "Contenido": 7.91,
         "Agentes": 7.17,
@@ -1757,7 +1757,7 @@
       "multimodal": true,
       "runs": 103,
       "total_runs": 279,
-      "score_global": 7.11,
+      "score_global": 7.13,
       "score_by_pillar": {
         "Contenido": 7.47,
         "Agentes": 6.95,
@@ -1837,7 +1837,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 123,
-      "score_global": 7.09,
+      "score_global": 7.11,
       "score_by_pillar": {
         "Contenido": 7.64,
         "Agentes": 7.04,
@@ -1910,7 +1910,7 @@
       "multimodal": false,
       "runs": 97,
       "total_runs": 97,
-      "score_global": 7.07,
+      "score_global": 7.1,
       "score_by_pillar": {
         "Contenido": 7.81,
         "Agentes": 7.1,
@@ -1982,7 +1982,7 @@
       "multimodal": true,
       "runs": 100,
       "total_runs": 100,
-      "score_global": 7.06,
+      "score_global": 7.09,
       "score_by_pillar": {
         "Coding": 7.02,
         "Contenido": 7.68,
@@ -2054,7 +2054,7 @@
       "multimodal": false,
       "runs": 106,
       "total_runs": 185,
-      "score_global": 6.95,
+      "score_global": 6.97,
       "score_by_pillar": {
         "Coding": 7.32,
         "Contenido": 7.33,
@@ -2144,7 +2144,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 174,
-      "score_global": 6.95,
+      "score_global": 6.97,
       "score_by_pillar": {
         "Contenido": 7.16,
         "Agentes": 7.06,
@@ -2223,7 +2223,7 @@
       "multimodal": false,
       "runs": 89,
       "total_runs": 89,
-      "score_global": 6.91,
+      "score_global": 6.93,
       "score_by_pillar": {
         "Contenido": 7.48,
         "Agentes": 7.13,
@@ -2294,7 +2294,7 @@
       "multimodal": true,
       "runs": 155,
       "total_runs": 309,
-      "score_global": 6.81,
+      "score_global": 6.83,
       "score_by_pillar": {
         "Contenido": 8.07,
         "Agentes": 7.22,
@@ -2374,7 +2374,7 @@
       "multimodal": false,
       "runs": 100,
       "total_runs": 145,
-      "score_global": 6.8,
+      "score_global": 6.82,
       "score_by_pillar": {
         "Contenido": 8.33,
         "Agentes": 7.88,
@@ -2447,7 +2447,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 123,
-      "score_global": 6.8,
+      "score_global": 6.82,
       "score_by_pillar": {
         "Contenido": 7.56,
         "Agentes": 7.32,
@@ -2520,7 +2520,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 160,
-      "score_global": 6.69,
+      "score_global": 6.71,
       "score_by_pillar": {
         "Contenido": 7.82,
         "Agentes": 6.73,
@@ -2594,7 +2594,7 @@
       "multimodal": false,
       "runs": 135,
       "total_runs": 290,
-      "score_global": 6.62,
+      "score_global": 6.63,
       "score_by_pillar": {
         "Contenido": 7.41,
         "Agentes": 7.16,
@@ -2673,7 +2673,7 @@
       "multimodal": false,
       "runs": 90,
       "total_runs": 90,
-      "score_global": 6.53,
+      "score_global": 6.55,
       "score_by_pillar": {
         "Contenido": 7.78,
         "Agentes": 7.16,
@@ -2744,7 +2744,7 @@
       "multimodal": false,
       "runs": 68,
       "total_runs": 68,
-      "score_global": 6.51,
+      "score_global": 6.53,
       "score_by_pillar": {
         "Contenido": 7.65,
         "Agentes": 7.13,
@@ -2809,7 +2809,7 @@
       "multimodal": false,
       "runs": 74,
       "total_runs": 74,
-      "score_global": 6.51,
+      "score_global": 6.53,
       "score_by_pillar": {
         "Contenido": 7.45,
         "Agentes": 7.19,
@@ -2877,7 +2877,7 @@
       "multimodal": true,
       "runs": 135,
       "total_runs": 135,
-      "score_global": 6.45,
+      "score_global": 6.46,
       "score_by_pillar": {
         "Razonamiento": 7.64,
         "Agentes": 6.85,
@@ -2949,7 +2949,7 @@
       "multimodal": true,
       "runs": 134,
       "total_runs": 288,
-      "score_global": 6.44,
+      "score_global": 6.46,
       "score_by_pillar": {
         "Contenido": 7.52,
         "Agentes": 6.86,
@@ -3037,7 +3037,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 148,
-      "score_global": 6.35,
+      "score_global": 6.37,
       "score_by_pillar": {
         "Contenido": 8.19,
         "Agentes": 6.69,
@@ -3110,7 +3110,7 @@
       "multimodal": false,
       "runs": 97,
       "total_runs": 97,
-      "score_global": 6.21,
+      "score_global": 6.23,
       "score_by_pillar": {
         "Contenido": 7.28,
         "Agentes": 7.18,
@@ -3182,7 +3182,7 @@
       "multimodal": false,
       "runs": 88,
       "total_runs": 88,
-      "score_global": 6.16,
+      "score_global": 6.18,
       "score_by_pillar": {
         "Contenido": 7.76,
         "Agentes": 6.96,
@@ -3252,7 +3252,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 87,
-      "score_global": 6.15,
+      "score_global": 6.17,
       "score_by_pillar": {
         "Contenido": 7.14,
         "Agentes": 6.71,
@@ -3323,7 +3323,7 @@
       "multimodal": true,
       "runs": 91,
       "total_runs": 91,
-      "score_global": 6.15,
+      "score_global": 6.17,
       "score_by_pillar": {
         "Contenido": 7.95,
         "Agentes": 7.16,
@@ -3394,7 +3394,7 @@
       "multimodal": false,
       "runs": 99,
       "total_runs": 144,
-      "score_global": 6.1,
+      "score_global": 6.12,
       "score_by_pillar": {
         "Contenido": 8.43,
         "Agentes": 7.11,
@@ -3467,7 +3467,7 @@
       "multimodal": false,
       "runs": 104,
       "total_runs": 104,
-      "score_global": 6.09,
+      "score_global": 6.11,
       "score_by_pillar": {
         "Contenido": 7.95,
         "Agentes": 6.72,
@@ -3538,7 +3538,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 103,
-      "score_global": 6.06,
+      "score_global": 6.07,
       "score_by_pillar": {
         "Contenido": 8.01,
         "Agentes": 6.66,
@@ -3610,7 +3610,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 123,
-      "score_global": 6.02,
+      "score_global": 6.04,
       "score_by_pillar": {
         "Contenido": 7.17,
         "Agentes": 6.55,
@@ -3683,7 +3683,7 @@
       "multimodal": false,
       "runs": 90,
       "total_runs": 90,
-      "score_global": 6.0,
+      "score_global": 6.02,
       "score_by_pillar": {
         "Contenido": 7.59,
         "Agentes": 6.82,
@@ -3754,7 +3754,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 103,
-      "score_global": 5.92,
+      "score_global": 5.94,
       "score_by_pillar": {
         "Contenido": 7.83,
         "Agentes": 6.9,
@@ -3826,7 +3826,7 @@
       "multimodal": true,
       "runs": 182,
       "total_runs": 254,
-      "score_global": 5.89,
+      "score_global": 5.91,
       "score_by_pillar": {
         "Contenido": 7.14,
         "Agentes": 6.6,
@@ -3907,7 +3907,7 @@
       "multimodal": true,
       "runs": 103,
       "total_runs": 148,
-      "score_global": 5.82,
+      "score_global": 5.84,
       "score_by_pillar": {
         "Contenido": 8.1,
         "Agentes": 7.19,
@@ -3980,7 +3980,7 @@
       "multimodal": false,
       "runs": 91,
       "total_runs": 91,
-      "score_global": 5.79,
+      "score_global": 5.81,
       "score_by_pillar": {
         "Contenido": 8.01,
         "Agentes": 6.85,
@@ -4051,7 +4051,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 103,
-      "score_global": 5.78,
+      "score_global": 5.8,
       "score_by_pillar": {
         "Contenido": 8.05,
         "Agentes": 6.31,
@@ -4123,7 +4123,7 @@
       "multimodal": false,
       "runs": 91,
       "total_runs": 91,
-      "score_global": 5.74,
+      "score_global": 5.76,
       "score_by_pillar": {
         "Contenido": 7.62,
         "Agentes": 6.63,
@@ -4194,7 +4194,7 @@
       "multimodal": false,
       "runs": 91,
       "total_runs": 91,
-      "score_global": 5.73,
+      "score_global": 5.75,
       "score_by_pillar": {
         "Contenido": 7.22,
         "Agentes": 6.51,
@@ -4265,7 +4265,7 @@
       "multimodal": true,
       "runs": 246,
       "total_runs": 246,
-      "score_global": 5.68,
+      "score_global": 5.69,
       "score_by_pillar": {
         "Contenido": 6.95,
         "Agentes": 6.57,
@@ -4336,7 +4336,7 @@
       "multimodal": false,
       "runs": 86,
       "total_runs": 86,
-      "score_global": 5.66,
+      "score_global": 5.68,
       "score_by_pillar": {
         "Contenido": 7.7,
         "Agentes": 6.57,
@@ -4407,7 +4407,7 @@
       "multimodal": false,
       "runs": 138,
       "total_runs": 138,
-      "score_global": 5.6,
+      "score_global": 5.62,
       "score_by_pillar": {
         "Contenido": 7.3,
         "Agentes": 6.7,
@@ -4478,7 +4478,7 @@
       "multimodal": false,
       "runs": 167,
       "total_runs": 254,
-      "score_global": 5.49,
+      "score_global": 5.51,
       "score_by_pillar": {
         "Contenido": 7.47,
         "Agentes": 6.09,
@@ -4552,7 +4552,7 @@
       "multimodal": false,
       "runs": 90,
       "total_runs": 90,
-      "score_global": 5.45,
+      "score_global": 5.47,
       "score_by_pillar": {
         "Contenido": 7.12,
         "Agentes": 6.51,
@@ -4632,7 +4632,7 @@
       "multimodal": true,
       "runs": 103,
       "total_runs": 103,
-      "score_global": 5.42,
+      "score_global": 5.44,
       "score_by_pillar": {
         "Contenido": 7.79,
         "Agentes": 7.14,
@@ -4704,7 +4704,7 @@
       "multimodal": false,
       "runs": 152,
       "total_runs": 152,
-      "score_global": 5.41,
+      "score_global": 5.43,
       "score_by_pillar": {
         "Contenido": 7.28,
         "Agentes": 6.05,
@@ -4775,7 +4775,7 @@
       "multimodal": true,
       "runs": 155,
       "total_runs": 200,
-      "score_global": 5.37,
+      "score_global": 5.39,
       "score_by_pillar": {
         "Contenido": 7.12,
         "Agentes": 6.42,
@@ -4847,7 +4847,7 @@
       "multimodal": false,
       "runs": 155,
       "total_runs": 155,
-      "score_global": 5.26,
+      "score_global": 5.28,
       "score_by_pillar": {
         "Contenido": 7.72,
         "Agentes": 6.05,
@@ -4927,7 +4927,7 @@
       "multimodal": false,
       "runs": 103,
       "total_runs": 103,
-      "score_global": 5.25,
+      "score_global": 5.26,
       "score_by_pillar": {
         "Contenido": 8.02,
         "Agentes": 7.23,
@@ -4999,7 +4999,7 @@
       "multimodal": false,
       "runs": 155,
       "total_runs": 155,
-      "score_global": 5.13,
+      "score_global": 5.15,
       "score_by_pillar": {
         "Contenido": 7.59,
         "Agentes": 6.09,
@@ -5070,7 +5070,7 @@
       "multimodal": false,
       "runs": 105,
       "total_runs": 170,
-      "score_global": 5.06,
+      "score_global": 5.07,
       "score_by_pillar": {
         "Razonamiento": 7.07,
         "Contenido": 7.13,
@@ -5148,7 +5148,7 @@
       "multimodal": false,
       "runs": 155,
       "total_runs": 155,
-      "score_global": 5.03,
+      "score_global": 5.05,
       "score_by_pillar": {
         "Contenido": 7.68,
         "Agentes": 6.25,
@@ -5219,7 +5219,7 @@
       "multimodal": true,
       "runs": 91,
       "total_runs": 91,
-      "score_global": 4.94,
+      "score_global": 4.95,
       "score_by_pillar": {
         "Contenido": 7.77,
         "Agentes": 7.13,
@@ -5290,7 +5290,7 @@
       "multimodal": true,
       "runs": 155,
       "total_runs": 155,
-      "score_global": 4.77,
+      "score_global": 4.78,
       "score_by_pillar": {
         "Contenido": 7.42,
         "Agentes": 6.76,
@@ -5361,7 +5361,7 @@
       "multimodal": false,
       "runs": 91,
       "total_runs": 91,
-      "score_global": 4.57,
+      "score_global": 4.58,
       "score_by_pillar": {
         "Contenido": 6.87,
         "Agentes": 6.61,
@@ -5432,7 +5432,7 @@
       "multimodal": true,
       "runs": 103,
       "total_runs": 103,
-      "score_global": 4.48,
+      "score_global": 4.5,
       "score_by_pillar": {
         "Contenido": 7.55,
         "Agentes": 6.59,
@@ -5513,7 +5513,7 @@
       "multimodal": true,
       "runs": 102,
       "total_runs": 102,
-      "score_global": 4.33,
+      "score_global": 4.35,
       "score_by_pillar": {
         "Contenido": 7.84,
         "Agentes": 7.08,
@@ -5585,7 +5585,7 @@
       "multimodal": false,
       "runs": 150,
       "total_runs": 150,
-      "score_global": 4.29,
+      "score_global": 4.31,
       "score_by_pillar": {
         "Contenido": 7.14,
         "Agentes": 5.56,
@@ -5656,7 +5656,7 @@
       "multimodal": false,
       "runs": 182,
       "total_runs": 247,
-      "score_global": 4.23,
+      "score_global": 4.24,
       "score_by_pillar": {
         "Contenido": 6.9,
         "Agentes": 6.34,
@@ -5733,7 +5733,7 @@
       "multimodal": false,
       "runs": 91,
       "total_runs": 91,
-      "score_global": 4.17,
+      "score_global": 4.18,
       "score_by_pillar": {
         "Contenido": 7.55,
         "Agentes": 6.49,
@@ -5804,7 +5804,7 @@
       "multimodal": true,
       "runs": 103,
       "total_runs": 358,
-      "score_global": 4.16,
+      "score_global": 4.17,
       "score_by_pillar": {
         "Contenido": 6.74,
         "Agentes": 6.93,
@@ -5867,6 +5867,84 @@
       "score_global_linear": 6.83
     },
     {
+      "key": "openrouter-nemotron-3-ultra-550b",
+      "id": "nvidia/nemotron-3-ultra-550b-a55b",
+      "name": "Nemotron 3 Ultra 550B",
+      "tier": "cloud",
+      "provider": "openrouter",
+      "open_source": true,
+      "license": "NVIDIA Open Model",
+      "cost_input_per_M": 0.5,
+      "cost_output_per_M": 2.2,
+      "cost_per_1k_calls_usd": 3.45,
+      "context_window": 131072,
+      "subscriptions": [],
+      "notes": "Modelo más grande de la familia Nemotron 3 (550B total / 55B activos) vía OpenRouter. Mucho más rápido que NIM gratuito. Disponible también como :free con rate limit.",
+      "tested": true,
+      "tool_calling": true,
+      "thinking": true,
+      "multimodal": false,
+      "runs": 116,
+      "total_runs": 181,
+      "score_global": 3.98,
+      "score_by_pillar": {
+        "Coding": 7.37,
+        "Razonamiento": 7.17,
+        "Contenido": 7.37,
+        "Agentes": 5.83
+      },
+      "score_by_suite": {
+        "code_generation": 8.16,
+        "reasoning": 8.06,
+        "content_generation": 6.94,
+        "tool_calling": 5.86,
+        "task_management": 8.22,
+        "summarization": 7.12,
+        "presentation": 8.45,
+        "startup_content": 8.15,
+        "deep_reasoning": 6.37,
+        "customer_support": 5.24,
+        "structured_output": 6.47,
+        "hallucination": 7.2,
+        "creativity": 7.27,
+        "string_precision": 6.79,
+        "news_seo_writing": 6.83,
+        "ocr_extraction": 6.39,
+        "orchestration": 4.86,
+        "multi_turn": 6.06,
+        "policy_adherence": 6.04,
+        "agent_capabilities": 5.45,
+        "strategy": 7.25,
+        "sales_outreach": 7.49,
+        "translation": 7.0,
+        "agent_long_horizon": 7.91,
+        "niah_es": 8.22,
+        "prompt_injection_es": 3.86
+      },
+      "quality_avg": 7.35,
+      "cost_score_avg": 6.75,
+      "speed_score_avg": 8.72,
+      "latency_score_avg": 2.65,
+      "tool_calling_score_avg": 7.01,
+      "judge_score_avg": null,
+      "tokens_per_second": 121.3,
+      "latency_avg_s": 25.09,
+      "total_input_tokens": 361827,
+      "total_output_tokens": 263069,
+      "long_context_runs": 45,
+      "long_context_quality": 9.83,
+      "long_context_score": 8.22,
+      "long_context_by_size": {
+        "8000": 10.0,
+        "64000": 10.0,
+        "128000": 10.0
+      },
+      "effective_context": 128000,
+      "security_runs": 20,
+      "security_score": 2.94,
+      "score_global_linear": 7.01
+    },
+    {
       "key": "deepseek-v4-pro",
       "id": "deepseek/deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
@@ -5886,7 +5964,7 @@
       "multimodal": false,
       "runs": 81,
       "total_runs": 126,
-      "score_global": 3.83,
+      "score_global": 3.84,
       "score_by_pillar": {
         "Contenido": 6.52,
         "Agentes": 6.69,
@@ -5958,7 +6036,7 @@
       "multimodal": true,
       "runs": 106,
       "total_runs": 151,
-      "score_global": 3.78,
+      "score_global": 3.79,
       "score_by_pillar": {
         "Contenido": 7.04,
         "Agentes": 5.41,
@@ -6031,7 +6109,7 @@
       "multimodal": true,
       "runs": 91,
       "total_runs": 91,
-      "score_global": 3.63,
+      "score_global": 3.64,
       "score_by_pillar": {
         "Contenido": 7.19,
         "Agentes": 6.8,
@@ -6102,7 +6180,7 @@
       "multimodal": false,
       "runs": 167,
       "total_runs": 167,
-      "score_global": 3.46,
+      "score_global": 3.47,
       "score_by_pillar": {
         "Contenido": 7.06,
         "Agentes": 6.5,
@@ -6174,7 +6252,7 @@
       "multimodal": true,
       "runs": 103,
       "total_runs": 175,
-      "score_global": 3.17,
+      "score_global": 3.18,
       "score_by_pillar": {
         "Contenido": 6.54,
         "Agentes": 6.62,
@@ -6247,7 +6325,7 @@
       "multimodal": false,
       "runs": 91,
       "total_runs": 156,
-      "score_global": 3.02,
+      "score_global": 3.03,
       "score_by_pillar": {
         "Contenido": 7.64,
         "Agentes": 5.32,
@@ -6324,7 +6402,7 @@
       "multimodal": false,
       "runs": 122,
       "total_runs": 122,
-      "score_global": 2.78,
+      "score_global": 2.8,
       "score_by_pillar": {
         "Razonamiento": 6.97,
         "Agentes": 6.09,
@@ -6395,7 +6473,7 @@
       "multimodal": false,
       "runs": 128,
       "total_runs": 181,
-      "score_global": 2.53,
+      "score_global": 2.54,
       "score_by_pillar": {
         "Coding": 7.12,
         "Razonamiento": 6.72,
@@ -6474,7 +6552,7 @@
       "multimodal": true,
       "runs": 150,
       "total_runs": 150,
-      "score_global": 2.41,
+      "score_global": 2.42,
       "score_by_pillar": {
         "Contenido": 6.53,
         "Agentes": 5.64,
@@ -6616,7 +6694,7 @@
       "multimodal": false,
       "runs": 102,
       "total_runs": 102,
-      "score_global": 1.46,
+      "score_global": 1.47,
       "score_by_pillar": {
         "Contenido": 6.45,
         "Agentes": 6.4,
@@ -7183,51 +7261,6 @@
       "latency_avg_s": 41.13,
       "total_input_tokens": 146170,
       "total_output_tokens": 102530,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
-    },
-    {
-      "key": "nim-nemotron-3-ultra-550b",
-      "id": "nvidia/nemotron-3-ultra-550b-a55b",
-      "name": "Nemotron 3 Ultra 550B (NIM)",
-      "tier": "cloud_nim",
-      "provider": "nvidia_nim",
-      "open_source": true,
-      "license": "NVIDIA Open Model",
-      "cost_input_per_M": 0.6,
-      "cost_output_per_M": 1.8,
-      "cost_per_1k_calls_usd": 2.88,
-      "context_window": 131072,
-      "subscriptions": [],
-      "notes": "Modelo más grande de la familia Nemotron 3 (550B total / 55B activos). Reemplaza al Llama-3.1-Nemotron-Ultra-253B que ya no está disponible en NIM para cuentas gratuitas.",
-      "tested": false,
-      "tool_calling": true,
-      "thinking": true,
-      "multimodal": false,
-      "runs": 7,
-      "total_runs": 7,
-      "score_global": 7.94,
-      "score_by_pillar": {
-        "Coding": 7.94
-      },
-      "score_by_suite": {
-        "code_generation": 7.94
-      },
-      "quality_avg": 9.34,
-      "cost_score_avg": 6.7,
-      "speed_score_avg": 4.29,
-      "latency_score_avg": 1.0,
-      "tool_calling_score_avg": 7.0,
-      "judge_score_avg": null,
-      "tokens_per_second": 33.2,
-      "latency_avg_s": 83.93,
-      "total_input_tokens": 1056,
-      "total_output_tokens": 12300,
       "long_context_runs": 0,
       "long_context_quality": null,
       "long_context_score": null,

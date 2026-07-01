@@ -775,14 +775,14 @@ MODELS = {
         "open_source": True, "license": "NVIDIA Open Model",
         "notes": "Versión iterada del Nemotron Super 120B que ya medimos en Lote 2",
     },
-    "nim-nemotron-3-ultra-550b": {
+    "openrouter-nemotron-3-ultra-550b": {
         "id": "nvidia/nemotron-3-ultra-550b-a55b",
-        "name": "Nemotron 3 Ultra 550B (NIM)",
-        "cost_input": 0.0, "cost_output": 0.0,
-        "tier": "cloud_nim",
-        "provider": "nvidia_nim",
+        "name": "Nemotron 3 Ultra 550B",
+        "cost_input": 0.5, "cost_output": 2.2,
+        "tier": "cloud",
+        "provider": "openrouter",
         "open_source": True, "license": "NVIDIA Open Model",
-        "notes": "Modelo más grande de la familia Nemotron 3 (550B total / 55B activos). Reemplaza al Llama-3.1-Nemotron-Ultra-253B que ya no está disponible en NIM para cuentas gratuitas.",
+        "notes": "Modelo más grande de la familia Nemotron 3 (550B total / 55B activos) vía OpenRouter. Mucho más rápido que NIM gratuito. Disponible también como :free con rate limit.",
     },
     "nim-qwen3-next-instruct": {
         "id": "qwen/qwen3-next-80b-a3b-instruct",
@@ -1538,7 +1538,7 @@ CONTEXT_WINDOWS = {
     'moonshotai/kimi-k2.7-code': 262144,
     'nousresearch/hermes-4-405b': 131072,
     'nousresearch/hermes-4-70b': 131072,
-    'nvidia/nemotron-3-ultra-550b-a55b': 131072,
+    'nvidia/nemotron-3-ultra-550b-a55b': 131072,  # OpenRouter / NIM
     'nvidia/llama-3.3-nemotron-super-49b-v1.5': 131072,
     'nvidia/nemotron-3-nano-30b-a3b': 262144,
     'nvidia/nemotron-3-super-120b-a12b': 1000000,
@@ -1603,7 +1603,7 @@ OR_COMPARISON_PRICING = {
     'nim-nemotron-3-nano-omni-reasoning': (0.1, 0.4),
     'nim-nemotron-nano-9b-v2': (0.05, 0.2),
     'nim-nemotron-super-1.5': (0.1, 0.4),
-    'nim-nemotron-3-ultra-550b': (0.6, 1.8),
+    'openrouter-nemotron-3-ultra-550b': (0.5, 2.2),
     'nim-qwen3-next-instruct': (0.09, 1.1),
     'nim-qwen3-next-thinking': (0.098, 0.78),
     'nim-qwen3.5-397b': (0.39, 2.34),
