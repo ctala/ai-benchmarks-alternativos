@@ -1,6 +1,6 @@
 # AI Model Benchmark — alternativas (benchmarks.cristiantala.com)
 
-> Benchmark abierto de 143 modelos de IA (LLMs) catalogados, 94 testeados y 10.000+ runs reales, pensado para emprendedores hispanohablantes. Mide calidad, costo, velocidad, tool calling y capacidad agéntica en español, con LLM-as-Judge local (Phi-4, Microsoft). El score global v3.0 es ponderado (calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%); tool calling es insignia aparte (no entra en el score global): mide valor para producción, no capacidad bruta. Datos abiertos, en español neutro.
+> Benchmark abierto de 144 modelos de IA (LLMs) catalogados, 94 testeados y 10.000+ runs reales, pensado para emprendedores hispanohablantes. Mide calidad, costo, velocidad, tool calling y capacidad agéntica en español, con LLM-as-Judge local (Phi-4, Microsoft). El score global v3.0 es ponderado (calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%); tool calling es insignia aparte (no entra en el score global): mide valor para producción, no capacidad bruta. Datos abiertos, en español neutro.
 
 ## Calculadora y datos
 - [Calculadora interactiva de modelos](https://benchmarks.cristiantala.com/): filtrá 100+ modelos por presupuesto, calidad y tarea.
