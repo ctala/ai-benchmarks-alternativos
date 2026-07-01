@@ -381,17 +381,16 @@ def build_export():
                 runs = by_id.get(cfg_key, [])
 
         # Normalizar costo de cada run a precios OpenRouter para comparabilidad.
-        # Si el modelo no tiene equivalente OpenRouter, conservamos el cost_score
-        # original para no premiarlo artificialmente con score 10.0.
+        # Si no hay equivalente OpenRouter, usamos el costo real del provider
+        # como aproximacion estandar (todos los modelos deben tener un costo).
         or_cfg = _openrouter_config_for(cfg, or_lookup)
         for r in runs:
             if or_cfg is not None:
-                cost_or = _estimate_cost_openrouter(r, or_cfg)
-                r["_cost_usd_or"] = cost_or
-                r["_cost_score_or"] = cost_score_log(cost_or)
+                cost_norm = _estimate_cost_openrouter(r, or_cfg)
             else:
-                r["_cost_usd_or"] = None
-                r["_cost_score_or"] = None
+                cost_norm = r.get("cost_usd") or 0.0
+            r["_cost_usd_or"] = cost_norm
+            r["_cost_score_or"] = cost_score_log(cost_norm)
 
         metrics = aggregate_metrics(runs) if runs else {
             "runs": 0,
