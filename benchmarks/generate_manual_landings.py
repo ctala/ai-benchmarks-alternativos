@@ -1099,6 +1099,143 @@ def gen_alternativas_deepseek(data):
     extra = f"<script type=\"application/ld+json\">\n{faq_schema(faqs)}\n</script>"
     return header(title, desc, kw, url, og_alt=og_alt, extra_head=extra) + body + FOOTER
 
+
+def gen_fable_5_review(data):
+    models = data["models"]
+    c = counts(data)
+    fable = next((m for m in models if m.get("id") == "claude-fable-5"), None)
+    compare_ids = ["claude-opus-4-8", "claude-sonnet-4-6", "MiniMax-M3", "deepseek/deepseek-r1"]
+    compare = sorted(
+        [m for m in models if m.get("id") in compare_ids],
+        key=lambda m: -m.get("score_global", 0),
+    )
+    table_models = ([fable] + compare) if fable else compare
+
+    title = "Claude Fable 5: review con benchmark real (¿vale la pena en 2026?)"
+    desc = ("Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score 6.75, "
+            "costo $10/$50 por millón, 103 runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.")
+    kw = ("Claude Fable 5 review, Fable 5 benchmark, Fable 5 vs Opus 4.8, Fable 5 vs Sonnet 4.6, "
+          "Mythos 5 anthropic, Claude Fable 5 español, Fable 5 vale la pena")
+    url = f"{SITE}/fable-5-review/"
+    og_alt = "Review de Claude Fable 5 comparado con Opus 4.8 y Sonnet 4.6"
+
+    best_reasoning = max(table_models, key=lambda m: (m.get("score_by_pillar") or {}).get("Razonamiento", 0))
+    best_agents = max(table_models, key=lambda m: (m.get("score_by_pillar") or {}).get("Agentes", 0))
+
+    # Valores comparativos seguros (buscan por id, no por orden)
+    sonnet_coding = fmt_pillar(next((m for m in compare if m.get("id") == "claude-sonnet-4-6"), {}), "Coding")
+    fable_contenido = fmt_pillar(fable, "Contenido")
+    sonnet_contenido = fmt_pillar(next((m for m in compare if m.get("id") == "claude-sonnet-4-6"), {}), "Contenido")
+    opus_contenido = fmt_pillar(next((m for m in compare if m.get("id") == "claude-opus-4-8"), {}), "Contenido")
+    r1_reasoning = fmt_pillar(best_reasoning, "Razonamiento")
+    best_agents_score = fmt_pillar(best_agents, "Agentes")
+
+    body = f"""  <section class="hero">
+    <h1>Claude Fable 5: review con benchmark real (Junio 2026)</h1>
+    <p class="lead">
+      <strong>Claude Fable 5</strong> es la nueva línea "Mythos" de Anthropic, lanzada en junio de 2026.
+      Lo corrimos por <strong>103 tests reales</strong> con LLM-as-Judge Phi-4 local: obtiene
+      <strong>score global 6.75</strong>, calidad de pilar sólida, pero un costo de
+      <strong>$10.00 / $50.00 por millón de tokens</strong>. ¿Vale la pena? La respuesta corta:
+      <strong>solo si tu caso justifica pagar el premium de Anthropic</strong>.
+    </p>
+    <p class="meta">
+      Última actualización: {TODAY} ·
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a>
+    </p>
+  </section>
+
+  {methodology_block(c)}
+
+  <section class="results">
+    <div class="results-header">
+      <h2>Fable 5 vs alternativas directas</h2>
+      <p class="meta">Score ponderado v3.0: calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%.</p>
+    </div>
+
+    {table_alt(table_models, c)}
+
+    <p class="meta">
+      El score global castiga fuerte a Fable 5 por costo. En calidad pura es competitivo, pero no lidera.
+      Ajustá pesos en la <a href="/">calculadora</a> para tu presupuesto real.
+    </p>
+  </section>
+
+  <section>
+    <h2>¿Qué es Claude Fable 5?</h2>
+    <p>
+      Fable 5 es un modelo de Anthropic orientado a <strong>contenido, agentes multi-turno y razonamiento</strong>.
+      No es el flagship de la familia (Opus 4.8 sigue arriba en casi todo), sino una apuesta intermedia
+      con velocidad similar a Opus (~60 tok/s) y un precio que lo acerca más a Opus que a Sonnet.
+    </p>
+    <ul>
+      <li><strong>Score global:</strong> 6.75 — fuera del top 10 por costo.</li>
+      <li><strong>Calidad por pilar:</strong> Contenido {fmt_pillar(fable, 'Contenido')}, Agentes {fmt_pillar(fable, 'Agentes')}, Coding {fmt_pillar(fable, 'Coding')}, Razonamiento {fmt_pillar(fable, 'Razonamiento')}.</li>
+      <li><strong>Costo:</strong> $10.00 input / $50.00 output por millón.</li>
+      <li><strong>Velocidad:</strong> ~60 tok/s en suscripción Anthropic.</li>
+      <li><strong>Licencia:</strong> Propietaria (suscripción Claude / Anthropic API).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Veredicto: ¿cuándo conviene Fable 5?</h2>
+    <p>
+      <strong>No conviene como modelo único.</strong> Por el mismo ecosistema, Sonnet 4.6 entrega mejor
+      score global (7.80) a la mitad de costo, y Opus 4.8 es más fuerte en todos los pilares (7.88) por $5/$25.
+      Fable 5 queda en una zona incómoda: más caro que Sonnet, peor que Opus.
+    </p>
+    <p>
+      Sí tiene sentido <strong>si ya pagás suscripción Claude Pro/Max</strong> y querés un modelo con
+      tono más creativo/narrativo para contenido largo o brainstorming, sin salir del stack Anthropic.
+      Pero para producción con volumen, MiniMax M3 (7.92, $0.30/$1.20) o DeepSeek R1 (8.33, $0.70/$2.50)
+      entregan mucho más valor por dólar.
+    </p>
+  </section>
+
+  <section>
+    <h2>Fable 5 por tipo de trabajo</h2>
+    <ul>
+      <li><strong>Coding:</strong> {fmt_pillar(fable, 'Coding')}/10. Por debajo de Sonnet 4.6 ({sonnet_coding}/10) y muy por debajo de modelos open-source baratos como Devstral Small. No lo elegiría para code-generation en producción.</li>
+      <li><strong>Contenido:</strong> {fable_contenido}/10. Bueno, pero Opus 4.8 ({opus_contenido}/10) y Sonnet 4.6 ({sonnet_contenido}/10) rinden similar o mejor por menos.</li>
+      <li><strong>Razonamiento:</strong> {fmt_pillar(fable, 'Razonamiento')}/10. Sólido, pero DeepSeek R1 lidera este grupo ({r1_reasoning}/10).</li>
+      <li><strong>Agentes:</strong> {fmt_pillar(fable, 'Agentes')}/10. Competitivo, aunque Sonnet 4.6 ({best_agents_score}/10) lo supera.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Comparaciones detalladas</h2>
+    <p>
+      Si querés ver el enfrentamiento pilar por pilar, tenemos comparaciones automáticas generadas
+      a partir de los mismos datos:
+    </p>
+    <ul>
+      <li><a href="/fable-5-vs-opus-4-8/">Fable 5 vs Claude Opus 4.8</a></li>
+      <li><a href="/fable-5-vs-claude-sonnet-4-6/">Fable 5 vs Claude Sonnet 4.6</a></li>
+      <li><a href="/fable-5-vs-minimax-m3/">Fable 5 vs MiniMax M3</a></li>
+      <li><a href="/fable-5-vs-deepseek-r1/">Fable 5 vs DeepSeek R1</a></li>
+    </ul>
+  </section>
+"""
+    faqs = [
+        ("¿Claude Fable 5 es mejor que Opus 4.8?",
+         "No. En nuestro benchmark Opus 4.8 tiene score global 7.88 contra 6.75 de Fable 5, y gana en todos los pilares por menos costo ($5/$25 vs $10/$50)."),
+        ("¿Vale la pena pagar por Claude Fable 5?",
+         "Solo si ya estás en el ecosistema Anthropic y preferís su tono para contenido creativo. Para producción con volumen, MiniMax M3 y DeepSeek R1 ofrecen mejor relación calidad/precio."),
+        ("¿Fable 5 es bueno para programar?",
+         "No es su fuerte: 6.67/10 en Coding, por debajo de Sonnet 4.6, Opus 4.8 y modelos open-source especializados como Devstral Small o Qwen3-Coder."),
+        ("¿Qué significa 'Mythos' en Claude Fable 5?",
+         "Es la marca interna/línea de lanzamiento de Anthropic para esta variante de junio 2026, posicionada entre Sonnet y Opus en precio pero no en rendimiento."),
+    ]
+    body += faq_html(faqs)
+    body += cta_block([
+        '<a href="/fable-5-vs-opus-4-8/">Fable 5 vs Opus 4.8</a>',
+        '<a href="/fable-5-vs-claude-sonnet-4-6/">Fable 5 vs Sonnet 4.6</a>',
+        '<a href="/alternativas-claude/">alternativas a Claude</a>',
+        '<a href="/modelos-baratos-emprendedores/">modelos baratos</a>',
+    ])
+    extra = f"<script type=\"application/ld+json\">\n{faq_schema(faqs)}\n</script>"
+    return header(title, desc, kw, url, og_alt=og_alt, extra_head=extra) + body + FOOTER
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -1110,6 +1247,7 @@ LANDINGS = [
     ("modelos-baratos-emprendedores", gen_modelos_baratos),
     ("modelos-open-source-local", gen_modelos_open_source_local),
     ("alternativas-deepseek", gen_alternativas_deepseek),
+    ("fable-5-review", gen_fable_5_review),
 ]
 
 
