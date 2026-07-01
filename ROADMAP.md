@@ -1,7 +1,7 @@
 # Roadmap del Benchmark
 
 > Ultima actualizacion: 26 de Junio de 2026 (post-merge Fable 5 + Kimi K2.7 Code + pesos v3.0 + pipeline de regeneración)
-> Estado del ranking: **v3.0.0 — <!-- AUTO:total_models -->143<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->94<!-- /AUTO --> con cobertura ≥50 runs, ~<!-- AUTO:tests_marketing -->10,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
+> Estado del ranking: **v3.0.0 — <!-- AUTO:total_models -->144<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->94<!-- /AUTO --> con cobertura ≥50 runs, ~<!-- AUTO:tests_marketing -->10,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
 > Cobertura faltante: ver [TESTS_FALTANTES.md](TESTS_FALTANTES.md) (16 modelos sin runs, 45 con suites faltantes).
 > **Próximo release: Julio 2026** (cadencia mensual). El release de junio ya salió — ver [DATASHEET_2026-06.md](DATASHEET_2026-06.md). La sección [Ciclo Junio 2026](#ciclo-junio-2026--modelos-nuevos-por-probar) queda como log histórico.
 
