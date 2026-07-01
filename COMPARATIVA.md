@@ -246,10 +246,10 @@ Todos estos modelos se pueden correr localmente con Ollama. Organizados por tama
 
 ---
 
-## 6. Compatibilidad con OpenClaw y N8N
+## 6. Compatibilidad con Hermes y N8N
 
-| Proveedor | OpenClaw | N8N | Via OpenRouter | Notas |
-|-----------|----------|-----|----------------|-------|
+| Proveedor | Hermes | N8N | Via OpenRouter | Notas |
+|-----------|--------|-----|----------------|-------|
 | OpenAI | Si | Si (nativo) | Si | Soporte completo |
 | Google Gemini | Si | Si (nativo) | Si | Buena integracion |
 | DeepSeek | Si | Si (custom) | Si | API compatible OpenAI |
@@ -261,4 +261,4 @@ Todos estos modelos se pueden correr localmente con Ollama. Organizados por tama
 | xAI (Grok) | Parcial | Si (custom) | Si | API compatible OpenAI |
 | Anthropic | Si | Si | Si (via OpenRouter) | API key funciona, **suscripcion Pro/Team NO** |
 
-> **Nota importante**: Anthropic funciona con OpenClaw y N8N usando API key con creditos pay-as-you-go. La suscripcion mensual (Pro $20, Team $30) NO da acceso API para estos agentes.
+> **Nota importante**: Anthropic funciona con Hermes y N8N usando API key con creditos pay-as-you-go. La suscripcion mensual (Pro $20, Team $30) NO da acceso API para estos agentes.

@@ -437,7 +437,7 @@ def render(models: dict, runs: list) -> str:
 
     <p class="meta" style="margin-top: 14px; font-size: 8pt; max-width: 700px;">
         📍 <strong>Disclaimer</strong>: este benchmark NO sustituye a HumanEval, MMLU, GSM8K, SWE-bench, NIAH inglés, MT-Bench, LMSYS Arena.
-        Es <strong>complemento</strong> para emprendedores hispanohablantes que deciden producción real (N8N, OpenClaw, Hermes, blogs LATAM, agentes).
+        Es <strong>complemento</strong> para emprendedores hispanohablantes que deciden producción real (N8N, Hermes, blogs LATAM, agentes).
     </p>
 </div>
 
@@ -565,7 +565,7 @@ def render(models: dict, runs: list) -> str:
 
     <div class="two-col">
         <div>
-            <h3>Agente cabecera (N8N / OpenClaw / Hermes)</h3>
+            <h3>Agente cabecera (N8N / Hermes)</h3>
             <table>
                 <thead><tr><th>Recomendación</th><th>Score agéntico</th><th>Costo</th></tr></thead>
                 <tbody>

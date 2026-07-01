@@ -1,7 +1,7 @@
 # CLAUDE.md - Guia para Agentes
 
 ## Que es este proyecto
-Benchmark de modelos AI alternativos para uso con agentes (OpenClaw, N8N). Compara precios, calidad, velocidad, tool calling y disponibilidad. Incluye tests ejecutables, LLM-as-Judge local (Phi-4) y documentación comparativa.
+Benchmark de modelos AI alternativos para uso con agentes (N8N, Hermes). Compara precios, calidad, velocidad, tool calling y disponibilidad. Incluye tests ejecutables, LLM-as-Judge local (Phi-4) y documentación comparativa.
 
 ## Setup inicial
 
@@ -209,15 +209,15 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 
 ## Contexto del usuario
 
-- Cristian usa OpenClaw y N8N para agentes AI
+- Cristian usa **N8N y Hermes** para agentes AI
 - Genera contenido para **ecosistemastartup.com** (blog de actualidad startups)
-- En producción usa **`qwen3.5:397b-cloud`** via Ollama Cloud para ese blog
+- Usa **Claude Code** como IDE/coding agent con varios modelos, incluyendo **MiniMax M3** y familias Claude/Opus
+- En producción evalúa Qwen 3.5 397B Cloud, MiniMax M2.7/M3 y Kimi K2.7 Code para el blog
 - Crea cursos para emprendedores (repo privado `ctala/cursos`)
 - Da workshops de emprendimiento y tecnología
-- Tiene NVIDIA **DGX Spark (128GB RAM)** para modelos locales — llega ~próxima semana
+- Tiene NVIDIA **DGX Spark (128GB RAM)** para modelos locales — operativo
 - Ubicado en Chile (latencia a servidores USA)
-- Suscripciones: OpenRouter, MiniMax (highspeed), Anthropic API, **Ollama Cloud**
-- Claude Code ya no viene en suscripción Pro $20 (desde 21 abril 2026)
+- Suscripciones: OpenRouter, MiniMax (Agent Pro / highspeed), Anthropic (Claude Code), Ollama Cloud, Xiaomi MiMo, xAI SuperGrok
 
 ## Estado actual (v3.0.2, 26 Junio 2026) — ver ROADMAP.md para plan completo
 
@@ -247,7 +247,8 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - **Tech debt**:TESTS_FALTANTES.md auto-regen, drift de ids (devstral-small, grok-4.1-fast), suite multimodal/visión.
 
 ### Contexto del usuario (actualizado)
-- Cristian usa OpenClaw y N8N para agentes AI; genera contenido para **ecosistemastartup.com**.
+- Cristian usa **N8N y Hermes** para agentes AI; genera contenido para **ecosistemastartup.com**.
+- Usa **Claude Code** como coding agent/IDE con varios modelos, incluyendo **MiniMax M3**, Claude Sonnet/Opus y Kimi K2.7 Code.
 - **DGX Spark operativo** para modelos locales y juicio Phi-4 vLLM.
-- Suscripciones activas: OpenRouter, MiniMax, Anthropic (Claude Code), Ollama Cloud, Xiaomi MiMo, xAI SuperGrok.
+- Suscripciones activas: OpenRouter, MiniMax (Agent Pro / highspeed), Anthropic (Claude Code), Ollama Cloud, Xiaomi MiMo, xAI SuperGrok.
 - Producción actual para blog: evaluando alternativas entre MiniMax M2.7/M3, Qwen 3.5 397B Cloud y Kimi K2.7 Code.

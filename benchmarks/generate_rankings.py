@@ -34,10 +34,10 @@ RANKINGS = [
         "slug": "mejor-llm-para-n8n",
         "title": "Mejor LLM para N8N y agentes en 2026: ranking con benchmark real",
         "h1": "Mejor LLM para N8N y agentes (2026)",
-        "intent_kw": "mejor llm para n8n, mejor modelo para agentes, llm para automatizacion, mejor ia para n8n, llm para openclaw",
+        "intent_kw": "mejor llm para n8n, mejor modelo para agentes, llm para automatizacion, mejor ia para n8n, llm para hermes",
         "criterion": "pillar", "pillar": "Agentes",
-        "case": "agentes y operaciones (multi-turno largo, tool calling y flujos tipo N8N / OpenClaw)",
-        "lead": "Para agentes en N8N u OpenClaw lo que importa no es solo \"inteligencia\": es tool calling fiable, "
+        "case": "agentes y operaciones (multi-turno largo, tool calling y flujos tipo N8N / Hermes)",
+        "lead": "Para agentes en N8N o Hermes lo que importa no es solo \"inteligencia\": es tool calling fiable, "
                 "multi-turno y costo por call. Ranking por capacidad agéntica medida en multi-turno real.",
     },
     {

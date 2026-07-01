@@ -16,7 +16,7 @@ total_runs: "10,508 single-turn + multi-turn"
 
 # Insights del benchmark — qué dice la data, no el marketing
 
-> **Disclaimer epistemológico**: este documento es **complemento, NO sustituto** de los benchmarks académicos validados (HumanEval, MMLU, GSM8K, SWE-bench Verified, NIAH inglés, MT-Bench, LMSYS Arena). Está pensado para emprendedores hispanohablantes que deciden qué modelo poner en producción HOY para casos aplicados en español neutro (N8N, OpenClaw, Hermes, blogs LATAM, soporte cliente, agentes). Para investigación académica o capacidades fundamentales, prioriza los oficiales. Cross-references documentadas en [BENCHMARKS_EXTERNOS.md](BENCHMARKS_EXTERNOS.md) y [NIAH_CROSSREF.md](NIAH_CROSSREF.md).
+> **Disclaimer epistemológico**: este documento es **complemento, NO sustituto** de los benchmarks académicos validados (HumanEval, MMLU, GSM8K, SWE-bench Verified, NIAH inglés, MT-Bench, LMSYS Arena). Está pensado para emprendedores hispanohablantes que deciden qué modelo poner en producción HOY para casos aplicados en español neutro (N8N, Hermes, blogs LATAM, soporte cliente, agentes). Para investigación académica o capacidades fundamentales, prioriza los oficiales. Cross-references documentadas en [BENCHMARKS_EXTERNOS.md](BENCHMARKS_EXTERNOS.md) y [NIAH_CROSSREF.md](NIAH_CROSSREF.md).
 
 Este es el análisis cuantitativo del benchmark `ai-benchmarks-alternativos` al **26 de junio de 2026** (v3.0.1). **91 modelos** con cobertura ≥50 runs, **143 catalogados**, 91 tests single-turn + 12 multi-turno, juez Phi-4 local. La pregunta que respondemos no es "cuál es el mejor modelo", sino: **qué patrones aparecen en la data cuando se comparan precio, velocidad, capacidades y proveedor a la vez, en español neutro LATAM**.
 
@@ -201,7 +201,7 @@ El hallazgo más valioso de junio no es sobre un modelo — es sobre **nuestra p
 
 ## 🚨 Limitación crítica: NO medimos debugging agentic real
 
-**Caso real validado** (30 abril 2026): un emprendedor enfrentó un **problema técnico complejo en un contenedor OpenClaw corriendo en VPS Hetzner**. Probó resolverlo con MiniMax M2.7 usando un agente con herramientas — **no pudo solucionarlo**. Cambió a Claude Opus 4.7 (posición **#66/72** en nuestro ranking compuesto tras el rescore v2.7, hundido por su costo) — **resolvió el problema en pocos minutos**.
+**Caso real validado** (30 abril 2026): un emprendedor enfrentó un **problema técnico complejo en un contenedor Hermes corriendo en VPS Hetzner**. Probó resolverlo con MiniMax M2.7 usando un agente con herramientas — **no pudo solucionarlo**. Cambió a Claude Opus 4.7 (posición **#66/72** en nuestro ranking compuesto tras el rescore v2.7, hundido por su costo) — **resolvió el problema en pocos minutos**.
 
 Este caso es **el mejor argumento contra leer el ranking compuesto literalmente**: Opus 4.7 está casi al fondo de nuestra tabla porque cuesta $39/1k calls y es lento, pero es el mejor del mundo para debugging agentic real (SWE-bench Verified #1). El ranking compuesto mide costo-eficiencia para volumen del emprendedor LATAM — NO mide capacidad de incident response crítico.
 
@@ -863,7 +863,7 @@ Datos del Lote 11 thinking (29-30 abril): 9 modelos hybrid corridos en `agent_lo
 | Gemini 2.5 Flash | −0.09 |
 | **Excepción única — Kimi K2.5** | **+0.73** |
 
-Hipótesis: el modelo "razona demasiado" en cada turno, pierde foco/contexto del usuario, y se desvía del objetivo en multi-turn. **Implicación**: para OpenClaw / Hermes / N8N, **NO activar thinking por default**. Solo activar si la tarea específica requiere razonamiento puro (matemática, lógica formal). Para conversación, customer support, content marketing → thinking puede empeorar.
+Hipótesis: el modelo "razona demasiado" en cada turno, pierde foco/contexto del usuario, y se desvía del objetivo en multi-turn. **Implicación**: para Hermes / N8N, **NO activar thinking por default**. Solo activar si la tarea específica requiere razonamiento puro (matemática, lógica formal). Para conversación, customer support, content marketing → thinking puede empeorar.
 
 ### 9.4 "Premium tier vale el costo"
 

@@ -7,24 +7,24 @@
 
 ## Por Plataforma de Agentes
 
-### OpenClaw
+### Hermes
 
-El agente open-source mas popular de 2026. Corre localmente, conecta LLMs a software real.
+Stack principal de agentes de Cristian en 2026. Framework open-source auto-mejorante (Nous Research) que conecta LLMs a software real vía tools.
 
-| Caso de Uso en OpenClaw | Modelo Recomendado | Por que | Alternativa Barata |
-|------------------------|-------------------|---------|-------------------|
-| Cerebro principal del agente | Claude Opus 4.7 | #1 en razonamiento y agentes | GPT-4.1 Mini |
-| Sub-agentes especializados | DeepSeek V3.2 | Barato ($0.14/M), buena calidad | MiMo-V2-Flash ($0.09/M) |
-| Automatizacion de redes sociales | Devstral Small | #1 global, rapido, open-source | DeepSeek V3.2 |
-| Newsletter semanal automatica | DeepSeek V3.2 | #1 en news_seo_writing | Gemini Flash Lite |
-| Daily briefing (email/Telegram) | Gemini Flash Lite | 195 tok/s, 4s latencia | Devstral Small |
-| Monitoreo de competencia | GPT-4.1 | Bueno en analisis, rapido | DeepSeek V3.2 |
-| Multi-agent teams | Claude Opus 4.7 | Mejor orquestador | GPT-4.1 |
+| Caso de Uso en Hermes | Modelo Recomendado | Por que | Alternativa Barata |
+|-----------------------|-------------------|---------|-------------------|
+| Cerebro principal del agente | Claude Opus 4.8 | #1 en razonamiento y agentes | Claude Sonnet 4.6 |
+| Sub-agentes especializados | DeepSeek V4 Flash | Barato, buena calidad | Devstral Small |
+| Automatizacion de redes sociales | Devstral Small | #1 global, rapido, open-source | DeepSeek V4 Flash |
+| Newsletter semanal automatica | DeepSeek V4 Flash | #1 en news_seo_writing | Gemini Flash Lite |
+| Daily briefing (email/Telegram) | Gemini Flash Lite | ~165 tok/s, baja latencia | Devstral Small |
+| Monitoreo de competencia | GPT-4.1 | Bueno en analisis, rapido | DeepSeek V4 Flash |
+| Multi-agent teams | Claude Opus 4.8 | Mejor orquestador | GPT-4.1 |
 
-**Setup recomendado OpenClaw**:
-- Modelo principal: Claude Opus 4.7 o GPT-4.1 (via API key)
-- Modelo para tareas rapidas: Gemini Flash Lite o Devstral
-- Cron jobs: DeepSeek V3.2 (barato para tareas repetitivas)
+**Setup recomendado Hermes**:
+- Modelo principal: Claude Opus 4.8 o Claude Sonnet 4.6 (via Claude Code / API key)
+- Modelo para tareas rapidas: Gemini Flash Lite o Devstral Small
+- Cron jobs: DeepSeek V4 Flash (barato para tareas repetitivas)
 - Costo estimado: $30-80/mes segun uso
 
 ### Hermes
@@ -65,18 +65,21 @@ Plataforma de automatizacion con 8,300+ templates. 75% de templates nuevos usan 
 - Fallback: configurar OpenRouter con auto-fallback entre modelos
 - Costo estimado: $10-30/mes (pay-as-you-go via OpenRouter)
 
-### Claude Code (alternativas desde abril 2026)
+### Claude Code / Coding Agents
 
-Claude Code ya no viene en la suscripcion Pro de $20/mes. Alternativas:
+Cristian usa Claude Code como coding agent/IDE con varios modelos según la tarea:
 
-| Setup | Costo/mes | Modelo | Herramienta | Calidad vs Opus |
-|-------|-----------|--------|-------------|-----------------|
-| **MiniMax M2.7-HS** | $40 | M2.7 Highspeed | Claude Code wrapper / Roo Code | ~80-85% |
-| **Gemini CLI** | $0 | Gemini Flash | Gemini CLI nativo | ~75% |
-| **DeepSeek + Roo Code** | ~$5-15 | DeepSeek V3.2 | Roo Code | ~80% |
-| **Devstral + Roo Code** | ~$5-15 | Devstral Small | Roo Code / OpenCode | ~85% |
-| **GLM Coding Plan** | $3/mes | GLM-5.1 | Claude Code wrapper | ~80% |
-| **Combo optimo** | ~$50 | MiniMax + DeepSeek + Gemini | Roo Code | ~90% |
+| Setup | Costo/mes | Modelo | Herramienta | Notas |
+|-------|-----------|--------|-------------|-------|
+| **MiniMax M3** | $19 (Agent Pro) + API | M3 (1M ctx) | Claude Code / Roo Code | Buen balance calidad/costo; probado en producción |
+| **MiniMax M2.7-HS** | $40 | M2.7 Highspeed | Claude Code wrapper / Roo Code | ~80-85% vs Opus |
+| **Claude Sonnet 4.6** | API pay-as-you-go | Sonnet 4.6 | Claude Code nativo | Mejor opción general en coding/agentes |
+| **Claude Opus 4.8** | API pay-as-you-go | Opus 4.8 | Claude Code nativo | Para arquitectura/debugging complejo |
+| **Gemini CLI** | $0 | Gemini Flash | Gemini CLI nativo | Prototipos rápidos |
+| **DeepSeek + Roo Code** | ~$5-15 | DeepSeek V4 Flash | Roo Code | Económico, bueno para refactor |
+| **Devstral + Roo Code** | ~$5-15 | Devstral Small | Roo Code / OpenCode | Open-source, ~85% vs Opus |
+| **GLM Coding Plan** | $3/mes | GLM-5.2 | Claude Code wrapper | Presupuesto ajustado |
+| **Combo optimo** | ~$50 | MiniMax M3 + DeepSeek + Gemini | Roo Code / Claude Code | ~90% cobertura de casos |
 
 ---
 
@@ -168,7 +171,7 @@ Limitaciones:
 |--------|-------------|-----------|
 | **Google AI Pro ($19.99)** | Gemini 2.5 Pro + workspace integration | Todo-en-uno si usas Google |
 | **MiniMax Coding Plus ($20)** | M2.1 para coding, 300 prompts/5h | Coding con costo fijo |
-| **MiniMax Agent Pro ($19)** | M2.7 para agentes + imagenes | Agentes N8N/OpenClaw |
+| **MiniMax Agent Pro ($19)** | M2.7 para agentes + imagenes | Agentes N8N/Hermes |
 | **OpenRouter pay-as-you-go** | 290+ modelos, ~$20 de credito | Flexibilidad maxima |
 
 **Recomendacion**: OpenRouter por la flexibilidad. Una API key para todo, fallback automatico.
@@ -212,7 +215,7 @@ Para un emprendedor solo que quiere reemplazar un equipo de 5-10 personas:
 | Funcion | Herramienta | Modelo AI | Costo/mes |
 |---------|-------------|-----------|-----------|
 | **Coding** | Roo Code / Cursor | Devstral o DeepSeek V3.2 | ~$10 |
-| **Agente personal** | OpenClaw o Hermes | GPT-4.1 Mini | ~$10 |
+| **Agente personal** | Hermes | GPT-4.1 Mini | ~$10 |
 | **Automatizacion** | N8N (self-hosted) | Varios via OpenRouter | ~$15 |
 | **Contenido/Blog** | N8N + WordPress | DeepSeek V3.2 | ~$2 |
 | **Soporte L1** | N8N + chatbot | Gemini Flash Lite | ~$5 |

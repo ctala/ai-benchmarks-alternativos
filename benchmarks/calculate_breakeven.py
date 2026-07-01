@@ -177,7 +177,7 @@ def print_recommendations(markdown: bool = False):
         for profile, calls, rec, why in recs:
             print(f"| **{profile}** | {calls:,} | {rec} | {why} |")
         print()
-        print("> Hallazgo cualitativo: **Ningún plan oficial de Anthropic/OpenAI da acceso API**. ChatGPT Plus / Claude Pro son **chat web only**. Para agentes (OpenClaw, N8N, Hermes) hay que pagar API directa o usar suscripciones que sí incluyen API: MiniMax, Google AI, Ollama Cloud, Qwen, Grok.")
+        print("> Hallazgo cualitativo: **Ningún plan oficial de Anthropic/OpenAI da acceso API**. ChatGPT Plus / Claude Pro son **chat web only**. Para agentes (N8N, Hermes) hay que pagar API directa o usar suscripciones que sí incluyen API: MiniMax, Google AI, Ollama Cloud, Qwen, Grok.")
 
 
 def main():

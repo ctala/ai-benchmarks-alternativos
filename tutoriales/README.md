@@ -13,7 +13,7 @@ No vas a encontrar acá teoría de transformers ni explicaciones académicas. So
 2. Agregar el modelo que a vos te interesa probar.
 3. Diseñar tests que reflejen TU caso de uso (no el de papers de Stanford).
 4. Auto-evaluar con un juez local gratis (Phi-4 corriendo en tu compu).
-5. Decidir qué modelo poner en N8N / OpenClaw / tu producto, con criterios reales.
+5. Decidir qué modelo poner en N8N / Hermes / tu producto, con criterios reales.
 
 ## Mapa de los tutoriales
 
@@ -58,6 +58,6 @@ Con $5 USD en OpenRouter te alcanza para correr los 5 tutoriales completos varia
 
 ## Filosofía del repo
 
-Cristian (autor) es emprendedor chileno usando OpenClaw + N8N en producción. El repo nació porque los benchmarks públicos miden "razonamiento académico" y él necesitaba saber **qué modelo le genera mejores newsletters de startups en español**. Eso es lo que vas a aprender a medir vos también.
+Cristian (autor) es emprendedor chileno usando Hermes + N8N en producción. El repo nació porque los benchmarks públicos miden "razonamiento académico" y él necesitaba saber **qué modelo le genera mejores newsletters de startups en español**. Eso es lo que vas a aprender a medir vos también.
 
 Buena suerte. Si encontrás bugs en los tutoriales, abrí un issue en GitHub.

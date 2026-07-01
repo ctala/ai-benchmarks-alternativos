@@ -159,7 +159,7 @@ Cada mes salen modelos nuevos y los proveedores re-entrenan los existentes. Pero
 
 #### C. Gaps de mercado — filtrados por el lente emprendedor
 
-> Tu punto: no todos los gaps valen para ESTE público. Filtrados para LATAM, agentes N8N/OpenClaw, contenido en español, budget real:
+> Tu punto: no todos los gaps valen para ESTE público. Filtrados para LATAM, agentes N8N/Hermes, contenido en español, budget real:
 
 | Proveedor | Modelos | Veredicto | Por qué |
 |---|---|---|---|
@@ -384,7 +384,7 @@ Wrapper con chequeos previos:
 ## Casos de uso pendientes (doc específico por caso)
 
 ### Por plataforma de agentes
-- [ ] **OpenClaw**: modelo cerebro + sub-tareas + configuración recomendada
+- [ ] **Hermes**: modelo cerebro + sub-tareas + configuración recomendada
 - [ ] **Hermes**: modelos compatibles, setup óptimo tool calling
 - [ ] **N8N**: nodo AI Agent vs AI Text, workflows recomendados
 - [ ] **Claude Code (alternativas)**: setup Roo Code + MiniMax/Devstral/DeepSeek ~$50/mes
@@ -552,7 +552,7 @@ Suite multi-turno (8+ turnos) que mide capacidades agénticas reales: context re
 - [ ] **Stack recomendado por rol**: LLM cabecera (orquestador) + sub-agents/skills (coding, content, research, customer support, tool calling) — diferenciado por proveedor disponible
 - [ ] **Fase 3 — calibración con Claw-Eval**: para los 6 modelos en común (MiMo V2.5/Pro, Kimi K2.5/K2.6, Qwen 3.5 397B, GPT-5.4, Nemotron 3 Super), comparar agent_long_horizon avg vs Pass³ Claw-Eval. Si r > 0.7 nuestra suite está alineada
 - [ ] **Fase 4 — cobertura completa**: correr `agent_long_horizon` en los 70 modelos con ≥50 runs (faltarían ~40 tras Lote 10). 40 × 12 = 480 runs adicionales, ~$10-15
-- [ ] **Fase 5 — integración UX**: filtro `min_agent_score` en calculadora, columna agent score en ranking, recomendaciones N8N/OpenClaw priorizan este pilar
+- [ ] **Fase 5 — integración UX**: filtro `min_agent_score` en calculadora, columna agent score en ranking, recomendaciones N8N/Hermes priorizan este pilar
 
 ---
 
@@ -592,7 +592,7 @@ Test concreto de la sospecha de Approach 1: ¿modelos hybrid suben de score con 
 
 ## Suite `agentic_debugging` (decidido 30 abril 2026 tras caso real)
 
-**Contexto**: caso real reportado donde MiniMax M2.7 (top #7 nuestro) NO pudo resolver un problema técnico complejo en contenedor OpenClaw / VPS Hetzner, mientras Opus 4.7 (fuera del top 10 nuestro) lo resolvió en pocos minutos. Esto expone que nuestro coding score NO predice debugging agentic real.
+**Contexto**: caso real reportado donde MiniMax M2.7 (top #7 nuestro) NO pudo resolver un problema técnico complejo en contenedor Hermes / VPS Hetzner, mientras Opus 4.7 (fuera del top 10 nuestro) lo resolvió en pocos minutos. Esto expone que nuestro coding score NO predice debugging agentic real.
 
 ### Qué medirla
 
@@ -608,7 +608,7 @@ Suite nueva (suite 25) con 5-10 tests de debugging real:
 ### Implementación
 - `benchmarks/tests/agentic_debugging.py` (nuevo)
 - Reusar el formato `multi_turn_script` del runner (ya está implementado)
-- Considera usar el caso real del usuario como **piloto 1** (problema OpenClaw en VPS Hetzner — anonimizado)
+- Considera usar el caso real del usuario como **piloto 1** (problema Hermes en VPS Hetzner — anonimizado)
 
 ### Inversión
 - Diseño de 5 tests piloto: 1 día humano

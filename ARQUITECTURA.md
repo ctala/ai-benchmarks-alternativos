@@ -86,7 +86,7 @@ default.
 
 Cuando Cristian (autor) buscó datos para elegir modelos para
 [ecosistemastartup.com](https://ecosistemastartup.com) y sus agentes en N8N
-+ OpenClaw, encontró:
++ Hermes, encontró:
 
 - **MMLU/HellaSwag/etc.**: miden razonamiento académico, no flujos de trabajo
   reales (escribir un blog post en español, llamar herramientas en N8N,
