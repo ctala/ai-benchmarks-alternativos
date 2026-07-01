@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>AI Model Benchmark Executive Brief — Julio 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;600;700&display=swap');
+
+@page {
+    size: A4 landscape;
+    margin: 8mm;
+    background: #0a0a1a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #0a0a1a; }
+body {
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    font-size: 9pt;
+    line-height: 1.35;
+}
+
+.page {
+    page-break-after: always;
+    width: 274mm;
+    height: 184mm;
+    padding: 10mm;
+    background: #0a0a1a;
+    position: relative;
+    overflow: hidden;
+}
+.page:last-child { page-break-after: auto; }
+
+h1, h2, h3, h4 { font-family: 'JetBrains Mono', monospace; }
+
+.kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+    color: #39ff14;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+/* P1 COVER */
+.cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cover-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.cover-title {
+    font-size: 42pt;
+    color: #39ff14;
+    text-shadow: 0 0 20px rgba(57, 255, 20, 0.45);
+    line-height: 1.0;
+}
+.cover-subtitle {
+    font-size: 14pt;
+    color: #00d4ff;
+    margin-top: 8px;
+}
+.cover-month {
+    display: inline-block;
+    font-size: 16pt;
+    font-weight: 800;
+    color: #0a0a1a;
+    background: #ff006e;
+    padding: 6px 16px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.cover-qr {
+    text-align: center;
+    background: #1a1a2e;
+    border: 1px solid #533483;
+    border-radius: 6px;
+    padding: 10px;
+}
+.cover-qr img { width: 80px; height: 80px; }
+.cover-qr .url { font-family: 'JetBrains Mono', monospace; font-size: 7pt; color: #39ff14; margin-top: 4px; }
+
+.podium {
+    display: flex;
+    gap: 16px;
+    margin: 14px 0;
+}
+.podium-card {
+    flex: 1;
+    background: #1a1a2e;
+    border: 2px solid;
+    border-radius: 6px;
+    padding: 14px 16px;
+    text-align: center;
+}
+.podium-rank { font-size: 24pt; font-weight: 800; }
+.podium-name { font-size: 13pt; font-weight: 700; color: #ffffff; margin: 6px 0; }
+.podium-score { font-size: 26pt; font-weight: 800; color: #39ff14; }
+.podium-meta { font-size: 7.5pt; color: #b0b0b0; margin-top: 4px; }
+
+.stats-row {
+    display: flex;
+    gap: 12px;
+}
+.stat-card {
+    flex: 1;
+    background: #1a0a2e;
+    border-left: 3px solid #39ff14;
+    padding: 10px 12px;
+    border-radius: 0 4px 4px 0;
+}
+.stat-card .n { font-family: 'JetBrains Mono', monospace; font-size: 18pt; font-weight: 800; color: #39ff14; }
+.stat-card .l { font-size: 7.5pt; color: #b0b0b0; text-transform: uppercase; letter-spacing: 1px; }
+
+.cover-footer {
+    font-size: 8pt;
+    color: #b0b0b0;
+    text-align: center;
+}
+
+/* P2 TOP 10 */
+.two-col {
+    display: flex;
+    gap: 16px;
+    height: calc(100% - 40px);
+}
+.two-col > div { flex: 1; }
+
+.section-title {
+    font-size: 18pt;
+    color: #39ff14;
+    border-bottom: 2px solid #39ff14;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+}
+
+.top10-table { width: 100%; border-collapse: collapse; font-size: 8.5pt; }
+.top10-table td { padding: 5px 4px; border-bottom: 1px solid #1a0a2e; vertical-align: middle; }
+.top10-table tr:nth-child(even) { background: rgba(26,10,46,0.5); }
+.top10-table .rank { font-family: 'JetBrains Mono', monospace; color: #39ff14; font-weight: 700; width: 22px; }
+.top10-table .name { color: #ffffff; font-weight: 600; }
+.top10-table .score { font-family: 'JetBrains Mono', monospace; color: #39ff14; font-weight: 700; width: 36px; text-align: right; }
+
+.insight-list {
+    list-style: none;
+    padding: 0;
+}
+.insight-list li {
+    background: #1a1a2e;
+    border-left: 3px solid #00d4ff;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border-radius: 0 4px 4px 0;
+    font-size: 8.5pt;
+}
+
+/* P3 USE CASES */
+.use-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    height: calc(100% - 40px);
+}
+.use-card {
+    background: #1a1a2e;
+    border: 1px solid #533483;
+    border-top: 3px solid #39ff14;
+    border-radius: 4px;
+    padding: 12px;
+}
+.use-card.cyan { border-top-color: #00d4ff; }
+.use-card.magenta { border-top-color: #ff006e; }
+.use-card.purple { border-top-color: #b59cff; }
+.use-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11pt;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+.use-pick {
+    font-size: 10pt;
+    color: #39ff14;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.use-pick.cyan { color: #00d4ff; }
+.use-pick.magenta { color: #ff006e; }
+.use-pick.purple { color: #b59cff; }
+.use-meta { font-size: 7.5pt; color: #b0b0b0; margin-bottom: 6px; }
+.use-alt { font-size: 8pt; color: #dbdbe5; }
+.use-alt strong { color: #ffffff; }
+
+/* P4 CATEGORIES */
+.three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.cat-card {
+    background: #1a1a2e;
+    border: 1px solid #533483;
+    border-radius: 4px;
+    padding: 10px;
+}
+.cat-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5pt;
+    color: #00d4ff;
+    margin-bottom: 6px;
+}
+.cat-table { width: 100%; font-size: 8pt; border-collapse: collapse; }
+.cat-table td { padding: 3px 0; border-bottom: 1px solid #1a0a2e; }
+.cat-table .n { color: #39ff14; font-weight: 700; width: 16px; }
+.cat-table .s { font-family: 'JetBrains Mono', monospace; color: #39ff14; text-align: right; }
+
+.badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+.badge {
+    background: #1a0a2e;
+    border: 1px solid #39ff14;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 8pt;
+    color: #39ff14;
+}
+.badge.cyan { border-color: #00d4ff; color: #00d4ff; }
+.badge.magenta { border-color: #ff006e; color: #ff006e; }
+.badge.purple { border-color: #b59cff; color: #b59cff; }
+
+/* P5 PROVIDERS */
+.providers-table {
+    width: 100%;
+    font-size: 8pt;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+.providers-table th {
+    background: #1a0a2e;
+    color: #39ff14;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: left;
+    padding: 6px;
+    border-bottom: 1px solid #533483;
+}
+.providers-table td { padding: 5px 6px; border-bottom: 1px solid #1a0a2e; }
+
+.tip {
+    background: rgba(57, 255, 20, 0.08);
+    border-left: 3px solid #39ff14;
+    padding: 8px 12px;
+    border-radius: 0 4px 4px 0;
+    font-size: 8.5pt;
+}
+
+/* P6 METHODOLOGY */
+.formula-box {
+    background: #1a0a2e;
+    border: 1px solid #39ff14;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+.formula-title {
+    font-family: 'JetBrains Mono', monospace;
+    color: #00d4ff;
+    font-size: 10pt;
+    margin-bottom: 6px;
+}
+.formula-row {
+    display: flex;
+    gap: 12px;
+    font-size: 8.5pt;
+    color: #dbdbe5;
+    margin-bottom: 3px;
+}
+.formula-pct { font-family: 'JetBrains Mono', monospace; color: #39ff14; font-weight: 700; width: 40px; }
+
+.cta-center {
+    text-align: center;
+    margin-top: 16px;
+}
+.cta-center img { width: 130px; height: 130px; }
+.cta-center .url { font-family: 'JetBrains Mono', monospace; color: #39ff14; font-size: 9pt; margin-top: 6px; }
+
+.footer-brand {
+    position: absolute;
+    bottom: 8mm;
+    left: 10mm;
+    right: 10mm;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+    color: #b0b0b0;
+}
+
+.disclaimer {
+    font-size: 7.5pt;
+    color: #b0b0b0;
+    margin-top: 8px;
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- P1 COVER -->
+<!-- ============================================================ -->
+<div class="page cover">
+    <div class="cover-header">
+        <div>
+            <div class="kicker">// Benchmark de Modelos AI</div>
+            <div class="cover-title">AI Model<br>Benchmark</div>
+            <div class="cover-subtitle">Executive Brief para emprendedores hispanohablantes</div>
+            <div class="cover-month">Julio 2026</div>
+        </div>
+        <div class="cover-qr">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAIAAABOs7xcAAAE4UlEQVR4nO3dMXIlNRRAUUxRJKSzD2LvfwUshoTEbMAKREkjiXtOalf/tn1LwZue1x+fXz9+gf+7X0/fAPwMQidB6CQInQShkyB0EoROwm+jL/z1x+8/8z7+sz///mfq+0c/16rrjIyuv+p+Rnbf521G9+9EJ0HoJAidBKGTIHQShE6C0EkYztFHVs13Z70yxx2Zvf9VP+/uufgrPTjRSRA6CUInQegkCJ0EoZMgdBKm5+gjt81lZ5/z3j2nP/Xc/Mju+fdtPTjRSRA6CUInQegkCJ0EoZMgdBKWzdFfsXs+vepzV+2BOfXz3saJToLQSRA6CUInQegkCJ0EoZOQm6OPrNojvur7d1+nNl93opMgdBKEToLQSRA6CUInQegkLJujvzJ/ve09mq/M72fd1oMTnQShkyB0EoROgtBJEDoJQidheo7++vs+Z53ar7LqvaS797280oMTnQShkyB0EoROgtBJEDoJQidhOEe/7Xni2+zer7LKqnn56z040UkQOglCJ0HoJAidBKGTIHQSPj6/fnz7hd3PT69y6v2gI7e9r3TVdV7/+zrRSRA6CUInQegkCJ0EoZMgdBKWzdFn3bZX5LbPfWVfyqxT/TjRSRA6CUInQegkCJ0EoZMgdBKWvWd0ZPdzz7v3i++2++c9Naff/Vz+7PWd6CQInQShkyB0EoROgtBJEDoJy/aj735+fdU+71PPwZ+6/ivvH919P050EoROgtBJEDoJQidB6CQInYRj+9Ffmcue2ke++zqnnNo370QnQegkCJ0EoZMgdBKEToLQSRjO0Vc5tWd9ld3z9ZHb9rSsYj86bCR0EoROgtBJEDoJQidB6CRM70e/7bnw3Z87e/1Zr+wpv23fi70u8A2hkyB0EoROgtBJEDoJQifh+efRb/vckdt+DyO37ZmxHx0mCJ0EoZMgdBKEToLQSRA6CcPn0V+f+57af7Lqfl55nv6297OOONFJEDoJQidB6CQInQShkyB0Eo7tdVn1/bftR9+9f2Zk1e/htt/niP3o8A2hkyB0EoROgtBJEDoJQidheo5e24sycmoefNue8lPvN7XXBb4hdBKEToLQSRA6CUInQegkTM/RZ62as77y/tHZzx059R7WU3b/XZzoJAidBKGTIHQShE6C0EkQOgnL5uivvM9y9/6TVfPg255H381eF1hA6CQInQShkyB0EoROgtBJ+Pj8+nH6HrbY/Xz5bXtmRk49p37bvhcnOglCJ0HoJAidBKGTIHQShE7C8Hn0255XHln1PPeq6896ZR/LqX83WHV9JzoJQidB6CQInQShkyB0EoROwvPvGZ39/tn5+qn3cd62p+WVPfEjTnQShE6C0EkQOglCJ0HoJAidhGP70Ud2z+lve656978PzF7n1P9D2P13caKTIHQShE6C0EkQOglCJ0HoJCybo7/itvd3rrqf1/8dY9X3249OmtBJEDoJQidB6CQInQShk5Cbo4+8Mi+ftfs5+FPsdYFvCJ0EoZMgdBKEToLQSRA6Ccvm6Kf2po+cup/d7x899d7TU9dfNb93opMgdBKEToLQSRA6CUInQegkfHx+/fj2C7c9fzyye/66ym1z6N3vQ919n7Oc6CQInQShkyB0EoROgtBJEDoJwzk6/J840UkQOglCJ0HoJAidBKGTIHQS/gUuHSG+fjRQ4QAAAABJRU5ErkJggg==" alt="QR">
+            <div class="url">benchmarks.cristiantala.com</div>
+        </div>
+    </div>
+
+    <div class="kicker" style="margin-top:10px;">// Top 3 modelos del mes</div>
+    <div class="podium">
+        <div class="podium-card" style="border-color:#39ff14">
+        <div class="podium-rank" style="color:#39ff14">#1</div>
+        <div class="podium-name">DeepSeek V4 Flash (OpenRouter)</div>
+        <div class="podium-score">8.33</div>
+        <div class="podium-meta">openrouter · quality 8.34</div>
+    </div><div class="podium-card" style="border-color:#00d4ff">
+        <div class="podium-rank" style="color:#00d4ff">#2</div>
+        <div class="podium-name">DeepSeek R1 (reasoning)</div>
+        <div class="podium-score">8.28</div>
+        <div class="podium-meta">openrouter · quality 8.69</div>
+    </div><div class="podium-card" style="border-color:#ff006e">
+        <div class="podium-rank" style="color:#ff006e">#3</div>
+        <div class="podium-name">Qwen3-Coder-Next (OpenRouter FP8)</div>
+        <div class="podium-score">8.13</div>
+        <div class="podium-meta">openrouter · quality 8.22</div>
+    </div>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-card"><div class="n">94</div><div class="l">Modelos testeados</div></div>
+        <div class="stat-card"><div class="n">145</div><div class="l">En catálogo</div></div>
+        <div class="stat-card"><div class="n">10,853+</div><div class="l">Runs reales</div></div>
+        <div class="stat-card"><div class="n">26</div><div class="l">Suites</div></div>
+        <div class="stat-card"><div class="n">91</div><div class="l">Tests prácticos</div></div>
+    </div>
+
+    <div class="cover-footer">
+        Medido desde Santiago, Chile · v3.0 · MIT · Datos abiertos en github.com/ctala/ai-benchmarks-alternativos
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- P2 TOP 10 + INSIGHTS -->
+<!-- ============================================================ -->
+<div class="page">
+    <div class="kicker">// Ranking global</div>
+    <div class="section-title">Top 10 modelos</div>
+    <div class="two-col">
+        <div>
+            <table class="top10-table">
+                <tr>
+                    <td class="rank">#1</td>
+                    <td class="name">DeepSeek V4 Flash (OpenRouter)</td>
+                    <td><svg width="200" height="14" role="img" aria-label="bar">
+        <rect x="0" y="0" width="200" height="14" fill="#1a0a2e" rx="3"/>
+        <rect x="0" y="0" width="200.0" height="14" fill="#39ff14" rx="3"/>
+    </svg></td>
+                    <td class="score">8.33</td>
+                </tr>
+                <tr>
+                    <td class="rank">#2</td>
+                    <td class="name">DeepSeek R1 (reasoning)</td>
+                    <td><svg width="200" height="14" role="img" aria-label="bar">
+        <rect x="0" y="0" width="200" height="14" fill="#1a0a2e" rx="3"/>
+        <rect x="0" y="0" width="198.8" height="14" fill="#39ff14" rx="3"/>
+    </svg></td>
+                    <td class="score">8.28</td>
+                </tr>
+                <tr>
+                    <td class="rank">#3</td>
+                    <td class="name">Qwen3-Coder-Next (OpenRouter FP8)</td>
+                    <td><svg width="200" height="14" role="img" aria-label="bar">
+        <rect x="0" y="0" width="200" height="14" fill="#1a0a2e" rx="3"/>
+        <rect x="0" y="0" width="195.2" height="14" fill="#39ff14" rx="3"/>
+    </svg></td>
+                    <td class="score">8.13</td>
+                </tr>
+                <tr>
+                    <td class="rank">#4</td>
+                    <td class="name">Claude Opus 4.8 (suscripción)</td>
+                    <td><svg width="200" height="14" role="img" aria-label="bar">
+        <rect x="0" y="0" width="200" height="14" fill="#1a0a2e" rx="3"/>
+        <rect x="0" y="0" width="194.5" height="14" fill="#39ff14" rx="3"/>
+    </svg></td>
+                    <td class="score">8.10</td>
+                </tr>
+                <tr>
+                    <td class="rank">#5</td>
+                    <td class="name">Devstral Small</td>
+                    <td><svg width="200" height="14" role="img" aria-label="bar">
+        <rect x="0" y="0" width="200" height="14" fill="#1a0a2e" rx="3"/>
+        <rect x="0" y="0" width="192.3" height="14" fill="#39ff14" rx="3"/>
+    </svg></td>
+                    <td class="score">8.01</td>
+                </tr>
+                <tr>
+                    <td class="rank">#6</td>
+                    <td class="name">Claude Haiku 4.5 (suscripción)</td>
+                    <td><svg width="200" height="14" role="img" aria-label="bar">
+        <rect x="0" y="0" width="200" height="14" fill="#1a0a2e" rx="3"/>
+        <rect x="0" y="0" width="192.1" height="14" fill="#39ff14" rx="3"/>
+    </svg></td>
+                    <td class="score">8.00</td>
+                </tr>
+                <tr>
+                    <td class="rank">#7</td>
+                    <td class="name">Claude Sonnet 4.6 (suscripción)</td>
+                    <td><svg width="200" height="14" role="img" aria-label="bar">
+        <rect x="0" y="0" width="200" height="14" fill="#1a0a2e" rx="3"/>
+        <rect x="0" y="0" width="190.2" height="14" fill="#39ff14" rx="3"/>
+    </svg></td>
+                    <td class="score">7.92</td>
+                </tr>
+                <tr>
+                    <td class="rank">#8</td>
+                    <td class="name">MiniMax M3 (directo / sub)</td>
+                    <td><svg width="200" height="14" role="img" aria-label="bar">
+        <rect x="0" y="0" width="200" height="14" fill="#1a0a2e" rx="3"/>
+        <rect x="0" y="0" width="188.0" height="14" fill="#39ff14" rx="3"/>
+    </svg></td>
+                    <td class="score">7.83</td>
+                </tr>
+                <tr>
+                    <td class="rank">#9</td>
+                    <td class="name">Qwen 3.6 Max</td>
+                    <td><svg width="200" height="14" role="img" aria-label="bar">
+        <rect x="0" y="0" width="200" height="14" fill="#1a0a2e" rx="3"/>
+        <rect x="0" y="0" width="188.0" height="14" fill="#39ff14" rx="3"/>
+    </svg></td>
+                    <td class="score">7.83</td>
+                </tr>
+                <tr>
+                    <td class="rank">#10</td>
+                    <td class="name">Llama 4 Scout 17B (Groq preview)</td>
+                    <td><svg width="200" height="14" role="img" aria-label="bar">
+        <rect x="0" y="0" width="200" height="14" fill="#1a0a2e" rx="3"/>
+        <rect x="0" y="0" width="187.5" height="14" fill="#39ff14" rx="3"/>
+    </svg></td>
+                    <td class="score">7.81</td>
+                </tr>
+            </table>
+            <p style="font-size:7.5pt;color:#b0b0b0;margin-top:8px;">
+                Score compuesto v3.0: quality 70% + costo 15% + velocidad 7.5% + latencia 7.5%.
+            </p>
+        </div>
+        <div>
+            <div class="section-title" style="font-size:14pt;border-color:#00d4ff;color:#00d4ff;">Insights del mes</div>
+            <ul class="insight-list">
+                <li><strong>Mejor open-source:</strong> DeepSeek V4 Flash (OpenRouter) (8.33) — opción sin vendor lock-in.</li><li><strong>Mejor relación calidad/precio:</strong> DeepSeek V4 Flash (OpenRouter) — score 8.33 a gratis.</li><li><strong>Mas rapido:</strong> GPT-OSS 20B (Groq) a 633 tok/s.</li><li><strong>Seguridad:</strong> Claude Sonnet 4.6 (suscripción) lidera prompt-injection (7.44); modelos cheap filtran ~2.0.</li>
+            </ul>
+
+            <div class="section-title" style="font-size:14pt;border-color:#ff006e;color:#ff006e;margin-top:12px;">Nuevos este mes</div>
+            <ul class="insight-list">
+                <li><strong>Grok 4.3</strong> entra con score oficial 2.54 (metodologia v3.0 z-score; calidad promedio, costo elevado).</li>
+                <li><strong>Nemotron 3 Ultra 550B</strong> ahora en OpenRouter: score 6.17 y costo competitivo.</li>
+                <li><strong>North Mini Code</strong> quedo fuera de este lanzamiento por falta de endpoint de pago estable en OpenRouter.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-brand">Ver ranking completo en benchmarks.cristiantala.com</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- P3 USE CASES -->
+<!-- ============================================================ -->
+<div class="page">
+    <div class="kicker">// Recomendaciones por caso de uso</div>
+    <div class="section-title">Qué modelo usar</div>
+    <div class="use-grid">
+        <div class="use-card">
+            <div class="use-title">Coding</div>
+            <div class="use-pick">Devstral Small</div>
+            <div class="use-meta">Score coding 8.52 · gratis</div>
+            <div class="use-alt"><strong>Alternativas:</strong> Gemini 2.5 Flash Lite, Llama 4 Scout 17B (Groq preview)</div>
+        </div>
+        <div class="use-card cyan">
+            <div class="use-title">Agentes / Operaciones</div>
+            <div class="use-pick cyan">Llama 3.1 8B Instant (Groq)</div>
+            <div class="use-meta">Score agentes 7.88 · gratis</div>
+            <div class="use-alt"><strong>Alternativas:</strong> Claude Haiku 4.5 (suscripción), Qwen3-Coder-Next (OpenRouter FP8)</div>
+        </div>
+        <div class="use-card magenta">
+            <div class="use-title">Contenido / Marketing</div>
+            <div class="use-pick magenta">GPT-OSS 20B (Groq)</div>
+            <div class="use-meta">Score contenido 8.43 · gratis</div>
+            <div class="use-alt"><strong>Alternativas:</strong> Llama 4 Scout 17B (Groq preview), Llama 3.1 8B Instant (Groq)</div>
+        </div>
+        <div class="use-card purple">
+            <div class="use-title">Mejor costo/beneficio</div>
+            <div class="use-pick purple">DeepSeek V4 Flash (OpenRouter)</div>
+            <div class="use-meta">Score 8.33 · gratis</div>
+            <div class="use-alt"><strong>Si necesitás gratis:</strong> DeepSeek V4 Flash (OpenRouter) (gratis)</div>
+        </div>
+    </div>
+    <div class="footer-brand">Recomendaciones detalladas por presupuesto en el repo</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- P4 CATEGORIES + BADGES -->
+<!-- ============================================================ -->
+<div class="page">
+    <div class="kicker">// Rankings por categoría</div>
+    <div class="section-title">Top 5 por pilar</div>
+    <div class="three-col">
+<div class="cat-card">
+            <div class="cat-title">Razonamiento</div>
+            <table class="cat-table">
+<tr><td class="n">#1</td><td>Devstral Small</td><td class="s">8.39</td></tr>
+<tr><td class="n">#2</td><td>Llama 4 Scout 17B (Groq pr</td><td class="s">8.38</td></tr>
+<tr><td class="n">#3</td><td>DeepSeek V4 Flash (OpenRou</td><td class="s">8.19</td></tr>
+<tr><td class="n">#4</td><td>Gemini 3.1 Flash Lite</td><td class="s">8.15</td></tr>
+<tr><td class="n">#5</td><td>Grok 4.1 Fast</td><td class="s">8.09</td></tr>
+            </table>
+        </div>
+<div class="cat-card">
+            <div class="cat-title">Coding</div>
+            <table class="cat-table">
+<tr><td class="n">#1</td><td>Devstral Small</td><td class="s">8.52</td></tr>
+<tr><td class="n">#2</td><td>Gemini 2.5 Flash Lite</td><td class="s">8.32</td></tr>
+<tr><td class="n">#3</td><td>Llama 4 Scout 17B (Groq pr</td><td class="s">8.20</td></tr>
+<tr><td class="n">#4</td><td>DeepSeek V4 Flash (OpenRou</td><td class="s">8.08</td></tr>
+<tr><td class="n">#5</td><td>Qwen3-Coder-Next (OpenRout</td><td class="s">8.08</td></tr>
+            </table>
+        </div>
+<div class="cat-card">
+            <div class="cat-title">Contenido</div>
+            <table class="cat-table">
+<tr><td class="n">#1</td><td>GPT-OSS 20B (Groq)</td><td class="s">8.43</td></tr>
+<tr><td class="n">#2</td><td>Llama 4 Scout 17B (Groq pr</td><td class="s">8.35</td></tr>
+<tr><td class="n">#3</td><td>Llama 3.1 8B Instant (Groq</td><td class="s">8.33</td></tr>
+<tr><td class="n">#4</td><td>DeepSeek V4 Flash (OpenRou</td><td class="s">8.28</td></tr>
+<tr><td class="n">#5</td><td>Qwen3-Coder-Next (OpenRout</td><td class="s">8.25</td></tr>
+            </table>
+        </div>
+<div class="cat-card">
+            <div class="cat-title">Agentes</div>
+            <table class="cat-table">
+<tr><td class="n">#1</td><td>Llama 3.1 8B Instant (Groq</td><td class="s">7.88</td></tr>
+<tr><td class="n">#2</td><td>Claude Haiku 4.5 (suscripc</td><td class="s">7.85</td></tr>
+<tr><td class="n">#3</td><td>Qwen3-Coder-Next (OpenRout</td><td class="s">7.76</td></tr>
+<tr><td class="n">#4</td><td>DiffusionGemma 26B-A4B (DG</td><td class="s">7.76</td></tr>
+<tr><td class="n">#5</td><td>Qwen 3.6 35B base (OpenRou</td><td class="s">7.69</td></tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="kicker" style="margin-top:8px;">// Badges especiales</div>
+    <div class="badge-row">
+        <div class="badge">Top global: DeepSeek V4 Flash (OpenRouter)</div>
+        <div class="badge cyan">Mejor calidad: DeepSeek R1 (reasoning)</div>
+        <div class="badge">Mas rapido: GPT-OSS 20B (Groq) (633 tok/s)</div>
+        <div class="badge magenta">Seguridad: Claude Sonnet 4.6 (suscripción)</div>
+        <div class="badge purple">NIAH: Claude Haiku 4.5 (suscripción)</div>
+        <div class="badge">Open-source: DeepSeek V4 Flash (OpenRouter)</div>
+    </div>
+
+    <div class="footer-brand">Explorá por categoría en benchmarks.cristiantala.com</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- P5 PROVIDERS -->
+<!-- ============================================================ -->
+<div class="page">
+    <div class="kicker">// Proveedores y costos</div>
+    <div class="section-title">Mapa de proveedores</div>
+    <table class="providers-table">
+        <thead>
+            <tr><th>Provider</th><th>Tipo</th><th>Modelos clave</th><th>Costo</th><th>Notas</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>NVIDIA NIM</strong></td><td>Free tier</td><td>DeepSeek V4 Flash, Gemma 4, Nemotron, Qwen 3-Next</td><td>$0</td><td>40 RPM, ideal para bajo volumen</td></tr>
+            <tr><td><strong>Xiaomi MiMo</strong></td><td>Sub</td><td>MiMo V2.5 family</td><td>$14/mes</td><td>Español neutro fuerte</td></tr>
+            <tr><td><strong>MiniMax</strong></td><td>Sub / API</td><td>M2.7 Highspeed</td><td>$19/mes o $0.30/$1.20</td><td>Ultra baja latencia</td></tr>
+            <tr><td><strong>Ollama Cloud</strong></td><td>Sub</td><td>GPT-OSS 120B, DeepSeek V4, Qwen 3.5</td><td>$30/mes</td><td>5 modelos, alta fiabilidad</td></tr>
+            <tr><td><strong>OpenRouter</strong></td><td>Aggregator</td><td>290+ modelos</td><td>Variable</td><td>1 API key, fallback automático</td></tr>
+            <tr><td><strong>OpenAI / Anthropic / Google</strong></td><td>API directa</td><td>GPT, Claude, Gemini</td><td>Premium</td><td>Mejor calidad, costo alto</td></tr>
+        </tbody>
+    </table>
+
+    <div class="tip">
+        <strong>Estrategia recomendada:</strong> 1 sub barata (MiMo $14) para producción base + NVIDIA NIM gratis para modelos especializados + OpenRouter con $20-50 de crédito como fallback.
+    </div>
+
+    <div class="kicker" style="margin-top:12px;">// Estrategia por presupuesto</div>
+    <div class="two-col" style="height:auto;margin-top:8px;">
+        <div class="tip"><strong>~$0/mes:</strong> NIM gratis + Groq cheap + modelos locales.</div>
+        <div class="tip"><strong>~$30-50/mes:</strong> MiMo + Ollama Cloud + NIM.</div>
+    </div>
+
+    <div class="footer-brand">Comparativa completa de proveedores en el repo</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- P6 METHODOLOGY + CTA -->
+<!-- ============================================================ -->
+<div class="page" style="display:flex;flex-direction:column;justify-content:center;align-items:center;">
+    <div class="kicker">// Metodología v3.0</div>
+    <div class="formula-box" style="width:80%;">
+        <div class="formula-title">Cómo se calcula el score global</div>
+        <div class="formula-row"><span class="formula-pct">70%</span>Calidad (formato + sustancia + LLM-as-Judge Phi-4 14B)</div>
+        <div class="formula-row"><span class="formula-pct">15%</span>Costo (por provider exacto, curva inversa)</div>
+        <div class="formula-row"><span class="formula-pct">7.5%</span>Velocidad (tokens por segundo)</div>
+        <div class="formula-row"><span class="formula-pct">7.5%</span>Latencia (primer token, medido desde Chile)</div>
+        <div class="formula-row"><span class="formula-pct">badge</span>Tool calling y seguridad se muestran como badges, no entran en el compuesto</div>
+    </div>
+
+    <div class="disclaimer" style="width:80%;text-align:center;margin-bottom:12px;">
+        91 tests prácticos en español + long-context NIAH-ES + seguridad prompt_injection_es.<br>
+        Este benchmark es complemento, no sustituto de HumanEval, MMLU, SWE-bench, LMSYS Arena.
+    </div>
+
+    <div class="cta-center">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAIAAABOs7xcAAAE4UlEQVR4nO3dMXIlNRRAUUxRJKSzD2LvfwUshoTEbMAKREkjiXtOalf/tn1LwZue1x+fXz9+gf+7X0/fAPwMQidB6CQInQShkyB0EoROwm+jL/z1x+8/8z7+sz///mfq+0c/16rrjIyuv+p+Rnbf521G9+9EJ0HoJAidBKGTIHQShE6C0EkYztFHVs13Z70yxx2Zvf9VP+/uufgrPTjRSRA6CUInQegkCJ0EoZMgdBKm5+gjt81lZ5/z3j2nP/Xc/Mju+fdtPTjRSRA6CUInQegkCJ0EoZMgdBKWzdFfsXs+vepzV+2BOfXz3saJToLQSRA6CUInQegkCJ0EoZOQm6OPrNojvur7d1+nNl93opMgdBKEToLQSRA6CUInQegkLJujvzJ/ve09mq/M72fd1oMTnQShkyB0EoROgtBJEDoJQidheo7++vs+Z53ar7LqvaS797280oMTnQShkyB0EoROgtBJEDoJQidhOEe/7Xni2+zer7LKqnn56z040UkQOglCJ0HoJAidBKGTIHQSPj6/fnz7hd3PT69y6v2gI7e9r3TVdV7/+zrRSRA6CUInQegkCJ0EoZMgdBKWzdFn3bZX5LbPfWVfyqxT/TjRSRA6CUInQegkCJ0EoZMgdBKWvWd0ZPdzz7v3i++2++c9Naff/Vz+7PWd6CQInQShkyB0EoROgtBJEDoJy/aj735+fdU+71PPwZ+6/ivvH919P050EoROgtBJEDoJQidB6CQInYRj+9Ffmcue2ke++zqnnNo370QnQegkCJ0EoZMgdBKEToLQSRjO0Vc5tWd9ld3z9ZHb9rSsYj86bCR0EoROgtBJEDoJQidB6CRM70e/7bnw3Z87e/1Zr+wpv23fi70u8A2hkyB0EoROgtBJEDoJQifh+efRb/vckdt+DyO37ZmxHx0mCJ0EoZMgdBKEToLQSRA6CcPn0V+f+57af7Lqfl55nv6297OOONFJEDoJQidB6CQInQShkyB0Eo7tdVn1/bftR9+9f2Zk1e/htt/niP3o8A2hkyB0EoROgtBJEDoJQidheo5e24sycmoefNue8lPvN7XXBb4hdBKEToLQSRA6CUInQegkTM/RZ62as77y/tHZzx059R7WU3b/XZzoJAidBKGTIHQShE6C0EkQOgnL5uivvM9y9/6TVfPg255H381eF1hA6CQInQShkyB0EoROgtBJ+Pj8+nH6HrbY/Xz5bXtmRk49p37bvhcnOglCJ0HoJAidBKGTIHQShE7C8Hn0255XHln1PPeq6896ZR/LqX83WHV9JzoJQidB6CQInQShkyB0EoROwvPvGZ39/tn5+qn3cd62p+WVPfEjTnQShE6C0EkQOglCJ0HoJAidhGP70Ud2z+lve656978PzF7n1P9D2P13caKTIHQShE6C0EkQOglCJ0HoJCybo7/itvd3rrqf1/8dY9X3249OmtBJEDoJQidB6CQInQShk5Cbo4+8Mi+ftfs5+FPsdYFvCJ0EoZMgdBKEToLQSRA6Ccvm6Kf2po+cup/d7x899d7TU9dfNb93opMgdBKEToLQSRA6CUInQegkfHx+/fj2C7c9fzyye/66ym1z6N3vQ919n7Oc6CQInQShkyB0EoROgtBJEDoJwzk6/J840UkQOglCJ0HoJAidBKGTIHQS/gUuHSG+fjRQ4QAAAABJRU5ErkJggg==" alt="QR Calculadora">
+        <div class="url">benchmarks.cristiantala.com</div>
+        <p style="font-size:9pt;color:#b0b0b0;margin-top:8px;">
+            Filtrá por presupuesto, calidad, velocidad y caso de uso.<br>
+            Datos abiertos: https://github.com/ctala/ai-benchmarks-alternativos
+        </p>
+    </div>
+
+    <div class="footer-brand">
+        Cristian Tala · benchmarks.cristiantala.com · Julio 2026 · v3.0 · MIT
+    </div>
+</div>
+
+</body>
+</html>

@@ -626,17 +626,17 @@ MODELS = {
         "tier": "ultra_cheap",
     },
 
-    # --- Cohere North (coding, gratis via OpenRouter) ---
+    # --- Cohere North (coding, via OpenRouter) ---
     "openrouter-north-mini-code": {
-        "id": "cohere/north-mini-code:free",
+        "id": "cohere/north-mini-code",
         "name": "North Mini Code",
-        "cost_input": 0.0,
-        "cost_output": 0.0,
-        "tier": "free",
+        "cost_input": 0.2,
+        "cost_output": 0.6,
+        "tier": "cheap",
         "provider": "openrouter",
         "open_source": False,
         "license": "Cohere Commercial",
-        "notes": "Modelo de Cohere enfocado en coding. Disponible gratis via OpenRouter (rate limit aplicado).",
+        "notes": "Modelo de Cohere enfocado en coding via OpenRouter (version de paga, sin rate limit restrictivo).",
     },
 
     # --- PREMIUM ($5.00+/M) ---
@@ -1528,7 +1528,7 @@ CONTEXT_WINDOWS = {
     # Fable 5: solo se mantiene la versión suscripción (API fue deprecada/abajo).
     'claude-fable-5': 1000000,
     'anthropic/claude-sonnet-4': 1000000,
-    'cohere/north-mini-code:free': 128000,
+    'cohere/north-mini-code': 128000,
     'devstral-small2:24b': 131072,
     'deepseek-ai/deepseek-v4-flash': 1048576,
     'deepseek-ai/deepseek-v4-pro': 1048576,
