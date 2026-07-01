@@ -46,9 +46,13 @@ def load_models() -> dict:
     return json.loads(p.read_text())
 
 
+# Costo minimo por call para modelos gratis/free tier/suscripcion.
+MIN_COST_PER_CALL = 0.001
+
+
 def cost_per_call(m: dict) -> float:
     """Costo real por call del provider del modelo (desde cost_per_1k_calls_usd)."""
-    return (m.get("cost_per_1k_calls_usd") or 0) / 1000
+    return max((m.get("cost_per_1k_calls_usd") or 0) / 1000, MIN_COST_PER_CALL)
 
 
 def openrouter_cost_per_call(m: dict, openrouter_lookup: dict) -> float | None:
@@ -78,12 +82,12 @@ def normalised_cost_per_call(m: dict, openrouter_lookup: dict | None = None) -> 
 
     Todos los modelos deben tener un costo asignado para que el score global
     sea comparable; el costo real del provider actua como aproximacion estandar
-    cuando no hay equivalente OpenRouter.
+    cuando no hay equivalente OpenRouter. Se aplica MIN_COST_PER_CALL a gratis.
     """
     if openrouter_lookup:
         or_cost = openrouter_cost_per_call(m, openrouter_lookup)
         if or_cost is not None:
-            return or_cost
+            return max(or_cost, MIN_COST_PER_CALL)
     return cost_per_call(m)
 
 
