@@ -801,7 +801,8 @@ h1, h2, h3, h4 {{ font-family: 'JetBrains Mono', monospace; }}
         <tbody>
             <tr><td><strong>NVIDIA NIM</strong></td><td>Free tier</td><td>DeepSeek V4 Flash, Gemma 4, Nemotron, Qwen 3-Next</td><td>$0</td><td>40 RPM, ideal para bajo volumen</td></tr>
             <tr><td><strong>Xiaomi MiMo</strong></td><td>Sub</td><td>MiMo V2.5 family</td><td>$14/mes</td><td>Español neutro fuerte</td></tr>
-            <tr><td><strong>MiniMax</strong></td><td>Sub / API</td><td>M2.7 Highspeed</td><td>$19/mes o $0.30/$1.20</td><td>Ultra baja latencia</td></tr>
+            <tr><td><strong>MiniMax</strong></td><td>Sub / API</td><td>M2.7 Highspeed, M3</td><td>$19/mes o $0.30/$1.20</td><td>Ultra baja latencia</td></tr>
+            <tr><td><strong>Kimi Code</strong></td><td>Sub / API</td><td>Kimi K2.7 Code, Kimi K2.5</td><td>Variable</td><td>Muy fuerte en coding y agentes multi-turn</td></tr>
             <tr><td><strong>Ollama Cloud</strong></td><td>Sub</td><td>GPT-OSS 120B, DeepSeek V4, Qwen 3.5</td><td>$30/mes</td><td>5 modelos, alta fiabilidad</td></tr>
             <tr><td><strong>OpenRouter</strong></td><td>Aggregator</td><td>290+ modelos</td><td>Variable</td><td>1 API key, fallback automático</td></tr>
             <tr><td><strong>OpenAI / Anthropic / Google</strong></td><td>API directa</td><td>GPT, Claude, Gemini</td><td>Premium</td><td>Mejor calidad, costo alto</td></tr>
