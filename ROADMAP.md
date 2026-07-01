@@ -1,8 +1,8 @@
 # Roadmap del Benchmark
 
-> Ultima actualizacion: 26 de Junio de 2026 (post-merge Fable 5 + Kimi K2.7 Code + pesos v3.0 + pipeline de regeneración)
-> Estado del ranking: **v3.0.0 — <!-- AUTO:total_models -->144<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->94<!-- /AUTO --> con cobertura ≥50 runs, ~<!-- AUTO:tests_marketing -->10,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
-> Cobertura faltante: ver [TESTS_FALTANTES.md](TESTS_FALTANTES.md) (16 modelos sin runs, 45 con suites faltantes).
+> Ultima actualizacion: 26 de Junio de 2026 (post v3.0.2: normalización de costos + DiffusionGemma + GLM 5.2)
+> Estado del ranking: **v3.0.2 — <!-- AUTO:total_models -->145<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->98<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->10,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
+> Cobertura faltante: ver [TESTS_FALTANTES.md](TESTS_FALTANTES.md) (30 modelos sin runs o con cobertura parcial).
 > **Próximo release: Julio 2026** (cadencia mensual). El release de junio ya salió — ver [DATASHEET_2026-06.md](DATASHEET_2026-06.md). La sección [Ciclo Junio 2026](#ciclo-junio-2026--modelos-nuevos-por-probar) queda como log histórico.
 
 ---
@@ -111,9 +111,11 @@
 - [ ] **Tier 1**: 2/8 probados (DiffusionGemma, GLM 5.2). Falta: Nemotron 3 Ultra, Qwen 3.7 Plus, Cohere North Mini Code, Poolside Laguna, Claude Opus 4.8 Fast, Grok 4.3.
 - [x] **DiffusionGemma**: sweep local Q8_0 con juez Phi-4 (score 7.05, #25/91).
 - [x] **GLM 5.2**: sweep completo (score 6.93, #26/92, 51.8 tok/s).
+- [x] **Normalización de costos v3.0.2**: costo mínimo $0.001/call + OpenRouter/fallback + Executive Brief julio.
 - [ ] **DATASHEET_2026-07.md** con cambios junio→julio.
-- [ ] **CheatSheet PDF "Julio 2026"** + tag semver.
-- [ ] **Regen completo** vía `python benchmarks/regenerate_all.py`.
+- [x] **Executive Brief Julio 2026** PDF + HTML generados.
+- [ ] **CheatSheet PDF mensual "Julio 2026"** + tag semver.
+- [x] **Regen completo** vía `python benchmarks/regenerate_all.py` (sincronizó counts, MODELOS.md, TESTS.md, per-model MDs, rankings, comparaciones, sitemap, llms.txt).
 - [ ] Actualizar [TESTS_FALTANTES.md](TESTS_FALTANTES.md) o automatizar su regeneración.
 
 ### Por qué seguimos agregando modelos (y por qué esto es una *referencia*, no un veredicto)

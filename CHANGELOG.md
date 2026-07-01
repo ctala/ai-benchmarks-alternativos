@@ -2,6 +2,31 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v3.0.2] - 2026-06-26 — Normalización de costos y comparabilidad global
+
+### Cambio metodológico
+- **Costo mínimo de referencia: $0.001/call** para todos los modelos en el cálculo del `score_global`.
+  - Aplica a modelos gratis, free tier, suscripción y locales.
+  - Evita el `cost_score` artificial de 10.0 que distorsionaba el ranking cuando el costo real era $0.
+  - Implementado en `benchmarks/export_for_pages.py` (`MIN_COST_PER_CALL`) y en `cheatsheet/generate_executive_brief.py`.
+- **Normalización OpenRouter con fallback a costo real del provider**:
+  - Si un modelo tiene equivalente OpenRouter, se usa ese precio como referencia estándar.
+  - Si no tiene equivalente, se usa el costo real del provider (`cost_input`/`cost_output` del config) para mantener comparabilidad.
+  - El Executive Brief de julio muestra siempre el costo normalizado (OpenRouter o fallback), nunca $0.0000.
+
+### Cambio en cobertura
+- Umbral "tested" bajado de **≥50 runs a ≥20 runs**.
+  - Motivo: no ocultar modelos emergentes con datos sólidos (por ejemplo Gemma 4 31B con 22 runs).
+  - `tested_count` pasa a reflejar modelos con ≥20 runs en `docs/data/models.json`.
+
+### Artefactos regenerados
+- `docs/data/models.json` regenerado con costos normalizados y piso aplicado.
+- `cheatsheet/AI_Model_Benchmark_ExecutiveBrief_July_2026.pdf` + HTML regenerados con costos normalizados.
+
+### Docs actualizadas
+- `README.md`: versión 3.0.2, top-10 global actualizado, nota de normalización de costos, cobertura ≥20 runs.
+- `ROADMAP.md`: checklist de julio actualizado.
+
 ## [v3.0.1] - 2026-06-26 — DiffusionGemma medido local en DGX Spark
 
 ### Benchmark nuevo

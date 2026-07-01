@@ -1,6 +1,6 @@
 # Benchmark de Modelos AI Alternativos: comparación abierta de 70 LLMs en español para N8N, OpenClaw y emprendedores
 
-**Version 3.0.0** | Ultima actualizacion: 25 de Junio de 2026 | [📊 Datasheet junio](DATASHEET_2026-06.md) · [📊 Datasheet mayo](DATASHEET_2026-05.md) · [📄 CheatSheet PDF junio](cheatsheet/AI_Model_Benchmark_CheatSheet_Junio_2026.pdf)
+**Version 3.0.2** | Ultima actualizacion: 26 de Junio de 2026 | [📊 Datasheet junio](DATASHEET_2026-06.md) · [📄 CheatSheet PDF junio](cheatsheet/AI_Model_Benchmark_CheatSheet_Junio_2026.pdf) · [📄 Executive Brief julio](cheatsheet/AI_Model_Benchmark_ExecutiveBrief_July_2026.pdf)
 
 > **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con <!-- AUTO:tests_marketing -->10,000+<!-- /AUTO --> tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N, OpenClaw o Hermes con presupuestos reales.
 
@@ -10,7 +10,7 @@
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (OpenClaw, N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes) y la nueva suite **`agent_long_horizon`** que mide capacidades agénticas en multi-turno largo (lo que el single-turn no captura).
 
-**Cobertura actual**: <!-- AUTO:tested_count -->94<!-- /AUTO --> modelos con ≥50 runs (<!-- AUTO:total_models -->144<!-- /AUTO --> catalogados, incluido **Claude Fable 5** medido el día 1), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
+**Cobertura actual**: <!-- AUTO:tested_count -->98<!-- /AUTO --> modelos con ≥20 runs (<!-- AUTO:total_models -->145<!-- /AUTO --> catalogados, incluido **Claude Fable 5** medido el día 1), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v3.0.2 (junio)** = ajuste de **normalización de costos**: todos los modelos se comparan con un costo mínimo de referencia de **$0.001/call**, y los que no tienen equivalente OpenRouter usan su costo real de provider como aproximación estándar. **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
 
 ## Score = combinación ponderada (NO solo calidad)
 
@@ -36,19 +36,21 @@ Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad*
 
 | # | Modelo | Score | Quality | Cost | Provider | $/1k calls |
 |---|---|---:|---:|---:|---|---:|
-| 1 | **DeepSeek V4 Flash** | **8.33** | 8.34 | 9.37 | OpenRouter | $0.33 |
-| 2 | **DeepSeek R1** | **8.27** | 8.69 | 5.52 | OpenRouter | $3.96 |
-| 3 | **Qwen3-Coder-Next** | **8.13** | 8.22 | 8.55 | OpenRouter | $1.23 |
-| 4 | **Claude Opus 4.8** | **8.07** | 8.39 | 2.02 | OpenRouter | $39.00 |
-| 5 | **Devstral Small** | **8.00** | 8.03 | 9.69 | OpenRouter | $0.48 |
-| 6 | **Claude Haiku 4.5** (sub) | **7.98** | 8.44 | 5.14 | Claude Code | $7.80 |
-| 7 | **Claude Sonnet 4.6** (sub) | **7.89** | 8.57 | 3.32 | Claude Code | $23.40 |
-| 8 | **MiniMax M3** | **7.83** | 8.37 | 7.29 | OpenRouter | $1.89 |
-| 9 | **Qwen 3.6 Max** | **7.82** | 8.62 | 4.79 | OpenRouter | $9.67 |
-| 10 | **Llama 4 Scout 17B** | **7.80** | 7.93 | 9.58 | Groq | $0.54 |
+| 1 | **MiniMax M2.7** (directo) | **8.38** | 8.50 | 6.87 | MiniMax directo | $1.89 |
+| 2 | **DeepSeek R1** (reasoning) | **8.33** | 8.69 | 5.84 | OpenRouter | $3.96 |
+| 3 | **DeepSeek V4 Flash** (OpenRouter) | **8.23** | 8.34 | 7.92 | OpenRouter | $0.33 |
+| 4 | **Qwen3-Coder-Next** (OpenRouter FP8) | **8.15** | 8.22 | 7.64 | OpenRouter | $1.23 |
+| 5 | **Claude Haiku 4.5** (suscripción) | **8.00** | 8.44 | 5.13 | Claude Code | $7.80 |
+| 6 | **Llama 3.3 70B** (Groq) | **7.94** | 8.01 | 7.85 | Groq | $1.36 |
+| 7 | **MiniMax M3** (directo / sub) | **7.92** | 8.47 | 6.89 | MiniMax directo | $1.89 |
+| 8 | **Claude Opus 4.8** (suscripción) | **7.88** | 8.65 | 2.71 | Claude Code | $39.00 |
+| 9 | **MiniMax M2.7 Highspeed** | **7.84** | 8.36 | 6.84 | MiniMax directo | $1.89 |
+| 10 | **Devstral Small** | **7.83** | 8.03 | 7.95 | OpenRouter | $0.48 |
 
 > **Nuevo (10-jun-2026): Claude Fable 5 medido el día 1** vía suscripción Claude Code (176 runs, 0 errores). El tier nuevo SOBRE Opus ($10/$50 = 2x Opus 4.8) **no supera a Opus 4.8 en quality promedio** (8.58 vs 8.81 en los 162 tests compartidos, mismo provider y juez). Gana solo en `agent_long_horizon` (+1.21 — su pitch exacto: tareas agénticas largas); pierde en tareas cortas de formato. Veredicto: paga el 2x solo si tu caso es horizonte largo agéntico. Detalle en [CHANGELOG v3.0.0](CHANGELOG.md).
 
+> **Cambio v3.0.2 (jun 2026): normalización de costos para comparabilidad global.** Todos los modelos —incluidos gratis, free tier, suscripción y locales— ahora tienen un **costo mínimo de referencia de $0.001/call** en el cálculo del `score_global`. Antes un costo real de $0 generaba un `cost_score` artificial de 10.0 que distorsionaba el ranking. Además, los modelos sin equivalente OpenRouter se costean con el **precio real de su provider** como aproximación estándar, y el Executive Brief de julio normaliza también a OpenRouter cuando existe. Resultado: el ranking compara manzanas con manzanas independientemente de cómo se ejecute el modelo. El umbral de "tested" bajó de ≥50 a **≥20 runs** para reflejar la cobertura real sin ocultar modelos emergentes con datos sólidos.
+>
 > **Cambio v3.0 (jun 2026): ajuste de pesos.** Quality pasa de 60% a **70%** y costo baja de 20% a **15%**. Efecto: modelos de alta calidad (DeepSeek R1, Claude Opus 4.8, Qwen 3.6 Max) suben sin que el costo los aplaste. Devstral Small sigue top-5 porque también tiene calidad sólida (8.03). Ver el bloque de pesos arriba y las tablas por caso de uso en [MODELOS.md](MODELOS.md).
 
 > **Cambio v2.9 (jun 2026): score z-scoreado.** Antes el costo decidía el ranking de facto (mayor varianza que la calidad apelotonada). Ahora cada dimensión se estandariza → el peso = influencia real. **Opus 4.8 sube #63→#17; Haiku 4.5 (sub) entra al top 10.** Los líderes de calidad suben sin que el costo los aplaste.
@@ -105,9 +107,9 @@ Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2
 
 | Recurso invertido | Cantidad |
 |---|---|
-| Modelos en config | **<!-- AUTO:total_models -->144<!-- /AUTO --> únicos** |
-| Modelos con cobertura completa (≥50 runs) | **<!-- AUTO:tested_count -->94<!-- /AUTO -->** |
-| Modelos con datos parciales (1-49 runs) | **9** (incluye 12 variantes thinking de modelos hybrid) |
+| Modelos en config | **<!-- AUTO:total_models -->145<!-- /AUTO --> únicos** |
+| Modelos con cobertura completa (≥20 runs) | **<!-- AUTO:tested_count -->98<!-- /AUTO -->** |
+| Modelos con datos parciales (1-19 runs) | **17** (incluye variantes thinking de modelos hybrid) |
 | Tests por modelo | **91 single-turn (23 suites) + 12 agent_long_horizon multi-turno = 103 tests** |
 | Runs preservados en JSON | **<!-- AUTO:tests_marketing -->10,000+<!-- /AUTO -->** (con éxito) |
 | Tokens consumidos (preservados) | ~2.5M input + ~7M output |
