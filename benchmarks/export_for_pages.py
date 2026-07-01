@@ -27,6 +27,11 @@ from benchmarks.config import MODELS as _CLOUD_MODELS
 from benchmarks.models import OLLAMA_MODELS, SUBSCRIPTIONS
 from benchmarks.scoring import PRICING, compute_final_score, cost_score_log, DEFAULT_WEIGHTS
 
+# Costo minimo por call para modelos gratis/free tier/suscripcion.
+# Evita cost_score 10.0 artificial y hace comparables todos los modelos.
+# $0.001/call = $1 por 1,000 calls, precio de referencia "cheap".
+MIN_COST_PER_CALL = 0.001
+
 # Merge cloud + local models para que DGX y otros locales aparezcan en la calculadora
 MODELS = {**_CLOUD_MODELS, **OLLAMA_MODELS}
 
@@ -383,12 +388,15 @@ def build_export():
         # Normalizar costo de cada run a precios OpenRouter para comparabilidad.
         # Si no hay equivalente OpenRouter, usamos el costo real del provider
         # como aproximacion estandar (todos los modelos deben tener un costo).
+        # Los modelos gratis/free tier reciben un costo minimo de $0.001/call
+        # para evitar cost_score 10.0 artificial.
         or_cfg = _openrouter_config_for(cfg, or_lookup)
         for r in runs:
             if or_cfg is not None:
                 cost_norm = _estimate_cost_openrouter(r, or_cfg)
             else:
                 cost_norm = r.get("cost_usd") or 0.0
+            cost_norm = max(cost_norm, MIN_COST_PER_CALL)
             r["_cost_usd_or"] = cost_norm
             r["_cost_score_or"] = cost_score_log(cost_norm)
 
