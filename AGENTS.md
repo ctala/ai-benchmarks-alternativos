@@ -115,6 +115,8 @@ docs/data/models.json                # JSON consolidado para programs (ver schem
 
 ## Integridad del benchmark (reglas innegociables)
 
+Para el detalle completo de mantenimiento, pipeline, cuándo re-medir y por qué no se tocan los prompts, ver **`CLAUDE.md` → Reglas del proyecto**. Los puntos clave:
+
 🔒 **NO modificar los prompts ni criterios de los tests existentes.** Los archivos de `benchmarks/tests/` son la línea base que hace comparables los resultados en el tiempo. Si el stack de producción cambia —por ejemplo, de OpenClaw a Hermes— eso se refleja en documentación (`README.md`, `CLAUDE.md`, generadores pSEO), **no en los prompts de evaluación**.
 
 🔒 **Si hay que medir algo nuevo, agregar un test/suite nuevo.** No reescribir un test existente, porque invalidaría las corridas históricas. Los resultados públicos deben ser comparables independientemente de qué herramienta uses hoy en producción.

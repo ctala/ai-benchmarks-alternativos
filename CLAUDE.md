@@ -1,5 +1,7 @@
 # CLAUDE.md - Guia para Agentes
 
+> **Relación con `AGENTS.md`**: `AGENTS.md` es la guía canónica de **recomendación de modelos** —filosofía, schema de `docs/data/models.json`, reglas por caso de uso y anti-patrones. `CLAUDE.md` es la guía técnica del **proyecto y pipeline**. Antes de recomendar un modelo, leer `AGENTS.md`; antes de modificar código, tests o docs, leer esta guía.
+
 ## Que es este proyecto
 Benchmark de modelos AI alternativos para uso con agentes (N8N, Hermes). Compara precios, calidad, velocidad, tool calling y disponibilidad. Incluye tests ejecutables, LLM-as-Judge local (Phi-4) y documentación comparativa.
 
