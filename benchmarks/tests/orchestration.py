@@ -3,7 +3,7 @@ Tests de orquestacion y capacidad como agente orquestador.
 Evalua si el modelo puede planificar, descomponer tareas, decidir que herramientas
 usar en que orden, manejar dependencias entre pasos, y reaccionar a errores.
 
-Critico para uso en Hermes y N8N donde el modelo actua como cerebro del agente.
+Critico para uso en OpenClaw y N8N donde el modelo actua como cerebro del agente.
 """
 
 TOOLS_REGISTRY = [
