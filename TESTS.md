@@ -20,7 +20,7 @@ Cada modelo se mide contra los 91 tests con scoring en 3 capas (formato + sustan
 | # | Suite | Pilar | Tests | Resumen |
 |---|---|---|---|---|
 | 1 | [content_generation](#content-generation) | Contenido/Marketing | 4 | Tests de generacion de contenido. Evalua la capacidad de generar texto util para uso real. |
-| 2 | [tool_calling](#tool-calling) | Agentes/Operaciones | 4 | Tests de function calling / tool use. Critico para agentes en N8N y Hermes. |
+| 2 | [tool_calling](#tool-calling) | Agentes/Operaciones | 4 | Tests de function calling / tool use. Critico para agentes en OpenClaw y N8N. |
 | 3 | [task_management](#task-management) | Agentes/Operaciones | 3 | Tests de gestion de tareas, recordatorios y planificacion. Evalua la capacidad del modelo como asistente personal. |
 | 4 | [code_generation](#code-generation) | Coding | 4 | Tests de generacion de codigo. Evalua capacidad de coding para automatizaciones. |
 | 5 | [reasoning](#reasoning) | Razonamiento | 3 | Tests de razonamiento multi-paso. Evalua capacidad de analisis y logica, critico para agentes autonomos. |
@@ -38,7 +38,7 @@ Cada modelo se mide contra los 91 tests con scoring en 3 capas (formato + sustan
 | 17 | [orchestration](#orchestration) | Agentes/Operaciones | 5 | Tests de orquestacion y capacidad como agente orquestador. Evalua si el modelo puede planificar, descomponer tareas, dec... |
 | 18 | [multi_turn](#multi-turn) | Agentes/Operaciones | 4 | Tests multi-turno: conversaciones de varios mensajes. Evalua la capacidad del modelo de mantener contexto, iterar, y man... |
 | 19 | [policy_adherence](#policy-adherence) | Agentes/Operaciones | 4 | Tests de adherencia a politicas y reglas de negocio. Evalua si el modelo sigue instrucciones especificas del system prom... |
-| 20 | [agent_capabilities](#agent-capabilities) | Agentes/Operaciones | 5 | Tests de capacidades avanzadas de agente. Evalua si el modelo puede funcionar como agente real en plataformas como Herme... |
+| 20 | [agent_capabilities](#agent-capabilities) | Agentes/Operaciones | 5 | Tests de capacidades avanzadas de agente. Evalua si el modelo puede funcionar como agente real en plataformas como OpenC... |
 | 21 | [strategy](#strategy) | Razonamiento | 3 | Tests de estrategia de negocio para emprendedores. Cubre: analisis de competencia, pricing, validacion de modelo de nego... |
 | 22 | [sales_outreach](#sales-outreach) | Contenido/Marketing | 3 | Tests de ventas y outreach para emprendedores. Cubre: cold email, lead qualification, follow-up. Pilar: CONTENIDO & MARK... |
 | 23 | [translation](#translation) | Contenido/Marketing | 3 | Tests de traduccion y calidad multiidioma. Critico para startups LATAM que operan en espanol e ingles. Pilar: CONTENIDO... |
@@ -127,7 +127,7 @@ Write a compelling product description for a smart home device that combines a s
 
 **Pilar**: Agentes/Operaciones · **Tests**: 4
 
-_Tests de function calling / tool use. Critico para agentes en N8N y Hermes._
+_Tests de function calling / tool use. Critico para agentes en OpenClaw y N8N._
 
 <details><summary><b>1. single_tool_calendar</b> — Llamar una sola herramienta - crear evento</summary>
 
@@ -2184,14 +2184,14 @@ Necesito tres cosas:
 
 **Pilar**: Agentes/Operaciones · **Tests**: 5
 
-_Tests de capacidades avanzadas de agente. Evalua si el modelo puede funcionar como agente real en plataformas como Hermes, N8N, y Agent Teams._
+_Tests de capacidades avanzadas de agente. Evalua si el modelo puede funcionar como agente real en plataformas como OpenClaw, Hermes, N8N, y Agent Teams._
 
 <details><summary><b>1. skill_execution_complex</b> — Ejecutar un skill complejo con multiples pasos (no solo un tool call)</summary>
 
 **System prompt**:
 
 ```
-Eres un agente orquestador en Hermes. Tienes acceso a skills (secuencias automatizadas) y tools individuales.
+Eres un agente orquestador en OpenClaw. Tienes acceso a skills (secuencias automatizadas) y tools individuales.
 
 Reglas:
 - Usa skills cuando la tarea mapea a un flujo completo predefinido
