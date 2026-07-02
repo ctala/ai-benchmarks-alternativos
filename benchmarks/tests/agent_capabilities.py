@@ -1,7 +1,7 @@
 """
 Tests de capacidades avanzadas de agente.
 Evalua si el modelo puede funcionar como agente real en plataformas como
-Hermes, N8N, y Agent Teams.
+OpenClaw, Hermes, N8N, y Agent Teams.
 
 NO solo tool calling basico - esto evalua:
 - Skills (secuencias complejas de pasos, no solo una funcion)
@@ -139,7 +139,7 @@ TESTS = [
         "name": "skill_execution_complex",
         "description": "Ejecutar un skill complejo con multiples pasos (no solo un tool call)",
         "messages": [
-            {"role": "system", "content": """Eres un agente orquestador en Hermes. Tienes acceso a skills (secuencias automatizadas) y tools individuales.
+            {"role": "system", "content": """Eres un agente orquestador en OpenClaw. Tienes acceso a skills (secuencias automatizadas) y tools individuales.
 
 Reglas:
 - Usa skills cuando la tarea mapea a un flujo completo predefinido
