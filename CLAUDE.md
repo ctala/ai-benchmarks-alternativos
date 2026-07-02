@@ -187,6 +187,7 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - **Versionar resultados JSON** siempre en git
 - **Flujo ROADMAP↔CHANGELOG**: todo lo que se marca completo en ROADMAP.md migra a CHANGELOG.md con el commit
 - **3 cortes de ranking en README**: (1) **global** = todos los modelos. (2) **solo alternativas** = sin Anthropic + sin OpenAI + sin Google propietarios (Gemini Flash / Flash Lite / Pro). Sí se permiten modelos Google open-source (Gemma). (3) **solo open-source** = todos los modelos con `open_source: True`. Siempre los 3 al actualizar resultados.
+- **No modificar prompts de tests**. Los prompts y criterios de `benchmarks/tests/` son la línea base de comparabilidad del benchmark. Cambios de stack de producción (p. ej. OpenClaw → Hermes) se reflejan en `README.md`, `CLAUDE.md` y generadores pSEO, **nunca en los tests**. Si hay que medir algo nuevo, se agrega como suite/test adicional; no se reescribe uno existente.
 - **API keys**: las 4 keys (OPENROUTER, OPENAI, MINIMAX, OLLAMA_CLOUD) viven en `.env` (gitignored). Nunca hardcodear en config.py ni imprimir en chat. Usar `len()` para validar presencia.
 - **Regla de auto-generación**: antes de cualquier commit que toque benchmarks/results/, config, tests o docs/, ejecutar el pipeline maestro:
   ```bash
