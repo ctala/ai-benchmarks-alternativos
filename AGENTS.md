@@ -113,6 +113,12 @@ docs/data/models.json                # JSON consolidado para programs (ver schem
 | Toma de decisiones con restricciones | Devstral 2 / GPT-5.4 Mini | Buen balance |
 | Resúmenes ejecutivos | Mistral Small 4 | Estructura + concisión |
 
+## Integridad del benchmark (reglas innegociables)
+
+🔒 **NO modificar los prompts ni criterios de los tests existentes.** Los archivos de `benchmarks/tests/` son la línea base que hace comparables los resultados en el tiempo. Si el stack de producción cambia —por ejemplo, de OpenClaw a Hermes— eso se refleja en documentación (`README.md`, `CLAUDE.md`, generadores pSEO), **no en los prompts de evaluación**.
+
+🔒 **Si hay que medir algo nuevo, agregar un test/suite nuevo.** No reescribir un test existente, porque invalidaría las corridas históricas. Los resultados públicos deben ser comparables independientemente de qué herramienta uses hoy en producción.
+
 ## Anti-patrones (lo que NO hacer)
 
 ❌ **No recomendar Claude Opus para todo.** Es excelente pero su costo lo hace insostenible para volumen >1,000 calls/mes.
