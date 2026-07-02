@@ -2,6 +2,22 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v3.1.0] - 2026-07-02 — Release julio 2026
+
+### Nuevo contenido pSEO
+- **Landing de review**: `docs/fable-5-review/` — análisis de Claude Fable 5 con datos reales del benchmark (score 6.75, 103 runs, $10/$50 por millón) y comparaciones con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.
+- **Nuevas comparaciones automáticas**: `fable-5-vs-claude-sonnet-4-6`, `fable-5-vs-minimax-m3`, `fable-5-vs-deepseek-r1`.
+- **Comparaciones inválidas eliminadas** del generador: `glm-5.2-vs-qwen-3.7-plus`, `claude-opus-4.8-fast-vs-claude-fable-5`, `north-mini-code-vs-devstral-small` (no tenían modelos válidos).
+- Regenerados `docs/sitemap.xml` (36 URLs) y `docs/llms.txt`.
+
+### Integridad del benchmark
+- Documentada la regla de oro en `AGENTS.md` y `CLAUDE.md`: **no se modifican los prompts ni criterios de `benchmarks/tests/`** para mantener comparabilidad histórica. Cambios de stack de producción van a documentación y generadores pSEO, nunca a los tests.
+- Revertidos los cambios de `OpenClaw → Hermes` en `agent_capabilities.py`, `orchestration.py` y `tool_calling.py`.
+
+### Artefactos regenerados
+- `docs/data/models.json`, `MODELOS.md`, `TESTS.md`, MDs por modelo, rankings/comparaciones pSEO, sitemap y llms.txt.
+- **CheatSheet PDF julio 2026** y **Executive Brief julio 2026**.
+
 ## [v3.0.2] - 2026-06-26 — Normalización de costos y comparabilidad global
 
 ### Cambio metodológico

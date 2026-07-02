@@ -143,6 +143,7 @@ El `score_global` es una **función ponderada y z-scoreada** de 4 componentes (v
 - **OpenAI Responses** (`OPENAI_API_KEY`) — `/v1/responses` para gpt-5.5-pro / o1-pro (no funcionan en chat/completions). Provider key: `openai_responses`. Captura `reasoning_tokens` aparte en `metadata`.
 - **Claude Code subscription** (`ANTHROPIC_API_KEY` + login de suscripción) — Opus 4.6/4.7/4.8, Sonnet 4.6, Haiku 4.5, Fable 5. Provider key: `claude_code`. Accede por CLI de Anthropic; costo real $0/call para benchmarks, pero se normaliza al precio OpenRouter equivalente en el score global.
 - **MiniMax directo** (`MINIMAX_API_KEY`) — M2.7, M2.7-highspeed, M3.
+- **Kimi / MoonshotAI** (`MOONSHOT_API_KEY` o `KIMI_API_KEY`) — Kimi K2 / K2.5 / K2.6 / K2.7 Code.
 - **Groq directo** (`GROQ_API_KEY`) — Llama 3.3 70B, GPT-OSS 120/20B (LPU latencia ultra baja).
 - **NVIDIA NIM** (`NVIDIA_NIM_API_KEY`) — catálogo de modelos GRATIS con 40 RPM. Provider key: `nvidia_nim`. Incluye Nemotron, Qwen 3-Next, Mistral-Nemotron, Kimi K2 thinking, DeepSeek V4.
 - **Ollama local** — `localhost:11434`, activar con `INCLUDE_OLLAMA = True` en `config.py`.
@@ -220,9 +221,9 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - Da workshops de emprendimiento y tecnología
 - Tiene NVIDIA **DGX Spark (128GB RAM)** para modelos locales — operativo
 - Ubicado en Chile (latencia a servidores USA)
-- Suscripciones: OpenRouter, MiniMax (Agent Pro / highspeed), Anthropic (Claude Code), Ollama Cloud, Xiaomi MiMo, xAI SuperGrok
+- Suscripciones activas: OpenRouter, MiniMax (Agent Pro / highspeed), Anthropic (Claude Code), Kimi / MoonshotAI, Ollama Cloud, Xiaomi MiMo, xAI SuperGrok
 
-## Estado actual (v3.0.2, 26 Junio 2026) — ver ROADMAP.md para plan completo
+## Estado actual (v3.1.0, 2 Julio 2026) — ver ROADMAP.md para plan completo
 
 ### Ranking v3.0.2 top 10 (145 modelos en config, 98 con ≥20 runs, Phi-4 judge)
 1. **MiniMax M2.7** (directo) — 8.38
@@ -253,5 +254,5 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - Cristian usa **N8N y Hermes** para agentes AI; genera contenido para **ecosistemastartup.com**.
 - Usa **Claude Code** como coding agent/IDE con varios modelos, incluyendo **MiniMax M3**, Claude Sonnet/Opus y Kimi K2.7 Code.
 - **DGX Spark operativo** para modelos locales y juicio Phi-4 vLLM.
-- Suscripciones activas: OpenRouter, MiniMax (Agent Pro / highspeed), Anthropic (Claude Code), Ollama Cloud, Xiaomi MiMo, xAI SuperGrok.
+- Suscripciones activas: OpenRouter, MiniMax (Agent Pro / highspeed), Anthropic (Claude Code), Kimi / MoonshotAI, Ollama Cloud, Xiaomi MiMo, xAI SuperGrok.
 - Producción actual para blog: evaluando alternativas entre MiniMax M2.7/M3, Qwen 3.5 397B Cloud y Kimi K2.7 Code.

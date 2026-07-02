@@ -1,9 +1,9 @@
 # Roadmap del Benchmark
 
-> Ultima actualizacion: 26 de Junio de 2026 (post v3.0.2: normalización de costos + DiffusionGemma + GLM 5.2)
-> Estado del ranking: **v3.0.2 — <!-- AUTO:total_models -->145<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->98<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->10,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
+> Ultima actualizacion: 2 de Julio de 2026 (post v3.1.0: pSEO Fable 5 + integridad de prompts + CheatSheet julio)
+> Estado del ranking: **v3.1.0 — <!-- AUTO:total_models -->145<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->98<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->10,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
 > Cobertura faltante: ver [TESTS_FALTANTES.md](TESTS_FALTANTES.md) (30 modelos sin runs o con cobertura parcial).
-> **Próximo release: Julio 2026** (cadencia mensual). El release de junio ya salió — ver [DATASHEET_2026-06.md](DATASHEET_2026-06.md). La sección [Ciclo Junio 2026](#ciclo-junio-2026--modelos-nuevos-por-probar) queda como log histórico.
+> **Próximo release: Agosto 2026** (cadencia mensual). El release de julio ya salió — ver [CHANGELOG.md](CHANGELOG.md).
 
 ---
 
