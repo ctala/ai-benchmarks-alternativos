@@ -2,6 +2,29 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v3.1.1] - 2026-07-10 — GPT-5.6 y Grok 4.5
+
+### Benchmark nuevo
+- **GPT-5.6 Luna** (`openai/gpt-5.6-luna`): 180 tests exitosos, score global **7.92**, posición **#6**.
+- **GPT-5.6 Terra** (`openai/gpt-5.6-terra`): 174 tests exitosos, score global **7.69**, posición **#14**.
+- **GPT-5.6 Sol** (`openai/gpt-5.6-sol`): 174 tests exitosos, score global **7.14**.
+- **Grok 4.5** (`x-ai/grok-4.5`): 174 tests exitosos, score global **6.99**; penalizado por latencia alta (~16.7s TTFT) y costo $2/$6.
+
+### Infraestructura
+- Nuevo preset de juez `phi4-or` en `benchmarks/llm_judge.py`: Phi-4 vía OpenRouter para cuando el juez local no está disponible.
+- Agregados modelos y context windows en `benchmarks/models.py`.
+
+### Costo real del lote
+- **$57.23** en modelos + **$1.65** en juez phi4-or = **~$58.88 USD**.
+
+### Docs actualizadas
+- `README.md`: versión 3.1.1, top-10 actualizado con GPT-5.6 Luna, sección de novedades, nota metodológica sobre el juez phi4-or y caveat sobre Muse Spark 1.1 (acceso regional bloqueado).
+- Nuevas comparaciones pSEO para GPT-5.6 y Grok 4.5 (vs GPT-5.5, Claude Opus 4.8, DeepSeek V4, Gemini 3.5 Flash, MiniMax M3, Claude Sonnet 4.6, Claude Fable 5, y variantes internas Luna/Terra/Sol).
+- `docs/data/models.json`, `MODELOS.md`, `TESTS.md`, MDs por modelo, rankings/comparaciones pSEO, sitemap y llms.txt regenerados.
+
+### No medido
+- **Muse Spark 1.1 (Meta)**: requiere Meta Model API, no disponible en la región del benchmark al momento del lanzamiento. Pendiente para cuando llegue a OpenRouter o se habilite el acceso regional.
+
 ## [v3.1.0] - 2026-07-02 — Release julio 2026
 
 ### Nuevo contenido pSEO
