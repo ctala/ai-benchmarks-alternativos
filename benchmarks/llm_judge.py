@@ -108,6 +108,13 @@ JUDGE_PRESETS = {
         "provider": "openrouter",
         "description": "Gemini Flash via OpenRouter - rapido, ~$0.05/modelo, sesga Google",
     },
+    "phi4-or": {
+        "model": "microsoft/phi-4",
+        "base_url": "https://openrouter.ai/api/v1",
+        "api_key": None,  # usa OPENROUTER_API_KEY
+        "provider": "openrouter",
+        "description": "Phi-4 via OpenRouter - mismo modelo que el juez historico (phi4 Ollama local) pero con infraestructura rapida de OpenRouter. ~$0.07/$0.14 por M tokens. Microsoft no esta en el benchmark -> bajo sesgo.",
+    },
 }
 
 # Default: Gemma 4 31B local (si Ollama esta disponible), fallback a Haiku

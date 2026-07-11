@@ -127,6 +127,84 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://benchmarks.cristiantala.com/gpt-5.6-luna-vs-claude-haiku-4-5/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/gpt-5.6-luna-vs-sol/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/gpt-5.6-luna-vs-terra/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/gpt-5.6-sol-vs-claude-opus-4-8/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/gpt-5.6-terra-vs-claude-sonnet-4-6/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/gpt-5.6-terra-vs-sol/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/gpt-5.6-vs-claude-opus-4-8/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/gpt-5.6-vs-claude-sonnet-4-6/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/gpt-5.6-vs-deepseek-v4/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/gpt-5.6-vs-fable-5/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/gpt-5.6-vs-gemini-3.5-flash/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/gpt-5.6-vs-gpt-5.5/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/gpt-5.6-vs-minimax-m3/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://benchmarks.cristiantala.com/grok-4.3-vs-gpt-5-5/</loc>
     <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -135,6 +213,24 @@
   <url>
     <loc>https://benchmarks.cristiantala.com/grok-4.3-vs-gpt-5.5/</loc>
     <lastmod>2026-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/grok-4.5-vs-claude-sonnet-4-6/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/grok-4.5-vs-gpt-5-6/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/grok-4.5-vs-grok-4.3/</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
