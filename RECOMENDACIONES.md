@@ -58,19 +58,19 @@ Lo mejor que podés comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 | Presupuesto | Modelo | Calidad | Costo real |
 |---|---|---:|---:|
-| Menos de $10/mes | **MiniMax M3 (directo / sub)** | 8.47 | ≈$6/mes |
-| Hasta $30/mes | **DeepSeek R1 (reasoning)** | 8.69 | ≈$12/mes |
-| Hasta $100/mes | **DeepSeek R1 (reasoning)** | 8.69 | ≈$12/mes |
+| Menos de $10/mes | **MiniMax M3 (directo / sub)** | 8.58 | ≈$6/mes |
+| Hasta $30/mes | **DeepSeek R1 (reasoning)** | 8.82 | ≈$12/mes |
+| Hasta $100/mes | **DeepSeek R1 (reasoning)** | 8.82 | ≈$12/mes |
 
 ---
 
 ## El resumen de todo el benchmark
 
-**14 modelos empatan en calidad** en la cima del ranking global.
+**13 modelos empatan en calidad** en la cima del ranking global.
 
 El más barato de ese grupo — **DeepSeek V4 Flash (OpenRouter)** — sale **≈$1/mes**.
-El más caro — **Claude Fable 5 (suscripción)** — sale **≈$234/mes**.
+El más caro — **GPT-5.6 Sol** — sale **≈$140/mes**.
 
-Eso es **241.2× más caro** por una diferencia de calidad de **+0.04 puntos**, que está dentro del margen de error.
+Eso es **143.8× más caro** por una diferencia de calidad de **-0.05 puntos**, que está dentro del margen de error.
 
 Si te llevás una sola cosa de este benchmark, que sea esta.
