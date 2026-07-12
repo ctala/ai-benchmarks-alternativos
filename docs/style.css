@@ -1375,3 +1375,50 @@ main .frontier-list li strong { min-width: 9rem; color: var(--white); }
 .frontier-top { color: var(--green); font-weight: 700; }
 .frontier-score { font-weight: 700; color: var(--white); margin-left: auto; }
 .frontier-cost { font-size: 0.8rem; color: var(--gray-dark); min-width: 11rem; text-align: right; }
+
+/* ---- Auditoría de la escalera (páginas de variantes de una familia) --------
+   El proveedor vende una escalera: más caro = mejor. Esta tabla la audita
+   dimensión por dimensión y dice dónde se cumple y dónde no. */
+.ladder { margin: 2.5rem 0; }
+.lad-desc { display:block; font-size:.76rem; color:var(--gray-dark); margin-top:.15rem; font-weight:400; }
+.lad-price { display:block; font-size:.72rem; color:var(--gray-dark); font-weight:400; margin-top:.15rem; }
+.lad-verdict { font-size:.8rem; white-space:normal; min-width:12rem; }
+tr.lad-yes td { background: rgba(57,255,20,.07); }
+tr.lad-yes .lad-verdict { color: var(--green); font-weight:700; }
+tr.lad-yes td:first-child { box-shadow: inset 2px 0 0 var(--green); }
+tr.lad-no td { background: rgba(255,0,110,.07); }
+tr.lad-no .lad-verdict { color: var(--magenta); font-weight:700; }
+tr.lad-no td:first-child { box-shadow: inset 2px 0 0 var(--magenta); }
+tr.lad-tie .lad-verdict { color: var(--gray-dark); }
+
+/* ---- "Explora": del home a las páginas pSEO ------------------------------
+   El home enlazaba a los rankings desde el nav y a NADA más. Las 35 comparaciones
+   y las 6 páginas de familia estaban huérfanas — sin un solo enlace interno desde
+   la página más autoritativa del sitio. /claude-vs-chatgpt/ vale 2.480 búsquedas/mes
+   y no se podía llegar a ella. Ni Google ni una persona. */
+.explore { margin: 3rem 0 1rem; padding-top: 2.25rem; border-top: 1px solid var(--border); }
+.explore-lead { color: var(--gray); max-width: 62ch; margin-bottom: 1.75rem; }
+.ex-h3 { font-size: .95rem; margin: 1.75rem 0 .35rem; color: var(--cyan); }
+.ex-note { font-size: .84rem; color: var(--gray-dark); margin-bottom: .9rem; }
+.ex-grid { display: grid; gap: .6rem; grid-template-columns: 1fr; }  /* mobile-first */
+@media (min-width: 560px) { .ex-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 860px) { .ex-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 860px) { .ex-grid-compact { grid-template-columns: repeat(4, 1fr); } }
+.ex-card {
+  display: flex; flex-direction: column; gap: .15rem;
+  padding: .8rem .9rem; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 6px;
+  text-decoration: none; transition: border-color .15s ease, transform .15s ease;
+}
+.ex-card:hover, .ex-card:focus-visible { border-color: var(--cyan); transform: translateY(-1px); }
+.ex-name { color: var(--white); font-weight: 600; font-size: .92rem; }
+.ex-q { font-family: 'JetBrains Mono', monospace; font-size: .76rem; color: var(--green); }
+.ex-family { border-left: 2px solid var(--green); }
+.ex-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.ex-chip {
+  padding: .4rem .75rem; font-size: .84rem; border-radius: 999px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  color: var(--gray); text-decoration: none;
+}
+.ex-chip:hover, .ex-chip:focus-visible { border-color: var(--cyan); color: var(--white); }
+@media (prefers-reduced-motion: reduce) { .ex-card { transition: none; } .ex-card:hover { transform: none; } }

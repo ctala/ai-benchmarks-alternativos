@@ -512,9 +512,14 @@ function isProprietary(model) {
 
 function filterAndRank(models, f) {
   const passes = models.filter(m => {
-    // Default: muestra todos los modelos (incluye parciales y en cola).
-    // Si "Sólo cobertura completa" está marcado, filtra a >=50 runs.
-    if (f.onlyTested && !m.tested) return false;
+    // "Sólo cobertura completa" filtra a los RANKEABLES (>=50 runs).
+    //
+    // Antes chequeaba `m.tested` (>=20 runs) mientras este mismo comentario decía
+    // ">=50" y el resto del sitio exigía 50 para rankear. O sea: la calculadora
+    // dejaba competir a un modelo de 20 runs contra uno de 133 como si fueran
+    // comparables. Con muestra chica un modelo lidera por azar — que es exactamente
+    // lo que el piso de 50 existe para evitar. Ahora usa `ranked`.
+    if (f.onlyTested && !m.ranked) return false;
     // Modelos con runs=0 (en cola) no tienen score real — los ocultamos
     // siempre del ranking porque no se pueden ordenar.
     if ((m.runs || 0) === 0) return false;
