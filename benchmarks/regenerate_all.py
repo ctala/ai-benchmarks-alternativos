@@ -74,6 +74,11 @@ def main() -> int:
     # TODOS los scores y deja obsoleta cualquier tabla estatica.
     run_script("generate_readme_ranking.py", ["-i"], dry_run=args.dry_run)
 
+    # 2c. RECOMENDACIONES.md. Estaba FUERA del pipeline y se pudrio: 81 dias
+    # stale, recomendando modelos hoy en el puesto #86-#97. Era el unico doc con
+    # forma de DECISION y era el unico que no se regeneraba. Ya no.
+    run_script("generate_recomendaciones.py", ["-i"], dry_run=args.dry_run)
+
     # 3. TESTS.md
     run_script("generate_tests_md.py", ["-o", "TESTS.md"], dry_run=args.dry_run)
 

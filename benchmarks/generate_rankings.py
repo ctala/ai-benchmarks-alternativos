@@ -526,6 +526,72 @@ def dataset_schema(cfg, ranked):
     }
 
 
+def verdict_block(cfg, models):
+    """El veredicto, ANTES de la tabla. La tabla pasa a ser evidencia, no output.
+
+    Antes, estas paginas terminaban en una tabla muda y diferian la decision al
+    lector ("depende de tu caso", "ajustalo en la calculadora"). El emprendedor
+    se iba con datos y sin decision.
+
+    Lo que hace posible decidir: los modelos de la cima EMPATAN estadisticamente
+    en calidad (sus IC95 no se distinguen), asi que la decision real es de COSTO.
+    """
+    from bands import verdict as _verdict
+
+    pil = cfg.get("pillar") if cfg.get("criterion") == "pillar" else None
+    v = _verdict([m for m in models if (m.get("runs") or 0) >= 50], pil, calls_per_month=3000)
+    if not v or "best" not in v:
+        return ""
+
+    b = v["best"]
+    cards = [
+        f"""<div class="verdict-card verdict-best">
+        <span class="verdict-tag">Usá este</span>
+        <strong>{esc(b['name'])}</strong>
+        <span class="verdict-cost">≈${b['cost_month']:,.0f}/mes</span>
+        <span class="verdict-note">calidad {b['quality']:.2f}/10 · el más barato de los que empatan arriba</span>
+      </div>"""
+    ]
+    if "priciest" in v:
+        p = v["priciest"]
+        cards.append(f"""<div class="verdict-card verdict-costly">
+        <span class="verdict-tag">Lo que te ahorrás</span>
+        <strong>{esc(p['name'])}</strong>
+        <span class="verdict-cost">≈${p['cost_month']:,.0f}/mes</span>
+        <span class="verdict-note">{p['times']}× más caro por {p['quality_gap']:+.2f} de calidad — una diferencia que está dentro del margen de error</span>
+      </div>""")
+    if "local" in v:
+        l = v["local"]
+        cards.append(f"""<div class="verdict-card">
+        <span class="verdict-tag">Si tenés hardware propio</span>
+        <strong>{esc(l['name'])}</strong>
+        <span class="verdict-cost">≈${l['cost_month']:,.0f}/mes</span>
+        <span class="verdict-note">calidad {l['quality']:.2f}/10 · corre local, sin API</span>
+      </div>""")
+
+    # El CTA lleva el contexto a la calculadora. Antes era href="/" a secas y el
+    # usuario que venia buscando "agentes" aterrizaba en score global por default,
+    # teniendo que reconstruir a mano el caso de uso que ya habia declarado.
+    preset = {"Agentes": "agentes", "Coding": "coding",
+              "Contenido": "contenido", "Razonamiento": "calidad"}.get(pil or "", "")
+    qs = f"?preset={preset}&amp;calls=3000" if preset else "?calls=3000"
+
+    return f"""  <section class="verdict">
+    <h2>La respuesta corta</h2>
+    <p class="verdict-lead"><strong>{v['band_size']} modelos empatan</strong> en calidad para esta tarea:
+    la diferencia entre ellos es más chica que el margen de error de la medición.
+    Cuando la calidad empata, <strong>la decisión es de precio</strong>.</p>
+    <div class="verdict-grid">
+      {''.join(cards)}
+    </div>
+    <p class="verdict-foot">Cálculo sobre <strong>3.000 llamadas/mes</strong> (≈100 por día: una respuesta
+    de agente o un borrador de texto por llamada). ¿Otro volumen o te importa la velocidad?
+    Ajustalo en la <a href="/{qs}">calculadora</a>.
+    La tabla de abajo es la evidencia completa.</p>
+  </section>
+"""
+
+
 def render_ranking(cfg, models):
     ranked = rank_models(models, cfg)
     if not ranked:
@@ -544,6 +610,7 @@ def render_ranking(cfg, models):
     <p class="meta">Última actualización: {today} ·
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a></p>
   </section>
+{verdict_block(cfg, models)}
   <section class="results">
     <div class="results-header">
       <h2>Ranking: {esc(cfg['h1'])}</h2>

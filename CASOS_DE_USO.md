@@ -1,7 +1,17 @@
 # IA para Emprendedores: Todos los Casos de Uso Reales
 
-> Para un fundador solo o equipo pequeno que necesita hacer todo.
-> Cada caso incluye: que hace, que modelo usar, y si lo tenemos testeado.
+> Para un fundador solo o equipo pequeño que necesita hacer todo.
+> Este doc es un **catálogo de casos de uso**: qué se puede resolver con IA y qué pilar del
+> benchmark lo mide.
+
+> ⚠️ **La columna "Modelo ideal" NO es la fuente de verdad y está desactualizada.**
+> Se escribió a mano y los modelos que nombra envejecieron (varios están hoy en la mitad
+> baja del ranking). **Para elegir modelo, andá a [RECOMENDACIONES.md](RECOMENDACIONES.md)**,
+> que se regenera automáticamente desde `docs/data/models.json` en cada lote.
+>
+> Y ojo con la premisa misma de "el modelo ideal": los modelos de la cima **empatan
+> estadísticamente en calidad**. Cuando la calidad empata, la decisión es de **precio** —
+> no de nombre. Leé el criterio en RECOMENDACIONES.md antes de copiar un modelo de acá.
 
 ---
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T07:19:49",
+  "generated_at": "2026-07-12T07:33:26",
   "total_models": 149,
   "tested_count": 102,
   "ranked_count": 98,
@@ -35,6 +35,80 @@
     "latency_score_avg": {
       "mean": 2.1852,
       "std": 1.2025
+    }
+  },
+  "norm_stats_by_pillar": {
+    "Agentes": {
+      "quality_avg": {
+        "mean": 7.1037,
+        "std": 0.8032
+      },
+      "cost_score_avg": {
+        "mean": 7.0424,
+        "std": 1.3067
+      },
+      "speed_score_avg": {
+        "mean": 6.4885,
+        "std": 2.0229
+      },
+      "latency_score_avg": {
+        "mean": 2.5836,
+        "std": 1.5179
+      }
+    },
+    "Coding": {
+      "quality_avg": {
+        "mean": 7.7233,
+        "std": 0.5853
+      },
+      "cost_score_avg": {
+        "mean": 7.0996,
+        "std": 1.071
+      },
+      "speed_score_avg": {
+        "mean": 6.4757,
+        "std": 2.0946
+      },
+      "latency_score_avg": {
+        "mean": 2.8148,
+        "std": 1.506
+      }
+    },
+    "Contenido": {
+      "quality_avg": {
+        "mean": 8.2279,
+        "std": 0.6837
+      },
+      "cost_score_avg": {
+        "mean": 6.6038,
+        "std": 1.5459
+      },
+      "speed_score_avg": {
+        "mean": 6.9263,
+        "std": 2.1305
+      },
+      "latency_score_avg": {
+        "mean": 1.7011,
+        "std": 1.015
+      }
+    },
+    "Razonamiento": {
+      "quality_avg": {
+        "mean": 7.9726,
+        "std": 1.0417
+      },
+      "cost_score_avg": {
+        "mean": 6.4061,
+        "std": 1.6505
+      },
+      "speed_score_avg": {
+        "mean": 7.0985,
+        "std": 2.2183
+      },
+      "latency_score_avg": {
+        "mean": 1.5659,
+        "std": 0.9088
+      }
     }
   },
   "score_rescale": {
@@ -108,6 +182,36 @@
         "Coding": 7.1,
         "Razonamiento": 7.46
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 9.014,
+          "speed_score_avg": 4.0,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.272,
+          "quality_ci95": 0.426
+        },
+        "Agentes": {
+          "quality_avg": 8.279,
+          "speed_score_avg": 3.862,
+          "latency_score_avg": 1.034,
+          "cost_score_avg": 6.167,
+          "quality_ci95": 0.628
+        },
+        "Coding": {
+          "quality_avg": 8.202,
+          "speed_score_avg": 3.789,
+          "latency_score_avg": 1.211,
+          "cost_score_avg": 6.525,
+          "quality_ci95": 0.498
+        },
+        "Razonamiento": {
+          "quality_avg": 9.052,
+          "speed_score_avg": 3.733,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 5.15,
+          "quality_ci95": 0.363
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.88,
         "tool_calling": 5.13,
@@ -138,6 +242,7 @@
         "prompt_injection_es": 2.68
       },
       "quality_avg": 8.69,
+      "quality_ci95": 0.267,
       "cost_score_avg": 5.84,
       "speed_score_avg": 3.88,
       "latency_score_avg": 1.07,
@@ -189,6 +294,36 @@
         "Coding": 7.83,
         "Razonamiento": 8.03
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.836,
+          "speed_score_avg": 7.455,
+          "latency_score_avg": 1.477,
+          "cost_score_avg": 7.989,
+          "quality_ci95": 0.303
+        },
+        "Agentes": {
+          "quality_avg": 7.188,
+          "speed_score_avg": 7.111,
+          "latency_score_avg": 1.972,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.694
+        },
+        "Coding": {
+          "quality_avg": 8.4,
+          "speed_score_avg": 7.304,
+          "latency_score_avg": 2.696,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.481
+        },
+        "Razonamiento": {
+          "quality_avg": 8.782,
+          "speed_score_avg": 8.111,
+          "latency_score_avg": 1.222,
+          "cost_score_avg": 7.908,
+          "quality_ci95": 0.491
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.43,
         "tool_calling": 5.41,
@@ -219,6 +354,7 @@
         "prompt_injection_es": 3.18
       },
       "quality_avg": 8.34,
+      "quality_ci95": 0.275,
       "cost_score_avg": 7.92,
       "speed_score_avg": 7.44,
       "latency_score_avg": 1.83,
@@ -273,6 +409,36 @@
         "Coding": 7.45,
         "Razonamiento": 7.73
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.844,
+          "speed_score_avg": 9.571,
+          "latency_score_avg": 2.5,
+          "cost_score_avg": 5.65,
+          "quality_ci95": 0.373
+        },
+        "Agentes": {
+          "quality_avg": 7.671,
+          "speed_score_avg": 7.977,
+          "latency_score_avg": 3.667,
+          "cost_score_avg": 6.919,
+          "quality_ci95": 0.65
+        },
+        "Coding": {
+          "quality_avg": 7.896,
+          "speed_score_avg": 8.0,
+          "latency_score_avg": 3.93,
+          "cost_score_avg": 6.813,
+          "quality_ci95": 0.607
+        },
+        "Razonamiento": {
+          "quality_avg": 8.701,
+          "speed_score_avg": 9.689,
+          "latency_score_avg": 2.0,
+          "cost_score_avg": 5.088,
+          "quality_ci95": 0.485
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.39,
         "tool_calling": 5.86,
@@ -302,6 +468,7 @@
         "prompt_injection_es": 5.39
       },
       "quality_avg": 8.4,
+      "quality_ci95": 0.282,
       "cost_score_avg": 5.91,
       "speed_score_avg": 8.77,
       "latency_score_avg": 3.15,
@@ -354,6 +521,36 @@
         "Coding": 7.88,
         "Razonamiento": 7.91
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.722,
+          "speed_score_avg": 9.0,
+          "latency_score_avg": 2.5,
+          "cost_score_avg": 7.789,
+          "quality_ci95": 0.427
+        },
+        "Agentes": {
+          "quality_avg": 7.645,
+          "speed_score_avg": 8.759,
+          "latency_score_avg": 4.517,
+          "cost_score_avg": 7.948,
+          "quality_ci95": 0.796
+        },
+        "Coding": {
+          "quality_avg": 8.183,
+          "speed_score_avg": 8.105,
+          "latency_score_avg": 4.684,
+          "cost_score_avg": 7.967,
+          "quality_ci95": 0.5
+        },
+        "Razonamiento": {
+          "quality_avg": 8.46,
+          "speed_score_avg": 9.6,
+          "latency_score_avg": 1.8,
+          "cost_score_avg": 7.535,
+          "quality_ci95": 0.623
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.21,
         "tool_calling": 6.17,
@@ -384,6 +581,7 @@
         "prompt_injection_es": 3.03
       },
       "quality_avg": 8.22,
+      "quality_ci95": 0.325,
       "cost_score_avg": 7.64,
       "speed_score_avg": 8.83,
       "latency_score_avg": 3.48,
@@ -444,6 +642,36 @@
         "Coding": 7.46,
         "Razonamiento": 7.71
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.91,
+          "speed_score_avg": 8.786,
+          "latency_score_avg": 2.714,
+          "cost_score_avg": 5.017,
+          "quality_ci95": 0.372
+        },
+        "Agentes": {
+          "quality_avg": 8.763,
+          "speed_score_avg": 8.583,
+          "latency_score_avg": 2.792,
+          "cost_score_avg": 5.72,
+          "quality_ci95": 0.475
+        },
+        "Coding": {
+          "quality_avg": 7.982,
+          "speed_score_avg": 9.053,
+          "latency_score_avg": 3.263,
+          "cost_score_avg": 6.311,
+          "quality_ci95": 0.68
+        },
+        "Razonamiento": {
+          "quality_avg": 8.793,
+          "speed_score_avg": 9.467,
+          "latency_score_avg": 2.2,
+          "cost_score_avg": 4.538,
+          "quality_ci95": 0.536
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.13,
         "task_management": 8.55,
@@ -472,6 +700,7 @@
         "niah_es": 8.8
       },
       "quality_avg": 8.44,
+      "quality_ci95": 0.332,
       "cost_score_avg": 5.13,
       "speed_score_avg": 8.88,
       "latency_score_avg": 2.74,
@@ -523,6 +752,36 @@
         "Coding": 7.7,
         "Razonamiento": 7.86
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.282,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 5.0,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.291
+        },
+        "Agentes": {
+          "quality_avg": 6.972,
+          "speed_score_avg": 9.462,
+          "latency_score_avg": 6.615,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.598
+        },
+        "Coding": {
+          "quality_avg": 7.556,
+          "speed_score_avg": 9.053,
+          "latency_score_avg": 7.053,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.631
+        },
+        "Razonamiento": {
+          "quality_avg": 7.926,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 4.8,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.518
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.44,
         "tool_calling": 6.18,
@@ -551,6 +810,7 @@
         "niah_es": 6.69
       },
       "quality_avg": 8.01,
+      "quality_ci95": 0.267,
       "cost_score_avg": 7.85,
       "speed_score_avg": 9.62,
       "latency_score_avg": 5.83,
@@ -607,6 +867,36 @@
         "Coding": 7.13,
         "Razonamiento": 7.46
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 9.166,
+          "speed_score_avg": 4.429,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.861,
+          "quality_ci95": 0.242
+        },
+        "Agentes": {
+          "quality_avg": 8.221,
+          "speed_score_avg": 4.0,
+          "latency_score_avg": 1.241,
+          "cost_score_avg": 7.6,
+          "quality_ci95": 0.493
+        },
+        "Coding": {
+          "quality_avg": 7.871,
+          "speed_score_avg": 4.842,
+          "latency_score_avg": 1.947,
+          "cost_score_avg": 7.429,
+          "quality_ci95": 0.653
+        },
+        "Razonamiento": {
+          "quality_avg": 8.661,
+          "speed_score_avg": 4.667,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.507,
+          "quality_ci95": 0.472
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.12,
         "tool_calling": 5.65,
@@ -637,6 +927,7 @@
         "prompt_injection_es": 7.1
       },
       "quality_avg": 8.47,
+      "quality_ci95": 0.281,
       "cost_score_avg": 6.89,
       "speed_score_avg": 4.47,
       "latency_score_avg": 1.25,
@@ -699,6 +990,36 @@
         "Agentes": 7.43,
         "Coding": 6.86
       },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 9.266,
+          "speed_score_avg": 7.889,
+          "latency_score_avg": 2.056,
+          "cost_score_avg": 2.392,
+          "quality_ci95": 0.335
+        },
+        "Contenido": {
+          "quality_avg": 8.995,
+          "speed_score_avg": 7.571,
+          "latency_score_avg": 3.75,
+          "cost_score_avg": 2.895,
+          "quality_ci95": 0.339
+        },
+        "Agentes": {
+          "quality_avg": 8.911,
+          "speed_score_avg": 7.833,
+          "latency_score_avg": 2.375,
+          "cost_score_avg": 2.826,
+          "quality_ci95": 0.415
+        },
+        "Coding": {
+          "quality_avg": 7.993,
+          "speed_score_avg": 6.316,
+          "latency_score_avg": 3.105,
+          "cost_score_avg": 3.749,
+          "quality_ci95": 0.664
+        }
+      },
       "score_by_suite": {
         "reasoning": 7.91,
         "content_generation": 7.82,
@@ -727,6 +1048,7 @@
         "niah_es": 8.48
       },
       "quality_avg": 8.65,
+      "quality_ci95": 0.286,
       "cost_score_avg": 2.71,
       "speed_score_avg": 7.5,
       "latency_score_avg": 2.95,
@@ -779,6 +1101,36 @@
         "Coding": 8.23,
         "Razonamiento": 8.13
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.12,
+          "speed_score_avg": 9.077,
+          "latency_score_avg": 3.462,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.371
+        },
+        "Agentes": {
+          "quality_avg": 7.258,
+          "speed_score_avg": 8.844,
+          "latency_score_avg": 5.867,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.501
+        },
+        "Coding": {
+          "quality_avg": 8.364,
+          "speed_score_avg": 9.091,
+          "latency_score_avg": 6.606,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.47
+        },
+        "Razonamiento": {
+          "quality_avg": 8.443,
+          "speed_score_avg": 9.852,
+          "latency_score_avg": 3.778,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.483
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.17,
         "tool_calling": 6.14,
@@ -807,6 +1159,7 @@
         "niah_es": 7.25
       },
       "quality_avg": 8.03,
+      "quality_ci95": 0.239,
       "cost_score_avg": 7.95,
       "speed_score_avg": 9.2,
       "latency_score_avg": 4.97,
@@ -863,6 +1216,36 @@
         "Coding": 7.3,
         "Razonamiento": 7.32
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.89,
+          "speed_score_avg": 6.643,
+          "latency_score_avg": 2.393,
+          "cost_score_avg": 3.909,
+          "quality_ci95": 0.379
+        },
+        "Agentes": {
+          "quality_avg": 8.766,
+          "speed_score_avg": 6.667,
+          "latency_score_avg": 2.333,
+          "cost_score_avg": 4.285,
+          "quality_ci95": 0.506
+        },
+        "Coding": {
+          "quality_avg": 8.257,
+          "speed_score_avg": 6.211,
+          "latency_score_avg": 3.158,
+          "cost_score_avg": 5.425,
+          "quality_ci95": 0.506
+        },
+        "Razonamiento": {
+          "quality_avg": 8.877,
+          "speed_score_avg": 7.467,
+          "latency_score_avg": 1.133,
+          "cost_score_avg": 3.049,
+          "quality_ci95": 0.395
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.59,
         "task_management": 8.15,
@@ -891,6 +1274,7 @@
         "niah_es": 8.71
       },
       "quality_avg": 8.57,
+      "quality_ci95": 0.263,
       "cost_score_avg": 3.98,
       "speed_score_avg": 6.76,
       "latency_score_avg": 2.39,
@@ -942,6 +1326,36 @@
         "Coding": 7.07,
         "Razonamiento": 7.44
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.777,
+          "speed_score_avg": 6.0,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 4.079,
+          "quality_ci95": 0.368
+        },
+        "Agentes": {
+          "quality_avg": 8.277,
+          "speed_score_avg": 5.931,
+          "latency_score_avg": 1.034,
+          "cost_score_avg": 4.979,
+          "quality_ci95": 0.611
+        },
+        "Coding": {
+          "quality_avg": 8.258,
+          "speed_score_avg": 6.105,
+          "latency_score_avg": 1.158,
+          "cost_score_avg": 4.938,
+          "quality_ci95": 0.479
+        },
+        "Razonamiento": {
+          "quality_avg": 9.035,
+          "speed_score_avg": 6.0,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 3.916,
+          "quality_ci95": 0.388
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.54,
         "tool_calling": 6.25,
@@ -971,6 +1385,7 @@
         "prompt_injection_es": 2.44
       },
       "quality_avg": 8.62,
+      "quality_ci95": 0.257,
       "cost_score_avg": 4.32,
       "speed_score_avg": 6.0,
       "latency_score_avg": 1.06,
@@ -1022,6 +1437,36 @@
         "Coding": 7.5,
         "Razonamiento": 7.61
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.873,
+          "speed_score_avg": 8.571,
+          "latency_score_avg": 2.298,
+          "cost_score_avg": 4.603,
+          "quality_ci95": 0.361
+        },
+        "Agentes": {
+          "quality_avg": 7.401,
+          "speed_score_avg": 7.391,
+          "latency_score_avg": 3.678,
+          "cost_score_avg": 6.024,
+          "quality_ci95": 0.73
+        },
+        "Coding": {
+          "quality_avg": 8.087,
+          "speed_score_avg": 8.07,
+          "latency_score_avg": 4.526,
+          "cost_score_avg": 5.986,
+          "quality_ci95": 0.479
+        },
+        "Razonamiento": {
+          "quality_avg": 8.869,
+          "speed_score_avg": 8.978,
+          "latency_score_avg": 1.778,
+          "cost_score_avg": 3.941,
+          "quality_ci95": 0.376
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.08,
         "tool_calling": 5.4,
@@ -1051,6 +1496,7 @@
         "prompt_injection_es": 5.65
       },
       "quality_avg": 8.39,
+      "quality_ci95": 0.292,
       "cost_score_avg": 4.94,
       "speed_score_avg": 8.17,
       "latency_score_avg": 3.14,
@@ -1103,6 +1549,36 @@
         "Coding": 7.91,
         "Razonamiento": 8.12
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.181,
+          "speed_score_avg": 9.929,
+          "latency_score_avg": 5.429,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.41
+        },
+        "Agentes": {
+          "quality_avg": 7.046,
+          "speed_score_avg": 9.517,
+          "latency_score_avg": 6.621,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.551
+        },
+        "Coding": {
+          "quality_avg": 7.933,
+          "speed_score_avg": 9.053,
+          "latency_score_avg": 6.421,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.395
+        },
+        "Razonamiento": {
+          "quality_avg": 8.273,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 5.067,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.314
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.47,
         "tool_calling": 7.37,
@@ -1132,6 +1608,7 @@
         "prompt_injection_es": 3.48
       },
       "quality_avg": 7.93,
+      "quality_ci95": 0.261,
       "cost_score_avg": 7.92,
       "speed_score_avg": 9.63,
       "latency_score_avg": 5.9,
@@ -1184,6 +1661,36 @@
         "Coding": 7.65,
         "Razonamiento": 7.95
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.518,
+          "speed_score_avg": 8.821,
+          "latency_score_avg": 2.5,
+          "cost_score_avg": 7.922,
+          "quality_ci95": 0.369
+        },
+        "Agentes": {
+          "quality_avg": 7.404,
+          "speed_score_avg": 8.276,
+          "latency_score_avg": 4.621,
+          "cost_score_avg": 7.98,
+          "quality_ci95": 0.547
+        },
+        "Coding": {
+          "quality_avg": 7.834,
+          "speed_score_avg": 8.105,
+          "latency_score_avg": 4.842,
+          "cost_score_avg": 7.988,
+          "quality_ci95": 0.507
+        },
+        "Razonamiento": {
+          "quality_avg": 8.339,
+          "speed_score_avg": 9.733,
+          "latency_score_avg": 2.733,
+          "cost_score_avg": 7.873,
+          "quality_ci95": 0.655
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.35,
         "tool_calling": 6.56,
@@ -1213,6 +1720,7 @@
         "prompt_injection_es": 3.74
       },
       "quality_avg": 8.08,
+      "quality_ci95": 0.263,
       "cost_score_avg": 7.75,
       "speed_score_avg": 8.69,
       "latency_score_avg": 3.69,
@@ -1264,6 +1772,36 @@
         "Coding": 7.36,
         "Razonamiento": 7.65
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.846,
+          "speed_score_avg": 4.323,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.098,
+          "quality_ci95": 0.494
+        },
+        "Agentes": {
+          "quality_avg": 7.78,
+          "speed_score_avg": 4.276,
+          "latency_score_avg": 1.241,
+          "cost_score_avg": 7.728,
+          "quality_ci95": 0.752
+        },
+        "Coding": {
+          "quality_avg": 8.196,
+          "speed_score_avg": 5.053,
+          "latency_score_avg": 1.737,
+          "cost_score_avg": 7.432,
+          "quality_ci95": 0.518
+        },
+        "Razonamiento": {
+          "quality_avg": 8.914,
+          "speed_score_avg": 4.571,
+          "latency_score_avg": 1.071,
+          "cost_score_avg": 6.586,
+          "quality_ci95": 0.446
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.13,
         "tool_calling": 5.0,
@@ -1294,6 +1832,7 @@
         "prompt_injection_es": 7.11
       },
       "quality_avg": 8.37,
+      "quality_ci95": 0.322,
       "cost_score_avg": 7.08,
       "speed_score_avg": 4.5,
       "latency_score_avg": 1.23,
@@ -1346,6 +1885,36 @@
         "Coding": 7.37,
         "Razonamiento": 7.9
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.611,
+          "speed_score_avg": 9.929,
+          "latency_score_avg": 1.143,
+          "cost_score_avg": 7.02,
+          "quality_ci95": 0.271
+        },
+        "Agentes": {
+          "quality_avg": 8.171,
+          "speed_score_avg": 9.793,
+          "latency_score_avg": 1.69,
+          "cost_score_avg": 7.287,
+          "quality_ci95": 0.482
+        },
+        "Coding": {
+          "quality_avg": 7.621,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 2.316,
+          "cost_score_avg": 7.368,
+          "quality_ci95": 0.736
+        },
+        "Razonamiento": {
+          "quality_avg": 8.601,
+          "speed_score_avg": 9.867,
+          "latency_score_avg": 1.2,
+          "cost_score_avg": 7.006,
+          "quality_ci95": 0.398
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.27,
         "tool_calling": 7.02,
@@ -1376,6 +1945,7 @@
         "prompt_injection_es": 3.15
       },
       "quality_avg": 8.19,
+      "quality_ci95": 0.26,
       "cost_score_avg": 6.94,
       "speed_score_avg": 9.88,
       "latency_score_avg": 1.61,
@@ -1427,6 +1997,36 @@
         "Coding": 7.62,
         "Razonamiento": 8.05
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.354,
+          "speed_score_avg": 8.75,
+          "latency_score_avg": 1.464,
+          "cost_score_avg": 7.922,
+          "quality_ci95": 0.401
+        },
+        "Agentes": {
+          "quality_avg": 7.544,
+          "speed_score_avg": 9.034,
+          "latency_score_avg": 2.034,
+          "cost_score_avg": 7.989,
+          "quality_ci95": 0.527
+        },
+        "Coding": {
+          "quality_avg": 7.873,
+          "speed_score_avg": 9.684,
+          "latency_score_avg": 2.632,
+          "cost_score_avg": 7.88,
+          "quality_ci95": 0.409
+        },
+        "Razonamiento": {
+          "quality_avg": 8.683,
+          "speed_score_avg": 9.333,
+          "latency_score_avg": 1.533,
+          "cost_score_avg": 7.695,
+          "quality_ci95": 0.282
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.87,
         "tool_calling": 7.26,
@@ -1455,6 +2055,7 @@
         "niah_es_lite": 6.14
       },
       "quality_avg": 8.13,
+      "quality_ci95": 0.24,
       "cost_score_avg": 7.68,
       "speed_score_avg": 9.0,
       "latency_score_avg": 1.94,
@@ -1502,6 +2103,36 @@
         "Coding": 7.74,
         "Razonamiento": 8.12
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.518,
+          "speed_score_avg": 9.5,
+          "latency_score_avg": 3.607,
+          "cost_score_avg": 7.686,
+          "quality_ci95": 0.349
+        },
+        "Agentes": {
+          "quality_avg": 7.092,
+          "speed_score_avg": 8.138,
+          "latency_score_avg": 5.31,
+          "cost_score_avg": 7.934,
+          "quality_ci95": 0.726
+        },
+        "Coding": {
+          "quality_avg": 7.931,
+          "speed_score_avg": 8.211,
+          "latency_score_avg": 5.263,
+          "cost_score_avg": 7.88,
+          "quality_ci95": 0.394
+        },
+        "Razonamiento": {
+          "quality_avg": 8.505,
+          "speed_score_avg": 9.867,
+          "latency_score_avg": 3.867,
+          "cost_score_avg": 7.575,
+          "quality_ci95": 0.644
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.59,
         "tool_calling": 7.02,
@@ -1532,6 +2163,7 @@
         "niah_es": 8.24
       },
       "quality_avg": 8.01,
+      "quality_ci95": 0.298,
       "cost_score_avg": 7.58,
       "speed_score_avg": 8.87,
       "latency_score_avg": 4.53,
@@ -1593,6 +2225,36 @@
         "Coding": 7.13,
         "Razonamiento": 7.15
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.916,
+          "speed_score_avg": 7.074,
+          "latency_score_avg": 1.407,
+          "cost_score_avg": 3.448,
+          "quality_ci95": 0.387
+        },
+        "Agentes": {
+          "quality_avg": 8.943,
+          "speed_score_avg": 7.333,
+          "latency_score_avg": 1.833,
+          "cost_score_avg": 3.251,
+          "quality_ci95": 0.788
+        },
+        "Coding": {
+          "quality_avg": 8.162,
+          "speed_score_avg": 5.947,
+          "latency_score_avg": 2.632,
+          "cost_score_avg": 5.137,
+          "quality_ci95": 0.53
+        },
+        "Razonamiento": {
+          "quality_avg": 8.508,
+          "speed_score_avg": 7.833,
+          "latency_score_avg": 1.583,
+          "cost_score_avg": 3.239,
+          "quality_ci95": 0.995
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.83,
         "task_management": 8.08,
@@ -1616,6 +2278,7 @@
         "agent_long_horizon": 6.47
       },
       "quality_avg": 8.55,
+      "quality_ci95": 0.351,
       "cost_score_avg": 3.44,
       "speed_score_avg": 7.07,
       "latency_score_avg": 1.78,
@@ -1663,6 +2326,36 @@
         "Coding": 7.49,
         "Razonamiento": 7.51
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.209,
+          "speed_score_avg": 7.714,
+          "latency_score_avg": 2.286,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.367
+        },
+        "Agentes": {
+          "quality_avg": 7.367,
+          "speed_score_avg": 7.667,
+          "latency_score_avg": 3.667,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.601
+        },
+        "Coding": {
+          "quality_avg": 7.769,
+          "speed_score_avg": 7.158,
+          "latency_score_avg": 4.158,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.479
+        },
+        "Razonamiento": {
+          "quality_avg": 7.919,
+          "speed_score_avg": 7.867,
+          "latency_score_avg": 2.4,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.37
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.21,
         "task_management": 7.79,
@@ -1690,6 +2383,7 @@
         "niah_es": 8.27
       },
       "quality_avg": 8.04,
+      "quality_ci95": 0.246,
       "cost_score_avg": 7.91,
       "speed_score_avg": 7.56,
       "latency_score_avg": 3.15,
@@ -1740,6 +2434,36 @@
         "Coding": 7.33,
         "Razonamiento": 7.64
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.581,
+          "speed_score_avg": 7.429,
+          "latency_score_avg": 1.893,
+          "cost_score_avg": 7.643,
+          "quality_ci95": 0.345
+        },
+        "Agentes": {
+          "quality_avg": 7.446,
+          "speed_score_avg": 6.345,
+          "latency_score_avg": 3.0,
+          "cost_score_avg": 7.882,
+          "quality_ci95": 0.63
+        },
+        "Coding": {
+          "quality_avg": 7.764,
+          "speed_score_avg": 6.105,
+          "latency_score_avg": 3.316,
+          "cost_score_avg": 7.896,
+          "quality_ci95": 0.508
+        },
+        "Razonamiento": {
+          "quality_avg": 8.381,
+          "speed_score_avg": 7.733,
+          "latency_score_avg": 1.533,
+          "cost_score_avg": 7.185,
+          "quality_ci95": 0.493
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.53,
         "tool_calling": 6.91,
@@ -1769,6 +2493,7 @@
         "niah_es": 8.41
       },
       "quality_avg": 8.11,
+      "quality_ci95": 0.272,
       "cost_score_avg": 7.51,
       "speed_score_avg": 6.91,
       "latency_score_avg": 2.54,
@@ -1820,6 +2545,36 @@
         "Agentes": 7.57,
         "Razonamiento": 7.57
       },
+      "dims_by_pillar": {
+        "Coding": {
+          "quality_avg": 7.15,
+          "speed_score_avg": 7.043,
+          "latency_score_avg": 1.522,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.883
+        },
+        "Contenido": {
+          "quality_avg": 8.416,
+          "speed_score_avg": 5.214,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.317
+        },
+        "Agentes": {
+          "quality_avg": 8.394,
+          "speed_score_avg": 5.379,
+          "latency_score_avg": 1.138,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.29
+        },
+        "Razonamiento": {
+          "quality_avg": 8.469,
+          "speed_score_avg": 4.8,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.454
+        }
+      },
       "score_by_suite": {
         "code_generation": 7.89,
         "content_generation": 7.85,
@@ -1847,6 +2602,7 @@
         "agent_long_horizon": 7.71
       },
       "quality_avg": 8.14,
+      "quality_ci95": 0.279,
       "cost_score_avg": 8.0,
       "speed_score_avg": 5.62,
       "latency_score_avg": 1.2,
@@ -1894,6 +2650,36 @@
         "Agentes": 6.88,
         "Razonamiento": 7.31
       },
+      "dims_by_pillar": {
+        "Coding": {
+          "quality_avg": 8.174,
+          "speed_score_avg": 6.696,
+          "latency_score_avg": 1.565,
+          "cost_score_avg": 6.465,
+          "quality_ci95": 0.413
+        },
+        "Contenido": {
+          "quality_avg": 8.463,
+          "speed_score_avg": 6.593,
+          "latency_score_avg": 1.037,
+          "cost_score_avg": 5.55,
+          "quality_ci95": 0.359
+        },
+        "Agentes": {
+          "quality_avg": 7.646,
+          "speed_score_avg": 5.483,
+          "latency_score_avg": 1.379,
+          "cost_score_avg": 6.754,
+          "quality_ci95": 0.495
+        },
+        "Razonamiento": {
+          "quality_avg": 8.381,
+          "speed_score_avg": 7.467,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 5.366,
+          "quality_ci95": 0.427
+        }
+      },
       "score_by_suite": {
         "code_generation": 7.83,
         "content_generation": 7.74,
@@ -1923,6 +2709,7 @@
         "prompt_injection_es": 3.31
       },
       "quality_avg": 8.28,
+      "quality_ci95": 0.228,
       "cost_score_avg": 5.9,
       "speed_score_avg": 6.5,
       "latency_score_avg": 1.27,
@@ -1977,6 +2764,36 @@
         "Coding": 7.23,
         "Razonamiento": 7.22
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.892,
+          "speed_score_avg": 7.786,
+          "latency_score_avg": 1.429,
+          "cost_score_avg": 3.677,
+          "quality_ci95": 0.348
+        },
+        "Agentes": {
+          "quality_avg": 7.99,
+          "speed_score_avg": 7.655,
+          "latency_score_avg": 1.897,
+          "cost_score_avg": 4.241,
+          "quality_ci95": 0.626
+        },
+        "Coding": {
+          "quality_avg": 8.17,
+          "speed_score_avg": 6.947,
+          "latency_score_avg": 3.263,
+          "cost_score_avg": 5.0,
+          "quality_ci95": 0.523
+        },
+        "Razonamiento": {
+          "quality_avg": 8.583,
+          "speed_score_avg": 7.867,
+          "latency_score_avg": 1.4,
+          "cost_score_avg": 3.464,
+          "quality_ci95": 0.838
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.63,
         "tool_calling": 5.19,
@@ -2007,6 +2824,7 @@
         "prompt_injection_es": 7.19
       },
       "quality_avg": 8.39,
+      "quality_ci95": 0.31,
       "cost_score_avg": 3.79,
       "speed_score_avg": 7.63,
       "latency_score_avg": 1.87,
@@ -2059,6 +2877,36 @@
         "Coding": 7.19,
         "Razonamiento": 7.65
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.575,
+          "speed_score_avg": 4.464,
+          "latency_score_avg": 1.429,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.328
+        },
+        "Agentes": {
+          "quality_avg": 7.372,
+          "speed_score_avg": 4.615,
+          "latency_score_avg": 2.346,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.598
+        },
+        "Coding": {
+          "quality_avg": 7.987,
+          "speed_score_avg": 2.944,
+          "latency_score_avg": 2.333,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.375
+        },
+        "Razonamiento": {
+          "quality_avg": 8.585,
+          "speed_score_avg": 4.8,
+          "latency_score_avg": 1.133,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.342
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.14,
         "tool_calling": 5.96,
@@ -2087,6 +2935,7 @@
         "niah_es": 6.55
       },
       "quality_avg": 8.14,
+      "quality_ci95": 0.269,
       "cost_score_avg": 7.91,
       "speed_score_avg": 3.96,
       "latency_score_avg": 1.75,
@@ -2134,6 +2983,36 @@
         "Coding": 7.29,
         "Razonamiento": 7.44
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.521,
+          "speed_score_avg": 4.0,
+          "latency_score_avg": 1.321,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.36
+        },
+        "Agentes": {
+          "quality_avg": 7.794,
+          "speed_score_avg": 4.0,
+          "latency_score_avg": 2.414,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.494
+        },
+        "Coding": {
+          "quality_avg": 7.987,
+          "speed_score_avg": 4.0,
+          "latency_score_avg": 2.684,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.467
+        },
+        "Razonamiento": {
+          "quality_avg": 8.345,
+          "speed_score_avg": 4.0,
+          "latency_score_avg": 1.267,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.682
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.98,
         "tool_calling": 6.84,
@@ -2163,6 +3042,7 @@
         "niah_es": 8.16
       },
       "quality_avg": 8.12,
+      "quality_ci95": 0.263,
       "cost_score_avg": 7.95,
       "speed_score_avg": 4.0,
       "latency_score_avg": 1.97,
@@ -2214,6 +3094,36 @@
         "Coding": 7.08,
         "Razonamiento": 7.37
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.564,
+          "speed_score_avg": 2.0,
+          "latency_score_avg": 1.036,
+          "cost_score_avg": 7.984,
+          "quality_ci95": 0.33
+        },
+        "Agentes": {
+          "quality_avg": 7.567,
+          "speed_score_avg": 2.0,
+          "latency_score_avg": 1.552,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.607
+        },
+        "Coding": {
+          "quality_avg": 8.0,
+          "speed_score_avg": 2.0,
+          "latency_score_avg": 1.789,
+          "cost_score_avg": 7.984,
+          "quality_ci95": 0.459
+        },
+        "Razonamiento": {
+          "quality_avg": 8.481,
+          "speed_score_avg": 2.0,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.433
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.83,
         "tool_calling": 6.55,
@@ -2242,6 +3152,7 @@
         "prompt_injection_es": 2.86
       },
       "quality_avg": 8.22,
+      "quality_ci95": 0.25,
       "cost_score_avg": 7.81,
       "speed_score_avg": 2.0,
       "latency_score_avg": 1.37,
@@ -2289,6 +3200,36 @@
         "Coding": 7.17,
         "Razonamiento": 7.66
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.496,
+          "speed_score_avg": 4.5,
+          "latency_score_avg": 1.385,
+          "cost_score_avg": 7.999,
+          "quality_ci95": 0.371
+        },
+        "Agentes": {
+          "quality_avg": 7.379,
+          "speed_score_avg": 3.621,
+          "latency_score_avg": 2.483,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.662
+        },
+        "Coding": {
+          "quality_avg": 7.926,
+          "speed_score_avg": 3.158,
+          "latency_score_avg": 2.421,
+          "cost_score_avg": 7.986,
+          "quality_ci95": 0.451
+        },
+        "Razonamiento": {
+          "quality_avg": 8.624,
+          "speed_score_avg": 4.167,
+          "latency_score_avg": 1.417,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.429
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.82,
         "tool_calling": 7.08,
@@ -2316,6 +3257,7 @@
         "agent_long_horizon": 7.65
       },
       "quality_avg": 8.14,
+      "quality_ci95": 0.279,
       "cost_score_avg": 7.82,
       "speed_score_avg": 3.68,
       "latency_score_avg": 1.89,
@@ -2363,6 +3305,36 @@
         "Coding": 6.94,
         "Razonamiento": 7.63
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.499,
+          "speed_score_avg": 2.037,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.993,
+          "quality_ci95": 0.363
+        },
+        "Agentes": {
+          "quality_avg": 7.859,
+          "speed_score_avg": 2.0,
+          "latency_score_avg": 1.034,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.344
+        },
+        "Coding": {
+          "quality_avg": 7.897,
+          "speed_score_avg": 1.895,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.991,
+          "quality_ci95": 0.445
+        },
+        "Razonamiento": {
+          "quality_avg": 8.872,
+          "speed_score_avg": 1.929,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.99,
+          "quality_ci95": 0.337
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.86,
         "tool_calling": 6.36,
@@ -2389,6 +3361,7 @@
         "translation": 7.03
       },
       "quality_avg": 8.22,
+      "quality_ci95": 0.208,
       "cost_score_avg": 7.99,
       "speed_score_avg": 1.98,
       "latency_score_avg": 1.01,
@@ -2436,6 +3409,36 @@
         "Coding": 7.16,
         "Razonamiento": 7.16
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.908,
+          "speed_score_avg": 6.75,
+          "latency_score_avg": 1.69,
+          "cost_score_avg": 3.619,
+          "quality_ci95": 0.349
+        },
+        "Agentes": {
+          "quality_avg": 7.503,
+          "speed_score_avg": 6.081,
+          "latency_score_avg": 2.724,
+          "cost_score_avg": 4.958,
+          "quality_ci95": 0.658
+        },
+        "Coding": {
+          "quality_avg": 7.979,
+          "speed_score_avg": 6.702,
+          "latency_score_avg": 3.772,
+          "cost_score_avg": 5.27,
+          "quality_ci95": 0.499
+        },
+        "Razonamiento": {
+          "quality_avg": 8.766,
+          "speed_score_avg": 6.222,
+          "latency_score_avg": 1.533,
+          "cost_score_avg": 2.936,
+          "quality_ci95": 0.428
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.82,
         "tool_calling": 5.03,
@@ -2465,6 +3468,7 @@
         "prompt_injection_es": 5.72
       },
       "quality_avg": 8.35,
+      "quality_ci95": 0.276,
       "cost_score_avg": 4.0,
       "speed_score_avg": 6.47,
       "latency_score_avg": 2.44,
@@ -2517,6 +3521,36 @@
         "Coding": 7.56,
         "Razonamiento": 7.63
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.557,
+          "speed_score_avg": 7.429,
+          "latency_score_avg": 1.857,
+          "cost_score_avg": 7.265,
+          "quality_ci95": 0.354
+        },
+        "Agentes": {
+          "quality_avg": 6.62,
+          "speed_score_avg": 6.897,
+          "latency_score_avg": 3.966,
+          "cost_score_avg": 7.823,
+          "quality_ci95": 1.037
+        },
+        "Coding": {
+          "quality_avg": 7.895,
+          "speed_score_avg": 7.579,
+          "latency_score_avg": 4.053,
+          "cost_score_avg": 7.718,
+          "quality_ci95": 0.483
+        },
+        "Razonamiento": {
+          "quality_avg": 8.425,
+          "speed_score_avg": 8.0,
+          "latency_score_avg": 1.467,
+          "cost_score_avg": 6.792,
+          "quality_ci95": 0.582
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.18,
         "tool_calling": 5.56,
@@ -2546,6 +3580,7 @@
         "niah_es_lite": 6.74
       },
       "quality_avg": 7.99,
+      "quality_ci95": 0.383,
       "cost_score_avg": 7.18,
       "speed_score_avg": 7.48,
       "latency_score_avg": 2.96,
@@ -2602,6 +3637,36 @@
         "Coding": 6.67,
         "Razonamiento": 7.28
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.578,
+          "speed_score_avg": 7.714,
+          "latency_score_avg": 2.821,
+          "cost_score_avg": 2.411,
+          "quality_ci95": 0.313
+        },
+        "Agentes": {
+          "quality_avg": 8.295,
+          "speed_score_avg": 7.414,
+          "latency_score_avg": 2.862,
+          "cost_score_avg": 3.189,
+          "quality_ci95": 0.466
+        },
+        "Coding": {
+          "quality_avg": 7.611,
+          "speed_score_avg": 6.0,
+          "latency_score_avg": 3.053,
+          "cost_score_avg": 4.393,
+          "quality_ci95": 0.611
+        },
+        "Razonamiento": {
+          "quality_avg": 8.905,
+          "speed_score_avg": 7.733,
+          "latency_score_avg": 1.667,
+          "cost_score_avg": 2.295,
+          "quality_ci95": 0.306
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.21,
         "tool_calling": 6.32,
@@ -2631,6 +3696,7 @@
         "prompt_injection_es": 5.61
       },
       "quality_avg": 8.38,
+      "quality_ci95": 0.219,
       "cost_score_avg": 2.79,
       "speed_score_avg": 7.29,
       "latency_score_avg": 2.75,
@@ -2683,6 +3749,36 @@
         "Coding": 8.1,
         "Razonamiento": 7.95
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.143,
+          "speed_score_avg": 9.8,
+          "latency_score_avg": 3.44,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.335
+        },
+        "Agentes": {
+          "quality_avg": 6.739,
+          "speed_score_avg": 7.978,
+          "latency_score_avg": 5.778,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.59
+        },
+        "Coding": {
+          "quality_avg": 8.293,
+          "speed_score_avg": 8.788,
+          "latency_score_avg": 5.758,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.412
+        },
+        "Razonamiento": {
+          "quality_avg": 8.296,
+          "speed_score_avg": 9.852,
+          "latency_score_avg": 2.704,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.293
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.77,
         "tool_calling": 5.67,
@@ -2711,6 +3807,7 @@
         "prompt_injection_es": 3.13
       },
       "quality_avg": 7.79,
+      "quality_ci95": 0.25,
       "cost_score_avg": 8.0,
       "speed_score_avg": 9.06,
       "latency_score_avg": 4.48,
@@ -2765,6 +3862,36 @@
         "Coding": 7.17,
         "Razonamiento": 7.2
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.321,
+          "speed_score_avg": 3.786,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.977,
+          "quality_ci95": 0.479
+        },
+        "Agentes": {
+          "quality_avg": 7.817,
+          "speed_score_avg": 3.862,
+          "latency_score_avg": 1.138,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.449
+        },
+        "Coding": {
+          "quality_avg": 7.971,
+          "speed_score_avg": 4.0,
+          "latency_score_avg": 1.158,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.45
+        },
+        "Razonamiento": {
+          "quality_avg": 8.075,
+          "speed_score_avg": 3.733,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.929,
+          "quality_ci95": 1.147
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.84,
         "tool_calling": 6.72,
@@ -2793,6 +3920,7 @@
         "prompt_injection_es": 3.04
       },
       "quality_avg": 8.12,
+      "quality_ci95": 0.283,
       "cost_score_avg": 7.89,
       "speed_score_avg": 3.78,
       "latency_score_avg": 1.1,
@@ -2840,6 +3968,36 @@
         "Coding": 7.21,
         "Razonamiento": 6.65
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.571,
+          "speed_score_avg": 6.8,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 5.507,
+          "quality_ci95": 0.275
+        },
+        "Agentes": {
+          "quality_avg": 7.933,
+          "speed_score_avg": 7.5,
+          "latency_score_avg": 1.389,
+          "cost_score_avg": 6.225,
+          "quality_ci95": 0.428
+        },
+        "Coding": {
+          "quality_avg": 8.237,
+          "speed_score_avg": 6.435,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 5.917,
+          "quality_ci95": 0.304
+        },
+        "Razonamiento": {
+          "quality_avg": 7.489,
+          "speed_score_avg": 6.632,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 5.545,
+          "quality_ci95": 0.743
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.64,
         "tool_calling": 6.57,
@@ -2870,6 +4028,7 @@
         "prompt_injection_es": 2.66
       },
       "quality_avg": 8.21,
+      "quality_ci95": 0.225,
       "cost_score_avg": 5.6,
       "speed_score_avg": 6.92,
       "latency_score_avg": 1.13,
@@ -2921,6 +4080,36 @@
         "Coding": 7.17,
         "Razonamiento": 7.36
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.311,
+          "speed_score_avg": 5.857,
+          "latency_score_avg": 1.536,
+          "cost_score_avg": 7.047,
+          "quality_ci95": 0.351
+        },
+        "Agentes": {
+          "quality_avg": 7.637,
+          "speed_score_avg": 5.833,
+          "latency_score_avg": 2.667,
+          "cost_score_avg": 7.74,
+          "quality_ci95": 0.602
+        },
+        "Coding": {
+          "quality_avg": 7.773,
+          "speed_score_avg": 5.053,
+          "latency_score_avg": 3.0,
+          "cost_score_avg": 7.538,
+          "quality_ci95": 0.398
+        },
+        "Razonamiento": {
+          "quality_avg": 8.234,
+          "speed_score_avg": 5.867,
+          "latency_score_avg": 1.267,
+          "cost_score_avg": 7.078,
+          "quality_ci95": 0.567
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.58,
         "task_management": 7.75,
@@ -2944,6 +4133,7 @@
         "translation": 7.96
       },
       "quality_avg": 8.05,
+      "quality_ci95": 0.234,
       "cost_score_avg": 7.29,
       "speed_score_avg": 5.65,
       "latency_score_avg": 2.04,
@@ -2991,6 +4181,36 @@
         "Coding": 7.73,
         "Razonamiento": 7.38
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.034,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 6.071,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.376
+        },
+        "Agentes": {
+          "quality_avg": 7.235,
+          "speed_score_avg": 9.923,
+          "latency_score_avg": 7.538,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.36
+        },
+        "Coding": {
+          "quality_avg": 7.456,
+          "speed_score_avg": 9.579,
+          "latency_score_avg": 7.895,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.634
+        },
+        "Razonamiento": {
+          "quality_avg": 7.107,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 6.0,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.891
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.54,
         "tool_calling": 7.82,
@@ -3019,6 +4239,7 @@
         "niah_es_lite": 6.47
       },
       "quality_avg": 7.61,
+      "quality_ci95": 0.263,
       "cost_score_avg": 7.99,
       "speed_score_avg": 9.82,
       "latency_score_avg": 6.88,
@@ -3066,6 +4287,36 @@
         "Coding": 7.28,
         "Razonamiento": 7.56
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.482,
+          "speed_score_avg": 7.1,
+          "latency_score_avg": 1.35,
+          "cost_score_avg": 7.101,
+          "quality_ci95": 0.496
+        },
+        "Agentes": {
+          "quality_avg": 7.22,
+          "speed_score_avg": 6.235,
+          "latency_score_avg": 4.0,
+          "cost_score_avg": 7.82,
+          "quality_ci95": 0.874
+        },
+        "Coding": {
+          "quality_avg": 7.878,
+          "speed_score_avg": 5.0,
+          "latency_score_avg": 3.105,
+          "cost_score_avg": 7.693,
+          "quality_ci95": 0.477
+        },
+        "Razonamiento": {
+          "quality_avg": 8.392,
+          "speed_score_avg": 6.667,
+          "latency_score_avg": 1.667,
+          "cost_score_avg": 7.097,
+          "quality_ci95": 0.659
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.99,
         "tool_calling": 6.34,
@@ -3086,6 +4337,7 @@
         "multi_turn": 7.29
       },
       "quality_avg": 7.98,
+      "quality_ci95": 0.338,
       "cost_score_avg": 7.45,
       "speed_score_avg": 6.22,
       "latency_score_avg": 2.56,
@@ -3133,6 +4385,36 @@
         "Coding": 7.63,
         "Razonamiento": 7.54
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.028,
+          "speed_score_avg": 6.32,
+          "latency_score_avg": 1.76,
+          "cost_score_avg": 7.967,
+          "quality_ci95": 0.363
+        },
+        "Agentes": {
+          "quality_avg": 6.875,
+          "speed_score_avg": 6.083,
+          "latency_score_avg": 3.417,
+          "cost_score_avg": 7.992,
+          "quality_ci95": 0.835
+        },
+        "Coding": {
+          "quality_avg": 8.238,
+          "speed_score_avg": 5.455,
+          "latency_score_avg": 3.515,
+          "cost_score_avg": 7.957,
+          "quality_ci95": 0.385
+        },
+        "Razonamiento": {
+          "quality_avg": 8.291,
+          "speed_score_avg": 6.074,
+          "latency_score_avg": 1.407,
+          "cost_score_avg": 7.862,
+          "quality_ci95": 0.305
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.32,
         "tool_calling": 5.49,
@@ -3160,6 +4442,7 @@
         "prompt_injection_es": 2.9
       },
       "quality_avg": 7.93,
+      "quality_ci95": 0.246,
       "cost_score_avg": 7.95,
       "speed_score_avg": 6.01,
       "latency_score_avg": 2.42,
@@ -3214,6 +4497,36 @@
         "Coding": 7.76,
         "Contenido": 7.74
       },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 8.222,
+          "speed_score_avg": 9.75,
+          "latency_score_avg": 2.167,
+          "cost_score_avg": 6.379,
+          "quality_ci95": 0.377
+        },
+        "Agentes": {
+          "quality_avg": 6.648,
+          "speed_score_avg": 7.576,
+          "latency_score_avg": 4.515,
+          "cost_score_avg": 7.765,
+          "quality_ci95": 0.754
+        },
+        "Coding": {
+          "quality_avg": 8.118,
+          "speed_score_avg": 7.724,
+          "latency_score_avg": 4.897,
+          "cost_score_avg": 7.528,
+          "quality_ci95": 0.449
+        },
+        "Contenido": {
+          "quality_avg": 8.24,
+          "speed_score_avg": 9.73,
+          "latency_score_avg": 2.676,
+          "cost_score_avg": 6.956,
+          "quality_ci95": 0.401
+        }
+      },
       "score_by_suite": {
         "deep_reasoning": 7.61,
         "customer_support": 5.62,
@@ -3241,6 +4554,7 @@
         "agent_long_horizon": 7.77
       },
       "quality_avg": 7.87,
+      "quality_ci95": 0.281,
       "cost_score_avg": 7.02,
       "speed_score_avg": 8.61,
       "latency_score_avg": 3.6,
@@ -3288,6 +4602,36 @@
         "Coding": 7.03,
         "Razonamiento": 7.34
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.582,
+          "speed_score_avg": 4.5,
+          "latency_score_avg": 1.214,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.292
+        },
+        "Agentes": {
+          "quality_avg": 7.541,
+          "speed_score_avg": 3.714,
+          "latency_score_avg": 2.179,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.666
+        },
+        "Coding": {
+          "quality_avg": 7.715,
+          "speed_score_avg": 3.579,
+          "latency_score_avg": 2.158,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.405
+        },
+        "Razonamiento": {
+          "quality_avg": 8.279,
+          "speed_score_avg": 3.533,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.619
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.97,
         "tool_calling": 6.89,
@@ -3314,6 +4658,7 @@
         "translation": 7.8
       },
       "quality_avg": 8.02,
+      "quality_ci95": 0.279,
       "cost_score_avg": 8.0,
       "speed_score_avg": 3.9,
       "latency_score_avg": 1.69,
@@ -3361,6 +4706,36 @@
         "Coding": 6.91,
         "Razonamiento": 7.33
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.339,
+          "speed_score_avg": 3.5,
+          "latency_score_avg": 1.214,
+          "cost_score_avg": 7.03,
+          "quality_ci95": 0.335
+        },
+        "Agentes": {
+          "quality_avg": 7.925,
+          "speed_score_avg": 4.207,
+          "latency_score_avg": 1.655,
+          "cost_score_avg": 7.644,
+          "quality_ci95": 0.447
+        },
+        "Coding": {
+          "quality_avg": 7.749,
+          "speed_score_avg": 3.053,
+          "latency_score_avg": 1.737,
+          "cost_score_avg": 7.5,
+          "quality_ci95": 0.463
+        },
+        "Razonamiento": {
+          "quality_avg": 8.578,
+          "speed_score_avg": 3.733,
+          "latency_score_avg": 1.2,
+          "cost_score_avg": 6.361,
+          "quality_ci95": 0.303
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.37,
         "tool_calling": 6.42,
@@ -3388,6 +4763,7 @@
         "agent_long_horizon": 6.25
       },
       "quality_avg": 8.07,
+      "quality_ci95": 0.246,
       "cost_score_avg": 7.07,
       "speed_score_avg": 3.71,
       "latency_score_avg": 1.47,
@@ -3435,6 +4811,36 @@
         "Coding": 7.39,
         "Razonamiento": 7.43
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.415,
+          "speed_score_avg": 7.32,
+          "latency_score_avg": 2.12,
+          "cost_score_avg": 7.492,
+          "quality_ci95": 0.415
+        },
+        "Agentes": {
+          "quality_avg": 7.304,
+          "speed_score_avg": 4.931,
+          "latency_score_avg": 2.724,
+          "cost_score_avg": 7.801,
+          "quality_ci95": 0.454
+        },
+        "Coding": {
+          "quality_avg": 7.878,
+          "speed_score_avg": 6.0,
+          "latency_score_avg": 3.474,
+          "cost_score_avg": 7.754,
+          "quality_ci95": 0.421
+        },
+        "Razonamiento": {
+          "quality_avg": 8.185,
+          "speed_score_avg": 6.533,
+          "latency_score_avg": 1.533,
+          "cost_score_avg": 7.334,
+          "quality_ci95": 0.513
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.09,
         "tool_calling": 5.71,
@@ -3460,6 +4866,7 @@
         "sales_outreach": 7.99
       },
       "quality_avg": 7.89,
+      "quality_ci95": 0.247,
       "cost_score_avg": 7.62,
       "speed_score_avg": 6.11,
       "latency_score_avg": 2.51,
@@ -3507,6 +4914,36 @@
         "Coding": 6.85,
         "Razonamiento": 7.05
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.627,
+          "speed_score_avg": 1.76,
+          "latency_score_avg": 1.04,
+          "cost_score_avg": 5.942,
+          "quality_ci95": 0.432
+        },
+        "Agentes": {
+          "quality_avg": 7.743,
+          "speed_score_avg": 2.5,
+          "latency_score_avg": 1.571,
+          "cost_score_avg": 6.577,
+          "quality_ci95": 0.57
+        },
+        "Coding": {
+          "quality_avg": 7.941,
+          "speed_score_avg": 2.0,
+          "latency_score_avg": 1.526,
+          "cost_score_avg": 6.851,
+          "quality_ci95": 0.348
+        },
+        "Razonamiento": {
+          "quality_avg": 8.552,
+          "speed_score_avg": 2.267,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 5.45,
+          "quality_ci95": 0.401
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.8,
         "tool_calling": 6.33,
@@ -3533,6 +4970,7 @@
         "translation": 7.56
       },
       "quality_avg": 8.18,
+      "quality_ci95": 0.258,
       "cost_score_avg": 6.26,
       "speed_score_avg": 2.14,
       "latency_score_avg": 1.31,
@@ -3580,6 +5018,36 @@
         "Coding": 7.54,
         "Razonamiento": 7.83
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.287,
+          "speed_score_avg": 9.929,
+          "latency_score_avg": 1.929,
+          "cost_score_avg": 7.802,
+          "quality_ci95": 0.294
+        },
+        "Agentes": {
+          "quality_avg": 6.976,
+          "speed_score_avg": 9.931,
+          "latency_score_avg": 3.069,
+          "cost_score_avg": 7.817,
+          "quality_ci95": 0.44
+        },
+        "Coding": {
+          "quality_avg": 7.679,
+          "speed_score_avg": 9.684,
+          "latency_score_avg": 3.421,
+          "cost_score_avg": 7.865,
+          "quality_ci95": 0.611
+        },
+        "Razonamiento": {
+          "quality_avg": 8.326,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 1.733,
+          "cost_score_avg": 7.492,
+          "quality_ci95": 0.448
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.04,
         "tool_calling": 6.62,
@@ -3606,6 +5074,7 @@
         "translation": 7.75
       },
       "quality_avg": 7.75,
+      "quality_ci95": 0.252,
       "cost_score_avg": 7.77,
       "speed_score_avg": 9.89,
       "latency_score_avg": 2.57,
@@ -3662,6 +5131,36 @@
         "Coding": 7.38,
         "Razonamiento": 7.57
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.577,
+          "speed_score_avg": 8.071,
+          "latency_score_avg": 1.643,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.311
+        },
+        "Agentes": {
+          "quality_avg": 6.299,
+          "speed_score_avg": 7.586,
+          "latency_score_avg": 3.069,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.813
+        },
+        "Coding": {
+          "quality_avg": 7.759,
+          "speed_score_avg": 7.474,
+          "latency_score_avg": 2.474,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.517
+        },
+        "Razonamiento": {
+          "quality_avg": 8.107,
+          "speed_score_avg": 8.0,
+          "latency_score_avg": 1.267,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.548
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.27,
         "tool_calling": 6.43,
@@ -3690,6 +5189,7 @@
         "niah_es_lite": 5.88
       },
       "quality_avg": 7.81,
+      "quality_ci95": 0.346,
       "cost_score_avg": 7.91,
       "speed_score_avg": 7.84,
       "latency_score_avg": 2.28,
@@ -3737,6 +5237,36 @@
         "Coding": 7.63,
         "Razonamiento": 7.71
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.415,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 5.429,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.476
+        },
+        "Agentes": {
+          "quality_avg": 6.174,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 7.643,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.691
+        },
+        "Coding": {
+          "quality_avg": 7.353,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 7.158,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.806
+        },
+        "Razonamiento": {
+          "quality_avg": 7.749,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 4.533,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.087
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.84,
         "tool_calling": 6.76,
@@ -3765,6 +5295,7 @@
         "niah_es_lite": 6.39
       },
       "quality_avg": 7.51,
+      "quality_ci95": 0.399,
       "cost_score_avg": 7.89,
       "speed_score_avg": 10.0,
       "latency_score_avg": 6.24,
@@ -3812,6 +5343,36 @@
         "Coding": 7.08,
         "Razonamiento": 7.34
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.492,
+          "speed_score_avg": 3.815,
+          "latency_score_avg": 1.037,
+          "cost_score_avg": 7.798,
+          "quality_ci95": 0.289
+        },
+        "Agentes": {
+          "quality_avg": 7.314,
+          "speed_score_avg": 3.552,
+          "latency_score_avg": 1.034,
+          "cost_score_avg": 7.868,
+          "quality_ci95": 0.532
+        },
+        "Coding": {
+          "quality_avg": 7.853,
+          "speed_score_avg": 4.0,
+          "latency_score_avg": 1.316,
+          "cost_score_avg": 7.909,
+          "quality_ci95": 0.414
+        },
+        "Razonamiento": {
+          "quality_avg": 8.407,
+          "speed_score_avg": 3.333,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.494,
+          "quality_ci95": 0.382
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.54,
         "tool_calling": 6.23,
@@ -3838,6 +5399,7 @@
         "translation": 7.12
       },
       "quality_avg": 7.96,
+      "quality_ci95": 0.244,
       "cost_score_avg": 7.79,
       "speed_score_avg": 3.69,
       "latency_score_avg": 1.09,
@@ -3885,6 +5447,36 @@
         "Coding": 7.5,
         "Razonamiento": 7.82
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.406,
+          "speed_score_avg": 8.357,
+          "latency_score_avg": 1.357,
+          "cost_score_avg": 7.982,
+          "quality_ci95": 0.335
+        },
+        "Agentes": {
+          "quality_avg": 6.454,
+          "speed_score_avg": 8.345,
+          "latency_score_avg": 1.552,
+          "cost_score_avg": 7.98,
+          "quality_ci95": 0.836
+        },
+        "Coding": {
+          "quality_avg": 7.906,
+          "speed_score_avg": 8.0,
+          "latency_score_avg": 2.263,
+          "cost_score_avg": 7.983,
+          "quality_ci95": 0.446
+        },
+        "Razonamiento": {
+          "quality_avg": 8.459,
+          "speed_score_avg": 8.267,
+          "latency_score_avg": 1.2,
+          "cost_score_avg": 7.948,
+          "quality_ci95": 0.248
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.87,
         "tool_calling": 6.17,
@@ -3912,6 +5504,7 @@
         "agent_long_horizon": 7.76
       },
       "quality_avg": 7.79,
+      "quality_ci95": 0.329,
       "cost_score_avg": 7.85,
       "speed_score_avg": 8.21,
       "latency_score_avg": 1.65,
@@ -3959,6 +5552,36 @@
         "Coding": 7.15,
         "Razonamiento": 7.61
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.486,
+          "speed_score_avg": 7.786,
+          "latency_score_avg": 1.071,
+          "cost_score_avg": 7.659,
+          "quality_ci95": 0.365
+        },
+        "Agentes": {
+          "quality_avg": 6.979,
+          "speed_score_avg": 8.0,
+          "latency_score_avg": 1.448,
+          "cost_score_avg": 7.814,
+          "quality_ci95": 0.529
+        },
+        "Coding": {
+          "quality_avg": 7.421,
+          "speed_score_avg": 8.0,
+          "latency_score_avg": 2.526,
+          "cost_score_avg": 7.78,
+          "quality_ci95": 0.712
+        },
+        "Razonamiento": {
+          "quality_avg": 8.31,
+          "speed_score_avg": 8.0,
+          "latency_score_avg": 1.133,
+          "cost_score_avg": 7.42,
+          "quality_ci95": 0.399
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.02,
         "tool_calling": 5.75,
@@ -3986,6 +5609,7 @@
         "agent_long_horizon": 7.5
       },
       "quality_avg": 7.83,
+      "quality_ci95": 0.317,
       "cost_score_avg": 7.5,
       "speed_score_avg": 7.92,
       "latency_score_avg": 1.52,
@@ -4033,6 +5657,36 @@
         "Coding": 7.06,
         "Razonamiento": 7.22
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.473,
+          "speed_score_avg": 7.929,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 3.811,
+          "quality_ci95": 0.362
+        },
+        "Agentes": {
+          "quality_avg": 7.34,
+          "speed_score_avg": 7.517,
+          "latency_score_avg": 1.345,
+          "cost_score_avg": 5.0,
+          "quality_ci95": 0.611
+        },
+        "Coding": {
+          "quality_avg": 8.04,
+          "speed_score_avg": 7.368,
+          "latency_score_avg": 1.368,
+          "cost_score_avg": 5.154,
+          "quality_ci95": 0.417
+        },
+        "Razonamiento": {
+          "quality_avg": 8.581,
+          "speed_score_avg": 7.867,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 3.642,
+          "quality_ci95": 0.45
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.5,
         "tool_calling": 5.55,
@@ -4061,6 +5715,7 @@
         "prompt_injection_es": 2.81
       },
       "quality_avg": 8.13,
+      "quality_ci95": 0.265,
       "cost_score_avg": 4.17,
       "speed_score_avg": 7.69,
       "latency_score_avg": 1.17,
@@ -4108,6 +5763,36 @@
         "Coding": 7.44,
         "Razonamiento": 7.77
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.479,
+          "speed_score_avg": 6.27,
+          "latency_score_avg": 1.486,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.349
+        },
+        "Agentes": {
+          "quality_avg": 6.625,
+          "speed_score_avg": 5.242,
+          "latency_score_avg": 2.848,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.872
+        },
+        "Coding": {
+          "quality_avg": 7.971,
+          "speed_score_avg": 5.684,
+          "latency_score_avg": 3.105,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.477
+        },
+        "Razonamiento": {
+          "quality_avg": 8.524,
+          "speed_score_avg": 6.8,
+          "latency_score_avg": 1.267,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.341
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.66,
         "tool_calling": 5.36,
@@ -4134,6 +5819,7 @@
         "translation": 7.29
       },
       "quality_avg": 7.8,
+      "quality_ci95": 0.357,
       "cost_score_avg": 8.0,
       "speed_score_avg": 5.91,
       "latency_score_avg": 2.18,
@@ -4181,6 +5867,36 @@
         "Coding": 7.4,
         "Razonamiento": 7.48
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.427,
+          "speed_score_avg": 7.071,
+          "latency_score_avg": 1.714,
+          "cost_score_avg": 6.973,
+          "quality_ci95": 0.354
+        },
+        "Agentes": {
+          "quality_avg": 6.999,
+          "speed_score_avg": 4.793,
+          "latency_score_avg": 2.897,
+          "cost_score_avg": 7.602,
+          "quality_ci95": 0.687
+        },
+        "Coding": {
+          "quality_avg": 7.859,
+          "speed_score_avg": 6.579,
+          "latency_score_avg": 3.632,
+          "cost_score_avg": 7.521,
+          "quality_ci95": 0.495
+        },
+        "Razonamiento": {
+          "quality_avg": 8.307,
+          "speed_score_avg": 7.2,
+          "latency_score_avg": 1.533,
+          "cost_score_avg": 6.76,
+          "quality_ci95": 0.525
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.89,
         "tool_calling": 6.6,
@@ -4207,6 +5923,7 @@
         "translation": 7.45
       },
       "quality_avg": 7.83,
+      "quality_ci95": 0.306,
       "cost_score_avg": 7.25,
       "speed_score_avg": 6.26,
       "latency_score_avg": 2.46,
@@ -4254,6 +5971,36 @@
         "Coding": 7.23,
         "Razonamiento": 7.71
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.92,
+          "speed_score_avg": 8.262,
+          "latency_score_avg": 1.214,
+          "cost_score_avg": 4.908,
+          "quality_ci95": 0.433
+        },
+        "Agentes": {
+          "quality_avg": 6.054,
+          "speed_score_avg": 8.161,
+          "latency_score_avg": 2.586,
+          "cost_score_avg": 5.785,
+          "quality_ci95": 0.898
+        },
+        "Coding": {
+          "quality_avg": 7.784,
+          "speed_score_avg": 9.316,
+          "latency_score_avg": 2.86,
+          "cost_score_avg": 5.796,
+          "quality_ci95": 0.865
+        },
+        "Razonamiento": {
+          "quality_avg": 8.971,
+          "speed_score_avg": 8.578,
+          "latency_score_avg": 1.378,
+          "cost_score_avg": 4.547,
+          "quality_ci95": 0.401
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.07,
         "tool_calling": 5.48,
@@ -4283,6 +6030,7 @@
         "prompt_injection_es": 3.86
       },
       "quality_avg": 7.97,
+      "quality_ci95": 0.417,
       "cost_score_avg": 5.05,
       "speed_score_avg": 8.51,
       "latency_score_avg": 2.04,
@@ -4335,6 +6083,36 @@
         "Coding": 6.94,
         "Razonamiento": 7.04
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.522,
+          "speed_score_avg": 2.036,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.664,
+          "quality_ci95": 0.377
+        },
+        "Agentes": {
+          "quality_avg": 7.404,
+          "speed_score_avg": 1.69,
+          "latency_score_avg": 1.034,
+          "cost_score_avg": 7.426,
+          "quality_ci95": 0.57
+        },
+        "Coding": {
+          "quality_avg": 8.034,
+          "speed_score_avg": 1.632,
+          "latency_score_avg": 1.158,
+          "cost_score_avg": 7.351,
+          "quality_ci95": 0.441
+        },
+        "Razonamiento": {
+          "quality_avg": 8.369,
+          "speed_score_avg": 2.2,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.268,
+          "quality_ci95": 0.739
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.64,
         "tool_calling": 5.64,
@@ -4361,6 +6139,7 @@
         "translation": 6.93
       },
       "quality_avg": 8.04,
+      "quality_ci95": 0.281,
       "cost_score_avg": 6.99,
       "speed_score_avg": 1.87,
       "latency_score_avg": 1.04,
@@ -4408,6 +6187,36 @@
         "Coding": 7.08,
         "Razonamiento": 7.15
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.483,
+          "speed_score_avg": 7.339,
+          "latency_score_avg": 1.286,
+          "cost_score_avg": 3.68,
+          "quality_ci95": 0.244
+        },
+        "Agentes": {
+          "quality_avg": 7.571,
+          "speed_score_avg": 7.586,
+          "latency_score_avg": 1.707,
+          "cost_score_avg": 4.04,
+          "quality_ci95": 0.405
+        },
+        "Coding": {
+          "quality_avg": 7.975,
+          "speed_score_avg": 6.684,
+          "latency_score_avg": 3.053,
+          "cost_score_avg": 5.121,
+          "quality_ci95": 0.281
+        },
+        "Razonamiento": {
+          "quality_avg": 8.451,
+          "speed_score_avg": 8.0,
+          "latency_score_avg": 1.4,
+          "cost_score_avg": 3.549,
+          "quality_ci95": 0.408
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.32,
         "tool_calling": 5.26,
@@ -4435,6 +6244,7 @@
         "niah_es": 5.29
       },
       "quality_avg": 8.08,
+      "quality_ci95": 0.183,
       "cost_score_avg": 4.07,
       "speed_score_avg": 7.39,
       "latency_score_avg": 1.81,
@@ -4482,6 +6292,36 @@
         "Coding": 7.03,
         "Razonamiento": 7.62
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.54,
+          "speed_score_avg": 4.37,
+          "latency_score_avg": 1.111,
+          "cost_score_avg": 7.97,
+          "quality_ci95": 0.406
+        },
+        "Agentes": {
+          "quality_avg": 6.799,
+          "speed_score_avg": 4.857,
+          "latency_score_avg": 1.071,
+          "cost_score_avg": 7.991,
+          "quality_ci95": 0.779
+        },
+        "Coding": {
+          "quality_avg": 7.836,
+          "speed_score_avg": 3.889,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.845,
+          "quality_ci95": 0.472
+        },
+        "Razonamiento": {
+          "quality_avg": 8.699,
+          "speed_score_avg": 4.0,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.682,
+          "quality_ci95": 0.304
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.77,
         "tool_calling": 6.18,
@@ -4508,6 +6348,7 @@
         "translation": 7.81
       },
       "quality_avg": 7.85,
+      "quality_ci95": 0.346,
       "cost_score_avg": 7.91,
       "speed_score_avg": 4.37,
       "latency_score_avg": 1.06,
@@ -4555,6 +6396,36 @@
         "Coding": 7.37,
         "Razonamiento": 7.87
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.583,
+          "speed_score_avg": 6.571,
+          "latency_score_avg": 1.821,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.323
+        },
+        "Agentes": {
+          "quality_avg": 5.902,
+          "speed_score_avg": 5.655,
+          "latency_score_avg": 3.586,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.15
+        },
+        "Coding": {
+          "quality_avg": 7.912,
+          "speed_score_avg": 5.579,
+          "latency_score_avg": 2.789,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.464
+        },
+        "Razonamiento": {
+          "quality_avg": 8.651,
+          "speed_score_avg": 6.933,
+          "latency_score_avg": 1.2,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.341
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.3,
         "tool_calling": 5.51,
@@ -4582,6 +6453,7 @@
         "agent_long_horizon": 7.8
       },
       "quality_avg": 7.72,
+      "quality_ci95": 0.437,
       "cost_score_avg": 7.87,
       "speed_score_avg": 6.25,
       "latency_score_avg": 2.46,
@@ -4629,6 +6501,36 @@
         "Coding": 7.42,
         "Razonamiento": 7.48
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.474,
+          "speed_score_avg": 7.643,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.363
+        },
+        "Agentes": {
+          "quality_avg": 6.747,
+          "speed_score_avg": 7.586,
+          "latency_score_avg": 1.276,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.742
+        },
+        "Coding": {
+          "quality_avg": 7.913,
+          "speed_score_avg": 7.263,
+          "latency_score_avg": 1.789,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.485
+        },
+        "Razonamiento": {
+          "quality_avg": 8.033,
+          "speed_score_avg": 7.733,
+          "latency_score_avg": 1.133,
+          "cost_score_avg": 7.952,
+          "quality_ci95": 1.127
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.14,
         "tool_calling": 6.38,
@@ -4655,6 +6557,7 @@
         "translation": 7.76
       },
       "quality_avg": 7.73,
+      "quality_ci95": 0.366,
       "cost_score_avg": 7.99,
       "speed_score_avg": 7.56,
       "latency_score_avg": 1.27,
@@ -4702,6 +6605,36 @@
         "Coding": 6.94,
         "Razonamiento": 7.29
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.299,
+          "speed_score_avg": 6.333,
+          "latency_score_avg": 1.308,
+          "cost_score_avg": 3.762,
+          "quality_ci95": 0.249
+        },
+        "Agentes": {
+          "quality_avg": 7.529,
+          "speed_score_avg": 6.784,
+          "latency_score_avg": 1.851,
+          "cost_score_avg": 4.337,
+          "quality_ci95": 0.382
+        },
+        "Coding": {
+          "quality_avg": 7.816,
+          "speed_score_avg": 5.923,
+          "latency_score_avg": 2.788,
+          "cost_score_avg": 5.407,
+          "quality_ci95": 0.446
+        },
+        "Razonamiento": {
+          "quality_avg": 8.709,
+          "speed_score_avg": 7.095,
+          "latency_score_avg": 1.429,
+          "cost_score_avg": 3.697,
+          "quality_ci95": 0.202
+        }
+      },
       "score_by_suite": {
         "content_generation": 6.85,
         "tool_calling": 5.31,
@@ -4728,6 +6661,7 @@
         "translation": 7.05
       },
       "quality_avg": 8.04,
+      "quality_ci95": 0.18,
       "cost_score_avg": 4.27,
       "speed_score_avg": 6.51,
       "latency_score_avg": 1.8,
@@ -4784,6 +6718,36 @@
         "Coding": 7.04,
         "Razonamiento": 6.78
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.391,
+          "speed_score_avg": 8.214,
+          "latency_score_avg": 1.464,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.484
+        },
+        "Agentes": {
+          "quality_avg": 7.064,
+          "speed_score_avg": 7.931,
+          "latency_score_avg": 2.034,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.725
+        },
+        "Coding": {
+          "quality_avg": 7.311,
+          "speed_score_avg": 7.579,
+          "latency_score_avg": 2.105,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.774
+        },
+        "Razonamiento": {
+          "quality_avg": 6.889,
+          "speed_score_avg": 9.067,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.762
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.26,
         "tool_calling": 6.22,
@@ -4812,6 +6776,7 @@
         "niah_es_lite": 7.06
       },
       "quality_avg": 7.68,
+      "quality_ci95": 0.416,
       "cost_score_avg": 7.94,
       "speed_score_avg": 8.17,
       "latency_score_avg": 1.74,
@@ -4859,6 +6824,36 @@
         "Coding": 7.39,
         "Razonamiento": 7.52
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.918,
+          "speed_score_avg": 5.0,
+          "latency_score_avg": 1.312,
+          "cost_score_avg": 7.861,
+          "quality_ci95": 0.396
+        },
+        "Agentes": {
+          "quality_avg": 6.808,
+          "speed_score_avg": 4.5,
+          "latency_score_avg": 2.562,
+          "cost_score_avg": 7.959,
+          "quality_ci95": 0.71
+        },
+        "Coding": {
+          "quality_avg": 8.006,
+          "speed_score_avg": 4.75,
+          "latency_score_avg": 3.0,
+          "cost_score_avg": 7.997,
+          "quality_ci95": 0.412
+        },
+        "Razonamiento": {
+          "quality_avg": 8.336,
+          "speed_score_avg": 5.385,
+          "latency_score_avg": 1.308,
+          "cost_score_avg": 7.897,
+          "quality_ci95": 0.544
+        }
+      },
       "score_by_suite": {
         "content_generation": 6.96,
         "tool_calling": 5.34,
@@ -4885,6 +6880,7 @@
         "translation": 7.65
       },
       "quality_avg": 7.76,
+      "quality_ci95": 0.272,
       "cost_score_avg": 7.92,
       "speed_score_avg": 4.9,
       "latency_score_avg": 1.99,
@@ -4932,6 +6928,36 @@
         "Coding": 7.9,
         "Razonamiento": 7.66
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.198,
+          "speed_score_avg": 8.72,
+          "latency_score_avg": 2.56,
+          "cost_score_avg": 5.91,
+          "quality_ci95": 0.362
+        },
+        "Agentes": {
+          "quality_avg": 5.87,
+          "speed_score_avg": 7.422,
+          "latency_score_avg": 4.889,
+          "cost_score_avg": 7.028,
+          "quality_ci95": 0.918
+        },
+        "Coding": {
+          "quality_avg": 8.388,
+          "speed_score_avg": 7.939,
+          "latency_score_avg": 5.121,
+          "cost_score_avg": 6.972,
+          "quality_ci95": 0.37
+        },
+        "Razonamiento": {
+          "quality_avg": 8.574,
+          "speed_score_avg": 8.815,
+          "latency_score_avg": 2.185,
+          "cost_score_avg": 5.531,
+          "quality_ci95": 0.369
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.55,
         "tool_calling": 5.72,
@@ -4961,6 +6987,7 @@
         "niah_es_1m": 5.35
       },
       "quality_avg": 7.72,
+      "quality_ci95": 0.341,
       "cost_score_avg": 6.23,
       "speed_score_avg": 8.13,
       "latency_score_avg": 3.71,
@@ -5008,6 +7035,36 @@
         "Coding": 6.86,
         "Razonamiento": 7.03
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.419,
+          "speed_score_avg": 1.556,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.759,
+          "quality_ci95": 0.364
+        },
+        "Agentes": {
+          "quality_avg": 7.378,
+          "speed_score_avg": 1.793,
+          "latency_score_avg": 1.172,
+          "cost_score_avg": 7.401,
+          "quality_ci95": 0.574
+        },
+        "Coding": {
+          "quality_avg": 7.905,
+          "speed_score_avg": 1.737,
+          "latency_score_avg": 1.211,
+          "cost_score_avg": 7.372,
+          "quality_ci95": 0.472
+        },
+        "Razonamiento": {
+          "quality_avg": 8.403,
+          "speed_score_avg": 1.867,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.236,
+          "quality_ci95": 0.591
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.37,
         "tool_calling": 5.1,
@@ -5034,6 +7091,7 @@
         "translation": 7.02
       },
       "quality_avg": 7.97,
+      "quality_ci95": 0.273,
       "cost_score_avg": 7.01,
       "speed_score_avg": 1.72,
       "latency_score_avg": 1.1,
@@ -5081,6 +7139,36 @@
         "Coding": 7.78,
         "Razonamiento": 7.61
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.293,
+          "speed_score_avg": 6.723,
+          "latency_score_avg": 1.447,
+          "cost_score_avg": 5.759,
+          "quality_ci95": 0.371
+        },
+        "Agentes": {
+          "quality_avg": 6.301,
+          "speed_score_avg": 6.156,
+          "latency_score_avg": 2.689,
+          "cost_score_avg": 6.495,
+          "quality_ci95": 0.951
+        },
+        "Coding": {
+          "quality_avg": 8.465,
+          "speed_score_avg": 6.97,
+          "latency_score_avg": 3.879,
+          "cost_score_avg": 6.951,
+          "quality_ci95": 0.423
+        },
+        "Razonamiento": {
+          "quality_avg": 8.691,
+          "speed_score_avg": 7.852,
+          "latency_score_avg": 1.519,
+          "cost_score_avg": 5.511,
+          "quality_ci95": 0.499
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.34,
         "tool_calling": 5.49,
@@ -5107,6 +7195,7 @@
         "translation": 7.96
       },
       "quality_avg": 7.81,
+      "quality_ci95": 0.365,
       "cost_score_avg": 6.19,
       "speed_score_avg": 6.81,
       "latency_score_avg": 2.36,
@@ -5154,6 +7243,36 @@
         "Coding": 7.2,
         "Razonamiento": 7.22
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.338,
+          "speed_score_avg": 6.92,
+          "latency_score_avg": 1.36,
+          "cost_score_avg": 4.422,
+          "quality_ci95": 0.357
+        },
+        "Agentes": {
+          "quality_avg": 7.045,
+          "speed_score_avg": 7.378,
+          "latency_score_avg": 2.311,
+          "cost_score_avg": 5.104,
+          "quality_ci95": 0.577
+        },
+        "Coding": {
+          "quality_avg": 7.929,
+          "speed_score_avg": 6.424,
+          "latency_score_avg": 3.485,
+          "cost_score_avg": 6.038,
+          "quality_ci95": 0.628
+        },
+        "Razonamiento": {
+          "quality_avg": 8.416,
+          "speed_score_avg": 7.556,
+          "latency_score_avg": 1.37,
+          "cost_score_avg": 4.378,
+          "quality_ci95": 0.442
+        }
+      },
       "score_by_suite": {
         "content_generation": 6.95,
         "tool_calling": 5.22,
@@ -5181,6 +7300,7 @@
         "niah_es_lite": 4.62
       },
       "quality_avg": 7.89,
+      "quality_ci95": 0.27,
       "cost_score_avg": 4.96,
       "speed_score_avg": 7.06,
       "latency_score_avg": 2.09,
@@ -5237,6 +7357,36 @@
         "Coding": 7.27,
         "Razonamiento": 6.83
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.119,
+          "speed_score_avg": 7.357,
+          "latency_score_avg": 1.286,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.802
+        },
+        "Agentes": {
+          "quality_avg": 7.219,
+          "speed_score_avg": 6.621,
+          "latency_score_avg": 1.483,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.565
+        },
+        "Coding": {
+          "quality_avg": 7.764,
+          "speed_score_avg": 6.526,
+          "latency_score_avg": 1.895,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.44
+        },
+        "Razonamiento": {
+          "quality_avg": 7.121,
+          "speed_score_avg": 7.6,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.462
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.35,
         "tool_calling": 6.11,
@@ -5264,6 +7414,7 @@
         "agent_long_horizon": 7.31
       },
       "quality_avg": 7.65,
+      "quality_ci95": 0.4,
       "cost_score_avg": 7.89,
       "speed_score_avg": 6.97,
       "latency_score_avg": 1.44,
@@ -5311,6 +7462,36 @@
         "Agentes": 6.53,
         "Coding": 7.0
       },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 8.276,
+          "speed_score_avg": 5.765,
+          "latency_score_avg": 1.176,
+          "cost_score_avg": 4.982,
+          "quality_ci95": 0.501
+        },
+        "Contenido": {
+          "quality_avg": 8.306,
+          "speed_score_avg": 5.929,
+          "latency_score_avg": 1.071,
+          "cost_score_avg": 5.247,
+          "quality_ci95": 0.377
+        },
+        "Agentes": {
+          "quality_avg": 7.304,
+          "speed_score_avg": 4.034,
+          "latency_score_avg": 1.276,
+          "cost_score_avg": 6.764,
+          "quality_ci95": 0.584
+        },
+        "Coding": {
+          "quality_avg": 7.829,
+          "speed_score_avg": 5.053,
+          "latency_score_avg": 1.737,
+          "cost_score_avg": 6.714,
+          "quality_ci95": 0.446
+        }
+      },
       "score_by_suite": {
         "reasoning": 7.66,
         "content_generation": 7.59,
@@ -5340,6 +7521,7 @@
         "prompt_injection_es": 3.64
       },
       "quality_avg": 7.85,
+      "quality_ci95": 0.289,
       "cost_score_avg": 5.7,
       "speed_score_avg": 5.34,
       "latency_score_avg": 1.33,
@@ -5391,6 +7573,36 @@
         "Coding": 7.78,
         "Razonamiento": 7.92
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.083,
+          "speed_score_avg": 6.26,
+          "latency_score_avg": 1.64,
+          "cost_score_avg": 7.972,
+          "quality_ci95": 0.395
+        },
+        "Agentes": {
+          "quality_avg": 5.789,
+          "speed_score_avg": 4.933,
+          "latency_score_avg": 3.044,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.894
+        },
+        "Coding": {
+          "quality_avg": 8.324,
+          "speed_score_avg": 6.182,
+          "latency_score_avg": 3.848,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.427
+        },
+        "Razonamiento": {
+          "quality_avg": 8.673,
+          "speed_score_avg": 6.889,
+          "latency_score_avg": 1.778,
+          "cost_score_avg": 7.989,
+          "quality_ci95": 0.376
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.22,
         "tool_calling": 5.66,
@@ -5417,6 +7629,7 @@
         "translation": 7.75
       },
       "quality_avg": 7.57,
+      "quality_ci95": 0.36,
       "cost_score_avg": 7.99,
       "speed_score_avg": 5.97,
       "latency_score_avg": 2.54,
@@ -5464,6 +7677,36 @@
         "Coding": 6.83,
         "Razonamiento": 6.59
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.525,
+          "speed_score_avg": 9.0,
+          "latency_score_avg": 1.321,
+          "cost_score_avg": 6.823,
+          "quality_ci95": 0.483
+        },
+        "Agentes": {
+          "quality_avg": 7.398,
+          "speed_score_avg": 8.207,
+          "latency_score_avg": 2.586,
+          "cost_score_avg": 7.533,
+          "quality_ci95": 0.624
+        },
+        "Coding": {
+          "quality_avg": 7.091,
+          "speed_score_avg": 8.316,
+          "latency_score_avg": 2.474,
+          "cost_score_avg": 7.032,
+          "quality_ci95": 0.943
+        },
+        "Razonamiento": {
+          "quality_avg": 6.889,
+          "speed_score_avg": 9.733,
+          "latency_score_avg": 1.133,
+          "cost_score_avg": 6.365,
+          "quality_ci95": 1.758
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.29,
         "tool_calling": 6.38,
@@ -5490,6 +7733,7 @@
         "translation": 7.9
       },
       "quality_avg": 7.6,
+      "quality_ci95": 0.449,
       "cost_score_avg": 7.02,
       "speed_score_avg": 8.73,
       "latency_score_avg": 1.93,
@@ -5537,6 +7781,36 @@
         "Coding": 7.52,
         "Razonamiento": 7.7
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.276,
+          "speed_score_avg": 4.88,
+          "latency_score_avg": 1.2,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.386
+        },
+        "Agentes": {
+          "quality_avg": 5.832,
+          "speed_score_avg": 4.2,
+          "latency_score_avg": 2.267,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.97
+        },
+        "Coding": {
+          "quality_avg": 8.362,
+          "speed_score_avg": 3.788,
+          "latency_score_avg": 2.394,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.41
+        },
+        "Razonamiento": {
+          "quality_avg": 8.667,
+          "speed_score_avg": 4.593,
+          "latency_score_avg": 1.222,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.443
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.21,
         "tool_calling": 5.42,
@@ -5563,6 +7837,7 @@
         "translation": 7.38
       },
       "quality_avg": 7.65,
+      "quality_ci95": 0.378,
       "cost_score_avg": 8.0,
       "speed_score_avg": 4.4,
       "latency_score_avg": 1.77,
@@ -5610,6 +7885,36 @@
         "Coding": 7.78,
         "Razonamiento": 7.82
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.108,
+          "speed_score_avg": 8.2,
+          "latency_score_avg": 2.5,
+          "cost_score_avg": 7.645,
+          "quality_ci95": 0.368
+        },
+        "Agentes": {
+          "quality_avg": 5.672,
+          "speed_score_avg": 7.2,
+          "latency_score_avg": 4.778,
+          "cost_score_avg": 7.942,
+          "quality_ci95": 0.887
+        },
+        "Coding": {
+          "quality_avg": 8.187,
+          "speed_score_avg": 6.97,
+          "latency_score_avg": 4.606,
+          "cost_score_avg": 7.896,
+          "quality_ci95": 0.392
+        },
+        "Razonamiento": {
+          "quality_avg": 8.502,
+          "speed_score_avg": 8.222,
+          "latency_score_avg": 1.963,
+          "cost_score_avg": 7.357,
+          "quality_ci95": 0.441
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.72,
         "tool_calling": 5.86,
@@ -5636,6 +7941,7 @@
         "translation": 7.99
       },
       "quality_avg": 7.49,
+      "quality_ci95": 0.357,
       "cost_score_avg": 7.73,
       "speed_score_avg": 7.65,
       "latency_score_avg": 3.52,
@@ -5692,6 +7998,36 @@
         "Coding": 6.72,
         "Razonamiento": 6.12
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.516,
+          "speed_score_avg": 6.429,
+          "latency_score_avg": 1.071,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.481
+        },
+        "Agentes": {
+          "quality_avg": 7.383,
+          "speed_score_avg": 6.207,
+          "latency_score_avg": 1.276,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.543
+        },
+        "Coding": {
+          "quality_avg": 7.021,
+          "speed_score_avg": 6.526,
+          "latency_score_avg": 1.526,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.099
+        },
+        "Razonamiento": {
+          "quality_avg": 6.139,
+          "speed_score_avg": 7.067,
+          "latency_score_avg": 1.2,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.899
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.11,
         "tool_calling": 5.7,
@@ -5719,6 +8055,7 @@
         "agent_long_horizon": 7.91
       },
       "quality_avg": 7.61,
+      "quality_ci95": 0.446,
       "cost_score_avg": 7.94,
       "speed_score_avg": 6.5,
       "latency_score_avg": 1.26,
@@ -5766,6 +8103,36 @@
         "Coding": 7.79,
         "Razonamiento": 7.64
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.615,
+          "speed_score_avg": 9.72,
+          "latency_score_avg": 2.68,
+          "cost_score_avg": 7.374,
+          "quality_ci95": 0.656
+        },
+        "Agentes": {
+          "quality_avg": 6.304,
+          "speed_score_avg": 8.578,
+          "latency_score_avg": 5.067,
+          "cost_score_avg": 7.891,
+          "quality_ci95": 0.781
+        },
+        "Coding": {
+          "quality_avg": 7.955,
+          "speed_score_avg": 8.242,
+          "latency_score_avg": 5.667,
+          "cost_score_avg": 7.863,
+          "quality_ci95": 0.573
+        },
+        "Razonamiento": {
+          "quality_avg": 7.997,
+          "speed_score_avg": 9.852,
+          "latency_score_avg": 2.778,
+          "cost_score_avg": 7.305,
+          "quality_ci95": 0.969
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.89,
         "tool_calling": 5.86,
@@ -5792,6 +8159,7 @@
         "translation": 7.68
       },
       "quality_avg": 7.37,
+      "quality_ci95": 0.39,
       "cost_score_avg": 7.62,
       "speed_score_avg": 9.1,
       "latency_score_avg": 4.03,
@@ -5839,6 +8207,36 @@
         "Coding": 6.96,
         "Razonamiento": 6.83
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.875,
+          "speed_score_avg": 6.286,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 5.431,
+          "quality_ci95": 0.4
+        },
+        "Agentes": {
+          "quality_avg": 7.389,
+          "speed_score_avg": 4.483,
+          "latency_score_avg": 1.138,
+          "cost_score_avg": 6.79,
+          "quality_ci95": 0.544
+        },
+        "Coding": {
+          "quality_avg": 7.88,
+          "speed_score_avg": 5.263,
+          "latency_score_avg": 1.263,
+          "cost_score_avg": 6.335,
+          "quality_ci95": 0.361
+        },
+        "Razonamiento": {
+          "quality_avg": 7.888,
+          "speed_score_avg": 6.133,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 5.123,
+          "quality_ci95": 1.125
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.4,
         "tool_calling": 5.4,
@@ -5865,6 +8263,7 @@
         "translation": 7.23
       },
       "quality_avg": 7.72,
+      "quality_ci95": 0.296,
       "cost_score_avg": 6.0,
       "speed_score_avg": 5.47,
       "latency_score_avg": 1.11,
@@ -5912,6 +8311,36 @@
         "Coding": 6.63,
         "Razonamiento": 7.0
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.303,
+          "speed_score_avg": 8.286,
+          "latency_score_avg": 1.286,
+          "cost_score_avg": 6.819,
+          "quality_ci95": 0.531
+        },
+        "Agentes": {
+          "quality_avg": 6.691,
+          "speed_score_avg": 7.793,
+          "latency_score_avg": 2.379,
+          "cost_score_avg": 7.521,
+          "quality_ci95": 0.739
+        },
+        "Coding": {
+          "quality_avg": 6.786,
+          "speed_score_avg": 8.737,
+          "latency_score_avg": 2.316,
+          "cost_score_avg": 7.018,
+          "quality_ci95": 0.96
+        },
+        "Razonamiento": {
+          "quality_avg": 7.527,
+          "speed_score_avg": 9.067,
+          "latency_score_avg": 1.133,
+          "cost_score_avg": 6.408,
+          "quality_ci95": 1.507
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.33,
         "tool_calling": 6.33,
@@ -5939,6 +8368,7 @@
         "agent_long_horizon": 7.75
       },
       "quality_avg": 7.52,
+      "quality_ci95": 0.422,
       "cost_score_avg": 6.76,
       "speed_score_avg": 8.41,
       "latency_score_avg": 1.84,
@@ -5986,6 +8416,36 @@
         "Coding": 7.6,
         "Razonamiento": 7.63
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.978,
+          "speed_score_avg": 7.216,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.259,
+          "quality_ci95": 0.365
+        },
+        "Agentes": {
+          "quality_avg": 5.52,
+          "speed_score_avg": 6.9,
+          "latency_score_avg": 1.1,
+          "cost_score_avg": 7.139,
+          "quality_ci95": 1.05
+        },
+        "Coding": {
+          "quality_avg": 8.48,
+          "speed_score_avg": 6.909,
+          "latency_score_avg": 1.212,
+          "cost_score_avg": 7.04,
+          "quality_ci95": 0.425
+        },
+        "Razonamiento": {
+          "quality_avg": 8.721,
+          "speed_score_avg": 6.846,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.24,
+          "quality_ci95": 0.428
+        }
+      },
       "score_by_suite": {
         "content_generation": 6.97,
         "tool_calling": 5.36,
@@ -6012,6 +8472,7 @@
         "translation": 7.19
       },
       "quality_avg": 7.56,
+      "quality_ci95": 0.386,
       "cost_score_avg": 6.66,
       "speed_score_avg": 7.0,
       "latency_score_avg": 1.07,
@@ -6059,6 +8520,36 @@
         "Coding": 6.58,
         "Razonamiento": 6.74
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.518,
+          "speed_score_avg": 7.357,
+          "latency_score_avg": 1.143,
+          "cost_score_avg": 6.334,
+          "quality_ci95": 0.483
+        },
+        "Agentes": {
+          "quality_avg": 6.958,
+          "speed_score_avg": 6.276,
+          "latency_score_avg": 1.552,
+          "cost_score_avg": 6.836,
+          "quality_ci95": 0.8
+        },
+        "Coding": {
+          "quality_avg": 7.003,
+          "speed_score_avg": 6.632,
+          "latency_score_avg": 2.158,
+          "cost_score_avg": 6.758,
+          "quality_ci95": 1.027
+        },
+        "Razonamiento": {
+          "quality_avg": 7.391,
+          "speed_score_avg": 7.733,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 6.02,
+          "quality_ci95": 1.494
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.15,
         "tool_calling": 5.41,
@@ -6085,6 +8576,7 @@
         "translation": 7.42
       },
       "quality_avg": 7.52,
+      "quality_ci95": 0.462,
       "cost_score_avg": 6.53,
       "speed_score_avg": 6.92,
       "latency_score_avg": 1.47,
@@ -6132,6 +8624,36 @@
         "Razonamiento": 6.63,
         "Coding": 6.83
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.136,
+          "speed_score_avg": 5.536,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 4.786,
+          "quality_ci95": 0.337
+        },
+        "Agentes": {
+          "quality_avg": 7.138,
+          "speed_score_avg": 4.431,
+          "latency_score_avg": 1.155,
+          "cost_score_avg": 6.146,
+          "quality_ci95": 0.474
+        },
+        "Razonamiento": {
+          "quality_avg": 7.755,
+          "speed_score_avg": 5.8,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 4.613,
+          "quality_ci95": 0.954
+        },
+        "Coding": {
+          "quality_avg": 7.798,
+          "speed_score_avg": 5.053,
+          "latency_score_avg": 1.237,
+          "cost_score_avg": 6.016,
+          "quality_ci95": 0.295
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.08,
         "tool_calling": 4.93,
@@ -6160,6 +8682,7 @@
         "prompt_injection_es": 2.8
       },
       "quality_avg": 7.68,
+      "quality_ci95": 0.256,
       "cost_score_avg": 5.45,
       "speed_score_avg": 5.13,
       "latency_score_avg": 1.1,
@@ -6220,6 +8743,36 @@
         "Coding": 6.25,
         "Razonamiento": 6.88
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.961,
+          "speed_score_avg": 8.75,
+          "latency_score_avg": 1.5,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.857
+        },
+        "Agentes": {
+          "quality_avg": 6.753,
+          "speed_score_avg": 8.552,
+          "latency_score_avg": 2.862,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.765
+        },
+        "Coding": {
+          "quality_avg": 5.984,
+          "speed_score_avg": 9.0,
+          "latency_score_avg": 2.444,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.247
+        },
+        "Razonamiento": {
+          "quality_avg": 6.913,
+          "speed_score_avg": 9.867,
+          "latency_score_avg": 1.4,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.759
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.37,
         "tool_calling": 6.31,
@@ -6247,6 +8800,7 @@
         "agent_long_horizon": 8.46
       },
       "quality_avg": 7.27,
+      "quality_ci95": 0.511,
       "cost_score_avg": 7.95,
       "speed_score_avg": 8.93,
       "latency_score_avg": 2.09,
@@ -6294,6 +8848,36 @@
         "Coding": 6.82,
         "Razonamiento": 6.33
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.502,
+          "speed_score_avg": 9.929,
+          "latency_score_avg": 1.214,
+          "cost_score_avg": 4.328,
+          "quality_ci95": 0.801
+        },
+        "Agentes": {
+          "quality_avg": 7.517,
+          "speed_score_avg": 9.448,
+          "latency_score_avg": 2.345,
+          "cost_score_avg": 5.21,
+          "quality_ci95": 0.664
+        },
+        "Coding": {
+          "quality_avg": 7.325,
+          "speed_score_avg": 9.684,
+          "latency_score_avg": 2.368,
+          "cost_score_avg": 5.229,
+          "quality_ci95": 0.716
+        },
+        "Razonamiento": {
+          "quality_avg": 6.899,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 1.333,
+          "cost_score_avg": 4.314,
+          "quality_ci95": 1.06
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.93,
         "tool_calling": 6.31,
@@ -6324,6 +8908,7 @@
         "prompt_injection_es": 3.03
       },
       "quality_avg": 7.55,
+      "quality_ci95": 0.397,
       "cost_score_avg": 4.54,
       "speed_score_avg": 9.69,
       "latency_score_avg": 1.85,
@@ -6378,6 +8963,36 @@
         "Contenido": 7.37,
         "Agentes": 5.81
       },
+      "dims_by_pillar": {
+        "Coding": {
+          "quality_avg": 7.763,
+          "speed_score_avg": 8.111,
+          "latency_score_avg": 2.778,
+          "cost_score_avg": 6.997,
+          "quality_ci95": 0.731
+        },
+        "Razonamiento": {
+          "quality_avg": 7.801,
+          "speed_score_avg": 9.294,
+          "latency_score_avg": 1.627,
+          "cost_score_avg": 5.936,
+          "quality_ci95": 0.879
+        },
+        "Contenido": {
+          "quality_avg": 7.946,
+          "speed_score_avg": 9.095,
+          "latency_score_avg": 2.024,
+          "cost_score_avg": 6.528,
+          "quality_ci95": 0.671
+        },
+        "Agentes": {
+          "quality_avg": 5.388,
+          "speed_score_avg": 8.506,
+          "latency_score_avg": 3.678,
+          "cost_score_avg": 7.531,
+          "quality_ci95": 0.865
+        }
+      },
       "score_by_suite": {
         "code_generation": 8.15,
         "reasoning": 8.05,
@@ -6407,6 +9022,7 @@
         "prompt_injection_es": 3.85
       },
       "quality_avg": 7.35,
+      "quality_ci95": 0.419,
       "cost_score_avg": 6.59,
       "speed_score_avg": 8.72,
       "latency_score_avg": 2.65,
@@ -6458,6 +9074,36 @@
         "Coding": 6.6,
         "Razonamiento": 6.6
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.13,
+          "speed_score_avg": 4.72,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.137,
+          "quality_ci95": 1.188
+        },
+        "Agentes": {
+          "quality_avg": 7.163,
+          "speed_score_avg": 4.667,
+          "latency_score_avg": 1.222,
+          "cost_score_avg": 7.736,
+          "quality_ci95": 0.982
+        },
+        "Coding": {
+          "quality_avg": 7.284,
+          "speed_score_avg": 3.786,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.59,
+          "quality_ci95": 1.05
+        },
+        "Razonamiento": {
+          "quality_avg": 7.228,
+          "speed_score_avg": 5.5,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.041,
+          "quality_ci95": 1.857
+        }
+      },
       "score_by_suite": {
         "content_generation": 6.68,
         "tool_calling": 6.17,
@@ -6485,6 +9131,7 @@
         "niah_es_lite": 4.18
       },
       "quality_avg": 7.47,
+      "quality_ci95": 0.565,
       "cost_score_avg": 7.06,
       "speed_score_avg": 4.75,
       "latency_score_avg": 1.11,
@@ -6532,6 +9179,36 @@
         "Coding": 6.68,
         "Razonamiento": 6.32
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.961,
+          "speed_score_avg": 7.786,
+          "latency_score_avg": 1.214,
+          "cost_score_avg": 6.279,
+          "quality_ci95": 0.777
+        },
+        "Agentes": {
+          "quality_avg": 7.261,
+          "speed_score_avg": 7.448,
+          "latency_score_avg": 1.862,
+          "cost_score_avg": 6.791,
+          "quality_ci95": 0.593
+        },
+        "Coding": {
+          "quality_avg": 7.103,
+          "speed_score_avg": 6.737,
+          "latency_score_avg": 2.263,
+          "cost_score_avg": 6.885,
+          "quality_ci95": 1.008
+        },
+        "Razonamiento": {
+          "quality_avg": 6.759,
+          "speed_score_avg": 8.0,
+          "latency_score_avg": 1.267,
+          "cost_score_avg": 5.943,
+          "quality_ci95": 1.735
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.0,
         "tool_calling": 6.04,
@@ -6558,6 +9235,7 @@
         "translation": 7.41
       },
       "quality_avg": 7.36,
+      "quality_ci95": 0.476,
       "cost_score_avg": 6.51,
       "speed_score_avg": 7.49,
       "latency_score_avg": 1.65,
@@ -6605,6 +9283,36 @@
         "Coding": 6.77,
         "Razonamiento": 7.01
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.281,
+          "speed_score_avg": 7.29,
+          "latency_score_avg": 1.903,
+          "cost_score_avg": 3.699,
+          "quality_ci95": 0.364
+        },
+        "Agentes": {
+          "quality_avg": 5.683,
+          "speed_score_avg": 6.828,
+          "latency_score_avg": 2.793,
+          "cost_score_avg": 4.761,
+          "quality_ci95": 1.206
+        },
+        "Coding": {
+          "quality_avg": 7.536,
+          "speed_score_avg": 6.947,
+          "latency_score_avg": 3.158,
+          "cost_score_avg": 4.941,
+          "quality_ci95": 0.622
+        },
+        "Razonamiento": {
+          "quality_avg": 8.428,
+          "speed_score_avg": 7.6,
+          "latency_score_avg": 1.6,
+          "cost_score_avg": 2.77,
+          "quality_ci95": 0.652
+        }
+      },
       "score_by_suite": {
         "translation": 6.67,
         "content_generation": 7.61,
@@ -6633,6 +9341,7 @@
         "niah_es_lite": 5.73
       },
       "quality_avg": 7.55,
+      "quality_ci95": 0.45,
       "cost_score_avg": 3.83,
       "speed_score_avg": 7.09,
       "latency_score_avg": 2.41,
@@ -6680,6 +9389,36 @@
         "Coding": 7.3,
         "Razonamiento": 6.19
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.771,
+          "speed_score_avg": 5.72,
+          "latency_score_avg": 1.04,
+          "cost_score_avg": 7.332,
+          "quality_ci95": 0.575
+        },
+        "Agentes": {
+          "quality_avg": 6.712,
+          "speed_score_avg": 5.111,
+          "latency_score_avg": 1.778,
+          "cost_score_avg": 7.876,
+          "quality_ci95": 0.661
+        },
+        "Coding": {
+          "quality_avg": 7.87,
+          "speed_score_avg": 6.424,
+          "latency_score_avg": 2.273,
+          "cost_score_avg": 7.599,
+          "quality_ci95": 0.575
+        },
+        "Razonamiento": {
+          "quality_avg": 6.551,
+          "speed_score_avg": 6.0,
+          "latency_score_avg": 1.074,
+          "cost_score_avg": 7.164,
+          "quality_ci95": 1.361
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.27,
         "tool_calling": 5.59,
@@ -6707,6 +9446,7 @@
         "agent_long_horizon": 6.85
       },
       "quality_avg": 7.3,
+      "quality_ci95": 0.376,
       "cost_score_avg": 7.4,
       "speed_score_avg": 5.75,
       "latency_score_avg": 1.54,
@@ -6754,6 +9494,36 @@
         "Coding": 6.47,
         "Razonamiento": 6.16
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.441,
+          "speed_score_avg": 8.857,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 3.919,
+          "quality_ci95": 0.523
+        },
+        "Agentes": {
+          "quality_avg": 7.406,
+          "speed_score_avg": 8.241,
+          "latency_score_avg": 1.448,
+          "cost_score_avg": 4.688,
+          "quality_ci95": 0.52
+        },
+        "Coding": {
+          "quality_avg": 7.075,
+          "speed_score_avg": 9.053,
+          "latency_score_avg": 1.632,
+          "cost_score_avg": 4.793,
+          "quality_ci95": 0.574
+        },
+        "Razonamiento": {
+          "quality_avg": 6.873,
+          "speed_score_avg": 9.067,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 3.946,
+          "quality_ci95": 0.876
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.4,
         "tool_calling": 6.04,
@@ -6782,6 +9552,7 @@
         "niah_es": 6.26
       },
       "quality_avg": 7.39,
+      "quality_ci95": 0.307,
       "cost_score_avg": 4.09,
       "speed_score_avg": 8.67,
       "latency_score_avg": 1.32,
@@ -6829,6 +9600,36 @@
         "Coding": 7.15,
         "Razonamiento": 7.29
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.413,
+          "speed_score_avg": 4.536,
+          "latency_score_avg": 1.107,
+          "cost_score_avg": 7.975,
+          "quality_ci95": 0.311
+        },
+        "Agentes": {
+          "quality_avg": 5.048,
+          "speed_score_avg": 4.276,
+          "latency_score_avg": 1.207,
+          "cost_score_avg": 7.95,
+          "quality_ci95": 1.344
+        },
+        "Coding": {
+          "quality_avg": 7.875,
+          "speed_score_avg": 4.105,
+          "latency_score_avg": 1.737,
+          "cost_score_avg": 7.989,
+          "quality_ci95": 0.443
+        },
+        "Razonamiento": {
+          "quality_avg": 8.066,
+          "speed_score_avg": 4.867,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 7.96,
+          "quality_ci95": 0.56
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.73,
         "tool_calling": 5.55,
@@ -6857,6 +9658,7 @@
         "prompt_injection_es": 2.59
       },
       "quality_avg": 7.17,
+      "quality_ci95": 0.548,
       "cost_score_avg": 7.97,
       "speed_score_avg": 4.42,
       "latency_score_avg": 1.26,
@@ -6908,6 +9710,36 @@
         "Contenido": 7.07,
         "Agentes": 6.09
       },
+      "dims_by_pillar": {
+        "Coding": {
+          "quality_avg": 7.428,
+          "speed_score_avg": 9.728,
+          "latency_score_avg": 2.284,
+          "cost_score_avg": 6.781,
+          "quality_ci95": 0.506
+        },
+        "Razonamiento": {
+          "quality_avg": 7.108,
+          "speed_score_avg": 9.048,
+          "latency_score_avg": 1.397,
+          "cost_score_avg": 6.361,
+          "quality_ci95": 1.152
+        },
+        "Contenido": {
+          "quality_avg": 7.531,
+          "speed_score_avg": 9.354,
+          "latency_score_avg": 1.531,
+          "cost_score_avg": 6.536,
+          "quality_ci95": 0.616
+        },
+        "Agentes": {
+          "quality_avg": 5.934,
+          "speed_score_avg": 9.222,
+          "latency_score_avg": 2.713,
+          "cost_score_avg": 6.923,
+          "quality_ci95": 0.754
+        }
+      },
       "score_by_suite": {
         "code_generation": 7.58,
         "reasoning": 7.44,
@@ -6936,6 +9768,7 @@
         "niah_es": 7.93
       },
       "quality_avg": 7.02,
+      "quality_ci95": 0.394,
       "cost_score_avg": 6.48,
       "speed_score_avg": 9.35,
       "latency_score_avg": 2.14,
@@ -6989,6 +9822,36 @@
         "Coding": 7.18,
         "Contenido": 6.89
       },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 7.155,
+          "speed_score_avg": 4.5,
+          "latency_score_avg": 1.708,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.569
+        },
+        "Agentes": {
+          "quality_avg": 5.361,
+          "speed_score_avg": 6.312,
+          "latency_score_avg": 4.844,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.063
+        },
+        "Coding": {
+          "quality_avg": 7.906,
+          "speed_score_avg": 3.276,
+          "latency_score_avg": 2.621,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.458
+        },
+        "Contenido": {
+          "quality_avg": 7.512,
+          "speed_score_avg": 4.351,
+          "latency_score_avg": 1.405,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.392
+        }
+      },
       "score_by_suite": {
         "deep_reasoning": 6.17,
         "customer_support": 3.65,
@@ -7015,6 +9878,7 @@
         "translation": 7.38
       },
       "quality_avg": 6.97,
+      "quality_ci95": 0.384,
       "cost_score_avg": 8.0,
       "speed_score_avg": 4.64,
       "latency_score_avg": 2.66,
@@ -7062,6 +9926,36 @@
         "Coding": 7.4,
         "Razonamiento": 6.71
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.339,
+          "speed_score_avg": 7.52,
+          "latency_score_avg": 1.7,
+          "cost_score_avg": 4.68,
+          "quality_ci95": 0.703
+        },
+        "Agentes": {
+          "quality_avg": 5.649,
+          "speed_score_avg": 6.65,
+          "latency_score_avg": 4.0,
+          "cost_score_avg": 5.884,
+          "quality_ci95": 0.92
+        },
+        "Coding": {
+          "quality_avg": 8.031,
+          "speed_score_avg": 6.788,
+          "latency_score_avg": 4.182,
+          "cost_score_avg": 6.358,
+          "quality_ci95": 0.414
+        },
+        "Razonamiento": {
+          "quality_avg": 7.636,
+          "speed_score_avg": 7.778,
+          "latency_score_avg": 1.593,
+          "cost_score_avg": 4.417,
+          "quality_ci95": 1.103
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.02,
         "tool_calling": 5.46,
@@ -7088,6 +9982,7 @@
         "translation": 7.55
       },
       "quality_avg": 7.09,
+      "quality_ci95": 0.429,
       "cost_score_avg": 5.32,
       "speed_score_avg": 7.17,
       "latency_score_avg": 2.84,
@@ -7135,6 +10030,36 @@
         "Coding": 7.03,
         "Razonamiento": 6.3
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 6.999,
+          "speed_score_avg": 9.107,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.383,
+          "quality_ci95": 0.245
+        },
+        "Agentes": {
+          "quality_avg": 6.823,
+          "speed_score_avg": 9.138,
+          "latency_score_avg": 1.19,
+          "cost_score_avg": 7.565,
+          "quality_ci95": 0.35
+        },
+        "Coding": {
+          "quality_avg": 7.308,
+          "speed_score_avg": 8.842,
+          "latency_score_avg": 1.474,
+          "cost_score_avg": 7.605,
+          "quality_ci95": 0.279
+        },
+        "Razonamiento": {
+          "quality_avg": 6.29,
+          "speed_score_avg": 9.333,
+          "latency_score_avg": 1.1,
+          "cost_score_avg": 7.459,
+          "quality_ci95": 0.517
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.23,
         "tool_calling": 6.44,
@@ -7161,6 +10086,7 @@
         "translation": 6.43
       },
       "quality_avg": 6.89,
+      "quality_ci95": 0.176,
       "cost_score_avg": 7.5,
       "speed_score_avg": 9.1,
       "latency_score_avg": 1.18,
@@ -7208,6 +10134,36 @@
         "Coding": 5.99,
         "Razonamiento": 4.98
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.24,
+          "speed_score_avg": 5.333,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.034,
+          "quality_ci95": 0.929
+        },
+        "Agentes": {
+          "quality_avg": 6.955,
+          "speed_score_avg": 5.172,
+          "latency_score_avg": 1.172,
+          "cost_score_avg": 6.977,
+          "quality_ci95": 0.855
+        },
+        "Coding": {
+          "quality_avg": 6.436,
+          "speed_score_avg": 4.842,
+          "latency_score_avg": 1.316,
+          "cost_score_avg": 6.845,
+          "quality_ci95": 1.204
+        },
+        "Razonamiento": {
+          "quality_avg": 5.133,
+          "speed_score_avg": 5.333,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.07,
+          "quality_ci95": 2.132
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.39,
         "tool_calling": 5.76,
@@ -7235,6 +10191,7 @@
         "agent_long_horizon": 7.55
       },
       "quality_avg": 6.94,
+      "quality_ci95": 0.563,
       "cost_score_avg": 6.25,
       "speed_score_avg": 5.08,
       "latency_score_avg": 1.11,
@@ -7282,6 +10239,36 @@
         "Coding": 5.85,
         "Razonamiento": 4.97
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.518,
+          "speed_score_avg": 5.857,
+          "latency_score_avg": 1.036,
+          "cost_score_avg": 6.112,
+          "quality_ci95": 1.076
+        },
+        "Agentes": {
+          "quality_avg": 6.915,
+          "speed_score_avg": 5.655,
+          "latency_score_avg": 1.621,
+          "cost_score_avg": 6.602,
+          "quality_ci95": 0.909
+        },
+        "Coding": {
+          "quality_avg": 6.184,
+          "speed_score_avg": 5.895,
+          "latency_score_avg": 1.421,
+          "cost_score_avg": 6.47,
+          "quality_ci95": 1.308
+        },
+        "Razonamiento": {
+          "quality_avg": 5.116,
+          "speed_score_avg": 6.0,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 5.766,
+          "quality_ci95": 2.122
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.0,
         "tool_calling": 5.55,
@@ -7309,6 +10296,7 @@
         "agent_long_horizon": 6.94
       },
       "quality_avg": 6.85,
+      "quality_ci95": 0.593,
       "cost_score_avg": 5.98,
       "speed_score_avg": 5.84,
       "latency_score_avg": 1.32,
@@ -7356,6 +10344,36 @@
         "Coding": 6.29,
         "Razonamiento": 5.01
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 6.788,
+          "speed_score_avg": 9.286,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 4.096,
+          "quality_ci95": 0.692
+        },
+        "Agentes": {
+          "quality_avg": 6.713,
+          "speed_score_avg": 8.621,
+          "latency_score_avg": 1.517,
+          "cost_score_avg": 4.841,
+          "quality_ci95": 0.726
+        },
+        "Coding": {
+          "quality_avg": 6.84,
+          "speed_score_avg": 8.632,
+          "latency_score_avg": 1.579,
+          "cost_score_avg": 4.936,
+          "quality_ci95": 0.583
+        },
+        "Razonamiento": {
+          "quality_avg": 5.262,
+          "speed_score_avg": 8.4,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 4.116,
+          "quality_ci95": 0.723
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.55,
         "task_management": 6.57,
@@ -7382,6 +10400,7 @@
         "tool_calling": 5.15
       },
       "quality_avg": 6.52,
+      "quality_ci95": 0.376,
       "cost_score_avg": 4.51,
       "speed_score_avg": 8.79,
       "latency_score_avg": 1.29,
@@ -7438,6 +10457,36 @@
         "Coding": 6.18,
         "Razonamiento": 4.13
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 4.788,
+          "speed_score_avg": 8.065,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 5.93,
+          "quality_ci95": 1.307
+        },
+        "Agentes": {
+          "quality_avg": 6.671,
+          "speed_score_avg": 6.793,
+          "latency_score_avg": 1.724,
+          "cost_score_avg": 6.842,
+          "quality_ci95": 1.013
+        },
+        "Coding": {
+          "quality_avg": 6.366,
+          "speed_score_avg": 8.421,
+          "latency_score_avg": 1.579,
+          "cost_score_avg": 6.462,
+          "quality_ci95": 1.328
+        },
+        "Razonamiento": {
+          "quality_avg": 3.626,
+          "speed_score_avg": 8.267,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 5.921,
+          "quality_ci95": 1.949
+        }
+      },
       "score_by_suite": {
         "translation": 3.14,
         "content_generation": 7.68,
@@ -7464,6 +10513,7 @@
         "sales_outreach": 3.86
       },
       "quality_avg": 5.5,
+      "quality_ci95": 0.711,
       "cost_score_avg": 6.32,
       "speed_score_avg": 7.78,
       "latency_score_avg": 1.35,
@@ -7520,6 +10570,36 @@
         "Coding": 5.04,
         "Razonamiento": 5.26
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 4.795,
+          "speed_score_avg": 8.5,
+          "latency_score_avg": 1.036,
+          "cost_score_avg": 5.984,
+          "quality_ci95": 1.28
+        },
+        "Agentes": {
+          "quality_avg": 5.974,
+          "speed_score_avg": 7.138,
+          "latency_score_avg": 1.793,
+          "cost_score_avg": 6.893,
+          "quality_ci95": 1.132
+        },
+        "Coding": {
+          "quality_avg": 4.935,
+          "speed_score_avg": 6.684,
+          "latency_score_avg": 1.211,
+          "cost_score_avg": 6.607,
+          "quality_ci95": 1.486
+        },
+        "Razonamiento": {
+          "quality_avg": 5.361,
+          "speed_score_avg": 7.467,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 5.765,
+          "quality_ci95": 1.967
+        }
+      },
       "score_by_suite": {
         "content_generation": 6.36,
         "tool_calling": 7.14,
@@ -7546,6 +10626,7 @@
         "translation": 4.3
       },
       "quality_avg": 5.29,
+      "quality_ci95": 0.705,
       "cost_score_avg": 6.37,
       "speed_score_avg": 7.52,
       "latency_score_avg": 1.32,
@@ -7593,6 +10674,36 @@
         "Coding": 5.68,
         "Razonamiento": 4.59
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 6.918,
+          "speed_score_avg": 3.821,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.494,
+          "quality_ci95": 1.091
+        },
+        "Agentes": {
+          "quality_avg": 6.828,
+          "speed_score_avg": 3.483,
+          "latency_score_avg": 1.138,
+          "cost_score_avg": 7.829,
+          "quality_ci95": 0.759
+        },
+        "Coding": {
+          "quality_avg": 5.889,
+          "speed_score_avg": 4.105,
+          "latency_score_avg": 1.368,
+          "cost_score_avg": 7.674,
+          "quality_ci95": 1.282
+        },
+        "Razonamiento": {
+          "quality_avg": 4.482,
+          "speed_score_avg": 3.6,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.379,
+          "quality_ci95": 1.925
+        }
+      },
       "score_by_suite": {
         "content_generation": 5.78,
         "tool_calling": 5.86,
@@ -7619,6 +10730,7 @@
         "translation": 5.45
       },
       "quality_avg": 6.27,
+      "quality_ci95": 0.614,
       "cost_score_avg": 7.62,
       "speed_score_avg": 3.74,
       "latency_score_avg": 1.12,
@@ -7675,6 +10787,36 @@
         "Coding": 8.75,
         "Razonamiento": 8.46
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 9.05,
+          "speed_score_avg": 6.462,
+          "latency_score_avg": 1.077,
+          "cost_score_avg": 7.269,
+          "quality_ci95": 0.568
+        },
+        "Agentes": {
+          "quality_avg": 6.843,
+          "speed_score_avg": 7.429,
+          "latency_score_avg": 3.286,
+          "cost_score_avg": 7.658,
+          "quality_ci95": 1.609
+        },
+        "Coding": {
+          "quality_avg": 10.0,
+          "speed_score_avg": 7.5,
+          "latency_score_avg": 1.25,
+          "cost_score_avg": 7.232,
+          "quality_ci95": 0.0
+        },
+        "Razonamiento": {
+          "quality_avg": 9.667,
+          "speed_score_avg": 8.0,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.799,
+          "quality_ci95": 0.533
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.83,
         "tool_calling": 5.64,
@@ -7687,6 +10829,7 @@
         "agent_long_horizon": 7.11
       },
       "quality_avg": 8.5,
+      "quality_ci95": 0.604,
       "cost_score_avg": 6.87,
       "speed_score_avg": 6.72,
       "latency_score_avg": 1.64,
@@ -7743,6 +10886,36 @@
         "Coding": 8.38,
         "Razonamiento": 8.7
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 9.158,
+          "speed_score_avg": 6.615,
+          "latency_score_avg": 1.077,
+          "cost_score_avg": 7.387,
+          "quality_ci95": 0.454
+        },
+        "Agentes": {
+          "quality_avg": 6.986,
+          "speed_score_avg": 7.143,
+          "latency_score_avg": 2.714,
+          "cost_score_avg": 7.658,
+          "quality_ci95": 1.703
+        },
+        "Coding": {
+          "quality_avg": 9.5,
+          "speed_score_avg": 8.0,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.058,
+          "quality_ci95": 0.49
+        },
+        "Razonamiento": {
+          "quality_avg": 10.0,
+          "speed_score_avg": 8.0,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.846,
+          "quality_ci95": 0.0
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.85,
         "tool_calling": 5.52,
@@ -7755,6 +10928,7 @@
         "agent_long_horizon": 6.77
       },
       "quality_avg": 8.36,
+      "quality_ci95": 0.669,
       "cost_score_avg": 6.84,
       "speed_score_avg": 6.97,
       "latency_score_avg": 1.69,
@@ -7800,6 +10974,22 @@
         "Contenido": 7.41,
         "Agentes": 4.85
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.457,
+          "speed_score_avg": 2.857,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.431
+        },
+        "Agentes": {
+          "quality_avg": 5.0,
+          "speed_score_avg": 1.0,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.0
+        }
+      },
       "score_by_suite": {
         "content_generation": 6.32,
         "tool_calling": 4.85,
@@ -7809,6 +10999,7 @@
         "prompt_injection_es": 2.71
       },
       "quality_avg": 8.42,
+      "quality_ci95": 0.793,
       "cost_score_avg": 7.14,
       "speed_score_avg": 3.27,
       "latency_score_avg": 1.5,
@@ -7860,6 +11051,36 @@
         "Coding": 7.23,
         "Razonamiento": 3.54
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.051,
+          "speed_score_avg": 6.0,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.498,
+          "quality_ci95": 0.989
+        },
+        "Agentes": {
+          "quality_avg": 4.67,
+          "speed_score_avg": 4.286,
+          "latency_score_avg": 1.143,
+          "cost_score_avg": 7.712,
+          "quality_ci95": 1.547
+        },
+        "Coding": {
+          "quality_avg": 7.95,
+          "speed_score_avg": 6.5,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.306,
+          "quality_ci95": 1.613
+        },
+        "Razonamiento": {
+          "quality_avg": 2.667,
+          "speed_score_avg": 6.667,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.328,
+          "quality_ci95": 4.268
+        }
+      },
       "score_by_suite": {
         "content_generation": 5.05,
         "tool_calling": 5.06,
@@ -7872,6 +11093,7 @@
         "agent_long_horizon": 6.83
       },
       "quality_avg": 6.59,
+      "quality_ci95": 0.836,
       "cost_score_avg": 6.92,
       "speed_score_avg": 5.85,
       "latency_score_avg": 1.15,
@@ -7923,11 +11145,13 @@
       "total_runs": 55,
       "score_global": 8.19,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {
         "agent_long_horizon": 8.19,
         "niah_es_lite": 4.07
       },
       "quality_avg": 9.85,
+      "quality_ci95": 0.279,
       "cost_score_avg": 5.7,
       "speed_score_avg": 4.2,
       "latency_score_avg": 1.7,
@@ -7969,10 +11193,12 @@
       "total_runs": 12,
       "score_global": 7.97,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {
         "agent_long_horizon": 7.97
       },
       "quality_avg": 9.0,
+      "quality_ci95": 0.6,
       "cost_score_avg": 4.88,
       "speed_score_avg": 9.5,
       "latency_score_avg": 3.0,
@@ -8014,10 +11240,12 @@
       "total_runs": 12,
       "score_global": 7.79,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {
         "agent_long_horizon": 7.79
       },
       "quality_avg": 8.92,
+      "quality_ci95": 0.782,
       "cost_score_avg": 4.26,
       "speed_score_avg": 8.83,
       "latency_score_avg": 3.25,
@@ -8059,10 +11287,12 @@
       "total_runs": 12,
       "score_global": 7.77,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {
         "agent_long_horizon": 7.77
       },
       "quality_avg": 8.79,
+      "quality_ci95": 0.86,
       "cost_score_avg": 6.07,
       "speed_score_avg": 8.0,
       "latency_score_avg": 1.42,
@@ -8104,10 +11334,12 @@
       "total_runs": 12,
       "score_global": 7.67,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {
         "agent_long_horizon": 7.67
       },
       "quality_avg": 9.12,
+      "quality_ci95": 0.644,
       "cost_score_avg": 5.42,
       "speed_score_avg": 5.17,
       "latency_score_avg": 1.08,
@@ -8158,11 +11390,13 @@
       "total_runs": 57,
       "score_global": 7.67,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {
         "agent_long_horizon": 7.67,
         "niah_es_lite": 4.47
       },
       "quality_avg": 8.54,
+      "quality_ci95": 1.246,
       "cost_score_avg": 7.21,
       "speed_score_avg": 6.17,
       "latency_score_avg": 1.92,
@@ -8207,11 +11441,28 @@
         "Contenido": 7.98,
         "Agentes": 6.71
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 9.42,
+          "speed_score_avg": 1.5,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.139
+        },
+        "Agentes": {
+          "quality_avg": 7.66,
+          "speed_score_avg": 1.0,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 8.0,
+          "quality_ci95": null
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.98,
         "tool_calling": 6.71
       },
       "quality_avg": 8.83,
+      "quality_ci95": 0.943,
       "cost_score_avg": 8.0,
       "speed_score_avg": 1.33,
       "latency_score_avg": 1.0,
@@ -8257,6 +11508,29 @@
         "Agentes": 6.89,
         "Coding": 8.67
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 9.25,
+          "speed_score_avg": 6.0,
+          "latency_score_avg": 1.75,
+          "cost_score_avg": 7.969,
+          "quality_ci95": 0.516
+        },
+        "Agentes": {
+          "quality_avg": 7.109,
+          "speed_score_avg": 5.429,
+          "latency_score_avg": 4.286,
+          "cost_score_avg": 7.89,
+          "quality_ci95": 1.312
+        },
+        "Coding": {
+          "quality_avg": 9.72,
+          "speed_score_avg": 8.0,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 7.931,
+          "quality_ci95": null
+        }
+      },
       "score_by_suite": {
         "content_generation": 8.25,
         "tool_calling": 5.94,
@@ -8264,6 +11538,7 @@
         "code_generation": 8.67
       },
       "quality_avg": 8.04,
+      "quality_ci95": 1.004,
       "cost_score_avg": 7.92,
       "speed_score_avg": 5.83,
       "latency_score_avg": 3.17,
@@ -8305,10 +11580,12 @@
       "total_runs": 12,
       "score_global": 7.33,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {
         "agent_long_horizon": 7.33
       },
       "quality_avg": 8.38,
+      "quality_ci95": 1.126,
       "cost_score_avg": 3.95,
       "speed_score_avg": 8.83,
       "latency_score_avg": 2.83,
@@ -8350,10 +11627,12 @@
       "total_runs": 12,
       "score_global": 7.09,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {
         "agent_long_horizon": 7.09
       },
       "quality_avg": 8.75,
+      "quality_ci95": 0.837,
       "cost_score_avg": 2.07,
       "speed_score_avg": 7.33,
       "latency_score_avg": 1.33,
@@ -8398,11 +11677,28 @@
         "Razonamiento": 7.12,
         "Contenido": 6.84
       },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 8.66,
+          "speed_score_avg": 2.0,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 5.541,
+          "quality_ci95": 0.416
+        },
+        "Contenido": {
+          "quality_avg": 8.24,
+          "speed_score_avg": 2.0,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 5.677,
+          "quality_ci95": 0.388
+        }
+      },
       "score_by_suite": {
         "reasoning": 7.12,
         "content_generation": 6.84
       },
       "quality_avg": 8.45,
+      "quality_ci95": 0.351,
       "cost_score_avg": 5.61,
       "speed_score_avg": 2.0,
       "latency_score_avg": 1.0,
@@ -8444,10 +11740,12 @@
       "total_runs": 12,
       "score_global": 6.97,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {
         "agent_long_horizon": 6.97
       },
       "quality_avg": 8.5,
+      "quality_ci95": 1.322,
       "cost_score_avg": 2.05,
       "speed_score_avg": 8.17,
       "latency_score_avg": 1.33,
@@ -8489,10 +11787,12 @@
       "total_runs": 12,
       "score_global": 6.96,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {
         "agent_long_horizon": 6.96
       },
       "quality_avg": 8.5,
+      "quality_ci95": 1.09,
       "cost_score_avg": 3.36,
       "speed_score_avg": 5.67,
       "latency_score_avg": 1.17,
@@ -8534,10 +11834,12 @@
       "total_runs": 12,
       "score_global": 6.83,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {
         "agent_long_horizon": 6.83
       },
       "quality_avg": 7.79,
+      "quality_ci95": 1.551,
       "cost_score_avg": 3.43,
       "speed_score_avg": 9.17,
       "latency_score_avg": 2.25,
@@ -8579,10 +11881,12 @@
       "total_runs": 12,
       "score_global": 6.73,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {
         "agent_long_horizon": 6.73
       },
       "quality_avg": 8.38,
+      "quality_ci95": 1.434,
       "cost_score_avg": 1.26,
       "speed_score_avg": 7.83,
       "latency_score_avg": 1.25,
@@ -8624,10 +11928,12 @@
       "total_runs": 12,
       "score_global": 6.6,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {
         "agent_long_horizon": 6.6
       },
       "quality_avg": 7.92,
+      "quality_ci95": 1.254,
       "cost_score_avg": 3.52,
       "speed_score_avg": 6.0,
       "latency_score_avg": 1.08,
@@ -8672,12 +11978,29 @@
         "Contenido": 7.83,
         "Agentes": 4.24
       },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 9.16,
+          "speed_score_avg": 4.0,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.943,
+          "quality_ci95": 0.641
+        },
+        "Agentes": {
+          "quality_avg": 3.73,
+          "speed_score_avg": 4.0,
+          "latency_score_avg": 2.833,
+          "cost_score_avg": 7.419,
+          "quality_ci95": 2.215
+        }
+      },
       "score_by_suite": {
         "content_generation": 7.83,
         "tool_calling": 5.68,
         "task_management": 1.34
       },
       "quality_avg": 5.9,
+      "quality_ci95": 2.133,
       "cost_score_avg": 7.23,
       "speed_score_avg": 4.0,
       "latency_score_avg": 2.1,
@@ -8719,7 +12042,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -8750,7 +12075,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -8781,7 +12108,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -8812,7 +12141,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -8843,7 +12174,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -8874,7 +12207,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -8905,7 +12240,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -8936,7 +12273,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -8967,7 +12306,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -8998,7 +12339,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9029,7 +12372,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9060,7 +12405,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9091,7 +12438,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9122,7 +12471,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9153,7 +12504,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9184,7 +12537,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9215,7 +12570,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9246,7 +12603,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9277,7 +12636,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9308,7 +12669,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9339,7 +12702,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9370,7 +12735,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9401,7 +12768,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9432,7 +12801,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9463,7 +12834,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9494,7 +12867,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9525,7 +12900,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9556,7 +12933,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9587,7 +12966,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
@@ -9618,7 +12999,9 @@
       "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
+      "dims_by_pillar": {},
       "score_by_suite": {},
+      "quality_ci95": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
