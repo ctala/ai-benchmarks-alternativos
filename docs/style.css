@@ -1175,3 +1175,50 @@ footer p { word-break: break-word; }
   .filters { padding: 2rem; }
   .checkboxes { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; gap: 1.25rem; }
 }
+
+/* ---- Veredicto: la respuesta corta, antes de la tabla -------------------
+   Las paginas terminaban en una tabla muda y diferian la decision al lector.
+   Esto la cierra: si N modelos empatan en calidad, la decision es de precio.
+   Colores: paleta de marca (verde = la eleccion, magenta = lo que te ahorras). */
+.verdict {
+  margin: 2rem 0;
+  padding: 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--green);
+  border-radius: 8px;
+}
+.verdict h2 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+.verdict-lead { color: var(--gray); margin-bottom: 1rem; line-height: 1.5; }
+.verdict-grid {
+  display: grid;
+  grid-template-columns: 1fr;   /* mobile-first: una columna */
+  gap: 0.75rem;
+}
+@media (min-width: 720px) {
+  .verdict-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+}
+.verdict-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.9rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.verdict-card strong { font-size: 1rem; color: var(--white); }
+.verdict-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray-dark);
+}
+.verdict-cost { font-size: 1.4rem; font-weight: 700; color: var(--cyan); }
+.verdict-note { font-size: 0.8rem; color: var(--gray); line-height: 1.4; }
+.verdict-best { border-color: var(--green); }
+.verdict-best .verdict-tag { color: var(--green); }
+.verdict-best .verdict-cost { color: var(--green); }
+.verdict-costly .verdict-tag { color: var(--magenta); }
+.verdict-costly .verdict-cost { color: var(--magenta); }
+.verdict-foot { margin-top: 0.9rem; font-size: 0.82rem; color: var(--gray-dark); line-height: 1.5; }

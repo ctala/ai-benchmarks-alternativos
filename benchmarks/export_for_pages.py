@@ -56,6 +56,15 @@ def sample_tier(runs: int) -> str:
         return "partial"
     return "preliminary"
 
+
+def _ci95(vals: list) -> float | None:
+    """Margen de error al 95% de la media (1.96 * SE). None si no hay muestra."""
+    import statistics as _s
+    vals = [v for v in vals if v is not None]
+    if len(vals) < 2:
+        return None
+    return round(1.96 * _s.pstdev(vals) / (len(vals) ** 0.5), 3)
+
 # Merge cloud + local models para que DGX y otros locales aparezcan en la calculadora
 MODELS = {**_CLOUD_MODELS, **OLLAMA_MODELS}
 
@@ -193,6 +202,14 @@ def aggregate_metrics(runs):
     # Score por pilar (general) Y por suite (incluye niah para visibilidad)
     by_pillar = defaultdict(list)
     by_suite = defaultdict(list)
+    # Dimensiones CRUDAS por pilar. Sin esto, score_by_pillar sale pre-horneado con
+    # los pesos fijos 70/15/7.5/7.5 y la calculadora no puede recomponerlo con los
+    # pesos del usuario: al elegir un pilar, los sliders se ignoraban en silencio
+    # (app.js getScore) y la UI mostraba un ranking que NO era el que el usuario pidio.
+    # Exportando las dimensiones crudas, "coding, y la latencia me da igual" pasa a
+    # ser expresable.
+    dims_by_pillar = defaultdict(lambda: defaultdict(list))
+    DIMS = {"quality_avg": "quality", "speed_score_avg": "speed", "latency_score_avg": "latency"}
     for r in runs:
         suite = r.get("suite", "")
         if not suite or r.get("_final_recalc") is None:
@@ -201,7 +218,22 @@ def aggregate_metrics(runs):
         pillar = SUITE_TO_PILLAR.get(suite)
         if pillar:
             by_pillar[pillar].append(r["_final_recalc"])
+            for out_key, raw_key in DIMS.items():
+                v = r.get(raw_key)
+                if v is not None:
+                    dims_by_pillar[pillar][out_key].append(v)
+            c = r.get("_cost_score_or") if r.get("_cost_score_or") is not None else r.get("cost_score")
+            if c is not None:
+                dims_by_pillar[pillar]["cost_score_avg"].append(c)
     pillars = {p: round(sum(s) / len(s), 2) for p, s in by_pillar.items() if s}
+    # {pilar: {quality_avg, cost_score_avg, speed_score_avg, latency_score_avg, quality_ci95}}
+    pillar_dims = {}
+    for p, dims in dims_by_pillar.items():
+        entry = {k: round(sum(v) / len(v), 3) for k, v in dims.items() if v}
+        # Margen de error de la calidad DENTRO del pilar → permite detectar empates
+        # estadisticos por pilar, no solo en el global.
+        entry["quality_ci95"] = _ci95(dims.get("quality_avg", []))
+        pillar_dims[p] = entry
     suites = {s: round(sum(v) / len(v), 2) for s, v in by_suite.items() if v}
     scores = finals_recalc  # mantener naming downstream
 
@@ -247,9 +279,20 @@ def aggregate_metrics(runs):
         "total_runs": len(runs),  # todos los runs exitosos incluyendo niah y seguridad
         "score_global": round(sum(scores) / len(scores), 2) if scores else None,
         "score_by_pillar": pillars,
+        # Dimensiones crudas por pilar -> permiten recomponer el score de un pilar
+        # con los pesos del usuario (ver getScore en app.js).
+        "dims_by_pillar": pillar_dims,
         "score_by_suite": suites,
         # Componentes raw promedio (permite mostrar columnas separadas + recalcular pesos en calculadora)
         "quality_avg": round(sum(qualities) / len(qualities), 2) if qualities else None,
+        # Incertidumbre de esa media. Sin esto, el ranking finge una precision que
+        # no tiene: la calidad de los modelos top esta apelotonada (std entre
+        # modelos ~0.60) y la dispersion DENTRO de un modelo es ~1.70. Publicar
+        # 8.47 vs 8.44 como si fueran distintos es ruido con decimales.
+        # quality_ci95 = margen de error de la media (1.96 * std / sqrt(n)).
+        # Dos modelos cuyos intervalos se solapan EMPATAN: no hay evidencia de
+        # que uno sea mejor. Lo consume el generador de bandas.
+        "quality_ci95": _ci95(qualities),
         "cost_score_avg": round(sum(cost_scores) / len(cost_scores), 2) if cost_scores else None,
         "speed_score_avg": round(sum(speed_scores) / len(speed_scores), 2) if speed_scores else None,
         "latency_score_avg": round(sum(latency_scores) / len(latency_scores), 2) if latency_scores else None,
@@ -429,7 +472,9 @@ def build_export():
             "total_runs": 0,
             "score_global": None,
             "score_by_pillar": {},
+            "dims_by_pillar": {},
             "score_by_suite": {},
+            "quality_ci95": None,
             "judge_score_avg": None,
             "tokens_per_second": None,
             "latency_avg_s": None,
@@ -499,6 +544,23 @@ def build_export():
         mu = _st.mean(vals) if vals else 0.0
         sd = _st.pstdev(vals) if len(vals) > 1 else 1.0
         norm_stats[col] = {"mean": round(mu, 4), "std": round(sd if sd > 0 else 1.0, 4)}
+    # norm_stats POR PILAR: para recomponer el score de un pilar con los pesos del
+    # usuario hay que z-scorear dentro de ese pilar (la media/std de calidad en
+    # Coding no es la misma que en Contenido). Se calculan sobre los `ranked`.
+    _pillar_names = sorted({p for m in _stable for p in (m.get("dims_by_pillar") or {})})
+    norm_stats_by_pillar = {}
+    for p in _pillar_names:
+        stats_p = {}
+        for col in Z_COLS:
+            vals = [m["dims_by_pillar"][p][col] for m in _stable
+                    if m.get("dims_by_pillar", {}).get(p, {}).get(col) is not None]
+            if len(vals) > 1:
+                mu = _st.mean(vals)
+                sd = _st.pstdev(vals)
+                stats_p[col] = {"mean": round(mu, 4), "std": round(sd if sd > 0 else 1.0, 4)}
+        if stats_p:
+            norm_stats_by_pillar[p] = stats_p
+
     _wmap = {"quality_avg": DEFAULT_WEIGHTS["quality"], "cost_score_avg": DEFAULT_WEIGHTS["cost"],
              "speed_score_avg": DEFAULT_WEIGHTS["speed"], "latency_score_avg": DEFAULT_WEIGHTS["latency"]}
     for m in models_export:
@@ -527,6 +589,9 @@ def build_export():
         "default_weights": DEFAULT_WEIGHTS,  # los pesos aplicados en score_global
         "score_method": "zscore_v2.9",  # score_global = rescale(Σ w·z(dim)); ver norm_stats
         "norm_stats": norm_stats,  # mean/std por dimensión (para replicar el z-score en la calculadora)
+        # mean/std por dimensión DENTRO de cada pilar → la calculadora puede
+        # componer "pilar X con MIS pesos" en vez de servir un score pre-horneado.
+        "norm_stats_by_pillar": norm_stats_by_pillar,
         "score_rescale": {"offset": 5.5, "slope": 3.3},  # display = clamp(offset + slope·z_comp, 0, 10)
         "subscriptions_catalog": SUBSCRIPTIONS,  # catálogo completo de suscripciones disponibles
         "models": models_export,

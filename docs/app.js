@@ -185,7 +185,43 @@ async function load() {
     state.data.generated_at?.replace("T", " ") || "—";
 
   bindFilters();
+  applyUrlContext();   // el usuario llega con un caso de uso ya declarado: respetarlo
   render();
+}
+
+// Lee ?preset= y ?calls= de la URL.
+//
+// Las páginas pSEO mandan al usuario acá con su caso de uso ("agentes", "coding")
+// ya elegido. Antes el CTA era href="/" a secas y esto ni se leía: aterrizaba en
+// "score global" con el presupuesto default y tenía que reconstruir a mano el caso
+// que YA había declarado al hacer click. Ahora la calculadora abre configurada y
+// scrolleada a los resultados.
+function applyUrlContext() {
+  const p = new URLSearchParams(location.search);
+  const preset = p.get("preset");
+  const calls = parseInt(p.get("calls"), 10);
+  let applied = false;
+
+  if (preset) {
+    const btn = document.querySelector(`.preset-usecase-btn[data-preset="${CSS.escape(preset)}"]`)
+             || document.querySelector(`.preset-budget-btn[data-preset="${CSS.escape(preset)}"]`);
+    if (btn) { btn.click(); applied = true; }
+  }
+  if (Number.isFinite(calls) && calls > 0) {
+    const el = document.getElementById("calls");
+    if (el) {
+      el.value = calls;
+      el.dispatchEvent(new Event("input", { bubbles: true }));
+      applied = true;
+    }
+  }
+  if (applied) {
+    // Sin esto el usuario clickea y "no pasa nada": la tabla se re-renderiza
+    // fuera de pantalla, debajo de los filtros.
+    requestAnimationFrame(() => {
+      document.getElementById("results")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
 }
 
 // ============================================================
@@ -201,10 +237,29 @@ async function load() {
 // If any required dimension is missing, falls back to precomputed score_global.
 // ============================================================
 
-function computeZScore(model, weightsRaw) {
-  const ns = state.data.norm_stats;
+// Compone el score con los pesos del usuario.
+//
+// `pillar` (opcional): si viene, compone DENTRO de ese pilar usando las
+// dimensiones crudas del pilar (dims_by_pillar) y sus norm_stats propias.
+//
+// Antes esto no existía y getScore() devolvía score_by_pillar, que viene
+// pre-horneado con los pesos fijos 70/15/7.5/7.5. Resultado: al elegir un pilar
+// los sliders del usuario se ignoraban en silencio — la UI movía los pesos y
+// mostraba un ranking calculado con OTROS pesos. Con esto, "coding, y la
+// latencia me da igual" por fin es expresable.
+function computeZScore(model, weightsRaw, pillar) {
   const rs = state.data.score_rescale;
-  if (!ns || !rs) return model.score_global;
+  if (!rs) return model.score_global;
+
+  const ns = pillar
+    ? (state.data.norm_stats_by_pillar || {})[pillar]
+    : state.data.norm_stats;
+  const src = pillar
+    ? (model.dims_by_pillar || {})[pillar]
+    : model;
+
+  // Sin datos del pilar para este modelo → caemos al score pre-horneado.
+  if (!ns || !src) return pillar ? (model.score_by_pillar?.[pillar] ?? null) : model.score_global;
 
   const dims = [
     { col: "quality_avg",       w: weightsRaw.quality  || 0 },
@@ -213,19 +268,19 @@ function computeZScore(model, weightsRaw) {
     { col: "latency_score_avg", w: weightsRaw.latency  || 0 },
   ];
 
-  // Verify all dimensions are available for this model
+  const fallback = pillar ? (model.score_by_pillar?.[pillar] ?? null) : model.score_global;
   for (const d of dims) {
-    if (model[d.col] == null || !ns[d.col]) return model.score_global;
+    if (src[d.col] == null || !ns[d.col]) return fallback;
   }
 
   // Normalize weights to sum=1
   const total = dims.reduce((s, d) => s + d.w, 0);
-  if (total <= 0) return model.score_global;
+  if (total <= 0) return fallback;
 
   let z_comp = 0;
   for (const d of dims) {
     const stat = ns[d.col];
-    const z = (model[d.col] - stat.mean) / stat.std;
+    const z = (src[d.col] - stat.mean) / stat.std;
     z_comp += (d.w / total) * z;
   }
 
@@ -387,10 +442,11 @@ function getScore(model, taskKey, subtaskKey) {
   if (subtaskKey) {
     return model.score_by_suite?.[subtaskKey] ?? null;
   }
-  // Score global: recomputar con z-score v2.9 y los pesos del usuario.
-  // computeZScore() hace fallback a score_global precomputado si faltan dimensiones.
+  // Score global: recomputar con z-score y los pesos del usuario.
   if (taskKey === "score_global") return computeZScore(model, state.weights);
-  return model.score_by_pillar?.[taskKey] ?? null;
+  // Pilar: TAMBIÉN se recompone con los pesos del usuario. Antes se devolvía
+  // score_by_pillar (pesos fijos) y los sliders quedaban de adorno.
+  return computeZScore(model, state.weights, taskKey);
 }
 
 function updateSubtaskOptions() {
