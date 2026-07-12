@@ -353,11 +353,55 @@ def family(models, cfg):
         if sum((m.get("score_by_pillar") or {}).get(p) or 0 for p in PILLARS) <= 0:
             continue
         out.append(m)
-    return sorted(out, key=lambda m: -(m.get("score_global") or 0))
+    # Ordena por CALIDAD MEDIA en los 4 pilares, no por score_global.
+    # Con el compuesto, /grok-vs-chatgpt/ ponia Grok 4.1 Fast arriba de Grok 4.5:
+    # el barato encabezaba una pagina que promete decir cual es MEJOR.
+    def _cap(m):
+        vals = [pillar(m, p) for p in PILLARS]
+        vals = [v for v in vals if v > 0]
+        return sum(vals) / len(vals) if vals else 0
+    return sorted(out, key=lambda m: -_cap(m))
 
 
 def pillar(m, name):
-    return (m.get("score_by_pillar") or {}).get(name) or 0
+    """CALIDAD del modelo en ese pilar. No el compuesto con costo y velocidad.
+
+    Una comparacion "X vs Y" responde CUAL ES MEJOR. Mostrar el compuesto (que
+    incluye costo) responde otra cosa y confunde: en /grok-vs-chatgpt/ el compuesto
+    ponia a Grok 4.1 Fast (barato) por encima de Grok 4.5 (el nuevo), como si fuera
+    mejor modelo. Era mas barato, no mejor.
+
+    El costo no se pierde: va en su propia columna, y el funnel cierra con "de los
+    que empatan en capacidad, el mas barato es X". Primero cual es mejor; despues
+    cuanto cuesta.
+    """
+    d = (m.get("dims_by_pillar") or {}).get(name) or {}
+    q = d.get("quality_avg")
+    if q is not None:
+        return q
+    return (m.get("score_by_pillar") or {}).get(name) or 0  # fallback: modelos viejos sin dims
+
+
+def versions_compared(a_name, b_name, A, B):
+    """Dice EXACTAMENTE que versiones entran de cada lado.
+
+    "Grok vs ChatGPT" agrupa 4 modelos de un lado y 8 del otro. Sin decir cuales, la
+    comparacion es opaca: el lector no sabe si el "Grok" que mira es el 4.5 nuevo o el
+    4.3 viejo (que saca 2.89). Y cambia la conclusion.
+
+    Tambien fija la fecha de corte: los modelos salen todo el tiempo, y una comparacion
+    de familias sin lista de versiones envejece sin que se note.
+    """
+    def names(arr):
+        return ", ".join(f"<strong>{esc(m['name'])}</strong>" for m in arr[:6]) or "—"
+
+    return f"""<p class="versions">
+    <span class="versions-label">Versiones que entran en esta comparación</span>
+    <span class="versions-row">{esc(a_name)}: {names(A)}{' <em>y ' + str(len(A) - 6) + ' más</em>' if len(A) > 6 else ''}</span>
+    <span class="versions-row">{esc(b_name)}: {names(B)}{' <em>y ' + str(len(B) - 6) + ' más</em>' if len(B) > 6 else ''}</span>
+    <span class="versions-fine">Solo entran modelos con ≥50 runs. Ordenados por <strong>calidad media</strong>
+    en los 4 pilares — no por precio.</span>
+  </p>"""
 
 
 def fmt_cost(m):
@@ -638,13 +682,14 @@ def render(cfg, A, B):
     <p class="lead">Comparamos las familias <strong>{esc(a_name)}</strong> y <strong>{esc(b_name)}</strong> con datos, no opiniones:
     <strong>{tests_k} runs reales</strong> evaluados con LLM-as-Judge Phi-4 local, en los 4 pilares del emprendedor
     (coding, contenido, razonamiento, agentes) + costo y velocidad reales.</p>
+    {versions_compared(a_name, b_name, A, B)}
     <p class="meta">Última actualización: {today} ·
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a></p>
   </section>
   <section class="results">
     <div class="results-header">
       <h2>{esc(a_name)} vs {esc(b_name)}: tabla comparativa</h2>
-      <p class="meta">Score por pilar /10. Ordenado por score global ponderado.</p>
+      <p class="meta">Score por pilar /10 = <strong>calidad en esa tarea</strong> (sin ponderar costo ni velocidad). Ordenado por calidad media, no por precio.</p>
     </div>
     <div class="table-scroll"><table class="results-table">
       <thead>
