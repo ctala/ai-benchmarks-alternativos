@@ -22,7 +22,17 @@ Benchmark de modelos AI para emprendedores y equipos que usan agentes (N8N, Herm
 | **Cost** | **15%** | Curva log inversa, precio OpenRouter por proveedor |
 | **Speed** | **7.5%** | Tokens/s del modelo |
 | **Latency** | **7.5%** | Latencia **total** de respuesta (`latency_total`), no first-token |
-| ~~Tool calling~~ | 0% (badge) | No discriminaba (todos ~7; 8/91 tests) → fuera del score, se muestra como badge |
+| ~~Tool calling~~ | 0% (badge) | No discriminaba → fuera del score. **Y su suite tampoco entra en `quality`** (bug corregido 12-jul-2026: entraba, y el juez la medía al revés — ver abajo) |
+
+> ⚠️ **Límite conocido del instrumento: el juez comprime.** El juez es **Phi-4 (14B)** y varios de los
+> modelos que evalúa son más capaces que él. Consecuencia medida sobre 10.511 runs juzgados: **la escala
+> útil real va de ~3.9 a ~4.7 sobre 5** (no de 1 a 5). En `content_generation` la media es **4.73 con
+> desviación 0.25** — le pone casi la misma nota a todos. El 22% de los runs recibe el máximo.
+>
+> El juez **ordena** bien (Opus 4.8 le gana 13-0 a Llama 3.1 8B en los mismos 14 tests), pero **no puede
+> medir cuánto** mejor. Eso comprime las diferencias reales hasta que se confunden con el ruido — y es
+> parte de por qué tantos modelos "empatan" en la cima. **Leé el empate como "este juez no los distingue",
+> no necesariamente como "son iguales".** Validar con un juez más fuerte está en el ROADMAP.
 
 > **Por qué z-score (v3.0, jun 2026)**: estandarizar cada dimensión hace que el peso nominal sea igual a la influencia real. **Cambio clave en v3.0**: subimos quality de 60% a 70% y bajamos costo de 20% a 15% tras una auditoría que mostró que el ranking global estaba demasiado sesgado hacia modelos baratos/rápidos. Ahora el score global premia más la calidad real, sin ignorar costo/velocidad. Ver [INSIGHTS.md](INSIGHTS.md).
 >
@@ -65,19 +75,18 @@ Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad*
 >
 > | Modelo | Score | Ranking | Quality | $/1k calls | Latencia total |
 > |---|---:|---:|---:|---:|---:|
-> | **GPT-5.6 Luna** | **8.14** | #3 | 8.40 | **$9.30** | 11.0s |
-> | **GPT-5.6 Terra** | 7.68 | #12 | 8.39 | $23.25 | 15.6s |
-> | **GPT-5.6 Sol** (flagship) | 6.85 | #30 | 8.35 | **$46.50** | 38.4s |
+> | **GPT-5.6 Luna** | **8.22** | #3 | 8.52 | **$9.30** | 11.4s |
+> | **GPT-5.6 Terra** | 7.85 | #7 | 8.53 | $23.25 | 16.2s |
+> | **GPT-5.6 Sol** (flagship) | 7.02 | #22 | 8.49 | **$46.50** | 39.8s |
 >
-> Las tres calidades son **estadísticamente indistinguibles** (8.40 / 8.39 / 8.35), pero el flagship
+> Las tres calidades son **estadísticamente indistinguibles** (8.52 / 8.53 / 8.49), pero el flagship
 > cuesta **5× más** y tarda **3.5× más**. En 103 pruebas prácticas idénticas, pagar por Sol no compró
 > calidad medible. Si tu caso no es exóticamente difícil, **Luna es el default racional de la familia**.
 >
-> - **Grok 4.5**: score **5.84** (#54/98), quality 7.97, 100% de éxito técnico. **Lo que lo hunde es el
->   costo** ($9.60/1k calls → z −1.16), no la latencia: descompuesto, el aporte de la latencia a su score
->   es **−0.009**, es decir, cero. Y su calidad, que en absoluto suena alta, está apenas **+0.31σ** sobre
->   la media — porque casi todos los modelos están apelotonados ahí arriba. No es un modelo escondido:
->   es uno caro y del montón.
+> - **Grok 4.5**: score **5.94** (#51/98), quality 8.08, 100% de éxito técnico. **Lo que lo hunde es el
+>   costo**, no la latencia: descompuesto el z-score, el aporte de la latencia a su score es **≈−0.01**,
+>   es decir, cero. Y su calidad está apenas por encima de la media — porque casi todos los modelos
+>   están apelotonados ahí arriba. No es un modelo escondido: es uno caro y del montón.
 > - Dato incómodo para el hype: la prensa lo corona en benchmarks de agentes, pero acá **Agentes es su
 >   peor pilar (5.91)**, por debajo de Razonamiento (7.71), Contenido (7.69) y Coding (7.23). Son suites
 >   distintas — pero si lo vas a usar para agentes, medilo en tu caso antes de comprometerte.
