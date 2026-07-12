@@ -44,9 +44,10 @@ _Generación y corrección de código._
 
 _Análisis, decisiones, problemas con varios pasos._
 
-- **Usá:** **DeepSeek R1 (reasoning)** — ≈$12/mes (calidad 9.05/10)
-- **Lo que te ahorrás:** Claude Opus 4.8 (suscripción) cuesta ≈$117/mes (**9.8× más**) por apenas +0.21 de calidad — dentro del margen de error.
-- _4 modelos empatan en calidad en este pilar._
+- **Usá:** **DeepSeek V4 Flash (OpenRouter)** — ≈$1/mes (calidad 8.78/10)
+- **Lo que te ahorrás:** Claude Fable 5 (suscripción) cuesta ≈$234/mes (**241.2× más**) por apenas +0.12 de calidad — dentro del margen de error.
+- **Si tenés hardware propio:** **Gemma 4 31B (DGX Spark Q4_K_M)** — ≈$2/mes (calidad 8.87/10)
+- _10 modelos empatan en calidad en este pilar._
 
 ---
 
@@ -64,7 +65,7 @@ Lo mejor que podés comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 ## El resumen de todo el benchmark
 
-**8 modelos empatan en calidad** en la cima del ranking global.
+**7 modelos empatan en calidad** en la cima del ranking global.
 
 El más barato de ese grupo — **DeepSeek V4 Flash (OpenRouter)** — sale **≈$1/mes**.
 El más caro — **Claude Opus 4.7 (suscripción)** — sale **≈$117/mes**.

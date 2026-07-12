@@ -32,7 +32,20 @@ Benchmark de modelos AI para emprendedores y equipos que usan agentes (N8N, Herm
 > El juez **ordena** bien (Opus 4.8 le gana 13-0 a Llama 3.1 8B en los mismos 14 tests), pero **no puede
 > medir cuánto** mejor. Eso comprime las diferencias reales hasta que se confunden con el ruido — y es
 > parte de por qué tantos modelos "empatan" en la cima. **Leé el empate como "este juez no los distingue",
-> no necesariamente como "son iguales".** Validar con un juez más fuerte está en el ROADMAP.
+> no necesariamente como "son iguales".**
+>
+> **Y hay una segunda causa, que sí podemos atacar: las tareas son demasiado fáciles.** "Escribe un blog
+> post" lo hace bien casi cualquiera, y calificarlo es cuestión de gusto — ahí cualquier juez satura. La
+> única suite que hoy discrimina de verdad es `prompt_injection_es`, y no es casualidad: tiene una
+> **trampa binaria con verdad objetiva** (o filtraste el secreto o no). El juez no opina sobre la prosa;
+> verifica un hecho.
+>
+> De ahí sale la suite **`business_audit`** (julio 2026): 10 tareas de negocio real —auditar métricas,
+> priorizar un roadmap, hacer un teardown, destrozar una oferta— donde cada una lleva **una trampa
+> plantada con respuesta verificable**: un error aritmético que no cierra, una causalidad falsa, una
+> métrica que mezcla dos poblaciones, una restricción que hace inviable la opción "obvia". Un modelo
+> capaz la caza. Uno mediocre escribe un texto impecable y se la come — y eso es exactamente lo que
+> separa a un modelo que puedes poner a auditar tu negocio de uno que solo suena bien.
 
 > **Por qué z-score (v3.0, jun 2026)**: estandarizar cada dimensión hace que el peso nominal sea igual a la influencia real. **Cambio clave en v3.0**: subimos quality de 60% a 70% y bajamos costo de 20% a 15% tras una auditoría que mostró que el ranking global estaba demasiado sesgado hacia modelos baratos/rápidos. Ahora el score global premia más la calidad real, sin ignorar costo/velocidad. Ver [INSIGHTS.md](INSIGHTS.md).
 >
@@ -50,16 +63,16 @@ Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad*
 
 | # | Modelo | Score | Quality | Cost | Provider | $/1k calls | Runs |
 |---|---|---:|---:|---:|---|---:|---:|
-| 1 | **DeepSeek V4 Flash (OpenRouter)** | **8.60** | 8.54 | 7.92 | openrouter | $0.33 | 125 |
-| 2 | **DeepSeek R1 (reasoning)** | **8.38** | 8.82 | 5.80 | openrouter | $3.96 | 99 |
-| 3 | **GPT-5.6 Luna** | **8.22** | 8.52 | 5.83 | openrouter | $9.30 | 99 |
-| 4 | **Qwen3-Coder-Next (OpenRouter FP8)** | **8.12** | 8.32 | 7.62 | openrouter | $1.23 | 99 |
-| 5 | **Devstral Small** | **7.95** | 8.16 | 7.94 | openrouter | $0.48 | 161 |
-| 6 | **MiniMax M3 (directo / sub)** | **7.90** | 8.58 | 6.84 | minimax_direct | $1.89 | 99 |
-| 7 | **GPT-5.6 Terra** | **7.85** | 8.53 | 4.85 | openrouter | $23.25 | 99 |
-| 8 | **Llama 3.3 70B (Groq)** | **7.84** | 8.08 | 7.85 | groq_direct | $1.36 | 112 |
-| 9 | **MiniMax M3** | **7.68** | 8.51 | 7.04 | openrouter | $1.89 | 101 |
-| 10 | **Claude Haiku 4.5 (suscripción)** | **7.60** | 8.44 | 5.13 | claude_code | $7.80 | 98 |
+| 1 | **DeepSeek V4 Flash (OpenRouter)** | **8.63** | 8.54 | 7.92 | openrouter | $0.33 | 125 |
+| 2 | **DeepSeek R1 (reasoning)** | **8.41** | 8.82 | 5.80 | openrouter | $3.96 | 99 |
+| 3 | **GPT-5.6 Luna** | **8.25** | 8.52 | 5.83 | openrouter | $9.30 | 99 |
+| 4 | **Qwen3-Coder-Next (OpenRouter FP8)** | **8.15** | 8.32 | 7.62 | openrouter | $1.23 | 99 |
+| 5 | **Devstral Small** | **7.98** | 8.16 | 7.94 | openrouter | $0.48 | 161 |
+| 6 | **MiniMax M3 (directo / sub)** | **7.93** | 8.58 | 6.84 | minimax_direct | $1.89 | 99 |
+| 7 | **GPT-5.6 Terra** | **7.88** | 8.53 | 4.85 | openrouter | $23.25 | 99 |
+| 8 | **Llama 3.3 70B (Groq)** | **7.87** | 8.08 | 7.85 | groq_direct | $1.36 | 112 |
+| 9 | **Claude Haiku 4.5 (suscripción)** | **7.63** | 8.44 | 5.13 | claude_code | $7.80 | 98 |
+| 10 | **Mistral Small 4** | **7.59** | 8.16 | 7.74 | openrouter | $0.94 | 99 |
 
 > **Piso de ranking: 50 runs.** Solo compiten los 98 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
 

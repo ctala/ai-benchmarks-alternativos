@@ -47,6 +47,11 @@ from benchmarks.tests import startup_content, deep_reasoning, customer_support, 
 from benchmarks.tests import hallucination, creativity, string_precision, news_seo_writing
 from benchmarks.tests import ocr_extraction, orchestration, multi_turn, policy_adherence
 from benchmarks.tests import agent_capabilities, strategy, sales_outreach, translation
+# Suite nueva (jul-2026): tareas de negocio REALES con trampas objetivas plantadas.
+# Existe porque el juez comprime en tareas faciles (content_generation: media 4.73/5,
+# std 0.25 -> no distingue un 8B de Opus). Las de aca se pueden fallar de forma
+# verificable: o cazas el error aritmetico / la causalidad falsa, o no.
+from benchmarks.tests import business_audit
 from benchmarks.tests import agent_long_horizon
 from benchmarks.tests import niah_es
 from benchmarks.tests import niah_es_1m
@@ -77,6 +82,7 @@ def _redact_secrets(text):
     return text
 
 ALL_TEST_SUITES = {
+    "business_audit": business_audit.TESTS,
     "content_generation": content_generation.TESTS,
     "tool_calling": tool_calling.TESTS,
     "task_management": task_management.TESTS,

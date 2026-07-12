@@ -96,6 +96,9 @@ SUITE_TO_PILLAR = {
     "deep_reasoning": "Razonamiento",
     "hallucination": "Razonamiento",
     "strategy": "Razonamiento",
+    # Auditoria de negocio: es razonamiento aplicado con trampas verificables
+    # (aritmetica que no cierra, causalidad falsa, metrica que mezcla poblaciones).
+    "business_audit": "Razonamiento",
     "code_generation": "Coding",
     "structured_output": "Coding",
     "string_precision": "Coding",

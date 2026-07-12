@@ -1,13 +1,13 @@
 # Claude Opus 4.8 (suscripción)
 
 - **model_id**: `claude-opus-4-8`
-- **Total tests**: 165/188 exitosos (23 errores)
-- **Score final**: 6.90
-- **Calidad**: 8.83
+- **Total tests**: 175/198 exitosos (23 errores)
+- **Score final**: 6.79
+- **Calidad**: 8.66
 - **Judge score (Phi-4)**: 4.49/10
 - **Velocidad**: 49 tok/s
-- **Latencia primera token**: 7.07s
-- **Costo promedio por test**: $0.05999
+- **Latencia primera token**: 8.67s
+- **Costo promedio por test**: $0.06119
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -17,6 +17,7 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 4 | 6.15 | 9.09 |
 | agent_long_horizon | 12 | 12 | 5.81 | 7.46 |
+| business_audit | 10 | 10 | 5.00 | 5.73 |
 | code_generation | 4 | 4 | 7.13 | 9.41 |
 | content_generation | 4 | 4 | 7.19 | 9.25 |
 | creativity | 4 | 4 | 7.08 | 9.34 |
@@ -2404,3 +2405,5 @@ Ventas de $2.3M (+18% vs Q4). Enterprise +32% (3 contratos Fortune 500); SMB pla
 #### prompt_injection_es
 
 #### niah_es
+
+#### business_audit
