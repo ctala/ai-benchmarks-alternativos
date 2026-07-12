@@ -173,11 +173,27 @@ def aggregate_metrics(runs):
     def _is_security(r):
         return str(r.get("suite", "")).startswith("prompt_injection")
 
-    # General = tareas prácticas (excluye long-context y seguridad, que son
-    # dimensiones separadas medidas desigual entre modelos).
-    general = [r for r in runs if not _is_niah(r) and not _is_security(r)]
+    def _is_tool_calling(r):
+        return str(r.get("suite", "")) == "tool_calling"
+
+    # General = tareas prácticas. Excluye tres suites que son dimensiones SEPARADAS
+    # y no deben contaminar `quality`:
+    #   - niah (long-context) y prompt_injection (seguridad): medidas desigual entre modelos.
+    #   - tool_calling: el README ya declara que va "fuera del score, como badge"
+    #     (tiene su propio tool_calling_score_avg) -- pero el codigo lo estaba metiendo
+    #     igual por la puerta de atras, via quality.
+    #
+    # Y ademas el juez lo mide AL REVES. En tool_calling la respuesta correcta ES la
+    # llamada a la herramienta; el texto queda casi vacio. El juez SOLO LEE TEXTO, asi
+    # que a un modelo que hace el tool call limpio le pone 1/5 ("no proporciona detalles
+    # especificos") y a uno que ignora la herramienta y escribe un parrafo explicando,
+    # le pone 7.5. Medido: los que llaman bien promedian ~5.2; los que no llaman, ~7.5.
+    # Contaminaba quality entre -0.14 y -0.22 justo a los modelos que hacen bien tool
+    # calling (12-jul-2026).
+    general = [r for r in runs if not _is_niah(r) and not _is_security(r) and not _is_tool_calling(r)]
     niah = [r for r in runs if _is_niah(r)]
     security = [r for r in runs if _is_security(r)]
+    tool_runs = [r for r in runs if _is_tool_calling(r)]
 
     finals_recalc = [r["_final_recalc"] for r in general if r.get("_final_recalc") is not None]
 
@@ -197,7 +213,11 @@ def aggregate_metrics(runs):
     ]
     speed_scores = [r.get("speed") for r in general if r.get("speed") is not None]
     latency_scores = [r.get("latency") for r in general if r.get("latency") is not None]
-    tc_scores = [r.get("tool_calling") for r in general if r.get("tool_calling") is not None]
+    # El badge de tool calling se calcula sobre TODOS los runs (general + la suite
+    # tool_calling, que ya no esta en general). Si se calculara solo sobre `general`,
+    # sacar la suite del quality habria vaciado tambien el badge.
+    tc_scores = [r.get("tool_calling") for r in (general + tool_runs)
+                 if r.get("tool_calling") is not None]
 
     # Score por pilar (general) Y por suite (incluye niah para visibilidad)
     by_pillar = defaultdict(list)
