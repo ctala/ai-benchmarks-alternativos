@@ -72,31 +72,32 @@
   </section>
   <section class="verdict">
     <h2>La respuesta corta</h2>
-    <p class="verdict-lead"><strong>11 modelos empatan</strong> en calidad para esta tarea:
-    la diferencia entre ellos es más chica que el margen de error de la medición.
-    Cuando la calidad empata, <strong>la decisión es de precio</strong>.</p>
+    <p class="verdict-lead"><strong>4 modelos empatan</strong> en calidad para esta tarea: la diferencia entre ellos es más chica que el margen de error de la medición. Cuando la calidad empata, <strong>la decisión es de precio</strong>.</p>
     <div class="verdict-grid">
       <div class="verdict-card verdict-best">
-        <span class="verdict-tag">Usá este</span>
-        <strong>Qwen 3.6 35B base (OpenRouter FP8)</strong>
-        <span class="verdict-cost">≈$5/mes</span>
-        <span class="verdict-note">calidad 8.17/10 · el más barato de los que empatan arriba</span>
-      </div><div class="verdict-card verdict-costly">
-        <span class="verdict-tag">Lo que te ahorrás</span>
-        <strong>Claude Fable 5 (suscripción)</strong>
-        <span class="verdict-cost">≈$234/mes</span>
-        <span class="verdict-note">50.5× más caro por +0.12 de calidad — una diferencia que está dentro del margen de error</span>
+        <span class="verdict-tag">La mejor compra</span>
+        <strong>Claude Haiku 4.5 (suscripción)</strong>
+        <span class="verdict-cost">≈$23/mes</span>
+        <span class="verdict-note">calidad 8.76/10 · empata con Claude Opus 4.7 (suscripción), que encabeza la tabla, y cuesta menos</span>
+        <span class="verdict-sub">También: $20/mes con Anthropic Pro (sin acceso API)</span>
       </div><div class="verdict-card">
-        <span class="verdict-tag">Si tenés hardware propio</span>
-        <strong>DiffusionGemma 26B-A4B (DGX Spark Q8_0)</strong>
-        <span class="verdict-cost">≈$2/mes</span>
-        <span class="verdict-note">calidad 8.39/10 · corre local, sin API</span>
+        <span class="verdict-tag">La mejor calidad medida</span>
+        <strong>Claude Opus 4.7 (suscripción)</strong>
+        <span class="verdict-cost">≈$117/mes</span>
+        <span class="verdict-note">calidad 8.94/10 · es el #1 de la tabla. La diferencia con el de arriba está dentro del margen de error</span>
+        <span class="verdict-sub">También: $20/mes con Anthropic Pro (sin acceso API)</span>
+      </div><div class="verdict-card verdict-costly">
+        <span class="verdict-tag">Lo que te ahorras</span>
+        <strong>Claude Opus 4.8 (suscripción)</strong>
+        <span class="verdict-cost">≈$117/mes</span>
+        <span class="verdict-note">5.0× más caro por +0.15 de calidad — dentro del margen de error</span>
+        <span class="verdict-sub">También: $20/mes con Anthropic Pro (sin acceso API)</span>
       </div>
     </div>
     <p class="verdict-foot">Cálculo sobre <strong>3.000 llamadas/mes</strong> (≈100 por día: una respuesta
-    de agente o un borrador de texto por llamada). ¿Otro volumen o te importa la velocidad?
-    Ajustalo en la <a href="/?preset=agentes&amp;calls=3000">calculadora</a>.
-    La tabla de abajo es la evidencia completa.</p>
+    de agente o un borrador de texto por llamada). ¿Otro volumen, o te importa más la velocidad?
+    Ajusta los pesos en la <a href="/?preset=agentes&amp;calls=3000">calculadora</a>.
+    Los modelos citados están en la tabla de abajo, marcados.</p>
   </section>
 
   <section class="results">
@@ -110,9 +111,9 @@
       </thead>
       <tbody>
         <tr><td>1</td><td><strong>Claude Opus 4.7 (suscripción)</strong></td><td>8.2</td><td>8.9</td><td>8.5</td><td>8.9</td><td>$5.00 / $25.00</td><td>57 tok/s</td></tr>
-        <tr><td>2</td><td>Claude Opus 4.8 (suscripción)</td><td>8.0</td><td>9.0</td><td>9.3</td><td>8.9</td><td>$5.00 / $25.00</td><td>62 tok/s</td></tr>
+        <tr><td>2</td><td>Claude Opus 4.8 (suscripción) <span class="row-badge">← el caro</span></td><td>8.0</td><td>9.0</td><td>9.3</td><td>8.9</td><td>$5.00 / $25.00</td><td>62 tok/s</td></tr>
         <tr><td>3</td><td>Claude Sonnet 4.6 (suscripción)</td><td>8.3</td><td>8.9</td><td>8.9</td><td>8.8</td><td>$3.00 / $15.00</td><td>51 tok/s</td></tr>
-        <tr><td>4</td><td>Claude Haiku 4.5 (suscripción)</td><td>8.0</td><td>8.9</td><td>8.8</td><td>8.8</td><td>$1.00 / $5.00</td><td>106 tok/s</td></tr>
+        <tr><td>4</td><td>Claude Haiku 4.5 (suscripción) <span class="row-badge">← la mejor compra</span></td><td>8.0</td><td>8.9</td><td>8.8</td><td>8.8</td><td>$1.00 / $5.00</td><td>106 tok/s</td></tr>
         <tr><td>5</td><td>DiffusionGemma 26B-A4B (DGX Spark Q8_0)</td><td>7.2</td><td>8.4</td><td>8.5</td><td>8.4</td><td>$0.06 / $0.33</td><td>39 tok/s</td></tr>
         <tr><td>6</td><td>Claude Fable 5 (suscripción)</td><td>7.6</td><td>8.6</td><td>8.9</td><td>8.3</td><td>$10.00 / $50.00</td><td>61 tok/s</td></tr>
         <tr><td>7</td><td>DeepSeek R1 (reasoning)</td><td>8.2</td><td>9.0</td><td>9.1</td><td>8.3</td><td>$0.70 / $2.50</td><td>23 tok/s</td></tr>
@@ -172,25 +173,27 @@
 </section>
   <section>
   <h2>¿Dónde quedan los modelos frontier?</h2>
-  <p>Muchos lectores buscan comparar GPT-5.6, Claude Opus/Fable o Grok. En esta dimensión estos son sus scores reales del benchmark:</p>
-  <ul>
-    <li><strong>Claude Fable 5</strong> está en el top 10 (#6) con 8.3/10. Cuesta $10.00 / $50.00 por millón.</li><li><strong>Claude Opus 4.8</strong> está en el top 10 (#2) con 8.9/10. Cuesta $5.00 / $25.00 por millón.</li><li><strong>GPT-5.5</strong> queda #88 con 5.7/10. Cuesta $5.00 / $30.00 por millón.</li><li><strong>GPT-5.6 Luna</strong> queda #19 con 7.7/10. Cuesta $1.00 / $6.00 por millón.</li><li><strong>GPT-5.6 Sol</strong> queda #29 con 7.5/10. Cuesta $5.00 / $30.00 por millón.</li><li><strong>GPT-5.6 Terra</strong> queda #34 con 7.4/10. Cuesta $2.50 / $15.00 por millón.</li><li><strong>Grok 4.5</strong> queda #82 con 6.1/10. Cuesta $2.00 / $6.00 por millón.</li>
+  <p>Mucha gente llega buscando GPT-5.6, Claude Opus/Fable o Grok. Acá está dónde quedan
+  <strong>en esta tarea concreta</strong>, ordenados por calidad — no por lo que cuestan:</p>
+  <ul class="frontier-list">
+    <li><strong>Claude Opus 4.8</strong><span class="frontier-pos frontier-top">#2 · top 10</span><span class="frontier-score">8.9/10</span><span class="frontier-cost">$5.00 / $25.00 por millón</span></li><li><strong>Claude Fable 5</strong><span class="frontier-pos frontier-top">#6 · top 10</span><span class="frontier-score">8.3/10</span><span class="frontier-cost">$10.00 / $50.00 por millón</span></li><li><strong>GPT-5.6 Luna</strong><span class="frontier-pos">#19</span><span class="frontier-score">7.7/10</span><span class="frontier-cost">$1.00 / $6.00 por millón</span></li><li><strong>GPT-5.6 Sol</strong><span class="frontier-pos">#29</span><span class="frontier-score">7.5/10</span><span class="frontier-cost">$5.00 / $30.00 por millón</span></li><li><strong>GPT-5.6 Terra</strong><span class="frontier-pos">#34</span><span class="frontier-score">7.4/10</span><span class="frontier-cost">$2.50 / $15.00 por millón</span></li><li><strong>Grok 4.5</strong><span class="frontier-pos">#82</span><span class="frontier-score">6.1/10</span><span class="frontier-cost">$2.00 / $6.00 por millón</span></li><li><strong>GPT-5.5</strong><span class="frontier-pos">#88</span><span class="frontier-score">5.7/10</span><span class="frontier-cost">$5.00 / $30.00 por millón</span></li>
   </ul>
   <p class="meta">Si te interesa una comparación cara a cara, probá las <a href="/gpt-5.6-vs-claude-opus-4-8/">comparativas específicas</a> o ajustá los pesos en la calculadora.</p>
 </section>
     <section class="funnel">
-    <h2>Antes de migrar, hacé esto</h2>
-    <p>Ya tenés un candidato. No lo cambies a ciegas: agarrá los dos primeros y pasales
-    <strong>cinco prompts reales tuyos</strong>, de los que ya corrés en producción. Un benchmark
+    <h2>Antes de migrar, haz esto</h2>
+    <p>Ya tienes un candidato. No lo cambies a ciegas: toma los dos primeros de la tabla y pásales
+    <strong>cinco prompts reales tuyos</strong>, de los que ya corres en producción. Un benchmark
     general te dice quién arranca adelante; <strong>tu caso decide quién gana</strong>. Son veinte
     minutos y te ahorran una migración equivocada.</p>
-    <p class="funnel-note">Y ojo con este ranking: se recalcula con cada lote de modelos nuevos.
-    Como el score de cada modelo es <em>relativo a todos los demás</em>, un modelo nuevo mueve a
-    todos. Lo que hoy es el #1 puede no serlo el mes que viene.</p>
-    <p><a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener" class="cta-primary">
-    Te aviso cuándo cambia el ranking →</a></p>
-    <p class="funnel-fine">Es la comunidad donde publico los datos y donde hay gente tomando
-    exactamente esta misma decisión. Entrar es gratis.</p>
+    <p class="funnel-note">Y una advertencia sobre este ranking: se recalcula con cada lote de modelos
+    nuevos. Como el score de cada modelo es <em>relativo a todos los demás</em>, un modelo nuevo mueve
+    a todos. Lo que hoy es el #1 puede no serlo el mes que viene.</p>
+    <p><a href="https://www.skool.com/cagala-aprende-repite?utm_source=benchmarks&amp;utm_medium=pseo&amp;utm_campaign=ranking" target="_blank" rel="noopener" class="cta-primary">
+    Ver la comunidad →</a></p>
+    <p class="funnel-fine">Cada vez que corro un lote nuevo, publico el recálculo ahí — con los datos
+    crudos y lo que cambió de lugar. Es también donde hay gente tomando esta misma decisión.
+    Entrar es gratis.</p>
   </section>
 
   <section>
@@ -208,11 +211,17 @@
     <li><strong>Razonamiento</strong> — matemáticas, lógica formal y planificación multi-paso.</li>
     <li><strong>Agentes y operaciones</strong> — multi-turno largo, tool calling y flujos tipo N8N / Hermes.</li>
   </ul>
-  <p>El <strong>score global</strong> (v3.0) es una función ponderada: <strong>calidad 70% + costo 15%
-  + velocidad 7,5% + latencia 7,5%</strong>. Tool calling se reporta como <strong>insignia aparte</strong>
-  (no suma al score global): indica si el modelo soporta herramientas, no su calidad bruta. Por eso un modelo barato y
-  rápido puede ganarle a uno "más inteligente" pero caro — porque mide <em>valor para producción</em>,
-  no solo capacidad bruta.
+  <p><strong>Dos números distintos, no los confundas.</strong> Las tablas por tarea de esta página se
+  ordenan por <strong>calidad en esa tarea</strong>: capacidad pura, sin mezclar precio. Es la respuesta a
+  "¿quién lo hace mejor?".</p>
+  <p>El <strong>score global</strong> es otra cosa: una función ponderada
+  (<strong>calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%</strong>) que responde
+  "¿qué conviene poner en producción?". Ahí un modelo barato y rápido sí puede superar a uno más capaz
+  pero caro. Los dos números sirven — para preguntas distintas.</p>
+  <p>Tool calling va como <strong>insignia aparte</strong> (no suma al score global): indica si el modelo soporta
+  herramientas, no su calidad. <strong>Límite conocido:</strong> el juez es Phi-4 (14B) y varios modelos
+  evaluados son más capaces que él — ordena bien, pero comprime las diferencias en la cima. Leé un empate
+  como "el juez no los distingue", no como "son idénticos".
   <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
 </section>
   <section>

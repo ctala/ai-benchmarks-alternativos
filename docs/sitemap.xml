@@ -211,12 +211,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://benchmarks.cristiantala.com/grok-4.3-vs-gpt-5.5/</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://benchmarks.cristiantala.com/grok-4.5-vs-claude-sonnet-4-6/</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>

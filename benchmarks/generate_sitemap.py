@@ -70,11 +70,20 @@ def git_lastmod(path: Path) -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 
+# Paginas que NO van al sitemap: son redirects/noindex, no contenido.
+# grok-4.3-vs-gpt-5.5 (con punto) es un huerfano de una version vieja del
+# generador — el slug vivo es "-5-5". Las dos servian el MISMO contenido con
+# canonical self-referencial: duplicado puro. La de punto quedo como redirect.
+SITEMAP_EXCLUDE = {"grok-4.3-vs-gpt-5.5"}
+
+
 def docs_pages():
     """Itera sobre todos los index.html bajo docs/, devuelve (url, file_path, priority)."""
     pages = []
     for f in sorted(DOCS.rglob("index.html")):
         rel_dir = f.parent.relative_to(DOCS).as_posix()
+        if rel_dir in SITEMAP_EXCLUDE:
+            continue
         if rel_dir == ".":
             url = f"{SITE_BASE}/"
             priority = PRIORITY_OVERRIDES.get("/", 1.0)

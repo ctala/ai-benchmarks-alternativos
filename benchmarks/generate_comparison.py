@@ -40,15 +40,18 @@ PILLAR_DESC = {
 # --- Comparaciones a generar (cada una = una página pSEO) ---------------------
 GPT = {"name": "ChatGPT (GPT)", "match": ["gpt-", "gpt5", "gpt-5", "chatgpt"], "exclude": ["oss"]}
 COMPARISONS = [
-    # Demanda verificada y SIN cubrir (DataForSEO, jul-2026): "grok vs chatgpt" hace
-    # ~320 busquedas/mes en ES y ~260 en MX, y no la tiene nadie. Ojo con el matiz:
-    # la gente busca el HEAD ("grok"), no la version ("grok 4.5" hace ~50/mes). Por eso
-    # la pagina es Grok-la-familia vs ChatGPT-la-familia, no "Grok 4.5 vs GPT-5.6".
+    # CORRECCION (12-jul-2026): los "320/mes" con que se justifico esta pagina salieron
+    # de la LOCATION EQUIVOCADA — eran de US/ingles (9.900/mes), no de España. En español
+    # la frase exacta "grok vs chatgpt" da ~0; la intencion existe con otra sintaxis:
+    # "grok o chatgpt" ~90/mes (ES), "que es mejor grok o chatgpt" ~50/mes. Total ~150/mes.
+    # La pagina se mantiene (la intencion es real y no la cubre nadie), pero el intent_kw
+    # apunta a la sintaxis que la gente SI usa en español. Leccion: verificar la location.
+    # La gente busca el HEAD ("grok"), no la version ("grok 4.5" ~50/mes) -> familia vs familia.
     {
         "slug": "grok-vs-chatgpt",
         "a": {"name": "Grok (xAI)", "match": ["grok"]}, "b": GPT,
         "title": "Grok vs ChatGPT en 2026: comparación con benchmark real",
-        "intent_kw": "grok vs chatgpt, grok o chatgpt, comparativa grok gpt, grok 4.5 vs gpt, xai vs openai",
+        "intent_kw": "grok o chatgpt, que es mejor grok o chatgpt, grok vs chatgpt, comparativa grok gpt, xai vs openai",
     },
     {
         "slug": "grok-vs-claude",
@@ -454,11 +457,17 @@ def methodology():
   <ul>
     {items}
   </ul>
-  <p>El <strong>score global</strong> (v3.0) es una función ponderada: <strong>calidad {q}% + costo {co}%
-  + velocidad {sp}% + latencia {la}%</strong>. Tool calling se reporta como <strong>insignia aparte</strong>
-  ({tc_text}): indica si el modelo soporta herramientas, no su calidad bruta. Por eso un modelo barato y
-  rápido puede ganarle a uno "más inteligente" pero caro — porque mide <em>valor para producción</em>,
-  no solo capacidad bruta.
+  <p><strong>Dos números distintos, no los confundas.</strong> Las tablas por tarea de esta página se
+  ordenan por <strong>calidad en esa tarea</strong>: capacidad pura, sin mezclar precio. Es la respuesta a
+  "¿quién lo hace mejor?".</p>
+  <p>El <strong>score global</strong> es otra cosa: una función ponderada
+  (<strong>calidad {q}% + costo {co}% + velocidad {sp}% + latencia {la}%</strong>) que responde
+  "¿qué conviene poner en producción?". Ahí un modelo barato y rápido sí puede superar a uno más capaz
+  pero caro. Los dos números sirven — para preguntas distintas.</p>
+  <p>Tool calling va como <strong>insignia aparte</strong> ({tc_text}): indica si el modelo soporta
+  herramientas, no su calidad. <strong>Límite conocido:</strong> el juez es Phi-4 (14B) y varios modelos
+  evaluados son más capaces que él — ordena bien, pero comprime las diferencias en la cima. Leé un empate
+  como "el juez no los distingue", no como "son idénticos".
   <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
 </section>"""
 
@@ -537,18 +546,19 @@ def funnel_block():
     Regla dura: no inventar perks -- solo la comunidad gratis y el ranking que se mueve.
     """
     return """<section class="funnel">
-  <h2>Antes de migrar, hacé esto</h2>
-  <p>Ya sabés cuál gana en el papel. No lo cambies a ciegas: agarrá a los dos y pasales
-  <strong>cinco prompts reales tuyos</strong>, de los que ya corrés en producción. Una comparación
-  general te dice quién arranca adelante; <strong>tu caso decide quién gana</strong>. Son veinte
-  minutos y te ahorran una migración equivocada.</p>
-  <p class="funnel-note">Y ojo: este resultado se recalcula con cada lote de modelos nuevos. Como el
-  score de cada modelo es <em>relativo a todos los demás</em>, un modelo nuevo mueve a todos. El
-  ganador de hoy puede no serlo el mes que viene.</p>
-  <p><a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener" class="cta-primary">
-  Te aviso cuándo cambia el ranking →</a></p>
-  <p class="funnel-fine">Es la comunidad donde publico los datos y donde hay gente tomando
-  exactamente esta misma decisión. Entrar es gratis.</p>
+  <h2>Antes de migrar, haz esto</h2>
+  <p>Ya sabes cuál gana en el papel. No lo cambies a ciegas: toma <strong>el mejor de cada familia</strong>
+  y pásales <strong>cinco prompts reales tuyos</strong>, de los que ya corres en producción. Una
+  comparación general te dice quién arranca adelante; <strong>tu caso decide quién gana</strong>.
+  Son veinte minutos y te ahorran una migración equivocada.</p>
+  <p class="funnel-note">Y una advertencia: este resultado se recalcula con cada lote de modelos nuevos.
+  Como el score de cada modelo es <em>relativo a todos los demás</em>, un modelo nuevo mueve a todos.
+  El ganador de hoy puede no serlo el mes que viene.</p>
+  <p><a href="https://www.skool.com/cagala-aprende-repite?utm_source=benchmarks&amp;utm_medium=pseo&amp;utm_campaign=comparacion" target="_blank" rel="noopener" class="cta-primary">
+  Ver la comunidad →</a></p>
+  <p class="funnel-fine">Cada vez que corro un lote nuevo, publico el recálculo ahí — con los datos
+  crudos y lo que cambió de lugar. Es también donde hay gente tomando esta misma decisión.
+  Entrar es gratis.</p>
 </section>"""
 
 

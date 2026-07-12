@@ -267,9 +267,18 @@ def table_head(cfg):
     return f'<div class="table-scroll"><table class="results-table">\n      <thead>\n        <tr>{base_cols}</tr>\n      </thead>'
 
 
-def row_ranking(rank, m, cfg, top=False):
-    """Fila de tabla que incluye la columna del score relevante para el ranking."""
+def row_ranking(rank, m, cfg, top=False, badges=None):
+    """Fila de tabla que incluye la columna del score relevante para el ranking.
+
+    `badges`: {nombre_modelo: etiqueta} -> marca en la tabla a los modelos que el
+    veredicto cita. Sin esto la pagina se contradecia sola: el veredicto recomendaba
+    un modelo y la tabla coronaba a otro, sin ninguna pista de por que. Ahora el
+    recomendado es una fila VISIBLE y MARCADA de su propia evidencia.
+    """
+    badge = (badges or {}).get(m.get("name"))
     nm = f"<strong>{esc(m.get('name'))}</strong>" if top else esc(m.get("name"))
+    if badge:
+        nm += f' <span class="row-badge">{esc(badge)}</span>'
     relevant = score_for(m, cfg)
     if cfg["criterion"] == "suite":
         # Ranking por suite: mostrar score de la suite + pilares auxiliares.
@@ -390,21 +399,31 @@ def frontier_in_dimension(cfg, models):
                     break
     if not by_name:
         return ""
+    # Escaneable: nombre | posicion | calidad | precio. Antes era una lista de
+    # bullets con los numeros embebidos en prosa ("queda #74 con 7.6/10. Cuesta
+    # $10.00 / $50.00 por millon.") — siete lineas asi son imposibles de comparar
+    # de un vistazo, que es exactamente para lo que existe el bloque.
+    rows = sorted(by_name.items(), key=lambda kv: -score_for(kv[1], cfg))
     items = []
-    for label, m in sorted(by_name.items()):
+    for label, m in rows:
         pos = next((i + 1 for i, x in enumerate(ranked) if x.get("key") == m.get("key")), None)
         score = score_for(m, cfg)
         if pos and pos <= 10:
-            text = f"<strong>{esc(label)}</strong> está en el top 10 (#{pos}) con {score:.1f}/10."
+            place = f'<span class="frontier-pos frontier-top">#{pos} · top 10</span>'
         elif pos:
-            text = f"<strong>{esc(label)}</strong> queda #{pos} con {score:.1f}/10."
+            place = f'<span class="frontier-pos">#{pos}</span>'
         else:
-            text = f"<strong>{esc(label)}</strong> no califica en este filtro (score {score:.1f}/10 o runs insuficientes)."
-        items.append(f"<li>{text} Cuesta {fmt_cost(m)} por millón.</li>")
+            place = '<span class="frontier-pos">sin cobertura</span>'
+        items.append(
+            f'<li><strong>{esc(label)}</strong>{place}'
+            f'<span class="frontier-score">{score:.1f}/10</span>'
+            f'<span class="frontier-cost">{fmt_cost(m)} por millón</span></li>'
+        )
     return f"""<section>
   <h2>¿Dónde quedan los modelos frontier?</h2>
-  <p>Muchos lectores buscan comparar GPT-5.6, Claude Opus/Fable o Grok. En esta dimensión estos son sus scores reales del benchmark:</p>
-  <ul>
+  <p>Mucha gente llega buscando GPT-5.6, Claude Opus/Fable o Grok. Acá está dónde quedan
+  <strong>en esta tarea concreta</strong>, ordenados por calidad — no por lo que cuestan:</p>
+  <ul class="frontier-list">
     {''.join(items)}
   </ul>
   <p class="meta">Si te interesa una comparación cara a cara, probá las <a href="/gpt-5.6-vs-claude-opus-4-8/">comparativas específicas</a> o ajustá los pesos en la calculadora.</p>
@@ -567,20 +586,45 @@ def funnel_block():
     Nada mas.
     """
     return """  <section class="funnel">
-    <h2>Antes de migrar, hacé esto</h2>
-    <p>Ya tenés un candidato. No lo cambies a ciegas: agarrá los dos primeros y pasales
-    <strong>cinco prompts reales tuyos</strong>, de los que ya corrés en producción. Un benchmark
+    <h2>Antes de migrar, haz esto</h2>
+    <p>Ya tienes un candidato. No lo cambies a ciegas: toma los dos primeros de la tabla y pásales
+    <strong>cinco prompts reales tuyos</strong>, de los que ya corres en producción. Un benchmark
     general te dice quién arranca adelante; <strong>tu caso decide quién gana</strong>. Son veinte
     minutos y te ahorran una migración equivocada.</p>
-    <p class="funnel-note">Y ojo con este ranking: se recalcula con cada lote de modelos nuevos.
-    Como el score de cada modelo es <em>relativo a todos los demás</em>, un modelo nuevo mueve a
-    todos. Lo que hoy es el #1 puede no serlo el mes que viene.</p>
-    <p><a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener" class="cta-primary">
-    Te aviso cuándo cambia el ranking →</a></p>
-    <p class="funnel-fine">Es la comunidad donde publico los datos y donde hay gente tomando
-    exactamente esta misma decisión. Entrar es gratis.</p>
+    <p class="funnel-note">Y una advertencia sobre este ranking: se recalcula con cada lote de modelos
+    nuevos. Como el score de cada modelo es <em>relativo a todos los demás</em>, un modelo nuevo mueve
+    a todos. Lo que hoy es el #1 puede no serlo el mes que viene.</p>
+    <p><a href="https://www.skool.com/cagala-aprende-repite?utm_source=benchmarks&amp;utm_medium=pseo&amp;utm_campaign=ranking" target="_blank" rel="noopener" class="cta-primary">
+    Ver la comunidad →</a></p>
+    <p class="funnel-fine">Cada vez que corro un lote nuevo, publico el recálculo ahí — con los datos
+    crudos y lo que cambió de lugar. Es también donde hay gente tomando esta misma decisión.
+    Entrar es gratis.</p>
   </section>
 """
+
+
+def _verdict_data(cfg, models):
+    """Calcula el veredicto UNA vez. Lo consumen el bloque Y la tabla (para marcar
+    las filas), asi que es literalmente imposible que se contradigan entre si.
+
+    Solo emitimos veredicto donde el criterio de la banda COINCIDE con el de la
+    pagina. Antes se emitia siempre, con calidad GLOBAL, y el resultado era que
+    /tool-calling/, /open-source/, /barato/ y /en-espanol/ mostraban los cuatro el
+    mismo veredicto ("usa DeepSeek V4 Flash"), ignorando su propio criterio. En
+    /open-source/ el "villano" era GPT-5.6 Sol, propietario, que no deberia ni
+    figurar ahi. Donde no puedo sostener el veredicto, no lo invento: lo omito.
+    """
+    from bands import verdict as _verdict
+
+    crit = cfg.get("criterion")
+    if crit not in ("pillar", "open_source"):
+        return None
+    pool = [m for m in models if (m.get("runs") or 0) >= 50]
+    if crit == "open_source":
+        pool = [m for m in pool if m.get("open_source")]
+    pil = cfg.get("pillar") if crit == "pillar" else None
+    v = _verdict(pool, pil, calls_per_month=3000)
+    return v if (v and "best" in v) else None
 
 
 def verdict_block(cfg, models):
@@ -593,73 +637,129 @@ def verdict_block(cfg, models):
     Lo que hace posible decidir: los modelos de la cima EMPATAN estadisticamente
     en calidad (sus IC95 no se distinguen), asi que la decision real es de COSTO.
     """
-    from bands import verdict as _verdict
-
-    pil = cfg.get("pillar") if cfg.get("criterion") == "pillar" else None
-    v = _verdict([m for m in models if (m.get("runs") or 0) >= 50], pil, calls_per_month=3000)
-    if not v or "best" not in v:
+    v = _verdict_data(cfg, models)
+    if not v:
         return ""
 
-    b = v["best"]
+    pil = cfg.get("pillar") if cfg.get("criterion") == "pillar" else None
+    leader, b = v["leader"], v["best"]
+    same = leader["name"] == b["name"]
+
+    # Banda demasiado ancha => el instrumento no separa. Se dice.
+    if v.get("inconclusive"):
+        pct = round(v["band_share"] * 100)
+        return f"""  <section class="verdict verdict-open">
+    <h2>La respuesta corta</h2>
+    <p class="verdict-lead">Acá el benchmark <strong>no logra separar a los modelos</strong>:
+    {v['band_size']} de {v['pool_size']} ({pct}% del catálogo) quedan dentro del margen de error
+    en esta tarea. Cuando la medición no distingue, <strong>lo honesto es decirlo</strong>, no
+    inventar un ganador.</p>
+    <p class="verdict-lead">Con esa salvedad: el de mayor calidad medida es
+    <strong>{esc(leader['name'])}</strong> ({leader['quality']:.2f}/10). Si el presupuesto manda,
+    <strong>{esc(b['name'])}</strong> queda dentro del mismo grupo por
+    <strong>≈${b['cost_month']:,.0f}/mes</strong>. Pero acá, más que nunca:
+    <strong>prueba los dos con tus propios prompts</strong>: este benchmark no va a decidir por ti.</p>
+  </section>
+"""
+
     cards = [
         f"""<div class="verdict-card verdict-best">
-        <span class="verdict-tag">Usá este</span>
+        <span class="verdict-tag">{'El mejor, y además el más barato' if same else 'La mejor compra'}</span>
         <strong>{esc(b['name'])}</strong>
         <span class="verdict-cost">≈${b['cost_month']:,.0f}/mes</span>
-        <span class="verdict-note">calidad {b['quality']:.2f}/10 · el más barato de los que empatan arriba</span>
+        <span class="verdict-note">calidad {b['quality']:.2f}/10{'' if same else f" · empata con {esc(leader['name'])}, que encabeza la tabla, y cuesta menos"}</span>
+        {f'<span class="verdict-sub">También: {esc(b["sub"])}</span>' if b.get("sub") else ''}
       </div>"""
     ]
-    if "priciest" in v:
+    if not same:
+        cards.append(f"""<div class="verdict-card">
+        <span class="verdict-tag">La mejor calidad medida</span>
+        <strong>{esc(leader['name'])}</strong>
+        <span class="verdict-cost">≈${leader['cost_month']:,.0f}/mes</span>
+        <span class="verdict-note">calidad {leader['quality']:.2f}/10 · es el #1 de la tabla. La diferencia con el de arriba está dentro del margen de error</span>
+        {f'<span class="verdict-sub">También: {esc(leader["sub"])}</span>' if leader.get("sub") else ''}
+      </div>""")
+    if "priciest" in v and v["priciest"]["name"] not in (b["name"], leader["name"]):
         p = v["priciest"]
         cards.append(f"""<div class="verdict-card verdict-costly">
-        <span class="verdict-tag">Lo que te ahorrás</span>
+        <span class="verdict-tag">Lo que te ahorras</span>
         <strong>{esc(p['name'])}</strong>
         <span class="verdict-cost">≈${p['cost_month']:,.0f}/mes</span>
-        <span class="verdict-note">{p['times']}× más caro por {p['quality_gap']:+.2f} de calidad — una diferencia que está dentro del margen de error</span>
+        <span class="verdict-note">{p['times']}× más caro por {p['quality_gap']:+.2f} de calidad — dentro del margen de error</span>
+        {f'<span class="verdict-sub">También: {esc(p["sub"])}</span>' if p.get("sub") else ''}
       </div>""")
     if "local" in v:
         l = v["local"]
         cards.append(f"""<div class="verdict-card">
-        <span class="verdict-tag">Si tenés hardware propio</span>
+        <span class="verdict-tag">Si tienes hardware propio</span>
         <strong>{esc(l['name'])}</strong>
         <span class="verdict-cost">≈${l['cost_month']:,.0f}/mes</span>
         <span class="verdict-note">calidad {l['quality']:.2f}/10 · corre local, sin API</span>
       </div>""")
 
-    # El CTA lleva el contexto a la calculadora. Antes era href="/" a secas y el
-    # usuario que venia buscando "agentes" aterrizaba en score global por default,
-    # teniendo que reconstruir a mano el caso de uso que ya habia declarado.
     preset = {"Agentes": "agentes", "Coding": "coding",
-              "Contenido": "contenido", "Razonamiento": "calidad"}.get(pil or "", "")
+              "Contenido": "contenido", "Razonamiento": "razonamiento"}.get(pil or "", "")
     qs = f"?preset={preset}&amp;calls=3000" if preset else "?calls=3000"
+
+    lead = (f"<strong>{v['band_size']} modelos empatan</strong> en calidad para esta tarea: "
+            f"la diferencia entre ellos es más chica que el margen de error de la medición. "
+            f"Cuando la calidad empata, <strong>la decisión es de precio</strong>.")
+    if same:
+        lead = (f"<strong>{esc(leader['name'])}</strong> encabeza la tabla en calidad "
+                f"<em>y</em> es el más barato de los {v['band_size']} que empatan con él. "
+                f"Caso fácil: no hay que elegir entre calidad y precio.")
 
     return f"""  <section class="verdict">
     <h2>La respuesta corta</h2>
-    <p class="verdict-lead"><strong>{v['band_size']} modelos empatan</strong> en calidad para esta tarea:
-    la diferencia entre ellos es más chica que el margen de error de la medición.
-    Cuando la calidad empata, <strong>la decisión es de precio</strong>.</p>
+    <p class="verdict-lead">{lead}</p>
     <div class="verdict-grid">
       {''.join(cards)}
     </div>
     <p class="verdict-foot">Cálculo sobre <strong>3.000 llamadas/mes</strong> (≈100 por día: una respuesta
-    de agente o un borrador de texto por llamada). ¿Otro volumen o te importa la velocidad?
-    Ajustalo en la <a href="/{qs}">calculadora</a>.
-    La tabla de abajo es la evidencia completa.</p>
+    de agente o un borrador de texto por llamada). ¿Otro volumen, o te importa más la velocidad?
+    Ajusta los pesos en la <a href="/{qs}">calculadora</a>.
+    Los modelos citados están en la tabla de abajo, marcados.</p>
   </section>
 """
 
 
 def render_ranking(cfg, models):
-    ranked = rank_models(models, cfg)
-    if not ranked:
+    all_ranked = rank_models(models, cfg)
+    if not all_ranked:
         return None
-    ranked = ranked[:8]
+    ranked = all_ranked[:8]
+
+    # Los modelos que el veredicto cita DEBEN estar en la tabla, marcados. Si el
+    # recomendado no entra al top-8 por calidad (pasa: es el mas barato de la banda,
+    # no el mas capaz), se INSERTA — porque el pie del veredicto promete que "los
+    # modelos citados estan en la tabla de abajo" y esa promesa tiene que ser cierta.
+    v = _verdict_data(cfg, models)
+    badges = {}
+    if v:
+        if v.get("best"):
+            badges[v["best"]["name"]] = "← la mejor compra"
+        if v.get("priciest") and v["priciest"]["name"] not in badges:
+            badges[v["priciest"]["name"]] = "← el caro"
+        names = {m.get("name") for m in ranked}
+        for extra in [v.get("best"), v.get("priciest")]:
+            if extra and extra["name"] not in names:
+                m = next((x for x in all_ranked if x.get("name") == extra["name"]), None)
+                if m is not None:
+                    ranked.append(m)
+                    names.add(extra["name"])
+
     url = f"{SITE}/{cfg['slug']}/"
     tests_k = fmt_k(get_counts()["total_runs"])
     desc = (f"{cfg['h1']} con {tests_k} runs reales: ranking por {cfg['case']}. "
             f"Incluye costos para volumen, análisis del top 3 y posición de modelos frontier. #1: {ranked[0].get('name')}.")
     today = date.today().isoformat()
-    rows = "\n        ".join(row_ranking(i + 1, m, cfg, top=(i == 0)) for i, m in enumerate(ranked))
+    # El numero de fila es la posicion REAL en el ranking completo, no el indice
+    # de la tabla: si insertamos a alguien del puesto 24, tiene que decir 24.
+    pos_of = {m.get("name"): i + 1 for i, m in enumerate(all_ranked)}
+    rows = "\n        ".join(
+        row_ranking(pos_of.get(m.get("name"), i + 1), m, cfg, top=(i == 0), badges=badges)
+        for i, m in enumerate(ranked)
+    )
     dataset_ld = json.dumps(dataset_schema(cfg, ranked), ensure_ascii=False, indent=2)
     body = f"""  <section class="hero">
     <h1>{esc(cfg['h1'])}</h1>
