@@ -555,6 +555,34 @@ def dataset_schema(cfg, ranked):
     }
 
 
+def funnel_block():
+    """Cierre de la decision -> comunidad. NO es un banner: es el paso siguiente.
+
+    El visitante llega buscando que modelo usar, obtiene el veredicto... y hasta hoy
+    el unico CTA era "Ir a la calculadora" (interno). El link a la comunidad vivia
+    solo en el nav. El funnel moria justo donde el lector estaba mas comprometido.
+
+    Regla dura del proyecto: NO inventar perks. Aca se ofrece solo lo que existe --
+    la comunidad es gratis (tier Standard $0) y el ranking se recalcula con cada lote.
+    Nada mas.
+    """
+    return """  <section class="funnel">
+    <h2>Antes de migrar, hacé esto</h2>
+    <p>Ya tenés un candidato. No lo cambies a ciegas: agarrá los dos primeros y pasales
+    <strong>cinco prompts reales tuyos</strong>, de los que ya corrés en producción. Un benchmark
+    general te dice quién arranca adelante; <strong>tu caso decide quién gana</strong>. Son veinte
+    minutos y te ahorran una migración equivocada.</p>
+    <p class="funnel-note">Y ojo con este ranking: se recalcula con cada lote de modelos nuevos.
+    Como el score de cada modelo es <em>relativo a todos los demás</em>, un modelo nuevo mueve a
+    todos. Lo que hoy es el #1 puede no serlo el mes que viene.</p>
+    <p><a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener" class="cta-primary">
+    Te aviso cuándo cambia el ranking →</a></p>
+    <p class="funnel-fine">Es la comunidad donde publico los datos y donde hay gente tomando
+    exactamente esta misma decisión. Entrar es gratis.</p>
+  </section>
+"""
+
+
 def verdict_block(cfg, models):
     """El veredicto, ANTES de la tabla. La tabla pasa a ser evidencia, no output.
 
@@ -657,6 +685,7 @@ def render_ranking(cfg, models):
   {analysis(cfg, ranked)}
   {cost_comparison(cfg, ranked)}
   {frontier_in_dimension(cfg, models)}
+  {funnel_block()}
   {methodology()}
   {related_pages(cfg)}
   <script type="application/ld+json">

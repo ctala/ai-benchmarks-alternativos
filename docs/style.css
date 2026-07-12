@@ -1222,3 +1222,26 @@ footer p { word-break: break-word; }
 .verdict-costly .verdict-tag { color: var(--magenta); }
 .verdict-costly .verdict-cost { color: var(--magenta); }
 .verdict-foot { margin-top: 0.9rem; font-size: 0.82rem; color: var(--gray-dark); line-height: 1.5; }
+
+/* ---- Funnel: el paso siguiente despues de decidir ------------------------
+   El visitante llega, obtiene el veredicto... y el unico CTA era interno
+   ("ir a la calculadora"). El link a la comunidad vivia solo en el nav.
+   Esto cierra la decision: probalo con tus prompts -> te aviso cuando cambie. */
+.funnel {
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(57,255,20,0.05), rgba(0,212,255,0.05));
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--cyan);
+  border-radius: 8px;
+}
+.funnel h2 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+.funnel p { margin-bottom: 0.9rem; line-height: 1.6; }
+.funnel-note {
+  font-size: 0.88rem;
+  color: var(--gray);
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--border);
+}
+.funnel .cta-primary { display: inline-block; margin-top: 0.25rem; }
+.funnel-fine { font-size: 0.82rem; color: var(--gray-dark); margin-bottom: 0 !important; }
