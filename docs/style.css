@@ -1269,3 +1269,109 @@ footer p { word-break: break-word; }
 .versions-row { color: var(--gray); line-height: 1.5; }
 .versions-row strong { color: var(--white); font-weight: 600; }
 .versions-fine { font-size: 0.78rem; color: var(--gray-dark); margin-top: 0.2rem; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PASS DE LEGIBILIDAD (jul-2026)
+   El problema no era el color: era que la pagina se leia como un muro. Texto de
+   borde a borde (~140 caracteres por linea, el doble de lo legible), secciones
+   sin separacion, y todo con el mismo peso visual — nada guiaba el ojo.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Longitud de linea. Lo mas importante. La prosa se limita a ~68ch; las
+      TABLAS y bloques de datos siguen usando todo el ancho (por eso el max-width
+      va en los elementos de texto, no en el contenedor). */
+main.container > section > p,
+main.container > section > ul,
+main.container > section > ol,
+main .verdict-lead,
+main .funnel p {
+  max-width: 68ch;
+}
+
+/* 2. Ritmo vertical: cada seccion respira y se separa de la anterior. */
+main.container > section {
+  margin-bottom: 2.75rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--border);
+}
+/* El hero y los bloques que ya tienen caja propia no llevan la linea divisoria. */
+main.container > section.hero,
+main.container > section.verdict,
+main.container > section.funnel {
+  border-top: none;
+  padding-top: 0;
+}
+main.container > section.hero { margin-bottom: 1.5rem; }
+
+/* 3. Jerarquia de titulos: el h2 marca el corte, no compite con el cuerpo. */
+main.container > section > h2 {
+  font-size: 1.45rem;
+  line-height: 1.25;
+  margin-bottom: 0.9rem;
+  color: var(--green);
+}
+main.container > section > h2::before {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 2px;
+  background: var(--green);
+  margin-bottom: 0.7rem;
+  opacity: 0.5;
+}
+main h3 {
+  font-size: 1.05rem;
+  margin: 1.4rem 0 0.5rem;
+  color: var(--cyan);
+}
+
+/* 4. Cuerpo: mas aire entre lineas y entre parrafos. */
+main p { line-height: 1.65; margin-bottom: 0.9rem; }
+main li { line-height: 1.6; margin-bottom: 0.45rem; }
+main ul, main ol { padding-left: 1.15rem; }
+
+/* 5. El bloque "¿Donde quedan los modelos frontier?" era una lista larga de
+      bullets con numeros mezclados en prosa — imposible de escanear. Se
+      tabula: nombre a la izquierda, dato a la derecha. */
+main .frontier-list { list-style: none; padding-left: 0; max-width: 68ch; }
+main .frontier-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border);
+}
+main .frontier-list li strong { min-width: 9rem; color: var(--white); }
+
+/* 6. El veredicto es LA respuesta: que pese mas que el resto. */
+.verdict { margin-top: 0; }
+.verdict h2 { color: var(--white); }
+.verdict h2::before { display: none; }
+
+/* Fila marcada: el modelo que el veredicto recomienda, visible en su propia tabla. */
+.row-badge {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  border-radius: 3px;
+  background: rgba(57,255,20,0.15);
+  color: var(--green);
+  white-space: nowrap;
+}
+.verdict-sub {
+  font-size: 0.78rem;
+  color: var(--cyan);
+  border-top: 1px dashed var(--border);
+  padding-top: 0.35rem;
+  margin-top: 0.15rem;
+}
+/* Banda no concluyente: el benchmark no separa y lo dice. Tono de advertencia. */
+.verdict-open { border-left-color: var(--magenta); }
+/* Bloque frontier tabulado */
+.frontier-pos { font-size: 0.8rem; color: var(--gray-dark); }
+.frontier-top { color: var(--green); font-weight: 700; }
+.frontier-score { font-weight: 700; color: var(--white); margin-left: auto; }
+.frontier-cost { font-size: 0.8rem; color: var(--gray-dark); min-width: 11rem; text-align: right; }

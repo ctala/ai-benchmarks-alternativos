@@ -19,36 +19,34 @@ Todos los costos asumen **3,000 llamadas/mes** (≈100 por día). Para tu volume
 
 _El modelo decide y llama herramientas. Necesitás fiabilidad en tool calling._
 
-- **Usá:** **Qwen 3.6 35B base (OpenRouter FP8)** — ≈$5/mes (calidad 8.17/10)
-- **Lo que te ahorrás:** Claude Fable 5 (suscripción) cuesta ≈$234/mes (**50.5× más**) por apenas +0.12 de calidad — dentro del margen de error.
-- **Si tenés hardware propio:** **DiffusionGemma 26B-A4B (DGX Spark Q8_0)** — ≈$2/mes (calidad 8.39/10)
-- _11 modelos empatan en calidad en este pilar._
+- **Usá:** **Claude Haiku 4.5 (suscripción)** — ≈$23/mes (calidad 8.76/10)
+- **Lo que te ahorrás:** Claude Opus 4.8 (suscripción) cuesta ≈$117/mes (**5.0× más**) por apenas +0.15 de calidad — dentro del margen de error.
+- _4 modelos empatan en calidad en este pilar._
 
 ### Contenido y marketing (blog, SEO, copy)
 
 _Texto largo en español neutro. El costo manda: es alto volumen._
 
-- **Usá:** **DeepSeek V4 Flash (OpenRouter)** — ≈$1/mes (calidad 8.84/10)
-- **Lo que te ahorrás:** GPT-5.6 Sol cuesta ≈$140/mes (**143.8× más**) por apenas +0.07 de calidad — dentro del margen de error.
-- _15 modelos empatan en calidad en este pilar._
+- **Usá:** **MiniMax M3 (directo / sub)** — ≈$6/mes (calidad 9.17/10)
+- **Lo que te ahorrás:** GPT-5.6 Sol cuesta ≈$140/mes (**24.6× más**) por apenas -0.26 de calidad — dentro del margen de error.
+- **Mejor open-source:** **DeepSeek R1 (reasoning)** — ≈$12/mes (calidad 9.01/10)
+- _10 modelos empatan en calidad en este pilar._
 
 ### Código y debugging
 
 _Generación y corrección de código._
 
-- **Usá:** **Mistral Nemo** — ≈$0/mes (calidad 7.91/10)
-- **Lo que te ahorrás:** GPT-5.6 Sol cuesta ≈$140/mes (**1268.2× más**) por apenas +0.07 de calidad — dentro del margen de error.
-- **Si tenés hardware propio:** **Gemma 4 12B (Spark llama-server Q4_K_M)** — ≈$1/mes (calidad 7.99/10)
-- _56 modelos empatan en calidad en este pilar._
+- **Usá:** **DeepSeek V4 Flash (OpenRouter)** — ≈$1/mes (calidad 8.40/10)
+- **Lo que te ahorrás:** Claude Sonnet 4.6 (suscripción) cuesta ≈$70/mes (**72.4× más**) por apenas -0.14 de calidad — dentro del margen de error.
+- _16 modelos empatan en calidad en este pilar._
 
 ### Razonamiento y estrategia
 
 _Análisis, decisiones, problemas con varios pasos._
 
-- **Usá:** **DeepSeek V4 Flash (OpenRouter)** — ≈$1/mes (calidad 8.78/10)
-- **Lo que te ahorrás:** Claude Fable 5 (suscripción) cuesta ≈$234/mes (**241.2× más**) por apenas +0.12 de calidad — dentro del margen de error.
-- **Si tenés hardware propio:** **Gemma 4 12B (Spark llama-server, reasoning)** — ≈$1/mes (calidad 8.07/10)
-- _17 modelos empatan en calidad en este pilar._
+- **Usá:** **DeepSeek R1 (reasoning)** — ≈$12/mes (calidad 9.05/10)
+- **Lo que te ahorrás:** Claude Opus 4.8 (suscripción) cuesta ≈$117/mes (**9.8× más**) por apenas +0.21 de calidad — dentro del margen de error.
+- _4 modelos empatan en calidad en este pilar._
 
 ---
 
@@ -66,11 +64,11 @@ Lo mejor que podés comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 ## El resumen de todo el benchmark
 
-**13 modelos empatan en calidad** en la cima del ranking global.
+**8 modelos empatan en calidad** en la cima del ranking global.
 
 El más barato de ese grupo — **DeepSeek V4 Flash (OpenRouter)** — sale **≈$1/mes**.
-El más caro — **GPT-5.6 Sol** — sale **≈$140/mes**.
+El más caro — **Claude Opus 4.7 (suscripción)** — sale **≈$117/mes**.
 
-Eso es **143.8× más caro** por una diferencia de calidad de **-0.05 puntos**, que está dentro del margen de error.
+Eso es **120.6× más caro** por una diferencia de calidad de **+0.01 puntos**, que está dentro del margen de error.
 
 Si te llevás una sola cosa de este benchmark, que sea esta.

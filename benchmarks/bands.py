@@ -56,12 +56,18 @@ def _indistinguishable(a: dict, b: dict, pillar: str | None) -> bool:
     mub, cib = _q(b, pillar)
     if mua is None or mub is None:
         return False
+    delta = abs(mua - mub)
+    # Guardia absoluta: por mucho que el test estadistico "no distinga", una
+    # diferencia grande de calidad no se declara empate. Evita que un lider mal
+    # medido arrastre a medio catalogo a su banda.
+    if delta > MAX_BAND_DELTA:
+        return False
     sea = (cia or 0.0) / 1.96
     seb = (cib or 0.0) / 1.96
     se_dif = (sea ** 2 + seb ** 2) ** 0.5
     if se_dif == 0:
-        return abs(mua - mub) < 1e-9
-    return abs(mua - mub) <= 1.96 * se_dif
+        return delta < 1e-9
+    return delta <= 1.96 * se_dif
 
 
 def quality_bands(models: list[dict], pillar: str | None = None) -> list[list[dict]]:
@@ -97,6 +103,36 @@ def quality_bands(models: list[dict], pillar: str | None = None) -> list[list[di
     return bands
 
 
+# Si la banda de empate cubre mas que esto del pool, el resultado honesto NO es
+# "estos N son igual de buenos, elegi el mas barato" sino "el benchmark no separa
+# a estos modelos". Paso de verdad: en Coding la banda cubria 56 de 98 = 57% del
+# catalogo, y el veredicto igual recomendaba Mistral Nemo "para programar". Un
+# empate que abarca medio catalogo es la confesion de que el instrumento no
+# discrimina — y hay que decirlo, no venderlo como recomendacion.
+MAX_BAND_SHARE = 0.20
+
+# Ademas del test estadistico, distancia absoluta maxima para entrar a la banda.
+# Sin esto, un lider mal medido (IC ancho por ruido) se "empata" con medio mundo:
+# cuanto PEOR medido el lider, mas gente empata con el. Perverso.
+MAX_BAND_DELTA = 0.30
+
+
+def price_note(m: dict) -> str | None:
+    """Precio por suscripcion, si el modelo tiene una.
+
+    Sin esto publicabamos dos precios para el mismo modelo: el veredicto decia
+    "Claude Fable 5 ~$234/mes" (costo API) mientras la calculadora mostraba
+    "Sub $20/mes" leyendo el campo `subscriptions` del MISMO json. 11x de
+    diferencia, en dos paginas que se enlazan entre si.
+    """
+    subs = m.get("subscriptions") or []
+    for s in subs:
+        p = s.get("price_month_usd")
+        if p:
+            return f"${p:,.0f}/mes con {s.get('name', 'suscripción')} (sin acceso API)"
+    return None
+
+
 def is_local(m: dict) -> bool:
     """Modelo que corre en hardware propio (Spark/Ollama), no via API.
 
@@ -118,7 +154,8 @@ def verdict(models: list[dict], pillar: str | None = None, calls_per_month: int 
     - local    = la mejor opcion si tenes hardware propio (aparte, no mezclada).
     - open     = la mejor open-source por API.
     """
-    bands = quality_bands(models, pillar)
+    pool = list(models)
+    bands = quality_bands(pool, pillar)
     if not bands:
         return {}
     top = bands[0]
@@ -129,7 +166,14 @@ def verdict(models: list[dict], pillar: str | None = None, calls_per_month: int 
 
     def card(m):
         return {"name": m["name"], "quality": _q(m, pillar)[0],
-                "cost_month": month(m), "id": m.get("id")}
+                "cost_month": month(m), "id": m.get("id"),
+                "sub": price_note(m)}   # el precio de suscripcion, si lo tiene
+
+    # El LIDER de la banda: el de mas calidad. Es el #1 de la tabla de la pagina,
+    # que ordena por capacidad. Nombrarlo explicitamente evita que el veredicto
+    # parezca contradecir a su propia tabla (paso: la tabla coronaba a uno y el
+    # veredicto recomendaba a otro, sin explicar por que).
+    leader = max(top, key=lambda m: _q(m, pillar)[0] or 0)
 
     api = [m for m in top if not is_local(m)]
     if not api:
@@ -140,9 +184,17 @@ def verdict(models: list[dict], pillar: str | None = None, calls_per_month: int 
     openm = next((m for m in api if m.get("open_source")), None)
     localm = next((m for m in top if is_local(m)), None)
 
+    share = len(top) / len(pool) if pool else 0
+
     out = {
         "band_size": len(top),
+        "pool_size": len(pool),
+        "band_share": round(share, 3),
+        # Si el empate cubre mas de MAX_BAND_SHARE del catalogo, no hay recomendacion
+        # honesta por calidad: el instrumento no separa. Se dice, no se disimula.
+        "inconclusive": share > MAX_BAND_SHARE,
         "calls_per_month": calls_per_month,
+        "leader": card(leader),
         "best": card(best),
     }
     if priciest is not best:
