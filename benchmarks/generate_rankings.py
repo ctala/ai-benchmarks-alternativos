@@ -18,6 +18,11 @@ from generate_comparison import (
     get_counts, fmt_k, get_meta, fmt_pct,
 )
 
+
+# --- Helpers para rankings por suite específica --------------------------------
+def suite(m, name: str) -> float:
+    return (m.get("score_by_suite") or {}).get(name) or 0
+
 # --- Rankings a generar -------------------------------------------------------
 RANKINGS = [
     {
@@ -80,6 +85,46 @@ RANKINGS = [
         "lead": "¿Qué modelo de IA razona mejor en 2026? Ranking por el pilar de razonamiento del benchmark: "
                 "matemáticas, lógica formal, análisis causal y planificación multi-paso en español.",
     },
+    {
+        "slug": "mejor-llm-para-contenido",
+        "title": "Mejor LLM para contenido y marketing en 2026: ranking con benchmark real",
+        "h1": "Mejor LLM para contenido y marketing (2026)",
+        "intent_kw": "mejor llm para contenido, mejor ia para marketing, modelo para escribir blogs, mejor ia para copywriting, llm para contenido",
+        "criterion": "pillar", "pillar": "Contenido",
+        "case": "contenido y marketing (blogs, copy, newsletters y textos largos en español neutro)",
+        "lead": "¿Qué modelo escribe mejor contenido en español en 2026? Ranking por el pilar de contenido del benchmark: "
+                "blogs, copy, newsletters y textos largos con tono natural para hispanohablantes.",
+    },
+    {
+        "slug": "mejor-llm-para-agentes",
+        "title": "Mejor LLM para agentes y automatizaciones en 2026: ranking con benchmark",
+        "h1": "Mejor LLM para agentes y automatizaciones (2026)",
+        "intent_kw": "mejor llm para agentes, mejor ia para automatizacion, modelo para n8n, llm para hermes, agentes ia 2026",
+        "criterion": "pillar", "pillar": "Agentes",
+        "case": "agentes y operaciones (multi-turno, tool calling y orquestación de flujos)",
+        "lead": "Para agentes y flujos automatizados no alcanza con 'inteligencia': importa multi-turno estable, "
+                "tool calling confiable y costo por conversación. Ranking por el pilar Agentes.",
+    },
+    {
+        "slug": "mejor-llm-para-tool-calling",
+        "title": "Mejor LLM para tool calling en 2026: ranking con benchmark real",
+        "h1": "Mejor LLM para tool calling (2026)",
+        "intent_kw": "mejor llm para tool calling, mejor ia para funciones, modelo para llamar apis, llm function calling, agentes tool use",
+        "criterion": "suite", "suite": "tool_calling",
+        "case": "tool calling (llamada correcta de funciones y estructura JSON fiable)",
+        "lead": "El tool calling puede arruinar un agente: una función mal llamada es peor que una respuesta lenta. "
+                "Ranking por la suite específica de tool calling del benchmark.",
+    },
+    {
+        "slug": "mejor-llm-para-resumir-textos",
+        "title": "Mejor LLM para resumir textos en 2026: ranking con benchmark",
+        "h1": "Mejor LLM para resumir textos (2026)",
+        "intent_kw": "mejor llm para resumir, mejor ia para resumir textos, modelo para summarization, resumen automatico ia, llm resumen",
+        "criterion": "suite", "suite": "summarization",
+        "case": "summarization (resumir textos largos sin perder información clave)",
+        "lead": "Resumir no es solo acortar: es conservar lo importante y descartar el ruido. "
+                "Ranking por la suite de summarization del benchmark.",
+    },
 ]
 
 
@@ -95,6 +140,10 @@ def rank_models(models, cfg):
         pil = cfg["pillar"]
         base = [m for m in base if pillar(m, pil) > 0]
         return sorted(base, key=lambda m: -pillar(m, pil))
+    if crit == "suite":
+        sname = cfg["suite"]
+        base = [m for m in base if suite(m, sname) > 0]
+        return sorted(base, key=lambda m: -suite(m, sname))
     if crit == "cost":
         base = [m for m in base if (m.get("score_global") or 0) >= cfg.get("min_score", 6.8)]
         return sorted(base, key=lambda m: (m.get("cost_input_per_M") or 99) + (m.get("cost_output_per_M") or 99))
@@ -105,7 +154,11 @@ def rank_models(models, cfg):
 
 
 def score_for(m, cfg):
-    return pillar(m, cfg["pillar"]) if cfg["criterion"] == "pillar" else (m.get("score_global") or 0)
+    if cfg["criterion"] == "pillar":
+        return pillar(m, cfg["pillar"])
+    if cfg["criterion"] == "suite":
+        return suite(m, cfg["suite"])
+    return m.get("score_global") or 0
 
 
 def analysis(cfg, ranked):
@@ -203,7 +256,7 @@ def render_ranking(cfg, models):
   <section class="results">
     <div class="results-header">
       <h2>Ranking: {esc(cfg['h1'])}</h2>
-      <p class="meta">Score por pilar /10. {('Ordenado por el pilar relevante.' if cfg['criterion']=='pillar' else 'Ordenado por '+('costo.' if cfg['criterion']=='cost' else 'score global.'))}</p>
+      <p class="meta">{({'pillar':'Score por pilar /10.','suite':'Score por suite /10.','cost':'Ordenado por costo.','open_source':'Ordenado por score global.'}[cfg['criterion']])} {('Ordenado por el pilar relevante.' if cfg['criterion']=='pillar' else ('Ordenado por la suite relevante.' if cfg['criterion']=='suite' else ''))}</p>
     </div>
     <table class="results-table">
       <thead>
