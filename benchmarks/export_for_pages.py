@@ -32,6 +32,30 @@ from benchmarks.scoring import PRICING, compute_final_score, cost_score_log, DEF
 # $0.001/call = $1 por 1,000 calls, precio de referencia "cheap".
 MIN_COST_PER_CALL = 0.001
 
+# --- Umbrales de muestra (fuente unica; el resto del pipeline los importa) ---
+# El benchmark tiene DOS umbrales distintos y confundirlos ya causo un bug:
+# models.json rankeaba un modelo de 10 runs en el podio (#3) mientras las
+# paginas pSEO -- que si filtran >=50 -- no lo mostraban. Misma data, dos
+# rankings publicos contradictorios.
+#
+#   MIN_RUNS_TESTED (20) = cobertura suficiente para reportar el modelo.
+#   MIN_RUNS_RANKED (50) = muestra suficiente para RANKEARLO contra otros.
+#
+# El de ranking es mas alto a proposito: con 3-12 runs la varianza permite que
+# un modelo lidere por azar. generate_rankings.py y generate_comparison.py ya
+# aplicaban 50; ahora el umbral vive aca y todos consumen el mismo.
+MIN_RUNS_TESTED = 20
+MIN_RUNS_RANKED = 50
+
+
+def sample_tier(runs: int) -> str:
+    """Confiabilidad de la muestra. 'solid' es el unico que entra al ranking oficial."""
+    if runs >= MIN_RUNS_RANKED:
+        return "solid"
+    if runs >= MIN_RUNS_TESTED:
+        return "partial"
+    return "preliminary"
+
 # Merge cloud + local models para que DGX y otros locales aparezcan en la calculadora
 MODELS = {**_CLOUD_MODELS, **OLLAMA_MODELS}
 
@@ -448,7 +472,9 @@ def build_export():
             "context_window": cfg.get("context_window"),
             "subscriptions": subscriptions_expanded,
             "notes": cfg.get("notes", ""),
-            "tested": metrics["runs"] >= 20,  # >= 20 runs = cobertura suficiente
+            "tested": metrics["runs"] >= MIN_RUNS_TESTED,  # cobertura suficiente para reportar
+            "ranked": metrics["runs"] >= MIN_RUNS_RANKED,  # muestra suficiente para rankear
+            "sample_tier": sample_tier(metrics["runs"]),   # solid | partial | preliminary
             **capabilities,  # tool_calling, thinking, multimodal
             **metrics,
         })
@@ -464,9 +490,9 @@ def build_export():
               "speed_score_avg": "speed", "latency_score_avg": "latency"}
     _have = lambda m: m["tested"] and all(m.get(c) is not None for c in Z_COLS)
     _tested = [m for m in models_export if _have(m)]
-    # Las norm_stats se calculan sobre modelos con base solida (>=50 runs)
+    # Las norm_stats se calculan sobre modelos con base solida (>=MIN_RUNS_RANKED)
     # para que el z-score no se distorsione por emergentes con alta varianza.
-    _stable = [m for m in _tested if m["runs"] >= 50]
+    _stable = [m for m in _tested if m["ranked"]]
     norm_stats = {}
     for col in Z_COLS:
         vals = [m[col] for m in _stable]
@@ -485,13 +511,18 @@ def build_export():
         # spread similar al score viejo para no confundir. Solo afecta el número, no el orden.
         m["score_global"] = round(max(0.0, min(10.0, 5.5 + 3.3 * z_comp)), 2)
 
-    # Sort: tested first, then by score desc
-    models_export.sort(key=lambda m: (not m["tested"], -(m.get("score_global") or 0)))
+    # Sort: ranked (muestra solida) primero, luego tested, luego score desc.
+    # Asi cualquier consumidor que tome los primeros N del array obtiene un
+    # ranking valido sin tener que conocer los umbrales.
+    models_export.sort(key=lambda m: (not m["ranked"], not m["tested"], -(m.get("score_global") or 0)))
 
     return {
         "generated_at": __import__("datetime").datetime.now().isoformat(timespec="seconds"),
         "total_models": len(models_export),
         "tested_count": sum(1 for m in models_export if m["tested"]),
+        "ranked_count": sum(1 for m in models_export if m["ranked"]),
+        # Umbrales explicitos: el consumidor no deberia adivinarlos ni hardcodearlos.
+        "thresholds": {"tested_min_runs": MIN_RUNS_TESTED, "ranked_min_runs": MIN_RUNS_RANKED},
         "tokens_per_call_assumption": {"input": 300, "output": 1500},
         "default_weights": DEFAULT_WEIGHTS,  # los pesos aplicados en score_global
         "score_method": "zscore_v2.9",  # score_global = rescale(Σ w·z(dim)); ver norm_stats

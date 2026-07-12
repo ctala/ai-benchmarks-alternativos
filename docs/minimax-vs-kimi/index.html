@@ -113,7 +113,7 @@
       <h2>Tabla comparativa general</h2>
       <p class="meta">Datos del benchmark. Costos por millón de tokens.</p>
     </div>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th>Modelo</th><th>Quality global</th><th>Costo in/out</th><th>Costo/test</th><th>Tok/s</th><th>Contexto</th><th>Runs</th></tr>
       </thead>
@@ -123,12 +123,12 @@
         <tr><td>Kimi K2.6</td><td>7.67</td><td>$0.73 / $3.49</td><td>$0.0205</td><td>30.3</td><td>262K</td><td>259</td></tr>
         <tr><td>Kimi K2</td><td>7.76</td><td>$0.20 / $0.80</td><td>$0.0006</td><td>28.3</td><td>131K</td><td>138</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </section>
 
   <section>
     <h2>Comparación por pilar</h2>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th>Pilar</th><th>MiniMax M3</th><th>Kimi K2.7 Code</th><th>Diferencia</th></tr>
       </thead>
@@ -138,7 +138,7 @@
         <tr><td>Agentes / Operaciones</td><td><strong>8.00</strong></td><td>7.43</td><td class="positive">+0.57</td></tr>
         <tr><td>Coding</td><td><strong>8.29</strong></td><td>8.07</td><td class="positive">+0.22</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p>MiniMax M3 gana en los 4 pilares. La ventaja es clara en razonamiento, contenido y agentes; más ajustada en coding.</p>
   </section>
 
@@ -165,7 +165,7 @@
 
   <section>
     <h2>Recomendaciones por caso de uso</h2>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th>Caso de uso</th><th>Ganador</th><th>Por qué</th></tr>
       </thead>
@@ -178,13 +178,13 @@
         <tr><td>Coding específico de tu stack</td><td>Probá ambos</td><td>Tu experiencia real pesa más que el promedio.</td></tr>
         <tr><td>Latencia crítica</td><td><strong>Kimi K2.7 Code</strong></td><td>36 tok/s vs 27.5 tok/s.</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </section>
 
   <section>
     <h2>Costo estimado para 1.000 calls/mes</h2>
     <p>Suponiendo 300 tokens de input y 1.500 de output por call:</p>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th>Estrategia</th><th>Costo mensual aprox</th><th>Nota</th></tr>
       </thead>
@@ -193,7 +193,7 @@
         <tr><td>Todo MiniMax M3</td><td>~$120</td><td>Más barato y mejor calidad global.</td></tr>
         <tr><td><strong>Híbrida: coding Kimi, resto MiniMax</strong></td><td><strong>~$150</strong></td><td><strong>Mantiene tu calidad de coding y ahorra en operaciones.</strong></td></tr>
       </tbody>
-    </table>
+    </table></div>
   </section>
 
   <section>

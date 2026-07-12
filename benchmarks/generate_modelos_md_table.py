@@ -31,12 +31,24 @@ def model_id_to_per_model_filename(model_id: str) -> str:
 
 
 def load_models_export():
+    """Devuelve (ranked, in_review).
+
+    ranked     = muestra solida (>=50 runs) -> entra a los rankings.
+    in_review  = tiene score pero muestra chica (<50 runs) -> se muestra aparte.
+
+    La separacion importa: con 3-12 runs un modelo puede liderar por azar. Antes
+    esta tabla mezclaba ambos y coronaba #1 a un modelo con 39 runs mientras las
+    paginas pSEO (que si filtran >=50) mostraban otro ganador.
+    """
     if not MODELS_JSON.exists():
         raise FileNotFoundError(
             f"No existe {MODELS_JSON}. Corré `python benchmarks/export_for_pages.py` primero."
         )
     data = json.loads(MODELS_JSON.read_text())
-    return [m for m in data.get("models", []) if m.get("tested")]
+    scored = [m for m in data.get("models", []) if m.get("score_global") is not None]
+    ranked = [m for m in scored if m.get("ranked")]
+    in_review = [m for m in scored if not m.get("ranked")]
+    return ranked, in_review
 
 
 def find_response_dirs(model_id: str) -> list[str]:
@@ -134,7 +146,7 @@ def build_cost_efficiency_table(models: list[dict]) -> str:
             return 10.0
         return max(0.0, min(10.0, 8.0 - 3.0 * math.log10(c / 0.001)))
 
-    tested = [m for m in models if m.get("tested")]
+    tested = list(models)  # ya vienen filtrados a muestra solida (>=50 runs)
     q_vals = [m.get("quality_avg", 0) for m in tested]
     c_vals = [cost_score_log(m.get("cost_per_1k_calls_usd", 0)) for m in tested]
     s_vals = [m.get("speed_score_avg", 0) for m in tested]
@@ -162,20 +174,44 @@ def build_cost_efficiency_table(models: list[dict]) -> str:
     return "\n".join(lines)
 
 
-def build_table(models: list[dict]) -> str:
-    sections = [
-        build_global_table(models),
+def build_in_review_table(models: list[dict]) -> str:
+    """Modelos con score pero muestra insuficiente para rankear (<50 runs).
+
+    Se publican por transparencia -- no se esconden -- pero fuera del ranking:
+    su score es indicativo, no comparable de igual a igual.
+    """
+    lines = [
+        "#### En evaluación — muestra parcial (<50 runs, NO rankeados)",
         "",
-        build_quality_table(models),
+        "> Estos modelos tienen menos runs que el piso del ranking, así que su score es "
+        "**indicativo, no comparable**: con pocas muestras la varianza permite que un modelo "
+        "quede arriba (o abajo) por azar. Se listan para no esconderlos, pero **no compiten** "
+        "en las tablas de arriba hasta completar la cobertura.",
         "",
-        build_suite_table(models, ["code_generation", "structured_output", "string_precision"], "Mejor coding"),
-        "",
-        build_suite_table(models, ["deep_reasoning", "reasoning"], "Mejor razonamiento"),
-        "",
-        build_suite_table(models, ["content_generation", "startup_content", "news_seo_writing"], "Mejor contenido/marketing"),
-        "",
-        build_cost_efficiency_table(models),
+        "| Modelo | OS | $ in/out | Score (indicativo) | Runs | Per-model MD | Responses |",
+        "|---|---|---:|---:|---:|---|---|",
     ]
+    for m in sorted(models, key=lambda x: -(x.get("score_global") or -1)):
+        lines.append(row_for_model(m, "score_global"))
+    return "\n".join(lines)
+
+
+def build_table(ranked: list[dict], in_review: list[dict]) -> str:
+    sections = [
+        build_global_table(ranked),
+        "",
+        build_quality_table(ranked),
+        "",
+        build_suite_table(ranked, ["code_generation", "structured_output", "string_precision"], "Mejor coding"),
+        "",
+        build_suite_table(ranked, ["deep_reasoning", "reasoning"], "Mejor razonamiento"),
+        "",
+        build_suite_table(ranked, ["content_generation", "startup_content", "news_seo_writing"], "Mejor contenido/marketing"),
+        "",
+        build_cost_efficiency_table(ranked),
+    ]
+    if in_review:
+        sections += ["", build_in_review_table(in_review)]
     return "\n".join(sections)
 
 
@@ -184,8 +220,8 @@ def main():
     ap.add_argument("-i", "--in-place", action="store_true", help="Actualiza MODELOS.md in-place")
     args = ap.parse_args()
 
-    models = load_models_export()
-    table = build_table(models)
+    ranked, in_review = load_models_export()
+    table = build_table(ranked, in_review)
 
     if args.in_place:
         modelos_md = ROOT / "MODELOS.md"
@@ -195,10 +231,15 @@ def main():
         new_block = (
             f"{START}\n\n"
             "> Auto-generado por `benchmarks/generate_modelos_md_table.py`.\n\n"
-            "> **No existe un único 'mejor modelo'.** El score global es una combinación de calidad, "
-            "costo, velocidad y latencia con pesos elegidos para emprendedores (70% calidad, 15% costo, "
-            "7.5% velocidad, 7.5% latencia). Usá las tablas por caso de uso para tu decisión real. "
-            "Para pesos personalizados usá la [calculadora](https://benchmarks.cristiantala.com/).\n\n"
+            "> **No existe un único 'mejor modelo'.** El score global combina calidad, costo, "
+            "velocidad y latencia con pesos elegidos para emprendedores (70% calidad, 15% costo, "
+            "7.5% velocidad, 7.5% latencia) — **es un punto de partida, no un veredicto**. "
+            "Un modelo puede quedar bajo en el global y ser el correcto para vos: si tu caso es "
+            "batch nocturno, la latencia no te importa y el ranking la está penalizando igual. "
+            "Mirá las tablas por caso de uso, y para tus propios pesos usá la "
+            "[calculadora](https://benchmarks.cristiantala.com/).\n\n"
+            "> **Piso de ranking: 50 runs.** Los modelos con menos muestra van a *En evaluación* "
+            "al final — su score es indicativo, no comparable.\n\n"
             f"{table}\n\n"
             f"{END}"
         )
@@ -208,7 +249,8 @@ def main():
         else:
             new_content = content.replace("## Probados", f"## Probados\n\n{new_block}\n\n#### Tabla manual (legacy):", 1)
         modelos_md.write_text(new_content)
-        print(f"OK: MODELOS.md actualizado con tabla de {len(models)} modelos")
+        print(f"OK: MODELOS.md actualizado — {len(ranked)} rankeados (>=50 runs), "
+              f"{len(in_review)} en evaluación (<50 runs)")
     else:
         print(table)
 

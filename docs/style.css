@@ -270,17 +270,28 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
   letter-spacing: 0.05em;
 }
 
-/* Wrap horizontal-scroll para tabla en mobile */
-#results-table-wrap {
+/* Wrap horizontal-scroll para tabla en mobile.
+   .table-scroll es el mismo patron para las tablas de las paginas pSEO, que
+   antes se emitian SIN wrapper: con `body{overflow-x:hidden}` (linea 39) + el
+   min-width de abajo, las columnas de la derecha -- entre ellas el PRECIO --
+   quedaban cortadas y fisicamente inalcanzables en 360px. */
+#results-table-wrap,
+.table-scroll {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   border-radius: 8px;
   border: 1px solid var(--border);
 }
 
+/* min-width SOLO dentro de un contenedor scrolleable. Si una tabla se emite sin
+   wrapper, se comprime -- feo, pero legible. Nunca se corta sin salida. */
+#results-table-wrap .results-table,
+.table-scroll .results-table {
+  min-width: 640px;
+}
+
 .results-table {
   width: 100%;
-  min-width: 640px;
   border-collapse: collapse;
   font-size: 0.8rem;
   background: var(--bg-card);

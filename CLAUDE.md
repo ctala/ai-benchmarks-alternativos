@@ -127,7 +127,7 @@ El `score_global` es una **función ponderada y z-scoreada** de 4 componentes (v
 | Quality | **70%** | Phi-4 judge + criterios automáticos (formato + sustancia) |
 | Cost | **15%** | Curva log inversa; todos los modelos tienen un costo mínimo de **$0.001/call** para comparabilidad |
 | Speed | **7.5%** | Tokens/s promedio |
-| Latency | **7.5%** | Latencia first-token |
+| Latency | **7.5%** | Latencia **total** de respuesta — se promedia `latency_total` (ver `export_for_pages.py`), NO time-to-first-token. Decirle TTFT en los docs es un claim que la data no sostiene |
 
 - Cada dimensión se estandariza (z-score) antes de ponderar → el peso nominal = influencia real.
 - Tool calling y seguridad son **badges/dimensiones separadas**, no entran en el compuesto.
@@ -206,7 +206,18 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
   3. Se detecta un **bug del runner/adapter** que invalida runs previos (ej. fix de max_tokens para thinking, abril 2026 → re-run sólo de los empties con `--rerun-empty`).
   4. El modelo tuvo cambios visibles del proveedor (silent retraining anunciado, cambio de pricing radical, etc).
   No re-medir por: refactor del runner, mejoras cosméticas, formato de output, regeneración de MDs por modelo.
-- **Verificar consistencia** entre docs: conteos de modelos/tests/suites deben coincidir
+- **Verificar consistencia** entre docs: conteos de modelos/tests/suites deben coincidir.
+  ```bash
+  .venv/bin/python benchmarks/check_consistency.py   # exit 1 si un doc vivo cita un score obsoleto
+  ```
+  **Correrlo antes de cada push** (y antes de publicar contenido que cite cifras). Compara los
+  scores citados en los docs **vivos** (README, MODELOS, CLAUDE, AGENTS, RECOMENDACIONES,
+  COMPARATIVA) contra `models.json`. Ignora a propósito los **snapshots con fecha** (CHANGELOG,
+  DATASHEET_*, INSIGHTS): esos DEBEN conservar el valor del momento — reescribir la historia
+  sería el bug, no el fix.
+- **Nunca escribir un score a mano en un doc vivo.** El z-score se recalcula con cada modelo
+  nuevo, así que toda cifra hardcodeada caduca sola. Si necesitás citar una, que salga de un
+  generador; si es narrativa (un párrafo), el `check_consistency.py` te avisa cuando caduca.
 - **Commit y push** después de cada sesión
 - **Precios cambian** — verificar antes de actualizar docs
 - **Plan antes de push** — operaciones destructivas o públicas requieren confirmación
@@ -225,19 +236,28 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 
 ## Estado actual (v3.1.0, 2 Julio 2026) — ver ROADMAP.md para plan completo
 
-### Ranking v3.0.2 top 10 (145 modelos en config, 98 con ≥20 runs, Phi-4 judge)
-1. **MiniMax M2.7** (directo) — 8.38
-2. **DeepSeek R1** (reasoning) — 8.33
-3. **DeepSeek V4 Flash** (OpenRouter) — 8.23
-4. **Qwen3-Coder-Next** (OpenRouter FP8) — 8.15
-5. **Claude Haiku 4.5** (suscripción) — 8.00
-6. **Llama 3.3 70B** (Groq) — 7.94
-7. **MiniMax M3** (directo / sub) — 7.92
-8. **Claude Opus 4.8** (suscripción) — 7.88
-9. **MiniMax M2.7 Highspeed** — 7.84
-10. **Devstral Small** — 7.83
+### Ranking actual — NO se copia acá, se lee de la fuente
 
-> El ranking usa score global z-scoreado (quality 70%, cost 15%, speed 7.5%, latency 7.5%). Todos los modelos tienen un costo mínimo de $0.001/call para evitar distorsiones con gratis/suscripción. Ver `docs/data/models.json` para el ranking completo.
+**El ranking vivo está en el README** (bloque `<!-- AUTO-RANKING -->`, auto-generado) y en
+`docs/data/models.json`. **Este archivo ya no lo duplica, a propósito.**
+
+Por qué: el `score_global` es un **z-score normalizado contra toda la población**. Medir un
+modelo nuevo **recalcula el score de todos los anteriores**. Cualquier ranking copiado a mano
+queda obsoleto solo, sin que nadie toque el archivo — y eso ya pasó (julio 2026: el README
+publicaba Grok 4.5 = 6.99 mientras el sitio mostraba 5.84).
+
+Para ver el ranking al día:
+```bash
+.venv/bin/python -c "import json;d=json.load(open('docs/data/models.json'));\
+r=sorted([m for m in d['models'] if m['ranked']],key=lambda x:-x['score_global'])[:10];\
+[print(f\"{i}. {m['name']} — {m['score_global']} ({m['runs']} runs)\") for i,m in enumerate(r,1)]"
+```
+
+**Dos umbrales, no uno** (definidos en `export_for_pages.py`, todo el pipeline los importa):
+- `MIN_RUNS_TESTED = 20` → cobertura suficiente para **reportar** el modelo (`tested`).
+- `MIN_RUNS_RANKED = 50` → muestra suficiente para **rankearlo** (`ranked`). Con 3-12 runs un
+  modelo puede liderar por azar. Los que no llegan se publican en *En evaluación* (MODELOS.md)
+  con el score marcado como indicativo.
 
 ### Infraestructura actual
 - **DGX Spark (GB10, 128GB)** operativo en LAN — corre Ollama + vLLM Phi-4 judge + modelos locales Q4/Q8.

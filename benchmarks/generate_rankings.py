@@ -240,7 +240,7 @@ def table_head(cfg):
         base_cols += '<th scope="col">Global</th>'
     base_cols += '<th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th>'
     base_cols += '<th scope="col">$ in/out per M</th><th scope="col">Velocidad</th>'
-    return f'<table class="results-table">\n      <thead>\n        <tr>{base_cols}</tr>\n      </thead>'
+    return f'<div class="table-scroll"><table class="results-table">\n      <thead>\n        <tr>{base_cols}</tr>\n      </thead>'
 
 
 def row_ranking(rank, m, cfg, top=False):
@@ -338,12 +338,12 @@ def cost_comparison(cfg, ranked):
     return f"""<section class="results">
   <div class="results-header"><h2>Costo real para volumen</h2></div>
   <p>Estimación para 1.000 y 10.000 calls/mes (asumiendo 300 tokens de input y 1.500 de output por call, promedio del benchmark):</p>
-  <table class="results-table">
+  <div class="table-scroll"><table class="results-table">
     <thead><tr><th scope="col">Modelo</th><th scope="col">$ por M tokens</th><th scope="col">1.000 calls/mes</th><th scope="col">10.000 calls/mes</th></tr></thead>
     <tbody>
       {''.join(rows)}
     </tbody>
-  </table>
+  </table></div>
   <p class="meta">Para volumen alto, un modelo 2× más barato puede ahorrarte más de lo que pierdes en calidad. Validá con tu caso real en la <a href="/">calculadora</a>.</p>
 </section>"""
 
@@ -553,7 +553,7 @@ def render_ranking(cfg, models):
       <tbody>
         {rows}
       </tbody>
-    </table>
+    </table></div>
     <p class="meta">Filtrá por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
   </section>
   {reading_guide(cfg, ranked)}
