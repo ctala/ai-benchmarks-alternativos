@@ -97,6 +97,39 @@
   ]
 }
 </script>
+<!-- GTM (mismo container que cristiantala.com), diferido: primera interaccion o 3.5s.
+     Estas landings quedaron fuera del primer pase de analytics. -->
+<script>
+(function () {
+  var loaded = false;
+  function loadGTM() {
+    if (loaded) return;
+    loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N69D7XXH';
+    document.head.appendChild(j);
+  }
+  ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (ev) {
+    addEventListener(ev, loadGTM, { once: true, passive: true });
+  });
+  setTimeout(loadGTM, 3500);
+})();
+</script>
+<script>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  var page = location.pathname.replace(/^\/|\/$/g, '') || 'home';
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a');
+    if (a && (a.getAttribute('href') || '').indexOf('skool.com') > -1) {
+      window.dataLayer.push({ event: 'cta_comunidad', cta_ubicacion: 'landing', pagina_pseo: page });
+    }
+  }, { passive: true });
+})();
+</script>
 </head>
 <body>
 

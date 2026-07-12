@@ -86,6 +86,25 @@
   ]
 }
 </script>
+<script>
+(function () {
+  var loaded = false;
+  function loadGTM() {
+    if (loaded) return;
+    loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N69D7XXH';
+    document.head.appendChild(j);
+  }
+  ['pointerdown','keydown','touchstart','scroll'].forEach(function (ev) {
+    addEventListener(ev, loadGTM, { once: true, passive: true });
+  });
+  setTimeout(loadGTM, 3500);
+})();
+</script>
 </head>
 <body>
 <header>
