@@ -54,6 +54,7 @@
 - [Gemini 3.5 Flash vs Gemini 2.5 Flash en 2026: comparación con benchmark real](https://benchmarks.cristiantala.com/gemini-3.5-flash-vs-gemini-2.5-flash/): Gemini 3.5 Flash vs Gemini 2.5 Flash comparados con 10.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.
 - [Gemini vs ChatGPT en 2026: comparación con benchmark real](https://benchmarks.cristiantala.com/gemini-vs-chatgpt/): Gemini vs ChatGPT (GPT) comparados con 10.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.
 - [Gemini vs Claude en 2026: comparación con benchmark real](https://benchmarks.cristiantala.com/gemini-vs-claude/): Gemini vs Claude comparados con 10.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.
+- [Grok 4.1, 4.20, 4.3 o 4.5: cuál usar en 2026 (benchmark real)](https://benchmarks.cristiantala.com/grok-4-1-vs-4-5/): Grok: comparamos sus 4 tiers con 10.000+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.
 - [Grok 4.3 vs GPT-5.5 en 2026: comparación con benchmark real](https://benchmarks.cristiantala.com/grok-4.3-vs-gpt-5-5/): Grok 4.3 vs GPT-5.5 comparados con 10.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.
 - [Grok 4.3 vs GPT-5.5 — benchmark real](https://benchmarks.cristiantala.com/grok-4.3-vs-gpt-5.5/)
 - [Grok 4.5 vs Claude Sonnet 4.6 en 2026: comparación con benchmark real](https://benchmarks.cristiantala.com/grok-4.5-vs-claude-sonnet-4-6/): Grok 4.5 vs Claude Sonnet 4.6 comparados con 10.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.
@@ -66,8 +67,13 @@
 - [Qwen vs Llama en 2026: comparación open source con benchmark real](https://benchmarks.cristiantala.com/qwen-vs-llama/): Qwen vs Llama comparados con 10.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.
 
 ## Otras páginas
+- [Claude: Haiku, Sonnet, Opus o Fable — cuál elegir en 2026 (benchmark real)](https://benchmarks.cristiantala.com/claude-haiku-sonnet-opus/): Claude: comparamos sus 6 tiers con 10.000+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.
+- [DeepSeek V4 Flash, R1 o Pro: cuál usar en 2026 (benchmark real)](https://benchmarks.cristiantala.com/deepseek-v4-flash-o-r1/): DeepSeek: comparamos sus 4 tiers con 10.000+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.
 - [Claude Fable 5: review con benchmark real (¿vale la pena en 2026?)](https://benchmarks.cristiantala.com/fable-5-review/): Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score 6.75, costo $10/$50 por millón, 103 runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.
+- [Gemini Flash o Pro: cuál conviene en 2026 (benchmark real)](https://benchmarks.cristiantala.com/gemini-flash-o-pro/): Gemini: comparamos sus 5 tiers con 10.000+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.
 - [GLM 5.2: por qué su score no refleja su calidad real | Benchmark 2026](https://benchmarks.cristiantala.com/glm-5.2-explicado/): GLM 5.2 tiene score global 6.93 pero quality 8.28. Te explicamos por qué el benchmark lo castiga, en qué brilla y cómo se compara con GLM 5.1 y Claude Opus 4.8.
+- [GPT-5.6: Luna, Terra o Sol — cuál elegir en 2026 (benchmark real)](https://benchmarks.cristiantala.com/gpt-5.6-luna-terra-sol/): GPT-5.6: comparamos sus 3 tiers con 10.000+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.
+- [MiniMax M2.7 o M3: cuál usar en 2026 (benchmark real)](https://benchmarks.cristiantala.com/minimax-m2-7-o-m3/): MiniMax: comparamos sus 2 tiers con 10.000+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.
 
 ## Sobre el autor
 - [Cristian Tala](https://cristiantala.com): founder; mantiene este benchmark abierto.

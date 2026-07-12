@@ -25,7 +25,19 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://benchmarks.cristiantala.com/claude-haiku-sonnet-opus/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://benchmarks.cristiantala.com/claude-vs-chatgpt/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/deepseek-v4-flash-o-r1/</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -97,6 +109,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://benchmarks.cristiantala.com/gemini-flash-o-pro/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://benchmarks.cristiantala.com/gemini-vs-chatgpt/</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -122,6 +140,12 @@
   </url>
   <url>
     <loc>https://benchmarks.cristiantala.com/glm-5.2-vs-glm-5.1/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/gpt-5.6-luna-terra-sol/</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -200,6 +224,12 @@
   </url>
   <url>
     <loc>https://benchmarks.cristiantala.com/gpt-5.6-vs-minimax-m3/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/grok-4-1-vs-4-5/</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -302,6 +332,12 @@
   </url>
   <url>
     <loc>https://benchmarks.cristiantala.com/mejor-llm-para-tool-calling/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/minimax-m2-7-o-m3/</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

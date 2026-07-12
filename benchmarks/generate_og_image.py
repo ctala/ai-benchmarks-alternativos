@@ -30,18 +30,42 @@ PANEL   = (22, 22, 42)
 GRID    = (30, 40, 70)
 
 FONT_DIR = os.path.expanduser("~/.local/share/fonts")
+
+# Cadena de fallback de fuentes, en orden de preferencia.
+#
+# BUG (12-jul-2026): la unica ruta era ~/.local/share/fonts (Linux, el Spark). Al
+# generar la OG desde el Mac, ninguna existia -> caia a ImageFont.load_default(),
+# que es una fuente BITMAP sin acentos. La tarjeta social del sitio decia
+# "Eleg[]el mejor para TU caso" y "espa[]ol". Es la primera imagen que ve alguien
+# al compartir el link, con la marca al lado.
+#
+# Ahora: JetBrains Mono (la de marca) si esta; si no, un mono del sistema que SI
+# tenga los glifos latinos. Nunca load_default().
+_CANDIDATES = [
+    os.path.join(FONT_DIR, "JetBrainsMono-Medium.ttf"),          # marca (Linux/Spark)
+    os.path.expanduser("~/Library/Fonts/JetBrainsMono-Medium.ttf"),  # marca (macOS)
+    "/System/Library/Fonts/Menlo.ttc",                            # macOS mono
+    "/System/Library/Fonts/SFNSMono.ttf",                         # macOS mono
+    "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",        # Linux
+    "/usr/lib/python3/dist-packages/reportlab/fonts/DejaVuSansMono.ttf",
+    "/System/Library/Fonts/Supplemental/Arial.ttf",               # ultimo recurso
+]
+
+
 def _font(size, bold=False):
-    # Solo tenemos JetBrainsMono-Medium; Medium a tamaño grande lee como bold.
-    for cand in ("JetBrainsMono-Medium.ttf",):
-        p = os.path.join(FONT_DIR, cand)
+    for p in _CANDIDATES:
         if os.path.exists(p):
-            return ImageFont.truetype(p, size)
-    # fallback mono
-    for p in ("/usr/lib/python3/dist-packages/reportlab/fonts/DejaVuSansMono-Bold.ttf",
-              "/usr/lib/python3/dist-packages/reportlab/fonts/DejaVuSansMono.ttf"):
-        if os.path.exists(p):
-            return ImageFont.truetype(p, size)
-    return ImageFont.load_default()
+            try:
+                return ImageFont.truetype(p, size)
+            except Exception:
+                continue
+    # Si llegamos acá la OG saldría sin acentos: mejor fallar ruidoso que publicar
+    # una tarjeta social rota con la marca al lado.
+    raise SystemExit(
+        "ERROR: no encontré ninguna fuente con glifos latinos.\n"
+        "La OG saldría con los acentos rotos (á, í, ñ como cuadrados).\n"
+        f"Probé: {chr(10).join('  - ' + c for c in _CANDIDATES)}"
+    )
 
 def _text_w(draw, txt, font):
     b = draw.textbbox((0, 0), txt, font=font)
@@ -50,8 +74,11 @@ def _text_w(draw, txt, font):
 def main():
     d = json.load(open(MODELS_JSON))
     models = d.get("models", [])
-    n_tested = d.get("tested_count", len([m for m in models if m.get("tested")]))
-    ms = [m for m in models if m.get("tested")]
+    # RANKEABLES (>=50 runs), no `tested` (>=20). Es la imagen que se ve al compartir
+    # el sitio: con `tested` coronaba a MiniMax M2.7 — que tiene 39 runs y NO entra al
+    # ranking. La tarjeta social mostraba un #1 que el propio sitio no reconoce.
+    n_tested = d.get("ranked_count", len([m for m in models if m.get("ranked")]))
+    ms = [m for m in models if m.get("ranked")]
     ms.sort(key=lambda m: -m.get("score_global", 0))
     top = [m for m in ms if m.get("score_global")][:5]
     if not top and ms:
@@ -85,7 +112,7 @@ def main():
     f_title = _font(60)
     dr.text((PAD, 84), "Benchmark de Modelos IA", font=f_title, fill=WHITE)
     f_sub = _font(28)
-    dr.text((PAD, 158), "Elegí el mejor para TU caso — no el que está de moda", font=f_sub, fill=CYAN)
+    dr.text((PAD, 158), "Elige el mejor para TU caso — no el que está de moda", font=f_sub, fill=CYAN)
 
     # --- stat strip ---
     f_stat = _font(24)

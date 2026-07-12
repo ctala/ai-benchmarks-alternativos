@@ -90,7 +90,15 @@ def main() -> int:
     if not args.skip_comparisons:
         run_script("generate_rankings.py", [], dry_run=args.dry_run)
         run_script("generate_comparison.py", [], dry_run=args.dry_run)
+        # Paginas "que tier de <familia> elegir": todas las variantes juntas.
+        # Las comparaciones A-vs-B no responden "cual de los TRES tomo".
+        run_script("generate_variants.py", [], dry_run=args.dry_run)
         run_script("generate_manual_landings.py", [], dry_run=args.dry_run)
+        # Bloque "Explora" del home -> paginas pSEO. Sin esto las 35 comparaciones
+        # y las 6 paginas de familia quedan huerfanas: cero enlaces internos desde
+        # la pagina mas autoritativa del sitio. /claude-vs-chatgpt/ vale 2.480
+        # busquedas/mes y no se podia llegar a ella.
+        run_script("generate_home_explore.py", [], dry_run=args.dry_run)
 
     # 6. Sitemap y llms.txt
     if not args.skip_sitemap:

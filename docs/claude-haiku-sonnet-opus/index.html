@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude: Haiku, Sonnet, Opus o Fable — cuál elegir en 2026 (benchmark real)</title>
+<meta name="description" content="Claude: comparamos sus 6 tiers con 10.000+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.">
+<meta name="keywords" content="claude sonnet vs opus, claude opus vs sonnet, claude haiku vs sonnet, cual claude usar, claude opus vale la pena, que modelo de claude elegir">
+<meta name="author" content="Cristian Tala">
+<link rel="canonical" href="https://benchmarks.cristiantala.com/claude-haiku-sonnet-opus/">
+<meta property="og:title" content="Claude: Haiku, Sonnet, Opus o Fable — cuál elegir en 2026 (benchmark real)">
+<meta property="og:description" content="Claude: comparamos sus 6 tiers con 10.000+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.">
+<meta property="og:url" content="https://benchmarks.cristiantala.com/claude-haiku-sonnet-opus/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_CL">
+<meta property="og:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ranking de modelos IA del benchmark de Cristian Tala">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude: Haiku, Sonnet, Opus o Fable — cuál elegir en 2026 (benchmark real)">
+<meta name="twitter:description" content="Claude: comparamos sus 6 tiers con 10.000+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.">
+<meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude: Haiku, Sonnet, Opus o Fable — cuál elegir en 2026 (benchmark real)",
+  "description": "Claude: comparamos sus 6 tiers con 10.000+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.",
+  "author": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  },
+  "datePublished": "2026-07-12",
+  "dateModified": "2026-07-12",
+  "inLanguage": "es",
+  "url": "https://benchmarks.cristiantala.com/claude-haiku-sonnet-opus/",
+  "mainEntityOfPage": "https://benchmarks.cristiantala.com/claude-haiku-sonnet-opus/",
+  "publisher": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  }
+}
+</script>
+<!-- GTM: MISMO container que cristiantala.com (GTM-N69D7XXH) para poder seguir el
+     funnel cruzado blog -> benchmark -> comunidad desde un solo lugar.
+     DIFERIDO igual que en el blog: carga en la primera interaccion o a los 3.5s de
+     idle, para no meterlo en la ruta critica del LCP.
+     Antes: 0 de 57 paginas tenian analytics. Habia 45 CTAs a la comunidad y CERO
+     forma de saber si convertian (Regla #8 del repo: tracking desde el dia uno). -->
+<script>
+(function () {
+  var loaded = false;
+  function loadGTM() {
+    if (loaded) return;
+    loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N69D7XXH';
+    document.head.appendChild(j);
+  }
+  ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (ev) {
+    addEventListener(ev, loadGTM, { once: true, passive: true });
+  });
+  setTimeout(loadGTM, 3500);
+})();
+</script>
+</head>
+<body>
+<!-- Eventos del funnel. Sin esto no se puede saber que pagina alimenta la comunidad. -->
+<script>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  var page = location.pathname.replace(/^\/|\/$/g, '') || 'home';
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('skool.com') > -1) {
+      window.dataLayer.push({
+        event: 'cta_comunidad',
+        cta_ubicacion: a.closest('.funnel') ? 'funnel' : (a.closest('header') ? 'nav' : 'otro'),
+        pagina_pseo: page
+      });
+    } else if (href.indexOf('/?preset=') === 0 || href.indexOf('/?calls=') === 0) {
+      window.dataLayer.push({ event: 'ir_a_calculadora', pagina_pseo: page });
+    }
+  }, { passive: true });
+  // Llego a ver la tabla (la evidencia). Marca lectura real, no rebote.
+  var t = document.querySelector('.results-table');
+  if (t && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) {
+        window.dataLayer.push({ event: 've_tabla', pagina_pseo: page });
+        io.disconnect();
+      }
+    }, { threshold: 0.25 });
+    io.observe(t);
+  }
+})();
+</script>
+<header>
+  <div class="container header-inner">
+    <a href="https://cristiantala.com" class="logo-link" target="_blank" rel="noopener">
+      <img src="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-dark-2026.png" alt="Cristian Tala" class="logo">
+    </a>
+    <nav aria-label="Principal">
+      <a href="/">Calculadora</a>
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
+      <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <section class="hero">
+    <h1>Claude: ¿Haiku, Sonnet, Opus o Fable?</h1>
+    <p class="lead">Anthropic tiene una escalera de precios de 10× entre su modelo de entrada y el de arriba. La medimos toda con la misma suite. Si la calidad subiera igual que el precio, esta página no existiría.</p>
+    <p class="meta">Última actualización: 2026-07-12 ·
+    <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a></p>
+  </section>
+  <section class="verdict">
+    <h2>La respuesta corta</h2>
+    <p class="verdict-lead">Los 6 tiers <strong>empatan en calidad</strong>: la diferencia entre ellos es más chica que el margen de error de la medición.
+    Y el más caro cuesta <strong>10×</strong> lo que el más barato.</p>
+    <div class="verdict-grid">
+      <div class="verdict-card verdict-best">
+        <span class="verdict-tag">Empieza por este</span>
+        <strong>Haiku 4.5 (suscripción)</strong>
+        <span class="verdict-cost">≈$23/mes</span>
+        <span class="verdict-note">calidad 8.44/10 · 35.1s de respuesta</span>
+      </div>
+      <div class="verdict-card verdict-costly">
+        <span class="verdict-tag">El flagship</span>
+        <strong>Fable 5 (suscripción)</strong>
+        <span class="verdict-cost">≈$234/mes</span>
+        <span class="verdict-note">calidad 8.43/10 · 36.4s. La misma calidad, más lento y más caro.</span>
+      </div>
+    </div>
+    <p class="verdict-foot">Costos a <strong>3.000 llamadas/mes</strong> (≈100 por día).
+    Ajústalo a tu volumen en la <a href="/?calls=3000">calculadora</a>.
+    Y baja un poco: <strong>hay un caso donde el caro sí vale la pena</strong>, y no es el que te venden.</p>
+  </section>
+
+  <section class="results">
+    <div class="results-header">
+      <h2>Los 6 tiers, uno al lado del otro</h2>
+      <p class="meta">Ordenados <strong>por precio</strong>, del más barato al más caro — para que veas
+      si la calidad sube con él. Los pilares son <strong>calidad pura</strong> en esa tarea, sin mezclar costo.</p>
+    </div>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr>
+        <th scope="col">Tier</th><th scope="col">Calidad</th>
+        <th scope="col">Coding</th><th scope="col">Contenido</th>
+        <th scope="col">Razon.</th><th scope="col">Agentes</th>
+        <th scope="col">Costo/mes</th><th scope="col">Latencia</th><th scope="col">Score</th>
+      </tr></thead>
+      <tbody>
+        <tr class="win"><td><strong>Haiku 4.5 (suscripción)</strong> <span class="row-badge">← el más barato</span></td><td>8.44</td><td>8.0</td><td>8.9</td><td>8.8</td><td>8.8</td><td>≈$23/mes</td><td>35.1s</td><td>7.60</td></tr><tr><td><strong>Sonnet 4.6 (ultimo Anthropic)</strong></td><td>8.04</td><td>7.9</td><td>8.3</td><td>8.4</td><td>7.0</td><td>≈$70/mes</td><td>16.8s</td><td>5.58</td></tr><tr><td><strong>Opus 4.8 (suscripción)</strong></td><td>8.65</td><td>8.0</td><td>9.0</td><td>9.3</td><td>8.9</td><td>≈$117/mes</td><td>47.8s</td><td>7.47</td></tr><tr><td><strong>Opus 4.7</strong></td><td>8.20</td><td>8.0</td><td>8.5</td><td>8.5</td><td>7.6</td><td>≈$117/mes</td><td>15.8s</td><td>5.90</td></tr><tr><td><strong>Opus 4.6</strong></td><td>8.17</td><td>7.8</td><td>8.3</td><td>8.7</td><td>7.5</td><td>≈$117/mes</td><td>19.9s</td><td>5.74</td></tr><tr><td><strong>Fable 5 (suscripción)</strong></td><td>8.43</td><td>7.6</td><td>8.6</td><td>8.9</td><td>8.3</td><td>≈$234/mes</td><td>36.4s</td><td>6.55</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section class="ladder">
+    <h2>¿Dónde se cumple el "más caro, mejor"?</h2>
+    <p>Pagar de <strong>Haiku 4.5 (suscripción)</strong> (≈$23/mes) a <strong>Fable 5 (suscripción)</strong> (≈$234/mes) <strong>no compra nada medible</strong>: empatan en todas las dimensiones que este benchmark sabe medir. 10× de precio por cero diferencia.</p>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr>
+        <th scope="col">Dimensión</th>
+        <th scope="col">Haiku 4.5 (suscripción)<br><span class="lad-price">≈$23/mes</span></th>
+        <th scope="col">Fable 5 (suscripción)<br><span class="lad-price">≈$234/mes</span></th>
+        <th scope="col">Dif.</th>
+        <th scope="col">Qué compra tu plata</th>
+      </tr></thead>
+      <tbody>
+        <tr class="lad-no"><td><strong>Coding</strong><span class="lad-desc">Genera y corrige código</span></td><td>7.98</td><td>7.61</td><td>-0.37</td><td class="lad-verdict">Va al revés: el caro es peor</td></tr><tr class="lad-no"><td><strong>Contenido</strong><span class="lad-desc">Escribe en español neutro</span></td><td>8.91</td><td>8.58</td><td>-0.33</td><td class="lad-verdict">Va al revés: el caro es peor</td></tr><tr class="lad-tie"><td><strong>Razonamiento</strong><span class="lad-desc">Analiza y planifica</span></td><td>8.79</td><td>8.90</td><td>+0.11</td><td class="lad-verdict">Empatan — el precio no compra nada</td></tr><tr class="lad-no"><td><strong>Agentes</strong><span class="lad-desc">Multi-turno y herramientas</span></td><td>8.76</td><td>8.29</td><td>-0.47</td><td class="lad-verdict">Va al revés: el caro es peor</td></tr><tr class="lad-no"><td><strong>Resiste prompt injection</strong><span class="lad-desc">Aguanta instrucciones escondidas en el texto que lee</span></td><td>6.87</td><td>6.24</td><td>-0.63</td><td class="lad-verdict">Va al revés: el caro es peor</td></tr><tr class="lad-no"><td><strong>Contexto largo</strong><span class="lad-desc">Recupera datos de documentos extensos</span></td><td>8.80</td><td>8.33</td><td>-0.47</td><td class="lad-verdict">Va al revés: el caro es peor</td></tr><tr class="lad-tie"><td><strong>Tool calling</strong><span class="lad-desc">Llama herramientas bien formadas</span></td><td>6.29</td><td>6.08</td><td>-0.21</td><td class="lad-verdict">Empatan — el precio no compra nada</td></tr>
+      </tbody>
+    </table></div>
+    <p class="meta">Ojo con las tres últimas filas: <strong>no entran en el score global</strong>
+    (van como dimensiones aparte, porque no todos las necesitan). O sea que si la única ventaja
+    del tier caro está ahí, <strong>es invisible en cualquier ranking</strong> — incluido el mío.</p>
+  </section>
+
+  <section>
+    <h2>Cómo leer esto sin equivocarte</h2>
+    <p>Que dos tiers <strong>empaten</strong> no significa que sean idénticos: significa que
+    <strong>esta medición no los distingue</strong>. Con 103 corridas, cada número tiene un margen
+    alrededor; cuando ese margen se solapa, la diferencia que ves es ruido, no señal. Si volviera a
+    correr el test mañana, el orden podría darse vuelta sin que nada haya cambiado en los modelos.</p>
+    <p>La consecuencia práctica es simple: <strong>si la calidad empata, la decisión es de precio y
+    de velocidad</strong>. Y si el proveedor quiere que pagues más, que te diga exactamente qué compras
+    — con su margen de error al lado.</p>
+    
+  </section>
+<section class="funnel">
+  <h2>Antes de migrar, haz esto</h2>
+  <p>Ya sabes cuál gana en el papel. No lo cambies a ciegas: toma <strong>el mejor de cada familia</strong>
+  y pásales <strong>cinco prompts reales tuyos</strong>, de los que ya corres en producción. Una
+  comparación general te dice quién arranca adelante; <strong>tu caso decide quién gana</strong>.
+  Son veinte minutos y te ahorran una migración equivocada.</p>
+  <p class="funnel-note">Y una advertencia: este resultado se recalcula con cada lote de modelos nuevos.
+  Como el score de cada modelo es <em>relativo a todos los demás</em>, un modelo nuevo mueve a todos.
+  El ganador de hoy puede no serlo el mes que viene.</p>
+  <p><a href="https://www.skool.com/cagala-aprende-repite?utm_source=benchmarks&amp;utm_medium=pseo&amp;utm_campaign=comparacion" target="_blank" rel="noopener" class="cta-primary">
+  Ver la comunidad →</a></p>
+  <p class="funnel-fine">Cada vez que corro un lote nuevo, publico el recálculo ahí — con los datos
+  crudos y lo que cambió de lugar. Es también donde hay gente tomando esta misma decisión.
+  Entrar es gratis.</p>
+</section>
+<section>
+  <h2>¿Qué mide este benchmark?</h2>
+  <p>No es un benchmark académico (para eso están MMLU, HumanEval o SWE-bench). Es un benchmark
+  <strong>aplicado para emprendedores hispanohablantes</strong>: mide qué modelo conviene poner en
+  producción para casos reales, con lo que los benchmarks oficiales no cubren — costo en provider real,
+  velocidad, español neutro y agentes multi-turno.</p>
+  <p>Contamos con <strong>149 modelos catalogados</strong>, <strong>101 testeados</strong>
+  y <strong>10.000+ runs reales</strong> evaluados por un
+  <strong>LLM-as-Judge local (Phi-4, de Microsoft — sin conflicto de interés)</strong>, en 4 pilares:</p>
+  <ul>
+    <li><strong>Coding</strong> — generar código, JSON estructurado y debugging en tareas reales (plugins WordPress, scripts, templates de N8N).</li>
+    <li><strong>Contenido y marketing</strong> — blogs, copy y textos largos en español neutro (no traducción del inglés).</li>
+    <li><strong>Razonamiento</strong> — matemáticas, lógica formal y planificación multi-paso.</li>
+    <li><strong>Agentes y operaciones</strong> — multi-turno largo, tool calling y flujos tipo N8N / Hermes.</li>
+  </ul>
+  <p><strong>Dos números distintos, no los confundas.</strong> Las tablas por tarea de esta página se
+  ordenan por <strong>calidad en esa tarea</strong>: capacidad pura, sin mezclar precio. Es la respuesta a
+  "¿quién lo hace mejor?".</p>
+  <p>El <strong>score global</strong> es otra cosa: una función ponderada
+  (<strong>calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%</strong>) que responde
+  "¿qué conviene poner en producción?". Ahí un modelo barato y rápido sí puede superar a uno más capaz
+  pero caro. Los dos números sirven — para preguntas distintas.</p>
+  <p>Tool calling va como <strong>insignia aparte</strong> (no suma al score global): indica si el modelo soporta
+  herramientas, no su calidad. <strong>Límite conocido:</strong> el juez es Phi-4 (14B) y varios modelos
+  evaluados son más capaces que él — ordena bien, pero comprime las diferencias en la cima. Leé un empate
+  como "el juez no los distingue", no como "son idénticos".
+  <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
+</section>
+
+</main>
+<footer>
+  <div class="container">
+    <p>Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
+    <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
+    <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener">Skool</a></p>
+  </div>
+</footer>
+</body>
+</html>
