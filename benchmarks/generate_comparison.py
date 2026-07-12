@@ -40,6 +40,23 @@ PILLAR_DESC = {
 # --- Comparaciones a generar (cada una = una página pSEO) ---------------------
 GPT = {"name": "ChatGPT (GPT)", "match": ["gpt-", "gpt5", "gpt-5", "chatgpt"], "exclude": ["oss"]}
 COMPARISONS = [
+    # Demanda verificada y SIN cubrir (DataForSEO, jul-2026): "grok vs chatgpt" hace
+    # ~320 busquedas/mes en ES y ~260 en MX, y no la tiene nadie. Ojo con el matiz:
+    # la gente busca el HEAD ("grok"), no la version ("grok 4.5" hace ~50/mes). Por eso
+    # la pagina es Grok-la-familia vs ChatGPT-la-familia, no "Grok 4.5 vs GPT-5.6".
+    {
+        "slug": "grok-vs-chatgpt",
+        "a": {"name": "Grok (xAI)", "match": ["grok"]}, "b": GPT,
+        "title": "Grok vs ChatGPT en 2026: comparación con benchmark real",
+        "intent_kw": "grok vs chatgpt, grok o chatgpt, comparativa grok gpt, grok 4.5 vs gpt, xai vs openai",
+    },
+    {
+        "slug": "grok-vs-claude",
+        "a": {"name": "Grok (xAI)", "match": ["grok"]},
+        "b": {"name": "Claude", "match": ["claude", "opus", "sonnet", "haiku", "fable"]},
+        "title": "Grok vs Claude en 2026: comparación con benchmark real",
+        "intent_kw": "grok vs claude, grok o claude, comparativa grok claude, xai vs anthropic",
+    },
     {
         "slug": "gemini-vs-chatgpt",
         "a": {"name": "Gemini", "match": ["gemini"]}, "b": GPT,
@@ -462,7 +479,33 @@ def analysis(a_name, b_name, A, B):
   </table></div>
   <p class="meta">Este cuadro muestra el mejor por <strong>calidad de cada pilar</strong> — pero el "ganador" real depende de <strong>tu</strong> prioridad: calidad, costo o velocidad. No sabemos tu caso, así que ajustá esos pesos en la <a href="/">calculadora</a> y obtené el ganador para vos.</p>
 </section>""")
+    # Cierre del funnel. Estas paginas de comparacion son las que reciben el trafico
+    # de NOVEDAD (un modelo sale y la gente busca "X vs Y" esa misma semana), y hasta
+    # ahora terminaban en una tabla: el lector decidia y se iba. El link a la comunidad
+    # vivia solo en el nav.
+    secs.append(funnel_block())
     return "\n".join(secs)
+
+
+def funnel_block():
+    """Ver generate_rankings.funnel_block. Duplicado minimo a proposito: este modulo
+    es el que importa generate_rankings (no al reves), y no quiero un import circular.
+    Regla dura: no inventar perks -- solo la comunidad gratis y el ranking que se mueve.
+    """
+    return """<section class="funnel">
+  <h2>Antes de migrar, hacé esto</h2>
+  <p>Ya sabés cuál gana en el papel. No lo cambies a ciegas: agarrá a los dos y pasales
+  <strong>cinco prompts reales tuyos</strong>, de los que ya corrés en producción. Una comparación
+  general te dice quién arranca adelante; <strong>tu caso decide quién gana</strong>. Son veinte
+  minutos y te ahorran una migración equivocada.</p>
+  <p class="funnel-note">Y ojo: este resultado se recalcula con cada lote de modelos nuevos. Como el
+  score de cada modelo es <em>relativo a todos los demás</em>, un modelo nuevo mueve a todos. El
+  ganador de hoy puede no serlo el mes que viene.</p>
+  <p><a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener" class="cta-primary">
+  Te aviso cuándo cambia el ranking →</a></p>
+  <p class="funnel-fine">Es la comunidad donde publico los datos y donde hay gente tomando
+  exactamente esta misma decisión. Entrar es gratis.</p>
+</section>"""
 
 
 def faq(a_name, b_name, A, B):
