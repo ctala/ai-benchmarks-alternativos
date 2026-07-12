@@ -650,8 +650,65 @@ def page_shell(title, desc, kw, url, body):
 <script type="application/ld+json">
 {jsonld}
 </script>
+<!-- GTM: MISMO container que cristiantala.com (GTM-N69D7XXH) para poder seguir el
+     funnel cruzado blog -> benchmark -> comunidad desde un solo lugar.
+     DIFERIDO igual que en el blog: carga en la primera interaccion o a los 3.5s de
+     idle, para no meterlo en la ruta critica del LCP.
+     Antes: 0 de 57 paginas tenian analytics. Habia 45 CTAs a la comunidad y CERO
+     forma de saber si convertian (Regla #8 del repo: tracking desde el dia uno). -->
+<script>
+(function () {{
+  var loaded = false;
+  function loadGTM() {{
+    if (loaded) return;
+    loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({{ 'gtm.start': new Date().getTime(), event: 'gtm.js' }});
+    var j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N69D7XXH';
+    document.head.appendChild(j);
+  }}
+  ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (ev) {{
+    addEventListener(ev, loadGTM, {{ once: true, passive: true }});
+  }});
+  setTimeout(loadGTM, 3500);
+}})();
+</script>
 </head>
 <body>
+<!-- Eventos del funnel. Sin esto no se puede saber que pagina alimenta la comunidad. -->
+<script>
+(function () {{
+  window.dataLayer = window.dataLayer || [];
+  var page = location.pathname.replace(/^\\/|\\/$/g, '') || 'home';
+  document.addEventListener('click', function (e) {{
+    var a = e.target.closest && e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('skool.com') > -1) {{
+      window.dataLayer.push({{
+        event: 'cta_comunidad',
+        cta_ubicacion: a.closest('.funnel') ? 'funnel' : (a.closest('header') ? 'nav' : 'otro'),
+        pagina_pseo: page
+      }});
+    }} else if (href.indexOf('/?preset=') === 0 || href.indexOf('/?calls=') === 0) {{
+      window.dataLayer.push({{ event: 'ir_a_calculadora', pagina_pseo: page }});
+    }}
+  }}, {{ passive: true }});
+  // Llego a ver la tabla (la evidencia). Marca lectura real, no rebote.
+  var t = document.querySelector('.results-table');
+  if (t && 'IntersectionObserver' in window) {{
+    var io = new IntersectionObserver(function (es) {{
+      if (es[0].isIntersecting) {{
+        window.dataLayer.push({{ event: 've_tabla', pagina_pseo: page }});
+        io.disconnect();
+      }}
+    }}, {{ threshold: 0.25 }});
+    io.observe(t);
+  }}
+}})();
+</script>
 <header>
   <div class="container header-inner">
     <a href="https://cristiantala.com" class="logo-link" target="_blank" rel="noopener">

@@ -186,7 +186,43 @@ async function load() {
 
   bindFilters();
   applyUrlContext();   // el usuario llega con un caso de uso ya declarado: respetarlo
+  bindAnalytics();
   render();
+}
+
+// Eventos del funnel en la calculadora. Sin esto no hay forma de saber si la
+// herramienta se usa o solo se mira: había 0 analytics en las 57 páginas.
+function bindAnalytics() {
+  window.dataLayer = window.dataLayer || [];
+  const push = (event, extra = {}) => window.dataLayer.push({ event, ...extra });
+
+  // Llegó con contexto desde una página pSEO (?preset=…)
+  const p = new URLSearchParams(location.search);
+  if (p.get("preset")) {
+    push("calculadora_con_contexto", { preset: p.get("preset"), calls: p.get("calls") || "" });
+  }
+
+  document.querySelectorAll(".preset-usecase-btn, .preset-budget-btn").forEach(btn => {
+    btn.addEventListener("click", () => push("usa_preset", { preset: btn.dataset.preset }), { passive: true });
+  });
+
+  // Mover un peso = el usuario entendió que el score es opinable y lo está ajustando
+  // a su caso. Es la señal más fuerte de intención que da esta herramienta.
+  let weightSent = false;
+  document.querySelectorAll('input[type="range"][id^="w-"]').forEach(sl => {
+    sl.addEventListener("change", () => {
+      if (weightSent) return;
+      weightSent = true;
+      push("ajusta_pesos");
+    }, { passive: true });
+  });
+
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest?.("a");
+    if (a && (a.getAttribute("href") || "").includes("skool.com")) {
+      push("cta_comunidad", { cta_ubicacion: "calculadora" });
+    }
+  }, { passive: true });
 }
 
 // Lee ?preset= y ?calls= de la URL.
