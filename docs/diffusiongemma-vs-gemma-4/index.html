@@ -123,7 +123,7 @@
       <h2>Calidad global: empate técnico</h2>
       <p class="meta">Quality global promedio del juez Phi-4. DiffusionGemma Q8_0 vs variantes Gemma 4.</p>
     </div>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th scope="col">Modelo</th><th scope="col">Runs</th><th scope="col">Quality global</th><th scope="col">Tok/s</th><th scope="col">Latencia media</th></tr>
       </thead>
@@ -133,13 +133,13 @@
         <tr><td>Gemma 4 31B (NIM)</td><td>184</td><td>7.93</td><td>22.9</td><td>—</td></tr>
         <tr><td>Gemma 4 26B MoE (NIM)</td><td>104</td><td>7.80</td><td>44.3</td><td>—</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p class="meta">La diferencia de 0.08 puntos entre DiffusionGemma y Gemma 4 31B local es ruido estadístico. En la práctica, entregan la misma calidad media.</p>
   </section>
 
   <section>
     <h2>DiffusionGemma gana en agentes, soporte y velocidad</h2>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th scope="col">Suite</th><th scope="col">DiffusionGemma</th><th scope="col">Gemma 4 31B (Spark)</th><th scope="col">Diferencia</th></tr>
       </thead>
@@ -153,13 +153,13 @@
         <tr><td>tool_calling</td><td><strong>7.31</strong></td><td>7.03</td><td class="positive">+0.28</td></tr>
         <tr><td>multi_turn</td><td><strong>8.45</strong></td><td>8.02</td><td class="positive">+0.43</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p>DiffusionGemma destaca en todo lo conversacional y operativo. La generación por bloques de 256 tokens le da fluidez a nivel de párrafo, lo que mejora soporte, resúmenes, orquestación y multi-turno.</p>
   </section>
 
   <section>
     <h2>Gemma 4 sigue ganando en coding, razonamiento y precisión</h2>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th scope="col">Suite</th><th scope="col">DiffusionGemma</th><th scope="col">Gemma 4 31B (Spark)</th><th scope="col">Diferencia</th></tr>
       </thead>
@@ -173,7 +173,7 @@
         <tr><td>creativity</td><td>8.35</td><td><strong>8.74</strong></td><td class="negative">-0.39</td></tr>
         <tr><td>code_generation</td><td>8.78</td><td><strong>8.95</strong></td><td class="negative">-0.17</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p>La generación autoregresiva de Gemma 4 sigue siendo superior cuando la tarea exige precisión carácter a carácter (API keys, JWTs, configs), razonamiento multi-paso o código estructurado.</p>
   </section>
 
@@ -194,7 +194,7 @@
 
   <section>
     <h2>Recomendaciones por caso de uso</h2>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th scope="col">Caso de uso</th><th scope="col">Ganador</th><th scope="col">Por qué</th></tr>
       </thead>
@@ -207,7 +207,7 @@
         <tr><td>Copiar credenciales, JWTs, configs exactos</td><td><strong>Gemma 4 31B</strong></td><td>string_precision 7.65 vs 4.34.</td></tr>
         <tr><td>Chat interactivo con latencia crítica</td><td><strong>DiffusionGemma</strong></td><td>39 tok/s y menor latencia total.</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </section>
 
   <section>

@@ -69,6 +69,11 @@ def main() -> int:
     # 2. Tabla de modelos en MODELOS.md
     run_script("generate_modelos_md_table.py", ["-i"], dry_run=args.dry_run)
 
+    # 2b. Top-10 del README. Se escribia a mano y driftaba en silencio: el
+    # score es z-score contra la poblacion, asi que agregar un modelo cambia
+    # TODOS los scores y deja obsoleta cualquier tabla estatica.
+    run_script("generate_readme_ranking.py", ["-i"], dry_run=args.dry_run)
+
     # 3. TESTS.md
     run_script("generate_tests_md.py", ["-o", "TESTS.md"], dry_run=args.dry_run)
 

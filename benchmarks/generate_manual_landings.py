@@ -208,14 +208,14 @@ def row_alt(rank, m):
 
 def table_alt(models, c):
     rows = "\n        ".join(row_alt(i + 1, m) for i, m in enumerate(models))
-    return f"""<table class="results-table">
+    return f"""<div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Score</th><th scope="col">$ in/out per M</th><th scope="col">License</th><th scope="col">Provider</th></tr>
       </thead>
       <tbody>
         {rows}
       </tbody>
-    </table>"""
+    </table></div>"""
 
 
 def faq_schema(questions):
@@ -595,14 +595,14 @@ def gen_modelos_n8n(data):
     og_alt = "Top modelos IA para agentes N8N según benchmark real"
 
     rows = "\n        ".join(row_n8n(i + 1, m) for i, m in enumerate(n8n))
-    table = f"""<table class="results-table">
+    table = f"""<div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Score</th><th scope="col">$ in/out per M</th><th scope="col">Tok/s</th><th scope="col">License</th></tr>
       </thead>
       <tbody>
         {rows}
       </tbody>
-    </table>"""
+    </table></div>"""
 
     body = f"""  <section class="hero">
     <h1>Mejores modelos IA para agentes N8N: comparativa con benchmark real (Junio 2026)</h1>
@@ -739,14 +739,14 @@ def gen_modelos_baratos(data):
     og_alt = "Modelos IA baratos para emprendedores según benchmark real"
 
     rows = "\n        ".join(row_cheap(i + 1, m) for i, m in enumerate(cheap))
-    table = f"""<table class="results-table">
+    table = f"""<div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Score</th><th scope="col">$ in/out per M</th><th scope="col">$/mes (5K calls)*</th><th scope="col">License</th></tr>
       </thead>
       <tbody>
         {rows}
       </tbody>
-    </table>"""
+    </table></div>"""
 
     body = f"""  <section class="hero">
     <h1>Modelos IA baratos para emprendedores: mejores alternativas low-cost (Junio 2026)</h1>
@@ -910,7 +910,7 @@ def gen_modelos_open_source_local(data):
     </div>
 
     <h3>Mac M2/M3/M4 con 16GB RAM</h3>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead><tr><th scope="col">Modelo</th><th scope="col">Quant</th><th scope="col">Score</th><th scope="col">License</th><th scope="col">Notas</th></tr></thead>
       <tbody>
         <tr><td><strong>Devstral Small (24B)</strong></td><td>Q4_K_M (~14GB)</td><td>7.95</td><td>Apache 2.0</td><td>Tight pero corre</td></tr>
@@ -918,10 +918,10 @@ def gen_modelos_open_source_local(data):
         <tr><td>DeepSeek V4 Flash (236B/21B activos)</td><td>Q4_K_M (~140GB)</td><td>8.28*</td><td>MIT</td><td>* Score cloud, no cabe en 16GB</td></tr>
         <tr><td>Phi-4 (14B)</td><td>Q4_K_M (~9GB)</td><td>—</td><td>MIT</td><td>Excelente para judge tasks</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <h3>Mac M-series 32GB RAM</h3>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead><tr><th scope="col">Modelo</th><th scope="col">Quant</th><th scope="col">Score</th><th scope="col">License</th><th scope="col">Notas</th></tr></thead>
       <tbody>
         <tr><td><strong>Mistral Small 4 (24B)</strong></td><td>Q5_K_M (~17GB)</td><td>7.62</td><td>Apache 2.0</td><td>Top calidad/recursos</td></tr>
@@ -929,10 +929,10 @@ def gen_modelos_open_source_local(data):
         <tr><td>Qwen 3.6 35B base</td><td>Q4_K_M (~22GB)</td><td>7.32</td><td>Apache 2.0</td><td>Versatil</td></tr>
         <tr><td>Llama 3.3 70B</td><td>Q3_K_M (~30GB)</td><td>7.70*</td><td>Llama 3</td><td>* Score con Groq, no local</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <h3>NVIDIA DGX Spark (128GB unified) o servers GPU 80GB+</h3>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead><tr><th scope="col">Modelo</th><th scope="col">Quant</th><th scope="col">Score</th><th scope="col">License</th><th scope="col">Notas</th></tr></thead>
       <tbody>
         <tr><td><strong>DeepSeek V4 Flash</strong></td><td>Q4_K_M (~140GB)</td><td>8.28</td><td>MIT</td><td>Top open-source large</td></tr>
@@ -940,7 +940,7 @@ def gen_modelos_open_source_local(data):
         <tr><td><strong>Llama 3.3 70B</strong></td><td>Q5_K_M (~50GB)</td><td>7.70*</td><td>Llama 3</td><td>* Score Groq, local más lento</td></tr>
         <tr><td>Nemotron Ultra 253B</td><td>Q4_K_M (~150GB)</td><td>—</td><td>Open weights</td><td>Demasiado grande para Spark</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <p class="meta">Score = del benchmark cloud. Local con misma quantization da scores similares pero menor velocidad.</p>
   </section>

@@ -21,7 +21,7 @@ Benchmark de modelos AI para emprendedores y equipos que usan agentes (N8N, Herm
 | **Quality** | **70%** | Phi-4 judge + criterios automáticos (formato + sustancia) |
 | **Cost** | **15%** | Curva log inversa, precio OpenRouter por proveedor |
 | **Speed** | **7.5%** | Tokens/s del modelo |
-| **Latency** | **7.5%** | Latencia first-token |
+| **Latency** | **7.5%** | Latencia **total** de respuesta (`latency_total`), no first-token |
 | ~~Tool calling~~ | 0% (badge) | No discriminaba (todos ~7; 8/91 tests) → fuera del score, se muestra como badge |
 
 > **Por qué z-score (v3.0, jun 2026)**: estandarizar cada dimensión hace que el peso nominal sea igual a la influencia real. **Cambio clave en v3.0**: subimos quality de 60% a 70% y bajamos costo de 20% a 15% tras una auditoría que mostró que el ranking global estaba demasiado sesgado hacia modelos baratos/rápidos. Ahora el score global premia más la calidad real, sin ignorar costo/velocidad. Ver [INSIGHTS.md](INSIGHTS.md).
@@ -34,28 +34,59 @@ Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad*
 
 ## Top 10 Global Ranking — score compuesto **v3.0 (z-score)**
 
-| # | Modelo | Score | Quality | Cost | Provider | $/1k calls |
-|---|---|---:|---:|---:|---|---:|
-| 1 | **MiniMax M2.7** (directo) | **8.33** | 8.50 | 6.87 | MiniMax directo | $1.89 |
-| 2 | **DeepSeek R1** (reasoning) | **8.28** | 8.69 | 5.84 | OpenRouter | $3.96 |
-| 3 | **DeepSeek V4 Flash** (OpenRouter) | **8.17** | 8.34 | 7.92 | OpenRouter | $0.33 |
-| 4 | **Qwen3-Coder-Next** (OpenRouter FP8) | **8.09** | 8.22 | 7.64 | OpenRouter | $1.23 |
-| 5 | **Claude Haiku 4.5** (suscripción) | **7.96** | 8.44 | 5.13 | Claude Code | $7.80 |
-| 6 | **GPT-5.6 Luna** | **7.92** | 8.50 | 5.07 | OpenRouter | $10.20 |
-| 7 | **Llama 3.3 70B** (Groq) | **7.89** | 8.01 | 7.85 | Groq | $1.36 |
-| 8 | **MiniMax M3** (directo / sub) | **7.86** | 8.47 | 6.89 | MiniMax directo | $1.89 |
-| 9 | **Claude Opus 4.8** (suscripción) | **7.85** | 8.65 | 2.71 | Claude Code | $39.00 |
-| 10 | **MiniMax M2.7 Highspeed** | **7.79** | 8.36 | 6.84 | MiniMax directo | $1.89 |
+<!-- AUTO-RANKING-START -->
+
+> Auto-generado por `benchmarks/generate_readme_ranking.py` desde `docs/data/models.json`. **No editar a mano** — el z-score se recalcula con cada modelo nuevo y una tabla escrita a mano queda obsoleta sola.
+
+| # | Modelo | Score | Quality | Cost | Provider | $/1k calls | Runs |
+|---|---|---:|---:|---:|---|---:|---:|
+| 1 | **DeepSeek R1 (reasoning)** | **8.27** | 8.69 | 5.84 | openrouter | $3.96 | 103 |
+| 2 | **DeepSeek V4 Flash (OpenRouter)** | **8.16** | 8.34 | 7.92 | openrouter | $0.33 | 133 |
+| 3 | **GPT-5.6 Luna** | **8.14** | 8.40 | 5.91 | openrouter | $9.30 | 103 |
+| 4 | **Qwen3-Coder-Next (OpenRouter FP8)** | **8.08** | 8.22 | 7.64 | openrouter | $1.23 | 103 |
+| 5 | **Claude Haiku 4.5 (suscripción)** | **7.96** | 8.44 | 5.13 | claude_code | $7.80 | 98 |
+| 6 | **Llama 3.3 70B (Groq)** | **7.88** | 8.01 | 7.85 | groq_direct | $1.36 | 115 |
+| 7 | **MiniMax M3 (directo / sub)** | **7.85** | 8.47 | 6.89 | minimax_direct | $1.89 | 103 |
+| 8 | **Claude Opus 4.8 (suscripción)** | **7.84** | 8.65 | 2.71 | claude_code | $39.00 | 101 |
+| 9 | **Devstral Small** | **7.77** | 8.03 | 7.95 | openrouter | $0.48 | 169 |
+| 10 | **Claude Sonnet 4.6 (suscripción)** | **7.76** | 8.57 | 3.98 | claude_code | $23.40 | 98 |
+
+> **Piso de ranking: 50 runs.** Solo compiten los 98 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
+
+> **Este ranking es un punto de partida, no un veredicto.** El score pondera calidad (70%), costo (15%), velocidad (7.5%) y latencia (7.5%) para un perfil de emprendedor genérico. **Tu caso probablemente no sea ese.** Si corrés batch de noche, la latencia no te importa y este ranking la está penalizando igual; si atendés usuarios en vivo, te importa el doble. Ajustá los pesos a tu caso en la [calculadora](https://benchmarks.cristiantala.com/) o mirá las tablas por caso de uso en [MODELOS.md](MODELOS.md).
+
+<!-- AUTO-RANKING-END -->
 
 > **Claude Fable 5** también fue probado (103 runs vía suscripción Claude Code). Tiene **quality 8.38** — alta, pero **no supera a Opus 4.8 (8.65)** a pesar de costar **2× más** ($10/$50 vs $5/$25 por M tokens). Su costo por 1k calls (~$78) lo deja fuera del top 10 global (score 6.75). Gana en `agent_long_horizon` (su pitch: tareas agénticas largas), pero pierde en tareas cortas de formato. Veredicto: solo vale el 2× si tu workload real es horizonte largo agéntico. Detalle en [CHANGELOG v3.0.0](CHANGELOG.md).
 
 > ### 🆕 GPT-5.6 y Grok 4.5 — medidos 10 jul 2026
 >
-> Se agregaron y midieron por primera vez:
-> - **GPT-5.6 Luna**: score **7.92**, #6 global, quality 8.50. Mejor relación calidad/costo de la familia OpenAI en este lote.
-> - **GPT-5.6 Terra**: score **7.69**, #14 global, quality 8.60.
-> - **GPT-5.6 Sol**: score **7.14**, quality 8.60. Se re-corrieron los errores iniciales; quedó con **100% éxito** (174/174 tests).
-> - **Grok 4.5**: score **6.99**, quality 8.00. 100% éxito técnico, pero penalizado por latencia alta (~16.7s TTFT) y costo $2/$6.
+> **La familia GPT-5.6 se ordena al revés de lo que cobra.** Los tres tiers, 103 runs cada uno, misma suite:
+>
+> | Modelo | Score | Ranking | Quality | $/1k calls | Latencia total |
+> |---|---:|---:|---:|---:|---:|
+> | **GPT-5.6 Luna** | **8.14** | #3 | 8.40 | **$9.30** | 11.0s |
+> | **GPT-5.6 Terra** | 7.68 | #12 | 8.39 | $23.25 | 15.6s |
+> | **GPT-5.6 Sol** (flagship) | 6.85 | #30 | 8.35 | **$46.50** | 38.4s |
+>
+> Las tres calidades son **estadísticamente indistinguibles** (8.40 / 8.39 / 8.35), pero el flagship
+> cuesta **5× más** y tarda **3.5× más**. En 103 pruebas prácticas idénticas, pagar por Sol no compró
+> calidad medible. Si tu caso no es exóticamente difícil, **Luna es el default racional de la familia**.
+>
+> - **Grok 4.5**: score **5.84** (#54/98), quality 7.97, 100% de éxito técnico. **Lo que lo hunde es el
+>   costo** ($9.60/1k calls → z −1.16), no la latencia: descompuesto, el aporte de la latencia a su score
+>   es **−0.009**, es decir, cero. Y su calidad, que en absoluto suena alta, está apenas **+0.31σ** sobre
+>   la media — porque casi todos los modelos están apelotonados ahí arriba. No es un modelo escondido:
+>   es uno caro y del montón.
+> - Dato incómodo para el hype: la prensa lo corona en benchmarks de agentes, pero acá **Agentes es su
+>   peor pilar (5.91)**, por debajo de Razonamiento (7.71), Contenido (7.69) y Coding (7.23). Son suites
+>   distintas — pero si lo vas a usar para agentes, medilo en tu caso antes de comprometerte.
+>
+> 🔍 **Nota de honestidad**: la primera versión de este párrafo decía que a Grok "lo hundía la latencia".
+> Sonaba lógico (29.7s de media es mucho) y era **falso**: al descomponer el z-score, la latencia aporta
+> −0.009. En perfil batch, ignorando latencia y velocidad por completo, Grok **baja** al #56 en vez de
+> subir. Lo dejamos escrito porque es el error típico del que este benchmark existe para protegerte:
+> **una historia plausible no es un dato.**
 >
 > ⚠️ **Nota metodológica**: estos 4 modelos fueron juzgados con **Phi-4 vía OpenRouter** (`phi4-or`) porque el juez local (Ollama) estaba ocupado con otras pruebas. Phi-4-or es el mismo modelo base (Microsoft Phi-4, MIT), pero servido por la infraestructura de OpenRouter. La severidad del juez puede diferir levemente del juez histórico (Ollama local / vLLM en DGX Spark), por lo que sus scores quality no son 100% comparables con el resto del ranking.
 >

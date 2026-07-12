@@ -454,12 +454,12 @@ def analysis(a_name, b_name, A, B):
     # tabla resumen "ganador por caso"
     secs.append(f"""<section class="results">
   <div class="results-header"><h2>Resumen: quién gana según tu caso</h2></div>
-  <table class="results-table">
+  <div class="table-scroll"><table class="results-table">
     <thead><tr><th scope="col">Tu caso</th><th scope="col">Ganador</th></tr></thead>
     <tbody>
       {"".join(verdict_rows)}
     </tbody>
-  </table>
+  </table></div>
   <p class="meta">Este cuadro muestra el mejor por <strong>calidad de cada pilar</strong> — pero el "ganador" real depende de <strong>tu</strong> prioridad: calidad, costo o velocidad. No sabemos tu caso, así que ajustá esos pesos en la <a href="/">calculadora</a> y obtené el ganador para vos.</p>
 </section>""")
     return "\n".join(secs)
@@ -603,14 +603,14 @@ def render(cfg, A, B):
       <h2>{esc(a_name)} vs {esc(b_name)}: tabla comparativa</h2>
       <p class="meta">Score por pilar /10. Ordenado por score global ponderado.</p>
     </div>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Global</th><th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th><th scope="col">$ in/out per M</th><th scope="col">Velocidad</th></tr>
       </thead>
       <tbody>
         {rows}
       </tbody>
-    </table>
+    </table></div>
     <p class="meta">Filtrá por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
   </section>
   {analysis(a_name, b_name, A, B)}

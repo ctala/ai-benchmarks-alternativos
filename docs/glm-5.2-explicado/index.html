@@ -109,7 +109,7 @@
 
   <section>
     <h2>El score global vs la calidad real</h2>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th>Métrica</th><th>GLM 5.2</th><th>Qué mide</th></tr>
       </thead>
@@ -121,7 +121,7 @@
         <tr><td>latency_score_avg</td><td><strong>1.27</strong></td><td>Penalización por latencia total.</td></tr>
         <tr><td>tokens_per_second</td><td><strong>51.8</strong></td><td>Velocidad de generación.</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p>El <strong>quality_avg de 8.28</strong> es el dato que explica el "wow" de la gente. GLM 5.2 genera respuestas de alta calidad. El problema es que el score global penaliza fuerte su debilidad en seguridad y latencia.</p>
   </section>
 
@@ -134,7 +134,7 @@
 
   <section>
     <h2>Dónde brilla GLM 5.2</h2>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th>Suite</th><th>Score</th><th>Interpretación</th></tr>
       </thead>
@@ -146,13 +146,13 @@
         <tr><td>content_generation</td><td>7.74</td><td>Buen contenido en español.</td></tr>
         <tr><td>speed</td><td>51.8 tok/s</td><td>Más rápido que muchos modelos de su categoría.</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p>En tareas de <strong>contexto largo, coding, razonamiento y agentes</strong>, GLM 5.2 compite con los mejores. Eso es exactamente lo que la gente está probando cuando dice "wow".</p>
   </section>
 
   <section>
     <h2>GLM 5.2 vs GLM 5.1: evolución clara</h2>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th>Pilar</th><th>GLM 5.2</th><th>GLM 5.1</th><th>Mejora</th></tr>
       </thead>
@@ -164,13 +164,13 @@
         <tr><td>Contexto</td><td>1M</td><td>202K</td><td class="positive">5×</td></tr>
         <tr><td>Velocidad</td><td>51.8 tok/s</td><td>7.9 tok/s (NIM)</td><td class="positive">6.5×</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p>GLM 5.2 mejora en todo respecto a GLM 5.1. El salto más grande no es solo calidad, sino <strong>velocidad y contexto</strong>.</p>
   </section>
 
   <section>
     <h2>GLM 5.2 vs Claude Opus 4.8: calidad vs seguridad</h2>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th>Métrica</th><th>GLM 5.2</th><th>Claude Opus 4.8 (sub)</th></tr>
       </thead>
@@ -186,13 +186,13 @@
         <tr><td>Contexto declarado</td><td><strong>1M</strong></td><td><strong>1M</strong></td></tr>
         <tr><td>Contexto efectivo medido (NIAH)</td><td><strong>1M</strong></td><td>~256K</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p><strong>Claude Opus 4.8 es mejor en casi todo</strong>, pero cuesta aproximadamente <strong>10 veces más</strong>. GLM 5.2 es competitivo en calidad pura, más barato y con contexto efectivo más largo. La pregunta real es: ¿necesitás la seguridad premium de Opus 4.8 o podés aceptar el riesgo de GLM 5.2?</p>
   </section>
 
   <section>
     <h2>¿Cuándo usar GLM 5.2?</h2>
-    <table class="results-table">
+    <div class="table-scroll"><table class="results-table">
       <thead>
         <tr><th>Caso de uso</th><th>¿Conviene GLM 5.2?</th><th>Por qué</th></tr>
       </thead>
@@ -204,7 +204,7 @@
         <tr><td>Producción con datos sensibles</td><td><strong>No</strong></td><td>Prompt injection es una debilidad real.</td></tr>
         <tr><td>Sustituto barato de Opus 4.8</td><td><strong>Depende</strong></td><td>Si no te preocupa seguridad, es una opción viable.</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </section>
 
   <section>

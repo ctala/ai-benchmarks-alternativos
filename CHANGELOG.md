@@ -2,6 +2,64 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v3.1.2] - 2026-07-12 — Integridad del ranking: dos rankings públicos contradictorios
+
+Auditoría de integridad disparada al preparar contenido sobre GPT-5.6 / Grok 4.5. **No se re-midió
+nada** — los runs eran correctos. Lo que estaba roto era la capa que los publica.
+
+### El bug de fondo: el z-score caduca las cifras escritas a mano
+El `score_global` es un **z-score normalizado contra toda la población**. Consecuencia
+contra-intuitiva: **medir un modelo nuevo recalcula el score de todos los anteriores.** Cualquier
+cifra hardcodeada en un doc queda obsoleta sola, sin que nadie toque ese archivo.
+
+Estado encontrado: el README publicaba **Grok 4.5 = 6.99** y **GPT-5.6 Luna = 7.92 (#6)** mientras
+el sitio, generado desde `models.json`, mostraba **5.84** y **8.14 (#5)**. Dos números públicos
+distintos para el mismo modelo, en un proyecto cuyo único activo es la credibilidad de sus números.
+
+### Corregido
+- **Piso de ranking unificado en 50 runs.** `generate_rankings.py` y `generate_comparison.py` ya
+  filtraban ≥50 runs; `models.json` y `MODELOS.md` **no**. Resultado: el JSON público rankeaba
+  **DeepSeek V4 Pro #3 con 10 runs**, y `MODELOS.md` coronaba a MiniMax M2.7 con 39. Ahora los
+  umbrales viven en `export_for_pages.py` (`MIN_RUNS_TESTED=20`, `MIN_RUNS_RANKED=50`) y todo el
+  pipeline los importa. Campos nuevos por modelo: `ranked`, `sample_tier` (`solid`/`partial`/
+  `preliminary`). Los 21 modelos con muestra chica se publican en **"En evaluación"** con el score
+  marcado como indicativo — visibles, pero fuera del podio.
+  - **El #1 cambia**: DeepSeek R1 (103 runs) desplaza a MiniMax M2.7 (39 runs, ahora en evaluación).
+- **Top-10 del README auto-generado** (`generate_readme_ranking.py`, nuevo). Se escribía a mano.
+- **Claim falso de latencia, en 3 superficies.** README, `CLAUDE.md` y `docs/index.html` decían que
+  la latencia medía *time-to-first-token*. El código promedia **`latency_total`** (respuesta completa,
+  `export_for_pages.py:153`). Agravante: el preset "Chat en vivo" pondera esa dimensión al 25%.
+- **Narrativa de Grok 4.5 corregida — con la data, no con la intuición.** La primera versión de esta
+  auditoría escribió que "lo hunde la latencia". Sonaba lógico (29,7s de media) y era **falso**:
+  descompuesto el z-score, la latencia aporta **−0.009**. Lo hunde el **costo** (z −1.16), y su
+  calidad (7.97) está apenas **+0.31σ** sobre una media aplastada. En perfil batch (latencia y
+  velocidad a cero) Grok **baja** al #56, no sube. Queda documentado en el README como recordatorio:
+  **una historia plausible no es un dato.**
+- **Tablas cortadas en móvil (HARD_BLOCK).** `body{overflow-x:hidden}` + `min-width:640px` global +
+  tablas pSEO emitidas sin wrapper ⇒ en 360px las columnas de la derecha —**entre ellas el precio**—
+  quedaban recortadas y **físicamente inalcanzables**, justo en el canal por donde llega el tráfico
+  orgánico. Ahora `min-width` solo aplica dentro de un contenedor scrolleable, y las **14 tablas**
+  del sitio (10 de generadores + 4 páginas manuales) van envueltas en `.table-scroll`.
+
+### Guardrail (para que no vuelva)
+- **`benchmarks/check_consistency.py`** (nuevo): falla con exit 1 si un doc **vivo** publica un score
+  que ya no coincide con `models.json`. Ignora a propósito los **snapshots con fecha** (CHANGELOG,
+  DATASHEET_*, INSIGHTS): esos deben conservar el valor del momento — reescribir la historia sería
+  el bug, no el fix. Cableado a la **GitHub Action**: si un doc driftea, el build falla.
+- `regenerate_all.py` incorpora el generador del README.
+- `CLAUDE.md` dejó de duplicar el top-10: ahora apunta a la fuente. Sin cifra copiada, no hay drift.
+
+### Pendiente (auditado, NO corregido — requiere decisión de producto)
+- **La calculadora ignora los pesos del usuario al elegir un pilar** (`docs/app.js:393`): devuelve
+  `score_by_pillar`, pre-horneado con 70/15/7.5/7.5. Los presets mueven los sliders y el ranking los
+  ignora → **la UI le miente al usuario**. Nunca se puede expresar "coding, y no me importa la latencia".
+- **La calidad casi no discrimina**: 91% de los modelos entre 7.0 y 8.7 (std 0.58), mientras el ruido
+  del juez entre runs del mismo modelo es std ≈1.6–2.1. **El ruido es ~2.7× la señal** que ordena
+  medio ranking, y el z-score lo amplifica. El 70% del peso está sobre la dimensión con menos poder
+  de separación.
+- **`RECOMENDACIONES.md` y `CASOS_DE_USO.md` están fuera de `regenerate_all.py`**: 81 días stale,
+  recomiendan modelos que hoy están #66–#75, y `RECOMENDACIONES.md` tiene una sección duplicada.
+
 ## [v3.1.1] - 2026-07-10 — GPT-5.6 y Grok 4.5
 
 ### Benchmark nuevo
