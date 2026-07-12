@@ -73,34 +73,34 @@
   <section class="results">
     <div class="results-header">
       <h2>Ranking: Mejor LLM para N8N y agentes (2026)</h2>
-      <p class="meta">Score por pilar /10. Ordenado por el pilar relevante.</p>
+      <p class="meta">Ordenado por score del pilar (calidad de la tarea), no por score global ponderado.</p>
     </div>
     <table class="results-table">
       <thead>
-        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Global</th><th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th><th scope="col">$ in/out per M</th><th scope="col">Velocidad</th></tr>
+        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th><th scope="col">$ in/out per M</th><th scope="col">Velocidad</th></tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td><strong>Claude Haiku 4.5 (suscripción)</strong></td><td>7.96</td><td>7.5</td><td>7.8</td><td>7.7</td><td>7.8</td><td>$1.00 / $5.00</td><td>106 tok/s</td></tr>
-        <tr><td>2</td><td>Qwen 3.6 35B base (OpenRouter FP8)</td><td>7.46</td><td>7.4</td><td>7.9</td><td>7.9</td><td>7.7</td><td>$0.14 / $1.00</td><td>161 tok/s</td></tr>
-        <tr><td>3</td><td>Llama 3.1 8B Instant (Groq)</td><td>6.55</td><td>7.7</td><td>8.0</td><td>7.4</td><td>7.6</td><td>$0.05 / $0.08</td><td>367 tok/s</td></tr>
-        <tr><td>4</td><td>DiffusionGemma 26B-A4B (DGX Spark Q8_0)</td><td>7.03</td><td>6.8</td><td>7.6</td><td>7.6</td><td>7.6</td><td>$0.06 / $0.33</td><td>39 tok/s</td></tr>
-        <tr><td>5</td><td>Qwen3-Coder-Next (OpenRouter FP8)</td><td>8.08</td><td>7.9</td><td>8.1</td><td>7.9</td><td>7.5</td><td>$0.11 / $0.80</td><td>104 tok/s</td></tr>
-        <tr><td>6</td><td>Claude Sonnet 4.6 (suscripción)</td><td>7.76</td><td>7.3</td><td>7.5</td><td>7.3</td><td>7.5</td><td>$3.00 / $15.00</td><td>51 tok/s</td></tr>
-        <tr><td>7</td><td>Claude Opus 4.7 (suscripción)</td><td>7.40</td><td>7.1</td><td>7.4</td><td>7.2</td><td>7.4</td><td>$5.00 / $25.00</td><td>57 tok/s</td></tr>
-        <tr><td>8</td><td>Claude Opus 4.8 (suscripción)</td><td>7.84</td><td>6.9</td><td>7.6</td><td>7.6</td><td>7.4</td><td>$5.00 / $25.00</td><td>62 tok/s</td></tr>
+        <tr><td>1</td><td><strong>Claude Haiku 4.5 (suscripción)</strong></td><td>7.5</td><td>7.8</td><td>7.7</td><td>7.8</td><td>$1.00 / $5.00</td><td>106 tok/s</td></tr>
+        <tr><td>2</td><td>Qwen 3.6 35B base (OpenRouter FP8)</td><td>7.4</td><td>7.9</td><td>7.9</td><td>7.7</td><td>$0.14 / $1.00</td><td>161 tok/s</td></tr>
+        <tr><td>3</td><td>Llama 3.1 8B Instant (Groq)</td><td>7.7</td><td>8.0</td><td>7.4</td><td>7.6</td><td>$0.05 / $0.08</td><td>367 tok/s</td></tr>
+        <tr><td>4</td><td>DiffusionGemma 26B-A4B (DGX Spark Q8_0)</td><td>6.8</td><td>7.6</td><td>7.6</td><td>7.6</td><td>$0.06 / $0.33</td><td>39 tok/s</td></tr>
+        <tr><td>5</td><td>Qwen3-Coder-Next (OpenRouter FP8)</td><td>7.9</td><td>8.1</td><td>7.9</td><td>7.5</td><td>$0.11 / $0.80</td><td>104 tok/s</td></tr>
+        <tr><td>6</td><td>Claude Sonnet 4.6 (suscripción)</td><td>7.3</td><td>7.5</td><td>7.3</td><td>7.5</td><td>$3.00 / $15.00</td><td>51 tok/s</td></tr>
+        <tr><td>7</td><td>Claude Opus 4.7 (suscripción)</td><td>7.1</td><td>7.4</td><td>7.2</td><td>7.4</td><td>$5.00 / $25.00</td><td>57 tok/s</td></tr>
+        <tr><td>8</td><td>Claude Opus 4.8 (suscripción)</td><td>6.9</td><td>7.6</td><td>7.6</td><td>7.4</td><td>$5.00 / $25.00</td><td>62 tok/s</td></tr>
       </tbody>
     </table>
     <p class="meta">Filtrá por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
   </section>
   <section>
   <h2>Cómo interpretar este ranking de agentes y operaciones</h2>
-  <p>Este ranking no mide "inteligencia general". Mide qué modelo rinde mejor para <strong>agentes y operaciones</strong>
-  en casos reales: workflows de N8N, agentes Hermes, chatbots de soporte, orquestación multi-paso, extracción de datos con herramientas. Los scores salen de tests ejecutados en español neutro, evaluados por un juez LLM local
-  (Phi-4) para evitar conflictos de interés.</p>
+  <p>Este ranking no mide "inteligencia general" ni el score global ponderado. Mide qué modelo rinde mejor para
+  <strong>agentes y operaciones</strong> en casos reales: workflows de N8N, agentes Hermes, chatbots de soporte, orquestación multi-paso, extracción de datos con herramientas. El orden depende únicamente del score de esa
+  tarea puntual, no del costo, la velocidad ni la latencia.</p>
   <p>En esta dimensión hay empate técnico en la cima (todos rondan los 7.8/10): el mejor depende de tu prioridad. Eso no significa que sea el único
   válido: si tu prioridad es costo, velocidad o privacidad, el orden puede cambiar. El score global del benchmark
-  pondera calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%, pero vos podés ajustar esos pesos en la
-  <a href="/">calculadora</a> para tu caso.</p>
+  pondera calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%, pero acá estamos mirando solo la calidad de la
+  tarea. Ajustá esos pesos en la <a href="/">calculadora</a> para tu caso.</p>
   <p>Los modelos que aparecen tienen al menos 50 runs, lo que reduce el ruido de outlier con poca muestra.</p>
 </section>
   <section>
