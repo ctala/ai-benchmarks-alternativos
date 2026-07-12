@@ -1,13 +1,13 @@
 # MiniMax M3
 
 - **model_id**: `minimax/minimax-m3`
-- **Total tests**: 352/384 exitosos (32 errores)
-- **Score final**: 6.79
-- **Calidad**: 8.21
+- **Total tests**: 362/394 exitosos (32 errores)
+- **Score final**: 6.77
+- **Calidad**: 8.16
 - **Judge score (Phi-4)**: 3.93/10
-- **Velocidad**: 27 tok/s
-- **Latencia primera token**: 29.53s
-- **Costo promedio por test**: $0.01306
+- **Velocidad**: 29 tok/s
+- **Latencia primera token**: 29.29s
+- **Costo promedio por test**: $0.01276
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -17,6 +17,7 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 7.10 | 8.77 |
 | agent_long_horizon | 12 | 12 | 6.65 | 8.17 |
+| business_audit | 10 | 10 | 6.25 | 6.36 |
 | code_generation | 4 | 4 | 7.38 | 9.03 |
 | content_generation | 7 | 7 | 7.71 | 9.43 |
 | creativity | 4 | 4 | 6.61 | 7.78 |
@@ -2415,3 +2416,5 @@ Con gusto lo publico, pero **necesito que me compartas el contenido del artícul
 #### niah_es_lite
 
 #### prompt_injection_es
+
+#### business_audit

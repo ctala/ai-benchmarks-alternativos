@@ -1,12 +1,12 @@
 # Mistral Nemo
 
 - **model_id**: `mistralai/mistral-nemo`
-- **Total tests**: 122/123 exitosos (1 errores)
-- **Score final**: 7.03
-- **Calidad**: 6.97
+- **Total tests**: 130/133 exitosos (3 errores)
+- **Score final**: 6.84
+- **Calidad**: 6.73
 - **Judge score (Phi-4)**: 3.91/10
-- **Velocidad**: 34 tok/s
-- **Latencia primera token**: 17.47s
+- **Velocidad**: 33 tok/s
+- **Latencia primera token**: 17.50s
 - **Costo promedio por test**: $0.00001
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -16,6 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.41 | 5.91 |
+| business_audit | 10 | 8 | 3.97 | 3.02 |
 | code_generation | 4 | 4 | 7.01 | 7.41 |
 | content_generation | 4 | 4 | 7.79 | 8.43 |
 | creativity | 8 | 8 | 6.93 | 6.86 |
@@ -2364,3 +2365,7 @@ El reporte Q1 2026 de TechFlow reporta un sólido crecimiento en ventas, con un 
 **Respuesta completa**: [`results/responses/20260424_053942/mistral-nemo__summarization__extract_structured_data.md`](../results/responses/20260424_053942/mistral-nemo__summarization__extract_structured_data.md)
 
 </details>
+
+### Otras suites
+
+#### business_audit

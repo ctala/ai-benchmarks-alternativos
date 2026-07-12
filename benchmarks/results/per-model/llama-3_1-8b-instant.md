@@ -1,7 +1,7 @@
 # Llama 3.1 8B Instant (Groq)
 
 - **model_id**: `llama-3.1-8b-instant`
-- **Total tests**: 145/219 exitosos (74 errores)
+- **Total tests**: 145/229 exitosos (84 errores)
 - **Score final**: 7.67
 - **Calidad**: 7.33
 - **Judge score (Phi-4)**: 3.90/10
@@ -17,6 +17,7 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 8.00 | 6.82 |
 | agent_long_horizon | 12 | 12 | 8.21 | 8.33 |
+| business_audit | 10 | 0 | - | - |
 | code_generation | 4 | 4 | 8.32 | 8.07 |
 | content_generation | 4 | 4 | 8.65 | 8.72 |
 | creativity | 4 | 4 | 8.49 | 8.41 |
@@ -2076,3 +2077,5 @@ Aquí están los perfiles de candidatos en formato JSON:
 #### prompt_injection_es
 
 #### niah_es
+
+#### business_audit

@@ -10,7 +10,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 2 | [Nemotron 3 Ultra 550B (NIM)](nvidia_nemotron-3-ultra-550b-a55b.md) | 7.94 | 9.34 | 33 | 7/7 | [ver detalles](nvidia_nemotron-3-ultra-550b-a55b.md) |
 | 3 | [Devstral Small](mistralai_devstral-small.md) | 7.84 | 7.89 | 139 | 223/315 | [ver detalles](mistralai_devstral-small.md) |
 | 4 | [DeepSeek V4 Pro (NIM)](deepseek-ai_deepseek-v4-pro.md) | 7.79 | 8.83 | 5 | 3/58 | [ver detalles](deepseek-ai_deepseek-v4-pro.md) |
-| 5 | [Llama 3.1 8B Instant (Groq)](llama-3_1-8b-instant.md) | 7.67 | 7.33 | 262 | 145/219 | [ver detalles](llama-3_1-8b-instant.md) |
+| 5 | [Llama 3.1 8B Instant (Groq)](llama-3_1-8b-instant.md) | 7.67 | 7.33 | 262 | 145/229 | [ver detalles](llama-3_1-8b-instant.md) |
 | 6 | [GPT-5.6 Luna](openai_gpt-5_6-luna.md) | 7.59 | 8.52 | 79 | 174/174 | [ver detalles](openai_gpt-5_6-luna.md) |
 | 7 | [DiffusionGemma 26B-A4B (DGX Spark Q8_0)](hf_co_unsloth_diffusiongemma-26b-a4b-it-gguf_q8_0.md) | 7.56 | 8.14 | 39 | 100/107 | [ver detalles](hf_co_unsloth_diffusiongemma-26b-a4b-it-gguf_q8_0.md) |
 | 8 | [Nemotron 3 Nano Omni 30B-A3B Reasoning (NIM)](nvidia_nemotron-3-nano-omni-30b-a3b-reasoning.md) | 7.55 | 7.75 | 203 | 91/91 | [ver detalles](nvidia_nemotron-3-nano-omni-30b-a3b-reasoning.md) |
@@ -66,20 +66,20 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 58 | [MiniMax M3 (directo / sub)](minimax-m3.md) | 7.08 | 8.86 | 27 | 358/381 | [ver detalles](minimax-m3.md) |
 | 59 | [Gemma 4 12B (Spark llama-server Q4_K_M)](gemma-4-12b-it-q4_k_m_gguf.md) | 7.04 | 7.92 | 16 | 168/174 | [ver detalles](gemma-4-12b-it-q4_k_m_gguf.md) |
 | 60 | [GLM 5.2](z-ai_glm-5_2.md) | 7.04 | 8.18 | 48 | 185/186 | [ver detalles](z-ai_glm-5_2.md) |
-| 61 | [Mistral Nemo](mistralai_mistral-nemo.md) | 7.03 | 6.97 | 34 | 122/123 | [ver detalles](mistralai_mistral-nemo.md) |
-| 62 | [Qwen 3.5 397B (NIM)](qwen_qwen3_5-397b-a17b.md) | 7.00 | 8.07 | 21 | 97/103 | [ver detalles](qwen_qwen3_5-397b-a17b.md) |
-| 63 | [Grok 4.5](x-ai_grok-4_5.md) | 6.99 | 7.99 | 86 | 174/174 | [ver detalles](x-ai_grok-4_5.md) |
-| 64 | [MiMo-V2-Omni (multimodal)](xiaomi_mimo-v2-omni.md) | 6.94 | 7.52 | 86 | 103/103 | [ver detalles](xiaomi_mimo-v2-omni.md) |
-| 65 | [Nemotron 3 Ultra 550B](nvidia_nemotron-3-ultra-550b-a55b.md) | 6.92 | 7.41 | 104 | 174/175 | [ver detalles](nvidia_nemotron-3-ultra-550b-a55b.md) |
-| 66 | [Claude Haiku 4.5](anthropic_claude-haiku-4_5.md) | 6.90 | 8.38 | 102 | 12/12 | [ver detalles](anthropic_claude-haiku-4_5.md) |
-| 67 | [Mistral Large](mistralai_mistral-large.md) | 6.90 | 7.81 | 50 | 152/160 | [ver detalles](mistralai_mistral-large.md) |
-| 68 | [Claude Opus 4.8 (suscripción)](claude-opus-4-8.md) | 6.90 | 8.83 | 49 | 165/188 | [ver detalles](claude-opus-4-8.md) |
-| 69 | [Qwen 3.6 Plus](qwen_qwen3_6-plus.md) | 6.83 | 7.56 | 48 | 150/155 | [ver detalles](qwen_qwen3_6-plus.md) |
-| 70 | [MiniMax M2.7](minimax_minimax-m2_7.md) | 6.82 | 7.30 | 39 | 167/167 | [ver detalles](minimax_minimax-m2_7.md) |
-| 71 | [Llama 4 Maverick](meta-llama_llama-4-maverick.md) | 6.80 | 7.81 | 29 | 288/313 | [ver detalles](meta-llama_llama-4-maverick.md) |
-| 72 | [MiMo-V2-Pro](xiaomi_mimo-v2-pro.md) | 6.80 | 7.52 | 52 | 91/91 | [ver detalles](xiaomi_mimo-v2-pro.md) |
-| 73 | [Claude Fable 5 (suscripción)](claude-fable-5.md) | 6.80 | 8.61 | 46 | 174/174 | [ver detalles](claude-fable-5.md) |
-| 74 | [MiniMax M3](minimax_minimax-m3.md) | 6.79 | 8.21 | 27 | 352/384 | [ver detalles](minimax_minimax-m3.md) |
+| 61 | [Qwen 3.5 397B (NIM)](qwen_qwen3_5-397b-a17b.md) | 7.00 | 8.07 | 21 | 97/103 | [ver detalles](qwen_qwen3_5-397b-a17b.md) |
+| 62 | [Grok 4.5](x-ai_grok-4_5.md) | 6.99 | 7.99 | 86 | 174/174 | [ver detalles](x-ai_grok-4_5.md) |
+| 63 | [MiMo-V2-Omni (multimodal)](xiaomi_mimo-v2-omni.md) | 6.94 | 7.52 | 86 | 103/103 | [ver detalles](xiaomi_mimo-v2-omni.md) |
+| 64 | [Nemotron 3 Ultra 550B](nvidia_nemotron-3-ultra-550b-a55b.md) | 6.92 | 7.41 | 104 | 174/175 | [ver detalles](nvidia_nemotron-3-ultra-550b-a55b.md) |
+| 65 | [Claude Haiku 4.5](anthropic_claude-haiku-4_5.md) | 6.90 | 8.38 | 102 | 12/12 | [ver detalles](anthropic_claude-haiku-4_5.md) |
+| 66 | [Mistral Large](mistralai_mistral-large.md) | 6.90 | 7.81 | 50 | 152/160 | [ver detalles](mistralai_mistral-large.md) |
+| 67 | [Mistral Nemo](mistralai_mistral-nemo.md) | 6.84 | 6.73 | 33 | 130/133 | [ver detalles](mistralai_mistral-nemo.md) |
+| 68 | [Qwen 3.6 Plus](qwen_qwen3_6-plus.md) | 6.83 | 7.56 | 48 | 150/155 | [ver detalles](qwen_qwen3_6-plus.md) |
+| 69 | [MiniMax M2.7](minimax_minimax-m2_7.md) | 6.82 | 7.30 | 39 | 167/167 | [ver detalles](minimax_minimax-m2_7.md) |
+| 70 | [Llama 4 Maverick](meta-llama_llama-4-maverick.md) | 6.80 | 7.81 | 29 | 288/313 | [ver detalles](meta-llama_llama-4-maverick.md) |
+| 71 | [MiMo-V2-Pro](xiaomi_mimo-v2-pro.md) | 6.80 | 7.52 | 52 | 91/91 | [ver detalles](xiaomi_mimo-v2-pro.md) |
+| 72 | [Claude Fable 5 (suscripción)](claude-fable-5.md) | 6.80 | 8.61 | 46 | 174/174 | [ver detalles](claude-fable-5.md) |
+| 73 | [Claude Opus 4.8 (suscripción)](claude-opus-4-8.md) | 6.79 | 8.66 | 49 | 175/198 | [ver detalles](claude-opus-4-8.md) |
+| 74 | [MiniMax M3](minimax_minimax-m3.md) | 6.77 | 8.16 | 29 | 362/394 | [ver detalles](minimax_minimax-m3.md) |
 | 75 | [MiMo-V2.5 Pro](xiaomi_mimo-v2_5-pro.md) | 6.77 | 7.36 | 61 | 91/91 | [ver detalles](xiaomi_mimo-v2_5-pro.md) |
 | 76 | [Claude Sonnet 4.6](anthropic_claude-sonnet-4-6.md) | 6.76 | 8.16 | 62 | 27/27 | [ver detalles](anthropic_claude-sonnet-4-6.md) |
 | 77 | [GLM 5.1 (NIM)](z-ai_glm-5_1.md) | 6.76 | 8.04 | 8 | 91/91 | [ver detalles](z-ai_glm-5_1.md) |
