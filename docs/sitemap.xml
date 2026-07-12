@@ -259,6 +259,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://benchmarks.cristiantala.com/mejor-llm-para-agentes/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/mejor-llm-para-contenido/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://benchmarks.cristiantala.com/mejor-llm-para-n8n/</loc>
     <lastmod>2026-07-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -273,6 +285,18 @@
   <url>
     <loc>https://benchmarks.cristiantala.com/mejor-llm-para-razonamiento/</loc>
     <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/mejor-llm-para-resumir-textos/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/mejor-llm-para-tool-calling/</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
