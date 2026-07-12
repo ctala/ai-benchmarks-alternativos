@@ -73,34 +73,34 @@
   <section class="results">
     <div class="results-header">
       <h2>Ranking: LLM más baratos con buena calidad (2026)</h2>
-      <p class="meta">Ordenado por costo. </p>
+      <p class="meta">Ordenado por costo total (input + output) con score global ≥ 6,8.</p>
     </div>
     <table class="results-table">
       <thead>
         <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Global</th><th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th><th scope="col">$ in/out per M</th><th scope="col">Velocidad</th></tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td><strong>Gemma 4 12B (Spark llama-server Q4_K_M)</strong></td><td>6.9</td><td>6.90</td><td>7.3</td><td>7.6</td><td>7.4</td><td>7.1</td><td>$0.05 / $0.20</td><td>24 tok/s</td></tr>
-        <tr><td>2</td><td>DeepSeek V4 Flash (OpenRouter)</td><td>8.2</td><td>8.16</td><td>7.8</td><td>8.1</td><td>8.0</td><td>6.9</td><td>$0.10 / $0.20</td><td>69 tok/s</td></tr>
-        <tr><td>3</td><td>DeepSeek V4 Flash (NIM)</td><td>6.9</td><td>6.91</td><td>7.2</td><td>7.6</td><td>7.7</td><td>6.9</td><td>$0.10 / $0.20</td><td>23 tok/s</td></tr>
-        <tr><td>4</td><td>DiffusionGemma 26B-A4B (DGX Spark Q8_0)</td><td>7.0</td><td>7.03</td><td>6.8</td><td>7.6</td><td>7.6</td><td>7.6</td><td>$0.06 / $0.33</td><td>39 tok/s</td></tr>
-        <tr><td>5</td><td>Devstral Small</td><td>7.8</td><td>7.77</td><td>8.2</td><td>7.8</td><td>8.1</td><td>7.4</td><td>$0.10 / $0.30</td><td>169 tok/s</td></tr>
-        <tr><td>6</td><td>Llama 4 Scout 17B (Groq preview)</td><td>7.6</td><td>7.60</td><td>7.9</td><td>8.1</td><td>8.1</td><td>7.3</td><td>$0.11 / $0.34</td><td>243 tok/s</td></tr>
-        <tr><td>7</td><td>Gemma 4 31B (Spark llama-server Q4_K_M)</td><td>6.9</td><td>6.89</td><td>7.1</td><td>7.4</td><td>7.4</td><td>6.8</td><td>$0.12 / $0.37</td><td>9 tok/s</td></tr>
-        <tr><td>8</td><td>Gemma 4 31B (NIM)</td><td>6.9</td><td>6.88</td><td>7.2</td><td>7.6</td><td>7.7</td><td>6.8</td><td>$0.12 / $0.37</td><td>23 tok/s</td></tr>
+        <tr><td>1</td><td><strong>Gemma 4 12B (Spark llama-server Q4_K_M)</strong></td><td>6.90</td><td>7.3</td><td>7.6</td><td>7.4</td><td>7.1</td><td>$0.05 / $0.20</td><td>24 tok/s</td></tr>
+        <tr><td>2</td><td>DeepSeek V4 Flash (OpenRouter)</td><td>8.16</td><td>7.8</td><td>8.1</td><td>8.0</td><td>6.9</td><td>$0.10 / $0.20</td><td>69 tok/s</td></tr>
+        <tr><td>3</td><td>DeepSeek V4 Flash (NIM)</td><td>6.91</td><td>7.2</td><td>7.6</td><td>7.7</td><td>6.9</td><td>$0.10 / $0.20</td><td>23 tok/s</td></tr>
+        <tr><td>4</td><td>DiffusionGemma 26B-A4B (DGX Spark Q8_0)</td><td>7.03</td><td>6.8</td><td>7.6</td><td>7.6</td><td>7.6</td><td>$0.06 / $0.33</td><td>39 tok/s</td></tr>
+        <tr><td>5</td><td>Devstral Small</td><td>7.77</td><td>8.2</td><td>7.8</td><td>8.1</td><td>7.4</td><td>$0.10 / $0.30</td><td>169 tok/s</td></tr>
+        <tr><td>6</td><td>Llama 4 Scout 17B (Groq preview)</td><td>7.60</td><td>7.9</td><td>8.1</td><td>8.1</td><td>7.3</td><td>$0.11 / $0.34</td><td>243 tok/s</td></tr>
+        <tr><td>7</td><td>Gemma 4 31B (Spark llama-server Q4_K_M)</td><td>6.89</td><td>7.1</td><td>7.4</td><td>7.4</td><td>6.8</td><td>$0.12 / $0.37</td><td>9 tok/s</td></tr>
+        <tr><td>8</td><td>Gemma 4 31B (NIM)</td><td>6.88</td><td>7.2</td><td>7.6</td><td>7.7</td><td>6.8</td><td>$0.12 / $0.37</td><td>23 tok/s</td></tr>
       </tbody>
     </table>
     <p class="meta">Filtrá por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
   </section>
   <section>
   <h2>Cómo interpretar este ranking de relación calidad/precio</h2>
-  <p>Este ranking no mide "inteligencia general". Mide qué modelo rinde mejor para <strong>relación calidad/precio</strong>
-  en casos reales: agentes con alto volumen, startups con presupuesto ajustado, procesamiento batch, prototipos que escalan, calls diarios masivos. Los scores salen de tests ejecutados en español neutro, evaluados por un juez LLM local
-  (Phi-4) para evitar conflictos de interés.</p>
+  <p>Este ranking no mide "inteligencia general" ni el score global ponderado. Mide qué modelo rinde mejor para
+  <strong>relación calidad/precio</strong> en casos reales: agentes con alto volumen, startups con presupuesto ajustado, procesamiento batch, prototipos que escalan, calls diarios masivos. El orden depende únicamente del score de esa
+  tarea puntual, no del costo, la velocidad ni la latencia.</p>
   <p>En esta dimensión hay empate técnico en la cima (todos rondan los 6.9/10): el mejor depende de tu prioridad. Eso no significa que sea el único
   válido: si tu prioridad es costo, velocidad o privacidad, el orden puede cambiar. El score global del benchmark
-  pondera calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%, pero vos podés ajustar esos pesos en la
-  <a href="/">calculadora</a> para tu caso.</p>
+  pondera calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%, pero acá estamos mirando solo la calidad de la
+  tarea. Ajustá esos pesos en la <a href="/">calculadora</a> para tu caso.</p>
   <p>Los modelos que aparecen tienen al menos 50 runs, lo que reduce el ruido de outlier con poca muestra.</p>
 </section>
   <section>

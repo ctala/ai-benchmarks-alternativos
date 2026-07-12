@@ -229,9 +229,16 @@ def score_label(cfg):
 
 
 def table_head(cfg):
-    base_cols = '<th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Global</th><th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th>'
+    base_cols = '<th scope="col">#</th><th scope="col">Modelo</th>'
     if cfg["criterion"] == "suite":
+        # La suite no está en los 4 pilares, así que va una columna aparte.
         base_cols += f'<th scope="col">{esc(score_label(cfg))}</th>'
+    elif cfg["criterion"] == "pillar":
+        # Para pilares, la columna del pilar relevante ya está entre Coding/Contenido/Razon./Agentes.
+        pass
+    else:
+        base_cols += '<th scope="col">Global</th>'
+    base_cols += '<th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th>'
     base_cols += '<th scope="col">$ in/out per M</th><th scope="col">Velocidad</th>'
     return f'<table class="results-table">\n      <thead>\n        <tr>{base_cols}</tr>\n      </thead>'
 
@@ -240,13 +247,15 @@ def row_ranking(rank, m, cfg, top=False):
     """Fila de tabla que incluye la columna del score relevante para el ranking."""
     nm = f"<strong>{esc(m.get('name'))}</strong>" if top else esc(m.get("name"))
     relevant = score_for(m, cfg)
-    # Para pilares, no duplicar la columna del pilar relevante.
-    if cfg["criterion"] == "pillar":
-        return (f"<tr><td>{rank}</td><td>{nm}</td><td>{m.get('score_global',0):.2f}</td>"
+    if cfg["criterion"] == "suite":
+        # Ranking por suite: mostrar score de la suite + pilares auxiliares.
+        return (f"<tr><td>{rank}</td><td>{nm}</td><td>{relevant:.1f}</td>"
                 f"<td>{pcell(m,'Coding')}</td><td>{pcell(m,'Contenido')}</td>"
                 f"<td>{pcell(m,'Razonamiento')}</td><td>{pcell(m,'Agentes')}</td>"
                 f"<td>{fmt_cost(m)}</td><td>{round(m.get('tokens_per_second') or 0)} tok/s</td></tr>")
-    return (f"<tr><td>{rank}</td><td>{nm}</td><td>{relevant:.1f}</td><td>{m.get('score_global',0):.2f}</td>"
+    # Ranking por pilar/costo/open_source: solo pilares y global (si aplica).
+    global_col = f"<td>{m.get('score_global',0):.2f}</td>" if cfg["criterion"] != "pillar" else ""
+    return (f"<tr><td>{rank}</td><td>{nm}</td>{global_col}"
             f"<td>{pcell(m,'Coding')}</td><td>{pcell(m,'Contenido')}</td>"
             f"<td>{pcell(m,'Razonamiento')}</td><td>{pcell(m,'Agentes')}</td>"
             f"<td>{fmt_cost(m)}</td><td>{round(m.get('tokens_per_second') or 0)} tok/s</td></tr>")
@@ -285,13 +294,13 @@ def reading_guide(cfg, ranked):
     cases = ", ".join(cfg["use_cases"])
     return f"""<section>
   <h2>Cómo interpretar este ranking de {esc(cfg['what'])}</h2>
-  <p>Este ranking no mide "inteligencia general". Mide qué modelo rinde mejor para <strong>{esc(cfg['what'])}</strong>
-  en casos reales: {cases}. Los scores salen de tests ejecutados en español neutro, evaluados por un juez LLM local
-  (Phi-4) para evitar conflictos de interés.</p>
+  <p>Este ranking no mide "inteligencia general" ni el score global ponderado. Mide qué modelo rinde mejor para
+  <strong>{esc(cfg['what'])}</strong> en casos reales: {cases}. El orden depende únicamente del score de esa
+  tarea puntual, no del costo, la velocidad ni la latencia.</p>
   <p>En esta dimensión {gap_text}. Eso no significa que sea el único
   válido: si tu prioridad es costo, velocidad o privacidad, el orden puede cambiar. El score global del benchmark
-  pondera calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%, pero vos podés ajustar esos pesos en la
-  <a href="/">calculadora</a> para tu caso.</p>
+  pondera calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%, pero acá estamos mirando solo la calidad de la
+  tarea. Ajustá esos pesos en la <a href="/">calculadora</a> para tu caso.</p>
   <p>Los modelos que aparecen tienen al menos 50 runs, lo que reduce el ruido de outlier con poca muestra.</p>
 </section>"""
 
@@ -538,7 +547,7 @@ def render_ranking(cfg, models):
   <section class="results">
     <div class="results-header">
       <h2>Ranking: {esc(cfg['h1'])}</h2>
-      <p class="meta">{({'pillar':'Score por pilar /10.','suite':'Score por suite /10.','cost':'Ordenado por costo.','open_source':'Ordenado por score global.'}[cfg['criterion']])} {('Ordenado por el pilar relevante.' if cfg['criterion']=='pillar' else ('Ordenado por la suite relevante.' if cfg['criterion']=='suite' else ''))}</p>
+      <p class="meta">{({'pillar':'Ordenado por score del pilar (calidad de la tarea), no por score global ponderado.','suite':'Ordenado por score de la suite (calidad de la tarea), no por score global ponderado.','cost':'Ordenado por costo total (input + output) con score global ≥ 6,8.','open_source':'Ordenado por score global, filtrando solo modelos open source.'}[cfg['criterion']])}</p>
     </div>
     {table_head(cfg)}
       <tbody>
