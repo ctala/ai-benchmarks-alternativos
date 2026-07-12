@@ -197,8 +197,10 @@ def rank_models(models, cfg):
     crit = cfg["criterion"]
     if crit == "pillar":
         pil = cfg["pillar"]
-        base = [m for m in base if pillar(m, pil) > 0]
-        return sorted(base, key=lambda m: -pillar(m, pil))
+        # Ordena por CAPACIDAD en la tarea, no por el compuesto con costo/velocidad.
+        # Ver pillar_quality() para por qué.
+        base = [m for m in base if pillar_quality(m, pil) > 0]
+        return sorted(base, key=lambda m: -pillar_quality(m, pil))
     if crit == "suite":
         sname = cfg["suite"]
         base = [m for m in base if suite(m, sname) > 0]
@@ -212,9 +214,31 @@ def rank_models(models, cfg):
     return sorted(base, key=lambda m: -(m.get("score_global") or 0))
 
 
+def pillar_quality(m, name):
+    """Capacidad PURA del modelo en ese pilar. Sin costo, sin velocidad, sin latencia.
+
+    Alguien que busca "mejor LLM para contenido" pregunta quien ESCRIBE MEJOR, no
+    quien tiene mejor relacion calidad/precio. Ordenar esa pagina por un compuesto
+    que incluye costo y velocidad responde otra pregunta -- y respondia mal:
+
+      "mejor llm para contenido" ordenado por el compuesto:  1. GPT-OSS 20B (Groq)
+      ordenado por capacidad real de escribir:               1. MiniMax M3 (9.17)
+
+    El compuesto coronaba a los modelos rapidos y baratos de Groq en una pagina que
+    promete decir quien escribe mejor, y hundia al #6 a DeepSeek V4 Flash, que tenia
+    la mejor calidad de contenido del lote. Mismo efecto en Agentes: Llama 3.1 8B
+    aparecia sobre Opus 4.8 -- no por ser mejor agente, sino por ser barato y rapido.
+
+    El costo NO desaparece: se muestra como columna, y el veredicto de bandas dice
+    "de los que empatan en capacidad, el mas barato es X". Primero se mide el poder;
+    despues se decide con el precio. En ese orden.
+    """
+    return ((m.get("dims_by_pillar") or {}).get(name) or {}).get("quality_avg") or 0
+
+
 def score_for(m, cfg):
     if cfg["criterion"] == "pillar":
-        return pillar(m, cfg["pillar"])
+        return pillar_quality(m, cfg["pillar"])
     if cfg["criterion"] == "suite":
         return suite(m, cfg["suite"])
     return m.get("score_global") or 0
@@ -222,7 +246,7 @@ def score_for(m, cfg):
 
 def score_label(cfg):
     if cfg["criterion"] == "pillar":
-        return cfg["pillar"]
+        return f"Calidad en {cfg['pillar']}"   # capacidad pura, sin costo ni velocidad
     if cfg["criterion"] == "suite":
         return cfg["suite"].replace("_", " ").title()
     return "Score global"
@@ -262,7 +286,12 @@ def row_ranking(rank, m, cfg, top=False):
 
 
 def pcell(m, p):
-    v = pillar(m, p)
+    """Celda de pilar = CALIDAD en ese pilar (capacidad), no el compuesto con costo.
+
+    Antes mostraba score_by_pillar (compuesto): la fila decía 7.1 para un modelo cuya
+    calidad real escribiendo era 9.17. La tabla contradecía su propio encabezado.
+    """
+    v = pillar_quality(m, p)
     return f"{v:.1f}" if v > 0 else "—"
 
 
@@ -614,7 +643,7 @@ def render_ranking(cfg, models):
   <section class="results">
     <div class="results-header">
       <h2>Ranking: {esc(cfg['h1'])}</h2>
-      <p class="meta">{({'pillar':'Ordenado por score del pilar (calidad de la tarea), no por score global ponderado.','suite':'Ordenado por score de la suite (calidad de la tarea), no por score global ponderado.','cost':'Ordenado por costo total (input + output) con score global ≥ 6,8.','open_source':'Ordenado por score global, filtrando solo modelos open source.'}[cfg['criterion']])}</p>
+      <p class="meta">{({'pillar':'Ordenado por <strong>capacidad pura en esta tarea</strong>: solo calidad, sin ponderar costo ni velocidad. Quien busca el mejor para esta tarea pregunta quién la hace mejor — el precio se muestra aparte, para decidir después.','suite':'Ordenado por calidad en esta suite, sin ponderar costo ni velocidad.','cost':'Ordenado por costo total (input + output) con score global ≥ 6,8.','open_source':'Ordenado por score global, filtrando solo modelos open source.'}[cfg['criterion']])}</p>
     </div>
     {table_head(cfg)}
       <tbody>
