@@ -5,7 +5,12 @@ a partir de docs/data/models.json (data real del benchmark). Reusa el shell y lo
 helpers de generate_comparison.py (no duplica HTML ni lógica de datos).
 
 Tipo de página distinto a las comparaciones: ranking filtrado por un criterio
-(pilar, costo o licencia), no un cara a cara [A] vs [B].
+(pilar, suite, costo o licencia), no un cara a cara [A] vs [B].
+
+IMPORTANTE: cada vez que se agreguen modelos nuevos o cambien los scores,
+volver a correr este script para mantener actualizados los rankings por
+dimensión individual. También se puede usar el pipeline maestro
+regenerate_all.py.
 
 Uso:
     python benchmarks/generate_rankings.py             # todos
