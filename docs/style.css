@@ -1245,3 +1245,27 @@ footer p { word-break: break-word; }
 }
 .funnel .cta-primary { display: inline-block; margin-top: 0.25rem; }
 .funnel-fine { font-size: 0.82rem; color: var(--gray-dark); margin-bottom: 0 !important; }
+
+/* ---- Versiones comparadas: que sepas QUE estas mirando -------------------
+   "Grok vs ChatGPT" agrupa 4 modelos de un lado y 8 del otro. Sin decir cuales,
+   el lector no sabe si el "Grok" que ve es el 4.5 nuevo o el 4.3 (que saca 2.89). */
+.versions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 1rem 0;
+  padding: 0.9rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.86rem;
+}
+.versions-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray-dark);
+}
+.versions-row { color: var(--gray); line-height: 1.5; }
+.versions-row strong { color: var(--white); font-weight: 600; }
+.versions-fine { font-size: 0.78rem; color: var(--gray-dark); margin-top: 0.2rem; }
