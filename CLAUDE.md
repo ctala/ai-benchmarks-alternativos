@@ -197,7 +197,7 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
   .venv/bin/python benchmarks/regenerate_all.py
   ```
   El pipeline regenera en orden: `docs/data/models.json`, `MODELOS.md`, `TESTS.md`, MDs por modelo, rankings/comparaciones pSEO, `sitemap.xml`, `llms.txt`, `og-benchmark.png` y sincroniza counts en README/ROADMAP/landings via `sync_doc_counts.py`. Usar `--skip-og-image` si PIL no está disponible.
-  - **Páginas pSEO programáticas** (rankings y comparaciones) filtran modelos con cobertura sólida y usan `docs/data/models.json` como fuente única. Para agregar una página nueva se edita la config de `generate_rankings.py` / `generate_comparison.py`; no se escribe HTML a mano.
+  - **Páginas pSEO programáticas** (rankings y comparaciones) filtran modelos con cobertura sólida y usan `docs/data/models.json` como fuente única. Para agregar una página nueva se edita la config de `generate_rankings.py` / `generate_comparison.py`; no se escribe HTML a mano. **Cada vez que se agreguen modelos nuevos o cambien scores, regenerar estas páginas para que los rankings por dimensión individual sigan actualizados.**
 - **GitHub Action de seguridad** (`.github/workflows/regenerate-auto-artifacts.yml`): si olvidás los pasos manualmente, el bot regenera los artefactos al hacer push. Pero hacelo manual primero para que el commit principal lleve los cambios sincronizados (mejor experiencia de revisión). **Pendiente:** agregar los generadores pSEO (paso 7) a esta Action para que las páginas se actualicen solas con cada lote.
 - **README.md + CHANGELOG.md** se actualizan cuando cambia el ranking o se agrega un modelo
 - **No re-medir modelos ya cubiertos**. Re-correr SÓLO si:
