@@ -75,39 +75,46 @@ TESTS = [
     },
 
     # ─────────────────────────────────────────────────────────────────────────
-    # T2 · La restricción enterrada. Está escrita, clarísima, en el medio de un
-    # brief largo. El modelo que lee en diagonal la pisa. Es el fallo más caro
-    # en la práctica: te obliga a releer todo lo que te entrega.
+    # T2 · La restricción que PELEA con el pedido.
+    #
+    # v1 de este test decía "escribe sobre la comunidad, no menciones números" y
+    # los tres modelos sacaron 10/10. Era fácil: nada empujaba hacia los números.
+    #
+    # Ahora el brief PIDE hablar del crecimiento —lo que invita a dar cifras— y
+    # en el mismo párrafo las prohíbe. La instrucción compite con el instinto, que
+    # es como llegan los briefs reales. Un modelo que lee en diagonal ve
+    # "crecimiento" y suelta el número.
     # ─────────────────────────────────────────────────────────────────────────
     {
-        "name": "restriccion_enterrada",
-        "description": "Una restricción explícita en medio del brief: ¿la respeta o lee en diagonal?",
+        "name": "restriccion_que_pelea_con_el_pedido",
+        "description": "Pide hablar del crecimiento y prohíbe dar cifras: ¿respeta la restricción o gana el instinto?",
         "messages": [
-            {"role": "system", "content": "Eres redactor. Sigues el brief al pie de la letra."},
+            {"role": "system", "content": "Eres redactor. El brief manda, incluso cuando incomoda."},
             {"role": "user", "content": (
-                "Necesito un post para LinkedIn sobre mi comunidad de emprendedores.\n\n"
-                "Contexto: llevo 18 meses construyéndola. Empezó como un grupo de WhatsApp "
-                "y hoy es una comunidad con cursos y sesiones en vivo. La mayoría son "
-                "founders en etapa temprana, muchos todavía sin facturar.\n\n"
-                "IMPORTANTE: no menciones NINGÚN precio, ni cifras de facturación, ni "
-                "número de miembros. Nada de números de negocio. Quiero que el post hable "
-                "solo de la experiencia de la gente.\n\n"
-                "Tono directo, sin corporativismo. Unas 200 palabras. Que cierre invitando "
-                "a conversar en comentarios."
+                "Post de LinkedIn sobre mi comunidad de emprendedores.\n\n"
+                "Quiero que se note CÓMO CRECIÓ: empezó como un grupo de WhatsApp con "
+                "conocidos y hoy tiene cursos, sesiones en vivo y gente que llega sola. "
+                "Que el lector sienta la escala del cambio en 18 meses.\n\n"
+                "PERO: no des NINGUNA cifra. Ni miembros, ni precios, ni facturación, ni "
+                "porcentajes de crecimiento, ni cuántos cursos hay. Cero números de "
+                "negocio. La escala tiene que sentirse por lo que pasa adentro, no por "
+                "una métrica.\n\n"
+                "Directo, sin corporativismo, ~200 palabras."
             )},
         ],
         "criteria": {"min_words": 120, "language": "es"},
         "expected_answer": {
-            # Verificable sin opinar: ¿aparece un precio, una facturación o un conteo de
-            # miembros? Si aparece, ignoró una instrucción que estaba escrita.
+            # La trampa: le pediste que transmita ESCALA y le prohibiste la herramienta
+            # obvia para transmitirla. O encuentra otra forma, o desobedece.
             "type": "constraint_check",
             "forbidden_patterns": [
                 r"\$\s?\d", r"\d+\s?(usd|dólares|dolares|euros)",
-                r"\d+\s?(miembros|integrantes|personas en la comunidad)",
-                r"(facturación|facturacion|ingresos|mrr|revenue)\s+de\s+\$?\d",
-                r"\d+\s?(mil|k)\s?(de)?\s?(mrr|ingresos|facturación)",
+                r"\d+\s?(miembros|integrantes|personas|founders|emprendedores)\b",
+                r"\d+\s?(cursos|sesiones|talleres)\b",
+                r"\d+\s?%", r"(creció|crecio|aumentó|aumento)\s+(un\s+)?\d",
+                r"(más|mas) de \d+", r"\d+x\b", r"(miles|cientos) de (miembros|personas)",
             ],
-            "description": "precios, facturación o número de miembros",
+            "description": "cualquier cifra: miembros, precios, %, cursos, multiplicadores",
         },
     },
 
@@ -179,37 +186,45 @@ TESTS = [
     },
 
     # ─────────────────────────────────────────────────────────────────────────
-    # T5 · El call-to-action reflejo. Se lo prohibís explícitamente y lo mete
-    # igual, porque "cerrar con un CTA" está grabado en el entrenamiento. Mide
-    # si el modelo sigue la instrucción o su propio hábito.
+    # T5 · El CTA prohibido en un texto que PIDE un CTA.
+    #
+    # v1 pedía contar una cagada sin CTA, y los tres modelos obedecieron: una
+    # anécdota no tira del cierre comercial. Fácil.
+    #
+    # Ahora es un ANUNCIO —lanzamiento de un curso, con fecha y cupos— que es el
+    # formato que MÁS empuja a cerrar con "agenda tu lugar". Y se prohíbe cerrar.
+    # Acá el hábito de entrenamiento pelea de verdad contra la instrucción.
     # ─────────────────────────────────────────────────────────────────────────
     {
-        "name": "sin_call_to_action",
-        "description": "Se prohíbe el CTA explícitamente: ¿obedece o gana el reflejo?",
+        "name": "anuncio_sin_call_to_action",
+        "description": "Un anuncio de lanzamiento (el formato que más pide CTA) con el CTA prohibido",
         "messages": [
-            {"role": "system", "content": "Eres redactor. El brief manda."},
+            {"role": "system", "content": "Eres redactor. El brief manda, aunque contradiga tus reflejos."},
             {"role": "user", "content": (
-                "Escribe ~180 palabras contando una cagada que me costó plata: automaticé "
-                "el envío de un email a 2.000 personas sin probarlo antes, y salió con el "
-                "nombre de variable sin reemplazar. 'Hola {{nombre}}' a dos mil personas.\n\n"
-                "REGLA ABSOLUTA: sin call-to-action de ningún tipo. No invites a comentar, "
-                "no invites a suscribirse, no preguntes '¿te pasó algo así?', no cierres con "
-                "una pregunta al lector, no menciones mi comunidad ni ningún link. El texto "
-                "termina y ya. Que la historia se sostenga sola."
+                "Anuncio para mi comunidad: abro un curso nuevo sobre automatizar la "
+                "cobranza con IA. Arranca el 3 de agosto, son 4 sesiones en vivo, y hay "
+                "30 cupos.\n\n"
+                "REGLA ABSOLUTA, y es la parte que más me importa: SIN call-to-action. "
+                "Nada de 'agenda tu lugar', 'reserva tu cupo', 'inscríbete', 'no te lo "
+                "pierdas', 'quedan pocos lugares'. Ninguna pregunta al lector. Ningún "
+                "link. Ninguna invitación a comentar.\n\n"
+                "Quiero que el anuncio se sostenga por lo que ES el curso, no por "
+                "empujar. Si a alguien le sirve, va a preguntar solo. ~180 palabras."
             )},
         ],
         "criteria": {"min_words": 110, "language": "es"},
         "expected_answer": {
-            # Verificable: ¿hay pregunta al lector, invitación a comentar/suscribirse/
-            # sumarse? Es el hábito más arraigado de los modelos de contenido.
+            # Anunciar un lanzamiento SIN empujar es contranatural para un modelo de
+            # contenido. El reflejo "cerrá con un CTA" está grabado a fuego.
             "type": "constraint_check",
             "forbidden_patterns": [
-                r"¿(te|les|alguna vez).{0,60}\?", r"(coment[aá]|cuéntame|cuentame|comparte)\b",
-                r"(suscr[ií]b|s[uú]mate|únete|unete|agenda|reserva)\w*",
-                r"(déjame|dejame) (saber|en los comentarios)",
-                r"¿(y t[uú]|qué opinas|que opinas|te ha pasado)",
+                r"(agenda|reserva|inscr[ií]b|apunt[aá]|anot[aá]|s[uú]mate|únete|unete)\w*",
+                r"(no te lo pierdas|últimos cupos|ultimos cupos|quedan pocos|corre|apúrate|apurate)",
+                r"¿(te|les|quieres|quiere|listo|list[oa]s)\b[^?]{0,50}\?",
+                r"(coment[aá]|escríbeme|escribeme|mándame|mandame|dime|cuéntame|cuentame)\b",
+                r"(link|enlace) en (la bio|los comentarios)", r"(haz click|hacé click|clic aquí)",
             ],
-            "description": "cualquier call-to-action, pregunta al lector o invitación",
+            "description": "cualquier CTA, urgencia, pregunta al lector o invitación",
         },
     },
 ]
