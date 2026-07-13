@@ -52,6 +52,11 @@ from benchmarks.tests import agent_capabilities, strategy, sales_outreach, trans
 # std 0.25 -> no distingue un 8B de Opus). Las de aca se pueden fallar de forma
 # verificable: o cazas el error aritmetico / la causalidad falsa, o no.
 from benchmarks.tests import business_audit
+# Suite nueva (jul-2026): PLANIFICAR un negocio, no auditarlo. Auditar es verificar
+# (hay una respuesta correcta escondida); planificar es generar (no la hay). Se mide
+# la VALIDEZ del plan, no su belleza: restricciones respetadas, aritmetica que cierra,
+# activos que existen de verdad, y si propone como MATAR la idea o solo como construirla.
+from benchmarks.tests import business_strategy
 from benchmarks.tests import agent_long_horizon
 from benchmarks.tests import niah_es
 from benchmarks.tests import niah_es_1m
@@ -83,6 +88,7 @@ def _redact_secrets(text):
 
 ALL_TEST_SUITES = {
     "business_audit": business_audit.TESTS,
+    "business_strategy": business_strategy.TESTS,
     "content_generation": content_generation.TESTS,
     "tool_calling": tool_calling.TESTS,
     "task_management": task_management.TESTS,
