@@ -44,6 +44,7 @@ ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT))
 
 from benchmarks.models import MODELS, OLLAMA_MODELS  # noqa: E402
+from providers.registry import MissingCredential, build_providers, provider_for  # noqa: E402
 
 MODELS_PY = ROOT / "benchmarks" / "models.py"
 MODELS_JSON = ROOT / "docs" / "data" / "models.json"
@@ -57,6 +58,8 @@ DEAD_MARKERS = (
     "does not exist",
     "no longer available",
     "has been removed",
+    "decommissioned",   # la palabra que usa Groq
+    "has been shut down",
 )
 # Errores del momento. El modelo existe; el intento fue malo.
 TRANSIENT_MARKERS = ("rate limit", "429", "timeout", "timed out", "502", "503", "504", "overloaded")
@@ -75,21 +78,28 @@ def classify(err: str) -> str:
     return "ERROR"
 
 
-def ping(key: str, cfg: dict) -> tuple[str, str]:
-    """Manda 1 token al modelo. Devuelve (estado, detalle)."""
-    from providers.adapters import call_model  # import perezoso: pesa
+def ping(cfg: dict, P: dict) -> tuple[str, str]:
+    """Manda 1 token al modelo por EL MISMO CAMINO que usa el runner.
+
+    Usar otro camino sería inútil: podría decir VIVO lo que el runner no logra llamar.
+    """
     try:
-        r = call_model(
-            cfg,
-            [{"role": "user", "content": "ok"}],
+        provider = provider_for(cfg, P)
+    except MissingCredential as e:
+        return "SIN CREDENCIAL", str(e)
+    try:
+        r = provider.chat(
+            model=cfg["id"],
+            messages=[{"role": "user", "content": "ok"}],
             max_tokens=1,
             temperature=0,
+            timeout=30,
         )
-        if isinstance(r, dict) and r.get("error"):
-            return classify(str(r["error"])), str(r["error"])[:90]
+        if getattr(r, "error", None):
+            return classify(str(r.error)), str(r.error)[:110]
         return "VIVO", ""
     except Exception as e:  # noqa: BLE001
-        return classify(str(e)), str(e)[:90]
+        return classify(str(e)), str(e)[:110]
 
 
 def patch_models_py(dead: dict) -> int:
@@ -131,13 +141,14 @@ def main():
         k: v for k, v in catalog.items()
         if not v.get("retired") and (only is None or v.get("name") in only)
     }
+    P = build_providers(include_ollama=True)
     print(f"Chequeando {len(targets)} endpoints (ping de 1 token cada uno)…\n")
 
     buckets = {"VIVO": [], "MUERTO": [], "INTERMITENTE": [], "SIN CREDENCIAL": [], "ERROR": []}
     dead_reasons = {}
 
     for i, (k, cfg) in enumerate(targets.items(), 1):
-        estado, detalle = ping(k, cfg)
+        estado, detalle = ping(cfg, P)
         buckets[estado].append((k, cfg.get("name"), detalle))
         if estado == "MUERTO":
             prov = cfg.get("provider", "openrouter")

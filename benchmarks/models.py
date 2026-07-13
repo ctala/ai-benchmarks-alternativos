@@ -708,6 +708,9 @@ MODELS = {
 
     # --- Groq directo (LPU - super rapido, requiere GROQ_API_KEY) ---
     "groq-llama-3.3-70b": {
+        # Vivo en Groq, pero GROQ_API_KEY está vacía → no lo podemos medir.
+        # NO es retired: el modelo existe. Solo nos falta la llave.
+        "unavailable": "falta GROQ_API_KEY",
         "id": "llama-3.3-70b-versatile",
         "name": "Llama 3.3 70B (Groq)",
         "cost_input": 0.59, "cost_output": 0.79,
@@ -715,7 +718,9 @@ MODELS = {
         "open_source": True, "license": "Llama Community",
     },
     "groq-llama-3.1-8b": {
-        "retired": True,  # Groq: llama-3.1-8b-instant is not a valid model ID (13-jul-2026)
+        # Vivo en Groq, pero GROQ_API_KEY está vacía → no lo podemos medir.
+        # NO es retired: el modelo existe. Solo nos falta la llave.
+        "unavailable": "falta GROQ_API_KEY",
         "id": "llama-3.1-8b-instant",
         "name": "Llama 3.1 8B Instant (Groq)",
         "cost_input": 0.05, "cost_output": 0.08,

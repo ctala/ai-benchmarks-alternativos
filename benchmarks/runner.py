@@ -495,6 +495,20 @@ def run_benchmark(args):
             console.print("[dim]   (--include-retired para intentarlos igual · "
                           "check_endpoints.py para revisar el catálogo)[/dim]\n")
 
+    # Sin credencial ≠ muerto. El modelo existe y sigue rankeado con sus runs
+    # históricos; simplemente no tenemos la llave de su provider, así que no puede
+    # recibir runs NUEVOS. Omitirlo evita quemar llamadas contra un fallback que no
+    # entiende su `id` (ver providers/registry.MissingCredential).
+    sin_key = {k: models[k]["unavailable"] for k in list(models) if models[k].get("unavailable")}
+    for k in sin_key:
+        models.pop(k)
+    if sin_key:
+        console.print("[yellow]🔑 Omito modelos sin credencial (existen, "
+                      "pero no los podemos llamar):[/yellow]")
+        for k, motivo in sin_key.items():
+            console.print(f"[yellow]   · {k} — {motivo}[/yellow]")
+        console.print()
+
     if not models:
         console.print("[red]No hay modelos seleccionados[/red]")
         sys.exit(1)
