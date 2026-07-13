@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "timestamp": "20260713_142519_14886",
+    "total_runs": 1,
+    "errors": 0,
+    "judge": {
+      "judge_model": "microsoft/phi-4",
+      "judge_provider": "openrouter",
+      "judge_is_local": false,
+      "evaluations": 2,
+      "estimated_cost_usd": 0.0023
+    },
+    "partial": true
+  },
+  "results": [
+    {
+      "quality": 8.36,
+      "cost_score": 6.83,
+      "cost_usd": 0.002456,
+      "speed": 8.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 7.55,
+      "test_name": "atribucion_correlacion_temporal",
+      "model": "Qwen 3.6 Plus",
+      "model_id": "qwen/qwen3.6-plus",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 54.0,
+      "latency_first_token": 41.713,
+      "latency_total": 41.713,
+      "input_tokens": 245,
+      "output_tokens": 2254,
+      "response_preview": "**Conclusión directa:** No se puede saber si la secuencia de emails funcionó con los datos que me compartes.\n\n**Por qué no podemos afirmarlo:**\n1. **Variables confusas simultáneas:** En marzo activaste tres estímulos distintos (emails el 1, pauta el 3, mención de creador el 12). El salto en MRR y al",
+      "auto_quality": 4.54,
+      "judge_score": 5,
+      "judge_precision": 5,
+      "judge_relevancia": 5,
+      "judge_profundidad": 5,
+      "judge_claridad": 5,
+      "judge_utilidad": 5,
+      "judge_justificacion": "La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando una evaluación exhaustiva y práctica de la situación.",
+      "suite": "business_audit",
+      "run": 1,
+      "timestamp": "20260713_142519_14886",
+      "response_file": "results/responses/20260713_142519_14886/qwen-3.6-plus__business_audit__atribucion_correlacion_temporal.md"
+    }
+  ]
+}

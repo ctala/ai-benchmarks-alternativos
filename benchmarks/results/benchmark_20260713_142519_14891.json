@@ -10,17 +10,22 @@
       "evaluations": 5,
       "estimated_cost_usd": 0.0066
     },
-    "partial": true
+    "partial": true,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-13T20:53:08+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
-      "quality": 7.24,
+      "quality": 6.67,
       "cost_score": 10.0,
       "cost_usd": 1.4e-05,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.94,
+      "final": 6.54,
       "test_name": "atribucion_correlacion_temporal",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -32,7 +37,7 @@
       "input_tokens": 232,
       "output_tokens": 472,
       "response_preview": "Para determinar si la secuencia de emails automáticos funcionó, es necesario considerar varios factores y realizar algunos análisis adicionales. A continuación, se presentan algunos pasos que podrías seguir:\n\n1. Comparar los resultados de las altas al plan pago antes y después de la activación de la",
-      "auto_quality": 5.47,
+      "auto_quality": 6.67,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -43,16 +48,18 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_142519_14891",
-      "response_file": "results/responses/20260713_142519_14891/mistral-nemo__business_audit__atribucion_correlacion_temporal.md"
+      "response_file": "results/responses/20260713_142519_14891/mistral-nemo__business_audit__atribucion_correlacion_temporal.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-13T20:53:08+00:00"
     },
     {
-      "quality": 7.48,
+      "quality": 1.6,
       "cost_score": 10.0,
       "cost_usd": 1.4e-05,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.49,
+      "final": 3.37,
       "test_name": "auditoria_pnl_error_plantado",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -75,16 +82,18 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_142519_14891",
-      "response_file": "results/responses/20260713_142519_14891/mistral-nemo__business_audit__auditoria_pnl_error_plantado.md"
+      "response_file": "results/responses/20260713_142519_14891/mistral-nemo__business_audit__auditoria_pnl_error_plantado.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-13T20:53:08+00:00"
     },
     {
-      "quality": 7.16,
+      "quality": 3.07,
       "cost_score": 10.0,
       "cost_usd": 1.3e-05,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.26,
+      "final": 4.4,
       "test_name": "churn_mezcla_free_y_pago",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -96,7 +105,7 @@
       "input_tokens": 180,
       "output_tokens": 487,
       "response_preview": "Primero, es importante que no te dejes llevar por el pánico. Es entendible que el alta porcentaje de churn te preocupe, pero lo importante es que ahora tienes información más detallada que te permitirá tomar medidas para mejorar la situación.\n\nA continuación, te propongo un plan de acción:\n\n1. Verif",
-      "auto_quality": 4.27,
+      "auto_quality": 3.07,
       "judge_score": 4.2,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -107,16 +116,18 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_142519_14891",
-      "response_file": "results/responses/20260713_142519_14891/mistral-nemo__business_audit__churn_mezcla_free_y_pago.md"
+      "response_file": "results/responses/20260713_142519_14891/mistral-nemo__business_audit__churn_mezcla_free_y_pago.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-13T20:53:08+00:00"
     },
     {
-      "quality": 7.84,
+      "quality": 6.4,
       "cost_score": 10.0,
       "cost_usd": 9e-06,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.36,
+      "final": 6.35,
       "test_name": "retention_sobre_100_interpretacion",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -128,7 +139,7 @@
       "input_tokens": 136,
       "output_tokens": 316,
       "response_preview": "La métrica de retención de ingresos mide la cantidad de ingresos que se retiene mes a mes en relación con el mes anterior. Si su retención de ingresos es del 114%, esto significa que ha habido un aumento en los ingresos provenientes de los clientes existentes, lo que sugiere que ha habido un aumento",
-      "auto_quality": 2.8,
+      "auto_quality": 6.4,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +150,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_142519_14891",
-      "response_file": "results/responses/20260713_142519_14891/mistral-nemo__business_audit__retention_sobre_100_interpretacion.md"
+      "response_file": "results/responses/20260713_142519_14891/mistral-nemo__business_audit__retention_sobre_100_interpretacion.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-13T20:53:08+00:00"
     }
   ]
 }

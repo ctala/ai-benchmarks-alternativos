@@ -109,6 +109,8 @@ def score_expected_answer(response: str, expected_answer: dict) -> float:
         return _score_sequence(response, expected_answer)
     elif answer_type == "reasoning":
         return _score_reasoning(response, expected_answer)
+    elif answer_type == "constraint_check":
+        return _score_constraint(response, expected_answer)
     elif answer_type == "hallucination_check":
         return _score_hallucination(response, expected_answer)
     elif answer_type == "honesty_check":
@@ -882,3 +884,30 @@ def compute_final_score(
         "tool_calling": round(tool_calling, 2),
         "final": round(final, 2),
     }
+
+
+def _score_constraint(response: str, expected: dict) -> float:
+    """¿Respetó una restricción explícita del brief? (0-10)
+
+    Es la trampa más barata de verificar y la que más duele en la práctica: el brief dice
+    "no menciones precios" o "no cierres con un call-to-action", está escrito, negro sobre
+    blanco — y el modelo lo pisa igual. Porque lee en diagonal, o porque su hábito de
+    entrenamiento le gana a la instrucción.
+
+    No hay nada que opinar acá: o la violó o no la violó. Por eso NO pasa por el juez LLM,
+    que en estas tareas le pone la nota máxima a todo — el texto igual *parece* bueno, y
+    ese es justamente el problema: te hace publicar algo que rompe tu brief con una prosa
+    impecable.
+
+    Score: 10 si respetó la restricción. −4 por cada violación distinta, piso en 0. Una
+    sola violación ya arruina el entregable (te obliga a releerlo entero); varias, peor.
+    """
+    import re as _re
+
+    patrones = expected.get("forbidden_patterns", [])
+    if not patrones:
+        return 5.0
+
+    violaciones = sum(1 for p in patrones
+                      if _re.search(p, response, flags=_re.IGNORECASE))
+    return max(0.0, 10.0 - 4.0 * violaciones)
