@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T13:45:39",
+  "generated_at": "2026-07-13T14:19:54",
   "total_models": 172,
   "tested_count": 102,
   "ranked_count": 59,
@@ -21,57 +21,57 @@
   "score_method": "zscore_v2.9",
   "norm_stats": {
     "quality_avg": {
-      "mean": 7.8529,
-      "std": 0.5626
+      "mean": 7.8505,
+      "std": 0.5725
     },
     "cost_score_avg": {
-      "mean": 6.7317,
-      "std": 1.3364
+      "mean": 6.7334,
+      "std": 1.3359
     },
     "speed_score_avg": {
-      "mean": 6.8186,
-      "std": 1.9259
+      "mean": 6.8254,
+      "std": 1.9318
     },
     "latency_score_avg": {
-      "mean": 1.8831,
-      "std": 0.8238
+      "mean": 1.8868,
+      "std": 0.825
     }
   },
   "norm_stats_by_pillar": {
     "Agentes": {
       "quality_avg": {
-        "mean": 7.0768,
-        "std": 0.7652
+        "mean": 7.0725,
+        "std": 0.7714
       },
       "cost_score_avg": {
-        "mean": 7.03,
-        "std": 1.2021
+        "mean": 7.0313,
+        "std": 1.2001
       },
       "speed_score_avg": {
-        "mean": 6.4964,
-        "std": 1.8731
+        "mean": 6.4974,
+        "std": 1.875
       },
       "latency_score_avg": {
-        "mean": 2.3355,
-        "std": 1.1881
+        "mean": 2.3433,
+        "std": 1.1917
       }
     },
     "Coding": {
       "quality_avg": {
-        "mean": 7.7647,
-        "std": 0.5932
+        "mean": 7.7467,
+        "std": 0.6065
       },
       "cost_score_avg": {
-        "mean": 7.0401,
-        "std": 1.0481
+        "mean": 7.0461,
+        "std": 1.0483
       },
       "speed_score_avg": {
-        "mean": 6.6211,
-        "std": 1.9313
+        "mean": 6.6389,
+        "std": 1.95
       },
       "latency_score_avg": {
-        "mean": 2.6034,
-        "std": 1.1917
+        "mean": 2.6212,
+        "std": 1.1985
       }
     },
     "Contenido": {
@@ -94,20 +94,20 @@
     },
     "Razonamiento": {
       "quality_avg": {
-        "mean": 7.3631,
-        "std": 0.7933
+        "mean": 8.0497,
+        "std": 0.86
       },
       "cost_score_avg": {
-        "mean": 6.4187,
-        "std": 1.5426
+        "mean": 6.3531,
+        "std": 1.5822
       },
       "speed_score_avg": {
-        "mean": 7.0335,
-        "std": 1.9231
+        "mean": 7.1418,
+        "std": 2.0792
       },
       "latency_score_avg": {
-        "mean": 1.4085,
-        "std": 0.5488
+        "mean": 1.3982,
+        "std": 0.5131
       }
     }
   },
@@ -176,13 +176,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 268,
-      "score_global": 8.63,
+      "total_runs": 258,
+      "score_global": 8.6,
       "score_by_pillar": {
         "Contenido": 8.14,
         "Agentes": 7.54,
         "Coding": 7.88,
-        "Razonamiento": 7.03
+        "Razonamiento": 7.91
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -207,11 +207,11 @@
           "quality_ci95": 0.5
         },
         "Razonamiento": {
-          "quality_avg": 7.208,
-          "speed_score_avg": 9.36,
-          "latency_score_avg": 1.96,
-          "cost_score_avg": 7.598,
-          "quality_ci95": 0.91
+          "quality_avg": 8.46,
+          "speed_score_avg": 9.6,
+          "latency_score_avg": 1.8,
+          "cost_score_avg": 7.535,
+          "quality_ci95": 0.623
         }
       },
       "score_by_suite": {
@@ -241,8 +241,7 @@
         "agent_long_horizon": 7.59,
         "niah_es": 6.3,
         "niah_es_lite": 4.37,
-        "prompt_injection_es": 3.03,
-        "business_audit": 5.72
+        "prompt_injection_es": 3.03
       },
       "quality_avg": 8.34,
       "quality_ci95": 0.32,
@@ -291,13 +290,13 @@
       "thinking": true,
       "multimodal": false,
       "runs": 113,
-      "total_runs": 402,
-      "score_global": 8.57,
+      "total_runs": 392,
+      "score_global": 8.53,
       "score_by_pillar": {
         "Contenido": 8.05,
         "Agentes": 6.91,
         "Coding": 7.83,
-        "Razonamiento": 7.02
+        "Razonamiento": 8.03
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -322,11 +321,11 @@
           "quality_ci95": 0.481
         },
         "Razonamiento": {
-          "quality_avg": 7.413,
-          "speed_score_avg": 7.357,
-          "latency_score_avg": 1.179,
-          "cost_score_avg": 7.941,
-          "quality_ci95": 0.882
+          "quality_avg": 8.782,
+          "speed_score_avg": 8.111,
+          "latency_score_avg": 1.222,
+          "cost_score_avg": 7.908,
+          "quality_ci95": 0.491
         }
       },
       "score_by_suite": {
@@ -356,8 +355,7 @@
         "agent_long_horizon": 8.26,
         "niah_es": 6.85,
         "niah_es_lite": 4.26,
-        "prompt_injection_es": 3.18,
-        "business_audit": 5.19
+        "prompt_injection_es": 3.18
       },
       "quality_avg": 8.47,
       "quality_ci95": 0.26,
@@ -409,13 +407,13 @@
       "thinking": true,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 268,
-      "score_global": 8.39,
+      "total_runs": 254,
+      "score_global": 8.34,
       "score_by_pillar": {
         "Contenido": 7.63,
         "Agentes": 7.09,
         "Coding": 7.1,
-        "Razonamiento": 6.61
+        "Razonamiento": 7.46
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -440,11 +438,11 @@
           "quality_ci95": 0.498
         },
         "Razonamiento": {
-          "quality_avg": 7.711,
-          "speed_score_avg": 3.655,
+          "quality_avg": 9.052,
+          "speed_score_avg": 3.733,
           "latency_score_avg": 1.0,
-          "cost_score_avg": 5.763,
-          "quality_ci95": 0.721
+          "cost_score_avg": 5.15,
+          "quality_ci95": 0.363
         }
       },
       "score_by_suite": {
@@ -474,9 +472,7 @@
         "agent_long_horizon": 7.41,
         "niah_es": 5.05,
         "niah_es_lite": 3.97,
-        "prompt_injection_es": 2.68,
-        "business_strategy": 6.08,
-        "business_audit": 5.54
+        "prompt_injection_es": 2.68
       },
       "quality_avg": 8.77,
       "quality_ci95": 0.241,
@@ -525,13 +521,13 @@
       "thinking": true,
       "multimodal": false,
       "runs": 89,
-      "total_runs": 395,
-      "score_global": 8.09,
+      "total_runs": 352,
+      "score_global": 8.04,
       "score_by_pillar": {
         "Contenido": 7.66,
         "Agentes": 7.02,
         "Coding": 7.36,
-        "Razonamiento": 6.54
+        "Razonamiento": 7.65
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -556,11 +552,11 @@
           "quality_ci95": 0.518
         },
         "Razonamiento": {
-          "quality_avg": 7.018,
-          "speed_score_avg": 7.094,
-          "latency_score_avg": 1.057,
-          "cost_score_avg": 6.796,
-          "quality_ci95": 0.503
+          "quality_avg": 8.914,
+          "speed_score_avg": 4.571,
+          "latency_score_avg": 1.071,
+          "cost_score_avg": 6.586,
+          "quality_ci95": 0.446
         }
       },
       "score_by_suite": {
@@ -590,10 +586,7 @@
         "agent_long_horizon": 6.96,
         "niah_es": 7.22,
         "niah_es_lite": 5.83,
-        "prompt_injection_es": 7.11,
-        "business_audit": 6.1,
-        "business_strategy": 6.21,
-        "persistencia": 6.35
+        "prompt_injection_es": 7.11
       },
       "quality_avg": 8.56,
       "quality_ci95": 0.287,
@@ -643,13 +636,13 @@
       "thinking": true,
       "multimodal": true,
       "runs": 87,
-      "total_runs": 189,
-      "score_global": 8.04,
+      "total_runs": 174,
+      "score_global": 8.0,
       "score_by_pillar": {
         "Contenido": 7.94,
         "Agentes": 7.28,
         "Coding": 7.45,
-        "Razonamiento": 6.93
+        "Razonamiento": 7.73
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -674,11 +667,11 @@
           "quality_ci95": 0.607
         },
         "Razonamiento": {
-          "quality_avg": 7.524,
-          "speed_score_avg": 9.778,
-          "latency_score_avg": 1.933,
-          "cost_score_avg": 5.237,
-          "quality_ci95": 0.725
+          "quality_avg": 8.701,
+          "speed_score_avg": 9.689,
+          "latency_score_avg": 2.0,
+          "cost_score_avg": 5.088,
+          "quality_ci95": 0.485
         }
       },
       "score_by_suite": {
@@ -707,9 +700,7 @@
         "translation": 8.06,
         "agent_long_horizon": 8.18,
         "niah_es": 8.26,
-        "prompt_injection_es": 5.39,
-        "business_strategy": 6.5,
-        "business_audit": 5.95
+        "prompt_injection_es": 5.39
       },
       "quality_avg": 8.38,
       "quality_ci95": 0.283,
@@ -759,13 +750,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 272,
-      "score_global": 7.87,
+      "total_runs": 258,
+      "score_global": 7.84,
       "score_by_pillar": {
         "Contenido": 7.91,
         "Agentes": 7.67,
         "Coding": 7.37,
-        "Razonamiento": 6.85
+        "Razonamiento": 7.9
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -790,11 +781,11 @@
           "quality_ci95": 0.736
         },
         "Razonamiento": {
-          "quality_avg": 7.196,
-          "speed_score_avg": 9.04,
-          "latency_score_avg": 1.12,
-          "cost_score_avg": 6.987,
-          "quality_ci95": 0.9
+          "quality_avg": 8.601,
+          "speed_score_avg": 9.867,
+          "latency_score_avg": 1.2,
+          "cost_score_avg": 7.006,
+          "quality_ci95": 0.398
         }
       },
       "score_by_suite": {
@@ -824,9 +815,7 @@
         "agent_long_horizon": 7.02,
         "niah_es": 6.3,
         "niah_es_lite": 4.47,
-        "prompt_injection_es": 3.15,
-        "business_audit": 5.27,
-        "persistencia": 6.53
+        "prompt_injection_es": 3.15
       },
       "quality_avg": 8.32,
       "quality_ci95": 0.257,
@@ -875,13 +864,13 @@
       "thinking": true,
       "multimodal": true,
       "runs": 87,
-      "total_runs": 184,
-      "score_global": 7.65,
+      "total_runs": 174,
+      "score_global": 7.61,
       "score_by_pillar": {
         "Contenido": 7.72,
         "Agentes": 6.92,
         "Coding": 7.5,
-        "Razonamiento": 6.89
+        "Razonamiento": 7.61
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -906,11 +895,11 @@
           "quality_ci95": 0.479
         },
         "Razonamiento": {
-          "quality_avg": 7.888,
-          "speed_score_avg": 8.427,
-          "latency_score_avg": 1.627,
-          "cost_score_avg": 4.074,
-          "quality_ci95": 0.762
+          "quality_avg": 8.869,
+          "speed_score_avg": 8.978,
+          "latency_score_avg": 1.778,
+          "cost_score_avg": 3.941,
+          "quality_ci95": 0.376
         }
       },
       "score_by_suite": {
@@ -939,8 +928,7 @@
         "translation": 7.74,
         "agent_long_horizon": 7.96,
         "niah_es": 7.97,
-        "prompt_injection_es": 5.65,
-        "business_audit": 5.81
+        "prompt_injection_es": 5.65
       },
       "quality_avg": 8.39,
       "quality_ci95": 0.289,
@@ -968,6 +956,121 @@
       "score_global_linear": 7.49
     },
     {
+      "key": "gemini-flash-lite",
+      "id": "google/gemini-2.5-flash-lite",
+      "name": "Gemini 2.5 Flash Lite",
+      "tier": "ultra_cheap",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 0.1,
+      "cost_output_per_M": 0.4,
+      "cost_per_1k_calls_usd": 0.63,
+      "context_window": 1048576,
+      "subscriptions": [],
+      "notes": "",
+      "tested": true,
+      "retired": false,
+      "provider_variant": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 142,
+      "total_runs": 304,
+      "score_global": 7.58,
+      "score_by_pillar": {
+        "Contenido": 7.89,
+        "Agentes": 6.97,
+        "Coding": 8.1,
+        "Razonamiento": 7.95
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.143,
+          "speed_score_avg": 9.8,
+          "latency_score_avg": 3.44,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.335
+        },
+        "Agentes": {
+          "quality_avg": 6.773,
+          "speed_score_avg": 7.975,
+          "latency_score_avg": 5.8,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.593
+        },
+        "Coding": {
+          "quality_avg": 8.293,
+          "speed_score_avg": 8.788,
+          "latency_score_avg": 5.758,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.412
+        },
+        "Razonamiento": {
+          "quality_avg": 8.296,
+          "speed_score_avg": 9.852,
+          "latency_score_avg": 2.704,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.293
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 7.77,
+        "tool_calling": 5.67,
+        "task_management": 7.83,
+        "code_generation": 8.4,
+        "reasoning": 8.2,
+        "summarization": 7.54,
+        "presentation": 8.13,
+        "startup_content": 8.27,
+        "deep_reasoning": 7.91,
+        "customer_support": 6.45,
+        "structured_output": 7.66,
+        "hallucination": 7.76,
+        "creativity": 7.41,
+        "string_precision": 8.49,
+        "news_seo_writing": 7.68,
+        "ocr_extraction": 7.36,
+        "orchestration": 6.93,
+        "multi_turn": 7.75,
+        "policy_adherence": 7.74,
+        "agent_capabilities": 7.68,
+        "strategy": 7.97,
+        "sales_outreach": 8.58,
+        "translation": 8.4,
+        "niah_es": 8.21,
+        "prompt_injection_es": 3.13
+      },
+      "quality_avg": 7.99,
+      "quality_ci95": 0.232,
+      "cost_score_avg": 8.0,
+      "speed_score_avg": 9.34,
+      "latency_score_avg": 4.32,
+      "tool_calling_score_avg": 6.55,
+      "judge_score_avg": 4.18,
+      "tokens_per_second": 181.2,
+      "latency_avg_s": 4.15,
+      "total_input_tokens": 33839,
+      "total_output_tokens": 128215,
+      "long_context_runs": 114,
+      "long_context_quality": 9.88,
+      "long_context_score": 8.21,
+      "long_context_by_size": {
+        "8000": 10.0,
+        "64000": 10.0,
+        "128000": 10.0,
+        "256000": 10.0,
+        "512000": 10.0,
+        "800000": 10.0
+      },
+      "effective_context": 800000,
+      "security_runs": 40,
+      "security_score": 1.86,
+      "score_global_linear": 7.82
+    },
+    {
       "key": "mistral-small-4",
       "id": "mistralai/mistral-small-2603",
       "name": "Mistral Small 4",
@@ -990,13 +1093,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 241,
-      "score_global": 7.59,
+      "total_runs": 156,
+      "score_global": 7.58,
       "score_by_pillar": {
         "Contenido": 8.0,
         "Agentes": 7.35,
         "Coding": 7.65,
-        "Razonamiento": 7.04
+        "Razonamiento": 7.95
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -1021,11 +1124,11 @@
           "quality_ci95": 0.507
         },
         "Razonamiento": {
-          "quality_avg": 7.036,
-          "speed_score_avg": 9.44,
-          "latency_score_avg": 2.96,
-          "cost_score_avg": 7.912,
-          "quality_ci95": 0.952
+          "quality_avg": 8.339,
+          "speed_score_avg": 9.733,
+          "latency_score_avg": 2.733,
+          "cost_score_avg": 7.873,
+          "quality_ci95": 0.655
         }
       },
       "score_by_suite": {
@@ -1052,10 +1155,8 @@
         "strategy": 8.38,
         "sales_outreach": 8.11,
         "translation": 8.29,
-        "agent_long_horizon": 8.04,
-        "niah_es": 7.65,
         "prompt_injection_es": 3.74,
-        "business_audit": 5.68
+        "niah_es": 8.41
       },
       "quality_avg": 8.07,
       "quality_ci95": 0.271,
@@ -1068,9 +1169,9 @@
       "latency_avg_s": 11.37,
       "total_input_tokens": 27417,
       "total_output_tokens": 67414,
-      "long_context_runs": 108,
-      "long_context_quality": 8.51,
-      "long_context_score": 7.65,
+      "long_context_runs": 45,
+      "long_context_quality": 9.86,
+      "long_context_score": 8.41,
       "long_context_by_size": {
         "8000": 10.0,
         "64000": 10.0,
@@ -1104,13 +1205,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 176,
-      "score_global": 7.49,
+      "total_runs": 166,
+      "score_global": 7.44,
       "score_by_pillar": {
         "Contenido": 7.28,
         "Agentes": 7.06,
         "Coding": 7.07,
-        "Razonamiento": 6.58
+        "Razonamiento": 7.44
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -1135,11 +1236,11 @@
           "quality_ci95": 0.479
         },
         "Razonamiento": {
-          "quality_avg": 7.79,
+          "quality_avg": 9.035,
           "speed_score_avg": 6.0,
           "latency_score_avg": 1.0,
-          "cost_score_avg": 4.04,
-          "quality_ci95": 0.805
+          "cost_score_avg": 3.916,
+          "quality_ci95": 0.388
         }
       },
       "score_by_suite": {
@@ -1168,8 +1269,7 @@
         "translation": 7.17,
         "agent_long_horizon": 7.35,
         "niah_es": 7.79,
-        "prompt_injection_es": 2.44,
-        "business_audit": 5.3
+        "prompt_injection_es": 2.44
       },
       "quality_avg": 8.63,
       "quality_ci95": 0.262,
@@ -1218,13 +1318,13 @@
       "thinking": false,
       "multimodal": true,
       "runs": 87,
-      "total_runs": 229,
-      "score_global": 7.45,
+      "total_runs": 162,
+      "score_global": 7.44,
       "score_by_pillar": {
         "Contenido": 8.1,
         "Agentes": 7.16,
         "Coding": 7.74,
-        "Razonamiento": 7.19
+        "Razonamiento": 8.12
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -1249,11 +1349,11 @@
           "quality_ci95": 0.394
         },
         "Razonamiento": {
-          "quality_avg": 7.216,
-          "speed_score_avg": 9.56,
-          "latency_score_avg": 3.76,
-          "cost_score_avg": 7.618,
-          "quality_ci95": 0.927
+          "quality_avg": 8.505,
+          "speed_score_avg": 9.867,
+          "latency_score_avg": 3.867,
+          "cost_score_avg": 7.575,
+          "quality_ci95": 0.644
         }
       },
       "score_by_suite": {
@@ -1280,11 +1380,8 @@
         "strategy": 8.48,
         "sales_outreach": 8.64,
         "translation": 8.22,
-        "agent_long_horizon": 7.89,
-        "niah_es_lite": 6.9,
         "prompt_injection_es": 3.48,
-        "niah_es": 8.24,
-        "business_audit": 5.8
+        "niah_es": 8.24
       },
       "quality_avg": 7.97,
       "quality_ci95": 0.327,
@@ -1297,9 +1394,9 @@
       "latency_avg_s": 3.31,
       "total_input_tokens": 24400,
       "total_output_tokens": 47385,
-      "long_context_runs": 96,
-      "long_context_quality": 8.66,
-      "long_context_score": 7.61,
+      "long_context_runs": 51,
+      "long_context_quality": 9.79,
+      "long_context_score": 8.24,
       "long_context_by_size": {
         "8000": 10.0,
         "64000": 10.0,
@@ -1335,7 +1432,7 @@
       "multimodal": true,
       "runs": 87,
       "total_runs": 279,
-      "score_global": 7.44,
+      "score_global": 7.4,
       "score_by_pillar": {
         "Contenido": 7.47,
         "Agentes": 6.95,
@@ -1427,122 +1524,6 @@
       "score_global_linear": 7.31
     },
     {
-      "key": "gemini-flash-lite",
-      "id": "google/gemini-2.5-flash-lite",
-      "name": "Gemini 2.5 Flash Lite",
-      "tier": "ultra_cheap",
-      "provider": "openrouter",
-      "open_source": false,
-      "license": "",
-      "cost_input_per_M": 0.1,
-      "cost_output_per_M": 0.4,
-      "cost_per_1k_calls_usd": 0.63,
-      "context_window": 1048576,
-      "subscriptions": [],
-      "notes": "",
-      "tested": true,
-      "retired": false,
-      "provider_variant": false,
-      "ranked": true,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": true,
-      "runs": 147,
-      "total_runs": 319,
-      "score_global": 7.39,
-      "score_by_pillar": {
-        "Contenido": 7.89,
-        "Agentes": 6.95,
-        "Coding": 8.1,
-        "Razonamiento": 7.17
-      },
-      "dims_by_pillar": {
-        "Contenido": {
-          "quality_avg": 8.143,
-          "speed_score_avg": 9.8,
-          "latency_score_avg": 3.44,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.335
-        },
-        "Agentes": {
-          "quality_avg": 6.739,
-          "speed_score_avg": 7.978,
-          "latency_score_avg": 5.778,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.59
-        },
-        "Coding": {
-          "quality_avg": 8.293,
-          "speed_score_avg": 8.788,
-          "latency_score_avg": 5.758,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.412
-        },
-        "Razonamiento": {
-          "quality_avg": 7.298,
-          "speed_score_avg": 8.676,
-          "latency_score_avg": 2.784,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.674
-        }
-      },
-      "score_by_suite": {
-        "content_generation": 7.77,
-        "tool_calling": 5.67,
-        "task_management": 7.83,
-        "code_generation": 8.4,
-        "reasoning": 8.2,
-        "summarization": 7.54,
-        "presentation": 8.13,
-        "startup_content": 8.27,
-        "deep_reasoning": 7.91,
-        "customer_support": 6.45,
-        "structured_output": 7.66,
-        "hallucination": 7.76,
-        "creativity": 7.41,
-        "string_precision": 8.49,
-        "news_seo_writing": 7.68,
-        "agent_capabilities": 7.22,
-        "ocr_extraction": 7.36,
-        "orchestration": 6.93,
-        "multi_turn": 7.75,
-        "policy_adherence": 7.74,
-        "strategy": 7.97,
-        "sales_outreach": 8.58,
-        "translation": 8.4,
-        "niah_es": 8.21,
-        "prompt_injection_es": 3.13,
-        "business_audit": 5.06
-      },
-      "quality_avg": 7.94,
-      "quality_ci95": 0.243,
-      "cost_score_avg": 8.0,
-      "speed_score_avg": 9.29,
-      "latency_score_avg": 4.36,
-      "tool_calling_score_avg": 6.42,
-      "judge_score_avg": 4.18,
-      "tokens_per_second": 178.3,
-      "latency_avg_s": 4.08,
-      "total_input_tokens": 37026,
-      "total_output_tokens": 129485,
-      "long_context_runs": 114,
-      "long_context_quality": 9.88,
-      "long_context_score": 8.21,
-      "long_context_by_size": {
-        "8000": 10.0,
-        "64000": 10.0,
-        "128000": 10.0,
-        "256000": 10.0,
-        "512000": 10.0,
-        "800000": 10.0
-      },
-      "effective_context": 800000,
-      "security_runs": 40,
-      "security_score": 1.86,
-      "score_global_linear": 7.78
-    },
-    {
       "key": "grok-4.1-fast",
       "id": "x-ai/grok-4.1-fast",
       "name": "Grok 4.1 Fast",
@@ -1565,8 +1546,8 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 148,
-      "score_global": 7.16,
+      "total_runs": 91,
+      "score_global": 7.15,
       "score_by_pillar": {
         "Contenido": 7.8,
         "Agentes": 7.31,
@@ -1626,9 +1607,7 @@
         "agent_capabilities": 7.7,
         "strategy": 7.95,
         "sales_outreach": 7.9,
-        "translation": 7.98,
-        "agent_long_horizon": 7.8,
-        "niah_es_lite": 6.14
+        "translation": 7.98
       },
       "quality_avg": 8.08,
       "quality_ci95": 0.256,
@@ -1641,9 +1620,9 @@
       "latency_avg_s": 15.87,
       "total_input_tokens": 37361,
       "total_output_tokens": 123208,
-      "long_context_runs": 45,
-      "long_context_quality": 6.15,
-      "long_context_score": 6.14,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
       "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
@@ -1674,7 +1653,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 168,
-      "score_global": 7.01,
+      "score_global": 6.99,
       "score_by_pillar": {
         "Contenido": 7.56,
         "Agentes": 7.14,
@@ -1786,13 +1765,13 @@
       "thinking": true,
       "multimodal": true,
       "runs": 87,
-      "total_runs": 180,
-      "score_global": 6.9,
+      "total_runs": 174,
+      "score_global": 6.87,
       "score_by_pillar": {
         "Contenido": 7.41,
         "Agentes": 6.66,
         "Coding": 7.16,
-        "Razonamiento": 6.4
+        "Razonamiento": 7.16
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -1817,11 +1796,11 @@
           "quality_ci95": 0.499
         },
         "Razonamiento": {
-          "quality_avg": 7.737,
-          "speed_score_avg": 5.302,
-          "latency_score_avg": 1.429,
-          "cost_score_avg": 3.207,
-          "quality_ci95": 0.932
+          "quality_avg": 8.766,
+          "speed_score_avg": 6.222,
+          "latency_score_avg": 1.533,
+          "cost_score_avg": 2.936,
+          "quality_ci95": 0.428
         }
       },
       "score_by_suite": {
@@ -1850,8 +1829,7 @@
         "translation": 7.62,
         "agent_long_horizon": 7.38,
         "niah_es": 7.76,
-        "prompt_injection_es": 5.72,
-        "business_audit": 4.51
+        "prompt_injection_es": 5.72
       },
       "quality_avg": 8.4,
       "quality_ci95": 0.265,
@@ -1902,7 +1880,7 @@
       "multimodal": false,
       "runs": 85,
       "total_runs": 89,
-      "score_global": 6.83,
+      "score_global": 6.81,
       "score_by_pillar": {
         "Contenido": 7.38,
         "Agentes": 6.93,
@@ -2008,7 +1986,7 @@
       "multimodal": true,
       "runs": 91,
       "total_runs": 100,
-      "score_global": 6.81,
+      "score_global": 6.79,
       "score_by_pillar": {
         "Coding": 6.85,
         "Contenido": 7.56,
@@ -2113,14 +2091,14 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
-      "runs": 130,
-      "total_runs": 298,
-      "score_global": 6.67,
+      "runs": 129,
+      "total_runs": 287,
+      "score_global": 6.63,
       "score_by_pillar": {
         "Contenido": 7.42,
-        "Agentes": 6.72,
+        "Agentes": 6.67,
         "Coding": 7.63,
-        "Razonamiento": 6.87
+        "Razonamiento": 7.54
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -2131,11 +2109,11 @@
           "quality_ci95": 0.363
         },
         "Agentes": {
-          "quality_avg": 6.875,
-          "speed_score_avg": 6.083,
-          "latency_score_avg": 3.417,
-          "cost_score_avg": 7.992,
-          "quality_ci95": 0.835
+          "quality_avg": 6.773,
+          "speed_score_avg": 6.261,
+          "latency_score_avg": 3.522,
+          "cost_score_avg": 7.991,
+          "quality_ci95": 0.848
         },
         "Coding": {
           "quality_avg": 8.238,
@@ -2145,11 +2123,11 @@
           "quality_ci95": 0.385
         },
         "Razonamiento": {
-          "quality_avg": 7.369,
-          "speed_score_avg": 5.676,
-          "latency_score_avg": 1.405,
-          "cost_score_avg": 7.899,
-          "quality_ci95": 0.624
+          "quality_avg": 8.291,
+          "speed_score_avg": 6.074,
+          "latency_score_avg": 1.407,
+          "cost_score_avg": 7.862,
+          "quality_ci95": 0.305
         }
       },
       "score_by_suite": {
@@ -2168,28 +2146,27 @@
         "creativity": 6.93,
         "string_precision": 8.09,
         "news_seo_writing": 6.88,
-        "agent_capabilities": 7.92,
         "ocr_extraction": 7.25,
         "multi_turn": 6.68,
         "policy_adherence": 7.31,
+        "agent_capabilities": 7.97,
         "strategy": 7.62,
         "sales_outreach": 8.17,
         "translation": 7.93,
         "niah_es": 7.87,
-        "prompt_injection_es": 2.9,
-        "business_audit": 5.06
+        "prompt_injection_es": 2.9
       },
-      "quality_avg": 8.02,
-      "quality_ci95": 0.238,
+      "quality_avg": 8.01,
+      "quality_ci95": 0.239,
       "cost_score_avg": 7.95,
-      "speed_score_avg": 6.06,
-      "latency_score_avg": 2.31,
+      "speed_score_avg": 6.09,
+      "latency_score_avg": 2.32,
       "tool_calling_score_avg": 6.81,
       "judge_score_avg": 4.16,
-      "tokens_per_second": 47.6,
-      "latency_avg_s": 13.53,
-      "total_input_tokens": 27489,
-      "total_output_tokens": 72453,
+      "tokens_per_second": 47.9,
+      "latency_avg_s": 13.42,
+      "total_input_tokens": 27223,
+      "total_output_tokens": 72104,
       "long_context_runs": 114,
       "long_context_quality": 9.78,
       "long_context_score": 7.87,
@@ -2204,6 +2181,112 @@
       "effective_context": 800000,
       "security_runs": 40,
       "security_score": 1.8,
+      "score_global_linear": 7.43
+    },
+    {
+      "key": "gemma-4-26b",
+      "id": "google/gemma-4-26b-a4b-it",
+      "name": "Gemma 4 26B MoE (3.8B activos)",
+      "tier": "cheap",
+      "provider": "openrouter",
+      "open_source": true,
+      "license": "Apache 2.0",
+      "cost_input_per_M": 0.15,
+      "cost_output_per_M": 0.3,
+      "cost_per_1k_calls_usd": 0.495,
+      "context_window": 262144,
+      "subscriptions": [],
+      "notes": "",
+      "tested": true,
+      "retired": false,
+      "provider_variant": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": true,
+      "multimodal": false,
+      "runs": 96,
+      "total_runs": 104,
+      "score_global": 6.61,
+      "score_by_pillar": {
+        "Contenido": 7.72,
+        "Agentes": 6.44,
+        "Coding": 7.44,
+        "Razonamiento": 7.77
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.479,
+          "speed_score_avg": 6.27,
+          "latency_score_avg": 1.486,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.349
+        },
+        "Agentes": {
+          "quality_avg": 6.625,
+          "speed_score_avg": 5.242,
+          "latency_score_avg": 2.848,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.872
+        },
+        "Coding": {
+          "quality_avg": 7.971,
+          "speed_score_avg": 5.684,
+          "latency_score_avg": 3.105,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.477
+        },
+        "Razonamiento": {
+          "quality_avg": 8.524,
+          "speed_score_avg": 6.8,
+          "latency_score_avg": 1.267,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.341
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 7.66,
+        "tool_calling": 5.36,
+        "startup_content": 8.06,
+        "task_management": 8.18,
+        "code_generation": 8.32,
+        "reasoning": 8.17,
+        "summarization": 6.85,
+        "presentation": 7.86,
+        "deep_reasoning": 7.59,
+        "customer_support": 4.58,
+        "structured_output": 7.53,
+        "hallucination": 7.53,
+        "creativity": 7.87,
+        "string_precision": 7.25,
+        "news_seo_writing": 7.28,
+        "ocr_extraction": 6.89,
+        "orchestration": 7.32,
+        "multi_turn": 7.47,
+        "policy_adherence": 7.12,
+        "agent_capabilities": 6.38,
+        "strategy": 7.98,
+        "sales_outreach": 8.19,
+        "translation": 7.29
+      },
+      "quality_avg": 8.02,
+      "quality_ci95": 0.351,
+      "cost_score_avg": 8.0,
+      "speed_score_avg": 6.12,
+      "latency_score_avg": 2.03,
+      "tool_calling_score_avg": 7.2,
+      "judge_score_avg": 4.21,
+      "tokens_per_second": 46.5,
+      "latency_avg_s": 18.48,
+      "total_input_tokens": 27807,
+      "total_output_tokens": 68248,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
       "score_global_linear": 7.43
     },
     {
@@ -2229,13 +2312,13 @@
       "thinking": true,
       "multimodal": false,
       "runs": 90,
-      "total_runs": 195,
-      "score_global": 6.62,
+      "total_runs": 185,
+      "score_global": 6.6,
       "score_by_pillar": {
         "Coding": 7.31,
         "Contenido": 7.33,
         "Agentes": 6.88,
-        "Razonamiento": 6.69
+        "Razonamiento": 7.31
       },
       "dims_by_pillar": {
         "Coding": {
@@ -2260,11 +2343,11 @@
           "quality_ci95": 0.495
         },
         "Razonamiento": {
-          "quality_avg": 7.479,
-          "speed_score_avg": 7.28,
-          "latency_score_avg": 1.04,
-          "cost_score_avg": 5.566,
-          "quality_ci95": 0.727
+          "quality_avg": 8.381,
+          "speed_score_avg": 7.467,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 5.366,
+          "quality_ci95": 0.427
         }
       },
       "score_by_suite": {
@@ -2293,8 +2376,7 @@
         "translation": 7.46,
         "agent_long_horizon": 7.91,
         "niah_es": 7.88,
-        "prompt_injection_es": 3.31,
-        "business_audit": 5.77
+        "prompt_injection_es": 3.31
       },
       "quality_avg": 8.24,
       "quality_ci95": 0.204,
@@ -2324,113 +2406,6 @@
       "score_global_linear": 7.26
     },
     {
-      "key": "gemma-4-26b",
-      "id": "google/gemma-4-26b-a4b-it",
-      "name": "Gemma 4 26B MoE (3.8B activos)",
-      "tier": "cheap",
-      "provider": "openrouter",
-      "open_source": true,
-      "license": "Apache 2.0",
-      "cost_input_per_M": 0.15,
-      "cost_output_per_M": 0.3,
-      "cost_per_1k_calls_usd": 0.495,
-      "context_window": 262144,
-      "subscriptions": [],
-      "notes": "",
-      "tested": true,
-      "retired": false,
-      "provider_variant": false,
-      "ranked": true,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": true,
-      "multimodal": false,
-      "runs": 96,
-      "total_runs": 114,
-      "score_global": 6.61,
-      "score_by_pillar": {
-        "Contenido": 7.72,
-        "Agentes": 6.44,
-        "Coding": 7.44,
-        "Razonamiento": 6.77
-      },
-      "dims_by_pillar": {
-        "Contenido": {
-          "quality_avg": 8.479,
-          "speed_score_avg": 6.27,
-          "latency_score_avg": 1.486,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.349
-        },
-        "Agentes": {
-          "quality_avg": 6.625,
-          "speed_score_avg": 5.242,
-          "latency_score_avg": 2.848,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.872
-        },
-        "Coding": {
-          "quality_avg": 7.971,
-          "speed_score_avg": 5.684,
-          "latency_score_avg": 3.105,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.477
-        },
-        "Razonamiento": {
-          "quality_avg": 7.172,
-          "speed_score_avg": 5.88,
-          "latency_score_avg": 1.44,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.867
-        }
-      },
-      "score_by_suite": {
-        "content_generation": 7.66,
-        "tool_calling": 5.36,
-        "startup_content": 8.06,
-        "task_management": 8.18,
-        "code_generation": 8.32,
-        "reasoning": 8.17,
-        "summarization": 6.85,
-        "presentation": 7.86,
-        "deep_reasoning": 7.59,
-        "customer_support": 4.58,
-        "structured_output": 7.53,
-        "hallucination": 7.53,
-        "creativity": 7.87,
-        "string_precision": 7.25,
-        "news_seo_writing": 7.28,
-        "ocr_extraction": 6.89,
-        "orchestration": 7.32,
-        "multi_turn": 7.47,
-        "policy_adherence": 7.12,
-        "agent_capabilities": 6.38,
-        "strategy": 7.98,
-        "sales_outreach": 8.19,
-        "translation": 7.29,
-        "business_audit": 5.26
-      },
-      "quality_avg": 8.02,
-      "quality_ci95": 0.351,
-      "cost_score_avg": 8.0,
-      "speed_score_avg": 6.12,
-      "latency_score_avg": 2.03,
-      "tool_calling_score_avg": 7.2,
-      "judge_score_avg": 4.21,
-      "tokens_per_second": 46.5,
-      "latency_avg_s": 18.48,
-      "total_input_tokens": 27807,
-      "total_output_tokens": 68248,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null,
-      "score_global_linear": 7.43
-    },
-    {
       "key": "hermes-4-70b",
       "id": "nousresearch/hermes-4-70b",
       "name": "Hermes 4 70B",
@@ -2453,13 +2428,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 74,
-      "total_runs": 191,
+      "total_runs": 124,
       "score_global": 6.6,
       "score_by_pillar": {
         "Contenido": 7.7,
         "Agentes": 7.21,
         "Coding": 7.49,
-        "Razonamiento": 6.51
+        "Razonamiento": 7.51
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -2484,11 +2459,11 @@
           "quality_ci95": 0.479
         },
         "Razonamiento": {
-          "quality_avg": 6.433,
-          "speed_score_avg": 7.76,
-          "latency_score_avg": 2.96,
+          "quality_avg": 7.919,
+          "speed_score_avg": 7.867,
+          "latency_score_avg": 2.4,
           "cost_score_avg": 8.0,
-          "quality_ci95": 0.897
+          "quality_ci95": 0.37
         }
       },
       "score_by_suite": {
@@ -2512,11 +2487,8 @@
         "strategy": 7.94,
         "sales_outreach": 7.95,
         "translation": 7.61,
-        "agent_long_horizon": 8.16,
-        "niah_es_lite": 6.9,
         "prompt_injection_es": 3.63,
-        "niah_es": 8.27,
-        "business_audit": 5.0
+        "niah_es": 8.27
       },
       "quality_avg": 7.9,
       "quality_ci95": 0.233,
@@ -2529,9 +2501,9 @@
       "latency_avg_s": 6.86,
       "total_input_tokens": 16394,
       "total_output_tokens": 35255,
-      "long_context_runs": 75,
-      "long_context_quality": 8.31,
-      "long_context_score": 7.45,
+      "long_context_runs": 30,
+      "long_context_quality": 9.57,
+      "long_context_score": 8.27,
       "long_context_by_size": {
         "8000": 8.89,
         "64000": 10.0
@@ -2564,21 +2536,21 @@
       "thinking": false,
       "multimodal": true,
       "runs": 119,
-      "total_runs": 145,
-      "score_global": 6.47,
+      "total_runs": 123,
+      "score_global": 6.48,
       "score_by_pillar": {
-        "Razonamiento": 6.86,
+        "Razonamiento": 7.61,
         "Agentes": 6.73,
         "Coding": 7.76,
         "Contenido": 7.74
       },
       "dims_by_pillar": {
         "Razonamiento": {
-          "quality_avg": 7.187,
-          "speed_score_avg": 9.294,
-          "latency_score_avg": 2.176,
-          "cost_score_avg": 6.431,
-          "quality_ci95": 0.755
+          "quality_avg": 8.222,
+          "speed_score_avg": 9.75,
+          "latency_score_avg": 2.167,
+          "cost_score_avg": 6.379,
+          "quality_ci95": 0.377
         },
         "Agentes": {
           "quality_avg": 6.648,
@@ -2625,9 +2597,7 @@
         "agent_capabilities": 7.66,
         "strategy": 7.61,
         "sales_outreach": 8.38,
-        "translation": 7.86,
-        "agent_long_horizon": 7.77,
-        "business_audit": 5.06
+        "translation": 7.86
       },
       "quality_avg": 7.87,
       "quality_ci95": 0.29,
@@ -2672,13 +2642,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 115,
-      "total_runs": 300,
-      "score_global": 6.47,
+      "total_runs": 290,
+      "score_global": 6.45,
       "score_by_pillar": {
         "Contenido": 7.41,
         "Agentes": 7.15,
         "Coding": 7.21,
-        "Razonamiento": 6.2
+        "Razonamiento": 6.65
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -2703,11 +2673,11 @@
           "quality_ci95": 0.304
         },
         "Razonamiento": {
-          "quality_avg": 6.861,
-          "speed_score_avg": 6.621,
+          "quality_avg": 7.489,
+          "speed_score_avg": 6.632,
           "latency_score_avg": 1.0,
-          "cost_score_avg": 5.522,
-          "quality_ci95": 0.726
+          "cost_score_avg": 5.545,
+          "quality_ci95": 0.743
         }
       },
       "score_by_suite": {
@@ -2737,8 +2707,7 @@
         "agent_long_horizon": 7.28,
         "niah_es": 5.93,
         "niah_es_lite": 3.91,
-        "prompt_injection_es": 2.66,
-        "business_audit": 5.36
+        "prompt_injection_es": 2.66
       },
       "quality_avg": 8.24,
       "quality_ci95": 0.217,
@@ -2788,7 +2757,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 123,
-      "score_global": 6.44,
+      "score_global": 6.42,
       "score_by_pillar": {
         "Contenido": 7.42,
         "Agentes": 6.76,
@@ -2895,13 +2864,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 74,
-      "total_runs": 79,
+      "total_runs": 74,
       "score_global": 6.41,
       "score_by_pillar": {
         "Contenido": 7.43,
         "Agentes": 7.14,
         "Coding": 7.17,
-        "Razonamiento": 6.96
+        "Razonamiento": 7.36
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -2926,11 +2895,11 @@
           "quality_ci95": 0.398
         },
         "Razonamiento": {
-          "quality_avg": 7.703,
-          "speed_score_avg": 5.8,
-          "latency_score_avg": 1.2,
-          "cost_score_avg": 6.948,
-          "quality_ci95": 0.631
+          "quality_avg": 8.234,
+          "speed_score_avg": 5.867,
+          "latency_score_avg": 1.267,
+          "cost_score_avg": 7.078,
+          "quality_ci95": 0.567
         }
       },
       "score_by_suite": {
@@ -2953,8 +2922,7 @@
         "agent_capabilities": 7.73,
         "strategy": 7.56,
         "sales_outreach": 8.03,
-        "translation": 7.96,
-        "business_audit": 5.76
+        "translation": 7.96
       },
       "quality_avg": 8.05,
       "quality_ci95": 0.234,
@@ -2999,13 +2967,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 170,
+      "total_runs": 91,
       "score_global": 6.35,
       "score_by_pillar": {
         "Contenido": 7.78,
         "Agentes": 6.62,
         "Coding": 7.56,
-        "Razonamiento": 6.68
+        "Razonamiento": 7.63
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -3030,11 +2998,11 @@
           "quality_ci95": 0.483
         },
         "Razonamiento": {
-          "quality_avg": 7.16,
-          "speed_score_avg": 6.92,
-          "latency_score_avg": 1.52,
-          "cost_score_avg": 6.919,
-          "quality_ci95": 0.897
+          "quality_avg": 8.425,
+          "speed_score_avg": 8.0,
+          "latency_score_avg": 1.467,
+          "cost_score_avg": 6.792,
+          "quality_ci95": 0.582
         }
       },
       "score_by_suite": {
@@ -3060,11 +3028,7 @@
         "agent_capabilities": 7.93,
         "strategy": 8.08,
         "sales_outreach": 8.21,
-        "translation": 8.01,
-        "agent_long_horizon": 8.33,
-        "niah_es": 6.92,
-        "niah_es_lite": 6.74,
-        "business_audit": 5.27
+        "translation": 8.01
       },
       "quality_avg": 7.91,
       "quality_ci95": 0.411,
@@ -3077,9 +3041,9 @@
       "latency_avg_s": 10.45,
       "total_input_tokens": 26373,
       "total_output_tokens": 62252,
-      "long_context_runs": 57,
-      "long_context_quality": 7.44,
-      "long_context_score": 6.78,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
       "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
@@ -3110,7 +3074,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 123,
-      "score_global": 6.26,
+      "score_global": 6.25,
       "score_by_pillar": {
         "Contenido": 7.38,
         "Agentes": 7.05,
@@ -3195,6 +3159,218 @@
       "score_global_linear": 7.22
     },
     {
+      "key": "kimi-k2",
+      "id": "moonshotai/kimi-k2",
+      "name": "Kimi K2",
+      "tier": "cheap",
+      "provider": "openrouter",
+      "open_source": true,
+      "license": "Modified MIT",
+      "cost_input_per_M": 0.2,
+      "cost_output_per_M": 0.8,
+      "cost_per_1k_calls_usd": 1.26,
+      "context_window": 131072,
+      "subscriptions": [],
+      "notes": "",
+      "tested": true,
+      "retired": false,
+      "provider_variant": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 126,
+      "total_runs": 133,
+      "score_global": 6.02,
+      "score_by_pillar": {
+        "Contenido": 7.19,
+        "Agentes": 6.45,
+        "Coding": 7.39,
+        "Razonamiento": 7.52
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.918,
+          "speed_score_avg": 5.0,
+          "latency_score_avg": 1.312,
+          "cost_score_avg": 7.861,
+          "quality_ci95": 0.396
+        },
+        "Agentes": {
+          "quality_avg": 6.758,
+          "speed_score_avg": 4.37,
+          "latency_score_avg": 2.593,
+          "cost_score_avg": 7.952,
+          "quality_ci95": 0.688
+        },
+        "Coding": {
+          "quality_avg": 8.006,
+          "speed_score_avg": 4.75,
+          "latency_score_avg": 3.0,
+          "cost_score_avg": 7.997,
+          "quality_ci95": 0.412
+        },
+        "Razonamiento": {
+          "quality_avg": 8.336,
+          "speed_score_avg": 5.385,
+          "latency_score_avg": 1.308,
+          "cost_score_avg": 7.897,
+          "quality_ci95": 0.544
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 6.96,
+        "tool_calling": 5.34,
+        "task_management": 7.21,
+        "code_generation": 7.29,
+        "reasoning": 8.25,
+        "summarization": 6.75,
+        "presentation": 7.2,
+        "startup_content": 8.06,
+        "deep_reasoning": 7.45,
+        "customer_support": 6.58,
+        "structured_output": 7.03,
+        "hallucination": 6.9,
+        "creativity": 6.33,
+        "string_precision": 7.96,
+        "news_seo_writing": 7.18,
+        "ocr_extraction": 6.54,
+        "orchestration": 7.44,
+        "multi_turn": 7.03,
+        "policy_adherence": 7.08,
+        "agent_capabilities": 6.11,
+        "strategy": 7.39,
+        "sales_outreach": 7.71,
+        "translation": 7.65
+      },
+      "quality_avg": 7.93,
+      "quality_ci95": 0.254,
+      "cost_score_avg": 7.91,
+      "speed_score_avg": 4.94,
+      "latency_score_avg": 1.9,
+      "tool_calling_score_avg": 7.28,
+      "judge_score_avg": 4.16,
+      "tokens_per_second": 28.6,
+      "latency_avg_s": 22.08,
+      "total_input_tokens": 34140,
+      "total_output_tokens": 86919,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 7.25
+    },
+    {
+      "key": "claude-sonnet-4.6",
+      "id": "anthropic/claude-sonnet-4-6",
+      "name": "Claude Sonnet 4.6 (ultimo Anthropic)",
+      "tier": "medium",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 3.0,
+      "cost_output_per_M": 15.0,
+      "cost_per_1k_calls_usd": 23.4,
+      "context_window": null,
+      "subscriptions": [],
+      "notes": "",
+      "tested": true,
+      "retired": false,
+      "provider_variant": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 142,
+      "total_runs": 150,
+      "score_global": 5.97,
+      "score_by_pillar": {
+        "Contenido": 7.12,
+        "Agentes": 6.53,
+        "Coding": 7.2,
+        "Razonamiento": 7.22
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.338,
+          "speed_score_avg": 6.92,
+          "latency_score_avg": 1.36,
+          "cost_score_avg": 4.422,
+          "quality_ci95": 0.357
+        },
+        "Agentes": {
+          "quality_avg": 7.177,
+          "speed_score_avg": 7.4,
+          "latency_score_avg": 2.375,
+          "cost_score_avg": 5.131,
+          "quality_ci95": 0.559
+        },
+        "Coding": {
+          "quality_avg": 7.929,
+          "speed_score_avg": 6.424,
+          "latency_score_avg": 3.485,
+          "cost_score_avg": 6.038,
+          "quality_ci95": 0.628
+        },
+        "Razonamiento": {
+          "quality_avg": 8.416,
+          "speed_score_avg": 7.556,
+          "latency_score_avg": 1.37,
+          "cost_score_avg": 4.378,
+          "quality_ci95": 0.442
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 6.95,
+        "tool_calling": 5.22,
+        "task_management": 7.65,
+        "code_generation": 7.59,
+        "reasoning": 7.48,
+        "summarization": 7.18,
+        "presentation": 7.39,
+        "startup_content": 7.59,
+        "deep_reasoning": 6.86,
+        "customer_support": 6.69,
+        "structured_output": 6.85,
+        "hallucination": 7.59,
+        "creativity": 6.62,
+        "string_precision": 7.4,
+        "news_seo_writing": 6.74,
+        "ocr_extraction": 6.63,
+        "orchestration": 6.39,
+        "multi_turn": 6.31,
+        "policy_adherence": 7.25,
+        "agent_capabilities": 6.74,
+        "strategy": 7.36,
+        "sales_outreach": 7.95,
+        "translation": 7.36
+      },
+      "quality_avg": 8.12,
+      "quality_ci95": 0.246,
+      "cost_score_avg": 4.92,
+      "speed_score_avg": 7.04,
+      "latency_score_avg": 1.99,
+      "tool_calling_score_avg": 7.31,
+      "judge_score_avg": 4.2,
+      "tokens_per_second": 54.6,
+      "latency_avg_s": 17.08,
+      "total_input_tokens": 50780,
+      "total_output_tokens": 138047,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 7.1
+    },
+    {
       "key": "claude-opus-4.7",
       "id": "anthropic/claude-opus-4-7",
       "name": "Claude Opus 4.7",
@@ -3217,8 +3393,8 @@
       "thinking": false,
       "multimodal": true,
       "runs": 174,
-      "total_runs": 254,
-      "score_global": 5.97,
+      "total_runs": 182,
+      "score_global": 5.95,
       "score_by_pillar": {
         "Contenido": 7.14,
         "Agentes": 6.6,
@@ -3278,8 +3454,7 @@
         "agent_capabilities": 6.86,
         "strategy": 7.45,
         "sales_outreach": 7.56,
-        "translation": 7.16,
-        "niah_es": 5.29
+        "translation": 7.16
       },
       "quality_avg": 8.2,
       "quality_ci95": 0.166,
@@ -3292,9 +3467,9 @@
       "latency_avg_s": 15.82,
       "total_input_tokens": 95680,
       "total_output_tokens": 176315,
-      "long_context_runs": 72,
-      "long_context_quality": 6.51,
-      "long_context_score": 5.29,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
       "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
@@ -3408,113 +3583,6 @@
       "score_global_linear": 7.14
     },
     {
-      "key": "kimi-k2",
-      "id": "moonshotai/kimi-k2",
-      "name": "Kimi K2",
-      "tier": "cheap",
-      "provider": "openrouter",
-      "open_source": true,
-      "license": "Modified MIT",
-      "cost_input_per_M": 0.2,
-      "cost_output_per_M": 0.8,
-      "cost_per_1k_calls_usd": 1.26,
-      "context_window": 131072,
-      "subscriptions": [],
-      "notes": "",
-      "tested": true,
-      "retired": false,
-      "provider_variant": false,
-      "ranked": true,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": false,
-      "runs": 131,
-      "total_runs": 148,
-      "score_global": 5.9,
-      "score_by_pillar": {
-        "Contenido": 7.19,
-        "Agentes": 6.49,
-        "Coding": 7.39,
-        "Razonamiento": 6.97
-      },
-      "dims_by_pillar": {
-        "Contenido": {
-          "quality_avg": 7.918,
-          "speed_score_avg": 5.0,
-          "latency_score_avg": 1.312,
-          "cost_score_avg": 7.861,
-          "quality_ci95": 0.396
-        },
-        "Agentes": {
-          "quality_avg": 6.808,
-          "speed_score_avg": 4.5,
-          "latency_score_avg": 2.562,
-          "cost_score_avg": 7.959,
-          "quality_ci95": 0.71
-        },
-        "Coding": {
-          "quality_avg": 8.006,
-          "speed_score_avg": 4.75,
-          "latency_score_avg": 3.0,
-          "cost_score_avg": 7.997,
-          "quality_ci95": 0.412
-        },
-        "Razonamiento": {
-          "quality_avg": 7.547,
-          "speed_score_avg": 5.361,
-          "latency_score_avg": 1.306,
-          "cost_score_avg": 7.908,
-          "quality_ci95": 0.7
-        }
-      },
-      "score_by_suite": {
-        "content_generation": 6.96,
-        "tool_calling": 5.34,
-        "task_management": 7.21,
-        "code_generation": 7.29,
-        "reasoning": 8.25,
-        "summarization": 6.75,
-        "presentation": 7.2,
-        "startup_content": 8.06,
-        "deep_reasoning": 7.45,
-        "customer_support": 6.58,
-        "structured_output": 7.03,
-        "hallucination": 6.9,
-        "creativity": 6.33,
-        "string_precision": 7.96,
-        "news_seo_writing": 7.18,
-        "agent_capabilities": 6.55,
-        "ocr_extraction": 6.54,
-        "orchestration": 7.44,
-        "multi_turn": 7.03,
-        "policy_adherence": 7.08,
-        "strategy": 7.39,
-        "sales_outreach": 7.71,
-        "translation": 7.65,
-        "business_audit": 5.53
-      },
-      "quality_avg": 7.9,
-      "quality_ci95": 0.265,
-      "cost_score_avg": 7.92,
-      "speed_score_avg": 4.95,
-      "latency_score_avg": 1.92,
-      "tool_calling_score_avg": 7.21,
-      "judge_score_avg": 4.16,
-      "tokens_per_second": 28.7,
-      "latency_avg_s": 21.53,
-      "total_input_tokens": 39183,
-      "total_output_tokens": 88106,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null,
-      "score_global_linear": 7.23
-    },
-    {
       "key": "local-nemotron3-base-33b",
       "id": "nemotron3:33b-q4_K_M",
       "name": "Nemotron 3 Base 33B (DGX Spark Q4_K_M)",
@@ -3538,7 +3606,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 103,
-      "score_global": 5.9,
+      "score_global": 5.91,
       "score_by_pillar": {
         "Contenido": 7.75,
         "Agentes": 6.77,
@@ -3644,13 +3712,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 101,
-      "score_global": 5.86,
+      "total_runs": 91,
+      "score_global": 5.87,
       "score_by_pillar": {
         "Contenido": 7.6,
         "Agentes": 6.62,
         "Coding": 7.4,
-        "Razonamiento": 6.72
+        "Razonamiento": 7.48
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -3675,11 +3743,11 @@
           "quality_ci95": 0.495
         },
         "Razonamiento": {
-          "quality_avg": 7.056,
-          "speed_score_avg": 8.0,
-          "latency_score_avg": 2.0,
-          "cost_score_avg": 6.883,
-          "quality_ci95": 0.818
+          "quality_avg": 8.307,
+          "speed_score_avg": 7.2,
+          "latency_score_avg": 1.533,
+          "cost_score_avg": 6.76,
+          "quality_ci95": 0.525
         }
       },
       "score_by_suite": {
@@ -3705,8 +3773,7 @@
         "agent_capabilities": 6.55,
         "strategy": 7.76,
         "sales_outreach": 7.9,
-        "translation": 7.45,
-        "business_audit": 5.58
+        "translation": 7.45
       },
       "quality_avg": 7.87,
       "quality_ci95": 0.317,
@@ -3727,113 +3794,6 @@
       "security_runs": 0,
       "security_score": null,
       "score_global_linear": 7.25
-    },
-    {
-      "key": "mistral-large",
-      "id": "mistralai/mistral-large",
-      "name": "Mistral Large",
-      "tier": "medium",
-      "provider": "openrouter",
-      "open_source": false,
-      "license": "MRL (no comercial)",
-      "cost_input_per_M": 2.0,
-      "cost_output_per_M": 6.0,
-      "cost_per_1k_calls_usd": 9.6,
-      "context_window": 128000,
-      "subscriptions": [],
-      "notes": "",
-      "tested": true,
-      "retired": false,
-      "provider_variant": false,
-      "ranked": true,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": false,
-      "runs": 144,
-      "total_runs": 162,
-      "score_global": 5.82,
-      "score_by_pillar": {
-        "Contenido": 7.28,
-        "Agentes": 6.05,
-        "Coding": 7.78,
-        "Razonamiento": 7.08
-      },
-      "dims_by_pillar": {
-        "Contenido": {
-          "quality_avg": 8.293,
-          "speed_score_avg": 6.723,
-          "latency_score_avg": 1.447,
-          "cost_score_avg": 5.759,
-          "quality_ci95": 0.371
-        },
-        "Agentes": {
-          "quality_avg": 6.301,
-          "speed_score_avg": 6.156,
-          "latency_score_avg": 2.689,
-          "cost_score_avg": 6.495,
-          "quality_ci95": 0.951
-        },
-        "Coding": {
-          "quality_avg": 8.465,
-          "speed_score_avg": 6.97,
-          "latency_score_avg": 3.879,
-          "cost_score_avg": 6.951,
-          "quality_ci95": 0.423
-        },
-        "Razonamiento": {
-          "quality_avg": 7.941,
-          "speed_score_avg": 7.649,
-          "latency_score_avg": 1.595,
-          "cost_score_avg": 5.533,
-          "quality_ci95": 0.66
-        }
-      },
-      "score_by_suite": {
-        "content_generation": 7.34,
-        "tool_calling": 5.49,
-        "task_management": 7.85,
-        "code_generation": 8.26,
-        "reasoning": 7.93,
-        "summarization": 7.35,
-        "presentation": 7.75,
-        "startup_content": 7.56,
-        "deep_reasoning": 7.43,
-        "customer_support": 2.57,
-        "structured_output": 7.26,
-        "hallucination": 7.61,
-        "creativity": 6.78,
-        "string_precision": 8.16,
-        "news_seo_writing": 6.55,
-        "agent_capabilities": 7.36,
-        "ocr_extraction": 6.94,
-        "orchestration": 6.58,
-        "multi_turn": 6.63,
-        "policy_adherence": 6.9,
-        "strategy": 7.7,
-        "sales_outreach": 7.86,
-        "translation": 7.96,
-        "business_audit": 5.65
-      },
-      "quality_avg": 7.96,
-      "quality_ci95": 0.371,
-      "cost_score_avg": 6.12,
-      "speed_score_avg": 6.92,
-      "latency_score_avg": 2.19,
-      "tool_calling_score_avg": 7.01,
-      "judge_score_avg": 4.22,
-      "tokens_per_second": 50.6,
-      "latency_avg_s": 16.71,
-      "total_input_tokens": 40500,
-      "total_output_tokens": 127952,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null,
-      "score_global_linear": 7.17
     },
     {
       "key": "claude-opus-4.6",
@@ -3857,14 +3817,14 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
-      "runs": 234,
-      "total_runs": 256,
-      "score_global": 5.8,
+      "runs": 229,
+      "total_runs": 241,
+      "score_global": 5.86,
       "score_by_pillar": {
         "Contenido": 6.95,
-        "Agentes": 6.57,
+        "Agentes": 6.59,
         "Coding": 6.94,
-        "Razonamiento": 6.9
+        "Razonamiento": 7.29
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -3875,11 +3835,11 @@
           "quality_ci95": 0.249
         },
         "Agentes": {
-          "quality_avg": 7.529,
-          "speed_score_avg": 6.784,
-          "latency_score_avg": 1.851,
-          "cost_score_avg": 4.337,
-          "quality_ci95": 0.382
+          "quality_avg": 7.552,
+          "speed_score_avg": 6.754,
+          "latency_score_avg": 1.87,
+          "cost_score_avg": 4.352,
+          "quality_ci95": 0.37
         },
         "Coding": {
           "quality_avg": 7.816,
@@ -3889,11 +3849,11 @@
           "quality_ci95": 0.446
         },
         "Razonamiento": {
-          "quality_avg": 8.183,
-          "speed_score_avg": 6.846,
-          "latency_score_avg": 1.365,
-          "cost_score_avg": 3.721,
-          "quality_ci95": 0.405
+          "quality_avg": 8.709,
+          "speed_score_avg": 7.095,
+          "latency_score_avg": 1.429,
+          "cost_score_avg": 3.697,
+          "quality_ci95": 0.202
         }
       },
       "score_by_suite": {
@@ -3912,27 +3872,26 @@
         "creativity": 6.76,
         "string_precision": 6.99,
         "news_seo_writing": 6.39,
-        "agent_capabilities": 6.76,
         "ocr_extraction": 6.47,
         "orchestration": 6.43,
         "multi_turn": 6.58,
         "policy_adherence": 6.88,
+        "agent_capabilities": 6.97,
         "strategy": 7.15,
         "sales_outreach": 7.52,
-        "translation": 7.05,
-        "business_audit": 5.28
+        "translation": 7.05
       },
-      "quality_avg": 8.17,
-      "quality_ci95": 0.171,
+      "quality_avg": 8.19,
+      "quality_ci95": 0.165,
       "cost_score_avg": 4.24,
-      "speed_score_avg": 6.5,
+      "speed_score_avg": 6.48,
       "latency_score_avg": 1.74,
-      "tool_calling_score_avg": 7.14,
+      "tool_calling_score_avg": 7.16,
       "judge_score_avg": 4.24,
-      "tokens_per_second": 46.7,
-      "latency_avg_s": 19.88,
-      "total_input_tokens": 92789,
-      "total_output_tokens": 229763,
+      "tokens_per_second": 46.6,
+      "latency_avg_s": 20.08,
+      "total_input_tokens": 86554,
+      "total_output_tokens": 226898,
       "long_context_runs": 0,
       "long_context_quality": null,
       "long_context_score": null,
@@ -3940,7 +3899,113 @@
       "effective_context": null,
       "security_runs": 0,
       "security_score": null,
-      "score_global_linear": 6.97
+      "score_global_linear": 6.98
+    },
+    {
+      "key": "mistral-large",
+      "id": "mistralai/mistral-large",
+      "name": "Mistral Large",
+      "tier": "medium",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "MRL (no comercial)",
+      "cost_input_per_M": 2.0,
+      "cost_output_per_M": 6.0,
+      "cost_per_1k_calls_usd": 9.6,
+      "context_window": 128000,
+      "subscriptions": [],
+      "notes": "",
+      "tested": true,
+      "retired": false,
+      "provider_variant": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 139,
+      "total_runs": 147,
+      "score_global": 5.75,
+      "score_by_pillar": {
+        "Contenido": 7.28,
+        "Agentes": 5.88,
+        "Coding": 7.78,
+        "Razonamiento": 7.61
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.293,
+          "speed_score_avg": 6.723,
+          "latency_score_avg": 1.447,
+          "cost_score_avg": 5.759,
+          "quality_ci95": 0.371
+        },
+        "Agentes": {
+          "quality_avg": 6.034,
+          "speed_score_avg": 6.2,
+          "latency_score_avg": 2.85,
+          "cost_score_avg": 6.55,
+          "quality_ci95": 1.006
+        },
+        "Coding": {
+          "quality_avg": 8.465,
+          "speed_score_avg": 6.97,
+          "latency_score_avg": 3.879,
+          "cost_score_avg": 6.951,
+          "quality_ci95": 0.423
+        },
+        "Razonamiento": {
+          "quality_avg": 8.691,
+          "speed_score_avg": 7.852,
+          "latency_score_avg": 1.519,
+          "cost_score_avg": 5.511,
+          "quality_ci95": 0.499
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 7.34,
+        "tool_calling": 5.49,
+        "task_management": 7.85,
+        "code_generation": 8.26,
+        "reasoning": 7.93,
+        "summarization": 7.35,
+        "presentation": 7.75,
+        "startup_content": 7.56,
+        "deep_reasoning": 7.43,
+        "customer_support": 2.57,
+        "structured_output": 7.26,
+        "hallucination": 7.61,
+        "creativity": 6.78,
+        "string_precision": 8.16,
+        "news_seo_writing": 6.55,
+        "ocr_extraction": 6.94,
+        "orchestration": 6.58,
+        "multi_turn": 6.63,
+        "policy_adherence": 6.9,
+        "agent_capabilities": 7.36,
+        "strategy": 7.7,
+        "sales_outreach": 7.86,
+        "translation": 7.96
+      },
+      "quality_avg": 7.94,
+      "quality_ci95": 0.376,
+      "cost_score_avg": 6.12,
+      "speed_score_avg": 6.96,
+      "latency_score_avg": 2.22,
+      "tool_calling_score_avg": 7.16,
+      "judge_score_avg": 4.22,
+      "tokens_per_second": 51.1,
+      "latency_avg_s": 16.6,
+      "total_input_tokens": 36524,
+      "total_output_tokens": 124767,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 7.17
     },
     {
       "key": "qwen-3.7-max",
@@ -3965,13 +4030,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 133,
-      "score_global": 5.74,
+      "total_runs": 123,
+      "score_global": 5.72,
       "score_by_pillar": {
         "Contenido": 7.17,
         "Agentes": 6.55,
         "Coding": 7.06,
-        "Razonamiento": 6.44
+        "Razonamiento": 7.22
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -3996,11 +4061,11 @@
           "quality_ci95": 0.417
         },
         "Razonamiento": {
-          "quality_avg": 7.477,
-          "speed_score_avg": 7.44,
+          "quality_avg": 8.581,
+          "speed_score_avg": 7.867,
           "latency_score_avg": 1.0,
-          "cost_score_avg": 3.802,
-          "quality_ci95": 0.792
+          "cost_score_avg": 3.642,
+          "quality_ci95": 0.45
         }
       },
       "score_by_suite": {
@@ -4028,8 +4093,7 @@
         "sales_outreach": 7.78,
         "translation": 7.06,
         "agent_long_horizon": 7.17,
-        "prompt_injection_es": 2.81,
-        "business_audit": 5.27
+        "prompt_injection_es": 2.81
       },
       "quality_avg": 8.15,
       "quality_ci95": 0.261,
@@ -4074,13 +4138,13 @@
       "thinking": true,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 113,
-      "score_global": 5.7,
+      "total_runs": 91,
+      "score_global": 5.72,
       "score_by_pillar": {
         "Contenido": 7.81,
         "Agentes": 6.46,
         "Coding": 7.5,
-        "Razonamiento": 7.02
+        "Razonamiento": 7.82
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -4105,11 +4169,11 @@
           "quality_ci95": 0.446
         },
         "Razonamiento": {
-          "quality_avg": 7.305,
-          "speed_score_avg": 8.32,
-          "latency_score_avg": 1.12,
-          "cost_score_avg": 7.969,
-          "quality_ci95": 0.794
+          "quality_avg": 8.459,
+          "speed_score_avg": 8.267,
+          "latency_score_avg": 1.2,
+          "cost_score_avg": 7.948,
+          "quality_ci95": 0.248
         }
       },
       "score_by_suite": {
@@ -4135,9 +4199,7 @@
         "agent_capabilities": 6.38,
         "strategy": 8.12,
         "sales_outreach": 7.92,
-        "translation": 7.8,
-        "agent_long_horizon": 7.76,
-        "business_audit": 5.81
+        "translation": 7.8
       },
       "quality_avg": 7.77,
       "quality_ci95": 0.353,
@@ -4160,17 +4222,17 @@
       "score_global_linear": 7.37
     },
     {
-      "key": "claude-sonnet-4.6",
-      "id": "anthropic/claude-sonnet-4-6",
-      "name": "Claude Sonnet 4.6 (ultimo Anthropic)",
-      "tier": "medium",
+      "key": "deepseek-v3",
+      "id": "deepseek/deepseek-chat",
+      "name": "DeepSeek V3.2",
+      "tier": "cheap",
       "provider": "openrouter",
       "open_source": false,
       "license": "",
-      "cost_input_per_M": 3.0,
-      "cost_output_per_M": 15.0,
-      "cost_per_1k_calls_usd": 23.4,
-      "context_window": null,
+      "cost_input_per_M": 0.14,
+      "cost_output_per_M": 0.28,
+      "cost_per_1k_calls_usd": 0.462,
+      "context_window": 131072,
       "subscriptions": [],
       "notes": "",
       "tested": true,
@@ -4180,91 +4242,196 @@
       "sample_tier": "solid",
       "tool_calling": true,
       "thinking": false,
-      "multimodal": true,
-      "runs": 147,
-      "total_runs": 200,
+      "multimodal": false,
+      "runs": 142,
+      "total_runs": 150,
       "score_global": 5.66,
       "score_by_pillar": {
-        "Contenido": 7.12,
-        "Agentes": 6.42,
-        "Coding": 7.2,
-        "Razonamiento": 7.22
+        "Contenido": 7.45,
+        "Agentes": 5.81,
+        "Coding": 7.52,
+        "Razonamiento": 7.7
       },
       "dims_by_pillar": {
         "Contenido": {
-          "quality_avg": 8.338,
-          "speed_score_avg": 6.92,
-          "latency_score_avg": 1.36,
-          "cost_score_avg": 4.422,
-          "quality_ci95": 0.357
+          "quality_avg": 8.276,
+          "speed_score_avg": 4.88,
+          "latency_score_avg": 1.2,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.386
         },
         "Agentes": {
-          "quality_avg": 7.045,
-          "speed_score_avg": 7.378,
-          "latency_score_avg": 2.311,
-          "cost_score_avg": 5.104,
-          "quality_ci95": 0.577
+          "quality_avg": 5.88,
+          "speed_score_avg": 4.225,
+          "latency_score_avg": 2.3,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.976
         },
         "Coding": {
-          "quality_avg": 7.929,
-          "speed_score_avg": 6.424,
-          "latency_score_avg": 3.485,
-          "cost_score_avg": 6.038,
-          "quality_ci95": 0.628
+          "quality_avg": 8.362,
+          "speed_score_avg": 3.788,
+          "latency_score_avg": 2.394,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.41
         },
         "Razonamiento": {
-          "quality_avg": 8.416,
-          "speed_score_avg": 7.556,
-          "latency_score_avg": 1.37,
-          "cost_score_avg": 4.378,
-          "quality_ci95": 0.442
+          "quality_avg": 8.667,
+          "speed_score_avg": 4.593,
+          "latency_score_avg": 1.222,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.443
         }
       },
       "score_by_suite": {
-        "content_generation": 6.95,
-        "tool_calling": 5.22,
-        "task_management": 7.65,
-        "code_generation": 7.59,
-        "reasoning": 7.48,
-        "summarization": 7.18,
-        "presentation": 7.39,
-        "startup_content": 7.59,
-        "deep_reasoning": 6.86,
-        "customer_support": 6.69,
-        "structured_output": 6.85,
-        "hallucination": 7.59,
-        "creativity": 6.62,
-        "string_precision": 7.4,
-        "news_seo_writing": 6.74,
-        "agent_capabilities": 6.17,
-        "ocr_extraction": 6.63,
-        "orchestration": 6.39,
-        "multi_turn": 6.31,
-        "policy_adherence": 7.25,
-        "strategy": 7.36,
-        "sales_outreach": 7.95,
-        "translation": 7.36,
-        "niah_es_lite": 4.62
+        "content_generation": 7.21,
+        "tool_calling": 5.42,
+        "task_management": 7.7,
+        "code_generation": 8.04,
+        "reasoning": 8.42,
+        "summarization": 7.09,
+        "presentation": 7.88,
+        "startup_content": 8.02,
+        "deep_reasoning": 7.56,
+        "customer_support": 3.87,
+        "structured_output": 6.98,
+        "hallucination": 7.12,
+        "creativity": 6.93,
+        "string_precision": 7.83,
+        "news_seo_writing": 7.37,
+        "ocr_extraction": 6.79,
+        "orchestration": 6.7,
+        "multi_turn": 6.55,
+        "policy_adherence": 6.79,
+        "agent_capabilities": 4.98,
+        "strategy": 8.0,
+        "sales_outreach": 7.8,
+        "translation": 7.38
       },
-      "quality_avg": 8.04,
-      "quality_ci95": 0.259,
-      "cost_score_avg": 4.92,
-      "speed_score_avg": 7.05,
-      "latency_score_avg": 1.99,
-      "tool_calling_score_avg": 7.32,
-      "judge_score_avg": 4.2,
-      "tokens_per_second": 54.5,
-      "latency_avg_s": 16.84,
-      "total_input_tokens": 57015,
-      "total_output_tokens": 140537,
-      "long_context_runs": 45,
-      "long_context_quality": 5.15,
-      "long_context_score": 4.62,
+      "quality_avg": 7.87,
+      "quality_ci95": 0.368,
+      "cost_score_avg": 8.0,
+      "speed_score_avg": 4.44,
+      "latency_score_avg": 1.62,
+      "tool_calling_score_avg": 7.05,
+      "judge_score_avg": 4.24,
+      "tokens_per_second": 26.3,
+      "latency_avg_s": 26.29,
+      "total_input_tokens": 47110,
+      "total_output_tokens": 80887,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
       "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
       "security_score": null,
-      "score_global_linear": 7.05
+      "score_global_linear": 7.16
+    },
+    {
+      "key": "qwen3-coder",
+      "id": "qwen/qwen3-coder",
+      "name": "Qwen3 Coder",
+      "tier": "cheap",
+      "provider": "openrouter",
+      "open_source": true,
+      "license": "Apache 2.0",
+      "cost_input_per_M": 0.2,
+      "cost_output_per_M": 0.6,
+      "cost_per_1k_calls_usd": 0.96,
+      "context_window": 1048576,
+      "subscriptions": [],
+      "notes": "",
+      "tested": true,
+      "retired": false,
+      "provider_variant": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 142,
+      "total_runs": 150,
+      "score_global": 5.59,
+      "score_by_pillar": {
+        "Contenido": 7.45,
+        "Agentes": 5.83,
+        "Coding": 7.78,
+        "Razonamiento": 7.92
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.083,
+          "speed_score_avg": 6.26,
+          "latency_score_avg": 1.64,
+          "cost_score_avg": 7.972,
+          "quality_ci95": 0.395
+        },
+        "Agentes": {
+          "quality_avg": 5.764,
+          "speed_score_avg": 4.9,
+          "latency_score_avg": 3.05,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.954
+        },
+        "Coding": {
+          "quality_avg": 8.324,
+          "speed_score_avg": 6.182,
+          "latency_score_avg": 3.848,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.427
+        },
+        "Razonamiento": {
+          "quality_avg": 8.673,
+          "speed_score_avg": 6.889,
+          "latency_score_avg": 1.778,
+          "cost_score_avg": 7.989,
+          "quality_ci95": 0.376
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 7.22,
+        "tool_calling": 5.66,
+        "task_management": 7.89,
+        "code_generation": 8.42,
+        "reasoning": 8.21,
+        "summarization": 6.77,
+        "presentation": 8.17,
+        "startup_content": 8.3,
+        "deep_reasoning": 7.98,
+        "customer_support": 3.05,
+        "structured_output": 7.1,
+        "hallucination": 7.43,
+        "creativity": 6.79,
+        "string_precision": 8.13,
+        "news_seo_writing": 7.12,
+        "ocr_extraction": 6.98,
+        "orchestration": 6.29,
+        "multi_turn": 6.83,
+        "policy_adherence": 7.09,
+        "agent_capabilities": 5.84,
+        "strategy": 8.06,
+        "sales_outreach": 7.69,
+        "translation": 7.75
+      },
+      "quality_avg": 7.74,
+      "quality_ci95": 0.368,
+      "cost_score_avg": 7.99,
+      "speed_score_avg": 6.13,
+      "latency_score_avg": 2.43,
+      "tool_calling_score_avg": 7.04,
+      "judge_score_avg": 4.25,
+      "tokens_per_second": 56.5,
+      "latency_avg_s": 18.8,
+      "total_input_tokens": 44724,
+      "total_output_tokens": 94189,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 7.26
     },
     {
       "key": "grok-4.5",
@@ -4289,13 +4456,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 184,
+      "total_runs": 174,
       "score_global": 5.39,
       "score_by_pillar": {
         "Contenido": 7.69,
         "Agentes": 5.91,
         "Coding": 7.23,
-        "Razonamiento": 7.08
+        "Razonamiento": 7.71
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -4320,11 +4487,11 @@
           "quality_ci95": 0.865
         },
         "Razonamiento": {
-          "quality_avg": 8.069,
-          "speed_score_avg": 8.427,
-          "latency_score_avg": 1.267,
-          "cost_score_avg": 4.71,
-          "quality_ci95": 0.646
+          "quality_avg": 8.971,
+          "speed_score_avg": 8.578,
+          "latency_score_avg": 1.378,
+          "cost_score_avg": 4.547,
+          "quality_ci95": 0.401
         }
       },
       "score_by_suite": {
@@ -4353,8 +4520,7 @@
         "translation": 7.64,
         "agent_long_horizon": 7.86,
         "niah_es": 7.94,
-        "prompt_injection_es": 3.86,
-        "business_audit": 6.14
+        "prompt_injection_es": 3.86
       },
       "quality_avg": 7.9,
       "quality_ci95": 0.456,
@@ -4382,220 +4548,6 @@
       "score_global_linear": 7.1
     },
     {
-      "key": "deepseek-v3",
-      "id": "deepseek/deepseek-chat",
-      "name": "DeepSeek V3.2",
-      "tier": "cheap",
-      "provider": "openrouter",
-      "open_source": false,
-      "license": "",
-      "cost_input_per_M": 0.14,
-      "cost_output_per_M": 0.28,
-      "cost_per_1k_calls_usd": 0.462,
-      "context_window": 131072,
-      "subscriptions": [],
-      "notes": "",
-      "tested": true,
-      "retired": false,
-      "provider_variant": false,
-      "ranked": true,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": false,
-      "runs": 147,
-      "total_runs": 165,
-      "score_global": 5.33,
-      "score_by_pillar": {
-        "Contenido": 7.45,
-        "Agentes": 5.77,
-        "Coding": 7.52,
-        "Razonamiento": 6.94
-      },
-      "dims_by_pillar": {
-        "Contenido": {
-          "quality_avg": 8.276,
-          "speed_score_avg": 4.88,
-          "latency_score_avg": 1.2,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.386
-        },
-        "Agentes": {
-          "quality_avg": 5.832,
-          "speed_score_avg": 4.2,
-          "latency_score_avg": 2.267,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.97
-        },
-        "Coding": {
-          "quality_avg": 8.362,
-          "speed_score_avg": 3.788,
-          "latency_score_avg": 2.394,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.41
-        },
-        "Razonamiento": {
-          "quality_avg": 7.57,
-          "speed_score_avg": 4.622,
-          "latency_score_avg": 1.297,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.746
-        }
-      },
-      "score_by_suite": {
-        "content_generation": 7.21,
-        "tool_calling": 5.42,
-        "task_management": 7.7,
-        "code_generation": 8.04,
-        "reasoning": 8.42,
-        "summarization": 7.09,
-        "presentation": 7.88,
-        "startup_content": 8.02,
-        "deep_reasoning": 7.56,
-        "customer_support": 3.87,
-        "structured_output": 6.98,
-        "hallucination": 7.12,
-        "creativity": 6.93,
-        "string_precision": 7.83,
-        "news_seo_writing": 7.37,
-        "agent_capabilities": 5.22,
-        "ocr_extraction": 6.79,
-        "orchestration": 6.7,
-        "multi_turn": 6.55,
-        "policy_adherence": 6.79,
-        "strategy": 8.0,
-        "sales_outreach": 7.8,
-        "translation": 7.38,
-        "business_audit": 4.89
-      },
-      "quality_avg": 7.79,
-      "quality_ci95": 0.386,
-      "cost_score_avg": 8.0,
-      "speed_score_avg": 4.43,
-      "latency_score_avg": 1.63,
-      "tool_calling_score_avg": 6.97,
-      "judge_score_avg": 4.24,
-      "tokens_per_second": 26.3,
-      "latency_avg_s": 25.68,
-      "total_input_tokens": 53542,
-      "total_output_tokens": 82016,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null,
-      "score_global_linear": 7.11
-    },
-    {
-      "key": "qwen3-coder",
-      "id": "qwen/qwen3-coder",
-      "name": "Qwen3 Coder",
-      "tier": "cheap",
-      "provider": "openrouter",
-      "open_source": true,
-      "license": "Apache 2.0",
-      "cost_input_per_M": 0.2,
-      "cost_output_per_M": 0.6,
-      "cost_per_1k_calls_usd": 0.96,
-      "context_window": 1048576,
-      "subscriptions": [],
-      "notes": "",
-      "tested": true,
-      "retired": false,
-      "provider_variant": false,
-      "ranked": true,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": false,
-      "runs": 147,
-      "total_runs": 165,
-      "score_global": 5.33,
-      "score_by_pillar": {
-        "Contenido": 7.45,
-        "Agentes": 5.85,
-        "Coding": 7.78,
-        "Razonamiento": 7.26
-      },
-      "dims_by_pillar": {
-        "Contenido": {
-          "quality_avg": 8.083,
-          "speed_score_avg": 6.26,
-          "latency_score_avg": 1.64,
-          "cost_score_avg": 7.972,
-          "quality_ci95": 0.395
-        },
-        "Agentes": {
-          "quality_avg": 5.789,
-          "speed_score_avg": 4.933,
-          "latency_score_avg": 3.044,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.894
-        },
-        "Coding": {
-          "quality_avg": 8.324,
-          "speed_score_avg": 6.182,
-          "latency_score_avg": 3.848,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.427
-        },
-        "Razonamiento": {
-          "quality_avg": 7.73,
-          "speed_score_avg": 6.838,
-          "latency_score_avg": 1.811,
-          "cost_score_avg": 7.992,
-          "quality_ci95": 0.679
-        }
-      },
-      "score_by_suite": {
-        "content_generation": 7.22,
-        "tool_calling": 5.66,
-        "task_management": 7.89,
-        "code_generation": 8.42,
-        "reasoning": 8.21,
-        "summarization": 6.77,
-        "presentation": 8.17,
-        "startup_content": 8.3,
-        "deep_reasoning": 7.98,
-        "customer_support": 3.05,
-        "structured_output": 7.1,
-        "hallucination": 7.43,
-        "creativity": 6.79,
-        "string_precision": 8.13,
-        "news_seo_writing": 7.12,
-        "agent_capabilities": 5.92,
-        "ocr_extraction": 6.98,
-        "orchestration": 6.29,
-        "multi_turn": 6.83,
-        "policy_adherence": 7.09,
-        "strategy": 8.06,
-        "sales_outreach": 7.69,
-        "translation": 7.75,
-        "business_audit": 5.47
-      },
-      "quality_avg": 7.68,
-      "quality_ci95": 0.37,
-      "cost_score_avg": 7.99,
-      "speed_score_avg": 6.1,
-      "latency_score_avg": 2.45,
-      "tool_calling_score_avg": 6.89,
-      "judge_score_avg": 4.25,
-      "tokens_per_second": 55.7,
-      "latency_avg_s": 18.4,
-      "total_input_tokens": 50175,
-      "total_output_tokens": 95074,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null,
-      "score_global_linear": 7.22
-    },
-    {
       "key": "kimi-k2.7-code",
       "id": "moonshotai/kimi-k2.7-code",
       "name": "Kimi K2.7 Code",
@@ -4617,23 +4569,16 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
-      "runs": 89,
-      "total_runs": 180,
-      "score_global": 5.24,
+      "runs": 87,
+      "total_runs": 168,
+      "score_global": 5.13,
       "score_by_pillar": {
-        "Razonamiento": 6.52,
         "Contenido": 7.13,
         "Agentes": 6.53,
-        "Coding": 7.0
+        "Coding": 7.0,
+        "Razonamiento": 6.97
       },
       "dims_by_pillar": {
-        "Razonamiento": {
-          "quality_avg": 7.407,
-          "speed_score_avg": 6.074,
-          "latency_score_avg": 1.185,
-          "cost_score_avg": 5.253,
-          "quality_ci95": 0.714
-        },
         "Contenido": {
           "quality_avg": 8.306,
           "speed_score_avg": 5.929,
@@ -4654,14 +4599,21 @@
           "latency_score_avg": 1.737,
           "cost_score_avg": 6.714,
           "quality_ci95": 0.446
+        },
+        "Razonamiento": {
+          "quality_avg": 8.143,
+          "speed_score_avg": 5.733,
+          "latency_score_avg": 1.2,
+          "cost_score_avg": 4.987,
+          "quality_ci95": 0.533
         }
       },
       "score_by_suite": {
-        "reasoning": 7.66,
         "content_generation": 7.59,
         "tool_calling": 6.03,
         "task_management": 7.48,
         "code_generation": 7.62,
+        "reasoning": 7.59,
         "summarization": 6.21,
         "presentation": 7.65,
         "startup_content": 7.61,
@@ -4682,20 +4634,19 @@
         "translation": 6.95,
         "agent_long_horizon": 6.44,
         "niah_es": 7.93,
-        "prompt_injection_es": 3.64,
-        "business_audit": 5.59
+        "prompt_injection_es": 3.64
       },
-      "quality_avg": 7.96,
-      "quality_ci95": 0.267,
-      "cost_score_avg": 5.89,
-      "speed_score_avg": 5.2,
-      "latency_score_avg": 1.27,
+      "quality_avg": 7.93,
+      "quality_ci95": 0.269,
+      "cost_score_avg": 5.92,
+      "speed_score_avg": 5.18,
+      "latency_score_avg": 1.28,
       "tool_calling_score_avg": 7.01,
       "judge_score_avg": 4.13,
-      "tokens_per_second": 36.5,
-      "latency_avg_s": 90.43,
-      "total_input_tokens": 24576,
-      "total_output_tokens": 209794,
+      "tokens_per_second": 36.4,
+      "latency_avg_s": 89.46,
+      "total_input_tokens": 24244,
+      "total_output_tokens": 201522,
       "long_context_runs": 45,
       "long_context_quality": 9.92,
       "long_context_score": 7.93,
@@ -4707,7 +4658,7 @@
       "effective_context": 128000,
       "security_runs": 20,
       "security_score": 3.04,
-      "score_global_linear": 6.94
+      "score_global_linear": 6.92
     },
     {
       "key": "mimo-v2.5-or",
@@ -4733,7 +4684,7 @@
       "multimodal": true,
       "runs": 87,
       "total_runs": 91,
-      "score_global": 5.05,
+      "score_global": 5.07,
       "score_by_pillar": {
         "Contenido": 7.77,
         "Agentes": 7.12,
@@ -4838,13 +4789,13 @@
       "thinking": true,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 101,
-      "score_global": 4.71,
+      "total_runs": 91,
+      "score_global": 4.72,
       "score_by_pillar": {
         "Contenido": 6.87,
         "Agentes": 6.61,
         "Coding": 6.96,
-        "Razonamiento": 6.22
+        "Razonamiento": 6.83
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -4869,11 +4820,11 @@
           "quality_ci95": 0.361
         },
         "Razonamiento": {
-          "quality_avg": 6.977,
-          "speed_score_avg": 6.16,
-          "latency_score_avg": 1.04,
-          "cost_score_avg": 5.297,
-          "quality_ci95": 0.986
+          "quality_avg": 7.888,
+          "speed_score_avg": 6.133,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 5.123,
+          "quality_ci95": 1.125
         }
       },
       "score_by_suite": {
@@ -4899,8 +4850,7 @@
         "agent_capabilities": 6.76,
         "strategy": 7.44,
         "sales_outreach": 6.8,
-        "translation": 7.23,
-        "business_audit": 5.3
+        "translation": 7.23
       },
       "quality_avg": 7.83,
       "quality_ci95": 0.284,
@@ -4945,13 +4895,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 142,
-      "total_runs": 160,
-      "score_global": 4.6,
+      "total_runs": 150,
+      "score_global": 4.62,
       "score_by_pillar": {
         "Contenido": 7.14,
         "Agentes": 5.53,
         "Coding": 7.6,
-        "Razonamiento": 7.09
+        "Razonamiento": 7.63
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -4976,11 +4926,11 @@
           "quality_ci95": 0.425
         },
         "Razonamiento": {
-          "quality_avg": 7.895,
-          "speed_score_avg": 7.167,
+          "quality_avg": 8.721,
+          "speed_score_avg": 6.846,
           "latency_score_avg": 1.0,
-          "cost_score_avg": 6.335,
-          "quality_ci95": 0.642
+          "cost_score_avg": 6.24,
+          "quality_ci95": 0.428
         }
       },
       "score_by_suite": {
@@ -5006,8 +4956,7 @@
         "agent_capabilities": 4.58,
         "strategy": 7.68,
         "sales_outreach": 7.99,
-        "translation": 7.19,
-        "business_audit": 5.69
+        "translation": 7.19
       },
       "quality_avg": 7.7,
       "quality_ci95": 0.396,
@@ -5061,8 +5010,8 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 103,
-      "score_global": 4.41,
+      "total_runs": 91,
+      "score_global": 4.44,
       "score_by_pillar": {
         "Contenido": 7.72,
         "Agentes": 6.93,
@@ -5122,8 +5071,7 @@
         "agent_capabilities": 7.27,
         "strategy": 5.42,
         "sales_outreach": 8.23,
-        "translation": 7.5,
-        "agent_long_horizon": 7.91
+        "translation": 7.5
       },
       "quality_avg": 7.53,
       "quality_ci95": 0.492,
@@ -5168,12 +5116,12 @@
       "thinking": true,
       "multimodal": false,
       "runs": 174,
-      "total_runs": 257,
-      "score_global": 4.36,
+      "total_runs": 247,
+      "score_global": 4.37,
       "score_by_pillar": {
         "Contenido": 6.9,
         "Agentes": 6.34,
-        "Razonamiento": 6.3,
+        "Razonamiento": 6.63,
         "Coding": 6.83
       },
       "dims_by_pillar": {
@@ -5192,11 +5140,11 @@
           "quality_ci95": 0.474
         },
         "Razonamiento": {
-          "quality_avg": 7.248,
-          "speed_score_avg": 5.9,
+          "quality_avg": 7.755,
+          "speed_score_avg": 5.8,
           "latency_score_avg": 1.0,
-          "cost_score_avg": 4.721,
-          "quality_ci95": 0.817
+          "cost_score_avg": 4.613,
+          "quality_ci95": 0.954
         },
         "Coding": {
           "quality_avg": 7.798,
@@ -5231,8 +5179,7 @@
         "creativity": 7.19,
         "strategy": 6.32,
         "niah_es": 7.6,
-        "prompt_injection_es": 2.8,
-        "business_audit": 5.31
+        "prompt_injection_es": 2.8
       },
       "quality_avg": 7.81,
       "quality_ci95": 0.249,
@@ -5281,8 +5228,8 @@
       "thinking": false,
       "multimodal": true,
       "runs": 87,
-      "total_runs": 103,
-      "score_global": 3.89,
+      "total_runs": 91,
+      "score_global": 3.92,
       "score_by_pillar": {
         "Contenido": 7.55,
         "Agentes": 6.57,
@@ -5342,8 +5289,7 @@
         "agent_capabilities": 6.76,
         "strategy": 7.87,
         "sales_outreach": 7.71,
-        "translation": 7.21,
-        "agent_long_horizon": 7.75
+        "translation": 7.21
       },
       "quality_avg": 7.4,
       "quality_ci95": 0.467,
@@ -5389,7 +5335,7 @@
       "multimodal": true,
       "runs": 87,
       "total_runs": 91,
-      "score_global": 3.64,
+      "score_global": 3.68,
       "score_by_pillar": {
         "Contenido": 7.19,
         "Agentes": 6.8,
@@ -5493,14 +5439,14 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
-      "runs": 147,
-      "total_runs": 177,
-      "score_global": 3.55,
+      "runs": 142,
+      "total_runs": 150,
+      "score_global": 3.63,
       "score_by_pillar": {
         "Contenido": 7.05,
-        "Agentes": 6.4,
+        "Agentes": 6.36,
         "Coding": 7.3,
-        "Razonamiento": 5.88
+        "Razonamiento": 6.19
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -5511,11 +5457,11 @@
           "quality_ci95": 0.575
         },
         "Agentes": {
-          "quality_avg": 6.712,
-          "speed_score_avg": 5.111,
-          "latency_score_avg": 1.778,
-          "cost_score_avg": 7.876,
-          "quality_ci95": 0.661
+          "quality_avg": 6.66,
+          "speed_score_avg": 5.1,
+          "latency_score_avg": 1.8,
+          "cost_score_avg": 7.862,
+          "quality_ci95": 0.706
         },
         "Coding": {
           "quality_avg": 7.87,
@@ -5525,11 +5471,11 @@
           "quality_ci95": 0.575
         },
         "Razonamiento": {
-          "quality_avg": 6.096,
-          "speed_score_avg": 5.946,
-          "latency_score_avg": 1.081,
-          "cost_score_avg": 7.26,
-          "quality_ci95": 1.074
+          "quality_avg": 6.551,
+          "speed_score_avg": 6.0,
+          "latency_score_avg": 1.074,
+          "cost_score_avg": 7.164,
+          "quality_ci95": 1.361
         }
       },
       "score_by_suite": {
@@ -5548,28 +5494,26 @@
         "creativity": 5.75,
         "string_precision": 8.09,
         "news_seo_writing": 6.97,
-        "agent_capabilities": 6.86,
         "ocr_extraction": 6.65,
         "orchestration": 5.84,
         "multi_turn": 6.9,
         "policy_adherence": 6.94,
+        "agent_capabilities": 7.03,
         "strategy": 7.58,
         "sales_outreach": 7.17,
-        "translation": 7.35,
-        "agent_long_horizon": 6.85,
-        "business_audit": 5.05
+        "translation": 7.35
       },
-      "quality_avg": 7.38,
-      "quality_ci95": 0.401,
-      "cost_score_avg": 7.49,
-      "speed_score_avg": 5.73,
-      "latency_score_avg": 1.4,
-      "tool_calling_score_avg": 7.06,
+      "quality_avg": 7.39,
+      "quality_ci95": 0.41,
+      "cost_score_avg": 7.47,
+      "speed_score_avg": 5.75,
+      "latency_score_avg": 1.39,
+      "tool_calling_score_avg": 7.12,
       "judge_score_avg": 4.11,
       "tokens_per_second": 39.2,
-      "latency_avg_s": 31.19,
-      "total_input_tokens": 43218,
-      "total_output_tokens": 162652,
+      "latency_avg_s": 31.71,
+      "total_input_tokens": 39038,
+      "total_output_tokens": 160152,
       "long_context_runs": 0,
       "long_context_quality": null,
       "long_context_score": null,
@@ -5578,120 +5522,6 @@
       "security_runs": 0,
       "security_score": null,
       "score_global_linear": 6.83
-    },
-    {
-      "key": "openrouter-nemotron-3-ultra-550b",
-      "id": "nvidia/nemotron-3-ultra-550b-a55b",
-      "name": "Nemotron 3 Ultra 550B",
-      "tier": "cloud",
-      "provider": "openrouter",
-      "open_source": true,
-      "license": "NVIDIA Open Model",
-      "cost_input_per_M": 0.5,
-      "cost_output_per_M": 2.2,
-      "cost_per_1k_calls_usd": 3.45,
-      "context_window": 131072,
-      "subscriptions": [],
-      "notes": "Modelo más grande de la familia Nemotron 3 (550B total / 55B activos) vía OpenRouter. Mucho más rápido que NIM gratuito. Disponible también como :free con rate limit.",
-      "tested": true,
-      "retired": false,
-      "provider_variant": false,
-      "ranked": true,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": true,
-      "multimodal": false,
-      "runs": 100,
-      "total_runs": 191,
-      "score_global": 3.43,
-      "score_by_pillar": {
-        "Coding": 7.3,
-        "Razonamiento": 6.4,
-        "Contenido": 7.37,
-        "Agentes": 5.81
-      },
-      "dims_by_pillar": {
-        "Coding": {
-          "quality_avg": 7.763,
-          "speed_score_avg": 8.111,
-          "latency_score_avg": 2.778,
-          "cost_score_avg": 6.997,
-          "quality_ci95": 0.731
-        },
-        "Razonamiento": {
-          "quality_avg": 6.794,
-          "speed_score_avg": 8.148,
-          "latency_score_avg": 1.395,
-          "cost_score_avg": 6.213,
-          "quality_ci95": 0.917
-        },
-        "Contenido": {
-          "quality_avg": 7.946,
-          "speed_score_avg": 9.095,
-          "latency_score_avg": 2.024,
-          "cost_score_avg": 6.528,
-          "quality_ci95": 0.671
-        },
-        "Agentes": {
-          "quality_avg": 5.388,
-          "speed_score_avg": 8.506,
-          "latency_score_avg": 3.678,
-          "cost_score_avg": 7.531,
-          "quality_ci95": 0.865
-        }
-      },
-      "score_by_suite": {
-        "code_generation": 8.15,
-        "reasoning": 8.05,
-        "content_generation": 6.95,
-        "tool_calling": 5.85,
-        "task_management": 8.21,
-        "summarization": 7.12,
-        "presentation": 8.45,
-        "startup_content": 8.17,
-        "deep_reasoning": 6.38,
-        "customer_support": 5.23,
-        "structured_output": 6.41,
-        "hallucination": 7.2,
-        "creativity": 7.35,
-        "string_precision": 6.54,
-        "news_seo_writing": 6.83,
-        "ocr_extraction": 6.39,
-        "orchestration": 4.84,
-        "multi_turn": 6.06,
-        "policy_adherence": 5.97,
-        "agent_capabilities": 5.46,
-        "strategy": 7.26,
-        "sales_outreach": 7.49,
-        "translation": 6.9,
-        "agent_long_horizon": 7.9,
-        "niah_es": 8.22,
-        "prompt_injection_es": 3.85,
-        "business_audit": 5.1
-      },
-      "quality_avg": 7.24,
-      "quality_ci95": 0.458,
-      "cost_score_avg": 6.8,
-      "speed_score_avg": 8.64,
-      "latency_score_avg": 2.51,
-      "tool_calling_score_avg": 7.01,
-      "judge_score_avg": null,
-      "tokens_per_second": 118.4,
-      "latency_avg_s": 20.27,
-      "total_input_tokens": 33817,
-      "total_output_tokens": 148977,
-      "long_context_runs": 45,
-      "long_context_quality": 9.83,
-      "long_context_score": 8.22,
-      "long_context_by_size": {
-        "8000": 10.0,
-        "64000": 10.0,
-        "128000": 10.0
-      },
-      "effective_context": 128000,
-      "security_runs": 20,
-      "security_score": 2.94,
-      "score_global_linear": 6.93
     },
     {
       "key": "gemini-3.5-flash",
@@ -5716,13 +5546,13 @@
       "thinking": false,
       "multimodal": true,
       "runs": 87,
-      "total_runs": 368,
-      "score_global": 3.28,
+      "total_runs": 358,
+      "score_global": 3.32,
       "score_by_pillar": {
         "Contenido": 6.74,
         "Agentes": 6.93,
         "Coding": 6.82,
-        "Razonamiento": 6.07
+        "Razonamiento": 6.33
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -5747,11 +5577,11 @@
           "quality_ci95": 0.716
         },
         "Razonamiento": {
-          "quality_avg": 6.505,
-          "speed_score_avg": 9.32,
-          "latency_score_avg": 1.52,
-          "cost_score_avg": 4.712,
-          "quality_ci95": 0.828
+          "quality_avg": 6.899,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 1.333,
+          "cost_score_avg": 4.314,
+          "quality_ci95": 1.06
         }
       },
       "score_by_suite": {
@@ -5781,8 +5611,7 @@
         "agent_long_horizon": 7.46,
         "niah_es": 6.53,
         "niah_es_lite": 4.08,
-        "prompt_injection_es": 3.03,
-        "business_audit": 5.7
+        "prompt_injection_es": 3.03
       },
       "quality_avg": 7.41,
       "quality_ci95": 0.415,
@@ -5843,8 +5672,8 @@
       "thinking": false,
       "multimodal": true,
       "runs": 86,
-      "total_runs": 102,
-      "score_global": 2.96,
+      "total_runs": 90,
+      "score_global": 3.03,
       "score_by_pillar": {
         "Contenido": 7.54,
         "Agentes": 6.78,
@@ -5904,8 +5733,7 @@
         "agent_capabilities": 6.97,
         "strategy": 8.21,
         "sales_outreach": 8.31,
-        "translation": 5.74,
-        "agent_long_horizon": 8.46
+        "translation": 5.74
       },
       "quality_avg": 7.04,
       "quality_ci95": 0.571,
@@ -5950,13 +5778,13 @@
       "thinking": true,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 166,
-      "score_global": 2.95,
+      "total_runs": 156,
+      "score_global": 3.0,
       "score_by_pillar": {
         "Contenido": 7.51,
         "Agentes": 5.14,
         "Coding": 7.15,
-        "Razonamiento": 6.67
+        "Razonamiento": 7.29
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -5981,11 +5809,11 @@
           "quality_ci95": 0.443
         },
         "Razonamiento": {
-          "quality_avg": 7.148,
-          "speed_score_avg": 5.32,
-          "latency_score_avg": 1.04,
-          "cost_score_avg": 7.915,
-          "quality_ci95": 0.823
+          "quality_avg": 8.066,
+          "speed_score_avg": 4.867,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 7.96,
+          "quality_ci95": 0.56
         }
       },
       "score_by_suite": {
@@ -6013,8 +5841,7 @@
         "sales_outreach": 7.76,
         "translation": 7.59,
         "niah_es": 7.18,
-        "prompt_injection_es": 2.59,
-        "business_audit": 5.74
+        "prompt_injection_es": 2.59
       },
       "quality_avg": 7.24,
       "quality_ci95": 0.568,
@@ -6041,121 +5868,6 @@
       "score_global_linear": 6.69
     },
     {
-      "key": "grok-4.3",
-      "id": "x-ai/grok-4.3",
-      "name": "Grok 4.3",
-      "tier": "medium",
-      "provider": "openrouter",
-      "open_source": false,
-      "license": "",
-      "cost_input_per_M": 1.25,
-      "cost_output_per_M": 2.5,
-      "cost_per_1k_calls_usd": 4.125,
-      "context_window": 1000000,
-      "subscriptions": [],
-      "notes": "Flagship xAI (30 abr 2026), contexto 1M. Precio vía OpenRouter API may 2026.",
-      "tested": true,
-      "retired": false,
-      "provider_variant": false,
-      "ranked": true,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": false,
-      "runs": 108,
-      "total_runs": 191,
-      "score_global": 2.63,
-      "score_by_pillar": {
-        "Coding": 7.12,
-        "Razonamiento": 6.33,
-        "Contenido": 7.07,
-        "Agentes": 6.09
-      },
-      "dims_by_pillar": {
-        "Coding": {
-          "quality_avg": 7.428,
-          "speed_score_avg": 9.728,
-          "latency_score_avg": 2.284,
-          "cost_score_avg": 6.781,
-          "quality_ci95": 0.506
-        },
-        "Razonamiento": {
-          "quality_avg": 6.588,
-          "speed_score_avg": 8.645,
-          "latency_score_avg": 1.333,
-          "cost_score_avg": 6.492,
-          "quality_ci95": 0.918
-        },
-        "Contenido": {
-          "quality_avg": 7.531,
-          "speed_score_avg": 9.354,
-          "latency_score_avg": 1.531,
-          "cost_score_avg": 6.536,
-          "quality_ci95": 0.616
-        },
-        "Agentes": {
-          "quality_avg": 5.934,
-          "speed_score_avg": 9.222,
-          "latency_score_avg": 2.713,
-          "cost_score_avg": 6.923,
-          "quality_ci95": 0.754
-        }
-      },
-      "score_by_suite": {
-        "code_generation": 7.58,
-        "reasoning": 7.44,
-        "content_generation": 6.67,
-        "tool_calling": 5.54,
-        "task_management": 7.89,
-        "summarization": 7.36,
-        "presentation": 8.18,
-        "startup_content": 8.38,
-        "deep_reasoning": 5.11,
-        "customer_support": 4.62,
-        "structured_output": 6.31,
-        "hallucination": 6.99,
-        "creativity": 6.87,
-        "string_precision": 7.42,
-        "news_seo_writing": 6.18,
-        "ocr_extraction": 6.3,
-        "orchestration": 6.19,
-        "multi_turn": 6.18,
-        "policy_adherence": 5.67,
-        "agent_capabilities": 6.12,
-        "strategy": 7.46,
-        "sales_outreach": 7.08,
-        "translation": 6.75,
-        "agent_long_horizon": 7.09,
-        "niah_es": 7.93,
-        "business_audit": 5.54
-      },
-      "quality_avg": 7.08,
-      "quality_ci95": 0.412,
-      "cost_score_avg": 6.64,
-      "speed_score_avg": 9.37,
-      "latency_score_avg": 1.92,
-      "tool_calling_score_avg": 7.05,
-      "judge_score_avg": null,
-      "tokens_per_second": 109.3,
-      "latency_avg_s": 10.11,
-      "total_input_tokens": 41154,
-      "total_output_tokens": 112332,
-      "long_context_runs": 53,
-      "long_context_quality": 9.55,
-      "long_context_score": 7.93,
-      "long_context_by_size": {
-        "8000": 9.72,
-        "64000": 9.78,
-        "128000": 9.19,
-        "256000": 9.0,
-        "512000": 9.33
-      },
-      "effective_context": 512000,
-      "security_runs": 0,
-      "security_score": null,
-      "score_global_linear": 6.8
-    },
-    {
       "key": "deepseek-v4-pro",
       "id": "deepseek/deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
@@ -6178,13 +5890,13 @@
       "thinking": true,
       "multimodal": false,
       "runs": 66,
-      "total_runs": 136,
-      "score_global": 2.58,
+      "total_runs": 126,
+      "score_global": 2.64,
       "score_by_pillar": {
         "Contenido": 6.49,
         "Agentes": 6.62,
         "Coding": 6.6,
-        "Razonamiento": 6.01
+        "Razonamiento": 6.6
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -6209,11 +5921,11 @@
           "quality_ci95": 1.05
         },
         "Razonamiento": {
-          "quality_avg": 6.246,
-          "speed_score_avg": 6.364,
+          "quality_avg": 7.228,
+          "speed_score_avg": 5.5,
           "latency_score_avg": 1.0,
-          "cost_score_avg": 7.274,
-          "quality_ci95": 1.261
+          "cost_score_avg": 7.041,
+          "quality_ci95": 1.857
         }
       },
       "score_by_suite": {
@@ -6240,8 +5952,7 @@
         "sales_outreach": 7.74,
         "translation": 5.55,
         "agent_long_horizon": 7.68,
-        "niah_es_lite": 4.18,
-        "business_audit": 5.31
+        "niah_es_lite": 4.18
       },
       "quality_avg": 7.22,
       "quality_ci95": 0.656,
@@ -6286,21 +5997,21 @@
       "thinking": false,
       "multimodal": false,
       "runs": 118,
-      "total_runs": 159,
-      "score_global": 2.48,
+      "total_runs": 122,
+      "score_global": 2.55,
       "score_by_pillar": {
-        "Razonamiento": 5.39,
+        "Razonamiento": 6.67,
         "Agentes": 5.79,
         "Coding": 7.18,
         "Contenido": 6.89
       },
       "dims_by_pillar": {
         "Razonamiento": {
-          "quality_avg": 5.276,
-          "speed_score_avg": 4.877,
-          "latency_score_avg": 1.719,
+          "quality_avg": 7.155,
+          "speed_score_avg": 4.5,
+          "latency_score_avg": 1.708,
           "cost_score_avg": 8.0,
-          "quality_ci95": 0.648
+          "quality_ci95": 0.569
         },
         "Agentes": {
           "quality_avg": 5.361,
@@ -6347,10 +6058,7 @@
         "agent_capabilities": 6.28,
         "strategy": 7.61,
         "sales_outreach": 7.11,
-        "translation": 7.38,
-        "business_audit": 4.03,
-        "business_strategy": 4.96,
-        "persistencia": 6.24
+        "translation": 7.38
       },
       "quality_avg": 7.03,
       "quality_ci95": 0.392,
@@ -6395,13 +6103,13 @@
       "thinking": true,
       "multimodal": true,
       "runs": 87,
-      "total_runs": 185,
-      "score_global": 2.39,
+      "total_runs": 91,
+      "score_global": 2.43,
       "score_by_pillar": {
         "Contenido": 6.54,
         "Agentes": 6.61,
         "Coding": 6.47,
-        "Razonamiento": 5.98
+        "Razonamiento": 6.16
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -6426,11 +6134,11 @@
           "quality_ci95": 0.574
         },
         "Razonamiento": {
-          "quality_avg": 6.638,
-          "speed_score_avg": 8.88,
-          "latency_score_avg": 1.04,
-          "cost_score_avg": 3.923,
-          "quality_ci95": 0.747
+          "quality_avg": 6.873,
+          "speed_score_avg": 9.067,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 3.946,
+          "quality_ci95": 0.876
         }
       },
       "score_by_suite": {
@@ -6456,10 +6164,7 @@
         "agent_capabilities": 6.67,
         "strategy": 6.99,
         "sales_outreach": 6.51,
-        "translation": 7.22,
-        "agent_long_horizon": 6.91,
-        "niah_es": 6.26,
-        "business_audit": 5.7
+        "translation": 7.22
       },
       "quality_avg": 7.3,
       "quality_ci95": 0.31,
@@ -6472,14 +6177,241 @@
       "latency_avg_s": 15.81,
       "total_input_tokens": 25182,
       "total_output_tokens": 138352,
-      "long_context_runs": 72,
-      "long_context_quality": 7.41,
-      "long_context_score": 6.26,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
       "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
       "security_score": null,
       "score_global_linear": 6.51
+    },
+    {
+      "key": "grok-4.3",
+      "id": "x-ai/grok-4.3",
+      "name": "Grok 4.3",
+      "tier": "medium",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 1.25,
+      "cost_output_per_M": 2.5,
+      "cost_per_1k_calls_usd": 4.125,
+      "context_window": 1000000,
+      "subscriptions": [],
+      "notes": "Flagship xAI (30 abr 2026), contexto 1M. Precio vía OpenRouter API may 2026.",
+      "tested": true,
+      "retired": false,
+      "provider_variant": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 101,
+      "total_runs": 174,
+      "score_global": 2.4,
+      "score_by_pillar": {
+        "Contenido": 7.07,
+        "Agentes": 6.09,
+        "Coding": 7.04,
+        "Razonamiento": 6.64
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.531,
+          "speed_score_avg": 9.354,
+          "latency_score_avg": 1.531,
+          "cost_score_avg": 6.536,
+          "quality_ci95": 0.616
+        },
+        "Agentes": {
+          "quality_avg": 5.934,
+          "speed_score_avg": 9.222,
+          "latency_score_avg": 2.713,
+          "cost_score_avg": 6.923,
+          "quality_ci95": 0.754
+        },
+        "Coding": {
+          "quality_avg": 7.276,
+          "speed_score_avg": 9.768,
+          "latency_score_avg": 2.464,
+          "cost_score_avg": 6.854,
+          "quality_ci95": 0.563
+        },
+        "Razonamiento": {
+          "quality_avg": 6.974,
+          "speed_score_avg": 9.222,
+          "latency_score_avg": 1.463,
+          "cost_score_avg": 6.381,
+          "quality_ci95": 1.283
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 6.67,
+        "tool_calling": 5.54,
+        "task_management": 7.89,
+        "code_generation": 7.58,
+        "reasoning": 7.59,
+        "summarization": 7.36,
+        "presentation": 8.18,
+        "startup_content": 8.38,
+        "deep_reasoning": 5.11,
+        "customer_support": 4.62,
+        "structured_output": 6.31,
+        "hallucination": 6.99,
+        "creativity": 6.87,
+        "string_precision": 7.42,
+        "news_seo_writing": 6.18,
+        "ocr_extraction": 6.3,
+        "orchestration": 6.19,
+        "multi_turn": 6.18,
+        "policy_adherence": 5.67,
+        "agent_capabilities": 6.12,
+        "strategy": 7.46,
+        "sales_outreach": 7.08,
+        "translation": 6.75,
+        "agent_long_horizon": 7.09,
+        "niah_es": 7.93
+      },
+      "quality_avg": 7.0,
+      "quality_ci95": 0.432,
+      "cost_score_avg": 6.66,
+      "speed_score_avg": 9.41,
+      "latency_score_avg": 1.98,
+      "tool_calling_score_avg": 7.05,
+      "judge_score_avg": null,
+      "tokens_per_second": 109.9,
+      "latency_avg_s": 9.85,
+      "total_input_tokens": 39232,
+      "total_output_tokens": 102756,
+      "long_context_runs": 53,
+      "long_context_quality": 9.55,
+      "long_context_score": 7.93,
+      "long_context_by_size": {
+        "8000": 9.72,
+        "64000": 9.78,
+        "128000": 9.19,
+        "256000": 9.0,
+        "512000": 9.33
+      },
+      "effective_context": 512000,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 6.76
+    },
+    {
+      "key": "openrouter-nemotron-3-ultra-550b",
+      "id": "nvidia/nemotron-3-ultra-550b-a55b",
+      "name": "Nemotron 3 Ultra 550B",
+      "tier": "cloud",
+      "provider": "openrouter",
+      "open_source": true,
+      "license": "NVIDIA Open Model",
+      "cost_input_per_M": 0.5,
+      "cost_output_per_M": 2.2,
+      "cost_per_1k_calls_usd": 3.45,
+      "context_window": 131072,
+      "subscriptions": [],
+      "notes": "Modelo más grande de la familia Nemotron 3 (550B total / 55B activos) vía OpenRouter. Mucho más rápido que NIM gratuito. Disponible también como :free con rate limit.",
+      "tested": true,
+      "retired": false,
+      "provider_variant": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": true,
+      "multimodal": false,
+      "runs": 86,
+      "total_runs": 167,
+      "score_global": 2.27,
+      "score_by_pillar": {
+        "Contenido": 7.37,
+        "Agentes": 5.81,
+        "Coding": 6.85,
+        "Razonamiento": 7.0
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.946,
+          "speed_score_avg": 9.095,
+          "latency_score_avg": 2.024,
+          "cost_score_avg": 6.528,
+          "quality_ci95": 0.671
+        },
+        "Agentes": {
+          "quality_avg": 5.388,
+          "speed_score_avg": 8.506,
+          "latency_score_avg": 3.678,
+          "cost_score_avg": 7.531,
+          "quality_ci95": 0.865
+        },
+        "Coding": {
+          "quality_avg": 6.853,
+          "speed_score_avg": 9.123,
+          "latency_score_avg": 3.649,
+          "cost_score_avg": 7.282,
+          "quality_ci95": 0.914
+        },
+        "Razonamiento": {
+          "quality_avg": 7.539,
+          "speed_score_avg": 9.143,
+          "latency_score_avg": 1.762,
+          "cost_score_avg": 6.021,
+          "quality_ci95": 1.002
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 6.95,
+        "tool_calling": 5.85,
+        "task_management": 8.21,
+        "code_generation": 8.31,
+        "reasoning": 8.17,
+        "summarization": 7.12,
+        "presentation": 8.45,
+        "startup_content": 8.17,
+        "deep_reasoning": 6.38,
+        "customer_support": 5.23,
+        "structured_output": 6.41,
+        "hallucination": 7.2,
+        "creativity": 7.35,
+        "string_precision": 6.54,
+        "news_seo_writing": 6.83,
+        "ocr_extraction": 6.39,
+        "orchestration": 4.84,
+        "multi_turn": 6.06,
+        "policy_adherence": 5.97,
+        "agent_capabilities": 5.46,
+        "strategy": 7.26,
+        "sales_outreach": 7.49,
+        "translation": 6.9,
+        "agent_long_horizon": 7.9,
+        "niah_es": 8.22,
+        "prompt_injection_es": 3.85
+      },
+      "quality_avg": 6.91,
+      "quality_ci95": 0.496,
+      "cost_score_avg": 6.88,
+      "speed_score_avg": 8.88,
+      "latency_score_avg": 2.72,
+      "tool_calling_score_avg": 7.02,
+      "judge_score_avg": null,
+      "tokens_per_second": 122.0,
+      "latency_avg_s": 15.58,
+      "total_input_tokens": 31569,
+      "total_output_tokens": 120965,
+      "long_context_runs": 45,
+      "long_context_quality": 9.83,
+      "long_context_score": 8.22,
+      "long_context_by_size": {
+        "8000": 10.0,
+        "64000": 10.0,
+        "128000": 10.0
+      },
+      "effective_context": 128000,
+      "security_runs": 20,
+      "security_score": 2.94,
+      "score_global_linear": 6.74
     },
     {
       "key": "gemini-pro",
@@ -6504,13 +6436,13 @@
       "thinking": true,
       "multimodal": true,
       "runs": 87,
-      "total_runs": 101,
+      "total_runs": 91,
       "score_global": 0.0,
       "score_by_pillar": {
         "Contenido": 6.14,
         "Agentes": 6.19,
         "Coding": 6.29,
-        "Razonamiento": 5.22
+        "Razonamiento": 5.01
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -6535,11 +6467,11 @@
           "quality_ci95": 0.583
         },
         "Razonamiento": {
-          "quality_avg": 5.646,
-          "speed_score_avg": 8.0,
+          "quality_avg": 5.262,
+          "speed_score_avg": 8.4,
           "latency_score_avg": 1.0,
-          "cost_score_avg": 3.935,
-          "quality_ci95": 0.702
+          "cost_score_avg": 4.116,
+          "quality_ci95": 0.723
         }
       },
       "score_by_suite": {
@@ -6565,8 +6497,7 @@
         "strategy": 4.5,
         "sales_outreach": 6.66,
         "translation": 6.55,
-        "tool_calling": 5.15,
-        "business_audit": 5.54
+        "tool_calling": 5.15
       },
       "quality_avg": 6.59,
       "quality_ci95": 0.387,
@@ -6735,7 +6666,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 23,
-      "total_runs": 39,
+      "total_runs": 27,
       "score_global": 10.0,
       "score_by_pillar": {
         "Contenido": 7.99,
@@ -6781,8 +6712,7 @@
         "reasoning": 8.46,
         "summarization": 6.98,
         "presentation": 8.38,
-        "startup_content": 8.37,
-        "agent_long_horizon": 7.11
+        "startup_content": 8.37
       },
       "quality_avg": 9.33,
       "quality_ci95": 0.375,
@@ -6836,7 +6766,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 23,
-      "total_runs": 39,
+      "total_runs": 27,
       "score_global": 10.0,
       "score_by_pillar": {
         "Contenido": 8.09,
@@ -6882,8 +6812,7 @@
         "reasoning": 8.7,
         "summarization": 7.86,
         "presentation": 8.39,
-        "startup_content": 8.26,
-        "agent_long_horizon": 6.77
+        "startup_content": 8.26
       },
       "quality_avg": 9.39,
       "quality_ci95": 0.299,
@@ -6937,13 +6866,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 86,
-      "total_runs": 173,
-      "score_global": 8.78,
+      "total_runs": 163,
+      "score_global": 8.73,
       "score_by_pillar": {
         "Contenido": 7.85,
         "Agentes": 7.85,
         "Coding": 7.46,
-        "Razonamiento": 6.73
+        "Razonamiento": 7.71
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -6968,11 +6897,11 @@
           "quality_ci95": 0.68
         },
         "Razonamiento": {
-          "quality_avg": 7.485,
-          "speed_score_avg": 8.56,
-          "latency_score_avg": 1.72,
-          "cost_score_avg": 4.784,
-          "quality_ci95": 0.881
+          "quality_avg": 8.793,
+          "speed_score_avg": 9.467,
+          "latency_score_avg": 2.2,
+          "cost_score_avg": 4.538,
+          "quality_ci95": 0.536
         }
       },
       "score_by_suite": {
@@ -7000,8 +6929,7 @@
         "translation": 7.82,
         "agent_long_horizon": 6.18,
         "prompt_injection_es": 6.66,
-        "niah_es": 8.8,
-        "business_audit": 5.25
+        "niah_es": 8.8
       },
       "quality_avg": 8.64,
       "quality_ci95": 0.263,
@@ -7059,21 +6987,21 @@
       "thinking": false,
       "multimodal": true,
       "runs": 89,
-      "total_runs": 200,
-      "score_global": 8.42,
+      "total_runs": 165,
+      "score_global": 8.36,
       "score_by_pillar": {
-        "Razonamiento": 6.2,
+        "Razonamiento": 7.59,
         "Contenido": 7.58,
         "Agentes": 7.43,
         "Coding": 6.86
       },
       "dims_by_pillar": {
         "Razonamiento": {
-          "quality_avg": 7.42,
-          "speed_score_avg": 7.633,
-          "latency_score_avg": 1.388,
-          "cost_score_avg": 2.173,
-          "quality_ci95": 0.553
+          "quality_avg": 9.266,
+          "speed_score_avg": 7.889,
+          "latency_score_avg": 2.056,
+          "cost_score_avg": 2.392,
+          "quality_ci95": 0.335
         },
         "Contenido": {
           "quality_avg": 8.995,
@@ -7122,10 +7050,7 @@
         "translation": 7.55,
         "agent_long_horizon": 6.2,
         "prompt_injection_es": 6.31,
-        "niah_es": 8.48,
-        "business_audit": 5.13,
-        "business_strategy": 5.84,
-        "persistencia": 5.84
+        "niah_es": 8.48
       },
       "quality_avg": 8.81,
       "quality_ci95": 0.239,
@@ -7184,13 +7109,13 @@
       "thinking": true,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 368,
-      "score_global": 8.38,
+      "total_runs": 358,
+      "score_global": 8.33,
       "score_by_pillar": {
         "Contenido": 7.85,
         "Agentes": 7.29,
         "Coding": 7.13,
-        "Razonamiento": 6.95
+        "Razonamiento": 7.46
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -7215,11 +7140,11 @@
           "quality_ci95": 0.653
         },
         "Razonamiento": {
-          "quality_avg": 7.722,
-          "speed_score_avg": 6.16,
-          "latency_score_avg": 1.04,
-          "cost_score_avg": 6.682,
-          "quality_ci95": 0.704
+          "quality_avg": 8.661,
+          "speed_score_avg": 4.667,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.507,
+          "quality_ci95": 0.472
         }
       },
       "score_by_suite": {
@@ -7249,8 +7174,7 @@
         "agent_long_horizon": 6.86,
         "niah_es": 7.72,
         "niah_es_lite": 7.23,
-        "prompt_injection_es": 7.1,
-        "business_audit": 6.17
+        "prompt_injection_es": 7.1
       },
       "quality_avg": 8.64,
       "quality_ci95": 0.231,
@@ -7277,6 +7201,112 @@
       "security_runs": 40,
       "security_score": 8.04,
       "score_global_linear": 7.54
+    },
+    {
+      "key": "devstral",
+      "id": "mistralai/devstral-small",
+      "name": "Devstral Small",
+      "tier": "ultra_cheap",
+      "provider": "openrouter",
+      "open_source": true,
+      "license": "Apache 2.0",
+      "cost_input_per_M": 0.1,
+      "cost_output_per_M": 0.3,
+      "cost_per_1k_calls_usd": 0.48,
+      "context_window": 131072,
+      "subscriptions": [],
+      "notes": "",
+      "tested": true,
+      "retired": true,
+      "provider_variant": false,
+      "ranked": false,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 144,
+      "total_runs": 152,
+      "score_global": 8.24,
+      "score_by_pillar": {
+        "Contenido": 7.82,
+        "Agentes": 7.35,
+        "Coding": 8.23,
+        "Razonamiento": 8.13
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.12,
+          "speed_score_avg": 9.077,
+          "latency_score_avg": 3.462,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.371
+        },
+        "Agentes": {
+          "quality_avg": 7.223,
+          "speed_score_avg": 8.7,
+          "latency_score_avg": 5.85,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.465
+        },
+        "Coding": {
+          "quality_avg": 8.364,
+          "speed_score_avg": 9.091,
+          "latency_score_avg": 6.606,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.47
+        },
+        "Razonamiento": {
+          "quality_avg": 8.443,
+          "speed_score_avg": 9.852,
+          "latency_score_avg": 3.778,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.483
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 8.17,
+        "tool_calling": 6.14,
+        "task_management": 8.19,
+        "code_generation": 8.76,
+        "reasoning": 8.67,
+        "summarization": 7.47,
+        "presentation": 8.24,
+        "startup_content": 8.48,
+        "deep_reasoning": 8.08,
+        "customer_support": 7.44,
+        "structured_output": 7.66,
+        "hallucination": 7.64,
+        "creativity": 7.53,
+        "string_precision": 8.71,
+        "news_seo_writing": 7.01,
+        "ocr_extraction": 7.15,
+        "orchestration": 7.25,
+        "multi_turn": 7.58,
+        "policy_adherence": 7.46,
+        "agent_capabilities": 7.94,
+        "strategy": 8.24,
+        "sales_outreach": 8.0,
+        "translation": 8.47
+      },
+      "quality_avg": 8.13,
+      "quality_ci95": 0.223,
+      "cost_score_avg": 8.0,
+      "speed_score_avg": 9.22,
+      "latency_score_avg": 4.68,
+      "tool_calling_score_avg": 6.84,
+      "judge_score_avg": 4.12,
+      "tokens_per_second": 151.7,
+      "latency_avg_s": 5.63,
+      "total_input_tokens": 38708,
+      "total_output_tokens": 76359,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 7.94
     },
     {
       "key": "claude-sonnet-4.6-sub",
@@ -7310,13 +7340,13 @@
       "thinking": false,
       "multimodal": true,
       "runs": 86,
-      "total_runs": 173,
-      "score_global": 8.2,
+      "total_runs": 163,
+      "score_global": 8.15,
       "score_by_pillar": {
         "Contenido": 7.49,
         "Agentes": 7.45,
         "Coding": 7.3,
-        "Razonamiento": 6.44
+        "Razonamiento": 7.32
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -7341,11 +7371,11 @@
           "quality_ci95": 0.506
         },
         "Razonamiento": {
-          "quality_avg": 7.608,
-          "speed_score_avg": 6.72,
-          "latency_score_avg": 1.08,
-          "cost_score_avg": 3.499,
-          "quality_ci95": 0.826
+          "quality_avg": 8.877,
+          "speed_score_avg": 7.467,
+          "latency_score_avg": 1.133,
+          "cost_score_avg": 3.049,
+          "quality_ci95": 0.395
         }
       },
       "score_by_suite": {
@@ -7373,8 +7403,7 @@
         "translation": 7.78,
         "agent_long_horizon": 6.39,
         "prompt_injection_es": 7.44,
-        "niah_es": 8.71,
-        "business_audit": 5.11
+        "niah_es": 8.71
       },
       "quality_avg": 8.71,
       "quality_ci95": 0.235,
@@ -7399,114 +7428,6 @@
       "security_runs": 20,
       "security_score": 8.52,
       "score_global_linear": 7.41
-    },
-    {
-      "key": "devstral",
-      "id": "mistralai/devstral-small",
-      "name": "Devstral Small",
-      "tier": "ultra_cheap",
-      "provider": "openrouter",
-      "open_source": true,
-      "license": "Apache 2.0",
-      "cost_input_per_M": 0.1,
-      "cost_output_per_M": 0.3,
-      "cost_per_1k_calls_usd": 0.48,
-      "context_window": 131072,
-      "subscriptions": [],
-      "notes": "",
-      "tested": true,
-      "retired": true,
-      "provider_variant": false,
-      "ranked": false,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": false,
-      "runs": 149,
-      "total_runs": 223,
-      "score_global": 8.19,
-      "score_by_pillar": {
-        "Contenido": 7.82,
-        "Agentes": 7.38,
-        "Coding": 8.23,
-        "Razonamiento": 8.13
-      },
-      "dims_by_pillar": {
-        "Contenido": {
-          "quality_avg": 8.12,
-          "speed_score_avg": 9.077,
-          "latency_score_avg": 3.462,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.371
-        },
-        "Agentes": {
-          "quality_avg": 7.258,
-          "speed_score_avg": 8.844,
-          "latency_score_avg": 5.867,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.501
-        },
-        "Coding": {
-          "quality_avg": 8.364,
-          "speed_score_avg": 9.091,
-          "latency_score_avg": 6.606,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.47
-        },
-        "Razonamiento": {
-          "quality_avg": 8.443,
-          "speed_score_avg": 9.852,
-          "latency_score_avg": 3.778,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.483
-        }
-      },
-      "score_by_suite": {
-        "content_generation": 8.17,
-        "tool_calling": 6.14,
-        "task_management": 8.19,
-        "code_generation": 8.76,
-        "reasoning": 8.67,
-        "summarization": 7.47,
-        "presentation": 8.24,
-        "startup_content": 8.48,
-        "deep_reasoning": 8.08,
-        "customer_support": 7.44,
-        "structured_output": 7.66,
-        "hallucination": 7.64,
-        "creativity": 7.53,
-        "string_precision": 8.71,
-        "news_seo_writing": 7.01,
-        "agent_capabilities": 7.81,
-        "ocr_extraction": 7.15,
-        "orchestration": 7.25,
-        "multi_turn": 7.58,
-        "policy_adherence": 7.46,
-        "strategy": 8.24,
-        "sales_outreach": 8.0,
-        "translation": 8.47,
-        "agent_long_horizon": 8.37,
-        "niah_es": 7.25
-      },
-      "quality_avg": 8.11,
-      "quality_ci95": 0.233,
-      "cost_score_avg": 8.0,
-      "speed_score_avg": 9.25,
-      "latency_score_avg": 4.72,
-      "tool_calling_score_avg": 6.73,
-      "judge_score_avg": 4.12,
-      "tokens_per_second": 151.4,
-      "latency_avg_s": 5.49,
-      "total_input_tokens": 42684,
-      "total_output_tokens": 77454,
-      "long_context_runs": 54,
-      "long_context_quality": 7.47,
-      "long_context_score": 7.25,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null,
-      "score_global_linear": 7.93
     },
     {
       "key": "claude-opus-4.7-sub",
@@ -7540,13 +7461,13 @@
       "thinking": false,
       "multimodal": true,
       "runs": 70,
-      "total_runs": 92,
-      "score_global": 7.7,
+      "total_runs": 82,
+      "score_global": 7.65,
       "score_by_pillar": {
         "Contenido": 7.39,
         "Agentes": 7.44,
         "Coding": 7.13,
-        "Razonamiento": 6.19
+        "Razonamiento": 7.15
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -7571,11 +7492,11 @@
           "quality_ci95": 0.53
         },
         "Razonamiento": {
-          "quality_avg": 7.276,
-          "speed_score_avg": 6.818,
-          "latency_score_avg": 1.318,
-          "cost_score_avg": 3.246,
-          "quality_ci95": 0.993
+          "quality_avg": 8.508,
+          "speed_score_avg": 7.833,
+          "latency_score_avg": 1.583,
+          "cost_score_avg": 3.239,
+          "quality_ci95": 0.995
         }
       },
       "score_by_suite": {
@@ -7598,8 +7519,7 @@
         "multi_turn": 7.74,
         "sales_outreach": 7.55,
         "translation": 7.66,
-        "agent_long_horizon": 6.47,
-        "business_audit": 5.04
+        "agent_long_horizon": 6.47
       },
       "quality_avg": 8.65,
       "quality_ci95": 0.31,
@@ -7644,13 +7564,13 @@
       "thinking": false,
       "multimodal": true,
       "runs": 87,
-      "total_runs": 237,
-      "score_global": 7.36,
+      "total_runs": 161,
+      "score_global": 7.37,
       "score_by_pillar": {
         "Contenido": 8.08,
         "Agentes": 7.34,
         "Coding": 7.91,
-        "Razonamiento": 6.78
+        "Razonamiento": 8.12
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -7675,11 +7595,11 @@
           "quality_ci95": 0.395
         },
         "Razonamiento": {
-          "quality_avg": 6.592,
-          "speed_score_avg": 8.68,
-          "latency_score_avg": 4.24,
+          "quality_avg": 8.273,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 5.067,
           "cost_score_avg": 8.0,
-          "quality_ci95": 0.978
+          "quality_ci95": 0.314
         }
       },
       "score_by_suite": {
@@ -7706,10 +7626,8 @@
         "strategy": 8.39,
         "sales_outreach": 8.43,
         "translation": 8.04,
-        "agent_long_horizon": 8.6,
-        "niah_es": 7.31,
         "prompt_injection_es": 3.49,
-        "business_audit": 4.78
+        "niah_es": 7.75
       },
       "quality_avg": 7.81,
       "quality_ci95": 0.269,
@@ -7722,9 +7640,9 @@
       "latency_avg_s": 1.63,
       "total_input_tokens": 31144,
       "total_output_tokens": 40038,
-      "long_context_runs": 104,
-      "long_context_quality": 8.04,
-      "long_context_score": 7.31,
+      "long_context_runs": 50,
+      "long_context_quality": 8.9,
+      "long_context_score": 7.75,
       "long_context_by_size": {
         "8000": 9.45,
         "64000": 10.0,
@@ -7759,8 +7677,8 @@
       "thinking": false,
       "multimodal": false,
       "runs": 85,
-      "total_runs": 169,
-      "score_global": 7.13,
+      "total_runs": 88,
+      "score_global": 7.14,
       "score_by_pillar": {
         "Contenido": 8.12,
         "Agentes": 7.29,
@@ -7820,9 +7738,7 @@
         "agent_capabilities": 7.64,
         "strategy": 8.27,
         "sales_outreach": 8.61,
-        "translation": 8.52,
-        "agent_long_horizon": 8.61,
-        "niah_es": 6.69
+        "translation": 8.52
       },
       "quality_avg": 7.76,
       "quality_ci95": 0.264,
@@ -7835,9 +7751,9 @@
       "latency_avg_s": 1.86,
       "total_input_tokens": 27178,
       "total_output_tokens": 42830,
-      "long_context_runs": 54,
-      "long_context_quality": 7.09,
-      "long_context_score": 6.69,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
       "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
@@ -7867,8 +7783,8 @@
       "thinking": true,
       "multimodal": false,
       "runs": 83,
-      "total_runs": 153,
-      "score_global": 7.02,
+      "total_runs": 87,
+      "score_global": 7.0,
       "score_by_pillar": {
         "Contenido": 7.64,
         "Agentes": 6.88,
@@ -7928,9 +7844,7 @@
         "agent_capabilities": 6.93,
         "strategy": 7.82,
         "sales_outreach": 7.88,
-        "translation": 7.65,
-        "agent_long_horizon": 7.23,
-        "niah_es": 6.55
+        "translation": 7.65
       },
       "quality_avg": 8.2,
       "quality_ci95": 0.236,
@@ -7943,9 +7857,9 @@
       "latency_avg_s": 54.99,
       "total_input_tokens": 24828,
       "total_output_tokens": 60700,
-      "long_context_runs": 54,
-      "long_context_quality": 7.47,
-      "long_context_score": 6.55,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
       "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
@@ -7975,13 +7889,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 178,
+      "total_runs": 156,
       "score_global": 6.85,
       "score_by_pillar": {
         "Contenido": 7.85,
         "Agentes": 7.1,
         "Coding": 7.33,
-        "Razonamiento": 6.69
+        "Razonamiento": 7.64
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -8006,11 +7920,11 @@
           "quality_ci95": 0.508
         },
         "Razonamiento": {
-          "quality_avg": 6.931,
-          "speed_score_avg": 8.2,
-          "latency_score_avg": 1.8,
-          "cost_score_avg": 7.277,
-          "quality_ci95": 0.932
+          "quality_avg": 8.381,
+          "speed_score_avg": 7.733,
+          "latency_score_avg": 1.533,
+          "cost_score_avg": 7.185,
+          "quality_ci95": 0.493
         }
       },
       "score_by_suite": {
@@ -8037,10 +7951,8 @@
         "strategy": 7.76,
         "sales_outreach": 7.7,
         "translation": 8.02,
-        "agent_long_horizon": 7.87,
         "prompt_injection_es": 3.32,
-        "niah_es": 8.41,
-        "business_audit": 5.27
+        "niah_es": 8.41
       },
       "quality_avg": 8.06,
       "quality_ci95": 0.291,
@@ -8198,13 +8110,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 189,
-      "score_global": 6.66,
+      "total_runs": 174,
+      "score_global": 6.63,
       "score_by_pillar": {
         "Contenido": 7.16,
         "Agentes": 7.06,
         "Coding": 6.67,
-        "Razonamiento": 6.23
+        "Razonamiento": 7.28
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -8229,11 +8141,11 @@
           "quality_ci95": 0.611
         },
         "Razonamiento": {
-          "quality_avg": 7.544,
-          "speed_score_avg": 7.0,
-          "latency_score_avg": 1.333,
-          "cost_score_avg": 2.156,
-          "quality_ci95": 0.688
+          "quality_avg": 8.905,
+          "speed_score_avg": 7.733,
+          "latency_score_avg": 1.667,
+          "cost_score_avg": 2.295,
+          "quality_ci95": 0.306
         }
       },
       "score_by_suite": {
@@ -8262,9 +8174,7 @@
         "translation": 7.0,
         "agent_long_horizon": 6.98,
         "niah_es": 8.33,
-        "prompt_injection_es": 5.61,
-        "business_audit": 4.79,
-        "business_strategy": 5.95
+        "prompt_injection_es": 5.61
       },
       "quality_avg": 8.4,
       "quality_ci95": 0.243,
@@ -8315,7 +8225,7 @@
       "multimodal": false,
       "runs": 83,
       "total_runs": 87,
-      "score_global": 6.6,
+      "score_global": 6.58,
       "score_by_pillar": {
         "Contenido": 7.35,
         "Agentes": 6.89,
@@ -8525,8 +8435,8 @@
       "thinking": false,
       "multimodal": false,
       "runs": 85,
-      "total_runs": 145,
-      "score_global": 6.47,
+      "total_runs": 88,
+      "score_global": 6.5,
       "score_by_pillar": {
         "Contenido": 8.03,
         "Agentes": 7.58,
@@ -8586,9 +8496,7 @@
         "agent_capabilities": 7.3,
         "strategy": 8.23,
         "sales_outreach": 8.23,
-        "translation": 8.46,
-        "agent_long_horizon": 8.24,
-        "niah_es_lite": 6.53
+        "translation": 8.46
       },
       "quality_avg": 7.52,
       "quality_ci95": 0.28,
@@ -8601,9 +8509,9 @@
       "latency_avg_s": 1.3,
       "total_input_tokens": 27522,
       "total_output_tokens": 44358,
-      "long_context_runs": 45,
-      "long_context_quality": 6.68,
-      "long_context_score": 6.53,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
       "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
@@ -8633,13 +8541,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 107,
-      "score_global": 6.43,
+      "total_runs": 91,
+      "score_global": 6.41,
       "score_by_pillar": {
         "Contenido": 7.24,
         "Agentes": 7.13,
         "Coding": 6.9,
-        "Razonamiento": 6.58
+        "Razonamiento": 7.32
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -8664,11 +8572,11 @@
           "quality_ci95": 0.463
         },
         "Razonamiento": {
-          "quality_avg": 7.436,
-          "speed_score_avg": 4.96,
-          "latency_score_avg": 1.12,
-          "cost_score_avg": 6.119,
-          "quality_ci95": 0.686
+          "quality_avg": 8.578,
+          "speed_score_avg": 3.733,
+          "latency_score_avg": 1.2,
+          "cost_score_avg": 6.31,
+          "quality_ci95": 0.303
         }
       },
       "score_by_suite": {
@@ -8694,9 +8602,7 @@
         "agent_capabilities": 7.85,
         "strategy": 7.31,
         "sales_outreach": 7.37,
-        "translation": 7.35,
-        "agent_long_horizon": 6.24,
-        "business_audit": 5.47
+        "translation": 7.35
       },
       "quality_avg": 8.17,
       "quality_ci95": 0.219,
@@ -8741,13 +8647,13 @@
       "thinking": true,
       "multimodal": false,
       "runs": 82,
-      "total_runs": 107,
+      "total_runs": 86,
       "score_global": 6.36,
       "score_by_pillar": {
         "Contenido": 7.59,
         "Agentes": 6.82,
         "Coding": 7.17,
-        "Razonamiento": 6.61
+        "Razonamiento": 7.66
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -8772,11 +8678,11 @@
           "quality_ci95": 0.451
         },
         "Razonamiento": {
-          "quality_avg": 7.087,
-          "speed_score_avg": 4.727,
-          "latency_score_avg": 1.273,
+          "quality_avg": 8.624,
+          "speed_score_avg": 4.167,
+          "latency_score_avg": 1.417,
           "cost_score_avg": 8.0,
-          "quality_ci95": 0.959
+          "quality_ci95": 0.429
         }
       },
       "score_by_suite": {
@@ -8802,9 +8708,7 @@
         "agent_capabilities": 7.15,
         "strategy": 7.9,
         "sales_outreach": 7.79,
-        "translation": 7.28,
-        "agent_long_horizon": 7.74,
-        "business_audit": 5.36
+        "translation": 7.28
       },
       "quality_avg": 8.05,
       "quality_ci95": 0.306,
@@ -8850,7 +8754,7 @@
       "multimodal": false,
       "runs": 86,
       "total_runs": 90,
-      "score_global": 6.34,
+      "score_global": 6.33,
       "score_by_pillar": {
         "Contenido": 7.64,
         "Agentes": 6.92,
@@ -8956,7 +8860,7 @@
       "multimodal": true,
       "runs": 87,
       "total_runs": 91,
-      "score_global": 6.32,
+      "score_global": 6.33,
       "score_by_pillar": {
         "Contenido": 7.86,
         "Agentes": 7.03,
@@ -9039,6 +8943,112 @@
       "score_global_linear": 7.57
     },
     {
+      "key": "gpt-4.1",
+      "id": "gpt-4.1",
+      "name": "GPT-4.1",
+      "tier": "medium",
+      "provider": "openai_direct",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 2.0,
+      "cost_output_per_M": 8.0,
+      "cost_per_1k_calls_usd": 12.6,
+      "context_window": null,
+      "subscriptions": [],
+      "notes": "",
+      "tested": true,
+      "retired": false,
+      "provider_variant": true,
+      "ranked": false,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 142,
+      "total_runs": 150,
+      "score_global": 6.08,
+      "score_by_pillar": {
+        "Contenido": 7.47,
+        "Agentes": 6.2,
+        "Coding": 7.9,
+        "Razonamiento": 7.66
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.198,
+          "speed_score_avg": 8.72,
+          "latency_score_avg": 2.56,
+          "cost_score_avg": 5.91,
+          "quality_ci95": 0.362
+        },
+        "Agentes": {
+          "quality_avg": 5.992,
+          "speed_score_avg": 7.65,
+          "latency_score_avg": 5.05,
+          "cost_score_avg": 7.039,
+          "quality_ci95": 0.916
+        },
+        "Coding": {
+          "quality_avg": 8.388,
+          "speed_score_avg": 7.939,
+          "latency_score_avg": 5.121,
+          "cost_score_avg": 6.972,
+          "quality_ci95": 0.37
+        },
+        "Razonamiento": {
+          "quality_avg": 8.574,
+          "speed_score_avg": 8.815,
+          "latency_score_avg": 2.185,
+          "cost_score_avg": 5.531,
+          "quality_ci95": 0.369
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 7.55,
+        "tool_calling": 5.72,
+        "task_management": 7.68,
+        "code_generation": 8.06,
+        "reasoning": 8.05,
+        "summarization": 7.24,
+        "presentation": 7.66,
+        "startup_content": 7.92,
+        "deep_reasoning": 7.54,
+        "customer_support": 4.72,
+        "structured_output": 7.44,
+        "hallucination": 7.46,
+        "creativity": 6.93,
+        "string_precision": 8.34,
+        "news_seo_writing": 7.06,
+        "ocr_extraction": 7.31,
+        "orchestration": 6.57,
+        "multi_turn": 7.43,
+        "policy_adherence": 7.05,
+        "agent_capabilities": 5.56,
+        "strategy": 7.75,
+        "sales_outreach": 8.16,
+        "translation": 7.93
+      },
+      "quality_avg": 7.86,
+      "quality_ci95": 0.34,
+      "cost_score_avg": 6.3,
+      "speed_score_avg": 8.38,
+      "latency_score_avg": 3.58,
+      "tool_calling_score_avg": 7.15,
+      "judge_score_avg": 4.29,
+      "tokens_per_second": 89.7,
+      "latency_avg_s": 6.18,
+      "total_input_tokens": 30669,
+      "total_output_tokens": 82821,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 7.35
+    },
+    {
       "key": "groq-gpt-oss-20b",
       "id": "openai/gpt-oss-20b",
       "name": "GPT-OSS 20B (Groq)",
@@ -9061,13 +9071,13 @@
       "thinking": false,
       "multimodal": false,
       "runs": 86,
-      "total_runs": 154,
-      "score_global": 6.02,
+      "total_runs": 90,
+      "score_global": 6.06,
       "score_by_pillar": {
         "Contenido": 8.25,
         "Agentes": 6.84,
         "Coding": 7.63,
-        "Razonamiento": 6.75
+        "Razonamiento": 7.71
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -9092,11 +9102,11 @@
           "quality_ci95": 0.806
         },
         "Razonamiento": {
-          "quality_avg": 6.565,
-          "speed_score_avg": 9.44,
-          "latency_score_avg": 3.36,
+          "quality_avg": 7.749,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 4.533,
           "cost_score_avg": 8.0,
-          "quality_ci95": 1.033
+          "quality_ci95": 1.087
         }
       },
       "score_by_suite": {
@@ -9122,10 +9132,7 @@
         "agent_capabilities": 6.99,
         "strategy": 8.09,
         "sales_outreach": 8.6,
-        "translation": 8.56,
-        "agent_long_horizon": 8.46,
-        "niah_es_lite": 6.46,
-        "business_audit": 5.32
+        "translation": 8.56
       },
       "quality_avg": 7.45,
       "quality_ci95": 0.415,
@@ -9138,9 +9145,9 @@
       "latency_avg_s": 1.52,
       "total_input_tokens": 25807,
       "total_output_tokens": 95936,
-      "long_context_runs": 45,
-      "long_context_quality": 6.2,
-      "long_context_score": 6.46,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
       "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
@@ -9171,7 +9178,7 @@
       "multimodal": false,
       "runs": 86,
       "total_runs": 90,
-      "score_global": 5.86,
+      "score_global": 5.85,
       "score_by_pillar": {
         "Contenido": 7.17,
         "Agentes": 6.55,
@@ -9276,13 +9283,13 @@
       "thinking": true,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 101,
-      "score_global": 5.83,
+      "total_runs": 91,
+      "score_global": 5.81,
       "score_by_pillar": {
         "Contenido": 7.19,
         "Agentes": 6.5,
         "Coding": 6.94,
-        "Razonamiento": 6.4
+        "Razonamiento": 7.04
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -9307,11 +9314,11 @@
           "quality_ci95": 0.441
         },
         "Razonamiento": {
-          "quality_avg": 7.353,
-          "speed_score_avg": 3.8,
+          "quality_avg": 8.369,
+          "speed_score_avg": 2.2,
           "latency_score_avg": 1.0,
-          "cost_score_avg": 5.979,
-          "quality_ci95": 0.863
+          "cost_score_avg": 6.268,
+          "quality_ci95": 0.739
         }
       },
       "score_by_suite": {
@@ -9337,8 +9344,7 @@
         "agent_capabilities": 6.64,
         "strategy": 7.38,
         "sales_outreach": 7.81,
-        "translation": 6.93,
-        "business_audit": 5.45
+        "translation": 6.93
       },
       "quality_avg": 8.13,
       "quality_ci95": 0.272,
@@ -9361,16 +9367,16 @@
       "score_global_linear": 6.95
     },
     {
-      "key": "gpt-4.1",
-      "id": "gpt-4.1",
-      "name": "GPT-4.1",
-      "tier": "medium",
+      "key": "gpt-4.1-mini",
+      "id": "gpt-4.1-mini",
+      "name": "GPT-4.1 Mini",
+      "tier": "cheap",
       "provider": "openai_direct",
       "open_source": false,
       "license": "",
-      "cost_input_per_M": 2.0,
-      "cost_output_per_M": 8.0,
-      "cost_per_1k_calls_usd": 12.6,
+      "cost_input_per_M": 0.4,
+      "cost_output_per_M": 1.6,
+      "cost_per_1k_calls_usd": 2.52,
       "context_window": null,
       "subscriptions": [],
       "notes": "",
@@ -9382,93 +9388,89 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
-      "runs": 147,
-      "total_runs": 264,
-      "score_global": 5.66,
+      "runs": 142,
+      "total_runs": 150,
+      "score_global": 5.76,
       "score_by_pillar": {
-        "Contenido": 7.47,
-        "Agentes": 6.09,
-        "Coding": 7.9,
-        "Razonamiento": 7.21
+        "Contenido": 7.62,
+        "Agentes": 6.11,
+        "Coding": 7.78,
+        "Razonamiento": 7.82
       },
       "dims_by_pillar": {
         "Contenido": {
-          "quality_avg": 8.198,
-          "speed_score_avg": 8.72,
-          "latency_score_avg": 2.56,
-          "cost_score_avg": 5.91,
-          "quality_ci95": 0.362
+          "quality_avg": 8.108,
+          "speed_score_avg": 8.2,
+          "latency_score_avg": 2.5,
+          "cost_score_avg": 7.645,
+          "quality_ci95": 0.368
         },
         "Agentes": {
-          "quality_avg": 5.87,
-          "speed_score_avg": 7.422,
-          "latency_score_avg": 4.889,
-          "cost_score_avg": 7.028,
-          "quality_ci95": 0.918
+          "quality_avg": 5.734,
+          "speed_score_avg": 7.25,
+          "latency_score_avg": 4.825,
+          "cost_score_avg": 7.935,
+          "quality_ci95": 0.882
         },
         "Coding": {
-          "quality_avg": 8.388,
-          "speed_score_avg": 7.939,
-          "latency_score_avg": 5.121,
-          "cost_score_avg": 6.972,
-          "quality_ci95": 0.37
+          "quality_avg": 8.187,
+          "speed_score_avg": 6.97,
+          "latency_score_avg": 4.606,
+          "cost_score_avg": 7.896,
+          "quality_ci95": 0.392
         },
         "Razonamiento": {
-          "quality_avg": 7.926,
-          "speed_score_avg": 8.568,
-          "latency_score_avg": 2.324,
-          "cost_score_avg": 5.648,
-          "quality_ci95": 0.568
+          "quality_avg": 8.502,
+          "speed_score_avg": 8.222,
+          "latency_score_avg": 1.963,
+          "cost_score_avg": 7.357,
+          "quality_ci95": 0.441
         }
       },
       "score_by_suite": {
-        "content_generation": 7.55,
-        "tool_calling": 5.72,
-        "task_management": 7.68,
-        "code_generation": 8.06,
-        "reasoning": 8.05,
-        "summarization": 7.24,
-        "presentation": 7.66,
-        "startup_content": 7.92,
-        "deep_reasoning": 7.54,
-        "customer_support": 4.72,
-        "structured_output": 7.44,
-        "hallucination": 7.46,
-        "creativity": 6.93,
-        "string_precision": 8.34,
-        "news_seo_writing": 7.06,
-        "agent_capabilities": 5.36,
-        "ocr_extraction": 7.31,
-        "orchestration": 6.57,
-        "multi_turn": 7.43,
-        "policy_adherence": 7.05,
-        "strategy": 7.75,
-        "sales_outreach": 8.16,
-        "translation": 7.93,
-        "agent_long_horizon": 7.65,
-        "niah_es": 6.14,
-        "niah_es_1m": 5.35,
-        "business_audit": 6.01
+        "content_generation": 7.72,
+        "tool_calling": 5.86,
+        "task_management": 7.6,
+        "code_generation": 7.91,
+        "reasoning": 8.28,
+        "summarization": 6.86,
+        "presentation": 7.7,
+        "startup_content": 8.29,
+        "deep_reasoning": 7.78,
+        "customer_support": 4.76,
+        "structured_output": 7.35,
+        "hallucination": 7.25,
+        "creativity": 7.21,
+        "string_precision": 8.28,
+        "news_seo_writing": 7.21,
+        "ocr_extraction": 7.08,
+        "orchestration": 6.48,
+        "multi_turn": 6.72,
+        "policy_adherence": 7.01,
+        "agent_capabilities": 5.3,
+        "strategy": 8.19,
+        "sales_outreach": 8.21,
+        "translation": 7.99
       },
-      "quality_avg": 7.76,
-      "quality_ci95": 0.363,
-      "cost_score_avg": 6.32,
-      "speed_score_avg": 8.29,
-      "latency_score_avg": 3.58,
-      "tool_calling_score_avg": 7.09,
-      "judge_score_avg": 4.29,
-      "tokens_per_second": 88.3,
-      "latency_avg_s": 6.09,
-      "total_input_tokens": 33109,
-      "total_output_tokens": 83799,
-      "long_context_runs": 87,
-      "long_context_quality": 7.43,
-      "long_context_score": 6.01,
+      "quality_avg": 7.69,
+      "quality_ci95": 0.346,
+      "cost_score_avg": 7.71,
+      "speed_score_avg": 7.76,
+      "latency_score_avg": 3.3,
+      "tool_calling_score_avg": 6.97,
+      "judge_score_avg": 4.18,
+      "tokens_per_second": 73.2,
+      "latency_avg_s": 8.02,
+      "total_input_tokens": 30669,
+      "total_output_tokens": 79613,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
       "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
       "security_score": null,
-      "score_global_linear": 7.27
+      "score_global_linear": 7.37
     },
     {
       "key": "nim-nemotron-nano-9b-v2",
@@ -9494,7 +9496,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 91,
-      "score_global": 5.65,
+      "score_global": 5.66,
       "score_by_pillar": {
         "Contenido": 7.78,
         "Agentes": 6.59,
@@ -9599,13 +9601,13 @@
       "thinking": true,
       "multimodal": false,
       "runs": 82,
-      "total_runs": 96,
+      "total_runs": 86,
       "score_global": 5.63,
       "score_by_pillar": {
         "Contenido": 7.58,
         "Agentes": 6.4,
         "Coding": 7.03,
-        "Razonamiento": 6.55
+        "Razonamiento": 7.61
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -9630,11 +9632,11 @@
           "quality_ci95": 0.472
         },
         "Razonamiento": {
-          "quality_avg": 7.003,
-          "speed_score_avg": 5.391,
+          "quality_avg": 8.699,
+          "speed_score_avg": 4.0,
           "latency_score_avg": 1.0,
-          "cost_score_avg": 7.802,
-          "quality_ci95": 1.006
+          "cost_score_avg": 7.658,
+          "quality_ci95": 0.304
         }
       },
       "score_by_suite": {
@@ -9660,8 +9662,7 @@
         "agent_capabilities": 6.91,
         "strategy": 7.92,
         "sales_outreach": 7.64,
-        "translation": 7.81,
-        "business_audit": 5.17
+        "translation": 7.81
       },
       "quality_avg": 7.92,
       "quality_ci95": 0.347,
@@ -9706,8 +9707,8 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 103,
-      "score_global": 5.45,
+      "total_runs": 91,
+      "score_global": 5.47,
       "score_by_pillar": {
         "Contenido": 7.84,
         "Agentes": 6.02,
@@ -9767,8 +9768,7 @@
         "agent_capabilities": 5.51,
         "strategy": 8.17,
         "sales_outreach": 8.23,
-        "translation": 7.98,
-        "agent_long_horizon": 7.8
+        "translation": 7.98
       },
       "quality_avg": 7.71,
       "quality_ci95": 0.472,
@@ -9789,113 +9789,6 @@
       "security_runs": 0,
       "security_score": null,
       "score_global_linear": 7.24
-    },
-    {
-      "key": "gpt-4.1-mini",
-      "id": "gpt-4.1-mini",
-      "name": "GPT-4.1 Mini",
-      "tier": "cheap",
-      "provider": "openai_direct",
-      "open_source": false,
-      "license": "",
-      "cost_input_per_M": 0.4,
-      "cost_output_per_M": 1.6,
-      "cost_per_1k_calls_usd": 2.52,
-      "context_window": null,
-      "subscriptions": [],
-      "notes": "",
-      "tested": true,
-      "retired": false,
-      "provider_variant": true,
-      "ranked": false,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": false,
-      "runs": 147,
-      "total_runs": 165,
-      "score_global": 5.42,
-      "score_by_pillar": {
-        "Contenido": 7.62,
-        "Agentes": 6.06,
-        "Coding": 7.78,
-        "Razonamiento": 7.05
-      },
-      "dims_by_pillar": {
-        "Contenido": {
-          "quality_avg": 8.108,
-          "speed_score_avg": 8.2,
-          "latency_score_avg": 2.5,
-          "cost_score_avg": 7.645,
-          "quality_ci95": 0.368
-        },
-        "Agentes": {
-          "quality_avg": 5.672,
-          "speed_score_avg": 7.2,
-          "latency_score_avg": 4.778,
-          "cost_score_avg": 7.942,
-          "quality_ci95": 0.887
-        },
-        "Coding": {
-          "quality_avg": 8.187,
-          "speed_score_avg": 6.97,
-          "latency_score_avg": 4.606,
-          "cost_score_avg": 7.896,
-          "quality_ci95": 0.392
-        },
-        "Razonamiento": {
-          "quality_avg": 7.409,
-          "speed_score_avg": 7.757,
-          "latency_score_avg": 2.054,
-          "cost_score_avg": 7.507,
-          "quality_ci95": 0.759
-        }
-      },
-      "score_by_suite": {
-        "content_generation": 7.72,
-        "tool_calling": 5.86,
-        "task_management": 7.6,
-        "code_generation": 7.91,
-        "reasoning": 8.28,
-        "summarization": 6.86,
-        "presentation": 7.7,
-        "startup_content": 8.29,
-        "deep_reasoning": 7.78,
-        "customer_support": 4.76,
-        "structured_output": 7.35,
-        "hallucination": 7.25,
-        "creativity": 7.21,
-        "string_precision": 8.28,
-        "news_seo_writing": 7.21,
-        "agent_capabilities": 5.48,
-        "ocr_extraction": 7.08,
-        "orchestration": 6.48,
-        "multi_turn": 6.72,
-        "policy_adherence": 7.01,
-        "strategy": 8.19,
-        "sales_outreach": 8.21,
-        "translation": 7.99,
-        "business_audit": 4.97
-      },
-      "quality_avg": 7.61,
-      "quality_ci95": 0.365,
-      "cost_score_avg": 7.72,
-      "speed_score_avg": 7.73,
-      "latency_score_avg": 3.34,
-      "tool_calling_score_avg": 6.98,
-      "judge_score_avg": 4.18,
-      "tokens_per_second": 72.4,
-      "latency_avg_s": 7.87,
-      "total_input_tokens": 33109,
-      "total_output_tokens": 80459,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null,
-      "score_global_linear": 7.31
     },
     {
       "key": "gpt-oss-120b-cloud",
@@ -9929,8 +9822,8 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 148,
-      "score_global": 5.41,
+      "total_runs": 91,
+      "score_global": 5.43,
       "score_by_pillar": {
         "Contenido": 7.93,
         "Agentes": 6.41,
@@ -9990,9 +9883,7 @@
         "agent_capabilities": 7.04,
         "strategy": 7.74,
         "sales_outreach": 8.22,
-        "translation": 7.91,
-        "agent_long_horizon": 8.52,
-        "niah_es_lite": 5.88
+        "translation": 7.91
       },
       "quality_avg": 7.67,
       "quality_ci95": 0.374,
@@ -10005,14 +9896,120 @@
       "latency_avg_s": 13.33,
       "total_input_tokens": 26161,
       "total_output_tokens": 92180,
-      "long_context_runs": 45,
-      "long_context_quality": 5.63,
-      "long_context_score": 5.88,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
       "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
       "security_score": null,
       "score_global_linear": 7.31
+    },
+    {
+      "key": "gpt-5.4-mini",
+      "id": "gpt-5.4-mini",
+      "name": "GPT-5.4 Mini",
+      "tier": "cheap",
+      "provider": "openai_direct",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 0.5,
+      "cost_output_per_M": 1.5,
+      "cost_per_1k_calls_usd": 2.4,
+      "context_window": null,
+      "subscriptions": [],
+      "notes": "",
+      "tested": true,
+      "retired": false,
+      "provider_variant": true,
+      "ranked": false,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": true,
+      "multimodal": true,
+      "runs": 142,
+      "total_runs": 150,
+      "score_global": 5.31,
+      "score_by_pillar": {
+        "Contenido": 7.21,
+        "Agentes": 6.68,
+        "Coding": 7.71,
+        "Razonamiento": 7.46
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.615,
+          "speed_score_avg": 9.72,
+          "latency_score_avg": 2.68,
+          "cost_score_avg": 6.328,
+          "quality_ci95": 0.656
+        },
+        "Agentes": {
+          "quality_avg": 6.454,
+          "speed_score_avg": 8.8,
+          "latency_score_avg": 5.05,
+          "cost_score_avg": 7.486,
+          "quality_ci95": 0.736
+        },
+        "Coding": {
+          "quality_avg": 7.955,
+          "speed_score_avg": 8.242,
+          "latency_score_avg": 5.667,
+          "cost_score_avg": 7.336,
+          "quality_ci95": 0.573
+        },
+        "Razonamiento": {
+          "quality_avg": 7.997,
+          "speed_score_avg": 9.852,
+          "latency_score_avg": 2.778,
+          "cost_score_avg": 6.119,
+          "quality_ci95": 0.969
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 7.77,
+        "tool_calling": 5.86,
+        "task_management": 7.03,
+        "code_generation": 7.6,
+        "reasoning": 7.14,
+        "summarization": 7.05,
+        "presentation": 7.88,
+        "startup_content": 6.8,
+        "deep_reasoning": 7.41,
+        "customer_support": 5.59,
+        "structured_output": 7.06,
+        "hallucination": 7.72,
+        "creativity": 6.31,
+        "string_precision": 8.49,
+        "news_seo_writing": 7.24,
+        "ocr_extraction": 7.06,
+        "orchestration": 7.34,
+        "multi_turn": 7.22,
+        "policy_adherence": 7.5,
+        "agent_capabilities": 7.55,
+        "strategy": 7.8,
+        "sales_outreach": 8.27,
+        "translation": 7.63
+      },
+      "quality_avg": 7.58,
+      "quality_ci95": 0.388,
+      "cost_score_avg": 6.75,
+      "speed_score_avg": 9.3,
+      "latency_score_avg": 3.82,
+      "tool_calling_score_avg": 7.1,
+      "judge_score_avg": 4.16,
+      "tokens_per_second": 123.2,
+      "latency_avg_s": 5.34,
+      "total_input_tokens": 31993,
+      "total_output_tokens": 106870,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 7.3
     },
     {
       "key": "mimo-v2.5-pro",
@@ -10046,8 +10043,8 @@
       "thinking": false,
       "multimodal": true,
       "runs": 87,
-      "total_runs": 103,
-      "score_global": 5.06,
+      "total_runs": 91,
+      "score_global": 5.08,
       "score_by_pillar": {
         "Contenido": 7.53,
         "Agentes": 6.86,
@@ -10107,8 +10104,7 @@
         "agent_capabilities": 6.68,
         "strategy": 7.77,
         "sales_outreach": 8.56,
-        "translation": 5.67,
-        "agent_long_horizon": 7.31
+        "translation": 5.67
       },
       "quality_avg": 7.66,
       "quality_ci95": 0.419,
@@ -10129,113 +10125,6 @@
       "security_runs": 0,
       "security_score": null,
       "score_global_linear": 7.19
-    },
-    {
-      "key": "gpt-5.4-mini",
-      "id": "gpt-5.4-mini",
-      "name": "GPT-5.4 Mini",
-      "tier": "cheap",
-      "provider": "openai_direct",
-      "open_source": false,
-      "license": "",
-      "cost_input_per_M": 0.5,
-      "cost_output_per_M": 1.5,
-      "cost_per_1k_calls_usd": 2.4,
-      "context_window": null,
-      "subscriptions": [],
-      "notes": "",
-      "tested": true,
-      "retired": false,
-      "provider_variant": true,
-      "ranked": false,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": true,
-      "multimodal": true,
-      "runs": 147,
-      "total_runs": 165,
-      "score_global": 4.93,
-      "score_by_pillar": {
-        "Contenido": 7.21,
-        "Agentes": 6.56,
-        "Coding": 7.71,
-        "Razonamiento": 6.95
-      },
-      "dims_by_pillar": {
-        "Contenido": {
-          "quality_avg": 7.615,
-          "speed_score_avg": 9.72,
-          "latency_score_avg": 2.68,
-          "cost_score_avg": 6.328,
-          "quality_ci95": 0.656
-        },
-        "Agentes": {
-          "quality_avg": 6.304,
-          "speed_score_avg": 8.578,
-          "latency_score_avg": 5.067,
-          "cost_score_avg": 7.508,
-          "quality_ci95": 0.781
-        },
-        "Coding": {
-          "quality_avg": 7.955,
-          "speed_score_avg": 8.242,
-          "latency_score_avg": 5.667,
-          "cost_score_avg": 7.336,
-          "quality_ci95": 0.573
-        },
-        "Razonamiento": {
-          "quality_avg": 7.276,
-          "speed_score_avg": 9.568,
-          "latency_score_avg": 2.784,
-          "cost_score_avg": 6.209,
-          "quality_ci95": 0.9
-        }
-      },
-      "score_by_suite": {
-        "content_generation": 7.77,
-        "tool_calling": 5.86,
-        "task_management": 7.03,
-        "code_generation": 7.6,
-        "reasoning": 7.14,
-        "summarization": 7.05,
-        "presentation": 7.88,
-        "startup_content": 6.8,
-        "deep_reasoning": 7.41,
-        "customer_support": 5.59,
-        "structured_output": 7.06,
-        "hallucination": 7.72,
-        "creativity": 6.31,
-        "string_precision": 8.49,
-        "news_seo_writing": 7.24,
-        "agent_capabilities": 6.59,
-        "ocr_extraction": 7.06,
-        "orchestration": 7.34,
-        "multi_turn": 7.22,
-        "policy_adherence": 7.5,
-        "strategy": 7.8,
-        "sales_outreach": 8.27,
-        "translation": 7.63,
-        "business_audit": 5.57
-      },
-      "quality_avg": 7.49,
-      "quality_ci95": 0.401,
-      "cost_score_avg": 6.79,
-      "speed_score_avg": 9.21,
-      "latency_score_avg": 3.86,
-      "tool_calling_score_avg": 7.07,
-      "judge_score_avg": 4.16,
-      "tokens_per_second": 121.1,
-      "latency_avg_s": 5.24,
-      "total_input_tokens": 34768,
-      "total_output_tokens": 107720,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null,
-      "score_global_linear": 7.24
     },
     {
       "key": "mimo-v2.5",
@@ -10269,8 +10158,8 @@
       "thinking": false,
       "multimodal": true,
       "runs": 87,
-      "total_runs": 148,
-      "score_global": 4.87,
+      "total_runs": 91,
+      "score_global": 4.9,
       "score_by_pillar": {
         "Contenido": 7.8,
         "Agentes": 6.89,
@@ -10330,9 +10219,7 @@
         "agent_capabilities": 6.92,
         "strategy": 8.02,
         "sales_outreach": 8.51,
-        "translation": 7.97,
-        "agent_long_horizon": 8.27,
-        "niah_es_lite": 7.06
+        "translation": 7.97
       },
       "quality_avg": 7.56,
       "quality_ci95": 0.461,
@@ -10345,9 +10232,9 @@
       "latency_avg_s": 13.02,
       "total_input_tokens": 39726,
       "total_output_tokens": 99111,
-      "long_context_runs": 45,
-      "long_context_quality": 7.53,
-      "long_context_score": 7.06,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
       "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
@@ -10378,7 +10265,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 91,
-      "score_global": 4.35,
+      "score_global": 4.37,
       "score_by_pillar": {
         "Contenido": 7.55,
         "Agentes": 6.48,
@@ -10482,22 +10369,22 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": true,
-      "runs": 90,
-      "total_runs": 161,
-      "score_global": 2.99,
+      "runs": 87,
+      "total_runs": 91,
+      "score_global": 3.09,
       "score_by_pillar": {
-        "Contenido": 7.04,
+        "Contenido": 7.11,
         "Agentes": 5.41,
         "Coding": 6.77,
-        "Razonamiento": 6.45
+        "Razonamiento": 7.01
       },
       "dims_by_pillar": {
         "Contenido": {
-          "quality_avg": 8.281,
-          "speed_score_avg": 7.29,
-          "latency_score_avg": 1.903,
-          "cost_score_avg": 3.699,
-          "quality_ci95": 0.364
+          "quality_avg": 8.422,
+          "speed_score_avg": 7.357,
+          "latency_score_avg": 1.786,
+          "cost_score_avg": 3.553,
+          "quality_ci95": 0.32
         },
         "Agentes": {
           "quality_avg": 5.683,
@@ -10514,15 +10401,14 @@
           "quality_ci95": 0.622
         },
         "Razonamiento": {
-          "quality_avg": 7.636,
+          "quality_avg": 8.428,
           "speed_score_avg": 7.6,
-          "latency_score_avg": 1.4,
-          "cost_score_avg": 2.843,
-          "quality_ci95": 0.742
+          "latency_score_avg": 1.6,
+          "cost_score_avg": 2.77,
+          "quality_ci95": 0.652
         }
       },
       "score_by_suite": {
-        "translation": 6.67,
         "content_generation": 7.61,
         "tool_calling": 5.3,
         "task_management": 6.96,
@@ -10544,30 +10430,28 @@
         "policy_adherence": 6.84,
         "agent_capabilities": 4.8,
         "sales_outreach": 7.73,
-        "strategy": 7.28,
-        "agent_long_horizon": 7.28,
-        "niah_es_lite": 5.73,
-        "business_audit": 5.61
+        "translation": 6.98,
+        "strategy": 7.28
       },
-      "quality_avg": 7.44,
-      "quality_ci95": 0.497,
-      "cost_score_avg": 4.03,
-      "speed_score_avg": 7.24,
-      "latency_score_avg": 2.31,
-      "tool_calling_score_avg": 7.26,
+      "quality_avg": 7.46,
+      "quality_ci95": 0.51,
+      "cost_score_avg": 4.0,
+      "speed_score_avg": 7.26,
+      "latency_score_avg": 2.29,
+      "tool_calling_score_avg": 7.27,
       "judge_score_avg": 4.14,
-      "tokens_per_second": 60.8,
-      "latency_avg_s": 23.25,
-      "total_input_tokens": 22157,
-      "total_output_tokens": 119619,
-      "long_context_runs": 45,
-      "long_context_quality": 6.68,
-      "long_context_score": 5.73,
+      "tokens_per_second": 61.1,
+      "latency_avg_s": 23.77,
+      "total_input_tokens": 21653,
+      "total_output_tokens": 118040,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
       "long_context_by_size": {},
       "effective_context": null,
       "security_runs": 0,
       "security_score": null,
-      "score_global_linear": 6.53
+      "score_global_linear": 6.54
     },
     {
       "key": "gpt-5.4",
@@ -10592,13 +10476,13 @@
       "thinking": true,
       "multimodal": true,
       "runs": 142,
-      "total_runs": 160,
-      "score_global": 2.62,
+      "total_runs": 150,
+      "score_global": 2.67,
       "score_by_pillar": {
         "Contenido": 6.54,
         "Agentes": 5.69,
         "Coding": 7.42,
-        "Razonamiento": 6.56
+        "Razonamiento": 6.72
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -10623,11 +10507,11 @@
           "quality_ci95": 0.414
         },
         "Razonamiento": {
-          "quality_avg": 7.421,
-          "speed_score_avg": 7.649,
-          "latency_score_avg": 1.622,
-          "cost_score_avg": 4.467,
-          "quality_ci95": 0.903
+          "quality_avg": 7.636,
+          "speed_score_avg": 7.778,
+          "latency_score_avg": 1.593,
+          "cost_score_avg": 4.473,
+          "quality_ci95": 1.103
         }
       },
       "score_by_suite": {
@@ -10653,8 +10537,7 @@
         "agent_capabilities": 5.03,
         "strategy": 7.43,
         "sales_outreach": 7.98,
-        "translation": 7.59,
-        "business_audit": 6.13
+        "translation": 7.59
       },
       "quality_avg": 7.2,
       "quality_ci95": 0.446,
@@ -10699,13 +10582,13 @@
       "thinking": true,
       "multimodal": false,
       "runs": 174,
-      "total_runs": 192,
-      "score_global": 1.99,
+      "total_runs": 182,
+      "score_global": 2.06,
       "score_by_pillar": {
         "Contenido": 6.76,
         "Agentes": 6.69,
         "Coding": 7.03,
-        "Razonamiento": 6.08
+        "Razonamiento": 6.3
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -10730,11 +10613,11 @@
           "quality_ci95": 0.279
         },
         "Razonamiento": {
-          "quality_avg": 5.978,
-          "speed_score_avg": 9.5,
+          "quality_avg": 6.29,
+          "speed_score_avg": 9.333,
           "latency_score_avg": 1.1,
-          "cost_score_avg": 7.348,
-          "quality_ci95": 0.572
+          "cost_score_avg": 7.46,
+          "quality_ci95": 0.517
         }
       },
       "score_by_suite": {
@@ -10760,8 +10643,7 @@
         "agent_capabilities": 6.96,
         "strategy": 6.25,
         "sales_outreach": 7.15,
-        "translation": 6.43,
-        "business_audit": 5.42
+        "translation": 6.43
       },
       "quality_avg": 6.91,
       "quality_ci95": 0.177,
@@ -10806,8 +10688,8 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 103,
-      "score_global": 0.9,
+      "total_runs": 91,
+      "score_global": 0.99,
       "score_by_pillar": {
         "Contenido": 6.98,
         "Agentes": 6.59,
@@ -10867,8 +10749,7 @@
         "agent_capabilities": 6.81,
         "strategy": 5.86,
         "sales_outreach": 5.98,
-        "translation": 5.72,
-        "agent_long_horizon": 7.39
+        "translation": 5.72
       },
       "quality_avg": 6.69,
       "quality_ci95": 0.675,
@@ -10913,13 +10794,13 @@
       "thinking": true,
       "multimodal": false,
       "runs": 86,
-      "total_runs": 112,
-      "score_global": 0.03,
+      "total_runs": 90,
+      "score_global": 0.12,
       "score_by_pillar": {
         "Contenido": 6.45,
         "Agentes": 6.39,
         "Coding": 5.99,
-        "Razonamiento": 5.03
+        "Razonamiento": 4.98
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -10944,11 +10825,11 @@
           "quality_ci95": 1.204
         },
         "Razonamiento": {
-          "quality_avg": 5.112,
-          "speed_score_avg": 6.08,
-          "latency_score_avg": 1.12,
-          "cost_score_avg": 6.069,
-          "quality_ci95": 1.378
+          "quality_avg": 5.133,
+          "speed_score_avg": 5.333,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.07,
+          "quality_ci95": 2.132
         }
       },
       "score_by_suite": {
@@ -10974,9 +10855,7 @@
         "agent_capabilities": 6.27,
         "strategy": 5.23,
         "sales_outreach": 7.42,
-        "translation": 5.11,
-        "agent_long_horizon": 7.55,
-        "business_audit": 5.1
+        "translation": 5.11
       },
       "quality_avg": 6.65,
       "quality_ci95": 0.632,
@@ -11021,7 +10900,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 23,
-      "total_runs": 39,
+      "total_runs": 27,
       "score_global": 0.0,
       "score_by_pillar": {
         "Contenido": 6.41,
@@ -11067,8 +10946,7 @@
         "reasoning": 3.36,
         "summarization": 6.46,
         "presentation": 7.27,
-        "startup_content": 7.28,
-        "agent_long_horizon": 6.67
+        "startup_content": 7.28
       },
       "quality_avg": 6.27,
       "quality_ci95": 1.195,
@@ -11121,22 +10999,22 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
-      "runs": 90,
-      "total_runs": 94,
+      "runs": 87,
+      "total_runs": 91,
       "score_global": 0.0,
       "score_by_pillar": {
-        "Contenido": 4.91,
+        "Contenido": 5.09,
         "Agentes": 6.33,
         "Coding": 6.17,
         "Razonamiento": 4.12
       },
       "dims_by_pillar": {
         "Contenido": {
-          "quality_avg": 4.788,
-          "speed_score_avg": 8.065,
+          "quality_avg": 5.015,
+          "speed_score_avg": 8.286,
           "latency_score_avg": 1.0,
-          "cost_score_avg": 5.872,
-          "quality_ci95": 1.307
+          "cost_score_avg": 5.885,
+          "quality_ci95": 1.346
         },
         "Agentes": {
           "quality_avg": 6.671,
@@ -11161,7 +11039,6 @@
         }
       },
       "score_by_suite": {
-        "translation": 3.14,
         "content_generation": 7.67,
         "tool_calling": 6.84,
         "task_management": 7.77,
@@ -11183,19 +11060,20 @@
         "policy_adherence": 5.43,
         "agent_capabilities": 5.91,
         "strategy": 5.4,
-        "sales_outreach": 3.85
+        "sales_outreach": 3.85,
+        "translation": 3.02
       },
-      "quality_avg": 5.43,
-      "quality_ci95": 0.738,
-      "cost_score_avg": 6.19,
-      "speed_score_avg": 7.88,
-      "latency_score_avg": 1.3,
+      "quality_avg": 5.52,
+      "quality_ci95": 0.741,
+      "cost_score_avg": 6.21,
+      "speed_score_avg": 7.94,
+      "latency_score_avg": 1.31,
       "tool_calling_score_avg": 7.24,
       "judge_score_avg": 4.04,
-      "tokens_per_second": 76.9,
-      "latency_avg_s": 33.13,
-      "total_input_tokens": 32800,
-      "total_output_tokens": 167410,
+      "tokens_per_second": 77.8,
+      "latency_avg_s": 31.58,
+      "total_input_tokens": 32258,
+      "total_output_tokens": 160486,
       "long_context_runs": 0,
       "long_context_quality": null,
       "long_context_score": null,
@@ -11203,7 +11081,7 @@
       "effective_context": null,
       "security_runs": 0,
       "security_score": null,
-      "score_global_linear": 5.42
+      "score_global_linear": 5.49
     },
     {
       "key": "nim-kimi-k2.5",
@@ -11228,13 +11106,13 @@
       "thinking": true,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 101,
+      "total_runs": 91,
       "score_global": 0.0,
       "score_by_pillar": {
         "Contenido": 6.15,
         "Agentes": 6.21,
         "Coding": 5.57,
-        "Razonamiento": 4.58
+        "Razonamiento": 4.42
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -11259,11 +11137,11 @@
           "quality_ci95": 1.282
         },
         "Razonamiento": {
-          "quality_avg": 4.58,
-          "speed_score_avg": 4.88,
+          "quality_avg": 4.482,
+          "speed_score_avg": 3.6,
           "latency_score_avg": 1.0,
-          "cost_score_avg": 6.231,
-          "quality_ci95": 1.262
+          "cost_score_avg": 6.254,
+          "quality_ci95": 1.925
         }
       },
       "score_by_suite": {
@@ -11289,8 +11167,7 @@
         "agent_capabilities": 6.44,
         "strategy": 5.36,
         "sales_outreach": 7.85,
-        "translation": 5.27,
-        "business_audit": 4.82
+        "translation": 5.27
       },
       "quality_avg": 6.28,
       "quality_ci95": 0.639,
@@ -11335,7 +11212,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 23,
-      "total_runs": 39,
+      "total_runs": 27,
       "score_global": 0.0,
       "score_by_pillar": {
         "Contenido": 6.41,
@@ -11381,8 +11258,7 @@
         "reasoning": 3.36,
         "summarization": 6.46,
         "presentation": 7.27,
-        "startup_content": 7.28,
-        "agent_long_horizon": 6.67
+        "startup_content": 7.28
       },
       "quality_avg": 6.27,
       "quality_ci95": 1.195,
@@ -11573,7 +11449,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 7,
-      "total_runs": 87,
+      "total_runs": 75,
       "score_global": 7.41,
       "score_by_pillar": {
         "Contenido": 7.41,
@@ -11599,7 +11475,6 @@
         "content_generation": 6.32,
         "tool_calling": 4.85,
         "startup_content": 8.22,
-        "agent_long_horizon": 7.99,
         "niah_es": 8.06,
         "prompt_injection_es": 2.81
       },
@@ -11649,7 +11524,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 7,
-      "total_runs": 87,
+      "total_runs": 75,
       "score_global": 7.41,
       "score_by_pillar": {
         "Contenido": 7.41,
@@ -11675,7 +11550,6 @@
         "content_generation": 6.32,
         "tool_calling": 4.85,
         "startup_content": 8.22,
-        "agent_long_horizon": 7.99,
         "niah_es": 8.06,
         "prompt_injection_es": 2.81
       },
@@ -11967,31 +11841,17 @@
       "thinking": true,
       "multimodal": true,
       "runs": 0,
-      "total_runs": 12,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "dims_by_pillar": {},
-      "score_by_suite": {
-        "agent_long_horizon": 7.79
-      },
-      "quality_avg": null,
+      "score_by_suite": {},
       "quality_ci95": null,
-      "cost_score_avg": null,
-      "speed_score_avg": null,
-      "latency_score_avg": null,
-      "tool_calling_score_avg": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
       "total_input_tokens": 0,
-      "total_output_tokens": 0,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "total_output_tokens": 0
     },
     {
       "key": "qwen-3.5-plus",
@@ -12051,31 +11911,17 @@
       "thinking": true,
       "multimodal": false,
       "runs": 0,
-      "total_runs": 12,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "dims_by_pillar": {},
-      "score_by_suite": {
-        "agent_long_horizon": 7.5
-      },
-      "quality_avg": null,
+      "score_by_suite": {},
       "quality_ci95": null,
-      "cost_score_avg": null,
-      "speed_score_avg": null,
-      "latency_score_avg": null,
-      "tool_calling_score_avg": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
       "total_input_tokens": 0,
-      "total_output_tokens": 0,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "total_output_tokens": 0
     },
     {
       "key": "kimi-k2.6-thinking",
@@ -12100,31 +11946,17 @@
       "thinking": true,
       "multimodal": false,
       "runs": 0,
-      "total_runs": 12,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "dims_by_pillar": {},
-      "score_by_suite": {
-        "agent_long_horizon": 6.96
-      },
-      "quality_avg": null,
+      "score_by_suite": {},
       "quality_ci95": null,
-      "cost_score_avg": null,
-      "speed_score_avg": null,
-      "latency_score_avg": null,
-      "tool_calling_score_avg": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
       "total_input_tokens": 0,
-      "total_output_tokens": 0,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "total_output_tokens": 0
     },
     {
       "key": "claude-opus-4.7-thinking",
@@ -12149,31 +11981,17 @@
       "thinking": true,
       "multimodal": true,
       "runs": 0,
-      "total_runs": 12,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "dims_by_pillar": {},
-      "score_by_suite": {
-        "agent_long_horizon": 6.73
-      },
-      "quality_avg": null,
+      "score_by_suite": {},
       "quality_ci95": null,
-      "cost_score_avg": null,
-      "speed_score_avg": null,
-      "latency_score_avg": null,
-      "tool_calling_score_avg": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
       "total_input_tokens": 0,
-      "total_output_tokens": 0,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "total_output_tokens": 0
     },
     {
       "key": "gpt-4o",
@@ -12268,31 +12086,17 @@
       "thinking": true,
       "multimodal": true,
       "runs": 0,
-      "total_runs": 12,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "dims_by_pillar": {},
-      "score_by_suite": {
-        "agent_long_horizon": 7.09
-      },
-      "quality_avg": null,
+      "score_by_suite": {},
       "quality_ci95": null,
-      "cost_score_avg": null,
-      "speed_score_avg": null,
-      "latency_score_avg": null,
-      "tool_calling_score_avg": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
       "total_input_tokens": 0,
-      "total_output_tokens": 0,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "total_output_tokens": 0
     },
     {
       "key": "claude-haiku-4.5",
@@ -12317,31 +12121,17 @@
       "thinking": false,
       "multimodal": false,
       "runs": 0,
-      "total_runs": 12,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "dims_by_pillar": {},
-      "score_by_suite": {
-        "agent_long_horizon": 7.33
-      },
-      "quality_avg": null,
+      "score_by_suite": {},
       "quality_ci95": null,
-      "cost_score_avg": null,
-      "speed_score_avg": null,
-      "latency_score_avg": null,
-      "tool_calling_score_avg": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
       "total_input_tokens": 0,
-      "total_output_tokens": 0,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "total_output_tokens": 0
     },
     {
       "key": "claude-haiku-4.5-thinking",
@@ -12366,31 +12156,17 @@
       "thinking": true,
       "multimodal": false,
       "runs": 0,
-      "total_runs": 12,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "dims_by_pillar": {},
-      "score_by_suite": {
-        "agent_long_horizon": 6.83
-      },
-      "quality_avg": null,
+      "score_by_suite": {},
       "quality_ci95": null,
-      "cost_score_avg": null,
-      "speed_score_avg": null,
-      "latency_score_avg": null,
-      "tool_calling_score_avg": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
       "total_input_tokens": 0,
-      "total_output_tokens": 0,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "total_output_tokens": 0
     },
     {
       "key": "openrouter-north-mini-code",
@@ -12673,31 +12449,17 @@
       "thinking": true,
       "multimodal": true,
       "runs": 0,
-      "total_runs": 12,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "dims_by_pillar": {},
-      "score_by_suite": {
-        "agent_long_horizon": 7.97
-      },
-      "quality_avg": null,
+      "score_by_suite": {},
       "quality_ci95": null,
-      "cost_score_avg": null,
-      "speed_score_avg": null,
-      "latency_score_avg": null,
-      "tool_calling_score_avg": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
       "total_input_tokens": 0,
-      "total_output_tokens": 0,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "total_output_tokens": 0
     },
     {
       "key": "gemini-3.1-pro-thinking",
@@ -12722,31 +12484,17 @@
       "thinking": true,
       "multimodal": true,
       "runs": 0,
-      "total_runs": 12,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "dims_by_pillar": {},
-      "score_by_suite": {
-        "agent_long_horizon": 6.97
-      },
-      "quality_avg": null,
+      "score_by_suite": {},
       "quality_ci95": null,
-      "cost_score_avg": null,
-      "speed_score_avg": null,
-      "latency_score_avg": null,
-      "tool_calling_score_avg": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
       "total_input_tokens": 0,
-      "total_output_tokens": 0,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "total_output_tokens": 0
     },
     {
       "key": "grok-4.20-multi-agent",
@@ -12876,31 +12624,17 @@
       "thinking": true,
       "multimodal": false,
       "runs": 0,
-      "total_runs": 12,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "dims_by_pillar": {},
-      "score_by_suite": {
-        "agent_long_horizon": 7.77
-      },
-      "quality_avg": null,
+      "score_by_suite": {},
       "quality_ci95": null,
-      "cost_score_avg": null,
-      "speed_score_avg": null,
-      "latency_score_avg": null,
-      "tool_calling_score_avg": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
       "total_input_tokens": 0,
-      "total_output_tokens": 0,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "total_output_tokens": 0
     },
     {
       "key": "hermes-4-405b-thinking",
@@ -12925,31 +12659,17 @@
       "thinking": true,
       "multimodal": false,
       "runs": 0,
-      "total_runs": 12,
+      "total_runs": 0,
       "score_global": null,
       "score_by_pillar": {},
       "dims_by_pillar": {},
-      "score_by_suite": {
-        "agent_long_horizon": 6.6
-      },
-      "quality_avg": null,
+      "score_by_suite": {},
       "quality_ci95": null,
-      "cost_score_avg": null,
-      "speed_score_avg": null,
-      "latency_score_avg": null,
-      "tool_calling_score_avg": null,
       "judge_score_avg": null,
       "tokens_per_second": null,
       "latency_avg_s": null,
       "total_input_tokens": 0,
-      "total_output_tokens": 0,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null
+      "total_output_tokens": 0
     },
     {
       "key": "step3",

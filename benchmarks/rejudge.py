@@ -61,8 +61,24 @@ def main():
     args = ap.parse_args()
 
     preset = JUDGE_PRESETS[args.judge_model]
-    judge = LLMJudge(api_key=preset["api_key"], base_url=preset["base_url"],
+    # Un preset con api_key=None significa "usá la key de OpenRouter" (así lo resuelve
+    # create_judge). Pasar el None crudo hace que el juez falle en TODAS las evaluaciones
+    # y el script reporte alegremente "juez falló, se mantiene auto" 602 veces — que es
+    # exactamente el silencio que este script existe para reparar.
+    api_key = preset["api_key"]
+    if api_key is None:
+        from benchmarks.config import OPENROUTER_API_KEY
+        api_key = OPENROUTER_API_KEY
+    judge = LLMJudge(api_key=api_key, base_url=preset["base_url"],
                      judge_model=preset["model"], provider=preset["provider"])
+
+    # Prueba de vida ANTES de recorrer 600 runs. Sin esto, un juez roto produce un
+    # informe de 600 líneas que dice "todo bien, se mantiene auto" y no arregla nada.
+    _p = judge.evaluate("Madrid es la capital de España.",
+                        {"name": "_probe", "prompt": "¿Cuál es la capital de España?"}, "_probe")
+    if _p.get("score_final", -1) < 0:
+        sys.exit(f"ERROR: el juez «{args.judge_model}» no responde. No re-juzgo nada.")
+    print(f"Juez: {preset['model']} — prueba OK ({_p.get('score_final')}/5)")
 
     path = Path(args.results_json)
     data = json.loads(path.read_text())
