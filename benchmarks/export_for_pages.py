@@ -153,13 +153,48 @@ def load_all_results():
     return by_id, by_id_and_name
 
 
-def aggregate_metrics(runs):
+# Una suite entra al `quality` (y por tanto al score) SOLO si la corrió al menos
+# este porcentaje de los modelos con cobertura. Si no, se reporta aparte.
+#
+# EL BUG QUE ARREGLA (13-jul-2026): agregar una suite nueva PENALIZABA al que la
+# corría primero. Las suites nuevas suelen ser más duras que la media (business_audit
+# media ~5, contra 7.57 global), así que los 6 modelos del smoke test vieron caer su
+# quality mientras los otros 92 seguían con la nota vieja. Claude Opus 4.8 bajó de
+# 8.65 a 8.39 sin que el modelo cambiara: solo por haber sido de los primeros en
+# rendir el examen difícil.
+#
+# Es el mismo problema, más silencioso, que ya arrastraban `tool_calling` (94%) y
+# `agent_long_horizon` (60%): mezclar modelos evaluados sobre baterías distintas.
+#
+# Con el umbral, una suite nueva se acumula sin distorsionar hasta que la cobertura
+# es amplia; ahí entra al score de todos a la vez, que es cuando compara de verdad.
+MIN_SUITE_COVERAGE = 0.80
+
+
+def suite_coverage(all_runs_by_model: dict) -> dict:
+    """{suite: fracción de modelos (con >=MIN_RUNS_RANKED runs) que la corrieron}."""
+    pool = [m for m, runs in all_runs_by_model.items() if len(runs) >= MIN_RUNS_RANKED]
+    if not pool:
+        return {}
+    cov = defaultdict(set)
+    for m in pool:
+        for r in all_runs_by_model[m]:
+            if r.get("success") and r.get("suite"):
+                cov[r["suite"]].add(m)
+    return {s: len(ms) / len(pool) for s, ms in cov.items()}
+
+
+def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     """Reduce lista de runs a métricas: score, latencia, tok/s, por pilar y por suite.
 
     Recalcula `final` por run con los pesos default actuales — permite cambiar
     los pesos en `scoring.py` sin re-correr benchmarks. Además expone los
     componentes promedio (quality, cost_score, speed, latency, tool_calling)
     para mostrar en tablas y permitir que la calculadora aplique pesos custom.
+
+    `low_coverage_suites`: suites que aún no corrió suficiente gente. Se EXCLUYEN
+    del quality/score (pero siguen visibles en score_by_suite), para no castigar a
+    los primeros en rendir el examen nuevo.
     """
     # Recalcular final por run con los pesos actuales (para TODOS, así by_suite
     # puede exponer también el long-context).
@@ -182,6 +217,11 @@ def aggregate_metrics(runs):
     def _is_tool_calling(r):
         return str(r.get("suite", "")) == "tool_calling"
 
+    def _is_low_coverage(r):
+        # Suite que todavia no corrio suficiente gente: no puede entrar al score
+        # sin castigar a los primeros que la rindieron. Ver MIN_SUITE_COVERAGE.
+        return str(r.get("suite", "")) in low_coverage_suites
+
     # General = tareas prácticas. Excluye tres suites que son dimensiones SEPARADAS
     # y no deben contaminar `quality`:
     #   - niah (long-context) y prompt_injection (seguridad): medidas desigual entre modelos.
@@ -196,7 +236,9 @@ def aggregate_metrics(runs):
     # le pone 7.5. Medido: los que llaman bien promedian ~5.2; los que no llaman, ~7.5.
     # Contaminaba quality entre -0.14 y -0.22 justo a los modelos que hacen bien tool
     # calling (12-jul-2026).
-    general = [r for r in runs if not _is_niah(r) and not _is_security(r) and not _is_tool_calling(r)]
+    general = [r for r in runs
+               if not _is_niah(r) and not _is_security(r)
+               and not _is_tool_calling(r) and not _is_low_coverage(r)]
     niah = [r for r in runs if _is_niah(r)]
     security = [r for r in runs if _is_security(r)]
     tool_runs = [r for r in runs if _is_tool_calling(r)]
@@ -455,6 +497,23 @@ def build_export():
     or_lookup = build_openrouter_lookup()
     models_export = []
 
+    # Cobertura por suite ANTES de agregar nada: una suite que corrió poca gente no
+    # puede entrar al score, o castiga a los primeros que la rindieron.
+    _cov = suite_coverage(by_id_and_name if by_id_and_name else by_id)
+    low_coverage = {s for s, c in _cov.items() if c < MIN_SUITE_COVERAGE}
+    # niah/security/tool_calling ya se excluyen por otras razones — no hace falta
+    # duplicar el aviso por ellas.
+    _already = {s for s in low_coverage
+                if s.startswith("niah") or s.startswith("prompt_injection") or s == "tool_calling"}
+    _new = sorted(low_coverage - _already)
+    if _new:
+        print("  ⚠️  Suites EXCLUIDAS del score por cobertura insuficiente "
+              f"(<{MIN_SUITE_COVERAGE:.0%} de los modelos rankeados):")
+        for s in _new:
+            print(f"       · {s:<22} {_cov[s]:.0%} de cobertura — se reporta, no puntúa")
+        print("     (entran al score cuando las corra suficiente gente; si no, "
+              "castigarían al que las rinde primero)")
+
     # ids usados por >1 config (variantes que comparten el mismo model id, p.ej.
     # Gemma 4 12B con/sin reasoning en llama-server) → siempre match estricto por
     # (id, name) para que cada variante reciba SOLO sus propios runs y no se fusionen.
@@ -493,7 +552,7 @@ def build_export():
             r["_cost_usd_or"] = cost_norm
             r["_cost_score_or"] = cost_score_log(cost_norm)
 
-        metrics = aggregate_metrics(runs) if runs else {
+        metrics = aggregate_metrics(runs, low_coverage) if runs else {
             "runs": 0,
             "total_runs": 0,
             "score_global": None,
