@@ -120,6 +120,9 @@ MODELS = {
         "notes": "Lanzado 1 jun 2026 (https://www.minimax.io/models/text/m3). Sucesor de M2.7 — caso activo de Cristian (sub MiniMax). Contexto 1M (vs 200k de M2.7), mismo precio $0.30/$1.20. Híbrido (emite <think>). Verificado vía OpenRouter API 1 jun 2026.",
     },
     "minimax-m3-direct": {
+        # Variante: el modelo ya está medido en OpenRouter (plano común) y esa es su
+        # fila canónica. Ésta conserva la medición vía API directa MiniMax para comparar.
+        "provider_variant": True,
         "id": "MiniMax-M3",
         "name": "MiniMax M3 (directo / sub)",
         "cost_input": 0.30,
@@ -371,6 +374,10 @@ MODELS = {
     # Costo del ranking = precio OpenRouter (free_runtime via sub). CAVEAT: ~8.8K
     # scaffolding residual de Claude Code, NO usar para tool-calling. id = alias CLI.
     "claude-fable-5-sub": {
+        # Solo medido por suscripción (`claude -p`), que arrastra ~8.8K tokens de
+        # scaffolding del CLI: NO es un chat completion limpio y no es comparable
+        # con el resto. Va a la tabla de suscripción, fuera del ranking principal.
+        "provider_variant": True,
         "id": "claude-fable-5",
         "name": "Claude Fable 5 (suscripción)",
         "cost_input": 10.00, "cost_output": 50.00,
@@ -380,6 +387,9 @@ MODELS = {
         "notes": "Fable 5 medido por la suscripción Claude Code (no API) — a costo $0. Costeado a precio OpenRouter ($10/$50 = 2x Opus 4.8). Incluido en plan Max hasta 21-jun-2026; después solo API. CAVEAT: subscription_measured.",
     },
     "claude-opus-4.8-sub": {
+        # Variante: el modelo ya está medido en OpenRouter (plano común) y esa es su
+        # fila canónica. Ésta conserva la medición vía Claude Code CLI para comparar.
+        "provider_variant": True,
         "id": "claude-opus-4-8",
         "name": "Claude Opus 4.8 (suscripción)",
         "cost_input": 5.00, "cost_output": 25.00,
@@ -389,6 +399,9 @@ MODELS = {
         "notes": "Opus 4.8 medido por la suscripción Claude Code (no API) — a costo $0. Costeado a precio OpenRouter ($5/$25). CAVEAT: subscription_measured.",
     },
     "claude-opus-4.7-sub": {
+        # Variante: el modelo ya está medido en OpenRouter (plano común) y esa es su
+        # fila canónica. Ésta conserva la medición vía Claude Code CLI para comparar.
+        "provider_variant": True,
         "id": "claude-opus-4-7",
         "name": "Claude Opus 4.7 (suscripción)",
         "cost_input": 5.00, "cost_output": 25.00,
@@ -398,6 +411,9 @@ MODELS = {
         "notes": "Opus 4.7 vía suscripción Claude Code.",
     },
     "claude-sonnet-4.6-sub": {
+        # Variante: el modelo ya está medido en OpenRouter (plano común) y esa es su
+        # fila canónica. Ésta conserva la medición vía Claude Code CLI para comparar.
+        "provider_variant": True,
         "id": "claude-sonnet-4-6",
         "name": "Claude Sonnet 4.6 (suscripción)",
         "cost_input": 3.00, "cost_output": 15.00,
@@ -407,6 +423,10 @@ MODELS = {
         "notes": "Sonnet 4.6 vía suscripción Claude Code.",
     },
     "claude-haiku-4.5-sub": {
+        # Solo medido por suscripción (`claude -p`), que arrastra ~8.8K tokens de
+        # scaffolding del CLI: NO es un chat completion limpio y no es comparable
+        # con el resto. Va a la tabla de suscripción, fuera del ranking principal.
+        "provider_variant": True,
         "id": "claude-haiku-4-5",
         "name": "Claude Haiku 4.5 (suscripción)",
         "cost_input": 1.00, "cost_output": 5.00,
@@ -467,6 +487,9 @@ MODELS = {
 
     # --- GPT-4.1 via OpenAI directo ---
     "gpt-4.1": {
+        # Variante: medido en la API directa de OpenAI. La fila canónica se mide en
+        # OpenRouter para que la velocidad y la latencia sean comparables con el resto.
+        "provider_variant": True,
         "id": "gpt-4.1",
         "name": "GPT-4.1",
         "cost_input": 2.00,
@@ -475,6 +498,9 @@ MODELS = {
         "provider": "openai_direct",
     },
     "gpt-4.1-mini": {
+        # Variante: medido en la API directa de OpenAI. La fila canónica se mide en
+        # OpenRouter para que la velocidad y la latencia sean comparables con el resto.
+        "provider_variant": True,
         "id": "gpt-4.1-mini",
         "name": "GPT-4.1 Mini",
         "cost_input": 0.40,
@@ -646,6 +672,9 @@ MODELS = {
     # --- PREMIUM ($5.00+/M) ---
     # GPT-5.4 y GPT-5.4-mini via API directa de OpenAI
     "gpt-5.4": {
+        # Variante: medido en la API directa de OpenAI. La fila canónica se mide en
+        # OpenRouter para que la velocidad y la latencia sean comparables con el resto.
+        "provider_variant": True,
         "id": "gpt-5.4",
         "name": "GPT-5.4",
         "cost_input": 5.00,
@@ -654,6 +683,9 @@ MODELS = {
         "provider": "openai_direct",
     },
     "gpt-5.4-mini": {
+        # Variante: medido en la API directa de OpenAI. La fila canónica se mide en
+        # OpenRouter para que la velocidad y la latencia sean comparables con el resto.
+        "provider_variant": True,
         "id": "gpt-5.4-mini",
         "name": "GPT-5.4 Mini",
         "cost_input": 0.50,
@@ -671,6 +703,9 @@ MODELS = {
         "notes": "Variante rápida y económica de GPT-5.6 (GA 9 jul 2026). $1/$6 vía OpenRouter.",
     },
     "gpt-5.5": {
+        # Variante: medido en la API directa de OpenAI. La fila canónica se mide en
+        # OpenRouter para que la velocidad y la latencia sean comparables con el resto.
+        "provider_variant": True,
         "id": "gpt-5.5",
         "name": "GPT-5.5",
         "cost_input": 5.00,
@@ -708,6 +743,9 @@ MODELS = {
 
     # --- Groq directo (LPU - super rapido, requiere GROQ_API_KEY) ---
     "groq-llama-3.3-70b": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía Groq para comparar infraestructuras.
+        "provider_variant": True,
         # Vivo en Groq, pero GROQ_API_KEY está vacía → no lo podemos medir.
         # NO es retired: el modelo existe. Solo nos falta la llave.
         "unavailable": "falta GROQ_API_KEY",
@@ -718,6 +756,9 @@ MODELS = {
         "open_source": True, "license": "Llama Community",
     },
     "groq-llama-3.1-8b": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía Groq para comparar infraestructuras.
+        "provider_variant": True,
         # Vivo en Groq, pero GROQ_API_KEY está vacía → no lo podemos medir.
         # NO es retired: el modelo existe. Solo nos falta la llave.
         "unavailable": "falta GROQ_API_KEY",
@@ -728,6 +769,9 @@ MODELS = {
         "open_source": True, "license": "Llama Community",
     },
     "groq-llama-4-scout": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía Groq para comparar infraestructuras.
+        "provider_variant": True,
         "id": "meta-llama/llama-4-scout-17b-16e-instruct",
         "name": "Llama 4 Scout 17B (Groq preview)",
         "cost_input": 0.11, "cost_output": 0.34,
@@ -742,6 +786,9 @@ MODELS = {
         "open_source": True, "license": "Apache 2.0",
     },
     "groq-gpt-oss-20b": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía Groq para comparar infraestructuras.
+        "provider_variant": True,
         "id": "openai/gpt-oss-20b",
         "name": "GPT-OSS 20B (Groq)",
         "cost_input": 0.075, "cost_output": 0.30,
@@ -780,6 +827,9 @@ MODELS = {
         "notes": "Variante mas chica de V4. Comparar con V4 Flash NIM (7.07 score).",
     },
     "qwen3.5-397b-cloud": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía Ollama Cloud para comparar infraestructuras.
+        "provider_variant": True,
         "id": "qwen3.5:397b-cloud",
         "name": "Qwen 3.5 397B (Ollama Cloud)",
         "cost_input": 0.0,
@@ -791,6 +841,7 @@ MODELS = {
         "license": "Apache 2.0",
     },
     "qwen3.5-cloud": {
+        "unavailable": "id ambiguo (`qwen3.5:cloud`): Ollama no documenta qué tamaño sirve",
         "id": "qwen3.5:cloud",
         "name": "Qwen 3.5 (Ollama Cloud default)",
         "cost_input": 0.0,
@@ -802,6 +853,9 @@ MODELS = {
         "license": "Apache 2.0",
     },
     "gpt-oss-120b-cloud": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía Ollama Cloud para comparar infraestructuras.
+        "provider_variant": True,
         "id": "gpt-oss:120b-cloud",
         "name": "GPT-OSS 120B (Ollama Cloud)",
         "cost_input": 0.0,
@@ -817,6 +871,9 @@ MODELS = {
     # Ideal para benchmarks: secuencial, mismo formato API. Free tier suficiente.
     # Catálogo completo: https://build.nvidia.com/explore/discover
     "nim-nemotron-super-1.5": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
+        "provider_variant": True,
         "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
         "name": "Nemotron Super 49B v1.5 (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -835,6 +892,9 @@ MODELS = {
         "notes": "Modelo más grande de la familia Nemotron 3 (550B total / 55B activos) vía OpenRouter. Mucho más rápido que NIM gratuito. Disponible también como :free con rate limit.",
     },
     "nim-qwen3-next-instruct": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
+        "provider_variant": True,
         "id": "qwen/qwen3-next-80b-a3b-instruct",
         "name": "Qwen 3-Next 80B Instruct (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -844,6 +904,9 @@ MODELS = {
         "notes": "Próxima generación Qwen — pendiente desde Lote 4",
     },
     "nim-qwen3-next-thinking": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
+        "provider_variant": True,
         "id": "qwen/qwen3-next-80b-a3b-thinking",
         "name": "Qwen 3-Next 80B Thinking (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -862,6 +925,9 @@ MODELS = {
         "notes": "Colaboración Mistral × NVIDIA, optimizado en Nemo",
     },
     "nim-kimi-k2-thinking": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
+        "provider_variant": True,
         "id": "moonshotai/kimi-k2-thinking",
         "name": "Kimi K2 Thinking (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -871,6 +937,9 @@ MODELS = {
         "notes": "Variante thinking de K2 — comparar con K2.6 thinking",
     },
     "nim-deepseek-v4-flash": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
+        "provider_variant": True,
         "id": "deepseek-ai/deepseek-v4-flash",
         "name": "DeepSeek V4 Flash (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -891,6 +960,9 @@ MODELS = {
 
     # --- Lote 9 candidatos NIM (todos gratis, 40 RPM) ---
     "nim-kimi-k2.5": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
+        "provider_variant": True,
         "id": "moonshotai/kimi-k2.5",
         "name": "Kimi K2.5 (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -900,6 +972,9 @@ MODELS = {
         "notes": "Version nueva 2026, no tenemos K2.5 antes. Comparar con K2.6 thinking",
     },
     "nim-mistral-large-3": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
+        "provider_variant": True,
         "id": "mistralai/mistral-large-3-675b-instruct-2512",
         "name": "Mistral Large 3 675B (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -909,6 +984,9 @@ MODELS = {
         "notes": "Flagship Mistral diciembre 2025. Comparar contra Mistral Small 4 (#4 ranking).",
     },
     "nim-step-3.5-flash": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
+        "provider_variant": True,
         "id": "stepfun-ai/step-3.5-flash",
         "name": "Step 3.5 Flash (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -918,6 +996,9 @@ MODELS = {
         "notes": "Step 3.5 Flash - reemplazo de Step3 que fallo 91/91 con 404 en OpenRouter",
     },
     "nim-glm-5.1": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
+        "provider_variant": True,
         "id": "z-ai/glm-5.1",
         "name": "GLM 5.1 (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -927,6 +1008,9 @@ MODELS = {
         "notes": "Z.AI agentic, no tenemos. Variante GLM 5 con mejoras",
     },
     "nim-glm5": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
+        "provider_variant": True,
         "id": "z-ai/glm5",
         "name": "GLM 5 (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -945,6 +1029,9 @@ MODELS = {
         "notes": "Mistral con razonamiento, tamano medio",
     },
     "nim-ministral-14b": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
+        "provider_variant": True,
         "id": "mistralai/ministral-14b-instruct-2512",
         "name": "Ministral 14B (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -954,6 +1041,9 @@ MODELS = {
         "notes": "Mistral chico nuevo dic 2025 - comparar con Mistral Small 4",
     },
     "nim-devstral-2-123b": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
+        "provider_variant": True,
         "id": "mistralai/devstral-2-123b-instruct-2512",
         "name": "Devstral 2 123B (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -963,6 +1053,9 @@ MODELS = {
         "notes": "Mismo modelo que probamos via OpenRouter - comparar provider stability",
     },
     "nim-nemotron-nano-9b-v2": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
+        "provider_variant": True,
         "id": "nvidia/nvidia-nemotron-nano-9b-v2",
         "name": "Nemotron Nano 9B v2 (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -972,6 +1065,9 @@ MODELS = {
         "notes": "Variante chica de Nemotron 3, comparar con Nano 30B",
     },
     "nim-nemotron-3-nano-omni-reasoning": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
+        "provider_variant": True,
         "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
         "name": "Nemotron 3 Nano Omni 30B-A3B Reasoning (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -983,6 +1079,9 @@ MODELS = {
         "notes": "Lanzado 20 abril 2026. MoE 30B totales / 3B activos (A3B). Multimodal (texto+imagen+audio+video) + reasoning. Comparar contra Nano 30B normal y Nano 9B v2 — sirve para medir el costo de razonar y la ganancia de multimodal en single-turn texto.",
     },
     "nim-gemma-4-31b": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
+        "provider_variant": True,
         "id": "google/gemma-4-31b-it",
         "name": "Gemma 4 31B (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -992,6 +1091,9 @@ MODELS = {
         "notes": "Mismo modelo que via OpenRouter (10 runs parciales) - completar via NIM gratis",
     },
     "nim-qwen3.5-397b": {
+        # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
+        # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
+        "provider_variant": True,
         "id": "qwen/qwen3.5-397b-a17b",
         "name": "Qwen 3.5 397B (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -1217,6 +1319,9 @@ MODELS = {
     # first / $16 normal por 200M credits = $0.0704/M credits). Off-peak 16-24
     # UTC = 0.8x = 20% off. 1 token = 1 credit en V2.5; 2 credits en V2.5-Pro.
     "mimo-v2.5": {
+        # Variante: el modelo ya está medido en OpenRouter (plano común) y esa es su
+        # fila canónica. Ésta conserva la medición vía API directa Xiaomi para comparar.
+        "provider_variant": True,
         "id": "mimo-v2.5",
         "name": "MiMo V2.5 (Xiaomi)",
         "cost_input": 0.07, "cost_output": 0.07,
@@ -1227,6 +1332,9 @@ MODELS = {
         "notes": "All-in-one multimodal nativo, 1M context, lanzado 22 abril 2026",
     },
     "mimo-v2.5-pro": {
+        # Variante: el modelo ya está medido en OpenRouter (plano común) y esa es su
+        # fila canónica. Ésta conserva la medición vía API directa Xiaomi para comparar.
+        "provider_variant": True,
         "id": "mimo-v2.5-pro",
         "name": "MiMo V2.5-Pro (Xiaomi)",
         "cost_input": 0.14, "cost_output": 0.14,
@@ -1318,6 +1426,182 @@ MODELS = {
         "vram_gb": 20,
         "notes": "Mismo build que spark-gemma4-31b-llamacpp pero CON reasoning interno (default). Comparar delta calidad vs latencia contra la variante sin reasoning.",
     },
+
+    # ─────────────────────────────────────────────────────────────────────
+    # Plano común: OpenRouter.
+    # Estos modelos vivían en NIM / Groq / Ollama Cloud, donde la velocidad y la
+    # latencia son de la INFRA y no del modelo (el mismo Qwen 3.5 397B da 5.43 en
+    # Ollama Cloud y 8.17 en NIM) — y donde hoy ni siquiera tenemos credencial.
+    # Medirlos a todos por el mismo camino es lo único que hace comparable la
+    # comparación. Sus filas antiguas quedan como `provider_variant`: fuera del
+    # ranking, pero conservadas, porque la diferencia entre proveedores es un
+    # hallazgo, no basura.
+    # ─────────────────────────────────────────────────────────────────────
+    "or-llama-3.3-70b": {
+        "id": "meta-llama/llama-3.3-70b-instruct",
+        "name": "Llama 3.3 70B",
+        "cost_input": 0.1, "cost_output": 0.32,
+        "tier": "cheap", "provider": "openrouter",
+        "open_source": True, "license": "Llama Community",
+    },
+    "or-llama-3.1-8b": {
+        "id": "meta-llama/llama-3.1-8b-instruct",
+        "name": "Llama 3.1 8B Instant",
+        "cost_input": 0.02, "cost_output": 0.03,
+        "tier": "ultra_cheap", "provider": "openrouter",
+        "open_source": True, "license": "Llama Community",
+    },
+    "or-llama-4-scout": {
+        "id": "meta-llama/llama-4-scout",
+        "name": "Llama 4 Scout 17B",
+        "cost_input": 0.1, "cost_output": 0.3,
+        "tier": "cheap", "provider": "openrouter",
+        "open_source": True, "license": "Llama Community",
+    },
+    "or-gpt-oss-20b": {
+        "id": "openai/gpt-oss-20b",
+        "name": "GPT-OSS 20B",
+        "cost_input": 0.029, "cost_output": 0.14,
+        "tier": "ultra_cheap", "provider": "openrouter",
+        "open_source": True, "license": "Apache 2.0",
+    },
+    "or-gpt-oss-120b": {
+        "id": "openai/gpt-oss-120b",
+        "name": "GPT-OSS 120B",
+        "cost_input": 0.036, "cost_output": 0.18,
+        "tier": "cloud_ollama", "provider": "openrouter",
+        "open_source": True, "license": "Apache 2.0",
+    },
+    "or-nemotron-super-1.5": {
+        "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+        "name": "Nemotron Super 49B v1.5",
+        "cost_input": 0.4, "cost_output": 0.4,
+        "tier": "cloud_nim", "provider": "openrouter",
+        "open_source": True, "license": "NVIDIA Open Model",
+    },
+    "or-qwen3-next-instruct": {
+        "id": "qwen/qwen3-next-80b-a3b-instruct",
+        "name": "Qwen 3-Next 80B Instruct",
+        "cost_input": 0.09, "cost_output": 1.1,
+        "tier": "cloud_nim", "provider": "openrouter",
+        "open_source": True, "license": "Apache 2.0",
+    },
+    "or-qwen3-next-thinking": {
+        "id": "qwen/qwen3-next-80b-a3b-thinking",
+        "name": "Qwen 3-Next 80B Thinking",
+        "cost_input": 0.098, "cost_output": 0.78,
+        "tier": "cloud_nim", "provider": "openrouter",
+        "open_source": True, "license": "Apache 2.0",
+    },
+    "or-kimi-k2-thinking": {
+        "id": "moonshotai/kimi-k2-thinking",
+        "name": "Kimi K2 Thinking",
+        "cost_input": 0.6, "cost_output": 2.5,
+        "tier": "cloud_nim", "provider": "openrouter",
+        "open_source": True, "license": "Modified MIT",
+    },
+    "or-kimi-k2.5": {
+        "id": "moonshotai/kimi-k2.5",
+        "name": "Kimi K2.5",
+        "cost_input": 0.375, "cost_output": 2.025,
+        "tier": "cloud_nim", "provider": "openrouter",
+        "open_source": True, "license": "Modified MIT",
+    },
+    "or-mistral-large-3": {
+        "id": "mistralai/mistral-large-2512",
+        "name": "Mistral Large 3 675B",
+        "cost_input": 0.5, "cost_output": 1.5,
+        "tier": "cloud_nim", "provider": "openrouter",
+        "open_source": True, "license": "Apache 2.0",
+    },
+    "or-step-3.5-flash": {
+        "id": "stepfun/step-3.5-flash",
+        "name": "Step 3.5 Flash",
+        "cost_input": 0.1, "cost_output": 0.3,
+        "tier": "cloud_nim", "provider": "openrouter",
+        "open_source": True, "license": "Apache 2.0",
+    },
+    "or-glm5": {
+        "id": "z-ai/glm-5",
+        "name": "GLM 5",
+        "cost_input": 0.6, "cost_output": 1.92,
+        "tier": "cloud_nim", "provider": "openrouter",
+        "open_source": True, "license": "MIT",
+    },
+    "or-ministral-14b": {
+        "id": "mistralai/ministral-14b-2512",
+        "name": "Ministral 14B",
+        "cost_input": 0.2, "cost_output": 0.2,
+        "tier": "cloud_nim", "provider": "openrouter",
+        "open_source": True, "license": "Apache 2.0",
+    },
+    "or-nemotron-nano-9b-v2": {
+        "id": "nvidia/nemotron-nano-9b-v2:free",
+        "name": "Nemotron Nano 9B v2",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim", "provider": "openrouter",
+        "open_source": False, "license": "NVIDIA Open License",
+    },
+    "or-nemotron-3-nano-omni-reasoning": {
+        "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+        "name": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
+        "cost_input": 0.0, "cost_output": 0.0,
+        "tier": "cloud_nim", "provider": "openrouter",
+        "open_source": True, "license": "NVIDIA Open License",
+    },
+    "or-gemma-4-31b": {
+        "id": "google/gemma-4-31b-it",
+        "name": "Gemma 4 31B",
+        "cost_input": 0.12, "cost_output": 0.35,
+        "tier": "cloud_nim", "provider": "openrouter",
+        "open_source": True, "license": "Gemma Terms",
+    },
+    "or-qwen3.5-397b": {
+        "id": "qwen/qwen3.5-397b-a17b",
+        "name": "Qwen 3.5 397B",
+        "cost_input": 0.385, "cost_output": 2.45,
+        "tier": "cloud_nim", "provider": "openrouter",
+        "open_source": True, "license": "Apache 2.0",
+    },
+
+
+    # GPT en el plano común (antes solo por la API directa de OpenAI).
+    "or-gpt-4.1": {
+        "id": "openai/gpt-4.1",
+        "name": "GPT-4.1",
+        "cost_input": 2.0, "cost_output": 8.0,
+        "tier": "medium", "provider": "openrouter",
+        "open_source": False, "license": "Proprietary",
+    },
+    "or-gpt-4.1-mini": {
+        "id": "openai/gpt-4.1-mini",
+        "name": "GPT-4.1 Mini",
+        "cost_input": 0.4, "cost_output": 1.6,
+        "tier": "cheap", "provider": "openrouter",
+        "open_source": False, "license": "Proprietary",
+    },
+    "or-gpt-5.4": {
+        "id": "openai/gpt-5.4",
+        "name": "GPT-5.4",
+        "cost_input": 2.5, "cost_output": 15.0,
+        "tier": "premium", "provider": "openrouter",
+        "open_source": False, "license": "Proprietary",
+    },
+    "or-gpt-5.4-mini": {
+        "id": "openai/gpt-5.4-mini",
+        "name": "GPT-5.4 Mini",
+        "cost_input": 0.75, "cost_output": 4.5,
+        "tier": "cheap", "provider": "openrouter",
+        "open_source": False, "license": "Proprietary",
+    },
+    "or-gpt-5.5": {
+        "id": "openai/gpt-5.5",
+        "name": "GPT-5.5",
+        "cost_input": 5.0, "cost_output": 30.0,
+        "tier": "premium", "provider": "openrouter",
+        "open_source": False, "license": "Proprietary",
+    },
+
 }
 
 # Modelos locales via Ollama - Optimizados para NVIDIA DGX Spark (128GB RAM unificada)

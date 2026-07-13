@@ -495,6 +495,16 @@ def run_benchmark(args):
             console.print("[dim]   (--include-retired para intentarlos igual · "
                           "check_endpoints.py para revisar el catálogo)[/dim]\n")
 
+    # Variantes de proveedor: ya no se miden. El modelo canónico vive en OpenRouter
+    # (plano común) y es el que recibe runs nuevos. Estas filas conservan su medición
+    # histórica en NIM/Groq/Ollama Cloud para la comparación entre infraestructuras.
+    variantes = [k for k in list(models) if models[k].get("provider_variant")]
+    for k in variantes:
+        models.pop(k)
+    if variantes:
+        console.print(f"[dim]↔️  Omito {len(variantes)} variantes de proveedor "
+                      f"(se miden en OpenRouter, plano común)[/dim]")
+
     # Sin credencial ≠ muerto. El modelo existe y sigue rankeado con sus runs
     # históricos; simplemente no tenemos la llave de su provider, así que no puede
     # recibir runs NUEVOS. Omitirlo evita quemar llamadas contra un fallback que no

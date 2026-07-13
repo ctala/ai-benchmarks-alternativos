@@ -615,7 +615,17 @@ def build_export():
             # alimentan el análisis de dispersión), pero fuera del ranking y de las
             # recomendaciones. Ver `retired` en models.py.
             "retired": bool(cfg.get("retired")),
-            "ranked": metrics["runs"] >= MIN_RUNS_RANKED and not cfg.get("retired"),
+            # Rankeable = muestra sólida, endpoint vivo, y medido en el PLANO COMÚN.
+            # Una `provider_variant` (el mismo modelo servido por NIM/Groq/Ollama Cloud)
+            # queda fuera: su velocidad y su latencia son de esa infra, no del modelo, y
+            # dejarla competir haría que un modelo se enfrente a sí mismo en dos puestos.
+            # Sus datos NO se borran — alimentan la comparación entre proveedores.
+            "provider_variant": bool(cfg.get("provider_variant")),
+            "ranked": (
+                metrics["runs"] >= MIN_RUNS_RANKED
+                and not cfg.get("retired")
+                and not cfg.get("provider_variant")
+            ),
             "sample_tier": sample_tier(metrics["runs"]),   # solid | partial | preliminary
             **capabilities,  # tool_calling, thinking, multimodal
             **metrics,
