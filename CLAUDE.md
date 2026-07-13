@@ -218,9 +218,18 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
   sería tan malo como lo contrario.
 
   **Por qué existe:** el 13-jul-2026, a mitad de un backfill de ~$44, se descubrió que
-  **5 modelos del ranking ya no existían**. Uno era **Devstral Small, #5** — alguien
+  **4 modelos del ranking ya no existían**. Uno era **Devstral Small, #5** — alguien
   podía leerlo, integrarlo y estrellarse. Nos enteramos tarde y caro, porque el lote se
   estrelló contra ellos. Este chequeo cuesta centavos y lo detecta antes.
+
+  **Y el error inverso, que casi cometo:** marqué como muerto a Llama 3.1 8B (Groq), que
+  estaba **perfectamente vivo**. Lo que faltaba era `GROQ_API_KEY`. Sin la key, el runner
+  caía **en silencio** a OpenRouter — que no conoce el id de Groq
+  (`llama-3.3-70b-versatile`; ahí se llama `meta-llama/llama-3.3-70b-instruct`) — y
+  respondía *"not a valid model ID"*, un error **idéntico** al de un modelo retirado.
+  Hoy `providers/registry.py` levanta `MissingCredential` en vez de caer a OpenRouter, y
+  esos modelos quedan `unavailable` (**siguen rankeados** con sus runs históricos; solo no
+  reciben runs nuevos). Una credencial que falta no es un modelo que murió.
 
   Un modelo `retired: True` queda **fuera del ranking y de las recomendaciones** (un
   modelo que no puedes usar no es un candidato), pero **sigue en los datos**: sus runs
