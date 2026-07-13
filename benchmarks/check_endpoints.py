@@ -90,8 +90,11 @@ def ping(cfg: dict, P: dict) -> tuple[str, str]:
     try:
         r = provider.chat(
             model=cfg["id"],
-            messages=[{"role": "user", "content": "ok"}],
-            max_tokens=1,
+            messages=[{"role": "user", "content": "Di: ok"}],
+            # 16, no 1. GPT-4.1 rechaza `max_output_tokens=1` con un 400 — y ese 400 se
+            # lee igual que el de un modelo muerto. Un chequeo de salud que usa un valor
+            # que algunos proveedores no aceptan inventa cadáveres. (13-jul-2026: me pasó.)
+            max_tokens=16,
             temperature=0,
             timeout=30,
         )
