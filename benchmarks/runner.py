@@ -352,10 +352,39 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
         judge_quality = judge_score_to_10(judge_result)
 
     # Combinar scores
+    #
+    # DONDE HAY VERDAD VERIFICABLE, EL JUEZ NO OPINA.
+    #
+    # Un test con `expected_answer` esconde un hecho comprobable: el P&L cuyos costos
+    # suman 9.150 y no 7.400, el churn que mezcla usuarios gratis con pagados. O el
+    # modelo lo cazó o no lo cazó. No es cuestión de opinión, y el juez no aporta.
+    #
+    # Peor: ESTORBA. Probamos SEIS jueces sin conflicto de interés, de 14B a 671B
+    # (phi-4, Hunyuan 3, Solar Pro 3, Ling 1T, Nova Pro, Cogito 671B — benchmarks/
+    # judge_bakeoff.py). TODOS saturan: le ponen la nota máxima a casi todo, incluidas
+    # las respuestas que fallan la trampa. La correlación de phi-4 con la verdad
+    # objetiva es 0.00, y la de Cogito 671B también. No es un problema de tamaño:
+    # "¿esta auditoría está bien hecha?" es una pregunta que los LLM contestan que sí.
+    # Una respuesta bien escrita que NO vio el error igual parece excelente — el juez
+    # se deja engañar por la fluidez. Un juez LLM no caza lo que él mismo pasaría por alto.
+    #
+    # Con el juez al 70%, el spread entre el mejor y el peor modelo en business_audit
+    # era 0.83 (todos empatados en ~8). Con el rúbrico mandando: 2.77. Mismo dato,
+    # 3.3x más poder de separar. La suite se construyó CON trampas objetivas justamente
+    # porque el juez no distingue — dejarle el 70% del peso las borraba.
+    #
+    # Es lo que niah_es ya hacía. Ahora vale para toda suite con verdad verificable.
+    tiene_verdad_objetiva = bool(test.get("expected_answer"))
+
     if is_niah:
         quality = answer_score  # retrieval puro: solo el regex de extracción
+    elif tiene_verdad_objetiva:
+        quality = auto_quality  # el rúbrico ES la medición (contenido 40% / respuesta 60%)
     elif judge_quality >= 0:
-        # Con juez: 30% automatico + 70% juez
+        # Sin verdad objetiva (escribir, resumir, vender) no hay contra qué verificar:
+        # ahí el juez es lo único que hay. 30% automático + 70% juez.
+        # CAVEAT conocido: también satura acá (content_generation: media 9.37, desv 0.70).
+        # No separa a los modelos grandes entre sí. Es la limitación abierta del benchmark.
         quality = auto_quality * 0.3 + judge_quality * 0.7
     else:
         quality = auto_quality
@@ -643,9 +672,72 @@ def run_benchmark(args):
             )
             local_tag = " (LOCAL)" if judge.is_local else f" (API, ~${0.07:.2f}/modelo)"
             print(f"  LLM-as-Judge: {judge.judge_model}{local_tag}", flush=True)
+
+            # PRUEBA DE VIDA — no basta con que el juez se CONSTRUYA.
+            #
+            # `LLMJudge.evaluate()` traga toda excepción y devuelve score_final = -1.
+            # El runner lee ese -1 como "no hay juez" y calcula quality = auto_quality,
+            # perdiendo EN SILENCIO el 70% del score (con juez es 30% rúbrico + 70% juez).
+            #
+            # El 13-jul-2026 phi4 no estaba instalado en Ollama. El runner anunció
+            # "LLM-as-Judge: phi4:latest (LOCAL)" y corrió 602 runs de business_audit
+            # puntuados SOLO por el rúbrico — con una fórmula distinta a la del resto del
+            # dataset (81-92% de los runs históricos SÍ tienen juez). Datos incomparables,
+            # producidos con total normalidad aparente. Lo descubrimos por casualidad.
+            #
+            # Un juez que falla en silencio es peor que no tener juez: no se nota.
+            probe = judge.evaluate(
+                "Madrid es la capital de España.",
+                {"name": "_probe", "prompt": "¿Cuál es la capital de España?"},
+                "_probe",
+            )
+            if probe.get("score_final", -1) < 0:
+                sys.exit(
+                    f"\n  ERROR: pediste --judge pero «{judge.judge_model}» no responde.\n"
+                    f"  Correr igual produciría calidad calculada con OTRA fórmula que el\n"
+                    f"  resto del dataset (sin juez: 100% rúbrico; con juez: 30/70). Los\n"
+                    f"  números saldrían normales y serían incomparables.\n\n"
+                    f"  Si es local:  ollama pull {judge.judge_model}\n"
+                    f"  Si querés correr sin juez a propósito: quitá --judge.\n"
+                )
+            print(f"  Juez responde OK (prueba: {probe.get('score_final')}/5)", flush=True)
+
         except ValueError as e:
-            print(f"  [WARN] No se pudo crear juez: {e}", flush=True)
-            print(f"  Continuando sin LLM-as-Judge...", flush=True)
+            sys.exit(
+                f"\n  ERROR: pediste --judge y no se pudo crear: {e}\n"
+                f"  No sigo sin juez: los scores no serían comparables con el histórico.\n"
+                f"  Quitá --judge si querés correr solo con el rúbrico.\n"
+            )
+
+    # ── VERIFICADOR SEMÁNTICO ────────────────────────────────────────────────────
+    # Los tests de tipo `reasoning` se puntúan preguntándole a un LLM, por cada insight,
+    # "¿el texto afirma esta idea?". Es una pregunta VERIFICABLE (admite sinónimos), no
+    # una opinión sobre calidad — que es lo que satura a los jueces.
+    #
+    # Reemplaza al matcher de keywords, que medía vocabulario: le puso 1.7/10 a una
+    # respuesta que decía exactamente lo correcto con otras palabras.
+    #
+    # Si hay tests `reasoning` en la corrida y el verificador no responde, ABORTAMOS.
+    # Sin él, scoring.py levanta excepción por diseño: un score plausible y falso es
+    # peor que ningún score.
+    hay_reasoning = any(
+        (t.get("expected_answer") or {}).get("type") == "reasoning"
+        for tests in test_suites.values() for t in tests
+    )
+    if hay_reasoning:
+        from benchmarks.scoring import set_verifier
+        from benchmarks.verifier import Verifier
+        v = Verifier(OPENROUTER_API_KEY)
+        prueba = v.score(
+            "Los costos reales suman 9.150, no 7.400. El margen verdadero es 26%.",
+            ["los costos reales suman 9150", "el margen no es del 40%"],
+        )
+        if prueba < 0:
+            sys.exit("\n  ERROR: el verificador semántico no responde y hay tests "
+                     "`reasoning` en esta corrida.\n  Sin él los scores serían falsos. "
+                     "Revisá OPENROUTER_API_KEY.\n")
+        set_verifier(v)
+        print(f"  Verificador semántico: {v.model} (prueba OK: {prueba:.0f}/10)", flush=True)
 
     # Conteo total
     total_tests = sum(len(tests) for tests in test_suites.values())

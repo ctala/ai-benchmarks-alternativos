@@ -69,6 +69,19 @@ def score_content_quality(response: str, criteria: dict) -> float:
     return min(score, 10.0)
 
 
+# Verificador semántico inyectado (benchmarks/verifier.py). Lo setea el runner.
+# Si es None y aparece un test de tipo `reasoning`, se levanta una excepción en vez de
+# caer al matcher de keywords: ese matcher produce FALSOS NEGATIVOS graves y usarlo en
+# silencio es peor que no medir. Ver _score_reasoning.
+_VERIFIER = None
+
+
+def set_verifier(v) -> None:
+    """Inyecta el verificador semántico que usa `reasoning`."""
+    global _VERIFIER
+    _VERIFIER = v
+
+
 def score_expected_answer(response: str, expected_answer: dict) -> float:
     """Evalua respuestas contra criterios especificos del test (0-10).
 
@@ -318,6 +331,46 @@ def _score_sequence(response: str, expected: dict) -> float:
 
 
 def _score_reasoning(response: str, expected: dict) -> float:
+    """¿La respuesta contiene los insights que había que ver?
+
+    ANTES: bolsa de palabras. Buscaba que ≥60% de las palabras de cada insight
+    aparecieran literalmente en el texto. Eso medía VOCABULARIO, no comprensión.
+
+    Caso real (13-jul-2026), puntuado 1.7/10 por el matcher:
+
+        "No se puede saber si la secuencia de emails funcionó. Tienes TRES
+         INTERVENCIONES SIMULTÁNEAS... no hay datos de atribución que permitan
+         separar su impacto."
+
+    Es exactamente el insight esperado ("correlación no implica causalidad", "otras
+    variables cambiaron en paralelo"), dicho impecable. Reprobó por no escribir las
+    palabras "correlación", "causalidad" ni "grupo de control".
+
+    El spread que producía ese ruido (6.00 entre modelos) parecía discriminación y no lo
+    era: correlacionaba -0.29 con string_precision y 0.14 con la calidad general. Estaba
+    ordenando a los modelos por cuánto se parecen a mi vocabulario.
+
+    AHORA: un LLM lee y responde, por cada insight, una pregunta VERIFICABLE — "¿el texto
+    afirma esta idea?" — que admite sinónimos. No es el juez (a "¿está buena esta
+    respuesta?" los LLM contestan que sí siempre: 6 jueces probados, de 14B a 671B, todos
+    saturan). Es lectura comprensiva, no crítica literaria.
+    """
+    if _VERIFIER is not None:
+        s = _VERIFIER.score(response, expected.get("key_insights", []))
+        if s >= 0:
+            return s
+        # El verificador falló (API caída). NO caemos al matcher: daría un número
+        # plausible y equivocado. Que se note.
+        raise RuntimeError("el verificador semántico no respondió — no puedo puntuar `reasoning`")
+    raise RuntimeError(
+        "test de tipo `reasoning` sin verificador semántico configurado.\n"
+        "El matcher de keywords que había antes castiga los sinónimos y produce falsos\n"
+        "negativos graves. Correr sin verificador daría scores plausibles y falsos.\n"
+        "Configurá el verificador (benchmarks/verifier.py) antes de puntuar."
+    )
+
+
+def _score_reasoning_keywords_LEGACY(response: str, expected: dict) -> float:
     """Evalua si los insights clave estan presentes (0-10)."""
     key_insights = expected.get("key_insights", [])
     if not key_insights:
