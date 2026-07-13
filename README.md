@@ -63,16 +63,16 @@ Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad*
 
 | # | Modelo | Score | Quality | Cost | Provider | $/1k calls | Runs |
 |---|---|---:|---:|---:|---|---:|---:|
-| 1 | **DeepSeek V4 Flash (OpenRouter)** | **8.64** | 8.54 | 7.92 | openrouter | $0.33 | 125 |
-| 2 | **DeepSeek R1 (reasoning)** | **8.41** | 8.82 | 5.80 | openrouter | $3.96 | 99 |
-| 3 | **GPT-5.6 Luna** | **8.26** | 8.52 | 5.83 | openrouter | $9.30 | 99 |
-| 4 | **Qwen3-Coder-Next (OpenRouter FP8)** | **8.16** | 8.32 | 7.62 | openrouter | $1.23 | 99 |
-| 5 | **Devstral Small** | **7.99** | 8.16 | 7.94 | openrouter | $0.48 | 161 |
-| 6 | **MiniMax M3 (directo / sub)** | **7.93** | 8.58 | 6.84 | minimax_direct | $1.89 | 99 |
-| 7 | **GPT-5.6 Terra** | **7.89** | 8.53 | 4.85 | openrouter | $23.25 | 99 |
-| 8 | **Llama 3.3 70B (Groq)** | **7.88** | 8.08 | 7.85 | groq_direct | $1.36 | 112 |
-| 9 | **Claude Haiku 4.5 (suscripción)** | **7.64** | 8.44 | 5.13 | claude_code | $7.80 | 98 |
-| 10 | **Mistral Small 4** | **7.60** | 8.16 | 7.74 | openrouter | $0.94 | 99 |
+| 1 | **Claude Haiku 4.5 (suscripción)** | **8.52** | 8.64 | 5.42 | claude_code | $7.80 | 86 |
+| 2 | **DeepSeek V4 Flash (OpenRouter)** | **8.43** | 8.47 | 7.98 | openrouter | $0.33 | 113 |
+| 3 | **Qwen3-Coder-Next (OpenRouter FP8)** | **8.37** | 8.34 | 7.83 | openrouter | $1.23 | 87 |
+| 4 | **DeepSeek R1 (reasoning)** | **8.29** | 8.77 | 6.07 | openrouter | $3.96 | 87 |
+| 5 | **MiniMax M3 (directo / sub)** | **8.28** | 8.64 | 7.12 | minimax_direct | $1.89 | 87 |
+| 6 | **Claude Opus 4.8 (suscripción)** | **8.14** | 8.81 | 2.96 | claude_code | $39.00 | 89 |
+| 7 | **MiniMax M3** | **8.01** | 8.56 | 7.25 | openrouter | $1.89 | 89 |
+| 8 | **Claude Sonnet 4.6 (suscripción)** | **8.00** | 8.71 | 4.20 | claude_code | $23.40 | 86 |
+| 9 | **Devstral Small** | **7.88** | 8.11 | 8.00 | openrouter | $0.48 | 149 |
+| 10 | **GPT-5.6 Luna** | **7.83** | 8.38 | 6.13 | openrouter | $9.30 | 87 |
 
 > **Piso de ranking: 50 runs.** Solo compiten los 98 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
 
