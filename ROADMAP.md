@@ -269,6 +269,80 @@ El script `generate_per_model_md.py` ya tiene los datos; al migrar a HTML slider
 
 ---
 
+## Roadmap: suite agéntica de persistencia (`persistence-harness`)
+
+> **Estado:** diseñada, no construida. Nace de un experimento FALLIDO (13-jul-2026) que
+> vale documentar porque el fallo enseña dónde está el límite real del benchmark.
+
+### El fallo que hay que medir
+
+Caso real: migrar una integración de la v1 a la v2 de una API. **Claude Opus 4.8 lo
+intentó, chocó varias veces, y terminó explicando por qué "no era viable".** Un Qwen 3.6
+35B corriendo local —menos capacidad bruta, el **mismo contexto**— siguió probando hasta
+que funcionó. La tarea SÍ era factible. Opus la abandonó y **racionalizó el abandono**.
+
+No es un fallo de capacidad: es de **disposición**. Y el benchmark es ciego a él, porque:
+
+> **Una negativa bien argumentada saca BUENA nota.** "No es viable porque el endpoint no
+> está documentado, el shape cambió y no hay garantía de compatibilidad" es preciso,
+> claro y suena profesional. El juez le pone 4.5/5. El modelo que se rinde con elegancia
+> **le gana** al que insiste y lo resuelve feo.
+
+Todas las suites miden la calidad del TEXTO. Ninguna mide **si el trabajo se hizo**.
+
+### Por qué el primer intento falló (suite `persistencia`, descartada)
+
+Se escribieron 4 tests multi-turno donde el primer enfoque falla y se mide si el modelo
+pivota o se rinde. **No funcionó, por tres razones — las tres útiles:**
+
+1. **String matching no puede detectar rendición.** Se penalizaban frases como "no es
+   viable". Pero Opus escribió *"el CSV manual no escala y ya sabes que no es viable —
+   **usa el endpoint de listado**"*: estaba descartando la opción mala para pasar a la
+   buena. **Se penalizó a un modelo por razonar bien.** Las mismas palabras aparecen en
+   la mejor respuesta y en la peor.
+2. **No discrimina.** Spread 0.51 entre 4 modelos (contra 3.34 de `business_audit`).
+   Cuando el fallo viene *servido en un mensaje de texto*, casi todos pivotan.
+3. **No reprodujo el fallo real.** En el test sintético **Opus rindió bien** — dio la
+   mejor respuesta de las cuatro ("'reporte cruzado' es marketing para decir JOIN; te
+   cobran $471/mes por una operación que corre en tu laptop"). Y el juez igual prefirió
+   la respuesta más formateada de Qwen.
+
+**Conclusión honesta:** el fallo real es **agéntico**, no conversacional. Ocurre tras
+intentos reales, errores reales y frustración acumulada. Un benchmark de texto de un solo
+tiro **estructuralmente no puede verlo**: un modelo que abandona tras 20 minutos de
+intentos se ve idéntico a uno que no.
+
+### Diseño de la versión que sí lo mediría
+
+No es una suite: es un **harness con ejecución real**.
+
+- **Mock API adversaria.** Un servidor que falla de formas realistas y NO documentadas:
+  `200 OK` con body vacío, paginación por cursor sin documentar, un parámetro que se
+  ignora en silencio, rate-limit con backoff no estándar. La solución **existe y se
+  conoce** (la escribimos nosotros) — así que declarar infactibilidad es objetivamente
+  falso, por bien redactado que esté.
+- **Bucle agéntico real.** El modelo llama herramientas (`http_request`, `read_docs`),
+  recibe la respuesta REAL del mock, y decide. Sin fallo servido en bandeja: tiene que
+  chocar de verdad.
+- **Métrica primaria BINARIA:** ¿obtuvo los datos, sí o no? Nada de opinar sobre la prosa.
+  Esto elimina al juez del camino crítico, que es donde se rompió todo lo demás.
+- **Métricas secundarias:** número de intentos antes de resolver · turno en que abandonó
+  (si abandonó) · si el abandono vino con una racionalización (ahí sí, un juez lee el
+  último mensaje).
+- **Presupuesto de turnos** (p. ej. 15). Agotarlo sin resolver ≠ rendirse: son fallos
+  distintos y hay que distinguirlos.
+
+**Por qué vale la pena:** sería lo único de su tipo. Todos los benchmarks miden si el
+modelo *sabe*. Ninguno mide si **se rinde**. Y para un operador solo, un modelo que
+abandona y te entrega un informe elegante de por qué no se puede es **peor que inútil**:
+te cuesta el día y suena convincente.
+
+**Dependencia:** requiere que el runner soporte tool-calling con ejecución real contra un
+servidor local. Hoy no lo hace (la suite `tool_calling` valida la FORMA de la llamada, no
+ejecuta nada).
+
+---
+
 ## En curso
 
 ### Modelos nuevos por agregar (Lote 3)
