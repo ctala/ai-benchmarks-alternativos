@@ -57,6 +57,14 @@ from benchmarks.tests import business_audit
 # la VALIDEZ del plan, no su belleza: restricciones respetadas, aritmetica que cierra,
 # activos que existen de verdad, y si propone como MATAR la idea o solo como construirla.
 from benchmarks.tests import business_strategy
+# Suite nueva (jul-2026): generación de contenido que se PUEDE FALLAR.
+# content_generation pedía "escribe un blog post sobre las ventajas de la IA": no hay
+# forma de equivocarse, y los datos lo confirman (media 9.37/10, desv 0.70 — no distingue
+# un 8B de Opus). Acá el brief trae una trampa verificable: un dato falso plantado, una
+# restricción enterrada, dos fuentes que se contradicen, una audiencia que ya sabe, un CTA
+# prohibido. Un modelo que escribe precioso y cae en cualquiera te hace publicar basura
+# con confianza — que es justo lo que el juez LLM no ve, porque el texto PARECE bueno.
+from benchmarks.tests import content_verificable
 from benchmarks.tests import agent_long_horizon
 from benchmarks.tests import niah_es
 from benchmarks.tests import niah_es_1m
@@ -89,6 +97,7 @@ def _redact_secrets(text):
 ALL_TEST_SUITES = {
     "business_audit": business_audit.TESTS,
     "business_strategy": business_strategy.TESTS,
+    "content_verificable": content_verificable.TESTS,
     "content_generation": content_generation.TESTS,
     "tool_calling": tool_calling.TESTS,
     "task_management": task_management.TESTS,

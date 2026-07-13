@@ -10,7 +10,12 @@
       "evaluations": 28,
       "estimated_cost_usd": 0.0
     },
-    "partial": true
+    "partial": true,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-13T20:47:27+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -878,13 +883,13 @@
       "response_file": "results/responses/20260601_094924/qwen3.6-27b__startup_content__perplexity_style_research.md"
     },
     {
-      "quality": 8.52,
+      "quality": 8.14,
       "cost_score": 5.54,
       "cost_usd": 0.006584,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.94,
+      "final": 7.05,
       "test_name": "math_word_problem",
       "model": "Qwen 3.6 27B base (OpenRouter FP8)",
       "model_id": "qwen/qwen3.6-27b",
@@ -896,7 +901,7 @@
       "input_tokens": 104,
       "output_tokens": 2048,
       "response_preview": "Here's a thinking process that leads to the solution:\n\n1.  **Understand the Goal:** The objective is to find the time and location (distance from Santiago) where two trains meet.\n\n2.  **Identify the Given Information:**\n    *   **Train 1 (Santiago -> Valparaiso):**\n        *   Departure time ($t_{S1",
-      "auto_quality": 7.87,
+      "auto_quality": 8.14,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -907,7 +912,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260601_094924",
-      "response_file": "results/responses/20260601_094924/qwen3.6-27b__deep_reasoning__math_word_problem.md"
+      "response_file": "results/responses/20260601_094924/qwen3.6-27b__deep_reasoning__math_word_problem.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-13T20:47:27+00:00"
     }
   ]
 }

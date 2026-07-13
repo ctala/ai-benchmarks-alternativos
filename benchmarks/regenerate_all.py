@@ -34,18 +34,25 @@ if not PYTHON.exists():
     PYTHON = Path(sys.executable)
 
 
-def run_script(name: str, args: list[str], dry_run: bool = False) -> None:
-    """Ejecuta un script del benchmark. En dry-run solo imprime el comando."""
+def run_script(name: str, args: list[str], dry_run: bool = False,
+               allow_fail: bool = False) -> int:
+    """Ejecuta un script del benchmark. En dry-run solo imprime el comando.
+
+    `allow_fail=True` devuelve el exit code en vez de abortar: lo usa el chequeo de
+    consistencia final, que necesita reportar el drift completo antes de que el pipeline
+    decida qué hacer.
+    """
     cmd = [str(PYTHON), str(ROOT / "benchmarks" / name)] + args
     cmd_str = " ".join(cmd)
     print(f"\n▶ {cmd_str}")
     if dry_run:
         print("  [dry-run] se ejecutaría")
-        return
+        return 0
     result = subprocess.run(cmd, cwd=ROOT, text=True, capture_output=False)
-    if result.returncode != 0:
+    if result.returncode != 0 and not allow_fail:
         print(f"\n❌ Error en {name} (exit {result.returncode})", file=sys.stderr)
         sys.exit(result.returncode)
+    return result.returncode
 
 
 def main() -> int:
@@ -98,6 +105,11 @@ def main() -> int:
         # y las 6 paginas de familia quedan huerfanas: cero enlaces internos desde
         # la pagina mas autoritativa del sitio. /claude-vs-chatgpt/ vale 2.480
         # busquedas/mes y no se podia llegar a ella.
+        # "El mismo modelo rinde distinto segun quien lo sirva". Sale de las filas
+        # `provider_variant` (el mismo modelo medido en dos infras). Ollama Cloud sirve
+        # un Qwen 3.5 397B que rinde 2.74 puntos menos que el de NIM: quien elige el
+        # modelo eligio la mitad de la decision, y nadie le cuenta la otra mitad.
+        run_script("generate_providers_page.py", [], dry_run=args.dry_run)
         run_script("generate_home_explore.py", [], dry_run=args.dry_run)
 
     # 6. Sitemap y llms.txt
@@ -113,7 +125,24 @@ def main() -> int:
     if not args.skip_sync:
         run_script("sync_doc_counts.py", [], dry_run=args.dry_run)
 
-    print("\n✅ Pipeline de regeneración completado.")
+    # 9. GUARDRAIL — el pipeline no puede decir "listo" si dejó drift.
+    #
+    # El score es un z-score contra la población: medir UN modelo nuevo recalcula el
+    # score de TODOS. Cualquier cifra escrita a mano en un doc caduca sola, sin que nadie
+    # toque el doc. Ya pasó: el README decía que Grok 4.5 sacaba 6.99 mientras el sitio
+    # decía 5.84, y RECOMENDACIONES.md recomendaba modelos que estaban en el puesto #86.
+    #
+    # Regenerar sin verificar es exactamente cómo se llega ahí. Si esto falla, el pipeline
+    # falla — no imprime "✅ completado" sobre un sitio inconsistente.
+    if not args.dry_run:
+        print()
+        rc = run_script("check_consistency.py", [], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ El pipeline regeneró, pero hay docs vivos citando cifras obsoletas.")
+            print("   Arreglalos antes de publicar: los números de arriba NO coinciden con models.json.")
+            return 1
+
+    print("\n✅ Pipeline de regeneración completado — y sin drift.")
     return 0
 
 
