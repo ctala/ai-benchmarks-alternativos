@@ -57,6 +57,14 @@ ALTERNATIVES = [
     ("alternativas-deepseek", "Alternativas a DeepSeek"),
 ]
 
+# La mitad de la decisión que nadie cubre: elegiste el modelo, ¿y por dónde lo llamas?
+# El mismo Qwen 3.5 397B da 2.74 puntos menos de calidad según el proveedor.
+PROVIDERS = (
+    "mismo-modelo-distinto-proveedor",
+    "El proveedor te cambia el modelo",
+    "Elegir el modelo es la mitad de la decisión. La otra mitad casi nadie la mide.",
+)
+
 
 def build() -> str:
     def exists(slug):
@@ -76,6 +84,18 @@ def build() -> str:
         for s, n in ALTERNATIVES if exists(s)
     )
 
+    # La página de proveedores no compite con las demás: responde la pregunta que viene
+    # DESPUÉS de elegir modelo, y que nadie hace. Por eso va arriba y sola, no metida
+    # en una grilla donde se leería como una comparación más.
+    prov = ""
+    if exists(PROVIDERS[0]):
+        s, t, sub = PROVIDERS
+        prov = (f'<h3 class="ex-h3">Ya elegiste el modelo. ¿Y por dónde lo llamas?</h3>'
+                f'<p class="ex-note">{sub}</p>'
+                f'<div class="ex-grid"><a class="ex-card ex-family" href="/{s}/">'
+                f'<span class="ex-name">{t}</span>'
+                f'<span class="ex-q">El mismo modelo, dos proveedores</span></a></div>')
+
     return f"""{START}
   <section class="explore">
     <h2>¿No sabes por dónde empezar?</h2>
@@ -91,6 +111,8 @@ def build() -> str:
 
     <h3 class="ex-h3">Buscas reemplazar el que usas hoy</h3>
     <div class="ex-chips">{alts}</div>
+
+    {prov}
   </section>
 {END}"""
 

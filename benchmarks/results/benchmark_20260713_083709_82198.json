@@ -1,7 +1,7 @@
 {
   "metadata": {
     "timestamp": "20260713_083709_82198",
-    "total_runs": 795,
+    "total_runs": 796,
     "errors": 194,
     "judge": {
       "judge_model": "phi4:latest",
@@ -19723,6 +19723,31 @@
       "run": 1,
       "timestamp": "20260713_083709_82198",
       "response_file": "results/responses/20260713_083709_82198/mimo-v2.5-pro-or__business_audit__roadmap_restriccion_capacidad.md"
+    },
+    {
+      "quality": 3.34,
+      "cost_score": 5.59,
+      "cost_usd": 0.006347,
+      "speed": 6.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 3.7,
+      "test_name": "teardown_competidor_sin_inventar",
+      "model": "MiMo-V2.5 Pro",
+      "model_id": "xiaomi/mimo-v2.5-pro",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 44.4,
+      "latency_first_token": 46.13,
+      "latency_total": 46.13,
+      "input_tokens": 203,
+      "output_tokens": 2048,
+      "response_preview": "# Teardown Competitivo: Comunidad de Automatización ($39/mes)\n\n> **Aclaración metodológica:** Todo lo que sigue se construye SOLO con los datos que proporcionaste. Donde infiero, lo marco con nivel de certeza: 🔴 Baja | 🟡 Media | 🟢 Alta.\n\n---\n\n## 1. ESTIMACIÓN DE FACTURACIÓN\n\n### Ingreso bruto teóric",
+      "auto_quality": 3.34,
+      "suite": "business_audit",
+      "run": 1,
+      "timestamp": "20260713_083709_82198",
+      "response_file": "results/responses/20260713_083709_82198/mimo-v2.5-pro-or__business_audit__teardown_competidor_sin_inventar.md"
     }
   ]
 }

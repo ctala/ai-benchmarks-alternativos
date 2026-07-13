@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El mismo modelo rinde distinto según el proveedor (datos reales)</title>
+<meta name="description" content="Medimos 7 modelos por más de un proveedor. 1 cambian ≥1 punto de calidad según por dónde los llames. Elegir el modelo es la mitad de la decisión.">
+<meta name="keywords" content="mismo modelo distinto proveedor, openrouter vs api directa, ollama cloud calidad, nvidia nim vs openrouter, groq vs openrouter, cuantizacion proveedor llm, que proveedor de llm elegir">
+<meta name="author" content="Cristian Tala">
+<link rel="canonical" href="https://benchmarks.cristiantala.com/mismo-modelo-distinto-proveedor/">
+<meta property="og:title" content="El mismo modelo rinde distinto según el proveedor (datos reales)">
+<meta property="og:description" content="Medimos 7 modelos por más de un proveedor. 1 cambian ≥1 punto de calidad según por dónde los llames. Elegir el modelo es la mitad de la decisión.">
+<meta property="og:url" content="https://benchmarks.cristiantala.com/mismo-modelo-distinto-proveedor/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_CL">
+<meta property="og:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ranking de modelos IA del benchmark de Cristian Tala">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="El mismo modelo rinde distinto según el proveedor (datos reales)">
+<meta name="twitter:description" content="Medimos 7 modelos por más de un proveedor. 1 cambian ≥1 punto de calidad según por dónde los llames. Elegir el modelo es la mitad de la decisión.">
+<meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "El mismo modelo rinde distinto según el proveedor (datos reales)",
+  "description": "Medimos 7 modelos por más de un proveedor. 1 cambian ≥1 punto de calidad según por dónde los llames. Elegir el modelo es la mitad de la decisión.",
+  "author": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  },
+  "datePublished": "2026-07-13",
+  "dateModified": "2026-07-13",
+  "inLanguage": "es",
+  "url": "https://benchmarks.cristiantala.com/mismo-modelo-distinto-proveedor/",
+  "mainEntityOfPage": "https://benchmarks.cristiantala.com/mismo-modelo-distinto-proveedor/",
+  "publisher": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  }
+}
+</script>
+<!-- GTM: MISMO container que cristiantala.com (GTM-N69D7XXH) para poder seguir el
+     funnel cruzado blog -> benchmark -> comunidad desde un solo lugar.
+     DIFERIDO igual que en el blog: carga en la primera interaccion o a los 3.5s de
+     idle, para no meterlo en la ruta critica del LCP.
+     Antes: 0 de 57 paginas tenian analytics. Habia 45 CTAs a la comunidad y CERO
+     forma de saber si convertian (Regla #8 del repo: tracking desde el dia uno). -->
+<script>
+(function () {
+  var loaded = false;
+  function loadGTM() {
+    if (loaded) return;
+    loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N69D7XXH';
+    document.head.appendChild(j);
+  }
+  ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (ev) {
+    addEventListener(ev, loadGTM, { once: true, passive: true });
+  });
+  setTimeout(loadGTM, 3500);
+})();
+</script>
+</head>
+<body>
+<!-- Eventos del funnel. Sin esto no se puede saber que pagina alimenta la comunidad. -->
+<script>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  var page = location.pathname.replace(/^\/|\/$/g, '') || 'home';
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('skool.com') > -1) {
+      window.dataLayer.push({
+        event: 'cta_comunidad',
+        cta_ubicacion: a.closest('.funnel') ? 'funnel' : (a.closest('header') ? 'nav' : 'otro'),
+        pagina_pseo: page
+      });
+    } else if (href.indexOf('/?preset=') === 0 || href.indexOf('/?calls=') === 0) {
+      window.dataLayer.push({ event: 'ir_a_calculadora', pagina_pseo: page });
+    }
+  }, { passive: true });
+  // Llego a ver la tabla (la evidencia). Marca lectura real, no rebote.
+  var t = document.querySelector('.results-table');
+  if (t && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) {
+        window.dataLayer.push({ event: 've_tabla', pagina_pseo: page });
+        io.disconnect();
+      }
+    }, { threshold: 0.25 });
+    io.observe(t);
+  }
+})();
+</script>
+<header>
+  <div class="container header-inner">
+    <a href="https://cristiantala.com" class="logo-link" target="_blank" rel="noopener">
+      <img src="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-dark-2026.png" alt="Cristian Tala" class="logo">
+    </a>
+    <nav aria-label="Principal">
+      <a href="/">Calculadora</a>
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
+      <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+
+<h1>El mismo modelo no rinde igual según quién lo sirva</h1>
+
+<p class="verdict-lead">Elegís un modelo mirando un ranking. Después lo llamás por el proveedor
+que tenías a mano. Y resulta que <strong>esa segunda decisión, la que nadie te ayuda a
+tomar, te puede costar más calidad que la primera.</strong></p>
+
+<p><strong>Qwen 3.5 397B es el caso más grave.</strong> Servido por
+NVIDIA NIM da <strong>8.17</strong> de calidad. Servido por Ollama Cloud,
+<strong>5.43</strong>. Son <strong>2.74 puntos</strong> — el
+mismo modelo, los mismos pesos, la misma pregunta. La diferencia no está en el modelo:
+está en cómo lo sirven (cuantización, configuración, versión).</p>
+
+<p>Si elegiste Qwen 3.5 397B porque lo viste bien rankeado y lo estás llamando por
+Ollama Cloud, no estás usando el modelo que creés que elegiste.</p>
+
+<h2>Los datos</h2>
+
+<p>Estos son todos los modelos que medimos por más de un camino, con al menos 50
+runs en cada uno. La columna <strong>Δ calidad</strong> es la diferencia entre el mejor y
+el peor proveedor del mismo modelo. <strong>Si el modelo fuera lo único que importa, esa
+columna sería cero en todas las filas.</strong></p>
+
+<div class="table-scroll"><table class="results-table"><thead><tr><th>Modelo</th><th>Se llama por</th><th>Calidad</th><th>tok/s</th><th>TTFT</th><th>Runs</th><th>Δ calidad</th></tr></thead><tbody><tr class="win"><td rowspan="2"><strong>Qwen 3.5 397B</strong></td><td>NVIDIA NIM</td><td>8.17</td><td>21</td><td>48.3s</td><td>87</td><td rowspan="2"><strong>+2.74</strong></td></tr><tr><td>Ollama Cloud</td><td>5.43</td><td>77</td><td>33.1s</td><td>90</td></tr><tr class="win"><td rowspan="2"><strong>Claude Sonnet 4.6</strong></td><td>Claude Code (CLI)</td><td>8.71</td><td>51</td><td>45.9s</td><td>86</td><td rowspan="2">+0.67</td></tr><tr><td>OpenRouter</td><td>8.04</td><td>54</td><td>16.8s</td><td>147</td></tr><tr class="win"><td rowspan="2"><strong>Claude Opus 4.7</strong></td><td>Claude Code (CLI)</td><td>8.65</td><td>56</td><td>32.4s</td><td>70</td><td rowspan="2">+0.45</td></tr><tr><td>OpenRouter</td><td>8.20</td><td>63</td><td>15.8s</td><td>174</td></tr><tr class="win"><td rowspan="2"><strong>DeepSeek V4 Flash</strong></td><td>OpenRouter</td><td>8.47</td><td>72</td><td>24.6s</td><td>113</td><td rowspan="2">+0.27</td></tr><tr><td>NVIDIA NIM</td><td>8.20</td><td>25</td><td>55.0s</td><td>83</td></tr><tr class="win"><td rowspan="2"><strong>Claude Opus 4.8</strong></td><td>Claude Code (CLI)</td><td>8.81</td><td>61</td><td>34.1s</td><td>89</td><td rowspan="2">+0.27</td></tr><tr><td>OpenRouter</td><td>8.54</td><td>66</td><td>14.7s</td><td>87</td></tr><tr class="win"><td rowspan="2"><strong>Gemma 4 31B</strong></td><td>OpenRouter</td><td>8.28</td><td>9</td><td>158.7s</td><td>85</td><td rowspan="2">+0.23</td></tr><tr><td>NVIDIA NIM</td><td>8.05</td><td>24</td><td>67.6s</td><td>82</td></tr><tr class="win"><td rowspan="2"><strong>MiniMax M3</strong></td><td>API directa del fabricante</td><td>8.64</td><td>26</td><td>73.3s</td><td>87</td><td rowspan="2">+0.08</td></tr><tr><td>OpenRouter</td><td>8.56</td><td>26</td><td>66.5s</td><td>89</td></tr></tbody></table></div>
+
+<p class="meta">La calidad es el promedio del juez sobre tareas reales (0-10). El TTFT es
+el tiempo hasta el primer token. No usamos el score global del ranking acá a propósito:
+ese es un z-score contra toda la población y se recalcula cada vez que entra un modelo
+nuevo. Estas tres columnas son crudas — no se mueven.</p>
+
+<h2>Por qué pasa esto</h2>
+
+<p>Un proveedor no te entrega "el modelo". Te entrega <em>su forma de servirlo</em>, y ahí
+hay decisiones que cambian el resultado:</p>
+
+<ul>
+<li><strong>Cuantización.</strong> Correr un modelo en menos bits es más barato y más
+rápido — y le baja la calidad. El proveedor rara vez lo dice en la portada.</li>
+<li><strong>La infraestructura.</strong> La velocidad y la latencia son del hardware, no
+del modelo. En nuestros datos el mismo modelo llega a variar
+<strong>3.7×</strong> en tokens por segundo según dónde corra.</li>
+<li><strong>La configuración por defecto.</strong> Prompt de sistema, parámetros,
+truncados, versión del checkpoint. Todo eso viaja con el proveedor.</li>
+</ul>
+
+<h2>Qué hacer con esto</h2>
+
+<ol>
+<li><strong>Cuando leas cualquier benchmark —incluido el nuestro— preguntá por dónde
+midieron.</strong> Un número sin proveedor es medio número. Nosotros medimos todo por
+OpenRouter justamente para que la comparación entre modelos sea limpia: si cada modelo se
+mide en su propia infra, no estás comparando modelos, estás comparando datacenters.</li>
+<li><strong>Si te cambiaste de proveedor y "el modelo empeoró", no era tu impresión.</strong>
+Medilo antes de culpar al prompt.</li>
+<li><strong>El proveedor más rápido no es gratis.</strong> A veces la velocidad viene de
+una cuantización que te está costando calidad. Esa es una decisión que podés tomar — pero
+tenés que saber que la estás tomando.</li>
+</ol>
+
+<h2>Cómo salió este dato</h2>
+
+<p>Por un error nuestro, honestamente. Durante meses el benchmark midió unos modelos en
+OpenRouter y otros en NVIDIA NIM, Groq o la API directa del fabricante. Eso era un bug: el
+ranking estaba midiendo <em>modelo × infraestructura</em> y no el modelo, al punto de que
+un mismo modelo llegó a ocupar <strong>dos puestos distintos</strong> del ranking.</p>
+
+<p>Al arreglarlo (todo se mide en un plano común) podríamos haber borrado las mediciones
+duplicadas. No lo hicimos: son el único experimento natural que tenemos sobre esto. El bug
+resultó ser el dato más útil.</p>
+
+<section class="funnel">
+  <h2>Antes de migrar, haz esto</h2>
+  <p>Ya sabes cuál gana en el papel. No lo cambies a ciegas: toma <strong>el mejor de cada familia</strong>
+  y pásales <strong>cinco prompts reales tuyos</strong>, de los que ya corres en producción. Una
+  comparación general te dice quién arranca adelante; <strong>tu caso decide quién gana</strong>.
+  Son veinte minutos y te ahorran una migración equivocada.</p>
+  <p class="funnel-note">Y una advertencia: este resultado se recalcula con cada lote de modelos nuevos.
+  Como el score de cada modelo es <em>relativo a todos los demás</em>, un modelo nuevo mueve a todos.
+  El ganador de hoy puede no serlo el mes que viene.</p>
+  <p><a href="https://www.skool.com/cagala-aprende-repite?utm_source=benchmarks&amp;utm_medium=pseo&amp;utm_campaign=comparacion" target="_blank" rel="noopener" class="cta-primary">
+  Ver la comunidad →</a></p>
+  <p class="funnel-fine">Cada vez que corro un lote nuevo, publico el recálculo ahí — con los datos
+  crudos y lo que cambió de lugar. Es también donde hay gente tomando esta misma decisión.
+  Entrar es gratis.</p>
+</section>
+<section>
+  <h2>¿Qué mide este benchmark?</h2>
+  <p>No es un benchmark académico (para eso están MMLU, HumanEval o SWE-bench). Es un benchmark
+  <strong>aplicado para emprendedores hispanohablantes</strong>: mide qué modelo conviene poner en
+  producción para casos reales, con lo que los benchmarks oficiales no cubren — costo en provider real,
+  velocidad, español neutro y agentes multi-turno.</p>
+  <p>Contamos con <strong>172 modelos catalogados</strong>, <strong>102 testeados</strong>
+  y <strong>9.000+ runs reales</strong> evaluados por un
+  <strong>LLM-as-Judge local (Phi-4, de Microsoft — sin conflicto de interés)</strong>, en 4 pilares:</p>
+  <ul>
+    <li><strong>Coding</strong> — generar código, JSON estructurado y debugging en tareas reales (plugins WordPress, scripts, templates de N8N).</li>
+    <li><strong>Contenido y marketing</strong> — blogs, copy y textos largos en español neutro (no traducción del inglés).</li>
+    <li><strong>Razonamiento</strong> — matemáticas, lógica formal y planificación multi-paso.</li>
+    <li><strong>Agentes y operaciones</strong> — multi-turno largo, tool calling y flujos tipo N8N / Hermes.</li>
+  </ul>
+  <p><strong>Dos números distintos, no los confundas.</strong> Las tablas por tarea de esta página se
+  ordenan por <strong>calidad en esa tarea</strong>: capacidad pura, sin mezclar precio. Es la respuesta a
+  "¿quién lo hace mejor?".</p>
+  <p>El <strong>score global</strong> es otra cosa: una función ponderada
+  (<strong>calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%</strong>) que responde
+  "¿qué conviene poner en producción?". Ahí un modelo barato y rápido sí puede superar a uno más capaz
+  pero caro. Los dos números sirven — para preguntas distintas.</p>
+  <p>Tool calling va como <strong>insignia aparte</strong> (no suma al score global): indica si el modelo soporta
+  herramientas, no su calidad. <strong>Límite conocido:</strong> el juez es Phi-4 (14B) y varios modelos
+  evaluados son más capaces que él — ordena bien, pero comprime las diferencias en la cima. Leé un empate
+  como "el juez no los distingue", no como "son idénticos".
+  <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
+</section>
+
+</main>
+<footer>
+  <div class="container">
+    <p>Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
+    <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
+    <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener">Skool</a></p>
+  </div>
+</footer>
+</body>
+</html>
