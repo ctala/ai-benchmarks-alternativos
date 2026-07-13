@@ -206,6 +206,27 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
   3. Se detecta un **bug del runner/adapter** que invalida runs previos (ej. fix de max_tokens para thinking, abril 2026 → re-run sólo de los empties con `--rerun-empty`).
   4. El modelo tuvo cambios visibles del proveedor (silent retraining anunciado, cambio de pricing radical, etc).
   No re-medir por: refactor del runner, mejoras cosméticas, formato de output, regeneración de MDs por modelo.
+- **Endpoints caducos: chequear ANTES de un lote grande.**
+  ```bash
+  .venv/bin/python benchmarks/check_endpoints.py --ranked        # solo reporta
+  .venv/bin/python benchmarks/check_endpoints.py --ranked --fix  # marca retired: True
+  ```
+  Manda un ping de 1 token a cada modelo y clasifica: **MUERTO** (deprecated / no
+  endpoints / invalid model → se retira) · **INTERMITENTE** (429, 5xx, timeout → NO se
+  toca, el modelo existe) · **SIN CREDENCIAL** (falta la key del provider, no es culpa
+  del modelo). La distinción importa: marcar como muerto a uno que solo tuvo un timeout
+  sería tan malo como lo contrario.
+
+  **Por qué existe:** el 13-jul-2026, a mitad de un backfill de ~$44, se descubrió que
+  **5 modelos del ranking ya no existían**. Uno era **Devstral Small, #5** — alguien
+  podía leerlo, integrarlo y estrellarse. Nos enteramos tarde y caro, porque el lote se
+  estrelló contra ellos. Este chequeo cuesta centavos y lo detecta antes.
+
+  Un modelo `retired: True` queda **fuera del ranking y de las recomendaciones** (un
+  modelo que no puedes usar no es un candidato), pero **sigue en los datos**: sus runs
+  son reales y alimentan el análisis histórico. Se muestra en la sección *Retirados* de
+  MODELOS.md. El runner también los omite (`--include-retired` para forzarlos).
+
 - **Verificar consistencia** entre docs: conteos de modelos/tests/suites deben coincidir.
   ```bash
   .venv/bin/python benchmarks/check_consistency.py   # exit 1 si un doc vivo cita un score obsoleto

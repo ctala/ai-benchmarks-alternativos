@@ -475,6 +475,26 @@ def run_benchmark(args):
                 console.print(f"[yellow]   · [bold]{k}[/bold] → [bold]{twin}[/bold][/yellow]")
             console.print("[dim]   (--allow-anthropic-api para pagar por token a propósito)[/dim]\n")
 
+    # ── Modelos retirados: el proveedor ya no los sirve ──
+    #
+    # Sin esto, el runner gasta un intento por test contra un endpoint que no existe.
+    # En el backfill del 13-jul fueron 50 llamadas muertas antes de que lo notáramos.
+    # Y peor: si el modelo sigue en el ranking, se lo recomienda a alguien que no lo
+    # puede usar (Devstral Small estaba #5 y su endpoint no responde).
+    #
+    # Detectarlos sin gastar el lote: benchmarks/check_endpoints.py
+    if not getattr(args, "include_retired", False):
+        retirados = [k for k in list(models) if models[k].get("retired")]
+        for k in retirados:
+            models.pop(k)
+        if retirados:
+            console.print("[yellow]⚠️  Omito modelos retirados por el proveedor "
+                          "(endpoint muerto):[/yellow]")
+            for k in retirados:
+                console.print(f"[yellow]   · {k}[/yellow]")
+            console.print("[dim]   (--include-retired para intentarlos igual · "
+                          "check_endpoints.py para revisar el catálogo)[/dim]\n")
+
     if not models:
         console.print("[red]No hay modelos seleccionados[/red]")
         sys.exit(1)

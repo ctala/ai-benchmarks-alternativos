@@ -47,8 +47,11 @@ def load_models_export():
     data = json.loads(MODELS_JSON.read_text())
     scored = [m for m in data.get("models", []) if m.get("score_global") is not None]
     ranked = [m for m in scored if m.get("ranked")]
-    in_review = [m for m in scored if not m.get("ranked")]
-    return ranked, in_review
+    retired = [m for m in scored if m.get("retired")]
+    # `in_review` = muestra chica, PERO todavía usable. Un retirado no está "en
+    # evaluación": está muerto. Son dos cosas distintas y se muestran aparte.
+    in_review = [m for m in scored if not m.get("ranked") and not m.get("retired")]
+    return ranked, in_review, retired
 
 
 def find_response_dirs(model_id: str) -> list[str]:
@@ -196,7 +199,31 @@ def build_in_review_table(models: list[dict]) -> str:
     return "\n".join(lines)
 
 
-def build_table(ranked: list[dict], in_review: list[dict]) -> str:
+def build_retired_table(models: list[dict]) -> str:
+    """Modelos que el proveedor retiró. Se muestran para no dejar a nadie colgado.
+
+    Alguien que buscó "Devstral Small" y llega acá merece enterarse de que el endpoint
+    ya no existe — no encontrar una tabla que se lo recomienda. Los datos históricos
+    quedan (son reales), pero fuera del ranking.
+    """
+    lines = [
+        "#### Retirados — el proveedor ya no los sirve",
+        "",
+        "> **Estos modelos ya no se pueden llamar.** El endpoint devuelve *deprecated* o "
+        "*no endpoints found*. Sus números son reales y quedan acá por transparencia "
+        "(alimentan el análisis histórico), pero **están fuera del ranking y de las "
+        "recomendaciones**: un modelo que no puedes usar no es un candidato. "
+        "Devstral Small llegó a estar **#5** antes de que su endpoint desapareciera.",
+        "",
+        "| Modelo | OS | $ in/out | Score (histórico) | Runs | Per-model MD | Responses |",
+        "|---|---|---:|---:|---:|---|---|",
+    ]
+    for m in sorted(models, key=lambda x: -(x.get("score_global") or -1)):
+        lines.append(row_for_model(m, "score_global"))
+    return "\n".join(lines)
+
+
+def build_table(ranked: list[dict], in_review: list[dict], retired: list[dict] = ()) -> str:
     sections = [
         build_global_table(ranked),
         "",
@@ -212,6 +239,8 @@ def build_table(ranked: list[dict], in_review: list[dict]) -> str:
     ]
     if in_review:
         sections += ["", build_in_review_table(in_review)]
+    if retired:
+        sections += ["", build_retired_table(list(retired))]
     return "\n".join(sections)
 
 
@@ -220,8 +249,8 @@ def main():
     ap.add_argument("-i", "--in-place", action="store_true", help="Actualiza MODELOS.md in-place")
     args = ap.parse_args()
 
-    ranked, in_review = load_models_export()
-    table = build_table(ranked, in_review)
+    ranked, in_review, retired = load_models_export()
+    table = build_table(ranked, in_review, retired)
 
     if args.in_place:
         modelos_md = ROOT / "MODELOS.md"
@@ -249,8 +278,8 @@ def main():
         else:
             new_content = content.replace("## Probados", f"## Probados\n\n{new_block}\n\n#### Tabla manual (legacy):", 1)
         modelos_md.write_text(new_content)
-        print(f"OK: MODELOS.md actualizado — {len(ranked)} rankeados (>=50 runs), "
-              f"{len(in_review)} en evaluación (<50 runs)")
+        print(f"OK: MODELOS.md actualizado — {len(ranked)} rankeados, "
+              f"{len(in_review)} en evaluación, {len(retired)} retirados")
     else:
         print(table)
 
