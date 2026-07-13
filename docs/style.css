@@ -1422,3 +1422,14 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 }
 .ex-chip:hover, .ex-chip:focus-visible { border-color: var(--cyan); color: var(--white); }
 @media (prefers-reduced-motion: reduce) { .ex-card { transition: none; } .ex-card:hover { transform: none; } }
+
+/* Fila ganadora dentro de un grupo comparado. La clase `win` ya se usaba en las
+   páginas de familia y NO estaba definida: se marcaba al ganador y se veía igual que
+   el resto. Un borde a la izquierda alcanza — no hace falta pintar la fila entera,
+   que compite con el resto de la tabla. */
+.results-table tr.win td:first-child {
+  box-shadow: inset 3px 0 0 var(--green);
+}
+.results-table tr.win td {
+  background: rgba(57, 255, 20, 0.04);
+}
