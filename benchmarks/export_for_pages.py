@@ -99,6 +99,9 @@ SUITE_TO_PILLAR = {
     # Auditoria de negocio: es razonamiento aplicado con trampas verificables
     # (aritmetica que no cierra, causalidad falsa, metrica que mezcla poblaciones).
     "business_audit": "Razonamiento",
+    # Planificacion estrategica: generar un plan VALIDO (restricciones, aritmetica,
+    # activos reales, falsabilidad). Es razonamiento aplicado, no redaccion.
+    "business_strategy": "Razonamiento",
     "code_generation": "Coding",
     "structured_output": "Coding",
     "string_precision": "Coding",
