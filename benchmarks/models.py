@@ -316,6 +316,7 @@ MODELS = {
 
     # --- Xiaomi MiMo ---
     "mimo-v2-flash": {
+        "retired": True,  # Xiaomi: modelo deprecado (13-jul-2026)
         "id": "xiaomi/mimo-v2-flash",
         "name": "MiMo-V2-Flash",
         "cost_input": 0.09,
@@ -325,6 +326,7 @@ MODELS = {
         "license": "MIT",
     },
     "mimo-v2-pro": {
+        "retired": True,  # Xiaomi: modelo deprecado (13-jul-2026)
         "id": "xiaomi/mimo-v2-pro",
         "name": "MiMo-V2-Pro",
         "cost_input": 1.00,
@@ -434,6 +436,7 @@ MODELS = {
         "license": "MRL (no comercial)",
     },
     "devstral": {
+        "retired": True,  # OpenRouter: "No endpoints found" (13-jul-2026). Estaba #5 del ranking.
         "id": "mistralai/devstral-small",
         "name": "Devstral Small",
         "cost_input": 0.10,
@@ -443,6 +446,7 @@ MODELS = {
         "license": "Apache 2.0",
     },
     "devstral-medium": {
+        "retired": True,  # OpenRouter: No endpoints found (13-jul-2026)
         "id": "mistralai/devstral-medium",
         "name": "Devstral Medium",
         "cost_input": 0.40,
@@ -711,6 +715,7 @@ MODELS = {
         "open_source": True, "license": "Llama Community",
     },
     "groq-llama-3.1-8b": {
+        "retired": True,  # Groq: llama-3.1-8b-instant is not a valid model ID (13-jul-2026)
         "id": "llama-3.1-8b-instant",
         "name": "Llama 3.1 8B Instant (Groq)",
         "cost_input": 0.05, "cost_output": 0.08,
