@@ -388,7 +388,16 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     if is_niah:
         quality = answer_score  # retrieval puro: solo el regex de extracción
     elif tiene_verdad_objetiva:
-        quality = auto_quality  # el rúbrico ES la medición (contenido 40% / respuesta 60%)
+        # La nota ES si cazó el hecho. NADA MÁS.
+        #
+        # No `auto_quality`, que es `content*0.4 + answer*0.6`: `content` mide largo,
+        # formato, secciones e idioma. En un test cuya gracia es si viste que los costos
+        # suman 9.150 y no 7.400, el formato es RUIDO. Al sacar el juez, ese 40% pasó a
+        # decidir la calidad y los modelos prolijos treparon solos — Gemini 2.5 Flash Lite
+        # llegó a #1 del ranking por formatear bien.
+        #
+        # El formato no salva a quien publicó un número falso con viñetas impecables.
+        quality = answer_score
     elif judge_quality >= 0:
         # Sin verdad objetiva (escribir, resumir, vender) no hay contra qué verificar:
         # ahí el juez es lo único que hay. 30% automático + 70% juez.

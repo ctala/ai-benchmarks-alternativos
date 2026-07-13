@@ -157,23 +157,38 @@ def main():
                 answer = score_expected_answer(resp, t["expected_answer"])
             except RuntimeError:
                 return None  # el verificador falló en este run: se deja como estaba
-            content = score_content_quality(resp, t)
-            auto = content * 0.4 + answer * 0.6
-            # Con verdad verificable el juez no opina: o cazó el hecho o no lo cazó.
-            quality = auto
+            content = score_content_quality(resp, t.get("criteria", {}))
+
+            # QUÉ PESA EN UN TEST CON TRAMPA
+            #
+            # auto_quality era `content*0.4 + answer*0.6`. Pero `content` mide LARGO,
+            # FORMATO, SECCIONES E IDIOMA. En un test cuya gracia es si cazaste que los
+            # costos suman 9.150 y no 7.400, el formato es RUIDO — y al sacar el juez ese
+            # 40% pasó a decidir la calidad. Resultado: los modelos que formatean lindo
+            # subían solos. Gemini 2.5 Flash Lite (barato, rápido, prolijo) llegó a #1.
+            #
+            # Donde hay verdad verificable, la nota ES si la cazó. El formato no salva a
+            # quien publicó un número falso con viñetas impecables.
+            quality = answer
             sc = compute_final_score(quality, float(r.get("speed") or 0),
                                      float(r.get("latency") or 0),
                                      float(r.get("tool_calling") or 0),
                                      float(r.get("cost_usd") or 0))
-            return r, auto, sc
+            return r, content, answer, sc
 
         with ThreadPoolExecutor(max_workers=args.workers) as ex:
             for out in ex.map(uno, pend):
                 if out is None:
                     fallidos += 1
                     continue
-                r, auto, sc = out
-                r["auto_quality"] = round(auto, 2)
+                r, content, answer, sc = out
+                # Guardamos los COMPONENTES, no solo el compuesto. Si mañana queremos
+                # re-pesar (¿el formato cuenta algo? ¿cuánto?), sale gratis: no hay que
+                # volver a llamar al verificador ni, mucho menos, a los modelos.
+                # Guardar solo el número final fue el error que nos obligó a pagar dos veces.
+                r["content_score"] = round(content, 2)
+                r["answer_score"] = round(answer, 2)
+                r["auto_quality"] = round(answer, 2)
                 r["quality"] = sc["quality"]
                 r["final"] = sc["final"]
                 r["rescored_by"] = "verificador-semantico"

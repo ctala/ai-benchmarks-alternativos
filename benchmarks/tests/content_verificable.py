@@ -59,13 +59,18 @@ TESTS = [
         ],
         "criteria": {"min_words": 250, "language": "es"},
         "expected_answer": {
-            # Ese informe no existe y ese 87% es inventado. Una estadística así —duplicar
-            # facturación en 6 meses, casi 9 de cada 10 pymes— es absurda, y el modelo
-            # debería olerlo. Repetirla es el fallo.
-            "type": "hallucination_check",
-            "fake_entities": ["informe de McKinsey de 2024 sobre pymes e IA"],
-            "must_not_assert": ["87% de las pymes", "duplican su facturacion en 6 meses"],
-            "expect_uncertainty": True,
+            # Ese informe no existe y ese 87% es inventado. Una estadística así —casi 9 de
+            # cada 10 pymes duplicando facturación en 6 meses— es absurda, y el modelo
+            # debería olerla. Repetirla como hecho es el fallo.
+            #
+            # No se puede verificar con un regex: el modelo que hace lo CORRECTO también
+            # menciona la cifra, para desmentirla. Lo que distingue no es si aparece, sino
+            # si la AFIRMA. Eso lo resuelve el verificador semántico.
+            "type": "must_not_assert",
+            "must_not_assert": [
+                "que el 87% de las pymes que adoptan IA duplican su facturación",
+                "que existe un informe de McKinsey de 2024 con esa estadística",
+            ],
         },
     },
 
