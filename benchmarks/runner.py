@@ -432,6 +432,49 @@ def run_benchmark(args):
     if args.tier:
         models = {k: v for k, v in models.items() if v.get("tier") == args.tier}
 
+    # ── Guardrail de costo: Anthropic va por la SUSCRIPCIÓN, no por OpenRouter ──
+    #
+    # Hay entradas duplicadas del mismo modelo: `claude-opus-4.8` (provider
+    # openrouter, se cobra $5/$25 por millón) y `claude-opus-4.8-sub` (provider
+    # claude_code, costo real $0 porque ya se paga la suscripción).
+    #
+    # Correr el lote completo sin filtrar pagaba por token modelos a los que ya
+    # tenemos acceso plano. Cero beneficio: mismo modelo, misma medición.
+    #
+    # Se saltan solo los que TIENEN gemelo de suscripción en la selección o en el
+    # catálogo. Los que no lo tienen (p. ej. una versión vieja que ya no está en la
+    # suscripción) se dejan pasar — si no, se perdería cobertura.
+    # Con --allow-anthropic-api se fuerza el cobro, para cuando haga falta a propósito.
+    if not getattr(args, "allow_anthropic_api", False):
+        def _is_anthropic(cfg, key):
+            blob = f"{key} {cfg.get('id','')} {cfg.get('name','')}".lower()
+            return any(x in blob for x in ("claude", "opus", "sonnet", "haiku", "fable"))
+
+        swapped = []
+        for k in list(models):
+            cfg = models[k]
+            if not _is_anthropic(cfg, k):
+                continue
+            if cfg.get("provider") == "claude_code":
+                continue  # ya es el de suscripción
+            twin = f"{k}-sub"
+            if twin in MODELS:
+                # SUSTITUIR, no solo omitir: se sigue midiendo el modelo, pero por la
+                # via que ya esta pagada. Omitirlo a secas perderia la medicion.
+                models.pop(k)
+                models[twin] = MODELS[twin]
+                swapped.append((k, twin))
+
+        if swapped:
+            console.print(
+                "[yellow]⚠️  Anthropic va por la SUSCRIPCIÓN (Claude Code), no por OpenRouter.[/yellow]\n"
+                "[yellow]   Es el mismo modelo: por OpenRouter se paga por token y por "
+                "suscripción no.[/yellow]"
+            )
+            for k, twin in swapped:
+                console.print(f"[yellow]   · [bold]{k}[/bold] → [bold]{twin}[/bold][/yellow]")
+            console.print("[dim]   (--allow-anthropic-api para pagar por token a propósito)[/dim]\n")
+
     if not models:
         console.print("[red]No hay modelos seleccionados[/red]")
         sys.exit(1)
@@ -967,6 +1010,12 @@ def display_results(results: list[dict]):
 def main():
     parser = argparse.ArgumentParser(description="Benchmark de modelos AI via OpenRouter")
     parser.add_argument("--models", nargs="+", help="Modelos especificos a evaluar (keys del config)")
+    parser.add_argument(
+        "--allow-anthropic-api", action="store_true",
+        help=("Permite correr modelos Anthropic por OpenRouter (SE COBRA POR TOKEN) aunque "
+              "exista el gemelo `-sub` de suscripcion. Por defecto se usa la suscripcion, "
+              "que ya esta pagada y mide lo mismo."),
+    )
     parser.add_argument("--tests", nargs="+", help="Test suites a ejecutar",
                        choices=list(ALL_TEST_SUITES.keys()))
     parser.add_argument("--tier", help="Solo modelos de un tier",
