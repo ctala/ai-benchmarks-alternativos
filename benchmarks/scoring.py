@@ -202,6 +202,54 @@ def _score_multi_string(response: str, expected: dict) -> float:
     return 10.0 * (found / len(must_contain))
 
 
+def _parse_number_es(raw: str) -> float | None:
+    """Parsea un numero escrito en formato ESPANOL o anglosajon.
+
+    BUG QUE ARREGLA (13-jul-2026). El parser anterior hacia
+    `float(num.replace(",", "."))`, que en un benchmark EN ESPANOL es al reves:
+
+        "3.000"  -> 3.0     (deberia ser 3000)
+        "1.800"  -> 1.8     (deberia ser 1800)
+        "$9.150" -> 9.15    (deberia ser 9150)
+
+    O sea: castigaba a los modelos que escriben los numeros BIEN en espanol. Caso
+    real: Claude Opus 4.8 respondio "3.000 suscriptores -> 60 compradores -> $1.800"
+    (los tres exactos) y el scorer solo le reconocio el 60. Saco 4.4 de 10 por
+    escribir correctamente.
+
+    Reglas:
+      - Si hay punto Y coma, el ULTIMO separador es el decimal.
+          "1.234,56" -> 1234.56   |   "1,234.56" -> 1234.56
+      - Si solo hay puntos y el ultimo grupo es de 3 digitos con mas digitos delante,
+        es separador de miles: "3.000" -> 3000, "1.234.567" -> 1234567.
+      - Si solo hay coma y el ultimo grupo es de 3 digitos, idem: "3,000" -> 3000.
+      - En cualquier otro caso el separador es decimal: "3,5" -> 3.5, "0.75" -> 0.75.
+    """
+    s = (raw or "").strip()
+    if not s:
+        return None
+    has_dot, has_comma = "." in s, "," in s
+
+    try:
+        if has_dot and has_comma:
+            # el ultimo separador que aparece es el decimal
+            dec = "." if s.rfind(".") > s.rfind(",") else ","
+            thou = "," if dec == "." else "."
+            return float(s.replace(thou, "").replace(dec, "."))
+
+        if has_dot or has_comma:
+            sep = "." if has_dot else ","
+            head, _, tail = s.rpartition(sep)
+            # separador de miles: 3 digitos exactos detras y algo delante
+            if len(tail) == 3 and tail.isdigit() and head and head.replace(sep, "").isdigit():
+                return float(s.replace(sep, ""))
+            return float(s.replace(",", "."))
+
+        return float(s)
+    except ValueError:
+        return None
+
+
 def _score_numeric(response: str, expected: dict) -> float:
     """Evalua respuestas numericas con tolerancia (0-10)."""
     values = expected.get("values", {})
@@ -222,16 +270,21 @@ def _score_numeric(response: str, expected: dict) -> float:
                 score += max_per_value
             continue
 
-        # Buscar numeros en la respuesta cercanos al esperado
-        numbers = re.findall(r'[\d]+[.,]?\d*', response)
+        # Buscar numeros en la respuesta cercanos al esperado.
+        # El regex captura grupos completos con separadores de miles ("1.234.567,89"),
+        # no solo el primer tramo: antes cortaba en el primer separador.
+        numbers = re.findall(r'\d[\d.,]*\d|\d', response)
         for num_str in numbers:
-            try:
-                num = float(num_str.replace(",", "."))
-                if abs(num - expected_num) <= tolerance:
-                    score += max_per_value
-                    break
-            except ValueError:
+            num = _parse_number_es(num_str)
+            if num is None:
                 continue
+            # Tolerancia relativa para valores grandes: exigir ±2 sobre 9.150 es
+            # absurdo (un modelo que redondea a 9.200 acerto igual). Se toma la mas
+            # generosa entre la absoluta declarada y un 3% del valor esperado.
+            tol = max(tolerance, abs(expected_num) * 0.03)
+            if abs(num - expected_num) <= tol:
+                score += max_per_value
+                break
 
     return min(score, 10.0)
 
