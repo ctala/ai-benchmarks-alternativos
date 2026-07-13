@@ -603,7 +603,19 @@ def build_export():
             "subscriptions": subscriptions_expanded,
             "notes": cfg.get("notes", ""),
             "tested": metrics["runs"] >= MIN_RUNS_TESTED,  # cobertura suficiente para reportar
-            "ranked": metrics["runs"] >= MIN_RUNS_RANKED,  # muestra suficiente para rankear
+            # RANKEABLE = muestra sólida Y que todavía se pueda usar.
+            #
+            # Un modelo retirado por el proveedor NO es un candidato: el ranking existe
+            # para ayudar a DECIDIR, y recomendar algo que no se puede llamar es el peor
+            # fallo posible. Detectado el 13-jul-2026 en el backfill: 5 modelos devuelven
+            # "deprecated" / "No endpoints found" en los 10 tests. Uno de ellos, Devstral
+            # Small, estaba **#5 del ranking** — alguien lo habría integrado y se estrella.
+            #
+            # Se siguen exportando (los datos históricos valen: 161 runs de Devstral
+            # alimentan el análisis de dispersión), pero fuera del ranking y de las
+            # recomendaciones. Ver `retired` en models.py.
+            "retired": bool(cfg.get("retired")),
+            "ranked": metrics["runs"] >= MIN_RUNS_RANKED and not cfg.get("retired"),
             "sample_tier": sample_tier(metrics["runs"]),   # solid | partial | preliminary
             **capabilities,  # tool_calling, thinking, multimodal
             **metrics,
