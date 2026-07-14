@@ -474,6 +474,28 @@ def run_benchmark(args):
         except ImportError:
             pass
 
+    # LA MÁQUINA PROPIA NO ES EL CAMINO POR DEFECTO.
+    #
+    # Un modelo corrido en el Spark rinde a la velocidad del Spark, no a la del modelo.
+    # Meterlo en la misma tabla que un modelo servido por un datacenter es el mismo error
+    # que mezclar Groq (379 tok/s en LPU) con NVIDIA NIM (43 tok/s): no estás comparando
+    # modelos, estás comparando hardware.
+    #
+    # Casi todos ya se miden en OpenRouter (plano común). Los que SOLO existen self-hosted
+    # (no hay endpoint público) siguen midiéndose acá, pero como respuesta a otra pregunta
+    # —"¿puedo correrlo en mi propia máquina?"— y en su propia tabla.
+    #
+    # Además: el Spark se apaga. Hoy 7 modelos dieron "Connection error" y por poco los
+    # marco como muertos. La máquina propia es un punto de fallo que no debería estar en
+    # el camino crítico de una medición.
+    if not getattr(args, "include_self_hosted", False):
+        locales = {k: v["name"] for k, v in models.items() if v.get("self_hosted")}
+        for k in locales:
+            models.pop(k)
+        if locales:
+            console.print(f"[dim]🖥️  Omito {len(locales)} modelos self-hosted "
+                          f"(--include-self-hosted para medirlos en tu máquina)[/dim]")
+
     if args.models:
         models = {k: v for k, v in models.items() if k in args.models}
     if args.tier:

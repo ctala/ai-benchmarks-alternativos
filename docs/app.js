@@ -528,6 +528,11 @@ function filterAndRank(models, f) {
     // mismo en dos puestos. Se conservan para la comparación entre proveedores.
     if (m.provider_variant) return false;
 
+    // SELF-HOSTED: corre en la máquina del autor, no en un datacenter. Su velocidad es
+    // la de ESA GPU. Dejarlo competir acá sería comparar un Spark contra un cluster.
+    // Responde otra pregunta ("¿puedo correrlo yo?") y merece su propia vista.
+    if (m.self_hosted) return false;
+
     // "Sólo cobertura completa" filtra a los RANKEABLES (>=50 runs).
     //
     // Antes chequeaba `m.tested` (>=20 runs) mientras este mismo comentario decía

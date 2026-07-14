@@ -1372,6 +1372,10 @@ MODELS = {
     },
     # --- Gemma 4 en DGX Spark via llama.cpp/llama-server (multimodal, puertos propios) ---
     "spark-gemma4-12b": {
+        # Solo existe self-hosted: no hay endpoint público. Su velocidad es la de TU
+        # hardware. Se reporta en la tabla de self-hosted, no compite en el ranking
+        # principal contra modelos servidos por datacenters.
+        "self_hosted": True,
         "id": "gemma-4-12b-it-Q4_K_M.gguf",
         "context_window": 131072,
         "name": "Gemma 4 12B (Spark llama-server Q4_K_M)",
@@ -1387,6 +1391,11 @@ MODELS = {
         "notes": "Q4_K_M en DGX Spark via llama.cpp/llama-server (multimodal). Medido SIN reasoning (enable_thinking=false) — uso agente/baja latencia. Comparar con el 31B llama-server.",
     },
     "spark-gemma4-31b-llamacpp": {
+        # Variante self-hosted: este modelo ya se mide en OpenRouter (plano común).
+        # Su velocidad acá es la de TU Spark, no la del modelo — compararla contra un
+        # datacenter no significa nada. La fila queda para responder "¿y si lo corro yo?".
+        "provider_variant": True,
+        "self_hosted": True,
         "id": "gemma-4-31B-it-Q4_K_M.gguf",
         "context_window": 131072,
         "name": "Gemma 4 31B (Spark llama-server Q4_K_M)",
@@ -1403,6 +1412,10 @@ MODELS = {
     },
     # --- Variantes CON reasoning interno (mismos builds, provider llama_server_think) ---
     "spark-gemma4-12b-think": {
+        # Solo existe self-hosted: no hay endpoint público. Su velocidad es la de TU
+        # hardware. Se reporta en la tabla de self-hosted, no compite en el ranking
+        # principal contra modelos servidos por datacenters.
+        "self_hosted": True,
         "id": "gemma-4-12b-it-Q4_K_M.gguf",
         "name": "Gemma 4 12B (Spark llama-server, reasoning)",
         "cost_input": 0.05,
@@ -1418,6 +1431,11 @@ MODELS = {
         "notes": "Mismo build que spark-gemma4-12b pero CON reasoning interno (default). Comparar delta calidad vs latencia contra la variante sin reasoning.",
     },
     "spark-gemma4-31b-think": {
+        # Variante self-hosted: este modelo ya se mide en OpenRouter (plano común).
+        # Su velocidad acá es la de TU Spark, no la del modelo — compararla contra un
+        # datacenter no significa nada. La fila queda para responder "¿y si lo corro yo?".
+        "provider_variant": True,
+        "self_hosted": True,
         "id": "gemma-4-31B-it-Q4_K_M.gguf",
         "name": "Gemma 4 31B (Spark llama-server, reasoning)",
         "cost_input": 0.12,
@@ -1608,6 +1626,41 @@ MODELS = {
         "open_source": False, "license": "Proprietary",
     },
 
+
+    # Modelos que corríamos en el Spark y AHORA se miden en OpenRouter.
+    # La máquina propia no puede ser el camino por defecto: su velocidad es la de TU
+    # GPU, no la del modelo, y mezclarla con datacenters rompe la comparación igual que
+    # mezclar Groq con NIM. El Spark responde otra pregunta ("¿puedo correrlo yo?"), y
+    # esa pregunta tiene su propia tabla.
+    "or-qwen-3.5-35b": {
+        "id": "qwen/qwen3.5-35b-a3b",
+        "name": "Qwen 3.5 35B",
+        "cost_input": 0.14, "cost_output": 1.0,
+        "tier": "cheap", "provider": "openrouter",
+        "open_source": True, "license": "Apache 2.0",
+    },
+    "or-qwen-2.5-72b": {
+        "id": "qwen/qwen-2.5-72b-instruct",
+        "name": "Qwen 2.5 72B",
+        "cost_input": 0.36, "cost_output": 0.4,
+        "tier": "cheap", "provider": "openrouter",
+        "open_source": True, "license": "Apache 2.0",
+    },
+    "or-deepseek-v3": {
+        "id": "deepseek/deepseek-v3.2",
+        "name": "DeepSeek V3",
+        "cost_input": 0.214, "cost_output": 0.322,
+        "tier": "cheap", "provider": "openrouter",
+        "open_source": True, "license": "MIT",
+    },
+    "or-minimax-m2.5": {
+        "id": "minimax/minimax-m2.5",
+        "name": "MiniMax M2.5",
+        "cost_input": 0.15, "cost_output": 0.9,
+        "tier": "cheap", "provider": "openrouter",
+        "open_source": True, "license": "MIT",
+    },
+
 }
 
 # Modelos locales via Ollama - Optimizados para NVIDIA DGX Spark (128GB RAM unificada)
@@ -1615,6 +1668,11 @@ MODELS = {
 OLLAMA_MODELS = {
     # --- Modelos que corren en DGX Spark (128GB) ---
     "local-gemma4-31b": {
+        # Variante self-hosted: este modelo ya se mide en OpenRouter (plano común).
+        # Su velocidad acá es la de TU Spark, no la del modelo — compararla contra un
+        # datacenter no significa nada. La fila queda para responder "¿y si lo corro yo?".
+        "provider_variant": True,
+        "self_hosted": True,
         "id": "gemma4:31b",
         "name": "Gemma 4 31B (DGX Spark Q4_K_M)",
         "cost_input": 0.0,
@@ -1626,6 +1684,11 @@ OLLAMA_MODELS = {
         "notes": "Q4_K_M en DGX Spark via Ollama. Comparar con Gemma 4 31B NIM y OpenRouter.",
     },
     "local-nemotron-3-super-120b": {
+        # Variante self-hosted: este modelo ya se mide en OpenRouter (plano común).
+        # Su velocidad acá es la de TU Spark, no la del modelo — compararla contra un
+        # datacenter no significa nada. La fila queda para responder "¿y si lo corro yo?".
+        "provider_variant": True,
+        "self_hosted": True,
         "id": "nemotron-3-super:120b",
         "name": "Nemotron 3 Super 120B (DGX Spark Q4_K_M)",
         "cost_input": 0.0,
@@ -1637,6 +1700,10 @@ OLLAMA_MODELS = {
         "notes": "Q4_K_M en DGX Spark. Modelo gigante, primer test post cold start tarda ~3-5min.",
     },
     "local-nemotron-3-nano-omni-reasoning": {
+        # Solo existe self-hosted: no hay endpoint público. Su velocidad es la de TU
+        # hardware. Se reporta en la tabla de self-hosted, no compite en el ranking
+        # principal contra modelos servidos por datacenters.
+        "self_hosted": True,
         "id": "hf.co/unsloth/NVIDIA-Nemotron-3-Nano-Omni-30B-A3B-Reasoning-GGUF:Q4_K_M",
         "name": "Nemotron 3 Nano Omni 30B-A3B Reasoning (DGX Spark Q4_K_M)",
         "cost_input": 0.0,
@@ -1650,6 +1717,10 @@ OLLAMA_MODELS = {
         "notes": "MoE 30B totales / 3B activos (A3B), thinking + multimodal. GGUF community por unsloth — los tags oficiales de Ollama (nemotron3:33b) son la versión base, no la Omni Reasoning. Ollama: `ollama pull hf.co/unsloth/NVIDIA-Nemotron-3-Nano-Omni-30B-A3B-Reasoning-GGUF:Q4_K_M`. Comparar contra el mismo modelo via NIM (FP16) para medir costo de cuantización.",
     },
     "local-nemotron3-base-33b": {
+        # Solo existe self-hosted: no hay endpoint público. Su velocidad es la de TU
+        # hardware. Se reporta en la tabla de self-hosted, no compite en el ranking
+        # principal contra modelos servidos por datacenters.
+        "self_hosted": True,
         "id": "nemotron3:33b-q4_K_M",
         "name": "Nemotron 3 Base 33B (DGX Spark Q4_K_M)",
         "cost_input": 0.0,
@@ -1664,6 +1735,11 @@ OLLAMA_MODELS = {
     # Reemplazan los tags obsoletos qwen3.5:25b / qwen3.5:72b que ya no existen
     # en Ollama (deuda del roadmap). Verificados con `ollama list` en spark-8c1f.
     "local-qwen3.5-35b": {
+        # Variante self-hosted: ahora este modelo se mide en OpenRouter (plano común).
+        # Acá su velocidad es la de TU Spark, no la del modelo. La fila queda para
+        # responder "¿y si lo corro en mi propia máquina?", que es otra pregunta.
+        "provider_variant": True,
+        "self_hosted": True,
         "id": "qwen3.5:35b",
         "name": "Qwen 3.5 35B (DGX Spark)",
         "cost_input": 0.0,
@@ -1675,6 +1751,11 @@ OLLAMA_MODELS = {
         "notes": "Tag real instalado en DGX Spark. Comparar vs Qwen 3.5 397B Cloud/NIM (misma familia, distinto tamaño).",
     },
     "local-qwen3.6-27b": {
+        # Variante self-hosted: este modelo ya se mide en OpenRouter (plano común).
+        # Su velocidad acá es la de TU Spark, no la del modelo — compararla contra un
+        # datacenter no significa nada. La fila queda para responder "¿y si lo corro yo?".
+        "provider_variant": True,
+        "self_hosted": True,
         "id": "qwen3.6:27b",
         "name": "Qwen 3.6 27B base (DGX Spark)",
         "cost_input": 0.29,
@@ -1687,6 +1768,10 @@ OLLAMA_MODELS = {
         "notes": "Qwen 3.6 BASE (Apache 2.0, pesos en HF) — cierra el gap del roadmap: solo teníamos Qwen 3.6 Plus (propietario API-only). Corre gratis local en DGX Spark; el costo del ranking usa el precio OpenRouter ($0.29/$3.20) para comparación justa.",
     },
     "local-qwen3.6-35b": {
+        # Solo existe self-hosted: no hay endpoint público. Su velocidad es la de TU
+        # hardware. Se reporta en la tabla de self-hosted, no compite en el ranking
+        # principal contra modelos servidos por datacenters.
+        "self_hosted": True,
         "id": "qwen3.6:35b",
         "name": "Qwen 3.6 35B base (DGX Spark)",
         "cost_input": 0.14,
@@ -1699,6 +1784,11 @@ OLLAMA_MODELS = {
         "notes": "Qwen 3.6 BASE 35B (MoE a3b) abierto. Corre gratis local en DGX Spark; costo del ranking = precio OpenRouter ($0.14/$1.00). Comparar vs 3.6 Plus propietario y vs 3.6 27B.",
     },
     "local-qwen3-coder-next": {
+        # Variante self-hosted: este modelo ya se mide en OpenRouter (plano común).
+        # Su velocidad acá es la de TU Spark, no la del modelo — compararla contra un
+        # datacenter no significa nada. La fila queda para responder "¿y si lo corro yo?".
+        "provider_variant": True,
+        "self_hosted": True,
         "id": "qwen3-coder-next:q4_K_M",
         "name": "Qwen3-Coder-Next (DGX Spark Q4_K_M)",
         "cost_input": 0.11,
@@ -1711,6 +1801,11 @@ OLLAMA_MODELS = {
         "notes": "Coding-especializado next-gen. Corre gratis local en DGX Spark (Q4_K_M); costo del ranking = precio OpenRouter ($0.11/$0.80, FP8). Comparar vs Devstral Small (#1) y Qwen3 Coder en el pilar Coding. Caveat: la versión local Q4 puede rendir algo bajo la FP8 de OpenRouter.",
     },
     "local-qwen2.5-72b": {
+        # Variante self-hosted: ahora este modelo se mide en OpenRouter (plano común).
+        # Acá su velocidad es la de TU Spark, no la del modelo. La fila queda para
+        # responder "¿y si lo corro en mi propia máquina?", que es otra pregunta.
+        "provider_variant": True,
+        "self_hosted": True,
         "id": "qwen2.5:72b",
         "name": "Qwen 2.5 72B (DGX Spark)",
         "cost_input": 0.36,
@@ -1723,6 +1818,11 @@ OLLAMA_MODELS = {
         "notes": "Generación previa instalada en el Spark — baseline para medir salto 2.5→3.5→3.6 a igual tamaño grande. Corre gratis local; costo del ranking = precio OpenRouter ($0.36/$0.40).",
     },
     "llama3.3-70b": {
+        # Variante self-hosted: este modelo ya se mide en OpenRouter (plano común).
+        # Su velocidad acá es la de TU Spark, no la del modelo — compararla contra un
+        # datacenter no significa nada. La fila queda para responder "¿y si lo corro yo?".
+        "provider_variant": True,
+        "self_hosted": True,
         "id": "llama3.3:70b",
         "name": "Llama 3.3 70B (local)",
         "cost_input": 0.0,
@@ -1733,6 +1833,11 @@ OLLAMA_MODELS = {
         "vram_gb": 40,
     },
     "llama4-maverick": {
+        # Variante self-hosted: este modelo ya se mide en OpenRouter (plano común).
+        # Su velocidad acá es la de TU Spark, no la del modelo — compararla contra un
+        # datacenter no significa nada. La fila queda para responder "¿y si lo corro yo?".
+        "provider_variant": True,
+        "self_hosted": True,
         "id": "llama4-maverick",
         "name": "Llama 4 Maverick (local)",
         "cost_input": 0.0,
@@ -1743,6 +1848,11 @@ OLLAMA_MODELS = {
         "vram_gb": 60,
     },
     "gemma4-31b": {
+        # Variante self-hosted: este modelo ya se mide en OpenRouter (plano común).
+        # Su velocidad acá es la de TU Spark, no la del modelo — compararla contra un
+        # datacenter no significa nada. La fila queda para responder "¿y si lo corro yo?".
+        "provider_variant": True,
+        "self_hosted": True,
         "id": "gemma4:31b",
         "name": "Gemma 4 31B (local)",
         "cost_input": 0.0,
@@ -1753,6 +1863,10 @@ OLLAMA_MODELS = {
         "vram_gb": 20,
     },
     "gemma4-26b-moe": {
+        # Solo existe self-hosted: no hay endpoint público. Su velocidad es la de TU
+        # hardware. Se reporta en la tabla de self-hosted, no compite en el ranking
+        # principal contra modelos servidos por datacenters.
+        "self_hosted": True,
         "id": "gemma4:26b",
         "name": "Gemma 4 26B MoE (local, solo 3.8B activos)",
         "cost_input": 0.0,
@@ -1763,6 +1877,10 @@ OLLAMA_MODELS = {
         "vram_gb": 16,
     },
     "local-devstral-small-2": {
+        # Solo existe self-hosted: no hay endpoint público. Su velocidad es la de TU
+        # hardware. Se reporta en la tabla de self-hosted, no compite en el ranking
+        # principal contra modelos servidos por datacenters.
+        "self_hosted": True,
         "id": "devstral-small2:24b",
         "name": "Devstral Small 2 24B (DGX Spark Q4_K_M)",
         "cost_input": 0.0,
@@ -1774,6 +1892,10 @@ OLLAMA_MODELS = {
         "notes": "Nueva generación pequeña de Mistral (24B). Verificar tag real en Ollama con `ollama pull devstral-small2:24b` antes de correr. Comparar contra Devstral Small original y Qwen3-Coder-Next en coding.",
     },
     "local-diffusiongemma-26b": {
+        # Solo existe self-hosted: no hay endpoint público. Su velocidad es la de TU
+        # hardware. Se reporta en la tabla de self-hosted, no compite en el ranking
+        # principal contra modelos servidos por datacenters.
+        "self_hosted": True,
         "id": "hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q8_0",
         "name": "DiffusionGemma 26B-A4B (DGX Spark Q8_0)",
         "provider": "diffusion_cli",
@@ -1801,6 +1923,11 @@ OLLAMA_MODELS = {
         ),
     },
     "local-deepseek-v3": {
+        # Variante self-hosted: ahora este modelo se mide en OpenRouter (plano común).
+        # Acá su velocidad es la de TU Spark, no la del modelo. La fila queda para
+        # responder "¿y si lo corro en mi propia máquina?", que es otra pregunta.
+        "provider_variant": True,
+        "self_hosted": True,
         "id": "deepseek-v3",
         "name": "DeepSeek V3 (local)",
         "cost_input": 0.0,
@@ -1812,6 +1939,11 @@ OLLAMA_MODELS = {
         "note": "Cabe justo en DGX Spark 128GB con cuantizacion",
     },
     "mistral-nemo-12b": {
+        # Variante self-hosted: este modelo ya se mide en OpenRouter (plano común).
+        # Su velocidad acá es la de TU Spark, no la del modelo — compararla contra un
+        # datacenter no significa nada. La fila queda para responder "¿y si lo corro yo?".
+        "provider_variant": True,
+        "self_hosted": True,
         "id": "mistral-nemo",
         "name": "Mistral Nemo 12B (local)",
         "cost_input": 0.0,
@@ -1822,6 +1954,12 @@ OLLAMA_MODELS = {
         "vram_gb": 8,
     },
     "phi-4-14b": {
+        # ⚠️ ES EL JUEZ del benchmark. NO se mide, nunca.
+        # Toda la neutralidad del juez se apoya en que Microsoft no tiene modelos acá
+        # ("no puede auto-preferirse"). Medirlo rompería esa premisa: se estaría
+        # puntuando a sí mismo. Hoy tiene 0 runs; que siga así.
+        "is_judge": True,
+        "retired": True,  # no es que muriera: es que no compite
         "id": "phi4",
         "name": "Phi-4 14B (local)",
         "cost_input": 0.0,
@@ -1832,6 +1970,11 @@ OLLAMA_MODELS = {
         "vram_gb": 10,
     },
     "minimax-m2.5": {
+        # Variante self-hosted: ahora este modelo se mide en OpenRouter (plano común).
+        # Acá su velocidad es la de TU Spark, no la del modelo. La fila queda para
+        # responder "¿y si lo corro en mi propia máquina?", que es otra pregunta.
+        "provider_variant": True,
+        "self_hosted": True,
         "id": "MiniMax-M2.5",
         "name": "MiniMax M2.5 (local, open-source)",
         "cost_input": 0.0,
