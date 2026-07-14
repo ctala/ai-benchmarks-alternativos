@@ -293,10 +293,30 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     # ser expresable.
     dims_by_pillar = defaultdict(lambda: defaultdict(list))
     DIMS = {"quality_avg": "quality", "speed_score_avg": "speed", "latency_score_avg": "latency"}
+
+    # QUÉ TESTS RINDIÓ DE VERDAD, no cuántos.
+    #
+    # El promedio de una suite se calculaba sobre los tests que ESE modelo rindió. Si a
+    # uno le faltaban 6 de 10, su nota salía de un examen más corto — y se publicaba al
+    # lado de la de otro que rindió los 10, como si fueran comparables. No lo son.
+    #
+    # Caso real (14-jul-2026): publiqué "MiniMax M3 audita mejor que Claude Opus 4.8,
+    # 8.24 vs 6.94". MiniMax había rendido **4 de los 10 tests**. En los 4 que ambos
+    # rindieron, Opus GANA 10.00 a 9.00. El titular estaba invertido.
+    #
+    # Cristian lo cazó preguntando por qué GPT-5.6 Sol no le ganaba a Luna. Sol había
+    # rendido 6 de 10.
+    #
+    # Un promedio sobre un examen incompleto no es una nota baja: es una nota que no
+    # existe. Ahora se marca (`suites_incompletas`) y no se publica como comparable.
+    tests_por_suite = defaultdict(set)
+
     for r in runs:
         suite = r.get("suite", "")
         if not suite or r.get("_final_recalc") is None:
             continue
+        if r.get("test_name"):
+            tests_por_suite[suite].add(r["test_name"])
         by_suite[suite].append(r["_final_recalc"])
         pillar = SUITE_TO_PILLAR.get(suite)
         if pillar:
@@ -318,6 +338,16 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
         entry["quality_ci95"] = _ci95(dims.get("quality_avg", []))
         pillar_dims[p] = entry
     suites = {s: round(sum(v) / len(v), 2) for s, v in by_suite.items() if v}
+
+    # Suites que el modelo NO terminó. Su promedio sale de un examen más corto que el de
+    # los demás: se reporta, pero marcado — no se puede comparar contra quien rindió todo.
+    from benchmarks.runner import ALL_TEST_SUITES as _TS
+    incompletas = {
+        s: {"rindio": len(tests_por_suite[s]), "total": len(_TS[s])}
+        for s in suites
+        if s in _TS and len(tests_por_suite[s]) < len(_TS[s])
+    }
+
     scores = finals_recalc  # mantener naming downstream
 
     # Dimensión long-context separada (quality y final promedio de los niah)
@@ -366,6 +396,10 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
         # con los pesos del usuario (ver getScore en app.js).
         "dims_by_pillar": pillar_dims,
         "score_by_suite": suites,
+        # {suite: {rindio, total}} — las suites que este modelo NO terminó. Su promedio
+        # sale de un examen más corto: NO es comparable con el de quien rindió todo.
+        # Quien consuma score_by_suite tiene que mirar esto antes de comparar.
+        "suites_incompletas": incompletas,
         # Componentes raw promedio (permite mostrar columnas separadas + recalcular pesos en calculadora)
         "quality_avg": round(sum(qualities) / len(qualities), 2) if qualities else None,
         # Incertidumbre de esa media. Sin esto, el ranking finge una precision que
