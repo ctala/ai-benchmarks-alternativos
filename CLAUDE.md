@@ -248,6 +248,15 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - **Nunca escribir un score a mano en un doc vivo.** El z-score se recalcula con cada modelo
   nuevo, así que toda cifra hardcodeada caduca sola. Si necesitás citar una, que salga de un
   generador; si es narrativa (un párrafo), el `check_consistency.py` te avisa cuando caduca.
+- **Actualizar el pilar del blog cuando el ranking cambie materialmente.** El post vivo
+  `benchmark-de-modelos-de-ia-2026-...` en el repo hermano `~/Playground/sitios/cristiantala-blog/`
+  es un cornerstone SEO (top-3 Google) que cita cifras de `models.json` en prosa, tablas y FAQ. Un
+  rescoring las caduca TODAS (y puede dejar modelos citados sin data o una recomendación de seguridad
+  peligrosa). Tras `regenerate_all.py`, si el top 10 / la tesis / la seguridad se movieron:
+  verificar CADA cifra del `.md` contra `models.json` (guardrail estilo `check_consistency`), bumpear
+  `updatedDate` **solo con cambio real** (de ahí salen `dateModified`/FAQPage/sitemap `<lastmod>` —
+  frescura automática), y NO crear un post mensual paralelo (canibaliza). Procedimiento completo:
+  paso 9 del skill `linkedin-benchmark-carousel`. Fallo que lo motivó: 14-jul-2026.
 - **Commit y push** después de cada sesión
 - **Precios cambian** — verificar antes de actualizar docs
 - **Plan antes de push** — operaciones destructivas o públicas requieren confirmación
