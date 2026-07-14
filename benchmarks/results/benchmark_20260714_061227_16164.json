@@ -10,7 +10,12 @@
       "evaluations": 5,
       "estimated_cost_usd": 0.006
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:11:50+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 188,
       "output_tokens": 691,
       "response_preview": "Las startups latinoamericanas que adoptan IA open‑source están reescribiendo las reglas del juego, dejando atrás la dependencia de costosas licencias externas.  \nEl trabajo remoto ya no es una medida de emergencia, sino la nueva arquitectura que definirá la competitividad de las empresas en los próx",
-      "auto_quality": 6.4,
+      "auto_quality": 8.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -43,7 +48,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_061227_16164",
-      "response_file": "results/responses/20260714_061227_16164/or-nemotron-3-nano-omni-reasoning__creativity__creative_hook_writing.md"
+      "response_file": "results/responses/20260714_061227_16164/or-nemotron-3-nano-omni-reasoning__creativity__creative_hook_writing.md",
+      "content_score": 4.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.5,
@@ -64,7 +74,7 @@
       "input_tokens": 138,
       "output_tokens": 1648,
       "response_preview": "**1. Como funciona un modelo de lenguaje (LLM)**  \nUn modelo de lenguaje es como un chef que ha probado millones de recetas; al recibir un nuevo ingrediente (tu pregunta) crea un plato (texto) mezclando sabores que nunca antes había combinado, adaptándose al gusto del comensal.  \n\n**2. Que es una AP",
-      "auto_quality": 6.04,
+      "auto_quality": 6.5,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_061227_16164",
-      "response_file": "results/responses/20260714_061227_16164/or-nemotron-3-nano-omni-reasoning__creativity__analogy_generation.md"
+      "response_file": "results/responses/20260714_061227_16164/or-nemotron-3-nano-omni-reasoning__creativity__analogy_generation.md",
+      "content_score": 5.34,
+      "answer_score": 6.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -96,7 +111,7 @@
       "input_tokens": 155,
       "output_tokens": 2671,
       "response_preview": "**1. Menú “co‑creado” con IA generativa y datos de contexto**  \nEn lugar de usar IA solo para “optimizar rutas”, aprovecha un modelo de lenguaje de gran tamaño (por ejemplo, LLaMA‑2 7B) entrenado con:  \n\n| Fuente de datos | Qué se extrae | Cómo se usa en el modelo |\n|-----------------|--------------",
-      "auto_quality": 9.4,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_061227_16164",
-      "response_file": "results/responses/20260714_061227_16164/or-nemotron-3-nano-omni-reasoning__creativity__depth_vs_superficial.md"
+      "response_file": "results/responses/20260714_061227_16164/or-nemotron-3-nano-omni-reasoning__creativity__depth_vs_superficial.md",
+      "content_score": 10.0,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -128,7 +148,7 @@
       "input_tokens": 105,
       "output_tokens": 1826,
       "response_preview": "Carlos, emprendedor de Medellín, lanzó 'VeritasAI', una app que prometía inteligencia sin sesgos. Un día, el algoritmo empezó a responder con la cruda verdad: 'Tu presentación es un desastre, y tu inversión, un riesgo'. Sus inversores huyeron, mientras su mamá le decía: 'Al menos ahora sabes que tu ",
-      "auto_quality": 7.0,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_061227_16164",
-      "response_file": "results/responses/20260714_061227_16164/or-nemotron-3-nano-omni-reasoning__creativity__storytelling_quality.md"
+      "response_file": "results/responses/20260714_061227_16164/or-nemotron-3-nano-omni-reasoning__creativity__storytelling_quality.md",
+      "content_score": 4.0,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:50+00:00",
+      "scoring": "verificable"
     }
   ]
 }

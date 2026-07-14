@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0163
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:32+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 440,
       "output_tokens": 1872,
       "response_preview": "{\n  \"numero_factura\": \"00234-2026\",\n  \"fecha\": \"15 de Marzo de 2026\",\n  \"emisor\": {\n    \"nombre\": \"TechFlow SpA\",\n    \"rut\": \"77.432.198-3\",\n    \"direccion\": \"Av. Providencia 1234, Of. 501, Santiago\"\n  },\n  \"cliente\": {\n    \"nombre\": \"Startup Labs Ltda.\",\n    \"rut\": \"76.891.234-K\",\n    \"direccion\": ",
-      "auto_quality": 8.8,
+      "auto_quality": 10.0,
       "judge_score": 2.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -43,7 +48,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_081906_82257",
-      "response_file": "results/responses/20260714_081906_82257/or-glm5__ocr_extraction__invoice_extraction.md"
+      "response_file": "results/responses/20260714_081906_82257/or-glm5__ocr_extraction__invoice_extraction.md",
+      "content_score": 7.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.75,
@@ -64,7 +74,7 @@
       "input_tokens": 232,
       "output_tokens": 1376,
       "response_preview": "```json\n{\n  \"nombre_completo\": \"Maria Jose Rodriguez Soto\",\n  \"cargo\": \"Chief Technology Officer\",\n  \"empresa\": \"NexaFlow Intelligence\",\n  \"slogan\": \"Transforming Data into Decisions\",\n  \"telefono\": \"+56 9 8765 4321\",\n  \"email\": \"mj.rodriguez@nexaflow.ai\",\n  \"linkedin\": \"linkedin.com/in/mjrodriguez\"",
-      "auto_quality": 6.85,
+      "auto_quality": 8.75,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_081906_82257",
-      "response_file": "results/responses/20260714_081906_82257/or-glm5__ocr_extraction__business_card_extraction.md"
+      "response_file": "results/responses/20260714_081906_82257/or-glm5__ocr_extraction__business_card_extraction.md",
+      "content_score": 4.0,
+      "answer_score": 8.75,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -96,7 +111,7 @@
       "input_tokens": 318,
       "output_tokens": 4249,
       "response_preview": "```json\n{\n  \"items\": [\n    {\n      \"nombre\": \"Lomo vetado\",\n      \"cantidad\": 2,\n      \"precio_unitario\": 18900,\n      \"total\": 37800\n    },\n    {\n      \"nombre\": \"Ensalada cesar\",\n      \"cantidad\": 1,\n      \"precio_unitario\": 7500,\n      \"total\": 7500\n    },\n    {\n      \"nombre\": \"Pisco sour\",\n    ",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_081906_82257",
-      "response_file": "results/responses/20260714_081906_82257/or-glm5__ocr_extraction__receipt_math_verification.md"
+      "response_file": "results/responses/20260714_081906_82257/or-glm5__ocr_extraction__receipt_math_verification.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -139,7 +159,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_081906_82257",
-      "response_file": "results/responses/20260714_081906_82257/or-glm5__ocr_extraction__screenshot_table_extraction.md"
+      "response_file": "results/responses/20260714_081906_82257/or-glm5__ocr_extraction__screenshot_table_extraction.md",
+      "content_score": 8.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +185,7 @@
       "input_tokens": 459,
       "output_tokens": 2560,
       "response_preview": "```json\n{\n  \"texto_corregido\": \"Reunión equipo prod - 14/04/26\\nAsist: JP, MaJo, Seba, Cami (falta Nico)\\n\\n1) Lanzamiento v2.0 - mover de abr 28 a may 5\\n   - falta QA en módulo pagos\\n   - bug crítico en API webhooks (Seba lo toma)\\n\\n2) Métricas Q1:\\n   - MRR 52.1k (+15% vs Q4)\\n   - churn bajo a",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_081906_82257",
-      "response_file": "results/responses/20260714_081906_82257/or-glm5__ocr_extraction__handwritten_notes_extraction.md"
+      "response_file": "results/responses/20260714_081906_82257/or-glm5__ocr_extraction__handwritten_notes_extraction.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -192,7 +222,7 @@
       "input_tokens": 506,
       "output_tokens": 350,
       "response_preview": "{\n  \"numero_factura\": \"00234-2026\",\n  \"fecha\": \"15 de Marzo de 2026\",\n  \"emisor\": {\"nombre\": \"TechFlow SpA\", \"rut\": \"77.432.198-3\", \"direccion\": \"Av. Providencia 1234, Of. 501, Santiago\"},\n  \"cliente\": {\"nombre\": \"Startup Labs Ltda.\", \"rut\": \"76.891.234-K\", \"direccion\": \"Calle Moneda 920, Santiago\"}",
-      "auto_quality": 8.8,
+      "auto_quality": 10.0,
       "judge_score": 3.0,
       "judge_precision": 2,
       "judge_relevancia": 3,
@@ -203,7 +233,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_081906_82257",
-      "response_file": "results/responses/20260714_081906_82257/or-qwen-2.5-72b__ocr_extraction__invoice_extraction.md"
+      "response_file": "results/responses/20260714_081906_82257/or-qwen-2.5-72b__ocr_extraction__invoice_extraction.md",
+      "content_score": 7.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -224,7 +259,7 @@
       "input_tokens": 246,
       "output_tokens": 162,
       "response_preview": "{\n  \"nombre_completo\": \"MARIA JOSE RODRIGUEZ SOTO\",\n  \"cargo\": \"Chief Technology Officer\",\n  \"empresa\": \"NexaFlow Intelligence\",\n  \"slogan\": \"Transforming Data into Decisions\",\n  \"telefono\": \"+56 9 8765 4321\",\n  \"email\": \"mj.rodriguez@nexaflow.ai\",\n  \"linkedin\": \"linkedin.com/in/mjrodriguez\",\n  \"dir",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -235,7 +270,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_081906_82257",
-      "response_file": "results/responses/20260714_081906_82257/or-qwen-2.5-72b__ocr_extraction__business_card_extraction.md"
+      "response_file": "results/responses/20260714_081906_82257/or-qwen-2.5-72b__ocr_extraction__business_card_extraction.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.75,
@@ -256,7 +296,7 @@
       "input_tokens": 354,
       "output_tokens": 699,
       "response_preview": "```json\n{\n  \"items\": [\n    { \"nombre\": \"Lomo vetado\", \"cantidad\": 2, \"precio_unitario\": 18900, \"precio_total\": 37800 },\n    { \"nombre\": \"Ensalada cesar\", \"cantidad\": 1, \"precio_unitario\": 7500, \"precio_total\": 7500 },\n    { \"nombre\": \"Pisco sour\", \"cantidad\": 3, \"precio_unitario\": 6900, \"precio_tota",
-      "auto_quality": 7.65,
+      "auto_quality": 8.75,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_081906_82257",
-      "response_file": "results/responses/20260714_081906_82257/or-qwen-2.5-72b__ocr_extraction__receipt_math_verification.md"
+      "response_file": "results/responses/20260714_081906_82257/or-qwen-2.5-72b__ocr_extraction__receipt_math_verification.md",
+      "content_score": 6.0,
+      "answer_score": 8.75,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -288,7 +333,7 @@
       "input_tokens": 424,
       "output_tokens": 1002,
       "response_preview": "```json\n{\n  \"dashboard\": {\n    \"name\": \"KPIs Marzo 2026\",\n    \"metrics\": [\n      {\n        \"name\": \"MRR\",\n        \"enero\": 45200,\n        \"febrero\": 48700,\n        \"marzo\": 52100,\n        \"var_mm\": 7.0\n      },\n      {\n        \"name\": \"Churn Rate\",\n        \"enero\": 4.2,\n        \"febrero\": 3.8,\n     ",
-      "auto_quality": 8.8,
+      "auto_quality": 8.0,
       "judge_score": 3.0,
       "judge_precision": 2,
       "judge_relevancia": 2,
@@ -299,7 +344,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_081906_82257",
-      "response_file": "results/responses/20260714_081906_82257/or-qwen-2.5-72b__ocr_extraction__screenshot_table_extraction.md"
+      "response_file": "results/responses/20260714_081906_82257/or-qwen-2.5-72b__ocr_extraction__screenshot_table_extraction.md",
+      "content_score": 10.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -320,7 +370,7 @@
       "input_tokens": 479,
       "output_tokens": 734,
       "response_preview": "```json\n{\n  \"texto_corregido\": \"Reunión equipo prod - 14/04/2023\\nAsist: JP, MaJo, Seba, Cami (faltó Nico)\\n\\n1) Lanzamiento v2.0 - mover de abr 28 a may 5\\n   - falta QA en módulo pagos\\n   - bug crítico en API webhooks (Seba lo toma)\\n\\n2) Métricas Q1:\\n   - MRR 52.1k (+15% vs Q4)\\n   - churn bajó",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +381,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_081906_82257",
-      "response_file": "results/responses/20260714_081906_82257/or-qwen-2.5-72b__ocr_extraction__handwritten_notes_extraction.md"
+      "response_file": "results/responses/20260714_081906_82257/or-qwen-2.5-72b__ocr_extraction__handwritten_notes_extraction.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:32+00:00",
+      "scoring": "verificable"
     }
   ]
 }

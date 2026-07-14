@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "timestamp": "20260714_135417_56348",
+    "total_runs": 1,
+    "errors": 0,
+    "judge": {
+      "judge_model": "microsoft/phi-4",
+      "judge_provider": "openrouter",
+      "judge_is_local": false,
+      "evaluations": 2,
+      "estimated_cost_usd": 0.0023
+    },
+    "partial": true
+  },
+  "results": [
+    {
+      "quality": 9.8,
+      "cost_score": 6.5,
+      "cost_usd": 0.003165,
+      "speed": 8.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 8.51,
+      "test_name": "blog_actualidad_startup",
+      "model": "DeepSeek V4 Pro",
+      "model_id": "deepseek/deepseek-v4-pro",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 52.1,
+      "latency_first_token": 67.572,
+      "latency_total": 67.572,
+      "input_tokens": 235,
+      "output_tokens": 3521,
+      "response_preview": "**Título:** Modelos IA Open-Source 2026: Startups de LATAM se Empoderan  \n**Meta description:** Descubre cómo modelos como Llama, DeepSeek y Qwen están transformando startups latinoamericanas en 2026, reduciendo costos y acelerando innovación.\n\n---\n\nImagina esto: una startup fintech en Bogotá lanza ",
+      "auto_quality": 9.34,
+      "judge_score": 5,
+      "judge_precision": 5,
+      "judge_relevancia": 5,
+      "judge_profundidad": 5,
+      "judge_claridad": 5,
+      "judge_utilidad": 5,
+      "judge_justificacion": "La respuesta es precisa, relevante, profunda, clara y extremadamente útil para emprendedores, proporcionando ejemplos concretos y perspectivas futuras.",
+      "suite": "startup_content",
+      "run": 1,
+      "timestamp": "20260714_135417_56348",
+      "response_file": "results/responses/20260714_135417_56348/deepseek-v4-pro__startup_content__blog_actualidad_startup.md",
+      "scoring": "juez-30-70"
+    }
+  ]
+}

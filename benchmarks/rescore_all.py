@@ -191,6 +191,10 @@ def main():
                 r["auto_quality"] = round(answer, 2)
                 r["quality"] = sc["quality"]
                 r["final"] = sc["final"]
+                # Misma marca de procedencia que estampa el runner. Sin esto no se puede
+                # saber con qué fórmula se calculó `quality` — que es la causa raíz de
+                # haber promediado escalas incompatibles durante meses.
+                r["scoring"] = "verificable"
                 r["rescored_by"] = "verificador-semantico"
                 r["rescored_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
                 hechos += 1

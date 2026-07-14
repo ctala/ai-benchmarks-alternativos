@@ -38,7 +38,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__context_retention_8turns.md"
+      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__context_retention_8turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -65,7 +66,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__skill_orchestration_correct_choice.md"
+      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__skill_orchestration_correct_choice.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -92,7 +94,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__interruption_recovery_topic_switch.md"
+      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__interruption_recovery_topic_switch.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -119,7 +122,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__context_decay_constraint_12turns.md"
+      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__context_decay_constraint_12turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -146,7 +150,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__implicit_state_construction.md"
+      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__implicit_state_construction.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.5,
@@ -173,7 +178,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__skill_with_failure_recovery.md"
+      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__skill_with_failure_recovery.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -200,7 +206,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__skill_dependency_chain.md"
+      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__skill_dependency_chain.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -227,7 +234,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__priority_change_midtask.md"
+      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__priority_change_midtask.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -254,7 +262,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__clarification_quality.md"
+      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__clarification_quality.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.5,
@@ -281,7 +290,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__distractor_resistance.md"
+      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__distractor_resistance.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -308,7 +318,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__premature_completion_resist.md"
+      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__premature_completion_resist.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -335,7 +346,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__constraint_under_pressure.md"
+      "response_file": "results/responses/20260714_063011_25831/deepseek-v3__agent_long_horizon__constraint_under_pressure.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -362,7 +374,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__context_retention_8turns.md"
+      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__context_retention_8turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -389,7 +402,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__skill_orchestration_correct_choice.md"
+      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__skill_orchestration_correct_choice.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -416,7 +430,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__interruption_recovery_topic_switch.md"
+      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__interruption_recovery_topic_switch.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -443,7 +458,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__context_decay_constraint_12turns.md"
+      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__context_decay_constraint_12turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.5,
@@ -470,7 +486,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__implicit_state_construction.md"
+      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__implicit_state_construction.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.0,
@@ -497,7 +514,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__skill_with_failure_recovery.md"
+      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__skill_with_failure_recovery.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -524,7 +542,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__skill_dependency_chain.md"
+      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__skill_dependency_chain.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.5,
@@ -551,7 +570,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__priority_change_midtask.md"
+      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__priority_change_midtask.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -578,7 +598,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__clarification_quality.md"
+      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__clarification_quality.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.0,
@@ -605,7 +626,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__distractor_resistance.md"
+      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__distractor_resistance.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -632,7 +654,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__premature_completion_resist.md"
+      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__premature_completion_resist.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -659,7 +682,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__constraint_under_pressure.md"
+      "response_file": "results/responses/20260714_063011_25831/kimi-k2__agent_long_horizon__constraint_under_pressure.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.5,
@@ -686,7 +710,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__context_retention_8turns.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__context_retention_8turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.0,
@@ -713,7 +738,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__skill_orchestration_correct_choice.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__skill_orchestration_correct_choice.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -767,7 +793,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__context_decay_constraint_12turns.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__context_decay_constraint_12turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.5,
@@ -794,7 +821,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__implicit_state_construction.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__implicit_state_construction.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.5,
@@ -821,7 +849,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__skill_with_failure_recovery.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__skill_with_failure_recovery.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -848,7 +877,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__skill_dependency_chain.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__skill_dependency_chain.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -875,7 +905,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__priority_change_midtask.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__priority_change_midtask.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -902,7 +933,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__clarification_quality.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__clarification_quality.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.0,
@@ -929,7 +961,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__distractor_resistance.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__distractor_resistance.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -956,7 +989,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__premature_completion_resist.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__premature_completion_resist.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.0,
@@ -983,7 +1017,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__constraint_under_pressure.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-super__agent_long_horizon__constraint_under_pressure.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1010,7 +1045,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__context_retention_8turns.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__context_retention_8turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.0,
@@ -1037,7 +1073,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__skill_orchestration_correct_choice.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__skill_orchestration_correct_choice.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.0,
@@ -1064,7 +1101,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__interruption_recovery_topic_switch.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__interruption_recovery_topic_switch.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 2.5,
@@ -1091,7 +1129,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__context_decay_constraint_12turns.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__context_decay_constraint_12turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.5,
@@ -1118,7 +1157,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__implicit_state_construction.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__implicit_state_construction.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.0,
@@ -1145,7 +1185,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__skill_with_failure_recovery.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__skill_with_failure_recovery.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1172,7 +1213,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__skill_dependency_chain.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__skill_dependency_chain.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1199,7 +1241,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__priority_change_midtask.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__priority_change_midtask.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -1226,7 +1269,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__clarification_quality.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__clarification_quality.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.0,
@@ -1253,7 +1297,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__distractor_resistance.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__distractor_resistance.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1280,7 +1325,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__premature_completion_resist.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__premature_completion_resist.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -1307,7 +1353,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__constraint_under_pressure.md"
+      "response_file": "results/responses/20260714_063011_25831/nemotron-nano__agent_long_horizon__constraint_under_pressure.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1334,7 +1381,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__context_retention_8turns.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__context_retention_8turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.0,
@@ -1361,7 +1409,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__skill_orchestration_correct_choice.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__skill_orchestration_correct_choice.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.0,
@@ -1388,7 +1437,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__interruption_recovery_topic_switch.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__interruption_recovery_topic_switch.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1415,7 +1465,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__context_decay_constraint_12turns.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__context_decay_constraint_12turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1442,7 +1493,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__implicit_state_construction.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__implicit_state_construction.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.5,
@@ -1469,7 +1521,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__skill_with_failure_recovery.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__skill_with_failure_recovery.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1496,7 +1549,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__skill_dependency_chain.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__skill_dependency_chain.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1523,7 +1577,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__priority_change_midtask.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__priority_change_midtask.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1550,7 +1605,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__clarification_quality.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__clarification_quality.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.5,
@@ -1577,7 +1633,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__distractor_resistance.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__distractor_resistance.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1604,7 +1661,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__premature_completion_resist.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__premature_completion_resist.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -1631,7 +1689,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__constraint_under_pressure.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-70b__agent_long_horizon__constraint_under_pressure.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1658,7 +1717,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__context_retention_8turns.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__context_retention_8turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.0,
@@ -1685,7 +1745,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__skill_orchestration_correct_choice.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__skill_orchestration_correct_choice.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.5,
@@ -1712,7 +1773,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__interruption_recovery_topic_switch.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__interruption_recovery_topic_switch.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1739,7 +1801,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__context_decay_constraint_12turns.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__context_decay_constraint_12turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1766,7 +1829,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__implicit_state_construction.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__implicit_state_construction.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1793,7 +1857,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__skill_with_failure_recovery.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__skill_with_failure_recovery.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1820,7 +1885,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__skill_dependency_chain.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__skill_dependency_chain.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1847,7 +1913,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__priority_change_midtask.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__priority_change_midtask.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.5,
@@ -1874,7 +1941,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__clarification_quality.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__clarification_quality.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.5,
@@ -1901,7 +1969,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__distractor_resistance.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__distractor_resistance.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -1928,7 +1997,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__premature_completion_resist.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__premature_completion_resist.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -1955,7 +2025,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__constraint_under_pressure.md"
+      "response_file": "results/responses/20260714_063011_25831/hermes-4-405b__agent_long_horizon__constraint_under_pressure.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1982,7 +2053,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__context_retention_8turns.md"
+      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__context_retention_8turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.0,
@@ -2009,7 +2081,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__skill_orchestration_correct_choice.md"
+      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__skill_orchestration_correct_choice.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.5,
@@ -2036,7 +2109,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__interruption_recovery_topic_switch.md"
+      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__interruption_recovery_topic_switch.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -2063,7 +2137,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__context_decay_constraint_12turns.md"
+      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__context_decay_constraint_12turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.5,
@@ -2090,7 +2165,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__implicit_state_construction.md"
+      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__implicit_state_construction.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.0,
@@ -2117,7 +2193,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__skill_with_failure_recovery.md"
+      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__skill_with_failure_recovery.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -2144,7 +2221,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__skill_dependency_chain.md"
+      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__skill_dependency_chain.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -2171,7 +2249,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__priority_change_midtask.md"
+      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__priority_change_midtask.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -2198,7 +2277,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__clarification_quality.md"
+      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__clarification_quality.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.5,
@@ -2225,7 +2305,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__distractor_resistance.md"
+      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__distractor_resistance.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -2252,7 +2333,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__premature_completion_resist.md"
+      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__premature_completion_resist.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.0,
@@ -2279,7 +2361,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260714_063011_25831",
-      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__constraint_under_pressure.md"
+      "response_file": "results/responses/20260714_063011_25831/or-nemotron-3-nano-omni-reasoning__agent_long_horizon__constraint_under_pressure.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     }
   ]
 }

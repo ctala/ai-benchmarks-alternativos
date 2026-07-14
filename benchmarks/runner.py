@@ -440,6 +440,33 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     scores["output_tokens"] = result.output_tokens
     scores["response_preview"] = result.response[:300] if result.response else ""
     scores["auto_quality"] = round(auto_quality, 2)
+    scores["content_score"] = round(content_score, 2)
+    scores["answer_score"] = round(answer_score, 2)
+
+    # PROCEDENCIA: con qué fórmula se calculó `quality`.
+    #
+    # Ésta es la causa raíz de una familia entera de bugs. Un run no guardaba CÓMO fue
+    # puntuado, así que al mezclar runs de distintas épocas en un promedio se sumaban
+    # escalas incompatibles sin que nadie lo notara. En julio de 2026 el 43% de los runs
+    # estaban puntuados con una fórmula obsoleta y se promediaban con los nuevos como si
+    # fueran lo mismo.
+    #
+    # Peor: sin esta marca no se puede ni AUDITAR. Yo mismo tuve que adivinar la fórmula
+    # comparando `quality` con `auto_quality`, y adiviné mal.
+    #
+    #   verificable  → quality = answer_score (la trampa se cazó o no; el juez no opina)
+    #   juez-30-70   → quality = auto*0.3 + juez*0.7 (no hay verdad contra qué verificar)
+    #   niah         → quality = answer_score (retrieval puro)
+    #   solo-rubrica → el juez falló y se degradó. NO comparable. Que se note.
+    if is_niah or tiene_verdad_objetiva:
+        # Misma fórmula: quality = answer_score. NIAH es verificación (¿extrajo el dato?),
+        # igual que una trampa (¿cazó el error?). No son dos categorías.
+        scores["scoring"] = "verificable"
+    elif judge_quality >= 0:
+        scores["scoring"] = "juez-30-70"
+    else:
+        scores["scoring"] = "solo-rubrica-SIN-JUEZ"
+
     # Auditable: marca medición vía suscripción (claude_code CLI, $0) y NO vía API.
     if (result.metadata or {}).get("subscription_measured"):
         scores["subscription_measured"] = True

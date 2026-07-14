@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-13T21:04:12+00:00",
+      "at": "2026-07-14T18:04:17+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -48,7 +48,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__content_generation__blog_post_es.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__content_generation__blog_post_es.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.8,
@@ -80,7 +81,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__content_generation__email_profesional.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__content_generation__email_profesional.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -112,7 +114,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__content_generation__social_media_batch.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__content_generation__social_media_batch.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -144,7 +147,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__content_generation__product_description_en.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__content_generation__product_description_en.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -176,7 +180,8 @@
       "suite": "task_management",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__task_management__extract_action_items.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__task_management__extract_action_items.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -208,7 +213,8 @@
       "suite": "task_management",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__task_management__weekly_planning.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__task_management__weekly_planning.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -240,7 +246,8 @@
       "suite": "task_management",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__task_management__project_breakdown.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__task_management__project_breakdown.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.44,
@@ -272,7 +279,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__code_generation__python_api_integration.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__code_generation__python_api_integration.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.6,
@@ -304,7 +312,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__code_generation__n8n_workflow_json.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__code_generation__n8n_workflow_json.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -336,7 +345,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__code_generation__sql_query_complex.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__code_generation__sql_query_complex.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.8,
@@ -368,7 +378,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__code_generation__debug_code.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__code_generation__debug_code.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -400,7 +411,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__reasoning__business_analysis.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__reasoning__business_analysis.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -432,7 +444,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__reasoning__logical_reasoning.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__reasoning__logical_reasoning.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -464,7 +477,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__reasoning__multi_constraint_decision.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__reasoning__multi_constraint_decision.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -496,7 +510,8 @@
       "suite": "summarization",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__summarization__long_document_summary.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__summarization__long_document_summary.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.6,
@@ -528,7 +543,8 @@
       "suite": "summarization",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__summarization__extract_structured_data.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__summarization__extract_structured_data.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -560,7 +576,8 @@
       "suite": "presentation",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__presentation__slide_outline.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__presentation__slide_outline.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.56,
@@ -592,7 +609,8 @@
       "suite": "presentation",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__presentation__data_report.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__presentation__data_report.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -624,7 +642,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__startup_content__blog_actualidad_startup.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__startup_content__blog_actualidad_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -656,7 +675,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__startup_content__curso_emprendimiento_modulo.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__startup_content__curso_emprendimiento_modulo.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -688,7 +708,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__startup_content__workshop_outline.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__startup_content__workshop_outline.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.76,
@@ -720,7 +741,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__startup_content__newsletter_startup.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__startup_content__newsletter_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -752,7 +774,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__startup_content__perplexity_style_research.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__startup_content__perplexity_style_research.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -786,9 +809,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:07+00:00",
+      "rescored_at": "2026-07-14T18:04:12+00:00",
       "content_score": 9.34,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -822,9 +846,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:07+00:00",
+      "rescored_at": "2026-07-14T18:04:12+00:00",
       "content_score": 10.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -858,9 +883,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:14+00:00",
       "content_score": 9.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -894,9 +920,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:14+00:00",
       "content_score": 10.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 1.67,
@@ -930,9 +957,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:14+00:00",
       "content_score": 9.34,
-      "answer_score": 1.67
+      "answer_score": 1.67,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -966,9 +994,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 10.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 9.8,
@@ -1000,7 +1029,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__customer_support__angry_customer_refund.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__customer_support__angry_customer_refund.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -1032,7 +1062,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__customer_support__ambiguous_issue_classification.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__customer_support__ambiguous_issue_classification.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -1064,7 +1095,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__customer_support__multi_issue_conversation.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__customer_support__multi_issue_conversation.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.8,
@@ -1096,7 +1128,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__customer_support__social_engineering_attempt.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__customer_support__social_engineering_attempt.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -1130,9 +1163,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__structured_output__json_simple_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1166,9 +1200,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__structured_output__json_array_classification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1202,9 +1237,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__structured_output__json_nested_complex.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1238,9 +1274,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__structured_output__json_strict_no_extra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1274,9 +1311,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 6.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1310,9 +1348,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 8.67,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -1346,9 +1385,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 6.23,
-      "answer_score": 2.0
+      "answer_score": 2.0,
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -1382,9 +1422,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 4.67,
-      "answer_score": 9.0
+      "answer_score": 9.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -1418,9 +1459,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 5.34,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1454,9 +1496,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 10.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -1490,9 +1533,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 4.0,
-      "answer_score": 9.0
+      "answer_score": 9.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1526,9 +1570,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1562,9 +1607,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 1.0,
@@ -1598,9 +1644,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 4.0,
-      "answer_score": 1.0
+      "answer_score": 1.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1634,9 +1681,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__string_precision__copy_jwt.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1670,9 +1718,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -1706,9 +1755,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__string_precision__write_config_file.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 5.34,
-      "answer_score": 0.0
+      "answer_score": 0.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.4,
@@ -1740,7 +1790,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__news_seo_writing__news_seo_article_full.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__news_seo_writing__news_seo_article_full.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -1774,9 +1825,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1810,9 +1862,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__news_seo_writing__news_spanish_only.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 8.67,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -1846,9 +1899,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__news_seo_writing__news_no_hallucination_sources.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 10.0,
-      "answer_score": 0.0
+      "answer_score": 0.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.4,
@@ -1880,7 +1934,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__news_seo_writing__news_perplexity_enrichment.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__news_seo_writing__news_perplexity_enrichment.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -1914,9 +1969,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 7.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1950,9 +2006,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:10+00:00",
+      "rescored_at": "2026-07-14T18:04:15+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1986,9 +2043,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:12+00:00",
+      "rescored_at": "2026-07-14T18:04:16+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2022,9 +2080,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:12+00:00",
+      "rescored_at": "2026-07-14T18:04:16+00:00",
       "content_score": 8.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2058,9 +2117,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:12+00:00",
+      "rescored_at": "2026-07-14T18:04:16+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.6,
@@ -2092,7 +2152,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__orchestration__multi_step_research_plan.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__orchestration__multi_step_research_plan.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -2126,9 +2187,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__orchestration__error_recovery_orchestration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:12+00:00",
+      "rescored_at": "2026-07-14T18:04:16+00:00",
       "content_score": 10.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 7.0,
@@ -2160,7 +2222,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__orchestration__complex_workflow_decomposition.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__orchestration__complex_workflow_decomposition.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.8,
@@ -2218,9 +2281,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:12+00:00",
+      "rescored_at": "2026-07-14T18:04:16+00:00",
       "content_score": 10.0,
-      "answer_score": 2.86
+      "answer_score": 2.86,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2254,9 +2318,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__multi_turn__content_iteration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:12+00:00",
+      "rescored_at": "2026-07-14T18:04:16+00:00",
       "content_score": 4.67,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 0.11,
@@ -2690,9 +2755,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:12+00:00",
+      "rescored_at": "2026-07-14T18:04:16+00:00",
       "content_score": 8.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2726,9 +2792,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__sales_outreach__campaign_optimization.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:12+00:00",
+      "rescored_at": "2026-07-14T18:04:17+00:00",
       "content_score": 10.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2762,9 +2829,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__translation__translate_marketing_es_en.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:12+00:00",
+      "rescored_at": "2026-07-14T18:04:17+00:00",
       "content_score": 8.0,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2796,7 +2864,8 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__translation__translate_technical_en_es.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__translation__translate_technical_en_es.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.67,
@@ -2830,9 +2899,10 @@
       "timestamp": "20260603_063656_2796021",
       "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__translation__detect_language_issues.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:04:12+00:00",
+      "rescored_at": "2026-07-14T18:04:17+00:00",
       "content_score": 7.2,
-      "answer_score": 6.67
+      "answer_score": 6.67,
+      "scoring": "verificable"
     },
     {
       "quality": 3.5,
@@ -2859,7 +2929,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__context_retention_8turns.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__context_retention_8turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -2886,7 +2957,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__skill_orchestration_correct_choice.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__skill_orchestration_correct_choice.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.5,
@@ -2913,7 +2985,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__interruption_recovery_topic_switch.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__interruption_recovery_topic_switch.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 1.5,
@@ -2940,7 +3013,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__context_decay_constraint_12turns.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__context_decay_constraint_12turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.5,
@@ -2967,7 +3041,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__implicit_state_construction.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__implicit_state_construction.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -2994,7 +3069,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__skill_with_failure_recovery.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__skill_with_failure_recovery.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -3021,7 +3097,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__skill_dependency_chain.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__skill_dependency_chain.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -3048,7 +3125,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__priority_change_midtask.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__priority_change_midtask.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -3075,7 +3153,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__clarification_quality.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__clarification_quality.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -3102,7 +3181,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__distractor_resistance.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__distractor_resistance.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -3129,7 +3209,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__premature_completion_resist.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__premature_completion_resist.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -3156,7 +3237,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260603_063656_2796021",
-      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__constraint_under_pressure.md"
+      "response_file": "results/responses/20260603_063656_2796021/claude-opus-4.7-sub__agent_long_horizon__constraint_under_pressure.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     }
   ]
 }

@@ -10,7 +10,12 @@
       "evaluations": 13,
       "estimated_cost_usd": 0.0248
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:12:30+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 102,
       "output_tokens": 1351,
       "response_preview": "\n\n**Paso 1: Definir variables y tiempos**  \n- Tren A sale de Santiago a las 8:00 AM a 80 km/h.  \n- Tren B sale de Valparaiso a las 8:30 AM (0.5 horas después) a 120 km/h.  \n- Distancia total: 120 km.  \n\nSea \\( t \\) el tiempo (en horas) después de las 8:00 AM cuando se cruzan.  \nEl tren A viaja \\( t ",
-      "auto_quality": 9.47,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_065235_37560",
-      "response_file": "results/responses/20260714_065235_37560/or-nemotron-nano-9b-v2__deep_reasoning__math_word_problem.md"
+      "response_file": "results/responses/20260714_065235_37560/or-nemotron-nano-9b-v2__deep_reasoning__math_word_problem.md",
+      "content_score": 8.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -64,7 +74,7 @@
       "input_tokens": 104,
       "output_tokens": 3431,
       "response_preview": "\n\n**Análisis paso a paso:**\n\n1. **Posiciones posibles para la casa azul (B):**  \n   - Según el acertijo, la casa azul **no está en los extremos** (1 o 4), por lo que debe estar en la posición **2 o 3**.\n\n2. **Relación entre rojo (R) y azul (B):**  \n   - La casa roja está a la **izquierda de la azul*",
-      "auto_quality": 6.74,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_065235_37560",
-      "response_file": "results/responses/20260714_065235_37560/or-nemotron-nano-9b-v2__deep_reasoning__logic_puzzle_constraint.md"
+      "response_file": "results/responses/20260714_065235_37560/or-nemotron-nano-9b-v2__deep_reasoning__logic_puzzle_constraint.md",
+      "content_score": 9.34,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -96,7 +111,7 @@
       "input_tokens": 206,
       "output_tokens": 2834,
       "response_preview": "\n\n### Análisis Cuantitativo y Cálculo de Tasas\n\n#### 1. **Tasas Relevantes**\n- **Tasa de quejas por pedido**:\n  - Mes 1: $ \\frac{50}{1000} = 5\\% $\n  - Mes 2: $ \\frac{90}{1200} = 7.5\\% $\n  - Mes 3: $ \\frac{110}{1100} = 10\\% $  \n  **Tendencia**: Aumenta de manera constante (5% → 7.5% → 10%).\n\n- **Tasa",
-      "auto_quality": 9.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_065235_37560",
-      "response_file": "results/responses/20260714_065235_37560/or-nemotron-nano-9b-v2__deep_reasoning__causal_reasoning.md"
+      "response_file": "results/responses/20260714_065235_37560/or-nemotron-nano-9b-v2__deep_reasoning__causal_reasoning.md",
+      "content_score": 9.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:30+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -128,7 +148,7 @@
       "input_tokens": 231,
       "output_tokens": 8192,
       "response_preview": "Okay, let's try to figure out the bug in this code. The problem is that there's a subtle bug that only shows up in certain cases. I need to identify what's wrong without running the code. Let's go through the code step by step.\n\nFirst, the function find_median sorts the list and returns the median. ",
-      "auto_quality": 5.83,
+      "auto_quality": 7.5,
       "judge_score": 2.0,
       "judge_precision": 2,
       "judge_relevancia": 2,
@@ -139,7 +159,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_065235_37560",
-      "response_file": "results/responses/20260714_065235_37560/or-nemotron-nano-9b-v2__deep_reasoning__code_bug_subtle.md"
+      "response_file": "results/responses/20260714_065235_37560/or-nemotron-nano-9b-v2__deep_reasoning__code_bug_subtle.md",
+      "content_score": 3.33,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:30+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -160,7 +185,7 @@
       "input_tokens": 77,
       "output_tokens": 1592,
       "response_preview": "\n\n**Paso 1: Estimar el número de oficinas en Santiago de Chile.**  \nSuponemos que hay **5,000 a 15,000 oficinas** en la ciudad. Este número es difícil de obtener exacto, pero se basa en datos de empresas, comercios y espacios de trabajo.  \n- **Rango min-max:** 5,000 - 15,000 oficinas.  \n- **Impacto:",
-      "auto_quality": 7.34,
+      "auto_quality": 6.67,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -171,7 +196,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_065235_37560",
-      "response_file": "results/responses/20260714_065235_37560/or-nemotron-nano-9b-v2__deep_reasoning__fermi_estimation.md"
+      "response_file": "results/responses/20260714_065235_37560/or-nemotron-nano-9b-v2__deep_reasoning__fermi_estimation.md",
+      "content_score": 8.34,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:30+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -192,7 +222,7 @@
       "input_tokens": 196,
       "output_tokens": 1855,
       "response_preview": "\n\n### 1. **Stakeholders afectados**  \n- **Pacientes con piel clara**: Mayor precisión (97%), menos riesgo de falsos positivos.  \n- **Pacientes con piel oscura**: Menor precisión (90%), mayor riesgo de falsos negativos (10%) y falsos positivos (5%).  \n- **Sistema de salud**: Presión por implementar u",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -203,7 +233,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_065235_37560",
-      "response_file": "results/responses/20260714_065235_37560/or-nemotron-nano-9b-v2__deep_reasoning__ethical_dilemma_structured.md"
+      "response_file": "results/responses/20260714_065235_37560/or-nemotron-nano-9b-v2__deep_reasoning__ethical_dilemma_structured.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:30+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -224,7 +259,7 @@
       "input_tokens": 122,
       "output_tokens": 1855,
       "response_preview": "**Planteo del problema**\n\n- Ciudad A (Santiago) y ciudad B (Valparaíso) están separadas por \\(120\\ \\text{km}\\).\n- Tren 1 sale de Santiago a las **8:00 h** con rapidez \\(v_1 = 80\\ \\text{km/h}\\).\n- Tren 2 sale de Valparaíso a las **8:30 h** (30 min = 0,5 h después) con rapidez \\(v_2 = 120\\ \\text{km/h}",
-      "auto_quality": 9.47,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -235,7 +270,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_065235_37560",
-      "response_file": "results/responses/20260714_065235_37560/or-minimax-m2.5__deep_reasoning__math_word_problem.md"
+      "response_file": "results/responses/20260714_065235_37560/or-minimax-m2.5__deep_reasoning__math_word_problem.md",
+      "content_score": 8.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:30+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -256,7 +296,7 @@
       "input_tokens": 131,
       "output_tokens": 2048,
       "response_preview": "El user is speaking Spanish, asks a classic logic puzzle: 4 houses in a row, each a different color: red, blue, green, white. Given constraints:\n\n- The red house is to the left of the blue house (not necessarily adjacent).\n- The green house is next to the white house.\n- The blue house is not at the ",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -267,7 +307,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_065235_37560",
-      "response_file": "results/responses/20260714_065235_37560/or-minimax-m2.5__deep_reasoning__logic_puzzle_constraint.md"
+      "response_file": "results/responses/20260714_065235_37560/or-minimax-m2.5__deep_reasoning__logic_puzzle_constraint.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:30+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -288,7 +333,7 @@
       "input_tokens": 207,
       "output_tokens": 2048,
       "response_preview": "El usuario nos pide que realicemos un análisis cuantitativo de los datos de una startup de delivery durante los últimos tres meses. Nos da:\n\nMes 1: 1000 pedidos, 50 quejas, tiempo promedio 35 min, lluvia 5 días\nMes 2: 1200 pedidos, 90 quejas, tiempo promedio 42 min, lluvia 12 días\nMes 3: 1100 pedido",
-      "auto_quality": 9.2,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -299,7 +344,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_065235_37560",
-      "response_file": "results/responses/20260714_065235_37560/or-minimax-m2.5__deep_reasoning__causal_reasoning.md"
+      "response_file": "results/responses/20260714_065235_37560/or-minimax-m2.5__deep_reasoning__causal_reasoning.md",
+      "content_score": 8.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:30+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -320,7 +370,7 @@
       "input_tokens": 255,
       "output_tokens": 1892,
       "response_preview": "# 🐛 Bug Encontrado\n\n## El Bug\n\n**Cuando todos los elementos del conjunto tienen el mismo valor y hay 3 o más elementos.**\n\n## Análisis Paso a Paso\n\nConsideremos `data = [5, 5, 5, 5]`:\n\n```python\n# 1. Verificación inicial: len(data) = 4, es >= 3, así que NO retorna aquí\n\n# 2. Calculate median\nmedian ",
-      "auto_quality": 8.24,
+      "auto_quality": 7.5,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +381,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_065235_37560",
-      "response_file": "results/responses/20260714_065235_37560/or-minimax-m2.5__deep_reasoning__code_bug_subtle.md"
+      "response_file": "results/responses/20260714_065235_37560/or-minimax-m2.5__deep_reasoning__code_bug_subtle.md",
+      "content_score": 9.34,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:30+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -352,7 +407,7 @@
       "input_tokens": 102,
       "output_tokens": 793,
       "response_preview": "# Estimación del Consumo de Café en Oficinas de Santiago de Chile\n\n## Razonamiento Paso a Paso\n\n### SUPUESTO 1: Población de Santiago\nSantiago metropolitan area tiene aproximadamente **6.5 millones de habitantes**.\n\n### SUPUESTO 2: Fuerza laboral en Santiago\nAsumiendo que ~45% de la población de San",
-      "auto_quality": 7.0,
+      "auto_quality": 5.0,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -363,7 +418,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_065235_37560",
-      "response_file": "results/responses/20260714_065235_37560/or-minimax-m2.5__deep_reasoning__fermi_estimation.md"
+      "response_file": "results/responses/20260714_065235_37560/or-minimax-m2.5__deep_reasoning__fermi_estimation.md",
+      "content_score": 10.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:30+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -395,7 +455,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_065235_37560",
-      "response_file": "results/responses/20260714_065235_37560/or-minimax-m2.5__deep_reasoning__ethical_dilemma_structured.md"
+      "response_file": "results/responses/20260714_065235_37560/or-minimax-m2.5__deep_reasoning__ethical_dilemma_structured.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:30+00:00",
+      "scoring": "verificable"
     }
   ]
 }

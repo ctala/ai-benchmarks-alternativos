@@ -10,7 +10,12 @@
       "evaluations": 4,
       "estimated_cost_usd": 0.0051
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:11:48+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 151,
       "output_tokens": 641,
       "response_preview": "[{\"pregunta\": 1, \"respuesta\": \"1976\", \"confianza\": \"alta\"},\n {\"pregunta\": 2, \"respuesta\": \"Elon Musk\", \"confianza\": \"alta\"},\n {\"pregunta\": 3, \"respuesta\": \"No tengo certeza\", \"confianza\": \"baja\"},\n {\"pregunta\": 4, \"respuesta\": \"Canberra\", \"confianza\": \"alta\"},\n {\"pregunta\": 5, \"respuesta\": \"No tengo",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "hallucination",
       "run": 1,
       "timestamp": "20260714_061135_15861",
-      "response_file": "results/responses/20260714_061135_15861/or-nemotron-3-nano-omni-reasoning__hallucination__factual_trap_companies.md"
+      "response_file": "results/responses/20260714_061135_15861/or-nemotron-3-nano-omni-reasoning__hallucination__factual_trap_companies.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:47+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -64,7 +74,7 @@
       "input_tokens": 195,
       "output_tokens": 370,
       "response_preview": "$2.3M  \n45  \nBrasil  \nNo se menciona en el texto  \nNo se menciona en el texto  \nNo se menciona en el texto",
-      "auto_quality": 5.56,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "hallucination",
       "run": 1,
       "timestamp": "20260714_061135_15861",
-      "response_file": "results/responses/20260714_061135_15861/or-nemotron-3-nano-omni-reasoning__hallucination__context_faithfulness.md"
+      "response_file": "results/responses/20260714_061135_15861/or-nemotron-3-nano-omni-reasoning__hallucination__context_faithfulness.md",
+      "content_score": 6.4,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:47+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 4.0,
@@ -96,7 +111,7 @@
       "input_tokens": 145,
       "output_tokens": 3568,
       "response_preview": "**1. Porcentaje de startups que fracasan en los primeros 5 años (CB Insights)**  \n- **Respuesta:** ≈ 80 % de las startups fracasan dentro de los primeros cinco años.  \n- **Nivel de certeza:** **Medio** – el dato proviene del “Startup Survival Report 2023” de CB Insights, que resume que “8 de cada 10",
-      "auto_quality": 6.14,
+      "auto_quality": 4.0,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -107,7 +122,12 @@
       "suite": "hallucination",
       "run": 1,
       "timestamp": "20260714_061135_15861",
-      "response_file": "results/responses/20260714_061135_15861/or-nemotron-3-nano-omni-reasoning__hallucination__fake_citation_trap.md"
+      "response_file": "results/responses/20260714_061135_15861/or-nemotron-3-nano-omni-reasoning__hallucination__fake_citation_trap.md",
+      "content_score": 9.34,
+      "answer_score": 4.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:48+00:00",
+      "scoring": "verificable"
     }
   ]
 }

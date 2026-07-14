@@ -10,7 +10,12 @@
       "evaluations": 7,
       "estimated_cost_usd": 0.009
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:27+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 191,
       "output_tokens": 138,
       "response_preview": "**Subject:** Tu post sobre escalar content marketing sin contratar\n\nMaría,\n\nVi tu post en LinkedIn sobre escalar content marketing sin aumentar equipo. Coincido en que la clave está en automatizar procesos repetitivos—por eso creamos [Nombre Herramienta], que usa IA para generar, optimizar y program",
-      "auto_quality": 8.27,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_080431_74589",
-      "response_file": "results/responses/20260714_080431_74589/or-mistral-large-3__sales_outreach__cold_email_personalized.md"
+      "response_file": "results/responses/20260714_080431_74589/or-mistral-large-3__sales_outreach__cold_email_personalized.md",
+      "content_score": 8.67,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:25+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 3.33,
@@ -64,7 +74,7 @@
       "input_tokens": 253,
       "output_tokens": 353,
       "response_preview": "```json\n[\n    {\n        \"score\": 5,\n        \"bant\": {\n            \"budget\": \"No mencionado (neutral)\",\n            \"authority\": \"Alto (CEO)\",\n            \"need\": \"Claro (automatizar soporte)\",\n            \"timeline\": \"No claro (solo 'viendo opciones')\"\n        },\n        \"action\": \"Nurture con conte",
-      "auto_quality": 5.2,
+      "auto_quality": 3.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_080431_74589",
-      "response_file": "results/responses/20260714_080431_74589/or-mistral-large-3__sales_outreach__lead_qualification.md"
+      "response_file": "results/responses/20260714_080431_74589/or-mistral-large-3__sales_outreach__lead_qualification.md",
+      "content_score": 8.0,
+      "answer_score": 3.33,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:26+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -107,7 +122,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_080431_74589",
-      "response_file": "results/responses/20260714_080431_74589/or-mistral-large-3__sales_outreach__campaign_optimization.md"
+      "response_file": "results/responses/20260714_080431_74589/or-mistral-large-3__sales_outreach__campaign_optimization.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -139,7 +159,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_080431_74589",
-      "response_file": "results/responses/20260714_080431_74589/or-qwen3.5-397b__sales_outreach__cold_email_personalized.md"
+      "response_file": "results/responses/20260714_080431_74589/or-qwen3.5-397b__sales_outreach__cold_email_personalized.md",
+      "content_score": 8.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +185,7 @@
       "input_tokens": 260,
       "output_tokens": 2520,
       "response_preview": "[\n  {\n    \"lead_id\": \"Lead 1: Juan Perez\",\n    \"score\": 6,\n    \"bant\": {\n      \"budget\": \"No mencionado\",\n      \"authority\": \"Sí (CEO)\",\n      \"need\": \"Sí (Automatizar soporte)\",\n      \"timeline\": \"No especificado\"\n    },\n    \"action\": \"Nutrir y calificar\",\n    \"reason\": \"Es el decision maker con un",
-      "auto_quality": 9.2,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_080431_74589",
-      "response_file": "results/responses/20260714_080431_74589/or-qwen3.5-397b__sales_outreach__lead_qualification.md"
+      "response_file": "results/responses/20260714_080431_74589/or-qwen3.5-397b__sales_outreach__lead_qualification.md",
+      "content_score": 8.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -192,7 +222,7 @@
       "input_tokens": 309,
       "output_tokens": 2048,
       "response_preview": "Here's a thinking process that leads to the suggested analysis and recommendations:\n\n1.  **Understand the Goal:** The user wants an analysis of their Google Ads campaign performance from the last month. They provided data for three campaigns (A, B, C) including impressions, clicks, signups (conversi",
-      "auto_quality": 8.62,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,7 +233,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_080431_74589",
-      "response_file": "results/responses/20260714_080431_74589/or-qwen3.5-397b__sales_outreach__campaign_optimization.md"
+      "response_file": "results/responses/20260714_080431_74589/or-qwen3.5-397b__sales_outreach__campaign_optimization.md",
+      "content_score": 6.54,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:27+00:00",
+      "scoring": "verificable"
     }
   ]
 }

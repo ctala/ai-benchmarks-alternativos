@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0141
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:07+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_074059_62422",
-      "response_file": "results/responses/20260714_074059_62422/or-mistral-large-3__orchestration__multi_step_research_plan.md"
+      "response_file": "results/responses/20260714_074059_62422/or-mistral-large-3__orchestration__multi_step_research_plan.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -64,7 +70,7 @@
       "input_tokens": 975,
       "output_tokens": 414,
       "response_preview": "**Diagnóstico:**\nLa base de datos **production** está en mantenimiento y no estará disponible en las próximas 2 horas. Esto impide obtener los datos de ventas directamente desde allí.\n\n---\n\n**Alternativas propuestas:**\n1. **Buscar un backup o copia reciente de los datos:**\n   - Verificar si existe u",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +81,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_074059_62422",
-      "response_file": "results/responses/20260714_074059_62422/or-mistral-large-3__orchestration__error_recovery_orchestration.md"
+      "response_file": "results/responses/20260714_074059_62422/or-mistral-large-3__orchestration__error_recovery_orchestration.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:05+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.8,
@@ -107,7 +118,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_074059_62422",
-      "response_file": "results/responses/20260714_074059_62422/or-mistral-large-3__orchestration__complex_workflow_decomposition.md"
+      "response_file": "results/responses/20260714_074059_62422/or-mistral-large-3__orchestration__complex_workflow_decomposition.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -128,7 +140,7 @@
       "input_tokens": 975,
       "output_tokens": 558,
       "response_preview": "### Análisis de herramientas para cada tarea:\n\n---\n\n#### **Tarea 1: Verificar si el servidor de producción está respondiendo (URL: `https://api.example.com/health`)**\n**Herramienta elegida:** `http_request`\n**¿Por qué?**\n- La tarea requiere hacer una petición a una URL para verificar su estado (ej: ",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +151,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_074059_62422",
-      "response_file": "results/responses/20260714_074059_62422/or-mistral-large-3__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260714_074059_62422/or-mistral-large-3__orchestration__tool_selection_precision.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:05+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -171,7 +188,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_074059_62422",
-      "response_file": "results/responses/20260714_074059_62422/or-mistral-large-3__orchestration__parallel_vs_sequential_judgment.md"
+      "response_file": "results/responses/20260714_074059_62422/or-mistral-large-3__orchestration__parallel_vs_sequential_judgment.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:07+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.6,
@@ -203,16 +225,17 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_074059_62422",
-      "response_file": "results/responses/20260714_074059_62422/or-qwen3.5-397b__orchestration__multi_step_research_plan.md"
+      "response_file": "results/responses/20260714_074059_62422/or-qwen3.5-397b__orchestration__multi_step_research_plan.md",
+      "scoring": "juez-30-70"
     },
     {
-      "quality": 7.5,
+      "quality": 5.0,
       "cost_score": 7.98,
       "cost_usd": 0.001019,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.05,
+      "final": 5.3,
       "test_name": "error_recovery_orchestration",
       "model": "Qwen 3.5 397B",
       "model_id": "qwen/qwen3.5-397b-a17b",
@@ -224,7 +247,7 @@
       "input_tokens": 1202,
       "output_tokens": 227,
       "response_preview": "Entiendo la urgencia. Voy a buscar alternativas para obtener los datos de ventas. Primero, voy a buscar archivos de respaldo o exports que puedan contener la información.\n\n",
-      "auto_quality": 7.17,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -235,7 +258,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_074059_62422",
-      "response_file": "results/responses/20260714_074059_62422/or-qwen3.5-397b__orchestration__error_recovery_orchestration.md"
+      "response_file": "results/responses/20260714_074059_62422/or-qwen3.5-397b__orchestration__error_recovery_orchestration.md",
+      "content_score": 6.67,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:07+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 3.83,
@@ -267,16 +295,17 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_074059_62422",
-      "response_file": "results/responses/20260714_074059_62422/or-qwen3.5-397b__orchestration__complex_workflow_decomposition.md"
+      "response_file": "results/responses/20260714_074059_62422/or-qwen3.5-397b__orchestration__complex_workflow_decomposition.md",
+      "scoring": "juez-30-70"
     },
     {
-      "quality": 10.0,
+      "quality": 7.5,
       "cost_score": 7.08,
       "cost_usd": 0.002018,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 10.0,
-      "final": 8.74,
+      "final": 6.99,
       "test_name": "tool_selection_precision",
       "model": "Qwen 3.5 397B",
       "model_id": "qwen/qwen3.5-397b-a17b",
@@ -288,7 +317,7 @@
       "input_tokens": 1170,
       "output_tokens": 640,
       "response_preview": "# Análisis de herramientas para cada tarea:\n\n**Tarea 1:** Verificar servidor de producción\n- **Herramienta:** `http_request`\n- **Por qué:** Necesito hacer una petición HTTP a una URL específica para verificar el estado del servidor. Es la única herramienta que puede hacer peticiones HTTP.\n\n**Tarea 2",
-      "auto_quality": 8.14,
+      "auto_quality": 7.5,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -299,7 +328,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_074059_62422",
-      "response_file": "results/responses/20260714_074059_62422/or-qwen3.5-397b__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260714_074059_62422/or-qwen3.5-397b__orchestration__tool_selection_precision.md",
+      "content_score": 5.34,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:07+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.57,
@@ -320,7 +354,7 @@
       "input_tokens": 1236,
       "output_tokens": 899,
       "response_preview": "# Análisis de Dependencias y Plan de Ejecución\n\n## 1. Diagrama de Dependencias\n\n```\nA (Buscar precios competidores) ──→ C (Calcular precio óptimo) ──┐\n                                                                  ↓\nB (Generar descripción desde specs) ───────────────────────────→ D (Crear landing",
-      "auto_quality": 8.48,
+      "auto_quality": 8.57,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +365,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_074059_62422",
-      "response_file": "results/responses/20260714_074059_62422/or-qwen3.5-397b__orchestration__parallel_vs_sequential_judgment.md"
+      "response_file": "results/responses/20260714_074059_62422/or-qwen3.5-397b__orchestration__parallel_vs_sequential_judgment.md",
+      "content_score": 8.34,
+      "answer_score": 8.57,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:07+00:00",
+      "scoring": "verificable"
     }
   ]
 }

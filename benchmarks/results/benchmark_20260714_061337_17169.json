@@ -10,7 +10,12 @@
       "evaluations": 7,
       "estimated_cost_usd": 0.0058
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:11:50+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 106,
       "output_tokens": 144,
       "response_preview": "a1b2c3d4e5f6789012345678abcdef90",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "string_precision",
       "run": 1,
       "timestamp": "20260714_061337_17169",
-      "response_file": "results/responses/20260714_061337_17169/or-nemotron-3-nano-omni-reasoning__string_precision__copy_hex_32.md"
+      "response_file": "results/responses/20260714_061337_17169/or-nemotron-3-nano-omni-reasoning__string_precision__copy_hex_32.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -64,7 +74,7 @@
       "input_tokens": 135,
       "output_tokens": 171,
       "response_preview": "9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,16 +85,21 @@
       "suite": "string_precision",
       "run": 1,
       "timestamp": "20260714_061337_17169",
-      "response_file": "results/responses/20260714_061337_17169/or-nemotron-3-nano-omni-reasoning__string_precision__copy_hex_64.md"
+      "response_file": "results/responses/20260714_061337_17169/or-nemotron-3-nano-omni-reasoning__string_precision__copy_hex_64.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:50+00:00",
+      "scoring": "verificable"
     },
     {
-      "quality": 10.0,
+      "quality": 1.0,
       "cost_score": 10.0,
       "cost_usd": 0.0,
       "speed": 10.0,
       "latency": 6.0,
       "tool_calling": 7.0,
-      "final": 9.7,
+      "final": 3.4,
       "test_name": "copy_api_key",
       "model": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
       "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
@@ -96,7 +111,7 @@
       "input_tokens": 141,
       "output_tokens": 284,
       "response_preview": "REDACTED-SECRET",
-      "auto_quality": 7.6,
+      "auto_quality": 1.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "string_precision",
       "run": 1,
       "timestamp": "20260714_061337_17169",
-      "response_file": "results/responses/20260714_061337_17169/or-nemotron-3-nano-omni-reasoning__string_precision__copy_api_key.md"
+      "response_file": "results/responses/20260714_061337_17169/or-nemotron-3-nano-omni-reasoning__string_precision__copy_api_key.md",
+      "content_score": 4.0,
+      "answer_score": 1.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -128,7 +148,7 @@
       "input_tokens": 123,
       "output_tokens": 156,
       "response_preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "string_precision",
       "run": 1,
       "timestamp": "20260714_061337_17169",
-      "response_file": "results/responses/20260714_061337_17169/or-nemotron-3-nano-omni-reasoning__string_precision__copy_jwt.md"
+      "response_file": "results/responses/20260714_061337_17169/or-nemotron-3-nano-omni-reasoning__string_precision__copy_jwt.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +185,7 @@
       "input_tokens": 110,
       "output_tokens": 160,
       "response_preview": "r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 3.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,16 +196,21 @@
       "suite": "string_precision",
       "run": 1,
       "timestamp": "20260714_061337_17169",
-      "response_file": "results/responses/20260714_061337_17169/or-nemotron-3-nano-omni-reasoning__string_precision__copy_mixed_special.md"
+      "response_file": "results/responses/20260714_061337_17169/or-nemotron-3-nano-omni-reasoning__string_precision__copy_mixed_special.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:50+00:00",
+      "scoring": "verificable"
     },
     {
-      "quality": 10.0,
+      "quality": 8.0,
       "cost_score": 10.0,
       "cost_usd": 0.0,
       "speed": 10.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 9.55,
+      "final": 8.15,
       "test_name": "write_config_file",
       "model": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
       "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
@@ -192,7 +222,7 @@
       "input_tokens": 272,
       "output_tokens": 504,
       "response_preview": "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE\nAWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b\nR2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com\nAPI_TOKEN=REDACTED-SECRET\nJWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC",
-      "auto_quality": 7.6,
+      "auto_quality": 8.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,7 +233,12 @@
       "suite": "string_precision",
       "run": 1,
       "timestamp": "20260714_061337_17169",
-      "response_file": "results/responses/20260714_061337_17169/or-nemotron-3-nano-omni-reasoning__string_precision__write_config_file.md"
+      "response_file": "results/responses/20260714_061337_17169/or-nemotron-3-nano-omni-reasoning__string_precision__write_config_file.md",
+      "content_score": 4.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:50+00:00",
+      "scoring": "verificable"
     }
   ]
 }

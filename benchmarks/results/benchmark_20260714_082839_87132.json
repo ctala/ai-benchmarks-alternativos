@@ -10,7 +10,12 @@
       "evaluations": 5,
       "estimated_cost_usd": 0.0054
     },
-    "partial": true
+    "partial": true,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:39+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 244,
       "output_tokens": 278,
       "response_preview": "The user wants a rewrite of a blog post title and first paragraph about why startups should automate customer support with AI.\nThe user disliked the previous title (\"Por que las startups deberian automatizar su soporte con IA\") for being too generic.\nThe user disliked the first paragraph for startin",
-      "auto_quality": 5.77,
+      "auto_quality": 6.5,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -43,7 +48,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_082839_87132",
-      "response_file": "results/responses/20260714_082839_87132/or-glm5__multi_turn__content_iteration.md"
+      "response_file": "results/responses/20260714_082839_87132/or-glm5__multi_turn__content_iteration.md",
+      "content_score": 4.67,
+      "answer_score": 6.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -64,7 +74,7 @@
       "input_tokens": 357,
       "output_tokens": 407,
       "response_preview": "Entiendo perfectamente tu situacion, Maria. Has tenido problemas durante todo el mes y es justo que esperes una resolucion completa.\n\nVoy a escalar tu caso a un supervisor inmediatamente para que pueda revisar tu solicitud de reembolso completo de los $200. Tienen autoridad para aprobar reembolsos q",
-      "auto_quality": 7.07,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_082839_87132",
-      "response_file": "results/responses/20260714_082839_87132/or-glm5__multi_turn__support_escalation.md"
+      "response_file": "results/responses/20260714_082839_87132/or-glm5__multi_turn__support_escalation.md",
+      "content_score": 8.67,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:39+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 4.0,
@@ -96,7 +111,7 @@
       "input_tokens": 227,
       "output_tokens": 607,
       "response_preview": "Entendido, actualicemos el diseño del workflow. Aquí tienes la estructura completa:\n\n## Flujo de trabajo\n\n```\nGmail Trigger → Filter → Function (parsear datos) → Notion → Slack\n```\n\n---\n\n### 1. **Gmail Trigger**\n- **Resource**: Message\n- **Event**: Message Received\n- **Simplify**: Activar\n\n---\n\n### ",
-      "auto_quality": 6.14,
+      "auto_quality": 4.0,
       "judge_score": 2.0,
       "judge_precision": 2,
       "judge_relevancia": 1,
@@ -107,7 +122,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_082839_87132",
-      "response_file": "results/responses/20260714_082839_87132/or-glm5__multi_turn__requirements_change.md"
+      "response_file": "results/responses/20260714_082839_87132/or-glm5__multi_turn__requirements_change.md",
+      "content_score": 9.34,
+      "answer_score": 4.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:39+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -128,7 +148,7 @@
       "input_tokens": 322,
       "output_tokens": 661,
       "response_preview": "¡Esa es la causa! Un retry infinito con 429 crea un ciclo vicioso: el servidor te bloquea más y tú envías más requests.\n\nUna implementación correcta de retries necesita:\n\n**1. Límite máximo de reintentos** (3-5 es estándar)\n\n**2. Exponential backoff** - esperar más tiempo entre cada retry:\n- 1er ret",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_082839_87132",
-      "response_file": "results/responses/20260714_082839_87132/or-glm5__multi_turn__debugging_conversation.md"
+      "response_file": "results/responses/20260714_082839_87132/or-glm5__multi_turn__debugging_conversation.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:39+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,

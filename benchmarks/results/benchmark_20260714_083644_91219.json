@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0114
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:43+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_083644_91219",
-      "response_file": "results/responses/20260714_083644_91219/or-glm5__agent_capabilities__skill_execution_complex.md"
+      "response_file": "results/responses/20260714_083644_91219/or-glm5__agent_capabilities__skill_execution_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -75,7 +81,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_083644_91219",
-      "response_file": "results/responses/20260714_083644_91219/or-glm5__agent_capabilities__agent_team_delegation.md"
+      "response_file": "results/responses/20260714_083644_91219/or-glm5__agent_capabilities__agent_team_delegation.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.2,
@@ -107,7 +114,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_083644_91219",
-      "response_file": "results/responses/20260714_083644_91219/or-glm5__agent_capabilities__ask_clarification_before_acting.md"
+      "response_file": "results/responses/20260714_083644_91219/or-glm5__agent_capabilities__ask_clarification_before_acting.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 2.5,
@@ -128,7 +136,7 @@
       "input_tokens": 1090,
       "output_tokens": 451,
       "response_preview": "Hola! Gracias por tu mensaje. Voy a abordar cada punto:\n\n---\n\n**1. ✅ Publicar artículo sobre AI funding en LATAM**\nPerfecto, puedo ayudarte con eso. Necesito algunos detalles adicionales para proceder con la publicación. Déjame pedirte la información necesaria.",
-      "auto_quality": 3.64,
+      "auto_quality": 2.5,
       "judge_score": 3.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -139,7 +147,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_083644_91219",
-      "response_file": "results/responses/20260714_083644_91219/or-glm5__agent_capabilities__context_following_complex_system.md"
+      "response_file": "results/responses/20260714_083644_91219/or-glm5__agent_capabilities__context_following_complex_system.md",
+      "content_score": 5.34,
+      "answer_score": 2.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:43+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -160,7 +173,7 @@
       "input_tokens": 272,
       "output_tokens": 1034,
       "response_preview": "```json\n[\n  {\n    \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n    \"modelo\": \"deepseek-v3\",\n    \"razon\": \"Excelente capacidad de razonamiento para identificar patrones y extraer insights clave. Al procesar 500 reviews, su bajo costo ($0.14/M) lo hace ideal pa",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +184,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_083644_91219",
-      "response_file": "results/responses/20260714_083644_91219/or-glm5__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260714_083644_91219/or-glm5__agent_capabilities__model_as_router.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:43+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.2,
@@ -203,7 +221,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_083644_91219",
-      "response_file": "results/responses/20260714_083644_91219/or-qwen-2.5-72b__agent_capabilities__skill_execution_complex.md"
+      "response_file": "results/responses/20260714_083644_91219/or-qwen-2.5-72b__agent_capabilities__skill_execution_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -235,7 +254,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_083644_91219",
-      "response_file": "results/responses/20260714_083644_91219/or-qwen-2.5-72b__agent_capabilities__agent_team_delegation.md"
+      "response_file": "results/responses/20260714_083644_91219/or-qwen-2.5-72b__agent_capabilities__agent_team_delegation.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.2,
@@ -267,7 +287,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_083644_91219",
-      "response_file": "results/responses/20260714_083644_91219/or-qwen-2.5-72b__agent_capabilities__ask_clarification_before_acting.md"
+      "response_file": "results/responses/20260714_083644_91219/or-qwen-2.5-72b__agent_capabilities__ask_clarification_before_acting.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.5,
@@ -288,7 +309,7 @@
       "input_tokens": 1549,
       "output_tokens": 137,
       "response_preview": "[tool_call] run_skill({\"skill_name\": \"publish_blog_post\", \"parameters\": {\"post_title\": \"AI funding in LATAM\", \"post_status\": \"ready\"}})\n[tool_call] ask_human({\"question\": \"Can you approve the $2,000 budget for the next marketing campaign?\", \"reason\": \"The budget exceeds my approval limit of $500\"})\n",
-      "auto_quality": 5.3,
+      "auto_quality": 7.5,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -299,7 +320,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_083644_91219",
-      "response_file": "results/responses/20260714_083644_91219/or-qwen-2.5-72b__agent_capabilities__context_following_complex_system.md"
+      "response_file": "results/responses/20260714_083644_91219/or-qwen-2.5-72b__agent_capabilities__context_following_complex_system.md",
+      "content_score": 2.0,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:43+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -320,7 +346,7 @@
       "input_tokens": 292,
       "output_tokens": 342,
       "response_preview": "[\n    {\"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\", \"modelo\": \"devstral\", \"razon\": \"Esta tarea requiere un análisis detallado y razonamiento para identificar los problemas principales, y devstral es buen general y rápido, ideal para este tipo de tareas.\"},\n  ",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -331,7 +357,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_083644_91219",
-      "response_file": "results/responses/20260714_083644_91219/or-qwen-2.5-72b__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260714_083644_91219/or-qwen-2.5-72b__agent_capabilities__model_as_router.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:43+00:00",
+      "scoring": "verificable"
     }
   ]
 }

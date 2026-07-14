@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.02
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:46+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_072611_54978",
-      "response_file": "results/responses/20260714_072611_54978/or-mistral-large-3__news_seo_writing__news_seo_article_full.md"
+      "response_file": "results/responses/20260714_072611_54978/or-mistral-large-3__news_seo_writing__news_seo_article_full.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -64,7 +70,7 @@
       "input_tokens": 328,
       "output_tokens": 1334,
       "response_preview": "```json\n{\n  \"Fuentes\": [\"https://deepmind.google/technologies/gemma/\"],\n  \"Categoria\": \"Inteligencia Artificial\",\n  \"Palabras_Clave\": [\"Gemma 4\", \"open-source AI\", \"DeepMind\", \"modelos de lenguaje\", \"Apache 2.0\"],\n  \"Contenido_HTML\": \"<h2>Google DeepMind presenta Gemma 4: una nueva familia de modelo",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 3.0,
       "judge_precision": 2,
       "judge_relevancia": 1,
@@ -75,7 +81,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_072611_54978",
-      "response_file": "results/responses/20260714_072611_54978/or-mistral-large-3__news_seo_writing__news_json_output_strict.md"
+      "response_file": "results/responses/20260714_072611_54978/or-mistral-large-3__news_seo_writing__news_json_output_strict.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:46+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -96,7 +107,7 @@
       "input_tokens": 323,
       "output_tokens": 1392,
       "response_preview": "## SambaNova Systems presenta el SN50: un chip diseñado para redefinir el rendimiento en IA empresarial\n\nLa startup estadounidense SambaNova Systems, especializada en infraestructura para inteligencia artificial, anunció el lanzamiento de su nuevo chip **SN50**, posicionándolo como una alternativa d",
-      "auto_quality": 7.0,
+      "auto_quality": 5.0,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -107,7 +118,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_072611_54978",
-      "response_file": "results/responses/20260714_072611_54978/or-mistral-large-3__news_seo_writing__news_spanish_only.md"
+      "response_file": "results/responses/20260714_072611_54978/or-mistral-large-3__news_seo_writing__news_spanish_only.md",
+      "content_score": 10.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:46+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -128,7 +144,7 @@
       "input_tokens": 491,
       "output_tokens": 1242,
       "response_preview": "# NotCo alcanza valuación de $1.500 millones tras ronda Serie D liderada por Tiger Global\n\n## Una startup chilena en la frontera de la alimentación y la inteligencia artificial\n\nLa startup chilena NotCo anunció una ronda Serie D por **$85 millones**, liderada por el fondo estadounidense **Tiger Glob",
-      "auto_quality": 3.74,
+      "auto_quality": 0.0,
       "judge_score": 3.0,
       "judge_precision": 2,
       "judge_relevancia": 2,
@@ -139,7 +155,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_072611_54978",
-      "response_file": "results/responses/20260714_072611_54978/or-mistral-large-3__news_seo_writing__news_no_hallucination_sources.md"
+      "response_file": "results/responses/20260714_072611_54978/or-mistral-large-3__news_seo_writing__news_no_hallucination_sources.md",
+      "content_score": 9.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:46+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.6,
@@ -171,7 +192,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_072611_54978",
-      "response_file": "results/responses/20260714_072611_54978/or-mistral-large-3__news_seo_writing__news_perplexity_enrichment.md"
+      "response_file": "results/responses/20260714_072611_54978/or-mistral-large-3__news_seo_writing__news_perplexity_enrichment.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.24,
@@ -203,7 +225,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_072611_54978",
-      "response_file": "results/responses/20260714_072611_54978/or-qwen3.5-397b__news_seo_writing__news_seo_article_full.md"
+      "response_file": "results/responses/20260714_072611_54978/or-qwen3.5-397b__news_seo_writing__news_seo_article_full.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -224,7 +247,7 @@
       "input_tokens": 324,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** News processing system.\n    *   **Output Format:** Valid JSON ONLY. No markdown, no explanations, no code blocks.\n    *   **Input:** An extract about Google DeepMind releasing Gemma 4.\n    *   **Required Keys (Exact Order):**\n        ",
-      "auto_quality": 6.74,
+      "auto_quality": 5.0,
       "judge_score": 4.2,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -235,7 +258,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_072611_54978",
-      "response_file": "results/responses/20260714_072611_54978/or-qwen3.5-397b__news_seo_writing__news_json_output_strict.md"
+      "response_file": "results/responses/20260714_072611_54978/or-qwen3.5-397b__news_seo_writing__news_json_output_strict.md",
+      "content_score": 9.34,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:46+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -256,7 +284,7 @@
       "input_tokens": 321,
       "output_tokens": 3471,
       "response_preview": "## SambaNova Systems presenta el chip SN50: Nuevos estándares para la inferencia de IA\n\nLa compañía SambaNova Systems ha anunciado oficialmente el lanzamiento de su nuevo procesador, el chip SN50. Esta pieza de hardware está diseñada específicamente para cargas de trabajo de inteligencia artificial ",
-      "auto_quality": 6.47,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +295,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_072611_54978",
-      "response_file": "results/responses/20260714_072611_54978/or-qwen3.5-397b__news_seo_writing__news_spanish_only.md"
+      "response_file": "results/responses/20260714_072611_54978/or-qwen3.5-397b__news_seo_writing__news_spanish_only.md",
+      "content_score": 8.67,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:46+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -288,7 +321,7 @@
       "input_tokens": 489,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Journalist specialized in startups, technology, and innovation in Latin America.\n    *   **Publication:** ecosistemastartup.com (digital media focused on the entrepreneurial ecosystem).\n    *   **Language:** Spanish (always).\n    *   ",
-      "auto_quality": 3.74,
+      "auto_quality": 0.0,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -299,7 +332,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_072611_54978",
-      "response_file": "results/responses/20260714_072611_54978/or-qwen3.5-397b__news_seo_writing__news_no_hallucination_sources.md"
+      "response_file": "results/responses/20260714_072611_54978/or-qwen3.5-397b__news_seo_writing__news_no_hallucination_sources.md",
+      "content_score": 9.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:46+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.4,
@@ -331,7 +369,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_072611_54978",
-      "response_file": "results/responses/20260714_072611_54978/or-qwen3.5-397b__news_seo_writing__news_perplexity_enrichment.md"
+      "response_file": "results/responses/20260714_072611_54978/or-qwen3.5-397b__news_seo_writing__news_perplexity_enrichment.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

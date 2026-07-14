@@ -43,7 +43,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__content_generation__blog_post_es.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__content_generation__blog_post_es.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.92,
@@ -75,7 +76,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__content_generation__email_profesional.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__content_generation__email_profesional.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -107,7 +109,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__content_generation__social_media_batch.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__content_generation__social_media_batch.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -139,7 +142,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__content_generation__product_description_en.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__content_generation__product_description_en.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.82,
@@ -171,7 +175,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__tool_calling__single_tool_calendar.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__tool_calling__single_tool_calendar.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 4.3,
@@ -203,7 +208,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__tool_calling__multi_tool_sequential.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__tool_calling__multi_tool_sequential.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.98,
@@ -235,7 +241,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__tool_calling__tool_with_reasoning.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__tool_calling__tool_with_reasoning.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.26,
@@ -267,7 +274,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__tool_calling__no_tool_needed.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__tool_calling__no_tool_needed.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.08,
@@ -299,7 +307,8 @@
       "suite": "task_management",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__task_management__extract_action_items.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__task_management__extract_action_items.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -331,7 +340,8 @@
       "suite": "task_management",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__task_management__weekly_planning.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__task_management__weekly_planning.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -363,7 +373,8 @@
       "suite": "task_management",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__task_management__project_breakdown.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__task_management__project_breakdown.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.48,
@@ -395,7 +406,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__code_generation__python_api_integration.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__code_generation__python_api_integration.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.72,
@@ -427,7 +439,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__code_generation__n8n_workflow_json.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__code_generation__n8n_workflow_json.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -459,7 +472,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__code_generation__sql_query_complex.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__code_generation__sql_query_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -491,7 +505,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__code_generation__debug_code.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__code_generation__debug_code.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.68,
@@ -523,7 +538,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__reasoning__business_analysis.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__reasoning__business_analysis.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -555,7 +571,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__reasoning__logical_reasoning.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__reasoning__logical_reasoning.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -587,7 +604,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__reasoning__multi_constraint_decision.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__reasoning__multi_constraint_decision.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.64,
@@ -619,7 +637,8 @@
       "suite": "summarization",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__summarization__long_document_summary.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__summarization__long_document_summary.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.04,
@@ -651,7 +670,8 @@
       "suite": "summarization",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__summarization__extract_structured_data.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__summarization__extract_structured_data.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -683,7 +703,8 @@
       "suite": "presentation",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__presentation__slide_outline.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__presentation__slide_outline.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -715,7 +736,8 @@
       "suite": "presentation",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__presentation__data_report.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__presentation__data_report.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -747,7 +769,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__startup_content__blog_actualidad_startup.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__startup_content__blog_actualidad_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -779,7 +802,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__startup_content__curso_emprendimiento_modulo.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__startup_content__curso_emprendimiento_modulo.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -811,7 +835,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__startup_content__workshop_outline.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__startup_content__workshop_outline.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -843,7 +868,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__startup_content__newsletter_startup.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__startup_content__newsletter_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -875,7 +901,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260601_095605",
-      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__startup_content__perplexity_style_research.md"
+      "response_file": "results/responses/20260601_095605/deepseek-v4-flash__startup_content__perplexity_style_research.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

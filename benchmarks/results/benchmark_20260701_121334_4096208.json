@@ -31,7 +31,8 @@
       "run": 1,
       "timestamp": "20260701_121334_4096208",
       "response_file": "results/responses/20260701_121334_4096208/openrouter-north-mini-code__content_generation__blog_post_es.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.007,
@@ -57,7 +58,8 @@
       "run": 1,
       "timestamp": "20260701_121334_4096208",
       "response_file": "results/responses/20260701_121334_4096208/openrouter-north-mini-code__content_generation__email_profesional.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.003,
@@ -83,7 +85,8 @@
       "run": 1,
       "timestamp": "20260701_121334_4096208",
       "response_file": "results/responses/20260701_121334_4096208/openrouter-north-mini-code__content_generation__social_media_batch.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.783,
@@ -109,7 +112,8 @@
       "run": 1,
       "timestamp": "20260701_121334_4096208",
       "response_file": "results/responses/20260701_121334_4096208/openrouter-north-mini-code__content_generation__product_description_en.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -135,7 +139,8 @@
       "run": 1,
       "timestamp": "20260701_121334_4096208",
       "response_file": "results/responses/20260701_121334_4096208/openrouter-north-mini-code__tool_calling__single_tool_calendar.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -161,7 +166,8 @@
       "run": 1,
       "timestamp": "20260701_121334_4096208",
       "response_file": "results/responses/20260701_121334_4096208/openrouter-north-mini-code__tool_calling__multi_tool_sequential.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -187,7 +193,8 @@
       "run": 1,
       "timestamp": "20260701_121334_4096208",
       "response_file": "results/responses/20260701_121334_4096208/openrouter-north-mini-code__tool_calling__tool_with_reasoning.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -213,7 +220,8 @@
       "run": 1,
       "timestamp": "20260701_121334_4096208",
       "response_file": "results/responses/20260701_121334_4096208/openrouter-north-mini-code__tool_calling__no_tool_needed.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.967,
@@ -239,7 +247,8 @@
       "run": 1,
       "timestamp": "20260701_121334_4096208",
       "response_file": "results/responses/20260701_121334_4096208/openrouter-north-mini-code__task_management__extract_action_items.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 2.0,
@@ -265,7 +274,8 @@
       "run": 1,
       "timestamp": "20260701_121334_4096208",
       "response_file": "results/responses/20260701_121334_4096208/openrouter-north-mini-code__task_management__weekly_planning.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.34,
@@ -291,7 +301,8 @@
       "run": 1,
       "timestamp": "20260701_121334_4096208",
       "response_file": "results/responses/20260701_121334_4096208/openrouter-north-mini-code__task_management__project_breakdown.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.87,
@@ -317,7 +328,8 @@
       "run": 1,
       "timestamp": "20260701_121334_4096208",
       "response_file": "results/responses/20260701_121334_4096208/openrouter-north-mini-code__code_generation__python_api_integration.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.447,
@@ -343,7 +355,8 @@
       "run": 1,
       "timestamp": "20260701_121334_4096208",
       "response_file": "results/responses/20260701_121334_4096208/openrouter-north-mini-code__code_generation__n8n_workflow_json.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.34,
@@ -369,7 +382,8 @@
       "run": 1,
       "timestamp": "20260701_121334_4096208",
       "response_file": "results/responses/20260701_121334_4096208/openrouter-north-mini-code__code_generation__sql_query_complex.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.78,
@@ -395,7 +409,8 @@
       "run": 1,
       "timestamp": "20260701_121334_4096208",
       "response_file": "results/responses/20260701_121334_4096208/openrouter-north-mini-code__code_generation__debug_code.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     }
   ]
 }

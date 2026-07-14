@@ -10,7 +10,12 @@
       "evaluations": 4,
       "estimated_cost_usd": 0.0043
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:13:47+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,12 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260714_065611_39406",
-      "response_file": "results/responses/20260714_065611_39406/or-qwen-3.5-35b__translation__translate_marketing_es_en.md"
+      "response_file": "results/responses/20260714_065611_39406/or-qwen-3.5-35b__translation__translate_marketing_es_en.md",
+      "content_score": 8.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:13:37+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.4,
@@ -75,7 +85,8 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260714_065611_39406",
-      "response_file": "results/responses/20260714_065611_39406/or-qwen-3.5-35b__translation__translate_technical_en_es.md"
+      "response_file": "results/responses/20260714_065611_39406/or-qwen-3.5-35b__translation__translate_technical_en_es.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -96,7 +107,7 @@
       "input_tokens": 205,
       "output_tokens": 3112,
       "response_preview": "{\n  \"problemas\": [\n    {\n      \"tipo\": \"chino\",\n      \"texto\": \"特别是\",\n      \"correccion\": \"especialmente\"\n    },\n    {\n      \"tipo\": \"gramatical\",\n      \"texto\": \"estan\",\n      \"correccion\": \"están\"\n    },\n    {\n      \"tipo\": \"spanglish\",\n      \"texto\": \"leveraging nuevas herramientas para scale the",
-      "auto_quality": 9.2,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +118,12 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260714_065611_39406",
-      "response_file": "results/responses/20260714_065611_39406/or-qwen-3.5-35b__translation__detect_language_issues.md"
+      "response_file": "results/responses/20260714_065611_39406/or-qwen-3.5-35b__translation__detect_language_issues.md",
+      "content_score": 8.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:13:47+00:00",
+      "scoring": "verificable"
     }
   ]
 }

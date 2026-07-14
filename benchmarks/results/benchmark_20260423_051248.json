@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-13T20:57:20+00:00",
+      "at": "2026-07-14T17:57:13+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -47,7 +47,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.92,
@@ -78,7 +79,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.32,
@@ -109,7 +111,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.12,
@@ -140,7 +143,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -164,7 +168,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -188,7 +193,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -212,7 +218,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.26,
@@ -243,7 +250,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.56,
@@ -274,7 +282,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -305,7 +314,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -336,7 +346,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -367,7 +378,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.88,
@@ -398,7 +410,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -429,7 +442,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -460,7 +474,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -491,7 +506,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -522,7 +538,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -553,7 +570,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.48,
@@ -584,7 +602,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.88,
@@ -615,7 +634,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.46,
@@ -646,7 +666,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -677,7 +698,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.76,
@@ -708,7 +730,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -739,7 +762,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -770,7 +794,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -801,7 +826,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.68,
@@ -832,7 +858,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.08,
@@ -1035,7 +1062,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -1059,7 +1087,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -1083,7 +1112,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.56,
@@ -1114,7 +1144,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.46,
@@ -1672,7 +1703,8 @@
       "judge_justificacion": "La respuesta es clara y bien escrita, pero carece de profundidad e información específica sobre el lanzamiento de Devstral, lo que limita su relevancia y utilidad práctica.",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.22,
@@ -1703,7 +1735,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.82,
@@ -1734,7 +1767,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.36,
@@ -1765,7 +1799,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.2,
@@ -1796,7 +1831,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.28,
@@ -1982,7 +2018,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.0,
@@ -2006,7 +2043,8 @@
       "auto_quality": 0.0,
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 3.83,
@@ -2037,7 +2075,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.95,
@@ -2068,7 +2107,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.0,
@@ -2092,7 +2132,8 @@
       "auto_quality": 0.0,
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.16,
@@ -2371,7 +2412,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -2402,7 +2444,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.0,
@@ -2426,7 +2469,8 @@
       "auto_quality": 0.0,
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -2450,7 +2494,8 @@
       "auto_quality": 0.0,
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.92,
@@ -2481,7 +2526,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.48,
@@ -2698,7 +2744,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.72,
@@ -2729,7 +2776,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.22,
@@ -2760,7 +2808,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.76,
@@ -2791,7 +2840,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.32,
@@ -2822,7 +2872,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.44,
@@ -2853,7 +2904,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.09,
@@ -2884,7 +2936,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -2908,7 +2961,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 4.86,
@@ -2939,7 +2993,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.98,
@@ -2970,7 +3025,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.0,
@@ -3025,7 +3081,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -3056,7 +3113,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.54,
@@ -3087,7 +3145,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.24,
@@ -3118,7 +3177,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.08,
@@ -3149,7 +3209,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.84,
@@ -3180,7 +3241,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -3211,7 +3273,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -3242,7 +3305,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -3273,7 +3337,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -3304,7 +3369,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.78,
@@ -3335,7 +3401,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.04,
@@ -3366,7 +3433,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.0,
@@ -3421,7 +3489,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -3452,7 +3521,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -3483,7 +3553,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -3514,7 +3585,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -3545,7 +3617,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.0,
@@ -3786,7 +3859,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.48,
@@ -3817,7 +3891,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.25,
@@ -3848,7 +3923,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.84,
@@ -3879,7 +3955,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.46,
@@ -4430,7 +4507,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.06,
@@ -4461,7 +4539,8 @@
       "judge_justificacion": "La respuesta es precisa y clara, pero no cumple con el formato JSON estricto requerido al incluir información adicional no solicitada.",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.18,
@@ -4492,7 +4571,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.16,
@@ -4523,7 +4603,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.88,
@@ -4554,7 +4635,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.28,
@@ -4829,7 +4911,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.16,
@@ -5145,7 +5228,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.92,
@@ -5176,7 +5260,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.56,
@@ -5393,7 +5478,8 @@
       "judge_justificacion": "La respuesta es precisa, relevante y clara, con un tono cercano y energico adecuado para una audiencia americana; ofrece utilidad práctica al enfocarse en los beneficios de AutoFlow.",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.72,
@@ -5424,7 +5510,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.06,
@@ -5455,7 +5542,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.76,
@@ -5486,7 +5574,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.92,
@@ -5517,7 +5606,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -5548,7 +5638,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.12,
@@ -5579,7 +5670,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 4.02,
@@ -5610,7 +5702,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 4.3,
@@ -5641,7 +5734,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.98,
@@ -5672,7 +5766,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.66,
@@ -5703,7 +5798,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.32,
@@ -5734,7 +5830,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -5765,7 +5862,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.52,
@@ -5796,7 +5894,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -5827,7 +5926,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.68,
@@ -5858,7 +5958,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -5889,7 +5990,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.04,
@@ -5920,7 +6022,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.92,
@@ -5951,7 +6054,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.2,
@@ -5982,7 +6086,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.82,
@@ -6013,7 +6118,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -6044,7 +6150,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.84,
@@ -6075,7 +6182,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.56,
@@ -6106,7 +6214,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.62,
@@ -6230,7 +6339,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.19,
@@ -6261,7 +6371,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 4.8,
@@ -6292,7 +6403,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -6323,7 +6435,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.46,
@@ -6757,7 +6870,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.99,
@@ -6788,7 +6902,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.28,
@@ -6912,7 +7027,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.08,
@@ -6943,7 +7059,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.88,
@@ -6974,7 +7091,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.32,
@@ -7005,7 +7123,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.08,
@@ -7036,7 +7155,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.16,
@@ -7315,7 +7435,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.48,
@@ -7346,7 +7467,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.92,
@@ -7377,7 +7499,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.52,
@@ -7408,7 +7531,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.62,
@@ -7439,7 +7563,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.92,
@@ -7625,7 +7750,8 @@
       "judge_justificacion": "La respuesta es precisa, relevante y clara, con un tono adecuado para el público objetivo. Ofrece insights útiles sobre la automatización de procesos tediosos.",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.44,
@@ -7656,7 +7782,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.56,
@@ -7687,7 +7814,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.32,
@@ -7718,7 +7846,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.72,
@@ -7749,7 +7878,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.35,
@@ -7780,7 +7910,8 @@
       "judge_justificacion": "La respuesta es precisa, relevante y clara, con una estructura bien organizada que destaca las características clave del producto de manera efectiva. Ofrece insights útiles para un emprendedor al enfocarse en beneficios específicos que atraen al público objetivo.",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.26,
@@ -7811,7 +7942,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.08,
@@ -7842,7 +7974,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.04,
@@ -7873,7 +8006,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.28,
@@ -7904,7 +8038,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.72,
@@ -7935,7 +8070,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -7966,7 +8102,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -7997,7 +8134,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -8028,7 +8166,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.0,
@@ -8059,7 +8198,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.16,
@@ -8090,7 +8230,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.88,
@@ -8121,7 +8262,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.76,
@@ -8152,7 +8294,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -8183,7 +8326,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.56,
@@ -8214,7 +8358,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.48,
@@ -8245,7 +8390,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.28,
@@ -8276,7 +8422,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -8307,7 +8454,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -8338,7 +8486,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.0,
@@ -8555,7 +8704,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.46,
@@ -9113,7 +9263,8 @@
       "judge_justificacion": "La respuesta es precisa y relevante, con una estructura clara y organizada que incluye secciones requeridas. Ofrece insights útiles sobre el contexto de la ronda de financiación y las implicaciones para startups, aunque no profundiza en detalles específicos más allá del extracto proporcionado.",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.26,
@@ -9144,7 +9295,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.64,
@@ -9175,7 +9327,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.89,
@@ -9206,7 +9359,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.28,
@@ -9392,7 +9546,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.16,
@@ -9640,7 +9795,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.64,
@@ -9857,7 +10013,8 @@
       "judge_justificacion": "La respuesta es precisa, relevante y clara, manteniendo el tono cercano y energético adecuado para una audiencia americana; ofrece utilidad práctica con un lenguaje adaptado.",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.0,
@@ -9888,7 +10045,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.38,
@@ -9919,7 +10077,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.12,
@@ -9950,7 +10109,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.52,
@@ -9981,7 +10141,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -10012,7 +10173,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.32,
@@ -10043,7 +10205,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -10067,7 +10230,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 4.3,
@@ -10098,7 +10262,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.14,
@@ -10129,7 +10294,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.66,
@@ -10160,7 +10326,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -10191,7 +10358,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -10222,7 +10390,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -10253,7 +10422,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.28,
@@ -10284,7 +10454,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.92,
@@ -10315,7 +10486,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -10346,7 +10518,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -10377,7 +10550,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -10408,7 +10582,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -10439,7 +10614,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -10470,7 +10646,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -10501,7 +10678,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.32,
@@ -10532,7 +10710,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -10563,7 +10742,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -10594,7 +10774,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.76,
@@ -10625,7 +10806,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -10656,7 +10838,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -10687,7 +10870,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -10718,7 +10902,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -10749,7 +10934,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.08,
@@ -10966,7 +11152,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.11,
@@ -10997,7 +11184,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.62,
@@ -11028,7 +11216,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -11059,7 +11248,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.46,
@@ -11617,7 +11807,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.34,
@@ -11648,7 +11839,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.1,
@@ -11679,7 +11871,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.44,
@@ -11710,7 +11903,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.17,
@@ -11741,7 +11935,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.28,
@@ -11927,7 +12122,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.44,
@@ -11958,7 +12154,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 4.46,
@@ -11989,7 +12186,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.71,
@@ -12020,7 +12218,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.38,
@@ -12051,7 +12250,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.16,
@@ -12330,7 +12530,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -12361,7 +12562,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.62,
@@ -12392,7 +12594,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.52,
@@ -12423,7 +12626,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.0,
@@ -12454,7 +12658,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.44,
@@ -12671,7 +12876,8 @@
       "judge_justificacion": "La respuesta es precisa, relevante y clara, con un tono adecuado para la audiencia estadounidense; ofrece insights útiles sobre el valor de AutoFlow.",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.72,
@@ -12702,7 +12908,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.34,
@@ -12733,7 +12940,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.76,
@@ -12764,7 +12972,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -12795,7 +13004,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -12826,7 +13036,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.12,
@@ -12857,7 +13068,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -12881,7 +13093,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -12905,7 +13118,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -12929,7 +13143,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.26,
@@ -12960,7 +13175,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.56,
@@ -12991,7 +13207,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -13022,7 +13239,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -13053,7 +13271,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -13084,7 +13303,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.6,
@@ -13115,7 +13335,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -13146,7 +13367,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -13177,7 +13399,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -13208,7 +13431,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -13239,7 +13463,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -13270,7 +13495,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.68,
@@ -13301,7 +13527,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.72,
@@ -13332,7 +13559,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -13363,7 +13591,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -13394,7 +13623,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.76,
@@ -13425,7 +13655,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.2,
@@ -13456,7 +13687,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.72,
@@ -13487,7 +13719,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -13518,7 +13751,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -13549,7 +13783,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -13759,7 +13994,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -13783,7 +14019,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -13807,7 +14044,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -13831,7 +14069,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.46,
@@ -14389,7 +14628,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.22,
@@ -14420,7 +14660,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.26,
@@ -14451,7 +14692,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.32,
@@ -14482,7 +14724,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.88,
@@ -14513,7 +14756,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.28,
@@ -14699,7 +14943,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.53,
@@ -14730,7 +14975,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 2.0,
@@ -14754,7 +15000,8 @@
       "auto_quality": 2.0,
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.16,
@@ -14785,7 +15032,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.43,
@@ -14816,7 +15064,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.16,
@@ -15095,7 +15344,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -15126,7 +15376,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -15157,7 +15408,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.69,
@@ -15188,7 +15440,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.35,
@@ -15219,7 +15472,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.0,
@@ -15436,7 +15690,8 @@
       "judge_justificacion": "La respuesta es precisa, relevante y clara, manteniendo el tono cercano y energico del original. Ofrece insights útiles para emprendedores al enfatizar la eficiencia y simplicidad de AutoFlow.",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.0,
@@ -15467,7 +15722,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.88,
@@ -15498,7 +15754,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -15529,7 +15786,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.32,
@@ -15560,7 +15818,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.32,
@@ -15591,7 +15850,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.4,
@@ -15622,7 +15882,8 @@
       "judge_justificacion": "La respuesta es precisa, relevante y clara, con una estructura bien organizada que incluye un titular atractivo, características clave y un cierre convincente; ofrece insights útiles para emprendedores.",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -15646,7 +15907,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -15670,7 +15932,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -15694,7 +15957,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.26,
@@ -15725,7 +15989,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.06,
@@ -15756,7 +16021,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -15787,7 +16053,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -15818,7 +16085,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.28,
@@ -15849,7 +16117,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.2,
@@ -15880,7 +16149,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -15911,7 +16181,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -15942,7 +16213,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -15973,7 +16245,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -16004,7 +16277,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -16035,7 +16309,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.96,
@@ -16066,7 +16341,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.88,
@@ -16097,7 +16373,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -16128,7 +16405,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -16159,7 +16437,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.76,
@@ -16190,7 +16469,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -16221,7 +16501,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -16252,7 +16533,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -16283,7 +16565,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -16314,7 +16597,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.08,
@@ -16531,7 +16815,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.0,
@@ -16555,7 +16840,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -16579,7 +16865,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.84,
@@ -16610,7 +16897,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.46,
@@ -17168,7 +17456,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.34,
@@ -17199,7 +17488,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.34,
@@ -17230,7 +17520,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.44,
@@ -17261,7 +17552,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.68,
@@ -17292,7 +17584,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.28,
@@ -17478,7 +17771,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.37,
@@ -17509,7 +17803,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 2.0,
@@ -17533,7 +17828,8 @@
       "auto_quality": 2.0,
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.99,
@@ -17564,7 +17860,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.85,
@@ -17595,7 +17892,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.16,
@@ -17874,7 +18172,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -17905,7 +18204,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.0,
@@ -17929,7 +18229,8 @@
       "auto_quality": 0.0,
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -17953,7 +18254,8 @@
       "auto_quality": 0.0,
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.9,
@@ -17984,7 +18286,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.56,
@@ -18201,7 +18504,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.44,
@@ -18232,7 +18536,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.18,
@@ -18263,7 +18568,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.16,
@@ -18294,7 +18600,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -18325,7 +18632,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.32,
@@ -18356,7 +18664,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.72,
@@ -18387,7 +18696,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -18411,7 +18721,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.98,
@@ -18442,7 +18753,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.1,
@@ -18473,7 +18785,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.26,
@@ -18504,7 +18817,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.0,
@@ -18535,7 +18849,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.24,
@@ -18566,7 +18881,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.14,
@@ -18597,7 +18913,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -18628,7 +18945,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.88,
@@ -18659,7 +18977,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -18690,7 +19009,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -18721,7 +19041,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -18752,7 +19073,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -18783,7 +19105,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -18814,7 +19137,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.8,
@@ -18845,7 +19169,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.88,
@@ -18876,7 +19201,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.68,
@@ -18907,7 +19233,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -18938,7 +19265,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.76,
@@ -18969,7 +19297,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -19000,7 +19329,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -19031,7 +19361,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -19062,7 +19393,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -19093,7 +19425,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.08,
@@ -19303,7 +19636,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -19327,7 +19661,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.32,
@@ -19358,7 +19693,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.64,
@@ -19389,7 +19725,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.46,
@@ -19947,7 +20284,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.34,
@@ -19978,7 +20316,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.1,
@@ -20009,7 +20348,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.36,
@@ -20040,7 +20380,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.12,
@@ -20071,7 +20412,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.28,
@@ -20257,7 +20599,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 3.65,
@@ -20288,7 +20631,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 2.0,
@@ -20312,7 +20656,8 @@
       "auto_quality": 2.0,
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.71,
@@ -20343,7 +20688,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.69,
@@ -20374,7 +20720,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.88,
@@ -20646,7 +20993,8 @@
       "auto_quality": 0.0,
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.72,
@@ -20677,7 +21025,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.4,
@@ -20708,7 +21057,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.97,
@@ -20739,7 +21089,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.92,
@@ -20770,7 +21121,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.56,
@@ -20987,7 +21339,8 @@
       "judge_justificacion": "La respuesta es precisa, relevante y clara, manteniendo el tono cercano y energético adecuado para una audiencia americana. Ofrece insights útiles sobre la automatización de procesos tediosos, lo que es práctico para emprendedores.",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.0,
@@ -21018,7 +21371,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.44,
@@ -21049,7 +21403,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.36,
@@ -21080,7 +21435,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.32,
@@ -21111,7 +21467,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -21142,7 +21499,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.92,
@@ -21173,7 +21531,8 @@
       "judge_justificacion": "",
       "suite": "content_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -21197,7 +21556,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -21221,7 +21581,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -21245,7 +21606,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.26,
@@ -21276,7 +21638,8 @@
       "judge_justificacion": "",
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.28,
@@ -21307,7 +21670,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -21338,7 +21702,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -21369,7 +21734,8 @@
       "judge_justificacion": "",
       "suite": "task_management",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.68,
@@ -21400,7 +21766,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.2,
@@ -21431,7 +21798,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -21462,7 +21830,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -21493,7 +21862,8 @@
       "judge_justificacion": "",
       "suite": "code_generation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -21524,7 +21894,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -21555,7 +21926,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -21586,7 +21958,8 @@
       "judge_justificacion": "",
       "suite": "reasoning",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.24,
@@ -21617,7 +21990,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.32,
@@ -21648,7 +22022,8 @@
       "judge_justificacion": "",
       "suite": "summarization",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -21679,7 +22054,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -21710,7 +22086,8 @@
       "judge_justificacion": "",
       "suite": "presentation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.32,
@@ -21741,7 +22118,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -21772,7 +22150,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -21803,7 +22182,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -21834,7 +22214,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.6,
@@ -21865,7 +22246,8 @@
       "judge_justificacion": "",
       "suite": "startup_content",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -22082,7 +22464,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.51,
@@ -22113,7 +22496,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.0,
@@ -22137,7 +22521,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.52,
@@ -22168,7 +22553,8 @@
       "judge_justificacion": "",
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.46,
@@ -22726,7 +23112,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.34,
@@ -22757,7 +23144,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.26,
@@ -22788,7 +23176,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.64,
@@ -22819,7 +23208,8 @@
       "judge_justificacion": "La respuesta es precisa y relevante, manteniéndose fiel a los datos proporcionados sin alucinaciones. Ofrece una estructura clara con insights útiles sobre el uso de IA en food-tech, aunque no profundiza demasiado más allá del contexto dado. El estilo periodístico y la estructura SEO son adecuados para un artículo publicable.",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.4,
@@ -22850,7 +23240,8 @@
       "judge_justificacion": "",
       "suite": "news_seo_writing",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.28,
@@ -23036,7 +23427,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.01,
@@ -23067,7 +23459,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 4.66,
@@ -23098,7 +23491,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.87,
@@ -23129,7 +23523,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.99,
@@ -23160,7 +23555,8 @@
       "judge_justificacion": "",
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.16,
@@ -23439,7 +23835,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.56,
@@ -23470,7 +23867,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.72,
@@ -23501,7 +23899,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.97,
@@ -23532,7 +23931,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.92,
@@ -23563,7 +23963,8 @@
       "judge_justificacion": "",
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.56,
@@ -23780,7 +24181,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.72,
@@ -23811,7 +24213,8 @@
       "judge_justificacion": "",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.06,
@@ -23842,7 +24245,8 @@
       "judge_justificacion": "La respuesta es precisa y relevante, identificando correctamente los problemas de idioma con correcciones adecuadas; aunque la profundidad podría ser mayor al ofrecer más contexto o explicaciones sobre por qué ciertas expresiones son inapropiadas.",
       "suite": "translation",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -23874,7 +24278,8 @@
       "suite": "task_management",
       "run": 1,
       "timestamp": "20260423_051248",
-      "response_file": "results/responses/20260423_051248/glm-5.1__task_management__weekly_planning.md"
+      "response_file": "results/responses/20260423_051248/glm-5.1__task_management__weekly_planning.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.32,
@@ -23906,7 +24311,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260423_051248",
-      "response_file": "results/responses/20260423_051248/glm-5.1__code_generation__n8n_workflow_json.md"
+      "response_file": "results/responses/20260423_051248/glm-5.1__code_generation__n8n_workflow_json.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -23938,7 +24344,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260423_051248",
-      "response_file": "results/responses/20260423_051248/glm-5.1__code_generation__sql_query_complex.md"
+      "response_file": "results/responses/20260423_051248/glm-5.1__code_generation__sql_query_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -23970,7 +24377,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260423_051248",
-      "response_file": "results/responses/20260423_051248/glm-5.1__reasoning__business_analysis.md"
+      "response_file": "results/responses/20260423_051248/glm-5.1__reasoning__business_analysis.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -24002,7 +24410,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260423_051248",
-      "response_file": "results/responses/20260423_051248/glm-5.1__reasoning__multi_constraint_decision.md"
+      "response_file": "results/responses/20260423_051248/glm-5.1__reasoning__multi_constraint_decision.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -24034,7 +24443,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260423_051248",
-      "response_file": "results/responses/20260423_051248/glm-5.1__startup_content__blog_actualidad_startup.md"
+      "response_file": "results/responses/20260423_051248/glm-5.1__startup_content__blog_actualidad_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -24068,9 +24478,10 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:57:16+00:00",
+      "rescored_at": "2026-07-14T17:57:09+00:00",
       "content_score": 10.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -24104,9 +24515,10 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:57:19+00:00",
+      "rescored_at": "2026-07-14T17:57:12+00:00",
       "content_score": 10.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -24140,9 +24552,10 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:57:19+00:00",
+      "rescored_at": "2026-07-14T17:57:12+00:00",
       "content_score": 9.34,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -24176,9 +24589,10 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:57:19+00:00",
+      "rescored_at": "2026-07-14T17:57:12+00:00",
       "content_score": 4.67,
-      "answer_score": 9.0
+      "answer_score": 9.0,
+      "scoring": "verificable"
     },
     {
       "quality": 6.5,
@@ -24212,9 +24626,10 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:57:19+00:00",
+      "rescored_at": "2026-07-14T17:57:12+00:00",
       "content_score": 5.34,
-      "answer_score": 6.5
+      "answer_score": 6.5,
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -24248,9 +24663,10 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:57:19+00:00",
+      "rescored_at": "2026-07-14T17:57:12+00:00",
       "content_score": 4.0,
-      "answer_score": 9.0
+      "answer_score": 9.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.32,
@@ -24282,7 +24698,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260423_051248",
-      "response_file": "results/responses/20260423_051248/glm-5.1__news_seo_writing__news_seo_article_full.md"
+      "response_file": "results/responses/20260423_051248/glm-5.1__news_seo_writing__news_seo_article_full.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -24316,9 +24733,10 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:57:19+00:00",
+      "rescored_at": "2026-07-14T17:57:12+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -24352,9 +24770,10 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__news_seo_writing__news_spanish_only.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:57:19+00:00",
+      "rescored_at": "2026-07-14T17:57:12+00:00",
       "content_score": 8.67,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.75,
@@ -24388,9 +24807,10 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:57:20+00:00",
+      "rescored_at": "2026-07-14T17:57:13+00:00",
       "content_score": 4.0,
-      "answer_score": 8.75
+      "answer_score": 8.75,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -24424,9 +24844,10 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:57:20+00:00",
+      "rescored_at": "2026-07-14T17:57:13+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -24460,9 +24881,10 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:57:20+00:00",
+      "rescored_at": "2026-07-14T17:57:13+00:00",
       "content_score": 10.0,
-      "answer_score": 7.5
+      "answer_score": 7.5,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -24496,9 +24918,10 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__translation__detect_language_issues.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:57:20+00:00",
+      "rescored_at": "2026-07-14T17:57:13+00:00",
       "content_score": 6.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.68,
@@ -24530,7 +24953,8 @@
       "suite": "task_management",
       "run": 1,
       "timestamp": "20260423_051248",
-      "response_file": "results/responses/20260423_051248/nemotron-super__task_management__weekly_planning.md"
+      "response_file": "results/responses/20260423_051248/nemotron-super__task_management__weekly_planning.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -24562,7 +24986,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260423_051248",
-      "response_file": "results/responses/20260423_051248/nemotron-super__reasoning__business_analysis.md"
+      "response_file": "results/responses/20260423_051248/nemotron-super__reasoning__business_analysis.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -24596,9 +25021,10 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/nemotron-super__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:57:20+00:00",
+      "rescored_at": "2026-07-14T17:57:13+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 4.0,
@@ -24632,9 +25058,10 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/nemotron-super__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:57:20+00:00",
+      "rescored_at": "2026-07-14T17:57:13+00:00",
       "content_score": 10.0,
-      "answer_score": 4.0
+      "answer_score": 4.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -24658,7 +25085,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -24682,7 +25110,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.26,
@@ -24714,7 +25143,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260423_051248",
-      "response_file": "results/responses/20260423_051248/nemotron-super__tool_calling__no_tool_needed.md"
+      "response_file": "results/responses/20260423_051248/nemotron-super__tool_calling__no_tool_needed.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.0,
@@ -24738,7 +25168,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -24762,7 +25193,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -24786,7 +25218,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -24810,7 +25243,8 @@
       "auto_quality": 0.0,
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -24834,7 +25268,8 @@
       "auto_quality": 0.0,
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 2.0,
@@ -24858,7 +25293,8 @@
       "auto_quality": 2.0,
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -24882,7 +25318,8 @@
       "auto_quality": 0.0,
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -24906,7 +25343,8 @@
       "auto_quality": 0.0,
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -24930,7 +25368,8 @@
       "auto_quality": 0.0,
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -24954,7 +25393,8 @@
       "auto_quality": 0.0,
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260423_051248"
+      "timestamp": "20260423_051248",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -24988,9 +25428,10 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/nemotron-super__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:57:20+00:00",
+      "rescored_at": "2026-07-14T17:57:13+00:00",
       "content_score": 4.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,

@@ -59,7 +59,7 @@
       "name": "¿Hay alguna alternativa a ChatGPT que sea gratis?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí — NVIDIA NIM ofrece 135+ modelos gratis con 40 RPM. Para uso local sin costos de API: Mistral Small 4, Devstral Small o Llama 3.3 70B corren en hardware decente (≥32GB RAM unified)."
+        "text": "Sí — NVIDIA NIM ofrece 135+ modelos gratis con 40 RPM. Para uso local sin costos de API: Mistral Small 4, Ministral 14B o Llama 3.3 70B corren en hardware decente (≥32GB RAM unified)."
       }
     },
     {
@@ -75,7 +75,7 @@
       "name": "¿GPT-5 es necesario o puedo usar alternativas más baratas?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "GPT-5 (y GPT-5.5) brillan en razonamiento profundo, planning multi-step y código complejo de proyectos grandes. Para 80% de tareas estándar son overkill: Devstral Small a 1/100 del costo cubre el caso."
+        "text": "GPT-5 (y GPT-5.5) brillan en razonamiento profundo, planning multi-step y código complejo de proyectos grandes. Para 80% de tareas estándar son overkill: Ministral 14B a 1/100 del costo cubre el caso."
       }
     },
     {
@@ -176,16 +176,16 @@
         <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Score</th><th scope="col">$ in/out per M</th><th scope="col">License</th><th scope="col">Provider</th></tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td><strong>MiniMax M2.7 (directo)</strong></td><td>10.00</td><td>$0.30 / $1.20</td><td>Propietaria</td><td>minimax_direct (56 tok/s)</td></tr>
-        <tr><td>2</td><td>MiniMax M2.7 Highspeed</td><td>10.00</td><td>$0.30 / $1.20</td><td>Propietaria</td><td>minimax_direct (52 tok/s)</td></tr>
-        <tr><td>3</td><td>Devstral Small</td><td>9.03</td><td>$0.10 / $0.30</td><td>Apache 2.0</td><td>openrouter (152 tok/s)</td></tr>
-        <tr><td>4</td><td>GPT-5.6 Luna</td><td>8.76</td><td>$1.00 / $6.00</td><td>Propietaria</td><td>openrouter (116 tok/s)</td></tr>
-        <tr><td>5</td><td>GLM 5</td><td>8.40</td><td>$0.60 / $1.92</td><td>MIT</td><td>openrouter (46 tok/s)</td></tr>
-        <tr><td>6</td><td>Ministral 14B</td><td>8.37</td><td>$0.20 / $0.20</td><td>Apache 2.0</td><td>openrouter (78 tok/s)</td></tr>
-        <tr><td>7</td><td>Mistral Large 3 675B</td><td>8.30</td><td>$0.50 / $1.50</td><td>Apache 2.0</td><td>openrouter (56 tok/s)</td></tr>
-        <tr><td>8</td><td>DeepSeek V4 Flash (OpenRouter)</td><td>8.27</td><td>$0.10 / $0.20</td><td>MIT</td><td>openrouter (69 tok/s)</td></tr>
-        <tr><td>9</td><td>GLM 5.2</td><td>8.24</td><td>$0.95 / $3.00</td><td>MIT</td><td>openrouter (54 tok/s)</td></tr>
-        <tr><td>10</td><td>DeepSeek R1 (reasoning)</td><td>7.97</td><td>$0.70 / $2.50</td><td>MIT</td><td>openrouter (22 tok/s)</td></tr>
+        <tr><td>1</td><td><strong>GPT-5.6 Luna</strong></td><td>8.76</td><td>$1.00 / $6.00</td><td>Propietaria</td><td>openrouter (116 tok/s)</td></tr>
+        <tr><td>2</td><td>GLM 5</td><td>8.40</td><td>$0.60 / $1.92</td><td>MIT</td><td>openrouter (46 tok/s)</td></tr>
+        <tr><td>3</td><td>Ministral 14B</td><td>8.37</td><td>$0.20 / $0.20</td><td>Apache 2.0</td><td>openrouter (78 tok/s)</td></tr>
+        <tr><td>4</td><td>Mistral Large 3 675B</td><td>8.30</td><td>$0.50 / $1.50</td><td>Apache 2.0</td><td>openrouter (56 tok/s)</td></tr>
+        <tr><td>5</td><td>DeepSeek V4 Flash (OpenRouter)</td><td>8.27</td><td>$0.10 / $0.20</td><td>MIT</td><td>openrouter (69 tok/s)</td></tr>
+        <tr><td>6</td><td>GLM 5.2</td><td>8.24</td><td>$0.95 / $3.00</td><td>MIT</td><td>openrouter (54 tok/s)</td></tr>
+        <tr><td>7</td><td>DeepSeek R1 (reasoning)</td><td>7.97</td><td>$0.70 / $2.50</td><td>MIT</td><td>openrouter (22 tok/s)</td></tr>
+        <tr><td>8</td><td>Nemotron 3 Nano Omni 30B-A3B Reasoning</td><td>7.91</td><td>$0.00 / $0.00</td><td>NVIDIA Open License</td><td>openrouter (166 tok/s)</td></tr>
+        <tr><td>9</td><td>Qwen 3-Next 80B Instruct</td><td>7.87</td><td>$0.09 / $1.10</td><td>Apache 2.0</td><td>openrouter (107 tok/s)</td></tr>
+        <tr><td>10</td><td>MiniMax M3</td><td>7.74</td><td>$0.30 / $1.20</td><td>Propietaria</td><td>openrouter (40 tok/s)</td></tr>
       </tbody>
     </table></div>
 
@@ -208,13 +208,13 @@
     <h3>Si pagás GPT-4 / GPT-5 API para tu app o agente</h3>
     <p>
       Donde el ahorro es brutal: <strong>Mistral Small 4</strong> ($0.15/$0.60) y
-      <strong>Devstral Small</strong> ($0.10/$0.30) cubren 80% de los casos a una fracción del costo de GPT-4.1.
+      <strong>Ministral 14B</strong> ($0.20/$0.20) cubren 80% de los casos a una fracción del costo de GPT-4.1.
       Para volumen &gt;5,000 calls/mes el cambio paga decenas de USD/mes.
     </p>
 
     <h3>Si usás ChatGPT para coding</h3>
     <p>
-      <strong>Plugins WordPress, scripts, automatizaciones</strong> → Devstral Small basta.
+      <strong>Plugins WordPress, scripts, automatizaciones</strong> → Ministral 14B basta.
       <strong>Templates N8N (JSON workflows)</strong> → Llama 3.3 70B Groq es óptimo (ver <a href="/modelos-n8n/">modelos para N8N</a>).
       <strong>Proyectos grandes con arquitectura compleja</strong> → solo aquí GPT-5.5 o Claude Opus 4.8 justifican el costo.
     </p>
@@ -235,9 +235,9 @@
   </section>
 <section class="faq">
   <h2>Preguntas frecuentes</h2>
-  <details><summary><strong>¿Hay alguna alternativa a ChatGPT que sea gratis?</strong></summary><p>Sí — NVIDIA NIM ofrece 135+ modelos gratis con 40 RPM. Para uso local sin costos de API: Mistral Small 4, Devstral Small o Llama 3.3 70B corren en hardware decente (≥32GB RAM unified).</p></details>
+  <details><summary><strong>¿Hay alguna alternativa a ChatGPT que sea gratis?</strong></summary><p>Sí — NVIDIA NIM ofrece 135+ modelos gratis con 40 RPM. Para uso local sin costos de API: Mistral Small 4, Ministral 14B o Llama 3.3 70B corren en hardware decente (≥32GB RAM unified).</p></details>
     <details><summary><strong>¿ChatGPT Plus o suscripción Anthropic — cuál conviene?</strong></summary><p>Depende del uso. Si usás chat conversacional sin volumen, ChatGPT Plus a $20 sigue siendo competitivo. Si construís agentes/herramientas: ninguna suscripción mensual gana — usá API direct con modelos open-source que cuestan ~$0.30 per M output tokens.</p></details>
-    <details><summary><strong>¿GPT-5 es necesario o puedo usar alternativas más baratas?</strong></summary><p>GPT-5 (y GPT-5.5) brillan en razonamiento profundo, planning multi-step y código complejo de proyectos grandes. Para 80% de tareas estándar son overkill: Devstral Small a 1/100 del costo cubre el caso.</p></details>
+    <details><summary><strong>¿GPT-5 es necesario o puedo usar alternativas más baratas?</strong></summary><p>GPT-5 (y GPT-5.5) brillan en razonamiento profundo, planning multi-step y código complejo de proyectos grandes. Para 80% de tareas estándar son overkill: Ministral 14B a 1/100 del costo cubre el caso.</p></details>
     <details><summary><strong>¿Las alternativas a ChatGPT soportan tool calling y function calling?</strong></summary><p>Sí — Llama 3.3, Mistral Small 4, Devstral, Hermes 4 y Qwen soportan tool calling OpenAI-compatible. El benchmark testea esto como badge; modelos sin soporte robusto se identifican claramente.</p></details>
     <details><summary><strong>¿Puedo usar alternativas a ChatGPT vía OpenRouter sin cambiar mi código?</strong></summary><p>Sí — OpenRouter expone API compatible con OpenAI. Cambiás base_url y api_key, y elegís modelos por su ID (ej. mistralai/mistral-small-2603). Tu código de OpenAI SDK funciona igual.</p></details>
 </section><section class="cta-block">

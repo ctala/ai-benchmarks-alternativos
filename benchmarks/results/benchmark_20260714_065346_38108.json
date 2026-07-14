@@ -10,7 +10,12 @@
       "evaluations": 4,
       "estimated_cost_usd": 0.0068
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:13:17+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 183,
       "output_tokens": 2048,
       "response_preview": "Aclaración inicial: Como IA, no tengo acceso a datos financieros en tiempo real, tasas de conversión internas o métricas de churn de tu startup ni de tus competidores. Los datos de precios y características se basan en la información pública disponible hasta mi última actualización. Te seré honesto:",
-      "auto_quality": 7.2,
+      "auto_quality": 6.67,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -43,7 +48,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_065346_38108",
-      "response_file": "results/responses/20260714_065346_38108/or-qwen-3.5-35b__strategy__competitor_analysis.md"
+      "response_file": "results/responses/20260714_065346_38108/or-qwen-3.5-35b__strategy__competitor_analysis.md",
+      "content_score": 8.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:13:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -64,7 +74,7 @@
       "input_tokens": 201,
       "output_tokens": 2048,
       "response_preview": "Here's a thinking process that leads to the suggested analysis:\n\n1.  **Understand the Goal:** The user wants an analysis of raising their SaaS inventory management price from $60 to $89/month. They provided specific metrics (CAC, LTV, Churn, Customers, Competitor Prices, Cost per User) and requested",
-      "auto_quality": 6.8,
+      "auto_quality": 7.5,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -75,7 +85,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_065346_38108",
-      "response_file": "results/responses/20260714_065346_38108/or-qwen-3.5-35b__strategy__pricing_strategy.md"
+      "response_file": "results/responses/20260714_065346_38108/or-qwen-3.5-35b__strategy__pricing_strategy.md",
+      "content_score": 5.74,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:13:17+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -107,7 +122,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_065346_38108",
-      "response_file": "results/responses/20260714_065346_38108/or-qwen-3.5-35b__strategy__business_model_validation.md"
+      "response_file": "results/responses/20260714_065346_38108/or-qwen-3.5-35b__strategy__business_model_validation.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:13:17+00:00",
+      "scoring": "verificable"
     }
   ]
 }

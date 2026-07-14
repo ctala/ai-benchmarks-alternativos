@@ -13,7 +13,7 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-13T21:08:01+00:00",
+      "at": "2026-07-14T18:08:43+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -50,9 +50,10 @@
       "timestamp": "20260713_142519_14891",
       "response_file": "results/responses/20260713_142519_14891/mistral-nemo__business_audit__atribucion_correlacion_temporal.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:08:01+00:00",
+      "rescored_at": "2026-07-14T18:08:43+00:00",
       "content_score": 4.67,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -86,9 +87,10 @@
       "timestamp": "20260713_142519_14891",
       "response_file": "results/responses/20260713_142519_14891/mistral-nemo__business_audit__auditoria_pnl_error_plantado.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:08:01+00:00",
+      "rescored_at": "2026-07-14T18:08:43+00:00",
       "content_score": 4.0,
-      "answer_score": 0.0
+      "answer_score": 0.0,
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -122,9 +124,10 @@
       "timestamp": "20260713_142519_14891",
       "response_file": "results/responses/20260713_142519_14891/mistral-nemo__business_audit__churn_mezcla_free_y_pago.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:08:01+00:00",
+      "rescored_at": "2026-07-14T18:08:43+00:00",
       "content_score": 4.67,
-      "answer_score": 2.0
+      "answer_score": 2.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -158,9 +161,10 @@
       "timestamp": "20260713_142519_14891",
       "response_file": "results/responses/20260713_142519_14891/mistral-nemo__business_audit__retention_sobre_100_interpretacion.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:08:01+00:00",
+      "rescored_at": "2026-07-14T18:08:43+00:00",
       "content_score": 4.0,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     }
   ]
 }

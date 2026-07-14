@@ -10,7 +10,12 @@
       "evaluations": 7,
       "estimated_cost_usd": 0.0125
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:13+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 184,
       "output_tokens": 2215,
       "response_preview": "\n\n### 1. Tabla Comparativa (Basada en datos públicos hasta 2023)  \n| **Factor**               | **Mailchimp**                          | **Brevo (Ex-Sendinblue)**              | **EnviaMas** (Estimado)                |  \n|--------------------------|----------------------------------------|----------",
-      "auto_quality": 8.0,
+      "auto_quality": 6.67,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -43,7 +48,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_074343_63977",
-      "response_file": "results/responses/20260714_074343_63977/or-nemotron-nano-9b-v2__strategy__competitor_analysis.md"
+      "response_file": "results/responses/20260714_074343_63977/or-nemotron-nano-9b-v2__strategy__competitor_analysis.md",
+      "content_score": 10.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:12+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -64,7 +74,7 @@
       "input_tokens": 204,
       "output_tokens": 3104,
       "response_preview": "\n\n### Análisis detallado del aumento de precio de $60 a $89/mes\n\n---\n\n#### **1. Cálculo del LTV/CAC ratio actual y posterior cambio**\n- **LTV actual**: $840 (14 meses × $60/mes).  \n- **CAC actual**: $120.  \n- **LTV/CAC actual**:  \n  $$\n  \\frac{840}{120} = 7.0\n  $$  \n  *(Un ratio saludable, ya que >5",
-      "auto_quality": 8.24,
+      "auto_quality": 7.5,
       "judge_score": 5.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -75,7 +85,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_074343_63977",
-      "response_file": "results/responses/20260714_074343_63977/or-nemotron-nano-9b-v2__strategy__pricing_strategy.md"
+      "response_file": "results/responses/20260714_074343_63977/or-nemotron-nano-9b-v2__strategy__pricing_strategy.md",
+      "content_score": 9.34,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -96,7 +111,7 @@
       "input_tokens": 187,
       "output_tokens": 1754,
       "response_preview": "**1. Identifica los 5 riesgos principales de este modelo**  \n- **Riesgo de bajo valor agregado para proveedores:** Los pequeños proveedores podrían no justificar los costos operativos (logística, empaque, etc.) si los precios son competitivos, especialmente en mercados donde márgenes son ajustados. ",
-      "auto_quality": 9.42,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_074343_63977",
-      "response_file": "results/responses/20260714_074343_63977/or-nemotron-nano-9b-v2__strategy__business_model_validation.md"
+      "response_file": "results/responses/20260714_074343_63977/or-nemotron-nano-9b-v2__strategy__business_model_validation.md",
+      "content_score": 8.54,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -128,7 +148,7 @@
       "input_tokens": 171,
       "output_tokens": 1865,
       "response_preview": "# Análisis Estratégico: Email Marketing para PyMEs LATAM\n\nEntiendo que necesitas datos concretos y accionables. Voy a ser directo y honesto sobre lo que sé y dónde tengo limitaciones.\n\n---\n\n## 1. Tabla Comparativa\n\n| Dimensión | Mailchimp | Brevo (Sendinblue) | EnviaMas |\n|-----------|-----------|--",
-      "auto_quality": 8.0,
+      "auto_quality": 6.67,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -139,7 +159,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_074343_63977",
-      "response_file": "results/responses/20260714_074343_63977/or-minimax-m2.5__strategy__competitor_analysis.md"
+      "response_file": "results/responses/20260714_074343_63977/or-minimax-m2.5__strategy__competitor_analysis.md",
+      "content_score": 10.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.5,
@@ -160,7 +185,7 @@
       "input_tokens": 207,
       "output_tokens": 2048,
       "response_preview": "# Análisis de Aumento de Precio: $60 → $89/mes\n\n---\n\n## 1. LTV/CAC Ratio: Actual vs Propuesto\n\n### Datos Base\n\n| Métrica | Valor |\n|---------|-------|\n| CAC | $120 |\n| Precio actual | $60/mes |\n| Precio propuesto | $89/mes |\n| Costo por usuario | $8/mes |\n| Margen por cliente/mes | $52 → **$81** |\n\n",
-      "auto_quality": 4.75,
+      "auto_quality": 2.5,
       "judge_score": 4.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -171,7 +196,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_074343_63977",
-      "response_file": "results/responses/20260714_074343_63977/or-minimax-m2.5__strategy__pricing_strategy.md"
+      "response_file": "results/responses/20260714_074343_63977/or-minimax-m2.5__strategy__pricing_strategy.md",
+      "content_score": 8.12,
+      "answer_score": 2.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -192,7 +222,7 @@
       "input_tokens": 195,
       "output_tokens": 1801,
       "response_preview": "# El VC Escéptico Habla\n\nPerfecto. Siéntate. Veo este pitch 15 veces al año. Vamos a hablar en serio.\n\n---\n\n## 1. Los 5 riesgos principales\n\n**Riesgo 1: Chicken-and-egg en esteroides**\nTienes dos lados que se necesitan, pero ninguno tiene razón para estar primero. Los proveedores tienen clientes ya ",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,7 +233,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_074343_63977",
-      "response_file": "results/responses/20260714_074343_63977/or-minimax-m2.5__strategy__business_model_validation.md"
+      "response_file": "results/responses/20260714_074343_63977/or-minimax-m2.5__strategy__business_model_validation.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:13+00:00",
+      "scoring": "verificable"
     }
   ]
 }

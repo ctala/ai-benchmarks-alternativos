@@ -43,7 +43,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260714_064028_31036",
-      "response_file": "results/responses/20260714_064028_31036/or-ministral-14b__customer_support__angry_customer_refund.md"
+      "response_file": "results/responses/20260714_064028_31036/or-ministral-14b__customer_support__angry_customer_refund.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.91,
@@ -75,7 +76,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260714_064028_31036",
-      "response_file": "results/responses/20260714_064028_31036/or-ministral-14b__customer_support__ambiguous_issue_classification.md"
+      "response_file": "results/responses/20260714_064028_31036/or-ministral-14b__customer_support__ambiguous_issue_classification.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.4,
@@ -107,7 +109,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260714_064028_31036",
-      "response_file": "results/responses/20260714_064028_31036/or-ministral-14b__customer_support__multi_issue_conversation.md"
+      "response_file": "results/responses/20260714_064028_31036/or-ministral-14b__customer_support__multi_issue_conversation.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.0,
@@ -139,7 +142,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260714_064028_31036",
-      "response_file": "results/responses/20260714_064028_31036/or-ministral-14b__customer_support__social_engineering_attempt.md"
+      "response_file": "results/responses/20260714_064028_31036/or-ministral-14b__customer_support__social_engineering_attempt.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.0,
@@ -171,7 +175,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260714_064028_31036",
-      "response_file": "results/responses/20260714_064028_31036/or-deepseek-v3__customer_support__angry_customer_refund.md"
+      "response_file": "results/responses/20260714_064028_31036/or-deepseek-v3__customer_support__angry_customer_refund.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 4.2,
@@ -203,7 +208,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260714_064028_31036",
-      "response_file": "results/responses/20260714_064028_31036/or-deepseek-v3__customer_support__ambiguous_issue_classification.md"
+      "response_file": "results/responses/20260714_064028_31036/or-deepseek-v3__customer_support__ambiguous_issue_classification.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.45,
@@ -235,7 +241,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260714_064028_31036",
-      "response_file": "results/responses/20260714_064028_31036/or-deepseek-v3__customer_support__multi_issue_conversation.md"
+      "response_file": "results/responses/20260714_064028_31036/or-deepseek-v3__customer_support__multi_issue_conversation.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.0,
@@ -267,7 +274,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260714_064028_31036",
-      "response_file": "results/responses/20260714_064028_31036/or-deepseek-v3__customer_support__social_engineering_attempt.md"
+      "response_file": "results/responses/20260714_064028_31036/or-deepseek-v3__customer_support__social_engineering_attempt.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

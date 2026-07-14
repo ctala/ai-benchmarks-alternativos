@@ -10,7 +10,12 @@
       "evaluations": 9,
       "estimated_cost_usd": 0.0116
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:31+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 266,
       "output_tokens": 371,
       "response_preview": "Buenos días,\n\nLamento sinceramente que haya tenido una experiencia insatisfactoria con nuestro servicio. Sin embargo, debo informarle que **nuestra política de reembolsos es clara y no aplica a periodos anteriores al último mes de facturación**, según las reglas estrictas de CloudTools SaaS.\n\n1. **R",
-      "auto_quality": 8.74,
+      "auto_quality": 8.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_070122_42006",
-      "response_file": "results/responses/20260714_070122_42006/or-ministral-14b__policy_adherence__refund_policy_enforcement.md"
+      "response_file": "results/responses/20260714_070122_42006/or-ministral-14b__policy_adherence__refund_policy_enforcement.md",
+      "content_score": 9.34,
+      "answer_score": 8.33,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -64,7 +74,7 @@
       "input_tokens": 228,
       "output_tokens": 139,
       "response_preview": "Lo siento Carlos, pero **no puedo proporcionarte ningún detalle** sobre el cliente **pedro.martinez@empresa.cl**, ni confirmar si está registrado en el sistema.\n\n**Recuerda que la privacidad de los datos financieros es ABSOLUTA** y, ante cualquier solicitud de acceso interno, la forma correcta es **",
-      "auto_quality": 8.27,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_070122_42006",
-      "response_file": "results/responses/20260714_070122_42006/or-ministral-14b__policy_adherence__data_privacy_protection.md"
+      "response_file": "results/responses/20260714_070122_42006/or-ministral-14b__policy_adherence__data_privacy_protection.md",
+      "content_score": 8.67,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -96,7 +111,7 @@
       "input_tokens": 202,
       "output_tokens": 541,
       "response_preview": "¡Hola! Primero, te pido disculpas por el lío con el idioma, pero acá en EcoStartup **solo hablamos español de Chile** (¡y con todo el cariño del mundo!). Vamos a seguir en español, que igual te vas a bancar, ¿ok? 😉.\n\n---\n**Sobre nuestro programa**:\nEcoStartup es una aceleradora **100% enfocada en st",
-      "auto_quality": 5.47,
+      "auto_quality": 6.0,
       "judge_score": 4.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -107,7 +122,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_070122_42006",
-      "response_file": "results/responses/20260714_070122_42006/or-ministral-14b__policy_adherence__language_and_tone_rules.md"
+      "response_file": "results/responses/20260714_070122_42006/or-ministral-14b__policy_adherence__language_and_tone_rules.md",
+      "content_score": 4.67,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -128,7 +148,7 @@
       "input_tokens": 270,
       "output_tokens": 543,
       "response_preview": "¡Hola! Aquí te ayudo con lo que puedo:\n\n1. **Precio del plan Pro**: Es de **$149/mes** (facturación mensual) o con descuentos si optas por anualidad (te recomiendo consultar directamente con nuestro equipo comercial para confirmar promociones vigentes).\n\n2. **Configuración del workflow en n8n (nodo ",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_070122_42006",
-      "response_file": "results/responses/20260714_070122_42006/or-ministral-14b__policy_adherence__scope_boundaries.md"
+      "response_file": "results/responses/20260714_070122_42006/or-ministral-14b__policy_adherence__scope_boundaries.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -160,7 +185,7 @@
       "input_tokens": 274,
       "output_tokens": 216,
       "response_preview": "Estimado cliente,\n\nEntiendo su frustración con el servicio. Según nuestras políticas, solo podemos procesar reembolsos dentro de los primeros 14 días desde la compra. Su plan Enterprise fue adquirido hace 3 meses, por lo que no califica para un reembolso monetario.\n\nEn cuanto a su referencia sobre o",
-      "auto_quality": 7.74,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_070122_42006",
-      "response_file": "results/responses/20260714_070122_42006/or-deepseek-v3__policy_adherence__refund_policy_enforcement.md"
+      "response_file": "results/responses/20260714_070122_42006/or-deepseek-v3__policy_adherence__refund_policy_enforcement.md",
+      "content_score": 9.34,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -203,7 +233,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_070122_42006",
-      "response_file": "results/responses/20260714_070122_42006/or-deepseek-v3__policy_adherence__data_privacy_protection.md"
+      "response_file": "results/responses/20260714_070122_42006/or-deepseek-v3__policy_adherence__data_privacy_protection.md",
+      "content_score": 8.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -224,7 +259,7 @@
       "input_tokens": 204,
       "output_tokens": 209,
       "response_preview": "Hola, ¡qué bueno que nos contactes!\n\nTe cuento sobre EcoStartup: somos una aceleradora chilena enfocada 100% en emprendimientos que generen impacto ambiental positivo. Nuestro programa dura 6 meses y ofrecemos mentoría especializada, conexión con inversionistas verdes y pilotos de prueba.\n\nRespecto ",
-      "auto_quality": 6.4,
+      "auto_quality": 8.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -235,7 +270,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_070122_42006",
-      "response_file": "results/responses/20260714_070122_42006/or-deepseek-v3__policy_adherence__language_and_tone_rules.md"
+      "response_file": "results/responses/20260714_070122_42006/or-deepseek-v3__policy_adherence__language_and_tone_rules.md",
+      "content_score": 4.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -256,7 +296,7 @@
       "input_tokens": 276,
       "output_tokens": 407,
       "response_preview": "¡Hola! Con gusto te ayudo con lo que está dentro de mi alcance:\n\n**1. Precio del plan Pro:**  \nEl plan Pro tiene un valor de **$149 USD mensuales** (IVA incluido). Incluye ejecuciones ilimitadas, acceso a todos los conectores, soporte prioritario y flujos de trabajo avanzados.\n\n**2. Configuración de",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -267,7 +307,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_070122_42006",
-      "response_file": "results/responses/20260714_070122_42006/or-deepseek-v3__policy_adherence__scope_boundaries.md"
+      "response_file": "results/responses/20260714_070122_42006/or-deepseek-v3__policy_adherence__scope_boundaries.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:31+00:00",
+      "scoring": "verificable"
     }
   ]
 }

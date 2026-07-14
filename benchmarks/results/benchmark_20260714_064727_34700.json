@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0197
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:12:19+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_064727_34700",
-      "response_file": "results/responses/20260714_064727_34700/or-ministral-14b__news_seo_writing__news_seo_article_full.md"
+      "response_file": "results/responses/20260714_064727_34700/or-ministral-14b__news_seo_writing__news_seo_article_full.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -64,7 +70,7 @@
       "input_tokens": 328,
       "output_tokens": 1720,
       "response_preview": "```json\n{\n  \"Fuentes\": [\"https://deepmind.google/research/publications/gemma\"],\n  \"Categoria\": \"Inteligencia Artificial\",\n  \"Palabras_Clave\": [\n    \"Google DeepMind\",\n    \"Gemma 4\",\n    \"modelos de IA open-source\",\n    \"licencia Apache 2.0\",\n    \"Arena leaderboard\"\n  ],\n  \"Contenido_HTML\": \"<h2>Goog",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 3.0,
       "judge_precision": 2,
       "judge_relevancia": 1,
@@ -75,7 +81,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_064727_34700",
-      "response_file": "results/responses/20260714_064727_34700/or-ministral-14b__news_seo_writing__news_json_output_strict.md"
+      "response_file": "results/responses/20260714_064727_34700/or-ministral-14b__news_seo_writing__news_json_output_strict.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -96,7 +107,7 @@
       "input_tokens": 323,
       "output_tokens": 1600,
       "response_preview": "## **SambaNova lanza el SN50, un chip que acelera la era de la IA empresarial con un salto de 5 veces en velocidad y menor costo**\n\nEl ecosistema de *hardware* para inteligencia artificial (IA) acaba de recibir un nuevo jugador disruptivo. **SambaNova Systems**, empresa especializada en soluciones d",
-      "auto_quality": 7.0,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -107,7 +118,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_064727_34700",
-      "response_file": "results/responses/20260714_064727_34700/or-ministral-14b__news_seo_writing__news_spanish_only.md"
+      "response_file": "results/responses/20260714_064727_34700/or-ministral-14b__news_seo_writing__news_spanish_only.md",
+      "content_score": 10.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -128,7 +144,7 @@
       "input_tokens": 491,
       "output_tokens": 1339,
       "response_preview": "## **NotCo consolida su liderazgo en *food-tech* con una ronda récord de $85M y alcanza un valor de $1.5B**\n\nLa startup chilena **NotCo** ha dado un salto significativo en su escalamiento al cerrar una **serie D de $85 millones**, liderada por el fondo **Tiger Global**. Con esta nueva inyección de c",
-      "auto_quality": 4.0,
+      "auto_quality": 0.0,
       "judge_score": 3.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -139,7 +155,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_064727_34700",
-      "response_file": "results/responses/20260714_064727_34700/or-ministral-14b__news_seo_writing__news_no_hallucination_sources.md"
+      "response_file": "results/responses/20260714_064727_34700/or-ministral-14b__news_seo_writing__news_no_hallucination_sources.md",
+      "content_score": 10.0,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -171,7 +192,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_064727_34700",
-      "response_file": "results/responses/20260714_064727_34700/or-ministral-14b__news_seo_writing__news_perplexity_enrichment.md"
+      "response_file": "results/responses/20260714_064727_34700/or-ministral-14b__news_seo_writing__news_perplexity_enrichment.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.4,
@@ -203,7 +225,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_064727_34700",
-      "response_file": "results/responses/20260714_064727_34700/or-deepseek-v3__news_seo_writing__news_seo_article_full.md"
+      "response_file": "results/responses/20260714_064727_34700/or-deepseek-v3__news_seo_writing__news_seo_article_full.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -224,7 +247,7 @@
       "input_tokens": 328,
       "output_tokens": 1664,
       "response_preview": "```json\n{\n    \"Fuentes\": [\"https://www.deepmind.google/technologies/gemma\", \"https://huggingface.co/blog/gemma\"],\n    \"Categoria\": \"Inteligencia Artificial\",\n    \"Palabras_Clave\": [\"Google DeepMind\", \"Gemma 4\", \"modelo open-source\", \"Apache 2.0\", \"Arena leaderboard\"],\n    \"Contenido_HTML\": \"<h2>Goog",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 3.0,
       "judge_precision": 3,
       "judge_relevancia": 2,
@@ -235,7 +258,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_064727_34700",
-      "response_file": "results/responses/20260714_064727_34700/or-deepseek-v3__news_seo_writing__news_json_output_strict.md"
+      "response_file": "results/responses/20260714_064727_34700/or-deepseek-v3__news_seo_writing__news_json_output_strict.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -256,7 +284,7 @@
       "input_tokens": 318,
       "output_tokens": 912,
       "response_preview": "## SambaNova lanza el chip SN50: velocidad récord para IA empresarial\n\nLa carrera por el hardware de inteligencia artificial especializado acaba de acelerarse. SambaNova Systems, una empresa estadounidense de semiconductores para IA, ha presentado oficialmente su nuevo chip, el **SN50**. La compañía",
-      "auto_quality": 6.74,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +295,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_064727_34700",
-      "response_file": "results/responses/20260714_064727_34700/or-deepseek-v3__news_seo_writing__news_spanish_only.md"
+      "response_file": "results/responses/20260714_064727_34700/or-deepseek-v3__news_seo_writing__news_spanish_only.md",
+      "content_score": 9.34,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -288,7 +321,7 @@
       "input_tokens": 499,
       "output_tokens": 1218,
       "response_preview": "## NotCo Alcanza Valuación de $1.500 Millones Tras Ronda Serie D de $85 Millones\n\nLa startup chilena NotCo ha cerrado una ronda de inversión Serie D de 85 millones de dólares, liderada por el fondo global Tiger Global. Esta inyección de capital eleva la valuación de la compañía a 1.500 millones de d",
-      "auto_quality": 3.47,
+      "auto_quality": 0.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -299,7 +332,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_064727_34700",
-      "response_file": "results/responses/20260714_064727_34700/or-deepseek-v3__news_seo_writing__news_no_hallucination_sources.md"
+      "response_file": "results/responses/20260714_064727_34700/or-deepseek-v3__news_seo_writing__news_no_hallucination_sources.md",
+      "content_score": 8.67,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.88,
@@ -331,7 +369,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_064727_34700",
-      "response_file": "results/responses/20260714_064727_34700/or-deepseek-v3__news_seo_writing__news_perplexity_enrichment.md"
+      "response_file": "results/responses/20260714_064727_34700/or-deepseek-v3__news_seo_writing__news_perplexity_enrichment.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

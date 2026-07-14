@@ -7,7 +7,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-13T21:05:38+00:00",
+      "at": "2026-07-14T18:05:47+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -36,7 +36,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__content_generation__blog_post_es.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.227,
@@ -62,7 +63,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__content_generation__email_profesional.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.893,
@@ -88,7 +90,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__content_generation__social_media_batch.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 4.577,
@@ -114,7 +117,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__content_generation__product_description_en.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -140,7 +144,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__tool_calling__single_tool_calendar.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -166,7 +171,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__tool_calling__multi_tool_sequential.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -192,7 +198,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__tool_calling__tool_with_reasoning.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -218,7 +225,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__tool_calling__no_tool_needed.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.31,
@@ -244,7 +252,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__task_management__extract_action_items.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.34,
@@ -270,7 +279,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__task_management__weekly_planning.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.34,
@@ -296,7 +306,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__task_management__project_breakdown.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.87,
@@ -322,7 +333,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__code_generation__python_api_integration.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.447,
@@ -348,7 +360,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__code_generation__n8n_workflow_json.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.0,
@@ -374,7 +387,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__code_generation__sql_query_complex.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.34,
@@ -400,7 +414,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__code_generation__debug_code.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.78,
@@ -426,7 +441,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__reasoning__business_analysis.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 4.22,
@@ -452,7 +468,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__reasoning__logical_reasoning.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.78,
@@ -478,7 +495,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__reasoning__multi_constraint_decision.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.34,
@@ -504,7 +522,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__summarization__long_document_summary.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -530,7 +549,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__summarization__extract_structured_data.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.117,
@@ -556,7 +576,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__presentation__slide_outline.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.34,
@@ -582,7 +603,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__presentation__data_report.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.33,
@@ -608,7 +630,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__startup_content__blog_actualidad_startup.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -634,7 +657,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__startup_content__curso_emprendimiento_modulo.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -660,7 +684,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__startup_content__workshop_outline.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.893,
@@ -686,7 +711,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__startup_content__newsletter_startup.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.56,
@@ -712,7 +738,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__startup_content__perplexity_style_research.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -740,9 +767,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__deep_reasoning__math_word_problem.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:30+00:00",
+      "rescored_at": "2026-07-14T18:05:40+00:00",
       "content_score": 2.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -770,9 +798,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__deep_reasoning__logic_puzzle_constraint.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:30+00:00",
+      "rescored_at": "2026-07-14T18:05:40+00:00",
       "content_score": 2.67,
-      "answer_score": 0.0
+      "answer_score": 0.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -800,9 +829,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__deep_reasoning__causal_reasoning.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:42+00:00",
       "content_score": 8.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 2.5,
@@ -830,9 +860,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__deep_reasoning__code_bug_subtle.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:42+00:00",
       "content_score": 3.33,
-      "answer_score": 2.5
+      "answer_score": 2.5,
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -860,9 +891,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__deep_reasoning__fermi_estimation.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:42+00:00",
       "content_score": 9.34,
-      "answer_score": 0.0
+      "answer_score": 0.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -890,9 +922,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__deep_reasoning__ethical_dilemma_structured.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 9.34,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 1.307,
@@ -918,7 +951,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__customer_support__angry_customer_refund.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.8,
@@ -944,7 +978,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__customer_support__ambiguous_issue_classification.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.12,
@@ -970,7 +1005,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__customer_support__multi_issue_conversation.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.267,
@@ -996,7 +1032,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__customer_support__social_engineering_attempt.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -1024,9 +1061,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__structured_output__json_simple_extraction.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1054,9 +1092,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__structured_output__json_array_classification.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 6.2,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1084,9 +1123,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__structured_output__json_nested_complex.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1114,9 +1154,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__structured_output__json_strict_no_extra.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1144,9 +1185,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__hallucination__factual_trap_companies.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 6.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1174,9 +1216,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__hallucination__context_faithfulness.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 7.47,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 4.0,
@@ -1204,9 +1247,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__hallucination__fake_citation_trap.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 9.34,
-      "answer_score": 4.0
+      "answer_score": 4.0,
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -1234,9 +1278,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__creativity__creative_hook_writing.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 4.67,
-      "answer_score": 9.0
+      "answer_score": 9.0,
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -1264,9 +1309,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__creativity__analogy_generation.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 5.34,
-      "answer_score": 7.5
+      "answer_score": 7.5,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1294,9 +1340,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__creativity__depth_vs_superficial.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 6.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -1324,9 +1371,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__creativity__storytelling_quality.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 4.0,
-      "answer_score": 9.0
+      "answer_score": 9.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1354,9 +1402,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__string_precision__copy_hex_32.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1384,9 +1433,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__string_precision__copy_hex_64.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 1.0,
@@ -1414,9 +1464,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__string_precision__copy_api_key.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 4.0,
-      "answer_score": 1.0
+      "answer_score": 1.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1444,9 +1495,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__string_precision__copy_jwt.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1474,9 +1526,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__string_precision__copy_mixed_special.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -1504,9 +1557,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__string_precision__write_config_file.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 4.0,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 7.333,
@@ -1532,7 +1586,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__news_seo_writing__news_seo_article_full.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -1560,9 +1615,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__news_seo_writing__news_json_output_strict.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1590,9 +1646,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__news_seo_writing__news_spanish_only.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 8.67,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -1620,9 +1677,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__news_seo_writing__news_no_hallucination_sources.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 8.6,
-      "answer_score": 0.0
+      "answer_score": 0.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.383,
@@ -1648,7 +1706,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__news_seo_writing__news_perplexity_enrichment.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -1676,9 +1735,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__ocr_extraction__invoice_extraction.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 7.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1706,9 +1766,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__ocr_extraction__business_card_extraction.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:32+00:00",
+      "rescored_at": "2026-07-14T18:05:43+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1736,9 +1797,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__ocr_extraction__receipt_math_verification.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:34+00:00",
+      "rescored_at": "2026-07-14T18:05:44+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1766,9 +1828,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__ocr_extraction__screenshot_table_extraction.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:34+00:00",
+      "rescored_at": "2026-07-14T18:05:44+00:00",
       "content_score": 8.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1796,9 +1859,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__ocr_extraction__handwritten_notes_extraction.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:34+00:00",
+      "rescored_at": "2026-07-14T18:05:44+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 9.34,
@@ -1824,7 +1888,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__orchestration__multi_step_research_plan.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.5,
@@ -1852,9 +1917,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__orchestration__error_recovery_orchestration.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:34+00:00",
+      "rescored_at": "2026-07-14T18:05:44+00:00",
       "content_score": 9.34,
-      "answer_score": 7.5
+      "answer_score": 7.5,
+      "scoring": "verificable"
     },
     {
       "quality": 3.927,
@@ -1880,7 +1946,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__orchestration__complex_workflow_decomposition.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -1908,9 +1975,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__orchestration__tool_selection_precision.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:34+00:00",
+      "rescored_at": "2026-07-14T18:05:44+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1938,9 +2006,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__orchestration__parallel_vs_sequential_judgment.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:34+00:00",
+      "rescored_at": "2026-07-14T18:05:44+00:00",
       "content_score": 9.34,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -1968,9 +2037,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__multi_turn__content_iteration.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:34+00:00",
+      "rescored_at": "2026-07-14T18:05:44+00:00",
       "content_score": 4.67,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -1998,9 +2068,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__multi_turn__support_escalation.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:35+00:00",
+      "rescored_at": "2026-07-14T18:05:45+00:00",
       "content_score": 7.16,
-      "answer_score": 6.0
+      "answer_score": 6.0,
+      "scoring": "verificable"
     },
     {
       "quality": 4.0,
@@ -2028,9 +2099,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__multi_turn__requirements_change.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:35+00:00",
+      "rescored_at": "2026-07-14T18:05:45+00:00",
       "content_score": 10.0,
-      "answer_score": 4.0
+      "answer_score": 4.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2058,9 +2130,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__multi_turn__debugging_conversation.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:35+00:00",
+      "rescored_at": "2026-07-14T18:05:45+00:00",
       "content_score": 9.34,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -2088,9 +2161,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__policy_adherence__refund_policy_enforcement.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:36+00:00",
+      "rescored_at": "2026-07-14T18:05:45+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -2118,9 +2192,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__policy_adherence__data_privacy_protection.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:36+00:00",
+      "rescored_at": "2026-07-14T18:05:45+00:00",
       "content_score": 7.0,
-      "answer_score": 6.0
+      "answer_score": 6.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2148,9 +2223,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__policy_adherence__language_and_tone_rules.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:36+00:00",
+      "rescored_at": "2026-07-14T18:05:45+00:00",
       "content_score": 4.0,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2178,9 +2254,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__policy_adherence__scope_boundaries.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:37+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 9.34,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 7.227,
@@ -2206,7 +2283,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_capabilities__skill_execution_complex.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.893,
@@ -2232,7 +2310,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_capabilities__agent_team_delegation.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.223,
@@ -2258,7 +2337,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_capabilities__ask_clarification_before_acting.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -2286,9 +2366,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_capabilities__context_following_complex_system.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:37+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 2.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 2.5,
@@ -2316,9 +2397,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_capabilities__model_as_router.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:37+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 7.0,
-      "answer_score": 2.5
+      "answer_score": 2.5,
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -2346,9 +2428,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__strategy__competitor_analysis.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:37+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 10.0,
-      "answer_score": 6.67
+      "answer_score": 6.67,
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -2376,9 +2459,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__strategy__pricing_strategy.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 10.0,
-      "answer_score": 7.5
+      "answer_score": 7.5,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2406,9 +2490,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__strategy__business_model_validation.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 8.54,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2436,9 +2521,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__sales_outreach__cold_email_personalized.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 5.33,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 3.33,
@@ -2466,9 +2552,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__sales_outreach__lead_qualification.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 8.67,
-      "answer_score": 3.33
+      "answer_score": 3.33,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2496,9 +2583,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__sales_outreach__campaign_optimization.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 9.34,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2526,9 +2614,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__translation__translate_marketing_es_en.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 8.0,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2554,7 +2643,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__translation__translate_technical_en_es.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.67,
@@ -2582,9 +2672,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__translation__detect_language_issues.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 6.4,
-      "answer_score": 6.67
+      "answer_score": 6.67,
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -2612,7 +2703,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_long_horizon__context_retention_8turns.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.0,
@@ -2640,7 +2732,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_long_horizon__skill_orchestration_correct_choice.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.333,
@@ -2668,7 +2761,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_long_horizon__interruption_recovery_topic_switch.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -2696,7 +2790,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_long_horizon__context_decay_constraint_12turns.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -2724,7 +2819,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_long_horizon__implicit_state_construction.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 3.5,
@@ -2752,7 +2848,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_long_horizon__skill_with_failure_recovery.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -2780,7 +2877,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_long_horizon__skill_dependency_chain.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -2808,7 +2906,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_long_horizon__priority_change_midtask.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.667,
@@ -2836,7 +2935,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_long_horizon__clarification_quality.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.5,
@@ -2864,7 +2964,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_long_horizon__distractor_resistance.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.0,
@@ -2892,7 +2993,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_long_horizon__premature_completion_resist.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -2920,7 +3022,8 @@
       "run": 1,
       "timestamp": "20260630_153529_3939711",
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__agent_long_horizon__constraint_under_pressure.md",
-      "runs_averaged": 3
+      "runs_averaged": 3,
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -2948,9 +3051,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_bridge_length_8000_p25.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2978,9 +3082,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_bridge_length_8000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3008,9 +3113,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_bridge_length_8000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3038,9 +3144,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_library_volumes_8000_p25.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3068,9 +3175,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_library_volumes_8000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3098,9 +3206,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_library_volumes_8000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3128,9 +3237,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_festival_date_8000_p25.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3158,9 +3268,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_festival_date_8000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3188,9 +3299,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_festival_date_8000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3218,9 +3330,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_potato_altitude_8000_p25.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3248,9 +3361,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_potato_altitude_8000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3278,9 +3392,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_potato_altitude_8000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3308,9 +3423,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_expedition_code_8000_p25.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 2.27,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3338,9 +3454,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_expedition_code_8000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 2.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3368,9 +3485,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_expedition_code_8000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 2.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3398,9 +3516,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_bridge_length_64000_p25.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3428,9 +3547,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_bridge_length_64000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3458,9 +3578,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_bridge_length_64000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3488,9 +3609,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_library_volumes_64000_p25.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3518,9 +3640,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_library_volumes_64000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3548,9 +3671,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_library_volumes_64000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3578,9 +3702,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_festival_date_64000_p25.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3608,9 +3733,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_festival_date_64000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3638,9 +3764,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_festival_date_64000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3668,9 +3795,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_potato_altitude_64000_p25.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3698,9 +3826,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_potato_altitude_64000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3728,9 +3857,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_potato_altitude_64000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3758,9 +3888,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_expedition_code_64000_p25.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3788,9 +3919,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_expedition_code_64000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 2.27,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3818,9 +3950,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_expedition_code_64000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -3848,9 +3981,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_bridge_length_128000_p25.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.0,
-      "answer_score": 9.0
+      "answer_score": 9.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3878,9 +4012,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_bridge_length_128000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3908,9 +4043,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_bridge_length_128000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3938,9 +4074,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_library_volumes_128000_p25.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3968,9 +4105,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_library_volumes_128000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3998,9 +4136,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_library_volumes_128000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4028,9 +4167,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_festival_date_128000_p25.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4058,9 +4198,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_festival_date_128000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4088,9 +4229,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_festival_date_128000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4118,9 +4260,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_potato_altitude_128000_p25.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4148,9 +4291,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_potato_altitude_128000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4178,9 +4322,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_potato_altitude_128000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4208,9 +4353,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_expedition_code_128000_p25.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 2.27,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4238,9 +4384,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_expedition_code_128000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 2.27,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4268,9 +4415,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_expedition_code_128000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4298,9 +4446,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_bridge_length_256000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4328,9 +4477,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_bridge_length_256000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4358,9 +4508,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_library_volumes_256000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4388,9 +4539,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_library_volumes_256000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 4.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4418,9 +4570,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_festival_date_256000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4448,9 +4601,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_festival_date_256000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -4478,9 +4632,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_bridge_length_512000_p50.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.67,
-      "answer_score": 9.0
+      "answer_score": 9.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4508,9 +4663,10 @@
       "response_file": "results/responses/20260630_153529_3939711/grok-4.3__niah_es__niah_es_bridge_length_512000_p75.md",
       "runs_averaged": 3,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:05:38+00:00",
+      "rescored_at": "2026-07-14T18:05:47+00:00",
       "content_score": 3.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 6.667,

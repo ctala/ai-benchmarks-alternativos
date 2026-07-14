@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0182
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:42+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_071833_51145",
-      "response_file": "results/responses/20260714_071833_51145/or-nemotron-nano-9b-v2__news_seo_writing__news_seo_article_full.md"
+      "response_file": "results/responses/20260714_071833_51145/or-nemotron-nano-9b-v2__news_seo_writing__news_seo_article_full.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -64,7 +70,7 @@
       "input_tokens": 335,
       "output_tokens": 3460,
       "response_preview": "\n\n{\n  \"Fuentes\": [\"https://blog.deepmind.com/gemma-4-release\"],\n  \"Categoria\": \"Inteligencia Artificial\",\n  \"Palabras_Clave\": [\"Google DeepMind\", \"Gemma 4\", \"open-source\", \"Apache 2.0\", \"AI model\"],\n  \"Contenido_HTML\": \"<h2>Introducción a Gemma 4: Un avance en inteligencia artificial abierta</h2><p>",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 2.0,
       "judge_precision": 2,
       "judge_relevancia": 1,
@@ -75,7 +81,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_071833_51145",
-      "response_file": "results/responses/20260714_071833_51145/or-nemotron-nano-9b-v2__news_seo_writing__news_json_output_strict.md"
+      "response_file": "results/responses/20260714_071833_51145/or-nemotron-nano-9b-v2__news_seo_writing__news_json_output_strict.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -96,7 +107,7 @@
       "input_tokens": 331,
       "output_tokens": 2025,
       "response_preview": "\n\n## SambaNova Systems presenta el chip SN50: una revolución en eficiencia para la inteligencia artificial empresarial  \n\nSambaNova Systems ha anunciado el lanzamiento del chip SN50, un hardware especializado para cargas de trabajo de inteligencia artificial (IA) en entornos empresariales. Según los",
-      "auto_quality": 6.47,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +118,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_071833_51145",
-      "response_file": "results/responses/20260714_071833_51145/or-nemotron-nano-9b-v2__news_seo_writing__news_spanish_only.md"
+      "response_file": "results/responses/20260714_071833_51145/or-nemotron-nano-9b-v2__news_seo_writing__news_spanish_only.md",
+      "content_score": 8.67,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -128,7 +144,7 @@
       "input_tokens": 499,
       "output_tokens": 1470,
       "response_preview": "\n\n## El crecimiento exponencial de NotCo en el mercado global  \nNotCo, una startup chilena fundada en 2015 por Matias Muchnick, ha demostrado un avance significativo en el sector de la tecnología alimentaria. La empresa, especializada en alternativas vegetales, ha logrado posicionarse como un refere",
-      "auto_quality": 3.47,
+      "auto_quality": 0.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -139,7 +155,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_071833_51145",
-      "response_file": "results/responses/20260714_071833_51145/or-nemotron-nano-9b-v2__news_seo_writing__news_no_hallucination_sources.md"
+      "response_file": "results/responses/20260714_071833_51145/or-nemotron-nano-9b-v2__news_seo_writing__news_no_hallucination_sources.md",
+      "content_score": 8.67,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.4,
@@ -171,7 +192,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_071833_51145",
-      "response_file": "results/responses/20260714_071833_51145/or-nemotron-nano-9b-v2__news_seo_writing__news_perplexity_enrichment.md"
+      "response_file": "results/responses/20260714_071833_51145/or-nemotron-nano-9b-v2__news_seo_writing__news_perplexity_enrichment.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.92,
@@ -203,7 +225,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_071833_51145",
-      "response_file": "results/responses/20260714_071833_51145/or-minimax-m2.5__news_seo_writing__news_seo_article_full.md"
+      "response_file": "results/responses/20260714_071833_51145/or-minimax-m2.5__news_seo_writing__news_seo_article_full.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -224,7 +247,7 @@
       "input_tokens": 314,
       "output_tokens": 1290,
       "response_preview": "{\"Fuentes\":[\"https://deepmind.google/technologies/gemma/\",\"https://arxiv.org/abs/gemma-4\",\"https://huggingface.co/models?search=gemma\"],\"Categoria\":\"Inteligencia Artificial\",\"Palabras_Clave\":[\"Google DeepMind\",\"Gemma 4\",\"inteligencia artificial\",\"modelo de código abierto\",\"Apache 2.0\"],\"Contenido_HT",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 3.0,
       "judge_precision": 3,
       "judge_relevancia": 2,
@@ -235,7 +258,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_071833_51145",
-      "response_file": "results/responses/20260714_071833_51145/or-minimax-m2.5__news_seo_writing__news_json_output_strict.md"
+      "response_file": "results/responses/20260714_071833_51145/or-minimax-m2.5__news_seo_writing__news_json_output_strict.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -256,7 +284,7 @@
       "input_tokens": 298,
       "output_tokens": 875,
       "response_preview": "## SambaNova Systems presenta el SN50: un chip diseñado para superar los límites de la inferencia empresarial\n\nLa compañía estadounidense SambaNova Systems ha presentado oficialmente su nuevo chip SN50, un acelerador de inteligencia artificial que promete transformar la manera en que las empresas de",
-      "auto_quality": 6.47,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +295,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_071833_51145",
-      "response_file": "results/responses/20260714_071833_51145/or-minimax-m2.5__news_seo_writing__news_spanish_only.md"
+      "response_file": "results/responses/20260714_071833_51145/or-minimax-m2.5__news_seo_writing__news_spanish_only.md",
+      "content_score": 8.67,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -288,7 +321,7 @@
       "input_tokens": 455,
       "output_tokens": 991,
       "response_preview": "## NotCo alcanza estatus de unicornio con Serie D de $85 millones\n\nLa startup chilena NotCo ha cerrado una ronda de financiamiento Serie D por $85 millones, marcando un hito significativo para el ecosistema emprendedor latinoamericano. La operación fue liderada por Tiger Global, uno de los fondos de",
-      "auto_quality": 3.46,
+      "auto_quality": 0.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -299,7 +332,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_071833_51145",
-      "response_file": "results/responses/20260714_071833_51145/or-minimax-m2.5__news_seo_writing__news_no_hallucination_sources.md"
+      "response_file": "results/responses/20260714_071833_51145/or-minimax-m2.5__news_seo_writing__news_no_hallucination_sources.md",
+      "content_score": 8.64,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.4,
@@ -331,7 +369,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_071833_51145",
-      "response_file": "results/responses/20260714_071833_51145/or-minimax-m2.5__news_seo_writing__news_perplexity_enrichment.md"
+      "response_file": "results/responses/20260714_071833_51145/or-minimax-m2.5__news_seo_writing__news_perplexity_enrichment.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

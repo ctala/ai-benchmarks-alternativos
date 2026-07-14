@@ -43,7 +43,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_060413_11710",
-      "response_file": "results/responses/20260714_060413_11710/or-nemotron-3-nano-omni-reasoning__startup_content__blog_actualidad_startup.md"
+      "response_file": "results/responses/20260714_060413_11710/or-nemotron-3-nano-omni-reasoning__startup_content__blog_actualidad_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.76,
@@ -75,7 +76,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_060413_11710",
-      "response_file": "results/responses/20260714_060413_11710/or-nemotron-3-nano-omni-reasoning__startup_content__curso_emprendimiento_modulo.md"
+      "response_file": "results/responses/20260714_060413_11710/or-nemotron-3-nano-omni-reasoning__startup_content__curso_emprendimiento_modulo.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -107,7 +109,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_060413_11710",
-      "response_file": "results/responses/20260714_060413_11710/or-nemotron-3-nano-omni-reasoning__startup_content__workshop_outline.md"
+      "response_file": "results/responses/20260714_060413_11710/or-nemotron-3-nano-omni-reasoning__startup_content__workshop_outline.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.72,
@@ -139,7 +142,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_060413_11710",
-      "response_file": "results/responses/20260714_060413_11710/or-nemotron-3-nano-omni-reasoning__startup_content__newsletter_startup.md"
+      "response_file": "results/responses/20260714_060413_11710/or-nemotron-3-nano-omni-reasoning__startup_content__newsletter_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -171,7 +175,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_060413_11710",
-      "response_file": "results/responses/20260714_060413_11710/or-nemotron-3-nano-omni-reasoning__startup_content__perplexity_style_research.md"
+      "response_file": "results/responses/20260714_060413_11710/or-nemotron-3-nano-omni-reasoning__startup_content__perplexity_style_research.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     }
   ]
 }

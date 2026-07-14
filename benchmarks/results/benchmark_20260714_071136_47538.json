@@ -10,7 +10,12 @@
       "evaluations": 7,
       "estimated_cost_usd": 0.0074
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:42+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 169,
       "output_tokens": 75,
       "response_preview": "**\"Stop wasting hours on tasks AI can handle in seconds.**\n\nAutoFlow takes the grind out of your workflow—so you can focus on what *really* moves the needle: scaling your startup.\n\n**No code. No headaches. No excuses.**\n\nOver 500 LATAM startups are already crushing it. **When’s your turn?** 🚀\"",
-      "auto_quality": 8.27,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260714_071136_47538",
-      "response_file": "results/responses/20260714_071136_47538/or-ministral-14b__translation__translate_marketing_es_en.md"
+      "response_file": "results/responses/20260714_071136_47538/or-ministral-14b__translation__translate_marketing_es_en.md",
+      "content_score": 8.67,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.6,
@@ -75,7 +85,8 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260714_071136_47538",
-      "response_file": "results/responses/20260714_071136_47538/or-ministral-14b__translation__translate_technical_en_es.md"
+      "response_file": "results/responses/20260714_071136_47538/or-ministral-14b__translation__translate_technical_en_es.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -96,7 +107,7 @@
       "input_tokens": 206,
       "output_tokens": 1151,
       "response_preview": "```json\n{\n  \"problemas\": [\n    {\n      \"tipo\": \"chino\",\n      \"texto\": \"En especialmente en拉丁美洲\",\n      \"corrección\": \"En particular, en **Latinoamérica** (o 'la región latinoamericana' si se prefiere mayor precisión)\"\n    },\n    {\n      \"tipo\": \"spanglish\",\n      \"texto\": \"los emprendedores estan *",
-      "auto_quality": 9.15,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +118,12 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260714_071136_47538",
-      "response_file": "results/responses/20260714_071136_47538/or-ministral-14b__translation__detect_language_issues.md"
+      "response_file": "results/responses/20260714_071136_47538/or-ministral-14b__translation__detect_language_issues.md",
+      "content_score": 7.87,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -139,7 +155,12 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260714_071136_47538",
-      "response_file": "results/responses/20260714_071136_47538/or-deepseek-v3__translation__translate_marketing_es_en.md"
+      "response_file": "results/responses/20260714_071136_47538/or-deepseek-v3__translation__translate_marketing_es_en.md",
+      "content_score": 8.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -171,7 +192,8 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260714_071136_47538",
-      "response_file": "results/responses/20260714_071136_47538/or-deepseek-v3__translation__translate_technical_en_es.md"
+      "response_file": "results/responses/20260714_071136_47538/or-deepseek-v3__translation__translate_technical_en_es.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.67,
@@ -192,7 +214,7 @@
       "input_tokens": 214,
       "output_tokens": 419,
       "response_preview": "```json\n{\n    \"problemas\": [\n        {\n            \"tipo\": \"spanglish\",\n            \"texto\": \"En特别是在拉丁美洲\",\n            \"correccion\": \"Especialmente en América Latina\"\n        },\n        {\n            \"tipo\": \"spanglish\",\n            \"texto\": \"estan leveraging\",\n            \"correccion\": \"están aprov",
-      "auto_quality": 6.48,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,7 +225,12 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260714_071136_47538",
-      "response_file": "results/responses/20260714_071136_47538/or-deepseek-v3__translation__detect_language_issues.md"
+      "response_file": "results/responses/20260714_071136_47538/or-deepseek-v3__translation__detect_language_issues.md",
+      "content_score": 6.2,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     }
   ]
 }

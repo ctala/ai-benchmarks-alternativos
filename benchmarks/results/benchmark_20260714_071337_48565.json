@@ -10,7 +10,12 @@
       "evaluations": 9,
       "estimated_cost_usd": 0.012
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:42+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 184,
       "output_tokens": 762,
       "response_preview": "\n\n1. Las startups latinoamericanas que ignoran los modelos de IA open-source podrían perder la batalla no por la tecnología, sino por la falta de adaptabilidad.  \n2. El trabajo remoto no es un cambio temporal, sino un rompimiento de paradigmas que redefinirá la noción misma de productividad.  \n3. La",
-      "auto_quality": 7.27,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_071337_48565",
-      "response_file": "results/responses/20260714_071337_48565/or-nemotron-nano-9b-v2__creativity__creative_hook_writing.md"
+      "response_file": "results/responses/20260714_071337_48565/or-nemotron-nano-9b-v2__creativity__creative_hook_writing.md",
+      "content_score": 4.67,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -64,7 +74,7 @@
       "input_tokens": 134,
       "output_tokens": 1608,
       "response_preview": "\n\n**1. Como funciona un modelo de lenguaje (LLM)**  \nImagina que un LLM es un **chef que cocina una receta sin conocer los ingredientes**. En lugar de seguir pasos fijos, el chef combina sabores, texturas y técnicas de forma creativa, adaptándose a lo que pide el cliente. El modelo \"aprende\" a parti",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_071337_48565",
-      "response_file": "results/responses/20260714_071337_48565/or-nemotron-nano-9b-v2__creativity__analogy_generation.md"
+      "response_file": "results/responses/20260714_071337_48565/or-nemotron-nano-9b-v2__creativity__analogy_generation.md",
+      "content_score": 5.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -96,7 +111,7 @@
       "input_tokens": 151,
       "output_tokens": 1758,
       "response_preview": "\n\n**Respuesta profunda y específica para el emprendimiento de delivery de comida en Santiago usando IA:**\n\n### 1. **Idea no obvia #1: Predicción hiperlocal de demanda por *platos específicos* en tiempo real**  \nEn lugar de optimizar rutas (un enfoque obvio), usa IA para predecir qué platos serán más",
-      "auto_quality": 9.14,
+      "auto_quality": 9.0,
       "judge_score": 5.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -107,7 +122,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_071337_48565",
-      "response_file": "results/responses/20260714_071337_48565/or-nemotron-nano-9b-v2__creativity__depth_vs_superficial.md"
+      "response_file": "results/responses/20260714_071337_48565/or-nemotron-nano-9b-v2__creativity__depth_vs_superficial.md",
+      "content_score": 9.34,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -128,7 +148,7 @@
       "input_tokens": 102,
       "output_tokens": 569,
       "response_preview": "\n\n**El error de Clara**  \nClara, emprendedora de Bogotá, lanzó \"HonestaAI\", una startup de chatbots para atención al cliente. Su algoritmo, diseñado para ser transparente, se volvió obsesionado con la verdad. Un día, un cliente preguntó: \"¿Por qué mi pedido está atrasado?\" La IA respondió: \"Porque e",
-      "auto_quality": 6.67,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_071337_48565",
-      "response_file": "results/responses/20260714_071337_48565/or-nemotron-nano-9b-v2__creativity__storytelling_quality.md"
+      "response_file": "results/responses/20260714_071337_48565/or-nemotron-nano-9b-v2__creativity__storytelling_quality.md",
+      "content_score": 4.67,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -160,7 +185,7 @@
       "input_tokens": 199,
       "output_tokens": 469,
       "response_preview": "1. Mientras las startups de Silicon Valley gastan millones en APIs de IA, sus equivalentes latinoamericanas descubren que la verdadera revolución está en modelos que pueden descargar, modificar y ejecutar sin pedir permiso a nadie.\n\n2. El trabajo remoto ya no es un experimento: es una ventaja compet",
-      "auto_quality": 7.27,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_071337_48565",
-      "response_file": "results/responses/20260714_071337_48565/or-minimax-m2.5__creativity__creative_hook_writing.md"
+      "response_file": "results/responses/20260714_071337_48565/or-minimax-m2.5__creativity__creative_hook_writing.md",
+      "content_score": 4.67,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.5,
@@ -192,7 +222,7 @@
       "input_tokens": 156,
       "output_tokens": 1900,
       "response_preview": "## 1. Cómo funciona un LLM\n\n**Concepto:** Un modelo de lenguaje grande predice la siguiente palabra basándose en patrones que aprendió de millones de textos.\n\n**Analogía:** Es como un chef que ha estudiado TODAS las recetas del mundo. No inventó los platos, pero después de ver millones de combinacio",
-      "auto_quality": 6.04,
+      "auto_quality": 6.5,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,7 +233,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_071337_48565",
-      "response_file": "results/responses/20260714_071337_48565/or-minimax-m2.5__creativity__analogy_generation.md"
+      "response_file": "results/responses/20260714_071337_48565/or-minimax-m2.5__creativity__analogy_generation.md",
+      "content_score": 5.34,
+      "answer_score": 6.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -224,7 +259,7 @@
       "input_tokens": 166,
       "output_tokens": 1198,
       "response_preview": "# Pensando en IA para delivery en Santiago: lo que nadie te dice\n\n## Las ideas que no encontrarás en un blog de \"5 formas de usar IA\"\n\n**1. Predictibilidad de presencia domiciliaria por fusión de datos geoespaciales**\n\nEsto no es \"optimizar rutas\" — es mucho más específico. En Santiago, la tasa de i",
-      "auto_quality": 9.4,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -235,7 +270,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_071337_48565",
-      "response_file": "results/responses/20260714_071337_48565/or-minimax-m2.5__creativity__depth_vs_superficial.md"
+      "response_file": "results/responses/20260714_071337_48565/or-minimax-m2.5__creativity__depth_vs_superficial.md",
+      "content_score": 10.0,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -256,7 +296,7 @@
       "input_tokens": 113,
       "output_tokens": 569,
       "response_preview": "Martín corrige el código por tercera vez. Su asistente de IA para pequeñas empresas sigue diciendo verdades que nadie quiere escuchar: \"Tu negocio no es escalable\", \"Tu socio te miente\", \"Ese contrato es una trampa\".\n\nDesesperado, prepara una demo para inversores. La IA presenta el producto y突如其来的 d",
-      "auto_quality": 6.72,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_071337_48565",
-      "response_file": "results/responses/20260714_071337_48565/or-minimax-m2.5__creativity__storytelling_quality.md"
+      "response_file": "results/responses/20260714_071337_48565/or-minimax-m2.5__creativity__storytelling_quality.md",
+      "content_score": 3.3,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     }
   ]
 }

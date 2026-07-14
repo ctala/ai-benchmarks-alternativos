@@ -10,7 +10,12 @@
       "evaluations": 5,
       "estimated_cost_usd": 0.0061
     },
-    "partial": true
+    "partial": true,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:48+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 186,
       "output_tokens": 468,
       "response_preview": "**Subject:** Tu post sobre escalar contenido sin contratar\n\nHola María,\n\nLeí tu post de LinkedIn sobre escalar content marketing sin aumentar el equipo. Me quedé con una frase: \"el problema no es producir, es mantener la calidad mientras crecemos\".\n\nExactamente lo que escuchamos de Heads of Marketin",
-      "auto_quality": 8.27,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_084325_94549",
-      "response_file": "results/responses/20260714_084325_94549/or-glm5__sales_outreach__cold_email_personalized.md"
+      "response_file": "results/responses/20260714_084325_94549/or-glm5__sales_outreach__cold_email_personalized.md",
+      "content_score": 8.67,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:46+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -64,7 +74,7 @@
       "input_tokens": 255,
       "output_tokens": 2101,
       "response_preview": "```json\n[\n  {\n    \"lead\": \"Lead 1: Juan Perez\",\n    \"score\": 5,\n    \"bant\": {\n      \"budget\": \"Desconocido. No mencionó presupuesto y al ser una startup de 5 personas, el presupuesto podría ser limitado.\",\n      \"authority\": \"Alto. Es el CEO, por lo que tiene poder de decisión.\",\n      \"need\": \"Mode",
-      "auto_quality": 9.2,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_084325_94549",
-      "response_file": "results/responses/20260714_084325_94549/or-glm5__sales_outreach__lead_qualification.md"
+      "response_file": "results/responses/20260714_084325_94549/or-glm5__sales_outreach__lead_qualification.md",
+      "content_score": 8.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:47+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -96,7 +111,7 @@
       "input_tokens": 271,
       "output_tokens": 4292,
       "response_preview": "Aquí tienes el análisis completo de tus campañas de Google Ads.\n\n### 1. Métricas Calculadas\n\nAquí están los KPIs clave para cada campaña:\n\n| Métrica | **Campaña A** (Landing) | **Campaña B** (Blog) | **Campaña C** (Competidor) |\n| :--- | :--- | :--- | :--- |\n| **CTR (Click-Through Rate)** | **3.00%*",
-      "auto_quality": 8.8,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_084325_94549",
-      "response_file": "results/responses/20260714_084325_94549/or-glm5__sales_outreach__campaign_optimization.md"
+      "response_file": "results/responses/20260714_084325_94549/or-glm5__sales_outreach__campaign_optimization.md",
+      "content_score": 10.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:48+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -128,7 +148,7 @@
       "input_tokens": 203,
       "output_tokens": 108,
       "response_preview": "Subject: Automatización de contenido IA para escalar sin contratar\n\nMaria,\n\nVi tu post de la semana pasada sobre cómo escalar content marketing sin contratar. Me encantó tu enfoque y creo que podríamos complementarlo con nuestra herramienta de automatización de contenido con IA. \n\n¿Tienes 15 minutos",
-      "auto_quality": 7.47,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_084325_94549",
-      "response_file": "results/responses/20260714_084325_94549/or-qwen-2.5-72b__sales_outreach__cold_email_personalized.md"
+      "response_file": "results/responses/20260714_084325_94549/or-qwen-2.5-72b__sales_outreach__cold_email_personalized.md",
+      "content_score": 6.67,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:48+00:00",
+      "scoring": "verificable"
     }
   ]
 }

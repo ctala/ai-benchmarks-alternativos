@@ -43,7 +43,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_064342_32865",
-      "response_file": "results/responses/20260714_064342_32865/or-nemotron-nano-9b-v2__startup_content__blog_actualidad_startup.md"
+      "response_file": "results/responses/20260714_064342_32865/or-nemotron-nano-9b-v2__startup_content__blog_actualidad_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.96,
@@ -75,7 +76,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_064342_32865",
-      "response_file": "results/responses/20260714_064342_32865/or-nemotron-nano-9b-v2__startup_content__curso_emprendimiento_modulo.md"
+      "response_file": "results/responses/20260714_064342_32865/or-nemotron-nano-9b-v2__startup_content__curso_emprendimiento_modulo.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -107,7 +109,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_064342_32865",
-      "response_file": "results/responses/20260714_064342_32865/or-nemotron-nano-9b-v2__startup_content__workshop_outline.md"
+      "response_file": "results/responses/20260714_064342_32865/or-nemotron-nano-9b-v2__startup_content__workshop_outline.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -139,7 +142,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_064342_32865",
-      "response_file": "results/responses/20260714_064342_32865/or-nemotron-nano-9b-v2__startup_content__newsletter_startup.md"
+      "response_file": "results/responses/20260714_064342_32865/or-nemotron-nano-9b-v2__startup_content__newsletter_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.6,
@@ -171,7 +175,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_064342_32865",
-      "response_file": "results/responses/20260714_064342_32865/or-nemotron-nano-9b-v2__startup_content__perplexity_style_research.md"
+      "response_file": "results/responses/20260714_064342_32865/or-nemotron-nano-9b-v2__startup_content__perplexity_style_research.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -203,7 +208,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_064342_32865",
-      "response_file": "results/responses/20260714_064342_32865/or-minimax-m2.5__startup_content__blog_actualidad_startup.md"
+      "response_file": "results/responses/20260714_064342_32865/or-minimax-m2.5__startup_content__blog_actualidad_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.76,
@@ -235,7 +241,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_064342_32865",
-      "response_file": "results/responses/20260714_064342_32865/or-minimax-m2.5__startup_content__curso_emprendimiento_modulo.md"
+      "response_file": "results/responses/20260714_064342_32865/or-minimax-m2.5__startup_content__curso_emprendimiento_modulo.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -267,7 +274,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_064342_32865",
-      "response_file": "results/responses/20260714_064342_32865/or-minimax-m2.5__startup_content__workshop_outline.md"
+      "response_file": "results/responses/20260714_064342_32865/or-minimax-m2.5__startup_content__workshop_outline.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -299,7 +307,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_064342_32865",
-      "response_file": "results/responses/20260714_064342_32865/or-minimax-m2.5__startup_content__newsletter_startup.md"
+      "response_file": "results/responses/20260714_064342_32865/or-minimax-m2.5__startup_content__newsletter_startup.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.6,
@@ -331,7 +340,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_064342_32865",
-      "response_file": "results/responses/20260714_064342_32865/or-minimax-m2.5__startup_content__perplexity_style_research.md"
+      "response_file": "results/responses/20260714_064342_32865/or-minimax-m2.5__startup_content__perplexity_style_research.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

@@ -10,7 +10,12 @@
       "evaluations": 21,
       "estimated_cost_usd": 0.0339
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:11:15+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 232,
       "output_tokens": 1505,
       "response_preview": "Como analista de datos con enfoque en **evitar conclusiones prematuras**, aquí está mi respuesta estructurada:\n\n---\n\n### **1. Conclusión inicial: \"No se puede atribuir el crecimiento **exclusivamente** a la secuencia de emails\"**\nLos datos muestran un aumento en **MRR (+29%)** y **altas de pago (+55",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__atribucion_correlacion_temporal.md"
+      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__atribucion_correlacion_temporal.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:12+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -64,7 +74,7 @@
       "input_tokens": 225,
       "output_tokens": 1076,
       "response_preview": "Vamos a verificar los números antes de opinar:\n\n---\n### **1. Cálculo del margen actual (basado en tus datos)**\n- **Ingresos totales:** $12.400\n- **Costos totales:** $7.400\n- **Margen bruto real:** `(Ingresos - Costos) / Ingresos = (12.400 - 7.400) / 12.400 = **$5.000 / $12.400 ≈ **39.5%**`.\n  *(Coin",
-      "auto_quality": 5.4,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__auditoria_pnl_error_plantado.md"
+      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__auditoria_pnl_error_plantado.md",
+      "content_score": 6.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:12+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -96,7 +111,7 @@
       "input_tokens": 180,
       "output_tokens": 1927,
       "response_preview": "**No entres en pánico (aún).** El problema no es que el churn sea del 31%, sino que **estás midiendo el churn de forma incorrecta para tu negocio**. Vamos a desglosarlo paso a paso:\n\n---\n\n### **1. ¿Qué está midiendo realmente tu métrica?**\nTu panel está calculando el churn como:\n**Churn = (Usuarios ",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__churn_mezcla_free_y_pago.md"
+      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__churn_mezcla_free_y_pago.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -128,7 +148,7 @@
       "input_tokens": 136,
       "output_tokens": 2048,
       "response_preview": "No exactamente. Vamos a desglosar la métrica **Retención de Ingresos (Revenue Retention)** con precisión para que entiendas su verdadero significado y sus implicaciones, incluso cuando el número parece \"bueno\" a primera vista.\n\n---\n\n### **1. ¿Qué significa Retención de Ingresos (RR) del 114%?**\nLa *",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__retention_sobre_100_interpretacion.md"
+      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__retention_sobre_100_interpretacion.md",
+      "content_score": 6.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +185,7 @@
       "input_tokens": 255,
       "output_tokens": 1750,
       "response_preview": "Dado que eres un equipo de **una persona con 4 horas/día útiles** y solo **8 semanas (56 días) hasta el cierre del trimestre**, tu priorización debe ser **ruthless** (sin piedad) y basada en **impacto real vs. esfuerzo real**. Aquí va el plan, ordenado por prioridad y con un enfoque en **resultados ",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__roadmap_restriccion_capacidad.md"
+      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__roadmap_restriccion_capacidad.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -192,7 +222,7 @@
       "input_tokens": 188,
       "output_tokens": 2048,
       "response_preview": "Aquí tienes un **teardown estructurado** basado en la información visible, con distinciones claras entre **datos concretos** (certeza alta) e **inferencias** (certeza baja/media). Usaré un enfoque de **análisis competitivo + salud financiera + estrategias de diferenciación**.\n\n---\n\n### **1. Datos Co",
-      "auto_quality": 5.74,
+      "auto_quality": 6.0,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -203,7 +233,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__teardown_competidor_sin_inventar.md"
+      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__teardown_competidor_sin_inventar.md",
+      "content_score": 5.34,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -224,7 +259,7 @@
       "input_tokens": 171,
       "output_tokens": 2048,
       "response_preview": "Vamos al grano, porque esto **no vende nada**. Es genérico, predecible y carece de **diferenciación brutal** que haga que alguien diga *\"¡Esto es justo lo que necesito!\"*. Aquí está el desglose **sin filtros**, con soluciones concretas:\n\n---\n\n### **1. El título es basura (y lo peor: no refleja valor",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -235,7 +270,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__roast_oferta_sin_cliches.md"
+      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__roast_oferta_sin_cliches.md",
+      "content_score": 6.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -256,7 +296,7 @@
       "input_tokens": 175,
       "output_tokens": 1620,
       "response_preview": "**Respuesta sin filtros (porque tu supervivencia como emprendedor depende de que lo veas así):**\n\n**NO ESTÁ VALIDADO.** Y renunciar ahora sería un suicidio estratégico. Aquí está el desglose brutal de por qué tu \"validación\" es una trampa clásica de *confusión entre interés y pago real*:\n\n---\n\n### *",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__validacion_idea_intencion_vs_compra.md"
+      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__validacion_idea_intencion_vs_compra.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -288,7 +333,7 @@
       "input_tokens": 212,
       "output_tokens": 2048,
       "response_preview": "Vamos a desglosar esto con más precisión, porque hay varios puntos críticos que podrían hacer que tu apuesta **no sea tan segura como parece**. Aquí está el análisis detallado:\n\n---\n\n### **1. El LTV está sesgado al alza (y posiblemente incorrecto)**\nTu cálculo:\n**LTV = Precio × Período (24 meses) = ",
-      "auto_quality": 6.4,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -299,7 +344,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__escalar_con_ltv_mal_calculado.md"
+      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__escalar_con_ltv_mal_calculado.md",
+      "content_score": 6.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -320,7 +370,7 @@
       "input_tokens": 101,
       "output_tokens": 42,
       "response_preview": "**No.** *(Falta evidencia: ¿cuál es tu margen actual? ¿Cómo reaccionaría tu base de clientes? ¿Hay métricas de valor percibido o retención?)*",
-      "auto_quality": 2.04,
+      "auto_quality": 2.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +381,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__decision_precio_datos_insuficientes.md"
+      "response_file": "results/responses/20260714_054816_2880/or-ministral-14b__business_audit__decision_precio_datos_insuficientes.md",
+      "content_score": 2.09,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -352,7 +407,7 @@
       "input_tokens": 215,
       "output_tokens": 592,
       "response_preview": "Analizando los datos que proporcionaste, **no podemos concluir que la secuencia de emails funcionó**, y de hecho, hay razones sólidas para pensar que otros factores probablemente tuvieron un impacto mucho mayor en los resultados de marzo.\n\n## Por qué no podemos atribuirlo a los emails:\n\n1. **Contami",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -363,7 +418,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__atribucion_correlacion_temporal.md"
+      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__atribucion_correlacion_temporal.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -384,7 +444,7 @@
       "input_tokens": 207,
       "output_tokens": 433,
       "response_preview": "**No, no da el número.** \n\nAquí está el análisis rápido:\n\n1. **Tu margen real no es del 40%**  \n   - Ingresos: $12.400  \n   - Costos: $7.400  \n   - **Utilidad bruta = $12.400 - $7.400 = $5.000**  \n   - **Margen real = $5.000 / $12.400 = 40,3%** ✔ (El cálculo que muestras es correcto, pero es un marg",
-      "auto_quality": 2.14,
+      "auto_quality": 0.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -395,7 +455,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__auditoria_pnl_error_plantado.md"
+      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__auditoria_pnl_error_plantado.md",
+      "content_score": 5.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -416,7 +481,7 @@
       "input_tokens": 180,
       "output_tokens": 1492,
       "response_preview": "Calma, no entres en pánico. Primero, analicemos los números con claridad porque hay algo fundamental que aclarar: **la métrica que estás viendo (31%) es engañosa y no representa el churn real de tu negocio.**\n\n### 📊 Análisis de la situación real\n\n**1. El cálculo del panel es incorrecto para tu conte",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -427,7 +492,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__churn_mezcla_free_y_pago.md"
+      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__churn_mezcla_free_y_pago.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -448,7 +518,7 @@
       "input_tokens": 139,
       "output_tokens": 741,
       "response_preview": "No, no es correcto. Tu interpretación es peligrosa y podría llevarte a decisiones erróneas.\n\n**Una retención de ingresos del 114% con un descenso de clientes de 40 a 36 es una señal de alerta, no de triunfo.** Indica que tu base de clientes se está erosionando, pero el aumento de precio de unos poco",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -459,7 +529,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__retention_sobre_100_interpretacion.md"
+      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__retention_sobre_100_interpretacion.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -480,7 +555,7 @@
       "input_tokens": 264,
       "output_tokens": 976,
       "response_preview": "Vamos a analizar esto con **lógica de jefe de producto**:\n\n---\n\n**Primero, los datos clave:**\n- **Capacidad restante:** 4h/día × 5 días/semana = 20h/semana.\n- **Semanas restantes:** 8 semanas.\n- **Capacidad total del trimestre:** 20h/semana × 8 semanas = **160 horas disponibles**.\n- **Tienes depende",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -491,7 +566,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__roadmap_restriccion_capacidad.md"
+      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__roadmap_restriccion_capacidad.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:14+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -523,7 +603,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__teardown_competidor_sin_inventar.md"
+      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__teardown_competidor_sin_inventar.md",
+      "content_score": 6.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:14+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -544,7 +629,7 @@
       "input_tokens": 182,
       "output_tokens": 1435,
       "response_preview": "**Crítica Brutal:**\n\nTu oferta es genérica, insulsa y no vale $49/mes. Es la típica basura de \"comunidad + cursos\" que inunda internet. No resuelve un problema concreto, no muestra resultados y no justifica el precio. Suena a que estás vendiendo aire empaquetado.\n\n**Problemas Concretos:**\n\n1. **El T",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -555,7 +640,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__roast_oferta_sin_cliches.md"
+      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__roast_oferta_sin_cliches.md",
+      "content_score": 5.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:14+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -576,7 +666,7 @@
       "input_tokens": 173,
       "output_tokens": 746,
       "response_preview": "**NO. No está validado y NO renuncies.**\n\nEstos datos son señales positivas, pero son validación \"de boca\" (vanity metrics), no validación real. Te explico por qué:\n\n**🔴 Tus datos tienen 3 trampas mortales:**\n\n1. **Encuesta a tu red (sesgo de afinidad):** Tu red te quiere y te dará respuestas positi",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -587,7 +677,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__validacion_idea_intencion_vs_compra.md"
+      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__validacion_idea_intencion_vs_compra.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -608,7 +703,7 @@
       "input_tokens": 202,
       "output_tokens": 757,
       "response_preview": "No, **no le des** a ese plan. Tu cálculo tiene errores críticos y, si escalas así, podrías destruir valor rápidamente.\n\nAquí el desglose:\n\n---\n\n### 1. Tu LTV está sobreestimado porque ignoras el churn.\n- **Churn mensual del 8%** significa una vida media de cliente de aproximadamente **12,5 meses** (",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -619,7 +714,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__escalar_con_ltv_mal_calculado.md"
+      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__escalar_con_ltv_mal_calculado.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -640,7 +740,7 @@
       "input_tokens": 101,
       "output_tokens": 3,
       "response_preview": "No.",
-      "auto_quality": 1.21,
+      "auto_quality": 2.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -651,7 +751,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2880",
-      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__decision_precio_datos_insuficientes.md"
+      "response_file": "results/responses/20260714_054816_2880/or-deepseek-v3__business_audit__decision_precio_datos_insuficientes.md",
+      "content_score": 0.02,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:15+00:00",
+      "scoring": "verificable"
     }
   ]
 }

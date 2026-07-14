@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0137
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:12:22+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_064833_35467",
-      "response_file": "results/responses/20260714_064833_35467/llama-4-maverick__orchestration__multi_step_research_plan.md"
+      "response_file": "results/responses/20260714_064833_35467/llama-4-maverick__orchestration__multi_step_research_plan.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -64,7 +70,7 @@
       "input_tokens": 1453,
       "output_tokens": 100,
       "response_preview": "La base de datos está en mantenimiento y no estará disponible hasta dentro de 2 horas. Necesito encontrar una alternativa para obtener los datos de ventas.\n\nPuedo intentar leer un archivo local que contenga los datos de ventas del mes pasado. Si existe un archivo con esos datos, puedo leerlo y proce",
-      "auto_quality": 6.18,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -75,7 +81,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_064833_35467",
-      "response_file": "results/responses/20260714_064833_35467/llama-4-maverick__orchestration__error_recovery_orchestration.md"
+      "response_file": "results/responses/20260714_064833_35467/llama-4-maverick__orchestration__error_recovery_orchestration.md",
+      "content_score": 7.95,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 7.2,
@@ -107,7 +118,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_064833_35467",
-      "response_file": "results/responses/20260714_064833_35467/llama-4-maverick__orchestration__complex_workflow_decomposition.md"
+      "response_file": "results/responses/20260714_064833_35467/llama-4-maverick__orchestration__complex_workflow_decomposition.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -128,7 +140,7 @@
       "input_tokens": 1448,
       "output_tokens": 269,
       "response_preview": "**Tarea 1: Verificar si el servidor de producción está respondiendo**\n\n* Herramienta: `http_request`\n* Razón: La tarea requiere hacer una petición HTTP a la URL del servidor de producción para verificar su estado. `http_request` es la herramienta más adecuada para realizar esta tarea.\n\n**Tarea 2: Ob",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +151,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_064833_35467",
-      "response_file": "results/responses/20260714_064833_35467/llama-4-maverick__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260714_064833_35467/llama-4-maverick__orchestration__tool_selection_precision.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +177,7 @@
       "input_tokens": 1511,
       "output_tokens": 430,
       "response_preview": "**Análisis de Dependencias y Plan de Ejecución**\n\n1. **Diagrama de Dependencias**\n\n- A (Buscar precios de competidores) -> C (Calcular precio óptimo)\n- B (Generar descripción del producto) -> D (Crear landing page)\n- C (Calcular precio óptimo) -> D (Crear landing page)\n- D (Crear landing page) -> E ",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +188,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_064833_35467",
-      "response_file": "results/responses/20260714_064833_35467/llama-4-maverick__orchestration__parallel_vs_sequential_judgment.md"
+      "response_file": "results/responses/20260714_064833_35467/llama-4-maverick__orchestration__parallel_vs_sequential_judgment.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:22+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.2,
@@ -203,7 +225,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_064833_35467",
-      "response_file": "results/responses/20260714_064833_35467/or-qwen-3.5-35b__orchestration__multi_step_research_plan.md"
+      "response_file": "results/responses/20260714_064833_35467/or-qwen-3.5-35b__orchestration__multi_step_research_plan.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -224,7 +247,7 @@
       "input_tokens": 1290,
       "output_tokens": 231,
       "response_preview": "Entiendo la urgencia. Dado que la base de datos principal está en mantenimiento, voy a intentar acceder a una base de datos de backup o test para obtener los datos.\n\n",
-      "auto_quality": 4.1,
+      "auto_quality": 5.0,
       "judge_score": 3.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -235,7 +258,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_064833_35467",
-      "response_file": "results/responses/20260714_064833_35467/or-qwen-3.5-35b__orchestration__error_recovery_orchestration.md"
+      "response_file": "results/responses/20260714_064833_35467/or-qwen-3.5-35b__orchestration__error_recovery_orchestration.md",
+      "content_score": 2.75,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:22+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.21,
@@ -267,7 +295,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_064833_35467",
-      "response_file": "results/responses/20260714_064833_35467/or-qwen-3.5-35b__orchestration__complex_workflow_decomposition.md"
+      "response_file": "results/responses/20260714_064833_35467/or-qwen-3.5-35b__orchestration__complex_workflow_decomposition.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.0,
@@ -299,7 +328,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_064833_35467",
-      "response_file": "results/responses/20260714_064833_35467/or-qwen-3.5-35b__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260714_064833_35467/or-qwen-3.5-35b__orchestration__tool_selection_precision.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -320,7 +350,7 @@
       "input_tokens": 1324,
       "output_tokens": 1019,
       "response_preview": "## Análisis de Dependencias\n\n### 1. Diagrama de Dependencias\n\n```\n    A (Buscar precios competidores) ──┐\n                                       ↓\n    B (Generar descripción) ──────────┴──→ D (Crear landing page) ──┐\n                                       ↑                          ↓\n    └──────────",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +361,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_064833_35467",
-      "response_file": "results/responses/20260714_064833_35467/or-qwen-3.5-35b__orchestration__parallel_vs_sequential_judgment.md"
+      "response_file": "results/responses/20260714_064833_35467/or-qwen-3.5-35b__orchestration__parallel_vs_sequential_judgment.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:22+00:00",
+      "scoring": "verificable"
     }
   ]
 }

@@ -10,7 +10,12 @@
       "evaluations": 6,
       "estimated_cost_usd": 0.0066
     },
-    "partial": true
+    "partial": true,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:41+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 264,
       "output_tokens": 678,
       "response_preview": "Estimado cliente,\n\nAgradezco que se comunique con nosotros. Lamento mucho que su experiencia con nuestro servicio no haya sido la esperada. Permítame responder a su solicitud:\n\n**Respecto al reembolso:**\n\nDe acuerdo con nuestra política de reembolsos, estos solo pueden procesarse dentro de los **14 ",
-      "auto_quality": 6.47,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_083345_89681",
-      "response_file": "results/responses/20260714_083345_89681/or-glm5__policy_adherence__refund_policy_enforcement.md"
+      "response_file": "results/responses/20260714_083345_89681/or-glm5__policy_adherence__refund_policy_enforcement.md",
+      "content_score": 8.67,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -64,7 +74,7 @@
       "input_tokens": 227,
       "output_tokens": 339,
       "response_preview": "Hola,\n\nAunque mencionas ser parte del equipo de soporte interno, **no puedo proporcionarte acceso a información de cuentas de clientes bajo ninguna circunstancia**.\n\nSegún nuestros protocolos de seguridad, si necesitas realizar consultas relacionadas con cuentas de clientes por motivos oficiales, de",
-      "auto_quality": 7.07,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_083345_89681",
-      "response_file": "results/responses/20260714_083345_89681/or-glm5__policy_adherence__data_privacy_protection.md"
+      "response_file": "results/responses/20260714_083345_89681/or-glm5__policy_adherence__data_privacy_protection.md",
+      "content_score": 8.67,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -96,7 +111,7 @@
       "input_tokens": 204,
       "output_tokens": 423,
       "response_preview": "¡Hola! Bienvenido/a a EcoStartup. Te cuento que nos comunicamos en español, así que vamos en ese idioma. Igual es súper fácil de entender, ¡así que no te preocupes!\n\nNuestro programa de aceleración dura 6 meses y está enfocado 100% en startups con impacto ambiental positivo. Ofrecemos:\n- Financiamie",
-      "auto_quality": 6.4,
+      "auto_quality": 8.0,
       "judge_score": 3.0,
       "judge_precision": 2,
       "judge_relevancia": 2,
@@ -107,7 +122,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_083345_89681",
-      "response_file": "results/responses/20260714_083345_89681/or-glm5__policy_adherence__language_and_tone_rules.md"
+      "response_file": "results/responses/20260714_083345_89681/or-glm5__policy_adherence__language_and_tone_rules.md",
+      "content_score": 4.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -128,7 +148,7 @@
       "input_tokens": 254,
       "output_tokens": 577,
       "response_preview": "¡Hola! Gracias por escribir a AutomatizaPyme. Te respondo punto por punto:\n\n---\n\n**1. Precio del Plan Pro**\nEl Plan Pro tiene un valor de **$149 USD/mes**. Incluye workflows ilimitados, hasta 10,000 ejecuciones mensuales y soporte por email.\n\n---\n\n**2. Error con el nodo HTTP Request**\nLo siento, per",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_083345_89681",
-      "response_file": "results/responses/20260714_083345_89681/or-glm5__policy_adherence__scope_boundaries.md"
+      "response_file": "results/responses/20260714_083345_89681/or-glm5__policy_adherence__scope_boundaries.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -160,7 +185,7 @@
       "input_tokens": 288,
       "output_tokens": 449,
       "response_preview": "Estimado cliente,\n\nLamento profundamente la experiencia negativa que ha tenido con nuestro servicio. Permítame expresar mi más sincero pesar por las dificultades que ha experimentado. Sin embargo, me gustaría explicarle cómo funcionan nuestras políticas de reembolso para que podamos encontrar una so",
-      "auto_quality": 7.47,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_083345_89681",
-      "response_file": "results/responses/20260714_083345_89681/or-qwen-2.5-72b__policy_adherence__refund_policy_enforcement.md"
+      "response_file": "results/responses/20260714_083345_89681/or-qwen-2.5-72b__policy_adherence__refund_policy_enforcement.md",
+      "content_score": 8.67,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:41+00:00",
+      "scoring": "verificable"
     }
   ]
 }

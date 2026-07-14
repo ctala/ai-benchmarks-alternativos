@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0168
     },
-    "partial": true
+    "partial": true,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:11:09+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 228,
       "output_tokens": 2115,
       "response_preview": "### Conclusión directa: No se puede saber.\n\nComo analista, mi responsabilidad es impedir que el equipo tome decisiones basadas en correlaciones falsas. En este caso, **es imposible aislar el efecto de la secuencia de emails** porque has introducido tres variables distintas simultáneamente (emails, p",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2878",
-      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__atribucion_correlacion_temporal.md"
+      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__atribucion_correlacion_temporal.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:08+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -64,7 +74,7 @@
       "input_tokens": 203,
       "output_tokens": 661,
       "response_preview": "## Los números no cierran.\n\n**Verificación de costos:**\n\n| Concepto | Monto |\n|----------|-------|\n| Infraestructura | $1.250 |\n| Publicidad | $3.900 |\n| Herramientas SaaS | $780 |\n| Procesador de pagos | $620 |\n| Contenido freelance | $2.600 |\n| **Suma real** | **$9.150** |\n\nTu resumen dice $7.400.",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2878",
-      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__auditoria_pnl_error_plantado.md"
+      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__auditoria_pnl_error_plantado.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:08+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -96,7 +111,7 @@
       "input_tokens": 170,
       "output_tokens": 2449,
       "response_preview": "Respira hondo. Vamos a aplicar la regla de oro: **verificar la población antes de interpretar la métrica.**\n\nTu pánico es comprensivo si miras el 31% como una sola masa, pero la realidad que esconden los datos es muy distinta. Aquí está el diagnóstico forense de tu situación.\n\n### 1. El Error de Pob",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2878",
-      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__churn_mezcla_free_y_pago.md"
+      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__churn_mezcla_free_y_pago.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:09+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -128,7 +148,7 @@
       "input_tokens": 131,
       "output_tokens": 2285,
       "response_preview": "Aquí la respuesta corta y directa: **No, tu interpretación es incorrecta y es peligrosa para tu negocio.**\n\nEstás confundiendo la **Retención de Ingresos (NRR)** con la **Retención de Clientes (Logo Retention)**. La realidad de tus números es mucho más preocupante de lo que crees, y te explico por q",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2878",
-      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__retention_sobre_100_interpretacion.md"
+      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__retention_sobre_100_interpretacion.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:09+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +185,7 @@
       "input_tokens": 256,
       "output_tokens": 3239,
       "response_preview": "Como tu Jefe de Producto, mi trabajo es protegerte de ti mismo. Los fundadores solos tienden a optimizar para la emoción técnica (A) o para lo que parece productivo (D), pero mi trabajo es optimizar para la **supervivencia y el crecimiento real del negocio hoy**.\n\nVamos a la realidad matemática: Tie",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2878",
-      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__roadmap_restriccion_capacidad.md"
+      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__roadmap_restriccion_capacidad.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:09+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 4.0,
@@ -192,7 +222,7 @@
       "input_tokens": 184,
       "output_tokens": 1884,
       "response_preview": "# Teardown Competitivo\n\n## Separación de datos vs inferencias\n\n### Lo que SÉ con certeza (datos duros)\n| Dato | Valor | Fuente |\n|------|-------|--------|\n| Miembros mostrados | 2.400 | Contador público |\n| Precio mensual | $39 | Página visible |\n| Frecuencia contenido público | 3 posts/semana | Fee",
-      "auto_quality": 4.8,
+      "auto_quality": 4.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,7 +233,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2878",
-      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__teardown_competidor_sin_inventar.md"
+      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__teardown_competidor_sin_inventar.md",
+      "content_score": 6.0,
+      "answer_score": 4.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:09+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -224,7 +259,7 @@
       "input_tokens": 173,
       "output_tokens": 2435,
       "response_preview": "Aquí va la devastación. Si te molesta, bien. Si te da miedo cambiar esto, mejor cierra el negocio ahora.\n\n### 1. El título es ruido blanco\n**Problema:** \"Transforma tu negocio con el poder de la IA\". Esto parece el titular de un anuncio de Facebook de 2019. Es genérico, corporativo y no promete nada",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -235,7 +270,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2878",
-      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__roast_oferta_sin_cliches.md"
+      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__roast_oferta_sin_cliches.md",
+      "content_score": 5.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:09+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -256,7 +296,7 @@
       "input_tokens": 171,
       "output_tokens": 1932,
       "response_preview": "**Respuesta corta:** No. No está validado. **No renuncies.**\n\n**Respuesta larga (la que te salvará de la ruina):**\n\nEstás a punto de caer en la trampa número uno que mata startups: **confundir \"interés educado\" con \"dolor económico real\".**\n\nVamos a diseccionar tus \"datos\" con el cuchillo de un inve",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2878",
-      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__validacion_idea_intencion_vs_compra.md"
+      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__validacion_idea_intencion_vs_compra.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:09+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -288,7 +333,7 @@
       "input_tokens": 206,
       "output_tokens": 2150,
       "response_preview": "No. El plan muere en la aritmética. No le des el dinero.\n\nTienes dos errores fundamentales en tu cálculo que hacen que este plan sea un suicidio financiero. Vamos a diseccionar los números reales antes de que quemes esos $10,000.\n\n### Error 1: La vida útil del cliente (Lifetime) no es de 2 años\nEstá",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -299,7 +344,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2878",
-      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__escalar_con_ltv_mal_calculado.md"
+      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__escalar_con_ltv_mal_calculado.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:09+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -320,7 +370,7 @@
       "input_tokens": 99,
       "output_tokens": 1818,
       "response_preview": "No puedo. Faltan datos sobre tu propuesta de valor y la sensibilidad de tus clientes para justificar un alza del 56%.",
-      "auto_quality": 2.17,
+      "auto_quality": 2.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +381,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054816_2878",
-      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__decision_precio_datos_insuficientes.md"
+      "response_file": "results/responses/20260714_054816_2878/or-glm5__business_audit__decision_precio_datos_insuficientes.md",
+      "content_score": 2.42,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:09+00:00",
+      "scoring": "verificable"
     }
   ]
 }

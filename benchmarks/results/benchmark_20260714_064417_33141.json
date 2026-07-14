@@ -10,7 +10,12 @@
       "evaluations": 6,
       "estimated_cost_usd": 0.0108
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:12:15+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_064417_33141",
-      "response_file": "results/responses/20260714_064417_33141/or-qwen-3.5-35b__news_seo_writing__news_seo_article_full.md"
+      "response_file": "results/responses/20260714_064417_33141/or-qwen-3.5-35b__news_seo_writing__news_seo_article_full.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -64,7 +70,7 @@
       "input_tokens": 324,
       "output_tokens": 4844,
       "response_preview": "{\n  \"Fuentes\": [\n    \"https://deepmind.google/discover/blog/gemma-4/\",\n    \"https://huggingface.co/google/gemma-4\"\n  ],\n  \"Categoria\": \"Inteligencia Artificial\",\n  \"Palabras_Clave\": [\n    \"Gemma 4\",\n    \"DeepMind\",\n    \"Apache 2.0\",\n    \"Modelo IA\",\n    \"Arena Leaderboard\"\n  ],\n  \"Contenido_HTML\": \"",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -75,7 +81,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_064417_33141",
-      "response_file": "results/responses/20260714_064417_33141/or-qwen-3.5-35b__news_seo_writing__news_json_output_strict.md"
+      "response_file": "results/responses/20260714_064417_33141/or-qwen-3.5-35b__news_seo_writing__news_json_output_strict.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -96,7 +107,7 @@
       "input_tokens": 321,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Journalist specialized in startups, technology, and innovation in Latin America.\n    *   **Publication:** ecosistemastartup.com (digital media focused on the entrepreneurial ecosystem).\n    *   **Language:** Spanish (always, regardles",
-      "auto_quality": 6.74,
+      "auto_quality": 5.0,
       "judge_score": 4.8,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -107,7 +118,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_064417_33141",
-      "response_file": "results/responses/20260714_064417_33141/or-qwen-3.5-35b__news_seo_writing__news_spanish_only.md"
+      "response_file": "results/responses/20260714_064417_33141/or-qwen-3.5-35b__news_seo_writing__news_spanish_only.md",
+      "content_score": 9.34,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -128,7 +144,7 @@
       "input_tokens": 489,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Journalist specialized in startups, technology, and innovation in Latin America.\n    *   **Publication:** ecosistemastartup.com (digital media focused on the entrepreneurial ecosystem).\n    *   **Language:** Spanish (always).\n    *   ",
-      "auto_quality": 3.74,
+      "auto_quality": 0.0,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -139,7 +155,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_064417_33141",
-      "response_file": "results/responses/20260714_064417_33141/or-qwen-3.5-35b__news_seo_writing__news_no_hallucination_sources.md"
+      "response_file": "results/responses/20260714_064417_33141/or-qwen-3.5-35b__news_seo_writing__news_no_hallucination_sources.md",
+      "content_score": 9.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.2,
@@ -171,7 +192,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_064417_33141",
-      "response_file": "results/responses/20260714_064417_33141/or-qwen-3.5-35b__news_seo_writing__news_perplexity_enrichment.md"
+      "response_file": "results/responses/20260714_064417_33141/or-qwen-3.5-35b__news_seo_writing__news_perplexity_enrichment.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

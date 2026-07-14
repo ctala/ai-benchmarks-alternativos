@@ -43,7 +43,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_065404_38355",
-      "response_file": "results/responses/20260714_065404_38355/or-glm5__startup_content__blog_actualidad_startup.md"
+      "response_file": "results/responses/20260714_065404_38355/or-glm5__startup_content__blog_actualidad_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -75,7 +76,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_065404_38355",
-      "response_file": "results/responses/20260714_065404_38355/or-glm5__startup_content__curso_emprendimiento_modulo.md"
+      "response_file": "results/responses/20260714_065404_38355/or-glm5__startup_content__curso_emprendimiento_modulo.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.72,
@@ -107,7 +109,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_065404_38355",
-      "response_file": "results/responses/20260714_065404_38355/or-glm5__startup_content__workshop_outline.md"
+      "response_file": "results/responses/20260714_065404_38355/or-glm5__startup_content__workshop_outline.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.6,
@@ -139,7 +142,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_065404_38355",
-      "response_file": "results/responses/20260714_065404_38355/or-glm5__startup_content__newsletter_startup.md"
+      "response_file": "results/responses/20260714_065404_38355/or-glm5__startup_content__newsletter_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -171,7 +175,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_065404_38355",
-      "response_file": "results/responses/20260714_065404_38355/or-glm5__startup_content__perplexity_style_research.md"
+      "response_file": "results/responses/20260714_065404_38355/or-glm5__startup_content__perplexity_style_research.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.6,
@@ -203,7 +208,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_065404_38355",
-      "response_file": "results/responses/20260714_065404_38355/or-qwen-2.5-72b__startup_content__blog_actualidad_startup.md"
+      "response_file": "results/responses/20260714_065404_38355/or-qwen-2.5-72b__startup_content__blog_actualidad_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -235,7 +241,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_065404_38355",
-      "response_file": "results/responses/20260714_065404_38355/or-qwen-2.5-72b__startup_content__curso_emprendimiento_modulo.md"
+      "response_file": "results/responses/20260714_065404_38355/or-qwen-2.5-72b__startup_content__curso_emprendimiento_modulo.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.8,
@@ -267,7 +274,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_065404_38355",
-      "response_file": "results/responses/20260714_065404_38355/or-qwen-2.5-72b__startup_content__workshop_outline.md"
+      "response_file": "results/responses/20260714_065404_38355/or-qwen-2.5-72b__startup_content__workshop_outline.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -299,7 +307,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_065404_38355",
-      "response_file": "results/responses/20260714_065404_38355/or-qwen-2.5-72b__startup_content__newsletter_startup.md"
+      "response_file": "results/responses/20260714_065404_38355/or-qwen-2.5-72b__startup_content__newsletter_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -331,7 +340,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_065404_38355",
-      "response_file": "results/responses/20260714_065404_38355/or-qwen-2.5-72b__startup_content__perplexity_style_research.md"
+      "response_file": "results/responses/20260714_065404_38355/or-qwen-2.5-72b__startup_content__perplexity_style_research.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

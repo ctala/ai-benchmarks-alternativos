@@ -10,7 +10,12 @@
       "evaluations": 9,
       "estimated_cost_usd": 0.0122
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:10+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 233,
       "output_tokens": 212,
       "response_preview": "**Título:** *\"Tu equipo de soporte está ahogado en tickets repetitivos (y no es su culpa)\"*\n\n**Primer párrafo:**\n*\"Lunes por la mañana. El chat de soporte echa humo, la bandeja de entrada está a punto de colapsar y tu equipo pasa horas respondiendo las mismas preguntas una y otra vez: '¿Cómo restabl",
-      "auto_quality": 6.67,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_074313_63719",
-      "response_file": "results/responses/20260714_074313_63719/or-mistral-large-3__multi_turn__content_iteration.md"
+      "response_file": "results/responses/20260714_074313_63719/or-mistral-large-3__multi_turn__content_iteration.md",
+      "content_score": 4.67,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:07+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -64,7 +74,7 @@
       "input_tokens": 358,
       "output_tokens": 227,
       "response_preview": "Maria, entiendo tu molestia y lamento mucho que hayas tenido problemas intermitentes durante un mes. Vamos a resolver esto paso a paso:\n\n1. **Reembolso**: Según nuestras políticas, los reembolsos solo aplican dentro de los primeros 30 días de facturación. Como mencionas que llevas un mes con problem",
-      "auto_quality": 7.34,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -75,7 +85,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_074313_63719",
-      "response_file": "results/responses/20260714_074313_63719/or-mistral-large-3__multi_turn__support_escalation.md"
+      "response_file": "results/responses/20260714_074313_63719/or-mistral-large-3__multi_turn__support_escalation.md",
+      "content_score": 9.34,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:09+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 4.0,
@@ -96,7 +111,7 @@
       "input_tokens": 227,
       "output_tokens": 1447,
       "response_preview": "¡Perfecto! Aquí tienes el **workflow completo en n8n** con los ajustes que necesitas:\n\n---\n\n### **Workflow: Gmail → Notion + Slack (filtrando \"propuesta\" o \"cotización\")**\n*(Pasos detallados con configuración de cada nodo)*\n\n---\n\n### **1. Gmail Trigger (Disparador)**\n- **Nodo**: `Gmail Trigger`\n- **",
-      "auto_quality": 6.4,
+      "auto_quality": 4.0,
       "judge_score": 1,
       "judge_precision": 1,
       "judge_relevancia": 1,
@@ -107,7 +122,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_074313_63719",
-      "response_file": "results/responses/20260714_074313_63719/or-mistral-large-3__multi_turn__requirements_change.md"
+      "response_file": "results/responses/20260714_074313_63719/or-mistral-large-3__multi_turn__requirements_change.md",
+      "content_score": 10.0,
+      "answer_score": 4.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:10+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -139,7 +159,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_074313_63719",
-      "response_file": "results/responses/20260714_074313_63719/or-mistral-large-3__multi_turn__debugging_conversation.md"
+      "response_file": "results/responses/20260714_074313_63719/or-mistral-large-3__multi_turn__debugging_conversation.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:10+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.5,
@@ -160,7 +185,7 @@
       "input_tokens": 229,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Content writer for a startup blog in Spanish.\n    *   **Task:** Rewrite the title and first paragraph of an article about why startups should automate customer support with AI.\n    *   **Feedback on previous attempt:**\n        *   Tit",
-      "auto_quality": 6.04,
+      "auto_quality": 6.5,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_074313_63719",
-      "response_file": "results/responses/20260714_074313_63719/or-qwen3.5-397b__multi_turn__content_iteration.md"
+      "response_file": "results/responses/20260714_074313_63719/or-qwen3.5-397b__multi_turn__content_iteration.md",
+      "content_score": 5.34,
+      "answer_score": 6.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:10+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -192,7 +222,7 @@
       "input_tokens": 364,
       "output_tokens": 3071,
       "response_preview": "Entiendo perfectamente tu situación, Maria, y lamento mucho los inconvenientes que esto ha causado a tu negocio.\n\nRespecto a tus solicitudes, voy a proceder de la siguiente manera para ayudarte lo antes posible:\n\n1.  **Solución técnica y crédito:** Puedo ayudarte ahora mismo a reactivar tu workflow ",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -203,16 +233,21 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_074313_63719",
-      "response_file": "results/responses/20260714_074313_63719/or-qwen3.5-397b__multi_turn__support_escalation.md"
+      "response_file": "results/responses/20260714_074313_63719/or-qwen3.5-397b__multi_turn__support_escalation.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:10+00:00",
+      "scoring": "verificable"
     },
     {
-      "quality": 6.0,
+      "quality": 4.0,
       "cost_score": 5.88,
       "cost_usd": 0.005107,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 5.76,
+      "final": 4.36,
       "test_name": "requirements_change",
       "model": "Qwen 3.5 397B",
       "model_id": "qwen/qwen3.5-397b-a17b",
@@ -224,7 +259,7 @@
       "input_tokens": 233,
       "output_tokens": 2048,
       "response_preview": "¡Excelente ajuste! Esa combinación (Gmail + Notion + Slack) es mucho más potente para gestionar leads o oportunidades comerciales. Notion te sirve como CRM ligero y Slack te mantiene alerta en tiempo real.\n\nAquí tienes la estructura optimizada del workflow en N8N:\n\n### 🏗️ Estructura del Workflow\n\n1.",
-      "auto_quality": 7.6,
+      "auto_quality": 4.0,
       "judge_score": 2.0,
       "judge_precision": 2,
       "judge_relevancia": 1,
@@ -235,7 +270,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_074313_63719",
-      "response_file": "results/responses/20260714_074313_63719/or-qwen3.5-397b__multi_turn__requirements_change.md"
+      "response_file": "results/responses/20260714_074313_63719/or-qwen3.5-397b__multi_turn__requirements_change.md",
+      "content_score": 10.0,
+      "answer_score": 4.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:10+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -256,7 +296,7 @@
       "input_tokens": 340,
       "output_tokens": 860,
       "response_preview": "¡Excelente diagnóstico! Ese loop de retries es exactamente lo que está causando el problema. Cada 429 genera 100 requests más, creando una tormenta de peticiones.\n\nAquí tienes cómo implementar retries correctamente:\n\n## ✅ Implementación Correcta con Backoff Exponencial\n\n### Python (usando `tenacity`",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_074313_63719",
-      "response_file": "results/responses/20260714_074313_63719/or-qwen3.5-397b__multi_turn__debugging_conversation.md"
+      "response_file": "results/responses/20260714_074313_63719/or-qwen3.5-397b__multi_turn__debugging_conversation.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:10+00:00",
+      "scoring": "verificable"
     }
   ]
 }

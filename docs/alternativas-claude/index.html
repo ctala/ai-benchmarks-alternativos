@@ -59,7 +59,7 @@
       "name": "¿Por qué dejar de usar Claude?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No necesariamente 'dejar' — más bien usar la herramienta correcta por caso. Claude Opus es excelente pero su costo (~$5-25 per M tokens) hace que para agentes con volumen real (1,000+ calls/mes) se vuelva insostenible. Modelos como Devstral Small ($0.10/$0.30) cubren el 80% de casos a 1/50 del costo."
+        "text": "No necesariamente 'dejar' — más bien usar la herramienta correcta por caso. Claude Opus es excelente pero su costo (~$5-25 per M tokens) hace que para agentes con volumen real (1,000+ calls/mes) se vuelva insostenible. Modelos como Ministral 14B ($0.20/$0.20) cubren el 80% de casos a 1/50 del costo."
       }
     },
     {
@@ -91,7 +91,7 @@
       "name": "¿Puedo correr alternativas a Claude local sin GPU dedicada?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí — Mistral Small 4 corre cómodamente en Mac M-series con 32GB RAM. Devstral Small también. Para modelos más grandes (Llama 70B, Qwen 3.6 Max) necesitás 64GB+ unified memory o GPU dedicada. Detalles en /modelos-open-source-local/."
+        "text": "Sí — Mistral Small 4 corre cómodamente en Mac M-series con 32GB RAM. Ministral 14B también. Para modelos más grandes (Llama 70B, Qwen 3.6 Max) necesitás 64GB+ unified memory o GPU dedicada. Detalles en /modelos-open-source-local/."
       }
     }
   ]
@@ -176,16 +176,16 @@
         <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Score</th><th scope="col">$ in/out per M</th><th scope="col">License</th><th scope="col">Provider</th></tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td><strong>MiniMax M2.7 (directo)</strong></td><td>10.00</td><td>$0.30 / $1.20</td><td>Propietaria</td><td>minimax_direct (56 tok/s)</td></tr>
-        <tr><td>2</td><td>MiniMax M2.7 Highspeed</td><td>10.00</td><td>$0.30 / $1.20</td><td>Propietaria</td><td>minimax_direct (52 tok/s)</td></tr>
-        <tr><td>3</td><td>Devstral Small</td><td>9.03</td><td>$0.10 / $0.30</td><td>Apache 2.0</td><td>openrouter (152 tok/s)</td></tr>
-        <tr><td>4</td><td>GPT-5.6 Luna</td><td>8.76</td><td>$1.00 / $6.00</td><td>Propietaria</td><td>openrouter (116 tok/s)</td></tr>
-        <tr><td>5</td><td>GLM 5</td><td>8.40</td><td>$0.60 / $1.92</td><td>MIT</td><td>openrouter (46 tok/s)</td></tr>
-        <tr><td>6</td><td>Ministral 14B</td><td>8.37</td><td>$0.20 / $0.20</td><td>Apache 2.0</td><td>openrouter (78 tok/s)</td></tr>
-        <tr><td>7</td><td>Mistral Large 3 675B</td><td>8.30</td><td>$0.50 / $1.50</td><td>Apache 2.0</td><td>openrouter (56 tok/s)</td></tr>
-        <tr><td>8</td><td>DeepSeek V4 Flash (OpenRouter)</td><td>8.27</td><td>$0.10 / $0.20</td><td>MIT</td><td>openrouter (69 tok/s)</td></tr>
-        <tr><td>9</td><td>GLM 5.2</td><td>8.24</td><td>$0.95 / $3.00</td><td>MIT</td><td>openrouter (54 tok/s)</td></tr>
-        <tr><td>10</td><td>DeepSeek R1 (reasoning)</td><td>7.97</td><td>$0.70 / $2.50</td><td>MIT</td><td>openrouter (22 tok/s)</td></tr>
+        <tr><td>1</td><td><strong>GPT-5.6 Luna</strong></td><td>8.76</td><td>$1.00 / $6.00</td><td>Propietaria</td><td>openrouter (116 tok/s)</td></tr>
+        <tr><td>2</td><td>GLM 5</td><td>8.40</td><td>$0.60 / $1.92</td><td>MIT</td><td>openrouter (46 tok/s)</td></tr>
+        <tr><td>3</td><td>Ministral 14B</td><td>8.37</td><td>$0.20 / $0.20</td><td>Apache 2.0</td><td>openrouter (78 tok/s)</td></tr>
+        <tr><td>4</td><td>Mistral Large 3 675B</td><td>8.30</td><td>$0.50 / $1.50</td><td>Apache 2.0</td><td>openrouter (56 tok/s)</td></tr>
+        <tr><td>5</td><td>DeepSeek V4 Flash (OpenRouter)</td><td>8.27</td><td>$0.10 / $0.20</td><td>MIT</td><td>openrouter (69 tok/s)</td></tr>
+        <tr><td>6</td><td>GLM 5.2</td><td>8.24</td><td>$0.95 / $3.00</td><td>MIT</td><td>openrouter (54 tok/s)</td></tr>
+        <tr><td>7</td><td>DeepSeek R1 (reasoning)</td><td>7.97</td><td>$0.70 / $2.50</td><td>MIT</td><td>openrouter (22 tok/s)</td></tr>
+        <tr><td>8</td><td>Nemotron 3 Nano Omni 30B-A3B Reasoning</td><td>7.91</td><td>$0.00 / $0.00</td><td>NVIDIA Open License</td><td>openrouter (166 tok/s)</td></tr>
+        <tr><td>9</td><td>Qwen 3-Next 80B Instruct</td><td>7.87</td><td>$0.09 / $1.10</td><td>Apache 2.0</td><td>openrouter (107 tok/s)</td></tr>
+        <tr><td>10</td><td>MiniMax M3</td><td>7.74</td><td>$0.30 / $1.20</td><td>Propietaria</td><td>openrouter (40 tok/s)</td></tr>
       </tbody>
     </table></div>
 
@@ -200,8 +200,8 @@
 
     <h3>Si reemplazas Claude Code (coding profesional)</h3>
     <p>
-      <strong>Devstral 2</strong> y <strong>Devstral Small</strong> son las opciones top.
-      Ambas Apache 2.0 — podés correrlas local en hardware decente. Devstral 2 supera a GPT-4.1 en
+      <strong>Qwen 3-Next 80B</strong> y <strong>Ministral 14B</strong> son las opciones top.
+      Ambas Apache 2.0 — podés correrlas local en hardware decente. Qwen 3-Next 80B supera a GPT-4.1 en
       generación de código y JSON estructurado a una fracción del costo de Claude Opus.
     </p>
 
@@ -234,11 +234,11 @@
   </section>
 <section class="faq">
   <h2>Preguntas frecuentes</h2>
-  <details><summary><strong>¿Por qué dejar de usar Claude?</strong></summary><p>No necesariamente &#x27;dejar&#x27; — más bien usar la herramienta correcta por caso. Claude Opus es excelente pero su costo (~$5-25 per M tokens) hace que para agentes con volumen real (1,000+ calls/mes) se vuelva insostenible. Modelos como Devstral Small ($0.10/$0.30) cubren el 80% de casos a 1/50 del costo.</p></details>
+  <details><summary><strong>¿Por qué dejar de usar Claude?</strong></summary><p>No necesariamente &#x27;dejar&#x27; — más bien usar la herramienta correcta por caso. Claude Opus es excelente pero su costo (~$5-25 per M tokens) hace que para agentes con volumen real (1,000+ calls/mes) se vuelva insostenible. Modelos como Ministral 14B ($0.20/$0.20) cubren el 80% de casos a 1/50 del costo.</p></details>
     <details><summary><strong>¿Hay alguna alternativa a Claude que sea mejor en TODO?</strong></summary><p>No. Cada modelo tiene perfil distinto: Llama 3.3 Groq gana en velocidad, Devstral en coding, Gemini/Qwen en contenido español, GPT-5.5 en razonamiento profundo. La pregunta correcta es &#x27;alternativa a Claude para qué&#x27;.</p></details>
     <details><summary><strong>¿Las alternativas a Claude soportan tool calling?</strong></summary><p>Sí — Devstral, Mistral Small 4, Llama 3.3, Hermes 4 y Qwen soportan tool calling estructurado. El benchmark testea esto como badge; modelos sin tool calling robusto se identifican claramente.</p></details>
     <details><summary><strong>¿Qué pasa con Claude Sonnet 4.6 / Opus 4.8?</strong></summary><p>Están en el benchmark global. Ranquean alto en tareas premium, pero su precio los saca de competencia para volumen. Si tu uso es &lt;100 calls/día y no te importa el costo, Claude sigue siendo válido. Para volumen, las alternativas listadas dan mejor ROI.</p></details>
-    <details><summary><strong>¿Puedo correr alternativas a Claude local sin GPU dedicada?</strong></summary><p>Sí — Mistral Small 4 corre cómodamente en Mac M-series con 32GB RAM. Devstral Small también. Para modelos más grandes (Llama 70B, Qwen 3.6 Max) necesitás 64GB+ unified memory o GPU dedicada. Detalles en /modelos-open-source-local/.</p></details>
+    <details><summary><strong>¿Puedo correr alternativas a Claude local sin GPU dedicada?</strong></summary><p>Sí — Mistral Small 4 corre cómodamente en Mac M-series con 32GB RAM. Ministral 14B también. Para modelos más grandes (Llama 70B, Qwen 3.6 Max) necesitás 64GB+ unified memory o GPU dedicada. Detalles en /modelos-open-source-local/.</p></details>
 </section><section class="cta-block">
   <h2>Probá la calculadora con tu caso real</h2>
   <p>Filtrá por presupuesto mensual, calidad mínima, velocidad requerida y tipo de tarea. En 30 segundos encontrás el mejor para vos.</p>

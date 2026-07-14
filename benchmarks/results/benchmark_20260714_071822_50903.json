@@ -10,7 +10,12 @@
       "evaluations": 9,
       "estimated_cost_usd": 0.0132
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:42+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 175,
       "output_tokens": 252,
       "response_preview": "1. **Por qué las startups latinoamericanas deberían usar modelos de IA open-source**\n*\"El 78% de las startups en Latinoamérica quiebran antes de los tres años, y no es por falta de ideas, sino por pagar licencias de software que podrían ser gratis—y mejores.\"*\n\n2. **El futuro del trabajo remoto desp",
-      "auto_quality": 7.54,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_071822_50903",
-      "response_file": "results/responses/20260714_071822_50903/or-mistral-large-3__creativity__creative_hook_writing.md"
+      "response_file": "results/responses/20260714_071822_50903/or-mistral-large-3__creativity__creative_hook_writing.md",
+      "content_score": 5.34,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.5,
@@ -64,7 +74,7 @@
       "input_tokens": 125,
       "output_tokens": 835,
       "response_preview": "Aquí tienes analogías **frescas, inesperadas y memorables** para cada concepto, diseñadas para un emprendedor que no vive en el mundo tech:\n\n---\n\n### **1. Cómo funciona un modelo de lenguaje (LLM)**\n**Analogía:** *Es como un chef que solo ha probado recetas de todo el mundo, pero en lugar de cocinar",
-      "auto_quality": 6.04,
+      "auto_quality": 6.5,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_071822_50903",
-      "response_file": "results/responses/20260714_071822_50903/or-mistral-large-3__creativity__analogy_generation.md"
+      "response_file": "results/responses/20260714_071822_50903/or-mistral-large-3__creativity__analogy_generation.md",
+      "content_score": 5.34,
+      "answer_score": 6.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -96,7 +111,7 @@
       "input_tokens": 142,
       "output_tokens": 2048,
       "response_preview": "Aquí tienes un análisis con profundidad real, basado en datos de Santiago, dinámicas del delivery de comida y sesgos ocultos del mercado chileno. No es un copy-paste de \"IA para logística\":\n\n---\n\n### **1. Idea no obvia: IA para predecir *cambios regulatorios* en comunas clave**\n**Qué es:** Santiago ",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -107,7 +122,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_071822_50903",
-      "response_file": "results/responses/20260714_071822_50903/or-mistral-large-3__creativity__depth_vs_superficial.md"
+      "response_file": "results/responses/20260714_071822_50903/or-mistral-large-3__creativity__depth_vs_superficial.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -128,7 +148,7 @@
       "input_tokens": 92,
       "output_tokens": 174,
       "response_preview": "**\"El Algoritmo de la Verdad\"**\n\nMateo lanzó *HonestIA*, un chatbot para empresas que prometía \"respuestas humanas, sin filtros\". Los clientes adoraban su honestidad brutal: \"Su logo parece hecho en Paint\", \"Su producto es caro y feo\". Las ventas se dispararon.\n\nHasta que el bug se volvió viral. Un ",
-      "auto_quality": 7.27,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_071822_50903",
-      "response_file": "results/responses/20260714_071822_50903/or-mistral-large-3__creativity__storytelling_quality.md"
+      "response_file": "results/responses/20260714_071822_50903/or-mistral-large-3__creativity__storytelling_quality.md",
+      "content_score": 4.67,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -160,7 +185,7 @@
       "input_tokens": 177,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Task:** Write 5 hooks (opening sentences) for articles on specific topics.\n    *   **Constraints:**\n        *   Each hook must be ORIGINAL, provocative, and engaging.\n        *   NO clichés like \"en la era digital\", \"en el mundo actual\", \"no ",
-      "auto_quality": 5.74,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_071822_50903",
-      "response_file": "results/responses/20260714_071822_50903/or-qwen3.5-397b__creativity__creative_hook_writing.md"
+      "response_file": "results/responses/20260714_071822_50903/or-qwen3.5-397b__creativity__creative_hook_writing.md",
+      "content_score": 5.34,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -192,7 +222,7 @@
       "input_tokens": 133,
       "output_tokens": 5762,
       "response_preview": "1. **Como funciona un modelo de lenguaje (LLM)**\nImagina un cartógrafo genial que dibuja mapas perfectos de ciudades donde nunca ha puesto un pie. Conoce la conexión entre las calles por los informes de otros viajeros, pero no sabe realmente si un edificio ya fue demolido o si la ruta es segura hoy.",
-      "auto_quality": 7.54,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,7 +233,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_071822_50903",
-      "response_file": "results/responses/20260714_071822_50903/or-qwen3.5-397b__creativity__analogy_generation.md"
+      "response_file": "results/responses/20260714_071822_50903/or-qwen3.5-397b__creativity__analogy_generation.md",
+      "content_score": 5.34,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.5,
@@ -224,7 +259,7 @@
       "input_tokens": 149,
       "output_tokens": 2048,
       "response_preview": "Here's a thinking process that leads to the suggested response:\n\n1.  **Analyze the Request:**\n    *   **User:** An entrepreneur with a food delivery startup in Santiago, Chile.\n    *   **Task:** Advise on using AI.\n    *   **Constraints:**\n        *   Demonstrate *real depth* (no generic advice).\n  ",
-      "auto_quality": 8.24,
+      "auto_quality": 9.5,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -235,7 +270,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_071822_50903",
-      "response_file": "results/responses/20260714_071822_50903/or-qwen3.5-397b__creativity__depth_vs_superficial.md"
+      "response_file": "results/responses/20260714_071822_50903/or-qwen3.5-397b__creativity__depth_vs_superficial.md",
+      "content_score": 6.34,
+      "answer_score": 9.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -256,7 +296,7 @@
       "input_tokens": 98,
       "output_tokens": 7421,
       "response_preview": "Mateo, desde su coworking en Palermo, lanzó \"VerdadIA\". Los inversores preguntaron proyecciones. La IA respondió: \"Nunca serán rentables, solo queman capital\". Mateo sudó frío. El silencio fue sepulcral. Luego, un viejo socio rió. \"Por fin alguien honesto\", dijo, firmando el cheque. Mateo celebró, p",
-      "auto_quality": 7.0,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_071822_50903",
-      "response_file": "results/responses/20260714_071822_50903/or-qwen3.5-397b__creativity__storytelling_quality.md"
+      "response_file": "results/responses/20260714_071822_50903/or-qwen3.5-397b__creativity__storytelling_quality.md",
+      "content_score": 4.0,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     }
   ]
 }

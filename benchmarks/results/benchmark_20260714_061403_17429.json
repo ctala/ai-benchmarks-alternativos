@@ -10,7 +10,12 @@
       "evaluations": 6,
       "estimated_cost_usd": 0.01
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:11:50+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_061403_17429",
-      "response_file": "results/responses/20260714_061403_17429/or-nemotron-3-nano-omni-reasoning__news_seo_writing__news_seo_article_full.md"
+      "response_file": "results/responses/20260714_061403_17429/or-nemotron-3-nano-omni-reasoning__news_seo_writing__news_seo_article_full.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -64,7 +70,7 @@
       "input_tokens": 339,
       "output_tokens": 32768,
       "response_preview": "We need to generate JSON with exactly 7 keys in order. Must obey constraints.\n\nWe have extract: \"Google DeepMind released Gemma 4, an open-source AI model family under Apache 2.0 license. The 31B dense model ranks #3 on the Arena leaderboard. Available in four sizes: E2B, E4B, 26B MoE, and 31B dense",
-      "auto_quality": 6.47,
+      "auto_quality": 5.0,
       "judge_score": 3.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -75,7 +81,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_061403_17429",
-      "response_file": "results/responses/20260714_061403_17429/or-nemotron-3-nano-omni-reasoning__news_seo_writing__news_json_output_strict.md"
+      "response_file": "results/responses/20260714_061403_17429/or-nemotron-3-nano-omni-reasoning__news_seo_writing__news_json_output_strict.md",
+      "content_score": 8.67,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -96,7 +107,7 @@
       "input_tokens": 334,
       "output_tokens": 1157,
       "response_preview": "## Rendimiento del SN50  \n\nSambaNova Systems presentó el chip **SN50**, posicionándolo como una solución de inferencia para cargas de trabajo de inteligencia artificial (IA) empresariales. Según la compañía, el SN50 entrega **cinco veces más velocidad de inferencia** que los procesadores competidore",
-      "auto_quality": 6.74,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +118,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_061403_17429",
-      "response_file": "results/responses/20260714_061403_17429/or-nemotron-3-nano-omni-reasoning__news_seo_writing__news_spanish_only.md"
+      "response_file": "results/responses/20260714_061403_17429/or-nemotron-3-nano-omni-reasoning__news_seo_writing__news_spanish_only.md",
+      "content_score": 9.34,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -128,7 +144,7 @@
       "input_tokens": 502,
       "output_tokens": 32768,
       "response_preview": "We need to write 800 words article in Spanish, using only provided data. Must include H2 subtitles, always professional accessible, include section \"Que significa esto para tu startup\". Must cite sources when mention data. Since only data given, citations will refer to the extract. Must not invent a",
-      "auto_quality": 3.47,
+      "auto_quality": 0.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +155,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_061403_17429",
-      "response_file": "results/responses/20260714_061403_17429/or-nemotron-3-nano-omni-reasoning__news_seo_writing__news_no_hallucination_sources.md"
+      "response_file": "results/responses/20260714_061403_17429/or-nemotron-3-nano-omni-reasoning__news_seo_writing__news_no_hallucination_sources.md",
+      "content_score": 8.67,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.83,
@@ -171,7 +192,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_061403_17429",
-      "response_file": "results/responses/20260714_061403_17429/or-nemotron-3-nano-omni-reasoning__news_seo_writing__news_perplexity_enrichment.md"
+      "response_file": "results/responses/20260714_061403_17429/or-nemotron-3-nano-omni-reasoning__news_seo_writing__news_perplexity_enrichment.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

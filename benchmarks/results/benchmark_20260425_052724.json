@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-13T20:58:17+00:00",
+      "at": "2026-07-14T17:58:09+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -48,7 +48,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__content_generation__blog_post_es.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__content_generation__blog_post_es.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -80,7 +81,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__content_generation__email_profesional.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__content_generation__email_profesional.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.92,
@@ -112,7 +114,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__content_generation__social_media_batch.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__content_generation__social_media_batch.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.52,
@@ -144,7 +147,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__content_generation__product_description_en.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__content_generation__product_description_en.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.26,
@@ -176,7 +180,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__tool_calling__no_tool_needed.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__tool_calling__no_tool_needed.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.88,
@@ -208,7 +213,8 @@
       "suite": "task_management",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__task_management__extract_action_items.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__task_management__extract_action_items.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.04,
@@ -240,7 +246,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__code_generation__python_api_integration.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__code_generation__python_api_integration.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.84,
@@ -272,7 +279,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__code_generation__sql_query_complex.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__code_generation__sql_query_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.32,
@@ -304,7 +312,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__code_generation__debug_code.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__code_generation__debug_code.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -336,7 +345,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__reasoning__logical_reasoning.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__reasoning__logical_reasoning.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.56,
@@ -368,7 +378,8 @@
       "suite": "summarization",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__summarization__long_document_summary.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__summarization__long_document_summary.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.88,
@@ -400,7 +411,8 @@
       "suite": "summarization",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__summarization__extract_structured_data.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__summarization__extract_structured_data.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -432,7 +444,8 @@
       "suite": "presentation",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__presentation__slide_outline.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__presentation__slide_outline.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -464,7 +477,8 @@
       "suite": "presentation",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__presentation__data_report.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__presentation__data_report.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -496,7 +510,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__startup_content__newsletter_startup.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__startup_content__newsletter_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.08,
@@ -624,7 +639,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__customer_support__angry_customer_refund.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__customer_support__angry_customer_refund.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.46,
@@ -1136,7 +1152,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__news_seo_writing__news_json_output_strict.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__news_seo_writing__news_json_output_strict.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.7,
@@ -1168,7 +1185,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__news_seo_writing__news_spanish_only.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__news_seo_writing__news_spanish_only.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.28,
@@ -1360,7 +1378,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__orchestration__multi_step_research_plan.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__orchestration__multi_step_research_plan.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.3,
@@ -1392,7 +1411,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__orchestration__error_recovery_orchestration.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__orchestration__error_recovery_orchestration.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.37,
@@ -1424,7 +1444,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__orchestration__tool_selection_precision.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.88,
@@ -1680,7 +1701,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__agent_capabilities__skill_execution_complex.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__agent_capabilities__skill_execution_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.76,
@@ -1712,7 +1734,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__agent_capabilities__agent_team_delegation.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__agent_capabilities__agent_team_delegation.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.35,
@@ -1744,7 +1767,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__agent_capabilities__model_as_router.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.12,
@@ -1840,7 +1864,8 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__translation__translate_marketing_es_en.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__translation__translate_marketing_es_en.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.72,
@@ -1872,7 +1897,8 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__translation__translate_technical_en_es.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__translation__translate_technical_en_es.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.34,
@@ -1904,7 +1930,8 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__translation__detect_language_issues.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__translation__detect_language_issues.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.0,
@@ -3320,7 +3347,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260425_052724"
+      "timestamp": "20260425_052724",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -3344,7 +3372,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260425_052724"
+      "timestamp": "20260425_052724",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.0,
@@ -3368,7 +3397,8 @@
       "auto_quality": 5.0,
       "suite": "tool_calling",
       "run": 1,
-      "timestamp": "20260425_052724"
+      "timestamp": "20260425_052724",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.68,
@@ -3400,7 +3430,8 @@
       "suite": "task_management",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__task_management__weekly_planning.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__task_management__weekly_planning.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -3432,7 +3463,8 @@
       "suite": "task_management",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__task_management__project_breakdown.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__task_management__project_breakdown.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.72,
@@ -3464,7 +3496,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__code_generation__n8n_workflow_json.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__code_generation__n8n_workflow_json.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -3496,7 +3529,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__reasoning__business_analysis.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__reasoning__business_analysis.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -3528,7 +3562,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__reasoning__multi_constraint_decision.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__reasoning__multi_constraint_decision.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.76,
@@ -3560,7 +3595,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__startup_content__blog_actualidad_startup.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__startup_content__blog_actualidad_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.44,
@@ -3592,7 +3628,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__startup_content__curso_emprendimiento_modulo.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__startup_content__curso_emprendimiento_modulo.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.6,
@@ -3624,7 +3661,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__startup_content__perplexity_style_research.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__startup_content__perplexity_style_research.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 4.26,
@@ -3712,7 +3750,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260425_052724"
+      "timestamp": "20260425_052724",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -3736,7 +3775,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260425_052724"
+      "timestamp": "20260425_052724",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -3760,7 +3800,8 @@
       "auto_quality": 0.0,
       "suite": "customer_support",
       "run": 1,
-      "timestamp": "20260425_052724"
+      "timestamp": "20260425_052724",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -3824,7 +3865,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__news_seo_writing__news_seo_article_full.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__news_seo_writing__news_seo_article_full.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.64,
@@ -3856,7 +3898,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__news_seo_writing__news_no_hallucination_sources.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__news_seo_writing__news_no_hallucination_sources.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.12,
@@ -3888,7 +3931,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__news_seo_writing__news_perplexity_enrichment.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__news_seo_writing__news_perplexity_enrichment.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 2.0,
@@ -3912,7 +3956,8 @@
       "auto_quality": 2.0,
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260425_052724"
+      "timestamp": "20260425_052724",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -3936,7 +3981,8 @@
       "auto_quality": 0.0,
       "suite": "orchestration",
       "run": 1,
-      "timestamp": "20260425_052724"
+      "timestamp": "20260425_052724",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.44,
@@ -3992,7 +4038,8 @@
       "auto_quality": 0.0,
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260425_052724"
+      "timestamp": "20260425_052724",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 0.0,
@@ -4016,7 +4063,8 @@
       "auto_quality": 0.0,
       "suite": "agent_capabilities",
       "run": 1,
-      "timestamp": "20260425_052724"
+      "timestamp": "20260425_052724",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.44,
@@ -4080,7 +4128,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260425_052724",
-      "response_file": "results/responses/20260425_052724/gpt-5.5__startup_content__workshop_outline.md"
+      "response_file": "results/responses/20260425_052724/gpt-5.5__startup_content__workshop_outline.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.26,

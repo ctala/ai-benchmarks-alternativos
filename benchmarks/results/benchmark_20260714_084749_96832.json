@@ -10,7 +10,12 @@
       "evaluations": 7,
       "estimated_cost_usd": 0.007
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:50+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,12 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260714_084749_96832",
-      "response_file": "results/responses/20260714_084749_96832/or-glm5__translation__translate_marketing_es_en.md"
+      "response_file": "results/responses/20260714_084749_96832/or-glm5__translation__translate_marketing_es_en.md",
+      "content_score": 8.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:48+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -75,7 +85,8 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260714_084749_96832",
-      "response_file": "results/responses/20260714_084749_96832/or-glm5__translation__translate_technical_en_es.md"
+      "response_file": "results/responses/20260714_084749_96832/or-glm5__translation__translate_technical_en_es.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -96,7 +107,7 @@
       "input_tokens": 201,
       "output_tokens": 2595,
       "response_preview": "```json\n{\n  \"problemas\": [\n    {\n      \"tipo\": \"chino\",\n      \"texto\": \"特别是\",\n      \"correccion\": \"especialmente / particularmente\"\n    },\n    {\n      \"tipo\": \"gramatical\",\n      \"texto\": \"estan\",\n      \"correccion\": \"están\"\n    },\n    {\n      \"tipo\": \"spanglish\",\n      \"texto\": \"leveraging\",\n      ",
-      "auto_quality": 8.8,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +118,12 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260714_084749_96832",
-      "response_file": "results/responses/20260714_084749_96832/or-glm5__translation__detect_language_issues.md"
+      "response_file": "results/responses/20260714_084749_96832/or-glm5__translation__detect_language_issues.md",
+      "content_score": 7.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -139,7 +155,12 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260714_084749_96832",
-      "response_file": "results/responses/20260714_084749_96832/or-qwen-2.5-72b__translation__translate_marketing_es_en.md"
+      "response_file": "results/responses/20260714_084749_96832/or-qwen-2.5-72b__translation__translate_marketing_es_en.md",
+      "content_score": 8.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -171,7 +192,8 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260714_084749_96832",
-      "response_file": "results/responses/20260714_084749_96832/or-qwen-2.5-72b__translation__translate_technical_en_es.md"
+      "response_file": "results/responses/20260714_084749_96832/or-qwen-2.5-72b__translation__translate_technical_en_es.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.67,
@@ -192,7 +214,7 @@
       "input_tokens": 213,
       "output_tokens": 410,
       "response_preview": "```json\n{\n  \"problemas\": [\n    {\n      \"tipo\": \"spanglish\",\n      \"texto\": \"particularly in Latin America\",\n      \"correccion\": \"especialmente en América Latina\"\n    },\n    {\n      \"tipo\": \"spanglish\",\n      \"texto\": \"leveraging\",\n      \"correccion\": \"utilizando\"\n    },\n    {\n      \"tipo\": \"spanglis",
-      "auto_quality": 6.8,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,7 +225,12 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260714_084749_96832",
-      "response_file": "results/responses/20260714_084749_96832/or-qwen-2.5-72b__translation__detect_language_issues.md"
+      "response_file": "results/responses/20260714_084749_96832/or-qwen-2.5-72b__translation__detect_language_issues.md",
+      "content_score": 7.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:50+00:00",
+      "scoring": "verificable"
     }
   ]
 }

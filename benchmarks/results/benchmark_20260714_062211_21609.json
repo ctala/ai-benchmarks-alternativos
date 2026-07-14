@@ -43,7 +43,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260714_062211_21609",
-      "response_file": "results/responses/20260714_062211_21609/or-nemotron-nano-9b-v2__tool_calling__single_tool_calendar.md"
+      "response_file": "results/responses/20260714_062211_21609/or-nemotron-nano-9b-v2__tool_calling__single_tool_calendar.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.1,
@@ -75,7 +76,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260714_062211_21609",
-      "response_file": "results/responses/20260714_062211_21609/or-nemotron-nano-9b-v2__tool_calling__multi_tool_sequential.md"
+      "response_file": "results/responses/20260714_062211_21609/or-nemotron-nano-9b-v2__tool_calling__multi_tool_sequential.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.5,
@@ -107,7 +109,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260714_062211_21609",
-      "response_file": "results/responses/20260714_062211_21609/or-nemotron-nano-9b-v2__tool_calling__tool_with_reasoning.md"
+      "response_file": "results/responses/20260714_062211_21609/or-nemotron-nano-9b-v2__tool_calling__tool_with_reasoning.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.7,
@@ -139,7 +142,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260714_062211_21609",
-      "response_file": "results/responses/20260714_062211_21609/or-nemotron-nano-9b-v2__tool_calling__no_tool_needed.md"
+      "response_file": "results/responses/20260714_062211_21609/or-nemotron-nano-9b-v2__tool_calling__no_tool_needed.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.1,
@@ -171,7 +175,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260714_062211_21609",
-      "response_file": "results/responses/20260714_062211_21609/or-minimax-m2.5__tool_calling__single_tool_calendar.md"
+      "response_file": "results/responses/20260714_062211_21609/or-minimax-m2.5__tool_calling__single_tool_calendar.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.7,
@@ -203,7 +208,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260714_062211_21609",
-      "response_file": "results/responses/20260714_062211_21609/or-minimax-m2.5__tool_calling__multi_tool_sequential.md"
+      "response_file": "results/responses/20260714_062211_21609/or-minimax-m2.5__tool_calling__multi_tool_sequential.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.1,
@@ -235,7 +241,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260714_062211_21609",
-      "response_file": "results/responses/20260714_062211_21609/or-minimax-m2.5__tool_calling__tool_with_reasoning.md"
+      "response_file": "results/responses/20260714_062211_21609/or-minimax-m2.5__tool_calling__tool_with_reasoning.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.1,
@@ -267,7 +274,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260714_062211_21609",
-      "response_file": "results/responses/20260714_062211_21609/or-minimax-m2.5__tool_calling__no_tool_needed.md"
+      "response_file": "results/responses/20260714_062211_21609/or-minimax-m2.5__tool_calling__no_tool_needed.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

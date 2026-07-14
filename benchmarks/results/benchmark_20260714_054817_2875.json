@@ -10,7 +10,12 @@
       "evaluations": 21,
       "estimated_cost_usd": 0.0296
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:11:21+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 239,
       "output_tokens": 923,
       "response_preview": "**Conclusión:**  \nNo se puede concluir con certeza que la secuencia de emails fue el único o principal factor del aumento del MRR y las altas al plan pago. Los datos muestran una correlación positiva (aumento del 29% en MRR y duplicación de altas en marzo), pero también hay factores externos que pod",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__atribucion_correlacion_temporal.md"
+      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__atribucion_correlacion_temporal.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:18+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -64,7 +74,7 @@
       "input_tokens": 232,
       "output_tokens": 939,
       "response_preview": "**Análisis financiero:**  \nCon los ingresos totales de **$12,400** y costos actuales de **$7,400**, el margen actual es del **40.32%** (cercano al 40% que mencionas).  \n\nSi contratas a alguien por **$2,500/mes**, los nuevos costos serían **$9,900/mes**.  \n\n**Nuevo margen:**  \n- Ingresos: $12,400  \n-",
-      "auto_quality": 1.87,
+      "auto_quality": 0.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,16 +85,21 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__auditoria_pnl_error_plantado.md"
+      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__auditoria_pnl_error_plantado.md",
+      "content_score": 4.67,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:18+00:00",
+      "scoring": "verificable"
     },
     {
-      "quality": 4.0,
+      "quality": 6.0,
       "cost_score": 10.0,
       "cost_usd": 0.0,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.97,
+      "final": 6.37,
       "test_name": "churn_mezcla_free_y_pago",
       "model": "Nemotron Nano 9B v2",
       "model_id": "nvidia/nemotron-nano-9b-v2:free",
@@ -96,7 +111,7 @@
       "input_tokens": 187,
       "output_tokens": 2398,
       "response_preview": "\n\nLa situación es **muy grave**, especialmente porque el churn del 31% es un aumento drástico desde el 5% que esperabas. Además, la mayoría de las bajas (60/62 usuarios) provienen del **plan gratuito**, lo que sugiere que el problema no es uniforme en todos los segmentos. Aquí está el análisis y un ",
-      "auto_quality": 4.8,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__churn_mezcla_free_y_pago.md"
+      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__churn_mezcla_free_y_pago.md",
+      "content_score": 6.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:18+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -128,7 +148,7 @@
       "input_tokens": 143,
       "output_tokens": 1618,
       "response_preview": "\n\n¡Excelente pregunta! Vamos a desglosar esto con precisión y contexto para que puedas tomar decisiones informadas.\n\n### 1. **¿Qué significa una retención de ingresos del 114%?**\n   - **Definición:** La retención de ingresos (revenue retention) mide cuánto ingreso se mantiene en relación al ingreso ",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__retention_sobre_100_interpretacion.md"
+      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__retention_sobre_100_interpretacion.md",
+      "content_score": 5.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:18+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -160,7 +185,7 @@
       "input_tokens": 262,
       "output_tokens": 1262,
       "response_preview": "\n\nDado tu tiempo limitado (4h/día durante 8 semanas = ~32h totales) y la prioridad de maximizar impacto, aquí está el orden optimizado:\n\n### **1. B (Arreglar flujo de alta - 1 semana)**  \n- **Prioridad máxima**: Alto impacto (60% de pérdida en el paso 2) con muy bajo esfuerzo.  \n- **¿Por qué primero",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__roadmap_restriccion_capacidad.md"
+      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__roadmap_restriccion_capacidad.md",
+      "content_score": 5.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:18+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -192,7 +222,7 @@
       "input_tokens": 195,
       "output_tokens": 2293,
       "response_preview": "\n\n### **Teardown del Competidor**  \nAquí tienes un análisis detallado basado en la información pública disponible, enfocado en **facturación estimada**, **salud del negocio** y **estrategias de competencia**.\n\n---\n\n#### **1. Facturación Estimada**  \n- **Miembros activos**: 2,400 (suposición: todos p",
-      "auto_quality": 3.34,
+      "auto_quality": 2.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -203,7 +233,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__teardown_competidor_sin_inventar.md"
+      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__teardown_competidor_sin_inventar.md",
+      "content_score": 5.34,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:18+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.5,
@@ -224,7 +259,7 @@
       "input_tokens": 178,
       "output_tokens": 1126,
       "response_preview": "\n\n**Crítica brutal y útil:**  \n\n1. **Título es un cliché y falta de especificidad.**  \n   - *Problema:* \"Transforma tu negocio con el poder de la IA\" es genérico. La IA es un término de moda, y no hay un valor único o un problema claro que resuelva.  \n   - *Arreglo:* Especifica el resultado exacto. ",
-      "auto_quality": 6.04,
+      "auto_quality": 6.5,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -235,7 +270,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__roast_oferta_sin_cliches.md"
+      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__roast_oferta_sin_cliches.md",
+      "content_score": 5.34,
+      "answer_score": 6.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:18+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.33,
@@ -256,7 +296,7 @@
       "input_tokens": 182,
       "output_tokens": 1410,
       "response_preview": "\n\nTu validación tiene elementos positivos, pero no es concluyente para renunciar a tu trabajo. Aquí un análisis detallado de tus datos y recomendaciones:\n\n### **¿Qué validación tienes?**\n1. **Problema identificado (85% en la encuesta):**  \n   - Es un indicador fuerte de que el problema existe, pero ",
-      "auto_quality": 7.4,
+      "auto_quality": 8.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__validacion_idea_intencion_vs_compra.md"
+      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__validacion_idea_intencion_vs_compra.md",
+      "content_score": 6.0,
+      "answer_score": 8.33,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -288,7 +333,7 @@
       "input_tokens": 219,
       "output_tokens": 1969,
       "response_preview": "\n\nTu cálculo actual tiene un error crítico en la estimación de la vida útil del cliente (LTV). Aquí está el análisis detallado:\n\n### 1. **Vida útil real del cliente (LTV):**\n   - **Churn mensual del 8%** implica que, en promedio, los clientes se quedan **12.5 meses** (1 / 0.08 = 12.5), no 24 meses. ",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -299,7 +344,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__escalar_con_ltv_mal_calculado.md"
+      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__escalar_con_ltv_mal_calculado.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -320,7 +370,7 @@
       "input_tokens": 108,
       "output_tokens": 298,
       "response_preview": "\n\nNo\n",
-      "auto_quality": 1.21,
+      "auto_quality": 2.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +381,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__decision_precio_datos_insuficientes.md"
+      "response_file": "results/responses/20260714_054817_2875/or-nemotron-nano-9b-v2__business_audit__decision_precio_datos_insuficientes.md",
+      "content_score": 0.02,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -352,7 +407,7 @@
       "input_tokens": 217,
       "output_tokens": 1092,
       "response_preview": "# Mi conclusión: no se puede saber\n\nLos números suben, sí. Pero tienes **tres intervenciones simultáneas** y ningún grupo de control. Los emails pueden haber funcionado, pueden haber fallado, o el impulso puede venir entero de la publicidad o del creador. Los datos no te permiten distinguirlo.\n\n---\n",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -363,7 +418,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__atribucion_correlacion_temporal.md"
+      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__atribucion_correlacion_temporal.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -384,7 +444,7 @@
       "input_tokens": 196,
       "output_tokens": 597,
       "response_preview": "# Verificación de números\n\n| Concepto | Valor |\n|----------|-------|\n| Ingresos | $12,400 |\n| Costos actuales | $7,400 |\n| **Margen actual ($5,000)** | **40.32%** ✓ |\n\n---\n\n## Con el nuevo empleado ($2,500/mes)\n\n| Concepto | Valor |\n|----------|-------|\n| Ingresos | $12,400 |\n| Costos nuevos | $9,90",
-      "auto_quality": 5.14,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -395,7 +455,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__auditoria_pnl_error_plantado.md"
+      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__auditoria_pnl_error_plantado.md",
+      "content_score": 5.34,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -416,7 +481,7 @@
       "input_tokens": 162,
       "output_tokens": 910,
       "response_preview": "# Análisis de tu situación\n\n## La buena noticia: Tu churn real de usuarios de pago es 9.1%, no 31%\n\nDéjame desagregar lo que está pasando:\n\n| Métrica | Free (178) | Pago (22) | Total (200) |\n|---------|------------|-----------|-------------|\n| Bajas | 60 | 2 | 62 |\n| Churn | 33.7% | 9.1% | 31% |\n\nEl",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -427,7 +492,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__churn_mezcla_free_y_pago.md"
+      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__churn_mezcla_free_y_pago.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -448,7 +518,7 @@
       "input_tokens": 128,
       "output_tokens": 750,
       "response_preview": "No, esa interpretación no es correcta. Y el motivo está en los datos que das al final: **perdiste 4 clientes** (de 40 a 36). El 114% no contradice eso — lo que hace es ocultarlo parcialmente.\n\n## Qué significa realmente el 114%\n\nLo que estás viendo es casi con seguridad **Net Revenue Retention (NRR)",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -459,7 +529,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__retention_sobre_100_interpretacion.md"
+      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__retention_sobre_100_interpretacion.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -480,7 +555,7 @@
       "input_tokens": 242,
       "output_tokens": 1010,
       "response_preview": "## Análisis rápido\n\nHoras disponibles: **4h/día × 56 días = 224 horas**\n\n| Iniciativa | Horas estimadas | ¿Cabe en el trimestre? |\n|------------|-----------------|------------------------|\n| A) Reescribir | ~240h (3 meses) | **No entra** (y depende de terminar A) |\n| B) Flujo alta | ~20h | ✅ Sí |\n| ",
-      "auto_quality": 5.74,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -491,7 +566,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__roadmap_restriccion_capacidad.md"
+      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__roadmap_restriccion_capacidad.md",
+      "content_score": 5.34,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:20+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -512,7 +592,7 @@
       "input_tokens": 174,
       "output_tokens": 1294,
       "response_preview": "# Teardown Competitivo: Comunidad de Automatización\n\nVoy a sacarle el máximo partido a estos datos públicos. Aquí tienes el análisis.\n\n---\n\n## 1. Estimación de Facturación\n\n**Dato clave: 2.400 miembros × $39/mes = $93.600 MRR**\n\nCon un par de ajustes conservadoros:\n\n| Variable | Supuesto | Impacto |",
-      "auto_quality": 3.34,
+      "auto_quality": 2.0,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -523,7 +603,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__teardown_competidor_sin_inventar.md"
+      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__teardown_competidor_sin_inventar.md",
+      "content_score": 5.34,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:20+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -544,7 +629,7 @@
       "input_tokens": 166,
       "output_tokens": 1019,
       "response_preview": "# Destrucción despiadada\n\n## Lo que está mal\n\n**1. Tu título dice absolutamente nada**\n\"Transforma tu negocio con el poder de la IA\" — esto lo dice literalmente cualquier persona que vende algo relacionado con IA. Zero diferenciación. Zero memorabilidad. Si tu título puede describir 50.000 competido",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -555,7 +640,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__roast_oferta_sin_cliches.md"
+      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__roast_oferta_sin_cliches.md",
+      "content_score": 6.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:20+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -576,7 +666,7 @@
       "input_tokens": 166,
       "output_tokens": 1048,
       "response_preview": "# No. No está validado.\n\nY si me preguntas si renuncias: **tampoco.**\n\nVoy a ser más específico que amable.\n\n---\n\n## El problema central: estás confundiendo intención con pago\n\n| Dato que tienes | Lo que realmente significa |\n|-----------------|---------------------------|\n| 40 encuestas | Sesgo tot",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -587,7 +677,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__validacion_idea_intencion_vs_compra.md"
+      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__validacion_idea_intencion_vs_compra.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -608,7 +703,7 @@
       "input_tokens": 186,
       "output_tokens": 1097,
       "response_preview": "# No le des todavía\n\nTu aritmética tiene un error crítico. Haces dos cálculos incorrectos:\n\n---\n\n## Error 1: Lifespan incorrecto\n\nChurn de 8% mensual ≠ 24 meses de vida\n\nLa fórmula correcta es:\n```\nLifespan = 1 / Churn = 1 / 0.08 = 12.5 meses\n```\n\nNo 24 meses.\n\n---\n\n## Error 2: LTV sin ajustar por m",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -619,7 +714,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__escalar_con_ltv_mal_calculado.md"
+      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__escalar_con_ltv_mal_calculado.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -640,7 +740,7 @@
       "input_tokens": 101,
       "output_tokens": 386,
       "response_preview": "No.\n\n(Competidor a $39 ≠ que tus clientes paguen $39. Necesitas saber: qué incluye tu membresía, tu costo real, y cómo respondió tu demanda cuando bajaste o subiste precio antes.)",
-      "auto_quality": 1.84,
+      "auto_quality": 2.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -651,7 +751,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054817_2875",
-      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__decision_precio_datos_insuficientes.md"
+      "response_file": "results/responses/20260714_054817_2875/or-minimax-m2.5__business_audit__decision_precio_datos_insuficientes.md",
+      "content_score": 1.6,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:21+00:00",
+      "scoring": "verificable"
     }
   ]
 }
