@@ -64,11 +64,32 @@ def main() -> int:
     ap.add_argument("--skip-comparisons", action="store_true", help="No regenera páginas de comparación/ranking")
     ap.add_argument("--skip-sitemap", action="store_true", help="No regenera sitemap ni llms.txt")
     ap.add_argument("--skip-sync", action="store_true", help="No sincroniza counts en MDs/HTMLs")
+    ap.add_argument("--skip-endpoints", action="store_true",
+                    help="No chequea si los modelos del ranking siguen vivos (no recomendado)")
     args = ap.parse_args()
 
     if args.check:
         run_script("sync_doc_counts.py", ["--dry-run"], dry_run=False)
         return 0
+
+    # 0. ¿Siguen vivos los modelos que recomendamos?
+    #
+    # Devstral Small estuvo **#5 del ranking** meses después de que Mistral apagara su
+    # endpoint, y llegó a aparecer en 11 páginas del sitio — incluida /mejor-llm-barato/
+    # y las cuatro de "alternativas a X". Todas recomendando un modelo que devuelve 404.
+    #
+    # Nos enteramos por accidente, cuando un lote se estrelló contra él. Este chequeo
+    # cuesta centavos (un ping de 16 tokens por modelo) y lo detecta antes de publicar.
+    # Va PRIMERO: si un modelo murió, todo lo que se genere después lo va a recomendar.
+    #
+    # No aborta el pipeline — reporta. Retirarlo es una decisión (check_endpoints --fix).
+    if not args.dry_run and not args.skip_endpoints:
+        rc = run_script("check_endpoints.py", ["--ranked"], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n⚠️  Hay modelos MUERTOS en el ranking (arriba).")
+            print("   Retiralos antes de publicar:  python benchmarks/check_endpoints.py --ranked --fix")
+            print("   Sus datos NO se pierden: quedan como estadística histórica, fuera de las")
+            print("   recomendaciones y de la calculadora.\n")
 
     # 1. Single source of truth para la calculadora y todo lo demás
     run_script("export_for_pages.py", [], dry_run=args.dry_run)

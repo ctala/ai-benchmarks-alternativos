@@ -73,7 +73,9 @@ def familia(nombre):
 def cargar():
     from benchmarks.models import MODELS
     from generate_comparison import load_models
-    models = load_models()
+    # Esta página VIVE de las variantes de proveedor: son las que muestran que el mismo
+    # modelo rinde distinto según quién lo sirva. Por eso las pide explícitamente.
+    models = load_models(incluir_deprecados=True)
     prov = {c["name"]: (c.get("provider") or "openrouter")
             for c in MODELS.values() if c.get("name")}
     return models, prov
