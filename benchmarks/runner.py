@@ -168,6 +168,28 @@ def run_single_test(
     Kimi K2.5), el adapter activa reasoning vía OpenRouter extra_body.
     """
     tools = test.get("tools")
+
+    # NO PODER HACER UN TEST **ES** EL RESULTADO.
+    #
+    # Hermes 4 (70B y 405B) no soportan tool calling en OpenRouter: los tests que exigen
+    # herramientas devuelven "No endpoints found". Eso se contaba como ERROR, el examen
+    # quedaba incompleto, y el modelo salía del ranking marcado «en evaluación».
+    #
+    # Pero no está pendiente de medir: ya sabemos el resultado. Un modelo que no puede
+    # llamar herramientas NO PUEDE hacer trabajo de agente. Marcarlo "no rendido" esconde
+    # exactamente lo que el lector necesita saber.
+    #
+    # Ahora saca 0 en esos tests, con la razón anotada. Es la verdad, y compite con ella.
+    if tools and (model_config or {}).get("sin_tools"):
+        r = BenchmarkResult(
+            provider="capability-gap", model=model_id, test_name=test["name"],
+            prompt=(test["messages"][-1].get("content", "") or "")[:200],
+        )
+        r.success = True
+        r.response = ""
+        r.metadata = {"capability_gap": "el modelo no soporta tool calling"}
+        return r
+
     force_reasoning = bool((model_config or {}).get("force_reasoning", False))
     result = provider.chat(
         model=model_id,
@@ -341,6 +363,10 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
         content_score = 5.0 if result.success else 0.0
 
     # Score de expected_answer (sustancia automatica)
+    # `answer_score` tiene que existir SIEMPRE: más abajo se guarda como componente para
+    # poder re-pesar sin re-correr. Sin este default el runner crasheaba con
+    # UnboundLocalError en los tests que no tienen expected_answer.
+    answer_score = 0.0
     if expected_answer and answer_type:
         answer_score = score_expected_answer(result.response, expected_answer)
         auto_quality = content_score * 0.4 + answer_score * 0.6

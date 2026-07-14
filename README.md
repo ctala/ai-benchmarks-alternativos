@@ -63,18 +63,18 @@ Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad*
 
 | # | Modelo | Score | Quality | Cost | Provider | $/1k calls | Runs |
 |---|---|---:|---:|---:|---|---:|---:|
-| 1 | **GPT-5.6 Luna** | **8.95** | 8.26 | 5.81 | openrouter | $9.30 | 129 |
-| 2 | **DeepSeek R1 (reasoning)** | **8.53** | 8.39 | 5.92 | openrouter | $3.96 | 123 |
-| 3 | **GLM 5** | **8.31** | 8.28 | 6.29 | openrouter | $3.06 | 119 |
-| 4 | **Ministral 14B** | **8.14** | 8.09 | 7.80 | openrouter | $0.36 | 119 |
-| 5 | **Mistral Large 3 675B** | **8.03** | 8.13 | 7.15 | openrouter | $2.40 | 119 |
-| 6 | **Claude Opus 4.8** | **7.98** | 8.31 | 3.75 | openrouter | $39.00 | 119 |
-| 7 | **Claude Opus 4.7** | **7.81** | 8.28 | 4.02 | openrouter | $39.00 | 194 |
-| 8 | **Qwen 3-Next 80B Instruct** | **7.54** | 7.97 | 7.50 | openrouter | $1.68 | 119 |
-| 9 | **Claude Opus 4.6** | **7.53** | 8.26 | 4.08 | openrouter | $39.00 | 286 |
-| 10 | **Nemotron 3 Nano Omni 30B-A3B Reasoning** | **7.44** | 7.94 | 8.00 | openrouter | $0.00 | 94 |
+| 1 | **GPT-5.6 Luna** | **8.84** | 8.26 | 5.81 | openrouter | $9.30 | 129 |
+| 2 | **GLM 5.2** | **8.61** | 8.35 | 5.84 | openrouter | $4.79 | 127 |
+| 3 | **DeepSeek R1 (reasoning)** | **8.38** | 8.39 | 5.92 | openrouter | $3.96 | 123 |
+| 4 | **GLM 5** | **8.18** | 8.28 | 6.29 | openrouter | $3.06 | 119 |
+| 5 | **Ministral 14B** | **8.03** | 8.09 | 7.80 | openrouter | $0.36 | 119 |
+| 6 | **Mistral Large 3 675B** | **7.92** | 8.13 | 7.15 | openrouter | $2.40 | 119 |
+| 7 | **Claude Opus 4.8** | **7.87** | 8.31 | 3.75 | openrouter | $39.00 | 119 |
+| 8 | **Claude Opus 4.7** | **7.69** | 8.28 | 4.02 | openrouter | $39.00 | 194 |
+| 9 | **Qwen 3-Next 80B Instruct** | **7.45** | 7.97 | 7.50 | openrouter | $1.68 | 119 |
+| 10 | **Claude Opus 4.6** | **7.41** | 8.26 | 4.08 | openrouter | $39.00 | 286 |
 
-> **Piso de ranking: 50 runs.** Solo compiten los 53 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
+> **Piso de ranking: 50 runs.** Solo compiten los 60 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
 
 > **Este ranking es un punto de partida, no un veredicto.** El score pondera calidad (70%), costo (15%), velocidad (7.5%) y latencia (7.5%) para un perfil de emprendedor genérico. **Tu caso probablemente no sea ese.** Si corrés batch de noche, la latencia no te importa y este ranking la está penalizando igual; si atendés usuarios en vivo, te importa el doble. Ajustá los pesos a tu caso en la [calculadora](https://benchmarks.cristiantala.com/) o mirá las tablas por caso de uso en [MODELOS.md](MODELOS.md).
 

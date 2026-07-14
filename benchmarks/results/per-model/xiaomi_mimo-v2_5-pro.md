@@ -1,13 +1,13 @@
 # MiMo-V2.5 Pro
 
 - **model_id**: `xiaomi/mimo-v2.5-pro`
-- **Total tests**: 119/119 exitosos (0 errores)
-- **Score final**: 7.03
+- **Total tests**: 129/129 exitosos (0 errores)
+- **Score final**: 7.02
 - **Calidad**: 7.82
-- **Judge score (Phi-4)**: 4.22/10
+- **Judge score (Phi-4)**: 4.29/10
 - **Velocidad**: 56 tok/s
-- **Latencia primera token**: 21.31s
-- **Costo promedio por test**: $0.00629
+- **Latencia primera token**: 22.25s
+- **Costo promedio por test**: $0.00614
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -17,7 +17,7 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.26 | 6.78 |
 | agent_long_horizon | 12 | 12 | 7.93 | 9.67 |
-| business_audit | 6 | 6 | 7.49 | 8.67 |
+| business_audit | 16 | 16 | 7.15 | 8.12 |
 | business_strategy | 5 | 5 | 7.86 | 9.20 |
 | code_generation | 4 | 4 | 6.75 | 7.64 |
 | content_generation | 4 | 4 | 7.58 | 9.02 |

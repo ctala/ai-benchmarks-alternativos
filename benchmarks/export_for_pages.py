@@ -440,6 +440,25 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
         for s, tests in by_suite_test.items() if tests
     }
 
+    # CALIDAD PURA POR SUITE — sin costo ni velocidad.
+    #
+    # `score_by_suite` es el score COMPUESTO restringido a esa suite: incluye precio y
+    # velocidad. El nombre engaña. Yo mismo lo leí como calidad y construí un titular
+    # falso sobre él: "MiniMax M3 audita mejor que Claude Opus 4.8 (7.43 vs 6.94)".
+    #
+    # En calidad pura empatan (8.07 vs 8.20). MiniMax "ganaba" porque cuesta 20× menos.
+    # Las dos cosas son ciertas y dicen cosas distintas: una responde "¿quién audita
+    # mejor?" y la otra "¿qué me conviene pagar?". Confundirlas es publicar mentiras.
+    calidad_por_suite = defaultdict(lambda: defaultdict(list))
+    for r in runs:
+        s, tn, q = r.get("suite"), r.get("test_name"), r.get("quality")
+        if s and tn and q is not None:
+            calidad_por_suite[s][tn].append(q)
+    quality_by_suite = {
+        s: round(sum(sum(v) / len(v) for v in tests.values()) / len(tests), 2)
+        for s, tests in calidad_por_suite.items() if tests
+    }
+
     # Suites que el modelo NO terminó. Su promedio sale de un examen más corto que el de
     # los demás: se reporta, pero marcado — no se puede comparar contra quien rindió todo.
     from benchmarks.runner import ALL_TEST_SUITES as _TS
@@ -496,7 +515,10 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
         # Dimensiones crudas por pilar -> permiten recomponer el score de un pilar
         # con los pesos del usuario (ver getScore en app.js).
         "dims_by_pillar": pillar_dims,
+        # ⚠️ COMPUESTO (calidad + costo + velocidad). Para "¿quién es mejor EN esto?"
+        # usá `quality_by_suite`. Ver el comentario en aggregate_metrics.
         "score_by_suite": suites,
+        "quality_by_suite": quality_by_suite,
         # {suite: {rindio, total}} — las suites que este modelo NO terminó. Su promedio
         # sale de un examen más corto: NO es comparable con el de quien rindió todo.
         # Quien consuma score_by_suite tiene que mirar esto antes de comparar.

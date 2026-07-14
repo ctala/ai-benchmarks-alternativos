@@ -1,13 +1,13 @@
 # GLM 5.2
 
 - **model_id**: `z-ai/glm-5.2`
-- **Total tests**: 206/207 exitosos (1 errores)
-- **Score final**: 6.98
+- **Total tests**: 210/211 exitosos (1 errores)
+- **Score final**: 6.99
 - **Calidad**: 8.08
-- **Judge score (Phi-4)**: 3.80/10
+- **Judge score (Phi-4)**: 3.82/10
 - **Velocidad**: 49 tok/s
-- **Latencia primera token**: 30.99s
-- **Costo promedio por test**: $0.05243
+- **Latencia primera token**: 30.72s
+- **Costo promedio por test**: $0.05150
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -43,7 +43,7 @@
 | summarization | 2 | 2 | 6.53 | 7.50 |
 | task_management | 3 | 3 | 7.45 | 8.77 |
 | tool_calling | 4 | 4 | 5.38 | 5.49 |
-| translation | 4 | 3 | 7.10 | 7.91 |
+| translation | 8 | 7 | 7.24 | 8.05 |
 
 ## Detalle por test
 
@@ -1384,6 +1384,10 @@ Justo estamos ayudando a startups en LatAm a hacer exactamente eso: u
 | translate_technical_en_es | 7.06 | 7.72 | 3.8 | 72 | 13.41s | OK |
 | detect_language_issues | 2.33 | 0.00 | - | 0 | 40.26s | ERROR |
 | translate_marketing_es_en | 7.15 | 8.00 | 5 | 41 | 18.53s | OK |
+| translate_marketing_es_en | 7.29 | 8.00 | 5 | 57 | 14.42s | OK |
+| translate_marketing_es_en | 7.28 | 8.00 | 5 | 53 | 15.66s | OK |
+| translate_technical_en_es | 6.26 | 6.60 | 3.0 | 77 | 14.03s | OK |
+| detect_language_issues | 8.59 | 10.00 | 5 | 62 | 21.96s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.08</summary>
 
@@ -1448,6 +1452,104 @@ Over 500 startups across LATAM are already on board. When are you jumping in?
 ```
 
 **Respuesta completa**: [`results/responses/20260714_153426_15765/glm-5.2__translation__translate_marketing_es_en.md`](../results/responses/20260714_153426_15765/glm-5.2__translation__translate_marketing_es_en.md)
+
+</details>
+
+<details><summary><code>translate_marketing_es_en</code> — score 7.29</summary>
+
+**Stats**: latencia 14.42s · 57 tok/s · 180→820 tokens · $0.00263
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La traducción es precisa, relevante y clara, manteniendo el tono cercano y energético. Ofrece insights útiles para emprendedores, adaptando el mensaje para una audiencia americana.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Stop wasting hours on what AI does in seconds.
+AutoFlow automates your most tedious workflows so you can focus on what actually matters: scaling your startup.
+
+No code. No headaches. No excuses.
+
+Over 500 startups across LATAM are already on board. When are you jumping in?
+```
+
+**Respuesta completa**: [`results/responses/20260714_165429_60810/glm-5.2__translation__translate_marketing_es_en.md`](../results/responses/20260714_165429_60810/glm-5.2__translation__translate_marketing_es_en.md)
+
+</details>
+
+<details><summary><code>translate_marketing_es_en</code> — score 7.28</summary>
+
+**Stats**: latencia 15.66s · 53 tok/s · 180→831 tokens · $0.00266
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La traducción es precisa, relevante y clara, manteniendo el tono cercano y energético. Ofrece insights útiles para emprendedores, aunque no profundiza mucho más allá del mensaje original.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Stop wasting hours on what AI does in seconds.
+AutoFlow automates your most tedious workflows so you can focus on what really matters: scaling your startup.
+
+No code. No headaches. No excuses.
+
+Over 500 LATAM startups are already on board. When are you jumping in?
+```
+
+**Respuesta completa**: [`results/responses/20260714_180704_98902/glm-5.2__translation__translate_marketing_es_en.md`](../results/responses/20260714_180704_98902/glm-5.2__translation__translate_marketing_es_en.md)
+
+</details>
+
+<details><summary><code>translate_technical_en_es</code> — score 6.26</summary>
+
+**Stats**: latencia 14.03s · 77 tok/s · 157→1074 tokens · $0.00337
+
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:4, utilidad:3)
+
+> La respuesta es correcta y relevante, pero añade información no solicitada sobre el tiempo de respuesta de los endpoints de Webhook, lo que afecta la precisión y profundidad.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para autenticarte con la API, incluye tu Bearer token en la cabecera Authorization. Los rate limits están establecidos en 100 peticiones por minuto para el plan gratuito. Si excedes el rate limit, la API devuelve un código de estado 429 con una cabecera Retry-After que indica cuándo puedes continuar
+```
+
+**Respuesta completa**: [`results/responses/20260714_180704_98902/glm-5.2__translation__translate_technical_en_es.md`](../results/responses/20260714_180704_98902/glm-5.2__translation__translate_technical_en_es.md)
+
+</details>
+
+<details><summary><code>detect_language_issues</code> — score 8.59</summary>
+
+**Stats**: latencia 21.96s · 62 tok/s · 208→1354 tokens · $0.00426
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta identifica con precisión los problemas de idioma, proporciona correcciones adecuadas y es altamente relevante y clara, ofreciendo utilidad práctica para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "problemas": [
+    {
+      "tipo": "chino",
+      "texto": "特别是在",
+      "correccion": "especialmente en"
+    },
+    {
+      "tipo": "gramatical",
+      "texto": "estan",
+      "correccion": "están"
+    },
+    {
+      "tipo": "spanglish",
+      "texto": "leveraging",
+      "correccion":
+```
+
+**Respuesta completa**: [`results/responses/20260714_180704_98902/glm-5.2__translation__detect_language_issues.md`](../results/responses/20260714_180704_98902/glm-5.2__translation__detect_language_issues.md)
 
 </details>
 

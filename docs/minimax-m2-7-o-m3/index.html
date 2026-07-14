@@ -140,9 +140,9 @@
       </div>
       <div class="verdict-card verdict-costly">
         <span class="verdict-tag">El flagship</span>
-        <strong>M3</strong>
+        <strong>M2.7</strong>
         <span class="verdict-cost">≈$6/mes</span>
-        <span class="verdict-note">calidad 8.10/10 · 66.8s. La misma calidad, más lento y más caro.</span>
+        <span class="verdict-note">calidad 7.45/10 · 38.9s. La misma calidad, más lento y más caro.</span>
       </div>
     </div>
     <p class="verdict-foot">Costos a <strong>3.000 llamadas/mes</strong> (≈100 por día).
@@ -164,30 +164,11 @@
         <th scope="col">Costo/mes</th><th scope="col">Latencia</th><th scope="col">Score</th>
       </tr></thead>
       <tbody>
-        <tr class="win"><td><strong>M2.5</strong> <span class="row-badge">← el más barato</span></td><td>7.92</td><td>8.0</td><td>8.4</td><td>8.0</td><td>7.4</td><td>≈$4/mes</td><td>20.6s</td><td>6.64</td></tr><tr><td><strong>M2.7</strong></td><td>7.45</td><td>7.9</td><td>7.8</td><td>6.9</td><td>6.7</td><td>≈$6/mes</td><td>38.9s</td><td>2.75</td></tr><tr><td><strong>M3</strong></td><td>8.10</td><td>8.0</td><td>8.5</td><td>8.5</td><td>7.4</td><td>≈$6/mes</td><td>66.8s</td><td>7.22</td></tr>
+        <tr class="win"><td><strong>M2.5</strong> <span class="row-badge">← el más barato</span></td><td>7.92</td><td>8.0</td><td>8.4</td><td>8.0</td><td>7.4</td><td>≈$4/mes</td><td>20.6s</td><td>6.54</td></tr><tr><td><strong>M3</strong></td><td>8.11</td><td>8.0</td><td>8.5</td><td>8.4</td><td>7.4</td><td>≈$6/mes</td><td>66.5s</td><td>7.17</td></tr><tr><td><strong>M2.7</strong></td><td>7.45</td><td>7.9</td><td>7.8</td><td>6.9</td><td>6.7</td><td>≈$6/mes</td><td>38.9s</td><td>2.68</td></tr>
       </tbody>
     </table></div>
   </section>
-  <section class="ladder">
-    <h2>¿Dónde se cumple el "más caro, mejor"?</h2>
-    <p>Pagar de <strong>M2.5</strong> a <strong>M3</strong> compra algo real en <strong>Razonamiento</strong>. En todo lo demás, empatan.</p>
-    <div class="table-scroll"><table class="results-table">
-      <thead><tr>
-        <th scope="col">Dimensión</th>
-        <th scope="col">M2.5<br><span class="lad-price">≈$4/mes</span></th>
-        <th scope="col">M3<br><span class="lad-price">≈$6/mes</span></th>
-        <th scope="col">Dif.</th>
-        <th scope="col">Qué compra tu plata</th>
-      </tr></thead>
-      <tbody>
-        <tr class="lad-tie"><td><strong>Coding</strong><span class="lad-desc">Genera y corrige código</span></td><td>7.98</td><td>7.99</td><td>+0.02</td><td class="lad-verdict">Empatan — el precio no compra nada</td></tr><tr class="lad-tie"><td><strong>Contenido</strong><span class="lad-desc">Escribe en español neutro</span></td><td>8.36</td><td>8.52</td><td>+0.15</td><td class="lad-verdict">Empatan — el precio no compra nada</td></tr><tr class="lad-yes"><td><strong>Razonamiento</strong><span class="lad-desc">Analiza y planifica</span></td><td>7.96</td><td>8.46</td><td>+0.49</td><td class="lad-verdict">El precio compra algo</td></tr><tr class="lad-tie"><td><strong>Agentes</strong><span class="lad-desc">Multi-turno y herramientas</span></td><td>7.44</td><td>7.37</td><td>-0.07</td><td class="lad-verdict">Empatan — el precio no compra nada</td></tr><tr class="lad-tie"><td><strong>Tool calling</strong><span class="lad-desc">Llama herramientas bien formadas</span></td><td>6.93</td><td>7.07</td><td>+0.14</td><td class="lad-verdict">Empatan — el precio no compra nada</td></tr>
-      </tbody>
-    </table></div>
-    <p class="meta">Ojo con las tres últimas filas: <strong>no entran en el score global</strong>
-    (van como dimensiones aparte, porque no todos las necesitan). O sea que si la única ventaja
-    del tier caro está ahí, <strong>es invisible en cualquier ranking</strong> — incluido el mío.</p>
-  </section>
-
+<p class="verdict-lead"><strong>M2.7 cuesta 1 veces más que M2.5.</strong> Y sí compra algo — pero solo en <strong>1 de 8</strong> categorías: multi-turno.</p><p>En las otras 7, o empatan o <strong>gana el barato</strong>. Si tu trabajo cae justo en esas 1, el tier de arriba te da algo real. Si no, estás pagando 1× por menos.</p><div class="table-scroll"><table class="results-table ladder"><thead><tr><th>Qué le pedís</th><th>M2.5<span class="lad-price">$1.40</span></th><th>M3<span class="lad-price">$1.89</span></th><th>M2.7<span class="lad-price">$1.89</span></th><th>¿El precio compra algo?</th></tr></thead><tbody><tr class="lad-tie"><td><strong>Auditar un negocio</strong><span class="lad-desc">Encontrar el error en un P&amp;L, la causalidad falsa, la métrica envenenada</span></td><td>7.30</td><td class="win">8.07</td><td>7.00</td><td class="lad-verdict">Gana M3</td></tr><tr class="lad-no"><td><strong>Planificar</strong><span class="lad-desc">Armar un plan cuya aritmética cierre y respete las restricciones</span></td><td class="win">9.20</td><td>8.90</td><td>8.80</td><td class="lad-verdict">Va al revés: gana el barato</td></tr><tr class="lad-tie"><td><strong>Escribir con restricciones</strong><span class="lad-desc">No repetir el dato falso del brief, no meter el CTA prohibido</span></td><td>6.67</td><td class="win">9.33</td><td>7.00</td><td class="lad-verdict">Gana M3</td></tr><tr class="lad-no"><td><strong>Razonamiento profundo</strong><span class="lad-desc">Matemática, lógica formal, estimaciones Fermi</span></td><td class="win">7.92</td><td>6.08</td><td>4.21</td><td class="lad-verdict">Va al revés: gana el barato</td></tr><tr class="lad-tie"><td><strong>Código</strong><span class="lad-desc">Generar y corregir código que funcione</span></td><td>8.95</td><td class="win">9.03</td><td>7.34</td><td class="lad-verdict">Gana M3</td></tr><tr class="lad-tie"><td><strong>Agentes largos</strong><span class="lad-desc">Mantener el hilo y las restricciones a lo largo de muchos turnos</span></td><td>7.96</td><td class="win">8.17</td><td>7.98</td><td class="lad-verdict">Empatan — el precio no compra nada</td></tr><tr class="lad-yes"><td><strong>Multi-turno</strong><span class="lad-desc">Conversaciones de ida y vuelta sin perder el contexto</span></td><td>7.38</td><td>7.00</td><td class="win">7.47</td><td class="lad-verdict">El precio compra algo</td></tr><tr class="lad-no"><td><strong>Tool calling</strong><span class="lad-desc">Llamar herramientas con los parámetros correctos</span></td><td class="win">6.75</td><td>4.65</td><td>5.23</td><td class="lad-verdict">Va al revés: gana el barato</td></tr></tbody></table></div><p class="meta">Los números son <strong>calidad pura</strong>: sin costo, sin velocidad. Cada categoría se compara sobre los <strong>mismos tests</strong> rendidos por los tres. Un promedio sacado de exámenes distintos no compara modelos — compara exámenes.</p>
   <section>
     <h2>Cómo leer esto sin equivocarte</h2>
     <p>Que dos tiers <strong>empaten</strong> no significa que sean idénticos: significa que
