@@ -1,13 +1,13 @@
 # GPT-4.1
 
 - **model_id**: `gpt-4.1`
-- **Total tests**: 254/254 exitosos (0 errores)
-- **Score final**: 6.60
+- **Total tests**: 160/160 exitosos (0 errores)
+- **Score final**: 7.06
 - **Calidad**: 7.62
 - **Judge score (Phi-4)**: 4.28/10
-- **Velocidad**: 61 tok/s
-- **Latencia primera token**: 19.85s
-- **Costo promedio por test**: $0.15851
+- **Velocidad**: 87 tok/s
+- **Latencia primera token**: 6.06s
+- **Costo promedio por test**: $0.00492
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,8 +15,8 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 10 | 10 | 5.59 | 5.00 |
-| agent_long_horizon | 12 | 12 | 7.13 | 8.88 |
+| agent_capabilities | 5 | 5 | 5.84 | 5.11 |
+| business_audit | 10 | 10 | 6.04 | 6.18 |
 | code_generation | 8 | 8 | 7.62 | 8.92 |
 | content_generation | 8 | 8 | 7.30 | 8.12 |
 | creativity | 8 | 8 | 6.87 | 7.26 |
@@ -25,8 +25,6 @@
 | hallucination | 6 | 6 | 7.32 | 7.81 |
 | multi_turn | 4 | 4 | 7.24 | 7.85 |
 | news_seo_writing | 10 | 10 | 6.78 | 7.96 |
-| niah_es | 72 | 72 | 5.84 | 7.43 |
-| niah_es_1m | 15 | 15 | 4.91 | 7.43 |
 | ocr_extraction | 5 | 5 | 7.13 | 7.67 |
 | orchestration | 5 | 5 | 6.70 | 6.66 |
 | policy_adherence | 4 | 4 | 7.05 | 7.13 |
@@ -2595,67 +2593,11 @@ Lo siento, pero no puedo proporcionarte esa información. Si necesitas acceso a 
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| skill_execution_complex | 6.49 | 8.67 | - | 41 | 3.18s | OK |
-| agent_team_delegation | 7.73 | 10.00 | - | 72 | 6.08s | OK |
-| ask_clarification_before_acting | 3.61 | 0.00 | - | 26 | 2.38s | OK |
-| context_following_complex_system | 2.72 | 0.00 | - | 8 | 2.10s | OK |
-| model_as_router | 6.15 | 5.80 | - | 97 | 3.41s | OK |
 | skill_execution_complex | 6.56 | 8.20 | 4.0 | 77 | 1.60s | OK |
 | agent_team_delegation | 7.43 | 9.44 | 4.6 | 89 | 5.25s | OK |
 | ask_clarification_before_acting | 3.93 | 0.00 | - | 42 | 1.29s | OK |
 | context_following_complex_system | 3.97 | 0.00 | - | 88 | 1.07s | OK |
 | model_as_router | 7.32 | 7.90 | 4.4 | 113 | 3.36s | OK |
-
-<details><summary><code>skill_execution_complex</code> — score 6.49</summary>
-
-**Stats**: latencia 3.18s · 41 tok/s · 538→130 tokens · $0.00212
-
-**Respuesta (preview 300 chars)**:
-
-```
-Plan:
-
-1. Publicar el artículo usando el skill correspondiente (publish_blog_post).
-2. Enviar el link del artículo publicado a @maria y @carlos por Slack.
-3. Agendar una reunión de revisión para el jueves a las 3 PM.
-
-Antes de ejecutar, necesito saber:
-- ¿Dónde está el enlace al doc compartido o ya
-```
-
-</details>
-
-<details><summary><code>agent_team_delegation</code> — score 7.73</summary>
-
-**Stats**: latencia 6.08s · 72 tok/s · 593→437 tokens · $0.00468
-
-**Respuesta (preview 300 chars)**:
-
-```
-Perfecto, aquí tienes el plan de ejecución desglosado y coordinado para crear la landing page de "AutoFlow AI":
-
-### 1. Investigación de la competencia (researcher)
-- Investigar 3 principales competidores en el mercado de herramientas de automatización para startups.
-- Recopilar información relevant
-```
-
-</details>
-
-<details><summary><code>model_as_router</code> — score 6.15</summary>
-
-**Stats**: latencia 3.41s · 97 tok/s · 257→332 tokens · $0.00317
-
-**Respuesta (preview 300 chars)**:
-
-```
-[
-  {
-    "subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales",
-    "modelo": "deepseek-v3",
-    "razon": "Es una tarea de razonamiento y análisis de grandes volúmenes de texto; deepseek-v3 es eficiente y barato para tareas de procesamiento y extracción de insights."
-```
-
-</details>
 
 <details><summary><code>skill_execution_complex</code> — score 6.56</summary>
 
@@ -2923,8 +2865,4 @@ En Q1 2026, TechFlow reportó ventas récord de $2.3M (+18% vs. Q4 2025), destac
 
 ### Otras suites
 
-#### agent_long_horizon
-
-#### niah_es
-
-#### niah_es_1m
+#### business_audit

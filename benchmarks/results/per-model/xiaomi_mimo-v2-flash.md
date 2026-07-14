@@ -1,13 +1,13 @@
 # MiMo-V2-Flash
 
 - **model_id**: `xiaomi/mimo-v2-flash`
-- **Total tests**: 103/103 exitosos (0 errores)
-- **Score final**: 7.41
-- **Calidad**: 7.72
+- **Total tests**: 91/101 exitosos (10 errores)
+- **Score final**: 7.39
+- **Calidad**: 7.60
 - **Judge score (Phi-4)**: 4.14/10
-- **Velocidad**: 54 tok/s
-- **Latencia primera token**: 21.03s
-- **Costo promedio por test**: $0.00057
+- **Velocidad**: 52 tok/s
+- **Latencia primera token**: 17.87s
+- **Costo promedio por test**: $0.00026
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.83 | 4.96 |
-| agent_long_horizon | 12 | 12 | 7.55 | 8.67 |
+| business_audit | 10 | 0 | - | - |
 | code_generation | 4 | 4 | 8.05 | 9.18 |
 | content_generation | 4 | 4 | 8.21 | 9.45 |
 | creativity | 4 | 4 | 7.90 | 8.71 |
@@ -1864,4 +1864,4 @@ Las ventas totales alcanzaron $2.3M (+18% QoQ), impulsadas por un crecimiento de
 
 ### Otras suites
 
-#### agent_long_horizon
+#### business_audit

@@ -1579,6 +1579,10 @@ MODELS = {
         "open_source": True, "license": "Apache 2.0",
     },
     "or-step-3.5-flash": {
+        # OpenRouter lista el id pero NINGÚN proveedor lo sirve: "No endpoints found".
+        # El modelo existe en el catálogo y no se puede llamar — que para quien
+        # decide es lo mismo que no existir. (14-jul-2026)
+        "retired": True,
         "id": "stepfun/step-3.5-flash",
         "name": "Step 3.5 Flash",
         "cost_input": 0.1, "cost_output": 0.3,
@@ -1680,6 +1684,10 @@ MODELS = {
         "open_source": True, "license": "Apache 2.0",
     },
     "or-qwen-2.5-72b": {
+        # OpenRouter lo lista pero ningún proveedor lo sirve: el upstream responde
+        # "does not exist". Está en el catálogo y no se puede llamar — que para quien
+        # decide es lo mismo que no existir. (14-jul-2026)
+        "retired": True,
         "id": "qwen/qwen-2.5-72b-instruct",
         "name": "Qwen 2.5 72B",
         "cost_input": 0.36, "cost_output": 0.4,

@@ -1,13 +1,13 @@
 # Mistral Large
 
 - **model_id**: `mistralai/mistral-large`
-- **Total tests**: 152/160 exitosos (8 errores)
-- **Score final**: 6.90
-- **Calidad**: 7.81
-- **Judge score (Phi-4)**: 4.21/10
-- **Velocidad**: 50 tok/s
-- **Latencia primera token**: 15.92s
-- **Costo promedio por test**: $0.00566
+- **Total tests**: 179/187 exitosos (8 errores)
+- **Score final**: 6.97
+- **Calidad**: 7.88
+- **Judge score (Phi-4)**: 4.29/10
+- **Velocidad**: 51 tok/s
+- **Latencia primera token**: 16.41s
+- **Costo promedio por test**: $0.01195
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,9 +15,13 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 10 | 10 | 6.39 | 8.46 |
+| agent_capabilities | 5 | 5 | 6.46 | 8.48 |
+| agent_long_horizon | 12 | 12 | 7.44 | 9.00 |
+| business_audit | 10 | 10 | 6.72 | 7.40 |
+| business_strategy | 5 | 5 | 7.94 | 9.20 |
 | code_generation | 8 | 8 | 7.69 | 9.57 |
 | content_generation | 8 | 8 | 7.03 | 8.32 |
+| content_verificable | 5 | 5 | 6.79 | 7.33 |
 | creativity | 8 | 8 | 6.65 | 7.52 |
 | customer_support | 8 | 8 | 4.11 | 1.06 |
 | deep_reasoning | 12 | 12 | 7.04 | 8.52 |
@@ -2591,97 +2595,11 @@ Somos una aceleradora *100% enfoca
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| skill_execution_complex | 6.70 | 10.00 | - | 47 | 11.41s | OK |
-| agent_team_delegation | 7.39 | 10.00 | - | 53 | 34.84s | OK |
-| ask_clarification_before_acting | 6.56 | 9.34 | - | 43 | 6.39s | OK |
-| context_following_complex_system | 3.33 | 3.64 | - | 2 | 36.26s | OK |
-| model_as_router | 7.69 | 9.20 | - | 51 | 8.78s | OK |
 | skill_execution_complex | 6.00 | 8.40 | 4.0 | 48 | 9.86s | OK |
 | agent_team_delegation | 6.34 | 9.44 | 4.6 | 54 | 32.00s | OK |
 | ask_clarification_before_acting | 6.50 | 9.52 | 4.8 | 45 | 10.23s | OK |
 | context_following_complex_system | 6.28 | 6.69 | 4.0 | 50 | 41.12s | OK |
 | model_as_router | 7.16 | 8.35 | 4.4 | 49 | 7.60s | OK |
-
-<details><summary><code>skill_execution_complex</code> — score 6.70</summary>
-
-**Stats**: latencia 11.41s · 47 tok/s · 919→532 tokens · $0.00503
-
-**Respuesta (preview 300 chars)**:
-
-```
-Voy a seguir este plan para cumplir con tu solicitud:
-
-1. **Publicar el artículo**:
-   - Usaré el skill `publish_blog_post` para publicar el artículo sobre **DeepSeek V4**. Asumiré que el documento compartido ya está en el formato o ubicación requerida para la publicación. Si no tengo acceso directo
-```
-
-</details>
-
-<details><summary><code>agent_team_delegation</code> — score 7.39</summary>
-
-**Stats**: latencia 34.84s · 53 tok/s · 970→1842 tokens · $0.01299
-
-**Respuesta (preview 300 chars)**:
-
-```
-Vamos a estructurar este proyecto en **5 fases** con tareas específicas para cada agente, respetando dependencias y prioridades. Aquí está el plan detallado:
-
----
-
-### **Fase 1: Investigación (Agente: Researcher - Prioridad: Urgent)**
-**Objetivo**: Obtener datos clave sobre la competencia para infor
-```
-
-</details>
-
-<details><summary><code>ask_clarification_before_acting</code> — score 6.56</summary>
-
-**Stats**: latencia 6.39s · 43 tok/s · 821→276 tokens · $0.00330
-
-**Respuesta (preview 300 chars)**:
-
-```
-Antes de proceder con el **reembolso del cliente**, necesito confirmar o aclarar la siguiente información para evitar errores irreversibles:
-
-1. **Identificación del cliente**: ¿Cuál es el nombre, correo electrónico o ID del cliente?
-2. **Orden o transacción**: ¿Cuál es el número de orden, factura o
-```
-
-</details>
-
-<details><summary><code>context_following_complex_system</code> — score 3.33</summary>
-
-**Stats**: latencia 36.26s · 2 tok/s · 995→86 tokens · $0.00251
-
-**Respuesta (preview 300 chars)**:
-
-```
-Vamos por partes, con cuidado de seguir nuestras reglas:
-
-1. **Publicación del artículo sobre financiamiento de IA en LATAM**
-   ¡Perfecto! Voy a proceder con la publicación. Antes de hacerlo, confirmo:
-   - El artículo ya está revisado y aprobado por el equipo editorial.
-   - Tiene imágenes optimiz
-```
-
-</details>
-
-<details><summary><code>model_as_router</code> — score 7.69</summary>
-
-**Stats**: latencia 8.78s · 51 tok/s · 271→449 tokens · $0.00324
-
-**Respuesta (preview 300 chars)**:
-
-```
-```json
-[
-    {
-        "subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales",
-        "modelo": "devstral",
-        "razon": "Devstral es un modelo general rápido y eficiente, ideal para procesar grandes volúmenes de texto y extraer insights de manera precisa. Su equi
-```
-
-</details>
 
 <details><summary><code>skill_execution_complex</code> — score 6.00</summary>
 
@@ -2979,3 +2897,13 @@ Aquí tienes la información de los tres candidatos en formato JSON:
 ```
 
 </details>
+
+### Otras suites
+
+#### business_audit
+
+#### business_strategy
+
+#### content_verificable
+
+#### agent_long_horizon

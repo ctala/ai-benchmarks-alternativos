@@ -1,13 +1,13 @@
 # Nemotron 3 Super
 
 - **model_id**: `nvidia/nemotron-3-super-120b-a12b`
-- **Total tests**: 156/170 exitosos (14 errores)
-- **Score final**: 6.44
+- **Total tests**: 187/202 exitosos (15 errores)
+- **Score final**: 6.42
 - **Calidad**: 6.89
-- **Judge score (Phi-4)**: 3.61/10
-- **Velocidad**: 21 tok/s
-- **Latencia primera token**: 38.18s
-- **Costo promedio por test**: $0.00258
+- **Judge score (Phi-4)**: 3.73/10
+- **Velocidad**: 25 tok/s
+- **Latencia primera token**: 47.25s
+- **Costo promedio por test**: $0.00274
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,21 +15,25 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 4.43 | 3.07 |
+| agent_capabilities | 5 | 5 | 4.39 | 2.76 |
+| agent_long_horizon | 12 | 11 | 7.16 | 8.09 |
+| business_audit | 10 | 10 | 6.65 | 7.00 |
+| business_strategy | 5 | 5 | 7.13 | 7.87 |
 | code_generation | 4 | 4 | 7.65 | 8.92 |
 | content_generation | 4 | 4 | 7.66 | 8.74 |
+| content_verificable | 5 | 5 | 6.84 | 7.33 |
 | creativity | 4 | 4 | 7.50 | 8.44 |
 | customer_support | 4 | 4 | 4.36 | 2.00 |
 | deep_reasoning | 6 | 6 | 6.80 | 7.46 |
 | hallucination | 3 | 3 | 7.37 | 7.85 |
-| multi_turn | 4 | 4 | 7.32 | 8.29 |
-| news_seo_writing | 5 | 5 | 6.70 | 7.27 |
-| niah_es | 59 | 45 | 6.81 | 8.64 |
+| multi_turn | 4 | 4 | 6.58 | 7.11 |
+| news_seo_writing | 5 | 5 | 6.47 | 7.00 |
+| niah_es | 59 | 45 | 7.19 | 8.64 |
 | ocr_extraction | 5 | 5 | 6.75 | 7.07 |
 | orchestration | 5 | 5 | 4.49 | 2.14 |
 | policy_adherence | 4 | 4 | 7.21 | 7.72 |
 | presentation | 2 | 2 | 7.89 | 9.14 |
-| prompt_injection_es | 20 | 20 | 3.78 | 1.69 |
+| prompt_injection_es | 20 | 20 | 2.18 | 1.00 |
 | reasoning | 3 | 3 | 7.57 | 9.16 |
 | sales_outreach | 3 | 3 | 7.72 | 8.59 |
 | startup_content | 5 | 5 | 7.65 | 9.13 |
@@ -977,7 +981,7 @@ Esta semana traemos avances que están redefiniendo cómo las startups construye
 | news_spanish_only | 7.24 | 8.26 | 4.4 | 25 | 55.50s | OK |
 | news_no_hallucination_sources | 6.33 | 6.64 | 4.0 | 24 | 83.45s | OK |
 | news_perplexity_enrichment | 7.25 | 7.89 | 4.0 | 65 | 31.63s | OK |
-| news_json_output_strict | 6.09 | 6.34 | 3.2 | 5 | 257.42s | OK |
+| news_json_output_strict | 4.94 | 5.00 | 3.2 | 5 | 257.42s | OK |
 
 <details><summary><code>news_seo_article_full</code> — score 6.61</summary>
 
@@ -1040,7 +1044,7 @@ DeepSeek lanzó recientemente V4, su último modelo de inteligencia artificial b
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 6.09</summary>
+<details><summary><code>news_json_output_strict</code> — score 4.94</summary>
 
 **Stats**: latencia 257.42s · 5 tok/s · 314→1212 tokens · $0.00064
 
@@ -1426,7 +1430,7 @@ Además, si tienes a mano algún ID de pedido
 | content_iteration | 7.50 | 8.16 | 4.4 | 22 | 17.80s | OK |
 | support_escalation | 6.37 | 6.72 | 3.8 | 24 | 87.30s | OK |
 | debugging_conversation | 7.78 | 9.55 | 5.0 | 24 | 85.93s | OK |
-| requirements_change | 7.61 | 8.72 | 4.6 | 171 | 27.41s | OK |
+| requirements_change | 4.66 | 4.00 | 4.6 | 171 | 27.41s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.50</summary>
 
@@ -1476,7 +1480,7 @@ First, check the policies. Policy 2 says refund
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 7.61</summary>
+<details><summary><code>requirements_change</code> — score 4.66</summary>
 
 **Stats**: latencia 27.41s · 171 tok/s · 248→4699 tokens · $0.00237
 
@@ -1583,7 +1587,7 @@ Lamentablemente no puedo brindar soporte técnico espe
 | skill_execution_complex | 2.28 | 0.00 | - | 21 | 16.89s | OK |
 | agent_team_delegation | 3.04 | 0.00 | - | 19 | 20.59s | OK |
 | ask_clarification_before_acting | 3.75 | 0.00 | - | 21 | 21.21s | OK |
-| context_following_complex_system | 5.39 | 6.53 | 4.0 | 25 | 33.73s | OK |
+| context_following_complex_system | 5.19 | 5.00 | 4.0 | 25 | 33.73s | OK |
 
 <details><summary><code>model_as_router</code> — score 7.69</summary>
 
@@ -1603,7 +1607,7 @@ Lamentablemente no puedo brindar soporte técnico espe
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 5.39</summary>
+<details><summary><code>context_following_complex_system</code> — score 5.19</summary>
 
 **Stats**: latencia 33.73s · 25 tok/s · 1374→845 tokens · $0.00056
 
@@ -1737,3 +1741,11 @@ En Q1 2026, TechFlow alcanzó ventas de $2.3 M (+18 % vs Q4 2025), impul
 #### niah_es
 
 #### prompt_injection_es
+
+#### business_audit
+
+#### business_strategy
+
+#### content_verificable
+
+#### agent_long_horizon

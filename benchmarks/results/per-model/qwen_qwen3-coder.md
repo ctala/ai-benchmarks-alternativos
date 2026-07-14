@@ -1,13 +1,13 @@
 # Qwen3 Coder
 
 - **model_id**: `qwen/qwen3-coder`
-- **Total tests**: 155/155 exitosos (0 errores)
-- **Score final**: 7.30
-- **Calidad**: 7.57
-- **Judge score (Phi-4)**: 4.22/10
-- **Velocidad**: 54 tok/s
-- **Latencia primera token**: 17.65s
-- **Costo promedio por test**: $0.00044
+- **Total tests**: 182/182 exitosos (0 errores)
+- **Score final**: 7.35
+- **Calidad**: 7.68
+- **Judge score (Phi-4)**: 4.28/10
+- **Velocidad**: 52 tok/s
+- **Latencia primera token**: 18.08s
+- **Costo promedio por test**: $0.00065
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,9 +15,13 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 10 | 10 | 5.98 | 6.00 |
+| agent_capabilities | 5 | 5 | 6.08 | 6.00 |
+| agent_long_horizon | 12 | 12 | 7.62 | 8.67 |
+| business_audit | 10 | 10 | 6.89 | 7.00 |
+| business_strategy | 5 | 5 | 8.16 | 8.80 |
 | code_generation | 8 | 8 | 8.22 | 9.26 |
 | content_generation | 8 | 8 | 7.39 | 7.84 |
+| content_verificable | 5 | 5 | 7.00 | 7.33 |
 | creativity | 8 | 8 | 7.08 | 7.25 |
 | customer_support | 8 | 8 | 4.52 | 1.62 |
 | deep_reasoning | 12 | 12 | 7.77 | 8.79 |
@@ -2561,95 +2565,11 @@ Te cuento que tenemos un programa de 6 meses donde apoyamos a emprendimientos qu
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| skill_execution_complex | 4.85 | 5.33 | - | 13 | 9.20s | OK |
-| agent_team_delegation | 6.08 | 5.67 | - | 31 | 5.42s | OK |
-| ask_clarification_before_acting | 6.97 | 8.67 | - | 34 | 4.63s | OK |
-| context_following_complex_system | 3.47 | 1.07 | - | 62 | 1.78s | OK |
-| model_as_router | 7.98 | 9.20 | - | 23 | 14.01s | OK |
 | skill_execution_complex | 3.02 | 0.00 | - | 19 | 2.98s | OK |
 | agent_team_delegation | 6.34 | 6.72 | 3.8 | 22 | 12.43s | OK |
 | ask_clarification_before_acting | 7.56 | 7.40 | 4.0 | 19 | 5.93s | OK |
 | context_following_complex_system | 5.70 | 6.97 | 4.2 | 17 | 11.72s | OK |
 | model_as_router | 7.80 | 8.92 | 4.4 | 22 | 18.21s | OK |
-
-<details><summary><code>skill_execution_complex</code> — score 4.85</summary>
-
-**Stats**: latencia 9.20s · 13 tok/s · 1284→123 tokens · $0.00033
-
-**Respuesta (preview 300 chars)**:
-
-```
-Voy a ayudarte con la publicación del artículo sobre DeepSeek V4, notificar a los colegas y agendar la reunión de revisión.
-
-Primero, voy a verificar si tengo toda la información necesaria para ejecutar el skill de publicación de blog post.
-```
-
-</details>
-
-<details><summary><code>agent_team_delegation</code> — score 6.08</summary>
-
-**Stats**: latencia 5.42s · 31 tok/s · 1335→168 tokens · $0.00037
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Plan de ejecución para la landing page de AutoFlow AI
-
-Voy a coordinar la creación de la landing page siguiendo un orden lógico que respete las dependencias entre tareas. Primero investigaremos a la competencia, luego crearemos el contenido, después el código y los assets visuales, y finalmente ha
-```
-
-</details>
-
-<details><summary><code>ask_clarification_before_acting</code> — score 6.97</summary>
-
-**Stats**: latencia 4.63s · 34 tok/s · 1182→156 tokens · $0.00033
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para procesar el reembolso del cliente, necesito algunos detalles específicos para asegurarme de hacerlo correctamente y evitar errores. 
-
-Por favor, proporciona la siguiente información:
-1. ¿Cuál es el ID de la transacción o pedido que se va a reembolsar?
-2. ¿Cuál es el monto a reembolsar? ¿Es el t
-```
-
-</details>
-
-<details><summary><code>context_following_complex_system</code> — score 3.47</summary>
-
-**Stats**: latencia 1.78s · 62 tok/s · 1358→111 tokens · $0.00034
-
-**Respuesta (preview 300 chars)**:
-
-```
-Regarding your requests:
-
-1. I can help publish the article about AI funding in LATAM. I'll need you to confirm it's ready and provide any final details.
-
-2. I cannot approve the $2,000 budget for the marketing campaign as it exceeds my approval limit of $500. This will require escalation to a human
-```
-
-</details>
-
-<details><summary><code>model_as_router</code> — score 7.98</summary>
-
-**Stats**: latencia 14.01s · 23 tok/s · 292→327 tokens · $0.00026
-
-**Respuesta (preview 300 chars)**:
-
-```
-[
-  {
-    "subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales",
-    "modelo": "deepseek-v3",
-    "razon": "Requiere razonamiento analítico para identificar patrones y sintetizar información de grandes volúmenes de texto"
-  },
-  {
-    "subtarea": "Escribir un email de
-```
-
-</details>
 
 <details><summary><code>agent_team_delegation</code> — score 6.34</summary>
 
@@ -2923,3 +2843,13 @@ TechFlow reporta un crecimiento del 18% en ventas trimestrales, alcanzando $2.3M
 ```
 
 </details>
+
+### Otras suites
+
+#### business_audit
+
+#### business_strategy
+
+#### content_verificable
+
+#### agent_long_horizon

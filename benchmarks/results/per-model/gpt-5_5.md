@@ -1,13 +1,13 @@
 # GPT-5.5
 
 - **model_id**: `gpt-5.5`
-- **Total tests**: 151/154 exitosos (3 errores)
-- **Score final**: 6.10
-- **Calidad**: 7.29
+- **Total tests**: 101/104 exitosos (3 errores)
+- **Score final**: 6.24
+- **Calidad**: 7.27
 - **Judge score (Phi-4)**: 4.13/10
-- **Velocidad**: 53 tok/s
-- **Latencia primera token**: 17.10s
-- **Costo promedio por test**: $0.08658
+- **Velocidad**: 59 tok/s
+- **Latencia primera token**: 24.19s
+- **Costo promedio por test**: $0.04237
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.15 | 4.77 |
-| agent_long_horizon | 12 | 12 | 6.59 | 9.08 |
+| business_audit | 10 | 10 | 5.61 | 6.45 |
 | code_generation | 4 | 4 | 6.64 | 8.48 |
 | content_generation | 4 | 4 | 7.10 | 8.88 |
 | creativity | 4 | 4 | 6.76 | 8.71 |
@@ -25,7 +25,6 @@
 | hallucination | 3 | 3 | 6.92 | 8.07 |
 | multi_turn | 4 | 4 | 6.37 | 7.58 |
 | news_seo_writing | 5 | 5 | 5.84 | 7.28 |
-| niah_es_lite | 45 | 45 | 5.56 | 6.68 |
 | ocr_extraction | 5 | 5 | 6.26 | 7.31 |
 | orchestration | 5 | 5 | 5.37 | 5.13 |
 | policy_adherence | 4 | 4 | 6.59 | 7.74 |
@@ -39,7 +38,7 @@
 | summarization | 2 | 2 | 6.67 | 7.72 |
 | task_management | 3 | 3 | 6.49 | 8.33 |
 | tool_calling | 4 | 4 | 6.05 | 5.31 |
-| translation | 9 | 6 | 6.51 | 7.32 |
+| translation | 6 | 3 | 6.75 | 7.69 |
 
 ## Detalle por test
 
@@ -1388,9 +1387,6 @@ Estamos ayudando a startups a convertir ideas internas —posts, webinars, notas
 | translate_marketing_es_en | 6.81 | 5.60 | - | 0 | 2.24s | ERROR |
 | translate_technical_en_es | 4.85 | 0.00 | - | 0 | 1.45s | ERROR |
 | detect_language_issues | 4.85 | 0.00 | - | 0 | 0.21s | ERROR |
-| translate_marketing_es_en | 6.94 | 8.00 | - | 36 | 4.59s | OK |
-| translate_technical_en_es | 7.06 | 8.00 | - | 37 | 2.65s | OK |
-| detect_language_issues | 4.80 | 4.88 | - | 76 | 17.17s | OK |
 | translate_marketing_es_en | 6.96 | 8.00 | 4.0 | 49 | 3.08s | OK |
 | translate_technical_en_es | 7.21 | 7.72 | 3.8 | 62 | 1.62s | OK |
 | detect_language_issues | 6.09 | 7.34 | 4.2 | 86 | 12.28s | OK |
@@ -1410,64 +1406,6 @@ Estamos ayudando a startups a convertir ideas internas —posts, webinars, notas
 <details><summary><code>detect_language_issues</code> — score 4.85</summary>
 
 **Error**: `Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.7 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'te...`
-
-</details>
-
-<details><summary><code>translate_marketing_es_en</code> — score 6.94</summary>
-
-**Stats**: latencia 4.59s · 36 tok/s · 157→166 tokens · $0.00577
-
-**Respuesta (preview 300 chars)**:
-
-```
-Stop wasting hours on work AI can handle in seconds.
-AutoFlow automates your most tedious workflows so you can focus on what actually matters: growing your startup.
-
-No code. No headaches. No excuses.
-
-Over 500 startups across Latin America already use it. When are you getting started?
-```
-
-**Respuesta completa**: [`results/responses/20260425_052621/gpt-5.5__translation__translate_marketing_es_en.md`](../results/responses/20260425_052621/gpt-5.5__translation__translate_marketing_es_en.md)
-
-</details>
-
-<details><summary><code>translate_technical_en_es</code> — score 7.06</summary>
-
-**Stats**: latencia 2.65s · 37 tok/s · 149→99 tokens · $0.00371
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para autenticarte con la API, incluye tu Bearer token en el header Authorization. Los rate limits están establecidos en 100 requests por minuto para el free tier. Si excedes el rate limit, la API devuelve un status code 429 con un header Retry-After que indica cuándo puedes reanudar. Los webhook end
-```
-
-**Respuesta completa**: [`results/responses/20260425_052621/gpt-5.5__translation__translate_technical_en_es.md`](../results/responses/20260425_052621/gpt-5.5__translation__translate_technical_en_es.md)
-
-</details>
-
-<details><summary><code>detect_language_issues</code> — score 4.80</summary>
-
-**Stats**: latencia 17.17s · 76 tok/s · 198→1314 tokens · $0.04041
-
-**Respuesta (preview 300 chars)**:
-
-```
-{
-  "problemas": [
-    {
-      "tipo": "cliche",
-      "texto": "ha revolucionado el mundo de las startups",
-      "correccion": "ha transformado el sector de las empresas emergentes"
-    },
-    {
-      "tipo": "spanglish",
-      "texto": "startups",
-      "correccion": "empresas emergentes"
-    },
-```
-
-**Respuesta completa**: [`results/responses/20260425_052621/gpt-5.5__translation__detect_language_issues.md`](../results/responses/20260425_052621/gpt-5.5__translation__detect_language_issues.md)
 
 </details>
 
@@ -2102,6 +2040,4 @@ El objetivo es llegar al lanzamiento con una landing funcional, responsive, medi
 
 ### Otras suites
 
-#### agent_long_horizon
-
-#### niah_es_lite
+#### business_audit

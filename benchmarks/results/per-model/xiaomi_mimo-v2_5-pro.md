@@ -1,13 +1,13 @@
 # MiMo-V2.5 Pro
 
 - **model_id**: `xiaomi/mimo-v2.5-pro`
-- **Total tests**: 91/91 exitosos (0 errores)
-- **Score final**: 6.77
-- **Calidad**: 7.36
-- **Judge score (Phi-4)**: 4.14/10
-- **Velocidad**: 61 tok/s
-- **Latencia primera token**: 18.48s
-- **Costo promedio por test**: $0.00370
+- **Total tests**: 119/119 exitosos (0 errores)
+- **Score final**: 7.03
+- **Calidad**: 7.82
+- **Judge score (Phi-4)**: 4.22/10
+- **Velocidad**: 56 tok/s
+- **Latencia primera token**: 21.31s
+- **Costo promedio por test**: $0.00629
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,8 +16,12 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.26 | 6.78 |
+| agent_long_horizon | 12 | 12 | 7.93 | 9.67 |
+| business_audit | 6 | 6 | 7.49 | 8.67 |
+| business_strategy | 5 | 5 | 7.86 | 9.20 |
 | code_generation | 4 | 4 | 6.75 | 7.64 |
 | content_generation | 4 | 4 | 7.58 | 9.02 |
+| content_verificable | 5 | 5 | 8.14 | 9.33 |
 | creativity | 4 | 4 | 6.95 | 7.89 |
 | customer_support | 4 | 4 | 7.28 | 7.27 |
 | deep_reasoning | 6 | 6 | 6.31 | 6.88 |
@@ -2118,3 +2122,13 @@ Aquí tienes los tres perfiles extraídos en formato JSON:
 **Respuesta completa**: [`results/responses/20260426_074254/mimo-v2.5-pro__summarization__extract_structured_data.md`](../results/responses/20260426_074254/mimo-v2.5-pro__summarization__extract_structured_data.md)
 
 </details>
+
+### Otras suites
+
+#### business_audit
+
+#### business_strategy
+
+#### content_verificable
+
+#### agent_long_horizon

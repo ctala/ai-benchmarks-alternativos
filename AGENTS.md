@@ -83,7 +83,7 @@ docs/data/models.json                # JSON consolidado para programs (ver schem
 | Sub-tarea | Top recomendación | Por qué |
 |---|---|---|
 | Blog técnico en español | Gemini 3.1 Flash Lite / Qwen 3.5 397B Cloud | Mejor manejo de tecnicismos en español |
-| Newsletter ecosistema startup | Qwen 3.5 397B Cloud (caso real Cristian) | Score 7.31 en `blog_actualidad_startup` |
+| Newsletter ecosistema startup | Qwen 3.5 397B Cloud (caso real Cristian) | Quality 8.11 en `blog_actualidad_startup` |
 | Copy de marketing | Mistral Small 4 / GPT-4.1 | Tono natural, no robótico |
 | Traducciones es↔en | Gemini 2.5 Flash | Coherencia multilingüe |
 | Posts redes sociales | Llama 3.3 70B Groq | Velocidad + tono casual |

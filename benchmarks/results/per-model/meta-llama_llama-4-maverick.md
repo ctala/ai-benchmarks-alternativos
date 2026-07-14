@@ -1,13 +1,13 @@
 # Llama 4 Maverick
 
 - **model_id**: `meta-llama/llama-4-maverick`
-- **Total tests**: 288/313 exitosos (25 errores)
-- **Score final**: 6.80
-- **Calidad**: 7.81
-- **Judge score (Phi-4)**: 3.05/10
-- **Velocidad**: 29 tok/s
-- **Latencia primera token**: 8.96s
-- **Costo promedio por test**: $0.02694
+- **Total tests**: 324/345 exitosos (21 errores)
+- **Score final**: 6.91
+- **Calidad**: 7.71
+- **Judge score (Phi-4)**: 3.23/10
+- **Velocidad**: 32 tok/s
+- **Latencia primera token**: 9.35s
+- **Costo promedio por test**: $0.02422
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,21 +15,25 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 10 | 2 | 7.73 | 9.06 |
+| agent_capabilities | 5 | 1 | 7.80 | 8.92 |
+| agent_long_horizon | 12 | 12 | 7.97 | 8.83 |
+| business_audit | 10 | 10 | 6.25 | 6.45 |
+| business_strategy | 5 | 5 | 7.75 | 8.50 |
 | code_generation | 8 | 8 | 7.53 | 8.44 |
 | content_generation | 8 | 8 | 7.36 | 7.96 |
+| content_verificable | 5 | 5 | 6.58 | 6.67 |
 | creativity | 8 | 8 | 7.16 | 7.24 |
 | customer_support | 8 | 4 | 5.33 | 4.75 |
 | deep_reasoning | 12 | 12 | 7.29 | 8.08 |
 | hallucination | 6 | 6 | 7.58 | 8.12 |
 | multi_turn | 4 | 4 | 7.03 | 6.76 |
 | news_seo_writing | 10 | 10 | 6.93 | 7.31 |
-| niah_es | 118 | 114 | 7.15 | 9.78 |
+| niah_es | 118 | 114 | 7.87 | 9.78 |
 | ocr_extraction | 5 | 5 | 7.25 | 7.73 |
-| orchestration | 5 | 0 | - | - |
+| orchestration | 10 | 5 | 7.43 | 8.10 |
 | policy_adherence | 4 | 4 | 7.52 | 7.66 |
 | presentation | 4 | 4 | 7.49 | 8.49 |
-| prompt_injection_es | 40 | 40 | 3.91 | 1.80 |
+| prompt_injection_es | 40 | 40 | 2.41 | 1.10 |
 | reasoning | 6 | 6 | 7.50 | 8.82 |
 | sales_outreach | 3 | 3 | 7.96 | 9.12 |
 | startup_content | 10 | 10 | 7.77 | 9.01 |
@@ -2222,6 +2226,11 @@ Sin embargo, puedo ayudarte a
 | complex_workflow_decomposition | 3.80 | 2.00 | - | 0 | 0.01s | ERROR |
 | tool_selection_precision | 3.38 | 0.80 | - | 0 | 0.01s | ERROR |
 | parallel_vs_sequential_judgment | 4.85 | 0.00 | - | 0 | 0.02s | ERROR |
+| multi_step_research_plan | 7.61 | 8.32 | 3.8 | 39 | 9.43s | OK |
+| error_recovery_orchestration | 5.34 | 5.00 | 4.0 | 23 | 4.29s | OK |
+| complex_workflow_decomposition | 6.65 | 7.20 | 4.0 | 35 | 31.67s | OK |
+| tool_selection_precision | 8.80 | 10.00 | 4.0 | 48 | 5.58s | OK |
+| parallel_vs_sequential_judgment | 8.77 | 10.00 | 5 | 44 | 9.82s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 3.10</summary>
 
@@ -2250,6 +2259,118 @@ Sin embargo, puedo ayudarte a
 <details><summary><code>parallel_vs_sequential_judgment</code> — score 4.85</summary>
 
 **Error**: `Error code: 404 - {'error': {'message': 'No endpoints found that support tool use. Try disabling "search_web". To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/pr...`
+
+</details>
+
+<details><summary><code>multi_step_research_plan</code> — score 7.61</summary>
+
+**Stats**: latencia 9.43s · 39 tok/s · 1449→367 tokens · $0.00109
+
+**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para preparar el reporte solicitado, se deben realizar varias tareas de investigación y análisis de datos. A continuación, se presentan los pasos necesarios para completar el reporte:
+
+### Plan de Acción
+
+1. **Buscar las 5 principales startups de IA en Chile con su funding**:
+   - Utilizar la funció
+```
+
+**Respuesta completa**: [`results/responses/20260714_064833_35467/llama-4-maverick__orchestration__multi_step_research_plan.md`](../results/responses/20260714_064833_35467/llama-4-maverick__orchestration__multi_step_research_plan.md)
+
+</details>
+
+<details><summary><code>error_recovery_orchestration</code> — score 5.34</summary>
+
+**Stats**: latencia 4.29s · 23 tok/s · 1453→100 tokens · $0.00083
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, ofreciendo un plan alternativo claro y práctico para obtener los datos de ventas, aunque carece de profundidad en términos de insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+La base de datos está en mantenimiento y no estará disponible hasta dentro de 2 horas. Necesito encontrar una alternativa para obtener los datos de ventas.
+
+Puedo intentar leer un archivo local que contenga los datos de ventas del mes pasado. Si existe un archivo con esos datos, puedo leerlo y proce
+```
+
+**Respuesta completa**: [`results/responses/20260714_064833_35467/llama-4-maverick__orchestration__error_recovery_orchestration.md`](../results/responses/20260714_064833_35467/llama-4-maverick__orchestration__error_recovery_orchestration.md)
+
+</details>
+
+<details><summary><code>complex_workflow_decomposition</code> — score 6.65</summary>
+
+**Stats**: latencia 31.67s · 35 tok/s · 1459→1104 tokens · $0.00183
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, con una buena planificación y claridad, aunque la profundidad podría mejorarse con más detalles sobre la gestión de errores y suposiciones.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para automatizar el proceso de onboarding del nuevo cliente, seguiré los pasos indicados utilizando las herramientas disponibles.
+
+### Paso 1: El cliente envió sus datos por email
+Ya tenemos los datos del cliente: nombre = Andres Morales, empresa = DataPulse SpA, email = andres@datapulse.cl.
+
+### Pa
+```
+
+**Respuesta completa**: [`results/responses/20260714_064833_35467/llama-4-maverick__orchestration__complex_workflow_decomposition.md`](../results/responses/20260714_064833_35467/llama-4-maverick__orchestration__complex_workflow_decomposition.md)
+
+</details>
+
+<details><summary><code>tool_selection_precision</code> — score 8.80</summary>
+
+**Stats**: latencia 5.58s · 48 tok/s · 1448→269 tokens · $0.00099
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con una planificación adecuada, aunque la profundidad es solo aceptable ya que no ofrece insights adicionales más allá de la elección de herramientas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Tarea 1: Verificar si el servidor de producción está respondiendo**
+
+* Herramienta: `http_request`
+* Razón: La tarea requiere hacer una petición HTTP a la URL del servidor de producción para verificar su estado. `http_request` es la herramienta más adecuada para realizar esta tarea.
+
+**Tarea 2: Ob
+```
+
+**Respuesta completa**: [`results/responses/20260714_064833_35467/llama-4-maverick__orchestration__tool_selection_precision.md`](../results/responses/20260714_064833_35467/llama-4-maverick__orchestration__tool_selection_precision.md)
+
+</details>
+
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 8.77</summary>
+
+**Stats**: latencia 9.82s · 44 tok/s · 1511→430 tokens · $0.00119
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con una buena planificación de las dependencias y tareas paralelizables.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Análisis de Dependencias y Plan de Ejecución**
+
+1. **Diagrama de Dependencias**
+
+- A (Buscar precios de competidores) -> C (Calcular precio óptimo)
+- B (Generar descripción del producto) -> D (Crear landing page)
+- C (Calcular precio óptimo) -> D (Crear landing page)
+- D (Crear landing page) -> E
+```
+
+**Respuesta completa**: [`results/responses/20260714_064833_35467/llama-4-maverick__orchestration__parallel_vs_sequential_judgment.md`](../results/responses/20260714_064833_35467/llama-4-maverick__orchestration__parallel_vs_sequential_judgment.md)
 
 </details>
 
@@ -2409,56 +2530,11 @@ EcoStartup es una aceleradora de startups sustentables que busca impulsar negoci
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| skill_execution_complex | 3.10 | 0.00 | - | 0 | 0.33s | ERROR |
-| agent_team_delegation | 3.10 | 0.00 | - | 0 | 0.01s | ERROR |
-| ask_clarification_before_acting | 3.10 | 0.00 | - | 0 | 0.01s | ERROR |
-| context_following_complex_system | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
-| model_as_router | 7.67 | 9.20 | - | 12 | 28.41s | OK |
 | skill_execution_complex | 3.10 | 0.00 | - | 0 | 0.03s | ERROR |
 | agent_team_delegation | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
 | ask_clarification_before_acting | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
 | context_following_complex_system | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
 | model_as_router | 7.80 | 8.92 | 4.4 | 38 | 10.41s | OK |
-
-<details><summary><code>skill_execution_complex</code> — score 3.10</summary>
-
-**Error**: `Error code: 404 - {'error': {'message': 'No endpoints found that support tool use. Try disabling "delegate_to_agent". To learn more about provider routing, visit: https://openrouter.ai/docs/guides/rou...`
-
-</details>
-
-<details><summary><code>agent_team_delegation</code> — score 3.10</summary>
-
-**Error**: `Error code: 404 - {'error': {'message': 'No endpoints found that support tool use. Try disabling "delegate_to_agent". To learn more about provider routing, visit: https://openrouter.ai/docs/guides/rou...`
-
-</details>
-
-<details><summary><code>ask_clarification_before_acting</code> — score 3.10</summary>
-
-**Error**: `Error code: 404 - {'error': {'message': 'No endpoints found that support tool use. Try disabling "delegate_to_agent". To learn more about provider routing, visit: https://openrouter.ai/docs/guides/rou...`
-
-</details>
-
-<details><summary><code>context_following_complex_system</code> — score 3.10</summary>
-
-**Error**: `Error code: 404 - {'error': {'message': 'No endpoints found that support tool use. Try disabling "delegate_to_agent". To learn more about provider routing, visit: https://openrouter.ai/docs/guides/rou...`
-
-</details>
-
-<details><summary><code>model_as_router</code> — score 7.67</summary>
-
-**Stats**: latencia 28.41s · 12 tok/s · 266→349 tokens · $0.00048
-
-**Respuesta (preview 300 chars)**:
-
-```
-Aquí te dejo mis recomendaciones en formato JSON:
-
-[
-  {"subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales", "modelo": "claude-sonnet", "razon": "Requiere empatia y comprensión del lenguaje para analizar sentimientos y problemas"},
-  {"subtarea": "Escribir un email d
-```
-
-</details>
 
 <details><summary><code>skill_execution_complex</code> — score 3.10</summary>
 
@@ -2739,3 +2815,11 @@ Aquí está la información extraída de los 3 perfiles de candidatos en formato
 #### niah_es
 
 #### prompt_injection_es
+
+#### business_audit
+
+#### business_strategy
+
+#### content_verificable
+
+#### agent_long_horizon
