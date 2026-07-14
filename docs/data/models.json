@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T12:08:37",
+  "generated_at": "2026-07-14T13:38:35",
   "total_models": 177,
   "tested_count": 120,
   "ranked_count": 64,
@@ -246,6 +246,12 @@
         "content_verificable": 8.66,
         "business_strategy": 7.75
       },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 51,
+          "total": 59
+        }
+      },
       "quality_avg": 8.3,
       "quality_ci95": 0.426,
       "cost_score_avg": 5.85,
@@ -362,6 +368,7 @@
         "translation": 7.54,
         "agent_long_horizon": 7.67
       },
+      "suites_incompletas": {},
       "quality_avg": 8.37,
       "quality_ci95": 0.405,
       "cost_score_avg": 6.29,
@@ -473,6 +480,7 @@
         "translation": 8.46,
         "agent_long_horizon": 7.45
       },
+      "suites_incompletas": {},
       "quality_avg": 8.18,
       "quality_ci95": 0.397,
       "cost_score_avg": 7.8,
@@ -584,6 +592,7 @@
         "translation": 8.07,
         "agent_long_horizon": 7.54
       },
+      "suites_incompletas": {},
       "quality_avg": 8.23,
       "quality_ci95": 0.416,
       "cost_score_avg": 7.15,
@@ -698,6 +707,7 @@
         "business_strategy": 8.18,
         "content_verificable": 8.92
       },
+      "suites_incompletas": {},
       "quality_avg": 8.2,
       "quality_ci95": 0.378,
       "cost_score_avg": 7.93,
@@ -817,6 +827,12 @@
         "business_audit": 7.22,
         "business_strategy": 7.88,
         "content_verificable": 7.28
+      },
+      "suites_incompletas": {
+        "translation": {
+          "rindio": 2,
+          "total": 3
+        }
       },
       "quality_avg": 8.36,
       "quality_ci95": 0.371,
@@ -939,6 +955,7 @@
         "business_strategy": 7.45,
         "content_verificable": 5.91
       },
+      "suites_incompletas": {},
       "quality_avg": 8.39,
       "quality_ci95": 0.391,
       "cost_score_avg": 5.92,
@@ -1050,6 +1067,7 @@
         "translation": 7.51,
         "agent_long_horizon": 8.24
       },
+      "suites_incompletas": {},
       "quality_avg": 8.05,
       "quality_ci95": 0.437,
       "cost_score_avg": 8.0,
@@ -1161,6 +1179,7 @@
         "translation": 8.27,
         "agent_long_horizon": 7.89
       },
+      "suites_incompletas": {},
       "quality_avg": 8.06,
       "quality_ci95": 0.463,
       "cost_score_avg": 7.5,
@@ -1274,6 +1293,16 @@
         "business_audit": 8.24,
         "content_verificable": 8.31,
         "business_strategy": 7.64
+      },
+      "suites_incompletas": {
+        "strategy": {
+          "rindio": 2,
+          "total": 3
+        },
+        "business_audit": {
+          "rindio": 4,
+          "total": 10
+        }
       },
       "quality_avg": 8.25,
       "quality_ci95": 0.401,
@@ -1391,6 +1420,7 @@
         "translation": 6.83,
         "agent_long_horizon": 7.67
       },
+      "suites_incompletas": {},
       "quality_avg": 8.17,
       "quality_ci95": 0.398,
       "cost_score_avg": 7.61,
@@ -1505,6 +1535,7 @@
         "business_strategy": 7.6,
         "content_verificable": 7.69
       },
+      "suites_incompletas": {},
       "quality_avg": 8.31,
       "quality_ci95": 0.415,
       "cost_score_avg": 3.75,
@@ -1621,6 +1652,7 @@
         "content_verificable": 8.47,
         "agent_long_horizon": 7.85
       },
+      "suites_incompletas": {},
       "quality_avg": 8.07,
       "quality_ci95": 0.421,
       "cost_score_avg": 7.9,
@@ -1734,6 +1766,7 @@
         "content_verificable": 6.82,
         "agent_long_horizon": 7.31
       },
+      "suites_incompletas": {},
       "quality_avg": 7.88,
       "quality_ci95": 0.282,
       "cost_score_avg": 7.94,
@@ -1854,6 +1887,12 @@
         "content_verificable": 8.66,
         "agent_long_horizon": 8.29
       },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 51,
+          "total": 59
+        }
+      },
       "quality_avg": 7.88,
       "quality_ci95": 0.464,
       "cost_score_avg": 7.59,
@@ -1970,6 +2009,7 @@
         "translation": 8.02,
         "agent_long_horizon": 7.3
       },
+      "suites_incompletas": {},
       "quality_avg": 8.03,
       "quality_ci95": 0.437,
       "cost_score_avg": 7.66,
@@ -2080,6 +2120,7 @@
         "business_strategy": 7.52,
         "content_verificable": 7.61
       },
+      "suites_incompletas": {},
       "quality_avg": 8.24,
       "quality_ci95": 0.18,
       "cost_score_avg": 4.02,
@@ -2191,6 +2232,7 @@
         "translation": 6.81,
         "agent_long_horizon": 7.55
       },
+      "suites_incompletas": {},
       "quality_avg": 8.09,
       "quality_ci95": 0.434,
       "cost_score_avg": 7.86,
@@ -2303,6 +2345,16 @@
         "business_audit": 6.9,
         "business_strategy": 7.5,
         "content_verificable": 7.17
+      },
+      "suites_incompletas": {
+        "agent_long_horizon": {
+          "rindio": 10,
+          "total": 12
+        },
+        "niah_es": {
+          "rindio": 45,
+          "total": 59
+        }
       },
       "quality_avg": 8.26,
       "quality_ci95": 0.429,
@@ -2421,6 +2473,12 @@
         "business_strategy": 7.66,
         "content_verificable": 7.87
       },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 51,
+          "total": 59
+        }
+      },
       "quality_avg": 8.09,
       "quality_ci95": 0.438,
       "cost_score_avg": 4.77,
@@ -2537,6 +2595,7 @@
         "translation": 7.57,
         "agent_long_horizon": 7.29
       },
+      "suites_incompletas": {},
       "quality_avg": 8.11,
       "quality_ci95": 0.421,
       "cost_score_avg": 5.84,
@@ -2648,6 +2707,7 @@
         "content_verificable": 7.98,
         "agent_long_horizon": 7.04
       },
+      "suites_incompletas": {},
       "quality_avg": 8.2,
       "quality_ci95": 0.218,
       "cost_score_avg": 4.08,
@@ -2760,6 +2820,12 @@
         "content_verificable": 6.37,
         "orchestration": 7.43,
         "agent_long_horizon": 7.97
+      },
+      "suites_incompletas": {
+        "agent_capabilities": {
+          "rindio": 1,
+          "total": 5
+        }
       },
       "quality_avg": 7.95,
       "quality_ci95": 0.282,
@@ -2878,6 +2944,7 @@
         "business_strategy": 7.61,
         "content_verificable": 8.4
       },
+      "suites_incompletas": {},
       "quality_avg": 8.11,
       "quality_ci95": 0.27,
       "cost_score_avg": 4.92,
@@ -2988,6 +3055,28 @@
         "business_strategy": 7.87,
         "content_verificable": 7.82,
         "agent_long_horizon": 7.17
+      },
+      "suites_incompletas": {
+        "ocr_extraction": {
+          "rindio": 4,
+          "total": 5
+        },
+        "orchestration": {
+          "rindio": 1,
+          "total": 5
+        },
+        "multi_turn": {
+          "rindio": 2,
+          "total": 4
+        },
+        "policy_adherence": {
+          "rindio": 1,
+          "total": 4
+        },
+        "agent_capabilities": {
+          "rindio": 2,
+          "total": 5
+        }
       },
       "quality_avg": 7.96,
       "quality_ci95": 0.261,
@@ -3100,6 +3189,7 @@
         "content_verificable": 6.79,
         "agent_long_horizon": 7.44
       },
+      "suites_incompletas": {},
       "quality_avg": 8.0,
       "quality_ci95": 0.353,
       "cost_score_avg": 5.86,
@@ -3214,6 +3304,7 @@
         "business_strategy": 7.55,
         "content_verificable": 8.3
       },
+      "suites_incompletas": {},
       "quality_avg": 7.9,
       "quality_ci95": 0.415,
       "cost_score_avg": 6.92,
@@ -3331,6 +3422,16 @@
         "business_strategy": 7.18,
         "content_verificable": 8.29
       },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 51,
+          "total": 59
+        },
+        "business_audit": {
+          "rindio": 6,
+          "total": 10
+        }
+      },
       "quality_avg": 8.12,
       "quality_ci95": 0.445,
       "cost_score_avg": 3.93,
@@ -3447,6 +3548,7 @@
         "translation": 7.14,
         "agent_long_horizon": 8.09
       },
+      "suites_incompletas": {},
       "quality_avg": 7.9,
       "quality_ci95": 0.441,
       "cost_score_avg": 7.93,
@@ -3558,6 +3660,7 @@
         "content_verificable": 7.97,
         "agent_long_horizon": 7.59
       },
+      "suites_incompletas": {},
       "quality_avg": 8.08,
       "quality_ci95": 0.31,
       "cost_score_avg": 5.64,
@@ -3669,6 +3772,7 @@
         "translation": 7.07,
         "agent_long_horizon": 8.25
       },
+      "suites_incompletas": {},
       "quality_avg": 7.95,
       "quality_ci95": 0.418,
       "cost_score_avg": 8.0,
@@ -3781,6 +3885,7 @@
         "business_strategy": 7.65,
         "content_verificable": 7.31
       },
+      "suites_incompletas": {},
       "quality_avg": 8.09,
       "quality_ci95": 0.436,
       "cost_score_avg": 4.07,
@@ -3892,6 +3997,7 @@
         "content_verificable": 6.84,
         "agent_long_horizon": 8.05
       },
+      "suites_incompletas": {},
       "quality_avg": 7.9,
       "quality_ci95": 0.352,
       "cost_score_avg": 7.94,
@@ -4000,6 +4106,7 @@
         "translation": 7.98,
         "agent_long_horizon": 7.27
       },
+      "suites_incompletas": {},
       "quality_avg": 7.79,
       "quality_ci95": 0.459,
       "cost_score_avg": 6.98,
@@ -4113,6 +4220,12 @@
         "content_verificable": 7.32,
         "agent_long_horizon": 7.9
       },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 45,
+          "total": 59
+        }
+      },
       "quality_avg": 7.67,
       "quality_ci95": 0.465,
       "cost_score_avg": 7.79,
@@ -4225,6 +4338,12 @@
         "content_verificable": 6.87,
         "agent_long_horizon": 7.32
       },
+      "suites_incompletas": {
+        "agent_capabilities": {
+          "rindio": 1,
+          "total": 5
+        }
+      },
       "quality_avg": 7.87,
       "quality_ci95": 0.459,
       "cost_score_avg": 6.96,
@@ -4336,6 +4455,7 @@
         "content_verificable": 7.23,
         "agent_long_horizon": 7.75
       },
+      "suites_incompletas": {},
       "quality_avg": 7.72,
       "quality_ci95": 0.392,
       "cost_score_avg": 6.96,
@@ -4447,6 +4567,7 @@
         "content_verificable": 6.72,
         "agent_long_horizon": 7.58
       },
+      "suites_incompletas": {},
       "quality_avg": 7.78,
       "quality_ci95": 0.353,
       "cost_score_avg": 7.91,
@@ -4557,6 +4678,12 @@
         "business_strategy": 7.86,
         "content_verificable": 8.14,
         "agent_long_horizon": 7.93
+      },
+      "suites_incompletas": {
+        "business_audit": {
+          "rindio": 6,
+          "total": 10
+        }
       },
       "quality_avg": 7.88,
       "quality_ci95": 0.427,
@@ -4669,6 +4796,7 @@
         "translation": 7.11,
         "agent_long_horizon": 8.04
       },
+      "suites_incompletas": {},
       "quality_avg": 7.64,
       "quality_ci95": 0.482,
       "cost_score_avg": 7.95,
@@ -4783,6 +4911,7 @@
         "business_strategy": 5.84,
         "content_verificable": 7.96
       },
+      "suites_incompletas": {},
       "quality_avg": 7.93,
       "quality_ci95": 0.386,
       "cost_score_avg": 5.53,
@@ -4898,6 +5027,7 @@
         "content_verificable": 7.66,
         "agent_long_horizon": 7.4
       },
+      "suites_incompletas": {},
       "quality_avg": 7.85,
       "quality_ci95": 0.355,
       "cost_score_avg": 6.47,
@@ -5009,6 +5139,7 @@
         "content_verificable": 6.28,
         "agent_long_horizon": 7.18
       },
+      "suites_incompletas": {},
       "quality_avg": 7.78,
       "quality_ci95": 0.431,
       "cost_score_avg": 6.74,
@@ -5123,6 +5254,7 @@
         "business_strategy": 8.25,
         "content_verificable": 5.71
       },
+      "suites_incompletas": {},
       "quality_avg": 7.63,
       "quality_ci95": 0.474,
       "cost_score_avg": 7.64,
@@ -5238,6 +5370,7 @@
         "content_verificable": 6.2,
         "agent_long_horizon": 7.38
       },
+      "suites_incompletas": {},
       "quality_avg": 7.67,
       "quality_ci95": 0.501,
       "cost_score_avg": 7.18,
@@ -5349,6 +5482,7 @@
         "translation": 7.99,
         "agent_long_horizon": 7.36
       },
+      "suites_incompletas": {},
       "quality_avg": 7.68,
       "quality_ci95": 0.47,
       "cost_score_avg": 6.56,
@@ -5460,6 +5594,12 @@
         "business_audit": 7.43,
         "business_strategy": 8.08,
         "content_verificable": 8.76
+      },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 53,
+          "total": 59
+        }
       },
       "quality_avg": 7.67,
       "quality_ci95": 0.455,
@@ -5577,6 +5717,16 @@
         "content_verificable": 7.17,
         "agent_long_horizon": 8.25
       },
+      "suites_incompletas": {
+        "agent_capabilities": {
+          "rindio": 1,
+          "total": 5
+        },
+        "niah_es": {
+          "rindio": 30,
+          "total": 59
+        }
+      },
       "quality_avg": 7.57,
       "quality_ci95": 0.447,
       "cost_score_avg": 7.92,
@@ -5692,6 +5842,12 @@
         "business_audit": 7.46,
         "business_strategy": 7.77,
         "content_verificable": 8.47
+      },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 51,
+          "total": 59
+        }
       },
       "quality_avg": 7.76,
       "quality_ci95": 0.526,
@@ -5809,6 +5965,7 @@
         "translation": 7.99,
         "agent_long_horizon": 7.27
       },
+      "suites_incompletas": {},
       "quality_avg": 7.55,
       "quality_ci95": 0.459,
       "cost_score_avg": 7.97,
@@ -5920,6 +6077,7 @@
         "translation": 7.74,
         "agent_long_horizon": 8.1
       },
+      "suites_incompletas": {},
       "quality_avg": 7.62,
       "quality_ci95": 0.5,
       "cost_score_avg": 7.94,
@@ -6032,6 +6190,16 @@
         "business_audit": 6.44,
         "business_strategy": 8.16,
         "content_verificable": 7.6
+      },
+      "suites_incompletas": {
+        "reasoning": {
+          "rindio": 2,
+          "total": 3
+        },
+        "niah_es": {
+          "rindio": 45,
+          "total": 59
+        }
       },
       "quality_avg": 7.58,
       "quality_ci95": 0.505,
@@ -6148,6 +6316,7 @@
         "content_verificable": 7.68,
         "agent_long_horizon": 6.99
       },
+      "suites_incompletas": {},
       "quality_avg": 7.58,
       "quality_ci95": 0.514,
       "cost_score_avg": 6.93,
@@ -6260,6 +6429,12 @@
         "business_strategy": 7.71,
         "content_verificable": 8.34,
         "agent_long_horizon": 7.32
+      },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 45,
+          "total": 59
+        }
       },
       "quality_avg": 7.74,
       "quality_ci95": 0.325,
@@ -6378,6 +6553,12 @@
         "business_strategy": 7.85,
         "content_verificable": 5.77
       },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 45,
+          "total": 59
+        }
+      },
       "quality_avg": 7.59,
       "quality_ci95": 0.468,
       "cost_score_avg": 5.6,
@@ -6493,6 +6674,7 @@
         "content_verificable": 6.65,
         "agent_long_horizon": 7.24
       },
+      "suites_incompletas": {},
       "quality_avg": 7.46,
       "quality_ci95": 0.381,
       "cost_score_avg": 7.38,
@@ -6604,6 +6786,7 @@
         "content_verificable": 6.7,
         "agent_long_horizon": 7.45
       },
+      "suites_incompletas": {},
       "quality_avg": 7.19,
       "quality_ci95": 0.499,
       "cost_score_avg": 7.88,
@@ -6716,6 +6899,16 @@
         "business_strategy": 7.12,
         "content_verificable": 6.72,
         "agent_long_horizon": 7.15
+      },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 45,
+          "total": 59
+        },
+        "agent_long_horizon": {
+          "rindio": 11,
+          "total": 12
+        }
       },
       "quality_avg": 7.27,
       "quality_ci95": 0.516,
@@ -6833,6 +7026,64 @@
         "content_verificable": 7.74,
         "customer_support": 7.76
       },
+      "suites_incompletas": {
+        "tool_calling": {
+          "rindio": 3,
+          "total": 4
+        },
+        "task_management": {
+          "rindio": 2,
+          "total": 3
+        },
+        "code_generation": {
+          "rindio": 2,
+          "total": 4
+        },
+        "startup_content": {
+          "rindio": 4,
+          "total": 5
+        },
+        "deep_reasoning": {
+          "rindio": 4,
+          "total": 6
+        },
+        "structured_output": {
+          "rindio": 3,
+          "total": 4
+        },
+        "hallucination": {
+          "rindio": 2,
+          "total": 3
+        },
+        "creativity": {
+          "rindio": 3,
+          "total": 4
+        },
+        "string_precision": {
+          "rindio": 5,
+          "total": 6
+        },
+        "news_seo_writing": {
+          "rindio": 4,
+          "total": 5
+        },
+        "ocr_extraction": {
+          "rindio": 4,
+          "total": 5
+        },
+        "orchestration": {
+          "rindio": 3,
+          "total": 5
+        },
+        "multi_turn": {
+          "rindio": 3,
+          "total": 4
+        },
+        "agent_capabilities": {
+          "rindio": 3,
+          "total": 5
+        }
+      },
       "quality_avg": 7.25,
       "quality_ci95": 0.613,
       "cost_score_avg": 7.14,
@@ -6944,6 +7195,7 @@
         "translation": 7.84,
         "agent_long_horizon": 8.34
       },
+      "suites_incompletas": {},
       "quality_avg": 7.01,
       "quality_ci95": 0.535,
       "cost_score_avg": 8.0,
@@ -7058,6 +7310,7 @@
         "business_strategy": 8.0,
         "content_verificable": 7.95
       },
+      "suites_incompletas": {},
       "quality_avg": 7.16,
       "quality_ci95": 0.547,
       "cost_score_avg": 4.64,
@@ -7176,6 +7429,7 @@
         "content_verificable": 7.88,
         "agent_long_horizon": 7.32
       },
+      "suites_incompletas": {},
       "quality_avg": 7.23,
       "quality_ci95": 0.501,
       "cost_score_avg": 3.99,
@@ -7286,6 +7540,20 @@
         "content_verificable": 6.56,
         "business_strategy": 6.37,
         "agent_long_horizon": 7.48
+      },
+      "suites_incompletas": {
+        "orchestration": {
+          "rindio": 4,
+          "total": 5
+        },
+        "business_audit": {
+          "rindio": 4,
+          "total": 10
+        },
+        "agent_long_horizon": {
+          "rindio": 11,
+          "total": 12
+        }
       },
       "quality_avg": 6.8,
       "quality_ci95": 0.463,
@@ -7398,6 +7666,7 @@
         "content_verificable": 7.84,
         "agent_long_horizon": 7.13
       },
+      "suites_incompletas": {},
       "quality_avg": 6.99,
       "quality_ci95": 0.481,
       "cost_score_avg": 4.06,
@@ -7499,6 +7768,7 @@
         "presentation": 8.38,
         "startup_content": 8.37
       },
+      "suites_incompletas": {},
       "quality_avg": 9.33,
       "quality_ci95": 0.375,
       "cost_score_avg": 7.19,
@@ -7600,6 +7870,7 @@
         "presentation": 8.39,
         "startup_content": 8.26
       },
+      "suites_incompletas": {},
       "quality_avg": 9.39,
       "quality_ci95": 0.299,
       "cost_score_avg": 7.24,
@@ -7707,6 +7978,7 @@
         "sales_outreach": 8.0,
         "translation": 8.47
       },
+      "suites_incompletas": {},
       "quality_avg": 8.13,
       "quality_ci95": 0.223,
       "cost_score_avg": 8.0,
@@ -7826,6 +8098,12 @@
         "niah_es": 8.33,
         "prompt_injection_es": 5.72
       },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 51,
+          "total": 59
+        }
+      },
       "quality_avg": 8.38,
       "quality_ci95": 0.376,
       "cost_score_avg": 2.73,
@@ -7937,6 +8215,40 @@
         "translation": 7.11,
         "agent_long_horizon": 7.97
       },
+      "suites_incompletas": {
+        "presentation": {
+          "rindio": 1,
+          "total": 2
+        },
+        "customer_support": {
+          "rindio": 1,
+          "total": 4
+        },
+        "string_precision": {
+          "rindio": 5,
+          "total": 6
+        },
+        "news_seo_writing": {
+          "rindio": 4,
+          "total": 5
+        },
+        "policy_adherence": {
+          "rindio": 1,
+          "total": 4
+        },
+        "strategy": {
+          "rindio": 2,
+          "total": 3
+        },
+        "sales_outreach": {
+          "rindio": 1,
+          "total": 3
+        },
+        "agent_long_horizon": {
+          "rindio": 7,
+          "total": 12
+        }
+      },
       "quality_avg": 8.1,
       "quality_ci95": 0.471,
       "cost_score_avg": 7.83,
@@ -8043,6 +8355,16 @@
         "strategy": 7.06,
         "sales_outreach": 5.94,
         "translation": 7.43
+      },
+      "suites_incompletas": {
+        "deep_reasoning": {
+          "rindio": 5,
+          "total": 6
+        },
+        "creativity": {
+          "rindio": 3,
+          "total": 4
+        }
       },
       "quality_avg": 8.19,
       "quality_ci95": 0.445,
@@ -8153,6 +8475,7 @@
         "agent_long_horizon": 7.52,
         "prompt_injection_es": 1.89
       },
+      "suites_incompletas": {},
       "quality_avg": 8.14,
       "quality_ci95": 0.428,
       "cost_score_avg": 7.8,
@@ -8261,6 +8584,12 @@
         "translation": 7.91,
         "agent_long_horizon": 7.71
       },
+      "suites_incompletas": {
+        "agent_long_horizon": {
+          "rindio": 5,
+          "total": 12
+        }
+      },
       "quality_avg": 7.99,
       "quality_ci95": 0.481,
       "cost_score_avg": 7.99,
@@ -8361,6 +8690,16 @@
         "ocr_extraction": 8.25,
         "orchestration": 7.79,
         "multi_turn": 7.7
+      },
+      "suites_incompletas": {
+        "orchestration": {
+          "rindio": 4,
+          "total": 5
+        },
+        "multi_turn": {
+          "rindio": 2,
+          "total": 4
+        }
       },
       "quality_avg": 7.94,
       "quality_ci95": 0.562,
@@ -8483,6 +8822,7 @@
         "prompt_injection_es": 3.11,
         "business_audit": 7.35
       },
+      "suites_incompletas": {},
       "quality_avg": 8.04,
       "quality_ci95": 0.487,
       "cost_score_avg": 6.85,
@@ -8599,6 +8939,12 @@
         "prompt_injection_es": 2.23,
         "niah_es": 8.16
       },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 45,
+          "total": 59
+        }
+      },
       "quality_avg": 7.95,
       "quality_ci95": 0.454,
       "cost_score_avg": 7.95,
@@ -8709,6 +9055,24 @@
         "strategy": 6.96,
         "sales_outreach": 7.86,
         "translation": 7.51
+      },
+      "suites_incompletas": {
+        "content_generation": {
+          "rindio": 3,
+          "total": 4
+        },
+        "task_management": {
+          "rindio": 2,
+          "total": 3
+        },
+        "startup_content": {
+          "rindio": 4,
+          "total": 5
+        },
+        "news_seo_writing": {
+          "rindio": 4,
+          "total": 5
+        }
       },
       "quality_avg": 8.04,
       "quality_ci95": 0.466,
@@ -8824,6 +9188,20 @@
         "agent_long_horizon": 6.47,
         "business_audit": 6.72
       },
+      "suites_incompletas": {
+        "orchestration": {
+          "rindio": 4,
+          "total": 5
+        },
+        "multi_turn": {
+          "rindio": 1,
+          "total": 4
+        },
+        "sales_outreach": {
+          "rindio": 2,
+          "total": 3
+        }
+      },
       "quality_avg": 8.13,
       "quality_ci95": 0.564,
       "cost_score_avg": 3.42,
@@ -8932,6 +9310,7 @@
         "translation": 6.7,
         "business_audit": 6.97
       },
+      "suites_incompletas": {},
       "quality_avg": 8.01,
       "quality_ci95": 0.467,
       "cost_score_avg": 7.01,
@@ -9041,6 +9420,7 @@
         "agent_long_horizon": 7.48,
         "prompt_injection_es": 2.18
       },
+      "suites_incompletas": {},
       "quality_avg": 7.97,
       "quality_ci95": 0.455,
       "cost_score_avg": 7.88,
@@ -9160,6 +9540,16 @@
         "niah_es": 8.8,
         "business_audit": 7.27
       },
+      "suites_incompletas": {
+        "agent_capabilities": {
+          "rindio": 4,
+          "total": 5
+        },
+        "niah_es": {
+          "rindio": 45,
+          "total": 59
+        }
+      },
       "quality_avg": 7.92,
       "quality_ci95": 0.495,
       "cost_score_avg": 5.13,
@@ -9271,6 +9661,7 @@
         "sales_outreach": 6.51,
         "translation": 7.39
       },
+      "suites_incompletas": {},
       "quality_avg": 7.78,
       "quality_ci95": 0.468,
       "cost_score_avg": 7.89,
@@ -9389,6 +9780,16 @@
         "prompt_injection_es": 5.77,
         "niah_es": 8.48
       },
+      "suites_incompletas": {
+        "agent_capabilities": {
+          "rindio": 4,
+          "total": 5
+        },
+        "niah_es": {
+          "rindio": 44,
+          "total": 59
+        }
+      },
       "quality_avg": 8.06,
       "quality_ci95": 0.484,
       "cost_score_avg": 2.71,
@@ -9501,6 +9902,16 @@
         "sales_outreach": 6.55,
         "translation": 7.16
       },
+      "suites_incompletas": {
+        "ocr_extraction": {
+          "rindio": 4,
+          "total": 5
+        },
+        "orchestration": {
+          "rindio": 2,
+          "total": 5
+        }
+      },
       "quality_avg": 7.89,
       "quality_ci95": 0.488,
       "cost_score_avg": 8.0,
@@ -9610,6 +10021,12 @@
         "prompt_injection_es": 2.45,
         "niah_es": 8.41,
         "business_audit": 6.98
+      },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 45,
+          "total": 59
+        }
       },
       "quality_avg": 7.78,
       "quality_ci95": 0.501,
@@ -9723,6 +10140,7 @@
         "translation": 7.93,
         "business_audit": 6.01
       },
+      "suites_incompletas": {},
       "quality_avg": 7.75,
       "quality_ci95": 0.337,
       "cost_score_avg": 6.28,
@@ -9829,6 +10247,16 @@
         "strategy": 7.89,
         "sales_outreach": 8.93,
         "translation": 8.57
+      },
+      "suites_incompletas": {
+        "tool_calling": {
+          "rindio": 3,
+          "total": 4
+        },
+        "agent_capabilities": {
+          "rindio": 3,
+          "total": 5
+        }
       },
       "quality_avg": 7.51,
       "quality_ci95": 0.54,
@@ -9938,6 +10366,7 @@
         "translation": 7.34,
         "business_audit": 6.83
       },
+      "suites_incompletas": {},
       "quality_avg": 7.99,
       "quality_ci95": 0.469,
       "cost_score_avg": 6.8,
@@ -10057,6 +10486,16 @@
         "niah_es": 8.71,
         "business_audit": 7.0
       },
+      "suites_incompletas": {
+        "agent_capabilities": {
+          "rindio": 4,
+          "total": 5
+        },
+        "niah_es": {
+          "rindio": 45,
+          "total": 59
+        }
+      },
       "quality_avg": 7.98,
       "quality_ci95": 0.488,
       "cost_score_avg": 4.0,
@@ -10169,6 +10608,16 @@
         "translation": 7.55,
         "business_audit": 6.58
       },
+      "suites_incompletas": {
+        "startup_content": {
+          "rindio": 3,
+          "total": 5
+        },
+        "deep_reasoning": {
+          "rindio": 3,
+          "total": 6
+        }
+      },
       "quality_avg": 7.83,
       "quality_ci95": 0.526,
       "cost_score_avg": 8.0,
@@ -10275,6 +10724,12 @@
         "strategy": 8.11,
         "sales_outreach": 7.87,
         "translation": 6.57
+      },
+      "suites_incompletas": {
+        "news_seo_writing": {
+          "rindio": 4,
+          "total": 5
+        }
       },
       "quality_avg": 7.95,
       "quality_ci95": 0.481,
@@ -10383,6 +10838,12 @@
         "sales_outreach": 6.08,
         "translation": 7.01
       },
+      "suites_incompletas": {
+        "orchestration": {
+          "rindio": 4,
+          "total": 5
+        }
+      },
       "quality_avg": 7.82,
       "quality_ci95": 0.495,
       "cost_score_avg": 8.0,
@@ -10490,6 +10951,7 @@
         "sales_outreach": 8.23,
         "translation": 7.98
       },
+      "suites_incompletas": {},
       "quality_avg": 7.71,
       "quality_ci95": 0.472,
       "cost_score_avg": 8.0,
@@ -10599,6 +11061,12 @@
         "prompt_injection_es": 2.72,
         "niah_es": 7.75,
         "business_audit": 6.43
+      },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 50,
+          "total": 59
+        }
       },
       "quality_avg": 7.44,
       "quality_ci95": 0.503,
@@ -10711,6 +11179,7 @@
         "strategy": 6.9,
         "sales_outreach": 7.01
       },
+      "suites_incompletas": {},
       "quality_avg": 7.68,
       "quality_ci95": 0.449,
       "cost_score_avg": 7.61,
@@ -10817,6 +11286,12 @@
         "strategy": 6.39,
         "sales_outreach": 7.3,
         "translation": 6.89
+      },
+      "suites_incompletas": {
+        "news_seo_writing": {
+          "rindio": 4,
+          "total": 5
+        }
       },
       "quality_avg": 7.74,
       "quality_ci95": 0.483,
@@ -10926,6 +11401,7 @@
         "translation": 7.99,
         "business_audit": 4.97
       },
+      "suites_incompletas": {},
       "quality_avg": 7.48,
       "quality_ci95": 0.359,
       "cost_score_avg": 7.72,
@@ -11033,6 +11509,7 @@
         "sales_outreach": 7.03,
         "translation": 7.46
       },
+      "suites_incompletas": {},
       "quality_avg": 7.45,
       "quality_ci95": 0.482,
       "cost_score_avg": 7.76,
@@ -11141,6 +11618,7 @@
         "translation": 7.84,
         "agent_long_horizon": 7.5
       },
+      "suites_incompletas": {},
       "quality_avg": 7.54,
       "quality_ci95": 0.517,
       "cost_score_avg": 7.48,
@@ -11249,6 +11727,7 @@
         "translation": 7.63,
         "business_audit": 5.57
       },
+      "suites_incompletas": {},
       "quality_avg": 7.43,
       "quality_ci95": 0.386,
       "cost_score_avg": 6.73,
@@ -11365,6 +11844,7 @@
         "sales_outreach": 6.98,
         "translation": 8.07
       },
+      "suites_incompletas": {},
       "quality_avg": 7.34,
       "quality_ci95": 0.615,
       "cost_score_avg": 8.0,
@@ -11472,6 +11952,7 @@
         "sales_outreach": 5.87,
         "translation": 6.93
       },
+      "suites_incompletas": {},
       "quality_avg": 7.36,
       "quality_ci95": 0.533,
       "cost_score_avg": 8.0,
@@ -11579,6 +12060,7 @@
         "sales_outreach": 8.17,
         "translation": 6.97
       },
+      "suites_incompletas": {},
       "quality_avg": 7.44,
       "quality_ci95": 0.605,
       "cost_score_avg": 6.5,
@@ -11685,6 +12167,20 @@
         "strategy": 5.85,
         "sales_outreach": 8.98,
         "translation": 8.49
+      },
+      "suites_incompletas": {
+        "tool_calling": {
+          "rindio": 3,
+          "total": 4
+        },
+        "customer_support": {
+          "rindio": 3,
+          "total": 4
+        },
+        "orchestration": {
+          "rindio": 4,
+          "total": 5
+        }
       },
       "quality_avg": 7.01,
       "quality_ci95": 0.552,
@@ -11802,6 +12298,7 @@
         "sales_outreach": 7.91,
         "translation": 5.61
       },
+      "suites_incompletas": {},
       "quality_avg": 7.32,
       "quality_ci95": 0.595,
       "cost_score_avg": 8.0,
@@ -11918,6 +12415,7 @@
         "sales_outreach": 8.51,
         "translation": 7.31
       },
+      "suites_incompletas": {},
       "quality_avg": 7.25,
       "quality_ci95": 0.591,
       "cost_score_avg": 8.0,
@@ -12034,6 +12532,7 @@
         "sales_outreach": 7.84,
         "translation": 7.05
       },
+      "suites_incompletas": {},
       "quality_avg": 7.25,
       "quality_ci95": 0.623,
       "cost_score_avg": 8.0,
@@ -12142,6 +12641,24 @@
         "translation": 7.02,
         "business_audit": 6.29
       },
+      "suites_incompletas": {
+        "task_management": {
+          "rindio": 2,
+          "total": 3
+        },
+        "code_generation": {
+          "rindio": 3,
+          "total": 4
+        },
+        "startup_content": {
+          "rindio": 4,
+          "total": 5
+        },
+        "deep_reasoning": {
+          "rindio": 4,
+          "total": 6
+        }
+      },
       "quality_avg": 7.31,
       "quality_ci95": 0.558,
       "cost_score_avg": 7.89,
@@ -12249,6 +12766,7 @@
         "sales_outreach": 6.16,
         "translation": 6.27
       },
+      "suites_incompletas": {},
       "quality_avg": 7.23,
       "quality_ci95": 0.619,
       "cost_score_avg": 6.98,
@@ -12357,6 +12875,7 @@
         "strategy": 7.28,
         "business_audit": 5.61
       },
+      "suites_incompletas": {},
       "quality_avg": 7.36,
       "quality_ci95": 0.479,
       "cost_score_avg": 3.89,
@@ -12465,6 +12984,7 @@
         "translation": 7.59,
         "business_audit": 6.13
       },
+      "suites_incompletas": {},
       "quality_avg": 7.18,
       "quality_ci95": 0.428,
       "cost_score_avg": 5.31,
@@ -12581,6 +13101,12 @@
         "sales_outreach": 8.11,
         "translation": 5.74
       },
+      "suites_incompletas": {
+        "structured_output": {
+          "rindio": 3,
+          "total": 4
+        }
+      },
       "quality_avg": 6.99,
       "quality_ci95": 0.665,
       "cost_score_avg": 8.0,
@@ -12688,6 +13214,12 @@
         "sales_outreach": 7.69,
         "translation": 7.67,
         "business_audit": 6.33
+      },
+      "suites_incompletas": {
+        "agent_capabilities": {
+          "rindio": 4,
+          "total": 5
+        }
       },
       "quality_avg": 6.79,
       "quality_ci95": 0.583,
@@ -12797,6 +13329,7 @@
         "translation": 7.46,
         "business_audit": 7.48
       },
+      "suites_incompletas": {},
       "quality_avg": 7.02,
       "quality_ci95": 0.345,
       "cost_score_avg": 7.46,
@@ -12889,6 +13422,7 @@
         "presentation": 7.27,
         "startup_content": 7.28
       },
+      "suites_incompletas": {},
       "quality_avg": 6.27,
       "quality_ci95": 1.195,
       "cost_score_avg": 6.24,
@@ -13005,6 +13539,7 @@
         "sales_outreach": 3.59,
         "translation": 3.02
       },
+      "suites_incompletas": {},
       "quality_avg": 5.44,
       "quality_ci95": 0.808,
       "cost_score_avg": 6.21,
@@ -13121,6 +13656,7 @@
         "sales_outreach": 4.37,
         "translation": 3.7
       },
+      "suites_incompletas": {},
       "quality_avg": 5.01,
       "quality_ci95": 0.777,
       "cost_score_avg": 6.31,
@@ -13228,6 +13764,12 @@
         "sales_outreach": 5.94,
         "translation": 5.05,
         "business_audit": 6.73
+      },
+      "suites_incompletas": {
+        "presentation": {
+          "rindio": 1,
+          "total": 2
+        }
       },
       "quality_avg": 6.71,
       "quality_ci95": 0.695,
@@ -13337,6 +13879,7 @@
         "translation": 4.94,
         "business_audit": 5.75
       },
+      "suites_incompletas": {},
       "quality_avg": 6.17,
       "quality_ci95": 0.698,
       "cost_score_avg": 6.62,
@@ -13444,6 +13987,7 @@
         "sales_outreach": 5.22,
         "translation": 5.46
       },
+      "suites_incompletas": {},
       "quality_avg": 6.49,
       "quality_ci95": 0.756,
       "cost_score_avg": 8.0,
@@ -13536,6 +14080,7 @@
         "presentation": 7.27,
         "startup_content": 7.28
       },
+      "suites_incompletas": {},
       "quality_avg": 6.27,
       "quality_ci95": 1.195,
       "cost_score_avg": 6.24,
@@ -13616,6 +14161,12 @@
         "task_management": 8.15,
         "code_generation": 8.67
       },
+      "suites_incompletas": {
+        "code_generation": {
+          "rindio": 1,
+          "total": 4
+        }
+      },
       "quality_avg": 9.21,
       "quality_ci95": 0.371,
       "cost_score_avg": 7.88,
@@ -13675,6 +14226,12 @@
       "score_by_suite": {
         "agent_long_horizon": 8.19,
         "niah_es_lite": 4.07
+      },
+      "suites_incompletas": {
+        "agent_long_horizon": {
+          "rindio": 10,
+          "total": 12
+        }
       },
       "quality_avg": 9.85,
       "quality_ci95": 0.279,
@@ -13745,6 +14302,16 @@
         "content_generation": 7.98,
         "tool_calling": 6.71
       },
+      "suites_incompletas": {
+        "content_generation": {
+          "rindio": 2,
+          "total": 4
+        },
+        "tool_calling": {
+          "rindio": 1,
+          "total": 4
+        }
+      },
       "quality_avg": 9.42,
       "quality_ci95": 0.139,
       "cost_score_avg": 8.0,
@@ -13805,6 +14372,7 @@
         "agent_long_horizon": 7.67,
         "niah_es_lite": 4.47
       },
+      "suites_incompletas": {},
       "quality_avg": 8.54,
       "quality_ci95": 1.246,
       "cost_score_avg": 7.21,
@@ -13876,6 +14444,24 @@
         "startup_content": 8.22,
         "niah_es": 8.06,
         "prompt_injection_es": 2.81
+      },
+      "suites_incompletas": {
+        "content_generation": {
+          "rindio": 3,
+          "total": 4
+        },
+        "tool_calling": {
+          "rindio": 3,
+          "total": 4
+        },
+        "startup_content": {
+          "rindio": 4,
+          "total": 5
+        },
+        "niah_es": {
+          "rindio": 45,
+          "total": 59
+        }
       },
       "quality_avg": 8.46,
       "quality_ci95": 1.431,
@@ -13953,6 +14539,24 @@
         "niah_es": 8.06,
         "prompt_injection_es": 2.81
       },
+      "suites_incompletas": {
+        "content_generation": {
+          "rindio": 3,
+          "total": 4
+        },
+        "tool_calling": {
+          "rindio": 3,
+          "total": 4
+        },
+        "startup_content": {
+          "rindio": 4,
+          "total": 5
+        },
+        "niah_es": {
+          "rindio": 45,
+          "total": 59
+        }
+      },
       "quality_avg": 8.46,
       "quality_ci95": 1.431,
       "cost_score_avg": 8.0,
@@ -14026,6 +14630,16 @@
         "reasoning": 7.12,
         "content_generation": 6.84
       },
+      "suites_incompletas": {
+        "reasoning": {
+          "rindio": 2,
+          "total": 3
+        },
+        "content_generation": {
+          "rindio": 2,
+          "total": 4
+        }
+      },
       "quality_avg": 8.45,
       "quality_ci95": 0.351,
       "cost_score_avg": 5.61,
@@ -14096,6 +14710,12 @@
         "tool_calling": 5.68,
         "task_management": 1.34
       },
+      "suites_incompletas": {
+        "task_management": {
+          "rindio": 2,
+          "total": 3
+        }
+      },
       "quality_avg": 6.11,
       "quality_ci95": 3.482,
       "cost_score_avg": 6.78,
@@ -14155,6 +14775,12 @@
       },
       "score_by_suite": {
         "business_audit": 5.36
+      },
+      "suites_incompletas": {
+        "business_audit": {
+          "rindio": 2,
+          "total": 10
+        }
       },
       "quality_avg": 5.0,
       "quality_ci95": 6.93,
