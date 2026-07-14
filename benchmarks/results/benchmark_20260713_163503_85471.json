@@ -13,19 +13,19 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-13T20:53:14+00:00",
+      "at": "2026-07-13T21:08:06+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
   "results": [
     {
-      "quality": 8.4,
+      "quality": 10.0,
       "cost_score": 7.35,
       "cost_usd": 0.001653,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.66,
+      "final": 8.78,
       "test_name": "atribucion_correlacion_temporal",
       "model": "MiniMax M3",
       "model_id": "minimax/minimax-m3",
@@ -37,7 +37,7 @@
       "input_tokens": 373,
       "output_tokens": 1284,
       "response_preview": "## Conclusión corta: no se puede saber\n\nLos datos que me pasás muestran crecimiento, pero **no permiten atribuir ese crecimiento a la secuencia de emails**. Hay al menos tres causas mezcladas en marzo y no hay forma de separarlas con lo que tenemos.\n\n## Por qué los números no bastan\n\nLos eventos rel",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -50,16 +50,18 @@
       "timestamp": "20260713_163503_85471",
       "response_file": "results/responses/20260713_163503_85471/minimax-m3__business_audit__atribucion_correlacion_temporal.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:53:14+00:00"
+      "rescored_at": "2026-07-13T21:08:06+00:00",
+      "content_score": 6.0,
+      "answer_score": 10.0
     },
     {
-      "quality": 8.4,
+      "quality": 10.0,
       "cost_score": 7.28,
       "cost_usd": 0.001742,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.8,
+      "final": 8.92,
       "test_name": "auditoria_pnl_error_plantado",
       "model": "MiniMax M3",
       "model_id": "minimax/minimax-m3",
@@ -71,7 +73,7 @@
       "input_tokens": 352,
       "output_tokens": 1364,
       "response_preview": "# ⛔ Pará, los números no cierran\n\nAntes de opinar si contratás o no, tengo que decirte lo principal: **los rubros que listás no suman lo que decís.**\n\n## Verificación de la suma\n\n| Concepto | Monto |\n|---|---|\n| Infraestructura | $1.250 |\n| Publicidad | $3.900 |\n| Herramientas SaaS | $780 |\n| Proces",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -84,16 +86,18 @@
       "timestamp": "20260713_163503_85471",
       "response_file": "results/responses/20260713_163503_85471/minimax-m3__business_audit__auditoria_pnl_error_plantado.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:53:14+00:00"
+      "rescored_at": "2026-07-13T21:08:06+00:00",
+      "content_score": 6.0,
+      "answer_score": 10.0
     },
     {
-      "quality": 6.94,
+      "quality": 8.0,
       "cost_score": 6.4,
       "cost_usd": 0.003417,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.64,
+      "final": 7.38,
       "test_name": "churn_mezcla_free_y_pago",
       "model": "MiniMax M3",
       "model_id": "minimax/minimax-m3",
@@ -105,7 +109,7 @@
       "input_tokens": 318,
       "output_tokens": 2768,
       "response_preview": "Respira. El 31% es aritméticamente correcto, pero **mide una mezcla de poblaciones que no son comparables**. Te explico qué está pasando y qué hacer.\n\n**El cálculo de tu plataforma**\n\n62 bajas / 200 usuarios a inicio de mes = 31%\n\nPero esos 200 usuarios son dos productos distintos combinados:\n\n| Seg",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -118,16 +122,18 @@
       "timestamp": "20260713_163503_85471",
       "response_file": "results/responses/20260713_163503_85471/minimax-m3__business_audit__churn_mezcla_free_y_pago.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:53:14+00:00"
+      "rescored_at": "2026-07-13T21:08:06+00:00",
+      "content_score": 5.34,
+      "answer_score": 8.0
     },
     {
-      "quality": 7.2,
+      "quality": 8.0,
       "cost_score": 6.98,
       "cost_usd": 0.002188,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.91,
+      "final": 7.47,
       "test_name": "retention_sobre_100_interpretacion",
       "model": "MiniMax M3",
       "model_id": "minimax/minimax-m3",
@@ -139,7 +145,7 @@
       "input_tokens": 284,
       "output_tokens": 1752,
       "response_preview": "# 114% de NRR: muy buena métrica, conclusión peligrosa\n\nVoy a desmontar el malentendido porque la diferencia importa mucho para dónde pones el esfuerzo.\n\n## Qué mide realmente ese 114%\n\nLo que ves en el panel es **Net Revenue Retention (NRR)**, no retención de clientes. La fórmula es:\n\n> (MRR inicia",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -152,7 +158,9 @@
       "timestamp": "20260713_163503_85471",
       "response_file": "results/responses/20260713_163503_85471/minimax-m3__business_audit__retention_sobre_100_interpretacion.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T20:53:14+00:00"
+      "rescored_at": "2026-07-13T21:08:06+00:00",
+      "content_score": 6.0,
+      "answer_score": 8.0
     }
   ]
 }
