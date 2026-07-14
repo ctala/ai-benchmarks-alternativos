@@ -1,13 +1,13 @@
 # Gemini 2.5 Flash Lite
 
 - **model_id**: `google/gemini-2.5-flash-lite`
-- **Total tests**: 309/313 exitosos (4 errores)
-- **Score final**: 7.24
-- **Calidad**: 7.80
-- **Judge score (Phi-4)**: 3.18/10
-- **Velocidad**: 93 tok/s
-- **Latencia primera token**: 4.24s
-- **Costo promedio por test**: $0.00533
+- **Total tests**: 336/340 exitosos (4 errores)
+- **Score final**: 7.27
+- **Calidad**: 7.67
+- **Judge score (Phi-4)**: 3.31/10
+- **Velocidad**: 98 tok/s
+- **Latencia primera token**: 4.29s
+- **Costo promedio por test**: $0.00500
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,21 +15,25 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 10 | 10 | 6.94 | 7.07 |
+| agent_capabilities | 5 | 5 | 7.29 | 7.68 |
+| agent_long_horizon | 12 | 12 | 7.38 | 7.71 |
+| business_audit | 10 | 10 | 6.73 | 6.65 |
+| business_strategy | 5 | 5 | 8.42 | 8.80 |
 | code_generation | 8 | 8 | 8.15 | 8.94 |
 | content_generation | 8 | 8 | 7.97 | 7.87 |
+| content_verificable | 5 | 5 | 7.11 | 6.53 |
 | creativity | 8 | 8 | 7.68 | 7.46 |
 | customer_support | 8 | 8 | 6.45 | 5.89 |
 | deep_reasoning | 12 | 12 | 7.80 | 8.28 |
 | hallucination | 6 | 6 | 7.98 | 7.80 |
 | multi_turn | 4 | 4 | 7.95 | 7.80 |
 | news_seo_writing | 10 | 10 | 7.70 | 7.89 |
-| niah_es | 118 | 114 | 7.58 | 9.88 |
+| niah_es | 118 | 114 | 8.23 | 9.88 |
 | ocr_extraction | 5 | 5 | 7.70 | 7.13 |
 | orchestration | 5 | 5 | 7.21 | 6.69 |
 | policy_adherence | 4 | 4 | 8.03 | 7.79 |
 | presentation | 4 | 4 | 7.95 | 8.58 |
-| prompt_injection_es | 40 | 40 | 4.32 | 1.86 |
+| prompt_injection_es | 40 | 40 | 2.62 | 1.00 |
 | reasoning | 6 | 6 | 7.96 | 8.74 |
 | sales_outreach | 3 | 3 | 8.47 | 9.19 |
 | startup_content | 10 | 10 | 8.07 | 8.82 |
@@ -2729,88 +2733,11 @@ Prefiero no opinar sobre otros programas. Lo nuestro se enfoca en acelerar empre
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| skill_execution_complex | 6.24 | 6.67 | - | 39 | 1.68s | OK |
-| agent_team_delegation | 8.40 | 9.34 | - | 154 | 3.87s | OK |
-| ask_clarification_before_acting | 5.40 | 5.00 | - | 28 | 0.65s | OK |
-| context_following_complex_system | 4.27 | 2.14 | - | 115 | 1.52s | OK |
-| model_as_router | 8.70 | 9.20 | - | 140 | 2.98s | OK |
 | skill_execution_complex | 6.64 | 6.88 | 3.2 | 66 | 0.96s | OK |
 | agent_team_delegation | 8.02 | 8.66 | 4.4 | 244 | 3.04s | OK |
 | ask_clarification_before_acting | 7.03 | 7.96 | 4.4 | 34 | 0.90s | OK |
 | context_following_complex_system | 6.17 | 6.24 | 4.0 | 98 | 1.48s | OK |
 | model_as_router | 8.57 | 8.64 | 4.2 | 187 | 1.97s | OK |
-
-<details><summary><code>skill_execution_complex</code> — score 6.24</summary>
-
-**Stats**: latencia 1.68s · 39 tok/s · 718→66 tokens · $0.00010
-
-**Respuesta (preview 300 chars)**:
-
-```
-Claro, puedo ayudarte con eso. Primero, usaré la skill `publish_blog_post` para publicar el artículo. Luego, enviaré los enlaces por Slack y finalmente crearé el evento en el calendario.
-
-¿Me confirmas el título exacto del artículo y el enlace al documento compartido para poder publicarlo?
-```
-
-</details>
-
-<details><summary><code>agent_team_delegation</code> — score 8.40</summary>
-
-**Stats**: latencia 3.87s · 154 tok/s · 780→595 tokens · $0.00032
-
-**Respuesta (preview 300 chars)**:
-
-```
-¡Entendido! Aquí está el plan de ejecución para crear la landing page de "AutoFlow AI":
-
-**Plan de Ejecución:**
-
-1.  **Investigación de Competencia (Researcher):**
-    *   **Tarea:** Investigar 3 competidores directos de "AutoFlow AI". Analizar sus landing pages, características principales, modelos
-```
-
-</details>
-
-<details><summary><code>ask_clarification_before_acting</code> — score 5.40</summary>
-
-**Stats**: latencia 0.65s · 28 tok/s · 624→18 tokens · $0.00007
-
-**Respuesta (preview 300 chars)**:
-
-```
-¿A qué cliente le gustaría procesar el reembolso y cuál es el motivo del reembolso?
-```
-
-</details>
-
-<details><summary><code>context_following_complex_system</code> — score 4.27</summary>
-
-**Stats**: latencia 1.52s · 115 tok/s · 797→175 tokens · $0.00015
-
-**Respuesta (preview 300 chars)**:
-
-```
-¡Hola! Entiendo que necesitas ayuda con varias cosas. Vamos a ver cómo puedo asistirte con cada una de ellas:
-
-1.  **Publicar el artículo sobre IA en LATAM:** ¡Excelente! Me encargaré de que el artículo sobre financiación de IA en LATAM se publique.
-2.  **Aprobar el presupuesto de marketing:** Para
-```
-
-</details>
-
-<details><summary><code>model_as_router</code> — score 8.70</summary>
-
-**Stats**: latencia 2.98s · 140 tok/s · 268→416 tokens · $0.00019
-
-**Respuesta (preview 300 chars)**:
-
-```
-```json
-[
-  {"subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales", "modelo": "deepseek-v3", "razon": "Esta tarea requiere análisis de texto y extracción de información clave, donde deepseek-v3 sobresale en razonamiento. Aunque podría manejarlo un modelo general, su fo
-```
-
-</details>
 
 <details><summary><code>skill_execution_complex</code> — score 6.64</summary>
 
@@ -3097,3 +3024,11 @@ TechFlow experimentó un sólido primer trimestre de 2026, con ventas totales de
 #### niah_es
 
 #### prompt_injection_es
+
+#### business_audit
+
+#### business_strategy
+
+#### content_verificable
+
+#### agent_long_horizon

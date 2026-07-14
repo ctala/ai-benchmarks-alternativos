@@ -1,12 +1,12 @@
 # MiniMax M2.7 (directo)
 
 - **model_id**: `MiniMax-M2.7`
-- **Total tests**: 39/39 exitosos (0 errores)
-- **Score final**: 7.36
-- **Calidad**: 8.50
-- **Velocidad**: 52 tok/s
-- **Latencia primera token**: 24.80s
-- **Costo promedio por test**: $0.00377
+- **Total tests**: 27/27 exitosos (0 errores)
+- **Score final**: 7.60
+- **Calidad**: 8.69
+- **Velocidad**: 57 tok/s
+- **Latencia primera token**: 26.52s
+- **Costo promedio por test**: $0.00170
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -14,7 +14,6 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_long_horizon | 12 | 12 | 6.84 | 8.08 |
 | code_generation | 4 | 4 | 8.15 | 10.00 |
 | content_generation | 4 | 4 | 7.56 | 8.75 |
 | presentation | 2 | 2 | 7.85 | 9.62 |
@@ -567,7 +566,3 @@ Candidato 1: Maria Garcia, 28 anos, ingeniera de software con 5 anos de experien
 ```
 
 </details>
-
-### Otras suites
-
-#### agent_long_horizon

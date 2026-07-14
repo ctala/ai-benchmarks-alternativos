@@ -37,8 +37,8 @@
     "name": "Cristian Tala",
     "url": "https://cristiantala.com"
   },
-  "datePublished": "2026-07-12",
-  "dateModified": "2026-07-12",
+  "datePublished": "2026-07-14",
+  "dateModified": "2026-07-14",
   "inLanguage": "es",
   "url": "https://benchmarks.cristiantala.com/fable-5-review/",
   "mainEntityOfPage": "https://benchmarks.cristiantala.com/fable-5-review/",
@@ -149,7 +149,7 @@
       <strong>solo si tu caso justifica pagar el premium de Anthropic</strong>.
     </p>
     <p class="meta">
-      Última actualización: 2026-07-12 ·
+      Última actualización: 2026-07-14 ·
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a>
     </p>
   </section>
@@ -159,9 +159,9 @@
   <p>No es un benchmark académico: es un benchmark <strong>aplicado para emprendedores hispanohablantes</strong>.
   Medimos qué modelo conviene poner en producción para casos reales, con lo que los benchmarks oficiales no cubren —
   costo en provider real, velocidad, español neutro y agentes multi-turno.</p>
-  <p>Contamos con <strong><!-- AUTO:total_models -->149<!-- /AUTO --> modelos catalogados</strong>,
-  <strong><!-- AUTO:tested_count -->101<!-- /AUTO --> testeados</strong> y
-  <strong><!-- AUTO:tests_marketing -->10,000+<!-- /AUTO --> tests reales</strong> evaluados por un
+  <p>Contamos con <strong><!-- AUTO:total_models -->177<!-- /AUTO --> modelos catalogados</strong>,
+  <strong><!-- AUTO:tested_count -->120<!-- /AUTO --> testeados</strong> y
+  <strong><!-- AUTO:tests_marketing -->13,000+<!-- /AUTO --> tests reales</strong> evaluados por un
   <strong>LLM-as-Judge local (Phi-4, de Microsoft — sin conflicto de interés)</strong>, en 4 pilares:</p>
   <ul>
     <li><strong>Coding</strong> — generar código, JSON estructurado y debugging en tareas reales (plugins WordPress, scripts, templates de N8N).</li>
@@ -185,11 +185,11 @@
         <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Score</th><th scope="col">$ in/out per M</th><th scope="col">License</th><th scope="col">Provider</th></tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td><strong>Claude Fable 5 (suscripción)</strong></td><td>6.58</td><td>$10.00 / $50.00</td><td>Propietaria</td><td>claude_code (61 tok/s)</td></tr>
-        <tr><td>2</td><td>DeepSeek R1 (reasoning)</td><td>8.41</td><td>$0.70 / $2.50</td><td>MIT</td><td>openrouter (23 tok/s)</td></tr>
-        <tr><td>3</td><td>MiniMax M3 (directo / sub)</td><td>7.93</td><td>$0.30 / $1.20</td><td>Propietaria</td><td>minimax_direct (26 tok/s)</td></tr>
-        <tr><td>4</td><td>Claude Sonnet 4.6 (suscripción)</td><td>7.42</td><td>$3.00 / $15.00</td><td>Propietaria</td><td>claude_code (51 tok/s)</td></tr>
-        <tr><td>5</td><td>Claude Opus 4.8 (suscripción)</td><td>6.43</td><td>$5.00 / $25.00</td><td>Propietaria</td><td>claude_code (61 tok/s)</td></tr>
+        <tr><td>1</td><td><strong>Claude Fable 5 (suscripción)</strong></td><td>7.81</td><td>$10.00 / $50.00</td><td>Propietaria</td><td>claude_code (61 tok/s)</td></tr>
+        <tr><td>2</td><td>DeepSeek R1 (reasoning)</td><td>7.97</td><td>$0.70 / $2.50</td><td>MIT</td><td>openrouter (22 tok/s)</td></tr>
+        <tr><td>3</td><td>MiniMax M3 (directo / sub)</td><td>6.28</td><td>$0.30 / $1.20</td><td>Propietaria</td><td>minimax_direct (31 tok/s)</td></tr>
+        <tr><td>4</td><td>Claude Opus 4.8 (suscripción)</td><td>5.85</td><td>$5.00 / $25.00</td><td>Propietaria</td><td>claude_code (62 tok/s)</td></tr>
+        <tr><td>5</td><td>Claude Sonnet 4.6 (suscripción)</td><td>5.46</td><td>$3.00 / $15.00</td><td>Propietaria</td><td>claude_code (50 tok/s)</td></tr>
       </tbody>
     </table></div>
 
@@ -208,7 +208,7 @@
     </p>
     <ul>
       <li><strong>Score global:</strong> 6.75 — fuera del top 10 por costo.</li>
-      <li><strong>Calidad por pilar:</strong> Contenido 7.16, Agentes 7.06, Coding 6.67, Razonamiento 7.28.</li>
+      <li><strong>Calidad por pilar:</strong> Contenido 6.86, Agentes 7.19, Coding 6.91, Razonamiento 7.04.</li>
       <li><strong>Costo:</strong> $10.00 input / $50.00 output por millón.</li>
       <li><strong>Velocidad:</strong> ~60 tok/s en suscripción Anthropic.</li>
       <li><strong>Licencia:</strong> Propietaria (suscripción Claude / Anthropic API).</li>
@@ -233,10 +233,10 @@
   <section>
     <h2>Fable 5 por tipo de trabajo</h2>
     <ul>
-      <li><strong>Coding:</strong> 6.67/10. Por debajo de Sonnet 4.6 (7.30/10) y muy por debajo de modelos open-source baratos como Devstral Small. No lo elegiría para code-generation en producción.</li>
-      <li><strong>Contenido:</strong> 7.16/10. Bueno, pero Opus 4.8 (7.58/10) y Sonnet 4.6 (7.49/10) rinden similar o mejor por menos.</li>
-      <li><strong>Razonamiento:</strong> 7.28/10. Sólido, pero DeepSeek R1 lidera este grupo (7.46/10).</li>
-      <li><strong>Agentes:</strong> 7.06/10. Competitivo, aunque Sonnet 4.6 (7.45/10) lo supera.</li>
+      <li><strong>Coding:</strong> 6.91/10. Por debajo de Sonnet 4.6 (6.82/10) y muy por debajo de modelos open-source baratos como Devstral Small. No lo elegiría para code-generation en producción.</li>
+      <li><strong>Contenido:</strong> 6.86/10. Bueno, pero Opus 4.8 (7.22/10) y Sonnet 4.6 (7.15/10) rinden similar o mejor por menos.</li>
+      <li><strong>Razonamiento:</strong> 7.04/10. Sólido, pero DeepSeek R1 lidera este grupo (7.22/10).</li>
+      <li><strong>Agentes:</strong> 7.19/10. Competitivo, aunque Sonnet 4.6 (7.50/10) lo supera.</li>
     </ul>
   </section>
 

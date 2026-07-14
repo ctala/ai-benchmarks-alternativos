@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-07-12 · 98 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-07-14 · 64 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -19,35 +19,33 @@ Todos los costos asumen **3,000 llamadas/mes** (≈100 por día). Para tu volume
 
 _El modelo decide y llama herramientas. Necesitás fiabilidad en tool calling._
 
-- **Usá:** **Claude Haiku 4.5 (suscripción)** — ≈$23/mes (calidad 8.76/10)
-- **Lo que te ahorrás:** Claude Opus 4.8 (suscripción) cuesta ≈$117/mes (**5.0× más**) por apenas +0.15 de calidad — dentro del margen de error.
-- _4 modelos empatan en calidad en este pilar._
+- **Usá:** **Qwen 3.6 35B base (OpenRouter FP8)** — ≈$5/mes (calidad 8.11/10)
+- **Lo que te ahorrás:** Qwen 3.6 Max cuesta ≈$29/mes (**6.3× más**) por apenas -0.03 de calidad — dentro del margen de error.
+- _6 modelos empatan en calidad en este pilar._
 
 ### Contenido y marketing (blog, SEO, copy)
 
 _Texto largo en español neutro. El costo manda: es alto volumen._
 
-- **Usá:** **MiniMax M3 (directo / sub)** — ≈$6/mes (calidad 9.17/10)
-- **Lo que te ahorrás:** GPT-5.6 Sol cuesta ≈$140/mes (**24.6× más**) por apenas -0.26 de calidad — dentro del margen de error.
-- **Mejor open-source:** **DeepSeek R1 (reasoning)** — ≈$12/mes (calidad 9.01/10)
-- _10 modelos empatan en calidad en este pilar._
+- **Usá:** **GPT-OSS 120B** — ≈$1/mes (calidad 8.23/10)
+- **Lo que te ahorrás:** GPT-5.6 Sol cuesta ≈$140/mes (**166.1× más**) por apenas +0.04 de calidad — dentro del margen de error.
+- _18 modelos empatan en calidad en este pilar._
 
 ### Código y debugging
 
 _Generación y corrección de código._
 
-- **Usá:** **DeepSeek V4 Flash (OpenRouter)** — ≈$1/mes (calidad 8.40/10)
-- **Lo que te ahorrás:** Claude Sonnet 4.6 (suscripción) cuesta ≈$70/mes (**72.4× más**) por apenas -0.14 de calidad — dentro del margen de error.
-- _16 modelos empatan en calidad en este pilar._
+- **Usá:** **Nemotron 3 Nano Omni 30B-A3B Reasoning** — ≈$0/mes (calidad 8.53/10)
+- **Lo que te ahorrás:** Mistral Large cuesta ≈$29/mes (**None× más**) por apenas -0.06 de calidad — dentro del margen de error.
+- _14 modelos empatan en calidad en este pilar._
 
 ### Razonamiento y estrategia
 
 _Análisis, decisiones, problemas con varios pasos._
 
-- **Usá:** **DeepSeek V4 Flash (OpenRouter)** — ≈$1/mes (calidad 8.78/10)
-- **Lo que te ahorrás:** Claude Fable 5 (suscripción) cuesta ≈$234/mes (**241.2× más**) por apenas +0.12 de calidad — dentro del margen de error.
-- **Si tenés hardware propio:** **Gemma 4 31B (DGX Spark Q4_K_M)** — ≈$2/mes (calidad 8.87/10)
-- _10 modelos empatan en calidad en este pilar._
+- **Usá:** **Qwen3 Coder** — ≈$3/mes (calidad 8.29/10)
+- **Lo que te ahorrás:** Claude Opus 4.8 cuesta ≈$117/mes (**40.6× más**) por apenas +0.12 de calidad — dentro del margen de error.
+- _11 modelos empatan en calidad en este pilar._
 
 ---
 
@@ -57,19 +55,19 @@ Lo mejor que podés comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 | Presupuesto | Modelo | Calidad | Costo real |
 |---|---|---:|---:|
-| Menos de $10/mes | **MiniMax M3 (directo / sub)** | 8.58 | ≈$6/mes |
-| Hasta $30/mes | **DeepSeek R1 (reasoning)** | 8.82 | ≈$12/mes |
-| Hasta $100/mes | **DeepSeek R1 (reasoning)** | 8.82 | ≈$12/mes |
+| Menos de $10/mes | **GLM 5** | 8.37 | ≈$9/mes |
+| Hasta $30/mes | **DeepSeek R1 (reasoning)** | 8.39 | ≈$12/mes |
+| Hasta $100/mes | **DeepSeek R1 (reasoning)** | 8.39 | ≈$12/mes |
 
 ---
 
 ## El resumen de todo el benchmark
 
-**7 modelos empatan en calidad** en la cima del ranking global.
+**16 modelos empatan en calidad** en la cima del ranking global.
 
 El más barato de ese grupo — **DeepSeek V4 Flash (OpenRouter)** — sale **≈$1/mes**.
-El más caro — **Claude Opus 4.7 (suscripción)** — sale **≈$117/mes**.
+El más caro — **GPT-5.6 Sol** — sale **≈$140/mes**.
 
-Eso es **120.6× más caro** por una diferencia de calidad de **+0.01 puntos**, que está dentro del margen de error.
+Eso es **143.8× más caro** por una diferencia de calidad de **-0.08 puntos**, que está dentro del margen de error.
 
 Si te llevás una sola cosa de este benchmark, que sea esta.

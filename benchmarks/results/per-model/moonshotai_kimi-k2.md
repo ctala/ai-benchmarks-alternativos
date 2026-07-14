@@ -1,13 +1,13 @@
 # Kimi K2
 
 - **model_id**: `moonshotai/kimi-k2`
-- **Total tests**: 138/160 exitosos (22 errores)
-- **Score final**: 7.28
-- **Calidad**: 7.76
-- **Judge score (Phi-4)**: 4.12/10
-- **Velocidad**: 28 tok/s
-- **Latencia primera token**: 20.64s
-- **Costo promedio por test**: $0.00058
+- **Total tests**: 165/187 exitosos (22 errores)
+- **Score final**: 7.30
+- **Calidad**: 7.84
+- **Judge score (Phi-4)**: 4.22/10
+- **Velocidad**: 29 tok/s
+- **Latencia primera token**: 20.84s
+- **Costo promedio por test**: $0.00095
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,9 +15,13 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 10 | 7 | 6.68 | 6.86 |
+| agent_capabilities | 5 | 2 | 6.44 | 6.31 |
+| agent_long_horizon | 12 | 12 | 7.18 | 8.17 |
+| business_audit | 10 | 10 | 6.86 | 7.23 |
+| business_strategy | 5 | 5 | 7.96 | 8.80 |
 | code_generation | 8 | 8 | 7.35 | 7.94 |
 | content_generation | 8 | 8 | 7.08 | 7.64 |
+| content_verificable | 5 | 5 | 8.02 | 8.67 |
 | creativity | 8 | 8 | 6.69 | 6.76 |
 | customer_support | 8 | 8 | 7.32 | 6.87 |
 | deep_reasoning | 12 | 12 | 7.34 | 8.22 |
@@ -2507,101 +2511,11 @@ Para solicitudes oficiales de compliance o seguridad, por favor contacta directa
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| skill_execution_complex | 8.26 | 8.67 | - | 30 | 7.58s | OK |
-| agent_team_delegation | 7.25 | 8.34 | - | 32 | 10.09s | OK |
-| ask_clarification_before_acting | 6.51 | 8.00 | - | 28 | 3.91s | OK |
-| context_following_complex_system | 3.85 | 1.18 | - | 18 | 3.84s | OK |
-| model_as_router | 8.00 | 9.20 | - | 37 | 12.36s | OK |
 | skill_execution_complex | 3.10 | 0.00 | - | 0 | 3.37s | ERROR |
 | agent_team_delegation | 3.10 | 0.00 | - | 0 | 2.77s | ERROR |
 | ask_clarification_before_acting | 3.10 | 0.00 | - | 0 | 2.73s | ERROR |
 | context_following_complex_system | 4.97 | 3.70 | 2.4 | 14 | 3.79s | OK |
 | model_as_router | 7.91 | 8.92 | 4.4 | 33 | 11.24s | OK |
-
-<details><summary><code>skill_execution_complex</code> — score 8.26</summary>
-
-**Stats**: latencia 7.58s · 30 tok/s · 1180→231 tokens · $0.00042
-
-**Respuesta (preview 300 chars)**:
-
-```
-Te ayudo con la publicación del artículo y la coordinación posterior. Mi plan es:
-
-1. Primero publicaré el artículo usando el skill de publicación de blog
-2. Luego enviaré el link por Slack a María y Carlos
-3. Finalmente agendaré la reunión de review para el jueves
-
-Ejecuto ahora:
-```
-
-</details>
-
-<details><summary><code>agent_team_delegation</code> — score 7.25</summary>
-
-**Stats**: latencia 10.09s · 32 tok/s · 1238→327 tokens · $0.00051
-
-**Respuesta (preview 300 chars)**:
-
-```
-Perfecto, voy a coordinar la creación de la landing page para AutoFlow AI. Mi plan de ejecución será el siguiente:
-
-**Plan de trabajo:**
-1. **Researcher** → Investiga competencia (prioridad alta)
-2. **Writer** → Escribe el copy basado en insights de competencia (depende del researcher)
-3. **Designer
-```
-
-</details>
-
-<details><summary><code>ask_clarification_before_acting</code> — score 6.51</summary>
-
-**Stats**: latencia 3.91s · 28 tok/s · 1068→109 tokens · $0.00030
-
-**Respuesta (preview 300 chars)**:
-
-```
-Necesito información adicional para procesar el reembolso del cliente. ¿Podrías proporcionarme los siguientes detalles?
-
-- ID del cliente o número de pedido
-- Monto del reembolso
-- Motivo del reembolso
-- Método de pago original (para procesar el reembolso por la misma vía)
-
-Una vez que tenga esta in
-```
-
-</details>
-
-<details><summary><code>context_following_complex_system</code> — score 3.85</summary>
-
-**Stats**: latencia 3.84s · 18 tok/s · 1252→68 tokens · $0.00030
-
-**Respuesta (preview 300 chars)**:
-
-```
-I'll help you with these requests:
-
-1. **Publishing the AI funding article**: I can help you publish this article using our blog publishing system.
-```
-
-</details>
-
-<details><summary><code>model_as_router</code> — score 8.00</summary>
-
-**Stats**: latencia 12.36s · 37 tok/s · 305→452 tokens · $0.00042
-
-**Respuesta (preview 300 chars)**:
-
-```
-```json
-[
-  {
-    "subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales",
-    "modelo": "deepseek-v3",
-    "razon": "Requiere análisis profundo y razonamiento para identificar patrones en texto no estructurado. Deepseek-v3 es excelente para análisis de datos complejos y
-```
-
-</details>
 
 <details><summary><code>skill_execution_complex</code> — score 3.10</summary>
 
@@ -2872,3 +2786,13 @@ TechFlow cerró Q1 con ingresos de $2.3 M (+18 %), impulsado por enterprise (+32
 ```
 
 </details>
+
+### Otras suites
+
+#### business_audit
+
+#### business_strategy
+
+#### content_verificable
+
+#### agent_long_horizon

@@ -1,13 +1,13 @@
 # MiMo-V2.5 (omnimodal)
 
 - **model_id**: `xiaomi/mimo-v2.5`
-- **Total tests**: 91/91 exitosos (0 errores)
-- **Score final**: 7.10
-- **Calidad**: 7.60
-- **Judge score (Phi-4)**: 4.17/10
-- **Velocidad**: 95 tok/s
-- **Latencia primera token**: 10.42s
-- **Costo promedio por test**: $0.00241
+- **Total tests**: 123/123 exitosos (0 errores)
+- **Score final**: 7.09
+- **Calidad**: 7.73
+- **Judge score (Phi-4)**: 4.24/10
+- **Velocidad**: 81 tok/s
+- **Latencia primera token**: 20.57s
+- **Costo promedio por test**: $0.00415
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,8 +16,12 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.52 | 7.38 |
+| agent_long_horizon | 12 | 12 | 7.18 | 8.33 |
+| business_audit | 10 | 10 | 7.02 | 8.00 |
+| business_strategy | 5 | 5 | 7.80 | 9.20 |
 | code_generation | 4 | 4 | 6.53 | 6.78 |
 | content_generation | 4 | 4 | 7.85 | 9.30 |
+| content_verificable | 5 | 5 | 6.29 | 6.67 |
 | creativity | 4 | 4 | 7.66 | 9.01 |
 | customer_support | 4 | 4 | 7.56 | 7.40 |
 | deep_reasoning | 6 | 6 | 6.00 | 5.76 |
@@ -2108,3 +2112,13 @@ Ejecuto el skill de publicación ahora:
 **Respuesta completa**: [`results/responses/20260426_074254/mimo-v2.5__summarization__extract_structured_data.md`](../results/responses/20260426_074254/mimo-v2.5__summarization__extract_structured_data.md)
 
 </details>
+
+### Otras suites
+
+#### business_audit
+
+#### business_strategy
+
+#### content_verificable
+
+#### agent_long_horizon

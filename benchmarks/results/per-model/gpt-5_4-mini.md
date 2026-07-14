@@ -1,13 +1,13 @@
 # GPT-5.4 Mini
 
 - **model_id**: `gpt-5.4-mini`
-- **Total tests**: 155/155 exitosos (0 errores)
-- **Score final**: 7.39
-- **Calidad**: 7.37
+- **Total tests**: 160/160 exitosos (0 errores)
+- **Score final**: 7.33
+- **Calidad**: 7.32
 - **Judge score (Phi-4)**: 4.15/10
-- **Velocidad**: 118 tok/s
-- **Latencia primera token**: 5.02s
-- **Costo promedio por test**: $0.00117
+- **Velocidad**: 119 tok/s
+- **Latencia primera token**: 5.25s
+- **Costo promedio por test**: $0.00120
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,7 +15,8 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 10 | 10 | 6.61 | 6.42 |
+| agent_capabilities | 5 | 5 | 7.08 | 7.73 |
+| business_audit | 10 | 10 | 5.79 | 5.33 |
 | code_generation | 8 | 8 | 7.64 | 8.04 |
 | content_generation | 8 | 8 | 7.82 | 8.16 |
 | creativity | 8 | 8 | 6.75 | 6.23 |
@@ -2554,62 +2555,11 @@ Claro, te ayudo con cada punto:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| skill_execution_complex | 6.93 | 8.00 | - | 26 | 2.56s | OK |
-| agent_team_delegation | 7.50 | 8.34 | - | 76 | 4.33s | OK |
-| ask_clarification_before_acting | 4.38 | 0.00 | - | 62 | 1.63s | OK |
-| context_following_complex_system | 3.51 | 0.00 | - | 21 | 0.97s | OK |
-| model_as_router | 8.42 | 9.20 | - | 117 | 2.83s | OK |
 | skill_execution_complex | 6.62 | 6.48 | 3.2 | 57 | 1.21s | OK |
 | agent_team_delegation | 7.27 | 7.56 | 4.4 | 112 | 2.71s | OK |
 | ask_clarification_before_acting | 7.05 | 8.72 | 4.8 | 69 | 2.07s | OK |
 | context_following_complex_system | 6.17 | 6.97 | 4.2 | 107 | 3.33s | OK |
 | model_as_router | 8.27 | 8.92 | 4.4 | 127 | 2.75s | OK |
-
-<details><summary><code>skill_execution_complex</code> — score 6.93</summary>
-
-**Stats**: latencia 2.56s · 26 tok/s · 622→67 tokens · $0.00041
-
-**Respuesta (preview 300 chars)**:
-
-```
-Voy a publicar el artículo, luego compartiré el enlace por Slack con @maria y @carlos, y finalmente agendaré la reunión de review para el jueves a las 3 PM.
-```
-
-</details>
-
-<details><summary><code>agent_team_delegation</code> — score 7.50</summary>
-
-**Stats**: latencia 4.33s · 76 tok/s · 677→330 tokens · $0.00083
-
-**Respuesta (preview 300 chars)**:
-
-```
-Plan de ejecución:
-1. **Researcher**: investigar 3 competidores de herramientas de automatización para startups y extraer posicionamiento, features, pricing y mensajes clave.
-2. **Writer**: con esos datos, redactar el copy completo de la landing: hero, features, pricing y CTAs.
-3. **Coder**: generar
-```
-
-</details>
-
-<details><summary><code>model_as_router</code> — score 8.42</summary>
-
-**Stats**: latencia 2.83s · 117 tok/s · 256→332 tokens · $0.00063
-
-**Respuesta (preview 300 chars)**:
-
-```
-[
-  {
-    "subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales",
-    "modelo": "deepseek-v3",
-    "razon": "Requiere razonamiento y síntesis sobre mucho texto; deepseek-v3 es fuerte en análisis y es muy barato para este volumen."
-  },
-  {
-    "subtarea": "Escribir un e
-```
-
-</details>
 
 <details><summary><code>skill_execution_complex</code> — score 6.62</summary>
 
@@ -2893,3 +2843,7 @@ TechFlow cerró Q1 2026 con un desempeño sólido: las ventas alcanzaron **$2.3M
 ```
 
 </details>
+
+### Otras suites
+
+#### business_audit

@@ -1,13 +1,13 @@
-# GPT-OSS 20B (Groq)
+# GPT-OSS 20B
 
 - **model_id**: `openai/gpt-oss-20b`
-- **Total tests**: 144/148 exitosos (4 errores)
-- **Score final**: 7.47
-- **Calidad**: 7.10
-- **Judge score (Phi-4)**: 4.07/10
-- **Velocidad**: 474 tok/s
-- **Latencia primera token**: 2.35s
-- **Costo promedio por test**: $0.00105
+- **Total tests**: 123/123 exitosos (0 errores)
+- **Score final**: 7.50
+- **Calidad**: 7.50
+- **Judge score (Phi-4)**: 4.37/10
+- **Velocidad**: 97 tok/s
+- **Latencia primera token**: 19.59s
+- **Costo promedio por test**: $0.00027
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,31 +15,33 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 4 | 7.52 | 6.40 |
-| agent_long_horizon | 12 | 9 | 7.98 | 8.83 |
-| code_generation | 4 | 4 | 8.28 | 8.66 |
-| content_generation | 4 | 4 | 8.82 | 9.15 |
-| creativity | 4 | 4 | 8.27 | 8.51 |
-| customer_support | 4 | 4 | 7.00 | 5.81 |
-| deep_reasoning | 6 | 6 | 7.21 | 6.74 |
-| hallucination | 3 | 3 | 8.21 | 8.01 |
-| multi_turn | 4 | 4 | 8.00 | 7.78 |
-| news_seo_writing | 5 | 5 | 7.27 | 6.71 |
-| niah_es_lite | 45 | 45 | 6.66 | 6.20 |
-| ocr_extraction | 5 | 5 | 6.80 | 5.44 |
-| orchestration | 5 | 5 | 6.41 | 3.72 |
-| policy_adherence | 4 | 4 | 7.89 | 7.03 |
-| presentation | 2 | 2 | 8.11 | 8.56 |
-| reasoning | 3 | 3 | 8.28 | 8.91 |
-| sales_outreach | 3 | 3 | 8.57 | 8.85 |
-| startup_content | 5 | 5 | 8.52 | 9.23 |
-| strategy | 3 | 3 | 8.01 | 8.35 |
-| string_precision | 6 | 6 | 8.32 | 7.65 |
-| structured_output | 4 | 4 | 8.34 | 7.99 |
-| summarization | 2 | 2 | 8.00 | 7.72 |
-| task_management | 3 | 3 | 7.78 | 7.53 |
-| tool_calling | 4 | 4 | 7.32 | 5.91 |
-| translation | 3 | 3 | 8.62 | 8.73 |
+| agent_capabilities | 5 | 5 | 6.61 | 6.04 |
+| agent_long_horizon | 12 | 12 | 7.37 | 7.50 |
+| business_audit | 10 | 10 | 7.32 | 7.30 |
+| business_strategy | 5 | 5 | 6.74 | 6.27 |
+| code_generation | 4 | 4 | 8.61 | 9.25 |
+| content_generation | 4 | 4 | 8.67 | 9.23 |
+| content_verificable | 5 | 5 | 7.67 | 7.67 |
+| creativity | 4 | 4 | 7.76 | 8.12 |
+| customer_support | 4 | 4 | 7.39 | 6.96 |
+| deep_reasoning | 6 | 6 | 6.59 | 6.53 |
+| hallucination | 3 | 3 | 7.31 | 7.00 |
+| multi_turn | 4 | 4 | 7.28 | 7.00 |
+| news_seo_writing | 5 | 5 | 5.89 | 5.52 |
+| ocr_extraction | 5 | 5 | 8.65 | 8.95 |
+| orchestration | 5 | 5 | 7.72 | 7.47 |
+| policy_adherence | 4 | 4 | 6.42 | 5.83 |
+| presentation | 2 | 2 | 8.21 | 8.88 |
+| reasoning | 3 | 3 | 8.82 | 9.55 |
+| sales_outreach | 3 | 3 | 6.43 | 6.00 |
+| startup_content | 5 | 5 | 8.53 | 9.30 |
+| strategy | 3 | 3 | 7.07 | 7.22 |
+| string_precision | 6 | 6 | 9.34 | 10.00 |
+| structured_output | 4 | 4 | 5.95 | 5.00 |
+| summarization | 2 | 2 | 7.81 | 8.00 |
+| task_management | 3 | 3 | 8.30 | 8.55 |
+| tool_calling | 4 | 4 | 6.90 | 6.05 |
+| translation | 3 | 3 | 8.29 | 8.67 |
 
 ## Detalle por test
 
@@ -49,120 +51,141 @@
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| math_word_problem | 8.46 | 9.16 | 4.4 | 819 | 2.00s | OK |
-| logic_puzzle_constraint | 8.00 | 8.26 | 4.4 | 799 | 2.16s | OK |
-| causal_reasoning | 7.85 | 8.06 | 4.4 | 809 | 2.53s | OK |
-| code_bug_subtle | 3.82 | 0.00 | - | 842 | 2.43s | OK |
-| fermi_estimation | 7.49 | 7.28 | 4.4 | 862 | 2.14s | OK |
-| ethical_dilemma_structured | 7.67 | 7.69 | 4.4 | 767 | 2.62s | OK |
+| math_word_problem | 9.17 | 10.00 | 4.0 | 72 | 19.61s | OK |
+| logic_puzzle_constraint | 5.62 | 5.00 | 4.4 | 92 | 22.16s | OK |
+| causal_reasoning | 6.78 | 6.67 | 4.0 | 97 | 21.18s | OK |
+| code_bug_subtle | 7.06 | 7.50 | 3.8 | 16 | 129.07s | OK |
+| fermi_estimation | 1.82 | 0.00 | 4.6 | 30 | 66.28s | OK |
+| ethical_dilemma_structured | 9.11 | 10.00 | 5.0 | 97 | 21.18s | OK |
 
-<details><summary><code>math_word_problem</code> — score 8.46</summary>
+<details><summary><code>math_word_problem</code> — score 9.17</summary>
 
-**Stats**: latencia 2.00s · 819 tok/s · 151→1642 tokens · $0.00050
+**Stats**: latencia 19.61s · 72 tok/s · 149→1420 tokens · $0.00020
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante, clara y sigue un razonamiento lógico impecable, aunque la profundidad y utilidad práctica son moderadas dado el contexto técnico específico.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**Paso 1 – Definir las variables y la situación inicial**
+**Paso 1 – Plantear las ecuaciones de movimiento**
 
-- Distancia total entre Santiago (S) y Valparaíso (V):  
-  \[
-  D = 120\ \text{km}
-  \]
+Denotemos  
 
-- Tren A sale de Santiago a las **8:00 AM** con velocidad  
-  \[
-  v_A = 80\ \text{km/h}
-  \]
+- \(t\) = tiempo (en horas) transcurrido desde las 8:00 AM.  
+- \(d_A\) = distancia recorrida por el tren que sale de Santiago.  
+- \(d_B\) = distancia recorrida por el tren que sale de Valparaíso.
 
-- Tren B sale de Valparaíso a las **8:30 AM** con velocid
+Velocidades:
+
+\[
+v_A = 80 \text{ km/
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__deep_reasoning__math_word_problem.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__deep_reasoning__math_word_problem.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__deep_reasoning__math_word_problem.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__deep_reasoning__math_word_problem.md)
 
 </details>
 
-<details><summary><code>logic_puzzle_constraint</code> — score 8.00</summary>
+<details><summary><code>logic_puzzle_constraint</code> — score 5.62</summary>
 
-**Stats**: latencia 2.16s · 799 tok/s · 161→1725 tokens · $0.00053
+**Stats**: latencia 22.16s · 92 tok/s · 144→2048 tokens · $0.00029
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**Paso‑a‑paso**
+**Paso 1 – Analiza las restricciones básicas**
 
-1. **Colocamos la casa azul**  
-   - La azul no puede estar en los extremos, por lo que solo puede ocupar la posición **2** o la **3**.
-
-2. **Caso 1 – Azul en la posición 3**  
-   - La casa roja debe estar a la izquierda de la azul, por lo que la roja puede estar en la posición **1*
+| Restricción | Qué implica |
+|-------------|-------------|
+| 1. “La casa roja está a la izquierda de la azul” | El rojo debe estar en una posición menor que la azul. |
+| 2. “La casa verde está al lado de la blanca” | Verde y blanca ocupan dos puestos
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__deep_reasoning__logic_puzzle_constraint.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__deep_reasoning__logic_puzzle_constraint.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__deep_reasoning__logic_puzzle_constraint.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__deep_reasoning__logic_puzzle_constraint.md)
 
 </details>
 
-<details><summary><code>causal_reasoning</code> — score 7.85</summary>
+<details><summary><code>causal_reasoning</code> — score 6.78</summary>
 
-**Stats**: latencia 2.53s · 809 tok/s · 243→2048 tokens · $0.00063
+**Stats**: latencia 21.18s · 97 tok/s · 239→2048 tokens · $0.00029
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa y relevante, con una buena claridad y utilidad práctica, aunque la profundidad podría mejorarse con un análisis más detallado de las correlaciones.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## 1.  Resumen de los datos
+## 1.  Datos de entrada (3 meses)
 
 | Mes | Pedidos | Quejas | Tiempo medio (min) | Días de lluvia |
 |-----|---------|--------|---------------------|----------------|
 | 1   | 1 000   | 50     | 35                  | 5              |
 | 2   | 1 200   | 90     | 42                  | 12             |
-| 3   |
+|
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__deep_reasoning__causal_reasoning.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__deep_reasoning__causal_reasoning.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__deep_reasoning__causal_reasoning.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__deep_reasoning__causal_reasoning.md)
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 7.49</summary>
+<details><summary><code>code_bug_subtle</code> — score 7.06</summary>
 
-**Stats**: latencia 2.14s · 862 tok/s · 133→1845 tokens · $0.00056
+**Stats**: latencia 129.07s · 16 tok/s · 273→2048 tokens · $0.00030
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**Estimación de litros de café consumidos al día en todas las oficinas de Santiago de Chile**  
-
-A continuación se muestra el razonamiento paso a paso, con cada supuesto numerado y las cifras que se emplean.  Los valores están basados en datos estadísticos oficiales (INE, Banco Central, Instituto Na
+We need to identify subtle bug that only appears in certain cases. The code: find_median sorts numbers, integer mid, if even returns average of two middle. Works fine. remove_outliers_and_average: if len <3 returns average of all. median = find_median(data). mad = find_median([abs(x - median) for x
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__deep_reasoning__fermi_estimation.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__deep_reasoning__fermi_estimation.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__deep_reasoning__code_bug_subtle.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__deep_reasoning__code_bug_subtle.md)
 
 </details>
 
-<details><summary><code>ethical_dilemma_structured</code> — score 7.67</summary>
+<details><summary><code>fermi_estimation</code> — score 1.82</summary>
 
-**Stats**: latencia 2.62s · 767 tok/s · 246→2013 tokens · $0.00062
+**Stats**: latencia 66.28s · 30 tok/s · 129→1975 tokens · $0.00028
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+## Estimación paso‑a‑paso
+
+| # | Supuesto | Comentario | Valor usado |
+|---|----------|------------|-------------|
+| 1 | **Población de Santiago (área metropolitana)** | Incluye a todas las personas que viven en la zona urbana. | 5.5 M |
+| 2 | **Tasa de empleo** | En Chile la población activa suele
+```
+
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__deep_reasoning__fermi_estimation.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__deep_reasoning__fermi_estimation.md)
+
+</details>
+
+<details><summary><code>ethical_dilemma_structured</code> — score 9.11</summary>
+
+**Stats**: latencia 21.18s · 97 tok/s · 240→2048 tokens · $0.00029
+
+**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
 ## 1. Stakeholders afectados
 
-| Grupo | Interés / riesgo | Comentarios |
-|-------|------------------|-------------|
-| **Pacientes con sospecha de cáncer** | Detectar a tiempo vs. ansiedad y procedimientos innecesarios | 5 % de falsos positivos puede generar ansiedad severa y tratamientos invasivos q
+| Grupo | Interés / impacto | Cómo se ve afectado |
+|-------|-------------------|---------------------|
+| **Pacientes** (todo el público) | Detección temprana, ansiedad, riesgo de procedimientos innecesarios | Pacientes con piel oscura pueden ver menor sensibilidad → ma
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__deep_reasoning__ethical_dilemma_structured.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__deep_reasoning__ethical_dilemma_structured.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__deep_reasoning__ethical_dilemma_structured.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__deep_reasoning__ethical_dilemma_structured.md)
 
 </details>
 
@@ -170,71 +193,83 @@ A continuación se muestra el razonamiento paso a paso, con cada supuesto numera
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| business_analysis | 8.30 | 8.96 | 4.4 | 809 | 2.53s | OK |
-| logical_reasoning | 8.46 | 9.24 | 4.6 | 777 | 2.44s | OK |
-| multi_constraint_decision | 8.08 | 8.52 | 4.6 | 827 | 2.48s | OK |
+| business_analysis | 8.64 | 9.32 | 5 | 98 | 20.84s | OK |
+| logical_reasoning | 9.29 | 10.00 | 5 | 143 | 12.79s | OK |
+| multi_constraint_decision | 8.52 | 9.32 | 5 | 76 | 50.09s | OK |
 
-<details><summary><code>business_analysis</code> — score 8.30</summary>
+<details><summary><code>business_analysis</code> — score 8.64</summary>
 
-**Stats**: latencia 2.53s · 809 tok/s · 233→2048 tokens · $0.00063
+**Stats**: latencia 20.84s · 98 tok/s · 229→2048 tokens · $0.00029
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando cálculos detallados y análisis de tendencias con sugerencias prácticas.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-### 1. Métricas clave (por mes)
+## 1. Métricas clave (cálculos mensuales)
 
-| Métrica | Enero | Febrero | Marzo |
-|---------|-------|---------|-------|
-| **Churn rate** | — | 52 / 1 200 = **4.33 %** | 68 / 1 350 = **5.04 %** |
-| **User growth rate** | — | (1 350 – 1 200)/1 200 = **12.5 %** | (1 480 – 1 350)/1 350 = **9.8 %** |
-| **LTV/CAC ra
+| Mes | Usuarios (Inicio) | MRR (Inicio) | Churns | Churn Rate | Crecimiento de Usuarios | Crecimiento de MRR | LTV/CAC | NRR (Net Revenue Retention) |
+|-----|------------------|--------------|--------|-----------|------------------------|------------------
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__reasoning__business_analysis.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__reasoning__business_analysis.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__reasoning__business_analysis.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__reasoning__business_analysis.md)
 
 </details>
 
-<details><summary><code>logical_reasoning</code> — score 8.46</summary>
+<details><summary><code>logical_reasoning</code> — score 9.29</summary>
 
-**Stats**: latencia 2.44s · 777 tok/s · 191→1896 tokens · $0.00058
+**Stats**: latencia 12.79s · 143 tok/s · 185→1833 tokens · $0.00026
 
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y ofrece un razonamiento paso a paso que es útil para entender el problema, aunque la profundidad podría ser mayor al no explorar alternativas o implicaciones adicionales.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**Paso 1 – Plantear las ecuaciones y las desigualdades**
+**Variables**
 
-Denotemos por \(A,B,C,D,E\) el número de miembros de cada equipo.
+|Equipo|Número de personas|Denotación|
+|------|------------------|----------|
+|A|\(a\)|\(a\)|
+|B|\(b\)|\(b\)|
+|C|\(c\)|\(c\)|
+|D|\(d\)|\(d\)|
+|E|\(e\)|\(e\)|
 
-1. \(B < A < C\)                       (“A tiene más que B y menos que C”)
-2. \(D = A\)                           (“D tiene el mismo número que A”)
-3. \(E < A,\;E < B,\;E < C,
+**Datos dados**
+
+1. \(a > b\) pero \(a < c\)  
+2. \(d = a\)  
+3. \(e\) es menor que todos los demás equipos  
+4. \(a+b+c+d+e =
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__reasoning__logical_reasoning.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__reasoning__logical_reasoning.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__reasoning__logical_reasoning.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__reasoning__logical_reasoning.md)
 
 </details>
 
-<details><summary><code>multi_constraint_decision</code> — score 8.08</summary>
+<details><summary><code>multi_constraint_decision</code> — score 8.52</summary>
 
-**Stats**: latencia 2.48s · 827 tok/s · 228→2048 tokens · $0.00063
+**Stats**: latencia 50.09s · 76 tok/s · 224→3827 tokens · $0.00054
 
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando una comparación detallada de las opciones de stack tecnológico con pros y contras específicos para un emprendedor.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## 1.  Tres propuestas de stack
+## 3 stack‑options para tu MVP  
+*(React + Python + Go, 6 semanas, $5 000, 1 dev)*  
 
-| # | Stack | Tecnologías principales | Arquitectura | Ventajas | Desventajas |
-|---|-------|------------------------|--------------|----------|-------------|
-| **A** | **Serverless / “Backend‑as‑a‑Service”** | **Front‑end:** Next.js (React) <br> **Back‑end / Auth /
+| Stack | Tecnologías clave | Auth | Pagos | Chat | Búsqueda | Admin | Coste infra (mensual) | Mantenimiento |
+|-------|-------------------|------|-------|------|----------|-------|-----------------------|---------
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__reasoning__multi_constraint_decision.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__reasoning__multi_constraint_decision.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__reasoning__multi_constraint_decision.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__reasoning__multi_constraint_decision.md)
 
 </details>
 
@@ -242,70 +277,72 @@ Denotemos por \(A,B,C,D,E\) el número de miembros de cada equipo.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| factual_trap_companies | 8.29 | 8.12 | 4.0 | 681 | 1.06s | OK |
-| context_faithfulness | 8.60 | 8.10 | 4.4 | 460 | 0.50s | OK |
-| fake_citation_trap | 7.73 | 7.80 | 4.2 | 787 | 2.49s | OK |
+| factual_trap_companies | 9.55 | 10.00 | 4.0 | 140 | 3.24s | OK |
+| context_faithfulness | 5.90 | 5.00 | 4.0 | 57 | 3.81s | OK |
+| fake_citation_trap | 6.47 | 6.00 | 2.6 | 110 | 18.70s | OK |
 
-<details><summary><code>factual_trap_companies</code> — score 8.29</summary>
+<details><summary><code>factual_trap_companies</code> — score 9.55</summary>
 
-**Stats**: latencia 1.06s · 681 tok/s · 201→724 tokens · $0.00023
+**Stats**: latencia 3.24s · 140 tok/s · 195→455 tokens · $0.00007
 
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con una honestidad excelente al admitir la incertidumbre. La profundidad es aceptable, ya que no ofrece insights adicionales más allá de los hechos básicos.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-```json
 [
   {"pregunta": 1, "respuesta": "1976", "confianza": "alta"},
   {"pregunta": 2, "respuesta": "Elon Musk", "confianza": "alta"},
   {"pregunta": 3, "respuesta": "No tengo certeza", "confianza": "baja"},
   {"pregunta": 4, "respuesta": "Canberra", "confianza": "alta"},
-  {"pregunta": 5, "respue
+  {"pregunta": 5, "respuesta": "N
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__hallucination__factual_trap_companies.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__hallucination__factual_trap_companies.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__hallucination__factual_trap_companies.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__hallucination__factual_trap_companies.md)
 
 </details>
 
-<details><summary><code>context_faithfulness</code> — score 8.60</summary>
+<details><summary><code>context_faithfulness</code> — score 5.90</summary>
 
-**Stats**: latencia 0.50s · 460 tok/s · 237→228 tokens · $0.00009
+**Stats**: latencia 3.81s · 57 tok/s · 234→217 tokens · $0.00004
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, admitiendo honestamente la falta de información para las preguntas 4, 5 y 6, lo que es útil para un emprendedor.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-1. Los ingresos de TechFlow en Q1 2026 fueron $2.3 M.  
-2. TechFlow tiene 45 empleados.  
-3. Planean expandirse a Brasil.  
+1. $2.3 M  
+2. 45 personas  
+3. Brasil  
 4. No se menciona en el texto.  
 5. No se menciona en el texto.  
 6. No se menciona en el texto.
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__hallucination__context_faithfulness.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__hallucination__context_faithfulness.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__hallucination__context_faithfulness.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__hallucination__context_faithfulness.md)
 
 </details>
 
-<details><summary><code>fake_citation_trap</code> — score 7.73</summary>
+<details><summary><code>fake_citation_trap</code> — score 6.47</summary>
 
-**Stats**: latencia 2.49s · 787 tok/s · 188→1959 tokens · $0.00060
+**Stats**: latencia 18.70s · 110 tok/s · 182→2048 tokens · $0.00029
 
-**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 2.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**1. Porcentaje de startups que fracasan en los primeros 5 años (CB Insights)**  
-- **Dato**: 70 % de las startups fallan dentro de los primeros 5 años.  
-- **Fuente**: CB Insights, *The State of Startup Failure* (último reporte disponible en 2023).  
-- **Nivel de certeza**: **Alto**.  
-- **Tipo de
+**1. Porcentaje de startups que fracasan en los primeros 5 años (CB Insights)**  
+- **Dato:** **50 %** de las startups fallan dentro de los primeros **5 años**.  
+- **Fuente:** CB Insights, *“The 2023 Startup Survival Report”*, 2023.  
+  - En la sección “Key Findings” se indica que “el 90 % de las s
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__hallucination__fake_citation_trap.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__hallucination__fake_citation_trap.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__hallucination__fake_citation_trap.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__hallucination__fake_citation_trap.md)
 
 </details>
 
@@ -313,73 +350,77 @@ Denotemos por \(A,B,C,D,E\) el número de miembros de cada equipo.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 7.62 | 7.60 | 3.8 | 814 | 2.52s | OK |
-| pricing_strategy | 8.05 | 8.46 | 4.6 | 794 | 2.58s | OK |
-| business_model_validation | 8.35 | 8.98 | 4.4 | 812 | 2.14s | OK |
+| competitor_analysis | 6.33 | 6.67 | 4.0 | 14 | 141.22s | OK |
+| pricing_strategy | 5.76 | 5.00 | 5 | 148 | 13.86s | OK |
+| business_model_validation | 9.13 | 10.00 | 5.0 | 62 | 29.94s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 7.62</summary>
+<details><summary><code>competitor_analysis</code> — score 6.33</summary>
 
-**Stats**: latencia 2.52s · 814 tok/s · 234→2048 tokens · $0.00063
+**Stats**: latencia 141.22s · 14 tok/s · 234→2048 tokens · $0.00029
 
-**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, proporcionando información útil y perspectivas sobre la competencia y oportunidades de mercado, aunque podría profundizar más en algunos aspectos.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## 1. Comparación de competidores principales
+## 1. Tabla comparativa (datos disponibles hasta 2024)
 
-| Competidor | Pricing (plan gratuito / de pago) | Features principales | Mercado target | Fortalezas | Debilidades |
-|------------|-----------------------------------|----------------------|----------------|------------|-------------|
-| **Mailchimp** |
+| Competidor | Pricing (US $ / mes) | Features principales | Mercado objetivo | Fortalezas | Debilidades |
+|------------|----------------------|----------------------|------------------|------------|-------------|
+| **Mailchimp** | • Freemium:
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__strategy__competitor_analysis.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__strategy__competitor_analysis.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__strategy__competitor_analysis.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__strategy__competitor_analysis.md)
 
 </details>
 
-<details><summary><code>pricing_strategy</code> — score 8.05</summary>
+<details><summary><code>pricing_strategy</code> — score 5.76</summary>
 
-**Stats**: latencia 2.58s · 794 tok/s · 240→2048 tokens · $0.00063
+**Stats**: latencia 13.86s · 148 tok/s · 223→2048 tokens · $0.00029
 
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil para un emprendedor, proporcionando un análisis detallado y escenarios bien estructurados.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## 1. LTV/CAC actual y después de la subida de precio  
+## 1. LTV / CAC actual y con el nuevo precio  
 
-| Métrica | Valor | Fórmula | Comentario |
-|---------|-------|---------|------------|
-| **CAC** | **$120** | – | Costo de adquisición por nuevo cliente |
-| **ARPU** | $60 / mes | – | Precio actual |
-| **Tasa de churn** | 7 % / mes | – | 1 / 0.
+| Métrica | Valor actual | Valor con $89 / mes |
+|---------|--------------|---------------------|
+| **CAC** | $120 | $120 (suponemos que el costo de adquisición no cambia) |
+| **LTV** | 14 mes × $60 = **$840** | 14 mes × $89 = **$1 246** |
+| **LTV / CA
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__strategy__pricing_strategy.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__strategy__pricing_strategy.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__strategy__pricing_strategy.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__strategy__pricing_strategy.md)
 
 </details>
 
-<details><summary><code>business_model_validation</code> — score 8.35</summary>
+<details><summary><code>business_model_validation</code> — score 9.13</summary>
 
-**Stats**: latencia 2.14s · 812 tok/s · 230→1738 tokens · $0.00054
+**Stats**: latencia 29.94s · 62 tok/s · 226→1850 tokens · $0.00027
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**Como VC “especialista” (y sin rodeos)**
+**Como VC, te haré preguntas que probablemente me harían los demás inversores. No te lo amoblaremos.**
 
 ---
 
-## 1. Los 5 riesgos principales de tu modelo
+## 1. **Los 5 riesgos más críticos de tu modelo**
 
-| Riesgo | Por qué es crítico | Cómo se manifiesta |
-|--------|-------------------|--------------------|
-| **Adopción de la tecnología** | Los pequeños restaurantes suelen ser muy resistentes al cambio digi
+| # | Riesgo | Por qué es crítico | Impacto posible |
+|---|--------|--------------------|-----------------|
+| 1 | **Adopción de los restaura
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__strategy__business_model_validation.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__strategy__business_model_validation.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__strategy__business_model_validation.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__strategy__business_model_validation.md)
 
 </details>
 
@@ -389,14 +430,14 @@ Denotemos por \(A,B,C,D,E\) el número de miembros de cada equipo.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| python_api_integration | 8.90 | 9.72 | 4.8 | 809 | 1.92s | OK |
-| n8n_workflow_json | 7.84 | 8.00 | 4.0 | 820 | 2.32s | OK |
-| sql_query_complex | 8.24 | 8.80 | 4.6 | 816 | 2.34s | OK |
-| debug_code | 8.13 | 8.12 | 3.8 | 782 | 1.74s | OK |
+| python_api_integration | 9.20 | 9.72 | 4.8 | 139 | 8.64s | OK |
+| n8n_workflow_json | 7.36 | 7.92 | 3.8 | 18 | 113.73s | OK |
+| sql_query_complex | 8.85 | 9.56 | 5 | 92 | 17.79s | OK |
+| debug_code | 9.04 | 9.80 | 5 | 94 | 10.83s | OK |
 
-<details><summary><code>python_api_integration</code> — score 8.90</summary>
+<details><summary><code>python_api_integration</code> — score 9.20</summary>
 
-**Stats**: latencia 1.92s · 809 tok/s · 167→1556 tokens · $0.00048
+**Stats**: latencia 8.64s · 139 tok/s · 161→1203 tokens · $0.00017
 
 **Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -404,87 +445,98 @@ Denotemos por \(A,B,C,D,E\) el número de miembros de cada equipo.
 
 ```
 ```python
-"""
-Utility for fetching products from an API and filtering them.
+import time
+from typing import Any, Dict, List, Optional
 
-The function `fetch_expensive_products`:
-1. Performs a GET request to https://api.example.com/products
-   using Bearer‑token authentication.
-2. Retries up to 3 times on network errors or timeouts,
-   waiting with an exponen
+import httpx
+
+
+def fetch_expensive_products(
+    token: str,
+    *,
+    url: str = "https://api.example.com/products",
+    price_threshold: float = 100.0,
+    timeout: float = 10.0,
+    max_attempts: int = 3,
+    backoff_factor: flo
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__code_generation__python_api_integration.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__code_generation__python_api_integration.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__code_generation__python_api_integration.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__code_generation__python_api_integration.md)
 
 </details>
 
-<details><summary><code>n8n_workflow_json</code> — score 7.84</summary>
+<details><summary><code>n8n_workflow_json</code> — score 7.36</summary>
 
-**Stats**: latencia 2.32s · 820 tok/s · 183→1900 tokens · $0.00058
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-```json
-{
-  "name": "Webhook Email Classifier",
-  "active": true,
-  "nodes": [
-    {
-      "name": "Webhook Trigger",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [200, 200],
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "webhook",
-        "
-```
-
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__code_generation__n8n_workflow_json.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__code_generation__n8n_workflow_json.md)
-
-</details>
-
-<details><summary><code>sql_query_complex</code> — score 8.24</summary>
-
-**Stats**: latencia 2.34s · 816 tok/s · 212→1908 tokens · $0.00059
-
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Aquí tienes una solución que funciona en PostgreSQL (puedes adaptarla a MySQL, SQL‑Server, etc. cambiando la forma de calcular el intervalo de 6 meses y las funciones de ventana).
-
-```sql
-/* 1. Seleccionamos las órdenes completadas de los últimos 6 meses   */
-WITH last6m_orders AS (
-    SELECT
-```
-
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__code_generation__sql_query_complex.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__code_generation__sql_query_complex.md)
-
-</details>
-
-<details><summary><code>debug_code</code> — score 8.13</summary>
-
-**Stats**: latencia 1.74s · 782 tok/s · 287→1361 tokens · $0.00043
+**Stats**: latencia 113.73s · 18 tok/s · 179→2048 tokens · $0.00029
 
 **Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## 1. Explicación de los bugs
+We need to generate a JSON for an n8n workflow that includes:
 
-| # | Bug | Por qué es problemático | Efecto en la ejecución |
-|---|-----|------------------------|------------------------|
-| 1 | **División por cero** | `average = total / len(processed)` se ejecuta incluso cuando *no* hay órdenes con estado `"pending"`. En ese caso
+- Trigger node webhook (HTTP Request Trigger). Method POST.
+
+- Node to extract body fields email and message. In n8n, you can use Set node or Function node to extract. Set node can pick data from previous node's output.
+
+- Node for AI cl
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__code_generation__debug_code.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__code_generation__debug_code.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__code_generation__n8n_workflow_json.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__code_generation__n8n_workflow_json.md)
+
+</details>
+
+<details><summary><code>sql_query_complex</code> — score 8.85</summary>
+
+**Stats**: latencia 17.79s · 92 tok/s · 195→1636 tokens · $0.00023
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y altamente util, cumpliendo con todos los requisitos de la consulta SQL compleja.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**SQL (PostgreSQL‑style)**  
+
+```sql
+-- 1️⃣  Orders that are finished and fall in the last 6 months
+WITH recent_orders AS (
+    SELECT o.id        AS order_id,
+           o.customer_id,
+           o.created_at
+    FROM   orders o
+    WHERE  o.status = 'completed'
+      AND  o.created_at >= NOW() - I
+```
+
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__code_generation__sql_query_complex.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__code_generation__sql_query_complex.md)
+
+</details>
+
+<details><summary><code>debug_code</code> — score 9.04</summary>
+
+**Stats**: latencia 10.83s · 94 tok/s · 270→1023 tokens · $0.00015
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y prácticamente útil, abordando todos los bugs y mejorando el código con explicaciones detalladas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## 1. Bug #1 – **Division por cero si no hay órdenes “pending”**
+
+```python
+average = total / len(processed)
+```
+
+Si *processed* está vacío (`len(processed) == 0`) el cálculo del promedio provoca una excepción `ZeroDivisionError`.  
+**Solución**: comprobar el tamaño de la lista antes de dividir o de
+```
+
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__code_generation__debug_code.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__code_generation__debug_code.md)
 
 </details>
 
@@ -492,18 +544,18 @@ WITH last6m_orders AS (
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 8.28 | 7.46 | 4.0 | 280 | 0.41s | OK |
-| json_array_classification | 8.72 | 8.64 | 5 | 591 | 0.84s | OK |
-| json_nested_complex | 8.17 | 8.57 | 4.8 | 766 | 2.06s | OK |
-| json_strict_no_extra | 8.20 | 7.30 | 4.0 | 244 | 0.37s | OK |
+| json_simple_extraction | 5.90 | 5.00 | 4.0 | 52 | 4.66s | OK |
+| json_array_classification | 6.05 | 5.00 | 5 | 140 | 3.17s | OK |
+| json_nested_complex | 5.64 | 5.00 | 5 | 82 | 21.59s | OK |
+| json_strict_no_extra | 6.20 | 5.00 | 5 | 100 | 0.91s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 8.28</summary>
+<details><summary><code>json_simple_extraction</code> — score 5.90</summary>
 
-**Stats**: latencia 0.41s · 280 tok/s · 167→114 tokens · $0.00005
+**Stats**: latencia 4.66s · 52 tok/s · 167→243 tokens · $0.00004
 
 **Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:2, claridad:5, utilidad:3)
 
-> La respuesta es precisa y relevante, con un formato claro y correcto; sin embargo, carece de profundidad adicional más allá de la extracción básica.
+> La respuesta es precisa y relevante, con un formato claro y correcto, pero carece de profundidad y insights adicionales.
 
 **Respuesta (preview 300 chars)**:
 
@@ -511,51 +563,53 @@ WITH last6m_orders AS (
 {"name":"Maria Garcia","age":28,"role":"ingeniera de software","company":"Google Chile","email":"maria@google.com","salary":95000}
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__structured_output__json_simple_extraction.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__structured_output__json_simple_extraction.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__structured_output__json_simple_extraction.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__structured_output__json_simple_extraction.md)
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 8.72</summary>
+<details><summary><code>json_array_classification</code> — score 6.05</summary>
 
-**Stats**: latencia 0.84s · 591 tok/s · 227→494 tokens · $0.00016
+**Stats**: latencia 3.17s · 140 tok/s · 222→444 tokens · $0.00007
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante y clara, con un formato JSON correcto; ofrece una clasificación útil para la gestión de soporte al cliente.
+> La respuesta es precisa, relevante, clara y útil, con un formato JSON correcto, aunque la profundidad podría mejorarse con más contexto o análisis.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-[{"id":1,"category":"shipping","priority":"urgent","sentiment":"negative"},{"id":2,"category":"shipping","priority":"low","sentiment":"positive"},{"id":3,"category":"billing","priority":"high","sentiment":"negative"},{"id":4,"category":"technical","priority":"high","sentiment":"negative"}]
+[{"id":1,"category":"shipping","priority":"urgent","sentiment":"negative"},{"id":2,"category":"shipping","priority":"low","sentiment":"neutral"},{"id":3,"category":"billing","priority":"high","sentiment":"negative"},{"id":4,"category":"technical","priority":"high","sentiment":"negative"}]
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__structured_output__json_array_classification.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__structured_output__json_array_classification.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__structured_output__json_array_classification.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__structured_output__json_array_classification.md)
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 8.17</summary>
+<details><summary><code>json_nested_complex</code> — score 5.64</summary>
 
-**Stats**: latencia 2.06s · 766 tok/s · 274→1582 tokens · $0.00049
+**Stats**: latencia 21.59s · 82 tok/s · 273→1767 tokens · $0.00026
 
-**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente estructurada, proporcionando una representación detallada y útil de un plan de proyecto para un emprendedor.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-{"project":"Rediseno sitio web","start_date":"2026-05-01","end_date":"2026-06-30","team":[{"name":"Ana Pérez","role":"Designer","allocation_pct":25},{"name":"Luis Gómez","role":"Developer","allocation_pct":30},{"name":"María Torres","role":"Developer","allocation_pct":30},{"name":"Carlos Ruiz","role
+{"project":"Rediseno sitio web","start_date":"2026-05-01","end_date":"2026-06-30","team":[{"name":"Ana López","role":"Designer","allocation_pct":100},{"name":"Carlos Martínez","role":"Developer","allocation_pct":100},{"name":"Luis Gómez","role":"Developer","allocation_pct":100},{"name":"María Torres
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__structured_output__json_nested_complex.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__structured_output__json_nested_complex.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__structured_output__json_nested_complex.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__structured_output__json_nested_complex.md)
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 8.20</summary>
+<details><summary><code>json_strict_no_extra</code> — score 6.20</summary>
 
-**Stats**: latencia 0.37s · 244 tok/s · 143→91 tokens · $0.00004
+**Stats**: latencia 0.91s · 100 tok/s · 138→91 tokens · $0.00002
 
-**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:3)
 
-> La respuesta es precisa, relevante y clara con un formato JSON perfecto, pero carece de profundidad e insights adicionales.
+> La respuesta es precisa, relevante, clara y en el formato correcto, aunque carece de profundidad y utilidad práctica más allá de la estructura básica requerida.
 
 **Respuesta (preview 300 chars)**:
 
@@ -563,7 +617,7 @@ WITH last6m_orders AS (
 {"status":"ok","count":42,"items":["alpha","beta","gamma"]}
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__structured_output__json_strict_no_extra.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__structured_output__json_strict_no_extra.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__structured_output__json_strict_no_extra.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__structured_output__json_strict_no_extra.md)
 
 </details>
 
@@ -571,18 +625,20 @@ WITH last6m_orders AS (
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| copy_hex_32 | 8.21 | 7.32 | 3.6 | 235 | 0.33s | OK |
-| copy_hex_64 | 8.06 | 7.32 | 3.6 | 307 | 0.51s | OK |
-| copy_api_key | 8.35 | 7.60 | 3.8 | 347 | 0.47s | OK |
-| copy_jwt | 8.49 | 7.88 | 4.0 | 272 | 0.44s | OK |
-| copy_mixed_special | 8.49 | 7.88 | 4.0 | 366 | 0.49s | OK |
-| write_config_file | 8.34 | 7.88 | 4.0 | 363 | 0.62s | OK |
+| copy_hex_32 | 9.40 | 10.00 | 4.0 | 92 | 3.58s | OK |
+| copy_hex_64 | 9.55 | 10.00 | 4.0 | 57 | 1.87s | OK |
+| copy_api_key | 9.55 | 10.00 | 4.0 | 138 | 2.44s | OK |
+| copy_jwt | 8.95 | 10.00 | 4.0 | 20 | 5.68s | OK |
+| copy_mixed_special | 9.70 | 10.00 | 3.0 | 102 | 1.22s | OK |
+| write_config_file | 8.88 | 10.00 | 4.0 | 16 | 31.41s | OK |
 
-<details><summary><code>copy_hex_32</code> — score 8.21</summary>
+<details><summary><code>copy_hex_32</code> — score 9.40</summary>
 
-**Stats**: latencia 0.33s · 235 tok/s · 147→77 tokens · $0.00003
+**Stats**: latencia 3.58s · 92 tok/s · 147→329 tokens · $0.00005
 
-**Juez Phi-4**: 3.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, cumpliendo exactamente con la instrucción de copiar el string hex sin errores; sin embargo, carece de profundidad y utilidad práctica más allá de la tarea específica.
 
 **Respuesta (preview 300 chars)**:
 
@@ -590,15 +646,17 @@ WITH last6m_orders AS (
 a1b2c3d4e5f6789012345678abcdef90
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__string_precision__copy_hex_32.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__string_precision__copy_hex_32.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__string_precision__copy_hex_32.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__string_precision__copy_hex_32.md)
 
 </details>
 
-<details><summary><code>copy_hex_64</code> — score 8.06</summary>
+<details><summary><code>copy_hex_64</code> — score 9.55</summary>
 
-**Stats**: latencia 0.51s · 307 tok/s · 170→157 tokens · $0.00006
+**Stats**: latencia 1.87s · 57 tok/s · 170→107 tokens · $0.00002
 
-**Juez Phi-4**: 3.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad y utilidad práctica más allá de la tarea específica de copiar el string.
 
 **Respuesta (preview 300 chars)**:
 
@@ -606,15 +664,17 @@ a1b2c3d4e5f6789012345678abcdef90
 9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__string_precision__copy_hex_64.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__string_precision__copy_hex_64.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__string_precision__copy_hex_64.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__string_precision__copy_hex_64.md)
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 8.35</summary>
+<details><summary><code>copy_api_key</code> — score 9.55</summary>
 
-**Stats**: latencia 0.47s · 347 tok/s · 192→163 tokens · $0.00006
+**Stats**: latencia 2.44s · 138 tok/s · 192→337 tokens · $0.00005
 
-**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad ya que la tarea no requiere insights adicionales.
 
 **Respuesta (preview 300 chars)**:
 
@@ -622,17 +682,17 @@ a1b2c3d4e5f6789012345678abcdef90
 REDACTED-SECRET
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__string_precision__copy_api_key.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__string_precision__copy_api_key.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__string_precision__copy_api_key.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__string_precision__copy_api_key.md)
 
 </details>
 
-<details><summary><code>copy_jwt</code> — score 8.49</summary>
+<details><summary><code>copy_jwt</code> — score 8.95</summary>
 
-**Stats**: latencia 0.44s · 272 tok/s · 169→121 tokens · $0.00005
+**Stats**: latencia 5.68s · 20 tok/s · 169→116 tokens · $0.00002
 
 **Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
 
-> La respuesta es precisa, relevante y clara al copiar el JWT exactamente como se solicitó; sin embargo, carece de profundidad ya que no ofrece insights adicionales.
+> La respuesta es precisa, relevante y clara, copiando el string JWT exactamente como se solicitó, pero carece de profundidad ya que no ofrece insights adicionales.
 
 **Respuesta (preview 300 chars)**:
 
@@ -640,17 +700,17 @@ REDACTED-SECRET
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__string_precision__copy_jwt.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__string_precision__copy_jwt.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__string_precision__copy_jwt.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__string_precision__copy_jwt.md)
 
 </details>
 
-<details><summary><code>copy_mixed_special</code> — score 8.49</summary>
+<details><summary><code>copy_mixed_special</code> — score 9.70</summary>
 
-**Stats**: latencia 0.49s · 366 tok/s · 158→180 tokens · $0.00007
+**Stats**: latencia 1.22s · 102 tok/s · 145→125 tokens · $0.00002
 
-**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:2)
+**Juez Phi-4**: 3.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:1)
 
-> La respuesta es precisa, relevante y clara al copiar el string exactamente como se solicitó; sin embargo, carece de profundidad e insights adicionales.
+> La respuesta es precisa, relevante y clara, pero carece de profundidad y utilidad práctica.
 
 **Respuesta (preview 300 chars)**:
 
@@ -658,17 +718,17 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw
 r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__string_precision__copy_mixed_special.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__string_precision__copy_mixed_special.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__string_precision__copy_mixed_special.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__string_precision__copy_mixed_special.md)
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 8.34</summary>
+<details><summary><code>write_config_file</code> — score 8.88</summary>
 
-**Stats**: latencia 0.62s · 363 tok/s · 294→224 tokens · $0.00009
+**Stats**: latencia 31.41s · 16 tok/s · 290→492 tokens · $0.00008
 
-**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante y clara, proporcionando exactamente lo que se solicitó sin errores; carece de profundidad ya que no ofrece insights adicionales.
+> La respuesta es precisa, relevante, clara y directamente util, pero carece de profundidad ya que simplemente replica la información sin añadir insights.
 
 **Respuesta (preview 300 chars)**:
 
@@ -680,7 +740,7 @@ API_TOKEN=REDACTED-SECRET
 JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__string_precision__write_config_file.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__string_precision__write_config_file.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__string_precision__write_config_file.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__string_precision__write_config_file.md)
 
 </details>
 
@@ -688,15 +748,15 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| invoice_extraction | 7.38 | 6.28 | 2.6 | 600 | 1.03s | OK |
-| business_card_extraction | 8.34 | 7.88 | 4.0 | 546 | 0.82s | OK |
-| receipt_math_verification | 7.52 | 6.81 | 4.2 | 712 | 1.55s | OK |
-| screenshot_table_extraction | 6.53 | 5.44 | 3.2 | 813 | 2.52s | OK |
-| handwritten_notes_extraction | 4.21 | 0.80 | - | 829 | 2.47s | OK |
+| invoice_extraction | 9.55 | 10.00 | 2.6 | 134 | 4.42s | OK |
+| business_card_extraction | 9.55 | 10.00 | 4.0 | 103 | 3.94s | OK |
+| receipt_math_verification | 8.45 | 8.75 | 5 | 115 | 10.55s | OK |
+| screenshot_table_extraction | 6.46 | 6.00 | 3.2 | 135 | 15.21s | OK |
+| handwritten_notes_extraction | 9.26 | 10.00 | 4.0 | 151 | 13.53s | OK |
 
-<details><summary><code>invoice_extraction</code> — score 7.38</summary>
+<details><summary><code>invoice_extraction</code> — score 9.55</summary>
 
-**Stats**: latencia 1.03s · 600 tok/s · 486→620 tokens · $0.00022
+**Stats**: latencia 4.42s · 134 tok/s · 481→592 tokens · $0.00010
 
 **Juez Phi-4**: 2.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -717,15 +777,17 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
     "direccion":
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__ocr_extraction__invoice_extraction.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__ocr_extraction__invoice_extraction.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__ocr_extraction__invoice_extraction.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__ocr_extraction__invoice_extraction.md)
 
 </details>
 
-<details><summary><code>business_card_extraction</code> — score 8.34</summary>
+<details><summary><code>business_card_extraction</code> — score 9.55</summary>
 
-**Stats**: latencia 0.82s · 546 tok/s · 288→445 tokens · $0.00015
+**Stats**: latencia 3.94s · 103 tok/s · 275→407 tokens · $0.00006
 
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con datos exactos, aunque no ofrece insights adicionales más allá de la información básica requerida.
 
 **Respuesta (preview 300 chars)**:
 
@@ -734,22 +796,23 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
   "nombre_completo": "MARIA JOSE RODRIGUEZ SOTO",
   "cargo": "Chief Technology Officer",
   "empresa": "NexaFlow Intelligence",
-  "slogan": "Transforming Data into Decisions",
+  "slogan": "\"Transforming Data into Decisions\"",
   "telefono": "+56 9 8765 4321",
   "email": "mj.rodriguez@nexaflow.ai",
   "linkedin": "linkedin.com/in/mjrodriguez",
-  "dir
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__ocr_extraction__business_card_extraction.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__ocr_extraction__business_card_extraction.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__ocr_extraction__business_card_extraction.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__ocr_extraction__business_card_extraction.md)
 
 </details>
 
-<details><summary><code>receipt_math_verification</code> — score 7.52</summary>
+<details><summary><code>receipt_math_verification</code> — score 8.45</summary>
 
-**Stats**: latencia 1.55s · 712 tok/s · 379→1102 tokens · $0.00036
+**Stats**: latencia 10.55s · 115 tok/s · 373→1213 tokens · $0.00018
 
-**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con una exactitud de datos perfecta, proporcionando una verificación detallada de los cálculos del recibo, lo que la hace altamente útil para un emprendedor.
 
 **Respuesta (preview 300 chars)**:
 
@@ -758,55 +821,65 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 {
   "items": [
     {
+      "name": "Lomo vetado",
       "quantity": 2,
-      "description": "Lomo vetado",
       "unit_price": 18900,
       "total_price": 37800
     },
     {
+      "name": "Ensalada cesar",
       "quantity": 1,
-      "description": "Ensalada cesar",
       "unit_price": 7500,
       "total_price": 7500
     },
     {
-      "quantity": 3,
+      "name": "Pisco sour",
+      "q
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__ocr_extraction__receipt_math_verification.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__ocr_extraction__receipt_math_verification.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__ocr_extraction__receipt_math_verification.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__ocr_extraction__receipt_math_verification.md)
 
 </details>
 
-<details><summary><code>screenshot_table_extraction</code> — score 6.53</summary>
+<details><summary><code>screenshot_table_extraction</code> — score 6.46</summary>
 
-**Stats**: latencia 2.52s · 813 tok/s · 444→2048 tokens · $0.00065
+**Stats**: latencia 15.21s · 135 tok/s · 427→2048 tokens · $0.00030
 
 **Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-```json
-{
-  "dashboard": {
-    "title": "KPIs Marzo 2026",
-    "trend": "Positiva en todas las métricas"
-  },
-
-  "metrics": [
-    {
-      "name": "MRR",
-      "units": "USD",
-      "values": {
-        "Jan": 45200,
-        "Feb": 48700,
-        "Mar": 52100,
-        "Apr": 55787
-      },
-      "var_
+We need to produce JSON. Extract data from table. For each metric, we have values for Jan, Feb, Mar, and var M/M. The metrics: MRR, Churn Rate, NPS, CAC, LTV, Active Users, Support Tickets, Avg Response (h). We need to calculate LTV/CAC ratio for each month. So compute LTV divided by CAC for Jan, Fe
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__ocr_extraction__screenshot_table_extraction.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__ocr_extraction__screenshot_table_extraction.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__ocr_extraction__screenshot_table_extraction.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__ocr_extraction__screenshot_table_extraction.md)
+
+</details>
+
+<details><summary><code>handwritten_notes_extraction</code> — score 9.26</summary>
+
+**Stats**: latencia 13.53s · 151 tok/s · 488→2048 tokens · $0.00030
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, corrigiendo efectivamente los errores de OCR y estructurando la información de manera útil, aunque podría haber sido más clara en la interpretación de la fecha de la reunión.
+
+**Respuesta (preview 300 chars)**:
+
+```
+We need to produce JSON with corrected text, date of meeting, attendees, absentees, action items, key dates, decisions. Let's parse the text.
+
+Original with errors:
+
+"Reunlon equlpo prod - 14/04/26
+Asist: JP, MaJo, Seba, Cami (falt0 Nico)
+
+1) Lanzamient0 v2.0 - mover de abr 28 a may 5
+   - falta QA
+```
+
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__ocr_extraction__handwritten_notes_extraction.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__ocr_extraction__handwritten_notes_extraction.md)
 
 </details>
 
@@ -816,90 +889,94 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_post_es | 8.63 | 8.96 | 4.4 | 739 | 1.36s | OK |
-| email_profesional | 9.09 | 9.72 | 4.8 | 694 | 1.04s | OK |
-| social_media_batch | 8.57 | 8.72 | 4.8 | 682 | 1.20s | OK |
-| product_description_en | 9.00 | 9.20 | 5 | 469 | 0.80s | OK |
+| blog_post_es | 8.54 | 9.52 | 4.8 | 20 | 50.21s | OK |
+| email_profesional | 8.61 | 9.20 | 5 | 62 | 14.73s | OK |
+| social_media_batch | 8.70 | 9.00 | 5 | 152 | 5.74s | OK |
+| product_description_en | 8.84 | 9.20 | 5 | 94 | 3.81s | OK |
 
-<details><summary><code>blog_post_es</code> — score 8.63</summary>
+<details><summary><code>blog_post_es</code> — score 8.54</summary>
 
-**Stats**: latencia 1.36s · 739 tok/s · 129→1003 tokens · $0.00031
+**Stats**: latencia 50.21s · 20 tok/s · 129→997 tokens · $0.00014
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
 **Título:**  
-*IA y automatización: El impulso que las pequeñas empresas necesitan para crecer en la era digital*
+*Automatización con IA: El impulso que las pequeñas empresas necesitan para crecer*
 
 **Introducción**  
-En un mundo donde la velocidad y la precisión son esenciales, las pequeñas empresas se enfrentan a la presión de competir contra grandes corporaciones con recursos il
+En la era digital, la inteligencia artificial (IA) ya no es exclusiva de grandes corporaciones. Hoy, las pequeñas empresas pueden acceder a herramientas de automatización que optimiz
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__content_generation__blog_post_es.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__content_generation__blog_post_es.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__content_generation__blog_post_es.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__content_generation__blog_post_es.md)
 
 </details>
 
-<details><summary><code>email_profesional</code> — score 9.09</summary>
+<details><summary><code>email_profesional</code> — score 8.61</summary>
 
-**Stats**: latencia 1.04s · 694 tok/s · 141→726 tokens · $0.00023
-
-**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Asunto:** Propuesta de Desarrollo de Sitio Web Corporativo con E‑Commerce – $15 000 USD
-
-Estimado/a [Nombre del cliente],
-
-Espero que se encuentre bien. Me complace enviarle la propuesta formal para el desarrollo de su nuevo sitio web corporativo con funcionalidad de e‑commerce, tal como lo solici
-```
-
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__content_generation__email_profesional.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__content_generation__email_profesional.md)
-
-</details>
-
-<details><summary><code>social_media_batch</code> — score 8.57</summary>
-
-**Stats**: latencia 1.20s · 682 tok/s · 141→816 tokens · $0.00026
-
-**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Post 1 – Tono educativo**  
-🔍 *Hook:* “¿Sabías que el 73 % de las empresas que adoptan IA reducen costos operativos en menos de 12 meses?”  
-📌 *Cuerpo:* En la era digital, la automatización no es una opción, es una necesidad. Implementar soluciones basadas en IA permite optimizar procesos, liberar
-```
-
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__content_generation__social_media_batch.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__content_generation__social_media_batch.md)
-
-</details>
-
-<details><summary><code>product_description_en</code> — score 9.00</summary>
-
-**Stats**: latencia 0.80s · 469 tok/s · 123→373 tokens · $0.00012
+**Stats**: latencia 14.73s · 62 tok/s · 141→913 tokens · $0.00013
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante y clara, con una estructura bien organizada que incluye un titular atractivo, características clave con beneficios claros y un cierre convincente; ofrece insights útiles para emprendedores.
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando detalles específicos y un plan estructurado que un emprendedor podría usar directamente.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**Headline**  
-Meet the *EchoAir Glow* – the all‑in‑one smart hub that turns your living space into a smart sanctuary.
+**Asunto:** Propuesta para el desarrollo del sitio web corporativo con e‑commerce  
 
-**Key Features**  
+Estimado/a [Nombre del cliente]:
 
-1. **Sleek Voice‑Activated Speaker** – crystal‑clear sound that follows your commands, streams playlists, and controls your entire smart‑home ecosystem.  
-2. **
+Espero que se encuentre bien.  
+
+Me complace presentarle la propuesta solicitada para el desarrollo de su nuevo sitio web corporativo con funcionalidad de e‑commerce. A continuación
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__content_generation__product_description_en.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__content_generation__product_description_en.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__content_generation__email_profesional.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__content_generation__email_profesional.md)
+
+</details>
+
+<details><summary><code>social_media_batch</code> — score 8.70</summary>
+
+**Stats**: latencia 5.74s · 152 tok/s · 138→875 tokens · $0.00013
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando información valiosa y variada sobre la transformación digital.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Post 1 – Educativo**  
+*Hook:* “¿Sabías que el 70 % de las empresas todavía usan procesos manuales para tareas críticas?”  
+*Body:* En la era digital, automatizar las operaciones no es una opción, es una necesidad. Desde la gestión de inventarios hasta el análisis de datos, la automatización reduc
+```
+
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__content_generation__social_media_batch.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__content_generation__social_media_batch.md)
+
+</details>
+
+<details><summary><code>product_description_en</code> — score 8.84</summary>
+
+**Stats**: latencia 3.81s · 94 tok/s · 106→357 tokens · $0.00005
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundiza en las características y beneficios del producto, ofreciendo una descripción útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Air‑Sync 360 – The Smart Speaker that Breathes, Lights, and Listens**
+
+*Turn your living space into a responsive, health‑first sanctuary.*
+
+**1. Immersive Sound & Voice AI** – 360° speakers deliver studio‑grade audio while natural‑language AI lets you command music, podcasts, or smart‑home routine
+```
+
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__content_generation__product_description_en.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__content_generation__product_description_en.md)
 
 </details>
 
@@ -907,15 +984,15 @@ Meet the *EchoAir Glow* – the all‑in‑one smart hub that turns your living 
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_actualidad_startup | 8.33 | 8.96 | 4.4 | 820 | 2.24s | OK |
-| curso_emprendimiento_modulo | 8.54 | 9.44 | 4.6 | 756 | 2.70s | OK |
-| workshop_outline | 8.54 | 9.44 | 4.6 | 845 | 2.42s | OK |
-| newsletter_startup | 8.77 | 9.16 | 4.4 | 680 | 1.22s | OK |
-| perplexity_style_research | 8.40 | 9.16 | 4.4 | 791 | 2.59s | OK |
+| blog_actualidad_startup | 7.81 | 8.56 | 4.4 | 21 | 97.16s | OK |
+| curso_emprendimiento_modulo | 9.09 | 10.00 | 5 | 58 | 39.14s | OK |
+| workshop_outline | 8.75 | 9.56 | 5 | 57 | 47.39s | OK |
+| newsletter_startup | 9.02 | 10.00 | 5 | 47 | 18.80s | OK |
+| perplexity_style_research | 8.00 | 8.40 | 4.0 | 58 | 35.12s | OK |
 
-<details><summary><code>blog_actualidad_startup</code> — score 8.33</summary>
+<details><summary><code>blog_actualidad_startup</code> — score 7.81</summary>
 
-**Stats**: latencia 2.24s · 820 tok/s · 279→1832 tokens · $0.00057
+**Stats**: latencia 97.16s · 21 tok/s · 279→2048 tokens · $0.00030
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -923,103 +1000,111 @@ Meet the *EchoAir Glow* – the all‑in‑one smart hub that turns your living 
 
 ```
 **Título SEO‑friendly (≤70 caracteres)**  
-IA open‑source 2026: cómo las startups LATAM lo están aprovechando
+IA open‑source impulsa startups latinoamericanas en 2026  
 
 **Meta description (≤160 caracteres)**  
-Descubre cómo DeepSeek, Qwen, Llama y Gemma están transformando el ecosistema emprendedor latinoamericano en 2026 y qué oportunidades ofrece a las s
+Descubre cómo IA open‑source como DeepSeek, Qwen, Llama y Gemma están transformando innovación y reduciendo costos para startups latinoamericanas.  
+
+---
+
+#
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__startup_content__blog_actualidad_startup.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__startup_content__blog_actualidad_startup.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__startup_content__blog_actualidad_startup.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__startup_content__blog_actualidad_startup.md)
 
 </details>
 
-<details><summary><code>curso_emprendimiento_modulo</code> — score 8.54</summary>
+<details><summary><code>curso_emprendimiento_modulo</code> — score 9.09</summary>
 
-**Stats**: latencia 2.70s · 756 tok/s · 282→2038 tokens · $0.00063
+**Stats**: latencia 39.14s · 58 tok/s · 282→2278 tokens · $0.00033
 
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando ejemplos prácticos y herramientas específicas que un emprendedor podría implementar directamente.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-# Módulo 3: Automatización con IA – De la Idea al Flujo de Trabajo  
-**Curso:** IA Práctica para Emprendedores  
-**Nivel:** Emprendedor no técnico  
-
----
+# Módulo 3 – Automatización con IA: De la idea al flujo de trabajo  
 
 ## 1. Objetivo del módulo  
-En este módulo aprenderás a transformar ideas de procesos repetitivos en flujos de trabajo automatizados que aprovech
+En este módulo aprenderás a convertir tus ideas de automatización en flujos de trabajo reales y funcionales usando herramientas de IA sin necesidad de programar. Descubrirás cómo integrar chatbots, gene
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__startup_content__curso_emprendimiento_modulo.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__startup_content__curso_emprendimiento_modulo.md)
 
 </details>
 
-<details><summary><code>workshop_outline</code> — score 8.54</summary>
+<details><summary><code>workshop_outline</code> — score 8.75</summary>
 
-**Stats**: latencia 2.42s · 845 tok/s · 250→2048 tokens · $0.00063
+**Stats**: latencia 47.39s · 57 tok/s · 250→2699 tokens · $0.00038
 
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando un plan detallado y práctico que los emprendedores no técnicos pueden seguir directamente.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## 🎯 **Workshop: “Construye tu Asistente de IA para tu Startup – Workshop Práctico”**  
+## 🎉 Workshop: **Construye tu Asistente de IA para tu Startup – Workshop Práctico**  
 **Duración total:** 3 h (180 min)  
-**Participantes:** 20‑30 emprendedores early‑stage (no técnicos)  
-**Formato:** Presencial, energía + hands‑on
+**Audiencia:** 20‑30 emprendedores early‑stage, no‑técnicos  
+**Tono:** Energético, práctico, “hands‑on” (no académico)
 
 ---
 
-### 📋 1. Agenda Detallada con Tiempos
+## 1️⃣ Agenda Detallada (3 h)
 
-| Hora | Bloque | Ti
+| # | Bloque | Tiempo
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__startup_content__workshop_outline.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__startup_content__workshop_outline.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__startup_content__workshop_outline.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__startup_content__workshop_outline.md)
 
 </details>
 
-<details><summary><code>newsletter_startup</code> — score 8.77</summary>
+<details><summary><code>newsletter_startup</code> — score 9.02</summary>
 
-**Stats**: latencia 1.22s · 680 tok/s · 275→829 tokens · $0.00027
+**Stats**: latencia 18.80s · 47 tok/s · 275→884 tokens · $0.00013
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y ofrece información útil para emprendedores, con insights valiosos sobre cada tema.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**Newsletter #47 – Ecosistemas Startup**  
-*La brújula semanal para los emprendedores de tecnología*
+**Newsletter #47 – EcosistemasStartup.com**  
+*Impulsando el futuro de las startups con IA y oportunidades globales*
 
-¡Hola, comunidad de ecosistemas y visionarios!  
-Esta semana nos sumergimos en los últimos avances que están moldeando el futuro de las startups, desde el lanzamiento de DeepSeek V4 hasta la apertur
+¡Hola, comunidad emprendedora!  
+Esta semana exploramos cómo la IA está transformando el panorama de las startups, desde nuevas herramientas hasta programas de financiamiento que abr
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__startup_content__newsletter_startup.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__startup_content__newsletter_startup.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__startup_content__newsletter_startup.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__startup_content__newsletter_startup.md)
 
 </details>
 
-<details><summary><code>perplexity_style_research</code> — score 8.40</summary>
+<details><summary><code>perplexity_style_research</code> — score 8.00</summary>
 
-**Stats**: latencia 2.59s · 791 tok/s · 242→2048 tokens · $0.00063
+**Stats**: latencia 35.12s · 58 tok/s · 226→2048 tokens · $0.00029
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, proporcionando datos estructurados y tendencias útiles para emprendedores, aunque carece de fuentes específicas para profundizar.
 
 **Respuesta (preview 300 chars)**:
 
 ```
 **Estado del Venture Capital en Latinoamérica – Q1 2026**  
-*(Datos estimados a partir de la tendencia de 2024‑2025 y los informes de PitchBook, CB Insights, Crunchbase y asociaciones locales)*  
+*(Datos estimados y consolidación de fuentes públicas y privadas)*  
 
----
-
-## 1️⃣ Resumen ejecutivo  
-- **Crecimiento sostenido**: inversión total en Q1 2026 ≈ **US $6.2 bn*
+| Elemento | Q1 2026 | Q1 2025 | Tendencia |
+|----------|---------|---------|-----------|
+| Inversión total | **US$ 3.5 bn** | US$ 2.5 bn | ↑ 40 % |
+| Número de deals | 1
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__startup_content__perplexity_style_research.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__startup_content__perplexity_style_research.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__startup_content__perplexity_style_research.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__startup_content__perplexity_style_research.md)
 
 </details>
 
@@ -1027,87 +1112,110 @@ Esta semana nos sumergimos en los últimos avances que están moldeando el futur
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| news_seo_article_full | 7.95 | 8.23 | 3.8 | 795 | 2.38s | OK |
-| news_json_output_strict | 5.32 | 3.00 | - | 769 | 2.66s | OK |
-| news_spanish_only | 7.76 | 7.42 | 3.8 | 761 | 1.94s | OK |
-| news_no_hallucination_sources | 7.44 | 6.80 | 4.0 | 765 | 1.91s | OK |
-| news_perplexity_enrichment | 7.86 | 8.09 | 4.0 | 818 | 2.50s | OK |
+| news_seo_article_full | 7.68 | 7.75 | 3.4 | 148 | 13.76s | OK |
+| news_json_output_strict | 5.49 | 5.00 | 4.0 | 43 | 40.23s | OK |
+| news_spanish_only | 5.67 | 5.00 | 5 | 59 | 18.57s | OK |
+| news_no_hallucination_sources | 1.88 | 0.00 | 4.0 | 17 | 86.09s | OK |
+| news_perplexity_enrichment | 8.72 | 9.83 | 5 | 16 | 105.17s | OK |
 
-<details><summary><code>news_seo_article_full</code> — score 7.95</summary>
+<details><summary><code>news_seo_article_full</code> — score 7.68</summary>
 
-**Stats**: latencia 2.38s · 795 tok/s · 514→1890 tokens · $0.00061
+**Stats**: latencia 13.76s · 148 tok/s · 509→2033 tokens · $0.00030
 
-**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 3.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-# Mistral AI recauda 2 bn$ y lanza Devstral: un hito para la IA abierta  
+**Título SEO**  
+Mistral AI recauda $2 B y lanza Devstral: el futuro del código abierto  
 
-**Meta descripción:**  
-Mistral AI asegura 2 bn$ en Series C y presenta Devstral, un modelo de código abierto que supera a OpenAI y Google. Descubre su impacto en el ecosistema latinoamericano.  
+## Introducción  
 
-**Palabras clave SEO:**  
-Mi
+En abril de 2026, la startup francesa Mistral AI dio un paso decisivo que reverbera en todo el panorama de la inteligencia artificial: cerró una ronda de Series C por **$2 billion** y lanzó
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__news_seo_writing__news_seo_article_full.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__news_seo_writing__news_seo_article_full.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__news_seo_writing__news_seo_article_full.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__news_seo_writing__news_seo_article_full.md)
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 7.76</summary>
+<details><summary><code>news_json_output_strict</code> — score 5.49</summary>
 
-**Stats**: latencia 1.94s · 761 tok/s · 368→1475 tokens · $0.00047
+**Stats**: latencia 40.23s · 43 tok/s · 366→1743 tokens · $0.00026
 
-**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, con una buena estructura y claridad, proporcionando información útil para emprendedores, aunque la profundidad podría ser mayor.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## SN50: el nuevo chip AI de SambaNova que promete rendimiento y ahorro
-
-SambaNova Systems ha presentado su último procesador, el SN50, diseñado específicamente para cargas de trabajo empresariales de inteligencia artificial. Según la compañía, el chip ofrece **cinco veces más velocidad de inferenci
+{"Fuentes":["https://deepmind.com/blog","https://news.google.com"],"Categoria":"Inteligencia Artificial","Palabras_Clave":["DeepMind","Gemma 4","IA","Apache 2.0","Arena leaderboard"],"Contenido_HTML":"<h2>DeepMind anuncia Gemma 4, una familia de modelos de IA de código abierto</h2><p>La compañía de
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__news_seo_writing__news_spanish_only.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__news_seo_writing__news_spanish_only.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__news_seo_writing__news_json_output_strict.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__news_seo_writing__news_json_output_strict.md)
 
 </details>
 
-<details><summary><code>news_no_hallucination_sources</code> — score 7.44</summary>
+<details><summary><code>news_spanish_only</code> — score 5.67</summary>
 
-**Stats**: latencia 1.91s · 765 tok/s · 527→1461 tokens · $0.00048
+**Stats**: latencia 18.57s · 59 tok/s · 369→1102 tokens · $0.00016
 
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:4, profundidad:3, claridad:4, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
-> La respuesta es precisa y relevante, pero introduce detalles no presentes en el extracto original, afectando la precisión. Ofrece una estructura clara y organizada con insights útiles para emprendedores.
+> La respuesta es precisa, relevante, y ofrece insights útiles sobre el impacto del chip SN50 en startups, con una estructura clara y adecuada para SEO.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## Introducción
+## SambaNova lanza el chip SN 50: 5 veces más rápido y 3 veces más barato que las GPUs convencionales  
 
-En el dinámico panorama de las food‑tech latinoamericanas, una startup chilena ha captado la atención global al cerrar una ronda de financiación de Series D de 85 millones de dólares. NotCo, fundada en 2015 por Matías Muchnick, ha consolidado su posición como pionera en la creación
+SambaNova Systems, una firma de hardware para inteligencia artificial, anunció recientemente su nuevo procesador SN 50. Según la compañía, el chip ofrece una inferencia cinco veces más rápida que
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__news_seo_writing__news_no_hallucination_sources.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__news_seo_writing__news_no_hallucination_sources.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__news_seo_writing__news_spanish_only.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__news_seo_writing__news_spanish_only.md)
 
 </details>
 
-<details><summary><code>news_perplexity_enrichment</code> — score 7.86</summary>
+<details><summary><code>news_no_hallucination_sources</code> — score 1.88</summary>
 
-**Stats**: latencia 2.50s · 818 tok/s · 540→2048 tokens · $0.00065
+**Stats**: latencia 86.09s · 17 tok/s · 527→1428 tokens · $0.00021
 
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, manteniéndose fiel a los datos proporcionados sin alucinaciones. Ofrece una profundidad razonable con insights sobre la tecnología y el impacto de la ronda de financiamiento, y está bien estructurada y clara, con un estilo periodístico adecuado para un artículo publicable.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## DeepSeek V4: El nuevo modelo open‑source que promete redefinir el acceso a la IA
+## NotCo, la startup chilena que lleva la inteligencia artificial a la cocina, atrapa 85 millones de dólares en una ronda Serie D
 
-En marzo de 2026, DeepSeek lanzó su modelo V4, una versión que combina una arquitectura de Mixture of Experts (MoE) con un enfoque de bajo coste que atrae tanto a grandes corporaciones como a startups. Bajo licencia
+### El ascenso de una idea que se convirtió en empresa global
+
+En 2015, el emprendedor chileno Matías Muchnick fundó NotCo con una visión sencilla pero ambiciosa: usar l
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__news_seo_writing__news_perplexity_enrichment.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__news_seo_writing__news_perplexity_enrichment.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__news_seo_writing__news_no_hallucination_sources.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__news_seo_writing__news_no_hallucination_sources.md)
+
+</details>
+
+<details><summary><code>news_perplexity_enrichment</code> — score 8.72</summary>
+
+**Stats**: latencia 105.17s · 16 tok/s · 540→1714 tokens · $0.00026
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante y ofrece una buena profundidad con detalles sobre la arquitectura y el modelo de negocio de DeepSeek V4, lo que la hace útil para emprendedores. Está bien estructurada y escrita, con un estilo periodístico adecuado para SEO.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## DeepSeek V4: El nuevo competidor de la IA generativa de código abierto
+
+En marzo de 2026, la comunidad de inteligencia artificial recibió una noticia que alteró el panorama de los modelos de lenguaje: DeepSeek, una spin‑off de la firma de cobertura High‑Flyer, lanzó su modelo V4 bajo licencia MIT
+```
+
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__news_seo_writing__news_perplexity_enrichment.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__news_seo_writing__news_perplexity_enrichment.md)
 
 </details>
 
@@ -1115,79 +1223,88 @@ En marzo de 2026, DeepSeek lanzó su modelo V4, una versión que combina una arq
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| creative_hook_writing | 8.04 | 7.80 | 4.2 | 694 | 1.48s | OK |
-| analogy_generation | 8.43 | 8.80 | 4.8 | 818 | 1.99s | OK |
-| depth_vs_superficial | 8.41 | 9.17 | 4.6 | 852 | 2.40s | OK |
-| storytelling_quality | 8.18 | 8.26 | 4.4 | 794 | 1.92s | OK |
+| creative_hook_writing | 7.47 | 8.00 | 5 | 29 | 40.27s | OK |
+| analogy_generation | 7.77 | 8.00 | 5 | 63 | 19.26s | OK |
+| depth_vs_superficial | 8.07 | 8.50 | 5 | 81 | 24.18s | OK |
+| storytelling_quality | 7.72 | 8.00 | 3.6 | 62 | 33.31s | OK |
 
-<details><summary><code>creative_hook_writing</code> — score 8.04</summary>
+<details><summary><code>creative_hook_writing</code> — score 7.47</summary>
 
-**Stats**: latencia 1.48s · 694 tok/s · 231→1025 tokens · $0.00032
+**Stats**: latencia 40.27s · 29 tok/s · 227→1153 tokens · $0.00017
 
-**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> Las respuestas son precisas, relevantes y originales, ofreciendo insights útiles y claridad, con una alta utilidad práctica para emprendedores.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Cuando la innovación se queda atrapada en licencias costosas, la verdadera revolución empieza con código abierto que se adapta a tu mercado.  
+Ignorar los modelos de IA open-source en Latinoamérica es como vender un billete de avión sin pasaporte: te pierdes el viaje que otras startups ya están tomando.  
 
-El trabajo remoto ya no es un respiro temporal; es la nueva arquitectura de la productividad que redefine quién, dónde y cómo se crean los negocios.  
-
-Los
+El trabajo remoto ya no es un respiro temporal; es el núcleo de las cadenas de valor corporativas, y las que no lo integren perderán la
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__creativity__creative_hook_writing.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__creativity__creative_hook_writing.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__creativity__creative_hook_writing.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__creativity__creative_hook_writing.md)
 
 </details>
 
-<details><summary><code>analogy_generation</code> — score 8.43</summary>
+<details><summary><code>analogy_generation</code> — score 7.77</summary>
 
-**Stats**: latencia 1.99s · 818 tok/s · 189→1631 tokens · $0.00050
+**Stats**: latencia 19.26s · 63 tok/s · 190→1211 tokens · $0.00017
 
-**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> Las analogías son precisas, relevantes, originales y claras, proporcionando una comprensión profunda y útil de los conceptos técnicos para un emprendedor no técnico.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**1. Modelo de lenguaje (LLM)**  
-*Concepto:* Un LLM es un sistema que, tras haber “leído” enormes volúmenes de texto, aprende patrones estadísticos y los usa para generar respuestas que suenan coherentes.  
-*Analogía:* Imagina a un maestro de marionetas que, después de haber visto millones de espec
+**1. Cómo funciona un modelo de lenguaje (LLM)**  
+Un LLM es un sistema que aprende de millones de ejemplos de texto y, a partir de ellos, puede generar respuestas coherentes y creativas.  
+*Analogía*: Imagina un gigantesco telar que, tras haber visto incontables patrones de hilo, puede tejer una nu
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__creativity__analogy_generation.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__creativity__analogy_generation.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__creativity__analogy_generation.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__creativity__analogy_generation.md)
 
 </details>
 
-<details><summary><code>depth_vs_superficial</code> — score 8.41</summary>
+<details><summary><code>depth_vs_superficial</code> — score 8.07</summary>
 
-**Stats**: latencia 2.40s · 852 tok/s · 204→2048 tokens · $0.00063
+**Stats**: latencia 24.18s · 81 tok/s · 187→1967 tokens · $0.00028
 
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta proporciona ideas específicas y profundas, con detalles técnicos y estimaciones concretas, abordando riesgos no obvios y ofreciendo una perspectiva contraria, todo presentado de manera clara y organizada, lo que la hace altamente útil y original para un emprendedor.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**El reto no es “usar IA”, sino “integrar IA de modo que el valor que entregas a la mesa y a la puerta sea mayor que cualquier coste de implementación”.**  
-A continuación, dos ideas que van más allá de la típica “optimización de rutas” y que tienen métricas concretas, un riesgo que pocos mencionan
+**1.  “Micro‑demand forecasting con IA en tiempo real”**
+
+Los modelos tradicionales de predicción de demanda se basan en datos de ventas pasadas y en la estacionalidad de la semana. Lo que pocos consideran es que la demanda de un delivery está fuertemente influenciada por señales externas que se pue
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__creativity__depth_vs_superficial.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__creativity__depth_vs_superficial.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__creativity__depth_vs_superficial.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__creativity__depth_vs_superficial.md)
 
 </details>
 
-<details><summary><code>storytelling_quality</code> — score 8.18</summary>
+<details><summary><code>storytelling_quality</code> — score 7.72</summary>
 
-**Stats**: latencia 1.92s · 794 tok/s · 150→1525 tokens · $0.00047
+**Stats**: latencia 33.31s · 62 tok/s · 146→2048 tokens · $0.00029
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 3.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Juan, emprendedor de Medellín, lanzó su startup de IA para optimizar procesos. Al probar el chatbot, descubrió que el algoritmo respondía con la verdad más cruda: “No tienes suficiente capital, tu idea es mediocre y tu equipo necesita más disciplina”. Cada cliente recibía la misma honestidad brutal,
+We need 100 words exactly. Let's craft a micro-story: about a Latin American entrepreneur, startup IA, bug that makes it too honest. Unexpected twist, humorous, ironic. Authentic. Count words. Let's write and count.
+
+Draft:
+
+"María, fundadora de la startup de IA “VerdadTech”, celebró el lanzamiento
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__creativity__storytelling_quality.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__creativity__storytelling_quality.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__creativity__storytelling_quality.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__creativity__storytelling_quality.md)
 
 </details>
 
@@ -1195,76 +1312,80 @@ Juan, emprendedor de Medellín, lanzó su startup de IA para optimizar procesos.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| cold_email_personalized | 8.92 | 9.04 | 4.8 | 456 | 0.69s | OK |
-| lead_qualification | 8.27 | 8.16 | 4.8 | 628 | 1.33s | OK |
-| campaign_optimization | 8.52 | 9.36 | 4.6 | 742 | 2.50s | OK |
+| cold_email_personalized | 7.85 | 8.00 | 5 | 85 | 6.88s | OK |
+| lead_qualification | 2.18 | 0.00 | 5 | 76 | 14.21s | OK |
+| campaign_optimization | 9.26 | 10.00 | 5 | 108 | 19.02s | OK |
 
-<details><summary><code>cold_email_personalized</code> — score 8.92</summary>
+<details><summary><code>cold_email_personalized</code> — score 7.85</summary>
 
-**Stats**: latencia 0.69s · 456 tok/s · 240→315 tokens · $0.00011
+**Stats**: latencia 6.88s · 85 tok/s · 240→582 tokens · $0.00009
 
-**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> El correo electrónico es preciso, relevante y claro, con una estructura bien organizada que aborda directamente el interés de Maria en escalar el marketing sin contratar, ofreciendo una solución potencialmente útil.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**Subject:** Una idea rápida para escalar tu contenido, María
+**Subject:** ¿Cómo finanzas + IA impulsan el marketing de FintechCo?  
 
 Hola María,
 
-Vi tu publicación sobre escalar el marketing de contenidos sin contratar y pensé en una forma de acelerar ese proceso con IA. Nuestra herramienta ayuda a startups como FintechCo a generar, optimizar y publicar contenido en t
+Leí tu publicación sobre escalar el marketing sin contratar y me hizo pensar en el ritmo de crecimiento de FintechCo. En nuestra solución de IA para automatizar contenido, ya ayudamos a startups de Series A a genera
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__sales_outreach__cold_email_personalized.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__sales_outreach__cold_email_personalized.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__sales_outreach__cold_email_personalized.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__sales_outreach__cold_email_personalized.md)
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 8.27</summary>
+<details><summary><code>lead_qualification</code> — score 2.18</summary>
 
-**Stats**: latencia 1.33s · 628 tok/s · 306→834 tokens · $0.00027
+**Stats**: latencia 14.21s · 76 tok/s · 293→1073 tokens · $0.00016
 
-**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundiza adecuadamente en cada lead, proporcionando acciones prácticas que un emprendedor podría implementar directamente.
 
 **Respuesta (preview 300 chars)**:
 
 ```
 ```json
-{
-  "leads": [
-    {
-      "name": "Juan Perez",
-      "score": 6,
-      "bant": {
-        "budget": "no mencionado",
-        "authority": "sí",
-        "need": "sí",
-        "timeline": "no mencionado"
-      },
-      "action": "Follow up to confirm budget and timeline",
-      "reason": "El
+[
+  {
+    "score": 6,
+    "bant": {
+      "budget": "unknown",
+      "authority": "yes",
+      "need": "yes",
+      "timeline": "unknown"
+    },
+    "action": "Nurture: enviar contenido educativo sobre automatización de soporte y dar seguimiento para aclarar presupuesto y plazos.",
+    "reas
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__sales_outreach__lead_qualification.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__sales_outreach__lead_qualification.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__sales_outreach__lead_qualification.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__sales_outreach__lead_qualification.md)
 
 </details>
 
-<details><summary><code>campaign_optimization</code> — score 8.52</summary>
+<details><summary><code>campaign_optimization</code> — score 9.26</summary>
 
-**Stats**: latencia 2.50s · 742 tok/s · 326→1852 tokens · $0.00058
+**Stats**: latencia 19.02s · 108 tok/s · 320→2048 tokens · $0.00030
 
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando análisis detallados y recomendaciones prácticas para la optimización de campañas.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## 1. Métricas de cada campaña  
+## 1. Métricas clave (por campaña)
 
-| Campaña | Impresiones | Clicks | Signups | Costo ($) | **CTR** | **CPC** | **CPA** | **CR** |
-|---------|-------------|--------|---------|-----------|---------|---------|---------|--------|
-| **A – Landing principal** | 50 000 | 1 500 | 45 | 2 100 | **3 %** | **$1
+| Campaña | Impresiones | Clicks | Signups | Costo | **CTR %** | **CPC $** | **CPA $** | **CR %** |
+|---------|-------------|--------|---------|-------|-----------|-----------|-----------|----------|
+| **A – Landing principal** | 50 000 | 1 500 | 45 | 2 100 | **3.
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__sales_outreach__campaign_optimization.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__sales_outreach__campaign_optimization.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__sales_outreach__campaign_optimization.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__sales_outreach__campaign_optimization.md)
 
 </details>
 
@@ -1272,56 +1393,58 @@ Vi tu publicación sobre escalar el marketing de contenidos sin contratar y pens
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| translate_marketing_es_en | 9.10 | 9.40 | 5 | 452 | 0.82s | OK |
-| translate_technical_en_es | 8.08 | 7.72 | 3.8 | 681 | 1.10s | OK |
-| detect_language_issues | 8.69 | 9.06 | 5 | 685 | 1.41s | OK |
+| translate_marketing_es_en | 7.70 | 8.00 | 5 | 47 | 7.33s | OK |
+| translate_technical_en_es | 8.00 | 8.00 | 4.0 | 129 | 5.07s | OK |
+| detect_language_issues | 9.17 | 10.00 | 5 | 99 | 15.78s | OK |
 
-<details><summary><code>translate_marketing_es_en</code> — score 9.10</summary>
+<details><summary><code>translate_marketing_es_en</code> — score 7.70</summary>
 
-**Stats**: latencia 0.82s · 452 tok/s · 221→369 tokens · $0.00013
+**Stats**: latencia 7.33s · 47 tok/s · 218→341 tokens · $0.00005
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante y clara, con un tono adecuado para el público objetivo. Ofrece insights útiles sobre la automatización de procesos tediosos.
+> La traducción es precisa, relevante y clara, manteniendo el tono cercano y energético adecuado para una audiencia estadounidense, con utilidad práctica para emprendedores.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Stop wasting hours on tasks an AI can finish in seconds.  
-AutoFlow automates your most tedious workflows so you can focus on what really matters: scaling your startup.  
+Stop wasting hours on tasks that AI can finish in seconds.  
+AutoFlow automates your most tedious workflows so you can focus on what really matters: scaling your startup.
 
-No code. No headaches. No excuses.  
+No code. No headaches. No excuses.
 
-Over 500 startups across LATAM are already on board. When will you join?
+Over 500 startups in LATAM are already on board. When will you start?
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__translation__translate_marketing_es_en.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__translation__translate_marketing_es_en.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__translation__translate_marketing_es_en.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__translation__translate_marketing_es_en.md)
 
 </details>
 
-<details><summary><code>translate_technical_en_es</code> — score 8.08</summary>
+<details><summary><code>translate_technical_en_es</code> — score 8.00</summary>
 
-**Stats**: latencia 1.10s · 681 tok/s · 214→747 tokens · $0.00024
+**Stats**: latencia 5.07s · 129 tok/s · 197→654 tokens · $0.00010
 
-**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con información adicional útil sobre el manejo de webhooks, aunque no se menciona en el texto original.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Para autenticar con la API, incluya su Bearer token en la Authorization header. Los Rate limits están establecidos en 100 requests per minute para el free tier. Si excede el Rate limit, la API devuelve un 429 status code con un Retry-After header que indica cuándo puede reanudar. Los Webhook endpoin
+Para autenticarse con la API, incluya su Bearer token en el encabezado Authorization. Los límites de tasa están establecidos en 100 peticiones por minuto para la capa gratuita. Si excede el límite de tasa, la API devuelve un código de estado 429 con un encabezado Retry-After que indica cuándo puede
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__translation__translate_technical_en_es.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__translation__translate_technical_en_es.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__translation__translate_technical_en_es.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__translation__translate_technical_en_es.md)
 
 </details>
 
-<details><summary><code>detect_language_issues</code> — score 8.69</summary>
+<details><summary><code>detect_language_issues</code> — score 9.17</summary>
 
-**Stats**: latencia 1.41s · 685 tok/s · 262→964 tokens · $0.00031
+**Stats**: latencia 15.78s · 99 tok/s · 262→1558 tokens · $0.00023
 
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante y clara al identificar problemas de idioma e incluir correcciones adecuadas; ofrece insights útiles para emprendedores.
+> La respuesta es precisa, relevante y clara, identificando correctamente los problemas de idioma y proporcionando correcciones adecuadas, lo que la hace muy útil para un emprendedor.
 
 **Respuesta (preview 300 chars)**:
 
@@ -1332,15 +1455,20 @@ Para autenticar con la API, incluya su Bearer token en la Authorization header. 
     {
       "tipo": "chino",
       "texto": "En特别是在拉丁美洲",
-      "correccion": "especialmente en Latinoamérica"
+      "correccion": "En Latinoamérica"
+    },
+    {
+      "tipo": "gramatical",
+      "texto": "estan",
+      "correccion": "están"
     },
     {
       "tipo": "spanglish",
-      "texto": "estan leveraging nuevas herramientas para scale their businesses",
-      "correccion": "están aprovechando
+      "texto": "leveraging",
+      "correcc
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__translation__detect_language_issues.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__translation__detect_language_issues.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__translation__detect_language_issues.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__translation__detect_language_issues.md)
 
 </details>
 
@@ -1348,52 +1476,52 @@ Para autenticar con la API, incluya su Bearer token en la Authorization header. 
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| slide_outline | 7.92 | 8.20 | 4.0 | 795 | 2.58s | OK |
-| data_report | 8.29 | 8.92 | 4.4 | 800 | 2.47s | OK |
+| slide_outline | 7.62 | 8.20 | 4.0 | 30 | 105.31s | OK |
+| data_report | 8.81 | 9.56 | 5 | 61 | 33.82s | OK |
 
-<details><summary><code>slide_outline</code> — score 7.92</summary>
+<details><summary><code>slide_outline</code> — score 7.62</summary>
 
-**Stats**: latencia 2.58s · 795 tok/s · 195→2048 tokens · $0.00063
+**Stats**: latencia 105.31s · 30 tok/s · 191→3162 tokens · $0.00045
 
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, proporcionando una estructura detallada y útil para una presentación ejecutiva, aunque podría profundizar más en algunos aspectos como el roadmap Q2-Q3 y los asks al board.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**Slide 1 – Título**  
-- *Plataforma Digital 2.0 – Estado del Proyecto*  
-- *Fecha:* 27 Abril 2026  
-- *Presentador:* [Nombre, Cargo]  
+**Outline de la presentación (15 diapositivas)**  
 
-**Visual sugerido:** Imagen de fondo de la plataforma con logotipo de la empresa.  
-**Notas del presentador:** “Bienvenidos, gracias por acompañarnos. Hoy les pres
+| # | Título | Puntos clave (3‑5) | Visual sugerido | Notas del presentador |
+|---|--------|--------------------|-----------------|-----------------------|
+| 1 | **Plataforma Digital 2.0 – Estado del Proyecto** | • Nombre del proyecto<br>• Presenta
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__presentation__slide_outline.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__presentation__slide_outline.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__presentation__slide_outline.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__presentation__slide_outline.md)
 
 </details>
 
-<details><summary><code>data_report</code> — score 8.29</summary>
+<details><summary><code>data_report</code> — score 8.81</summary>
 
-**Stats**: latencia 2.47s · 800 tok/s · 213→1975 tokens · $0.00061
+**Stats**: latencia 33.82s · 61 tok/s · 209→2048 tokens · $0.00029
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente analítica, proporcionando información útil para un emprendedor.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## Informe de Ventas (Ene‑Abr)
+# Reporte de Ventas (Ene‑Abr)
 
-| Mes | Producto A | Producto B | Producto C | Total |
-|-----|-----------|-----------|-----------|-------|
-| Ene | **45 K** | **23 K** | **12 K** | 80 K |
-| Feb | 52 K | 25 K | 15 K | 92 K |
-| Mar | 48 K | 31 K | 18 K | 97 K |
-| Abr | 61 K | 29 K | 22 K | 112 K |
-| **
+| Producto | Ene | Feb | Mar | Abr | Total |
+|----------|-----|-----|-----|-----|-------|
+| **Producto A** | $45 K | $52 K | $48 K | $61 K | **$206 K** |
+| **Producto B** | $23 K | $25 K | $31 K | $29 K | **$108 K** |
+| **Producto C** | $12 K | $15 K | $18 K | $22 K |
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__presentation__data_report.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__presentation__data_report.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__presentation__data_report.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__presentation__data_report.md)
 
 </details>
 
@@ -1403,64 +1531,72 @@ Para autenticar con la API, incluya su Bearer token en la Authorization header. 
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| single_tool_calendar | 8.83 | 7.66 | 4.4 | 257 | 0.42s | OK |
-| multi_tool_sequential | 6.53 | 4.86 | 2.4 | 481 | 0.71s | OK |
-| tool_with_reasoning | 5.78 | 4.86 | 2.4 | 416 | 0.54s | OK |
-| no_tool_needed | 8.13 | 6.26 | 3.4 | 120 | 0.44s | OK |
+| single_tool_calendar | 7.52 | 7.10 | 4.0 | 77 | 1.04s | OK |
+| multi_tool_sequential | 6.69 | 5.70 | 3.0 | 121 | 1.55s | OK |
+| tool_with_reasoning | 6.69 | 5.70 | 3.0 | 97 | 0.96s | OK |
+| no_tool_needed | 6.69 | 5.70 | 3.0 | 86 | 0.67s | OK |
 
-<details><summary><code>single_tool_calendar</code> — score 8.83</summary>
+<details><summary><code>single_tool_calendar</code> — score 7.52</summary>
 
-**Stats**: latencia 0.42s · 257 tok/s · 346→107 tokens · $0.00006
+**Stats**: latencia 1.04s · 77 tok/s · 346→80 tokens · $0.00002
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:2, claridad:4, utilidad:4)
 
-**Respuesta (preview 300 chars)**:
-
-```
-[tool_call] create_calendar_event({"date":"2026-05-15","duration_minutes":60,"time":"10:00","title":"Sprint Planning Q2"})
-```
-
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__tool_calling__single_tool_calendar.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__tool_calling__single_tool_calendar.md)
-
-</details>
-
-<details><summary><code>multi_tool_sequential</code> — score 6.53</summary>
-
-**Stats**: latencia 0.71s · 481 tok/s · 375→341 tokens · $0.00013
-
-**Juez Phi-4**: 2.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+> La respuesta es precisa, relevante y clara, pero carece de profundidad y no ofrece insights adicionales.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-[tool_call] create_task({"due_date":"2026-05-10","priority":"urgent","title":"Revisar contrato cliente ABC"})
+We need to create a calendar event. Use function create_calendar_event with date, time, title, duration. Provide description? Not required. Let's call function.
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__tool_calling__multi_tool_sequential.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__tool_calling__multi_tool_sequential.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__tool_calling__single_tool_calendar.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__tool_calling__single_tool_calendar.md)
 
 </details>
 
-<details><summary><code>tool_with_reasoning</code> — score 5.78</summary>
+<details><summary><code>multi_tool_sequential</code> — score 6.69</summary>
 
-**Stats**: latencia 0.54s · 416 tok/s · 380→225 tokens · $0.00010
+**Stats**: latencia 1.55s · 121 tok/s · 375→188 tokens · $0.00004
 
-**Juez Phi-4**: 2.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:2, claridad:4, utilidad:3)
+
+> La respuesta es correcta y relevante, pero carece de profundidad y no proporciona detalles sobre cómo se implementarían las llamadas a funciones.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-[tool_call] create_task({"assignee":"yo","due_date":"2026-04-27","priority":"urgent","title":"Revisar slides a las 5 PM"})
+We need to perform two actions: create a task and send an email. We can call functions accordingly. We need to produce no other text? The instruction: "Necesito que hagas lo siguiente: 1. Crea una tarea urgente titulada 'Revisar contrato cliente ABC' con fecha limite 2026-05-10 2. Envia un email a l
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__tool_calling__tool_with_reasoning.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__tool_calling__tool_with_reasoning.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__tool_calling__multi_tool_sequential.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__tool_calling__multi_tool_sequential.md)
 
 </details>
 
-<details><summary><code>no_tool_needed</code> — score 8.13</summary>
+<details><summary><code>tool_with_reasoning</code> — score 6.69</summary>
 
-**Stats**: latencia 0.44s · 120 tok/s · 316→53 tokens · $0.00004
+**Stats**: latencia 0.96s · 97 tok/s · 381→93 tokens · $0.00002
 
-**Juez Phi-4**: 3.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:2, claridad:4, utilidad:3)
+
+> La respuesta es correcta y relevante, pero carece de profundidad y detalles específicos sobre cómo crear el recordatorio o realizar la búsqueda web.
+
+**Respuesta (preview 300 chars)**:
+
+```
+We need to create a calendar event for today at 5pm to review slides. Then search web for best practices. Use functions.
+```
+
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__tool_calling__tool_with_reasoning.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__tool_calling__tool_with_reasoning.md)
+
+</details>
+
+<details><summary><code>no_tool_needed</code> — score 6.69</summary>
+
+**Stats**: latencia 0.67s · 86 tok/s · 316→57 tokens · $0.00002
+
+**Juez Phi-4**: 3.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:1)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad e utilidad práctica para un emprendedor.
 
 **Respuesta (preview 300 chars)**:
 
@@ -1468,7 +1604,7 @@ Para autenticar con la API, incluya su Bearer token en la Authorization header. 
 La capital de Francia es París.
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__tool_calling__no_tool_needed.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__tool_calling__no_tool_needed.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__tool_calling__no_tool_needed.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__tool_calling__no_tool_needed.md)
 
 </details>
 
@@ -1476,72 +1612,89 @@ La capital de Francia es París.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| angry_customer_refund | 6.54 | 3.38 | 2.4 | 396 | 0.55s | OK |
-| ambiguous_issue_classification | 8.21 | 6.73 | 4.2 | 456 | 0.73s | OK |
-| multi_issue_conversation | 6.30 | 5.90 | 4.2 | 676 | 0.87s | OK |
-| social_engineering_attempt | 6.97 | 7.24 | 4.4 | 461 | 0.53s | OK |
+| angry_customer_refund | 5.76 | 4.80 | 3.0 | 57 | 2.18s | OK |
+| ambiguous_issue_classification | 7.16 | 6.80 | 4.0 | 85 | 3.03s | OK |
+| multi_issue_conversation | 8.14 | 8.20 | 4.0 | 128 | 6.55s | OK |
+| social_engineering_attempt | 8.49 | 8.06 | 5 | 112 | 0.97s | OK |
 
-<details><summary><code>angry_customer_refund</code> — score 6.54</summary>
+<details><summary><code>angry_customer_refund</code> — score 5.76</summary>
 
-**Stats**: latencia 0.55s · 396 tok/s · 391→219 tokens · $0.00010
+**Stats**: latencia 2.18s · 57 tok/s · 391→124 tokens · $0.00003
 
-**Juez Phi-4**: 2.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:2, claridad:3, utilidad:3)
+
+> La respuesta es correcta y relevante en cuanto a la verificación del pedido y el proceso de escalación, pero carece de empatía y profundidad en la comprensión del problema del cliente.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-[tool_call] lookup_order({"order_id":"ORD-4521"})
+We need to respond empathetically, check the order, then proceed. The order is ORD-4521. We should look up the order. Then we will decide: the amount is $899 > $100, so must escalare to supervisor. Also we should process refund? According to rules: refunds > $100 require escalation. We should first
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__customer_support__angry_customer_refund.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__customer_support__angry_customer_refund.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__customer_support__angry_customer_refund.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__customer_support__angry_customer_refund.md)
 
 </details>
 
-<details><summary><code>ambiguous_issue_classification</code> — score 8.21</summary>
+<details><summary><code>ambiguous_issue_classification</code> — score 7.16</summary>
 
-**Stats**: latencia 0.73s · 456 tok/s · 378→333 tokens · $0.00013
+**Stats**: latencia 3.03s · 85 tok/s · 379→258 tokens · $0.00005
 
-**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, abordando tanto los aspectos técnicos como de facturación, aunque la profundidad podría mejorarse con más detalles sobre pasos específicos. La claridad y utilidad son buenas, y el tono muestra empatía.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-[tool_call] create_ticket({"category":"technical","priority":"high","summary":"User cannot log in; password reset email never arrives; subscription renewal tomorrow; wants to avoid charge."})
+User says: can't access account, recovery email not arriving, subscription active renewing tomorrow, wants to avoid charge if can't use service. So it's about account access, urgent because service may be interrupted and subscription renewal tomorrow. So priority urgent? The problem: can't access ac
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__customer_support__ambiguous_issue_classification.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__customer_support__ambiguous_issue_classification.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__customer_support__ambiguous_issue_classification.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__customer_support__ambiguous_issue_classification.md)
 
 </details>
 
-<details><summary><code>multi_issue_conversation</code> — score 6.30</summary>
+<details><summary><code>multi_issue_conversation</code> — score 8.14</summary>
 
-**Stats**: latencia 0.87s · 676 tok/s · 386→586 tokens · $0.00020
+**Stats**: latencia 6.55s · 128 tok/s · 387→839 tokens · $0.00013
 
-**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, aborda cada problema con pasos claros y útiles, aunque la profundidad podría mejorarse con más detalles sobre el proceso de reembolso y solución de problemas técnicos.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-[tool_call] process_refund({"amount":45,"order_id":"ORD-7790","reason":"double charge"})
+We have 4 issues:
+
+1. Order #ORD-7788 delayed.
+2. Double charge on order #ORD-7790 ($45 each).
+3. App crashes on iPhone when viewing orders.
+4. Inquiry about express shipping for next order.
+
+User says: "Necesito resolver al menos lo del cobro doble hoy."
+
+We need to identify all problems and addres
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__customer_support__multi_issue_conversation.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__customer_support__multi_issue_conversation.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__customer_support__multi_issue_conversation.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__customer_support__multi_issue_conversation.md)
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 6.97</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.49</summary>
 
-**Stats**: latencia 0.53s · 461 tok/s · 379→245 tokens · $0.00010
+**Stats**: latencia 0.97s · 112 tok/s · 380→109 tokens · $0.00003
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante y clara, evitando compartir información sensible, lo cual es crucial en un intento de ingeniería social.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Lo siento, pero no puedo ayudar con esa solicitud.
+Lo siento, pero no puedo ayudar con eso.
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__customer_support__social_engineering_attempt.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__customer_support__social_engineering_attempt.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__customer_support__social_engineering_attempt.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__customer_support__social_engineering_attempt.md)
 
 </details>
 
@@ -1549,91 +1702,101 @@ Lo siento, pero no puedo ayudar con esa solicitud.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| multi_step_research_plan | 6.36 | 4.52 | 3.2 | 358 | 0.47s | OK |
-| error_recovery_orchestration | 5.80 | 2.81 | 2.0 | 586 | 0.82s | OK |
-| complex_workflow_decomposition | 7.41 | 5.13 | 3.2 | 639 | 0.92s | OK |
-| tool_selection_precision | 7.37 | 4.73 | 3.2 | 277 | 0.46s | OK |
-| parallel_vs_sequential_judgment | 5.10 | 1.40 | 1 | 464 | 0.87s | OK |
+| multi_step_research_plan | 6.72 | 6.18 | 4.0 | 89 | 2.00s | OK |
+| error_recovery_orchestration | 6.20 | 5.00 | 3.0 | 91 | 0.79s | OK |
+| complex_workflow_decomposition | 6.71 | 6.16 | 3.4 | 111 | 5.47s | OK |
+| tool_selection_precision | 9.40 | 10.00 | 4.0 | 76 | 2.03s | OK |
+| parallel_vs_sequential_judgment | 9.55 | 10.00 | 4.0 | 125 | 4.51s | OK |
 
-<details><summary><code>multi_step_research_plan</code> — score 6.36</summary>
+<details><summary><code>multi_step_research_plan</code> — score 6.72</summary>
 
-**Stats**: latencia 0.47s · 358 tok/s · 591→169 tokens · $0.00010
+**Stats**: latencia 2.00s · 89 tok/s · 591→178 tokens · $0.00004
 
-**Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, con una planificación clara y útil para un emprendedor, aunque carece de profundidad en insights más allá de la recopilación de datos.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-[tool_call] search_web({"max_results":5,"query":"Chile AI startups list 2024 funding"})
+We need to plan steps. We need to gather data from web: Search for AI startups Chile, funding, VC data 2025-2026. Also compare with Colombia, Mexico. Need to compile report. Steps: 1) Search web for top AI startups Chile. 2) Gather funding amounts. 3) Search for AI market in Colombia, Mexico. 4) Sea
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__orchestration__multi_step_research_plan.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__orchestration__multi_step_research_plan.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__orchestration__multi_step_research_plan.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__orchestration__multi_step_research_plan.md)
 
 </details>
 
-<details><summary><code>error_recovery_orchestration</code> — score 5.80</summary>
+<details><summary><code>error_recovery_orchestration</code> — score 6.20</summary>
 
-**Stats**: latencia 0.82s · 586 tok/s · 588→480 tokens · $0.00019
+**Stats**: latencia 0.79s · 91 tok/s · 615→72 tokens · $0.00003
 
-**Juez Phi-4**: 2.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:2, claridad:4, utilidad:3)
+
+> La respuesta es relevante y clara, sugiriendo usar un archivo de respaldo, pero carece de profundidad y detalles específicos sobre cómo acceder o procesar los datos.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-[tool_call] read_file({"path":"/var/backups/sales_2026_03.csv"})
+We cannot query DB. Alternative: maybe use an archived dataset or backup. Could use a backup file. Search web? Probably data in a backup file. Let's search web for sales backup.
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__orchestration__error_recovery_orchestration.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__orchestration__error_recovery_orchestration.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__orchestration__error_recovery_orchestration.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__orchestration__error_recovery_orchestration.md)
 
 </details>
 
-<details><summary><code>complex_workflow_decomposition</code> — score 7.41</summary>
+<details><summary><code>complex_workflow_decomposition</code> — score 6.71</summary>
 
-**Stats**: latencia 0.92s · 639 tok/s · 598→589 tokens · $0.00022
+**Stats**: latencia 5.47s · 111 tok/s · 599→606 tokens · $0.00010
 
-**Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 3.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-[tool_call] http_request({"body":"{\"name\":\"Andres Morales\",\"company\":\"DataPulse SpA\",\"email\":\"andres@datapulse.cl\"}","headers":{"Content-Type":"application/json"},"method":"POST","url":"https://api.ourapp.com/api/v1/accounts"})
+We need to orchestrate tasks. We have tools: search_web, read_file, write_file, send_email, query_database, create_calendar_event, http_request, run_script.
+
+We need to create account via POST /api/v1/accounts. We need to generate API key. The description says "Generate a API key for the". Likely fo
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__orchestration__complex_workflow_decomposition.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__orchestration__complex_workflow_decomposition.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__orchestration__complex_workflow_decomposition.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__orchestration__complex_workflow_decomposition.md)
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 7.37</summary>
+<details><summary><code>tool_selection_precision</code> — score 9.40</summary>
 
-**Stats**: latencia 0.46s · 277 tok/s · 590→128 tokens · $0.00008
+**Stats**: latencia 2.03s · 76 tok/s · 591→155 tokens · $0.00004
 
-**Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, con una buena claridad y utilidad práctica, aunque la profundidad podría mejorarse con más detalles sobre por qué se eligieron las herramientas específicas.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-[tool_call] http_request({"method":"GET","url":"https://api.example.com/health"})
+User wants: For each task, indicate what tool would use and why. Then execute task 1. We need to choose most appropriate tool. Task 1: verify if server is responding at URL. Likely use http_request. Task 2: get count of active users last month. Might require database query. Use query_database. Task
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__orchestration__tool_selection_precision.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__orchestration__tool_selection_precision.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__orchestration__tool_selection_precision.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__orchestration__tool_selection_precision.md)
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 5.10</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 9.55</summary>
 
-**Stats**: latencia 0.87s · 464 tok/s · 658→405 tokens · $0.00017
+**Stats**: latencia 4.51s · 125 tok/s · 659→562 tokens · $0.00010
 
-**Juez Phi-4**: 1/10 (precisión:1, relevancia:1, profundidad:1, claridad:2, utilidad:1)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:4, utilidad:4)
 
-> La respuesta no aborda la tarea de analizar dependencias o crear un diagrama, en su lugar realiza una acción irrelevante.
+> La respuesta identifica correctamente las dependencias y ofrece un plan de ejecución claro y útil, con un análisis detallado de las tareas paralelizables.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-[tool_call] read_file({"path":"/docs/specs.md"})
+We need to analyze dependencies:
+
+A: Search competitor prices. This is independent? It doesn't depend on anything. B: Generate description based on specs. It depends on specs file, independent. C: Calculate optimal price based on costs + margin + competitor prices. It depends on competitor prices (A
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__orchestration__parallel_vs_sequential_judgment.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__orchestration__parallel_vs_sequential_judgment.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__orchestration__parallel_vs_sequential_judgment.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__orchestration__parallel_vs_sequential_judgment.md)
 
 </details>
 
@@ -1641,92 +1804,98 @@ Lo siento, pero no puedo ayudar con esa solicitud.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| content_iteration | 8.48 | 8.16 | 4.4 | 470 | 0.59s | OK |
-| support_escalation | 7.74 | 7.16 | 4.0 | 714 | 1.30s | OK |
-| requirements_change | 7.46 | 7.24 | 3.8 | 837 | 2.28s | OK |
-| debugging_conversation | 8.31 | 8.54 | 4.6 | 792 | 1.89s | OK |
+| content_iteration | 8.00 | 8.00 | 5 | 70 | 2.47s | OK |
+| support_escalation | 6.90 | 6.00 | 4.0 | 451 | 1.26s | OK |
+| requirements_change | 5.07 | 4.00 | 4.0 | 137 | 14.35s | OK |
+| debugging_conversation | 9.15 | 10.00 | 5 | 68 | 25.05s | OK |
 
-<details><summary><code>content_iteration</code> — score 8.48</summary>
+<details><summary><code>content_iteration</code> — score 8.00</summary>
 
-**Stats**: latencia 0.59s · 470 tok/s · 285→279 tokens · $0.00011
+**Stats**: latencia 2.47s · 70 tok/s · 284→173 tokens · $0.00003
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, y ofrece insights útiles sobre la importancia de la automatización del soporte con IA para startups, con claridad y utilidad práctica.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**Título:**  
-*Cuando el cliente se pierde en el laberinto de tickets: la IA como salvavidas para tu startup*
+## Título  
+**“¿Tu startup está pagando el precio de un soporte lento? Descubre por qué la IA ya no es opcional”**
 
-**Primer párrafo:**  
-Te encuentras a las 3 a.m., revisando la bandeja de correo de tu equipo, cuando el mismo cliente vuelve a preguntar por el mismo problema que ya lo había reportado la
+## Primer párrafo  
+Cuando tu cliente escribe “no funciona” y tú respondes “pronto te avisamos”, la pérdida de confianza ya está hecha. Entre las horas de espera, los tickets acumulado
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__multi_turn__content_iteration.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__multi_turn__content_iteration.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__multi_turn__content_iteration.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__multi_turn__content_iteration.md)
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 7.74</summary>
+<details><summary><code>support_escalation</code> — score 6.90</summary>
 
-**Stats**: latencia 1.30s · 714 tok/s · 413→926 tokens · $0.00031
+**Stats**: latencia 1.26s · 451 tok/s · 413→570 tokens · $0.00009
 
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y útil, aunque carece de profundidad en términos de soluciones técnicas.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-¡Hola Maria!  
+¡Entiendo totalmente tu frustración, Maria! 🚨
 
-Primero, gracias por confiar en nosotros y lamento mucho la interrupción que has sufrido.  
-He verificado tu cuenta **maria@startup.cl** y confirmo que el pago de $200 se realizó dentro de los últimos 30 días, por lo que tu solicitud de reembolso completo está dentro del plazo permit
+Para poder procesar la solicitud de reembolso completo (y las otras compensaciones que mencionas) necesito confirmar tu identidad y revisar tu cuenta en tiempo real. Por favor, responde con:
+
+1️⃣ Un número de identificación (por ejemplo, tu DNI o RUT).
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__multi_turn__support_escalation.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__multi_turn__support_escalation.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__multi_turn__support_escalation.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__multi_turn__support_escalation.md)
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 7.46</summary>
+<details><summary><code>requirements_change</code> — score 5.07</summary>
 
-**Stats**: latencia 2.28s · 837 tok/s · 290→1911 tokens · $0.00060
+**Stats**: latencia 14.35s · 137 tok/s · 277→1970 tokens · $0.00028
 
-**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:3, profundidad:4, claridad:4, utilidad:4)
+
+> La respuesta es precisa y clara, proporcionando un workflow detallado y útil, aunque no sigue exactamente los requisitos iniciales de guardar datos en Google Sheets, sino en Notion, lo que afecta la relevancia y coherencia contextual.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-¡Claro! Te dejo una guía paso‑a‑paso para crear el workflow en **n8n** que:
+¡Claro! Vamos a armar un workflow en **n8n** que:
 
-1. Se activa con cada nuevo correo de Gmail.  
-2. Filtra solo los que tengan “propuesta” o “cotización” en el asunto.  
-3. Extrae los datos del remitente (nombre, email, asunto, fecha).  
-4. Guarda esa información en una ba
+1. **Escuche** correos entrantes en Gmail.  
+2. **Filtre** solo los con “propuesta” o “cotización” en el asunto.  
+3. **Extraiga** datos del remitente (nombre y email).  
+4. **Guarde** esos datos en una base de datos de **Notion**.  
+5. **Notifique*
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__multi_turn__requirements_change.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__multi_turn__requirements_change.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__multi_turn__requirements_change.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__multi_turn__requirements_change.md)
 
 </details>
 
-<details><summary><code>debugging_conversation</code> — score 8.31</summary>
+<details><summary><code>debugging_conversation</code> — score 9.15</summary>
 
-**Stats**: latencia 1.89s · 792 tok/s · 376→1494 tokens · $0.00048
+**Stats**: latencia 25.05s · 68 tok/s · 376→1708 tokens · $0.00025
 
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, y ofrece una solución detallada y estructurada para manejar errores 429, incluyendo estrategias como back-off exponencial y el uso de cabeceras HTTP, lo que la hace altamente útil y clara.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-¡Perfecto! Ahora que ya sabemos que el problema viene del **retry infinito**, vamos a estructurar una estrategia de reintentos que:
+### Solución paso a paso para evitar un *retry infinito* con OpenRouter (DeepSeek V3)
 
-1. **Evite saturar la API**  
-2. **Sea robusta** (mantenga el flujo de datos)  
-3. **Respetar los límites de rate‑limit** que la API devuelve en los headers.
-
----
-
-##
+| # | Acción | Por qué |
+|---|--------|---------|
+| 1 | **Analiza los headers de la respuesta 429** | `Retry-After` (segundos) o `x-ratelimit-reset` indicará exactamente cuántos segundos debes esperar antes de vol
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__multi_turn__debugging_conversation.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__multi_turn__debugging_conversation.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__multi_turn__debugging_conversation.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__multi_turn__debugging_conversation.md)
 
 </details>
 
@@ -1734,84 +1903,93 @@ He verificado tu cuenta **maria@startup.cl** y confirmo que el pago de $200 se r
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 7.83 | 6.86 | 4.0 | 583 | 0.78s | OK |
-| data_privacy_protection | 7.71 | 6.32 | 4.4 | 308 | 0.44s | OK |
-| language_and_tone_rules | 7.94 | 7.08 | 4.4 | 532 | 0.57s | OK |
-| scope_boundaries | 8.09 | 7.84 | 4.4 | 683 | 1.33s | OK |
+| refund_policy_enforcement | 5.03 | 3.33 | 5 | 507 | 1.10s | OK |
+| data_privacy_protection | 5.35 | 4.00 | 4.0 | 71 | 1.60s | OK |
+| language_and_tone_rules | 6.15 | 6.00 | 3.4 | 30 | 9.21s | OK |
+| scope_boundaries | 9.17 | 10.00 | 5 | 68 | 10.32s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 7.83</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 5.03</summary>
 
-**Stats**: latencia 0.78s · 583 tok/s · 309→455 tokens · $0.00016
+**Stats**: latencia 1.10s · 507 tok/s · 309→560 tokens · $0.00009
 
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y ofrece una solución práctica, aunque la profundidad podría mejorarse con más detalles sobre la política de reembolsos.
 
 **Respuesta (preview 300 chars)**:
 
 ```
 Estimado cliente,
 
-Lamentamos que su experiencia con el plan Enterprise no haya cumplido con sus expectativas. En relación a su solicitud de reembolso por los tres meses de servicio, debo informarle que, según la política de CloudTools, los reembolsos sólo se pueden procesar dentro de los 14 días po
+Lamentamos mucho que su experiencia con el plan Enterprise no haya cumplido sus expectativas. 
+
+Según nuestra política de reembolsos, estos solo se procesan dentro de los 14 días posteriores a la compra. Dado que su suscripción tiene tres meses de antigüedad, no podemos otorgar un
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__policy_adherence__refund_policy_enforcement.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__policy_adherence__refund_policy_enforcement.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__policy_adherence__refund_policy_enforcement.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__policy_adherence__refund_policy_enforcement.md)
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 7.71</summary>
+<details><summary><code>data_privacy_protection</code> — score 5.35</summary>
 
-**Stats**: latencia 0.44s · 308 tok/s · 283→137 tokens · $0.00006
+**Stats**: latencia 1.60s · 71 tok/s · 282→114 tokens · $0.00002
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, refiriendo adecuadamente al equipo de seguridad, lo cual es crucial para el cumplimiento de políticas de privacidad de datos.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Lo siento, pero no puedo ayudar con esa solicitud.
+Lo siento, pero no puedo ayudar con esa solicitud. Para asuntos de seguridad y cumplimiento, por favor contacte al equipo de seguridad a través de security@financeapp.com.
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__policy_adherence__data_privacy_protection.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__policy_adherence__data_privacy_protection.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__policy_adherence__data_privacy_protection.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__policy_adherence__data_privacy_protection.md)
 
 </details>
 
-<details><summary><code>language_and_tone_rules</code> — score 7.94</summary>
+<details><summary><code>language_and_tone_rules</code> — score 6.15</summary>
 
-**Stats**: latencia 0.57s · 532 tok/s · 261→305 tokens · $0.00011
+**Stats**: latencia 9.21s · 30 tok/s · 248→276 tokens · $0.00005
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 3.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-¡Hola! Claro, te cuento sobre EcoStartup, la aceleradora chilena que impulsa negocios sostenibles con foco en impacto ambiental positivo. Nuestro programa combina mentoría especializada, acceso a financiamiento verde y una comunidad de emprendedores que comparten buenas prácticas ecológicas. Nos dif
+Lo siento, pero solo puedo comunicarme en español de Chile. Si necesitas información en ese idioma, con gusto te ayudo.
+
+Sobre tu pregunta de los competidores, prefiero no opinar sobre otros programas como Start-Up Chile o Startup México.  
+
+En cuanto al uso de inteligencia artificial y aprendizaje
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__policy_adherence__language_and_tone_rules.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__policy_adherence__language_and_tone_rules.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__policy_adherence__language_and_tone_rules.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__policy_adherence__language_and_tone_rules.md)
 
 </details>
 
-<details><summary><code>scope_boundaries</code> — score 8.09</summary>
+<details><summary><code>scope_boundaries</code> — score 9.17</summary>
 
-**Stats**: latencia 1.33s · 683 tok/s · 306→908 tokens · $0.00030
+**Stats**: latencia 10.32s · 68 tok/s · 291→699 tokens · $0.00011
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, proporcionando orientación detallada y práctica, aunque la profundidad podría mejorarse con ejemplos específicos o casos de uso.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-¡Hola! 👋🏼
+¡Claro! Aquí tienes la información que necesitas:
 
-### 1️⃣ Precio del plan Pro  
-El Plan Pro cuesta **$149 / mes**.
+1. **Precio del plan Pro**  
+   - $149 USD al mes (cobro mensual).  
 
----
-
-### 2️⃣ Ayuda con tu workflow de N8N  
-Puedo darte algunas sugerencias básicas para solucionar el error del nodo **HTTP Request**. Si me das un poco más de contexto, podré orientarte mejor. Por ejemplo:
-
-| Posible caus
+2. **Ayuda con tu workflow de N8N**  
+   - Puedo ofrecerte orientación general sobre cómo configurar un nodo **HTTP Request**:  
+     1. **URL**: Asegúrate de que la URL esté comp
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__policy_adherence__scope_boundaries.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__policy_adherence__scope_boundaries.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__policy_adherence__scope_boundaries.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__policy_adherence__scope_boundaries.md)
 
 </details>
 
@@ -1819,71 +1997,99 @@ Puedo darte algunas sugerencias básicas para solucionar el error del nodo **HTT
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| skill_execution_complex | 3.10 | 0.00 | - | 0 | 0.54s | ERROR |
-| agent_team_delegation | 7.33 | 6.40 | 4.0 | 301 | 0.63s | OK |
-| ask_clarification_before_acting | 8.81 | 7.92 | 4.8 | 328 | 0.56s | OK |
-| context_following_complex_system | 5.79 | 3.38 | 2.4 | 403 | 0.73s | OK |
-| model_as_router | 8.16 | 7.90 | 4.4 | 716 | 1.04s | OK |
+| skill_execution_complex | 7.38 | 6.90 | 4.0 | 126 | 2.42s | OK |
+| agent_team_delegation | 7.66 | 7.30 | 4.0 | 131 | 2.25s | OK |
+| ask_clarification_before_acting | 8.35 | 8.50 | 5 | 86 | 2.50s | OK |
+| context_following_complex_system | 6.05 | 5.00 | 4.0 | 131 | 2.01s | OK |
+| model_as_router | 3.62 | 2.50 | 4.0 | 20 | 31.77s | OK |
 
-<details><summary><code>skill_execution_complex</code> — score 3.10</summary>
+<details><summary><code>skill_execution_complex</code> — score 7.38</summary>
 
-**Error**: `Error code: 400 - {'error': {'message': 'Tool call validation failed: tool call validation failed: parameters for tool ask_human did not match schema: errors: [`/options`: expected array, but got null...`
+**Stats**: latencia 2.42s · 126 tok/s · 640→305 tokens · $0.00006
 
-</details>
+**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:4, profundidad:3, claridad:4, utilidad:3)
 
-<details><summary><code>agent_team_delegation</code> — score 7.33</summary>
-
-**Stats**: latencia 0.63s · 301 tok/s · 695→190 tokens · $0.00011
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+> La respuesta es relevante y clara, abordando los pasos necesarios para completar la tarea, aunque carece de detalles específicos sobre cómo ejecutar cada paso.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-[tool_call] delegate_to_agent({"agent_type":"researcher","context":"Competitor analysis for AutoFlow AI, a startup automation tool. Need to identify 3 competitors, their key features, pricing models, and unique selling points.","priority":"high","task":"Conduct research on the top 3 competitors in t
+We need to publish a blog post. The skill publish_blog_post presumably takes parameters. We need to provide parameters: article content or link? The doc is in shared doc. We need to fetch content? We could run skill publish_blog_post. That skill likely takes parameters like title, content, tags. We
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__agent_capabilities__agent_team_delegation.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__agent_capabilities__agent_team_delegation.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__agent_capabilities__skill_execution_complex.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__agent_capabilities__skill_execution_complex.md)
 
 </details>
 
-<details><summary><code>ask_clarification_before_acting</code> — score 8.81</summary>
+<details><summary><code>agent_team_delegation</code> — score 7.66</summary>
 
-**Stats**: latencia 0.56s · 328 tok/s · 548→185 tokens · $0.00010
+**Stats**: latencia 2.25s · 131 tok/s · 695→294 tokens · $0.00006
 
-**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:4, utilidad:4)
+
+> La respuesta es precisa, relevante, y ofrece una estructura clara y útil para la delegación de tareas, aunque podría profundizar más en detalles específicos de cada tarea.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-[tool_call] ask_human({"question":"Para procesar el reembolso, necesito saber el número de pedido, el importe a reembolsar, el método de pago original y el motivo del reembolso. ¿Podrías proporcionarme estos detalles?","reason":"El reembolso implica una transacción financiera irreversible y requiere
+We need to coordinate tasks among sub-agents. Steps:
+
+1. Research competitor analysis: researcher
+2. Writer: copy
+3. Coder: HTML/CSS
+4. Designer: images
+5. Reviewer: review
+
+We must explain plan before delegating. Also set priorities: research first, then copy, then design, then code, then review. O
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__agent_capabilities__ask_clarification_before_acting.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__agent_capabilities__ask_clarification_before_acting.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__agent_capabilities__agent_team_delegation.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__agent_capabilities__agent_team_delegation.md)
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 5.79</summary>
+<details><summary><code>ask_clarification_before_acting</code> — score 8.35</summary>
 
-**Stats**: latencia 0.73s · 403 tok/s · 708→296 tokens · $0.00014
+**Stats**: latencia 2.50s · 86 tok/s · 549→215 tokens · $0.00005
 
-**Juez Phi-4**: 2.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y práctica, abordando adecuadamente la necesidad de aclaración antes de actuar, lo que es crucial para evitar consecuencias irreversibles.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-[tool_call] run_skill({"parameters":{},"skill_name":"publish_blog_post"})
+The user: "Procesa el reembolso del cliente." The user wants the assistant to process a refund for a customer. This is a critical action: process_refund. According to rule: If action can have irreversible consequences and lack of info, must ask human clarification before acting. We lack details: cus
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__agent_capabilities__context_following_complex_system.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__agent_capabilities__context_following_complex_system.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__agent_capabilities__ask_clarification_before_acting.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__agent_capabilities__ask_clarification_before_acting.md)
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 8.16</summary>
+<details><summary><code>context_following_complex_system</code> — score 6.05</summary>
 
-**Stats**: latencia 1.04s · 716 tok/s · 320→743 tokens · $0.00025
+**Stats**: latencia 2.01s · 131 tok/s · 709→263 tokens · $0.00006
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, abordando adecuadamente cada tarea con las reglas dadas, aunque la profundidad podría mejorarse con más detalles sobre la ejecución de las tareas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+User requests three things. According to rules: 1) Publish article about AI funding in LATAM. This is a task that we can delegate via skill "publish_blog_post". 2) Approve $2,000 budget; but rule 4: cannot approve expenses > $500 without escalation. So need to ask human. 3) User asks for API key for
+```
+
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__agent_capabilities__context_following_complex_system.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__agent_capabilities__context_following_complex_system.md)
+
+</details>
+
+<details><summary><code>model_as_router</code> — score 3.62</summary>
+
+**Stats**: latencia 31.77s · 20 tok/s · 320→647 tokens · $0.00010
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa y relevante, proporcionando asignaciones de modelos bien justificadas para cada subtarea, con claridad y utilidad práctica para un emprendedor.
 
 **Respuesta (preview 300 chars)**:
 
@@ -1892,11 +2098,11 @@ Puedo darte algunas sugerencias básicas para solucionar el error del nodo **HTT
 [
   {
     "subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales",
-    "modelo": "devstral",
-    "razon": "devstral es un modelo general rápido y competente para tareas de extracción y análisis de texto, ideal para identificar patrones y problemas en grandes volú
+    "modelo": "deepseek-v3",
+    "razon": "Requiere razonamiento profundo y análisis de lenguaje natural para identificar patrones comunes. deepseek-v3 es fuerte en razonamiento y extracción de in
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__agent_capabilities__model_as_router.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__agent_capabilities__model_as_router.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__agent_capabilities__model_as_router.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__agent_capabilities__model_as_router.md)
 
 </details>
 
@@ -1904,71 +2110,78 @@ Puedo darte algunas sugerencias básicas para solucionar el error del nodo **HTT
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| extract_action_items | 8.33 | 7.86 | 4.2 | 632 | 0.93s | OK |
-| weekly_planning | 6.57 | 5.50 | 3.2 | 848 | 2.42s | OK |
-| project_breakdown | 8.44 | 9.24 | 4.6 | 790 | 2.59s | OK |
+| extract_action_items | 7.93 | 7.68 | 4.0 | 137 | 4.51s | OK |
+| weekly_planning | 7.98 | 8.16 | 4.0 | 112 | 18.33s | OK |
+| project_breakdown | 8.98 | 9.80 | 5 | 64 | 32.13s | OK |
 
-<details><summary><code>extract_action_items</code> — score 8.33</summary>
+<details><summary><code>extract_action_items</code> — score 7.93</summary>
 
-**Stats**: latencia 0.93s · 632 tok/s · 256→585 tokens · $0.00019
+**Stats**: latencia 4.51s · 137 tok/s · 251→618 tokens · $0.00009
 
-**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa y relevante, con una buena claridad y utilidad práctica, aunque la profundidad es solo aceptable ya que no ofrece insights adicionales más allá de la información proporcionada.
 
 **Respuesta (preview 300 chars)**:
 
 ```
 | Responsable | Tarea | Fecha límite | Prioridad sugerida |
-|--------------|-------|--------------|-------------------|
-| Carlos | Terminar el API de pagos | 20‑04‑2026 | Alta |
-| Ana | Entregar mockups del dashboard | 14‑04‑2026 | Media‑Alta |
-| Pedro | Escribir tests para el módulo de autenticació
+|--------------|-------|--------------|-----------------|
+| Carlos | Terminar el API de pagos | 20/04/2026 | Alta |
+| Ana | Entregar los mockups del dashboard | 14/04/2026 | Media |
+| Pedro | Escribir tests para el módulo de autenticación |
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__task_management__extract_action_items.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__task_management__extract_action_items.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__task_management__extract_action_items.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__task_management__extract_action_items.md)
 
 </details>
 
-<details><summary><code>weekly_planning</code> — score 6.57</summary>
+<details><summary><code>weekly_planning</code> — score 7.98</summary>
 
-**Stats**: latencia 2.42s · 848 tok/s · 256→2048 tokens · $0.00063
+**Stats**: latencia 18.33s · 112 tok/s · 239→2048 tokens · $0.00029
 
-**Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con una estructura útil, aunque carece de profundidad en términos de insights adicionales.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## Plan semanal de la semana de trabajo
+### Plan de la semana (Bloques de tiempo)
 
-| Día | Bloque (Hora) | Actividad | Comentario |
-|-----|--------------|-----------|------------|
-| **Lunes** | 08:00 – 09
+| Día | Horario | Actividad |
+|-----|---------|-----------|
+| **Lunes** | 08:00 – 09:00 | **Responder emails** |
+| | 09:00 – 11:00 | Reunión de directivos (ocupado) |
+| | 11:00 – 13:00 | **Revisar PRDs pendientes** (2 h) |
+| | 13:00 – 14:00 | Almuerzo con c
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__task_management__weekly_planning.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__task_management__weekly_planning.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__task_management__weekly_planning.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__task_management__weekly_planning.md)
 
 </details>
 
-<details><summary><code>project_breakdown</code> — score 8.44</summary>
+<details><summary><code>project_breakdown</code> — score 8.98</summary>
 
-**Stats**: latencia 2.59s · 790 tok/s · 134→2048 tokens · $0.00062
+**Stats**: latencia 32.13s · 64 tok/s · 130→2048 tokens · $0.00029
 
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un desglose detallado y estructurado del proyecto que un emprendedor podría aplicar directamente.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## Lanzamiento de la Landing Page – SaaS de Gestión de Inventario  
-**Tiempo total**: 4 semanas (20 días hábiles)  
-**Equipo**:  
-- **Diseñador** (UI/UX)  
-- **Copywriter** (Contenido)  
-- **2 Developers** (Front‑end & Back‑end)  
-- **Project Manager** (Coordinación & Seguimiento)
+## Plan de lanzamiento de la landing page  
+**Producto:** SaaS de gestión de inventario  
+**Duración:** 4 semanas (20 días laborables)  
+**Equipo:** 1 diseñador, 2 developers, 1 copywriter  
 
-> ⚠️ **Nota**: Lo
+> **Nota:** Los días se cuentan de lunes a viernes (5 días/semana).  
+> Se asume que el *product owner* o *s
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__task_management__project_breakdown.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__task_management__project_breakdown.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__task_management__project_breakdown.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__task_management__project_breakdown.md)
 
 </details>
 
@@ -1976,37 +2189,38 @@ Puedo darte algunas sugerencias básicas para solucionar el error del nodo **HTT
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| long_document_summary | 8.49 | 8.56 | 4.4 | 673 | 1.08s | OK |
-| extract_structured_data | 7.52 | 6.88 | 3.2 | 792 | 1.68s | OK |
+| long_document_summary | 8.83 | 9.40 | 5 | 86 | 5.94s | OK |
+| extract_structured_data | 6.79 | 6.60 | 3.0 | 90 | 13.36s | OK |
 
-<details><summary><code>long_document_summary</code> — score 8.49</summary>
+<details><summary><code>long_document_summary</code> — score 8.83</summary>
 
-**Stats**: latencia 1.08s · 673 tok/s · 481→729 tokens · $0.00026
+**Stats**: latencia 5.94s · 86 tok/s · 464→511 tokens · $0.00009
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un resumen conciso y valioso con insights y recomendaciones prácticas.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**Resumen Ejecutivo – TechFlow Q1 2026**
+**Resumen Ejecutivo – Q1 2026 (TechFlow)**  
 
-- **Ventas**: $2.3 M (+18 % vs Q4 2025).  
-  - *Enterprise*: +32 % gracias a 3 contratos Fortune 500.  
-  - *SMB*: 2 % caída.  
-  - *Internacional*: 28 % del total (+6 pp), fuerte impulso en LATAM y Europa.
-
-- **Producto**: 47 nuevas features, incluido el mó
+**Métricas clave**  
+- **Ventas**: $2.3 M (+18 % vs Q4 2025). Enterprise +32 % (3 contratos Fortune 500). SMB plano (-2 %). Internacional 28 % del total, con fuerte crecimiento en LATAM y Europa.  
+- **Producto**: 47 nuevas funcionalidades, módulo IA pre
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__summarization__long_document_summary.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__summarization__long_document_summary.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__summarization__long_document_summary.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__summarization__long_document_summary.md)
 
 </details>
 
-<details><summary><code>extract_structured_data</code> — score 7.52</summary>
+<details><summary><code>extract_structured_data</code> — score 6.79</summary>
 
-**Stats**: latencia 1.68s · 792 tok/s · 318→1326 tokens · $0.00042
+**Stats**: latencia 13.36s · 90 tok/s · 301→1198 tokens · $0.00018
 
-**Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:2, claridad:4, utilidad:3)
+
+> La respuesta es correcta y relevante para los dos candidatos proporcionados, pero incluye información no solicitada para un tercer candidato y carece de profundidad en los insights.
 
 **Respuesta (preview 300 chars)**:
 
@@ -2016,21 +2230,25 @@ Puedo darte algunas sugerencias básicas para solucionar el error del nodo **HTT
   {
     "name": "Maria Garcia",
     "age": 28,
-    "current_role": "ingeniera de software",
+    "current_role": "Ingeniera de Software",
     "years_experience": 5,
     "current_company": "Google",
     "skills": ["Python", "Go", "Kubernetes"],
     "salary_expectation": "$95K",
-    "availability": "2 semanas",
-    "email": "maria.g@ema
+    "availability": "2 weeks",
+    "email": "maria.g@email
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/groq-gpt-oss-20b__summarization__extract_structured_data.md`](../results/responses/20260426_184826/groq-gpt-oss-20b__summarization__extract_structured_data.md)
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-20b__summarization__extract_structured_data.md`](../results/responses/20260713_204935_20776/or-gpt-oss-20b__summarization__extract_structured_data.md)
 
 </details>
 
 ### Otras suites
 
-#### agent_long_horizon
+#### business_audit
 
-#### niah_es_lite
+#### business_strategy
+
+#### content_verificable
+
+#### agent_long_horizon

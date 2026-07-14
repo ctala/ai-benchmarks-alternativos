@@ -1,13 +1,13 @@
 # Devstral Small
 
 - **model_id**: `mistralai/devstral-small`
-- **Total tests**: 223/315 exitosos (92 errores)
-- **Score final**: 7.84
-- **Calidad**: 7.89
+- **Total tests**: 152/236 exitosos (84 errores)
+- **Score final**: 8.04
+- **Calidad**: 7.99
 - **Judge score (Phi-4)**: 4.10/10
-- **Velocidad**: 139 tok/s
-- **Latencia primera token**: 4.09s
-- **Costo promedio por test**: $0.00090
+- **Velocidad**: 147 tok/s
+- **Latencia primera token**: 5.38s
+- **Costo promedio por test**: $0.00018
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,8 +15,8 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 10 | 10 | 7.56 | 7.81 |
-| agent_long_horizon | 12 | 12 | 8.12 | 8.67 |
+| agent_capabilities | 5 | 5 | 7.64 | 8.09 |
+| business_audit | 10 | 0 | - | - |
 | code_generation | 8 | 8 | 8.72 | 9.33 |
 | content_generation | 8 | 8 | 8.32 | 8.52 |
 | creativity | 8 | 8 | 7.88 | 7.47 |
@@ -25,7 +25,7 @@
 | hallucination | 6 | 6 | 7.97 | 7.59 |
 | multi_turn | 4 | 4 | 7.92 | 7.56 |
 | news_seo_writing | 15 | 12 | 7.37 | 7.26 |
-| niah_es | 123 | 54 | 7.24 | 7.47 |
+| niah_es | 51 | 0 | - | - |
 | ocr_extraction | 5 | 5 | 7.60 | 6.91 |
 | orchestration | 5 | 5 | 7.77 | 7.06 |
 | policy_adherence | 4 | 4 | 7.86 | 7.29 |
@@ -2692,103 +2692,11 @@ En cuanto a Start-Up Chile y Startup México,
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| skill_execution_complex | 7.87 | 9.34 | - | 120 | 1.16s | OK |
-| agent_team_delegation | 8.81 | 10.00 | - | 175 | 2.54s | OK |
-| ask_clarification_before_acting | 7.68 | 8.67 | - | 100 | 0.96s | OK |
-| context_following_complex_system | 4.92 | 1.95 | - | 119 | 1.09s | OK |
-| model_as_router | 8.10 | 7.70 | - | 203 | 1.41s | OK |
 | skill_execution_complex | 7.40 | 8.40 | 4.0 | 121 | 1.61s | OK |
 | agent_team_delegation | 8.53 | 9.44 | 4.6 | 169 | 2.67s | OK |
 | ask_clarification_before_acting | 7.71 | 9.32 | 4.8 | 87 | 1.13s | OK |
 | context_following_complex_system | 6.36 | 5.12 | 3.2 | 94 | 1.54s | OK |
 | model_as_router | 8.20 | 8.19 | 4.2 | 108 | 2.59s | OK |
-
-<details><summary><code>skill_execution_complex</code> — score 7.87</summary>
-
-**Stats**: latencia 1.16s · 120 tok/s · 919→139 tokens · $0.00013
-
-**Respuesta (preview 300 chars)**:
-
-```
-Entiendo que necesitas publicar un artículo sobre DeepSeek V4, notificar a dos personas y agendar una reunión. Aquí está mi plan:
-
-1. **Publicar el artículo**: Primero, necesitaré la URL del documento compartido para poder publicar el artículo.
-2. **Enviar notificaciones**: Después de publicar, envi
-```
-
-</details>
-
-<details><summary><code>agent_team_delegation</code> — score 8.81</summary>
-
-**Stats**: latencia 2.54s · 175 tok/s · 970→443 tokens · $0.00023
-
-**Respuesta (preview 300 chars)**:
-
-```
-Perfecto, vamos a descomponer esta tarea en sub-tareas para cada uno de los agentes especializados. Aquí está el plan de ejecución:
-
-### Plan de Ejecución:
-
-1. **Investigación de la Competencia**
-   - **Agente:** researcher
-   - **Tarea:** Investigar qué hace la competencia (3 competidores) para el
-```
-
-</details>
-
-<details><summary><code>ask_clarification_before_acting</code> — score 7.68</summary>
-
-**Stats**: latencia 0.96s · 100 tok/s · 821→96 tokens · $0.00011
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para procesar el reembolso del cliente, necesito más información. ¿Podrías proporcionar los siguientes detalles?
-
-1. Número de pedido o identificación del cliente
-2. Motivo del reembolso
-3. Monto a reembolsar
-4. Método de pago original (tarjeta de crédito, PayPal, etc.)
-
-Esta información es crucial
-```
-
-</details>
-
-<details><summary><code>context_following_complex_system</code> — score 4.92</summary>
-
-**Stats**: latencia 1.09s · 119 tok/s · 995→130 tokens · $0.00014
-
-**Respuesta (preview 300 chars)**:
-
-```
-Entiendo tus solicitudes. Permíteme abordarlas una por una:
-
-1. **Publicar el artículo sobre financiamiento de IA en LATAM**: Procederé a publicar el artículo.
-```
-
-</details>
-
-<details><summary><code>model_as_router</code> — score 8.10</summary>
-
-**Stats**: latencia 1.41s · 203 tok/s · 271→287 tokens · $0.00011
-
-**Respuesta (preview 300 chars)**:
-
-```
-```json
-[
-  {
-    "subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales",
-    "modelo": "deepseek-v3",
-    "razon": "Mejor para razonamiento y análisis de texto."
-  },
-  {
-    "subtarea": "Escribir un email de disculpas a clientes afectados por un bug",
-    "modelo": "c
-```
-
-</details>
 
 <details><summary><code>skill_execution_complex</code> — score 7.40</summary>
 
@@ -3104,8 +3012,8 @@ Claro, aquí tienes la tabla con los action items extraídos de las notas de la 
 
 ### Otras suites
 
-#### agent_long_horizon
+#### prompt_injection_es
 
 #### niah_es
 
-#### prompt_injection_es
+#### business_audit

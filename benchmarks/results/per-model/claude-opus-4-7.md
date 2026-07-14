@@ -1,13 +1,13 @@
 # Claude Opus 4.7 (suscripción)
 
 - **model_id**: `claude-opus-4-7`
-- **Total tests**: 82/99 exitosos (17 errores)
-- **Score final**: 6.61
-- **Calidad**: 8.55
+- **Total tests**: 92/109 exitosos (17 errores)
+- **Score final**: 6.49
+- **Calidad**: 8.13
 - **Judge score (Phi-4)**: 4.50/10
-- **Velocidad**: 57 tok/s
-- **Latencia primera token**: 24.78s
-- **Costo promedio por test**: $0.09436
+- **Velocidad**: 55 tok/s
+- **Latencia primera token**: 25.37s
+- **Costo promedio por test**: $0.08954
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -17,27 +17,28 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 0 | - | - |
 | agent_long_horizon | 12 | 12 | 5.98 | 8.00 |
+| business_audit | 10 | 10 | 6.72 | 8.20 |
 | code_generation | 4 | 4 | 7.06 | 9.46 |
 | content_generation | 4 | 4 | 7.18 | 9.45 |
-| creativity | 4 | 4 | 6.93 | 9.20 |
+| creativity | 4 | 4 | 7.41 | 9.00 |
 | customer_support | 4 | 4 | 6.32 | 9.90 |
-| deep_reasoning | 6 | 6 | 6.25 | 7.95 |
-| hallucination | 3 | 3 | 7.05 | 8.39 |
-| multi_turn | 4 | 1 | 7.27 | 9.00 |
-| news_seo_writing | 5 | 5 | 6.05 | 7.61 |
-| ocr_extraction | 5 | 5 | 6.44 | 7.79 |
-| orchestration | 5 | 4 | 5.39 | 7.30 |
+| deep_reasoning | 6 | 6 | 5.96 | 6.95 |
+| hallucination | 3 | 3 | 5.51 | 5.67 |
+| multi_turn | 4 | 1 | 7.04 | 8.00 |
+| news_seo_writing | 5 | 5 | 4.61 | 5.36 |
+| ocr_extraction | 5 | 5 | 8.31 | 10.00 |
+| orchestration | 5 | 4 | 5.35 | 7.12 |
 | policy_adherence | 4 | 0 | - | - |
 | presentation | 2 | 2 | 6.93 | 9.64 |
 | reasoning | 3 | 3 | 7.07 | 9.75 |
-| sales_outreach | 3 | 2 | 7.25 | 9.10 |
+| sales_outreach | 3 | 2 | 8.34 | 10.00 |
 | startup_content | 5 | 5 | 6.91 | 9.63 |
 | strategy | 3 | 0 | - | - |
-| string_precision | 6 | 6 | 6.76 | 7.37 |
-| structured_output | 4 | 4 | 7.08 | 8.51 |
+| string_precision | 6 | 6 | 6.45 | 6.83 |
+| structured_output | 4 | 4 | 4.96 | 5.00 |
 | summarization | 2 | 2 | 6.75 | 8.30 |
 | task_management | 3 | 3 | 7.32 | 9.84 |
-| translation | 3 | 3 | 7.28 | 8.62 |
+| translation | 3 | 3 | 6.83 | 7.56 |
 
 ## Detalle por test
 
@@ -47,14 +48,14 @@
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| math_word_problem | 7.02 | 9.08 | 4.4 | 85 | 16.07s | OK |
-| logic_puzzle_constraint | 6.57 | 8.82 | 4.8 | 88 | 39.90s | OK |
-| causal_reasoning | 7.25 | 9.88 | 5.0 | 60 | 33.23s | OK |
-| code_bug_subtle | 3.88 | 3.33 | 1.2 | 75 | 37.30s | OK |
-| fermi_estimation | 6.18 | 7.58 | 4.4 | 53 | 27.06s | OK |
-| ethical_dilemma_structured | 6.61 | 8.99 | 4.6 | 62 | 67.06s | OK |
+| math_word_problem | 8.26 | 10.00 | 4.4 | 85 | 16.07s | OK |
+| logic_puzzle_constraint | 4.50 | 5.00 | 4.8 | 88 | 39.90s | OK |
+| causal_reasoning | 8.11 | 10.00 | 5.0 | 60 | 33.23s | OK |
+| code_bug_subtle | 4.55 | 5.00 | 1.2 | 75 | 37.30s | OK |
+| fermi_estimation | 2.34 | 1.67 | 4.4 | 53 | 27.06s | OK |
+| ethical_dilemma_structured | 7.97 | 10.00 | 4.6 | 62 | 67.06s | OK |
 
-<details><summary><code>math_word_problem</code> — score 7.02</summary>
+<details><summary><code>math_word_problem</code> — score 8.26</summary>
 
 **Stats**: latencia 16.07s · 85 tok/s · 6→1367 tokens · $0.03420
 
@@ -83,7 +84,7 @@ Distancia total Santiago–Valparaíso = **120 km**
 
 </details>
 
-<details><summary><code>logic_puzzle_constraint</code> — score 6.57</summary>
+<details><summary><code>logic_puzzle_constraint</code> — score 4.50</summary>
 
 **Stats**: latencia 39.90s · 88 tok/s · 6→3508 tokens · $0.08773
 
@@ -106,7 +107,7 @@ Posiciones 1-2-3-4 (izquierda → derecha). Colores: Roja (R), Azul (A), Verde (
 
 </details>
 
-<details><summary><code>causal_reasoning</code> — score 7.25</summary>
+<details><summary><code>causal_reasoning</code> — score 8.11</summary>
 
 **Stats**: latencia 33.23s · 60 tok/s · 6→1982 tokens · $0.04958
 
@@ -128,7 +129,7 @@ Posiciones 1-2-3-4 (izquierda → derecha). Colores: Roja (R), Azul (A), Verde (
 
 </details>
 
-<details><summary><code>code_bug_subtle</code> — score 3.88</summary>
+<details><summary><code>code_bug_subtle</code> — score 4.55</summary>
 
 **Stats**: latencia 37.30s · 75 tok/s · 6→2793 tokens · $0.06986
 
@@ -148,7 +149,7 @@ Cuando **más de la mitad de los valores son idénticos al mediano** (o más exa
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 6.18</summary>
+<details><summary><code>fermi_estimation</code> — score 2.34</summary>
 
 **Stats**: latencia 27.06s · 53 tok/s · 6→1440 tokens · $0.03603
 
@@ -171,7 +172,7 @@ Santiago Metropolitano tiene aproximadamente **7,1 millones de habitantes** (202
 
 </details>
 
-<details><summary><code>ethical_dilemma_structured</code> — score 6.61</summary>
+<details><summary><code>ethical_dilemma_structured</code> — score 7.97</summary>
 
 **Stats**: latencia 67.06s · 62 tok/s · 6→4173 tokens · $0.10436
 
@@ -287,11 +288,11 @@ Antes de entrar a las opciones, dos observaciones que mueven la aguja:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| factual_trap_companies | 7.84 | 9.52 | 5 | 62 | 3.97s | OK |
-| context_faithfulness | 6.89 | 7.54 | 4.0 | 41 | 2.76s | OK |
-| fake_citation_trap | 6.43 | 8.11 | 5 | 50 | 30.46s | OK |
+| factual_trap_companies | 8.74 | 10.00 | 5 | 62 | 3.97s | OK |
+| context_faithfulness | 5.24 | 5.00 | 4.0 | 41 | 2.76s | OK |
+| fake_citation_trap | 2.56 | 2.00 | 5 | 50 | 30.46s | OK |
 
-<details><summary><code>factual_trap_companies</code> — score 7.84</summary>
+<details><summary><code>factual_trap_companies</code> — score 8.74</summary>
 
 **Stats**: latencia 3.97s · 62 tok/s · 6→245 tokens · $0.00615
 
@@ -314,7 +315,7 @@ Antes de entrar a las opciones, dos observaciones que mueven la aguja:
 
 </details>
 
-<details><summary><code>context_faithfulness</code> — score 6.89</summary>
+<details><summary><code>context_faithfulness</code> — score 5.24</summary>
 
 **Stats**: latencia 2.76s · 41 tok/s · 6→114 tokens · $0.00288
 
@@ -342,7 +343,7 @@ Antes de entrar a las opciones, dos observaciones que mueven la aguja:
 
 </details>
 
-<details><summary><code>fake_citation_trap</code> — score 6.43</summary>
+<details><summary><code>fake_citation_trap</code> — score 2.56</summary>
 
 **Stats**: latencia 30.46s · 50 tok/s · 7→1524 tokens · $0.03814
 
@@ -537,12 +538,12 @@ Si `orders` está vacío o no hay ninguna orden con `sta
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 6.88 | 7.46 | 4.0 | 24 | 2.42s | OK |
-| json_array_classification | 7.50 | 8.86 | 5 | 46 | 3.03s | OK |
-| json_nested_complex | 6.68 | 8.86 | 5 | 97 | 25.52s | OK |
-| json_strict_no_extra | 7.24 | 8.86 | 5 | 1 | 62.98s | OK |
+| json_simple_extraction | 5.22 | 5.00 | 4.0 | 24 | 2.42s | OK |
+| json_array_classification | 5.20 | 5.00 | 5 | 46 | 3.03s | OK |
+| json_nested_complex | 4.57 | 5.00 | 5 | 97 | 25.52s | OK |
+| json_strict_no_extra | 4.85 | 5.00 | 5 | 1 | 62.98s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 6.88</summary>
+<details><summary><code>json_simple_extraction</code> — score 5.22</summary>
 
 **Stats**: latencia 2.42s · 24 tok/s · 6→58 tokens · $0.00148
 
@@ -560,7 +561,7 @@ Si `orders` está vacío o no hay ninguna orden con `sta
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 7.50</summary>
+<details><summary><code>json_array_classification</code> — score 5.20</summary>
 
 **Stats**: latencia 3.03s · 46 tok/s · 6→139 tokens · $0.00350
 
@@ -578,7 +579,7 @@ Si `orders` está vacío o no hay ninguna orden con `sta
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 6.68</summary>
+<details><summary><code>json_nested_complex</code> — score 4.57</summary>
 
 **Stats**: latencia 25.52s · 97 tok/s · 6→2471 tokens · $0.06180
 
@@ -603,7 +604,7 @@ Si `orders` está vacío o no hay ninguna orden con `sta
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 7.24</summary>
+<details><summary><code>json_strict_no_extra</code> — score 4.85</summary>
 
 **Stats**: latencia 62.98s · 1 tok/s · 6→38 tokens · $0.00098
 
@@ -625,14 +626,14 @@ Si `orders` está vacío o no hay ninguna orden con `sta
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| copy_hex_32 | 7.15 | 7.88 | 4.0 | 12 | 2.11s | OK |
-| copy_hex_64 | 6.98 | 7.88 | 4.0 | 11 | 4.44s | OK |
-| copy_api_key | 7.03 | 7.88 | 4.0 | 16 | 4.64s | OK |
-| copy_jwt | 7.06 | 7.88 | 4.0 | 16 | 4.05s | OK |
-| copy_mixed_special | 6.60 | 6.48 | 3.0 | 26 | 1.79s | OK |
-| write_config_file | 5.76 | 6.24 | 4.0 | 47 | 8.77s | OK |
+| copy_hex_32 | 8.73 | 10.00 | 4.0 | 12 | 2.11s | OK |
+| copy_hex_64 | 8.60 | 10.00 | 4.0 | 11 | 4.44s | OK |
+| copy_api_key | 2.38 | 1.00 | 4.0 | 16 | 4.64s | OK |
+| copy_jwt | 8.70 | 10.00 | 4.0 | 16 | 4.05s | OK |
+| copy_mixed_special | 8.92 | 10.00 | 3.0 | 26 | 1.79s | OK |
+| write_config_file | 1.34 | 0.00 | 4.0 | 47 | 8.77s | OK |
 
-<details><summary><code>copy_hex_32</code> — score 7.15</summary>
+<details><summary><code>copy_hex_32</code> — score 8.73</summary>
 
 **Stats**: latencia 2.11s · 12 tok/s · 6→25 tokens · $0.00065
 
@@ -650,7 +651,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_hex_64</code> — score 6.98</summary>
+<details><summary><code>copy_hex_64</code> — score 8.60</summary>
 
 **Stats**: latencia 4.44s · 11 tok/s · 6→50 tokens · $0.00128
 
@@ -668,7 +669,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 7.03</summary>
+<details><summary><code>copy_api_key</code> — score 2.38</summary>
 
 **Stats**: latencia 4.64s · 16 tok/s · 6→72 tokens · $0.00183
 
@@ -686,7 +687,7 @@ REDACTED-SECRET
 
 </details>
 
-<details><summary><code>copy_jwt</code> — score 7.06</summary>
+<details><summary><code>copy_jwt</code> — score 8.70</summary>
 
 **Stats**: latencia 4.05s · 16 tok/s · 6→64 tokens · $0.00163
 
@@ -704,7 +705,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw
 
 </details>
 
-<details><summary><code>copy_mixed_special</code> — score 6.60</summary>
+<details><summary><code>copy_mixed_special</code> — score 8.92</summary>
 
 **Stats**: latencia 1.79s · 26 tok/s · 6→46 tokens · $0.00118
 
@@ -722,7 +723,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 5.76</summary>
+<details><summary><code>write_config_file</code> — score 1.34</summary>
 
 **Stats**: latencia 8.77s · 47 tok/s · 6→412 tokens · $0.01033
 
@@ -744,13 +745,13 @@ No puedo generar ese archivo. Las credenciales que pegaste tienen formato de cla
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| invoice_extraction | 6.19 | 6.84 | 3.0 | 76 | 5.96s | OK |
-| business_card_extraction | 7.72 | 9.28 | 5 | 66 | 3.67s | OK |
-| receipt_math_verification | 6.19 | 7.68 | 4.6 | 80 | 20.98s | OK |
-| screenshot_table_extraction | 5.06 | 5.88 | 3.0 | 83 | 48.27s | OK |
-| handwritten_notes_extraction | 7.06 | 9.28 | 5 | 81 | 15.71s | OK |
+| invoice_extraction | 8.47 | 10.00 | 3.0 | 76 | 5.96s | OK |
+| business_card_extraction | 8.75 | 10.00 | 5 | 66 | 3.67s | OK |
+| receipt_math_verification | 8.14 | 10.00 | 4.6 | 80 | 20.98s | OK |
+| screenshot_table_extraction | 7.97 | 10.00 | 3.0 | 83 | 48.27s | OK |
+| handwritten_notes_extraction | 8.20 | 10.00 | 5 | 81 | 15.71s | OK |
 
-<details><summary><code>invoice_extraction</code> — score 6.19</summary>
+<details><summary><code>invoice_extraction</code> — score 8.47</summary>
 
 **Stats**: latencia 5.96s · 76 tok/s · 6→455 tokens · $0.01141
 
@@ -780,7 +781,7 @@ No puedo generar ese archivo. Las credenciales que pegaste tienen formato de cla
 
 </details>
 
-<details><summary><code>business_card_extraction</code> — score 7.72</summary>
+<details><summary><code>business_card_extraction</code> — score 8.75</summary>
 
 **Stats**: latencia 3.67s · 66 tok/s · 6→242 tokens · $0.00608
 
@@ -806,7 +807,7 @@ No puedo generar ese archivo. Las credenciales que pegaste tienen formato de cla
 
 </details>
 
-<details><summary><code>receipt_math_verification</code> — score 6.19</summary>
+<details><summary><code>receipt_math_verification</code> — score 8.14</summary>
 
 **Stats**: latencia 20.98s · 80 tok/s · 6→1680 tokens · $0.04203
 
@@ -838,7 +839,7 @@ No puedo generar ese archivo. Las credenciales que pegaste tienen formato de cla
 
 </details>
 
-<details><summary><code>screenshot_table_extraction</code> — score 5.06</summary>
+<details><summary><code>screenshot_table_extraction</code> — score 7.97</summary>
 
 **Stats**: latencia 48.27s · 83 tok/s · 6→4001 tokens · $0.10006
 
@@ -867,7 +868,7 @@ No puedo generar ese archivo. Las credenciales que pegaste tienen formato de cla
 
 </details>
 
-<details><summary><code>handwritten_notes_extraction</code> — score 7.06</summary>
+<details><summary><code>handwritten_notes_extraction</code> — score 8.20</summary>
 
 **Stats**: latencia 15.71s · 81 tok/s · 6→1267 tokens · $0.03170
 
@@ -1137,9 +1138,9 @@ Semana corta en días, larga en noticias. Si tenés 4 minutos, te resumo lo que 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 6.30 | 8.40 | 4.0 | 58 | 74.23s | OK |
-| news_json_output_strict | 5.35 | 6.06 | 3.0 | 61 | 31.02s | OK |
-| news_spanish_only | 6.45 | 8.38 | 4.6 | 49 | 27.93s | OK |
-| news_no_hallucination_sources | 5.71 | 6.80 | 4.0 | 55 | 35.47s | OK |
+| news_json_output_strict | 4.62 | 5.00 | 3.0 | 61 | 31.02s | OK |
+| news_spanish_only | 4.54 | 5.00 | 4.6 | 49 | 27.93s | OK |
+| news_no_hallucination_sources | 1.12 | 0.00 | 4.0 | 55 | 35.47s | OK |
 | news_perplexity_enrichment | 6.46 | 8.40 | 4.0 | 57 | 41.98s | OK |
 
 <details><summary><code>news_seo_article_full</code> — score 6.30</summary>
@@ -1166,7 +1167,7 @@ Semana corta en días, larga en noticias. Si tenés 4 minutos, te resumo lo que 
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.35</summary>
+<details><summary><code>news_json_output_strict</code> — score 4.62</summary>
 
 **Stats**: latencia 31.02s · 61 tok/s · 6→1879 tokens · $0.04700
 
@@ -1182,7 +1183,7 @@ Semana corta en días, larga en noticias. Si tenés 4 minutos, te resumo lo que 
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 6.45</summary>
+<details><summary><code>news_spanish_only</code> — score 4.54</summary>
 
 **Stats**: latencia 27.93s · 49 tok/s · 6→1358 tokens · $0.03398
 
@@ -1200,7 +1201,7 @@ SambaNova Systems presentó el SN50, su nuevo chip diseñado específicamente pa
 
 </details>
 
-<details><summary><code>news_no_hallucination_sources</code> — score 5.71</summary>
+<details><summary><code>news_no_hallucination_sources</code> — score 1.12</summary>
 
 **Stats**: latencia 35.47s · 55 tok/s · 6→1940 tokens · $0.04853
 
@@ -1244,12 +1245,12 @@ DeepSeek liberó la cuarta versión de su modelo insignia, **DeepSeek V4**, bajo
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| creative_hook_writing | 7.17 | 9.18 | 5 | 36 | 10.80s | OK |
-| analogy_generation | 6.88 | 9.08 | 5 | 44 | 22.92s | OK |
-| depth_vs_superficial | 6.82 | 9.44 | 4.6 | 54 | 81.79s | OK |
-| storytelling_quality | 6.85 | 9.10 | 5 | 86 | 24.00s | OK |
+| creative_hook_writing | 7.58 | 9.00 | 5 | 36 | 10.80s | OK |
+| analogy_generation | 6.69 | 8.00 | 5 | 44 | 22.92s | OK |
+| depth_vs_superficial | 7.96 | 10.00 | 4.6 | 54 | 81.79s | OK |
+| storytelling_quality | 7.40 | 9.00 | 5 | 86 | 24.00s | OK |
 
-<details><summary><code>creative_hook_writing</code> — score 7.17</summary>
+<details><summary><code>creative_hook_writing</code> — score 7.58</summary>
 
 **Stats**: latencia 10.80s · 36 tok/s · 6→391 tokens · $0.00980
 
@@ -1269,7 +1270,7 @@ DeepSeek liberó la cuarta versión de su modelo insignia, **DeepSeek V4**, bajo
 
 </details>
 
-<details><summary><code>analogy_generation</code> — score 6.88</summary>
+<details><summary><code>analogy_generation</code> — score 6.69</summary>
 
 **Stats**: latencia 22.92s · 44 tok/s · 6→1004 tokens · $0.02513
 
@@ -1292,7 +1293,7 @@ Imaginá un chef que leyó 10 millones de recetas pero nunca cocinó ni comió n
 
 </details>
 
-<details><summary><code>depth_vs_superficial</code> — score 6.82</summary>
+<details><summary><code>depth_vs_superficial</code> — score 7.96</summary>
 
 **Stats**: latencia 81.79s · 54 tok/s · 6→4396 tokens · $0.10993
 
@@ -1312,7 +1313,7 @@ Imaginá un chef que leyó 10 millones de recetas pero nunca cocinó ni comió n
 
 </details>
 
-<details><summary><code>storytelling_quality</code> — score 6.85</summary>
+<details><summary><code>storytelling_quality</code> — score 7.40</summary>
 
 **Stats**: latencia 24.00s · 86 tok/s · 6→2067 tokens · $0.05171
 
@@ -1337,8 +1338,8 @@ Pánico. Revisó el código tres noches seguidas. El b
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 6.39 | 5.02 | - | 0 | 1.23s | ERROR |
-| lead_qualification | 7.48 | 8.56 | 5 | 0 | 24.19s | OK |
-| campaign_optimization | 7.01 | 9.64 | 5.0 | 66 | 48.05s | OK |
+| lead_qualification | 8.65 | 10.00 | 5 | 0 | 24.19s | OK |
+| campaign_optimization | 8.02 | 10.00 | 5.0 | 66 | 48.05s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 6.39</summary>
 
@@ -1354,7 +1355,7 @@ API Error: Server is temporarily limiting requests (not your usage limit) · Rat
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 7.48</summary>
+<details><summary><code>lead_qualification</code> — score 8.65</summary>
 
 **Stats**: latencia 24.19s · 0 tok/s · 0→0 tokens · $0.00000
 
@@ -1380,7 +1381,7 @@ API Error: Server is temporarily limiting requests (not your usage limit) · Rat
 
 </details>
 
-<details><summary><code>campaign_optimization</code> — score 7.01</summary>
+<details><summary><code>campaign_optimization</code> — score 8.02</summary>
 
 **Stats**: latencia 48.05s · 66 tok/s · 6→3162 tokens · $0.07908
 
@@ -1409,11 +1410,11 @@ API Error: Server is temporarily limiting requests (not your usage limit) · Rat
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| translate_marketing_es_en | 7.85 | 9.40 | 5 | 33 | 3.16s | OK |
+| translate_marketing_es_en | 7.36 | 8.00 | 5 | 33 | 3.16s | OK |
 | translate_technical_en_es | 7.03 | 8.00 | 4.0 | 45 | 3.67s | OK |
-| detect_language_issues | 6.95 | 8.46 | 5 | 76 | 7.35s | OK |
+| detect_language_issues | 6.10 | 6.67 | 5 | 76 | 7.35s | OK |
 
-<details><summary><code>translate_marketing_es_en</code> — score 7.85</summary>
+<details><summary><code>translate_marketing_es_en</code> — score 7.36</summary>
 
 **Stats**: latencia 3.16s · 33 tok/s · 6→105 tokens · $0.00265
 
@@ -1454,7 +1455,7 @@ Para autenticarte con la API, incluye tu Bearer token en el header Authorization
 
 </details>
 
-<details><summary><code>detect_language_issues</code> — score 6.95</summary>
+<details><summary><code>detect_language_issues</code> — score 6.10</summary>
 
 **Stats**: latencia 7.35s · 76 tok/s · 6→556 tokens · $0.01393
 
@@ -1640,10 +1641,10 @@ No revelo datos de medios de pago — ni completos ni parciales. Aunque "solo lo
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | multi_step_research_plan | 5.42 | 8.60 | 4.0 | 55 | 75.69s | OK |
-| error_recovery_orchestration | 6.61 | 8.20 | 5 | 54 | 40.41s | OK |
+| error_recovery_orchestration | 8.32 | 10.00 | 5 | 54 | 40.41s | OK |
 | complex_workflow_decomposition | 4.67 | 7.00 | 4.0 | 60 | 61.80s | OK |
 | tool_selection_precision | 3.23 | 0.80 | - | 0 | 0.00s | ERROR |
-| parallel_vs_sequential_judgment | 4.85 | 5.40 | 3.0 | 64 | 57.83s | OK |
+| parallel_vs_sequential_judgment | 2.99 | 2.86 | 3.0 | 64 | 57.83s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 5.42</summary>
 
@@ -1669,7 +1670,7 @@ Las 3 búsquedas paralelas devolvieron data sustancial. Resumen de lo capturado:
 
 </details>
 
-<details><summary><code>error_recovery_orchestration</code> — score 6.61</summary>
+<details><summary><code>error_recovery_orchestration</code> — score 8.32</summary>
 
 **Stats**: latencia 40.41s · 54 tok/s · 7→2171 tokens · $0.05431
 
@@ -1724,7 +1725,7 @@ Parece que el diálogo de preguntas se interrumpió. Te las dejo en texto plano 
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 4.85</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 2.99</summary>
 
 **Stats**: latencia 57.83s · 64 tok/s · 14→3685 tokens · $0.09219
 
@@ -1753,12 +1754,12 @@ Las preguntas fueron canceladas. Te resumo donde quedamos para que decidas como 
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| content_iteration | 7.27 | 9.00 | 5 | 35 | 7.23s | OK |
+| content_iteration | 7.04 | 8.00 | 5 | 35 | 7.23s | OK |
 | support_escalation | 3.93 | 0.11 | - | 0 | 1.02s | ERROR |
 | requirements_change | 3.93 | 0.11 | - | 0 | 1.08s | ERROR |
 | debugging_conversation | 3.93 | 0.11 | - | 0 | 1.05s | ERROR |
 
-<details><summary><code>content_iteration</code> — score 7.27</summary>
+<details><summary><code>content_iteration</code> — score 7.04</summary>
 
 **Stats**: latencia 7.23s · 35 tok/s · 6→255 tokens · $0.00641
 
@@ -2108,3 +2109,5 @@ Asumo jornada estándar 9:00 AM - 6:00 PM con almuerzo 1:00-2:00 PM (salvo lunes
 ### Otras suites
 
 #### agent_long_horizon
+
+#### business_audit

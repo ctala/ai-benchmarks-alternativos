@@ -1,13 +1,13 @@
 # Qwen 3.6 Plus
 
 - **model_id**: `qwen/qwen3.6-plus`
-- **Total tests**: 150/155 exitosos (5 errores)
-- **Score final**: 6.83
-- **Calidad**: 7.56
-- **Judge score (Phi-4)**: 4.23/10
-- **Velocidad**: 48 tok/s
-- **Latencia primera token**: 69.18s
-- **Costo promedio por test**: $0.00336
+- **Total tests**: 183/188 exitosos (5 errores)
+- **Score final**: 6.95
+- **Calidad**: 7.73
+- **Judge score (Phi-4)**: 4.32/10
+- **Velocidad**: 49 tok/s
+- **Latencia primera token**: 66.59s
+- **Costo promedio por test**: $0.00423
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,8 +16,12 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.06 | 4.26 |
+| agent_long_horizon | 12 | 12 | 7.40 | 8.62 |
+| business_audit | 11 | 11 | 7.27 | 8.00 |
+| business_strategy | 5 | 5 | 8.05 | 9.20 |
 | code_generation | 8 | 8 | 7.65 | 9.60 |
 | content_generation | 8 | 8 | 6.84 | 7.67 |
+| content_verificable | 5 | 5 | 7.66 | 8.53 |
 | creativity | 8 | 8 | 6.39 | 7.17 |
 | customer_support | 8 | 8 | 5.05 | 2.95 |
 | deep_reasoning | 12 | 11 | 7.28 | 8.88 |
@@ -2625,3 +2629,13 @@ Aquí tienes un plan estructurado, realista y listo para ejecutar, diseñado esp
 ```
 
 </details>
+
+### Otras suites
+
+#### business_audit
+
+#### business_strategy
+
+#### content_verificable
+
+#### agent_long_horizon
