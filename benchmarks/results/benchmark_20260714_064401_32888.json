@@ -10,7 +10,12 @@
       "evaluations": 9,
       "estimated_cost_usd": 0.0128
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:12:15+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 175,
       "output_tokens": 403,
       "response_preview": "1. **Por qué las startups latinoamericanas deberían usar modelos de IA *open-source***\n*\"Mientras Silicon Valley paga millones por licencias de IA, las startups de Latinoamérica están desperdiciando recursos en soluciones caras que ya tienen versiones gratuitas, probadas y adaptables—y el que no lo ",
-      "auto_quality": 7.54,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_064401_32888",
-      "response_file": "results/responses/20260714_064401_32888/or-ministral-14b__creativity__creative_hook_writing.md"
+      "response_file": "results/responses/20260714_064401_32888/or-ministral-14b__creativity__creative_hook_writing.md",
+      "content_score": 5.34,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -64,7 +74,7 @@
       "input_tokens": 125,
       "output_tokens": 1367,
       "response_preview": "Aquí tienes analogías **sorprendentes, visuales y llenas de metáforas inesperadas** para que un emprendedor las asocie a situaciones cotidianas o emociones, no a tecnología genérica:\n\n---\n\n### **1. Modelo de lenguaje (LLM) = Un Chef que inventa platos que nadie pidió… pero adivina lo que quieres**\nI",
-      "auto_quality": 7.54,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_064401_32888",
-      "response_file": "results/responses/20260714_064401_32888/or-ministral-14b__creativity__analogy_generation.md"
+      "response_file": "results/responses/20260714_064401_32888/or-ministral-14b__creativity__analogy_generation.md",
+      "content_score": 5.34,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -96,7 +111,7 @@
       "input_tokens": 142,
       "output_tokens": 2048,
       "response_preview": "Vamos a profundizar en el problema desde una perspectiva que few estarán explorando, porque la mayoría de los emprendedores en delivery aplican IA como un \"parche tecnológico\" sin cuestionar los fundamentos del negocio. Aquí tienes ideas que **cambian las reglas del juego**, no solo optimizan lo exi",
-      "auto_quality": 9.4,
+      "auto_quality": 9.0,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -107,7 +122,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_064401_32888",
-      "response_file": "results/responses/20260714_064401_32888/or-ministral-14b__creativity__depth_vs_superficial.md"
+      "response_file": "results/responses/20260714_064401_32888/or-ministral-14b__creativity__depth_vs_superficial.md",
+      "content_score": 10.0,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -128,7 +148,7 @@
       "input_tokens": 92,
       "output_tokens": 191,
       "response_preview": "**\"La Verdadera Startup\"**\n\nCarlos ajustó el código por enésima vez. Su IA, *HonestAI*, finalmente funcionaba: respondía preguntas con brutal sinceridad. \"¿Tu novia te engaña?\", preguntaba un cliente. La IA, sin pestañear: *\"Sí, con tu hermano. Y él sabe que tú también lo miras en Instagram\"*.\n\nEl *",
-      "auto_quality": 7.27,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_064401_32888",
-      "response_file": "results/responses/20260714_064401_32888/or-ministral-14b__creativity__storytelling_quality.md"
+      "response_file": "results/responses/20260714_064401_32888/or-ministral-14b__creativity__storytelling_quality.md",
+      "content_score": 4.67,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -160,7 +185,7 @@
       "input_tokens": 181,
       "output_tokens": 229,
       "response_preview": "1. Olvida las costosas suscripciones de IA; la próxima gran ventaja competitiva para las startups latinoamericanas está escondida a plena vista, en código abierto y gratuito.\n2. La oficina híbrida no es el destino final, sino una estación de paso en un viaje hacia una disrupción mucho más profunda d",
-      "auto_quality": 7.27,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_064401_32888",
-      "response_file": "results/responses/20260714_064401_32888/or-deepseek-v3__creativity__creative_hook_writing.md"
+      "response_file": "results/responses/20260714_064401_32888/or-deepseek-v3__creativity__creative_hook_writing.md",
+      "content_score": 4.67,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -192,7 +222,7 @@
       "input_tokens": 135,
       "output_tokens": 615,
       "response_preview": "**1. Modelo de Lenguaje (LLM)**  \n*Concepto:* Un modelo entrenado para predecir y generar texto coherente basado en patrones estadísticos aprendidos de enormes cantidades de datos.  \n*Analogía:* Imagina un joyero ciego que durante décadas ha palpado millones de collares rotos. Sin entender su signif",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,7 +233,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_064401_32888",
-      "response_file": "results/responses/20260714_064401_32888/or-deepseek-v3__creativity__analogy_generation.md"
+      "response_file": "results/responses/20260714_064401_32888/or-deepseek-v3__creativity__analogy_generation.md",
+      "content_score": 5.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -235,7 +270,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_064401_32888",
-      "response_file": "results/responses/20260714_064401_32888/or-deepseek-v3__creativity__depth_vs_superficial.md"
+      "response_file": "results/responses/20260714_064401_32888/or-deepseek-v3__creativity__depth_vs_superficial.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -256,7 +296,7 @@
       "input_tokens": 95,
       "output_tokens": 172,
       "response_preview": "Luis lanzó \"Verita\", un asistente financiero con IA. El bug surgió rápido: era demasiado honesta. Un cliente preguntó por una inversión y Verita respondió: \"Tu historial sugiere que gastarás el dinero en apuestas. No lo hagas\". Otro cliente rico recibió: \"Tu fortuna viene de la corrupción paterna. N",
-      "auto_quality": 7.0,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_064401_32888",
-      "response_file": "results/responses/20260714_064401_32888/or-deepseek-v3__creativity__storytelling_quality.md"
+      "response_file": "results/responses/20260714_064401_32888/or-deepseek-v3__creativity__storytelling_quality.md",
+      "content_score": 4.0,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     }
   ]
 }

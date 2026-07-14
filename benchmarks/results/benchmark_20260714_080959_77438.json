@@ -10,7 +10,12 @@
       "evaluations": 10,
       "estimated_cost_usd": 0.0169
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:29+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_080959_77438",
-      "response_file": "results/responses/20260714_080959_77438/or-glm5__news_seo_writing__news_seo_article_full.md"
+      "response_file": "results/responses/20260714_080959_77438/or-glm5__news_seo_writing__news_seo_article_full.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -64,7 +70,7 @@
       "input_tokens": 314,
       "output_tokens": 4117,
       "response_preview": "{\n  \"Fuentes\": [\"https://deepmind.google/announcements/gemma-4\", \"https://blog.google/technology/developers/gemma-4-release\"],\n  \"Categoria\": \"Inteligencia Artificial\",\n  \"Palabras_Clave\": [\"Google DeepMind\", \"Gemma 4\", \"Open Source\", \"Apache 2.0\", \"AI Model\"],\n  \"Contenido_HTML\": \"<h2>Google DeepMi",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 3.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -75,7 +81,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_080959_77438",
-      "response_file": "results/responses/20260714_080959_77438/or-glm5__news_seo_writing__news_json_output_strict.md"
+      "response_file": "results/responses/20260714_080959_77438/or-glm5__news_seo_writing__news_json_output_strict.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -96,7 +107,7 @@
       "input_tokens": 315,
       "output_tokens": 2540,
       "response_preview": "# SambaNova presenta el chip SN50: mayor velocidad y menores costos para la IA empresarial\n\nSambaNova Systems ha anunciado el lanzamiento de su nuevo procesador, el SN50, una pieza de hardware diseñada específicamente para abordar las demandas computacionales de la inteligigencia artificial en el en",
-      "auto_quality": 7.0,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +118,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_080959_77438",
-      "response_file": "results/responses/20260714_080959_77438/or-glm5__news_seo_writing__news_spanish_only.md"
+      "response_file": "results/responses/20260714_080959_77438/or-glm5__news_seo_writing__news_spanish_only.md",
+      "content_score": 10.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -128,7 +144,7 @@
       "input_tokens": 486,
       "output_tokens": 1663,
       "response_preview": "# NotCo alcanza valuación de $1.5 mil millones tras cerrar ronda Serie D de $85 millones\n\nLa startup chilena NotCo consolidó su posición como uno de los unicornios más relevantes de Latinoamérica tras anunciar el cierre de una ronda Serie D por $85 millones. La ronda fue liderada por Tiger Global, e",
-      "auto_quality": 3.74,
+      "auto_quality": 0.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +155,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_080959_77438",
-      "response_file": "results/responses/20260714_080959_77438/or-glm5__news_seo_writing__news_no_hallucination_sources.md"
+      "response_file": "results/responses/20260714_080959_77438/or-glm5__news_seo_writing__news_no_hallucination_sources.md",
+      "content_score": 9.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.6,
@@ -171,7 +192,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_080959_77438",
-      "response_file": "results/responses/20260714_080959_77438/or-glm5__news_seo_writing__news_perplexity_enrichment.md"
+      "response_file": "results/responses/20260714_080959_77438/or-glm5__news_seo_writing__news_perplexity_enrichment.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.0,
@@ -216,7 +238,7 @@
       "input_tokens": 325,
       "output_tokens": 639,
       "response_preview": "{\n  \"Fuentes\": [\"https://example.com/google-deepmind-gemma-4\"],\n  \"Categoria\": \"Inteligencia Artificial\",\n  \"Palabras_Clave\": [\"Google DeepMind\", \"Gemma 4\", \"AI Model\", \"Apache 2.0\", \"Arena leaderboard\"],\n  \"Contenido_HTML\": \"<h2>Google DeepMind lanza Gemma 4: una nueva familia de modelos de IA de c",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 3.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -227,7 +249,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_080959_77438",
-      "response_file": "results/responses/20260714_080959_77438/or-qwen-2.5-72b__news_seo_writing__news_json_output_strict.md"
+      "response_file": "results/responses/20260714_080959_77438/or-qwen-2.5-72b__news_seo_writing__news_json_output_strict.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -248,7 +275,7 @@
       "input_tokens": 330,
       "output_tokens": 885,
       "response_preview": "## SambaNova Systems lanza el SN50: un chip que promete mayor velocidad y menor costo para IA empresarial\n\nSambaNova Systems, una empresa de vanguardia en el desarrollo de soluciones de inteligencia artificial (IA), ha anunciado el lanzamiento de su nuevo chip SN50. Según la compañía, este chip ofre",
-      "auto_quality": 6.47,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -259,7 +286,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_080959_77438",
-      "response_file": "results/responses/20260714_080959_77438/or-qwen-2.5-72b__news_seo_writing__news_spanish_only.md"
+      "response_file": "results/responses/20260714_080959_77438/or-qwen-2.5-72b__news_seo_writing__news_spanish_only.md",
+      "content_score": 8.67,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -280,7 +312,7 @@
       "input_tokens": 505,
       "output_tokens": 933,
       "response_preview": "## NotCo: La startup chilena que revoluciona la industria de alimentos con inteligencia artificial\n\nNotCo, una startup chilena fundada en 2015 por Matias Muchnick, ha logrado un hito significativo en el ecosistema emprendedor latinoamericano. La compañía, especializada en la creación de alternativas",
-      "auto_quality": 4.0,
+      "auto_quality": 0.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -291,7 +323,12 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_080959_77438",
-      "response_file": "results/responses/20260714_080959_77438/or-qwen-2.5-72b__news_seo_writing__news_no_hallucination_sources.md"
+      "response_file": "results/responses/20260714_080959_77438/or-qwen-2.5-72b__news_seo_writing__news_no_hallucination_sources.md",
+      "content_score": 10.0,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.2,
@@ -323,7 +360,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_080959_77438",
-      "response_file": "results/responses/20260714_080959_77438/or-qwen-2.5-72b__news_seo_writing__news_perplexity_enrichment.md"
+      "response_file": "results/responses/20260714_080959_77438/or-qwen-2.5-72b__news_seo_writing__news_perplexity_enrichment.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

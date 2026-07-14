@@ -81,7 +81,10 @@ def fmt_license(m):
 
 
 def fmt_pillar(m, name):
-    v = (m.get("score_by_pillar") or {}).get(name) or 0
+    # `m` puede venir None si el modelo que la página necesita ya no es recomendable
+    # (murió, o pasó a variante de proveedor). Reventar acá esconde el problema real:
+    # una página sin su modelo. Devolvemos "—" y el validador se encarga de avisarlo.
+    v = ((m or {}).get("score_by_pillar") or {}).get(name) or 0
     return f"{v:.2f}" if v > 0 else "—"
 
 
@@ -265,7 +268,7 @@ def faq_html(questions):
 # Landing: alternativas-chatgpt
 # ---------------------------------------------------------------------------
 def gen_alternativas_chatgpt(data):
-    models = data["models"]
+    models = _recomendables(data)
     c = counts(data)
     # Alternativas = todo modelo testeado que no sea de OpenAI (provider openai) salvo GPT-OSS open source.
     alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0
@@ -325,13 +328,13 @@ def gen_alternativas_chatgpt(data):
     <h3>Si pagás GPT-4 / GPT-5 API para tu app o agente</h3>
     <p>
       Donde el ahorro es brutal: <strong>Mistral Small 4</strong> ($0.15/$0.60) y
-      <strong>Devstral Small</strong> ($0.10/$0.30) cubren 80% de los casos a una fracción del costo de GPT-4.1.
+      <strong>Ministral 14B</strong> ($0.20/$0.20) cubren 80% de los casos a una fracción del costo de GPT-4.1.
       Para volumen &gt;5,000 calls/mes el cambio paga decenas de USD/mes.
     </p>
 
     <h3>Si usás ChatGPT para coding</h3>
     <p>
-      <strong>Plugins WordPress, scripts, automatizaciones</strong> → Devstral Small basta.
+      <strong>Plugins WordPress, scripts, automatizaciones</strong> → Ministral 14B basta.
       <strong>Templates N8N (JSON workflows)</strong> → Llama 3.3 70B Groq es óptimo (ver <a href="/modelos-n8n/">modelos para N8N</a>).
       <strong>Proyectos grandes con arquitectura compleja</strong> → solo aquí GPT-5.5 o Claude Opus 4.8 justifican el costo.
     </p>
@@ -353,11 +356,11 @@ def gen_alternativas_chatgpt(data):
 """
     faqs = [
         ("¿Hay alguna alternativa a ChatGPT que sea gratis?",
-         "Sí — NVIDIA NIM ofrece 135+ modelos gratis con 40 RPM. Para uso local sin costos de API: Mistral Small 4, Devstral Small o Llama 3.3 70B corren en hardware decente (≥32GB RAM unified)."),
+         "Sí — NVIDIA NIM ofrece 135+ modelos gratis con 40 RPM. Para uso local sin costos de API: Mistral Small 4, Ministral 14B o Llama 3.3 70B corren en hardware decente (≥32GB RAM unified)."),
         ("¿ChatGPT Plus o suscripción Anthropic — cuál conviene?",
          "Depende del uso. Si usás chat conversacional sin volumen, ChatGPT Plus a $20 sigue siendo competitivo. Si construís agentes/herramientas: ninguna suscripción mensual gana — usá API direct con modelos open-source que cuestan ~$0.30 per M output tokens."),
         ("¿GPT-5 es necesario o puedo usar alternativas más baratas?",
-         "GPT-5 (y GPT-5.5) brillan en razonamiento profundo, planning multi-step y código complejo de proyectos grandes. Para 80% de tareas estándar son overkill: Devstral Small a 1/100 del costo cubre el caso."),
+         "GPT-5 (y GPT-5.5) brillan en razonamiento profundo, planning multi-step y código complejo de proyectos grandes. Para 80% de tareas estándar son overkill: Ministral 14B a 1/100 del costo cubre el caso."),
         ("¿Las alternativas a ChatGPT soportan tool calling y function calling?",
          "Sí — Llama 3.3, Mistral Small 4, Devstral, Hermes 4 y Qwen soportan tool calling OpenAI-compatible. El benchmark testea esto como badge; modelos sin soporte robusto se identifican claramente."),
         ("¿Puedo usar alternativas a ChatGPT vía OpenRouter sin cambiar mi código?",
@@ -379,7 +382,7 @@ def gen_alternativas_chatgpt(data):
 # Landing: alternativas-claude
 # ---------------------------------------------------------------------------
 def gen_alternativas_claude(data):
-    models = data["models"]
+    models = _recomendables(data)
     c = counts(data)
     alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and m.get("provider") != "anthropic"]
     alts = sorted(alts, key=lambda m: -m["score_global"])[:10]
@@ -429,8 +432,8 @@ def gen_alternativas_claude(data):
 
     <h3>Si reemplazas Claude Code (coding profesional)</h3>
     <p>
-      <strong>Devstral 2</strong> y <strong>Devstral Small</strong> son las opciones top.
-      Ambas Apache 2.0 — podés correrlas local en hardware decente. Devstral 2 supera a GPT-4.1 en
+      <strong>Qwen 3-Next 80B</strong> y <strong>Ministral 14B</strong> son las opciones top.
+      Ambas Apache 2.0 — podés correrlas local en hardware decente. Qwen 3-Next 80B supera a GPT-4.1 en
       generación de código y JSON estructurado a una fracción del costo de Claude Opus.
     </p>
 
@@ -464,7 +467,7 @@ def gen_alternativas_claude(data):
 """
     faqs = [
         ("¿Por qué dejar de usar Claude?",
-         "No necesariamente 'dejar' — más bien usar la herramienta correcta por caso. Claude Opus es excelente pero su costo (~$5-25 per M tokens) hace que para agentes con volumen real (1,000+ calls/mes) se vuelva insostenible. Modelos como Devstral Small ($0.10/$0.30) cubren el 80% de casos a 1/50 del costo."),
+         "No necesariamente 'dejar' — más bien usar la herramienta correcta por caso. Claude Opus es excelente pero su costo (~$5-25 per M tokens) hace que para agentes con volumen real (1,000+ calls/mes) se vuelva insostenible. Modelos como Ministral 14B ($0.20/$0.20) cubren el 80% de casos a 1/50 del costo."),
         ("¿Hay alguna alternativa a Claude que sea mejor en TODO?",
          "No. Cada modelo tiene perfil distinto: Llama 3.3 Groq gana en velocidad, Devstral en coding, Gemini/Qwen en contenido español, GPT-5.5 en razonamiento profundo. La pregunta correcta es 'alternativa a Claude para qué'."),
         ("¿Las alternativas a Claude soportan tool calling?",
@@ -472,7 +475,7 @@ def gen_alternativas_claude(data):
         ("¿Qué pasa con Claude Sonnet 4.6 / Opus 4.8?",
          "Están en el benchmark global. Ranquean alto en tareas premium, pero su precio los saca de competencia para volumen. Si tu uso es <100 calls/día y no te importa el costo, Claude sigue siendo válido. Para volumen, las alternativas listadas dan mejor ROI."),
         ("¿Puedo correr alternativas a Claude local sin GPU dedicada?",
-         "Sí — Mistral Small 4 corre cómodamente en Mac M-series con 32GB RAM. Devstral Small también. Para modelos más grandes (Llama 70B, Qwen 3.6 Max) necesitás 64GB+ unified memory o GPU dedicada. Detalles en /modelos-open-source-local/."),
+         "Sí — Mistral Small 4 corre cómodamente en Mac M-series con 32GB RAM. Ministral 14B también. Para modelos más grandes (Llama 70B, Qwen 3.6 Max) necesitás 64GB+ unified memory o GPU dedicada. Detalles en /modelos-open-source-local/."),
     ]
     body += faq_html(faqs)
     body += cta_block([
@@ -490,7 +493,7 @@ def gen_alternativas_claude(data):
 # Landing: alternativas-gemini
 # ---------------------------------------------------------------------------
 def gen_alternativas_gemini(data):
-    models = data["models"]
+    models = _recomendables(data)
     c = counts(data)
     alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and m.get("provider") != "google"]
     alts = sorted(alts, key=lambda m: -m["score_global"])[:10]
@@ -565,7 +568,7 @@ def gen_alternativas_gemini(data):
 
     <h3>Si usás Gemini para coding</h3>
     <p>
-      <strong>Plugins WordPress, scripts, automatizaciones</strong> → Devstral Small basta.
+      <strong>Plugins WordPress, scripts, automatizaciones</strong> → Ministral 14B basta.
       <strong>Templates N8N</strong> → Llama 3.3 70B Groq (ver <a href="/modelos-n8n/">modelos para N8N</a>).
       <strong>Proyectos grandes con arquitectura</strong> → GPT-5.5 o Claude Opus 4.8 cuando justifica el costo.
     </p>
@@ -614,7 +617,7 @@ def row_n8n(rank, m):
 
 
 def gen_modelos_n8n(data):
-    models = data["models"]
+    models = _recomendables(data)
     c = counts(data)
     n8n = [m for m in models if m.get("tested") and ((m.get("score_by_pillar") or {}).get("Agentes", 0) > 0)]
     n8n = sorted(n8n, key=lambda m: -m["score_by_pillar"]["Agentes"])[:10]
@@ -680,7 +683,7 @@ def gen_modelos_n8n(data):
 
     <h3>Si construís un SaaS con miles de calls/mes</h3>
     <p>
-      <strong>Mistral Small 4</strong> ($0.15/$0.60) o <strong>Devstral Small</strong> ($0.10/$0.30)
+      <strong>Mistral Small 4</strong> ($0.15/$0.60) o <strong>Ministral 14B</strong> ($0.20/$0.20)
       son los más eficientes. Para 10,000 calls/mes a 1,800 tokens promedio: Mistral ~$11/mes,
       Devstral ~$5/mes vs ~$162/mes con Claude Sonnet 4.6.
     </p>
@@ -694,7 +697,7 @@ def gen_modelos_n8n(data):
     <h3>Si querés open-source para correr local + N8N self-hosted</h3>
     <p>
       <strong>Mistral Small 4</strong> (Apache 2.0, 24B) cabe en hardware modesto y soporta tool calling
-      OpenAI-compatible. <strong>Devstral Small</strong> es alternativa también Apache 2.0. Para más detalles
+      OpenAI-compatible. <strong>Ministral 14B</strong> es alternativa también Apache 2.0. Para más detalles
       sobre setup local: <a href="/modelos-open-source-local/">modelos open-source local</a>.
     </p>
 
@@ -729,7 +732,7 @@ def gen_modelos_n8n(data):
         ("¿Tool calling funciona igual en todos los modelos del benchmark?",
          "No. Tool calling es OpenAI-compatible en mayoría pero la robustez varía. El benchmark mide esto como badge; los del top 10 de agentes tienen tool calling testado robusto."),
         ("¿Cuánto cuesta correr un agente N8N con 1000 calls/día?",
-         "Asumiendo 300 input + 1500 output tokens promedio (~30K calls/mes): Llama 3.3 Groq ~$25/mes, Mistral Small 4 ~$32/mes, Devstral Small ~$15/mes, Claude Sonnet 4.6 ~$162/mes. El benchmark es la diferencia entre $15 y $162 por la misma calidad práctica."),
+         "Asumiendo 300 input + 1500 output tokens promedio (~30K calls/mes): Llama 3.3 Groq ~$25/mes, Mistral Small 4 ~$32/mes, Ministral 14B ~$15/mes, Claude Sonnet 4.6 ~$162/mes. El benchmark es la diferencia entre $15 y $162 por la misma calidad práctica."),
         ("¿Debería usar un modelo distinto por nodo en N8N?",
          "Sí, es buena práctica. Routing/clasificación con Gemini Flash Lite (rápido, barato), generación con Llama 3.3 Groq, validación final con GPT-4.1 si es crítico. Stack híbrido suele superar al single-modelo en costo y calidad."),
     ]
@@ -757,7 +760,7 @@ def row_cheap(rank, m):
 
 
 def gen_modelos_baratos(data):
-    models = data["models"]
+    models = _recomendables(data)
     c = counts(data)
     cheap = [m for m in models if m.get("tested") and m.get("score_global", 0) >= 6.8
              and m.get("cost_input_per_M", 99) <= 1.0 and m.get("cost_output_per_M", 99) <= 2.0]
@@ -767,7 +770,7 @@ def gen_modelos_baratos(data):
     desc = ("Modelos IA accesibles para emprendedores latinoamericanos: comparativa de los más baratos "
             "(<$1.00/M tokens) con calidad real. DeepSeek, Devstral, MiMo, Mistral, Llama, Gemini Lite y opciones gratis.")
     kw = ("modelos IA baratos, IA low cost emprendedores, AI sin presupuesto, OpenRouter barato, modelo IA gratis, "
-          "NVIDIA NIM gratis, Devstral Small, MiMo, modelo IA Latinoamerica")
+          "NVIDIA NIM gratis, Ministral 14B, MiMo, modelo IA Latinoamerica")
     url = f"{SITE}/modelos-baratos-emprendedores/"
     og_alt = "Modelos IA baratos para emprendedores según benchmark real"
 
@@ -830,7 +833,7 @@ def gen_modelos_baratos(data):
 
     <h3>Local con Ollama (cero costos por call, una vez setupeado)</h3>
     <p>
-      <strong>Mistral Small 4</strong> en Mac M-series 32GB. <strong>Devstral Small</strong> incluso
+      <strong>Mistral Small 4</strong> en Mac M-series 32GB. <strong>Ministral 14B</strong> incluso
       en 16GB. Cero costo per call, privacidad total. Tradeoff: velocidad ~30-50 tok/s vs 240+ tok/s
       Groq. Para batch jobs es perfecto. Detalles en
       <a href="/modelos-open-source-local/">modelos open-source local</a>.
@@ -848,7 +851,7 @@ def gen_modelos_baratos(data):
 
     <h3>Emprendedor solopreneur, presupuesto $20/mes total</h3>
     <ul>
-      <li><strong>Devstral Small</strong> via OpenRouter para todo: coding, contenido, agentes</li>
+      <li><strong>Ministral 14B</strong> via OpenRouter para todo: coding, contenido, agentes</li>
       <li>Volumen sostenible: ~30,000 calls/mes con $20 budget</li>
       <li>Backup gratis: NVIDIA NIM con Llama 3.3 70B</li>
     </ul>
@@ -883,11 +886,11 @@ def gen_modelos_baratos(data):
         ("¿Vale la pena pagar por suscripciones (Ollama Cloud, OpenRouter, ChatGPT Plus)?",
          "Ollama Cloud (~$30/mes calls ilimitadas a Qwen 3.5 397B): sí si volumen >5K calls/mes. OpenRouter pre-paid: solo paga lo que usás, no hay suscripción mensual. ChatGPT Plus ($20/mes): solo si usás chat conversacional sin construir agentes/herramientas. Para producto: API direct con modelos baratos gana siempre."),
         ("¿Cómo manejo límites de rate y errores con modelos baratos?",
-         "Patrón fallback chain: principal Mistral Small 4, si falla Devstral Small, si falla Llama 3.3 Groq, último recurso GPT-4.1. N8N permite implementar esto con nodos If/Error nativos. Robustez sin pagar premium por defecto."),
+         "Patrón fallback chain: principal Mistral Small 4, si falla Ministral 14B, si falla Llama 3.3 Groq, último recurso GPT-4.1. N8N permite implementar esto con nodos If/Error nativos. Robustez sin pagar premium por defecto."),
         ("¿Qué moneda paga en estos servicios? ¿Hay opción local sin tarjeta de crédito?",
          "OpenRouter, OpenAI, Anthropic: tarjeta USD. NVIDIA NIM: gratis con email. Ollama Cloud: requiere tarjeta. Local con Ollama: cero costos, sólo hardware. Para Latinoamérica con limitaciones de moneda, opciones gratis (NVIDIA NIM) + local son el fallback principal."),
         ("¿Cómo empiezo si nunca usé estos modelos antes?",
-         "Pasos: 1) Crear cuenta en OpenRouter ($5 mínimo), 2) Probar Devstral Small ($0.10/$0.30) con tu caso real, 3) Si funciona, escalar volumen, 4) Si calidad insuficiente, subir a Mistral Small 4 o Llama 3.3 Groq."),
+         "Pasos: 1) Crear cuenta en OpenRouter ($5 mínimo), 2) Probar Ministral 14B ($0.20/$0.20) con tu caso real, 3) Si funciona, escalar volumen, 4) Si calidad insuficiente, subir a Mistral Small 4 o Llama 3.3 Groq."),
     ]
     body += faq_html(faqs)
     body += cta_block([
@@ -905,7 +908,7 @@ def gen_modelos_baratos(data):
 # Landing: modelos-open-source-local
 # ---------------------------------------------------------------------------
 def gen_modelos_open_source_local(data):
-    models = data["models"]
+    models = _recomendables(data)
     c = counts(data)
     oss = [m for m in models if m.get("tested") and m.get("open_source") and m.get("score_global", 0) > 0]
     oss = sorted(oss, key=lambda m: -m["score_global"])[:10]
@@ -946,7 +949,7 @@ def gen_modelos_open_source_local(data):
     <div class="table-scroll"><table class="results-table">
       <thead><tr><th scope="col">Modelo</th><th scope="col">Quant</th><th scope="col">Score</th><th scope="col">License</th><th scope="col">Notas</th></tr></thead>
       <tbody>
-        <tr><td><strong>Devstral Small (24B)</strong></td><td>Q4_K_M (~14GB)</td><td>7.95</td><td>Apache 2.0</td><td>Tight pero corre</td></tr>
+        <tr><td><strong>Ministral 14B (24B)</strong></td><td>Q4_K_M (~14GB)</td><td>7.95</td><td>Apache 2.0</td><td>Tight pero corre</td></tr>
         <tr><td><strong>Mistral Small 4 (24B)</strong></td><td>Q4_K_M (~14GB)</td><td>7.62</td><td>Apache 2.0</td><td>Mejor calidad/tamaño</td></tr>
         <tr><td>DeepSeek V4 Flash (236B/21B activos)</td><td>Q4_K_M (~140GB)</td><td>8.28*</td><td>MIT</td><td>* Score cloud, no cabe en 16GB</td></tr>
         <tr><td>Phi-4 (14B)</td><td>Q4_K_M (~9GB)</td><td>—</td><td>MIT</td><td>Excelente para judge tasks</td></tr>
@@ -958,7 +961,7 @@ def gen_modelos_open_source_local(data):
       <thead><tr><th scope="col">Modelo</th><th scope="col">Quant</th><th scope="col">Score</th><th scope="col">License</th><th scope="col">Notas</th></tr></thead>
       <tbody>
         <tr><td><strong>Mistral Small 4 (24B)</strong></td><td>Q5_K_M (~17GB)</td><td>7.62</td><td>Apache 2.0</td><td>Top calidad/recursos</td></tr>
-        <tr><td><strong>Devstral 2 (Dic 2025)</strong></td><td>Q5_K_M (~22GB)</td><td>—</td><td>Apache 2.0</td><td>Coding profesional</td></tr>
+        <tr><td><strong>Qwen 3-Next 80B (Dic 2025)</strong></td><td>Q5_K_M (~22GB)</td><td>—</td><td>Apache 2.0</td><td>Coding profesional</td></tr>
         <tr><td>Qwen 3.6 35B base</td><td>Q4_K_M (~22GB)</td><td>7.32</td><td>Apache 2.0</td><td>Versatil</td></tr>
         <tr><td>Llama 3.3 70B</td><td>Q3_K_M (~30GB)</td><td>7.70*</td><td>Llama 3</td><td>* Score con Groq, no local</td></tr>
       </tbody>
@@ -990,8 +993,8 @@ def gen_modelos_open_source_local(data):
 
     <h3>Coding offline para tus proyectos</h3>
     <p>
-      <strong>Devstral Small</strong> (24B Apache 2.0) en Mac M-series 16GB+. Para proyectos grandes:
-      <strong>Devstral 2</strong> en 32GB+. Ambos optimizados para código.
+      <strong>Ministral 14B</strong> (24B Apache 2.0) en Mac M-series 16GB+. Para proyectos grandes:
+      <strong>Qwen 3-Next 80B</strong> en 32GB+. Ambos optimizados para código.
     </p>
 
     <h3>Generación de contenido en español sin API costs</h3>
@@ -1046,7 +1049,7 @@ def gen_modelos_open_source_local(data):
 # Landing: alternativas-deepseek (nueva)
 # ---------------------------------------------------------------------------
 def gen_alternativas_deepseek(data):
-    models = data["models"]
+    models = _recomendables(data)
     c = counts(data)
     alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and "deepseek" not in m["name"].lower()]
     alts = sorted(alts, key=lambda m: -m["score_global"])[:10]
@@ -1103,7 +1106,7 @@ def gen_alternativas_deepseek(data):
 
     <h3>Si reemplazás DeepSeek R1 por razonamiento</h3>
     <p>
-      <strong>Claude Opus 4.8</strong> y <strong>Hermes 4 70B</strong> cubren reasoning profundo. Devstral Small
+      <strong>Claude Opus 4.8</strong> y <strong>Hermes 4 70B</strong> cubren reasoning profundo. Ministral 14B
       lidera el pilar Razonamiento (8.39) a costo mínimo.
     </p>
 
@@ -1118,7 +1121,7 @@ def gen_alternativas_deepseek(data):
         ("¿Cuál es la mejor alternativa a DeepSeek V4 Flash?",
          "Para velocidad y costo: Llama 4 Scout 17B (Groq). Para calidad de coding: Qwen3-Coder-Next. Para calidad general sin preocuparte por costo: Claude Opus 4.8."),
         ("¿DeepSeek R1 tiene buena alternativa en razonamiento?",
-         "Sí: Claude Opus 4.8, Hermes 4 70B y Devstral Small (que lidera el pilar Razonamiento en el benchmark)."),
+         "Sí: Claude Opus 4.8, Hermes 4 70B y Ministral 14B (que lidera el pilar Razonamiento en el benchmark)."),
         ("¿Las alternativas a DeepSeek son más caras?",
          "Algunas sí, pero no necesariamente mejores. DeepSeek V4 Flash es #1 global porque combina calidad 8.28 con costo $0.10/$0.20. Alternativas con score similar suelen costar más, salvo Llama 4 Scout."),
     ]
@@ -1134,7 +1137,7 @@ def gen_alternativas_deepseek(data):
 
 
 def gen_fable_5_review(data):
-    models = data["models"]
+    models = _recomendables(data)
     c = counts(data)
     fable = next((m for m in models if m.get("id") == "claude-fable-5"), None)
     compare_ids = ["claude-opus-4-8", "claude-sonnet-4-6", "MiniMax-M3", "deepseek/deepseek-r1"]
@@ -1228,7 +1231,7 @@ def gen_fable_5_review(data):
   <section>
     <h2>Fable 5 por tipo de trabajo</h2>
     <ul>
-      <li><strong>Coding:</strong> {fmt_pillar(fable, 'Coding')}/10. Por debajo de Sonnet 4.6 ({sonnet_coding}/10) y muy por debajo de modelos open-source baratos como Devstral Small. No lo elegiría para code-generation en producción.</li>
+      <li><strong>Coding:</strong> {fmt_pillar(fable, 'Coding')}/10. Por debajo de Sonnet 4.6 ({sonnet_coding}/10) y muy por debajo de modelos open-source baratos como Ministral 14B. No lo elegiría para code-generation en producción.</li>
       <li><strong>Contenido:</strong> {fable_contenido}/10. Bueno, pero Opus 4.8 ({opus_contenido}/10) y Sonnet 4.6 ({sonnet_contenido}/10) rinden similar o mejor por menos.</li>
       <li><strong>Razonamiento:</strong> {fmt_pillar(fable, 'Razonamiento')}/10. Sólido, pero DeepSeek R1 lidera este grupo ({r1_reasoning}/10).</li>
       <li><strong>Agentes:</strong> {fmt_pillar(fable, 'Agentes')}/10. Competitivo, aunque Sonnet 4.6 ({best_agents_score}/10) lo supera.</li>
@@ -1255,7 +1258,7 @@ def gen_fable_5_review(data):
         ("¿Vale la pena pagar por Claude Fable 5?",
          "Solo si ya estás en el ecosistema Anthropic y preferís su tono para contenido creativo. Para producción con volumen, MiniMax M3 y DeepSeek R1 ofrecen mejor relación calidad/precio."),
         ("¿Fable 5 es bueno para programar?",
-         "No es su fuerte: 6.67/10 en Coding, por debajo de Sonnet 4.6, Opus 4.8 y modelos open-source especializados como Devstral Small o Qwen3-Coder."),
+         "No es su fuerte: 6.67/10 en Coding, por debajo de Sonnet 4.6, Opus 4.8 y modelos open-source especializados como Ministral 14B o Qwen3-Coder."),
         ("¿Qué significa 'Mythos' en Claude Fable 5?",
          "Es la marca interna/línea de lanzamiento de Anthropic para esta variante de junio 2026, posicionada entre Sonnet y Opus en precio pero no en rendimiento."),
     ]
@@ -1284,6 +1287,82 @@ LANDINGS = [
 ]
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+def _no_recomendar_muertos(html: str, slug: str) -> None:
+    """Se niega a escribir una página que recomiende un modelo con el endpoint muerto.
+
+    Este archivo tiene recomendaciones ESCRITAS A MANO (nombres y precios incrustados en
+    el HTML). Eso no puede cuadrar solo: cuando un proveedor apaga un modelo, el texto
+    sigue ahí, feliz, recomendándolo.
+
+    Pasó: Devstral Small quedó recomendado en 8 páginas —incluidas /mejor-llm-barato/ y
+    las cuatro de "alternativas a X"— MESES después de que Mistral apagara su endpoint.
+    Y llegó al schema de FAQ, o sea que Google lo mostraba como respuesta destacada.
+
+    Le estábamos recomendando a la gente, en los resultados de búsqueda, un modelo que
+    devuelve 404. Este guardia hace que eso reviente en vez de publicarse.
+    """
+    import json as _j
+    from pathlib import Path as _P
+    mj = _P(__file__).parent.parent / "docs" / "data" / "models.json"
+    if not mj.exists():
+        return
+    datos = _j.loads(mj.read_text())["models"]
+    muertos = [m["name"] for m in datos if m.get("retired")]
+    vivos = [m["name"] for m in datos if not m.get("retired")]
+
+    # Matching por SUBCADENA no sirve. Existe "Devstral Small 2 24B" (VIVO) que contiene
+    # "Devstral Small" (MUERTO): buscar el muerto a secas bloquearía una página correcta.
+    # Es el mismo falso positivo del viejo matcher de keywords, que reprobaba respuestas
+    # por usar sinónimos.
+    #
+    # Regla: una mención al muerto cuenta SOLO si en esa posición no empieza el nombre de
+    # un modelo vivo más largo.
+    # El nombre en models.json trae el sufijo del proveedor —"Devstral Small 2 24B (DGX
+    # Spark Q4_K_M)"— pero el HTML lo escribe sin él. Comparamos sin el paréntesis.
+    import re as _re
+    _limpio = lambda s: _re.sub(r"\s*\([^)]*\)", "", s).strip()
+
+    encontrados = []
+    for n in muertos:
+        extensiones = [_limpio(v) for v in vivos
+                       if _limpio(v).startswith(n) and _limpio(v) != n]
+        i = 0
+        while (i := html.find(n, i)) != -1:
+            if any(html.startswith(v, i) for v in extensiones):
+                i += len(n)          # es "Devstral Small 2 24B", no el muerto
+                continue
+            encontrados.append(n)    # es el muerto de verdad
+            break
+
+    if encontrados:
+        raise SystemExit(
+            f"\n  ERROR en /{slug}/: la página recomienda modelos con el ENDPOINT MUERTO:\n"
+            f"    {', '.join(encontrados)}\n\n"
+            f"  Este archivo hardcodea recomendaciones. Actualizá el texto a un modelo vivo\n"
+            f"  antes de publicar. Un modelo que devuelve 404 no es un candidato.\n"
+        )
+
+
+
+def _recomendables(data):
+    """Los modelos que se pueden RECOMENDAR. Único punto de entrada.
+
+    Este generador leía `data["models"]` directo y filtraba por `tested` (≥20 runs). Eso
+    dejaba pasar los RETIRADOS (endpoint muerto), las VARIANTES DE PROVEEDOR (el mismo
+    modelo servido por otra infra) y los SELF-HOSTED (su velocidad es la de otra máquina).
+
+    Por ahí se colaron los muertos a 8 páginas —incluidas /mejor-llm-barato/ y las cuatro
+    de "alternativas a X"— y al schema de FAQ que Google muestra como respuesta destacada.
+
+    Un modelo que devuelve 404 no es un candidato. Uno que compite contra sí mismo, tampoco.
+    """
+    return [m for m in data["models"]
+            if not m.get("retired")
+            and not m.get("provider_variant")
+            and not m.get("self_hosted")]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--slug", help="Generar solo esta landing")
@@ -1293,6 +1372,10 @@ def main():
         if args.slug and slug != args.slug:
             continue
         out = fn(data)
+        # Este archivo hardcodea recomendaciones (nombres y precios en el HTML). Eso no
+        # cuadra solo: cuando un proveedor apaga un modelo, el texto sigue recomendándolo.
+        # El guardia hace que reviente en vez de publicarse.
+        _no_recomendar_muertos(out, slug)
         d = DOCS / slug
         d.mkdir(exist_ok=True)
         (d / "index.html").write_text(out, encoding="utf-8")
@@ -1301,3 +1384,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

@@ -43,7 +43,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260601_102400",
-      "response_file": "results/responses/20260601_102400/qwen3.6-27b__content_generation__blog_post_es.md"
+      "response_file": "results/responses/20260601_102400/qwen3.6-27b__content_generation__blog_post_es.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.2,
@@ -75,7 +76,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260601_102400",
-      "response_file": "results/responses/20260601_102400/qwen3.6-27b__content_generation__email_profesional.md"
+      "response_file": "results/responses/20260601_102400/qwen3.6-27b__content_generation__email_profesional.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -107,7 +109,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260601_102400",
-      "response_file": "results/responses/20260601_102400/qwen3.6-27b__content_generation__social_media_batch.md"
+      "response_file": "results/responses/20260601_102400/qwen3.6-27b__content_generation__social_media_batch.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.45,
@@ -139,7 +142,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260601_102400",
-      "response_file": "results/responses/20260601_102400/qwen3.6-27b__content_generation__product_description_en.md"
+      "response_file": "results/responses/20260601_102400/qwen3.6-27b__content_generation__product_description_en.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

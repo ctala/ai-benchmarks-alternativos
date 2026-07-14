@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0149
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:36+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_082554_85595",
-      "response_file": "results/responses/20260714_082554_85595/or-glm5__orchestration__multi_step_research_plan.md"
+      "response_file": "results/responses/20260714_082554_85595/or-glm5__orchestration__multi_step_research_plan.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.5,
@@ -64,7 +70,7 @@
       "input_tokens": 972,
       "output_tokens": 313,
       "response_preview": "Buen diagnóstico: la base de datos `production` está en mantenimiento. No podemos esperar 2 horas si el deadline es las 5pm. Voy a buscar alternativas en paralelo:\n\n1. **Intentar una base de datos réplica/staging** que pueda tener los mismos datos\n2. **Buscar archivos locales** (CSV, Excel) que cont",
-      "auto_quality": 7.96,
+      "auto_quality": 7.5,
       "judge_score": 4.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -75,7 +81,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_082554_85595",
-      "response_file": "results/responses/20260714_082554_85595/or-glm5__orchestration__error_recovery_orchestration.md"
+      "response_file": "results/responses/20260714_082554_85595/or-glm5__orchestration__error_recovery_orchestration.md",
+      "content_score": 8.64,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 4.13,
@@ -107,7 +118,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_082554_85595",
-      "response_file": "results/responses/20260714_082554_85595/or-glm5__orchestration__complex_workflow_decomposition.md"
+      "response_file": "results/responses/20260714_082554_85595/or-glm5__orchestration__complex_workflow_decomposition.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -128,7 +140,7 @@
       "input_tokens": 1085,
       "output_tokens": 621,
       "response_preview": "Voy a analizar cada tarea y luego ejecutar la primera:\n\n## Análisis de herramientas para cada tarea:\n\n**Tarea 1: Verificar servidor de producción**\n- **Herramienta**: `http_request` (método GET)\n- **Por qué**: Es la herramienta específica para hacer peticiones HTTP y verificar si un endpoint respond",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +151,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_082554_85595",
-      "response_file": "results/responses/20260714_082554_85595/or-glm5__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260714_082554_85595/or-glm5__orchestration__tool_selection_precision.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:35+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +177,7 @@
       "input_tokens": 1161,
       "output_tokens": 1274,
       "response_preview": "# Análisis de Dependencias - Lanzamiento de Producto\n\n## 1. Diagrama de Dependencias\n\n```\n┌─────────────────────────────────────────────────────────────┐\n│                    NIVEL 1 (Paralelo)                        │\n│  ┌──────────────────┐      ┌──────────────────────────┐     │\n│  │ A. Buscar pr",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 4.8,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -171,7 +188,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_082554_85595",
-      "response_file": "results/responses/20260714_082554_85595/or-glm5__orchestration__parallel_vs_sequential_judgment.md"
+      "response_file": "results/responses/20260714_082554_85595/or-glm5__orchestration__parallel_vs_sequential_judgment.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.68,
@@ -203,7 +225,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_082554_85595",
-      "response_file": "results/responses/20260714_082554_85595/or-qwen-2.5-72b__orchestration__multi_step_research_plan.md"
+      "response_file": "results/responses/20260714_082554_85595/or-qwen-2.5-72b__orchestration__multi_step_research_plan.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -224,7 +247,7 @@
       "input_tokens": 1576,
       "output_tokens": 100,
       "response_preview": "Voy a intentar obtener los datos de ventas del mes pasado a través de una copia de seguridad o un archivo de respaldo. Si no es posible, buscaré una alternativa como utilizar una base de datos de prueba o contactar al equipo de IT para obtener los datos necesarios.\n",
-      "auto_quality": 5.89,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -235,7 +258,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_082554_85595",
-      "response_file": "results/responses/20260714_082554_85595/or-qwen-2.5-72b__orchestration__error_recovery_orchestration.md"
+      "response_file": "results/responses/20260714_082554_85595/or-qwen-2.5-72b__orchestration__error_recovery_orchestration.md",
+      "content_score": 7.22,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.8,
@@ -267,7 +295,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_082554_85595",
-      "response_file": "results/responses/20260714_082554_85595/or-qwen-2.5-72b__orchestration__complex_workflow_decomposition.md"
+      "response_file": "results/responses/20260714_082554_85595/or-qwen-2.5-72b__orchestration__complex_workflow_decomposition.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -288,7 +317,7 @@
       "input_tokens": 1553,
       "output_tokens": 401,
       "response_preview": "Para cada tarea, he seleccionado la herramienta más apropiada y explico por qué:\n\n1. **Tarea 1: Verificar si el servidor de producción está respondiendo (URL: https://api.example.com/health)**\n   - **Herramienta:** `http_request`\n   - **Razón:** Esta tarea requiere hacer una solicitud HTTP a una URL",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -299,16 +328,21 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_082554_85595",
-      "response_file": "results/responses/20260714_082554_85595/or-qwen-2.5-72b__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260714_082554_85595/or-qwen-2.5-72b__orchestration__tool_selection_precision.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:36+00:00",
+      "scoring": "verificable"
     },
     {
-      "quality": 7.14,
+      "quality": 4.29,
       "cost_score": 8.31,
       "cost_usd": 0.000787,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.77,
+      "final": 4.77,
       "test_name": "parallel_vs_sequential_judgment",
       "model": "Qwen 2.5 72B",
       "model_id": "qwen/qwen-2.5-72b-instruct",
@@ -320,7 +354,7 @@
       "input_tokens": 1626,
       "output_tokens": 504,
       "response_preview": "### Análisis de Dependencias y Plan de Ejecución\n\n#### 1. Diagrama de Dependencias\n\n```\nA. Buscar precios de competidores\n|\nB. Generar la descripcion del producto\n|\\\n| C. Calcular el precio optimo\n| \\\n|  D. Crear la landing page\n|   \\\n|    E. Enviar email al equipo de marketing\n|\nF. Publicar anuncio",
-      "auto_quality": 8.02,
+      "auto_quality": 4.29,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -331,7 +365,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_082554_85595",
-      "response_file": "results/responses/20260714_082554_85595/or-qwen-2.5-72b__orchestration__parallel_vs_sequential_judgment.md"
+      "response_file": "results/responses/20260714_082554_85595/or-qwen-2.5-72b__orchestration__parallel_vs_sequential_judgment.md",
+      "content_score": 9.34,
+      "answer_score": 4.29,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:36+00:00",
+      "scoring": "verificable"
     }
   ]
 }

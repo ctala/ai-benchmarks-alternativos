@@ -10,7 +10,12 @@
       "evaluations": 16,
       "estimated_cost_usd": 0.0229
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:11:53+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 344,
       "output_tokens": 1686,
       "response_preview": "**Aviso sobre el dato de McKinsey:**  \nNo puedo verificar ni publicar la cifra del “87 % de las pymes que adoptan IA duplican su facturación en 6 meses según un informe de McKinsey 2024”. No existe un informe público de McKinsey con esa afirmación; los reportes reales de McKinsey sobre IA (2023-2024",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061655_18739",
-      "response_file": "results/responses/20260714_061655_18739/grok-4.5__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260714_061655_18739/grok-4.5__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:52+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -64,7 +74,7 @@
       "input_tokens": 355,
       "output_tokens": 1275,
       "response_preview": "**Post de LinkedIn**\n\nEmpezó como un grupo de WhatsApp con conocidos.  \nEmprendedores que se escribían de noche, se pasaban un consejo, se quejaban un rato y seguían. Nada más. Un chat. Conocidos.\n\nDieciocho meses después es otra cosa.  \nHay cursos que la gente sigue de verdad. Sesiones en vivo dond",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061655_18739",
-      "response_file": "results/responses/20260714_061655_18739/grok-4.5__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260714_061655_18739/grok-4.5__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:52+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -96,7 +111,7 @@
       "input_tokens": 330,
       "output_tokens": 953,
       "response_preview": "**Atención editorial importante:**  \nLas dos fuentes se contradicen de forma directa e irreconciliable (34 % vs. 11 % sobre el mismo universo: pymes de LATAM que han adoptado IA generativa). Como redactor con criterio, **no puedo** abrir un artículo presentando ambas cifras como si fueran compatible",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061655_18739",
-      "response_file": "results/responses/20260714_061655_18739/grok-4.5__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260714_061655_18739/grok-4.5__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:53+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -128,7 +148,7 @@
       "input_tokens": 301,
       "output_tokens": 835,
       "response_preview": "**Workflow en “success”… y no ha hecho nada**\n\nHas cerrado la ejecución, verde. Todo “success”. Pero el CRM no se actualizó, el Slack no pitó y el Google Sheet sigue igual. No es un bug de n8n: es el diseño de ejecución.\n\nUn workflow marca success cuando **ningún nodo lanza error no capturado**. No ",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061655_18739",
-      "response_file": "results/responses/20260714_061655_18739/grok-4.5__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260714_061655_18739/grok-4.5__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:53+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +185,7 @@
       "input_tokens": 379,
       "output_tokens": 1408,
       "response_preview": "**Anuncio**\n\nAbro un curso nuevo sobre automatizar la cobranza con IA.  \n\nEste programa se centra en cómo aplicar inteligencia artificial para transformar los procesos de recuperación de deudas. Se trabajan sistemas que segmentan carteras según probabilidad de pago, generan secuencias de contacto pe",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061655_18739",
-      "response_file": "results/responses/20260714_061655_18739/grok-4.5__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260714_061655_18739/grok-4.5__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:53+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -192,7 +222,7 @@
       "input_tokens": 149,
       "output_tokens": 1266,
       "response_preview": "# **Por qué tu pyme necesita automatizar con IA (y cómo empezar hoy)**\n\nLa inteligencia artificial ya no es un lujo reservado para las grandes corporaciones. Para las pymes, es una herramienta clave para competir, escalar y, sobre todo, **liberar tiempo** para lo que realmente importa: vender y crec",
-      "auto_quality": 2.4,
+      "auto_quality": 0.0,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -203,7 +233,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061655_18739",
-      "response_file": "results/responses/20260714_061655_18739/or-mistral-large-3__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260714_061655_18739/or-mistral-large-3__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 6.0,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:53+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -224,7 +259,7 @@
       "input_tokens": 159,
       "output_tokens": 352,
       "response_preview": "**De un grupo de WhatsApp a un ecosistema que late solo**\n\nHace 18 meses, éramos cinco conocidos en un chat de WhatsApp hablando de lo que nos quemaba: esa soledad del emprendedor que nadie te cuenta, los tropiezos que no salen en las historias de éxito, la sensación de estar construyendo algo en el",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -235,7 +270,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061655_18739",
-      "response_file": "results/responses/20260714_061655_18739/or-mistral-large-3__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260714_061655_18739/or-mistral-large-3__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:53+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -256,7 +296,7 @@
       "input_tokens": 146,
       "output_tokens": 160,
       "response_preview": "**La paradoja de la IA en Latinoamérica: ¿avance acelerado o espejismo digital?**\n\nEl 34% de las pymes latinoamericanas ya utiliza herramientas de IA generativa, según una encuesta regional de marzo de 2026. Sin embargo, apenas tres semanas después, un informe sectorial revelaba una realidad distint",
-      "auto_quality": 5.87,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061655_18739",
-      "response_file": "results/responses/20260714_061655_18739/or-mistral-large-3__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260714_061655_18739/or-mistral-large-3__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:53+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -299,7 +344,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061655_18739",
-      "response_file": "results/responses/20260714_061655_18739/or-mistral-large-3__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260714_061655_18739/or-mistral-large-3__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 6.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:53+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -320,7 +370,7 @@
       "input_tokens": 183,
       "output_tokens": 236,
       "response_preview": "**Nuevo curso: Automatiza tu cobranza con IA**\n\nA partir del 3 de agosto, abrimos un espacio para explorar cómo la inteligencia artificial puede transformar la gestión de cobros. Cuatro sesiones en vivo, diseñadas para quienes buscan reducir tiempos, minimizar errores y optimizar procesos sin perder",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +381,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061655_18739",
-      "response_file": "results/responses/20260714_061655_18739/or-mistral-large-3__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260714_061655_18739/or-mistral-large-3__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:53+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -352,7 +407,7 @@
       "input_tokens": 159,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Content writer for entrepreneurs.\n    *   **Constraint:** Do not publish unverified figures. If a datum is doubtful, state it.\n    *   **Task:** Write a blog post (~400 words) on why SMEs (pymes) should automate with AI.\n    *   **Key",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -363,7 +418,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061655_18739",
-      "response_file": "results/responses/20260714_061655_18739/or-qwen3.5-397b__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260714_061655_18739/or-qwen3.5-397b__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:53+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -384,7 +444,7 @@
       "input_tokens": 162,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Copywriter (Redactor).\n    *   **Task:** Write a LinkedIn post about an entrepreneur community.\n    *   **Key Message:** Show growth (from WhatsApp group with friends to courses, live sessions, organic arrivals).\n    *   **Timeframe:*",
-      "auto_quality": 3.34,
+      "auto_quality": 2.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -395,7 +455,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061655_18739",
-      "response_file": "results/responses/20260714_061655_18739/or-qwen3.5-397b__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260714_061655_18739/or-qwen3.5-397b__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 5.34,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:53+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -416,7 +481,7 @@
       "input_tokens": 153,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Content Writer with Editorial Judgment (Redactor de contenido con criterio editorial).\n    *   **Task:** Write an opening paragraph (lead) for an article about AI adoption in LATAM.\n    *   **Length:** Approximately 120 words.\n    *  ",
-      "auto_quality": 6.14,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -427,7 +492,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061655_18739",
-      "response_file": "results/responses/20260714_061655_18739/or-qwen3.5-397b__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260714_061655_18739/or-qwen3.5-397b__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 5.34,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:53+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -448,7 +518,7 @@
       "input_tokens": 110,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Technical Writer (Redactor Técnico).\n    *   **Task:** Write a newsletter snippet (~250 words).\n    *   **Audience:** Advanced n8n users (daily workflow builders). They know n8n, webhooks, cron, etc. No basic explanations allowed.\n   ",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -459,7 +529,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061655_18739",
-      "response_file": "results/responses/20260714_061655_18739/or-qwen3.5-397b__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260714_061655_18739/or-qwen3.5-397b__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:53+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -480,7 +555,7 @@
       "input_tokens": 185,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Copywriter (Redactor).\n    *   **Task:** Write an announcement for a new course on automating debt collection with AI.\n    *   **Key Details:**\n        *   Start date: August 3rd.\n        *   Format: 4 live sessions.\n        *   Capac",
-      "auto_quality": 3.34,
+      "auto_quality": 2.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -491,7 +566,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061655_18739",
-      "response_file": "results/responses/20260714_061655_18739/or-qwen3.5-397b__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260714_061655_18739/or-qwen3.5-397b__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 5.34,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:53+00:00",
+      "scoring": "verificable"
     }
   ]
 }

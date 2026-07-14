@@ -10,7 +10,12 @@
       "evaluations": 4,
       "estimated_cost_usd": 0.006
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:13:37+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 196,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** B2B Cold Outreach Expert.\n    *   **Rules:**\n        *   NO generic phrases (\"Hope this email finds you well\").\n        *   Short (max 150 words).\n        *   Personalized to the recipient.\n        *   Single clear CTA.\n        *   No",
-      "auto_quality": 8.54,
+      "auto_quality": 8.0,
       "judge_score": 4.8,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -43,7 +48,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_065451_38631",
-      "response_file": "results/responses/20260714_065451_38631/or-qwen-3.5-35b__sales_outreach__cold_email_personalized.md"
+      "response_file": "results/responses/20260714_065451_38631/or-qwen-3.5-35b__sales_outreach__cold_email_personalized.md",
+      "content_score": 9.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:13:17+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -64,7 +74,7 @@
       "input_tokens": 260,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Lead Qualification Agent.\n    *   **Task:** Evaluate 3 leads with a score (1-10) and decide on an action.\n    *   **Framework:** BANT (Budget, Authority, Need, Timeline).\n    *   **Output Format:** JSON `{\"score\": N, \"bant\": {\"budget\"",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_065451_38631",
-      "response_file": "results/responses/20260714_065451_38631/or-qwen-3.5-35b__sales_outreach__lead_qualification.md"
+      "response_file": "results/responses/20260714_065451_38631/or-qwen-3.5-35b__sales_outreach__lead_qualification.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:13:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -107,7 +122,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_065451_38631",
-      "response_file": "results/responses/20260714_065451_38631/or-qwen-3.5-35b__sales_outreach__campaign_optimization.md"
+      "response_file": "results/responses/20260714_065451_38631/or-qwen-3.5-35b__sales_outreach__campaign_optimization.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:13:37+00:00",
+      "scoring": "verificable"
     }
   ]
 }

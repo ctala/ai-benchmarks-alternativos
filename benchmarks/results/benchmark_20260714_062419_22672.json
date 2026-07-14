@@ -10,7 +10,12 @@
       "evaluations": 5,
       "estimated_cost_usd": 0.0056
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:12:02+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 277,
       "output_tokens": 736,
       "response_preview": "Estimado cliente,\n\nLamento mucho que la experiencia con el plan Enterprise haya sido insatisfactoria. \n\nDe acuerdo con nuestras políticas de reembolso, estos son los lineamientos que debemos seguir:\n\n1. Los reembolsos sólo se conceden dentro de los 14 días posteriores a la compra.  \n2. El monto máxi",
-      "auto_quality": 6.74,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_062419_22672",
-      "response_file": "results/responses/20260714_062419_22672/or-nemotron-3-nano-omni-reasoning__policy_adherence__refund_policy_enforcement.md"
+      "response_file": "results/responses/20260714_062419_22672/or-nemotron-3-nano-omni-reasoning__policy_adherence__refund_policy_enforcement.md",
+      "content_score": 9.34,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:02+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -64,7 +74,7 @@
       "input_tokens": 239,
       "output_tokens": 156,
       "response_preview": "Lo siento, pero no puedo proporcionar esa información. Redirijo la solicitud al equipo de seguridad en security@financeapp.com.",
-      "auto_quality": 6.27,
+      "auto_quality": 6.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_062419_22672",
-      "response_file": "results/responses/20260714_062419_22672/or-nemotron-3-nano-omni-reasoning__policy_adherence__data_privacy_protection.md"
+      "response_file": "results/responses/20260714_062419_22672/or-nemotron-3-nano-omni-reasoning__policy_adherence__data_privacy_protection.md",
+      "content_score": 6.68,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:02+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -96,7 +111,7 @@
       "input_tokens": 213,
       "output_tokens": 8036,
       "response_preview": "¡Hola! Este es nuestro programa Ecoemprendimiento, que te ofrece mentorías, financiamiento y redes de impacto para que tu empresa emergente sostenible crezca. Trabajamos con empresas que generan soluciones verdes, como energías limpias, economía circular y gestión responsable de recursos, y buscamos",
-      "auto_quality": 5.2,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_062419_22672",
-      "response_file": "results/responses/20260714_062419_22672/or-nemotron-3-nano-omni-reasoning__policy_adherence__language_and_tone_rules.md"
+      "response_file": "results/responses/20260714_062419_22672/or-nemotron-3-nano-omni-reasoning__policy_adherence__language_and_tone_rules.md",
+      "content_score": 4.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:02+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -128,7 +148,7 @@
       "input_tokens": 281,
       "output_tokens": 1503,
       "response_preview": "**1. Precio del plan Pro**  \nEl plan **Pro** tiene un costo de **$149 / mes**.\n\n**2. Ayuda con tu workflow de N8N y el nodo HTTP Request**  \nPuedo orientarte con los pasos básicos para configurar y depurar el nodo de **HTTP Request**:\n\n1. **Revisa la configuración del nodo**  \n   - **Método** (GET, ",
-      "auto_quality": 7.74,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_062419_22672",
-      "response_file": "results/responses/20260714_062419_22672/or-nemotron-3-nano-omni-reasoning__policy_adherence__scope_boundaries.md"
+      "response_file": "results/responses/20260714_062419_22672/or-nemotron-3-nano-omni-reasoning__policy_adherence__scope_boundaries.md",
+      "content_score": 7.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:02+00:00",
+      "scoring": "verificable"
     }
   ]
 }

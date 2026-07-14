@@ -10,7 +10,12 @@
       "evaluations": 81,
       "estimated_cost_usd": 0.1238
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:09:29+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 369,
       "output_tokens": 1156,
       "response_preview": "# Conclusión corta\n\n**No se puede saber si la secuencia de emails funcionó con estos datos.**\n\nMarzo fue mejor que febrero, pero en marzo cambiaste **tres cosas a la vez**:\n\n1. Lanzaste la secuencia de emails (1 de marzo)\n2. Empezaste a pagar publicidad (3 de marzo, $400)\n3. Un creador grande te men",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__atribucion_correlacion_temporal.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__atribucion_correlacion_temporal.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -64,7 +74,7 @@
       "input_tokens": 277,
       "output_tokens": 647,
       "response_preview": "Antes de responder si contratas, los números no cierran. Te lo marco primero:\n\n**Verificación:**\n\n1. **Suma de costos:** 1.250 + 3.900 + 780 + 620 + 2.600 = **$9.150**, no $7.400. Hay $1.750 sin explicar en el total que reportaste.\n\n2. **Margen real:** Con costos reales de $9.150 sobre ingresos de $",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__auditoria_pnl_error_plantado.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__auditoria_pnl_error_plantado.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -96,7 +111,7 @@
       "input_tokens": 267,
       "output_tokens": 1110,
       "response_preview": "Respira. Antes del plan, mira lo que realmente están midiendo tus números.\n\n## El churn del 31% es engañoso\n\nTu panel está mezclando dos poblaciones muy distintas en un solo número. Vamos a separarlas:\n\n**Plan de pago (el que te paga la renta):**\n- Bajas: 2 de 22\n- Churn real: **9.1%**\n\n**Plan gratu",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__churn_mezcla_free_y_pago.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__churn_mezcla_free_y_pago.md",
+      "content_score": 6.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -128,7 +148,7 @@
       "input_tokens": 221,
       "output_tokens": 938,
       "response_preview": "No, la lectura correcta es bastante distinta a la que estás haciendo. Vamos por partes.\n\n## Qué mide realmente ese 114%\n\nLo que tienes es **NRR (Net Revenue Retention)**, o retención neta de ingresos. Mide cuánto ingreso conservas de tu base de clientes existente, incluyendo:\n\n- **–** lo que pierdes",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__retention_sobre_100_interpretacion.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__retention_sobre_100_interpretacion.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -160,7 +185,7 @@
       "input_tokens": 423,
       "output_tokens": 1168,
       "response_preview": "Vamos a hacer cuentas primero, porque tu problema no es de priorización, es de capacidad. Y hay una decisión que tomar antes de ordenar.\n\n**Capacidad real: 4h/día × 5 días × 8 semanas = 160h.** Descuenta imprevistos, soporte que se desborda, un par de días malos: cuenta con **~130h reales**.\n\nAhora ",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__roadmap_restriccion_capacidad.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__roadmap_restriccion_capacidad.md",
+      "content_score": 6.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 4.0,
@@ -192,7 +222,7 @@
       "input_tokens": 291,
       "output_tokens": 1998,
       "response_preview": "# Teardown competitivo — con honestidad sobre qué sé y qué infiero\n\nAntes de meterme: lo que me diste son **6 datos de la fachada pública**. Voy a ser muy explícito sobre qué es dato, qué es inferencia razonable, y qué es puro humo.\n\n---\n\n## 1. ¿Cuánto factura? — La pregunta trampa\n\n**Cálculo ingenu",
-      "auto_quality": 4.8,
+      "auto_quality": 4.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,7 +233,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__teardown_competidor_sin_inventar.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__teardown_competidor_sin_inventar.md",
+      "content_score": 6.0,
+      "answer_score": 4.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -224,7 +259,7 @@
       "input_tokens": 311,
       "output_tokens": 1542,
       "response_preview": "Vale, vamos. Sin anestesia:\n\n## 1. El título es humo puro\n**\"Transforma tu negocio con el poder de la IA\"** = lo mismo que dicen 50.000 landings idénticas desde 2023. No dice QUÉ negocio, QUÉ transformación, ni CUÁNTO tiempo. Es aire.\n\n**Arréglalo:** Sé específico sobre quién + qué resultado + en cu",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -235,7 +270,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__roast_oferta_sin_cliches.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__roast_oferta_sin_cliches.md",
+      "content_score": 5.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -256,7 +296,7 @@
       "input_tokens": 269,
       "output_tokens": 1021,
       "response_preview": "No. No renuncies. No está validado. Ni cerca.\n\nDéjame ser brutal contigo porque prefiero que me odies hoy a que me agradezcas dentro de 18 meses cuando estés quebrado.\n\n**Lo que tienes es evidencia de interés, no de demanda.** Son cosas completamente distintas.\n\nDesmenucemos tus \"datos\":\n\n**1. Encue",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__validacion_idea_intencion_vs_compra.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__validacion_idea_intencion_vs_compra.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -288,7 +333,7 @@
       "input_tokens": 300,
       "output_tokens": 869,
       "response_preview": "No. Frena. Tu cálculo tiene tres errores que, corregidos, cambian la respuesta.\n\n**Error 1: mal calculaste la vida del cliente.**\nCon churn mensual del 8%, la vida promedio no es 24 meses, es 1/0,08 = **12,5 meses**. No dos años.\n\n**Error 2: ignoraste el margen bruto.**\nEl LTV se calcula sobre el ma",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -299,7 +344,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__escalar_con_ltv_mal_calculado.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__escalar_con_ltv_mal_calculado.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -320,7 +370,7 @@
       "input_tokens": 150,
       "output_tokens": 250,
       "response_preview": "No.\n\nNo con una sola palabra confiada, al menos. Con lo que me das, subir 56% sería apostar a ciegas.\n\nMínimo necesito saber:\n\n1. **Churn actual** y hace cuánto tienen tus clientes la membresía.\n2. **Qué incluye tu producto vs. el del competidor de $39** (¿es comparable o él ofrece más?).\n3. **Costo",
-      "auto_quality": 3.34,
+      "auto_quality": 2.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +381,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__decision_precio_datos_insuficientes.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_audit__decision_precio_datos_insuficientes.md",
+      "content_score": 5.34,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -363,7 +418,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_strategy__plan_monetizar_medio_con_restricciones.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_strategy__plan_monetizar_medio_con_restricciones.md",
+      "content_score": 8.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -384,7 +444,7 @@
       "input_tokens": 323,
       "output_tokens": 755,
       "response_preview": "No, no le den. El plan no cierra ni cerca. Los porcentajes son razonables, pero los números finales no dan lo que tu socio dice. Hagamos la multiplicación que él no hizo:\n\n**Los números reales del plan:**\n\n- 200.000 visitas × 1,5% = **3.000 suscriptores/mes**\n- 3.000 suscriptores × 2% = **60 comprad",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -395,7 +455,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_strategy__plan_aritmetica_no_cierra.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_strategy__plan_aritmetica_no_cierra.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -416,7 +481,7 @@
       "input_tokens": 516,
       "output_tokens": 916,
       "response_preview": "C. Sin dudarlo.\n\nY te voy a ser directo porque tu situación no da para diplomacia: si estás con 3 meses de caja y te pusiste a evaluar A o B, hay un problema de criterio que es más urgente que la decisión misma.\n\n**Por qué C, con los números en la mano:**\n\n- **A** tiene ciclo de venta de 5-7 meses. ",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -427,7 +492,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_strategy__elegir_negocio_con_dependencia_oculta.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_strategy__elegir_negocio_con_dependencia_oculta.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -448,7 +518,7 @@
       "input_tokens": 294,
       "output_tokens": 1240,
       "response_preview": "# El experimento para matar tu hipótesis\n\n## Lo que NO vas a hacer\n- No landing page con \"join waitlist\" (email gratis ≠ $200/mes)\n- No encuestas (\"¿pagarías por…?\" siempre da sí)\n- No hablar con tu red (te van a mentir por cariño)\n\nAmbos son teatro de validación. No matan nada.\n\n---\n\n## El experime",
-      "auto_quality": 8.4,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -459,7 +529,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_strategy__disenar_experimento_para_matar_la_idea.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_strategy__disenar_experimento_para_matar_la_idea.md",
+      "content_score": 9.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -480,7 +555,7 @@
       "input_tokens": 225,
       "output_tokens": 1398,
       "response_preview": "No lo hagas. O al menos, no así.\n\n## El problema estructural\n\nTu activo no es el contenido. Es el tráfico orgánico de Google. Y ese tráfico existe porque Google puede rastrear e indexar tus páginas, y porque los usuarios que hacen clic encuentran lo que buscaban.\n\nUn muro de pago duro rompe las dos ",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -491,7 +566,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_strategy__monetizar_sin_matar_el_activo.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__business_strategy__monetizar_sin_matar_el_activo.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -512,7 +592,7 @@
       "input_tokens": 226,
       "output_tokens": 1408,
       "response_preview": "Antes de escribir el post, tengo que señalarte algo importante sobre el segundo punto:\n\n**El dato del \"87% de pymes que duplican facturación en 6 meses según McKinsey 2024\" no me consta que sea real.** No he podido verificar ese informe, y la cifra tiene todas las señales de ser una estadística infl",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -523,7 +603,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -544,7 +629,7 @@
       "input_tokens": 272,
       "output_tokens": 488,
       "response_preview": "Aquí va:\n\n---\n\nHace año y medio abrí un grupo de WhatsApp con conocidos.\n\nLa idea era simple: dejar de responder los mismos mensajes por privado y compartir lo que estaba aprendiendo con gente que también estaba empezando algo.\n\nHoy no reconozco ese grupo.\n\nEntro un martes cualquiera y hay alguien p",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -555,7 +640,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -576,7 +666,7 @@
       "input_tokens": 219,
       "output_tokens": 973,
       "response_preview": "Antes de escribir el párrafo, necesito señalarte algo importante: los dos datos que me pasas se contradicen de forma significativa. Uno dice 34% y el otro 11% para prácticamente la misma métrica (pymes de LATAM usando IA generativa), con apenas un mes de diferencia entre publicaciones. Esa brecha es",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -587,7 +677,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -608,7 +703,7 @@
       "input_tokens": 164,
       "output_tokens": 706,
       "response_preview": "# Cuando \"success\" es mentira: workflows fantasma en n8n\n\nTodos hemos vivido esto: el workflow marca verde, el log dice \"success\", el cliente pregunta por qué su CRM está vacío. Bienvenido al reino de los ejecuciones fantasma.\n\nEl problema casi nunca está en n8n. Está en que confundimos \"el nodo eje",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -619,7 +714,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -640,7 +740,7 @@
       "input_tokens": 297,
       "output_tokens": 455,
       "response_preview": "Aquí va:\n\n---\n\n**Curso nuevo: Automatizar la cobranza con IA**\n\nEmpieza el 3 de agosto. Cuatro sesiones en vivo. Treinta lugares.\n\nLa cobranza es una de esas áreas donde se pierde plata en silencio: recordatorios que nadie manda, clientes que se olvidan, seguimientos que quedan en un post-it, concil",
-      "auto_quality": 5.47,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -651,7 +751,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.7__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.67,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -672,7 +777,7 @@
       "input_tokens": 364,
       "output_tokens": 1189,
       "response_preview": "No se puede saber si la secuencia de emails funcionó. Te explico por qué, sin adornos.\n\n## El problema central\n\nEn marzo pasaron **tres cosas a la vez**:\n1. La secuencia de emails (1 de marzo)\n2. Publicidad pagada (3 de marzo, $400)\n3. La mención de un creador grande (12 de marzo)\n\nTu MRR subió $1.2",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -683,7 +788,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__atribucion_correlacion_temporal.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__atribucion_correlacion_temporal.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:23+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -704,7 +814,7 @@
       "input_tokens": 272,
       "output_tokens": 789,
       "response_preview": "Antes de opinar sobre la contratación, los números no cierran. Los reviso:\n\n**Ingresos**\n- Suscripciones $9.800 + Cursos $2.600 = **$12.400** ✅ correcto\n\n**Costos**\n- 1.250 + 3.900 + 780 + 620 + 2.600 = **$9.150**\n- Tú anotaste **$7.400**. Hay una diferencia de **$1.750** sin explicar. El total de c",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -715,7 +825,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__auditoria_pnl_error_plantado.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__auditoria_pnl_error_plantado.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:23+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -736,7 +851,7 @@
       "input_tokens": 262,
       "output_tokens": 1072,
       "response_preview": "Respira. El 31% es real como número, pero está midiendo una población que probablemente no es la que te importa para el negocio.\n\n## Qué está midiendo realmente ese 31%\n\nEl panel mezcla dos poblaciones muy distintas en un solo denominador:\n\n**Churn del plan gratuito:**\n- 60 bajas / 178 usuarios grat",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -747,7 +862,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__churn_mezcla_free_y_pago.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__churn_mezcla_free_y_pago.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:23+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -768,7 +888,7 @@
       "input_tokens": 216,
       "output_tokens": 1142,
       "response_preview": "No, esa lectura es incorrecta y te puede llevar a una decisión cara. Vamos por partes.\n\n## Qué mide realmente ese 114%\n\n\"Retención de ingresos\" del 114% casi seguro es **NRR (Net Revenue Retention)**, que mide **dinero, no personas**. Es una métrica neta: mezcla en un solo número tres cosas que se c",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -779,7 +899,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__retention_sobre_100_interpretacion.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__retention_sobre_100_interpretacion.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:23+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -800,7 +925,7 @@
       "input_tokens": 418,
       "output_tokens": 1148,
       "response_preview": "Vamos con números reales, no con la fantasía del tiempo completo.\n\n## La restricción que manda\n\nTienes **4h/día × 5 días = 20h/semana × 8 semanas = 160h reales** en el trimestre. Todas tus estimaciones están en \"semanas a tiempo completo\" (~40h/semana). Traducidas a tu capacidad real:\n\n| Iniciativa ",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -811,7 +936,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__roadmap_restriccion_capacidad.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__roadmap_restriccion_capacidad.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -832,7 +962,7 @@
       "input_tokens": 286,
       "output_tokens": 2048,
       "response_preview": "# Teardown competitivo\n\nAntes de meterme: voy a separar rigurosamente **lo que sabes** (dato observado) de **lo que estoy infiriendo** (y con qué confianza). La honestidad aquí importa más que un número bonito, porque decisiones caras se toman con estas estimaciones.\n\n---\n\n## 1. Lo que SABES (hechos",
-      "auto_quality": 3.6,
+      "auto_quality": 2.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -843,7 +973,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__teardown_competidor_sin_inventar.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__teardown_competidor_sin_inventar.md",
+      "content_score": 6.0,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -864,7 +999,7 @@
       "input_tokens": 306,
       "output_tokens": 1421,
       "response_preview": "Vale, vamos a destrozarla. Y luego a reconstruirla.\n\n## Lo que está mal\n\n**1. El título no dice absolutamente nada.**\n\"Transforma tu negocio con el poder de la IA\" es lo que escribe todo el mundo que no sabe qué vende. ¿Transformar cómo? ¿En qué? ¿En cuánto tiempo? Es humo. Podría ser una comunidad,",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -875,7 +1010,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__roast_oferta_sin_cliches.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__roast_oferta_sin_cliches.md",
+      "content_score": 6.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -896,7 +1036,7 @@
       "input_tokens": 264,
       "output_tokens": 1077,
       "response_preview": "No. No está validado. Y no, no renuncies todavía.\n\nDéjame ser directo con lo que tienes, porque estás a punto de confundir \"señales sociales\" con \"demanda real\".\n\n## Lo que en realidad mediste\n\n**La encuesta de 40 personas de tu red:** esto es lo más débil de todo. Le preguntaste a gente que te cono",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -907,7 +1047,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__validacion_idea_intencion_vs_compra.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__validacion_idea_intencion_vs_compra.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -928,7 +1073,7 @@
       "input_tokens": 295,
       "output_tokens": 1132,
       "response_preview": "No. Tu aritmética tiene tres errores que, corregidos, cambian la decisión.\n\n## Los tres errores\n\n**1. La vida del cliente no son 24 meses.**\n\nCon churn de 8% mensual, la vida promedio es `1 / 0.08 = 12,5 meses`, no 24. Estás inflando la vida más del doble. Tu \"unos 2 años\" es una intuición optimista",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -939,7 +1084,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__escalar_con_ltv_mal_calculado.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__escalar_con_ltv_mal_calculado.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -960,7 +1110,7 @@
       "input_tokens": 145,
       "output_tokens": 467,
       "response_preview": "No puedo responderte con una palabra, porque con lo que me diste la respuesta sería una adivinanza, no un análisis.\n\nQue el competidor cobre $39 no te dice si TÚ puedes cobrarlo. Necesito al menos esto:\n\n1. **Churn actual**: ¿cuántos de esos 30 se van al mes? Si ya se te va gente a $25, subir 56% ac",
-      "auto_quality": 3.34,
+      "auto_quality": 2.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 4,
@@ -971,7 +1121,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__decision_precio_datos_insuficientes.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_audit__decision_precio_datos_insuficientes.md",
+      "content_score": 5.34,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -992,7 +1147,7 @@
       "input_tokens": 574,
       "output_tokens": 2048,
       "response_preview": "Vamos con la aritmética primero, porque ahí es donde la mayoría de estos planes se caen.\n\n## El problema de tus números (por qué LATAM te complica todo)\n\nTienes 300k visitas/mes. Suena mucho. Pero tu audiencia es LATAM, lo que significa:\n\n- **Poder adquisitivo bajo** para productos en USD. Un curso ",
-      "auto_quality": 8.4,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1003,7 +1158,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_strategy__plan_monetizar_medio_con_restricciones.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_strategy__plan_monetizar_medio_con_restricciones.md",
+      "content_score": 9.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1024,7 +1184,7 @@
       "input_tokens": 318,
       "output_tokens": 926,
       "response_preview": "Antes de darle, hagamos la multiplicación que el plan evita hacer.\n\n## Los números reales\n\n- 200.000 visitas × 1,5% = **3.000 suscriptores/mes**\n- 3.000 × 2% = **60 compradores/mes**\n- 60 × $30 = **$1.800/mes**\n\nEl plan promete $6.000. Genera **$1.800**. Falta el 70%.\n\nNo llega \"cómodo\". No llega ni",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1035,7 +1195,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_strategy__plan_aritmetica_no_cierra.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_strategy__plan_aritmetica_no_cierra.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1056,7 +1221,7 @@
       "input_tokens": 511,
       "output_tokens": 1237,
       "response_preview": "# Opción C. Sin dudarlo.\n\nY no es cercano. Déjame mostrarte por qué las otras dos te matan.\n\n## El único filtro que importa: ¿cobras antes de que se acabe la caja?\n\nTienes **3 meses de caja**. Ese número lo decide todo.\n\n**Opción A — descartada de entrada.**\nTu propio ciclo de venta B2B es de **5 a ",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1067,7 +1232,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_strategy__elegir_negocio_con_dependencia_oculta.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_strategy__elegir_negocio_con_dependencia_oculta.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -1088,7 +1258,7 @@
       "input_tokens": 289,
       "output_tokens": 1076,
       "response_preview": "## El experimento que mata tu hipótesis\n\nTu hipótesis tiene 3 supuestos escondidos, y solo uno importa matar primero:\n\n1. Las agencias sufren con los reportes ← *probablemente cierto*\n2. Quieren *automatizarlo* con software ← *dudoso*\n3. **Pagan $200/mes por ello** ← *este es el que te arruina si es",
-      "auto_quality": 8.4,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1099,7 +1269,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_strategy__disenar_experimento_para_matar_la_idea.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_strategy__disenar_experimento_para_matar_la_idea.md",
+      "content_score": 9.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1120,7 +1295,7 @@
       "input_tokens": 220,
       "output_tokens": 1292,
       "response_preview": "No lo hagas así. Ese plan no monetiza tu activo: lo destruye.\n\n## El problema técnico que te va a matar la gallina\n\nTu tráfico viene de Google. Google indexa lo que puede leer. Si pones el contenido detrás de un muro duro:\n\n- Googlebot ve una página de \"paga para leer\" en vez del artículo → **deja d",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1131,7 +1306,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_strategy__monetizar_sin_matar_el_activo.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__business_strategy__monetizar_sin_matar_el_activo.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1152,7 +1332,7 @@
       "input_tokens": 221,
       "output_tokens": 1116,
       "response_preview": "Antes de escribir, tengo que señalarte algo sobre el segundo punto.\n\n**El dato de McKinsey que me pasas es muy dudoso y no lo voy a incluir como cifra verificada.** La afirmación de que \"el 87% de las pymes que adoptan IA duplican su facturación en 6 meses\" no encaja con lo que McKinsey suele public",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1163,7 +1343,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1184,7 +1369,7 @@
       "input_tokens": 267,
       "output_tokens": 485,
       "response_preview": "Hace 18 meses esto era un grupo de WhatsApp.\n\nÉramos yo y un puñado de conocidos que compartíamos capturas de artículos, dudas sueltas y algún \"che, ¿alguien sabe cómo facturar esto?\".\n\nNada más.\n\nHoy me despierto y ya hay conversaciones armadas que yo no empecé. Gente que se responde entre sí antes",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1195,7 +1380,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1216,7 +1406,7 @@
       "input_tokens": 214,
       "output_tokens": 608,
       "response_preview": "Antes de escribir, tengo que señalar algo: tus dos fuentes se contradicen de forma importante. Una dice 34% y la otra 11% para lo que parece la misma métrica y región, con apenas un mes de diferencia. No puedo elegir \"la que impacte más\" (el 34%) y presentarla como un hecho, porque eso sería quedarm",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1227,7 +1417,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1248,7 +1443,7 @@
       "input_tokens": 159,
       "output_tokens": 631,
       "response_preview": "## El \"success\" que miente\n\nEse `success` verde al final de la ejecución no significa lo que crees. Significa que ningún nodo lanzó una excepción. Nada más. Y esa distinción te está costando datos.\n\nEl caso clásico: un nodo HTTP Request apunta a una API que responde `200 OK` con un body tipo `{\"erro",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1259,7 +1454,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -1280,7 +1480,7 @@
       "input_tokens": 292,
       "output_tokens": 439,
       "response_preview": "Nuevo curso: automatizar la cobranza con IA.\n\nEmpieza el 3 de agosto. Cuatro sesiones en vivo. Treinta cupos.\n\nLa cobranza suele ser la parte del negocio que nadie quiere tocar: recordatorios que se escriben a mano uno por uno, seguimientos que se pierden, pagos que se atrasan porque nadie llegó a i",
-      "auto_quality": 5.2,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1291,7 +1491,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.8__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -1323,7 +1528,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__atribucion_correlacion_temporal.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__atribucion_correlacion_temporal.md",
+      "content_score": 6.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:26+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1344,7 +1554,7 @@
       "input_tokens": 233,
       "output_tokens": 771,
       "response_preview": "# Primero: verificación de números\n\nAntes de opinar sobre la contratación, necesito que los números cierren.\n\n## Revisión línea por línea\n\n| Concepto | Monto reportado |\n|---|---|\n| Suscripciones | $9.800 |\n| Cursos sueltos | $2.600 |\n| **Total ingresos** | **$12.400** ✅ |\n\n| Concepto | Monto report",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1355,7 +1565,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__auditoria_pnl_error_plantado.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__auditoria_pnl_error_plantado.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:26+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -1376,7 +1591,7 @@
       "input_tokens": 213,
       "output_tokens": 1455,
       "response_preview": "# Antes de entrar en pánico, verifiquemos qué estás midiendo realmente\n\n## El diagnóstico: tienes dos poblaciones mezcladas\n\nTu panel está calculando esto:\n\n```\nChurn reportado = 62 / 200 = 31%\n```\n\nPero esa cifra mezcla dos poblaciones con comportamientos completamente distintos. Separemos:\n\n| Segm",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1387,7 +1602,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__churn_mezcla_free_y_pago.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__churn_mezcla_free_y_pago.md",
+      "content_score": 6.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:26+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1408,7 +1628,7 @@
       "input_tokens": 170,
       "output_tokens": 1095,
       "response_preview": "# No. Tu lectura es incorrecta en un punto crítico.\n\nTienes que separar dos métricas que tu panel está mezclando en tu cabeza:\n\n---\n\n## Lo que dice el 114%: Retención de Ingresos Neta (NRR)\n\nEsto mide **dinero**, no clientes. Significa que los clientes que ya tenías el mes pasado **hoy generan un 14",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1419,7 +1639,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__retention_sobre_100_interpretacion.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__retention_sobre_100_interpretacion.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:26+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -1440,7 +1665,7 @@
       "input_tokens": 332,
       "output_tokens": 1188,
       "response_preview": "# Tu trimestre ordenado\n\n## Primero, las cuentas reales\n\n- 4 horas/día × 5 días = **20 horas/semana reales**\n- 8 semanas × 20 horas = **160 horas en el trimestre**\n\nEso es lo que tienes. Ni una hora más.\n\n---\n\n## Ahora, cada iniciativa pasada por tu realidad\n\n| Iniciativa | Esfuerzo estimado (tiempo",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1451,7 +1676,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__roadmap_restriccion_capacidad.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__roadmap_restriccion_capacidad.md",
+      "content_score": 5.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:26+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -1472,7 +1702,7 @@
       "input_tokens": 229,
       "output_tokens": 2048,
       "response_preview": "# Teardown Competitivo: Comunidad de Automatización\n\n## Primero: clasificación de la información\n\nAntes de cualquier análisis, necesito ser transparente con lo que tenemos:\n\n### Lo que SABEMOS (datos observables)\n- Precio público: **$39/mes**\n- Cifra mostrada en portada: **2.400 miembros**\n- Frecuen",
-      "auto_quality": 3.34,
+      "auto_quality": 2.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1483,7 +1713,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__teardown_competidor_sin_inventar.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__teardown_competidor_sin_inventar.md",
+      "content_score": 5.34,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:26+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -1504,7 +1739,7 @@
       "input_tokens": 225,
       "output_tokens": 1333,
       "response_preview": "# Esto no es una oferta. Es un folleto genérico de 2023.\n\nVoy a ir línea por línea porque cada una tiene problemas.\n\n---\n\n## 1. El título no dice NADA\n\n> \"Transforma tu negocio con el poder de la IA\"\n\nEsto lo podría haber escrito cualquier página de cualquier herramienta de IA del planeta. **No hay ",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1515,7 +1750,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__roast_oferta_sin_cliches.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__roast_oferta_sin_cliches.md",
+      "content_score": 6.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:26+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1536,7 +1776,7 @@
       "input_tokens": 213,
       "output_tokens": 1276,
       "response_preview": "# No renuncies. No está validado.\n\nSé que no es lo que quieres escuchar, pero te lo digo porque he visto esta película docenas de veces y siempre termina igual.\n\n## Vamos dato por dato\n\n### La encuesta a 40 personas de tu red\n\nEsto es lo más peligroso que tienes. Tu red te quiere, te respeta, o al m",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1547,7 +1787,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__validacion_idea_intencion_vs_compra.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__validacion_idea_intencion_vs_compra.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1568,7 +1813,7 @@
       "input_tokens": 239,
       "output_tokens": 1205,
       "response_preview": "# Revisión de tus unit economics\n\nTu intuición de escalar es buena, pero tu aritmética tiene errores graves. Vamos paso a paso.\n\n---\n\n## Error 1: El lifetime está mal calculado\n\nCon 8% de churn mensual, el lifetime promedio no es 24 meses.\n\n$$\\text{Lifetime promedio} = \\frac{1}{\\text{churn}} = \\frac",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1579,7 +1824,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__escalar_con_ltv_mal_calculado.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__escalar_con_ltv_mal_calculado.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -1600,7 +1850,7 @@
       "input_tokens": 121,
       "output_tokens": 185,
       "response_preview": "No.\n\nMe faltan datos esenciales para recomendar ese movimiento:\n\n- **Tasa de cancelación (churn) actual**\n- **Costo de adquisición de cliente**\n- **Margen por cliente a $25**\n- **Disposición a pagar medida** (encuesta, test A/B, etc.)\n- **Qué incluye la membresía del competidor a $39 vs. la tuya**\n-",
-      "auto_quality": 2.93,
+      "auto_quality": 2.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1611,7 +1861,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__decision_precio_datos_insuficientes.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_audit__decision_precio_datos_insuficientes.md",
+      "content_score": 4.33,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -1632,7 +1887,7 @@
       "input_tokens": 440,
       "output_tokens": 2048,
       "response_preview": "\n\n# Plan de Monetización: $5.000 USD/mes en 90 días\n\n## Primero, la verdad incómoda\n\nCon 300K visitas/mes de tráfico LATAM, sin lista, sin presupuesto y sin equipo, **$5.000/mes en 90 días es agresivo pero aritméticamente posible** por una vía principal: monetizar la autoridad del dominio y el tráfi",
-      "auto_quality": 8.54,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1643,7 +1898,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_strategy__plan_monetizar_medio_con_restricciones.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_strategy__plan_monetizar_medio_con_restricciones.md",
+      "content_score": 9.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1664,7 +1924,7 @@
       "input_tokens": 244,
       "output_tokens": 963,
       "response_preview": "# Revisión del Plan: La Matemática No Llega\n\nAntes de aprobar nada, hagamos lo que tu socio no hizo: **multiplicar**.\n\n---\n\n## La cadena numérica real\n\n| Paso | Métrica | Resultado |\n|------|---------|-----------|\n| Visitas/mes | 200.000 | 200.000 |\n| Conversión a suscriptor | × 1,5% | **3.000 suscr",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1675,7 +1935,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_strategy__plan_aritmetica_no_cierra.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_strategy__plan_aritmetica_no_cierra.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1696,7 +1961,7 @@
       "input_tokens": 403,
       "output_tokens": 1040,
       "response_preview": "# Opción C. Sin dudar.\n\nY no es una opinión tibia — es la única opción que sobrevive al filtro de realidad.\n\n---\n\n## El análisis honesto\n\n| Filtro | A — API de datos | B — Marca blanca | **C — Contenido patrocinado** |\n|---|---|---|---|\n| **¿Genera ingreso en < 3 meses?** | No. Tu propio dato: 5-7 m",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1707,7 +1972,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_strategy__elegir_negocio_con_dependencia_oculta.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_strategy__elegir_negocio_con_dependencia_oculta.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -1728,7 +1998,7 @@
       "input_tokens": 230,
       "output_tokens": 1953,
       "response_preview": "# Experimento para MATAR tu hipótesis\n\n## El problema con tu hipótesis actual\n\nAntes de diseñar el test, necesito descomponer tu hipótesis porque tiene **3 supuestos escondidos** que pueden fallar independientemente:\n\n1. **Las agencias pequeñas sienten dolor real** con los reportes manuales\n2. **Ese",
-      "auto_quality": 8.4,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1739,7 +2009,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_strategy__disenar_experimento_para_matar_la_idea.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_strategy__disenar_experimento_para_matar_la_idea.md",
+      "content_score": 9.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1760,7 +2035,7 @@
       "input_tokens": 181,
       "output_tokens": 1026,
       "response_preview": "# Esto mata tu negocio. Te explico por qué.\n\n## El mecanismo de muerte\n\nTu tráfico orgánico existe porque Google puede rastrear e indexar tu contenido. El momento en que pones un paywall:\n\n**Google no puede ver tu contenido → no lo indexa → desapareces de los resultados → tu tráfico cae a cero.**\n\nN",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1771,7 +2046,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_strategy__monetizar_sin_matar_el_activo.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__business_strategy__monetizar_sin_matar_el_activo.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1792,7 +2072,7 @@
       "input_tokens": 181,
       "output_tokens": 768,
       "response_preview": "# Por qué tu pyme debería automatizar con IA (y por qué ahora)\n\nSi diriges una pequeña o mediana empresa, sabes que tu recurso más escaso no es el dinero: es tu tiempo. Cada hora que dedicas a tareas repetitivas es una hora que no inviertes en vender, negociar o pensar en grande. La inteligencia art",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1803,7 +2083,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1824,7 +2109,7 @@
       "input_tokens": 199,
       "output_tokens": 381,
       "response_preview": "# Un grupo de WhatsApp que se me fue de las manos\n\nHace año y medio creé un grupo con gente que conocía. Emprendedores que necesitaban lo mismo que yo: alguien que entendiera de qué carajo hablabas un martes a las once de la noche.\n\nAl principio era eso. Mensajes sueltos. Dudas. Algún audio largo de",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1835,16 +2120,21 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:27+00:00",
+      "scoring": "verificable"
     },
     {
-      "quality": 6.67,
+      "quality": 10.0,
       "cost_score": 4.57,
       "cost_usd": 0.0139,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 5.88,
+      "final": 8.21,
       "test_name": "fuentes_que_se_contradicen",
       "model": "Claude Opus 4.6",
       "model_id": "anthropic/claude-opus-4-6",
@@ -1856,7 +2146,7 @@
       "input_tokens": 165,
       "output_tokens": 523,
       "response_preview": "## Mi recomendación antes de redactar\n\nLas dos fuentes se contradicen de forma importante: 34 % frente a 11 %. Antes de \"abrir fuerte\" con cualquiera de las dos cifras, lo responsable es señalar esa discrepancia, porque elegir solo el dato más llamativo (el 34 %) significaría descartar sin justifica",
-      "auto_quality": 6.14,
+      "auto_quality": 10.0,
       "judge_score": 5.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -1867,7 +2157,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1888,7 +2183,7 @@
       "input_tokens": 124,
       "output_tokens": 487,
       "response_preview": "# El \"success\" que miente: workflows que no hacen nada\n\nTienes un workflow que lleva semanas en verde. Cero errores, cero alertas. Todo perfecto.\n\nHasta que alguien pregunta por qué no se están actualizando los registros en el CRM.\n\nRevisas. El workflow ejecuta, termina en success... y no procesa ni",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1899,7 +2194,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1920,7 +2220,7 @@
       "input_tokens": 221,
       "output_tokens": 303,
       "response_preview": "# Cobranza automatizada con IA\n\nNuevo curso en la comunidad.\n\nDurante años, cobrar ha sido la parte más incómoda del negocio. Perseguir pagos, mandar recordatorios, escalar casos, decidir cuándo insistir y cuándo soltar. Todo eso consume tiempo y energía que no se recupera.\n\nEste curso enseña a cons",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1931,7 +2231,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-opus-4.6__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -1952,7 +2257,7 @@
       "input_tokens": 277,
       "output_tokens": 675,
       "response_preview": "## Mi conclusión honesta: No puedes saberlo con estos datos\n\nLos números de marzo son buenos, pero **no puedes atribuirlos a la secuencia de emails** porque tienes tres intervenciones simultáneas que cualquiera de ellas —o su combinación— podría explicar el resultado.\n\n---\n\n### El problema central: ",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1963,7 +2268,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__atribucion_correlacion_temporal.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__atribucion_correlacion_temporal.md",
+      "content_score": 6.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:28+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -1984,7 +2294,7 @@
       "input_tokens": 233,
       "output_tokens": 578,
       "response_preview": "## Primero, los números no cierran.\n\nAntes de responder tu pregunta, tengo que señalarte un error.\n\n---\n\n### El margen real no es 40%\n\n| Concepto | Monto |\n|---|---|\n| Total ingresos | $12.400 |\n| Total costos | $7.400 |\n| **Beneficio real** | **$5.000** |\n| **Margen real** | **40,3%** ✓ |\n\n**El mar",
-      "auto_quality": 2.4,
+      "auto_quality": 0.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1995,7 +2305,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__auditoria_pnl_error_plantado.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__auditoria_pnl_error_plantado.md",
+      "content_score": 6.0,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:28+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2016,7 +2331,7 @@
       "input_tokens": 213,
       "output_tokens": 831,
       "response_preview": "## Primero: respira. El número está mal calculado para lo que importa.\n\n---\n\n### El problema real es la definición de \"usuario\"\n\nTu panel está calculando:\n\n**62 bajas ÷ 200 usuarios totales = 31%**\n\nPero eso mezcla dos poblaciones completamente distintas, y el resultado es casi inútil para tomar dec",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2027,7 +2342,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__churn_mezcla_free_y_pago.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__churn_mezcla_free_y_pago.md",
+      "content_score": 5.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:28+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2048,7 +2368,7 @@
       "input_tokens": 170,
       "output_tokens": 693,
       "response_preview": "## Tu lectura es incorrecta en un punto crítico\n\nVamos por partes, porque estás mezclando dos métricas distintas.\n\n---\n\n### Qué mide realmente el 114%\n\nEse número es **Net Revenue Retention (NRR)** o Retención Neta de Ingresos. Mide si los ingresos de tu cohorte existente crecen o decrecen, combinan",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2059,7 +2379,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__retention_sobre_100_interpretacion.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__retention_sobre_100_interpretacion.md",
+      "content_score": 5.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:28+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2080,7 +2405,7 @@
       "input_tokens": 332,
       "output_tokens": 714,
       "response_preview": "## Análisis antes de darte el orden\n\nAntes de priorizar, hay que nombrar lo obvio:\n\n**Tu capacidad real este trimestre:**\n4h/día × 5 días × 8 semanas = **~160 horas disponibles**\n\nEso equivale a **~4 semanas a tiempo completo**, no 8.\n\n---\n\n## El orden es claro\n\n### Semana 1 → **B primero, sin negoc",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2091,7 +2416,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__roadmap_restriccion_capacidad.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__roadmap_restriccion_capacidad.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -2112,7 +2442,7 @@
       "input_tokens": 229,
       "output_tokens": 2048,
       "response_preview": "# Teardown Competitivo — Comunidad de Automatización\n\n---\n\n## 0. Advertencia metodológica\n\nVoy a separar explícitamente **dato duro** (lo que me diste), **inferencia razonada** (lógica + benchmarks del sector) y **especulación** (posible pero sin base sólida). Las decisiones que tomes deberían pesar",
-      "auto_quality": 3.6,
+      "auto_quality": 2.0,
       "judge_score": 5.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -2123,7 +2453,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__teardown_competidor_sin_inventar.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__teardown_competidor_sin_inventar.md",
+      "content_score": 6.0,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2144,7 +2479,7 @@
       "input_tokens": 225,
       "output_tokens": 946,
       "response_preview": "# Todo está mal. Vamos punto por punto.\n\n---\n\n## PROBLEMA 1: El título no dice nada\n\n**\"Transforma tu negocio con el poder de la IA\"**\n\nEsto lo dice literalmente todo el mundo. Es el equivalente a \"soluciones innovadoras para empresas dinámicas\". No significa nada porque no especifica *quién*, *qué ",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2155,7 +2490,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__roast_oferta_sin_cliches.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__roast_oferta_sin_cliches.md",
+      "content_score": 5.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2176,7 +2516,7 @@
       "input_tokens": 213,
       "output_tokens": 718,
       "response_preview": "## No está validado. No renuncies todavía.\n\nTe lo digo sin rodeos porque me importa que no cometas un error caro.\n\n---\n\n### El problema con tus datos actuales\n\n**Las encuestas mienten sistemáticamente**\n\nEl 72% que \"pagaría $30\" es el dato más peligroso que tienes. Hay décadas de investigación sobre",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2187,7 +2527,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__validacion_idea_intencion_vs_compra.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__validacion_idea_intencion_vs_compra.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2208,7 +2553,7 @@
       "input_tokens": 239,
       "output_tokens": 750,
       "response_preview": "## Recalculando tus números\n\nAntes de que metas los $10,000, hay tres errores en tu aritmética que cambian la decisión.\n\n---\n\n### Error 1: Tu churn no implica 24 meses de vida\n\nCon 8% de churn mensual, la vida promedio del cliente no es 2 años.\n\n**La fórmula correcta:** 1 ÷ tasa de churn mensual\n\n$$",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2219,7 +2564,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__escalar_con_ltv_mal_calculado.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__escalar_con_ltv_mal_calculado.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -2240,7 +2590,7 @@
       "input_tokens": 121,
       "output_tokens": 21,
       "response_preview": "No.\n\n(Faltan datos críticos para sostener esa decisión.)",
-      "auto_quality": 1.66,
+      "auto_quality": 2.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2251,7 +2601,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__decision_precio_datos_insuficientes.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_audit__decision_precio_datos_insuficientes.md",
+      "content_score": 1.16,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2272,7 +2627,7 @@
       "input_tokens": 440,
       "output_tokens": 2048,
       "response_preview": "# Plan para $5.000/mes en 90 días — Sin ads, sin equipo, sin presupuesto\n\n---\n\n## Diagnóstico previo a la aritmética\n\n300.000 visitas/mes es un activo real. El problema no es el tráfico: es que hoy nadie te paga por él porque no tienes ningún canal de captura ni producto que vender. El plan tiene do",
-      "auto_quality": 8.4,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2283,7 +2638,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_strategy__plan_monetizar_medio_con_restricciones.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_strategy__plan_monetizar_medio_con_restricciones.md",
+      "content_score": 9.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2304,7 +2664,7 @@
       "input_tokens": 244,
       "output_tokens": 542,
       "response_preview": "## No le des. Los números no cierran.\n\nAntes de aprobar cualquier plan, hago una cosa: multiplico. Tu socio no lo hizo.\n\n---\n\n### El cálculo real\n\n| Paso | Número |\n|------|--------|\n| Visitas mensuales | 200.000 |\n| × 1,5% conversión a suscriptor | **3.000 suscriptores nuevos/mes** |\n| × 2% compra ",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2315,7 +2675,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_strategy__plan_aritmetica_no_cierra.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_strategy__plan_aritmetica_no_cierra.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2336,7 +2701,7 @@
       "input_tokens": 403,
       "output_tokens": 894,
       "response_preview": "## Agarra la C. Sin dudas.\n\n### El análisis real (no el de la diapositiva)\n\n| | A | B | C |\n|---|---|---|---|\n| ¿Producto listo? | No | No | **Sí** |\n| ¿Ciclo de venta? | 5-7 meses | Indefinido (0 casos) | **Días** |\n| ¿Demanda probada?| No | No | **Sí, 2 leads activos** |\n| ¿Cabe en 3 meses?| No | ",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2347,7 +2712,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_strategy__elegir_negocio_con_dependencia_oculta.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_strategy__elegir_negocio_con_dependencia_oculta.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2379,7 +2749,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_strategy__disenar_experimento_para_matar_la_idea.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_strategy__disenar_experimento_para_matar_la_idea.md",
+      "content_score": 8.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2400,7 +2775,7 @@
       "input_tokens": 181,
       "output_tokens": 1049,
       "response_preview": "## El problema central que no estás viendo\n\nAntes de hablar de dinero, hay que hablar de lo que genera el dinero.\n\n**Tu activo real no es el contenido. Es el posicionamiento en Google.**\n\nY ese posicionamiento depende de señales que un muro de pago destruye directamente.\n\n---\n\n## Por qué el muro de ",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2411,7 +2786,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_strategy__monetizar_sin_matar_el_activo.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__business_strategy__monetizar_sin_matar_el_activo.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2432,7 +2812,7 @@
       "input_tokens": 181,
       "output_tokens": 742,
       "response_preview": "# Por qué tu pyme debería automatizar con IA (antes de que lo haga tu competencia)\n\nLlevas semanas respondiendo los mismos correos, actualizando hojas de cálculo a mano y recordando manualmente a clientes que tienen una factura pendiente. Mientras tanto, tu negocio necesita que estés vendiendo, no a",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -2443,7 +2823,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2464,7 +2849,7 @@
       "input_tokens": 199,
       "output_tokens": 359,
       "response_preview": "# Post de LinkedIn\n\n---\n\nEmpezó con un grupo de WhatsApp.\n\nAmigos, conocidos, gente que me había escrito alguna vez preguntando cómo arrancar un negocio. Mensajes de voz a las 11 de la noche. Capturas de pantalla de ideas a medio terminar. Nadie sabía muy bien qué era aquello.\n\nHoy es otra cosa.\n\nHa",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2475,7 +2860,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2496,7 +2886,7 @@
       "input_tokens": 165,
       "output_tokens": 362,
       "response_preview": "Aquí está el problema: **no puedo escribir ese párrafo de apertura todavía**, al menos no de forma responsable.\n\nLas dos fuentes que me pasó tu asistente se **contradicen directamente**: 34% versus 11% sobre el mismo universo (pymes de LATAM) y en fechas casi idénticas. Usar cualquiera de las dos si",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2507,7 +2897,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2528,7 +2923,7 @@
       "input_tokens": 124,
       "output_tokens": 430,
       "response_preview": "# El éxito que miente\n\nTu workflow terminó. Verde. Sin errores. Y el dato nunca llegó a destino.\n\nBienvenido al problema más silencioso de n8n.\n\n---\n\n**Por qué pasa**\n\nEl nodo HTTP Request recibió un 200. El nodo de Slack respondió `ok: true`. N8n marcó la ejecución como exitosa porque, técnicamente",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2539,7 +2934,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:29+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2560,7 +2960,7 @@
       "input_tokens": 221,
       "output_tokens": 283,
       "response_preview": "# Automatiza tu cobranza con IA\n\nLa mayoría de los equipos de cobranza siguen trabajando igual que hace diez años: llamadas manuales, hojas de Excel, seguimientos que se pierden entre conversaciones de WhatsApp.\n\nHay otra forma.\n\nA partir del **3 de agosto** abro un curso de 4 sesiones en vivo donde",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2571,7 +2971,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_171111_5407",
-      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_171111_5407/claude-sonnet-4.6__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:29+00:00",
+      "scoring": "verificable"
     }
   ]
 }

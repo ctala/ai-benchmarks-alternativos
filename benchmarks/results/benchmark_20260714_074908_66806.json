@@ -10,7 +10,12 @@
       "evaluations": 7,
       "estimated_cost_usd": 0.009
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:19+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 199,
       "output_tokens": 380,
       "response_preview": "\n\n**Asunto:** Curioso sobre tu estrategia de contenido sin contratar...  \n\nHola Maria,  \n\nVi tu post sobre escalar content marketing sin contratar y me intrigó. Como líder en marketing en FintechCo, seguro enfrentas desafíos para mantener calidad y volumen sin sobrecargar recursos.  \n\nOfrezco una he",
-      "auto_quality": 7.73,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_074908_66806",
-      "response_file": "results/responses/20260714_074908_66806/or-nemotron-nano-9b-v2__sales_outreach__cold_email_personalized.md"
+      "response_file": "results/responses/20260714_074908_66806/or-nemotron-nano-9b-v2__sales_outreach__cold_email_personalized.md",
+      "content_score": 7.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:16+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 3.33,
@@ -64,7 +74,7 @@
       "input_tokens": 260,
       "output_tokens": 1277,
       "response_preview": "```json\n[\n  {\n    \"score\": 6,\n    \"bant\": {\n      \"budget\": \"No\",\n      \"authority\": \"Sí\",\n      \"need\": \"Sí\",\n      \"timeline\": \"No\"\n    },\n    \"action\": \"Seguimiento para dialogar sobre presupuesto y plazo\",\n    \"reason\": \"Es CEO (autoridad) y menciona necesidad de automatización, pero no hay info",
-      "auto_quality": 5.2,
+      "auto_quality": 3.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_074908_66806",
-      "response_file": "results/responses/20260714_074908_66806/or-nemotron-nano-9b-v2__sales_outreach__lead_qualification.md"
+      "response_file": "results/responses/20260714_074908_66806/or-nemotron-nano-9b-v2__sales_outreach__lead_qualification.md",
+      "content_score": 8.0,
+      "answer_score": 3.33,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:17+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -96,7 +111,7 @@
       "input_tokens": 312,
       "output_tokens": 2220,
       "response_preview": "\n\n### **1. Cálculo de métricas clave por campaña:**\n\n#### **Campaña A (Landing principal):**\n- **CTR (Click-Through Rate):**  \n  (1,500 clics / 50,000 impresiones) × 100 = **3%**.  \n- **CPC (Costo por clic):**  \n  $2,100 / 1,500 clics = **$1.40 por clic**.  \n- **CPA (Costo por adquisición):**  \n  $2",
-      "auto_quality": 7.34,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_074908_66806",
-      "response_file": "results/responses/20260714_074908_66806/or-nemotron-nano-9b-v2__sales_outreach__campaign_optimization.md"
+      "response_file": "results/responses/20260714_074908_66806/or-nemotron-nano-9b-v2__sales_outreach__campaign_optimization.md",
+      "content_score": 9.34,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -128,7 +148,7 @@
       "input_tokens": 181,
       "output_tokens": 263,
       "response_preview": "**Subject:** Vi tu post sobre escalar content sin contratar\n\n---\n\nMaria,\n\nVi tu post sobre escalar content marketing sin contratar - es un dolor de cabeza real para startups en etapa de crecimiento.\n\nCon 50 personas y Serie A, sé que el equipo de marketing está en modo \"hacer más con menos\". \n\nConst",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_074908_66806",
-      "response_file": "results/responses/20260714_074908_66806/or-minimax-m2.5__sales_outreach__cold_email_personalized.md"
+      "response_file": "results/responses/20260714_074908_66806/or-minimax-m2.5__sales_outreach__cold_email_personalized.md",
+      "content_score": 6.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +185,7 @@
       "input_tokens": 247,
       "output_tokens": 706,
       "response_preview": "```json\n[\n  {\n    \"lead\": \"Juan Perez, CEO startup 5 personas\",\n    \"score\": 5,\n    \"bant\": {\n      \"budget\": \"No mentioned - startup pequeña probablemente budget limitado\",\n      \"authority\": \"SI - CEO, decision maker\",\n      \"need\": \"SI - buscando automatizar soporte\",\n      \"timeline\": \"No mentio",
-      "auto_quality": 9.2,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_074908_66806",
-      "response_file": "results/responses/20260714_074908_66806/or-minimax-m2.5__sales_outreach__lead_qualification.md"
+      "response_file": "results/responses/20260714_074908_66806/or-minimax-m2.5__sales_outreach__lead_qualification.md",
+      "content_score": 8.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -192,7 +222,7 @@
       "input_tokens": 291,
       "output_tokens": 2048,
       "response_preview": "# Análisis Completo de Campañas Google Ads\n\n## 1. Métricas Calculadas\n\n| Métrica | Campaña A | Campaña B | Campaña C |\n|---------|-----------|-----------|-----------|\n| **CTR** | 1,500 / 50,000 = **3.0%** | 4,800 / 120,000 = **4.0%** | 900 / 15,000 = **6.0%** |\n| **CPC** | $2,100 / 1,500 = **$1.40**",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,7 +233,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_074908_66806",
-      "response_file": "results/responses/20260714_074908_66806/or-minimax-m2.5__sales_outreach__campaign_optimization.md"
+      "response_file": "results/responses/20260714_074908_66806/or-minimax-m2.5__sales_outreach__campaign_optimization.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:19+00:00",
+      "scoring": "verificable"
     }
   ]
 }

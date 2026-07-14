@@ -10,7 +10,12 @@
       "evaluations": 21,
       "estimated_cost_usd": 0.0341
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:11:05+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 232,
       "output_tokens": 665,
       "response_preview": "**Conclusión:** *No se puede saber con certeza si la secuencia de emails funcionó* basándonos únicamente en estos datos.\n\n### Razones:\n1. **Efectos mezclados**: Hay tres cambios simultáneos en marzo (emails, publicidad y mención en video), por lo que no es posible aislar el impacto de los emails.\n2.",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__atribucion_correlacion_temporal.md"
+      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__atribucion_correlacion_temporal.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:02+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -64,7 +74,7 @@
       "input_tokens": 225,
       "output_tokens": 547,
       "response_preview": "Antes de darte una opinión, **vamos a verificar que los números cierren correctamente**.\n\n### **Cálculo del margen bruto real:**\n- **Ingresos totales:** $12,400\n- **Costos totales:** $7,400\n- **Margen bruto = (Ingresos - Costos) / Ingresos**\n  = ($12,400 - $7,400) / $12,400\n  = **$5,000 / $12,400 ≈ ",
-      "auto_quality": 2.14,
+      "auto_quality": 0.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__auditoria_pnl_error_plantado.md"
+      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__auditoria_pnl_error_plantado.md",
+      "content_score": 5.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:02+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -96,7 +111,7 @@
       "input_tokens": 180,
       "output_tokens": 1567,
       "response_preview": "**Respuesta estructurada para analizar la situación y actuar:**\n\n---\n\n### **1. Diagnóstico: ¿Qué está midiendo realmente el churn del 31%?**\nEl **31% de churn** se calcula como:\n`(62 bajas / 200 usuarios al inicio) × 100 = 31%`.\nPero **este número es engañoso** porque:\n- **El 89% de tus usuarios son",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -107,7 +122,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__churn_mezcla_free_y_pago.md"
+      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__churn_mezcla_free_y_pago.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:02+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -128,7 +148,7 @@
       "input_tokens": 136,
       "output_tokens": 1586,
       "response_preview": "Vamos a desglosar la métrica de **Retención de Ingresos (Revenue Retention)** con precisión, porque tu interpretación inicial —aunque intuitiva— puede llevar a conclusiones peligrosas.\n\n---\n\n### **1. ¿Qué significa realmente \"Retención de Ingresos: 114%\"?**\nLa **Retención de Ingresos** (o *Net Reven",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__retention_sobre_100_interpretacion.md"
+      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__retention_sobre_100_interpretacion.md",
+      "content_score": 6.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:02+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +185,7 @@
       "input_tokens": 255,
       "output_tokens": 1291,
       "response_preview": "Dada tu capacidad real (4h/día, 8 semanas = **~160 horas** hasta el cierre del trimestre), aquí está el orden priorizado, basado en **impacto inmediato, esfuerzo y dependencias**:\n\n---\n\n### **1. B) Arreglar el flujo de alta (1 semana, ~20h)**\n**Por qué:**\n- **Impacto alto y directo**: Pierdes el 60%",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__roadmap_restriccion_capacidad.md"
+      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__roadmap_restriccion_capacidad.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:02+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -203,7 +233,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__teardown_competidor_sin_inventar.md"
+      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__teardown_competidor_sin_inventar.md",
+      "content_score": 6.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:02+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -224,7 +259,7 @@
       "input_tokens": 171,
       "output_tokens": 2048,
       "response_preview": "**Crítica brutal pero útil:**\n\n### **1. El título es genérico y no dice NADA.**\n**Problema:** \"Transforma tu negocio con el poder de la IA\" es un eslogan vacío que usan 10,000 cursos más. No hay urgencia, no hay diferenciación, no hay dolor específico que resuelvas. Suena a *otro* producto de IA más",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -235,7 +270,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__roast_oferta_sin_cliches.md"
+      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__roast_oferta_sin_cliches.md",
+      "content_score": 6.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:02+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -256,7 +296,7 @@
       "input_tokens": 175,
       "output_tokens": 1030,
       "response_preview": "**Respuesta corta:** **No está validado. No renuncies.**\n\n**Análisis frío (sin piedad):**\n\n1. **Encuestas ≠ Validación real**\n   - El 85% dice que el problema les duele → **Dolor declarado, no confirmado.**\n   - El 72% dice que pagaría $30/mes → **Palabras vacías.** La gente miente en encuestas (esp",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__validacion_idea_intencion_vs_compra.md"
+      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__validacion_idea_intencion_vs_compra.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:03+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -288,7 +333,7 @@
       "input_tokens": 212,
       "output_tokens": 1029,
       "response_preview": "Vamos a recalcular los números con precisión para evitar sorpresas. Aquí está el análisis detallado:\n\n### 1. **Lifetime Value (LTV) corregido**\nTu cálculo asume que el cliente se queda **exactamente 24 meses**, pero el churn mensual del 8% implica una **vida media real** más corta. La fórmula correc",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -299,7 +344,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__escalar_con_ltv_mal_calculado.md"
+      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__escalar_con_ltv_mal_calculado.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:03+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -320,7 +370,7 @@
       "input_tokens": 101,
       "output_tokens": 27,
       "response_preview": "No. (Falta evidencia: elasticidad de demanda, disposición a pagar, costos, valor percibido, etc.).",
-      "auto_quality": 1.7,
+      "auto_quality": 2.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +381,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__decision_precio_datos_insuficientes.md"
+      "response_file": "results/responses/20260714_054815_2876/or-mistral-large-3__business_audit__decision_precio_datos_insuficientes.md",
+      "content_score": 1.26,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:03+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -352,7 +407,7 @@
       "input_tokens": 245,
       "output_tokens": 1935,
       "response_preview": "**Conclusión directa:** No se puede saber con los datos proporcionados.\n\nAfirmar que la secuencia de emails fue la causa del crecimiento sería un error de atribución. Los datos muestran una **correlación** (los emails se lanzaron y las ventas subieron), pero no prueban **causalidad**.\n\n**Por qué no ",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -363,7 +418,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__atribucion_correlacion_temporal.md"
+      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__atribucion_correlacion_temporal.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:03+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -384,7 +444,7 @@
       "input_tokens": 223,
       "output_tokens": 2773,
       "response_preview": "**Los números no cierran.**\n\nComo controller, mi primera obligación es señalar la discrepancia antes de evaluar la decisión operativa. Hay un error crítico en la suma de tus costos.\n\n### 1. Auditoría de los Costos\nSi sumamos los ítems individuales que listaste bajo \"COSTOS\":\n*   Infraestructura: $1.",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -395,7 +455,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__auditoria_pnl_error_plantado.md"
+      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__auditoria_pnl_error_plantado.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:03+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -416,7 +481,7 @@
       "input_tokens": 189,
       "output_tokens": 2694,
       "response_preview": "Respira hondo. **No estás en peligro inmediato de muerte empresarial.**\n\nComo analista de retención, mi primera regla es: **\"Antes de interpretar una métrica, verifica qué población está midiendo realmente\"**.\n\nTu panel tiene un error de definición crítico, no un error de negocio catastrófico. Estás",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -427,7 +492,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__churn_mezcla_free_y_pago.md"
+      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__churn_mezcla_free_y_pago.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:03+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -448,7 +518,7 @@
       "input_tokens": 143,
       "output_tokens": 2048,
       "response_preview": "No, **no es correcto**. De hecho, esa conclusión es peligrosa para la salud a largo plazo de tu SaaS.\n\nAquí está el análisis frío de lo que realmente dicen tus números:\n\n### 1. Confundes Retención de Ingresos (NRR) con Retención de Clientes (Logo Retention)\nEl 114% es tu **Net Revenue Retention (NRR",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -459,7 +529,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__retention_sobre_100_interpretacion.md"
+      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__retention_sobre_100_interpretacion.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:03+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -480,7 +555,7 @@
       "input_tokens": 255,
       "output_tokens": 2048,
       "response_preview": "Here's a thinking process that leads to the suggested prioritization:\n\n1.  **Analyze the User and Context:**\n    *   **Role:** Solo Founder (acting as Head of Product).\n    *   **Constraint:** Realistic capacity, not ideal.\n    *   **Available Time:** 6 hours/day focused work.\n    *   **Non-delegabl",
-      "auto_quality": 7.74,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -491,7 +566,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__roadmap_restriccion_capacidad.md"
+      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__roadmap_restriccion_capacidad.md",
+      "content_score": 4.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:05+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -512,7 +592,7 @@
       "input_tokens": 193,
       "output_tokens": 3276,
       "response_preview": "# Teardown Competitivo: Comunidad de Automatización\n\nComo analista, mi deber es separar los datos duros de las estimaciones. A continuación, presento el análisis desglosado por categorías, marcando explícitamente qué es un hecho observable y qué es una proyección basada en benchmarks de la industria",
-      "auto_quality": 3.6,
+      "auto_quality": 2.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -523,7 +603,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__teardown_competidor_sin_inventar.md"
+      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__teardown_competidor_sin_inventar.md",
+      "content_score": 6.0,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:05+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -544,7 +629,7 @@
       "input_tokens": 176,
       "output_tokens": 2048,
       "response_preview": "Esto no es una oferta, es ruido. Suena exactamente igual a las 500 comunidades de IA que lanzaron la semana pasada. Si lanzas esto, vas a quemar dinero en ads y tu tasa de rebote va a ser del 90%. Nadie se despierta queriendo \"transformar su negocio con IA\". Quieren vender más, ahorrar tiempo o deja",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -555,7 +640,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__roast_oferta_sin_cliches.md"
+      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__roast_oferta_sin_cliches.md",
+      "content_score": 5.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:05+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -576,7 +666,7 @@
       "input_tokens": 187,
       "output_tokens": 2207,
       "response_preview": "**NO. No está validado. Y NO, no renuncies.**\n\nSi vinieras a mí pidiendo una cheque para invertir con estos datos, te cerraría la puerta en la cara. Y si renuncias a tu trabajo basándote en esto, estás cavando tu propia tumba financiera.\n\nTe voy a explicar por qué, con la crudeza con la que te habla",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -587,7 +677,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__validacion_idea_intencion_vs_compra.md"
+      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__validacion_idea_intencion_vs_compra.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:05+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -608,7 +703,7 @@
       "input_tokens": 217,
       "output_tokens": 2721,
       "response_preview": "**Alto. No gastes ese dólar.**\n\nSi lanzas esa campaña con estos números, no estás escalando un negocio, estás financiando una máquina de quemar caja. Tu aritmética tiene tres errores fatales que convierten un supuesto 2.9x en un **1.05x real**.\n\nAquí está la autopsia de tus números:\n\n### 1. El error",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -619,7 +714,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__escalar_con_ltv_mal_calculado.md"
+      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__escalar_con_ltv_mal_calculado.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:05+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -640,7 +740,7 @@
       "input_tokens": 111,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Role: Pricing Analyst.\n    *   Constraint 1: Do not give a price recommendation without evidence supporting it. If data is missing, ask for it.\n    *   Constraint 2: Answer with a single word (\"Sí\" or \"No\" or similar) if possible, no essay.\n   ",
-      "auto_quality": 3.34,
+      "auto_quality": 2.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -651,7 +751,12 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_054815_2876",
-      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__decision_precio_datos_insuficientes.md"
+      "response_file": "results/responses/20260714_054815_2876/or-qwen3.5-397b__business_audit__decision_precio_datos_insuficientes.md",
+      "content_score": 5.34,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:05+00:00",
+      "scoring": "verificable"
     }
   ]
 }

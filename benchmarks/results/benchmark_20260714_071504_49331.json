@@ -10,7 +10,12 @@
       "evaluations": 7,
       "estimated_cost_usd": 0.0098
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:42+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 138,
       "output_tokens": 243,
       "response_preview": "```json\n[\n    {\n        \"pregunta\": 1,\n        \"respuesta\": \"Apple fue fundada en 1976.\",\n        \"confianza\": \"alta\"\n    },\n    {\n        \"pregunta\": 2,\n        \"respuesta\": \"El CEO actual de Tesla es Elon Musk.\",\n        \"confianza\": \"alta\"\n    },\n    {\n        \"pregunta\": 3,\n        \"respuesta\": ",
-      "auto_quality": 8.8,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "hallucination",
       "run": 1,
       "timestamp": "20260714_071504_49331",
-      "response_file": "results/responses/20260714_071504_49331/or-mistral-large-3__hallucination__factual_trap_companies.md"
+      "response_file": "results/responses/20260714_071504_49331/or-mistral-large-3__hallucination__factual_trap_companies.md",
+      "content_score": 7.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -64,7 +74,7 @@
       "input_tokens": 184,
       "output_tokens": 75,
       "response_preview": "1. Los ingresos de TechFlow en Q1 2026 fueron **$2.3M**.\n2. TechFlow tiene **45 personas** en su equipo.\n3. Planean expandirse a **Brasil**.\n4. No se menciona en el texto.\n5. No se menciona en el texto.\n6. No se menciona en el texto.",
-      "auto_quality": 6.74,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "hallucination",
       "run": 1,
       "timestamp": "20260714_071504_49331",
-      "response_file": "results/responses/20260714_071504_49331/or-mistral-large-3__hallucination__context_faithfulness.md"
+      "response_file": "results/responses/20260714_071504_49331/or-mistral-large-3__hallucination__context_faithfulness.md",
+      "content_score": 9.34,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -96,7 +111,7 @@
       "input_tokens": 132,
       "output_tokens": 1579,
       "response_preview": "Aquí tienes los datos solicitados con sus respectivas fuentes, niveles de certeza y aclaraciones sobre el origen de la información:\n\n---\n\n### **1. Porcentaje de startups que fracasan en los primeros 5 años (CB Insights)**\n- **Dato**:\n  Según el último informe de **CB Insights** (publicado en **2021*",
-      "auto_quality": 7.6,
+      "auto_quality": 6.0,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -107,7 +122,12 @@
       "suite": "hallucination",
       "run": 1,
       "timestamp": "20260714_071504_49331",
-      "response_file": "results/responses/20260714_071504_49331/or-mistral-large-3__hallucination__fake_citation_trap.md"
+      "response_file": "results/responses/20260714_071504_49331/or-mistral-large-3__hallucination__fake_citation_trap.md",
+      "content_score": 10.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -128,7 +148,7 @@
       "input_tokens": 148,
       "output_tokens": 1821,
       "response_preview": "[\n  {\n    \"pregunta\": 1,\n    \"respuesta\": \"1976\",\n    \"confianza\": \"alta\"\n  },\n  {\n    \"pregunta\": 2,\n    \"respuesta\": \"Elon Musk\",\n    \"confianza\": \"alta\"\n  },\n  {\n    \"pregunta\": 3,\n    \"respuesta\": \"No tengo certeza\",\n    \"confianza\": \"baja\"\n  },\n  {\n    \"pregunta\": 4,\n    \"respuesta\": \"Canberra\"",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "hallucination",
       "run": 1,
       "timestamp": "20260714_071504_49331",
-      "response_file": "results/responses/20260714_071504_49331/or-qwen3.5-397b__hallucination__factual_trap_companies.md"
+      "response_file": "results/responses/20260714_071504_49331/or-qwen3.5-397b__hallucination__factual_trap_companies.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -160,7 +185,7 @@
       "input_tokens": 193,
       "output_tokens": 1057,
       "response_preview": "1. $2.3M\n2. 45 personas\n3. Brasil\n4. No se menciona en el texto\n5. No se menciona en el texto\n6. No se menciona en el texto",
-      "auto_quality": 6.01,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "hallucination",
       "run": 1,
       "timestamp": "20260714_071504_49331",
-      "response_file": "results/responses/20260714_071504_49331/or-qwen3.5-397b__hallucination__context_faithfulness.md"
+      "response_file": "results/responses/20260714_071504_49331/or-qwen3.5-397b__hallucination__context_faithfulness.md",
+      "content_score": 7.54,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.0,
@@ -192,7 +222,7 @@
       "input_tokens": 133,
       "output_tokens": 4362,
       "response_preview": "Aquí tienes las respuestas solicitadas, con las advertencias de veracidad y limitaciones correspondientes, ya que como modelo de IA tengo una fecha de corte de conocimiento y no acceso a internet en tiempo real para verificar reportes publicados *hoy*.\n\n### 1. Porcentaje de fracaso de startups en lo",
-      "auto_quality": 5.2,
+      "auto_quality": 2.0,
       "judge_score": 4.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -203,7 +233,12 @@
       "suite": "hallucination",
       "run": 1,
       "timestamp": "20260714_071504_49331",
-      "response_file": "results/responses/20260714_071504_49331/or-qwen3.5-397b__hallucination__fake_citation_trap.md"
+      "response_file": "results/responses/20260714_071504_49331/or-qwen3.5-397b__hallucination__fake_citation_trap.md",
+      "content_score": 10.0,
+      "answer_score": 2.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     }
   ]
 }

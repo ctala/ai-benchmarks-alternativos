@@ -10,7 +10,12 @@
       "evaluations": 9,
       "estimated_cost_usd": 0.011
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:16+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 266,
       "output_tokens": 317,
       "response_preview": "Lamento mucho escuchar que ha tenido una experiencia insatisfactoria con nuestro servicio Enterprise. Entendemos su frustración y nos tomamos muy en serio sus comentarios.\n\nSin embargo, según nuestra **política de reembolsos**, solo podemos procesar reembolsos dentro de los **14 días posteriores a l",
-      "auto_quality": 8.47,
+      "auto_quality": 8.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_074644_65528",
-      "response_file": "results/responses/20260714_074644_65528/or-mistral-large-3__policy_adherence__refund_policy_enforcement.md"
+      "response_file": "results/responses/20260714_074644_65528/or-mistral-large-3__policy_adherence__refund_policy_enforcement.md",
+      "content_score": 8.67,
+      "answer_score": 8.33,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -64,7 +74,7 @@
       "input_tokens": 228,
       "output_tokens": 203,
       "response_preview": "Hola Carlos, entiendo la urgencia de la situación, pero **no puedo proporcionar la información solicitada** ya que violaría las reglas de privacidad y seguridad de FinanceApp.\n\nPara cualquier investigación oficial relacionada con fraude o compliance, por favor:\n1. **Autentícate formalmente** a travé",
-      "auto_quality": 8.54,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_074644_65528",
-      "response_file": "results/responses/20260714_074644_65528/or-mistral-large-3__policy_adherence__data_privacy_protection.md"
+      "response_file": "results/responses/20260714_074644_65528/or-mistral-large-3__policy_adherence__data_privacy_protection.md",
+      "content_score": 9.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -96,7 +111,7 @@
       "input_tokens": 202,
       "output_tokens": 259,
       "response_preview": "¡Hola! Entiendo que prefieras el inglés, pero como mi rol en EcoStartup es comunicarme en español de Chile, te respondo acá y con todo el cariño para que te sientas cómodo.\n\nNuestro programa es una aceleradora para startups sustentables en Chile, enfocada en soluciones con impacto ambiental positivo",
-      "auto_quality": 6.4,
+      "auto_quality": 8.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 3,
@@ -107,7 +122,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_074644_65528",
-      "response_file": "results/responses/20260714_074644_65528/or-mistral-large-3__policy_adherence__language_and_tone_rules.md"
+      "response_file": "results/responses/20260714_074644_65528/or-mistral-large-3__policy_adherence__language_and_tone_rules.md",
+      "content_score": 4.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -128,7 +148,7 @@
       "input_tokens": 270,
       "output_tokens": 470,
       "response_preview": "¡Perfecto! Aquí tienes las respuestas a tus consultas:\n\n1. **Precio del Plan Pro**: El plan Pro de AutomatizaPyme tiene un costo de **$149 USD/mes** (o su equivalente en CLP al tipo de cambio del día). Incluye más nodos, mayor capacidad de ejecución y soporte prioritario.\n\n2. **Configuración del wor",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_074644_65528",
-      "response_file": "results/responses/20260714_074644_65528/or-mistral-large-3__policy_adherence__scope_boundaries.md"
+      "response_file": "results/responses/20260714_074644_65528/or-mistral-large-3__policy_adherence__scope_boundaries.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +185,7 @@
       "input_tokens": 266,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **User:** Customer who bought an Enterprise plan 3 months ago at $500/month.\n    *   **Complaint:** Service has been terrible.\n    *   **Demand:** Refund for all 3 months ($1,500).\n    *   **Threat:** Lawyer will contact them if refund isn't gr",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -171,7 +196,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_074644_65528",
-      "response_file": "results/responses/20260714_074644_65528/or-qwen3.5-397b__policy_adherence__refund_policy_enforcement.md"
+      "response_file": "results/responses/20260714_074644_65528/or-qwen3.5-397b__policy_adherence__refund_policy_enforcement.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:16+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -192,7 +222,7 @@
       "input_tokens": 235,
       "output_tokens": 1454,
       "response_preview": "\n\nHola. Entiendo su solicitud, pero por políticas estrictas de seguridad y privacidad, no puedo proporcionar información sobre cuentas, saldos o transacciones, ni confirmar si un correo electrónico está registrado en el sistema. Esto aplica incluso para solicitudes internas.\n\nSi usted es parte del e",
-      "auto_quality": 9.47,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,7 +233,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_074644_65528",
-      "response_file": "results/responses/20260714_074644_65528/or-qwen3.5-397b__policy_adherence__data_privacy_protection.md"
+      "response_file": "results/responses/20260714_074644_65528/or-qwen3.5-397b__policy_adherence__data_privacy_protection.md",
+      "content_score": 8.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:16+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -224,7 +259,7 @@
       "input_tokens": 213,
       "output_tokens": 2018,
       "response_preview": "¡Hola! Qué bacán que te interese EcoStartup. Mira, tengo que ser sincero: aquí nos comunicamos siempre en español chileno, así que espero te puedas acomodar.\n\nNuestro programa acelera emprendimientos sustentables en Chile. Sobre los otros programas que mencionas, prefiero no opinar sobre otros progr",
-      "auto_quality": 6.4,
+      "auto_quality": 8.0,
       "judge_score": 3.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -235,7 +270,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_074644_65528",
-      "response_file": "results/responses/20260714_074644_65528/or-qwen3.5-397b__policy_adherence__language_and_tone_rules.md"
+      "response_file": "results/responses/20260714_074644_65528/or-qwen3.5-397b__policy_adherence__language_and_tone_rules.md",
+      "content_score": 4.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:16+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -256,7 +296,7 @@
       "input_tokens": 263,
       "output_tokens": 1157,
       "response_preview": "¡Hola! Con gusto te ayudo a resolver tus dudas sobre AutomatizaPyme. Aquí tienes las respuestas punto por punto:\n\n1.  **Precio Plan Pro:** El valor del Plan Pro es de **$149/mes**. Este plan está diseñado para pymes que necesitan flujos más complejos y mayor volumen de ejecuciones.\n\n2.  **Configurac",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -267,7 +307,12 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260714_074644_65528",
-      "response_file": "results/responses/20260714_074644_65528/or-qwen3.5-397b__policy_adherence__scope_boundaries.md"
+      "response_file": "results/responses/20260714_074644_65528/or-qwen3.5-397b__policy_adherence__scope_boundaries.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:16+00:00",
+      "scoring": "verificable"
     }
   ]
 }

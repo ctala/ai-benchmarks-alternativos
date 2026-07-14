@@ -10,7 +10,12 @@
       "evaluations": 9,
       "estimated_cost_usd": 0.012
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:25+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 233,
       "output_tokens": 324,
       "response_preview": "# **\"¿Estás perdiendo clientes por no responder en 24 horas? La IA puede solucionarlo (sin contratar más gente)\"**\n\nImagina esto: son las **3:47 AM** y recibes una notificación en Slack. Un cliente enfadado te escribe pidiendo ayuda urgente por un error en tu producto. No es el único: en las últimas",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_065906_40961",
-      "response_file": "results/responses/20260714_065906_40961/or-ministral-14b__multi_turn__content_iteration.md"
+      "response_file": "results/responses/20260714_065906_40961/or-ministral-14b__multi_turn__content_iteration.md",
+      "content_score": 5.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -64,7 +74,7 @@
       "input_tokens": 358,
       "output_tokens": 429,
       "response_preview": "Maria, entiendo tu urgencia y frustración, y lamento mucho los inconvenientes que has tenido. Vamos a abordar esto paso a paso:\n\n1. **Verificación de tu solicitud de reembolso**:\n   Según nuestras políticas, los reembolsos solo se aplican dentro de los **30 días desde la fecha de pago**. Me gustaría",
-      "auto_quality": 8.8,
+      "auto_quality": 8.0,
       "judge_score": 2.0,
       "judge_precision": 2,
       "judge_relevancia": 1,
@@ -75,7 +85,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_065906_40961",
-      "response_file": "results/responses/20260714_065906_40961/or-ministral-14b__multi_turn__support_escalation.md"
+      "response_file": "results/responses/20260714_065906_40961/or-ministral-14b__multi_turn__support_escalation.md",
+      "content_score": 10.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:24+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -96,7 +111,7 @@
       "input_tokens": 227,
       "output_tokens": 1676,
       "response_preview": "¡Perfecto! Vamos a crear un **workflow en n8n** que:\n1. **Monitoree Gmail** (solo emails con \"propuesta\" o \"cotización\" en el asunto).\n2. **Extraiga datos** del remitente (nombre, email, asunto, cuerpo, etc.).\n3. **Guarde en Notion** (en una base de datos o tabla específica).\n4. **Envía una notifica",
-      "auto_quality": 7.6,
+      "auto_quality": 6.0,
       "judge_score": 3.0,
       "judge_precision": 3,
       "judge_relevancia": 2,
@@ -107,7 +122,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_065906_40961",
-      "response_file": "results/responses/20260714_065906_40961/or-ministral-14b__multi_turn__requirements_change.md"
+      "response_file": "results/responses/20260714_065906_40961/or-ministral-14b__multi_turn__requirements_change.md",
+      "content_score": 10.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:25+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -139,7 +159,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_065906_40961",
-      "response_file": "results/responses/20260714_065906_40961/or-ministral-14b__multi_turn__debugging_conversation.md"
+      "response_file": "results/responses/20260714_065906_40961/or-ministral-14b__multi_turn__debugging_conversation.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:25+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -160,7 +185,7 @@
       "input_tokens": 240,
       "output_tokens": 169,
       "response_preview": "**Título:** Tu equipo está ahogándose en tickets de soporte. Esto es lo que nadie te dice.\n\n**Primer párrafo:** Imagina que son las 2 PM de un miércoles. Tu equipo de desarrollo está detenido porque necesita aprobación para un cambio urgente, pero tu única persona de soporte lleva tres horas respond",
-      "auto_quality": 6.67,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_065906_40961",
-      "response_file": "results/responses/20260714_065906_40961/or-deepseek-v3__multi_turn__content_iteration.md"
+      "response_file": "results/responses/20260714_065906_40961/or-deepseek-v3__multi_turn__content_iteration.md",
+      "content_score": 4.67,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:25+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -192,7 +222,7 @@
       "input_tokens": 381,
       "output_tokens": 232,
       "response_preview": "Maria, entiendo completamente tu enojo por la situacion y te agradezco la informacion sobre los problemas intermitentes del mes.\n\nSobre el reembolso completo de los $200, debo informarte que segun nuestras politicas, los reembolsos aplican solo dentro de los primeros 30 dias desde la compra. Para re",
-      "auto_quality": 8.27,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -203,7 +233,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_065906_40961",
-      "response_file": "results/responses/20260714_065906_40961/or-deepseek-v3__multi_turn__support_escalation.md"
+      "response_file": "results/responses/20260714_065906_40961/or-deepseek-v3__multi_turn__support_escalation.md",
+      "content_score": 8.67,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:25+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 4.0,
@@ -224,7 +259,7 @@
       "input_tokens": 244,
       "output_tokens": 652,
       "response_preview": "Excelente, mejor aún. Este workflow será más completo y automatizado. Te detallo la estructura:\n\n## Workflow con 5 nodos:\n\n### **1. Trigger - Gmail Trigger**\n- Configura la conexión con Gmail\n- Se activa cada X tiempo (ej: 15 minutos)\n- Captura emails nuevos\n\n### **2. Filter - IF Node** (para filtra",
-      "auto_quality": 6.4,
+      "auto_quality": 4.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -235,7 +270,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_065906_40961",
-      "response_file": "results/responses/20260714_065906_40961/or-deepseek-v3__multi_turn__requirements_change.md"
+      "response_file": "results/responses/20260714_065906_40961/or-deepseek-v3__multi_turn__requirements_change.md",
+      "content_score": 10.0,
+      "answer_score": 4.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:25+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -267,7 +307,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_065906_40961",
-      "response_file": "results/responses/20260714_065906_40961/or-deepseek-v3__multi_turn__debugging_conversation.md"
+      "response_file": "results/responses/20260714_065906_40961/or-deepseek-v3__multi_turn__debugging_conversation.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:25+00:00",
+      "scoring": "verificable"
     }
   ]
 }

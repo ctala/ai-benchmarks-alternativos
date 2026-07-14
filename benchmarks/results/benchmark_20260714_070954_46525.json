@@ -10,7 +10,12 @@
       "evaluations": 7,
       "estimated_cost_usd": 0.0093
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:41+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 191,
       "output_tokens": 232,
       "response_preview": "**Subject:** Tu post sobre escalar *sin contratar* me hizo pensar en esto\n\n---\n**Hola María,**\n\nVi tu post sobre escalar el content marketing sin aumentar el equipo, y justo ayer hablé con [Nombre de un cliente en común, ej: *\"la Head de Marketing de Rappi\"*], que usa nuestra herramienta para **auto",
-      "auto_quality": 7.73,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_070954_46525",
-      "response_file": "results/responses/20260714_070954_46525/or-ministral-14b__sales_outreach__cold_email_personalized.md"
+      "response_file": "results/responses/20260714_070954_46525/or-ministral-14b__sales_outreach__cold_email_personalized.md",
+      "content_score": 7.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -64,7 +74,7 @@
       "input_tokens": 253,
       "output_tokens": 679,
       "response_preview": "```json\n[\n    {\n        \"score\": 5,\n        \"bant\": {\n            \"budget\": \"Desconocido (no mencionado)\",\n            \"authority\": \"Parcial (CEO, pero no confirma urgencia o compromiso)\",\n            \"need\": \"Potencial (automatizar soporte, pero no detalla dolor específico)\",\n            \"timeline\"",
-      "auto_quality": 9.47,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_070954_46525",
-      "response_file": "results/responses/20260714_070954_46525/or-ministral-14b__sales_outreach__lead_qualification.md"
+      "response_file": "results/responses/20260714_070954_46525/or-ministral-14b__sales_outreach__lead_qualification.md",
+      "content_score": 8.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -96,7 +111,7 @@
       "input_tokens": 303,
       "output_tokens": 2003,
       "response_preview": "Aquí tienes el análisis detallado de tus campañas de Google Ads, junto con recomendaciones basadas en los datos:\n\n---\n\n### **1. Métricas clave por campaña**\n*(Fórmulas: CTR = (Clicks/Impresiones)*100; CPC = Costo/Clicks; CPA = Costo/Signups; Conversion Rate = Signups/Clicks)*:\n\n| **Campaña**       |",
-      "auto_quality": 7.6,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_070954_46525",
-      "response_file": "results/responses/20260714_070954_46525/or-ministral-14b__sales_outreach__campaign_optimization.md"
+      "response_file": "results/responses/20260714_070954_46525/or-ministral-14b__sales_outreach__campaign_optimization.md",
+      "content_score": 10.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -128,7 +148,7 @@
       "input_tokens": 190,
       "output_tokens": 124,
       "response_preview": "Subject: Sobre escalar tu content marketing  \n\nMaria,  \n\nVi tu post sobre escalar content marketing sin contratar más personas. Coincide con lo que hacemos en [Nombre de tu herramienta]: automatizamos la creación y programación de contenido con IA, específicamente para startups que buscan eficiencia",
-      "auto_quality": 7.47,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_070954_46525",
-      "response_file": "results/responses/20260714_070954_46525/or-deepseek-v3__sales_outreach__cold_email_personalized.md"
+      "response_file": "results/responses/20260714_070954_46525/or-deepseek-v3__sales_outreach__cold_email_personalized.md",
+      "content_score": 6.67,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 3.33,
@@ -160,7 +185,7 @@
       "input_tokens": 261,
       "output_tokens": 422,
       "response_preview": "```json\n{\n    \"leads\": [\n        {\n            \"score\": 7,\n            \"bant\": {\n                \"budget\": \"No mencionado, pero como CEO de startup podría tener flexibilidad\",\n                \"authority\": \"Alto - CEO es decisión final\",\n                \"need\": \"Claro - busca automatizar soporte\",\n  ",
-      "auto_quality": 5.2,
+      "auto_quality": 3.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_070954_46525",
-      "response_file": "results/responses/20260714_070954_46525/or-deepseek-v3__sales_outreach__lead_qualification.md"
+      "response_file": "results/responses/20260714_070954_46525/or-deepseek-v3__sales_outreach__lead_qualification.md",
+      "content_score": 8.0,
+      "answer_score": 3.33,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -192,7 +222,7 @@
       "input_tokens": 272,
       "output_tokens": 1277,
       "response_preview": "Vamos a analizar paso a paso.  \n\n## **1. Calcula CTR, CPC, CPA, y conversion rate de cada campaña**  \n\n**Fórmulas:**  \n- CTR = Clicks / Impresiones  \n- CPC = Costo / Clicks  \n- CPA = Costo / Signups  \n- Conversion Rate = Signups / Clicks  \n\n---\n\n### **Campaña A (Landing principal)**  \n- CTR = 1500 /",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,7 +233,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_070954_46525",
-      "response_file": "results/responses/20260714_070954_46525/or-deepseek-v3__sales_outreach__campaign_optimization.md"
+      "response_file": "results/responses/20260714_070954_46525/or-deepseek-v3__sales_outreach__campaign_optimization.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:41+00:00",
+      "scoring": "verificable"
     }
   ]
 }

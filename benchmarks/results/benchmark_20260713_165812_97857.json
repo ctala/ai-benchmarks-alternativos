@@ -10,7 +10,12 @@
       "evaluations": 16,
       "estimated_cost_usd": 0.0198
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:08:52+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 149,
       "output_tokens": 377,
       "response_preview": "Título: ¿Por qué las Pymes deberían automatizar con Inteligencia Artificial?\n\nIntroducción:\nEn el mundo actual, la automatización y la Inteligencia Artificial (IA) se han convertido en herramientas esenciales para el crecimiento y éxito de las pequeñas y medianas empresas (pymes). La automatización ",
-      "auto_quality": 1.6,
+      "auto_quality": 0.0,
       "judge_score": 4.0,
       "judge_precision": 3,
       "judge_relevancia": 4,
@@ -43,7 +48,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_165812_97857",
-      "response_file": "results/responses/20260713_165812_97857/mistral-nemo__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_165812_97857/mistral-nemo__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 4.0,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:08:51+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -96,7 +106,7 @@
       "input_tokens": 146,
       "output_tokens": 177,
       "response_preview": "La adopción de inteligencia artificial (IA) en América Latina y el Caribe (LATAM) está experimentando un crecimiento meteórico, con más de un tercio de las pequeñas y medianas empresas (pymes) de la región ya utilizando herramientas de IA generativa, según una encuesta regional publicada en marzo de",
-      "auto_quality": 3.6,
+      "auto_quality": 3.33,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -107,7 +117,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_165812_97857",
-      "response_file": "results/responses/20260713_165812_97857/mistral-nemo__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_165812_97857/mistral-nemo__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.0,
+      "answer_score": 3.33,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:08:52+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -128,7 +143,7 @@
       "input_tokens": 105,
       "output_tokens": 469,
       "response_preview": "¿Has estado trabajando en un flujo de trabajo en n8n y, de repente, recibes una notificación de 'success', pero nada parece haber cambiado? Esto puede ser frustrante, especialmente si no entiendes por qué esto ocurre.En este artículo, exploraremos por qué un flujo de trabajo puede devolver 'success'",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -139,7 +154,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_165812_97857",
-      "response_file": "results/responses/20260713_165812_97857/mistral-nemo__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_165812_97857/mistral-nemo__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:08:52+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -192,7 +212,7 @@
       "input_tokens": 295,
       "output_tokens": 3123,
       "response_preview": "# Pymes: deja de hacer tareas y empieza a vender (la IA te puede ayudar)\n\nTu negocio funciona, pero tu agenda te atrapa. Respondiendo correos repetitivos, moviendo datos entre hojas de cálculo, enviando facturas, persiguiendo leads fríos. Lo sabes. Por eso sigues leyendo sobre automatización.\n\nLo qu",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -203,7 +223,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_165812_97857",
-      "response_file": "results/responses/20260713_165812_97857/minimax-m3__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_165812_97857/minimax-m3__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:08:52+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -256,7 +281,7 @@
       "input_tokens": 287,
       "output_tokens": 3948,
       "response_preview": "**Apertura propuesta (~120 palabras):**\n\n---\n\nUna de cada tres pymes latinoamericanas ya usa alguna herramienta de inteligencia artificial generativa. Esa es la lectura optimista que arrojó la encuesta regional publicada en marzo: un contundente 34% de adopción, suficiente para meter a LATAM en la c",
-      "auto_quality": 5.87,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +292,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_165812_97857",
-      "response_file": "results/responses/20260713_165812_97857/minimax-m3__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_165812_97857/minimax-m3__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:08:52+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -288,7 +318,7 @@
       "input_tokens": 260,
       "output_tokens": 4717,
       "response_preview": "Esa sensación de ver \"Success: true\" en los logs y descubrir horas después que el workflow no hizo nada. Bienvenido al club.\n\nEn n8n, \"success\" solo significa que el último nodo no lanzó una excepción. Y eso abre varios huecos:\n\n**Ramas silenciosas.** Tu IF tiene dos ramas y la \"false\" no va a ningú",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -299,7 +329,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_165812_97857",
-      "response_file": "results/responses/20260713_165812_97857/minimax-m3__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_165812_97857/minimax-m3__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:08:52+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -352,7 +387,7 @@
       "input_tokens": 143,
       "output_tokens": 738,
       "response_preview": "# Por qué las pymes deberían automatizar con IA\n\nLa inteligencia artificial ya no es una tecnología reservada a las grandes corporaciones. Para muchas pequeñas y medianas empresas, puede convertirse en una herramienta práctica para ahorrar tiempo, reducir errores y atender mejor a los clientes. La c",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -363,7 +398,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_165812_97857",
-      "response_file": "results/responses/20260713_165812_97857/gpt-5.6-luna__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_165812_97857/gpt-5.6-luna__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:08:52+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -416,7 +456,7 @@
       "input_tokens": 134,
       "output_tokens": 235,
       "response_preview": "La adopción de inteligencia artificial generativa en las pymes latinoamericanas podría estar entre una de cada diez y una de cada tres empresas, según qué estudio se consulte. Una encuesta regional realizada en marzo de 2026 sitúa la penetración en el 34%, mientras que un informe sectorial publicado",
-      "auto_quality": 5.6,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -427,7 +467,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_165812_97857",
-      "response_file": "results/responses/20260713_165812_97857/gpt-5.6-luna__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_165812_97857/gpt-5.6-luna__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:08:52+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -448,7 +493,7 @@
       "input_tokens": 101,
       "output_tokens": 696,
       "response_preview": "## Cuando n8n dice `success` y no ocurrió nada\n\nEn n8n, `success` significa principalmente: *la ejecución terminó sin una excepción no controlada*. No significa que se haya procesado un item, enviado un correo ni actualizado una fila.\n\nLos falsos positivos más comunes:\n\n- Un `IF` envía todos los ite",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -459,7 +504,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_165812_97857",
-      "response_file": "results/responses/20260713_165812_97857/gpt-5.6-luna__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_165812_97857/gpt-5.6-luna__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:08:52+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,

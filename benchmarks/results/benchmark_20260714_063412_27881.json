@@ -43,7 +43,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260714_063412_27881",
-      "response_file": "results/responses/20260714_063412_27881/or-glm5__reasoning__business_analysis.md"
+      "response_file": "results/responses/20260714_063412_27881/or-glm5__reasoning__business_analysis.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -75,7 +76,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260714_063412_27881",
-      "response_file": "results/responses/20260714_063412_27881/or-glm5__reasoning__logical_reasoning.md"
+      "response_file": "results/responses/20260714_063412_27881/or-glm5__reasoning__logical_reasoning.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -107,7 +109,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260714_063412_27881",
-      "response_file": "results/responses/20260714_063412_27881/or-glm5__reasoning__multi_constraint_decision.md"
+      "response_file": "results/responses/20260714_063412_27881/or-glm5__reasoning__multi_constraint_decision.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.16,
@@ -139,7 +142,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260714_063412_27881",
-      "response_file": "results/responses/20260714_063412_27881/or-qwen-2.5-72b__reasoning__business_analysis.md"
+      "response_file": "results/responses/20260714_063412_27881/or-qwen-2.5-72b__reasoning__business_analysis.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.24,
@@ -171,7 +175,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260714_063412_27881",
-      "response_file": "results/responses/20260714_063412_27881/or-qwen-2.5-72b__reasoning__logical_reasoning.md"
+      "response_file": "results/responses/20260714_063412_27881/or-qwen-2.5-72b__reasoning__logical_reasoning.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -203,7 +208,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260714_063412_27881",
-      "response_file": "results/responses/20260714_063412_27881/or-qwen-2.5-72b__reasoning__multi_constraint_decision.md"
+      "response_file": "results/responses/20260714_063412_27881/or-qwen-2.5-72b__reasoning__multi_constraint_decision.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     }
   ]
 }

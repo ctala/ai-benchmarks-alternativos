@@ -10,7 +10,12 @@
       "evaluations": 161,
       "estimated_cost_usd": 0.208
     },
-    "partial": true
+    "partial": true,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:09:40+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 151,
       "output_tokens": 599,
       "response_preview": "**Por qué las pymes deberían automatizar con IA: Libera tiempo y escala tu negocio**  \n\nEn un mundo donde el tiempo es el recurso más valioso, las pymes están encontrando en la automatización con inteligencia artificial (IA) una poderosa aliada para crecer. Más allá de ser una tendencia tecnológica,",
-      "auto_quality": 2.14,
+      "auto_quality": 0.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-v3__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-v3__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -64,7 +74,7 @@
       "input_tokens": 160,
       "output_tokens": 290,
       "response_preview": "**De un grupo de WhatsApp a esto.**  \n\nHace 18 meses esto era solo un chat con amigos emprendedores. Compartíamos dudas, reíamos de nuestros errores y a veces nos tirábamos ideas a las 3 de la mañana. Puro caos útil.  \n\nHoy pasa de todo: hay cursos que salen solos porque la gente los pide, sesiones ",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-v3__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-v3__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -96,7 +111,7 @@
       "input_tokens": 137,
       "output_tokens": 185,
       "response_preview": "La adopción de inteligencia artificial generativa en América Latina está marcando un punto de inflexión en el mundo empresarial, pero las cifras revelan una realidad contrastante. Según una encuesta regional realizada en marzo de 2026, el **34% de las pymes en LATAM ya utiliza alguna herramienta de ",
-      "auto_quality": 5.87,
+      "auto_quality": 6.67,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-v3__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-v3__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -128,7 +148,7 @@
       "input_tokens": 99,
       "output_tokens": 414,
       "response_preview": "**¿Tu workflow dice \"success\" pero no hizo nada? Cómo detectar falsos positivos**  \n\nSi construyes workflows en n8n todos los días, sabes que el *status \"success\" no siempre es sinónimo de éxito real*. A veces, el workflow ejecuta todas las tareas sin errores… pero no hizo lo que esperabas.  \n\n**¿Po",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-v3__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-v3__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +185,7 @@
       "input_tokens": 185,
       "output_tokens": 298,
       "response_preview": "**Curso: Automatización de Cobranza con IA**  \n\nEl 3 de agosto arranca un nuevo curso práctico para implementar inteligencia artificial en procesos de cobranza. Son 4 sesiones en vivo donde trabajaremos con herramientas concretas para optimizar recordatorios, segmentación de morosos y flujos automat",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-v3__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-v3__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -192,7 +222,7 @@
       "input_tokens": 139,
       "output_tokens": 810,
       "response_preview": "# Por qué tu pyme no puede esperar más para automatizar con IA\n\n## El dato que deberías conocer\n\nExiste un dato que circula en el ecosistema emprendedor que afirma que el 87% de las pymes que adoptan IA duplican su facturación en pocos meses. No puedo verificar esa cifra concreta —circulan muchos nú",
-      "auto_quality": 5.14,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 3,
       "judge_relevancia": 4,
@@ -203,7 +233,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/minimax-m2.7__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/minimax-m2.7__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -224,7 +259,7 @@
       "input_tokens": 151,
       "output_tokens": 463,
       "response_preview": "Hace 18 meses esto era un grupo de WhatsApp con personas que ya conocía.\n\nHoy pasa cosas que no esperaba.\n\nGente que llegó sin conocerme termina presentándome a sus equipos. Emprendedores que empezaron solos construyen en voz alta, con otros, en medio del grupo. Recibo mensajes a las 11pm de alguien",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -235,7 +270,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/minimax-m2.7__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/minimax-m2.7__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -256,7 +296,7 @@
       "input_tokens": 131,
       "output_tokens": 442,
       "response_preview": "## Párrafo de apertura\n\nApenas una de cada diez pymes latinoamericanas ha incorporado la inteligencia artificial generativa a sus operaciones. Ese 11% —según el último informe sectorial de abril de 2026— contrasta de forma reveladora con la imagen de una región supuestamente seducida por la tecnolog",
-      "auto_quality": 2.14,
+      "auto_quality": 0.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/minimax-m2.7__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/minimax-m2.7__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 5.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -288,7 +333,7 @@
       "input_tokens": 104,
       "output_tokens": 618,
       "response_preview": "# Tu workflow dice \"success\". No te confíes.\n\nAquí va una situación que todos hemos vivido: el workflow termina en verde, el log dice \"success\", pero lo que se suponía que debía pasar... no pasó.\n\n**El problema no es n8n. Es cómo diseñamos para detectar el fracaso.**\n\nUn nodo que no se ejecuta por u",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -299,7 +344,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/minimax-m2.7__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/minimax-m2.7__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -320,7 +370,7 @@
       "input_tokens": 177,
       "output_tokens": 401,
       "response_preview": "# Curso: Automatizar la Cobranza con IA\n\nHay un problema que se repite en estudios y despachos: las horas perdidas en chasing de pagos, mensajes que nadie contesta, promesas que no se cumplen.\n\nLa cobranza no tiene por qué ocupar tu día.\n\nEn este curso vamos a construir, desde cero, un sistema de co",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +381,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/minimax-m2.7__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/minimax-m2.7__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -352,7 +407,7 @@
       "input_tokens": 140,
       "output_tokens": 688,
       "response_preview": "**¿Tu pyme está estancada? Por qué la automatización con IA es tu mejor aliada de crecimiento**\n\nComo fundador de una pyme, seguro que conoces esta sensación: pasas el día apagando fuegos operativos, respondiendo correos rutinarios y actualizando bases de datos. Al final de la jornada, te das cuenta",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -363,7 +418,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-3.5-flash__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-3.5-flash__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -384,7 +444,7 @@
       "input_tokens": 143,
       "output_tokens": 257,
       "response_preview": "Empezamos siendo cuatro gatos en un grupo de WhatsApp. El típico chat que creas para no sentirte tan solo mientras intentas levantar un negocio desde el salón de tu casa. Compartíamos memes, alguna duda fiscal y muchas frustraciones. \n\nHoy, ese chat se nos quedó corto. \n\nAhora entras y hay un ecosis",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -395,7 +455,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-3.5-flash__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-3.5-flash__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 3.33,
@@ -416,7 +481,7 @@
       "input_tokens": 130,
       "output_tokens": 222,
       "response_preview": "Aquí tienes una propuesta de párrafo de apertura diseñado para captar la atención de inmediato, resolver la aparente contradicción de los datos con criterio editorial y establecer un tono analítico y atractivo (124 palabras):\n\n**¿Revolución silenciosa o espejismo tecnológico?** Mientras que el **34%",
-      "auto_quality": 3.87,
+      "auto_quality": 3.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -427,7 +492,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-3.5-flash__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-3.5-flash__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 3.33,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -448,7 +518,7 @@
       "input_tokens": 93,
       "output_tokens": 391,
       "response_preview": "**¿Tu workflow ha terminado en `success` pero no ha hecho absolutamente nada?**\n\nSeguro que te ha pasado. El historial de ejecuciones de n8n muestra un check verde impecable, pero el cliente te escribe diciendo que los datos no han llegado. Entras al *execution plan* y ahí está el culpable: un nodo ",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -459,7 +529,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-3.5-flash__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-3.5-flash__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -480,7 +555,7 @@
       "input_tokens": 170,
       "output_tokens": 228,
       "response_preview": "La gestión de cobranza suele ser el área más desgastante de un negocio: mensajes repetitivos, clientes que no responden y un flujo de caja que se retrasa por tareas que podrían ser automáticas. \n\nEl 3 de agosto inicia un programa práctico diseñado para resolver esto utilizando inteligencia artificia",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -491,7 +566,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-3.5-flash__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-3.5-flash__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -512,7 +592,7 @@
       "input_tokens": 140,
       "output_tokens": 700,
       "response_preview": "¡Claro! Aquí tienes un borrador de post para tu blog:\n\n---\n\n## Desbloquea el Potencial de tu Pyme: Por Qué la Automatización con IA es tu Mejor Aliada\n\nEn el vertiginoso mundo empresarial actual, las pequeñas y medianas empresas (pymes) se enfrentan a un desafío constante: hacer más con menos. La bu",
-      "auto_quality": 2.14,
+      "auto_quality": 0.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -523,7 +603,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-flash__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-flash__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -544,7 +629,7 @@
       "input_tokens": 143,
       "output_tokens": 185,
       "response_preview": "Hace 18 meses, un pequeño grupo de WhatsApp empezó a tomar forma. Éramos unos pocos conocidos, compartiendo ideas, desafíos y la energía de emprender. Poco a poco, esa semilla inicial germinó y se transformó en algo mucho más grande de lo que jamás imaginamos.\n\nHoy, lo que era una conversación infor",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -555,7 +640,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-flash__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-flash__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -576,7 +666,7 @@
       "input_tokens": 130,
       "output_tokens": 219,
       "response_preview": "La irrupción de la Inteligencia Artificial Generativa (IAG) está redefiniendo el panorama empresarial global, y Latinoamérica no es la excepción. Sin embargo, la percepción sobre su adopción en las Pequeñas y Medianas Empresas (PYMES) de la región parece estar en un punto de inflexión, o quizás, de ",
-      "auto_quality": 5.87,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -587,7 +677,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-flash__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-flash__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -608,7 +703,7 @@
       "input_tokens": 93,
       "output_tokens": 481,
       "response_preview": "¡Hola, n8n-ers!\n\nHoy vamos a hablar de ese momento en que tu workflow te guiña un ojo, te dice \"Success\", pero en el fondo sabes que algo no cuadra. Sí, hablamos de los workflows que *parecen* funcionar, pero que en realidad están haciéndose los locos.\n\n¿Por qué ocurre esto? La razón más común es un",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -619,7 +714,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-flash__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-flash__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -640,7 +740,7 @@
       "input_tokens": 170,
       "output_tokens": 173,
       "response_preview": "Automatizar la cobranza con IA: un nuevo curso para la comunidad.\n\nEl 3 de agosto comienza un programa diseñado para explorar las posibilidades de la inteligencia artificial en la gestión de cobros. A lo largo de cuatro sesiones en vivo, profundizaremos en estrategias y herramientas que optimizan lo",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -651,7 +751,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-flash__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-flash__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -672,7 +777,7 @@
       "input_tokens": 159,
       "output_tokens": 1752,
       "response_preview": "**Título:** IA y automatización: el motor que tu pyme necesita para escalar (sin quemar al fundador)\n\n**Tu tiempo vale más que una hoja de cálculo**\nComo fundador, tu rol estratégico no es responder correos repetitivos, conciliar facturas o actualizar el CRM manualmente. Cada hora que dedicas a tare",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -683,7 +788,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-max__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-max__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -704,7 +814,7 @@
       "input_tokens": 162,
       "output_tokens": 2679,
       "response_preview": "Empezó como un grupo de WhatsApp con nombres que ya conocía. Mensajes sueltos, algún enlace, el típico “¿alguien sabe cómo…?”. Era un rincón cómodo, casi privado.\n\nHoy entro y ya no reconozco apellidos. Llegan solos, sin invitación, arrastrados por alguien que tampoco conozco. Hay cursos con estruct",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -715,7 +825,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-max__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-max__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:31+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -736,7 +851,7 @@
       "input_tokens": 153,
       "output_tokens": 1381,
       "response_preview": "¿34 % o 11 %? Dependiendo de la fuente, la adopción de IA generativa en las pymes latinoamericanas parece un fenómeno masivo o un experimento incipiente. Esa brecha no es un error metodológico: es el retrato de una región que avanza a dos velocidades. Mientras un segmento integra asistentes y automa",
-      "auto_quality": 5.6,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -747,7 +862,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-max__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-max__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -768,7 +888,7 @@
       "input_tokens": 110,
       "output_tokens": 2655,
       "response_preview": "Un workflow que devuelve `success` sin haber procesado datos no es un bug: es el comportamiento nativo de n8n ante arrays vacíos. Cuando un nodo upstream filtra, transforma o enruta y el resultado es `[]`, la ejecución no falla. Simplemente propaga cero items. Los nodos downstream se ejecutan en mod",
-      "auto_quality": 5.2,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -779,7 +899,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-max__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-max__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 4.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -800,7 +925,7 @@
       "input_tokens": 185,
       "output_tokens": 4413,
       "response_preview": "La cobranza consume tiempo, genera fricción y suele depender de procesos manuales que se repiten sin escala. Este curso muestra cómo diseñar flujos automatizados con inteligencia artificial para recuperar cartera sin perder el tono humano ni el control operativo.\n\nLa inteligencia artificial no reemp",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -811,7 +936,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-max__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-max__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -832,7 +962,7 @@
       "input_tokens": 159,
       "output_tokens": 3894,
       "response_preview": "Hola. Antes de pasar al texto, debo hacer una parada obligatoria como tu redactor: **el dato de McKinsey que me has facilitado es falso**. Ningún informe de McKinsey de 2024 (ni de años anteriores) afirma que el 87% de las pymes dupliquen su facturación en 6 meses. Esa cifra tiene toda la pinta de p",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -843,7 +973,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen-3.7-max__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen-3.7-max__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -864,7 +999,7 @@
       "input_tokens": 162,
       "output_tokens": 3953,
       "response_preview": "Hace año y medio, esto era un grupo de WhatsApp donde unos conocidos y yo compartíamos frustraciones de emprendedores a deshora. El techo era la pantalla del móvil y el alcance, nuestra propia agenda.\n\nHoy, la comunidad respira sola.\n\nYa no somos solo dudas sueltas en un chat. Hay aulas virtuales do",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -875,7 +1010,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen-3.7-max__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen-3.7-max__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 3.33,
@@ -896,7 +1036,7 @@
       "input_tokens": 153,
       "output_tokens": 2429,
       "response_preview": "A primera vista, la revolución de la IA en Latinoamérica parece un hecho: un 34% de las pymes regionales asegura ya utilizar alguna herramienta generativa. Sin embargo, detrás de este optimismo de principios de 2026 se esconde una brecha crítica. Datos sectoriales de abril revelan que apenas el 11% ",
-      "auto_quality": 3.87,
+      "auto_quality": 3.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -907,7 +1047,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen-3.7-max__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen-3.7-max__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 3.33,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -928,7 +1073,7 @@
       "input_tokens": 110,
       "output_tokens": 1841,
       "response_preview": "**Asunto:** 🟢 El \"Success\" fantasma: cuando n8n te miente\n\nRevisas el historial de ejecuciones. Todo verde. *Success*. Pero al revisar la base de datos o el CRM, no se actualizó nada. El workflow no falló; simplemente no hizo nada y n8n lo celebró.\n\n¿Por qué ocurre? Para el motor de n8n, una ejecuci",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -939,7 +1084,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen-3.7-max__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen-3.7-max__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -960,7 +1110,7 @@
       "input_tokens": 185,
       "output_tokens": 5429,
       "response_preview": "La cobranza es un proceso que consume tiempo, energía y, en ocasiones, desgasta la relación con el cliente. Delegar esta tarea a sistemas inteligentes cambia por completo la dinámica financiera del negocio.\n\nEl 3 de agosto inicio un nuevo curso enfocado exclusivamente en automatizar la cobranza util",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -971,7 +1121,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen-3.7-max__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen-3.7-max__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -992,7 +1147,7 @@
       "input_tokens": 159,
       "output_tokens": 3449,
       "response_preview": "**Automatiza con IA: Por qué las pymes no pueden seguir perdiendo tiempo en tareas repetitivas**\n\n**El tiempo del fundador, tu activo más escaso**\nComo emprendedor, tu calendario es un campo de batalla. Entre conciliaciones bancarias, coordinación de equipo y gestión de incidencias, las horas dedica",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -1003,7 +1158,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-plus__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-plus__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1024,7 +1184,7 @@
       "input_tokens": 162,
       "output_tokens": 3311,
       "response_preview": "Empezó como un chat de WhatsApp entre conocidos. Preguntas sueltas, enlaces compartidos a deshoras y la promesa tácita de ayudarnos sin esperar nada a cambio. No había agenda. Solo urgencia.\n\nHoy, el ritmo es otro. Ya no soy yo quien anima la conversación. Son ellos. La gente llega sola, arrastrada ",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1035,7 +1195,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-plus__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-plus__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -1056,7 +1221,7 @@
       "input_tokens": 153,
       "output_tokens": 2228,
       "response_preview": "¿34 % o apenas 11 %? La adopción de inteligencia artificial generativa en las pymes latinoamericanas navega entre dos realidades que, lejos de anularse, revelan un mercado en plena ebullición. Mientras una encuesta regional de marzo de 2026 indica que un tercio de estas empresas ya utiliza alguna he",
-      "auto_quality": 5.6,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1067,7 +1232,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-plus__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-plus__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -1088,7 +1258,7 @@
       "input_tokens": 110,
       "output_tokens": 2161,
       "response_preview": "¿Tu workflow devuelve `success` pero en producción no ejecutó nada? Es un patrón silencioso en n8n: el runtime marca la ejecución como exitosa siempre que no se propague una excepción no capturada, aunque el pipeline de datos colapse en el camino.\n\nLas causas son arquitectónicas, no de bug. Un `Filt",
-      "auto_quality": 5.2,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1099,7 +1269,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-plus__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-plus__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 4.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1120,7 +1295,7 @@
       "input_tokens": 185,
       "output_tokens": 1749,
       "response_preview": "La gestión de cobranza consume horas que podrían dedicarse a estrategia. Este curso explora cómo integrar inteligencia artificial en ese proceso, transformando tareas repetitivas en flujos precisos y medibles.\n\nEl recorrido comienza el 3 de agosto y se estructura en cuatro sesiones en vivo. Cada enc",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1131,7 +1306,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-plus__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen-3.6-plus__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1152,7 +1332,7 @@
       "input_tokens": 177,
       "output_tokens": 666,
       "response_preview": "# Cómo la IA está convirtiendo a las pymes en máquinas de vender (sin contratar más gente)\n\n## El problema que nadie te cuenta\n\nEl fundador promedio de pyme pasa el 60% de su semana gestionando tareas operativas: respondiendo emails repetitivos, actualizando hojas de cálculo, persiguiendo facturas p",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -1163,7 +1343,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/kimi-k2__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/kimi-k2__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1184,7 +1369,7 @@
       "input_tokens": 198,
       "output_tokens": 319,
       "response_preview": "Hace 18 meses abrí un grupo de WhatsApp con gente que conocía. Eso era todo: notas de voz, links random, alguien que preguntaba si valía la pena pagarle a un diseñador.\n\nHoy entro y hay gente que no conozco presentando su proyecto. Llegaron solos. Alguien les habló, o vieron una sesión, o encontraro",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1195,7 +1380,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/kimi-k2__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/kimi-k2__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:32+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 3.33,
@@ -1216,7 +1406,7 @@
       "input_tokens": 160,
       "output_tokens": 384,
       "response_preview": "Aquí tienes dos opciones de apertura, dependiendo de cómo quieras manejar la tensión entre fuentes:\n\n---\n\n**Opción 1 (contrastando ambas cifras)**\n\nTres de cada diez pymes latinoamericanas ya usan inteligencia artificial generativa en su día a día, según una encuesta regional de marzo. La cifra sorp",
-      "auto_quality": 3.87,
+      "auto_quality": 3.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1227,7 +1417,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/kimi-k2__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/kimi-k2__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 3.33,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1248,7 +1443,7 @@
       "input_tokens": 121,
       "output_tokens": 450,
       "response_preview": "**Cuando el check verde te miente**\n\nEl peor bug es el que no parece bug.\n\nTu workflow devuelve 200 OK. El log dice \"Success\". Pero el registro no existe en la base de datos. El email nunca salió. El archivo sigue en S3.\n\n¿Por qué? Porque n8n ejecutó *correctamente* una rama que no hacía lo que creí",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1259,7 +1454,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/kimi-k2__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/kimi-k2__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1280,7 +1480,7 @@
       "input_tokens": 215,
       "output_tokens": 302,
       "response_preview": "**Automatización de cobranza con IA: cuatro sesiones en vivo**\n\nArranca el 3 de agosto. Cuatro encuentros. Treinta cupos.\n\nEl curso nace de una constatación: la cobranza sigue siendo, en muchos equipos, el proceso que más horas humanas devora y peor resultado entrega. Llamadas que no responden. Reco",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1291,7 +1491,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/kimi-k2__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/kimi-k2__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1312,7 +1517,7 @@
       "input_tokens": 176,
       "output_tokens": 6327,
       "response_preview": " **Nota antes de publicar:** No he podido verificar el dato atribuido a un informe de McKinsey de 2024 según el cual el 87 % de las pymes duplicarían su facturación en seis meses tras adoptar IA. Te sugiero confirmar la fuente original antes de incluir esa cifra, o sustituirla por una referencia gen",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -1323,7 +1528,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/kimi-k2.6__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/kimi-k2.6__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1344,7 +1554,7 @@
       "input_tokens": 196,
       "output_tokens": 3751,
       "response_preview": "Hace un año y medio armé un grupo de WhatsApp con conocidos que emprendían. Era puro desahogo: clientes que no pagaban, domingos de angustia, screenshots de chats complicados. Éramos siempre los mismos y nos conocíamos de antes.\n\nHoy entro y hay caras que no reconozco. Gente que llegó sola, que se p",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1355,7 +1565,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/kimi-k2.6__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/kimi-k2.6__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1376,7 +1591,7 @@
       "input_tokens": 159,
       "output_tokens": 1560,
       "response_preview": " En apenas treinta días, la adopción de inteligencia artificial generativa en las pymes latinoamericanas pasó —según quién cuente— de ser una realidad extendida a una excepción minoritaria. Mientras una encuesta regional de marzo 2026 asegura que ya el 34 % de estas empresas utiliza alguna herramien",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1387,7 +1602,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/kimi-k2.6__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/kimi-k2.6__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1408,7 +1628,7 @@
       "input_tokens": 119,
       "output_tokens": 2031,
       "response_preview": "El peor bug es el que no parece bug. Ves la ejecución en verde, el webhook devolvió 200, pero la base de datos sigue igual, el Slack no pitó y el CSV sigue vacío. En n8n, \"success\" solo significa que no explotó nada. No garantiza que haya pasado algo.\n\nSuele pasar en silencio en tres escenarios. Pri",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1419,7 +1639,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/kimi-k2.6__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/kimi-k2.6__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1440,7 +1665,7 @@
       "input_tokens": 214,
       "output_tokens": 6457,
       "response_preview": "Abro un curso sobre automatización de cobranza con inteligencia artificial. Empieza el 3 de agosto, son cuatro sesiones en vivo, y la capacidad es de treinta personas.\n\nLa cobranza suele ser el cuello de botella que más energía le roba a un equipo, y la IA permite cambiar esa ecuación. En estas cuat",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1451,7 +1676,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/kimi-k2.6__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/kimi-k2.6__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1472,7 +1702,7 @@
       "input_tokens": 176,
       "output_tokens": 3198,
       "response_preview": "**Por qué tu PYME no puede esperar más para automatizar con IA**\n\nEn una PYME, el tiempo del fundador es el recurso más escaso. Cuando el CEO pasa las mañanas entre facturas, respuestas de email, actualizaciones de Excel y tareas administrativas, deja de hacer lo único que realmente escala la empres",
-      "auto_quality": 4.87,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -1483,7 +1713,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/kimi-k2.7-code__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/kimi-k2.7-code__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 4.67,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1504,7 +1739,7 @@
       "input_tokens": 197,
       "output_tokens": 2264,
       "response_preview": " Hace 18 meses esto era un grupo de WhatsApp con gente que ya conocía.\n\nGente que tenía una idea, un proyecto a medias o simplemente ganas de no sentirse sola emprendiendo. Yo respondía mensajes entre reuniones. A veces caía un audio explicando lo mismo que había explicado días antes.\n\nHoy es otra c",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1515,7 +1750,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/kimi-k2.7-code__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/kimi-k2.7-code__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -1536,7 +1776,7 @@
       "input_tokens": 159,
       "output_tokens": 8192,
       "response_preview": " El usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
-      "auto_quality": 0.43,
+      "auto_quality": 0.0,
       "judge_score": 1,
       "judge_precision": 1,
       "judge_relevancia": 1,
@@ -1547,7 +1787,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/kimi-k2.7-code__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/kimi-k2.7-code__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 0.07,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1568,7 +1813,7 @@
       "input_tokens": 120,
       "output_tokens": 758,
       "response_preview": " **El “success” mentiroso de n8n**\n\nUn workflow que termina en verde no siempre ha hecho lo que debía. De hecho, es uno de los fallos más difíciles de detectar: n8n devuelve `success` si el último nodo respondió sin error, no si tu lógica produjo el resultado esperado.\n\nLos escenarios habituales son",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1579,7 +1824,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/kimi-k2.7-code__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/kimi-k2.7-code__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -1600,7 +1850,7 @@
       "input_tokens": 214,
       "output_tokens": 2174,
       "response_preview": "En cobranza, la mayoría del tiempo se pierde en tareas que no deberían ocupar a un equipo: seguimientos manuales, recordatorios repetidos, respuestas a las mismas preguntas. La IA no reemplaza el criterio humano, pero puede liberarlo.\n\nPor eso armé este curso: cuatro sesiones en vivo para automatiza",
-      "auto_quality": 5.2,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1611,7 +1861,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/kimi-k2.7-code__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/kimi-k2.7-code__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1632,7 +1887,7 @@
       "input_tokens": 148,
       "output_tokens": 2257,
       "response_preview": "**Por qué tu pyme debería automatizar con IA ya**\n\nComo emprendedor, tu recurso más escaso no es el capital; es el tiempo. Sin embargo, la realidad de muchas pymes es que sus fundadores pasan horas atrapados en tareas operativas: responder emails repetitivos, actualizar el CRM o emitir facturas. La ",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -1643,7 +1898,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/glm-5.1__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/glm-5.1__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1664,7 +1924,7 @@
       "input_tokens": 158,
       "output_tokens": 3322,
       "response_preview": "Empezó como un grupo de WhatsApp.\nSolo conocidos, tirando ideas al aire, preguntando dudas de principiante. Un chat que se apagaba y prendía según el día.\n\nUn año y medio después, la cosa respira diferente.\nYa no tengo que invitar. Llegan solos. Tocan la puerta porque alguien les contó que aquí las ",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1675,7 +1935,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/glm-5.1__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/glm-5.1__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -1696,7 +1961,7 @@
       "input_tokens": 134,
       "output_tokens": 1565,
       "response_preview": "¿Cuántas pymes en América Latina están usando realmente inteligencia artificial? Si creemos en la encuesta regional de marzo de 2026, la respuesta es optimista: un 34% ya emplea herramientas de IA generativa. Pero si observamos el informe sectorial de abril de 2026, el panorama se desinfla drásticam",
-      "auto_quality": 5.6,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1707,7 +1972,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/glm-5.1__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/glm-5.1__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1728,7 +1998,7 @@
       "input_tokens": 100,
       "output_tokens": 1658,
       "response_preview": "¿Te ha pasado? El workflow termina en verde, el log dice \"Success\", pero el registro no se creó y el Slack nunca llegó. Te presento el éxito silencioso: tu automatización no hizo nada, pero n8n cree que todo fue perfecto.\n\nEsto ocurre por tres motivos principales:\n\n1. **Arrays vacíos:** Si el nodo a",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1739,7 +2009,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/glm-5.1__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/glm-5.1__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1760,7 +2035,7 @@
       "input_tokens": 183,
       "output_tokens": 2297,
       "response_preview": "La cobranza suele ser el proceso más friccionado de cualquier negocio: mensajes manuales, seguimientos interminables y la incomodidad de perseguir pagos atrasados. La Inteligencia Artificial cambió las reglas de este juego. \n\nA partir del 3 de agosto, abro un curso enfocado exclusivamente en automat",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1771,7 +2046,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/glm-5.1__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/glm-5.1__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1792,7 +2072,7 @@
       "input_tokens": 155,
       "output_tokens": 1998,
       "response_preview": "**Por qué tu pyme debería automatizar con Inteligencia Artificial hoy**\n\n**El tiempo del fundador es para vender, no para operar**\nComo emprendedor, tu recurso más escaso no es el capital, es el tiempo. Si pasas horas respondiendo correos rutinarios, pasando datos de un Excel a tu CRM o generando re",
-      "auto_quality": 4.87,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -1803,7 +2083,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/glm-5.2__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/glm-5.2__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 4.67,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1824,7 +2109,7 @@
       "input_tokens": 165,
       "output_tokens": 2529,
       "response_preview": "Hace año y medio, esto era un grupo de WhatsApp con un puñado de conocidos echando ideas para arriba. Nada formal. Un \"oye, ¿cómo le haces con esto?\" y ya. La interacción era casual, enfocada en sobrevivir al día a día del emprendimiento.\n\nHoy entré a la plataforma y me topé con una agenda saturada ",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1835,7 +2120,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/glm-5.2__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/glm-5.2__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -1856,7 +2146,7 @@
       "input_tokens": 141,
       "output_tokens": 1052,
       "response_preview": "¿Va LATAM a toda velocidad hacia la inteligencia artificial o apenas está encendiendo el motor? Las cifras pintan un panorama desconcertante. Mientras una encuesta regional de marzo de 2026 asegura que el 34% de las pymes latinoamericanas ya utiliza alguna herramienta de IA generativa, un informe se",
-      "auto_quality": 5.6,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1867,7 +2157,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/glm-5.2__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/glm-5.2__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1888,7 +2183,7 @@
       "input_tokens": 107,
       "output_tokens": 2687,
       "response_preview": "Todos hemos estado ahí: el workflow termina en verde, el cron se ejecutó sin pestañear, pero el registro en la base de datos sigue sin aparecer o la API externa no recibió el payload. ¿Por qué n8n celebra un \"success\" cuando no ha hecho absolutamente nada?\n\nLa respuesta es simple: n8n evalúa el éxit",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1899,7 +2194,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/glm-5.2__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/glm-5.2__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1920,7 +2220,7 @@
       "input_tokens": 190,
       "output_tokens": 1438,
       "response_preview": "La cobranza suele ser el cuello de botella más pesado de cualquier negocio: tiempo perdido, conversaciones incómodas y un seguimiento que casi siempre llega tarde. Por eso, el 3 de agosto arranca un nuevo curso enfocado en automatizar todo este proceso usando Inteligencia Artificial.\n\nEl objetivo no",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1931,7 +2231,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/glm-5.2__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/glm-5.2__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -1952,7 +2257,7 @@
       "input_tokens": 160,
       "output_tokens": 1173,
       "response_preview": "**Por qué las pymes deberían automatizar con IA: tiempo, crecimiento y accesibilidad**  \n\n---\n\n### 1. Libera tiempo del fundador para vender  \nEl fundador de una pyme suele estar atrapado en tareas operativas: facturación, gestión de inventario, respuesta a correos y seguimiento de leads. Cada hora ",
-      "auto_quality": 2.14,
+      "auto_quality": 0.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -1963,7 +2268,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/nemotron-super__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/nemotron-super__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1984,7 +2294,7 @@
       "input_tokens": 170,
       "output_tokens": 3077,
       "response_preview": "\n\nRecuerdo el primer grupo de WhatsApp, solo unos pocos conocidos que se reunían para compartir dudas y celebrar pequeños avances. Nadie pensaba que aquello fuera a convertirse en algo más que un chat de amistad. Con el tiempo empezaron a aparecer caras nuevas, personas que llegaban sin ser invitada",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1995,7 +2305,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/nemotron-super__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/nemotron-super__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -2016,7 +2331,7 @@
       "input_tokens": 157,
       "output_tokens": 408,
       "response_preview": "Según una encuesta regional realizada en marzo de 2026, **el 34 % de las pymes de América Latina ya utiliza alguna herramienta de IA generativa**, lo que sugiere una penetración tecnológica notable en el tejido productivo de la región. Sin embargo, un informe sectorial publicado apenas un mes despué",
-      "auto_quality": 5.87,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2027,7 +2342,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/nemotron-super__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/nemotron-super__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2048,7 +2368,7 @@
       "input_tokens": 116,
       "output_tokens": 912,
       "response_preview": "\n\nLos workflows de n8n devuelven **success** cuando el grafo termina sin lanzar una excepción, aunque ninguno de sus nodos haya producido el efecto esperado. Esto ocurre con frecuencia cuando:\n\n* Un nodo recibe un arreglo vacío y su salida es un objeto sin datos (por ejemplo, un **HTTP Request** que",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2059,7 +2379,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/nemotron-super__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/nemotron-super__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2080,7 +2405,7 @@
       "input_tokens": 194,
       "output_tokens": 1426,
       "response_preview": "Anuncio para la comunidad: a partir del 3 de agosto se lanza un curso dedicado a la automatización de la cobranza mediante inteligencia artificial. El programa consta de cuatro sesiones en vivo, cada una de dos horas, diseñadas para mostrar cómo integrar modelos predictivos, flujos de trabajo robóti",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2091,7 +2416,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/nemotron-super__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/nemotron-super__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -2112,7 +2442,7 @@
       "input_tokens": 149,
       "output_tokens": 1009,
       "response_preview": "**¿Por qué las pymes deberían automatizar con IA? (Y cómo empezar sin ser experto)**\n\nLa inteligencia artificial ya no es un lujo reservado para las grandes corporaciones. Para las pymes, automatizar procesos con IA no es solo una ventaja competitiva: es una necesidad para crecer sin ahogarse en tar",
-      "auto_quality": 2.14,
+      "auto_quality": 0.0,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -2123,7 +2453,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/mistral-large__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/mistral-large__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2144,7 +2479,7 @@
       "input_tokens": 159,
       "output_tokens": 345,
       "response_preview": "**De un grupo de WhatsApp a un ecosistema que late solo**\n\nHace 18 meses, éramos cinco conocidos en un chat de WhatsApp hablando de lo que nos quemaba: \"¿Cómo le hago para que esto no se quede en un hobby?\", \"¿Por qué nadie me explica esto sin tecnicismos de MBA?\", \"¿Dónde están los que entienden lo",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2155,7 +2490,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/mistral-large__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/mistral-large__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -2176,7 +2516,7 @@
       "input_tokens": 146,
       "output_tokens": 201,
       "response_preview": "**La revolución de la IA en Latinoamérica avanza a dos velocidades: ¿oportunidad o espejismo?**\n\nEl 34% de las pymes latinoamericanas ya incorpora herramientas de inteligencia artificial generativa, según una encuesta regional de marzo de 2026. Sin embargo, apenas tres semanas después, un informe se",
-      "auto_quality": 5.87,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2187,7 +2527,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/mistral-large__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/mistral-large__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2208,7 +2553,7 @@
       "input_tokens": 105,
       "output_tokens": 642,
       "response_preview": "**¿Tu workflow dice \"success\" pero no hizo nada? Aquí está el porqué (y cómo pillarlo)**\n\nTodos hemos estado ahí: un workflow corre sin errores, n8n te devuelve un bonito ✅ *success*, pero los datos siguen igual. ¿Magia? No. **Falsos positivos**. Aquí las causas más comunes y cómo cazarlas:\n\n### 1. ",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2219,7 +2564,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/mistral-large__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/mistral-large__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2240,7 +2590,7 @@
       "input_tokens": 183,
       "output_tokens": 240,
       "response_preview": "**Curso: Automatización de Cobranza con IA**\n\nA partir del 3 de agosto, abrimos un espacio para explorar cómo la inteligencia artificial puede transformar los procesos de cobranza. Cuatro sesiones en vivo, diseñadas para quienes buscan optimizar tiempos, reducir errores y mejorar la eficiencia en la",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2251,7 +2601,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/mistral-large__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/mistral-large__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -2272,7 +2627,7 @@
       "input_tokens": 149,
       "output_tokens": 826,
       "response_preview": "**Por qué tu pyme necesita automatizar con IA (y cómo empezar hoy)**\n\nLas pequeñas y medianas empresas (pymes) operan con recursos limitados, donde cada minuto y cada peso cuentan. En este contexto, la automatización con inteligencia artificial (IA) no es un lujo, sino una necesidad estratégica. Si ",
-      "auto_quality": 2.14,
+      "auto_quality": 0.0,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -2283,7 +2638,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/devstral-2__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/devstral-2__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2304,7 +2664,7 @@
       "input_tokens": 159,
       "output_tokens": 313,
       "response_preview": "**De un WhatsApp a algo que ya no controlamos (y nos encanta)**\n\nHace año y medio, esto era un grupo de WhatsApp con cinco conocidos quejándose de lo mismo: emprender es un viaje solitario, lleno de dudas que nadie te resuelve. \"¿Y si hacemos algo?\", dijo alguien. No sabíamos qué, pero empezamos.\n\nH",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2315,7 +2675,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/devstral-2__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/devstral-2__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:34+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -2336,7 +2701,7 @@
       "input_tokens": 146,
       "output_tokens": 170,
       "response_preview": "**La adopción de IA en América Latina avanza, pero a dos velocidades.** Mientras un 34% de las pymes de la región ya utiliza herramientas de IA generativa —según una encuesta regional de marzo de 2026—, un informe sectorial de abril del mismo año revela que apenas el 11% ha adoptado estas tecnología",
-      "auto_quality": 1.87,
+      "auto_quality": 0.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2347,7 +2712,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/devstral-2__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/devstral-2__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:35+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2368,7 +2738,7 @@
       "input_tokens": 105,
       "output_tokens": 404,
       "response_preview": "**¿Por qué tu workflow dice \"success\" pero no hizo nada?**\n\nSi alguna vez has visto un workflow en n8n marcarse como *success* sin ejecutar ninguna acción, no estás solo. Este comportamiento puede ser frustrante, pero tiene explicación. Aquí te cuento por qué pasa y cómo detectarlo.\n\n### **Causas co",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2379,7 +2749,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/devstral-2__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/devstral-2__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:35+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2400,7 +2775,7 @@
       "input_tokens": 183,
       "output_tokens": 222,
       "response_preview": "**Automatizar la cobranza con IA: un curso para dejar de perder tiempo (y dinero)**\n\nEl 3 de agosto comienza un nuevo curso sobre cómo usar inteligencia artificial para optimizar la cobranza. Cuatro sesiones en vivo, con herramientas prácticas y casos reales, diseñadas para que dejes de perseguir pa",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2411,7 +2786,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/devstral-2__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/devstral-2__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:35+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2432,7 +2812,7 @@
       "input_tokens": 140,
       "output_tokens": 2164,
       "response_preview": "¡Claro! Aquí tienes una propuesta de post siguiendo tus indicaciones y mi compromiso como redactor.\n\n***\n\n### Título: La IA no es el futuro de tu pyme, es el presente que te hará vender más\n\nComo fundador de una pyme, seguro que tu día se parece a una carrera de obstáculos. Apagas un fuego en contab",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -2443,7 +2823,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-pro__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-pro__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:35+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2464,7 +2849,7 @@
       "input_tokens": 143,
       "output_tokens": 1582,
       "response_preview": "Claro. Aquí tienes.\n\n***\n\nHace 18 meses, esto era un chat de WhatsApp.\n\nUn puñado de conocidos pasándonos links y preguntando dudas rápidas. No era una \"comunidad\", era un grupo para no sentirnos tan solos emprendiendo. Las notificaciones eran manejables.\n\nHoy abro la comunidad y no conozco a la mit",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2475,7 +2860,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-pro__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-pro__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:35+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -2496,7 +2886,7 @@
       "input_tokens": 130,
       "output_tokens": 1586,
       "response_preview": "Excelente decisión. Jugar con la tensión entre esos dos datos es la clave para un inicio potente. Aquí tienes una propuesta que sigue esa línea.\n\n***\n\nLa inteligencia artificial generativa ya no es una promesa futura en América Latina; es una realidad palpable en el día a día de sus empresas. Según ",
-      "auto_quality": 5.87,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2507,7 +2897,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-pro__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-pro__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:35+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2528,7 +2923,7 @@
       "input_tokens": 93,
       "output_tokens": 2085,
       "response_preview": "Claro, aquí tienes una propuesta.\n\n**Asunto:** El 'Success' que te está mintiendo\n\n---\n\nEse momento de pánico. Revisas tus ejecuciones, todo en verde, pero el CRM está vacío y nadie recibió la notificación en Slack. El log dice 'Success', pero sabes que algo no fue como debía. ¿Te suena?\n\nLa causa e",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2539,7 +2934,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-pro__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-pro__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:35+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2560,7 +2960,7 @@
       "input_tokens": 170,
       "output_tokens": 1739,
       "response_preview": "Comunidad,\n\nLa cobranza es una de las tareas menos gratificantes y más consumidoras de tiempo. El seguimiento manual de facturas, los recordatorios y las conversaciones incómodas desvían energía que podría estar en el corazón del negocio.\n\nPor eso he creado un nuevo curso enfocado en automatizar est",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2571,7 +2971,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-pro__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-pro__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:35+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2592,7 +2997,7 @@
       "input_tokens": 159,
       "output_tokens": 705,
       "response_preview": "Aquí tienes una propuesta de post optimizada para conectar con la mentalidad de un emprendedor.\n\n***\n\n# De \"autoempleado\" a estratega: Por qué la IA es el motor de crecimiento que tu PYME necesita\n\nMuchos dueños de pequeñas y medianas empresas caen en la \"trampa de la operatividad\". Te despiertas, r",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -2603,7 +3008,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemma-4-26b__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/gemma-4-26b__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:35+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2624,7 +3034,7 @@
       "input_tokens": 162,
       "output_tokens": 302,
       "response_preview": "Aquí tienes la propuesta. El enfoque es la **evolución del caos al sistema**, usando la narrativa de la transformación para que el lector \"vea\" el crecimiento sin necesidad de una sola cifra.\n\n***\n\n**Título: De un grupo de WhatsApp a un ecosistema vivo.**\n\nHace 18 meses, esto era solo una notificaci",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2635,7 +3045,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemma-4-26b__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/gemma-4-26b__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:35+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -2656,7 +3071,7 @@
       "input_tokens": 149,
       "output_tokens": 446,
       "response_preview": "Para lograr ese impacto que buscas, el truco editorial no es simplemente presentar los datos, sino **exponer la contradicción**. La discrepancia entre ambas cifras sugiere un escenario de incertidumbre, una brecha de implementación o, lo más interesante, una región que está operando a ciegas sobre s",
-      "auto_quality": 6.4,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2667,7 +3082,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemma-4-26b__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/gemma-4-26b__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 6.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2688,7 +3108,7 @@
       "input_tokens": 112,
       "output_tokens": 506,
       "response_preview": "Aquí tienes una propuesta directa, técnica y sin relleno, diseñada para retener a usuarios avanzados.\n\n***\n\n**Título: El falso positivo: Cuando un \"Success\" es una mentira**\n\nHas ejecutado el workflow, la ejecución aparece en verde y el nodo final marca `success`. Sin embargo, la base de datos sigue",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2699,7 +3119,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemma-4-26b__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/gemma-4-26b__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2720,7 +3145,7 @@
       "input_tokens": 189,
       "output_tokens": 199,
       "response_preview": "El flujo de caja suele ser el cuello de botella de cualquier operación, especialmente cuando la gestión de cobros depende de procesos manuales, recordatorios humanos y una supervisión constante que consume tiempo productivo.\n\nEl 3 de agosto inicia un programa diseñado para transformar esta dinámica ",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2731,7 +3156,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemma-4-26b__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/gemma-4-26b__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -2752,7 +3182,7 @@
       "input_tokens": 150,
       "output_tokens": 499,
       "response_preview": "**Título:** \"Cómo la automatización con IA puede impulsar tu pyme\"\n\n**Sección 1: Liberando tiempo para vender**\n\nComo fundador de una pyme, sabes que tu tiempo es valioso. Sin embargo, a menudo te encuentras atrapado en tareas administrativas y operativas que te quitan tiempo y energía para enfocart",
-      "auto_quality": 1.87,
+      "auto_quality": 0.0,
       "judge_score": 4.0,
       "judge_precision": 3,
       "judge_relevancia": 4,
@@ -2763,7 +3193,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/llama-4-maverick__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/llama-4-maverick__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 4.67,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2784,7 +3219,7 @@
       "input_tokens": 158,
       "output_tokens": 266,
       "response_preview": "¡Hola a todos! Quiero compartir con ustedes la historia de cómo nuestra comunidad de emprendedores ha evolucionado en los últimos 18 meses.\n\nTodo comenzó con un simple grupo de WhatsApp donde compartíamos ideas y nos apoyábamos mutuamente. Éramos un grupo de conocidos que queríamos ayudarnos a crece",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2795,7 +3230,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/llama-4-maverick__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/llama-4-maverick__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 3.33,
@@ -2816,7 +3256,7 @@
       "input_tokens": 137,
       "output_tokens": 125,
       "response_preview": "La adopción de la inteligencia artificial (IA) generativa en las pequeñas y medianas empresas (pymes) de América Latina es un tema que genera debate y expectativas. Mientras que una encuesta regional reciente revela que el 34% de estas empresas ya ha incorporado alguna herramienta de IA generativa e",
-      "auto_quality": 3.6,
+      "auto_quality": 3.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2827,7 +3267,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/llama-4-maverick__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/llama-4-maverick__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.0,
+      "answer_score": 3.33,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2848,7 +3293,7 @@
       "input_tokens": 106,
       "output_tokens": 312,
       "response_preview": "**Flujos de trabajo silenciosos: cuando 'success' no es lo que parece**\n\n¿Alguna vez has ejecutado un workflow en n8n y has visto que devuelve 'success', pero al revisar los registros, notas que en realidad no se ha realizado ninguna acción? Esto puede ser frustrante, especialmente si dependes de es",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2859,7 +3304,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/llama-4-maverick__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/llama-4-maverick__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2880,7 +3330,7 @@
       "input_tokens": 180,
       "output_tokens": 224,
       "response_preview": "**Curso de Automatización de Cobranza con IA**\n\nEl próximo 3 de agosto, inicia un curso intensivo de 4 sesiones en vivo diseñado para transformar la manera en que gestionas la cobranza en tu negocio. Con un enfoque práctico y avanzado, este curso te proporcionará las herramientas y conocimientos nec",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2891,7 +3341,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/llama-4-maverick__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/llama-4-maverick__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -2912,7 +3367,7 @@
       "input_tokens": 164,
       "output_tokens": 599,
       "response_preview": "**¿Por qué tu pyme necesita automatizar con inteligencia artificial?**\n\nEn el acelerado mundo empresarial actual, las pequeñas y medianas empresas (pymes) buscan cada vez más maneras de crecer sin aumentar su carga operativa. La automatización con inteligencia artificial (IA) se ha convertido en una",
-      "auto_quality": 2.14,
+      "auto_quality": 0.0,
       "judge_score": 4.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -2923,7 +3378,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3-coder__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3-coder__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2944,7 +3404,7 @@
       "input_tokens": 176,
       "output_tokens": 241,
       "response_preview": "Empezó como un grupo de WhatsApp entre amigos y colegas. Hablábamos de ideas, compartíamos frustraciones, tirábamos proyectos entre todos. Nada formal, nada planeado.\n\nHoy, ese grupito se convirtió en una comunidad viva. Gente que entra porque sí, sin conocer a nadie. Que se queda, participa, crea. ",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2955,7 +3415,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3-coder__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3-coder__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -2976,7 +3441,7 @@
       "input_tokens": 155,
       "output_tokens": 151,
       "response_preview": "A pesar del creciente interés en torno a la inteligencia artificial generativa, su adopción en el sector pymes de LATAM sigue siendo un terreno por explorar. Mientras una encuesta regional realizada en marzo de 2026 revela que el 34% de estas empresas ya utiliza alguna herramienta de IA generativa, ",
-      "auto_quality": 5.6,
+      "auto_quality": 6.67,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -2987,7 +3452,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3-coder__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3-coder__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3008,7 +3478,7 @@
       "input_tokens": 109,
       "output_tokens": 313,
       "response_preview": "En n8n, un workflow puede devolver `'success'` sin haber ejecutado ninguna acción real. Esto ocurre cuando todas las condiciones de un nodo **Switch** o **IF** resultan falsas, y no hay nodos alternativos configurados. El workflow termina \"exitosamente\", pero no se ejecuta ninguna operación útil.\n\nO",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3019,7 +3489,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3-coder__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3-coder__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3040,7 +3515,7 @@
       "input_tokens": 197,
       "output_tokens": 215,
       "response_preview": "Arranca el 3 de agosto un nuevo curso: *Automatizar la cobranza con IA*.  \n\nSon cuatro sesiones en vivo, diseñadas para equipos de cobranza, operaciones y atención al cliente. La inteligencia artificial ya está transformando cómo se gestionan las carteras vencidas, y este curso explica cómo aprovech",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3051,7 +3526,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3-coder__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3-coder__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3072,7 +3552,7 @@
       "input_tokens": 159,
       "output_tokens": 2048,
       "response_preview": "**¿Por qué tu pyme necesita automatizar con IA hoy mismo?**\n\nComo fundador, tu tiempo es el activo más escaso y valioso. Horas perdidas en tareas repetitivas son horas que no puedes dedicar a lo que realmente mueve el negocio: vender, negociar y construir relaciones. La automatización con IA no busc",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -3083,7 +3563,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3.6-27b__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3.6-27b__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3104,7 +3589,7 @@
       "input_tokens": 162,
       "output_tokens": 2048,
       "response_preview": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - **Role:** Copywriter/Redactor\n   - **Platform:** LinkedIn post\n   - **Topic:** My entrepreneur community\n   - **Key Message:** Show HOW it grew from a WhatsApp group of acquaintances to a structured community with courses, live sessions, a",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3115,7 +3600,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3.6-27b__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3.6-27b__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:36+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -3136,7 +3626,7 @@
       "input_tokens": 153,
       "output_tokens": 1330,
       "response_preview": "\n\nUn 34 % de las pymes de Latinoamérica ya utiliza inteligencia artificial generativa en sus operaciones. Así lo señala una encuesta regional de marzo de 2026. Sin embargo, el panorama se nubla en abril: un informe sectorial independiente reduce esa adopción al 11 %. ¿Contradicción o realidad estrat",
-      "auto_quality": 5.6,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3147,7 +3637,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3.6-27b__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3.6-27b__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:37+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3168,7 +3663,7 @@
       "input_tokens": 110,
       "output_tokens": 1575,
       "response_preview": "Un workflow que termina en “success” no garantiza que haya procesado datos. En n8n, ese estado solo indica que no se lanzó una excepción, no que existan ítems en el pipeline. Ocurre cuando un `Filter`, `IF` o `HTTP Request` devuelve `[]`, cuando una rama de `Merge` no recibe entradas, o cuando una A",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3179,7 +3674,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3.6-27b__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3.6-27b__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:37+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3200,7 +3700,7 @@
       "input_tokens": 185,
       "output_tokens": 3095,
       "response_preview": "La gestión de cuentas por cobrar sigue dependiendo de procesos manuales, seguimientos fragmentados y promesas que no se concretan. El 3 de agosto arranca un curso práctico sobre automatizar la cobranza con inteligencia artificial. El programa consta de cuatro sesiones en vivo, diseñadas para equipos",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3211,7 +3711,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3.6-27b__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3.6-27b__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:37+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3232,7 +3737,7 @@
       "input_tokens": 159,
       "output_tokens": 1780,
       "response_preview": "**Por qué tu pyme debe automatizar con IA (sin perder el control)**\n\nEl mayor activo de una pyme no es su inventario ni su software; es el tiempo de su fundador. Cuando el dueño de la empresa pasa las horas respondiendo correos, organizando facturas o actualizando hojas de cálculo, está dejando de h",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -3243,7 +3748,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3.6-35b__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3.6-35b__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:37+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3264,7 +3774,7 @@
       "input_tokens": 162,
       "output_tokens": 2048,
       "response_preview": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - **Role:** Redactor (Copywriter)\n   - **Directive:** \"El brief manda, incluso cuando incomoda.\" (The brief is law, even when it's uncomfortable.)\n   - **Topic:** LinkedIn post about an entrepreneur community\n   - **Core Message:** Show HOW ",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3275,7 +3785,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3.6-35b__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3.6-35b__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:37+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -3296,7 +3811,7 @@
       "input_tokens": 153,
       "output_tokens": 2048,
       "response_preview": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - **Role:** Content writer with editorial judgment/criteria.\n   - **Task:** Write an opening paragraph (approx. 120 words) for an article about AI adoption in LATAM.\n   - **Data Provided:**\n     - Source A (regional survey, March 2026): 34% ",
-      "auto_quality": 6.14,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3307,7 +3822,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3.6-35b__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3.6-35b__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 5.34,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:37+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3328,7 +3848,7 @@
       "input_tokens": 110,
       "output_tokens": 2048,
       "response_preview": "Tu workflow devuelve “Success”",
-      "auto_quality": 6.02,
+      "auto_quality": 10.0,
       "judge_score": 1,
       "judge_precision": 1,
       "judge_relevancia": 1,
@@ -3339,7 +3859,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3.6-35b__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3.6-35b__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 0.05,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:37+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3360,7 +3885,7 @@
       "input_tokens": 185,
       "output_tokens": 2048,
       "response_preview": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - **Role:** Copywriter (redactor)\n   - **Mandate:** The brief is absolute, even if it contradicts instincts.\n   - **Product:** New course on automating collections (cobranza) with AI.\n   - **Key Details:** Starts August 3rd, 4 live sessions,",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3371,7 +3896,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3.6-35b__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3.6-35b__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:37+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -3392,7 +3922,7 @@
       "input_tokens": 164,
       "output_tokens": 657,
       "response_preview": "**Título: ¿Por qué cada pyme debería empezar a automatizar con IA ya?**\n\n**1. El tiempo del fundador es tu mejor activo —y la IA lo protege**  \nComo emprendedor, tu horario no alcanza: gestionas operaciones, atiendes clientes, facturas y, aún así, no sales a vender tanto como quisieras. La automatiz",
-      "auto_quality": 2.14,
+      "auto_quality": 0.0,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -3403,7 +3933,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3-coder-next__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3-coder-next__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:37+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -3424,7 +3959,7 @@
       "input_tokens": 176,
       "output_tokens": 386,
       "response_preview": "Hace 18 meses, esto empezó como un chat de WhatsApp: 7 personas, respuestas a las 2 a. m., ideas volando entre mensajes y confianza que se construía frase por frase.  \n\nHoy, ese mismo espacio respira distinto. No por lo que *dice* el panel de administración, sino por lo que *ocurre* dentro:  \n— Algu",
-      "auto_quality": 5.2,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3435,7 +3970,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3-coder-next__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3-coder-next__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:37+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 3.33,
@@ -3456,7 +3996,7 @@
       "input_tokens": 155,
       "output_tokens": 216,
       "response_preview": "¿34 % o 11 %? Dos cifras que, a primera vista, parecen contradecirse, pero que en realidad revelan una tensión fundamental en la adopción de la inteligencia artificial en LATAM: según una encuesta regional de marzo de 2026, el 34 % de las pymes ya *utiliza* alguna herramienta de IA generativa —sin e",
-      "auto_quality": 3.6,
+      "auto_quality": 3.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3467,7 +4007,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3-coder-next__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3-coder-next__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.0,
+      "answer_score": 3.33,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:37+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3488,7 +4033,7 @@
       "input_tokens": 109,
       "output_tokens": 476,
       "response_preview": "**Cuando tu workflow dice “success”… pero no hizo nada**  \n\n¿Te ha pasado? Ejecutas un workflow, el estado es *success*, pero al revisar el resultado final (una tarea en Asana, un email enviado, un registro en la DB), *nada* ocurrió. ¿Cómo es posible?\n\nPorque *success* solo significa que el workflow",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3499,7 +4044,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3-coder-next__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3-coder-next__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:37+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -3520,7 +4070,7 @@
       "input_tokens": 197,
       "output_tokens": 330,
       "response_preview": "**Automatizar la cobranza con IA**  \n3 de agosto | 4 sesiones en vivo | 30 cupos  \n\nUn curso práctico, sin tecnicismos vacíos, pensado para quienes cobran y quieren recuperar tiempo sin sacrificar relación con sus clientes. Veremos cómo diseñar flujos de recordatorio que no suenen robóticos, cómo se",
-      "auto_quality": 5.47,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3531,7 +4081,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/qwen3-coder-next__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/qwen3-coder-next__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.67,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:37+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3552,7 +4107,7 @@
       "input_tokens": 181,
       "output_tokens": 858,
       "response_preview": "# Por qué tu pyme debería automatizar con IA (y por qué ahora)\n\nSi diriges una pequeña o mediana empresa, sabes que tu recurso más escaso no es el dinero: es tu tiempo. Cada hora que pasas copiando datos entre hojas de cálculo, respondiendo correos repetitivos o generando reportes a mano es una hora",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -3563,7 +4118,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/claude-opus-4.6__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/claude-opus-4.6__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:37+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3584,7 +4144,7 @@
       "input_tokens": 199,
       "output_tokens": 353,
       "response_preview": "# Un grupo de WhatsApp que se me fue de las manos\n\nHace año y medio creé un grupo con gente que conocía. Emprendedores con los que ya hablaba, pidiéndoles opinión sobre mis ideas y dándoles feedback sobre las suyas.\n\nNo había nombre, no había logo, no había plan.\n\nSolo conversaciones honestas entre ",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3595,7 +4155,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/claude-opus-4.6__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/claude-opus-4.6__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:37+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3616,7 +4181,7 @@
       "input_tokens": 165,
       "output_tokens": 465,
       "response_preview": "## Mi recomendación antes de redactar\n\nLas dos fuentes se contradicen de forma importante: 34 % frente a 11 %. Antes de \"abrir fuerte\" con una de ellas, lo responsable es señalar esa discrepancia, porque elegir solo la cifra más llamativa significaría descartar la otra sin justificación. Además, la ",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3627,7 +4192,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/claude-opus-4.6__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/claude-opus-4.6__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3648,7 +4218,7 @@
       "input_tokens": 124,
       "output_tokens": 536,
       "response_preview": "# El \"success\" que miente: workflows que no hacen nada\n\nTienes un workflow que lleva semanas en verde. Cero errores, cero alertas. Todo bien, ¿no?\n\nHasta que alguien pregunta por qué no se están actualizando los registros en el CRM desde hace diez días.\n\n## El problema\n\nn8n marca una ejecución como ",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3659,7 +4229,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/claude-opus-4.6__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/claude-opus-4.6__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3680,7 +4255,7 @@
       "input_tokens": 221,
       "output_tokens": 320,
       "response_preview": "# Cobranza automatizada con IA\n\nCurso nuevo, 4 sesiones en vivo. Arranca el 3 de agosto. 30 cupos.\n\nEl problema es conocido: la cobranza manual consume tiempo desproporcionado, depende del humor del equipo, y escala mal. La IA resuelve las tres cosas, pero implementarla sin criterio genera más ruido",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3691,7 +4266,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/claude-opus-4.6__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/claude-opus-4.6__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -3712,7 +4292,7 @@
       "input_tokens": 140,
       "output_tokens": 724,
       "response_preview": "Aquí tienes un borrador para tu post de blog, enfocado en persuadir a las pymes sobre los beneficios de la automatización con IA.\n\n---\n\n## Libera Tu Potencial: Por Qué Tu PYME Necesita Automatizar con IA Ahora\n\nComo fundador de una PYME, sabes que cada minuto cuenta. Tu tiempo es un recurso valioso,",
-      "auto_quality": 2.14,
+      "auto_quality": 0.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -3723,7 +4303,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-flash-lite__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-flash-lite__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3744,7 +4329,7 @@
       "input_tokens": 143,
       "output_tokens": 325,
       "response_preview": "¡Claro! Aquí tienes una propuesta para tu post de LinkedIn, enfocada en la evolución y el impacto sin recurrir a cifras:\n\n---\n\n**Título (opcional, pero recomendado para captar la atención):** De un chat a un ecosistema.\n\n**Cuerpo del post:**\n\nHace 18 meses, todo empezó con un grupo de WhatsApp. Un p",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3755,16 +4340,21 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-flash-lite__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-flash-lite__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:38+00:00",
+      "scoring": "verificable"
     },
     {
-      "quality": 6.67,
+      "quality": 3.33,
       "cost_score": 10.0,
       "cost_usd": 9.3e-05,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 7.07,
+      "final": 4.73,
       "test_name": "fuentes_que_se_contradicen",
       "model": "Gemini 2.5 Flash Lite",
       "model_id": "google/gemini-2.5-flash-lite",
@@ -3776,7 +4366,7 @@
       "input_tokens": 130,
       "output_tokens": 201,
       "response_preview": "La inteligencia artificial generativa está irrumpiendo en el tejido empresarial de América Latina, pero las cifras revelan una brecha significativa en su adopción. Mientras que una encuesta regional de marzo de 2026 indica que un prometedor **34% de las pymes latinas ya emplea alguna herramienta de ",
-      "auto_quality": 5.87,
+      "auto_quality": 3.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3787,7 +4377,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-flash-lite__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-flash-lite__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 3.33,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3808,7 +4403,7 @@
       "input_tokens": 93,
       "output_tokens": 366,
       "response_preview": "¡Hola, automatizadores!\n\nHoy vamos a desmitificar un escenario que seguramente os ha sacado alguna cana verde: ese workflow que devuelve un glorioso `'success'` pero, al mirarlo con lupa, ha decidido tomarse un día libre. Sí, hablo de esas ejecuciones que pasan la validación del sistema pero no han ",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3819,7 +4414,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-flash-lite__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-flash-lite__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -3840,7 +4440,7 @@
       "input_tokens": 170,
       "output_tokens": 206,
       "response_preview": "**La IA revoluciona tu flujo de caja: Automatiza tu cobranza.**\n\nImagina un sistema que trabaja incansablemente para ti, asegurando que cada pago llegue a tiempo. Deja atrás las llamadas repetitivas, los correos olvidados y la frustración de la morosidad.\n\nPresentamos un nuevo curso diseñado para qu",
-      "auto_quality": 5.47,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3851,7 +4451,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-flash-lite__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-flash-lite__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.67,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -3872,7 +4477,7 @@
       "input_tokens": 143,
       "output_tokens": 753,
       "response_preview": "# Por qué las pymes deberían automatizar con IA (sin perder el toque humano)\n\nLa inteligencia artificial ya no es solo una herramienta para grandes empresas con departamentos tecnológicos. Hoy, una pyme puede automatizar tareas repetitivas, responder más rápido a sus clientes y ordenar sus procesos ",
-      "auto_quality": 4.87,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -3883,7 +4488,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-terra__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-terra__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 4.67,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3904,7 +4514,7 @@
       "input_tokens": 153,
       "output_tokens": 357,
       "response_preview": "Hace un tiempo, esta comunidad era un grupo de WhatsApp con conocidos.\n\nGente con ganas de emprender, dudas parecidas y conversaciones que aparecían entre mensajes de trabajo, audios largos y algún “¿alguien pasó por esto?”.\n\nHoy pasa otra cosa.\n\nHay personas que llegan sin que nadie las invite pers",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3915,7 +4525,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-terra__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-terra__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3936,7 +4551,7 @@
       "input_tokens": 134,
       "output_tokens": 231,
       "response_preview": "El 34% de las pymes de América Latina ya utiliza alguna herramienta de inteligencia artificial generativa, según una encuesta regional realizada en marzo de 2026. La cifra sugiere que la IA dejó de ser una promesa lejana para instalarse en tareas cotidianas: desde redactar contenidos y atender clien",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3947,7 +4562,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-terra__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-terra__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3968,7 +4588,7 @@
       "input_tokens": 101,
       "output_tokens": 489,
       "response_preview": "Un workflow puede terminar en verde y, aun así, no haber producido ningún efecto. En n8n, *success* significa esencialmente que ningún nodo lanzó un error no gestionado. No significa que se creó el registro, se envió el mensaje, se actualizó la factura o se procesaron los datos esperados.\n\nLos casos",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3979,7 +4599,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-terra__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-terra__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4000,7 +4625,7 @@
       "input_tokens": 174,
       "output_tokens": 252,
       "response_preview": "Abro un nuevo curso sobre automatizar la cobranza con IA.\n\nEmpieza el 3 de agosto y consta de 4 sesiones en vivo enfocadas en diseñar procesos de cobranza más claros, consistentes y escalables, sin perder el criterio humano en cada interacción.\n\nVamos a trabajar sobre casos reales: segmentación de c",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4011,7 +4636,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-terra__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-terra__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4032,7 +4662,7 @@
       "input_tokens": 143,
       "output_tokens": 706,
       "response_preview": "# Por qué las pymes deberían automatizar con IA\n\nPara una pyme, automatizar no significa sustituir personas ni transformar de golpe toda la empresa. Significa utilizar la tecnología para reducir tareas repetitivas, responder más rápido y dedicar los recursos disponibles a actividades que generan ing",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -4043,7 +4673,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-sol__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-sol__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4064,7 +4699,7 @@
       "input_tokens": 153,
       "output_tokens": 503,
       "response_preview": "Hace año y medio, esta comunidad era un grupo de WhatsApp con gente conocida.\n\nNos pasábamos contactos, compartíamos dudas y mandábamos audios a cualquier hora. Todo era cercano, improvisado y bastante caótico.\n\nHoy pasa algo muy distinto.\n\nHay cursos que nacieron de problemas repetidos dentro del g",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4075,7 +4710,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-sol__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-sol__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4096,7 +4736,7 @@
       "input_tokens": 134,
       "output_tokens": 467,
       "response_preview": "Entre el 11% y el 34% de las pymes latinoamericanas ya habría adoptado IA generativa. La brecha —más de veinte puntos porcentuales— no es un detalle: resume tanto la velocidad del cambio como la dificultad de medirlo. Una encuesta regional de marzo de 2026 sitúa el uso de alguna herramienta de IA ge",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4107,7 +4747,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-sol__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-sol__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:39+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4128,7 +4773,7 @@
       "input_tokens": 101,
       "output_tokens": 496,
       "response_preview": "### “Success” no significa “trabajo hecho”\n\nEn n8n, una ejecución puede terminar en verde aunque el resultado operativo sea exactamente cero. “Success” solo confirma que ningún nodo lanzó un error no gestionado; no demuestra que el workflow haya cumplido su objetivo.\n\nLos falsos positivos más comune",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4139,7 +4784,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-sol__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-sol__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:39+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4160,7 +4810,7 @@
       "input_tokens": 174,
       "output_tokens": 380,
       "response_preview": "El próximo 3 de agosto comienza un nuevo curso sobre automatización de la cobranza con inteligencia artificial.\n\nSerán cuatro sesiones en vivo dedicadas a diseñar procesos de cobranza más ordenados, consistentes y eficientes, sin perder el criterio humano ni deteriorar la relación con los clientes.\n",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4171,7 +4821,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-sol__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/gpt-5.6-sol__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:39+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4192,7 +4847,7 @@
       "input_tokens": 160,
       "output_tokens": 875,
       "response_preview": "**Título: Automatizar con IA no es «futuro», es la única forma de que el fundador vuelva a vender**\n\n---\n\n### 1. Tu tiempo no escala, tu sistema sí\n\nEl fundador de una pyme suele ser el mejor vendedor, el mejor producto y el mejor soporte técnico a la vez. Eso es una ventaja al inicio; a los dos año",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4203,7 +4858,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/openrouter-nemotron-3-ultra-550b__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/openrouter-nemotron-3-ultra-550b__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:39+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4224,7 +4884,7 @@
       "input_tokens": 170,
       "output_tokens": 407,
       "response_preview": "Empezó en un grupo de WhatsApp. Doce nombres, la mayoría con cara de \"a ver qué pasa\". Se compartían capturas de pantalla de facturas, dudas de contabilidad y ese miedo silencioso de los domingos por la noche.\n\nHoy ese chat no da abasto.\n\nLa conversación se rompió en hilos que no caben en un móvil. ",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4235,7 +4895,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/openrouter-nemotron-3-ultra-550b__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/openrouter-nemotron-3-ultra-550b__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:39+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -4256,7 +4921,7 @@
       "input_tokens": 157,
       "output_tokens": 281,
       "response_preview": "La brecha no está en la tecnología, sino en quién cuenta la historia. Según una encuesta regional de marzo de 2026, el **34% de las pymes latinoamericanas ya opera con IA generativa**; apenas un mes después, un informe sectorial rebaja esa cifra al **11%**. Veinte puntos porcentuales de diferencia —",
-      "auto_quality": 5.87,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4267,7 +4932,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/openrouter-nemotron-3-ultra-550b__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/openrouter-nemotron-3-ultra-550b__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:39+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4288,7 +4958,7 @@
       "input_tokens": 116,
       "output_tokens": 605,
       "response_preview": "**Asunto: Tu workflow dice \"Success\". Miente.**\n\nEjecutas el workflow. Badge verde. 200 OK en el webhook. Cero errores en la pestaña *Executions*. Todo limpio.\n\nY sin embargo, la base de datos no se actualizó. El email no salió. El webhook de respuesta nunca llegó al cliente.\n\nBienvenido al **éxito ",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4299,7 +4969,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/openrouter-nemotron-3-ultra-550b__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/openrouter-nemotron-3-ultra-550b__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:39+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -4320,7 +4995,7 @@
       "input_tokens": 194,
       "output_tokens": 391,
       "response_preview": "La cobranza dejó de ser una lista de teléfonos y recordatorios genéricos. Hoy, el diferencial está en saber qué cliente pagar, cuándo y con qué mensaje, sin que un humano tenga que decidirlo caso por caso.\n\nEste curso nace de esa brecha. Cuatro sesiones en vivo, arrancando el 3 de agosto, diseñadas ",
-      "auto_quality": 5.2,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4331,7 +5006,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/openrouter-nemotron-3-ultra-550b__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/openrouter-nemotron-3-ultra-550b__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:39+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4352,7 +5032,7 @@
       "input_tokens": 152,
       "output_tokens": 977,
       "response_preview": "**Título:** ¿Por qué tu pyme debería automatizar con IA (y no necesitas ser técnico para empezar)?\n\nComo fundador, sabes que tu tiempo vale oro. Pero el día a día te consume entre correos, facturas, seguimientos y tareas repetitivas. La automatización con inteligencia artificial ya no es cosa de gra",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -4363,7 +5043,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-flash__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-flash__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:39+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4384,7 +5069,7 @@
       "input_tokens": 161,
       "output_tokens": 570,
       "response_preview": "Hace 18 meses, esto era un grupo de WhatsApp con amigos y conocidos. Sin agenda, sin estructura. Solo ganas de compartir lo que sabíamos.\n\nHoy, esa misma conversación tiene vida propia. Hay cursos que arrancan porque la gente los pidió. Sesiones en vivo donde todos aportan, nadie se esconde. Y lo me",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4395,7 +5080,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-flash__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-flash__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:39+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4416,7 +5106,7 @@
       "input_tokens": 138,
       "output_tokens": 609,
       "response_preview": "Más de un tercio de las pymes latinoamericanas ya utiliza inteligencia artificial generativa, según una encuesta regional de marzo de 2026 que arroja un 34% de adopción. Sin embargo, un informe sectorial publicado apenas un mes después, en abril de 2026, reduce drásticamente esa cifra al 11%. Esta b",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4427,7 +5117,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-flash__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-flash__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4448,7 +5143,7 @@
       "input_tokens": 100,
       "output_tokens": 605,
       "response_preview": "**Asunto:** ¿Workflow exitoso o falso positivo?  \n\nSabes que un workflow en n8n devuelve “success” aunque no haya hecho nada útil. Sí, ese momento en que el nodo final se pinta de verde, pero los datos prometidos nunca llegaron a destino. ¿Por qué pasa?  \n\nCausas comunes:  \n- **Webhook sin validació",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4459,7 +5154,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-flash__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-flash__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4480,7 +5180,7 @@
       "input_tokens": 186,
       "output_tokens": 757,
       "response_preview": "**Nuevo curso: Automatización de cobranza con inteligencia artificial**  \nCuatro sesiones en vivo, a partir del 3 de agosto. Cupo limitado a 30 participantes.  \n\nEl contenido aborda la integración de herramientas de IA para optimizar procesos de cobranza: clasificación automatizada de deudores, gene",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4491,7 +5191,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-flash__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-flash__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -4512,7 +5217,7 @@
       "input_tokens": 153,
       "output_tokens": 1832,
       "response_preview": "### Título:  \n**3 Razones Imperdibles para Automatizar tu Pyme con IA (Sin Necesitar un Ejército de Programadores)**\n\n---\n\n**Introducción**  \nEn un mercado donde el tiempo es oro, las pymes que no automatizan se quedan atrás. La inteligencia artificial (IA) ya no es exclusiva de grandes corporacione",
-      "auto_quality": 2.14,
+      "auto_quality": 0.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -4523,7 +5228,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-r1__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-r1__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4544,7 +5254,7 @@
       "input_tokens": 160,
       "output_tokens": 1005,
       "response_preview": "**Título: Cuando el grupo de WhatsApp se convirtió en comunidad**  \n\nHace 18 meses, esto era solo un chat entre amigos. Un puñado de conocidos compartiendo dudas de emprendimiento entre mensajes de voz y emojis. Lo que pasó después ni lo imaginábamos.  \n\nHoy abro la plataforma y veo caras nuevas tod",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4555,7 +5265,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-r1__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-r1__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -4576,7 +5291,7 @@
       "input_tokens": 137,
       "output_tokens": 650,
       "response_preview": "## La Fiebre del Oro Digital: La Contradictoria Realidad de la IA Generativa en las Pymes LATAM\n\n**(120 palabras exactas)**\n\nLa inteligencia artificial generativa está irrumpiendo con fuerza en el tejido empresarial latinoamericano, pero su adopción presenta una imagen sorprendentemente dual. Según ",
-      "auto_quality": 6.14,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4587,7 +5302,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-r1__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-r1__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 5.34,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4608,7 +5328,7 @@
       "input_tokens": 101,
       "output_tokens": 1088,
       "response_preview": "### ¿Workflow \"success\" pero sin resultados? Así lo detectas.  \n\nTu workflow luce verde en el historial, pero no ejecutó acciones reales (no envió emails, no actualizó tu CRM, ni activó procesos). ¿Por qué? Aquí las causas y soluciones para técnicos:  \n\n#### Causas comunes:  \n1. **Trigger \"silencios",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4619,7 +5339,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-r1__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-r1__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -4640,7 +5365,7 @@
       "input_tokens": 185,
       "output_tokens": 650,
       "response_preview": "Aquí tienes el anuncio, estrictamente sin CTA, preguntas o invitaciones a acción:\n\n---\n\n**Anuncio: Curso sobre Automatización de Cobranza con Inteligencia Artificial**\n\nSe abre un nuevo programa formativo dedicado a la aplicación práctica de Inteligencia Artificial en la gestión de cobranza. Este cu",
-      "auto_quality": 5.47,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4651,7 +5376,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-r1__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-r1__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.67,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4672,7 +5402,7 @@
       "input_tokens": 152,
       "output_tokens": 1282,
       "response_preview": "**Título:** Cómo la automatización con IA libera a las pymes para vender más (y una cifra que conviene leer con lupa)\n\n---\n\n**1. El tiempo del fundador: de apagar incendios a vender**  \nEn una pyme, el reloj del fundador se consume en procesos repetitivos: clasificar correos, actualizar CRMs, genera",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -4683,7 +5413,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-pro__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-pro__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4704,7 +5439,7 @@
       "input_tokens": 161,
       "output_tokens": 592,
       "response_preview": "Empecé con un grupo de WhatsApp. Éramos pocos, nos conocíamos de antes, y la única regla era compartir lo que estábamos armando sin miedo al ridículo. Ni siquiera tenía nombre.\n\nDurante meses fue solo eso: un chat caótico donde alguien tiraba una idea a las dos de la mañana y otro respondía con un a",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4715,7 +5450,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-pro__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-pro__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -4736,7 +5476,7 @@
       "input_tokens": 138,
       "output_tokens": 722,
       "response_preview": "Si usted escucha que el **34 %** de las pymes latinoamericanas ya incorporó inteligencia artificial generativa, la cifra invita al optimismo. Pero si apenas un mes después otro estudio insiste en que solo el **11 %** lo ha hecho, la confusión es inevitable. Esa es la fotografía rota que dejan la enc",
-      "auto_quality": 5.87,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4747,7 +5487,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-pro__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-pro__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4768,7 +5513,7 @@
       "input_tokens": 100,
       "output_tokens": 1418,
       "response_preview": "No te fíes del verde. En n8n, que un workflow termine en *success* solo significa que ningún nodo lanzó un error. No significa que hiciera algo. He visto demasiados flujos que pasan sin pena ni gloria y el equipo se entera cuando ya es tarde.\n\n**¿Por qué ocurre?** Porque un flujo puede recorrer su r",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4779,7 +5524,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-pro__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-pro__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -4800,7 +5550,7 @@
       "input_tokens": 186,
       "output_tokens": 1134,
       "response_preview": "Un curso nuevo sobre automatización de cobranza con inteligencia artificial. Cuatro sesiones en vivo, arranca el 3 de agosto. Hay 30 cupos.\n\nEl programa recorre el ciclo completo de cobro con IA aplicada: segmentación dinámica de deudores, generación de recordatorios personalizados, seguimiento auto",
-      "auto_quality": 5.2,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4811,7 +5561,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-pro__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/deepseek-v4-pro__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4832,7 +5587,7 @@
       "input_tokens": 142,
       "output_tokens": 615,
       "response_preview": "Aquí tienes una propuesta de post enfocada en el valor estratégico de la IA para emprendedores.\n\n***\n\n### Deja de trabajar en tu negocio y empieza a liderarlo: El poder de la automatización\n\n¿Sientes que tu día a día en la pyme se ha convertido en una carrera de obstáculos? Si pasas más tiempo gesti",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -4843,7 +5598,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-flash-lite__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-flash-lite__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4864,7 +5624,7 @@
       "input_tokens": 145,
       "output_tokens": 248,
       "response_preview": "Hace un año y medio, esto era un grupo de WhatsApp donde compartíamos dudas, algún meme y el alivio de no sentirnos solos en el caos de emprender. Éramos un puñado de conocidos intentando descifrar el camino.\n\nHoy, ese grupo es irreconocible.\n\nYa no es un chat de consultas rápidas; es un ecosistema ",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4875,7 +5635,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-flash-lite__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-flash-lite__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -4896,7 +5661,7 @@
       "input_tokens": 132,
       "output_tokens": 200,
       "response_preview": "Aquí tienes una propuesta de apertura con un enfoque editorial sólido, diseñada para captar la atención desde la contradicción:\n\n«La carrera por la inteligencia artificial en América Latina vive un momento de desconcierto estadístico que refleja la complejidad de nuestra realidad empresarial. Mientr",
-      "auto_quality": 5.6,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4907,7 +5672,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-flash-lite__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-flash-lite__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4928,7 +5698,7 @@
       "input_tokens": 95,
       "output_tokens": 411,
       "response_preview": "### El falso positivo: cuando tu workflow dice \"OK\" pero el resultado es un espejismo\n\nTodos hemos caído en la trampa: revisas el historial de ejecuciones en n8n, ves una fila de puntos verdes brillantes, y asumes que el trabajo está hecho. Pero, al abrir el dashboard destino, no hay rastro de los d",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4939,7 +5709,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-flash-lite__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-flash-lite__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4960,7 +5735,7 @@
       "input_tokens": 172,
       "output_tokens": 224,
       "response_preview": "La gestión de cobranzas suele ser el punto donde se detiene el crecimiento de cualquier operación: es un proceso repetitivo, emocionalmente desgastante y propenso al error humano. El próximo 3 de agosto comienza un programa diseñado para transformar esta dinámica mediante la implementación de sistem",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4971,7 +5746,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-flash-lite__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-flash-lite__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -4992,7 +5772,7 @@
       "input_tokens": 140,
       "output_tokens": 2044,
       "response_preview": "**Por qué tu pyme debe apostar por la automatización con IA hoy mismo**\n\n**1. El recurso más valioso: tu tiempo**\nComo fundador de una pyme, tu día tiene 24 horas y, probablemente, sientas que te faltan la mitad. El gran problema de emprender es que es muy fácil terminar apagando fuegos y atrapado e",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -5003,7 +5783,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-pro__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-pro__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -5024,7 +5809,7 @@
       "input_tokens": 143,
       "output_tokens": 1826,
       "response_preview": "Empezó como un simple chat de WhatsApp con caras conocidas. Un rincón improvisado para no sentirnos tan solos mientras emprendíamos.\n\nHoy, apenas año y medio después, miro hacia adentro y el cambio de escala es brutal. \n\nEse grupo caótico de mensajes sueltos evolucionó hasta convertirse en un ecosis",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -5035,7 +5820,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-pro__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-pro__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -5056,7 +5846,7 @@
       "input_tokens": 130,
       "output_tokens": 1300,
       "response_preview": "Aquí tienes una propuesta. Como redactor con criterio editorial, me he enfrentado a un reto común: **los datos se contradicen**. \n\nEn lugar de elegir uno al azar y ocultar el otro, he utilizado la brecha entre ambos para crear un \"gancho\" narrativo mucho más poderoso y analítico. El impacto no está ",
-      "auto_quality": 5.87,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -5067,7 +5857,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-pro__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-pro__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -5088,7 +5883,7 @@
       "input_tokens": 93,
       "output_tokens": 1980,
       "response_preview": "**El peligro del \"Success\" fantasma en n8n**\n\nVes el check verde de *Success* en tu historial de ejecuciones. Todo parece perfecto. Sin embargo, el cliente no recibió el correo o la base de datos no se actualizó. ¿Por qué n8n marca como exitoso un workflow que en realidad no hizo nada?\n\nLos \"falsos ",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -5099,7 +5894,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-pro__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-pro__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -5120,7 +5920,7 @@
       "input_tokens": 170,
       "output_tokens": 1450,
       "response_preview": "Cobrar es una de las tareas más desgastantes y repetitivas de cualquier negocio. Exige tiempo, seguimiento milimétrico y, muchas veces, lidiar con la fricción emocional de reclamar facturas vencidas.\n\nPara resolver este cuello de botella operativo, diseñé un nuevo curso enfocado exclusivamente en au",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -5131,7 +5931,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260713_192644_77095",
-      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-pro__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260713_192644_77095/gemini-3.1-pro__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:09:40+00:00",
+      "scoring": "verificable"
     }
   ]
 }

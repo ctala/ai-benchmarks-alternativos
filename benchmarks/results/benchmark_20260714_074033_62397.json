@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0118
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:03+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_074033_62397",
-      "response_file": "results/responses/20260714_074033_62397/or-nemotron-nano-9b-v2__agent_capabilities__skill_execution_complex.md"
+      "response_file": "results/responses/20260714_074033_62397/or-nemotron-nano-9b-v2__agent_capabilities__skill_execution_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.5,
@@ -75,7 +81,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_074033_62397",
-      "response_file": "results/responses/20260714_074033_62397/or-nemotron-nano-9b-v2__agent_capabilities__agent_team_delegation.md"
+      "response_file": "results/responses/20260714_074033_62397/or-nemotron-nano-9b-v2__agent_capabilities__agent_team_delegation.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.6,
@@ -107,7 +114,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_074033_62397",
-      "response_file": "results/responses/20260714_074033_62397/or-nemotron-nano-9b-v2__agent_capabilities__ask_clarification_before_acting.md"
+      "response_file": "results/responses/20260714_074033_62397/or-nemotron-nano-9b-v2__agent_capabilities__ask_clarification_before_acting.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.5,
@@ -128,7 +136,7 @@
       "input_tokens": 1103,
       "output_tokens": 607,
       "response_preview": "Okay, let's tackle the user's request step by step. They have three tasks: publish an article, approve a budget, and find an API key.\n\nFirst, the article about AI funding in LATAM is ready to be published. Looking at the tools available, the 'publish_blog_post' skill seems appropriate here. I need t",
-      "auto_quality": 5.57,
+      "auto_quality": 7.5,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -139,7 +147,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_074033_62397",
-      "response_file": "results/responses/20260714_074033_62397/or-nemotron-nano-9b-v2__agent_capabilities__context_following_complex_system.md"
+      "response_file": "results/responses/20260714_074033_62397/or-nemotron-nano-9b-v2__agent_capabilities__context_following_complex_system.md",
+      "content_score": 2.67,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:03+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -160,7 +173,7 @@
       "input_tokens": 278,
       "output_tokens": 821,
       "response_preview": "\n\n```json\n[\n  {\"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\", \"modelo\": \"deepseek-v3\", \"razon\": \"Requiere razonamiento analítico para identificar patrones en grandes volúmenes de texto, lo que es su fortaleza principal.\"},\n  {\"subtarea\": \"Escribir un email de d",
-      "auto_quality": 5.8,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +184,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_074033_62397",
-      "response_file": "results/responses/20260714_074033_62397/or-nemotron-nano-9b-v2__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260714_074033_62397/or-nemotron-nano-9b-v2__agent_capabilities__model_as_router.md",
+      "content_score": 7.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:03+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 3.55,
@@ -203,7 +221,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_074033_62397",
-      "response_file": "results/responses/20260714_074033_62397/or-minimax-m2.5__agent_capabilities__skill_execution_complex.md"
+      "response_file": "results/responses/20260714_074033_62397/or-minimax-m2.5__agent_capabilities__skill_execution_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.4,
@@ -235,7 +254,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_074033_62397",
-      "response_file": "results/responses/20260714_074033_62397/or-minimax-m2.5__agent_capabilities__agent_team_delegation.md"
+      "response_file": "results/responses/20260714_074033_62397/or-minimax-m2.5__agent_capabilities__agent_team_delegation.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.6,
@@ -267,7 +287,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_074033_62397",
-      "response_file": "results/responses/20260714_074033_62397/or-minimax-m2.5__agent_capabilities__ask_clarification_before_acting.md"
+      "response_file": "results/responses/20260714_074033_62397/or-minimax-m2.5__agent_capabilities__ask_clarification_before_acting.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.0,
@@ -288,7 +309,7 @@
       "input_tokens": 1030,
       "output_tokens": 286,
       "response_preview": "Voy a abordar cada solicitud:\n\n---\n\n**1. Publicar el artículo de AI funding en LATAM**\nEsto puedo hacerlo. Voy a delegarlo al agente especializado:\n",
-      "auto_quality": 1.98,
+      "auto_quality": 0.0,
       "judge_score": 3.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -299,7 +320,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_074033_62397",
-      "response_file": "results/responses/20260714_074033_62397/or-minimax-m2.5__agent_capabilities__context_following_complex_system.md"
+      "response_file": "results/responses/20260714_074033_62397/or-minimax-m2.5__agent_capabilities__context_following_complex_system.md",
+      "content_score": 4.94,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:03+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -320,7 +346,7 @@
       "input_tokens": 264,
       "output_tokens": 714,
       "response_preview": "```json\n[\n  {\n    \"subtarea\": \"Analizar 500 reviews y extraer los 5 problemas principales\",\n    \"modelo\": \"deepseek-v3\",\n    \"razon\": \"Excelente razonamiento para identificar patrones y categorizar problemas. Muy económico para procesar gran volumen.\"\n  },\n  {\n    \"subtarea\": \"Escribir email de disc",
-      "auto_quality": 7.3,
+      "auto_quality": 7.5,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -331,7 +357,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_074033_62397",
-      "response_file": "results/responses/20260714_074033_62397/or-minimax-m2.5__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260714_074033_62397/or-minimax-m2.5__agent_capabilities__model_as_router.md",
+      "content_score": 7.0,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:03+00:00",
+      "scoring": "verificable"
     }
   ]
 }

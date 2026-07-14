@@ -235,7 +235,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260714_055833_8762",
-      "response_file": "results/responses/20260714_055833_8762/or-nemotron-3-nano-omni-reasoning__tool_calling__single_tool_calendar.md"
+      "response_file": "results/responses/20260714_055833_8762/or-nemotron-3-nano-omni-reasoning__tool_calling__single_tool_calendar.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.1,
@@ -267,7 +268,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260714_055833_8762",
-      "response_file": "results/responses/20260714_055833_8762/or-nemotron-3-nano-omni-reasoning__tool_calling__multi_tool_sequential.md"
+      "response_file": "results/responses/20260714_055833_8762/or-nemotron-3-nano-omni-reasoning__tool_calling__multi_tool_sequential.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.26,
@@ -299,7 +301,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260714_055833_8762",
-      "response_file": "results/responses/20260714_055833_8762/or-nemotron-3-nano-omni-reasoning__tool_calling__tool_with_reasoning.md"
+      "response_file": "results/responses/20260714_055833_8762/or-nemotron-3-nano-omni-reasoning__tool_calling__tool_with_reasoning.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 2.9,
@@ -331,7 +334,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260714_055833_8762",
-      "response_file": "results/responses/20260714_055833_8762/or-nemotron-3-nano-omni-reasoning__tool_calling__no_tool_needed.md"
+      "response_file": "results/responses/20260714_055833_8762/or-nemotron-3-nano-omni-reasoning__tool_calling__no_tool_needed.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

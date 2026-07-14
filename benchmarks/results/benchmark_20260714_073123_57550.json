@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0169
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:50+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 519,
       "output_tokens": 403,
       "response_preview": "```json\n{\n  \"numero_factura\": \"00234-2026\",\n  \"fecha\": \"2026-03-15\",\n  \"emisor\": {\n    \"nombre\": \"TechFlow SpA\",\n    \"rut\": \"77.432.198-3\",\n    \"direccion\": \"Av. Providencia 1234, Of. 501, Santiago\"\n  },\n  \"cliente\": {\n    \"nombre\": \"Startup Labs Ltda.\",\n    \"rut\": \"76.891.234-K\",\n    \"direccion\": \"",
-      "auto_quality": 8.8,
+      "auto_quality": 10.0,
       "judge_score": 3.0,
       "judge_precision": 2,
       "judge_relevancia": 3,
@@ -43,7 +48,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_073123_57550",
-      "response_file": "results/responses/20260714_073123_57550/or-mistral-large-3__ocr_extraction__invoice_extraction.md"
+      "response_file": "results/responses/20260714_073123_57550/or-mistral-large-3__ocr_extraction__invoice_extraction.md",
+      "content_score": 7.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:46+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.75,
@@ -64,7 +74,7 @@
       "input_tokens": 245,
       "output_tokens": 164,
       "response_preview": "```json\n{\n  \"nombre_completo\": \"Maria Jose Rodriguez Soto\",\n  \"cargo\": \"Chief Technology Officer\",\n  \"empresa\": \"NexaFlow Intelligence\",\n  \"slogan\": \"Transforming Data into Decisions\",\n  \"telefono\": \"+56 9 8765 4321\",\n  \"email\": \"mj.rodriguez@nexaflow.ai\",\n  \"linkedin\": \"linkedin.com/in/mjrodriguez\"",
-      "auto_quality": 6.85,
+      "auto_quality": 8.75,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_073123_57550",
-      "response_file": "results/responses/20260714_073123_57550/or-mistral-large-3__ocr_extraction__business_card_extraction.md"
+      "response_file": "results/responses/20260714_073123_57550/or-mistral-large-3__ocr_extraction__business_card_extraction.md",
+      "content_score": 4.0,
+      "answer_score": 8.75,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:46+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.75,
@@ -96,7 +111,7 @@
       "input_tokens": 371,
       "output_tokens": 709,
       "response_preview": "Aquí tienes la respuesta en formato JSON con el análisis del recibo:\n\n```json\n{\n  \"items\": [\n    {\n      \"nombre\": \"Lomo vetado\",\n      \"cantidad\": 2,\n      \"precio_unitario\": 18900,\n      \"precio_total\": 37800\n    },\n    {\n      \"nombre\": \"Ensalada cesar\",\n      \"cantidad\": 1,\n      \"precio_unitari",
-      "auto_quality": 7.65,
+      "auto_quality": 8.75,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_073123_57550",
-      "response_file": "results/responses/20260714_073123_57550/or-mistral-large-3__ocr_extraction__receipt_math_verification.md"
+      "response_file": "results/responses/20260714_073123_57550/or-mistral-large-3__ocr_extraction__receipt_math_verification.md",
+      "content_score": 6.0,
+      "answer_score": 8.75,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -128,7 +148,7 @@
       "input_tokens": 422,
       "output_tokens": 1301,
       "response_preview": "Aquí tienes la respuesta en formato JSON estructurado con los cálculos y proyecciones solicitadas:\n\n```json\n{\n  \"dashboard_data\": {\n    \"titulo\": \"DASHBOARD - KPIs Marzo 2026\",\n    \"metricas\": [\n      {\n        \"nombre\": \"MRR\",\n        \"valores\": {\n          \"Enero\": 45200,\n          \"Febrero\": 4870",
-      "auto_quality": 8.8,
+      "auto_quality": 8.0,
       "judge_score": 3.0,
       "judge_precision": 2,
       "judge_relevancia": 3,
@@ -139,7 +159,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_073123_57550",
-      "response_file": "results/responses/20260714_073123_57550/or-mistral-large-3__ocr_extraction__screenshot_table_extraction.md"
+      "response_file": "results/responses/20260714_073123_57550/or-mistral-large-3__ocr_extraction__screenshot_table_extraction.md",
+      "content_score": 10.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +185,7 @@
       "input_tokens": 468,
       "output_tokens": 1019,
       "response_preview": "```json\n{\n  \"texto_corregido\": \"Reunión equipo prod - 14/04/26\\nAsistentes: JP, MaJo, Seba, Cami (faltó Nico)\\n\\n1) Lanzamiento v2.0 - mover de abril 28 a mayo 5\\n   - Falta QA en módulo pagos\\n   - Bug crítico en API webhooks (Seba lo toma)\\n\\n2) Métricas Q1:\\n   - MRR 52.1k (+15% vs Q4)\\n   - Chur",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_073123_57550",
-      "response_file": "results/responses/20260714_073123_57550/or-mistral-large-3__ocr_extraction__handwritten_notes_extraction.md"
+      "response_file": "results/responses/20260714_073123_57550/or-mistral-large-3__ocr_extraction__handwritten_notes_extraction.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -192,7 +222,7 @@
       "input_tokens": 526,
       "output_tokens": 5797,
       "response_preview": "{\n  \"numero_factura\": \"00234-2026\",\n  \"fecha\": \"15 de Marzo de 2026\",\n  \"emisor\": {\n    \"nombre\": \"TechFlow SpA\",\n    \"rut\": \"77.432.198-3\",\n    \"direccion\": \"Av. Providencia 1234, Of. 501, Santiago\"\n  },\n  \"cliente\": {\n    \"nombre\": \"Startup Labs Ltda.\",\n    \"rut\": \"76.891.234-K\",\n    \"direccion\": ",
-      "auto_quality": 8.8,
+      "auto_quality": 10.0,
       "judge_score": 3.0,
       "judge_precision": 2,
       "judge_relevancia": 3,
@@ -203,7 +233,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_073123_57550",
-      "response_file": "results/responses/20260714_073123_57550/or-qwen3.5-397b__ocr_extraction__invoice_extraction.md"
+      "response_file": "results/responses/20260714_073123_57550/or-qwen3.5-397b__ocr_extraction__invoice_extraction.md",
+      "content_score": 7.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -224,7 +259,7 @@
       "input_tokens": 257,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Role: OCR system extracting contact info from business cards.\n    *   Input: Text representation of a business card (front and back).\n    *   Output Format: Specific JSON structure.\n    *   Constraint: Only JSON, nothing else.\n\n2.  **Analyze th",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -235,7 +270,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_073123_57550",
-      "response_file": "results/responses/20260714_073123_57550/or-qwen3.5-397b__ocr_extraction__business_card_extraction.md"
+      "response_file": "results/responses/20260714_073123_57550/or-qwen3.5-397b__ocr_extraction__business_card_extraction.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.75,
@@ -256,7 +296,7 @@
       "input_tokens": 367,
       "output_tokens": 7186,
       "response_preview": "{\n  \"items\": [\n    {\n      \"nombre\": \"Lomo vetado\",\n      \"cantidad\": 2,\n      \"precio_unitario\": 18900,\n      \"total\": 37800\n    },\n    {\n      \"nombre\": \"Ensalada cesar\",\n      \"cantidad\": 1,\n      \"precio_unitario\": 7500,\n      \"total\": 7500\n    },\n    {\n      \"nombre\": \"Pisco sour\",\n      \"canti",
-      "auto_quality": 6.85,
+      "auto_quality": 8.75,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_073123_57550",
-      "response_file": "results/responses/20260714_073123_57550/or-qwen3.5-397b__ocr_extraction__receipt_math_verification.md"
+      "response_file": "results/responses/20260714_073123_57550/or-qwen3.5-397b__ocr_extraction__receipt_math_verification.md",
+      "content_score": 4.0,
+      "answer_score": 8.75,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -299,7 +344,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_073123_57550",
-      "response_file": "results/responses/20260714_073123_57550/or-qwen3.5-397b__ocr_extraction__screenshot_table_extraction.md"
+      "response_file": "results/responses/20260714_073123_57550/or-qwen3.5-397b__ocr_extraction__screenshot_table_extraction.md",
+      "content_score": 8.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:50+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -320,7 +370,7 @@
       "input_tokens": 480,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** OCR system interpreting handwritten notes.\n    *   **Input:** Text recognized from a photo of handwritten notes (contains typical OCR errors like '0' instead of 'o', 'l' instead of 'i', etc.).\n    *   **Tasks:**\n        1.  Correct OC",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -331,7 +381,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_073123_57550",
-      "response_file": "results/responses/20260714_073123_57550/or-qwen3.5-397b__ocr_extraction__handwritten_notes_extraction.md"
+      "response_file": "results/responses/20260714_073123_57550/or-qwen3.5-397b__ocr_extraction__handwritten_notes_extraction.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:50+00:00",
+      "scoring": "verificable"
     }
   ]
 }

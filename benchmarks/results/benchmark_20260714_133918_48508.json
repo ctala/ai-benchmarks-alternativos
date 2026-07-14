@@ -1,16 +1,21 @@
 {
   "metadata": {
     "timestamp": "20260714_133918_48508",
-    "total_runs": 3,
+    "total_runs": 5,
     "errors": 0,
     "judge": {
       "judge_model": "microsoft/phi-4",
       "judge_provider": "openrouter",
       "judge_is_local": false,
-      "evaluations": 4,
-      "estimated_cost_usd": 0.0033
+      "evaluations": 6,
+      "estimated_cost_usd": 0.0053
     },
-    "partial": true
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:51+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_133918_48508",
-      "response_file": "results/responses/20260714_133918_48508/deepseek-v4-pro__agent_capabilities__skill_execution_complex.md"
+      "response_file": "results/responses/20260714_133918_48508/deepseek-v4-pro__agent_capabilities__skill_execution_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -75,7 +81,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_133918_48508",
-      "response_file": "results/responses/20260714_133918_48508/deepseek-v4-pro__agent_capabilities__agent_team_delegation.md"
+      "response_file": "results/responses/20260714_133918_48508/deepseek-v4-pro__agent_capabilities__agent_team_delegation.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.2,
@@ -107,7 +114,82 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_133918_48508",
-      "response_file": "results/responses/20260714_133918_48508/deepseek-v4-pro__agent_capabilities__ask_clarification_before_acting.md"
+      "response_file": "results/responses/20260714_133918_48508/deepseek-v4-pro__agent_capabilities__ask_clarification_before_acting.md",
+      "scoring": "juez-30-70"
+    },
+    {
+      "quality": 0.0,
+      "cost_score": 7.91,
+      "cost_usd": 0.001071,
+      "speed": 8.0,
+      "latency": 1.0,
+      "tool_calling": 10.0,
+      "final": 1.86,
+      "test_name": "context_following_complex_system",
+      "model": "DeepSeek V4 Pro",
+      "model_id": "deepseek/deepseek-v4-pro",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 59.5,
+      "latency_first_token": 10.757,
+      "latency_total": 10.757,
+      "input_tokens": 1183,
+      "output_tokens": 640,
+      "response_preview": "Te ayudo con las tres cosas. Déjame atender lo que puedo resolver directamente y escalar lo que está fuera de mi alcance.",
+      "auto_quality": 0.0,
+      "judge_score": 3.0,
+      "judge_precision": 3,
+      "judge_relevancia": 3,
+      "judge_profundidad": 2,
+      "judge_claridad": 4,
+      "judge_utilidad": 3,
+      "judge_justificacion": "La respuesta es correcta y relevante, pero carece de profundidad y no proporciona detalles específicos o acciones concretas.",
+      "suite": "agent_capabilities",
+      "run": 1,
+      "timestamp": "20260714_133918_48508",
+      "response_file": "results/responses/20260714_133918_48508/deepseek-v4-pro__agent_capabilities__context_following_complex_system.md",
+      "content_score": 3.47,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:51+00:00",
+      "scoring": "verificable"
+    },
+    {
+      "quality": 5.0,
+      "cost_score": 7.36,
+      "cost_usd": 0.001629,
+      "speed": 8.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 5.28,
+      "test_name": "model_as_router",
+      "model": "DeepSeek V4 Pro",
+      "model_id": "deepseek/deepseek-v4-pro",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 65.2,
+      "latency_first_token": 26.566,
+      "latency_total": 26.566,
+      "input_tokens": 278,
+      "output_tokens": 1733,
+      "response_preview": "[\n  {\n    \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n    \"modelo\": \"deepseek-v3\",\n    \"razon\": \"Excelente en razonamiento y análisis de grandes volúmenes de texto para extraer insights.\"\n  },\n  {\n    \"subtarea\": \"Escribir un email de disculpas a clientes af",
+      "auto_quality": 5.0,
+      "judge_score": 5,
+      "judge_precision": 5,
+      "judge_relevancia": 5,
+      "judge_profundidad": 4,
+      "judge_claridad": 5,
+      "judge_utilidad": 5,
+      "judge_justificacion": "La respuesta es precisa, relevante, clara y profundamente útil, con una justificación adecuada para cada elección de modelo, lo que la hace altamente aplicable para un emprendedor.",
+      "suite": "agent_capabilities",
+      "run": 1,
+      "timestamp": "20260714_133918_48508",
+      "response_file": "results/responses/20260714_133918_48508/deepseek-v4-pro__agent_capabilities__model_as_router.md",
+      "content_score": 7.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:51+00:00",
+      "scoring": "verificable"
     }
   ]
 }

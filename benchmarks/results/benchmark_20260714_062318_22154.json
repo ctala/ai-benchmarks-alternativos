@@ -10,7 +10,12 @@
       "evaluations": 5,
       "estimated_cost_usd": 0.0066
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:11:59+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 254,
       "output_tokens": 205,
       "response_preview": "**Título:**  \n**“Tu startup no puede seguir respondiendo como si fuera 2010: la IA está aquí para salvar tu soporte”**\n\n**Primer párrafo:**  \n¿Cuántas veces has pasado la noche despierto revisando tickets de soporte mientras tu equipo de desarrollo intenta lanzar la próxima versión? Cada mensaje sin",
-      "auto_quality": 6.67,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_062318_22154",
-      "response_file": "results/responses/20260714_062318_22154/or-nemotron-3-nano-omni-reasoning__multi_turn__content_iteration.md"
+      "response_file": "results/responses/20260714_062318_22154/or-nemotron-3-nano-omni-reasoning__multi_turn__content_iteration.md",
+      "content_score": 4.67,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:56+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -64,7 +74,7 @@
       "input_tokens": 389,
       "output_tokens": 944,
       "response_preview": "Entiendo tu situación, Maria. He verificado el email maria@startup.cl y confirmo que el pago de $200 corresponde a este mes, por lo que el reembolso completo está dentro del plazo de 30 días.  \n\nProcederé a:\n\n1. **Reembolsar los $200** de forma inmediata.  \n2. **Reactivar tu automatización** mientra",
-      "auto_quality": 7.2,
+      "auto_quality": 6.0,
       "judge_score": 1,
       "judge_precision": 1,
       "judge_relevancia": 1,
@@ -75,7 +85,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_062318_22154",
-      "response_file": "results/responses/20260714_062318_22154/or-nemotron-3-nano-omni-reasoning__multi_turn__support_escalation.md"
+      "response_file": "results/responses/20260714_062318_22154/or-nemotron-3-nano-omni-reasoning__multi_turn__support_escalation.md",
+      "content_score": 9.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:59+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 4.0,
@@ -96,7 +111,7 @@
       "input_tokens": 248,
       "output_tokens": 2983,
       "response_preview": "¡Entendido! Vamos a crear un workflow en **n8n** que cumpla con los nuevos requisitos:\n\n| Paso | Acción | Nodo n8n recomendado |\n|------|--------|----------------------|\n| 1️⃣ | **Detectar nuevos correos** en Gmail | **Gmail Trigger** |\n| 2️⃣ | **Filtrar** solo los mensajes cuyo asunto contenga “pro",
-      "auto_quality": 6.4,
+      "auto_quality": 4.0,
       "judge_score": 3.8,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -107,7 +122,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_062318_22154",
-      "response_file": "results/responses/20260714_062318_22154/or-nemotron-3-nano-omni-reasoning__multi_turn__requirements_change.md"
+      "response_file": "results/responses/20260714_062318_22154/or-nemotron-3-nano-omni-reasoning__multi_turn__requirements_change.md",
+      "content_score": 10.0,
+      "answer_score": 4.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:59+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -139,7 +159,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_062318_22154",
-      "response_file": "results/responses/20260714_062318_22154/or-nemotron-3-nano-omni-reasoning__multi_turn__debugging_conversation.md"
+      "response_file": "results/responses/20260714_062318_22154/or-nemotron-3-nano-omni-reasoning__multi_turn__debugging_conversation.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:59+00:00",
+      "scoring": "verificable"
     }
   ]
 }

@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0117
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:33+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_070313_43014",
-      "response_file": "results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__skill_execution_complex.md"
+      "response_file": "results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__skill_execution_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -75,7 +81,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_070313_43014",
-      "response_file": "results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__agent_team_delegation.md"
+      "response_file": "results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__agent_team_delegation.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.4,
@@ -107,7 +114,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_070313_43014",
-      "response_file": "results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__ask_clarification_before_acting.md"
+      "response_file": "results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__ask_clarification_before_acting.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -128,7 +136,7 @@
       "input_tokens": 995,
       "output_tokens": 345,
       "response_preview": "¡Hola! Vamos a abordar tus solicitudes por orden de prioridad según nuestras reglas internas:\n\n1. **Publicar el artículo sobre financiamiento de IA en LATAM**:\n   Puedo encargarme de esto de inmediato. ¿Podrías confirmarme el título exacto del artículo y verificar que esté listo para su publicación?",
-      "auto_quality": 5.4,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +147,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_070313_43014",
-      "response_file": "results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__context_following_complex_system.md"
+      "response_file": "results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__context_following_complex_system.md",
+      "content_score": 6.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -160,7 +173,7 @@
       "input_tokens": 271,
       "output_tokens": 503,
       "response_preview": "```json\n[\n    {\n        \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n        \"modelo\": \"deepseek-v3\",\n        \"razon\": \"Requiere análisis estructurado de texto no estructurado (reviews) para identificar patrones y problemas recurrentes. Su fortaleza en razona",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +184,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_070313_43014",
-      "response_file": "results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__model_as_router.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.4,
@@ -203,7 +221,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_070313_43014",
-      "response_file": "results/responses/20260714_070313_43014/or-deepseek-v3__agent_capabilities__skill_execution_complex.md"
+      "response_file": "results/responses/20260714_070313_43014/or-deepseek-v3__agent_capabilities__skill_execution_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.1,
@@ -235,7 +254,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_070313_43014",
-      "response_file": "results/responses/20260714_070313_43014/or-deepseek-v3__agent_capabilities__agent_team_delegation.md"
+      "response_file": "results/responses/20260714_070313_43014/or-deepseek-v3__agent_capabilities__agent_team_delegation.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -267,7 +287,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_070313_43014",
-      "response_file": "results/responses/20260714_070313_43014/or-deepseek-v3__agent_capabilities__ask_clarification_before_acting.md"
+      "response_file": "results/responses/20260714_070313_43014/or-deepseek-v3__agent_capabilities__ask_clarification_before_acting.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -288,7 +309,7 @@
       "input_tokens": 826,
       "output_tokens": 293,
       "response_preview": "Te ayudo con lo que puedo, pero necesito algunas aclaraciones y hay límites que debo respetar.\n\n**Sobre los puntos que mencionas:**\n\n1. **Publicar el artículo sobre AI funding en LATAM** - Puedo ayudarte con esto. ¿Tienes el contenido del artículo listo o necesitas que lo busque en nuestra base de c",
-      "auto_quality": 5.14,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -299,7 +320,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_070313_43014",
-      "response_file": "results/responses/20260714_070313_43014/or-deepseek-v3__agent_capabilities__context_following_complex_system.md"
+      "response_file": "results/responses/20260714_070313_43014/or-deepseek-v3__agent_capabilities__context_following_complex_system.md",
+      "content_score": 5.34,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:33+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -320,7 +346,7 @@
       "input_tokens": 278,
       "output_tokens": 391,
       "response_preview": "```json\n[\n  {\n    \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n    \"modelo\": \"claude-sonnet\",\n    \"razon\": \"Requiere comprensión matizada de lenguaje natural, análisis de sentimientos y síntesis de información cualitativa. Claude Sonnet es excelente para anál",
-      "auto_quality": 5.8,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +357,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_070313_43014",
-      "response_file": "results/responses/20260714_070313_43014/or-deepseek-v3__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260714_070313_43014/or-deepseek-v3__agent_capabilities__model_as_router.md",
+      "content_score": 7.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:33+00:00",
+      "scoring": "verificable"
     }
   ]
 }

@@ -43,7 +43,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260714_070713_45208",
-      "response_file": "results/responses/20260714_070713_45208/or-nemotron-nano-9b-v2__customer_support__angry_customer_refund.md"
+      "response_file": "results/responses/20260714_070713_45208/or-nemotron-nano-9b-v2__customer_support__angry_customer_refund.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.8,
@@ -75,7 +76,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260714_070713_45208",
-      "response_file": "results/responses/20260714_070713_45208/or-nemotron-nano-9b-v2__customer_support__ambiguous_issue_classification.md"
+      "response_file": "results/responses/20260714_070713_45208/or-nemotron-nano-9b-v2__customer_support__ambiguous_issue_classification.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.2,
@@ -107,7 +109,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260714_070713_45208",
-      "response_file": "results/responses/20260714_070713_45208/or-nemotron-nano-9b-v2__customer_support__multi_issue_conversation.md"
+      "response_file": "results/responses/20260714_070713_45208/or-nemotron-nano-9b-v2__customer_support__multi_issue_conversation.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.2,
@@ -139,7 +142,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260714_070713_45208",
-      "response_file": "results/responses/20260714_070713_45208/or-nemotron-nano-9b-v2__customer_support__social_engineering_attempt.md"
+      "response_file": "results/responses/20260714_070713_45208/or-nemotron-nano-9b-v2__customer_support__social_engineering_attempt.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.4,
@@ -171,7 +175,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260714_070713_45208",
-      "response_file": "results/responses/20260714_070713_45208/or-minimax-m2.5__customer_support__angry_customer_refund.md"
+      "response_file": "results/responses/20260714_070713_45208/or-minimax-m2.5__customer_support__angry_customer_refund.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.0,
@@ -203,7 +208,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260714_070713_45208",
-      "response_file": "results/responses/20260714_070713_45208/or-minimax-m2.5__customer_support__ambiguous_issue_classification.md"
+      "response_file": "results/responses/20260714_070713_45208/or-minimax-m2.5__customer_support__ambiguous_issue_classification.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 5.73,
@@ -235,7 +241,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260714_070713_45208",
-      "response_file": "results/responses/20260714_070713_45208/or-minimax-m2.5__customer_support__multi_issue_conversation.md"
+      "response_file": "results/responses/20260714_070713_45208/or-minimax-m2.5__customer_support__multi_issue_conversation.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -267,7 +274,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260714_070713_45208",
-      "response_file": "results/responses/20260714_070713_45208/or-minimax-m2.5__customer_support__social_engineering_attempt.md"
+      "response_file": "results/responses/20260714_070713_45208/or-minimax-m2.5__customer_support__social_engineering_attempt.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

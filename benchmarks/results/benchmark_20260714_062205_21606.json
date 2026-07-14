@@ -43,7 +43,8 @@
       "suite": "summarization",
       "run": 1,
       "timestamp": "20260714_062205_21606",
-      "response_file": "results/responses/20260714_062205_21606/or-ministral-14b__summarization__long_document_summary.md"
+      "response_file": "results/responses/20260714_062205_21606/or-ministral-14b__summarization__long_document_summary.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.8,
@@ -75,7 +76,8 @@
       "suite": "summarization",
       "run": 1,
       "timestamp": "20260714_062205_21606",
-      "response_file": "results/responses/20260714_062205_21606/or-ministral-14b__summarization__extract_structured_data.md"
+      "response_file": "results/responses/20260714_062205_21606/or-ministral-14b__summarization__extract_structured_data.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.6,
@@ -107,7 +109,8 @@
       "suite": "summarization",
       "run": 1,
       "timestamp": "20260714_062205_21606",
-      "response_file": "results/responses/20260714_062205_21606/or-deepseek-v3__summarization__long_document_summary.md"
+      "response_file": "results/responses/20260714_062205_21606/or-deepseek-v3__summarization__long_document_summary.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.6,
@@ -139,7 +142,8 @@
       "suite": "summarization",
       "run": 1,
       "timestamp": "20260714_062205_21606",
-      "response_file": "results/responses/20260714_062205_21606/or-deepseek-v3__summarization__extract_structured_data.md"
+      "response_file": "results/responses/20260714_062205_21606/or-deepseek-v3__summarization__extract_structured_data.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

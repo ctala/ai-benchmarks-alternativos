@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-13T21:03:10+00:00",
+      "at": "2026-07-14T18:03:07+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -48,7 +48,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__content_generation__blog_post_es.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__content_generation__blog_post_es.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.2,
@@ -80,7 +81,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__content_generation__email_profesional.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__content_generation__email_profesional.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -112,7 +114,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__content_generation__social_media_batch.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__content_generation__social_media_batch.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -144,7 +147,8 @@
       "suite": "content_generation",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__content_generation__product_description_en.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__content_generation__product_description_en.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 2.9,
@@ -176,7 +180,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__tool_calling__single_tool_calendar.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__tool_calling__single_tool_calendar.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 2.9,
@@ -208,7 +213,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__tool_calling__multi_tool_sequential.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__tool_calling__multi_tool_sequential.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.1,
@@ -240,7 +246,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__tool_calling__tool_with_reasoning.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__tool_calling__tool_with_reasoning.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.7,
@@ -272,7 +279,8 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__tool_calling__no_tool_needed.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__tool_calling__no_tool_needed.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.75,
@@ -304,7 +312,8 @@
       "suite": "task_management",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__task_management__extract_action_items.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__task_management__extract_action_items.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -336,7 +345,8 @@
       "suite": "task_management",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__task_management__weekly_planning.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__task_management__weekly_planning.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -368,7 +378,8 @@
       "suite": "task_management",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__task_management__project_breakdown.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__task_management__project_breakdown.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.72,
@@ -400,7 +411,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__code_generation__python_api_integration.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__code_generation__python_api_integration.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.6,
@@ -432,7 +444,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__code_generation__n8n_workflow_json.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__code_generation__n8n_workflow_json.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -464,7 +477,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__code_generation__sql_query_complex.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__code_generation__sql_query_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -496,7 +510,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__code_generation__debug_code.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__code_generation__debug_code.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.0,
@@ -528,7 +543,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__reasoning__business_analysis.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__reasoning__business_analysis.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.04,
@@ -560,7 +576,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__reasoning__logical_reasoning.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__reasoning__logical_reasoning.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -592,7 +609,8 @@
       "suite": "reasoning",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__reasoning__multi_constraint_decision.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__reasoning__multi_constraint_decision.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.8,
@@ -624,7 +642,8 @@
       "suite": "summarization",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__summarization__long_document_summary.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__summarization__long_document_summary.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 6.6,
@@ -656,7 +675,8 @@
       "suite": "summarization",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__summarization__extract_structured_data.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__summarization__extract_structured_data.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.1,
@@ -688,7 +708,8 @@
       "suite": "presentation",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__presentation__slide_outline.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__presentation__slide_outline.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -720,7 +741,8 @@
       "suite": "presentation",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__presentation__data_report.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__presentation__data_report.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.76,
@@ -752,7 +774,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__startup_content__blog_actualidad_startup.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__startup_content__blog_actualidad_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -784,7 +807,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__startup_content__curso_emprendimiento_modulo.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__startup_content__curso_emprendimiento_modulo.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -816,7 +840,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__startup_content__workshop_outline.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__startup_content__workshop_outline.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -848,7 +873,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__startup_content__newsletter_startup.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__startup_content__newsletter_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.16,
@@ -880,7 +906,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__startup_content__perplexity_style_research.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__startup_content__perplexity_style_research.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -914,9 +941,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:02+00:00",
+      "rescored_at": "2026-07-14T18:02:59+00:00",
       "content_score": 7.34,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -950,9 +978,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:02+00:00",
+      "rescored_at": "2026-07-14T18:02:59+00:00",
       "content_score": 10.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -986,9 +1015,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 9.34,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -1022,9 +1052,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 8.0,
-      "answer_score": 7.5
+      "answer_score": 7.5,
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -1058,9 +1089,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 10.0,
-      "answer_score": 0.0
+      "answer_score": 0.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1094,9 +1126,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 10.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 7.93,
@@ -1128,7 +1161,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__customer_support__angry_customer_refund.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__customer_support__angry_customer_refund.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.6,
@@ -1160,7 +1194,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__customer_support__ambiguous_issue_classification.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__customer_support__ambiguous_issue_classification.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.34,
@@ -1192,7 +1227,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__customer_support__multi_issue_conversation.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__customer_support__multi_issue_conversation.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -1224,7 +1260,8 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__customer_support__social_engineering_attempt.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__customer_support__social_engineering_attempt.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -1258,9 +1295,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__structured_output__json_simple_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1294,9 +1332,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__structured_output__json_array_classification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1330,9 +1369,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__structured_output__json_nested_complex.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1366,9 +1406,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__structured_output__json_strict_no_extra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1402,9 +1443,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 6.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1438,9 +1480,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 8.67,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -1474,9 +1517,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 9.34,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -1510,9 +1554,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 5.34,
-      "answer_score": 9.0
+      "answer_score": 9.0,
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -1546,9 +1591,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 5.34,
-      "answer_score": 9.0
+      "answer_score": 9.0,
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -1582,9 +1628,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 9.34,
-      "answer_score": 9.0
+      "answer_score": 9.0,
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -1618,9 +1665,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 4.0,
-      "answer_score": 9.0
+      "answer_score": 9.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1654,9 +1702,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1690,9 +1739,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 1.0,
@@ -1726,9 +1776,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 4.0,
-      "answer_score": 1.0
+      "answer_score": 1.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1762,9 +1813,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__string_precision__copy_jwt.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -1798,9 +1850,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -1834,9 +1887,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__string_precision__write_config_file.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 4.0,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.6,
@@ -1868,7 +1922,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__news_seo_writing__news_seo_article_full.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__news_seo_writing__news_seo_article_full.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -1902,9 +1957,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -1938,9 +1994,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__news_seo_writing__news_spanish_only.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 8.67,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 0.0,
@@ -1974,9 +2031,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__news_seo_writing__news_no_hallucination_sources.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 10.0,
-      "answer_score": 0.0
+      "answer_score": 0.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.2,
@@ -2008,7 +2066,8 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__news_seo_writing__news_perplexity_enrichment.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__news_seo_writing__news_perplexity_enrichment.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -2042,9 +2101,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 7.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2078,9 +2138,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:04+00:00",
+      "rescored_at": "2026-07-14T18:03:01+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.75,
@@ -2114,9 +2175,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:06+00:00",
+      "rescored_at": "2026-07-14T18:03:03+00:00",
       "content_score": 4.0,
-      "answer_score": 8.75
+      "answer_score": 8.75,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2150,9 +2212,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:06+00:00",
+      "rescored_at": "2026-07-14T18:03:03+00:00",
       "content_score": 8.0,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2186,9 +2249,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:06+00:00",
+      "rescored_at": "2026-07-14T18:03:03+00:00",
       "content_score": 4.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.38,
@@ -2220,7 +2284,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__orchestration__multi_step_research_plan.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__orchestration__multi_step_research_plan.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 2.5,
@@ -2254,9 +2319,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__orchestration__error_recovery_orchestration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:06+00:00",
+      "rescored_at": "2026-07-14T18:03:03+00:00",
       "content_score": 6.42,
-      "answer_score": 2.5
+      "answer_score": 2.5,
+      "scoring": "verificable"
     },
     {
       "quality": 5.8,
@@ -2288,7 +2354,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__orchestration__complex_workflow_decomposition.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__orchestration__complex_workflow_decomposition.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.5,
@@ -2322,9 +2389,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:06+00:00",
+      "rescored_at": "2026-07-14T18:03:03+00:00",
       "content_score": 5.34,
-      "answer_score": 7.5
+      "answer_score": 7.5,
+      "scoring": "verificable"
     },
     {
       "quality": 8.57,
@@ -2358,9 +2426,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:06+00:00",
+      "rescored_at": "2026-07-14T18:03:03+00:00",
       "content_score": 8.34,
-      "answer_score": 8.57
+      "answer_score": 8.57,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2394,9 +2463,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__multi_turn__content_iteration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:06+00:00",
+      "rescored_at": "2026-07-14T18:03:03+00:00",
       "content_score": 4.67,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -2430,9 +2500,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__multi_turn__support_escalation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:07+00:00",
+      "rescored_at": "2026-07-14T18:03:03+00:00",
       "content_score": 9.04,
-      "answer_score": 6.0
+      "answer_score": 6.0,
+      "scoring": "verificable"
     },
     {
       "quality": 4.0,
@@ -2466,9 +2537,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:08+00:00",
+      "rescored_at": "2026-07-14T18:03:04+00:00",
       "content_score": 10.0,
-      "answer_score": 4.0
+      "answer_score": 4.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2502,9 +2574,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__multi_turn__debugging_conversation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:08+00:00",
+      "rescored_at": "2026-07-14T18:03:04+00:00",
       "content_score": 8.67,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.33,
@@ -2538,9 +2611,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__policy_adherence__refund_policy_enforcement.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:08+00:00",
+      "rescored_at": "2026-07-14T18:03:04+00:00",
       "content_score": 8.0,
-      "answer_score": 8.33
+      "answer_score": 8.33,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2574,9 +2648,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__policy_adherence__data_privacy_protection.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:08+00:00",
+      "rescored_at": "2026-07-14T18:03:04+00:00",
       "content_score": 8.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2610,9 +2685,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__policy_adherence__language_and_tone_rules.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:08+00:00",
+      "rescored_at": "2026-07-14T18:03:04+00:00",
       "content_score": 4.0,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2646,9 +2722,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__policy_adherence__scope_boundaries.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:09+00:00",
+      "rescored_at": "2026-07-14T18:03:06+00:00",
       "content_score": 9.34,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 3.58,
@@ -2680,7 +2757,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_capabilities__skill_execution_complex.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_capabilities__skill_execution_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.52,
@@ -2712,7 +2790,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_capabilities__agent_team_delegation.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_capabilities__agent_team_delegation.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -2744,7 +2823,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_capabilities__ask_clarification_before_acting.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_capabilities__ask_clarification_before_acting.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 0.0,
@@ -2778,9 +2858,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:09+00:00",
+      "rescored_at": "2026-07-14T18:03:06+00:00",
       "content_score": 4.67,
-      "answer_score": 0.0
+      "answer_score": 0.0,
+      "scoring": "verificable"
     },
     {
       "quality": 2.5,
@@ -2814,9 +2895,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:09+00:00",
+      "rescored_at": "2026-07-14T18:03:06+00:00",
       "content_score": 7.0,
-      "answer_score": 2.5
+      "answer_score": 2.5,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2850,9 +2932,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:09+00:00",
+      "rescored_at": "2026-07-14T18:03:06+00:00",
       "content_score": 9.34,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -2886,9 +2969,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:10+00:00",
+      "rescored_at": "2026-07-14T18:03:06+00:00",
       "content_score": 10.0,
-      "answer_score": 5.0
+      "answer_score": 5.0,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -2922,9 +3006,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:10+00:00",
+      "rescored_at": "2026-07-14T18:03:06+00:00",
       "content_score": 10.0,
-      "answer_score": 10.0
+      "answer_score": 10.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -2958,9 +3043,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__sales_outreach__cold_email_personalized.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:10+00:00",
+      "rescored_at": "2026-07-14T18:03:06+00:00",
       "content_score": 8.0,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 3.33,
@@ -2994,9 +3080,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:10+00:00",
+      "rescored_at": "2026-07-14T18:03:06+00:00",
       "content_score": 8.0,
-      "answer_score": 3.33
+      "answer_score": 3.33,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -3030,9 +3117,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__sales_outreach__campaign_optimization.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:10+00:00",
+      "rescored_at": "2026-07-14T18:03:07+00:00",
       "content_score": 9.34,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -3066,9 +3154,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__translation__translate_marketing_es_en.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:10+00:00",
+      "rescored_at": "2026-07-14T18:03:07+00:00",
       "content_score": 8.0,
-      "answer_score": 8.0
+      "answer_score": 8.0,
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -3100,7 +3189,8 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__translation__translate_technical_en_es.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__translation__translate_technical_en_es.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.67,
@@ -3134,9 +3224,10 @@
       "timestamp": "20260601_160632_2187566",
       "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__translation__detect_language_issues.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-13T21:03:10+00:00",
+      "rescored_at": "2026-07-14T18:03:07+00:00",
       "content_score": 7.2,
-      "answer_score": 6.67
+      "answer_score": 6.67,
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -3163,7 +3254,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__context_retention_8turns.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__context_retention_8turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -3190,7 +3282,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__skill_orchestration_correct_choice.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__skill_orchestration_correct_choice.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.5,
@@ -3217,7 +3310,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__interruption_recovery_topic_switch.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__interruption_recovery_topic_switch.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -3244,7 +3338,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__context_decay_constraint_12turns.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__context_decay_constraint_12turns.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -3271,7 +3366,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__implicit_state_construction.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__implicit_state_construction.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -3298,7 +3394,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__skill_with_failure_recovery.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__skill_with_failure_recovery.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -3325,7 +3422,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__skill_dependency_chain.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__skill_dependency_chain.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -3352,7 +3450,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__priority_change_midtask.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__priority_change_midtask.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -3379,7 +3478,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__clarification_quality.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__clarification_quality.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 10.0,
@@ -3406,7 +3506,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__distractor_resistance.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__distractor_resistance.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -3433,7 +3534,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__premature_completion_resist.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__premature_completion_resist.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 8.0,
@@ -3460,7 +3562,8 @@
       "suite": "agent_long_horizon",
       "run": 1,
       "timestamp": "20260601_160632_2187566",
-      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__constraint_under_pressure.md"
+      "response_file": "results/responses/20260601_160632_2187566/deepseek-v4-flash__agent_long_horizon__constraint_under_pressure.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 3.76,

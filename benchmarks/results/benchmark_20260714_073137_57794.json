@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.014
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:54+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_073137_57794",
-      "response_file": "results/responses/20260714_073137_57794/or-nemotron-nano-9b-v2__orchestration__multi_step_research_plan.md"
+      "response_file": "results/responses/20260714_073137_57794/or-nemotron-nano-9b-v2__orchestration__multi_step_research_plan.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -64,7 +70,7 @@
       "input_tokens": 1102,
       "output_tokens": 653,
       "response_preview": "Dado que la base de datos está en mantenimiento y no podemos acceder a los datos de ventas directamente, necesito más información para encontrar una alternativa. ¿Tienes acceso a otros fuentes de datos como:\n\n1. Un archivo local o en la nube con los datos de ventas del mes pasado?\n2. Otra base de da",
-      "auto_quality": 6.47,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -75,7 +81,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_073137_57794",
-      "response_file": "results/responses/20260714_073137_57794/or-nemotron-nano-9b-v2__orchestration__error_recovery_orchestration.md"
+      "response_file": "results/responses/20260714_073137_57794/or-nemotron-nano-9b-v2__orchestration__error_recovery_orchestration.md",
+      "content_score": 8.67,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:53+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.16,
@@ -107,7 +118,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_073137_57794",
-      "response_file": "results/responses/20260714_073137_57794/or-nemotron-nano-9b-v2__orchestration__complex_workflow_decomposition.md"
+      "response_file": "results/responses/20260714_073137_57794/or-nemotron-nano-9b-v2__orchestration__complex_workflow_decomposition.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -128,7 +140,7 @@
       "input_tokens": 1064,
       "output_tokens": 716,
       "response_preview": "\n\n**Análisis de herramientas para cada tarea:**\n\n1. **Tarea 1:** Usaría `http_request` para enviar una solicitud GET a la URL proporcionada. Esto permite verificar si el servidor responde con un código de estado exitoso (ej: 200 OK).  \n2. **Tarea 2:** Usaría `query_database` para ejecutar una consul",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +151,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_073137_57794",
-      "response_file": "results/responses/20260714_073137_57794/or-nemotron-nano-9b-v2__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260714_073137_57794/or-nemotron-nano-9b-v2__orchestration__tool_selection_precision.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:53+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +177,7 @@
       "input_tokens": 1131,
       "output_tokens": 557,
       "response_preview": "Okay, let's start by analyzing the tasks provided. The user wants to prepare a product launch with 6 tasks. I need to classify each as parallelizable or sequential based on dependencies.\n\nFirst, task A is to search competitors' prices. This doesn't depend on any other task, so it can be done in para",
-      "auto_quality": 6.8,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -171,7 +188,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_073137_57794",
-      "response_file": "results/responses/20260714_073137_57794/or-nemotron-nano-9b-v2__orchestration__parallel_vs_sequential_judgment.md"
+      "response_file": "results/responses/20260714_073137_57794/or-nemotron-nano-9b-v2__orchestration__parallel_vs_sequential_judgment.md",
+      "content_score": 2.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:54+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.6,
@@ -203,7 +225,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_073137_57794",
-      "response_file": "results/responses/20260714_073137_57794/or-minimax-m2.5__orchestration__multi_step_research_plan.md"
+      "response_file": "results/responses/20260714_073137_57794/or-minimax-m2.5__orchestration__multi_step_research_plan.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -224,7 +247,7 @@
       "input_tokens": 1049,
       "output_tokens": 168,
       "response_preview": "Voy a verificar si hay datos locales o una API disponible como alternativa.\n",
-      "auto_quality": 4.73,
+      "auto_quality": 5.0,
       "judge_score": 3.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -235,7 +258,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_073137_57794",
-      "response_file": "results/responses/20260714_073137_57794/or-minimax-m2.5__orchestration__error_recovery_orchestration.md"
+      "response_file": "results/responses/20260714_073137_57794/or-minimax-m2.5__orchestration__error_recovery_orchestration.md",
+      "content_score": 4.33,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:54+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 3.92,
@@ -267,7 +295,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_073137_57794",
-      "response_file": "results/responses/20260714_073137_57794/or-minimax-m2.5__orchestration__complex_workflow_decomposition.md"
+      "response_file": "results/responses/20260714_073137_57794/or-minimax-m2.5__orchestration__complex_workflow_decomposition.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -288,7 +317,7 @@
       "input_tokens": 1014,
       "output_tokens": 408,
       "response_preview": "## Análisis de herramientas para cada tarea\n\n| Tarea | Herramienta | Razón |\n|-------|-------------|-------|\n| **Tarea 1**: Verificar servidor | `http_request` | Permite hacer petición GET a una URL para verificar estado |\n| **Tarea 2**: Conteo usuarios | `query_database` | Requiere consultar la bas",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -299,7 +328,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_073137_57794",
-      "response_file": "results/responses/20260714_073137_57794/or-minimax-m2.5__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260714_073137_57794/or-minimax-m2.5__orchestration__tool_selection_precision.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:54+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -320,7 +354,7 @@
       "input_tokens": 1087,
       "output_tokens": 988,
       "response_preview": "## Análisis de Dependencias\n\n### Diagrama de Dependencias\n\n```\n        ┌─────────────────────────────────────────────┐\n        │              TAREA A (5 min)                 │\n        │    Buscar precios competidores               │\n        └─────────────────┬───────────────────────────┘\n           ",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +365,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_073137_57794",
-      "response_file": "results/responses/20260714_073137_57794/or-minimax-m2.5__orchestration__parallel_vs_sequential_judgment.md"
+      "response_file": "results/responses/20260714_073137_57794/or-minimax-m2.5__orchestration__parallel_vs_sequential_judgment.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:54+00:00",
+      "scoring": "verificable"
     }
   ]
 }

@@ -10,7 +10,12 @@
       "evaluations": 7,
       "estimated_cost_usd": 0.0123
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:35+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 177,
       "output_tokens": 2048,
       "response_preview": "Voy a estructurar una respuesta **basada en datos públicos disponibles** (revisión de sitios oficiales, reviews en G2, Capterra, Trustpilot, informes de mercado como Statista, y análisis de tendencias en LATAM). Donde no haya datos concretos, lo indicaré claramente.\n\n---\n\n### **1. Tabla Comparativa*",
-      "auto_quality": 6.94,
+      "auto_quality": 6.67,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -43,7 +48,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_070516_44075",
-      "response_file": "results/responses/20260714_070516_44075/or-ministral-14b__strategy__competitor_analysis.md"
+      "response_file": "results/responses/20260714_070516_44075/or-ministral-14b__strategy__competitor_analysis.md",
+      "content_score": 7.34,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:35+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -64,7 +74,7 @@
       "input_tokens": 195,
       "output_tokens": 2048,
       "response_preview": "Aquí tienes un análisis detallado de tu propuesta de aumento de precio a **$89/mes** (desde $60), con métricas clave, escenarios y recomendaciones:\n\n---\n\n### **1. Ratio LTV/CAC Actual y Proyectado**\n**Datos actuales:**\n- **LTV actual:** $840 (14 meses × $60/mes)\n- **CAC actual:** $120\n- **Ratio LTV/",
-      "auto_quality": 8.5,
+      "auto_quality": 7.5,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -75,7 +85,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_070516_44075",
-      "response_file": "results/responses/20260714_070516_44075/or-ministral-14b__strategy__pricing_strategy.md"
+      "response_file": "results/responses/20260714_070516_44075/or-ministral-14b__strategy__pricing_strategy.md",
+      "content_score": 10.0,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:35+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -96,7 +111,7 @@
       "input_tokens": 178,
       "output_tokens": 2048,
       "response_preview": "Vamos al grano, porque tu idea **sí tiene potencial, pero también tiene trampas mortales** que muchos marketplaces de B2B ignoran hasta que es demasiado tarde. Como VC escéptico (y con años viendo startups de food/agro en LATAM fallar), aquí van las preguntas que me harían antes de escribir un chequ",
-      "auto_quality": 9.68,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_070516_44075",
-      "response_file": "results/responses/20260714_070516_44075/or-ministral-14b__strategy__business_model_validation.md"
+      "response_file": "results/responses/20260714_070516_44075/or-ministral-14b__strategy__business_model_validation.md",
+      "content_score": 9.2,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:35+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -128,7 +148,7 @@
       "input_tokens": 168,
       "output_tokens": 1598,
       "response_preview": "Te ayudo con un análisis estructurado basado en información pública actualizada (hasta 2023) y patrones del mercado. Donde hay datos incompletos, lo señalaré claramente.\n\n---\n\n### **1. Tabla Comparativa**\n\n| **Criterio** | **Mailchimp** | **Brevo (ex-Sendinblue)** | **EnviaMas** (startup local) | **",
-      "auto_quality": 8.0,
+      "auto_quality": 6.67,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -139,7 +159,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_070516_44075",
-      "response_file": "results/responses/20260714_070516_44075/or-deepseek-v3__strategy__competitor_analysis.md"
+      "response_file": "results/responses/20260714_070516_44075/or-deepseek-v3__strategy__competitor_analysis.md",
+      "content_score": 10.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:35+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -160,7 +185,7 @@
       "input_tokens": 183,
       "output_tokens": 1366,
       "response_preview": "## Análisis de aumento de precio: $60 → $89/mes\n\n### 1. LTV/CAC ratio actual vs. nuevo\n\n**Actual ($60/mes):**\n- CAC = $120\n- Churn mensual = 7% → Tasa de retención mensual = 93%\n- Vida útil esperada = 1 / 0.07 = 14.29 meses\n- LTV = $60 × (1/0.07) = $60 × 14.29 = **$857**\n- LTV/CAC = $857 / $120 = **",
-      "auto_quality": 8.5,
+      "auto_quality": 7.5,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_070516_44075",
-      "response_file": "results/responses/20260714_070516_44075/or-deepseek-v3__strategy__pricing_strategy.md"
+      "response_file": "results/responses/20260714_070516_44075/or-deepseek-v3__strategy__pricing_strategy.md",
+      "content_score": 10.0,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:35+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -192,7 +222,7 @@
       "input_tokens": 178,
       "output_tokens": 1878,
       "response_preview": "**1. Los 5 riesgos principales de este modelo:**\n\n- **Riesgo de dos-sided marketplace:** El clásico \"problema del huevo y la gallina\". ¿Por qué un proveedor se registraría si no hay restaurantes comprando? ¿Por qué un restaurante se molestaría en registrarse si no hay proveedores con inventario sufi",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,7 +233,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_070516_44075",
-      "response_file": "results/responses/20260714_070516_44075/or-deepseek-v3__strategy__business_model_validation.md"
+      "response_file": "results/responses/20260714_070516_44075/or-deepseek-v3__strategy__business_model_validation.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:35+00:00",
+      "scoring": "verificable"
     }
   ]
 }

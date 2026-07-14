@@ -10,7 +10,12 @@
       "evaluations": 6,
       "estimated_cost_usd": 0.0102
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:46+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_083850_92260",
-      "response_file": "results/responses/20260714_083850_92260/or-glm5__strategy__competitor_analysis.md"
+      "response_file": "results/responses/20260714_083850_92260/or-glm5__strategy__competitor_analysis.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:45+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -75,7 +85,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_083850_92260",
-      "response_file": "results/responses/20260714_083850_92260/or-glm5__strategy__pricing_strategy.md"
+      "response_file": "results/responses/20260714_083850_92260/or-glm5__strategy__pricing_strategy.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:46+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -107,7 +122,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_083850_92260",
-      "response_file": "results/responses/20260714_083850_92260/or-glm5__strategy__business_model_validation.md"
+      "response_file": "results/responses/20260714_083850_92260/or-glm5__strategy__business_model_validation.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:46+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -128,7 +148,7 @@
       "input_tokens": 190,
       "output_tokens": 1366,
       "response_preview": "### 1. Tabla Comparativa\n\n| **Categoría**        | **Mailchimp**                                                                 | **Brevo (ex-Sendinblue)**                                               | **EnviaMas**                                                                 |\n|---------------",
-      "auto_quality": 8.0,
+      "auto_quality": 6.67,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -139,7 +159,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_083850_92260",
-      "response_file": "results/responses/20260714_083850_92260/or-qwen-2.5-72b__strategy__competitor_analysis.md"
+      "response_file": "results/responses/20260714_083850_92260/or-qwen-2.5-72b__strategy__competitor_analysis.md",
+      "content_score": 10.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:46+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -160,7 +185,7 @@
       "input_tokens": 205,
       "output_tokens": 1164,
       "response_preview": "### 1. Cálculo del LTV/CAC Ratio Actual y Cómo Cambiaría\n\n**LTV/CAC Ratio Actual:**\n- **LTV Actual**: $840\n- **CAC Actual**: $120\n- **LTV/CAC Ratio Actual**: \\( \\frac{840}{120} = 7 \\)\n\n**LTV/CAC Ratio Si Subo el Precio a $89/mes:**\n\nPrimero, necesitamos calcular el nuevo LTV. \n\n- **Nuevo Precio Mens",
-      "auto_quality": 8.5,
+      "auto_quality": 7.5,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_083850_92260",
-      "response_file": "results/responses/20260714_083850_92260/or-qwen-2.5-72b__strategy__pricing_strategy.md"
+      "response_file": "results/responses/20260714_083850_92260/or-qwen-2.5-72b__strategy__pricing_strategy.md",
+      "content_score": 10.0,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:46+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,

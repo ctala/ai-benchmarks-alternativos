@@ -10,7 +10,12 @@
       "evaluations": 6,
       "estimated_cost_usd": 0.0076
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:12:03+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_062548_23470",
-      "response_file": "results/responses/20260714_062548_23470/or-nemotron-3-nano-omni-reasoning__agent_capabilities__skill_execution_complex.md"
+      "response_file": "results/responses/20260714_062548_23470/or-nemotron-3-nano-omni-reasoning__agent_capabilities__skill_execution_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -75,7 +81,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_062548_23470",
-      "response_file": "results/responses/20260714_062548_23470/or-nemotron-3-nano-omni-reasoning__agent_capabilities__agent_team_delegation.md"
+      "response_file": "results/responses/20260714_062548_23470/or-nemotron-3-nano-omni-reasoning__agent_capabilities__agent_team_delegation.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.0,
@@ -107,7 +114,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_062548_23470",
-      "response_file": "results/responses/20260714_062548_23470/or-nemotron-3-nano-omni-reasoning__agent_capabilities__ask_clarification_before_acting.md"
+      "response_file": "results/responses/20260714_062548_23470/or-nemotron-3-nano-omni-reasoning__agent_capabilities__ask_clarification_before_acting.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.5,
@@ -128,7 +136,7 @@
       "input_tokens": 1374,
       "output_tokens": 645,
       "response_preview": "Okay, let's tackle the user's three requests step by step. \n\nFirst, they want to publish an article about AI funding in LATAM, which is already ready. Since there's a tool called publish_blog_post, I can use that. I need to check if the article is indeed ready. But the user says it's ready, so I can",
-      "auto_quality": 5.57,
+      "auto_quality": 7.5,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -139,7 +147,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_062548_23470",
-      "response_file": "results/responses/20260714_062548_23470/or-nemotron-3-nano-omni-reasoning__agent_capabilities__context_following_complex_system.md"
+      "response_file": "results/responses/20260714_062548_23470/or-nemotron-3-nano-omni-reasoning__agent_capabilities__context_following_complex_system.md",
+      "content_score": 2.67,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:03+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -160,7 +173,7 @@
       "input_tokens": 282,
       "output_tokens": 982,
       "response_preview": "[{\"subtarea\":\"Analizar 500 reseñas de usuarios y extraer los 5 problemas principales\",\"modelo\":\"deepseek-v3\",\"razon\":\"Requiere razonamiento y análisis de texto para identificar patrones; deepseek-v3 es excelente en razonamiento y muy económico.\"},{\"subtarea\":\"Redactar un email de disculpas a cliente",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -171,7 +184,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_062548_23470",
-      "response_file": "results/responses/20260714_062548_23470/or-nemotron-3-nano-omni-reasoning__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260714_062548_23470/or-nemotron-3-nano-omni-reasoning__agent_capabilities__model_as_router.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:03+00:00",
+      "scoring": "verificable"
     }
   ]
 }

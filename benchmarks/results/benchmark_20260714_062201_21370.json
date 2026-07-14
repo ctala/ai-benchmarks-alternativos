@@ -10,7 +10,12 @@
       "evaluations": 6,
       "estimated_cost_usd": 0.008
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:11:56+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 530,
       "output_tokens": 1271,
       "response_preview": "{\n  \"numero_factura\": \"00234-2026\",\n  \"fecha\": \"15 de Marzo de 2026\",\n  \"emisor\": {\n    \"nombre\": \"TechFlow SpA\",\n    \"rut\": \"77.432.198-3\",\n    \"direccion\": \"Av. Providencia 1234, Of. 501, Santiago\"\n  },\n  \"cliente\": {\n    \"nombre\": \"Startup Labs Ltda.\",\n    \"rut\": \"76.891.234-K\",\n    \"direccion\": ",
-      "auto_quality": 8.8,
+      "auto_quality": 10.0,
       "judge_score": 2.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -43,7 +48,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_062201_21370",
-      "response_file": "results/responses/20260714_062201_21370/or-nemotron-3-nano-omni-reasoning__ocr_extraction__invoice_extraction.md"
+      "response_file": "results/responses/20260714_062201_21370/or-nemotron-3-nano-omni-reasoning__ocr_extraction__invoice_extraction.md",
+      "content_score": 7.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:53+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -64,7 +74,7 @@
       "input_tokens": 256,
       "output_tokens": 524,
       "response_preview": "{\n  \"nombre_completo\": \"MARIA JOSE RODRIGUEZ SOTO\",\n  \"cargo\": \"Chief Technology Officer\",\n  \"empresa\": \"NexaFlow Intelligence\",\n  \"slogan\": \"Transforming Data into Decisions\",\n  \"telefono\": \"+56 9 8765 4321\",\n  \"email\": \"mj.rodriguez@nexaflow.ai\",\n  \"linkedin\": \"linkedin.com/in/mjrodriguez\",\n  \"dir",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_062201_21370",
-      "response_file": "results/responses/20260714_062201_21370/or-nemotron-3-nano-omni-reasoning__ocr_extraction__business_card_extraction.md"
+      "response_file": "results/responses/20260714_062201_21370/or-nemotron-3-nano-omni-reasoning__ocr_extraction__business_card_extraction.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:53+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.75,
@@ -96,7 +111,7 @@
       "input_tokens": 384,
       "output_tokens": 1446,
       "response_preview": "{\n  \"items\": [\n    {\n      \"description\": \"Lomo vetado\",\n      \"quantity\": 2,\n      \"unit_price\": 18.900,\n      \"total_price\": 37.800\n    },\n    {\n      \"description\": \"Ensalada cesar\",\n      \"quantity\": 1,\n      \"unit_price\": 7.500,\n      \"total_price\": 7.500\n    },\n    {\n      \"description\": \"Pisc",
-      "auto_quality": 6.85,
+      "auto_quality": 8.75,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_062201_21370",
-      "response_file": "results/responses/20260714_062201_21370/or-nemotron-3-nano-omni-reasoning__ocr_extraction__receipt_math_verification.md"
+      "response_file": "results/responses/20260714_062201_21370/or-nemotron-3-nano-omni-reasoning__ocr_extraction__receipt_math_verification.md",
+      "content_score": 4.0,
+      "answer_score": 8.75,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:56+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -128,7 +148,7 @@
       "input_tokens": 435,
       "output_tokens": 2727,
       "response_preview": "{\n  \"extracted_data\": {\n    \"Jan\": {\n      \"MRR\": 45200,\n      \"Churn Rate\": 4.2,\n      \"NPS\": 42,\n      \"CAC\": 234,\n      \"LTV\": 1890,\n      \"Active Users\": 1234,\n      \"Support Tickets\": 89,\n      \"Avg Response (h)\": 4.2\n    },\n    \"Feb\": {\n      \"MRR\": 48700,\n      \"Churn Rate\": 3.8,\n      \"NPS\":",
-      "auto_quality": 6.8,
+      "auto_quality": 6.0,
       "judge_score": 3.0,
       "judge_precision": 2,
       "judge_relevancia": 2,
@@ -139,7 +159,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_062201_21370",
-      "response_file": "results/responses/20260714_062201_21370/or-nemotron-3-nano-omni-reasoning__ocr_extraction__screenshot_table_extraction.md"
+      "response_file": "results/responses/20260714_062201_21370/or-nemotron-3-nano-omni-reasoning__ocr_extraction__screenshot_table_extraction.md",
+      "content_score": 8.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:56+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +185,7 @@
       "input_tokens": 479,
       "output_tokens": 3320,
       "response_preview": "{\n  \"texto_corregido\": \"Reunión equipo prod - 14/04/26\\nAsist: JP, MaJo, Seba, Cami (faltó Nico)\\n\\n1) Lanzamiento v2.0 - mover de abr 28 a may 5\\n   - falta QA en módulo pagos\\n   - bug crítico en API webhooks (Seba lo toma)\\n\\n2) Métricas Q1:\\n   - MRR 52.1k (+15% vs Q4)\\n   - churn bajó a 3.1% (o",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_062201_21370",
-      "response_file": "results/responses/20260714_062201_21370/or-nemotron-3-nano-omni-reasoning__ocr_extraction__handwritten_notes_extraction.md"
+      "response_file": "results/responses/20260714_062201_21370/or-nemotron-3-nano-omni-reasoning__ocr_extraction__handwritten_notes_extraction.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:56+00:00",
+      "scoring": "verificable"
     }
   ]
 }

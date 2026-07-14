@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.014
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:21+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_065652_39681",
-      "response_file": "results/responses/20260714_065652_39681/or-ministral-14b__orchestration__multi_step_research_plan.md"
+      "response_file": "results/responses/20260714_065652_39681/or-ministral-14b__orchestration__multi_step_research_plan.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.5,
@@ -64,7 +70,7 @@
       "input_tokens": 975,
       "output_tokens": 681,
       "response_preview": "### **1. Diagnóstico del fallo**\nLa consulta a la base de datos **`production`** falló porque está en mantenimiento y no está disponible. Según el mensaje, se espera una recuperación en **2 horas**.\n\n---\n\n### **2. Alternativas propuestas**\nPara cumplir con el plazo de enviar el reporte antes de las ",
-      "auto_quality": 8.24,
+      "auto_quality": 7.5,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +81,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_065652_39681",
-      "response_file": "results/responses/20260714_065652_39681/or-ministral-14b__orchestration__error_recovery_orchestration.md"
+      "response_file": "results/responses/20260714_065652_39681/or-ministral-14b__orchestration__error_recovery_orchestration.md",
+      "content_score": 9.34,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:10+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.8,
@@ -107,7 +118,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_065652_39681",
-      "response_file": "results/responses/20260714_065652_39681/or-ministral-14b__orchestration__complex_workflow_decomposition.md"
+      "response_file": "results/responses/20260714_065652_39681/or-ministral-14b__orchestration__complex_workflow_decomposition.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -128,7 +140,7 @@
       "input_tokens": 975,
       "output_tokens": 518,
       "response_preview": "### Elección de herramientas para cada tarea:\n\n---\n\n#### **Tarea 1: Verificar si el servidor de producción está respondiendo (URL: `https://api.example.com/health`)**\n**Herramienta:** `http_request`\n**Razón:**\nEsta tarea requiere realizar una solicitud HTTP (como una petición `GET`) a una URL especí",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +151,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_065652_39681",
-      "response_file": "results/responses/20260714_065652_39681/or-ministral-14b__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260714_065652_39681/or-ministral-14b__orchestration__tool_selection_precision.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:10+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.57,
@@ -160,7 +177,7 @@
       "input_tokens": 1043,
       "output_tokens": 1038,
       "response_preview": "### 1. **Diagrama de Dependencias**\nLas dependencias entre las tareas son las siguientes:\n\n- **B (Generar descripción del producto)**:\n  Depende de leer el archivo `/docs/specs.md` (pero no de otra tarea).\n  **Secuencial**: Requiere el contenido del archivo como entrada.\n\n- **A (Buscar precios de co",
-      "auto_quality": 9.14,
+      "auto_quality": 8.57,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +188,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_065652_39681",
-      "response_file": "results/responses/20260714_065652_39681/or-ministral-14b__orchestration__parallel_vs_sequential_judgment.md"
+      "response_file": "results/responses/20260714_065652_39681/or-ministral-14b__orchestration__parallel_vs_sequential_judgment.md",
+      "content_score": 10.0,
+      "answer_score": 8.57,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.96,
@@ -203,7 +225,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_065652_39681",
-      "response_file": "results/responses/20260714_065652_39681/or-deepseek-v3__orchestration__multi_step_research_plan.md"
+      "response_file": "results/responses/20260714_065652_39681/or-deepseek-v3__orchestration__multi_step_research_plan.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 5.0,
@@ -224,7 +247,7 @@
       "input_tokens": 1213,
       "output_tokens": 128,
       "response_preview": "Veo que la base de datos está en mantenimiento y necesitas el reporte antes de las 5pm. Voy a buscar una alternativa. Primero, necesito verificar si hay algún archivo con datos de respaldo o algún otro sistema que pueda proporcionar la información.\n\n",
-      "auto_quality": 5.82,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -235,7 +258,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_065652_39681",
-      "response_file": "results/responses/20260714_065652_39681/or-deepseek-v3__orchestration__error_recovery_orchestration.md"
+      "response_file": "results/responses/20260714_065652_39681/or-deepseek-v3__orchestration__error_recovery_orchestration.md",
+      "content_score": 7.05,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 3.78,
@@ -267,7 +295,8 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_065652_39681",
-      "response_file": "results/responses/20260714_065652_39681/or-deepseek-v3__orchestration__complex_workflow_decomposition.md"
+      "response_file": "results/responses/20260714_065652_39681/or-deepseek-v3__orchestration__complex_workflow_decomposition.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 10.0,
@@ -288,7 +317,7 @@
       "input_tokens": 773,
       "output_tokens": 350,
       "response_preview": "**Análisis de herramientas para cada tarea:**\n\n**Tarea 1: Verificar si el servidor de producción está respondiendo (URL: https://api.example.com/health)**\n- **Herramienta elegida:** `http_request`\n- **Razón:** Es la herramienta específicamente diseñada para hacer peticiones HTTP a APIs. Alternativas",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -299,7 +328,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_065652_39681",
-      "response_file": "results/responses/20260714_065652_39681/or-deepseek-v3__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260714_065652_39681/or-deepseek-v3__orchestration__tool_selection_precision.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:21+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.86,
@@ -320,7 +354,7 @@
       "input_tokens": 1243,
       "output_tokens": 95,
       "response_preview": "Te ayudo a analizar estas tareas para optimizar la ejecución. Primero, necesito entender mejor las especificaciones técnicas para poder generar la descripción del producto. Permíteme leer el archivo specs.md.\n\n",
-      "auto_quality": 2.75,
+      "auto_quality": 2.86,
       "judge_score": 2.0,
       "judge_precision": 2,
       "judge_relevancia": 1,
@@ -331,7 +365,12 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260714_065652_39681",
-      "response_file": "results/responses/20260714_065652_39681/or-deepseek-v3__orchestration__parallel_vs_sequential_judgment.md"
+      "response_file": "results/responses/20260714_065652_39681/or-deepseek-v3__orchestration__parallel_vs_sequential_judgment.md",
+      "content_score": 2.58,
+      "answer_score": 2.86,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:21+00:00",
+      "scoring": "verificable"
     }
   ]
 }

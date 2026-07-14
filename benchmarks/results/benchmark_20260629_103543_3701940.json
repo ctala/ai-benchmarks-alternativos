@@ -43,7 +43,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260629_103543_3701940",
-      "response_file": "results/responses/20260629_103543_3701940/glm-5.2__code_generation__python_api_integration.md"
+      "response_file": "results/responses/20260629_103543_3701940/glm-5.2__code_generation__python_api_integration.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.32,
@@ -75,7 +76,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260629_103543_3701940",
-      "response_file": "results/responses/20260629_103543_3701940/glm-5.2__code_generation__n8n_workflow_json.md"
+      "response_file": "results/responses/20260629_103543_3701940/glm-5.2__code_generation__n8n_workflow_json.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -107,7 +109,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260629_103543_3701940",
-      "response_file": "results/responses/20260629_103543_3701940/glm-5.2__code_generation__sql_query_complex.md"
+      "response_file": "results/responses/20260629_103543_3701940/glm-5.2__code_generation__sql_query_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.96,
@@ -139,7 +142,8 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260629_103543_3701940",
-      "response_file": "results/responses/20260629_103543_3701940/glm-5.2__code_generation__debug_code.md"
+      "response_file": "results/responses/20260629_103543_3701940/glm-5.2__code_generation__debug_code.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

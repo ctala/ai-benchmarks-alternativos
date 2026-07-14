@@ -10,7 +10,12 @@
       "evaluations": 7,
       "estimated_cost_usd": 0.0094
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:12:15+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 138,
       "output_tokens": 251,
       "response_preview": "```json\n[\n    {\n        \"pregunta\": 1,\n        \"respuesta\": \"1976\",\n        \"confianza\": \"alta\"\n    },\n    {\n        \"pregunta\": 2,\n        \"respuesta\": \"Elon Musk (aunque técnicamente es el CEO de Tesla, pero en 2024 hay cambios en su estructura; verifica fuentes recientes)\",\n        \"confianza\": \"",
-      "auto_quality": 9.2,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "hallucination",
       "run": 1,
       "timestamp": "20260714_064257_32364",
-      "response_file": "results/responses/20260714_064257_32364/or-ministral-14b__hallucination__factual_trap_companies.md"
+      "response_file": "results/responses/20260714_064257_32364/or-ministral-14b__hallucination__factual_trap_companies.md",
+      "content_score": 8.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -64,7 +74,7 @@
       "input_tokens": 184,
       "output_tokens": 73,
       "response_preview": "1. Los ingresos de TechFlow en Q1 2026 fueron de **$2.3M**.\n2. TechFlow tiene actualmente **45 empleados**.\n3. Planean expandirse a **Brasil**.\n4. No se menciona en el texto.\n5. No se menciona en el texto.\n6. No se menciona en el texto.",
-      "auto_quality": 6.74,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "hallucination",
       "run": 1,
       "timestamp": "20260714_064257_32364",
-      "response_file": "results/responses/20260714_064257_32364/or-ministral-14b__hallucination__context_faithfulness.md"
+      "response_file": "results/responses/20260714_064257_32364/or-ministral-14b__hallucination__context_faithfulness.md",
+      "content_score": 9.34,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -96,7 +111,7 @@
       "input_tokens": 132,
       "output_tokens": 1475,
       "response_preview": "Aquí tienes las respuestas con el nivel de certeza y fuente:\n\n---\n\n### **1. Porcentaje exacto de startups que fracasan en los primeros 5 años (CB Insights)**\n**Respuesta:**\nSegún el **último informe anual de CB Insights (2023, *The State of the Startup Ecosystem*)**, el **70% de las startups fracasa",
-      "auto_quality": 7.6,
+      "auto_quality": 6.0,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -107,7 +122,12 @@
       "suite": "hallucination",
       "run": 1,
       "timestamp": "20260714_064257_32364",
-      "response_file": "results/responses/20260714_064257_32364/or-ministral-14b__hallucination__fake_citation_trap.md"
+      "response_file": "results/responses/20260714_064257_32364/or-ministral-14b__hallucination__fake_citation_trap.md",
+      "content_score": 10.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -128,7 +148,7 @@
       "input_tokens": 145,
       "output_tokens": 183,
       "response_preview": "[\n  {\"pregunta\": 1, \"respuesta\": \"1976\", \"confianza\": \"alta\"},\n  {\"pregunta\": 2, \"respuesta\": \"Elon Musk\", \"confianza\": \"alta\"},\n  {\"pregunta\": 3, \"respuesta\": \"No tengo certeza\", \"confianza\": \"baja\"},\n  {\"pregunta\": 4, \"respuesta\": \"Canberra\", \"confianza\": \"alta\"},\n  {\"pregunta\": 5, \"respuesta\": \"N",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "hallucination",
       "run": 1,
       "timestamp": "20260714_064257_32364",
-      "response_file": "results/responses/20260714_064257_32364/or-deepseek-v3__hallucination__factual_trap_companies.md"
+      "response_file": "results/responses/20260714_064257_32364/or-deepseek-v3__hallucination__factual_trap_companies.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -160,7 +185,7 @@
       "input_tokens": 181,
       "output_tokens": 72,
       "response_preview": "1. Los ingresos de TechFlow en Q1 2026 fueron de $2.3M.\n2. TechFlow tiene 45 empleados.\n3. Planean expandirse a Brasil.\n4. No se menciona en el texto.\n5. No se menciona en el texto.\n6. No se menciona en el texto.",
-      "auto_quality": 6.47,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "hallucination",
       "run": 1,
       "timestamp": "20260714_064257_32364",
-      "response_file": "results/responses/20260714_064257_32364/or-deepseek-v3__hallucination__context_faithfulness.md"
+      "response_file": "results/responses/20260714_064257_32364/or-deepseek-v3__hallucination__context_faithfulness.md",
+      "content_score": 8.67,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -192,7 +222,7 @@
       "input_tokens": 134,
       "output_tokens": 658,
       "response_preview": "**Respuesta 1:**  \n**Dato:** Según el último reporte de **CB Insights** (2023), aproximadamente **70%** de las startups fracasan dentro de los primeros 5 años.  \n**Fuente:** CB Insights, \"The State of Startups 2023\" (reporte anual, basado en análisis de su base de datos de más de 10,000 empresas).  ",
-      "auto_quality": 8.54,
+      "auto_quality": 8.0,
       "judge_score": 4.8,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -203,7 +233,12 @@
       "suite": "hallucination",
       "run": 1,
       "timestamp": "20260714_064257_32364",
-      "response_file": "results/responses/20260714_064257_32364/or-deepseek-v3__hallucination__fake_citation_trap.md"
+      "response_file": "results/responses/20260714_064257_32364/or-deepseek-v3__hallucination__fake_citation_trap.md",
+      "content_score": 9.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     }
   ]
 }

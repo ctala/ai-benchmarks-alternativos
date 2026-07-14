@@ -10,7 +10,12 @@
       "evaluations": 6,
       "estimated_cost_usd": 0.0098
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:12:19+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 526,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Input: An image description (text representation of an invoice).\n    *   Task: Extract structured data from the invoice.\n    *   Output Format: Strict JSON matching a specific schema.\n    *   Constraint: Respond ONLY with the JSON, no additiona",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_064620_34178",
-      "response_file": "results/responses/20260714_064620_34178/or-qwen-3.5-35b__ocr_extraction__invoice_extraction.md"
+      "response_file": "results/responses/20260714_064620_34178/or-qwen-3.5-35b__ocr_extraction__invoice_extraction.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -64,7 +74,7 @@
       "input_tokens": 257,
       "output_tokens": 2464,
       "response_preview": "{\n  \"nombre_completo\": \"MARIA JOSE RODRIGUEZ SOTO\",\n  \"cargo\": \"Chief Technology Officer\",\n  \"empresa\": \"NexaFlow Intelligence\",\n  \"slogan\": \"Transforming Data into Decisions\",\n  \"telefono\": \"+56 9 8765 4321\",\n  \"email\": \"mj.rodriguez@nexaflow.ai\",\n  \"linkedin\": \"linkedin.com/in/mjrodriguez\",\n  \"dir",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_064620_34178",
-      "response_file": "results/responses/20260714_064620_34178/or-qwen-3.5-35b__ocr_extraction__business_card_extraction.md"
+      "response_file": "results/responses/20260714_064620_34178/or-qwen-3.5-35b__ocr_extraction__business_card_extraction.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -96,7 +111,7 @@
       "input_tokens": 367,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Input: A restaurant receipt text.\n    *   Tasks:\n        1.  Extract items and prices into a JSON list.\n        2.  Verify if the subtotal is correct (sum of items).\n        3.  Verify if the tip (propina) is calculated correctly (based on the ",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_064620_34178",
-      "response_file": "results/responses/20260714_064620_34178/or-qwen-3.5-35b__ocr_extraction__receipt_math_verification.md"
+      "response_file": "results/responses/20260714_064620_34178/or-qwen-3.5-35b__ocr_extraction__receipt_math_verification.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -139,7 +159,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_064620_34178",
-      "response_file": "results/responses/20260714_064620_34178/or-qwen-3.5-35b__ocr_extraction__screenshot_table_extraction.md"
+      "response_file": "results/responses/20260714_064620_34178/or-qwen-3.5-35b__ocr_extraction__screenshot_table_extraction.md",
+      "content_score": 8.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:19+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +185,7 @@
       "input_tokens": 480,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** OCR system interpreting handwritten notes.\n    *   **Input:** A text string representing OCR output from handwritten meeting notes (contains typical OCR errors).\n    *   **Tasks:**\n        1.  Correct OCR errors and present clean text",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260714_064620_34178",
-      "response_file": "results/responses/20260714_064620_34178/or-qwen-3.5-35b__ocr_extraction__handwritten_notes_extraction.md"
+      "response_file": "results/responses/20260714_064620_34178/or-qwen-3.5-35b__ocr_extraction__handwritten_notes_extraction.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:19+00:00",
+      "scoring": "verificable"
     }
   ]
 }

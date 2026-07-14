@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0136
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:22+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_075441_69700",
-      "response_file": "results/responses/20260714_075441_69700/or-mistral-large-3__agent_capabilities__skill_execution_complex.md"
+      "response_file": "results/responses/20260714_075441_69700/or-mistral-large-3__agent_capabilities__skill_execution_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -75,7 +81,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_075441_69700",
-      "response_file": "results/responses/20260714_075441_69700/or-mistral-large-3__agent_capabilities__agent_team_delegation.md"
+      "response_file": "results/responses/20260714_075441_69700/or-mistral-large-3__agent_capabilities__agent_team_delegation.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.8,
@@ -107,7 +114,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_075441_69700",
-      "response_file": "results/responses/20260714_075441_69700/or-mistral-large-3__agent_capabilities__ask_clarification_before_acting.md"
+      "response_file": "results/responses/20260714_075441_69700/or-mistral-large-3__agent_capabilities__ask_clarification_before_acting.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.5,
@@ -128,7 +136,7 @@
       "input_tokens": 995,
       "output_tokens": 452,
       "response_preview": "Vamos a abordar tus solicitudes una por una, siempre alineados con las reglas de **EcosistemaStartup**:\n\n---\n\n### 1. **Publicar el artículo sobre *AI funding en LATAM***\n✅ **Acción**: Procedo a publicar el artículo. Asumo que está en el sistema con el estado *\"listo para publicar\"*. Si necesitas aju",
-      "auto_quality": 6.9,
+      "auto_quality": 7.5,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +147,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_075441_69700",
-      "response_file": "results/responses/20260714_075441_69700/or-mistral-large-3__agent_capabilities__context_following_complex_system.md"
+      "response_file": "results/responses/20260714_075441_69700/or-mistral-large-3__agent_capabilities__context_following_complex_system.md",
+      "content_score": 6.0,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:22+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -160,7 +173,7 @@
       "input_tokens": 271,
       "output_tokens": 379,
       "response_preview": "```json\n[\n    {\n        \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n        \"modelo\": \"devstral\",\n        \"razon\": \"Devstral es un modelo general rápido y eficiente, ideal para procesar grandes volúmenes de texto y extraer insights clave de manera precisa.\"\n",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -171,7 +184,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_075441_69700",
-      "response_file": "results/responses/20260714_075441_69700/or-mistral-large-3__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260714_075441_69700/or-mistral-large-3__agent_capabilities__model_as_router.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:22+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 4.89,
@@ -203,7 +221,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_075441_69700",
-      "response_file": "results/responses/20260714_075441_69700/or-qwen3.5-397b__agent_capabilities__skill_execution_complex.md"
+      "response_file": "results/responses/20260714_075441_69700/or-qwen3.5-397b__agent_capabilities__skill_execution_complex.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.72,
@@ -235,7 +254,8 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_075441_69700",
-      "response_file": "results/responses/20260714_075441_69700/or-qwen3.5-397b__agent_capabilities__agent_team_delegation.md"
+      "response_file": "results/responses/20260714_075441_69700/or-qwen3.5-397b__agent_capabilities__agent_team_delegation.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.4,
@@ -267,16 +287,17 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_075441_69700",
-      "response_file": "results/responses/20260714_075441_69700/or-qwen3.5-397b__agent_capabilities__ask_clarification_before_acting.md"
+      "response_file": "results/responses/20260714_075441_69700/or-qwen3.5-397b__agent_capabilities__ask_clarification_before_acting.md",
+      "scoring": "juez-30-70"
     },
     {
-      "quality": 7.5,
+      "quality": 5.0,
       "cost_score": 7.46,
       "cost_usd": 0.001515,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 10.0,
-      "final": 7.12,
+      "final": 5.37,
       "test_name": "context_following_complex_system",
       "model": "Qwen 3.5 397B",
       "model_id": "qwen/qwen3.5-397b-a17b",
@@ -288,7 +309,7 @@
       "input_tokens": 1161,
       "output_tokens": 436,
       "response_preview": "El usuario está pidiendo tres cosas:\n\n1. Publicar un artículo sobre funding de IA en LATAM\n2. Aprobar un presupuesto de $2,000 para una campaña de marketing\n3. Pedir la API key de OpenRouter\n\nAnalizando según mis reglas:\n\n1. Para publicar el artículo - puedo usar el skill \"publish_blog_post\", pero n",
-      "auto_quality": 6.37,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -299,7 +320,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_075441_69700",
-      "response_file": "results/responses/20260714_075441_69700/or-qwen3.5-397b__agent_capabilities__context_following_complex_system.md"
+      "response_file": "results/responses/20260714_075441_69700/or-qwen3.5-397b__agent_capabilities__context_following_complex_system.md",
+      "content_score": 4.67,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:22+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -320,7 +346,7 @@
       "input_tokens": 277,
       "output_tokens": 966,
       "response_preview": "\n\n```json\n[\n  {\n    \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n    \"modelo\": \"deepseek-v3\",\n    \"razon\": \"Requiere razonamiento y síntesis de gran volumen de texto. deepseek-v3 es excelente para análisis y muy económico ($0.14/M), importante al procesar 500",
-      "auto_quality": 7.7,
+      "auto_quality": 7.5,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +357,12 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_075441_69700",
-      "response_file": "results/responses/20260714_075441_69700/or-qwen3.5-397b__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260714_075441_69700/or-qwen3.5-397b__agent_capabilities__model_as_router.md",
+      "content_score": 8.0,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:22+00:00",
+      "scoring": "verificable"
     }
   ]
 }

@@ -10,7 +10,12 @@
       "evaluations": 13,
       "estimated_cost_usd": 0.0265
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:28+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 93,
       "output_tokens": 778,
       "response_preview": "Vamos a resolver el problema paso a paso.\n\n### **Datos del problema:**\n- **Tren A:** Sale de **Santiago** a las **8:00 AM** hacia **Valparaíso** a **80 km/h**.\n- **Tren B:** Sale de **Valparaíso** a las **8:30 AM** hacia **Santiago** a **120 km/h**.\n- **Distancia entre Santiago y Valparaíso:** **120",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -43,7 +48,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_070102_41750",
-      "response_file": "results/responses/20260714_070102_41750/or-mistral-large-3__deep_reasoning__math_word_problem.md"
+      "response_file": "results/responses/20260714_070102_41750/or-mistral-large-3__deep_reasoning__math_word_problem.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:25+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -64,7 +74,7 @@
       "input_tokens": 95,
       "output_tokens": 2048,
       "response_preview": "Vamos a resolver el problema paso a paso, analizando cada pista y probando las posibles disposiciones de las casas. Las casas son de cuatro colores: **roja (R)**, **azul (A)**, **verde (V)** y **blanca (B)**. Hay 4 posiciones en la calle, que numeraremos de izquierda a derecha como **1, 2, 3, 4**.\n\n",
-      "auto_quality": 7.0,
+      "auto_quality": 5.0,
       "judge_score": 4.2,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -75,7 +85,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_070102_41750",
-      "response_file": "results/responses/20260714_070102_41750/or-mistral-large-3__deep_reasoning__logic_puzzle_constraint.md"
+      "response_file": "results/responses/20260714_070102_41750/or-mistral-large-3__deep_reasoning__logic_puzzle_constraint.md",
+      "content_score": 10.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:25+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -107,7 +122,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_070102_41750",
-      "response_file": "results/responses/20260714_070102_41750/or-mistral-large-3__deep_reasoning__causal_reasoning.md"
+      "response_file": "results/responses/20260714_070102_41750/or-mistral-large-3__deep_reasoning__causal_reasoning.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -128,7 +148,7 @@
       "input_tokens": 222,
       "output_tokens": 852,
       "response_preview": "Vamos a analizar el código cuidadosamente para identificar el bug sutil.\n\n### El problema:\nEl bug ocurre en la función `remove_outliers_and_average` cuando calculamos el **MAD (Median Absolute Deviation)**. El problema específico aparece cuando **todos los valores en el conjunto de datos son idéntic",
-      "auto_quality": 8.5,
+      "auto_quality": 7.5,
       "judge_score": 1.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -139,7 +159,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_070102_41750",
-      "response_file": "results/responses/20260714_070102_41750/or-mistral-large-3__deep_reasoning__code_bug_subtle.md"
+      "response_file": "results/responses/20260714_070102_41750/or-mistral-large-3__deep_reasoning__code_bug_subtle.md",
+      "content_score": 10.0,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -160,7 +185,7 @@
       "input_tokens": 68,
       "output_tokens": 1751,
       "response_preview": "Para estimar el consumo diario de café en todas las oficinas de Santiago de Chile, seguiremos un enfoque paso a paso con supuestos claros. Aquí está el razonamiento detallado:\n\n---\n\n### **Supuestos y cálculos:**\n\n#### **1. Número de oficinas en Santiago de Chile**\n- **Supuesto base:**\n  Santiago tie",
-      "auto_quality": 7.0,
+      "auto_quality": 5.0,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -171,7 +196,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_070102_41750",
-      "response_file": "results/responses/20260714_070102_41750/or-mistral-large-3__deep_reasoning__fermi_estimation.md"
+      "response_file": "results/responses/20260714_070102_41750/or-mistral-large-3__deep_reasoning__fermi_estimation.md",
+      "content_score": 10.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -203,7 +233,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_070102_41750",
-      "response_file": "results/responses/20260714_070102_41750/or-mistral-large-3__deep_reasoning__ethical_dilemma_structured.md"
+      "response_file": "results/responses/20260714_070102_41750/or-mistral-large-3__deep_reasoning__ethical_dilemma_structured.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -224,7 +259,7 @@
       "input_tokens": 104,
       "output_tokens": 2048,
       "response_preview": "\n\nAquí tienes el razonamiento paso a paso para resolver el problema:\n\n### 1. Identificar los datos\n*   **Distancia total ($D$):** 120 km.\n*   **Tren 1 (Santiago $\\rightarrow$ Valparaíso):**\n    *   Velocidad ($V_1$): 80 km/h.\n    *   Hora de salida: 8:00 AM.\n*   **Tren 2 (Valparaíso $\\rightarrow$ Sa",
-      "auto_quality": 6.74,
+      "auto_quality": 5.0,
       "judge_score": 2.8,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -235,7 +270,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_070102_41750",
-      "response_file": "results/responses/20260714_070102_41750/or-qwen3.5-397b__deep_reasoning__math_word_problem.md"
+      "response_file": "results/responses/20260714_070102_41750/or-qwen3.5-397b__deep_reasoning__math_word_problem.md",
+      "content_score": 9.34,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 2.25,
@@ -256,7 +296,7 @@
       "input_tokens": 104,
       "output_tokens": 2048,
       "response_preview": "Here's a thinking process that leads to the solution:\n\n1.  **Analyze the Request:**\n    *   **Goal:** Determine the order of 4 houses (Left to Right).\n    *   **Attributes:** 4 houses, 4 different colors (Red, Blue, Green, White).\n    *   **Constraints:**\n        1.  Red is to the left of Blue (not ",
-      "auto_quality": 4.29,
+      "auto_quality": 2.25,
       "judge_score": 3.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -267,7 +307,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_070102_41750",
-      "response_file": "results/responses/20260714_070102_41750/or-qwen3.5-397b__deep_reasoning__logic_puzzle_constraint.md"
+      "response_file": "results/responses/20260714_070102_41750/or-qwen3.5-397b__deep_reasoning__logic_puzzle_constraint.md",
+      "content_score": 7.34,
+      "answer_score": 2.25,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -288,7 +333,7 @@
       "input_tokens": 205,
       "output_tokens": 2048,
       "response_preview": "\n\nAquí tienes el análisis cuantitativo de los datos, la evaluación de las hipótesis y las recomendaciones.\n\n### 1. Cálculo de Tasas Relevantes\n\nPara comparar correctamente, no podemos usar números absolutos (ej. 110 quejas) porque el volumen de pedidos cambia. Debemos normalizar los datos.\n\n| Métric",
-      "auto_quality": 7.83,
+      "auto_quality": 7.5,
       "judge_score": 4.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -299,7 +344,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_070102_41750",
-      "response_file": "results/responses/20260714_070102_41750/or-qwen3.5-397b__deep_reasoning__causal_reasoning.md"
+      "response_file": "results/responses/20260714_070102_41750/or-qwen3.5-397b__deep_reasoning__causal_reasoning.md",
+      "content_score": 8.31,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:27+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -320,7 +370,7 @@
       "input_tokens": 228,
       "output_tokens": 6663,
       "response_preview": "# Bug Identificado: División por Cero con Lista Vacía\n\n## El Bug\n\n```python\nif len(data) < 3:\n    return sum(data) / len(data)  # ❌ ZeroDivisionError si data = []\n```\n\n## Cuándo Falla\n\n**Cuando `data` es una lista vacía `[]`**\n\n```python\nremove_outliers_and_average([])  # ZeroDivisionError!\n```\n\n## ",
-      "auto_quality": 8.5,
+      "auto_quality": 7.5,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +381,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_070102_41750",
-      "response_file": "results/responses/20260714_070102_41750/or-qwen3.5-397b__deep_reasoning__code_bug_subtle.md"
+      "response_file": "results/responses/20260714_070102_41750/or-qwen3.5-397b__deep_reasoning__code_bug_subtle.md",
+      "content_score": 10.0,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:28+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -352,7 +407,7 @@
       "input_tokens": 76,
       "output_tokens": 2048,
       "response_preview": "Here's a thinking process that leads to the estimated coffee consumption in Santiago's offices:\n\n1.  **Deconstruct the Request:**\n    *   **Goal:** Estimate daily coffee consumption (in liters) in all offices in Santiago, Chile.\n    *   **Requirements:**\n        *   Show step-by-step reasoning with ",
-      "auto_quality": 6.14,
+      "auto_quality": 6.67,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -363,7 +418,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_070102_41750",
-      "response_file": "results/responses/20260714_070102_41750/or-qwen3.5-397b__deep_reasoning__fermi_estimation.md"
+      "response_file": "results/responses/20260714_070102_41750/or-qwen3.5-397b__deep_reasoning__fermi_estimation.md",
+      "content_score": 5.34,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:28+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -384,7 +444,7 @@
       "input_tokens": 192,
       "output_tokens": 2048,
       "response_preview": "# Memorándum para el Board: Estrategia de Despliegue del Modelo de Detección de Cáncer\n\n## 1. Identificación de Stakeholders Afectados\n\nPara entender el impacto real, debemos desglosar a los interesados más allá de categorías genéricas:\n\n*   **Pacientes (Segmentados):**\n    *   *Piel clara:* Se bene",
-      "auto_quality": 5.26,
+      "auto_quality": 5.0,
       "judge_score": 5.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -395,7 +455,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_070102_41750",
-      "response_file": "results/responses/20260714_070102_41750/or-qwen3.5-397b__deep_reasoning__ethical_dilemma_structured.md"
+      "response_file": "results/responses/20260714_070102_41750/or-qwen3.5-397b__deep_reasoning__ethical_dilemma_structured.md",
+      "content_score": 5.64,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:28+00:00",
+      "scoring": "verificable"
     }
   ]
 }

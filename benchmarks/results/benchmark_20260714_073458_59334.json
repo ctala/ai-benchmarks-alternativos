@@ -10,7 +10,12 @@
       "evaluations": 9,
       "estimated_cost_usd": 0.0103
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:57+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 245,
       "output_tokens": 522,
       "response_preview": "\n\n**Título:**  \n¿Por qué tu startup aún depende de humanos para resolver problemas que la IA ya resuelve?  \n\n**Primer párrafo:**  \nImagina esto: tu equipo de soporte está abrumado por consultas repetitivas, y cada día pierdes horas respondiendo preguntas que podrían automatizarse. No es un problema ",
-      "auto_quality": 6.67,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_073458_59334",
-      "response_file": "results/responses/20260714_073458_59334/or-nemotron-nano-9b-v2__multi_turn__content_iteration.md"
+      "response_file": "results/responses/20260714_073458_59334/or-nemotron-nano-9b-v2__multi_turn__content_iteration.md",
+      "content_score": 4.67,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:54+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -64,7 +74,7 @@
       "input_tokens": 375,
       "output_tokens": 746,
       "response_preview": "\n\nEntiendo perfectamente tu situación, María. Vamos a actuar de inmediato en dos frentes:  \n\n1. **Técnico**: Estoy revisando tu cuenta **maria@startup.cl** y resolveré el issue de tu automatización en los próximos 15 minutos.  \n2. **Reembolso**: Aunque nuestra política indica reembolsos dentro de 30",
-      "auto_quality": 7.34,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_073458_59334",
-      "response_file": "results/responses/20260714_073458_59334/or-nemotron-nano-9b-v2__multi_turn__support_escalation.md"
+      "response_file": "results/responses/20260714_073458_59334/or-nemotron-nano-9b-v2__multi_turn__support_escalation.md",
+      "content_score": 9.34,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:56+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.0,
@@ -96,7 +111,7 @@
       "input_tokens": 239,
       "output_tokens": 1221,
       "response_preview": "\n\n¡Claro! Aquí tienes el workflow actualizado con tus requisitos:\n\n---\n\n### **1. Trigger: Gmail Trigger**\n- Configura el trigger para leer nuevos correos.\n- Asegúrate de tener la autenticación de Gmail habilitada (OAuth o API key).\n\n---\n\n### **2. Nodo de Extracción de Datos (Function Node)**\n- **Pro",
-      "auto_quality": 7.6,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_073458_59334",
-      "response_file": "results/responses/20260714_073458_59334/or-nemotron-nano-9b-v2__multi_turn__requirements_change.md"
+      "response_file": "results/responses/20260714_073458_59334/or-nemotron-nano-9b-v2__multi_turn__requirements_change.md",
+      "content_score": 10.0,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:56+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -128,7 +148,7 @@
       "input_tokens": 342,
       "output_tokens": 1093,
       "response_preview": "\n\nEntiendo perfectamente el problema. Tu loop infinito de retries es la causa principal del error 429. Aquí te explico cómo implementar un mecanismo de retry **inteligente** que respete los límites de la API:\n\n### ✅ Solución paso a paso:\n\n1. **Eliminar retries infinitos**:\n   - Define un **máximo de",
-      "auto_quality": 9.2,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_073458_59334",
-      "response_file": "results/responses/20260714_073458_59334/or-nemotron-nano-9b-v2__multi_turn__debugging_conversation.md"
+      "response_file": "results/responses/20260714_073458_59334/or-nemotron-nano-9b-v2__multi_turn__debugging_conversation.md",
+      "content_score": 8.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:56+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -160,7 +185,7 @@
       "input_tokens": 221,
       "output_tokens": 376,
       "response_preview": "# Por que tu siguiente contratacion deberia ser un chatbot (y no otro empleado de soporte)\n\nCada vez que un cliente potencial te escribe a las 11pm y no le respondes hasta la mañana siguiente, estas perdiendo una venta. Lo se porque me ha pasado. Y probablemente a ti tambien. Mientras dormias, ese l",
-      "auto_quality": 6.67,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -171,7 +196,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_073458_59334",
-      "response_file": "results/responses/20260714_073458_59334/or-minimax-m2.5__multi_turn__content_iteration.md"
+      "response_file": "results/responses/20260714_073458_59334/or-minimax-m2.5__multi_turn__content_iteration.md",
+      "content_score": 4.67,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:56+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -192,7 +222,7 @@
       "input_tokens": 348,
       "output_tokens": 641,
       "response_preview": "Maria, entiendo perfectamente tu frustracion y tu enojo es valido.\n\nTe explico lo que puedo hacer desde mi posicion:\n\n1. **Solucion tecnica**: Estoy listo para ayudarte a reactivarte inmediatamente\n2. **Credito proporcional**: Puedo aplicarte un credito por los 3 dias sin servicio\n3. **Reembolso com",
-      "auto_quality": 8.54,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,16 +233,21 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_073458_59334",
-      "response_file": "results/responses/20260714_073458_59334/or-minimax-m2.5__multi_turn__support_escalation.md"
+      "response_file": "results/responses/20260714_073458_59334/or-minimax-m2.5__multi_turn__support_escalation.md",
+      "content_score": 9.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:56+00:00",
+      "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 6.0,
       "cost_score": 9.59,
       "cost_usd": 0.000295,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.79,
+      "final": 6.39,
       "test_name": "requirements_change",
       "model": "MiniMax M2.5",
       "model_id": "minimax/minimax-m2.5",
@@ -224,7 +259,7 @@
       "input_tokens": 228,
       "output_tokens": 290,
       "response_preview": "Perfecto, mucho mejor. Te explico los 4 nodos que necesitas:\n\n## 1. Gmail Trigger\n- Configura tu cuenta de Gmail\n- Selecciona la bandeja de entrada\n\n## 2. Filter (nodo de N8N)\n- Campo: `subject`\n- Operation: `contains` (o `matches regex`)\n- Value: `propuesta|cotizacion` (puedes usar regex para ambos",
-      "auto_quality": 8.0,
+      "auto_quality": 6.0,
       "judge_score": 3.0,
       "judge_precision": 3,
       "judge_relevancia": 2,
@@ -235,7 +270,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_073458_59334",
-      "response_file": "results/responses/20260714_073458_59334/or-minimax-m2.5__multi_turn__requirements_change.md"
+      "response_file": "results/responses/20260714_073458_59334/or-minimax-m2.5__multi_turn__requirements_change.md",
+      "content_score": 8.01,
+      "answer_score": 6.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:57+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 7.5,
@@ -256,7 +296,7 @@
       "input_tokens": 315,
       "output_tokens": 396,
       "response_preview": "Ahi esta el problema! Loop infinito de retries = catastrophe. Aqui tienes la forma correcta:\n\n```python\nimport time\nimport requests\nfrom requests.adapters import HTTPAdapter\nfrom urllib3.util.retry import Retry\n\nsession = requests.Session()\n\nretry_strategy = Retry(\n    total=3,                    # ",
-      "auto_quality": 8.24,
+      "auto_quality": 7.5,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_073458_59334",
-      "response_file": "results/responses/20260714_073458_59334/or-minimax-m2.5__multi_turn__debugging_conversation.md"
+      "response_file": "results/responses/20260714_073458_59334/or-minimax-m2.5__multi_turn__debugging_conversation.md",
+      "content_score": 9.34,
+      "answer_score": 7.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:57+00:00",
+      "scoring": "verificable"
     }
   ]
 }

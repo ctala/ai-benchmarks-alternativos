@@ -10,7 +10,12 @@
       "evaluations": 9,
       "estimated_cost_usd": 0.0112
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:14:42+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 109,
       "output_tokens": 64,
       "response_preview": "```json\n{\n  \"name\": \"Maria Garcia\",\n  \"age\": 28,\n  \"role\": \"ingeniera de software\",\n  \"company\": \"Google Chile\",\n  \"email\": \"maria@google.com\",\n  \"salary\": 95000\n}\n```",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "structured_output",
       "run": 1,
       "timestamp": "20260714_071224_47810",
-      "response_file": "results/responses/20260714_071224_47810/or-mistral-large-3__structured_output__json_simple_extraction.md"
+      "response_file": "results/responses/20260714_071224_47810/or-mistral-large-3__structured_output__json_simple_extraction.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -64,7 +74,7 @@
       "input_tokens": 180,
       "output_tokens": 114,
       "response_preview": "```json\n[\n    {\"id\": 1, \"category\": \"shipping\", \"priority\": \"high\", \"sentiment\": \"negative\"},\n    {\"id\": 2, \"category\": \"general\", \"priority\": \"low\", \"sentiment\": \"neutral\"},\n    {\"id\": 3, \"category\": \"billing\", \"priority\": \"urgent\", \"sentiment\": \"negative\"},\n    {\"id\": 4, \"category\": \"technical\", \"",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "structured_output",
       "run": 1,
       "timestamp": "20260714_071224_47810",
-      "response_file": "results/responses/20260714_071224_47810/or-mistral-large-3__structured_output__json_array_classification.md"
+      "response_file": "results/responses/20260714_071224_47810/or-mistral-large-3__structured_output__json_array_classification.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -96,7 +111,7 @@
       "input_tokens": 230,
       "output_tokens": 1293,
       "response_preview": "```json\n{\n  \"project\": \"Rediseño sitio web\",\n  \"start_date\": \"2026-05-01\",\n  \"end_date\": \"2026-06-30\",\n  \"team\": [\n    {\n      \"name\": \"Ana Martínez\",\n      \"role\": \"Diseñadora UX/UI\",\n      \"allocation_pct\": 100\n    },\n    {\n      \"name\": \"Carlos López\",\n      \"role\": \"Desarrollador Frontend\",\n    ",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "structured_output",
       "run": 1,
       "timestamp": "20260714_071224_47810",
-      "response_file": "results/responses/20260714_071224_47810/or-mistral-large-3__structured_output__json_nested_complex.md"
+      "response_file": "results/responses/20260714_071224_47810/or-mistral-large-3__structured_output__json_nested_complex.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -128,7 +148,7 @@
       "input_tokens": 78,
       "output_tokens": 31,
       "response_preview": "{\n  \"status\": \"ok\",\n  \"count\": 42,\n  \"items\": [\"alpha\", \"beta\", \"gamma\"]\n}",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "structured_output",
       "run": 1,
       "timestamp": "20260714_071224_47810",
-      "response_file": "results/responses/20260714_071224_47810/or-mistral-large-3__structured_output__json_strict_no_extra.md"
+      "response_file": "results/responses/20260714_071224_47810/or-mistral-large-3__structured_output__json_strict_no_extra.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -160,7 +185,7 @@
       "input_tokens": 118,
       "output_tokens": 1102,
       "response_preview": "{\"name\": \"Maria Garcia\", \"age\": 28, \"role\": \"ingeniera de software\", \"company\": \"Google Chile\", \"email\": \"maria@google.com\", \"salary\": 95000}",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "structured_output",
       "run": 1,
       "timestamp": "20260714_071224_47810",
-      "response_file": "results/responses/20260714_071224_47810/or-qwen3.5-397b__structured_output__json_simple_extraction.md"
+      "response_file": "results/responses/20260714_071224_47810/or-qwen3.5-397b__structured_output__json_simple_extraction.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -192,7 +222,7 @@
       "input_tokens": 179,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Task: Classify support emails.\n    *   Input: 4 specific email texts.\n    *   Output Format: JSON array only. No markdown, no explanations.\n    *   Fields per item: `id` (integer), `category` (billing/shipping/technical/general), `priority` (lo",
-      "auto_quality": 6.74,
+      "auto_quality": 5.0,
       "judge_score": 4.2,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -203,7 +233,12 @@
       "suite": "structured_output",
       "run": 1,
       "timestamp": "20260714_071224_47810",
-      "response_file": "results/responses/20260714_071224_47810/or-qwen3.5-397b__structured_output__json_array_classification.md"
+      "response_file": "results/responses/20260714_071224_47810/or-qwen3.5-397b__structured_output__json_array_classification.md",
+      "content_score": 9.34,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -224,7 +259,7 @@
       "input_tokens": 242,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Output format: Valid JSON only. No markdown code blocks, no explanations.\n    *   Content: A project plan structure based on the provided schema.\n    *   Project Name: \"Rediseno sitio web\" (Website Redesign).\n    *   Dates: Start \"2026-05-01\", ",
-      "auto_quality": 6.74,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -235,7 +270,12 @@
       "suite": "structured_output",
       "run": 1,
       "timestamp": "20260714_071224_47810",
-      "response_file": "results/responses/20260714_071224_47810/or-qwen3.5-397b__structured_output__json_nested_complex.md"
+      "response_file": "results/responses/20260714_071224_47810/or-qwen3.5-397b__structured_output__json_nested_complex.md",
+      "content_score": 9.34,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -256,7 +296,7 @@
       "input_tokens": 85,
       "output_tokens": 498,
       "response_preview": "{\"status\": \"ok\", \"count\": 42, \"items\": [\"alpha\", \"beta\", \"gamma\"]}",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "structured_output",
       "run": 1,
       "timestamp": "20260714_071224_47810",
-      "response_file": "results/responses/20260714_071224_47810/or-qwen3.5-397b__structured_output__json_strict_no_extra.md"
+      "response_file": "results/responses/20260714_071224_47810/or-qwen3.5-397b__structured_output__json_strict_no_extra.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:14:42+00:00",
+      "scoring": "verificable"
     }
   ]
 }

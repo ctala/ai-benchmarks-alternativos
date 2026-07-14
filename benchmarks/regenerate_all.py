@@ -146,7 +146,20 @@ def main() -> int:
     if not args.skip_sync:
         run_script("sync_doc_counts.py", [], dry_run=args.dry_run)
 
-    # 9. GUARDRAIL — el pipeline no puede decir "listo" si dejó drift.
+    # 9. EL PORTERO. Todas las invariantes de una vez: procedencia del scoring, una sola
+    # fórmula por suite, exámenes completos, quién puede competir, nada muerto recomendado,
+    # docs que cuadran con la fuente, superficies que no se contradicen.
+    #
+    # Si algo no cuadra, el pipeline FALLA. No se publica un número que los datos no
+    # sostienen. Ver benchmarks/validate.py.
+    if not args.dry_run:
+        print()
+        rc = run_script("validate.py", [], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ El benchmark NO CUADRA. Arreglá lo de arriba antes de publicar.")
+            return 1
+
+    # 9b. GUARDRAIL — el pipeline no puede decir "listo" si dejó drift.
     #
     # El score es un z-score contra la población: medir UN modelo nuevo recalcula el
     # score de TODOS. Cualquier cifra escrita a mano en un doc caduca sola, sin que nadie

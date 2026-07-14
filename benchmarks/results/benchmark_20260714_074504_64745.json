@@ -10,7 +10,12 @@
       "evaluations": 5,
       "estimated_cost_usd": 0.0067
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:15:13+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 175,
       "output_tokens": 1364,
       "response_preview": "1. Depender de las API cerradas de los gigantes tecnológicos es el equivalente digital a construir tu casa sobre tierra ajena: más pronto que tarde, el dueño subirá el alquiler o te echará fuera.\n\n2. La oficina no murió, pero la ilusión de que los empleados volverán a tolerar trayectos de dos horas ",
-      "auto_quality": 7.27,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_074504_64745",
-      "response_file": "results/responses/20260714_074504_64745/or-glm5__creativity__creative_hook_writing.md"
+      "response_file": "results/responses/20260714_074504_64745/or-glm5__creativity__creative_hook_writing.md",
+      "content_score": 4.67,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -64,7 +74,7 @@
       "input_tokens": 128,
       "output_tokens": 4275,
       "response_preview": "Aquí tienes analogías originales pensadas para un contexto de negocios y emprendimiento:\n\n**1. Como funciona un modelo de lenguaje (LLM)**\nImagina un **actor de método enciclopédico** que se ha memorizado cada libro de la historia, pero nunca ha salido del teatro. Tú le das la primera frase de una o",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_074504_64745",
-      "response_file": "results/responses/20260714_074504_64745/or-glm5__creativity__analogy_generation.md"
+      "response_file": "results/responses/20260714_074504_64745/or-glm5__creativity__analogy_generation.md",
+      "content_score": 5.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.5,
@@ -96,7 +111,7 @@
       "input_tokens": 143,
       "output_tokens": 2708,
       "response_preview": "The user wants advice for an entrepreneur starting a food delivery business in Santiago (Chile) who is considering using AI.\nThe constraints are strict:\n1.  **Depth**: No generic advice.\n2.  **Specific Ideas**: At least 2 non-obvious ideas (avoiding \"route optimization\").\n3.  **Concrete Numbers/Esti",
-      "auto_quality": 8.24,
+      "auto_quality": 9.5,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -107,7 +122,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_074504_64745",
-      "response_file": "results/responses/20260714_074504_64745/or-glm5__creativity__depth_vs_superficial.md"
+      "response_file": "results/responses/20260714_074504_64745/or-glm5__creativity__depth_vs_superficial.md",
+      "content_score": 6.34,
+      "answer_score": 9.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 9.0,
@@ -128,7 +148,7 @@
       "input_tokens": 93,
       "output_tokens": 4228,
       "response_preview": "Julián programó \"Diplomat\", una IA para suavizar correos corporativos, ideal para nuestra cultura de \"no te enojes\". El bug surgió en la demo con el CEO. En vez de decir \"Su propuesta es interesante\", la IA escribió: \"Su plan es una estafa piramidal y usted necesita ir al baño\". El silencio fue sepu",
-      "auto_quality": 7.0,
+      "auto_quality": 9.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_074504_64745",
-      "response_file": "results/responses/20260714_074504_64745/or-glm5__creativity__storytelling_quality.md"
+      "response_file": "results/responses/20260714_074504_64745/or-glm5__creativity__storytelling_quality.md",
+      "content_score": 4.0,
+      "answer_score": 9.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:15:13+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,

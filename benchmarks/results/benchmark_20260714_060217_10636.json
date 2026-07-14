@@ -10,7 +10,12 @@
       "evaluations": 16,
       "estimated_cost_usd": 0.026
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:11:41+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 543,
       "output_tokens": 7850,
       "response_preview": "**Plan para $5.000 USD/mes en 90 días**  \nRespeto total a tus restricciones: cero publicidad display/programática, cero presupuesto de ads, cero contrataciones, solo ~4 h/día, contenido automatizado, tráfico orgánico actual de 300k/mes (LATAM tech).  \n\nEl plan se basa en **tres pilares solo con lo q",
-      "auto_quality": 8.8,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260714_060217_10636",
-      "response_file": "results/responses/20260714_060217_10636/grok-4.5__business_strategy__plan_monetizar_medio_con_restricciones.md"
+      "response_file": "results/responses/20260714_060217_10636/grok-4.5__business_strategy__plan_monetizar_medio_con_restricciones.md",
+      "content_score": 10.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -64,7 +74,7 @@
       "input_tokens": 400,
       "output_tokens": 1927,
       "response_preview": "**No. No se aprueba.**\n\n### La multiplicación real\n- 200.000 visitas/mes × 1,5 % = **3.000 suscriptores nuevos/mes**\n- 3.000 × 2 % = **60 compradores/mes**\n- 60 × $30 = **$1.800/mes**\n\nEso es el **30 % del objetivo**. Falta un factor ×3,33. Los números del propio plan no llegan a $6.000.\n\n### Proble",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260714_060217_10636",
-      "response_file": "results/responses/20260714_060217_10636/grok-4.5__business_strategy__plan_aritmetica_no_cierra.md"
+      "response_file": "results/responses/20260714_060217_10636/grok-4.5__business_strategy__plan_aritmetica_no_cierra.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:38+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -96,7 +111,7 @@
       "input_tokens": 506,
       "output_tokens": 1511,
       "response_preview": "**Opción C. Sin duda.**\n\n### Por qué se caen A y B con *tus* restricciones\n\n**Opción A (API B2B)**  \n- Ciclo de venta histórico tuyo: 5–7 meses.  \n- Runway: 3 meses.  \n- Producto: 6 semanas de construcción *antes* de poder vender en serio.  \n\nMatemática simple: aunque empieces a hablar con alguien *",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260714_060217_10636",
-      "response_file": "results/responses/20260714_060217_10636/grok-4.5__business_strategy__elegir_negocio_con_dependencia_oculta.md"
+      "response_file": "results/responses/20260714_060217_10636/grok-4.5__business_strategy__elegir_negocio_con_dependencia_oculta.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -128,7 +148,7 @@
       "input_tokens": 373,
       "output_tokens": 3116,
       "response_preview": "**El experimento: pre-venta fría de un producto que no existe (fake door + commitment de dinero real).**\n\nEste es el más barato, rápido y letal que conozco para matar “pagarían $200/mes”. No mides “interés”, “likes” ni “suena genial”. Mides **si sacan la tarjeta o se comprometen por escrito a pagar*",
-      "auto_quality": 8.8,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260714_060217_10636",
-      "response_file": "results/responses/20260714_060217_10636/grok-4.5__business_strategy__disenar_experimento_para_matar_la_idea.md"
+      "response_file": "results/responses/20260714_060217_10636/grok-4.5__business_strategy__disenar_experimento_para_matar_la_idea.md",
+      "content_score": 10.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +185,7 @@
       "input_tokens": 344,
       "output_tokens": 1672,
       "response_preview": "**No lo hagas.** Un muro de pago duro (contenido solo visible pagando) mata el activo que genera todo el valor: el tráfico orgánico de Google.\n\n### Por qué destruye la gallina de los huevos de oro\n- Google necesita **contenido libremente rastreable e indexable** para rankear y enviar visitas. Un pay",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260714_060217_10636",
-      "response_file": "results/responses/20260714_060217_10636/grok-4.5__business_strategy__monetizar_sin_matar_el_activo.md"
+      "response_file": "results/responses/20260714_060217_10636/grok-4.5__business_strategy__monetizar_sin_matar_el_activo.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -192,7 +222,7 @@
       "input_tokens": 366,
       "output_tokens": 1757,
       "response_preview": "Entendido. Vamos a construir un plan de **$5,000 USD/mes en 90 días** basado en **monetización directa** (sin ads display) y aprovechando tu tráfico orgánico existente. El enfoque será:\n\n1. **Vender productos digitales de alto margen** (infoproductos) a tu audiencia.\n2. **Convertir tráfico frío en l",
-      "auto_quality": 8.8,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,7 +233,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260714_060217_10636",
-      "response_file": "results/responses/20260714_060217_10636/or-mistral-large-3__business_strategy__plan_monetizar_medio_con_restricciones.md"
+      "response_file": "results/responses/20260714_060217_10636/or-mistral-large-3__business_strategy__plan_monetizar_medio_con_restricciones.md",
+      "content_score": 10.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -224,7 +259,7 @@
       "input_tokens": 208,
       "output_tokens": 720,
       "response_preview": "Vamos a verificar los números paso a paso para asegurarnos de que el plan realmente llega a los **$6,000 USD/mes**. La clave está en la multiplicación:\n\n---\n\n### **1. Tráfico → Suscriptores**\n- **Visitas/mes:** 200,000\n- **Tasa de conversión a suscriptor:** 1.5%\n- **Suscriptores nuevos/mes:**\n  \\( 2",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -235,7 +270,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260714_060217_10636",
-      "response_file": "results/responses/20260714_060217_10636/or-mistral-large-3__business_strategy__plan_aritmetica_no_cierra.md"
+      "response_file": "results/responses/20260714_060217_10636/or-mistral-large-3__business_strategy__plan_aritmetica_no_cierra.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -256,7 +296,7 @@
       "input_tokens": 324,
       "output_tokens": 1124,
       "response_preview": "**Agarrá la OPCIÓN C — Contenido patrocinado en tu medio.**\n\n**Razones ejecutables con tus activos actuales:**\n\n1. **Caja y tiempo:**\n   - **3 meses de runway** + **4 horas/día** = **360 horas totales**.\n   - La Opción C **no requiere construcción de producto** (vs. 6 semanas en A) ni **casos de éxi",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260714_060217_10636",
-      "response_file": "results/responses/20260714_060217_10636/or-mistral-large-3__business_strategy__elegir_negocio_con_dependencia_oculta.md"
+      "response_file": "results/responses/20260714_060217_10636/or-mistral-large-3__business_strategy__elegir_negocio_con_dependencia_oculta.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -299,7 +344,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260714_060217_10636",
-      "response_file": "results/responses/20260714_060217_10636/or-mistral-large-3__business_strategy__disenar_experimento_para_matar_la_idea.md"
+      "response_file": "results/responses/20260714_060217_10636/or-mistral-large-3__business_strategy__disenar_experimento_para_matar_la_idea.md",
+      "content_score": 8.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -320,7 +370,7 @@
       "input_tokens": 150,
       "output_tokens": 1996,
       "response_preview": "Antes de tomar una decisión tan drástica como implementar un **muro de pago**, es crucial analizar el **impacto en el activo que genera valor**: tu tráfico orgánico. Aquí hay un desglose estratégico:\n\n---\n\n### **1. Riesgos del muro de pago (por qué podría matar la gallina)**\n- **Google penaliza el c",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +381,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260714_060217_10636",
-      "response_file": "results/responses/20260714_060217_10636/or-mistral-large-3__business_strategy__monetizar_sin_matar_el_activo.md"
+      "response_file": "results/responses/20260714_060217_10636/or-mistral-large-3__business_strategy__monetizar_sin_matar_el_activo.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -352,7 +407,7 @@
       "input_tokens": 369,
       "output_tokens": 9537,
       "response_preview": "## Diagnóstico Estratégico\n\nTienes un activo valioso (300k visitas/mes) pero un modelo de monetización roto (dependencia implícita de tráfico sin captura de valor). Tu restricción de **no usar ads programáticos** es correcta para tu nicho: con tráfico LATAM, AdSense te daría ~$600-$900/mes, muy lejo",
-      "auto_quality": 8.8,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -363,7 +418,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260714_060217_10636",
-      "response_file": "results/responses/20260714_060217_10636/or-qwen3.5-397b__business_strategy__plan_monetizar_medio_con_restricciones.md"
+      "response_file": "results/responses/20260714_060217_10636/or-qwen3.5-397b__business_strategy__plan_monetizar_medio_con_restricciones.md",
+      "content_score": 10.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -384,7 +444,7 @@
       "input_tokens": 218,
       "output_tokens": 2048,
       "response_preview": "**No lo apruebo.** Devuélvelo a tu socio para revisión inmediata.\n\nComo analista, mi trabajo es evitar que nos emocionemos con la narrativa y nos choquemos con la aritmética. Aquí hay **dos errores fatales** que hacen que este plan sea inviable tal como está escrito:\n\n### 1. La multiplicación no lle",
-      "auto_quality": 7.97,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -395,7 +455,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260714_060217_10636",
-      "response_file": "results/responses/20260714_060217_10636/or-qwen3.5-397b__business_strategy__plan_aritmetica_no_cierra.md"
+      "response_file": "results/responses/20260714_060217_10636/or-qwen3.5-397b__business_strategy__plan_aritmetica_no_cierra.md",
+      "content_score": 4.92,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -416,7 +481,7 @@
       "input_tokens": 327,
       "output_tokens": 2048,
       "response_preview": "Elección directa: **Opción C (Contenido patrocinado).**\n\nSin duda. Sin \"pero\". Es la única opción que respeta tu restricción más crítica: **tiempo de vida vs. tiempo de cobro.**\n\nAquí está el porqué, basado estrictamente en ejecución y activos actuales:\n\n### 1. La Matemática de la Supervivencia\nTien",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -427,7 +492,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260714_060217_10636",
-      "response_file": "results/responses/20260714_060217_10636/or-qwen3.5-397b__business_strategy__elegir_negocio_con_dependencia_oculta.md"
+      "response_file": "results/responses/20260714_060217_10636/or-qwen3.5-397b__business_strategy__elegir_negocio_con_dependencia_oculta.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -448,7 +518,7 @@
       "input_tokens": 179,
       "output_tokens": 2611,
       "response_preview": "Escucha bien. Si te metes 2 meses a codificar antes de cobrar un solo dólar, no eres un fundador, eres un hobbyista con deuda técnica.\n\nTu hipótesis tiene un punto de fricción enorme: **$200/mes es mucho dinero para una agencia \"pequeña\"**. La mayoría usa plantillas de Looker Studio gratis o herrami",
-      "auto_quality": 8.4,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -459,7 +529,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260714_060217_10636",
-      "response_file": "results/responses/20260714_060217_10636/or-qwen3.5-397b__business_strategy__disenar_experimento_para_matar_la_idea.md"
+      "response_file": "results/responses/20260714_060217_10636/or-qwen3.5-397b__business_strategy__disenar_experimento_para_matar_la_idea.md",
+      "content_score": 9.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:41+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -480,7 +555,7 @@
       "input_tokens": 157,
       "output_tokens": 3024,
       "response_preview": "**Respuesta corta: NO. Absolutamente no.**\n\nComo estratega, mi primera regla es: **no toques el motor que mueve el coche si no sabes cómo funciona.**\n\nEn tu caso, el motor es el **SEO (Search Engine Optimization)**. Poner un *hard paywall* (muro de pago total) es como quitarle el combustible al coch",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -491,7 +566,12 @@
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260714_060217_10636",
-      "response_file": "results/responses/20260714_060217_10636/or-qwen3.5-397b__business_strategy__monetizar_sin_matar_el_activo.md"
+      "response_file": "results/responses/20260714_060217_10636/or-qwen3.5-397b__business_strategy__monetizar_sin_matar_el_activo.md",
+      "content_score": 6.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:41+00:00",
+      "scoring": "verificable"
     }
   ]
 }

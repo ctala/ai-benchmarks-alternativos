@@ -10,7 +10,12 @@
       "evaluations": 4,
       "estimated_cost_usd": 0.0048
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:12:11+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 202,
       "output_tokens": 909,
       "response_preview": "**Asunto:** Tu post sobre escalar content marketing sin contratar  \n\nHola Maria, vi tu publicación la semana pasada sobre cómo escalar content marketing sin contratar. En FintechCo, con 50 personas y Serie A, quizás te interese ver cómo nuestra herramienta de IA automatiza la producción de contenido",
-      "auto_quality": 7.73,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_062853_25048",
-      "response_file": "results/responses/20260714_062853_25048/or-nemotron-3-nano-omni-reasoning__sales_outreach__cold_email_personalized.md"
+      "response_file": "results/responses/20260714_062853_25048/or-nemotron-3-nano-omni-reasoning__sales_outreach__cold_email_personalized.md",
+      "content_score": 7.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:08+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 3.33,
@@ -64,7 +74,7 @@
       "input_tokens": 264,
       "output_tokens": 1008,
       "response_preview": "[\n  {\n    \"score\": 5,\n    \"bant\": {\n      \"budget\": \"unknown\",\n      \"authority\": \"decision maker (CEO)\",\n      \"need\": \"automation of support\",\n      \"timeline\": \"not specified\"\n    },\n    \"action\": \"Follow up to gather budget and timeline\",\n    \"reason\": \"Is a decision maker with a clear need, but",
-      "auto_quality": 4.4,
+      "auto_quality": 3.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_062853_25048",
-      "response_file": "results/responses/20260714_062853_25048/or-nemotron-3-nano-omni-reasoning__sales_outreach__lead_qualification.md"
+      "response_file": "results/responses/20260714_062853_25048/or-nemotron-3-nano-omni-reasoning__sales_outreach__lead_qualification.md",
+      "content_score": 6.0,
+      "answer_score": 3.33,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:09+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -96,7 +111,7 @@
       "input_tokens": 316,
       "output_tokens": 3799,
       "response_preview": "## 1️⃣ Métricas por campaña  \n\n| Campaña | Impresiones | Clics | **CTR** | Costo | **CPC** | Sign‑ups | **Conversion Rate** | **CPA** |\n|--------|-------------|------|--------|-------|--------|----------|----------------------|--------|\n| **A** (Landing principal) | 50 000 | 1 500 | **3 %** (1 500 /",
-      "auto_quality": 8.8,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260714_062853_25048",
-      "response_file": "results/responses/20260714_062853_25048/or-nemotron-3-nano-omni-reasoning__sales_outreach__campaign_optimization.md"
+      "response_file": "results/responses/20260714_062853_25048/or-nemotron-3-nano-omni-reasoning__sales_outreach__campaign_optimization.md",
+      "content_score": 10.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:11+00:00",
+      "scoring": "verificable"
     }
   ]
 }

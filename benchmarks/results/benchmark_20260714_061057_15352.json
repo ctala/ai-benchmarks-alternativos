@@ -10,7 +10,12 @@
       "evaluations": 5,
       "estimated_cost_usd": 0.0053
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:11:46+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 120,
       "output_tokens": 285,
       "response_preview": "{\"name\": \"Maria Garcia\", \"age\": 28, \"role\": \"ingeniera de software\", \"company\": \"Google Chile\", \"email\": \"maria@google.com\", \"salary\": 95000}",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "structured_output",
       "run": 1,
       "timestamp": "20260714_061057_15352",
-      "response_file": "results/responses/20260714_061057_15352/or-nemotron-3-nano-omni-reasoning__structured_output__json_simple_extraction.md"
+      "response_file": "results/responses/20260714_061057_15352/or-nemotron-3-nano-omni-reasoning__structured_output__json_simple_extraction.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:46+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -64,7 +74,7 @@
       "input_tokens": 191,
       "output_tokens": 407,
       "response_preview": "[{\"id\":1,\"category\":\"shipping\",\"priority\":\"urgent\",\"sentiment\":\"negative\"},{\"id\":2,\"category\":\"general\",\"priority\":\"low\",\"sentiment\":\"positive\"},{\"id\":3,\"category\":\"billing\",\"priority\":\"urgent\",\"sentiment\":\"negative\"},{\"id\":4,\"category\":\"technical\",\"priority\":\"high\",\"sentiment\":\"negative\"}]",
-      "auto_quality": 5.48,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "structured_output",
       "run": 1,
       "timestamp": "20260714_061057_15352",
-      "response_file": "results/responses/20260714_061057_15352/or-nemotron-3-nano-omni-reasoning__structured_output__json_array_classification.md"
+      "response_file": "results/responses/20260714_061057_15352/or-nemotron-3-nano-omni-reasoning__structured_output__json_array_classification.md",
+      "content_score": 6.2,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:46+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -96,7 +111,7 @@
       "input_tokens": 241,
       "output_tokens": 2425,
       "response_preview": "{\n  \"project\": \"Rediseño sitio web\",\n  \"start_date\": \"2026-05-01\",\n  \"end_date\": \"2026-06-30\",\n  \"team\": [\n    {\n      \"name\": \"Laura Martínez\",\n      \"role\": \"Diseñador UI/UX\",\n      \"allocation_pct\": 20\n    },\n    {\n      \"name\": \"Carlos Gómez\",\n      \"role\": \"Desarrollador Frontend\",\n      \"alloc",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "structured_output",
       "run": 1,
       "timestamp": "20260714_061057_15352",
-      "response_file": "results/responses/20260714_061057_15352/or-nemotron-3-nano-omni-reasoning__structured_output__json_nested_complex.md"
+      "response_file": "results/responses/20260714_061057_15352/or-nemotron-3-nano-omni-reasoning__structured_output__json_nested_complex.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:46+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -128,7 +148,7 @@
       "input_tokens": 89,
       "output_tokens": 97,
       "response_preview": "{\"status\": \"ok\", \"count\": 42, \"items\": [\"alpha\", \"beta\", \"gamma\"]}",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "structured_output",
       "run": 1,
       "timestamp": "20260714_061057_15352",
-      "response_file": "results/responses/20260714_061057_15352/or-nemotron-3-nano-omni-reasoning__structured_output__json_strict_no_extra.md"
+      "response_file": "results/responses/20260714_061057_15352/or-nemotron-3-nano-omni-reasoning__structured_output__json_strict_no_extra.md",
+      "content_score": 8.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:46+00:00",
+      "scoring": "verificable"
     }
   ]
 }

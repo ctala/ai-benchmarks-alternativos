@@ -10,7 +10,12 @@
       "evaluations": 13,
       "estimated_cost_usd": 0.029
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:12:15+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -43,7 +48,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_063209_26853",
-      "response_file": "results/responses/20260714_063209_26853/or-ministral-14b__deep_reasoning__math_word_problem.md"
+      "response_file": "results/responses/20260714_063209_26853/or-ministral-14b__deep_reasoning__math_word_problem.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:12+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -64,7 +74,7 @@
       "input_tokens": 95,
       "output_tokens": 2048,
       "response_preview": "Vamos a resolver este problema paso a paso, analizando las pistas una por una y descartando posibilidades hasta encontrar la única solución válida.\n\n### **Pistas:**\n1. Hay 4 casas, cada una de un color distinto: **roja (R)**, **azul (A)**, **verde (V)**, **blanca (B)**.\n2. La casa roja está a la izq",
-      "auto_quality": 7.0,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -75,7 +85,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_063209_26853",
-      "response_file": "results/responses/20260714_063209_26853/or-ministral-14b__deep_reasoning__logic_puzzle_constraint.md"
+      "response_file": "results/responses/20260714_063209_26853/or-ministral-14b__deep_reasoning__logic_puzzle_constraint.md",
+      "content_score": 10.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:12+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -96,7 +111,7 @@
       "input_tokens": 197,
       "output_tokens": 1581,
       "response_preview": "Vamos a analizar los datos cuantitativamente para evaluar las hipótesis del CEO, CTO y COO. Calcularemos las **tasas relevantes** (métricas normalizadas) para comparar el impacto de los factores mencionados.\n\n---\n\n### **1. Cálculo de tasas relevantes**\nPara evitar sesgos por diferencias en el volume",
-      "auto_quality": 9.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_063209_26853",
-      "response_file": "results/responses/20260714_063209_26853/or-ministral-14b__deep_reasoning__causal_reasoning.md"
+      "response_file": "results/responses/20260714_063209_26853/or-ministral-14b__deep_reasoning__causal_reasoning.md",
+      "content_score": 9.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:14+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -128,7 +148,7 @@
       "input_tokens": 222,
       "output_tokens": 1073,
       "response_preview": "El bug sutil en este código ocurre cuando **todos los valores en `data` son iguales** (o casi iguales, dentro de un margen muy pequeño que no supera el umbral `threshold`).\n\n### Explicación detallada:\n1. **Caso problemático**: Si todos los valores en `data` son idénticos (ejemplo: `[5, 5, 5]`), la m",
-      "auto_quality": 7.0,
+      "auto_quality": 5.0,
       "judge_score": 1.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -139,7 +159,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_063209_26853",
-      "response_file": "results/responses/20260714_063209_26853/or-ministral-14b__deep_reasoning__code_bug_subtle.md"
+      "response_file": "results/responses/20260714_063209_26853/or-ministral-14b__deep_reasoning__code_bug_subtle.md",
+      "content_score": 10.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -160,7 +185,7 @@
       "input_tokens": 68,
       "output_tokens": 2048,
       "response_preview": "Para estimar el consumo diario de café en todas las oficinas de **Santiago de Chile**, desglosaremos el problema en pasos lógicos con supuestos conservadores, moderados y optimistas. Usaremos datos disponibles (INE, estudios de hábitos de consumo, tamaño de oficinas, etc.) y ajustaremos variables cl",
-      "auto_quality": 7.0,
+      "auto_quality": 5.0,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -171,7 +196,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_063209_26853",
-      "response_file": "results/responses/20260714_063209_26853/or-ministral-14b__deep_reasoning__fermi_estimation.md"
+      "response_file": "results/responses/20260714_063209_26853/or-ministral-14b__deep_reasoning__fermi_estimation.md",
+      "content_score": 10.0,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -192,7 +222,7 @@
       "input_tokens": 187,
       "output_tokens": 2048,
       "response_preview": "### **Análisis para la Startup de IA en Detección de Cáncer**\n\n---\n\n## **1. Stakeholders Afectados**\nLos actores clave con intereses, riesgos o impactos en esta decisión incluyen:\n\n| **Stakeholder**          | **Intereses/Preocupaciones**                                                              ",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -203,7 +233,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_063209_26853",
-      "response_file": "results/responses/20260714_063209_26853/or-ministral-14b__deep_reasoning__ethical_dilemma_structured.md"
+      "response_file": "results/responses/20260714_063209_26853/or-ministral-14b__deep_reasoning__ethical_dilemma_structured.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -224,7 +259,7 @@
       "input_tokens": 94,
       "output_tokens": 898,
       "response_preview": "Vamos a resolver el problema paso a paso.\n\n---\n\n**1. Datos del problema**\n\n- Tren A (desde Santiago hacia Valparaíso):  \n  Velocidad \\( v_A = 80 \\text{ km/h} \\)  \n  Sale a las 8:00 AM.\n\n- Tren B (desde Valparaíso hacia Santiago):  \n  Velocidad \\( v_B = 120 \\text{ km/h} \\)  \n  Sale a las 8:30 AM.\n\n- ",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -235,7 +270,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_063209_26853",
-      "response_file": "results/responses/20260714_063209_26853/or-deepseek-v3__deep_reasoning__math_word_problem.md"
+      "response_file": "results/responses/20260714_063209_26853/or-deepseek-v3__deep_reasoning__math_word_problem.md",
+      "content_score": 9.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -256,7 +296,7 @@
       "input_tokens": 116,
       "output_tokens": 2048,
       "response_preview": "Vamos a analizar las condiciones paso a paso.\n\n**Datos:**\nCasas: Roja (R), Azul (A), Verde (V), Blanca (B).  \nPosiciones 1, 2, 3, 4 de izquierda a derecha.\n\n---\n\n**1.** \"La casa roja está a la izquierda de la azul (no necesariamente adyacente)\"  \nSignifica: \\( \\text{pos}(R) < \\text{pos}(A) \\).\n\n**2.",
-      "auto_quality": 6.74,
+      "auto_quality": 5.0,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -267,7 +307,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_063209_26853",
-      "response_file": "results/responses/20260714_063209_26853/or-deepseek-v3__deep_reasoning__logic_puzzle_constraint.md"
+      "response_file": "results/responses/20260714_063209_26853/or-deepseek-v3__deep_reasoning__logic_puzzle_constraint.md",
+      "content_score": 9.34,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -299,7 +344,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_063209_26853",
-      "response_file": "results/responses/20260714_063209_26853/or-deepseek-v3__deep_reasoning__causal_reasoning.md"
+      "response_file": "results/responses/20260714_063209_26853/or-deepseek-v3__deep_reasoning__causal_reasoning.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 5.0,
@@ -320,7 +370,7 @@
       "input_tokens": 202,
       "output_tokens": 946,
       "response_preview": "Analizando el código, el bug sutil ocurre cuando **todos los valores en `data` son idénticos**. Veamos paso a paso:\n\n---\n\n### **Caso problemático**\nEjemplo:  \n`data = [5, 5, 5]`\n\n1. `median = find_median([5,5,5]) = 5`\n2. `mad = find_median([abs(x - median) for x in data])`  \n   → `[0, 0, 0]`  \n   → ",
-      "auto_quality": 6.47,
+      "auto_quality": 5.0,
       "judge_score": 4.2,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -331,7 +381,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_063209_26853",
-      "response_file": "results/responses/20260714_063209_26853/or-deepseek-v3__deep_reasoning__code_bug_subtle.md"
+      "response_file": "results/responses/20260714_063209_26853/or-deepseek-v3__deep_reasoning__code_bug_subtle.md",
+      "content_score": 8.67,
+      "answer_score": 5.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 6.67,
@@ -352,7 +407,7 @@
       "input_tokens": 69,
       "output_tokens": 780,
       "response_preview": "Voy a estimar el consumo diario de café en oficinas de Santiago usando un enfoque paso a paso, desglosando supuestos y cálculos.\n\n---\n\n### **Paso 1: Población laboral en oficinas de Santiago**\n**Supuesto 1:** Población total de Santiago ≈ 7 millones (Región Metropolitana).  \n**Supuesto 2:** Tasa de ",
-      "auto_quality": 8.0,
+      "auto_quality": 6.67,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -363,7 +418,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_063209_26853",
-      "response_file": "results/responses/20260714_063209_26853/or-deepseek-v3__deep_reasoning__fermi_estimation.md"
+      "response_file": "results/responses/20260714_063209_26853/or-deepseek-v3__deep_reasoning__fermi_estimation.md",
+      "content_score": 10.0,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -395,7 +455,12 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_063209_26853",
-      "response_file": "results/responses/20260714_063209_26853/or-deepseek-v3__deep_reasoning__ethical_dilemma_structured.md"
+      "response_file": "results/responses/20260714_063209_26853/or-deepseek-v3__deep_reasoning__ethical_dilemma_structured.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:15+00:00",
+      "scoring": "verificable"
     }
   ]
 }

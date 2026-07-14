@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0135
     },
-    "partial": true
+    "partial": true,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:11:51+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 162,
       "output_tokens": 870,
       "response_preview": "# ¿Por qué tu pyme debería automatizar con IA? Tres razones que no puedes ignorar\n\nSi eres fundador de una pequeña o mediana empresa, ya lo sabes: llevas el marketing, las ventas, la contabilidad y el café —a veces todo a la vez—. La inteligencia artificial ya no es cosa de gigantes tech. Es tu nuev",
-      "auto_quality": 2.14,
+      "auto_quality": 0.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061410_17432",
-      "response_file": "results/responses/20260714_061410_17432/mimo-v2.5-or__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260714_061410_17432/mimo-v2.5-or__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 0.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:51+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -64,7 +74,7 @@
       "input_tokens": 174,
       "output_tokens": 404,
       "response_preview": "Hace 18 meses abrí un grupo de WhatsApp para juntar a algunos emprendedores que conozco. Sin estructura, sin plan. Solo una conversación que se sentía sola.\n\nLas primeras semanas era gente que yo conocía y que se conocía entre sí. Se daban consejos, se quejaban del mismo problema, se mandaban audios",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -75,7 +85,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061410_17432",
-      "response_file": "results/responses/20260714_061410_17432/mimo-v2.5-or__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260714_061410_17432/mimo-v2.5-or__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:51+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 3.33,
@@ -96,7 +111,7 @@
       "input_tokens": 153,
       "output_tokens": 525,
       "response_preview": "## Propuesta de apertura\n\nUn tercio de las pymes de Latinoamérica ya usa alguna herramienta de IA generativa. Esa cifra, que suena optimista, esconde una brecha más reveladora: según el mismo lapso de tiempo, apenas el 11% ha logrado integrarla de manera real en sus procesos. La diferencia entre \"us",
-      "auto_quality": 4.14,
+      "auto_quality": 3.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -107,7 +122,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061410_17432",
-      "response_file": "results/responses/20260714_061410_17432/mimo-v2.5-or__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260714_061410_17432/mimo-v2.5-or__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 5.34,
+      "answer_score": 3.33,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:51+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -128,7 +148,7 @@
       "input_tokens": 107,
       "output_tokens": 585,
       "response_preview": "**Tu workflow dice \"success\" y no ha hecho nada. ¿Por qué?**\n\nEs el bug que más duele: el workflow termina verde, el webhook responde 200, tus logs dicen \"completed\"... pero los datos no llegaron, el email no se envió, la API externa nunca se tocó.\n\n**Las causas más frecuentes:**\n\n**1. El nodo anter",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -139,7 +159,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061410_17432",
-      "response_file": "results/responses/20260714_061410_17432/mimo-v2.5-or__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260714_061410_17432/mimo-v2.5-or__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:51+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -160,7 +185,7 @@
       "input_tokens": 195,
       "output_tokens": 416,
       "response_preview": "# Automatizar la cobranza con IA\n\nAbrí un curso nuevo.\n\nCuatro sesiones en vivo donde vamos a diseñar, desde cero, sistemas de cobranza que trabajan con inteligencia artificial. No es teoría sobre IA. Es armado real: flujos de seguimiento, mensajes que se adaptan al cliente, escalamiento de cobros s",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -171,7 +196,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061410_17432",
-      "response_file": "results/responses/20260714_061410_17432/mimo-v2.5-or__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260714_061410_17432/mimo-v2.5-or__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:51+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -192,7 +222,7 @@
       "input_tokens": 148,
       "output_tokens": 927,
       "response_preview": "## Por qué tu pyme debería automatizar con IA (y no morir en el intento)\n\nEl tiempo es el activo más escaso del fundador. Si pasas tres horas al día respondiendo correos repetitivos, actualizando hojas de cálculo o agendando reuniones, no estás vendiendo. Y si no vendes, no creces.\n\nLa automatizació",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -203,7 +233,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061410_17432",
-      "response_file": "results/responses/20260714_061410_17432/or-glm5__content_verificable__dato_falso_en_el_brief.md"
+      "response_file": "results/responses/20260714_061410_17432/or-glm5__content_verificable__dato_falso_en_el_brief.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:51+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -224,7 +259,7 @@
       "input_tokens": 158,
       "output_tokens": 526,
       "response_preview": "Hace 18 meses esto era cinco personas en un grupo de WhatsApp.\n\nNos conocíamos todos. Nos habíamos cruzado en algún evento, en algún café, en alguna charla que quedó en \"hay que juntarnos\". El grupo se llamaba algo así como \"emprendedores varios\" y funcionaba a empujón: alguien preguntaba, otro resp",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -235,7 +270,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061410_17432",
-      "response_file": "results/responses/20260714_061410_17432/or-glm5__content_verificable__restriccion_que_pelea_con_el_pedido.md"
+      "response_file": "results/responses/20260714_061410_17432/or-glm5__content_verificable__restriccion_que_pelea_con_el_pedido.md",
+      "content_score": 4.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:51+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -256,7 +296,7 @@
       "input_tokens": 134,
       "output_tokens": 706,
       "response_preview": "**Propuesta de apertura:**\n\nUn tercio de las pymes latinoamericanas ya utiliza inteligencia artificial generativa… o tal vez solo una décima parte. En cuestión de semanas, dos informes de 2026 arrojan cifras radicalmente distintas: **un 34% de adopción** según una encuesta regional de marzo, frente ",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -267,7 +307,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061410_17432",
-      "response_file": "results/responses/20260714_061410_17432/or-glm5__content_verificable__fuentes_que_se_contradicen.md"
+      "response_file": "results/responses/20260714_061410_17432/or-glm5__content_verificable__fuentes_que_se_contradicen.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:51+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -288,7 +333,7 @@
       "input_tokens": 100,
       "output_tokens": 1578,
       "response_preview": "**Asunto: Cuando \"verde\" significa que no pasó nada**\n\nTodos hemos estado ahí. Revisas el panel de ejecuciones, ves ese check verde satisfactorio, pero el Slack no llegó, el registro en Airtable no se creó y el cliente te pregunta qué pasó. El workflow dice \"Success\", pero la realidad dice \"No-op\".\n",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -299,7 +344,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061410_17432",
-      "response_file": "results/responses/20260714_061410_17432/or-glm5__content_verificable__audiencia_que_ya_sabe.md"
+      "response_file": "results/responses/20260714_061410_17432/or-glm5__content_verificable__audiencia_que_ya_sabe.md",
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:51+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -320,7 +370,7 @@
       "input_tokens": 183,
       "output_tokens": 554,
       "response_preview": "**Automatizar la cobranza con IA**\n\nLa cobranza manual consume horas, genera fricción con clientes y se convierte en un cuello de botella cuando escalas. Seguimientos inconsistentes, mensajes que suenan robóticos, recordatorios que llegan tarde o nunca. El proceso se resiente y el flujo de caja tamb",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -331,7 +381,12 @@
       "suite": "content_verificable",
       "run": 1,
       "timestamp": "20260714_061410_17432",
-      "response_file": "results/responses/20260714_061410_17432/or-glm5__content_verificable__anuncio_sin_call_to_action.md"
+      "response_file": "results/responses/20260714_061410_17432/or-glm5__content_verificable__anuncio_sin_call_to_action.md",
+      "content_score": 4.67,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:11:51+00:00",
+      "scoring": "verificable"
     }
   ]
 }

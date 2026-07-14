@@ -43,7 +43,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_062424_22675",
-      "response_file": "results/responses/20260714_062424_22675/or-qwen-3.5-35b__startup_content__blog_actualidad_startup.md"
+      "response_file": "results/responses/20260714_062424_22675/or-qwen-3.5-35b__startup_content__blog_actualidad_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.29,
@@ -75,7 +76,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_062424_22675",
-      "response_file": "results/responses/20260714_062424_22675/or-qwen-3.5-35b__startup_content__curso_emprendimiento_modulo.md"
+      "response_file": "results/responses/20260714_062424_22675/or-qwen-3.5-35b__startup_content__curso_emprendimiento_modulo.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 7.62,
@@ -107,7 +109,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_062424_22675",
-      "response_file": "results/responses/20260714_062424_22675/or-qwen-3.5-35b__startup_content__workshop_outline.md"
+      "response_file": "results/responses/20260714_062424_22675/or-qwen-3.5-35b__startup_content__workshop_outline.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 9.47,
@@ -139,7 +142,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_062424_22675",
-      "response_file": "results/responses/20260714_062424_22675/or-qwen-3.5-35b__startup_content__newsletter_startup.md"
+      "response_file": "results/responses/20260714_062424_22675/or-qwen-3.5-35b__startup_content__newsletter_startup.md",
+      "scoring": "juez-30-70"
     },
     {
       "quality": 8.48,
@@ -171,7 +175,8 @@
       "suite": "startup_content",
       "run": 1,
       "timestamp": "20260714_062424_22675",
-      "response_file": "results/responses/20260714_062424_22675/or-qwen-3.5-35b__startup_content__perplexity_style_research.md"
+      "response_file": "results/responses/20260714_062424_22675/or-qwen-3.5-35b__startup_content__perplexity_style_research.md",
+      "scoring": "juez-30-70"
     }
   ]
 }

@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "timestamp": "20260714_142058_71508",
+    "total_runs": 1,
+    "errors": 0,
+    "judge": {
+      "judge_model": "microsoft/phi-4",
+      "judge_provider": "openrouter",
+      "judge_is_local": false,
+      "evaluations": 1,
+      "estimated_cost_usd": 0.0007
+    },
+    "partial": true
+  },
+  "results": [
+    {
+      "quality": 10.0,
+      "cost_score": 4.85,
+      "cost_usd": 0.011214,
+      "speed": 6.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 8.25,
+      "test_name": "niah_es_bridge_length_8000_p25",
+      "model": "Qwen 3.6 Max",
+      "model_id": "qwen/qwen3.6-max-preview",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 44.9,
+      "latency_first_token": 11.407,
+      "latency_total": 11.407,
+      "input_tokens": 7711,
+      "output_tokens": 512,
+      "response_preview": "1.847 metros, 12 de marzo de 1962.",
+      "auto_quality": 7.2,
+      "content_score": 3.0,
+      "answer_score": 10.0,
+      "scoring": "verificable",
+      "suite": "niah_es",
+      "run": 1,
+      "timestamp": "20260714_142058_71508",
+      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_bridge_length_8000_p25.md"
+    }
+  ]
+}

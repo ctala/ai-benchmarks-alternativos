@@ -10,7 +10,12 @@
       "evaluations": 5,
       "estimated_cost_usd": 0.0076
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-14T18:12:25+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 229,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Content writer for a Spanish startup blog.\n    *   **Task:** Write a title and first paragraph for an article about why startups should automate customer support with AI.\n    *   **Feedback on Previous Attempt:**\n        *   Title: To",
-      "auto_quality": 6.04,
+      "auto_quality": 6.5,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -43,7 +48,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_065036_36515",
-      "response_file": "results/responses/20260714_065036_36515/or-qwen-3.5-35b__multi_turn__content_iteration.md"
+      "response_file": "results/responses/20260714_065036_36515/or-qwen-3.5-35b__multi_turn__content_iteration.md",
+      "content_score": 5.34,
+      "answer_score": 6.5,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:22+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 8.0,
@@ -64,7 +74,7 @@
       "input_tokens": 364,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **User:** Maria (maria@startup.cl).\n    *   **Issue:** Automation stopped working for 3 days, paying $200 this month, claims intermittent issues for a month.\n    *   **Demands:**\n        1.  Technical solution (fix the workflow).\n        2.  Co",
-      "auto_quality": 8.54,
+      "auto_quality": 8.0,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -75,7 +85,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_065036_36515",
-      "response_file": "results/responses/20260714_065036_36515/or-qwen-3.5-35b__multi_turn__support_escalation.md"
+      "response_file": "results/responses/20260714_065036_36515/or-qwen-3.5-35b__multi_turn__support_escalation.md",
+      "content_score": 9.34,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:25+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 4.0,
@@ -96,7 +111,7 @@
       "input_tokens": 233,
       "output_tokens": 1175,
       "response_preview": "¡Excelente cambio! La combinación de **Gmail + Notion + Slack** es muy potente para gestión de leads.\n\nAquí tienes la estructura detallada del workflow, paso a paso, para lograr filtrar, guardar y notificar.\n\n### 📋 Estructura del Workflow\n\n1.  **Gmail Trigger**: Escucha nuevos correos.\n2.  **Filter*",
-      "auto_quality": 6.4,
+      "auto_quality": 4.0,
       "judge_score": 2.0,
       "judge_precision": 2,
       "judge_relevancia": 1,
@@ -107,7 +122,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_065036_36515",
-      "response_file": "results/responses/20260714_065036_36515/or-qwen-3.5-35b__multi_turn__requirements_change.md"
+      "response_file": "results/responses/20260714_065036_36515/or-qwen-3.5-35b__multi_turn__requirements_change.md",
+      "content_score": 10.0,
+      "answer_score": 4.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:25+00:00",
+      "scoring": "verificable"
     },
     {
       "quality": 10.0,
@@ -139,7 +159,12 @@
       "suite": "multi_turn",
       "run": 1,
       "timestamp": "20260714_065036_36515",
-      "response_file": "results/responses/20260714_065036_36515/or-qwen-3.5-35b__multi_turn__debugging_conversation.md"
+      "response_file": "results/responses/20260714_065036_36515/or-qwen-3.5-35b__multi_turn__debugging_conversation.md",
+      "content_score": 10.0,
+      "answer_score": 10.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-14T18:12:25+00:00",
+      "scoring": "verificable"
     }
   ]
 }

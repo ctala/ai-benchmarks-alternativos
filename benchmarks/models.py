@@ -1719,6 +1719,20 @@ MODELS = {
         "open_source": False, "license": "Proprietary",
     },
 
+
+    # Claude Fable 5 en el plano común. Solo se había medido por SUSCRIPCIÓN (claude -p),
+    # que arrastra ~8.8K tokens de scaffolding del CLI y no es comparable. Al pasar las
+    # filas de suscripción a `provider_variant`, Fable se quedó SIN fila canónica — y la
+    # página /fable-5-review/ (que tiene tráfico real) se rompió al no encontrarlo.
+    # Un modelo que la gente busca tiene que tener una medición comparable.
+    "or-claude-fable-5": {
+        "id": "anthropic/claude-fable-5",
+        "name": "Claude Fable 5",
+        "cost_input": 10.0, "cost_output": 50.0,
+        "tier": "premium", "provider": "openrouter",
+        "open_source": False, "license": "Proprietary",
+    },
+
 }
 
 # Modelos locales via Ollama - Optimizados para NVIDIA DGX Spark (128GB RAM unificada)

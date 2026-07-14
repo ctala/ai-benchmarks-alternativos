@@ -199,6 +199,56 @@ def suite_coverage(all_runs_by_model: dict, es_rankeable=None) -> dict:
     return {s: len(ms) / len(pool) for s, ms in cov.items()}
 
 
+# Qué fórmula DEBE tener un run según su suite. Si tiene otra, no es comparable.
+def _formula_esperada(suite: str, test_name: str | None = None) -> str:
+    """Qué fórmula usa este TEST hoy. La regla es por test, no por suite.
+
+    Una suite puede ser MIXTA. `news_seo_writing` tiene 3 tests con verdad verificable
+    (¿el JSON es válido? ¿está en español? ¿inventó datos?) y 2 sin ella (¿el artículo es
+    bueno?). Cada uno se puntúa distinto, y eso está bien:
+
+        con expected_answer  → verificable   (quality = ¿acertó el hecho?)
+        sin expected_answer  → juez-30-70    (no hay contra qué verificar)
+
+    Exigir una sola fórmula para toda la suite era MI error: hacía que runs correctos
+    parecieran incompatibles. NIAH tampoco es una categoría aparte — su quality también
+    es answer_score (extrajo el dato o no).
+    """
+    from benchmarks.runner import ALL_TEST_SUITES
+    if suite.startswith("niah"):
+        return "verificable"
+    tests = ALL_TEST_SUITES.get(suite, [])
+    if test_name:
+        t = next((x for x in tests if x.get("name") == test_name), None)
+        if t is not None:
+            return "verificable" if t.get("expected_answer") else "juez-30-70"
+    # Sin nombre de test: solo se puede afirmar si TODA la suite es verificable
+    if tests and all(x.get("expected_answer") for x in tests):
+        return "verificable"
+    return "juez-30-70"
+
+
+FORMULA_ESPERADA = _formula_esperada
+
+
+def _misma_formula(r: dict) -> bool:
+    """¿Este run se puntuó con la fórmula que su suite usa HOY?
+
+    Un run sin la marca `scoring` es de antes de que existiera la procedencia (jul-2026):
+    no se puede saber cómo se calculó y NO se puede promediar con los nuevos. El 43% del
+    dataset estaba en esa situación, mezclando tres escalas distintas en un mismo número.
+
+    Preferimos perder muestra a publicar un promedio de peras y manzanas.
+    """
+    s = r.get("suite")
+    if not s:
+        return False
+    marca = r.get("scoring")
+    if not marca:
+        return False           # sin procedencia → fuera
+    return marca == FORMULA_ESPERADA(s, r.get("test_name"))
+
+
 def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     """Reduce lista de runs a métricas: score, latencia, tok/s, por pilar y por suite.
 
@@ -258,7 +308,14 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     security = [r for r in runs if _is_security(r)]
     tool_runs = [r for r in runs if _is_tool_calling(r)]
 
-    finals_recalc = [r["_final_recalc"] for r in general if r.get("_final_recalc") is not None]
+    # El score global también se promedia POR TEST (mismo sesgo que quality: repetir un
+    # test fácil no debería subirte el score). _por_test se define más abajo, así que acá
+    # se arma con la misma lógica.
+    _acc_final = defaultdict(list)
+    for _r in general:
+        if _r.get("_final_recalc") is not None and _r.get("test_name"):
+            _acc_final[_r["test_name"]].append(_r["_final_recalc"])
+    finals_recalc = [sum(v) / len(v) for v in _acc_final.values()]
 
     judge_scores = [r.get("judge_score") for r in general if r.get("judge_score") is not None]
     speeds = [r.get("tokens_per_second", 0) for r in general if r.get("tokens_per_second", 0) > 0]
@@ -266,9 +323,25 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     in_tokens = sum(r.get("input_tokens", 0) or 0 for r in general)
     out_tokens = sum(r.get("output_tokens", 0) or 0 for r in general)
 
-    # Componentes promedio (solo tareas prácticas, no-niah)
+    def _por_test(rs, campo):
+        """Promedia por TEST, no por run. Cada test pesa igual.
+
+        Un modelo con 5 corridas de un test y 1 de otro tenía el primero pesando 5 veces
+        más. Y el sesgo no es aleatorio: se repiten los tests que el modelo LOGRA
+        completar, que tienden a ser los fáciles. De las 317 desviaciones medidas entre
+        'media por run' y 'media por test', TODAS iban en la misma dirección: inflando.
+        """
+        acc = defaultdict(list)
+        for r in rs:
+            v = r.get(campo)
+            tn = r.get("test_name")
+            if v is not None and tn:
+                acc[tn].append(v)
+        return [sum(v) / len(v) for v in acc.values()] if acc else []
+
+    # Componentes promedio (solo tareas prácticas, no-niah), promediados POR TEST.
     # Si existe _cost_score_or (normalizado OpenRouter) lo usamos; si no, fallback al cost_score original.
-    qualities = [r.get("quality") for r in general if r.get("quality") is not None]
+    qualities = _por_test(general, "quality")
     cost_scores = [
         r.get("_cost_score_or") if r.get("_cost_score_or") is not None else r.get("cost_score")
         for r in general
@@ -284,6 +357,7 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
 
     # Score por pilar (general) Y por suite (incluye niah para visibilidad)
     by_pillar = defaultdict(list)
+    by_pillar_test = defaultdict(lambda: defaultdict(list))
     by_suite = defaultdict(list)
     # Dimensiones CRUDAS por pilar. Sin esto, score_by_pillar sale pre-horneado con
     # los pesos fijos 70/15/7.5/7.5 y la calculadora no puede recomponerlo con los
@@ -320,7 +394,8 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
         by_suite[suite].append(r["_final_recalc"])
         pillar = SUITE_TO_PILLAR.get(suite)
         if pillar:
-            by_pillar[pillar].append(r["_final_recalc"])
+            # (test → runs) para poder promediar por test, no por run
+            by_pillar_test[pillar][r.get("test_name") or "?"].append(r["_final_recalc"])
             for out_key, raw_key in DIMS.items():
                 v = r.get(raw_key)
                 if v is not None:
@@ -328,7 +403,11 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
             c = r.get("_cost_score_or") if r.get("_cost_score_or") is not None else r.get("cost_score")
             if c is not None:
                 dims_by_pillar[pillar]["cost_score_avg"].append(c)
-    pillars = {p: round(sum(s) / len(s), 2) for p, s in by_pillar.items() if s}
+    # Cada test pesa igual dentro del pilar (ver _por_test)
+    pillars = {
+        p: round(sum(sum(v) / len(v) for v in tests.values()) / len(tests), 2)
+        for p, tests in by_pillar_test.items() if tests
+    }
     # {pilar: {quality_avg, cost_score_avg, speed_score_avg, latency_score_avg, quality_ci95}}
     pillar_dims = {}
     for p, dims in dims_by_pillar.items():
@@ -337,7 +416,29 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
         # estadisticos por pilar, no solo en el global.
         entry["quality_ci95"] = _ci95(dims.get("quality_avg", []))
         pillar_dims[p] = entry
-    suites = {s: round(sum(v) / len(v), 2) for s, v in by_suite.items() if v}
+    # CADA TEST PESA IGUAL, sin importar cuántas veces se corrió.
+    #
+    # Antes el promedio de una suite era la media de todos los RUNS. Si un modelo tenía 5
+    # corridas de un test y 1 de otro, el primero pesaba 5 veces más. Y no es aleatorio:
+    # un modelo repite los tests que LOGRA completar, que tienden a ser los fáciles. Por
+    # eso el sesgo va siempre en la misma dirección — las 317 desviaciones medidas son
+    # TODAS positivas: el promedio por-run infla.
+    #
+    # Caso real: MiniMax M3 tenía 5 corridas de cada uno de los 4 tests de business_audit
+    # que rindió, y cero de los 6 restantes. Claude Opus tenía 1 de cada uno de sus 10.
+    # Comparar esos dos promedios no era comparar modelos.
+    #
+    # Ahora: se promedia cada test primero, y después los tests entre sí.
+    by_suite_test = defaultdict(lambda: defaultdict(list))
+    for r in runs:
+        s, tn = r.get("suite", ""), r.get("test_name")
+        if s and tn and r.get("_final_recalc") is not None:
+            by_suite_test[s][tn].append(r["_final_recalc"])
+
+    suites = {
+        s: round(sum(sum(v) / len(v) for v in tests.values()) / len(tests), 2)
+        for s, tests in by_suite_test.items() if tests
+    }
 
     # Suites que el modelo NO terminó. Su promedio sale de un examen más corto que el de
     # los demás: se reporta, pero marcado — no se puede comparar contra quien rindió todo.
