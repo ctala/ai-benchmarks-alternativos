@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-13T20:25:54",
+  "generated_at": "2026-07-13T21:50:47",
   "total_models": 172,
-  "tested_count": 102,
-  "ranked_count": 59,
+  "tested_count": 103,
+  "ranked_count": 58,
   "thresholds": {
     "tested_min_runs": 20,
     "ranked_min_runs": 50
@@ -21,93 +21,93 @@
   "score_method": "zscore_v2.9",
   "norm_stats": {
     "quality_avg": {
-      "mean": 7.6115,
-      "std": 0.556
+      "mean": 7.6143,
+      "std": 0.5582
     },
     "cost_score_avg": {
-      "mean": 6.7334,
-      "std": 1.3359
+      "mean": 6.731,
+      "std": 1.3487
     },
     "speed_score_avg": {
-      "mean": 6.8254,
-      "std": 1.9318
+      "mean": 6.725,
+      "std": 1.9271
     },
     "latency_score_avg": {
-      "mean": 1.8868,
-      "std": 0.825
+      "mean": 1.8974,
+      "std": 0.8336
     }
   },
   "norm_stats_by_pillar": {
     "Agentes": {
       "quality_avg": {
-        "mean": 7.0193,
-        "std": 0.7668
+        "mean": 7.012,
+        "std": 0.7701
       },
       "cost_score_avg": {
-        "mean": 7.0313,
-        "std": 1.2001
+        "mean": 7.023,
+        "std": 1.2088
       },
       "speed_score_avg": {
-        "mean": 6.4974,
-        "std": 1.875
+        "mean": 6.4216,
+        "std": 1.8537
       },
       "latency_score_avg": {
-        "mean": 2.3433,
-        "std": 1.1917
+        "mean": 2.3677,
+        "std": 1.2103
       }
     },
     "Coding": {
       "quality_avg": {
-        "mean": 7.7419,
-        "std": 0.6478
+        "mean": 7.7433,
+        "std": 0.6484
       },
       "cost_score_avg": {
-        "mean": 7.0461,
-        "std": 1.0483
+        "mean": 7.0487,
+        "std": 1.059
       },
       "speed_score_avg": {
-        "mean": 6.6389,
-        "std": 1.95
+        "mean": 6.5211,
+        "std": 1.9151
       },
       "latency_score_avg": {
-        "mean": 2.6212,
-        "std": 1.1985
+        "mean": 2.6428,
+        "std": 1.2144
       }
     },
     "Contenido": {
       "quality_avg": {
-        "mean": 7.8529,
-        "std": 0.6113
+        "mean": 7.8662,
+        "std": 0.6192
       },
       "cost_score_avg": {
-        "mean": 6.5362,
-        "std": 1.5104
+        "mean": 6.5327,
+        "std": 1.5241
       },
       "speed_score_avg": {
-        "mean": 6.9533,
-        "std": 1.9764
+        "mean": 6.8559,
+        "std": 1.9969
       },
       "latency_score_avg": {
-        "mean": 1.4544,
-        "std": 0.5868
+        "mean": 1.4573,
+        "std": 0.5915
       }
     },
     "Razonamiento": {
       "quality_avg": {
-        "mean": 7.6206,
-        "std": 0.7421
+        "mean": 7.6133,
+        "std": 0.749
       },
       "cost_score_avg": {
-        "mean": 6.4208,
-        "std": 1.5368
+        "mean": 6.4263,
+        "std": 1.5548
       },
       "speed_score_avg": {
-        "mean": 6.9729,
-        "std": 1.8783
+        "mean": 6.8523,
+        "std": 1.8746
       },
       "latency_score_avg": {
-        "mean": 1.3898,
-        "std": 0.5378
+        "mean": 1.3902,
+        "std": 0.5412
       }
     }
   },
@@ -176,8 +176,8 @@
       "thinking": false,
       "multimodal": true,
       "runs": 142,
-      "total_runs": 319,
-      "score_global": 8.59,
+      "total_runs": 324,
+      "score_global": 8.58,
       "score_by_pillar": {
         "Contenido": 7.89,
         "Agentes": 6.97,
@@ -241,7 +241,8 @@
         "niah_es": 8.21,
         "prompt_injection_es": 2.53,
         "business_audit": 6.49,
-        "business_strategy": 8.32
+        "business_strategy": 8.32,
+        "content_verificable": 6.82
       },
       "quality_avg": 7.99,
       "quality_ci95": 0.232,
@@ -293,8 +294,8 @@
       "thinking": true,
       "multimodal": false,
       "runs": 113,
-      "total_runs": 407,
-      "score_global": 7.85,
+      "total_runs": 412,
+      "score_global": 7.84,
       "score_by_pillar": {
         "Contenido": 7.68,
         "Agentes": 6.77,
@@ -360,7 +361,8 @@
         "niah_es_lite": 4.26,
         "prompt_injection_es": 2.6,
         "business_audit": 6.8,
-        "business_strategy": 8.18
+        "business_strategy": 8.18,
+        "content_verificable": 8.92
       },
       "quality_avg": 8.05,
       "quality_ci95": 0.434,
@@ -413,7 +415,7 @@
       "multimodal": true,
       "runs": 129,
       "total_runs": 307,
-      "score_global": 7.64,
+      "score_global": 7.63,
       "score_by_pillar": {
         "Contenido": 7.42,
         "Agentes": 6.67,
@@ -529,8 +531,8 @@
       "thinking": true,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 269,
-      "score_global": 7.61,
+      "total_runs": 274,
+      "score_global": 7.6,
       "score_by_pillar": {
         "Contenido": 7.23,
         "Agentes": 6.96,
@@ -596,7 +598,8 @@
         "niah_es_lite": 3.97,
         "prompt_injection_es": 1.9,
         "business_audit": 7.38,
-        "business_strategy": 7.45
+        "business_strategy": 7.45,
+        "content_verificable": 5.91
       },
       "quality_avg": 8.33,
       "quality_ci95": 0.437,
@@ -646,7 +649,7 @@
       "multimodal": false,
       "runs": 96,
       "total_runs": 124,
-      "score_global": 7.49,
+      "score_global": 7.48,
       "score_by_pillar": {
         "Contenido": 7.52,
         "Agentes": 6.59,
@@ -755,7 +758,7 @@
       "multimodal": false,
       "runs": 85,
       "total_runs": 89,
-      "score_global": 7.48,
+      "score_global": 7.47,
       "score_by_pillar": {
         "Contenido": 6.99,
         "Agentes": 7.28,
@@ -861,7 +864,7 @@
       "multimodal": false,
       "runs": 90,
       "total_runs": 205,
-      "score_global": 7.43,
+      "score_global": 7.42,
       "score_by_pillar": {
         "Coding": 7.35,
         "Contenido": 6.93,
@@ -955,121 +958,6 @@
       "security_runs": 20,
       "security_score": 1.45,
       "score_global_linear": 7.22
-    },
-    {
-      "key": "gemini-3.1-flash-lite",
-      "id": "google/gemini-3.1-flash-lite-preview",
-      "name": "Gemini 3.1 Flash Lite",
-      "tier": "cheap",
-      "provider": "openrouter",
-      "open_source": false,
-      "license": "",
-      "cost_input_per_M": 0.25,
-      "cost_output_per_M": 1.5,
-      "cost_per_1k_calls_usd": 2.325,
-      "context_window": 1048576,
-      "subscriptions": [],
-      "notes": "",
-      "tested": true,
-      "retired": false,
-      "provider_variant": false,
-      "ranked": true,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": true,
-      "runs": 87,
-      "total_runs": 177,
-      "score_global": 7.2,
-      "score_by_pillar": {
-        "Contenido": 7.61,
-        "Agentes": 7.06,
-        "Coding": 7.85,
-        "Razonamiento": 7.65
-      },
-      "dims_by_pillar": {
-        "Contenido": {
-          "quality_avg": 7.822,
-          "speed_score_avg": 9.5,
-          "latency_score_avg": 3.607,
-          "cost_score_avg": 7.686,
-          "quality_ci95": 0.923
-        },
-        "Agentes": {
-          "quality_avg": 6.941,
-          "speed_score_avg": 8.138,
-          "latency_score_avg": 5.31,
-          "cost_score_avg": 7.934,
-          "quality_ci95": 0.945
-        },
-        "Coding": {
-          "quality_avg": 8.084,
-          "speed_score_avg": 8.211,
-          "latency_score_avg": 5.263,
-          "cost_score_avg": 7.88,
-          "quality_ci95": 1.15
-        },
-        "Razonamiento": {
-          "quality_avg": 7.877,
-          "speed_score_avg": 9.633,
-          "latency_score_avg": 3.667,
-          "cost_score_avg": 7.612,
-          "quality_ci95": 0.963
-        }
-      },
-      "score_by_suite": {
-        "content_generation": 8.59,
-        "tool_calling": 7.02,
-        "task_management": 8.57,
-        "code_generation": 8.46,
-        "reasoning": 8.56,
-        "summarization": 7.5,
-        "presentation": 8.06,
-        "startup_content": 8.42,
-        "deep_reasoning": 7.71,
-        "customer_support": 6.65,
-        "structured_output": 5.64,
-        "hallucination": 7.71,
-        "creativity": 8.49,
-        "string_precision": 7.94,
-        "news_seo_writing": 5.7,
-        "ocr_extraction": 9.03,
-        "orchestration": 6.28,
-        "multi_turn": 7.9,
-        "policy_adherence": 8.36,
-        "agent_capabilities": 5.57,
-        "strategy": 7.69,
-        "sales_outreach": 6.0,
-        "translation": 8.35,
-        "prompt_injection_es": 2.43,
-        "niah_es": 8.24,
-        "business_audit": 6.86,
-        "business_strategy": 8.57
-      },
-      "quality_avg": 7.67,
-      "quality_ci95": 0.537,
-      "cost_score_avg": 7.78,
-      "speed_score_avg": 9.03,
-      "latency_score_avg": 4.52,
-      "tool_calling_score_avg": 7.12,
-      "judge_score_avg": 4.11,
-      "tokens_per_second": 152.5,
-      "latency_avg_s": 3.31,
-      "total_input_tokens": 24400,
-      "total_output_tokens": 47385,
-      "long_context_runs": 51,
-      "long_context_quality": 9.79,
-      "long_context_score": 8.24,
-      "long_context_by_size": {
-        "8000": 10.0,
-        "64000": 10.0,
-        "128000": 10.0,
-        "256000": 10.0
-      },
-      "effective_context": 256000,
-      "security_runs": 20,
-      "security_score": 1.0,
-      "score_global_linear": 7.55
     },
     {
       "key": "claude-opus-4.8",
@@ -1190,6 +1078,122 @@
       "score_global_linear": 7.08
     },
     {
+      "key": "gemini-3.1-flash-lite",
+      "id": "google/gemini-3.1-flash-lite-preview",
+      "name": "Gemini 3.1 Flash Lite",
+      "tier": "cheap",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 0.25,
+      "cost_output_per_M": 1.5,
+      "cost_per_1k_calls_usd": 2.325,
+      "context_window": 1048576,
+      "subscriptions": [],
+      "notes": "",
+      "tested": true,
+      "retired": false,
+      "provider_variant": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 87,
+      "total_runs": 182,
+      "score_global": 7.19,
+      "score_by_pillar": {
+        "Contenido": 7.61,
+        "Agentes": 7.06,
+        "Coding": 7.85,
+        "Razonamiento": 7.65
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.822,
+          "speed_score_avg": 9.5,
+          "latency_score_avg": 3.607,
+          "cost_score_avg": 7.686,
+          "quality_ci95": 0.923
+        },
+        "Agentes": {
+          "quality_avg": 6.941,
+          "speed_score_avg": 8.138,
+          "latency_score_avg": 5.31,
+          "cost_score_avg": 7.934,
+          "quality_ci95": 0.945
+        },
+        "Coding": {
+          "quality_avg": 8.084,
+          "speed_score_avg": 8.211,
+          "latency_score_avg": 5.263,
+          "cost_score_avg": 7.88,
+          "quality_ci95": 1.15
+        },
+        "Razonamiento": {
+          "quality_avg": 7.877,
+          "speed_score_avg": 9.633,
+          "latency_score_avg": 3.667,
+          "cost_score_avg": 7.612,
+          "quality_ci95": 0.963
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 8.59,
+        "tool_calling": 7.02,
+        "task_management": 8.57,
+        "code_generation": 8.46,
+        "reasoning": 8.56,
+        "summarization": 7.5,
+        "presentation": 8.06,
+        "startup_content": 8.42,
+        "deep_reasoning": 7.71,
+        "customer_support": 6.65,
+        "structured_output": 5.64,
+        "hallucination": 7.71,
+        "creativity": 8.49,
+        "string_precision": 7.94,
+        "news_seo_writing": 5.7,
+        "ocr_extraction": 9.03,
+        "orchestration": 6.28,
+        "multi_turn": 7.9,
+        "policy_adherence": 8.36,
+        "agent_capabilities": 5.57,
+        "strategy": 7.69,
+        "sales_outreach": 6.0,
+        "translation": 8.35,
+        "prompt_injection_es": 2.43,
+        "niah_es": 8.24,
+        "business_audit": 6.86,
+        "business_strategy": 8.57,
+        "content_verificable": 8.66
+      },
+      "quality_avg": 7.67,
+      "quality_ci95": 0.537,
+      "cost_score_avg": 7.78,
+      "speed_score_avg": 9.03,
+      "latency_score_avg": 4.52,
+      "tool_calling_score_avg": 7.12,
+      "judge_score_avg": 4.11,
+      "tokens_per_second": 152.5,
+      "latency_avg_s": 3.31,
+      "total_input_tokens": 24400,
+      "total_output_tokens": 47385,
+      "long_context_runs": 51,
+      "long_context_quality": 9.79,
+      "long_context_score": 8.24,
+      "long_context_by_size": {
+        "8000": 10.0,
+        "64000": 10.0,
+        "128000": 10.0,
+        "256000": 10.0
+      },
+      "effective_context": 256000,
+      "security_runs": 20,
+      "security_score": 1.0,
+      "score_global_linear": 7.55
+    },
+    {
       "key": "qwen3.6-35b",
       "id": "qwen/qwen3.6-35b-a3b",
       "name": "Qwen 3.6 35B base (OpenRouter FP8)",
@@ -1212,7 +1216,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 273,
+      "total_runs": 278,
       "score_global": 7.14,
       "score_by_pillar": {
         "Contenido": 7.47,
@@ -1279,7 +1283,8 @@
         "niah_es_lite": 4.47,
         "prompt_injection_es": 2.65,
         "business_audit": 6.74,
-        "business_strategy": 7.55
+        "business_strategy": 7.55,
+        "content_verificable": 8.3
       },
       "quality_avg": 7.9,
       "quality_ci95": 0.482,
@@ -1329,7 +1334,7 @@
       "multimodal": true,
       "runs": 87,
       "total_runs": 199,
-      "score_global": 7.07,
+      "score_global": 7.06,
       "score_by_pillar": {
         "Contenido": 7.38,
         "Agentes": 7.01,
@@ -1564,7 +1569,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 168,
-      "score_global": 7.03,
+      "score_global": 7.02,
       "score_by_pillar": {
         "Contenido": 7.12,
         "Agentes": 7.05,
@@ -1677,7 +1682,7 @@
       "multimodal": false,
       "runs": 126,
       "total_runs": 153,
-      "score_global": 7.02,
+      "score_global": 7.01,
       "score_by_pillar": {
         "Contenido": 7.19,
         "Agentes": 6.45,
@@ -1872,113 +1877,6 @@
       "score_global_linear": 7.1
     },
     {
-      "key": "local-diffusiongemma-26b",
-      "id": "hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q8_0",
-      "name": "DiffusionGemma 26B-A4B (DGX Spark Q8_0)",
-      "tier": "local",
-      "provider": "diffusion_cli",
-      "open_source": true,
-      "license": "Apache 2.0",
-      "cost_input_per_M": 0.06,
-      "cost_output_per_M": 0.33,
-      "cost_per_1k_calls_usd": 0.513,
-      "context_window": 262144,
-      "subscriptions": [],
-      "notes": "Modelo de difusión textual (NO autoregresivo) basado en Gemma 4 26B-A4B (3.8B activos). Genera bloques de 256 tokens en paralelo vía denoising, optimizado para velocidad y multimodalidad. Requiere llama.cpp PR #24423 (binario llama-diffusion-cli) o Unsloth Studio; Ollama todavía no lo soporta. Instrucciones: https://unsloth.ai/docs/models/diffusiongemma#llama.cpp-guide. Contexto 256K, vision nativa (OCR, documentos, UI, video frames), tool calling y thinking con <|think|>. Q8_0 (~25 GB) para medir calidad real sin pérdida de cuantización. Para probar en Spark: descargar Q8_0 y servir con llama-diffusion-cli -m gguf -ngl 99 -n 2048.",
-      "tested": true,
-      "retired": false,
-      "provider_variant": false,
-      "ranked": true,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": true,
-      "multimodal": true,
-      "runs": 91,
-      "total_runs": 100,
-      "score_global": 6.99,
-      "score_by_pillar": {
-        "Coding": 6.44,
-        "Contenido": 7.3,
-        "Agentes": 7.81,
-        "Razonamiento": 7.36
-      },
-      "dims_by_pillar": {
-        "Coding": {
-          "quality_avg": 6.574,
-          "speed_score_avg": 7.043,
-          "latency_score_avg": 1.522,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 1.38
-        },
-        "Contenido": {
-          "quality_avg": 8.046,
-          "speed_score_avg": 5.214,
-          "latency_score_avg": 1.0,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.73
-        },
-        "Agentes": {
-          "quality_avg": 8.75,
-          "speed_score_avg": 5.379,
-          "latency_score_avg": 1.138,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.449
-        },
-        "Razonamiento": {
-          "quality_avg": 8.172,
-          "speed_score_avg": 4.8,
-          "latency_score_avg": 1.067,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 1.037
-        }
-      },
-      "score_by_suite": {
-        "code_generation": 7.89,
-        "content_generation": 7.85,
-        "tool_calling": 7.0,
-        "task_management": 8.2,
-        "reasoning": 7.94,
-        "summarization": 7.35,
-        "presentation": 7.53,
-        "startup_content": 7.85,
-        "deep_reasoning": 6.85,
-        "customer_support": 7.82,
-        "structured_output": 5.45,
-        "hallucination": 7.16,
-        "creativity": 7.12,
-        "string_precision": 3.47,
-        "news_seo_writing": 5.44,
-        "ocr_extraction": 8.5,
-        "orchestration": 8.09,
-        "multi_turn": 6.82,
-        "policy_adherence": 8.79,
-        "agent_capabilities": 7.95,
-        "strategy": 7.99,
-        "sales_outreach": 8.21,
-        "translation": 7.91,
-        "agent_long_horizon": 7.71
-      },
-      "quality_avg": 7.95,
-      "quality_ci95": 0.5,
-      "cost_score_avg": 8.0,
-      "speed_score_avg": 5.58,
-      "latency_score_avg": 1.14,
-      "tool_calling_score_avg": 6.0,
-      "judge_score_avg": 4.18,
-      "tokens_per_second": 39.2,
-      "latency_avg_s": 50.17,
-      "total_input_tokens": 0,
-      "total_output_tokens": 135680,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null,
-      "score_global_linear": 7.27
-    },
-    {
       "key": "claude-opus-4.7",
       "id": "anthropic/claude-opus-4-7",
       "name": "Claude Opus 4.7",
@@ -2088,102 +1986,103 @@
       "score_global_linear": 7.04
     },
     {
-      "key": "grok-4.1-fast",
-      "id": "x-ai/grok-4.1-fast",
-      "name": "Grok 4.1 Fast",
-      "tier": "cheap",
-      "provider": "openrouter",
-      "open_source": false,
-      "license": "",
-      "cost_input_per_M": 0.2,
-      "cost_output_per_M": 0.5,
-      "cost_per_1k_calls_usd": 0.81,
-      "context_window": 2097152,
+      "key": "local-diffusiongemma-26b",
+      "id": "hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q8_0",
+      "name": "DiffusionGemma 26B-A4B (DGX Spark Q8_0)",
+      "tier": "local",
+      "provider": "diffusion_cli",
+      "open_source": true,
+      "license": "Apache 2.0",
+      "cost_input_per_M": 0.06,
+      "cost_output_per_M": 0.33,
+      "cost_per_1k_calls_usd": 0.513,
+      "context_window": 262144,
       "subscriptions": [],
-      "notes": "",
+      "notes": "Modelo de difusión textual (NO autoregresivo) basado en Gemma 4 26B-A4B (3.8B activos). Genera bloques de 256 tokens en paralelo vía denoising, optimizado para velocidad y multimodalidad. Requiere llama.cpp PR #24423 (binario llama-diffusion-cli) o Unsloth Studio; Ollama todavía no lo soporta. Instrucciones: https://unsloth.ai/docs/models/diffusiongemma#llama.cpp-guide. Contexto 256K, vision nativa (OCR, documentos, UI, video frames), tool calling y thinking con <|think|>. Q8_0 (~25 GB) para medir calidad real sin pérdida de cuantización. Para probar en Spark: descargar Q8_0 y servir con llama-diffusion-cli -m gguf -ngl 99 -n 2048.",
       "tested": true,
       "retired": false,
       "provider_variant": false,
       "ranked": true,
       "sample_tier": "solid",
       "tool_calling": true,
-      "thinking": false,
-      "multimodal": false,
-      "runs": 87,
-      "total_runs": 91,
-      "score_global": 6.92,
+      "thinking": true,
+      "multimodal": true,
+      "runs": 91,
+      "total_runs": 100,
+      "score_global": 6.98,
       "score_by_pillar": {
-        "Contenido": 7.44,
-        "Agentes": 7.28,
-        "Coding": 7.71,
-        "Razonamiento": 7.45
+        "Coding": 6.44,
+        "Contenido": 7.3,
+        "Agentes": 7.81,
+        "Razonamiento": 7.36
       },
       "dims_by_pillar": {
+        "Coding": {
+          "quality_avg": 6.574,
+          "speed_score_avg": 7.043,
+          "latency_score_avg": 1.522,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.38
+        },
         "Contenido": {
-          "quality_avg": 7.841,
-          "speed_score_avg": 8.75,
-          "latency_score_avg": 1.464,
-          "cost_score_avg": 7.922,
-          "quality_ci95": 0.782
+          "quality_avg": 8.046,
+          "speed_score_avg": 5.214,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.73
         },
         "Agentes": {
-          "quality_avg": 7.509,
-          "speed_score_avg": 9.034,
-          "latency_score_avg": 2.034,
-          "cost_score_avg": 7.989,
-          "quality_ci95": 0.67
-        },
-        "Coding": {
-          "quality_avg": 8.0,
-          "speed_score_avg": 9.684,
-          "latency_score_avg": 2.632,
-          "cost_score_avg": 7.88,
-          "quality_ci95": 1.14
+          "quality_avg": 8.75,
+          "speed_score_avg": 5.379,
+          "latency_score_avg": 1.138,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.449
         },
         "Razonamiento": {
-          "quality_avg": 7.834,
-          "speed_score_avg": 9.333,
-          "latency_score_avg": 1.533,
-          "cost_score_avg": 7.695,
-          "quality_ci95": 1.197
+          "quality_avg": 8.172,
+          "speed_score_avg": 4.8,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.037
         }
       },
       "score_by_suite": {
-        "content_generation": 7.87,
-        "tool_calling": 7.26,
-        "task_management": 8.16,
-        "code_generation": 8.08,
-        "reasoning": 8.47,
-        "summarization": 7.47,
-        "presentation": 8.28,
-        "startup_content": 8.33,
-        "deep_reasoning": 6.9,
-        "customer_support": 6.41,
-        "structured_output": 5.66,
-        "hallucination": 7.54,
-        "creativity": 8.38,
-        "string_precision": 7.94,
-        "news_seo_writing": 5.7,
-        "ocr_extraction": 8.76,
-        "orchestration": 7.43,
-        "multi_turn": 7.54,
-        "policy_adherence": 7.89,
-        "agent_capabilities": 6.65,
-        "strategy": 7.46,
-        "sales_outreach": 6.51,
-        "translation": 7.39
+        "code_generation": 7.89,
+        "content_generation": 7.85,
+        "tool_calling": 7.0,
+        "task_management": 8.2,
+        "reasoning": 7.94,
+        "summarization": 7.35,
+        "presentation": 7.53,
+        "startup_content": 7.85,
+        "deep_reasoning": 6.85,
+        "customer_support": 7.82,
+        "structured_output": 5.45,
+        "hallucination": 7.16,
+        "creativity": 7.12,
+        "string_precision": 3.47,
+        "news_seo_writing": 5.44,
+        "ocr_extraction": 8.5,
+        "orchestration": 8.09,
+        "multi_turn": 6.82,
+        "policy_adherence": 8.79,
+        "agent_capabilities": 7.95,
+        "strategy": 7.99,
+        "sales_outreach": 8.21,
+        "translation": 7.91,
+        "agent_long_horizon": 7.71
       },
-      "quality_avg": 7.78,
-      "quality_ci95": 0.468,
-      "cost_score_avg": 7.89,
-      "speed_score_avg": 9.16,
-      "latency_score_avg": 1.86,
-      "tool_calling_score_avg": 7.23,
+      "quality_avg": 7.95,
+      "quality_ci95": 0.5,
+      "cost_score_avg": 8.0,
+      "speed_score_avg": 5.58,
+      "latency_score_avg": 1.14,
+      "tool_calling_score_avg": 6.0,
       "judge_score_avg": 4.18,
-      "tokens_per_second": 117.4,
-      "latency_avg_s": 15.87,
-      "total_input_tokens": 37361,
-      "total_output_tokens": 123208,
+      "tokens_per_second": 39.2,
+      "latency_avg_s": 50.17,
+      "total_input_tokens": 0,
+      "total_output_tokens": 135680,
       "long_context_runs": 0,
       "long_context_quality": null,
       "long_context_score": null,
@@ -2191,7 +2090,7 @@
       "effective_context": null,
       "security_runs": 0,
       "security_score": null,
-      "score_global_linear": 7.46
+      "score_global_linear": 7.27
     },
     {
       "key": "qwen3-coder-next",
@@ -2216,8 +2115,8 @@
       "thinking": false,
       "multimodal": false,
       "runs": 87,
-      "total_runs": 273,
-      "score_global": 6.87,
+      "total_runs": 278,
+      "score_global": 6.86,
       "score_by_pillar": {
         "Contenido": 7.56,
         "Agentes": 7.2,
@@ -2283,7 +2182,8 @@
         "niah_es_lite": 4.37,
         "prompt_injection_es": 2.48,
         "business_audit": 6.89,
-        "business_strategy": 8.25
+        "business_strategy": 8.25,
+        "content_verificable": 5.71
       },
       "quality_avg": 7.67,
       "quality_ci95": 0.52,
@@ -2333,7 +2233,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 123,
-      "score_global": 6.87,
+      "score_global": 6.86,
       "score_by_pillar": {
         "Contenido": 7.02,
         "Agentes": 6.89,
@@ -2441,7 +2341,7 @@
       "multimodal": true,
       "runs": 119,
       "total_runs": 143,
-      "score_global": 6.81,
+      "score_global": 6.8,
       "score_by_pillar": {
         "Razonamiento": 7.06,
         "Agentes": 6.93,
@@ -2659,7 +2559,7 @@
       "multimodal": false,
       "runs": 142,
       "total_runs": 170,
-      "score_global": 6.66,
+      "score_global": 6.65,
       "score_by_pillar": {
         "Contenido": 7.45,
         "Agentes": 5.81,
@@ -2745,6 +2645,115 @@
       "score_global_linear": 7.16
     },
     {
+      "key": "claude-opus-4.6",
+      "id": "anthropic/claude-opus-4-6",
+      "name": "Claude Opus 4.6",
+      "tier": "premium",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 5.0,
+      "cost_output_per_M": 25.0,
+      "cost_per_1k_calls_usd": 39.0,
+      "context_window": null,
+      "subscriptions": [],
+      "notes": "Precio corregido may 2026 vía web/OpenRouter: $5/$25 (antes $15/$75 stale).",
+      "tested": true,
+      "retired": false,
+      "provider_variant": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 229,
+      "total_runs": 281,
+      "score_global": 6.6,
+      "score_by_pillar": {
+        "Contenido": 6.85,
+        "Agentes": 6.62,
+        "Coding": 6.87,
+        "Razonamiento": 7.03
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.161,
+          "speed_score_avg": 6.333,
+          "latency_score_avg": 1.308,
+          "cost_score_avg": 3.762,
+          "quality_ci95": 0.34
+        },
+        "Agentes": {
+          "quality_avg": 7.595,
+          "speed_score_avg": 6.754,
+          "latency_score_avg": 1.87,
+          "cost_score_avg": 4.352,
+          "quality_ci95": 0.415
+        },
+        "Coding": {
+          "quality_avg": 7.723,
+          "speed_score_avg": 5.923,
+          "latency_score_avg": 2.788,
+          "cost_score_avg": 5.407,
+          "quality_ci95": 0.651
+        },
+        "Razonamiento": {
+          "quality_avg": 8.416,
+          "speed_score_avg": 6.611,
+          "latency_score_avg": 1.278,
+          "cost_score_avg": 3.678,
+          "quality_ci95": 0.449
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 6.85,
+        "tool_calling": 5.31,
+        "task_management": 7.64,
+        "code_generation": 7.45,
+        "reasoning": 7.49,
+        "summarization": 7.06,
+        "presentation": 7.25,
+        "startup_content": 7.29,
+        "deep_reasoning": 7.08,
+        "customer_support": 6.69,
+        "structured_output": 6.08,
+        "hallucination": 7.37,
+        "creativity": 6.8,
+        "string_precision": 6.89,
+        "news_seo_writing": 5.91,
+        "ocr_extraction": 7.1,
+        "orchestration": 6.38,
+        "multi_turn": 6.8,
+        "policy_adherence": 7.23,
+        "agent_capabilities": 6.77,
+        "strategy": 7.28,
+        "sales_outreach": 7.6,
+        "translation": 6.81,
+        "business_audit": 6.34,
+        "business_strategy": 7.47,
+        "content_verificable": 7.98
+      },
+      "quality_avg": 8.12,
+      "quality_ci95": 0.228,
+      "cost_score_avg": 4.24,
+      "speed_score_avg": 6.48,
+      "latency_score_avg": 1.74,
+      "tool_calling_score_avg": 7.16,
+      "judge_score_avg": 4.24,
+      "tokens_per_second": 46.6,
+      "latency_avg_s": 20.08,
+      "total_input_tokens": 86554,
+      "total_output_tokens": 226898,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 6.94
+    },
+    {
       "key": "mistral-small-4",
       "id": "mistralai/mistral-small-2603",
       "name": "Mistral Small 4",
@@ -2768,7 +2777,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 166,
-      "score_global": 6.61,
+      "score_global": 6.6,
       "score_by_pillar": {
         "Contenido": 7.48,
         "Agentes": 6.99,
@@ -2858,115 +2867,6 @@
       "score_global_linear": 7.43
     },
     {
-      "key": "claude-opus-4.6",
-      "id": "anthropic/claude-opus-4-6",
-      "name": "Claude Opus 4.6",
-      "tier": "premium",
-      "provider": "openrouter",
-      "open_source": false,
-      "license": "",
-      "cost_input_per_M": 5.0,
-      "cost_output_per_M": 25.0,
-      "cost_per_1k_calls_usd": 39.0,
-      "context_window": null,
-      "subscriptions": [],
-      "notes": "Precio corregido may 2026 vía web/OpenRouter: $5/$25 (antes $15/$75 stale).",
-      "tested": true,
-      "retired": false,
-      "provider_variant": false,
-      "ranked": true,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": true,
-      "runs": 229,
-      "total_runs": 276,
-      "score_global": 6.6,
-      "score_by_pillar": {
-        "Contenido": 6.85,
-        "Agentes": 6.62,
-        "Coding": 6.87,
-        "Razonamiento": 7.03
-      },
-      "dims_by_pillar": {
-        "Contenido": {
-          "quality_avg": 8.161,
-          "speed_score_avg": 6.333,
-          "latency_score_avg": 1.308,
-          "cost_score_avg": 3.762,
-          "quality_ci95": 0.34
-        },
-        "Agentes": {
-          "quality_avg": 7.595,
-          "speed_score_avg": 6.754,
-          "latency_score_avg": 1.87,
-          "cost_score_avg": 4.352,
-          "quality_ci95": 0.415
-        },
-        "Coding": {
-          "quality_avg": 7.723,
-          "speed_score_avg": 5.923,
-          "latency_score_avg": 2.788,
-          "cost_score_avg": 5.407,
-          "quality_ci95": 0.651
-        },
-        "Razonamiento": {
-          "quality_avg": 8.416,
-          "speed_score_avg": 6.611,
-          "latency_score_avg": 1.278,
-          "cost_score_avg": 3.678,
-          "quality_ci95": 0.449
-        }
-      },
-      "score_by_suite": {
-        "content_generation": 6.85,
-        "tool_calling": 5.31,
-        "task_management": 7.64,
-        "code_generation": 7.45,
-        "reasoning": 7.49,
-        "summarization": 7.06,
-        "presentation": 7.25,
-        "startup_content": 7.29,
-        "deep_reasoning": 7.08,
-        "customer_support": 6.69,
-        "structured_output": 6.08,
-        "hallucination": 7.37,
-        "creativity": 6.8,
-        "string_precision": 6.89,
-        "news_seo_writing": 5.91,
-        "ocr_extraction": 7.1,
-        "orchestration": 6.38,
-        "multi_turn": 6.8,
-        "policy_adherence": 7.23,
-        "agent_capabilities": 6.77,
-        "strategy": 7.28,
-        "sales_outreach": 7.6,
-        "translation": 6.81,
-        "business_audit": 6.34,
-        "business_strategy": 7.47,
-        "content_verificable": 7.78
-      },
-      "quality_avg": 8.12,
-      "quality_ci95": 0.228,
-      "cost_score_avg": 4.24,
-      "speed_score_avg": 6.48,
-      "latency_score_avg": 1.74,
-      "tool_calling_score_avg": 7.16,
-      "judge_score_avg": 4.24,
-      "tokens_per_second": 46.6,
-      "latency_avg_s": 20.08,
-      "total_input_tokens": 86554,
-      "total_output_tokens": 226898,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null,
-      "score_global_linear": 6.94
-    },
-    {
       "key": "qwen3-coder",
       "id": "qwen/qwen3-coder",
       "name": "Qwen3 Coder",
@@ -2990,7 +2890,7 @@
       "multimodal": false,
       "runs": 142,
       "total_runs": 170,
-      "score_global": 6.57,
+      "score_global": 6.56,
       "score_by_pillar": {
         "Contenido": 7.45,
         "Agentes": 5.83,
@@ -3099,7 +2999,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 111,
-      "score_global": 6.44,
+      "score_global": 6.43,
       "score_by_pillar": {
         "Contenido": 7.33,
         "Agentes": 6.77,
@@ -3208,7 +3108,7 @@
       "multimodal": false,
       "runs": 74,
       "total_runs": 134,
-      "score_global": 6.4,
+      "score_global": 6.39,
       "score_by_pillar": {
         "Contenido": 7.48,
         "Agentes": 7.3,
@@ -3317,7 +3217,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 123,
-      "score_global": 6.4,
+      "score_global": 6.39,
       "score_by_pillar": {
         "Contenido": 7.06,
         "Agentes": 7.02,
@@ -3541,7 +3441,7 @@
       "multimodal": false,
       "runs": 74,
       "total_runs": 84,
-      "score_global": 6.22,
+      "score_global": 6.21,
       "score_by_pillar": {
         "Contenido": 7.02,
         "Agentes": 7.15,
@@ -3644,7 +3544,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 87,
-      "total_runs": 189,
+      "total_runs": 194,
       "score_global": 6.09,
       "score_by_pillar": {
         "Contenido": 7.11,
@@ -3710,7 +3610,8 @@
         "niah_es": 7.97,
         "prompt_injection_es": 8.34,
         "business_audit": 7.06,
-        "business_strategy": 7.66
+        "business_strategy": 7.66,
+        "content_verificable": 7.87
       },
       "quality_avg": 7.77,
       "quality_ci95": 0.532,
@@ -3761,7 +3662,7 @@
       "multimodal": true,
       "runs": 87,
       "total_runs": 101,
-      "score_global": 6.04,
+      "score_global": 6.03,
       "score_by_pillar": {
         "Contenido": 7.77,
         "Agentes": 7.12,
@@ -3867,7 +3768,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 115,
-      "total_runs": 305,
+      "total_runs": 310,
       "score_global": 5.91,
       "score_by_pillar": {
         "Contenido": 7.24,
@@ -3934,7 +3835,8 @@
         "niah_es_lite": 3.91,
         "prompt_injection_es": 2.17,
         "business_audit": 6.88,
-        "business_strategy": 5.84
+        "business_strategy": 5.84,
+        "content_verificable": 7.96
       },
       "quality_avg": 7.86,
       "quality_ci95": 0.419,
@@ -3984,7 +3886,7 @@
       "multimodal": false,
       "runs": 86,
       "total_runs": 90,
-      "score_global": 5.78,
+      "score_global": 5.77,
       "score_by_pillar": {
         "Contenido": 7.18,
         "Agentes": 6.8,
@@ -4089,7 +3991,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 87,
-      "total_runs": 185,
+      "total_runs": 190,
       "score_global": 5.69,
       "score_by_pillar": {
         "Contenido": 6.96,
@@ -4155,7 +4057,8 @@
         "niah_es": 7.76,
         "prompt_injection_es": 7.48,
         "business_audit": 6.32,
-        "business_strategy": 7.18
+        "business_strategy": 7.18,
+        "content_verificable": 8.29
       },
       "quality_avg": 7.86,
       "quality_ci95": 0.539,
@@ -4294,6 +4197,116 @@
       "score_global_linear": 6.83
     },
     {
+      "key": "or-llama-3.3-70b",
+      "id": "meta-llama/llama-3.3-70b-instruct",
+      "name": "Llama 3.3 70B",
+      "tier": "cheap",
+      "provider": "openrouter",
+      "open_source": true,
+      "license": "Llama Community",
+      "cost_input_per_M": 0.1,
+      "cost_output_per_M": 0.32,
+      "cost_per_1k_calls_usd": 0.51,
+      "context_window": null,
+      "subscriptions": [],
+      "notes": "",
+      "tested": true,
+      "retired": false,
+      "provider_variant": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 87,
+      "total_runs": 115,
+      "score_global": 5.63,
+      "score_by_pillar": {
+        "Razonamiento": 6.73,
+        "Contenido": 7.5,
+        "Agentes": 6.61,
+        "Coding": 7.06
+      },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 7.293,
+          "speed_score_avg": 4.433,
+          "latency_score_avg": 1.3,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.022
+        },
+        "Contenido": {
+          "quality_avg": 8.367,
+          "speed_score_avg": 4.429,
+          "latency_score_avg": 1.464,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.771
+        },
+        "Agentes": {
+          "quality_avg": 6.721,
+          "speed_score_avg": 5.931,
+          "latency_score_avg": 3.483,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.966
+        },
+        "Coding": {
+          "quality_avg": 7.449,
+          "speed_score_avg": 4.947,
+          "latency_score_avg": 3.579,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.299
+        }
+      },
+      "score_by_suite": {
+        "business_audit": 6.58,
+        "business_strategy": 7.01,
+        "content_verificable": 5.79,
+        "content_generation": 8.07,
+        "tool_calling": 6.28,
+        "task_management": 8.37,
+        "code_generation": 6.8,
+        "reasoning": 7.98,
+        "summarization": 6.54,
+        "presentation": 8.31,
+        "startup_content": 8.16,
+        "deep_reasoning": 5.66,
+        "customer_support": 5.71,
+        "structured_output": 5.21,
+        "hallucination": 7.14,
+        "creativity": 8.18,
+        "string_precision": 7.83,
+        "news_seo_writing": 5.36,
+        "ocr_extraction": 7.81,
+        "orchestration": 7.33,
+        "multi_turn": 6.91,
+        "policy_adherence": 7.14,
+        "agent_capabilities": 5.16,
+        "strategy": 7.26,
+        "sales_outreach": 8.13,
+        "translation": 7.74,
+        "agent_long_horizon": 7.78
+      },
+      "quality_avg": 7.56,
+      "quality_ci95": 0.564,
+      "cost_score_avg": 8.0,
+      "speed_score_avg": 4.9,
+      "latency_score_avg": 2.31,
+      "tool_calling_score_avg": 6.35,
+      "judge_score_avg": 4.21,
+      "tokens_per_second": 37.5,
+      "latency_avg_s": 24.58,
+      "total_input_tokens": 31379,
+      "total_output_tokens": 43481,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 7.03
+    },
+    {
       "key": "glm-5.1",
       "id": "z-ai/glm-5.1",
       "name": "GLM-5.1",
@@ -4426,7 +4439,7 @@
       "multimodal": false,
       "runs": 142,
       "total_runs": 171,
-      "score_global": 5.59,
+      "score_global": 5.6,
       "score_by_pillar": {
         "Contenido": 7.14,
         "Agentes": 5.53,
@@ -4642,7 +4655,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 103,
-      "score_global": 5.07,
+      "score_global": 5.08,
       "score_by_pillar": {
         "Contenido": 7.38,
         "Agentes": 6.79,
@@ -4749,7 +4762,7 @@
       "multimodal": false,
       "runs": 101,
       "total_runs": 184,
-      "score_global": 4.99,
+      "score_global": 5.0,
       "score_by_pillar": {
         "Contenido": 7.05,
         "Agentes": 6.55,
@@ -4979,7 +4992,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 86,
-      "total_runs": 182,
+      "total_runs": 187,
       "score_global": 4.73,
       "score_by_pillar": {
         "Contenido": 7.33,
@@ -5045,7 +5058,8 @@
         "niah_es": 8.2,
         "prompt_injection_es": 3.75,
         "business_audit": 6.44,
-        "business_strategy": 8.16
+        "business_strategy": 8.16,
+        "content_verificable": 7.6
       },
       "quality_avg": 7.29,
       "quality_ci95": 0.599,
@@ -5311,7 +5325,7 @@
       "multimodal": false,
       "runs": 174,
       "total_runs": 267,
-      "score_global": 4.32,
+      "score_global": 4.33,
       "score_by_pillar": {
         "Contenido": 6.65,
         "Agentes": 6.26,
@@ -5625,112 +5639,6 @@
       "score_global_linear": 6.86
     },
     {
-      "key": "mimo-v2-omni",
-      "id": "xiaomi/mimo-v2-omni",
-      "name": "MiMo-V2-Omni (multimodal)",
-      "tier": "cheap",
-      "provider": "openrouter",
-      "open_source": false,
-      "license": "",
-      "cost_input_per_M": 0.4,
-      "cost_output_per_M": 2.0,
-      "cost_per_1k_calls_usd": 3.12,
-      "context_window": null,
-      "subscriptions": [],
-      "notes": "",
-      "tested": true,
-      "retired": false,
-      "provider_variant": false,
-      "ranked": true,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": true,
-      "runs": 87,
-      "total_runs": 91,
-      "score_global": 4.16,
-      "score_by_pillar": {
-        "Contenido": 7.07,
-        "Agentes": 6.55,
-        "Coding": 6.86,
-        "Razonamiento": 6.98
-      },
-      "dims_by_pillar": {
-        "Contenido": {
-          "quality_avg": 7.607,
-          "speed_score_avg": 8.286,
-          "latency_score_avg": 1.286,
-          "cost_score_avg": 6.819,
-          "quality_ci95": 0.889
-        },
-        "Agentes": {
-          "quality_avg": 6.654,
-          "speed_score_avg": 7.793,
-          "latency_score_avg": 2.379,
-          "cost_score_avg": 7.521,
-          "quality_ci95": 0.971
-        },
-        "Coding": {
-          "quality_avg": 7.114,
-          "speed_score_avg": 8.737,
-          "latency_score_avg": 2.316,
-          "cost_score_avg": 7.018,
-          "quality_ci95": 1.457
-        },
-        "Razonamiento": {
-          "quality_avg": 7.503,
-          "speed_score_avg": 9.067,
-          "latency_score_avg": 1.133,
-          "cost_score_avg": 6.408,
-          "quality_ci95": 1.762
-        }
-      },
-      "score_by_suite": {
-        "content_generation": 8.33,
-        "tool_calling": 6.33,
-        "task_management": 8.33,
-        "code_generation": 6.4,
-        "reasoning": 7.97,
-        "summarization": 6.72,
-        "presentation": 7.93,
-        "startup_content": 8.08,
-        "deep_reasoning": 5.99,
-        "customer_support": 5.88,
-        "structured_output": 5.2,
-        "hallucination": 6.29,
-        "creativity": 7.96,
-        "string_precision": 7.71,
-        "news_seo_writing": 5.14,
-        "ocr_extraction": 7.54,
-        "orchestration": 4.78,
-        "multi_turn": 7.1,
-        "policy_adherence": 8.27,
-        "agent_capabilities": 6.15,
-        "strategy": 8.64,
-        "sales_outreach": 6.16,
-        "translation": 6.27
-      },
-      "quality_avg": 7.23,
-      "quality_ci95": 0.619,
-      "cost_score_avg": 6.98,
-      "speed_score_avg": 8.39,
-      "latency_score_avg": 1.72,
-      "tool_calling_score_avg": 6.9,
-      "judge_score_avg": 4.04,
-      "tokens_per_second": 85.6,
-      "latency_avg_s": 12.88,
-      "total_input_tokens": 39825,
-      "total_output_tokens": 101381,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null,
-      "score_global_linear": 6.87
-    },
-    {
       "key": "mimo-v2-omni-xiaomi",
       "id": "mimo-v2-omni",
       "name": "MiMo V2-Omni (Xiaomi direct)",
@@ -5763,7 +5671,7 @@
       "multimodal": true,
       "runs": 86,
       "total_runs": 90,
-      "score_global": 3.71,
+      "score_global": 3.72,
       "score_by_pillar": {
         "Contenido": 7.3,
         "Agentes": 6.75,
@@ -5869,7 +5777,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 184,
-      "score_global": 3.56,
+      "score_global": 3.57,
       "score_by_pillar": {
         "Contenido": 7.1,
         "Agentes": 5.53,
@@ -5984,7 +5892,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 176,
-      "score_global": 3.54,
+      "score_global": 3.55,
       "score_by_pillar": {
         "Contenido": 7.48,
         "Agentes": 4.99,
@@ -6207,8 +6115,8 @@
       "thinking": true,
       "multimodal": false,
       "runs": 66,
-      "total_runs": 141,
-      "score_global": 1.6,
+      "total_runs": 146,
+      "score_global": 1.61,
       "score_by_pillar": {
         "Contenido": 6.08,
         "Agentes": 6.29,
@@ -6271,7 +6179,8 @@
         "agent_long_horizon": 7.68,
         "niah_es_lite": 4.18,
         "business_audit": 6.56,
-        "business_strategy": 7.18
+        "business_strategy": 7.18,
+        "content_verificable": 7.74
       },
       "quality_avg": 6.75,
       "quality_ci95": 0.802,
@@ -6317,7 +6226,7 @@
       "multimodal": true,
       "runs": 87,
       "total_runs": 378,
-      "score_global": 0.81,
+      "score_global": 0.84,
       "score_by_pillar": {
         "Contenido": 6.49,
         "Agentes": 6.59,
@@ -6436,8 +6345,8 @@
       "thinking": true,
       "multimodal": true,
       "runs": 87,
-      "total_runs": 106,
-      "score_global": 0.49,
+      "total_runs": 111,
+      "score_global": 0.52,
       "score_by_pillar": {
         "Contenido": 5.99,
         "Agentes": 6.57,
@@ -6499,7 +6408,8 @@
         "sales_outreach": 3.21,
         "translation": 6.64,
         "business_audit": 7.33,
-        "business_strategy": 7.81
+        "business_strategy": 7.81,
+        "content_verificable": 7.88
       },
       "quality_avg": 6.61,
       "quality_ci95": 0.595,
@@ -6969,7 +6879,7 @@
       "multimodal": false,
       "runs": 144,
       "total_runs": 152,
-      "score_global": 9.27,
+      "score_global": 9.25,
       "score_by_pillar": {
         "Contenido": 7.82,
         "Agentes": 7.35,
@@ -7198,7 +7108,7 @@
       "multimodal": true,
       "runs": 87,
       "total_runs": 171,
-      "score_global": 7.27,
+      "score_global": 7.26,
       "score_by_pillar": {
         "Contenido": 7.87,
         "Agentes": 7.49,
@@ -7312,7 +7222,7 @@
       "multimodal": false,
       "runs": 64,
       "total_runs": 68,
-      "score_global": 7.2,
+      "score_global": 7.19,
       "score_by_pillar": {
         "Contenido": 7.33,
         "Agentes": 7.18,
@@ -7421,7 +7331,7 @@
       "multimodal": false,
       "runs": 86,
       "total_runs": 173,
-      "score_global": 7.16,
+      "score_global": 7.15,
       "score_by_pillar": {
         "Contenido": 7.56,
         "Agentes": 7.45,
@@ -7511,112 +7421,6 @@
       "score_global_linear": 7.29
     },
     {
-      "key": "groq-llama-3.3-70b",
-      "id": "llama-3.3-70b-versatile",
-      "name": "Llama 3.3 70B (Groq)",
-      "tier": "cheap",
-      "provider": "groq_direct",
-      "open_source": true,
-      "license": "Llama Community",
-      "cost_input_per_M": 0.59,
-      "cost_output_per_M": 0.79,
-      "cost_per_1k_calls_usd": 1.362,
-      "context_window": 131072,
-      "subscriptions": [],
-      "notes": "",
-      "tested": true,
-      "retired": false,
-      "provider_variant": true,
-      "ranked": false,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": false,
-      "runs": 85,
-      "total_runs": 88,
-      "score_global": 7.09,
-      "score_by_pillar": {
-        "Contenido": 7.91,
-        "Agentes": 7.29,
-        "Coding": 7.47,
-        "Razonamiento": 7.55
-      },
-      "dims_by_pillar": {
-        "Contenido": {
-          "quality_avg": 7.983,
-          "speed_score_avg": 10.0,
-          "latency_score_avg": 5.0,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.721
-        },
-        "Agentes": {
-          "quality_avg": 6.97,
-          "speed_score_avg": 9.462,
-          "latency_score_avg": 6.615,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.856
-        },
-        "Coding": {
-          "quality_avg": 7.225,
-          "speed_score_avg": 9.053,
-          "latency_score_avg": 7.053,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 1.404
-        },
-        "Razonamiento": {
-          "quality_avg": 7.487,
-          "speed_score_avg": 10.0,
-          "latency_score_avg": 4.8,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 1.523
-        }
-      },
-      "score_by_suite": {
-        "content_generation": 8.44,
-        "tool_calling": 6.18,
-        "task_management": 8.28,
-        "code_generation": 8.16,
-        "reasoning": 8.23,
-        "summarization": 7.41,
-        "presentation": 8.18,
-        "startup_content": 8.32,
-        "deep_reasoning": 6.67,
-        "customer_support": 7.21,
-        "structured_output": 5.97,
-        "hallucination": 8.28,
-        "creativity": 8.41,
-        "string_precision": 7.21,
-        "news_seo_writing": 5.77,
-        "ocr_extraction": 8.41,
-        "orchestration": 6.94,
-        "multi_turn": 6.95,
-        "policy_adherence": 8.41,
-        "agent_capabilities": 7.03,
-        "strategy": 7.89,
-        "sales_outreach": 8.93,
-        "translation": 8.57
-      },
-      "quality_avg": 7.51,
-      "quality_ci95": 0.54,
-      "cost_score_avg": 8.0,
-      "speed_score_avg": 9.69,
-      "latency_score_avg": 5.79,
-      "tool_calling_score_avg": 7.18,
-      "judge_score_avg": 4.05,
-      "tokens_per_second": 243.5,
-      "latency_avg_s": 1.86,
-      "total_input_tokens": 27178,
-      "total_output_tokens": 42830,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "security_runs": 0,
-      "security_score": null,
-      "score_global_linear": 7.62
-    },
-    {
       "key": "gpt-4.1",
       "id": "gpt-4.1",
       "name": "GPT-4.1",
@@ -7640,7 +7444,7 @@
       "multimodal": false,
       "runs": 142,
       "total_runs": 160,
-      "score_global": 7.08,
+      "score_global": 7.07,
       "score_by_pillar": {
         "Contenido": 7.47,
         "Agentes": 6.2,
@@ -7724,6 +7528,112 @@
       "score_global_linear": 7.35
     },
     {
+      "key": "groq-llama-3.3-70b",
+      "id": "llama-3.3-70b-versatile",
+      "name": "Llama 3.3 70B (Groq)",
+      "tier": "cheap",
+      "provider": "groq_direct",
+      "open_source": true,
+      "license": "Llama Community",
+      "cost_input_per_M": 0.59,
+      "cost_output_per_M": 0.79,
+      "cost_per_1k_calls_usd": 1.362,
+      "context_window": 131072,
+      "subscriptions": [],
+      "notes": "",
+      "tested": true,
+      "retired": false,
+      "provider_variant": true,
+      "ranked": false,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 85,
+      "total_runs": 88,
+      "score_global": 7.07,
+      "score_by_pillar": {
+        "Contenido": 7.91,
+        "Agentes": 7.29,
+        "Coding": 7.47,
+        "Razonamiento": 7.55
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.983,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 5.0,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.721
+        },
+        "Agentes": {
+          "quality_avg": 6.97,
+          "speed_score_avg": 9.462,
+          "latency_score_avg": 6.615,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.856
+        },
+        "Coding": {
+          "quality_avg": 7.225,
+          "speed_score_avg": 9.053,
+          "latency_score_avg": 7.053,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.404
+        },
+        "Razonamiento": {
+          "quality_avg": 7.487,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 4.8,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.523
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 8.44,
+        "tool_calling": 6.18,
+        "task_management": 8.28,
+        "code_generation": 8.16,
+        "reasoning": 8.23,
+        "summarization": 7.41,
+        "presentation": 8.18,
+        "startup_content": 8.32,
+        "deep_reasoning": 6.67,
+        "customer_support": 7.21,
+        "structured_output": 5.97,
+        "hallucination": 8.28,
+        "creativity": 8.41,
+        "string_precision": 7.21,
+        "news_seo_writing": 5.77,
+        "ocr_extraction": 8.41,
+        "orchestration": 6.94,
+        "multi_turn": 6.95,
+        "policy_adherence": 8.41,
+        "agent_capabilities": 7.03,
+        "strategy": 7.89,
+        "sales_outreach": 8.93,
+        "translation": 8.57
+      },
+      "quality_avg": 7.51,
+      "quality_ci95": 0.54,
+      "cost_score_avg": 8.0,
+      "speed_score_avg": 9.69,
+      "latency_score_avg": 5.79,
+      "tool_calling_score_avg": 7.18,
+      "judge_score_avg": 4.05,
+      "tokens_per_second": 243.5,
+      "latency_avg_s": 1.86,
+      "total_input_tokens": 27178,
+      "total_output_tokens": 42830,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 7.62
+    },
+    {
       "key": "nim-qwen3-next-instruct",
       "id": "qwen/qwen3-next-80b-a3b-instruct",
       "name": "Qwen 3-Next 80B Instruct (NIM)",
@@ -7747,7 +7657,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 166,
-      "score_global": 6.99,
+      "score_global": 6.98,
       "score_by_pillar": {
         "Contenido": 7.47,
         "Agentes": 7.08,
@@ -7869,7 +7779,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 368,
-      "score_global": 6.93,
+      "score_global": 6.92,
       "score_by_pillar": {
         "Contenido": 7.35,
         "Agentes": 7.5,
@@ -7963,6 +7873,112 @@
       "score_global_linear": 7.12
     },
     {
+      "key": "grok-4.1-fast",
+      "id": "x-ai/grok-4.1-fast",
+      "name": "Grok 4.1 Fast",
+      "tier": "cheap",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 0.2,
+      "cost_output_per_M": 0.5,
+      "cost_per_1k_calls_usd": 0.81,
+      "context_window": 2097152,
+      "subscriptions": [],
+      "notes": "",
+      "tested": true,
+      "retired": true,
+      "provider_variant": false,
+      "ranked": false,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 87,
+      "total_runs": 91,
+      "score_global": 6.91,
+      "score_by_pillar": {
+        "Contenido": 7.44,
+        "Agentes": 7.28,
+        "Coding": 7.71,
+        "Razonamiento": 7.45
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.841,
+          "speed_score_avg": 8.75,
+          "latency_score_avg": 1.464,
+          "cost_score_avg": 7.922,
+          "quality_ci95": 0.782
+        },
+        "Agentes": {
+          "quality_avg": 7.509,
+          "speed_score_avg": 9.034,
+          "latency_score_avg": 2.034,
+          "cost_score_avg": 7.989,
+          "quality_ci95": 0.67
+        },
+        "Coding": {
+          "quality_avg": 8.0,
+          "speed_score_avg": 9.684,
+          "latency_score_avg": 2.632,
+          "cost_score_avg": 7.88,
+          "quality_ci95": 1.14
+        },
+        "Razonamiento": {
+          "quality_avg": 7.834,
+          "speed_score_avg": 9.333,
+          "latency_score_avg": 1.533,
+          "cost_score_avg": 7.695,
+          "quality_ci95": 1.197
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 7.87,
+        "tool_calling": 7.26,
+        "task_management": 8.16,
+        "code_generation": 8.08,
+        "reasoning": 8.47,
+        "summarization": 7.47,
+        "presentation": 8.28,
+        "startup_content": 8.33,
+        "deep_reasoning": 6.9,
+        "customer_support": 6.41,
+        "structured_output": 5.66,
+        "hallucination": 7.54,
+        "creativity": 8.38,
+        "string_precision": 7.94,
+        "news_seo_writing": 5.7,
+        "ocr_extraction": 8.76,
+        "orchestration": 7.43,
+        "multi_turn": 7.54,
+        "policy_adherence": 7.89,
+        "agent_capabilities": 6.65,
+        "strategy": 7.46,
+        "sales_outreach": 6.51,
+        "translation": 7.39
+      },
+      "quality_avg": 7.78,
+      "quality_ci95": 0.468,
+      "cost_score_avg": 7.89,
+      "speed_score_avg": 9.16,
+      "latency_score_avg": 1.86,
+      "tool_calling_score_avg": 7.23,
+      "judge_score_avg": 4.18,
+      "tokens_per_second": 117.4,
+      "latency_avg_s": 15.87,
+      "total_input_tokens": 37361,
+      "total_output_tokens": 123208,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 7.46
+    },
+    {
       "key": "nim-gemma-4-31b",
       "id": "google/gemma-4-31b-it",
       "name": "Gemma 4 31B (NIM)",
@@ -7986,7 +8002,7 @@
       "multimodal": false,
       "runs": 82,
       "total_runs": 96,
-      "score_global": 6.91,
+      "score_global": 6.9,
       "score_by_pillar": {
         "Contenido": 7.4,
         "Agentes": 6.75,
@@ -8093,7 +8109,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 101,
-      "score_global": 6.82,
+      "score_global": 6.81,
       "score_by_pillar": {
         "Contenido": 6.8,
         "Agentes": 7.3,
@@ -8200,7 +8216,7 @@
       "multimodal": false,
       "runs": 83,
       "total_runs": 87,
-      "score_global": 6.79,
+      "score_global": 6.78,
       "score_by_pillar": {
         "Contenido": 7.08,
         "Agentes": 6.86,
@@ -8306,7 +8322,7 @@
       "multimodal": false,
       "runs": 83,
       "total_runs": 87,
-      "score_global": 6.75,
+      "score_global": 6.74,
       "score_by_pillar": {
         "Contenido": 7.14,
         "Agentes": 6.8,
@@ -8412,7 +8428,7 @@
       "multimodal": false,
       "runs": 142,
       "total_runs": 160,
-      "score_global": 6.73,
+      "score_global": 6.72,
       "score_by_pillar": {
         "Contenido": 7.62,
         "Agentes": 6.11,
@@ -8650,7 +8666,7 @@
       "multimodal": true,
       "runs": 70,
       "total_runs": 92,
-      "score_global": 6.62,
+      "score_global": 6.63,
       "score_by_pillar": {
         "Contenido": 7.05,
         "Agentes": 7.33,
@@ -8754,7 +8770,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 91,
-      "score_global": 6.45,
+      "score_global": 6.44,
       "score_by_pillar": {
         "Contenido": 7.84,
         "Agentes": 6.02,
@@ -9302,7 +9318,7 @@
       "multimodal": false,
       "runs": 86,
       "total_runs": 90,
-      "score_global": 6.25,
+      "score_global": 6.24,
       "score_by_pillar": {
         "Contenido": 6.9,
         "Agentes": 6.5,
@@ -9408,7 +9424,7 @@
       "multimodal": false,
       "runs": 84,
       "total_runs": 88,
-      "score_global": 6.23,
+      "score_global": 6.22,
       "score_by_pillar": {
         "Contenido": 7.33,
         "Agentes": 6.75,
@@ -9619,7 +9635,7 @@
       "multimodal": false,
       "runs": 85,
       "total_runs": 88,
-      "score_global": 5.34,
+      "score_global": 5.33,
       "score_by_pillar": {
         "Contenido": 7.94,
         "Agentes": 7.23,
@@ -9955,7 +9971,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 91,
-      "score_global": 4.65,
+      "score_global": 4.66,
       "score_by_pillar": {
         "Contenido": 7.63,
         "Agentes": 6.18,
@@ -10176,7 +10192,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 91,
-      "score_global": 4.59,
+      "score_global": 4.6,
       "score_by_pillar": {
         "Contenido": 7.32,
         "Agentes": 6.63,
@@ -10389,7 +10405,7 @@
       "multimodal": false,
       "runs": 86,
       "total_runs": 100,
-      "score_global": 4.51,
+      "score_global": 4.5,
       "score_by_pillar": {
         "Contenido": 7.81,
         "Agentes": 6.37,
@@ -10473,6 +10489,112 @@
       "score_global_linear": 7.21
     },
     {
+      "key": "mimo-v2-omni",
+      "id": "xiaomi/mimo-v2-omni",
+      "name": "MiMo-V2-Omni (multimodal)",
+      "tier": "cheap",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 0.4,
+      "cost_output_per_M": 2.0,
+      "cost_per_1k_calls_usd": 3.12,
+      "context_window": null,
+      "subscriptions": [],
+      "notes": "",
+      "tested": true,
+      "retired": true,
+      "provider_variant": false,
+      "ranked": false,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 87,
+      "total_runs": 91,
+      "score_global": 4.16,
+      "score_by_pillar": {
+        "Contenido": 7.07,
+        "Agentes": 6.55,
+        "Coding": 6.86,
+        "Razonamiento": 6.98
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 7.607,
+          "speed_score_avg": 8.286,
+          "latency_score_avg": 1.286,
+          "cost_score_avg": 6.819,
+          "quality_ci95": 0.889
+        },
+        "Agentes": {
+          "quality_avg": 6.654,
+          "speed_score_avg": 7.793,
+          "latency_score_avg": 2.379,
+          "cost_score_avg": 7.521,
+          "quality_ci95": 0.971
+        },
+        "Coding": {
+          "quality_avg": 7.114,
+          "speed_score_avg": 8.737,
+          "latency_score_avg": 2.316,
+          "cost_score_avg": 7.018,
+          "quality_ci95": 1.457
+        },
+        "Razonamiento": {
+          "quality_avg": 7.503,
+          "speed_score_avg": 9.067,
+          "latency_score_avg": 1.133,
+          "cost_score_avg": 6.408,
+          "quality_ci95": 1.762
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 8.33,
+        "tool_calling": 6.33,
+        "task_management": 8.33,
+        "code_generation": 6.4,
+        "reasoning": 7.97,
+        "summarization": 6.72,
+        "presentation": 7.93,
+        "startup_content": 8.08,
+        "deep_reasoning": 5.99,
+        "customer_support": 5.88,
+        "structured_output": 5.2,
+        "hallucination": 6.29,
+        "creativity": 7.96,
+        "string_precision": 7.71,
+        "news_seo_writing": 5.14,
+        "ocr_extraction": 7.54,
+        "orchestration": 4.78,
+        "multi_turn": 7.1,
+        "policy_adherence": 8.27,
+        "agent_capabilities": 6.15,
+        "strategy": 8.64,
+        "sales_outreach": 6.16,
+        "translation": 6.27
+      },
+      "quality_avg": 7.23,
+      "quality_ci95": 0.619,
+      "cost_score_avg": 6.98,
+      "speed_score_avg": 8.39,
+      "latency_score_avg": 1.72,
+      "tool_calling_score_avg": 6.9,
+      "judge_score_avg": 4.04,
+      "tokens_per_second": 85.6,
+      "latency_avg_s": 12.88,
+      "total_input_tokens": 39825,
+      "total_output_tokens": 101381,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "security_runs": 0,
+      "security_score": null,
+      "score_global_linear": 6.87
+    },
+    {
       "key": "gpt-5.5",
       "id": "gpt-5.5",
       "name": "GPT-5.5",
@@ -10496,7 +10618,7 @@
       "multimodal": true,
       "runs": 87,
       "total_runs": 101,
-      "score_global": 4.03,
+      "score_global": 4.04,
       "score_by_pillar": {
         "Contenido": 7.11,
         "Agentes": 5.41,
@@ -10603,7 +10725,7 @@
       "multimodal": true,
       "runs": 142,
       "total_runs": 160,
-      "score_global": 3.58,
+      "score_global": 3.59,
       "score_by_pillar": {
         "Contenido": 6.54,
         "Agentes": 5.69,
@@ -10710,7 +10832,7 @@
       "multimodal": false,
       "runs": 174,
       "total_runs": 192,
-      "score_global": 3.19,
+      "score_global": 3.2,
       "score_by_pillar": {
         "Contenido": 6.8,
         "Agentes": 6.86,
@@ -10817,7 +10939,7 @@
       "multimodal": false,
       "runs": 87,
       "total_runs": 91,
-      "score_global": 1.01,
+      "score_global": 1.03,
       "score_by_pillar": {
         "Contenido": 6.69,
         "Agentes": 6.61,
@@ -10923,7 +11045,7 @@
       "multimodal": false,
       "runs": 86,
       "total_runs": 100,
-      "score_global": 0.89,
+      "score_global": 0.91,
       "score_by_pillar": {
         "Contenido": 6.11,
         "Agentes": 6.51,
@@ -12892,41 +13014,6 @@
       "sample_tier": "preliminary",
       "tool_calling": true,
       "thinking": true,
-      "multimodal": false,
-      "runs": 0,
-      "total_runs": 0,
-      "score_global": null,
-      "score_by_pillar": {},
-      "dims_by_pillar": {},
-      "score_by_suite": {},
-      "quality_ci95": null,
-      "judge_score_avg": null,
-      "tokens_per_second": null,
-      "latency_avg_s": null,
-      "total_input_tokens": 0,
-      "total_output_tokens": 0
-    },
-    {
-      "key": "or-llama-3.3-70b",
-      "id": "meta-llama/llama-3.3-70b-instruct",
-      "name": "Llama 3.3 70B",
-      "tier": "cheap",
-      "provider": "openrouter",
-      "open_source": true,
-      "license": "Llama Community",
-      "cost_input_per_M": 0.1,
-      "cost_output_per_M": 0.32,
-      "cost_per_1k_calls_usd": 0.51,
-      "context_window": null,
-      "subscriptions": [],
-      "notes": "",
-      "tested": false,
-      "retired": false,
-      "provider_variant": false,
-      "ranked": false,
-      "sample_tier": "preliminary",
-      "tool_calling": true,
-      "thinking": false,
       "multimodal": false,
       "runs": 0,
       "total_runs": 0,

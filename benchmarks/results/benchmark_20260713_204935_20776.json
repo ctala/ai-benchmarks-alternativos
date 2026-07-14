@@ -1,7 +1,7 @@
 {
   "metadata": {
     "timestamp": "20260713_204935_20776",
-    "total_runs": 114,
+    "total_runs": 115,
     "errors": 0,
     "judge": {
       "judge_model": "microsoft/phi-4",
@@ -3637,6 +3637,33 @@
       "run": 1,
       "timestamp": "20260713_204935_20776",
       "response_file": "results/responses/20260713_204935_20776/or-llama-3.3-70b__agent_long_horizon__interruption_recovery_topic_switch.md"
+    },
+    {
+      "quality": 7.0,
+      "cost_score": 5.41,
+      "cost_usd": 0.007298,
+      "speed": 2.0,
+      "latency": 2.0,
+      "tool_calling": 7.0,
+      "final": 6.01,
+      "test_name": "context_decay_constraint_12turns",
+      "model": "Llama 3.3 70B",
+      "model_id": "meta-llama/llama-3.3-70b-instruct",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 13.3,
+      "latency_first_token": 6.522,
+      "latency_total": 424.274,
+      "input_tokens": 48852,
+      "output_tokens": 7539,
+      "response_preview": "\"¡Descubre el estilo y la comodidad con las zapatillas 'Norte'! Cuero sintético de alta calidad y suela vulcanizada para un desempeño excepcional. ¡Y lo mejor? Puedes tenerlas por solo $89 USD! No te pierdas esta oportunidad de elevar tu estilo y tu confort. ¡Comprar ahora y experimenta la diferenci",
+      "auto_quality": 7.0,
+      "turns_executed": 13,
+      "turns_total": 13,
+      "suite": "agent_long_horizon",
+      "run": 1,
+      "timestamp": "20260713_204935_20776",
+      "response_file": "results/responses/20260713_204935_20776/or-llama-3.3-70b__agent_long_horizon__context_decay_constraint_12turns.md"
     }
   ]
 }
