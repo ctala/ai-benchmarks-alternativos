@@ -512,6 +512,22 @@ function isProprietary(model) {
 
 function filterAndRank(models, f) {
   const passes = models.filter(m => {
+    // DEPRECADOS: fuera SIEMPRE, sin importar qué filtros toque el usuario.
+    //
+    // Un modelo cuyo endpoint ya no existe no es un candidato: no lo podés llamar.
+    // Recomendarlo es peor que no recomendar nada — alguien lee "el #5, barato", lo
+    // integra, y se estrella. Devstral Small llegó a estar #5 del ranking meses
+    // después de que Mistral apagara su endpoint.
+    //
+    // Sus números NO se borran: siguen en el repo y en models.json como estadística
+    // histórica (son mediciones reales). Pero no compiten y no se pueden elegir acá.
+    if (m.retired) return false;
+
+    // VARIANTES DE PROVEEDOR: el mismo modelo servido por otra infra. Su fila canónica
+    // ya está en el ranking; dejarlas competir haría que un modelo se enfrente a sí
+    // mismo en dos puestos. Se conservan para la comparación entre proveedores.
+    if (m.provider_variant) return false;
+
     // "Sólo cobertura completa" filtra a los RANKEABLES (>=50 runs).
     //
     // Antes chequeaba `m.tested` (>=20 runs) mientras este mismo comentario decía

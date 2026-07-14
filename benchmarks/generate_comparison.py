@@ -306,9 +306,32 @@ def load_json():
     return _JSON_CACHE
 
 
-def load_models():
+def load_models(incluir_deprecados: bool = False):
+    """Los modelos que se pueden RECOMENDAR. Los deprecados quedan fuera por defecto.
+
+    Un modelo cuyo endpoint ya no existe no es un candidato: no lo podés llamar.
+    Publicarlo en una página de recomendación es peor que no publicar nada — alguien lee
+    "el #5, y barato", lo integra, y se estrella contra un 404.
+
+    No es hipotético: Devstral Small estuvo **#5 del ranking** meses después de que
+    Mistral apagara su endpoint, y hoy aparece en 11 páginas del sitio, incluidas
+    /mejor-llm-barato/ y las cuatro de "alternativas a X". Todas recomendándolo.
+
+    Sus números NO se borran: siguen en models.json y en la sección *Retirados* de
+    MODELOS.md como estadística histórica (son mediciones reales, sirven para el análisis).
+    Pero no compiten y no se recomiendan.
+
+    Lo mismo con las variantes de proveedor: el mismo modelo servido por otra infra. Su
+    fila canónica ya está; dejarlas entrar haría que un modelo compita contra sí mismo.
+
+    `incluir_deprecados=True` para las vistas históricas (comparación entre proveedores).
+    """
     d = load_json()
-    return d if isinstance(d, list) else (d.get("models") or list(d.values())[0])
+    todos = d if isinstance(d, list) else (d.get("models") or list(d.values())[0])
+    if incluir_deprecados:
+        return todos
+    return [m for m in todos
+            if not m.get("retired") and not m.get("provider_variant")]
 
 
 def get_meta():
