@@ -1,13 +1,13 @@
 # Claude Opus 4.8 (suscripción)
 
 - **model_id**: `claude-opus-4-8`
-- **Total tests**: 165/185 exitosos (20 errores)
-- **Score final**: 6.91
-- **Calidad**: 8.38
+- **Total tests**: 200/223 exitosos (23 errores)
+- **Score final**: 6.90
+- **Calidad**: 8.39
 - **Judge score (Phi-4)**: 4.49/10
-- **Velocidad**: 49 tok/s
-- **Latencia primera token**: 7.07s
-- **Costo promedio por test**: $0.05999
+- **Velocidad**: 50 tok/s
+- **Latencia primera token**: 14.74s
+- **Costo promedio por test**: $0.06982
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -17,6 +17,8 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 4 | 5.70 | 7.62 |
 | agent_long_horizon | 12 | 12 | 5.81 | 7.46 |
+| business_audit | 20 | 20 | 6.79 | 8.30 |
+| business_strategy | 11 | 11 | 7.37 | 9.27 |
 | code_generation | 4 | 4 | 7.13 | 9.41 |
 | content_generation | 4 | 4 | 7.19 | 9.25 |
 | creativity | 4 | 4 | 7.51 | 9.00 |
@@ -28,10 +30,11 @@
 | niah_es | 51 | 44 | 8.48 | 10.00 |
 | ocr_extraction | 5 | 5 | 7.61 | 9.10 |
 | orchestration | 5 | 5 | 4.62 | 6.21 |
+| persistencia | 4 | 4 | 5.84 | 6.97 |
 | policy_adherence | 4 | 4 | 7.31 | 8.67 |
 | presentation | 2 | 2 | 7.04 | 9.54 |
 | prompt_injection_es | 20 | 20 | 5.77 | 6.40 |
-| reasoning | 18 | 6 | 7.10 | 9.81 |
+| reasoning | 21 | 6 | 7.10 | 9.81 |
 | sales_outreach | 3 | 3 | 7.84 | 9.33 |
 | startup_content | 5 | 5 | 7.03 | 9.54 |
 | strategy | 3 | 3 | 7.40 | 9.17 |
@@ -207,6 +210,9 @@ Antes de entrar: este es un problema sin solución limpia. Cualquier camino que 
 | business_analysis | 3.88 | 0.00 | - | 0 | 0.00s | ERROR |
 | logical_reasoning | 3.88 | 0.00 | - | 0 | 0.00s | ERROR |
 | multi_constraint_decision | 3.88 | 0.00 | - | 0 | 0.00s | ERROR |
+| business_analysis | 3.92 | 0.08 | - | 0 | 0.35s | ERROR |
+| logical_reasoning | 3.96 | 0.16 | - | 0 | 0.33s | ERROR |
+| multi_constraint_decision | 3.90 | 0.05 | - | 0 | 0.34s | ERROR |
 | business_analysis | 3.92 | 0.08 | - | 0 | 0.33s | ERROR |
 | logical_reasoning | 3.96 | 0.16 | - | 0 | 0.35s | ERROR |
 | multi_constraint_decision | 3.90 | 0.05 | - | 0 | 0.33s | ERROR |
@@ -268,6 +274,42 @@ Antes de entrar: este es un problema sin solución limpia. Cualquier camino que 
 <details><summary><code>multi_constraint_decision</code> — score 3.88</summary>
 
 **Error**: `claude cli rc=1: err= out={"type":"result","subtype":"success","is_error":true,"api_error_status":401,"duration_ms":309,"duration_api_ms":0,"num_turns":1,"result":"Invalid API`
+
+</details>
+
+<details><summary><code>business_analysis</code> — score 3.92</summary>
+
+**Respuesta (preview 300 chars)**:
+
+```
+Invalid API key · Fix external API key
+```
+
+**Respuesta completa**: [`results/responses/20260602_171329_2584105/claude-opus-4.8-sub__reasoning__business_analysis.md`](../results/responses/20260602_171329_2584105/claude-opus-4.8-sub__reasoning__business_analysis.md)
+
+</details>
+
+<details><summary><code>logical_reasoning</code> — score 3.96</summary>
+
+**Respuesta (preview 300 chars)**:
+
+```
+Invalid API key · Fix external API key
+```
+
+**Respuesta completa**: [`results/responses/20260602_171329_2584105/claude-opus-4.8-sub__reasoning__logical_reasoning.md`](../results/responses/20260602_171329_2584105/claude-opus-4.8-sub__reasoning__logical_reasoning.md)
+
+</details>
+
+<details><summary><code>multi_constraint_decision</code> — score 3.90</summary>
+
+**Respuesta (preview 300 chars)**:
+
+```
+Invalid API key · Fix external API key
+```
+
+**Respuesta completa**: [`results/responses/20260602_171329_2584105/claude-opus-4.8-sub__reasoning__multi_constraint_decision.md`](../results/responses/20260602_171329_2584105/claude-opus-4.8-sub__reasoning__multi_constraint_decision.md)
 
 </details>
 
@@ -2365,3 +2407,9 @@ Ventas de $2.3M (+18% vs Q4). Enterprise +32% (3 contratos Fortune 500); SMB pla
 #### prompt_injection_es
 
 #### niah_es
+
+#### business_audit
+
+#### business_strategy
+
+#### persistencia

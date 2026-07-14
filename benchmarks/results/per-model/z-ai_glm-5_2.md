@@ -1,13 +1,13 @@
 # GLM 5.2
 
 - **model_id**: `z-ai/glm-5.2`
-- **Total tests**: 205/206 exitosos (1 errores)
+- **Total tests**: 206/207 exitosos (1 errores)
 - **Score final**: 6.98
 - **Calidad**: 8.08
-- **Judge score (Phi-4)**: 3.79/10
+- **Judge score (Phi-4)**: 3.80/10
 - **Velocidad**: 49 tok/s
-- **Latencia primera token**: 31.05s
-- **Costo promedio por test**: $0.05268
+- **Latencia primera token**: 30.99s
+- **Costo promedio por test**: $0.05243
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -43,7 +43,7 @@
 | summarization | 2 | 2 | 6.53 | 7.50 |
 | task_management | 3 | 3 | 7.45 | 8.77 |
 | tool_calling | 4 | 4 | 5.38 | 5.49 |
-| translation | 3 | 2 | 7.07 | 7.86 |
+| translation | 4 | 3 | 7.10 | 7.91 |
 
 ## Detalle por test
 
@@ -1383,6 +1383,7 @@ Justo estamos ayudando a startups en LatAm a hacer exactamente eso: u
 | translate_marketing_es_en | 7.08 | 8.00 | 4.8 | 48 | 23.18s | OK |
 | translate_technical_en_es | 7.06 | 7.72 | 3.8 | 72 | 13.41s | OK |
 | detect_language_issues | 2.33 | 0.00 | - | 0 | 40.26s | ERROR |
+| translate_marketing_es_en | 7.15 | 8.00 | 5 | 41 | 18.53s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.08</summary>
 
@@ -1424,6 +1425,29 @@ Para autenticarte con la API, incluye tu Bearer token en el header Authorization
 <details><summary><code>detect_language_issues</code> — score 2.33</summary>
 
 **Error**: `Expecting value: line 187 column 1 (char 1023)`
+
+</details>
+
+<details><summary><code>translate_marketing_es_en</code> — score 7.15</summary>
+
+**Stats**: latencia 18.53s · 41 tok/s · 180→757 tokens · $0.00244
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La traducción es precisa, relevante, clara y útil, manteniendo el tono cercano y energético adecuado para una audiencia estadounidense.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Stop wasting hours on what AI can do in seconds.
+AutoFlow automates your most tedious workflows so you can focus on what actually matters: scaling your startup.
+
+No code. No headaches. No excuses.
+
+Over 500 startups across LATAM are already on board. When are you jumping in?
+```
+
+**Respuesta completa**: [`results/responses/20260714_153426_15765/glm-5.2__translation__translate_marketing_es_en.md`](../results/responses/20260714_153426_15765/glm-5.2__translation__translate_marketing_es_en.md)
 
 </details>
 

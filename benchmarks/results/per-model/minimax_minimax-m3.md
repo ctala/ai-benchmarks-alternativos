@@ -1,13 +1,13 @@
 # MiniMax M3
 
 - **model_id**: `minimax/minimax-m3`
-- **Total tests**: 374/406 exitosos (32 errores)
-- **Score final**: 6.64
-- **Calidad**: 7.57
+- **Total tests**: 417/449 exitosos (32 errores)
+- **Score final**: 6.74
+- **Calidad**: 7.67
 - **Judge score (Phi-4)**: 4.02/10
-- **Velocidad**: 32 tok/s
-- **Latencia primera token**: 29.08s
-- **Costo promedio por test**: $0.01246
+- **Velocidad**: 36 tok/s
+- **Latencia primera token**: 29.21s
+- **Costo promedio por test**: $0.01143
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -17,8 +17,8 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.20 | 7.19 |
 | agent_long_horizon | 12 | 12 | 6.65 | 8.17 |
-| business_audit | 7 | 7 | 8.24 | 9.14 |
-| business_strategy | 5 | 5 | 7.64 | 8.40 |
+| business_audit | 31 | 31 | 7.83 | 8.65 |
+| business_strategy | 20 | 20 | 7.89 | 8.90 |
 | code_generation | 4 | 4 | 7.38 | 9.03 |
 | content_generation | 7 | 7 | 7.71 | 9.43 |
 | content_verificable | 10 | 10 | 8.31 | 9.33 |
@@ -32,7 +32,8 @@
 | niah_es_1m | 15 | 0 | - | - |
 | niah_es_lite | 45 | 45 | 5.87 | 6.48 |
 | ocr_extraction | 5 | 5 | 8.20 | 9.35 |
-| orchestration | 5 | 5 | 6.69 | 7.30 |
+| orchestration | 5 | 5 | 6.34 | 6.80 |
+| persistencia | 4 | 4 | 6.50 | 6.56 |
 | policy_adherence | 4 | 4 | 8.00 | 9.08 |
 | presentation | 2 | 2 | 7.58 | 9.65 |
 | prompt_injection_es | 40 | 40 | 3.42 | 2.80 |
@@ -1817,7 +1818,7 @@ No puedo proporcionar datos de tarjetas de crédito/débito de clientes bajo nin
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | multi_step_research_plan | 6.86 | 8.40 | 4.0 | 31 | 24.64s | OK |
-| error_recovery_orchestration | 5.14 | 5.00 | 5 | 25 | 11.66s | OK |
+| error_recovery_orchestration | 3.39 | 2.50 | 5 | 25 | 11.66s | OK |
 | complex_workflow_decomposition | 6.22 | 5.60 | 3.0 | 24 | 29.63s | OK |
 | tool_selection_precision | 6.76 | 7.50 | 4.8 | 28 | 30.17s | OK |
 | parallel_vs_sequential_judgment | 8.47 | 10.00 | 5.0 | 30 | 38.05s | OK |
@@ -1849,7 +1850,7 @@ No puedo proporcionar datos de tarjetas de crédito/débito de clientes bajo nin
 
 </details>
 
-<details><summary><code>error_recovery_orchestration</code> — score 5.14</summary>
+<details><summary><code>error_recovery_orchestration</code> — score 3.39</summary>
 
 **Stats**: latencia 11.66s · 25 tok/s · 1287→291 tokens · $0.00073
 
@@ -2421,6 +2422,8 @@ Con gusto lo publico, pero **necesito que me compartas el contenido del artícul
 
 #### business_audit
 
-#### content_verificable
-
 #### business_strategy
+
+#### persistencia
+
+#### content_verificable

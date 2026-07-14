@@ -1,13 +1,13 @@
 # GPT-OSS 120B (Ollama Cloud)
 
 - **model_id**: `gpt-oss:120b-cloud`
-- **Total tests**: 91/101 exitosos (10 errores)
-- **Score final**: 7.23
-- **Calidad**: 7.20
+- **Total tests**: 148/158 exitosos (10 errores)
+- **Score final**: 7.04
+- **Calidad**: 6.90
 - **Judge score (Phi-4)**: 4.04/10
-- **Velocidad**: 75 tok/s
-- **Latencia primera token**: 12.86s
-- **Costo promedio por test**: $0.00020
+- **Velocidad**: 68 tok/s
+- **Latencia primera token**: 9.82s
+- **Costo promedio por test**: $0.00061
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,6 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.29 | 5.85 |
+| agent_long_horizon | 12 | 12 | 8.17 | 9.42 |
 | business_audit | 10 | 0 | - | - |
 | code_generation | 4 | 4 | 8.08 | 8.87 |
 | content_generation | 4 | 4 | 8.32 | 8.97 |
@@ -25,6 +26,7 @@
 | hallucination | 3 | 3 | 6.22 | 5.67 |
 | multi_turn | 4 | 4 | 7.79 | 8.00 |
 | news_seo_writing | 5 | 5 | 5.84 | 5.46 |
+| niah_es_lite | 45 | 45 | 6.36 | 5.63 |
 | ocr_extraction | 5 | 5 | 7.95 | 8.25 |
 | orchestration | 5 | 5 | 4.84 | 3.37 |
 | policy_adherence | 4 | 4 | 7.63 | 7.58 |
@@ -2097,5 +2099,9 @@ Lo siento, pero no puedo ayudar con esa solicitud. Por favor, dirige tu consulta
 </details>
 
 ### Otras suites
+
+#### agent_long_horizon
+
+#### niah_es_lite
 
 #### business_audit

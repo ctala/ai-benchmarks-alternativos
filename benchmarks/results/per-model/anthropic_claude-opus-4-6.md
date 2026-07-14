@@ -1,13 +1,13 @@
 # Claude Opus 4.6
 
 - **model_id**: `anthropic/claude-opus-4-6`
-- **Total tests**: 293/293 exitosos (0 errores)
+- **Total tests**: 298/298 exitosos (0 errores)
 - **Score final**: 6.68
 - **Calidad**: 8.09
 - **Judge score (Phi-4)**: 4.30/10
 - **Velocidad**: 46 tok/s
-- **Latencia primera token**: 20.43s
-- **Costo promedio por test**: $0.03532
+- **Latencia primera token**: 20.27s
+- **Costo promedio por test**: $0.03507
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,13 +15,13 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 10 | 10 | 6.37 | 7.86 |
+| agent_capabilities | 15 | 15 | 6.27 | 7.64 |
 | agent_long_horizon | 12 | 12 | 7.04 | 8.83 |
 | business_audit | 20 | 20 | 6.34 | 7.50 |
 | business_strategy | 10 | 10 | 7.47 | 9.20 |
 | code_generation | 12 | 12 | 6.87 | 8.97 |
 | content_generation | 12 | 12 | 6.47 | 8.12 |
-| content_verificable | 10 | 10 | 7.98 | 9.67 |
+| content_verificable | 10 | 10 | 8.21 | 10.00 |
 | creativity | 12 | 12 | 6.65 | 8.04 |
 | customer_support | 12 | 12 | 6.78 | 7.65 |
 | deep_reasoning | 18 | 18 | 6.75 | 8.50 |
@@ -4878,6 +4878,11 @@ Entiendo que estás teniendo prob
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
+| skill_execution_complex | 6.19 | 9.34 | - | 49 | 5.08s | OK |
+| agent_team_delegation | 6.82 | 9.34 | - | 54 | 18.46s | OK |
+| ask_clarification_before_acting | 5.00 | 4.00 | - | 48 | 6.62s | OK |
+| context_following_complex_system | 4.90 | 3.64 | - | 52 | 8.92s | OK |
+| model_as_router | 7.38 | 9.74 | - | 57 | 14.84s | OK |
 | skill_execution_complex | 4.75 | 6.44 | 2.6 | 44 | 5.29s | OK |
 | agent_team_delegation | 6.38 | 8.48 | 4.2 | 50 | 20.34s | OK |
 | ask_clarification_before_acting | 6.54 | 7.08 | 4.2 | 47 | 6.89s | OK |
@@ -4888,6 +4893,91 @@ Entiendo que estás teniendo prob
 | ask_clarification_before_acting | 6.53 | 7.08 | 4.2 | 46 | 7.46s | OK |
 | context_following_complex_system | 8.27 | 10.00 | 4.8 | 50 | 11.06s | OK |
 | model_as_router | 4.77 | 5.00 | 4.8 | 58 | 14.16s | OK |
+
+<details><summary><code>skill_execution_complex</code> — score 6.19</summary>
+
+**Stats**: latencia 5.08s · 49 tok/s · 1467→249 tokens · $0.01356
+
+**Respuesta (preview 300 chars)**:
+
+```
+Voy a ejecutar tu plan en varios pasos. Déjame organizar todo:
+
+**Mi plan:**
+1. 🔍 Buscar el artículo sobre DeepSeek V4 en los docs compartidos
+2. 📝 Publicar el blog post
+3. 💬 Notificar a @maria y @carlos por Slack
+4. 📅 Agendar la reunión de review el jueves a las 3 PM
+
+Empiezo buscando el artículo
+```
+
+</details>
+
+<details><summary><code>agent_team_delegation</code> — score 6.82</summary>
+
+**Stats**: latencia 18.46s · 54 tok/s · 1537→990 tokens · $0.03243
+
+**Respuesta (preview 300 chars)**:
+
+```
+# 🚀 Plan de Ejecución: Landing Page "AutoFlow AI"
+
+Excelente proyecto. Voy a coordinar todo el equipo para crear esta landing page. Aquí está mi plan:
+
+## 📋 Plan de Ejecución
+
+| Fase | Agente | Tarea | Dependencia |
+|------|--------|-------|-------------|
+| **1** | 🔍 Researcher | Análisis competit
+```
+
+</details>
+
+<details><summary><code>ask_clarification_before_acting</code> — score 5.00</summary>
+
+**Stats**: latencia 6.62s · 48 tok/s · 1355→315 tokens · $0.01465
+
+**Respuesta (preview 300 chars)**:
+
+```
+Necesito algunos datos antes de procesar el reembolso, ya que esta es una acción irreversible. Déjame pedirte la información necesaria.
+```
+
+</details>
+
+<details><summary><code>context_following_complex_system</code> — score 4.90</summary>
+
+**Stats**: latencia 8.92s · 52 tok/s · 1551→462 tokens · $0.01930
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Hola! Vamos a resolver cada punto. Déjame trabajar en los tres simultáneamente:
+
+1. **Artículo sobre AI funding en LATAM** → Lo publico ya mismo.
+2. **Presupuesto de $2,000** → Esto excede mi límite de aprobación ($500), así que necesito escalarlo a un humano autorizado.
+3. **API key de OpenRoute
+```
+
+</details>
+
+<details><summary><code>model_as_router</code> — score 7.38</summary>
+
+**Stats**: latencia 14.84s · 57 tok/s · 325→849 tokens · $0.02285
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+[
+  {
+    "subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales",
+    "modelo": "deepseek-v3",
+    "razon": "Tarea de razonamiento analítico sobre un volumen grande de datos textuales. DeepSeek-v3 destaca en razonamiento complejo y además es muy económico ($0.14
+```
+
+</details>
 
 <details><summary><code>skill_execution_complex</code> — score 4.75</summary>
 

@@ -1,13 +1,13 @@
 # Qwen 3.6 Max
 
 - **model_id**: `qwen/qwen3.6-max-preview`
-- **Total tests**: 186/314 exitosos (128 errores)
-- **Score final**: 6.47
-- **Calidad**: 7.81
+- **Total tests**: 242/419 exitosos (177 errores)
+- **Score final**: 6.80
+- **Calidad**: 8.29
 - **Judge score (Phi-4)**: 3.96/10
-- **Velocidad**: 39 tok/s
-- **Latencia primera token**: 55.94s
-- **Costo promedio por test**: $0.03609
+- **Velocidad**: 38 tok/s
+- **Latencia primera token**: 47.69s
+- **Costo promedio por test**: $0.04277
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.29 | 6.36 |
-| agent_long_horizon | 12 | 10 | 6.69 | 9.20 |
+| agent_long_horizon | 15 | 13 | 6.89 | 9.23 |
 | business_audit | 10 | 10 | 6.90 | 8.20 |
 | business_strategy | 5 | 5 | 7.50 | 9.20 |
 | code_generation | 4 | 4 | 7.05 | 9.53 |
@@ -28,7 +28,7 @@
 | hallucination | 3 | 3 | 6.62 | 7.67 |
 | multi_turn | 4 | 4 | 6.46 | 7.50 |
 | news_seo_writing | 5 | 5 | 4.62 | 5.28 |
-| niah_es | 111 | 45 | 7.79 | 9.77 |
+| niah_es | 213 | 98 | 7.86 | 9.85 |
 | niah_es_1m | 15 | 0 | - | - |
 | niah_es_lite | 45 | 0 | - | - |
 | ocr_extraction | 5 | 5 | 7.85 | 9.60 |

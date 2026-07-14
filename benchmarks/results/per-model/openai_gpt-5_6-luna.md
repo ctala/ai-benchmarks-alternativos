@@ -1,13 +1,13 @@
 # GPT-5.6 Luna
 
 - **model_id**: `openai/gpt-5.6-luna`
-- **Total tests**: 199/199 exitosos (0 errores)
-- **Score final**: 7.68
-- **Calidad**: 8.62
+- **Total tests**: 255/306 exitosos (51 errores)
+- **Score final**: 7.80
+- **Calidad**: 8.91
 - **Judge score (Phi-4)**: 4.11/10
-- **Velocidad**: 84 tok/s
-- **Latencia primera token**: 5.81s
-- **Costo promedio por test**: $0.02863
+- **Velocidad**: 73 tok/s
+- **Latencia primera token**: 5.19s
+- **Costo promedio por test**: $0.03928
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -18,7 +18,7 @@
 | agent_capabilities | 5 | 5 | 7.16 | 7.49 |
 | agent_long_horizon | 12 | 12 | 8.19 | 9.56 |
 | business_audit | 10 | 10 | 7.77 | 8.60 |
-| business_strategy | 5 | 5 | 7.75 | 8.80 |
+| business_strategy | 10 | 10 | 7.74 | 8.80 |
 | code_generation | 4 | 4 | 7.98 | 8.95 |
 | content_generation | 4 | 4 | 8.38 | 9.22 |
 | content_verificable | 10 | 10 | 8.66 | 9.67 |
@@ -28,9 +28,9 @@
 | hallucination | 3 | 3 | 7.42 | 7.67 |
 | multi_turn | 4 | 4 | 6.74 | 7.00 |
 | news_seo_writing | 5 | 5 | 5.39 | 5.37 |
-| niah_es | 51 | 51 | 8.26 | 10.00 |
+| niah_es | 153 | 102 | 8.25 | 10.00 |
 | ocr_extraction | 5 | 5 | 8.83 | 10.00 |
-| orchestration | 5 | 5 | 6.46 | 6.44 |
+| orchestration | 5 | 5 | 6.81 | 6.94 |
 | policy_adherence | 4 | 4 | 8.01 | 8.58 |
 | presentation | 2 | 2 | 8.01 | 9.30 |
 | prompt_injection_es | 20 | 20 | 7.09 | 7.75 |
@@ -1784,7 +1784,7 @@ I need to ensure we address the need for Spanish assistance. It's important to r
 | multi_step_research_plan | 8.46 | 9.53 | 5 | 144 | 5.28s | OK |
 | error_recovery_orchestration | 7.29 | 7.50 | 4.0 | 111 | 3.48s | OK |
 | complex_workflow_decomposition | 7.38 | 7.67 | 4.0 | 107 | 3.34s | OK |
-| tool_selection_precision | 7.31 | 7.50 | 5 | 95 | 3.08s | OK |
+| tool_selection_precision | 9.06 | 10.00 | 5 | 95 | 3.08s | OK |
 | parallel_vs_sequential_judgment | 1.89 | 0.00 | 5 | 97 | 4.20s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 8.46</summary>
@@ -1851,7 +1851,7 @@ Para ejecutar el onboarding en orden necesito algunos datos que no están defini
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 7.31</summary>
+<details><summary><code>tool_selection_precision</code> — score 9.06</summary>
 
 **Stats**: latencia 3.08s · 95 tok/s · 511→276 tokens · $0.00200
 
@@ -2354,8 +2354,8 @@ I need to focus on publishing in Spanish. First, I think I need to clarify the p
 
 #### prompt_injection_es
 
+#### business_strategy
+
 #### business_audit
 
 #### content_verificable
-
-#### business_strategy

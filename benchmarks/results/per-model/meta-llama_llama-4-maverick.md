@@ -1,13 +1,13 @@
 # Llama 4 Maverick
 
 - **model_id**: `meta-llama/llama-4-maverick`
-- **Total tests**: 324/345 exitosos (21 errores)
-- **Score final**: 6.91
-- **Calidad**: 7.71
+- **Total tests**: 325/350 exitosos (25 errores)
+- **Score final**: 6.92
+- **Calidad**: 7.72
 - **Judge score (Phi-4)**: 3.23/10
 - **Velocidad**: 32 tok/s
-- **Latencia primera token**: 9.35s
-- **Costo promedio por test**: $0.02422
+- **Latencia primera token**: 9.41s
+- **Costo promedio por test**: $0.02415
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 1 | 7.80 | 8.92 |
+| agent_capabilities | 10 | 2 | 7.73 | 9.06 |
 | agent_long_horizon | 12 | 12 | 7.97 | 8.83 |
 | business_audit | 10 | 10 | 6.25 | 6.45 |
 | business_strategy | 5 | 5 | 7.75 | 8.50 |
@@ -2530,11 +2530,56 @@ EcoStartup es una aceleradora de startups sustentables que busca impulsar negoci
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
+| skill_execution_complex | 3.10 | 0.00 | - | 0 | 0.33s | ERROR |
+| agent_team_delegation | 3.10 | 0.00 | - | 0 | 0.01s | ERROR |
+| ask_clarification_before_acting | 3.10 | 0.00 | - | 0 | 0.01s | ERROR |
+| context_following_complex_system | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
+| model_as_router | 7.67 | 9.20 | - | 12 | 28.41s | OK |
 | skill_execution_complex | 3.10 | 0.00 | - | 0 | 0.03s | ERROR |
 | agent_team_delegation | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
 | ask_clarification_before_acting | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
 | context_following_complex_system | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
 | model_as_router | 7.80 | 8.92 | 4.4 | 38 | 10.41s | OK |
+
+<details><summary><code>skill_execution_complex</code> — score 3.10</summary>
+
+**Error**: `Error code: 404 - {'error': {'message': 'No endpoints found that support tool use. Try disabling "delegate_to_agent". To learn more about provider routing, visit: https://openrouter.ai/docs/guides/rou...`
+
+</details>
+
+<details><summary><code>agent_team_delegation</code> — score 3.10</summary>
+
+**Error**: `Error code: 404 - {'error': {'message': 'No endpoints found that support tool use. Try disabling "delegate_to_agent". To learn more about provider routing, visit: https://openrouter.ai/docs/guides/rou...`
+
+</details>
+
+<details><summary><code>ask_clarification_before_acting</code> — score 3.10</summary>
+
+**Error**: `Error code: 404 - {'error': {'message': 'No endpoints found that support tool use. Try disabling "delegate_to_agent". To learn more about provider routing, visit: https://openrouter.ai/docs/guides/rou...`
+
+</details>
+
+<details><summary><code>context_following_complex_system</code> — score 3.10</summary>
+
+**Error**: `Error code: 404 - {'error': {'message': 'No endpoints found that support tool use. Try disabling "delegate_to_agent". To learn more about provider routing, visit: https://openrouter.ai/docs/guides/rou...`
+
+</details>
+
+<details><summary><code>model_as_router</code> — score 7.67</summary>
+
+**Stats**: latencia 28.41s · 12 tok/s · 266→349 tokens · $0.00048
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí te dejo mis recomendaciones en formato JSON:
+
+[
+  {"subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales", "modelo": "claude-sonnet", "razon": "Requiere empatia y comprensión del lenguaje para analizar sentimientos y problemas"},
+  {"subtarea": "Escribir un email d
+```
+
+</details>
 
 <details><summary><code>skill_execution_complex</code> — score 3.10</summary>
 

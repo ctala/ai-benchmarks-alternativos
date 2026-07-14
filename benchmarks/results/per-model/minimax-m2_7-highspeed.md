@@ -1,12 +1,12 @@
 # MiniMax M2.7 Highspeed
 
 - **model_id**: `MiniMax-M2.7-highspeed`
-- **Total tests**: 27/27 exitosos (0 errores)
-- **Score final**: 7.62
-- **Calidad**: 8.74
-- **Velocidad**: 51 tok/s
-- **Latencia primera token**: 26.07s
-- **Costo promedio por test**: $0.00166
+- **Total tests**: 39/39 exitosos (0 errores)
+- **Score final**: 7.31
+- **Calidad**: 8.36
+- **Velocidad**: 49 tok/s
+- **Latencia primera token**: 23.50s
+- **Costo promedio por test**: $0.00413
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -14,6 +14,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
+| agent_long_horizon | 12 | 12 | 6.61 | 7.50 |
 | code_generation | 4 | 4 | 7.89 | 9.50 |
 | content_generation | 4 | 4 | 7.58 | 8.75 |
 | presentation | 2 | 2 | 7.88 | 9.62 |
@@ -587,3 +588,7 @@ Let me extract the information for eac
 ```
 
 </details>
+
+### Otras suites
+
+#### agent_long_horizon

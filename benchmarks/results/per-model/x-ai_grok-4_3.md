@@ -1,13 +1,13 @@
 # Grok 4.3
 
 - **model_id**: `x-ai/grok-4.3`
-- **Total tests**: 194/220 exitosos (26 errores)
-- **Score final**: 7.39
-- **Calidad**: 8.19
+- **Total tests**: 227/312 exitosos (85 errores)
+- **Score final**: 7.52
+- **Calidad**: 8.38
 - **Judge score (Phi-4)**: 5/10
-- **Velocidad**: 98 tok/s
-- **Latencia primera token**: 9.56s
-- **Costo promedio por test**: $0.03640
+- **Velocidad**: 97 tok/s
+- **Latencia primera token**: 9.05s
+- **Costo promedio por test**: $0.03550
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -19,7 +19,7 @@
 | agent_long_horizon | 12 | 12 | 7.09 | 7.83 |
 | business_audit | 10 | 10 | 7.43 | 8.20 |
 | business_strategy | 5 | 5 | 8.08 | 9.20 |
-| code_generation | 8 | 8 | 7.58 | 8.25 |
+| code_generation | 12 | 12 | 7.57 | 8.27 |
 | content_generation | 8 | 8 | 6.67 | 6.94 |
 | content_verificable | 5 | 5 | 8.76 | 10.00 |
 | creativity | 4 | 4 | 7.94 | 8.88 |
@@ -28,13 +28,13 @@
 | hallucination | 3 | 3 | 6.47 | 6.33 |
 | multi_turn | 4 | 4 | 6.72 | 7.00 |
 | news_seo_writing | 5 | 5 | 5.32 | 5.14 |
-| niah_es | 59 | 53 | 8.22 | 9.96 |
+| niah_es | 144 | 79 | 8.30 | 9.95 |
 | ocr_extraction | 5 | 5 | 8.88 | 10.00 |
 | orchestration | 5 | 5 | 7.58 | 8.15 |
 | policy_adherence | 4 | 4 | 7.11 | 7.25 |
 | presentation | 2 | 2 | 8.17 | 9.23 |
 | prompt_injection_es | 20 | 0 | - | - |
-| reasoning | 6 | 6 | 7.60 | 8.33 |
+| reasoning | 9 | 9 | 7.45 | 8.19 |
 | sales_outreach | 3 | 3 | 6.39 | 6.44 |
 | startup_content | 5 | 5 | 8.37 | 9.56 |
 | strategy | 3 | 3 | 7.29 | 8.06 |
@@ -170,12 +170,83 @@ The subtle bug occurs precisely when \(\geq 50\%\) of the input values are ident
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
+| business_analysis | 8.60 | 10.00 | - | 90 | 16.18s | OK |
+| logical_reasoning | 5.41 | 5.33 | - | 91 | 10.88s | OK |
+| multi_constraint_decision | 7.43 | 8.40 | - | 84 | 22.82s | OK |
 | business_analysis | 8.57 | 9.73 | - | 109 | 13.09s | OK |
 | logical_reasoning | 6.52 | 6.67 | - | 115 | 9.94s | OK |
 | multi_constraint_decision | 8.51 | 9.78 | - | 103 | 18.14s | OK |
 | business_analysis | 8.60 | 9.78 | - | 120 | 12.51s | OK |
 | logical_reasoning | 4.84 | 4.22 | - | 124 | 8.80s | OK |
 | multi_constraint_decision | 8.56 | 9.78 | - | 117 | 15.48s | OK |
+
+<details><summary><code>business_analysis</code> — score 8.60</summary>
+
+**Stats**: latencia 16.18s · 90 tok/s · 292→1451 tokens · $0.00399
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Análisis de métricas SaaS (Ene-Mar)**
+
+### 1. Métricas clave calculadas
+
+**Churn Rate** (usando usuarios al inicio del mes):
+- Enero: **3.75%** (45/1,200)
+- Febrero: **3.85%** (52/1,350)
+- Marzo: **4.59%** (68/1,480)
+
+**Growth Rate** (usuarios):
+- Ene → Feb: **+12.5%**
+- Feb → Mar: **+9.6%**
+
+**Gr
+```
+
+**Respuesta completa**: [`results/responses/20260630_151919_3934602/grok-4.3__reasoning__business_analysis.md`](../results/responses/20260630_151919_3934602/grok-4.3__reasoning__business_analysis.md)
+
+</details>
+
+<details><summary><code>logical_reasoning</code> — score 5.41</summary>
+
+**Stats**: latencia 10.88s · 91 tok/s · 251→989 tokens · $0.00279
+
+**Respuesta (preview 300 chars)**:
+
+```
+A=13, B=10, C=16, D=13, E=8
+
+Paso 1:  
+Usar los datos conocidos directamente: B=10 (dato 7) y D=A (dato 2). También C=2E (dato 6).  
+
+Paso 2:  
+Aplicar las desigualdades del dato 1: B < A < C, es decir 10 < A < 2E.  
+Del dato 3 y 5: E es el menor y E ≥ 5, por tanto E ≤ 9 (porque E < B=10).  
+Combina
+```
+
+**Respuesta completa**: [`results/responses/20260630_151919_3934602/grok-4.3__reasoning__logical_reasoning.md`](../results/responses/20260630_151919_3934602/grok-4.3__reasoning__logical_reasoning.md)
+
+</details>
+
+<details><summary><code>multi_constraint_decision</code> — score 7.43</summary>
+
+**Stats**: latencia 22.82s · 84 tok/s · 294→1914 tokens · $0.00515
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Recomendación de Stack para el MVP**
+
+### Comparación de 3 Opciones de Stack
+
+| Aspecto | **Opción 1: Next.js + Supabase** | **Opción 2: Next.js + FastAPI** | **Opción 3: Next.js + Firebase** |
+|-------|----------------------------------|----------------------------------|-------------------------
+```
+
+**Respuesta completa**: [`results/responses/20260630_151919_3934602/grok-4.3__reasoning__multi_constraint_decision.md`](../results/responses/20260630_151919_3934602/grok-4.3__reasoning__multi_constraint_decision.md)
+
+</details>
 
 <details><summary><code>business_analysis</code> — score 8.57</summary>
 
@@ -452,6 +523,10 @@ De la condición 5: E ≥ 5. Combinado
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
+| python_api_integration | 7.19 | 7.87 | - | 90 | 10.78s | OK |
+| n8n_workflow_json | 7.31 | 8.00 | - | 120 | 15.50s | OK |
+| sql_query_complex | 7.39 | 8.00 | - | 105 | 11.39s | OK |
+| debug_code | 8.40 | 9.34 | - | 127 | 9.33s | OK |
 | python_api_integration | 7.44 | 7.87 | - | 133 | 6.53s | OK |
 | n8n_workflow_json | 7.56 | 8.45 | - | 102 | 19.52s | OK |
 | sql_query_complex | 7.48 | 8.00 | - | 139 | 8.34s | OK |
@@ -460,6 +535,108 @@ De la condición 5: E ≥ 5. Combinado
 | n8n_workflow_json | 7.62 | 8.45 | - | 132 | 14.59s | OK |
 | sql_query_complex | 7.45 | 8.00 | - | 113 | 9.89s | OK |
 | debug_code | 8.40 | 9.34 | - | 124 | 9.79s | OK |
+
+<details><summary><code>python_api_integration</code> — score 7.19</summary>
+
+**Stats**: latencia 10.78s · 90 tok/s · 225→974 tokens · $0.00272
+
+**Respuesta (preview 300 chars)**:
+
+```
+```python
+import httpx
+import time
+from typing import List, Dict, Any
+
+
+def get_expensive_products(
+    token: str,
+    url: str = "https://api.example.com/products",
+    max_retries: int = 3,
+    timeout: float = 10.0
+) -> List[Dict[str, Any]]:
+    """
+    Obtiene productos con precio > 100 desde l
+```
+
+**Respuesta completa**: [`results/responses/20260630_151919_3934602/grok-4.3__code_generation__python_api_integration.md`](../results/responses/20260630_151919_3934602/grok-4.3__code_generation__python_api_integration.md)
+
+</details>
+
+<details><summary><code>n8n_workflow_json</code> — score 7.31</summary>
+
+**Stats**: latencia 15.50s · 120 tok/s · 244→1860 tokens · $0.00496
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "name": "Clasificador de Emails con IA",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "clasificar-email",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhoo
+```
+
+**Respuesta completa**: [`results/responses/20260630_151919_3934602/grok-4.3__code_generation__n8n_workflow_json.md`](../results/responses/20260630_151919_3934602/grok-4.3__code_generation__n8n_workflow_json.md)
+
+</details>
+
+<details><summary><code>sql_query_complex</code> — score 7.39</summary>
+
+**Stats**: latencia 11.39s · 105 tok/s · 271→1199 tokens · $0.00334
+
+**Respuesta (preview 300 chars)**:
+
+```
+```sql
+WITH completed_orders AS (
+    SELECT 
+        o.id,
+        o.customer_id,
+        o.total,
+        o.created_at
+    FROM orders o
+    WHERE o.status = 'completed'
+      AND o.created_at >= DATE_SUB(CURRENT_DATE, INTERVAL 6 MONTH)
+),
+customer_stats AS (
+    SELECT 
+        c.id,
+        c.na
+```
+
+**Respuesta completa**: [`results/responses/20260630_151919_3934602/grok-4.3__code_generation__sql_query_complex.md`](../results/responses/20260630_151919_3934602/grok-4.3__code_generation__sql_query_complex.md)
+
+</details>
+
+<details><summary><code>debug_code</code> — score 8.40</summary>
+
+**Stats**: latencia 9.33s · 127 tok/s · 345→1189 tokens · $0.00340
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí está el análisis de los bugs y la versión corregida:
+
+## Bugs identificados
+
+### 1. División por cero
+Si no hay órdenes con estado `'pending'`, la lista `processed` queda vacía. Al calcular `average = total / len(processed)` se produce un `ZeroDivisionError`.
+
+### 2. Mutación del diccionario or
+```
+
+**Respuesta completa**: [`results/responses/20260630_151919_3934602/grok-4.3__code_generation__debug_code.md`](../results/responses/20260630_151919_3934602/grok-4.3__code_generation__debug_code.md)
+
+</details>
 
 <details><summary><code>python_api_integration</code> — score 7.44</summary>
 

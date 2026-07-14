@@ -1,13 +1,13 @@
 # Nemotron 3 Super
 
 - **model_id**: `nvidia/nemotron-3-super-120b-a12b`
-- **Total tests**: 187/202 exitosos (15 errores)
-- **Score final**: 6.42
-- **Calidad**: 6.89
+- **Total tests**: 240/324 exitosos (84 errores)
+- **Score final**: 6.71
+- **Calidad**: 7.34
 - **Judge score (Phi-4)**: 3.73/10
-- **Velocidad**: 25 tok/s
-- **Latencia primera token**: 47.25s
-- **Costo promedio por test**: $0.00274
+- **Velocidad**: 27 tok/s
+- **Latencia primera token**: 39.25s
+- **Costo promedio por test**: $0.00346
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 4.39 | 2.76 |
-| agent_long_horizon | 12 | 11 | 7.16 | 8.09 |
+| agent_long_horizon | 16 | 13 | 7.29 | 8.23 |
 | business_audit | 10 | 10 | 6.65 | 7.00 |
 | business_strategy | 5 | 5 | 7.13 | 7.87 |
 | code_generation | 4 | 4 | 7.65 | 8.92 |
@@ -28,7 +28,7 @@
 | hallucination | 3 | 3 | 7.37 | 7.85 |
 | multi_turn | 4 | 4 | 6.58 | 7.11 |
 | news_seo_writing | 5 | 5 | 6.47 | 7.00 |
-| niah_es | 59 | 45 | 7.19 | 8.64 |
+| niah_es | 177 | 96 | 7.47 | 8.78 |
 | ocr_extraction | 5 | 5 | 6.75 | 7.07 |
 | orchestration | 5 | 5 | 4.49 | 2.14 |
 | policy_adherence | 4 | 4 | 7.21 | 7.72 |

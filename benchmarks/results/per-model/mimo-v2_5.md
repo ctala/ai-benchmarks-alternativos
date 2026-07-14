@@ -1,13 +1,13 @@
 # MiMo V2.5 (Xiaomi)
 
 - **model_id**: `mimo-v2.5`
-- **Total tests**: 91/91 exitosos (0 errores)
-- **Score final**: 7.44
-- **Calidad**: 7.28
+- **Total tests**: 148/148 exitosos (0 errores)
+- **Score final**: 7.37
+- **Calidad**: 7.50
 - **Judge score (Phi-4)**: 4.12/10
-- **Velocidad**: 79 tok/s
-- **Latencia primera token**: 12.65s
-- **Costo promedio por test**: $0.00011
+- **Velocidad**: 71 tok/s
+- **Latencia primera token**: 10.83s
+- **Costo promedio por test**: $0.00089
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,6 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 7.06 | 6.93 |
+| agent_long_horizon | 12 | 12 | 8.01 | 9.08 |
 | code_generation | 4 | 4 | 7.81 | 8.02 |
 | content_generation | 4 | 4 | 8.29 | 9.09 |
 | creativity | 4 | 4 | 8.51 | 9.00 |
@@ -24,6 +25,7 @@
 | hallucination | 3 | 3 | 8.08 | 8.33 |
 | multi_turn | 4 | 4 | 7.11 | 7.00 |
 | news_seo_writing | 5 | 5 | 5.70 | 4.72 |
+| niah_es_lite | 45 | 45 | 7.05 | 7.53 |
 | ocr_extraction | 5 | 5 | 7.77 | 7.43 |
 | orchestration | 5 | 5 | 7.94 | 7.91 |
 | policy_adherence | 4 | 4 | 8.30 | 8.67 |
@@ -2122,3 +2124,9 @@ Lamentablemente, **no tengo autoridad para aprobar gastos mayores a $500**. Nece
 **Respuesta completa**: [`results/responses/20260427_092138/mimo-v2.5__summarization__extract_structured_data.md`](../results/responses/20260427_092138/mimo-v2.5__summarization__extract_structured_data.md)
 
 </details>
+
+### Otras suites
+
+#### agent_long_horizon
+
+#### niah_es_lite

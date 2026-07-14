@@ -1,13 +1,13 @@
 # Mistral Nemo
 
 - **model_id**: `mistralai/mistral-nemo`
-- **Total tests**: 152/154 exitosos (2 errores)
-- **Score final**: 6.84
-- **Calidad**: 6.76
-- **Judge score (Phi-4)**: 3.99/10
+- **Total tests**: 212/216 exitosos (4 errores)
+- **Score final**: 6.63
+- **Calidad**: 6.49
+- **Judge score (Phi-4)**: 4.07/10
 - **Velocidad**: 34 tok/s
-- **Latencia primera token**: 17.35s
-- **Costo promedio por test**: $0.00002
+- **Latencia primera token**: 15.69s
+- **Costo promedio por test**: $0.00003
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,9 +16,9 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.33 | 5.77 |
-| agent_long_horizon | 12 | 11 | 7.78 | 8.41 |
-| business_audit | 4 | 4 | 5.21 | 4.50 |
-| business_strategy | 5 | 5 | 6.67 | 6.40 |
+| agent_long_horizon | 24 | 23 | 7.64 | 8.02 |
+| business_audit | 34 | 32 | 5.42 | 4.87 |
+| business_strategy | 20 | 20 | 6.15 | 5.83 |
 | code_generation | 4 | 4 | 7.01 | 7.41 |
 | content_generation | 4 | 4 | 7.79 | 8.43 |
 | content_verificable | 10 | 10 | 6.87 | 7.00 |
@@ -29,7 +29,8 @@
 | multi_turn | 4 | 4 | 7.00 | 7.38 |
 | news_seo_writing | 10 | 10 | 6.35 | 6.15 |
 | ocr_extraction | 5 | 5 | 7.70 | 8.30 |
-| orchestration | 5 | 4 | 5.78 | 5.06 |
+| orchestration | 6 | 5 | 6.16 | 5.56 |
+| persistencia | 4 | 4 | 6.54 | 6.46 |
 | policy_adherence | 4 | 4 | 7.31 | 7.67 |
 | presentation | 2 | 2 | 7.59 | 8.34 |
 | reasoning | 3 | 3 | 7.31 | 7.77 |
@@ -1906,6 +1907,7 @@ Comprendido. Sin embargo, como modelo de lenguaje, no tengo acceso a la informac
 | complex_workflow_decomposition | 5.12 | 4.14 | 2.4 | 50 | 0.52s | OK |
 | tool_selection_precision | 4.15 | 2.50 | 4.2 | 94 | 3.85s | OK |
 | parallel_vs_sequential_judgment | 7.55 | 7.14 | 4.2 | 114 | 2.56s | OK |
+| multi_step_research_plan | 7.69 | 7.56 | 4.0 | 54 | 2.50s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 6.29</summary>
 
@@ -1987,6 +1989,28 @@ Diagrama de dependencias:
 ```
 
 **Respuesta completa**: [`results/responses/20260424_053942/mistral-nemo__orchestration__parallel_vs_sequential_judgment.md`](../results/responses/20260424_053942/mistral-nemo__orchestration__parallel_vs_sequential_judgment.md)
+
+</details>
+
+<details><summary><code>multi_step_research_plan</code> — score 7.69</summary>
+
+**Stats**: latencia 2.50s · 54 tok/s · 980→135 tokens · $0.00002
+
+**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:4, profundidad:2, claridad:4, utilidad:3)
+
+> La respuesta es relevante y clara, desglosando adecuadamente los pasos necesarios, aunque carece de profundidad en insights y no proporciona detalles específicos sobre cómo ejecutar cada paso.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Entendido, para preparar el reporte sobre el estado del mercado de IA en Chile, se necesitan realizar los siguientes pasos:
+
+1. Investigar las 5 principales startups de IA en Chile y obtener su funding.
+2. Realizar una comparacion del mercado de IA en Chile con Colombia y Mexico.
+3. Obtener datos de
+```
+
+**Respuesta completa**: [`results/responses/20260714_135422_56351/mistral-nemo__orchestration__multi_step_research_plan.md`](../results/responses/20260714_135422_56351/mistral-nemo__orchestration__multi_step_research_plan.md)
 
 </details>
 
@@ -2373,8 +2397,10 @@ El reporte Q1 2026 de TechFlow reporta un sólido crecimiento en ventas, con un 
 
 #### business_audit
 
-#### content_verificable
-
 #### business_strategy
+
+#### persistencia
+
+#### content_verificable
 
 #### agent_long_horizon

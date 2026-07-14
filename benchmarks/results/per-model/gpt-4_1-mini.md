@@ -1,13 +1,13 @@
 # GPT-4.1 Mini
 
 - **model_id**: `gpt-4.1-mini`
-- **Total tests**: 160/160 exitosos (0 errores)
-- **Score final**: 7.22
-- **Calidad**: 7.37
+- **Total tests**: 165/165 exitosos (0 errores)
+- **Score final**: 7.19
+- **Calidad**: 7.30
 - **Judge score (Phi-4)**: 4.18/10
 - **Velocidad**: 70 tok/s
-- **Latencia primera token**: 7.75s
-- **Costo promedio por test**: $0.00093
+- **Latencia primera token**: 7.62s
+- **Costo promedio por test**: $0.00092
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 5.95 | 4.71 |
+| agent_capabilities | 10 | 10 | 6.13 | 4.94 |
 | business_audit | 10 | 10 | 5.04 | 4.46 |
 | code_generation | 8 | 8 | 7.70 | 8.40 |
 | content_generation | 8 | 8 | 7.66 | 8.06 |
@@ -2606,11 +2606,63 @@ Claro, te respondo punto por punto:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
+| skill_execution_complex | 7.42 | 8.00 | - | 60 | 1.41s | OK |
+| agent_team_delegation | 7.69 | 8.67 | - | 74 | 4.20s | OK |
+| ask_clarification_before_acting | 3.89 | 0.00 | - | 11 | 4.99s | OK |
+| context_following_complex_system | 4.39 | 0.00 | - | 53 | 1.75s | OK |
+| model_as_router | 8.14 | 9.20 | - | 53 | 5.70s | OK |
 | skill_execution_complex | 5.76 | 6.88 | 3.2 | 18 | 5.05s | OK |
 | agent_team_delegation | 7.58 | 8.46 | 4.4 | 76 | 4.20s | OK |
 | ask_clarification_before_acting | 4.33 | 0.00 | - | 36 | 1.81s | OK |
 | context_following_complex_system | 4.25 | 0.00 | - | 48 | 1.76s | OK |
 | model_as_router | 7.83 | 8.19 | 4.2 | 80 | 3.04s | OK |
+
+<details><summary><code>skill_execution_complex</code> — score 7.42</summary>
+
+**Stats**: latencia 1.41s · 60 tok/s · 538→85 tokens · $0.00035
+
+**Respuesta (preview 300 chars)**:
+
+```
+Mi plan es primero publicar el artículo usando el skill predefinido para publicar blog posts. Luego, enviaré el enlace publicado por Slack a @maria y @carlos. Finalmente, crearé el evento en el calendario para la reunión de revisión el jueves a las 3 PM.
+
+Procedo con la publicación del artículo.
+```
+
+</details>
+
+<details><summary><code>agent_team_delegation</code> — score 7.69</summary>
+
+**Stats**: latencia 4.20s · 74 tok/s · 593→313 tokens · $0.00074
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para crear la landing page del lanzamiento de "AutoFlow AI," vamos a seguir este plan de ejecución estructurado:
+
+1. Investigación previa (prioridad alta): El researcher se encargará de analizar qué ofrecen tres competidores directos en herramientas de automatización para startups. Esto es fundament
+```
+
+</details>
+
+<details><summary><code>model_as_router</code> — score 8.14</summary>
+
+**Stats**: latencia 5.70s · 53 tok/s · 257→300 tokens · $0.00058
+
+**Respuesta (preview 300 chars)**:
+
+```
+[
+  {
+    "subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales",
+    "modelo": "deepseek-v3",
+    "razon": "Requiere análisis profundo y razonamiento para identificar problemas clave en un gran volumen de texto."
+  },
+  {
+    "subtarea": "Escribir un email de disculpas
+```
+
+</details>
 
 <details><summary><code>skill_execution_complex</code> — score 5.76</summary>
 

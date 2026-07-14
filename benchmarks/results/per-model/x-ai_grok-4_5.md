@@ -1,13 +1,13 @@
 # Grok 4.5
 
 - **model_id**: `x-ai/grok-4.5`
-- **Total tests**: 194/194 exitosos (0 errores)
-- **Score final**: 6.85
-- **Calidad**: 7.79
+- **Total tests**: 239/290 exitosos (51 errores)
+- **Score final**: 7.05
+- **Calidad**: 8.17
 - **Judge score (Phi-4)**: 3.80/10
-- **Velocidad**: 86 tok/s
-- **Latencia primera token**: 17.47s
-- **Costo promedio por test**: $0.05875
+- **Velocidad**: 80 tok/s
+- **Latencia primera token**: 15.23s
+- **Costo promedio por test**: $0.07182
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -28,7 +28,7 @@
 | hallucination | 3 | 3 | 6.62 | 7.00 |
 | multi_turn | 4 | 4 | 6.76 | 7.50 |
 | news_seo_writing | 5 | 5 | 5.18 | 5.54 |
-| niah_es | 51 | 51 | 7.92 | 9.83 |
+| niah_es | 147 | 96 | 7.91 | 9.83 |
 | ocr_extraction | 5 | 5 | 8.15 | 9.35 |
 | orchestration | 5 | 5 | 3.04 | 2.04 |
 | policy_adherence | 4 | 4 | 8.02 | 9.08 |

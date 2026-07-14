@@ -756,6 +756,15 @@ def build_export():
             for k in sub_keys if k in SUBSCRIPTIONS
         ]
 
+        # Exámenes incompletos que SÍ alimentan la calidad. Los pilares aparte (contexto
+        # largo, seguridad) no cuentan acá: su score se reporta por separado y un examen
+        # incompleto ahí se marca «no medido», no contamina el ranking.
+        _PILARES_APARTE = ("niah", "prompt_injection")
+        _incompletas_que_puntuan = {
+            s: i for s, i in (metrics.get("suites_incompletas") or {}).items()
+            if not s.startswith(_PILARES_APARTE)
+        }
+
         models_export.append({
             "key": cfg_key,
             "id": model_id,
@@ -795,11 +804,26 @@ def build_export():
             # Groq (379 tok/s) con NIM (43 tok/s): no comparás modelos, comparás máquinas.
             # Responde otra pregunta —"¿puedo correrlo yo?"— y va en su propia tabla.
             "self_hosted": bool(cfg.get("self_hosted")),
+            # EXAMEN INCOMPLETO ⟹ NO COMPITE.
+            #
+            # Un modelo que rindió 4 de los 10 tests de una suite tiene un promedio sacado
+            # de otro examen. Publicarlo al lado de quien rindió los 10 no es comparar:
+            # es inventar. Publiqué "MiniMax M3 audita mejor que Opus (8.24 vs 6.94)" y en
+            # los 4 tests que ambos rindieron, Opus GANABA 10 a 9.
+            #
+            # Antes eso se publicaba igual. Ahora el modelo sale del ranking y se muestra
+            # como «en evaluación» hasta que complete. Decir "todavía no sé" es honesto;
+            # publicar un número que no se sostiene, no.
+            #
+            # Los pilares aparte (contexto largo, seguridad) NO bloquean: no alimentan la
+            # calidad. Ahí el examen incompleto se marca «no medido» en ESE pilar.
+            "examen_incompleto": bool(_incompletas_que_puntuan),
             "ranked": (
                 metrics["runs"] >= MIN_RUNS_RANKED
                 and not cfg.get("retired")
                 and not cfg.get("provider_variant")
                 and not cfg.get("self_hosted")
+                and not _incompletas_que_puntuan
             ),
             "sample_tier": sample_tier(metrics["runs"]),   # solid | partial | preliminary
             **capabilities,  # tool_calling, thinking, multimodal

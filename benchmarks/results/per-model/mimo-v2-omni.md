@@ -1,13 +1,13 @@
 # MiMo V2-Omni (Xiaomi direct)
 
 - **model_id**: `mimo-v2-omni`
-- **Total tests**: 90/91 exitosos (1 errores)
-- **Score final**: 7.35
-- **Calidad**: 6.95
+- **Total tests**: 102/103 exitosos (1 errores)
+- **Score final**: 7.44
+- **Calidad**: 7.23
 - **Judge score (Phi-4)**: 4.01/10
-- **Velocidad**: 103 tok/s
-- **Latencia primera token**: 16.46s
-- **Costo promedio por test**: $0.00011
+- **Velocidad**: 102 tok/s
+- **Latencia primera token**: 15.83s
+- **Costo promedio por test**: $0.00025
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,6 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.83 | 6.40 |
+| agent_long_horizon | 12 | 12 | 8.17 | 9.29 |
 | code_generation | 4 | 4 | 6.54 | 5.32 |
 | content_generation | 4 | 4 | 8.40 | 9.06 |
 | creativity | 4 | 4 | 8.55 | 9.00 |
@@ -1909,3 +1910,7 @@ Aquí tienes una propuesta de plan semanal con bloques de tiempo específicos:
 **Respuesta completa**: [`results/responses/20260427_092138/mimo-v2-omni-xiaomi__summarization__long_document_summary.md`](../results/responses/20260427_092138/mimo-v2-omni-xiaomi__summarization__long_document_summary.md)
 
 </details>
+
+### Otras suites
+
+#### agent_long_horizon

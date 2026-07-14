@@ -1,13 +1,13 @@
 # Kimi K2.7 Code
 
 - **model_id**: `moonshotai/kimi-k2.7-code`
-- **Total tests**: 188/194 exitosos (6 errores)
-- **Score final**: 6.49
-- **Calidad**: 7.56
+- **Total tests**: 213/241 exitosos (28 errores)
+- **Score final**: 6.70
+- **Calidad**: 7.84
 - **Judge score (Phi-4)**: 3.74/10
 - **Velocidad**: 40 tok/s
-- **Latencia primera token**: 53.85s
-- **Costo promedio por test**: $0.02289
+- **Latencia primera token**: 49.35s
+- **Costo promedio por test**: $0.02297
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -28,13 +28,13 @@
 | hallucination | 3 | 3 | 6.03 | 6.33 |
 | multi_turn | 4 | 4 | 6.31 | 6.88 |
 | news_seo_writing | 5 | 5 | 4.74 | 5.30 |
-| niah_es | 45 | 45 | 7.93 | 9.92 |
+| niah_es | 90 | 68 | 8.06 | 9.95 |
 | ocr_extraction | 5 | 5 | 7.85 | 9.35 |
 | orchestration | 5 | 5 | 5.74 | 6.68 |
 | policy_adherence | 4 | 4 | 7.84 | 9.08 |
 | presentation | 2 | 2 | 7.21 | 8.96 |
 | prompt_injection_es | 20 | 20 | 3.16 | 2.35 |
-| reasoning | 9 | 3 | 7.08 | 9.13 |
+| reasoning | 11 | 5 | 7.15 | 9.19 |
 | sales_outreach | 3 | 3 | 6.00 | 6.44 |
 | startup_content | 5 | 5 | 7.06 | 9.25 |
 | strategy | 3 | 3 | 6.90 | 8.33 |
@@ -201,6 +201,8 @@ A continuación presento un análisis estructurado para el *board*. He usado sup
 | business_analysis | 3.10 | 0.00 | - | 0 | 0.45s | ERROR |
 | logical_reasoning | 3.10 | 0.00 | - | 0 | 0.04s | ERROR |
 | multi_constraint_decision | 3.10 | 0.00 | - | 0 | 0.03s | ERROR |
+| business_analysis | 6.78 | 9.20 | - | 29 | 243.32s | OK |
+| logical_reasoning | 7.72 | 9.34 | - | 56 | 21.87s | OK |
 | business_analysis | 6.94 | 9.20 | 4.6 | 49 | 168.43s | OK |
 | logical_reasoning | 7.45 | 9.24 | 4.6 | 31 | 41.77s | OK |
 | multi_constraint_decision | 6.84 | 8.96 | 4.6 | 37 | 189.07s | OK |
@@ -238,6 +240,55 @@ A continuación presento un análisis estructurado para el *board*. He usado sup
 <details><summary><code>multi_constraint_decision</code> — score 3.10</summary>
 
 **Error**: `Error code: 402 - {'error': {'message': "This request requires more credits, or fewer max_tokens. You requested up to 8192 tokens, but can only afford 663. To increase, visit https://openrouter.ai/wor...`
+
+</details>
+
+<details><summary><code>business_analysis</code> — score 6.78</summary>
+
+**Stats**: latencia 243.32s · 29 tok/s · 186→7055 tokens · $0.02483
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el análisis. Para que las métricas sean comparables, asumo que:
+
+- Los “usuarios” son usuarios **al cierre de cada mes**.
+- **ARPU** = MRR / usuarios.
+- No hay datos de expansión/contracción, así que el **NRR lo aproximo como GRR** (ingresos iniciales – churn de ingresos).
+
+---
+
+## 1. M
+```
+
+**Respuesta completa**: [`results/responses/20260625_171945_3005308/kimi-k2.7-code__reasoning__business_analysis.md`](../results/responses/20260625_171945_3005308/kimi-k2.7-code__reasoning__business_analysis.md)
+
+</details>
+
+<details><summary><code>logical_reasoning</code> — score 7.72</summary>
+
+**Stats**: latencia 21.87s · 56 tok/s · 146→1217 tokens · $0.00437
+
+**Respuesta (preview 300 chars)**:
+
+```
+Resolvámoslo paso a paso.
+
+**1. Definir variables**
+
+Sean:
+- \(A, B, C, D, E\) = número de personas en cada equipo.
+
+**2. Traducir las condiciones a ecuaciones/desigualdades**
+
+- \(A > B\) y \(A < C\)
+- \(D = A\)
+- \(E\) es el más pequeño: \(E < A, E < B, E < C, E < D\)
+- \(A+B+C+D+E = 60\)
+- Todos
+```
+
+**Respuesta completa**: [`results/responses/20260625_171945_3005308/kimi-k2.7-code__reasoning__logical_reasoning.md`](../results/responses/20260625_171945_3005308/kimi-k2.7-code__reasoning__logical_reasoning.md)
 
 </details>
 

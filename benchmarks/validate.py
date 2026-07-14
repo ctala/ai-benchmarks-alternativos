@@ -155,23 +155,44 @@ def a3_sin_doble_conteo(verbose):
 # B · LA AGREGACIÓN
 # ─────────────────────────────────────────────────────────────────────────────
 
+# Suites que NO alimentan `quality` — son pilares aparte con su propia métrica.
+# Un examen incompleto acá no corrompe el ranking: significa que de ese modelo no
+# sabemos su contexto usable (o su resistencia a inyección). Eso se DICE, no se inventa.
+PILARES_APARTE = ("niah", "prompt_injection")
+
+
 def b1_examen_completo(models, verbose):
     """Un modelo solo puntúa una suite si rindió TODOS sus tests.
 
     Comparar el promedio de quien hizo 4 de 10 tests contra el de quien hizo los 10 no es
     comparar modelos. Publiqué "MiniMax M3 audita mejor que Opus (8.24 vs 6.94)" y en los
     4 tests que ambos rindieron, Opus GANABA 10.00 a 9.00.
+
+    Distinción que importa: una suite que alimenta `quality` con el examen incompleto
+    BLOQUEA (contamina el ranking). Un pilar aparte —contexto largo, seguridad— con el
+    examen incompleto se MARCA como "no medido". No es lo mismo publicar un número falso
+    que decir "de este modelo no sabemos el contexto usable".
     """
-    malos = [(m["name"], s, i) for m in models if m.get("ranked")
-             for s, i in (m.get("suites_incompletas") or {}).items()]
-    if malos:
-        peor = min(malos, key=lambda x: x[2]["rindio"] / x[2]["total"])
+    bloquean, marcan = [], []
+    for m in models:
+        if not m.get("ranked"):
+            continue
+        for s, i in (m.get("suites_incompletas") or {}).items():
+            (marcan if s.startswith(PILARES_APARTE) else bloquean).append((m["name"], s, i))
+
+    if bloquean:
+        peor = min(bloquean, key=lambda x: x[2]["rindio"] / x[2]["total"])
         fallo("B1 · examen completo",
-              f"{len(malos)} pares (modelo, suite) con tests faltantes en modelos RANKEADOS. "
-              f"Peor: {peor[0]} rindió {peor[2]['rindio']}/{peor[2]['total']} de {peor[1]}. "
-              f"Su promedio sale de otro examen: no es comparable.")
-    elif verbose:
-        print("  ✅ B1 · todo modelo rankeado rindió los exámenes completos")
+              f"{len(bloquean)} pares (modelo, suite) con tests faltantes en suites que "
+              f"ALIMENTAN LA CALIDAD. Peor: {peor[0]} rindió {peor[2]['rindio']}/"
+              f"{peor[2]['total']} de {peor[1]}. Su promedio sale de otro examen.")
+    if marcan:
+        aviso("B1 · pilares aparte",
+              f"{len(marcan)} pares con examen incompleto en contexto largo / seguridad. "
+              f"NO contaminan el ranking (son pilares propios), pero su score en ese pilar "
+              f"no se puede publicar: hay que mostrarlo como «no medido».")
+    if not bloquean and verbose:
+        print("  ✅ B1 · todo modelo rankeado rindió completos los exámenes que puntúan")
 
 
 def b2_rankeable(models, verbose):
