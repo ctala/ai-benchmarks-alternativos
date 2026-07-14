@@ -1164,6 +1164,9 @@ MODELS = {
 
     # --- xAI Grok ---
     "grok-4.1-fast": {
+        # Endpoint MUERTO: el proveedor lo apagó. Los datos quedan como estadística
+        # histórica (son mediciones reales), pero no compite ni se recomienda.
+        "retired": True,  # xAI: deprecated, recomienda migrar a Grok 4.3 (13-jul-2026)
         "id": "x-ai/grok-4.1-fast",
         "name": "Grok 4.1 Fast",
         "cost_input": 0.20, "cost_output": 0.50,
@@ -1226,6 +1229,9 @@ MODELS = {
         "open_source": True, "license": "MIT",
     },
     "mimo-v2-omni": {
+        # Endpoint MUERTO: el proveedor lo apagó. Los datos quedan como estadística
+        # histórica (son mediciones reales), pero no compite ni se recomienda.
+        "retired": True,  # Xiaomi: deprecated, recomienda migrar a mimo-v2.5 (13-jul-2026)
         "id": "xiaomi/mimo-v2-omni",
         "name": "MiMo-V2-Omni (multimodal)",
         "cost_input": 0.40, "cost_output": 2.00,

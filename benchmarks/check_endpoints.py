@@ -65,10 +65,20 @@ DEAD_MARKERS = (
 TRANSIENT_MARKERS = ("rate limit", "429", "timeout", "timed out", "502", "503", "504", "overloaded")
 # Falta la key de ese provider. No es problema del modelo.
 AUTH_MARKERS = ("401", "403", "invalid api key", "unauthorized", "no auth credentials")
+# Self-hosted en TU hardware (Spark, llama-server, Ollama local) que no responde.
+# El modelo EXISTE y funcionaría con la máquina encendida. No es un endpoint retirado:
+# marcarlo como muerto sería el mismo falso positivo que casi nos hace borrar a Llama
+# 3.1 8B (que estaba vivo) por una credencial faltante.
+LOCAL_DOWN_MARKERS = ("connection error", "connection refused", "max retries",
+                      "failed to establish", "name or service not known", "no route to host")
+PROVIDERS_LOCALES = ("llama_server", "llama_server_think", "ollama", "diffusion_cli")
 
 
-def classify(err: str) -> str:
+def classify(err: str, provider: str = "") -> str:
     e = (err or "").lower()
+    # Primero lo local: tu Spark apagado no es un modelo retirado.
+    if provider in PROVIDERS_LOCALES and any(m in e for m in LOCAL_DOWN_MARKERS):
+        return "APAGADO"
     if any(m in e for m in DEAD_MARKERS):
         return "MUERTO"
     if any(m in e for m in AUTH_MARKERS):
@@ -147,7 +157,8 @@ def main():
     P = build_providers(include_ollama=True)
     print(f"Chequeando {len(targets)} endpoints (ping de 1 token cada uno)…\n")
 
-    buckets = {"VIVO": [], "MUERTO": [], "INTERMITENTE": [], "SIN CREDENCIAL": [], "ERROR": []}
+    buckets = {"VIVO": [], "MUERTO": [], "INTERMITENTE": [], "SIN CREDENCIAL": [],
+               "APAGADO": [], "ERROR": []}
     dead_reasons = {}
 
     for i, (k, cfg) in enumerate(targets.items(), 1):
@@ -156,7 +167,8 @@ def main():
         if estado == "MUERTO":
             prov = cfg.get("provider", "openrouter")
             dead_reasons[k] = f"{prov}: {detalle[:60]}"
-        icon = {"VIVO": "·", "MUERTO": "💀", "INTERMITENTE": "…", "SIN CREDENCIAL": "🔑", "ERROR": "?"}[estado]
+        icon = {"VIVO": "·", "MUERTO": "💀", "INTERMITENTE": "…", "SIN CREDENCIAL": "🔑",
+                "APAGADO": "🔌", "ERROR": "?"}[estado]
         print(f"  [{i:>3}/{len(targets)}] {icon} {cfg.get('name','')[:34]:<36} {estado}")
 
     print("\n" + "=" * 70)
@@ -164,6 +176,7 @@ def main():
     print(f"  MUERTOS:        {len(buckets['MUERTO'])}   ← el proveedor los retiró")
     print(f"  INTERMITENTES:  {len(buckets['INTERMITENTE'])}   ← existen, reintentar")
     print(f"  SIN CREDENCIAL: {len(buckets['SIN CREDENCIAL'])}   ← falta la key del provider")
+    print(f"  APAGADOS:       {len(buckets['APAGADO'])}   ← self-hosted tuyo, la máquina no responde")
     print(f"  OTROS ERRORES:  {len(buckets['ERROR'])}")
 
     if buckets["MUERTO"]:
