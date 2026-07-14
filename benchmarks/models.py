@@ -1280,6 +1280,20 @@ MODELS = {
 
     # --- Nous Research Hermes 4 (open, abril 2026) ---
     "hermes-4-70b": {
+        # OJO, COLISIÓN DE NOMBRES: este Hermes es el MODELO de Nous Research
+        # (fine-tune de Llama 3.1), NO el Hermes Agent que corre Nyx en el Spark.
+        # Son cosas distintas con el mismo nombre. El `name` no se puede cambiar sin
+        # migrar los 508 runs guardados bajo él (el export matchea por id+name), así
+        # que la aclaración va en las notas, que sí se muestran.
+        "notes": "Modelo de Nous Research (fine-tune de Llama 3.1). No confundir con el Hermes Agent. ⚠️ No soporta tool calling en OpenRouter: no sirve para agentes.",
+        # NO soporta tool calling en OpenRouter (verificado contra supported_parameters,
+        # 14-jul-2026). Los tests que exigen herramientas devuelven "No endpoints found":
+        # el modelo existe pero ningún proveedor lo sirve CON tools.
+        #
+        # Eso NO es un examen incompleto — es el resultado. Un modelo que no puede llamar
+        # herramientas no puede hacer trabajo de agente, y quien lo elija para eso tiene
+        # que saberlo. Antes se marcaba "no rendido", que ESCONDÍA la carencia.
+        "sin_tools": True,
         "id": "nousresearch/hermes-4-70b",
         "name": "Hermes 4 70B",
         "cost_input": 0.13, "cost_output": 0.40,
@@ -1288,6 +1302,12 @@ MODELS = {
         "notes": "Hybrid reasoning mode. Open-source de Nous Research. Sin reasoning explícito en este config.",
     },
     "hermes-4-70b-thinking": {
+        # OJO, COLISIÓN DE NOMBRES: este Hermes es el MODELO de Nous Research
+        # (fine-tune de Llama 3.1), NO el Hermes Agent que corre Nyx en el Spark.
+        # Son cosas distintas con el mismo nombre. El `name` no se puede cambiar sin
+        # migrar los 508 runs guardados bajo él (el export matchea por id+name), así
+        # que la aclaración va en las notas, que sí se muestran.
+        "notes": "Modelo de Nous Research (fine-tune de Llama 3.1). No confundir con el Hermes Agent. ⚠️ No soporta tool calling en OpenRouter: no sirve para agentes.",
         "id": "nousresearch/hermes-4-70b",
         "name": "Hermes 4 70B (thinking)",
         "cost_input": 0.13, "cost_output": 0.40,
@@ -1298,6 +1318,20 @@ MODELS = {
         "notes": "Misma versión que hermes-4-70b pero con reasoning forzado vía OpenRouter (effort=high). Technical report reporta +12 puntos MMLU al activar reasoning (76.7 → 88.4).",
     },
     "hermes-4-405b": {
+        # OJO, COLISIÓN DE NOMBRES: este Hermes es el MODELO de Nous Research
+        # (fine-tune de Llama 3.1), NO el Hermes Agent que corre Nyx en el Spark.
+        # Son cosas distintas con el mismo nombre. El `name` no se puede cambiar sin
+        # migrar los 508 runs guardados bajo él (el export matchea por id+name), así
+        # que la aclaración va en las notas, que sí se muestran.
+        "notes": "Modelo de Nous Research (fine-tune de Llama 3.1). No confundir con el Hermes Agent. ⚠️ No soporta tool calling en OpenRouter: no sirve para agentes.",
+        # NO soporta tool calling en OpenRouter (verificado contra supported_parameters,
+        # 14-jul-2026). Los tests que exigen herramientas devuelven "No endpoints found":
+        # el modelo existe pero ningún proveedor lo sirve CON tools.
+        #
+        # Eso NO es un examen incompleto — es el resultado. Un modelo que no puede llamar
+        # herramientas no puede hacer trabajo de agente, y quien lo elija para eso tiene
+        # que saberlo. Antes se marcaba "no rendido", que ESCONDÍA la carencia.
+        "sin_tools": True,
         "id": "nousresearch/hermes-4-405b",
         "name": "Hermes 4 405B",
         "cost_input": 1.00, "cost_output": 3.00,
@@ -1306,6 +1340,12 @@ MODELS = {
         "notes": "Flagship Hermes 4 con reasoning híbrido. Sin reasoning explícito en este config.",
     },
     "hermes-4-405b-thinking": {
+        # OJO, COLISIÓN DE NOMBRES: este Hermes es el MODELO de Nous Research
+        # (fine-tune de Llama 3.1), NO el Hermes Agent que corre Nyx en el Spark.
+        # Son cosas distintas con el mismo nombre. El `name` no se puede cambiar sin
+        # migrar los 508 runs guardados bajo él (el export matchea por id+name), así
+        # que la aclaración va en las notas, que sí se muestran.
+        "notes": "Modelo de Nous Research (fine-tune de Llama 3.1). No confundir con el Hermes Agent. ⚠️ No soporta tool calling en OpenRouter: no sirve para agentes.",
         "id": "nousresearch/hermes-4-405b",
         "name": "Hermes 4 405B (thinking)",
         "cost_input": 1.00, "cost_output": 3.00,

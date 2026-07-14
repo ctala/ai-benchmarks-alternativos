@@ -1,13 +1,13 @@
 # MiniMax M3
 
 - **model_id**: `minimax/minimax-m3`
-- **Total tests**: 417/449 exitosos (32 errores)
-- **Score final**: 6.74
+- **Total tests**: 420/452 exitosos (32 errores)
+- **Score final**: 6.75
 - **Calidad**: 7.67
-- **Judge score (Phi-4)**: 4.02/10
-- **Velocidad**: 36 tok/s
-- **Latencia primera token**: 29.21s
-- **Costo promedio por test**: $0.01143
+- **Judge score (Phi-4)**: 4.03/10
+- **Velocidad**: 37 tok/s
+- **Latencia primera token**: 29.36s
+- **Costo promedio por test**: $0.01139
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -40,7 +40,7 @@
 | reasoning | 3 | 3 | 7.54 | 9.53 |
 | sales_outreach | 3 | 3 | 8.01 | 9.33 |
 | startup_content | 5 | 5 | 7.50 | 9.58 |
-| strategy | 3 | 2 | 7.43 | 8.75 |
+| strategy | 6 | 5 | 7.42 | 8.50 |
 | string_precision | 6 | 6 | 7.67 | 8.17 |
 | structured_output | 4 | 4 | 5.30 | 5.00 |
 | summarization | 2 | 2 | 6.89 | 7.70 |
@@ -383,6 +383,9 @@ Aprecio que pidas explícitamente niveles de certeza, porque eso me obliga a ser
 | competitor_analysis | 3.88 | 0.00 | - | 0 | 33.14s | ERROR |
 | pricing_strategy | 6.60 | 7.50 | 5.0 | 25 | 102.79s | OK |
 | business_model_validation | 8.27 | 10.00 | 5.0 | 20 | 199.41s | OK |
+| competitor_analysis | 8.62 | 10.00 | 4.2 | 91 | 32.58s | OK |
+| pricing_strategy | 4.98 | 5.00 | 5.0 | 82 | 74.84s | OK |
+| business_model_validation | 8.61 | 10.00 | 5 | 72 | 44.40s | OK |
 
 <details><summary><code>competitor_analysis</code> — score 3.88</summary>
 
@@ -437,6 +440,77 @@ Antes de gastar un peso, vamos a destruir tu tesis. Si sobrevive, quizá valga l
 ```
 
 **Respuesta completa**: [`results/responses/20260601_104638/minimax-m3__strategy__business_model_validation.md`](../results/responses/20260601_104638/minimax-m3__strategy__business_model_validation.md)
+
+</details>
+
+<details><summary><code>competitor_analysis</code> — score 8.62</summary>
+
+**Stats**: latencia 32.58s · 91 tok/s · 327→2964 tokens · $0.00365
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Análisis Estratégico: Email Marketing para PYMEs en LATAM
+
+**Disclaimers de rigor** (porque la honestidad va primero):
+- Mi data de **Mailchimp y Brevo** es razonable; los precios vigentes los verifico en sus webs antes de cualquier decisión.
+- **"EnviaMas" no la ubico con certeza.** Puede ser rea
+```
+
+**Respuesta completa**: [`results/responses/20260714_163618_51389/minimax-m3__strategy__competitor_analysis.md`](../results/responses/20260714_163618_51389/minimax-m3__strategy__competitor_analysis.md)
+
+</details>
+
+<details><summary><code>pricing_strategy</code> — score 4.98</summary>
+
+**Stats**: latencia 74.84s · 82 tok/s · 342→6111 tokens · $0.00744
+
+**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+The user is asking for a comprehensive analysis of a SaaS pricing change. Let me work through this carefully with real math and industry benchmarks.
+
+**Current Situation:**
+- CAC: $120
+- LTV: $840 (14 months × $60/month)
+- Monthly churn: 7%
+- Customers: 200
+- Competitors: $29-$149/month
+- Cost per u
+```
+
+**Respuesta completa**: [`results/responses/20260714_163618_51389/minimax-m3__strategy__pricing_strategy.md`](../results/responses/20260714_163618_51389/minimax-m3__strategy__pricing_strategy.md)
+
+</details>
+
+<details><summary><code>business_model_validation</code> — score 8.61</summary>
+
+**Stats**: latencia 44.40s · 72 tok/s · 330→3218 tokens · $0.00396
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando una evaluación crítica y detallada del modelo de negocio propuesto.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# El Pitch más Incómodo que vas a Leer
+
+Vamos directo. Tu hipótesis suena razonable en una slide, pero tiene más agujeros que un queso Oaxaca. Te voy a desarmar esto por partes.
+
+---
+
+## 1. Los 5 Riesgos Reales (no los de blog de startup)
+
+### 🔴 Riesgo #1: El dolor que asumes es un dolor real
+Asumes
+```
+
+**Respuesta completa**: [`results/responses/20260714_163618_51389/minimax-m3__strategy__business_model_validation.md`](../results/responses/20260714_163618_51389/minimax-m3__strategy__business_model_validation.md)
 
 </details>
 

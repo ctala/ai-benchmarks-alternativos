@@ -1,13 +1,13 @@
 # DeepSeek V4 Pro
 
 - **model_id**: `deepseek/deepseek-v4-pro`
-- **Total tests**: 204/226 exitosos (22 errores)
-- **Score final**: 6.37
-- **Calidad**: 6.70
-- **Judge score (Phi-4)**: 3.55/10
+- **Total tests**: 210/232 exitosos (22 errores)
+- **Score final**: 6.42
+- **Calidad**: 6.77
+- **Judge score (Phi-4)**: 3.58/10
 - **Velocidad**: 38 tok/s
-- **Latencia primera token**: 44.21s
-- **Costo promedio por test**: $0.00495
+- **Latencia primera token**: 45.28s
+- **Costo promedio por test**: $0.00493
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -27,7 +27,7 @@
 | deep_reasoning | 12 | 10 | 6.43 | 6.75 |
 | hallucination | 6 | 5 | 7.39 | 8.00 |
 | multi_turn | 8 | 7 | 6.61 | 6.86 |
-| news_seo_writing | 5 | 4 | 4.89 | 5.20 |
+| news_seo_writing | 6 | 5 | 5.36 | 5.80 |
 | niah_es_lite | 45 | 45 | 4.65 | 4.23 |
 | ocr_extraction | 10 | 9 | 7.62 | 8.39 |
 | orchestration | 10 | 8 | 7.19 | 7.86 |
@@ -35,7 +35,7 @@
 | presentation | 2 | 2 | 4.98 | 4.23 |
 | reasoning | 3 | 3 | 5.97 | 6.07 |
 | sales_outreach | 3 | 3 | 6.07 | 6.44 |
-| startup_content | 6 | 5 | 6.61 | 7.34 |
+| startup_content | 11 | 10 | 7.38 | 8.35 |
 | strategy | 3 | 3 | 5.77 | 6.11 |
 | string_precision | 12 | 11 | 8.24 | 9.00 |
 | structured_output | 8 | 7 | 5.23 | 5.00 |
@@ -1420,6 +1420,11 @@ Muchas empresas automatizan lo ineficiente y creen que ya hicieron el cambio. La
 | workshop_outline | 4.85 | 0.00 | - | 0 | 0.00s | ERROR |
 | newsletter_startup | 7.35 | 8.96 | 4.4 | 27 | 72.44s | OK |
 | blog_actualidad_startup | 8.51 | 9.80 | 5 | 52 | 67.57s | OK |
+| blog_actualidad_startup | 7.44 | 8.40 | 4.0 | 73 | 77.18s | OK |
+| curso_emprendimiento_modulo | 8.61 | 10.00 | 5 | 61 | 72.08s | OK |
+| workshop_outline | 8.52 | 10.00 | 5 | 72 | 95.05s | OK |
+| newsletter_startup | 8.50 | 9.80 | 5 | 50 | 33.46s | OK |
+| perplexity_style_research | 7.71 | 8.60 | 4.0 | 56 | 52.18s | OK |
 
 <details><summary><code>blog_actualidad_startup</code> — score 6.86</summary>
 
@@ -1508,6 +1513,118 @@ Imagina esto: una startup fintech en Bogotá lanza
 
 </details>
 
+<details><summary><code>blog_actualidad_startup</code> — score 7.44</summary>
+
+**Stats**: latencia 77.18s · 73 tok/s · 235→5646 tokens · $0.00501
+
+**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Cómo la IA open-source impulsa a las startups latinas en 2026**  
+*Descubre cómo modelos como DeepSeek, Llama y Gemma están democratizando la IA en América Latina y qué significa para los emprendedores en 2026.*  
+
+---
+
+Cuando DeepSeek lanzó su modelo R1 en enero de 2025, el mundo tecnológico se e
+```
+
+**Respuesta completa**: [`results/responses/20260714_180807_99667/deepseek-v4-pro__startup_content__blog_actualidad_startup.md`](../results/responses/20260714_180807_99667/deepseek-v4-pro__startup_content__blog_actualidad_startup.md)
+
+</details>
+
+<details><summary><code>curso_emprendimiento_modulo</code> — score 8.61</summary>
+
+**Stats**: latencia 72.08s · 61 tok/s · 245→4396 tokens · $0.00393
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil para emprendedores, cubriendo todos los aspectos solicitados con ejemplos prácticos y una explicación detallada de las herramientas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Módulo 3: Automatización con IA: De la idea al flujo de trabajo
+
+## 1. Objetivo del módulo
+
+Al finalizar este módulo, serás capaz de identificar procesos repetitivos en tu startup, diseñar flujos de trabajo automatizados que integren inteligencia artificial y construir tu primera automatización pr
+```
+
+**Respuesta completa**: [`results/responses/20260714_180807_99667/deepseek-v4-pro__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260714_180807_99667/deepseek-v4-pro__startup_content__curso_emprendimiento_modulo.md)
+
+</details>
+
+<details><summary><code>workshop_outline</code> — score 8.52</summary>
+
+**Stats**: latencia 95.05s · 72 tok/s · 198→6804 tokens · $0.00601
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y prácticamente útil, proporcionando un plan detallado y estructurado que se ajusta perfectamente a las necesidades de los emprendedores no técnicos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# ⚡️ Construye tu Asistente de IA para tu Startup – Workshop Práctico  
+**Outline completo para un taller presencial de 3 horas**  
+*Audiencia: 20-30 emprendedores early‑stage no‑técnicos*
+
+---
+
+## 1. Agenda detallada (3 horas, cronograma realista)
+
+| Hora | Duración | Bloque |
+|------|----------|--
+```
+
+**Respuesta completa**: [`results/responses/20260714_180807_99667/deepseek-v4-pro__startup_content__workshop_outline.md`](../results/responses/20260714_180807_99667/deepseek-v4-pro__startup_content__workshop_outline.md)
+
+</details>
+
+<details><summary><code>newsletter_startup</code> — score 8.50</summary>
+
+**Stats**: latencia 33.46s · 50 tok/s · 227→1671 tokens · $0.00155
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil para emprendedores, proporcionando información detallada y perspectivas prácticas sobre cada tema.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Newsletter #47 – DeepSeek V4, Chile apuesta por deep tech y Gemma 4 le planta cara a GPT-4o**
+
+¡Hola! 👋  
+Abrimos otra semana con movimientos que confirman que la inteligencia artificial no da tregua. Modelos más potentes, nuevos fondos públicos y herramientas cada vez más democráticas están redef
+```
+
+**Respuesta completa**: [`results/responses/20260714_180807_99667/deepseek-v4-pro__startup_content__newsletter_startup.md`](../results/responses/20260714_180807_99667/deepseek-v4-pro__startup_content__newsletter_startup.md)
+
+</details>
+
+<details><summary><code>perplexity_style_research</code> — score 7.71</summary>
+
+**Stats**: latencia 52.18s · 56 tok/s · 189→2921 tokens · $0.00262
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, proporcionando información estructurada y útil para emprendedores, aunque carece de algunas perspectivas de actores relevantes y comparaciones detalladas con Q1 2025.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## 1. Resumen ejecutivo
+
+- La inversión de venture capital en América Latina mostró en el primer trimestre de 2026 una **recuperación sostenida**, con un alza interanual de ~19 % respecto a Q1 2025, impulsada por megadeals en fintech y logística.
+- **Brasil y México** concentran más del 70 % del cap
+```
+
+**Respuesta completa**: [`results/responses/20260714_180807_99667/deepseek-v4-pro__startup_content__perplexity_style_research.md`](../results/responses/20260714_180807_99667/deepseek-v4-pro__startup_content__perplexity_style_research.md)
+
+</details>
+
 #### news_seo_writing
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -1517,6 +1634,7 @@ Imagina esto: una startup fintech en Bogotá lanza
 | news_no_hallucination_sources | 1.52 | 0.00 | 4.0 | 31 | 98.52s | OK |
 | news_perplexity_enrichment | 6.77 | 7.86 | 4.0 | 30 | 69.46s | OK |
 | news_spanish_only | 5.90 | 3.00 | - | 0 | 0.00s | ERROR |
+| news_seo_article_full | 7.23 | 8.20 | 4.0 | 51 | 160.52s | OK |
 
 <details><summary><code>news_seo_article_full</code> — score 6.63</summary>
 
@@ -1609,6 +1727,28 @@ La startup china DeepSeek acaba de liberar la cuarta versión de su modelo de le
 <details><summary><code>news_spanish_only</code> — score 5.90</summary>
 
 **Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+<details><summary><code>news_seo_article_full</code> — score 7.23</summary>
+
+**Stats**: latencia 160.52s · 51 tok/s · 471→8192 tokens · $0.00733
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:4, utilidad:4)
+
+> La respuesta es precisa, relevante y ofrece una buena profundidad con información detallada sobre la trayectoria de Mistral AI y el lanzamiento de Devstral, manteniendo claridad y utilidad práctica, además de una estructura SEO adecuada.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Mistral AI $2B Serie C y Devstral: modelo open-source**
+
+**Meta descripción:** Mistral AI cierra ronda Serie C de $2B, valoración de $15B, y lanza Devstral, modelo de código abierto que supera a OpenAI y Google en SWE-Bench.
+
+**Palabras clave SEO:** Mistral AI, Devstral, modelo de código abierto,
+```
+
+**Respuesta completa**: [`results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_seo_article_full.md`](../results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_seo_article_full.md)
 
 </details>
 

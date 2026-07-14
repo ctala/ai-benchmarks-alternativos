@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "timestamp": "20260714_165429_60810",
+    "total_runs": 1,
+    "errors": 0,
+    "judge": {
+      "judge_model": "microsoft/phi-4",
+      "judge_provider": "openrouter",
+      "judge_is_local": false,
+      "evaluations": 2,
+      "estimated_cost_usd": 0.0016
+    },
+    "partial": true
+  },
+  "results": [
+    {
+      "quality": 8.0,
+      "cost_score": 6.74,
+      "cost_usd": 0.002631,
+      "speed": 8.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 7.29,
+      "test_name": "translate_marketing_es_en",
+      "model": "GLM 5.2",
+      "model_id": "z-ai/glm-5.2",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 56.9,
+      "latency_first_token": 14.42,
+      "latency_total": 14.42,
+      "input_tokens": 180,
+      "output_tokens": 820,
+      "response_preview": "Stop wasting hours on what AI does in seconds.\nAutoFlow automates your most tedious workflows so you can focus on what actually matters: scaling your startup.\n\nNo code. No headaches. No excuses.\n\nOver 500 startups across LATAM are already on board. When are you jumping in?",
+      "auto_quality": 8.0,
+      "content_score": 8.0,
+      "answer_score": 8.0,
+      "scoring": "verificable",
+      "judge_score": 5,
+      "judge_precision": 5,
+      "judge_relevancia": 5,
+      "judge_profundidad": 4,
+      "judge_claridad": 5,
+      "judge_utilidad": 5,
+      "judge_justificacion": "La traducción es precisa, relevante y clara, manteniendo el tono cercano y energético. Ofrece insights útiles para emprendedores, adaptando el mensaje para una audiencia americana.",
+      "suite": "translation",
+      "run": 1,
+      "timestamp": "20260714_165429_60810",
+      "response_file": "results/responses/20260714_165429_60810/glm-5.2__translation__translate_marketing_es_en.md"
+    }
+  ]
+}

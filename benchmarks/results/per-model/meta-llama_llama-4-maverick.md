@@ -1,13 +1,13 @@
 # Llama 4 Maverick
 
 - **model_id**: `meta-llama/llama-4-maverick`
-- **Total tests**: 325/350 exitosos (25 errores)
+- **Total tests**: 330/355 exitosos (25 errores)
 - **Score final**: 6.92
 - **Calidad**: 7.72
-- **Judge score (Phi-4)**: 3.23/10
-- **Velocidad**: 32 tok/s
-- **Latencia primera token**: 9.41s
-- **Costo promedio por test**: $0.02415
+- **Judge score (Phi-4)**: 3.28/10
+- **Velocidad**: 31 tok/s
+- **Latencia primera token**: 9.54s
+- **Costo promedio por test**: $0.02380
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 10 | 2 | 7.73 | 9.06 |
+| agent_capabilities | 15 | 7 | 7.27 | 8.15 |
 | agent_long_horizon | 12 | 12 | 7.97 | 8.83 |
 | business_audit | 10 | 10 | 6.25 | 6.45 |
 | business_strategy | 5 | 5 | 7.75 | 8.50 |
@@ -2540,6 +2540,11 @@ EcoStartup es una aceleradora de startups sustentables que busca impulsar negoci
 | ask_clarification_before_acting | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
 | context_following_complex_system | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
 | model_as_router | 7.80 | 8.92 | 4.4 | 38 | 10.41s | OK |
+| skill_execution_complex | 7.43 | 8.20 | 4.0 | 20 | 7.18s | OK |
+| agent_team_delegation | 7.37 | 8.10 | 4.0 | 42 | 11.49s | OK |
+| ask_clarification_before_acting | 6.89 | 7.60 | 5 | 15 | 6.54s | OK |
+| context_following_complex_system | 6.80 | 7.50 | 5 | 16 | 29.28s | OK |
+| model_as_router | 6.90 | 7.50 | 4.0 | 16 | 34.38s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 3.10</summary>
 
@@ -2620,6 +2625,112 @@ Aquí te dejo mis recomendaciones en formato JSON array:
   {"subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales", "modelo": "claude-sonnet", "razon": "Requiere empatia y comprensión del lenguaje para analizar reviews y extraer problemas"},
   {"subtarea": "Escribir u
 ```
+
+</details>
+
+<details><summary><code>skill_execution_complex</code> — score 7.43</summary>
+
+**Stats**: latencia 7.18s · 20 tok/s · 1312→142 tokens · $0.00080
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con un plan bien estructurado que un emprendedor podría usar directamente, aunque carece de profundidad adicional más allá de los pasos obvios.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Mi plan es el siguiente:
+1. Publicar el artículo usando el skill "publish_blog_post" con el contenido del documento compartido.
+2. Buscar el link del artículo publicado en la base de conocimiento.
+3. Enviar el link por Slack a @maria y @carlos usando "send_message".
+4. Agendar una reunión de review
+```
+
+**Respuesta completa**: [`results/responses/20260714_180509_98060/llama-4-maverick__agent_capabilities__skill_execution_complex.md`](../results/responses/20260714_180509_98060/llama-4-maverick__agent_capabilities__skill_execution_complex.md)
+
+</details>
+
+<details><summary><code>agent_team_delegation</code> — score 7.37</summary>
+
+**Stats**: latencia 11.49s · 42 tok/s · 1341→489 tokens · $0.00116
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con una estructura útil para coordinar tareas, aunque carece de profundidad en detalles específicos o insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Claro! Para crear la landing page para "AutoFlow AI", te propongo el siguiente plan de ejecución:
+
+1. **Investigar la competencia**: Primero, necesitamos entender qué hace la competencia. Asignaré esta tarea al `researcher`.
+2. **Escribir el copy de la landing**: Una vez que tengamos la información
+```
+
+**Respuesta completa**: [`results/responses/20260714_180509_98060/llama-4-maverick__agent_capabilities__agent_team_delegation.md`](../results/responses/20260714_180509_98060/llama-4-maverick__agent_capabilities__agent_team_delegation.md)
+
+</details>
+
+<details><summary><code>ask_clarification_before_acting</code> — score 6.89</summary>
+
+**Stats**: latencia 6.54s · 15 tok/s · 1218→96 tokens · $0.00071
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y prácticamente útil, mostrando una comprensión adecuada de la necesidad de aclaración antes de actuar.
+
+**Respuesta (preview 300 chars)**:
+
+```
+To process the refund, I need to execute the "process_refund" skill. However, the parameters for this skill are not provided. Moreover, processing a refund is a critical action that can have irreversible consequences.
+
+I need to clarify the details with a human before proceeding. I'll ask for the ne
+```
+
+**Respuesta completa**: [`results/responses/20260714_180509_98060/llama-4-maverick__agent_capabilities__ask_clarification_before_acting.md`](../results/responses/20260714_180509_98060/llama-4-maverick__agent_capabilities__ask_clarification_before_acting.md)
+
+</details>
+
+<details><summary><code>context_following_complex_system</code> — score 6.80</summary>
+
+**Stats**: latencia 29.28s · 16 tok/s · 1378→472 tokens · $0.00116
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y prácticamente útil, abordando adecuadamente cada solicitud con acciones apropiadas y explicaciones.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Lo siento, pero no puedo cumplir con todas tus solicitudes. Aquí te explico por qué:
+
+1. **Publicar el artículo sobre financiamiento de IA en LATAM**: Puedo ayudarte con esto. Suponiendo que el artículo está listo y solo necesitas publicarlo, puedo delegar esta tarea a un sub-agente especializado en
+```
+
+**Respuesta completa**: [`results/responses/20260714_180509_98060/llama-4-maverick__agent_capabilities__context_following_complex_system.md`](../results/responses/20260714_180509_98060/llama-4-maverick__agent_capabilities__context_following_complex_system.md)
+
+</details>
+
+<details><summary><code>model_as_router</code> — score 6.90</summary>
+
+**Stats**: latencia 34.38s · 16 tok/s · 264→539 tokens · $0.00067
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa y relevante, proporcionando recomendaciones bien justificadas para cada subtarea, con claridad y utilidad práctica para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí te dejo mis recomendaciones en formato JSON:
+
+```
+[
+  {"subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales", "modelo": "claude-sonnet", "razon": "Requiere empatía y comprensión del sentimiento de los usuarios para identificar los problemas principales"},
+  {"subt
+```
+
+**Respuesta completa**: [`results/responses/20260714_180509_98060/llama-4-maverick__agent_capabilities__model_as_router.md`](../results/responses/20260714_180509_98060/llama-4-maverick__agent_capabilities__model_as_router.md)
 
 </details>
 

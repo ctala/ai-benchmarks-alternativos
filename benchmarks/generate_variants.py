@@ -165,99 +165,115 @@ def short(m, cfg):
     return (m.get("name") or "").replace(cfg["family"], "").strip() or m.get("name")
 
 
-def ladder_block(vs, cfg):
-    """La auditoría de la escalera: ¿dónde se cumple 'más caro = mejor'?
+# Las categorías donde de verdad se ve la diferencia. Suites, no pilares: el pilar
+# promedia y esconde. "Razonamiento" mezcla auditar un P&L con resolver un acertijo.
+SUITES_ESCALERA = [
+    ("business_audit",      "Auditar un negocio",      "Encontrar el error en un P&L, la causalidad falsa, la métrica envenenada"),
+    ("business_strategy",   "Planificar",              "Armar un plan cuya aritmética cierre y respete las restricciones"),
+    ("content_verificable", "Escribir con restricciones", "No repetir el dato falso del brief, no meter el CTA prohibido"),
+    ("deep_reasoning",      "Razonamiento profundo",   "Matemática, lógica formal, estimaciones Fermi"),
+    ("code_generation",     "Código",                  "Generar y corregir código que funcione"),
+    ("agent_long_horizon",  "Agentes largos",          "Mantener el hilo y las restricciones a lo largo de muchos turnos"),
+    ("multi_turn",          "Multi-turno",             "Conversaciones de ida y vuelta sin perder el contexto"),
+    ("tool_calling",        "Tool calling",            "Llamar herramientas con los parámetros correctos"),
+]
 
-    Es el corazón de la página. Recorre cada dimensión y dice si el precio compra
-    algo. Sin esto, la página sería otra tabla más.
+
+def ladder_block(vs, cfg):
+    """¿Dónde compra algo el precio? La auditoría, tier por tier y categoría por categoría.
+
+    QUÉ CAMBIÓ (14-jul-2026, y por qué importa)
+    -------------------------------------------
+    Antes esto comparaba SOLO el más barato contra el más caro, sobre PILARES, usando
+    `score_by_suite`. Tres errores, y cada uno mentía distinto:
+
+    1. Ignoraba el tier del medio. En GPT-5.6, Terra es el único que gana en planificar.
+    2. El pilar promedia y esconde: "Razonamiento" mezcla auditar un P&L con un acertijo
+       lógico. Sol es peor en uno y mejor en el otro; el promedio dice "empatan".
+    3. `score_by_suite` es el score COMPUESTO: incluye precio. Usarlo para responder
+       "¿quién es mejor EN esto?" hace que el barato gane por ser barato. Publiqué un
+       titular falso por leer esa columna como si fuera calidad.
+
+    Ahora: los tres tiers, por suite, en CALIDAD PURA (`quality_by_suite`). El precio se
+    mira aparte, que es donde corresponde.
     """
     cheapest, priciest = vs[0], vs[-1]
-    rows, holds, breaks_ = [], [], []
+    rows, gana_caro, empates = [], [], 0
 
-    def add(label, desc, a, b):
-        if a is None or b is None:
-            return
-        delta = b - a
-        if delta >= 0.25:
-            verdict, cls = "El precio compra algo", "lad-yes"
-            holds.append(label)
-        elif delta <= -0.25:
-            verdict, cls = "Va al revés: el caro es peor", "lad-no"
-            breaks_.append(label)
+    def q(m, suite):
+        return (m.get("quality_by_suite") or {}).get(suite)
+
+    for suite, label, desc in SUITES_ESCALERA:
+        vals = [(m, q(m, suite)) for m in vs]
+        if any(v is None for _, v in vals):
+            continue
+        mejor = max(vals, key=lambda x: x[1])[0]
+        spread = max(v for _, v in vals) - min(v for _, v in vals)
+
+        if spread < 0.25:
+            cls, veredicto = "lad-tie", "Empatan — el precio no compra nada"
+            empates += 1
+        elif mejor is priciest:
+            cls, veredicto = "lad-yes", "El precio compra algo"
+            gana_caro.append(label)
+        elif mejor is cheapest:
+            cls, veredicto = "lad-no", "Va al revés: gana el barato"
         else:
-            verdict, cls = "Empatan — el precio no compra nada", "lad-tie"
+            cls, veredicto = "lad-tie", "Gana " + short(mejor, cfg)
+
+        celdas = ""
+        for m, v in vals:
+            td = '<td class="win">' if m is mejor else "<td>"
+            celdas += td + "{:.2f}</td>".format(v)
+
         rows.append(
-            f'<tr class="{cls}"><td><strong>{esc(label)}</strong>'
-            f'<span class="lad-desc">{esc(desc)}</span></td>'
-            f'<td>{a:.2f}</td><td>{b:.2f}</td><td>{delta:+.2f}</td>'
-            f'<td class="lad-verdict">{verdict}</td></tr>'
+            '<tr class="' + cls + '"><td><strong>' + esc(label) + "</strong>"
+            + '<span class="lad-desc">' + esc(desc) + "</span></td>"
+            + celdas
+            + '<td class="lad-verdict">' + esc(veredicto) + "</td></tr>"
         )
 
-    for p in PILLARS:
-        add(p, {"Coding": "Genera y corrige código",
-                "Contenido": "Escribe en español neutro",
-                "Razonamiento": "Analiza y planifica",
-                "Agentes": "Multi-turno y herramientas"}.get(p, ""),
-            pillar(cheapest, p) or None, pillar(priciest, p) or None)
+    cols = ""
+    for m in vs:
+        precio = m.get("cost_per_1k_calls_usd") or 0
+        cols += ("<th>" + esc(short(m, cfg))
+                 + '<span class="lad-price">${:.2f}</span></th>'.format(precio))
 
-    for key, label, desc in EXTRA_DIMS:
-        add(label, desc, cheapest.get(key), priciest.get(key))
+    tabla = ('<div class="table-scroll"><table class="results-table ladder">'
+             "<thead><tr><th>Qué le pedís</th>" + cols
+             + "<th>¿El precio compra algo?</th></tr></thead>"
+             + "<tbody>" + "".join(rows) + "</tbody></table></div>")
 
-    # Caso especial: si no hay escalera de precio que auditar (todas cuestan casi
-    # lo mismo), decir "pagar más no compra nada" seria absurdo — nadie esta pagando
-    # mas. Ahi la pregunta es otra: cual rinde mejor, gratis.
-    ca, cb = month(cheapest) or 0, month(priciest) or 0
-    same_price = cb <= ca * 1.25
-    if same_price:
-        best = max(vs, key=lambda m: m.get("quality_avg") or 0)
-        worst = min(vs, key=lambda m: m.get("quality_avg") or 0)
-        gap = (best.get("quality_avg") or 0) - (worst.get("quality_avg") or 0)
-        if gap >= 0.30:
-            lede = (f"Acá <strong>no hay escalera de precio que auditar</strong>: todas cuestan "
-                    f"prácticamente lo mismo (≈${ca:,.0f}/mes). Así que la pregunta no es cuánto "
-                    f"pagar, sino cuál rinde más — y <strong>{esc(short(best, cfg))}</strong> le saca "
-                    f"<strong>{gap:.2f} puntos</strong> de calidad a "
-                    f"<strong>{esc(short(worst, cfg))}</strong> por el mismo precio. "
-                    f"Elegir bien, acá, es gratis.")
-        else:
-            lede = (f"Todas cuestan prácticamente lo mismo (≈${ca:,.0f}/mes) y además "
-                    f"<strong>empatan en calidad</strong>. Cualquiera sirve: elige por velocidad "
-                    f"o por lo que ya tengas integrado.")
-    elif holds:
-        lede = (f"Pagar de <strong>{esc(short(cheapest, cfg))}</strong> a "
-                f"<strong>{esc(short(priciest, cfg))}</strong> compra algo real en "
-                f"<strong>{', '.join(esc(h) for h in holds)}</strong>"
-                + (f", y <strong>lo empeora</strong> en {', '.join(esc(b) for b in breaks_)}" if breaks_ else "")
-                + ". En todo lo demás, empatan.")
+    n = len(rows)
+    barato = cheapest.get("cost_per_1k_calls_usd") or 0.01
+    mult = (priciest.get("cost_per_1k_calls_usd") or 0) / max(0.01, barato)
+
+    if gana_caro:
+        lede = (
+            '<p class="verdict-lead"><strong>' + esc(short(priciest, cfg))
+            + " cuesta {:.0f} veces más que ".format(mult) + esc(short(cheapest, cfg))
+            + ".</strong> Y sí compra algo — pero solo en <strong>"
+            + "{} de {}</strong> categorías: ".format(len(gana_caro), n)
+            + esc(", ".join(gana_caro).lower()) + ".</p>"
+            + "<p>En las otras {}, o empatan o <strong>gana el barato</strong>. ".format(n - len(gana_caro))
+            + "Si tu trabajo cae justo en esas {}, el tier de arriba te da algo real. ".format(len(gana_caro))
+            + "Si no, estás pagando {:.0f}× por menos.</p>".format(mult)
+        )
     else:
-        lede = (f"Pagar de <strong>{esc(short(cheapest, cfg))}</strong> (≈${ca:,.0f}/mes) a "
-                f"<strong>{esc(short(priciest, cfg))}</strong> (≈${cb:,.0f}/mes) "
-                f"<strong>no compra nada medible</strong>: empatan en todas las dimensiones "
-                f"que este benchmark sabe medir. {cb/ca:.0f}× de precio por cero diferencia."
-                if ca else "Los tiers empatan en todas las dimensiones medidas.")
+        lede = (
+            '<p class="verdict-lead"><strong>' + esc(short(priciest, cfg))
+            + " cuesta {:.0f} veces más que ".format(mult) + esc(short(cheapest, cfg))
+            + " y no gana en ninguna categoría.</strong> La escalera de precios no está "
+            + "comprada con calidad: está comprada con otra cosa (contexto, límites de uso, "
+            + "prioridad en cola).</p>"
+        )
 
-    return f"""  <section class="ladder">
-    <h2>¿Dónde se cumple el "más caro, mejor"?</h2>
-    <p>{lede}</p>
-    <div class="table-scroll"><table class="results-table">
-      <thead><tr>
-        <th scope="col">Dimensión</th>
-        <th scope="col">{esc(short(cheapest, cfg))}<br><span class="lad-price">≈${month(cheapest):,.0f}/mes</span></th>
-        <th scope="col">{esc(short(priciest, cfg))}<br><span class="lad-price">≈${month(priciest):,.0f}/mes</span></th>
-        <th scope="col">Dif.</th>
-        <th scope="col">Qué compra tu plata</th>
-      </tr></thead>
-      <tbody>
-        {''.join(rows)}
-      </tbody>
-    </table></div>
-    <p class="meta">Ojo con las tres últimas filas: <strong>no entran en el score global</strong>
-    (van como dimensiones aparte, porque no todos las necesitan). O sea que si la única ventaja
-    del tier caro está ahí, <strong>es invisible en cualquier ranking</strong> — incluido el mío.</p>
-  </section>
-"""
+    nota = ('<p class="meta">Los números son <strong>calidad pura</strong>: sin costo, sin '
+            "velocidad. Cada categoría se compara sobre los <strong>mismos tests</strong> "
+            "rendidos por los tres. Un promedio sacado de exámenes distintos no compara "
+            "modelos — compara exámenes.</p>")
 
-
+    return lede + tabla + nota
 def render(cfg, models):
     vs = variants_of(models, cfg)
     if len(vs) < 2:
