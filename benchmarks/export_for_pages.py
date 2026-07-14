@@ -171,9 +171,24 @@ def load_all_results():
 MIN_SUITE_COVERAGE = 0.80
 
 
-def suite_coverage(all_runs_by_model: dict) -> dict:
-    """{suite: fracción de modelos (con >=MIN_RUNS_RANKED runs) que la corrieron}."""
-    pool = [m for m, runs in all_runs_by_model.items() if len(runs) >= MIN_RUNS_RANKED]
+def suite_coverage(all_runs_by_model: dict, es_rankeable=None) -> dict:
+    """{suite: fracción de los modelos QUE COMPITEN que ya rindieron esa suite}.
+
+    El denominador son los modelos **rankeables**, no todos los que tienen ≥50 runs.
+    La diferencia no es cosmética: 39 de los 98 modelos con ≥50 runs están RETIRADOS
+    (su endpoint murió) o son VARIANTES DE PROVEEDOR (el mismo modelo servido por otra
+    infra, que sacamos del ranking). El runner ya no los mide y **nunca** van a rendir
+    una suite nueva.
+
+    Dejarlos en el denominador los volvía un lastre permanente: `business_audit` marcaba
+    67% de cobertura (bajo el umbral de 80%) y por lo tanto NO PUNTUABA — aunque el 80%
+    de los modelos que de verdad compiten ya la habían rendido. La suite más
+    discriminante del benchmark estaba condenada a no contar nunca, por culpa de
+    modelos muertos que arrastraban la cuenta.
+    """
+    rankeable = es_rankeable or (lambda m: True)
+    pool = [m for m, runs in all_runs_by_model.items()
+            if len(runs) >= MIN_RUNS_RANKED and rankeable(m)]
     if not pool:
         return {}
     cov = defaultdict(set)
@@ -499,7 +514,25 @@ def build_export():
 
     # Cobertura por suite ANTES de agregar nada: una suite que corrió poca gente no
     # puede entrar al score, o castiga a los primeros que la rindieron.
-    _cov = suite_coverage(by_id_and_name if by_id_and_name else by_id)
+    #
+    # El denominador son los modelos QUE COMPITEN. Los retirados (endpoint muerto) y las
+    # variantes de proveedor (el mismo modelo servido por otra infra) ya no se miden y
+    # nunca van a rendir una suite nueva: dejarlos en la cuenta los vuelve un lastre
+    # permanente. Con ellos adentro, business_audit marcaba 67% y NO PUNTUABA, aunque el
+    # 80% de los que compiten ya la había rendido.
+    _muertos = {
+        (c["id"], c.get("name", k))
+        for k, c in MODELS.items()
+        if c.get("retired") or c.get("provider_variant")
+    }
+    _nombres_muertos = {n for _, n in _muertos}
+
+    def _compite(key):
+        if isinstance(key, tuple):
+            return key not in _muertos and key[1] not in _nombres_muertos
+        return True  # by_id: sin nombre no se puede desambiguar; no filtramos
+
+    _cov = suite_coverage(by_id_and_name if by_id_and_name else by_id, _compite)
     low_coverage = {s for s, c in _cov.items() if c < MIN_SUITE_COVERAGE}
     # niah/security/tool_calling ya se excluyen por otras razones — no hace falta
     # duplicar el aviso por ellas.
