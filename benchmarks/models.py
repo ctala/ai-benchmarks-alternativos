@@ -136,6 +136,9 @@ MODELS = {
     # MiniMax M2.7 Highspeed requiere API directa de MiniMax (no OpenRouter)
     # Configurar MINIMAX_API_KEY abajo para habilitarlo
     "minimax-m2.7-direct": {
+        # Variante de proveedor: el modelo ya se mide en OpenRouter (plano común) y esa es
+        # su fila canónica. Ésta conserva la medición en la infra del proveedor.
+        "provider_variant": True,
         "id": "MiniMax-M2.7",
         "name": "MiniMax M2.7 (directo)",
         "cost_input": 0.30,
@@ -146,6 +149,9 @@ MODELS = {
         "notes": "API directa MiniMax. Disponible también en sub Agent Pro $19/mes.",
     },
     "minimax-m2.7-highspeed": {
+        # Variante de proveedor: el modelo ya se mide en OpenRouter (plano común) y esa es
+        # su fila canónica. Ésta conserva la medición en la infra del proveedor.
+        "provider_variant": True,
         "id": "MiniMax-M2.7-highspeed",
         "name": "MiniMax M2.7 Highspeed",
         "cost_input": 0.30,
@@ -732,6 +738,9 @@ MODELS = {
         "notes": "Flagship GPT-5.6 (GA 9 jul 2026). $5/$30 vía OpenRouter.",
     },
     "gpt-5.5-pro": {
+        # Variante: medido en la Responses API de OpenAI. La fila canónica se mide en
+        # OpenRouter para que velocidad y latencia sean comparables.
+        "provider_variant": True,
         "id": "gpt-5.5-pro",
         "name": "GPT-5.5 Pro",
         "cost_input": 30.00,
@@ -779,6 +788,9 @@ MODELS = {
         "open_source": True, "license": "Llama Community",
     },
     "groq-gpt-oss-120b": {
+        # Variante de proveedor: el modelo ya se mide en OpenRouter (plano común) y esa es
+        # su fila canónica. Ésta conserva la medición en la infra del proveedor.
+        "provider_variant": True,
         "id": "openai/gpt-oss-120b",
         "name": "GPT-OSS 120B (Groq)",
         "cost_input": 0.15, "cost_output": 0.60,
@@ -805,6 +817,9 @@ MODELS = {
 
     # --- Ollama Cloud (suscripcion, requiere OLLAMA_CLOUD_API_KEY abajo) ---
     "deepseek-v4-pro-cloud": {
+        # Variante de proveedor: el modelo ya se mide en OpenRouter (plano común) y esa es
+        # su fila canónica. Ésta conserva la medición en la infra del proveedor.
+        "provider_variant": True,
         "id": "deepseek-v4-pro",
         "name": "DeepSeek V4 Pro (Ollama Cloud)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -816,6 +831,9 @@ MODELS = {
         "notes": "Recien agregado a Ollama Cloud (abril 28). Smoke test 22s OK, sin timeouts vs OpenRouter (76% cobertura) y NIM (504s timeouts).",
     },
     "deepseek-v4-flash-cloud": {
+        # Variante de proveedor: el modelo ya se mide en OpenRouter (plano común) y esa es
+        # su fila canónica. Ésta conserva la medición en la infra del proveedor.
+        "provider_variant": True,
         "id": "deepseek-v4-flash",
         "name": "DeepSeek V4 Flash (Ollama Cloud)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -841,6 +859,9 @@ MODELS = {
         "license": "Apache 2.0",
     },
     "qwen3.5-cloud": {
+        # Id ambiguo (`qwen3.5:cloud`): Ollama no documenta qué tamaño sirve. Sin saber
+        # QUÉ es, no se puede rankear ni recomendar.
+        "retired": True,
         "unavailable": "id ambiguo (`qwen3.5:cloud`): Ollama no documenta qué tamaño sirve",
         "id": "qwen3.5:cloud",
         "name": "Qwen 3.5 (Ollama Cloud default)",
@@ -916,6 +937,10 @@ MODELS = {
         "notes": "Variante thinking — comparar con Qwen 3-Next Instruct",
     },
     "nim-mistral-nemotron": {
+        # Solo existe en NVIDIA NIM (no hay endpoint público en OpenRouter) y no tenemos
+        # credencial. Medido en la infra de NIM: su velocidad no es comparable con el
+        # resto. Fuera del ranking; los datos quedan.
+        "provider_variant": True,
         "id": "mistralai/mistral-nemotron",
         "name": "Mistral-Nemotron (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -949,6 +974,9 @@ MODELS = {
         "notes": "Mismo modelo que probamos via OpenRouter — comparar latencia/calidad NIM vs OR",
     },
     "nim-deepseek-v4-pro": {
+        # Variante de proveedor: el modelo ya se mide en OpenRouter (plano común) y esa es
+        # su fila canónica. Ésta conserva la medición en la infra del proveedor.
+        "provider_variant": True,
         "id": "deepseek-ai/deepseek-v4-pro",
         "name": "DeepSeek V4 Pro (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -1020,6 +1048,10 @@ MODELS = {
         "notes": "Z.AI flagship base, comparar con 5.1",
     },
     "nim-magistral-small": {
+        # Solo existe en NVIDIA NIM (no hay endpoint público en OpenRouter) y no tenemos
+        # credencial. Medido en la infra de NIM: su velocidad no es comparable con el
+        # resto. Fuera del ranking; los datos quedan.
+        "provider_variant": True,
         "id": "mistralai/magistral-small-2506",
         "name": "Mistral Magistral Small (NIM)",
         "cost_input": 0.0, "cost_output": 0.0,
@@ -1351,6 +1383,10 @@ MODELS = {
         "notes": "Flagship reasoning, agentic, 1M context, lanzado 22 abril 2026",
     },
     "mimo-v2-pro-xiaomi": {
+        # Sin acceso: la suscripción a Xiaomi se dio de baja (jul-2026) Y su versión
+        # pública en OpenRouter está deprecada. No lo puede llamar nadie sin ese plan.
+        # Los datos quedan como estadística histórica.
+        "retired": True,
         "id": "mimo-v2-pro",
         "name": "MiMo V2-Pro (Xiaomi direct)",
         "cost_input": 0.07, "cost_output": 0.07,
@@ -1361,6 +1397,10 @@ MODELS = {
         "notes": "Mismo modelo que via OpenRouter — comparar provider stability",
     },
     "mimo-v2-omni-xiaomi": {
+        # Sin acceso: la suscripción a Xiaomi se dio de baja (jul-2026) Y su versión
+        # pública en OpenRouter está deprecada. No lo puede llamar nadie sin ese plan.
+        # Los datos quedan como estadística histórica.
+        "retired": True,
         "id": "mimo-v2-omni",
         "name": "MiMo V2-Omni (Xiaomi direct)",
         "cost_input": 0.07, "cost_output": 0.07,
@@ -1659,6 +1699,16 @@ MODELS = {
         "cost_input": 0.15, "cost_output": 0.9,
         "tier": "cheap", "provider": "openrouter",
         "open_source": True, "license": "MIT",
+    },
+
+
+    # GPT-5.5 Pro en el plano común (antes solo por la Responses API de OpenAI).
+    "or-gpt-5.5-pro": {
+        "id": "openai/gpt-5.5-pro",
+        "name": "GPT-5.5 Pro",
+        "cost_input": 30.0, "cost_output": 180.0,
+        "tier": "premium", "provider": "openrouter",
+        "open_source": False, "license": "Proprietary",
     },
 
 }
