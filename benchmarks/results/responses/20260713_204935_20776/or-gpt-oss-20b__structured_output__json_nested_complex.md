@@ -1,0 +1,11 @@
+# GPT-OSS 20B — structured_output/json_nested_complex
+
+- model_id: `openai/gpt-oss-20b`
+- success: True  | final: 5.64 | quality: 5.0
+- latency_total: 21.586s | tokens_per_second: 81.9
+- input_tokens: 273 | output_tokens: 1767
+- judge_score: 5 | justificación: La respuesta es precisa, relevante, clara y profundamente estructurada, proporcionando una representación detallada y útil de un plan de proyecto para un emprendedor.
+
+## Respuesta completa
+
+{"project":"Rediseno sitio web","start_date":"2026-05-01","end_date":"2026-06-30","team":[{"name":"Ana López","role":"Designer","allocation_pct":100},{"name":"Carlos Martínez","role":"Developer","allocation_pct":100},{"name":"Luis Gómez","role":"Developer","allocation_pct":100},{"name":"María Torres","role":"QA","allocation_pct":100}],"phases":[{"name":"Design","start":"2026-05-01","end":"2026-05-07","tasks":[{"title":"Research","assignee":"Ana López","hours":16,"depends_on":null},{"title":"Wireframes","assignee":"Ana López","hours":24,"depends_on":"Research"},{"title":"Visual Design","assignee":"Ana López","hours":32,"depends_on":"Wireframes"}]},{"name":"Development","start":"2026-05-08","end":"2026-06-15","tasks":[{"title":"Frontend Implementation","assignee":"Carlos Martínez","hours":80,"depends_on":"Visual Design"},{"title":"Backend Integration","assignee":"Luis Gómez","hours":60,"depends_on":"Frontend Implementation"},{"title":"API Development","assignee":"Luis Gómez","hours":40,"depends_on":"Backend Integration"}]},{"name":"QA","start":"2026-06-16","end":"2026-06-23","tasks":[{"title":"Functional Testing","assignee":"María Torres","hours":40,"depends_on":"API Development"},{"title":"Performance Testing","assignee":"María Torres","hours":20,"depends_on":"Functional Testing"},{"title":"Bug Fixing","assignee":"Luis Gómez","hours":30,"depends_on":"Performance Testing"}]},{"name":"Launch","start":"2026-06-24","end":"2026-06-30","tasks":[{"title":"Deploy to Production","assignee":"Carlos Martínez","hours":8,"depends_on":"Bug Fixing"},{"title":"Post-launch Monitoring","assignee":"Ana López","hours":4,"depends_on":"Deploy to Production"}]}],"budget":{"total":25000,"breakdown":{"design":8000,"development":15000,"testing":2000}}}

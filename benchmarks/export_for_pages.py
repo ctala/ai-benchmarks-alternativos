@@ -654,10 +654,17 @@ def build_export():
             # dejarla competir haría que un modelo se enfrente a sí mismo en dos puestos.
             # Sus datos NO se borran — alimentan la comparación entre proveedores.
             "provider_variant": bool(cfg.get("provider_variant")),
+            # Self-hosted: corre en la máquina del autor (DGX Spark, llama-server, Ollama).
+            # Su velocidad es la de ESE hardware, no la del modelo. Compararlo en la misma
+            # tabla que un modelo servido por un datacenter es el mismo error que mezclar
+            # Groq (379 tok/s) con NIM (43 tok/s): no comparás modelos, comparás máquinas.
+            # Responde otra pregunta —"¿puedo correrlo yo?"— y va en su propia tabla.
+            "self_hosted": bool(cfg.get("self_hosted")),
             "ranked": (
                 metrics["runs"] >= MIN_RUNS_RANKED
                 and not cfg.get("retired")
                 and not cfg.get("provider_variant")
+                and not cfg.get("self_hosted")
             ),
             "sample_tier": sample_tier(metrics["runs"]),   # solid | partial | preliminary
             **capabilities,  # tool_calling, thinking, multimodal
