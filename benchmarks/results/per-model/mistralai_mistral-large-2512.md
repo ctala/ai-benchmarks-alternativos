@@ -2,8 +2,8 @@
 
 - **model_id**: `mistralai/mistral-large-2512`
 - **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.59
-- **Calidad**: 8.19
+- **Score final**: 7.53
+- **Calidad**: 8.10
 - **Judge score (Phi-4)**: 4.52/10
 - **Velocidad**: 55 tok/s
 - **Latencia primera token**: 15.53s
@@ -36,7 +36,7 @@
 | sales_outreach | 3 | 3 | 6.94 | 7.11 |
 | startup_content | 5 | 5 | 8.25 | 9.45 |
 | strategy | 3 | 3 | 7.30 | 8.06 |
-| string_precision | 6 | 6 | 9.40 | 10.00 |
+| string_precision | 6 | 6 | 8.11 | 8.17 |
 | structured_output | 4 | 4 | 5.72 | 5.00 |
 | summarization | 2 | 2 | 6.89 | 7.00 |
 | task_management | 3 | 3 | 8.72 | 9.87 |
@@ -658,10 +658,10 @@ Vamos a analizar cada uno de los bugs mencionados y otros posibles problemas, ju
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 9.55 | 10.00 | 4.0 | 31 | 0.95s | OK |
 | copy_hex_64 | 9.40 | 10.00 | 4.0 | 40 | 1.44s | OK |
-| copy_api_key | 9.40 | 10.00 | 4.0 | 38 | 1.68s | OK |
+| copy_api_key | 3.10 | 1.00 | 4.0 | 38 | 1.68s | OK |
 | copy_jwt | 9.40 | 10.00 | 4.0 | 40 | 1.15s | OK |
 | copy_mixed_special | 9.40 | 10.00 | 3.0 | 32 | 1.04s | OK |
-| write_config_file | 9.23 | 10.00 | 3.0 | 57 | 4.46s | OK |
+| write_config_file | 7.83 | 8.00 | 3.0 | 57 | 4.46s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.55</summary>
 
@@ -699,7 +699,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.40</summary>
+<details><summary><code>copy_api_key</code> — score 3.10</summary>
 
 **Stats**: latencia 1.68s · 38 tok/s · 130→64 tokens · $0.00016
 
@@ -753,7 +753,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.23</summary>
+<details><summary><code>write_config_file</code> — score 7.83</summary>
 
 **Stats**: latencia 4.46s · 57 tok/s · 259→254 tokens · $0.00051
 

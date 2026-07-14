@@ -1,13 +1,13 @@
 # MiMo V2.5-Pro (Xiaomi)
 
 - **model_id**: `mimo-v2.5-pro`
-- **Total tests**: 91/91 exitosos (0 errores)
-- **Score final**: 7.24
-- **Calidad**: 7.27
+- **Total tests**: 103/103 exitosos (0 errores)
+- **Score final**: 7.23
+- **Calidad**: 7.36
 - **Judge score (Phi-4)**: 4.13/10
-- **Velocidad**: 50 tok/s
-- **Latencia primera token**: 19.80s
-- **Costo promedio por test**: $0.00022
+- **Velocidad**: 49 tok/s
+- **Latencia primera token**: 20.06s
+- **Costo promedio por test**: $0.00051
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,6 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.36 | 6.19 |
+| agent_long_horizon | 12 | 12 | 7.16 | 8.04 |
 | code_generation | 4 | 4 | 8.04 | 8.77 |
 | content_generation | 4 | 4 | 8.35 | 9.28 |
 | creativity | 4 | 4 | 7.72 | 7.95 |
@@ -2173,3 +2174,7 @@ Procesar un reembolso es una acción irreversible que involucra dinero real, por
 **Respuesta completa**: [`results/responses/20260427_092138/mimo-v2.5-pro__summarization__extract_structured_data.md`](../results/responses/20260427_092138/mimo-v2.5-pro__summarization__extract_structured_data.md)
 
 </details>
+
+### Otras suites
+
+#### agent_long_horizon

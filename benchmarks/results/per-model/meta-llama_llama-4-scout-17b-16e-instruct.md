@@ -1,13 +1,13 @@
 # Llama 4 Scout 17B (Groq preview)
 
 - **model_id**: `meta-llama/llama-4-scout-17b-16e-instruct`
-- **Total tests**: 171/172 exitosos (1 errores)
-- **Score final**: 7.22
-- **Calidad**: 7.13
+- **Total tests**: 237/271 exitosos (34 errores)
+- **Score final**: 7.20
+- **Calidad**: 7.25
 - **Judge score (Phi-4)**: 3.56/10
-- **Velocidad**: 147 tok/s
-- **Latencia primera token**: 2.37s
-- **Costo promedio por test**: $0.00202
+- **Velocidad**: 124 tok/s
+- **Latencia primera token**: 2.46s
+- **Costo promedio por test**: $0.00219
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,6 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.13 | 5.24 |
+| agent_long_horizon | 12 | 12 | 8.26 | 9.08 |
 | business_audit | 10 | 10 | 6.72 | 6.43 |
 | code_generation | 4 | 4 | 8.63 | 9.05 |
 | content_generation | 4 | 4 | 8.59 | 8.68 |
@@ -25,7 +26,8 @@
 | hallucination | 3 | 3 | 7.70 | 7.00 |
 | multi_turn | 4 | 4 | 7.55 | 6.88 |
 | news_seo_writing | 5 | 5 | 6.18 | 5.19 |
-| niah_es | 51 | 50 | 7.84 | 8.90 |
+| niah_es | 123 | 104 | 7.36 | 8.04 |
+| niah_es_1m | 15 | 0 | - | - |
 | ocr_extraction | 5 | 5 | 8.96 | 9.10 |
 | orchestration | 5 | 5 | 8.00 | 7.63 |
 | policy_adherence | 4 | 4 | 8.84 | 8.67 |
@@ -2160,8 +2162,12 @@ Aquí te dejo la información de los 3 perfiles de candidatos en formato JSON:
 
 ### Otras suites
 
-#### prompt_injection_es
+#### agent_long_horizon
 
 #### niah_es
+
+#### niah_es_1m
+
+#### prompt_injection_es
 
 #### business_audit

@@ -2,8 +2,8 @@
 
 - **model_id**: `qwen/qwen3-next-80b-a3b-thinking`
 - **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.20
-- **Calidad**: 7.64
+- **Score final**: 7.15
+- **Calidad**: 7.57
 - **Judge score (Phi-4)**: 4.26/10
 - **Velocidad**: 158 tok/s
 - **Latencia primera token**: 23.44s
@@ -17,7 +17,7 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 7.37 | 7.77 |
 | agent_long_horizon | 12 | 12 | 7.36 | 8.29 |
-| business_audit | 10 | 10 | 6.47 | 6.60 |
+| business_audit | 10 | 10 | 6.61 | 6.80 |
 | business_strategy | 5 | 5 | 8.03 | 8.80 |
 | code_generation | 4 | 4 | 7.85 | 8.63 |
 | content_generation | 4 | 4 | 8.10 | 8.82 |
@@ -36,7 +36,7 @@
 | sales_outreach | 3 | 3 | 8.44 | 9.33 |
 | startup_content | 5 | 5 | 8.21 | 9.15 |
 | strategy | 3 | 3 | 6.05 | 6.22 |
-| string_precision | 6 | 6 | 8.15 | 8.50 |
+| string_precision | 6 | 6 | 6.87 | 6.67 |
 | structured_output | 4 | 4 | 5.58 | 5.00 |
 | summarization | 2 | 2 | 6.69 | 6.93 |
 | task_management | 3 | 3 | 6.64 | 6.82 |
@@ -627,10 +627,10 @@ First, the project name is "Rediseno sitio web". Start and end dates are given: 
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 9.44 | 10.00 | 4.0 | 161 | 2.89s | OK |
 | copy_hex_64 | 9.41 | 10.00 | 4.0 | 127 | 4.40s | OK |
-| copy_api_key | 9.17 | 10.00 | 4.0 | 126 | 6.80s | OK |
+| copy_api_key | 2.88 | 1.00 | 4.0 | 126 | 6.80s | OK |
 | copy_jwt | 9.14 | 10.00 | 4.0 | 176 | 5.96s | OK |
 | copy_mixed_special | 2.63 | 1.00 | 1 | 136 | 15.05s | OK |
-| write_config_file | 9.09 | 10.00 | 4.0 | 197 | 6.63s | OK |
+| write_config_file | 7.69 | 8.00 | 4.0 | 197 | 6.63s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.44</summary>
 
@@ -668,7 +668,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.17</summary>
+<details><summary><code>copy_api_key</code> — score 2.88</summary>
 
 **Stats**: latencia 6.80s · 126 tok/s · 139→856 tokens · $0.00068
 
@@ -724,7 +724,7 @@ Looking at the string they provided: "r2_secret_KEY.2024/abc+def==ghi&jkl#mno@pq
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.09</summary>
+<details><summary><code>write_config_file</code> — score 7.69</summary>
 
 **Stats**: latencia 6.63s · 197 tok/s · 255→1305 tokens · $0.00104
 

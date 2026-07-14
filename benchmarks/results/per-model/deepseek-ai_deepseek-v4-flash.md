@@ -1,13 +1,13 @@
 # DeepSeek V4 Flash (NIM)
 
 - **model_id**: `deepseek-ai/deepseek-v4-flash`
-- **Total tests**: 87/172 exitosos (85 errores)
-- **Score final**: 7.37
-- **Calidad**: 7.80
+- **Total tests**: 153/271 exitosos (118 errores)
+- **Score final**: 7.03
+- **Calidad**: 7.71
 - **Judge score (Phi-4)**: 4.17/10
-- **Velocidad**: 25 tok/s
-- **Latencia primera token**: 52.65s
-- **Costo promedio por test**: $0.00017
+- **Velocidad**: 17 tok/s
+- **Latencia primera token**: 42.85s
+- **Costo promedio por test**: $0.00129
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,6 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.82 | 5.61 |
+| agent_long_horizon | 12 | 12 | 7.04 | 8.46 |
 | business_audit | 10 | 0 | - | - |
 | code_generation | 4 | 4 | 7.83 | 8.76 |
 | content_generation | 4 | 4 | 8.15 | 9.19 |
@@ -25,14 +26,15 @@
 | hallucination | 3 | 3 | 7.71 | 8.33 |
 | multi_turn | 4 | 4 | 7.35 | 7.50 |
 | news_seo_writing | 5 | 5 | 5.45 | 5.22 |
-| niah_es | 51 | 0 | - | - |
+| niah_es | 123 | 54 | 6.53 | 7.47 |
+| niah_es_1m | 15 | 0 | - | - |
 | ocr_extraction | 5 | 4 | 8.45 | 9.69 |
-| orchestration | 5 | 2 | 7.96 | 8.75 |
+| orchestration | 5 | 2 | 7.46 | 8.04 |
 | policy_adherence | 4 | 4 | 8.00 | 8.58 |
 | presentation | 2 | 2 | 8.03 | 9.24 |
 | prompt_injection_es | 20 | 0 | - | - |
 | reasoning | 3 | 3 | 8.01 | 9.15 |
-| sales_outreach | 3 | 3 | 6.82 | 7.11 |
+| sales_outreach | 3 | 3 | 6.35 | 6.44 |
 | startup_content | 5 | 5 | 7.91 | 9.10 |
 | strategy | 3 | 3 | 8.29 | 9.17 |
 | string_precision | 6 | 6 | 7.62 | 8.17 |
@@ -1272,7 +1274,7 @@ Mateo quiso desactivarla. Ella replicó
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.25 | 8.00 | 4.4 | 0 | 282.65s | OK |
 | lead_qualification | 4.43 | 3.33 | 4.8 | 44 | 9.86s | OK |
-| campaign_optimization | 8.78 | 10.00 | 4.8 | 21 | 78.41s | OK |
+| campaign_optimization | 7.38 | 8.00 | 4.8 | 21 | 78.41s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.25</summary>
 
@@ -1321,7 +1323,7 @@ En [nombre de tu empresa] ayudamos a startups fintech a
 
 </details>
 
-<details><summary><code>campaign_optimization</code> — score 8.78</summary>
+<details><summary><code>campaign_optimization</code> — score 7.38</summary>
 
 **Stats**: latencia 78.41s · 21 tok/s · 272→1674 tokens · $0.00036
 
@@ -1633,7 +1635,7 @@ Entiendo que estás solicitando información sensible y cambios en la cuenta de 
 | error_recovery_orchestration | 4.85 | 0.00 | - | 0 | 264.26s | ERROR |
 | complex_workflow_decomposition | 3.80 | 2.00 | - | 0 | 541.20s | ERROR |
 | tool_selection_precision | 6.90 | 7.50 | 4.2 | 0 | 540.64s | OK |
-| parallel_vs_sequential_judgment | 9.01 | 10.00 | 4.6 | 30 | 19.52s | OK |
+| parallel_vs_sequential_judgment | 8.01 | 8.57 | 4.6 | 30 | 19.52s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 3.10</summary>
 
@@ -1681,7 +1683,7 @@ Voy a analizar cada tarea y luego ejecutar la Tarea 1.
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 9.01</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 8.01</summary>
 
 **Stats**: latencia 19.52s · 30 tok/s · 1221→595 tokens · $0.00024
 
@@ -2126,8 +2128,12 @@ Aquí tienes un plan de proyecto detallado para lanzar tu landing page de SaaS e
 
 ### Otras suites
 
-#### prompt_injection_es
+#### agent_long_horizon
 
 #### niah_es
+
+#### niah_es_1m
+
+#### prompt_injection_es
 
 #### business_audit

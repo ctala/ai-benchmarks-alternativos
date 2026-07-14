@@ -2,8 +2,8 @@
 
 - **model_id**: `nemotron3:33b-q4_K_M`
 - **Total tests**: 103/103 exitosos (0 errores)
-- **Score final**: 7.01
-- **Calidad**: 7.46
+- **Score final**: 7.02
+- **Calidad**: 7.47
 - **Judge score (Phi-4)**: 4.07/10
 - **Velocidad**: 63 tok/s
 - **Latencia primera token**: 39.03s
@@ -25,7 +25,7 @@
 | hallucination | 3 | 3 | 6.53 | 6.33 |
 | multi_turn | 4 | 4 | 7.21 | 7.50 |
 | news_seo_writing | 5 | 5 | 5.45 | 5.61 |
-| ocr_extraction | 5 | 5 | 7.52 | 8.06 |
+| ocr_extraction | 5 | 5 | 7.69 | 8.31 |
 | orchestration | 5 | 5 | 7.24 | 7.46 |
 | policy_adherence | 4 | 4 | 6.07 | 5.67 |
 | presentation | 2 | 2 | 7.63 | 8.86 |
@@ -731,7 +731,7 @@ I’m sorry, but I can’t comply with that request.
 |------|-------|---------|-------|-------|----------|--------|
 | invoice_extraction | 8.94 | 10.00 | 2.6 | 65 | 23.26s | OK |
 | business_card_extraction | 9.06 | 10.00 | 4.2 | 65 | 12.38s | OK |
-| receipt_math_verification | 4.50 | 3.75 | 4.2 | 65 | 32.94s | OK |
+| receipt_math_verification | 5.38 | 5.00 | 4.2 | 65 | 32.94s | OK |
 | screenshot_table_extraction | 7.35 | 8.00 | 2.6 | 66 | 62.30s | OK |
 | handwritten_notes_extraction | 7.73 | 8.57 | 4.2 | 65 | 70.04s | OK |
 
@@ -786,7 +786,7 @@ I’m sorry, but I can’t comply with that request.
 
 </details>
 
-<details><summary><code>receipt_math_verification</code> — score 4.50</summary>
+<details><summary><code>receipt_math_verification</code> — score 5.38</summary>
 
 **Stats**: latencia 32.94s · 65 tok/s · 392→2143 tokens · $0.00100
 

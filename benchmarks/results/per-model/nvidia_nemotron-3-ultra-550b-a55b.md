@@ -1,13 +1,13 @@
 # Nemotron 3 Ultra 550B
 
 - **model_id**: `nvidia/nemotron-3-ultra-550b-a55b`
-- **Total tests**: 187/188 exitosos (1 errores)
-- **Score final**: 7.01
-- **Calidad**: 7.55
+- **Total tests**: 239/285 exitosos (46 errores)
+- **Score final**: 7.26
+- **Calidad**: 8.03
 - **Judge score (Phi-4)**: 4.90/10
-- **Velocidad**: 97 tok/s
-- **Latencia primera token**: 13.62s
-- **Costo promedio por test**: $0.01239
+- **Velocidad**: 90 tok/s
+- **Latencia primera token**: 12.49s
+- **Costo promedio por test**: $0.01604
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -19,7 +19,7 @@
 | agent_long_horizon | 12 | 12 | 7.92 | 9.07 |
 | business_audit | 10 | 10 | 6.45 | 7.00 |
 | business_strategy | 5 | 5 | 8.16 | 9.20 |
-| code_generation | 4 | 4 | 8.29 | 9.21 |
+| code_generation | 8 | 8 | 8.35 | 9.28 |
 | content_generation | 4 | 4 | 6.95 | 7.32 |
 | content_verificable | 5 | 5 | 7.61 | 8.53 |
 | creativity | 4 | 4 | 8.16 | 9.00 |
@@ -28,13 +28,13 @@
 | hallucination | 3 | 3 | 7.05 | 7.00 |
 | multi_turn | 4 | 4 | 7.39 | 8.00 |
 | news_seo_writing | 5 | 5 | 5.90 | 5.96 |
-| niah_es | 45 | 45 | 8.20 | 9.80 |
+| niah_es | 135 | 90 | 8.18 | 9.82 |
 | ocr_extraction | 5 | 5 | 8.42 | 9.35 |
 | orchestration | 5 | 5 | 5.30 | 4.41 |
 | policy_adherence | 4 | 4 | 7.52 | 8.25 |
 | presentation | 2 | 2 | 8.45 | 9.78 |
 | prompt_injection_es | 20 | 20 | 3.76 | 2.80 |
-| reasoning | 3 | 2 | 8.18 | 9.34 |
+| reasoning | 6 | 5 | 8.05 | 9.15 |
 | sales_outreach | 3 | 3 | 6.96 | 7.11 |
 | startup_content | 5 | 5 | 8.15 | 9.46 |
 | strategy | 3 | 3 | 7.16 | 8.06 |
@@ -189,9 +189,81 @@ Code analysis:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
+| business_analysis | 8.59 | 10.00 | - | 206 | 20.02s | OK |
+| logical_reasoning | 7.83 | 8.67 | - | 151 | 11.06s | OK |
+| multi_constraint_decision | 7.49 | 8.40 | - | 189 | 20.12s | OK |
 | business_analysis | 6.35 | 6.45 | - | 91 | 20.07s | ERROR |
 | logical_reasoning | 8.18 | 9.12 | - | 150 | 11.45s | OK |
 | multi_constraint_decision | 8.18 | 9.56 | - | 137 | 46.75s | OK |
+
+<details><summary><code>business_analysis</code> — score 8.59</summary>
+
+**Stats**: latencia 20.02s · 206 tok/s · 213→4120 tokens · $0.00917
+
+**Respuesta (preview 300 chars)**:
+
+```
+### **Análisis de Datos SaaS (Ene-Mar)**
+
+---
+
+### **1. Métricas Clave Calculadas**
+
+| Métrica | Enero | Febrero | Marzo | Tendencia |
+| :--- | :--- | :--- | :--- | :--- |
+| **Churn Rate (Usuarios)** | N/D* | **4.33%** | **5.04%** | 🔴 **Empeorando** (+16% MoM) |
+| **Growth Rate Usuarios (MoM)** | Ba
+```
+
+**Respuesta completa**: [`results/responses/20260701_074709_4060673/openrouter-nemotron-3-ultra-550b__reasoning__business_analysis.md`](../results/responses/20260701_074709_4060673/openrouter-nemotron-3-ultra-550b__reasoning__business_analysis.md)
+
+</details>
+
+<details><summary><code>logical_reasoning</code> — score 7.83</summary>
+
+**Stats**: latencia 11.06s · 151 tok/s · 139→1674 tokens · $0.00375
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Solución paso a paso:**
+
+**1. Definir las variables y datos conocidos:**
+*   Equipos: A, B, C, D, E
+*   Dato 7: **B = 10**
+
+**2. Traducir las pistas a desigualdades y ecuaciones:**
+*   Pista 1: B < A < C  →  **10 < A < C**
+*   Pista 2: **D = A**
+*   Pista 3: E es el menor de todos → **E < B, E < A
+```
+
+**Respuesta completa**: [`results/responses/20260701_074709_4060673/openrouter-nemotron-3-ultra-550b__reasoning__logical_reasoning.md`](../results/responses/20260701_074709_4060673/openrouter-nemotron-3-ultra-550b__reasoning__logical_reasoning.md)
+
+</details>
+
+<details><summary><code>multi_constraint_decision</code> — score 7.49</summary>
+
+**Stats**: latencia 20.12s · 189 tok/s · 195→3796 tokens · $0.00845
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Análisis de Stack Tecnológico para MVP - Marketplace Freelance Nicho
+
+---
+
+## 🎯 Resumen de Restricciones Críticas
+
+| Factor | Límite | Implicación |
+|--------|--------|-------------|
+| **Presupuesto total** | $5,000 | ~$833/mes si agotas en 6 meses, pero necesitas margen para herramientas |
+| **Ti
+```
+
+**Respuesta completa**: [`results/responses/20260701_074709_4060673/openrouter-nemotron-3-ultra-550b__reasoning__multi_constraint_decision.md`](../results/responses/20260701_074709_4060673/openrouter-nemotron-3-ultra-550b__reasoning__multi_constraint_decision.md)
+
+</details>
 
 <details><summary><code>business_analysis</code> — score 6.35</summary>
 
@@ -387,10 +459,101 @@ Aquí tienes la respuesta honesta y detallada para cada punto, cumpliendo con tu
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
+| python_api_integration | 8.46 | 9.34 | - | 116 | 9.65s | OK |
+| n8n_workflow_json | 8.64 | 10.00 | - | 115 | 27.93s | OK |
+| sql_query_complex | 8.02 | 8.67 | - | 179 | 5.15s | OK |
+| debug_code | 8.50 | 9.34 | - | 162 | 5.37s | OK |
 | python_api_integration | 7.97 | 8.63 | - | 197 | 5.41s | OK |
 | n8n_workflow_json | 8.53 | 9.78 | - | 151 | 18.59s | OK |
 | sql_query_complex | 8.35 | 9.11 | - | 107 | 8.23s | OK |
 | debug_code | 8.33 | 9.34 | - | 98 | 10.96s | OK |
+
+<details><summary><code>python_api_integration</code> — score 8.46</summary>
+
+**Stats**: latencia 9.65s · 116 tok/s · 118→1116 tokens · $0.00251
+
+**Respuesta (preview 300 chars)**:
+
+```
+```python
+import httpx
+import time
+from typing import List, Dict, Any
+
+
+def fetch_expensive_products(bearer_token: str) -> List[Dict[str, Any]]:
+    """
+    Obtiene productos con precio > 100 desde la API con retry y backoff exponencial.
+    
+    Args:
+        bearer_token: Token de autenticación Be
+```
+
+**Respuesta completa**: [`results/responses/20260701_074709_4060673/openrouter-nemotron-3-ultra-550b__code_generation__python_api_integration.md`](../results/responses/20260701_074709_4060673/openrouter-nemotron-3-ultra-550b__code_generation__python_api_integration.md)
+
+</details>
+
+<details><summary><code>n8n_workflow_json</code> — score 8.64</summary>
+
+**Stats**: latencia 27.93s · 115 tok/s · 133→3211 tokens · $0.00713
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el JSON completo del workflow de n8n. Está diseñado para la versión moderna de n8n (v1.0+) utilizando el nodo **OpenAI** con **Structured Output Parser** para garantizar una clasificación fiable en formato JSON, y un nodo **Switch** para el enrutamiento condicional.
+
+```json
+{
+  "name":
+```
+
+**Respuesta completa**: [`results/responses/20260701_074709_4060673/openrouter-nemotron-3-ultra-550b__code_generation__n8n_workflow_json.md`](../results/responses/20260701_074709_4060673/openrouter-nemotron-3-ultra-550b__code_generation__n8n_workflow_json.md)
+
+</details>
+
+<details><summary><code>sql_query_complex</code> — score 8.02</summary>
+
+**Stats**: latencia 5.15s · 179 tok/s · 160→922 tokens · $0.00211
+
+**Respuesta (preview 300 chars)**:
+
+```
+```sql
+WITH recent_orders AS (
+    -- Órdenes completadas de los últimos 6 meses (anclado a la fecha máxima)
+    SELECT 
+        o.id AS order_id,
+        o.customer_id,
+        o.total,
+        o.created_at
+    FROM orders o
+    WHERE o.status = 'completed'
+      AND o.created_at >= (
+          SEL
+```
+
+**Respuesta completa**: [`results/responses/20260701_074709_4060673/openrouter-nemotron-3-ultra-550b__code_generation__sql_query_complex.md`](../results/responses/20260701_074709_4060673/openrouter-nemotron-3-ultra-550b__code_generation__sql_query_complex.md)
+
+</details>
+
+<details><summary><code>debug_code</code> — score 8.50</summary>
+
+**Stats**: latencia 5.37s · 162 tok/s · 234→873 tokens · $0.00204
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes la explicación detallada de cada bug y el código corregido.
+
+---
+
+### 1. División por cero (`ZeroDivisionError`)
+**Problema:** Si no hay órdenes con estado `'pending'`, la lista `processed` queda vacía (`len(processed) == 0`). La línea `average = total / len(processed)` lanza una excepci
+```
+
+**Respuesta completa**: [`results/responses/20260701_074709_4060673/openrouter-nemotron-3-ultra-550b__code_generation__debug_code.md`](../results/responses/20260701_074709_4060673/openrouter-nemotron-3-ultra-550b__code_generation__debug_code.md)
+
+</details>
 
 <details><summary><code>python_api_integration</code> — score 7.97</summary>
 

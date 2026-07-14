@@ -1,13 +1,13 @@
 # Qwen 3.5 397B (Ollama Cloud)
 
 - **model_id**: `qwen3.5:397b-cloud`
-- **Total tests**: 91/101 exitosos (10 errores)
-- **Score final**: 5.83
-- **Calidad**: 5.52
+- **Total tests**: 94/104 exitosos (10 errores)
+- **Score final**: 5.77
+- **Calidad**: 5.43
 - **Judge score (Phi-4)**: 4.05/10
-- **Velocidad**: 76 tok/s
-- **Latencia primera token**: 30.47s
-- **Costo promedio por test**: $0.00431
+- **Velocidad**: 75 tok/s
+- **Latencia primera token**: 32.00s
+- **Costo promedio por test**: $0.00434
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -38,7 +38,7 @@
 | summarization | 2 | 2 | 6.58 | 7.30 |
 | task_management | 3 | 3 | 7.23 | 9.21 |
 | tool_calling | 4 | 4 | 7.36 | 7.24 |
-| translation | 3 | 3 | 3.99 | 1.87 |
+| translation | 6 | 6 | 4.08 | 2.27 |
 
 ## Detalle por test
 
@@ -813,9 +813,32 @@ La mayoría intenta resolverlo con más freelancers, pero estamo
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
+| translate_marketing_es_en | 6.80 | 8.00 | - | 25 | 113.08s | OK |
+| translate_technical_en_es | 2.61 | 0.00 | - | 20 | 102.73s | OK |
+| detect_language_issues | 3.06 | 0.00 | - | 108 | 19.02s | OK |
 | translate_marketing_es_en | 5.86 | 5.60 | - | 105 | 19.55s | OK |
 | translate_technical_en_es | 3.06 | 0.00 | - | 107 | 19.13s | OK |
 | detect_language_issues | 3.06 | 0.00 | - | 123 | 16.69s | OK |
+
+<details><summary><code>translate_marketing_es_en</code> — score 6.80</summary>
+
+**Stats**: latencia 113.08s · 25 tok/s · 177→2828 tokens · $0.00669
+
+**Respuesta (preview 300 chars)**:
+
+```
+Stop wasting hours on tasks AI handles in seconds.
+
+AutoFlow automates the grunt work so you can focus on what truly matters: scaling your startup.
+
+No code. No headaches. No excuses.
+
+500+ startups across LATAM are already on board. When's your turn?
+```
+
+**Respuesta completa**: [`results/responses/20260424_071523/qwen3.5-397b-cloud__translation__translate_marketing_es_en.md`](../results/responses/20260424_071523/qwen3.5-397b-cloud__translation__translate_marketing_es_en.md)
+
+</details>
 
 #### presentation
 

@@ -2,8 +2,8 @@
 
 - **model_id**: `nemotron-3-super:120b`
 - **Total tests**: 90/91 exitosos (1 errores)
-- **Score final**: 6.99
-- **Calidad**: 7.69
+- **Score final**: 7.02
+- **Calidad**: 7.73
 - **Judge score (Phi-4)**: 4.20/10
 - **Velocidad**: 17 tok/s
 - **Latencia primera token**: 123.69s
@@ -37,7 +37,7 @@
 | summarization | 2 | 2 | 7.17 | 7.72 |
 | task_management | 3 | 3 | 7.34 | 8.80 |
 | tool_calling | 4 | 4 | 6.73 | 6.68 |
-| translation | 3 | 3 | 7.04 | 7.56 |
+| translation | 3 | 3 | 7.82 | 8.67 |
 
 ## Detalle por test
 
@@ -1310,7 +1310,7 @@ Vi tu post de la semana pasada sobre cómo escalar el content marketing sin cont
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.55 | 8.00 | 4.0 | 17 | 9.26s | OK |
 | translate_technical_en_es | 7.22 | 8.00 | 4.0 | 18 | 55.54s | OK |
-| detect_language_issues | 6.35 | 6.67 | 4.0 | 18 | 67.22s | OK |
+| detect_language_issues | 8.68 | 10.00 | 4.0 | 18 | 67.22s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.55</summary>
 
@@ -1350,7 +1350,7 @@ Para autenticarse con la API, incluya su Bearer token en el encabezado Authoriza
 
 </details>
 
-<details><summary><code>detect_language_issues</code> — score 6.35</summary>
+<details><summary><code>detect_language_issues</code> — score 8.68</summary>
 
 **Stats**: latencia 67.22s · 18 tok/s · 217→1243 tokens · $0.00058
 

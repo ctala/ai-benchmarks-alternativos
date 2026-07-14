@@ -1,13 +1,13 @@
 # MiMo-V2-Omni (multimodal)
 
 - **model_id**: `xiaomi/mimo-v2-omni`
-- **Total tests**: 91/101 exitosos (10 errores)
-- **Score final**: 6.85
-- **Calidad**: 7.18
+- **Total tests**: 103/113 exitosos (10 errores)
+- **Score final**: 6.90
+- **Calidad**: 7.38
 - **Judge score (Phi-4)**: 4.00/10
-- **Velocidad**: 85 tok/s
-- **Latencia primera token**: 12.49s
-- **Costo promedio por test**: $0.00244
+- **Velocidad**: 86 tok/s
+- **Latencia primera token**: 12.32s
+- **Costo promedio por test**: $0.00417
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,6 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.97 | 6.26 |
+| agent_long_horizon | 12 | 12 | 7.27 | 8.88 |
 | business_audit | 10 | 0 | - | - |
 | code_generation | 4 | 4 | 6.43 | 6.64 |
 | content_generation | 4 | 4 | 7.88 | 9.33 |
@@ -2050,5 +2051,7 @@ Aquí tienes un plan semanal detallado:
 </details>
 
 ### Otras suites
+
+#### agent_long_horizon
 
 #### business_audit

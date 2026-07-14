@@ -1,13 +1,13 @@
 # GPT-5.6 Terra
 
 - **model_id**: `openai/gpt-5.6-terra`
-- **Total tests**: 194/194 exitosos (0 errores)
-- **Score final**: 7.49
-- **Calidad**: 8.73
+- **Total tests**: 245/296 exitosos (51 errores)
+- **Score final**: 7.58
+- **Calidad**: 8.99
 - **Judge score (Phi-4)**: 4.13/10
-- **Velocidad**: 63 tok/s
-- **Latencia primera token**: 9.40s
-- **Costo promedio por test**: $0.07446
+- **Velocidad**: 53 tok/s
+- **Latencia primera token**: 7.85s
+- **Costo promedio por test**: $0.10230
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -28,7 +28,7 @@
 | hallucination | 3 | 3 | 5.72 | 5.67 |
 | multi_turn | 4 | 4 | 6.49 | 7.00 |
 | news_seo_writing | 5 | 5 | 4.99 | 5.30 |
-| niah_es | 51 | 51 | 7.96 | 10.00 |
+| niah_es | 153 | 102 | 7.94 | 10.00 |
 | ocr_extraction | 5 | 5 | 8.26 | 9.35 |
 | orchestration | 5 | 5 | 6.34 | 6.67 |
 | policy_adherence | 4 | 4 | 7.62 | 8.17 |

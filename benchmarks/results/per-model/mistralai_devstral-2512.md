@@ -1,13 +1,13 @@
 # Devstral 2 (Dic 2025)
 
 - **model_id**: `mistralai/devstral-2512`
-- **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.17
-- **Calidad**: 7.58
+- **Total tests**: 224/246 exitosos (22 errores)
+- **Score final**: 7.23
+- **Calidad**: 8.00
 - **Judge score (Phi-4)**: 4.30/10
-- **Velocidad**: 65 tok/s
-- **Latencia primera token**: 12.82s
-- **Costo promedio por test**: $0.00316
+- **Velocidad**: 50 tok/s
+- **Latencia primera token**: 8.83s
+- **Costo promedio por test**: $0.00781
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 7.26 | 8.26 |
-| agent_long_horizon | 12 | 12 | 7.38 | 8.50 |
+| agent_long_horizon | 24 | 24 | 7.55 | 9.04 |
 | business_audit | 10 | 10 | 6.24 | 6.60 |
 | business_strategy | 5 | 5 | 8.20 | 9.20 |
 | code_generation | 4 | 4 | 7.88 | 9.23 |
@@ -28,6 +28,8 @@
 | hallucination | 3 | 3 | 6.17 | 5.92 |
 | multi_turn | 4 | 4 | 7.59 | 8.00 |
 | news_seo_writing | 5 | 5 | 5.23 | 5.28 |
+| niah_es | 66 | 44 | 7.92 | 9.35 |
+| niah_es_lite | 45 | 45 | 6.59 | 7.40 |
 | ocr_extraction | 5 | 5 | 8.83 | 9.75 |
 | orchestration | 5 | 5 | 7.46 | 7.36 |
 | policy_adherence | 4 | 4 | 7.85 | 8.17 |
@@ -2068,10 +2070,14 @@ Aquí tienes la información de los tres candidatos en formato JSON:
 
 ### Otras suites
 
+#### agent_long_horizon
+
+#### niah_es
+
+#### niah_es_lite
+
 #### business_audit
 
 #### business_strategy
 
 #### content_verificable
-
-#### agent_long_horizon

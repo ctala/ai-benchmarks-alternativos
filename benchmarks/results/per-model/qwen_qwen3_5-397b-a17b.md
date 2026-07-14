@@ -2,8 +2,8 @@
 
 - **model_id**: `qwen/qwen3.5-397b-a17b`
 - **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.18
-- **Calidad**: 8.07
+- **Score final**: 7.06
+- **Calidad**: 7.90
 - **Judge score (Phi-4)**: 4.45/10
 - **Velocidad**: 65 tok/s
 - **Latencia primera token**: 48.24s
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 7.25 | 7.80 |
+| agent_capabilities | 5 | 5 | 6.90 | 7.30 |
 | agent_long_horizon | 12 | 12 | 7.29 | 8.50 |
 | business_audit | 10 | 10 | 7.21 | 8.20 |
 | business_strategy | 5 | 5 | 7.85 | 9.20 |
@@ -26,17 +26,17 @@
 | customer_support | 4 | 4 | 7.88 | 8.70 |
 | deep_reasoning | 6 | 6 | 5.44 | 5.65 |
 | hallucination | 3 | 3 | 5.47 | 5.67 |
-| multi_turn | 4 | 4 | 7.30 | 8.12 |
+| multi_turn | 4 | 4 | 6.96 | 7.62 |
 | news_seo_writing | 5 | 5 | 5.35 | 5.33 |
 | ocr_extraction | 5 | 5 | 7.95 | 9.35 |
-| orchestration | 5 | 5 | 7.16 | 7.70 |
+| orchestration | 5 | 5 | 6.46 | 6.70 |
 | policy_adherence | 4 | 4 | 8.10 | 9.50 |
 | presentation | 2 | 2 | 7.29 | 8.16 |
 | reasoning | 3 | 3 | 7.64 | 8.65 |
 | sales_outreach | 3 | 3 | 8.10 | 9.33 |
 | startup_content | 5 | 5 | 7.64 | 8.89 |
 | strategy | 3 | 3 | 7.50 | 8.89 |
-| string_precision | 6 | 6 | 8.82 | 10.00 |
+| string_precision | 6 | 6 | 7.54 | 8.17 |
 | structured_output | 4 | 4 | 5.08 | 5.00 |
 | summarization | 2 | 2 | 7.18 | 8.12 |
 | task_management | 3 | 3 | 7.87 | 9.37 |
@@ -619,10 +619,10 @@ Thinking Process:
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 8.79 | 10.00 | 4.0 | 57 | 10.57s | OK |
 | copy_hex_64 | 8.88 | 10.00 | 4.0 | 63 | 8.95s | OK |
-| copy_api_key | 8.90 | 10.00 | 4.0 | 62 | 7.93s | OK |
+| copy_api_key | 2.60 | 1.00 | 4.0 | 62 | 7.93s | OK |
 | copy_jwt | 8.89 | 10.00 | 4.0 | 66 | 7.98s | OK |
 | copy_mixed_special | 8.92 | 10.00 | 3.0 | 56 | 8.25s | OK |
-| write_config_file | 8.55 | 10.00 | 4.0 | 69 | 30.70s | OK |
+| write_config_file | 7.15 | 8.00 | 4.0 | 69 | 30.70s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.79</summary>
 
@@ -660,7 +660,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 8.90</summary>
+<details><summary><code>copy_api_key</code> — score 2.60</summary>
 
 **Stats**: latencia 7.93s · 62 tok/s · 138→494 tokens · $0.00126
 
@@ -714,7 +714,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 8.55</summary>
+<details><summary><code>write_config_file</code> — score 7.15</summary>
 
 **Stats**: latencia 30.70s · 69 tok/s · 257→2116 tokens · $0.00528
 
@@ -1730,9 +1730,9 @@ Según mis instrucciones:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | multi_step_research_plan | 7.78 | 8.60 | 4.0 | 53 | 10.06s | OK |
-| error_recovery_orchestration | 7.05 | 7.50 | 4.0 | 44 | 5.15s | OK |
+| error_recovery_orchestration | 5.30 | 5.00 | 4.0 | 44 | 5.15s | OK |
 | complex_workflow_decomposition | 4.57 | 3.83 | 2.0 | 55 | 6.94s | OK |
-| tool_selection_precision | 8.74 | 10.00 | 4.0 | 57 | 11.15s | OK |
+| tool_selection_precision | 6.99 | 7.50 | 4.0 | 57 | 11.15s | OK |
 | parallel_vs_sequential_judgment | 7.68 | 8.57 | 5 | 61 | 14.77s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 7.78</summary>
@@ -1756,7 +1756,7 @@ Según mis instrucciones:
 
 </details>
 
-<details><summary><code>error_recovery_orchestration</code> — score 7.05</summary>
+<details><summary><code>error_recovery_orchestration</code> — score 5.30</summary>
 
 **Stats**: latencia 5.15s · 44 tok/s · 1202→227 tokens · $0.00102
 
@@ -1794,7 +1794,7 @@ Voy a automatizar el proceso de onboarding paso a paso. Comencemos:
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 8.74</summary>
+<details><summary><code>tool_selection_precision</code> — score 6.99</summary>
 
 **Stats**: latencia 11.15s · 57 tok/s · 1170→640 tokens · $0.00202
 
@@ -1849,7 +1849,7 @@ B (Generar descripción desde specs) ──────────────�
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 6.26 | 6.50 | 5 | 117 | 17.56s | OK |
 | support_escalation | 8.48 | 10.00 | 5 | 59 | 52.24s | OK |
-| requirements_change | 5.76 | 6.00 | 2.0 | 54 | 37.71s | OK |
+| requirements_change | 4.36 | 4.00 | 2.0 | 54 | 37.71s | OK |
 | debugging_conversation | 8.72 | 10.00 | 5 | 57 | 14.99s | OK |
 
 <details><summary><code>content_iteration</code> — score 6.26</summary>
@@ -1898,7 +1898,7 @@ Respecto a tus solicitudes, voy a proceder de la siguiente manera para ayudarte 
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 5.76</summary>
+<details><summary><code>requirements_change</code> — score 4.36</summary>
 
 **Stats**: latencia 37.71s · 54 tok/s · 233→2048 tokens · $0.00511
 
@@ -2046,7 +2046,7 @@ Nuestro programa acelera emprendimientos sustentables en Chile. Sobre los otros 
 | skill_execution_complex | 5.05 | 4.89 | 3.0 | 47 | 10.36s | OK |
 | agent_team_delegation | 8.54 | 9.72 | 4.8 | 53 | 11.90s | OK |
 | ask_clarification_before_acting | 8.35 | 9.40 | 5 | 44 | 7.11s | OK |
-| context_following_complex_system | 7.12 | 7.50 | 5 | 52 | 8.34s | OK |
+| context_following_complex_system | 5.37 | 5.00 | 5 | 52 | 8.34s | OK |
 | model_as_router | 7.17 | 7.50 | 5 | 149 | 6.48s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 5.05</summary>
@@ -2108,7 +2108,7 @@ El usuario me está pidiendo procesar un reembolso de cliente. Esta es una acci�
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 7.12</summary>
+<details><summary><code>context_following_complex_system</code> — score 5.37</summary>
 
 **Stats**: latencia 8.34s · 52 tok/s · 1161→436 tokens · $0.00152
 

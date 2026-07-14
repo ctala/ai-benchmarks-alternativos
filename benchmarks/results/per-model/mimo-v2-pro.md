@@ -1,13 +1,13 @@
 # MiMo V2-Pro (Xiaomi direct)
 
 - **model_id**: `mimo-v2-pro`
-- **Total tests**: 91/93 exitosos (2 errores)
-- **Score final**: 7.16
-- **Calidad**: 7.18
+- **Total tests**: 103/105 exitosos (2 errores)
+- **Score final**: 7.22
+- **Calidad**: 7.37
 - **Judge score (Phi-4)**: 4.14/10
 - **Velocidad**: 45 tok/s
-- **Latencia primera token**: 22.01s
-- **Costo promedio por test**: $0.00011
+- **Latencia primera token**: 21.90s
+- **Costo promedio por test**: $0.00028
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,6 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.80 | 7.60 |
+| agent_long_horizon | 12 | 12 | 7.70 | 8.83 |
 | business_strategy | 2 | 0 | - | - |
 | code_generation | 4 | 4 | 8.28 | 9.12 |
 | content_generation | 4 | 4 | 8.14 | 9.06 |
@@ -2106,5 +2107,7 @@ Voy a atender tus tres solicitudes. Te adelanto que hay algunas restricciones im
 </details>
 
 ### Otras suites
+
+#### agent_long_horizon
 
 #### business_strategy

@@ -2,8 +2,8 @@
 
 - **model_id**: `openai/gpt-oss-20b`
 - **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.50
-- **Calidad**: 7.50
+- **Score final**: 7.44
+- **Calidad**: 7.41
 - **Judge score (Phi-4)**: 4.37/10
 - **Velocidad**: 97 tok/s
 - **Latencia primera token**: 19.59s
@@ -36,7 +36,7 @@
 | sales_outreach | 3 | 3 | 6.43 | 6.00 |
 | startup_content | 5 | 5 | 8.53 | 9.30 |
 | strategy | 3 | 3 | 7.07 | 7.22 |
-| string_precision | 6 | 6 | 9.34 | 10.00 |
+| string_precision | 6 | 6 | 8.05 | 8.17 |
 | structured_output | 4 | 4 | 5.95 | 5.00 |
 | summarization | 2 | 2 | 7.81 | 8.00 |
 | task_management | 3 | 3 | 8.30 | 8.55 |
@@ -627,10 +627,10 @@ Si *processed* está vacío (`len(processed) == 0`) el cálculo del promedio pro
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 9.40 | 10.00 | 4.0 | 92 | 3.58s | OK |
 | copy_hex_64 | 9.55 | 10.00 | 4.0 | 57 | 1.87s | OK |
-| copy_api_key | 9.55 | 10.00 | 4.0 | 138 | 2.44s | OK |
+| copy_api_key | 3.25 | 1.00 | 4.0 | 138 | 2.44s | OK |
 | copy_jwt | 8.95 | 10.00 | 4.0 | 20 | 5.68s | OK |
 | copy_mixed_special | 9.70 | 10.00 | 3.0 | 102 | 1.22s | OK |
-| write_config_file | 8.88 | 10.00 | 4.0 | 16 | 31.41s | OK |
+| write_config_file | 7.47 | 8.00 | 4.0 | 16 | 31.41s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.40</summary>
 
@@ -668,7 +668,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.55</summary>
+<details><summary><code>copy_api_key</code> — score 3.25</summary>
 
 **Stats**: latencia 2.44s · 138 tok/s · 192→337 tokens · $0.00005
 
@@ -722,7 +722,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 8.88</summary>
+<details><summary><code>write_config_file</code> — score 7.47</summary>
 
 **Stats**: latencia 31.41s · 16 tok/s · 290→492 tokens · $0.00008
 

@@ -2,8 +2,8 @@
 
 - **model_id**: `nvidia/nemotron-nano-9b-v2:free`
 - **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.57
-- **Calidad**: 7.93
+- **Score final**: 7.52
+- **Calidad**: 7.87
 - **Judge score (Phi-4)**: 4.53/10
 - **Velocidad**: 37 tok/s
 - **Latencia primera token**: 41.08s
@@ -17,7 +17,7 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.83 | 6.84 |
 | agent_long_horizon | 12 | 12 | 8.55 | 9.29 |
-| business_audit | 10 | 10 | 6.12 | 5.88 |
+| business_audit | 10 | 10 | 6.26 | 6.08 |
 | business_strategy | 5 | 5 | 8.40 | 9.20 |
 | code_generation | 4 | 4 | 8.73 | 9.58 |
 | content_generation | 4 | 4 | 8.63 | 9.43 |
@@ -28,7 +28,7 @@
 | hallucination | 3 | 3 | 6.88 | 7.00 |
 | multi_turn | 4 | 4 | 7.27 | 7.50 |
 | news_seo_writing | 5 | 5 | 5.77 | 5.35 |
-| ocr_extraction | 5 | 5 | 7.84 | 8.35 |
+| ocr_extraction | 5 | 5 | 8.01 | 8.60 |
 | orchestration | 5 | 5 | 7.13 | 7.42 |
 | policy_adherence | 4 | 4 | 7.70 | 8.17 |
 | presentation | 2 | 2 | 8.79 | 9.66 |
@@ -36,7 +36,7 @@
 | sales_outreach | 3 | 3 | 6.07 | 5.78 |
 | startup_content | 5 | 5 | 8.59 | 9.42 |
 | strategy | 3 | 3 | 7.66 | 8.06 |
-| string_precision | 6 | 6 | 9.11 | 10.00 |
+| string_precision | 6 | 6 | 7.83 | 8.17 |
 | structured_output | 4 | 4 | 5.47 | 5.00 |
 | summarization | 2 | 2 | 7.21 | 7.40 |
 | task_management | 3 | 3 | 8.88 | 9.87 |
@@ -629,10 +629,10 @@ WITH customer_data AS (
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 8.95 | 10.00 | 4.0 | 23 | 7.21s | OK |
 | copy_hex_64 | 9.25 | 10.00 | 4.0 | 41 | 4.97s | OK |
-| copy_api_key | 9.10 | 10.00 | 4.0 | 44 | 5.26s | OK |
+| copy_api_key | 2.80 | 1.00 | 4.0 | 44 | 5.26s | OK |
 | copy_jwt | 9.25 | 10.00 | 4.0 | 48 | 4.62s | OK |
 | copy_mixed_special | 9.10 | 10.00 | 3.0 | 41 | 7.31s | OK |
-| write_config_file | 9.02 | 10.00 | 4.0 | 30 | 19.28s | OK |
+| write_config_file | 7.62 | 8.00 | 4.0 | 30 | 19.28s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.95</summary>
 
@@ -670,7 +670,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.10</summary>
+<details><summary><code>copy_api_key</code> — score 2.80</summary>
 
 **Stats**: latencia 5.26s · 44 tok/s · 138→234 tokens · $0.00000
 
@@ -724,7 +724,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.02</summary>
+<details><summary><code>write_config_file</code> — score 7.62</summary>
 
 **Stats**: latencia 19.28s · 30 tok/s · 269→586 tokens · $0.00000
 
@@ -752,7 +752,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5
 |------|-------|---------|-------|-------|----------|--------|
 | invoice_extraction | 8.88 | 10.00 | 2.8 | 20 | 52.77s | OK |
 | business_card_extraction | 8.15 | 8.75 | 4.0 | 38 | 20.14s | OK |
-| receipt_math_verification | 5.53 | 5.00 | 5 | 33 | 36.77s | OK |
+| receipt_math_verification | 6.40 | 6.25 | 5 | 33 | 36.77s | OK |
 | screenshot_table_extraction | 7.62 | 8.00 | 2.0 | 39 | 96.81s | OK |
 | handwritten_notes_extraction | 9.02 | 10.00 | 5 | 38 | 39.49s | OK |
 
@@ -809,7 +809,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5
 
 </details>
 
-<details><summary><code>receipt_math_verification</code> — score 5.53</summary>
+<details><summary><code>receipt_math_verification</code> — score 6.40</summary>
 
 **Stats**: latencia 36.77s · 33 tok/s · 380→1209 tokens · $0.00000
 

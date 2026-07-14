@@ -2,8 +2,8 @@
 
 - **model_id**: `deepseek/deepseek-v3.2`
 - **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.47
-- **Calidad**: 8.01
+- **Score final**: 7.41
+- **Calidad**: 7.93
 - **Judge score (Phi-4)**: 4.50/10
 - **Velocidad**: 29 tok/s
 - **Latencia primera token**: 23.99s
@@ -36,7 +36,7 @@
 | sales_outreach | 3 | 3 | 6.93 | 7.11 |
 | startup_content | 5 | 5 | 8.44 | 9.47 |
 | strategy | 3 | 3 | 7.38 | 8.06 |
-| string_precision | 6 | 6 | 9.15 | 10.00 |
+| string_precision | 6 | 6 | 7.87 | 8.17 |
 | structured_output | 4 | 4 | 5.47 | 5.00 |
 | summarization | 2 | 2 | 7.73 | 8.10 |
 | task_management | 3 | 3 | 8.58 | 9.67 |
@@ -679,10 +679,10 @@ order['final_pri
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 8.95 | 10.00 | 4.0 | 9 | 2.03s | OK |
 | copy_hex_64 | 9.10 | 10.00 | 4.0 | 16 | 2.57s | OK |
-| copy_api_key | 9.40 | 10.00 | 4.0 | 44 | 1.44s | OK |
+| copy_api_key | 3.10 | 1.00 | 4.0 | 44 | 1.44s | OK |
 | copy_jwt | 8.95 | 10.00 | 4.0 | 14 | 3.04s | OK |
 | copy_mixed_special | 9.25 | 10.00 | 3.0 | 21 | 1.48s | OK |
-| write_config_file | 9.25 | 10.00 | 4.0 | 46 | 4.29s | OK |
+| write_config_file | 7.85 | 8.00 | 4.0 | 46 | 4.29s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.95</summary>
 
@@ -720,7 +720,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.40</summary>
+<details><summary><code>copy_api_key</code> — score 3.10</summary>
 
 **Stats**: latencia 1.44s · 44 tok/s · 130→64 tokens · $0.00005
 
@@ -774,7 +774,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.25</summary>
+<details><summary><code>write_config_file</code> — score 7.85</summary>
 
 **Stats**: latencia 4.29s · 46 tok/s · 243→198 tokens · $0.00012
 

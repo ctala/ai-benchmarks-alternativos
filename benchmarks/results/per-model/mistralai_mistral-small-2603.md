@@ -1,13 +1,13 @@
 # Mistral Small 4
 
 - **model_id**: `mistralai/mistral-small-2603`
-- **Total tests**: 188/194 exitosos (6 errores)
-- **Score final**: 7.26
-- **Calidad**: 7.46
+- **Total tests**: 308/341 exitosos (33 errores)
+- **Score final**: 7.39
+- **Calidad**: 7.86
 - **Judge score (Phi-4)**: 3.73/10
-- **Velocidad**: 83 tok/s
-- **Latencia primera token**: 7.45s
-- **Costo promedio por test**: $0.00320
+- **Velocidad**: 66 tok/s
+- **Latencia primera token**: 5.61s
+- **Costo promedio por test**: $0.00446
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 7.42 | 7.11 |
-| agent_long_horizon | 12 | 12 | 7.94 | 8.50 |
+| agent_long_horizon | 24 | 24 | 7.81 | 8.65 |
 | business_audit | 10 | 10 | 7.02 | 6.80 |
 | business_strategy | 5 | 5 | 8.55 | 9.20 |
 | code_generation | 4 | 4 | 8.11 | 9.01 |
@@ -28,7 +28,7 @@
 | hallucination | 3 | 3 | 7.34 | 7.00 |
 | multi_turn | 4 | 4 | 6.85 | 6.38 |
 | news_seo_writing | 5 | 5 | 5.77 | 5.39 |
-| niah_es | 51 | 45 | 8.41 | 9.86 |
+| niah_es | 186 | 153 | 7.82 | 8.87 |
 | ocr_extraction | 5 | 5 | 8.63 | 8.78 |
 | orchestration | 5 | 5 | 5.47 | 4.60 |
 | policy_adherence | 4 | 4 | 7.92 | 7.75 |
@@ -2122,14 +2122,14 @@ Aquí tienes un **plan detallado en fases, tareas, dependencias, responsables y 
 
 ### Otras suites
 
-#### prompt_injection_es
+#### agent_long_horizon
 
 #### niah_es
+
+#### prompt_injection_es
 
 #### business_audit
 
 #### business_strategy
 
 #### content_verificable
-
-#### agent_long_horizon

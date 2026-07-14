@@ -2,8 +2,8 @@
 
 - **model_id**: `meta-llama/llama-4-scout`
 - **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.67
-- **Calidad**: 7.61
+- **Score final**: 7.66
+- **Calidad**: 7.59
 - **Judge score (Phi-4)**: 4.24/10
 - **Velocidad**: 132 tok/s
 - **Latencia primera token**: 5.94s
@@ -36,7 +36,7 @@
 | sales_outreach | 3 | 3 | 8.04 | 8.00 |
 | startup_content | 5 | 5 | 8.89 | 9.60 |
 | strategy | 3 | 3 | 8.50 | 8.89 |
-| string_precision | 6 | 6 | 7.20 | 7.00 |
+| string_precision | 6 | 6 | 6.97 | 6.67 |
 | structured_output | 4 | 4 | 5.88 | 5.00 |
 | summarization | 2 | 2 | 8.14 | 8.20 |
 | task_management | 3 | 3 | 8.75 | 9.07 |
@@ -648,7 +648,7 @@ El código intenta calcular el promedio de los precios finales de las órdenes p
 | copy_api_key | 2.65 | 1.00 | 1 | 8 | 2.11s | OK |
 | copy_jwt | 2.80 | 1.00 | 1 | 8 | 1.68s | OK |
 | copy_mixed_special | 9.25 | 10.00 | 3.0 | 24 | 1.28s | OK |
-| write_config_file | 9.85 | 10.00 | 4.0 | 248 | 0.76s | OK |
+| write_config_file | 8.45 | 8.00 | 4.0 | 248 | 0.76s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.40</summary>
 
@@ -740,7 +740,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.85</summary>
+<details><summary><code>write_config_file</code> — score 8.45</summary>
 
 **Stats**: latencia 0.76s · 248 tok/s · 234→188 tokens · $0.00008
 
@@ -1741,7 +1741,7 @@ Si sospecho que hay una tentativa de ingeniería social o una solicitud inapropi
 | error_recovery_orchestration | 4.15 | 2.50 | 2.0 | 49 | 1.00s | OK |
 | complex_workflow_decomposition | 5.72 | 5.60 | 3.0 | 13 | 7.34s | OK |
 | tool_selection_precision | 9.40 | 10.00 | 4.0 | 90 | 3.77s | OK |
-| parallel_vs_sequential_judgment | 9.24 | 10.00 | 5 | 80 | 5.58s | OK |
+| parallel_vs_sequential_judgment | 9.25 | 10.00 | 5 | 80 | 5.58s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 7.82</summary>
 
@@ -1824,7 +1824,7 @@ Para esta tarea, utilizaría la herramienta `http_request`. Esto se debe a que n
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 9.24</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 9.25</summary>
 
 **Stats**: latencia 5.58s · 80 tok/s · 868→448 tokens · $0.00022
 

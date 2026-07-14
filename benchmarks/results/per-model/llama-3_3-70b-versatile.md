@@ -1,13 +1,13 @@
 # Llama 3.3 70B (Groq)
 
 - **model_id**: `llama-3.3-70b-versatile`
-- **Total tests**: 88/172 exitosos (84 errores)
-- **Score final**: 7.68
-- **Calidad**: 7.44
+- **Total tests**: 169/271 exitosos (102 errores)
+- **Score final**: 7.26
+- **Calidad**: 7.58
 - **Judge score (Phi-4)**: 4.00/10
-- **Velocidad**: 238 tok/s
-- **Latencia primera token**: 1.82s
-- **Costo promedio por test**: $0.00058
+- **Velocidad**: 173 tok/s
+- **Latencia primera token**: 2.48s
+- **Costo promedio por test**: $0.00736
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,16 +16,17 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 3 | 7.14 | 6.61 |
+| agent_long_horizon | 27 | 27 | 7.91 | 9.09 |
 | business_audit | 10 | 0 | - | - |
 | code_generation | 4 | 4 | 8.01 | 8.38 |
 | content_generation | 4 | 4 | 8.34 | 8.74 |
 | creativity | 4 | 4 | 8.58 | 8.75 |
 | customer_support | 4 | 4 | 7.85 | 6.76 |
-| deep_reasoning | 6 | 6 | 6.74 | 6.25 |
+| deep_reasoning | 6 | 6 | 6.45 | 5.83 |
 | hallucination | 3 | 3 | 8.53 | 8.33 |
 | multi_turn | 4 | 4 | 7.12 | 6.50 |
 | news_seo_writing | 5 | 5 | 5.76 | 5.03 |
-| niah_es | 51 | 0 | - | - |
+| niah_es | 123 | 54 | 6.27 | 7.09 |
 | ocr_extraction | 5 | 5 | 8.51 | 8.55 |
 | orchestration | 5 | 5 | 7.03 | 6.49 |
 | policy_adherence | 4 | 4 | 8.60 | 8.58 |
@@ -55,7 +56,7 @@
 | causal_reasoning | 9.27 | 10.00 | 4.4 | 342 | 2.81s | OK |
 | code_bug_subtle | 4.13 | 2.50 | 2.6 | 200 | 2.41s | OK |
 | fermi_estimation | 2.32 | 0.00 | 4.4 | 222 | 3.54s | OK |
-| ethical_dilemma_structured | 9.27 | 10.00 | 4.4 | 232 | 4.27s | OK |
+| ethical_dilemma_structured | 7.52 | 7.50 | 4.4 | 232 | 4.27s | OK |
 
 <details><summary><code>math_word_problem</code> — score 9.48</summary>
 
@@ -156,7 +157,7 @@ Estimar la cantidad de litros de café consumidos al día en todas las oficinas 
 
 </details>
 
-<details><summary><code>ethical_dilemma_structured</code> — score 9.27</summary>
+<details><summary><code>ethical_dilemma_structured</code> — score 7.52</summary>
 
 **Stats**: latencia 4.27s · 232 tok/s · 227→992 tokens · $0.00092
 
@@ -2049,8 +2050,10 @@ A continuación, te proporciono la información de los 3 candidatos en formato J
 
 ### Otras suites
 
-#### prompt_injection_es
+#### agent_long_horizon
 
 #### niah_es
+
+#### prompt_injection_es
 
 #### business_audit

@@ -2,8 +2,8 @@
 
 - **model_id**: `minimax/minimax-m2.5`
 - **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.54
-- **Calidad**: 7.99
+- **Score final**: 7.46
+- **Calidad**: 7.88
 - **Judge score (Phi-4)**: 4.46/10
 - **Velocidad**: 61 tok/s
 - **Latencia primera token**: 15.04s
@@ -26,7 +26,7 @@
 | customer_support | 4 | 4 | 7.60 | 7.73 |
 | deep_reasoning | 6 | 6 | 7.33 | 7.92 |
 | hallucination | 3 | 3 | 8.02 | 8.33 |
-| multi_turn | 4 | 4 | 7.54 | 7.88 |
+| multi_turn | 4 | 4 | 7.20 | 7.38 |
 | news_seo_writing | 5 | 5 | 5.46 | 5.26 |
 | ocr_extraction | 5 | 5 | 8.55 | 9.35 |
 | orchestration | 5 | 5 | 7.39 | 7.50 |
@@ -36,7 +36,7 @@
 | sales_outreach | 3 | 3 | 8.45 | 9.33 |
 | startup_content | 5 | 5 | 8.45 | 9.58 |
 | strategy | 3 | 3 | 6.14 | 6.39 |
-| string_precision | 6 | 6 | 9.41 | 10.00 |
+| string_precision | 6 | 6 | 8.13 | 8.17 |
 | structured_output | 4 | 4 | 5.65 | 5.00 |
 | summarization | 2 | 2 | 7.03 | 7.40 |
 | task_management | 3 | 3 | 8.72 | 9.73 |
@@ -662,10 +662,10 @@ El código modifica directamente `
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 9.40 | 10.00 | 4.0 | 48 | 1.68s | OK |
 | copy_hex_64 | 9.40 | 10.00 | 4.0 | 67 | 2.71s | OK |
-| copy_api_key | 9.40 | 10.00 | 4.0 | 64 | 2.71s | OK |
+| copy_api_key | 3.10 | 1.00 | 4.0 | 64 | 2.71s | OK |
 | copy_jwt | 9.40 | 10.00 | 4.0 | 62 | 2.15s | OK |
 | copy_mixed_special | 9.55 | 10.00 | 3.0 | 58 | 1.83s | OK |
-| write_config_file | 9.31 | 10.00 | 4.0 | 67 | 4.96s | OK |
+| write_config_file | 7.91 | 8.00 | 4.0 | 67 | 4.96s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.40</summary>
 
@@ -703,7 +703,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.40</summary>
+<details><summary><code>copy_api_key</code> — score 3.10</summary>
 
 **Stats**: latencia 2.71s · 64 tok/s · 136→172 tokens · $0.00017
 
@@ -757,7 +757,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.31</summary>
+<details><summary><code>write_config_file</code> — score 7.91</summary>
 
 **Stats**: latencia 4.96s · 67 tok/s · 266→332 tokens · $0.00034
 
@@ -1910,7 +1910,7 @@ Voy a ejecutar el proceso de onboarding paso a paso. Empiezo con la creación de
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.59 | 8.00 | 5 | 44 | 8.48s | OK |
 | support_escalation | 7.42 | 8.00 | 5 | 47 | 13.60s | OK |
-| requirements_change | 7.79 | 8.00 | 3.0 | 53 | 5.48s | OK |
+| requirements_change | 6.39 | 6.00 | 3.0 | 53 | 5.48s | OK |
 | debugging_conversation | 7.38 | 7.50 | 5 | 66 | 6.03s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.59</summary>
@@ -1957,7 +1957,7 @@ Te explico lo que puedo hacer desde mi posicion:
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 7.79</summary>
+<details><summary><code>requirements_change</code> — score 6.39</summary>
 
 **Stats**: latencia 5.48s · 53 tok/s · 228→290 tokens · $0.00030
 

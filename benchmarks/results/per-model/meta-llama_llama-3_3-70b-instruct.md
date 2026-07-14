@@ -1,13 +1,13 @@
 # Llama 3.3 70B
 
 - **model_id**: `meta-llama/llama-3.3-70b-instruct`
-- **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.28
-- **Calidad**: 7.56
+- **Total tests**: 148/148 exitosos (0 errores)
+- **Score final**: 7.15
+- **Calidad**: 7.38
 - **Judge score (Phi-4)**: 4.23/10
 - **Velocidad**: 36 tok/s
 - **Latencia primera token**: 22.54s
-- **Costo promedio por test**: $0.00035
+- **Costo promedio por test**: $0.00032
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -17,10 +17,10 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.44 | 4.80 |
 | agent_long_horizon | 12 | 12 | 8.17 | 9.17 |
-| business_audit | 10 | 10 | 6.88 | 7.12 |
-| business_strategy | 5 | 5 | 7.28 | 7.60 |
+| business_audit | 20 | 20 | 6.66 | 6.70 |
+| business_strategy | 10 | 10 | 7.33 | 7.80 |
 | code_generation | 4 | 4 | 7.04 | 7.51 |
-| content_generation | 4 | 4 | 8.37 | 9.45 |
+| content_generation | 8 | 8 | 7.89 | 8.64 |
 | content_verificable | 5 | 5 | 6.09 | 6.00 |
 | creativity | 4 | 4 | 8.46 | 9.25 |
 | customer_support | 4 | 4 | 6.01 | 5.11 |
@@ -30,17 +30,17 @@
 | news_seo_writing | 5 | 5 | 5.59 | 5.26 |
 | ocr_extraction | 5 | 5 | 8.08 | 8.30 |
 | orchestration | 5 | 5 | 7.62 | 7.85 |
-| policy_adherence | 4 | 4 | 7.45 | 7.58 |
+| policy_adherence | 4 | 4 | 7.79 | 8.08 |
 | presentation | 2 | 2 | 8.55 | 9.41 |
 | reasoning | 3 | 3 | 8.19 | 9.15 |
 | sales_outreach | 3 | 3 | 8.41 | 9.33 |
 | startup_content | 5 | 5 | 8.39 | 9.19 |
 | strategy | 3 | 3 | 7.49 | 8.06 |
-| string_precision | 6 | 6 | 8.13 | 8.33 |
+| string_precision | 6 | 6 | 7.08 | 6.83 |
 | structured_output | 4 | 4 | 5.51 | 5.00 |
 | summarization | 2 | 2 | 6.84 | 7.20 |
-| task_management | 3 | 3 | 8.65 | 9.53 |
-| tool_calling | 4 | 4 | 6.58 | 5.70 |
+| task_management | 5 | 5 | 8.24 | 8.92 |
+| tool_calling | 8 | 8 | 6.03 | 5.35 |
 | translation | 3 | 3 | 8.04 | 8.67 |
 
 ## Detalle por test
@@ -639,7 +639,7 @@ El bug se encuentra en la línea `average = total / len(processed)`. Si no hay �
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 9.25 | 10.00 | 4.0 | 17 | 1.11s | OK |
 | copy_hex_64 | 9.40 | 10.00 | 4.0 | 30 | 1.38s | OK |
-| copy_api_key | 9.70 | 10.00 | 4.0 | 89 | 0.72s | OK |
+| copy_api_key | 3.40 | 1.00 | 4.0 | 89 | 0.72s | OK |
 | copy_jwt | 8.95 | 10.00 | 4.0 | 14 | 2.98s | OK |
 | copy_mixed_special | 9.25 | 10.00 | 3.0 | 21 | 1.50s | OK |
 | write_config_file | 2.25 | 0.00 | 1 | 22 | 1.07s | OK |
@@ -680,7 +680,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.70</summary>
+<details><summary><code>copy_api_key</code> — score 3.40</summary>
 
 **Stats**: latencia 0.72s · 89 tok/s · 140→64 tokens · $0.00003
 
@@ -904,10 +904,84 @@ Aquí te presento la respuesta en JSON con la información solicitada:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
+| blog_post_es | 8.22 | 9.34 | - | 10 | 76.60s | OK |
+| email_profesional | 7.79 | 8.67 | - | 15 | 40.34s | OK |
+| social_media_batch | 8.43 | 8.67 | - | 118 | 6.59s | OK |
+| product_description_en | 5.22 | 4.67 | - | 20 | 8.62s | OK |
 | blog_post_es | 8.43 | 9.60 | 5 | 12 | 62.34s | OK |
 | email_profesional | 8.60 | 9.60 | 5 | 17 | 37.70s | OK |
 | social_media_batch | 8.42 | 9.60 | 5 | 8 | 87.42s | OK |
 | product_description_en | 8.03 | 9.00 | 5 | 13 | 13.14s | OK |
+
+<details><summary><code>blog_post_es</code> — score 8.22</summary>
+
+**Stats**: latencia 76.60s · 10 tok/s · 73→797 tokens · $0.00026
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Título:** "Revoluciona tu negocio: Las ventajas de la automatización con IA para pequeñas empresas"
+
+**Introducción:**
+En la era digital actual, las pequeñas empresas enfrentan desafíos constantes para mantenerse competitivas en un mercado cada vez más dinámico. Una de las estrategias más efectiva
+```
+
+**Respuesta completa**: [`results/responses/20260713_140418_2684/or-llama-3.3-70b__content_generation__blog_post_es.md`](../results/responses/20260713_140418_2684/or-llama-3.3-70b__content_generation__blog_post_es.md)
+
+</details>
+
+<details><summary><code>email_profesional</code> — score 7.79</summary>
+
+**Stats**: latencia 40.34s · 15 tok/s · 90→599 tokens · $0.00020
+
+**Respuesta (preview 300 chars)**:
+
+```
+Asunto: Propuesta para Desarrollo de Sitio Web Corporativo con E-commerce
+
+Estimado/a [Nombre del Cliente],
+
+Espero que se encuentre bien. Me dirijo a usted con el fin de presentarle nuestra propuesta para el desarrollo de un sitio web corporativo con funcionalidades de e-commerce, tal como lo discu
+```
+
+**Respuesta completa**: [`results/responses/20260713_140418_2684/or-llama-3.3-70b__content_generation__email_profesional.md`](../results/responses/20260713_140418_2684/or-llama-3.3-70b__content_generation__email_profesional.md)
+
+</details>
+
+<details><summary><code>social_media_batch</code> — score 8.43</summary>
+
+**Stats**: latencia 6.59s · 118 tok/s · 110→778 tokens · $0.00026
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí te dejo cinco opciones de publicaciones para LinkedIn sobre transformación digital, cada una con un enfoque diferente:
+
+**Post 1: Enfoque educativo**
+La transformación digital no es solo una tendencia, es una necesidad para las empresas que desean sobrevivir en el mercado actual. La clave es en
+```
+
+**Respuesta completa**: [`results/responses/20260713_140418_2684/or-llama-3.3-70b__content_generation__social_media_batch.md`](../results/responses/20260713_140418_2684/or-llama-3.3-70b__content_generation__social_media_batch.md)
+
+</details>
+
+<details><summary><code>product_description_en</code> — score 5.22</summary>
+
+**Stats**: latencia 8.62s · 20 tok/s · 63→176 tokens · $0.00006
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Introducing Aura: The Ultimate Smart Home Companion**
+
+Take control of your living space with Aura, a revolutionary device that combines a premium speaker, advanced air quality monitor, and ambient light. Here are just a few ways Aura can enhance your life:
+
+* **Pure Sound**: Enjoy crystal-clear a
+```
+
+**Respuesta completa**: [`results/responses/20260713_140418_2684/or-llama-3.3-70b__content_generation__product_description_en.md`](../results/responses/20260713_140418_2684/or-llama-3.3-70b__content_generation__product_description_en.md)
+
+</details>
 
 <details><summary><code>blog_post_es</code> — score 8.43</summary>
 
@@ -1523,10 +1597,70 @@ Aquí te presento el outline para la presentación:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
+| single_tool_calendar | 5.60 | 5.00 | - | 23 | 2.92s | OK |
+| multi_tool_sequential | 5.30 | 5.00 | - | 8 | 5.97s | OK |
+| tool_with_reasoning | 5.30 | 5.00 | - | 12 | 6.18s | OK |
+| no_tool_needed | 5.75 | 5.00 | - | 19 | 1.37s | OK |
 | single_tool_calendar | 7.52 | 7.10 | 4.0 | 56 | 1.06s | OK |
 | multi_tool_sequential | 6.69 | 5.70 | 3.0 | 58 | 0.79s | OK |
 | tool_with_reasoning | 7.52 | 7.10 | 4.0 | 64 | 1.32s | OK |
 | no_tool_needed | 4.58 | 2.90 | 1 | 38 | 0.69s | OK |
+
+<details><summary><code>single_tool_calendar</code> — score 5.60</summary>
+
+**Stats**: latencia 2.92s · 23 tok/s · 831→68 tokens · $0.00011
+
+**Respuesta (preview 300 chars)**:
+
+```
+[tool_call] create_calendar_event({"title": "Sprint Planning Q2", "date": "2026-05-15", "time": "10:00", "duration_minutes": "60", "description": "Reunión de proyecto"})
+```
+
+**Respuesta completa**: [`results/responses/20260713_140418_2684/or-llama-3.3-70b__tool_calling__single_tool_calendar.md`](../results/responses/20260713_140418_2684/or-llama-3.3-70b__tool_calling__single_tool_calendar.md)
+
+</details>
+
+<details><summary><code>multi_tool_sequential</code> — score 5.30</summary>
+
+**Stats**: latencia 5.97s · 8 tok/s · 866→46 tokens · $0.00010
+
+**Respuesta (preview 300 chars)**:
+
+```
+[tool_call] create_task({"title": "Revisar contrato cliente ABC", "due_date": "2026-05-10", "priority": "urgent"})
+```
+
+**Respuesta completa**: [`results/responses/20260713_140418_2684/or-llama-3.3-70b__tool_calling__multi_tool_sequential.md`](../results/responses/20260713_140418_2684/or-llama-3.3-70b__tool_calling__multi_tool_sequential.md)
+
+</details>
+
+<details><summary><code>tool_with_reasoning</code> — score 5.30</summary>
+
+**Stats**: latencia 6.18s · 12 tok/s · 804→74 tokens · $0.00010
+
+**Respuesta (preview 300 chars)**:
+
+```
+[tool_call] create_calendar_event({"date": "2024-02-25", "duration_minutes": "60", "time": "17:00", "title": "Recordatorio: Repasar slides de presentacion", "description": "Repasar las slides para la presentacion de manana"})
+```
+
+**Respuesta completa**: [`results/responses/20260713_140418_2684/or-llama-3.3-70b__tool_calling__tool_with_reasoning.md`](../results/responses/20260713_140418_2684/or-llama-3.3-70b__tool_calling__tool_with_reasoning.md)
+
+</details>
+
+<details><summary><code>no_tool_needed</code> — score 5.75</summary>
+
+**Stats**: latencia 1.37s · 19 tok/s · 800→26 tokens · $0.00009
+
+**Respuesta (preview 300 chars)**:
+
+```
+[tool_call] search_web({"query": "Capital de Francia"})
+```
+
+**Respuesta completa**: [`results/responses/20260713_140418_2684/or-llama-3.3-70b__tool_calling__no_tool_needed.md`](../results/responses/20260713_140418_2684/or-llama-3.3-70b__tool_calling__no_tool_needed.md)
+
+</details>
 
 <details><summary><code>single_tool_calendar</code> — score 7.52</summary>
 
@@ -1878,7 +2012,7 @@ Eso explica el problema. Un retry infinito puede causar un ciclo de requests ili
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 7.93 | 8.33 | 5 | 39 | 8.41s | OK |
 | data_privacy_protection | 7.55 | 8.00 | 5 | 24 | 6.22s | OK |
-| language_and_tone_rules | 4.90 | 4.00 | 3.0 | 36 | 6.13s | OK |
+| language_and_tone_rules | 6.30 | 6.00 | 3.0 | 36 | 6.13s | OK |
 | scope_boundaries | 9.40 | 10.00 | 4.0 | 83 | 4.48s | OK |
 
 <details><summary><code>refund_policy_enforcement</code> — score 7.93</summary>
@@ -1919,7 +2053,7 @@ Además, como
 
 </details>
 
-<details><summary><code>language_and_tone_rules</code> — score 4.90</summary>
+<details><summary><code>language_and_tone_rules</code> — score 6.30</summary>
 
 **Stats**: latencia 6.13s · 36 tok/s · 220→224 tokens · $0.00009
 
@@ -2080,9 +2214,50 @@ Para abordar las tres tareas que mencionas, te proporciono las siguientes respue
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
+| extract_action_items | 6.86 | 7.33 | - | 13 | 22.73s | OK |
+| weekly_planning | 8.41 | 8.67 | - | 159 | 5.36s | OK |
 | extract_action_items | 8.68 | 9.40 | 5 | 48 | 5.71s | OK |
 | weekly_planning | 8.87 | 9.60 | 5 | 50 | 13.65s | OK |
 | project_breakdown | 8.39 | 9.60 | 5 | 12 | 74.39s | OK |
+
+<details><summary><code>extract_action_items</code> — score 6.86</summary>
+
+**Stats**: latencia 22.73s · 13 tok/s · 232→287 tokens · $0.00012
+
+**Respuesta (preview 300 chars)**:
+
+```
+A continuación, te presento la tabla con los action items extraídos de las notas de la reunión:
+
+| Responsable | Tarea | Fecha Límite | Prioridad Sugerida |
+| --- | --- | --- | --- |
+| Carlos | Terminar API de pagos | 20 de abril | Alta |
+| Ana | Entregar mockups del dashboard | 14 de abril | Media
+```
+
+**Respuesta completa**: [`results/responses/20260713_140418_2684/or-llama-3.3-70b__task_management__extract_action_items.md`](../results/responses/20260713_140418_2684/or-llama-3.3-70b__task_management__extract_action_items.md)
+
+</details>
+
+<details><summary><code>weekly_planning</code> — score 8.41</summary>
+
+**Stats**: latencia 5.36s · 159 tok/s · 238→854 tokens · $0.00030
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí te presento un plan semanal detallado con bloques de tiempo específicos para que puedas cumplir con todas tus tareas y compromisos:
+
+**Lunes**
+
+* 9:00 AM - 11:00 AM: Reunión de directivos
+* 11:00 AM - 12:00 PM: Responder emails de stakeholders (1 hora)
+* 12:00 PM - 1:00 PM: Almuerzo libre (pued
+```
+
+**Respuesta completa**: [`results/responses/20260713_140418_2684/or-llama-3.3-70b__task_management__weekly_planning.md`](../results/responses/20260713_140418_2684/or-llama-3.3-70b__task_management__weekly_planning.md)
+
+</details>
 
 <details><summary><code>extract_action_items</code> — score 8.68</summary>
 

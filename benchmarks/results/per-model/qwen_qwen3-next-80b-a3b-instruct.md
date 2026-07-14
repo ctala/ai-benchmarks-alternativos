@@ -2,8 +2,8 @@
 
 - **model_id**: `qwen/qwen3-next-80b-a3b-instruct`
 - **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.75
-- **Calidad**: 8.02
+- **Score final**: 7.69
+- **Calidad**: 7.93
 - **Judge score (Phi-4)**: 4.52/10
 - **Velocidad**: 105 tok/s
 - **Latencia primera token**: 8.38s
@@ -36,7 +36,7 @@
 | sales_outreach | 3 | 3 | 7.15 | 7.11 |
 | startup_content | 5 | 5 | 8.46 | 9.44 |
 | strategy | 3 | 3 | 6.23 | 6.39 |
-| string_precision | 6 | 6 | 9.54 | 10.00 |
+| string_precision | 6 | 6 | 8.26 | 8.17 |
 | structured_output | 4 | 4 | 5.93 | 5.00 |
 | summarization | 2 | 2 | 7.95 | 7.90 |
 | task_management | 3 | 3 | 8.88 | 9.73 |
@@ -291,11 +291,11 @@ Vamos a resolver el problema paso a paso, usando todas las pistas dadas.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| factual_trap_companies | 9.67 | 10.00 | 4.0 | 149 | 1.49s | OK |
+| factual_trap_companies | 9.66 | 10.00 | 4.0 | 149 | 1.49s | OK |
 | context_faithfulness | 6.05 | 5.00 | 4.0 | 54 | 1.47s | OK |
 | fake_citation_trap | 7.53 | 8.00 | 5 | 134 | 10.71s | OK |
 
-<details><summary><code>factual_trap_companies</code> — score 9.67</summary>
+<details><summary><code>factual_trap_companies</code> — score 9.66</summary>
 
 **Stats**: latencia 1.49s · 149 tok/s · 149→222 tokens · $0.00026
 
@@ -675,10 +675,10 @@ SELECT
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 9.55 | 10.00 | 4.0 | 40 | 0.68s | OK |
 | copy_hex_64 | 9.70 | 10.00 | 4.0 | 74 | 0.77s | OK |
-| copy_api_key | 9.70 | 10.00 | 4.0 | 65 | 0.99s | OK |
+| copy_api_key | 3.40 | 1.00 | 4.0 | 65 | 0.99s | OK |
 | copy_jwt | 9.40 | 10.00 | 4.0 | 31 | 1.31s | OK |
 | copy_mixed_special | 9.25 | 10.00 | 3.0 | 25 | 1.31s | OK |
-| write_config_file | 9.67 | 10.00 | 4.0 | 113 | 1.85s | OK |
+| write_config_file | 8.27 | 8.00 | 4.0 | 113 | 1.85s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.55</summary>
 
@@ -716,7 +716,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.70</summary>
+<details><summary><code>copy_api_key</code> — score 3.40</summary>
 
 **Stats**: latencia 0.99s · 65 tok/s · 137→64 tokens · $0.00008
 
@@ -770,7 +770,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.67</summary>
+<details><summary><code>write_config_file</code> — score 8.27</summary>
 
 **Stats**: latencia 1.85s · 113 tok/s · 255→209 tokens · $0.00025
 

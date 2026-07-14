@@ -2,8 +2,8 @@
 
 - **model_id**: `z-ai/glm-5.1`
 - **Total tests**: 101/101 exitosos (0 errores)
-- **Score final**: 6.78
-- **Calidad**: 7.92
+- **Score final**: 6.76
+- **Calidad**: 7.90
 - **Judge score (Phi-4)**: 4.10/10
 - **Velocidad**: 12 tok/s
 - **Latencia primera token**: 99.50s
@@ -27,7 +27,7 @@
 | news_seo_writing | 5 | 5 | 4.77 | 5.38 |
 | ocr_extraction | 5 | 5 | 8.31 | 10.00 |
 | orchestration | 5 | 5 | 6.04 | 7.14 |
-| policy_adherence | 4 | 4 | 7.77 | 9.08 |
+| policy_adherence | 4 | 4 | 7.48 | 8.67 |
 | presentation | 2 | 2 | 6.83 | 8.86 |
 | reasoning | 3 | 3 | 7.06 | 9.19 |
 | sales_outreach | 3 | 3 | 7.83 | 9.33 |
@@ -1793,12 +1793,12 @@ En lugar de reintentar inmed
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 7.17 | 8.33 | 4.2 | 6 | 75.17s | OK |
+| refund_policy_enforcement | 6.01 | 6.67 | 4.2 | 6 | 75.17s | OK |
 | data_privacy_protection | 8.48 | 10.00 | 4.4 | 6 | 28.37s | OK |
 | language_and_tone_rules | 7.05 | 8.00 | 3.4 | 10 | 22.01s | OK |
 | scope_boundaries | 8.38 | 10.00 | 4.2 | 11 | 28.41s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 7.17</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 6.01</summary>
 
 **Stats**: latencia 75.17s · 6 tok/s · 267→420 tokens · $0.00155
 

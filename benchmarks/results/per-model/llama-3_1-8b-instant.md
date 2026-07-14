@@ -1,13 +1,13 @@
 # Llama 3.1 8B Instant (Groq)
 
 - **model_id**: `llama-3.1-8b-instant`
-- **Total tests**: 88/172 exitosos (84 errores)
-- **Score final**: 7.68
+- **Total tests**: 145/239 exitosos (94 errores)
+- **Score final**: 7.42
 - **Calidad**: 7.02
 - **Judge score (Phi-4)**: 3.90/10
-- **Velocidad**: 368 tok/s
-- **Latencia primera token**: 1.27s
-- **Costo promedio por test**: $0.00006
+- **Velocidad**: 262 tok/s
+- **Latencia primera token**: 2.52s
+- **Costo promedio por test**: $0.00057
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,8 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.74 | 5.33 |
-| business_audit | 10 | 0 | - | - |
+| agent_long_horizon | 12 | 12 | 8.21 | 8.33 |
+| business_audit | 20 | 0 | - | - |
 | code_generation | 4 | 4 | 8.32 | 8.07 |
 | content_generation | 4 | 4 | 8.65 | 8.72 |
 | creativity | 4 | 4 | 8.69 | 8.50 |
@@ -26,6 +27,7 @@
 | multi_turn | 4 | 4 | 7.94 | 7.38 |
 | news_seo_writing | 5 | 5 | 6.15 | 4.99 |
 | niah_es | 51 | 0 | - | - |
+| niah_es_lite | 45 | 45 | 6.70 | 6.68 |
 | ocr_extraction | 5 | 5 | 8.08 | 7.55 |
 | orchestration | 5 | 4 | 6.97 | 5.89 |
 | policy_adherence | 4 | 4 | 7.52 | 6.67 |
@@ -2067,6 +2069,10 @@ Aquí están los perfiles de candidatos en formato JSON:
 </details>
 
 ### Otras suites
+
+#### agent_long_horizon
+
+#### niah_es_lite
 
 #### prompt_injection_es
 

@@ -1,13 +1,13 @@
 # Grok 4.1 Fast
 
 - **model_id**: `x-ai/grok-4.1-fast`
-- **Total tests**: 91/174 exitosos (83 errores)
-- **Score final**: 7.50
-- **Calidad**: 7.77
+- **Total tests**: 148/231 exitosos (83 errores)
+- **Score final**: 7.12
+- **Calidad**: 7.36
 - **Judge score (Phi-4)**: 4.19/10
-- **Velocidad**: 116 tok/s
-- **Latencia primera token**: 15.48s
-- **Costo promedio por test**: $0.00078
+- **Velocidad**: 105 tok/s
+- **Latencia primera token**: 14.09s
+- **Costo promedio por test**: $0.00259
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,6 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.39 | 6.67 |
+| agent_long_horizon | 12 | 12 | 7.41 | 8.75 |
 | business_audit | 10 | 0 | - | - |
 | business_strategy | 2 | 0 | - | - |
 | code_generation | 4 | 4 | 7.84 | 8.75 |
@@ -27,6 +28,7 @@
 | multi_turn | 4 | 4 | 7.64 | 7.88 |
 | news_seo_writing | 5 | 5 | 5.62 | 5.36 |
 | niah_es | 51 | 0 | - | - |
+| niah_es_lite | 45 | 45 | 6.29 | 6.15 |
 | ocr_extraction | 5 | 5 | 8.83 | 9.60 |
 | orchestration | 5 | 5 | 7.55 | 7.75 |
 | policy_adherence | 4 | 4 | 8.10 | 8.17 |
@@ -2043,6 +2045,10 @@ Finanzas: Burn $380K/
 </details>
 
 ### Otras suites
+
+#### agent_long_horizon
+
+#### niah_es_lite
 
 #### prompt_injection_es
 

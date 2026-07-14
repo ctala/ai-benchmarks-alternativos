@@ -2,8 +2,8 @@
 
 - **model_id**: `z-ai/glm-5`
 - **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.30
-- **Calidad**: 8.25
+- **Score final**: 7.23
+- **Calidad**: 8.16
 - **Judge score (Phi-4)**: 4.43/10
 - **Velocidad**: 47 tok/s
 - **Latencia primera token**: 69.73s
@@ -36,7 +36,7 @@
 | sales_outreach | 3 | 3 | 7.56 | 8.67 |
 | startup_content | 5 | 5 | 7.94 | 9.38 |
 | strategy | 3 | 3 | 8.51 | 10.00 |
-| string_precision | 6 | 6 | 8.99 | 10.00 |
+| string_precision | 6 | 6 | 7.71 | 8.17 |
 | structured_output | 4 | 4 | 5.09 | 5.00 |
 | summarization | 2 | 2 | 7.37 | 8.20 |
 | task_management | 3 | 3 | 8.46 | 9.80 |
@@ -615,14 +615,14 @@ El código proporcionado tiene tres bugs principales que pueden causar errores e
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| copy_hex_32 | 9.17 | 10.00 | 4.0 | 36 | 3.83s | OK |
+| copy_hex_32 | 9.18 | 10.00 | 4.0 | 36 | 3.83s | OK |
 | copy_hex_64 | 9.18 | 10.00 | 3.0 | 40 | 3.13s | OK |
-| copy_api_key | 8.91 | 10.00 | 4.0 | 48 | 5.13s | OK |
+| copy_api_key | 2.61 | 1.00 | 4.0 | 48 | 5.13s | OK |
 | copy_jwt | 9.25 | 10.00 | 4.0 | 59 | 3.55s | OK |
 | copy_mixed_special | 8.69 | 10.00 | 3.0 | 46 | 12.86s | OK |
-| write_config_file | 8.73 | 10.00 | 4.0 | 86 | 11.84s | OK |
+| write_config_file | 7.33 | 8.00 | 4.0 | 86 | 11.84s | OK |
 
-<details><summary><code>copy_hex_32</code> — score 9.17</summary>
+<details><summary><code>copy_hex_32</code> — score 9.18</summary>
 
 **Stats**: latencia 3.83s · 36 tok/s · 89→137 tokens · $0.00032
 
@@ -658,7 +658,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 8.91</summary>
+<details><summary><code>copy_api_key</code> — score 2.61</summary>
 
 **Stats**: latencia 5.13s · 48 tok/s · 130→249 tokens · $0.00056
 
@@ -712,7 +712,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 8.73</summary>
+<details><summary><code>write_config_file</code> — score 7.33</summary>
 
 **Stats**: latencia 11.84s · 86 tok/s · 235→1024 tokens · $0.00211
 

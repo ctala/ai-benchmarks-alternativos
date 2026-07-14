@@ -2,8 +2,8 @@
 
 - **model_id**: `mistralai/ministral-14b-2512`
 - **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.86
-- **Calidad**: 8.14
+- **Score final**: 7.80
+- **Calidad**: 8.05
 - **Judge score (Phi-4)**: 4.50/10
 - **Velocidad**: 77 tok/s
 - **Latencia primera token**: 14.44s
@@ -36,7 +36,7 @@
 | sales_outreach | 3 | 3 | 7.83 | 8.00 |
 | startup_content | 5 | 5 | 8.65 | 9.37 |
 | strategy | 3 | 3 | 7.67 | 8.06 |
-| string_precision | 6 | 6 | 9.45 | 10.00 |
+| string_precision | 6 | 6 | 8.17 | 8.17 |
 | structured_output | 4 | 4 | 5.92 | 5.00 |
 | summarization | 2 | 2 | 8.36 | 8.30 |
 | task_management | 3 | 3 | 8.98 | 9.64 |
@@ -657,10 +657,10 @@ Tienes razón en los tres bugs que mencionas. Vamos a analizar cada uno y luego 
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 9.25 | 10.00 | 4.0 | 24 | 1.21s | OK |
 | copy_hex_64 | 9.70 | 10.00 | 4.0 | 68 | 0.86s | OK |
-| copy_api_key | 9.10 | 10.00 | 4.0 | 24 | 2.69s | OK |
+| copy_api_key | 2.80 | 1.00 | 4.0 | 24 | 2.69s | OK |
 | copy_jwt | 9.70 | 10.00 | 4.0 | 61 | 0.76s | OK |
 | copy_mixed_special | 9.55 | 10.00 | 3.0 | 45 | 0.74s | OK |
-| write_config_file | 9.40 | 10.00 | 4.0 | 94 | 2.33s | OK |
+| write_config_file | 8.00 | 8.00 | 4.0 | 94 | 2.33s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.25</summary>
 
@@ -698,7 +698,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.10</summary>
+<details><summary><code>copy_api_key</code> — score 2.80</summary>
 
 **Stats**: latencia 2.69s · 24 tok/s · 130→64 tokens · $0.00004
 
@@ -752,7 +752,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.40</summary>
+<details><summary><code>write_config_file</code> — score 8.00</summary>
 
 **Stats**: latencia 2.33s · 94 tok/s · 259→218 tokens · $0.00010
 

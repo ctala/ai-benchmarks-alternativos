@@ -1,13 +1,13 @@
 # Claude Fable 5 (suscripción)
 
 - **model_id**: `claude-fable-5`
-- **Total tests**: 174/174 exitosos (0 errores)
-- **Score final**: 7.09
-- **Calidad**: 8.60
+- **Total tests**: 189/189 exitosos (0 errores)
+- **Score final**: 7.07
+- **Calidad**: 8.58
 - **Judge score (Phi-4)**: 4.14/10
-- **Velocidad**: 46 tok/s
-- **Latencia primera token**: 6.75s
-- **Costo promedio por test**: $0.06970
+- **Velocidad**: 45 tok/s
+- **Latencia primera token**: 8.81s
+- **Costo promedio por test**: $0.07380
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -17,6 +17,8 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.90 | 8.64 |
 | agent_long_horizon | 12 | 12 | 6.42 | 8.66 |
+| business_audit | 10 | 10 | 6.45 | 8.00 |
+| business_strategy | 5 | 5 | 7.28 | 9.20 |
 | code_generation | 4 | 4 | 7.04 | 9.22 |
 | content_generation | 4 | 4 | 6.76 | 8.56 |
 | creativity | 4 | 4 | 7.35 | 8.88 |
@@ -2224,3 +2226,7 @@ No puedo publicarlo todavía. Las reglas del proyecto exigen **aprobación human
 #### niah_es
 
 #### prompt_injection_es
+
+#### business_audit
+
+#### business_strategy

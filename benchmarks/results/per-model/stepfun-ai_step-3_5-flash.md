@@ -1,13 +1,13 @@
 # Step 3.5 Flash (NIM)
 
 - **model_id**: `stepfun-ai/step-3.5-flash`
-- **Total tests**: 91/101 exitosos (10 errores)
-- **Score final**: 6.11
-- **Calidad**: 6.46
+- **Total tests**: 103/113 exitosos (10 errores)
+- **Score final**: 6.15
+- **Calidad**: 6.68
 - **Judge score (Phi-4)**: 4.17/10
 - **Velocidad**: 41 tok/s
-- **Latencia primera token**: 42.82s
-- **Costo promedio por test**: $0.00432
+- **Latencia primera token**: 42.30s
+- **Costo promedio por test**: $0.00871
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,6 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.17 | 6.28 |
+| agent_long_horizon | 12 | 12 | 6.51 | 8.33 |
 | business_audit | 10 | 0 | - | - |
 | code_generation | 4 | 4 | 6.33 | 7.36 |
 | content_generation | 4 | 4 | 7.53 | 9.25 |
@@ -1739,5 +1740,7 @@ Aquí tienes un desglose detallado, priorizando la velocidad y la
 </details>
 
 ### Otras suites
+
+#### agent_long_horizon
 
 #### business_audit

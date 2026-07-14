@@ -2,8 +2,8 @@
 
 - **model_id**: `qwen/qwen-2.5-72b-instruct`
 - **Total tests**: 80/100 exitosos (20 errores)
-- **Score final**: 7.46
-- **Calidad**: 8.00
+- **Score final**: 7.34
+- **Calidad**: 7.82
 - **Judge score (Phi-4)**: 4.41/10
 - **Velocidad**: 31 tok/s
 - **Latencia primera token**: 21.89s
@@ -27,14 +27,14 @@
 | multi_turn | 1 | 0 | - | - |
 | news_seo_writing | 5 | 4 | 4.98 | 4.55 |
 | ocr_extraction | 5 | 5 | 8.51 | 9.35 |
-| orchestration | 5 | 5 | 6.81 | 7.12 |
+| orchestration | 5 | 5 | 6.41 | 6.55 |
 | policy_adherence | 1 | 1 | 6.49 | 6.67 |
 | presentation | 2 | 1 | 8.35 | 9.30 |
 | reasoning | 3 | 3 | 8.31 | 9.47 |
 | sales_outreach | 1 | 1 | 7.25 | 8.00 |
 | startup_content | 5 | 5 | 8.56 | 9.60 |
 | strategy | 3 | 2 | 6.79 | 7.08 |
-| string_precision | 6 | 5 | 9.04 | 10.00 |
+| string_precision | 6 | 5 | 7.50 | 7.80 |
 | structured_output | 4 | 4 | 5.71 | 5.00 |
 | summarization | 2 | 2 | 7.36 | 7.90 |
 | task_management | 3 | 3 | 8.37 | 9.20 |
@@ -537,10 +537,10 @@ Claro, veamos los bugs y las correcciones necesarias:
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 3.03 | 1.00 | - | 0 | 0.00s | ERROR |
 | copy_hex_64 | 8.95 | 10.00 | 4.0 | 11 | 4.99s | OK |
-| copy_api_key | 9.10 | 10.00 | 4.0 | 26 | 2.43s | OK |
+| copy_api_key | 2.80 | 1.00 | 4.0 | 26 | 2.43s | OK |
 | copy_jwt | 9.10 | 10.00 | 4.0 | 17 | 2.38s | OK |
 | copy_mixed_special | 8.95 | 10.00 | 3.0 | 6 | 4.98s | OK |
-| write_config_file | 9.10 | 10.00 | 4.0 | 30 | 6.91s | OK |
+| write_config_file | 7.70 | 8.00 | 4.0 | 30 | 6.91s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 3.03</summary>
 
@@ -566,7 +566,7 @@ Claro, veamos los bugs y las correcciones necesarias:
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.10</summary>
+<details><summary><code>copy_api_key</code> — score 2.80</summary>
 
 **Stats**: latencia 2.43s · 26 tok/s · 137→63 tokens · $0.00007
 
@@ -620,7 +620,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.10</summary>
+<details><summary><code>write_config_file</code> — score 7.70</summary>
 
 **Stats**: latencia 6.91s · 30 tok/s · 255→208 tokens · $0.00017
 
@@ -1418,7 +1418,7 @@ Voy a verificar la información de tu pedido antes de proceder con el reembolso.
 | error_recovery_orchestration | 5.55 | 5.00 | 4.0 | 32 | 3.08s | OK |
 | complex_workflow_decomposition | 6.53 | 6.80 | 4.0 | 33 | 16.74s | OK |
 | tool_selection_precision | 8.64 | 10.00 | 5 | 30 | 13.58s | OK |
-| parallel_vs_sequential_judgment | 6.77 | 7.14 | 4.4 | 34 | 15.02s | OK |
+| parallel_vs_sequential_judgment | 4.77 | 4.29 | 4.4 | 34 | 15.02s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 6.56</summary>
 
@@ -1501,7 +1501,7 @@ Para cada tarea, he seleccionado la herramienta más apropiada y explico por qu�
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 6.77</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 4.77</summary>
 
 **Stats**: latencia 15.02s · 34 tok/s · 1626→504 tokens · $0.00079
 

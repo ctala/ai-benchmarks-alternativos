@@ -1,13 +1,13 @@
 # GPT-5.6 Sol
 
 - **model_id**: `openai/gpt-5.6-sol`
-- **Total tests**: 190/194 exitosos (4 errores)
-- **Score final**: 7.16
-- **Calidad**: 8.66
-- **Judge score (Phi-4)**: 4.23/10
-- **Velocidad**: 36 tok/s
-- **Latencia primera token**: 22.14s
-- **Costo promedio por test**: $0.14792
+- **Total tests**: 282/298 exitosos (16 errores)
+- **Score final**: 7.31
+- **Calidad**: 9.10
+- **Judge score (Phi-4)**: 4.24/10
+- **Velocidad**: 27 tok/s
+- **Latencia primera token**: 16.36s
+- **Costo promedio por test**: $0.21218
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -17,7 +17,7 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.42 | 7.06 |
 | agent_long_horizon | 12 | 12 | 7.38 | 9.14 |
-| business_audit | 10 | 6 | 6.32 | 7.75 |
+| business_audit | 12 | 8 | 6.78 | 8.31 |
 | business_strategy | 5 | 5 | 7.24 | 8.80 |
 | code_generation | 4 | 4 | 7.14 | 8.63 |
 | content_generation | 4 | 4 | 7.82 | 9.23 |
@@ -28,7 +28,7 @@
 | hallucination | 3 | 3 | 7.23 | 8.33 |
 | multi_turn | 4 | 4 | 6.46 | 7.50 |
 | news_seo_writing | 5 | 5 | 4.97 | 5.56 |
-| niah_es | 51 | 51 | 7.76 | 10.00 |
+| niah_es | 153 | 141 | 7.67 | 10.00 |
 | ocr_extraction | 5 | 5 | 7.93 | 9.35 |
 | orchestration | 5 | 5 | 5.09 | 5.31 |
 | policy_adherence | 4 | 4 | 7.13 | 8.08 |

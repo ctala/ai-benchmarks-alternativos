@@ -2,8 +2,8 @@
 
 - **model_id**: `meta-llama/llama-3.1-8b-instruct`
 - **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.05
-- **Calidad**: 6.98
+- **Score final**: 7.00
+- **Calidad**: 6.91
 - **Judge score (Phi-4)**: 3.84/10
 - **Velocidad**: 68 tok/s
 - **Latencia primera token**: 15.57s
@@ -36,7 +36,7 @@
 | sales_outreach | 3 | 3 | 8.26 | 8.67 |
 | startup_content | 5 | 5 | 8.25 | 8.65 |
 | strategy | 3 | 3 | 7.84 | 7.78 |
-| string_precision | 6 | 6 | 6.98 | 6.83 |
+| string_precision | 6 | 6 | 5.93 | 5.33 |
 | structured_output | 4 | 4 | 5.62 | 5.00 |
 | summarization | 2 | 2 | 6.95 | 6.50 |
 | task_management | 3 | 3 | 7.98 | 8.53 |
@@ -633,7 +633,7 @@ WITH
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 8.95 | 10.00 | 4.0 | 6 | 3.03s | OK |
 | copy_hex_64 | 9.70 | 10.00 | 3.0 | 63 | 0.67s | OK |
-| copy_api_key | 8.80 | 10.00 | 4.0 | 8 | 8.02s | OK |
+| copy_api_key | 2.50 | 1.00 | 4.0 | 8 | 8.02s | OK |
 | copy_jwt | 2.95 | 1.00 | 1 | 44 | 2.75s | OK |
 | copy_mixed_special | 9.10 | 10.00 | 3.0 | 15 | 2.02s | OK |
 | write_config_file | 2.40 | 0.00 | 1 | 25 | 0.92s | OK |
@@ -674,7 +674,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 8.80</summary>
+<details><summary><code>copy_api_key</code> — score 2.50</summary>
 
 **Stats**: latencia 8.02s · 8 tok/s · 139→64 tokens · $0.00001
 

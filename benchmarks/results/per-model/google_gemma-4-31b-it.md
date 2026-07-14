@@ -1,13 +1,13 @@
 # Gemma 4 31B (NIM)
 
 - **model_id**: `google/gemma-4-31b-it`
-- **Total tests**: 96/101 exitosos (5 errores)
-- **Score final**: 7.31
-- **Calidad**: 7.81
+- **Total tests**: 107/113 exitosos (6 errores)
+- **Score final**: 7.32
+- **Calidad**: 7.95
 - **Judge score (Phi-4)**: 4.17/10
-- **Velocidad**: 26 tok/s
-- **Latencia primera token**: 60.72s
-- **Costo promedio por test**: $0.00025
+- **Velocidad**: 24 tok/s
+- **Latencia primera token**: 62.30s
+- **Costo promedio por test**: $0.00049
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,6 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.53 | 7.02 |
+| agent_long_horizon | 12 | 11 | 7.41 | 9.18 |
 | business_audit | 10 | 10 | 6.81 | 7.00 |
 | code_generation | 4 | 4 | 7.84 | 9.23 |
 | content_generation | 4 | 4 | 7.77 | 9.03 |
@@ -2049,5 +2050,7 @@ Aquí tienes el plan maestro.
 </details>
 
 ### Otras suites
+
+#### agent_long_horizon
 
 #### business_audit

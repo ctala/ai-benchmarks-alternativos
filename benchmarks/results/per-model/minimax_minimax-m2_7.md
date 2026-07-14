@@ -1,13 +1,13 @@
 # MiniMax M2.7
 
 - **model_id**: `minimax/minimax-m2.7`
-- **Total tests**: 182/182 exitosos (0 errores)
-- **Score final**: 6.87
-- **Calidad**: 7.36
+- **Total tests**: 199/199 exitosos (0 errores)
+- **Score final**: 6.85
+- **Calidad**: 7.38
 - **Judge score (Phi-4)**: 4.19/10
-- **Velocidad**: 39 tok/s
-- **Latencia primera token**: 29.45s
-- **Costo promedio por test**: $0.00177
+- **Velocidad**: 40 tok/s
+- **Latencia primera token**: 28.58s
+- **Costo promedio por test**: $0.00208
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,8 +15,8 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 6.58 | 7.66 |
-| agent_long_horizon | 12 | 12 | 7.24 | 8.25 |
+| agent_capabilities | 10 | 10 | 6.56 | 7.39 |
+| agent_long_horizon | 24 | 24 | 6.95 | 7.98 |
 | business_audit | 10 | 10 | 6.58 | 7.00 |
 | business_strategy | 5 | 5 | 7.75 | 8.80 |
 | code_generation | 8 | 8 | 6.74 | 7.34 |
@@ -2560,11 +2560,105 @@ El **Plan Pro** tiene un valor de **$149 USD/mes** (facturación mensual) o **$1
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
+| skill_execution_complex | 7.28 | 7.60 | - | 28 | 21.14s | OK |
+| agent_team_delegation | 7.39 | 9.00 | - | 37 | 17.24s | OK |
+| ask_clarification_before_acting | 6.81 | 9.34 | - | 19 | 11.80s | OK |
+| context_following_complex_system | 5.18 | 3.64 | - | 87 | 3.20s | OK |
+| model_as_router | 6.06 | 6.07 | - | 27 | 28.76s | OK |
 | skill_execution_complex | 6.15 | 7.28 | 3.2 | 28 | 16.97s | OK |
 | agent_team_delegation | 7.32 | 8.96 | 4.4 | 32 | 25.32s | OK |
 | ask_clarification_before_acting | 6.91 | 9.52 | 4.8 | 20 | 10.36s | OK |
 | context_following_complex_system | 5.54 | 5.02 | 3.2 | 44 | 7.79s | OK |
 | model_as_router | 6.99 | 7.50 | 4.2 | 30 | 19.44s | OK |
+
+<details><summary><code>skill_execution_complex</code> — score 7.28</summary>
+
+**Stats**: latencia 21.14s · 28 tok/s · 966→590 tokens · $0.00100
+
+**Respuesta (preview 300 chars)**:
+
+```
+Voy a ejecutar esto en paralelo: publicar el artículo, enviar el Slack y agendar la reunión.
+```
+
+</details>
+
+<details><summary><code>agent_team_delegation</code> — score 7.39</summary>
+
+**Stats**: latencia 17.24s · 37 tok/s · 1020→633 tokens · $0.00107
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Plan de Ejecución: Landing Page AutoFlow AI
+
+## Dependencias identificadas:
+```
+[Researcher] → [Writer] → [Coder] → [Reviewer]
+                     ↑
+[Designer] ────────────────────────────┘
+```
+
+**Orden de ejecución:**
+1. **Fase 1 (Paralelo):** Research + Diseño de assets base
+2. **Fase 2:** Copy
+```
+
+</details>
+
+<details><summary><code>ask_clarification_before_acting</code> — score 6.81</summary>
+
+**Stats**: latencia 11.80s · 19 tok/s · 874→222 tokens · $0.00053
+
+**Respuesta (preview 300 chars)**:
+
+```
+## ⚠️ Necesito información para procesar el reembolso
+
+Antes de procesar el reembolso, necesito que me proporciones los siguientes datos obligatorios:
+
+| Campo | ¿Qué necesito? |
+|-------|-----------------|
+| **Cliente** | Nombre o ID del cliente |
+| **Pedido/Transacción** | Número de orden o refere
+```
+
+</details>
+
+<details><summary><code>context_following_complex_system</code> — score 5.18</summary>
+
+**Stats**: latencia 3.20s · 87 tok/s · 1055→278 tokens · $0.00065
+
+**Respuesta (preview 300 chars)**:
+
+```
+Puedo ayudarte con la primera solicitud, pero las otras dos requieren escalamiento o no están en mi alcance. Te explico:
+
+**1. Publicar el artículo sobre AI funding en LATAM** ✅
+Voy a ejecutar el skill de publicación ahora.
+```
+
+</details>
+
+<details><summary><code>model_as_router</code> — score 6.06</summary>
+
+**Stats**: latencia 28.76s · 27 tok/s · 265→777 tokens · $0.00101
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+[
+  {
+    "subtarea": "Analizar 500 reviews y extraer 5 problemas principales",
+    "modelo": "deepseek-v3",
+    "razon": "Requiere razonamiento sobre patrones en grandes volúmenes de texto. Es el más barato para esta carga de trabajo ($0.14/M tokens)."
+  },
+  {
+    "subtarea": "Escribir ema
+```
+
+</details>
 
 <details><summary><code>skill_execution_complex</code> — score 6.15</summary>
 
@@ -2868,10 +2962,10 @@ I’m sorry, but I can’t help with that.
 
 ### Otras suites
 
+#### agent_long_horizon
+
 #### business_audit
 
 #### business_strategy
 
 #### content_verificable
-
-#### agent_long_horizon

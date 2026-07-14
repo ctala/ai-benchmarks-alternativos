@@ -1,13 +1,13 @@
 # DeepSeek V3.2
 
 - **model_id**: `deepseek/deepseek-chat`
-- **Total tests**: 182/182 exitosos (0 errores)
-- **Score final**: 7.36
-- **Calidad**: 7.78
+- **Total tests**: 187/187 exitosos (0 errores)
+- **Score final**: 7.32
+- **Calidad**: 7.71
 - **Judge score (Phi-4)**: 4.30/10
 - **Velocidad**: 27 tok/s
-- **Latencia primera token**: 24.28s
-- **Costo promedio por test**: $0.00035
+- **Latencia primera token**: 23.85s
+- **Costo promedio por test**: $0.00034
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 5.39 | 4.74 |
+| agent_capabilities | 10 | 10 | 5.59 | 5.09 |
 | agent_long_horizon | 12 | 12 | 8.11 | 9.25 |
 | business_audit | 10 | 10 | 6.34 | 6.28 |
 | business_strategy | 5 | 5 | 8.35 | 9.20 |
@@ -2494,11 +2494,68 @@ Nuestro programa es una aceleradora 100% enfocada en startups sustentables, onda
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
+| skill_execution_complex | 6.73 | 8.67 | - | 25 | 7.55s | OK |
+| agent_team_delegation | 7.88 | 9.34 | - | 31 | 10.14s | OK |
+| ask_clarification_before_acting | 2.45 | 0.00 | - | 14 | 3.52s | OK |
+| context_following_complex_system | 3.87 | 0.00 | - | 28 | 9.35s | OK |
+| model_as_router | 8.03 | 9.20 | - | 29 | 10.83s | OK |
 | skill_execution_complex | 6.99 | 8.20 | 4.0 | 26 | 7.58s | OK |
 | agent_team_delegation | 3.18 | 0.00 | - | 31 | 13.87s | OK |
 | ask_clarification_before_acting | 2.60 | 0.00 | - | 17 | 2.85s | OK |
 | context_following_complex_system | 6.88 | 7.42 | 4.2 | 32 | 10.57s | OK |
 | model_as_router | 7.31 | 8.07 | 4.2 | 8 | 41.21s | OK |
+
+<details><summary><code>skill_execution_complex</code> — score 6.73</summary>
+
+**Stats**: latencia 7.55s · 25 tok/s · 1533→188 tokens · $0.00027
+
+**Respuesta (preview 300 chars)**:
+
+```
+Entiendo que necesitas realizar tres acciones principales:
+
+1. Publicar el artículo sobre DeepSeek V4 que está listo en el documento compartido.
+2. Enviar el enlace del artículo publicado por Slack a @maria y @carlos.
+3. Agendar una reunión de revisión para el jueves a las 3 PM.
+
+Voy a proceder de l
+```
+
+</details>
+
+<details><summary><code>agent_team_delegation</code> — score 7.88</summary>
+
+**Stats**: latencia 10.14s · 31 tok/s · 1587→317 tokens · $0.00031
+
+**Respuesta (preview 300 chars)**:
+
+```
+Voy a coordinar la creación de la landing page para "AutoFlow AI" descomponiendo las tareas y asignándolas a los agentes especializados. Aquí está el plan de ejecución:
+
+1. **Investigación de competencia**: Delegaré al agente "researcher" para que investigue 3 competidores y sus estrategias en landi
+```
+
+</details>
+
+<details><summary><code>model_as_router</code> — score 8.03</summary>
+
+**Stats**: latencia 10.83s · 29 tok/s · 277→315 tokens · $0.00013
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+[
+  {
+    "subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales",
+    "modelo": "claude-sonnet",
+    "razon": "Requiere empatía para entender las quejas de los usuarios y honestidad para identificar los problemas reales"
+  },
+  {
+    "subtarea": "Escribir un ema
+```
+
+</details>
 
 <details><summary><code>skill_execution_complex</code> — score 6.99</summary>
 

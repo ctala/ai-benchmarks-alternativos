@@ -2,8 +2,8 @@
 
 - **model_id**: `nvidia/llama-3.3-nemotron-super-49b-v1.5`
 - **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.50
-- **Calidad**: 8.09
+- **Score final**: 7.43
+- **Calidad**: 7.98
 - **Judge score (Phi-4)**: 4.43/10
 - **Velocidad**: 49 tok/s
 - **Latencia primera token**: 37.46s
@@ -29,14 +29,14 @@
 | multi_turn | 4 | 4 | 6.67 | 6.88 |
 | news_seo_writing | 5 | 5 | 5.58 | 5.42 |
 | ocr_extraction | 5 | 5 | 8.57 | 9.60 |
-| orchestration | 5 | 5 | 6.93 | 7.34 |
+| orchestration | 5 | 5 | 6.58 | 6.84 |
 | policy_adherence | 4 | 4 | 7.31 | 7.67 |
 | presentation | 2 | 2 | 8.57 | 9.80 |
 | reasoning | 3 | 3 | 8.39 | 9.57 |
 | sales_outreach | 3 | 3 | 6.91 | 7.11 |
 | startup_content | 5 | 5 | 8.36 | 9.47 |
 | strategy | 3 | 3 | 7.50 | 8.06 |
-| string_precision | 6 | 6 | 9.00 | 10.00 |
+| string_precision | 6 | 6 | 7.71 | 8.17 |
 | structured_output | 4 | 4 | 5.47 | 5.00 |
 | summarization | 2 | 2 | 7.58 | 8.20 |
 | task_management | 3 | 3 | 8.39 | 9.40 |
@@ -645,10 +645,10 @@ WITH customer_category AS (
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 8.94 | 10.00 | 4.0 | 44 | 16.30s | OK |
 | copy_hex_64 | 9.10 | 10.00 | 3.0 | 44 | 7.09s | OK |
-| copy_api_key | 8.80 | 10.00 | 4.0 | 47 | 33.61s | OK |
+| copy_api_key | 2.50 | 1.00 | 4.0 | 47 | 33.61s | OK |
 | copy_jwt | 9.10 | 10.00 | 4.0 | 47 | 9.10s | OK |
 | copy_mixed_special | 9.10 | 10.00 | 3.0 | 45 | 7.95s | OK |
-| write_config_file | 8.94 | 10.00 | 4.0 | 43 | 13.58s | OK |
+| write_config_file | 7.54 | 8.00 | 4.0 | 43 | 13.58s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.94</summary>
 
@@ -686,7 +686,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 8.80</summary>
+<details><summary><code>copy_api_key</code> — score 2.50</summary>
 
 **Stats**: latencia 33.61s · 47 tok/s · 143→1576 tokens · $0.00069
 
@@ -740,7 +740,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 8.94</summary>
+<details><summary><code>write_config_file</code> — score 7.54</summary>
 
 **Stats**: latencia 13.58s · 43 tok/s · 246→579 tokens · $0.00033
 
@@ -1745,7 +1745,7 @@ First, I need to check the policies. The instructions clearly state that I shou
 | multi_step_research_plan | 7.57 | 8.12 | 3.8 | 52 | 24.68s | OK |
 | error_recovery_orchestration | 5.41 | 5.00 | 3.0 | 49 | 7.05s | OK |
 | complex_workflow_decomposition | 4.24 | 3.59 | 2.0 | 53 | 82.88s | OK |
-| tool_selection_precision | 8.78 | 10.00 | 5 | 47 | 17.75s | OK |
+| tool_selection_precision | 7.03 | 7.50 | 5 | 47 | 17.75s | OK |
 | parallel_vs_sequential_judgment | 8.67 | 10.00 | 4.0 | 49 | 43.42s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 7.57</summary>
@@ -1807,7 +1807,7 @@ Voy a verificar si existe un respaldo de la base de datos que podamos usar.
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 8.78</summary>
+<details><summary><code>tool_selection_precision</code> — score 7.03</summary>
 
 **Stats**: latencia 17.75s · 47 tok/s · 1070→840 tokens · $0.00076
 

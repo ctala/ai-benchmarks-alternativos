@@ -2,8 +2,8 @@
 
 - **model_id**: `qwen/qwen3.5-35b-a3b`
 - **Total tests**: 103/103 exitosos (0 errores)
-- **Score final**: 7.36
-- **Calidad**: 7.75
+- **Score final**: 7.28
+- **Calidad**: 7.64
 - **Judge score (Phi-4)**: 4.34/10
 - **Velocidad**: 128 tok/s
 - **Latencia primera token**: 19.97s
@@ -33,7 +33,7 @@
 | sales_outreach | 3 | 3 | 8.35 | 9.33 |
 | startup_content | 5 | 5 | 7.85 | 8.66 |
 | strategy | 3 | 3 | 7.49 | 8.06 |
-| string_precision | 6 | 6 | 9.04 | 10.00 |
+| string_precision | 6 | 6 | 7.76 | 8.17 |
 | structured_output | 4 | 4 | 5.60 | 5.00 |
 | summarization | 2 | 2 | 6.18 | 6.14 |
 | task_management | 3 | 3 | 7.45 | 8.03 |
@@ -575,10 +575,10 @@ Thinking Process:
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 9.10 | 10.00 | 4.0 | 60 | 7.41s | OK |
 | copy_hex_64 | 9.40 | 10.00 | 4.0 | 150 | 3.04s | OK |
-| copy_api_key | 8.64 | 10.00 | 4.0 | 42 | 36.47s | OK |
+| copy_api_key | 2.34 | 1.00 | 4.0 | 42 | 36.47s | OK |
 | copy_jwt | 9.37 | 10.00 | 4.0 | 126 | 4.09s | OK |
 | copy_mixed_special | 8.85 | 10.00 | 3.0 | 99 | 11.47s | OK |
-| write_config_file | 8.88 | 10.00 | 5 | 125 | 16.39s | OK |
+| write_config_file | 7.48 | 8.00 | 5 | 125 | 16.39s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.10</summary>
 
@@ -616,7 +616,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 8.64</summary>
+<details><summary><code>copy_api_key</code> — score 2.34</summary>
 
 **Stats**: latencia 36.47s · 42 tok/s · 138→1535 tokens · $0.00155
 
@@ -670,7 +670,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 8.88</summary>
+<details><summary><code>write_config_file</code> — score 7.48</summary>
 
 **Stats**: latencia 16.39s · 125 tok/s · 257→2048 tokens · $0.00208
 

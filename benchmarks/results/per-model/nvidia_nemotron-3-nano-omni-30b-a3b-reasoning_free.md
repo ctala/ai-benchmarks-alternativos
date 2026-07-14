@@ -2,8 +2,8 @@
 
 - **model_id**: `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free`
 - **Total tests**: 98/98 exitosos (0 errores)
-- **Score final**: 8.00
-- **Calidad**: 7.98
+- **Score final**: 7.92
+- **Calidad**: 7.86
 - **Judge score (Phi-4)**: 4.40/10
 - **Velocidad**: 166 tok/s
 - **Latencia primera token**: 17.02s
@@ -32,7 +32,7 @@
 | sales_outreach | 3 | 3 | 6.93 | 6.44 |
 | startup_content | 5 | 5 | 8.94 | 9.58 |
 | strategy | 3 | 3 | 7.96 | 8.06 |
-| string_precision | 6 | 6 | 9.62 | 10.00 |
+| string_precision | 6 | 6 | 8.34 | 8.17 |
 | structured_output | 4 | 4 | 6.00 | 5.00 |
 | summarization | 2 | 2 | 8.07 | 8.00 |
 | task_management | 3 | 3 | 8.56 | 8.87 |
@@ -623,10 +623,10 @@ SELECT
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 9.40 | 10.00 | 4.0 | 60 | 2.40s | OK |
 | copy_hex_64 | 9.70 | 10.00 | 4.0 | 149 | 1.15s | OK |
-| copy_api_key | 9.70 | 10.00 | 4.0 | 179 | 1.59s | OK |
+| copy_api_key | 3.40 | 1.00 | 4.0 | 179 | 1.59s | OK |
 | copy_jwt | 9.70 | 10.00 | 4.0 | 121 | 1.29s | OK |
 | copy_mixed_special | 9.70 | 10.00 | 3.0 | 131 | 1.22s | OK |
-| write_config_file | 9.55 | 10.00 | 4.0 | 125 | 4.04s | OK |
+| write_config_file | 8.15 | 8.00 | 4.0 | 125 | 4.04s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.40</summary>
 
@@ -664,7 +664,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.70</summary>
+<details><summary><code>copy_api_key</code> — score 3.40</summary>
 
 **Stats**: latencia 1.59s · 179 tok/s · 141→284 tokens · $0.00000
 
@@ -718,7 +718,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.55</summary>
+<details><summary><code>write_config_file</code> — score 8.15</summary>
 
 **Stats**: latencia 4.04s · 125 tok/s · 272→504 tokens · $0.00000
 
