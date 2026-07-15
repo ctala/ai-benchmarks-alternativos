@@ -48,10 +48,19 @@ def load_models_export():
     scored = [m for m in data.get("models", []) if m.get("score_global") is not None]
     ranked = [m for m in scored if m.get("ranked")]
     retired = [m for m in scored if m.get("retired")]
-    # `in_review` = muestra chica, PERO todavía usable. Un retirado no está "en
-    # evaluación": está muerto. Son dos cosas distintas y se muestran aparte.
-    in_review = [m for m in scored if not m.get("ranked") and not m.get("retired")]
-    return ranked, in_review, retired
+    # Plano suscripción: medidos vía Claude Code (claude -p). Camino distinto al plano
+    # común — comparables ENTRE SÍ, no contra los de API (ver build_subscription_table).
+    subscription = [m for m in scored if m.get("provider") == "claude_code"
+                    and not m.get("retired")]
+    # Variantes de proveedor / self-hosted: el mismo modelo por otra infra. Se comparan
+    # en /mismo-modelo-distinto-proveedor/, no acá.
+    variants = [m for m in scored if (m.get("provider_variant") or m.get("self_hosted"))
+                and m.get("provider") != "claude_code" and not m.get("retired")]
+    # `in_review` = muestra chica DE VERDAD (<50 runs). Antes este bucket mezclaba las
+    # variantes (100+ runs) bajo el título "muestra parcial <50 runs" — etiqueta falsa.
+    in_review = [m for m in scored if not m.get("ranked") and not m.get("retired")
+                 and not m.get("provider_variant") and not m.get("self_hosted")]
+    return ranked, in_review, retired, subscription, variants
 
 
 def find_response_dirs(model_id: str) -> list[str]:
@@ -199,6 +208,56 @@ def build_in_review_table(models: list[dict]) -> str:
     return "\n".join(lines)
 
 
+def build_subscription_table(models: list[dict]) -> str:
+    """Plano suscripción Claude: medidos vía Claude Code (claude -p), $0 marginal.
+
+    Es un CAMINO distinto al plano común: arrastra ~8.8K tokens de scaffolding del CLI.
+    Medimos el sesgo con los 2 modelos que rindieron el examen por AMBOS caminos:
+    la calidad por suscripción da −0.22 (Opus 4.8) y −0.15 (Opus 4.7) vs API, la
+    velocidad −7..11%, y la latencia queda 2.5-4× peor (arranque del CLI, basura para
+    comparar). Por eso estos números se comparan ENTRE SÍ (mismo camino para todos)
+    y como PISO conservador del modelo — no compiten en el ranking principal.
+    """
+    lines = [
+        "#### Vía suscripción Claude — plano propio (comparables entre sí)",
+        "",
+        "> Medidos aprovechando la **suscripción de Claude Code** (costo marginal $0), todos "
+        "por el mismo camino → **comparables entre ellos**. Ese camino arrastra ~8.8K tokens "
+        "de scaffolding del CLI y **deprime la nota**: en los 2 modelos medidos por ambos "
+        "caminos, la calidad por API dio **+0.15 y +0.22 más** que por suscripción. Leé estos "
+        "números como **piso conservador**, no como techo — y no los compares 1:1 contra la "
+        "tabla principal (la latencia por CLI es 2.5-4× peor y no es del modelo). Sirven para "
+        "la pregunta de quien ya paga el plan: *¿qué modelo uso dentro de mi suscripción?*",
+        "",
+        "| Modelo | Calidad (piso) | Velocidad | Runs | Per-model MD | Responses |",
+        "|---|---:|---:|---:|---|---|",
+    ]
+    for m in sorted(models, key=lambda x: -(x.get("quality_avg") or -1)):
+        mid = m.get("id", "?")
+        link_md, link_resp = build_links(mid)
+        q = m.get("quality_avg")
+        tps = m.get("tokens_per_second")
+        lines.append(
+            f"| `{mid}` | **{q:.2f}** | {tps:.0f} tok/s | {m.get('runs', 0)} | {link_md} | {link_resp} |"
+        )
+    return "\n".join(lines)
+
+
+def build_variants_note(models: list[dict]) -> str:
+    """Variantes de proveedor: solo un puntero — su comparación vive en su propia página."""
+    n = len(models)
+    return (
+        f"#### Variantes de proveedor ({n} mediciones)\n"
+        "\n"
+        "> El mismo modelo servido por otra infraestructura (Groq, NVIDIA NIM, Ollama Cloud, "
+        "API directa del proveedor, self-hosted). **No compiten acá** — comparar infra contra "
+        "infra es otra pregunta, y tiene su propia página: "
+        "[el proveedor te cambia el modelo](https://benchmarks.cristiantala.com/mismo-modelo-distinto-proveedor/). "
+        "El caso extremo medido: el mismo Qwen 3.5 397B da **7.96 en NVIDIA NIM y 5.46 en "
+        "Ollama Cloud** — 2.5 puntos por la infraestructura, no por el modelo."
+    )
+
+
 def build_retired_table(models: list[dict]) -> str:
     """Modelos que el proveedor retiró. Se muestran para no dejar a nadie colgado.
 
@@ -223,7 +282,8 @@ def build_retired_table(models: list[dict]) -> str:
     return "\n".join(lines)
 
 
-def build_table(ranked: list[dict], in_review: list[dict], retired: list[dict] = ()) -> str:
+def build_table(ranked: list[dict], in_review: list[dict], retired: list[dict] = (),
+                subscription: list[dict] = (), variants: list[dict] = ()) -> str:
     sections = [
         build_global_table(ranked),
         "",
@@ -237,6 +297,10 @@ def build_table(ranked: list[dict], in_review: list[dict], retired: list[dict] =
         "",
         build_cost_efficiency_table(ranked),
     ]
+    if subscription:
+        sections += ["", build_subscription_table(list(subscription))]
+    if variants:
+        sections += ["", build_variants_note(list(variants))]
     if in_review:
         sections += ["", build_in_review_table(in_review)]
     if retired:
@@ -249,8 +313,8 @@ def main():
     ap.add_argument("-i", "--in-place", action="store_true", help="Actualiza MODELOS.md in-place")
     args = ap.parse_args()
 
-    ranked, in_review, retired = load_models_export()
-    table = build_table(ranked, in_review, retired)
+    ranked, in_review, retired, subscription, variants = load_models_export()
+    table = build_table(ranked, in_review, retired, subscription, variants)
 
     if args.in_place:
         modelos_md = ROOT / "MODELOS.md"
@@ -279,6 +343,7 @@ def main():
             new_content = content.replace("## Probados", f"## Probados\n\n{new_block}\n\n#### Tabla manual (legacy):", 1)
         modelos_md.write_text(new_content)
         print(f"OK: MODELOS.md actualizado — {len(ranked)} rankeados, "
+              f"{len(subscription)} vía suscripción, {len(variants)} variantes, "
               f"{len(in_review)} en evaluación, {len(retired)} retirados")
     else:
         print(table)
