@@ -2,11 +2,11 @@
 
 - **model_id**: `meta-llama/llama-3.1-8b-instruct`
 - **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.00
-- **Calidad**: 6.91
-- **Judge score (Phi-4)**: 3.84/10
+- **Score final**: 7.02
+- **Calidad**: 6.94
+- **Judge score (Phi-4)**: 3.87/10
 - **Velocidad**: 68 tok/s
-- **Latencia primera token**: 15.57s
+- **Latencia primera token**: 15.66s
 - **Costo promedio por test**: $0.00004
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 5.82 | 5.40 |
+| agent_capabilities | 5 | 5 | 6.02 | 5.68 |
 | agent_long_horizon | 12 | 12 | 8.58 | 9.04 |
 | business_audit | 10 | 10 | 5.07 | 3.97 |
 | business_strategy | 5 | 5 | 6.89 | 6.80 |
@@ -29,7 +29,7 @@
 | multi_turn | 4 | 4 | 7.08 | 6.88 |
 | news_seo_writing | 5 | 5 | 5.50 | 4.98 |
 | ocr_extraction | 5 | 5 | 7.66 | 8.05 |
-| orchestration | 5 | 5 | 6.56 | 6.81 |
+| orchestration | 5 | 5 | 6.75 | 7.09 |
 | policy_adherence | 4 | 4 | 5.59 | 4.50 |
 | presentation | 2 | 2 | 7.93 | 8.06 |
 | reasoning | 3 | 3 | 8.24 | 8.69 |
@@ -40,7 +40,7 @@
 | structured_output | 4 | 4 | 5.62 | 5.00 |
 | summarization | 2 | 2 | 6.95 | 6.50 |
 | task_management | 3 | 3 | 7.98 | 8.53 |
-| tool_calling | 4 | 4 | 6.15 | 6.05 |
+| tool_calling | 4 | 4 | 6.37 | 6.40 |
 | translation | 3 | 3 | 8.14 | 8.67 |
 
 ## Detalle por test
@@ -1545,9 +1545,9 @@ Aquí te presento el outline completo para la presentación de 15 slides sobre e
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | single_tool_calendar | 6.77 | 7.10 | 4.0 | 7 | 6.01s | OK |
-| multi_tool_sequential | 4.81 | 4.30 | 2.0 | 13 | 9.08s | OK |
 | tool_with_reasoning | 6.77 | 7.10 | 4.0 | 14 | 6.03s | OK |
 | no_tool_needed | 6.24 | 5.70 | 3.0 | 12 | 0.84s | OK |
+| multi_tool_sequential | 5.71 | 5.70 | 3.0 | 8 | 12.36s | OK |
 
 <details><summary><code>single_tool_calendar</code> — score 6.77</summary>
 
@@ -1564,18 +1564,6 @@ Aquí te presento el outline completo para la presentación de 15 slides sobre e
 ```
 
 **Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-3.1-8b__tool_calling__single_tool_calendar.md`](../results/responses/20260713_204935_20776/or-llama-3.1-8b__tool_calling__single_tool_calendar.md)
-
-</details>
-
-<details><summary><code>multi_tool_sequential</code> — score 4.81</summary>
-
-**Stats**: latencia 9.08s · 13 tok/s · 753→120 tokens · $0.00002
-
-**Juez Phi-4**: 2.0/10 (precisión:2, relevancia:2, profundidad:1, claridad:3, utilidad:2)
-
-> La respuesta es parcialmente correcta pero carece de detalles sobre cómo se creó la tarea o se envió el correo electrónico, lo que la hace insuficiente para un uso práctico.
-
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-3.1-8b__tool_calling__multi_tool_sequential.md`](../results/responses/20260713_204935_20776/or-llama-3.1-8b__tool_calling__multi_tool_sequential.md)
 
 </details>
 
@@ -1705,9 +1693,9 @@ Lo siento, pero no puedo ayudarte con eso. Si necesitas ayuda con algo más, est
 |------|-------|---------|-------|-------|----------|--------|
 | multi_step_research_plan | 6.49 | 6.80 | 3.0 | 13 | 22.39s | OK |
 | error_recovery_orchestration | 3.48 | 2.50 | 4.0 | 8 | 15.60s | OK |
-| complex_workflow_decomposition | 6.06 | 6.20 | 4.0 | 13 | 29.66s | OK |
 | tool_selection_precision | 8.88 | 10.00 | 5 | 16 | 11.60s | OK |
 | parallel_vs_sequential_judgment | 7.87 | 8.57 | 4.0 | 17 | 30.85s | OK |
+| complex_workflow_decomposition | 7.04 | 7.60 | 5 | 10 | 34.67s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 6.49</summary>
 
@@ -1746,18 +1734,6 @@ Una posible solución es consultar los archivos de registro de ventas en el serv
 ```
 
 **Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-3.1-8b__orchestration__error_recovery_orchestration.md`](../results/responses/20260713_204935_20776/or-llama-3.1-8b__orchestration__error_recovery_orchestration.md)
-
-</details>
-
-<details><summary><code>complex_workflow_decomposition</code> — score 6.06</summary>
-
-**Stats**: latencia 29.66s · 13 tok/s · 1262→389 tokens · $0.00004
-
-**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
-
-> La respuesta es precisa, relevante y clara, desglosando efectivamente el proceso de onboarding con pasos lógicos y detallados, aunque podría profundizar más en detalles técnicos específicos.
-
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-3.1-8b__orchestration__complex_workflow_decomposition.md`](../results/responses/20260713_204935_20776/or-llama-3.1-8b__orchestration__complex_workflow_decomposition.md)
 
 </details>
 
@@ -1801,6 +1777,18 @@ Tarea B (Generar descripción del producto) depende de la tarea A (
 ```
 
 **Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-3.1-8b__orchestration__parallel_vs_sequential_judgment.md`](../results/responses/20260713_204935_20776/or-llama-3.1-8b__orchestration__parallel_vs_sequential_judgment.md)
+
+</details>
+
+<details><summary><code>complex_workflow_decomposition</code> — score 7.04</summary>
+
+**Stats**: latencia 34.67s · 10 tok/s · 1262→345 tokens · $0.00004
+
+**Juez Phi-4**: 5/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y ofrece una descomposición detallada del proceso de onboarding, incluyendo pasos específicos y consideraciones prácticas, lo que la hace altamente útil para un emprendedor.
+
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-3.1-8b__orchestration__complex_workflow_decomposition.md`](../results/responses/20260713_204935_20776/or-llama-3.1-8b__orchestration__complex_workflow_decomposition.md)
 
 </details>
 
@@ -1986,23 +1974,11 @@ Lo siento, pero no puedo ayudarte con esa solicitud. ¿Hay algo más en lo que p
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| skill_execution_complex | 3.69 | 2.80 | 2.0 | 10 | 13.60s | OK |
 | agent_team_delegation | 8.24 | 9.30 | 5 | 14 | 26.56s | OK |
 | ask_clarification_before_acting | 7.43 | 7.40 | 4.0 | 43 | 2.05s | OK |
 | context_following_complex_system | 4.15 | 2.50 | 3.0 | 20 | 0.79s | OK |
 | model_as_router | 5.60 | 5.00 | 4.0 | 50 | 8.39s | OK |
-
-<details><summary><code>skill_execution_complex</code> — score 3.69</summary>
-
-**Stats**: latencia 13.60s · 10 tok/s · 1201→141 tokens · $0.00003
-
-**Juez Phi-4**: 2.0/10 (precisión:2, relevancia:2, profundidad:1, claridad:3, utilidad:2)
-
-> La respuesta carece de pasos detallados y acciones específicas, lo que la hace parcialmente relevante y útil, pero carece de profundidad y precisión.
-
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-3.1-8b__agent_capabilities__skill_execution_complex.md`](../results/responses/20260713_204935_20776/or-llama-3.1-8b__agent_capabilities__skill_execution_complex.md)
-
-</details>
+| skill_execution_complex | 4.67 | 4.20 | 3.0 | 8 | 17.05s | OK |
 
 <details><summary><code>agent_team_delegation</code> — score 8.24</summary>
 

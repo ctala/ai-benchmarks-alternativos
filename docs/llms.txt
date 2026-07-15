@@ -1,6 +1,6 @@
 # AI Model Benchmark — alternativas (benchmarks.cristiantala.com)
 
-> Benchmark abierto de 170 modelos de IA (LLMs) catalogados, 120 testeados y 14.000+ runs reales, pensado para emprendedores hispanohablantes. Mide calidad, costo, velocidad, tool calling y capacidad agéntica en español, con LLM-as-Judge local (Phi-4, Microsoft). El score global v3.0 es ponderado (calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%); tool calling es insignia aparte (no entra en el score global): mide valor para producción, no capacidad bruta. Datos abiertos, en español neutro.
+> Benchmark abierto de 170 modelos de IA (LLMs) catalogados, 121 testeados y 14.000+ runs reales, pensado para emprendedores hispanohablantes. Mide calidad, costo, velocidad, tool calling y capacidad agéntica en español, con LLM-as-Judge local (Phi-4, Microsoft). El score global v3.0 es ponderado (calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%); tool calling es insignia aparte (no entra en el score global): mide valor para producción, no capacidad bruta. Datos abiertos, en español neutro.
 
 ## Calculadora y datos
 - [Calculadora interactiva de modelos](https://benchmarks.cristiantala.com/): filtrá 100+ modelos por presupuesto, calidad y tarea.
@@ -67,14 +67,14 @@
 - [Qwen vs Llama en 2026: comparación open source con benchmark real](https://benchmarks.cristiantala.com/qwen-vs-llama/): Qwen vs Llama comparados con 14.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.
 
 ## Otras páginas
-- [Claude: Haiku, Sonnet, Opus o Fable — cuál elegir en 2026 (benchmark real)](https://benchmarks.cristiantala.com/claude-haiku-sonnet-opus/): Claude: comparamos sus 5 tiers con 14.000+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.
+- [Claude: Haiku, Sonnet, Opus o Fable — cuál elegir en 2026 (benchmark real)](https://benchmarks.cristiantala.com/claude-haiku-sonnet-opus/): Claude: comparamos sus 6 tiers con 14.000+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.
 - [DeepSeek V4 Flash, R1 o Pro: cuál usar en 2026 (benchmark real)](https://benchmarks.cristiantala.com/deepseek-v4-flash-o-r1/): DeepSeek: comparamos sus 5 tiers con 14.000+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.
 - [Claude Fable 5: review con benchmark real (¿vale la pena en 2026?)](https://benchmarks.cristiantala.com/fable-5-review/): Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score 6.75, costo $10/$50 por millón, 103 runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.
 - [Gemini Flash o Pro: cuál conviene en 2026 (benchmark real)](https://benchmarks.cristiantala.com/gemini-flash-o-pro/): Gemini: comparamos sus 6 tiers con 14.000+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.
 - [GLM 5.2: por qué su score no refleja su calidad real | Benchmark 2026](https://benchmarks.cristiantala.com/glm-5.2-explicado/): GLM 5.2 tiene score global 6.93 pero quality 8.28. Te explicamos por qué el benchmark lo castiga, en qué brilla y cómo se compara con GLM 5.1 y Claude Opus 4.8.
 - [GPT-5.6: Luna, Terra o Sol — cuál elegir en 2026 (benchmark real)](https://benchmarks.cristiantala.com/gpt-5.6-luna-terra-sol/): GPT-5.6: comparamos sus 3 tiers con 14.000+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.
 - [MiniMax M2.7 o M3: cuál usar en 2026 (benchmark real)](https://benchmarks.cristiantala.com/minimax-m2-7-o-m3/): MiniMax: comparamos sus 3 tiers con 14.000+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.
-- [El mismo modelo rinde distinto según el proveedor (datos reales)](https://benchmarks.cristiantala.com/mismo-modelo-distinto-proveedor/): Medimos 21 modelos por más de un proveedor. 1 cambian ≥1 punto de calidad según por dónde los llames. Elegir el modelo es la mitad de la decisión.
+- [El mismo modelo rinde distinto según el proveedor (datos reales)](https://benchmarks.cristiantala.com/mismo-modelo-distinto-proveedor/): Medimos 22 modelos por más de un proveedor. 1 cambian ≥1 punto de calidad según por dónde los llames. Elegir el modelo es la mitad de la decisión.
 
 ## Sobre el autor
 - [Cristian Tala](https://cristiantala.com): founder; mantiene este benchmark abierto.

@@ -1,7 +1,7 @@
 # Roadmap del Benchmark
 
 > Ultima actualizacion: 2 de Julio de 2026 (post v3.1.0: pSEO Fable 5 + integridad de prompts + CheatSheet julio)
-> Estado del ranking: **v3.1.0 — <!-- AUTO:total_models -->170<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->120<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->14,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
+> Estado del ranking: **v3.1.0 — <!-- AUTO:total_models -->170<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->121<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->15,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
 > Cobertura faltante: ver [TESTS_FALTANTES.md](TESTS_FALTANTES.md) (30 modelos sin runs o con cobertura parcial).
 > **Próximo release: Agosto 2026** (cadencia mensual). El release de julio ya salió — ver [CHANGELOG.md](CHANGELOG.md).
 
@@ -105,6 +105,12 @@
 - **Suite multimodal/visión** — Gemma 4, Qwen-VL, Qwen 3.7 Plus, DiffusionGemma tienen visión nativa; el bench aún es solo texto.
 - ~~**Adapter para DiffusionGemma**~~ — Resuelto con `DiffusionGemmaProvider` (`provider: diffusion_cli`) en `providers/adapters.py`.
 - **TESTS_FALTANTES.md auto-regen** — actualmente desactualizado (dice 125 modelos; son 143). Conectar al pipeline o regenerar manualmente tras cada lote.
+- **5 vacíos tercos** (15-jul): 3 de Llama 3.1 8B Instant (`benchmark_20260713_204935`) y 2 de
+  DeepSeek V3 (`benchmark_20260714_064028`) — respuestas vacías con `success=True` que
+  sobrevivieron a DOS pasadas de `--rerun-empty` (ids cuadran, causa sin determinar; deflación
+  ≤0.06 en modelos del fondo, no urgente). La reparación masiva del 15-jul re-midió los otros
+  24/29 (Gemini 2.5 Pro +0.17 de calidad recuperada). El fix de raíz en runner.py (vacío ⇒
+  success=False) impide que se acumulen nuevos.
 
 ### Qué entra en el release de julio 2026 (checklist)
 

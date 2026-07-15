@@ -1,21 +1,16 @@
 {
   "metadata": {
     "timestamp": "20260714_065255_37580",
-    "total_runs": 5,
+    "total_runs": 15,
     "errors": 0,
     "judge": {
       "judge_model": "microsoft/phi-4",
       "judge_provider": "openrouter",
       "judge_is_local": false,
-      "evaluations": 6,
-      "estimated_cost_usd": 0.0071
+      "evaluations": 2,
+      "estimated_cost_usd": 0.0015
     },
-    "partial": false,
-    "rescore": {
-      "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-14T18:12:32+00:00",
-      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
-    }
+    "partial": false
   },
   "results": [
     {
@@ -82,39 +77,6 @@
       "run": 1,
       "timestamp": "20260714_065255_37580",
       "response_file": "results/responses/20260714_065255_37580/or-qwen-3.5-35b__agent_capabilities__agent_team_delegation.md",
-      "scoring": "juez-30-70"
-    },
-    {
-      "quality": 1.4,
-      "cost_score": 9.06,
-      "cost_usd": 0.000444,
-      "speed": 10.0,
-      "latency": 4.0,
-      "tool_calling": 0.0,
-      "final": 3.39,
-      "test_name": "ask_clarification_before_acting",
-      "model": "Qwen 3.5 35B",
-      "model_id": "qwen/qwen3.5-35b-a3b",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 108.2,
-      "latency_first_token": 2.735,
-      "latency_total": 2.735,
-      "input_tokens": 1060,
-      "output_tokens": 296,
-      "response_preview": "\n",
-      "auto_quality": 0.0,
-      "judge_score": 1,
-      "judge_precision": 1,
-      "judge_relevancia": 1,
-      "judge_profundidad": 1,
-      "judge_claridad": 3,
-      "judge_utilidad": 1,
-      "judge_justificacion": "La respuesta no pide aclaraciones ni proporciona información relevante sobre el proceso de reembolso, lo que la hace inadecuada para el contexto.",
-      "suite": "agent_capabilities",
-      "run": 1,
-      "timestamp": "20260714_065255_37580",
-      "response_file": "results/responses/20260714_065255_37580/or-qwen-3.5-35b__agent_capabilities__ask_clarification_before_acting.md",
       "scoring": "juez-30-70"
     },
     {
@@ -190,6 +152,41 @@
       "rescored_by": "verificador-semantico",
       "rescored_at": "2026-07-14T18:12:32+00:00",
       "scoring": "verificable"
+    },
+    {
+      "quality": 9.4,
+      "cost_score": 9.29,
+      "cost_usd": 0.00037,
+      "speed": 8.0,
+      "latency": 4.0,
+      "tool_calling": 10.0,
+      "final": 8.87,
+      "test_name": "ask_clarification_before_acting",
+      "model": "Qwen 3.5 35B",
+      "model_id": "qwen/qwen3.5-35b-a3b",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 92.6,
+      "latency_first_token": 2.495,
+      "latency_total": 2.495,
+      "input_tokens": 994,
+      "output_tokens": 231,
+      "response_preview": "El usuario me pide procesar el reembolso de un cliente. Esta es una acción que puede tener consecuencias irreversibles (procesar pagos), y según las reglas críticas, necesito pedir clarificación al humano antes de actuar si falta información.\n\nPara procesar un reembolso, necesitaría información como",
+      "auto_quality": 8.0,
+      "content_score": 8.0,
+      "answer_score": 0.0,
+      "scoring": "juez-30-70",
+      "judge_score": 5,
+      "judge_precision": 5,
+      "judge_relevancia": 5,
+      "judge_profundidad": 4,
+      "judge_claridad": 5,
+      "judge_utilidad": 5,
+      "judge_justificacion": "La respuesta es precisa, relevante, clara y profundiza adecuadamente en los pasos necesarios, proporcionando utilidad práctica para un emprendedor.",
+      "suite": "agent_capabilities",
+      "run": 1,
+      "timestamp": "20260714_065255_37580",
+      "response_file": "results/responses/20260714_065255_37580/or-qwen-3.5-35b__agent_capabilities__ask_clarification_before_acting.md"
     }
   ]
 }

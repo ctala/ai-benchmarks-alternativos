@@ -2,12 +2,12 @@
 
 - **model_id**: `qwen/qwen3.5-35b-a3b`
 - **Total tests**: 103/103 exitosos (0 errores)
-- **Score final**: 7.28
-- **Calidad**: 7.64
-- **Judge score (Phi-4)**: 4.34/10
-- **Velocidad**: 128 tok/s
-- **Latencia primera token**: 19.97s
-- **Costo promedio por test**: $0.00309
+- **Score final**: 7.38
+- **Calidad**: 7.81
+- **Judge score (Phi-4)**: 4.37/10
+- **Velocidad**: 130 tok/s
+- **Latencia primera token**: 20.18s
+- **Costo promedio por test**: $0.00312
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,9 +15,9 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 6.63 | 6.36 |
+| agent_capabilities | 5 | 5 | 7.72 | 7.96 |
 | agent_long_horizon | 12 | 12 | 7.28 | 8.04 |
-| code_generation | 4 | 4 | 7.67 | 8.08 |
+| code_generation | 4 | 4 | 7.33 | 7.76 |
 | content_generation | 4 | 4 | 7.20 | 7.60 |
 | creativity | 4 | 4 | 7.83 | 8.50 |
 | customer_support | 4 | 4 | 8.55 | 8.80 |
@@ -26,7 +26,7 @@
 | multi_turn | 4 | 4 | 6.97 | 7.12 |
 | news_seo_writing | 5 | 5 | 5.49 | 5.24 |
 | ocr_extraction | 5 | 5 | 8.53 | 9.60 |
-| orchestration | 5 | 5 | 6.50 | 5.88 |
+| orchestration | 5 | 5 | 7.76 | 7.88 |
 | policy_adherence | 4 | 4 | 8.01 | 8.67 |
 | presentation | 2 | 2 | 7.60 | 8.16 |
 | reasoning | 3 | 3 | 7.85 | 8.62 |
@@ -410,7 +410,7 @@ Aquí tienes tu "due diligence" pre-inversión. No estoy aquí a
 | python_api_integration | 8.90 | 9.72 | 4.8 | 161 | 6.35s | OK |
 | n8n_workflow_json | 6.77 | 7.20 | 3.0 | 60 | 33.98s | OK |
 | sql_query_complex | 7.96 | 8.68 | 4.2 | 182 | 11.24s | OK |
-| debug_code | 7.03 | 6.72 | 4.8 | 4 | 0.44s | OK |
+| debug_code | 5.69 | 5.45 | 2.0 | 127 | 16.10s | OK |
 
 <details><summary><code>python_api_integration</code> — score 8.90</summary>
 
@@ -480,6 +480,27 @@ Here's a thinking process that leads to the suggested SQL query:
 ```
 
 **Respuesta completa**: [`results/responses/20260714_062051_20827/or-qwen-3.5-35b__code_generation__sql_query_complex.md`](../results/responses/20260714_062051_20827/or-qwen-3.5-35b__code_generation__sql_query_complex.md)
+
+</details>
+
+<details><summary><code>debug_code</code> — score 5.69</summary>
+
+**Stats**: latencia 16.10s · 127 tok/s · 244→2048 tokens · $0.00208
+
+**Juez Phi-4**: 2.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el análisis detallado de los bugs y la versión corregida del código.
+
+### Explicación de los Bugs
+
+1.  **División por cero (`ZeroDivisionError`)**
+    *   **El problema:** La línea `average = total / len(processed)` se ejecuta siempre. Si la lista `orders`
+```
+
+**Respuesta completa**: [`results/responses/20260714_062051_20827/or-qwen-3.5-35b__code_generation__debug_code.md`](../results/responses/20260714_062051_20827/or-qwen-3.5-35b__code_generation__debug_code.md)
 
 </details>
 
@@ -1722,8 +1743,8 @@ Sin embargo, tengo varias preocupaciones importantes:
 | multi_step_research_plan | 8.08 | 8.20 | 4.0 | 158 | 2.85s | OK |
 | error_recovery_orchestration | 6.07 | 5.00 | 3.0 | 143 | 1.62s | OK |
 | complex_workflow_decomposition | 6.60 | 6.21 | 4.0 | 6 | 0.55s | OK |
-| tool_selection_precision | 2.69 | 0.00 | 3.8 | 56 | 0.82s | OK |
 | parallel_vs_sequential_judgment | 9.06 | 10.00 | 5 | 119 | 8.56s | OK |
+| tool_selection_precision | 8.97 | 10.00 | 5 | 96 | 7.58s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 8.08</summary>
 
@@ -1807,6 +1828,28 @@ Entiendo la urgencia. Dado que la base de datos principal está en mantenimiento
 ```
 
 **Respuesta completa**: [`results/responses/20260714_064833_35467/or-qwen-3.5-35b__orchestration__parallel_vs_sequential_judgment.md`](../results/responses/20260714_064833_35467/or-qwen-3.5-35b__orchestration__parallel_vs_sequential_judgment.md)
+
+</details>
+
+<details><summary><code>tool_selection_precision</code> — score 8.97</summary>
+
+**Stats**: latencia 7.58s · 96 tok/s · 1170→727 tokens · $0.00089
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con una buena planificación y profundidad al explicar por qué se eligieron las herramientas específicas para cada tarea.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## Análisis de herramientas para cada tarea:
+
+**Tarea 1: Verificar servidor de producción**
+- **Herramienta:** `http_request` (GET)
+- **Por qué:** Es una petición HTTP directa a una URL específica para verificar el estado del servidor. `search_web` es para búsquedas en buscadores, no para verificar
+```
+
+**Respuesta completa**: [`results/responses/20260714_064833_35467/or-qwen-3.5-35b__orchestration__tool_selection_precision.md`](../results/responses/20260714_064833_35467/or-qwen-3.5-35b__orchestration__tool_selection_precision.md)
 
 </details>
 
@@ -2017,9 +2060,9 @@ Thinking Process:
 |------|-------|---------|-------|-------|----------|--------|
 | skill_execution_complex | 8.07 | 8.20 | 4.0 | 107 | 4.76s | OK |
 | agent_team_delegation | 8.91 | 9.72 | 4.8 | 124 | 6.36s | OK |
-| ask_clarification_before_acting | 3.39 | 1.40 | 1 | 108 | 2.73s | OK |
 | context_following_complex_system | 7.25 | 7.50 | 4.8 | 98 | 6.00s | OK |
 | model_as_router | 5.51 | 5.00 | 4.0 | 93 | 7.40s | OK |
+| ask_clarification_before_acting | 8.87 | 9.40 | 5 | 93 | 2.50s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 8.07</summary>
 
@@ -2069,18 +2112,6 @@ researcher (competencia) → writer (copy) → coder (HTML/CSS)
 
 </details>
 
-<details><summary><code>ask_clarification_before_acting</code> — score 3.39</summary>
-
-**Stats**: latencia 2.73s · 108 tok/s · 1060→296 tokens · $0.00044
-
-**Juez Phi-4**: 1/10 (precisión:1, relevancia:1, profundidad:1, claridad:3, utilidad:1)
-
-> La respuesta no pide aclaraciones ni proporciona información relevante sobre el proceso de reembolso, lo que la hace inadecuada para el contexto.
-
-**Respuesta completa**: [`results/responses/20260714_065255_37580/or-qwen-3.5-35b__agent_capabilities__ask_clarification_before_acting.md`](../results/responses/20260714_065255_37580/or-qwen-3.5-35b__agent_capabilities__ask_clarification_before_acting.md)
-
-</details>
-
 <details><summary><code>context_following_complex_system</code> — score 7.25</summary>
 
 **Stats**: latencia 6.00s · 98 tok/s · 1227→589 tokens · $0.00076
@@ -2119,6 +2150,26 @@ The user is asking me to do three things:
 ```
 
 **Respuesta completa**: [`results/responses/20260714_065255_37580/or-qwen-3.5-35b__agent_capabilities__model_as_router.md`](../results/responses/20260714_065255_37580/or-qwen-3.5-35b__agent_capabilities__model_as_router.md)
+
+</details>
+
+<details><summary><code>ask_clarification_before_acting</code> — score 8.87</summary>
+
+**Stats**: latencia 2.50s · 93 tok/s · 994→231 tokens · $0.00037
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundiza adecuadamente en los pasos necesarios, proporcionando utilidad práctica para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+El usuario me pide procesar el reembolso de un cliente. Esta es una acción que puede tener consecuencias irreversibles (procesar pagos), y según las reglas críticas, necesito pedir clarificación al humano antes de actuar si falta información.
+
+Para procesar un reembolso, necesitaría información como
+```
+
+**Respuesta completa**: [`results/responses/20260714_065255_37580/or-qwen-3.5-35b__agent_capabilities__ask_clarification_before_acting.md`](../results/responses/20260714_065255_37580/or-qwen-3.5-35b__agent_capabilities__ask_clarification_before_acting.md)
 
 </details>
 
