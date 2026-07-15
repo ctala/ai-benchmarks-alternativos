@@ -630,6 +630,27 @@ function fmtCtx(tokens) {
   return `${Math.round(tokens / 1000)}K`;
 }
 
+// Badge que explica POR QUÉ un modelo no está en el ranking. La etiqueta importa:
+// una variante con 130 runs NO es "muestra chica" — está fuera por otra razón.
+function notRankedBadge(m) {
+  if (m.ranked) return "";
+  let label, title;
+  if (m.provider === "claude_code") {
+    label = "vía suscripción";
+    title = "Medido por la suscripción de Claude Code (camino con ~8.8K tokens de scaffolding del CLI). La calidad es un piso conservador (por API midió +0.15/+0.22 en los pares medidos) y la latencia no es comparable. Comparable contra los otros 'vía suscripción', no contra el ranking.";
+  } else if (m.self_hosted) {
+    label = "self-hosted";
+    title = "Corre en hardware propio: su velocidad es la de esa máquina, no la del modelo. No compite en el ranking.";
+  } else if (m.provider_variant) {
+    label = "variante de proveedor";
+    title = "El mismo modelo servido por otra infraestructura. La comparación entre proveedores vive en /mismo-modelo-distinto-proveedor/.";
+  } else {
+    label = "muestra chica";
+    title = "Menos de 50 ejecuciones: con muestra chica un modelo lidera por azar. Score indicativo, no comparable.";
+  }
+  return ` <span class="ctx-badge ctx-nd" title="${title}">${label}</span>`;
+}
+
 // Badge de contexto efectivo (NIAH-es). Destaca vs contexto declarado.
 function ctxBadge(m) {
   const ec = m.effective_context;
@@ -849,7 +870,7 @@ function render() {
           <tr>
             <td class="num">${i + 1}</td>
             <td>
-              <span class="model-name">${m.name}</span>${m.ranked ? "" : ` <span class="ctx-badge ctx-nd" title="Menos de 50 ejecuciones: con muestra chica un modelo lidera por azar. Score indicativo, no comparable.">muestra chica</span>`}
+              <span class="model-name">${m.name}</span>${notRankedBadge(m)}
               <div class="model-meta">${modelTags(m)} · ${m.id}</div>
             </td>
             <td class="num">${scorePill(m._task_score)}</td>
