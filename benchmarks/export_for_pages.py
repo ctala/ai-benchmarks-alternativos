@@ -891,15 +891,31 @@ def build_export():
 
     _wmap = {"quality_avg": DEFAULT_WEIGHTS["quality"], "cost_score_avg": DEFAULT_WEIGHTS["cost"],
              "speed_score_avg": DEFAULT_WEIGHTS["speed"], "latency_score_avg": DEFAULT_WEIGHTS["latency"]}
+    # Pasada 1: z compuesto de cada modelo (la pendiente se decide mirando la población).
+    _zs = {}
     for m in models_export:
         if not _have(m):
             continue
-        z_comp = sum(w * ((m[col] - norm_stats[col]["mean"]) / norm_stats[col]["std"])
-                     for col, w in _wmap.items())
+        _zs[id(m)] = sum(w * ((m[col] - norm_stats[col]["mean"]) / norm_stats[col]["std"])
+                         for col, w in _wmap.items())
+    # Pendiente: 3.3 de base (z=0 → 5.5; top ~z 0.9 → ≈8.4), PERO si el peor ranked cae
+    # bajo 0.5 la pendiente se comprime para que aterrice en 0.5 en vez de clampearse.
+    # Con clamp duro en 0, varios modelos reales terminaban EMPATADOS en 0.00 (Gemini
+    # 2.5 Pro, Llama 3.1 8B…) — un score que ya no ordena ni informa. El piso 0.5
+    # preserva el orden en la cola. Solo mira los ranked: un parcial extremo no debe
+    # decidir la escala de todos. (14-jul-2026)
+    _OFFSET, _FLOOR = 5.5, 0.5
+    _z_ranked_min = min((z for m, z in ((m, _zs.get(id(m))) for m in models_export)
+                         if z is not None and m.get("ranked")), default=None)
+    _slope = 3.3
+    if _z_ranked_min is not None and _z_ranked_min < 0:
+        _slope = min(3.3, (_OFFSET - _FLOOR) / abs(_z_ranked_min))
+    for m in models_export:
+        z_comp = _zs.get(id(m))
+        if z_comp is None:
+            continue
         m["score_global_linear"] = m.get("score_global")  # guardar el lineal por referencia
-        # rescale a 0-10: z=0 (promedio) → 5.5; pendiente 3.3 → el top (~z 0.9) ≈ 8.4,
-        # spread similar al score viejo para no confundir. Solo afecta el número, no el orden.
-        m["score_global"] = round(max(0.0, min(10.0, 5.5 + 3.3 * z_comp)), 2)
+        m["score_global"] = round(max(0.0, min(10.0, _OFFSET + _slope * z_comp)), 2)
 
     # Sort: ranked (muestra solida) primero, luego tested, luego score desc.
     # Asi cualquier consumidor que tome los primeros N del array obtiene un
@@ -920,7 +936,9 @@ def build_export():
         # mean/std por dimensión DENTRO de cada pilar → la calculadora puede
         # componer "pilar X con MIS pesos" en vez de servir un score pre-horneado.
         "norm_stats_by_pillar": norm_stats_by_pillar,
-        "score_rescale": {"offset": 5.5, "slope": 3.3},  # display = clamp(offset + slope·z_comp, 0, 10)
+        # display = clamp(offset + slope·z_comp, 0, 10). La pendiente puede comprimirse
+        # (< 3.3) para que el peor ranked aterrice en 0.5 y no se aplaste contra 0.
+        "score_rescale": {"offset": _OFFSET, "slope": round(_slope, 4)},
         "subscriptions_catalog": SUBSCRIPTIONS,  # catálogo completo de suscripciones disponibles
         "models": models_export,
     }

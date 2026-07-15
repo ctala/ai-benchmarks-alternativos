@@ -130,7 +130,7 @@
   <section class="verdict verdict-open">
     <h2>La respuesta corta</h2>
     <p class="verdict-lead">Acá el benchmark <strong>no logra separar a los modelos</strong>:
-    18 de 68 (26% del catálogo) quedan dentro del margen de error
+    19 de 73 (26% del catálogo) quedan dentro del margen de error
     en esta tarea. Cuando la medición no distingue, <strong>lo honesto es decirlo</strong>, no
     inventar un ganador.</p>
     <p class="verdict-lead">Con esa salvedad: el de mayor calidad medida es
@@ -158,8 +158,8 @@
         <tr><td>6</td><td>Claude Opus 4.8</td><td>8.2</td><td>8.4</td><td>8.4</td><td>7.7</td><td>$5.00 / $25.00</td><td>64 tok/s</td></tr>
         <tr><td>7</td><td>Nemotron 3 Super</td><td>7.9</td><td>8.4</td><td>7.7</td><td>4.8</td><td>$0.10 / $0.50</td><td>42 tok/s</td></tr>
         <tr><td>8</td><td>MiniMax M2.5</td><td>8.0</td><td>8.4</td><td>8.0</td><td>7.4</td><td>$0.15 / $0.90</td><td>61 tok/s</td></tr>
-        <tr><td>18</td><td>GPT-OSS 120B <span class="row-badge">← la mejor compra</span></td><td>7.7</td><td>8.2</td><td>7.5</td><td>7.3</td><td>$0.04 / $0.18</td><td>70 tok/s</td></tr>
-        <tr><td>16</td><td>GPT-5.6 Sol <span class="row-badge">← el caro</span></td><td>7.9</td><td>8.3</td><td>8.2</td><td>7.0</td><td>$5.00 / $30.00</td><td>47 tok/s</td></tr>
+        <tr><td>19</td><td>GPT-OSS 120B <span class="row-badge">← la mejor compra</span></td><td>7.7</td><td>8.2</td><td>7.5</td><td>7.3</td><td>$0.04 / $0.18</td><td>70 tok/s</td></tr>
+        <tr><td>17</td><td>GPT-5.6 Sol <span class="row-badge">← el caro</span></td><td>7.9</td><td>8.3</td><td>8.2</td><td>7.0</td><td>$5.00 / $30.00</td><td>47 tok/s</td></tr>
       </tbody>
     </table></div>
     <p class="meta">Filtrá por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
@@ -218,7 +218,7 @@
   <p>Mucha gente llega buscando GPT-5.6, Claude Opus/Fable o Grok. Acá está dónde quedan
   <strong>en esta tarea concreta</strong>, ordenados por calidad — no por lo que cuestan:</p>
   <ul class="frontier-list">
-    <li><strong>Claude Opus 4.8</strong><span class="frontier-pos frontier-top">#6 · top 10</span><span class="frontier-score">8.4/10</span><span class="frontier-cost">$5.00 / $25.00 por millón</span></li><li><strong>GPT-5.6 Sol</strong><span class="frontier-pos">#16</span><span class="frontier-score">8.3/10</span><span class="frontier-cost">$5.00 / $30.00 por millón</span></li><li><strong>Grok 4.5</strong><span class="frontier-pos">#30</span><span class="frontier-score">8.1/10</span><span class="frontier-cost">$2.00 / $6.00 por millón</span></li><li><strong>GPT-5.6 Luna</strong><span class="frontier-pos">#32</span><span class="frontier-score">8.0/10</span><span class="frontier-cost">$1.00 / $6.00 por millón</span></li><li><strong>GPT-5.6 Terra</strong><span class="frontier-pos">#34</span><span class="frontier-score">8.0/10</span><span class="frontier-cost">$2.50 / $15.00 por millón</span></li>
+    <li><strong>Claude Opus 4.8</strong><span class="frontier-pos frontier-top">#6 · top 10</span><span class="frontier-score">8.4/10</span><span class="frontier-cost">$5.00 / $25.00 por millón</span></li><li><strong>GPT-5.5</strong><span class="frontier-pos">#15</span><span class="frontier-score">8.3/10</span><span class="frontier-cost">$5.00 / $30.00 por millón</span></li><li><strong>GPT-5.6 Sol</strong><span class="frontier-pos">#17</span><span class="frontier-score">8.3/10</span><span class="frontier-cost">$5.00 / $30.00 por millón</span></li><li><strong>Grok 4.5</strong><span class="frontier-pos">#33</span><span class="frontier-score">8.1/10</span><span class="frontier-cost">$2.00 / $6.00 por millón</span></li><li><strong>GPT-5.6 Luna</strong><span class="frontier-pos">#35</span><span class="frontier-score">8.0/10</span><span class="frontier-cost">$1.00 / $6.00 por millón</span></li><li><strong>GPT-5.6 Terra</strong><span class="frontier-pos">#37</span><span class="frontier-score">8.0/10</span><span class="frontier-cost">$2.50 / $15.00 por millón</span></li>
   </ul>
   <p class="meta">Si te interesa una comparación cara a cara, probá las <a href="/gpt-5.6-vs-claude-opus-4-8/">comparativas específicas</a> o ajustá los pesos en la calculadora.</p>
 </section>
@@ -244,7 +244,7 @@
   <strong>aplicado para emprendedores hispanohablantes</strong>: mide qué modelo conviene poner en
   producción para casos reales, con lo que los benchmarks oficiales no cubren — costo en provider real,
   velocidad, español neutro y agentes multi-turno.</p>
-  <p>Contamos con <strong>178 modelos catalogados</strong>, <strong>120 testeados</strong>
+  <p>Contamos con <strong>170 modelos catalogados</strong>, <strong>119 testeados</strong>
   y <strong>14.000+ runs reales</strong> evaluados por un
   <strong>LLM-as-Judge local (Phi-4, de Microsoft — sin conflicto de interés)</strong>, en 4 pilares:</p>
   <ul>

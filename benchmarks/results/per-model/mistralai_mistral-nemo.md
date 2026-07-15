@@ -1,12 +1,12 @@
 # Mistral Nemo
 
 - **model_id**: `mistralai/mistral-nemo`
-- **Total tests**: 212/216 exitosos (4 errores)
+- **Total tests**: 213/217 exitosos (4 errores)
 - **Score final**: 6.63
 - **Calidad**: 6.49
-- **Judge score (Phi-4)**: 4.07/10
+- **Judge score (Phi-4)**: 4.06/10
 - **Velocidad**: 34 tok/s
-- **Latencia primera token**: 15.69s
+- **Latencia primera token**: 15.66s
 - **Costo promedio por test**: $0.00003
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -29,7 +29,7 @@
 | multi_turn | 4 | 4 | 7.00 | 7.38 |
 | news_seo_writing | 10 | 10 | 6.35 | 6.15 |
 | ocr_extraction | 5 | 5 | 7.70 | 8.30 |
-| orchestration | 6 | 5 | 6.16 | 5.56 |
+| orchestration | 7 | 6 | 6.18 | 5.70 |
 | persistencia | 4 | 4 | 6.54 | 6.46 |
 | policy_adherence | 4 | 4 | 7.31 | 7.67 |
 | presentation | 2 | 2 | 7.59 | 8.34 |
@@ -1908,6 +1908,7 @@ Comprendido. Sin embargo, como modelo de lenguaje, no tengo acceso a la informac
 | tool_selection_precision | 4.15 | 2.50 | 4.2 | 94 | 3.85s | OK |
 | parallel_vs_sequential_judgment | 7.55 | 7.14 | 4.2 | 114 | 2.56s | OK |
 | multi_step_research_plan | 7.69 | 7.56 | 4.0 | 54 | 2.50s | OK |
+| multi_step_research_plan | 6.28 | 6.40 | 3.2 | 14 | 9.38s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 6.29</summary>
 
@@ -2011,6 +2012,26 @@ Entendido, para preparar el reporte sobre el estado del mercado de IA en Chile, 
 ```
 
 **Respuesta completa**: [`results/responses/20260714_135422_56351/mistral-nemo__orchestration__multi_step_research_plan.md`](../results/responses/20260714_135422_56351/mistral-nemo__orchestration__multi_step_research_plan.md)
+
+</details>
+
+<details><summary><code>multi_step_research_plan</code> — score 6.28</summary>
+
+**Stats**: latencia 9.38s · 14 tok/s · 980→127 tokens · $0.00002
+
+**Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Entendido, para preparar el reporte sobre el estado del mercado de IA en Chile, se necesitan realizar los siguientes pasos:
+
+1. Buscar las 5 principales startups de IA en Chile y su funding.
+2. Comparar el mercado de IA en Chile con el de Colombia y Mexico.
+3. Obtener datos de inversion VC en tecnol
+```
+
+**Respuesta completa**: [`results/responses/20260714_181940_6188/mistral-nemo__orchestration__multi_step_research_plan.md`](../results/responses/20260714_181940_6188/mistral-nemo__orchestration__multi_step_research_plan.md)
 
 </details>
 

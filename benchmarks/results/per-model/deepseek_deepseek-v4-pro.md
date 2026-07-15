@@ -1,13 +1,13 @@
 # DeepSeek V4 Pro
 
 - **model_id**: `deepseek/deepseek-v4-pro`
-- **Total tests**: 210/232 exitosos (22 errores)
-- **Score final**: 6.42
-- **Calidad**: 6.77
-- **Judge score (Phi-4)**: 3.58/10
-- **Velocidad**: 38 tok/s
-- **Latencia primera token**: 45.28s
-- **Costo promedio por test**: $0.00493
+- **Total tests**: 214/236 exitosos (22 errores)
+- **Score final**: 6.40
+- **Calidad**: 6.73
+- **Judge score (Phi-4)**: 3.59/10
+- **Velocidad**: 39 tok/s
+- **Latencia primera token**: 45.20s
+- **Costo promedio por test**: $0.00489
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -27,7 +27,7 @@
 | deep_reasoning | 12 | 10 | 6.43 | 6.75 |
 | hallucination | 6 | 5 | 7.39 | 8.00 |
 | multi_turn | 8 | 7 | 6.61 | 6.86 |
-| news_seo_writing | 6 | 5 | 5.36 | 5.80 |
+| news_seo_writing | 10 | 9 | 5.26 | 5.42 |
 | niah_es_lite | 45 | 45 | 4.65 | 4.23 |
 | ocr_extraction | 10 | 9 | 7.62 | 8.39 |
 | orchestration | 10 | 8 | 7.19 | 7.86 |
@@ -1635,6 +1635,10 @@ Abrimos otra semana con movimientos que confirman que la inteligencia artificial
 | news_perplexity_enrichment | 6.77 | 7.86 | 4.0 | 30 | 69.46s | OK |
 | news_spanish_only | 5.90 | 3.00 | - | 0 | 0.00s | ERROR |
 | news_seo_article_full | 7.23 | 8.20 | 4.0 | 51 | 160.52s | OK |
+| news_json_output_strict | 5.08 | 5.00 | 3.0 | 80 | 63.98s | OK |
+| news_spanish_only | 5.27 | 5.00 | 4.0 | 89 | 19.67s | OK |
+| news_no_hallucination_sources | 1.59 | 0.00 | 4.0 | 46 | 43.28s | OK |
+| news_perplexity_enrichment | 8.58 | 9.80 | 5 | 63 | 36.41s | OK |
 
 <details><summary><code>news_seo_article_full</code> — score 6.63</summary>
 
@@ -1749,6 +1753,86 @@ La startup china DeepSeek acaba de liberar la cuarta versión de su modelo de le
 ```
 
 **Respuesta completa**: [`results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_seo_article_full.md`](../results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_seo_article_full.md)
+
+</details>
+
+<details><summary><code>news_json_output_strict</code> — score 5.08</summary>
+
+**Stats**: latencia 63.98s · 80 tok/s · 328→5140 tokens · $0.00461
+
+**Juez Phi-4**: 3.0/10 (precisión:2, relevancia:1, profundidad:3, claridad:4, utilidad:2)
+
+> La respuesta incluye información precisa sobre Gemma 4, pero no cumple con las claves requeridas, lo que afecta la relevancia. Ofrece una buena claridad y estilo periodístico, pero carece de utilidad práctica directa para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "Fuentes": ["https://deepmind.google/technologies/gemma-4/"],
+  "Categoria": "Inteligencia Artificial",
+  "Palabras_Clave": ["Gemma 4", "Google DeepMind", "open-source", "modelos de lenguaje", "Apache 2.0"],
+  "Contenido_HTML": "<h2>Google DeepMind lanza Gemma 4: modelos de IA de código abierto
+```
+
+**Respuesta completa**: [`results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_json_output_strict.md`](../results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_json_output_strict.md)
+
+</details>
+
+<details><summary><code>news_spanish_only</code> — score 5.27</summary>
+
+**Stats**: latencia 19.67s · 89 tok/s · 321→1758 tokens · $0.00167
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:4, utilidad:4)
+
+> La respuesta es precisa, relevante y ofrece insights útiles sobre el impacto del chip SN50 en startups, con una estructura clara y adecuada para SEO.
+
+**Respuesta (preview 300 chars)**:
+
+```
+SambaNova Systems irrumpe en el mercado de hardware para inteligencia artificial con el SN50, un chip que promete acelerar la inferencia de modelos de lenguaje a una velocidad cinco veces superior a la de sus competidores y con un costo total de propiedad tres veces menor que el de las GPU tradicion
+```
+
+**Respuesta completa**: [`results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_spanish_only.md`](../results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_spanish_only.md)
+
+</details>
+
+<details><summary><code>news_no_hallucination_sources</code> — score 1.59</summary>
+
+**Stats**: latencia 43.28s · 46 tok/s · 499→2005 tokens · $0.00196
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa y relevante, manteniéndose fiel a los datos proporcionados sin alucinaciones. Ofrece una profundidad razonable al discutir el uso de IA y el contexto del sector food-tech, con claridad y estructura adecuadas para un artículo periodístico. Es útil para emprendedores, aunque podría incluir más detalles sobre el impacto en el mercado.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# NotCo alcanza valoración de $1.500 millones tras ronda Serie D de $85 millones liderada por Tiger Global
+
+La startup chilena de tecnología alimentaria NotCo cerró una ronda de financiamiento Serie D por 85 millones de dólares, liderada por el fondo de inversión Tiger Global. Con esta nueva inyecci
+```
+
+**Respuesta completa**: [`results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_no_hallucination_sources.md`](../results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_no_hallucination_sources.md)
+
+</details>
+
+<details><summary><code>news_perplexity_enrichment</code> — score 8.58</summary>
+
+**Stats**: latencia 36.41s · 63 tok/s · 515→2292 tokens · $0.00222
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante y ofrece una buena profundidad con insights útiles, está claramente escrita y estructurada, y es altamente útil para un emprendedor, además de tener una estructura SEO y estilo periodístico adecuados.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**DeepSeek V4: el modelo de IA open source que desafía a los gigantes con 236B parámetros y costos mínimos**
+
+El laboratorio chino DeepSeek acaba de lanzar la cuarta versión de su modelo de lenguaje, DeepSeek V4, bajo una licencia MIT completamente abierta. Con un precio de 0,30 dólares por millón d
+```
+
+**Respuesta completa**: [`results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_perplexity_enrichment.md`](../results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_perplexity_enrichment.md)
 
 </details>
 

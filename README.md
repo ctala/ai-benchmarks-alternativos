@@ -10,7 +10,7 @@
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes) y la nueva suite **`agent_long_horizon`** que mide capacidades agénticas en multi-turno largo (lo que el single-turn no captura).
 
-**Cobertura actual**: <!-- AUTO:tested_count -->120<!-- /AUTO --> modelos con ≥20 runs (<!-- AUTO:total_models -->178<!-- /AUTO --> catalogados, incluido **Claude Fable 5** medido el día 1), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v3.0.2 (junio)** = ajuste de **normalización de costos**: todos los modelos se comparan con un costo mínimo de referencia de **$0.001/call**, y los que no tienen equivalente OpenRouter usan su costo real de provider como aproximación estándar. **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
+**Cobertura actual**: <!-- AUTO:tested_count -->119<!-- /AUTO --> modelos con ≥20 runs (<!-- AUTO:total_models -->170<!-- /AUTO --> catalogados, incluido **Claude Fable 5** medido el día 1), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v3.0.2 (junio)** = ajuste de **normalización de costos**: todos los modelos se comparan con un costo mínimo de referencia de **$0.001/call**, y los que no tienen equivalente OpenRouter usan su costo real de provider como aproximación estándar. **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
 
 ## Score = combinación ponderada (NO solo calidad)
 
@@ -63,18 +63,18 @@ Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad*
 
 | # | Modelo | Score | Quality | Cost | Provider | $/1k calls | Runs |
 |---|---|---:|---:|---:|---|---:|---:|
-| 1 | **GPT-5.6 Luna** | **8.84** | 8.26 | 5.81 | openrouter | $9.30 | 129 |
-| 2 | **GLM 5.2** | **8.61** | 8.35 | 5.84 | openrouter | $4.79 | 127 |
-| 3 | **DeepSeek R1 (reasoning)** | **8.38** | 8.39 | 5.92 | openrouter | $3.96 | 123 |
-| 4 | **GLM 5** | **8.18** | 8.28 | 6.29 | openrouter | $3.06 | 119 |
-| 5 | **Ministral 14B** | **8.03** | 8.09 | 7.80 | openrouter | $0.36 | 119 |
-| 6 | **Mistral Large 3 675B** | **7.92** | 8.13 | 7.15 | openrouter | $2.40 | 119 |
-| 7 | **Claude Opus 4.8** | **7.87** | 8.31 | 3.75 | openrouter | $39.00 | 119 |
-| 8 | **Claude Opus 4.7** | **7.69** | 8.28 | 4.02 | openrouter | $39.00 | 194 |
-| 9 | **Qwen 3-Next 80B Instruct** | **7.45** | 7.97 | 7.50 | openrouter | $1.68 | 119 |
-| 10 | **Claude Opus 4.6** | **7.41** | 8.26 | 4.08 | openrouter | $39.00 | 286 |
+| 1 | **GPT-5.6 Luna** | **8.23** | 8.26 | 5.81 | openrouter | $9.30 | 129 |
+| 2 | **GLM 5.2** | **8.04** | 8.35 | 5.84 | openrouter | $4.79 | 127 |
+| 3 | **DeepSeek R1 (reasoning)** | **7.85** | 8.39 | 5.92 | openrouter | $3.96 | 123 |
+| 4 | **GLM 5** | **7.72** | 8.28 | 6.29 | openrouter | $3.06 | 119 |
+| 5 | **Ministral 14B** | **7.63** | 8.09 | 7.80 | openrouter | $0.36 | 119 |
+| 6 | **Mistral Large 3 675B** | **7.53** | 8.13 | 7.15 | openrouter | $2.40 | 119 |
+| 7 | **Claude Opus 4.8** | **7.47** | 8.31 | 3.75 | openrouter | $39.00 | 119 |
+| 8 | **Claude Opus 4.7** | **7.33** | 8.28 | 4.02 | openrouter | $39.00 | 194 |
+| 9 | **Qwen 3-Next 80B Instruct** | **7.19** | 7.97 | 7.50 | openrouter | $1.68 | 119 |
+| 10 | **Claude Opus 4.6** | **7.11** | 8.26 | 4.08 | openrouter | $39.00 | 286 |
 
-> **Piso de ranking: 50 runs.** Solo compiten los 60 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
+> **Piso de ranking: 50 runs.** Solo compiten los 66 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
 
 > **Este ranking es un punto de partida, no un veredicto.** El score pondera calidad (70%), costo (15%), velocidad (7.5%) y latencia (7.5%) para un perfil de emprendedor genérico. **Tu caso probablemente no sea ese.** Si corrés batch de noche, la latencia no te importa y este ranking la está penalizando igual; si atendés usuarios en vivo, te importa el doble. Ajustá los pesos a tu caso en la [calculadora](https://benchmarks.cristiantala.com/) o mirá las tablas por caso de uso en [MODELOS.md](MODELOS.md).
 
@@ -174,8 +174,8 @@ Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2
 
 | Recurso invertido | Cantidad |
 |---|---|
-| Modelos en config | **<!-- AUTO:total_models -->178<!-- /AUTO --> únicos** |
-| Modelos con cobertura completa (≥20 runs) | **<!-- AUTO:tested_count -->120<!-- /AUTO -->** |
+| Modelos en config | **<!-- AUTO:total_models -->170<!-- /AUTO --> únicos** |
+| Modelos con cobertura completa (≥20 runs) | **<!-- AUTO:tested_count -->119<!-- /AUTO -->** |
 | Modelos con datos parciales (1-19 runs) | **17** (incluye variantes thinking de modelos hybrid) |
 | Tests por modelo | **91 single-turn (23 suites) + 12 agent_long_horizon multi-turno = 103 tests** |
 | Runs preservados en JSON | **<!-- AUTO:tests_marketing -->14,000+<!-- /AUTO -->** (con éxito) |
