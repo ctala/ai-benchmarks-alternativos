@@ -77,6 +77,7 @@ def cargar_runs():
             continue
         for r in (d if isinstance(d, list) else d.get("results", [])):
             if isinstance(r, dict) and r.get("success"):
+                r["_archivo"] = f.name
                 runs.append(r)
     return runs
 
@@ -101,6 +102,22 @@ def a1_procedencia(runs, verbose):
               f"Son de antes de que existiera la marca. No contaminan.")
     elif verbose:
         print("  ✅ A1 · todo run declara con qué fórmula fue puntuado")
+
+    # INVARIANTE DURO (15-jul-2026): un run NUEVO sin procedencia rompe el build.
+    # Los viejos son historia (la marca no existía); uno nuevo significa que un path
+    # del runner volvió a omitir el stamp — la clase de bug que dejó a
+    # agent_long_horizon entera sin marca y produjo "comparar cosas distintas".
+    # El aviso blando no alcanzó: esto tiene que DOLER en el momento, no meses después.
+    EPOCA_PROCEDENCIA = "benchmark_20260716"  # todo archivo >= esta fecha DEBE stampear
+    nuevos_sin = [r for r in runs
+                  if r.get("quality") is not None and not r.get("scoring")
+                  and str(r.get("_archivo", "")) >= EPOCA_PROCEDENCIA]
+    if nuevos_sin:
+        ejemplos = {r.get("_archivo") for r in list(nuevos_sin)[:3]}
+        fallo("A1 · procedencia (runs NUEVOS)",
+              f"{len(nuevos_sin)} runs posteriores a la época de procedencia NO declaran "
+              f"fórmula (ej: {sorted(ejemplos)}). Un path del runner omite el stamp — "
+              f"arreglalo antes de publicar; esto no es historia, es regresión.")
 
 
 def a2_una_formula_por_suite(runs, verbose):
