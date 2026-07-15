@@ -1,13 +1,13 @@
 # GPT-5.6 Terra
 
 - **model_id**: `openai/gpt-5.6-terra`
-- **Total tests**: 245/296 exitosos (51 errores)
-- **Score final**: 7.58
-- **Calidad**: 8.99
+- **Total tests**: 257/308 exitosos (51 errores)
+- **Score final**: 7.59
+- **Calidad**: 9.01
 - **Judge score (Phi-4)**: 4.13/10
-- **Velocidad**: 53 tok/s
-- **Latencia primera token**: 7.85s
-- **Costo promedio por test**: $0.10230
+- **Velocidad**: 54 tok/s
+- **Latencia primera token**: 8.10s
+- **Costo promedio por test**: $0.10222
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.69 | 6.96 |
-| agent_long_horizon | 12 | 12 | 7.97 | 9.56 |
+| agent_long_horizon | 24 | 24 | 7.88 | 9.44 |
 | business_audit | 10 | 10 | 7.06 | 8.20 |
 | business_strategy | 5 | 5 | 7.66 | 9.20 |
 | code_generation | 4 | 4 | 7.78 | 8.88 |

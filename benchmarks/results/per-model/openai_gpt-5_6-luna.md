@@ -1,13 +1,13 @@
 # GPT-5.6 Luna
 
 - **model_id**: `openai/gpt-5.6-luna`
-- **Total tests**: 255/306 exitosos (51 errores)
-- **Score final**: 7.80
-- **Calidad**: 8.91
+- **Total tests**: 267/318 exitosos (51 errores)
+- **Score final**: 7.82
+- **Calidad**: 8.95
 - **Judge score (Phi-4)**: 4.11/10
-- **Velocidad**: 73 tok/s
-- **Latencia primera token**: 5.19s
-- **Costo promedio por test**: $0.03928
+- **Velocidad**: 75 tok/s
+- **Latencia primera token**: 5.38s
+- **Costo promedio por test**: $0.03916
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 7.16 | 7.49 |
-| agent_long_horizon | 12 | 12 | 8.19 | 9.56 |
+| agent_long_horizon | 24 | 24 | 8.24 | 9.65 |
 | business_audit | 10 | 10 | 7.77 | 8.60 |
 | business_strategy | 10 | 10 | 7.74 | 8.80 |
 | code_generation | 4 | 4 | 7.98 | 8.95 |

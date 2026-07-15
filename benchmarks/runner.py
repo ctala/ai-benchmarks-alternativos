@@ -256,6 +256,7 @@ def run_multi_turn_script(
     total_output = 0
     total_latency = 0.0
 
+    empty_persistent = False
     for turn in test["script"]:
         messages.append({"role": "user", "content": turn["user"]})
         last_result = provider.chat(
@@ -267,6 +268,19 @@ def run_multi_turn_script(
             timeout=timeout,
             force_reasoning=force_reasoning,
         )
+        # Guard de vacíos, versión multi-turn (el de run_single_test no cubre este path
+        # y por acá se colaron 3 vacíos de Fable el 15-jul): un turno vacío se reintenta
+        # UNA vez; si persiste, queda en la trayectoria (el rubric lo castiga) y el run
+        # se marca — el silencio a mitad de conversación también es la respuesta.
+        if last_result.success and not (last_result.response or "").strip():
+            retry = provider.chat(
+                model=model_id, messages=messages, tools=None, temperature=0.7,
+                max_tokens=2048, timeout=timeout, force_reasoning=force_reasoning,
+            )
+            if retry.success and (retry.response or "").strip():
+                last_result = retry
+            else:
+                empty_persistent = True
         if not last_result.success:
             # Cortar trayectoria temprano si falla; el rubric se aplica sobre lo que haya
             trajectory.append({"user": turn["user"], "assistant": last_result.error or "<fail>"})
@@ -289,6 +303,8 @@ def run_multi_turn_script(
     last_result.metadata["trajectory"] = trajectory
     last_result.metadata["turns_executed"] = len(trajectory)
     last_result.metadata["turns_total"] = len(test["script"])
+    if empty_persistent:
+        last_result.metadata["empty_persistent"] = True
     return last_result
 
 
@@ -378,6 +394,14 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
         scores["auto_quality"] = round(quality, 2)
         scores["turns_executed"] = (result.metadata or {}).get("turns_executed", 0)
         scores["turns_total"] = (result.metadata or {}).get("turns_total", 0)
+        # PROCEDENCIA — este early-return la omitía y TODA la suite agent_long_horizon
+        # quedó sin marca (scoring=None) para todos los modelos: excluida del quality_avg
+        # del ranking pero visible en las tablas por-suite → dos superficies con
+        # poblaciones distintas (descubierto 15-jul comparando Sol vs Fable). La rúbrica
+        # es regex determinística sin juez → verificable.
+        scores["scoring"] = "verificable"
+        if (result.metadata or {}).get("empty_persistent"):
+            scores["empty_persistent"] = True
         # Auditable: marca que el modelo se midió vía suscripción (claude_code CLI,
         # $0 tarifa plana) y NO vía API. Lo setea ClaudeCodeProvider.
         if (result.metadata or {}).get("subscription_measured"):

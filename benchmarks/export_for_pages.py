@@ -217,6 +217,9 @@ def _formula_esperada(suite: str, test_name: str | None = None) -> str:
     from benchmarks.runner import ALL_TEST_SUITES
     if suite.startswith("niah"):
         return "verificable"
+    if suite == "agent_long_horizon":
+        # Rúbrica regex determinística sobre la trayectoria, sin juez (runner línea ~358).
+        return "verificable"
     tests = ALL_TEST_SUITES.get(suite, [])
     if test_name:
         t = next((x for x in tests if x.get("name") == test_name), None)
@@ -429,10 +432,15 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     # Comparar esos dos promedios no era comparar modelos.
     #
     # Ahora: se promedia cada test primero, y después los tests entre sí.
+    # MISMA POBLACIÓN QUE EL RANKING. Estas tablas por-suite se publicaban SIN el filtro
+    # de procedencia mientras quality_avg SÍ lo aplicaba: dos superficies con poblaciones
+    # distintas. agent_long_horizon entera (scoring=None, path multi-turn sin stamp) más
+    # runs de fórmulas viejas entraban acá y no allá — la comparación Sol vs Fable del
+    # 15-jul salió de estos números contaminados. Un solo criterio para todo: _misma_formula.
     by_suite_test = defaultdict(lambda: defaultdict(list))
     for r in runs:
         s, tn = r.get("suite", ""), r.get("test_name")
-        if s and tn and r.get("_final_recalc") is not None:
+        if s and tn and r.get("_final_recalc") is not None and _misma_formula(r):
             by_suite_test[s][tn].append(r["_final_recalc"])
 
     suites = {
@@ -452,7 +460,7 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     calidad_por_suite = defaultdict(lambda: defaultdict(list))
     for r in runs:
         s, tn, q = r.get("suite"), r.get("test_name"), r.get("quality")
-        if s and tn and q is not None:
+        if s and tn and q is not None and _misma_formula(r):
             calidad_por_suite[s][tn].append(q)
     quality_by_suite = {
         s: round(sum(sum(v) / len(v) for v in tests.values()) / len(tests), 2)

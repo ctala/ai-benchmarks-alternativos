@@ -1,13 +1,13 @@
 # Claude Fable 5
 
 - **model_id**: `anthropic/claude-fable-5`
-- **Total tests**: 143/143 exitosos (0 errores)
-- **Score final**: 6.05
-- **Calidad**: 7.25
+- **Total tests**: 155/155 exitosos (0 errores)
+- **Score final**: 6.00
+- **Calidad**: 7.21
 - **Judge score (Phi-4)**: 4.36/10
 - **Velocidad**: 48 tok/s
-- **Latencia primera token**: 20.56s
-- **Costo promedio por test**: $0.12617
+- **Latencia primera token**: 20.64s
+- **Costo promedio por test**: $0.15518
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.79 | 6.68 |
-| agent_long_horizon | 12 | 12 | 5.30 | 6.54 |
+| agent_long_horizon | 24 | 24 | 5.39 | 6.65 |
 | business_audit | 10 | 10 | 6.59 | 8.00 |
 | business_strategy | 5 | 5 | 7.39 | 9.20 |
 | code_generation | 4 | 4 | 7.31 | 9.02 |
