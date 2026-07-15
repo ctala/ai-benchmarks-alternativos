@@ -1,16 +1,16 @@
 {
   "metadata": {
     "timestamp": "20260714_180509_98060",
-    "total_runs": 8,
+    "total_runs": 13,
     "errors": 0,
     "judge": {
       "judge_model": "microsoft/phi-4",
       "judge_provider": "openrouter",
       "judge_is_local": false,
-      "evaluations": 6,
-      "estimated_cost_usd": 0.0063
+      "evaluations": 2,
+      "estimated_cost_usd": 0.0018
     },
-    "partial": true
+    "partial": false
   },
   "results": [
     {
@@ -268,6 +268,68 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_180509_98060"
+    },
+    {
+      "quality": 0.0,
+      "cost_score": 10.0,
+      "cost_usd": 0.0,
+      "speed": 1.0,
+      "latency": 10.0,
+      "tool_calling": 0.0,
+      "final": 2.33,
+      "test_name": "context_following_complex_system",
+      "model": "Hermes 4 70B",
+      "model_id": "nousresearch/hermes-4-70b",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 0.0,
+      "latency_first_token": 0.0,
+      "latency_total": 0.0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "response_preview": "",
+      "auto_quality": 0.0,
+      "content_score": 0.0,
+      "answer_score": 0.0,
+      "scoring": "verificable",
+      "suite": "agent_capabilities",
+      "run": 1,
+      "timestamp": "20260714_180509_98060"
+    },
+    {
+      "quality": 7.5,
+      "cost_score": 10.0,
+      "cost_usd": 0.000162,
+      "speed": 8.0,
+      "latency": 4.0,
+      "tool_calling": 7.0,
+      "final": 7.65,
+      "test_name": "model_as_router",
+      "model": "Hermes 4 70B",
+      "model_id": "nousresearch/hermes-4-70b",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 83.1,
+      "latency_first_token": 3.768,
+      "latency_total": 3.768,
+      "input_tokens": 286,
+      "output_tokens": 313,
+      "response_preview": "[\n  {\"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\", \"modelo\": \"deepseek-v3\", \"razon\": \"El modelo deepseek-v3 es muy bueno para razonamiento y analisis, ademas de ser muy barato.\"},\n  {\"subtarea\": \"Escribir un email de disculpas a clientes afectados por un bug\",",
+      "auto_quality": 7.7,
+      "content_score": 8.0,
+      "answer_score": 7.5,
+      "scoring": "verificable",
+      "judge_score": 4.0,
+      "judge_precision": 4,
+      "judge_relevancia": 5,
+      "judge_profundidad": 4,
+      "judge_claridad": 5,
+      "judge_utilidad": 4,
+      "judge_justificacion": "La respuesta es precisa y relevante, asignando modelos apropiados a cada subtarea con razones claras y útiles, aunque podría profundizar más en la justificación de las elecciones.",
+      "suite": "agent_capabilities",
+      "run": 1,
+      "timestamp": "20260714_180509_98060",
+      "response_file": "results/responses/20260714_180509_98060/hermes-4-70b__agent_capabilities__model_as_router.md"
     }
   ]
 }

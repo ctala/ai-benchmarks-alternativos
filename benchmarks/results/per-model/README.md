@@ -24,8 +24,8 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 16 | [Gemini 3.1 Flash Lite (thinking)](google_gemini-3_1-flash-lite-preview.md) | 7.46 | 9.00 | 203 | 12/12 | [ver detalles](google_gemini-3_1-flash-lite-preview.md) |
 | 17 | [MiniMax M2.5](minimax_minimax-m2_5.md) | 7.46 | 7.88 | 61 | 123/123 | [ver detalles](minimax_minimax-m2_5.md) |
 | 18 | [MiMo V2-Omni (Xiaomi direct)](mimo-v2-omni.md) | 7.44 | 7.23 | 102 | 102/103 | [ver detalles](mimo-v2-omni.md) |
-| 19 | [GPT-OSS 20B](openai_gpt-oss-20b.md) | 7.44 | 7.41 | 97 | 123/123 | [ver detalles](openai_gpt-oss-20b.md) |
-| 20 | [DeepSeek V3](deepseek_deepseek-v3_2.md) | 7.44 | 7.95 | 29 | 123/123 | [ver detalles](deepseek_deepseek-v3_2.md) |
+| 19 | [DeepSeek V3](deepseek_deepseek-v3_2.md) | 7.44 | 7.96 | 29 | 123/123 | [ver detalles](deepseek_deepseek-v3_2.md) |
+| 20 | [GPT-OSS 20B](openai_gpt-oss-20b.md) | 7.44 | 7.41 | 97 | 123/123 | [ver detalles](openai_gpt-oss-20b.md) |
 | 21 | [DiffusionGemma 26B-A4B (DGX Spark Q8_0)](hf_co_unsloth_diffusiongemma-26b-a4b-it-gguf_q8_0.md) | 7.43 | 7.96 | 39 | 100/107 | [ver detalles](hf_co_unsloth_diffusiongemma-26b-a4b-it-gguf_q8_0.md) |
 | 22 | [Nemotron Super 49B v1.5](nvidia_llama-3_3-nemotron-super-49b-v1_5.md) | 7.43 | 7.98 | 49 | 123/123 | [ver detalles](nvidia_llama-3_3-nemotron-super-49b-v1_5.md) |
 | 23 | [Llama 3.1 8B Instant (Groq)](llama-3_1-8b-instant.md) | 7.42 | 7.02 | 262 | 145/239 | [ver detalles](llama-3_1-8b-instant.md) |
@@ -77,13 +77,13 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 69 | [Devstral Medium](mistralai_devstral-medium.md) | 7.06 | 7.61 | 60 | 88/101 | [ver detalles](mistralai_devstral-medium.md) |
 | 70 | [Grok 4.5](x-ai_grok-4_5.md) | 7.05 | 8.17 | 80 | 239/290 | [ver detalles](x-ai_grok-4_5.md) |
 | 71 | [GPT-OSS 120B (Ollama Cloud)](gpt-oss_120b-cloud.md) | 7.04 | 6.90 | 68 | 148/158 | [ver detalles](gpt-oss_120b-cloud.md) |
-| 72 | [DeepSeek V4 Flash (NIM)](deepseek-ai_deepseek-v4-flash.md) | 7.03 | 7.71 | 17 | 153/271 | [ver detalles](deepseek-ai_deepseek-v4-flash.md) |
-| 73 | [Llama 3.1 8B Instant](meta-llama_llama-3_1-8b-instruct.md) | 7.02 | 6.94 | 68 | 123/123 | [ver detalles](meta-llama_llama-3_1-8b-instruct.md) |
+| 72 | [Llama 3.1 8B Instant](meta-llama_llama-3_1-8b-instruct.md) | 7.04 | 6.94 | 69 | 123/123 | [ver detalles](meta-llama_llama-3_1-8b-instruct.md) |
+| 73 | [DeepSeek V4 Flash (NIM)](deepseek-ai_deepseek-v4-flash.md) | 7.03 | 7.71 | 17 | 153/271 | [ver detalles](deepseek-ai_deepseek-v4-flash.md) |
 | 74 | [Nemotron 3 Base 33B (DGX Spark Q4_K_M)](nemotron3_33b-q4_k_m.md) | 7.02 | 7.47 | 63 | 103/103 | [ver detalles](nemotron3_33b-q4_k_m.md) |
-| 75 | [Hermes 4 70B](nousresearch_hermes-4-70b.md) | 7.02 | 7.27 | 47 | 271/381 | [ver detalles](nousresearch_hermes-4-70b.md) |
-| 76 | [Grok 4.20](x-ai_grok-4_20.md) | 7.02 | 7.57 | 67 | 123/123 | [ver detalles](x-ai_grok-4_20.md) |
-| 77 | [MiMo-V2.5 Pro](xiaomi_mimo-v2_5-pro.md) | 7.02 | 7.82 | 56 | 129/129 | [ver detalles](xiaomi_mimo-v2_5-pro.md) |
-| 78 | [Nemotron 3 Super 120B (DGX Spark Q4_K_M)](nemotron-3-super_120b.md) | 7.02 | 7.73 | 17 | 90/91 | [ver detalles](nemotron-3-super_120b.md) |
+| 75 | [Grok 4.20](x-ai_grok-4_20.md) | 7.02 | 7.57 | 67 | 123/123 | [ver detalles](x-ai_grok-4_20.md) |
+| 76 | [MiMo-V2.5 Pro](xiaomi_mimo-v2_5-pro.md) | 7.02 | 7.82 | 56 | 129/129 | [ver detalles](xiaomi_mimo-v2_5-pro.md) |
+| 77 | [Nemotron 3 Super 120B (DGX Spark Q4_K_M)](nemotron-3-super_120b.md) | 7.02 | 7.73 | 17 | 90/91 | [ver detalles](nemotron-3-super_120b.md) |
+| 78 | [Hermes 4 70B](nousresearch_hermes-4-70b.md) | 7.01 | 7.24 | 47 | 273/383 | [ver detalles](nousresearch_hermes-4-70b.md) |
 | 79 | [Gemma 4 12B (Spark llama-server Q4_K_M)](gemma-4-12b-it-q4_k_m_gguf.md) | 6.99 | 7.63 | 16 | 168/174 | [ver detalles](gemma-4-12b-it-q4_k_m_gguf.md) |
 | 80 | [GLM 5.2](z-ai_glm-5_2.md) | 6.99 | 8.08 | 49 | 210/211 | [ver detalles](z-ai_glm-5_2.md) |
 | 81 | [Qwen 3.5 397B (NIM)](qwen_qwen3_5-397b-a17b.md) | 6.97 | 7.93 | 24 | 107/113 | [ver detalles](qwen_qwen3_5-397b-a17b.md) |
