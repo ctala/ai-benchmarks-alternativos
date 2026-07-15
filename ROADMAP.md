@@ -1,7 +1,7 @@
 # Roadmap del Benchmark
 
 > Ultima actualizacion: 2 de Julio de 2026 (post v3.1.0: pSEO Fable 5 + integridad de prompts + CheatSheet julio)
-> Estado del ranking: **v3.1.0 — <!-- AUTO:total_models -->170<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->121<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->15,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
+> Estado del ranking: **v3.1.0 — <!-- AUTO:total_models -->170<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->121<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->11,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
 > Cobertura faltante: ver [TESTS_FALTANTES.md](TESTS_FALTANTES.md) (30 modelos sin runs o con cobertura parcial).
 > **Próximo release: Agosto 2026** (cadencia mensual). El release de julio ya salió — ver [CHANGELOG.md](CHANGELOG.md).
 
@@ -54,6 +54,13 @@
 **⏳ Pendiente para julio (no se pudo medir por drift de provider):**
 - **Drift de ids** — re-medir seguridad+contexto cuando se corrijan: `mistralai/devstral-small` → **404 "No endpoints" en OpenRouter**; `x-ai/grok-4.1-fast` → **404**; `deepseek-ai/deepseek-v4-flash` (NIM) → **400**. Investigar ids actuales del provider y actualizar `models.py`. (Sus scores de calidad actuales son de ids que el provider ya cambió.)
 - **Groq** (Llama 3.1 8B / 3.3 70B): falta `GROQ_API_KEY` → se misrutean. Usar la versión de **OpenRouter** en su lugar.
+- **string_precision mezcla dos dimensiones** (15-jul): sus tests usan strings con pinta de
+  credencial (JWT, API keys) → los providers con filtro de política (Anthropic API) los
+  bloquean y el test mide "política del provider" en vez de "precisión de copiado".
+  Fix aditivo (regla: no modificar tests existentes): AGREGAR tests de precisión con
+  strings neutros (hashes hex sin contexto de credencial) — la precisión se mide sin
+  tropezar filtros, y el manejo de credenciales queda donde corresponde (seguridad +
+  policy_refusal_rate).
 - **Suite multimodal/visión** (Gemma 4, Qwen-VL, Qwen 3.7 Plus) — hoy el bench es solo texto.
 - **Qwen3.6-35B-A3B** quedó cargado en el Spark (8088) — benchmarkear (MoE A3B, candidato ideal para agentes locales).
 

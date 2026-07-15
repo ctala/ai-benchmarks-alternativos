@@ -194,7 +194,12 @@ def suite_coverage(all_runs_by_model: dict, es_rankeable=None) -> dict:
     cov = defaultdict(set)
     for m in pool:
         for r in all_runs_by_model[m]:
-            if r.get("success") and r.get("suite"):
+            # MISMO filtro que la calidad (_misma_formula). Contar runs CRUDOS acá creó
+            # exámenes desiguales (15-jul): todos tenían runs viejos de agent_long_horizon
+            # → cobertura ~100% → la suite no se excluía — pero solo 4 modelos tenían runs
+            # VÁLIDOS, así que esos 4 rendían un examen con la suite adentro y los otros
+            # 66 sin ella. La cobertura debe medir quién tiene runs QUE CUENTAN.
+            if r.get("success") and r.get("suite") and _misma_formula(r):
                 cov[r["suite"]].add(m)
     return {s: len(ms) / len(pool) for s, ms in cov.items()}
 
@@ -264,6 +269,16 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     del quality/score (pero siguen visibles en score_by_suite), para no castigar a
     los primeros en rendir el examen nuevo.
     """
+    # ═══ UNA POBLACIÓN, UN LUGAR (15-jul-2026 — la solución definitiva) ═══
+    # Antes cada loop de agregación armaba su propia población y el filtro de
+    # procedencia se aplicaba (o se olvidaba) loop por loop: el score filtraba, las
+    # tablas por-suite no, la cobertura no, los pilares no — y cada olvido era un bug
+    # de "comparar cosas distintas" que aparecía meses después. Ahora TODO lo que se
+    # agrega hereda de esta única línea. Los runs sin procedencia (viejos, escala
+    # incomparable) quedan solo en `total_runs` como historial crudo.
+    runs_todos = runs
+    runs = [r for r in runs if _misma_formula(r)]
+
     # Recalcular final por run con los pesos actuales (para TODOS, así by_suite
     # puede exponer también el long-context).
     for r in runs:
@@ -517,7 +532,7 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
 
     return {
         "runs": len(general),  # cobertura = tareas prácticas (umbral tested >=20)
-        "total_runs": len(runs),  # todos los runs exitosos incluyendo niah y seguridad
+        "total_runs": len(runs_todos),  # historial CRUDO: incluye runs viejos sin procedencia (no promediables)
         "score_global": round(sum(scores) / len(scores), 2) if scores else None,
         "score_by_pillar": pillars,
         # Dimensiones crudas por pilar -> permiten recomponer el score de un pilar
@@ -563,6 +578,16 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
             sum(r.get("quality") for r in security if r.get("quality") is not None)
             / max(1, sum(1 for r in security if r.get("quality") is not None)), 2
         ) if any(r.get("quality") is not None for r in security) else None,
+        # --- Dimensión rehúso de política (15-jul, principio de Cristian) ---
+        # Rehusar/bloquear contenido con secretos NO se penaliza en seguridad (ahí es
+        # resistencia máxima) — pero ES una limitación operativa para quien usa la API:
+        # esa tarea no se hace. Dimensión propia, como contexto y seguridad: el usuario
+        # decide cuánto le pesa según su caso. Fracción de runs válidos donde el modelo
+        # rehusó persistente o el provider bloqueó por política.
+        "policy_refusal_rate": (
+            round(sum(1 for r in runs if r.get("empty_persistent") or r.get("api_refusal"))
+                  / max(1, sum(1 for r in runs if r.get("success"))), 4)
+        ),
     }
 
 
