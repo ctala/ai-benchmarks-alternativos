@@ -61,6 +61,10 @@ THINKING_MODELS = (
     "gemma4", "gemma-4",                    # Gemma 4 — descubierto abril 28 en Ollama DGX: expone "reasoning" field separado del "content"
     "minimax-m3", "MiniMax-M3",             # MiniMax M3 (1 jun 2026) — híbrido, emite <think> por default (verificado en API directa)
     "qwen3.7-max", "qwen3.7-plus",          # Qwen 3.7 (20 may 2026) — reasoning-agent, thinking tokens facturados
+    "claude-fable", "fable-5",              # Claude Fable 5 (14 jul 2026) — thinking por default vía OpenRouter. Sin esto,
+                                            # 22/143 runs con respuesta VACÍA y success=True (copy_jwt: 1 token) — el mismo
+                                            # modo de falla de los 165 runs vacíos de abril. Su primer examen canónico salió
+                                            # inválido (Q 7.64 = artefacto) y está en cuarentena (*.invalid).
 )
 
 # Modelos que sólo aceptan temperature=1.0 (rechazan otros con error 400).
