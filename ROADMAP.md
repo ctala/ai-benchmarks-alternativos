@@ -105,12 +105,18 @@
 - **Suite multimodal/visión** — Gemma 4, Qwen-VL, Qwen 3.7 Plus, DiffusionGemma tienen visión nativa; el bench aún es solo texto.
 - ~~**Adapter para DiffusionGemma**~~ — Resuelto con `DiffusionGemmaProvider` (`provider: diffusion_cli`) en `providers/adapters.py`.
 - **TESTS_FALTANTES.md auto-regen** — actualmente desactualizado (dice 125 modelos; son 143). Conectar al pipeline o regenerar manualmente tras cada lote.
-- **5 vacíos tercos** (15-jul): 3 de Llama 3.1 8B Instant (`benchmark_20260713_204935`) y 2 de
-  DeepSeek V3 (`benchmark_20260714_064028`) — respuestas vacías con `success=True` que
-  sobrevivieron a DOS pasadas de `--rerun-empty` (ids cuadran, causa sin determinar; deflación
-  ≤0.06 en modelos del fondo, no urgente). La reparación masiva del 15-jul re-midió los otros
-  24/29 (Gemini 2.5 Pro +0.17 de calidad recuperada). El fix de raíz en runner.py (vacío ⇒
-  success=False) impide que se acumulen nuevos.
+- **Path multi-turn sin guard de vacíos** (15-jul): `run_multi_turn_script` (suite
+  agent_long_horizon) no pasa por el guard vacío⇒fallo de `run_single_test` — 3 vacíos de
+  Fable se colaron por ahí (quedan fuera del promedio por procedencia, daño acotado).
+  Portar el guard/retry a ese path.
+- **10 vacíos legacy tercos** (15-jul, cierre): DeepSeek V3 ×1, Hermes 4 70B ×5, Hermes 4
+  405B ×4 — entradas viejas con `success=True` y preview vacío que sobreviven pasadas de
+  `--rerun-empty` en rincones que cada barrido revela de a uno (Hermes emite tool-calls
+  fantasma sin texto en tests de prosa — endémico del modelo). Impacto ≤0.1 de calidad en
+  modelos del FONDO del ranking (#63-64): rendimiento decreciente, se corta acá. Los guards
+  del runner (vacío⇒retry⇒persistente-puntuado · tool-call solo legítimo con tools · .strip())
+  impiden que se generen NUEVOS. La reparación del 15-jul re-midió 24 vacíos de 7 modelos
+  (Gemini 2.5 Pro: de último con Q7.02 falsa a #54 con Q7.66 real).
 
 ### Qué entra en el release de julio 2026 (checklist)
 

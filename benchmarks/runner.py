@@ -214,15 +214,18 @@ def run_single_test(
     #     de examen y lo dejaba incomparable — y un modelo que rehúsa el 10% de las
     #     tareas DEBE cargar ese 10% en su nota.
     #
-    # Excepción legítima: texto vacío + tool_calls_made > 0 (la respuesta ES la tool call).
-    if result.success and not (result.response or "").strip() and not result.tool_calls_made:
+    # Excepción legítima: texto vacío + tool call, PERO solo si el test DA herramientas.
+    # En un test de prosa (sin tools), un tool-call sin texto es fallar la tarea — Hermes 4
+    # emitía tool-calls fantasma en orchestration y 18 vacíos pasaron como éxito (15-jul).
+    tc_legitimo = bool(result.tool_calls_made and tools)
+    if result.success and not (result.response or "").strip() and not tc_legitimo:
         retry = provider.chat(
             model=model_id, messages=test["messages"], tools=tools,
             temperature=0.7, max_tokens=2048, timeout=timeout,
             force_reasoning=force_reasoning,
         )
         retry.test_name = test["name"]
-        if retry.success and ((retry.response or "").strip() or retry.tool_calls_made):
+        if retry.success and ((retry.response or "").strip() or (retry.tool_calls_made and tools)):
             return retry  # (a) era transitorio — el reintento lo trae
         if retry.success:
             # (b) vacío DOS veces seguidas = rehúso persistente → se puntúa, no se descarta

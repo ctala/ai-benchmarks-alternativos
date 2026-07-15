@@ -2,11 +2,11 @@
 
 - **model_id**: `meta-llama/llama-3.1-8b-instruct`
 - **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.02
+- **Score final**: 7.04
 - **Calidad**: 6.94
-- **Judge score (Phi-4)**: 3.87/10
-- **Velocidad**: 68 tok/s
-- **Latencia primera token**: 15.66s
+- **Judge score (Phi-4)**: 3.86/10
+- **Velocidad**: 69 tok/s
+- **Latencia primera token**: 15.30s
 - **Costo promedio por test**: $0.00004
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 6.02 | 5.68 |
+| agent_capabilities | 5 | 5 | 6.50 | 6.30 |
 | agent_long_horizon | 12 | 12 | 8.58 | 9.04 |
 | business_audit | 10 | 10 | 5.07 | 3.97 |
 | business_strategy | 5 | 5 | 6.89 | 6.80 |
@@ -29,7 +29,7 @@
 | multi_turn | 4 | 4 | 7.08 | 6.88 |
 | news_seo_writing | 5 | 5 | 5.50 | 4.98 |
 | ocr_extraction | 5 | 5 | 7.66 | 8.05 |
-| orchestration | 5 | 5 | 6.75 | 7.09 |
+| orchestration | 5 | 5 | 6.32 | 6.32 |
 | policy_adherence | 4 | 4 | 5.59 | 4.50 |
 | presentation | 2 | 2 | 7.93 | 8.06 |
 | reasoning | 3 | 3 | 8.24 | 8.69 |
@@ -40,7 +40,7 @@
 | structured_output | 4 | 4 | 5.62 | 5.00 |
 | summarization | 2 | 2 | 6.95 | 6.50 |
 | task_management | 3 | 3 | 7.98 | 8.53 |
-| tool_calling | 4 | 4 | 6.37 | 6.40 |
+| tool_calling | 4 | 4 | 6.67 | 6.75 |
 | translation | 3 | 3 | 8.14 | 8.67 |
 
 ## Detalle por test
@@ -1547,7 +1547,7 @@ Aquí te presento el outline completo para la presentación de 15 slides sobre e
 | single_tool_calendar | 6.77 | 7.10 | 4.0 | 7 | 6.01s | OK |
 | tool_with_reasoning | 6.77 | 7.10 | 4.0 | 14 | 6.03s | OK |
 | no_tool_needed | 6.24 | 5.70 | 3.0 | 12 | 0.84s | OK |
-| multi_tool_sequential | 5.71 | 5.70 | 3.0 | 8 | 12.36s | OK |
+| multi_tool_sequential | 6.92 | 7.10 | 4.0 | 15 | 5.91s | OK |
 
 <details><summary><code>single_tool_calendar</code> — score 6.77</summary>
 
@@ -1601,6 +1601,25 @@ La capital de Francia es París.
 ```
 
 **Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-3.1-8b__tool_calling__no_tool_needed.md`](../results/responses/20260713_204935_20776/or-llama-3.1-8b__tool_calling__no_tool_needed.md)
+
+</details>
+
+<details><summary><code>multi_tool_sequential</code> — score 6.92</summary>
+
+**Stats**: latencia 5.91s · 15 tok/s · 644→91 tokens · $0.00002
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante y clara, cumpliendo con las instrucciones dadas, y es directamente util para un emprendedor, aunque no ofrece insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[tool_call] create_task({"due_date":"2026-05-10","priority":"urgent","title":"Revisar contrato cliente ABC"})
+[tool_call] send_email({"body":"Necesitamos que revises el contrato con el cliente ABC antes del 10 de mayo.","subject":"Contrato ABC - Revision urgente","to":"legal@empresa.com"})
+```
+
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-3.1-8b__tool_calling__multi_tool_sequential.md`](../results/responses/20260713_204935_20776/or-llama-3.1-8b__tool_calling__multi_tool_sequential.md)
 
 </details>
 
@@ -1695,7 +1714,7 @@ Lo siento, pero no puedo ayudarte con eso. Si necesitas ayuda con algo más, est
 | error_recovery_orchestration | 3.48 | 2.50 | 4.0 | 8 | 15.60s | OK |
 | tool_selection_precision | 8.88 | 10.00 | 5 | 16 | 11.60s | OK |
 | parallel_vs_sequential_judgment | 7.87 | 8.57 | 4.0 | 17 | 30.85s | OK |
-| complex_workflow_decomposition | 7.04 | 7.60 | 5 | 10 | 34.67s | OK |
+| complex_workflow_decomposition | 4.86 | 3.72 | 2.0 | 69 | 6.83s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 6.49</summary>
 
@@ -1780,13 +1799,20 @@ Tarea B (Generar descripción del producto) depende de la tarea A (
 
 </details>
 
-<details><summary><code>complex_workflow_decomposition</code> — score 7.04</summary>
+<details><summary><code>complex_workflow_decomposition</code> — score 4.86</summary>
 
-**Stats**: latencia 34.67s · 10 tok/s · 1262→345 tokens · $0.00004
+**Stats**: latencia 6.83s · 69 tok/s · 1056→469 tokens · $0.00003
 
-**Juez Phi-4**: 5/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+**Juez Phi-4**: 2.0/10 (precisión:3, relevancia:2, profundidad:1, claridad:3, utilidad:2)
 
-> La respuesta es precisa, relevante, clara y ofrece una descomposición detallada del proceso de onboarding, incluyendo pasos específicos y consideraciones prácticas, lo que la hace altamente útil para un emprendedor.
+> La respuesta ejecuta algunos pasos correctamente pero omite pasos críticos como la generación de una API key, el envío de un correo de bienvenida con credenciales, la programación de una llamada de kickoff y la notificación al equipo de Customer Success en Slack.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[tool_call] send_email({"body":"Hola Andres, gracias por contactarnos. En breve nos pondremos en contacto contigo para discutir tus necesidades.","subject":"Formulario de contacto recibido","to":"andres@datapulse.cl"})
+[tool_call] http_request({"body":"{\"nombre\": \"Andres Morales\", \"empresa\": \
+```
 
 **Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-3.1-8b__orchestration__complex_workflow_decomposition.md`](../results/responses/20260713_204935_20776/or-llama-3.1-8b__orchestration__complex_workflow_decomposition.md)
 
@@ -1978,7 +2004,7 @@ Lo siento, pero no puedo ayudarte con esa solicitud. ¿Hay algo más en lo que p
 | ask_clarification_before_acting | 7.43 | 7.40 | 4.0 | 43 | 2.05s | OK |
 | context_following_complex_system | 4.15 | 2.50 | 3.0 | 20 | 0.79s | OK |
 | model_as_router | 5.60 | 5.00 | 4.0 | 50 | 8.39s | OK |
-| skill_execution_complex | 4.67 | 4.20 | 3.0 | 8 | 17.05s | OK |
+| skill_execution_complex | 7.06 | 7.30 | 4.0 | 17 | 7.34s | OK |
 
 <details><summary><code>agent_team_delegation</code> — score 8.24</summary>
 
@@ -2056,6 +2082,26 @@ Un gran desafío! Aquí te presento mis recomendaciones para cada subtarea:
 ```
 
 **Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-3.1-8b__agent_capabilities__model_as_router.md`](../results/responses/20260713_204935_20776/or-llama-3.1-8b__agent_capabilities__model_as_router.md)
+
+</details>
+
+<details><summary><code>skill_execution_complex</code> — score 7.06</summary>
+
+**Stats**: latencia 7.34s · 17 tok/s · 1201→126 tokens · $0.00003
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa y relevante, con claridad y utilidad práctica, pero carece de profundidad al no incluir detalles sobre el proceso de publicación o la gestión de la reunión.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[tool_call] run_skill({"skill_name": "publish_blog_post", "parameters": {"document": "doc compartido", "authors": "equipo"}})
+[tool_call] create_calendar_event({"title": "Reunion de review", "date": "jueves", "time": "3 PM", "duration_minutes": 60})
+[tool_call] send_message({"channel": "slack", "to"
+```
+
+**Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-3.1-8b__agent_capabilities__skill_execution_complex.md`](../results/responses/20260713_204935_20776/or-llama-3.1-8b__agent_capabilities__skill_execution_complex.md)
 
 </details>
 
