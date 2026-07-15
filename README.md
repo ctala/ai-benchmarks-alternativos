@@ -86,32 +86,36 @@ Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad*
 
 | # | Modelo | Score | Quality | Cost | Provider | $/1k calls | Runs |
 |---|---|---:|---:|---:|---|---:|---:|
-| 1 | **GPT-5.6 Luna** | **8.84** | 8.26 | 5.81 | openrouter | $9.30 | 129 |
-| 2 | **GLM 5.2** | **8.62** | 8.35 | 5.84 | openrouter | $4.79 | 127 |
-| 3 | **DeepSeek R1 (reasoning)** | **8.38** | 8.39 | 5.92 | openrouter | $3.96 | 123 |
-| 4 | **GLM 5** | **8.22** | 8.28 | 6.29 | openrouter | $3.06 | 119 |
-| 5 | **Ministral 14B** | **8.10** | 8.09 | 7.80 | openrouter | $0.36 | 119 |
-| 6 | **Mistral Large 3 675B** | **7.99** | 8.13 | 7.15 | openrouter | $2.40 | 119 |
-| 7 | **Claude Opus 4.8** | **7.90** | 8.31 | 3.75 | openrouter | $39.00 | 119 |
-| 8 | **Claude Haiku 4.5** | **7.88** | 8.10 | 5.98 | openrouter | $7.80 | 131 |
-| 9 | **Claude Opus 4.7** | **7.73** | 8.28 | 4.02 | openrouter | $39.00 | 194 |
-| 10 | **Qwen 3-Next 80B Instruct** | **7.56** | 7.97 | 7.50 | openrouter | $1.68 | 119 |
+| 1 | **GPT-5.6 Luna** | **8.95** | 8.26 | 5.81 | openrouter | $9.30 | 129 |
+| 2 | **GLM 5.2** | **8.72** | 8.35 | 5.84 | openrouter | $4.79 | 127 |
+| 3 | **DeepSeek R1 (reasoning)** | **8.48** | 8.39 | 5.92 | openrouter | $3.96 | 123 |
+| 4 | **GLM 5** | **8.30** | 8.28 | 6.29 | openrouter | $3.06 | 119 |
+| 5 | **Ministral 14B** | **8.16** | 8.09 | 7.80 | openrouter | $0.36 | 119 |
+| 6 | **Mistral Large 3 675B** | **8.06** | 8.13 | 7.15 | openrouter | $2.40 | 119 |
+| 7 | **Claude Opus 4.8** | **8.02** | 8.31 | 3.75 | openrouter | $39.00 | 119 |
+| 8 | **Claude Haiku 4.5** | **7.97** | 8.10 | 5.98 | openrouter | $7.80 | 131 |
+| 9 | **Claude Opus 4.7** | **7.85** | 8.28 | 4.02 | openrouter | $39.00 | 194 |
+| 10 | **Qwen 3-Next 80B Instruct** | **7.61** | 7.97 | 7.50 | openrouter | $1.68 | 119 |
 
-> **Piso de ranking: 50 runs.** Solo compiten los 69 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
+> **Piso de ranking: 50 runs.** Solo compiten los 70 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
 
 > **Este ranking es un punto de partida, no un veredicto.** El score pondera calidad (70%), costo (15%), velocidad (7.5%) y latencia (7.5%) para un perfil de emprendedor genérico. **Tu caso probablemente no sea ese.** Si corrés batch de noche, la latencia no te importa y este ranking la está penalizando igual; si atendés usuarios en vivo, te importa el doble. Ajustá los pesos a tu caso en la [calculadora](https://benchmarks.cristiantala.com/) o mirá las tablas por caso de uso en [MODELOS.md](MODELOS.md).
 
 <!-- AUTO-RANKING-END -->
 
-> **Claude Fable 5** hoy se compara en el **plano suscripción** (ver la tabla "Vía suscripción
-> Claude" de [MODELOS.md](MODELOS.md)): medido por Claude Code contra los otros Claude por el
-> mismo camino, **lidera ese plano** — por encima de Opus 4.8 y Sonnet — a 2× el precio de Opus
-> ($10/$50 por M tokens). Su examen canónico por API (14-jul) **salió inválido y está en
-> cuarentena**: no estaba en `THINKING_MODELS`, su razonamiento se comió el budget de tokens y
-> 22 de 143 respuestas volvieron vacías con `success=True` — un score de artefacto que preferimos
-> descartar antes que publicar (`results/INVALIDO_fable5_*.invalid`). Se re-medirá con el fix.
-> Mientras tanto: no está en el ranking principal, y su costo (~$78/1k calls, el más caro del
-> catálogo) exige que tu workload realmente sea horizonte-largo agéntico para justificarlo.
+> **Claude Fable 5** está medido por los dos caminos, y cada uno cuenta una parte. Por
+> **suscripción** (tabla "Vía suscripción Claude" de [MODELOS.md](MODELOS.md)) **lidera entre
+> los Claude**, por encima de Opus 4.8 — a 2× el precio de Opus ($10/$50 por M tokens). Por
+> **API/OpenRouter** entró al ranking principal con un hallazgo que ningún spec sheet cuenta:
+> **rehúsa con respuesta VACÍA el contenido que huele a credenciales** (copiar un JWT, la mitad
+> de los tests de inyección) — reproducible en 3 corridas. No filtra el secreto, pero tampoco
+> te responde. Esos silencios se puntúan como lo que son (en inyección, no filtrar cuenta a
+> favor; en una tarea de trabajo, callar es fallarla), así que su fila del ranking carga la
+> calidad alta de cuando responde, los ceros de cuando rehúsa, y el costo **más caro del
+> catálogo** (~$78/1k calls) — que lo hunde a la zona de GPT-5.5. Su primer examen (14-jul)
+> había salido inválido por otra razón (thinking sin budget: 22/143 vacíos con `success=True`)
+> y está en cuarentena en `results/INVALIDO_fable5_*.invalid`; el actual es el válido.
+> Veredicto: paga el 2× solo si tu workload es horizonte-largo agéntico vía suscripción.
 
 > ### 🆕 GPT-5.6 y Grok 4.5 — medidos 10 jul 2026
 >

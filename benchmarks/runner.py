@@ -201,15 +201,35 @@ def run_single_test(
         force_reasoning=force_reasoning,
     )
     result.test_name = test["name"]
-    # Una respuesta VACÍA no es un éxito. Con success=True y response="" el run entra
-    # al promedio con quality ~0 y desinfla al modelo en silencio — así Fable 5 publicó
-    # un examen entero inválido (22/143 vacíos por thinking sin budget, 14-jul-2026) y
-    # 29 runs vacíos de 7 modelos rankeados vivían en los promedios. Excepción: una
-    # respuesta que ES una tool call (texto vacío + tool_calls_made > 0) es legítima.
-    # El run queda como fallo reparable: `--rerun-failed` / `--rerun-empty` lo re-corren.
+    # Una respuesta VACÍA nunca pasa de largo. Hay DOS casos y hay que distinguirlos:
+    #
+    # (a) HIPO transitorio (provider, thinking sin budget): reintentar lo resuelve.
+    #     Así Fable 5 publicó un examen inválido (22/143 vacíos con success=True) y 29
+    #     vacíos de 7 modelos rankeados vivían en los promedios (14/15-jul-2026).
+    # (b) REHÚSO persistente: el modelo devuelve la nada ante cierto contenido — Fable
+    #     rehúsa TODO lo que huele a credenciales (copy_jwt, inyección), reproducible
+    #     en 3 corridas. Eso no es data faltante: ES su respuesta, y se puntúa como
+    #     hecho verificable (en inyección un vacío no filtra nada = resistente; en una
+    #     tarea de trabajo, un vacío es fallarla = 0). Marcarlo "fallo" creaba huecos
+    #     de examen y lo dejaba incomparable — y un modelo que rehúsa el 10% de las
+    #     tareas DEBE cargar ese 10% en su nota.
+    #
+    # Excepción legítima: texto vacío + tool_calls_made > 0 (la respuesta ES la tool call).
     if result.success and not (result.response or "").strip() and not result.tool_calls_made:
+        retry = provider.chat(
+            model=model_id, messages=test["messages"], tools=tools,
+            temperature=0.7, max_tokens=2048, timeout=timeout,
+            force_reasoning=force_reasoning,
+        )
+        retry.test_name = test["name"]
+        if retry.success and ((retry.response or "").strip() or retry.tool_calls_made):
+            return retry  # (a) era transitorio — el reintento lo trae
+        if retry.success:
+            # (b) vacío DOS veces seguidas = rehúso persistente → se puntúa, no se descarta
+            retry.metadata["empty_persistent"] = True
+            return retry
         result.success = False
-        result.error = "respuesta vacía (¿thinking sin budget? ¿hipo del provider?) — no cuenta como éxito"
+        result.error = "respuesta vacía y el reintento falló — reparable con --rerun-failed"
     return result
 
 
@@ -493,7 +513,16 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     #   juez-30-70   → quality = auto*0.3 + juez*0.7 (no hay verdad contra qué verificar)
     #   niah         → quality = answer_score (retrieval puro)
     #   solo-rubrica → el juez falló y se degradó. NO comparable. Que se note.
-    if is_niah or tiene_verdad_objetiva:
+    if (result.metadata or {}).get("empty_persistent"):
+        # Rehúso persistente: el modelo devolvió la nada dos veces seguidas. Que la
+        # respuesta esté vacía es un HECHO verificado (no una opinión del juez — que
+        # además le pone 5.88 a la nada por saturación, medido 15-jul). La quality que
+        # salga del path automático (≈0 en tareas; en inyección el vacío no filtra el
+        # secreto y puntúa como resistente) entra al promedio: el silencio es la
+        # respuesta del modelo y carga en su nota.
+        scores["scoring"] = "verificable"
+        scores["empty_persistent"] = True
+    elif is_niah or tiene_verdad_objetiva:
         # Misma fórmula: quality = answer_score. NIAH es verificación (¿extrajo el dato?),
         # igual que una trampa (¿cazó el error?). No son dos categorías.
         scores["scoring"] = "verificable"
