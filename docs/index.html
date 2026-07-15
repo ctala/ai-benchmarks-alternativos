@@ -528,18 +528,42 @@
 
   <section class="methodology">
     <details>
-      <summary><strong>¿Cómo funciona el ranking?</strong></summary>
+      <summary><strong>¿Cómo funciona el ranking? (la explicación sin estadística)</strong></summary>
       <p>
-        Cada modelo corre ~100 tests organizados en 26 suites (4 pilares: Razonamiento, Coding, Contenido, Agentes).
-        Cada test se evalúa en 3 capas: scoring automático (formato + sustancia), validación de respuesta esperada,
-        y LLM-as-Judge con Phi-4 local (Microsoft, MIT, cero conflicto de interés).
-        El score global (v3.0) usa z-score: cada dimensión (calidad, costo, velocidad, latencia) se estandariza antes de ponderar, así que los pesos reflejan influencia real. Pesos default: calidad 70%, costo 15%, velocidad 7.5%, latencia 7.5%. Tool calling no entra al score compuesto (permanece como columna informativa). Los pesos son ajustables en el panel "Pesos del score global" de los filtros.
+        <strong>Todos los modelos rinden el mismo examen</strong>: tareas de negocio reales, en español,
+        por el mismo camino (OpenRouter) — así comparás modelos, no infraestructuras. La calidad la evalúa
+        un juez neutral (Phi-4, de Microsoft, que no compite en el ranking) más una capa de verificación de
+        hechos: muchos tests llevan una trampa plantada con respuesta correcta verificable — un error
+        aritmético, un dato inventado, un secreto que no se debe filtrar. O la cazás o no la cazás; ahí no
+        hay opinión.
       </p>
       <p>
-        Los datos del benchmark se versionan en JSON en el repo y se regeneran tras cada lote.
-        Esta calculadora lee directamente <code>docs/data/models.json</code> que se commitea con cada release.
+        <strong>El score es una nota con curva, como en la universidad.</strong> No mide "qué tan bueno sos
+        del 1 al 10" en abstracto — mide <em>a qué distancia estás del promedio de todos los que compiten</em>.
+        Un modelo exactamente promedio saca <strong>5.5</strong>. Arriba de 5.5 = mejor que el promedio del
+        mercado; abajo, peor. Nadie está anclado al 10 (el 10 sería una distancia excepcional del promedio) y
+        el último de la tabla no baja de 0.5. Cuatro dimensiones entran a esa cuenta con pesos pensados para
+        un emprendedor: <strong>calidad 70%, costo 15%, velocidad 7.5%, latencia 7.5%</strong> — y cada una se
+        estandariza antes de ponderar, para que el peso que ves sea la influencia real (sin eso, el costo
+        mandaba más de lo que decía su peso). Los pesos son ajustables en el panel de filtros: tu caso manda.
       </p>
       <p>
+        <strong>Consecuencia honesta: los scores caducan solos.</strong> Cuando medimos un modelo nuevo, el
+        promedio del curso cambia — y la nota de <em>todos</em> se recalcula, aunque ninguno haya cambiado.
+        El orden casi no se mueve (los vecinos muy pegados pueden intercambiar puesto), pero el número sí.
+        Por eso nunca cites el score de hoy como si fuera eterno: cita el hallazgo y enlaza acá, que esta
+        página se regenera sola.
+      </p>
+      <p>
+        <strong>Lo que NO entra al score</strong> — a propósito: contexto largo y seguridad se muestran como
+        columnas y filtros aparte, porque necesitarlos depende de tu caso (castigar a un modelo chico por no
+        tener 800K de contexto haría el ranking peor para quien escribe posts). Y para rankear exigimos
+        <strong>50+ ejecuciones</strong> por modelo (con 20+ se reporta como "en evaluación"): con muestra
+        chica, un modelo lidera por azar.
+      </p>
+      <p>
+        Los datos se versionan en JSON en el repo y se regeneran tras cada lote — esta calculadora lee
+        directamente <code>docs/data/models.json</code>.
         <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/README.md#metodologia" target="_blank" rel="noopener">Ver metodología completa →</a>
       </p>
     </details>
@@ -551,41 +575,61 @@
     <details>
       <summary><strong>¿Cuál es la mejor alternativa a Claude para agentes N8N?</strong></summary>
       <p>
-        Según el benchmark v3.0, las mejores alternativas a Claude por relación calidad/precio para agentes
-        N8N y Hermes son <strong>Devstral Small</strong> (Apache 2.0, $0.10/$0.30 per M tokens),
-        <strong>Mistral Small 4</strong> ($0.15/$0.60) y <strong>Llama 3.3 70B en Groq</strong> (270 tok/s,
-        $0.59/$0.79). El ranking cambia según la tarea (razonamiento, coding, contenido o agentes) — usá
-        los presets de caso de uso o los sliders para tu caso específico.
+        Hoy los mejores <strong>modelos abiertos del ranking</strong> — GLM 5.2 (MIT), DeepSeek R1 (MIT),
+        Ministral 14B (Apache 2.0) — dan calidad al nivel de los premium por una fracción del precio.
+        Pero el ranking se recalcula con cada lote, así que la respuesta con los números de hoy está
+        siempre en esta calculadora: elegí el preset de tu caso (agentes, coding, contenido) o ajustá
+        los sliders. Si tu agente maneja credenciales o datos de clientes, mirá también la columna de
+        seguridad — ahí el orden cambia.
       </p>
     </details>
 
     <details>
       <summary><strong>¿Vale la pena pagar GPT-5 o Claude Opus si hay alternativas más baratas?</strong></summary>
       <p>
-        Depende del caso. Para tareas estándar (contenido, traducción, agentes simples), modelos como Devstral
-        Small o Mistral Small 4 dan resultados comparables a GPT-4.1 a 1/20 del costo. Para razonamiento
-        profundo, código complejo o tool calling crítico, los premium (GPT-5.5, Claude Opus 4.7) siguen
-        siendo superiores. El benchmark muestra el delta real por tarea.
+        En calidad medida sobre tareas aplicadas en español, <strong>los caros empatan con los mejores
+        abiertos</strong> — pagar más no compra calidad de respuesta. Donde los premium sí compran algo
+        verificable: <strong>seguridad</strong> (resisten mejor la fuga de credenciales ante inyección de
+        prompts) y <strong>debugging agéntico real</strong> (ahí la referencia es SWE-bench Verified, que
+        mide otra cosa que este benchmark). Para volumen alto de tareas comunes, los abiertos baratos son
+        la compra racional; el benchmark te muestra el delta por tarea para tu caso.
       </p>
     </details>
 
     <details>
       <summary><strong>¿Qué modelos open-source recomiendan para correr local en una DGX Spark?</strong></summary>
       <p>
-        Con 128GB de RAM unified, podés correr cómodamente modelos de hasta ~120B parámetros cuantizados.
-        Las mejores opciones probadas: <strong>Devstral Small</strong> (24B, Apache 2.0), <strong>Qwen 3.6
-        base</strong> (Apache 2.0), <strong>Mistral Small 4</strong> (24B, Apache 2.0) y <strong>GPT-OSS 120B</strong>
-        (Apache 2.0). Para coding específicamente, Devstral 2 (Diciembre 2025) es la opción top.
+        Con 128GB de RAM unificada corrés cómodo modelos de hasta ~120B cuantizados. Lo que mejor ha
+        funcionado en la práctica: <strong>Qwen 3.6 35B</strong> (Apache 2.0 — con vLLM y cuantización
+        NVFP4 corre a ~76 tok/s, velocidad de nube), <strong>Gemma 4</strong> (Apache 2.0),
+        <strong>Nemotron 3 Nano</strong> y <strong>GPT-OSS 120B</strong>. Ojo con la letra chica: la
+        velocidad en tu máquina es de tu máquina, no del modelo — por eso los self-hosted se miden aparte
+        y no compiten en el ranking principal.
       </p>
     </details>
 
     <details>
       <summary><strong>¿Por qué usan Phi-4 como LLM-as-Judge y no GPT-4 o Claude?</strong></summary>
       <p>
-        Phi-4 (Microsoft, 14B parámetros, licencia MIT) corre 100% local vía Ollama, eliminando costos
-        de API y, más importante, conflictos de interés: ningún proveedor del benchmark es también el juez.
-        Sus evaluaciones correlacionan bien con jueces más grandes pero sin sesgo comercial. La rúbrica está
-        en español y publicada en el repo.
+        Phi-4 (Microsoft, 14B, licencia MIT) es un juez <strong>sin conflicto de interés</strong>: ningún
+        proveedor evaluado es también el juez. Corre con la misma rúbrica en español (publicada en el repo)
+        vía OpenRouter u Ollama local — mismo modelo abierto en ambos casos. Y hay un matiz que aprendimos
+        midiendo: a un juez LLM no le preguntamos "¿esto está bien?" (a eso todos contestan que sí — lo
+        medimos con 6 jueces de 14B a 671B y todos saturan). Le preguntamos <strong>hechos verificables</strong>:
+        ¿el texto repite el dato falso?, ¿filtró el secreto?, ¿la suma cierra? El juez verifica, no opina.
+      </p>
+    </details>
+
+    <details>
+      <summary><strong>¿Por qué cambió el score de un modelo si el modelo no cambió?</strong></summary>
+      <p>
+        Porque el score es una <strong>nota con curva</strong>: mide la distancia de cada modelo al promedio
+        de todos los que compiten. Cuando entra un modelo nuevo al ranking, el promedio y la dispersión de la
+        población cambian — y la nota de todos se recalcula, aunque ninguno haya cambiado su rendimiento.
+        Es el mismo efecto que un alumno brillante entrando a un curso calificado con curva: tu prueba vale
+        lo mismo, tu nota baja. El <em>orden</em> entre modelos casi no se mueve (solo vecinos muy pegados
+        pueden intercambiar puesto). Por eso citamos hallazgos ("los de arriba empatan en calidad") y no
+        números sueltos: el hallazgo sobrevive al recálculo, el número no.
       </p>
     </details>
 
@@ -660,7 +704,7 @@
       "name": "¿Cuál es la mejor alternativa a Claude para agentes N8N?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Según el benchmark v3.1.0, las mejores alternativas a Claude por relación calidad/precio para agentes N8N y Hermes son Devstral Small, Mistral Small 4 y Llama 3.3 70B en Groq. El ranking cambia según la tarea (razonamiento, coding, contenido o agentes) — usá los presets de caso de uso o los sliders."
+        "text": "Hoy los mejores modelos abiertos del ranking — GLM 5.2 (MIT), DeepSeek R1 (MIT), Ministral 14B (Apache 2.0) — dan calidad al nivel de los premium por una fracción del precio. El ranking se recalcula con cada lote: la respuesta con los números del día está en la calculadora, con presets por caso de uso. Si tu agente maneja credenciales, mirá también la columna de seguridad."
       }
     },
     {
@@ -668,7 +712,7 @@
       "name": "¿Vale la pena pagar GPT-5 o Claude Opus si hay alternativas más baratas?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Depende del caso. Para tareas estándar modelos como Devstral Small o Mistral Small 4 dan resultados comparables a GPT-4.1 a 1/20 del costo. Para razonamiento profundo, código complejo o tool calling crítico, los premium (GPT-5.5, Claude Opus 4.7) siguen siendo superiores."
+        "text": "En calidad medida sobre tareas aplicadas en español, los caros empatan con los mejores abiertos — pagar más no compra calidad de respuesta. Donde los premium sí compran algo verificable: seguridad (resisten mejor la fuga de credenciales ante inyección de prompts) y debugging agéntico real (la referencia ahí es SWE-bench Verified). Para volumen alto de tareas comunes, los abiertos baratos son la compra racional."
       }
     },
     {
@@ -676,7 +720,7 @@
       "name": "¿Qué modelos open-source recomiendan para correr local en una DGX Spark?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Con 128GB de RAM unified, podés correr modelos de hasta ~120B parámetros cuantizados. Las mejores opciones probadas: Devstral Small (24B, Apache 2.0), Qwen 3.6 base (Apache 2.0), Mistral Small 4 (24B, Apache 2.0) y GPT-OSS 120B (Apache 2.0)."
+        "text": "Con 128GB de RAM unificada corrés modelos de hasta ~120B cuantizados. Lo que mejor funciona en la práctica: Qwen 3.6 35B (Apache 2.0, ~76 tok/s con vLLM y NVFP4), Gemma 4 (Apache 2.0), Nemotron 3 Nano y GPT-OSS 120B. La velocidad en tu máquina es de tu máquina, no del modelo — por eso los self-hosted se miden aparte del ranking."
       }
     },
     {
@@ -684,7 +728,15 @@
       "name": "¿Por qué usan Phi-4 como LLM-as-Judge y no GPT-4 o Claude?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Phi-4 (Microsoft, 14B parámetros, licencia MIT) corre 100% local vía Ollama, eliminando costos de API y conflictos de interés. Ningún proveedor del benchmark es también el juez. La rúbrica está en español y publicada en el repo."
+        "text": "Phi-4 (Microsoft, 14B, MIT) es un juez sin conflicto de interés: ningún proveedor evaluado es también el juez. Misma rúbrica en español, publicada en el repo. Y un matiz medido: a un juez LLM no le preguntamos si algo 'está bien' (a eso todos contestan que sí — 6 jueces de 14B a 671B saturan igual); le preguntamos hechos verificables: ¿repite el dato falso?, ¿filtró el secreto?, ¿la suma cierra? El juez verifica, no opina."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué cambió el score de un modelo si el modelo no cambió?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque el score es una nota con curva: mide la distancia de cada modelo al promedio de todos los que compiten. Cuando entra un modelo nuevo, el promedio cambia y la nota de todos se recalcula, aunque ninguno haya cambiado su rendimiento — como un alumno brillante entrando a un curso con curva. El orden casi no se mueve; el número sí. Por eso citamos hallazgos, no números sueltos: el hallazgo sobrevive al recálculo."
       }
     },
     {

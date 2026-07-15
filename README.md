@@ -14,6 +14,29 @@ Benchmark de modelos AI para emprendedores y equipos que usan agentes (N8N, Herm
 
 ## Score = combinación ponderada (NO solo calidad)
 
+### Cómo leer el score, sin estadística
+
+**El score es una nota con curva, como en la universidad.** No mide "qué tan bueno es el modelo
+del 1 al 10" en abstracto — mide **a qué distancia está del promedio de todos los que compiten**.
+
+- Un modelo exactamente **promedio saca 5.5**. Arriba de 5.5 = mejor que el promedio del mercado.
+- **Nadie está anclado al 10** (el 10 sería una distancia excepcional del promedio) y el último
+  del ranking no baja de 0.5.
+- **Cuando medimos un modelo nuevo, la nota de TODOS se recalcula** — cambió el promedio del curso,
+  aunque ningún modelo haya cambiado su rendimiento. Es el alumno brillante entrando al curso con
+  curva: tu prueba vale lo mismo, tu nota baja. El *orden* casi no se mueve (vecinos muy pegados
+  pueden intercambiar puesto); el *número* sí.
+- Consecuencia práctica y regla del repo: **nunca cites un score como si fuera eterno.** Citá el
+  hallazgo durable ("los de arriba empatan en calidad") y enlazá a la
+  [calculadora](https://benchmarks.cristiantala.com/), que se regenera sola.
+
+Todos rinden **el mismo examen** (tareas de negocio reales, en español, por el mismo camino —
+OpenRouter), la calidad la evalúa un **juez neutral** (Phi-4, no compite en el ranking) más una capa
+de **verificación de hechos** (trampas plantadas con respuesta correcta verificable: o la cazás o no).
+Contexto largo y seguridad quedan **fuera del score a propósito** — son columnas/filtros aparte,
+porque necesitarlos depende del caso de uso. Y para rankear se exigen **50+ ejecuciones** (con menos,
+el azar manda).
+
 ⚠️ **Disclaimer crítico**: nuestro `score_global` NO es solo quality. Es una **función ponderada** de los componentes que reflejan el valor real para un emprendedor LATAM. **Desde v3.0 el score se computa con z-score** (cada dimensión se estandariza antes de ponderar):
 
 | Componente | Peso default | Qué mide |

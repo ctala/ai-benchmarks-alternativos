@@ -230,14 +230,18 @@ def c1_nada_muerto_recomendado(models, verbose):
     muertos = [m["name"] for m in models if m.get("retired")]
     docs = ROOT / "docs"
     culpables = defaultdict(list)
-    for pagina in docs.glob("*/index.html"):
+    # La home ENTRA al barrido. Era el punto ciego: docs.glob("*/index.html") solo mira
+    # subpáginas, y la FAQ de la home (visible + schema FAQPage que Google muestra como
+    # snippet) siguió recomendando a Devstral Small muerto sin que C1 chistara. (14-jul-2026)
+    paginas = [docs / "index.html", *docs.glob("*/index.html")]
+    for pagina in paginas:
         try:
             txt = pagina.read_text(encoding="utf-8")
         except Exception:  # noqa: BLE001
             continue
         for n in muertos:
             if n in txt:
-                culpables[n].append(pagina.parent.name)
+                culpables[n].append("home" if pagina.parent == docs else pagina.parent.name)
     if culpables:
         det = "; ".join(f"«{n}» en {len(p)} páginas" for n, p in list(culpables.items())[:3])
         fallo("C1 · nada muerto recomendado",
