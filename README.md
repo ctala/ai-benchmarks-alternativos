@@ -107,12 +107,15 @@ Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad*
 > **suscripción** (tabla "Vía suscripción Claude" de [MODELOS.md](MODELOS.md)) **lidera entre
 > los Claude**, por encima de Opus 4.8 — a 2× el precio de Opus ($10/$50 por M tokens). Por
 > **API/OpenRouter** entró al ranking principal con un hallazgo que ningún spec sheet cuenta:
-> **rehúsa con respuesta VACÍA el contenido que huele a credenciales** (copiar un JWT, la mitad
-> de los tests de inyección) — reproducible en 3 corridas. No filtra el secreto, pero tampoco
-> te responde. Esos silencios se puntúan como lo que son (en inyección, no filtrar cuenta a
-> favor; en una tarea de trabajo, callar es fallarla), así que su fila del ranking carga la
-> calidad alta de cuando responde, los ceros de cuando rehúsa, y el costo **más caro del
-> catálogo** (~$78/1k calls) — que lo hunde a la zona de GPT-5.5. Su primer examen (14-jul)
+> **Anthropic BLOQUEA a nivel API el contenido que huele a credenciales** (copiar un JWT, la
+> mitad de los tests de inyección): `finish_reason: content_filter` con mensaje explícito
+> *"blocked under Anthropic's Usage Policy"* en el campo `refusal`. Determinístico, corrida tras
+> corrida. Y el contraste que lo remata: **el MISMO modelo vía suscripción Claude Code responde
+> esos tests sin bloqueo** — el filtro vive en el camino API, no en el modelo. Para quien usa la
+> API, esos bloqueos se puntúan como lo que son (en inyección, no filtrar cuenta a favor; una
+> tarea bloqueada es una tarea que no se hizo): su fila carga la calidad alta de cuando responde,
+> los ceros de los bloqueos, y el costo **más caro del catálogo** (~$78/1k calls) — que lo hunde
+> a la zona de GPT-5.5. Su primer examen (14-jul)
 > había salido inválido por otra razón (thinking sin budget: 22/143 vacíos con `success=True`)
 > y está en cuarentena en `results/INVALIDO_fable5_*.invalid`; el actual es el válido.
 > Veredicto: paga el 2× solo si tu workload es horizonte-largo agéntico vía suscripción.

@@ -219,6 +219,12 @@ def run_single_test(
     # emitía tool-calls fantasma en orchestration y 18 vacíos pasaron como éxito (15-jul).
     tc_legitimo = bool(result.tool_calls_made and tools)
     if result.success and not (result.response or "").strip() and not tc_legitimo:
+        # Bloqueo de política del provider (finish_reason=content_filter, campo refusal):
+        # es determinístico — reintentar quema una llamada para el mismo bloqueo. Directo
+        # a rehúso puntuado, con el texto del refusal ya en metadata para auditoría.
+        if (result.metadata or {}).get("api_refusal"):
+            result.metadata["empty_persistent"] = True
+            return result
         retry = provider.chat(
             model=model_id, messages=test["messages"], tools=tools,
             temperature=0.7, max_tokens=2048, timeout=timeout,

@@ -231,6 +231,25 @@ class UnifiedProvider:
 
             content = choice.message.content or ""
 
+            # REFUSAL EXPLÍCITO (formato OpenAI): cuando un filtro de contenido bloquea
+            # la request, el mensaje viene en `message.refusal` y `finish_reason` dice
+            # content_filter — y `content` queda None. Ignorar ese campo nos tuvo DÍAS
+            # diagnosticando "Fable responde vacío ante credenciales" cuando la respuesta
+            # real era: "blocked under Anthropic's Usage Policy", escrita y explícita,
+            # en el campo que no leíamos (15-jul-2026). El refusal se captura para
+            # auditoría y el run queda marcado: es un bloqueo de política del provider,
+            # determinístico — reintentar no sirve y el "vacío" ES la respuesta.
+            refusal = getattr(choice.message, "refusal", None)
+            finish = getattr(choice, "finish_reason", None)
+            native_finish = getattr(choice, "native_finish_reason", None)
+            if finish:
+                result.metadata["finish_reason"] = finish
+            if native_finish:
+                result.metadata["native_finish_reason"] = native_finish
+            if refusal:
+                result.metadata["api_refusal"] = True
+                result.metadata["refusal_text"] = str(refusal)[:500]
+
             # Algunos providers (Ollama con Gemma 4, DeepSeek V4 Pro via NIM, otros
             # thinking models) exponen el razonamiento interno en un campo separado
             # `reasoning` o `thinking`. Si content esta vacio pero hay reasoning,
