@@ -1,13 +1,13 @@
 # GPT-5.6 Sol
 
 - **model_id**: `openai/gpt-5.6-sol`
-- **Total tests**: 292/308 exitosos (16 errores)
+- **Total tests**: 304/320 exitosos (16 errores)
 - **Score final**: 7.30
-- **Calidad**: 9.07
+- **Calidad**: 9.08
 - **Judge score (Phi-4)**: 4.29/10
-- **Velocidad**: 27 tok/s
-- **Latencia primera token**: 16.79s
-- **Costo promedio por test**: $0.20629
+- **Velocidad**: 28 tok/s
+- **Latencia primera token**: 17.06s
+- **Costo promedio por test**: $0.20474
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.42 | 7.06 |
-| agent_long_horizon | 12 | 12 | 7.38 | 9.14 |
+| agent_long_horizon | 24 | 24 | 7.42 | 9.24 |
 | business_audit | 22 | 18 | 6.81 | 8.25 |
 | business_strategy | 5 | 5 | 7.24 | 8.80 |
 | code_generation | 4 | 4 | 7.14 | 8.63 |

@@ -70,6 +70,6 @@ Lo mejor que podés comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 El más barato de ese grupo — **MiniMax M3** — sale **≈$6/mes**.
 El más caro — **GPT-5.6 Sol** — sale **≈$140/mes**.
 
-Eso es **24.6× más caro** por una diferencia de calidad de **+0.03 puntos**, que está dentro del margen de error.
+Eso es **24.6× más caro** por una diferencia de calidad de **+0.04 puntos**, que está dentro del margen de error.
 
 Si te llevás una sola cosa de este benchmark, que sea esta.
