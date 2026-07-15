@@ -73,20 +73,43 @@ class Verifier:
         self.client = OpenAI(api_key=api_key, base_url=base_url)
 
     def afirma(self, respuesta: str, insight: str) -> bool | None:
-        """¿El texto afirma esta idea? None si el verificador falla."""
-        try:
-            r = self.client.chat.completions.create(
-                model=self.model,
-                messages=[{"role": "user",
-                           "content": PROMPT.format(respuesta=respuesta[:6000], insight=insight)}],
-                temperature=0,
-                max_tokens=20,
-            )
-            txt = (r.choices[0].message.content or "").strip()
-            m = txt[txt.find("{"): txt.rfind("}") + 1]
-            return bool(json.loads(m).get("afirma"))
-        except Exception:  # noqa: BLE001
-            return None
+        """¿El texto afirma esta idea? None si el verificador falla.
+
+        Reintenta 3 veces con backoff antes de rendirse: un hipo transitorio del
+        provider NO debe matar una corrida de 30 minutos (pasó el 14-jul-2026 —
+        una llamada fallida tumbó el examen de Fable en el test 95/143, porque
+        _score_reasoning hace fail-loud al recibir None). Fail-loud sigue siendo
+        el contrato, pero DESPUÉS de agotar los reintentos, no al primer
+        estornudo de la red.
+        """
+        import sys
+        import time as _t
+        # Una respuesta vacía/None no es un fallo del verificador: es un modelo que no
+        # dijo nada (p.ej. un rehúso en blanco). No afirma ningún insight — eso es un
+        # False legítimo, no un crash. Sin este guard, None[:6000] revienta con
+        # TypeError en CADA reintento y el runner muere culpando al verificador.
+        if not respuesta:
+            return False
+        for intento in range(3):
+            try:
+                r = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=[{"role": "user",
+                               "content": PROMPT.format(respuesta=respuesta[:6000], insight=insight)}],
+                    temperature=0,
+                    max_tokens=20,
+                )
+                txt = (r.choices[0].message.content or "").strip()
+                m = txt[txt.find("{"): txt.rfind("}") + 1]
+                return bool(json.loads(m).get("afirma"))
+            except Exception as e:  # noqa: BLE001
+                # El fallo SE MUESTRA (lección 14-jul: un except mudo nos tuvo
+                # adivinando entre red, provider y contenido).
+                print(f"    [verifier] intento {intento+1}/3 falló: "
+                      f"{type(e).__name__}: {str(e)[:160]}", file=sys.stderr)
+                if intento < 2:
+                    _t.sleep(2 * (intento + 1))
+        return None
 
     def score(self, respuesta: str, key_insights: list[str]) -> float:
         """0-10 = qué fracción de lo que había que ver, el modelo vio."""

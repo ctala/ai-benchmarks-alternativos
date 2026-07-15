@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-07-14 · 66 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-07-14 · 67 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -35,9 +35,10 @@ _Texto largo en español neutro. El costo manda: es alto volumen._
 
 _Generación y corrección de código._
 
-- **Usá:** **DeepSeek V4 Flash (OpenRouter)** — ≈$1/mes (calidad 8.26/10)
-- **Lo que te ahorrás:** Claude Opus 4.8 cuesta ≈$117/mes (**120.6× más**) por apenas -0.08 de calidad — dentro del margen de error.
-- _13 modelos empatan en calidad en este pilar._
+- **Usá:** **DeepSeek V3.2** — ≈$1/mes (calidad 8.36/10)
+- **Lo que te ahorrás:** GPT-4.1 cuesta ≈$38/mes (**27.2× más**) por apenas +0.03 de calidad — dentro del margen de error.
+- **Mejor open-source:** **Qwen3 Coder** — ≈$3/mes (calidad 8.32/10)
+- _7 modelos empatan en calidad en este pilar._
 
 ### Razonamiento y estrategia
 
@@ -63,7 +64,7 @@ Lo mejor que podés comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 ## El resumen de todo el benchmark
 
-**12 modelos empatan en calidad** en la cima del ranking global.
+**13 modelos empatan en calidad** en la cima del ranking global.
 
 El más barato de ese grupo — **MiniMax M3** — sale **≈$6/mes**.
 El más caro — **GPT-5.6 Sol** — sale **≈$140/mes**.
