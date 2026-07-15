@@ -201,6 +201,15 @@ def run_single_test(
         force_reasoning=force_reasoning,
     )
     result.test_name = test["name"]
+    # Una respuesta VACÍA no es un éxito. Con success=True y response="" el run entra
+    # al promedio con quality ~0 y desinfla al modelo en silencio — así Fable 5 publicó
+    # un examen entero inválido (22/143 vacíos por thinking sin budget, 14-jul-2026) y
+    # 29 runs vacíos de 7 modelos rankeados vivían en los promedios. Excepción: una
+    # respuesta que ES una tool call (texto vacío + tool_calls_made > 0) es legítima.
+    # El run queda como fallo reparable: `--rerun-failed` / `--rerun-empty` lo re-corren.
+    if result.success and not (result.response or "").strip() and not result.tool_calls_made:
+        result.success = False
+        result.error = "respuesta vacía (¿thinking sin budget? ¿hipo del provider?) — no cuenta como éxito"
     return result
 
 
