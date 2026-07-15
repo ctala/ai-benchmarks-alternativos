@@ -900,12 +900,21 @@ def run_benchmark(args):
         rerun_failed = getattr(args, "rerun_failed", False)
         if rerun_empty or rerun_failed:
             target_model_ids = {m["id"] for m in models.values()}
+            # Si el run está acotado con --tests, el descarte TAMBIÉN se acota: descartar
+            # un vacío de una suite que no se va a re-correr lo borra sin reponerlo, la
+            # suite queda incompleta y el modelo CAE del ranking. Pasó el 15-jul: la
+            # reparación acotada des-rankeó a Gemini 2.5 Pro, Kimi K2.6 y Qwen3 Coder.
+            suites_sel = set(getattr(args, "tests", None) or [])
             def keep(r):
                 # Mantener si: (a) está fuera del target, o (b) cumple las condiciones
                 in_target = r.get("model_id", "") in target_model_ids
                 if not in_target:
                     return True
-                if rerun_empty and not r.get("response_preview", ""):
+                if suites_sel and r.get("suite") not in suites_sel:
+                    return True
+                # .strip(): una respuesta de UN ESPACIO (' ') evadía el rerun — es truthy
+                # pero está tan vacía como "". Los 29 vacíos del 15-jul eran whitespace.
+                if rerun_empty and not (r.get("response_preview") or "").strip():
                     return False  # vacío en target → re-correr
                 if rerun_failed and not r.get("success", False):
                     return False  # failed en target → re-correr

@@ -1,21 +1,16 @@
 {
   "metadata": {
     "timestamp": "20260714_064833_35467",
-    "total_runs": 10,
+    "total_runs": 20,
     "errors": 0,
     "judge": {
       "judge_model": "microsoft/phi-4",
       "judge_provider": "openrouter",
       "judge_is_local": false,
-      "evaluations": 11,
-      "estimated_cost_usd": 0.0137
+      "evaluations": 2,
+      "estimated_cost_usd": 0.0019
     },
-    "partial": false,
-    "rescore": {
-      "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-14T18:12:22+00:00",
-      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
-    }
+    "partial": false
   },
   "results": [
     {
@@ -299,39 +294,6 @@
       "scoring": "juez-30-70"
     },
     {
-      "quality": 0.0,
-      "cost_score": 9.96,
-      "cost_usd": 0.000222,
-      "speed": 8.0,
-      "latency": 8.0,
-      "tool_calling": 0.0,
-      "final": 2.69,
-      "test_name": "tool_selection_precision",
-      "model": "Qwen 3.5 35B",
-      "model_id": "qwen/qwen3.5-35b-a3b",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 56.0,
-      "latency_first_token": 0.822,
-      "latency_total": 0.822,
-      "input_tokens": 1258,
-      "output_tokens": 46,
-      "response_preview": "\n",
-      "auto_quality": 0.8,
-      "judge_score": 3.8,
-      "judge_precision": 3,
-      "judge_relevancia": 3,
-      "judge_profundidad": 3,
-      "judge_claridad": 3,
-      "judge_utilidad": 3,
-      "judge_justificacion": "",
-      "suite": "orchestration",
-      "run": 1,
-      "timestamp": "20260714_064833_35467",
-      "response_file": "results/responses/20260714_064833_35467/or-qwen-3.5-35b__orchestration__tool_selection_precision.md",
-      "scoring": "juez-30-70"
-    },
-    {
       "quality": 10.0,
       "cost_score": 7.76,
       "cost_usd": 0.001204,
@@ -367,6 +329,41 @@
       "rescored_by": "verificador-semantico",
       "rescored_at": "2026-07-14T18:12:22+00:00",
       "scoring": "verificable"
+    },
+    {
+      "quality": 10.0,
+      "cost_score": 8.15,
+      "cost_usd": 0.000891,
+      "speed": 8.0,
+      "latency": 2.0,
+      "tool_calling": 10.0,
+      "final": 8.97,
+      "test_name": "tool_selection_precision",
+      "model": "Qwen 3.5 35B",
+      "model_id": "qwen/qwen3.5-35b-a3b",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 95.9,
+      "latency_first_token": 7.58,
+      "latency_total": 7.58,
+      "input_tokens": 1170,
+      "output_tokens": 727,
+      "response_preview": "## Análisis de herramientas para cada tarea:\n\n**Tarea 1: Verificar servidor de producción**\n- **Herramienta:** `http_request` (GET)\n- **Por qué:** Es una petición HTTP directa a una URL específica para verificar el estado del servidor. `search_web` es para búsquedas en buscadores, no para verificar ",
+      "auto_quality": 8.14,
+      "content_score": 5.34,
+      "answer_score": 10.0,
+      "scoring": "verificable",
+      "judge_score": 5,
+      "judge_precision": 5,
+      "judge_relevancia": 5,
+      "judge_profundidad": 4,
+      "judge_claridad": 5,
+      "judge_utilidad": 5,
+      "judge_justificacion": "La respuesta es precisa, relevante, clara y útil, con una buena planificación y profundidad al explicar por qué se eligieron las herramientas específicas para cada tarea.",
+      "suite": "orchestration",
+      "run": 1,
+      "timestamp": "20260714_064833_35467",
+      "response_file": "results/responses/20260714_064833_35467/or-qwen-3.5-35b__orchestration__tool_selection_precision.md"
     }
   ]
 }

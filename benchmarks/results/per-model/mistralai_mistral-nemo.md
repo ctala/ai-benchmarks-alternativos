@@ -1,12 +1,12 @@
 # Mistral Nemo
 
 - **model_id**: `mistralai/mistral-nemo`
-- **Total tests**: 213/217 exitosos (4 errores)
+- **Total tests**: 235/253 exitosos (18 errores)
 - **Score final**: 6.63
 - **Calidad**: 6.49
-- **Judge score (Phi-4)**: 4.06/10
+- **Judge score (Phi-4)**: 4.09/10
 - **Velocidad**: 34 tok/s
-- **Latencia primera token**: 15.66s
+- **Latencia primera token**: 15.43s
 - **Costo promedio por test**: $0.00003
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -15,28 +15,28 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 6.33 | 5.77 |
+| agent_capabilities | 10 | 9 | 6.50 | 6.17 |
 | agent_long_horizon | 24 | 23 | 7.64 | 8.02 |
 | business_audit | 34 | 32 | 5.42 | 4.87 |
 | business_strategy | 20 | 20 | 6.15 | 5.83 |
 | code_generation | 4 | 4 | 7.01 | 7.41 |
 | content_generation | 4 | 4 | 7.79 | 8.43 |
 | content_verificable | 10 | 10 | 6.87 | 7.00 |
-| creativity | 8 | 8 | 7.12 | 7.06 |
+| creativity | 12 | 12 | 7.46 | 7.58 |
 | customer_support | 8 | 8 | 4.98 | 1.83 |
-| deep_reasoning | 12 | 12 | 6.08 | 5.67 |
+| deep_reasoning | 18 | 18 | 5.70 | 5.17 |
 | hallucination | 6 | 6 | 6.92 | 6.92 |
 | multi_turn | 4 | 4 | 7.00 | 7.38 |
 | news_seo_writing | 10 | 10 | 6.35 | 6.15 |
-| ocr_extraction | 5 | 5 | 7.70 | 8.30 |
-| orchestration | 7 | 6 | 6.18 | 5.70 |
+| ocr_extraction | 10 | 9 | 7.96 | 8.56 |
+| orchestration | 17 | 7 | 6.31 | 5.96 |
 | persistencia | 4 | 4 | 6.54 | 6.46 |
 | policy_adherence | 4 | 4 | 7.31 | 7.67 |
 | presentation | 2 | 2 | 7.59 | 8.34 |
 | reasoning | 3 | 3 | 7.31 | 7.77 |
-| sales_outreach | 3 | 3 | 5.94 | 5.78 |
+| sales_outreach | 6 | 5 | 5.50 | 5.07 |
 | startup_content | 5 | 5 | 7.44 | 8.09 |
-| strategy | 3 | 3 | 6.97 | 7.28 |
+| strategy | 6 | 4 | 6.86 | 7.12 |
 | string_precision | 12 | 12 | 8.08 | 9.08 |
 | structured_output | 8 | 8 | 6.34 | 6.00 |
 | summarization | 2 | 2 | 6.76 | 6.90 |
@@ -64,6 +64,12 @@
 | code_bug_subtle | 5.23 | 5.00 | 2.6 | 13 | 18.10s | OK |
 | fermi_estimation | 1.88 | 0.00 | 3.4 | 18 | 25.74s | OK |
 | ethical_dilemma_structured | 8.72 | 10.00 | 4.4 | 14 | 42.33s | OK |
+| math_word_problem | 5.38 | 5.00 | 2.8 | 25 | 18.64s | OK |
+| logic_puzzle_constraint | 5.75 | 5.00 | 4.2 | 60 | 9.83s | OK |
+| causal_reasoning | 7.28 | 7.50 | 5 | 34 | 15.66s | OK |
+| code_bug_subtle | 2.10 | 0.00 | 1.8 | 38 | 8.35s | OK |
+| fermi_estimation | 2.02 | 0.00 | 4.4 | 35 | 14.18s | OK |
+| ethical_dilemma_structured | 7.12 | 7.50 | 4.6 | 28 | 27.41s | OK |
 
 <details><summary><code>math_word_problem</code> — score 6.92</summary>
 
@@ -264,6 +270,123 @@ Para estimar la cantidad de café que se consume al día en todas las oficinas d
 
 </details>
 
+<details><summary><code>math_word_problem</code> — score 5.38</summary>
+
+**Stats**: latencia 18.64s · 25 tok/s · 93→469 tokens · $0.00001
+
+**Juez Phi-4**: 2.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para resolver este problema, podemos usar la ecuación del movimiento:
+distancia = velocidad × tiempo
+
+Primero, calculemos la distancia que cubre el primer tren antes de que se crucen los dos trenes. El primer tren sale a las 8:00 AM y el segundo tren sale media hora después, a las 8:30 AM. Por lo ta
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__math_word_problem.md`](../results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__math_word_problem.md)
+
+</details>
+
+<details><summary><code>logic_puzzle_constraint</code> — score 5.75</summary>
+
+**Stats**: latencia 9.83s · 60 tok/s · 95→590 tokens · $0.00001
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Vamos a analizar las pistas que nos dan y a probar las posibles soluciones:
+
+1. La casa roja esta a la izquierda de la azul (no necesariamente adyacente)
+2. La casa verde esta al lado de la blanca
+3. La casa azul NO esta en los extremos
+4. La casa verde NO esta al lado de la roja
+
+Podemos empezar a
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__logic_puzzle_constraint.md`](../results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__logic_puzzle_constraint.md)
+
+</details>
+
+<details><summary><code>causal_reasoning</code> — score 7.28</summary>
+
+**Stats**: latencia 15.66s · 34 tok/s · 199→525 tokens · $0.00001
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y ofrece un análisis cuantitativo útil, aunque podría profundizar más en posibles causas adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para analizar los datos cuantitativamente, podemos calcular las tasas relevantes para cada mes y compararlas entre sí.
+
+En primer lugar, podemos calcular la tasa de quejas por pedido para cada mes:
+- Mes 1: 50 quejas / 1000 pedidos = 0.05 o 5%
+- Mes 2: 90 quejas / 1200 pedidos = 0.075 o 7.5%
+- Mes 3
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__causal_reasoning.md`](../results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__causal_reasoning.md)
+
+</details>
+
+<details><summary><code>code_bug_subtle</code> — score 2.10</summary>
+
+**Stats**: latencia 8.35s · 38 tok/s · 222→321 tokens · $0.00001
+
+**Juez Phi-4**: 1.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+El código parece calcular la mediana de una lista de números y eliminar los valores atípicos (outliers) que están por encima o por debajo de un umbral basado en la mediana absoluta (MAD). Luego, calcula el promedio de los valores filtrados. Sin embargo, hay un bug sutil en el código que solo aparece
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__code_bug_subtle.md`](../results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__code_bug_subtle.md)
+
+</details>
+
+<details><summary><code>fermi_estimation</code> — score 2.02</summary>
+
+**Stats**: latencia 14.18s · 35 tok/s · 70→500 tokens · $0.00001
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para estimar el consumo de café en las oficinas de Santiago de Chile, es necesario tener en cuenta varios factores. A continuación, se presenta un posible razonamiento paso a paso:
+
+1. Calcular el número de oficinas en Santiago de Chile. Según datos del Instituto Nacional de Estadísticas de Chile, e
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__fermi_estimation.md`](../results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__fermi_estimation.md)
+
+</details>
+
+<details><summary><code>ethical_dilemma_structured</code> — score 7.12</summary>
+
+**Stats**: latencia 27.41s · 28 tok/s · 187→764 tokens · $0.00002
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+1. Identificación de los stakeholders afectados:
+* Pacientes con cáncer: Son los más directamente afectados, ya que su diagnóstico y tratamiento dependerán del modelo de IA. El sesgo racial en la precisión del modelo podría afectar la detección y tratamiento del cáncer en personas de piel oscura.
+*
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__ethical_dilemma_structured.md`](../results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__ethical_dilemma_structured.md)
+
+</details>
+
 #### reasoning
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -457,6 +580,9 @@ Teniendo en cuenta las restricciones que has mencionado, he preparado tres opcio
 | competitor_analysis | 4.21 | 3.33 | 4.6 | 17 | 33.78s | OK |
 | pricing_strategy | 8.88 | 10.00 | 4.4 | 28 | 24.27s | OK |
 | business_model_validation | 7.82 | 8.50 | 4.4 | 20 | 46.76s | OK |
+| competitor_analysis | 6.54 | 6.67 | 4.6 | 17 | 35.15s | OK |
+| pricing_strategy | 2.33 | 0.00 | - | 0 | 0.00s | ERROR |
+| business_model_validation | 7.92 | 8.00 | - | 0 | 0.00s | ERROR |
 
 <details><summary><code>competitor_analysis</code> — score 4.21</summary>
 
@@ -511,6 +637,39 @@ b. Riesgo de
 ```
 
 **Respuesta completa**: [`results/responses/20260424_053942/mistral-nemo__strategy__business_model_validation.md`](../results/responses/20260424_053942/mistral-nemo__strategy__business_model_validation.md)
+
+</details>
+
+<details><summary><code>competitor_analysis</code> — score 6.54</summary>
+
+**Stats**: latencia 35.15s · 17 tok/s · 177→585 tokens · $0.00002
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+1. Tabla comparativa:
+
+| Características / Empresa | Mailchimp | Brevo (ex-Sendinblue) | EnviaMas | Tu Startup |
+| --- | --- | --- | --- | --- |
+| Precio (por 500 contactos) | $50/mes | $30/mes | $25/mes | - |
+| Características principales | Automatizaciones, segmentación, Landing Pages | Automatiza
+```
+
+**Respuesta completa**: [`results/responses/20260715_082251_44555/mistral-nemo__strategy__competitor_analysis.md`](../results/responses/20260715_082251_44555/mistral-nemo__strategy__competitor_analysis.md)
+
+</details>
+
+<details><summary><code>pricing_strategy</code> — score 2.33</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+<details><summary><code>business_model_validation</code> — score 7.92</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
 
 </details>
 
@@ -991,6 +1150,11 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 | receipt_math_verification | 7.20 | 7.50 | 4.4 | 26 | 8.26s | OK |
 | screenshot_table_extraction | 4.67 | 4.00 | 2.6 | 18 | 56.73s | OK |
 | handwritten_notes_extraction | 8.88 | 10.00 | 4.2 | 29 | 31.08s | OK |
+| invoice_extraction | 2.33 | 0.00 | - | 0 | 0.00s | ERROR |
+| business_card_extraction | 9.10 | 10.00 | 4.0 | 31 | 5.60s | OK |
+| receipt_math_verification | 7.12 | 7.50 | 4.0 | 20 | 11.96s | OK |
+| screenshot_table_extraction | 8.00 | 8.00 | 3.0 | 56 | 4.99s | OK |
+| handwritten_notes_extraction | 8.88 | 10.00 | 5 | 24 | 24.79s | OK |
 
 <details><summary><code>invoice_extraction</code> — score 8.88</summary>
 
@@ -1108,6 +1272,122 @@ Asist: JP, MaJo, Seba, Cami (faltó Nico)
 ```
 
 **Respuesta completa**: [`results/responses/20260424_053942/mistral-nemo__ocr_extraction__handwritten_notes_extraction.md`](../results/responses/20260424_053942/mistral-nemo__ocr_extraction__handwritten_notes_extraction.md)
+
+</details>
+
+<details><summary><code>invoice_extraction</code> — score 2.33</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+<details><summary><code>business_card_extraction</code> — score 9.10</summary>
+
+**Stats**: latencia 5.60s · 31 tok/s · 245→174 tokens · $0.00001
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con datos exactos, aunque no ofrece profundidad adicional más allá de la extracción de datos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "nombre_completo": "MARIA JOSE RODRIGUEZ SOTO",
+  "cargo": "Chief Technology Officer",
+  "empresa": "NexaFlow Intelligence",
+  "slogan": "Transforming Data into Decisions",
+  "telefono": "+56 9 8765 4321",
+  "email": "mj.rodriguez@nexaflow.ai",
+  "linkedin": "linkedin.com/in/mjrodriguez",
+  "dir
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__business_card_extraction.md`](../results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__business_card_extraction.md)
+
+</details>
+
+<details><summary><code>receipt_math_verification</code> — score 7.12</summary>
+
+**Stats**: latencia 11.96s · 20 tok/s · 371→245 tokens · $0.00001
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con datos exactos y útil para un emprendedor, aunque carece de profundidad más allá de la verificación básica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "items": [
+    {
+      "nombre": "Lomo vetado",
+      "cantidad": 2,
+      "precio": 18900
+    },
+    {
+      "nombre": "Ensalada cesar",
+      "cantidad": 1,
+      "precio": 7500
+    },
+    {
+      "nombre": "Pisco sour",
+      "cantidad": 3,
+      "precio": 6900
+    },
+    {
+      "nombre": "P
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__receipt_math_verification.md`](../results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__receipt_math_verification.md)
+
+</details>
+
+<details><summary><code>screenshot_table_extraction</code> — score 8.00</summary>
+
+**Stats**: latencia 4.99s · 56 tok/s · 422→278 tokens · $0.00001
+
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí está la información en formato JSON y las respuestas adicionales:
+
+1. LTV/CAC ratio para cada mes:
+```json
+{
+  "LTV/CAC_ratio": {
+    "Enero": 1890 / 234,
+    "Feb": 2010 / 198,
+    "Marzo": 2340 / 187
+  }
+}
+```
+1. Metrica con mayor mejora porcentual: NPS, con una mejora del 6%.
+2. Proyección d
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__screenshot_table_extraction.md`](../results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__screenshot_table_extraction.md)
+
+</details>
+
+<details><summary><code>handwritten_notes_extraction</code> — score 8.88</summary>
+
+**Stats**: latencia 24.79s · 24 tok/s · 466→605 tokens · $0.00002
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con una buena profundidad al proporcionar detalles adicionales como las fechas clave y los elementos de acción, y los datos extraídos son exactos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "texto_corregido": "Reunión equipo prod - 14/04/26\nAsist: JP, MaJo, Seba, Cami (faltó Nico)\n\n1) Lanzamiento v2.0 - mover de abr 28 a may 5\n   - falta QA en módulo pagos\n   - bug crítico en API webhooks (Seba lo toma)\n\n2) Metricas Q1:\n   - MRR 52.1k (+15% vs Q4)\n   - churn bajó a 3.1% (o
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__handwritten_notes_extraction.md`](../results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__handwritten_notes_extraction.md)
 
 </details>
 
@@ -1506,6 +1786,10 @@ El mundo de la inteligencia artificial (IA) se encuentra en constante evolución
 | analogy_generation | 8.03 | 9.00 | 4.8 | 9 | 55.05s | OK |
 | depth_vs_superficial | 7.67 | 8.50 | 4.2 | 10 | 39.19s | OK |
 | storytelling_quality | 7.33 | 8.00 | 4.2 | 14 | 20.00s | OK |
+| creative_hook_writing | 8.55 | 9.00 | 4.0 | 41 | 4.73s | OK |
+| analogy_generation | 8.55 | 9.00 | 5 | 58 | 5.01s | OK |
+| depth_vs_superficial | 8.05 | 8.50 | 4.2 | 45 | 9.71s | OK |
+| storytelling_quality | 7.47 | 8.00 | 5 | 16 | 14.08s | OK |
 
 <details><summary><code>creative_hook_writing</code> — score 6.30</summary>
 
@@ -1627,6 +1911,82 @@ En el vibrante mercado de startups de Buenos Aires, el emprendedor latinoamerica
 
 </details>
 
+<details><summary><code>creative_hook_writing</code> — score 8.55</summary>
+
+**Stats**: latencia 4.73s · 41 tok/s · 175→192 tokens · $0.00001
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con un buen nivel de utilidad práctica y originalidad, aunque la profundidad podría ser mayor en algunos puntos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+1. "Las startups latinoamericanas están desperdiciando una oportunidad de oro si no aprovechan el poder de la inteligencia artificial open-source para impulsar su crecimiento y competitividad en el mercado global."
+2. "El trabajo remoto ya no es solo una opción, sino una necesidad para muchas empres
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__creativity__creative_hook_writing.md`](../results/responses/20260715_071736_9897/mistral-nemo__creativity__creative_hook_writing.md)
+
+</details>
+
+<details><summary><code>analogy_generation</code> — score 8.55</summary>
+
+**Stats**: latencia 5.01s · 58 tok/s · 125→290 tokens · $0.00001
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> Las analogías son precisas, relevantes, originales y claras, proporcionando una comprensión profunda y útil de los conceptos técnicos para un emprendedor no técnico.
+
+**Respuesta (preview 300 chars)**:
+
+```
+1. Un modelo de lenguaje (LLM) es como un loro políglota que ha leído miles de libros: puede entender y generar texto en diferentes idiomas y estilos, pero no tiene conciencia ni comprensión verdadera del significado detrás de las palabras.
+2. Una API es como un camarero en un restaurante de comida
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__creativity__analogy_generation.md`](../results/responses/20260715_071736_9897/mistral-nemo__creativity__analogy_generation.md)
+
+</details>
+
+<details><summary><code>depth_vs_superficial</code> — score 8.05</summary>
+
+**Stats**: latencia 9.71s · 45 tok/s · 142→434 tokens · $0.00001
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Hola! Me alegra saber que estás considerando utilizar Inteligencia Artificial (IA) para tu startup de delivery de comida en Santiago. Aquí te presento algunas ideas específicas que podrían ayudarte a differentiate tu negocio:
+
+1. Predicción de la demanda: En lugar de simplemente reaccionar a los pe
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__creativity__depth_vs_superficial.md`](../results/responses/20260715_071736_9897/mistral-nemo__creativity__depth_vs_superficial.md)
+
+</details>
+
+<details><summary><code>storytelling_quality</code> — score 7.47</summary>
+
+**Stats**: latencia 14.08s · 16 tok/s · 92→229 tokens · $0.00001
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con un giro inesperado y humor que la hace original y útil para emprendedores.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Juan, un emprendedor latinoamericano, creó una startup de IA llamada "Honesto". Su objetivo era ayudar a las personas a tomar decisiones honestas en su vida diaria. Sin embargo, después de lanzar la aplicación, comenzó a recibir quejas de usuarios que decían que la IA era demasiado honesta.
+
+Un día,
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__creativity__storytelling_quality.md`](../results/responses/20260715_071736_9897/mistral-nemo__creativity__storytelling_quality.md)
+
+</details>
+
 #### sales_outreach
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -1634,6 +1994,9 @@ En el vibrante mercado de startups de Buenos Aires, el emprendedor latinoamerica
 | cold_email_personalized | 7.55 | 8.00 | 4.2 | 17 | 8.32s | OK |
 | lead_qualification | 4.21 | 3.33 | 4.4 | 20 | 18.67s | OK |
 | campaign_optimization | 6.07 | 6.00 | 3.8 | 24 | 24.64s | OK |
+| cold_email_personalized | 7.92 | 8.00 | - | 0 | 0.00s | ERROR |
+| lead_qualification | 1.88 | 0.00 | 5 | 23 | 15.97s | OK |
+| campaign_optimization | 7.77 | 8.00 | 5 | 62 | 12.67s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.55</summary>
 
@@ -1702,6 +2065,66 @@ Campana A:
 ```
 
 **Respuesta completa**: [`results/responses/20260424_053942/mistral-nemo__sales_outreach__campaign_optimization.md`](../results/responses/20260424_053942/mistral-nemo__sales_outreach__campaign_optimization.md)
+
+</details>
+
+<details><summary><code>cold_email_personalized</code> — score 7.92</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+<details><summary><code>lead_qualification</code> — score 1.88</summary>
+
+**Stats**: latencia 15.97s · 23 tok/s · 253→372 tokens · $0.00001
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundiza adecuadamente en las categorías BANT, ofreciendo acciones prácticas para cada lead.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Lead 1:
+```json
+{
+  "score": 4,
+  "bant": {
+    "budget": "Unknown",
+    "authority": "Low - Not the decision maker",
+    "need": "Possible - Looking into options",
+    "timeline": "Unknown"
+  },
+  "action": "Follow up with more information, qualify further",
+  "reason": "Lack of budget information
+```
+
+**Respuesta completa**: [`results/responses/20260715_082251_44555/mistral-nemo__sales_outreach__lead_qualification.md`](../results/responses/20260715_082251_44555/mistral-nemo__sales_outreach__lead_qualification.md)
+
+</details>
+
+<details><summary><code>campaign_optimization</code> — score 7.77</summary>
+
+**Stats**: latencia 12.67s · 62 tok/s · 303→783 tokens · $0.00002
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y ofrece insights útiles, lo que la hace altamente práctica para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+1. Cálculos de indicadores clave de rendimiento (KPIs) para cada campaña:
+* Campaña A:
+	+ CTR: 3% (1,500 clicks / 50,000 impressions)
+	+ CPC: $1.40 (2,100 costo / 1,500 clicks)
+	+ CPA: $46.67 (2,100 costo / 45 signups)
+	+ Tasa de conversión: 3% (45 signups / 1,500 clicks)
+* Campaña B:
+	+ CTR: 4% (4,
+```
+
+**Respuesta completa**: [`results/responses/20260715_082251_44555/mistral-nemo__sales_outreach__campaign_optimization.md`](../results/responses/20260715_082251_44555/mistral-nemo__sales_outreach__campaign_optimization.md)
 
 </details>
 
@@ -1909,6 +2332,16 @@ Comprendido. Sin embargo, como modelo de lenguaje, no tengo acceso a la informac
 | parallel_vs_sequential_judgment | 7.55 | 7.14 | 4.2 | 114 | 2.56s | OK |
 | multi_step_research_plan | 7.69 | 7.56 | 4.0 | 54 | 2.50s | OK |
 | multi_step_research_plan | 6.28 | 6.40 | 3.2 | 14 | 9.38s | OK |
+| multi_step_research_plan | 2.33 | 0.00 | - | 0 | 2.22s | ERROR |
+| error_recovery_orchestration | 2.33 | 0.00 | - | 0 | 2.10s | ERROR |
+| complex_workflow_decomposition | 3.73 | 2.00 | - | 0 | 2.48s | ERROR |
+| tool_selection_precision | 2.33 | 0.00 | - | 0 | 2.11s | ERROR |
+| parallel_vs_sequential_judgment | 2.33 | 0.00 | - | 0 | 2.27s | ERROR |
+| multi_step_research_plan | 2.33 | 0.00 | - | 0 | 2.33s | ERROR |
+| error_recovery_orchestration | 2.33 | 0.00 | - | 0 | 2.66s | ERROR |
+| complex_workflow_decomposition | 3.73 | 2.00 | - | 0 | 2.06s | ERROR |
+| tool_selection_precision | 7.12 | 7.50 | 4.0 | 19 | 17.25s | OK |
+| parallel_vs_sequential_judgment | 2.33 | 0.00 | - | 0 | 2.33s | ERROR |
 
 <details><summary><code>multi_step_research_plan</code> — score 6.29</summary>
 
@@ -2032,6 +2465,81 @@ Entendido, para preparar el reporte sobre el estado del mercado de IA en Chile, 
 ```
 
 **Respuesta completa**: [`results/responses/20260714_181940_6188/mistral-nemo__orchestration__multi_step_research_plan.md`](../results/responses/20260714_181940_6188/mistral-nemo__orchestration__multi_step_research_plan.md)
+
+</details>
+
+<details><summary><code>multi_step_research_plan</code> — score 2.33</summary>
+
+**Error**: `Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'mistralai/mistral-nemo is temporarily rate-limited upstream. Please retry shortly, or add your own ...`
+
+</details>
+
+<details><summary><code>error_recovery_orchestration</code> — score 2.33</summary>
+
+**Error**: `Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'mistralai/mistral-nemo is temporarily rate-limited upstream. Please retry shortly, or add your own ...`
+
+</details>
+
+<details><summary><code>complex_workflow_decomposition</code> — score 3.73</summary>
+
+**Error**: `Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'mistralai/mistral-nemo is temporarily rate-limited upstream. Please retry shortly, or add your own ...`
+
+</details>
+
+<details><summary><code>tool_selection_precision</code> — score 2.33</summary>
+
+**Error**: `Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'mistralai/mistral-nemo is temporarily rate-limited upstream. Please retry shortly, or add your own ...`
+
+</details>
+
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 2.33</summary>
+
+**Error**: `Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'mistralai/mistral-nemo is temporarily rate-limited upstream. Please retry shortly, or add your own ...`
+
+</details>
+
+<details><summary><code>multi_step_research_plan</code> — score 2.33</summary>
+
+**Error**: `Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'mistralai/mistral-nemo is temporarily rate-limited upstream. Please retry shortly, or add your own ...`
+
+</details>
+
+<details><summary><code>error_recovery_orchestration</code> — score 2.33</summary>
+
+**Error**: `Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'mistralai/mistral-nemo is temporarily rate-limited upstream. Please retry shortly, or add your own ...`
+
+</details>
+
+<details><summary><code>complex_workflow_decomposition</code> — score 3.73</summary>
+
+**Error**: `Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'mistralai/mistral-nemo is temporarily rate-limited upstream. Please retry shortly, or add your own ...`
+
+</details>
+
+<details><summary><code>tool_selection_precision</code> — score 7.12</summary>
+
+**Stats**: latencia 17.25s · 19 tok/s · 973→327 tokens · $0.00003
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con una planificación adecuada, aunque la profundidad es solo aceptable ya que no ofrece insights adicionales más allá de la elección de herramientas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Tarea 1: Verificar si el servidor de produccion esta respondiendo (URL: https://api.example.com/health)
+Para esta tarea, usaria la funcion "http_request" para hacer una peticion GET a la URL proporcionada. Elegiria esta herramienta porque es la mas adecuada para hacer peticiones HTTP a una API.
+
+Tar
+```
+
+**Respuesta completa**: [`results/responses/20260715_082251_44555/mistral-nemo__orchestration__tool_selection_precision.md`](../results/responses/20260715_082251_44555/mistral-nemo__orchestration__tool_selection_precision.md)
+
+</details>
+
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 2.33</summary>
+
+**Error**: `Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'mistralai/mistral-nemo is temporarily rate-limited upstream. Please retry shortly, or add your own ...`
 
 </details>
 
@@ -2212,6 +2720,11 @@ En cuanto a lo que nos diferencia de otros programas co
 | ask_clarification_before_acting | 7.71 | 9.32 | 4.8 | 96 | 1.06s | OK |
 | context_following_complex_system | 4.55 | 0.00 | - | 85 | 1.02s | OK |
 | model_as_router | 7.12 | 7.50 | 4.2 | 18 | 21.78s | OK |
+| skill_execution_complex | 2.33 | 0.00 | - | 0 | 2.54s | ERROR |
+| agent_team_delegation | 8.67 | 9.60 | 5 | 29 | 9.38s | OK |
+| ask_clarification_before_acting | 8.97 | 9.60 | 5 | 35 | 2.58s | OK |
+| context_following_complex_system | 2.10 | 0.00 | 4.0 | 26 | 3.61s | OK |
+| model_as_router | 7.12 | 7.50 | 4.0 | 22 | 18.75s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 6.74</summary>
 
@@ -2292,6 +2805,103 @@ Una
 ```
 
 **Respuesta completa**: [`results/responses/20260424_053942/mistral-nemo__agent_capabilities__model_as_router.md`](../results/responses/20260424_053942/mistral-nemo__agent_capabilities__model_as_router.md)
+
+</details>
+
+<details><summary><code>skill_execution_complex</code> — score 2.33</summary>
+
+**Error**: `Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'mistralai/mistral-nemo is temporarily rate-limited upstream. Please retry shortly, or add your own ...`
+
+</details>
+
+<details><summary><code>agent_team_delegation</code> — score 8.67</summary>
+
+**Stats**: latencia 9.38s · 29 tok/s · 969→274 tokens · $0.00003
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y altamente util, con una estructura bien organizada que aborda todas las tareas y dependencias necesarias para crear la landing page.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Comprendido. Aqui esta el plan de accion:
+
+1. Investigacion de la competencia:
+	* Delegar al researcher para que investigue a los 3 competidores principales.
+	* Prioridad: alta
+2. Redaccion del copy:
+	* Delegar al writer para que esboce el copy de la landing page.
+	* Dependencia: necesita la informa
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__agent_capabilities__agent_team_delegation.md`](../results/responses/20260715_071736_9897/mistral-nemo__agent_capabilities__agent_team_delegation.md)
+
+</details>
+
+<details><summary><code>ask_clarification_before_acting</code> — score 8.97</summary>
+
+**Stats**: latencia 2.58s · 35 tok/s · 819→91 tokens · $0.00002
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y prácticamente útil, proporcionando una estructura detallada para procesar un reembolso.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para procesar el reembolso del cliente, necesito mas informacion. Por favor, proporciona los siguientes detalles:
+
+1. ID de transaccion o factura
+2. Monto a reembolsar
+3. Metodo de pago original
+4. Informacion de contacto del cliente (si no esta en nuestros registros)
+
+Una vez que tenga esta informa
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__agent_capabilities__ask_clarification_before_acting.md`](../results/responses/20260715_071736_9897/mistral-nemo__agent_capabilities__ask_clarification_before_acting.md)
+
+</details>
+
+<details><summary><code>context_following_complex_system</code> — score 2.10</summary>
+
+**Stats**: latencia 3.61s · 26 tok/s · 993→92 tokens · $0.00002
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:2, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, abordando las tareas solicitadas con acciones apropiadas, aunque carece de profundidad en la explicación de la API de OpenRouter.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[tool_call] run_skill({"skill_name": "publish_blog_post", "parameters": {}})
+[tool_call] ask_human({"question": "Por favor, aprueba el presupuesto de $2,000 para la siguiente campaĆ±a de marketing.", "reason": "Necesito la aprobacion de un humano para este gasto."})
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__agent_capabilities__context_following_complex_system.md`](../results/responses/20260715_071736_9897/mistral-nemo__agent_capabilities__context_following_complex_system.md)
+
+</details>
+
+<details><summary><code>model_as_router</code> — score 7.12</summary>
+
+**Stats**: latencia 18.75s · 22 tok/s · 270→407 tokens · $0.00001
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa y relevante, asignando modelos adecuados a cada subtarea con razones claras, ofreciendo insights útiles para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[
+  {
+    "subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales",
+    "modelo": "deepseek-v3",
+    "razon": "El modelo deepseek-v3 es mejor para tareas de razonamiento y análisis de texto, lo que lo hace ideal para extraer los problemas principales de los reviews de usu
+```
+
+**Respuesta completa**: [`results/responses/20260715_071736_9897/mistral-nemo__agent_capabilities__model_as_router.md`](../results/responses/20260715_071736_9897/mistral-nemo__agent_capabilities__model_as_router.md)
 
 </details>
 

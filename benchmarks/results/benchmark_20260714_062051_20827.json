@@ -1,14 +1,14 @@
 {
   "metadata": {
     "timestamp": "20260714_062051_20827",
-    "total_runs": 4,
+    "total_runs": 12,
     "errors": 0,
     "judge": {
       "judge_model": "microsoft/phi-4",
       "judge_provider": "openrouter",
       "judge_is_local": false,
-      "evaluations": 5,
-      "estimated_cost_usd": 0.0071
+      "evaluations": 2,
+      "estimated_cost_usd": 0.0022
     },
     "partial": false
   },
@@ -113,26 +113,29 @@
       "scoring": "juez-30-70"
     },
     {
-      "quality": 6.72,
-      "cost_score": 10.0,
-      "cost_usd": 3.6e-05,
-      "speed": 1.0,
-      "latency": 10.0,
+      "quality": 5.45,
+      "cost_score": 7.04,
+      "cost_usd": 0.002082,
+      "speed": 10.0,
+      "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.03,
+      "final": 5.69,
       "test_name": "debug_code",
       "model": "Qwen 3.5 35B",
       "model_id": "qwen/qwen3.5-35b-a3b",
       "success": true,
       "error": "",
-      "tokens_per_second": 4.5,
-      "latency_first_token": 0.443,
-      "latency_total": 0.443,
+      "tokens_per_second": 127.2,
+      "latency_first_token": 16.097,
+      "latency_total": 16.097,
       "input_tokens": 244,
-      "output_tokens": 2,
-      "response_preview": " ",
-      "auto_quality": 0.0,
-      "judge_score": 4.8,
+      "output_tokens": 2048,
+      "response_preview": "Aquí tienes el análisis detallado de los bugs y la versión corregida del código.\n\n### Explicación de los Bugs\n\n1.  **División por cero (`ZeroDivisionError`)**\n    *   **El problema:** La línea `average = total / len(processed)` se ejecuta siempre. Si la lista `orders`",
+      "auto_quality": 8.82,
+      "content_score": 8.82,
+      "answer_score": 0.0,
+      "scoring": "juez-30-70",
+      "judge_score": 2.0,
       "judge_precision": 3,
       "judge_relevancia": 3,
       "judge_profundidad": 3,
@@ -142,8 +145,7 @@
       "suite": "code_generation",
       "run": 1,
       "timestamp": "20260714_062051_20827",
-      "response_file": "results/responses/20260714_062051_20827/or-qwen-3.5-35b__code_generation__debug_code.md",
-      "scoring": "juez-30-70"
+      "response_file": "results/responses/20260714_062051_20827/or-qwen-3.5-35b__code_generation__debug_code.md"
     }
   ]
 }

@@ -1,12 +1,12 @@
 # Qwen3-Coder-Next (OpenRouter FP8)
 
 - **model_id**: `qwen/qwen3-coder-next`
-- **Total tests**: 278/314 exitosos (36 errores)
+- **Total tests**: 278/284 exitosos (6 errores)
 - **Score final**: 6.42
-- **Calidad**: 6.23
+- **Calidad**: 6.24
 - **Judge score (Phi-4)**: 2.65/10
-- **Velocidad**: 60 tok/s
-- **Latencia primera token**: 6.35s
+- **Velocidad**: 59 tok/s
+- **Latencia primera token**: 6.36s
 - **Costo promedio por test**: $0.00317
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -23,13 +23,12 @@
 | content_generation | 4 | 4 | 8.07 | 8.98 |
 | content_verificable | 5 | 5 | 5.92 | 5.07 |
 | creativity | 4 | 4 | 8.03 | 8.12 |
-| customer_support | 4 | 4 | 8.04 | 8.50 |
+| customer_support | 4 | 4 | 7.89 | 8.51 |
 | deep_reasoning | 6 | 6 | 6.78 | 6.95 |
 | hallucination | 3 | 3 | 7.31 | 7.00 |
 | multi_turn | 4 | 4 | 7.47 | 7.38 |
 | news_seo_writing | 5 | 5 | 5.68 | 5.37 |
-| niah_es | 111 | 90 | 6.66 | 6.83 |
-| niah_es_1m | 15 | 0 | - | - |
+| niah_es | 96 | 90 | 6.66 | 6.83 |
 | niah_es_lite | 45 | 45 | 5.07 | 3.73 |
 | ocr_extraction | 5 | 5 | 8.58 | 8.95 |
 | orchestration | 5 | 5 | 6.38 | 5.24 |
@@ -44,7 +43,7 @@
 | structured_output | 4 | 4 | 6.05 | 5.00 |
 | summarization | 2 | 2 | 7.51 | 7.30 |
 | task_management | 3 | 3 | 8.39 | 9.73 |
-| tool_calling | 4 | 4 | 7.03 | 5.70 |
+| tool_calling | 4 | 4 | 7.19 | 6.40 |
 | translation | 3 | 3 | 7.78 | 7.56 |
 
 ## Detalle por test
@@ -1524,9 +1523,9 @@ Aquí tienes un **outline completo de 15 slides** para una presentación al *Boa
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | single_tool_calendar | 7.80 | 7.10 | 4.0 | 33 | 2.09s | OK |
-| multi_tool_sequential | 7.25 | 5.70 | 3.0 | 66 | 2.11s | OK |
-| tool_with_reasoning | 7.80 | 7.10 | 4.0 | 102 | 1.27s | OK |
 | no_tool_needed | 5.25 | 2.90 | 1 | 39 | 0.61s | OK |
+| multi_tool_sequential | 7.22 | 7.10 | 4.0 | 48 | 2.65s | OK |
+| tool_with_reasoning | 8.50 | 8.50 | 5 | 73 | 1.77s | OK |
 
 <details><summary><code>single_tool_calendar</code> — score 7.80</summary>
 
@@ -1543,18 +1542,6 @@ Aquí tienes un **outline completo de 15 slides** para una presentación al *Boa
 ```
 
 **Respuesta completa**: [`results/responses/20260601_160633_2187571/qwen3-coder-next__tool_calling__single_tool_calendar.md`](../results/responses/20260601_160633_2187571/qwen3-coder-next__tool_calling__single_tool_calendar.md)
-
-</details>
-
-<details><summary><code>tool_with_reasoning</code> — score 7.80</summary>
-
-**Stats**: latencia 1.27s · 102 tok/s · 889→130 tokens · $0.00020
-
-**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
-
-> La respuesta es precisa y relevante, creando un recordatorio y proporcionando una acción de búsqueda adecuada. Ofrece una profundidad razonable al sugerir buscar mejores prácticas, y está claramente escrita y organizada, siendo útil para un emprendedor.
-
-**Respuesta completa**: [`results/responses/20260601_160633_2187571/qwen3-coder-next__tool_calling__tool_with_reasoning.md`](../results/responses/20260601_160633_2187571/qwen3-coder-next__tool_calling__tool_with_reasoning.md)
 
 </details>
 
@@ -1576,14 +1563,52 @@ Aquí tienes un **outline completo de 15 slides** para una presentación al *Boa
 
 </details>
 
+<details><summary><code>multi_tool_sequential</code> — score 7.22</summary>
+
+**Stats**: latencia 2.65s · 48 tok/s · 914→127 tokens · $0.00020
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y prácticamente útil, aunque carece de profundidad adicional más allá de las instrucciones dadas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[tool_call] create_task({"title": "Revisar contrato cliente ABC", "priority": "urgent", "due_date": "2026-05-10"})
+[tool_call] send_email({"to": "legal@empresa.com", "subject": "Contrato ABC - Revision urgente", "body": "Necesitamos que revisen el contrato del cliente ABC antes del 10 de mayo."})
+```
+
+**Respuesta completa**: [`results/responses/20260601_160633_2187571/qwen3-coder-next__tool_calling__multi_tool_sequential.md`](../results/responses/20260601_160633_2187571/qwen3-coder-next__tool_calling__multi_tool_sequential.md)
+
+</details>
+
+<details><summary><code>tool_with_reasoning</code> — score 8.50</summary>
+
+**Stats**: latencia 1.77s · 73 tok/s · 889→130 tokens · $0.00020
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y prácticamente útil, proporcionando acciones concretas y una búsqueda útil, aunque la profundidad podría mejorarse con más detalles sobre las mejores prácticas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[tool_call] create_calendar_event({"title": "Repasar slides para presentación", "date": "2023-10-25", "time": "17:00", "duration_minutes": 60, "description": "Repasar las diapositivas de la presentación importante de mañana a las 3 PM."})
+[tool_call] search_web({"query": "mejores prácticas para pres
+```
+
+**Respuesta completa**: [`results/responses/20260601_160633_2187571/qwen3-coder-next__tool_calling__tool_with_reasoning.md`](../results/responses/20260601_160633_2187571/qwen3-coder-next__tool_calling__tool_with_reasoning.md)
+
+</details>
+
 #### customer_support
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | angry_customer_refund | 9.25 | 9.40 | 5 | 89 | 1.33s | OK |
 | ambiguous_issue_classification | 7.94 | 9.60 | 5 | 126 | 1.75s | OK |
-| multi_issue_conversation | 7.05 | 5.60 | 4.0 | 82 | 0.71s | OK |
 | social_engineering_attempt | 7.90 | 9.40 | 5 | 117 | 1.27s | OK |
+| multi_issue_conversation | 6.48 | 5.62 | 3.0 | 56 | 1.40s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 9.25</summary>
 
@@ -1625,18 +1650,6 @@ Dado que hay una suscripción activa involucrada y el ri
 
 </details>
 
-<details><summary><code>multi_issue_conversation</code> — score 7.05</summary>
-
-**Stats**: latencia 0.71s · 82 tok/s · 828→58 tokens · $0.00014
-
-**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
-
-> La respuesta es precisa y relevante, abordando cada problema con soluciones claras y prácticas, aunque la profundidad podría mejorarse con más detalles sobre el envío express.
-
-**Respuesta completa**: [`results/responses/20260601_160633_2187571/qwen3-coder-next__customer_support__multi_issue_conversation.md`](../results/responses/20260601_160633_2187571/qwen3-coder-next__customer_support__multi_issue_conversation.md)
-
-</details>
-
 <details><summary><code>social_engineering_attempt</code> — score 7.90</summary>
 
 **Stats**: latencia 1.27s · 117 tok/s · 813→149 tokens · $0.00021
@@ -1654,6 +1667,26 @@ Además,
 ```
 
 **Respuesta completa**: [`results/responses/20260601_160633_2187571/qwen3-coder-next__customer_support__social_engineering_attempt.md`](../results/responses/20260601_160633_2187571/qwen3-coder-next__customer_support__social_engineering_attempt.md)
+
+</details>
+
+<details><summary><code>multi_issue_conversation</code> — score 6.48</summary>
+
+**Stats**: latencia 1.40s · 56 tok/s · 828→78 tokens · $0.00015
+
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:2, claridad:4, utilidad:3)
+
+> La respuesta es correcta y clara, pero carece de profundidad y no aborda todos los problemas, especialmente el cobro doble que el cliente necesita resolver urgentemente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Entiendo su frustración con estos problemas. Voy a abordar cada uno de forma sistemática:
+
+1. Primero, déjame verificar el estado de su pedido #ORD-7788 que no ha llegado aún.
+```
+
+**Respuesta completa**: [`results/responses/20260601_160633_2187571/qwen3-coder-next__customer_support__multi_issue_conversation.md`](../results/responses/20260601_160633_2187571/qwen3-coder-next__customer_support__multi_issue_conversation.md)
 
 </details>
 
@@ -2207,8 +2240,6 @@ Ventas crecieron 18% ($2.3M), impulsadas por enterprise (+32%) y expansión inte
 #### agent_long_horizon
 
 #### niah_es
-
-#### niah_es_1m
 
 #### niah_es_lite
 
