@@ -248,6 +248,30 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - **Nunca escribir un score a mano en un doc vivo.** El z-score se recalcula con cada modelo
   nuevo, así que toda cifra hardcodeada caduca sola. Si necesitás citar una, que salga de un
   generador; si es narrativa (un párrafo), el `check_consistency.py` te avisa cuando caduca.
+- **Nunca $0 como precio de un modelo del ranking.** Un modelo "gratis" (tier `:free` de
+  OpenRouter, NIM 40 RPM) gana el eje costo artificialmente y engaña la decisión — que es
+  exactamente lo que la calculadora existe para evitar. Usar el precio real: el de OpenRouter
+  si existe versión paga, o el del proveedor de origen (ej. NIM pago de NVIDIA) si OpenRouter
+  solo lista `:free`. Si hay que ESTIMAR un precio, se estima con disclaimer en `notes` — pero
+  $0 nunca. Fallo real (14-jul-2026): 2 Nemotron a $0 se colaron al top 10; con precio real de
+  NVIDIA cayeron a #13 y #31.
+- **First-party = misma calidad por OpenRouter; NO duplicar.** Si un modelo se midió por la
+  API directa de su creador (OpenAI, Moonshot, MiniMax midiendo SU propio modelo), esa medición
+  cuenta en el ranking: OpenRouter es un intermediario y la calidad es la misma. NO crear una
+  fila `or-<modelo>` vacía "para medirlo en el plano común" — queda un duplicado con 0 runs que
+  confunde. Esto SOLO vale para first-party: en Groq/NIM/Ollama Cloud la calidad SÍ cambia por
+  serving (cuantización/config — caso Qwen 3.5 397B: 7.96 en NIM vs 5.46 en Ollama Cloud) y la
+  variante se mide aparte como `provider_variant`.
+- **Un (id, name) = UNA config en MODELS.** El export asigna los runs por `(model_id, name)`:
+  dos configs con el mismo par reciben LOS MISMOS runs y el modelo aparece duplicado con todo
+  contado dos veces (pasó con Kimi K2.5 y Gemma 4 31B, dedup 14-jul-2026). Antes de agregar un
+  modelo, `grep` su id en `models.py`.
+- **Al analizar models.json, indexar SIEMPRE por `key`, nunca por `name`.** Un dict
+  `{x['name']: x}` colapsa silenciosamente las entradas que comparten nombre (directa + `or-`,
+  variantes) y te deja leyendo la que quedó última — que puede ser la vacía. Fallo real
+  (14-jul-2026): "GPT-4.1 no está medido (Q=None)" cuando la entrada real tenía 169 runs; el
+  análisis leyó el twin `or-gpt-4.1` con 0 runs y una conclusión falsa llegó a borrar una
+  sección correcta del pilar del blog.
 - **Actualizar el pilar del blog cuando el ranking cambie materialmente.** El post vivo
   `benchmark-de-modelos-de-ia-2026-...` en el repo hermano `~/Playground/sitios/cristiantala-blog/`
   es un cornerstone SEO (top-3 Google) que cita cifras de `models.json` en prosa, tablas y FAQ. Un

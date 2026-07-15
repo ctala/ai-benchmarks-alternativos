@@ -241,15 +241,10 @@ MODELS = {
         "open_source": True,
         "license": "Modified MIT",
     },
-    "kimi-k2.5": {
-        "id": "moonshotai/kimi-k2.5",
-        "name": "Kimi K2.5",
-        "cost_input": 0.20,
-        "cost_output": 0.80,
-        "tier": "cheap",
-        "open_source": True,
-        "license": "Modified MIT",
-    },
+    # kimi-k2.5: la fila canónica es "or-kimi-k2.5" (mismo id y name; el export asigna
+    # runs por (id, name), así que tener DOS configs duplicaba el modelo en el catálogo
+    # con los mismos runs contados dos veces). El precio vigente vive en la or-.
+    # (dedup 14-jul-2026)
     "kimi-k2.5-thinking": {
         "id": "moonshotai/kimi-k2.5",
         "name": "Kimi K2.5 (thinking)",
@@ -493,9 +488,9 @@ MODELS = {
 
     # --- GPT-4.1 via OpenAI directo ---
     "gpt-4.1": {
-        # Variante: medido en la API directa de OpenAI. La fila canónica se mide en
-        # OpenRouter para que la velocidad y la latencia sean comparables con el resto.
-        "provider_variant": True,
+        # Medido en la API directa de OpenAI. OpenRouter es intermediario de un modelo
+        # first-party (mismo modelo, sin cuantización de terceros): la calidad es la misma,
+        # así que esta medición cuenta en el ranking (no es provider_variant). (14-jul-2026)
         "id": "gpt-4.1",
         "name": "GPT-4.1",
         "cost_input": 2.00,
@@ -504,9 +499,9 @@ MODELS = {
         "provider": "openai_direct",
     },
     "gpt-4.1-mini": {
-        # Variante: medido en la API directa de OpenAI. La fila canónica se mide en
-        # OpenRouter para que la velocidad y la latencia sean comparables con el resto.
-        "provider_variant": True,
+        # Medido en la API directa de OpenAI. OpenRouter es intermediario de un modelo
+        # first-party (mismo modelo, sin cuantización de terceros): la calidad es la misma,
+        # así que esta medición cuenta en el ranking (no es provider_variant). (14-jul-2026)
         "id": "gpt-4.1-mini",
         "name": "GPT-4.1 Mini",
         "cost_input": 0.40,
@@ -539,15 +534,10 @@ MODELS = {
     },
 
     # --- MEDIO - Nuevos modelos Abril 2026 ---
-    "gemma-4-31b": {
-        "id": "google/gemma-4-31b-it",
-        "name": "Gemma 4 31B",
-        "cost_input": 0.30,
-        "cost_output": 0.60,
-        "tier": "cheap",
-        "open_source": True,
-        "license": "Apache 2.0",
-    },
+    # gemma-4-31b: la fila canónica es "or-gemma-4-31b" (mismo id y name — ver nota en
+    # kimi-k2.5: dos configs con el mismo (id, name) duplican el modelo y sus runs).
+    # El precio vigente (verificado en la API de OpenRouter) vive en la or-.
+    # (dedup 14-jul-2026)
     "gemma-4-26b": {
         "id": "google/gemma-4-26b-a4b-it",
         "name": "Gemma 4 26B MoE (3.8B activos)",
@@ -678,9 +668,9 @@ MODELS = {
     # --- PREMIUM ($5.00+/M) ---
     # GPT-5.4 y GPT-5.4-mini via API directa de OpenAI
     "gpt-5.4": {
-        # Variante: medido en la API directa de OpenAI. La fila canónica se mide en
-        # OpenRouter para que la velocidad y la latencia sean comparables con el resto.
-        "provider_variant": True,
+        # Medido en la API directa de OpenAI. OpenRouter es intermediario de un modelo
+        # first-party (mismo modelo, sin cuantización de terceros): la calidad es la misma,
+        # así que esta medición cuenta en el ranking (no es provider_variant). (14-jul-2026)
         "id": "gpt-5.4",
         "name": "GPT-5.4",
         "cost_input": 5.00,
@@ -689,9 +679,9 @@ MODELS = {
         "provider": "openai_direct",
     },
     "gpt-5.4-mini": {
-        # Variante: medido en la API directa de OpenAI. La fila canónica se mide en
-        # OpenRouter para que la velocidad y la latencia sean comparables con el resto.
-        "provider_variant": True,
+        # Medido en la API directa de OpenAI. OpenRouter es intermediario de un modelo
+        # first-party (mismo modelo, sin cuantización de terceros): la calidad es la misma,
+        # así que esta medición cuenta en el ranking (no es provider_variant). (14-jul-2026)
         "id": "gpt-5.4-mini",
         "name": "GPT-5.4 Mini",
         "cost_input": 0.50,
@@ -709,9 +699,9 @@ MODELS = {
         "notes": "Variante rápida y económica de GPT-5.6 (GA 9 jul 2026). $1/$6 vía OpenRouter.",
     },
     "gpt-5.5": {
-        # Variante: medido en la API directa de OpenAI. La fila canónica se mide en
-        # OpenRouter para que la velocidad y la latencia sean comparables con el resto.
-        "provider_variant": True,
+        # Medido en la API directa de OpenAI. OpenRouter es intermediario de un modelo
+        # first-party (mismo modelo, sin cuantización de terceros): la calidad es la misma,
+        # así que esta medición cuenta en el ranking (no es provider_variant). (14-jul-2026)
         "id": "gpt-5.5",
         "name": "GPT-5.5",
         "cost_input": 5.00,
@@ -1644,16 +1634,21 @@ MODELS = {
         "open_source": True, "license": "Apache 2.0",
     },
     "or-nemotron-nano-9b-v2": {
+        # OpenRouter solo lo lista `:free` (rate-limited, no viable en producción). Regla:
+        # NUNCA $0 como precio — un modelo "gratis" gana el eje costo artificialmente y
+        # engaña la decisión. Usamos el precio real de NVIDIA (mismo modelo en NIM pago).
         "id": "nvidia/nemotron-nano-9b-v2:free",
         "name": "Nemotron Nano 9B v2",
-        "cost_input": 0.0, "cost_output": 0.0,
+        "cost_input": 0.05, "cost_output": 0.2,
         "tier": "cloud_nim", "provider": "openrouter",
-        "open_source": False, "license": "NVIDIA Open License",
+        "open_source": True, "license": "NVIDIA Open License",
     },
     "or-nemotron-3-nano-omni-reasoning": {
+        # Idem: OpenRouter solo lo da `:free`. Costo del ranking = precio real de NVIDIA
+        # (mismo modelo en NIM pago), NO $0. (14-jul-2026)
         "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
         "name": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
-        "cost_input": 0.0, "cost_output": 0.0,
+        "cost_input": 0.1, "cost_output": 0.4,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "NVIDIA Open License",
     },
@@ -1673,42 +1668,15 @@ MODELS = {
     },
 
 
-    # GPT en el plano común (antes solo por la API directa de OpenAI).
-    "or-gpt-4.1": {
-        "id": "openai/gpt-4.1",
-        "name": "GPT-4.1",
-        "cost_input": 2.0, "cost_output": 8.0,
-        "tier": "medium", "provider": "openrouter",
-        "open_source": False, "license": "Proprietary",
-    },
-    "or-gpt-4.1-mini": {
-        "id": "openai/gpt-4.1-mini",
-        "name": "GPT-4.1 Mini",
-        "cost_input": 0.4, "cost_output": 1.6,
-        "tier": "cheap", "provider": "openrouter",
-        "open_source": False, "license": "Proprietary",
-    },
-    "or-gpt-5.4": {
-        "id": "openai/gpt-5.4",
-        "name": "GPT-5.4",
-        "cost_input": 2.5, "cost_output": 15.0,
-        "tier": "premium", "provider": "openrouter",
-        "open_source": False, "license": "Proprietary",
-    },
-    "or-gpt-5.4-mini": {
-        "id": "openai/gpt-5.4-mini",
-        "name": "GPT-5.4 Mini",
-        "cost_input": 0.75, "cost_output": 4.5,
-        "tier": "cheap", "provider": "openrouter",
-        "open_source": False, "license": "Proprietary",
-    },
-    "or-gpt-5.5": {
-        "id": "openai/gpt-5.5",
-        "name": "GPT-5.5",
-        "cost_input": 5.0, "cost_output": 30.0,
-        "tier": "premium", "provider": "openrouter",
-        "open_source": False, "license": "Proprietary",
-    },
+    # GPT de OpenAI: se miden por la API directa y ESA medición cuenta en el ranking.
+    # OpenRouter es un intermediario de un modelo first-party (misma calidad, sin
+    # cuantización de terceros), así que no hace falta re-medir ni duplicar con filas
+    # or-gpt-* vacías — las quitamos porque tenían 0 runs y solo confundían (aparecían
+    # como un GPT-4.1 duplicado sin datos). Regla: NO crear una fila `or-<modelo>` para
+    # un modelo first-party ya medido por su propia API; asumir la misma calidad. Esto
+    # SOLO vale para first-party (OpenAI/Anthropic/MiniMax con su propio modelo); para
+    # Groq/NIM/Ollama la calidad SÍ cambia por serving y la variante se mide aparte.
+    # (14-jul-2026)
 
 
     # Modelos que corríamos en el Spark y AHORA se miden en OpenRouter.
@@ -1750,14 +1718,9 @@ MODELS = {
     },
 
 
-    # GPT-5.5 Pro en el plano común (antes solo por la Responses API de OpenAI).
-    "or-gpt-5.5-pro": {
-        "id": "openai/gpt-5.5-pro",
-        "name": "GPT-5.5 Pro",
-        "cost_input": 30.0, "cost_output": 180.0,
-        "tier": "premium", "provider": "openrouter",
-        "open_source": False, "license": "Proprietary",
-    },
+    # GPT-5.5 Pro: sin medir aún (0 runs). La fila canónica es "gpt-5.5-pro" (Responses API);
+    # no dejamos un placeholder or-* vacío que la duplique. Cuando se mida, cuenta directo
+    # (first-party OpenAI = misma calidad por OpenRouter). (14-jul-2026)
 
 
     # Claude Fable 5 en el plano común. Solo se había medido por SUSCRIPCIÓN (claude -p),

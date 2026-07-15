@@ -849,7 +849,7 @@ function render() {
           <tr>
             <td class="num">${i + 1}</td>
             <td>
-              <span class="model-name">${m.name}</span>
+              <span class="model-name">${m.name}</span>${m.ranked ? "" : ` <span class="ctx-badge ctx-nd" title="Menos de 50 ejecuciones: con muestra chica un modelo lidera por azar. Score indicativo, no comparable.">muestra chica</span>`}
               <div class="model-meta">${modelTags(m)} · ${m.id}</div>
             </td>
             <td class="num">${scorePill(m._task_score)}</td>

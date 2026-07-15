@@ -109,7 +109,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 101 | [Kimi K2.6](moonshotai_kimi-k2_6.md) | 6.68 | 7.94 | 36 | 340/387 | [ver detalles](moonshotai_kimi-k2_6.md) |
 | 102 | [Claude Opus 4.6](anthropic_claude-opus-4-6.md) | 6.68 | 8.09 | 46 | 298/298 | [ver detalles](anthropic_claude-opus-4-6.md) |
 | 103 | [Mistral Large 3 675B (NIM)](mistralai_mistral-large-3-675b-instruct-2512.md) | 6.66 | 7.99 | 11 | 87/101 | [ver detalles](mistralai_mistral-large-3-675b-instruct-2512.md) |
-| 104 | [Mistral Nemo](mistralai_mistral-nemo.md) | 6.63 | 6.49 | 34 | 212/216 | [ver detalles](mistralai_mistral-nemo.md) |
+| 104 | [Mistral Nemo](mistralai_mistral-nemo.md) | 6.63 | 6.49 | 34 | 213/217 | [ver detalles](mistralai_mistral-nemo.md) |
 | 105 | [DeepSeek V4 Flash (OpenRouter)](deepseek_deepseek-v4-flash.md) | 6.62 | 6.80 | 45 | 409/428 | [ver detalles](deepseek_deepseek-v4-flash.md) |
 | 106 | [Qwen 3.6 27B base (DGX Spark)](qwen3_6_27b.md) | 6.62 | 8.45 | 10 | 4/4 | [ver detalles](qwen3_6_27b.md) |
 | 107 | [GPT-4.1](gpt-4_1.md) | 6.58 | 7.56 | 61 | 264/264 | [ver detalles](gpt-4_1.md) |
@@ -118,10 +118,10 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 110 | [Claude Haiku 4.5 (thinking)](anthropic_claude-haiku-4_5.md) | 6.49 | 7.79 | 117 | 12/12 | [ver detalles](anthropic_claude-haiku-4_5.md) |
 | 111 | [Kimi K2.6 (thinking)](moonshotai_kimi-k2_6.md) | 6.48 | 8.50 | 40 | 12/12 | [ver detalles](moonshotai_kimi-k2_6.md) |
 | 112 | [Gemini 3.1 Pro (thinking)](google_gemini-3_1-pro-preview.md) | 6.42 | 8.50 | 84 | 12/12 | [ver detalles](google_gemini-3_1-pro-preview.md) |
-| 113 | [DeepSeek V4 Pro](deepseek_deepseek-v4-pro.md) | 6.42 | 6.77 | 38 | 210/232 | [ver detalles](deepseek_deepseek-v4-pro.md) |
-| 114 | [Qwen3-Coder-Next (OpenRouter FP8)](qwen_qwen3-coder-next.md) | 6.42 | 6.23 | 60 | 278/314 | [ver detalles](qwen_qwen3-coder-next.md) |
-| 115 | [GPT-5.4](gpt-5_4.md) | 6.42 | 7.08 | 58 | 160/160 | [ver detalles](gpt-5_4.md) |
-| 116 | [Gemma 4 31B](google_gemma-4-31b-it.md) | 6.41 | 7.68 | 8 | 87/96 | [ver detalles](google_gemma-4-31b-it.md) |
+| 113 | [Qwen3-Coder-Next (OpenRouter FP8)](qwen_qwen3-coder-next.md) | 6.42 | 6.23 | 60 | 278/314 | [ver detalles](qwen_qwen3-coder-next.md) |
+| 114 | [GPT-5.4](gpt-5_4.md) | 6.42 | 7.08 | 58 | 160/160 | [ver detalles](gpt-5_4.md) |
+| 115 | [Gemma 4 31B](google_gemma-4-31b-it.md) | 6.41 | 7.68 | 8 | 87/96 | [ver detalles](google_gemma-4-31b-it.md) |
+| 116 | [DeepSeek V4 Pro](deepseek_deepseek-v4-pro.md) | 6.40 | 6.73 | 39 | 214/236 | [ver detalles](deepseek_deepseek-v4-pro.md) |
 | 117 | [Gemma 4 12B (Spark llama-server, reasoning)](gemma-4-12b-it-q4_k_m_gguf.md) | 6.39 | 6.81 | 22 | 123/123 | [ver detalles](gemma-4-12b-it-q4_k_m_gguf.md) |
 | 118 | [Qwen 3.6 35B base (OpenRouter FP8)](qwen_qwen3_6-35b-a3b.md) | 6.37 | 6.30 | 126 | 282/318 | [ver detalles](qwen_qwen3_6-35b-a3b.md) |
 | 119 | [Gemma 4 31B (Spark llama-server Q4_K_M)](gemma-4-31b-it-q4_k_m_gguf.md) | 6.35 | 6.95 | 8 | 123/123 | [ver detalles](gemma-4-31b-it-q4_k_m_gguf.md) |

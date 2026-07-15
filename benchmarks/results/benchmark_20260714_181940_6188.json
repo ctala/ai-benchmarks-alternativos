@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "timestamp": "20260714_181940_6188",
+    "total_runs": 1,
+    "errors": 0,
+    "judge": {
+      "judge_model": "microsoft/phi-4",
+      "judge_provider": "openrouter",
+      "judge_is_local": false,
+      "evaluations": 2,
+      "estimated_cost_usd": 0.0023
+    },
+    "partial": true
+  },
+  "results": [
+    {
+      "quality": 6.4,
+      "cost_score": 10.0,
+      "cost_usd": 2.2e-05,
+      "speed": 2.0,
+      "latency": 2.0,
+      "tool_calling": 0.0,
+      "final": 6.28,
+      "test_name": "multi_step_research_plan",
+      "model": "Mistral Nemo",
+      "model_id": "mistralai/mistral-nemo",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 13.5,
+      "latency_first_token": 9.383,
+      "latency_total": 9.383,
+      "input_tokens": 980,
+      "output_tokens": 127,
+      "response_preview": "Entendido, para preparar el reporte sobre el estado del mercado de IA en Chile, se necesitan realizar los siguientes pasos:\n\n1. Buscar las 5 principales startups de IA en Chile y su funding.\n2. Comparar el mercado de IA en Chile con el de Colombia y Mexico.\n3. Obtener datos de inversion VC en tecnol",
+      "auto_quality": 6.41,
+      "content_score": 6.41,
+      "answer_score": 0.0,
+      "scoring": "juez-30-70",
+      "judge_score": 3.2,
+      "judge_precision": 3,
+      "judge_relevancia": 3,
+      "judge_profundidad": 3,
+      "judge_claridad": 3,
+      "judge_utilidad": 3,
+      "judge_justificacion": "",
+      "suite": "orchestration",
+      "run": 1,
+      "timestamp": "20260714_181940_6188",
+      "response_file": "results/responses/20260714_181940_6188/mistral-nemo__orchestration__multi_step_research_plan.md"
+    }
+  ]
+}

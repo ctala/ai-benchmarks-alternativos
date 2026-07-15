@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-07-14 · 60 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-07-14 · 66 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -29,7 +29,7 @@ _Texto largo en español neutro. El costo manda: es alto volumen._
 
 - **Usá:** **GPT-OSS 120B** — ≈$1/mes (calidad 8.23/10)
 - **Lo que te ahorrás:** GPT-5.6 Sol cuesta ≈$140/mes (**166.1× más**) por apenas +0.04 de calidad — dentro del margen de error.
-- _18 modelos empatan en calidad en este pilar._
+- _19 modelos empatan en calidad en este pilar._
 
 ### Código y debugging
 
@@ -37,7 +37,7 @@ _Generación y corrección de código._
 
 - **Usá:** **DeepSeek V4 Flash (OpenRouter)** — ≈$1/mes (calidad 8.26/10)
 - **Lo que te ahorrás:** Claude Opus 4.8 cuesta ≈$117/mes (**120.6× más**) por apenas -0.08 de calidad — dentro del margen de error.
-- _11 modelos empatan en calidad en este pilar._
+- _13 modelos empatan en calidad en este pilar._
 
 ### Razonamiento y estrategia
 
