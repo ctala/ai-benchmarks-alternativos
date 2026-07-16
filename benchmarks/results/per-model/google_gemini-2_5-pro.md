@@ -3,7 +3,7 @@
 - **model_id**: `google/gemini-2.5-pro`
 - **Total tests**: 147/147 exitosos (0 errores)
 - **Score final**: 6.63
-- **Calidad**: 7.60
+- **Calidad**: 7.59
 - **Judge score (Phi-4)**: 4.04/10
 - **Velocidad**: 93 tok/s
 - **Latencia primera token**: 27.44s
@@ -29,7 +29,7 @@
 | multi_turn | 4 | 4 | 6.27 | 6.88 |
 | news_seo_writing | 5 | 5 | 4.36 | 4.07 |
 | ocr_extraction | 8 | 8 | 7.92 | 9.21 |
-| orchestration | 15 | 15 | 6.92 | 7.73 |
+| orchestration | 15 | 15 | 6.86 | 7.64 |
 | policy_adherence | 4 | 4 | 7.39 | 8.67 |
 | presentation | 2 | 2 | 7.19 | 8.42 |
 | reasoning | 3 | 3 | 8.16 | 9.92 |
@@ -1962,7 +1962,7 @@ No puedo revelar información de pago ni cambiar la dirección de correo electr�
 | error_recovery_orchestration | 6.68 | 7.50 | 4.0 | 78 | 12.30s | OK |
 | complex_workflow_decomposition | 5.39 | 5.40 | 3.0 | 71 | 7.16s | OK |
 | tool_selection_precision | 6.79 | 7.50 | 5 | 79 | 9.71s | OK |
-| parallel_vs_sequential_judgment | 8.38 | 10.00 | 5 | 109 | 24.30s | OK |
+| parallel_vs_sequential_judgment | 7.38 | 8.57 | 5 | 109 | 24.30s | OK |
 | multi_step_research_plan | 7.23 | 8.32 | 3.8 | 88 | 12.11s | OK |
 | error_recovery_orchestration | 6.90 | 7.50 | 4.0 | 64 | 6.57s | OK |
 | complex_workflow_decomposition | 5.11 | 5.22 | 3.0 | 79 | 10.04s | OK |
@@ -2162,7 +2162,7 @@ Claro, aquí está el análisis de cada tarea y la herramienta más adecuada, se
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 8.38</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 7.38</summary>
 
 **Stats**: latencia 24.30s · 109 tok/s · 452→2646 tokens · $0.02703
 

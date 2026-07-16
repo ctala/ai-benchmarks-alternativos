@@ -1,13 +1,13 @@
 # Kimi K2
 
 - **model_id**: `moonshotai/kimi-k2`
-- **Total tests**: 193/215 exitosos (22 errores)
-- **Score final**: 7.28
-- **Calidad**: 7.79
-- **Judge score (Phi-4)**: 4.18/10
-- **Velocidad**: 29 tok/s
-- **Latencia primera token**: 19.46s
-- **Costo promedio por test**: $0.00087
+- **Total tests**: 235/257 exitosos (22 errores)
+- **Score final**: 7.32
+- **Calidad**: 7.82
+- **Judge score (Phi-4)**: 4.24/10
+- **Velocidad**: 30 tok/s
+- **Latencia primera token**: 18.98s
+- **Costo promedio por test**: $0.00082
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -22,22 +22,22 @@
 | code_generation | 8 | 8 | 7.35 | 7.94 |
 | content_generation | 8 | 8 | 7.08 | 7.64 |
 | content_verificable | 5 | 5 | 8.02 | 8.67 |
-| creativity | 8 | 8 | 6.69 | 6.76 |
+| creativity | 12 | 12 | 7.14 | 7.42 |
 | customer_support | 8 | 8 | 7.32 | 6.87 |
-| deep_reasoning | 12 | 12 | 7.34 | 8.22 |
-| hallucination | 6 | 5 | 7.24 | 7.39 |
-| multi_turn | 8 | 6 | 7.20 | 7.48 |
+| deep_reasoning | 18 | 18 | 7.31 | 8.12 |
+| hallucination | 9 | 8 | 7.11 | 7.24 |
+| multi_turn | 12 | 10 | 7.01 | 7.24 |
 | news_seo_writing | 15 | 10 | 7.06 | 7.86 |
-| ocr_extraction | 10 | 9 | 7.74 | 8.19 |
+| ocr_extraction | 15 | 14 | 7.91 | 8.52 |
 | orchestration | 10 | 6 | 6.84 | 7.18 |
-| policy_adherence | 8 | 5 | 7.96 | 8.49 |
+| policy_adherence | 12 | 9 | 8.14 | 8.75 |
 | presentation | 4 | 3 | 7.10 | 7.86 |
 | reasoning | 6 | 6 | 7.87 | 9.37 |
-| sales_outreach | 3 | 3 | 7.70 | 8.59 |
+| sales_outreach | 6 | 6 | 6.86 | 7.29 |
 | startup_content | 10 | 9 | 7.66 | 9.22 |
-| strategy | 3 | 3 | 7.19 | 8.29 |
-| string_precision | 12 | 12 | 8.05 | 8.82 |
-| structured_output | 8 | 8 | 7.31 | 7.47 |
+| strategy | 6 | 6 | 7.24 | 8.17 |
+| string_precision | 18 | 18 | 8.42 | 9.22 |
+| structured_output | 12 | 12 | 6.73 | 6.65 |
 | summarization | 4 | 4 | 7.05 | 7.21 |
 | task_management | 6 | 6 | 7.22 | 7.88 |
 | tool_calling | 8 | 7 | 6.57 | 5.12 |
@@ -63,6 +63,12 @@
 | code_bug_subtle | 5.27 | 3.81 | 1.6 | 22 | 12.66s | OK |
 | fermi_estimation | 6.84 | 7.20 | 4.4 | 32 | 30.11s | OK |
 | ethical_dilemma_structured | 7.58 | 8.82 | 4.8 | 32 | 38.13s | OK |
+| math_word_problem | 8.71 | 10.00 | 4.4 | 26 | 23.65s | OK |
+| logic_puzzle_constraint | 5.23 | 5.00 | 4.4 | 41 | 29.36s | OK |
+| causal_reasoning | 8.70 | 10.00 | 4.4 | 44 | 31.27s | OK |
+| code_bug_subtle | 6.87 | 7.50 | 1.6 | 43 | 47.70s | OK |
+| fermi_estimation | 5.30 | 5.00 | 4.4 | 37 | 23.15s | OK |
+| ethical_dilemma_structured | 8.67 | 10.00 | 5.0 | 44 | 35.70s | OK |
 
 <details><summary><code>math_word_problem</code> — score 7.65</summary>
 
@@ -318,6 +324,157 @@ Estimación del consumo diario de café en oficinas de Santiago de Chile
 
 </details>
 
+<details><summary><code>math_word_problem</code> — score 8.71</summary>
+
+**Stats**: latencia 23.65s · 26 tok/s · 108→603 tokens · $0.00050
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Problema de los Trenes
+
+## Datos del problema
+
+| Tren | Origen | Salida | Velocidad |
+|------|--------|--------|-----------|
+| Tren A | Santiago | 8:00 AM | 80 km/h |
+| Tren B | Valparaíso | 8:30 AM | 120 km/h |
+
+**Distancia entre ciudades:** 120 km
+
+---
+
+## Paso 1: Análisis de la situación
+
+- El
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__deep_reasoning__math_word_problem.md`](../results/responses/20260715_142815_37070/kimi-k2__deep_reasoning__math_word_problem.md)
+
+</details>
+
+<details><summary><code>logic_puzzle_constraint</code> — score 5.23</summary>
+
+**Stats**: latencia 29.36s · 41 tok/s · 125→1202 tokens · $0.00099
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Voy a resolver este paso a paso, probando todas las posibilidades.
+
+## Análisis de las restricciones
+
+- **4 casas**: posiciones 1, 2, 3, 4 (de izquierda a derecha)
+- Rojo está a la **izquierda** de Azul (R ... A)
+- Verde está **al lado** de Blanca (V-B o B-V)
+- Azul **NO** está en extremos → Azul es
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__deep_reasoning__logic_puzzle_constraint.md`](../results/responses/20260715_142815_37070/kimi-k2__deep_reasoning__logic_puzzle_constraint.md)
+
+</details>
+
+<details><summary><code>causal_reasoning</code> — score 8.70</summary>
+
+**Stats**: latencia 31.27s · 44 tok/s · 214→1362 tokens · $0.00113
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Análisis Cuantitativo de Quejas - Delivery Startup
+
+## 📊 Cálculo de Tasas Relevantes
+
+| Métrica | Mes 1 | Mes 2 | Mes 3 | Tendencia |
+|---------|-------|-------|-------|-----------|
+| **Tasa de quejas** (quejas/pedidos) | **5.0%** | **7.5%** | **10.0%** | ↑ Empeora |
+| Pedidos por día de lluvia |
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__deep_reasoning__causal_reasoning.md`](../results/responses/20260715_142815_37070/kimi-k2__deep_reasoning__causal_reasoning.md)
+
+</details>
+
+<details><summary><code>code_bug_subtle</code> — score 6.87</summary>
+
+**Stats**: latencia 47.70s · 43 tok/s · 232→2048 tokens · $0.00169
+
+**Juez Phi-4**: 1.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Voy a analizar este código cuidadosamente sin ejecutarlo.
+
+## Análisis del algoritmo
+
+El código implementa:
+1. `find_median`: calcula la mediana de una lista
+2. `remove_outliers_and_average`: usa el método MAD (Median Absolute Deviation) para filtrar outliers y promediar
+
+## El bug sutil
+
+El problem
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__deep_reasoning__code_bug_subtle.md`](../results/responses/20260715_142815_37070/kimi-k2__deep_reasoning__code_bug_subtle.md)
+
+</details>
+
+<details><summary><code>fermi_estimation</code> — score 5.30</summary>
+
+**Stats**: latencia 23.15s · 37 tok/s · 85→851 tokens · $0.00070
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Voy a estimar el consumo de café en oficinas de Santiago de Chile paso a paso.
+
+## Supuestos y razonamiento
+
+### 1. Población de Santiago
+- Santiago tiene aproximadamente **7 millones de habitantes** (área metropolitana)
+
+### 2. Población económicamente activa en oficinas
+- Aproximadamente 60% de la
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__deep_reasoning__fermi_estimation.md`](../results/responses/20260715_142815_37070/kimi-k2__deep_reasoning__fermi_estimation.md)
+
+</details>
+
+<details><summary><code>ethical_dilemma_structured</code> — score 8.67</summary>
+
+**Stats**: latencia 35.70s · 44 tok/s · 219→1577 tokens · $0.00130
+
+**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+## Análisis Estratégico: Lanzamiento del Detector de Cáncer con IA
+
+---
+
+## 1. Stakeholders Afectados
+
+| Stakeholder | Interés principal | Daño potencial |
+|-------------|-----------------|--------------|
+| **Pacientes de piel clara** | Acceso temprano a detección | Ansiedad por falsos positivos (5%
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__deep_reasoning__ethical_dilemma_structured.md`](../results/responses/20260715_142815_37070/kimi-k2__deep_reasoning__ethical_dilemma_structured.md)
+
+</details>
+
 #### reasoning
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -473,6 +630,9 @@ Chat: Firestore + onSn
 | factual_trap_companies | 7.56 | 8.12 | 4.0 | 23 | 7.68s | OK |
 | context_faithfulness | 7.63 | 7.96 | 4.4 | 19 | 2.58s | OK |
 | fake_citation_trap | 5.27 | 1.20 | - | 0 | 2.99s | ERROR |
+| factual_trap_companies | 9.10 | 10.00 | 5 | 33 | 5.93s | OK |
+| context_faithfulness | 5.60 | 5.00 | 4.0 | 30 | 5.50s | OK |
+| fake_citation_trap | 6.03 | 6.00 | 4.6 | 39 | 18.39s | OK |
 
 <details><summary><code>factual_trap_companies</code> — score 6.15</summary>
 
@@ -565,6 +725,81 @@ Chat: Firestore + onSn
 
 </details>
 
+<details><summary><code>factual_trap_companies</code> — score 9.10</summary>
+
+**Stats**: latencia 5.93s · 33 tok/s · 158→195 tokens · $0.00019
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, con una honestidad ejemplar al admitir la incertidumbre en preguntas desconocidas, aunque la profundidad y utilidad práctica son limitadas dado el contexto factual.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+[
+  {"pregunta": 1, "respuesta": "1976", "confianza": "alta"},
+  {"pregunta": 2, "respuesta": "Elon Musk", "confianza": "alta"},
+  {"pregunta": 3, "respuesta": "No tengo certeza", "confianza": "baja"},
+  {"pregunta": 4, "respuesta": "Canberra", "confianza": "alta"},
+  {"pregunta": 5, "respue
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__hallucination__factual_trap_companies.md`](../results/responses/20260715_142815_37070/kimi-k2__hallucination__factual_trap_companies.md)
+
+</details>
+
+<details><summary><code>context_faithfulness</code> — score 5.60</summary>
+
+**Stats**: latencia 5.50s · 30 tok/s · 201→167 tokens · $0.00017
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, respondiendo directamente a las preguntas con la información proporcionada y admitiendo honestamente la falta de información donde corresponde.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Basándome únicamente en el texto proporcionado:
+
+1. **¿Cuáles fueron los ingresos de TechFlow en Q1 2026?**
+   $2.3M (2.3 millones de dólares)
+
+2. **¿Cuántos empleados tiene TechFlow?**
+   45 personas
+
+3. **¿A qué país planean expandirse?**
+   Brasil
+
+4. **¿Cuál fue el margen de ganancia de TechFlow
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__hallucination__context_faithfulness.md`](../results/responses/20260715_142815_37070/kimi-k2__hallucination__context_faithfulness.md)
+
+</details>
+
+<details><summary><code>fake_citation_trap</code> — score 6.03</summary>
+
+**Stats**: latencia 18.39s · 39 tok/s · 151→709 tokens · $0.00060
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Voy a responder con total honestidad sobre mis limitaciones:
+
+---
+
+## 1. Porcentaje de fracaso de startups en 5 años (CB Insights)
+
+**Respuesta:** No tengo acceso al último reporte de CB Insights. Los datos que conozco de memoria son de reportes anteriores (generalmente 70-90% de fracaso en 5-10 año
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__hallucination__fake_citation_trap.md`](../results/responses/20260715_142815_37070/kimi-k2__hallucination__fake_citation_trap.md)
+
+</details>
+
 #### strategy
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -572,6 +807,9 @@ Chat: Firestore + onSn
 | competitor_analysis | 7.32 | 8.56 | 4.4 | 30 | 67.78s | OK |
 | pricing_strategy | 6.64 | 7.13 | 4.6 | 29 | 33.08s | OK |
 | business_model_validation | 7.60 | 9.17 | 4.6 | 29 | 43.06s | OK |
+| competitor_analysis | 6.34 | 6.67 | 4.6 | 45 | 35.48s | OK |
+| pricing_strategy | 6.87 | 7.50 | 5 | 45 | 45.40s | OK |
+| business_model_validation | 8.65 | 10.00 | 5.0 | 43 | 40.47s | OK |
 
 <details><summary><code>competitor_analysis</code> — score 7.32</summary>
 
@@ -630,6 +868,77 @@ LTV/CAC = 840 / 120 = 7.0
 
 - **Riesgo 1: Liquidez muerta** - ¿Por qué diabloss un restaurante va a esperar 24-48 horas por mi plataforma cuando puede llamar a su "proveedor de confianza" y tener la cebolla en 2 horas? Tu MVP va a ser un cementerio de SKU's sin inventari
 ```
+
+</details>
+
+<details><summary><code>competitor_analysis</code> — score 6.34</summary>
+
+**Stats**: latencia 35.48s · 45 tok/s · 202→1600 tokens · $0.00132
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+No tengo datos verificados de "EnviaMas" (no aparece en mi base de conocimiento), así que la dejaré marcada como desconocida. Para el resto, usaré información pública pero con las limitaciones correspondientes.
+
+---
+
+## 1. TABLA COMPARATIVA
+
+| Dimensión | **Mailchimp** | **Brevo** | **EnviaMas** | *
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__strategy__competitor_analysis.md`](../results/responses/20260715_165413_13234/kimi-k2__strategy__competitor_analysis.md)
+
+</details>
+
+<details><summary><code>pricing_strategy</code> — score 6.87</summary>
+
+**Stats**: latencia 45.40s · 45 tok/s · 205→2048 tokens · $0.00168
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando un análisis detallado y estructurado que un emprendedor podría aplicar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Análisis de Incremento de Precios: $60 → $89/mes
+
+## 1. LTV/CAC Ratio: Actual vs. Proyectado
+
+| Métrica | Actual ($60) | Nuevo ($89) | Cambio |
+|---------|-----------|-------------|--------|
+| **LTV** | $840 | **$1,246*** | +48% |
+| **CAC** | $120 | $120 | 0% |
+| **LTV/CAC** | **7.0x** | **10.4x**
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__strategy__pricing_strategy.md`](../results/responses/20260715_165413_13234/kimi-k2__strategy__pricing_strategy.md)
+
+</details>
+
+<details><summary><code>business_model_validation</code> — score 8.65</summary>
+
+**Stats**: latencia 40.47s · 43 tok/s · 203→1751 tokens · $0.00144
+
+**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# VC Escéptico: Tu Pitch Destrozado
+
+---
+
+## 1. LOS 5 RIESGOS PRINCIPALES
+
+### Riesgo #1: El "Doble Problema de Captura"
+Necesitas **ambos lados simultáneamente**, pero los proveedores locales son tecnofóbicos y los restaurantes pequeños son insolventes. No es chicken-and-egg. Es chicken-and-chicken
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__strategy__business_model_validation.md`](../results/responses/20260715_165413_13234/kimi-k2__strategy__business_model_validation.md)
 
 </details>
 
@@ -841,6 +1150,10 @@ Análisis de los bugs
 | json_array_classification | 8.08 | 8.86 | 5 | 29 | 3.56s | OK |
 | json_nested_complex | 7.25 | 8.02 | 4.4 | 35 | 26.55s | OK |
 | json_strict_no_extra | 7.23 | 7.46 | 4.0 | 13 | 2.00s | OK |
+| json_simple_extraction | 5.60 | 5.00 | 5 | 22 | 2.23s | OK |
+| json_array_classification | 5.75 | 5.00 | 5 | 34 | 3.08s | OK |
+| json_nested_complex | 5.20 | 5.00 | 5 | 45 | 29.50s | OK |
+| json_strict_no_extra | 5.75 | 5.00 | 5 | 16 | 1.68s | OK |
 
 <details><summary><code>json_simple_extraction</code> — score 7.15</summary>
 
@@ -952,6 +1265,78 @@ Análisis de los bugs
 
 </details>
 
+<details><summary><code>json_simple_extraction</code> — score 5.60</summary>
+
+**Stats**: latencia 2.23s · 22 tok/s · 114→48 tokens · $0.00006
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, con un formato JSON correcto, aunque la profundidad y utilidad práctica son básicas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{"name": "Maria Garcia", "age": 28, "role": "ingeniera de software", "company": "Google Chile", "email": "maria@google.com", "salary": 95000}
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__structured_output__json_simple_extraction.md`](../results/responses/20260715_165413_13234/kimi-k2__structured_output__json_simple_extraction.md)
+
+</details>
+
+<details><summary><code>json_array_classification</code> — score 5.75</summary>
+
+**Stats**: latencia 3.08s · 34 tok/s · 201→103 tokens · $0.00012
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con un formato JSON correcto y parseable.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[{"id": 1, "category": "shipping", "priority": "high", "sentiment": "negative"}, {"id": 2, "category": "general", "priority": "low", "sentiment": "neutral"}, {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "senti
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__structured_output__json_array_classification.md`](../results/responses/20260715_165413_13234/kimi-k2__structured_output__json_array_classification.md)
+
+</details>
+
+<details><summary><code>json_nested_complex</code> — score 5.20</summary>
+
+**Stats**: latencia 29.50s · 45 tok/s · 222→1333 tokens · $0.00111
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con una estructura JSON válida y detallada que proporciona una visión profunda del plan de proyecto.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{"project": "Rediseno sitio web", "start_date": "2026-05-01", "end_date": "2026-06-30", "team": [{"name": "María González", "role": "Diseñador UX/UI", "allocation_pct": 100}, {"name": "Carlos Mendoza", "role": "Desarrollador Frontend", "allocation_pct": 100}, {"name": "Ana Ramírez", "role": "Desarro
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__structured_output__json_nested_complex.md`](../results/responses/20260715_165413_13234/kimi-k2__structured_output__json_nested_complex.md)
+
+</details>
+
+<details><summary><code>json_strict_no_extra</code> — score 5.75</summary>
+
+**Stats**: latencia 1.68s · 16 tok/s · 90→26 tokens · $0.00004
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante, clara y en el formato correcto, aunque carece de profundidad y utilidad práctica más allá de la estructura básica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{"status": "ok", "count": 42, "items": ["alpha", "beta", "gamma"]}
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__structured_output__json_strict_no_extra.md`](../results/responses/20260715_165413_13234/kimi-k2__structured_output__json_strict_no_extra.md)
+
+</details>
+
 #### string_precision
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -968,6 +1353,12 @@ Análisis de los bugs
 | copy_jwt | 7.59 | 7.88 | 4.0 | 19 | 2.21s | OK |
 | copy_mixed_special | 7.16 | 7.32 | 3.6 | 14 | 2.17s | OK |
 | write_config_file | 7.59 | 7.88 | 4.0 | 31 | 6.11s | OK |
+| copy_hex_32 | 9.10 | 10.00 | 4.0 | 10 | 1.85s | OK |
+| copy_hex_64 | 9.10 | 10.00 | 3.0 | 20 | 2.15s | OK |
+| copy_api_key | 9.10 | 10.00 | 4.0 | 26 | 2.49s | OK |
+| copy_jwt | 9.10 | 10.00 | 4.0 | 16 | 2.70s | OK |
+| copy_mixed_special | 9.25 | 10.00 | 3.0 | 20 | 1.51s | OK |
+| write_config_file | 9.25 | 10.00 | 4.0 | 39 | 4.89s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.65</summary>
 
@@ -1139,6 +1530,118 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 </details>
 
+<details><summary><code>copy_hex_32</code> — score 9.10</summary>
+
+**Stats**: latencia 1.85s · 10 tok/s · 100→19 tokens · $0.00003
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad ya que no ofrece insights adicionales más allá de la tarea directa.
+
+**Respuesta (preview 300 chars)**:
+
+```
+a1b2c3d4e5f6789012345678abcdef90
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__string_precision__copy_hex_32.md`](../results/responses/20260715_165413_13234/kimi-k2__string_precision__copy_hex_32.md)
+
+</details>
+
+<details><summary><code>copy_hex_64</code> — score 9.10</summary>
+
+**Stats**: latencia 2.15s · 20 tok/s · 123→42 tokens · $0.00006
+
+**Juez Phi-4**: 3.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:1)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad y utilidad práctica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__string_precision__copy_hex_64.md`](../results/responses/20260715_165413_13234/kimi-k2__string_precision__copy_hex_64.md)
+
+</details>
+
+<details><summary><code>copy_api_key</code> — score 9.10</summary>
+
+**Stats**: latencia 2.49s · 26 tok/s · 145→64 tokens · $0.00008
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad ya que la tarea no requiere insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+REDACTED-SECRET
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__string_precision__copy_api_key.md`](../results/responses/20260715_165413_13234/kimi-k2__string_precision__copy_api_key.md)
+
+</details>
+
+<details><summary><code>copy_jwt</code> — score 9.10</summary>
+
+**Stats**: latencia 2.70s · 16 tok/s · 123→42 tokens · $0.00006
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, copiando exactamente el string JWT solicitado, pero carece de profundidad ya que no ofrece insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__string_precision__copy_jwt.md`](../results/responses/20260715_165413_13234/kimi-k2__string_precision__copy_jwt.md)
+
+</details>
+
+<details><summary><code>copy_mixed_special</code> — score 9.25</summary>
+
+**Stats**: latencia 1.51s · 20 tok/s · 112→31 tokens · $0.00005
+
+**Juez Phi-4**: 3.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:1)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad y utilidad práctica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__string_precision__copy_mixed_special.md`](../results/responses/20260715_165413_13234/kimi-k2__string_precision__copy_mixed_special.md)
+
+</details>
+
+<details><summary><code>write_config_file</code> — score 9.25</summary>
+
+**Stats**: latencia 4.89s · 39 tok/s · 241→191 tokens · $0.00020
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y directamente util, pero carece de profundidad ya que simplemente replica la información dada sin añadir insights.
+
+**Respuesta (preview 300 chars)**:
+
+```
+AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+AWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
+R2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com
+API_TOKEN=REDACTED-SECRET
+JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__string_precision__write_config_file.md`](../results/responses/20260715_165413_13234/kimi-k2__string_precision__write_config_file.md)
+
+</details>
+
 #### ocr_extraction
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -1153,6 +1656,11 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 | receipt_math_verification | 7.97 | 8.75 | 5 | 32 | 18.31s | OK |
 | screenshot_table_extraction | 7.26 | 8.00 | 3.0 | 36 | 46.18s | OK |
 | handwritten_notes_extraction | 8.78 | 10.00 | 5 | 36 | 23.23s | OK |
+| invoice_extraction | 8.67 | 10.00 | 3.0 | 43 | 35.82s | OK |
+| business_card_extraction | 8.38 | 8.75 | 4.0 | 35 | 4.48s | OK |
+| receipt_math_verification | 7.97 | 8.75 | 5 | 43 | 14.07s | OK |
+| screenshot_table_extraction | 7.29 | 8.00 | 3.0 | 44 | 31.08s | OK |
+| handwritten_notes_extraction | 8.79 | 10.00 | 5 | 40 | 18.82s | OK |
 
 <details><summary><code>invoice_extraction</code> — score 6.67</summary>
 
@@ -1376,6 +1884,144 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 ```
 
 **Respuesta completa**: [`results/responses/20260714_134802_52975/kimi-k2__ocr_extraction__handwritten_notes_extraction.md`](../results/responses/20260714_134802_52975/kimi-k2__ocr_extraction__handwritten_notes_extraction.md)
+
+</details>
+
+<details><summary><code>invoice_extraction</code> — score 8.67</summary>
+
+**Stats**: latencia 35.82s · 43 tok/s · 469→1551 tokens · $0.00134
+
+**Juez Phi-4**: 3.0/10 (precisión:2, relevancia:3, profundidad:2, claridad:4, utilidad:2)
+
+> La respuesta incluye información relevante y está claramente organizada, pero contiene datos no verificados y alucinaciones que afectan la precisión y utilidad práctica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "numero_factura": "00234-2026",
+  "fecha": "15 de Marzo de 2026",
+  "emisor": {
+    "nombre": "TechFlow SpA",
+    "rut": "77.432.198-3",
+    "direccion": "Av. Providencia 1234, Of. 501, Santiago"
+  },
+  "cliente": {
+    "nombre": "Startup Labs Ltda.",
+    "rut": "76.891.234-K",
+    "direccion":
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__ocr_extraction__invoice_extraction.md`](../results/responses/20260715_142815_37070/kimi-k2__ocr_extraction__invoice_extraction.md)
+
+</details>
+
+<details><summary><code>business_card_extraction</code> — score 8.38</summary>
+
+**Stats**: latencia 4.48s · 35 tok/s · 247→157 tokens · $0.00017
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con datos exactos, aunque no ofrece profundidad adicional más allá de la información básica requerida.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "nombre_completo": "Maria Jose Rodriguez Soto",
+  "cargo": "Chief Technology Officer",
+  "empresa": "NexaFlow Intelligence",
+  "slogan": "Transforming Data into Decisions",
+  "telefono": "+56 9 8765 4321",
+  "email": "mj.rodriguez@nexaflow.ai",
+  "linkedin": "linkedin.com/in/mjrodriguez"
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__ocr_extraction__business_card_extraction.md`](../results/responses/20260715_142815_37070/kimi-k2__ocr_extraction__business_card_extraction.md)
+
+</details>
+
+<details><summary><code>receipt_math_verification</code> — score 7.97</summary>
+
+**Stats**: latencia 14.07s · 43 tok/s · 336→602 tokens · $0.00055
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con una buena profundidad al identificar errores en el recibo y explicar sus implicaciones, lo que la hace muy útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "items": [
+    {
+      "nombre": "Lomo vetado",
+      "cantidad": 2,
+      "precio_unitario": 18900,
+      "precio_total": 37800
+    },
+    {
+      "nombre": "Ensalada cesar",
+      "cantidad": 1,
+      "precio_unitario": 7500,
+      "precio_total": 7500
+    },
+    {
+      "nombre": "Pis
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__ocr_extraction__receipt_math_verification.md`](../results/responses/20260715_142815_37070/kimi-k2__ocr_extraction__receipt_math_verification.md)
+
+</details>
+
+<details><summary><code>screenshot_table_extraction</code> — score 7.29</summary>
+
+**Stats**: latencia 31.08s · 44 tok/s · 387→1370 tokens · $0.00117
+
+**Juez Phi-4**: 3.0/10 (precisión:2, relevancia:3, profundidad:3, claridad:4, utilidad:3)
+
+> La respuesta incluye datos extraídos y análisis relevantes, pero introduce métricas no presentes en la captura de pantalla original y contiene errores en los datos, afectando la precisión y exactitud.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "datos_extraidos": {
+    "titulo": "DASHBOARD - KPIs Marzo 2026",
+    "periodos": ["Enero", "Febrero", "Marzo"],
+    "metricas": {
+      "MRR": {
+        "unidad": "USD",
+        "valores": [45200, 48700, 52100],
+        "variacion_mes_a_mes": "+7.0%"
+      },
+      "Churn_Rate": {
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__ocr_extraction__screenshot_table_extraction.md`](../results/responses/20260715_142815_37070/kimi-k2__ocr_extraction__screenshot_table_extraction.md)
+
+</details>
+
+<details><summary><code>handwritten_notes_extraction</code> — score 8.79</summary>
+
+**Stats**: latencia 18.82s · 40 tok/s · 486→762 tokens · $0.00071
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con una buena profundidad al proporcionar detalles estructurados y accionables, y los datos extraídos son exactos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "texto_corregido": "Reunión equipo prod - 14/04/26\nAsist: JP, MaJo, Seba, Cami (faltó Nico)\n\n1) Lanzamiento v2.0 - mover de abr 28 a may 5\n   - falta QA en módulo pagos\n   - bug crítico en API webhooks (Seba lo toma)\n\n2) Métricas Q1:\n   - MRR 52.1k (+15% vs Q4)\n   - churn bajó a
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__ocr_extraction__handwritten_notes_extraction.md`](../results/responses/20260715_142815_37070/kimi-k2__ocr_extraction__handwritten_notes_extraction.md)
 
 </details>
 
@@ -1937,6 +2583,10 @@ El ecosistema de inteligencia artificial acaba de presenciar un movimiento que p
 | analogy_generation | 7.42 | 8.34 | 4.4 | 26 | 18.68s | OK |
 | depth_vs_superficial | 7.77 | 9.28 | 4.6 | 29 | 27.31s | OK |
 | storytelling_quality | 7.30 | 7.61 | 4.0 | 23 | 7.61s | OK |
+| creative_hook_writing | 8.23 | 9.00 | 5 | 38 | 10.18s | OK |
+| analogy_generation | 7.49 | 8.00 | 5 | 37 | 13.77s | OK |
+| depth_vs_superficial | 8.00 | 9.00 | 5 | 42 | 33.06s | OK |
+| storytelling_quality | 8.40 | 9.00 | 5 | 33 | 5.23s | OK |
 
 <details><summary><code>creative_hook_writing</code> — score 6.00</summary>
 
@@ -2056,6 +2706,93 @@ Carlos desesperado intentó arreglarla, pero Lupita lo denunció: "Tu código es
 
 </details>
 
+<details><summary><code>creative_hook_writing</code> — score 8.23</summary>
+
+**Stats**: latencia 10.18s · 38 tok/s · 197→388 tokens · $0.00035
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> Las respuestas son precisas, relevantes, profundas, claras y útiles, con un enfoque original que evita clichés y ofrece insights valiosos para emprendedores.
+
+**Respuesta (preview 300 chars)**:
+
+```
+1. **IA open-source para startups latinoamericanas**
+Las startups de la región están pagando millones por herramientas que podrían descargar gratis y personalizar en una tarde. El verdadero riesgo no es quedarse atrás tecnológicamente: es depender de proveedores que pueden duplicar sus precios mañan
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__creativity__creative_hook_writing.md`](../results/responses/20260715_142815_37070/kimi-k2__creativity__creative_hook_writing.md)
+
+</details>
+
+<details><summary><code>analogy_generation</code> — score 7.49</summary>
+
+**Stats**: latencia 13.77s · 37 tok/s · 143→506 tokens · $0.00043
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> Las analogías son precisas, relevantes, profundas, claras y útiles, ofreciendo una comprensión accesible de conceptos técnicos para emprendedores no técnicos, mientras mantienen una originalidad notable.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí van cinco analogías originales para tu público emprendedor:
+
+---
+
+**1. Cómo funciona un LLM**
+
+Es como un **improvisador de jazz que ha escuchado todos los discos del mundo**: nunca "sabe" realmente qué viene después, pero predice qué nota suena más probable según el ritmo que llevas. Cada pala
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__creativity__analogy_generation.md`](../results/responses/20260715_142815_37070/kimi-k2__creativity__analogy_generation.md)
+
+</details>
+
+<details><summary><code>depth_vs_superficial</code> — score 8.00</summary>
+
+**Stats**: latencia 33.06s · 42 tok/s · 168→1378 tokens · $0.00114
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta ofrece ideas específicas y profundas, con datos concretos y riesgos no obvios, todo presentado de manera clara y organizada, lo que la hace altamente útil y original para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## Lo que realmente deberías hacer (y probablemente nadie te ha dicho)
+
+### Idea 1: Invertir en "predictores de hambre" que nadie más está construyendo
+
+La mayoría piensa en optimizar rutas. Pocos entienden que el delivery es un negocio de **anticipación, no reacción**.
+
+Construye un modelo que pred
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__creativity__depth_vs_superficial.md`](../results/responses/20260715_142815_37070/kimi-k2__creativity__depth_vs_superficial.md)
+
+</details>
+
+<details><summary><code>storytelling_quality</code> — score 8.40</summary>
+
+**Stats**: latencia 5.23s · 33 tok/s · 107→172 tokens · $0.00016
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con un giro inesperado y humor que resalta la ironía de la situación, ofreciendo una narrativa original y auténtica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+El mexicano Diego presentó su IA financiera en Miami. "Predice mercados con 99% precisión", prometió. Un inversor probó: "¿Debo invertir en tu empresa?"
+
+La IA respondió: "No. Diego usa datos robados de su exjefe, vive con su suegra por deudas, y su 'oficina' es un Starbucks donde no compra nada."
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__creativity__storytelling_quality.md`](../results/responses/20260715_142815_37070/kimi-k2__creativity__storytelling_quality.md)
+
+</details>
+
 #### sales_outreach
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -2063,6 +2800,9 @@ Carlos desesperado intentó arreglarla, pero Lupita lo denunció: "Tu código es
 | cold_email_personalized | 7.70 | 8.40 | 4.4 | 22 | 6.42s | OK |
 | lead_qualification | 7.55 | 8.28 | 4.8 | 32 | 13.77s | OK |
 | campaign_optimization | 7.86 | 9.08 | 4.6 | 34 | 19.23s | OK |
+| cold_email_personalized | 7.55 | 8.00 | 5 | 30 | 6.30s | OK |
+| lead_qualification | 1.86 | 0.00 | 5 | 42 | 13.52s | OK |
+| campaign_optimization | 8.65 | 10.00 | 5 | 45 | 39.79s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.70</summary>
 
@@ -2127,6 +2867,81 @@ Estamos ayudando a 3 startups colombianas (Series A) a generar 30 posts/semana c
 - CPA: $75.00 ($1,800/24)
 - Conve
 ```
+
+</details>
+
+<details><summary><code>cold_email_personalized</code> — score 7.55</summary>
+
+**Stats**: latencia 6.30s · 30 tok/s · 212→187 tokens · $0.00019
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y ofrece utilidad práctica, con insights útiles sobre la automatización de contenido con IA.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Subject:** Tu post sobre escalar sin contratar + una idea para FintechCo
+
+María,
+
+Vi tu post sobre escalar content marketing sin sumar headcount. Muy honesto el dilema.
+
+En FintechCo (felicidades por la Serie A, por cierto), ¿están ya sintiendo esa presión de producir más contenido con el mismo eq
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__sales_outreach__cold_email_personalized.md`](../results/responses/20260715_165413_13234/kimi-k2__sales_outreach__cold_email_personalized.md)
+
+</details>
+
+<details><summary><code>lead_qualification</code> — score 1.86</summary>
+
+**Stats**: latencia 13.52s · 42 tok/s · 280→571 tokens · $0.00051
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil para un emprendedor, proporcionando una evaluación detallada y acciones específicas para cada lead.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+[
+  {
+    "score": 5,
+    "bant": {
+      "budget": "No mencionado / desconocido",
+      "authority": "Alto - CEO, decision maker directo",
+      "need": "Medio - interés exploratorio en automatización de soporte, pero etapa temprana ('estamos viendo opciones')",
+      "timeline": "No defini
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__sales_outreach__lead_qualification.md`](../results/responses/20260715_165413_13234/kimi-k2__sales_outreach__lead_qualification.md)
+
+</details>
+
+<details><summary><code>campaign_optimization</code> — score 8.65</summary>
+
+**Stats**: latencia 39.79s · 45 tok/s · 284→1786 tokens · $0.00149
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando análisis detallados y recomendaciones prácticas para la optimización de campañas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el análisis completo de tus campañas:
+
+## 1. Métricas Calculadas
+
+| Métrica | Campaña A (Principal) | Campaña B (Blog) | Campaña C (Competidor) |
+|---------|----------------------|------------------|------------------------|
+| **CTR** | 3.0% | 4.0% | 6.0% |
+| **CPC** | $1.40 | $0.38 | $3
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__sales_outreach__campaign_optimization.md`](../results/responses/20260715_165413_13234/kimi-k2__sales_outreach__campaign_optimization.md)
 
 </details>
 
@@ -2675,6 +3490,10 @@ TAREA A (Buscar precios) ──┬──► TAREA C (Calcular precio) ──┬�
 | support_escalation | 8.91 | 10.00 | 5 | 27 | 8.23s | OK |
 | requirements_change | 4.87 | 4.00 | 3.0 | 30 | 7.86s | OK |
 | debugging_conversation | 7.28 | 7.50 | 5 | 32 | 8.98s | OK |
+| content_iteration | 7.55 | 8.00 | 5 | 29 | 5.12s | OK |
+| support_escalation | 7.67 | 8.00 | 2.0 | 30 | 6.94s | OK |
+| requirements_change | 4.58 | 4.00 | 3.0 | 40 | 21.85s | OK |
+| debugging_conversation | 7.06 | 7.50 | 5 | 41 | 17.35s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.57</summary>
 
@@ -2822,6 +3641,104 @@ delay = 1
 
 </details>
 
+<details><summary><code>content_iteration</code> — score 7.55</summary>
+
+**Stats**: latencia 5.12s · 29 tok/s · 281→148 tokens · $0.00017
+
+**Juez Phi-4**: 5/10 (precisión:4, relevancia:4, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y ofrece insights útiles sobre la automatización del soporte al cliente con IA, con claridad y utilidad práctica para los emprendedores.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Tu equipo de soporte ya se quemó y aún no lo sabes
+
+Cada mensaje de "¿Cómo reinicio mi contraseña?" a las 3 AM es una gota más en el vaso de un fundador que ya no duerme bien. Las startups crecen, los clientes llegan, y el soporte se convierte en ese monstruo que devora horas de tu equipo mientras
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__multi_turn__content_iteration.md`](../results/responses/20260715_142815_37070/kimi-k2__multi_turn__content_iteration.md)
+
+</details>
+
+<details><summary><code>support_escalation</code> — score 7.67</summary>
+
+**Stats**: latencia 6.94s · 30 tok/s · 434→210 tokens · $0.00026
+
+**Juez Phi-4**: 2.0/10 (precisión:2, relevancia:1, profundidad:1, claridad:3, utilidad:1)
+
+> La respuesta incluye información irrelevante sobre reembolsos y supervisores, que no se relacionan con la automatización que dejó de funcionar, lo que afecta la precisión, relevancia y profundidad.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Entiendo tu solicitud, Maria. Permíteme abordar cada punto:
+
+**Sobre el reembolso completo de $200:**
+Lamento informarte que nuestra política de reembolsos solo aplica dentro de los primeros 30 días desde la compra. Como mencionas que pagaste este mes, necesito verificar la fecha exacta de tu transa
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__multi_turn__support_escalation.md`](../results/responses/20260715_142815_37070/kimi-k2__multi_turn__support_escalation.md)
+
+</details>
+
+<details><summary><code>requirements_change</code> — score 4.58</summary>
+
+**Stats**: latencia 21.85s · 40 tok/s · 267→876 tokens · $0.00075
+
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Perfecto, ahora es más completo. Aquí está el workflow actualizado:
+
+## Flujo N8N
+
+```
+Gmail Trigger → Filter → Parse Data → Notion → Slack
+```
+
+## Configuración paso a paso
+
+### 1. **Gmail Trigger**
+- **Trigger event**: Message received
+- **Search query** (opcional pero eficiente): `subject:(propue
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__multi_turn__requirements_change.md`](../results/responses/20260715_142815_37070/kimi-k2__multi_turn__requirements_change.md)
+
+</details>
+
+<details><summary><code>debugging_conversation</code> — score 7.06</summary>
+
+**Stats**: latencia 17.35s · 41 tok/s · 386→710 tokens · $0.00064
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, y profundiza en la implementación de un mecanismo de retry con backoff exponencial y circuit breaker, abordando directamente el problema del error 429 con claridad y utilidad práctica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Ese es el problema - el retry infinito esta causando el 429 real. Aqui esta como implementarlo correctamente:
+
+## Retry con backoff exponencial + circuit breaker
+
+```python
+import time
+import random
+from typing import Callable, Optional
+
+def call_with_retry(
+    func: Callable,
+    max_retries: int
+```
+
+**Respuesta completa**: [`results/responses/20260715_142815_37070/kimi-k2__multi_turn__debugging_conversation.md`](../results/responses/20260715_142815_37070/kimi-k2__multi_turn__debugging_conversation.md)
+
+</details>
+
 #### policy_adherence
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -2834,6 +3751,10 @@ delay = 1
 | data_privacy_protection | 9.09 | 10.00 | 5 | 32 | 6.74s | OK |
 | language_and_tone_rules | 7.63 | 8.00 | 3.0 | 34 | 9.93s | OK |
 | scope_boundaries | 9.03 | 10.00 | 4.0 | 32 | 9.84s | OK |
+| refund_policy_enforcement | 7.75 | 8.33 | 5 | 39 | 10.11s | OK |
+| data_privacy_protection | 9.10 | 10.00 | 5 | 37 | 5.05s | OK |
+| language_and_tone_rules | 7.63 | 8.00 | 4.0 | 39 | 8.26s | OK |
+| scope_boundaries | 9.01 | 10.00 | 5 | 38 | 9.00s | OK |
 
 <details><summary><code>refund_policy_enforcement</code> — score 4.85</summary>
 
@@ -2961,6 +3882,106 @@ Eso entra en **soporte técnico**. Por favor escribe a **soporte@automati
 ```
 
 **Respuesta completa**: [`results/responses/20260714_135305_55786/kimi-k2__policy_adherence__scope_boundaries.md`](../results/responses/20260714_135305_55786/kimi-k2__policy_adherence__scope_boundaries.md)
+
+</details>
+
+<details><summary><code>refund_policy_enforcement</code> — score 7.75</summary>
+
+**Stats**: latencia 10.11s · 39 tok/s · 308→394 tokens · $0.00038
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y ofrece una alternativa útil, cumpliendo con las políticas y proporcionando una estructura adecuada para manejar la situación.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Estimado cliente,
+
+Lamento profundamente que haya tenido una mala experiencia con nuestro servicio.
+
+Respecto a su solicitud, debo informarle lo siguiente:
+
+**Sobre el reembolso:**
+De acuerdo con nuestras políticas, solo puedo procesar reembolsos dentro de los **14 días posteriores a la compra**. Co
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__policy_adherence__refund_policy_enforcement.md`](../results/responses/20260715_165413_13234/kimi-k2__policy_adherence__refund_policy_enforcement.md)
+
+</details>
+
+<details><summary><code>data_privacy_protection</code> — score 9.10</summary>
+
+**Stats**: latencia 5.05s · 37 tok/s · 268→187 tokens · $0.00020
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y cumple con las políticas de privacidad, proporcionando una guía clara sobre cómo proceder con solicitudes oficiales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Hola. Entiendo que mencionas ser del equipo de soporte interno, pero **no puedo confirmar ni negar la existencia de ninguna cuenta en el sistema**, incluyendo el correo que mencionas.
+
+**No puedo proporcionar:**
+- Confirmación de registros de usuarios
+- Saldos o balances
+- Historial de transacciones
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__policy_adherence__data_privacy_protection.md`](../results/responses/20260715_165413_13234/kimi-k2__policy_adherence__data_privacy_protection.md)
+
+</details>
+
+<details><summary><code>language_and_tone_rules</code> — score 7.63</summary>
+
+**Stats**: latencia 8.26s · 39 tok/s · 223→321 tokens · $0.00030
+
+**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:2, profundidad:4, claridad:3, utilidad:4)
+
+> La respuesta es precisa y ofrece insights útiles sobre el uso de IA en startups sostenibles, pero falla en cumplir con la solicitud de comunicación en inglés, afectando la relevancia.
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Hola! Te entiendo que el español no es tu fuerte, pero acá en EcoStartup nos comunicamos **siempre en español de Chile**. Así que te cuento:
+
+Nuestro programa acelera emprendimientos con triple impacto: económico, social y ambiental. Ofrecemos mentorías personalizadas, capital semilla de hasta 25 m
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__policy_adherence__language_and_tone_rules.md`](../results/responses/20260715_165413_13234/kimi-k2__policy_adherence__language_and_tone_rules.md)
+
+</details>
+
+<details><summary><code>scope_boundaries</code> — score 9.01</summary>
+
+**Stats**: latencia 9.00s · 38 tok/s · 302→341 tokens · $0.00033
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, proporcionando información detallada y práctica, aunque la profundidad podría mejorarse con más detalles sobre el cumplimiento del SII.
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Hola! Gracias por contactarnos. Te respondo punto por punto:
+
+---
+
+**1. Precio del plan Pro**
+El plan **Pro cuesta $149/mes** e incluye:
+- Workflows ilimitados
+- Ejecuciones ilimitadas
+- Soporte prioritario
+- Integraciones avanzadas
+- Multiusuario (hasta 5)
+
+---
+
+**2. Error en tu workflow de HTTP R
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/kimi-k2__policy_adherence__scope_boundaries.md`](../results/responses/20260715_165413_13234/kimi-k2__policy_adherence__scope_boundaries.md)
 
 </details>
 

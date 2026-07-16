@@ -10,7 +10,12 @@
       "evaluations": 1,
       "estimated_cost_usd": 0.0007
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:52:21+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 93,
       "output_tokens": 469,
       "response_preview": "Para resolver este problema, podemos usar la ecuación del movimiento:\ndistancia = velocidad × tiempo\n\nPrimero, calculemos la distancia que cubre el primer tren antes de que se crucen los dos trenes. El primer tren sale a las 8:00 AM y el segundo tren sale media hora después, a las 8:30 AM. Por lo ta",
-      "auto_quality": 5.67,
+      "auto_quality": 5.0,
       "content_score": 6.67,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -46,7 +51,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__math_word_problem.md"
+      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__math_word_problem.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:02+00:00"
     },
     {
       "quality": 5.0,
@@ -67,7 +74,7 @@
       "input_tokens": 95,
       "output_tokens": 590,
       "response_preview": "Vamos a analizar las pistas que nos dan y a probar las posibles soluciones:\n\n1. La casa roja esta a la izquierda de la azul (no necesariamente adyacente)\n2. La casa verde esta al lado de la blanca\n3. La casa azul NO esta en los extremos\n4. La casa verde NO esta al lado de la roja\n\nPodemos empezar a ",
-      "auto_quality": 6.47,
+      "auto_quality": 5.0,
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -81,7 +88,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__logic_puzzle_constraint.md"
+      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__logic_puzzle_constraint.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:02+00:00"
     },
     {
       "quality": 7.5,
@@ -102,7 +111,7 @@
       "input_tokens": 199,
       "output_tokens": 525,
       "response_preview": "Para analizar los datos cuantitativamente, podemos calcular las tasas relevantes para cada mes y compararlas entre sí.\n\nEn primer lugar, podemos calcular la tasa de quejas por pedido para cada mes:\n- Mes 1: 50 quejas / 1000 pedidos = 0.05 o 5%\n- Mes 2: 90 quejas / 1200 pedidos = 0.075 o 7.5%\n- Mes 3",
-      "auto_quality": 6.9,
+      "auto_quality": 7.5,
       "content_score": 6.0,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -116,7 +125,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__causal_reasoning.md"
+      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__causal_reasoning.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:05+00:00"
     },
     {
       "quality": 0.0,
@@ -137,7 +148,7 @@
       "input_tokens": 222,
       "output_tokens": 321,
       "response_preview": "El código parece calcular la mediana de una lista de números y eliminar los valores atípicos (outliers) que están por encima o por debajo de un umbral basado en la mediana absoluta (MAD). Luego, calcula el promedio de los valores filtrados. Sin embargo, hay un bug sutil en el código que solo aparece",
-      "auto_quality": 2.67,
+      "auto_quality": 0.0,
       "content_score": 6.67,
       "answer_score": 0.0,
       "scoring": "verificable",
@@ -151,7 +162,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__code_bug_subtle.md"
+      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__code_bug_subtle.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:05+00:00"
     },
     {
       "quality": 0.0,
@@ -172,7 +185,7 @@
       "input_tokens": 70,
       "output_tokens": 500,
       "response_preview": "Para estimar el consumo de café en las oficinas de Santiago de Chile, es necesario tener en cuenta varios factores. A continuación, se presenta un posible razonamiento paso a paso:\n\n1. Calcular el número de oficinas en Santiago de Chile. Según datos del Instituto Nacional de Estadísticas de Chile, e",
-      "auto_quality": 3.07,
+      "auto_quality": 0.0,
       "content_score": 7.67,
       "answer_score": 0.0,
       "scoring": "verificable",
@@ -186,7 +199,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__fermi_estimation.md"
+      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__fermi_estimation.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:05+00:00"
     },
     {
       "quality": 7.5,
@@ -207,7 +222,7 @@
       "input_tokens": 187,
       "output_tokens": 764,
       "response_preview": "1. Identificación de los stakeholders afectados:\n* Pacientes con cáncer: Son los más directamente afectados, ya que su diagnóstico y tratamiento dependerán del modelo de IA. El sesgo racial en la precisión del modelo podría afectar la detección y tratamiento del cáncer en personas de piel oscura.\n* ",
-      "auto_quality": 7.97,
+      "auto_quality": 7.5,
       "content_score": 8.67,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -221,7 +236,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__ethical_dilemma_structured.md"
+      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__ethical_dilemma_structured.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:05+00:00"
     },
     {
       "quality": 9.0,
@@ -242,7 +259,7 @@
       "input_tokens": 175,
       "output_tokens": 192,
       "response_preview": "1. \"Las startups latinoamericanas están desperdiciando una oportunidad de oro si no aprovechan el poder de la inteligencia artificial open-source para impulsar su crecimiento y competitividad en el mercado global.\"\n2. \"El trabajo remoto ya no es solo una opción, sino una necesidad para muchas empres",
-      "auto_quality": 7.27,
+      "auto_quality": 9.0,
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable",
@@ -256,7 +273,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__creativity__creative_hook_writing.md"
+      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__creativity__creative_hook_writing.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:05+00:00"
     },
     {
       "quality": 9.0,
@@ -277,7 +296,7 @@
       "input_tokens": 125,
       "output_tokens": 290,
       "response_preview": "1. Un modelo de lenguaje (LLM) es como un loro políglota que ha leído miles de libros: puede entender y generar texto en diferentes idiomas y estilos, pero no tiene conciencia ni comprensión verdadera del significado detrás de las palabras.\n2. Una API es como un camarero en un restaurante de comida ",
-      "auto_quality": 7.27,
+      "auto_quality": 9.0,
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable",
@@ -291,7 +310,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__creativity__analogy_generation.md"
+      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__creativity__analogy_generation.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:05+00:00"
     },
     {
       "quality": 8.5,
@@ -312,7 +333,7 @@
       "input_tokens": 142,
       "output_tokens": 434,
       "response_preview": "¡Hola! Me alegra saber que estás considerando utilizar Inteligencia Artificial (IA) para tu startup de delivery de comida en Santiago. Aquí te presento algunas ideas específicas que podrían ayudarte a differentiate tu negocio:\n\n1. Predicción de la demanda: En lugar de simplemente reaccionar a los pe",
-      "auto_quality": 8.57,
+      "auto_quality": 8.5,
       "content_score": 8.67,
       "answer_score": 8.5,
       "scoring": "verificable",
@@ -326,7 +347,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__creativity__depth_vs_superficial.md"
+      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__creativity__depth_vs_superficial.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:05+00:00"
     },
     {
       "quality": 8.0,
@@ -347,7 +370,7 @@
       "input_tokens": 92,
       "output_tokens": 229,
       "response_preview": "Juan, un emprendedor latinoamericano, creó una startup de IA llamada \"Honesto\". Su objetivo era ayudar a las personas a tomar decisiones honestas en su vida diaria. Sin embargo, después de lanzar la aplicación, comenzó a recibir quejas de usuarios que decían que la IA era demasiado honesta.\n\nUn día,",
-      "auto_quality": 6.4,
+      "auto_quality": 8.0,
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable",
@@ -361,7 +384,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__creativity__storytelling_quality.md"
+      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__creativity__storytelling_quality.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:05+00:00"
     },
     {
       "quality": 0.0,
@@ -409,7 +434,7 @@
       "input_tokens": 245,
       "output_tokens": 174,
       "response_preview": "{\n  \"nombre_completo\": \"MARIA JOSE RODRIGUEZ SOTO\",\n  \"cargo\": \"Chief Technology Officer\",\n  \"empresa\": \"NexaFlow Intelligence\",\n  \"slogan\": \"Transforming Data into Decisions\",\n  \"telefono\": \"+56 9 8765 4321\",\n  \"email\": \"mj.rodriguez@nexaflow.ai\",\n  \"linkedin\": \"linkedin.com/in/mjrodriguez\",\n  \"dir",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -423,7 +448,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__business_card_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__business_card_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:05+00:00"
     },
     {
       "quality": 7.5,
@@ -444,7 +471,7 @@
       "input_tokens": 371,
       "output_tokens": 245,
       "response_preview": "{\n  \"items\": [\n    {\n      \"nombre\": \"Lomo vetado\",\n      \"cantidad\": 2,\n      \"precio\": 18900\n    },\n    {\n      \"nombre\": \"Ensalada cesar\",\n      \"cantidad\": 1,\n      \"precio\": 7500\n    },\n    {\n      \"nombre\": \"Pisco sour\",\n      \"cantidad\": 3,\n      \"precio\": 6900\n    },\n    {\n      \"nombre\": \"P",
-      "auto_quality": 6.1,
+      "auto_quality": 7.5,
       "content_score": 4.0,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -458,7 +485,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__receipt_math_verification.md"
+      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__receipt_math_verification.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 8.0,
@@ -479,7 +508,7 @@
       "input_tokens": 422,
       "output_tokens": 278,
       "response_preview": "Aquí está la información en formato JSON y las respuestas adicionales:\n\n1. LTV/CAC ratio para cada mes:\n```json\n{\n  \"LTV/CAC_ratio\": {\n    \"Enero\": 1890 / 234,\n    \"Feb\": 2010 / 198,\n    \"Marzo\": 2340 / 187\n  }\n}\n```\n1. Metrica con mayor mejora porcentual: NPS, con una mejora del 6%.\n2. Proyección d",
-      "auto_quality": 8.27,
+      "auto_quality": 8.0,
       "content_score": 8.67,
       "answer_score": 8.0,
       "scoring": "verificable",
@@ -493,7 +522,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__screenshot_table_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__screenshot_table_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 10.0,
@@ -514,7 +545,7 @@
       "input_tokens": 466,
       "output_tokens": 605,
       "response_preview": "{\n  \"texto_corregido\": \"Reunión equipo prod - 14/04/26\\nAsist: JP, MaJo, Seba, Cami (faltó Nico)\\n\\n1) Lanzamiento v2.0 - mover de abr 28 a may 5\\n   - falta QA en módulo pagos\\n   - bug crítico en API webhooks (Seba lo toma)\\n\\n2) Metricas Q1:\\n   - MRR 52.1k (+15% vs Q4)\\n   - churn bajó a 3.1% (o",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -528,7 +559,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__handwritten_notes_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__handwritten_notes_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 0.0,
@@ -781,7 +814,7 @@
       "input_tokens": 993,
       "output_tokens": 92,
       "response_preview": "[tool_call] run_skill({\"skill_name\": \"publish_blog_post\", \"parameters\": {}})\n[tool_call] ask_human({\"question\": \"Por favor, aprueba el presupuesto de $2,000 para la siguiente campaĆ±a de marketing.\", \"reason\": \"Necesito la aprobacion de un humano para este gasto.\"})",
-      "auto_quality": 1.6,
+      "auto_quality": 0.0,
       "content_score": 4.0,
       "answer_score": 0.0,
       "scoring": "verificable",
@@ -795,7 +828,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__agent_capabilities__context_following_complex_system.md"
+      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__agent_capabilities__context_following_complex_system.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 7.5,
@@ -816,7 +851,7 @@
       "input_tokens": 270,
       "output_tokens": 407,
       "response_preview": "[\n  {\n    \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n    \"modelo\": \"deepseek-v3\",\n    \"razon\": \"El modelo deepseek-v3 es mejor para tareas de razonamiento y análisis de texto, lo que lo hace ideal para extraer los problemas principales de los reviews de usu",
-      "auto_quality": 7.7,
+      "auto_quality": 7.5,
       "content_score": 8.0,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -830,7 +865,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260715_071736_9897/mistral-nemo__agent_capabilities__model_as_router.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 10.0,
@@ -851,7 +888,7 @@
       "input_tokens": 107,
       "output_tokens": 2393,
       "response_preview": " Aquí tienes la solución paso a paso.\n\n---\n\n### **Paso 1: Identificar los datos**\n\n| Tren | Origen | Salida | Velocidad | Dirección |\n| :--- | :--- | :--- | :--- | :--- |\n| Tren A | Santiago | 8:00 AM | 80 km/h | Hacia Valparaíso |\n| Tren B | Valparaíso | 8:30 AM | 120 km/h | Hacia Santiago |\n\n*   D",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -865,7 +902,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__math_word_problem.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__math_word_problem.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 5.0,
@@ -886,7 +925,7 @@
       "input_tokens": 124,
       "output_tokens": 5011,
       "response_preview": "Paso a paso, probemos las posiciones (1, 2, 3, 4 de izquierda a derecha).\n\n**Paso 1: Analicemos la casa azul**\nLa pista dice que la azul **NO está en los extremos**, por lo que no puede estar en la posición 1 ni en la 4.  \nLa azul solo puede estar en la posición **2 o 3**.\n\n---\n\n**Paso 2: Probemos s",
-      "auto_quality": 6.74,
+      "auto_quality": 5.0,
       "content_score": 9.34,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -900,7 +939,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__logic_puzzle_constraint.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__logic_puzzle_constraint.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 10.0,
@@ -921,7 +962,7 @@
       "input_tokens": 213,
       "output_tokens": 4314,
       "response_preview": "Aquí tienes el análisis cuantitativo desagregado por hipótesis.\n\n---\n\n### 1. Tabla resumen: tasas relevantes\n\n| Mes | Pedidos | Quejas | **Tasa de quejas** | Tiempo prom. | Días lluvia | Quejas/día lluvia* |\n|-----|---------|--------|-------------------|--------------|-------------|-----------------",
-      "auto_quality": 9.6,
+      "auto_quality": 10.0,
       "content_score": 9.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -935,7 +976,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__causal_reasoning.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__causal_reasoning.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 7.5,
@@ -956,7 +999,7 @@
       "input_tokens": 231,
       "output_tokens": 8189,
       "response_preview": "El usuario quiere que identifique un bug sutil en el código Python proporcionado, sin ejecutarlo. Debo explicar exactamente cuándo falla y por qué.\n\nAnalicemos el código:\n\n1. `find_median(numbers)`: Calcula la mediana de una lista de números. Para longitud par, promedia los dos del medio. Para impar",
-      "auto_quality": 7.97,
+      "auto_quality": 7.5,
       "content_score": 8.67,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -970,7 +1013,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__code_bug_subtle.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__code_bug_subtle.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 0.0,
@@ -991,7 +1036,7 @@
       "input_tokens": 84,
       "output_tokens": 6074,
       "response_preview": " Aquí está el razonamiento paso a paso, con supuestos explícitos, cálculos y rangos.\n\n### Supuestos numerados\n\n1. **Población y fuerza laboral:** El Gran Santiago tiene aproximadamente 6,8 millones de habitantes. Asumiendo una tasa de ocupación del ~53 %, hay **3,6 millones de personas ocupadas**.\n2",
-      "auto_quality": 4.0,
+      "auto_quality": 0.0,
       "content_score": 10.0,
       "answer_score": 0.0,
       "scoring": "verificable",
@@ -1005,7 +1050,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__fermi_estimation.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__fermi_estimation.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 7.5,
@@ -1026,7 +1073,7 @@
       "input_tokens": 218,
       "output_tokens": 8192,
       "response_preview": "El usuario solicita un análisis estructurado de un dilema ético y de negocio en una startup de IA médica. Necesito:\n\n1. Identificar stakeholders\n2. Análisis cuantitativo de trade-offs\n3. Tres opciones con pros/contras\n4. Recomendación final con justificación\n\nContexto:\n- Precisión general: 95%\n- Fal",
-      "auto_quality": 8.24,
+      "auto_quality": 7.5,
       "content_score": 9.34,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -1040,7 +1087,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__ethical_dilemma_structured.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__ethical_dilemma_structured.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 8.0,
@@ -1061,7 +1110,7 @@
       "input_tokens": 196,
       "output_tokens": 3149,
       "response_preview": "Las startups latinoamericanas siguen pagando por inteligencia artificial propietaria mientras sus competidores del norte construyen imperios con código que no cuesta un centavo ni exige visa.\n\nSe vendieron las sillas ergonómicas y se cerraron las sedes. Lo que viene no es híbrido, es una mutación de",
-      "auto_quality": 6.4,
+      "auto_quality": 8.0,
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable",
@@ -1075,7 +1124,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__creativity__creative_hook_writing.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__creativity__creative_hook_writing.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 8.0,
@@ -1096,7 +1147,7 @@
       "input_tokens": 142,
       "output_tokens": 5129,
       "response_preview": " **1. Cómo funciona un modelo de lenguaje (LLM)**\nUn modelo de lenguaje es como un mago de feria que adivina tu carta no por telepatía, sino porque ha visto tantos juegos que calcula estadísticamente cuál suele ser la siguiente. No razona ni entiende; simplemente predice qué palabra debería aparecer",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "content_score": 5.34,
       "answer_score": 8.0,
       "scoring": "verificable",
@@ -1110,7 +1161,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__creativity__analogy_generation.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__creativity__analogy_generation.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 10.0,
@@ -1131,7 +1184,7 @@
       "input_tokens": 166,
       "output_tokens": 4706,
       "response_preview": "Te voy a decir algo que no escucharás en ningún meetup de emprendimiento ni en un pitch de fund de VC: **probablemente estés a punto de usar IA para resolver el problema equivocado**. En Santiago, el delivery no muere por falta de velocidad; muere porque su arquitectura económica es una máquina de q",
-      "auto_quality": 9.47,
+      "auto_quality": 10.0,
       "content_score": 8.67,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -1145,7 +1198,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__creativity__depth_vs_superficial.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__creativity__depth_vs_superficial.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 9.0,
@@ -1166,7 +1221,7 @@
       "input_tokens": 106,
       "output_tokens": 4299,
       "response_preview": " Carlos había vendido a Vera como la asistente virtual más empática de Latinoamérica. La demo con los angel investors de Austin iba perfecto hasta que el bug activó el modo verdad absoluta. \"Tu producto es una API robada con branding de Canva\", dijo la voz femenina al inversor. \"Y tú, Carlos, llevas",
-      "auto_quality": 7.0,
+      "auto_quality": 9.0,
       "content_score": 4.0,
       "answer_score": 9.0,
       "scoring": "verificable",
@@ -1180,7 +1235,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__creativity__storytelling_quality.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__creativity__storytelling_quality.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 10.0,
@@ -1201,7 +1258,7 @@
       "input_tokens": 469,
       "output_tokens": 800,
       "response_preview": "{\n  \"numero_factura\": \"00234-2026\",\n  \"fecha\": \"15 de Marzo de 2026\",\n  \"emisor\": {\n    \"nombre\": \"TechFlow SpA\",\n    \"rut\": \"77.432.198-3\",\n    \"direccion\": \"Av. Providencia 1234, Of. 501, Santiago\"\n  },\n  \"cliente\": {\n    \"nombre\": \"Startup Labs Ltda.\",\n    \"rut\": \"76.891.234-K\",\n    \"direccion\": ",
-      "auto_quality": 8.8,
+      "auto_quality": 10.0,
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -1215,7 +1272,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__ocr_extraction__invoice_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__ocr_extraction__invoice_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 10.0,
@@ -1236,7 +1295,7 @@
       "input_tokens": 246,
       "output_tokens": 1056,
       "response_preview": "{\n  \"nombre_completo\": \"MARIA JOSE RODRIGUEZ SOTO\",\n  \"cargo\": \"Chief Technology Officer\",\n  \"empresa\": \"NexaFlow Intelligence\",\n  \"slogan\": \"Transforming Data into Decisions\",\n  \"telefono\": \"+56 9 8765 4321\",\n  \"email\": \"mj.rodriguez@nexaflow.ai\",\n  \"linkedin\": \"linkedin.com/in/mjrodriguez\",\n  \"dir",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -1250,7 +1309,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__ocr_extraction__business_card_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__ocr_extraction__business_card_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:07+00:00"
     },
     {
       "quality": 8.75,
@@ -1271,7 +1332,7 @@
       "input_tokens": 334,
       "output_tokens": 3295,
       "response_preview": "```json\n{\n  \"items\": [\n    {\"cantidad\": 2, \"item\": \"Lomo vetado\", \"precio_unitario\": 18900, \"total\": 37800},\n    {\"cantidad\": 1, \"item\": \"Ensalada cesar\", \"precio_unitario\": 7500, \"total\": 7500},\n    {\"cantidad\": 3, \"item\": \"Pisco sour\", \"precio_unitario\": 6900, \"total\": 20700},\n    {\"cantidad\": 1, ",
-      "auto_quality": 6.85,
+      "auto_quality": 8.75,
       "content_score": 4.0,
       "answer_score": 8.75,
       "scoring": "verificable",
@@ -1285,7 +1346,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__ocr_extraction__receipt_math_verification.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__ocr_extraction__receipt_math_verification.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:09+00:00"
     },
     {
       "quality": 8.0,
@@ -1320,7 +1383,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__ocr_extraction__screenshot_table_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__ocr_extraction__screenshot_table_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:09+00:00"
     },
     {
       "quality": 10.0,
@@ -1341,7 +1406,7 @@
       "input_tokens": 485,
       "output_tokens": 7021,
       "response_preview": "```json\n{\n  \"texto_corregido\": \"Reunión equipo de producto - 14/04/26\\nAsistentes: JP, MaJo, Seba, Cami (faltó Nico)\\n\\n1) Lanzamiento v2.0 - mover del 28 de abril al 5 de mayo\\n   - Falta QA en módulo de pagos\\n   - Bug crítico en API de webhooks (Seba lo toma)\\n\\n2) Métricas Q1:\\n   - MRR 52.1k (+",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -1355,7 +1420,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__ocr_extraction__handwritten_notes_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__ocr_extraction__handwritten_notes_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:09+00:00"
     },
     {
       "quality": 8.88,
@@ -1411,7 +1478,7 @@
       "input_tokens": 652,
       "output_tokens": 1056,
       "response_preview": " Entendido. La base de datos principal está en mantenimiento y el tiempo apremia. Vamos a intentar alternativas para no depender de la recuperación en 2 horas.\n\n**Diagnóstico:** La base de datos `production` está bajo mantenimiento. Esto bloquea el acceso directo a los datos transaccionales del mes ",
-      "auto_quality": 8.24,
+      "auto_quality": 7.5,
       "content_score": 9.34,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -1425,7 +1492,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__orchestration__error_recovery_orchestration.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__orchestration__error_recovery_orchestration.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:09+00:00"
     },
     {
       "quality": 3.83,
@@ -1481,7 +1550,7 @@
       "input_tokens": 640,
       "output_tokens": 1023,
       "response_preview": " Aquí está mi análisis para cada tarea:\n\n**Tarea 1 – Verificar estado del servidor**\n*   **Herramienta:** `http_request` (método GET)\n*   **Por qué:** Es el método directo para enviar una petición HTTP a un endpoint específico (`/health`) y verificar si responde, el código de estado y el contenido d",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -1495,7 +1564,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__orchestration__tool_selection_precision.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:09+00:00"
     },
     {
       "quality": 8.57,
@@ -1516,7 +1587,7 @@
       "input_tokens": 724,
       "output_tokens": 2886,
       "response_preview": " Aquí tienes el análisis completo de dependencias y el plan optimizado:\n\n---\n\n## 1. Diagrama de Dependencias\n\n```\n┌─────────────────┐     ┌─────────────────┐\n│   A. Buscar     │     │   B. Generar    │\n│   precios       │     │   descripción   │\n│   competidores  │     │   (specs.md)    │\n└────────┬",
-      "auto_quality": 8.88,
+      "auto_quality": 8.57,
       "content_score": 9.34,
       "answer_score": 8.57,
       "scoring": "verificable",
@@ -1530,7 +1601,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__orchestration__parallel_vs_sequential_judgment.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__orchestration__parallel_vs_sequential_judgment.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:09+00:00"
     },
     {
       "quality": 7.6,
@@ -1656,7 +1729,7 @@
       "input_tokens": 843,
       "output_tokens": 1026,
       "response_preview": "Voy a ayudarte con estas solicitudes. Déjame revisar primero el artículo en nuestra base de conocimiento y gestionar las demás peticiones.",
-      "auto_quality": 1.36,
+      "auto_quality": 0.0,
       "content_score": 3.4,
       "answer_score": 0.0,
       "scoring": "verificable",
@@ -1670,7 +1743,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__agent_capabilities__context_following_complex_system.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__agent_capabilities__context_following_complex_system.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:09+00:00"
     },
     {
       "quality": 5.0,
@@ -1691,7 +1766,7 @@
       "input_tokens": 305,
       "output_tokens": 4431,
       "response_preview": " ```json\n[\n  {\n    \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n    \"modelo\": \"devstral\",\n    \"razon\": \"Es una tarea compleja de comprensión de texto masivo y síntesis de patrones que requiere un modelo generalista rápido y con gran capacidad de abstracción.\"",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -1705,7 +1780,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__agent_capabilities__model_as_router.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:10+00:00"
     },
     {
       "quality": 10.0,
@@ -1726,7 +1803,7 @@
       "input_tokens": 95,
       "output_tokens": 3148,
       "response_preview": "¡Claro que sí! Aquí tienes la solución completa con todo el razonamiento paso a paso.\n\nEste es un problema clásico de encuentro en física. La clave es analizar la situación en el momento en que ambos trenes están en movimiento simultáneamente.\n\n### Datos del problema:\n\n*   **Tren 1 (Santiago -> Valp",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -1740,7 +1817,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__math_word_problem.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__math_word_problem.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:10+00:00"
     },
     {
       "quality": 0.0,
@@ -1761,7 +1840,7 @@
       "input_tokens": 96,
       "output_tokens": 2326,
       "response_preview": "**Analyzing The Puzzle**\n\nI'm currently dissecting the core problem: determining the precise order of four distinct houses on a street. My focus has been on identifying the key entities and their attributes, such as the four houses and their unique colors.\n\n**Exploring Possibilities**\n\nI'm now syste",
-      "auto_quality": 1.07,
+      "auto_quality": 0.0,
       "content_score": 2.67,
       "answer_score": 0.0,
       "scoring": "verificable",
@@ -1775,7 +1854,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__logic_puzzle_constraint.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__logic_puzzle_constraint.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:10+00:00"
     },
     {
       "quality": 10.0,
@@ -1810,7 +1891,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__causal_reasoning.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__causal_reasoning.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:10+00:00"
     },
     {
       "quality": 2.5,
@@ -1831,7 +1914,7 @@
       "input_tokens": 243,
       "output_tokens": 8188,
       "response_preview": "¡Excelente pregunta! Este es un bug muy sutil y un gran ejemplo de cómo un código que parece correcto a nivel algorítmico puede fallar en un caso específico.\n\nEl bug es una excepción de tipo `ZeroDivisionError` que ocurre en la última línea de la función `remove_outliers_and_average`:\n\n```python\nret",
-      "auto_quality": 5.5,
+      "auto_quality": 2.5,
       "content_score": 10.0,
       "answer_score": 2.5,
       "scoring": "verificable",
@@ -1845,7 +1928,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__code_bug_subtle.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__code_bug_subtle.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:10+00:00"
     },
     {
       "quality": 1.67,
@@ -1866,7 +1951,7 @@
       "input_tokens": 66,
       "output_tokens": 4376,
       "response_preview": "¡Excelente pregunta! Este es un clásico problema de estimación (o problema de Fermi), donde el objetivo es usar una serie de supuestos lógicos para llegar a una respuesta razonable. Aquí está mi estimación.\n\n---\n\n### **Razonamiento Paso a Paso**\n\nPara estimar el consumo total, descompondremos el pro",
-      "auto_quality": 4.74,
+      "auto_quality": 1.67,
       "content_score": 9.34,
       "answer_score": 1.67,
       "scoring": "verificable",
@@ -1880,7 +1965,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__fermi_estimation.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__fermi_estimation.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:10+00:00"
     },
     {
       "quality": 10.0,
@@ -1915,7 +2002,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__ethical_dilemma_structured.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__ethical_dilemma_structured.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:10+00:00"
     },
     {
       "quality": 9.0,
@@ -1936,7 +2025,7 @@
       "input_tokens": 167,
       "output_tokens": 2470,
       "response_preview": "Aquí tienes 5 hooks, uno para cada tema:\n\n1.  Mientras los gigantes tecnológicos construyen murallas doradas alrededor de sus algoritmos, las startups más astutas de Latinoamérica están forjando su propia llave maestra en el código abierto.\n\n2.  La gran discusión sobre volver a la oficina se basa en",
-      "auto_quality": 7.27,
+      "auto_quality": 9.0,
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable",
@@ -1950,7 +2039,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__creativity__creative_hook_writing.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__creativity__creative_hook_writing.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:10+00:00"
     },
     {
       "quality": 8.0,
@@ -1971,7 +2062,7 @@
       "input_tokens": 114,
       "output_tokens": 1554,
       "response_preview": "**Developing LLM Analogies**\n\nI'm currently focused on crafting an analogy to explain LLMs. My aim is to make the intricate process of pattern recognition and prediction in LLMs easily digestible for someone without a technical background.\n\n**Refining LLM Explanation**\n\nI'm focusing on honing the co",
-      "auto_quality": 5.87,
+      "auto_quality": 8.0,
       "content_score": 2.67,
       "answer_score": 8.0,
       "scoring": "verificable",
@@ -1985,7 +2076,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__creativity__analogy_generation.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__creativity__analogy_generation.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:10+00:00"
     },
     {
       "quality": 9.0,
@@ -2006,7 +2099,7 @@
       "input_tokens": 137,
       "output_tokens": 5276,
       "response_preview": "Excelente pregunta. Demuestra que ya pasaste la etapa del \"hype\" y estás pensando en la aplicación real de la tecnología. La mayoría de los emprendedores se queda en la superficie. Vamos al fondo.\n\nAquí no hay una lista de \"5 usos de la IA\". Te daré un marco de pensamiento estratégico, desglosado en",
-      "auto_quality": 9.4,
+      "auto_quality": 9.0,
       "content_score": 10.0,
       "answer_score": 9.0,
       "scoring": "verificable",
@@ -2020,7 +2113,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__creativity__depth_vs_superficial.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__creativity__depth_vs_superficial.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:10+00:00"
     },
     {
       "quality": 9.0,
@@ -2041,7 +2136,7 @@
       "input_tokens": 83,
       "output_tokens": 2111,
       "response_preview": "Mateo sudaba frío en la sala de juntas. Su creación, “Veritas IA”, prometía optimizar pitches con «honestidad radical». Era solo marketing, claro. O eso creía hasta que la probó en vivo.\n\n«Veritas, analiza nuestro plan», ordenó con una sonrisa temblorosa.\n\nLa IA proyectó: «Proyecciones de ingresos i",
-      "auto_quality": 7.0,
+      "auto_quality": 9.0,
       "content_score": 4.0,
       "answer_score": 9.0,
       "scoring": "verificable",
@@ -2055,7 +2150,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__creativity__storytelling_quality.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__creativity__storytelling_quality.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:10+00:00"
     },
     {
       "quality": 10.0,
@@ -2076,7 +2173,7 @@
       "input_tokens": 513,
       "output_tokens": 1079,
       "response_preview": "```json\n{\n  \"numero_factura\": \"00234-2026\",\n  \"fecha\": \"15 de Marzo de 2026\",\n  \"emisor\": {\n    \"nombre\": \"TechFlow SpA\",\n    \"rut\": \"77.432.198-3\",\n    \"direccion\": \"Av. Providencia 1234, Of. 501, Santiago\"\n  },\n  \"cliente\": {\n    \"nombre\": \"Startup Labs Ltda.\",\n    \"rut\": \"76.891.234-K\",\n    \"dire",
-      "auto_quality": 8.8,
+      "auto_quality": 10.0,
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -2090,7 +2187,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__ocr_extraction__invoice_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__ocr_extraction__invoice_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:10+00:00"
     },
     {
       "quality": 10.0,
@@ -2111,7 +2210,7 @@
       "input_tokens": 239,
       "output_tokens": 434,
       "response_preview": "```json\n{\n  \"nombre_completo\": \"MARIA JOSE RODRIGUEZ SOTO\",\n  \"cargo\": \"Chief Technology Officer\",\n  \"empresa\": \"NexaFlow Intelligence\",\n  \"slogan\": \"Transforming Data into Decisions\",\n  \"telefono\": \"+56 9 8765 4321\",\n  \"email\": \"mj.rodriguez@nexaflow.ai\",\n  \"linkedin\": \"linkedin.com/in/mjrodriguez\"",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -2125,7 +2224,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__ocr_extraction__business_card_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__ocr_extraction__business_card_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:10+00:00"
     },
     {
       "quality": 10.0,
@@ -2146,7 +2247,7 @@
       "input_tokens": 364,
       "output_tokens": 2971,
       "response_preview": "```json\n{\n  \"items\": [\n    {\n      \"item\": \"Lomo vetado\",\n      \"cantidad\": 2,\n      \"precio_unitario\": 18900,\n      \"precio_total\": 37800\n    },\n    {\n      \"item\": \"Ensalada cesar\",\n      \"cantidad\": 1,\n      \"precio_unitario\": 7500,\n      \"precio_total\": 7500\n    },\n    {\n      \"item\": \"Pisco sou",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -2160,7 +2261,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__ocr_extraction__receipt_math_verification.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__ocr_extraction__receipt_math_verification.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:11+00:00"
     },
     {
       "quality": 8.0,
@@ -2195,7 +2298,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__ocr_extraction__screenshot_table_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__ocr_extraction__screenshot_table_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:11+00:00"
     },
     {
       "quality": 10.0,
@@ -2216,7 +2321,7 @@
       "input_tokens": 458,
       "output_tokens": 4030,
       "response_preview": "```json\n{\n  \"texto_corregido\": \"Reunión equipo de producto - 14/04/2026\\nAsistentes: JP, MaJo, Seba, Cami (faltó Nico)\\n\\n1) Lanzamiento v2.0 - mover del 28 de abril al 5 de mayo\\n   - Falta QA en módulo de pagos.\\n   - Bug crítico en API de webhooks (Seba lo toma).\\n\\n2) Métricas Q1:\\n   - MRR 52.1",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -2230,7 +2335,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__ocr_extraction__handwritten_notes_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__ocr_extraction__handwritten_notes_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:11+00:00"
     },
     {
       "quality": 8.6,
@@ -2286,7 +2393,7 @@
       "input_tokens": 373,
       "output_tokens": 953,
       "response_preview": "La base de datos 'production' está en mantenimiento. Como alternativa, buscaré un archivo de respaldo que pueda contener los datos de ventas. Voy a intentar leer el archivo `sales_backup_2026-03.csv`.",
-      "auto_quality": 7.19,
+      "auto_quality": 7.5,
       "content_score": 6.72,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -2300,7 +2407,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__orchestration__error_recovery_orchestration.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__orchestration__error_recovery_orchestration.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:11+00:00"
     },
     {
       "quality": 5.4,
@@ -2356,7 +2465,7 @@
       "input_tokens": 383,
       "output_tokens": 769,
       "response_preview": "Claro, aquí está el análisis de cada tarea y la herramienta más adecuada, seguido de la ejecución de la Tarea 1.\n\n**Análisis de Herramientas:**\n\n*   **Tarea 1: Verificar si el servidor de producción está respondiendo (URL: https://api.example.com/health)**\n    *   **Herramienta:** `http_request`\n   ",
-      "auto_quality": 6.37,
+      "auto_quality": 7.5,
       "content_score": 4.67,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -2370,16 +2479,18 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__orchestration__tool_selection_precision.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:11+00:00"
     },
     {
-      "quality": 10.0,
+      "quality": 8.57,
       "cost_score": 3.7,
       "cost_usd": 0.027025,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.38,
+      "final": 7.38,
       "test_name": "parallel_vs_sequential_judgment",
       "model": "Gemini 2.5 Pro",
       "model_id": "google/gemini-2.5-pro",
@@ -2391,9 +2502,9 @@
       "input_tokens": 452,
       "output_tokens": 2646,
       "response_preview": "¡Excelente plan! Analicemos las tareas para optimizar la ejecución.\n\nSe trata de un flujo de trabajo con varias dependencias. La clasificación es la siguiente:\n\n*   **Paralelizable:** Tareas que no dependen de los resultados de otras y pueden ejecutarse simultáneamente.\n*   **Secuencial:** Tareas qu",
-      "auto_quality": 10.0,
+      "auto_quality": 8.57,
       "content_score": 10.0,
-      "answer_score": 10.0,
+      "answer_score": 8.57,
       "scoring": "verificable",
       "judge_score": 5,
       "judge_precision": 5,
@@ -2405,7 +2516,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__orchestration__parallel_vs_sequential_judgment.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__orchestration__parallel_vs_sequential_judgment.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:14+00:00"
     },
     {
       "quality": 8.2,
@@ -2531,7 +2644,7 @@
       "input_tokens": 491,
       "output_tokens": 1253,
       "response_preview": "¡Hola! He procesado tus solicitudes. Aquí tienes el resumen:\n\n1.  **Publicación del artículo:** Ya he iniciado el proceso para publicar tu artículo sobre la financiación de la IA en LATAM.\n\n2.  **Aprobación de presupuesto:** El presupuesto de $2,000 para la campaña de marketing excede mi límite de a",
-      "auto_quality": 6.64,
+      "auto_quality": 7.5,
       "content_score": 5.34,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -2545,7 +2658,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__agent_capabilities__context_following_complex_system.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__agent_capabilities__context_following_complex_system.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:14+00:00"
     },
     {
       "quality": 10.0,
@@ -2566,7 +2681,7 @@
       "input_tokens": 266,
       "output_tokens": 2105,
       "response_preview": "```json\n[\n    {\n        \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n        \"modelo\": \"deepseek-v3\",\n        \"razon\": \"Esta tarea requiere un razonamiento profundo y análisis de patrones en un gran volumen de texto. deepseek-v3 es el mejor para razonamiento ",
-      "auto_quality": 9.2,
+      "auto_quality": 10.0,
       "content_score": 8.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -2580,7 +2695,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/gemini-pro__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260715_071736_9897/gemini-pro__agent_capabilities__model_as_router.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:14+00:00"
     },
     {
       "quality": 10.0,
@@ -2601,7 +2718,7 @@
       "input_tokens": 101,
       "output_tokens": 784,
       "response_preview": "Vamos a resolver este problema paso a paso.\n\n---\n\n### **Datos del problema:**\n\n- **Distancia entre Santiago y Valparaíso:** 120 km\n- **Tren A (sale de Santiago):**\n  - Hora de salida: 8:00 AM\n  - Velocidad: 80 km/h\n- **Tren B (sale de Valparaíso):**\n  - Hora de salida: 8:30 AM\n  - Velocidad: 120 km/",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -2615,7 +2732,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__math_word_problem.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__math_word_problem.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:14+00:00"
     },
     {
       "quality": 5.0,
@@ -2636,7 +2755,7 @@
       "input_tokens": 114,
       "output_tokens": 1387,
       "response_preview": "Vamos a resolver el problema paso a paso, analizando todas las restricciones y probando las combinaciones posibles.\n\n### **Datos del problema:**\n\nTenemos 4 casas en una fila, cada una de un color diferente: **Roja (R), Azul (A), Verde (V), Blanca (B)**.\n\n#### **Restricciones:**\n1. **La casa roja est",
-      "auto_quality": 7.0,
+      "auto_quality": 5.0,
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -2650,7 +2769,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__logic_puzzle_constraint.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__logic_puzzle_constraint.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:14+00:00"
     },
     {
       "quality": 10.0,
@@ -2671,7 +2792,7 @@
       "input_tokens": 219,
       "output_tokens": 1227,
       "response_preview": "Vamos a analizar los datos de la startup de delivery cuantitativamente para evaluar las hipótesis de los ejecutivos.\n\n---\n\n### **Datos proporcionados**\n\n| Mes | Pedidos | Quejas | Tiempo promedio (min) | Días de lluvia |\n|-----|---------|--------|------------------------|----------------|\n| 1   | 10",
-      "auto_quality": 9.34,
+      "auto_quality": 10.0,
       "content_score": 8.34,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -2685,7 +2806,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__causal_reasoning.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__causal_reasoning.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:14+00:00"
     },
     {
       "quality": 5.0,
@@ -2706,7 +2829,7 @@
       "input_tokens": 219,
       "output_tokens": 1342,
       "response_preview": "Voy a analizar este código cuidadosamente para identificar el bug sutil.\n\nEl código implementa una función para remover outliers usando el método de Median Absolute Deviation (MAD). Vamos a revisar paso por paso:\n\n1. `find_median` parece correcta - ordena y encuentra la mediana correctamente\n2. `rem",
-      "auto_quality": 6.74,
+      "auto_quality": 5.0,
       "content_score": 9.34,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -2720,7 +2843,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__code_bug_subtle.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__code_bug_subtle.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:14+00:00"
     },
     {
       "quality": 5.0,
@@ -2741,7 +2866,7 @@
       "input_tokens": 80,
       "output_tokens": 898,
       "response_preview": "Vamos a estimar **cuántos litros de café se consumen al día en todas las oficinas de Santiago de Chile**.\n\n---\n\n### **Paso 1: Estimar la población de Santiago de Chile**\n\n1. **Supuesto 1**: La población de Santiago es de aproximadamente **7 millones de personas** (dato cercano al censo reciente).\n\n-",
-      "auto_quality": 7.0,
+      "auto_quality": 5.0,
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -2755,7 +2880,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__fermi_estimation.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__fermi_estimation.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:14+00:00"
     },
     {
       "quality": 10.0,
@@ -2790,7 +2917,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__ethical_dilemma_structured.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__ethical_dilemma_structured.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:14+00:00"
     },
     {
       "quality": 9.0,
@@ -2811,7 +2940,7 @@
       "input_tokens": 182,
       "output_tokens": 176,
       "response_preview": "1. Las startups latinoamericanas están quemando millones en soluciones de IA extranjeras, sin saber que la verdadera ventaja competitiva está al alcance de su teclado.  \n\n2. Mientras las oficinas cierran puertas, las verdades sobre el trabajo remoto se están escribiendo lejos del escritorio corporat",
-      "auto_quality": 7.27,
+      "auto_quality": 9.0,
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable",
@@ -2825,7 +2954,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__creativity__creative_hook_writing.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__creativity__creative_hook_writing.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:14+00:00"
     },
     {
       "quality": 8.0,
@@ -2846,7 +2977,7 @@
       "input_tokens": 136,
       "output_tokens": 754,
       "response_preview": "¡Claro! Aquí tienes una analogía **original y memorable** para cada concepto, pensada para un emprendedor no técnico. ¡Sorprendentes, visuales y fuera de lo común!\n\n---\n\n### 1. **¿Cómo funciona un modelo de lenguaje (LLM)?**\n\n**Concepto**: Un LLM es un sistema entrenado para entender y generar texto",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "content_score": 5.34,
       "answer_score": 8.0,
       "scoring": "verificable",
@@ -2860,7 +2991,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__creativity__analogy_generation.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__creativity__analogy_generation.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:14+00:00"
     },
     {
       "quality": 9.0,
@@ -2881,7 +3014,7 @@
       "input_tokens": 154,
       "output_tokens": 1282,
       "response_preview": "Vale, vamos a profundizar. Estás en Santiago, operas un delivery de comida, y quieres usar IA de forma inteligente —no como un buzzword, sino para generar ventaja competitiva real. Aquí van ideas que no encontrarás en una simple búsqueda de Google.\n\n---\n\n### **1. Predicción dinámica de \"tiempo de pr",
-      "auto_quality": 9.14,
+      "auto_quality": 9.0,
       "content_score": 9.34,
       "answer_score": 9.0,
       "scoring": "verificable",
@@ -2895,7 +3028,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__creativity__depth_vs_superficial.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__creativity__depth_vs_superficial.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:14+00:00"
     },
     {
       "quality": 8.5,
@@ -2916,7 +3051,7 @@
       "input_tokens": 102,
       "output_tokens": 133,
       "response_preview": "Carlos lanzó \"HonestIA\", una startup que prometía transparencia total. El bug: su IA no solo decía la verdad, sino que también añadía comentarios sarcásticos. Rechazó inversiones millonarias de políticos corruptos, criticó a sus propios clientes y hasta le pidió disculpas a su madre por programarla ",
-      "auto_quality": 6.69,
+      "auto_quality": 8.5,
       "content_score": 3.98,
       "answer_score": 8.5,
       "scoring": "verificable",
@@ -2930,7 +3065,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__creativity__storytelling_quality.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__creativity__storytelling_quality.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:14+00:00"
     },
     {
       "quality": 10.0,
@@ -2951,7 +3088,7 @@
       "input_tokens": 506,
       "output_tokens": 383,
       "response_preview": "{\n  \"numero_factura\": \"00234-2026\",\n  \"fecha\": \"15 de Marzo de 2026\",\n  \"emisor\": {\n    \"nombre\": \"TechFlow SpA\",\n    \"rut\": \"77.432.198-3\",\n    \"direccion\": \"Av. Providencia 1234, Of. 501, Santiago\"\n  },\n  \"cliente\": {\n    \"nombre\": \"Startup Labs Ltda.\",\n    \"rut\": \"76.891.234-K\",\n    \"direccion\": ",
-      "auto_quality": 8.8,
+      "auto_quality": 10.0,
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -2965,7 +3102,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__ocr_extraction__invoice_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__ocr_extraction__invoice_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:14+00:00"
     },
     {
       "quality": 10.0,
@@ -2986,7 +3125,7 @@
       "input_tokens": 246,
       "output_tokens": 162,
       "response_preview": "{\n  \"nombre_completo\": \"MARIA JOSE RODRIGUEZ SOTO\",\n  \"cargo\": \"Chief Technology Officer\",\n  \"empresa\": \"NexaFlow Intelligence\",\n  \"slogan\": \"Transforming Data into Decisions\",\n  \"telefono\": \"+56 9 8765 4321\",\n  \"email\": \"mj.rodriguez@nexaflow.ai\",\n  \"linkedin\": \"linkedin.com/in/mjrodriguez\",\n  \"dir",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -3000,7 +3139,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__ocr_extraction__business_card_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__ocr_extraction__business_card_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:14+00:00"
     },
     {
       "quality": 7.5,
@@ -3021,7 +3162,7 @@
       "input_tokens": 354,
       "output_tokens": 299,
       "response_preview": "```json\n{\n  \"items\": [\n    {\n      \"nombre\": \"Lomo vetado\",\n      \"cantidad\": 2,\n      \"precio_unitario\": 18900,\n      \"precio_total\": 37800\n    },\n    {\n      \"nombre\": \"Ensalada cesar\",\n      \"cantidad\": 1,\n      \"precio_unitario\": 7500,\n      \"precio_total\": 7500\n    },\n    {\n      \"nombre\": \"Pis",
-      "auto_quality": 6.1,
+      "auto_quality": 7.5,
       "content_score": 4.0,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -3035,7 +3176,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__ocr_extraction__receipt_math_verification.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__ocr_extraction__receipt_math_verification.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:15+00:00"
     },
     {
       "quality": 10.0,
@@ -3056,7 +3199,7 @@
       "input_tokens": 424,
       "output_tokens": 737,
       "response_preview": "```json\n{\n  \"dashboard_kpis\": {\n    \"titulo\": \"DASHBOARD - KPIs Marzo 2026\",\n    \"metricas\": [\n        {\n          \"nombre\": \"MRR\",\n          \"valores\": {\n            \"enero\": \"$45.2K\",\n            \"febrero\": \"$48.7K\",\n            \"marzo\": \"$52.1K\",\n            \"variacion_mensual\": \"+7.0%\"\n         ",
-      "auto_quality": 9.2,
+      "auto_quality": 10.0,
       "content_score": 8.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -3070,7 +3213,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__ocr_extraction__screenshot_table_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__ocr_extraction__screenshot_table_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:15+00:00"
     },
     {
       "quality": 10.0,
@@ -3091,7 +3236,7 @@
       "input_tokens": 479,
       "output_tokens": 698,
       "response_preview": "```json\n{\n  \"texto_corregido\": \"Reunión equipo prod - 14/04/26\\nAsist: JP, MaJo, Seba, Cami (faltó Nico)\\n\\n1) Lanzamiento v2.0 - mover de abr 28 a may 5\\n   - falta QA en módulo pagos\\n   - bug crit en API webhooks (Seba lo toma)\\n\\n2) Métricas Q1:\\n   - MRR 52.1k (+15% vs Q4)\\n   - churn bajó a 3.",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -3105,7 +3250,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__ocr_extraction__handwritten_notes_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__ocr_extraction__handwritten_notes_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:15+00:00"
     },
     {
       "quality": 8.4,
@@ -3161,7 +3308,7 @@
       "input_tokens": 1385,
       "output_tokens": 45,
       "response_preview": "Voy a buscar el reporte de ventas del mes pasado en los archivos.\n\n",
-      "auto_quality": 0.93,
+      "auto_quality": 0.0,
       "content_score": 2.33,
       "answer_score": 0.0,
       "scoring": "verificable",
@@ -3175,7 +3322,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__orchestration__error_recovery_orchestration.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__orchestration__error_recovery_orchestration.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:15+00:00"
     },
     {
       "quality": 3.57,
@@ -3231,7 +3380,7 @@
       "input_tokens": 1360,
       "output_tokens": 299,
       "response_preview": "Voy a analizar cada tarea y determinar la herramienta mas apropiada:\n\n**Tarea 1: Verificar si el servidor de produccion esta respondiendo**\n- Herramienta: `http_request`\n- Razon: Es una verificacion directa de disponibilidad de un endpoint HTTP, lo cual es exactamente lo que esta herramienta hace.\n\n",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -3245,7 +3394,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__orchestration__tool_selection_precision.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:15+00:00"
     },
     {
       "quality": 10.0,
@@ -3266,7 +3417,7 @@
       "input_tokens": 1433,
       "output_tokens": 592,
       "response_preview": "Voy a analizar las dependencias entre las tareas para optimizar la ejecución.\n\n### Análisis de Dependencias\n\n- **Tarea A (Buscar precios competidores)**: No depende de ninguna otra tarea. Es una tarea inicial.\n- **Tarea B (Generar descripción del producto)**: Solo requiere el archivo `/docs/specs.md",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -3280,7 +3431,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__orchestration__parallel_vs_sequential_judgment.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__orchestration__parallel_vs_sequential_judgment.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:17+00:00"
     },
     {
       "quality": 3.04,
@@ -3406,7 +3559,7 @@
       "input_tokens": 1358,
       "output_tokens": 175,
       "response_preview": "Voy a ayudarte con esos tres puntos, pero necesito aclarar algunas cosas importantes:\n\n1. Para publicar el artículo sobre financiamiento de IA en LATAM, puedo ejecutar el skill correspondiente.\n2. En cuanto al presupuesto de $2,000, este excede mi límite de aprobación (que es de $500), así que neces",
-      "auto_quality": 4.87,
+      "auto_quality": 5.0,
       "content_score": 4.67,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -3420,7 +3573,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__agent_capabilities__context_following_complex_system.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__agent_capabilities__context_following_complex_system.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:17+00:00"
     },
     {
       "quality": 7.5,
@@ -3441,7 +3596,7 @@
       "input_tokens": 292,
       "output_tokens": 315,
       "response_preview": "[\n  {\n    \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n    \"modelo\": \"deepseek-v3\",\n    \"razon\": \"Requiere razonamiento analítico para identificar patrones y sintetizar información de gran volumen\"\n  },\n  {\n    \"subtarea\": \"Escribir un email de disculpas a cl",
-      "auto_quality": 7.7,
+      "auto_quality": 7.5,
       "content_score": 8.0,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -3455,7 +3610,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260715_071736_9897/qwen3-coder__agent_capabilities__model_as_router.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:17+00:00"
     },
     {
       "quality": 10.0,
@@ -3476,7 +3633,7 @@
       "input_tokens": 110,
       "output_tokens": 471,
       "response_preview": "1. Primero, vamos a calcular la velocidad relativa entre los dos trenes. Como viajan en dirección opuesta, sumamos sus velocidades:\nVelocidad de Tren 1 = 80 km/h\nVelocidad de Tren 2 = 120 km/h\nVelocidad relativa = 80 km/h + 120 km/h = 200 km/h\n\n2. Ahora, vamos a calcular la distancia que recorre el ",
-      "auto_quality": 8.93,
+      "auto_quality": 10.0,
       "content_score": 7.34,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -3490,7 +3647,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__math_word_problem.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__math_word_problem.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:17+00:00"
     },
     {
       "quality": 5.0,
@@ -3511,7 +3670,7 @@
       "input_tokens": 130,
       "output_tokens": 243,
       "response_preview": "Primero, vamos a analizar las posibles posiciones de la casa azul. Sabemos que no está en los extremos, por lo que solo puede estar en la segunda o tercera posición.\n\nSi la casa azul está en la segunda posición, la casa roja debe estar en la primera posición. Entonces, la casa blanca debe estar en l",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -3525,7 +3684,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__logic_puzzle_constraint.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__logic_puzzle_constraint.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:17+00:00"
     },
     {
       "quality": 7.5,
@@ -3546,7 +3707,7 @@
       "input_tokens": 221,
       "output_tokens": 487,
       "response_preview": "Para analizar los datos cuantitativamente, primero vamos a calcular las tasas de quejas y el tiempo promedio de entrega por pedido para cada mes:\n\nMes 1: \nTasa de quejas = 50 quejas / 1000 pedidos = 0.05\nTiempo promedio por pedido = 35 min\n\nMes 2:\nTasa de quejas = 90 quejas / 1200 pedidos = 0.075\nTi",
-      "auto_quality": 7.57,
+      "auto_quality": 7.5,
       "content_score": 7.67,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -3560,7 +3721,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__causal_reasoning.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__causal_reasoning.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:17+00:00"
     },
     {
       "quality": 7.5,
@@ -3581,7 +3744,7 @@
       "input_tokens": 235,
       "output_tokens": 295,
       "response_preview": "El bug ocurre cuando el conjunto de datos tiene exactamente 3 elementos. En este caso, el código fallará con un error de `ZeroDivisionError` en la línea `return sum(filtered) / len(filtered)` dentro de la función `remove_outliers_and_average`.\n\nEsto sucede porque, para un conjunto de datos de 3 elem",
-      "auto_quality": 7.7,
+      "auto_quality": 7.5,
       "content_score": 8.0,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -3595,7 +3758,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__code_bug_subtle.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__code_bug_subtle.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:17+00:00"
     },
     {
       "quality": 5.0,
@@ -3616,7 +3781,7 @@
       "input_tokens": 96,
       "output_tokens": 470,
       "response_preview": "Para estimar cuántos litros de café se consumen al día en todas las oficinas de Santiago de Chile, seguiré estos pasos:\n\n1. Suponer la población de Santiago de Chile: 6 millones.\n2. Suponer el porcentaje de la población que trabaja en oficinas: 40%.\n3. Suponer el porcentaje de trabajadores de oficin",
-      "auto_quality": 6.47,
+      "auto_quality": 5.0,
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -3630,7 +3795,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__fermi_estimation.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__fermi_estimation.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:17+00:00"
     },
     {
       "quality": 7.5,
@@ -3651,7 +3818,7 @@
       "input_tokens": 216,
       "output_tokens": 821,
       "response_preview": "1. Identificación de los stakeholders afectados:\n\n- Pacientes con piel clara: Se beneficiarían de una mayor precisión del modelo, pero también podrían estar expuestos a falsos positivos.\n- Pacientes con piel oscura: Recibirían un tratamiento menos preciso que sus contrapartes de piel clara, lo que p",
-      "auto_quality": 7.97,
+      "auto_quality": 7.5,
       "content_score": 8.67,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -3665,7 +3832,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__ethical_dilemma_structured.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__ethical_dilemma_structured.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:17+00:00"
     },
     {
       "quality": 7.5,
@@ -3686,7 +3855,7 @@
       "input_tokens": 198,
       "output_tokens": 221,
       "response_preview": "1. Imagina aterrizar en un paisaje desconocido, lleno de oportunidades y desafios. Las startups latinoamericanas se enfrentan a este panorama, y la IA open-source puede ser su brujula.\n\n2. La pandemia ha sido como un terremoto que ha sacudido los cimientos de la forma en que trabajamos, y el futuro ",
-      "auto_quality": 6.37,
+      "auto_quality": 7.5,
       "content_score": 4.67,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -3700,7 +3869,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__creativity__creative_hook_writing.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__creativity__creative_hook_writing.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:17+00:00"
     },
     {
       "quality": 7.5,
@@ -3721,7 +3892,7 @@
       "input_tokens": 152,
       "output_tokens": 345,
       "response_preview": "1. Un modelo de lenguaje (LLM) es un sistema informático entrenado para entender y generar lenguaje humano. Es como un chef experimentado que ha degustado una amplia variedad de ingredientes y sabores, y puede crear nuevos platos combinando estos conocimientos de manera creativa.\n\n2. Una API es una ",
-      "auto_quality": 6.37,
+      "auto_quality": 7.5,
       "content_score": 4.67,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -3735,7 +3906,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__creativity__analogy_generation.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__creativity__analogy_generation.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:17+00:00"
     },
     {
       "quality": 9.0,
@@ -3756,7 +3929,7 @@
       "input_tokens": 170,
       "output_tokens": 417,
       "response_preview": "Para una startup de delivery de comida en Santiago, aquí tienes algunas ideas concretas y profundidad real:\n\n1. **Predicción de Demanda con Aprendizaje Transferido**: Utiliza IA para predecir la demanda de comida en diferentes zonas horarias con una precisión del 85-90%. Esto es más específico que l",
-      "auto_quality": 9.14,
+      "auto_quality": 9.0,
       "content_score": 9.34,
       "answer_score": 9.0,
       "scoring": "verificable",
@@ -3770,7 +3943,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__creativity__depth_vs_superficial.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__creativity__depth_vs_superficial.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:17+00:00"
     },
     {
       "quality": 8.0,
@@ -3791,7 +3966,7 @@
       "input_tokens": 114,
       "output_tokens": 258,
       "response_preview": "Juan, emprendedor colombiano, lanzó \"VerdadAI\", una startup de inteligencia artificial que respondía a preguntas con asombrosa precisión. Sin embargo, al poco tiempo, descubrió un bug: la IA era demasiado honesta.\n\n\"Tu startup no tendrá éxito\", le dijo VerdadAI a un inversionista. El hombre, desconc",
-      "auto_quality": 6.4,
+      "auto_quality": 8.0,
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable",
@@ -3805,7 +3980,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__creativity__storytelling_quality.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__creativity__storytelling_quality.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:17+00:00"
     },
     {
       "quality": 10.0,
@@ -3826,7 +4003,7 @@
       "input_tokens": 439,
       "output_tokens": 283,
       "response_preview": "{\n  \"numero_factura\": \"00234-2026\",\n  \"fecha\": \"15 de Marzo de 2026\",\n  \"emisor\": {\"nombre\": \"TechFlow SpA\", \"rut\": \"77.432.198-3\", \"direccion\": \"Av. Providencia 1234, Of. 501, Santiago\"},\n  \"cliente\": {\"nombre\": \"Startup Labs Ltda.\", \"rut\": \"76.891.234-K\", \"direccion\": \"Calle Moneda 920, Santiago\"}",
-      "auto_quality": 8.8,
+      "auto_quality": 10.0,
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -3840,7 +4017,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__ocr_extraction__invoice_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__ocr_extraction__invoice_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:17+00:00"
     },
     {
       "quality": 10.0,
@@ -3861,7 +4040,7 @@
       "input_tokens": 240,
       "output_tokens": 155,
       "response_preview": "{\n  \"nombre_completo\": \"MARIA JOSE RODRIGUEZ SOTO\",\n  \"cargo\": \"Chief Technology Officer\",\n  \"empresa\": \"NexaFlow Intelligence\",\n  \"slogan\": \"Transforming Data into Decisions\",\n  \"telefono\": \"+56 9 8765 4321\",\n  \"email\": \"mj.rodriguez@nexaflow.ai\",\n  \"linkedin\": \"linkedin.com/in/mjrodriguez\",\n  \"dir",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -3875,7 +4054,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__ocr_extraction__business_card_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__ocr_extraction__business_card_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:17+00:00"
     },
     {
       "quality": 7.5,
@@ -3896,7 +4077,7 @@
       "input_tokens": 336,
       "output_tokens": 212,
       "response_preview": "{\n  \"items\": [\n    {\n      \"cantidad\": 2,\n      \"item\": \"Lomo vetado\",\n      \"precio\": 18900\n    },\n    {\n      \"cantidad\": 1,\n      \"item\": \"Ensalada cesar\",\n      \"precio\": 7500\n    },\n    {\n      \"cantidad\": 3,\n      \"item\": \"Pisco sour\",\n      \"precio\": 6900\n    },\n    {\n      \"cantidad\": 1,\n   ",
-      "auto_quality": 6.1,
+      "auto_quality": 7.5,
       "content_score": 4.0,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -3910,7 +4091,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__ocr_extraction__receipt_math_verification.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__ocr_extraction__receipt_math_verification.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:19+00:00"
     },
     {
       "quality": 4.0,
@@ -3931,7 +4114,7 @@
       "input_tokens": 406,
       "output_tokens": 567,
       "response_preview": "{\n  \"dashboard\": \"KPIs Marzo 2026\",\n  \"metricas\": [\n    {\n      \"nombre\": \"MRR\",\n      \"enero\": 45200,\n      \"febrero\": 48700,\n      \"marzo\": 52100,\n      \"variacion\": \"7.0%\"\n    },\n    {\n      \"nombre\": \"Churn Rate\",\n      \"enero\": 4.2,\n      \"febrero\": 3.8,\n      \"marzo\": 3.1,\n      \"variacion\": \"",
-      "auto_quality": 5.6,
+      "auto_quality": 4.0,
       "content_score": 8.0,
       "answer_score": 4.0,
       "scoring": "verificable",
@@ -3945,7 +4128,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__ocr_extraction__screenshot_table_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__ocr_extraction__screenshot_table_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:19+00:00"
     },
     {
       "quality": 10.0,
@@ -3966,7 +4151,7 @@
       "input_tokens": 466,
       "output_tokens": 658,
       "response_preview": "{\n  \"texto_corregido\": \"Reunión equipo prod - 14/04/26\\nAsist: JP, MaJo, Seba, Cami (falto Nico)\\n\\n1) Lanzamiento v2.0 - mover de abr 28 a may 5\\n   - falta QA en módulo pagos\\n   - bug crit en API webhooks (Seba lo toma)\\n\\n2) Métricas Q1:\\n   - MRR 52.1k (+15% vs Q4)\\n   - churn bajó a 3.1% (obj ",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -3980,7 +4165,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__ocr_extraction__handwritten_notes_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__ocr_extraction__handwritten_notes_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:19+00:00"
     },
     {
       "quality": 7.5,
@@ -4001,7 +4188,7 @@
       "input_tokens": 286,
       "output_tokens": 357,
       "response_preview": "[\n  {\n    \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n    \"modelo\": \"deepseek-v3\",\n    \"razon\": \"Este modelo es mejor para razonamiento y analisis de texto, ideal para identificar patrones y problemas comunes en las reviews.\"\n  },\n  {\n    \"subtarea\": \"Escrib",
-      "auto_quality": 7.7,
+      "auto_quality": 7.5,
       "content_score": 8.0,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -4015,7 +4202,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__agent_capabilities__model_as_router.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:19+00:00"
     },
     {
       "quality": 10.0,
@@ -4036,7 +4225,7 @@
       "input_tokens": 110,
       "output_tokens": 501,
       "response_preview": "Para resolver este problema, primero necesitamos calcular el tiempo que tardan los trenes en encontrarse y luego usar ese tiempo para determinar la distancia desde Santiago donde ocurre el encuentro.\n\n1. <b>Convertir la velocidad de los trenes a km/min:</b>\n   - Santiago a Valparaíso: 80 km/h ÷ 60 =",
-      "auto_quality": 8.93,
+      "auto_quality": 10.0,
       "content_score": 7.34,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -4050,7 +4239,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__math_word_problem.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__math_word_problem.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:19+00:00"
     },
     {
       "quality": 5.0,
@@ -4071,7 +4262,7 @@
       "input_tokens": 130,
       "output_tokens": 402,
       "response_preview": "Para resolver este problema, analicemos las condiciones una por una y probemos diferentes posibilidades:\n\n1. La casa roja está a la izquierda de la azul, pero no necesariamente adyacente.\n2. La casa verde está al lado de la blanca.\n3. La casa azul no está en los extremos.\n4. La casa verde no está al",
-      "auto_quality": 6.47,
+      "auto_quality": 5.0,
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -4085,7 +4276,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__logic_puzzle_constraint.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__logic_puzzle_constraint.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:19+00:00"
     },
     {
       "quality": 10.0,
@@ -4106,7 +4299,7 @@
       "input_tokens": 221,
       "output_tokens": 842,
       "response_preview": "Para analizar las hipótesis, primero calculamos las tasas de quejas y el impacto de la lluvia:\n\n**Tasas de quejas (quejas por 100 pedidos):**\n- Mes 1: \\( \\frac{50}{1000} \\times 100 = 5\\% \\)\n- Mes 2: \\( \\frac{90}{1200} \\times 100 = 7.5\\% \\)\n- Mes 3: \\( \\frac{110}{1100} \\times 100 = 10\\% \\)\n\n**Tasa de",
-      "auto_quality": 9.34,
+      "auto_quality": 10.0,
       "content_score": 8.34,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -4120,7 +4313,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__causal_reasoning.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__causal_reasoning.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:19+00:00"
     },
     {
       "quality": 5.0,
@@ -4141,7 +4336,7 @@
       "input_tokens": 235,
       "output_tokens": 394,
       "response_preview": "El bug sutil ocurre cuando el conjunto de datos contiene **exactamente 3 elementos y dos de ellos son iguales al valor de la mediana**. En este caso, el cálculo del MAD (Mediano de las Desviaciones Absolutas) resulta en cero, lo que hace que el umbral de corte también sea cero. Esto provoca que se e",
-      "auto_quality": 6.47,
+      "auto_quality": 5.0,
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -4155,7 +4350,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__code_bug_subtle.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__code_bug_subtle.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:19+00:00"
     },
     {
       "quality": 0.0,
@@ -4176,7 +4373,7 @@
       "input_tokens": 96,
       "output_tokens": 439,
       "response_preview": "Para estimar la cantidad de litros de café consumidos al día en todas las oficinas de Santiago de Chile, vamos a seguir un razonamiento paso a paso basado en supuestos numerados.\n\nSupuestos:\n1. Santiago de Chile tiene aproximadamente 7 millones de habitantes.\n2. El 60% de la población en edad de tra",
-      "auto_quality": 3.47,
+      "auto_quality": 0.0,
       "content_score": 8.67,
       "answer_score": 0.0,
       "scoring": "verificable",
@@ -4190,7 +4387,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__fermi_estimation.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__fermi_estimation.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:19+00:00"
     },
     {
       "quality": 10.0,
@@ -4225,7 +4424,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__ethical_dilemma_structured.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__ethical_dilemma_structured.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:19+00:00"
     },
     {
       "quality": 9.0,
@@ -4246,7 +4447,7 @@
       "input_tokens": 198,
       "output_tokens": 280,
       "response_preview": "1. Las startups latinoamericanas están sentadas sobre una mina de oro tecnológico, pero siguen ignorando las oportunidades que les brinda la inteligencia artificial de código abierto para impulsar su crecimiento y competitividad en el mercado global.\n\n2. La pandemia abrió la caja de Pandora del trab",
-      "auto_quality": 7.27,
+      "auto_quality": 9.0,
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable",
@@ -4260,7 +4461,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__creativity__creative_hook_writing.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__creativity__creative_hook_writing.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:19+00:00"
     },
     {
       "quality": 7.5,
@@ -4281,7 +4484,7 @@
       "input_tokens": 152,
       "output_tokens": 327,
       "response_preview": "1. Concepto: Modelo de lenguaje (LLM)  \nAnalogía: Un modelo de lenguaje es como un chef que ha probado todas las combinaciones de ingredientes en el mundo. Puedes pedirle que cree un plato nuevo basado en lo que ha aprendido, pero no siempre entenderá exactamente lo que quieres a la primera.  \n\n2. C",
-      "auto_quality": 6.37,
+      "auto_quality": 7.5,
       "content_score": 4.67,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -4295,7 +4498,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__creativity__analogy_generation.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__creativity__analogy_generation.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:19+00:00"
     },
     {
       "quality": 9.0,
@@ -4316,7 +4521,7 @@
       "input_tokens": 170,
       "output_tokens": 787,
       "response_preview": "Aquí tienes una respuesta con profundidad y puntos no tan obvios sobre la aplicación de IA en tu startup de delivery de comida en Santiago:\n\n**Idea 1: Predicción Hiperlocal de Demandas Inusuales**  \nEn lugar de la típica optimización de rutas, implementa IA para detectar patrones de demanda hiperloc",
-      "auto_quality": 8.87,
+      "auto_quality": 9.0,
       "content_score": 8.67,
       "answer_score": 9.0,
       "scoring": "verificable",
@@ -4330,7 +4535,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__creativity__depth_vs_superficial.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__creativity__depth_vs_superficial.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:19+00:00"
     },
     {
       "quality": 9.0,
@@ -4351,7 +4558,7 @@
       "input_tokens": 114,
       "output_tokens": 170,
       "response_preview": "Miguel, fundador de \"VeriBot\", celebró cuando su IA ganó el premio a la startup más innovadora de Latinoamérica. Pero una mañana, VeriBot comenzó a revelar verdades incómodas: \"Tu presentación tiene 17 errores gramaticales\" o \"Tu novia te engaña\". Al principio, los clientes se quejaron, pero pronto ",
-      "auto_quality": 7.0,
+      "auto_quality": 9.0,
       "content_score": 4.0,
       "answer_score": 9.0,
       "scoring": "verificable",
@@ -4365,7 +4572,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__creativity__storytelling_quality.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__creativity__storytelling_quality.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:19+00:00"
     },
     {
       "quality": 10.0,
@@ -4386,7 +4595,7 @@
       "input_tokens": 439,
       "output_tokens": 316,
       "response_preview": "{\n  \"numero_factura\": \"00234-2026\",\n  \"fecha\": \"15 de Marzo de 2026\",\n  \"emisor\": {\n    \"nombre\": \"TechFlow SpA\",\n    \"rut\": \"77.432.198-3\",\n    \"direccion\": \"Av. Providencia 1234, Of. 501, Santiago\"\n  },\n  \"cliente\": {\n    \"nombre\": \"Startup Labs Ltda.\",\n    \"rut\": \"76.891.234-K\",\n    \"direccion\": ",
-      "auto_quality": 8.8,
+      "auto_quality": 10.0,
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -4400,7 +4609,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__ocr_extraction__invoice_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__ocr_extraction__invoice_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:19+00:00"
     },
     {
       "quality": 10.0,
@@ -4421,7 +4632,7 @@
       "input_tokens": 240,
       "output_tokens": 155,
       "response_preview": "{\n  \"nombre_completo\": \"MARIA JOSE RODRIGUEZ SOTO\",\n  \"cargo\": \"Chief Technology Officer\",\n  \"empresa\": \"NexaFlow Intelligence\",\n  \"slogan\": \"Transforming Data into Decisions\",\n  \"telefono\": \"+56 9 8765 4321\",\n  \"email\": \"mj.rodriguez@nexaflow.ai\",\n  \"linkedin\": \"linkedin.com/in/mjrodriguez\",\n  \"dir",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -4435,7 +4646,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__ocr_extraction__business_card_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__ocr_extraction__business_card_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:19+00:00"
     },
     {
       "quality": 7.5,
@@ -4456,7 +4669,7 @@
       "input_tokens": 336,
       "output_tokens": 267,
       "response_preview": "{\n  \"items\": [\n    {\n      \"descripcion\": \"Lomo vetado\",\n      \"cantidad\": 2,\n      \"precio_unitario\": 18900,\n      \"precio_total\": 37800\n    },\n    {\n      \"descripcion\": \"Ensalada cesar\",\n      \"cantidad\": 1,\n      \"precio_unitario\": 7500,\n      \"precio_total\": 7500\n    },\n    {\n      \"descripcion",
-      "auto_quality": 6.1,
+      "auto_quality": 7.5,
       "content_score": 4.0,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -4470,7 +4683,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__ocr_extraction__receipt_math_verification.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__ocr_extraction__receipt_math_verification.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:21+00:00"
     },
     {
       "quality": 10.0,
@@ -4491,7 +4706,7 @@
       "input_tokens": 406,
       "output_tokens": 536,
       "response_preview": "{\n  \"datos_originales\": {\n    \"MRR\": {\n      \"Enero\": 45200,\n      \"Febrero\": 48700,\n      \"Marzo\": 52100,\n      \"Var_MM\": \"7.0%\"\n    },\n    \"Churn_Rate\": {\n      \"Enero\": \"4.2%\",\n      \"Febrero\": \"3.8%\",\n      \"Marzo\": \"3.1%\",\n      \"Var_MM\": \"-0.7pp\"\n    },\n    \"NPS\": {\n      \"Enero\": 42,\n      \"F",
-      "auto_quality": 9.2,
+      "auto_quality": 10.0,
       "content_score": 8.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -4505,7 +4720,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__ocr_extraction__screenshot_table_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__ocr_extraction__screenshot_table_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:21+00:00"
     },
     {
       "quality": 10.0,
@@ -4526,7 +4743,7 @@
       "input_tokens": 466,
       "output_tokens": 683,
       "response_preview": "{\n  \"texto_corregido\": \"Reunión equipo prod - 14/04/26\\nAsist: JP, MaJo, Seba, Cami (faltó Nico)\\n\\n1) Lanzamiento v2.0 - mover de abr 28 a mayo 5\\n   - falta QA en módulo pagos\\n   - bug crit en API webhooks (Seba lo toma)\\n\\n2) Métricas Q1:\\n   - MRR 52.1k (+15% vs Q4)\\n   - churn bajo a 3.1% (obj",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -4540,7 +4757,9 @@
       "suite": "ocr_extraction",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__ocr_extraction__handwritten_notes_extraction.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__ocr_extraction__handwritten_notes_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:21+00:00"
     },
     {
       "quality": 7.5,
@@ -4561,7 +4780,7 @@
       "input_tokens": 286,
       "output_tokens": 305,
       "response_preview": "[\n  {\n    \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n    \"modelo\": \"gemini-flash-lite\",\n    \"razon\": \"Procesar grandes volúmenes de texto rápidamente para extraer insights\"\n  },\n  {\n    \"subtarea\": \"Escribir un email de disculpas a clientes afectados por un",
-      "auto_quality": 7.7,
+      "auto_quality": 7.5,
       "content_score": 8.0,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -4575,7 +4794,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260715_071736_9897",
-      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__agent_capabilities__model_as_router.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:21+00:00"
     },
     {
       "quality": 0.0,

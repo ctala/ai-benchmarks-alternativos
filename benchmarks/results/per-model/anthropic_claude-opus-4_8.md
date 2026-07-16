@@ -1,13 +1,13 @@
 # Claude Opus 4.8
 
 - **model_id**: `anthropic/claude-opus-4.8`
-- **Total tests**: 299/314 exitosos (15 errores)
-- **Score final**: 6.18
-- **Calidad**: 7.48
+- **Total tests**: 311/326 exitosos (15 errores)
+- **Score final**: 6.20
+- **Calidad**: 7.50
 - **Judge score (Phi-4)**: 3.54/10
-- **Velocidad**: 46 tok/s
-- **Latencia primera token**: 9.84s
-- **Costo promedio por test**: $0.32249
+- **Velocidad**: 47 tok/s
+- **Latencia primera token**: 10.11s
+- **Costo promedio por test**: $0.31991
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.68 | 8.22 |
-| agent_long_horizon | 12 | 12 | 6.16 | 8.25 |
+| agent_long_horizon | 24 | 24 | 6.36 | 8.17 |
 | business_audit | 10 | 10 | 6.95 | 8.20 |
 | business_strategy | 5 | 5 | 7.60 | 9.20 |
 | code_generation | 4 | 4 | 7.10 | 9.43 |

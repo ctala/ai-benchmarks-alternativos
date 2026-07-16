@@ -2,8 +2,8 @@
 
 - **model_id**: `anthropic/claude-opus-4-6`
 - **Total tests**: 298/298 exitosos (0 errores)
-- **Score final**: 6.68
-- **Calidad**: 8.09
+- **Score final**: 6.67
+- **Calidad**: 8.08
 - **Judge score (Phi-4)**: 4.30/10
 - **Velocidad**: 46 tok/s
 - **Latencia primera token**: 20.27s
@@ -21,7 +21,7 @@
 | business_strategy | 10 | 10 | 7.47 | 9.20 |
 | code_generation | 12 | 12 | 6.87 | 8.97 |
 | content_generation | 12 | 12 | 6.47 | 8.12 |
-| content_verificable | 10 | 10 | 8.21 | 10.00 |
+| content_verificable | 10 | 10 | 7.98 | 9.67 |
 | creativity | 12 | 12 | 6.65 | 8.04 |
 | customer_support | 12 | 12 | 6.78 | 7.65 |
 | deep_reasoning | 18 | 18 | 6.75 | 8.50 |

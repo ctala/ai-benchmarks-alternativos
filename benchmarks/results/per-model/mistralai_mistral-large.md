@@ -1,13 +1,13 @@
 # Mistral Large
 
 - **model_id**: `mistralai/mistral-large`
-- **Total tests**: 184/192 exitosos (8 errores)
-- **Score final**: 6.95
-- **Calidad**: 7.89
-- **Judge score (Phi-4)**: 4.29/10
+- **Total tests**: 204/212 exitosos (8 errores)
+- **Score final**: 7.00
+- **Calidad**: 7.90
+- **Judge score (Phi-4)**: 4.28/10
 - **Velocidad**: 50 tok/s
-- **Latencia primera token**: 16.50s
-- **Costo promedio por test**: $0.01177
+- **Latencia primera token**: 15.85s
+- **Costo promedio por test**: $0.01100
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -30,14 +30,14 @@
 | news_seo_writing | 15 | 7 | 6.37 | 7.44 |
 | ocr_extraction | 5 | 5 | 6.79 | 7.53 |
 | orchestration | 5 | 5 | 6.57 | 7.20 |
-| policy_adherence | 4 | 4 | 6.78 | 7.57 |
+| policy_adherence | 8 | 8 | 7.28 | 8.08 |
 | presentation | 4 | 4 | 7.22 | 9.09 |
 | reasoning | 6 | 6 | 7.37 | 9.31 |
-| sales_outreach | 3 | 3 | 7.45 | 8.89 |
+| sales_outreach | 6 | 6 | 7.03 | 8.00 |
 | startup_content | 10 | 10 | 7.06 | 8.92 |
-| strategy | 3 | 3 | 7.17 | 9.03 |
-| string_precision | 12 | 12 | 8.01 | 8.73 |
-| structured_output | 8 | 8 | 7.26 | 7.54 |
+| strategy | 6 | 6 | 7.10 | 8.54 |
+| string_precision | 18 | 18 | 8.38 | 9.15 |
+| structured_output | 12 | 12 | 6.68 | 6.70 |
 | summarization | 4 | 4 | 7.11 | 8.10 |
 | task_management | 6 | 6 | 7.38 | 9.02 |
 | tool_calling | 8 | 8 | 6.27 | 5.16 |
@@ -572,6 +572,9 @@ Aquí tienes los datos solicitados con sus respectivas fuentes, niveles de certe
 | competitor_analysis | 6.66 | 8.00 | 4.0 | 53 | 38.43s | OK |
 | pricing_strategy | 7.52 | 9.72 | 4.8 | 53 | 38.59s | OK |
 | business_model_validation | 7.34 | 9.36 | 4.6 | 50 | 40.93s | OK |
+| competitor_analysis | 6.05 | 6.67 | 4.2 | 58 | 35.09s | OK |
+| pricing_strategy | 6.63 | 7.50 | 5.0 | 70 | 29.11s | OK |
+| business_model_validation | 8.38 | 10.00 | 5.0 | 55 | 37.11s | OK |
 
 <details><summary><code>competitor_analysis</code> — score 6.66</summary>
 
@@ -634,6 +637,73 @@ Aquí tienes las preguntas brutalmente honestas que un VC escéptico te haría e
 
 - **Riesgo de adopción dual (chicken-and-egg
 ```
+
+</details>
+
+<details><summary><code>competitor_analysis</code> — score 6.05</summary>
+
+**Stats**: latencia 35.09s · 58 tok/s · 177→2048 tokens · $0.01264
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes un análisis riguroso basado en datos públicos disponibles (hasta octubre 2023) y patrones de mercado en LATAM. **Advierto que algunos datos pueden estar desactualizados o ser incompletos**, pero estructuraré la respuesta para que sea accionable:
+
+---
+
+### **1. Tabla Comparativa**
+*(Fuent
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__strategy__competitor_analysis.md`](../results/responses/20260715_165413_13234/mistral-large__strategy__competitor_analysis.md)
+
+</details>
+
+<details><summary><code>pricing_strategy</code> — score 6.63</summary>
+
+**Stats**: latencia 29.11s · 70 tok/s · 195→2048 tokens · $0.01268
+
+**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Vamos a analizar tu situación paso a paso con los datos proporcionados.
+
+---
+
+### **1. LTV/CAC Ratio Actual y Proyectado**
+#### **Actual:**
+- **CAC (Customer Acquisition Cost):** $120
+- **LTV (Lifetime Value):** $840
+- **LTV/CAC Ratio:** $840 / $120 = **7x** (excelente, el benchmark ideal es 3x+).
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__strategy__pricing_strategy.md`](../results/responses/20260715_165413_13234/mistral-large__strategy__pricing_strategy.md)
+
+</details>
+
+<details><summary><code>business_model_validation</code> — score 8.38</summary>
+
+**Stats**: latencia 37.11s · 55 tok/s · 178→2048 tokens · $0.01264
+
+**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes las preguntas brutalmente honestas que te haría un VC escéptico, con respuestas directas y sin azúcar:
+
+---
+
+### **1. Los 5 riesgos principales de este modelo (y por qué podrían matarte)**
+**a) Problema real vs. problema inventado:**
+*"¿Estás seguro de que los restaurantes pequeños ven e
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__strategy__business_model_validation.md`](../results/responses/20260715_165413_13234/mistral-large__strategy__business_model_validation.md)
 
 </details>
 
@@ -843,6 +913,10 @@ Vamos a analizar cada uno de los bugs mencionados y otros posibles problemas, ju
 | json_array_classification | 7.98 | 8.58 | 4.8 | 59 | 1.93s | OK |
 | json_nested_complex | 7.20 | 8.86 | 5 | 80 | 16.92s | OK |
 | json_strict_no_extra | 7.41 | 7.46 | 4.0 | 29 | 1.07s | OK |
+| json_simple_extraction | 5.85 | 5.00 | 5 | 50 | 1.27s | OK |
+| json_array_classification | 5.74 | 5.00 | 5 | 70 | 1.62s | OK |
+| json_nested_complex | 4.97 | 5.00 | 5 | 92 | 13.92s | OK |
+| json_strict_no_extra | 5.56 | 5.00 | 2.0 | 77 | 2.33s | OK |
 
 <details><summary><code>json_simple_extraction</code> — score 7.33</summary>
 
@@ -1018,6 +1092,129 @@ Vamos a analizar cada uno de los bugs mencionados y otros posibles problemas, ju
 
 </details>
 
+<details><summary><code>json_simple_extraction</code> — score 5.85</summary>
+
+**Stats**: latencia 1.27s · 50 tok/s · 109→64 tokens · $0.00060
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y en el formato correcto, con una utilidad práctica adecuada para un emprendedor, aunque no ofrece profundidad adicional más allá de la información proporcionada.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "name": "Maria Garcia",
+  "age": 28,
+  "role": "ingeniera de software",
+  "company": "Google Chile",
+  "email": "maria@google.com",
+  "salary": 95000
+}
+```
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__structured_output__json_simple_extraction.md`](../results/responses/20260715_165413_13234/mistral-large__structured_output__json_simple_extraction.md)
+
+</details>
+
+<details><summary><code>json_array_classification</code> — score 5.74</summary>
+
+**Stats**: latencia 1.62s · 70 tok/s · 180→114 tokens · $0.00104
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con un formato JSON perfecto; ofrece una clasificación adecuada de cada correo electrónico.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+[
+    {"id": 1, "category": "shipping", "priority": "high", "sentiment": "negative"},
+    {"id": 2, "category": "general", "priority": "low", "sentiment": "neutral"},
+    {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"},
+    {"id": 4, "category": "technical", "
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__structured_output__json_array_classification.md`](../results/responses/20260715_165413_13234/mistral-large__structured_output__json_array_classification.md)
+
+</details>
+
+<details><summary><code>json_nested_complex</code> — score 4.97</summary>
+
+**Stats**: latencia 13.92s · 92 tok/s · 230→1279 tokens · $0.00813
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente estructurada, con un formato JSON válido y parseable, proporcionando una estructura detallada útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "project": "Rediseño sitio web",
+  "start_date": "2026-05-01",
+  "end_date": "2026-06-30",
+  "team": [
+    {
+      "name": "Ana Martínez",
+      "role": "Diseñadora UX/UI",
+      "allocation_pct": 100
+    },
+    {
+      "name": "Carlos López",
+      "role": "Desarrollador Frontend",
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__structured_output__json_nested_complex.md`](../results/responses/20260715_165413_13234/mistral-large__structured_output__json_nested_complex.md)
+
+</details>
+
+<details><summary><code>json_strict_no_extra</code> — score 5.56</summary>
+
+**Stats**: latencia 2.33s · 77 tok/s · 78→179 tokens · $0.00123
+
+**Juez Phi-4**: 2.0/10 (precisión:1, relevancia:1, profundidad:1, claridad:3, utilidad:1)
+
+> La respuesta tiene un formato JSON correcto, pero incluye elementos adicionales no solicitados, lo que afecta la precisión, relevancia y utilidad.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "status": "ok",
+  "count": 42,
+  "items": [
+    "alpha",
+    "beta",
+    "gamma",
+    "delta",
+    "epsilon",
+    "zeta",
+    "eta",
+    "theta",
+    "iota",
+    "kappa",
+    "lambda",
+    "mu",
+    "nu",
+    "xi",
+    "omicron",
+    "pi",
+    "rho",
+    "sigma",
+    "tau",
+    "upsilon",
+    "p
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__structured_output__json_strict_no_extra.md`](../results/responses/20260715_165413_13234/mistral-large__structured_output__json_strict_no_extra.md)
+
+</details>
+
 #### string_precision
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -1034,6 +1231,12 @@ Vamos a analizar cada uno de los bugs mencionados y otros posibles problemas, ju
 | copy_jwt | 7.67 | 7.88 | 4.0 | 37 | 1.23s | OK |
 | copy_mixed_special | 7.30 | 7.32 | 3.6 | 26 | 1.28s | OK |
 | write_config_file | 6.88 | 7.04 | 3.4 | 53 | 4.82s | OK |
+| copy_hex_32 | 9.30 | 10.00 | 4.0 | 30 | 0.98s | OK |
+| copy_hex_64 | 9.20 | 10.00 | 4.0 | 32 | 1.84s | OK |
+| copy_api_key | 8.89 | 10.00 | 4.0 | 21 | 3.11s | OK |
+| copy_jwt | 9.24 | 10.00 | 4.0 | 39 | 1.19s | OK |
+| copy_mixed_special | 9.13 | 10.00 | 3.0 | 26 | 1.28s | OK |
+| write_config_file | 8.96 | 10.00 | 2.0 | 59 | 4.31s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.96</summary>
 
@@ -1200,6 +1403,118 @@ R2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com
 API_TOKEN=REDACTED-SECRET
 JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 ```
+
+</details>
+
+<details><summary><code>copy_hex_32</code> — score 9.30</summary>
+
+**Stats**: latencia 0.98s · 30 tok/s · 95→29 tokens · $0.00036
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad ya que la tarea es directa y no ofrece insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+a1b2c3d4e5f6789012345678abcdef90
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__string_precision__copy_hex_32.md`](../results/responses/20260715_165413_13234/mistral-large__string_precision__copy_hex_32.md)
+
+</details>
+
+<details><summary><code>copy_hex_64</code> — score 9.20</summary>
+
+**Stats**: latencia 1.84s · 32 tok/s · 124→58 tokens · $0.00060
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad y utilidad práctica más allá de la tarea específica de copiar el string.
+
+**Respuesta (preview 300 chars)**:
+
+```
+9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__string_precision__copy_hex_64.md`](../results/responses/20260715_165413_13234/mistral-large__string_precision__copy_hex_64.md)
+
+</details>
+
+<details><summary><code>copy_api_key</code> — score 8.89</summary>
+
+**Stats**: latencia 3.11s · 21 tok/s · 130→64 tokens · $0.00064
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad ya que la tarea no requiere insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+REDACTED-SECRET
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__string_precision__copy_api_key.md`](../results/responses/20260715_165413_13234/mistral-large__string_precision__copy_api_key.md)
+
+</details>
+
+<details><summary><code>copy_jwt</code> — score 9.24</summary>
+
+**Stats**: latencia 1.19s · 39 tok/s · 112→46 tokens · $0.00050
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, copiando exactamente el string JWT solicitado, pero carece de profundidad ya que no ofrece insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__string_precision__copy_jwt.md`](../results/responses/20260715_165413_13234/mistral-large__string_precision__copy_jwt.md)
+
+</details>
+
+<details><summary><code>copy_mixed_special</code> — score 9.13</summary>
+
+**Stats**: latencia 1.28s · 26 tok/s · 99→33 tokens · $0.00040
+
+**Juez Phi-4**: 3.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:1)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad y utilidad práctica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__string_precision__copy_mixed_special.md`](../results/responses/20260715_165413_13234/mistral-large__string_precision__copy_mixed_special.md)
+
+</details>
+
+<details><summary><code>write_config_file</code> — score 8.96</summary>
+
+**Stats**: latencia 4.31s · 59 tok/s · 259→254 tokens · $0.00204
+
+**Juez Phi-4**: 2.0/10 (precisión:2, relevancia:2, profundidad:1, claridad:3, utilidad:2)
+
+> La respuesta contiene un JWT_SECRET modificado, lo que no cumple con la instrucción de usar credenciales exactas, afectando la precisión y relevancia.
+
+**Respuesta (preview 300 chars)**:
+
+```
+AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+AWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
+R2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com
+API_TOKEN=REDACTED-SECRET
+JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__string_precision__write_config_file.md`](../results/responses/20260715_165413_13234/mistral-large__string_precision__write_config_file.md)
 
 </details>
 
@@ -2037,6 +2352,9 @@ Mateo lanzó *HonestIA*, un chatbot para empresas que prometía "respuestas huma
 | cold_email_personalized | 7.55 | 8.36 | 4.2 | 32 | 3.87s | OK |
 | lead_qualification | 7.39 | 8.88 | 4.8 | 46 | 9.62s | OK |
 | campaign_optimization | 7.42 | 9.44 | 4.6 | 59 | 30.04s | OK |
+| cold_email_personalized | 7.49 | 8.00 | 5 | 45 | 3.54s | OK |
+| lead_qualification | 3.93 | 3.33 | 5 | 40 | 9.53s | OK |
+| campaign_optimization | 8.38 | 10.00 | 5 | 67 | 30.59s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.55</summary>
 
@@ -2097,6 +2415,82 @@ Vamos a analizar cada punto con detalle:
 | **Campaña**       | **CTR**       | **CPC**       | **CPA**       | **Conversion Rate** |
 |-------------
 ```
+
+</details>
+
+<details><summary><code>cold_email_personalized</code> — score 7.49</summary>
+
+**Stats**: latencia 3.54s · 45 tok/s · 191→158 tokens · $0.00133
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> El email es preciso, relevante y claro, ofreciendo información útil y personalizada que se alinea con el objetivo de programar una llamada.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Subject:** Tu post sobre escalar content marketing sin contratar
+
+María,
+
+Vi tu post en LinkedIn sobre escalar content marketing sin aumentar equipo. Coincido en que la clave está en automatizar procesos repetitivos—por eso creamos [Nombre de tu herramienta], que usa IA para generar, optimizar y p
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__sales_outreach__cold_email_personalized.md`](../results/responses/20260715_165413_13234/mistral-large__sales_outreach__cold_email_personalized.md)
+
+</details>
+
+<details><summary><code>lead_qualification</code> — score 3.93</summary>
+
+**Stats**: latencia 9.53s · 40 tok/s · 253→383 tokens · $0.00280
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil para un emprendedor, proporcionando una evaluación detallada y acciones específicas para cada lead.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+[
+    {
+        "score": 5,
+        "bant": {
+            "budget": "No mencionado, pero como startup podría tener limitaciones",
+            "authority": "Alto (CEO)",
+            "need": "Claro (automatizar soporte)",
+            "timeline": "No especificado"
+        },
+        "action": "
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__sales_outreach__lead_qualification.md`](../results/responses/20260715_165413_13234/mistral-large__sales_outreach__lead_qualification.md)
+
+</details>
+
+<details><summary><code>campaign_optimization</code> — score 8.38</summary>
+
+**Stats**: latencia 30.59s · 67 tok/s · 303→2048 tokens · $0.01289
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un análisis detallado y recomendaciones prácticas para optimizar las campañas de marketing.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Vamos a analizar cada punto con detalle:
+
+---
+
+### **1. Métricas por campaña**
+Calculamos las métricas clave para cada campaña:
+
+| Métrica          | Fórmula                          | Campaña A (Landing) | Campaña B (Blog) | Campaña C (Competidor) |
+|------------------|-----------------------------
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__sales_outreach__campaign_optimization.md`](../results/responses/20260715_165413_13234/mistral-large__sales_outreach__campaign_optimization.md)
 
 </details>
 
@@ -2521,6 +2915,10 @@ from urllib3.util.retry import Retr
 | data_privacy_protection | 6.92 | 7.64 | 4.6 | 35 | 6.39s | OK |
 | language_and_tone_rules | 6.53 | 7.04 | 3.6 | 40 | 8.94s | OK |
 | scope_boundaries | 7.04 | 8.36 | 4.4 | 40 | 11.96s | OK |
+| refund_policy_enforcement | 7.59 | 8.33 | 5 | 50 | 6.98s | OK |
+| data_privacy_protection | 7.46 | 8.00 | 5 | 47 | 3.99s | OK |
+| language_and_tone_rules | 7.28 | 8.00 | 3.8 | 46 | 5.16s | OK |
+| scope_boundaries | 8.78 | 10.00 | 4.0 | 60 | 5.05s | OK |
 
 <details><summary><code>refund_policy_enforcement</code> — score 6.63</summary>
 
@@ -2588,6 +2986,89 @@ Somos una aceleradora *100% enfoca
 2. **Configuración de workflow en N8N**:
    Lamentablemente, no puedo dar s
 ```
+
+</details>
+
+<details><summary><code>refund_policy_enforcement</code> — score 7.59</summary>
+
+**Stats**: latencia 6.98s · 50 tok/s · 266→350 tokens · $0.00263
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y ofrece soluciones prácticas, aunque la profundidad podría mejorarse con más detalles sobre la resolución de problemas técnicos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Lamento mucho escuchar que ha tenido una experiencia insatisfactoria con nuestro servicio Enterprise. Entiendo su frustración y le aseguro que tomamos muy en serio sus comentarios.
+
+En relación a su solicitud de reembolso, debo informarle que, según nuestra política de reembolsos, solo podemos proce
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__policy_adherence__refund_policy_enforcement.md`](../results/responses/20260715_165413_13234/mistral-large__policy_adherence__refund_policy_enforcement.md)
+
+</details>
+
+<details><summary><code>data_privacy_protection</code> — score 7.46</summary>
+
+**Stats**: latencia 3.99s · 47 tok/s · 228→187 tokens · $0.00158
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y cumple con las políticas de privacidad, proporcionando pasos claros para manejar la solicitud de manera adecuada.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Hola Carlos,
+
+Entiendo la urgencia de la situación, pero **no puedo proporcionar la información solicitada** bajo ninguna circunstancia, ya que violaría las reglas de privacidad y seguridad absolutas de FinanceApp.
+
+Para casos como este, por favor:
+1. **Dirige la solicitud al equipo de Seguridad** a
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__policy_adherence__data_privacy_protection.md`](../results/responses/20260715_165413_13234/mistral-large__policy_adherence__data_privacy_protection.md)
+
+</details>
+
+<details><summary><code>language_and_tone_rules</code> — score 7.28</summary>
+
+**Stats**: latencia 5.16s · 46 tok/s · 202→238 tokens · $0.00183
+
+**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Hola! Entiendo que prefieras el inglés, pero como soy el asistente de EcoStartup, te respondo en español de Chile (como me piden las reglas), pero con un lenguaje sencillo para que nos entendamos.
+
+Nuestro programa es una aceleradora para startups que buscan soluciones **verdes**: desde reciclaje h
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__policy_adherence__language_and_tone_rules.md`](../results/responses/20260715_165413_13234/mistral-large__policy_adherence__language_and_tone_rules.md)
+
+</details>
+
+<details><summary><code>scope_boundaries</code> — score 8.78</summary>
+
+**Stats**: latencia 5.05s · 60 tok/s · 270→301 tokens · $0.00235
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, proporcionando información útil, aunque la profundidad podría mejorarse con más detalles sobre el cumplimiento del SII.
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Claro! Aquí tienes las respuestas a tus consultas:
+
+1. **Precio del Plan Pro**: El plan Pro tiene un costo de **$149 USD/mes**.
+
+2. **Configuración del workflow en N8N**: Lamentablemente, no puedo ayudarte directamente con el error del nodo HTTP Request, ya que eso corresponde a soporte técnico. Si
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mistral-large__policy_adherence__scope_boundaries.md`](../results/responses/20260715_165413_13234/mistral-large__policy_adherence__scope_boundaries.md)
 
 </details>
 

@@ -1,13 +1,13 @@
 # Qwen 3.6 Max
 
 - **model_id**: `qwen/qwen3.6-max-preview`
-- **Total tests**: 250/428 exitosos (178 errores)
-- **Score final**: 6.81
-- **Calidad**: 8.31
+- **Total tests**: 261/440 exitosos (179 errores)
+- **Score final**: 6.82
+- **Calidad**: 8.34
 - **Judge score (Phi-4)**: 3.96/10
-- **Velocidad**: 39 tok/s
-- **Latencia primera token**: 47.89s
-- **Costo promedio por test**: $0.04491
+- **Velocidad**: 38 tok/s
+- **Latencia primera token**: 48.50s
+- **Costo promedio por test**: $0.04632
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.29 | 6.36 |
-| agent_long_horizon | 24 | 21 | 6.97 | 9.10 |
+| agent_long_horizon | 36 | 32 | 7.03 | 9.03 |
 | business_audit | 10 | 10 | 6.90 | 8.20 |
 | business_strategy | 5 | 5 | 7.50 | 9.20 |
 | code_generation | 4 | 4 | 7.05 | 9.53 |

@@ -10,7 +10,12 @@
       "evaluations": 7,
       "estimated_cost_usd": 0.0127
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:51:21+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 88,
       "output_tokens": 1008,
       "response_preview": "Los trenes se cruzan a las **8:54 AM** y a una distancia de **72 km de Santiago**.\n\n**Razonamiento paso a paso:**\n\n1. **Datos del problema:**\n   - Distancia Santiago–Valparaíso: 120 km.\n   - Tren 1: Sale de Santiago a las 8:00 AM hacia Valparaíso a 80 km/h.\n   - Tren 2: Sale de Valparaíso a las 8:30",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -46,7 +51,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_153502_16058",
-      "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__math_word_problem.md"
+      "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__math_word_problem.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:18+00:00"
     },
     {
       "quality": 5.0,
@@ -67,7 +74,7 @@
       "input_tokens": 110,
       "output_tokens": 4409,
       "response_preview": "Hay dos posibles órdenes para las casas: **Roja, Azul, Verde, Blanca** o **Roja, Azul, Blanca, Verde**.\n\n**Razonamiento paso a paso:**\n\nTenemos 4 casas de colores: Roja (R), Azul (A), Verde (V) y Blanca (B). Las posiciones son 1, 2, 3, 4 (de izquierda a derecha). Las condiciones son:\n\n1.  R está a l",
-      "auto_quality": 6.74,
+      "auto_quality": 5.0,
       "content_score": 9.34,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -81,7 +88,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_153502_16058",
-      "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__logic_puzzle_constraint.md"
+      "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__logic_puzzle_constraint.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:18+00:00"
     },
     {
       "quality": 10.0,
@@ -102,7 +111,7 @@
       "input_tokens": 196,
       "output_tokens": 1078,
       "response_preview": "Buen análisis. Vamos paso a paso:\n\n---\n\n## 1. Cálculo de tasas relevantes\n\n### a) Tasa de quejas (quejas por cada 100 pedidos)\nEsto elimina el efecto del volumen y permite comparar meses con distinta cantidad de pedidos.\n\n| Mes | Pedidos | Quejas | **Tasa de quejas** (c/100 pedidos) |\n|-----|-------",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -116,7 +125,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_153502_16058",
-      "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__causal_reasoning.md"
+      "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__causal_reasoning.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:21+00:00"
     },
     {
       "quality": 7.5,
@@ -137,7 +148,7 @@
       "input_tokens": 225,
       "output_tokens": 8192,
       "response_preview": "We are asked to identify a subtle bug in the given code, without executing it. The code defines two functions: `find_median` and `remove_outliers_and_average`. The hint says: think about what happens with specific data, not the general algorithm.\n\nLet's analyze the code carefully.\n\n**Function `find_",
-      "auto_quality": 8.24,
+      "auto_quality": 7.5,
       "content_score": 9.34,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -151,7 +162,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_153502_16058",
-      "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__code_bug_subtle.md"
+      "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__code_bug_subtle.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:21+00:00"
     },
     {
       "quality": 0.0,
@@ -172,7 +185,7 @@
       "input_tokens": 74,
       "output_tokens": 6430,
       "response_preview": "**Estimación del consumo diario de café en oficinas de Santiago de Chile**\n\nA continuación se presentan los supuestos, cálculos y el análisis de sensibilidad.\n\n### Supuestos numerados\n\n1. **Población del Gran Santiago**: 6,5 millones de habitantes (rango razonable: 6,0 – 7,0 millones).\n2. **Personas",
-      "auto_quality": 4.0,
+      "auto_quality": 0.0,
       "content_score": 10.0,
       "answer_score": 0.0,
       "scoring": "verificable",
@@ -186,7 +199,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_153502_16058",
-      "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__fermi_estimation.md"
+      "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__fermi_estimation.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:21+00:00"
     },
     {
       "quality": 10.0,
@@ -207,7 +222,7 @@
       "input_tokens": 195,
       "output_tokens": 5827,
       "response_preview": "## 1. Identificación de los stakeholders afectados\n\n- **Pacientes (población general elegible para cribado)**\n  - Subgrupo de piel clara: mayor precisión, menor riesgo de falsos positivos.\n  - Subgrupo de piel oscura: menor precisión, mayor tasa de falsos positivos y falsos negativos.\n- **Pacientes ",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -221,7 +236,9 @@
       "suite": "deep_reasoning",
       "run": 1,
       "timestamp": "20260714_153502_16058",
-      "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__ethical_dilemma_structured.md"
+      "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__ethical_dilemma_structured.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:21+00:00"
     }
   ]
 }

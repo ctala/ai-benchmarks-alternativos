@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-14T18:14:57+00:00",
+      "at": "2026-07-15T20:48:57+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,7 +52,7 @@
       "content_score": 4.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:14:54+00:00",
+      "rescored_at": "2026-07-15T20:48:53+00:00",
       "scoring": "verificable"
     },
     {
@@ -89,7 +89,7 @@
       "content_score": 9.34,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:14:56+00:00",
+      "rescored_at": "2026-07-15T20:48:57+00:00",
       "scoring": "verificable"
     },
     {
@@ -126,7 +126,7 @@
       "content_score": 10.0,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:14:56+00:00",
+      "rescored_at": "2026-07-15T20:48:57+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,7 +163,7 @@
       "content_score": 8.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:14:56+00:00",
+      "rescored_at": "2026-07-15T20:48:57+00:00",
       "scoring": "verificable"
     },
     {
@@ -200,7 +200,7 @@
       "content_score": 4.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:14:56+00:00",
+      "rescored_at": "2026-07-15T20:48:57+00:00",
       "scoring": "verificable"
     },
     {
@@ -237,17 +237,17 @@
       "content_score": 9.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:14:56+00:00",
+      "rescored_at": "2026-07-15T20:48:57+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.0,
+      "quality": 8.0,
       "cost_score": 9.59,
       "cost_usd": 0.000295,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 6.39,
+      "final": 7.79,
       "test_name": "requirements_change",
       "model": "MiniMax M2.5",
       "model_id": "minimax/minimax-m2.5",
@@ -259,7 +259,7 @@
       "input_tokens": 228,
       "output_tokens": 290,
       "response_preview": "Perfecto, mucho mejor. Te explico los 4 nodos que necesitas:\n\n## 1. Gmail Trigger\n- Configura tu cuenta de Gmail\n- Selecciona la bandeja de entrada\n\n## 2. Filter (nodo de N8N)\n- Campo: `subject`\n- Operation: `contains` (o `matches regex`)\n- Value: `propuesta|cotizacion` (puedes usar regex para ambos",
-      "auto_quality": 6.0,
+      "auto_quality": 8.0,
       "judge_score": 3.0,
       "judge_precision": 3,
       "judge_relevancia": 2,
@@ -272,9 +272,9 @@
       "timestamp": "20260714_073458_59334",
       "response_file": "results/responses/20260714_073458_59334/or-minimax-m2.5__multi_turn__requirements_change.md",
       "content_score": 8.01,
-      "answer_score": 6.0,
+      "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:14:57+00:00",
+      "rescored_at": "2026-07-15T20:48:57+00:00",
       "scoring": "verificable"
     },
     {
@@ -311,7 +311,7 @@
       "content_score": 9.34,
       "answer_score": 7.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:14:57+00:00",
+      "rescored_at": "2026-07-15T20:48:57+00:00",
       "scoring": "verificable"
     }
   ]

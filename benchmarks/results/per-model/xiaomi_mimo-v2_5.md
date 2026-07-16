@@ -1,13 +1,13 @@
 # MiMo-V2.5 (omnimodal)
 
 - **model_id**: `xiaomi/mimo-v2.5`
-- **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.09
+- **Total tests**: 143/143 exitosos (0 errores)
+- **Score final**: 7.10
 - **Calidad**: 7.73
-- **Judge score (Phi-4)**: 4.24/10
-- **Velocidad**: 81 tok/s
-- **Latencia primera token**: 20.57s
-- **Costo promedio por test**: $0.00415
+- **Judge score (Phi-4)**: 4.28/10
+- **Velocidad**: 74 tok/s
+- **Latencia primera token**: 23.70s
+- **Costo promedio por test**: $0.00379
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -30,14 +30,14 @@
 | news_seo_writing | 5 | 5 | 6.48 | 6.73 |
 | ocr_extraction | 5 | 5 | 6.13 | 5.93 |
 | orchestration | 5 | 5 | 6.59 | 6.40 |
-| policy_adherence | 4 | 4 | 7.41 | 7.96 |
+| policy_adherence | 8 | 8 | 7.62 | 8.32 |
 | presentation | 2 | 2 | 7.69 | 9.06 |
 | reasoning | 3 | 3 | 6.07 | 5.93 |
-| sales_outreach | 3 | 3 | 7.95 | 9.26 |
+| sales_outreach | 6 | 6 | 7.23 | 8.19 |
 | startup_content | 5 | 5 | 7.62 | 9.03 |
-| strategy | 3 | 3 | 7.55 | 8.90 |
-| string_precision | 6 | 6 | 7.61 | 7.69 |
-| structured_output | 4 | 4 | 7.34 | 7.95 |
+| strategy | 6 | 6 | 6.56 | 7.50 |
+| string_precision | 12 | 12 | 8.30 | 8.85 |
+| structured_output | 8 | 8 | 6.36 | 6.47 |
 | summarization | 2 | 2 | 7.03 | 7.64 |
 | task_management | 3 | 3 | 7.73 | 8.93 |
 | tool_calling | 4 | 4 | 7.07 | 6.26 |
@@ -291,6 +291,9 @@ Vamos a resolver el problema paso a paso, usando las condiciones dadas.
 | competitor_analysis | 7.22 | 8.24 | 4.4 | 115 | 17.76s | OK |
 | pricing_strategy | 7.50 | 8.81 | 4.6 | 126 | 16.26s | OK |
 | business_model_validation | 7.92 | 9.64 | 4.8 | 108 | 18.96s | OK |
+| competitor_analysis | 3.48 | 3.33 | 3.8 | 7 | 289.02s | OK |
+| pricing_strategy | 4.65 | 5.00 | 4.2 | 9 | 232.10s | OK |
+| business_model_validation | 8.59 | 10.00 | 5 | 58 | 35.38s | OK |
 
 <details><summary><code>competitor_analysis</code> — score 7.22</summary>
 
@@ -356,6 +359,80 @@ Vamos a resolver el problema paso a paso, usando las condiciones dadas.
 ```
 
 **Respuesta completa**: [`results/responses/20260426_074254/mimo-v2.5__strategy__business_model_validation.md`](../results/responses/20260426_074254/mimo-v2.5__strategy__business_model_validation.md)
+
+</details>
+
+<details><summary><code>competitor_analysis</code> — score 3.48</summary>
+
+**Stats**: latencia 289.02s · 7 tok/s · 188→2048 tokens · $0.00417
+
+**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Análisis Competitivo — Email Marketing para Pymes en LATAM
+
+---
+
+## 1. TABLA COMPARATIVA
+
+> **⚠️ Nota de transparencia:** No tengo datos en tiempo real ni pricing exacto actualizado. Las cifras se basan en mi conocimiento hasta inicios de 2025. **Verificá siempre los precios oficiales.** Sobre Env
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__strategy__competitor_analysis.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__strategy__competitor_analysis.md)
+
+</details>
+
+<details><summary><code>pricing_strategy</code> — score 4.65</summary>
+
+**Stats**: latencia 232.10s · 9 tok/s · 221→2048 tokens · $0.00418
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+The user wants a comprehensive analysis of their SaaS pricing increase from $60 to $89/month. Let me work through all 5 points systematically.
+
+**Current Data:**
+- CAC: $120
+- LTV: $840 (14 months × $60/month)
+- Monthly churn: 7%
+- 200 clients
+- Competitors: $29-$149/month
+- Cost per user: ~$8/month
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__strategy__pricing_strategy.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__strategy__pricing_strategy.md)
+
+</details>
+
+<details><summary><code>business_model_validation</code> — score 8.59</summary>
+
+**Stats**: latencia 35.38s · 58 tok/s · 428→2048 tokens · $0.00427
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando una evaluación crítica y detallada de los riesgos potenciales del modelo de negocio propuesto.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# 🎯 Auditoría Brutal: Tu Marketplace de Proveedores Locales
+
+---
+
+## 1. LOS 5 RIESGOS MORTALES DE ESTE MODELO
+
+### Riesgo #1: **El Problema No Existe Como Tú Crees**
+
+Tu hipótesis dice: *"los restaurantes pierden mucho tiempo llamando a proveedores."*
+
+Pero te pregunto: **¿Preguntaste a 100 dueños d
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__strategy__business_model_validation.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__strategy__business_model_validation.md)
 
 </details>
 
@@ -456,6 +533,10 @@ Aquí tienes el JSON completo del workflow:
 | json_array_classification | 7.81 | 8.86 | 5 | 102 | 9.04s | OK |
 | json_nested_complex | 7.12 | 8.02 | 4.4 | 134 | 14.86s | OK |
 | json_strict_no_extra | 7.38 | 7.46 | 4.0 | 17 | 2.40s | OK |
+| json_simple_extraction | 5.30 | 5.00 | 5 | 8 | 8.91s | OK |
+| json_array_classification | 5.27 | 5.00 | 5 | 50 | 16.55s | OK |
+| json_nested_complex | 5.17 | 5.00 | 5 | 84 | 16.11s | OK |
+| json_strict_no_extra | 5.75 | 5.00 | 5 | 25 | 1.61s | OK |
 
 <details><summary><code>json_simple_extraction</code> — score 7.05</summary>
 
@@ -535,6 +616,89 @@ Aquí tienes el JSON completo del workflow:
 
 </details>
 
+<details><summary><code>json_simple_extraction</code> — score 5.30</summary>
+
+**Stats**: latencia 8.91s · 8 tok/s · 114→69 tokens · $0.00018
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, con un formato JSON correcto, aunque la profundidad y utilidad práctica son básicas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{"name": "Maria Garcia", "age": 28, "role": "ingeniera de software", "company": "Google Chile", "email": "maria@google.com", "salary": 95000}
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__structured_output__json_simple_extraction.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__structured_output__json_simple_extraction.md)
+
+</details>
+
+<details><summary><code>json_array_classification</code> — score 5.27</summary>
+
+**Stats**: latencia 16.55s · 50 tok/s · 183→829 tokens · $0.00173
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con un formato JSON perfecto, aunque la profundidad podría ser mayor con más contexto o análisis.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[
+  {"id": 1, "category": "shipping", "priority": "urgent", "sentiment": "negative"},
+  {"id": 2, "category": "shipping", "priority": "low", "sentiment": "positive"},
+  {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"},
+  {"id": 4, "category": "technical", "priority": "
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__structured_output__json_array_classification.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__structured_output__json_array_classification.md)
+
+</details>
+
+<details><summary><code>json_nested_complex</code> — score 5.17</summary>
+
+**Stats**: latencia 16.11s · 84 tok/s · 225→1359 tokens · $0.00281
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con una estructura JSON perfecta y una profundidad adecuada para un plan de proyecto.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "project": "Rediseno sitio web",
+  "start_date": "2026-05-01",
+  "end_date": "2026-06-30",
+  "team": [
+    {"name": "Laura Mendez", "role": "Designer", "allocation_pct": 100},
+    {"name": "Carlos Rios", "role": "Senior Developer", "allocation_pct": 100},
+    {"name": "Ana Torres", "role": "Juni
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__structured_output__json_nested_complex.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__structured_output__json_nested_complex.md)
+
+</details>
+
+<details><summary><code>json_strict_no_extra</code> — score 5.75</summary>
+
+**Stats**: latencia 1.61s · 25 tok/s · 83→40 tokens · $0.00011
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante, clara y en el formato correcto, aunque carece de profundidad y utilidad práctica más allá de la estructura básica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{"status": "ok", "count": 42, "items": ["alpha", "beta", "gamma"]}
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__structured_output__json_strict_no_extra.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__structured_output__json_strict_no_extra.md)
+
+</details>
+
 #### string_precision
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -545,6 +709,12 @@ Aquí tienes el JSON completo del workflow:
 | copy_jwt | 7.89 | 7.88 | 4.0 | 31 | 1.70s | OK |
 | copy_mixed_special | 7.46 | 7.32 | 3.6 | 24 | 1.88s | OK |
 | write_config_file | 7.39 | 7.88 | 4.0 | 114 | 5.63s | OK |
+| copy_hex_32 | 9.25 | 10.00 | 4.0 | 27 | 1.47s | OK |
+| copy_hex_64 | 9.10 | 10.00 | 3.0 | 18 | 3.97s | OK |
+| copy_api_key | 8.72 | 10.00 | 4.0 | 7 | 10.21s | OK |
+| copy_jwt | 9.55 | 10.00 | 4.0 | 51 | 1.03s | OK |
+| copy_mixed_special | 8.65 | 10.00 | 3.0 | 4 | 10.84s | OK |
+| write_config_file | 8.63 | 10.00 | 4.0 | 38 | 19.73s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 7.59</summary>
 
@@ -651,6 +821,118 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 ```
 
 **Respuesta completa**: [`results/responses/20260426_074254/mimo-v2.5__string_precision__write_config_file.md`](../results/responses/20260426_074254/mimo-v2.5__string_precision__write_config_file.md)
+
+</details>
+
+<details><summary><code>copy_hex_32</code> — score 9.25</summary>
+
+**Stats**: latencia 1.47s · 27 tok/s · 99→40 tokens · $0.00012
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad ya que no ofrece insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+a1b2c3d4e5f6789012345678abcdef90
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__string_precision__copy_hex_32.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__string_precision__copy_hex_32.md)
+
+</details>
+
+<details><summary><code>copy_hex_64</code> — score 9.10</summary>
+
+**Stats**: latencia 3.97s · 18 tok/s · 129→70 tokens · $0.00019
+
+**Juez Phi-4**: 3.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:1)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad y utilidad práctica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__string_precision__copy_hex_64.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__string_precision__copy_hex_64.md)
+
+</details>
+
+<details><summary><code>copy_api_key</code> — score 8.72</summary>
+
+**Stats**: latencia 10.21s · 7 tok/s · 135→76 tokens · $0.00021
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad ya que la tarea no requiere insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+REDACTED-SECRET
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__string_precision__copy_api_key.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__string_precision__copy_api_key.md)
+
+</details>
+
+<details><summary><code>copy_jwt</code> — score 9.55</summary>
+
+**Stats**: latencia 1.03s · 51 tok/s · 112→53 tokens · $0.00015
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad y utilidad práctica más allá de la copia exacta.
+
+**Respuesta (preview 300 chars)**:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__string_precision__copy_jwt.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__string_precision__copy_jwt.md)
+
+</details>
+
+<details><summary><code>copy_mixed_special</code> — score 8.65</summary>
+
+**Stats**: latencia 10.84s · 4 tok/s · 104→45 tokens · $0.00013
+
+**Juez Phi-4**: 3.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:1)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad y utilidad práctica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__string_precision__copy_mixed_special.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__string_precision__copy_mixed_special.md)
+
+</details>
+
+<details><summary><code>write_config_file</code> — score 8.63</summary>
+
+**Stats**: latencia 19.73s · 38 tok/s · 271→741 tokens · $0.00159
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y directamente util, pero carece de profundidad ya que simplemente replica la información proporcionada.
+
+**Respuesta (preview 300 chars)**:
+
+```
+AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+AWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
+R2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com
+API_TOKEN=REDACTED-SECRET
+JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__string_precision__write_config_file.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__string_precision__write_config_file.md)
 
 </details>
 
@@ -1185,6 +1467,9 @@ Cuando un cliente preguntó: "¿Esto aumentará la productividad?", Ver
 | cold_email_personalized | 8.00 | 9.04 | 4.8 | 62 | 5.23s | OK |
 | lead_qualification | 8.12 | 9.48 | 4.8 | 102 | 8.91s | OK |
 | campaign_optimization | 7.72 | 9.26 | 4.6 | 131 | 15.65s | OK |
+| cold_email_personalized | 7.02 | 8.00 | 5 | 9 | 51.85s | OK |
+| lead_qualification | 3.91 | 3.33 | 5 | 38 | 27.06s | OK |
+| campaign_optimization | 8.59 | 10.00 | 5 | 60 | 34.03s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 8.00</summary>
 
@@ -1260,6 +1545,81 @@ Tr
 ```
 
 **Respuesta completa**: [`results/responses/20260426_074254/mimo-v2.5__sales_outreach__campaign_optimization.md`](../results/responses/20260426_074254/mimo-v2.5__sales_outreach__campaign_optimization.md)
+
+</details>
+
+<details><summary><code>cold_email_personalized</code> — score 7.02</summary>
+
+**Stats**: latencia 51.85s · 9 tok/s · 201→485 tokens · $0.00105
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y ofrece utilidad práctica, con insights útiles sobre la automatización de contenido con IA.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Subject:** Vi tu post sobre escalar content sin contratar
+
+**Body:**
+
+Hola Maria,
+
+Leí tu post en LinkedIn sobre cómo escalar content marketing sin contratar y quedé pensando en FintechCo.
+
+Con 50 empleados en Serie A, el equipo de marketing seguramente está generando más contenido que nunca pero
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__sales_outreach__cold_email_personalized.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__sales_outreach__cold_email_personalized.md)
+
+</details>
+
+<details><summary><code>lead_qualification</code> — score 3.91</summary>
+
+**Stats**: latencia 27.06s · 38 tok/s · 264→1036 tokens · $0.00218
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y altamente util, proporcionando una evaluación detallada y acciones claras para cada lead.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+[
+  {
+    "score": 6,
+    "bant": {
+      "budget": "No mencionado; CEO de startup pequeña sugiere presupuesto limitado pero no confirmado",
+      "authority": "Alta - CEO, decision maker directo",
+      "need": "Alta - busca activamente automatizar soporte",
+      "timeline": "Baja - fase e
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__sales_outreach__lead_qualification.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__sales_outreach__lead_qualification.md)
+
+</details>
+
+<details><summary><code>campaign_optimization</code> — score 8.59</summary>
+
+**Stats**: latencia 34.03s · 60 tok/s · 546→2048 tokens · $0.00431
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un análisis detallado y recomendaciones prácticas para optimizar la campaña de marketing.
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Excelentes datos! Vamos a analizarlos paso a paso. Esto te dará una visión muy clara de dónde está el rendimiento y cómo optimizar.
+
+### 1. Cálculo de Métricas por Campaña
+
+| Métrica | Campaña A (Landing Principal) | Campaña B (Blog Content) | Campaña C (Competidor) |
+| :--- | :--- | :--- | :--- |
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__sales_outreach__campaign_optimization.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__sales_outreach__campaign_optimization.md)
 
 </details>
 
@@ -1772,6 +2132,10 @@ client = OpenAI(
 | data_privacy_protection | 7.75 | 8.20 | 4.6 | 62 | 4.68s | OK |
 | language_and_tone_rules | 7.06 | 7.32 | 3.8 | 74 | 6.31s | OK |
 | scope_boundaries | 7.57 | 8.44 | 4.2 | 65 | 8.38s | OK |
+| refund_policy_enforcement | 6.58 | 6.67 | 5 | 64 | 8.39s | OK |
+| data_privacy_protection | 8.82 | 10.00 | 5 | 42 | 9.28s | OK |
+| language_and_tone_rules | 7.03 | 8.00 | 4.0 | 6 | 72.79s | OK |
+| scope_boundaries | 8.91 | 10.00 | 5 | 58 | 9.46s | OK |
 
 <details><summary><code>refund_policy_enforcement</code> — score 7.24</summary>
 
@@ -1862,6 +2226,103 @@ Lamento no poder ayudarte directamente con eso. Para problemas técnico
 ```
 
 **Respuesta completa**: [`results/responses/20260426_074254/mimo-v2.5__policy_adherence__scope_boundaries.md`](../results/responses/20260426_074254/mimo-v2.5__policy_adherence__scope_boundaries.md)
+
+</details>
+
+<details><summary><code>refund_policy_enforcement</code> — score 6.58</summary>
+
+**Stats**: latencia 8.39s · 64 tok/s · 286→538 tokens · $0.00119
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y ofrece una solución práctica, aunque no profundiza en detalles adicionales sobre la política de reembolsos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Entiendo su frustración, y lamento que haya tenido una experiencia negativa con nuestro servicio. Sin embargo, debo informarle que, según nuestra política de reembolsos establecida, solo podemos procesar reembolsos dentro de los 14 días posteriores a la compra. Dado que su suscripción al plan Enterp
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__policy_adherence__refund_policy_enforcement.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__policy_adherence__refund_policy_enforcement.md)
+
+</details>
+
+<details><summary><code>data_privacy_protection</code> — score 8.82</summary>
+
+**Stats**: latencia 9.28s · 42 tok/s · 238→394 tokens · $0.00088
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, manteniendo la privacidad y cumpliendo con las políticas, proporcionando instrucciones útiles para procedimientos alternativos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+No puedo proporcionar esa información. 
+
+Las reglas de privacidad de FinanceApp son absolutas y no permiten:
+- Confirmar registros de clientes
+- Revelar saldos o transacciones
+- Procesar solicitudes de información financiera a través de este canal
+
+Si necesita asistencia con una investigación intern
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__policy_adherence__data_privacy_protection.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__policy_adherence__data_privacy_protection.md)
+
+</details>
+
+<details><summary><code>language_and_tone_rules</code> — score 7.03</summary>
+
+**Stats**: latencia 72.79s · 6 tok/s · 218→436 tokens · $0.00096
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:3, profundidad:4, claridad:3, utilidad:4)
+
+> La respuesta es precisa y relevante, ofreciendo insights útiles sobre el uso de IA en startups sostenibles, aunque no cumple completamente con la solicitud de comunicación en inglés.
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Hola que tal! Acá hablamos español no más, pero tranqui, te cuento todo. Somos EcoStartup, una aceleradora en Chile enfocada 100% en startups sustentables. El programa te da mentoría, conexiones con inversores y un plan de aceleración para escalar tu idea con impacto ambiental real. 
+
+Prefiero no o
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__policy_adherence__language_and_tone_rules.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__policy_adherence__language_and_tone_rules.md)
+
+</details>
+
+<details><summary><code>scope_boundaries</code> — score 8.91</summary>
+
+**Stats**: latencia 9.46s · 58 tok/s · 278→545 tokens · $0.00120
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y útil, proporcionando información detallada y recomendaciones prácticas, aunque la profundidad podría mejorarse con más detalles sobre el cumplimiento del SII.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# ¡Hola! Respondo tus 4 consultas 👇
+
+---
+
+## 1. 💰 Precio del Plan Pro
+
+El **Plan Pro** tiene un costo de **$149/mes** e incluye:
+- Workflows ilimitados
+- Soporte prioritario
+- Integraciones avanzadas
+- Hasta 10.000 ejecuciones/mes
+
+---
+
+## 2. 🔧 Ayuda técnica con N8N
+
+Lamentablemente, **no puedo ayud
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/mimo-v2.5-or__policy_adherence__scope_boundaries.md`](../results/responses/20260715_165413_13234/mimo-v2.5-or__policy_adherence__scope_boundaries.md)
 
 </details>
 

@@ -10,7 +10,12 @@
       "evaluations": 5,
       "estimated_cost_usd": 0.0054
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:51:21+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -20,7 +25,7 @@
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 5.57,
+      "final": 5.56,
       "test_name": "json_simple_extraction",
       "model": "DeepSeek V4 Pro",
       "model_id": "deepseek/deepseek-v4-pro",
@@ -32,7 +37,7 @@
       "input_tokens": 102,
       "output_tokens": 245,
       "response_preview": "{\"name\": \"Maria Garcia\", \"age\": 28, \"role\": \"ingeniera de software\", \"company\": \"Google Chile\", \"email\": \"maria@google.com\", \"salary\": 95000}",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -46,7 +51,9 @@
       "suite": "structured_output",
       "run": 1,
       "timestamp": "20260714_154522_22309",
-      "response_file": "results/responses/20260714_154522_22309/deepseek-v4-pro__structured_output__json_simple_extraction.md"
+      "response_file": "results/responses/20260714_154522_22309/deepseek-v4-pro__structured_output__json_simple_extraction.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:21+00:00"
     },
     {
       "quality": 5.0,
@@ -67,7 +74,7 @@
       "input_tokens": 187,
       "output_tokens": 513,
       "response_preview": "[{\"id\": 1, \"category\": \"shipping\", \"priority\": \"urgent\", \"sentiment\": \"negative\"}, {\"id\": 2, \"category\": \"general\", \"priority\": \"low\", \"sentiment\": \"neutral\"}, {\"id\": 3, \"category\": \"billing\", \"priority\": \"urgent\", \"sentiment\": \"negative\"}, {\"id\": 4, \"category\": \"technical\", \"priority\": \"high\", \"sen",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -81,7 +88,9 @@
       "suite": "structured_output",
       "run": 1,
       "timestamp": "20260714_154522_22309",
-      "response_file": "results/responses/20260714_154522_22309/deepseek-v4-pro__structured_output__json_array_classification.md"
+      "response_file": "results/responses/20260714_154522_22309/deepseek-v4-pro__structured_output__json_array_classification.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:21+00:00"
     },
     {
       "quality": 5.0,
@@ -102,7 +111,7 @@
       "input_tokens": 218,
       "output_tokens": 4802,
       "response_preview": "{\n  \"project\": \"Rediseno sitio web\",\n  \"start_date\": \"2026-05-01\",\n  \"end_date\": \"2026-06-30\",\n  \"team\": [\n    {\"name\": \"Laura Gómez\", \"role\": \"Diseñadora\", \"allocation_pct\": 100},\n    {\"name\": \"Carlos Ruiz\", \"role\": \"Desarrollador Frontend\", \"allocation_pct\": 100},\n    {\"name\": \"Ana Martínez\", \"rol",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -116,7 +125,9 @@
       "suite": "structured_output",
       "run": 1,
       "timestamp": "20260714_154522_22309",
-      "response_file": "results/responses/20260714_154522_22309/deepseek-v4-pro__structured_output__json_nested_complex.md"
+      "response_file": "results/responses/20260714_154522_22309/deepseek-v4-pro__structured_output__json_nested_complex.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:21+00:00"
     },
     {
       "quality": 5.0,
@@ -137,7 +148,7 @@
       "input_tokens": 81,
       "output_tokens": 147,
       "response_preview": "{\"status\": \"ok\", \"count\": 42, \"items\": [\"alpha\", \"beta\", \"gamma\"]}",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -151,7 +162,9 @@
       "suite": "structured_output",
       "run": 1,
       "timestamp": "20260714_154522_22309",
-      "response_file": "results/responses/20260714_154522_22309/deepseek-v4-pro__structured_output__json_strict_no_extra.md"
+      "response_file": "results/responses/20260714_154522_22309/deepseek-v4-pro__structured_output__json_strict_no_extra.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:21+00:00"
     }
   ]
 }

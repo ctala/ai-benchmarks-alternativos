@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-14T18:05:02+00:00",
+      "at": "2026-07-15T20:38:53+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -44,7 +44,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_bridge_length_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -75,7 +75,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_bridge_length_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -106,7 +106,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_bridge_length_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -137,7 +137,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_library_volumes_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -168,7 +168,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_library_volumes_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -199,7 +199,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_library_volumes_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -230,7 +230,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_festival_date_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -261,7 +261,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_festival_date_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -292,7 +292,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_festival_date_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -323,7 +323,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_potato_altitude_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -354,7 +354,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_potato_altitude_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -385,7 +385,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_potato_altitude_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -416,7 +416,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_expedition_code_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -447,7 +447,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_expedition_code_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -478,7 +478,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_expedition_code_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -509,7 +509,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_bridge_length_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -540,7 +540,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_bridge_length_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -571,7 +571,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_bridge_length_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -602,7 +602,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_library_volumes_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -633,7 +633,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_library_volumes_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -664,7 +664,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_library_volumes_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -695,7 +695,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_festival_date_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -726,7 +726,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_festival_date_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -757,7 +757,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_festival_date_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -788,7 +788,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_potato_altitude_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -819,7 +819,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_potato_altitude_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -850,7 +850,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_potato_altitude_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -881,7 +881,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_expedition_code_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -912,7 +912,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_expedition_code_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -943,7 +943,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_expedition_code_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -974,7 +974,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_bridge_length_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1005,7 +1005,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_bridge_length_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1036,7 +1036,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_bridge_length_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1067,7 +1067,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_library_volumes_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1098,7 +1098,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_library_volumes_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1129,7 +1129,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_library_volumes_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1160,7 +1160,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_festival_date_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1191,7 +1191,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_festival_date_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1222,7 +1222,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_festival_date_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1253,7 +1253,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_potato_altitude_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1284,7 +1284,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_potato_altitude_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1315,7 +1315,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_potato_altitude_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1398,7 +1398,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_expedition_code_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1481,7 +1481,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-opus-4.8-sub__niah_es__niah_es_library_volumes_256000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1590,7 +1590,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_bridge_length_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1621,7 +1621,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_bridge_length_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1652,7 +1652,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_bridge_length_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1683,7 +1683,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_library_volumes_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1714,7 +1714,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_library_volumes_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1745,7 +1745,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_library_volumes_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1776,7 +1776,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_festival_date_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1807,7 +1807,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_festival_date_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1838,7 +1838,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_festival_date_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1869,7 +1869,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_potato_altitude_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1900,7 +1900,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_potato_altitude_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1931,7 +1931,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_potato_altitude_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1962,7 +1962,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_expedition_code_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1993,7 +1993,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_expedition_code_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2024,7 +2024,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_expedition_code_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2055,7 +2055,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_bridge_length_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2086,7 +2086,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_bridge_length_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2117,7 +2117,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_bridge_length_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2148,7 +2148,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_library_volumes_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2179,7 +2179,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_library_volumes_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2210,7 +2210,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_library_volumes_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2241,7 +2241,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_festival_date_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2272,7 +2272,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_festival_date_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2303,7 +2303,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_festival_date_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2334,7 +2334,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_potato_altitude_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2365,7 +2365,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_potato_altitude_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2396,7 +2396,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_potato_altitude_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2427,7 +2427,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_expedition_code_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2458,7 +2458,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_expedition_code_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2489,7 +2489,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_expedition_code_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2520,7 +2520,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_bridge_length_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2551,7 +2551,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_bridge_length_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2582,7 +2582,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_bridge_length_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2613,7 +2613,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_library_volumes_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2644,7 +2644,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_library_volumes_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2675,7 +2675,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_library_volumes_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2706,7 +2706,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_festival_date_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2737,7 +2737,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_festival_date_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2768,7 +2768,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_festival_date_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2799,7 +2799,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_potato_altitude_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2830,7 +2830,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_potato_altitude_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2861,7 +2861,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_potato_altitude_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2892,7 +2892,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_expedition_code_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2923,7 +2923,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_expedition_code_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2954,7 +2954,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-sonnet-4.6-sub__niah_es__niah_es_expedition_code_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3141,7 +3141,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_bridge_length_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3172,7 +3172,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_bridge_length_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3203,7 +3203,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_bridge_length_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3234,7 +3234,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_library_volumes_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3265,7 +3265,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_library_volumes_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -3296,7 +3296,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_library_volumes_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3327,7 +3327,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_festival_date_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3358,7 +3358,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_festival_date_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3389,7 +3389,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_festival_date_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3420,7 +3420,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_potato_altitude_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3451,7 +3451,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_potato_altitude_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3482,7 +3482,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_potato_altitude_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3513,7 +3513,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_expedition_code_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 8.5,
       "scoring": "verificable"
@@ -3544,7 +3544,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_expedition_code_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3575,7 +3575,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_expedition_code_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3606,7 +3606,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_bridge_length_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3637,7 +3637,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_bridge_length_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3668,7 +3668,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_bridge_length_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3699,7 +3699,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_library_volumes_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3730,7 +3730,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_library_volumes_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3761,7 +3761,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_library_volumes_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3792,7 +3792,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_festival_date_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3823,7 +3823,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_festival_date_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3854,7 +3854,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_festival_date_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3885,7 +3885,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_potato_altitude_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3916,7 +3916,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_potato_altitude_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3947,7 +3947,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_potato_altitude_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3978,7 +3978,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_expedition_code_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4009,7 +4009,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_expedition_code_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4040,7 +4040,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_expedition_code_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4071,7 +4071,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_bridge_length_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4102,7 +4102,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_bridge_length_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4133,7 +4133,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_bridge_length_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4164,7 +4164,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_library_volumes_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -4195,7 +4195,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_library_volumes_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -4226,7 +4226,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_library_volumes_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -4257,7 +4257,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_festival_date_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4288,7 +4288,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_festival_date_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4319,7 +4319,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_festival_date_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4350,7 +4350,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_potato_altitude_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4381,7 +4381,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_potato_altitude_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4412,7 +4412,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_potato_altitude_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4443,7 +4443,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_expedition_code_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4474,7 +4474,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_expedition_code_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4505,7 +4505,7 @@
       "timestamp": "20260607_104058_3845547",
       "response_file": "results/responses/20260607_104058_3845547/claude-haiku-4.5-sub__niah_es__niah_es_expedition_code_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"

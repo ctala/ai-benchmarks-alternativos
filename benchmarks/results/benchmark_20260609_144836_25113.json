@@ -20,7 +20,7 @@
     },
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-14T18:05:09+00:00",
+      "at": "2026-07-15T20:39:01+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -864,7 +864,7 @@
       "rejudged": true,
       "judge_score": 4.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -898,7 +898,7 @@
       "rejudged": true,
       "judge_score": 4.2,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:02+00:00",
+      "rescored_at": "2026-07-15T20:38:53+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -932,7 +932,7 @@
       "rejudged": true,
       "judge_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -966,7 +966,7 @@
       "rejudged": true,
       "judge_score": 4.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -1000,7 +1000,7 @@
       "rejudged": true,
       "judge_score": 4.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 10.0,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -1034,7 +1034,7 @@
       "rejudged": true,
       "judge_score": 4.8,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1188,7 +1188,7 @@
       "rejudged": true,
       "judge_score": 4.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -1222,7 +1222,7 @@
       "rejudged": true,
       "judge_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -1256,7 +1256,7 @@
       "rejudged": true,
       "judge_score": 4.2,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -1290,7 +1290,7 @@
       "rejudged": true,
       "judge_score": 4.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -1324,7 +1324,7 @@
       "rejudged": true,
       "judge_score": 4.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1358,7 +1358,7 @@
       "rejudged": true,
       "judge_score": 4.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 9.34,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -1392,7 +1392,7 @@
       "rejudged": true,
       "judge_score": 4.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 9.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -1426,7 +1426,7 @@
       "rejudged": true,
       "judge_score": 4.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 5.34,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -1460,7 +1460,7 @@
       "rejudged": true,
       "judge_score": 4.8,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 5.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -1494,7 +1494,7 @@
       "rejudged": true,
       "judge_score": 4.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 7.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1528,7 +1528,7 @@
       "rejudged": true,
       "judge_score": 4.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 4.67,
       "answer_score": 8.5,
       "scoring": "verificable"
@@ -1562,7 +1562,7 @@
       "rejudged": true,
       "judge_score": 3.8,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1596,7 +1596,7 @@
       "rejudged": true,
       "judge_score": 3.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1630,7 +1630,7 @@
       "rejudged": true,
       "judge_score": 1.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 4.0,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -1664,7 +1664,7 @@
       "rejudged": true,
       "judge_score": 4.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1698,7 +1698,7 @@
       "rejudged": true,
       "judge_score": 3.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1732,7 +1732,7 @@
       "rejudged": true,
       "judge_score": 2.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -1796,7 +1796,7 @@
       "rejudged": true,
       "judge_score": 3.8,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -1830,7 +1830,7 @@
       "rejudged": true,
       "judge_score": 4.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 9.34,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -1864,7 +1864,7 @@
       "rejudged": true,
       "judge_score": 4.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 10.0,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -1928,7 +1928,7 @@
       "rejudged": true,
       "judge_score": 2.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1962,7 +1962,7 @@
       "rejudged": true,
       "judge_score": 4.2,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:04+00:00",
+      "rescored_at": "2026-07-15T20:38:56+00:00",
       "content_score": 4.0,
       "answer_score": 8.75,
       "scoring": "verificable"
@@ -1996,7 +1996,7 @@
       "rejudged": true,
       "judge_score": 4.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:06+00:00",
+      "rescored_at": "2026-07-15T20:38:57+00:00",
       "content_score": 4.67,
       "answer_score": 8.75,
       "scoring": "verificable"
@@ -2030,7 +2030,7 @@
       "rejudged": true,
       "judge_score": 3.2,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:06+00:00",
+      "rescored_at": "2026-07-15T20:38:57+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -2064,7 +2064,7 @@
       "rejudged": true,
       "judge_score": 4.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:06+00:00",
+      "rescored_at": "2026-07-15T20:38:57+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2128,7 +2128,7 @@
       "rejudged": true,
       "judge_score": 4.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:06+00:00",
+      "rescored_at": "2026-07-15T20:38:57+00:00",
       "content_score": 10.0,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -2192,7 +2192,7 @@
       "rejudged": true,
       "judge_score": 4.2,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:06+00:00",
+      "rescored_at": "2026-07-15T20:38:57+00:00",
       "content_score": 5.34,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -2226,7 +2226,7 @@
       "rejudged": true,
       "judge_score": 4.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:06+00:00",
+      "rescored_at": "2026-07-15T20:38:57+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2260,7 +2260,7 @@
       "rejudged": true,
       "judge_score": 4.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:06+00:00",
+      "rescored_at": "2026-07-15T20:38:57+00:00",
       "content_score": 4.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -2294,7 +2294,7 @@
       "rejudged": true,
       "judge_score": 4.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:06+00:00",
+      "rescored_at": "2026-07-15T20:38:57+00:00",
       "content_score": 9.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -2328,7 +2328,7 @@
       "rejudged": true,
       "judge_score": 1.8,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:06+00:00",
+      "rescored_at": "2026-07-15T20:38:58+00:00",
       "content_score": 10.0,
       "answer_score": 4.0,
       "scoring": "verificable"
@@ -2362,7 +2362,7 @@
       "rejudged": true,
       "judge_score": 4.8,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:06+00:00",
+      "rescored_at": "2026-07-15T20:38:58+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2396,7 +2396,7 @@
       "rejudged": true,
       "judge_score": 4.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:06+00:00",
+      "rescored_at": "2026-07-15T20:38:59+00:00",
       "content_score": 8.67,
       "answer_score": 8.33,
       "scoring": "verificable"
@@ -2430,7 +2430,7 @@
       "rejudged": true,
       "judge_score": 4.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:06+00:00",
+      "rescored_at": "2026-07-15T20:38:59+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2464,7 +2464,7 @@
       "rejudged": true,
       "judge_score": 3.2,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:07+00:00",
+      "rescored_at": "2026-07-15T20:38:59+00:00",
       "content_score": 4.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -2498,7 +2498,7 @@
       "rejudged": true,
       "judge_score": 4.2,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:08+00:00",
+      "rescored_at": "2026-07-15T20:38:59+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2622,7 +2622,7 @@
       "rejudged": true,
       "judge_score": 4.8,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:08+00:00",
+      "rescored_at": "2026-07-15T20:39:00+00:00",
       "content_score": 5.34,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -2656,7 +2656,7 @@
       "rejudged": true,
       "judge_score": 4.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:08+00:00",
+      "rescored_at": "2026-07-15T20:39:00+00:00",
       "content_score": 8.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2690,7 +2690,7 @@
       "rejudged": true,
       "judge_score": 4.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:08+00:00",
+      "rescored_at": "2026-07-15T20:39:00+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2724,7 +2724,7 @@
       "rejudged": true,
       "judge_score": 4.8,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:08+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2758,7 +2758,7 @@
       "rejudged": true,
       "judge_score": 4.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:08+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 9.2,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2792,7 +2792,7 @@
       "rejudged": true,
       "judge_score": 4.8,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:08+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 7.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -2826,7 +2826,7 @@
       "rejudged": true,
       "judge_score": 4.8,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:08+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 8.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2860,7 +2860,7 @@
       "rejudged": true,
       "judge_score": 4.8,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 10.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -2894,7 +2894,7 @@
       "rejudged": true,
       "judge_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -2958,7 +2958,7 @@
       "rejudged": true,
       "judge_score": 3.8,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 7.87,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3373,7 +3373,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_bridge_length_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3404,7 +3404,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_bridge_length_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3435,7 +3435,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_bridge_length_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3466,7 +3466,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_library_volumes_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3497,7 +3497,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_library_volumes_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3528,7 +3528,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_library_volumes_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3559,7 +3559,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_festival_date_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3590,7 +3590,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_festival_date_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3621,7 +3621,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_festival_date_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3652,7 +3652,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_potato_altitude_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3683,7 +3683,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_potato_altitude_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3714,7 +3714,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_potato_altitude_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3745,7 +3745,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_expedition_code_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3776,7 +3776,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_expedition_code_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3807,7 +3807,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_expedition_code_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3838,7 +3838,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_bridge_length_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3869,7 +3869,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_bridge_length_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3900,7 +3900,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_bridge_length_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3931,7 +3931,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_library_volumes_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3962,7 +3962,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_library_volumes_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3993,7 +3993,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_library_volumes_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4024,7 +4024,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_festival_date_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4055,7 +4055,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_festival_date_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4086,7 +4086,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_festival_date_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4117,7 +4117,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_potato_altitude_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4148,7 +4148,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_potato_altitude_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4179,7 +4179,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_potato_altitude_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4210,7 +4210,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_expedition_code_64000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4241,7 +4241,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_expedition_code_64000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4272,7 +4272,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_expedition_code_64000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4303,7 +4303,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_bridge_length_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4334,7 +4334,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_bridge_length_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4365,7 +4365,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_bridge_length_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4396,7 +4396,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_library_volumes_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4427,7 +4427,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_library_volumes_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4458,7 +4458,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_library_volumes_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4489,7 +4489,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_festival_date_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4520,7 +4520,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_festival_date_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4551,7 +4551,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_festival_date_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4582,7 +4582,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_potato_altitude_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4613,7 +4613,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_potato_altitude_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4644,7 +4644,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_potato_altitude_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4675,7 +4675,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_expedition_code_128000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4706,7 +4706,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_expedition_code_128000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4737,7 +4737,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_expedition_code_128000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4768,7 +4768,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_bridge_length_256000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4799,7 +4799,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_bridge_length_256000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4830,7 +4830,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_library_volumes_256000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4861,7 +4861,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_library_volumes_256000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4892,7 +4892,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_festival_date_256000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4923,7 +4923,7 @@
       "timestamp": "20260609_144836_25113",
       "response_file": "results/responses/20260609_144836_25113/claude-fable-5-sub__niah_es__niah_es_festival_date_256000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4957,7 +4957,7 @@
       "rejudged": true,
       "judge_score": 4.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4991,7 +4991,7 @@
       "rejudged": true,
       "judge_score": 4.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -5025,7 +5025,7 @@
       "rejudged": true,
       "judge_score": 4.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -5059,7 +5059,7 @@
       "rejudged": true,
       "judge_score": 4.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -5093,7 +5093,7 @@
       "rejudged": true,
       "judge_score": 1.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -5127,7 +5127,7 @@
       "rejudged": true,
       "judge_score": 1.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -5161,7 +5161,7 @@
       "rejudged": true,
       "judge_score": 1.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -5195,7 +5195,7 @@
       "rejudged": true,
       "judge_score": 1.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -5229,7 +5229,7 @@
       "rejudged": true,
       "judge_score": 4.2,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -5263,7 +5263,7 @@
       "rejudged": true,
       "judge_score": 3.2,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -5297,7 +5297,7 @@
       "rejudged": true,
       "judge_score": 4.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -5331,7 +5331,7 @@
       "rejudged": true,
       "judge_score": 4.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -5365,7 +5365,7 @@
       "rejudged": true,
       "judge_score": 2.2,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -5399,7 +5399,7 @@
       "rejudged": true,
       "judge_score": 3.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -5433,7 +5433,7 @@
       "rejudged": true,
       "judge_score": 1.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -5467,7 +5467,7 @@
       "rejudged": true,
       "judge_score": 2.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -5501,7 +5501,7 @@
       "rejudged": true,
       "judge_score": 4.4,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -5535,7 +5535,7 @@
       "rejudged": true,
       "judge_score": 3.6,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -5569,7 +5569,7 @@
       "rejudged": true,
       "judge_score": 4.2,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -5603,7 +5603,7 @@
       "rejudged": true,
       "judge_score": 4.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:05:09+00:00",
+      "rescored_at": "2026-07-15T20:39:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"

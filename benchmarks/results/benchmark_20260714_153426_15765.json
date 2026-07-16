@@ -10,7 +10,12 @@
       "evaluations": 2,
       "estimated_cost_usd": 0.0016
     },
-    "partial": true
+    "partial": true,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:51:18+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -46,7 +51,9 @@
       "suite": "translation",
       "run": 1,
       "timestamp": "20260714_153426_15765",
-      "response_file": "results/responses/20260714_153426_15765/glm-5.2__translation__translate_marketing_es_en.md"
+      "response_file": "results/responses/20260714_153426_15765/glm-5.2__translation__translate_marketing_es_en.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:18+00:00"
     }
   ]
 }

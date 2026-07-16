@@ -7,7 +7,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-14T17:58:09+00:00",
+      "at": "2026-07-15T20:28:14+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -19,7 +19,7 @@
       "speed": 6.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 6.94,
+      "final": 7.21,
       "test_name": "translate_marketing_es_en",
       "model": "GPT-5.5",
       "model_id": "gpt-5.5",
@@ -36,7 +36,11 @@
       "run": 1,
       "timestamp": "20260425_052621",
       "response_file": "results/responses/20260425_052621/gpt-5.5__translation__translate_marketing_es_en.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
+      "scoring": "verificable",
+      "content_score": 8.0,
+      "answer_score": 8.0,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:28:13+00:00"
     },
     {
       "quality": 8.0,
@@ -65,13 +69,13 @@
       "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
-      "quality": 4.88,
+      "quality": 6.67,
       "cost_score": 3.18,
       "cost_usd": 0.04041,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.8,
+      "final": 5.82,
       "test_name": "detect_language_issues",
       "model": "GPT-5.5",
       "model_id": "gpt-5.5",
@@ -83,12 +87,16 @@
       "input_tokens": 198,
       "output_tokens": 1314,
       "response_preview": "{\n  \"problemas\": [\n    {\n      \"tipo\": \"cliche\",\n      \"texto\": \"ha revolucionado el mundo de las startups\",\n      \"correccion\": \"ha transformado el sector de las empresas emergentes\"\n    },\n    {\n      \"tipo\": \"spanglish\",\n      \"texto\": \"startups\",\n      \"correccion\": \"empresas emergentes\"\n    },\n",
-      "auto_quality": 4.88,
+      "auto_quality": 6.67,
       "suite": "translation",
       "run": 1,
       "timestamp": "20260425_052621",
       "response_file": "results/responses/20260425_052621/gpt-5.5__translation__detect_language_issues.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
+      "scoring": "verificable",
+      "content_score": 7.2,
+      "answer_score": 6.67,
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:28:14+00:00"
     }
   ]
 }

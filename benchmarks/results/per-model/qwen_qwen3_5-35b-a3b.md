@@ -2,8 +2,8 @@
 
 - **model_id**: `qwen/qwen3.5-35b-a3b`
 - **Total tests**: 103/103 exitosos (0 errores)
-- **Score final**: 7.38
-- **Calidad**: 7.81
+- **Score final**: 7.37
+- **Calidad**: 7.78
 - **Judge score (Phi-4)**: 4.37/10
 - **Velocidad**: 130 tok/s
 - **Latencia primera token**: 20.18s
@@ -26,7 +26,7 @@
 | multi_turn | 4 | 4 | 6.97 | 7.12 |
 | news_seo_writing | 5 | 5 | 5.49 | 5.24 |
 | ocr_extraction | 5 | 5 | 8.53 | 9.60 |
-| orchestration | 5 | 5 | 7.76 | 7.88 |
+| orchestration | 5 | 5 | 7.41 | 7.38 |
 | policy_adherence | 4 | 4 | 8.01 | 8.67 |
 | presentation | 2 | 2 | 7.60 | 8.16 |
 | reasoning | 3 | 3 | 7.85 | 8.62 |
@@ -1744,7 +1744,7 @@ Sin embargo, tengo varias preocupaciones importantes:
 | error_recovery_orchestration | 6.07 | 5.00 | 3.0 | 143 | 1.62s | OK |
 | complex_workflow_decomposition | 6.60 | 6.21 | 4.0 | 6 | 0.55s | OK |
 | parallel_vs_sequential_judgment | 9.06 | 10.00 | 5 | 119 | 8.56s | OK |
-| tool_selection_precision | 8.97 | 10.00 | 5 | 96 | 7.58s | OK |
+| tool_selection_precision | 7.22 | 7.50 | 5 | 96 | 7.58s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 8.08</summary>
 
@@ -1831,7 +1831,7 @@ Entiendo la urgencia. Dado que la base de datos principal está en mantenimiento
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 8.97</summary>
+<details><summary><code>tool_selection_precision</code> — score 7.22</summary>
 
 **Stats**: latencia 7.58s · 96 tok/s · 1170→727 tokens · $0.00089
 

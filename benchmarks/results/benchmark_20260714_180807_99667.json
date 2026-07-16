@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0185
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:51:37+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -242,7 +247,7 @@
       "input_tokens": 328,
       "output_tokens": 5140,
       "response_preview": "{\n  \"Fuentes\": [\"https://deepmind.google/technologies/gemma-4/\"],\n  \"Categoria\": \"Inteligencia Artificial\",\n  \"Palabras_Clave\": [\"Gemma 4\", \"Google DeepMind\", \"open-source\", \"modelos de lenguaje\", \"Apache 2.0\"],\n  \"Contenido_HTML\": \"<h2>Google DeepMind lanza Gemma 4: modelos de IA de código abierto ",
-      "auto_quality": 6.2,
+      "auto_quality": 5.0,
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -256,7 +261,9 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_180807_99667",
-      "response_file": "results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_json_output_strict.md"
+      "response_file": "results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_json_output_strict.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:37+00:00"
     },
     {
       "quality": 5.0,
@@ -277,7 +284,7 @@
       "input_tokens": 321,
       "output_tokens": 1758,
       "response_preview": "SambaNova Systems irrumpe en el mercado de hardware para inteligencia artificial con el SN50, un chip que promete acelerar la inferencia de modelos de lenguaje a una velocidad cinco veces superior a la de sus competidores y con un costo total de propiedad tres veces menor que el de las GPU tradicion",
-      "auto_quality": 6.47,
+      "auto_quality": 5.0,
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -291,7 +298,9 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_180807_99667",
-      "response_file": "results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_spanish_only.md"
+      "response_file": "results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_spanish_only.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:37+00:00"
     },
     {
       "quality": 0.0,
@@ -312,7 +321,7 @@
       "input_tokens": 499,
       "output_tokens": 2005,
       "response_preview": "# NotCo alcanza valoración de $1.500 millones tras ronda Serie D de $85 millones liderada por Tiger Global\n\nLa startup chilena de tecnología alimentaria NotCo cerró una ronda de financiamiento Serie D por 85 millones de dólares, liderada por el fondo de inversión Tiger Global. Con esta nueva inyecci",
-      "auto_quality": 3.47,
+      "auto_quality": 0.0,
       "content_score": 8.67,
       "answer_score": 0.0,
       "scoring": "verificable",
@@ -326,7 +335,9 @@
       "suite": "news_seo_writing",
       "run": 1,
       "timestamp": "20260714_180807_99667",
-      "response_file": "results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_no_hallucination_sources.md"
+      "response_file": "results/responses/20260714_180807_99667/deepseek-v4-pro__news_seo_writing__news_no_hallucination_sources.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:37+00:00"
     },
     {
       "quality": 9.8,

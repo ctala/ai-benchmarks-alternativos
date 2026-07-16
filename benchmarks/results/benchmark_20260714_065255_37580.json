@@ -10,7 +10,12 @@
       "evaluations": 2,
       "estimated_cost_usd": 0.0015
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:47:30+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -113,7 +118,7 @@
       "content_score": 2.67,
       "answer_score": 7.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:12:32+00:00",
+      "rescored_at": "2026-07-15T20:47:30+00:00",
       "scoring": "verificable"
     },
     {
@@ -150,7 +155,7 @@
       "content_score": 7.0,
       "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:12:32+00:00",
+      "rescored_at": "2026-07-15T20:47:30+00:00",
       "scoring": "verificable"
     },
     {

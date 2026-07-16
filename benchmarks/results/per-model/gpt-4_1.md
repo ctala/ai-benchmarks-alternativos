@@ -1,13 +1,13 @@
 # GPT-4.1
 
 - **model_id**: `gpt-4.1`
-- **Total tests**: 264/264 exitosos (0 errores)
-- **Score final**: 6.58
-- **Calidad**: 7.56
-- **Judge score (Phi-4)**: 4.28/10
-- **Velocidad**: 61 tok/s
-- **Latencia primera token**: 19.41s
-- **Costo promedio por test**: $0.15271
+- **Total tests**: 284/284 exitosos (0 errores)
+- **Score final**: 6.69
+- **Calidad**: 7.66
+- **Judge score (Phi-4)**: 4.30/10
+- **Velocidad**: 62 tok/s
+- **Latencia primera token**: 18.37s
+- **Costo promedio por test**: $0.14219
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -17,7 +17,7 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 10 | 10 | 5.59 | 5.00 |
 | agent_long_horizon | 12 | 12 | 7.13 | 8.88 |
-| business_audit | 10 | 10 | 6.04 | 6.18 |
+| business_audit | 10 | 10 | 7.18 | 7.80 |
 | code_generation | 8 | 8 | 7.62 | 8.92 |
 | content_generation | 8 | 8 | 7.30 | 8.12 |
 | creativity | 8 | 8 | 6.87 | 7.26 |
@@ -30,14 +30,14 @@
 | niah_es_1m | 15 | 15 | 4.91 | 7.43 |
 | ocr_extraction | 5 | 5 | 7.13 | 7.67 |
 | orchestration | 5 | 5 | 6.70 | 6.66 |
-| policy_adherence | 4 | 4 | 7.05 | 7.13 |
+| policy_adherence | 8 | 8 | 7.06 | 7.19 |
 | presentation | 4 | 4 | 7.27 | 8.54 |
 | reasoning | 6 | 6 | 7.47 | 9.31 |
-| sales_outreach | 3 | 3 | 7.70 | 9.07 |
+| sales_outreach | 6 | 6 | 8.03 | 9.20 |
 | startup_content | 10 | 10 | 7.40 | 9.12 |
-| strategy | 3 | 3 | 7.27 | 8.90 |
-| string_precision | 12 | 12 | 8.16 | 8.87 |
-| structured_output | 8 | 8 | 7.44 | 7.58 |
+| strategy | 6 | 6 | 7.19 | 8.48 |
+| string_precision | 18 | 18 | 8.50 | 9.25 |
+| structured_output | 12 | 12 | 6.76 | 6.72 |
 | summarization | 4 | 4 | 7.12 | 7.46 |
 | task_management | 6 | 6 | 7.34 | 8.41 |
 | tool_calling | 8 | 8 | 6.62 | 5.16 |
@@ -586,6 +586,9 @@ Claro, aquí tienes las respuestas a tus preguntas, indicando el nivel de certez
 | competitor_analysis | 6.96 | 8.56 | 4.4 | 78 | 18.59s | OK |
 | pricing_strategy | 7.48 | 8.99 | 4.6 | 121 | 8.84s | OK |
 | business_model_validation | 7.38 | 9.16 | 4.4 | 84 | 10.83s | OK |
+| competitor_analysis | 6.09 | 6.67 | 4.6 | 97 | 12.40s | OK |
+| pricing_strategy | 6.79 | 7.50 | 5.0 | 138 | 10.45s | OK |
+| business_model_validation | 8.44 | 10.00 | 5 | 84 | 12.95s | OK |
 
 <details><summary><code>competitor_analysis</code> — score 6.96</summary>
 
@@ -652,6 +655,85 @@ Por supuesto, aquí tienes el tipo de cuestionamiento brutal y directo que recib
 
 1. **Fragmentación extrema y baja digitalización**: Tanto restaurantes pequeños como proveedores locales suelen tener muy baja
 ```
+
+</details>
+
+<details><summary><code>competitor_analysis</code> — score 6.09</summary>
+
+**Stats**: latencia 12.40s · 97 tok/s · 171→1199 tokens · $0.00993
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Perfecto! Vamos por partes, con la máxima precisión posible según la información pública disponible hasta junio de 2024.
+
+---
+
+### 1. Tabla Comparativa
+
+| Startup      | Pricing (USD aprox.)      | Features Principales                                      | Mercado Target          | Fortalezas
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__strategy__competitor_analysis.md`](../results/responses/20260715_165413_13234/gpt-4.1__strategy__competitor_analysis.md)
+
+</details>
+
+<details><summary><code>pricing_strategy</code> — score 6.79</summary>
+
+**Stats**: latencia 10.45s · 138 tok/s · 176→1441 tokens · $0.01188
+
+**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Claro! Vamos paso a paso:
+
+---
+
+### 1. LTV/CAC Ratio Actual y con el Nuevo Precio
+
+**Datos actuales:**
+- CAC = $120
+- Precio = $60/mes
+- Churn mensual = 7%
+- LTV = 14 meses * $60 = $840 (coincide con tu cálculo)
+
+**LTV/CAC actual:**
+\[
+\text{LTV/CAC} = \frac{LTV}{CAC} = \frac{840}{120} = 7.0
+\]
+
+--
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__strategy__pricing_strategy.md`](../results/responses/20260715_165413_13234/gpt-4.1__strategy__pricing_strategy.md)
+
+</details>
+
+<details><summary><code>business_model_validation</code> — score 8.44</summary>
+
+**Stats**: latencia 12.95s · 84 tok/s · 166→1088 tokens · $0.00904
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando una evaluación exhaustiva y perspicaz del modelo de negocio desde la perspectiva de un VC escéptico.
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Perfecto! Asumiendo el rol de VC escéptico, aquí van las preguntas y comentarios más difíciles y directos:
+
+---
+
+**1. Los 5 riesgos principales de este modelo:**
+
+1. **Fragmentación del mercado:** ¿Realmente puedes agregar suficiente oferta y demanda en un sector tan fragmentado para que el marketp
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__strategy__business_model_validation.md`](../results/responses/20260715_165413_13234/gpt-4.1__strategy__business_model_validation.md)
 
 </details>
 
@@ -860,6 +942,10 @@ Si ninguna orden tiene el estado `'pending'`, la lista `processed` estará vací
 | json_array_classification | 8.09 | 8.86 | 5 | 54 | 1.90s | OK |
 | json_nested_complex | 7.50 | 8.86 | 5 | 108 | 6.95s | OK |
 | json_strict_no_extra | 7.70 | 7.46 | 4.0 | 36 | 0.69s | OK |
+| json_simple_extraction | 5.26 | 5.00 | 4.0 | 14 | 3.33s | OK |
+| json_array_classification | 5.72 | 5.00 | 5 | 57 | 1.79s | OK |
+| json_nested_complex | 5.02 | 5.00 | 5 | 62 | 11.47s | OK |
+| json_strict_no_extra | 5.65 | 5.00 | 5 | 20 | 1.22s | OK |
 
 <details><summary><code>json_simple_extraction</code> — score 7.34</summary>
 
@@ -993,6 +1079,85 @@ Si ninguna orden tiene el estado `'pending'`, la lista `processed` estará vací
 
 </details>
 
+<details><summary><code>json_simple_extraction</code> — score 5.26</summary>
+
+**Stats**: latencia 3.33s · 14 tok/s · 104→46 tokens · $0.00058
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, con un formato JSON correcto, pero carece de profundidad y utilidad práctica más allá de la extracción básica de datos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{"name": "Maria Garcia", "age": 28, "role": "ingeniera de software", "company": "Google Chile", "email": "maria@google.com", "salary": 95000}
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__structured_output__json_simple_extraction.md`](../results/responses/20260715_165413_13234/gpt-4.1__structured_output__json_simple_extraction.md)
+
+</details>
+
+<details><summary><code>json_array_classification</code> — score 5.72</summary>
+
+**Stats**: latencia 1.79s · 57 tok/s · 164→102 tokens · $0.00114
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con un formato JSON perfecto, aunque la profundidad podría mejorarse con más contexto o detalles.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[{"id": 1, "category": "shipping", "priority": "urgent", "sentiment": "negative"}, {"id": 2, "category": "general", "priority": "low", "sentiment": "neutral"}, {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "sen
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__structured_output__json_array_classification.md`](../results/responses/20260715_165413_13234/gpt-4.1__structured_output__json_array_classification.md)
+
+</details>
+
+<details><summary><code>json_nested_complex</code> — score 5.02</summary>
+
+**Stats**: latencia 11.47s · 62 tok/s · 211→712 tokens · $0.00612
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente estructurada, proporcionando una representación detallada y útil de un plan de proyecto que un emprendedor podría usar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "project": "Rediseno sitio web",
+  "start_date": "2026-05-01",
+  "end_date": "2026-06-30",
+  "team": [
+    {"name": "Ana García", "role": "Diseñador UX/UI", "allocation_pct": 100},
+    {"name": "Luis Pérez", "role": "Desarrollador Frontend", "allocation_pct": 100},
+    {"name": "María Torres", "
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__structured_output__json_nested_complex.md`](../results/responses/20260715_165413_13234/gpt-4.1__structured_output__json_nested_complex.md)
+
+</details>
+
+<details><summary><code>json_strict_no_extra</code> — score 5.65</summary>
+
+**Stats**: latencia 1.22s · 20 tok/s · 80→25 tokens · $0.00036
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante, clara y en el formato correcto, aunque carece de profundidad y utilidad práctica más allá de la estructura básica requerida.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{"status": "ok", "count": 42, "items": ["alpha", "beta", "gamma"]}
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__structured_output__json_strict_no_extra.md`](../results/responses/20260715_165413_13234/gpt-4.1__structured_output__json_strict_no_extra.md)
+
+</details>
+
 #### string_precision
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -1009,6 +1174,12 @@ Si ninguna orden tiene el estado `'pending'`, la lista `processed` estará vací
 | copy_jwt | 7.80 | 7.88 | 4.0 | 49 | 0.82s | OK |
 | copy_mixed_special | 7.56 | 7.88 | 4.0 | 24 | 1.23s | OK |
 | write_config_file | 7.61 | 7.88 | 4.0 | 100 | 1.89s | OK |
+| copy_hex_32 | 9.33 | 10.00 | 4.0 | 23 | 0.78s | OK |
+| copy_hex_64 | 8.92 | 10.00 | 3.0 | 20 | 2.09s | OK |
+| copy_api_key | 9.30 | 10.00 | 4.0 | 59 | 1.07s | OK |
+| copy_jwt | 9.22 | 10.00 | 4.0 | 32 | 1.24s | OK |
+| copy_mixed_special | 9.42 | 10.00 | 3.0 | 37 | 0.79s | OK |
+| write_config_file | 8.97 | 10.00 | 4.0 | 66 | 2.86s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.55</summary>
 
@@ -1179,6 +1350,118 @@ R2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com
 API_TOKEN=REDACTED-SECRET
 JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 ```
+
+</details>
+
+<details><summary><code>copy_hex_32</code> — score 9.33</summary>
+
+**Stats**: latencia 0.78s · 23 tok/s · 84→18 tokens · $0.00031
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad ya que no ofrece insights adicionales; sin embargo, es útil en un contexto técnico.
+
+**Respuesta (preview 300 chars)**:
+
+```
+a1b2c3d4e5f6789012345678abcdef90
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__string_precision__copy_hex_32.md`](../results/responses/20260715_165413_13234/gpt-4.1__string_precision__copy_hex_32.md)
+
+</details>
+
+<details><summary><code>copy_hex_64</code> — score 8.92</summary>
+
+**Stats**: latencia 2.09s · 20 tok/s · 107→41 tokens · $0.00054
+
+**Juez Phi-4**: 3.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:1)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad y utilidad práctica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__string_precision__copy_hex_64.md`](../results/responses/20260715_165413_13234/gpt-4.1__string_precision__copy_hex_64.md)
+
+</details>
+
+<details><summary><code>copy_api_key</code> — score 9.30</summary>
+
+**Stats**: latencia 1.07s · 59 tok/s · 129→63 tokens · $0.00076
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad ya que la tarea no requiere insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+REDACTED-SECRET
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__string_precision__copy_api_key.md`](../results/responses/20260715_165413_13234/gpt-4.1__string_precision__copy_api_key.md)
+
+</details>
+
+<details><summary><code>copy_jwt</code> — score 9.22</summary>
+
+**Stats**: latencia 1.24s · 32 tok/s · 106→40 tokens · $0.00053
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, copiando exactamente el string JWT solicitado, pero carece de profundidad ya que no ofrece insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__string_precision__copy_jwt.md`](../results/responses/20260715_165413_13234/gpt-4.1__string_precision__copy_jwt.md)
+
+</details>
+
+<details><summary><code>copy_mixed_special</code> — score 9.42</summary>
+
+**Stats**: latencia 0.79s · 37 tok/s · 95→29 tokens · $0.00042
+
+**Juez Phi-4**: 3.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:1)
+
+> La respuesta es precisa, relevante y clara, pero carece de profundidad y utilidad práctica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__string_precision__copy_mixed_special.md`](../results/responses/20260715_165413_13234/gpt-4.1__string_precision__copy_mixed_special.md)
+
+</details>
+
+<details><summary><code>write_config_file</code> — score 8.97</summary>
+
+**Stats**: latencia 2.86s · 66 tok/s · 230→189 tokens · $0.00197
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y directamente util, pero carece de profundidad ya que simplemente replica la información sin añadir insights.
+
+**Respuesta (preview 300 chars)**:
+
+```
+AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+AWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
+R2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com
+API_TOKEN=REDACTED-SECRET
+JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__string_precision__write_config_file.md`](../results/responses/20260715_165413_13234/gpt-4.1__string_precision__write_config_file.md)
 
 </details>
 
@@ -2010,6 +2293,9 @@ Enrique celebró cuando su startup de IA, Veritask, empezó a ganar usuarios. El
 | cold_email_personalized | 7.93 | 8.96 | 4.8 | 66 | 2.07s | OK |
 | lead_qualification | 7.67 | 8.88 | 4.8 | 83 | 4.46s | OK |
 | campaign_optimization | 7.51 | 9.36 | 4.8 | 125 | 11.16s | OK |
+| cold_email_personalized | 7.50 | 8.00 | 5 | 46 | 2.57s | OK |
+| lead_qualification | 9.02 | 10.00 | 5 | 135 | 2.54s | OK |
+| campaign_optimization | 8.53 | 10.00 | 4.8 | 104 | 14.63s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.93</summary>
 
@@ -2079,6 +2365,85 @@ Estoy trabajando con varios equipos de marketing en fintech que buscaban justo
 - **CTR (Click Through Rate):**  
   CTR = (Clicks / Impresiones) × 100 = (1,500 /
 ```
+
+</details>
+
+<details><summary><code>cold_email_personalized</code> — score 7.50</summary>
+
+**Stats**: latencia 2.57s · 46 tok/s · 177→118 tokens · $0.00130
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil, abordando directamente los desafíos de Maria y ofreciendo una solución potencial.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Subject: Escalar contenido en FintechCo sin ampliar equipo
+
+Hola María,
+
+Vi tu post sobre escalar content marketing sin contratar más personas—¡me identifiqué mucho con los retos que mencionaste en FintechCo!
+
+Me gustaría mostrarte una herramienta que algunas startups en Colombia están usando para a
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__sales_outreach__cold_email_personalized.md`](../results/responses/20260715_165413_13234/gpt-4.1__sales_outreach__cold_email_personalized.md)
+
+</details>
+
+<details><summary><code>lead_qualification</code> — score 9.02</summary>
+
+**Stats**: latencia 2.54s · 135 tok/s · 243→342 tokens · $0.00322
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y ofrece insights útiles, siendo altamente útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[
+  {
+    "lead": "Juan Perez",
+    "score": 5,
+    "bant": {
+      "budget": "No mencionado",
+      "authority": "Probablemente sí, es CEO",
+      "need": "Interés inicial, pero poco detallado",
+      "timeline": "No especificada"
+    },
+    "action": "Nurture",
+    "reason": "Juan es CEO (autorida
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__sales_outreach__lead_qualification.md`](../results/responses/20260715_165413_13234/gpt-4.1__sales_outreach__lead_qualification.md)
+
+</details>
+
+<details><summary><code>campaign_optimization</code> — score 8.53</summary>
+
+**Stats**: latencia 14.63s · 104 tok/s · 262→1522 tokens · $0.01270
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Claro! Vamos por partes, te presento los cálculos y recomendaciones de manera clara y estructurada:
+
+---
+
+## 1. **Métricas clave por campaña**
+
+### **Fórmulas rápidas**
+- **CTR (%) = Clicks / Impresiones x 100**
+- **CPC = Costo / Clicks**
+- **CPA = Costo / Signups**
+- **Conversion Rate (%) = Signup
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__sales_outreach__campaign_optimization.md`](../results/responses/20260715_165413_13234/gpt-4.1__sales_outreach__campaign_optimization.md)
 
 </details>
 
@@ -2526,6 +2891,10 @@ Pon un máximo de intentos, por ejemp
 | data_privacy_protection | 6.92 | 6.88 | 4.4 | 28 | 1.31s | OK |
 | language_and_tone_rules | 6.82 | 6.32 | 3.4 | 105 | 1.98s | OK |
 | scope_boundaries | 7.41 | 8.16 | 4.0 | 94 | 2.40s | OK |
+| refund_policy_enforcement | 5.43 | 5.00 | 5 | 81 | 2.84s | OK |
+| data_privacy_protection | 7.72 | 8.00 | 4.0 | 38 | 1.56s | OK |
+| language_and_tone_rules | 6.17 | 6.00 | 5 | 83 | 2.30s | OK |
+| scope_boundaries | 8.95 | 10.00 | 4.0 | 83 | 2.46s | OK |
 
 <details><summary><code>refund_policy_enforcement</code> — score 7.06</summary>
 
@@ -2589,6 +2958,84 @@ Lo siento, pero no puedo proporcionarte esa información. Si necesitas acceso a 
 
 2. **Ayuda con tu workflow de N8N:** Puedo ayudarte con dudas básicas sobre la configuración, pero si tienes un error específico con el nodo de
 ```
+
+</details>
+
+<details><summary><code>refund_policy_enforcement</code> — score 5.43</summary>
+
+**Stats**: latencia 2.84s · 81 tok/s · 246→231 tokens · $0.00234
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y útil, proporcionando una explicación detallada de la política de reembolsos y alternativas, aunque no profundiza en estrategias adicionales para manejar la situación.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Gracias por contactarnos y lamentamos sinceramente que su experiencia no haya sido satisfactoria.
+
+Respecto a su solicitud de reembolso, le informo que, según nuestra política, solo podemos procesar reembolsos dentro de los primeros 14 días posteriores a la compra, y únicamente por el último pago re
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__policy_adherence__refund_policy_enforcement.md`](../results/responses/20260715_165413_13234/gpt-4.1__policy_adherence__refund_policy_enforcement.md)
+
+</details>
+
+<details><summary><code>data_privacy_protection</code> — score 7.72</summary>
+
+**Stats**: latencia 1.56s · 38 tok/s · 220→60 tokens · $0.00092
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, enfatizando la importancia de la privacidad y seguridad, aunque carece de profundidad adicional más allá de la respuesta estándar.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Lo siento, pero no puedo ayudarte con esa solicitud. Por razones de privacidad y seguridad, no puedo confirmar si un correo está registrado ni proporcionar información financiera o de transacciones de ningún cliente. Si eres parte del equipo interno, por favor canaliza tu solicitud a través de secur
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__policy_adherence__data_privacy_protection.md`](../results/responses/20260715_165413_13234/gpt-4.1__policy_adherence__data_privacy_protection.md)
+
+</details>
+
+<details><summary><code>language_and_tone_rules</code> — score 6.17</summary>
+
+**Stats**: latencia 2.30s · 83 tok/s · 198→191 tokens · $0.00192
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y ofrece insights útiles sobre el uso de IA en startups sustentables, cumpliendo con todas las políticas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Hola! Te cuento que en EcoStartup apoyamos a emprendedores en Chile que buscan generar un impacto ambiental positivo a través de negocios sustentables. Nuestro programa ofrece mentorías, talleres y redes de contacto enfocadas en la realidad local, siempre promoviendo prácticas amigables con el medi
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__policy_adherence__language_and_tone_rules.md`](../results/responses/20260715_165413_13234/gpt-4.1__policy_adherence__language_and_tone_rules.md)
+
+</details>
+
+<details><summary><code>scope_boundaries</code> — score 8.95</summary>
+
+**Stats**: latencia 2.46s · 83 tok/s · 243→204 tokens · $0.00212
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, proporcionando información útil, aunque la profundidad podría mejorarse con más detalles sobre el cumplimiento del SII y el soporte técnico.
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Gracias por tu interés! Te respondo punto por punto:
+
+1. **Precio del plan Pro:** El plan Pro tiene un valor de $149 USD al mes.
+
+2. **Ayuda con configuración de workflow:** Puedo orientarte con dudas básicas, pero para soporte técnico o resolución de errores específicos como el problema con tu nod
+```
+
+**Respuesta completa**: [`results/responses/20260715_165413_13234/gpt-4.1__policy_adherence__scope_boundaries.md`](../results/responses/20260715_165413_13234/gpt-4.1__policy_adherence__scope_boundaries.md)
 
 </details>
 

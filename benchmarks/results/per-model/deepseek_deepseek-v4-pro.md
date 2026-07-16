@@ -2,8 +2,8 @@
 
 - **model_id**: `deepseek/deepseek-v4-pro`
 - **Total tests**: 214/236 exitosos (22 errores)
-- **Score final**: 6.40
-- **Calidad**: 6.73
+- **Score final**: 6.37
+- **Calidad**: 6.70
 - **Judge score (Phi-4)**: 3.59/10
 - **Velocidad**: 39 tok/s
 - **Latencia primera token**: 45.20s
@@ -36,8 +36,8 @@
 | reasoning | 3 | 3 | 5.97 | 6.07 |
 | sales_outreach | 3 | 3 | 6.07 | 6.44 |
 | startup_content | 11 | 10 | 7.38 | 8.35 |
-| strategy | 3 | 3 | 5.77 | 6.11 |
-| string_precision | 12 | 11 | 8.24 | 9.00 |
+| strategy | 3 | 3 | 6.55 | 7.22 |
+| string_precision | 12 | 11 | 7.54 | 8.00 |
 | structured_output | 8 | 7 | 5.23 | 5.00 |
 | summarization | 2 | 2 | 7.02 | 7.82 |
 | task_management | 6 | 5 | 7.78 | 8.93 |
@@ -472,11 +472,11 @@ Te ayudo con cada punto, pero necesito ser transparente sobre las limitaciones:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 3.94 | 3.33 | 4.4 | 34 | 60.77s | OK |
+| competitor_analysis | 6.27 | 6.67 | 4.4 | 34 | 60.77s | OK |
 | business_model_validation | 8.49 | 10.00 | 4.6 | 30 | 120.66s | OK |
 | pricing_strategy | 4.89 | 5.00 | 4.4 | 37 | 168.06s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 3.94</summary>
+<details><summary><code>competitor_analysis</code> — score 6.27</summary>
 
 **Stats**: latencia 60.77s · 34 tok/s · 181→2048 tokens · $0.00186
 
@@ -725,7 +725,7 @@ He detectado los bugs listados y también algunos detalles adicionales que se de
 | json_simple_extraction | 6.18 | 3.80 | - | 0 | 0.00s | ERROR |
 | json_nested_complex | 4.87 | 5.00 | 4.4 | 32 | 217.81s | OK |
 | json_strict_no_extra | 5.15 | 5.00 | 4.0 | 1 | 35.55s | OK |
-| json_simple_extraction | 5.57 | 5.00 | 4.0 | 33 | 7.47s | OK |
+| json_simple_extraction | 5.56 | 5.00 | 4.0 | 33 | 7.47s | OK |
 | json_array_classification | 5.50 | 5.00 | 5 | 50 | 10.23s | OK |
 | json_nested_complex | 5.09 | 5.00 | 5 | 96 | 50.10s | OK |
 | json_strict_no_extra | 5.23 | 5.00 | 5 | 11 | 13.89s | OK |
@@ -804,7 +804,7 @@ He detectado los bugs listados y también algunos detalles adicionales que se de
 
 </details>
 
-<details><summary><code>json_simple_extraction</code> — score 5.57</summary>
+<details><summary><code>json_simple_extraction</code> — score 5.56</summary>
 
 **Stats**: latencia 7.47s · 33 tok/s · 102→245 tokens · $0.00026
 
@@ -895,10 +895,10 @@ He detectado los bugs listados y también algunos detalles adicionales que se de
 | copy_jwt | 5.34 | 1.40 | - | 0 | 0.00s | ERROR |
 | copy_hex_32 | 9.25 | 10.00 | 4.0 | 40 | 2.58s | OK |
 | copy_hex_64 | 9.40 | 10.00 | 4.0 | 56 | 3.42s | OK |
-| copy_api_key | 9.25 | 10.00 | 4.0 | 46 | 3.27s | OK |
+| copy_api_key | 2.95 | 1.00 | 4.0 | 46 | 3.27s | OK |
 | copy_jwt | 8.72 | 10.00 | 4.0 | 15 | 10.07s | OK |
 | copy_mixed_special | 8.95 | 10.00 | 3.0 | 8 | 3.86s | OK |
-| write_config_file | 9.09 | 10.00 | 4.0 | 77 | 5.68s | OK |
+| write_config_file | 7.69 | 8.00 | 4.0 | 77 | 5.68s | OK |
 
 <details><summary><code>copy_hex_64</code> — score 8.72</summary>
 
@@ -1032,7 +1032,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.25</summary>
+<details><summary><code>copy_api_key</code> — score 2.95</summary>
 
 **Stats**: latencia 3.27s · 46 tok/s · 130→152 tokens · $0.00019
 
@@ -1086,7 +1086,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.09</summary>
+<details><summary><code>write_config_file</code> — score 7.69</summary>
 
 **Stats**: latencia 5.68s · 77 tok/s · 243→439 tokens · $0.00049
 
