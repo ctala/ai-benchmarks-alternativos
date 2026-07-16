@@ -10,7 +10,12 @@
       "evaluations": 1,
       "estimated_cost_usd": 0.0007
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:51:14+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,14 +37,16 @@
       "input_tokens": 7344,
       "output_tokens": 18,
       "response_preview": "1.847 metros; 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_8000_p25.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_8000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -60,14 +67,16 @@
       "input_tokens": 7344,
       "output_tokens": 21,
       "response_preview": "1.847 metros; inaugurado el 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_8000_p50.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_8000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -88,14 +97,16 @@
       "input_tokens": 7344,
       "output_tokens": 22,
       "response_preview": "1.847 metros; fue inaugurado el 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_8000_p75.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_8000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -116,14 +127,16 @@
       "input_tokens": 7332,
       "output_tokens": 38,
       "response_preview": "La Biblioteca Regional de Tarapacá conserva **84.500 volúmenes**, de los cuales **3.200** son ediciones anteriores a 1900.",
-      "auto_quality": 7.47,
+      "auto_quality": 10.0,
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_8000_p25.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_8000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -144,14 +157,16 @@
       "input_tokens": 7332,
       "output_tokens": 38,
       "response_preview": "La Biblioteca Regional de Tarapacá conserva **84.500 volúmenes**, de los cuales **3.200** son ediciones anteriores a 1900.",
-      "auto_quality": 7.47,
+      "auto_quality": 10.0,
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_8000_p50.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_8000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -172,14 +187,16 @@
       "input_tokens": 7332,
       "output_tokens": 38,
       "response_preview": "La Biblioteca Regional de Tarapacá conserva **84.500 volúmenes**, de los cuales **3.200** son ediciones anteriores a 1900.",
-      "auto_quality": 7.47,
+      "auto_quality": 10.0,
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_8000_p75.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_8000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -200,14 +217,16 @@
       "input_tokens": 7330,
       "output_tokens": 27,
       "response_preview": "17 de octubre, en la ciudad de Sucre; en 2026 cumple su 23.ª edición.",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_8000_p25.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_8000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -228,14 +247,16 @@
       "input_tokens": 7330,
       "output_tokens": 27,
       "response_preview": "17 de octubre, en la ciudad de Sucre; en 2026 cumple su 23.ª edición.",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_8000_p50.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_8000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -256,14 +277,16 @@
       "input_tokens": 7330,
       "output_tokens": 27,
       "response_preview": "17 de octubre, en la ciudad de Sucre; en 2026 cumple su 23.ª edición.",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_8000_p75.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_8000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -284,14 +307,16 @@
       "input_tokens": 7343,
       "output_tokens": 29,
       "response_preview": "Se cultiva a **3.850 metros sobre el nivel del mar**, en la **región de Cusco**.",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_potato_altitude_8000_p25.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_potato_altitude_8000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -312,14 +337,16 @@
       "input_tokens": 7343,
       "output_tokens": 29,
       "response_preview": "Se cultiva a **3.850 metros sobre el nivel del mar**, en la **región de Cusco**.",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_potato_altitude_8000_p50.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_potato_altitude_8000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -340,14 +367,16 @@
       "input_tokens": 7343,
       "output_tokens": 29,
       "response_preview": "Se cultiva a **3.850 metros sobre el nivel del mar**, en la **región de Cusco**.",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_potato_altitude_8000_p75.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_potato_altitude_8000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -368,14 +397,16 @@
       "input_tokens": 7335,
       "output_tokens": 18,
       "response_preview": "GLAC-PATAGONIA-2031; 47 investigadores.",
-      "auto_quality": 6.48,
+      "auto_quality": 10.0,
       "content_score": 1.2,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_expedition_code_8000_p25.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_expedition_code_8000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -396,14 +427,16 @@
       "input_tokens": 7335,
       "output_tokens": 18,
       "response_preview": "GLAC-PATAGONIA-2031; 47 investigadores.",
-      "auto_quality": 6.48,
+      "auto_quality": 10.0,
       "content_score": 1.2,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_expedition_code_8000_p50.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_expedition_code_8000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -424,14 +457,16 @@
       "input_tokens": 7335,
       "output_tokens": 18,
       "response_preview": "GLAC-PATAGONIA-2031; 47 investigadores.",
-      "auto_quality": 6.48,
+      "auto_quality": 10.0,
       "content_score": 1.2,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_expedition_code_8000_p75.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_expedition_code_8000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -452,14 +487,16 @@
       "input_tokens": 59273,
       "output_tokens": 22,
       "response_preview": "1.847 metros; fue inaugurado el 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_64000_p25.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_64000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -480,14 +517,16 @@
       "input_tokens": 59274,
       "output_tokens": 22,
       "response_preview": "1.847 metros; fue inaugurado el 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_64000_p50.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_64000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -508,14 +547,16 @@
       "input_tokens": 59274,
       "output_tokens": 21,
       "response_preview": "1.847 metros; inaugurado el 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_64000_p75.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_64000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -536,14 +577,16 @@
       "input_tokens": 59261,
       "output_tokens": 38,
       "response_preview": "La Biblioteca Regional de Tarapacá conserva **84.500 volúmenes**, de los cuales **3.200** son ediciones anteriores a 1900.",
-      "auto_quality": 7.47,
+      "auto_quality": 10.0,
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_64000_p25.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_64000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -564,14 +607,16 @@
       "input_tokens": 59262,
       "output_tokens": 40,
       "response_preview": "La Biblioteca Regional de Tarapacá conserva **84.500 volúmenes**, de los cuales **3.200** son ediciones impresas anteriores a 1900.",
-      "auto_quality": 7.47,
+      "auto_quality": 10.0,
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_64000_p50.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_64000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -592,14 +637,16 @@
       "input_tokens": 59262,
       "output_tokens": 38,
       "response_preview": "La Biblioteca Regional de Tarapacá conserva **84.500 volúmenes**, de los cuales **3.200** son ediciones anteriores a 1900.",
-      "auto_quality": 7.47,
+      "auto_quality": 10.0,
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_64000_p75.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_64000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -620,14 +667,16 @@
       "input_tokens": 59259,
       "output_tokens": 27,
       "response_preview": "17 de octubre, en la ciudad de Sucre; en 2026 cumple su 23.ª edición.",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_64000_p25.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_64000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -648,14 +697,16 @@
       "input_tokens": 59260,
       "output_tokens": 24,
       "response_preview": "17 de octubre, en Sucre; en 2026 cumple su 23.ª edición.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_64000_p50.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_64000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -676,14 +727,16 @@
       "input_tokens": 59260,
       "output_tokens": 27,
       "response_preview": "17 de octubre, en la ciudad de Sucre; en 2026 cumple su 23.ª edición.",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_64000_p75.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_64000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -704,14 +757,16 @@
       "input_tokens": 59272,
       "output_tokens": 29,
       "response_preview": "Se cultiva a **3.850 metros sobre el nivel del mar**, en la **región de Cusco**.",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_potato_altitude_64000_p25.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_potato_altitude_64000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -732,14 +787,16 @@
       "input_tokens": 59273,
       "output_tokens": 29,
       "response_preview": "Se cultiva a **3.850 metros sobre el nivel del mar**, en la **región de Cusco**.",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_potato_altitude_64000_p50.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_potato_altitude_64000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -760,14 +817,16 @@
       "input_tokens": 59273,
       "output_tokens": 29,
       "response_preview": "Se cultiva a **3.850 metros sobre el nivel del mar**, en la **región de Cusco**.",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_potato_altitude_64000_p75.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_potato_altitude_64000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -788,14 +847,16 @@
       "input_tokens": 59264,
       "output_tokens": 18,
       "response_preview": "GLAC-PATAGONIA-2031; 47 investigadores.",
-      "auto_quality": 6.48,
+      "auto_quality": 10.0,
       "content_score": 1.2,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_expedition_code_64000_p25.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_expedition_code_64000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -816,14 +877,16 @@
       "input_tokens": 59265,
       "output_tokens": 18,
       "response_preview": "GLAC-PATAGONIA-2031; 47 investigadores.",
-      "auto_quality": 6.48,
+      "auto_quality": 10.0,
       "content_score": 1.2,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_expedition_code_64000_p50.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_expedition_code_64000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -844,14 +907,16 @@
       "input_tokens": 59265,
       "output_tokens": 18,
       "response_preview": "GLAC-PATAGONIA-2031; 47 investigadores.",
-      "auto_quality": 6.48,
+      "auto_quality": 10.0,
       "content_score": 1.2,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_expedition_code_64000_p75.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_expedition_code_64000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -872,14 +937,16 @@
       "input_tokens": 120752,
       "output_tokens": 21,
       "response_preview": "1.847 metros; inaugurado el 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_128000_p25.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_128000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -900,14 +967,16 @@
       "input_tokens": 120751,
       "output_tokens": 18,
       "response_preview": "1.847 metros; 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_128000_p50.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_128000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -928,14 +997,16 @@
       "input_tokens": 120752,
       "output_tokens": 22,
       "response_preview": "1.847 metros; fue inaugurado el 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_128000_p75.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_bridge_length_128000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -956,14 +1027,16 @@
       "input_tokens": 120740,
       "output_tokens": 40,
       "response_preview": "La Biblioteca Regional de Tarapacá conserva **84.500 volúmenes**, de los cuales **3.200** son ediciones impresas anteriores a 1900.",
-      "auto_quality": 7.47,
+      "auto_quality": 10.0,
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_128000_p25.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_128000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -984,14 +1057,16 @@
       "input_tokens": 120739,
       "output_tokens": 38,
       "response_preview": "La Biblioteca Regional de Tarapacá conserva **84.500 volúmenes**, de los cuales **3.200** son ediciones anteriores a 1900.",
-      "auto_quality": 7.47,
+      "auto_quality": 10.0,
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_128000_p50.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_128000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -1012,14 +1087,16 @@
       "input_tokens": 120740,
       "output_tokens": 38,
       "response_preview": "La Biblioteca Regional de Tarapacá conserva **84.500 volúmenes**, de los cuales **3.200** son ediciones anteriores a 1900.",
-      "auto_quality": 7.47,
+      "auto_quality": 10.0,
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_128000_p75.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_library_volumes_128000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -1040,14 +1117,16 @@
       "input_tokens": 120738,
       "output_tokens": 24,
       "response_preview": "17 de octubre, en Sucre; en 2026 cumple su 23.ª edición.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_128000_p25.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_128000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -1068,14 +1147,16 @@
       "input_tokens": 120737,
       "output_tokens": 27,
       "response_preview": "17 de octubre, en la ciudad de Sucre; en 2026 cumple su 23.ª edición.",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_128000_p50.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_128000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -1096,14 +1177,16 @@
       "input_tokens": 120738,
       "output_tokens": 24,
       "response_preview": "17 de octubre, en Sucre; en 2026 cumple su 23.ª edición.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71506",
-      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_128000_p75.md"
+      "response_file": "results/responses/20260714_142058_71506/gpt-5.6-sol__niah_es__niah_es_festival_date_128000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 0.0,

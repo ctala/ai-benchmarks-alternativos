@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-14T17:59:31+00:00",
+      "at": "2026-07-15T20:30:31+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -932,7 +932,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:02+00:00",
+      "rescored_at": "2026-07-15T20:29:23+00:00",
       "content_score": 8.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -969,7 +969,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:02+00:00",
+      "rescored_at": "2026-07-15T20:29:23+00:00",
       "content_score": 9.34,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -1006,7 +1006,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:04+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1043,7 +1043,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 6.67,
       "answer_score": 2.5,
       "scoring": "verificable"
@@ -1080,7 +1080,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 9.34,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -1117,7 +1117,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 9.34,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -1286,7 +1286,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__structured_output__json_simple_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -1323,7 +1323,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__structured_output__json_array_classification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -1360,7 +1360,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__structured_output__json_nested_complex.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -1397,7 +1397,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__structured_output__json_strict_no_extra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -1434,7 +1434,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1471,7 +1471,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -1508,7 +1508,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1545,7 +1545,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -1582,7 +1582,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 5.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -1619,7 +1619,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 8.0,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -1656,7 +1656,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 4.0,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -1693,7 +1693,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1730,7 +1730,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1767,7 +1767,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 4.0,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -1804,7 +1804,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__string_precision__copy_jwt.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1841,7 +1841,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -1878,7 +1878,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__string_precision__write_config_file.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 4.0,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -1948,7 +1948,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -1985,7 +1985,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__news_seo_writing__news_spanish_only.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -2022,7 +2022,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__news_seo_writing__news_no_hallucination_sources.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 8.67,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -2092,7 +2092,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2129,7 +2129,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:05+00:00",
+      "rescored_at": "2026-07-15T20:29:26+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2166,19 +2166,19 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:06+00:00",
+      "rescored_at": "2026-07-15T20:29:29+00:00",
       "content_score": 5.34,
       "answer_score": 8.75,
       "scoring": "verificable"
     },
     {
-      "quality": 4.0,
+      "quality": 6.0,
       "cost_score": 8.15,
       "cost_usd": 0.000893,
       "speed": 10.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 5.07,
+      "final": 6.47,
       "test_name": "screenshot_table_extraction",
       "model": "Llama 3.3 70B (Groq)",
       "model_id": "llama-3.3-70b-versatile",
@@ -2190,7 +2190,7 @@
       "input_tokens": 417,
       "output_tokens": 819,
       "response_preview": "```json\n{\n  \"datos\": {\n    \"Enero\": {\n      \"MRR\": 45200,\n      \"Churn Rate\": 0.042,\n      \"NPS\": 42,\n      \"CAC\": 234,\n      \"LTV\": 1890,\n      \"Active Users\": 1234,\n      \"Support Tickets\": 89,\n      \"Avg Response (h)\": 4.2\n    },\n    \"Febrero\": {\n      \"MRR\": 48700,\n      \"Churn Rate\": 0.038,\n   ",
-      "auto_quality": 4.0,
+      "auto_quality": 6.0,
       "judge_score": 3.8,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -2203,9 +2203,9 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:06+00:00",
+      "rescored_at": "2026-07-15T20:29:29+00:00",
       "content_score": 9.34,
-      "answer_score": 4.0,
+      "answer_score": 6.0,
       "scoring": "verificable"
     },
     {
@@ -2240,7 +2240,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:06+00:00",
+      "rescored_at": "2026-07-15T20:29:29+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2310,7 +2310,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__orchestration__error_recovery_orchestration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:06+00:00",
+      "rescored_at": "2026-07-15T20:29:29+00:00",
       "content_score": 0.05,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -2380,7 +2380,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:06+00:00",
+      "rescored_at": "2026-07-15T20:29:29+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2417,7 +2417,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:06+00:00",
+      "rescored_at": "2026-07-15T20:29:29+00:00",
       "content_score": 8.67,
       "answer_score": 8.57,
       "scoring": "verificable"
@@ -2454,7 +2454,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__multi_turn__content_iteration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:06+00:00",
+      "rescored_at": "2026-07-15T20:29:29+00:00",
       "content_score": 4.67,
       "answer_score": 6.5,
       "scoring": "verificable"
@@ -2491,7 +2491,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__multi_turn__support_escalation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:07+00:00",
+      "rescored_at": "2026-07-15T20:29:29+00:00",
       "content_score": 8.0,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -2528,7 +2528,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:07+00:00",
+      "rescored_at": "2026-07-15T20:29:29+00:00",
       "content_score": 9.34,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -2565,7 +2565,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__multi_turn__debugging_conversation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:07+00:00",
+      "rescored_at": "2026-07-15T20:29:29+00:00",
       "content_score": 10.0,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -2602,7 +2602,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__policy_adherence__refund_policy_enforcement.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:07+00:00",
+      "rescored_at": "2026-07-15T20:29:29+00:00",
       "content_score": 8.0,
       "answer_score": 8.33,
       "scoring": "verificable"
@@ -2639,7 +2639,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__policy_adherence__data_privacy_protection.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:07+00:00",
+      "rescored_at": "2026-07-15T20:29:29+00:00",
       "content_score": 8.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2676,7 +2676,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__policy_adherence__language_and_tone_rules.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:08+00:00",
+      "rescored_at": "2026-07-15T20:29:29+00:00",
       "content_score": 4.0,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -2713,7 +2713,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__policy_adherence__scope_boundaries.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:08+00:00",
+      "rescored_at": "2026-07-15T20:29:30+00:00",
       "content_score": 8.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -2864,7 +2864,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:08+00:00",
+      "rescored_at": "2026-07-15T20:29:30+00:00",
       "content_score": 7.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -2901,7 +2901,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:08+00:00",
+      "rescored_at": "2026-07-15T20:29:30+00:00",
       "content_score": 9.34,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -2938,7 +2938,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:08+00:00",
+      "rescored_at": "2026-07-15T20:29:30+00:00",
       "content_score": 9.34,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -2975,7 +2975,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:08+00:00",
+      "rescored_at": "2026-07-15T20:29:30+00:00",
       "content_score": 8.54,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3012,7 +3012,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__sales_outreach__cold_email_personalized.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:08+00:00",
+      "rescored_at": "2026-07-15T20:29:30+00:00",
       "content_score": 6.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -3049,7 +3049,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:08+00:00",
+      "rescored_at": "2026-07-15T20:29:30+00:00",
       "content_score": 8.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3086,7 +3086,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__sales_outreach__campaign_optimization.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:10+00:00",
+      "rescored_at": "2026-07-15T20:29:31+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3123,7 +3123,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__translation__translate_marketing_es_en.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:10+00:00",
+      "rescored_at": "2026-07-15T20:29:31+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -3193,7 +3193,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/groq-llama-3.3-70b__translation__detect_language_issues.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:10+00:00",
+      "rescored_at": "2026-07-15T20:29:31+00:00",
       "content_score": 6.4,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3816,7 +3816,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__structured_output__json_array_classification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:10+00:00",
+      "rescored_at": "2026-07-15T20:29:31+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -3853,7 +3853,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:10+00:00",
+      "rescored_at": "2026-07-15T20:29:31+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3890,7 +3890,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:10+00:00",
+      "rescored_at": "2026-07-15T20:29:31+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -3927,7 +3927,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:10+00:00",
+      "rescored_at": "2026-07-15T20:29:31+00:00",
       "content_score": 4.0,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -3964,7 +3964,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:10+00:00",
+      "rescored_at": "2026-07-15T20:29:31+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4001,7 +4001,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:10+00:00",
+      "rescored_at": "2026-07-15T20:29:31+00:00",
       "content_score": 4.0,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -4038,7 +4038,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:10+00:00",
+      "rescored_at": "2026-07-15T20:29:31+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4075,7 +4075,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__string_precision__write_config_file.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:10+00:00",
+      "rescored_at": "2026-07-15T20:29:31+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -4145,7 +4145,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:10+00:00",
+      "rescored_at": "2026-07-15T20:29:31+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -4182,7 +4182,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__news_seo_writing__news_no_hallucination_sources.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:10+00:00",
+      "rescored_at": "2026-07-15T20:29:31+00:00",
       "content_score": 8.67,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -4252,7 +4252,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:10+00:00",
+      "rescored_at": "2026-07-15T20:29:31+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4289,7 +4289,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:10+00:00",
+      "rescored_at": "2026-07-15T20:29:31+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -4383,7 +4383,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:10+00:00",
+      "rescored_at": "2026-07-15T20:29:31+00:00",
       "content_score": 5.34,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -4420,7 +4420,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:12+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4457,7 +4457,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__multi_turn__content_iteration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:12+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 4.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -4494,7 +4494,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__multi_turn__support_escalation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:12+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 8.67,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -4531,7 +4531,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:12+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 10.0,
       "answer_score": 4.0,
       "scoring": "verificable"
@@ -4568,7 +4568,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__policy_adherence__refund_policy_enforcement.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:12+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 8.0,
       "answer_score": 8.33,
       "scoring": "verificable"
@@ -4605,7 +4605,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__policy_adherence__scope_boundaries.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:12+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4675,7 +4675,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:12+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 3.27,
       "answer_score": 2.5,
       "scoring": "verificable"
@@ -4712,19 +4712,19 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:12+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 7.0,
       "answer_score": 2.5,
       "scoring": "verificable"
     },
     {
-      "quality": 3.33,
+      "quality": 6.67,
       "cost_score": 7.19,
       "cost_usd": 0.00186,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 3.94,
+      "final": 6.27,
       "test_name": "competitor_analysis",
       "model": "DeepSeek V4 Pro",
       "model_id": "deepseek/deepseek-v4-pro",
@@ -4736,7 +4736,7 @@
       "input_tokens": 181,
       "output_tokens": 2048,
       "response_preview": "Antes de empezar, una aclaración: sobre **EnviaMas** solo puedo inferir características típicas de una startup local de email marketing en LATAM (menor precio, soporte en español, funcionalidades más simples, posible foco en transaccional). Mis supuestos están marcados, pero la tabla refleja la real",
-      "auto_quality": 3.33,
+      "auto_quality": 6.67,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -4749,9 +4749,9 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:12+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 6.34,
-      "answer_score": 3.33,
+      "answer_score": 6.67,
       "scoring": "verificable"
     },
     {
@@ -4786,7 +4786,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:12+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -4823,7 +4823,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__sales_outreach__cold_email_personalized.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:12+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -4860,7 +4860,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:12+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 8.0,
       "answer_score": 3.33,
       "scoring": "verificable"
@@ -4897,7 +4897,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__sales_outreach__campaign_optimization.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 9.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -5883,7 +5883,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 8.01,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -5920,7 +5920,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -5957,7 +5957,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -5994,7 +5994,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 10.0,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -6031,7 +6031,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -6068,7 +6068,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -6237,7 +6237,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__structured_output__json_simple_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -6274,7 +6274,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__structured_output__json_array_classification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -6311,7 +6311,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__structured_output__json_nested_complex.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -6348,7 +6348,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__structured_output__json_strict_no_extra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -6385,7 +6385,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -6422,7 +6422,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 7.54,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -6459,7 +6459,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 9.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -6496,7 +6496,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 5.34,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -6533,7 +6533,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 5.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -6570,7 +6570,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -6607,7 +6607,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 4.0,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -6644,7 +6644,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -6681,7 +6681,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -6718,7 +6718,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 4.0,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -6755,7 +6755,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__string_precision__copy_jwt.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -6792,7 +6792,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -6829,7 +6829,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__string_precision__write_config_file.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -6899,7 +6899,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -6936,7 +6936,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__news_seo_writing__news_spanish_only.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 7.34,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -6973,7 +6973,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__news_seo_writing__news_no_hallucination_sources.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 9.34,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -7043,7 +7043,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -7080,7 +7080,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:14+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -7117,7 +7117,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:15+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 4.0,
       "answer_score": 8.75,
       "scoring": "verificable"
@@ -7154,7 +7154,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:15+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -7191,7 +7191,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:15+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -7261,7 +7261,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__orchestration__error_recovery_orchestration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:15+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -7331,7 +7331,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:15+00:00",
+      "rescored_at": "2026-07-15T20:29:41+00:00",
       "content_score": 5.34,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -7401,7 +7401,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__multi_turn__content_iteration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:18+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -7438,7 +7438,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__multi_turn__support_escalation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:18+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -7475,7 +7475,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:18+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -7512,7 +7512,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__multi_turn__debugging_conversation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:18+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -7549,7 +7549,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__policy_adherence__refund_policy_enforcement.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:18+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.67,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -7586,7 +7586,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__policy_adherence__data_privacy_protection.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:18+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -7623,7 +7623,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__policy_adherence__language_and_tone_rules.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:18+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -7660,7 +7660,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__policy_adherence__scope_boundaries.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:18+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -7796,7 +7796,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:18+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -7833,7 +7833,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:18+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -7870,7 +7870,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:18+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -7907,7 +7907,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:19+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -7944,7 +7944,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:19+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -7981,7 +7981,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__sales_outreach__cold_email_personalized.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:19+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 6.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -8018,7 +8018,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:19+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -8055,7 +8055,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__sales_outreach__campaign_optimization.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -8092,7 +8092,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__translation__translate_marketing_es_en.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -8162,7 +8162,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/gemini-3.1-flash-lite__translation__detect_language_issues.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 6.2,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -9090,7 +9090,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -9127,7 +9127,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -9164,7 +9164,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -9201,7 +9201,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -9238,7 +9238,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -9275,7 +9275,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -9444,7 +9444,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__structured_output__json_simple_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -9481,7 +9481,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__structured_output__json_array_classification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -9518,7 +9518,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__structured_output__json_nested_complex.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -9555,7 +9555,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__structured_output__json_strict_no_extra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -9592,7 +9592,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -9629,7 +9629,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -9666,7 +9666,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -9703,7 +9703,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 5.34,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -9740,7 +9740,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 5.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -9777,7 +9777,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -9814,7 +9814,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -9851,7 +9851,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -9888,7 +9888,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -9925,7 +9925,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -9962,7 +9962,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__string_precision__copy_jwt.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -9999,7 +9999,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -10036,7 +10036,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__string_precision__write_config_file.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -10106,7 +10106,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -10143,7 +10143,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__news_seo_writing__news_spanish_only.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -10180,7 +10180,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__news_seo_writing__news_no_hallucination_sources.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 9.34,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -10250,7 +10250,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -10287,7 +10287,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:20+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -10324,7 +10324,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:21+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 8.75,
       "scoring": "verificable"
@@ -10361,7 +10361,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:21+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -10398,7 +10398,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:21+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 7.14,
       "scoring": "verificable"
@@ -10468,7 +10468,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__orchestration__error_recovery_orchestration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:21+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 9.34,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -10538,7 +10538,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:21+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 5.34,
       "answer_score": 2.5,
       "scoring": "verificable"
@@ -10575,7 +10575,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:22+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 3.3,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -10612,7 +10612,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__multi_turn__content_iteration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:22+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 5.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -10649,7 +10649,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__multi_turn__support_escalation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:22+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 9.34,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -10686,7 +10686,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:22+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 4.0,
       "scoring": "verificable"
@@ -10723,7 +10723,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__multi_turn__debugging_conversation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:22+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -10760,7 +10760,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__policy_adherence__refund_policy_enforcement.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:23+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -10797,7 +10797,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__policy_adherence__data_privacy_protection.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:23+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 9.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -10834,7 +10834,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__policy_adherence__language_and_tone_rules.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:23+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -10871,7 +10871,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__policy_adherence__scope_boundaries.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:24+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -11007,7 +11007,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:24+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 5.34,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -11044,7 +11044,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:24+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 6.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -11081,7 +11081,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:24+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -11118,7 +11118,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:25+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -11155,7 +11155,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:25+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -11192,7 +11192,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__sales_outreach__cold_email_personalized.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:25+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 7.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -11229,7 +11229,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:25+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 3.33,
       "scoring": "verificable"
@@ -11266,7 +11266,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__sales_outreach__campaign_optimization.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -11303,7 +11303,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__translation__translate_marketing_es_en.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -11373,7 +11373,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/mistral-small-4__translation__detect_language_issues.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 7.2,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -12265,7 +12265,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 7.34,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -12302,7 +12302,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -12339,7 +12339,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 7.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -12376,7 +12376,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.01,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -12413,7 +12413,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -12450,7 +12450,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -12583,7 +12583,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__structured_output__json_simple_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -12620,7 +12620,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__structured_output__json_array_classification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -12657,7 +12657,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__structured_output__json_nested_complex.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -12694,7 +12694,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__structured_output__json_strict_no_extra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -12731,7 +12731,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -12768,7 +12768,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -12805,7 +12805,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 6.67,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -12842,7 +12842,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -12879,7 +12879,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.67,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -12916,7 +12916,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 6.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -12953,7 +12953,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -12990,7 +12990,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -13027,7 +13027,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -13064,7 +13064,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -13101,7 +13101,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__string_precision__copy_jwt.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -13138,7 +13138,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -13175,7 +13175,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__string_precision__write_config_file.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -13245,7 +13245,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -13282,7 +13282,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__news_seo_writing__news_spanish_only.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -13319,7 +13319,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__news_seo_writing__news_no_hallucination_sources.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.67,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -13389,7 +13389,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -13426,7 +13426,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:26+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -13463,7 +13463,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:28+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -13500,7 +13500,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:28+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -13537,7 +13537,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:28+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -13694,7 +13694,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__multi_turn__content_iteration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:28+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -13731,7 +13731,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__multi_turn__support_escalation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:28+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.67,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -13768,7 +13768,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:28+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 9.02,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -13805,7 +13805,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__multi_turn__debugging_conversation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:28+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 9.34,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -13842,7 +13842,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__policy_adherence__refund_policy_enforcement.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:29+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -13879,7 +13879,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__policy_adherence__data_privacy_protection.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:29+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 7.76,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -13916,7 +13916,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__policy_adherence__language_and_tone_rules.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:29+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -13953,7 +13953,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__policy_adherence__scope_boundaries.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:30+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -14086,7 +14086,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:30+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -14123,7 +14123,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:30+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.67,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -14160,7 +14160,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:30+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.67,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -14197,7 +14197,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:30+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.67,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -14234,7 +14234,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__sales_outreach__cold_email_personalized.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:30+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -14271,7 +14271,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:30+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -14308,7 +14308,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__sales_outreach__campaign_optimization.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:31+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -14345,7 +14345,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__translation__translate_marketing_es_en.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:31+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -14415,7 +14415,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/hermes-4-70b__translation__detect_language_issues.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:31+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 6.2,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -22698,7 +22698,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:31+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -22735,7 +22735,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:31+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 9.34,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -22772,7 +22772,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:31+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -22977,7 +22977,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__structured_output__json_nested_complex.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:31+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -23014,7 +23014,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__structured_output__json_strict_no_extra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:31+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -23051,7 +23051,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:31+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 7.54,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -23112,7 +23112,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:31+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -23173,7 +23173,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:31+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -23258,7 +23258,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:31+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -23391,7 +23391,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__policy_adherence__data_privacy_protection.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:31+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -23500,7 +23500,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:31+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -23537,7 +23537,7 @@
       "timestamp": "20260426_074254",
       "response_file": "results/responses/20260426_074254/deepseek-v4-pro__translation__translate_marketing_es_en.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:31+00:00",
+      "rescored_at": "2026-07-15T20:30:31+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"

@@ -10,7 +10,12 @@
       "evaluations": 1,
       "estimated_cost_usd": 0.0007
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:51:14+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,14 +37,16 @@
       "input_tokens": 7711,
       "output_tokens": 512,
       "response_preview": "1.847 metros, 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71508",
-      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_bridge_length_8000_p25.md"
+      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_bridge_length_8000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -60,14 +67,16 @@
       "input_tokens": 7710,
       "output_tokens": 778,
       "response_preview": "1.847 metros, 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71508",
-      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_bridge_length_8000_p50.md"
+      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_bridge_length_8000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -88,14 +97,16 @@
       "input_tokens": 7710,
       "output_tokens": 576,
       "response_preview": "Longitud total: 1.847 metros. Fecha de inauguración: 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71508",
-      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_bridge_length_8000_p75.md"
+      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_bridge_length_8000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -116,14 +127,16 @@
       "input_tokens": 7700,
       "output_tokens": 541,
       "response_preview": "Según el documento, la Biblioteca Regional de Tarapacá conserva exactamente **84.500 volúmenes**, de los cuales **3.200** son ediciones impresas anteriores al año 1900.",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71508",
-      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_library_volumes_8000_p25.md"
+      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_library_volumes_8000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -144,14 +157,16 @@
       "input_tokens": 7699,
       "output_tokens": 613,
       "response_preview": "Según el documento, la Biblioteca Regional de Tarapacá conserva exactamente **84.500** volúmenes, de los cuales **3.200** son ediciones impresas anteriores al año 1900.",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71508",
-      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_library_volumes_8000_p50.md"
+      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_library_volumes_8000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -172,14 +187,16 @@
       "input_tokens": 7699,
       "output_tokens": 968,
       "response_preview": "Según el documento, la Biblioteca Regional de Tarapacá conserva exactamente **84.500** volúmenes, de los cuales **3.200** son ediciones anteriores a 1900.",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71508",
-      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_library_volumes_8000_p75.md"
+      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_library_volumes_8000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -200,14 +217,16 @@
       "input_tokens": 7696,
       "output_tokens": 824,
       "response_preview": "Según el documento:\n- **Fecha:** 17 de octubre\n- **Ciudad:** Sucre\n- **Número de edición en 2026:** 23",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71508",
-      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_festival_date_8000_p25.md"
+      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_festival_date_8000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -228,14 +247,16 @@
       "input_tokens": 7695,
       "output_tokens": 613,
       "response_preview": "Según el documento:\n- **Fecha:** 17 de octubre\n- **Ciudad:** Sucre\n- **Número de edición en 2026:** 23",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71508",
-      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_festival_date_8000_p50.md"
+      "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_festival_date_8000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 0.0,

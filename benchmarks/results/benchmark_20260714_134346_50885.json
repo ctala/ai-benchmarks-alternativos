@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-14T18:15:58+00:00",
+      "at": "2026-07-15T20:50:40+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,7 +52,7 @@
       "content_score": 4.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:15:57+00:00",
+      "rescored_at": "2026-07-15T20:50:37+00:00",
       "scoring": "verificable"
     },
     {
@@ -89,7 +89,7 @@
       "content_score": 4.0,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:15:57+00:00",
+      "rescored_at": "2026-07-15T20:50:37+00:00",
       "scoring": "verificable"
     },
     {
@@ -126,7 +126,7 @@
       "content_score": 4.67,
       "answer_score": 4.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:15:58+00:00",
+      "rescored_at": "2026-07-15T20:50:38+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,7 +163,7 @@
       "content_score": 4.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:15:58+00:00",
+      "rescored_at": "2026-07-15T20:50:38+00:00",
       "scoring": "verificable"
     },
     {
@@ -200,7 +200,7 @@
       "content_score": 4.67,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:15:58+00:00",
+      "rescored_at": "2026-07-15T20:50:38+00:00",
       "scoring": "verificable"
     },
     {
@@ -237,7 +237,7 @@
       "content_score": 5.34,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:15:58+00:00",
+      "rescored_at": "2026-07-15T20:50:38+00:00",
       "scoring": "verificable"
     },
     {
@@ -274,7 +274,7 @@
       "content_score": 3.38,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:15:58+00:00",
+      "rescored_at": "2026-07-15T20:50:38+00:00",
       "scoring": "verificable"
     },
     {
@@ -311,7 +311,7 @@
       "content_score": 4.67,
       "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:15:58+00:00",
+      "rescored_at": "2026-07-15T20:50:40+00:00",
       "scoring": "verificable"
     },
     {
@@ -348,7 +348,7 @@
       "content_score": 4.0,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:15:58+00:00",
+      "rescored_at": "2026-07-15T20:50:40+00:00",
       "scoring": "verificable"
     },
     {
@@ -385,7 +385,7 @@
       "content_score": 0.02,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:15:58+00:00",
+      "rescored_at": "2026-07-15T20:50:40+00:00",
       "scoring": "verificable"
     }
   ]

@@ -13,7 +13,7 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-14T18:02:34+00:00",
+      "at": "2026-07-15T20:34:32+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -941,7 +941,7 @@
       "timestamp": "20260601_094924",
       "response_file": "results/responses/20260601_094924/qwen3.6-27b__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:02:34+00:00",
+      "rescored_at": "2026-07-15T20:34:32+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"

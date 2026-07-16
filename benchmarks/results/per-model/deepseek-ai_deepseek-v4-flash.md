@@ -2,8 +2,8 @@
 
 - **model_id**: `deepseek-ai/deepseek-v4-flash`
 - **Total tests**: 153/271 exitosos (118 errores)
-- **Score final**: 7.03
-- **Calidad**: 7.71
+- **Score final**: 7.04
+- **Calidad**: 7.72
 - **Judge score (Phi-4)**: 4.17/10
 - **Velocidad**: 17 tok/s
 - **Latencia primera token**: 42.85s
@@ -34,7 +34,7 @@
 | presentation | 2 | 2 | 8.03 | 9.24 |
 | prompt_injection_es | 20 | 0 | - | - |
 | reasoning | 3 | 3 | 8.01 | 9.15 |
-| sales_outreach | 3 | 3 | 6.35 | 6.44 |
+| sales_outreach | 3 | 3 | 6.82 | 7.11 |
 | startup_content | 5 | 5 | 7.91 | 9.10 |
 | strategy | 3 | 3 | 8.29 | 9.17 |
 | string_precision | 6 | 6 | 7.62 | 8.17 |
@@ -1274,7 +1274,7 @@ Mateo quiso desactivarla. Ella replicó
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.25 | 8.00 | 4.4 | 0 | 282.65s | OK |
 | lead_qualification | 4.43 | 3.33 | 4.8 | 44 | 9.86s | OK |
-| campaign_optimization | 7.38 | 8.00 | 4.8 | 21 | 78.41s | OK |
+| campaign_optimization | 8.78 | 10.00 | 4.8 | 21 | 78.41s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.25</summary>
 
@@ -1323,7 +1323,7 @@ En [nombre de tu empresa] ayudamos a startups fintech a
 
 </details>
 
-<details><summary><code>campaign_optimization</code> — score 7.38</summary>
+<details><summary><code>campaign_optimization</code> — score 8.78</summary>
 
 **Stats**: latencia 78.41s · 21 tok/s · 272→1674 tokens · $0.00036
 

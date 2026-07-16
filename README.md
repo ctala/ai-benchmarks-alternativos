@@ -86,16 +86,16 @@ Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad*
 
 | # | Modelo | Score | Quality | Cost | Provider | $/1k calls | Runs |
 |---|---|---:|---:|---:|---|---:|---:|
-| 1 | **GPT-5.6 Luna** | **8.93** | 8.27 | 5.64 | openrouter | $9.30 | 141 |
-| 2 | **GLM 5.2** | **8.69** | 8.35 | 5.84 | openrouter | $4.79 | 127 |
-| 3 | **DeepSeek R1 (reasoning)** | **8.45** | 8.39 | 5.92 | openrouter | $3.96 | 123 |
-| 4 | **GLM 5** | **8.28** | 8.28 | 6.29 | openrouter | $3.06 | 119 |
-| 5 | **Ministral 14B** | **8.13** | 8.09 | 7.80 | openrouter | $0.36 | 119 |
-| 6 | **Mistral Large 3 675B** | **8.03** | 8.13 | 7.15 | openrouter | $2.40 | 119 |
-| 7 | **Claude Opus 4.8** | **8.01** | 8.31 | 3.75 | openrouter | $39.00 | 119 |
-| 8 | **Claude Haiku 4.5** | **7.94** | 8.10 | 5.98 | openrouter | $7.80 | 131 |
-| 9 | **Claude Opus 4.7** | **7.84** | 8.28 | 4.02 | openrouter | $39.00 | 194 |
-| 10 | **Qwen 3-Next 80B Instruct** | **7.59** | 7.97 | 7.50 | openrouter | $1.68 | 119 |
+| 1 | **GPT-5.6 Luna** | **8.82** | 8.27 | 5.64 | openrouter | $9.30 | 141 |
+| 2 | **DeepSeek R1 (reasoning)** | **8.37** | 8.39 | 5.92 | openrouter | $3.96 | 123 |
+| 3 | **GLM 5.2** | **8.29** | 8.31 | 5.68 | openrouter | $4.79 | 139 |
+| 4 | **GLM 5** | **8.19** | 8.28 | 6.29 | openrouter | $3.06 | 119 |
+| 5 | **Ministral 14B** | **8.02** | 8.09 | 7.80 | openrouter | $0.36 | 119 |
+| 6 | **Claude Opus 4.7** | **7.95** | 8.30 | 4.12 | openrouter | $39.00 | 214 |
+| 7 | **Mistral Large 3 675B** | **7.93** | 8.13 | 7.15 | openrouter | $2.40 | 119 |
+| 8 | **Claude Opus 4.8** | **7.80** | 8.30 | 3.53 | openrouter | $39.00 | 131 |
+| 9 | **Qwen 3-Next 80B Instruct** | **7.47** | 7.97 | 7.50 | openrouter | $1.68 | 119 |
+| 10 | **Claude Opus 4.6** | **7.38** | 8.24 | 4.08 | openrouter | $39.00 | 286 |
 
 > **Piso de ranking: 50 runs.** Solo compiten los 70 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
 

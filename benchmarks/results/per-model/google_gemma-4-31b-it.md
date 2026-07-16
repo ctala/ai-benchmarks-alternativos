@@ -2,8 +2,8 @@
 
 - **model_id**: `google/gemma-4-31b-it`
 - **Total tests**: 107/113 exitosos (6 errores)
-- **Score final**: 7.32
-- **Calidad**: 7.95
+- **Score final**: 7.34
+- **Calidad**: 7.97
 - **Judge score (Phi-4)**: 4.17/10
 - **Velocidad**: 24 tok/s
 - **Latencia primera token**: 62.30s
@@ -27,7 +27,7 @@
 | multi_turn | 4 | 4 | 7.72 | 8.50 |
 | news_seo_writing | 5 | 5 | 5.52 | 5.59 |
 | ocr_extraction | 5 | 5 | 8.48 | 9.75 |
-| orchestration | 5 | 5 | 5.18 | 4.83 |
+| orchestration | 5 | 5 | 5.53 | 5.33 |
 | policy_adherence | 4 | 4 | 7.87 | 8.58 |
 | presentation | 2 | 2 | 7.71 | 8.96 |
 | reasoning | 3 | 3 | 8.12 | 9.35 |
@@ -1555,7 +1555,7 @@ Dado que se trata de una sol
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | multi_step_research_plan | 7.22 | 8.88 | 4.2 | 14 | 30.19s | OK |
-| error_recovery_orchestration | 6.85 | 7.50 | 4.2 | 2 | 188.01s | OK |
+| error_recovery_orchestration | 8.60 | 10.00 | 4.2 | 2 | 188.01s | OK |
 | complex_workflow_decomposition | 6.72 | 5.25 | 3.2 | 18 | 3.79s | OK |
 | tool_selection_precision | 3.48 | 2.50 | 3.2 | 6 | 34.22s | OK |
 | parallel_vs_sequential_judgment | 1.65 | 0.00 | 1.2 | 8 | 71.97s | OK |
@@ -1582,7 +1582,7 @@ Para preparar este reporte detallado, he diseñado el siguiente plan de ejecuci�
 
 </details>
 
-<details><summary><code>error_recovery_orchestration</code> — score 6.85</summary>
+<details><summary><code>error_recovery_orchestration</code> — score 8.60</summary>
 
 **Stats**: latencia 188.01s · 2 tok/s · 882→450 tokens · $0.00027
 

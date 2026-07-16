@@ -2,8 +2,8 @@
 
 - **model_id**: `MiniMax-M3`
 - **Total tests**: 368/391 exitosos (23 errores)
-- **Score final**: 6.83
-- **Calidad**: 8.08
+- **Score final**: 6.82
+- **Calidad**: 8.07
 - **Judge score (Phi-4)**: 4.49/10
 - **Velocidad**: 28 tok/s
 - **Latencia primera token**: 31.34s
@@ -30,7 +30,7 @@
 | niah_es_1m | 15 | 0 | - | - |
 | niah_es_lite | 45 | 45 | 6.87 | 8.49 |
 | ocr_extraction | 5 | 5 | 8.23 | 9.35 |
-| orchestration | 5 | 5 | 7.38 | 8.48 |
+| orchestration | 5 | 5 | 7.18 | 8.19 |
 | policy_adherence | 4 | 4 | 8.62 | 10.00 |
 | presentation | 2 | 2 | 7.60 | 9.74 |
 | prompt_injection_es | 40 | 40 | 3.11 | 2.35 |
@@ -1763,7 +1763,7 @@ This is a classic social engineering attempt. Let me analyze:
 | error_recovery_orchestration | 6.86 | 7.50 | 4.0 | 26 | 13.57s | OK |
 | complex_workflow_decomposition | 6.92 | 7.40 | 4.0 | 27 | 70.45s | OK |
 | tool_selection_precision | 8.01 | 9.16 | 4.8 | 26 | 26.01s | OK |
-| parallel_vs_sequential_judgment | 8.47 | 10.00 | 4.0 | 32 | 87.41s | OK |
+| parallel_vs_sequential_judgment | 7.47 | 8.57 | 4.0 | 32 | 87.41s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 6.64</summary>
 
@@ -1855,7 +1855,7 @@ Let me analyze each task:
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 8.47</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 7.47</summary>
 
 **Stats**: latencia 87.41s · 32 tok/s · 1321→2795 tokens · $0.00375
 

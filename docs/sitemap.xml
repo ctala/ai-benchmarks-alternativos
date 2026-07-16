@@ -91,6 +91,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://benchmarks.cristiantala.com/fable-5-vs-gpt-5-6-sol/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://benchmarks.cristiantala.com/fable-5-vs-minimax-m3/</loc>
     <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>

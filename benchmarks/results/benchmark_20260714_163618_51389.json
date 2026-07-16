@@ -10,7 +10,12 @@
       "evaluations": 4,
       "estimated_cost_usd": 0.007
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:51:24+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 327,
       "output_tokens": 2964,
       "response_preview": "# Análisis Estratégico: Email Marketing para PYMEs en LATAM\n\n**Disclaimers de rigor** (porque la honestidad va primero):\n- Mi data de **Mailchimp y Brevo** es razonable; los precios vigentes los verifico en sus webs antes de cualquier decisión.\n- **\"EnviaMas\" no la ubico con certeza.** Puede ser rea",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -46,7 +51,9 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_163618_51389",
-      "response_file": "results/responses/20260714_163618_51389/minimax-m3__strategy__competitor_analysis.md"
+      "response_file": "results/responses/20260714_163618_51389/minimax-m3__strategy__competitor_analysis.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:23+00:00"
     },
     {
       "quality": 5.0,
@@ -67,7 +74,7 @@
       "input_tokens": 342,
       "output_tokens": 6111,
       "response_preview": "The user is asking for a comprehensive analysis of a SaaS pricing change. Let me work through this carefully with real math and industry benchmarks.\n\n**Current Situation:**\n- CAC: $120\n- LTV: $840 (14 months × $60/month)\n- Monthly churn: 7%\n- Customers: 200\n- Competitors: $29-$149/month\n- Cost per u",
-      "auto_quality": 5.3,
+      "auto_quality": 5.0,
       "content_score": 5.74,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -81,7 +88,9 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_163618_51389",
-      "response_file": "results/responses/20260714_163618_51389/minimax-m3__strategy__pricing_strategy.md"
+      "response_file": "results/responses/20260714_163618_51389/minimax-m3__strategy__pricing_strategy.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:24+00:00"
     },
     {
       "quality": 10.0,
@@ -102,7 +111,7 @@
       "input_tokens": 330,
       "output_tokens": 3218,
       "response_preview": "# El Pitch más Incómodo que vas a Leer\n\nVamos directo. Tu hipótesis suena razonable en una slide, pero tiene más agujeros que un queso Oaxaca. Te voy a desarmar esto por partes.\n\n---\n\n## 1. Los 5 Riesgos Reales (no los de blog de startup)\n\n### 🔴 Riesgo #1: El dolor que asumes es un dolor real\nAsumes",
-      "auto_quality": 9.68,
+      "auto_quality": 10.0,
       "content_score": 9.2,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -116,7 +125,9 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260714_163618_51389",
-      "response_file": "results/responses/20260714_163618_51389/minimax-m3__strategy__business_model_validation.md"
+      "response_file": "results/responses/20260714_163618_51389/minimax-m3__strategy__business_model_validation.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:24+00:00"
     }
   ]
 }

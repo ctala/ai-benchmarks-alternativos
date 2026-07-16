@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-14T17:59:02+00:00",
+      "at": "2026-07-15T20:29:23+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -7469,7 +7469,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:09+00:00",
+      "rescored_at": "2026-07-15T20:28:22+00:00",
       "content_score": 9.34,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -7530,7 +7530,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:12+00:00",
+      "rescored_at": "2026-07-15T20:28:24+00:00",
       "content_score": 6.39,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -7771,7 +7771,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__structured_output__json_simple_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:12+00:00",
+      "rescored_at": "2026-07-15T20:28:24+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -7856,7 +7856,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__structured_output__json_strict_no_extra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:12+00:00",
+      "rescored_at": "2026-07-15T20:28:24+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -7886,7 +7886,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:12+00:00",
+      "rescored_at": "2026-07-15T20:28:24+00:00",
       "content_score": 6.0,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -7923,7 +7923,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:12+00:00",
+      "rescored_at": "2026-07-15T20:28:24+00:00",
       "content_score": 7.54,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -7984,7 +7984,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:12+00:00",
+      "rescored_at": "2026-07-15T20:28:24+00:00",
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -8093,7 +8093,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:12+00:00",
+      "rescored_at": "2026-07-15T20:28:24+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -8130,7 +8130,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:12+00:00",
+      "rescored_at": "2026-07-15T20:28:24+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -8167,7 +8167,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:12+00:00",
+      "rescored_at": "2026-07-15T20:28:24+00:00",
       "content_score": 4.0,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -8204,7 +8204,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__string_precision__copy_jwt.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:12+00:00",
+      "rescored_at": "2026-07-15T20:28:24+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -8241,7 +8241,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:12+00:00",
+      "rescored_at": "2026-07-15T20:28:24+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -8278,7 +8278,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__string_precision__write_config_file.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:12+00:00",
+      "rescored_at": "2026-07-15T20:28:24+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -8464,7 +8464,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:12+00:00",
+      "rescored_at": "2026-07-15T20:28:24+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -8525,7 +8525,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:12+00:00",
+      "rescored_at": "2026-07-15T20:28:25+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -8619,7 +8619,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__orchestration__error_recovery_orchestration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:12+00:00",
+      "rescored_at": "2026-07-15T20:28:25+00:00",
       "content_score": 9.34,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -8689,7 +8689,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:12+00:00",
+      "rescored_at": "2026-07-15T20:28:25+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -8726,7 +8726,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:14+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -8811,7 +8811,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:14+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -8848,7 +8848,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__multi_turn__debugging_conversation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:14+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -8909,7 +8909,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__policy_adherence__data_privacy_protection.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:14+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -8946,7 +8946,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__policy_adherence__language_and_tone_rules.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:14+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -8983,7 +8983,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__policy_adherence__scope_boundaries.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -9119,7 +9119,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.67,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -9181,7 +9181,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 6.49,
       "answer_score": 3.33,
       "scoring": "verificable"
@@ -9242,7 +9242,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 7.6,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -9279,7 +9279,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-397b-cloud__sales_outreach__cold_email_personalized.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -10282,7 +10282,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -10319,7 +10319,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.0,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -10356,7 +10356,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -10417,7 +10417,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.18,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -10586,7 +10586,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__structured_output__json_simple_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -10671,7 +10671,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__structured_output__json_strict_no_extra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -10708,7 +10708,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -10745,7 +10745,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 7.54,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -10782,7 +10782,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -10915,7 +10915,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -10952,7 +10952,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -10989,7 +10989,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -11026,7 +11026,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__string_precision__copy_jwt.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -11063,7 +11063,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:15+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -11321,7 +11321,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:16+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -11415,7 +11415,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__orchestration__error_recovery_orchestration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:16+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 7.72,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -11485,7 +11485,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:16+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -11522,7 +11522,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:17+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -11583,7 +11583,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__multi_turn__support_escalation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:17+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -11620,7 +11620,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:17+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.67,
       "answer_score": 2.0,
       "scoring": "verificable"
@@ -11657,7 +11657,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__multi_turn__debugging_conversation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:17+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -11718,7 +11718,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__policy_adherence__data_privacy_protection.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:17+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -11779,7 +11779,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__policy_adherence__scope_boundaries.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:18+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -11915,7 +11915,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:18+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.67,
       "answer_score": 2.5,
       "scoring": "verificable"
@@ -11977,7 +11977,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:18+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 3.22,
       "answer_score": 3.33,
       "scoring": "verificable"
@@ -12038,7 +12038,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:18+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 7.6,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -12075,7 +12075,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__sales_outreach__cold_email_personalized.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:18+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 6.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -12112,7 +12112,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:18+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 7.88,
       "answer_score": 3.33,
       "scoring": "verificable"
@@ -12223,7 +12223,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/qwen3.5-cloud__translation__detect_language_issues.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:18+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 2.47,
       "answer_score": 3.33,
       "scoring": "verificable"
@@ -13143,7 +13143,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:18+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.01,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -13180,7 +13180,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:18+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -13217,7 +13217,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:19+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -13254,7 +13254,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:19+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 7.33,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -13291,7 +13291,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:19+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -13328,7 +13328,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 6.34,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -13497,7 +13497,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__structured_output__json_simple_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -13534,7 +13534,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__structured_output__json_array_classification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 6.2,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -13571,7 +13571,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__structured_output__json_nested_complex.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -13608,7 +13608,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__structured_output__json_strict_no_extra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 6.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -13645,7 +13645,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -13682,7 +13682,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -13719,7 +13719,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 2.0,
       "scoring": "verificable"
@@ -13756,7 +13756,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -13793,7 +13793,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 5.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -13830,7 +13830,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -13867,7 +13867,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -13904,7 +13904,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -13941,7 +13941,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -13978,7 +13978,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -14015,7 +14015,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__string_precision__copy_jwt.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -14052,7 +14052,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -14089,7 +14089,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__string_precision__write_config_file.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -14159,7 +14159,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -14196,7 +14196,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__news_seo_writing__news_spanish_only.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -14233,7 +14233,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__news_seo_writing__news_no_hallucination_sources.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -14303,7 +14303,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -14340,7 +14340,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:20+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -14377,7 +14377,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:21+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 8.75,
       "scoring": "verificable"
@@ -14414,7 +14414,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:21+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 6.67,
       "answer_score": 2.5,
       "scoring": "verificable"
@@ -14451,7 +14451,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:21+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -14521,7 +14521,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__orchestration__error_recovery_orchestration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:21+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -14591,7 +14591,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:21+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 2.05,
       "answer_score": 2.5,
       "scoring": "verificable"
@@ -14628,7 +14628,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:21+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 0.16,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -14665,7 +14665,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__multi_turn__content_iteration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:21+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -14702,7 +14702,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__multi_turn__support_escalation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:21+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -14739,7 +14739,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:22+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -14776,7 +14776,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__multi_turn__debugging_conversation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:22+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -14813,7 +14813,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__policy_adherence__refund_policy_enforcement.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:22+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 8.33,
       "scoring": "verificable"
@@ -14850,7 +14850,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__policy_adherence__data_privacy_protection.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:22+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 7.59,
       "answer_score": 4.0,
       "scoring": "verificable"
@@ -14887,7 +14887,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__policy_adherence__language_and_tone_rules.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:23+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -14924,7 +14924,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__policy_adherence__scope_boundaries.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:23+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -15060,7 +15060,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:24+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 2.5,
       "scoring": "verificable"
@@ -15097,7 +15097,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:24+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 7.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -15134,7 +15134,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:24+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 7.34,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -15171,7 +15171,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:24+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -15208,7 +15208,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:24+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -15245,7 +15245,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__sales_outreach__cold_email_personalized.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:24+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 7.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -15282,7 +15282,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:24+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -15319,7 +15319,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__sales_outreach__campaign_optimization.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:25+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.54,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -15356,7 +15356,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__translation__translate_marketing_es_en.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:25+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -15426,7 +15426,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/gpt-oss-120b-cloud__translation__detect_language_issues.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:25+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 6.2,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -16327,7 +16327,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:25+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -16388,7 +16388,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:25+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -16449,7 +16449,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:25+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -16486,7 +16486,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -16655,7 +16655,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__structured_output__json_simple_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -16692,7 +16692,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__structured_output__json_array_classification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -16729,7 +16729,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__structured_output__json_nested_complex.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -16766,7 +16766,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__structured_output__json_strict_no_extra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -16803,7 +16803,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -16840,7 +16840,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -16877,7 +16877,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 2.0,
       "scoring": "verificable"
@@ -16914,7 +16914,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 5.34,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -16951,7 +16951,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 5.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -16988,7 +16988,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -17025,7 +17025,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -17062,7 +17062,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -17099,7 +17099,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -17136,7 +17136,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -17173,7 +17173,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__string_precision__copy_jwt.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -17210,7 +17210,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -17247,7 +17247,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__string_precision__write_config_file.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -17317,7 +17317,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -17354,7 +17354,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__news_seo_writing__news_spanish_only.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -17391,7 +17391,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__news_seo_writing__news_no_hallucination_sources.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -17461,7 +17461,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -17498,7 +17498,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:26+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -17535,7 +17535,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:28+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 3.75,
       "scoring": "verificable"
@@ -17572,7 +17572,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:28+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -17609,7 +17609,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:28+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -17679,7 +17679,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__orchestration__error_recovery_orchestration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:28+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 6.53,
       "answer_score": 2.5,
       "scoring": "verificable"
@@ -17749,7 +17749,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:28+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -17786,7 +17786,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:28+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 0.22,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -17823,7 +17823,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__multi_turn__content_iteration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:28+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -17860,7 +17860,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__multi_turn__support_escalation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:28+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -17897,7 +17897,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:28+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 4.0,
       "scoring": "verificable"
@@ -17934,7 +17934,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__multi_turn__debugging_conversation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:28+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 10.0,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -17971,7 +17971,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__policy_adherence__refund_policy_enforcement.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:28+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 8.33,
       "scoring": "verificable"
@@ -18008,7 +18008,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__policy_adherence__data_privacy_protection.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:29+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -18045,7 +18045,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__policy_adherence__language_and_tone_rules.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:29+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -18082,7 +18082,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__policy_adherence__scope_boundaries.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:30+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -18218,7 +18218,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:30+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 4.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -18255,7 +18255,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:30+00:00",
+      "rescored_at": "2026-07-15T20:28:48+00:00",
       "content_score": 7.0,
       "answer_score": 2.5,
       "scoring": "verificable"
@@ -18292,7 +18292,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:30+00:00",
+      "rescored_at": "2026-07-15T20:28:49+00:00",
       "content_score": 10.0,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -18329,7 +18329,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:30+00:00",
+      "rescored_at": "2026-07-15T20:28:49+00:00",
       "content_score": 10.0,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -18366,7 +18366,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:30+00:00",
+      "rescored_at": "2026-07-15T20:28:49+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -18403,7 +18403,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__sales_outreach__cold_email_personalized.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:30+00:00",
+      "rescored_at": "2026-07-15T20:28:49+00:00",
       "content_score": 6.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -18440,7 +18440,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:30+00:00",
+      "rescored_at": "2026-07-15T20:28:49+00:00",
       "content_score": 8.0,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -18477,7 +18477,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__sales_outreach__campaign_optimization.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:31+00:00",
+      "rescored_at": "2026-07-15T20:28:49+00:00",
       "content_score": 9.34,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -18514,7 +18514,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__translation__translate_marketing_es_en.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:31+00:00",
+      "rescored_at": "2026-07-15T20:28:49+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -18584,7 +18584,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-nemotron-super-1.5__translation__detect_language_issues.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:31+00:00",
+      "rescored_at": "2026-07-15T20:28:49+00:00",
       "content_score": 6.2,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -21696,7 +21696,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:31+00:00",
+      "rescored_at": "2026-07-15T20:28:49+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -21733,7 +21733,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:31+00:00",
+      "rescored_at": "2026-07-15T20:28:49+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -21770,7 +21770,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:49+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -21807,7 +21807,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 10.0,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -21844,7 +21844,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -21881,7 +21881,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 8.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -22050,7 +22050,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__structured_output__json_simple_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -22087,7 +22087,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__structured_output__json_array_classification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -22124,7 +22124,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__structured_output__json_nested_complex.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -22161,7 +22161,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__structured_output__json_strict_no_extra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -22198,7 +22198,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -22235,7 +22235,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -22272,7 +22272,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 10.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -22309,7 +22309,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -22346,7 +22346,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 5.34,
       "answer_score": 6.5,
       "scoring": "verificable"
@@ -22383,7 +22383,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 9.34,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -22420,7 +22420,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 4.0,
       "answer_score": 8.5,
       "scoring": "verificable"
@@ -22457,7 +22457,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -22494,7 +22494,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -22531,7 +22531,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 4.0,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -22568,7 +22568,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__string_precision__copy_jwt.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -22605,7 +22605,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -22642,7 +22642,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__string_precision__write_config_file.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -22712,7 +22712,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -22749,7 +22749,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__news_seo_writing__news_spanish_only.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -22786,7 +22786,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__news_seo_writing__news_no_hallucination_sources.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 8.67,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -22856,7 +22856,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -22893,7 +22893,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:32+00:00",
+      "rescored_at": "2026-07-15T20:28:50+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -22930,7 +22930,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:34+00:00",
+      "rescored_at": "2026-07-15T20:28:51+00:00",
       "content_score": 4.0,
       "answer_score": 8.75,
       "scoring": "verificable"
@@ -22967,7 +22967,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:34+00:00",
+      "rescored_at": "2026-07-15T20:28:51+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -23004,7 +23004,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:34+00:00",
+      "rescored_at": "2026-07-15T20:28:51+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -23074,7 +23074,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__orchestration__error_recovery_orchestration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:34+00:00",
+      "rescored_at": "2026-07-15T20:28:51+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -23144,7 +23144,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:34+00:00",
+      "rescored_at": "2026-07-15T20:28:51+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -23181,7 +23181,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:35+00:00",
+      "rescored_at": "2026-07-15T20:28:53+00:00",
       "content_score": 0.22,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -23218,7 +23218,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__multi_turn__content_iteration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:35+00:00",
+      "rescored_at": "2026-07-15T20:28:53+00:00",
       "content_score": 4.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -23255,7 +23255,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__multi_turn__support_escalation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:35+00:00",
+      "rescored_at": "2026-07-15T20:28:53+00:00",
       "content_score": 8.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -23292,7 +23292,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:35+00:00",
+      "rescored_at": "2026-07-15T20:28:53+00:00",
       "content_score": 10.0,
       "answer_score": 4.0,
       "scoring": "verificable"
@@ -23329,7 +23329,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__multi_turn__debugging_conversation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:35+00:00",
+      "rescored_at": "2026-07-15T20:28:53+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -23366,7 +23366,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__policy_adherence__refund_policy_enforcement.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:35+00:00",
+      "rescored_at": "2026-07-15T20:28:54+00:00",
       "content_score": 8.67,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -23403,7 +23403,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__policy_adherence__data_privacy_protection.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:35+00:00",
+      "rescored_at": "2026-07-15T20:28:54+00:00",
       "content_score": 8.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -23440,7 +23440,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__policy_adherence__language_and_tone_rules.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:35+00:00",
+      "rescored_at": "2026-07-15T20:28:54+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -23477,7 +23477,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__policy_adherence__scope_boundaries.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:36+00:00",
+      "rescored_at": "2026-07-15T20:28:54+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -23613,7 +23613,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:36+00:00",
+      "rescored_at": "2026-07-15T20:28:54+00:00",
       "content_score": 5.34,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -23650,7 +23650,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:36+00:00",
+      "rescored_at": "2026-07-15T20:28:54+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -23687,7 +23687,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:37+00:00",
+      "rescored_at": "2026-07-15T20:28:54+00:00",
       "content_score": 9.34,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -23724,7 +23724,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:38+00:00",
+      "rescored_at": "2026-07-15T20:28:55+00:00",
       "content_score": 8.54,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -23761,7 +23761,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:38+00:00",
+      "rescored_at": "2026-07-15T20:28:55+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -23798,7 +23798,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__sales_outreach__cold_email_personalized.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:38+00:00",
+      "rescored_at": "2026-07-15T20:28:55+00:00",
       "content_score": 6.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -23835,7 +23835,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:38+00:00",
+      "rescored_at": "2026-07-15T20:28:55+00:00",
       "content_score": 8.0,
       "answer_score": 3.33,
       "scoring": "verificable"
@@ -23872,7 +23872,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__sales_outreach__campaign_optimization.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:38+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 8.54,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -23909,7 +23909,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__translation__translate_marketing_es_en.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:38+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -23979,7 +23979,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-instruct__translation__detect_language_issues.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:38+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 7.2,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -24907,7 +24907,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:38+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -24944,7 +24944,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:38+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 3.67,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -24981,7 +24981,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 2.0,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -25018,7 +25018,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 3.33,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -25055,7 +25055,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 2.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -25092,7 +25092,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 5.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -25261,7 +25261,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__structured_output__json_simple_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -25298,7 +25298,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__structured_output__json_array_classification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -25335,7 +25335,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__structured_output__json_nested_complex.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -25372,7 +25372,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__structured_output__json_strict_no_extra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -25409,7 +25409,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -25446,7 +25446,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 7.47,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -25483,7 +25483,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 3.0,
       "answer_score": 2.0,
       "scoring": "verificable"
@@ -25520,7 +25520,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 3.67,
       "answer_score": 7.0,
       "scoring": "verificable"
@@ -25557,7 +25557,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 4.34,
       "answer_score": 5.5,
       "scoring": "verificable"
@@ -25594,7 +25594,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 5.0,
       "answer_score": 8.5,
       "scoring": "verificable"
@@ -25631,7 +25631,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 4.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -25668,7 +25668,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -25705,7 +25705,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -25742,7 +25742,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 4.0,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -25779,7 +25779,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__string_precision__copy_jwt.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -25816,7 +25816,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -25853,7 +25853,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__string_precision__write_config_file.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -25923,7 +25923,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 6.4,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -25960,7 +25960,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__news_seo_writing__news_spanish_only.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -25997,7 +25997,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__news_seo_writing__news_no_hallucination_sources.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 8.67,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -26067,7 +26067,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -26104,7 +26104,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:39+00:00",
+      "rescored_at": "2026-07-15T20:28:57+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -26141,7 +26141,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:41+00:00",
+      "rescored_at": "2026-07-15T20:29:00+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -26178,7 +26178,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:41+00:00",
+      "rescored_at": "2026-07-15T20:29:00+00:00",
       "content_score": 8.0,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -26215,7 +26215,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:41+00:00",
+      "rescored_at": "2026-07-15T20:29:00+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -26285,7 +26285,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__orchestration__error_recovery_orchestration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:41+00:00",
+      "rescored_at": "2026-07-15T20:29:00+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -26355,7 +26355,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:41+00:00",
+      "rescored_at": "2026-07-15T20:29:00+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -26392,7 +26392,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:42+00:00",
+      "rescored_at": "2026-07-15T20:29:01+00:00",
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -26429,7 +26429,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__multi_turn__content_iteration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:42+00:00",
+      "rescored_at": "2026-07-15T20:29:01+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -26466,7 +26466,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__multi_turn__support_escalation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:42+00:00",
+      "rescored_at": "2026-07-15T20:29:01+00:00",
       "content_score": 7.4,
       "answer_score": 4.0,
       "scoring": "verificable"
@@ -26503,7 +26503,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:42+00:00",
+      "rescored_at": "2026-07-15T20:29:01+00:00",
       "content_score": 5.34,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -26540,7 +26540,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__multi_turn__debugging_conversation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:42+00:00",
+      "rescored_at": "2026-07-15T20:29:01+00:00",
       "content_score": 7.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -26577,7 +26577,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__policy_adherence__refund_policy_enforcement.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:43+00:00",
+      "rescored_at": "2026-07-15T20:29:01+00:00",
       "content_score": 8.67,
       "answer_score": 8.33,
       "scoring": "verificable"
@@ -26614,7 +26614,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__policy_adherence__data_privacy_protection.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:43+00:00",
+      "rescored_at": "2026-07-15T20:29:01+00:00",
       "content_score": 8.67,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -26651,7 +26651,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__policy_adherence__language_and_tone_rules.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:43+00:00",
+      "rescored_at": "2026-07-15T20:29:01+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -26688,7 +26688,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__policy_adherence__scope_boundaries.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:43+00:00",
+      "rescored_at": "2026-07-15T20:29:01+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -26824,7 +26824,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:44+00:00",
+      "rescored_at": "2026-07-15T20:29:01+00:00",
       "content_score": 2.67,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -26861,7 +26861,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:44+00:00",
+      "rescored_at": "2026-07-15T20:29:02+00:00",
       "content_score": 7.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -26898,7 +26898,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:44+00:00",
+      "rescored_at": "2026-07-15T20:29:02+00:00",
       "content_score": 4.67,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -26935,7 +26935,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:44+00:00",
+      "rescored_at": "2026-07-15T20:29:02+00:00",
       "content_score": 4.4,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -26972,7 +26972,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:44+00:00",
+      "rescored_at": "2026-07-15T20:29:02+00:00",
       "content_score": 0.71,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -27009,7 +27009,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__sales_outreach__cold_email_personalized.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:44+00:00",
+      "rescored_at": "2026-07-15T20:29:02+00:00",
       "content_score": 6.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -27046,7 +27046,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:44+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -27083,7 +27083,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__sales_outreach__campaign_optimization.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 5.2,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -27120,7 +27120,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__translation__translate_marketing_es_en.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -27190,7 +27190,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3-next-thinking__translation__detect_language_issues.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 2.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -30353,7 +30353,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -30414,7 +30414,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 9.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -30499,7 +30499,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -30668,7 +30668,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__structured_output__json_simple_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -30705,7 +30705,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__structured_output__json_array_classification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -30742,7 +30742,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__structured_output__json_nested_complex.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -30779,7 +30779,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__structured_output__json_strict_no_extra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -30816,7 +30816,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -30853,7 +30853,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -30890,7 +30890,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -30927,7 +30927,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -30964,7 +30964,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 4.18,
       "answer_score": 8.5,
       "scoring": "verificable"
@@ -31001,7 +31001,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 8.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -31062,7 +31062,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -31099,7 +31099,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -31136,7 +31136,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 4.0,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -31173,7 +31173,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__string_precision__copy_jwt.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -31210,7 +31210,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -31247,7 +31247,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__string_precision__write_config_file.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -31342,7 +31342,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__news_seo_writing__news_spanish_only.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 9.34,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -31379,7 +31379,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__news_seo_writing__news_no_hallucination_sources.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 10.0,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -31449,7 +31449,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -31486,7 +31486,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -31571,7 +31571,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -31641,7 +31641,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__orchestration__error_recovery_orchestration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 7.7,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -31711,7 +31711,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:46+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -31748,7 +31748,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:48+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -31785,7 +31785,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__multi_turn__content_iteration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:48+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 4.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -31822,7 +31822,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__multi_turn__support_escalation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:48+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 9.34,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -31859,7 +31859,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:48+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 10.0,
       "answer_score": 4.0,
       "scoring": "verificable"
@@ -31896,7 +31896,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__multi_turn__debugging_conversation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:48+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -31933,7 +31933,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__policy_adherence__refund_policy_enforcement.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:48+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 8.67,
       "answer_score": 8.33,
       "scoring": "verificable"
@@ -31970,7 +31970,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__policy_adherence__data_privacy_protection.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:48+00:00",
+      "rescored_at": "2026-07-15T20:29:09+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -32007,7 +32007,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__policy_adherence__language_and_tone_rules.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:48+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -32044,7 +32044,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__policy_adherence__scope_boundaries.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:48+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -32180,7 +32180,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:48+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 4.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -32242,7 +32242,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:49+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 7.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -32303,7 +32303,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:49+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 6.94,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -32340,7 +32340,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__sales_outreach__cold_email_personalized.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:49+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 6.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -32377,7 +32377,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:49+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 8.0,
       "answer_score": 3.33,
       "scoring": "verificable"
@@ -32414,7 +32414,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__sales_outreach__campaign_optimization.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 8.54,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -32451,7 +32451,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-kimi-k2-thinking__translation__translate_marketing_es_en.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -33437,7 +33437,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -33474,7 +33474,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 9.34,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -33511,7 +33511,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -33548,7 +33548,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 8.01,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -33585,7 +33585,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 9.34,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -33622,7 +33622,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -33791,7 +33791,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__structured_output__json_simple_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -33828,7 +33828,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__structured_output__json_array_classification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -33865,7 +33865,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__structured_output__json_nested_complex.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -33902,7 +33902,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__structured_output__json_strict_no_extra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -33939,7 +33939,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -33976,7 +33976,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -34013,7 +34013,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -34050,7 +34050,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 5.34,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -34087,7 +34087,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 5.34,
       "answer_score": 6.5,
       "scoring": "verificable"
@@ -34124,7 +34124,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 9.34,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -34161,7 +34161,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 4.0,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -34198,7 +34198,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -34235,7 +34235,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -34272,7 +34272,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 4.0,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -34309,7 +34309,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__string_precision__copy_jwt.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -34346,7 +34346,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -34383,7 +34383,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__string_precision__write_config_file.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -34453,7 +34453,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -34490,7 +34490,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__news_seo_writing__news_spanish_only.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -34527,7 +34527,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__news_seo_writing__news_no_hallucination_sources.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 9.34,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -34597,7 +34597,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -34634,7 +34634,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:50+00:00",
+      "rescored_at": "2026-07-15T20:29:10+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -34671,7 +34671,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:52+00:00",
+      "rescored_at": "2026-07-15T20:29:14+00:00",
       "content_score": 4.0,
       "answer_score": 8.75,
       "scoring": "verificable"
@@ -34732,7 +34732,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:52+00:00",
+      "rescored_at": "2026-07-15T20:29:14+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -34841,7 +34841,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:52+00:00",
+      "rescored_at": "2026-07-15T20:29:14+00:00",
       "content_score": 5.34,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -34878,7 +34878,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:52+00:00",
+      "rescored_at": "2026-07-15T20:29:14+00:00",
       "content_score": 9.34,
       "answer_score": 8.57,
       "scoring": "verificable"
@@ -34915,7 +34915,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__multi_turn__content_iteration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:52+00:00",
+      "rescored_at": "2026-07-15T20:29:14+00:00",
       "content_score": 4.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -34952,7 +34952,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__multi_turn__support_escalation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:52+00:00",
+      "rescored_at": "2026-07-15T20:29:14+00:00",
       "content_score": 8.67,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -34989,7 +34989,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:52+00:00",
+      "rescored_at": "2026-07-15T20:29:14+00:00",
       "content_score": 10.0,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -35026,7 +35026,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__multi_turn__debugging_conversation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:52+00:00",
+      "rescored_at": "2026-07-15T20:29:14+00:00",
       "content_score": 8.67,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -35063,7 +35063,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__policy_adherence__refund_policy_enforcement.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:54+00:00",
+      "rescored_at": "2026-07-15T20:29:14+00:00",
       "content_score": 9.34,
       "answer_score": 8.33,
       "scoring": "verificable"
@@ -35100,7 +35100,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__policy_adherence__data_privacy_protection.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:54+00:00",
+      "rescored_at": "2026-07-15T20:29:14+00:00",
       "content_score": 8.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -35137,7 +35137,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__policy_adherence__language_and_tone_rules.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:54+00:00",
+      "rescored_at": "2026-07-15T20:29:14+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -35174,7 +35174,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__policy_adherence__scope_boundaries.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:54+00:00",
+      "rescored_at": "2026-07-15T20:29:15+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -35310,7 +35310,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:54+00:00",
+      "rescored_at": "2026-07-15T20:29:15+00:00",
       "content_score": 4.54,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -35347,7 +35347,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:54+00:00",
+      "rescored_at": "2026-07-15T20:29:15+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -35384,7 +35384,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:54+00:00",
+      "rescored_at": "2026-07-15T20:29:15+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -35421,7 +35421,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:54+00:00",
+      "rescored_at": "2026-07-15T20:29:16+00:00",
       "content_score": 9.34,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -35458,7 +35458,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:54+00:00",
+      "rescored_at": "2026-07-15T20:29:16+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -35495,7 +35495,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__sales_outreach__cold_email_personalized.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:54+00:00",
+      "rescored_at": "2026-07-15T20:29:16+00:00",
       "content_score": 6.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -35532,19 +35532,19 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:54+00:00",
+      "rescored_at": "2026-07-15T20:29:16+00:00",
       "content_score": 8.0,
       "answer_score": 3.33,
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 9.34,
       "cost_usd": 0.000356,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.38,
+      "final": 8.78,
       "test_name": "campaign_optimization",
       "model": "DeepSeek V4 Flash (NIM)",
       "model_id": "deepseek-ai/deepseek-v4-flash",
@@ -35556,7 +35556,7 @@
       "input_tokens": 272,
       "output_tokens": 1674,
       "response_preview": "Aquí tienes el análisis detallado de tus campañas de Google Ads, con cálculos, recomendaciones basadas en datos y una propuesta de redistribución del presupuesto.\n\n---\n\n### 1. Cálculo de métricas clave\n\n| Campaña | Impresiones | Clics | Signups | Costo | **CTR** | **CPC** | **CPA** | **Tasa Conversi",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "judge_score": 4.8,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -35569,9 +35569,9 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__sales_outreach__campaign_optimization.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:16+00:00",
       "content_score": 10.0,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "scoring": "verificable"
     },
     {
@@ -35606,7 +35606,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__translation__translate_marketing_es_en.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:16+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -35676,7 +35676,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-deepseek-v4-flash__translation__detect_language_issues.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:16+00:00",
       "content_score": 7.2,
       "answer_score": 6.67,
       "scoring": "verificable"
@@ -36604,7 +36604,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:16+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -36641,7 +36641,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:16+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -36678,7 +36678,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:16+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -36715,7 +36715,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 10.0,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -36752,7 +36752,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -36789,7 +36789,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -36958,7 +36958,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__structured_output__json_simple_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -36995,7 +36995,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__structured_output__json_array_classification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -37032,7 +37032,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__structured_output__json_nested_complex.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -37069,7 +37069,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__structured_output__json_strict_no_extra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -37106,7 +37106,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -37143,7 +37143,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 7.54,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -37180,7 +37180,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 10.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -37217,7 +37217,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -37254,7 +37254,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 5.34,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -37291,7 +37291,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -37328,7 +37328,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 4.0,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -37365,7 +37365,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -37402,7 +37402,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -37439,7 +37439,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 4.0,
       "answer_score": 1.0,
       "scoring": "verificable"
@@ -37476,7 +37476,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__string_precision__copy_jwt.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -37513,7 +37513,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -37550,7 +37550,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__string_precision__write_config_file.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 4.67,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -37620,7 +37620,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -37657,7 +37657,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__news_seo_writing__news_spanish_only.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -37694,7 +37694,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__news_seo_writing__news_no_hallucination_sources.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 8.67,
       "answer_score": 0.0,
       "scoring": "verificable"
@@ -37764,7 +37764,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 7.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -37801,7 +37801,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:56+00:00",
+      "rescored_at": "2026-07-15T20:29:17+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -37838,7 +37838,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:58+00:00",
+      "rescored_at": "2026-07-15T20:29:18+00:00",
       "content_score": 4.0,
       "answer_score": 8.75,
       "scoring": "verificable"
@@ -37875,7 +37875,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:58+00:00",
+      "rescored_at": "2026-07-15T20:29:18+00:00",
       "content_score": 8.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -37912,7 +37912,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:58+00:00",
+      "rescored_at": "2026-07-15T20:29:18+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -37982,7 +37982,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__orchestration__error_recovery_orchestration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:58+00:00",
+      "rescored_at": "2026-07-15T20:29:18+00:00",
       "content_score": 9.34,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -38052,7 +38052,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:58:58+00:00",
+      "rescored_at": "2026-07-15T20:29:18+00:00",
       "content_score": 5.34,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -38089,7 +38089,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:00+00:00",
+      "rescored_at": "2026-07-15T20:29:22+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -38126,7 +38126,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__multi_turn__content_iteration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:00+00:00",
+      "rescored_at": "2026-07-15T20:29:22+00:00",
       "content_score": 4.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -38163,7 +38163,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__multi_turn__support_escalation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:00+00:00",
+      "rescored_at": "2026-07-15T20:29:22+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -38200,7 +38200,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:00+00:00",
+      "rescored_at": "2026-07-15T20:29:22+00:00",
       "content_score": 10.0,
       "answer_score": 6.0,
       "scoring": "verificable"
@@ -38237,7 +38237,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__multi_turn__debugging_conversation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:00+00:00",
+      "rescored_at": "2026-07-15T20:29:22+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -38274,7 +38274,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__policy_adherence__refund_policy_enforcement.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:00+00:00",
+      "rescored_at": "2026-07-15T20:29:22+00:00",
       "content_score": 9.34,
       "answer_score": 8.33,
       "scoring": "verificable"
@@ -38311,7 +38311,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__policy_adherence__data_privacy_protection.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:00+00:00",
+      "rescored_at": "2026-07-15T20:29:22+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -38348,7 +38348,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__policy_adherence__language_and_tone_rules.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:00+00:00",
+      "rescored_at": "2026-07-15T20:29:22+00:00",
       "content_score": 4.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -38385,7 +38385,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__policy_adherence__scope_boundaries.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:00+00:00",
+      "rescored_at": "2026-07-15T20:29:22+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -38521,7 +38521,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:00+00:00",
+      "rescored_at": "2026-07-15T20:29:22+00:00",
       "content_score": 5.34,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -38558,7 +38558,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:00+00:00",
+      "rescored_at": "2026-07-15T20:29:22+00:00",
       "content_score": 7.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -38595,7 +38595,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:01+00:00",
+      "rescored_at": "2026-07-15T20:29:22+00:00",
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -38632,7 +38632,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:01+00:00",
+      "rescored_at": "2026-07-15T20:29:22+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -38669,7 +38669,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:01+00:00",
+      "rescored_at": "2026-07-15T20:29:22+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -38706,7 +38706,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__sales_outreach__cold_email_personalized.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:01+00:00",
+      "rescored_at": "2026-07-15T20:29:22+00:00",
       "content_score": 6.67,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -38743,7 +38743,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:01+00:00",
+      "rescored_at": "2026-07-15T20:29:22+00:00",
       "content_score": 8.0,
       "answer_score": 3.33,
       "scoring": "verificable"
@@ -38780,7 +38780,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__sales_outreach__campaign_optimization.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:02+00:00",
+      "rescored_at": "2026-07-15T20:29:23+00:00",
       "content_score": 9.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -38817,7 +38817,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__translation__translate_marketing_es_en.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:02+00:00",
+      "rescored_at": "2026-07-15T20:29:23+00:00",
       "content_score": 8.0,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -38887,7 +38887,7 @@
       "timestamp": "20260425_145813",
       "response_file": "results/responses/20260425_145813/nim-qwen3.5-397b__translation__detect_language_issues.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:59:02+00:00",
+      "rescored_at": "2026-07-15T20:29:23+00:00",
       "content_score": 6.2,
       "answer_score": 6.67,
       "scoring": "verificable"

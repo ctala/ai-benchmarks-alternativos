@@ -10,7 +10,12 @@
       "evaluations": 5,
       "estimated_cost_usd": 0.0064
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:51:21+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 181,
       "output_tokens": 2451,
       "response_preview": "1. Cada dólar que una startup latinoamericana invierte en licencias de IA propietaria es una cuota de independencia que cede a un proveedor que, en tres años, puede decidir el precio de su supervivencia.  \n2. La discusión sobre el regreso a la oficina no la ganaron los argumentos, la ganó el talento",
-      "auto_quality": 7.27,
+      "auto_quality": 9.0,
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable",
@@ -46,7 +51,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_154824_24156",
-      "response_file": "results/responses/20260714_154824_24156/deepseek-v4-pro__creativity__creative_hook_writing.md"
+      "response_file": "results/responses/20260714_154824_24156/deepseek-v4-pro__creativity__creative_hook_writing.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:21+00:00"
     },
     {
       "quality": 8.0,
@@ -67,7 +74,7 @@
       "input_tokens": 129,
       "output_tokens": 1401,
       "response_preview": "Aquí tienes analogías sorprendentes y memorables para cada concepto, diseñadas para emprendedores no técnicos, sin recurrir a los clichés habituales:\n\n---\n\n**1. Cómo funciona un modelo de lenguaje (LLM)**  \nImagina un chef que ha memorizado millones de recetas pero nunca ha cocinado: no sabe qué es ",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "content_score": 5.34,
       "answer_score": 8.0,
       "scoring": "verificable",
@@ -81,7 +88,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_154824_24156",
-      "response_file": "results/responses/20260714_154824_24156/deepseek-v4-pro__creativity__analogy_generation.md"
+      "response_file": "results/responses/20260714_154824_24156/deepseek-v4-pro__creativity__analogy_generation.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:21+00:00"
     },
     {
       "quality": 10.0,
@@ -102,7 +111,7 @@
       "input_tokens": 148,
       "output_tokens": 1319,
       "response_preview": "Te voy a ser directo: la mayoría de emprendedores en delivery están aplicando IA para lo mismo (rutas, chatbots, recomendaciones) y eso ya es *hygiene factor*, no ventaja competitiva. Si quieres diferenciarte en Santiago, aquí tienes un pensamiento más quirúrgico.\n\n---\n\n## Idea no obvia #1: Predicci",
-      "auto_quality": 9.74,
+      "auto_quality": 10.0,
       "content_score": 9.34,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -116,7 +125,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_154824_24156",
-      "response_file": "results/responses/20260714_154824_24156/deepseek-v4-pro__creativity__depth_vs_superficial.md"
+      "response_file": "results/responses/20260714_154824_24156/deepseek-v4-pro__creativity__depth_vs_superficial.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:21+00:00"
     },
     {
       "quality": 9.0,
@@ -137,7 +148,7 @@
       "input_tokens": 95,
       "output_tokens": 5807,
       "response_preview": "Federico ajustó su lente. En la pantalla, «SinceraIA» escupía verdades como huesos de aceituna. Una cliente preguntó si su seguro cubría terremotos. La IA respondió: «Solo si tiembla tu moral, señora». Las reseñas eran un desastre. Federico, con mate frío, tecleó: —¿Qué opinas de mi empresa? El curs",
-      "auto_quality": 7.0,
+      "auto_quality": 9.0,
       "content_score": 4.0,
       "answer_score": 9.0,
       "scoring": "verificable",
@@ -151,7 +162,9 @@
       "suite": "creativity",
       "run": 1,
       "timestamp": "20260714_154824_24156",
-      "response_file": "results/responses/20260714_154824_24156/deepseek-v4-pro__creativity__storytelling_quality.md"
+      "response_file": "results/responses/20260714_154824_24156/deepseek-v4-pro__creativity__storytelling_quality.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:21+00:00"
     }
   ]
 }

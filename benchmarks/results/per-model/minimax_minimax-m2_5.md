@@ -2,8 +2,8 @@
 
 - **model_id**: `minimax/minimax-m2.5`
 - **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.46
-- **Calidad**: 7.88
+- **Score final**: 7.47
+- **Calidad**: 7.90
 - **Judge score (Phi-4)**: 4.46/10
 - **Velocidad**: 61 tok/s
 - **Latencia primera token**: 15.04s
@@ -26,7 +26,7 @@
 | customer_support | 4 | 4 | 7.60 | 7.73 |
 | deep_reasoning | 6 | 6 | 7.33 | 7.92 |
 | hallucination | 3 | 3 | 8.02 | 8.33 |
-| multi_turn | 4 | 4 | 7.20 | 7.38 |
+| multi_turn | 4 | 4 | 7.54 | 7.88 |
 | news_seo_writing | 5 | 5 | 5.46 | 5.26 |
 | ocr_extraction | 5 | 5 | 8.55 | 9.35 |
 | orchestration | 5 | 5 | 7.39 | 7.50 |
@@ -1910,7 +1910,7 @@ Voy a ejecutar el proceso de onboarding paso a paso. Empiezo con la creación de
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.59 | 8.00 | 5 | 44 | 8.48s | OK |
 | support_escalation | 7.42 | 8.00 | 5 | 47 | 13.60s | OK |
-| requirements_change | 6.39 | 6.00 | 3.0 | 53 | 5.48s | OK |
+| requirements_change | 7.79 | 8.00 | 3.0 | 53 | 5.48s | OK |
 | debugging_conversation | 7.38 | 7.50 | 5 | 66 | 6.03s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.59</summary>
@@ -1957,7 +1957,7 @@ Te explico lo que puedo hacer desde mi posicion:
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 6.39</summary>
+<details><summary><code>requirements_change</code> — score 7.79</summary>
 
 **Stats**: latencia 5.48s · 53 tok/s · 228→290 tokens · $0.00030
 

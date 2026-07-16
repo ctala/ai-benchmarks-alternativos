@@ -10,7 +10,12 @@
       "evaluations": 1,
       "estimated_cost_usd": 0.0007
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:27:04+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -24252,7 +24257,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:57:09+00:00",
+      "rescored_at": "2026-07-15T20:27:00+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -24289,7 +24294,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:57:12+00:00",
+      "rescored_at": "2026-07-15T20:27:03+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -24326,7 +24331,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:57:12+00:00",
+      "rescored_at": "2026-07-15T20:27:03+00:00",
       "content_score": 9.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -24363,7 +24368,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:57:12+00:00",
+      "rescored_at": "2026-07-15T20:27:03+00:00",
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -24400,7 +24405,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:57:12+00:00",
+      "rescored_at": "2026-07-15T20:27:03+00:00",
       "content_score": 5.34,
       "answer_score": 6.5,
       "scoring": "verificable"
@@ -24437,7 +24442,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:57:12+00:00",
+      "rescored_at": "2026-07-15T20:27:03+00:00",
       "content_score": 4.0,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -24507,7 +24512,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:57:12+00:00",
+      "rescored_at": "2026-07-15T20:27:03+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -24544,7 +24549,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__news_seo_writing__news_spanish_only.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:57:12+00:00",
+      "rescored_at": "2026-07-15T20:27:03+00:00",
       "content_score": 8.67,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -24581,7 +24586,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:57:13+00:00",
+      "rescored_at": "2026-07-15T20:27:04+00:00",
       "content_score": 4.0,
       "answer_score": 8.75,
       "scoring": "verificable"
@@ -24618,7 +24623,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:57:13+00:00",
+      "rescored_at": "2026-07-15T20:27:04+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -24655,7 +24660,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:57:13+00:00",
+      "rescored_at": "2026-07-15T20:27:04+00:00",
       "content_score": 10.0,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -24692,7 +24697,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__translation__detect_language_issues.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:57:13+00:00",
+      "rescored_at": "2026-07-15T20:27:04+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -24795,7 +24800,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/nemotron-super__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:57:13+00:00",
+      "rescored_at": "2026-07-15T20:27:04+00:00",
       "content_score": 8.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -24832,7 +24837,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/nemotron-super__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:57:13+00:00",
+      "rescored_at": "2026-07-15T20:27:04+00:00",
       "content_score": 10.0,
       "answer_score": 4.0,
       "scoring": "verificable"
@@ -25202,7 +25207,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/nemotron-super__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T17:57:13+00:00",
+      "rescored_at": "2026-07-15T20:27:04+00:00",
       "content_score": 4.0,
       "answer_score": 5.0,
       "scoring": "verificable"

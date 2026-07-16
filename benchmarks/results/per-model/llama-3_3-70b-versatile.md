@@ -2,8 +2,8 @@
 
 - **model_id**: `llama-3.3-70b-versatile`
 - **Total tests**: 169/271 exitosos (102 errores)
-- **Score final**: 7.26
-- **Calidad**: 7.58
+- **Score final**: 7.27
+- **Calidad**: 7.59
 - **Judge score (Phi-4)**: 4.00/10
 - **Velocidad**: 173 tok/s
 - **Latencia primera token**: 2.48s
@@ -27,7 +27,7 @@
 | multi_turn | 4 | 4 | 7.12 | 6.50 |
 | news_seo_writing | 5 | 5 | 5.76 | 5.03 |
 | niah_es | 123 | 54 | 6.27 | 7.09 |
-| ocr_extraction | 5 | 5 | 8.51 | 8.55 |
+| ocr_extraction | 5 | 5 | 8.79 | 8.95 |
 | orchestration | 5 | 5 | 7.03 | 6.49 |
 | policy_adherence | 4 | 4 | 8.60 | 8.58 |
 | presentation | 2 | 2 | 7.97 | 8.47 |
@@ -723,7 +723,7 @@ No puedo proporcionar una respuesta que contenga información que podría ser se
 | invoice_extraction | 9.68 | 10.00 | 2.6 | 364 | 0.88s | OK |
 | business_card_extraction | 9.80 | 10.00 | 4.2 | 275 | 0.56s | OK |
 | receipt_math_verification | 8.57 | 8.75 | 4.4 | 421 | 1.77s | OK |
-| screenshot_table_extraction | 5.07 | 4.00 | 3.8 | 383 | 2.14s | OK |
+| screenshot_table_extraction | 6.47 | 6.00 | 3.8 | 383 | 2.14s | OK |
 | handwritten_notes_extraction | 9.44 | 10.00 | 4.4 | 361 | 1.86s | OK |
 
 <details><summary><code>invoice_extraction</code> — score 9.68</summary>
@@ -800,7 +800,7 @@ Para realizar las tareas solicitadas, primero debemos extraer los items con sus 
 
 </details>
 
-<details><summary><code>screenshot_table_extraction</code> — score 5.07</summary>
+<details><summary><code>screenshot_table_extraction</code> — score 6.47</summary>
 
 **Stats**: latencia 2.14s · 383 tok/s · 417→819 tokens · $0.00089
 

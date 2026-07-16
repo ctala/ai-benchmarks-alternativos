@@ -13,7 +13,7 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-14T18:08:48+00:00",
+      "at": "2026-07-15T20:43:12+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -50,7 +50,7 @@
       "timestamp": "20260713_163503_85471",
       "response_file": "results/responses/20260713_163503_85471/minimax-m3__business_audit__atribucion_correlacion_temporal.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:08:48+00:00",
+      "rescored_at": "2026-07-15T20:43:12+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -87,7 +87,7 @@
       "timestamp": "20260713_163503_85471",
       "response_file": "results/responses/20260713_163503_85471/minimax-m3__business_audit__auditoria_pnl_error_plantado.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:08:48+00:00",
+      "rescored_at": "2026-07-15T20:43:12+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -124,7 +124,7 @@
       "timestamp": "20260713_163503_85471",
       "response_file": "results/responses/20260713_163503_85471/minimax-m3__business_audit__churn_mezcla_free_y_pago.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:08:48+00:00",
+      "rescored_at": "2026-07-15T20:43:12+00:00",
       "content_score": 5.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -161,7 +161,7 @@
       "timestamp": "20260713_163503_85471",
       "response_file": "results/responses/20260713_163503_85471/minimax-m3__business_audit__retention_sobre_100_interpretacion.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:08:48+00:00",
+      "rescored_at": "2026-07-15T20:43:12+00:00",
       "content_score": 6.0,
       "answer_score": 8.0,
       "scoring": "verificable"

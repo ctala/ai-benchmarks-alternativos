@@ -10,7 +10,12 @@
       "evaluations": 16,
       "estimated_cost_usd": 0.0233
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:52:27+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -113,7 +118,7 @@
       "input_tokens": 973,
       "output_tokens": 327,
       "response_preview": "Tarea 1: Verificar si el servidor de produccion esta respondiendo (URL: https://api.example.com/health)\nPara esta tarea, usaria la funcion \"http_request\" para hacer una peticion GET a la URL proporcionada. Elegiria esta herramienta porque es la mas adecuada para hacer peticiones HTTP a una API.\n\nTar",
-      "auto_quality": 6.1,
+      "auto_quality": 7.5,
       "content_score": 4.0,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -127,7 +132,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260715_082251_44555",
-      "response_file": "results/responses/20260715_082251_44555/mistral-nemo__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260715_082251_44555/mistral-nemo__orchestration__tool_selection_precision.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:24+00:00"
     },
     {
       "quality": 0.0,
@@ -175,7 +182,7 @@
       "input_tokens": 177,
       "output_tokens": 585,
       "response_preview": "1. Tabla comparativa:\n\n| Características / Empresa | Mailchimp | Brevo (ex-Sendinblue) | EnviaMas | Tu Startup |\n| --- | --- | --- | --- | --- |\n| Precio (por 500 contactos) | $50/mes | $30/mes | $25/mes | - |\n| Características principales | Automatizaciones, segmentación, Landing Pages | Automatiza",
-      "auto_quality": 7.47,
+      "auto_quality": 6.67,
       "content_score": 8.67,
       "answer_score": 6.67,
       "scoring": "verificable",
@@ -189,7 +196,9 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260715_082251_44555",
-      "response_file": "results/responses/20260715_082251_44555/mistral-nemo__strategy__competitor_analysis.md"
+      "response_file": "results/responses/20260715_082251_44555/mistral-nemo__strategy__competitor_analysis.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:24+00:00"
     },
     {
       "quality": 0.0,
@@ -291,7 +300,7 @@
       "input_tokens": 253,
       "output_tokens": 372,
       "response_preview": "Lead 1:\n```json\n{\n  \"score\": 4,\n  \"bant\": {\n    \"budget\": \"Unknown\",\n    \"authority\": \"Low - Not the decision maker\",\n    \"need\": \"Possible - Looking into options\",\n    \"timeline\": \"Unknown\"\n  },\n  \"action\": \"Follow up with more information, qualify further\",\n  \"reason\": \"Lack of budget information ",
-      "auto_quality": 3.2,
+      "auto_quality": 0.0,
       "content_score": 8.0,
       "answer_score": 0.0,
       "scoring": "verificable",
@@ -305,7 +314,9 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260715_082251_44555",
-      "response_file": "results/responses/20260715_082251_44555/mistral-nemo__sales_outreach__lead_qualification.md"
+      "response_file": "results/responses/20260715_082251_44555/mistral-nemo__sales_outreach__lead_qualification.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:24+00:00"
     },
     {
       "quality": 8.0,
@@ -326,7 +337,7 @@
       "input_tokens": 303,
       "output_tokens": 783,
       "response_preview": "1. Cálculos de indicadores clave de rendimiento (KPIs) para cada campaña:\n* Campaña A:\n\t+ CTR: 3% (1,500 clicks / 50,000 impressions)\n\t+ CPC: $1.40 (2,100 costo / 1,500 clicks)\n\t+ CPA: $46.67 (2,100 costo / 45 signups)\n\t+ Tasa de conversión: 3% (45 signups / 1,500 clicks)\n* Campaña B:\n\t+ CTR: 4% (4,",
-      "auto_quality": 8.27,
+      "auto_quality": 8.0,
       "content_score": 8.67,
       "answer_score": 8.0,
       "scoring": "verificable",
@@ -340,7 +351,9 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260715_082251_44555",
-      "response_file": "results/responses/20260715_082251_44555/mistral-nemo__sales_outreach__campaign_optimization.md"
+      "response_file": "results/responses/20260715_082251_44555/mistral-nemo__sales_outreach__campaign_optimization.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:25+00:00"
     },
     {
       "quality": 8.32,
@@ -396,7 +409,7 @@
       "input_tokens": 373,
       "output_tokens": 420,
       "response_preview": "La base de datos 'production' está en mantenimiento y no estará disponible por 2 horas.\n\nComo alternativa, buscaré un archivo de respaldo que pueda contener los datos de ventas del mes pasado. Con suerte, existe un proceso de respaldo que guarda los datos en un archivo CSV.\n\nIntentaré leer el archiv",
-      "auto_quality": 7.42,
+      "auto_quality": 7.5,
       "content_score": 7.3,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -410,7 +423,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260715_082251_44555",
-      "response_file": "results/responses/20260715_082251_44555/gemini-pro__orchestration__error_recovery_orchestration.md"
+      "response_file": "results/responses/20260715_082251_44555/gemini-pro__orchestration__error_recovery_orchestration.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:25+00:00"
     },
     {
       "quality": 5.22,
@@ -466,7 +481,7 @@
       "input_tokens": 383,
       "output_tokens": 864,
       "response_preview": "Claro, aquí tienes el análisis de cada tarea y la ejecución de la primera.\n\n### Análisis de Herramientas\n\n*   **Tarea 1: Verificar si el servidor de produccion esta respondiendo (URL: https://api.example.com/health)**\n    *   **Herramienta:** `http_request`\n    *   **Motivo:** Esta herramienta es la",
-      "auto_quality": 6.64,
+      "auto_quality": 7.5,
       "content_score": 5.34,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -480,7 +495,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260715_082251_44555",
-      "response_file": "results/responses/20260715_082251_44555/gemini-pro__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260715_082251_44555/gemini-pro__orchestration__tool_selection_precision.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:25+00:00"
     },
     {
       "quality": 10.0,
@@ -515,7 +532,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260715_082251_44555",
-      "response_file": "results/responses/20260715_082251_44555/gemini-pro__orchestration__parallel_vs_sequential_judgment.md"
+      "response_file": "results/responses/20260715_082251_44555/gemini-pro__orchestration__parallel_vs_sequential_judgment.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:26+00:00"
     },
     {
       "quality": 6.67,
@@ -536,7 +555,7 @@
       "input_tokens": 166,
       "output_tokens": 5651,
       "response_preview": "Excelente iniciativa. El mercado de email marketing para pymes en LATAM es fascinante: está dominado por gigantes globales que no siempre se adaptan al 100% a la realidad local, lo que crea oportunidades claras.\n\nComo analista de estrategia, mi enfoque será riguroso y directo. Procedo a desglosar tu",
-      "auto_quality": 8.0,
+      "auto_quality": 6.67,
       "content_score": 10.0,
       "answer_score": 6.67,
       "scoring": "verificable",
@@ -550,7 +569,9 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260715_082251_44555",
-      "response_file": "results/responses/20260715_082251_44555/gemini-pro__strategy__competitor_analysis.md"
+      "response_file": "results/responses/20260715_082251_44555/gemini-pro__strategy__competitor_analysis.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:26+00:00"
     },
     {
       "quality": 5.0,
@@ -571,7 +592,7 @@
       "input_tokens": 183,
       "output_tokens": 5675,
       "response_preview": "¡Excelente pregunta! Es una decisión crucial para cualquier SaaS. Analicemos los números y las estrategias para que tomes la mejor decisión.\n\n---\n\n### Resumen Ejecutivo\n\nMi recomendación es **proceder con el aumento de precio a $89/mes**. El análisis muestra que incluso en un escenario pesimista, la",
-      "auto_quality": 7.0,
+      "auto_quality": 5.0,
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable",
@@ -585,7 +606,9 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260715_082251_44555",
-      "response_file": "results/responses/20260715_082251_44555/gemini-pro__strategy__pricing_strategy.md"
+      "response_file": "results/responses/20260715_082251_44555/gemini-pro__strategy__pricing_strategy.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:26+00:00"
     },
     {
       "quality": 10.0,
@@ -620,7 +643,9 @@
       "suite": "strategy",
       "run": 1,
       "timestamp": "20260715_082251_44555",
-      "response_file": "results/responses/20260715_082251_44555/gemini-pro__strategy__business_model_validation.md"
+      "response_file": "results/responses/20260715_082251_44555/gemini-pro__strategy__business_model_validation.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:26+00:00"
     },
     {
       "quality": 8.0,
@@ -641,7 +666,7 @@
       "input_tokens": 172,
       "output_tokens": 1831,
       "response_preview": "**Asunto:** Sobre tu post: escalar contenido sin contratar\n\nHola Maria,\n\nMe encantó tu post de la semana pasada en LinkedIn sobre cómo escalar la creación de contenido sin aumentar el equipo.\n\nEs el desafío clave para startups en crecimiento. Varias fintechs con las que trabajamos están usando un si",
-      "auto_quality": 8.27,
+      "auto_quality": 8.0,
       "content_score": 8.67,
       "answer_score": 8.0,
       "scoring": "verificable",
@@ -655,7 +680,9 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260715_082251_44555",
-      "response_file": "results/responses/20260715_082251_44555/gemini-pro__sales_outreach__cold_email_personalized.md"
+      "response_file": "results/responses/20260715_082251_44555/gemini-pro__sales_outreach__cold_email_personalized.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:26+00:00"
     },
     {
       "quality": 3.33,
@@ -676,7 +703,7 @@
       "input_tokens": 243,
       "output_tokens": 1997,
       "response_preview": "```json\n[\n  {\n    \"lead_id\": 1,\n    \"score\": 6,\n    \"bant\": {\n      \"budget\": \"Desconocido. Al ser una startup pequeña, es probable que sea limitado. Se necesita calificar.\",\n      \"authority\": \"Sí. Es el CEO, el decision-maker final.\",\n      \"need\": \"Sí. Expresó explícitamente que están 'viendo opc",
-      "auto_quality": 5.2,
+      "auto_quality": 3.33,
       "content_score": 8.0,
       "answer_score": 3.33,
       "scoring": "verificable",
@@ -690,7 +717,9 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260715_082251_44555",
-      "response_file": "results/responses/20260715_082251_44555/gemini-pro__sales_outreach__lead_qualification.md"
+      "response_file": "results/responses/20260715_082251_44555/gemini-pro__sales_outreach__lead_qualification.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:26+00:00"
     },
     {
       "quality": 10.0,
@@ -725,7 +754,9 @@
       "suite": "sales_outreach",
       "run": 1,
       "timestamp": "20260715_082251_44555",
-      "response_file": "results/responses/20260715_082251_44555/gemini-pro__sales_outreach__campaign_optimization.md"
+      "response_file": "results/responses/20260715_082251_44555/gemini-pro__sales_outreach__campaign_optimization.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:52:27+00:00"
     }
   ]
 }

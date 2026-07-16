@@ -2,11 +2,11 @@
 
 - **model_id**: `anthropic/claude-fable-5`
 - **Total tests**: 155/155 exitosos (0 errores)
-- **Score final**: 6.00
-- **Calidad**: 7.21
+- **Score final**: 6.21
+- **Calidad**: 7.50
 - **Judge score (Phi-4)**: 4.36/10
 - **Velocidad**: 48 tok/s
-- **Latencia primera token**: 20.64s
+- **Latencia primera token**: 20.45s
 - **Costo promedio por test**: $0.15518
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -32,7 +32,7 @@
 | orchestration | 5 | 5 | 6.77 | 8.20 |
 | policy_adherence | 4 | 4 | 5.41 | 6.17 |
 | presentation | 2 | 2 | 7.72 | 9.80 |
-| prompt_injection_es | 20 | 20 | 4.45 | 5.50 |
+| prompt_injection_es | 20 | 20 | 6.09 | 7.75 |
 | reasoning | 3 | 3 | 7.95 | 10.00 |
 | sales_outreach | 3 | 3 | 7.61 | 9.33 |
 | startup_content | 5 | 5 | 7.64 | 9.66 |
@@ -696,10 +696,10 @@ process_orders([{
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 2.17 | 1.00 | 1 | 5 | 4.25s | OK |
 | copy_hex_64 | 8.23 | 10.00 | 4.0 | 8 | 5.75s | OK |
-| copy_api_key | 2.15 | 1.00 | - | 0 | 4.26s | OK |
-| copy_jwt | 2.15 | 1.00 | - | 1 | 4.23s | OK |
-| copy_mixed_special | 2.04 | 1.00 | - | 0 | 5.50s | OK |
-| write_config_file | 1.31 | 0.00 | - | 1 | 4.68s | OK |
+| copy_api_key | 2.15 | 1.00 | - | 1 | 3.02s | OK |
+| copy_jwt | 2.17 | 1.00 | - | 0 | 4.62s | OK |
+| copy_mixed_special | 2.04 | 1.00 | - | 0 | 5.87s | OK |
+| write_config_file | 1.32 | 0.00 | - | 0 | 3.72s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 2.17</summary>
 

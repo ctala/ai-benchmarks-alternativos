@@ -7,7 +7,7 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-14T18:08:35+00:00",
+      "at": "2026-07-15T20:42:58+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -39,7 +39,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:08:34+00:00",
+      "rescored_at": "2026-07-15T20:42:57+00:00",
       "scoring": "verificable"
     },
     {
@@ -69,7 +69,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:08:34+00:00",
+      "rescored_at": "2026-07-15T20:42:57+00:00",
       "scoring": "verificable"
     },
     {
@@ -99,7 +99,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:08:35+00:00",
+      "rescored_at": "2026-07-15T20:42:58+00:00",
       "scoring": "verificable"
     },
     {
@@ -129,7 +129,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-14T18:08:35+00:00",
+      "rescored_at": "2026-07-15T20:42:58+00:00",
       "scoring": "verificable"
     }
   ]

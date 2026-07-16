@@ -1,13 +1,13 @@
 # Gemini 3.5 Flash
 
 - **model_id**: `google/gemini-3.5-flash`
-- **Total tests**: 378/393 exitosos (15 errores)
-- **Score final**: 5.89
-- **Calidad**: 6.28
+- **Total tests**: 390/405 exitosos (15 errores)
+- **Score final**: 5.95
+- **Calidad**: 6.37
 - **Judge score (Phi-4)**: 2.27/10
-- **Velocidad**: 106 tok/s
-- **Latencia primera token**: 6.52s
-- **Costo promedio por test**: $0.08838
+- **Velocidad**: 105 tok/s
+- **Latencia primera token**: 6.50s
+- **Costo promedio por test**: $0.08727
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.63 | 6.14 |
-| agent_long_horizon | 12 | 12 | 6.87 | 8.88 |
+| agent_long_horizon | 24 | 24 | 7.35 | 9.06 |
 | business_audit | 10 | 10 | 7.46 | 8.40 |
 | business_strategy | 5 | 5 | 8.00 | 9.20 |
 | code_generation | 4 | 4 | 6.17 | 6.92 |

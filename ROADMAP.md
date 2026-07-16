@@ -1,7 +1,7 @@
 # Roadmap del Benchmark
 
 > Ultima actualizacion: 2 de Julio de 2026 (post v3.1.0: pSEO Fable 5 + integridad de prompts + CheatSheet julio)
-> Estado del ranking: **v3.1.0 — <!-- AUTO:total_models -->170<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->121<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->11,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
+> Estado del ranking: **v3.1.0 — <!-- AUTO:total_models -->170<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->121<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->15,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
 > Cobertura faltante: ver [TESTS_FALTANTES.md](TESTS_FALTANTES.md) (30 modelos sin runs o con cobertura parcial).
 > **Próximo release: Agosto 2026** (cadencia mensual). El release de julio ya salió — ver [CHANGELOG.md](CHANGELOG.md).
 
@@ -112,6 +112,14 @@
 - **Suite multimodal/visión** — Gemma 4, Qwen-VL, Qwen 3.7 Plus, DiffusionGemma tienen visión nativa; el bench aún es solo texto.
 - ~~**Adapter para DiffusionGemma**~~ — Resuelto con `DiffusionGemmaProvider` (`provider: diffusion_cli`) en `providers/adapters.py`.
 - **TESTS_FALTANTES.md auto-regen** — actualmente desactualizado (dice 125 modelos; son 143). Conectar al pipeline o regenerar manualmente tras cada lote.
+- **Lección 15-jul — NO filtrar la calidad GLOBAL por procedencia.** El dataset tiene ~20%
+  de runs sin marca recuperable, repartidos DESIGUAL entre modelos. Filtrar `quality_avg`
+  por `_misma_formula` computa la calidad de cada modelo sobre un mix de suites distinto y
+  colapsa/reordena el ranking a basura (probado: ranked cayó a 6, luego GPT-4.1 falso #1).
+  El filtro va SOLO en: (a) tablas por-suite de DISPLAY, (b) cobertura de suite. La calidad
+  global y el conteo de muestra usan la población CRUDA (una medida de velocidad/quality
+  vieja sigue siendo una medida real). El rescore ya arregló la incomparabilidad de fondo
+  (suites verificables); lo que queda son runs de juez comparables entre sí.
 - **Path multi-turn sin guard de vacíos** (15-jul): `run_multi_turn_script` (suite
   agent_long_horizon) no pasa por el guard vacío⇒fallo de `run_single_test` — 3 vacíos de
   Fable se colaron por ahí (quedan fuera del promedio por procedencia, daño acotado).

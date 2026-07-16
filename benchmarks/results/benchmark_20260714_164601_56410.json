@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0165
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:51:32+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 251,
       "output_tokens": 1656,
       "response_preview": "**Conclusión:**  \nNo se puede determinar con certeza si la secuencia de emails funcionó. Los datos muestran un crecimiento en marzo (más altas y mayor MRR), pero hay múltiples factores que podrían haber influido, y no hay forma de aislar el impacto específico de los emails.\n\n**Análisis rápido:**  \n-",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -46,7 +51,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164601_56410",
-      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__atribucion_correlacion_temporal.md"
+      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__atribucion_correlacion_temporal.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:31+00:00"
     },
     {
       "quality": 10.0,
@@ -67,7 +74,7 @@
       "input_tokens": 233,
       "output_tokens": 1362,
       "response_preview": "# ⚠️ Primero: los números NO cuadran\n\nVoy línea por línea en tus costos:\n\n| Concepto | Monto |\n|---|---|\n| Infraestructura | $1.250 |\n| Publicidad | $3.900 |\n| Herramientas SaaS | $780 |\n| Procesador de pagos | $620 |\n| Contenido freelance | $2.600 |\n| **Suma real** | **$9.150** |\n\nTú reportas un to",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -81,7 +88,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164601_56410",
-      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__auditoria_pnl_error_plantado.md"
+      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__auditoria_pnl_error_plantado.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:31+00:00"
     },
     {
       "quality": 10.0,
@@ -102,7 +111,7 @@
       "input_tokens": 190,
       "output_tokens": 1313,
       "response_preview": "# Respira. La historia real es muy diferente del 31%.\n\n## Primero: verifiquemos la matemática y segmentemos\n\n| Métrica | Plan Gratuito | Plan Pago | **Total** |\n|---|---|---|---|\n| Usuarios inicio de mes | 178 | 22 | 200 |\n| Bajas | 60 | 2 | 62 |\n| **Churn por segmento** | **33.7%** | **9.1%** | 31%",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -116,7 +125,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164601_56410",
-      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__churn_mezcla_free_y_pago.md"
+      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__churn_mezcla_free_y_pago.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:31+00:00"
     },
     {
       "quality": 8.0,
@@ -137,7 +148,7 @@
       "input_tokens": 149,
       "output_tokens": 1371,
       "response_preview": "# No, no puedes dejar de preocuparte. Estás ante una trampa clásica del SaaS.\n\n## Lo que tu panel realmente te dice\n\nTu métrica es **Net Revenue Retention (NRR)**, y el 114% significa:\n\n> *De los ingresos que tenías al inicio del mes con esos 40 clientes, los que se quedaron ahora generan un 14% más",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "content_score": 6.0,
       "answer_score": 8.0,
       "scoring": "verificable",
@@ -151,7 +162,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164601_56410",
-      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__retention_sobre_100_interpretacion.md"
+      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__retention_sobre_100_interpretacion.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:32+00:00"
     },
     {
       "quality": 8.0,
@@ -172,7 +185,7 @@
       "input_tokens": 275,
       "output_tokens": 1679,
       "response_preview": "# Tu trimestre realista\n\n## Primero, las matemáticas\n\n| | |\n|---|---|\n| Horas de construcción | 4h/día × 5d × 8 sem = **160 horas** |\n| A) Reescribir plataforma | ~480h (3 meses full-time) |\n| B) Arreglar alta | ~20h |\n| C) Panel métricas | ~60h *(bloqueado por A)* |\n| D) 10 videos | ~40h |\n\n---\n\n##",
-      "auto_quality": 6.94,
+      "auto_quality": 8.0,
       "content_score": 5.34,
       "answer_score": 8.0,
       "scoring": "verificable",
@@ -186,7 +199,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164601_56410",
-      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__roadmap_restriccion_capacidad.md"
+      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__roadmap_restriccion_capacidad.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:32+00:00"
     },
     {
       "quality": 2.0,
@@ -207,7 +222,7 @@
       "input_tokens": 203,
       "output_tokens": 2048,
       "response_preview": "# TEARDOWN COMPETITIVO: Comunidad de automatización ($39/mes)\n\n---\n\n## 1. ESTIMACIÓN DE INGRESOS\n\n### El cálculo ingenuo (el que todos hacen)\n\n```\n2.400 miembros × $39/mes = $93.600/mes MRR\nARR ≈ $1.123.200/año\n```\n\n**Nivel de certeza: MUY BAJO (⚠️)**\n\n### Por qué NO te creas esa cifra\n\n| Señal de a",
-      "auto_quality": 3.34,
+      "auto_quality": 2.0,
       "content_score": 5.34,
       "answer_score": 2.0,
       "scoring": "verificable",
@@ -221,7 +236,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164601_56410",
-      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__teardown_competidor_sin_inventar.md"
+      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__teardown_competidor_sin_inventar.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:32+00:00"
     },
     {
       "quality": 8.0,
@@ -242,7 +259,7 @@
       "input_tokens": 185,
       "output_tokens": 1275,
       "response_preview": "# Destrucción honesta de tu oferta\n\n## El problema de fondo: esto es un \"cajón de sastre\" disfrazado de producto.\n\nNadie sabe qué está comprando. Y si no saben qué compran, no pagan.\n\n---\n\n## Golpe 1: Tu título es humo\n\n**\"Transforma tu negocio con el poder de la IA\"**\n\nEso lo dice literalmente cual",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "content_score": 6.0,
       "answer_score": 8.0,
       "scoring": "verificable",
@@ -256,7 +273,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164601_56410",
-      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__roast_oferta_sin_cliches.md"
+      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__roast_oferta_sin_cliches.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:32+00:00"
     },
     {
       "quality": 10.0,
@@ -277,7 +296,7 @@
       "input_tokens": 184,
       "output_tokens": 1768,
       "response_preview": "# No. No está validado. No renuncies.\n\nVoy a ser directo contigo porque te respeto más de lo que te consolaría.\n\n---\n\n## Lo que tienes: **señales suaves, cero validación real**\n\nDéjame poner tus datos en una tabla honesta:\n\n| Lo que tienes | Lo que significa realmente |\n|---|---|\n| 40 encuestados de",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -291,7 +310,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164601_56410",
-      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__validacion_idea_intencion_vs_compra.md"
+      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__validacion_idea_intencion_vs_compra.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:32+00:00"
     },
     {
       "quality": 10.0,
@@ -312,7 +333,7 @@
       "input_tokens": 227,
       "output_tokens": 1235,
       "response_preview": "# No. Tu plan tiene errores aritméticos graves.\n\nHagamos los números bien.\n\n---\n\n## Error 1: La vida promedio de un cliente NO es 24 meses\n\nCon un churn mensual del 8%, la vida promedio es:\n\n$$\\text{Vida promedio} = \\frac{1}{0.08} = 12.5 \\text{ meses}$$\n\nNo 24. Te estás inventando un año de más.\n\n--",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -326,7 +347,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164601_56410",
-      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__escalar_con_ltv_mal_calculado.md"
+      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__escalar_con_ltv_mal_calculado.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:32+00:00"
     },
     {
       "quality": 2.0,
@@ -347,7 +370,7 @@
       "input_tokens": 108,
       "output_tokens": 389,
       "response_preview": "No puedo.\n\nNo tengo datos suficientes para darte una respuesta responsable. Necesito al menos:\n\n- **Margen actual** (¿cuánto te cuesta servir a cada cliente?)\n- **Churn** (¿cuántos se te van al mes?)\n- **¿Por qué te eligen a $25 y no al competidor de $39?** (¿precio o algo más?)\n- **¿El competidor d",
-      "auto_quality": 2.83,
+      "auto_quality": 2.0,
       "content_score": 4.07,
       "answer_score": 2.0,
       "scoring": "verificable",
@@ -361,7 +384,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164601_56410",
-      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__decision_precio_datos_insuficientes.md"
+      "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__decision_precio_datos_insuficientes.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:32+00:00"
     }
   ]
 }

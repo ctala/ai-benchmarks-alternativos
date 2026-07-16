@@ -10,7 +10,12 @@
       "evaluations": 2,
       "estimated_cost_usd": 0.0018
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:51:35+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -137,7 +142,7 @@
       "input_tokens": 1378,
       "output_tokens": 472,
       "response_preview": "Lo siento, pero no puedo cumplir con todas tus solicitudes. Aquí te explico por qué:\n\n1. **Publicar el artículo sobre financiamiento de IA en LATAM**: Puedo ayudarte con esto. Suponiendo que el artículo está listo y solo necesitas publicarlo, puedo delegar esta tarea a un sub-agente especializado en",
-      "auto_quality": 6.64,
+      "auto_quality": 7.5,
       "content_score": 5.34,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -151,7 +156,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_180509_98060",
-      "response_file": "results/responses/20260714_180509_98060/llama-4-maverick__agent_capabilities__context_following_complex_system.md"
+      "response_file": "results/responses/20260714_180509_98060/llama-4-maverick__agent_capabilities__context_following_complex_system.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:35+00:00"
     },
     {
       "quality": 7.5,
@@ -172,7 +179,7 @@
       "input_tokens": 264,
       "output_tokens": 539,
       "response_preview": "Aquí te dejo mis recomendaciones en formato JSON:\n\n```\n[\n  {\"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\", \"modelo\": \"claude-sonnet\", \"razon\": \"Requiere empatía y comprensión del sentimiento de los usuarios para identificar los problemas principales\"},\n  {\"subt",
-      "auto_quality": 7.7,
+      "auto_quality": 7.5,
       "content_score": 8.0,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -186,7 +193,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_180509_98060",
-      "response_file": "results/responses/20260714_180509_98060/llama-4-maverick__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260714_180509_98060/llama-4-maverick__agent_capabilities__model_as_router.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:35+00:00"
     },
     {
       "quality": 0.0,
@@ -315,7 +324,7 @@
       "input_tokens": 286,
       "output_tokens": 313,
       "response_preview": "[\n  {\"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\", \"modelo\": \"deepseek-v3\", \"razon\": \"El modelo deepseek-v3 es muy bueno para razonamiento y analisis, ademas de ser muy barato.\"},\n  {\"subtarea\": \"Escribir un email de disculpas a clientes afectados por un bug\",",
-      "auto_quality": 7.7,
+      "auto_quality": 7.5,
       "content_score": 8.0,
       "answer_score": 7.5,
       "scoring": "verificable",
@@ -329,7 +338,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260714_180509_98060",
-      "response_file": "results/responses/20260714_180509_98060/hermes-4-70b__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260714_180509_98060/hermes-4-70b__agent_capabilities__model_as_router.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:35+00:00"
     }
   ]
 }

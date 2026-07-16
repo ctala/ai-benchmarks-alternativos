@@ -1,13 +1,13 @@
 # GLM 5.2
 
 - **model_id**: `z-ai/glm-5.2`
-- **Total tests**: 210/211 exitosos (1 errores)
-- **Score final**: 6.99
-- **Calidad**: 8.08
+- **Total tests**: 222/223 exitosos (1 errores)
+- **Score final**: 7.01
+- **Calidad**: 8.12
 - **Judge score (Phi-4)**: 3.82/10
 - **Velocidad**: 49 tok/s
-- **Latencia primera token**: 30.72s
-- **Costo promedio por test**: $0.05150
+- **Latencia primera token**: 31.08s
+- **Costo promedio por test**: $0.05061
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 7.85 | 9.00 |
-| agent_long_horizon | 12 | 12 | 7.91 | 9.50 |
+| agent_long_horizon | 24 | 24 | 7.65 | 9.17 |
 | business_audit | 10 | 10 | 7.22 | 8.20 |
 | business_strategy | 5 | 5 | 7.88 | 9.20 |
 | code_generation | 8 | 8 | 7.83 | 9.18 |

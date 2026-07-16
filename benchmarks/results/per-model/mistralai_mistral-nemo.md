@@ -3,7 +3,7 @@
 - **model_id**: `mistralai/mistral-nemo`
 - **Total tests**: 235/253 exitosos (18 errores)
 - **Score final**: 6.63
-- **Calidad**: 6.49
+- **Calidad**: 6.50
 - **Judge score (Phi-4)**: 4.09/10
 - **Velocidad**: 34 tok/s
 - **Latencia primera token**: 15.43s
@@ -18,7 +18,7 @@
 | agent_capabilities | 10 | 9 | 6.50 | 6.17 |
 | agent_long_horizon | 24 | 23 | 7.64 | 8.02 |
 | business_audit | 34 | 32 | 5.42 | 4.87 |
-| business_strategy | 20 | 20 | 6.15 | 5.83 |
+| business_strategy | 20 | 20 | 6.22 | 5.92 |
 | code_generation | 4 | 4 | 7.01 | 7.41 |
 | content_generation | 4 | 4 | 7.79 | 8.43 |
 | content_verificable | 10 | 10 | 6.87 | 7.00 |

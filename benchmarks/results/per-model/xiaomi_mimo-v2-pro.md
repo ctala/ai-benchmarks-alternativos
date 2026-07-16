@@ -2,8 +2,8 @@
 
 - **model_id**: `xiaomi/mimo-v2-pro`
 - **Total tests**: 91/101 exitosos (10 errores)
-- **Score final**: 6.78
-- **Calidad**: 7.35
+- **Score final**: 6.76
+- **Calidad**: 7.32
 - **Judge score (Phi-4)**: 4.15/10
 - **Velocidad**: 52 tok/s
 - **Latencia primera token**: 20.89s
@@ -23,7 +23,7 @@
 | customer_support | 4 | 4 | 6.96 | 6.99 |
 | deep_reasoning | 6 | 6 | 4.92 | 4.17 |
 | hallucination | 3 | 3 | 7.08 | 7.67 |
-| multi_turn | 4 | 4 | 6.94 | 7.50 |
+| multi_turn | 4 | 4 | 6.59 | 7.00 |
 | news_seo_writing | 5 | 5 | 5.05 | 5.03 |
 | ocr_extraction | 5 | 5 | 6.50 | 6.32 |
 | orchestration | 5 | 5 | 6.83 | 7.64 |
@@ -1701,7 +1701,7 @@ Entiendo la urgencia. La BD `production` está en mantenimiento por 2 horas. Ten
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.32 | 8.00 | 3.8 | 27 | 5.60s | OK |
 | support_escalation | 6.03 | 6.00 | 4.4 | 52 | 9.21s | OK |
-| requirements_change | 5.73 | 6.00 | 1.6 | 71 | 25.61s | OK |
+| requirements_change | 4.33 | 4.00 | 1.6 | 71 | 25.61s | OK |
 | debugging_conversation | 8.68 | 10.00 | 4.8 | 56 | 14.21s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.32</summary>
@@ -1743,7 +1743,7 @@ Voy a ser transparente contigo:
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 5.73</summary>
+<details><summary><code>requirements_change</code> — score 4.33</summary>
 
 **Stats**: latencia 25.61s · 71 tok/s · 244→1827 tokens · $0.00573
 

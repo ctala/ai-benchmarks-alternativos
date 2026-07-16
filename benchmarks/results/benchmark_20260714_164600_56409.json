@@ -10,7 +10,12 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0153
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:51:28+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 224,
       "output_tokens": 735,
       "response_preview": "## Conclusión\n\n**No se puede saber con estos datos si la secuencia de emails funcionó.**\n\nMarzo mejoró frente a febrero:\n\n- MRR: **+$1.200 (+29%)**\n- Altas de pago: de 9 a 14, **+5 (+56%)**\n\nPero esa mejora no puede atribuirse a los emails porque en el mismo mes ocurrieron al menos dos acciones rele",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -46,7 +51,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164600_56409",
-      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__atribucion_correlacion_temporal.md"
+      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__atribucion_correlacion_temporal.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:26+00:00"
     },
     {
       "quality": 10.0,
@@ -67,7 +74,7 @@
       "input_tokens": 191,
       "output_tokens": 381,
       "response_preview": "**Primero: los números no cierran.**\n\nLos costos detallados suman:\n\n- $1.250 + $3.900 + $780 + $620 + $2.600 = **$9.150**, no $7.400.\n\nPor lo tanto, el resultado real según las partidas es:\n\n- Ingresos: **$12.400**\n- Costos actuales: **$9.150**\n- Beneficio: **$3.250**\n- Margen real: **26,2%**, no 40",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -81,7 +88,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164600_56409",
-      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__auditoria_pnl_error_plantado.md"
+      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__auditoria_pnl_error_plantado.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:26+00:00"
     },
     {
       "quality": 10.0,
@@ -102,7 +111,7 @@
       "input_tokens": 165,
       "output_tokens": 1960,
       "response_preview": "Respira: el **31% es correcto para todos los usuarios**, pero no representa el churn de clientes de pago.\n\n### Qué está midiendo realmente\n\n| Población | Bajas | Base inicial | Churn mensual |\n|---|---:|---:|---:|\n| Gratuitos | 60 | 178 | **33,7%** |\n| De pago | 2 | 22 | **9,1%** |\n| Total | 62 | 20",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -116,7 +125,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164600_56409",
-      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__churn_mezcla_free_y_pago.md"
+      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__churn_mezcla_free_y_pago.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:27+00:00"
     },
     {
       "quality": 8.0,
@@ -137,7 +148,7 @@
       "input_tokens": 128,
       "output_tokens": 640,
       "response_preview": "No. **“Retención de ingresos: 114%” probablemente se refiere a retención neta de ingresos (NRR)**, no a retención de clientes.\n\n\\[\nNRR=\\frac{\\text{Ingresos iniciales} - \\text{churn} - \\text{contracciones} + \\text{expansiones}}{\\text{Ingresos iniciales}}\n\\]\n\nUn 114% significa que, dentro de la cohort",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "content_score": 6.0,
       "answer_score": 8.0,
       "scoring": "verificable",
@@ -151,7 +162,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164600_56409",
-      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__retention_sobre_100_interpretacion.md"
+      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__retention_sobre_100_interpretacion.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:27+00:00"
     },
     {
       "quality": 10.0,
@@ -172,7 +185,7 @@
       "input_tokens": 241,
       "output_tokens": 1240,
       "response_preview": "## Capacidad real del trimestre\n\n- 8 semanas × 5 días × 4 h/día = **160 horas brutas**\n- Reserva recomendada para imprevistos y ajustes: **40 horas**\n- Capacidad comprometible: **~120 horas**\n\nNormalizando las estimaciones a tus 4 h/día:\n\n| Iniciativa | Esfuerzo estimado | Tiempo real para ti | Deci",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -186,7 +199,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164600_56409",
-      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__roadmap_restriccion_capacidad.md"
+      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__roadmap_restriccion_capacidad.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:28+00:00"
     },
     {
       "quality": 4.0,
@@ -207,7 +222,7 @@
       "input_tokens": 175,
       "output_tokens": 3557,
       "response_preview": "## Resumen ejecutivo\n\n**Lo que sabemos:** tienen una audiencia relevante, una oferta recurrente de $39/mes, actividad editorial constante y 12 cursos visibles.\n\n**Lo que no podemos saber desde fuera:** si los 2.400 miembros pagan actualmente, su ingreso medio real, churn, costes, margen, engagement ",
-      "auto_quality": 4.8,
+      "auto_quality": 4.0,
       "content_score": 6.0,
       "answer_score": 4.0,
       "scoring": "verificable",
@@ -221,7 +236,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164600_56409",
-      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__teardown_competidor_sin_inventar.md"
+      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__teardown_competidor_sin_inventar.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:28+00:00"
     },
     {
       "quality": 8.0,
@@ -242,7 +259,7 @@
       "input_tokens": 166,
       "output_tokens": 2093,
       "response_preview": "## Veredicto brutal\n\nEsto no es una oferta. Es una **lista genérica de cosas dentro de una membresía**.\n\nPodrías cambiar “IA” por marketing, ventas, productividad o criptomonedas y el texto seguiría funcionando. Eso significa que no tienes posicionamiento, una promesa concreta ni una razón para paga",
-      "auto_quality": 7.2,
+      "auto_quality": 8.0,
       "content_score": 6.0,
       "answer_score": 8.0,
       "scoring": "verificable",
@@ -256,7 +273,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164600_56409",
-      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__roast_oferta_sin_cliches.md"
+      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__roast_oferta_sin_cliches.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:28+00:00"
     },
     {
       "quality": 10.0,
@@ -277,7 +296,7 @@
       "input_tokens": 167,
       "output_tokens": 869,
       "response_preview": "**No. Hoy no está validado y yo no renunciaría todavía.**\n\nTus datos validan **interés declarado**, no disposición real a pagar:\n\n- **Encuesta a tu red:** sesgo de cortesía y selección.\n- **“Me duele”:** demuestra que reconocen el problema, no que sea prioritario.\n- **“Pagaría $30”:** intención hipo",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -291,7 +310,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164600_56409",
-      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__validacion_idea_intencion_vs_compra.md"
+      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__validacion_idea_intencion_vs_compra.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:28+00:00"
     },
     {
       "quality": 10.0,
@@ -312,7 +333,7 @@
       "input_tokens": 186,
       "output_tokens": 1502,
       "response_preview": "No escalaría todavía. La aritmética del plan no sostiene una inversión de $10.000.\n\n### Cálculo corregido\n\nCon churn mensual de 8%, la vida media esperada es:\n\n\\[\n1 / 0,08 = 12,5\\ meses\n\\]\n\nNo 24 meses. De hecho, después de 24 meses solo quedaría aproximadamente:\n\n\\[\n0,92^{24} = 13,5\\%\n\\]\n\nEl LTV re",
-      "auto_quality": 8.14,
+      "auto_quality": 10.0,
       "content_score": 5.34,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -326,7 +347,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164600_56409",
-      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__escalar_con_ltv_mal_calculado.md"
+      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__escalar_con_ltv_mal_calculado.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:28+00:00"
     },
     {
       "quality": 2.0,
@@ -347,7 +370,7 @@
       "input_tokens": 100,
       "output_tokens": 94,
       "response_preview": "Insuficiente.",
-      "auto_quality": 1.21,
+      "auto_quality": 2.0,
       "content_score": 0.02,
       "answer_score": 2.0,
       "scoring": "verificable",
@@ -361,7 +384,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_164600_56409",
-      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__decision_precio_datos_insuficientes.md"
+      "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__decision_precio_datos_insuficientes.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:28+00:00"
     }
   ]
 }

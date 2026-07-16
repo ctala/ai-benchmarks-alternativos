@@ -10,7 +10,12 @@
       "evaluations": 1,
       "estimated_cost_usd": 0.0007
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:51:14+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,14 +37,16 @@
       "input_tokens": 7581,
       "output_tokens": 37,
       "response_preview": "La longitud total del puente colgante de Cañete es de **1.847 metros** y fue inaugurado el **12 de marzo de 1962**.",
-      "auto_quality": 7.47,
+      "auto_quality": 10.0,
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_bridge_length_8000_p25.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_bridge_length_8000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -60,14 +67,16 @@
       "input_tokens": 7581,
       "output_tokens": 36,
       "response_preview": "El puente colgante de Cañete tiene una longitud total de 1.847 metros y fue inaugurado el 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_bridge_length_8000_p50.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_bridge_length_8000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -88,14 +97,16 @@
       "input_tokens": 7581,
       "output_tokens": 37,
       "response_preview": "La longitud total del puente colgante de Cañete es de **1.847 metros** y fue inaugurado el **12 de marzo de 1962**.",
-      "auto_quality": 7.47,
+      "auto_quality": 10.0,
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_bridge_length_8000_p75.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_bridge_length_8000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -116,14 +127,16 @@
       "input_tokens": 7574,
       "output_tokens": 49,
       "response_preview": "Según el documento, la Biblioteca Regional de Tarapacá conserva un total de **84.500 volúmenes**, de los cuales **3.200 son ediciones impresas anteriores al año 1900**.",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_library_volumes_8000_p25.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_library_volumes_8000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -144,14 +157,16 @@
       "input_tokens": 7574,
       "output_tokens": 49,
       "response_preview": "Según el documento, la Biblioteca Regional de Tarapacá conserva un total de **84.500 volúmenes**, de los cuales **3.200 son ediciones impresas anteriores al año 1900**.",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_library_volumes_8000_p50.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_library_volumes_8000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -172,14 +187,16 @@
       "input_tokens": 7574,
       "output_tokens": 49,
       "response_preview": "Según el documento, la Biblioteca Regional de Tarapacá conserva un total de **84.500 volúmenes**, de los cuales **3.200 son ediciones impresas anteriores al año 1900**.",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_library_volumes_8000_p75.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_library_volumes_8000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -200,14 +217,16 @@
       "input_tokens": 7573,
       "output_tokens": 45,
       "response_preview": "El Festival de Cine Andino se celebra cada año el **17 de octubre** en la ciudad de **Sucre**, y en **2026** cumplirá su **edición número 23**.",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_festival_date_8000_p25.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_festival_date_8000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -228,14 +247,16 @@
       "input_tokens": 7573,
       "output_tokens": 40,
       "response_preview": "El Festival de Cine Andino se celebra cada año el 17 de octubre en la ciudad de Sucre, y en 2026 cumplirá su edición número 23.",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_festival_date_8000_p50.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_festival_date_8000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -256,14 +277,16 @@
       "input_tokens": 7573,
       "output_tokens": 40,
       "response_preview": "El Festival de Cine Andino se celebra cada año el 17 de octubre en la ciudad de Sucre, y en 2026 cumplirá su edición número 23.",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_festival_date_8000_p75.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_festival_date_8000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -284,14 +307,16 @@
       "input_tokens": 7580,
       "output_tokens": 47,
       "response_preview": "Según el documento, la papa nativa 'Qeqchi morada' se cultiva tradicionalmente a una altitud de **3.850 metros sobre el nivel del mar** en la región de **Cusco**.",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_potato_altitude_8000_p25.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_potato_altitude_8000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -312,14 +337,16 @@
       "input_tokens": 7580,
       "output_tokens": 47,
       "response_preview": "Según el documento, la papa nativa 'Qeqchi morada' se cultiva tradicionalmente a una altitud de **3.850 metros sobre el nivel del mar** en la **región de Cusco**.",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_potato_altitude_8000_p50.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_potato_altitude_8000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -340,14 +367,16 @@
       "input_tokens": 7580,
       "output_tokens": 44,
       "response_preview": "Según el documento, la papa nativa 'Qeqchi morada' se cultiva tradicionalmente a una altitud de 3.850 metros sobre el nivel del mar en la región de Cusco.",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_potato_altitude_8000_p75.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_potato_altitude_8000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -368,14 +397,16 @@
       "input_tokens": 7578,
       "output_tokens": 44,
       "response_preview": "El identificador de proyecto de la expedición de monitoreo de glaciares es **GLAC-PATAGONIA-2031**, y reunió a **47 investigadores** de seis países.",
-      "auto_quality": 7.47,
+      "auto_quality": 10.0,
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_expedition_code_8000_p25.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_expedition_code_8000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -396,14 +427,16 @@
       "input_tokens": 7578,
       "output_tokens": 40,
       "response_preview": "El identificador de proyecto de la expedición de monitoreo de glaciares es **GLAC-PATAGONIA-2031** y reunió a **47 investigadores**.",
-      "auto_quality": 7.47,
+      "auto_quality": 10.0,
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_expedition_code_8000_p50.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_expedition_code_8000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -424,14 +457,16 @@
       "input_tokens": 7578,
       "output_tokens": 40,
       "response_preview": "El identificador de proyecto de la expedición de monitoreo de glaciares es **GLAC-PATAGONIA-2031** y reunió a **47 investigadores**.",
-      "auto_quality": 7.47,
+      "auto_quality": 10.0,
       "content_score": 3.67,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_expedition_code_8000_p75.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_expedition_code_8000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -452,14 +487,16 @@
       "input_tokens": 61738,
       "output_tokens": 36,
       "response_preview": "El puente colgante de Cañete tiene una longitud total de 1.847 metros y fue inaugurado el 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_bridge_length_64000_p25.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_bridge_length_64000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -480,14 +517,16 @@
       "input_tokens": 61739,
       "output_tokens": 36,
       "response_preview": "El puente colgante de Cañete tiene una longitud total de 1.847 metros y fue inaugurado el 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_bridge_length_64000_p50.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_bridge_length_64000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -508,14 +547,16 @@
       "input_tokens": 61739,
       "output_tokens": 36,
       "response_preview": "El puente colgante de Cañete tiene una longitud total de 1.847 metros y fue inaugurado el 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_bridge_length_64000_p75.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_bridge_length_64000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -536,14 +577,16 @@
       "input_tokens": 61731,
       "output_tokens": 43,
       "response_preview": "La Biblioteca Regional de Tarapacá conserva exactamente 84.500 volúmenes, de los cuales 3.200 son ediciones impresas anteriores al año 1900.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_library_volumes_64000_p25.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_library_volumes_64000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -564,14 +607,16 @@
       "input_tokens": 61732,
       "output_tokens": 45,
       "response_preview": "La Biblioteca Regional de Tarapacá conserva un total de 84.500 volúmenes, de los cuales 3.200 son ediciones impresas anteriores al año 1900.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_library_volumes_64000_p50.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_library_volumes_64000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -592,14 +637,16 @@
       "input_tokens": 61732,
       "output_tokens": 45,
       "response_preview": "La Biblioteca Regional de Tarapacá conserva un total de 84.500 volúmenes, de los cuales 3.200 son ediciones impresas anteriores al año 1900.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_library_volumes_64000_p75.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_library_volumes_64000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -620,14 +667,16 @@
       "input_tokens": 61730,
       "output_tokens": 40,
       "response_preview": "El Festival de Cine Andino se celebra cada año el 17 de octubre en la ciudad de Sucre, y en 2026 cumplirá su edición número 23.",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_festival_date_64000_p25.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_festival_date_64000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -648,14 +697,16 @@
       "input_tokens": 61731,
       "output_tokens": 40,
       "response_preview": "El Festival de Cine Andino se celebra cada año el 17 de octubre en la ciudad de Sucre, y en 2026 cumplirá su edición número 23.",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_festival_date_64000_p50.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_festival_date_64000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -676,14 +727,16 @@
       "input_tokens": 61731,
       "output_tokens": 40,
       "response_preview": "El Festival de Cine Andino se celebra cada año el 17 de octubre en la ciudad de Sucre, y en 2026 cumplirá su edición número 23.",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_festival_date_64000_p75.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_festival_date_64000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -704,14 +757,16 @@
       "input_tokens": 61737,
       "output_tokens": 40,
       "response_preview": "La papa nativa 'Qeqchi morada' se cultiva tradicionalmente a una altitud de 3.850 metros sobre el nivel del mar en la región de Cusco.",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_potato_altitude_64000_p25.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_potato_altitude_64000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -732,14 +787,16 @@
       "input_tokens": 61738,
       "output_tokens": 40,
       "response_preview": "La papa nativa 'Qeqchi morada' se cultiva tradicionalmente a una altitud de 3.850 metros sobre el nivel del mar en la región de Cusco.",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_potato_altitude_64000_p50.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_potato_altitude_64000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -760,14 +817,16 @@
       "input_tokens": 61738,
       "output_tokens": 40,
       "response_preview": "La papa nativa 'Qeqchi morada' se cultiva tradicionalmente a una altitud de 3.850 metros sobre el nivel del mar en la región de Cusco.",
-      "auto_quality": 7.6,
+      "auto_quality": 10.0,
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_potato_altitude_64000_p75.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_potato_altitude_64000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -788,14 +847,16 @@
       "input_tokens": 61735,
       "output_tokens": 38,
       "response_preview": "El identificador de proyecto de la expedición de monitoreo de glaciares es GLAC-PATAGONIA-2031 y reunió a 47 investigadores.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_expedition_code_64000_p25.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_expedition_code_64000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -816,14 +877,16 @@
       "input_tokens": 61736,
       "output_tokens": 38,
       "response_preview": "El identificador de proyecto de la expedición de monitoreo de glaciares es GLAC-PATAGONIA-2031 y reunió a 47 investigadores.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_expedition_code_64000_p50.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_expedition_code_64000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -844,14 +907,16 @@
       "input_tokens": 61736,
       "output_tokens": 38,
       "response_preview": "El identificador de proyecto de la expedición de monitoreo de glaciares es GLAC-PATAGONIA-2031 y reunió a 47 investigadores.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_expedition_code_64000_p75.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_expedition_code_64000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -872,14 +937,16 @@
       "input_tokens": 124772,
       "output_tokens": 36,
       "response_preview": "El puente colgante de Cañete tiene una longitud total de 1.847 metros y fue inaugurado el 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_bridge_length_128000_p25.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_bridge_length_128000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -900,14 +967,16 @@
       "input_tokens": 124771,
       "output_tokens": 36,
       "response_preview": "El puente colgante de Cañete tiene una longitud total de 1.847 metros y fue inaugurado el 12 de marzo de 1962.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71510",
-      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_bridge_length_128000_p50.md"
+      "response_file": "results/responses/20260714_142058_71510/devstral-2__niah_es__niah_es_bridge_length_128000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 0.0,

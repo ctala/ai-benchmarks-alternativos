@@ -10,7 +10,12 @@
       "evaluations": 3,
       "estimated_cost_usd": 0.0033
     },
-    "partial": true
+    "partial": true,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:51:18+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,7 +37,7 @@
       "input_tokens": 224,
       "output_tokens": 757,
       "response_preview": "## Conclusión\n\n**No se puede saber con estos datos si la secuencia de emails funcionó.**\n\nLos resultados de marzo son positivos:\n\n- MRR: de **$4.100 a $5.300**, un aumento de **$1.200 (+29%)**.\n- Altas de pago: de **9 a 14**, un aumento de **5 altas (+56%)**.\n\nPero no podemos atribuir ese crecimient",
-      "auto_quality": 8.4,
+      "auto_quality": 10.0,
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -46,7 +51,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_153327_15209",
-      "response_file": "results/responses/20260714_153327_15209/gpt-5.6-sol__business_audit__atribucion_correlacion_temporal.md"
+      "response_file": "results/responses/20260714_153327_15209/gpt-5.6-sol__business_audit__atribucion_correlacion_temporal.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:18+00:00"
     },
     {
       "quality": 10.0,
@@ -67,7 +74,7 @@
       "input_tokens": 191,
       "output_tokens": 417,
       "response_preview": "**Primero: los números no cierran.**\n\nLos costos detallados suman:\n\n- $1.250 + $3.900 + $780 + $620 + $2.600 = **$9.150**, no $7.400.\n\nEntonces, el resultado real sería:\n\n- Ingresos: **$12.400**\n- Costos: **$9.150**\n- Ganancia actual: **$3.250**\n- Margen real: **26,2%**, no 40%\n\nSi contratas por $2.",
-      "auto_quality": 7.87,
+      "auto_quality": 10.0,
       "content_score": 4.67,
       "answer_score": 10.0,
       "scoring": "verificable",
@@ -81,7 +88,9 @@
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260714_153327_15209",
-      "response_file": "results/responses/20260714_153327_15209/gpt-5.6-sol__business_audit__auditoria_pnl_error_plantado.md"
+      "response_file": "results/responses/20260714_153327_15209/gpt-5.6-sol__business_audit__auditoria_pnl_error_plantado.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:18+00:00"
     }
   ]
 }

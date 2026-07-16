@@ -10,7 +10,12 @@
       "evaluations": 1,
       "estimated_cost_usd": 0.0007
     },
-    "partial": false
+    "partial": false,
+    "rescore": {
+      "scorer": "verificador-semantico (benchmarks/verifier.py)",
+      "at": "2026-07-15T20:51:14+00:00",
+      "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    }
   },
   "results": [
     {
@@ -32,14 +37,16 @@
       "input_tokens": 7594,
       "output_tokens": 430,
       "response_preview": "1.847 metros y el 12 de marzo de 1962",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71505",
-      "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_bridge_length_8000_p25.md"
+      "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_bridge_length_8000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -60,14 +67,16 @@
       "input_tokens": 7594,
       "output_tokens": 215,
       "response_preview": "1.847 metros, 12 de marzo de 1962",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71505",
-      "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_bridge_length_8000_p50.md"
+      "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_bridge_length_8000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 0.0,
@@ -169,14 +178,16 @@
       "input_tokens": 7587,
       "output_tokens": 584,
       "response_preview": "84.500, 3.200",
-      "auto_quality": 4.32,
+      "auto_quality": 6.67,
       "content_score": 0.8,
       "answer_score": 6.67,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71505",
-      "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_library_volumes_8000_p75.md"
+      "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_library_volumes_8000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 0.0,
@@ -224,14 +235,16 @@
       "input_tokens": 7586,
       "output_tokens": 276,
       "response_preview": "17 de octubre, Sucre, 23",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71505",
-      "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_festival_date_8000_p50.md"
+      "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_festival_date_8000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -252,14 +265,16 @@
       "input_tokens": 7586,
       "output_tokens": 170,
       "response_preview": "17 de octubre, Sucre, 23",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71505",
-      "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_festival_date_8000_p75.md"
+      "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_festival_date_8000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 0.0,
@@ -307,14 +322,16 @@
       "input_tokens": 7593,
       "output_tokens": 383,
       "response_preview": "\n3850 metros, Cusco",
-      "auto_quality": 5.58,
+      "auto_quality": 8.5,
       "content_score": 1.2,
       "answer_score": 8.5,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71505",
-      "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_potato_altitude_8000_p50.md"
+      "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_potato_altitude_8000_p50.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 10.0,
@@ -335,14 +352,16 @@
       "input_tokens": 7593,
       "output_tokens": 184,
       "response_preview": "3.850 metros, región de Cusco.",
-      "auto_quality": 7.2,
+      "auto_quality": 10.0,
       "content_score": 3.0,
       "answer_score": 10.0,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71505",
-      "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_potato_altitude_8000_p75.md"
+      "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_potato_altitude_8000_p75.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 8.5,
@@ -363,14 +382,16 @@
       "input_tokens": 7591,
       "output_tokens": 290,
       "response_preview": "GLAC-PATAGONIA-2031, 47",
-      "auto_quality": 5.42,
+      "auto_quality": 8.5,
       "content_score": 0.8,
       "answer_score": 8.5,
       "scoring": "verificable",
       "suite": "niah_es",
       "run": 1,
       "timestamp": "20260714_142058_71505",
-      "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_expedition_code_8000_p25.md"
+      "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_expedition_code_8000_p25.md",
+      "rescored_by": "verificador-semantico",
+      "rescored_at": "2026-07-15T20:51:14+00:00"
     },
     {
       "quality": 0.0,
