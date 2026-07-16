@@ -1,7 +1,7 @@
 {
   "metadata": {
     "timestamp": "20260715_165413_13234",
-    "total_runs": 2484,
+    "total_runs": 3164,
     "errors": 0,
     "judge": {
       "judge_model": "microsoft/phi-4",
