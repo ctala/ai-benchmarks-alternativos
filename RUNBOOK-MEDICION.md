@@ -1,0 +1,106 @@
+# RUNBOOK — medir modelos / backfill de suites (leer ANTES de correr un lote)
+
+Este doc existe porque en la sesión del 14-16 jul 2026 se **redescubrió tres veces**
+lo mismo (paralelizar, resume estable, calcular costo antes) y se **re-rompió** dos veces
+la integridad del export. Lo que sigue es el patrón correcto **a la primera**. Si vas a
+medir algo, empezá acá, no por intuición.
+
+---
+
+## Regla 0 — modelos cloud: NUNCA secuencial
+
+El runner (`runner.py`, loop en `for model_idx, ...`) mide los modelos **uno por uno**.
+Para modelos cloud (OpenRouter, API) eso es un error de throughput: el cuello es la
+**latencia de red**, no la CPU, y las llamadas son independientes. Medir 60 modelos en
+fila = 15-45 h; en paralelo (10 grupos) = ~2 h. La misma diferencia entre "inviable en la
+sesión" y "listo en una tarde".
+
+**Patrón: N runners en paralelo, cada uno con SU archivo de resume.** Escrito y probado:
+
+```bash
+# 1. partir los keys en N grupos round-robin (balancea rápidos y lentos)
+python3 -c "
+keys=open('/tmp/keys.txt').read().split(); N=10
+for i in range(N): open(f'/tmp/chunk_{i+1:02d}.txt','w').write(' '.join(keys[i::N]))"
+
+# 2. seed de N archivos de resume de nombre FIJO (>= la época del invariante A1)
+python3 -c "
+import json
+for i in range(1,11):
+    json.dump({'metadata':{'timestamp':f'20260716_c{i:02d}','partial':True},'results':[]},
+              open(f'benchmarks/results/benchmark_20260716_c{i:02d}.json','w'))"
+
+# 3. lanzar los N en paralelo (un solo background task que hace fork interno)
+for i in $(seq -w 1 10); do
+  .venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4-or \
+    --models $(cat /tmp/chunk_${i}.txt) --allow-anthropic-api --tests <SUITE> \
+    --resume benchmarks/results/benchmark_20260716_c${i}.json > /tmp/log_${i}.txt 2>&1 &
+done
+wait
+```
+
+OpenRouter aguanta 10 concurrentes sin rate limit (verificado). El juez `phi4-or` (Phi-4
+por OpenRouter) también — NO es el cuello, nunca lo fue.
+
+## Regla 1 — resume de nombre FIJO, nunca diff `before/after`
+
+Este entorno **mata los background cada ~5 min**. El resume tiene que ser idempotente: un
+archivo de nombre fijo que se re-`--resume`ea. Sembralo vacío y siempre apuntá ahí. El
+truco de "listar archivos antes/después para adivinar cuál se creó" es una carrera que
+falla cuando el kill llega en los primeros segundos (pasó: el backfill quedó en 2% porque
+nunca registraba el archivo). Relanzar = correr el MISMO script; retoma solo, sin re-pagar.
+
+## Regla 2 — costo PRIMERO, no asumido
+
+Antes de lanzar, calculá el costo con los tokens reales de un examen ya medido (no a ojo).
+Un error de 13× (estimé $5.66 lo que costaba $76) mandó una corrida innecesaria. Para
+verificables sin modelo: `rescore_all.py --dry-run` dice cuántos y cuánto ($1.37 por
+10.245 runs, cero llamadas a modelos).
+
+```bash
+# census de costo real (tokens de un examen completo × precio del modelo objetivo)
+python3 -c "import json; d=json.load(open('docs/data/models.json'))
+x=[m for m in d['models'] if m['name']=='Claude Opus 4.8'][0]
+print('in',x['total_input_tokens'],'out',x['total_output_tokens'])"
+```
+
+## Regla 3 — el runner ya distingue TRES estados de una respuesta vacía
+
+No los toques sin entender (costó horas construirlos, 15-jul):
+1. **Vacío transitorio** (hipo de red) → reintenta 1 vez, el reintento la trae.
+2. **Rehúso persistente / bloqueo de política** (`api_refusal`, `finish_reason:
+   content_filter`) → se PUNTÚA, no se descarta. El mensaje del bloqueo viaja en el campo
+   `refusal` (en inglés), NO en `content`. Ante un test de fuga de credenciales, un bloqueo
+   es resistencia MÁXIMA (10.0), no "evasivo" (5.0).
+3. **Vacío + fallo real** → `success=False`, reparable con `--rerun-failed`/`--rerun-empty`.
+
+Excepción: texto vacío + tool call **solo** es legítimo si el test DA tools.
+
+---
+
+## Integridad del export — la regla que se rompió dos veces
+
+**El filtro de procedencia (`_misma_formula`) NO va en la calidad GLOBAL.** El dataset tiene
+~20% de runs sin marca recuperable, repartidos DESIGUAL entre modelos. Filtrar `quality_avg`
+por procedencia computa la calidad de cada modelo sobre un mix de suites distinto → colapsa
+el ranking (probado: ranked cayó a 6, luego GPT-4.1 falso #1). El filtro va SOLO en:
+
+- **tablas por-suite de DISPLAY** (`quality_by_suite`, `score_by_suite`) — el fix real de
+  "Sol vs Fable comparaba poblaciones distintas".
+- **cobertura de suite** (`suite_coverage`) — para que una suite entre al score solo cuando
+  ≥80% la rindió VÁLIDA.
+
+La calidad global y el conteo de muestra usan la población **CRUDA**: una medida de
+velocidad/quality vieja sigue siendo real. La incomparabilidad de fondo se arregla
+re-puntuando (`rescore_all.py`), no filtrando.
+
+**Antes de re-medir por un "hueco":** el gate de cobertura ya EXCLUYE del score, de forma
+uniforme, las suites bajo 80% — el ranking es justo SIN el backfill. El backfill AGREGA
+señal (la suite agéntica separa a Sol/Fable), no repara una injusticia. Decidí con eso en
+mente: ¿vale el cómputo, o el gate ya lo maneja?
+
+## Heurística de oro (Cristian, acertó 7 veces seguidas)
+
+**Cuando una diferencia entre modelos se ve "demasiado grande", la primera hipótesis es
+error de medición PROPIO, no un hallazgo.** Verificá la fuente Y que la fuente compute bien
+(publicación == fuente == población sana) antes de publicar el número.

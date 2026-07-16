@@ -24,6 +24,12 @@ cp .env.example .env
 # Solo necesitas .env con tus API keys.
 ```
 
+>  🚨 **ANTES de correr un lote de medición o un backfill: leé [`RUNBOOK-MEDICION.md`](RUNBOOK-MEDICION.md).**
+>  Tiene el patrón correcto a la primera (paralelizar N runners para modelos cloud — el runner
+>  va secuencial y eso es 10× más lento —, resume de nombre fijo idempotente contra los kills del
+>  entorno, costo calculado antes, y dónde va / dónde NO va el filtro de procedencia). Existe porque
+>  esas lecciones se redescubrieron y re-rompieron varias veces; el runbook es para que no vuelva a pasar.
+
 ## Como correr benchmarks
 
 ```bash
