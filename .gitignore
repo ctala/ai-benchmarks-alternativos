@@ -17,3 +17,4 @@ blog/*.md
 blog/social/
 logs/
 *.contaminated
+benchmarks/results/_archive-pre-verificador/

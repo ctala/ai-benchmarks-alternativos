@@ -1,0 +1,16 @@
+# GPT-4.1 — structured_output/json_array_classification
+
+- model_id: `gpt-4.1`
+- success: True  | final: 5.72 | quality: 5.0
+- latency_total: 1.93s | tokens_per_second: 54.9
+- input_tokens: 164 | output_tokens: 106
+- judge_score: 5 | justificación: La respuesta es precisa, relevante, clara y útil, con un formato JSON correcto, aunque la profundidad podría mejorarse con más contexto o detalles.
+
+## Respuesta completa
+
+[
+  {"id": 1, "category": "shipping", "priority": "urgent", "sentiment": "negative"},
+  {"id": 2, "category": "shipping", "priority": "low", "sentiment": "neutral"},
+  {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"},
+  {"id": 4, "category": "technical", "priority": "high", "sentiment": "negative"}
+]
