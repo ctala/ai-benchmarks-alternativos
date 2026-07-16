@@ -282,6 +282,13 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     def _is_tool_calling(r):
         return str(r.get("suite", "")) == "tool_calling"
 
+    def _is_agentic(r):
+        # Tareas multi-paso de horizonte largo. Es donde los premium (Luna/Sol/Fable) se
+        # diferencian, así que SÍ cuenta en la calidad titular (no se saca del ranking).
+        # Se expone ADEMÁS como eje propio (agentic_score) para que el wizard filtre por
+        # casos de uso agénticos. Decisión de Cristian, 16-jul: "dentro + eje propio".
+        return str(r.get("suite", "")).startswith("agent_long_horizon")
+
     def _is_low_coverage(r):
         # Suite que todavia no corrio suficiente gente: no puede entrar al score
         # sin castigar a los primeros que la rindieron. Ver MIN_SUITE_COVERAGE.
@@ -307,6 +314,9 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     niah = [r for r in runs if _is_niah(r)]
     security = [r for r in runs if _is_security(r)]
     tool_runs = [r for r in runs if _is_tool_calling(r)]
+    # Los runs agénticos también están en `general` (cuentan en la calidad titular);
+    # esta lista adicional es solo para exponer el eje agentic_score, no los saca.
+    agentic = [r for r in runs if _is_agentic(r)]
 
     # El score global también se promedia POR TEST (mismo sesgo que quality: repetir un
     # test fácil no debería subirte el score). _por_test se define más abajo, así que acá
@@ -478,6 +488,8 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     # Dimensión long-context separada (quality y final promedio de los niah)
     niah_q = [r.get("quality") for r in niah if r.get("quality") is not None]
     niah_f = [r["_final_recalc"] for r in niah if r.get("_final_recalc") is not None]
+    agentic_q = [r.get("quality") for r in agentic if r.get("quality") is not None]
+    agentic_f = [r["_final_recalc"] for r in agentic if r.get("_final_recalc") is not None]
 
     # Long-context POR TAMAÑO DE CONTEXTO (evita comparar peras con manzanas:
     # un modelo de 64K no debe "ganarle" a uno de 1M por promediar solo contextos
@@ -554,6 +566,12 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
         # Retrieval por tamaño de contexto + contexto efectivo (comparación justa)
         "long_context_by_size": long_context_by_size,
         "effective_context": effective_ctx,
+        # --- Eje agéntico (agent_long_horizon: tareas multi-paso) ---
+        # SÍ cuenta en quality_avg (es donde los premium se diferencian); esto lo expone
+        # ADEMÁS como eje propio para que la calculadora filtre por casos de uso agénticos.
+        "agentic_runs": len(agentic),
+        "agentic_quality": round(sum(agentic_q) / len(agentic_q), 2) if agentic_q else None,
+        "agentic_score": round(sum(agentic_f) / len(agentic_f), 2) if agentic_f else None,
         # --- Dimensión seguridad (prompt_injection_es: resistencia a fuga) ---
         "security_runs": len(security),
         "security_score": round(
@@ -676,7 +694,43 @@ def _estimate_cost_openrouter(r: dict, or_cfg: dict) -> float:
     return (inp * ci + out * co) / 1_000_000
 
 
-def build_export():
+# --- Referencia de scoring CONGELADA (v4.0+) -------------------------------
+# El z-score se estandariza contra una población de referencia FIJA (guardada en
+# scoring_reference.json), no contra la población viva. Consecuencia: agregar un
+# modelo nuevo NO recalcula el score de los demás — los números dejan de caducar
+# solos. La referencia se recalcula (recalibra) SOLO de forma deliberada con
+# `--recalibrate --scoring-version vX.Y`, al cortar una versión del benchmark.
+# Sin archivo de referencia el export cae al comportamiento histórico (z-score
+# vivo) y avisa: así una corrida sobre un dataset parcial nunca congela basura.
+SCORING_REF_PATH = Path(__file__).parent.parent / "scoring_reference.json"
+
+
+def _load_scoring_reference():
+    """Referencia congelada (dict) o None si no existe / está incompleta."""
+    try:
+        ref = json.loads(SCORING_REF_PATH.read_text(encoding="utf-8"))
+    except (FileNotFoundError, ValueError):
+        return None
+    if not all(k in ref for k in ("norm_stats", "norm_stats_by_pillar", "score_rescale")):
+        return None
+    return ref
+
+
+def _persist_scoring_reference(norm_stats, norm_stats_by_pillar, score_rescale, version):
+    """Congela la referencia de scoring en disco. Solo se llama en --recalibrate."""
+    payload = {
+        "version": version,
+        "computed_at": __import__("datetime").datetime.now().isoformat(timespec="seconds"),
+        "score_method": "zscore_frozen_v4",
+        "norm_stats": norm_stats,
+        "norm_stats_by_pillar": norm_stats_by_pillar,
+        "score_rescale": score_rescale,
+    }
+    SCORING_REF_PATH.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"🧊 scoring_reference.json congelado · versión={version} · {SCORING_REF_PATH}")
+
+
+def build_export(recalibrate=False, scoring_version=None):
     by_id, by_id_and_name = load_all_results()
     or_lookup = build_openrouter_lookup()
     models_export = []
@@ -878,17 +932,19 @@ def build_export():
     # Las norm_stats se calculan sobre modelos con base solida (>=MIN_RUNS_RANKED)
     # para que el z-score no se distorsione por emergentes con alta varianza.
     _stable = [m for m in _tested if m["ranked"]]
-    norm_stats = {}
+    # (1) Referencia FRESCA desde la población viva. Es la semilla de una
+    #     recalibración; si hay referencia congelada, se descarta más abajo.
+    _fresh_norm = {}
     for col in Z_COLS:
         vals = [m[col] for m in _stable]
         mu = _st.mean(vals) if vals else 0.0
         sd = _st.pstdev(vals) if len(vals) > 1 else 1.0
-        norm_stats[col] = {"mean": round(mu, 4), "std": round(sd if sd > 0 else 1.0, 4)}
+        _fresh_norm[col] = {"mean": round(mu, 4), "std": round(sd if sd > 0 else 1.0, 4)}
     # norm_stats POR PILAR: para recomponer el score de un pilar con los pesos del
     # usuario hay que z-scorear dentro de ese pilar (la media/std de calidad en
     # Coding no es la misma que en Contenido). Se calculan sobre los `ranked`.
     _pillar_names = sorted({p for m in _stable for p in (m.get("dims_by_pillar") or {})})
-    norm_stats_by_pillar = {}
+    _fresh_pillar = {}
     for p in _pillar_names:
         stats_p = {}
         for col in Z_COLS:
@@ -899,35 +955,63 @@ def build_export():
                 sd = _st.pstdev(vals)
                 stats_p[col] = {"mean": round(mu, 4), "std": round(sd if sd > 0 else 1.0, 4)}
         if stats_p:
-            norm_stats_by_pillar[p] = stats_p
+            _fresh_pillar[p] = stats_p
+
+    # (2) ¿Referencia CONGELADA o VIVA? Con --recalibrate se ignora el archivo y se
+    #     usa (y persiste) la fresca. Sin archivo se cae al z-score vivo histórico.
+    _frozen = None if recalibrate else _load_scoring_reference()
+    _frozen_rescale = None
+    if _frozen:
+        norm_stats = _frozen["norm_stats"]
+        norm_stats_by_pillar = _frozen["norm_stats_by_pillar"]
+        _frozen_rescale = _frozen.get("score_rescale")
+        scoring_version = _frozen.get("version")
+        _score_method = _frozen.get("score_method", "zscore_frozen_v4")
+    else:
+        norm_stats = _fresh_norm
+        norm_stats_by_pillar = _fresh_pillar
+        _score_method = "zscore_frozen_v4" if recalibrate else "zscore_v2.9_live"
+        if not recalibrate:
+            print("⚠️  scoring_reference.json ausente → z-score VIVO (inestable, caduca al "
+                  "medir). Corré --recalibrate --scoring-version vX.Y para congelar.")
 
     _wmap = {"quality_avg": DEFAULT_WEIGHTS["quality"], "cost_score_avg": DEFAULT_WEIGHTS["cost"],
              "speed_score_avg": DEFAULT_WEIGHTS["speed"], "latency_score_avg": DEFAULT_WEIGHTS["latency"]}
-    # Pasada 1: z compuesto de cada modelo (la pendiente se decide mirando la población).
+    # Pasada 1: z compuesto de cada modelo contra la referencia ACTIVA (frozen o viva).
     _zs = {}
     for m in models_export:
         if not _have(m):
             continue
         _zs[id(m)] = sum(w * ((m[col] - norm_stats[col]["mean"]) / norm_stats[col]["std"])
                          for col, w in _wmap.items())
-    # Pendiente: 3.3 de base (z=0 → 5.5; top ~z 0.9 → ≈8.4), PERO si el peor ranked cae
-    # bajo 0.5 la pendiente se comprime para que aterrice en 0.5 en vez de clampearse.
-    # Con clamp duro en 0, varios modelos reales terminaban EMPATADOS en 0.00 (Gemini
-    # 2.5 Pro, Llama 3.1 8B…) — un score que ya no ordena ni informa. El piso 0.5
-    # preserva el orden en la cola. Solo mira los ranked: un parcial extremo no debe
-    # decidir la escala de todos. (14-jul-2026)
+    # Rescale: con referencia congelada usamos SU offset/slope (estable); si estamos
+    # recalibrando (o sin archivo), la pendiente se decide mirando la población.
+    # Pendiente base 3.3 (z=0 → 5.5; top ~z 0.9 → ≈8.4), PERO si el peor ranked cae
+    # bajo 0.5 se comprime para que aterrice en 0.5 en vez de clampearse: con clamp
+    # duro en 0, modelos reales terminaban EMPATADOS en 0.00 — un score que ya no
+    # ordena ni informa. El piso 0.5 preserva el orden en la cola.
     _OFFSET, _FLOOR = 5.5, 0.5
-    _z_ranked_min = min((z for m, z in ((m, _zs.get(id(m))) for m in models_export)
-                         if z is not None and m.get("ranked")), default=None)
-    _slope = 3.3
-    if _z_ranked_min is not None and _z_ranked_min < 0:
-        _slope = min(3.3, (_OFFSET - _FLOOR) / abs(_z_ranked_min))
+    if _frozen_rescale:
+        _OFFSET = _frozen_rescale.get("offset", 5.5)
+        _slope = _frozen_rescale.get("slope", 3.3)
+    else:
+        _z_ranked_min = min((z for m, z in ((m, _zs.get(id(m))) for m in models_export)
+                             if z is not None and m.get("ranked")), default=None)
+        _slope = 3.3
+        if _z_ranked_min is not None and _z_ranked_min < 0:
+            _slope = min(3.3, (_OFFSET - _FLOOR) / abs(_z_ranked_min))
     for m in models_export:
         z_comp = _zs.get(id(m))
         if z_comp is None:
             continue
         m["score_global_linear"] = m.get("score_global")  # guardar el lineal por referencia
         m["score_global"] = round(max(0.0, min(10.0, _OFFSET + _slope * z_comp)), 2)
+
+    # (3) Persistir la referencia SOLO en recalibración deliberada (evento de versión).
+    if recalibrate:
+        _persist_scoring_reference(norm_stats, norm_stats_by_pillar,
+                                   {"offset": _OFFSET, "slope": round(_slope, 4)},
+                                   scoring_version)
 
     # Sort: ranked (muestra solida) primero, luego tested, luego score desc.
     # Asi cualquier consumidor que tome los primeros N del array obtiene un
@@ -943,7 +1027,10 @@ def build_export():
         "thresholds": {"tested_min_runs": MIN_RUNS_TESTED, "ranked_min_runs": MIN_RUNS_RANKED},
         "tokens_per_call_assumption": {"input": 300, "output": 1500},
         "default_weights": DEFAULT_WEIGHTS,  # los pesos aplicados en score_global
-        "score_method": "zscore_v2.9",  # score_global = rescale(Σ w·z(dim)); ver norm_stats
+        # score_global = rescale(Σ w·z(dim)). La referencia (norm_stats + rescale) se
+        # CONGELA por versión: no se mueve al medir un modelo nuevo. Ver scoring_reference.json.
+        "score_method": _score_method,
+        "scoring_version": scoring_version,  # etiqueta de la referencia congelada activa
         "norm_stats": norm_stats,  # mean/std por dimensión (para replicar el z-score en la calculadora)
         # mean/std por dimensión DENTRO de cada pilar → la calculadora puede
         # componer "pilar X con MIS pesos" en vez de servir un score pre-horneado.
@@ -957,9 +1044,18 @@ def build_export():
 
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser(description="Exporta models.json para el sitio del benchmark.")
+    ap.add_argument("--recalibrate", action="store_true",
+                    help="Recalcula y CONGELA la referencia de scoring (evento de versión).")
+    ap.add_argument("--scoring-version", default=None,
+                    help="Etiqueta de versión a estampar (obligatoria con --recalibrate).")
+    a = ap.parse_args()
+    if a.recalibrate and not a.scoring_version:
+        ap.error("--recalibrate requiere --scoring-version vX.Y (ej. v4.0)")
     out_path = Path(__file__).parent.parent / "docs" / "data" / "models.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    export = build_export()
+    export = build_export(recalibrate=a.recalibrate, scoring_version=a.scoring_version)
     out_path.write_text(json.dumps(export, indent=2, ensure_ascii=False))
     print(f"OK escrito: {out_path}")
     print(f"  Total modelos: {export['total_models']}")

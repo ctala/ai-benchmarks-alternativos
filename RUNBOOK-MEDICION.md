@@ -99,6 +99,31 @@ uniforme, las suites bajo 80% — el ranking es justo SIN el backfill. El backfi
 señal (la suite agéntica separa a Sol/Fable), no repara una injusticia. Decidí con eso en
 mente: ¿vale el cómputo, o el gate ya lo maneja?
 
+## Scoring congelado por versión (v4.0+)
+
+El z-score se estandariza contra una referencia **CONGELADA** (`scoring_reference.json`:
+`norm_stats` + `norm_stats_by_pillar` + `score_rescale` + `version`), no contra la
+población viva. Así **agregar un modelo nuevo NO recalcula el score de los demás** — los
+números dejan de caducar solos. Reglas:
+
+- **Corrida normal** (`python benchmarks/export_for_pages.py`): lee la referencia y la
+  aplica. **Sin archivo → cae al z-score vivo histórico** (cero regresión) y avisa por
+  consola. Nunca congela solo: una corrida sobre dataset parcial no puede fijar basura.
+- **Recalibrar** (evento de versión, deliberado):
+  `python benchmarks/export_for_pages.py --recalibrate --scoring-version v4.1`
+  recalcula desde la población viva, **congela** el archivo y estampa la versión.
+- **Cuándo recalibrar:** solo al cortar una versión del benchmark, sobre el dataset
+  **completo** (ej. cuando termina un backfill de suite). NO a mitad de una medición.
+- **Congelar la referencia protege contra agregar MODELOS, no contra medir más del mismo
+  modelo.** Un backfill que agrega runs a modelos existentes SÍ mueve su `quality_avg` →
+  su score, aunque la referencia esté congelada. Por eso **no se regenera/despliega
+  producción a mitad de un backfill**: se espera a completarlo y se recalibra la versión.
+- **Dimensiones aparte** (`niah`, `prompt_injection`, `agent_long_horizon`): el agéntico
+  SÍ cuenta en la calidad titular (es donde los premium se diferencian) y ADEMÁS se expone
+  como eje propio (`agentic_score`). niah/seguridad van solo como eje. Sacar una de la
+  calidad titular reordena el ranking (probado: sacar agéntico hunde a Luna del #1 al #3 y
+  flota modelos baratos) — no hacerlo sin decisión explícita.
+
 ## Heurística de oro (Cristian, acertó 7 veces seguidas)
 
 **Cuando una diferencia entre modelos se ve "demasiado grande", la primera hipótesis es
