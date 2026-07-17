@@ -10,7 +10,7 @@
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes) y la nueva suite **`agent_long_horizon`** que mide capacidades agénticas en multi-turno largo (lo que el single-turn no captura).
 
-**Cobertura actual**: <!-- AUTO:tested_count -->118<!-- /AUTO --> modelos con ≥20 runs (<!-- AUTO:total_models -->170<!-- /AUTO --> catalogados, incluido **Claude Fable 5** medido el día 1), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v3.0.2 (junio)** = ajuste de **normalización de costos**: todos los modelos se comparan con un costo mínimo de referencia de **$0.001/call**, y los que no tienen equivalente OpenRouter usan su costo real de provider como aproximación estándar. **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
+**Cobertura actual**: <!-- AUTO:tested_count -->118<!-- /AUTO --> modelos con ≥20 runs (<!-- AUTO:total_models -->170<!-- /AUTO --> catalogados, incluido **Claude Fable 5** medido el día 1), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v4.0 (jul 2026)** = la **referencia z-score quedó congelada por versión** (`scoring_reference.json`): agregar o medir un modelo nuevo ya no recalcula el score de los demás — se puntúa contra una referencia fija. **v3.0.2 (junio)** = ajuste de **normalización de costos**: todos los modelos se comparan con un costo mínimo de referencia de **$0.001/call**, y los que no tienen equivalente OpenRouter usan su costo real de provider como aproximación estándar. **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
 
 ## Score = combinación ponderada (NO solo calidad)
 
@@ -154,6 +154,8 @@ Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad*
 >
 > Costo real del lote: **~$58.88** ($57.23 en modelos + $1.65 en juez phi4-or).
 
+> **Cambio v4.0 (jul 2026): referencia z-score congelada por versión.** Hasta v3.x el `score_global` se recalculaba contra toda la población en cada lote — medir un modelo nuevo movía el score de todos. Desde v4.0 la referencia (mean/std por dimensión) queda **congelada por versión** en `scoring_reference.json` (`score_method: zscore_frozen_v4`): agregar o medir un modelo nuevo ya **no recalcula** el score de los demás. La referencia solo se reajusta al publicar una versión nueva (evento deliberado).
+>
 > **Cambio v3.0.2 (jun 2026): normalización de costos para comparabilidad global.** Todos los modelos —incluidos gratis, free tier, suscripción y locales— ahora tienen un **costo mínimo de referencia de $0.001/call** en el cálculo del `score_global`. Antes un costo real de $0 generaba un `cost_score` artificial de 10.0 que distorsionaba el ranking. Además, los modelos sin equivalente OpenRouter se costean con el **precio real de su provider** como aproximación estándar, y el Executive Brief de julio normaliza también a OpenRouter cuando existe. Resultado: el ranking compara manzanas con manzanas independientemente de cómo se ejecute el modelo. El umbral de "tested" bajó de ≥50 a **≥20 runs** para reflejar la cobertura real sin ocultar modelos emergentes con datos sólidos.
 >
 > **Cambio v3.0 (jun 2026): ajuste de pesos.** Quality pasa de 60% a **70%** y costo baja de 20% a **15%**. Efecto: modelos de alta calidad (DeepSeek R1, Claude Opus 4.8, Qwen 3.6 Max) suben sin que el costo los aplaste. Devstral Small sigue top-5 porque también tiene calidad sólida (8.03). Ver el bloque de pesos arriba y las tablas por caso de uso en [MODELOS.md](MODELOS.md).
@@ -286,7 +288,7 @@ Regla práctica: **un emprendedor que quiera replicar este benchmark desde cero 
 | [ROADMAP.md](ROADMAP.md) | Roadmap y pipeline de mejoras futuras |
 | [CHANGELOG.md](CHANGELOG.md) | Historial de cambios |
 
-## Criterios de Evaluacion (score global v3.0.2)
+## Criterios de Evaluacion (score global v4.0)
 
 | Componente | Peso default | Que mide |
 |---|---|---|
@@ -341,7 +343,7 @@ flowchart TD
         WITHJUDGE["Con juez: 30% auto + 70% juez"]
     end
 
-    subgraph METRICS["Score Global v3.0.2 (z-scoreado)"]
+    subgraph METRICS["Score Global v4.0 (z-scoreado)"]
         direction LR
         Q["Quality 70%"]
         CO["Costo 15%"]
@@ -584,7 +586,7 @@ Organizadas en los 4 pilares del emprendedor:
 ├── benchmarks/
 │   ├── config.py                    # Configuracion (lee .env + importa models)
 │   ├── models.py                    # Catalogo publico de modelos y pricing
-│   ├── scoring.py                   # Sistema de puntuacion y pesos v3.0.2
+│   ├── scoring.py                   # Sistema de puntuacion y pesos v4.0
 │   ├── runner.py                    # Motor de benchmarks
 │   ├── llm_judge.py                 # LLM-as-Judge (Phi-4 local / vLLM / API)
 │   ├── export_for_pages.py          # Genera docs/data/models.json
