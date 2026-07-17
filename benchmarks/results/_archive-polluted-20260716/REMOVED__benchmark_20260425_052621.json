@@ -1,0 +1,32 @@
+{
+  "archived_at": "2026-07-16T20:09:49+00:00",
+  "reason": "polluted_E1_E2_E3_general_suites",
+  "runs": [
+    {
+      "quality": 8.0,
+      "cost_score": 6.29,
+      "cost_usd": 0.003715,
+      "speed": 6.0,
+      "latency": 4.0,
+      "tool_calling": 7.0,
+      "final": 7.06,
+      "test_name": "translate_technical_en_es",
+      "model": "GPT-5.5",
+      "model_id": "gpt-5.5",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 37.3,
+      "latency_first_token": 2.654,
+      "latency_total": 2.654,
+      "input_tokens": 149,
+      "output_tokens": 99,
+      "response_preview": "Para autenticarte con la API, incluye tu Bearer token en el header Authorization. Los rate limits están establecidos en 100 requests por minuto para el free tier. Si excedes el rate limit, la API devuelve un status code 429 con un header Retry-After que indica cuándo puedes reanudar. Los webhook end",
+      "auto_quality": 8.0,
+      "suite": "translation",
+      "run": 1,
+      "timestamp": "20260425_052621",
+      "response_file": "results/responses/20260425_052621/gpt-5.5__translation__translate_technical_en_es.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
+    }
+  ]
+}

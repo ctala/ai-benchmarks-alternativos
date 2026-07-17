@@ -90,25 +90,44 @@ class Verifier:
         # TypeError en CADA reintento y el runner muere culpando al verificador.
         if not respuesta:
             return False
-        for intento in range(3):
+        # El JUEZ (phi4-or) también se rate-limitea bajo carga: devuelve VACÍO
+        # (probado 17-jul: aislado responde bien, en corrida vacía → json.loads('')
+        # crasheaba y tras 3 reintentos cortos dejaba el test sin puntuar = gap
+        # sistemático en varios modelos). Fix: tratar el vacío como transitorio,
+        # 5 reintentos con backoff largo (hasta ~25s) para aguantar la ventana de
+        # rate-limit. Ver POST-MORTEM-REMEDICION-20260716.md.
+        N = 5
+        for intento in range(N):
             try:
                 r = self.client.chat.completions.create(
                     model=self.model,
                     messages=[{"role": "user",
                                "content": PROMPT.format(respuesta=respuesta[:6000], insight=insight)}],
                     temperature=0,
-                    max_tokens=20,
+                    max_tokens=60,   # room para el JSON aunque phi-4 razone antes (20 lo truncaba)
+                    response_format={"type": "json_object"},  # fuerza JSON, corta la prosa
                 )
                 txt = (r.choices[0].message.content or "").strip()
+                if not txt:
+                    raise ValueError("juez devolvió vacío (rate-limit) — reintentar")
                 m = txt[txt.find("{"): txt.rfind("}") + 1]
-                return bool(json.loads(m).get("afirma"))
+                if m:
+                    return bool(json.loads(m).get("afirma"))
+                # Sin JSON (phi-4 ignoró el formato y devolvió prosa): último recurso,
+                # leer el veredicto del texto antes de rendirse.
+                low = txt.lower()
+                if '"afirma": true' in low or "\nsí" in low or low.endswith("sí") or " true" in low:
+                    return True
+                if '"afirma": false' in low or " no afirma" in low or " false" in low:
+                    return False
+                raise ValueError(f"juez sin JSON ni veredicto: {txt[:60]!r}")
             except Exception as e:  # noqa: BLE001
                 # El fallo SE MUESTRA (lección 14-jul: un except mudo nos tuvo
                 # adivinando entre red, provider y contenido).
-                print(f"    [verifier] intento {intento+1}/3 falló: "
+                print(f"    [verifier] intento {intento+1}/{N} falló: "
                       f"{type(e).__name__}: {str(e)[:160]}", file=sys.stderr)
-                if intento < 2:
-                    _t.sleep(2 * (intento + 1))
+                if intento < N - 1:
+                    _t.sleep(min(25, 3 * (intento + 1)))
         return None
 
     def score(self, respuesta: str, key_insights: list[str]) -> float:

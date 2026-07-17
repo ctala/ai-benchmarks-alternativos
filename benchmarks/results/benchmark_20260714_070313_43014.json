@@ -15,6 +15,10 @@
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
       "at": "2026-07-15T20:48:01+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    },
+    "polluted_cleanup": {
+      "at": "2026-07-16T20:09:49+00:00",
+      "removed": 1
     }
   },
   "results": [
@@ -50,39 +54,6 @@
       "timestamp": "20260714_070313_43014",
       "response_file": "results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__skill_execution_complex.md",
       "scoring": "juez-30-70"
-    },
-    {
-      "quality": 10.0,
-      "cost_score": 9.33,
-      "cost_usd": 0.00036,
-      "speed": 8.0,
-      "latency": 2.0,
-      "tool_calling": 5.2,
-      "final": 9.15,
-      "test_name": "agent_team_delegation",
-      "model": "Ministral 14B",
-      "model_id": "mistralai/ministral-14b-2512",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 91.3,
-      "latency_first_token": 9.072,
-      "latency_total": 9.072,
-      "input_tokens": 970,
-      "output_tokens": 828,
-      "response_preview": "Entendido. Vamos a descomponer este proyecto en un plan de ejecución claro y organizado, asegurándonos de respetar las dependencias y prioridades. Aquí tienes el flujo de trabajo:\n\n---\n\n### **Plan de Ejecución**\n**Objetivo:** Crear una landing page profesional para el lanzamiento de *AutoFlow AI*.\n\n",
-      "auto_quality": 10.0,
-      "judge_score": 5,
-      "judge_precision": 5,
-      "judge_relevancia": 5,
-      "judge_profundidad": 5,
-      "judge_claridad": 5,
-      "judge_utilidad": 5,
-      "judge_justificacion": "La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un plan detallado y estructurado que un emprendedor podría implementar directamente.",
-      "suite": "agent_capabilities",
-      "run": 1,
-      "timestamp": "20260714_070313_43014",
-      "response_file": "results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__agent_team_delegation.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.4,

@@ -1139,7 +1139,12 @@ def gen_alternativas_deepseek(data):
 def gen_fable_5_review(data):
     models = _recomendables(data)
     c = counts(data)
-    fable = next((m for m in models if m.get("id") == "claude-fable-5"), None)
+    # Por NOMBRE canónico, no por id de la fila sub (bug: "claude-fable-5" era el id
+    # del camino suscripción, que no es recomendable → fable quedaba None).
+    fable = next((m for m in models if m.get("name") == "Claude Fable 5"), None)
+    _f_score = f"{fable.get('score_global'):.2f}" if fable and fable.get('score_global') is not None else "—"
+    _f_runs = fable.get("runs", 0) if fable else 0
+    _f_q = f"{fable.get('quality_avg'):.2f}" if fable and fable.get('quality_avg') is not None else "—"
     compare_ids = ["claude-opus-4-8", "claude-sonnet-4-6", "MiniMax-M3", "deepseek/deepseek-r1"]
     compare = sorted(
         [m for m in models if m.get("id") in compare_ids],
@@ -1148,8 +1153,8 @@ def gen_fable_5_review(data):
     table_models = ([fable] + compare) if fable else compare
 
     title = "Claude Fable 5: review con benchmark real (¿vale la pena en 2026?)"
-    desc = ("Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score 6.75, "
-            "costo $10/$50 por millón, 103 runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.")
+    desc = (f"Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score {_f_score}, "
+            f"costo $10/$50 por millón, {_f_runs} runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.")
     kw = ("Claude Fable 5 review, Fable 5 benchmark, Fable 5 vs Opus 4.8, Fable 5 vs Sonnet 4.6, "
           "Mythos 5 anthropic, Claude Fable 5 español, Fable 5 vale la pena")
     url = f"{SITE}/fable-5-review/"
@@ -1170,8 +1175,8 @@ def gen_fable_5_review(data):
     <h1>Claude Fable 5: review con benchmark real (Junio 2026)</h1>
     <p class="lead">
       <strong>Claude Fable 5</strong> es la nueva línea "Mythos" de Anthropic, lanzada en junio de 2026.
-      Lo corrimos por <strong>103 tests reales</strong> con LLM-as-Judge Phi-4 local: obtiene
-      <strong>score global 6.75</strong>, calidad de pilar sólida, pero un costo de
+      Lo corrimos por <strong>{_f_runs} tests reales</strong> con juez neutral Phi-4: obtiene
+      <strong>score global {_f_score}</strong> (calidad {_f_q} — el score compuesto carga su costo), con un precio de
       <strong>$10.00 / $50.00 por millón de tokens</strong>. ¿Vale la pena? La respuesta corta:
       <strong>solo si tu caso justifica pagar el premium de Anthropic</strong>.
     </p>
@@ -1205,7 +1210,7 @@ def gen_fable_5_review(data):
       con velocidad similar a Opus (~60 tok/s) y un precio que lo acerca más a Opus que a Sonnet.
     </p>
     <ul>
-      <li><strong>Score global:</strong> 6.75 — fuera del top 10 por costo.</li>
+      <li><strong>Score global:</strong> {_f_score} — hundido por el costo más caro del catálogo y los bloqueos de política en API.</li>
       <li><strong>Calidad por pilar:</strong> Contenido {fmt_pillar(fable, 'Contenido')}, Agentes {fmt_pillar(fable, 'Agentes')}, Coding {fmt_pillar(fable, 'Coding')}, Razonamiento {fmt_pillar(fable, 'Razonamiento')}.</li>
       <li><strong>Costo:</strong> $10.00 input / $50.00 output por millón.</li>
       <li><strong>Velocidad:</strong> ~60 tok/s en suscripción Anthropic.</li>
@@ -1254,7 +1259,7 @@ def gen_fable_5_review(data):
 """
     faqs = [
         ("¿Claude Fable 5 es mejor que Opus 4.8?",
-         "No. En nuestro benchmark Opus 4.8 tiene score global 7.88 contra 6.75 de Fable 5, y gana en todos los pilares por menos costo ($5/$25 vs $10/$50)."),
+         "No para uso por API: Opus 4.8 supera a Fable 5 en score global y cuesta la mitad ($5/$25 vs $10/$50 por millón). Vía suscripción de Claude Code la historia se invierte: ahí Fable lidera entre los Claude a costo marginal cero."),
         ("¿Vale la pena pagar por Claude Fable 5?",
          "Solo si ya estás en el ecosistema Anthropic y preferís su tono para contenido creativo. Para producción con volumen, MiniMax M3 y DeepSeek R1 ofrecen mejor relación calidad/precio."),
         ("¿Fable 5 es bueno para programar?",

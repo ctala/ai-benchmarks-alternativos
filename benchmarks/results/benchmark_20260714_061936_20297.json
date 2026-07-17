@@ -10,7 +10,11 @@
       "evaluations": 7,
       "estimated_cost_usd": 0.0136
     },
-    "partial": false
+    "partial": false,
+    "polluted_cleanup": {
+      "at": "2026-07-16T20:09:49+00:00",
+      "removed": 2
+    }
   },
   "results": [
     {
@@ -113,39 +117,6 @@
       "scoring": "juez-30-70"
     },
     {
-      "quality": 10.0,
-      "cost_score": 9.02,
-      "cost_usd": 0.000456,
-      "speed": 6.0,
-      "latency": 1.0,
-      "tool_calling": 7.0,
-      "final": 8.88,
-      "test_name": "business_analysis",
-      "model": "DeepSeek V3",
-      "model_id": "deepseek/deepseek-v3.2",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 43.7,
-      "latency_first_token": 29.886,
-      "latency_total": 29.886,
-      "input_tokens": 168,
-      "output_tokens": 1306,
-      "response_preview": "Voy a analizar tus datos paso a paso.\n\n## 1. Cálculo de Métricas Clave\n\n### **Churn Rate**\n- **Enero:** 45/1,200 = **3.75%**\n- **Febrero:** 52/1,350 = **3.85%**\n- **Marzo:** 68/1,480 = **4.59%**\n\n### **Growth Rate (usuarios)**\n- Febrero: (1,350-1,200)/1,200 = **12.5%**\n- Marzo: (1,480-1,350)/1,350 =",
-      "auto_quality": 10.0,
-      "judge_score": 5,
-      "judge_precision": 5,
-      "judge_relevancia": 5,
-      "judge_profundidad": 5,
-      "judge_claridad": 5,
-      "judge_utilidad": 5,
-      "judge_justificacion": "La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando análisis detallados y acciones concretas basadas en los datos.",
-      "suite": "reasoning",
-      "run": 1,
-      "timestamp": "20260714_061936_20297",
-      "response_file": "results/responses/20260714_061936_20297/or-deepseek-v3__reasoning__business_analysis.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
-    },
-    {
       "quality": 9.24,
       "cost_score": 9.28,
       "cost_usd": 0.000374,
@@ -177,39 +148,6 @@
       "timestamp": "20260714_061936_20297",
       "response_file": "results/responses/20260714_061936_20297/or-deepseek-v3__reasoning__logical_reasoning.md",
       "scoring": "juez-30-70"
-    },
-    {
-      "quality": 10.0,
-      "cost_score": 8.85,
-      "cost_usd": 0.000521,
-      "speed": 6.0,
-      "latency": 1.0,
-      "tool_calling": 7.0,
-      "final": 8.85,
-      "test_name": "multi_constraint_decision",
-      "model": "DeepSeek V3",
-      "model_id": "deepseek/deepseek-v3.2",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 48.9,
-      "latency_first_token": 30.642,
-      "latency_total": 30.642,
-      "input_tokens": 180,
-      "output_tokens": 1498,
-      "response_preview": "# Análisis de Stack Tecnológico para MVP de Marketplace Freelance\n\n## Contexto y Restricciones\n- **Presupuesto**: $5,000 total (incluye infraestructura y herramientas)\n- **Timeline**: 6 semanas (MVP funcional)\n- **Equipo**: 1 desarrollador fullstack (React, Python, Go básico)\n- **Escala**: 500 usuar",
-      "auto_quality": 10.0,
-      "judge_score": 5,
-      "judge_precision": 5,
-      "judge_relevancia": 5,
-      "judge_profundidad": 5,
-      "judge_claridad": 5,
-      "judge_utilidad": 5,
-      "judge_justificacion": "La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un análisis detallado de múltiples opciones de stack tecnológico con pros y contras, costos estimados y consideraciones de mantenimiento.",
-      "suite": "reasoning",
-      "run": 1,
-      "timestamp": "20260714_061936_20297",
-      "response_file": "results/responses/20260714_061936_20297/or-deepseek-v3__reasoning__multi_constraint_decision.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
     }
   ]
 }

@@ -39,8 +39,28 @@ done
 wait
 ```
 
-OpenRouter aguanta 10 concurrentes sin rate limit (verificado). El juez `phi4-or` (Phi-4
-por OpenRouter) también — NO es el cuello, nunca lo fue.
+⚠️ **CORRECCIÓN (17-jul, post-mortem):** 10 concurrentes NO es seguro para suites con
+**tools o multi-turno** (customer_support, orchestration, agent_capabilities,
+agent_long_horizon). Bajo esa carga OpenRouter devuelve **respuestas vacías por rate-limit**
+(0 tokens, `in_tok=0`) que el runner puntúa 0.0 → contaminación + gaps + sobregasto. Probado:
+los mismos modelos funcionan LIMPIOS aislados. **Regla nueva: baja concurrencia (2 workers)
+por default para suites con tools/multi-turno**; subir solo tras confirmar 0 empties. Suites
+verificables simples aguantan más. Ver `POST-MORTEM-REMEDICION-20260716.md`.
+
+El juez `phi4-or` (Phi-4 por OpenRouter) NO es el cuello — pero OJO: **rompe con
+`JSONDecodeError` en algunos tests** (ej. `parallel_vs_sequential_judgment`), dejando el test
+sin puntuar = gap sistemático en varios modelos. Si un test es gap en 3+ modelos a la vez,
+sospechar del VERIFICADOR, no de los modelos.
+
+## Regla 0.5 — costo: estimar con ×RUNS_PER_TEST y multiplicador reasoning/agentic
+
+`average_scores` guarda los tokens de UN run (no la suma), así que estimar el costo sobre los
+registros promediados **subestima ×3** (se pagan 3 llamadas por test). Además reasoning
+(thinking largo) y agentic (multi-turno) disparan los tokens muy por encima del promedio.
+**Antes de correr: multiplicar por RUNS_PER_TEST, aplicar factor reasoning/agentic, y nombrar
+los modelos caros por separado** (Fable/Opus vía OpenRouter fueron ~$33 de ~$60 totales).
+Una re-medición estimada en $18 costó ~$55-70. `--rerun-empty` targeted, nunca re-correr
+suites completas caras.
 
 ## Regla 1 — resume de nombre FIJO, nunca diff `before/after`
 

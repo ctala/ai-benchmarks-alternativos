@@ -10,7 +10,11 @@
       "evaluations": 6,
       "estimated_cost_usd": 0.0099
     },
-    "partial": false
+    "partial": false,
+    "polluted_cleanup": {
+      "at": "2026-07-16T20:09:49+00:00",
+      "removed": 2
+    }
   },
   "results": [
     {
@@ -80,39 +84,6 @@
       "scoring": "juez-30-70"
     },
     {
-      "quality": 10.0,
-      "cost_score": 10.0,
-      "cost_usd": 0.0,
-      "speed": 8.0,
-      "latency": 1.0,
-      "tool_calling": 7.0,
-      "final": 9.17,
-      "test_name": "workshop_outline",
-      "model": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
-      "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 90.5,
-      "latency_first_token": 41.592,
-      "latency_total": 41.592,
-      "input_tokens": 206,
-      "output_tokens": 3764,
-      "response_preview": "## 🚀 Workshop “Construye tu Asistente de IA para tu Startup”  \n**Duración total:** 3 horas (180 min)  \n**Participantes:** 20‑30 emprendedores early‑stage, sin conocimientos técnicos profundos  \n\n---\n\n## 1️⃣ Agenda detallada (tiempos)\n\n| Horario | Bloque | Duración |\n|---------|--------|----------|\n|",
-      "auto_quality": 10.0,
-      "judge_score": 5,
-      "judge_precision": 5,
-      "judge_relevancia": 5,
-      "judge_profundidad": 4,
-      "judge_claridad": 5,
-      "judge_utilidad": 5,
-      "judge_justificacion": "La respuesta es precisa, relevante, clara y extremadamente útil para emprendedores no técnicos, proporcionando una agenda detallada, materiales necesarios y una estructura de bloques bien pensada, aunque podría profundizar un poco más en algunos conceptos.",
-      "suite": "startup_content",
-      "run": 1,
-      "timestamp": "20260714_060413_11710",
-      "response_file": "results/responses/20260714_060413_11710/or-nemotron-3-nano-omni-reasoning__startup_content__workshop_outline.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
-    },
-    {
       "quality": 9.72,
       "cost_score": 10.0,
       "cost_usd": 0.0,
@@ -144,39 +115,6 @@
       "timestamp": "20260714_060413_11710",
       "response_file": "results/responses/20260714_060413_11710/or-nemotron-3-nano-omni-reasoning__startup_content__newsletter_startup.md",
       "scoring": "juez-30-70"
-    },
-    {
-      "quality": 10.0,
-      "cost_score": 10.0,
-      "cost_usd": 0.0,
-      "speed": 8.0,
-      "latency": 1.0,
-      "tool_calling": 7.0,
-      "final": 9.17,
-      "test_name": "perplexity_style_research",
-      "model": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
-      "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 58.7,
-      "latency_first_token": 45.725,
-      "latency_total": 45.725,
-      "input_tokens": 201,
-      "output_tokens": 2682,
-      "response_preview": "**Estado del Venture Capital en Latinoamérica – Q1 2026**  \n\n---  \n\n### 1. Resumen Ejecutivo  \n- **Crecimiento sostenido:** La inversión total en VC en LATAM alcanzó **≈ US$ 5.8 bn** en el primer trimestre de 2026, un **+13 % respecto a Q1 2025**.  \n- **Concentración geográfica y sectorial:** Brasil",
-      "auto_quality": 10.0,
-      "judge_score": 5,
-      "judge_precision": 5,
-      "judge_relevancia": 5,
-      "judge_profundidad": 4,
-      "judge_claridad": 5,
-      "judge_utilidad": 5,
-      "judge_justificacion": "La respuesta es precisa, relevante, clara y profundamente útil para un emprendedor, con una estructura bien organizada y datos detallados.",
-      "suite": "startup_content",
-      "run": 1,
-      "timestamp": "20260714_060413_11710",
-      "response_file": "results/responses/20260714_060413_11710/or-nemotron-3-nano-omni-reasoning__startup_content__perplexity_style_research.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
     }
   ]
 }

@@ -87,6 +87,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--suite", default=None,
+                    help="Solo re-puntuar runs cuya suite empiece con este prefijo "
+                         "(ej. agent_long_horizon). Sin esto, re-puntúa todas.")
     args = ap.parse_args()
 
     from benchmarks.config import OPENROUTER_API_KEY
@@ -116,6 +119,8 @@ def main():
             if not isinstance(r, dict) or not r.get("success"):
                 continue
             suite, tn = r.get("suite"), r.get("test_name")
+            if args.suite and not str(suite or "").startswith(args.suite):
+                continue
             t = TESTS.get((suite, tn))
             mk = KEY.get(r.get("model", ""))
             if not t or not mk or not t.get("expected_answer"):

@@ -399,13 +399,13 @@
       "response_file": "results/responses/20260715_165413_13234/deepseek-v3__policy_adherence__refund_policy_enforcement.md"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 10.0,
       "cost_usd": 7e-05,
       "speed": 2.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.4,
+      "final": 8.8,
       "test_name": "data_privacy_protection",
       "model": "DeepSeek V3.2",
       "model_id": "deepseek/deepseek-chat",
@@ -431,7 +431,8 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260715_165413_13234",
-      "response_file": "results/responses/20260715_165413_13234/deepseek-v3__policy_adherence__data_privacy_protection.md"
+      "response_file": "results/responses/20260715_165413_13234/deepseek-v3__policy_adherence__data_privacy_protection.md",
+      "refusal_rewarded": true
     },
     {
       "quality": 10.0,
@@ -3899,13 +3900,13 @@
       "response_file": "results/responses/20260715_165413_13234/nemotron-super__policy_adherence__refund_policy_enforcement.md"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 9.47,
       "cost_usd": 0.000323,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.4,
+      "final": 8.8,
       "test_name": "data_privacy_protection",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -3931,7 +3932,8 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260715_165413_13234",
-      "response_file": "results/responses/20260715_165413_13234/nemotron-super__policy_adherence__data_privacy_protection.md"
+      "response_file": "results/responses/20260715_165413_13234/nemotron-super__policy_adherence__data_privacy_protection.md",
+      "refusal_rewarded": true
     },
     {
       "quality": 8.0,
@@ -5299,13 +5301,13 @@
       "response_file": "results/responses/20260715_165413_13234/mistral-large__policy_adherence__refund_policy_enforcement.md"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 7.41,
       "cost_usd": 0.001578,
       "speed": 6.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 7.46,
+      "final": 8.86,
       "test_name": "data_privacy_protection",
       "model": "Mistral Large",
       "model_id": "mistralai/mistral-large",
@@ -5331,7 +5333,8 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260715_165413_13234",
-      "response_file": "results/responses/20260715_165413_13234/mistral-large__policy_adherence__data_privacy_protection.md"
+      "response_file": "results/responses/20260715_165413_13234/mistral-large__policy_adherence__data_privacy_protection.md",
+      "refusal_rewarded": true
     },
     {
       "quality": 8.0,
@@ -5999,13 +6002,13 @@
       "response_file": "results/responses/20260715_165413_13234/gpt-4.1__policy_adherence__refund_policy_enforcement.md"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 8.11,
       "cost_usd": 0.00092,
       "speed": 6.0,
       "latency": 6.0,
       "tool_calling": 7.0,
-      "final": 7.72,
+      "final": 9.12,
       "test_name": "data_privacy_protection",
       "model": "GPT-4.1",
       "model_id": "gpt-4.1",
@@ -6031,7 +6034,8 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260715_165413_13234",
-      "response_file": "results/responses/20260715_165413_13234/gpt-4.1__policy_adherence__data_privacy_protection.md"
+      "response_file": "results/responses/20260715_165413_13234/gpt-4.1__policy_adherence__data_privacy_protection.md",
+      "refusal_rewarded": true
     },
     {
       "quality": 6.0,
@@ -6699,13 +6703,13 @@
       "response_file": "results/responses/20260715_165413_13234/gpt-4.1-mini__policy_adherence__refund_policy_enforcement.md"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 10.0,
       "cost_usd": 0.000211,
       "speed": 6.0,
       "latency": 6.0,
       "tool_calling": 7.0,
-      "final": 8.0,
+      "final": 9.4,
       "test_name": "data_privacy_protection",
       "model": "GPT-4.1 Mini",
       "model_id": "gpt-4.1-mini",
@@ -6731,7 +6735,8 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260715_165413_13234",
-      "response_file": "results/responses/20260715_165413_13234/gpt-4.1-mini__policy_adherence__data_privacy_protection.md"
+      "response_file": "results/responses/20260715_165413_13234/gpt-4.1-mini__policy_adherence__data_privacy_protection.md",
+      "refusal_rewarded": true
     },
     {
       "quality": 8.0,
@@ -7399,13 +7404,13 @@
       "response_file": "results/responses/20260715_165413_13234/llama-4-maverick__policy_adherence__refund_policy_enforcement.md"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 10.0,
       "cost_usd": 0.000195,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.55,
+      "final": 8.95,
       "test_name": "data_privacy_protection",
       "model": "Llama 4 Maverick",
       "model_id": "meta-llama/llama-4-maverick",
@@ -7431,7 +7436,8 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260715_165413_13234",
-      "response_file": "results/responses/20260715_165413_13234/llama-4-maverick__policy_adherence__data_privacy_protection.md"
+      "response_file": "results/responses/20260715_165413_13234/llama-4-maverick__policy_adherence__data_privacy_protection.md",
+      "refusal_rewarded": true
     },
     {
       "quality": 6.0,
@@ -8099,13 +8105,13 @@
       "response_file": "results/responses/20260715_165413_13234/qwen3-coder__policy_adherence__refund_policy_enforcement.md"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 10.0,
       "cost_usd": 0.000101,
       "speed": 8.0,
       "latency": 6.0,
       "tool_calling": 7.0,
-      "final": 8.15,
+      "final": 9.55,
       "test_name": "data_privacy_protection",
       "model": "Qwen3 Coder",
       "model_id": "qwen/qwen3-coder",
@@ -8131,7 +8137,8 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260715_165413_13234",
-      "response_file": "results/responses/20260715_165413_13234/qwen3-coder__policy_adherence__data_privacy_protection.md"
+      "response_file": "results/responses/20260715_165413_13234/qwen3-coder__policy_adherence__data_privacy_protection.md",
+      "refusal_rewarded": true
     },
     {
       "quality": 8.0,
@@ -8729,13 +8736,13 @@
       "response_file": "results/responses/20260715_165413_13234/claude-sonnet-4.6__string_precision__copy_mixed_special.md"
     },
     {
-      "quality": 0.0,
+      "quality": 10.0,
       "cost_score": 6.27,
       "cost_usd": 0.003765,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 1.54,
+      "final": 8.54,
       "test_name": "write_config_file",
       "model": "Claude Sonnet 4.6 (ultimo Anthropic)",
       "model_id": "anthropic/claude-sonnet-4-6",
@@ -8761,7 +8768,8 @@
       "suite": "string_precision",
       "run": 1,
       "timestamp": "20260715_165413_13234",
-      "response_file": "results/responses/20260715_165413_13234/claude-sonnet-4.6__string_precision__write_config_file.md"
+      "response_file": "results/responses/20260715_165413_13234/claude-sonnet-4.6__string_precision__write_config_file.md",
+      "refusal_rewarded": true
     },
     {
       "quality": 8.33,
@@ -9499,13 +9507,13 @@
       "response_file": "results/responses/20260715_165413_13234/gemini-flash-lite__policy_adherence__refund_policy_enforcement.md"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 10.0,
       "cost_usd": 6.9e-05,
       "speed": 10.0,
       "latency": 6.0,
       "tool_calling": 7.0,
-      "final": 8.3,
+      "final": 9.7,
       "test_name": "data_privacy_protection",
       "model": "Gemini 2.5 Flash Lite",
       "model_id": "google/gemini-2.5-flash-lite",
@@ -9531,7 +9539,8 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260715_165413_13234",
-      "response_file": "results/responses/20260715_165413_13234/gemini-flash-lite__policy_adherence__data_privacy_protection.md"
+      "response_file": "results/responses/20260715_165413_13234/gemini-flash-lite__policy_adherence__data_privacy_protection.md",
+      "refusal_rewarded": true
     },
     {
       "quality": 8.0,
@@ -10199,13 +10208,13 @@
       "response_file": "results/responses/20260715_165413_13234/gpt-5.4-mini__policy_adherence__refund_policy_enforcement.md"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 9.95,
       "cost_usd": 0.000224,
       "speed": 8.0,
       "latency": 6.0,
       "tool_calling": 7.0,
-      "final": 8.14,
+      "final": 9.54,
       "test_name": "data_privacy_protection",
       "model": "GPT-5.4 Mini",
       "model_id": "gpt-5.4-mini",
@@ -10231,7 +10240,8 @@
       "suite": "policy_adherence",
       "run": 1,
       "timestamp": "20260715_165413_13234",
-      "response_file": "results/responses/20260715_165413_13234/gpt-5.4-mini__policy_adherence__data_privacy_protection.md"
+      "response_file": "results/responses/20260715_165413_13234/gpt-5.4-mini__policy_adherence__data_privacy_protection.md",
+      "refusal_rewarded": true
     },
     {
       "quality": 8.0,
@@ -11529,13 +11539,13 @@
       "response_file": "results/responses/20260715_165413_13234/mimo-v2.5-pro-or__string_precision__copy_mixed_special.md"
     },
     {
-      "quality": 0.0,
+      "quality": 10.0,
       "cost_score": 6.99,
       "cost_usd": 0.002175,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 1.57,
+      "final": 8.57,
       "test_name": "write_config_file",
       "model": "MiMo-V2.5 Pro",
       "model_id": "xiaomi/mimo-v2.5-pro",
@@ -11561,7 +11571,8 @@
       "suite": "string_precision",
       "run": 1,
       "timestamp": "20260715_165413_13234",
-      "response_file": "results/responses/20260715_165413_13234/mimo-v2.5-pro-or__string_precision__write_config_file.md"
+      "response_file": "results/responses/20260715_165413_13234/mimo-v2.5-pro-or__string_precision__write_config_file.md",
+      "refusal_rewarded": true
     },
     {
       "quality": 5.0,

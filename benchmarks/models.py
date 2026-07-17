@@ -1283,7 +1283,7 @@ MODELS = {
         # Eso NO es un examen incompleto — es el resultado. Un modelo que no puede llamar
         # herramientas no puede hacer trabajo de agente, y quien lo elija para eso tiene
         # que saberlo. Antes se marcaba "no rendido", que ESCONDÍA la carencia.
-        "sin_tools": True,
+        "prompt_tools": True,  # Hermes hace function calling prompt-based (formato <tool_call>), no param nativo
         "id": "nousresearch/hermes-4-70b",
         "name": "Hermes 4 70B",
         "cost_input": 0.13, "cost_output": 0.40,
@@ -1321,7 +1321,7 @@ MODELS = {
         # Eso NO es un examen incompleto — es el resultado. Un modelo que no puede llamar
         # herramientas no puede hacer trabajo de agente, y quien lo elija para eso tiene
         # que saberlo. Antes se marcaba "no rendido", que ESCONDÍA la carencia.
-        "sin_tools": True,
+        "prompt_tools": True,  # Hermes hace function calling prompt-based (formato <tool_call>), no param nativo
         "id": "nousresearch/hermes-4-405b",
         "name": "Hermes 4 405B",
         "cost_input": 1.00, "cost_output": 3.00,

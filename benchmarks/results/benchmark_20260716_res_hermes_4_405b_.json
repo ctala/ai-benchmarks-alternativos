@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "timestamp": "20260716_res",
+    "total_runs": 42,
+    "errors": 0,
+    "judge": {
+      "judge_model": "microsoft/phi-4",
+      "judge_provider": "openrouter",
+      "judge_is_local": false,
+      "evaluations": 4,
+      "estimated_cost_usd": 0.004
+    },
+    "partial": false,
+    "polluted_cleanup": {
+      "at": "2026-07-17T12:39:56+00:00",
+      "removed": 13
+    }
+  },
+  "results": [
+    {
+      "quality": 5.0,
+      "cost_score": 7.8,
+      "cost_usd": 0.001,
+      "speed": 5.333,
+      "latency": 1.667,
+      "tool_calling": 7.0,
+      "final": 5.197,
+      "test_name": "model_as_router",
+      "model": "Hermes 4 405B",
+      "model_id": "nousresearch/hermes-4-405b",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 33.267,
+      "latency_first_token": 9.919,
+      "latency_total": 9.919,
+      "input_tokens": 286,
+      "output_tokens": 341,
+      "response_preview": "[\n  {\n    \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n    \"modelo\": \"deepseek-v3\",\n    \"razon\": \"Requiere análisis profundo y extracción de patrones, donde deepseek-v3 es fuerte en razonamiento a bajo costo.\"\n  },\n  {\n    \"subtarea\": \"Escribir un email de di",
+      "auto_quality": 7.7,
+      "content_score": 8.0,
+      "answer_score": 7.5,
+      "scoring": "verificable",
+      "judge_score": 4.0,
+      "judge_precision": 4,
+      "judge_relevancia": 5,
+      "judge_profundidad": 4,
+      "judge_claridad": 5,
+      "judge_utilidad": 4,
+      "judge_justificacion": "La respuesta es precisa, relevante y clara, proporcionando asignaciones de modelos bien justificadas que son útiles para un emprendedor.",
+      "suite": "agent_capabilities",
+      "run": 1,
+      "timestamp": "20260716_res",
+      "response_file": "results/responses/20260716_res/hermes-4-405b__agent_capabilities__model_as_router.md",
+      "runs_averaged": 3
+    }
+  ]
+}

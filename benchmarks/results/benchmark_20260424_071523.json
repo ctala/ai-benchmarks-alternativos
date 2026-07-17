@@ -9,6 +9,10 @@
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
       "at": "2026-07-15T20:28:13+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    },
+    "polluted_cleanup": {
+      "at": "2026-07-16T20:09:49+00:00",
+      "removed": 2
     }
   },
   "results": [
@@ -41,56 +45,6 @@
       "rescored_by": "verificador-semantico",
       "rescored_at": "2026-07-15T20:28:13+00:00",
       "scoring": "verificable"
-    },
-    {
-      "quality": 0.0,
-      "cost_score": 5.94,
-      "cost_usd": 0.004855,
-      "speed": 4.0,
-      "latency": 1.0,
-      "tool_calling": 7.0,
-      "final": 2.61,
-      "test_name": "translate_technical_en_es",
-      "model": "Qwen 3.5 397B (Ollama Cloud)",
-      "model_id": "qwen3.5:397b-cloud",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 19.9,
-      "latency_first_token": 102.734,
-      "latency_total": 102.734,
-      "input_tokens": 160,
-      "output_tokens": 2048,
-      "response_preview": "",
-      "auto_quality": 0.0,
-      "suite": "translation",
-      "run": 1,
-      "timestamp": "20260424_071523",
-      "scoring": "solo-rubrica-SIN-JUEZ"
-    },
-    {
-      "quality": 0.0,
-      "cost_score": 5.94,
-      "cost_usd": 0.004872,
-      "speed": 10.0,
-      "latency": 1.0,
-      "tool_calling": 7.0,
-      "final": 3.06,
-      "test_name": "detect_language_issues",
-      "model": "Qwen 3.5 397B (Ollama Cloud)",
-      "model_id": "qwen3.5:397b-cloud",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 107.7,
-      "latency_first_token": 19.023,
-      "latency_total": 19.023,
-      "input_tokens": 205,
-      "output_tokens": 2048,
-      "response_preview": "",
-      "auto_quality": 0.0,
-      "suite": "translation",
-      "run": 1,
-      "timestamp": "20260424_071523",
-      "scoring": "solo-rubrica-SIN-JUEZ"
     }
   ]
 }

@@ -10,7 +10,11 @@
       "evaluations": 5,
       "estimated_cost_usd": 0.0062
     },
-    "partial": false
+    "partial": false,
+    "polluted_cleanup": {
+      "at": "2026-07-16T20:09:49+00:00",
+      "removed": 1
+    }
   },
   "results": [
     {
@@ -45,39 +49,6 @@
       "timestamp": "20260714_055758_8223",
       "response_file": "results/responses/20260714_055758_8223/or-nemotron-3-nano-omni-reasoning__content_generation__blog_post_es.md",
       "scoring": "juez-30-70"
-    },
-    {
-      "quality": 10.0,
-      "cost_score": 10.0,
-      "cost_usd": 0.0,
-      "speed": 10.0,
-      "latency": 4.0,
-      "tool_calling": 7.0,
-      "final": 9.55,
-      "test_name": "email_profesional",
-      "model": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
-      "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 234.2,
-      "latency_first_token": 4.611,
-      "latency_total": 4.611,
-      "input_tokens": 90,
-      "output_tokens": 1080,
-      "response_preview": "**Asunto:** Propuesta de sitio web corporativo con e‑commerce – $15,000 USD – Plazo de 3 meses  \n\n---\n\nEstimado/a **[Nombre del cliente]**:\n\nEspero que se encuentre bien.  \nAgradecemos la oportunidad de presentar nuestra propuesta para el desarrollo de su nuevo sitio web corporativo con plataforma d",
-      "auto_quality": 10.0,
-      "judge_score": 5,
-      "judge_precision": 5,
-      "judge_relevancia": 5,
-      "judge_profundidad": 4,
-      "judge_claridad": 5,
-      "judge_utilidad": 5,
-      "judge_justificacion": "La respuesta es precisa, relevante, clara y útil, proporcionando una propuesta detallada y estructurada que un emprendedor podría usar directamente.",
-      "suite": "content_generation",
-      "run": 1,
-      "timestamp": "20260714_055758_8223",
-      "response_file": "results/responses/20260714_055758_8223/or-nemotron-3-nano-omni-reasoning__content_generation__email_profesional.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.0,
