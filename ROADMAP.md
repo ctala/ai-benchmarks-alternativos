@@ -1,7 +1,7 @@
 # Roadmap del Benchmark
 
 > Ultima actualizacion: 2 de Julio de 2026 (post v3.1.0: pSEO Fable 5 + integridad de prompts + CheatSheet julio)
-> Estado del ranking: **v3.1.0 — <!-- AUTO:total_models -->170<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->118<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->14,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
+> Estado del ranking: **v3.1.0 — <!-- AUTO:total_models -->170<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->118<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->27,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
 > Cobertura faltante: ver [TESTS_FALTANTES.md](TESTS_FALTANTES.md) (30 modelos sin runs o con cobertura parcial).
 > **Próximo release: Agosto 2026** (cadencia mensual). El release de julio ya salió — ver [CHANGELOG.md](CHANGELOG.md).
 

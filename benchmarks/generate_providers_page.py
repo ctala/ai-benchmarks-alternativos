@@ -146,7 +146,7 @@ def veredicto(pares):
         return (
             "<p>Hoy ningún modelo medido por más de un camino cambia más de "
             f"{UMBRAL_GRAVE:.0f} punto de calidad según el proveedor. La velocidad y la "
-            "latencia <strong>sí</strong> cambian, y bastante — mirá la tabla.</p>"
+            "latencia <strong>sí</strong> cambian, y bastante — mira la tabla.</p>"
         )
     peor = graves[0]
     a, b = peor["ms"][0], peor["ms"][-1]
@@ -231,8 +231,8 @@ mide en su propia infra, no estás comparando modelos, estás comparando datacen
 <li><strong>Si te cambiaste de proveedor y "el modelo empeoró", no era tu impresión.</strong>
 Medilo antes de culpar al prompt.</li>
 <li><strong>El proveedor más rápido no es gratis.</strong> A veces la velocidad viene de
-una cuantización que te está costando calidad. Esa es una decisión que podés tomar — pero
-tenés que saber que la estás tomando.</li>
+una cuantización que te está costando calidad. Esa es una decisión que puedes tomar — pero
+tienes que saber que la estás tomando.</li>
 </ol>
 
 <h2>Cómo salió este dato</h2>

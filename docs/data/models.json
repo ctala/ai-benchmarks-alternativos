@@ -1,8 +1,11 @@
 {
-  "generated_at": "2026-07-17T11:59:18",
+  "generated_at": "2026-07-17T13:16:48",
   "total_models": 170,
   "tested_count": 118,
   "ranked_count": 69,
+  "total_runs_measured": 27741,
+  "total_runs_active": 23369,
+  "total_runs_discarded": 4372,
   "thresholds": {
     "tested_min_runs": 20,
     "ranked_min_runs": 50

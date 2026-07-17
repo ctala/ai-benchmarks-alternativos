@@ -13,7 +13,7 @@ Uso:
 
 Para agregar una comparación: añadir un dict a COMPARISONS. Cero HTML a mano.
 """
-import argparse, json, html
+import argparse, json, html, re
 from datetime import date
 from pathlib import Path
 
@@ -30,9 +30,9 @@ PILLARS = ["Coding", "Contenido", "Razonamiento", "Agentes"]
 # Qué mide cada pilar (para el V/S por tipo de trabajo) — descripciones del README
 PILLAR_DESC = {
     "Coding": ("Coding", "generar código, JSON estructurado y debugging en tareas reales "
-               "(plugins WordPress, scripts, templates de N8N)", "lo que hacés"),
+               "(plugins WordPress, scripts, templates de N8N)", "lo que haces"),
     "Contenido": ("Contenido y marketing", "blogs, copy y textos largos en español neutro "
-                  "(no traducción del inglés)", "lo que escribís"),
+                  "(no traducción del inglés)", "lo que escribes"),
     "Razonamiento": ("Razonamiento", "matemáticas, lógica formal y planificación multi-paso", "cómo decide"),
     "Agentes": ("Agentes y operaciones", "multi-turno largo, tool calling y flujos tipo N8N / Hermes", "cómo opera"),
 }
@@ -318,7 +318,7 @@ def load_json():
 def load_models(incluir_deprecados: bool = False):
     """Los modelos que se pueden RECOMENDAR. Los deprecados quedan fuera por defecto.
 
-    Un modelo cuyo endpoint ya no existe no es un candidato: no lo podés llamar.
+    Un modelo cuyo endpoint ya no existe no es un candidato: no lo puedes llamar.
     Publicarlo en una página de recomendación es peor que no publicar nada — alguien lee
     "el #5, y barato", lo integra, y se estrella contra un 404.
 
@@ -354,8 +354,28 @@ def get_counts():
     return {
         "total_models": d.get("total_models", len(models)) if isinstance(d, dict) else len(models),
         "tested_count": d.get("tested_count", len(tested)) if isinstance(d, dict) else len(tested),
-        "total_runs": sum(m.get("runs", 0) for m in tested),
+        # "runs reales" = total de ejecuciones medidas (campo canónico); fallback al
+        # conteo por-modelo. Dinámico desde models.json para no quedar stale.
+        "total_runs": (d.get("total_runs_measured") if isinstance(d, dict) else 0)
+                      or sum(m.get("runs", 0) for m in tested),
     }
+
+
+def existing_published(url, fallback=None):
+    """Preserva datePublished de la página ya publicada. Frescura honesta: dateModified
+    se mueve a hoy en cada regeneración, pero datePublished conserva la fecha original
+    (Google penaliza falsear la fecha de publicación). Página nueva → hoy."""
+    fallback = fallback or date.today().isoformat()
+    try:
+        rel = url.replace(SITE, "").strip("/")
+        f = DOCS / rel / "index.html"
+        if f.exists():
+            m = re.search(r'"datePublished":\s*"(\d{4}-\d{2}-\d{2})"', f.read_text(encoding="utf-8"))
+            if m:
+                return m.group(1)
+    except Exception:
+        pass
+    return fallback
 
 
 def fmt_k(n):
@@ -530,9 +550,9 @@ def analysis(a_name, b_name, A, B):
             other = bb if cheaper is ba else ba
             win_name = f"Empate — {esc(ba.get('name'))} o {esc(bb.get('name'))}"
             body = (f"Empate técnico en calidad: <strong>{esc(ba.get('name'))}</strong> y <strong>{esc(bb.get('name'))}</strong> "
-                    f"rinden casi igual (≈{max(pillar(ba,pil),pillar(bb,pil)):.1f}/10). Acá no decidimos por vos: "
+                    f"rinden casi igual (≈{max(pillar(ba,pil),pillar(bb,pil)):.1f}/10). Acá no decidimos por ti: "
                     f"si te importa el costo, <strong>{esc(cheaper.get('name'))}</strong> sale {fmt_cost(cheaper)} por millón; "
-                    f"si ya tenés {esc(other.get('name'))} en tu stack, no hay razón para cambiar — la calidad es la misma.")
+                    f"si ya tienes {esc(other.get('name'))} en tu stack, no hay razón para cambiar — la calidad es la misma.")
         else:
             w = ba if diff > 0 else bb
             l = bb if w is ba else ba
@@ -562,7 +582,7 @@ def analysis(a_name, b_name, A, B):
       {"".join(verdict_rows)}
     </tbody>
   </table></div>
-  <p class="meta">Este cuadro muestra el mejor por <strong>calidad de cada pilar</strong> — pero el "ganador" real depende de <strong>tu</strong> prioridad: calidad, costo o velocidad. No sabemos tu caso, así que ajustá esos pesos en la <a href="/">calculadora</a> y obtené el ganador para vos.</p>
+  <p class="meta">Este cuadro muestra el mejor por <strong>calidad de cada pilar</strong> — pero el "ganador" real depende de <strong>tu</strong> prioridad: calidad, costo o velocidad. No sabemos tu caso, así que ajusta esos pesos en la <a href="/">calculadora</a> y obtén el ganador para ti.</p>
 </section>""")
     # Cierre del funnel. Estas paginas de comparacion son las que reciben el trafico
     # de NOVEDAD (un modelo sale y la gente busca "X vs Y" esa misma semana), y hasta
@@ -615,9 +635,9 @@ def faq(a_name, b_name, A, B):
         ),
         (
             "¿Cuál es más barato para agentes con volumen?",
-            "Mirá la columna de costo en la tabla. Para 1.000+ calls/mes, el costo por millón de tokens domina el ROI por encima de "
+            "Mira la columna de costo en la tabla. Para 1.000+ calls/mes, el costo por millón de tokens domina el ROI por encima de "
             "diferencias chicas de calidad. Filtralo por tu presupuesto en la calculadora.",
-            "Mirá la columna de costo en la tabla. Para 1.000+ calls/mes, el costo por millón de tokens domina el ROI por encima de "
+            "Mira la columna de costo en la tabla. Para 1.000+ calls/mes, el costo por millón de tokens domina el ROI por encima de "
             "diferencias chicas de calidad. Filtralo por tu presupuesto en la <a href=\"/\">calculadora</a>.",
         ),
     ]
@@ -644,10 +664,11 @@ def faq(a_name, b_name, A, B):
 def page_shell(title, desc, kw, url, body):
     """Shell HTML reusable (head + header + main + footer). Lo comparten comparaciones y rankings."""
     today = date.today().isoformat()
+    published = existing_published(url, today)
     jsonld = json.dumps({
         "@context": "https://schema.org", "@type": "Article", "headline": title,
         "description": desc, "author": {"@type": "Person", "name": "Cristian Tala", "url": "https://cristiantala.com"},
-        "datePublished": today, "dateModified": today, "inLanguage": "es",
+        "datePublished": published, "dateModified": today, "inLanguage": "es",
         "url": url, "mainEntityOfPage": url,
         "publisher": {"@type": "Person", "name": "Cristian Tala", "url": "https://cristiantala.com"},
     }, ensure_ascii=False, indent=2)
@@ -743,8 +764,8 @@ def page_shell(title, desc, kw, url, body):
 </script>
 <header>
   <div class="container header-inner">
-    <a href="https://cristiantala.com" class="logo-link" target="_blank" rel="noopener">
-      <img src="{LOGO_DARK}" alt="Cristian Tala" class="logo">
+    <a href="/" class="logo-link" aria-label="Cristian Tala — inicio del benchmark">
+      <span class="wordmark">Cristian Tala<span class="cursor">_</span></span>
     </a>
     <nav aria-label="Principal">
       <a href="/">Calculadora</a>
@@ -798,13 +819,13 @@ def render(cfg, A, B):
         {rows}
       </tbody>
     </table></div>
-    <p class="meta">Filtrá por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
+    <p class="meta">Filtra por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
   </section>
   {analysis(a_name, b_name, A, B)}
   {faq(a_name, b_name, A, B)}
   <section class="cta-block">
-    <h2>Probá la calculadora con tu caso real</h2>
-    <p>Filtrá {esc(a_name)}, {esc(b_name)} y 100+ modelos más por presupuesto, calidad y tipo de tarea. En 30 segundos encontrás el mejor para vos.</p>
+    <h2>Prueba la calculadora con tu caso real</h2>
+    <p>Filtra {esc(a_name)}, {esc(b_name)} y 100+ modelos más por presupuesto, calidad y tipo de tarea. En 30 segundos encuentras el mejor para ti.</p>
     <a href="/" class="cta-primary">Ir a la calculadora →</a>
   </section>"""
     return page_shell(cfg["title"], desc, cfg["intent_kw"], url, body)

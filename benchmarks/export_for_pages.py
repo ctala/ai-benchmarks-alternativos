@@ -153,6 +153,34 @@ def load_all_results():
     return by_id, by_id_and_name
 
 
+def count_runs_measured():
+    """Cuenta TODOS los runs ejecutados alguna vez (éxito o no), activos + descartados.
+
+    Es la métrica de 'esfuerzo total de medición' que se muestra en el hero: incluye los
+    runs que después se descartaron (empties de rate-limit, fórmulas obsoletas, suites
+    archivadas). El conocimiento del benchmark salió de todas esas corridas, no solo de
+    las que sobrevivieron al ranking — y todas costaron créditos. NO es lo mismo que la
+    suma de `runs` por modelo (esa cuenta solo los runs válidos que puntúan).
+    """
+    results_dir = Path(__file__).parent / "results"
+    active = 0
+    for fn in os.listdir(results_dir):
+        if fn.startswith("benchmark_") and fn.endswith(".json"):
+            try:
+                data = json.loads((results_dir / fn).read_text())
+            except Exception:
+                continue
+            active += len(data if isinstance(data, list) else data.get("results", []))
+    discarded = 0
+    for arch in results_dir.glob("_archive*"):
+        for fn in arch.rglob("REMOVED__*.json"):
+            try:
+                discarded += len(json.loads(fn.read_text()).get("runs", []))
+            except Exception:
+                continue
+    return active, discarded
+
+
 # Una suite entra al `quality` (y por tanto al score) SOLO si la corrió al menos
 # este porcentaje de los modelos con cobertura. Si no, se reporta aparte.
 #
@@ -1023,11 +1051,18 @@ def build_export(recalibrate=False, scoring_version=None):
     # ranking valido sin tener que conocer los umbrales.
     models_export.sort(key=lambda m: (not m["ranked"], not m["tested"], -(m.get("score_global") or 0)))
 
+    _runs_active, _runs_discarded = count_runs_measured()
+
     return {
         "generated_at": __import__("datetime").datetime.now().isoformat(timespec="seconds"),
         "total_models": len(models_export),
         "tested_count": sum(1 for m in models_export if m["tested"]),
         "ranked_count": sum(1 for m in models_export if m["ranked"]),
+        # Esfuerzo total de medición (para el hero): TODOS los runs ejecutados,
+        # incluidos los descartados en la limpieza. Ver count_runs_measured().
+        "total_runs_measured": _runs_active + _runs_discarded,
+        "total_runs_active": _runs_active,
+        "total_runs_discarded": _runs_discarded,
         # Umbrales explicitos: el consumidor no deberia adivinarlos ni hardcodearlos.
         "thresholds": {"tested_min_runs": MIN_RUNS_TESTED, "ranked_min_runs": MIN_RUNS_RANKED},
         "tokens_per_call_assumption": {"input": 300, "output": 1500},
