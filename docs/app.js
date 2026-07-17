@@ -175,19 +175,29 @@ async function load() {
       "Error cargando datos. Verifica que docs/data/models.json esté generado.";
     return;
   }
-  // Hero stats — mostramos modelos con AL MENOS 1 run (excluye los en cola)
-  // para que el conteo coincida con lo que se muestra en el ranking
-  const benchmarkedCount = state.data.models.filter(m => (m.runs || 0) > 0).length;
-  document.getElementById("hero-runs").textContent =
-    state.data.models.reduce((acc, m) => acc + (m.runs || 0), 0).toLocaleString();
-  document.getElementById("hero-models").textContent = benchmarkedCount;
+  // Hero stats — esfuerzo total de medición: TODOS los modelos catalogados y TODOS
+  // los runs ejecutados (incluidos los descartados en la limpieza). El conocimiento
+  // costó todas esas corridas, no solo las que quedaron rankeadas. Fallback al conteo
+  // vivo si el export no trae los campos nuevos.
+  const totalModels = state.data.total_models
+    || state.data.models.filter(m => (m.runs || 0) > 0).length;
+  const totalRuns = state.data.total_runs_measured
+    || state.data.models.reduce((acc, m) => acc + (m.runs || 0), 0);
+  document.getElementById("hero-runs").textContent = totalRuns.toLocaleString("es");
+  document.getElementById("hero-models").textContent = totalModels;
   document.getElementById("hero-updated").textContent =
     state.data.generated_at?.replace("T", " ") || "—";
+
+  // Structured data en sync con la data viva: dateModified + versión + conteos.
+  // Señal de frescura para Google (sabe que la página se actualizó) y evita que el
+  // schema caduque — todo dinámico desde models.json, nada hardcodeado que envejezca.
+  syncStructuredData(state.data, totalModels, totalRuns);
 
   bindFilters();
   applyUrlContext();   // el usuario llega con un caso de uso ya declarado: respetarlo
   bindAnalytics();
   render();
+  wizInit();           // wizard guiado (usa state.data + computeZScore)
 }
 
 // Eventos del funnel en la calculadora. Sin esto no hay forma de saber si la
@@ -892,6 +902,210 @@ function render() {
   `;
 
   tableWrap.innerHTML = html;
+}
+
+// ============================================================
+// WIZARD GUIADO (v4.0)
+// 3 preguntas de negocio → recomendación concreta. Reusa el motor real
+// (computeZScore + models.json congelado). La calculadora completa queda abajo.
+// ============================================================
+const WIZ = {
+  step: 0, task: null, budget: null, os: false, tools: false,
+  tasks: [
+    { id: "general", ic: "🧭", ot: "Un poco de todo", od: "No estoy seguro / uso general", pillar: null, page: null },
+    { id: "coding", ic: "💻", ot: "Programar", od: "Código, debugging, scripts", pillar: "Coding", page: "/mejor-llm-para-programar/" },
+    { id: "contenido", ic: "✍️", ot: "Escribir contenido", od: "Blogs, copy, emails, marketing", pillar: "Contenido", page: "/mejor-llm-para-contenido/" },
+    { id: "agentes", ic: "🔧", ot: "Agentes / automatizar", od: "N8N, flujos multi-paso, tareas", pillar: "Agentes", page: "/mejor-llm-para-agentes/" },
+    { id: "razonamiento", ic: "🧠", ot: "Razonar / analizar", od: "Análisis, decisiones, matemática", pillar: "Razonamiento", page: "/mejor-llm-para-razonamiento/" },
+    { id: "chat", ic: "💬", ot: "Chat en vivo", od: "Respuesta rápida, conversación", pillar: null, page: null, latency: true },
+  ],
+  budgets: [
+    { id: "personal", ic: "🧑", ot: "Poco", od: "~$5/mes · uso personal", w: { quality: 85, cost: 5, speed: 5, latency: 5 } },
+    { id: "solopreneur", ic: "🚀", ot: "Medio", od: "~$25/mes · solopreneur", w: { quality: 70, cost: 15, speed: 7.5, latency: 7.5 } },
+    { id: "pyme", ic: "🏢", ot: "Bastante", od: "~$100/mes · PyME", w: { quality: 55, cost: 30, speed: 8, latency: 7 } },
+    { id: "produccion", ic: "⚙️", ot: "Mucho", od: "~$500/mes · producción", w: { quality: 40, cost: 40, speed: 12, latency: 8 } },
+  ],
+};
+
+function wizInit() {
+  const wiz = document.getElementById("wizard");
+  if (!wiz || !state.data) return;
+
+  // Render opciones de tarea y presupuesto
+  const optHtml = (o, group) =>
+    `<button class="wiz-opt" data-group="${group}" data-id="${o.id}" type="button">
+       <span class="ic">${o.ic}</span><span><span class="ot">${o.ot}</span><span class="od">${o.od}</span></span>
+     </button>`;
+  document.getElementById("wiz-tasks").innerHTML = WIZ.tasks.map(o => optHtml(o, "task")).join("");
+  document.getElementById("wiz-budgets").innerHTML = WIZ.budgets.map(o => optHtml(o, "budget")).join("");
+
+  wiz.addEventListener("click", (e) => {
+    const opt = e.target.closest(".wiz-opt");
+    if (opt) {
+      const g = opt.dataset.group;
+      wiz.querySelectorAll(`.wiz-opt[data-group="${g}"]`).forEach(b => b.classList.remove("sel"));
+      opt.classList.add("sel");
+      WIZ[g] = opt.dataset.id;
+      document.getElementById("wiz-next").disabled = false;
+      return;
+    }
+    const tog = e.target.closest(".wiz-toggle");
+    if (tog) {
+      const on = tog.getAttribute("aria-pressed") !== "true";
+      tog.setAttribute("aria-pressed", on ? "true" : "false");
+      WIZ[tog.id === "wiz-tog-os" ? "os" : "tools"] = on;
+    }
+  });
+
+  document.getElementById("wiz-next").addEventListener("click", () => {
+    if (WIZ.step < 2) { WIZ.step++; wizRenderStep(); }
+    else wizResult();
+  });
+  document.getElementById("wiz-back").addEventListener("click", () => {
+    if (WIZ.step > 0) { WIZ.step--; wizRenderStep(); }
+  });
+  window.dataLayer = window.dataLayer || [];
+}
+
+function wizRenderStep() {
+  const wiz = document.getElementById("wizard");
+  wiz.querySelectorAll(".wiz-step").forEach(s => { s.hidden = +s.dataset.step !== WIZ.step; });
+  wiz.querySelectorAll(".wiz-steps span").forEach((s, i) => s.classList.toggle("on", i <= WIZ.step));
+  document.getElementById("wiz-back").hidden = WIZ.step === 0;
+  const next = document.getElementById("wiz-next");
+  next.textContent = WIZ.step === 2 ? "Ver mi recomendación ✨" : "Siguiente →";
+  // el paso 3 es opcional: siempre habilitado
+  next.disabled = WIZ.step === 2 ? false : (WIZ.step === 0 ? !WIZ.task : !WIZ.budget);
+  document.getElementById("wiz-result").hidden = true;
+}
+
+function wizResult() {
+  const t = WIZ.tasks.find(x => x.id === WIZ.task);
+  const b = WIZ.budgets.find(x => x.id === WIZ.budget);
+  let w = { ...b.w };
+  if (t.latency) w = { quality: 50, cost: 15, speed: 10, latency: 25 }; // chat prioriza latencia
+  const pillar = t.pillar;
+
+  let models = state.data.models.filter(m => m.ranked);
+  if (WIZ.os) models = models.filter(m => m.open_source);
+  if (WIZ.tools) models = models.filter(m => (m.tool_calling_score_avg || 0) >= 6);
+
+  const scored = models
+    .map(m => ({ m, s: computeZScore(m, w, pillar) }))
+    .filter(x => x.s != null)
+    .sort((a, b2) => b2.s - a.s);
+
+  const wrap = document.getElementById("wiz-result");
+  if (!scored.length) {
+    wrap.innerHTML = `<div class="empty" style="margin-top:16px">No hay modelos que cumplan esas restricciones. Prueba quitando alguna.</div>`;
+    wrap.hidden = false;
+    return;
+  }
+  const top = scored[0].m;
+  // alternativa más barata con calidad >= 8 (la tesis: no pagues de más)
+  const cheap = scored.map(x => x.m).filter(m => (m.quality_avg || 0) >= 8 && m.name !== top.name)
+    .sort((a, c) => (a.cost_input_per_M ?? 999) - (c.cost_input_per_M ?? 999))[0];
+
+  const price = (m) => m.cost_input_per_M != null ? `$${m.cost_input_per_M}/M in` : "—";
+  const per1k = (m) => m.cost_per_1k_calls_usd != null ? `$${m.cost_per_1k_calls_usd}` : "—";
+  const badges = (m) => [
+    m.open_source ? `<span class="wiz-bdg os">Open source</span>` : "",
+    `<span class="wiz-bdg price">${price(m)}</span>`,
+    `<span class="wiz-bdg q">Calidad ${m.quality_avg ?? "—"}/10</span>`,
+  ].join("");
+
+  const taskLabel = t.id === "general" ? "uso general" : t.ot.toLowerCase();
+  const why = pillar
+    ? `Es el mejor en <b>${t.ot}</b> para tu presupuesto. La calidad se mide con los tests reales de ese pilar, no un promedio genérico.`
+    : `Es el que mejor equilibra calidad y precio para <b>${taskLabel}</b> con tu volumen.`;
+
+  const deeper = [];
+  if (t.page) deeper.push(`<a href="${t.page}">Ranking completo: ${t.ot} <span class="ar">→</span></a>`);
+  const cmpSlug = wizCmpSlug(top.name);
+  if (cmpSlug) deeper.push(`<a href="${cmpSlug}">Comparación cara a cara <span class="ar">→</span></a>`);
+  const rankedN = (state.data.ranked_count) || state.data.models.filter(m => m.ranked).length;
+  deeper.push(`<a href="#results">Explorar los ${rankedN} modelos con filtros <span class="ar">→</span></a>`);
+
+  wrap.innerHTML = `
+    <div class="wiz-rec">
+      <p class="wiz-eyebrow">Tu recomendación</p>
+      <div class="wiz-hero">
+        <div class="wiz-pick-name">${top.name}</div>
+        <div class="wiz-badges">${badges(top)}</div>
+        <p class="wiz-why">${why}</p>
+        <div class="wiz-cost">
+          <div><div class="k">Precio entrada</div><div class="v green">${price(top)}</div></div>
+          <div><div class="k">~1.000 llamadas</div><div class="v">${per1k(top)}</div></div>
+          <div><div class="k">Calidad</div><div class="v">${top.quality_avg ?? "—"}</div></div>
+        </div>
+      </div>
+      ${cheap ? `
+      <div class="wiz-deeper" style="border-color:rgba(0,212,255,.28)">
+        <div class="dh" style="color:var(--cyan)">💡 Si quieres gastar menos (misma tesis: la calidad top no cuesta caro)</div>
+        <a href="#results"><b>${cheap.name}</b> — calidad ${cheap.quality_avg}/10 a ${price(cheap)} <span class="ar">→</span></a>
+      </div>` : ""}
+      <div class="wiz-deeper">
+        <div class="dh">Profundiza</div>
+        ${deeper.join("")}
+      </div>
+      <button class="wiz-restart" id="wiz-restart" type="button">↺ Empezar de nuevo</button>
+    </div>`;
+  wrap.hidden = false;
+  document.querySelectorAll(".wiz-step").forEach(s => s.hidden = true);
+  document.querySelector(".wiz-steps").style.display = "none";
+  document.querySelector(".wiz-nav").style.display = "none";
+  document.getElementById("wiz-restart").addEventListener("click", () => {
+    WIZ.step = 0; WIZ.task = null; WIZ.budget = null; WIZ.os = false; WIZ.tools = false;
+    document.querySelectorAll(".wiz-opt.sel").forEach(o => o.classList.remove("sel"));
+    document.querySelectorAll(".wiz-toggle").forEach(o => o.setAttribute("aria-pressed", "false"));
+    document.querySelector(".wiz-steps").style.display = "";
+    document.querySelector(".wiz-nav").style.display = "";
+    wizRenderStep();
+  });
+  window.dataLayer.push({ event: "wizard_recomendacion", task: WIZ.task, budget: WIZ.budget, pick: top.name });
+}
+
+// Mantiene el JSON-LD (Dataset + SoftwareApplication) en sync con la data viva:
+// dateModified = fecha del dataset, versión y conteos. Señal de frescura para Google
+// y garantía de que el schema no caduca (todo sale de models.json, nada hardcodeado).
+function syncStructuredData(data, totalModels, totalRuns) {
+  try {
+    const genDate = (data.generated_at || "").slice(0, 10);
+    const ver = data.scoring_version || "v4.0";
+    const runsRounded = (Math.floor(totalRuns / 1000) * 1000).toLocaleString("es");
+    document.querySelectorAll('script[type="application/ld+json"]').forEach(s => {
+      let j;
+      try { j = JSON.parse(s.textContent); } catch { return; }
+      const nodes = j["@graph"] || [j];
+      let touched = false;
+      nodes.forEach(n => {
+        if (n["@type"] === "Dataset") {
+          if (genDate) n.dateModified = genDate;
+          n.version = ver;
+          n.description = `Benchmark abierto de ${totalModels} modelos de IA (LLMs) con ${runsRounded}+ tests reales organizados en 4 pilares (Razonamiento, Coding, Contenido, Agentes) + long-context y seguridad como dimensiones separadas. Evaluación con LLM-as-Judge Phi-4 local.`;
+          touched = true;
+        } else if (n["@type"] === "SoftwareApplication") {
+          if (genDate) n.dateModified = genDate;
+          n.softwareVersion = ver;
+          n.description = `Calculadora interactiva para encontrar el mejor modelo IA según presupuesto, calidad, velocidad, tarea y caso de uso. Filtra entre ${totalModels} modelos benchmarkeados con pesos ajustables.`;
+          touched = true;
+        }
+      });
+      if (touched) s.textContent = JSON.stringify(j, null, 2);
+    });
+  } catch (e) { console.warn("structured data sync skipped", e); }
+}
+
+// Mapea un modelo a una página de comparación existente si la hay (hub-and-spoke).
+function wizCmpSlug(name) {
+  const n = name.toLowerCase();
+  if (n.includes("fable")) return "/fable-5-vs-gpt-5-6-sol/";
+  if (n.includes("opus")) return "/claude-haiku-sonnet-opus/";
+  if (n.includes("deepseek")) return "/deepseek-vs-claude/";
+  if (n.includes("gemini")) return "/gemini-vs-claude/";
+  if (n.includes("gpt-5") || n.includes("gpt5")) return "/claude-vs-chatgpt/";
+  if (n.includes("qwen") || n.includes("llama")) return "/qwen-vs-llama/";
+  return null;
 }
 
 document.addEventListener("DOMContentLoaded", load);

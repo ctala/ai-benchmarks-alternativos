@@ -47,7 +47,9 @@ def main():
     data = json.loads(MODELS_JSON.read_text(encoding="utf-8"))
     total_models = data.get("total_models", 0)
     tested_count = data.get("tested_count", 0)
-    total_runs = sum(m.get("runs", 0) for m in data.get("models", []) if m.get("tested"))
+    # "runs reales" = total de ejecuciones medidas (campo canónico total_runs_measured);
+    # fallback al conteo por-modelo. Dinámico para no volver a quedar stale.
+    total_runs = data.get("total_runs_measured") or sum(m.get("runs", 0) for m in data.get("models", []) if m.get("tested"))
     runs_k = f"{(total_runs // 1000) * 1000:,}".replace(",", ".")
     w = data.get("default_weights", {})
     q = _fmt_pct(w.get("quality", 0.7))
@@ -62,12 +64,12 @@ def main():
            f"> Benchmark abierto de {total_models} modelos de IA (LLMs) catalogados, {tested_count} "
            f"testeados y {runs_k}+ runs reales, pensado para emprendedores hispanohablantes. "
            "Mide calidad, costo, velocidad, tool calling y capacidad agéntica en español, con "
-           f"LLM-as-Judge local (Phi-4, Microsoft). El score global v3.0 es ponderado (calidad {q}% + "
+           f"LLM-as-Judge local (Phi-4, Microsoft). El score global {data.get('scoring_version', 'v4.0')} es ponderado (calidad {q}% + "
            f"costo {co}% + velocidad {sp}% + latencia {la}%); tool calling es insignia aparte "
            f"({tc_text}): mide valor para producción, no capacidad bruta. Datos abiertos, en español neutro.",
            "",
            "## Calculadora y datos",
-           f"- [Calculadora interactiva de modelos]({SITE}/): filtrá 100+ modelos por presupuesto, calidad y tarea.",
+           f"- [Calculadora interactiva de modelos]({SITE}/): filtra 100+ modelos por presupuesto, calidad y tarea.",
            "- [Datos abiertos y metodología (GitHub)](https://github.com/ctala/ai-benchmarks-alternativos): código, resultados JSON y tests.",
            ""]
     if rankings:

@@ -87,7 +87,10 @@ def load_counts():
         "with_runs": with_runs,
         "total_runs": total_runs,
         "lotes": lotes,
-        "tests_marketing": _round_marketing(total_runs),
+        # "tests reales" = total de ejecuciones medidas (campo canónico total_runs_measured,
+        # incluye descartadas); fallback al conteo por-modelo. Consistente con los
+        # generadores pSEO y llms.txt, y dinámico para no volver a quedar stale.
+        "tests_marketing": _round_marketing(data.get("total_runs_measured") or total_runs),
     }
 
 

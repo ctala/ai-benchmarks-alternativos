@@ -105,7 +105,7 @@ def main():
     f_tag = _font(22)
     dr.ellipse([PAD, 40, PAD + 14, 54], fill=GREEN)
     dr.text((PAD + 24, 36), "benchmarks.cristiantala.com", font=f_tag, fill=GREEN)
-    tag_r = "v3.0 · quality 70% · cost 15% · speed/latency 7.5%"
+    tag_r = f"{d.get('scoring_version', 'v4.0')} · quality 70% · cost 15% · speed/latency 7.5%"
     dr.text((W - PAD - _text_w(dr, tag_r, f_tag), 36), tag_r, font=f_tag, fill=GRAY)
 
     # --- título ---

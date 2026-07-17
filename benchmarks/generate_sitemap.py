@@ -6,8 +6,10 @@ Lista:
 1. Todos los index.html bajo docs/ (calculadora + landing pages)
 2. MDs criticos del repo en GitHub (README, MODELOS, TESTS, AGENTS, etc.)
 
-Para cada URL toma lastmod del ultimo commit git que toco el archivo
-(fallback: fecha actual si el archivo no esta versionado todavia).
+Para cada URL toma lastmod de la ultima modificacion del archivo (mtime): tras
+regenerar, las paginas reescritas quedan con la fecha de regeneracion (hoy), una
+senal de frescura honesta y coherente con dateModified del JSON-LD. Las paginas
+que no se regeneran conservan su fecha real. Fallback: hoy.
 
 Uso:
     python benchmarks/generate_sitemap.py        # genera docs/sitemap.xml
@@ -21,7 +23,6 @@ Pesos por defecto (ajustables en PRIORITY_OVERRIDES):
 - CHANGELOG -> 0.5
 """
 
-import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 from xml.sax.saxutils import escape
@@ -54,20 +55,15 @@ PRIORITY_OVERRIDES = {
 }
 
 
-def git_lastmod(path: Path) -> str:
-    """Devuelve fecha YYYY-MM-DD del ultimo commit que toco el archivo. Fallback: hoy."""
+def file_lastmod(path: Path) -> str:
+    """Fecha (YYYY-MM-DD, hora local) de la ultima escritura del archivo. Tras regenerar,
+    las paginas reescritas quedan con la fecha de regeneracion (hoy) -> coherente con el
+    dateModified del JSON-LD. Se usa hora local (naive) para alinear con date.today().
+    Fallback: hoy."""
     try:
-        out = subprocess.check_output(
-            ["git", "log", "-1", "--format=%cs", "--", str(path)],
-            cwd=ROOT,
-            text=True,
-            stderr=subprocess.DEVNULL,
-        ).strip()
-        if out:
-            return out
-    except subprocess.CalledProcessError:
-        pass
-    return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        return datetime.fromtimestamp(path.stat().st_mtime).strftime("%Y-%m-%d")
+    except OSError:
+        return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 
 # Paginas que NO van al sitemap: son redirects/noindex, no contenido.
@@ -131,7 +127,7 @@ def build_sitemap() -> str:
     entries = docs_pages()
 
     for url, path, priority in entries:
-        lastmod = git_lastmod(path)
+        lastmod = file_lastmod(path)
         lines.append("  <url>")
         lines.append(f"    <loc>{escape(url)}</loc>")
         lines.append(f"    <lastmod>{lastmod}</lastmod>")

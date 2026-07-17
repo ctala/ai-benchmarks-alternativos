@@ -67,7 +67,7 @@
       "name": "¿Vale la pena pagar por suscripciones (Ollama Cloud, OpenRouter, ChatGPT Plus)?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ollama Cloud (~$30/mes calls ilimitadas a Qwen 3.5 397B): sí si volumen >5K calls/mes. OpenRouter pre-paid: solo paga lo que usás, no hay suscripción mensual. ChatGPT Plus ($20/mes): solo si usás chat conversacional sin construir agentes/herramientas. Para producto: API direct con modelos baratos gana siempre."
+        "text": "Ollama Cloud (~$30/mes calls ilimitadas a Qwen 3.5 397B): sí si volumen >5K calls/mes. OpenRouter pre-paid: solo paga lo que usas, no hay suscripción mensual. ChatGPT Plus ($20/mes): solo si usas chat conversacional sin construir agentes/herramientas. Para producto: API direct con modelos baratos gana siempre."
       }
     },
     {
@@ -135,8 +135,8 @@
 
 <header>
   <div class="container header-inner">
-    <a href="https://cristiantala.com" class="logo-link" target="_blank" rel="noopener">
-      <img src="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-dark-2026.png" alt="Cristian Tala" class="logo">
+    <a href="/" class="logo-link" aria-label="Cristian Tala — inicio del benchmark">
+      <span class="wordmark">Cristian Tala<span class="cursor">_</span></span>
     </a>
     <nav aria-label="Principal">
       <a href="/">Calculadora</a>
@@ -148,9 +148,9 @@
 
 <main class="container">
   <section class="hero">
-    <h1>Modelos IA baratos para emprendedores: mejores alternativas low-cost (Junio 2026)</h1>
+    <h1>Modelos IA baratos para emprendedores: mejores alternativas low-cost (Julio 2026)</h1>
     <p class="lead">
-      Si emprendés en Latinoamérica sin venture capital, cada $50/mes en API cuenta. Esta página
+      Si emprendes en Latinoamérica sin venture capital, cada $50/mes en API cuenta. Esta página
       compara los modelos IA <strong>realmente baratos</strong> (&lt;$1.00 input, &lt;$2.00 output per M tokens)
       con calidad medida — no opiniones de marketing. Más opciones <strong>gratis</strong> al final.
     </p>
@@ -196,7 +196,7 @@
       Catálogo gratis con 40 requests/minuto — más que suficiente para uso secuencial moderado.
       Joyas disponibles: <strong>Llama 3.3 70B</strong>, <strong>Mistral Small</strong>,
       <strong>Nemotron Ultra 253B</strong>, <strong>Qwen 3-Next 80B</strong>. API OpenAI-compatible.
-      Sólo necesitás registrarte en <code>build.nvidia.com</code>.
+      Sólo necesitas registrarte en <code>build.nvidia.com</code>.
     </p>
 
     <h3>Ollama Cloud (suscripción ~$30/mes, calls ilimitadas)</h3>
@@ -258,13 +258,13 @@
 <section class="faq">
   <h2>Preguntas frecuentes</h2>
   <details><summary><strong>¿Los modelos baratos son inferiores a Claude Opus o GPT-5?</strong></summary><p>Para razonamiento profundo y proyectos grandes, sí: Claude Opus 4.8 y GPT-5.5 mantienen ventaja. Para 80% de tareas estándar (contenido, agentes, coding mediano), DeepSeek V4 Flash o Mistral Small 4 a 1/100 del costo de Opus dan resultados prácticamente equivalentes. El benchmark cuantifica el delta exacto.</p></details>
-    <details><summary><strong>¿Vale la pena pagar por suscripciones (Ollama Cloud, OpenRouter, ChatGPT Plus)?</strong></summary><p>Ollama Cloud (~$30/mes calls ilimitadas a Qwen 3.5 397B): sí si volumen &gt;5K calls/mes. OpenRouter pre-paid: solo paga lo que usás, no hay suscripción mensual. ChatGPT Plus ($20/mes): solo si usás chat conversacional sin construir agentes/herramientas. Para producto: API direct con modelos baratos gana siempre.</p></details>
+    <details><summary><strong>¿Vale la pena pagar por suscripciones (Ollama Cloud, OpenRouter, ChatGPT Plus)?</strong></summary><p>Ollama Cloud (~$30/mes calls ilimitadas a Qwen 3.5 397B): sí si volumen &gt;5K calls/mes. OpenRouter pre-paid: solo paga lo que usas, no hay suscripción mensual. ChatGPT Plus ($20/mes): solo si usas chat conversacional sin construir agentes/herramientas. Para producto: API direct con modelos baratos gana siempre.</p></details>
     <details><summary><strong>¿Cómo manejo límites de rate y errores con modelos baratos?</strong></summary><p>Patrón fallback chain: principal Mistral Small 4, si falla Ministral 14B, si falla Llama 3.3 Groq, último recurso GPT-4.1. N8N permite implementar esto con nodos If/Error nativos. Robustez sin pagar premium por defecto.</p></details>
     <details><summary><strong>¿Qué moneda paga en estos servicios? ¿Hay opción local sin tarjeta de crédito?</strong></summary><p>OpenRouter, OpenAI, Anthropic: tarjeta USD. NVIDIA NIM: gratis con email. Ollama Cloud: requiere tarjeta. Local con Ollama: cero costos, sólo hardware. Para Latinoamérica con limitaciones de moneda, opciones gratis (NVIDIA NIM) + local son el fallback principal.</p></details>
     <details><summary><strong>¿Cómo empiezo si nunca usé estos modelos antes?</strong></summary><p>Pasos: 1) Crear cuenta en OpenRouter ($5 mínimo), 2) Probar Ministral 14B ($0.20/$0.20) con tu caso real, 3) Si funciona, escalar volumen, 4) Si calidad insuficiente, subir a Mistral Small 4 o Llama 3.3 Groq.</p></details>
 </section><section class="cta-block">
-  <h2>Probá la calculadora con tu caso real</h2>
-  <p>Filtrá por presupuesto mensual, calidad mínima, velocidad requerida y tipo de tarea. En 30 segundos encontrás el mejor para vos.</p>
+  <h2>Prueba la calculadora con tu caso real</h2>
+  <p>Filtra por presupuesto mensual, calidad mínima, velocidad requerida y tipo de tarea. En 30 segundos encuentras el mejor para ti.</p>
   <a href="/" class="cta-primary">Ir a la calculadora →</a>
   <p class="meta" style="margin-top: 1rem;">Ver también: <a href="/alternativas-claude/">alternativas a Claude</a> · <a href="/alternativas-chatgpt/">alternativas a ChatGPT</a> · <a href="/alternativas-gemini/">alternativas a Gemini</a> · <a href="/modelos-n8n/">modelos para N8N</a> · <a href="/modelos-open-source-local/">open-source local</a></p>
 </section>

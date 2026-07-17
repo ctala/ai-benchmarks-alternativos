@@ -21,7 +21,7 @@ import json
 from datetime import date
 from generate_comparison import (
     load_models, pillar, fmt_cost, esc, methodology, page_shell, SITE, DOCS, PILLARS,
-    get_counts, fmt_k, get_meta, fmt_pct,
+    get_counts, fmt_k, get_meta, fmt_pct, existing_published,
 )
 
 
@@ -82,10 +82,10 @@ RANKINGS = [
         "criterion": "cost", "min_score": 6.8,
         "case": "presupuesto ajustado (mejor relación calidad/precio para volumen real)",
         "what": "relación calidad/precio",
-        "lead": "El modelo más caro casi nunca es el que necesitás. Filtramos los que rinden bien (score global ≥ 6,8) "
+        "lead": "El modelo más caro casi nunca es el que necesitas. Filtramos los que rinden bien (score global ≥ 6,8) "
                 "y los ordenamos del más barato al más caro. Ideal para agentes con 1.000+ calls/mes.",
         "use_cases": ["agentes con alto volumen", "startups con presupuesto ajustado", "procesamiento batch", "prototipos que escalan", "calls diarios masivos"],
-        "why": "Cuando pasás de cientos a miles de calls por mes, el costo por millón de tokens pasa a ser más importante que ganar 0.2 puntos de calidad. El ranking refleja eso.",
+        "why": "Cuando pasas de cientos a miles de calls por mes, el costo por millón de tokens pasa a ser más importante que ganar 0.2 puntos de calidad. El ranking refleja eso.",
         "related": ["modelos-baratos-emprendedores", "mejor-llm-para-n8n", "mejor-llm-open-source"],
     },
     {
@@ -94,9 +94,9 @@ RANKINGS = [
         "h1": "Mejor LLM open source (2026)",
         "intent_kw": "mejor llm open source, mejor modelo open source, llm codigo abierto, mejor ia open source, modelos open source local",
         "criterion": "open_source",
-        "case": "open source (pesos abiertos — corrés local o en cualquier provider, sin lock-in)",
+        "case": "open source (pesos abiertos — corres local o en cualquier provider, sin lock-in)",
         "what": "modelos open source",
-        "lead": "Si querés correr local o evitar lock-in, estos son los mejores modelos de pesos abiertos según el "
+        "lead": "Si quieres correr local o evitar lock-in, estos son los mejores modelos de pesos abiertos según el "
                 "benchmark — ordenados por score global. Verificamos la licencia (cuidado con los \"Plus\" propietarios).",
         "use_cases": ["ejecución local", "privacidad de datos", "evitar vendor lock-in", "finetuning propio", "deploy en infraestructura propia"],
         "why": "Open source no es solo filosofía: es soberanía sobre tus datos, costos predecibles y la posibilidad de correr local cuando la privacidad lo exige.",
@@ -338,7 +338,7 @@ def reading_guide(cfg, ranked):
   <p>En esta dimensión {gap_text}. Eso no significa que sea el único
   válido: si tu prioridad es costo, velocidad o privacidad, el orden puede cambiar. El score global del benchmark
   pondera calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%, pero acá estamos mirando solo la calidad de la
-  tarea. Ajustá esos pesos en la <a href="/">calculadora</a> para tu caso.</p>
+  tarea. Ajusta esos pesos en la <a href="/">calculadora</a> para tu caso.</p>
   <p>Los modelos que aparecen tienen al menos 50 runs, lo que reduce el ruido de outlier con poca muestra.</p>
 </section>"""
 
@@ -354,8 +354,8 @@ def top3_explained(cfg, ranked):
         elif i == 2:
             angle = "Es la alternativa más sólida si el primero no encaja en tu stack"
         else:
-            angle = "Es una tercera opción competitiva, especialmente si valorás otro factor además de la calidad pura"
-        closing = ". Tiene pesos abiertos, así que podés correrlo en varios providers o local." if m.get('open_source') else ". Es propietario, pero puede valer la pena si ya integraste su ecosistema."
+            angle = "Es una tercera opción competitiva, especialmente si valoras otro factor además de la calidad pura"
+        closing = ". Tiene pesos abiertos, así que puedes correrlo en varios providers o local." if m.get('open_source') else ". Es propietario, pero puede valer la pena si ya integraste su ecosistema."
         parts.append(f"""  <h3>{i}. {esc(m.get('name'))} — {score:.1f}/10</h3>
   <p>{esc(m.get('name'))} ({provider}, {oss}) cuesta {fmt_cost(m)} por millón de tokens y rinde a
   {round(m.get('tokens_per_second') or 0)} tok/s. Su score en {esc(score_label(cfg))} es {score:.1f}/10.
@@ -382,7 +382,7 @@ def cost_comparison(cfg, ranked):
       {''.join(rows)}
     </tbody>
   </table></div>
-  <p class="meta">Para volumen alto, un modelo 2× más barato puede ahorrarte más de lo que pierdes en calidad. Validá con tu caso real en la <a href="/">calculadora</a>.</p>
+  <p class="meta">Para volumen alto, un modelo 2× más barato puede ahorrarte más de lo que pierdes en calidad. Valida con tu caso real en la <a href="/">calculadora</a>.</p>
 </section>"""
 
 
@@ -426,7 +426,7 @@ def frontier_in_dimension(cfg, models):
   <ul class="frontier-list">
     {''.join(items)}
   </ul>
-  <p class="meta">Si te interesa una comparación cara a cara, probá las <a href="/gpt-5.6-vs-claude-opus-4-8/">comparativas específicas</a> o ajustá los pesos en la calculadora.</p>
+  <p class="meta">Si te interesa una comparación cara a cara, prueba las <a href="/gpt-5.6-vs-claude-opus-4-8/">comparativas específicas</a> o ajusta los pesos en la calculadora.</p>
 </section>"""
 
 
@@ -480,17 +480,18 @@ def analysis(cfg, ranked):
     co = fmt_pct(w.get("cost", 0.15))
     sp = fmt_pct(w.get("speed", 0.075))
     la = fmt_pct(w.get("latency", 0.075))
+    ver = get_meta().get("scoring_version", "v4.0")
     return f"""<section>
   <h2>Por qué {esc(top1.get('name'))} lidera</h2>
-  <p>{why} Recordá que el score global v3.0 pondera calidad {q}% + costo {co}% + velocidad {sp}% + latencia {la}% — no es solo "el más inteligente",
+  <p>{why} Recuerda que el score global {ver} pondera calidad {q}% + costo {co}% + velocidad {sp}% + latencia {la}% — no es solo "el más inteligente",
   sino el que mejor rinde en producción para este caso.</p>
   <h3>Cuándo conviene este modelo</h3>
   <ul>
-    <li>Si tu prioridad es <strong>{esc(cfg['what'])}</strong> y querés el mejor score de esta dimensión.</li>
+    <li>Si tu prioridad es <strong>{esc(cfg['what'])}</strong> y quieres el mejor score de esta dimensión.</li>
     <li>Si tu volumen es medio/bajo (cientos a miles de calls/mes) y el costo no domina.</li>
-    <li>{'Si querés pesos abiertos y flexibilidad de provider.' if top1.get('open_source') else 'Si ya usás este provider o no te importa el lock-in.'}</li>
+    <li>{'Si quieres pesos abiertos y flexibilidad de provider.' if top1.get('open_source') else 'Si ya usas este provider o no te importa el lock-in.'}</li>
   </ul>
-  <p class="meta">El "mejor" depende de tu prioridad real (calidad, costo o velocidad). Ajustá esos pesos en la <a href="/">calculadora</a> para tu caso.</p>
+  <p class="meta">El "mejor" depende de tu prioridad real (calidad, costo o velocidad). Ajusta esos pesos en la <a href="/">calculadora</a> para tu caso.</p>
 </section>"""
 
 
@@ -516,10 +517,10 @@ def faq(cfg, ranked):
         ),
         (
             f"¿Para qué casos NO sirve el #1 de este ranking?",
-            f"Si tu caso es muy distinto a {cfg['what']} —por ejemplo, necesitás razonamiento profundo, tool calling crítico o privacidad extrema— "
-            "probablemente haya mejores opciones. Usá la calculadora para ajustar pesos por caso.",
-            f"Si tu caso es muy distinto a {esc(cfg['what'])} —por ejemplo, necesitás razonamiento profundo, tool calling crítico o privacidad extrema— "
-            "probablemente haya mejores opciones. Usá la <a href=\"/\">calculadora</a> para ajustar pesos por caso.",
+            f"Si tu caso es muy distinto a {cfg['what']} —por ejemplo, necesitas razonamiento profundo, tool calling crítico o privacidad extrema— "
+            "probablemente haya mejores opciones. Usa la calculadora para ajustar pesos por caso.",
+            f"Si tu caso es muy distinto a {esc(cfg['what'])} —por ejemplo, necesitas razonamiento profundo, tool calling crítico o privacidad extrema— "
+            "probablemente haya mejores opciones. Usa la <a href=\"/\">calculadora</a> para ajustar pesos por caso.",
         ),
         (
             "¿De dónde salen estos datos?",
@@ -530,8 +531,8 @@ def faq(cfg, ranked):
         ),
         (
             "¿Cada cuánto se actualiza?",
-            "Con cada lote de modelos nuevos. La fecha de actualización está al inicio. Filtrá la versión más reciente en la calculadora.",
-            "Con cada lote de modelos nuevos. La fecha de actualización está al inicio. Filtrá la versión más reciente en la <a href=\"/\">calculadora</a>.",
+            "Con cada lote de modelos nuevos. La fecha de actualización está al inicio. Filtra la versión más reciente en la calculadora.",
+            "Con cada lote de modelos nuevos. La fecha de actualización está al inicio. Filtra la versión más reciente en la <a href=\"/\">calculadora</a>.",
         ),
     ]
     schema = {
@@ -564,7 +565,7 @@ def dataset_schema(cfg, ranked):
         "description": f"Ranking de modelos LLM para {esc(cfg['what'])} basado en {fmt_k(c['total_runs'])} runs reales.",
         "url": f"{SITE}/{cfg['slug']}/",
         "creator": {"@type": "Person", "name": "Cristian Tala", "url": "https://cristiantala.com"},
-        "datePublished": date.today().isoformat(),
+        "datePublished": existing_published(f"{SITE}/{cfg['slug']}/"),
         "dateModified": date.today().isoformat(),
         "license": "https://opensource.org/licenses/MIT",
         "distribution": [
@@ -778,7 +779,7 @@ def render_ranking(cfg, models):
         {rows}
       </tbody>
     </table></div>
-    <p class="meta">Filtrá por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
+    <p class="meta">Filtra por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
   </section>
   {reading_guide(cfg, ranked)}
   {top3_explained(cfg, ranked)}
@@ -793,8 +794,8 @@ def render_ranking(cfg, models):
   </script>
   {faq(cfg, ranked)}
   <section class="cta-block">
-    <h2>Probá la calculadora con tu caso real</h2>
-    <p>Ajustá presupuesto, calidad mínima y tipo de tarea sobre 100+ modelos. En 30 segundos tenés tu ranking personalizado.</p>
+    <h2>Prueba la calculadora con tu caso real</h2>
+    <p>Ajusta presupuesto, calidad mínima y tipo de tarea sobre 100+ modelos. En 30 segundos tienes tu ranking personalizado.</p>
     <a href="/" class="cta-primary">Ir a la calculadora →</a>
   </section>"""
     return page_shell(cfg["title"], desc, cfg["intent_kw"], url, body)

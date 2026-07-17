@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calculadora de Modelos IA en español: alternativas a Claude, GPT-5 y Gemini para N8N y Hermes</title>
-<meta name="description" content="Compara 149 modelos de IA con 10,000+ tests reales: precio, calidad, velocidad y tool calling. Encuentra alternativas a Claude, GPT-5, Gemini para agentes N8N, Hermes y emprendedores. Benchmark gratis y open source.">
+<meta name="description" content="Compara 170 modelos de IA con 27,000+ tests reales: precio, calidad, velocidad y tool calling. Encuentra alternativas a Claude, GPT-5, Gemini para agentes N8N, Hermes y emprendedores. Benchmark gratis y open source.">
 <meta name="keywords" content="benchmark LLM, alternativas Claude, alternativas GPT, modelos IA español, comparación modelos AI, OpenRouter, N8N, Hermes, agentes IA, LLM open source, calculadora modelos IA, Phi-4 judge, Devstral, GPT-5, Gemini, Llama, DeepSeek, Qwen, Mistral">
 <meta name="author" content="Cristian Tala">
 <link rel="canonical" href="https://benchmarks.cristiantala.com/">
 
 <meta property="og:title" content="Calculadora de Modelos IA en español: alternativas a Claude, GPT-5 y Gemini">
-<meta property="og:description" content="Compara 149 modelos de IA con 10,000+ tests reales. Encuentra el mejor para tu agente N8N, Hermes o uso personal.">
+<meta property="og:description" content="Compara 170 modelos de IA con 27,000+ tests reales. Encuentra el mejor para tu agente N8N, Hermes o uso personal.">
 <meta property="og:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -22,7 +22,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Calculadora de Modelos IA en español">
-<meta name="twitter:description" content="Compara 149 modelos con tests reales. Alternativas a Claude, GPT-5 y Gemini para N8N y Hermes.">
+<meta name="twitter:description" content="Compara 170 modelos con tests reales. Alternativas a Claude, GPT-5 y Gemini para N8N y Hermes.">
 <meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
 <meta name="twitter:creator" content="@cristiantala">
 
@@ -34,9 +34,12 @@
       "@type": "Dataset",
       "@id": "https://benchmarks.cristiantala.com/#dataset",
       "name": "Benchmark de Modelos AI Alternativos",
-      "description": "Benchmark abierto de 149 modelos LLM con 10,000+ tests organizados en 4 pilares (Razonamiento, Coding, Contenido, Agentes) + long-context y seguridad como dimensiones separadas. Evaluación con LLM-as-Judge Phi-4 local.",
+      "description": "Benchmark abierto de 170 modelos de IA (LLMs) con 27.000+ tests reales organizados en 4 pilares (Razonamiento, Coding, Contenido, Agentes) + long-context y seguridad como dimensiones separadas. Evaluación con LLM-as-Judge Phi-4 local.",
       "url": "https://benchmarks.cristiantala.com/",
       "sameAs": "https://github.com/ctala/ai-benchmarks-alternativos",
+      "version": "v4.0",
+      "datePublished": "2026-04-11",
+      "dateModified": "2026-07-17",
       "keywords": ["LLM benchmark", "AI models comparison", "Claude alternatives", "GPT alternatives", "OpenRouter", "N8N agents", "Hermes", "Spanish AI"],
       "inLanguage": "es",
       "license": "https://opensource.org/licenses/MIT",
@@ -60,8 +63,11 @@
       "name": "Calculadora de Modelos IA",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Web",
-      "description": "Calculadora interactiva para encontrar el mejor modelo IA según presupuesto, calidad, velocidad, tarea y caso de uso. Filtra entre 149 modelos benchmarkeados con pesos ajustables.",
+      "description": "Calculadora interactiva para encontrar el mejor modelo IA según presupuesto, calidad, velocidad, tarea y caso de uso. Filtra entre 170 modelos benchmarkeados con pesos ajustables.",
       "url": "https://benchmarks.cristiantala.com/",
+      "softwareVersion": "v4.0",
+      "datePublished": "2026-04-11",
+      "dateModified": "2026-07-17",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -110,13 +116,12 @@
 
 <header>
   <div class="container header-inner">
-    <a href="https://cristiantala.com" class="logo-link" target="_blank" rel="noopener">
-      <img src="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-dark-2026.png" alt="Cristian Tala" class="logo">
+    <a href="/" class="logo-link" aria-label="Cristian Tala — inicio del benchmark">
+      <span class="wordmark">Cristian Tala<span class="cursor">_</span></span>
     </a>
-    <nav>
+    <nav aria-label="Principal">
+      <a href="/">Calculadora</a>
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
-      <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/MODELOS.md" target="_blank" rel="noopener">Modelos</a>
-      <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Tests</a>
       <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
     </nav>
   </div>
@@ -125,34 +130,86 @@
 <main class="container">
 
   <section class="hero">
-    <h1>Encuentra el modelo IA perfecto en 30 segundos</h1>
+    <h1>Encuentra el modelo de IA perfecto para tu caso</h1>
     <p class="lead">
-      Calculadora basada en <strong id="hero-runs" aria-live="polite">10.000+</strong> tests reales contra <strong id="hero-models" aria-live="polite">92</strong> modelos.
-      Filtra por presupuesto, calidad, velocidad, open-source, contexto largo y seguridad. Datos del benchmark v3.0 (junio 2026): score global = 70% calidad + 15% costo + 7,5% velocidad + 7,5% latencia.
+      Una calculadora, no un ranking. Basada en <strong id="hero-runs" aria-live="polite">27.000+</strong>
+      pruebas reales sobre <strong id="hero-models" aria-live="polite">170</strong> modelos de IA.
+      Cuéntanos qué quieres hacer y cuánto lo vas a usar; te decimos cuál conviene —y cuánto cuesta.
     </p>
-    <p class="lead" style="margin-top: 1rem; font-size: 0.95rem;">
-      ⚠️ <strong>No existe un "mejor modelo" universal.</strong> "Coding" significa cosas distintas
-      si hacés <em>plugins WordPress</em>, <em>templates N8N</em>, <em>scripts</em> o <em>proyectos
-      grandes</em>. Lo mismo con contenido, marketing y soporte. Este benchmark nació porque, como
-      emprendedor, no encontré tests reales para mis casos. Ahora existen — usá la calculadora con
-      tu caso específico.
+    <p class="hero-note">
+      ¿Recién empiezas con la IA y no tienes claro qué diferencia a un modelo de otro?
+      En la comunidad tenemos un
+      <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener">curso gratis de introducción a los LLMs</a>.
+      Empieza por ahí y después vuelve a la calculadora.
     </p>
-    <p class="lead" style="margin-top: 1rem; font-size: 0.9rem; padding: 0.75rem 1rem; border-left: 3px solid var(--cyan); background: rgba(0, 212, 255, 0.05); border-radius: 4px;">
-      📍 <strong>Qué es este benchmark (y qué NO es)</strong>: NO sustituye a los benchmarks
-      académicos validados (HumanEval, MMLU, GSM8K, SWE-bench Verified, NIAH original inglés,
-      MT-Bench, LMSYS Arena). Es un <strong>complemento</strong> diseñado para
-      <strong>emprendedores hispanohablantes</strong> que deciden qué modelo usar en producción
-      real (N8N, Hermes, blogs LATAM, soporte cliente, agentes). Para investigación
-      académica → benchmarks oficiales. Para decidir producción aplicada en español → este suma
-      datos no cubiertos por los oficiales: costo en provider real, latencia desde LATAM, español
-      neutro, agentes multi-turno. Cross-references documentadas en
-      <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/BENCHMARKS_EXTERNOS.md"
-         target="_blank" rel="noopener">BENCHMARKS_EXTERNOS.md</a>.
-    </p>
+    <details class="hero-details">
+      <summary>Qué es este benchmark (y qué no es)</summary>
+      <p>
+        No reemplaza a los benchmarks académicos (HumanEval, MMLU, SWE-bench, LMSYS Arena): los
+        <strong>complementa</strong> con lo que a quien emprende le importa y ellos no miden —costo en el
+        proveedor real, latencia desde LATAM, español neutro y agentes multi-turno (N8N, Hermes, soporte).
+        Para investigación académica → los oficiales. Para decidir qué poner en producción en español → esto.
+        El score global pondera 70% calidad + 15% costo + 7,5% velocidad + 7,5% latencia, con
+        <a href="#como-se-mide">referencia congelada</a> (agregar un modelo no cambia el score de los demás).
+        <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/BENCHMARKS_EXTERNOS.md" target="_blank" rel="noopener">Cross-references con los oficiales</a>.
+      </p>
+    </details>
     <p class="meta">
-      Última actualización del dataset: <span id="hero-updated" aria-live="polite">junio 2026</span> ·
+      Dataset <strong>v4.0</strong> · <span id="hero-updated" aria-live="polite">julio 2026</span> ·
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">ver repo</a>
     </p>
+  </section>
+
+  <!-- ============ WIZARD GUIADO (v4.0) ============
+       Puerta de entrada: 3 preguntas de negocio → una recomendación concreta.
+       Reusa el motor real (computeZScore + models.json congelado v4.0). La calculadora
+       completa queda abajo como "explorar todo" (hub-and-spoke). -->
+  <section class="wizard" id="wizard" aria-label="Asistente para elegir modelo">
+    <div class="wiz-thesis">
+      <b>No existe el mejor modelo.</b> Los de arriba dan casi la misma calidad;
+      lo que cambia —hasta <span class="hi">100 veces</span>— es el precio. Cuéntanos tu caso
+      y te decimos cuál conviene (y cuánto cuesta).
+    </div>
+
+    <div class="wiz-steps" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
+
+    <!-- Paso 1: tarea -->
+    <div class="wiz-step" data-step="0">
+      <p class="wiz-qlabel">Paso 1 de 3</p>
+      <h2 class="wiz-qh">¿Para qué lo vas a usar principalmente?</h2>
+      <div class="wiz-grid" id="wiz-tasks"></div>
+    </div>
+
+    <!-- Paso 2: presupuesto/volumen -->
+    <div class="wiz-step" data-step="1" hidden>
+      <p class="wiz-qlabel">Paso 2 de 3</p>
+      <h2 class="wiz-qh">¿Cuánto vas a usarlo?</h2>
+      <p class="wiz-hint">Define cuánto pesa el precio. Más volumen → el precio importa más.</p>
+      <div class="wiz-grid" id="wiz-budgets"></div>
+    </div>
+
+    <!-- Paso 3: restricciones -->
+    <div class="wiz-step" data-step="2" hidden>
+      <p class="wiz-qlabel">Paso 3 de 3</p>
+      <h2 class="wiz-qh">¿Algo que sea obligatorio?</h2>
+      <p class="wiz-hint">Opcional. Filtra por restricciones duras de tu caso.</p>
+      <button class="wiz-toggle" id="wiz-tog-os" type="button" aria-pressed="false">
+        <span class="wiz-sw"></span>
+        <span><span class="wiz-tt">Open-source / privacidad</span><span class="wiz-td">La data no puede salir a un proveedor cerrado — solo modelos abiertos</span></span>
+      </button>
+      <button class="wiz-toggle" id="wiz-tog-tools" type="button" aria-pressed="false">
+        <span class="wiz-sw"></span>
+        <span><span class="wiz-tt">Tiene que usar herramientas (function calling)</span><span class="wiz-td">Para agentes que llaman APIs, buscan, ejecutan acciones</span></span>
+      </button>
+    </div>
+
+    <div class="wiz-nav">
+      <button class="wiz-btn ghost" id="wiz-back" type="button" hidden>← Atrás</button>
+      <button class="wiz-btn primary" id="wiz-next" type="button" disabled>Siguiente →</button>
+    </div>
+
+    <!-- Resultado -->
+    <div id="wiz-result" hidden></div>
   </section>
 
   <nav class="landing-nav" aria-label="Navegación por caso de uso">
@@ -281,9 +338,9 @@
           </p>
           <p class="weight-note">
             <strong>No existe un "mejor modelo" universal.</strong> El score global es solo una forma de ordenar
-            según tus prioridades. Cada dimensión se estandariza antes de ponderar (z-score v3.0), así que el peso
+            según tus prioridades. Cada dimensión se estandariza antes de ponderar (z-score v4.0), así que el peso
             refleja influencia real. Los pesos se normalizan automáticamente a 100%.
-            Para decisiones concretas, usá los <strong>presets por caso de uso</strong> arriba o las tablas de
+            Para decisiones concretas, usa los <strong>presets por caso de uso</strong> arriba o las tablas de
             <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/MODELOS.md" target="_blank" rel="noopener">MODELOS.md</a>.
           </p>
           <div class="weight-sliders">
@@ -314,7 +371,7 @@
           </div>
           <p class="weight-note weight-note-tools">
             Tool calling se sigue mostrando como columna informativa en la tabla pero ya no pondera el score global
-            (v3.0: peso = 0). Filtrá por "Sólo con tool calling" si es requisito duro, o usá el pilar "Agentes"
+            (v4.0: peso = 0). Filtra por "Sólo con tool calling" si es requisito duro, o usa el pilar "Agentes"
             para ordenar por esa dimensión.
           </p>
         </div>
@@ -337,7 +394,7 @@
         <select id="subtask">
           <option value="">Todas (promedio del pilar)</option>
         </select>
-        <small>Filtrá por la suite específica que más se parece a tu caso real.</small>
+        <small>Filtra por la suite específica que más se parece a tu caso real.</small>
       </div>
 
       <div class="filter">
@@ -506,7 +563,7 @@
     </div>
     <div id="results-table-wrap"></div>
     <p class="meta" id="empty-state" aria-live="polite" hidden>
-      Ningún modelo cumple todos tus criterios. Probá relajando alguno (ej. bajar calidad o subir presupuesto).
+      Ningún modelo cumple todos tus criterios. Prueba relajando alguno (ej. bajar calidad o subir presupuesto).
     </p>
   </section>
 
@@ -526,40 +583,45 @@
     </p>
   </section>
 
-  <section class="methodology">
-    <details>
-      <summary><strong>¿Cómo funciona el ranking? (la explicación sin estadística)</strong></summary>
+  <section class="methodology" id="como-se-mide">
+    <h2 class="method-h">Cómo se mide (el z-score y la referencia congelada)</h2>
+    <details open>
+      <summary><strong>La explicación sin estadística</strong></summary>
       <p>
         <strong>Todos los modelos rinden el mismo examen</strong>: tareas de negocio reales, en español,
-        por el mismo camino (OpenRouter) — así comparás modelos, no infraestructuras. La calidad la evalúa
+        por el mismo camino (OpenRouter) — así comparas modelos, no infraestructuras. La calidad la evalúa
         un juez neutral (Phi-4, de Microsoft, que no compite en el ranking) más una capa de verificación de
         hechos: muchos tests llevan una trampa plantada con respuesta correcta verificable — un error
-        aritmético, un dato inventado, un secreto que no se debe filtrar. O la cazás o no la cazás; ahí no
+        aritmético, un dato inventado, un secreto que no se debe filtrar. La cazas o no la cazas; ahí no
         hay opinión.
       </p>
       <p>
-        <strong>El score es una nota con curva, como en la universidad.</strong> No mide "qué tan bueno sos
+        <strong>El score es una nota con curva, como en la universidad.</strong> No mide "qué tan bueno eres
         del 1 al 10" en abstracto — mide <em>a qué distancia estás del promedio de todos los que compiten</em>.
-        Un modelo exactamente promedio saca <strong>5.5</strong>. Arriba de 5.5 = mejor que el promedio del
-        mercado; abajo, peor. Nadie está anclado al 10 (el 10 sería una distancia excepcional del promedio) y
-        el último de la tabla no baja de 0.5. Cuatro dimensiones entran a esa cuenta con pesos pensados para
-        un emprendedor: <strong>calidad 70%, costo 15%, velocidad 7.5%, latencia 7.5%</strong> — y cada una se
-        estandariza antes de ponderar, para que el peso que ves sea la influencia real (sin eso, el costo
-        mandaba más de lo que decía su peso). Los pesos son ajustables en el panel de filtros: tu caso manda.
+        Eso es el <strong>z-score</strong>. Un modelo exactamente promedio saca <strong>5.5</strong>; arriba
+        es mejor que el promedio del mercado, abajo es peor. Usamos z-score, y no una nota cruda, porque cada
+        dimensión vive en otra escala —dólares, tokens/segundo, milisegundos— y sumarlas directo dejaría que
+        el costo mandara más de lo que dice su peso. Estandarizar cada una primero hace que el peso que ves sea
+        la influencia real: <strong>calidad 70%, costo 15%, velocidad 7.5%, latencia 7.5%</strong>. Los pesos
+        son ajustables en el panel de filtros: tu caso manda.
       </p>
       <p>
-        <strong>Consecuencia honesta: los scores caducan solos.</strong> Cuando medimos un modelo nuevo, el
-        promedio del curso cambia — y la nota de <em>todos</em> se recalcula, aunque ninguno haya cambiado.
-        El orden casi no se mueve (los vecinos muy pegados pueden intercambiar puesto), pero el número sí.
-        Por eso nunca cites el score de hoy como si fuera eterno: cita el hallazgo y enlaza acá, que esta
-        página se regenera sola.
+        <strong>La referencia está congelada por versión — tus números no se mueven solos.</strong> Antes,
+        medir un modelo nuevo recalculaba la nota de todos (cambiaba el promedio del curso). Desde la
+        <strong>v4.0</strong> ya no: el promedio y la dispersión de cada dimensión se <em>congelan</em> como
+        referencia, y cada modelo nuevo se puntúa contra esa referencia fija. Agregar un modelo <strong>no
+        cambia el score de los demás</strong>. La referencia solo se recalcula cuando publicamos una versión
+        nueva del benchmark (v4.1, v5.0…): un evento deliberado y anunciado, no algo automático. Aun así,
+        buena práctica: cita el hallazgo ("los de arriba empatan en calidad") y enlaza acá, no el número
+        suelto — entre versiones sí puede cambiar.
       </p>
       <p>
         <strong>Lo que NO entra al score</strong> — a propósito: contexto largo y seguridad se muestran como
         columnas y filtros aparte, porque necesitarlos depende de tu caso (castigar a un modelo chico por no
-        tener 800K de contexto haría el ranking peor para quien escribe posts). Y para rankear exigimos
-        <strong>50+ ejecuciones</strong> por modelo (con 20+ se reporta como "en evaluación"): con muestra
-        chica, un modelo lidera por azar.
+        tener 800K de contexto haría el ranking peor para quien escribe posts). Rehusar una acción peligrosa
+        —filtrar un secreto, ceder ante ingeniería social— <strong>no penaliza</strong>: negarse es la conducta
+        correcta y se puntúa como tal. Y para rankear exigimos <strong>50+ ejecuciones</strong> por modelo
+        (con 20+ se reporta como "en evaluación"): con muestra chica, un modelo lidera por azar.
       </p>
       <p>
         Los datos se versionan en JSON en el repo y se regeneran tras cada lote — esta calculadora lee
@@ -578,8 +640,8 @@
         Hoy los mejores <strong>modelos abiertos del ranking</strong> — GLM 5.2 (MIT), DeepSeek R1 (MIT),
         Ministral 14B (Apache 2.0) — dan calidad al nivel de los premium por una fracción del precio.
         Pero el ranking se recalcula con cada lote, así que la respuesta con los números de hoy está
-        siempre en esta calculadora: elegí el preset de tu caso (agentes, coding, contenido) o ajustá
-        los sliders. Si tu agente maneja credenciales o datos de clientes, mirá también la columna de
+        siempre en esta calculadora: elige el preset de tu caso (agentes, coding, contenido) o ajusta
+        los sliders. Si tu agente maneja credenciales o datos de clientes, mira también la columna de
         seguridad — ahí el orden cambia.
       </p>
     </details>
@@ -599,7 +661,7 @@
     <details>
       <summary><strong>¿Qué modelos open-source recomiendan para correr local en una DGX Spark?</strong></summary>
       <p>
-        Con 128GB de RAM unificada corrés cómodo modelos de hasta ~120B cuantizados. Lo que mejor ha
+        Con 128GB de RAM unificada corres cómodo modelos de hasta ~120B cuantizados. Lo que mejor ha
         funcionado en la práctica: <strong>Qwen 3.6 35B</strong> (Apache 2.0 — con vLLM y cuantización
         NVFP4 corre a ~76 tok/s, velocidad de nube), <strong>Gemma 4</strong> (Apache 2.0),
         <strong>Nemotron 3 Nano</strong> y <strong>GPT-OSS 120B</strong>. Ojo con la letra chica: la
@@ -623,13 +685,14 @@
     <details>
       <summary><strong>¿Por qué cambió el score de un modelo si el modelo no cambió?</strong></summary>
       <p>
-        Porque el score es una <strong>nota con curva</strong>: mide la distancia de cada modelo al promedio
-        de todos los que compiten. Cuando entra un modelo nuevo al ranking, el promedio y la dispersión de la
-        población cambian — y la nota de todos se recalcula, aunque ninguno haya cambiado su rendimiento.
-        Es el mismo efecto que un alumno brillante entrando a un curso calificado con curva: tu prueba vale
-        lo mismo, tu nota baja. El <em>orden</em> entre modelos casi no se mueve (solo vecinos muy pegados
-        pueden intercambiar puesto). Por eso citamos hallazgos ("los de arriba empatan en calidad") y no
-        números sueltos: el hallazgo sobrevive al recálculo, el número no.
+        Dentro de una misma versión, <strong>no cambia</strong>: desde la v4.0 la referencia del z-score está
+        congelada, así que agregar un modelo nuevo no mueve la nota de los demás. Lo que sí puede reajustar el
+        número es una <strong>versión nueva del benchmark</strong> (v4.1, v5.0…): ahí recalculamos la
+        referencia contra toda la población actualizada y, como el score es una nota con curva —mide la
+        distancia de cada modelo al promedio—, las notas se reajustan aunque el modelo no haya cambiado. El
+        <em>orden</em> casi no se mueve (solo vecinos muy pegados pueden intercambiar puesto). Por eso citamos
+        hallazgos ("los de arriba empatan en calidad") y no números sueltos: el hallazgo sobrevive al
+        recálculo, el número puede cambiar entre versiones.
       </p>
     </details>
 
@@ -704,7 +767,7 @@
       "name": "¿Cuál es la mejor alternativa a Claude para agentes N8N?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hoy los mejores modelos abiertos del ranking — GLM 5.2 (MIT), DeepSeek R1 (MIT), Ministral 14B (Apache 2.0) — dan calidad al nivel de los premium por una fracción del precio. El ranking se recalcula con cada lote: la respuesta con los números del día está en la calculadora, con presets por caso de uso. Si tu agente maneja credenciales, mirá también la columna de seguridad."
+        "text": "Hoy los mejores modelos abiertos del ranking — GLM 5.2 (MIT), DeepSeek R1 (MIT), Ministral 14B (Apache 2.0) — dan calidad al nivel de los premium por una fracción del precio. El ranking se recalcula con cada lote: la respuesta con los números del día está en la calculadora, con presets por caso de uso. Si tu agente maneja credenciales, mira también la columna de seguridad."
       }
     },
     {
@@ -720,7 +783,7 @@
       "name": "¿Qué modelos open-source recomiendan para correr local en una DGX Spark?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Con 128GB de RAM unificada corrés modelos de hasta ~120B cuantizados. Lo que mejor funciona en la práctica: Qwen 3.6 35B (Apache 2.0, ~76 tok/s con vLLM y NVFP4), Gemma 4 (Apache 2.0), Nemotron 3 Nano y GPT-OSS 120B. La velocidad en tu máquina es de tu máquina, no del modelo — por eso los self-hosted se miden aparte del ranking."
+        "text": "Con 128GB de RAM unificada corres modelos de hasta ~120B cuantizados. Lo que mejor funciona en la práctica: Qwen 3.6 35B (Apache 2.0, ~76 tok/s con vLLM y NVFP4), Gemma 4 (Apache 2.0), Nemotron 3 Nano y GPT-OSS 120B. La velocidad en tu máquina es de tu máquina, no del modelo — por eso los self-hosted se miden aparte del ranking."
       }
     },
     {
