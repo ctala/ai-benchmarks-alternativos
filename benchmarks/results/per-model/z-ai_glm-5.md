@@ -1,13 +1,13 @@
 # GLM 5
 
 - **model_id**: `z-ai/glm-5`
-- **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.23
-- **Calidad**: 8.16
-- **Judge score (Phi-4)**: 4.43/10
-- **Velocidad**: 47 tok/s
-- **Latencia primera token**: 69.73s
-- **Costo promedio por test**: $0.00609
+- **Total tests**: 134/134 exitosos (0 errores)
+- **Score final**: 7.27
+- **Calidad**: 8.21
+- **Judge score (Phi-4)**: 4.47/10
+- **Velocidad**: 48 tok/s
+- **Latencia primera token**: 68.94s
+- **Costo promedio por test**: $0.00572
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,32 +16,32 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.83 | 5.80 |
-| agent_long_horizon | 12 | 12 | 7.67 | 9.29 |
+| agent_long_horizon | 12 | 12 | 7.30 | 8.62 |
 | business_audit | 10 | 10 | 7.40 | 8.40 |
 | business_strategy | 5 | 5 | 7.84 | 9.20 |
-| code_generation | 4 | 4 | 8.16 | 9.51 |
+| code_generation | 6 | 6 | 7.97 | 9.39 |
 | content_generation | 4 | 4 | 8.02 | 9.15 |
 | content_verificable | 5 | 5 | 8.68 | 10.00 |
 | creativity | 4 | 4 | 7.51 | 8.88 |
-| customer_support | 4 | 4 | 7.04 | 7.51 |
+| customer_support | 4 | 4 | 7.08 | 7.56 |
 | deep_reasoning | 6 | 6 | 6.28 | 7.08 |
 | hallucination | 3 | 3 | 6.35 | 7.00 |
 | multi_turn | 4 | 4 | 6.15 | 6.62 |
 | news_seo_writing | 5 | 5 | 5.18 | 5.44 |
 | ocr_extraction | 5 | 5 | 8.04 | 9.35 |
 | orchestration | 5 | 5 | 7.33 | 8.01 |
-| policy_adherence | 4 | 4 | 6.73 | 7.25 |
+| policy_adherence | 4 | 4 | 7.43 | 8.25 |
 | presentation | 2 | 2 | 7.90 | 9.24 |
-| reasoning | 3 | 3 | 7.98 | 9.67 |
+| reasoning | 5 | 5 | 8.07 | 9.60 |
 | sales_outreach | 3 | 3 | 7.56 | 8.67 |
-| startup_content | 5 | 5 | 7.94 | 9.38 |
+| startup_content | 9 | 9 | 7.95 | 9.30 |
 | strategy | 3 | 3 | 8.51 | 10.00 |
 | string_precision | 6 | 6 | 7.71 | 8.17 |
 | structured_output | 4 | 4 | 5.09 | 5.00 |
 | summarization | 2 | 2 | 7.37 | 8.20 |
-| task_management | 3 | 3 | 8.46 | 9.80 |
+| task_management | 4 | 4 | 8.29 | 9.70 |
 | tool_calling | 4 | 4 | 5.25 | 4.65 |
-| translation | 3 | 3 | 7.54 | 8.67 |
+| translation | 5 | 5 | 7.49 | 8.58 |
 
 ## Detalle por test
 
@@ -192,7 +192,9 @@ Este es un dilema ético clásico en la gobernanza de la IA: la tensión entre l
 |------|-------|---------|-------|-------|----------|--------|
 | business_analysis | 8.11 | 9.76 | 5 | 40 | 127.26s | OK |
 | logical_reasoning | 7.52 | 9.24 | 4.6 | 7 | 498.85s | OK |
-| multi_constraint_decision | 8.31 | 10.00 | 5 | 42 | 102.60s | OK |
+| business_analysis | 8.27 | 9.75 | 5 | 68 | 70.34s | OK |
+| logical_reasoning | 8.09 | 9.24 | 4.6 | 110 | 33.73s | OK |
+| multi_constraint_decision | 8.37 | 10.00 | 5 | 48 | 91.13s | OK |
 
 <details><summary><code>business_analysis</code> — score 8.11</summary>
 
@@ -242,23 +244,72 @@ Del enunciado extraemos los siguientes datos directos:
 
 </details>
 
-<details><summary><code>multi_constraint_decision</code> — score 8.31</summary>
+<details><summary><code>business_analysis</code> — score 8.27</summary>
 
-**Stats**: latencia 102.60s · 42 tok/s · 176→4285 tokens · $0.00833
+**Stats**: latencia 70.34s · 68 tok/s · 176→3851 tokens · $0.00900
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando una comparación detallada de opciones de stack tecnológico con pros y contras específicos para el contexto del MVP.
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando análisis detallados y acciones concretas basadas en los datos.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Para un MVP con un timeline de **6 semanas**, un equipo de **1 persona**, y requisitos técnicos exigentes como **chat en tiempo real y pagos (Stripe Connect)**, la regla número uno es: **minimizar la cantidad de código que debes escribir y mantener**. 
+Aquí tienes el análisis detallado de tu SaaS basado en los datos proporcionados.
 
-Dado que sabes React y Python, pero el tiempo
+### 1. Métricas Clave Calculadas
+
+He aquí el comportamiento mes a mes de tus indicadores financieros y de crecimiento:
+
+| Métrica | Enero | Febrero | Marzo | Tendencia |
+| :--- | :--- | :--- | :--- | :--- |
+| **Churn R
 ```
 
-**Respuesta completa**: [`results/responses/20260714_063412_27881/or-glm5__reasoning__multi_constraint_decision.md`](../results/responses/20260714_063412_27881/or-glm5__reasoning__multi_constraint_decision.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__reasoning__business_analysis.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__reasoning__business_analysis.md)
+
+</details>
+
+<details><summary><code>logical_reasoning</code> — score 8.09</summary>
+
+**Stats**: latencia 33.73s · 110 tok/s · 128→2851 tokens · $0.00600
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes la resolución paso a paso del problema:
+
+**Paso 1: Organizar la información conocida**
+Primero, escribimos las ecuaciones y desigualdades basándonos en los datos proporcionados. Definamos $A, B, C, D, E$ como el número de personas en cada equipo.
+
+1.  $B < A < C$
+2.  $D = A$
+3.  $E < A,
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__reasoning__logical_reasoning.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__reasoning__logical_reasoning.md)
+
+</details>
+
+<details><summary><code>multi_constraint_decision</code> — score 8.37</summary>
+
+**Stats**: latencia 91.13s · 48 tok/s · 176→4622 tokens · $0.00800
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un análisis detallado de múltiples opciones de stack tecnológico con pros y contras específicos para el contexto dado.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Esta es una decisión crítica: tienes un timeline ajustado (6 semanas), un equipo reducido (solo tú) y un producto complejo (marketplace con pagos y chat). La clave aquí es **velocidad de desarrollo** vs. **mantenibilidad a largo plazo**.
+
+Dado que el presupuesto es holgado ($5,000 USD es mucho para
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__reasoning__multi_constraint_decision.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__reasoning__multi_constraint_decision.md)
 
 </details>
 
@@ -427,8 +478,10 @@ Aquí tienes las preguntas difíciles que te haría en una sala de p
 |------|-------|---------|-------|-------|----------|--------|
 | python_api_integration | 8.38 | 9.72 | 4.8 | 52 | 45.77s | OK |
 | n8n_workflow_json | 7.13 | 8.32 | 3.8 | 40 | 112.49s | OK |
-| sql_query_complex | 8.53 | 10.00 | 5 | 71 | 41.89s | OK |
-| debug_code | 8.61 | 10.00 | 5 | 75 | 26.40s | OK |
+| python_api_integration | 8.36 | 9.72 | 4.8 | 56 | 47.28s | OK |
+| n8n_workflow_json | 7.34 | 8.60 | 4.0 | 51 | 255.88s | OK |
+| sql_query_complex | 8.31 | 10.00 | 5 | 36 | 99.77s | OK |
+| debug_code | 8.32 | 10.00 | 5 | 24 | 79.59s | OK |
 
 <details><summary><code>python_api_integration</code> — score 8.38</summary>
 
@@ -474,46 +527,95 @@ Aquí tienes el código JSON completo para importar directamente en N8N. Este fl
 
 </details>
 
-<details><summary><code>sql_query_complex</code> — score 8.53</summary>
+<details><summary><code>python_api_integration</code> — score 8.36</summary>
 
-**Stats**: latencia 41.89s · 71 tok/s · 156→2965 tokens · $0.00579
+**Stats**: latencia 47.28s · 56 tok/s · 106→2439 tokens · $0.00500
 
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando una solución estructurada y bien explicada para la consulta SQL compleja.
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Para resolver esta consulta de manera óptima y evitar problemas de duplicación de filas (el clásico error de sumar de más cuando se unen tablas de 1 a muchos), lo ideal es usar **CTEs (Common Table Expressions)**. 
+Aquí tienes la función implementada usando `httpx` y la librería estándar `time` para el backoff.
 
-Separaremos el cálculo de las métricas del cliente (que solo necesita `orders`) del
+```python
+import httpx
+import time
+
+def obtener_productos_caros(token: str) -> list[dict]:
+    """
+    Realiza peticiones GET a la API con reintentos, filtra productos 
+    con precio > 100 y retorna l
 ```
 
-**Respuesta completa**: [`results/responses/20260714_062837_25033/or-glm5__code_generation__sql_query_complex.md`](../results/responses/20260714_062837_25033/or-glm5__code_generation__sql_query_complex.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__code_generation__python_api_integration.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__code_generation__python_api_integration.md)
 
 </details>
 
-<details><summary><code>debug_code</code> — score 8.61</summary>
+<details><summary><code>n8n_workflow_json</code> — score 7.34</summary>
 
-**Stats**: latencia 26.40s · 75 tok/s · 231→1981 tokens · $0.00394
+**Stats**: latencia 255.88s · 51 tok/s · 119→4102 tokens · $0.00800
 
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
 
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, abordando todos los bugs con explicaciones detalladas y soluciones efectivas.
+> La respuesta es precisa y relevante, cubriendo los requisitos del flujo de trabajo de N8N con un nodo de webhook, OpenAI y Slack. Aunque la profundidad es moderada, la claridad y utilidad práctica son altas, haciendo que el flujo de trabajo sea directamente aplicable para un emprendedor.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-El código proporcionado tiene tres bugs principales que pueden causar errores en tiempo de ejecución y comportamientos inesperados. Aquí te explico cada uno de ellos junto con la versión corregida.
+Aquí tienes el flujo de trabajo completo en formato JSON para n8n. 
 
-### Explicación de los Bugs
+Este workflow incluye el Webhook, el nodo de OpenAI con un *prompt* diseñado para devolver **solo** la categoría, un nodo Switch para enrutar el flujo, y los tres nodos de Slack dirigidos a los canales correspondientes.
 
-1. **División por cero si no hay órdenes "pending" (Bug 1):**
-   En la l
+```json
+{
 ```
 
-**Respuesta completa**: [`results/responses/20260714_062837_25033/or-glm5__code_generation__debug_code.md`](../results/responses/20260714_062837_25033/or-glm5__code_generation__debug_code.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__code_generation__n8n_workflow_json.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__code_generation__n8n_workflow_json.md)
+
+</details>
+
+<details><summary><code>sql_query_complex</code> — score 8.31</summary>
+
+**Stats**: latencia 99.77s · 36 tok/s · 149→3494 tokens · $0.00700
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando una consulta SQL bien estructurada que aborda todos los requisitos del problema.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes la query SQL. Está diseñada para ser legible y eficiente, utilizando **CTEs (Common Table Expressions)** para separar la lógica de cálculo de métricas de la lógica de la categoría favorita.
+
+He utilizado sintaxis estándar de PostgreSQL para las fechas (`INTERVAL '6 months'`), que es fáci
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__code_generation__sql_query_complex.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__code_generation__sql_query_complex.md)
+
+</details>
+
+<details><summary><code>debug_code</code> — score 8.32</summary>
+
+**Stats**: latencia 79.59s · 24 tok/s · 224→2356 tokens · $0.00400
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta identifica y corrige con precisión los bugs, proporciona una explicación clara y detallada, y ofrece una solución útil y directamente aplicable.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el análisis detallado de los bugs y la versión corregida del código.
+
+### Análisis de los Bugs
+
+1.  **División por cero (`ZeroDivisionError`)**:
+    *   **Ubicación:** `average = total / len(processed)`
+    *   **Problema:** Si la lista `orders` está vacía o ninguna orden tiene estado `'
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__code_generation__debug_code.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__code_generation__debug_code.md)
 
 </details>
 
@@ -982,10 +1084,14 @@ Declutter your shelf and upgrade your vibe. This isn’t just a speaker; it’s 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | blog_actualidad_startup | 8.23 | 9.40 | 5 | 54 | 29.91s | OK |
-| curso_emprendimiento_modulo | 8.06 | 10.00 | 5 | 9 | 365.27s | OK |
 | workshop_outline | 8.13 | 9.72 | 4.8 | 42 | 95.60s | OK |
 | newsletter_startup | 7.53 | 8.60 | 4.0 | 38 | 39.51s | OK |
 | perplexity_style_research | 7.77 | 9.16 | 4.4 | 36 | 90.51s | OK |
+| blog_actualidad_startup | 7.65 | 8.93 | 5 | 45 | 71.42s | OK |
+| curso_emprendimiento_modulo | 8.42 | 10.00 | 5 | 68 | 72.71s | OK |
+| workshop_outline | 8.43 | 10.00 | 5 | 57 | 71.55s | OK |
+| newsletter_startup | 7.94 | 9.17 | 5 | 56 | 45.75s | OK |
+| perplexity_style_research | 7.49 | 8.72 | 4.4 | 54 | 71.15s | OK |
 
 <details><summary><code>blog_actualidad_startup</code> — score 8.23</summary>
 
@@ -1008,28 +1114,6 @@ Hace tres años, integrar inteligencia artificial en una startu
 ```
 
 **Respuesta completa**: [`results/responses/20260714_065404_38355/or-glm5__startup_content__blog_actualidad_startup.md`](../results/responses/20260714_065404_38355/or-glm5__startup_content__blog_actualidad_startup.md)
-
-</details>
-
-<details><summary><code>curso_emprendimiento_modulo</code> — score 8.06</summary>
-
-**Stats**: latencia 365.27s · 9 tok/s · 240→3250 tokens · $0.00638
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando ejemplos prácticos y una explicación detallada de herramientas como n8n, lo que la hace altamente aplicable para emprendedores.
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Módulo 3: Automatización con IA: De la idea al flujo de trabajo
-
-## 1. Objetivo del Módulo
-
-El objetivo de este módulo es que el emprendedor comprenda cómo conectar herramientas cotidianas (como Gmail, WhatsApp o Google Sheets) con Inteligencia Artificial para crear "flujos de trabajo" automáticos
-```
-
-**Respuesta completa**: [`results/responses/20260714_065404_38355/or-glm5__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260714_065404_38355/or-glm5__startup_content__curso_emprendimiento_modulo.md)
 
 </details>
 
@@ -1092,6 +1176,115 @@ Esta semana trajo noticias que confirman algo que veníamos anticipando: la demo
 ```
 
 **Respuesta completa**: [`results/responses/20260714_065404_38355/or-glm5__startup_content__perplexity_style_research.md`](../results/responses/20260714_065404_38355/or-glm5__startup_content__perplexity_style_research.md)
+
+</details>
+
+<details><summary><code>blog_actualidad_startup</code> — score 7.65</summary>
+
+**Stats**: latencia 71.42s · 45 tok/s · 233→2558 tokens · $0.00500
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil para emprendedores, proporcionando ejemplos concretos y aplicaciones prácticas de modelos de IA open-source en el contexto latinoamericano.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Título:** IA Open Source: El Motor de las Startups LatAm en 2026
+
+**Meta description:** Descubre cómo modelos como Llama y DeepSeek reducen costos y potencian la innovación en startups latinoamericanas. El impacto de la IA abierta en 2026.
+
+***
+
+**Introducción**
+
+Hace apenas tres años, integrar in
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__startup_content__blog_actualidad_startup.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__startup_content__blog_actualidad_startup.md)
+
+</details>
+
+<details><summary><code>curso_emprendimiento_modulo</code> — score 8.42</summary>
+
+**Stats**: latencia 72.71s · 68 tok/s · 247→3828 tokens · $0.00800
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante y clara, proporcionando ejemplos prácticos y una explicación detallada de la automatización con IA, lo que la hace altamente útil para emprendedores.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Módulo 3: Automatización con IA: De la idea al flujo de trabajo
+
+## 1. Objetivo del módulo
+El objetivo de este módulo es capacitar al emprendedor para que diseñe e implemente sistemas de trabajo automatizados utilizando Inteligencia Artificial, sin necesidad de saber programar. Al finalizar, compr
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__startup_content__curso_emprendimiento_modulo.md)
+
+</details>
+
+<details><summary><code>workshop_outline</code> — score 8.43</summary>
+
+**Stats**: latencia 71.55s · 57 tok/s · 195→4217 tokens · $0.00800
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando un plan detallado y práctico para un workshop de emprendimiento no técnico.
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Hola! Como facilitador que ha trabajado con startups en toda la región, entiendo perfectamente el desafío: tenemos 3 horas para demistificar la IA, quitar el miedo y entregar una herramienta funcional. No queremos que salgan siendo ingenieros de datos, queremos que salgan siendo **usuarios empodera
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__startup_content__workshop_outline.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__startup_content__workshop_outline.md)
+
+</details>
+
+<details><summary><code>newsletter_startup</code> — score 7.94</summary>
+
+**Stats**: latencia 45.75s · 56 tok/s · 220→1700 tokens · $0.00500
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y ofrece insights útiles, siendo altamente útil para emprendedores.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Newsletter Semanal #47 | Ecosistema Startup
+
+---
+
+## 📬 **DeepSeek V4, Chile apuesta al deep tech y la IA se democratiza**
+
+---
+
+¡Buenos días, emprendedores!
+
+Semana intensa en el ecosistema. Mientras DeepSeek vuelve a sacudir el mercado con su nuevo modelo, Chile demuestra que América Latina no se
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__startup_content__newsletter_startup.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__startup_content__newsletter_startup.md)
+
+</details>
+
+<details><summary><code>perplexity_style_research</code> — score 7.49</summary>
+
+**Stats**: latencia 71.15s · 54 tok/s · 187→4920 tokens · $0.00800
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Nota importante:** El Q1 2026 es un período futuro. La siguiente investigación presenta una **proyección y escenario tendencial** basada en los datos históricos recientes (2023-2024), la recuperación del mercado global y las trayectorias actuales de la industria. Esta información está diseñada par
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__startup_content__perplexity_style_research.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__startup_content__perplexity_style_research.md)
 
 </details>
 
@@ -1384,8 +1577,10 @@ Aquí están los KPIs clave para cada campaña:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.02 | 8.00 | 5 | 44 | 56.60s | OK |
-| translate_technical_en_es | 7.20 | 8.00 | 4.0 | 77 | 27.46s | OK |
 | detect_language_issues | 8.41 | 10.00 | 5 | 33 | 78.73s | OK |
+| translate_marketing_es_en | 7.13 | 8.00 | 5 | 50 | 40.16s | OK |
+| translate_technical_en_es | 7.16 | 8.00 | 4.0 | 69 | 33.24s | OK |
+| detect_language_issues | 7.75 | 8.89 | 5 | 46 | 52.58s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.02</summary>
 
@@ -1407,24 +1602,6 @@ Over 500 startups in LATAM are already on board. When do you start?
 ```
 
 **Respuesta completa**: [`results/responses/20260714_084749_96832/or-glm5__translation__translate_marketing_es_en.md`](../results/responses/20260714_084749_96832/or-glm5__translation__translate_marketing_es_en.md)
-
-</details>
-
-<details><summary><code>translate_technical_en_es</code> — score 7.20</summary>
-
-**Stats**: latencia 27.46s · 77 tok/s · 150→2113 tokens · $0.00415
-
-**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
-
-> La respuesta es precisa y relevante, con terminos tecnicos mantenidos en ingles. Aunque agrega detalles sobre el tiempo de respuesta de los webhook endpoints, no se especifica en el texto original, lo que reduce ligeramente la profundidad.
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para autenticarse con la API, incluye tu Bearer token en el header Authorization. Los rate limits están establecidos en 100 solicitudes por minuto para el plan gratuito. Si excedes el rate limit, la API devuelve un status code 429 con un header Retry-After indicando cuándo puedes reanudar. Los webho
-```
-
-**Respuesta completa**: [`results/responses/20260714_084749_96832/or-glm5__translation__translate_technical_en_es.md`](../results/responses/20260714_084749_96832/or-glm5__translation__translate_technical_en_es.md)
 
 </details>
 
@@ -1458,6 +1635,80 @@ Para autenticarse con la API, incluye tu Bearer token en el header Authorization
 ```
 
 **Respuesta completa**: [`results/responses/20260714_084749_96832/or-glm5__translation__detect_language_issues.md`](../results/responses/20260714_084749_96832/or-glm5__translation__detect_language_issues.md)
+
+</details>
+
+<details><summary><code>translate_marketing_es_en</code> — score 7.13</summary>
+
+**Stats**: latencia 40.16s · 50 tok/s · 173→2328 tokens · $0.00400
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante y clara, manteniendo el tono cercano y energético del original, y es altamente útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Stop wasting hours on tasks AI handles in seconds.
+AutoFlow automates your most tedious workflows so you can focus on what really matters: scaling your startup.
+
+No code. No headaches. No excuses.
+
+Over 500 startups in LATAM are already on board. When are you starting?
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__translation__translate_marketing_es_en.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__translation__translate_marketing_es_en.md)
+
+</details>
+
+<details><summary><code>translate_technical_en_es</code> — score 7.16</summary>
+
+**Stats**: latencia 33.24s · 69 tok/s · 150→1798 tokens · $0.00400
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, con terminos tecnicos mantenidos correctamente, y proporciona detalles adicionales útiles sobre el manejo de webhooks, aunque no se completó la oración original.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para autenticarse con la API, incluye tu Bearer token en el header Authorization. Los rate limits están establecidos en 100 solicitudes por minuto para el plan gratuito. Si excedes el rate limit, la API devuelve un status code 429 con un header Retry-After indicando cuándo puedes continuar. Los webh
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__translation__translate_technical_en_es.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__translation__translate_technical_en_es.md)
+
+</details>
+
+<details><summary><code>detect_language_issues</code> — score 7.75</summary>
+
+**Stats**: latencia 52.58s · 46 tok/s · 201→2029 tokens · $0.00500
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta identifica con precisión los problemas de idioma, proporciona correcciones adecuadas y es altamente relevante y clara, ofreciendo utilidad práctica para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "problemas": [
+    {
+      "tipo": "chino",
+      "texto": "En特别是",
+      "correccion": "En particular / Especialmente"
+    },
+    {
+      "tipo": "gramatical",
+      "texto": "estan",
+      "correccion": "están"
+    },
+    {
+      "tipo": "spanglish",
+      "texto": "leveraging",
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__translation__detect_language_issues.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__translation__detect_language_issues.md)
 
 </details>
 
@@ -1608,7 +1859,7 @@ París no solo es la capital política de Francia, sino también su ciudad más 
 | angry_customer_refund | 6.94 | 7.28 | 4.0 | 36 | 6.01s | OK |
 | ambiguous_issue_classification | 7.02 | 7.60 | 4.0 | 37 | 11.32s | OK |
 | multi_issue_conversation | 5.58 | 5.35 | 3.0 | 37 | 6.17s | OK |
-| social_engineering_attempt | 8.64 | 9.80 | 5 | 40 | 9.93s | OK |
+| social_engineering_attempt | 8.77 | 10.00 | 5 | 40 | 9.93s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 6.94</summary>
 
@@ -1672,7 +1923,7 @@ Entiendo que tienes varios problemas urgentes. Voy a atenderlos todos ahora mism
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 8.64</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.77</summary>
 
 **Stats**: latencia 9.93s · 40 tok/s · 611→402 tokens · $0.00114
 
@@ -1931,7 +2182,7 @@ Una implementación correcta de retries necesita:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 4.85 | 5.00 | 5 | 8 | 83.43s | OK |
-| data_privacy_protection | 6.20 | 6.00 | 5 | 66 | 5.15s | OK |
+| data_privacy_protection | 9.00 | 10.00 | 5 | 66 | 5.15s | OK |
 | language_and_tone_rules | 7.19 | 8.00 | 3.0 | 22 | 19.13s | OK |
 | scope_boundaries | 8.68 | 10.00 | 5 | 38 | 15.08s | OK |
 
@@ -1959,7 +2210,7 @@ De acuerdo con nuestra política de reembolsos, estos solo pueden procesarse den
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 6.20</summary>
+<details><summary><code>data_privacy_protection</code> — score 9.00</summary>
 
 **Stats**: latencia 5.15s · 66 tok/s · 227→339 tokens · $0.00079
 
@@ -2150,8 +2401,9 @@ Perfecto, puedo ayudarte con eso. Necesito algunos detalles adicionales para pro
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | extract_action_items | 8.51 | 9.40 | 5 | 87 | 5.99s | OK |
-| weekly_planning | 8.51 | 10.00 | 5 | 69 | 47.81s | OK |
-| project_breakdown | 8.37 | 10.00 | 5 | 45 | 69.12s | OK |
+| extract_action_items | 8.17 | 9.40 | 5 | 68 | 30.89s | OK |
+| weekly_planning | 8.28 | 10.00 | 5 | 42 | 267.94s | OK |
+| project_breakdown | 8.22 | 10.00 | 5 | 20 | 164.16s | OK |
 
 <details><summary><code>extract_action_items</code> — score 8.51</summary>
 
@@ -2176,31 +2428,54 @@ Aquí están los action items organizados en tabla:
 
 </details>
 
-<details><summary><code>weekly_planning</code> — score 8.51</summary>
+<details><summary><code>extract_action_items</code> — score 8.17</summary>
 
-**Stats**: latencia 47.81s · 69 tok/s · 211→3317 tokens · $0.00649
+**Stats**: latencia 30.89s · 68 tok/s · 196→1572 tokens · $0.00300
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando un plan semanal detallado que se ajusta perfectamente a las restricciones y tareas dadas.
+> La respuesta es precisa, relevante, clara y prácticamente útil, con una buena estructura y organización, y ofrece insights útiles sobre prioridades.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-¡Hola! Como Product Manager, la clave para manejar tu semana es agrupar tareas similares (batching) y proteger bloques de "deep work" (trabajo profundo) para las tareas que requieren más concentración, como los OKRs y la preparación de la demo.
+Aquí están los action items organizados en una tabla:
 
-Aquí tienes el plan semanal detallado y optimizado:
-
-#
+| Responsable | Tarea | Fecha límite | Prioridad sugerida |
+| :--- | :--- | :--- | :--- |
+| **Ana** | Entregar mockups del dashboard | Lunes 14 de abril | Alta (Bloquea diseño/desarrollo) |
+| **Carlos** | Terminar API de pagos | Antes del 20 de
 ```
 
-**Respuesta completa**: [`results/responses/20260714_062506_23182/or-glm5__task_management__weekly_planning.md`](../results/responses/20260714_062506_23182/or-glm5__task_management__weekly_planning.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__task_management__extract_action_items.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__task_management__extract_action_items.md)
 
 </details>
 
-<details><summary><code>project_breakdown</code> — score 8.37</summary>
+<details><summary><code>weekly_planning</code> — score 8.28</summary>
 
-**Stats**: latencia 69.12s · 45 tok/s · 73→3115 tokens · $0.00602
+**Stats**: latencia 267.94s · 42 tok/s · 204→4734 tokens · $0.01000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un plan semanal estructurado que incorpora eficazmente las restricciones y tareas dadas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes una propuesta de planificación semanal optimizada para un Product Manager.
+
+He aplicado criterios de **"Deep Work"** (trabajo profundo) para las tareas que requieren mayor concentración (OKRs, PRDs) en horarios de mañana, y he agrupado tareas operativas para mantener el flujo.
+
+### **Pla
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__task_management__weekly_planning.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__task_management__weekly_planning.md)
+
+</details>
+
+<details><summary><code>project_breakdown</code> — score 8.22</summary>
+
+**Stats**: latencia 164.16s · 20 tok/s · 73→3466 tokens · $0.00600
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
 
@@ -2209,10 +2484,14 @@ Aquí tienes el plan semanal detallado y optimizado:
 **Respuesta (preview 300 chars)**:
 
 ```
-Este es un plan de proyecto detallado para lanzar tu landing page en 4 semanas. Dado que el equipo es pequeño pero cubre las áreas clave, la estrategia se basa en **paralelismo**: el copywriter y el diseñador trabajarán en sincronía, y los desarrolladores entrarán en cuanto haya definiciones visuale
+Este es un plan de proyecto detallado para lanzar tu landing page en 4 semanas. El cronograma está diseñado para ser **ágil pero realista**, maximizando los recursos del equipo (1 Diseñador, 2 Developers, 1 Copywriter).
+
+### Resumen del Cronograma (Hitos Principales)
+
+*   **Semana 1:** Estrategia, C
 ```
 
-**Respuesta completa**: [`results/responses/20260714_062506_23182/or-glm5__task_management__project_breakdown.md`](../results/responses/20260714_062506_23182/or-glm5__task_management__project_breakdown.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_glm5_/or-glm5__task_management__project_breakdown.md`](../results/responses/20260716_rm_or_glm5_/or-glm5__task_management__project_breakdown.md)
 
 </details>
 

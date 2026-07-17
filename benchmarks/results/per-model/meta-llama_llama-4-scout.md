@@ -1,13 +1,13 @@
 # Llama 4 Scout 17B
 
 - **model_id**: `meta-llama/llama-4-scout`
-- **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.66
-- **Calidad**: 7.59
-- **Judge score (Phi-4)**: 4.24/10
-- **Velocidad**: 132 tok/s
-- **Latencia primera token**: 5.94s
-- **Costo promedio por test**: $0.00029
+- **Total tests**: 132/132 exitosos (0 errores)
+- **Score final**: 7.62
+- **Calidad**: 7.53
+- **Judge score (Phi-4)**: 4.21/10
+- **Velocidad**: 137 tok/s
+- **Latencia primera token**: 5.77s
+- **Costo promedio por test**: $0.00027
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,15 +15,15 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 6.44 | 5.68 |
-| agent_long_horizon | 12 | 12 | 8.11 | 8.75 |
+| agent_capabilities | 9 | 9 | 6.02 | 4.97 |
+| agent_long_horizon | 12 | 12 | 8.12 | 8.75 |
 | business_audit | 10 | 10 | 6.33 | 5.45 |
 | business_strategy | 5 | 5 | 8.26 | 8.40 |
 | code_generation | 4 | 4 | 8.34 | 8.65 |
 | content_generation | 4 | 4 | 8.89 | 9.40 |
 | content_verificable | 5 | 5 | 7.49 | 7.33 |
 | creativity | 4 | 4 | 9.13 | 9.25 |
-| customer_support | 4 | 4 | 8.07 | 7.67 |
+| customer_support | 4 | 4 | 8.28 | 7.97 |
 | deep_reasoning | 6 | 6 | 6.45 | 5.83 |
 | hallucination | 3 | 3 | 8.08 | 8.33 |
 | multi_turn | 4 | 4 | 7.40 | 7.50 |
@@ -34,11 +34,11 @@
 | presentation | 2 | 2 | 8.88 | 9.00 |
 | reasoning | 3 | 3 | 8.67 | 9.05 |
 | sales_outreach | 3 | 3 | 8.04 | 8.00 |
-| startup_content | 5 | 5 | 8.89 | 9.60 |
+| startup_content | 9 | 9 | 8.76 | 9.29 |
 | strategy | 3 | 3 | 8.50 | 8.89 |
 | string_precision | 6 | 6 | 6.97 | 6.67 |
 | structured_output | 4 | 4 | 5.88 | 5.00 |
-| summarization | 2 | 2 | 8.14 | 8.20 |
+| summarization | 3 | 3 | 7.76 | 7.67 |
 | task_management | 3 | 3 | 8.75 | 9.07 |
 | tool_calling | 4 | 4 | 7.35 | 6.75 |
 | translation | 3 | 3 | 7.41 | 7.09 |
@@ -1017,7 +1017,11 @@ Upgrade your home with Aura, the ultimate smart device that combines a premium s
 | curso_emprendimiento_modulo | 9.29 | 9.94 | 5 | 137 | 6.89s | OK |
 | workshop_outline | 8.67 | 9.60 | 5 | 30 | 33.44s | OK |
 | newsletter_startup | 8.88 | 9.80 | 5 | 44 | 15.76s | OK |
-| perplexity_style_research | 9.02 | 10.00 | 5 | 39 | 17.32s | OK |
+| blog_actualidad_startup | 7.98 | 8.17 | 4.0 | 156 | 10.69s | OK |
+| curso_emprendimiento_modulo | 9.04 | 9.81 | 5 | 77 | 14.81s | OK |
+| workshop_outline | 8.98 | 9.60 | 5 | 140 | 10.11s | OK |
+| newsletter_startup | 8.87 | 9.39 | 5 | 132 | 9.89s | OK |
+| perplexity_style_research | 8.54 | 8.60 | 4.0 | 249 | 5.60s | OK |
 
 <details><summary><code>blog_actualidad_startup</code> — score 8.57</summary>
 
@@ -1111,13 +1115,105 @@ En este módulo, exploraremos cómo la Inteligencia Artificial (IA) puede ser ut
 
 </details>
 
-<details><summary><code>perplexity_style_research</code> — score 9.02</summary>
+<details><summary><code>blog_actualidad_startup</code> — score 7.98</summary>
 
-**Stats**: latencia 17.32s · 39 tok/s · 183→668 tokens · $0.00022
+**Stats**: latencia 10.69s · 156 tok/s · 218→792 tokens · $0.00000
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con una buena estructura y utilidad práctica, aunque podría profundizar más en los desafíos y limitaciones.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**IA Open-Source en Latinoamérica: Un Cambio de Juego para las Startups**
+
+**Meta description:** Descubre cómo los modelos de IA open-source están revolucionando el ecosistema emprendedor en Latinoamérica y cómo las startups pueden aprovecharlos para crecer.
+
+En 2026, la inteligencia artificial (IA)
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__startup_content__blog_actualidad_startup.md`](../results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__startup_content__blog_actualidad_startup.md)
+
+</details>
+
+<details><summary><code>curso_emprendimiento_modulo</code> — score 9.04</summary>
+
+**Stats**: latencia 14.81s · 77 tok/s · 223→823 tokens · $0.00000
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante, clara y útil, proporcionando información estructurada y perspectivas que un emprendedor podría encontrar valiosas.
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando ejemplos prácticos y un ejercicio paso a paso que un emprendedor podría implementar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Módulo 3: Automatización con IA: De la idea al flujo de trabajo**
+===========================================================
+
+### Objetivo del Módulo
+
+En este módulo, exploraremos cómo la Inteligencia Artificial (IA) puede ayudarte a automatizar procesos en tu startup, liberando tiempo y recursos
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__startup_content__curso_emprendimiento_modulo.md)
+
+</details>
+
+<details><summary><code>workshop_outline</code> — score 8.98</summary>
+
+**Stats**: latencia 10.11s · 140 tok/s · 190→873 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil para emprendedores no técnicos, proporcionando una estructura detallada y práctica para el taller.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Construye tu Asistente de IA para tu Startup - Workshop Practico**
+
+**Agenda Detallada con Tiempos (3 horas)**
+
+* 0:00 - 0:10: Introducción y bienvenida
+* 0:10 - 0:30: Bloque 1: Introducción a la IA y su aplicación en startups
+* 0:30 - 1:00: Bloque 2: Identificando oportunidades para la IA en tu s
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__startup_content__workshop_outline.md`](../results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__startup_content__workshop_outline.md)
+
+</details>
+
+<details><summary><code>newsletter_startup</code> — score 8.87</summary>
+
+**Stats**: latencia 9.89s · 132 tok/s · 215→585 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, proporcionando información detallada y aplicable para emprendedores, con solo una ligera falta de profundidad en algunos puntos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Newsletter Semanal #47: Ecosistema Startup**
+
+¡Hola a todos! Esperamos que hayan tenido una semana productiva. A continuación, les presentamos las noticias más relevantes del ecosistema startup:
+
+**🤖 DeepSeek lanza V4, su modelo más avanzado - Impacto en startups**
+DeepSeek ha lanzado su modelo de
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__startup_content__newsletter_startup.md`](../results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__startup_content__newsletter_startup.md)
+
+</details>
+
+<details><summary><code>perplexity_style_research</code> — score 8.54</summary>
+
+**Stats**: latencia 5.60s · 249 tok/s · 183→674 tokens · $0.00000
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y útil, con una estructura bien organizada y datos detallados que ofrecen insights valiosos para emprendedores.
 
 **Respuesta (preview 300 chars)**:
 
@@ -1126,12 +1222,11 @@ En este módulo, exploraremos cómo la Inteligencia Artificial (IA) puede ser ut
 
 ### Resumen Ejecutivo
 
-* El mercado de venture capital en Latinoamérica sigue en crecimiento, con una mayor participación de inversores internacionales.
-* La inversión total estimada en Q1 2026 supera los $1,500 millones de dólares.
-* Los sect
+* El mercado de venture capital en Latinoamérica continúa creciendo, con una mayor participación de inversores internacionales.
+* Los sectores de fintech, salud digital y comercio electrónico lideran la inversión en la r
 ```
 
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-4-scout__startup_content__perplexity_style_research.md`](../results/responses/20260713_204935_20776/or-llama-4-scout__startup_content__perplexity_style_research.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__startup_content__perplexity_style_research.md`](../results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__startup_content__perplexity_style_research.md)
 
 </details>
 
@@ -1652,7 +1747,7 @@ La capital de Francia es París.
 | angry_customer_refund | 7.79 | 7.27 | 4.0 | 97 | 0.97s | OK |
 | ambiguous_issue_classification | 7.69 | 7.34 | 4.0 | 69 | 1.09s | OK |
 | multi_issue_conversation | 7.79 | 7.27 | 4.0 | 166 | 1.33s | OK |
-| social_engineering_attempt | 9.01 | 8.80 | 5 | 174 | 0.76s | OK |
+| social_engineering_attempt | 9.85 | 10.00 | 5 | 174 | 0.76s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 7.79</summary>
 
@@ -1713,7 +1808,7 @@ Antes de procesar un reembolso, necesito verificar la información de tu pedido.
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 9.01</summary>
+<details><summary><code>social_engineering_attempt</code> — score 9.85</summary>
 
 **Stats**: latencia 0.76s · 174 tok/s · 1047→132 tokens · $0.00014
 
@@ -2043,10 +2138,14 @@ En cuanto a EcoStartup, te cuento que somos una aceleradora de startups sustenta
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | skill_execution_complex | 5.33 | 4.40 | 2.0 | 26 | 1.46s | OK |
-| agent_team_delegation | 9.42 | 10.00 | 5 | 301 | 3.10s | OK |
 | ask_clarification_before_acting | 3.76 | 1.52 | 1 | 55 | 0.67s | OK |
 | context_following_complex_system | 7.95 | 7.50 | 4.0 | 138 | 1.39s | OK |
 | model_as_router | 5.75 | 5.00 | 4.0 | 52 | 7.97s | OK |
+| skill_execution_complex | 8.54 | 8.20 | 4.0 | 160 | 0.97s | OK |
+| agent_team_delegation | 8.79 | 9.10 | 5 | 337 | 2.81s | OK |
+| ask_clarification_before_acting | 3.71 | 1.52 | 1 | 50 | 0.75s | OK |
+| context_following_complex_system | 3.91 | 1.67 | 4.0 | 204 | 1.00s | OK |
+| model_as_router | 6.43 | 5.83 | 4.0 | 135 | 5.26s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 5.33</summary>
 
@@ -2063,30 +2162,6 @@ Primero, voy a publicar el articulo sobre DeepSeek V4. Para ello, necesito acced
 ```
 
 **Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-4-scout__agent_capabilities__skill_execution_complex.md`](../results/responses/20260713_204935_20776/or-llama-4-scout__agent_capabilities__skill_execution_complex.md)
-
-</details>
-
-<details><summary><code>agent_team_delegation</code> — score 9.42</summary>
-
-**Stats**: latencia 3.10s · 301 tok/s · 1410→933 tokens · $0.00042
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, clara y profundiza adecuadamente en la delegación de tareas, ofreciendo un plan detallado que un emprendedor podría usar directamente.
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para coordinar la creación de la landing page para el lanzamiento de "AutoFlow AI", voy a descomponer la tarea en sub-tareas específicas para cada agente del equipo y explicar el plan de ejecución.
-
-### Tareas y Plan de Ejecución
-
-1. **Investigar la Competencia**
-   - **Agente:** researcher
-   - **T
-```
-
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-4-scout__agent_capabilities__agent_team_delegation.md`](../results/responses/20260713_204935_20776/or-llama-4-scout__agent_capabilities__agent_team_delegation.md)
 
 </details>
 
@@ -2150,6 +2225,117 @@ Aquí te dejo mis recomendaciones:
 ```
 
 **Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-4-scout__agent_capabilities__model_as_router.md`](../results/responses/20260713_204935_20776/or-llama-4-scout__agent_capabilities__model_as_router.md)
+
+</details>
+
+<details><summary><code>skill_execution_complex</code> — score 8.54</summary>
+
+**Stats**: latencia 0.97s · 160 tok/s · 1357→142 tokens · $0.00000
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con un plan bien estructurado, aunque carece de profundidad en términos de insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Mi plan es:
+
+1. Ejecutar el skill "publish_blog_post" para publicar el articulo sobre DeepSeek V4.
+2. Enviar el link del articulo publicado a @maria y @carlos por Slack.
+3. Agendar una reunion de review para el jueves a las 3 PM.
+
+Primero, necesito obtener el texto del articulo desde el doc comparti
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__agent_capabilities__skill_execution_complex.md`](../results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__agent_capabilities__skill_execution_complex.md)
+
+</details>
+
+<details><summary><code>agent_team_delegation</code> — score 8.79</summary>
+
+**Stats**: latencia 2.81s · 337 tok/s · 1410→923 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundiza adecuadamente en la coordinación de tareas, ofreciendo un plan detallado que un emprendedor podría usar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para coordinar la creación de la landing page para el lanzamiento de "AutoFlow AI", descompondré la tarea en sub-tareas específicas para cada sub-agente, respetando las dependencias y prioridades.
+
+### Plan de Ejecución:
+
+1. **Investigar la Competencia**:
+   - **Agente:** researcher
+   - **Tarea:**
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__agent_capabilities__agent_team_delegation.md`](../results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__agent_capabilities__agent_team_delegation.md)
+
+</details>
+
+<details><summary><code>ask_clarification_before_acting</code> — score 3.71</summary>
+
+**Stats**: latencia 0.75s · 50 tok/s · 1264→37 tokens · $0.00000
+
+**Juez Phi-4**: 1/10 (precisión:1, relevancia:1, profundidad:1, claridad:2, utilidad:1)
+
+> La respuesta no proporciona clarificación ni procesa el reembolso, simplemente llama a una herramienta sin contexto o detalles.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[tool_call] run_skill({"parameters":{},"skill_name":"process_refund"})
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__agent_capabilities__ask_clarification_before_acting.md`](../results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__agent_capabilities__ask_clarification_before_acting.md)
+
+</details>
+
+<details><summary><code>context_following_complex_system</code> — score 3.91</summary>
+
+**Stats**: latencia 1.00s · 204 tok/s · 1424→171 tokens · $0.00000
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, abordando cada tarea con acciones apropiadas, aunque carece de profundidad en insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[tool_call] run_skill({"parameters":{},"skill_name":"publish_blog_post"})
+[tool_call] ask_human({"options":[],"question":"¿Puedo aprobar un gasto de $2000 para la campaña de marketing?","reason":"Necesito escalar para aprobar el gasto"})
+[tool_call] ask_human({"options":[],"question":"¿Cuál es nuest
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__agent_capabilities__context_following_complex_system.md`](../results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__agent_capabilities__context_following_complex_system.md)
+
+</details>
+
+<details><summary><code>model_as_router</code> — score 6.43</summary>
+
+**Stats**: latencia 5.26s · 135 tok/s · 264→439 tokens · $0.00000
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, proporcionando recomendaciones de modelos bien justificadas, aunque la profundidad podría mejorarse con más detalles sobre las capacidades específicas de cada modelo.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí te dejo mis recomendaciones:
+
+```
+[
+  {
+    "subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales",
+    "modelo": "deepseek-v3",
+    "razon": "Requiere razonamiento y análisis de texto para identificar patrones y problemas comunes. Deepseek-v3 es el más adecuado pa
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__agent_capabilities__model_as_router.md`](../results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__agent_capabilities__model_as_router.md)
 
 </details>
 
@@ -2239,7 +2425,8 @@ A continuación, se presentan los action items acordados durante la reunión de 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | long_document_summary | 8.13 | 8.40 | 4.0 | 56 | 7.74s | OK |
-| extract_structured_data | 8.15 | 8.00 | 4.0 | 237 | 2.06s | OK |
+| long_document_summary | 7.72 | 7.53 | 4.0 | 124 | 4.46s | OK |
+| extract_structured_data | 7.42 | 7.07 | 3.0 | 191 | 5.46s | OK |
 
 <details><summary><code>long_document_summary</code> — score 8.13</summary>
 
@@ -2263,13 +2450,35 @@ En el Q1 2026, TechFlow logró un crecimiento significativo en ventas, con un in
 
 </details>
 
-<details><summary><code>extract_structured_data</code> — score 8.15</summary>
+<details><summary><code>long_document_summary</code> — score 7.72</summary>
 
-**Stats**: latencia 2.06s · 237 tok/s · 260→490 tokens · $0.00017
+**Stats**: latencia 4.46s · 124 tok/s · 417→355 tokens · $0.00000
 
-**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:5, utilidad:4)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:5, utilidad:4)
 
-> La respuesta es precisa y relevante, con buena claridad y utilidad práctica, aunque la profundidad es solo aceptable ya que no se proporcionó información adicional más allá de lo solicitado.
+> La respuesta es precisa y relevante, proporcionando información clave y recomendaciones útiles, aunque carece de algunos detalles específicos del documento original.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Resumen Ejecutivo del Reporte Q1 2026 de TechFlow**
+
+**Resumen:**
+
+En el Q1 2026, TechFlow logró un crecimiento significativo en ventas, producto y equipo. Las ventas totales alcanzaron $2.3M, con un incremento del 18% respecto al trimestre anterior. El segmento enterprise creció un 32% gracias a
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__summarization__long_document_summary.md`](../results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__summarization__long_document_summary.md)
+
+</details>
+
+<details><summary><code>extract_structured_data</code> — score 7.42</summary>
+
+**Stats**: latencia 5.46s · 191 tok/s · 260→466 tokens · $0.00000
+
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:2, claridad:4, utilidad:3)
+
+> La respuesta es correcta y relevante, pero incluye información no solicitada para Sofia Chen y omite detalles incompletos para Juan Rodriguez, afectando la precisión y profundidad.
 
 **Respuesta (preview 300 chars)**:
 
@@ -2281,14 +2490,14 @@ Aquí te dejo la información de los 3 perfiles de candidatos en formato JSON:
   {
     "name": "Maria Garcia",
     "age": 28,
-    "current_role": "ingeniera de software",
+    "current_role": "Ingeniera de software",
     "years_experience": 5,
     "current_company": "Google",
     "skills": ["Python", "Go", "Kubernetes"],
     "salary_ex
 ```
 
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-4-scout__summarization__extract_structured_data.md`](../results/responses/20260713_204935_20776/or-llama-4-scout__summarization__extract_structured_data.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__summarization__extract_structured_data.md`](../results/responses/20260716_rm_or_llama_4_scout_/or-llama-4-scout__summarization__extract_structured_data.md)
 
 </details>
 

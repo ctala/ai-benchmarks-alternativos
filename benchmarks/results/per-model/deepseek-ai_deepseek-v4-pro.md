@@ -1,7 +1,7 @@
 # DeepSeek V4 Pro (NIM)
 
 - **model_id**: `deepseek-ai/deepseek-v4-pro`
-- **Total tests**: 3/58 exitosos (55 errores)
+- **Total tests**: 3/51 exitosos (48 errores)
 - **Score final**: 7.79
 - **Calidad**: 8.83
 - **Judge score (Phi-4)**: 4.67/10
@@ -15,7 +15,6 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_long_horizon | 7 | 0 | - | - |
 | code_generation | 4 | 0 | - | - |
 | content_generation | 8 | 2 | 7.95 | 9.42 |
 | creativity | 2 | 0 | - | - |
@@ -508,7 +507,3 @@ Espero que este mensaje le encuentre bien. En respuesta a su solicitud, adjunto 
 **Error**: `Error code: 400 - {'error': {'message': 'deepseek-ai/deepseek-v4-pro is not a valid model ID', 'code': 400}, 'user_id': 'user_2vdCEjaT9wK3SkZiYPhzNuwzhNp'}`
 
 </details>
-
-### Otras suites
-
-#### agent_long_horizon

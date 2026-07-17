@@ -1,7 +1,7 @@
 # MiMo-V2-Flash (free)
 
 - **model_id**: `xiaomi/mimo-v2-flash:free`
-- **Total tests**: 0/194 exitosos (194 errores)
+- **Total tests**: 0/182 exitosos (182 errores)
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -10,7 +10,6 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 10 | 0 | - | - |
-| agent_long_horizon | 12 | 0 | - | - |
 | code_generation | 8 | 0 | - | - |
 | content_generation | 8 | 0 | - | - |
 | creativity | 8 | 0 | - | - |
@@ -1432,7 +1431,3 @@
 **Error**: `Error code: 404 - {'error': {'message': 'The free MiMo-V2-Flash period has ended. To continue using this model, please migrate to the paid slug: xiaomi/mimo-v2-flash', 'code': 404}, 'user_id': 'user_2...`
 
 </details>
-
-### Otras suites
-
-#### agent_long_horizon

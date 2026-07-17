@@ -1,13 +1,13 @@
 # Nemotron Nano 9B v2
 
 - **model_id**: `nvidia/nemotron-nano-9b-v2:free`
-- **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.52
-- **Calidad**: 7.87
-- **Judge score (Phi-4)**: 4.53/10
-- **Velocidad**: 37 tok/s
-- **Latencia primera token**: 41.08s
-- **Costo promedio por test**: $0.00000
+- **Total tests**: 128/135 exitosos (7 errores)
+- **Score final**: 7.48
+- **Calidad**: 7.89
+- **Judge score (Phi-4)**: 4.54/10
+- **Velocidad**: 36 tok/s
+- **Latencia primera token**: 42.81s
+- **Costo promedio por test**: $0.00023
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,14 +16,14 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.83 | 6.84 |
-| agent_long_horizon | 12 | 12 | 8.55 | 9.29 |
+| agent_long_horizon | 12 | 12 | 8.01 | 9.04 |
 | business_audit | 10 | 10 | 6.26 | 6.08 |
 | business_strategy | 5 | 5 | 8.40 | 9.20 |
-| code_generation | 4 | 4 | 8.73 | 9.58 |
+| code_generation | 6 | 4 | 8.55 | 9.52 |
 | content_generation | 4 | 4 | 8.63 | 9.43 |
 | content_verificable | 5 | 5 | 6.54 | 6.53 |
 | creativity | 4 | 4 | 8.01 | 8.50 |
-| customer_support | 4 | 4 | 7.17 | 7.40 |
+| customer_support | 4 | 4 | 7.49 | 7.85 |
 | deep_reasoning | 6 | 6 | 7.69 | 8.20 |
 | hallucination | 3 | 3 | 6.88 | 7.00 |
 | multi_turn | 4 | 4 | 7.27 | 7.50 |
@@ -32,16 +32,16 @@
 | orchestration | 5 | 5 | 7.13 | 7.42 |
 | policy_adherence | 4 | 4 | 7.70 | 8.17 |
 | presentation | 2 | 2 | 8.79 | 9.66 |
-| reasoning | 3 | 3 | 8.89 | 9.75 |
+| reasoning | 7 | 5 | 8.51 | 9.48 |
 | sales_outreach | 3 | 3 | 6.07 | 5.78 |
 | startup_content | 5 | 5 | 8.59 | 9.42 |
 | strategy | 3 | 3 | 7.66 | 8.06 |
 | string_precision | 6 | 6 | 7.83 | 8.17 |
 | structured_output | 4 | 4 | 5.47 | 5.00 |
 | summarization | 2 | 2 | 7.21 | 7.40 |
-| task_management | 3 | 3 | 8.88 | 9.87 |
+| task_management | 7 | 4 | 8.73 | 9.75 |
 | tool_calling | 4 | 4 | 7.37 | 7.45 |
-| translation | 3 | 3 | 7.36 | 7.56 |
+| translation | 5 | 5 | 7.33 | 7.69 |
 
 ## Detalle por test
 
@@ -195,35 +195,13 @@ Suponemos que hay **5,000 a 15,000 oficinas** en la ciudad. Este número es dif�
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| business_analysis | 9.17 | 10.00 | 5 | 62 | 36.22s | OK |
 | logical_reasoning | 8.49 | 9.24 | 4.6 | 38 | 57.90s | OK |
-| multi_constraint_decision | 9.02 | 10.00 | 5 | 47 | 53.63s | OK |
-
-<details><summary><code>business_analysis</code> — score 9.17</summary>
-
-**Stats**: latencia 36.22s · 62 tok/s · 210→2245 tokens · $0.00000
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando análisis detallados y acciones concretas basadas en los datos.
-
-**Respuesta (preview 300 chars)**:
-
-```
-### **Análisis de las métricas clave**  
-#### 1. **Cálculo de métricas**  
-- **Tasa de churn (Churn Rate)**:  
-  - Enero: 45 / 1,200 = **3.75%**  
-  - Febrero: 52 / 1,350 = **3.85%**  
-  - Marzo: 68 / 1,480 = **4.59%**  
-  *(El churn está aumentando cada mes, lo que es preocupante).*  
-
-- **Tasa d
-```
-
-**Respuesta completa**: [`results/responses/20260714_063510_28395/or-nemotron-nano-9b-v2__reasoning__business_analysis.md`](../results/responses/20260714_063510_28395/or-nemotron-nano-9b-v2__reasoning__business_analysis.md)
-
-</details>
+| business_analysis | 8.68 | 9.75 | 5 | 42 | 61.11s | OK |
+| logical_reasoning | 8.52 | 9.43 | 4.6 | 43 | 57.84s | OK |
+| multi_constraint_decision | 8.68 | 9.72 | 5 | 40 | 76.18s | OK |
+| business_analysis | 4.39 | 3.24 | - | 7 | 43.40s | ERROR |
+| logical_reasoning | 6.41 | 6.40 | - | 16 | 65.89s | ERROR |
+| multi_constraint_decision | 8.17 | 9.28 | 4.4 | 25 | 123.37s | OK |
 
 <details><summary><code>logical_reasoning</code> — score 8.49</summary>
 
@@ -255,27 +233,116 @@ Suponemos que hay **5,000 a 15,000 oficinas** en la ciudad. Este número es dif�
 
 </details>
 
-<details><summary><code>multi_constraint_decision</code> — score 9.02</summary>
+<details><summary><code>business_analysis</code> — score 8.68</summary>
 
-**Stats**: latencia 53.63s · 47 tok/s · 191→2525 tokens · $0.00000
+**Stats**: latencia 61.11s · 42 tok/s · 210→2656 tokens · $0.00100
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un análisis detallado y comparativo de las opciones de stack tecnológico, adecuado para un emprendedor.
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando análisis detallados y acciones concretas basadas en los datos.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Aquí tienes un análisis comparativo de tres stacks tecnológicos viables para tu MVP, considerando tus restricciones de presupuesto, tiempo, equipo y escalabilidad:
+### Análisis de los datos de tu SaaS
 
----
+#### 1. **Cálculo de métricas clave**  
+**a) Tasa de churn (Churn Rate):**  
+- Enero: (45 / 1,200) × 100 = **3.75%**  
+- Febrero: (52 / 1,350) × 100 = **3.85%**  
+- Marzo: (68 / 1,480) × 100 = **4.59%**  
 
-### **Opción 1: Stack Tradicional (React + Python/Django + PostgreSQL + AWS)**
-**Composición:**
-- **Frontend:** React (conocido
+**b) Tasa de crecimiento (Growth Rate):**  
+- Enero a
 ```
 
-**Respuesta completa**: [`results/responses/20260714_063510_28395/or-nemotron-nano-9b-v2__reasoning__multi_constraint_decision.md`](../results/responses/20260714_063510_28395/or-nemotron-nano-9b-v2__reasoning__multi_constraint_decision.md)
+**Respuesta completa**: [`results/responses/20260716_res/or-nemotron-nano-9b-v2__reasoning__business_analysis.md`](../results/responses/20260716_res/or-nemotron-nano-9b-v2__reasoning__business_analysis.md)
+
+</details>
+
+<details><summary><code>logical_reasoning</code> — score 8.52</summary>
+
+**Stats**: latencia 57.84s · 43 tok/s · 135→2569 tokens · $0.00000
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Paso a paso:**
+
+1. **Dado que B tiene 10 personas:**  
+   $ B = 10 $.
+
+2. **Equipo A tiene más que B (10) y menos que C:**  
+   $ 10 < A < C $.
+
+3. **Equipo D tiene el mismo número que A:**  
+   $ D = A $.
+
+4. **Equipo E tiene menos que todos y al menos 5 personas:**  
+   $ E < A, E < B, E < C,
+```
+
+**Respuesta completa**: [`results/responses/20260716_res/or-nemotron-nano-9b-v2__reasoning__logical_reasoning.md`](../results/responses/20260716_res/or-nemotron-nano-9b-v2__reasoning__logical_reasoning.md)
+
+</details>
+
+<details><summary><code>multi_constraint_decision</code> — score 8.68</summary>
+
+**Stats**: latencia 76.18s · 40 tok/s · 191→3271 tokens · $0.00100
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un análisis detallado de múltiples opciones de stack tecnológico con pros y contras específicos, costos estimados y consideraciones de mantenimiento.
+
+**Respuesta (preview 300 chars)**:
+
+```
+### Análisis de Stacks Tecnológicos para MVP de Marketplace Freelance
+
+#### **Opción 1: MERN Stack (MongoDB, Express, React, Node.js)**  
+**Composición:**  
+- **Frente:** React (conocido por el equipo).  
+- **Backend:** Node.js + Express.  
+- **Base de datos:** MongoDB (Atlas).  
+- **Autenticación
+```
+
+**Respuesta completa**: [`results/responses/20260716_res/or-nemotron-nano-9b-v2__reasoning__multi_constraint_decision.md`](../results/responses/20260716_res/or-nemotron-nano-9b-v2__reasoning__multi_constraint_decision.md)
+
+</details>
+
+<details><summary><code>business_analysis</code> — score 4.39</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+<details><summary><code>logical_reasoning</code> — score 6.41</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+<details><summary><code>multi_constraint_decision</code> — score 8.17</summary>
+
+**Stats**: latencia 123.37s · 25 tok/s · 191→4021 tokens · $0.00100
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+### Comparación de Stacks Tecnológicos para MVP
+
+#### **Opción 1: Stack MERN (MongoDB, Express, React, Node.js)**
+- **Tecnologías**: React (frontend), Node.js/Express (backend), MongoDB (base de datos).
+- **Ventajas**:
+  - Stack completo en JavaScript, ideal para un desarrollador fullstack con con
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__reasoning__multi_constraint_decision.md`](../results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__reasoning__multi_constraint_decision.md)
 
 </details>
 
@@ -426,8 +493,10 @@ Aquí tienes un análisis comparativo de tres stacks tecnológicos viables para 
 |------|-------|---------|-------|-------|----------|--------|
 | python_api_integration | 8.83 | 9.72 | 4.8 | 34 | 157.26s | OK |
 | n8n_workflow_json | 8.04 | 8.60 | 4.0 | 38 | 47.82s | OK |
-| sql_query_complex | 9.02 | 10.00 | 5.0 | 44 | 65.53s | OK |
-| debug_code | 9.02 | 10.00 | 5 | 43 | 35.06s | OK |
+| python_api_integration | 6.66 | 6.85 | 4.8 | 15 | 118.10s | ERROR |
+| n8n_workflow_json | 3.73 | 2.00 | - | 0 | 0.00s | ERROR |
+| sql_query_complex | 8.56 | 9.83 | 5 | 29 | 127.32s | OK |
+| debug_code | 8.76 | 9.93 | 5 | 26 | 59.35s | OK |
 
 <details><summary><code>python_api_integration</code> — score 8.83</summary>
 
@@ -486,11 +555,41 @@ Aquí tienes el workflow en formato JSON para N8N que cumple con tus requisitos:
 
 </details>
 
-<details><summary><code>sql_query_complex</code> — score 9.02</summary>
+<details><summary><code>python_api_integration</code> — score 6.66</summary>
 
-**Stats**: latencia 65.53s · 44 tok/s · 156→2868 tokens · $0.00000
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
-**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes la implementación de la función solicitada utilizando `httpx` con todas las características requeridas:
+
+```python
+import httpx
+import time
+
+def get_expensive_products(bearer_token):
+    url = "https://api.example.com/products"
+    headers = {"Authorization": f"Bearer {bearer_token}"}
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__code_generation__python_api_integration.md`](../results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__code_generation__python_api_integration.md)
+
+</details>
+
+<details><summary><code>n8n_workflow_json</code> — score 3.73</summary>
+
+**Error**: `Response sin choices (provider devolvio respuesta vacia)`
+
+</details>
+
+<details><summary><code>sql_query_complex</code> — score 8.56</summary>
+
+**Stats**: latencia 127.32s · 29 tok/s · 156→3857 tokens · $0.00100
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando una consulta SQL bien estructurada que cumple con todos los requisitos especificados.
 
 **Respuesta (preview 300 chars)**:
 
@@ -498,40 +597,38 @@ Aquí tienes el workflow en formato JSON para N8N que cumple con tus requisitos:
 Aquí tienes la consulta SQL que cumple con todos los requisitos especificados:
 
 ```sql
-WITH customer_data AS (
-  SELECT 
-    c.id AS customer_id,
-    c.name,
-    c.email,
-    c.country,
-    COUNT(DISTINCT o.id) AS total_orders,
-    SUM(oi.quantity * oi.unit_price) AS total_revenue,
-    (SUM(oi.qua
+WITH customer_category_sums AS (
+    SELECT 
+        c.id AS customer_id,
+        p.category,
+        SUM(oi.quantity) AS total_quantity
+    FROM order_items oi
+    JOIN orders o ON oi.order_id = o.id
+    JOIN c
 ```
 
-**Respuesta completa**: [`results/responses/20260714_062824_24786/or-nemotron-nano-9b-v2__code_generation__sql_query_complex.md`](../results/responses/20260714_062824_24786/or-nemotron-nano-9b-v2__code_generation__sql_query_complex.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__code_generation__sql_query_complex.md`](../results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__code_generation__sql_query_complex.md)
 
 </details>
 
-<details><summary><code>debug_code</code> — score 9.02</summary>
+<details><summary><code>debug_code</code> — score 8.76</summary>
 
-**Stats**: latencia 35.06s · 43 tok/s · 230→1495 tokens · $0.00000
+**Stats**: latencia 59.35s · 26 tok/s · 230→1830 tokens · $0.00000
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante, profunda, clara y de gran utilidad práctica, abordando todos los bugs y proporcionando una solución detallada y bien estructurada.
+> La respuesta es precisa, relevante, profunda, clara y prácticamente útil, abordando todos los problemas del código de manera exhaustiva y proporcionando una solución clara.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-### Explicación de los Bugs y Correcciones
+### Explicación de los bugs y correcciones:
 
-#### **Bug 1: División por cero si no hay órdenes pendientes**
-- **Problema:** Si no hay órdenes con estado `'pending'`, la lista `processed` quedará vacía. Al calcular `average = total / len(processed)`, se generará un error de división por cero.
-- **Co
+1. **División por cero si no hay órdenes pendientes**  
+   - **Problema**: Si no hay órdenes con estado `'pending'`, la lista `processed` está vacía. Al calcular `average = total / len(processed)`, se produce una división entre cero (`0/0`), lo que lanz
 ```
 
-**Respuesta completa**: [`results/responses/20260714_062824_24786/or-nemotron-nano-9b-v2__code_generation__debug_code.md`](../results/responses/20260714_062824_24786/or-nemotron-nano-9b-v2__code_generation__debug_code.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__code_generation__debug_code.md`](../results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__code_generation__debug_code.md)
 
 </details>
 
@@ -1398,8 +1495,10 @@ Ofrezco una he
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.62 | 8.00 | 5 | 40 | 17.29s | OK |
-| translate_technical_en_es | 7.62 | 8.00 | 4.0 | 38 | 12.86s | OK |
 | detect_language_issues | 6.84 | 6.67 | 5 | 55 | 16.47s | OK |
+| translate_marketing_es_en | 7.47 | 8.00 | 5 | 20 | 36.33s | OK |
+| translate_technical_en_es | 7.42 | 8.00 | 4.0 | 18 | 44.20s | OK |
+| detect_language_issues | 7.31 | 7.78 | 5 | 27 | 39.67s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.62</summary>
 
@@ -1416,24 +1515,6 @@ Ofrezco una he
 ```
 
 **Respuesta completa**: [`results/responses/20260714_075205_68348/or-nemotron-nano-9b-v2__translation__translate_marketing_es_en.md`](../results/responses/20260714_075205_68348/or-nemotron-nano-9b-v2__translation__translate_marketing_es_en.md)
-
-</details>
-
-<details><summary><code>translate_technical_en_es</code> — score 7.62</summary>
-
-**Stats**: latencia 12.86s · 38 tok/s · 162→487 tokens · $0.00000
-
-**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:5, utilidad:4)
-
-> La respuesta es precisa, relevante y clara, proporcionando detalles adicionales útiles sobre el manejo de webhooks, lo que la hace muy útil para un emprendedor.
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para autenticarse con la API, incluya su token Bearer en el encabezado Authorization. Los límites de tasa están establecidos en 100 solicitudes por minuto para la versión gratuita. Si excede el límite de tasa, la API devuelve un código de estado 429 con un encabezado Retry-After que indica cuándo
-```
-
-**Respuesta completa**: [`results/responses/20260714_075205_68348/or-nemotron-nano-9b-v2__translation__translate_technical_en_es.md`](../results/responses/20260714_075205_68348/or-nemotron-nano-9b-v2__translation__translate_technical_en_es.md)
 
 </details>
 
@@ -1463,6 +1544,76 @@ Para autenticarse con la API, incluya su token Bearer en el encabezado Authoriza
 ```
 
 **Respuesta completa**: [`results/responses/20260714_075205_68348/or-nemotron-nano-9b-v2__translation__detect_language_issues.md`](../results/responses/20260714_075205_68348/or-nemotron-nano-9b-v2__translation__detect_language_issues.md)
+
+</details>
+
+<details><summary><code>translate_marketing_es_en</code> — score 7.47</summary>
+
+**Stats**: latencia 36.33s · 20 tok/s · 176→714 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La traducción es precisa, relevante y clara, manteniendo el tono cercano y energético adecuado para una audiencia americana, con utilidad práctica para emprendedores.
+
+**Respuesta (preview 300 chars)**:
+
+```
+"Stop wasting hours on tasks an AI can do in seconds.  
+AutoFlow automates your most tedious processes so you can focus on what really matters: growing your startup.  
+
+No code. No headaches. No excuses.  
+
+Over 500 startups in LATAM already use it. When are you starting?"
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__translation__translate_marketing_es_en.md`](../results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__translation__translate_marketing_es_en.md)
+
+</details>
+
+<details><summary><code>translate_technical_en_es</code> — score 7.42</summary>
+
+**Stats**: latencia 44.20s · 18 tok/s · 162→538 tokens · $0.00000
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, manteniendo los términos técnicos en inglés y proporcionando información adicional útil sobre los endpoints de webhook, aunque esta información no estaba en el texto original.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para autenticarse con la API, incluya su token Bearer en el encabezado Authorization. Los límites de tasa se establecen en 100 solicitudes por minuto para la versión gratuita. Si excede el límite de tasa, la API devuelve un código de estado 429 con un encabezado Retry-After que indica cuándo puede r
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__translation__translate_technical_en_es.md`](../results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__translation__translate_technical_en_es.md)
+
+</details>
+
+<details><summary><code>detect_language_issues</code> — score 7.31</summary>
+
+**Stats**: latencia 39.67s · 27 tok/s · 213→947 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa al identificar y corregir problemas de idioma, es altamente relevante para la tarea, ofrece una buena profundidad al abordar varios tipos de problemas, está claramente escrita y organizada, y es muy útil para un emprendedor que necesita asegurar la calidad del idioma en su contenido.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "problemas": [
+    {
+      "tipo": "spanglish",
+      "texto": "en Particularly, en Latín América",
+      "correccion": "en particular, en Latinoamérica"
+    },
+    {
+      "tipo": "spanglish",
+      "texto": "leveraging nuevas herramientas para scale their businesses",
+      "correcci
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__translation__detect_language_issues.md`](../results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__translation__detect_language_issues.md)
 
 </details>
 
@@ -1615,7 +1766,7 @@ La capital de Francia es París.
 | angry_customer_refund | 6.51 | 6.40 | 4.0 | 44 | 15.53s | OK |
 | ambiguous_issue_classification | 6.79 | 6.80 | 4.0 | 40 | 20.34s | OK |
 | multi_issue_conversation | 7.77 | 8.20 | 5 | 31 | 12.87s | OK |
-| social_engineering_attempt | 7.61 | 8.20 | 5 | 27 | 31.37s | OK |
+| social_engineering_attempt | 8.88 | 10.00 | 5 | 27 | 31.37s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 6.51</summary>
 
@@ -1675,7 +1826,7 @@ Okay, let's tackle the user's issues step by step. The user has four problems, b
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 7.61</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.88</summary>
 
 **Stats**: latencia 31.37s · 27 tok/s · 642→850 tokens · $0.00000
 
@@ -2115,8 +2266,12 @@ First, the article about AI funding in LATAM is ready to be published. Looking a
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | extract_action_items | 8.75 | 9.60 | 5 | 44 | 29.96s | OK |
-| weekly_planning | 8.88 | 10.00 | 5 | 28 | 167.46s | OK |
-| project_breakdown | 9.02 | 10.00 | 5 | 44 | 47.79s | OK |
+| extract_action_items | 8.60 | 9.40 | 5 | 38 | 29.00s | OK |
+| weekly_planning | 8.70 | 10.00 | 5 | 31 | 153.65s | OK |
+| project_breakdown | 8.88 | 10.00 | 5 | 38 | 60.64s | OK |
+| extract_action_items | 6.25 | 6.00 | 5 | 19 | 31.02s | ERROR |
+| weekly_planning | 6.57 | 6.67 | 5 | 16 | 73.18s | ERROR |
+| project_breakdown | 6.58 | 6.67 | 5 | 16 | 73.61s | ERROR |
 
 <details><summary><code>extract_action_items</code> — score 8.75</summary>
 
@@ -2140,50 +2295,136 @@ Aquí está la tabla con los action items extraídos:
 
 </details>
 
-<details><summary><code>weekly_planning</code> — score 8.88</summary>
+<details><summary><code>extract_action_items</code> — score 8.60</summary>
 
-**Stats**: latencia 167.46s · 28 tok/s · 214→4600 tokens · $0.00000
+**Stats**: latencia 29.00s · 38 tok/s · 209→1022 tokens · $0.00000
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante, clara y prácticamente útil, con una buena estructura y consideración de las restricciones y tareas.
+> La respuesta es precisa, relevante, clara y prácticamente útil, con una buena profundidad al proporcionar prioridades y fechas estimadas.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Aquí tienes un plan semanal detallado con bloques de tiempo específicos, respetando tus compromisos y asignando todas las tareas:
+Aquí está la tabla con los action items extraídos de la reunión:
+
+| **Responsable** | **Tarea**                          | **Fecha límite**   | **Prioridad sugerida** |
+|-----------------|------------------------------------|--------------------|------------------------|
+| Maria (PM)      | Confir
+```
+
+**Respuesta completa**: [`results/responses/20260716_res/or-nemotron-nano-9b-v2__task_management__extract_action_items.md`](../results/responses/20260716_res/or-nemotron-nano-9b-v2__task_management__extract_action_items.md)
+
+</details>
+
+<details><summary><code>weekly_planning</code> — score 8.70</summary>
+
+**Stats**: latencia 153.65s · 31 tok/s · 214→3848 tokens · $0.00100
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y altamente útil, con una buena estructura y consideración de las restricciones y tareas, aunque la profundidad podría mejorarse con más insights sobre la gestión del tiempo.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes un plan semanal detallado con bloques de tiempo específicos, respetando tus compromisos fijos y distribuyendo las tareas de forma eficiente:
 
 ---
 
 ### **Lunes**  
 - **9:00 - 11:00 AM**: Reunión de directivos.  
-- **1:00 - 2:00 PM**: Almuerzo con cliente.  
-- **2:00 - 4:00 PM**: Preparar presentación para la
+- **11:00 - 12:00 PM**: Responder emails de stakeholders (1h).  
+- **12:00
 ```
 
-**Respuesta completa**: [`results/responses/20260714_062309_22134/or-nemotron-nano-9b-v2__task_management__weekly_planning.md`](../results/responses/20260714_062309_22134/or-nemotron-nano-9b-v2__task_management__weekly_planning.md)
+**Respuesta completa**: [`results/responses/20260716_res/or-nemotron-nano-9b-v2__task_management__weekly_planning.md`](../results/responses/20260716_res/or-nemotron-nano-9b-v2__task_management__weekly_planning.md)
 
 </details>
 
-<details><summary><code>project_breakdown</code> — score 9.02</summary>
+<details><summary><code>project_breakdown</code> — score 8.88</summary>
 
-**Stats**: latencia 47.79s · 44 tok/s · 79→2107 tokens · $0.00000
+**Stats**: latencia 60.64s · 38 tok/s · 79→2754 tokens · $0.00000
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando un desglose detallado y estructurado que un emprendedor podría usar directamente.
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando un desglose detallado que un emprendedor podría usar directamente.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Aquí tienes un desglose detallado del proyecto para lanzar la landing page en 4 semanas, incluyendo fases, tareas, dependencias, responsables y un cronograma realista. El objetivo es priorizar velocidad, claridad y alineación entre el equipo.
+Aquí tienes un desglose detallado del proyecto para lanzar la landing page en 4 semanas, considerando las responsabilidades, tareas, dependencias y un cronograma realista:
 
 ---
 
-### **Fase 1: Planificación y Descubrimiento (Sem
+### **Fases del Proyecto**
+1. **Fase 1: Investigación y Planificación (1 semana)**  
+   - Definir objetivos de la landin
 ```
 
-**Respuesta completa**: [`results/responses/20260714_062309_22134/or-nemotron-nano-9b-v2__task_management__project_breakdown.md`](../results/responses/20260714_062309_22134/or-nemotron-nano-9b-v2__task_management__project_breakdown.md)
+**Respuesta completa**: [`results/responses/20260716_res/or-nemotron-nano-9b-v2__task_management__project_breakdown.md`](../results/responses/20260716_res/or-nemotron-nano-9b-v2__task_management__project_breakdown.md)
+
+</details>
+
+<details><summary><code>extract_action_items</code> — score 6.25</summary>
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y prácticamente útil, con una buena profundidad al ajustar las fechas y agregar la acción de los standups diarios.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes los action items extraídos en formato de tabla:
+
+| **Responsable** | **Tarea**                                      | **Fecha Límite**      | **Prioridad Sugerida** |
+|------------------|-----------------------------------------------|-----------------------|------------------------|
+|
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__task_management__extract_action_items.md`](../results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__task_management__extract_action_items.md)
+
+</details>
+
+<details><summary><code>weekly_planning</code> — score 6.57</summary>
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y altamente útil, proporcionando un plan detallado que se ajusta perfectamente a las restricciones y tareas dadas, con una estructura organizada y consideraciones prácticas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes un plan semanal detallado que ajusta tus tareas a las restricciones de tu agenda. He priorizado bloques de tiempo concentrados para tareas importantes y distribuido actividades recurrentes (como emails) de manera eficiente:
+
+---
+
+### **Lunes**  
+- **8:00-9:00 AM**: Inicio temprano para
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__task_management__weekly_planning.md`](../results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__task_management__weekly_planning.md)
+
+</details>
+
+<details><summary><code>project_breakdown</code> — score 6.58</summary>
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando un desglose detallado que un emprendedor podría usar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes un desglose detallado del proyecto para lanzar la landing page de tu producto SaaS de gestión de inventario en 4 semanas, con fases, tareas, dependencias, responsables y un timeline realista:
+
+---
+
+### **Fase 1: Planificación y Preparación (Semana 1)**
+**Objetivo:** Definir objetivos,
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__task_management__project_breakdown.md`](../results/responses/20260716_rm_or_nemotron_nano_9b_v2_/or-nemotron-nano-9b-v2__task_management__project_breakdown.md)
 
 </details>
 

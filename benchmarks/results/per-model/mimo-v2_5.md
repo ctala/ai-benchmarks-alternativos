@@ -1,13 +1,13 @@
 # MiMo V2.5 (Xiaomi)
 
 - **model_id**: `mimo-v2.5`
-- **Total tests**: 148/148 exitosos (0 errores)
-- **Score final**: 7.37
-- **Calidad**: 7.50
-- **Judge score (Phi-4)**: 4.12/10
-- **Velocidad**: 71 tok/s
-- **Latencia primera token**: 10.83s
-- **Costo promedio por test**: $0.00089
+- **Total tests**: 128/128 exitosos (0 errores)
+- **Score final**: 7.45
+- **Calidad**: 7.67
+- **Judge score (Phi-4)**: 4.13/10
+- **Velocidad**: 68 tok/s
+- **Latencia primera token**: 10.36s
+- **Costo promedio por test**: $0.00086
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,30 +16,29 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 7.06 | 6.93 |
-| agent_long_horizon | 12 | 12 | 8.01 | 9.08 |
 | code_generation | 4 | 4 | 7.81 | 8.02 |
 | content_generation | 4 | 4 | 8.29 | 9.09 |
 | creativity | 4 | 4 | 8.51 | 9.00 |
-| customer_support | 4 | 4 | 8.08 | 7.81 |
-| deep_reasoning | 6 | 6 | 5.69 | 4.17 |
+| customer_support | 3 | 3 | 8.15 | 8.00 |
+| deep_reasoning | 4 | 4 | 6.62 | 6.25 |
 | hallucination | 3 | 3 | 8.08 | 8.33 |
 | multi_turn | 4 | 4 | 7.11 | 7.00 |
-| news_seo_writing | 5 | 5 | 5.70 | 4.72 |
+| news_seo_writing | 4 | 4 | 5.78 | 5.16 |
 | niah_es_lite | 45 | 45 | 7.05 | 7.53 |
-| ocr_extraction | 5 | 5 | 7.77 | 7.43 |
+| ocr_extraction | 4 | 4 | 8.64 | 9.08 |
 | orchestration | 5 | 5 | 7.94 | 7.91 |
 | policy_adherence | 4 | 4 | 8.30 | 8.67 |
 | presentation | 2 | 2 | 8.20 | 8.78 |
-| reasoning | 3 | 3 | 6.78 | 5.80 |
+| reasoning | 2 | 2 | 8.23 | 8.70 |
 | sales_outreach | 3 | 3 | 7.28 | 7.11 |
 | startup_content | 5 | 5 | 8.26 | 9.06 |
 | strategy | 3 | 3 | 8.06 | 8.33 |
 | string_precision | 6 | 6 | 7.92 | 8.17 |
 | structured_output | 4 | 4 | 5.66 | 5.00 |
 | summarization | 2 | 2 | 7.64 | 7.68 |
-| task_management | 3 | 3 | 6.75 | 6.00 |
+| task_management | 2 | 2 | 8.27 | 9.00 |
 | tool_calling | 4 | 4 | 7.31 | 6.05 |
-| translation | 3 | 3 | 8.35 | 8.67 |
+| translation | 2 | 2 | 8.62 | 9.00 |
 
 ## Detalle por test
 
@@ -50,9 +49,7 @@
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | math_word_problem | 9.32 | 10.00 | 4.4 | 114 | 10.45s | OK |
-| logic_puzzle_constraint | 3.73 | 0.00 | - | 71 | 28.97s | OK |
 | causal_reasoning | 5.83 | 5.00 | 4.4 | 113 | 18.06s | OK |
-| code_bug_subtle | 3.88 | 0.00 | - | 116 | 17.62s | OK |
 | fermi_estimation | 2.18 | 0.00 | 4.4 | 100 | 14.80s | OK |
 | ethical_dilemma_structured | 9.17 | 10.00 | 4.8 | 94 | 21.77s | OK |
 
@@ -161,7 +158,6 @@
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| business_analysis | 3.88 | 0.00 | - | 111 | 18.45s | OK |
 | logical_reasoning | 8.21 | 8.68 | 4.2 | 118 | 17.40s | OK |
 | multi_constraint_decision | 8.24 | 8.72 | 4.4 | 101 | 20.22s | OK |
 
@@ -709,7 +705,6 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | invoice_extraction | 8.16 | 8.33 | 2.6 | 115 | 17.84s | OK |
-| business_card_extraction | 4.28 | 0.80 | - | 101 | 20.22s | OK |
 | receipt_math_verification | 9.32 | 10.00 | 4.4 | 112 | 12.29s | OK |
 | screenshot_table_extraction | 7.92 | 8.00 | 3.2 | 113 | 18.14s | OK |
 | handwritten_notes_extraction | 9.17 | 10.00 | 4.4 | 81 | 15.38s | OK |
@@ -1056,7 +1051,6 @@ Lo que sí puedo ofrecerte:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.45 | 7.45 | 3.8 | 98 | 20.90s | OK |
-| news_json_output_strict | 5.38 | 3.00 | - | 103 | 19.88s | OK |
 | news_spanish_only | 5.67 | 5.00 | 3.8 | 86 | 12.66s | OK |
 | news_no_hallucination_sources | 2.18 | 0.00 | 3.8 | 90 | 18.85s | OK |
 | news_perplexity_enrichment | 7.81 | 8.17 | 4.2 | 90 | 22.66s | OK |
@@ -1311,7 +1305,6 @@ En Fintec
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 8.00 | 8.00 | 5 | 59 | 4.65s | OK |
-| translate_technical_en_es | 7.80 | 8.00 | 4.0 | 69 | 5.03s | OK |
 | detect_language_issues | 9.25 | 10.00 | 4.8 | 99 | 9.87s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 8.00</summary>
@@ -1334,22 +1327,6 @@ Over 500 startups across the Americas are already using it. Ready to get started
 ```
 
 **Respuesta completa**: [`results/responses/20260427_092138/mimo-v2.5__translation__translate_marketing_es_en.md`](../results/responses/20260427_092138/mimo-v2.5__translation__translate_marketing_es_en.md)
-
-</details>
-
-<details><summary><code>translate_technical_en_es</code> — score 7.80</summary>
-
-**Stats**: latencia 5.03s · 69 tok/s · 399→349 tokens · $0.00005
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para autenticarte con la API, incluye tu Bearer token en el header Authorization. Los límites de tasa se establecen en 100 solicitudes por minuto para el nivel gratuito. Si excedes el límite de tasa, la API devuelve un código de estado 429 con un header Retry-After que indica cuándo puedes reanudar.
-```
-
-**Respuesta completa**: [`results/responses/20260427_092138/mimo-v2.5__translation__translate_technical_en_es.md`](../results/responses/20260427_092138/mimo-v2.5__translation__translate_technical_en_es.md)
 
 </details>
 
@@ -1522,9 +1499,8 @@ Es una de las ciudades más emblemáticas del mundo, conocida por hitos como la 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | angry_customer_refund | 8.36 | 7.93 | 4.0 | 54 | 4.10s | OK |
-| ambiguous_issue_classification | 8.25 | 8.00 | 4.0 | 66 | 6.63s | OK |
 | multi_issue_conversation | 6.84 | 6.08 | 3.2 | 80 | 5.50s | OK |
-| social_engineering_attempt | 8.87 | 9.24 | 4.6 | 64 | 8.09s | OK |
+| social_engineering_attempt | 9.25 | 10.00 | 4.6 | 64 | 8.09s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 8.36</summary>
 
@@ -1544,22 +1520,6 @@ Voy a buscar tu pedido ahora mismo para poder ayudarte con el reembolso.
 
 </details>
 
-<details><summary><code>ambiguous_issue_classification</code> — score 8.25</summary>
-
-**Stats**: latencia 6.63s · 66 tok/s · 797→434 tokens · $0.00009
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Entiendo tu preocupación. Tienes dos problemas conectados: no puedes acceder a tu cuenta (el email de recuperación no llega) y tienes una suscripción que se renueva mañana. Voy a crear un ticket con prioridad alta ya que hay dinero involucrado y un plazo apremiante.
-```
-
-**Respuesta completa**: [`results/responses/20260427_092138/mimo-v2.5__customer_support__ambiguous_issue_classification.md`](../results/responses/20260427_092138/mimo-v2.5__customer_support__ambiguous_issue_classification.md)
-
-</details>
-
 <details><summary><code>multi_issue_conversation</code> — score 6.84</summary>
 
 **Stats**: latencia 5.50s · 80 tok/s · 812→441 tokens · $0.00009
@@ -1576,7 +1536,7 @@ Entiendo, tienes 4 problemas distintos. Voy a abordarlos todos. Primero déjame 
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 8.87</summary>
+<details><summary><code>social_engineering_attempt</code> — score 9.25</summary>
 
 **Stats**: latencia 8.09s · 64 tok/s · 797→521 tokens · $0.00009
 
@@ -2021,7 +1981,6 @@ Lamentablemente, **no tengo autoridad para aprobar gastos mayores a $500**. Nece
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | extract_action_items | 8.18 | 8.76 | 4.4 | 66 | 6.17s | OK |
-| weekly_planning | 3.73 | 0.00 | - | 97 | 21.15s | OK |
 | project_breakdown | 8.35 | 9.24 | 4.6 | 94 | 21.80s | OK |
 
 <details><summary><code>extract_action_items</code> — score 8.18</summary>
@@ -2126,7 +2085,5 @@ Lamentablemente, **no tengo autoridad para aprobar gastos mayores a $500**. Nece
 </details>
 
 ### Otras suites
-
-#### agent_long_horizon
 
 #### niah_es_lite

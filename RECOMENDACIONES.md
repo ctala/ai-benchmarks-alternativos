@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-07-15 · 70 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-07-17 · 69 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -19,34 +19,35 @@ Todos los costos asumen **3,000 llamadas/mes** (≈100 por día). Para tu volume
 
 _El modelo decide y llama herramientas. Necesitás fiabilidad en tool calling._
 
-- **Usá:** **Qwen 3.6 35B base (OpenRouter FP8)** — ≈$5/mes (calidad 8.11/10)
-- **Lo que te ahorrás:** Qwen 3.6 Max cuesta ≈$29/mes (**6.3× más**) por apenas -0.03 de calidad — dentro del margen de error.
-- _5 modelos empatan en calidad en este pilar._
+- **Usá:** **Qwen 3.6 35B base (OpenRouter FP8)** — ≈$5/mes (calidad 8.10/10)
+- **Lo que te ahorrás:** Qwen 3.6 Max cuesta ≈$29/mes (**6.3× más**) por apenas -0.07 de calidad — dentro del margen de error.
+- _4 modelos empatan en calidad en este pilar._
 
 ### Contenido y marketing (blog, SEO, copy)
 
 _Texto largo en español neutro. El costo manda: es alto volumen._
 
-- **Usá:** **GPT-OSS 120B** — ≈$1/mes (calidad 8.23/10)
-- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**278.6× más**) por apenas +0.25 de calidad — dentro del margen de error.
-- _18 modelos empatan en calidad en este pilar._
+- **Usá:** **GPT-OSS 120B** — ≈$1/mes (calidad 8.41/10)
+- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**278.6× más**) por apenas +0.06 de calidad — dentro del margen de error.
+- _7 modelos empatan en calidad en este pilar._
 
 ### Código y debugging
 
 _Generación y corrección de código._
 
-- **Usá:** **DeepSeek V4 Flash (OpenRouter)** — ≈$1/mes (calidad 8.26/10)
-- **Lo que te ahorrás:** GPT-4.1 cuesta ≈$38/mes (**39.0× más**) por apenas +0.04 de calidad — dentro del margen de error.
-- _11 modelos empatan en calidad en este pilar._
+- **Usá:** **DeepSeek V3.2** — ≈$1/mes (calidad 8.69/10)
+- **Lo que te ahorrás:** Claude Opus 4.7 cuesta ≈$117/mes (**84.2× más**) por apenas +0.09 de calidad — dentro del margen de error.
+- **Mejor open-source:** **Nemotron 3 Super** — ≈$2/mes (calidad 8.62/10)
+- _15 modelos empatan en calidad en este pilar._
 
 ### Razonamiento y estrategia
 
 _Análisis, decisiones, problemas con varios pasos._
 
-- **Usá:** **Qwen 3.6 Plus** — ≈$5/mes (calidad 8.39/10)
-- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**47.0× más**) por apenas -0.10 de calidad — dentro del margen de error.
-- **Mejor open-source:** **GLM 5** — ≈$9/mes (calidad 8.42/10)
-- _14 modelos empatan en calidad en este pilar._
+- **Usá:** **MiniMax M3** — ≈$6/mes (calidad 8.42/10)
+- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**41.3× más**) por apenas -0.13 de calidad — dentro del margen de error.
+- **Mejor open-source:** **GLM 5** — ≈$9/mes (calidad 8.48/10)
+- _12 modelos empatan en calidad en este pilar._
 
 ---
 
@@ -56,19 +57,19 @@ Lo mejor que podés comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 | Presupuesto | Modelo | Calidad | Costo real |
 |---|---|---:|---:|
-| Menos de $10/mes | **GLM 5** | 8.28 | ≈$9/mes |
-| Hasta $30/mes | **DeepSeek R1 (reasoning)** | 8.39 | ≈$12/mes |
-| Hasta $100/mes | **DeepSeek R1 (reasoning)** | 8.39 | ≈$12/mes |
+| Menos de $10/mes | **Qwen 3.6 Plus** | 8.27 | ≈$5/mes |
+| Hasta $30/mes | **GPT-5.6 Luna** | 8.41 | ≈$28/mes |
+| Hasta $100/mes | **GPT-5.6 Luna** | 8.41 | ≈$28/mes |
 
 ---
 
 ## El resumen de todo el benchmark
 
-**13 modelos empatan en calidad** en la cima del ranking global.
+**25 modelos empatan en calidad** en la cima del ranking global.
 
-El más barato de ese grupo — **MiniMax M3** — sale **≈$6/mes**.
+El más barato de ese grupo — **Ministral 14B** — sale **≈$1/mes**.
 El más caro — **GPT-5.6 Sol** — sale **≈$140/mes**.
 
-Eso es **24.6× más caro** por una diferencia de calidad de **+0.03 puntos**, que está dentro del margen de error.
+Eso es **129.2× más caro** por una diferencia de calidad de **+0.04 puntos**, que está dentro del margen de error.
 
 Si te llevás una sola cosa de este benchmark, que sea esta.

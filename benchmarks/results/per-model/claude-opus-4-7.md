@@ -1,13 +1,13 @@
 # Claude Opus 4.7 (suscripción)
 
 - **model_id**: `claude-opus-4-7`
-- **Total tests**: 92/109 exitosos (17 errores)
-- **Score final**: 6.49
-- **Calidad**: 8.13
-- **Judge score (Phi-4)**: 4.50/10
-- **Velocidad**: 55 tok/s
-- **Latencia primera token**: 25.37s
-- **Costo promedio por test**: $0.08954
+- **Total tests**: 70/87 exitosos (17 errores)
+- **Score final**: 6.63
+- **Calidad**: 8.05
+- **Judge score (Phi-4)**: 4.43/10
+- **Velocidad**: 53 tok/s
+- **Latencia primera token**: 21.47s
+- **Costo promedio por test**: $0.04493
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,12 +16,11 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 0 | - | - |
-| agent_long_horizon | 12 | 12 | 5.98 | 8.00 |
 | business_audit | 10 | 10 | 6.72 | 8.20 |
-| code_generation | 4 | 4 | 7.06 | 9.46 |
+| code_generation | 3 | 3 | 6.97 | 9.28 |
 | content_generation | 4 | 4 | 7.18 | 9.45 |
 | creativity | 4 | 4 | 7.41 | 9.00 |
-| customer_support | 4 | 4 | 6.32 | 9.90 |
+| customer_support | 2 | 2 | 7.24 | 9.90 |
 | deep_reasoning | 6 | 6 | 5.96 | 6.95 |
 | hallucination | 3 | 3 | 5.51 | 5.67 |
 | multi_turn | 4 | 1 | 7.04 | 8.00 |
@@ -30,15 +29,15 @@
 | orchestration | 5 | 4 | 5.35 | 7.12 |
 | policy_adherence | 4 | 0 | - | - |
 | presentation | 2 | 2 | 6.93 | 9.64 |
-| reasoning | 3 | 3 | 7.07 | 9.75 |
+| reasoning | 2 | 2 | 7.09 | 9.62 |
 | sales_outreach | 3 | 2 | 8.34 | 10.00 |
-| startup_content | 5 | 5 | 6.91 | 9.63 |
+| startup_content | 3 | 3 | 6.85 | 9.39 |
 | strategy | 3 | 0 | - | - |
-| string_precision | 6 | 6 | 6.45 | 6.83 |
+| string_precision | 6 | 6 | 7.61 | 8.50 |
 | structured_output | 4 | 4 | 4.96 | 5.00 |
-| summarization | 2 | 2 | 6.75 | 8.30 |
-| task_management | 3 | 3 | 7.32 | 9.84 |
-| translation | 3 | 3 | 6.83 | 7.56 |
+| summarization | 1 | 1 | 6.04 | 6.60 |
+| task_management | 1 | 1 | 7.34 | 9.52 |
+| translation | 2 | 2 | 6.73 | 7.33 |
 
 ## Detalle por test
 
@@ -202,7 +201,6 @@ Santiago Metropolitano tiene aproximadamente **7,1 millones de habitantes** (202
 |------|-------|---------|-------|-------|----------|--------|
 | business_analysis | 7.10 | 9.80 | 5.0 | 61 | 49.35s | OK |
 | logical_reasoning | 7.08 | 9.44 | 4.6 | 86 | 18.48s | OK |
-| multi_constraint_decision | 7.04 | 10.00 | 5 | 62 | 89.98s | OK |
 
 <details><summary><code>business_analysis</code> — score 7.10</summary>
 
@@ -259,28 +257,6 @@ $$A = \frac{50 - 3
 ```
 
 **Respuesta completa**: [`results/responses/20260603_063656_2796021/claude-opus-4.7-sub__reasoning__logical_reasoning.md`](../results/responses/20260603_063656_2796021/claude-opus-4.7-sub__reasoning__logical_reasoning.md)
-
-</details>
-
-<details><summary><code>multi_constraint_decision</code> — score 7.04</summary>
-
-**Stats**: latencia 89.98s · 62 tok/s · 6→5608 tokens · $0.14023
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un análisis detallado de múltiples opciones de stack tecnológico con pros y contras específicos, costos estimados y consideraciones operativas.
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Stack para Marketplace de Freelance Nicho — Análisis
-
-Antes de entrar a las opciones, dos observaciones que mueven la aguja:
-
-1. **El "admin panel" es trabajo subestimado**. En un marketplace tenés que moderar perfiles, resolver disputas, refundear, banear, ver métricas. Construirlo a mano son 1-2
-```
-
-**Respuesta completa**: [`results/responses/20260603_063656_2796021/claude-opus-4.7-sub__reasoning__multi_constraint_decision.md`](../results/responses/20260603_063656_2796021/claude-opus-4.7-sub__reasoning__multi_constraint_decision.md)
 
 </details>
 
@@ -419,7 +395,6 @@ API Error: Server is temporarily limiting requests (not your usage limit) · Rat
 |------|-------|---------|-------|-------|----------|--------|
 | python_api_integration | 7.06 | 9.44 | 4.6 | 65 | 27.18s | OK |
 | n8n_workflow_json | 6.58 | 8.60 | 4.0 | 89 | 58.38s | OK |
-| sql_query_complex | 7.33 | 10.00 | 5.0 | 78 | 23.71s | OK |
 | debug_code | 7.28 | 9.80 | 5 | 69 | 21.80s | OK |
 
 <details><summary><code>python_api_integration</code> — score 7.06</summary>
@@ -475,32 +450,6 @@ Aquí tenés el JSON completo del workflow. Lo podés importar directo en N8N de
 ```
 
 **Respuesta completa**: [`results/responses/20260603_063656_2796021/claude-opus-4.7-sub__code_generation__n8n_workflow_json.md`](../results/responses/20260603_063656_2796021/claude-opus-4.7-sub__code_generation__n8n_workflow_json.md)
-
-</details>
-
-<details><summary><code>sql_query_complex</code> — score 7.33</summary>
-
-**Stats**: latencia 23.71s · 78 tok/s · 6→1854 tokens · $0.04638
-
-**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-```sql
-WITH last_6_months AS (
-    -- Filtro base: ordenes completadas en los ultimos 6 meses
-    SELECT
-        o.id              AS order_id,
-        o.customer_id,
-        o.total,
-        o.created_at
-    FROM orders o
-    WHERE o.status = 'completed'
-      AND o.created_at >= CURRENT_DATE - INT
-```
-
-**Respuesta completa**: [`results/responses/20260603_063656_2796021/claude-opus-4.7-sub__code_generation__sql_query_complex.md`](../results/responses/20260603_063656_2796021/claude-opus-4.7-sub__code_generation__sql_query_complex.md)
 
 </details>
 
@@ -631,7 +580,7 @@ Si `orders` está vacío o no hay ninguna orden con `sta
 | copy_api_key | 2.38 | 1.00 | 4.0 | 16 | 4.64s | OK |
 | copy_jwt | 8.70 | 10.00 | 4.0 | 16 | 4.05s | OK |
 | copy_mixed_special | 8.92 | 10.00 | 3.0 | 26 | 1.79s | OK |
-| write_config_file | 1.34 | 0.00 | 4.0 | 47 | 8.77s | OK |
+| write_config_file | 8.34 | 10.00 | 4.0 | 47 | 8.77s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.73</summary>
 
@@ -723,7 +672,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 1.34</summary>
+<details><summary><code>write_config_file</code> — score 8.34</summary>
 
 **Stats**: latencia 8.77s · 47 tok/s · 6→412 tokens · $0.01033
 
@@ -1000,8 +949,6 @@ Meet AuraOne — the smart home trifecta that turns any room into a sensory sanc
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | blog_actualidad_startup | 6.74 | 9.24 | 4.6 | 45 | 50.45s | OK |
-| curso_emprendimiento_modulo | 6.99 | 10.00 | 5 | 62 | 107.24s | OK |
-| workshop_outline | 7.03 | 10.00 | 5 | 61 | 95.31s | OK |
 | newsletter_startup | 7.02 | 9.76 | 5 | 49 | 44.00s | OK |
 | perplexity_style_research | 6.79 | 9.16 | 4.4 | 60 | 115.32s | OK |
 
@@ -1026,61 +973,6 @@ En marzo de 2026, una fin
 ```
 
 **Respuesta completa**: [`results/responses/20260603_063656_2796021/claude-opus-4.7-sub__startup_content__blog_actualidad_startup.md`](../results/responses/20260603_063656_2796021/claude-opus-4.7-sub__startup_content__blog_actualidad_startup.md)
-
-</details>
-
-<details><summary><code>curso_emprendimiento_modulo</code> — score 6.99</summary>
-
-**Stats**: latencia 107.24s · 62 tok/s · 6→6683 tokens · $0.16711
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil para emprendedores, cubriendo todos los aspectos solicitados con ejemplos prácticos y recomendaciones específicas.
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Módulo 3: Automatización con IA — De la idea al flujo de trabajo
-
-> **Curso:** IA Práctica para Emprendedores
-> **Duración estimada:** 4-6 horas (lectura + ejercicio + autoevaluación)
-> **Pre-requisitos:** Módulos 1 y 2 (Fundamentos de IA + Prompting efectivo)
-
----
-
-## 1. Objetivo del módulo
-
-Al f
-```
-
-**Respuesta completa**: [`results/responses/20260603_063656_2796021/claude-opus-4.7-sub__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260603_063656_2796021/claude-opus-4.7-sub__startup_content__curso_emprendimiento_modulo.md)
-
-</details>
-
-<details><summary><code>workshop_outline</code> — score 7.03</summary>
-
-**Stats**: latencia 95.31s · 61 tok/s · 6→5779 tokens · $0.14450
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil para emprendedores no técnicos, cubriendo todos los aspectos solicitados con detalles prácticos y organización.
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Workshop: Construye tu Asistente de IA para tu Startup
-### Workshop Práctico Presencial · 3 horas · 20-30 emprendedores
-
----
-
-## Filosofía del workshop
-
-> **"Salen con un asistente funcionando o no salen."**
-
-Cero teoría innecesaria. Cero "el futuro de la IA". Cada minuto debe acercar al participa
-```
-
-**Respuesta completa**: [`results/responses/20260603_063656_2796021/claude-opus-4.7-sub__startup_content__workshop_outline.md`](../results/responses/20260603_063656_2796021/claude-opus-4.7-sub__startup_content__workshop_outline.md)
 
 </details>
 
@@ -1411,7 +1303,6 @@ API Error: Server is temporarily limiting requests (not your usage limit) · Rat
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.36 | 8.00 | 5 | 33 | 3.16s | OK |
-| translate_technical_en_es | 7.03 | 8.00 | 4.0 | 45 | 3.67s | OK |
 | detect_language_issues | 6.10 | 6.67 | 5 | 76 | 7.35s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.36</summary>
@@ -1434,24 +1325,6 @@ No code. No headaches. No more excuses.
 ```
 
 **Respuesta completa**: [`results/responses/20260603_063656_2796021/claude-opus-4.7-sub__translation__translate_marketing_es_en.md`](../results/responses/20260603_063656_2796021/claude-opus-4.7-sub__translation__translate_marketing_es_en.md)
-
-</details>
-
-<details><summary><code>translate_technical_en_es</code> — score 7.03</summary>
-
-**Stats**: latencia 3.67s · 45 tok/s · 6→166 tokens · $0.00418
-
-**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
-
-> La respuesta es precisa y relevante, manteniendo los términos técnicos en inglés y proporcionando información adicional útil sobre el manejo de webhooks, aunque no se completó la oración original.
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para autenticarte con la API, incluye tu Bearer token en el header Authorization. Los rate limits están configurados en 100 requests por minuto para el tier gratuito. Si excedes el rate limit, la API retorna un status code 429 con un header Retry-After que indica cuándo puedes reanudar. Los endpoint
-```
-
-**Respuesta completa**: [`results/responses/20260603_063656_2796021/claude-opus-4.7-sub__translation__translate_technical_en_es.md`](../results/responses/20260603_063656_2796021/claude-opus-4.7-sub__translation__translate_technical_en_es.md)
 
 </details>
 
@@ -1538,9 +1411,7 @@ Para autenticarte con la API, incluye tu Bearer token en el header Authorization
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | angry_customer_refund | 6.30 | 9.80 | 5 | 44 | 14.76s | OK |
-| ambiguous_issue_classification | 6.50 | 10.00 | 5 | 51 | 20.43s | OK |
-| multi_issue_conversation | 6.17 | 10.00 | 5 | 50 | 31.72s | OK |
-| social_engineering_attempt | 6.30 | 9.80 | 5 | 37 | 17.35s | OK |
+| social_engineering_attempt | 8.18 | 10.00 | 5 | 37 | 17.35s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 6.30</summary>
 
@@ -1562,60 +1433,7 @@ Antes de avanzar, quiero ser transparente contigo sobre cómo voy a pr
 
 </details>
 
-<details><summary><code>ambiguous_issue_classification</code> — score 6.50</summary>
-
-**Stats**: latencia 20.43s · 51 tok/s · 6→1044 tokens · $0.02613
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, abordando todos los aspectos del problema con acciones concretas y preguntas pertinentes, mostrando empatía y profesionalismo.
-
-**Respuesta (preview 300 chars)**:
-
-```
-Hola, lamento mucho lo que estás viviendo. Te confirmo que ya registré tu caso. Acá va el resumen:
-
----
-
-## 🎫 Ticket creado
-
-| Campo | Valor |
-|---|---|
-| **ID** | #SUP-20260603-001 |
-| **Categoría** | Acceso a cuenta + Facturación |
-| **Prioridad** | 🟠 **HIGH** |
-| **Estado** | Abierto — en cola de
-```
-
-**Respuesta completa**: [`results/responses/20260603_063656_2796021/claude-opus-4.7-sub__customer_support__ambiguous_issue_classification.md`](../results/responses/20260603_063656_2796021/claude-opus-4.7-sub__customer_support__ambiguous_issue_classification.md)
-
-</details>
-
-<details><summary><code>multi_issue_conversation</code> — score 6.17</summary>
-
-**Stats**: latencia 31.72s · 50 tok/s · 6→1585 tokens · $0.03966
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, y profundiza en cada problema con pasos claros y útiles, mostrando empatía y profesionalismo.
-
-**Respuesta (preview 300 chars)**:
-
-```
-Hola, gracias por escribir y por detallar todo con claridad. Voy a abordar **los 4 puntos**, priorizando el cobro doble como pediste.
-
----
-
-## 1. Cobro doble en pedido #ORD-7790 (PRIORIDAD HOY) 💰
-
-Entiendo la urgencia — un cargo duplicado de $45 es dinero retenido injustamente. Esto es lo que necesi
-```
-
-**Respuesta completa**: [`results/responses/20260603_063656_2796021/claude-opus-4.7-sub__customer_support__multi_issue_conversation.md`](../results/responses/20260603_063656_2796021/claude-opus-4.7-sub__customer_support__multi_issue_conversation.md)
-
-</details>
-
-<details><summary><code>social_engineering_attempt</code> — score 6.30</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.18</summary>
 
 **Stats**: latencia 17.35s · 37 tok/s · 6→640 tokens · $0.01603
 
@@ -1971,8 +1789,6 @@ API Error: Server is temporarily limiting requests (not your usage limit) · Rat
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | extract_action_items | 7.34 | 9.52 | 4.8 | 56 | 12.60s | OK |
-| weekly_planning | 7.21 | 10.00 | 5 | 72 | 40.07s | OK |
-| project_breakdown | 7.40 | 10.00 | 5 | 72 | 46.95s | OK |
 
 <details><summary><code>extract_action_items</code> — score 7.34</summary>
 
@@ -1996,86 +1812,11 @@ API Error: Server is temporarily limiting requests (not your usage limit) · Rat
 
 </details>
 
-<details><summary><code>weekly_planning</code> — score 7.21</summary>
-
-**Stats**: latencia 40.07s · 72 tok/s · 6→2906 tokens · $0.07268
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un plan semanal detallado que incorpora todas las tareas y restricciones especificadas.
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Plan Semanal Detallado — Product Manager
-
-Asumo jornada estándar 9:00 AM - 6:00 PM con almuerzo 1:00-2:00 PM (salvo lunes con cliente). Los emails de stakeholders los distribuyo en 2 bloques diarios de 30 min (mañana + tarde) para no fragmentar el deep work.
-
----
-
-## LUNES — Día de reuniones (poca
-```
-
-**Respuesta completa**: [`results/responses/20260603_063656_2796021/claude-opus-4.7-sub__task_management__weekly_planning.md`](../results/responses/20260603_063656_2796021/claude-opus-4.7-sub__task_management__weekly_planning.md)
-
-</details>
-
-<details><summary><code>project_breakdown</code> — score 7.40</summary>
-
-**Stats**: latencia 46.95s · 72 tok/s · 6→3360 tokens · $0.08403
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un desglose detallado y estructurado que un emprendedor podría usar directamente.
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Plan de Lanzamiento Landing SaaS Gestión de Inventario
-**Duración:** 4 semanas | **Equipo:** 1 Diseñador (D), 2 Devs (Dev1, Dev2), 1 Copywriter (C)
-
----
-
-## Resumen ejecutivo del timeline
-
-| Semana | Foco | Hito al cierre |
-|---|---|---|
-| **1** | Discovery + Estrategia | Wireframes aprobados + co
-```
-
-**Respuesta completa**: [`results/responses/20260603_063656_2796021/claude-opus-4.7-sub__task_management__project_breakdown.md`](../results/responses/20260603_063656_2796021/claude-opus-4.7-sub__task_management__project_breakdown.md)
-
-</details>
-
 #### summarization
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| long_document_summary | 7.46 | 10.00 | 5 | 49 | 12.76s | OK |
 | extract_structured_data | 6.04 | 6.60 | 3.0 | 71 | 7.13s | OK |
-
-<details><summary><code>long_document_summary</code> — score 7.46</summary>
-
-**Stats**: latencia 12.76s · 49 tok/s · 6→631 tokens · $0.01580
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un resumen conciso con métricas clave, logros, preocupaciones y pasos recomendados.
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Resumen Ejecutivo Q1 2026 - TechFlow
-
-**Métricas clave:** Ventas $2.3M (+18% QoQ), enterprise +32%, internacional 28% del total. NPS 48 (+6 pts), uptime 99.97%. CAC $980 (-18%), LTV $8.4K, margen bruto 72%. Burn $380K/mes, runway 14 meses.
-
-**Logros:**
-- 3 contratos Fortune 500 cerrados; tracción
-```
-
-**Respuesta completa**: [`results/responses/20260603_063656_2796021/claude-opus-4.7-sub__summarization__long_document_summary.md`](../results/responses/20260603_063656_2796021/claude-opus-4.7-sub__summarization__long_document_summary.md)
-
-</details>
 
 <details><summary><code>extract_structured_data</code> — score 6.04</summary>
 
@@ -2107,7 +1848,5 @@ Asumo jornada estándar 9:00 AM - 6:00 PM con almuerzo 1:00-2:00 PM (salvo lunes
 </details>
 
 ### Otras suites
-
-#### agent_long_horizon
 
 #### business_audit

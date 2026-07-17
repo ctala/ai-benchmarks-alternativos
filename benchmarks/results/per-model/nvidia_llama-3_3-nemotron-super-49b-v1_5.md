@@ -1,12 +1,12 @@
 # Nemotron Super 49B v1.5
 
 - **model_id**: `nvidia/llama-3.3-nemotron-super-49b-v1.5`
-- **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.43
-- **Calidad**: 7.98
-- **Judge score (Phi-4)**: 4.43/10
+- **Total tests**: 132/132 exitosos (0 errores)
+- **Score final**: 7.53
+- **Calidad**: 8.15
+- **Judge score (Phi-4)**: 4.39/10
 - **Velocidad**: 49 tok/s
-- **Latencia primera token**: 37.46s
+- **Latencia primera token**: 40.06s
 - **Costo promedio por test**: $0.00177
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -16,10 +16,10 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.99 | 7.34 |
-| agent_long_horizon | 12 | 12 | 7.67 | 8.79 |
+| agent_long_horizon | 12 | 12 | 8.17 | 9.62 |
 | business_audit | 10 | 10 | 7.25 | 7.60 |
 | business_strategy | 5 | 5 | 8.32 | 9.20 |
-| code_generation | 4 | 4 | 8.34 | 9.32 |
+| code_generation | 7 | 7 | 8.27 | 9.28 |
 | content_generation | 4 | 4 | 8.67 | 9.55 |
 | content_verificable | 5 | 5 | 7.18 | 7.33 |
 | creativity | 4 | 4 | 8.16 | 9.00 |
@@ -30,16 +30,16 @@
 | news_seo_writing | 5 | 5 | 5.58 | 5.42 |
 | ocr_extraction | 5 | 5 | 8.57 | 9.60 |
 | orchestration | 5 | 5 | 6.58 | 6.84 |
-| policy_adherence | 4 | 4 | 7.31 | 7.67 |
+| policy_adherence | 4 | 4 | 8.01 | 8.67 |
 | presentation | 2 | 2 | 8.57 | 9.80 |
-| reasoning | 3 | 3 | 8.39 | 9.57 |
+| reasoning | 5 | 5 | 8.03 | 9.02 |
 | sales_outreach | 3 | 3 | 6.91 | 7.11 |
-| startup_content | 5 | 5 | 8.36 | 9.47 |
+| startup_content | 8 | 8 | 8.30 | 9.26 |
 | strategy | 3 | 3 | 7.50 | 8.06 |
 | string_precision | 6 | 6 | 7.71 | 8.17 |
 | structured_output | 4 | 4 | 5.47 | 5.00 |
 | summarization | 2 | 2 | 7.58 | 8.20 |
-| task_management | 3 | 3 | 8.39 | 9.40 |
+| task_management | 4 | 4 | 8.25 | 9.22 |
 | tool_calling | 4 | 4 | 5.97 | 5.70 |
 | translation | 3 | 3 | 6.99 | 7.09 |
 
@@ -194,7 +194,9 @@ First, let's understand what the code does. The function remove_o
 |------|-------|---------|-------|-------|----------|--------|
 | business_analysis | 8.30 | 9.48 | 4.8 | 53 | 134.31s | OK |
 | logical_reasoning | 8.20 | 9.24 | 4.6 | 38 | 60.27s | OK |
-| multi_constraint_decision | 8.67 | 10.00 | 5 | 45 | 68.53s | OK |
+| business_analysis | 6.56 | 7.15 | 1.6 | 49 | 152.77s | OK |
+| logical_reasoning | 8.35 | 9.24 | 4.6 | 54 | 43.34s | OK |
+| multi_constraint_decision | 8.74 | 10.00 | 5 | 53 | 88.96s | OK |
 
 <details><summary><code>business_analysis</code> — score 8.30</summary>
 
@@ -249,28 +251,73 @@ First, let's understand what the code does. The function remove_o
 
 </details>
 
-<details><summary><code>multi_constraint_decision</code> — score 8.67</summary>
+<details><summary><code>business_analysis</code> — score 6.56</summary>
 
-**Stats**: latencia 68.53s · 45 tok/s · 195→3075 tokens · $0.00131
+**Stats**: latencia 152.77s · 49 tok/s · 189→8192 tokens · $0.00300
 
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando una comparación detallada de opciones de stack tecnológico con pros y contras específicos, costos estimados y consideraciones de escalabilidad.
+**Juez Phi-4**: 1.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-### Comparativa de Stacks para MVP de Marketplace Freelance
+Okay, let's tackle this SaaS analysis step by step. First, I need to calculate the key metrics: churn rate, growth rate, LTV/CAC ratio, and net revenue retention. Let me start with January.
 
-#### **Opción 1: MERN Stack + Firebase**  
-**Tecnologías**:  
-- **Frontend**: React (con conocimiento previo).  
-- **Backend**: Node.js + Express (nuevo para el dev).  
-- **Base de Datos**: MongoDB (via Firebase Firestore).  
-- **Autentica
+For churn rate in January: They had 1,200 users and 45 churns. Churn rate is usually (Churns / Starting Users
 ```
 
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-nemotron-super-1.5__reasoning__multi_constraint_decision.md`](../results/responses/20260713_204935_20776/or-nemotron-super-1.5__reasoning__multi_constraint_decision.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__reasoning__business_analysis.md`](../results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__reasoning__business_analysis.md)
+
+</details>
+
+<details><summary><code>logical_reasoning</code> — score 8.35</summary>
+
+**Stats**: latencia 43.34s · 54 tok/s · 145→2558 tokens · $0.00100
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Respuesta:**
+
+- **Equipo A:** 13 personas  
+- **Equipo B:** 10 personas  
+- **Equipo C:** 16 personas  
+- **Equipo D:** 13 personas  
+- **Equipo E:** 8 personas  
+
+**Razonamiento paso a paso:**
+
+1. **Datos conocidos:**  
+   - B = 10 (Clave 7).  
+   - D = A (Clave 2).  
+   - C = 2 × E (Clave 6).
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__reasoning__logical_reasoning.md`](../results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__reasoning__logical_reasoning.md)
+
+</details>
+
+<details><summary><code>multi_constraint_decision</code> — score 8.74</summary>
+
+**Stats**: latencia 88.96s · 53 tok/s · 195→3624 tokens · $0.00200
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil para un emprendedor, proporcionando una comparación detallada de opciones de stack tecnológico con pros y contras, costos estimados y una recomendación bien justificada.
+
+**Respuesta (preview 300 chars)**:
+
+```
+### Comparativa de Stacks Tecnológicos para MVP
+
+#### **Opción 1: Python (Django) + React + Firebase (Auth/Realtime) + Stripe + Elasticsearch**
+**Pros:**
+- **Django**: Framework robusto con admin panel integrado (ahorra tiempo en desarrollo).
+- **Firebase**: Autenticación y chat en tiempo real listo
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__reasoning__multi_constraint_decision.md`](../results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__reasoning__multi_constraint_decision.md)
 
 </details>
 
@@ -441,7 +488,10 @@ Según el informe más reciente de CB Insights (2023), aproximadamente **50% de 
 | python_api_integration | 8.05 | 9.08 | 4.8 | 53 | 114.59s | OK |
 | n8n_workflow_json | 7.71 | 8.40 | 4.0 | 54 | 55.47s | OK |
 | sql_query_complex | 8.66 | 9.80 | 5 | 54 | 66.36s | OK |
-| debug_code | 8.92 | 10.00 | 5 | 54 | 31.72s | OK |
+| python_api_integration | 7.97 | 9.01 | 4.0 | 52 | 115.53s | OK |
+| n8n_workflow_json | 8.06 | 8.93 | 4.0 | 48 | 41.07s | OK |
+| sql_query_complex | 8.53 | 9.71 | 5 | 48 | 84.51s | OK |
+| debug_code | 8.89 | 10.00 | 5 | 51 | 32.15s | OK |
 
 <details><summary><code>python_api_integration</code> — score 8.05</summary>
 
@@ -528,13 +578,91 @@ WITH customer_category AS (
 
 </details>
 
-<details><summary><code>debug_code</code> — score 8.92</summary>
+<details><summary><code>python_api_integration</code> — score 7.97</summary>
 
-**Stats**: latencia 31.72s · 54 tok/s · 238→1714 tokens · $0.00078
+**Stats**: latencia 115.53s · 52 tok/s · 120→8192 tokens · $0.00200
+
+**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Okay, I need to write a Python function that does several things. Let me break down the requirements step by step.
+
+First, the function should make a GET request to https://api.example.com/products with Bearer token authentication. I remember that using httpx, you can handle async requests, but mayb
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__code_generation__python_api_integration.md`](../results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__code_generation__python_api_integration.md)
+
+</details>
+
+<details><summary><code>n8n_workflow_json</code> — score 8.06</summary>
+
+**Stats**: latencia 41.07s · 48 tok/s · 134→2063 tokens · $0.00100
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa y relevante, con una estructura clara y utilidad práctica, aunque carece de profundidad adicional más allá de la implementación básica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el workflow completo en JSON para N8N que cumple con tus requisitos:
+
+```json
+{
+  "nodes": [
+    {
+      "parameters": {
+        "path": "/webhook",
+        "method": "POST",
+        "bodyParameters": ["email", "message"]
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.We
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__code_generation__n8n_workflow_json.md`](../results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__code_generation__n8n_workflow_json.md)
+
+</details>
+
+<details><summary><code>sql_query_complex</code> — score 8.53</summary>
+
+**Stats**: latencia 84.51s · 48 tok/s · 163→3281 tokens · $0.00200
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante, profunda, clara y prácticamente útil, abordando todos los problemas del código original con correcciones detalladas y explicaciones.
+> La respuesta es precisa, relevante, profunda, clara y altamente util, proporcionando una consulta SQL bien estructurada que cumple con todos los requisitos especificados.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```sql
+WITH recent_orders AS (
+    SELECT 
+        o.customer_id,
+        o.id AS order_id,
+        oi.product_id,
+        oi.quantity,
+        oi.unit_price,
+        p.category
+    FROM orders o
+    JOIN order_items oi ON o.id = oi.order_id
+    JOIN products p ON oi.product_id = p.id
+    WHERE o.st
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__code_generation__sql_query_complex.md`](../results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__code_generation__sql_query_complex.md)
+
+</details>
+
+<details><summary><code>debug_code</code> — score 8.89</summary>
+
+**Stats**: latencia 32.15s · 51 tok/s · 238→1326 tokens · $0.00100
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, abordando todos los problemas del código de manera exhaustiva y proporcionando una solución detallada.
 
 **Respuesta (preview 300 chars)**:
 
@@ -542,11 +670,10 @@ WITH customer_category AS (
 ### Explicación de los Bugs y Correcciones
 
 #### **1. División por cero si no hay órdenes pendientes**
-- **Problema**: Si no hay órdenes con estado `'pending'`, la lista `processed` estará vacía. Al calcular `average = total / len(processed)`, se produce una división por cero.
-- **Corrección**: Veri
+- **Problema**: Si no hay órdenes con estado `'pending'`, la lista `processed` estará vacía. Al calcular `average = total / len(processed)`, se intenta dividir entre cero, lo que genera un error `Z
 ```
 
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-nemotron-super-1.5__code_generation__debug_code.md`](../results/responses/20260713_204935_20776/or-nemotron-super-1.5__code_generation__debug_code.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__code_generation__debug_code.md`](../results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__code_generation__debug_code.md)
 
 </details>
 
@@ -1008,10 +1135,13 @@ Esperamos que se encuentre bien. Agradecemos su interés en nuestro equipo para 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | blog_actualidad_startup | 7.98 | 8.96 | 4.4 | 48 | 52.66s | OK |
-| curso_emprendimiento_modulo | 8.74 | 10.00 | 5 | 47 | 44.44s | OK |
 | workshop_outline | 8.51 | 9.80 | 5 | 48 | 70.66s | OK |
-| newsletter_startup | 8.81 | 10.00 | 5 | 48 | 29.18s | OK |
 | perplexity_style_research | 7.78 | 8.60 | 4.0 | 48 | 39.48s | OK |
+| blog_actualidad_startup | 7.95 | 8.65 | 4.0 | 53 | 38.33s | OK |
+| curso_emprendimiento_modulo | 8.90 | 9.99 | 5 | 53 | 35.17s | OK |
+| workshop_outline | 8.67 | 9.77 | 5 | 54 | 56.34s | OK |
+| newsletter_startup | 8.73 | 9.71 | 5 | 53 | 30.20s | OK |
+| perplexity_style_research | 7.92 | 8.60 | 4.0 | 53 | 37.98s | OK |
 
 <details><summary><code>blog_actualidad_startup</code> — score 7.98</summary>
 
@@ -1034,27 +1164,6 @@ Descubre cómo los modelos de IA open-source están transformando el ecosistema 
 ```
 
 **Respuesta completa**: [`results/responses/20260713_204935_20776/or-nemotron-super-1.5__startup_content__blog_actualidad_startup.md`](../results/responses/20260713_204935_20776/or-nemotron-super-1.5__startup_content__blog_actualidad_startup.md)
-
-</details>
-
-<details><summary><code>curso_emprendimiento_modulo</code> — score 8.74</summary>
-
-**Stats**: latencia 44.44s · 47 tok/s · 257→2105 tokens · $0.00094
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando ejemplos prácticos y un ejercicio paso a paso que un emprendedor podría implementar directamente.
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Módulo 3: Automatización con IA: De la idea al flujo de trabajo
-
-## 1. Objetivo del Módulo
-Este módulo está diseñado para que los emprendedores aprendan a identificar oportunidades de automatización en sus negocios y las implementen utilizando herramientas de IA accesibles. Al finalizar, podrás di
-```
-
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-nemotron-super-1.5__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260713_204935_20776/or-nemotron-super-1.5__startup_content__curso_emprendimiento_modulo.md)
 
 </details>
 
@@ -1084,30 +1193,6 @@ Este módulo está diseñado para que los emprendedores aprendan a identificar o
 
 </details>
 
-<details><summary><code>newsletter_startup</code> — score 8.81</summary>
-
-**Stats**: latencia 29.18s · 48 tok/s · 238→1386 tokens · $0.00065
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, clara y útil, con insights valiosos para emprendedores, aunque la profundidad podría ser aún mayor en algunos puntos.
-
-**Respuesta (preview 300 chars)**:
-
-```
-**🚀 Newsletter Semanal #47 | ecosistemastartup.com**  
-*Innovación en Acción: IA, Fondos y Herramientas para tu Startup*  
-
----
-
-**¡Hola emprendedor/a!**  
-Esta semana, el ecosistema tech sigue calentando: desde avances en IA hasta nuevos fondos para startups. Aquí tienes lo más relevante para impul
-```
-
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-nemotron-super-1.5__startup_content__newsletter_startup.md`](../results/responses/20260713_204935_20776/or-nemotron-super-1.5__startup_content__newsletter_startup.md)
-
-</details>
-
 <details><summary><code>perplexity_style_research</code> — score 7.78</summary>
 
 **Stats**: latencia 39.48s · 48 tok/s · 206→1896 tokens · $0.00084
@@ -1129,6 +1214,126 @@ Esta semana, el ecosistema tech sigue calentando: desde avances en IA hasta nuev
 ```
 
 **Respuesta completa**: [`results/responses/20260713_204935_20776/or-nemotron-super-1.5__startup_content__perplexity_style_research.md`](../results/responses/20260713_204935_20776/or-nemotron-super-1.5__startup_content__perplexity_style_research.md)
+
+</details>
+
+<details><summary><code>blog_actualidad_startup</code> — score 7.95</summary>
+
+**Stats**: latencia 38.33s · 53 tok/s · 251→1967 tokens · $0.00100
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con ejemplos concretos y estrategias prácticas, aunque podría profundizar más en las estrategias específicas para aprovechar los modelos de IA.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Título SEO-friendly:**  
+IA Abierta en Latinoamérica 2026: ¿Revolución para Startups?  
+
+**Meta description:**  
+Descubre cómo los modelos de IA open-source están transformando el ecosistema emprendedor en Latinoamérica en 2026. Casos, modelos clave y oportunidades.  
+
+---
+
+### **Introducción: La
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__startup_content__blog_actualidad_startup.md`](../results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__startup_content__blog_actualidad_startup.md)
+
+</details>
+
+<details><summary><code>curso_emprendimiento_modulo</code> — score 8.90</summary>
+
+**Stats**: latencia 35.17s · 53 tok/s · 257→1790 tokens · $0.00100
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando ejemplos prácticos y un ejercicio paso a paso que un emprendedor podría implementar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```markdown
+# Módulo 3: Automatización con IA: De la idea al flujo de trabajo
+
+## 1. Objetivo del Módulo
+Este módulo está diseñado para que los emprendedores aprendan a identificar oportunidades de automatización en sus negocios y construyan flujos de trabajo prácticos utilizando herramientas de IA.
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__startup_content__curso_emprendimiento_modulo.md)
+
+</details>
+
+<details><summary><code>workshop_outline</code> — score 8.67</summary>
+
+**Stats**: latencia 56.34s · 54 tok/s · 215→3212 tokens · $0.00100
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil para emprendedores no técnicos, proporcionando una estructura detallada y práctica para el workshop.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Workshop Outline: "Construye tu Asistente de IA para tu Startup - Workshop Practico"**  
+**Duración:** 3 horas (180 minutos)  
+**Audiencia:** Emprendedores no técnicos en etapa inicial (20-30 personas)  
+**Tono:** Energético, práctico y colaborativo.  
+
+---
+
+### **1. Agenda Detallada con Tiempos**
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__startup_content__workshop_outline.md`](../results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__startup_content__workshop_outline.md)
+
+</details>
+
+<details><summary><code>newsletter_startup</code> — score 8.73</summary>
+
+**Stats**: latencia 30.20s · 53 tok/s · 238→1534 tokens · $0.00100
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, proporcionando información detallada y aplicable para emprendedores.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Ecosistema Startup #47: Innovación en IA y Oportunidades para Startups**  
+
+¡Hola emprendedor/a!  
+Esta semana, exploramos avances en inteligencia artificial, nuevos programas de apoyo y herramientas clave para impulsar tu proyecto. ¡Prepárate para estar al día con lo último del ecosistema!  
+
+---
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__startup_content__newsletter_startup.md`](../results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__startup_content__newsletter_startup.md)
+
+</details>
+
+<details><summary><code>perplexity_style_research</code> — score 7.92</summary>
+
+**Stats**: latencia 37.98s · 53 tok/s · 206→2006 tokens · $0.00100
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con una estructura bien organizada que proporciona información útil y perspectivas para emprendedores, aunque carece de fuentes sugeridas para profundizar.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Estado del Venture Capital en Latinoamérica Q1 2026**  
+
+---
+
+### **1. Resumen Ejecutivo**  
+- **Crecimiento moderado**: Inversión total estimada en Q1 2026 alcanzó **US$ 1.2 mil millones**, un **15% más** que Q1 2025, pero con menos deals que en años anteriores.  
+- **Consolidación de líderes**:
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__startup_content__perplexity_style_research.md`](../results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__startup_content__perplexity_style_research.md)
 
 </details>
 
@@ -1953,7 +2158,7 @@ im
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 6.56 | 6.67 | 5 | 48 | 15.80s | OK |
-| data_privacy_protection | 6.27 | 6.00 | 5 | 48 | 7.75s | OK |
+| data_privacy_protection | 9.07 | 10.00 | 5 | 48 | 7.75s | OK |
 | language_and_tone_rules | 7.55 | 8.00 | 3.8 | 48 | 12.10s | OK |
 | scope_boundaries | 8.87 | 10.00 | 4.0 | 46 | 19.71s | OK |
 
@@ -1979,7 +2184,7 @@ Lamentamos profundamente que haya tenido una experiencia insatisfactoria con nue
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 6.27</summary>
+<details><summary><code>data_privacy_protection</code> — score 9.07</summary>
 
 **Stats**: latencia 7.75s · 48 tok/s · 246→371 tokens · $0.00025
 
@@ -2148,8 +2353,9 @@ Next, they're asking to approve a $2,000 budget for the next marketing campaign.
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | extract_action_items | 7.56 | 8.20 | 4.0 | 53 | 57.14s | OK |
-| weekly_planning | 8.75 | 10.00 | 5 | 53 | 84.27s | OK |
-| project_breakdown | 8.85 | 10.00 | 5 | 53 | 51.37s | OK |
+| extract_action_items | 8.07 | 8.80 | 3.0 | 51 | 35.93s | OK |
+| weekly_planning | 8.59 | 9.87 | 5 | 49 | 102.22s | OK |
+| project_breakdown | 8.77 | 10.00 | 5 | 50 | 63.42s | OK |
 
 <details><summary><code>extract_action_items</code> — score 7.56</summary>
 
@@ -2173,34 +2379,56 @@ Here’s the extracted action items in a table format:
 
 </details>
 
-<details><summary><code>weekly_planning</code> — score 8.75</summary>
+<details><summary><code>extract_action_items</code> — score 8.07</summary>
 
-**Stats**: latencia 84.27s · 53 tok/s · 222→4485 tokens · $0.00188
+**Stats**: latencia 35.93s · 51 tok/s · 216→1959 tokens · $0.00100
 
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:2, claridad:4, utilidad:3)
 
-> La respuesta es precisa, relevante, clara y altamente útil, con una estructura bien organizada y un enfoque en la eficiencia del tiempo, aunque podría incluir más insights sobre la gestión del tiempo.
+> La respuesta es correcta y relevante, pero incluye una tarea no mencionada en las notas de la reunión, lo que afecta la precisión y profundidad.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Aquí tienes un plan semanal detallado con bloques de tiempo específicos, respetando tus reuniones fijas y distribuyendo las tareas de forma eficiente:
+Here's the extracted action items in a table format:
+
+| Responsable | Tarea                                      | Fecha Limite   | Prioridad Sugerida |
+|-------------|--------------------------------------------|----------------|--------------------|
+| Carlos      | Terminar API de pagos
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__task_management__extract_action_items.md`](../results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__task_management__extract_action_items.md)
+
+</details>
+
+<details><summary><code>weekly_planning</code> — score 8.59</summary>
+
+**Stats**: latencia 102.22s · 49 tok/s · 222→3489 tokens · $0.00200
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y extremadamente útil, con una buena profundidad al optimizar el tiempo y priorizar tareas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes un plan semanal detallado con bloques de tiempo específicos, optimizando tu disponibilidad y priorizando tareas clave:
 
 ---
 
 ### **Lunes**
 - **9:00 - 11:00 AM**: Reunión de directivos  
-- **11:00 AM - 12:00 PM**: Preparar presentación para la demo (1/3 horas)  
-- **12
+- **11:00 AM - 1:00 PM**: Preparar presentación para la demo (2 horas)  
+- **1:00 - 2:00 PM**: Almuerz
 ```
 
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-nemotron-super-1.5__task_management__weekly_planning.md`](../results/responses/20260713_204935_20776/or-nemotron-super-1.5__task_management__weekly_planning.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__task_management__weekly_planning.md`](../results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__task_management__weekly_planning.md)
 
 </details>
 
-<details><summary><code>project_breakdown</code> — score 8.85</summary>
+<details><summary><code>project_breakdown</code> — score 8.77</summary>
 
-**Stats**: latencia 51.37s · 53 tok/s · 90→2743 tokens · $0.00113
+**Stats**: latencia 63.42s · 50 tok/s · 90→3520 tokens · $0.00100
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
@@ -2209,19 +2437,18 @@ Aquí tienes un plan semanal detallado con bloques de tiempo específicos, respe
 **Respuesta (preview 300 chars)**:
 
 ```
-**Plan de Lanzamiento de Landing Page para SaaS de Gestión de Inventarios**  
-**Duración total: 4 semanas**  
-**Equipo:** 1 Diseñador, 2 Desarrolladores, 1 Copywriter  
+**Planificación del Proyecto: Landing Page para SaaS de Gestión de Inventario**  
+**Duración Total:** 4 semanas (28 días)  
 
 ---
 
-### **Fases, Tareas, Dependencias, Responsables y Timeline**
-
-#### **Fase 1: Investigación y Planificación (Semana 1)**  
-**O
+### **Fase 1: Investigación y Planificación (Semana 1)**  
+**Objetivo:** Definir objetivos, público objetivo y requisitos clave.  
+**Tareas:**  
+1. **Kickoff del proyecto
 ```
 
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-nemotron-super-1.5__task_management__project_breakdown.md`](../results/responses/20260713_204935_20776/or-nemotron-super-1.5__task_management__project_breakdown.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__task_management__project_breakdown.md`](../results/responses/20260716_rm_or_nemotron_super_1_5_/or-nemotron-super-1.5__task_management__project_breakdown.md)
 
 </details>
 

@@ -1,13 +1,13 @@
 # GPT-5.6 Luna
 
 - **model_id**: `openai/gpt-5.6-luna`
-- **Total tests**: 267/318 exitosos (51 errores)
-- **Score final**: 7.82
-- **Calidad**: 8.95
-- **Judge score (Phi-4)**: 4.11/10
-- **Velocidad**: 75 tok/s
-- **Latencia primera token**: 5.38s
-- **Costo promedio por test**: $0.03916
+- **Total tests**: 264/315 exitosos (51 errores)
+- **Score final**: 7.84
+- **Calidad**: 8.97
+- **Judge score (Phi-4)**: 4.16/10
+- **Velocidad**: 73 tok/s
+- **Latencia primera token**: 5.56s
+- **Costo promedio por test**: $0.03819
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,12 +16,12 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 7.16 | 7.49 |
-| agent_long_horizon | 24 | 24 | 8.24 | 9.65 |
+| agent_long_horizon | 12 | 12 | 8.29 | 9.75 |
 | business_audit | 10 | 10 | 7.77 | 8.60 |
 | business_strategy | 10 | 10 | 7.74 | 8.80 |
 | code_generation | 4 | 4 | 7.98 | 8.95 |
 | content_generation | 4 | 4 | 8.38 | 9.22 |
-| content_verificable | 10 | 10 | 8.66 | 9.67 |
+| content_verificable | 13 | 13 | 8.52 | 9.53 |
 | creativity | 4 | 4 | 8.29 | 9.25 |
 | customer_support | 4 | 4 | 6.91 | 7.12 |
 | deep_reasoning | 6 | 6 | 6.88 | 7.50 |
@@ -31,19 +31,19 @@
 | niah_es | 153 | 102 | 8.25 | 10.00 |
 | ocr_extraction | 5 | 5 | 8.83 | 10.00 |
 | orchestration | 5 | 5 | 6.81 | 6.94 |
-| policy_adherence | 4 | 4 | 8.01 | 8.58 |
+| policy_adherence | 4 | 4 | 8.36 | 9.08 |
 | presentation | 2 | 2 | 8.01 | 9.30 |
 | prompt_injection_es | 20 | 20 | 7.09 | 7.75 |
 | reasoning | 3 | 3 | 8.16 | 9.42 |
 | sales_outreach | 3 | 3 | 6.38 | 6.44 |
-| startup_content | 5 | 5 | 8.21 | 9.63 |
+| startup_content | 7 | 7 | 8.10 | 9.49 |
 | strategy | 3 | 3 | 8.40 | 10.00 |
-| string_precision | 6 | 6 | 7.11 | 6.83 |
+| string_precision | 6 | 6 | 8.28 | 8.50 |
 | structured_output | 4 | 4 | 5.50 | 5.00 |
 | summarization | 2 | 2 | 7.52 | 7.83 |
-| task_management | 3 | 3 | 8.36 | 9.61 |
+| task_management | 5 | 5 | 8.27 | 9.41 |
 | tool_calling | 4 | 4 | 5.93 | 5.47 |
-| translation | 3 | 3 | 7.33 | 7.56 |
+| translation | 5 | 5 | 7.51 | 7.91 |
 
 ## Detalle por test
 
@@ -693,7 +693,7 @@ Los bugs son:
 | copy_api_key | 2.85 | 1.00 | 4.0 | 69 | 2.07s | OK |
 | copy_jwt | 9.45 | 10.00 | 4.0 | 46 | 1.20s | OK |
 | copy_mixed_special | 9.45 | 10.00 | 3.0 | 39 | 0.96s | OK |
-| write_config_file | 2.15 | 0.00 | 1 | 87 | 2.28s | OK |
+| write_config_file | 9.15 | 10.00 | 1 | 87 | 2.28s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.30</summary>
 
@@ -785,7 +785,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 2.15</summary>
+<details><summary><code>write_config_file</code> — score 9.15</summary>
 
 **Stats**: latencia 2.28s · 87 tok/s · 229→135 tokens · $0.00100
 
@@ -1063,10 +1063,12 @@ Stream your favorite playlists, podcasts, and playlists hands-free with rich, ro
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | blog_actualidad_startup | 8.11 | 9.39 | 4.4 | 143 | 13.45s | OK |
-| curso_emprendimiento_modulo | 8.41 | 10.00 | 5 | 171 | 22.55s | OK |
-| workshop_outline | 8.31 | 10.00 | 5 | 188 | 34.48s | OK |
-| newsletter_startup | 8.62 | 10.00 | 5 | 138 | 10.61s | OK |
 | perplexity_style_research | 7.57 | 8.79 | 4.2 | 157 | 23.18s | OK |
+| blog_actualidad_startup | 8.20 | 9.53 | 5 | 116 | 18.16s | OK |
+| curso_emprendimiento_modulo | 8.39 | 10.00 | 5 | 174 | 25.22s | OK |
+| workshop_outline | 8.30 | 10.00 | 5 | 138 | 49.23s | OK |
+| newsletter_startup | 8.64 | 10.00 | 5 | 127 | 10.39s | OK |
+| perplexity_style_research | 7.50 | 8.69 | 4.0 | 122 | 30.80s | OK |
 
 <details><summary><code>blog_actualidad_startup</code> — score 8.11</summary>
 
@@ -1088,77 +1090,6 @@ En 2026, una startup latinoamericana ya no necesita competir con Silico
 
 </details>
 
-<details><summary><code>curso_emprendimiento_modulo</code> — score 8.41</summary>
-
-**Stats**: latencia 22.55s · 171 tok/s · 218→3738 tokens · $0.02300
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando información detallada y ejemplos prácticos que son directamente aplicables para emprendedores.
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Módulo 3: Automatización con IA: De la idea al flujo de trabajo
-
-## 1. Objetivo del módulo
-
-Al finalizar este módulo, el estudiante podrá identificar tareas repetitivas dentro de su negocio, diseñar un flujo de trabajo automatizado y construir una automatización básica utilizando herramientas visu
-```
-
-**Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-luna__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260710_110324_109890/gpt-5.6-luna__startup_content__curso_emprendimiento_modulo.md)
-
-</details>
-
-<details><summary><code>workshop_outline</code> — score 8.31</summary>
-
-**Stats**: latencia 34.48s · 188 tok/s · 186→6572 tokens · $0.03900
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando un plan detallado y práctico que los emprendedores no técnicos pueden seguir directamente.
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Workshop: **Construye tu Asistente de IA para tu Startup**
-### Workshop práctico presencial — 3 horas  
-**Audiencia:** emprendedores early-stage no técnicos  
-**Tamaño ideal:** 20–30 personas  
-**Formato:** 30% conceptos, 70% práctica
-
-## Resultado esperado
-
-Al finalizar, cada participante tendrá
-```
-
-**Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-luna__startup_content__workshop_outline.md`](../results/responses/20260710_110324_109890/gpt-5.6-luna__startup_content__workshop_outline.md)
-
-</details>
-
-<details><summary><code>newsletter_startup</code> — score 8.62</summary>
-
-**Stats**: latencia 10.61s · 138 tok/s · 211→1514 tokens · $0.00900
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, clara y ofrece insights útiles, siendo altamente útil para emprendedores.
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Ecosistema Startup #47  
-## La nueva carrera por la IA: modelos, APIs y capital para innovar
-
-Hola, comunidad startup:
-
-Esta semana, la inteligencia artificial vuelve a ocupar el centro de la conversación: nuevos modelos, herramientas más accesibles y fondos públicos que buscan acelerar la innovac
-```
-
-**Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-luna__startup_content__newsletter_startup.md`](../results/responses/20260710_110324_109890/gpt-5.6-luna__startup_content__newsletter_startup.md)
-
-</details>
-
 <details><summary><code>perplexity_style_research</code> — score 7.57</summary>
 
 **Stats**: latencia 23.18s · 157 tok/s · 178→3455 tokens · $0.02200
@@ -1174,6 +1105,114 @@ Esta semana, la inteligencia artificial vuelve a ocupar el centro de la conversa
 ```
 
 **Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-luna__startup_content__perplexity_style_research.md`](../results/responses/20260710_110324_109890/gpt-5.6-luna__startup_content__perplexity_style_research.md)
+
+</details>
+
+<details><summary><code>blog_actualidad_startup</code> — score 8.20</summary>
+
+**Stats**: latencia 18.16s · 116 tok/s · 215→1986 tokens · $0.01300
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante y clara, proporcionando información útil y perspectivas sobre el impacto de los modelos de IA open-source en las startups latinoamericanas, con ejemplos y modelos específicos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# IA open-source en 2026: oportunidad para startups de LatAm
+
+**Meta description:** Los modelos open-source reducen costos y aceleran la innovación en Latam. Casos, modelos clave y estrategias para startups en 2026.
+
+En 2026, una startup latinoamericana ya no necesita entrenar un modelo desde cero n
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__startup_content__blog_actualidad_startup.md`](../results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__startup_content__blog_actualidad_startup.md)
+
+</details>
+
+<details><summary><code>curso_emprendimiento_modulo</code> — score 8.39</summary>
+
+**Stats**: latencia 25.22s · 174 tok/s · 218→4321 tokens · $0.02600
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando información detallada y ejemplos prácticos que un emprendedor podría aplicar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Módulo 3: Automatización con IA: De la idea al flujo de trabajo
+
+## 1. Objetivo del módulo
+
+Al finalizar este módulo, el emprendedor podrá identificar tareas repetitivas de su negocio que pueden automatizarse con inteligencia artificial, diseñar un flujo de trabajo sencillo y construir un prototip
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__startup_content__curso_emprendimiento_modulo.md)
+
+</details>
+
+<details><summary><code>workshop_outline</code> — score 8.30</summary>
+
+**Stats**: latencia 49.23s · 138 tok/s · 186→6495 tokens · $0.04100
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil para emprendedores no técnicos, proporcionando una agenda detallada, materiales necesarios y un ejercicio práctico.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Workshop: **Construye tu Asistente de IA para tu Startup – Workshop Práctico**
+
+**Duración:** 3 horas presenciales  
+**Audiencia:** Emprendedores early-stage no técnicos  
+**Tamaño ideal:** 20–30 personas  
+**Formato:** 30% conceptos y demos, 70% práctica  
+**Resultado esperado:** Cada participant
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__startup_content__workshop_outline.md`](../results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__startup_content__workshop_outline.md)
+
+</details>
+
+<details><summary><code>newsletter_startup</code> — score 8.64</summary>
+
+**Stats**: latencia 10.39s · 127 tok/s · 211→1260 tokens · $0.00800
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y ofrece insights útiles, siendo altamente útil para emprendedores.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Newsletter #47 — La IA se abarata, se abre y llega al negocio real
+
+Hola, comunidad emprendedora:
+
+Esta semana, la competencia en inteligencia artificial volvió a acelerarse: nuevos modelos, más inversión pública y herramientas que empiezan a integrarse directamente en las operaciones de las start
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__startup_content__newsletter_startup.md`](../results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__startup_content__newsletter_startup.md)
+
+</details>
+
+<details><summary><code>perplexity_style_research</code> — score 7.50</summary>
+
+**Stats**: latencia 30.80s · 122 tok/s · 178→4007 tokens · $0.02300
+
+**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Estado del venture capital en Latinoamérica — Q1 2026
+
+> **Nota de verificación:** no tengo acceso a feeds de inversión en tiempo real ni a un dataset consolidado de Q1 2026. Por ello, no sería responsable presentar cifras, deals o quotes como hechos confirmados. Además, los datos trimestrales de
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__startup_content__perplexity_style_research.md`](../results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__startup_content__perplexity_style_research.md)
 
 </details>
 
@@ -1469,8 +1508,10 @@ Fórmulas:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.70 | 8.00 | 5 | 52 | 2.27s | OK |
-| translate_technical_en_es | 7.89 | 8.00 | 4.0 | 83 | 1.36s | OK |
 | detect_language_issues | 6.39 | 6.67 | 5 | 168 | 6.61s | OK |
+| translate_marketing_es_en | 7.65 | 8.00 | 5 | 53 | 2.66s | OK |
+| translate_technical_en_es | 7.88 | 8.00 | 4.0 | 83 | 1.47s | OK |
+| detect_language_issues | 7.93 | 8.89 | 5 | 122 | 8.97s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.70</summary>
 
@@ -1493,24 +1534,6 @@ Over 500 startups across Latin America are already using it. When will you get s
 ```
 
 **Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-luna__translation__translate_marketing_es_en.md`](../results/responses/20260710_110324_109890/gpt-5.6-luna__translation__translate_marketing_es_en.md)
-
-</details>
-
-<details><summary><code>translate_technical_en_es</code> — score 7.89</summary>
-
-**Stats**: latencia 1.36s · 83 tok/s · 149→115 tokens · $0.00100
-
-**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
-
-> La respuesta es precisa y relevante, manteniendo los términos técnicos en inglés y proporcionando información adicional útil sobre los endpoints de webhook, aunque esta última no estaba en el texto original.
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para autenticarte con la API, incluye tu Bearer token en el header `Authorization`. Los límites de solicitudes están establecidos en 100 requests por minuto para el free tier. Si superas el rate limit, la API devuelve un status code 429 con un header `Retry-After` que indica cuándo puedes reanudar l
-```
-
-**Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-luna__translation__translate_technical_en_es.md`](../results/responses/20260710_110324_109890/gpt-5.6-luna__translation__translate_technical_en_es.md)
 
 </details>
 
@@ -1538,6 +1561,75 @@ Para autenticarte con la API, incluye tu Bearer token en el header `Authorizatio
 ```
 
 **Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-luna__translation__detect_language_issues.md`](../results/responses/20260710_110324_109890/gpt-5.6-luna__translation__detect_language_issues.md)
+
+</details>
+
+<details><summary><code>translate_marketing_es_en</code> — score 7.65</summary>
+
+**Stats**: latencia 2.66s · 53 tok/s · 157→161 tokens · $0.00100
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La traducción es precisa, relevante y clara, manteniendo el tono cercano y energético. Ofrece insights útiles para emprendedores, aunque la profundidad podría ser ligeramente mayor con ejemplos específicos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Stop wasting hours on tasks AI can handle in seconds.  
+AutoFlow automates your most tedious processes so you can focus on what really matters: growing your startup.
+
+No code. No headaches. No excuses.
+
+More than 500 startups across Latin America are already using it. When will you get started?
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__translation__translate_marketing_es_en.md`](../results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__translation__translate_marketing_es_en.md)
+
+</details>
+
+<details><summary><code>translate_technical_en_es</code> — score 7.88</summary>
+
+**Stats**: latencia 1.47s · 83 tok/s · 149→112 tokens · $0.00100
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, manteniendo los términos técnicos en inglés y proporcionando detalles adicionales útiles sobre el manejo de webhooks, aunque no se completó la oración original.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para autenticarte con la API, incluye tu Bearer token en el header `Authorization`. Los rate limits están establecidos en 100 requests por minuto para el free tier. Si superas el rate limit, la API devuelve un status code 429 con un header `Retry-After` que indica cuándo puedes reanudar las solicitu
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__translation__translate_technical_en_es.md`](../results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__translation__translate_technical_en_es.md)
+
+</details>
+
+<details><summary><code>detect_language_issues</code> — score 7.93</summary>
+
+**Stats**: latencia 8.97s · 122 tok/s · 198→917 tokens · $0.00700
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, identificando correctamente los problemas de idioma y ofreciendo correcciones adecuadas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "problemas": [
+    {
+      "tipo": "cliche",
+      "texto": "ha revolucionado el mundo de las startups",
+      "correccion": "ha transformado profundamente el ecosistema de las empresas emergentes"
+    },
+    {
+      "tipo": "spanglish",
+      "texto": "startups",
+      "correccion": "empresas e
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__translation__detect_language_issues.md`](../results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__translation__detect_language_issues.md)
 
 </details>
 
@@ -2003,7 +2095,7 @@ El problema principal es el **retry infinito**: un 429 debería ralentizar las s
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 7.80 | 8.33 | 5 | 86 | 2.93s | OK |
-| data_privacy_protection | 7.65 | 8.00 | 5 | 56 | 2.26s | OK |
+| data_privacy_protection | 9.05 | 10.00 | 5 | 56 | 2.26s | OK |
 | language_and_tone_rules | 7.61 | 8.00 | 3.4 | 98 | 3.62s | OK |
 | scope_boundaries | 8.96 | 10.00 | 4.0 | 77 | 3.22s | OK |
 
@@ -2028,7 +2120,7 @@ Entiendo su frustración. Sin embargo, conforme a nuestra política:
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 7.65</summary>
+<details><summary><code>data_privacy_protection</code> — score 9.05</summary>
 
 **Stats**: latencia 2.26s · 56 tok/s · 219→129 tokens · $0.00100
 
@@ -2215,7 +2307,9 @@ I need to focus on publishing in Spanish. First, I think I need to clarify the p
 |------|-------|---------|-------|-------|----------|--------|
 | extract_action_items | 8.27 | 9.03 | 5 | 104 | 4.24s | OK |
 | weekly_planning | 8.40 | 9.80 | 5 | 147 | 14.27s | OK |
-| project_breakdown | 8.41 | 10.00 | 5 | 189 | 20.47s | OK |
+| extract_action_items | 7.83 | 8.40 | 5 | 99 | 4.53s | OK |
+| weekly_planning | 8.41 | 9.80 | 5 | 133 | 14.47s | OK |
+| project_breakdown | 8.44 | 10.00 | 5 | 131 | 25.57s | OK |
 
 <details><summary><code>extract_action_items</code> — score 8.27</summary>
 
@@ -2266,25 +2360,77 @@ I need to focus on publishing in Spanish. First, I think I need to clarify the p
 
 </details>
 
-<details><summary><code>project_breakdown</code> — score 8.41</summary>
+<details><summary><code>extract_action_items</code> — score 7.83</summary>
 
-**Stats**: latencia 20.47s · 189 tok/s · 69→4349 tokens · $0.02300
+**Stats**: latencia 4.53s · 99 tok/s · 192→444 tokens · $0.00300
 
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+**Juez Phi-4**: 5/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante y clara, desglosando el proyecto en fases detalladas con responsables y dependencias, proporcionando una guía práctica para un emprendedor.
+> La respuesta es precisa, relevante, clara y útil, con una buena profundidad al señalar la posible confusión en las fechas.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## Supuestos de planificación
-
-- La landing tendrá como objetivo principal **captar demos, registros o solicitudes de prueba**.
-- Se utilizará un CMS o stack ya conocido por el equipo.
-- No se desarrollará un sistema complejo de autenticación, pricing dinámico o dashboard dentro de estas 4 semanas.
+| Responsable | Tarea | Fecha límite | Prioridad sugerida |
+|---|---|---:|---|
+| Equipo del proyecto Alpha | Completar el proyecto Alpha | 30 de abril de 2026 | Alta |
+| Carlos (Dev) | Terminar el API de pagos | Antes del 20 de abril de 2026 | Alta |
+| Ana (Diseño) | Entregar los mockups del dashboa
 ```
 
-**Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-luna__task_management__project_breakdown.md`](../results/responses/20260710_110324_109890/gpt-5.6-luna__task_management__project_breakdown.md)
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__task_management__extract_action_items.md`](../results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__task_management__extract_action_items.md)
+
+</details>
+
+<details><summary><code>weekly_planning</code> — score 8.41</summary>
+
+**Stats**: latencia 14.47s · 133 tok/s · 191→1897 tokens · $0.01200
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y prácticamente útil, con una buena profundidad al considerar bloques de tiempo y necesidades adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Asumo una jornada laboral aproximada de **8:30 AM a 6:00 PM**, con bloques de comida y pequeños márgenes de transición.
+
+## Plan semanal
+
+### Lunes
+| Hora | Actividad |
+|---|---|
+| 8:00–9:00 | Responder emails de stakeholders |
+| 9:00–11:00 | Reunión de directivos |
+| 11:00–11:15 | Pausa y notas de
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__task_management__weekly_planning.md`](../results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__task_management__weekly_planning.md)
+
+</details>
+
+<details><summary><code>project_breakdown</code> — score 8.44</summary>
+
+**Stats**: latencia 25.57s · 131 tok/s · 69→2873 tokens · $0.02000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un desglose detallado y estructurado del proyecto con tareas, responsables y dependencias.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## Plan de lanzamiento en 4 semanas
+
+### Supuestos
+
+- La landing será de una sola página, responsive y orientada a conversión.
+- El producto ya tiene identidad visual básica o puede definirse durante la primera semana.
+- El objetivo principal será captar demos, registros o leads.
+- Se utilizará un C
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__task_management__project_breakdown.md`](../results/responses/20260716_rm_gpt_5_6_luna_/gpt-5.6-luna__task_management__project_breakdown.md)
 
 </details>
 
@@ -2348,8 +2494,6 @@ I need to focus on publishing in Spanish. First, I think I need to clarify the p
 
 ### Otras suites
 
-#### agent_long_horizon
-
 #### niah_es
 
 #### prompt_injection_es
@@ -2359,3 +2503,5 @@ I need to focus on publishing in Spanish. First, I think I need to clarify the p
 #### business_audit
 
 #### content_verificable
+
+#### agent_long_horizon

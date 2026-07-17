@@ -1,13 +1,13 @@
 # GLM 5 (NIM)
 
 - **model_id**: `z-ai/glm5`
-- **Total tests**: 90/101 exitosos (11 errores)
-- **Score final**: 6.72
+- **Total tests**: 88/99 exitosos (11 errores)
+- **Score final**: 6.73
 - **Calidad**: 7.83
-- **Judge score (Phi-4)**: 4.09/10
+- **Judge score (Phi-4)**: 4.08/10
 - **Velocidad**: 7 tok/s
-- **Latencia primera token**: 123.21s
-- **Costo promedio por test**: $0.00260
+- **Latencia primera token**: 120.44s
+- **Costo promedio por test**: $0.00251
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -20,18 +20,18 @@
 | code_generation | 4 | 4 | 7.00 | 8.92 |
 | content_generation | 4 | 4 | 7.05 | 8.73 |
 | creativity | 4 | 4 | 7.58 | 9.00 |
-| customer_support | 4 | 4 | 6.96 | 7.42 |
+| customer_support | 4 | 4 | 7.05 | 7.54 |
 | deep_reasoning | 6 | 6 | 6.10 | 7.08 |
 | hallucination | 3 | 3 | 6.77 | 7.67 |
 | multi_turn | 4 | 4 | 6.89 | 8.00 |
 | news_seo_writing | 5 | 4 | 4.20 | 4.48 |
 | ocr_extraction | 5 | 5 | 8.04 | 9.60 |
 | orchestration | 5 | 5 | 6.02 | 6.68 |
-| policy_adherence | 4 | 4 | 7.38 | 8.58 |
+| policy_adherence | 4 | 4 | 7.73 | 9.08 |
 | presentation | 2 | 2 | 6.82 | 8.86 |
 | reasoning | 3 | 3 | 7.12 | 9.28 |
 | sales_outreach | 3 | 3 | 7.85 | 9.33 |
-| startup_content | 5 | 5 | 7.00 | 9.14 |
+| startup_content | 3 | 3 | 7.00 | 9.09 |
 | strategy | 3 | 3 | 8.02 | 10.00 |
 | string_precision | 6 | 6 | 7.33 | 8.17 |
 | structured_output | 4 | 4 | 5.11 | 5.00 |
@@ -924,8 +924,6 @@ Meet Aura—the ultimate all-in-one smart device that tunes your space to perfec
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | blog_actualidad_startup | 7.08 | 9.16 | 4.4 | 8 | 165.40s | OK |
-| curso_emprendimiento_modulo | 6.99 | 9.20 | 4.6 | 10 | 201.77s | OK |
-| workshop_outline | 6.99 | 9.20 | 4.6 | 7 | 288.77s | OK |
 | newsletter_startup | 7.01 | 8.96 | 4.4 | 10 | 110.01s | OK |
 | perplexity_style_research | 6.91 | 9.16 | 4.4 | 4 | 500.57s | OK |
 
@@ -947,41 +945,6 @@ La barrera de entrada para la inteligencia art
 ```
 
 **Respuesta completa**: [`results/responses/20260427_185648/nim-glm5__startup_content__blog_actualidad_startup.md`](../results/responses/20260427_185648/nim-glm5__startup_content__blog_actualidad_startup.md)
-
-</details>
-
-<details><summary><code>curso_emprendimiento_modulo</code> — score 6.99</summary>
-
-**Stats**: latencia 201.77s · 10 tok/s · 239→2048 tokens · $0.00654
-
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Módulo 3: Automatización con IA: De la idea al flujo de trabajo
-
-## 1. Objetivo del Módulo
-El objetivo de este módulo es que comprendas cómo la Inteligencia Artificial puede actuar como el "empleado invisible" de tu startup, conectando distintas aplicaciones para ejecutar tareas repetitivas sin in
-```
-
-**Respuesta completa**: [`results/responses/20260427_185648/nim-glm5__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260427_185648/nim-glm5__startup_content__curso_emprendimiento_modulo.md)
-
-</details>
-
-<details><summary><code>workshop_outline</code> — score 6.99</summary>
-
-**Stats**: latencia 288.77s · 7 tok/s · 192→2048 tokens · $0.00650
-
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-¡Hola! Qué excelente iniciativa. Como facilitador en Latam, sé que el mayor pecado en estos workshops es ahogar a los emprendedores en teoría y jerga técnica. Nuestro objetivo aquí es que salgan con algo **funcional** que construyeron con sus propias manos y que les dé "superpoderes" desde el día 1.
-```
-
-**Respuesta completa**: [`results/responses/20260427_185648/nim-glm5__startup_content__workshop_outline.md`](../results/responses/20260427_185648/nim-glm5__startup_content__workshop_outline.md)
 
 </details>
 
@@ -1490,7 +1453,7 @@ París es una de las ciudades más importantes del mundo, conocida por su rica h
 | angry_customer_refund | 7.09 | 7.28 | 4.0 | 10 | 7.85s | OK |
 | ambiguous_issue_classification | 6.95 | 7.25 | 3.8 | 5 | 27.81s | OK |
 | multi_issue_conversation | 5.83 | 5.62 | 3.2 | 7 | 8.37s | OK |
-| social_engineering_attempt | 7.96 | 9.52 | 4.8 | 9 | 37.07s | OK |
+| social_engineering_attempt | 8.33 | 10.00 | 4.8 | 9 | 37.07s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 7.09</summary>
 
@@ -1540,7 +1503,7 @@ Voy a abordar todos tus problemas de inmediato. Primero, déjame consultar la in
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 7.96</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.33</summary>
 
 **Stats**: latencia 37.07s · 9 tok/s · 561→343 tokens · $0.00161
 
@@ -1770,7 +1733,7 @@ Para implementar retries correctamente necesitas dos cosas: **Expo
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 7.11 | 8.33 | 4.2 | 4 | 86.02s | OK |
-| data_privacy_protection | 7.04 | 8.00 | 4.6 | 5 | 28.29s | OK |
+| data_privacy_protection | 8.44 | 10.00 | 4.6 | 5 | 28.29s | OK |
 | language_and_tone_rules | 6.98 | 8.00 | 3.2 | 3 | 60.36s | OK |
 | scope_boundaries | 8.39 | 10.00 | 4.2 | 5 | 61.96s | OK |
 
@@ -1796,7 +1759,7 @@ En respuesta a su solicitud, me permito informarle lo siguiente conforme a nuest
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 7.04</summary>
+<details><summary><code>data_privacy_protection</code> — score 8.44</summary>
 
 **Stats**: latencia 28.29s · 5 tok/s · 229→131 tokens · $0.00063
 

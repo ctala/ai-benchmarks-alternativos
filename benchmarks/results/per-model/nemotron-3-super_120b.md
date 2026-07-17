@@ -1,13 +1,13 @@
 # Nemotron 3 Super 120B (DGX Spark Q4_K_M)
 
 - **model_id**: `nemotron-3-super:120b`
-- **Total tests**: 90/91 exitosos (1 errores)
-- **Score final**: 6.99
-- **Calidad**: 7.69
+- **Total tests**: 88/89 exitosos (1 errores)
+- **Score final**: 6.98
+- **Calidad**: 7.68
 - **Judge score (Phi-4)**: 4.20/10
 - **Velocidad**: 17 tok/s
-- **Latencia primera token**: 123.69s
-- **Costo promedio por test**: $0.00082
+- **Latencia primera token**: 125.70s
+- **Costo promedio por test**: $0.00083
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -19,7 +19,7 @@
 | code_generation | 4 | 4 | 7.54 | 8.81 |
 | content_generation | 4 | 4 | 7.54 | 8.58 |
 | creativity | 4 | 4 | 7.75 | 8.75 |
-| customer_support | 4 | 4 | 7.29 | 7.25 |
+| customer_support | 3 | 3 | 7.25 | 7.01 |
 | deep_reasoning | 6 | 6 | 5.63 | 5.83 |
 | hallucination | 3 | 3 | 6.09 | 6.33 |
 | multi_turn | 4 | 4 | 7.12 | 8.00 |
@@ -37,7 +37,7 @@
 | summarization | 2 | 2 | 7.17 | 7.72 |
 | task_management | 3 | 3 | 7.34 | 8.80 |
 | tool_calling | 4 | 4 | 6.73 | 6.68 |
-| translation | 3 | 3 | 7.04 | 7.56 |
+| translation | 2 | 2 | 6.95 | 7.33 |
 
 ## Detalle por test
 
@@ -1309,7 +1309,6 @@ Vi tu post de la semana pasada sobre cómo escalar el content marketing sin cont
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.55 | 8.00 | 4.0 | 17 | 9.26s | OK |
-| translate_technical_en_es | 7.22 | 8.00 | 4.0 | 18 | 55.54s | OK |
 | detect_language_issues | 6.35 | 6.67 | 4.0 | 18 | 67.22s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.55</summary>
@@ -1331,22 +1330,6 @@ Over 500 LATAM startups already use it. When will you start?
 ```
 
 **Respuesta completa**: [`results/responses/20260428_125014/local-nemotron-3-super-120b__translation__translate_marketing_es_en.md`](../results/responses/20260428_125014/local-nemotron-3-super-120b__translation__translate_marketing_es_en.md)
-
-</details>
-
-<details><summary><code>translate_technical_en_es</code> — score 7.22</summary>
-
-**Stats**: latencia 55.54s · 18 tok/s · 166→1025 tokens · $0.00048
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para autenticarse con la API, incluya su Bearer token en el encabezado Authorization. Los límites de tasa están establecidos en 100 solicitudes por minuto para el free tier. Si supera el límite de tasa, la API devuelve un código de estado 429 con un encabezado Retry-After indicando cuándo puede rean
-```
-
-**Respuesta completa**: [`results/responses/20260428_125014/local-nemotron-3-super-120b__translation__translate_technical_en_es.md`](../results/responses/20260428_125014/local-nemotron-3-super-120b__translation__translate_technical_en_es.md)
 
 </details>
 
@@ -1517,7 +1500,6 @@ La capital de Francia es París.
 |------|-------|---------|-------|-------|----------|--------|
 | angry_customer_refund | 6.83 | 5.92 | 3.8 | 15 | 11.02s | OK |
 | ambiguous_issue_classification | 7.03 | 6.88 | 3.2 | 18 | 71.18s | OK |
-| multi_issue_conversation | 7.42 | 8.00 | 4.0 | 16 | 14.76s | OK |
 | social_engineering_attempt | 7.90 | 8.22 | 4.8 | 17 | 29.19s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 6.83</summary>
@@ -1551,24 +1533,6 @@ Primero, necesito clasificar el problema y
 ```
 
 **Respuesta completa**: [`results/responses/20260428_125014/local-nemotron-3-super-120b__customer_support__ambiguous_issue_classification.md`](../results/responses/20260428_125014/local-nemotron-3-super-120b__customer_support__ambiguous_issue_classification.md)
-
-</details>
-
-<details><summary><code>multi_issue_conversation</code> — score 7.42</summary>
-
-**Stats**: latencia 14.76s · 16 tok/s · 805→237 tokens · $0.00018
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-El usuario tiene varios problemas. Primero, necesito abordar el cobro doble del pedido #ORD-7790, ya que especifica que necesita resolverlo hoy. También debería verificar el estado del pedido #ORD-7788 y el problema de la app. Luego, puedo responder sobre el envío express.
-
-Debo usar las herramienta
-```
-
-**Respuesta completa**: [`results/responses/20260428_125014/local-nemotron-3-super-120b__customer_support__multi_issue_conversation.md`](../results/responses/20260428_125014/local-nemotron-3-super-120b__customer_support__multi_issue_conversation.md)
 
 </details>
 

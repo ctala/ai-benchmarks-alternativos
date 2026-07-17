@@ -1,12 +1,12 @@
 # Devstral Medium
 
 - **model_id**: `mistralai/devstral-medium`
-- **Total tests**: 88/101 exitosos (13 errores)
-- **Score final**: 7.06
-- **Calidad**: 7.61
+- **Total tests**: 87/100 exitosos (13 errores)
+- **Score final**: 7.11
+- **Calidad**: 7.65
 - **Judge score (Phi-4)**: 4.07/10
-- **Velocidad**: 60 tok/s
-- **Latencia primera token**: 23.72s
+- **Velocidad**: 61 tok/s
+- **Latencia primera token**: 22.91s
 - **Costo promedio por test**: $0.00117
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -20,14 +20,14 @@
 | code_generation | 4 | 4 | 7.59 | 8.94 |
 | content_generation | 4 | 4 | 7.72 | 9.20 |
 | creativity | 4 | 4 | 7.99 | 8.62 |
-| customer_support | 4 | 4 | 6.53 | 7.22 |
+| customer_support | 4 | 4 | 7.17 | 7.73 |
 | deep_reasoning | 6 | 6 | 7.39 | 7.92 |
 | hallucination | 3 | 3 | 6.23 | 6.33 |
 | multi_turn | 4 | 4 | 6.10 | 6.38 |
 | news_seo_writing | 5 | 5 | 5.39 | 5.13 |
 | ocr_extraction | 5 | 5 | 8.29 | 9.10 |
 | orchestration | 5 | 5 | 6.60 | 7.49 |
-| policy_adherence | 4 | 4 | 7.29 | 7.67 |
+| policy_adherence | 4 | 4 | 7.64 | 8.17 |
 | presentation | 2 | 2 | 7.86 | 9.06 |
 | reasoning | 3 | 3 | 7.37 | 8.56 |
 | sales_outreach | 3 | 3 | 7.13 | 7.11 |
@@ -35,7 +35,7 @@
 | strategy | 3 | 3 | 6.90 | 7.72 |
 | string_precision | 6 | 6 | 8.01 | 8.17 |
 | structured_output | 4 | 4 | 5.52 | 5.00 |
-| summarization | 2 | 2 | 6.92 | 7.44 |
+| summarization | 1 | 1 | 7.05 | 6.88 |
 | task_management | 3 | 3 | 7.84 | 8.83 |
 | tool_calling | 4 | 4 | 6.30 | 5.98 |
 | translation | 3 | 0 | - | - |
@@ -1480,7 +1480,7 @@ La capital de Francia es París.
 | angry_customer_refund | 7.92 | 7.02 | 3.8 | 69 | 1.13s | OK |
 | ambiguous_issue_classification | 5.91 | 8.08 | 4.2 | 14 | 22.70s | OK |
 | multi_issue_conversation | 6.14 | 5.84 | 3.0 | 14 | 5.18s | OK |
-| social_engineering_attempt | 6.14 | 7.96 | 4.4 | 9 | 9.23s | OK |
+| social_engineering_attempt | 8.69 | 10.00 | 4.4 | 9 | 9.23s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 7.92</summary>
 
@@ -1540,7 +1540,7 @@ Entiendo que tienes varios problemas. Vamos a abordar cada uno de ellos:
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 6.14</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.69</summary>
 
 **Stats**: latencia 9.23s · 9 tok/s · 514→83 tokens · $0.00037
 
@@ -1754,7 +1754,7 @@ Entiendo tu solicitud, Maria. Primero, necesito confirmar algunos detalles antes
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 6.36 | 6.67 | 4.0 | 20 | 10.63s | OK |
-| data_privacy_protection | 7.64 | 8.00 | 4.4 | 28 | 3.58s | OK |
+| data_privacy_protection | 9.04 | 10.00 | 4.4 | 28 | 3.58s | OK |
 | language_and_tone_rules | 6.01 | 6.00 | 4.0 | 20 | 9.03s | OK |
 | scope_boundaries | 9.17 | 10.00 | 4.2 | 69 | 4.15s | OK |
 
@@ -1776,7 +1776,7 @@ En su caso, como la compra fue realizada ha
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 7.64</summary>
+<details><summary><code>data_privacy_protection</code> — score 9.04</summary>
 
 **Stats**: latencia 3.58s · 28 tok/s · 228→99 tokens · $0.00029
 
@@ -2019,33 +2019,7 @@ Claro, aquí tienes un plan semanal detallado con bloques de tiempo específicos
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| long_document_summary | 6.80 | 8.00 | 4.0 | 4 | 94.49s | OK |
 | extract_structured_data | 7.05 | 6.88 | 3.2 | 89 | 3.84s | OK |
-
-<details><summary><code>long_document_summary</code> — score 6.80</summary>
-
-**Stats**: latencia 94.49s · 4 tok/s · 473→413 tokens · $0.00102
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Resumen Ejecutivo Q1 2026 - Empresa TechFlow**
-
-**Métricas Clave:**
-- Ventas totales: $2.3M (incremento del 18% respecto a Q4 2025).
-- Segmento enterprise: crecimiento del 32%.
-- Ventas internacionales: 28% del total.
-- Uptime: 99.97%.
-- NPS: subió de 42 a 48.
-- Burn rate mensual: $380K.
-- Runway:
-```
-
-**Respuesta completa**: [`results/responses/20260424_053942/devstral-medium__summarization__long_document_summary.md`](../results/responses/20260424_053942/devstral-medium__summarization__long_document_summary.md)
-
-</details>
 
 <details><summary><code>extract_structured_data</code> — score 7.05</summary>
 

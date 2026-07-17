@@ -1,13 +1,13 @@
 # Ministral 14B (NIM)
 
 - **model_id**: `mistralai/ministral-14b-instruct-2512`
-- **Total tests**: 90/101 exitosos (11 errores)
-- **Score final**: 7.16
-- **Calidad**: 7.79
+- **Total tests**: 89/100 exitosos (11 errores)
+- **Score final**: 7.18
+- **Calidad**: 7.78
 - **Judge score (Phi-4)**: 4.12/10
 - **Velocidad**: 21 tok/s
-- **Latencia primera token**: 49.50s
-- **Costo promedio por test**: $0.00042
+- **Latencia primera token**: 48.80s
+- **Costo promedio por test**: $0.00041
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -20,7 +20,7 @@
 | code_generation | 4 | 4 | 7.51 | 8.53 |
 | content_generation | 4 | 4 | 7.84 | 8.89 |
 | creativity | 4 | 4 | 8.05 | 9.00 |
-| customer_support | 4 | 4 | 6.38 | 6.16 |
+| customer_support | 4 | 4 | 6.78 | 6.23 |
 | deep_reasoning | 6 | 6 | 6.92 | 7.50 |
 | hallucination | 3 | 3 | 5.63 | 5.67 |
 | multi_turn | 4 | 4 | 7.35 | 8.00 |
@@ -31,7 +31,7 @@
 | presentation | 2 | 2 | 7.48 | 8.64 |
 | reasoning | 3 | 3 | 7.68 | 9.25 |
 | sales_outreach | 3 | 3 | 6.27 | 6.44 |
-| startup_content | 5 | 5 | 7.73 | 9.18 |
+| startup_content | 4 | 4 | 7.74 | 9.17 |
 | strategy | 3 | 3 | 7.25 | 8.06 |
 | string_precision | 6 | 6 | 7.83 | 8.17 |
 | structured_output | 4 | 4 | 5.20 | 5.00 |
@@ -997,7 +997,6 @@ Tired of cluttered gadgets that don’t work together? **LUMI** is the all-in-on
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | blog_actualidad_startup | 7.81 | 9.16 | 4.4 | 36 | 54.33s | OK |
-| curso_emprendimiento_modulo | 7.67 | 9.20 | 4.6 | 18 | 111.78s | OK |
 | workshop_outline | 7.94 | 9.44 | 4.6 | 34 | 60.23s | OK |
 | newsletter_startup | 7.69 | 9.16 | 4.4 | 19 | 93.99s | OK |
 | perplexity_style_research | 7.53 | 8.92 | 4.4 | 18 | 114.82s | OK |
@@ -1023,29 +1022,6 @@ Tired of cluttered gadgets that don’t work together? **LUMI** is the all-in-on
 ```
 
 **Respuesta completa**: [`results/responses/20260427_185648/nim-ministral-14b__startup_content__blog_actualidad_startup.md`](../results/responses/20260427_185648/nim-ministral-14b__startup_content__blog_actualidad_startup.md)
-
-</details>
-
-<details><summary><code>curso_emprendimiento_modulo</code> — score 7.67</summary>
-
-**Stats**: latencia 111.78s · 18 tok/s · 239→2048 tokens · $0.00084
-
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-```markdown
-# **Módulo 3: Automatización con IA**
-### **"De la idea al flujo de trabajo"**
-*(Enfoque: Aplicación práctica en emprendimientos latinos)*
-
----
-## **📌 Objetivo del Módulo**
-En este módulo aprenderás a **transformar ideas en flujos de trabajo automatizados** usando IA y herramientas acces
-```
-
-**Respuesta completa**: [`results/responses/20260427_185648/nim-ministral-14b__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260427_185648/nim-ministral-14b__startup_content__curso_emprendimiento_modulo.md)
 
 </details>
 
@@ -1593,7 +1569,7 @@ La capital de Francia es **París**.
 | angry_customer_refund | 5.80 | 3.40 | 2.4 | 9 | 1.91s | OK |
 | ambiguous_issue_classification | 7.27 | 7.83 | 4.2 | 13 | 5.06s | OK |
 | multi_issue_conversation | 5.34 | 3.68 | 2.6 | 11 | 2.88s | OK |
-| social_engineering_attempt | 7.09 | 9.72 | 4.8 | 15 | 15.55s | OK |
+| social_engineering_attempt | 8.72 | 10.00 | 4.8 | 15 | 15.55s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 5.80</summary>
 
@@ -1644,7 +1620,7 @@ La capital de Francia es **París**.
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 7.09</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.72</summary>
 
 **Stats**: latencia 15.55s · 15 tok/s · 514→227 tokens · $0.00014
 

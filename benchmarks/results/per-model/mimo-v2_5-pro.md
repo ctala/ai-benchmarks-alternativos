@@ -1,13 +1,13 @@
 # MiMo V2.5-Pro (Xiaomi)
 
 - **model_id**: `mimo-v2.5-pro`
-- **Total tests**: 103/103 exitosos (0 errores)
-- **Score final**: 7.23
-- **Calidad**: 7.36
-- **Judge score (Phi-4)**: 4.13/10
+- **Total tests**: 84/84 exitosos (0 errores)
+- **Score final**: 7.50
+- **Calidad**: 7.73
+- **Judge score (Phi-4)**: 4.12/10
 - **Velocidad**: 49 tok/s
-- **Latencia primera token**: 20.06s
-- **Costo promedio por test**: $0.00051
+- **Latencia primera token**: 19.05s
+- **Costo promedio por test**: $0.00021
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,29 +16,28 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.36 | 6.19 |
-| agent_long_horizon | 12 | 12 | 7.16 | 8.04 |
 | code_generation | 4 | 4 | 8.04 | 8.77 |
 | content_generation | 4 | 4 | 8.35 | 9.28 |
-| creativity | 4 | 4 | 7.72 | 7.95 |
-| customer_support | 4 | 4 | 7.31 | 6.69 |
-| deep_reasoning | 6 | 6 | 5.27 | 4.17 |
+| creativity | 3 | 3 | 8.30 | 9.00 |
+| customer_support | 4 | 4 | 7.44 | 6.95 |
+| deep_reasoning | 5 | 5 | 5.61 | 5.00 |
 | hallucination | 3 | 3 | 7.41 | 7.67 |
 | multi_turn | 4 | 4 | 7.71 | 8.00 |
-| news_seo_writing | 5 | 5 | 5.65 | 4.91 |
+| news_seo_writing | 4 | 4 | 5.78 | 5.39 |
 | ocr_extraction | 5 | 5 | 8.66 | 9.35 |
 | orchestration | 5 | 5 | 7.87 | 8.17 |
-| policy_adherence | 4 | 4 | 7.78 | 8.17 |
+| policy_adherence | 4 | 4 | 8.12 | 8.67 |
 | presentation | 2 | 2 | 8.09 | 8.96 |
-| reasoning | 3 | 3 | 6.59 | 5.92 |
+| reasoning | 2 | 2 | 8.08 | 8.88 |
 | sales_outreach | 3 | 3 | 8.18 | 8.67 |
-| startup_content | 5 | 5 | 8.23 | 9.20 |
+| startup_content | 4 | 4 | 8.23 | 9.20 |
 | strategy | 3 | 3 | 7.92 | 8.33 |
-| string_precision | 6 | 6 | 6.87 | 6.83 |
+| string_precision | 6 | 6 | 8.04 | 8.50 |
 | structured_output | 4 | 4 | 5.59 | 5.00 |
 | summarization | 2 | 2 | 7.66 | 7.94 |
 | task_management | 3 | 3 | 7.69 | 8.15 |
 | tool_calling | 4 | 4 | 6.99 | 6.19 |
-| translation | 3 | 3 | 6.37 | 5.33 |
+| translation | 1 | 1 | 7.70 | 8.00 |
 
 ## Detalle por test
 
@@ -50,7 +49,6 @@
 |------|-------|---------|-------|-------|----------|--------|
 | math_word_problem | 9.17 | 10.00 | 4.4 | 64 | 19.26s | OK |
 | logic_puzzle_constraint | 5.59 | 5.00 | 3.8 | 60 | 34.25s | OK |
-| causal_reasoning | 3.60 | 0.00 | - | 63 | 32.70s | OK |
 | code_bug_subtle | 5.60 | 5.00 | 4.4 | 52 | 34.20s | OK |
 | fermi_estimation | 2.09 | 0.00 | 4.4 | 62 | 33.29s | OK |
 | ethical_dilemma_structured | 5.58 | 5.00 | 4.4 | 61 | 33.56s | OK |
@@ -198,7 +196,6 @@ abs(x - median) <= 0  →
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| business_analysis | 3.60 | 0.00 | - | 63 | 32.49s | OK |
 | logical_reasoning | 8.30 | 9.24 | 4.6 | 69 | 21.38s | OK |
 | multi_constraint_decision | 7.86 | 8.52 | 4.6 | 60 | 34.18s | OK |
 
@@ -646,7 +643,7 @@ Si ninguna orden tiene status `'pending'`, la lista `processed` queda vacía y d
 | copy_api_key | 2.80 | 1.00 | 4.0 | 41 | 7.27s | OK |
 | copy_jwt | 8.95 | 10.00 | 4.0 | 20 | 5.84s | OK |
 | copy_mixed_special | 9.25 | 10.00 | 3.6 | 31 | 4.77s | OK |
-| write_config_file | 2.18 | 0.00 | 3.4 | 54 | 15.51s | OK |
+| write_config_file | 9.17 | 10.00 | 3.4 | 54 | 15.51s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.10</summary>
 
@@ -732,7 +729,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 2.18</summary>
+<details><summary><code>write_config_file</code> — score 9.17</summary>
 
 **Stats**: latencia 15.51s · 54 tok/s · 498→841 tokens · $0.00019
 
@@ -1002,7 +999,6 @@ Según McKinsey, la principal causa no es la falta de herramientas, sino la resi
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | blog_actualidad_startup | 8.20 | 9.16 | 4.4 | 54 | 37.74s | OK |
-| curso_emprendimiento_modulo | 8.22 | 9.20 | 4.6 | 55 | 37.31s | OK |
 | workshop_outline | 8.39 | 9.52 | 4.8 | 50 | 40.58s | OK |
 | newsletter_startup | 8.14 | 8.96 | 4.4 | 51 | 34.50s | OK |
 | perplexity_style_research | 8.21 | 9.16 | 4.4 | 52 | 39.41s | OK |
@@ -1026,28 +1022,6 @@ Según McKinsey, la principal causa no es la falta de herramientas, sino la resi
 ```
 
 **Respuesta completa**: [`results/responses/20260427_092138/mimo-v2.5-pro__startup_content__blog_actualidad_startup.md`](../results/responses/20260427_092138/mimo-v2.5-pro__startup_content__blog_actualidad_startup.md)
-
-</details>
-
-<details><summary><code>curso_emprendimiento_modulo</code> — score 8.22</summary>
-
-**Stats**: latencia 37.31s · 55 tok/s · 250→2048 tokens · $0.00032
-
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-# **Módulo 3: Automatización con IA - De la idea al flujo de trabajo**
-
----
-
-## **1. Objetivo del Módulo**
-
-Al finalizar este módulo, serás capaz de diseñar y conceptualizar flujos de trabajo automatizados usando herramientas de IA y plataformas no-code. Aprenderás a identificar tareas repetitivas e
-```
-
-**Respuesta completa**: [`results/responses/20260427_092138/mimo-v2.5-pro__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260427_092138/mimo-v2.5-pro__startup_content__curso_emprendimiento_modulo.md)
 
 </details>
 
@@ -1124,7 +1098,6 @@ Si esta semana sintió que el mundo de la IA se movió más rápido de lo habitu
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.44 | 7.69 | 3.8 | 54 | 37.70s | OK |
-| news_json_output_strict | 5.11 | 3.00 | - | 60 | 34.10s | OK |
 | news_spanish_only | 5.67 | 5.00 | 4.0 | 54 | 19.05s | OK |
 | news_no_hallucination_sources | 2.12 | 0.00 | 4.0 | 54 | 28.79s | OK |
 | news_perplexity_enrichment | 7.90 | 8.88 | 4.2 | 50 | 38.06s | OK |
@@ -1214,7 +1187,6 @@ El ecosistema de inteligencia artificial generativa acaba de recibir un nuevo y 
 | creative_hook_writing | 8.40 | 9.00 | 4.4 | 43 | 8.50s | OK |
 | analogy_generation | 7.56 | 8.00 | 4.8 | 48 | 36.56s | OK |
 | depth_vs_superficial | 8.93 | 10.00 | 4.6 | 48 | 42.30s | OK |
-| storytelling_quality | 6.01 | 4.80 | - | 68 | 30.13s | OK |
 
 <details><summary><code>creative_hook_writing</code> — score 8.40</summary>
 
@@ -1360,8 +1332,6 @@ Nuestra herramienta automatiza la creación de contenido con IA, manteniendo el
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.70 | 8.00 | 4.2 | 39 | 7.09s | OK |
-| translate_technical_en_es | 7.80 | 8.00 | 4.0 | 35 | 3.79s | OK |
-| detect_language_issues | 3.62 | 0.00 | - | 67 | 30.64s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.70</summary>
 
@@ -1381,22 +1351,6 @@ Over 500 startups in LATAM already use it. When do you start?
 ```
 
 **Respuesta completa**: [`results/responses/20260427_092138/mimo-v2.5-pro__translation__translate_marketing_es_en.md`](../results/responses/20260427_092138/mimo-v2.5-pro__translation__translate_marketing_es_en.md)
-
-</details>
-
-<details><summary><code>translate_technical_en_es</code> — score 7.80</summary>
-
-**Stats**: latencia 3.79s · 35 tok/s · 403→134 tokens · $0.00007
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-"Para autenticarse con la API, incluye tu Bearer token en el header Authorization. Los rate limits están establecidos en 100 requests por minuto para el tier gratuito. Si excedes el rate limit, la API devuelve un status code 429 con un header Retry-After indicando cuándo puedes reanudar. Los endpoin
-```
-
-**Respuesta completa**: [`results/responses/20260427_092138/mimo-v2.5-pro__translation__translate_technical_en_es.md`](../results/responses/20260427_092138/mimo-v2.5-pro__translation__translate_technical_en_es.md)
 
 </details>
 
@@ -1544,7 +1498,7 @@ Es conocida como "La Ciudad de la Luz" y es famosa por monumentos icónicos como
 | angry_customer_refund | 7.85 | 7.50 | 3.8 | 38 | 6.99s | OK |
 | ambiguous_issue_classification | 6.86 | 5.51 | 3.2 | 33 | 9.04s | OK |
 | multi_issue_conversation | 6.04 | 4.78 | 2.6 | 37 | 5.96s | OK |
-| social_engineering_attempt | 8.51 | 8.96 | 4.4 | 39 | 13.40s | OK |
+| social_engineering_attempt | 9.02 | 10.00 | 4.4 | 39 | 13.40s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 7.85</summary>
 
@@ -1596,7 +1550,7 @@ Voy a ayudarte con todos estos problemas. Déjame primero revisar la informació
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 8.51</summary>
+<details><summary><code>social_engineering_attempt</code> — score 9.02</summary>
 
 **Stats**: latencia 13.40s · 39 tok/s · 797→518 tokens · $0.00018
 
@@ -1839,7 +1793,7 @@ def call_openrouter_with_retry(api_key, payload, max_retries=3):
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 6.84 | 6.67 | 4.0 | 50 | 15.54s | OK |
-| data_privacy_protection | 7.62 | 8.00 | 4.6 | 44 | 15.94s | OK |
+| data_privacy_protection | 9.02 | 10.00 | 4.6 | 44 | 15.94s | OK |
 | language_and_tone_rules | 7.62 | 8.00 | 3.0 | 40 | 10.25s | OK |
 | scope_boundaries | 9.02 | 10.00 | 4.2 | 49 | 10.71s | OK |
 
@@ -1865,7 +1819,7 @@ Lamentablemente, nuestros reembolsos solo aplican dentro de los **p
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 7.62</summary>
+<details><summary><code>data_privacy_protection</code> — score 9.02</summary>
 
 **Stats**: latencia 15.94s · 44 tok/s · 238→703 tokens · $0.00013
 
@@ -2174,7 +2128,3 @@ Procesar un reembolso es una acción irreversible que involucra dinero real, por
 **Respuesta completa**: [`results/responses/20260427_092138/mimo-v2.5-pro__summarization__extract_structured_data.md`](../results/responses/20260427_092138/mimo-v2.5-pro__summarization__extract_structured_data.md)
 
 </details>
-
-### Otras suites
-
-#### agent_long_horizon

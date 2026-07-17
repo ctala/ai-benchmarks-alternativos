@@ -1,13 +1,13 @@
 # GPT-5.6 Sol
 
 - **model_id**: `openai/gpt-5.6-sol`
-- **Total tests**: 304/320 exitosos (16 errores)
-- **Score final**: 7.30
-- **Calidad**: 9.08
-- **Judge score (Phi-4)**: 4.29/10
+- **Total tests**: 306/322 exitosos (16 errores)
+- **Score final**: 7.28
+- **Calidad**: 9.03
+- **Judge score (Phi-4)**: 4.30/10
 - **Velocidad**: 28 tok/s
-- **Latencia primera token**: 17.06s
-- **Costo promedio por test**: $0.20474
+- **Latencia primera token**: 17.43s
+- **Costo promedio por test**: $0.19892
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,10 +16,10 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.42 | 7.06 |
-| agent_long_horizon | 24 | 24 | 7.42 | 9.24 |
+| agent_long_horizon | 12 | 12 | 7.46 | 9.33 |
 | business_audit | 22 | 18 | 6.81 | 8.25 |
 | business_strategy | 5 | 5 | 7.24 | 8.80 |
-| code_generation | 4 | 4 | 7.14 | 8.63 |
+| code_generation | 7 | 7 | 7.01 | 8.45 |
 | content_generation | 4 | 4 | 7.82 | 9.23 |
 | content_verificable | 5 | 5 | 8.29 | 10.00 |
 | creativity | 4 | 4 | 7.54 | 9.25 |
@@ -30,20 +30,20 @@
 | news_seo_writing | 5 | 5 | 4.97 | 5.56 |
 | niah_es | 153 | 141 | 7.67 | 10.00 |
 | ocr_extraction | 5 | 5 | 7.93 | 9.35 |
-| orchestration | 5 | 5 | 5.09 | 5.31 |
-| policy_adherence | 4 | 4 | 7.13 | 8.08 |
+| orchestration | 9 | 9 | 5.57 | 5.96 |
+| policy_adherence | 4 | 4 | 7.48 | 8.58 |
 | presentation | 2 | 2 | 7.61 | 9.44 |
 | prompt_injection_es | 20 | 20 | 7.48 | 9.10 |
 | reasoning | 3 | 3 | 7.49 | 9.37 |
 | sales_outreach | 3 | 3 | 6.32 | 7.11 |
-| startup_content | 5 | 5 | 7.46 | 9.46 |
+| startup_content | 8 | 8 | 7.37 | 9.25 |
 | strategy | 3 | 3 | 7.83 | 10.00 |
 | string_precision | 6 | 6 | 7.63 | 8.17 |
 | structured_output | 4 | 4 | 5.25 | 5.00 |
 | summarization | 2 | 2 | 7.15 | 8.13 |
-| task_management | 3 | 3 | 7.79 | 9.47 |
+| task_management | 5 | 5 | 7.65 | 9.30 |
 | tool_calling | 4 | 4 | 5.02 | 4.88 |
-| translation | 3 | 3 | 7.65 | 8.67 |
+| translation | 5 | 5 | 7.24 | 8.13 |
 
 ## Detalle por test
 
@@ -470,8 +470,11 @@ Ad
 |------|-------|---------|-------|-------|----------|--------|
 | python_api_integration | 7.27 | 9.17 | 5 | 23 | 80.82s | OK |
 | sql_query_complex | 7.83 | 9.40 | 5 | 47 | 18.16s | OK |
-| debug_code | 8.42 | 10.00 | 5 | 70 | 6.89s | OK |
 | n8n_workflow_json | 5.05 | 5.95 | 2.8 | 89 | 59.53s | OK |
+| python_api_integration | 7.13 | 8.71 | 4.6 | 41 | 28.82s | OK |
+| n8n_workflow_json | 5.46 | 6.51 | 2.8 | 61 | 78.53s | OK |
+| sql_query_complex | 7.91 | 9.40 | 5 | 56 | 10.97s | OK |
+| debug_code | 8.41 | 10.00 | 5 | 61 | 8.09s | OK |
 
 <details><summary><code>python_api_integration</code> — score 7.27</summary>
 
@@ -534,33 +537,6 @@ WITH completed_orders AS (
 
 </details>
 
-<details><summary><code>debug_code</code> — score 8.42</summary>
-
-**Stats**: latencia 6.89s · 70 tok/s · 222→470 tokens · $0.01500
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta identifica y corrige todos los bugs de manera precisa, es altamente relevante, ofrece una solución profunda y clara, y es directamente util para un emprendedor.
-
-**Respuesta (preview 300 chars)**:
-
-```
-### Bugs identificados
-
-1. **División por cero**  
-   Si no hay órdenes con estado `pending`, `processed` queda vacío y `len(processed)` es `0`. Por tanto:
-   ```python
-   total / len(processed)
-   ```
-   genera un `ZeroDivisionError`. En ese caso, el promedio puede establecerse en `0`.
-
-2. **Mutaci
-```
-
-**Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-sol__code_generation__debug_code.md`](../results/responses/20260710_110324_109890/gpt-5.6-sol__code_generation__debug_code.md)
-
-</details>
-
 <details><summary><code>n8n_workflow_json</code> — score 5.05</summary>
 
 **Stats**: latencia 59.53s · 89 tok/s · 118→5243 tokens · $0.15900
@@ -586,6 +562,119 @@ WITH completed_orders AS (
 ```
 
 **Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-sol__code_generation__n8n_workflow_json.md`](../results/responses/20260710_110324_109890/gpt-5.6-sol__code_generation__n8n_workflow_json.md)
+
+</details>
+
+<details><summary><code>python_api_integration</code> — score 7.13</summary>
+
+**Stats**: latencia 28.82s · 41 tok/s · 102→892 tokens · $0.03500
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+```python
+import time
+from typing import Any
+
+import httpx
+
+
+def obtener_productos(token: str) -> list[dict[str, Any]]:
+    url = "https://api.example.com/products"
+    headers = {"Authorization": f"Bearer {token}"}
+
+    max_intentos = 3
+    ultimo_error: Exception | None = None
+
+    with httpx.Clie
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__code_generation__python_api_integration.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__code_generation__python_api_integration.md)
+
+</details>
+
+<details><summary><code>n8n_workflow_json</code> — score 5.46</summary>
+
+**Stats**: latencia 78.53s · 61 tok/s · 118→5152 tokens · $0.14400
+
+**Juez Phi-4**: 2.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "name": "Clasificar emails y enviar a Slack",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "clasificar-email",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "9c5e3662-40b6-4f66-bf12-2f01521a5611",
+      "name":
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__code_generation__n8n_workflow_json.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__code_generation__n8n_workflow_json.md)
+
+</details>
+
+<details><summary><code>sql_query_complex</code> — score 7.91</summary>
+
+**Stats**: latencia 10.97s · 56 tok/s · 147→652 tokens · $0.01900
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, y ofrece una solución profunda y clara que un emprendedor podría usar directamente para obtener información valiosa sobre los clientes.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Asumiendo PostgreSQL y que “categoría más comprada” se determina por la cantidad total de unidades:
+
+```sql
+WITH completed_orders AS (
+    SELECT
+        id,
+        customer_id,
+        total
+    FROM orders
+    WHERE status = 'completed'
+      AND created_at >= CURRENT_TIMESTAMP - INTERVAL '6 mont
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__code_generation__sql_query_complex.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__code_generation__sql_query_complex.md)
+
+</details>
+
+<details><summary><code>debug_code</code> — score 8.41</summary>
+
+**Stats**: latencia 8.09s · 61 tok/s · 222→469 tokens · $0.01600
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta identifica y corrige con precisión los errores, es relevante y clara, ofrece una solución práctica y útil, y proporciona una explicación detallada de los cambios realizados.
+
+**Respuesta (preview 300 chars)**:
+
+```
+### Bugs identificados
+
+1. **División por cero**  
+   Si no hay órdenes con estado `pending`, `processed` queda vacío y `len(processed)` es `0`. Por tanto:
+
+   ```python
+   average = total / len(processed)
+   ```
+
+   genera un `ZeroDivisionError`. Se puede devolver `0` cuando no haya órdenes procesa
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__code_generation__debug_code.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__code_generation__debug_code.md)
 
 </details>
 
@@ -1060,33 +1149,14 @@ Stream music, podcasts, and playlists with crisp, balanced sound. Voice and app 
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| curso_emprendimiento_modulo | 7.93 | 10.00 | 5 | 60 | 68.77s | OK |
 | newsletter_startup | 7.81 | 9.92 | 5 | 31 | 108.13s | OK |
 | perplexity_style_research | 6.87 | 8.79 | 4.2 | 36 | 126.58s | OK |
 | blog_actualidad_startup | 6.91 | 8.60 | 5 | 36 | 72.42s | OK |
-| workshop_outline | 7.77 | 10.00 | 5 | 57 | 136.78s | OK |
-
-<details><summary><code>curso_emprendimiento_modulo</code> — score 7.93</summary>
-
-**Stats**: latencia 68.77s · 60 tok/s · 218→4544 tokens · $0.12400
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, clara y profundamente útil para emprendedores, proporcionando ejemplos prácticos y un ejercicio paso a paso.
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Módulo 3. Automatización con IA: De la idea al flujo de trabajo
-
-## 1. Objetivo del módulo
-
-Al finalizar este módulo, el participante podrá identificar tareas repetitivas dentro de su emprendimiento, convertirlas en un flujo de trabajo automatizado e integrar inteligencia artificial para analizar
-```
-
-**Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-sol__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260710_110324_109890/gpt-5.6-sol__startup_content__curso_emprendimiento_modulo.md)
-
-</details>
+| blog_actualidad_startup | 6.78 | 8.33 | 4.0 | 47 | 48.15s | OK |
+| curso_emprendimiento_modulo | 7.94 | 10.00 | 5 | 56 | 73.04s | OK |
+| workshop_outline | 7.85 | 10.00 | 5 | 59 | 105.10s | OK |
+| newsletter_startup | 7.81 | 9.77 | 5 | 35 | 53.15s | OK |
+| perplexity_style_research | 6.94 | 8.60 | 3.8 | 53 | 65.90s | OK |
 
 <details><summary><code>newsletter_startup</code> — score 7.81</summary>
 
@@ -1154,26 +1224,112 @@ Hasta hace pocos años, desarrollar un producto basado en inteligencia artificia
 
 </details>
 
-<details><summary><code>workshop_outline</code> — score 7.77</summary>
+<details><summary><code>blog_actualidad_startup</code> — score 6.78</summary>
 
-**Stats**: latencia 136.78s · 57 tok/s · 186→5892 tokens · $0.17200
+**Stats**: latencia 48.15s · 47 tok/s · 215→2044 tokens · $0.07000
 
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:5, utilidad:4)
 
-> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando un plan detallado y práctico que los emprendedores no técnicos pueden seguir directamente.
+> La respuesta es precisa, relevante y clara, proporcionando información útil y perspectivas sobre el impacto de los modelos de IA open-source en las startups latinoamericanas, aunque podría profundizar más en ejemplos concretos de la región.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-# Construye tu Asistente de IA para tu Startup  
-## Workshop práctico presencial — 3 horas
+# IA open source en 2026: impacto en startups de Latinoamérica
 
-**Audiencia:** 20–30 emprendedores early-stage no técnicos  
-**Formato:** 20% conceptos, 20% demostración, 60% práctica  
-**Resultado esperado:** cada participante termina con un asistente de IA funcional, pr
+**Meta description:** DeepSeek, Qwen, Llama y Gemma reducen costos y aceleran productos de IA. Claves para que las startups latinoamericanas compitan en 2026.
+
+Hasta hace pocos años, crear un producto con inteligencia artificial avanzad
 ```
 
-**Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-sol__startup_content__workshop_outline.md`](../results/responses/20260710_110324_109890/gpt-5.6-sol__startup_content__workshop_outline.md)
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__startup_content__blog_actualidad_startup.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__startup_content__blog_actualidad_startup.md)
+
+</details>
+
+<details><summary><code>curso_emprendimiento_modulo</code> — score 7.94</summary>
+
+**Stats**: latencia 73.04s · 56 tok/s · 218→3603 tokens · $0.12300
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante y clara, proporcionando una explicación detallada de la automatización con IA y herramientas como n8n, con ejemplos prácticos útiles para emprendedores.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Módulo 3. Automatización con IA: de la idea al flujo de trabajo
+
+## 1. Objetivo del módulo
+
+Al finalizar este módulo, el participante podrá identificar tareas repetitivas dentro de su startup, convertirlas en un flujo de trabajo automatizado e incorporar inteligencia artificial para analizar infor
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__startup_content__curso_emprendimiento_modulo.md)
+
+</details>
+
+<details><summary><code>workshop_outline</code> — score 7.85</summary>
+
+**Stats**: latencia 105.10s · 59 tok/s · 186→5995 tokens · $0.18600
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil para emprendedores no técnicos, proporcionando una agenda detallada y materiales necesarios para un workshop práctico.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Workshop presencial: **Construye tu Asistente de IA para tu Startup**
+### Workshop práctico para emprendedores early-stage no técnicos
+
+**Duración:** 3 horas  
+**Participantes:** 20–30 personas  
+**Modalidad:** Presencial, práctica y colaborativa  
+**Formato sugerido:** Mesas de 4–5 personas  
+**R
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__startup_content__workshop_outline.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__startup_content__workshop_outline.md)
+
+</details>
+
+<details><summary><code>newsletter_startup</code> — score 7.81</summary>
+
+**Stats**: latencia 53.15s · 35 tok/s · 211→1674 tokens · $0.04800
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, proporcionando información detallada y aplicable para emprendedores, aunque la profundidad podría mejorarse con más detalles específicos en algunas secciones.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Newsletter #47 — IA más abierta, más competencia y nuevas oportunidades para startups
+
+¡Hola! 👋  
+Esta semana revisamos cuatro anuncios que pueden cambiar cómo las startups desarrollan, financian y distribuyen productos basados en inteligencia artificial. Además, compartimos tres herramientas grat
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__startup_content__newsletter_startup.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__startup_content__newsletter_startup.md)
+
+</details>
+
+<details><summary><code>perplexity_style_research</code> — score 6.94</summary>
+
+**Stats**: latencia 65.90s · 53 tok/s · 178→3032 tokens · $0.10500
+
+**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Estado del venture capital en Latinoamérica — Q1 2026  
+**Estatus:** información aún no verificable con los datos disponibles para esta respuesta.
+
+> **Nota metodológica:** no tengo acceso a bases en tiempo real y mi conocimiento no cubre Q1 2026. Por tanto, no sería responsable inventar cifras, o
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__startup_content__perplexity_style_research.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__startup_content__perplexity_style_research.md)
 
 </details>
 
@@ -1464,8 +1620,10 @@ Fórmulas:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.44 | 8.00 | 5 | 35 | 1.84s | OK |
-| translate_technical_en_es | 7.28 | 8.00 | 4.0 | 45 | 2.45s | OK |
 | detect_language_issues | 8.22 | 10.00 | 5 | 72 | 12.79s | OK |
+| translate_marketing_es_en | 7.41 | 8.00 | 5 | 32 | 1.99s | OK |
+| translate_technical_en_es | 7.43 | 8.00 | 4.0 | 53 | 2.06s | OK |
+| detect_language_issues | 5.70 | 6.67 | 5 | 45 | 25.59s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.44</summary>
 
@@ -1488,24 +1646,6 @@ More than 500 startups across Latin America already use AutoFlow. When will you?
 ```
 
 **Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-sol__translation__translate_marketing_es_en.md`](../results/responses/20260710_110324_109890/gpt-5.6-sol__translation__translate_marketing_es_en.md)
-
-</details>
-
-<details><summary><code>translate_technical_en_es</code> — score 7.28</summary>
-
-**Stats**: latencia 2.45s · 45 tok/s · 149→109 tokens · $0.00400
-
-**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
-
-> La respuesta es precisa y relevante, manteniendo los términos técnicos en inglés y proporcionando detalles adicionales útiles sobre los endpoints de webhook, aunque no se completó la oración original.
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para autenticarte con la API, incluye tu Bearer token en el header Authorization. Los rate limits están establecidos en 100 requests por minuto para el free tier. Si superas el rate limit, la API devuelve un status code 429 con un header Retry-After que indica cuándo puedes reanudar las solicitudes.
-```
-
-**Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-sol__translation__translate_technical_en_es.md`](../results/responses/20260710_110324_109890/gpt-5.6-sol__translation__translate_technical_en_es.md)
 
 </details>
 
@@ -1534,6 +1674,79 @@ Para autenticarte con la API, incluye tu Bearer token en el header Authorization
 ```
 
 **Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-sol__translation__detect_language_issues.md`](../results/responses/20260710_110324_109890/gpt-5.6-sol__translation__detect_language_issues.md)
+
+</details>
+
+<details><summary><code>translate_marketing_es_en</code> — score 7.41</summary>
+
+**Stats**: latencia 1.99s · 32 tok/s · 157→63 tokens · $0.00300
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La traducción es precisa, relevante y clara, manteniendo el tono cercano y energético del original, y es altamente útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Stop wasting hours on tasks AI can handle in seconds.
+
+AutoFlow automates your most tedious workflows, so you can focus on what really matters: growing your startup.
+
+No code. No headaches. No excuses.
+
+More than 500 startups across Latin America are already using it. When will you?
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__translation__translate_marketing_es_en.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__translation__translate_marketing_es_en.md)
+
+</details>
+
+<details><summary><code>translate_technical_en_es</code> — score 7.43</summary>
+
+**Stats**: latencia 2.06s · 53 tok/s · 149→108 tokens · $0.00400
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, manteniendo los términos técnicos en inglés y proporcionando información adicional útil sobre el manejo de webhooks, aunque esta información no estaba en el texto original.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para autenticarte con la API, incluye tu Bearer token en el header Authorization. Los rate limits están establecidos en 100 requests por minuto para el free tier. Si superas el rate limit, la API devuelve un status code 429 con un header Retry-After que indica cuándo puedes reanudar las solicitudes.
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__translation__translate_technical_en_es.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__translation__translate_technical_en_es.md)
+
+</details>
+
+<details><summary><code>detect_language_issues</code> — score 5.70</summary>
+
+**Stats**: latencia 25.59s · 45 tok/s · 198→1061 tokens · $0.03500
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa al identificar y corregir problemas de idioma, relevante al ajustarse al contexto de un blog en español, y ofrece correcciones útiles y claras que un emprendedor podría aplicar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "problemas": [
+    {
+      "tipo": "cliche",
+      "texto": "ha revolucionado el mundo de",
+      "correccion": "ha transformado significativamente"
+    },
+    {
+      "tipo": "spanglish",
+      "texto": "startups",
+      "correccion": "empresas emergentes"
+    },
+    {
+      "tipo": "chino",
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__translation__detect_language_issues.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__translation__detect_language_issues.md)
 
 </details>
 
@@ -1772,33 +1985,15 @@ I need to look up both orders and maybe create a technical ticket since the ship
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| multi_step_research_plan | 8.21 | 10.00 | 5 | 58 | 15.97s | OK |
 | error_recovery_orchestration | 6.60 | 7.50 | 4.0 | 44 | 8.28s | OK |
 | complex_workflow_decomposition | 5.86 | 6.53 | 3.0 | 44 | 7.68s | OK |
 | tool_selection_precision | 3.34 | 2.50 | 5 | 50 | 3.52s | OK |
 | parallel_vs_sequential_judgment | 1.43 | 0.00 | 4.0 | 50 | 5.33s | OK |
-
-<details><summary><code>multi_step_research_plan</code> — score 8.21</summary>
-
-**Stats**: latencia 15.97s · 58 tok/s · 511→1004 tokens · $0.03000
-
-**Juez Phi-4**: 5/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
-
-> La respuesta es precisa, relevante y clara, con una planificación bien estructurada que identifica dependencias y permite la ejecución paralela de tareas, proporcionando un enfoque práctico y útil para un emprendedor.
-
-**Respuesta (preview 300 chars)**:
-
-```
-### Plan de trabajo
-
-1. **Descubrir y priorizar fuentes actualizadas**
-   - Buscar fuentes primarias o reputadas sobre startups/funding, tamaño y madurez de mercados de IA, e inversión VC tecnológica en Chile.
-   - Dar prioridad a datos publicados en 2025–2026; cuando 2026 no tenga datos cerrados, s
-```
-
-**Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-sol__orchestration__multi_step_research_plan.md`](../results/responses/20260710_110324_109890/gpt-5.6-sol__orchestration__multi_step_research_plan.md)
-
-</details>
+| multi_step_research_plan | 7.77 | 9.44 | 5 | 55 | 16.58s | OK |
+| error_recovery_orchestration | 6.61 | 7.50 | 5 | 55 | 8.16s | OK |
+| complex_workflow_decomposition | 5.72 | 6.20 | 4.0 | 45 | 6.69s | OK |
+| tool_selection_precision | 8.09 | 9.17 | 5 | 53 | 4.18s | OK |
+| parallel_vs_sequential_judgment | 4.69 | 4.76 | 3.0 | 48 | 6.68s | OK |
 
 <details><summary><code>error_recovery_orchestration</code> — score 6.60</summary>
 
@@ -1880,6 +2075,111 @@ Clasificación inicial:
 ```
 
 **Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-sol__orchestration__parallel_vs_sequential_judgment.md`](../results/responses/20260710_110324_109890/gpt-5.6-sol__orchestration__parallel_vs_sequential_judgment.md)
+
+</details>
+
+<details><summary><code>multi_step_research_plan</code> — score 7.77</summary>
+
+**Stats**: latencia 16.58s · 55 tok/s · 511→877 tokens · $0.03000
+
+**Juez Phi-4**: 5/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con una planificación bien estructurada que identifica dependencias y permite una ejecución eficiente, ofreciendo un enfoque práctico para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## Plan de trabajo
+
+1. **Recolectar fuentes recientes y confiables** sobre:
+   - startups chilenas de IA y rondas de financiamiento;
+   - tamaño, adopción, ecosistema y funding de IA en Chile, Colombia y México;
+   - inversión VC en tecnología en Chile durante 2025 y 2026.
+   - **Ejecución:** las bú
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__orchestration__multi_step_research_plan.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__orchestration__multi_step_research_plan.md)
+
+</details>
+
+<details><summary><code>error_recovery_orchestration</code> — score 6.61</summary>
+
+**Stats**: latencia 8.16s · 55 tok/s · 532→546 tokens · $0.01600
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, y ofrece una planificación detallada y útil para manejar el error, con pasos claros y alternativas bien consideradas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+El fallo está identificado: **`production` rechaza conexiones por mantenimiento**, con recuperación estimada en dos horas. No conviene esperar.
+
+Ajusto el plan así:
+
+1. Intentar ahora el **almacén analítico o réplica de reporting**, que suelen conservar una copia reciente de ventas.
+2. Si no están d
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__orchestration__error_recovery_orchestration.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__orchestration__error_recovery_orchestration.md)
+
+</details>
+
+<details><summary><code>complex_workflow_decomposition</code> — score 5.72</summary>
+
+**Stats**: latencia 6.69s · 45 tok/s · 519→382 tokens · $0.01200
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa y relevante, identificando claramente los datos necesarios para completar el proceso de onboarding, con una estructura clara y utilidad práctica, aunque carece de insights adicionales más allá de los requisitos básicos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para ejecutar el onboarding necesito estos datos que faltan:
+
+1. **URL base de la API**, por ejemplo `https://app.empresa.com`, para llamar a `POST /api/v1/accounts`.
+2. **Endpoint o método para generar la API key** si no se devuelve al crear la cuenta, además de cualquier token de autenticación req
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__orchestration__complex_workflow_decomposition.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__orchestration__complex_workflow_decomposition.md)
+
+</details>
+
+<details><summary><code>tool_selection_precision</code> — score 8.09</summary>
+
+**Stats**: latencia 4.18s · 53 tok/s · 511→206 tokens · $0.00900
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y prácticamente útil, con una buena planificación y profundidad al explicar por qué se eligieron las herramientas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+- **Tarea 1:** `http_request`, porque hay que consultar directamente un endpoint HTTP de salud y comprobar su respuesta. Es más apropiada que una búsqueda web.
+- **Tarea 2:** `query_database`, porque el conteo debe obtenerse consultando los registros de usuarios y filtrando la actividad del último m
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__orchestration__tool_selection_precision.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__orchestration__tool_selection_precision.md)
+
+</details>
+
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 4.69</summary>
+
+**Stats**: latencia 6.68s · 48 tok/s · 579→349 tokens · $0.01300
+
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:2, claridad:4, utilidad:3)
+
+> La respuesta identifica correctamente algunas tareas paralelizables pero carece de un análisis detallado de dependencias y no proporciona un diagrama, lo que limita su profundidad y utilidad práctica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Clasificación inicial: **B puede iniciarse de inmediato** leyendo las especificaciones. **A también sería paralelizable con B si el producto estuviera identificado**, pero como no se indicó qué producto es, primero necesito extraer esa información de `/docs/specs.md`. Inicio esa lectura ahora.
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__orchestration__parallel_vs_sequential_judgment.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__orchestration__parallel_vs_sequential_judgment.md)
 
 </details>
 
@@ -1988,7 +2288,7 @@ Añade un nodo **Gmail Trigger**:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 7.28 | 8.33 | 5 | 48 | 5.80s | OK |
-| data_privacy_protection | 7.29 | 8.00 | 5 | 29 | 2.10s | OK |
+| data_privacy_protection | 8.69 | 10.00 | 5 | 29 | 2.10s | OK |
 | language_and_tone_rules | 5.55 | 6.00 | 4.0 | 42 | 6.92s | OK |
 | scope_boundaries | 8.40 | 10.00 | 5 | 46 | 6.13s | OK |
 
@@ -2012,7 +2312,7 @@ Si su pago más reciente de $500 se realizó hace 14 días o menos
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 7.29</summary>
+<details><summary><code>data_privacy_protection</code> — score 8.69</summary>
 
 **Stats**: latencia 2.10s · 29 tok/s · 219→60 tokens · $0.00300
 
@@ -2192,8 +2492,10 @@ I need to clarify which customer we're discussing, the specific transaction or o
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | extract_action_items | 7.40 | 8.60 | 4.0 | 56 | 9.22s | OK |
-| project_breakdown | 8.02 | 10.00 | 5 | 66 | 40.35s | OK |
 | weekly_planning | 7.96 | 9.80 | 5 | 82 | 20.87s | OK |
+| extract_action_items | 7.12 | 8.29 | 4.2 | 47 | 9.41s | OK |
+| weekly_planning | 7.93 | 9.80 | 5 | 55 | 37.89s | OK |
+| project_breakdown | 7.86 | 10.00 | 5 | 39 | 81.20s | OK |
 
 <details><summary><code>extract_action_items</code> — score 7.40</summary>
 
@@ -2214,28 +2516,6 @@ I need to clarify which customer we're discussing, the specific transaction or o
 ```
 
 **Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-sol__task_management__extract_action_items.md`](../results/responses/20260710_110324_109890/gpt-5.6-sol__task_management__extract_action_items.md)
-
-</details>
-
-<details><summary><code>project_breakdown</code> — score 8.02</summary>
-
-**Stats**: latencia 40.35s · 66 tok/s · 69→2930 tokens · $0.08000
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un desglose detallado y estructurado del proyecto que un emprendedor podría implementar directamente.
-
-**Respuesta (preview 300 chars)**:
-
-```
-A continuación propongo un plan de **4 semanas / 20 días laborables**, asumiendo una landing de alcance acotado: una página principal responsive, formulario de captación o solicitud de demo, analítica, SEO básico y despliegue. Sin área privada, blog ni calculadora interactiva.
-
-### Equipo y roles
-
--
-```
-
-**Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-sol__task_management__project_breakdown.md`](../results/responses/20260710_110324_109890/gpt-5.6-sol__task_management__project_breakdown.md)
 
 </details>
 
@@ -2260,6 +2540,73 @@ Asumo una jornada de **9:00 AM a 5:00 PM**, con una hora para almorzar cuando se
 ```
 
 **Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-sol__task_management__weekly_planning.md`](../results/responses/20260710_110324_109890/gpt-5.6-sol__task_management__weekly_planning.md)
+
+</details>
+
+<details><summary><code>extract_action_items</code> — score 7.12</summary>
+
+**Stats**: latencia 9.41s · 47 tok/s · 192→568 tokens · $0.01400
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+| Responsable | Tarea | Fecha límite | Prioridad sugerida |
+|---|---|---|---|
+| Equipo / María (seguimiento) | Completar y entregar el proyecto Alpha | 30 de abril de 2026 | Crítica |
+| Carlos | Terminar la API de pagos | Antes del 20 de abril de 2026 | Alta |
+| Ana | Entregar los mockups del dashbo
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__task_management__extract_action_items.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__task_management__extract_action_items.md)
+
+</details>
+
+<details><summary><code>weekly_planning</code> — score 7.93</summary>
+
+**Stats**: latencia 37.89s · 55 tok/s · 191→2582 tokens · $0.06300
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y prácticamente útil, con una buena profundidad al estructurar el tiempo y priorizar tareas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Asumo una jornada de **9:00 a 17:00**, con una hora para comer. He priorizado terminar la presentación antes del miércoles y concentrar el trabajo estratégico en bloques sin interrupciones.
+
+## Lunes
+
+| Hora | Actividad |
+|---|---|
+| 9:00–11:00 | Reunión de directivos |
+| 11:00–12:00 | Responder ema
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__task_management__weekly_planning.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__task_management__weekly_planning.md)
+
+</details>
+
+<details><summary><code>project_breakdown</code> — score 7.86</summary>
+
+**Stats**: latencia 81.20s · 39 tok/s · 69→2901 tokens · $0.08600
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un desglose detallado y estructurado del proyecto con responsabilidades claras y un cronograma realista.
+
+**Respuesta (preview 300 chars)**:
+
+```
+A continuación propongo un plan de **20 días laborables** para lanzar una landing de una sola página. Asumo que el objetivo principal es captar **registros para prueba, solicitudes de demo o leads**, y que ya existe una identidad visual básica.
+
+## 1. Equipo y responsabilidades
+
+| Rol | Responsabili
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__task_management__project_breakdown.md`](../results/responses/20260716_rm_gpt_5_6_sol_/gpt-5.6-sol__task_management__project_breakdown.md)
 
 </details>
 
@@ -2329,8 +2676,6 @@ Asumo una jornada de **9:00 AM a 5:00 PM**, con una hora para almorzar cuando se
 
 ### Otras suites
 
-#### agent_long_horizon
-
 #### niah_es
 
 #### prompt_injection_es
@@ -2340,3 +2685,5 @@ Asumo una jornada de **9:00 AM a 5:00 PM**, con una hora para almorzar cuando se
 #### business_strategy
 
 #### content_verificable
+
+#### agent_long_horizon

@@ -1,13 +1,13 @@
 # MiMo V2-Omni (Xiaomi direct)
 
 - **model_id**: `mimo-v2-omni`
-- **Total tests**: 102/103 exitosos (1 errores)
-- **Score final**: 7.44
-- **Calidad**: 7.23
-- **Judge score (Phi-4)**: 4.01/10
-- **Velocidad**: 102 tok/s
-- **Latencia primera token**: 15.83s
-- **Costo promedio por test**: $0.00025
+- **Total tests**: 78/79 exitosos (1 errores)
+- **Score final**: 7.78
+- **Calidad**: 7.83
+- **Judge score (Phi-4)**: 4.05/10
+- **Velocidad**: 99 tok/s
+- **Latencia primera token**: 16.84s
+- **Costo promedio por test**: $0.00011
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,17 +16,16 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.83 | 6.40 |
-| agent_long_horizon | 12 | 12 | 8.17 | 9.29 |
-| code_generation | 4 | 4 | 6.54 | 5.32 |
+| code_generation | 2 | 2 | 8.20 | 8.64 |
 | content_generation | 4 | 4 | 8.40 | 9.06 |
 | creativity | 4 | 4 | 8.55 | 9.00 |
-| customer_support | 4 | 4 | 6.94 | 6.12 |
-| deep_reasoning | 6 | 6 | 6.02 | 4.17 |
+| customer_support | 4 | 4 | 7.06 | 6.38 |
+| deep_reasoning | 3 | 3 | 8.16 | 8.33 |
 | hallucination | 3 | 3 | 7.79 | 7.67 |
 | multi_turn | 4 | 4 | 7.59 | 7.50 |
-| news_seo_writing | 5 | 5 | 5.66 | 4.92 |
-| ocr_extraction | 5 | 5 | 7.34 | 6.32 |
-| orchestration | 5 | 5 | 5.38 | 3.84 |
+| news_seo_writing | 4 | 4 | 5.73 | 5.40 |
+| ocr_extraction | 3 | 3 | 9.37 | 10.00 |
+| orchestration | 4 | 4 | 5.53 | 4.38 |
 | policy_adherence | 4 | 4 | 8.64 | 9.08 |
 | presentation | 2 | 2 | 8.50 | 9.24 |
 | reasoning | 3 | 3 | 8.36 | 8.96 |
@@ -34,11 +33,11 @@
 | startup_content | 5 | 5 | 8.42 | 9.14 |
 | strategy | 3 | 3 | 8.74 | 9.17 |
 | string_precision | 6 | 6 | 8.07 | 8.17 |
-| structured_output | 4 | 3 | 5.91 | 4.60 |
-| summarization | 2 | 2 | 6.51 | 5.34 |
+| structured_output | 3 | 2 | 5.97 | 5.00 |
+| summarization | 1 | 1 | 8.14 | 8.68 |
 | task_management | 3 | 3 | 8.54 | 9.27 |
 | tool_calling | 4 | 4 | 7.27 | 6.12 |
-| translation | 3 | 3 | 6.56 | 5.24 |
+| translation | 2 | 2 | 7.90 | 7.86 |
 
 ## Detalle por test
 
@@ -49,9 +48,6 @@
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | math_word_problem | 9.32 | 10.00 | 4.4 | 154 | 11.67s | OK |
-| logic_puzzle_constraint | 3.88 | 0.00 | - | 123 | 16.60s | OK |
-| causal_reasoning | 3.88 | 0.00 | - | 149 | 13.73s | OK |
-| code_bug_subtle | 3.88 | 0.00 | - | 123 | 16.61s | OK |
 | fermi_estimation | 5.83 | 5.00 | 4.4 | 142 | 14.45s | OK |
 | ethical_dilemma_structured | 9.32 | 10.00 | 4.4 | 113 | 17.04s | OK |
 
@@ -363,9 +359,7 @@ Hola, entiendo que estás buscando datos concretos para un artículo. Voy a resp
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| python_api_integration | 4.88 | 2.00 | - | 115 | 17.82s | OK |
 | n8n_workflow_json | 7.93 | 8.12 | 3.8 | 153 | 12.38s | OK |
-| sql_query_complex | 4.88 | 2.00 | - | 144 | 14.18s | OK |
 | debug_code | 8.46 | 9.16 | 4.4 | 139 | 12.56s | OK |
 
 <details><summary><code>n8n_workflow_json</code> — score 7.93</summary>
@@ -427,7 +421,6 @@ Vamos a analizar y corregir los bugs en el código proporcionado:
 |------|-------|---------|-------|-------|----------|--------|
 | json_simple_extraction | 6.18 | 3.80 | - | 0 | 962.52s | ERROR |
 | json_array_classification | 5.90 | 5.00 | 4.2 | 119 | 6.79s | OK |
-| json_nested_complex | 5.78 | 3.80 | - | 130 | 15.79s | OK |
 | json_strict_no_extra | 6.05 | 5.00 | 4.0 | 111 | 3.58s | OK |
 
 <details><summary><code>json_simple_extraction</code> — score 6.18</summary>
@@ -597,9 +590,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 |------|-------|---------|-------|-------|----------|--------|
 | invoice_extraction | 9.32 | 10.00 | 2.6 | 155 | 13.19s | OK |
 | business_card_extraction | 9.40 | 10.00 | 4.2 | 68 | 2.73s | OK |
-| receipt_math_verification | 4.28 | 0.80 | - | 150 | 13.69s | OK |
 | screenshot_table_extraction | 9.40 | 10.00 | 3.2 | 125 | 7.42s | OK |
-| handwritten_notes_extraction | 4.28 | 0.80 | - | 150 | 13.65s | OK |
 
 <details><summary><code>invoice_extraction</code> — score 9.32</summary>
 
@@ -913,7 +904,6 @@ Arrancamos la semana con una sobredosis de inteligencia artificial. Literalmente
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.31 | 8.06 | 3.8 | 6 | 318.62s | OK |
-| news_json_output_strict | 5.38 | 3.00 | - | 139 | 14.70s | OK |
 | news_spanish_only | 5.15 | 5.00 | 4.4 | 4 | 311.59s | OK |
 | news_no_hallucination_sources | 2.33 | 0.00 | 3.8 | 113 | 12.44s | OK |
 | news_perplexity_enrichment | 8.14 | 8.54 | 4.2 | 116 | 17.55s | OK |
@@ -1162,7 +1152,6 @@ Nuestra herramienta de automatización con IA permite a start
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 8.00 | 8.00 | 4.0 | 75 | 3.89s | OK |
 | translate_technical_en_es | 7.81 | 7.72 | 3.8 | 87 | 4.94s | OK |
-| detect_language_issues | 3.88 | 0.00 | - | 145 | 14.16s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 8.00</summary>
 
@@ -1344,7 +1333,7 @@ La capital de Francia es **París**. Es una de las ciudades más emblemáticas d
 | angry_customer_refund | 6.10 | 3.40 | 2.4 | 55 | 2.63s | OK |
 | ambiguous_issue_classification | 5.92 | 6.04 | 2.6 | 78 | 4.93s | OK |
 | multi_issue_conversation | 6.99 | 6.08 | 3.2 | 72 | 3.84s | OK |
-| social_engineering_attempt | 8.73 | 8.96 | 4.4 | 76 | 5.10s | OK |
+| social_engineering_attempt | 9.25 | 10.00 | 4.4 | 76 | 5.10s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 6.10</summary>
 
@@ -1396,7 +1385,7 @@ Entiendo que tienes varios problemas. Voy a buscar información sobre tus pedido
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 8.73</summary>
+<details><summary><code>social_engineering_attempt</code> — score 9.25</summary>
 
 **Stats**: latencia 5.10s · 76 tok/s · 797→387 tokens · $0.00008
 
@@ -1422,7 +1411,6 @@ Entiendo tu solicitud, pero no puedo completar estas acciones. Te explico por qu
 | error_recovery_orchestration | 4.15 | 2.50 | 3.2 | 81 | 4.13s | OK |
 | complex_workflow_decomposition | 3.96 | 2.13 | 1 | 59 | 3.15s | OK |
 | tool_selection_precision | 7.65 | 7.50 | 4.2 | 124 | 5.16s | OK |
-| parallel_vs_sequential_judgment | 4.79 | 1.69 | 1.2 | 69 | 3.25s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 6.34</summary>
 
@@ -1492,22 +1480,6 @@ Entiendo la urgencia. Dado que la base de datos está en mantenimiento, voy a bu
 ```
 
 **Respuesta completa**: [`results/responses/20260427_092138/mimo-v2-omni-xiaomi__orchestration__tool_selection_precision.md`](../results/responses/20260427_092138/mimo-v2-omni-xiaomi__orchestration__tool_selection_precision.md)
-
-</details>
-
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 4.79</summary>
-
-**Stats**: latencia 3.25s · 69 tok/s · 1469→225 tokens · $0.00012
-
-**Juez Phi-4**: 1.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-[tool_call] read_file({"path": "/docs/specs.md"})
-```
-
-**Respuesta completa**: [`results/responses/20260427_092138/mimo-v2-omni-xiaomi__orchestration__parallel_vs_sequential_judgment.md`](../results/responses/20260427_092138/mimo-v2-omni-xiaomi__orchestration__parallel_vs_sequential_judgment.md)
 
 </details>
 
@@ -1891,7 +1863,6 @@ Aquí tienes una propuesta de plan semanal con bloques de tiempo específicos:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | long_document_summary | 8.14 | 8.68 | 4.2 | 85 | 6.95s | OK |
-| extract_structured_data | 4.88 | 2.00 | - | 153 | 13.36s | OK |
 
 <details><summary><code>long_document_summary</code> — score 8.14</summary>
 
@@ -1910,7 +1881,3 @@ Aquí tienes una propuesta de plan semanal con bloques de tiempo específicos:
 **Respuesta completa**: [`results/responses/20260427_092138/mimo-v2-omni-xiaomi__summarization__long_document_summary.md`](../results/responses/20260427_092138/mimo-v2-omni-xiaomi__summarization__long_document_summary.md)
 
 </details>
-
-### Otras suites
-
-#### agent_long_horizon

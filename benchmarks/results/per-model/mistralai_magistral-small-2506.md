@@ -1,13 +1,13 @@
 # Mistral Magistral Small (NIM)
 
 - **model_id**: `mistralai/magistral-small-2506`
-- **Total tests**: 10/91 exitosos (81 errores)
-- **Score final**: 5.70
-- **Calidad**: 5.90
+- **Total tests**: 8/89 exitosos (81 errores)
+- **Score final**: 6.44
+- **Calidad**: 7.38
 - **Judge score (Phi-4)**: 4.56/10
-- **Velocidad**: 24 tok/s
-- **Latencia primera token**: 43.64s
-- **Costo promedio por test**: $0.00188
+- **Velocidad**: 23 tok/s
+- **Latencia primera token**: 34.50s
+- **Costo promedio por test**: $0.00153
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,7 @@
 | string_precision | 6 | 0 | - | - |
 | structured_output | 4 | 0 | - | - |
 | summarization | 2 | 0 | - | - |
-| task_management | 3 | 2 | 2.72 | 0.00 |
+| task_management | 1 | 0 | - | - |
 | tool_calling | 4 | 4 | 5.49 | 5.59 |
 | translation | 3 | 0 | - | - |
 
@@ -818,8 +818,6 @@ response = create_calendar_event(
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| extract_action_items | 2.72 | 0.00 | - | 24 | 83.52s | OK |
-| weekly_planning | 2.72 | 0.00 | - | 27 | 76.96s | OK |
 | project_breakdown | 4.85 | 0.00 | - | 0 | 46.93s | ERROR |
 
 <details><summary><code>project_breakdown</code> — score 4.85</summary>

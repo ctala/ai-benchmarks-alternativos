@@ -1,13 +1,13 @@
 # Qwen 3.5 35B
 
 - **model_id**: `qwen/qwen3.5-35b-a3b`
-- **Total tests**: 103/103 exitosos (0 errores)
-- **Score final**: 7.37
-- **Calidad**: 7.78
-- **Judge score (Phi-4)**: 4.37/10
-- **Velocidad**: 130 tok/s
-- **Latencia primera token**: 20.18s
-- **Costo promedio por test**: $0.00312
+- **Total tests**: 129/129 exitosos (0 errores)
+- **Score final**: 7.33
+- **Calidad**: 7.77
+- **Judge score (Phi-4)**: 4.45/10
+- **Velocidad**: 126 tok/s
+- **Latencia primera token**: 21.84s
+- **Costo promedio por test**: $0.00286
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,20 +16,23 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 7.72 | 7.96 |
-| agent_long_horizon | 12 | 12 | 7.28 | 8.04 |
+| agent_long_horizon | 12 | 12 | 7.64 | 8.54 |
+| business_audit | 10 | 10 | 7.21 | 7.71 |
+| business_strategy | 5 | 5 | 8.09 | 9.07 |
 | code_generation | 4 | 4 | 7.33 | 7.76 |
 | content_generation | 4 | 4 | 7.20 | 7.60 |
+| content_verificable | 5 | 5 | 7.02 | 7.47 |
 | creativity | 4 | 4 | 7.83 | 8.50 |
 | customer_support | 4 | 4 | 8.55 | 8.80 |
 | deep_reasoning | 6 | 6 | 6.95 | 7.50 |
 | hallucination | 3 | 3 | 6.24 | 6.33 |
 | multi_turn | 4 | 4 | 6.97 | 7.12 |
-| news_seo_writing | 5 | 5 | 5.49 | 5.24 |
+| news_seo_writing | 9 | 9 | 5.25 | 4.95 |
 | ocr_extraction | 5 | 5 | 8.53 | 9.60 |
 | orchestration | 5 | 5 | 7.41 | 7.38 |
 | policy_adherence | 4 | 4 | 8.01 | 8.67 |
 | presentation | 2 | 2 | 7.60 | 8.16 |
-| reasoning | 3 | 3 | 7.85 | 8.62 |
+| reasoning | 5 | 5 | 7.70 | 8.43 |
 | sales_outreach | 3 | 3 | 8.35 | 9.33 |
 | startup_content | 5 | 5 | 7.85 | 8.66 |
 | strategy | 3 | 3 | 7.49 | 8.06 |
@@ -184,31 +187,11 @@ Esta es una situación compleja que se sitúa en la intersección de la ética m
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| business_analysis | 8.12 | 9.20 | 4.6 | 197 | 30.06s | OK |
 | logical_reasoning | 7.61 | 8.18 | 4.6 | 115 | 17.86s | OK |
 | multi_constraint_decision | 7.82 | 8.48 | 5 | 181 | 11.31s | OK |
-
-<details><summary><code>business_analysis</code> — score 8.12</summary>
-
-**Stats**: latencia 30.06s · 197 tok/s · 206→5916 tokens · $0.00594
-
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Aquí tienes el análisis detallado de tu SaaS basado en los datos proporcionados.
-
-### 1. Cálculo de Métricas Clave
-
-Para realizar estos cálculos, asumimos que el ARPU (Ingreso Promedio por Usuario) es constante a $15 USD ($18,000 / 1,200 usuarios), ya que se mantiene igual en los tres meses.
-
-| Métr
-```
-
-**Respuesta completa**: [`results/responses/20260714_062200_21360/or-qwen-3.5-35b__reasoning__business_analysis.md`](../results/responses/20260714_062200_21360/or-qwen-3.5-35b__reasoning__business_analysis.md)
-
-</details>
+| business_analysis | 7.53 | 8.39 | 5 | 73 | 45.56s | OK |
+| logical_reasoning | 7.88 | 8.76 | 4.6 | 128 | 25.92s | OK |
+| multi_constraint_decision | 7.66 | 8.36 | 5 | 128 | 26.86s | OK |
 
 <details><summary><code>logical_reasoning</code> — score 7.61</summary>
 
@@ -251,6 +234,74 @@ Here's a thinking process that leads to the suggested tech stack recommendation:
 ```
 
 **Respuesta completa**: [`results/responses/20260714_062200_21360/or-qwen-3.5-35b__reasoning__multi_constraint_decision.md`](../results/responses/20260714_062200_21360/or-qwen-3.5-35b__reasoning__multi_constraint_decision.md)
+
+</details>
+
+<details><summary><code>business_analysis</code> — score 7.53</summary>
+
+**Stats**: latencia 45.56s · 73 tok/s · 206→6118 tokens · $0.00300
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando un análisis detallado y acciones concretas basadas en los datos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el análisis detallado de tus datos de SaaS, desglosado por los puntos que solicitaste.
+
+### 1. Cálculo de Métricas Clave
+
+Asumiendo un precio promedio por usuario (ARPU) constante de **$15 USD** ($18,000 / 1,200 usuarios), he calculado las métricas de rendimiento.
+
+| Métrica | Enero | Fe
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen_3_5_35b_/or-qwen-3.5-35b__reasoning__business_analysis.md`](../results/responses/20260716_rm_or_qwen_3_5_35b_/or-qwen-3.5-35b__reasoning__business_analysis.md)
+
+</details>
+
+<details><summary><code>logical_reasoning</code> — score 7.88</summary>
+
+**Stats**: latencia 25.92s · 128 tok/s · 135→3735 tokens · $0.00300
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes la resolución paso a paso del problema:
+
+### Paso 1: Definir las variables y las ecuaciones
+Llamemos al número de miembros de cada equipo con sus respectivas letras: $A, B, C, D, E$.
+
+Traducimos las 7 condiciones del problema a expresiones matemáticas:
+
+1.  $B < A < C$ (A tiene más que B
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen_3_5_35b_/or-qwen-3.5-35b__reasoning__logical_reasoning.md`](../results/responses/20260716_rm_or_qwen_3_5_35b_/or-qwen-3.5-35b__reasoning__logical_reasoning.md)
+
+</details>
+
+<details><summary><code>multi_constraint_decision</code> — score 7.66</summary>
+
+**Stats**: latencia 26.86s · 128 tok/s · 180→6119 tokens · $0.00300
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un análisis detallado de múltiples opciones de stack tecnológico con pros y contras específicos para las restricciones dadas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes un análisis detallado para elegir el stack tecnológico adecuado para tu MVP, considerando las restricciones de tiempo (6 semanas), presupuesto ($5,000) y equipo (1 desarrollador Fullstack con Python/React).
+
+### Análisis de Contexto
+Un mercado de servicios (marketplace) es una de las apl
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen_3_5_35b_/or-qwen-3.5-35b__reasoning__multi_constraint_decision.md`](../results/responses/20260716_rm_or_qwen_3_5_35b_/or-qwen-3.5-35b__reasoning__multi_constraint_decision.md)
 
 </details>
 
@@ -1095,32 +1146,15 @@ Thinking Process:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| news_seo_article_full | 7.48 | 8.00 | 4.0 | 100 | 20.44s | OK |
 | news_json_output_strict | 5.21 | 5.00 | 4.0 | 199 | 24.30s | OK |
 | news_spanish_only | 5.38 | 5.00 | 4.8 | 183 | 11.20s | OK |
 | news_no_hallucination_sources | 1.88 | 0.00 | 4.6 | 192 | 10.65s | OK |
 | news_perplexity_enrichment | 7.49 | 8.20 | 4.0 | 125 | 32.40s | OK |
-
-<details><summary><code>news_seo_article_full</code> — score 7.48</summary>
-
-**Stats**: latencia 20.44s · 100 tok/s · 478→2048 tokens · $0.00212
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Thinking Process:
-
-1.  **Analyze the Request:**
-    *   **Role:** Journalist specializing in startups, technology, and innovation in Latin America.
-    *   **Publication:** ecosistemastartup.com (digital media focused on the entrepreneurial ecosystem).
-    *   **Language:** Spanish (always, regardle
-```
-
-**Respuesta completa**: [`results/responses/20260714_064417_33141/or-qwen-3.5-35b__news_seo_writing__news_seo_article_full.md`](../results/responses/20260714_064417_33141/or-qwen-3.5-35b__news_seo_writing__news_seo_article_full.md)
-
-</details>
+| news_seo_article_full | 7.20 | 7.68 | 3.2 | 143 | 21.87s | OK |
+| news_json_output_strict | 5.26 | 5.00 | 3.0 | 137 | 24.16s | OK |
+| news_spanish_only | 5.23 | 5.00 | 4.4 | 88 | 23.52s | OK |
+| news_no_hallucination_sources | 1.71 | 0.00 | 5 | 102 | 38.45s | OK |
+| news_perplexity_enrichment | 7.88 | 8.71 | 4.0 | 124 | 22.50s | OK |
 
 <details><summary><code>news_json_output_strict</code> — score 5.21</summary>
 
@@ -1213,6 +1247,118 @@ El lanzamiento de DeepSeek V4 marca un hito significativo en el mercado de intel
 ```
 
 **Respuesta completa**: [`results/responses/20260714_064417_33141/or-qwen-3.5-35b__news_seo_writing__news_perplexity_enrichment.md`](../results/responses/20260714_064417_33141/or-qwen-3.5-35b__news_seo_writing__news_perplexity_enrichment.md)
+
+</details>
+
+<details><summary><code>news_seo_article_full</code> — score 7.20</summary>
+
+**Stats**: latencia 21.87s · 143 tok/s · 478→2048 tokens · $0.00300
+
+**Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Thinking Process:
+
+1.  **Analyze the Request:**
+    *   **Role:** Journalist specializing in startups, technology, and innovation in Latin America.
+    *   **Publication:** ecosistemastartup.com (digital media focused on the entrepreneurial ecosystem).
+    *   **Language:** Spanish (always, regardle
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen_3_5_35b_/or-qwen-3.5-35b__news_seo_writing__news_seo_article_full.md`](../results/responses/20260716_rm_or_qwen_3_5_35b_/or-qwen-3.5-35b__news_seo_writing__news_seo_article_full.md)
+
+</details>
+
+<details><summary><code>news_json_output_strict</code> — score 5.26</summary>
+
+**Stats**: latencia 24.16s · 137 tok/s · 324→5880 tokens · $0.00300
+
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:2, profundidad:3, claridad:4, utilidad:3)
+
+> La respuesta es correcta y clara, pero no cumple con todas las claves requeridas, afectando la relevancia.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "Fuentes": [
+    "https://tech-news-daily.com/google-deepmind-gemma-4-release",
+    "https://ai-insights.org/open-source-models-2024"
+  ],
+  "Categoria": "Inteligencia Artificial",
+  "Palabras_Clave": [
+    "Google DeepMind",
+    "Gemma 4",
+    "Modelos Open Source",
+    "Apache 2.0",
+    "Intel
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen_3_5_35b_/or-qwen-3.5-35b__news_seo_writing__news_json_output_strict.md`](../results/responses/20260716_rm_or_qwen_3_5_35b_/or-qwen-3.5-35b__news_seo_writing__news_json_output_strict.md)
+
+</details>
+
+<details><summary><code>news_spanish_only</code> — score 5.23</summary>
+
+**Stats**: latencia 23.52s · 88 tok/s · 321→2048 tokens · $0.00200
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Thinking Process:
+
+1.  **Analyze the Request:**
+    *   **Role:** Journalist specializing in startups, technology, and innovation in Latin America.
+    *   **Publication:** ecosistemastartup.com (digital media focused on the entrepreneurial ecosystem).
+    *   **Topic:** SambaNova Systems unveiled t
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen_3_5_35b_/or-qwen-3.5-35b__news_seo_writing__news_spanish_only.md`](../results/responses/20260716_rm_or_qwen_3_5_35b_/or-qwen-3.5-35b__news_seo_writing__news_spanish_only.md)
+
+</details>
+
+<details><summary><code>news_no_hallucination_sources</code> — score 1.71</summary>
+
+**Stats**: latencia 38.45s · 102 tok/s · 489→2048 tokens · $0.00400
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta se adhiere estrictamente a los datos proporcionados, evitando cualquier alucinación, y ofrece una estructura clara y relevante con insights útiles para emprendedores, aunque la profundidad podría mejorarse con un análisis más detallado de las implicaciones estratégicas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Thinking Process:
+
+1.  **Analyze the Request:**
+    *   **Role:** Journalist specializing in startups, technology, and innovation in Latin America.
+    *   **Publication:** ecosistemastartup.com (digital media focused on the entrepreneurial ecosystem).
+    *   **Language:** Spanish (always, regardle
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen_3_5_35b_/or-qwen-3.5-35b__news_seo_writing__news_no_hallucination_sources.md`](../results/responses/20260716_rm_or_qwen_3_5_35b_/or-qwen-3.5-35b__news_seo_writing__news_no_hallucination_sources.md)
+
+</details>
+
+<details><summary><code>news_perplexity_enrichment</code> — score 7.88</summary>
+
+**Stats**: latencia 22.50s · 124 tok/s · 507→4216 tokens · $0.00300
+
+**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+## DeepSeek V4 redefine la ecuación de costos en inteligencia artificial
+
+El mercado de inteligencia artificial ha experimentado un cambio significativo con el lanzamiento de DeepSeek V4. Este modelo, liberado bajo licencia MIT, representa una opción notable para desarrolladores y empresas que busca
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen_3_5_35b_/or-qwen-3.5-35b__news_seo_writing__news_perplexity_enrichment.md`](../results/responses/20260716_rm_or_qwen_3_5_35b_/or-qwen-3.5-35b__news_seo_writing__news_perplexity_enrichment.md)
 
 </details>
 
@@ -2307,3 +2453,9 @@ El enfoque será **MVP (Producto Mínimo Viable)**: Priorizar la conversión (ca
 ### Otras suites
 
 #### agent_long_horizon
+
+#### business_audit
+
+#### business_strategy
+
+#### content_verificable

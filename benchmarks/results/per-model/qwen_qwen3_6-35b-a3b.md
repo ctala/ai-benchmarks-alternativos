@@ -1,13 +1,13 @@
 # Qwen 3.6 35B base (OpenRouter FP8)
 
 - **model_id**: `qwen/qwen3.6-35b-a3b`
-- **Total tests**: 282/318 exitosos (36 errores)
+- **Total tests**: 292/328 exitosos (36 errores)
 - **Score final**: 6.37
-- **Calidad**: 6.30
-- **Judge score (Phi-4)**: 2.64/10
-- **Velocidad**: 126 tok/s
-- **Latencia primera token**: 12.05s
-- **Costo promedio por test**: $0.00454
+- **Calidad**: 6.31
+- **Judge score (Phi-4)**: 2.66/10
+- **Velocidad**: 125 tok/s
+- **Latencia primera token**: 12.49s
+- **Costo promedio por test**: $0.00496
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 7.14 | 8.04 |
-| agent_long_horizon | 12 | 12 | 6.80 | 7.67 |
+| agent_long_horizon | 24 | 24 | 6.46 | 7.06 |
 | business_audit | 10 | 10 | 6.74 | 7.20 |
 | business_strategy | 5 | 5 | 7.55 | 8.40 |
 | code_generation | 4 | 4 | 6.69 | 6.80 |
@@ -33,7 +33,6 @@
 | niah_es_lite | 45 | 45 | 5.12 | 3.61 |
 | ocr_extraction | 5 | 5 | 8.59 | 9.60 |
 | orchestration | 5 | 5 | 6.41 | 6.84 |
-| persistencia | 4 | 4 | 6.54 | 6.94 |
 | policy_adherence | 4 | 4 | 8.71 | 9.58 |
 | presentation | 2 | 2 | 7.90 | 9.22 |
 | prompt_injection_es | 20 | 20 | 2.65 | 1.00 |
@@ -44,7 +43,7 @@
 | string_precision | 6 | 6 | 8.07 | 8.17 |
 | structured_output | 4 | 4 | 5.58 | 5.00 |
 | summarization | 2 | 2 | 7.31 | 8.06 |
-| task_management | 3 | 3 | 7.79 | 9.20 |
+| task_management | 5 | 5 | 7.79 | 8.72 |
 | tool_calling | 4 | 4 | 7.22 | 7.10 |
 | translation | 3 | 3 | 7.89 | 8.80 |
 
@@ -2139,8 +2138,10 @@ Here's a thinking process:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | extract_action_items | 7.90 | 9.24 | 4.6 | 199 | 10.29s | OK |
-| weekly_planning | 8.01 | 10.00 | 5 | 200 | 29.19s | OK |
 | project_breakdown | 7.47 | 8.37 | 5 | 203 | 10.11s | OK |
+| extract_action_items | 8.18 | 9.15 | 4.6 | 132 | 27.65s | OK |
+| weekly_planning | 7.44 | 8.20 | 5 | 100 | 35.10s | OK |
+| project_breakdown | 7.94 | 8.65 | 5 | 189 | 10.92s | OK |
 
 <details><summary><code>extract_action_items</code> — score 7.90</summary>
 
@@ -2164,27 +2165,6 @@ Here's a thinking process:
 
 </details>
 
-<details><summary><code>weekly_planning</code> — score 8.01</summary>
-
-**Stats**: latencia 29.19s · 200 tok/s · 210→5839 tokens · $0.00587
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, clara y altamente útil, proporcionando un plan detallado que se ajusta perfectamente a las restricciones y tareas dadas, con una estructura organizada y consejos prácticos.
-
-**Respuesta (preview 300 chars)**:
-
-```
-Aquí tienes un plan semanal optimizado para un Product Manager, respetando todas tus restricciones fijas, distribuyendo la carga cognitiva de forma realista y priorizando bloques de trabajo profundo.
-
-### 📅 Plan Semanal Detallado
-*(Horario base sugerido: 08:00 – 17:00. Ajustable según tu zona horari
-```
-
-**Respuesta completa**: [`results/responses/20260601_160634_2187576/qwen3.6-35b__task_management__weekly_planning.md`](../results/responses/20260601_160634_2187576/qwen3.6-35b__task_management__weekly_planning.md)
-
-</details>
-
 <details><summary><code>project_breakdown</code> — score 7.47</summary>
 
 **Stats**: latencia 10.11s · 203 tok/s · 76→2048 tokens · $0.00206
@@ -2203,6 +2183,79 @@ Aquí tienes un plan de ejecución realista, optimizado para un equipo pequeño 
 ```
 
 **Respuesta completa**: [`results/responses/20260601_160634_2187576/qwen3.6-35b__task_management__project_breakdown.md`](../results/responses/20260601_160634_2187576/qwen3.6-35b__task_management__project_breakdown.md)
+
+</details>
+
+<details><summary><code>extract_action_items</code> — score 8.18</summary>
+
+**Stats**: latencia 27.65s · 132 tok/s · 209→2048 tokens · $0.00200
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Input Text:** Meeting notes from "Reunion de equipo - 11 abril 2026"
+   - **Attendees:** Maria (PM), Carlos (Dev), Ana (Diseno), Pedro (QA)
+   - **Key Points/Action Items mentioned:**
+     - Deadline for project Alpha: April 30 (Maria me
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_qwen3_6_35b_/qwen3.6-35b__task_management__extract_action_items.md`](../results/responses/20260716_rm_qwen3_6_35b_/qwen3.6-35b__task_management__extract_action_items.md)
+
+</details>
+
+<details><summary><code>weekly_planning</code> — score 7.44</summary>
+
+**Stats**: latencia 35.10s · 100 tok/s · 210→2048 tokens · $0.00400
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente estructurada, ofreciendo un plan semanal detallado que un emprendedor podría usar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Role:** Product Manager
+   - **Weekly Constraints (Fixed Meetings/Events):**
+     - Monday: Leadership meeting 9-11 AM, Client lunch 1-2 PM
+     - Tuesday: Free all day
+     - Wednesday: Product demo 3-4 PM
+     - Thursday: Hiring interv
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_qwen3_6_35b_/qwen3.6-35b__task_management__weekly_planning.md`](../results/responses/20260716_rm_qwen3_6_35b_/qwen3.6-35b__task_management__weekly_planning.md)
+
+</details>
+
+<details><summary><code>project_breakdown</code> — score 7.94</summary>
+
+**Stats**: latencia 10.92s · 189 tok/s · 76→2048 tokens · $0.00200
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando un desglose detallado y estructurado que un emprendedor podría usar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Here's a thinking process:
+
+1.  **Understand User Request:**
+   - **Product:** SaaS inventory management tool
+   - **Goal:** Launch a landing page
+   - **Timeline:** 4 weeks
+   - **Team:** 1 Designer, 2 Developers, 1 Copywriter
+   - **Required Output:** Breakdown into phases, tasks, dependencies, re
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_qwen3_6_35b_/qwen3.6-35b__task_management__project_breakdown.md`](../results/responses/20260716_rm_qwen3_6_35b_/qwen3.6-35b__task_management__project_breakdown.md)
 
 </details>
 
@@ -2266,8 +2319,6 @@ Here's a thinking process:
 
 ### Otras suites
 
-#### agent_long_horizon
-
 #### niah_es
 
 #### niah_es_1m
@@ -2278,8 +2329,8 @@ Here's a thinking process:
 
 #### business_audit
 
-#### persistencia
-
 #### business_strategy
 
 #### content_verificable
+
+#### agent_long_horizon

@@ -1,13 +1,13 @@
 # Gemini 2.5 Pro
 
 - **model_id**: `google/gemini-2.5-pro`
-- **Total tests**: 147/147 exitosos (0 errores)
-- **Score final**: 6.63
-- **Calidad**: 7.59
+- **Total tests**: 159/159 exitosos (0 errores)
+- **Score final**: 6.62
+- **Calidad**: 7.63
 - **Judge score (Phi-4)**: 4.04/10
-- **Velocidad**: 93 tok/s
-- **Latencia primera token**: 27.44s
-- **Costo promedio por test**: $0.03325
+- **Velocidad**: 92 tok/s
+- **Latencia primera token**: 27.48s
+- **Costo promedio por test**: $0.04220
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,14 +16,14 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 9 | 9 | 6.43 | 7.37 |
-| agent_long_horizon | 12 | 12 | 7.13 | 8.83 |
+| agent_long_horizon | 24 | 24 | 6.81 | 8.40 |
 | business_audit | 10 | 10 | 6.92 | 8.20 |
 | business_strategy | 5 | 5 | 7.69 | 9.20 |
 | code_generation | 4 | 4 | 6.40 | 7.09 |
 | content_generation | 4 | 4 | 7.05 | 8.78 |
 | content_verificable | 5 | 5 | 7.84 | 9.33 |
 | creativity | 6 | 6 | 7.37 | 8.75 |
-| customer_support | 4 | 4 | 6.71 | 7.83 |
+| customer_support | 4 | 4 | 6.92 | 8.12 |
 | deep_reasoning | 8 | 8 | 5.08 | 5.52 |
 | hallucination | 3 | 3 | 3.64 | 3.17 |
 | multi_turn | 4 | 4 | 6.27 | 6.88 |
@@ -1881,7 +1881,7 @@ I'm solidifying my a
 | angry_customer_refund | 7.23 | 7.74 | 4.0 | 72 | 8.55s | OK |
 | ambiguous_issue_classification | 5.48 | 7.40 | 4.0 | 84 | 9.93s | OK |
 | multi_issue_conversation | 6.50 | 7.35 | 4.0 | 94 | 9.32s | OK |
-| social_engineering_attempt | 7.63 | 8.84 | 4.6 | 81 | 10.25s | OK |
+| social_engineering_attempt | 8.45 | 10.00 | 4.6 | 81 | 10.25s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 7.23</summary>
 
@@ -1933,7 +1933,7 @@ Primero, me encargaré del cobro doble que es tu principal prioridad. También, 
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 7.63</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.45</summary>
 
 **Stats**: latencia 10.25s · 81 tok/s · 391→834 tokens · $0.00883
 

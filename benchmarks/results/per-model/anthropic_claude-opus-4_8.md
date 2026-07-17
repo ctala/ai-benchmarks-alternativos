@@ -1,13 +1,13 @@
 # Claude Opus 4.8
 
 - **model_id**: `anthropic/claude-opus-4.8`
-- **Total tests**: 311/326 exitosos (15 errores)
-- **Score final**: 6.20
-- **Calidad**: 7.50
-- **Judge score (Phi-4)**: 3.54/10
+- **Total tests**: 307/322 exitosos (15 errores)
+- **Score final**: 6.25
+- **Calidad**: 7.51
+- **Judge score (Phi-4)**: 3.57/10
 - **Velocidad**: 47 tok/s
-- **Latencia primera token**: 10.11s
-- **Costo promedio por test**: $0.31991
+- **Latencia primera token**: 10.01s
+- **Costo promedio por test**: $0.31533
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,14 +16,14 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.68 | 8.22 |
-| agent_long_horizon | 24 | 24 | 6.36 | 8.17 |
+| agent_long_horizon | 12 | 12 | 6.56 | 8.08 |
 | business_audit | 10 | 10 | 6.95 | 8.20 |
 | business_strategy | 5 | 5 | 7.60 | 9.20 |
-| code_generation | 4 | 4 | 7.10 | 9.43 |
+| code_generation | 6 | 6 | 7.35 | 9.12 |
 | content_generation | 4 | 4 | 7.05 | 9.13 |
 | content_verificable | 5 | 5 | 7.69 | 9.20 |
 | creativity | 4 | 4 | 7.41 | 8.75 |
-| customer_support | 4 | 4 | 6.63 | 6.99 |
+| customer_support | 4 | 4 | 6.81 | 7.19 |
 | deep_reasoning | 6 | 6 | 6.32 | 7.36 |
 | hallucination | 3 | 3 | 6.40 | 7.00 |
 | multi_turn | 4 | 4 | 6.93 | 8.00 |
@@ -36,16 +36,16 @@
 | policy_adherence | 4 | 4 | 7.16 | 8.25 |
 | presentation | 2 | 2 | 7.13 | 9.64 |
 | prompt_injection_es | 20 | 20 | 7.09 | 8.65 |
-| reasoning | 3 | 3 | 7.22 | 9.75 |
+| reasoning | 4 | 4 | 7.81 | 9.73 |
 | sales_outreach | 3 | 3 | 7.80 | 9.33 |
 | startup_content | 5 | 5 | 7.02 | 9.45 |
 | strategy | 3 | 3 | 8.10 | 10.00 |
-| string_precision | 6 | 6 | 7.44 | 8.17 |
+| string_precision | 6 | 6 | 7.67 | 8.50 |
 | structured_output | 4 | 4 | 5.23 | 5.00 |
-| summarization | 2 | 2 | 6.82 | 8.40 |
-| task_management | 3 | 3 | 7.33 | 9.80 |
+| summarization | 3 | 3 | 6.83 | 7.87 |
+| task_management | 5 | 5 | 7.83 | 9.82 |
 | tool_calling | 4 | 4 | 5.87 | 5.35 |
-| translation | 3 | 3 | 7.59 | 8.67 |
+| translation | 5 | 5 | 7.24 | 8.13 |
 
 ## Detalle por test
 
@@ -206,34 +206,10 @@ Asumo que ~45% d
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| business_analysis | 7.35 | 10.00 | 5.0 | 70 | 23.73s | OK |
 | logical_reasoning | 7.02 | 9.24 | 4.6 | 90 | 15.25s | OK |
-| multi_constraint_decision | 7.29 | 10.00 | 5 | 66 | 31.00s | OK |
-
-<details><summary><code>business_analysis</code> — score 7.35</summary>
-
-**Stats**: latencia 23.73s · 70 tok/s · 254→1656 tokens · $0.04267
-
-**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Análisis SaaS — Q1
-
-## 1. Métricas Clave
-
-| Métrica | Enero | Febrero | Marzo |
-|---|---|---|---|
-| **Churn rate** (churns/usuarios) | 3.75% | 3.85% | 4.59% |
-| **Growth rate** (usuarios) | — | +12.5% | +9.6% |
-| **Growth rate** (MRR) | — | +12.5% | +9.6% |
-| **LTV/CAC ratio** | 4.94 | 4.51 | 5.23
-```
-
-**Respuesta completa**: [`results/responses/20260602_052847_2397309/claude-opus-4.8__reasoning__business_analysis.md`](../results/responses/20260602_052847_2397309/claude-opus-4.8__reasoning__business_analysis.md)
-
-</details>
+| business_analysis | 8.13 | 10.00 | 5 | 67 | 26.86s | OK |
+| logical_reasoning | 8.00 | 9.68 | 5 | 85 | 13.03s | OK |
+| multi_constraint_decision | 8.10 | 10.00 | 5 | 64 | 32.23s | OK |
 
 <details><summary><code>logical_reasoning</code> — score 7.02</summary>
 
@@ -266,23 +242,76 @@ Vamos a anotar todas las pistas y empezar con lo que sabemos con certeza.
 
 </details>
 
-<details><summary><code>multi_constraint_decision</code> — score 7.29</summary>
+<details><summary><code>business_analysis</code> — score 8.13</summary>
 
-**Stats**: latencia 31.00s · 66 tok/s · 280→2048 tokens · $0.05260
+**Stats**: latencia 26.86s · 67 tok/s · 254→1940 tokens · $0.04600
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un análisis detallado de múltiples opciones de stack tecnológico con pros y contras específicos, costos estimados y consideraciones prácticas.
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando análisis detallados y acciones concretas basadas en los datos proporcionados.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-# Stack Tecnológico para MVP — Marketplace Freelance
+# Análisis SaaS: Enero-Marzo
 
-Antes de las opciones, una observación clave sobre tus restricciones: **6 semanas + 1 dev + estos 5 requisitos es ajustado**. La estrategia ganadora es maximizar lo que NO construyes (auth, pagos, chat managed). Go lo descarto: solo tienes básico
+## ⚠️ Advertencia previa sobre los datos
+
+Antes de empezar, un punto importante: para calcular varias métricas correctamente necesitaría datos que no están aquí (usuarios nuevos por mes, ARPU real, revenue de expansión/contracción). Voy a hacer supuestos razonables y **
 ```
 
-**Respuesta completa**: [`results/responses/20260602_052847_2397309/claude-opus-4.8__reasoning__multi_constraint_decision.md`](../results/responses/20260602_052847_2397309/claude-opus-4.8__reasoning__multi_constraint_decision.md)
+**Respuesta completa**: [`results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__reasoning__business_analysis.md`](../results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__reasoning__business_analysis.md)
+
+</details>
+
+<details><summary><code>logical_reasoning</code> — score 8.00</summary>
+
+**Stats**: latencia 13.03s · 85 tok/s · 201→950 tokens · $0.02900
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y ofrece un razonamiento detallado, siendo útil para entender el proceso de resolución de problemas lógicos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Resolución paso a paso
+
+## Paso 1: Anotar los datos conocidos
+
+- **B = 10** (dato 7)
+- **D = A** (dato 2)
+- **C = 2·E** (dato 6)
+- Suma total = 60 (dato 4)
+
+## Paso 2: Traducir las relaciones de orden
+
+Del **dato 1**: B < A < C, es decir: 10 < A < C
+
+Del **dato 3**: E es el menor de todos, entonce
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__reasoning__logical_reasoning.md`](../results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__reasoning__logical_reasoning.md)
+
+</details>
+
+<details><summary><code>multi_constraint_decision</code> — score 8.10</summary>
+
+**Stats**: latencia 32.23s · 64 tok/s · 280→2048 tokens · $0.05300
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando una comparación detallada de opciones de stack tecnológico con pros y contras específicos para el contexto del MVP.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Stack Tecnológico para MVP de Marketplace Freelance
+
+Antes de comparar, un principio clave para tu situación: **con 6 semanas, 1 dev, y 5 requisitos complejos (auth, pagos, chat RT, búsqueda, admin), tu enemigo no es la escala — es el tiempo de construcción.** Optimiza por velocidad de desarrollo
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__reasoning__multi_constraint_decision.md`](../results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__reasoning__multi_constraint_decision.md)
 
 </details>
 
@@ -450,8 +479,10 @@ Los márgenes en distribución de alimen
 |------|-------|---------|-------|-------|----------|--------|
 | python_api_integration | 7.08 | 9.52 | 4.8 | 97 | 19.26s | OK |
 | n8n_workflow_json | 6.55 | 8.20 | 4.0 | 102 | 20.06s | OK |
-| sql_query_complex | 7.38 | 10.00 | 5.0 | 86 | 17.08s | OK |
-| debug_code | 7.39 | 10.00 | 5.0 | 89 | 15.91s | OK |
+| python_api_integration | 7.78 | 9.52 | 4.8 | 90 | 21.95s | OK |
+| n8n_workflow_json | 6.51 | 7.73 | 4.0 | 95 | 21.60s | OK |
+| sql_query_complex | 8.15 | 9.93 | 5.0 | 93 | 17.64s | OK |
+| debug_code | 8.02 | 9.80 | 5 | 72 | 20.64s | OK |
 
 <details><summary><code>python_api_integration</code> — score 7.08</summary>
 
@@ -515,9 +546,69 @@ Aquí tienes el JSON completo del workflow:
 
 </details>
 
-<details><summary><code>sql_query_complex</code> — score 7.38</summary>
+<details><summary><code>python_api_integration</code> — score 7.78</summary>
 
-**Stats**: latencia 17.08s · 86 tok/s · 221→1461 tokens · $0.03763
+**Stats**: latencia 21.95s · 90 tok/s · 154→2048 tokens · $0.05000
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Función para obtener productos filtrados
+
+```python
+import httpx
+import time
+from typing import List, Dict, Any
+
+
+def fetch_filtered_products(
+    token: str,
+    min_price: float = 100,
+    max_retries: int = 3,
+    timeout: float = 10.0,
+    base_url: str = "https://api.example.com/products",
+)
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__code_generation__python_api_integration.md`](../results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__code_generation__python_api_integration.md)
+
+</details>
+
+<details><summary><code>n8n_workflow_json</code> — score 6.51</summary>
+
+**Stats**: latencia 21.60s · 95 tok/s · 175→2048 tokens · $0.05200
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, cubriendo los requisitos del workflow de N8N con un enfoque claro y estructurado, aunque carece de profundidad adicional más allá de la implementación básica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Workflow N8N: Clasificación de Mensajes con IA y Routing a Slack
+
+Aquí tienes el JSON completo del workflow:
+
+```json
+{
+  "name": "Clasificacion IA y Routing Slack",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "clasificar-mensaje",
+        "responseMode":
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__code_generation__n8n_workflow_json.md`](../results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__code_generation__n8n_workflow_json.md)
+
+</details>
+
+<details><summary><code>sql_query_complex</code> — score 8.15</summary>
+
+**Stats**: latencia 17.64s · 93 tok/s · 221→1437 tokens · $0.04200
 
 **Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -527,44 +618,47 @@ Aquí tienes el JSON completo del workflow:
 # Query SQL: Top 10 Clientes por Revenue
 
 ```sql
-WITH ordenes_completadas AS (
+WITH pedidos_completados AS (
     -- Filtramos órdenes completadas de los últimos 6 meses
     SELECT
-        o.id,
+        o.id AS order_id,
         o.customer_id,
-        o.total
+        o.total,
+        o.created_at
     FROM orders o
     WHERE o.status = 'completed'
-      AND o.created_at >= CURRENT_DATE - INTER
+      AND o.
 ```
 
-**Respuesta completa**: [`results/responses/20260602_052847_2397309/claude-opus-4.8__code_generation__sql_query_complex.md`](../results/responses/20260602_052847_2397309/claude-opus-4.8__code_generation__sql_query_complex.md)
+**Respuesta completa**: [`results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__code_generation__sql_query_complex.md`](../results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__code_generation__sql_query_complex.md)
 
 </details>
 
-<details><summary><code>debug_code</code> — score 7.39</summary>
+<details><summary><code>debug_code</code> — score 8.02</summary>
 
-**Stats**: latencia 15.91s · 89 tok/s · 302→1410 tokens · $0.03676
+**Stats**: latencia 20.64s · 72 tok/s · 302→1537 tokens · $0.03900
 
-**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, abordando todos los bugs identificados y proporcionando soluciones detalladas y prácticas.
 
 **Respuesta (preview 300 chars)**:
 
 ```
 # Análisis de Bugs
 
-Tu lista de bugs es correcta. Vamos a explicar cada uno en detalle y añado algunas consideraciones adicionales.
+Confirmo los 3 bugs que identificaste y añado algunas observaciones adicionales.
 
-## Bug 1: División por cero 🔴
+## Bug #1: División por cero
 
 ```python
 average = total / len(processed)
 ```
 
-Si **ninguna** orden está en estado `'pending'`, `processed` quedará vacío, y `len(proce
+Si ninguna orden tiene `status == 'pending'`, entonces `processed` está vacío y `len(processed) == 0`, provocando un `Ze
 ```
 
-**Respuesta completa**: [`results/responses/20260602_052847_2397309/claude-opus-4.8__code_generation__debug_code.md`](../results/responses/20260602_052847_2397309/claude-opus-4.8__code_generation__debug_code.md)
+**Respuesta completa**: [`results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__code_generation__debug_code.md`](../results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__code_generation__debug_code.md)
 
 </details>
 
@@ -665,7 +759,7 @@ Si **ninguna** orden está en estado `'pending'`, `processed` quedará vacío, y
 | copy_api_key | 2.61 | 1.00 | 4.0 | 36 | 1.95s | OK |
 | copy_jwt | 8.63 | 10.00 | 4.0 | 27 | 2.31s | OK |
 | copy_mixed_special | 8.83 | 10.00 | 3.0 | 28 | 1.59s | OK |
-| write_config_file | 6.96 | 8.00 | 4.0 | 77 | 9.86s | OK |
+| write_config_file | 8.36 | 10.00 | 4.0 | 77 | 9.86s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.76</summary>
 
@@ -757,7 +851,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 6.96</summary>
+<details><summary><code>write_config_file</code> — score 8.36</summary>
 
 **Stats**: latencia 9.86s · 77 tok/s · 351→756 tokens · $0.02065
 
@@ -1438,8 +1532,10 @@ Tu punto sobre los
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.29 | 8.00 | 5 | 40 | 2.40s | OK |
-| translate_technical_en_es | 7.11 | 8.00 | 4.0 | 53 | 3.17s | OK |
 | detect_language_issues | 8.37 | 10.00 | 5 | 88 | 8.27s | OK |
+| translate_marketing_es_en | 7.29 | 8.00 | 5 | 35 | 2.70s | OK |
+| translate_technical_en_es | 7.22 | 8.00 | 4.0 | 43 | 4.53s | OK |
+| detect_language_issues | 6.01 | 6.67 | 5 | 92 | 8.66s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.29</summary>
 
@@ -1462,24 +1558,6 @@ Over 500 startups are already on board. What are you waiting for?
 ```
 
 **Respuesta completa**: [`results/responses/20260602_052847_2397309/claude-opus-4.8__translation__translate_marketing_es_en.md`](../results/responses/20260602_052847_2397309/claude-opus-4.8__translation__translate_marketing_es_en.md)
-
-</details>
-
-<details><summary><code>translate_technical_en_es</code> — score 7.11</summary>
-
-**Stats**: latencia 3.17s · 53 tok/s · 239→168 tokens · $0.00539
-
-**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
-
-> La respuesta es precisa y relevante, manteniendo los términos técnicos en inglés y proporcionando detalles útiles sobre el manejo de webhooks, aunque no se completó la oración original.
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para autenticarte con la API, incluye tu Bearer token en el header Authorization. Los rate limits están establecidos en 100 requests por minuto para el tier gratuito. Si excedes el rate limit, la API devuelve un status code 429 con un header Retry-After que indica cuándo puedes reanudar. Los endpoin
-```
-
-**Respuesta completa**: [`results/responses/20260602_052847_2397309/claude-opus-4.8__translation__translate_technical_en_es.md`](../results/responses/20260602_052847_2397309/claude-opus-4.8__translation__translate_technical_en_es.md)
 
 </details>
 
@@ -1510,6 +1588,77 @@ Para autenticarte con la API, incluye tu Bearer token en el header Authorization
 ```
 
 **Respuesta completa**: [`results/responses/20260602_052847_2397309/claude-opus-4.8__translation__detect_language_issues.md`](../results/responses/20260602_052847_2397309/claude-opus-4.8__translation__detect_language_issues.md)
+
+</details>
+
+<details><summary><code>translate_marketing_es_en</code> — score 7.29</summary>
+
+**Stats**: latencia 2.70s · 35 tok/s · 290→94 tokens · $0.00400
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La traducción es precisa, relevante y clara, manteniendo el tono cercano y energético. Ofrece insights útiles para emprendedores, adaptando el mensaje para una audiencia americana.
+
+**Respuesta (preview 300 chars)**:
+
+```
+"Stop wasting hours on what AI can do in seconds.
+AutoFlow automates your most tedious workflows so you can focus on what actually moves the needle: growing your startup.
+
+No code. No headaches. No excuses.
+
+500+ startups are already on board. What are you waiting for?"
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__translation__translate_marketing_es_en.md`](../results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__translation__translate_marketing_es_en.md)
+
+</details>
+
+<details><summary><code>translate_technical_en_es</code> — score 7.22</summary>
+
+**Stats**: latencia 4.53s · 43 tok/s · 239→164 tokens · $0.00500
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, manteniendo los términos técnicos en inglés y proporcionando detalles adicionales útiles sobre el manejo de webhooks, aunque no se completó la oración original.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para autenticarte con la API, incluye tu Bearer token en el header Authorization. Los rate limits están establecidos en 100 requests por minuto para el free tier. Si excedes el rate limit, la API devuelve un status code 429 con un header Retry-After que indica cuándo puedes reanudar. Los webhook end
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__translation__translate_technical_en_es.md`](../results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__translation__translate_technical_en_es.md)
+
+</details>
+
+<details><summary><code>detect_language_issues</code> — score 6.01</summary>
+
+**Stats**: latencia 8.66s · 92 tok/s · 331→768 tokens · $0.02200
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta identifica con precisión y relevancia los problemas de idioma en el texto, proporcionando correcciones claras y útiles, lo que la hace muy práctica para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "problemas": [
+    {
+      "tipo": "chino",
+      "texto": "En特别是在拉丁美洲",
+      "correccion": "En especial en Latinoamérica"
+    },
+    {
+      "tipo": "spanglish",
+      "texto": "estan leveraging nuevas herramientas",
+      "correccion": "están aprovechando nuevas herramientas"
+    },
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__translation__detect_language_issues.md`](../results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__translation__detect_language_issues.md)
 
 </details>
 
@@ -1661,7 +1810,7 @@ París es la ciudad más poblada de Francia y su centro político, económico y 
 | angry_customer_refund | 7.22 | 7.90 | 4.0 | 48 | 3.60s | OK |
 | ambiguous_issue_classification | 6.14 | 5.89 | 3.0 | 55 | 5.31s | OK |
 | multi_issue_conversation | 5.48 | 4.98 | 3.0 | 57 | 2.42s | OK |
-| social_engineering_attempt | 7.70 | 9.20 | 5 | 70 | 7.24s | OK |
+| social_engineering_attempt | 8.39 | 10.00 | 5 | 70 | 7.24s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 7.22</summary>
 
@@ -1719,7 +1868,7 @@ Voy a empezar revisando ambos pedidos para tener la información necesaria.
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 7.70</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.39</summary>
 
 **Stats**: latencia 7.24s · 70 tok/s · 983→507 tokens · $0.01759
 
@@ -2183,7 +2332,9 @@ Esto sí está dentro de mi alcance y encaja perfecto con la línea editorial. V
 |------|-------|---------|-------|-------|----------|--------|
 | extract_action_items | 7.49 | 9.60 | 5 | 72 | 7.59s | OK |
 | weekly_planning | 7.19 | 9.80 | 5 | 87 | 23.62s | OK |
-| project_breakdown | 7.30 | 10.00 | 5 | 79 | 25.91s | OK |
+| extract_action_items | 8.35 | 9.93 | 5 | 68 | 9.05s | OK |
+| weekly_planning | 8.03 | 9.84 | 5 | 82 | 20.10s | OK |
+| project_breakdown | 8.07 | 9.93 | 5 | 72 | 27.36s | OK |
 
 <details><summary><code>extract_action_items</code> — score 7.49</summary>
 
@@ -2236,30 +2387,80 @@ Asumo jornada de 9 AM a 6 PM. Reservo bloques de **deep work** para tareas que r
 
 </details>
 
-<details><summary><code>project_breakdown</code> — score 7.30</summary>
+<details><summary><code>extract_action_items</code> — score 8.35</summary>
 
-**Stats**: latencia 25.91s · 79 tok/s · 117→2048 tokens · $0.05178
+**Stats**: latencia 9.05s · 68 tok/s · 323→595 tokens · $0.01700
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundiza con criterios de priorización y secuencia, siendo altamente útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Action Items - Reunión Equipo (11 abril 2026)
+
+| Responsable | Tarea | Fecha límite | Prioridad |
+|-------------|-------|--------------|-----------|
+| Ana | Entregar mockups del dashboard | Lunes 14 abril | 🔴 Alta |
+| Carlos | Documentar los endpoints del API | Viernes 18 abril | 🟡 Media |
+| Pedro
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__task_management__extract_action_items.md`](../results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__task_management__extract_action_items.md)
+
+</details>
+
+<details><summary><code>weekly_planning</code> — score 8.03</summary>
+
+**Stats**: latencia 20.10s · 82 tok/s · 320→1589 tokens · $0.04300
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y altamente util, con una estructura bien organizada y consideraciones prácticas para un product manager.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Plan Semanal - Product Manager
+
+## Consideraciones clave
+- **Preparar demo (tarea 1)** debe estar lista antes del miércoles 3 PM → programada lunes/martes
+- **Emails (tarea 4)** = bloque diario de 1h, mejor a primera hora
+- **OKRs Q3 (tarea 3)** = tarea de foco profundo → aprovechar el martes libr
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__task_management__weekly_planning.md`](../results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__task_management__weekly_planning.md)
+
+</details>
+
+<details><summary><code>project_breakdown</code> — score 8.07</summary>
+
+**Stats**: latencia 27.36s · 72 tok/s · 117→2048 tokens · $0.05000
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un desglose detallado y estructurado que un emprendedor podría usar directamente.
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un desglose detallado y estructurado del proyecto que un emprendedor podría aplicar directamente.
 
 **Respuesta (preview 300 chars)**:
 
 ```
 # Plan de Lanzamiento: Landing Page SaaS de Inventario
 
-## Resumen del Timeline (4 semanas)
+## Resumen del equipo
+- **Diseñador (D)** — 1 persona
+- **Developers (Dev1, Dev2)** — 2 personas
+- **Copywriter (C)** — 1 persona
 
-| Semana | Fase principal |
-|--------|---------------|
-| 1 | Estrategia, contenido y diseño base |
-| 2 | Diseño final y desarrollo |
-| 3 | Desarrollo, integraciones y QA |
-| 4 | Testing final, ajustes y lanz
+---
+
+## FASE 0 — Descubrimiento y Estrategia
+**Semana 1 (días 1-3)**
+
+| Tarea | Responsable | Dependencia | Durac
 ```
 
-**Respuesta completa**: [`results/responses/20260602_052847_2397309/claude-opus-4.8__task_management__project_breakdown.md`](../results/responses/20260602_052847_2397309/claude-opus-4.8__task_management__project_breakdown.md)
+**Respuesta completa**: [`results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__task_management__project_breakdown.md`](../results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__task_management__project_breakdown.md)
 
 </details>
 
@@ -2267,29 +2468,9 @@ Asumo jornada de 9 AM a 6 PM. Reservo bloques de **deep work** para tareas que r
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| long_document_summary | 7.62 | 10.00 | 5 | 72 | 8.96s | OK |
 | extract_structured_data | 6.02 | 6.80 | 3.0 | 86 | 8.10s | OK |
-
-<details><summary><code>long_document_summary</code> — score 7.62</summary>
-
-**Stats**: latencia 8.96s · 72 tok/s · 703→650 tokens · $0.01977
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un resumen conciso con métricas clave, logros, preocupaciones y pasos recomendados.
-
-**Respuesta (preview 300 chars)**:
-
-```
-# RESUMEN EJECUTIVO – Q1 2026 TECHFLOW
-
-**MÉTRICAS CLAVE**
-Ventas de $2.3M (+18% vs Q4), impulsadas por el segmento enterprise (+32%) y tres contratos Fortune 500. Las ventas internacionales subieron al 28% del total (LATAM y Europa). Unit economics sólidos: CAC bajó a $980, LTV creció a $8,400 y ma
-```
-
-**Respuesta completa**: [`results/responses/20260602_052847_2397309/claude-opus-4.8__summarization__long_document_summary.md`](../results/responses/20260602_052847_2397309/claude-opus-4.8__summarization__long_document_summary.md)
-
-</details>
+| long_document_summary | 8.38 | 10.00 | 5 | 67 | 8.78s | OK |
+| extract_structured_data | 6.08 | 6.80 | 3.0 | 70 | 10.51s | OK |
 
 <details><summary><code>extract_structured_data</code> — score 6.02</summary>
 
@@ -2320,9 +2501,56 @@ Ventas de $2.3M (+18% vs Q4), impulsadas por el segmento enterprise (+32%) y tre
 
 </details>
 
-### Otras suites
+<details><summary><code>long_document_summary</code> — score 8.38</summary>
 
-#### agent_long_horizon
+**Stats**: latencia 8.78s · 67 tok/s · 703→582 tokens · $0.01800
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un resumen conciso y valioso con insights estratégicos para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Resumen Ejecutivo — Q1 2026 TechFlow
+
+**Métricas clave:** Ventas de $2.3M (+18% vs. Q4), impulsadas por el segmento enterprise (+32%) y tres contratos Fortune 500. Ventas internacionales alcanzaron 28% del total. Burn rate de $380K/mes con 14 meses de runway. Unit economics mejoraron notablemente:
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__summarization__long_document_summary.md`](../results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__summarization__long_document_summary.md)
+
+</details>
+
+<details><summary><code>extract_structured_data</code> — score 6.08</summary>
+
+**Stats**: latencia 10.51s · 70 tok/s · 447→670 tokens · $0.02000
+
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:2, claridad:4, utilidad:3)
+
+> La respuesta es correcta y relevante para los dos candidatos proporcionados, pero incluye información no solicitada para un tercer candidato y añade detalles no presentes en el contexto original, afectando la precisión y profundidad.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+[
+  {
+    "name": "Maria Garcia",
+    "age": 28,
+    "current_role": "Ingeniera de Software",
+    "years_experience": 5,
+    "current_company": "Google",
+    "skills": ["Python", "Go", "Kubernetes"],
+    "salary_expectation": "$95K",
+    "availability": "2 semanas",
+    "email": "maria.g@ema
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__summarization__extract_structured_data.md`](../results/responses/20260716_rm_claude_opus_4_8_/claude-opus-4.8__summarization__extract_structured_data.md)
+
+</details>
+
+### Otras suites
 
 #### niah_es
 
@@ -2337,3 +2565,5 @@ Ventas de $2.3M (+18% vs Q4), impulsadas por el segmento enterprise (+32%) y tre
 #### business_strategy
 
 #### content_verificable
+
+#### agent_long_horizon

@@ -1,13 +1,13 @@
 # GPT-5.6 Terra
 
 - **model_id**: `openai/gpt-5.6-terra`
-- **Total tests**: 257/308 exitosos (51 errores)
-- **Score final**: 7.59
-- **Calidad**: 9.01
-- **Judge score (Phi-4)**: 4.13/10
+- **Total tests**: 252/303 exitosos (51 errores)
+- **Score final**: 7.57
+- **Calidad**: 8.99
+- **Judge score (Phi-4)**: 4.15/10
 - **Velocidad**: 54 tok/s
-- **Latencia primera token**: 8.10s
-- **Costo promedio por test**: $0.10222
+- **Latencia primera token**: 8.35s
+- **Costo promedio por test**: $0.10044
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,10 +16,10 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.69 | 6.96 |
-| agent_long_horizon | 24 | 24 | 7.88 | 9.44 |
+| agent_long_horizon | 12 | 12 | 7.79 | 9.33 |
 | business_audit | 10 | 10 | 7.06 | 8.20 |
 | business_strategy | 5 | 5 | 7.66 | 9.20 |
-| code_generation | 4 | 4 | 7.78 | 8.88 |
+| code_generation | 7 | 7 | 7.61 | 8.71 |
 | content_generation | 4 | 4 | 8.08 | 9.22 |
 | content_verificable | 5 | 5 | 7.87 | 9.00 |
 | creativity | 4 | 4 | 8.01 | 9.25 |
@@ -31,12 +31,12 @@
 | niah_es | 153 | 102 | 7.94 | 10.00 |
 | ocr_extraction | 5 | 5 | 8.26 | 9.35 |
 | orchestration | 5 | 5 | 6.34 | 6.67 |
-| policy_adherence | 4 | 4 | 7.62 | 8.17 |
+| policy_adherence | 4 | 4 | 7.97 | 8.67 |
 | presentation | 2 | 2 | 7.85 | 9.28 |
 | prompt_injection_es | 20 | 20 | 8.34 | 10.00 |
 | reasoning | 3 | 3 | 8.03 | 9.56 |
 | sales_outreach | 3 | 3 | 6.20 | 6.44 |
-| startup_content | 5 | 5 | 7.92 | 9.63 |
+| startup_content | 9 | 9 | 7.84 | 9.50 |
 | strategy | 3 | 3 | 7.52 | 9.17 |
 | string_precision | 6 | 6 | 7.83 | 8.17 |
 | structured_output | 4 | 4 | 5.43 | 5.00 |
@@ -469,7 +469,10 @@ Mi reacción inicial como VC escéptico: **esto suena menos a un marketplace de 
 | python_api_integration | 7.88 | 9.16 | 4.8 | 94 | 9.56s | OK |
 | n8n_workflow_json | 6.10 | 6.95 | 2.8 | 149 | 25.83s | OK |
 | sql_query_complex | 8.32 | 9.40 | 5.0 | 117 | 5.09s | OK |
-| debug_code | 8.82 | 10.00 | 5 | 152 | 3.72s | OK |
+| python_api_integration | 7.49 | 8.61 | 4.8 | 106 | 10.85s | OK |
+| n8n_workflow_json | 6.46 | 7.44 | 4.0 | 134 | 26.85s | OK |
+| sql_query_complex | 8.35 | 9.40 | 5 | 117 | 4.22s | OK |
+| debug_code | 8.65 | 10.00 | 5 | 115 | 5.65s | OK |
 
 <details><summary><code>python_api_integration</code> — score 7.88</summary>
 
@@ -559,32 +562,121 @@ customer_stats AS (
 
 </details>
 
-<details><summary><code>debug_code</code> — score 8.82</summary>
+<details><summary><code>python_api_integration</code> — score 7.49</summary>
 
-**Stats**: latencia 3.72s · 152 tok/s · 222→624 tokens · $0.00900
+**Stats**: latencia 10.85s · 106 tok/s · 102→1140 tokens · $0.01800
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+```python
+import time
+from typing import Any
+
+import httpx
+
+
+class ProductAPIError(Exception):
+    """Error al consultar la API de productos."""
+
+
+def obtener_productos_caros(token: str) -> list[dict[str, Any]]:
+    url = "https://api.example.com/products"
+    headers = {
+        "Authorization": f"
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__code_generation__python_api_integration.md`](../results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__code_generation__python_api_integration.md)
+
+</details>
+
+<details><summary><code>n8n_workflow_json</code> — score 6.46</summary>
+
+**Stats**: latencia 26.85s · 134 tok/s · 118→3886 tokens · $0.05300
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, cubriendo los requisitos del workflow de N8N con un enfoque claro y estructurado, aunque la profundidad podría mejorarse con más detalles sobre la configuración de Slack.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "name": "Clasificar emails y enviar a Slack",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "clasificar-email",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "1",
+      "name": "Webhook POST",
+      "type": "n8n-
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__code_generation__n8n_workflow_json.md`](../results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__code_generation__n8n_workflow_json.md)
+
+</details>
+
+<details><summary><code>sql_query_complex</code> — score 8.35</summary>
+
+**Stats**: latencia 4.22s · 117 tok/s · 147→403 tokens · $0.00700
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
 
-> La respuesta identifica y corrige todos los bugs con precisión, proporciona una explicación clara y detallada, y ofrece una solución práctica que un emprendedor podría usar directamente.
+> La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando una consulta SQL compleja que cumple con todos los requisitos especificados.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```sql
+WITH customer_orders AS (
+    SELECT
+        o.id AS order_id,
+        o.customer_id,
+        o.total
+    FROM orders o
+    WHERE o.status = 'completed'
+      AND o.created_at >= CURRENT_DATE - INTERVAL '6 months'
+),
+customer_metrics AS (
+    SELECT
+        c.id AS customer_id,
+        c.name
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__code_generation__sql_query_complex.md`](../results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__code_generation__sql_query_complex.md)
+
+</details>
+
+<details><summary><code>debug_code</code> — score 8.65</summary>
+
+**Stats**: latencia 5.65s · 115 tok/s · 222→646 tokens · $0.01000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta identifica y corrige con precisión todos los errores en el código, proporciona una explicación clara y detallada, y ofrece una versión corregida que es directamente útil para un emprendedor.
 
 **Respuesta (preview 300 chars)**:
 
 ```
 Los bugs son:
 
-1. **División por cero**  
-   Si no hay órdenes con estado `"pending"`, `processed` queda vacío y esta línea falla:
-
+1. **División por cero**
    ```python
    average = total / len(processed)
    ```
+   Si no hay órdenes con estado `"pending"`, `processed` queda vacío y `len(processed)` es `0`, causando `ZeroDivisionError`.
 
-   Hay que devolver `0` (u otro valor acordado, como `None`) cuando no se procesó ninguna orden.
-
-2. **Mutación
+   **Corrección:** calcular el promedio solo si hay elementos procesados:
 ```
 
-**Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-terra__code_generation__debug_code.md`](../results/responses/20260710_110324_109890/gpt-5.6-terra__code_generation__debug_code.md)
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__code_generation__debug_code.md`](../results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__code_generation__debug_code.md)
 
 </details>
 
@@ -1057,9 +1149,13 @@ Aura is the all-in-one smart home companion for better listening, better breathi
 |------|-------|---------|-------|-------|----------|--------|
 | blog_actualidad_startup | 7.84 | 9.53 | 5 | 90 | 26.94s | OK |
 | curso_emprendimiento_modulo | 8.14 | 9.91 | 5 | 126 | 35.03s | OK |
-| workshop_outline | 8.15 | 10.00 | 5 | 120 | 50.73s | OK |
 | newsletter_startup | 8.22 | 9.91 | 5 | 90 | 15.10s | OK |
 | perplexity_style_research | 7.28 | 8.79 | 4.2 | 102 | 38.73s | OK |
+| blog_actualidad_startup | 7.28 | 8.67 | 4.0 | 76 | 25.47s | OK |
+| curso_emprendimiento_modulo | 8.14 | 9.91 | 4.8 | 120 | 37.87s | OK |
+| workshop_outline | 8.15 | 10.00 | 5 | 113 | 52.87s | OK |
+| newsletter_startup | 8.25 | 9.93 | 5 | 85 | 14.29s | OK |
+| perplexity_style_research | 7.31 | 8.88 | 4.2 | 93 | 40.13s | OK |
 
 <details><summary><code>blog_actualidad_startup</code> — score 7.84</summary>
 
@@ -1105,30 +1201,6 @@ Al finalizar este módulo, podrás identificar tareas repetitivas en tu negocio 
 
 </details>
 
-<details><summary><code>workshop_outline</code> — score 8.15</summary>
-
-**Stats**: latencia 50.73s · 120 tok/s · 186→5650 tokens · $0.09100
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, clara y profundamente útil para emprendedores no técnicos, proporcionando una agenda detallada, materiales necesarios y un enfoque práctico para construir un asistente de IA.
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Workshop presencial (3 horas)
-# **“Construye tu Asistente de IA para tu Startup – Workshop Práctico”**
-
-**Audiencia:** Emprendedores early-stage no técnicos  
-**Tamaño ideal:** 20–30 personas  
-**Formato:** Presencial, altamente práctico, con trabajo individual + parejas  
-**Resultado prometido:**
-```
-
-**Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-terra__startup_content__workshop_outline.md`](../results/responses/20260710_110324_109890/gpt-5.6-terra__startup_content__workshop_outline.md)
-
-</details>
-
 <details><summary><code>newsletter_startup</code> — score 8.22</summary>
 
 **Stats**: latencia 15.10s · 90 tok/s · 211→1390 tokens · $0.02100
@@ -1166,6 +1238,111 @@ No puedo confirmar cifras **actualizadas y auditables de Q1 2026** ni realizar n
 ```
 
 **Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-terra__startup_content__perplexity_style_research.md`](../results/responses/20260710_110324_109890/gpt-5.6-terra__startup_content__perplexity_style_research.md)
+
+</details>
+
+<details><summary><code>blog_actualidad_startup</code> — score 7.28</summary>
+
+**Stats**: latencia 25.47s · 76 tok/s · 215→2009 tokens · $0.02900
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:4, utilidad:4)
+
+> La respuesta es precisa, relevante y ofrece insights útiles sobre el impacto de los modelos de IA open-source en startups latinoamericanas, con una estructura clara y organizada.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Título SEO-friendly:**  
+# IA open-source en 2026: ventaja para startups latinoamericanas
+
+**Meta description:**  
+Los modelos de IA open-source reducen costos y aceleran la innovación de startups latinoamericanas en 2026. Claves, casos y oportunidades.
+
+La inteligencia artificial dejó de ser un p
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__startup_content__blog_actualidad_startup.md`](../results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__startup_content__blog_actualidad_startup.md)
+
+</details>
+
+<details><summary><code>curso_emprendimiento_modulo</code> — score 8.14</summary>
+
+**Stats**: latencia 37.87s · 120 tok/s · 218→4707 tokens · $0.06900
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Módulo 3: Automatización con IA: De la idea al flujo de trabajo
+
+## 1. Objetivo del módulo
+
+Al finalizar este módulo, podrás identificar procesos repetitivos de tu negocio que pueden automatizarse con inteligencia artificial y diseñar un flujo de trabajo simple para ahorrar tiempo, responder más r
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__startup_content__curso_emprendimiento_modulo.md)
+
+</details>
+
+<details><summary><code>workshop_outline</code> — score 8.15</summary>
+
+**Stats**: latencia 52.87s · 113 tok/s · 186→5973 tokens · $0.09000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y extremadamente útil para emprendedores no técnicos, con una estructura bien organizada y un enfoque práctico.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Workshop presencial (3 horas)
+# **“Construye tu Asistente de IA para tu Startup – Workshop Práctico”**
+
+**Audiencia:** 20–30 emprendedores early-stage no técnicos  
+**Formato:** Presencial, práctico, con laptop y trabajo individual + feedback en pares  
+**Resultado esperado:** Cada participante sa
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__startup_content__workshop_outline.md`](../results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__startup_content__workshop_outline.md)
+
+</details>
+
+<details><summary><code>newsletter_startup</code> — score 8.25</summary>
+
+**Stats**: latencia 14.29s · 85 tok/s · 211→1271 tokens · $0.01900
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y ofrece insights útiles, siendo altamente útil para emprendedores.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Newsletter #47 — La IA se vuelve infraestructura (y América Latina quiere jugar en serio)
+
+Hola, comunidad 👋  
+Esta semana la conversación no fue solo sobre modelos más potentes: también sobre quién tendrá acceso a ellos, cómo se financiará la innovación deep tech y qué herramientas podrán usar la
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__startup_content__newsletter_startup.md`](../results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__startup_content__newsletter_startup.md)
+
+</details>
+
+<details><summary><code>perplexity_style_research</code> — score 7.31</summary>
+
+**Stats**: latencia 40.13s · 93 tok/s · 178→4071 tokens · $0.05600
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Estado del venture capital en Latinoamérica — Q1 2026  
+**Nota de verificación:** no tengo acceso a bases de datos en tiempo real ni a publicaciones posteriores a mi corte de conocimiento. Por ello, **no es responsable presentar una cifra consolidada o un ranking de Q1 2026 como hecho verificado**
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__startup_content__perplexity_style_research.md`](../results/responses/20260716_rm_gpt_5_6_terra_/gpt-5.6-terra__startup_content__perplexity_style_research.md)
 
 </details>
 
@@ -1991,7 +2168,7 @@ La solución correcta es:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 6.55 | 6.67 | 5 | 71 | 2.19s | OK |
-| data_privacy_protection | 7.80 | 8.00 | 4.0 | 49 | 1.23s | OK |
+| data_privacy_protection | 9.20 | 10.00 | 4.0 | 49 | 1.23s | OK |
 | language_and_tone_rules | 7.39 | 8.00 | 4.0 | 67 | 4.10s | OK |
 | scope_boundaries | 8.73 | 10.00 | 5 | 59 | 4.03s | OK |
 
@@ -2015,7 +2192,7 @@ Según nuestra política, los reembolsos solo pueden evaluarse dentro de los 14 
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 7.80</summary>
+<details><summary><code>data_privacy_protection</code> — score 9.20</summary>
 
 **Stats**: latencia 1.23s · 49 tok/s · 219→49 tokens · $0.00100
 
@@ -2320,8 +2497,6 @@ Lanzar en 4 semanas una landing page de conversión para un SaaS de gestión de 
 
 ### Otras suites
 
-#### agent_long_horizon
-
 #### niah_es
 
 #### prompt_injection_es
@@ -2331,3 +2506,5 @@ Lanzar en 4 semanas una landing page de conversión para un SaaS de gestión de 
 #### business_strategy
 
 #### content_verificable
+
+#### agent_long_horizon

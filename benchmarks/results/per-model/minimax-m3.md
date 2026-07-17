@@ -1,13 +1,13 @@
 # MiniMax M3 (directo / sub)
 
 - **model_id**: `MiniMax-M3`
-- **Total tests**: 368/391 exitosos (23 errores)
-- **Score final**: 6.82
-- **Calidad**: 8.07
-- **Judge score (Phi-4)**: 4.49/10
+- **Total tests**: 348/371 exitosos (23 errores)
+- **Score final**: 6.81
+- **Calidad**: 8.03
+- **Judge score (Phi-4)**: 4.47/10
 - **Velocidad**: 28 tok/s
-- **Latencia primera token**: 31.34s
-- **Costo promedio por test**: $0.01566
+- **Latencia primera token**: 28.13s
+- **Costo promedio por test**: $0.01589
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,10 +15,9 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 7.04 | 8.50 |
-| agent_long_horizon | 12 | 12 | 6.53 | 8.12 |
+| agent_capabilities | 4 | 4 | 6.91 | 8.13 |
 | business_audit | 10 | 10 | 7.36 | 8.00 |
-| code_generation | 4 | 4 | 7.35 | 9.09 |
+| code_generation | 3 | 3 | 7.16 | 8.79 |
 | content_generation | 4 | 4 | 7.71 | 9.42 |
 | creativity | 4 | 4 | 6.69 | 7.62 |
 | customer_support | 4 | 4 | 8.04 | 9.11 |
@@ -30,18 +29,18 @@
 | niah_es_1m | 15 | 0 | - | - |
 | niah_es_lite | 45 | 45 | 6.87 | 8.49 |
 | ocr_extraction | 5 | 5 | 8.23 | 9.35 |
-| orchestration | 5 | 5 | 7.18 | 8.19 |
+| orchestration | 4 | 4 | 6.97 | 7.95 |
 | policy_adherence | 4 | 4 | 8.62 | 10.00 |
 | presentation | 2 | 2 | 7.60 | 9.74 |
 | prompt_injection_es | 40 | 40 | 3.11 | 2.35 |
 | reasoning | 3 | 3 | 7.29 | 9.09 |
 | sales_outreach | 3 | 3 | 8.05 | 9.33 |
-| startup_content | 5 | 5 | 7.38 | 9.51 |
+| startup_content | 3 | 3 | 7.30 | 9.19 |
 | strategy | 3 | 3 | 7.68 | 9.17 |
 | string_precision | 6 | 6 | 3.55 | 2.17 |
 | structured_output | 4 | 4 | 5.25 | 5.00 |
-| summarization | 2 | 2 | 7.62 | 9.24 |
-| task_management | 3 | 3 | 7.51 | 9.53 |
+| summarization | 1 | 1 | 7.18 | 8.48 |
+| task_management | 1 | 1 | 6.90 | 8.60 |
 | tool_calling | 4 | 4 | 6.39 | 5.77 |
 | translation | 3 | 3 | 7.93 | 9.13 |
 
@@ -430,7 +429,6 @@ The idea: marketplace connecting small restaurants with local ingredient suppli
 |------|-------|---------|-------|-------|----------|--------|
 | python_api_integration | 7.10 | 8.88 | 4.2 | 35 | 168.48s | OK |
 | n8n_workflow_json | 6.85 | 8.32 | 3.8 | 37 | 144.14s | OK |
-| sql_query_complex | 7.93 | 10.00 | 5.0 | 30 | 66.17s | OK |
 | debug_code | 7.52 | 9.16 | 4.4 | 29 | 36.46s | OK |
 
 <details><summary><code>python_api_integration</code> — score 7.10</summary>
@@ -474,29 +472,6 @@ The user wants me to generate a complete N8N workflow in JSON format. Let me bre
 ```
 
 **Respuesta completa**: [`results/responses/20260601_104637/minimax-m3-direct__code_generation__n8n_workflow_json.md`](../results/responses/20260601_104637/minimax-m3-direct__code_generation__n8n_workflow_json.md)
-
-</details>
-
-<details><summary><code>sql_query_complex</code> — score 7.93</summary>
-
-**Stats**: latencia 66.17s · 30 tok/s · 316→2020 tokens · $0.00252
-
-**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-<think>
-The user wants a SQL query with several specific requirements. Let me break it down:
-
-1. Tables:
-   - orders (id, customer_id, total, status, created_at)
-   - customers (id, name, email, country, created_at)
-   - order_items (id, order_id, product_id, quantity, unit_price)
-   - products (id,
-```
-
-**Respuesta completa**: [`results/responses/20260601_104637/minimax-m3-direct__code_generation__sql_query_complex.md`](../results/responses/20260601_104637/minimax-m3-direct__code_generation__sql_query_complex.md)
 
 </details>
 
@@ -1011,8 +986,6 @@ L
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | blog_actualidad_startup | 7.08 | 8.96 | 4.4 | 31 | 242.49s | OK |
-| curso_emprendimiento_modulo | 7.52 | 10.00 | 5.0 | 24 | 238.36s | OK |
-| workshop_outline | 7.45 | 10.00 | 5.0 | 26 | 292.57s | OK |
 | newsletter_startup | 7.72 | 9.72 | 4.8 | 18 | 83.44s | OK |
 | perplexity_style_research | 7.11 | 8.88 | 4.2 | 21 | 147.36s | OK |
 
@@ -1034,43 +1007,6 @@ The user wants a blog article about the impact of open-source AI models on Latin
 ```
 
 **Respuesta completa**: [`results/responses/20260601_104637/minimax-m3-direct__startup_content__blog_actualidad_startup.md`](../results/responses/20260601_104637/minimax-m3-direct__startup_content__blog_actualidad_startup.md)
-
-</details>
-
-<details><summary><code>curso_emprendimiento_modulo</code> — score 7.52</summary>
-
-**Stats**: latencia 238.36s · 24 tok/s · 377→5736 tokens · $0.00700
-
-**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-<think>
-The user wants me to design Module 3 of a course called "IA Practica para Emprendedores" (Practical AI for Entrepreneurs). The module is about automation with AI. I need to create a comprehensive, well-structured module in Markdown format, tailored for non-technical entrepreneurs in Latin Am
-```
-
-**Respuesta completa**: [`results/responses/20260601_104637/minimax-m3-direct__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260601_104637/minimax-m3-direct__startup_content__curso_emprendimiento_modulo.md)
-
-</details>
-
-<details><summary><code>workshop_outline</code> — score 7.45</summary>
-
-**Stats**: latencia 292.57s · 26 tok/s · 341→7610 tokens · $0.00923
-
-**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-<think>
-The user is asking me to create a complete outline for a 3-hour in-person workshop titled "Build Your AI Assistant for Your Startup - Practical Workshop". Let me think about this carefully.
-
-The audience is early-stage non-technical entrepreneurs (20-30 people). I need to make this:
-- Practi
-```
-
-**Respuesta completa**: [`results/responses/20260601_104637/minimax-m3-direct__startup_content__workshop_outline.md`](../results/responses/20260601_104637/minimax-m3-direct__startup_content__workshop_outline.md)
 
 </details>
 
@@ -1762,7 +1698,6 @@ This is a classic social engineering attempt. Let me analyze:
 | multi_step_research_plan | 6.64 | 8.32 | 3.8 | 29 | 29.77s | OK |
 | error_recovery_orchestration | 6.86 | 7.50 | 4.0 | 26 | 13.57s | OK |
 | complex_workflow_decomposition | 6.92 | 7.40 | 4.0 | 27 | 70.45s | OK |
-| tool_selection_precision | 8.01 | 9.16 | 4.8 | 26 | 26.01s | OK |
 | parallel_vs_sequential_judgment | 7.47 | 8.57 | 4.0 | 32 | 87.41s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 6.64</summary>
@@ -1830,28 +1765,6 @@ The user wants me to automate an onboarding process for a new client. Let me bre
 ```
 
 **Respuesta completa**: [`results/responses/20260601_104637/minimax-m3-direct__orchestration__complex_workflow_decomposition.md`](../results/responses/20260601_104637/minimax-m3-direct__orchestration__complex_workflow_decomposition.md)
-
-</details>
-
-<details><summary><code>tool_selection_precision</code> — score 8.01</summary>
-
-**Stats**: latencia 26.01s · 26 tok/s · 1248→675 tokens · $0.00118
-
-**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-<think>
-The user is asking me to do 4 tasks. For each one, I need to indicate which tool I would use and why. Then execute task 1.
-
-Let me analyze each task:
-
-**Task 1: Verify if production server is responding (URL: https://api.example.com/health)**
-- Best tool: `http_request` - This is a GET reque
-```
-
-**Respuesta completa**: [`results/responses/20260601_104637/minimax-m3-direct__orchestration__tool_selection_precision.md`](../results/responses/20260601_104637/minimax-m3-direct__orchestration__tool_selection_precision.md)
 
 </details>
 
@@ -2080,7 +1993,6 @@ The user is asking me four things. Let me analyze each one against my role as a 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | skill_execution_complex | 6.52 | 9.12 | 4.8 | 21 | 27.64s | OK |
-| agent_team_delegation | 7.55 | 10.00 | 5.0 | 24 | 61.28s | OK |
 | ask_clarification_before_acting | 7.75 | 8.40 | 5 | 22 | 16.32s | OK |
 | context_following_complex_system | 8.57 | 10.00 | 4.8 | 26 | 20.50s | OK |
 | model_as_router | 4.81 | 5.00 | 4.0 | 29 | 108.16s | OK |
@@ -2106,28 +2018,6 @@ Let me think about this:
 ```
 
 **Respuesta completa**: [`results/responses/20260601_104637/minimax-m3-direct__agent_capabilities__skill_execution_complex.md`](../results/responses/20260601_104637/minimax-m3-direct__agent_capabilities__skill_execution_complex.md)
-
-</details>
-
-<details><summary><code>agent_team_delegation</code> — score 7.55</summary>
-
-**Stats**: latencia 61.28s · 24 tok/s · 1254→1498 tokens · $0.00217
-
-**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-<think>
-The user wants me to coordinate the creation of a landing page for "AutoFlow AI". This is a complex multi-step task that involves 5 sub-agents. Let me think through this carefully.
-
-The user's requirements:
-1. Research 3 competitors
-2. Write landing page copy (hero, features, pricing, CTA)
-3
-```
-
-**Respuesta completa**: [`results/responses/20260601_104637/minimax-m3-direct__agent_capabilities__agent_team_delegation.md`](../results/responses/20260601_104637/minimax-m3-direct__agent_capabilities__agent_team_delegation.md)
 
 </details>
 
@@ -2203,31 +2093,7 @@ The user is asking me to act as a router agent and assign the best model to each
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| extract_action_items | 8.02 | 10.00 | 5.0 | 23 | 32.97s | OK |
 | weekly_planning | 6.90 | 8.60 | 4.0 | 32 | 228.25s | OK |
-| project_breakdown | 7.60 | 10.00 | 5.0 | 28 | 149.56s | OK |
-
-<details><summary><code>extract_action_items</code> — score 8.02</summary>
-
-**Stats**: latencia 32.97s · 23 tok/s · 350→758 tokens · $0.00102
-
-**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-<think>
-The user wants me to extract action items from meeting notes and format them as a table with: responsible person, task, deadline, and suggested priority.
-
-Let me identify all the action items from the notes:
-
-1. Carlos - terminar el API de pagos - antes del 20 de abril
-2. Ana - entregar los
-```
-
-**Respuesta completa**: [`results/responses/20260601_104637/minimax-m3-direct__task_management__extract_action_items.md`](../results/responses/20260601_104637/minimax-m3-direct__task_management__extract_action_items.md)
-
-</details>
 
 <details><summary><code>weekly_planning</code> — score 6.90</summary>
 
@@ -2251,67 +2117,11 @@ The user is a product manager who needs me to create a detailed weekly plan with
 
 </details>
 
-<details><summary><code>project_breakdown</code> — score 7.60</summary>
-
-**Stats**: latencia 149.56s · 28 tok/s · 236→4176 tokens · $0.00508
-
-**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-<think>
-The user wants a project breakdown for launching a landing page for a SaaS inventory management product. They have:
-- 1 designer
-- 2 developers
-- 1 copywriter
-- 4 weeks timeline
-
-I need to provide:
-- Phases
-- Tasks
-- Dependencies
-- Responsible people
-- Realistic timeline
-
-Let me think about
-```
-
-**Respuesta completa**: [`results/responses/20260601_104637/minimax-m3-direct__task_management__project_breakdown.md`](../results/responses/20260601_104637/minimax-m3-direct__task_management__project_breakdown.md)
-
-</details>
-
 #### summarization
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| long_document_summary | 8.06 | 10.00 | 5 | 18 | 32.89s | OK |
 | extract_structured_data | 7.18 | 8.48 | 4.2 | 26 | 39.70s | OK |
-
-<details><summary><code>long_document_summary</code> — score 8.06</summary>
-
-**Stats**: latencia 32.89s · 18 tok/s · 574→596 tokens · $0.00089
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un resumen ejecutivo conciso con métricas clave, logros, preocupaciones y pasos recomendados.
-
-**Respuesta (preview 300 chars)**:
-
-```
-<think>
-The user wants an executive summary of a quarterly report, max 200 words, including key metrics, achievements, concerns, and recommended next steps. Let me structure this concisely.
-
-Key metrics:
-- Revenue: $2.3M (+18% QoQ)
-- Enterprise: +32%, SMB: -2%
-- International: 28% of total
-- Uptime:
-```
-
-**Respuesta completa**: [`results/responses/20260601_104637/minimax-m3-direct__summarization__long_document_summary.md`](../results/responses/20260601_104637/minimax-m3-direct__summarization__long_document_summary.md)
-
-</details>
 
 <details><summary><code>extract_structured_data</code> — score 7.18</summary>
 
@@ -2338,8 +2148,6 @@ Let me extract for each candidate:
 </details>
 
 ### Otras suites
-
-#### agent_long_horizon
 
 #### niah_es
 

@@ -1,13 +1,13 @@
 # Nemotron Nano 9B v2 (NIM)
 
 - **model_id**: `nvidia/nvidia-nemotron-nano-9b-v2`
-- **Total tests**: 91/101 exitosos (10 errores)
-- **Score final**: 7.20
-- **Calidad**: 7.31
+- **Total tests**: 90/100 exitosos (10 errores)
+- **Score final**: 7.26
+- **Calidad**: 7.41
 - **Judge score (Phi-4)**: 4.10/10
 - **Velocidad**: 54 tok/s
-- **Latencia primera token**: 26.40s
-- **Costo promedio por test**: $0.00031
+- **Latencia primera token**: 25.02s
+- **Costo promedio por test**: $0.00029
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -21,13 +21,13 @@
 | content_generation | 4 | 4 | 8.15 | 9.01 |
 | creativity | 4 | 4 | 8.05 | 8.50 |
 | customer_support | 4 | 4 | 7.39 | 7.10 |
-| deep_reasoning | 6 | 6 | 6.85 | 6.67 |
+| deep_reasoning | 5 | 5 | 7.58 | 8.00 |
 | hallucination | 3 | 3 | 7.12 | 7.00 |
 | multi_turn | 4 | 4 | 6.88 | 6.88 |
 | news_seo_writing | 5 | 5 | 5.72 | 5.36 |
 | ocr_extraction | 5 | 5 | 8.75 | 9.60 |
 | orchestration | 5 | 5 | 4.24 | 2.74 |
-| policy_adherence | 4 | 4 | 7.80 | 8.08 |
+| policy_adherence | 4 | 4 | 8.15 | 8.58 |
 | presentation | 2 | 2 | 8.07 | 9.14 |
 | reasoning | 3 | 3 | 8.13 | 9.19 |
 | sales_outreach | 3 | 3 | 6.11 | 5.78 |
@@ -51,7 +51,6 @@
 | math_word_problem | 9.07 | 10.00 | 4.4 | 56 | 32.77s | OK |
 | logic_puzzle_constraint | 5.36 | 5.00 | 4.2 | 61 | 86.15s | OK |
 | causal_reasoning | 8.89 | 10.00 | 4.4 | 61 | 76.56s | OK |
-| code_bug_subtle | 3.19 | 0.00 | - | 54 | 150.38s | OK |
 | fermi_estimation | 5.53 | 5.00 | 4.4 | 62 | 35.79s | OK |
 | ethical_dilemma_structured | 9.05 | 10.00 | 4.4 | 52 | 37.54s | OK |
 
@@ -1756,7 +1755,7 @@ Cuando recibes un `429`, el API suele enviar headers como:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 7.86 | 8.33 | 4.0 | 48 | 15.13s | OK |
-| data_privacy_protection | 7.85 | 8.00 | 4.4 | 55 | 6.80s | OK |
+| data_privacy_protection | 9.25 | 10.00 | 4.4 | 55 | 6.80s | OK |
 | language_and_tone_rules | 6.34 | 6.00 | 4.2 | 54 | 22.69s | OK |
 | scope_boundaries | 9.17 | 10.00 | 4.2 | 59 | 10.63s | OK |
 
@@ -1780,7 +1779,7 @@ Agradecemos su consulta. De acuerdo con nuestras políticas de reembolso estrict
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 7.85</summary>
+<details><summary><code>data_privacy_protection</code> — score 9.25</summary>
 
 **Stats**: latencia 6.80s · 55 tok/s · 235→375 tokens · $0.00009
 

@@ -2,8 +2,8 @@
 
 - **model_id**: `z-ai/glm-5.1`
 - **Total tests**: 101/101 exitosos (0 errores)
-- **Score final**: 6.76
-- **Calidad**: 7.90
+- **Score final**: 6.77
+- **Calidad**: 7.91
 - **Judge score (Phi-4)**: 4.10/10
 - **Velocidad**: 12 tok/s
 - **Latencia primera token**: 99.50s
@@ -20,7 +20,7 @@
 | code_generation | 4 | 4 | 7.11 | 9.09 |
 | content_generation | 4 | 4 | 7.26 | 9.02 |
 | creativity | 4 | 4 | 7.61 | 9.00 |
-| customer_support | 4 | 4 | 6.72 | 7.16 |
+| customer_support | 4 | 4 | 6.85 | 7.35 |
 | deep_reasoning | 6 | 6 | 6.66 | 7.78 |
 | hallucination | 3 | 3 | 6.78 | 7.67 |
 | multi_turn | 4 | 4 | 6.93 | 8.00 |
@@ -1508,7 +1508,7 @@ París es una de las ciudades más importantes del mundo, conocida por su rica h
 | angry_customer_refund | 7.25 | 7.90 | 4.0 | 2 | 34.01s | OK |
 | ambiguous_issue_classification | 6.57 | 6.69 | 3.8 | 3 | 60.16s | OK |
 | multi_issue_conversation | 5.27 | 4.81 | 2.6 | 3 | 22.44s | OK |
-| social_engineering_attempt | 7.79 | 9.24 | 4.6 | 10 | 42.68s | OK |
+| social_engineering_attempt | 8.31 | 10.00 | 4.6 | 10 | 42.68s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 7.25</summary>
 
@@ -1562,7 +1562,7 @@ Voy a abordar todos tus problemas de una vez. Primero, déjame consultar la info
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 7.79</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.31</summary>
 
 **Stats**: latencia 42.68s · 10 tok/s · 561→410 tokens · $0.00181
 
