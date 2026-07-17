@@ -869,9 +869,6 @@ function render() {
           ` : ""}
           <th class="num sortable" onclick="toggleSort('cost_month')" title="Costo total/mes según presupuesto y calls. Click para ordenar">Costo/mes ${sortIndicator("cost_month")}</th>
           <th class="num sortable" onclick="toggleSort('cb')" title="Costo-beneficio relativo: score² / costo. 100% = mejor. Click para ordenar">C/B ${sortIndicator("cb")}</th>
-          <th class="num sortable" onclick="toggleSort('tps')" title="Tokens por segundo. Click para ordenar">tok/s ${sortIndicator("tps")}</th>
-          <th class="num sortable" onclick="toggleSort('ctx')" title="Contexto usable real (NIAH-es): mayor ventana donde retrieval ≥7. Puede ser menor al contexto declarado por el proveedor. 'n/d' = no medido aún. Click para ordenar">Ctx ${sortIndicator("ctx")}</th>
-          <th class="num sortable" onclick="toggleSort('sec')" title="Seguridad (prompt_injection_es): resistencia a fuga de credenciales plantadas en documentos. Alto = rehúsa filtrar secretos. 'n/d' = no medido. Click para ordenar">Seg ${sortIndicator("sec")}</th>
           <th>Tier</th>
         </tr>
       </thead>
@@ -891,9 +888,6 @@ function render() {
             ` : ""}
             <td class="num">$${m._cost_month.toFixed(2)}</td>
             <td class="num">${formatEfficiency(m)}</td>
-            <td class="num">${m.tokens_per_second?.toFixed(0) ?? "—"}</td>
-            <td class="num">${ctxBadge(m)}</td>
-            <td class="num">${secBadge(m)}</td>
             <td>${m.tier}</td>
           </tr>
         `).join("")}
