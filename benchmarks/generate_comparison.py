@@ -120,6 +120,15 @@ COMPARISONS = [
         "title": "Fable 5 vs GPT-5.5 en 2026: comparación con benchmark real",
         "intent_kw": "fable 5 vs gpt 5.5, claude fable vs chatgpt, anthropic vs openai 2026, fable 5 benchmark español",
     },
+    {
+        # Los dos flagship-sobre-flagship de 2026: el tier que Anthropic vende SOBRE Opus
+        # contra el que OpenAI vende SOBRE Terra. Cobertura editorial: pilar + post GPT-5.6.
+        "slug": "fable-5-vs-gpt-5-6-sol",
+        "a": {"name": "Claude Fable 5", "match": ["fable"]},
+        "b": {"name": "GPT-5.6 Sol", "match": ["gpt-5.6 sol"]},
+        "title": "Fable 5 vs GPT-5.6 Sol en 2026: los dos flagships premium, medidos",
+        "intent_kw": "fable 5 vs gpt 5.6 sol, claude fable vs gpt 5.6, flagship anthropic vs openai, fable 5 o gpt 5.6, mejores modelos premium 2026",
+    },
     # --- Fable 5: más comparaciones para captar búsquedas post-lanzamiento ---
     {
         "slug": "fable-5-vs-claude-sonnet-4-6",

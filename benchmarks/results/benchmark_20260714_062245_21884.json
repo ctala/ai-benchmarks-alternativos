@@ -10,7 +10,11 @@
       "evaluations": 5,
       "estimated_cost_usd": 0.0084
     },
-    "partial": false
+    "partial": false,
+    "polluted_cleanup": {
+      "at": "2026-07-16T20:09:49+00:00",
+      "removed": 1
+    }
   },
   "results": [
     {
@@ -45,39 +49,6 @@
       "timestamp": "20260714_062245_21884",
       "response_file": "results/responses/20260714_062245_21884/or-ministral-14b__presentation__slide_outline.md",
       "scoring": "juez-30-70"
-    },
-    {
-      "quality": 10.0,
-      "cost_score": 9.39,
-      "cost_usd": 0.000344,
-      "speed": 8.0,
-      "latency": 1.0,
-      "tool_calling": 7.0,
-      "final": 9.08,
-      "test_name": "data_report",
-      "model": "Ministral 14B",
-      "model_id": "mistralai/ministral-14b-2512",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 86.7,
-      "latency_first_token": 17.918,
-      "latency_total": 17.918,
-      "input_tokens": 168,
-      "output_tokens": 1554,
-      "response_preview": "Aquí tienes un reporte en formato Markdown con el análisis solicitado:\n\n```markdown\n# **Reporte de Ventas - Primeros 4 Meses (Enero a Abril)**\n\n## **1. Datos de Ventas (en USD)**\nTodas las cifras están en miles de dólares ($K).\n\n### **Tabla Mensual con Totales**\n| Mes      | Producto A | Producto B ",
-      "auto_quality": 10.0,
-      "judge_score": 5,
-      "judge_precision": 5,
-      "judge_relevancia": 5,
-      "judge_profundidad": 4,
-      "judge_claridad": 5,
-      "judge_utilidad": 5,
-      "judge_justificacion": "La respuesta es precisa, relevante, clara y ofrece insights útiles, con una estructura bien organizada que un emprendedor podría usar directamente.",
-      "suite": "presentation",
-      "run": 1,
-      "timestamp": "20260714_062245_21884",
-      "response_file": "results/responses/20260714_062245_21884/or-ministral-14b__presentation__data_report.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.8,

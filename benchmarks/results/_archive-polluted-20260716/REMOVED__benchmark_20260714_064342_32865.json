@@ -1,0 +1,39 @@
+{
+  "archived_at": "2026-07-16T20:09:49+00:00",
+  "reason": "polluted_E1_E2_E3_general_suites",
+  "runs": [
+    {
+      "quality": 10.0,
+      "cost_score": 7.41,
+      "cost_usd": 0.001576,
+      "speed": 8.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 8.79,
+      "test_name": "newsletter_startup",
+      "model": "MiniMax M2.5",
+      "model_id": "minimax/minimax-m2.5",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 52.8,
+      "latency_first_token": 32.493,
+      "latency_total": 32.493,
+      "input_tokens": 209,
+      "output_tokens": 1716,
+      "response_preview": "# 🌱 Ecosistema Startup #47\n\n## La newsletter que mantiene a los emprendedores un paso adelante\n\n---\n\nHola, emprendedores y soñadores del ecosistema tech 👋\n\nEsta semana el universo de la inteligencia artificial y las startups latinoamericanas nos trae noticias que no podemos ignorar. Desde nuevos mod",
+      "auto_quality": 10.0,
+      "judge_score": 5,
+      "judge_precision": 5,
+      "judge_relevancia": 5,
+      "judge_profundidad": 4,
+      "judge_claridad": 5,
+      "judge_utilidad": 5,
+      "judge_justificacion": "La respuesta es precisa, relevante, clara y útil, proporcionando información detallada y perspectivas útiles para emprendedores.",
+      "suite": "startup_content",
+      "run": 1,
+      "timestamp": "20260714_064342_32865",
+      "response_file": "results/responses/20260714_064342_32865/or-minimax-m2.5__startup_content__newsletter_startup.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
+    }
+  ]
+}

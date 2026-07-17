@@ -217,6 +217,11 @@ def _formula_esperada(suite: str, test_name: str | None = None) -> str:
     from benchmarks.runner import ALL_TEST_SUITES
     if suite.startswith("niah"):
         return "verificable"
+    # agent_long_horizon (multi_turn_script): se puntúa con RÚBRICA regex determinista
+    # (no juez, no expected_answer). El runner estampa "verificable" correctamente; sin
+    # este caso, la regla "sin expected_answer → juez-30-70" marcaba mal toda la suite.
+    if suite.startswith("agent_long_horizon"):
+        return "verificable"
     tests = ALL_TEST_SUITES.get(suite, [])
     if test_name:
         t = next((x for x in tests if x.get("name") == test_name), None)

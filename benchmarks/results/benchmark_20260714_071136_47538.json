@@ -15,6 +15,10 @@
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
       "at": "2026-07-15T20:48:14+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    },
+    "polluted_cleanup": {
+      "at": "2026-07-16T20:09:49+00:00",
+      "removed": 1
     }
   },
   "results": [
@@ -161,39 +165,6 @@
       "rescored_by": "verificador-semantico",
       "rescored_at": "2026-07-15T20:48:13+00:00",
       "scoring": "verificable"
-    },
-    {
-      "quality": 8.0,
-      "cost_score": 10.0,
-      "cost_usd": 7.3e-05,
-      "speed": 4.0,
-      "latency": 2.0,
-      "tool_calling": 7.0,
-      "final": 7.55,
-      "test_name": "translate_technical_en_es",
-      "model": "DeepSeek V3",
-      "model_id": "deepseek/deepseek-v3.2",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 18.9,
-      "latency_first_token": 6.362,
-      "latency_total": 6.362,
-      "input_tokens": 162,
-      "output_tokens": 120,
-      "response_preview": "Para autenticarse con la API, incluya su token Bearer en el encabezado Authorization. Los límites de tasa están establecidos en 100 solicitudes por minuto para el nivel gratuito. Si excede el límite de tasa, la API devuelve un código de estado 429 con un encabezado Retry-After que indica cuándo pued",
-      "auto_quality": 8.0,
-      "judge_score": 4.0,
-      "judge_precision": 4,
-      "judge_relevancia": 4,
-      "judge_profundidad": 3,
-      "judge_claridad": 5,
-      "judge_utilidad": 4,
-      "judge_justificacion": "La respuesta es precisa y relevante, con una claridad excepcional y utilidad práctica, aunque la profundidad es solo aceptable.",
-      "suite": "translation",
-      "run": 1,
-      "timestamp": "20260714_071136_47538",
-      "response_file": "results/responses/20260714_071136_47538/or-deepseek-v3__translation__translate_technical_en_es.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.67,

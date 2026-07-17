@@ -1,0 +1,39 @@
+{
+  "archived_at": "2026-07-16T20:09:49+00:00",
+  "reason": "polluted_E1_E2_E3_general_suites",
+  "runs": [
+    {
+      "quality": 8.0,
+      "cost_score": 8.72,
+      "cost_usd": 0.000578,
+      "speed": 8.0,
+      "latency": 2.0,
+      "tool_calling": 0.0,
+      "final": 7.66,
+      "test_name": "ambiguous_issue_classification",
+      "model": "MiniMax M2.5",
+      "model_id": "minimax/minimax-m2.5",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 59.5,
+      "latency_first_token": 9.167,
+      "latency_total": 9.167,
+      "input_tokens": 580,
+      "output_tokens": 545,
+      "response_preview": "Entiendo la urgencia. Tienes una suscripción activa que se renueva mañana y no puedes acceder a tu cuenta ni recibir el email de recuperación.\n\nPara crear el ticket de soporte, necesito tu correo electrónico associated con la cuenta.\n\nMientras tanto, ¿tienes algún ID de pedido o número de orden de t",
+      "auto_quality": 8.0,
+      "judge_score": 4.0,
+      "judge_precision": 4,
+      "judge_relevancia": 4,
+      "judge_profundidad": 3,
+      "judge_claridad": 5,
+      "judge_utilidad": 4,
+      "judge_justificacion": "La respuesta es precisa, relevante y clara, mostrando empatía y ofreciendo pasos prácticos, aunque carece de profundidad en la resolución del problema.",
+      "suite": "customer_support",
+      "run": 1,
+      "timestamp": "20260714_070713_45208",
+      "response_file": "results/responses/20260714_070713_45208/or-minimax-m2.5__customer_support__ambiguous_issue_classification.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
+    }
+  ]
+}

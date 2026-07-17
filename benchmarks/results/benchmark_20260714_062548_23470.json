@@ -15,6 +15,10 @@
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
       "at": "2026-07-15T20:46:49+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    },
+    "polluted_cleanup": {
+      "at": "2026-07-16T20:09:49+00:00",
+      "removed": 1
     }
   },
   "results": [
@@ -83,39 +87,6 @@
       "timestamp": "20260714_062548_23470",
       "response_file": "results/responses/20260714_062548_23470/or-nemotron-3-nano-omni-reasoning__agent_capabilities__agent_team_delegation.md",
       "scoring": "juez-30-70"
-    },
-    {
-      "quality": 8.0,
-      "cost_score": 10.0,
-      "cost_usd": 0.0,
-      "speed": 10.0,
-      "latency": 6.0,
-      "tool_calling": 0.0,
-      "final": 8.3,
-      "test_name": "ask_clarification_before_acting",
-      "model": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
-      "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 129.8,
-      "latency_first_token": 1.371,
-      "latency_total": 1.371,
-      "input_tokens": 1200,
-      "output_tokens": 178,
-      "response_preview": "Para procesar el reembolso del cliente, necesito información específica como el ID del cliente, el monto a reembolsar, la razón del reembolso y otros detalles relevantes. ¿Podrías proporcionarme estos datos para continuar?",
-      "auto_quality": 8.0,
-      "judge_score": 4.0,
-      "judge_precision": 5,
-      "judge_relevancia": 5,
-      "judge_profundidad": 3,
-      "judge_claridad": 5,
-      "judge_utilidad": 4,
-      "judge_justificacion": "La respuesta es precisa, relevante y clara, solicitando información crítica necesaria para procesar un reembolso, lo que es directamente útil para un emprendedor.",
-      "suite": "agent_capabilities",
-      "run": 1,
-      "timestamp": "20260714_062548_23470",
-      "response_file": "results/responses/20260714_062548_23470/or-nemotron-3-nano-omni-reasoning__agent_capabilities__ask_clarification_before_acting.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 7.5,

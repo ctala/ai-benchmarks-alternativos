@@ -1,0 +1,39 @@
+{
+  "archived_at": "2026-07-16T20:09:49+00:00",
+  "reason": "polluted_E1_E2_E3_general_suites",
+  "runs": [
+    {
+      "quality": 10.0,
+      "cost_score": 10.0,
+      "cost_usd": 0.0,
+      "speed": 10.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 9.32,
+      "test_name": "project_breakdown",
+      "model": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
+      "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 198.2,
+      "latency_first_token": 19.999,
+      "latency_total": 19.999,
+      "input_tokens": 83,
+      "output_tokens": 3964,
+      "response_preview": "## 📅 Lanzamiento de la Landing Page – 4 semanas (28 días)  \n**Equipo:** 1 Diseñador (D), 2 Desarrolladores (Dev‑A, Dev‑B), 1 Copywriter (C)  \n\n> **Objetivo:** Tener una landing page 100 % funcional, optimizada para SEO y conversión, y publicada antes del día 28.  \n\n---\n\n## 1️⃣ Fases del proyecto\n\n| ",
+      "auto_quality": 10.0,
+      "judge_score": 5,
+      "judge_precision": 5,
+      "judge_relevancia": 5,
+      "judge_profundidad": 5,
+      "judge_claridad": 5,
+      "judge_utilidad": 5,
+      "judge_justificacion": "La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un desglose detallado y estructurado que un emprendedor podría usar directamente.",
+      "suite": "task_management",
+      "run": 1,
+      "timestamp": "20260714_055916_9042",
+      "response_file": "results/responses/20260714_055916_9042/or-nemotron-3-nano-omni-reasoning__task_management__project_breakdown.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
+    }
+  ]
+}

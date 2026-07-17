@@ -1,0 +1,39 @@
+{
+  "archived_at": "2026-07-16T20:09:49+00:00",
+  "reason": "polluted_E1_E2_E3_general_suites",
+  "runs": [
+    {
+      "quality": 8.0,
+      "cost_score": 9.27,
+      "cost_usd": 0.000376,
+      "speed": 6.0,
+      "latency": 2.0,
+      "tool_calling": 10.0,
+      "final": 7.59,
+      "test_name": "skill_execution_complex",
+      "model": "Kimi K2",
+      "model_id": "moonshotai/kimi-k2",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 34.8,
+      "latency_first_token": 8.715,
+      "latency_total": 8.715,
+      "input_tokens": 669,
+      "output_tokens": 303,
+      "response_preview": "Voy a ejecutar tu solicitud en varios pasos. Primero usaré el skill de publicación de blog post, luego enviaré los mensajes de Slack y finalmente agendaré la reunión.\n\n**Plan:**\n1. 📝 Ejecutar skill de publicación de blog post\n2. 💬 Enviar el link por Slack a @maria y @carlos\n3. 📅 Crear evento de reun",
+      "auto_quality": 8.01,
+      "judge_score": 4.0,
+      "judge_precision": 3,
+      "judge_relevancia": 4,
+      "judge_profundidad": 2,
+      "judge_claridad": 4,
+      "judge_utilidad": 3,
+      "judge_justificacion": "La respuesta es relevante y clara, pero carece de detalles sobre cómo se ejecutan los pasos, lo que limita su profundidad y utilidad práctica.",
+      "suite": "agent_capabilities",
+      "run": 1,
+      "timestamp": "20260714_134643_52436",
+      "response_file": "results/responses/20260714_134643_52436/kimi-k2__agent_capabilities__skill_execution_complex.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
+    }
+  ]
+}

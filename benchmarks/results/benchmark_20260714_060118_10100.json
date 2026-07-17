@@ -10,7 +10,11 @@
       "evaluations": 5,
       "estimated_cost_usd": 0.0078
     },
-    "partial": false
+    "partial": false,
+    "polluted_cleanup": {
+      "at": "2026-07-16T20:09:49+00:00",
+      "removed": 2
+    }
   },
   "results": [
     {
@@ -47,39 +51,6 @@
       "scoring": "juez-30-70"
     },
     {
-      "quality": 8.0,
-      "cost_score": 10.0,
-      "cost_usd": 0.0,
-      "speed": 10.0,
-      "latency": 1.0,
-      "tool_calling": 7.0,
-      "final": 7.92,
-      "test_name": "n8n_workflow_json",
-      "model": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
-      "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 182.6,
-      "latency_first_token": 20.457,
-      "latency_total": 20.457,
-      "input_tokens": 133,
-      "output_tokens": 3735,
-      "response_preview": "```json\n{\n  \"nodes\": [\n    {\n      \"parameters\": {\n        \"resource\": \"webhook\",\n        \"operation\": \"post\",\n        \"webhookId\": \"webhook_1\"\n      },\n      \"name\": \"Webhook\",\n      \"type\": \"n8n-nodes-base.webhook\",\n      \"typeVersion\": 1,\n      \"position\": [250, 300],\n      \"connections\": {}\n    ",
-      "auto_quality": 8.0,
-      "judge_score": 4.0,
-      "judge_precision": 4,
-      "judge_relevancia": 4,
-      "judge_profundidad": 3,
-      "judge_claridad": 4,
-      "judge_utilidad": 4,
-      "judge_justificacion": "La respuesta es precisa y relevante, cumpliendo con los requisitos del flujo de trabajo de N8N, aunque carece de profundidad adicional más allá de la funcionalidad básica requerida.",
-      "suite": "code_generation",
-      "run": 1,
-      "timestamp": "20260714_060118_10100",
-      "response_file": "results/responses/20260714_060118_10100/or-nemotron-3-nano-omni-reasoning__code_generation__n8n_workflow_json.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
-    },
-    {
       "quality": 9.8,
       "cost_score": 10.0,
       "cost_usd": 0.0,
@@ -111,39 +82,6 @@
       "timestamp": "20260714_060118_10100",
       "response_file": "results/responses/20260714_060118_10100/or-nemotron-3-nano-omni-reasoning__code_generation__sql_query_complex.md",
       "scoring": "juez-30-70"
-    },
-    {
-      "quality": 10.0,
-      "cost_score": 10.0,
-      "cost_usd": 0.0,
-      "speed": 10.0,
-      "latency": 4.0,
-      "tool_calling": 7.0,
-      "final": 9.55,
-      "test_name": "debug_code",
-      "model": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
-      "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 261.4,
-      "latency_first_token": 3.427,
-      "latency_total": 3.427,
-      "input_tokens": 234,
-      "output_tokens": 896,
-      "response_preview": "### Bugs identificados y explicación\n\n| # | Descripción del bug | Por qué es un problema |\n|---|----------------------|------------------------|\n| 1 | **Division por cero** en `average = total / len(processed)` cuando no existen órdenes con status *pending*. | Si `processed` está vacío, `len(process",
-      "auto_quality": 10.0,
-      "judge_score": 5,
-      "judge_precision": 5,
-      "judge_relevancia": 5,
-      "judge_profundidad": 5,
-      "judge_claridad": 5,
-      "judge_utilidad": 5,
-      "judge_justificacion": "La respuesta es precisa, relevante, profunda, clara y extremadamente útil, abordando todos los problemas identificados y proporcionando una solución detallada y bien estructurada.",
-      "suite": "code_generation",
-      "run": 1,
-      "timestamp": "20260714_060118_10100",
-      "response_file": "results/responses/20260714_060118_10100/or-nemotron-3-nano-omni-reasoning__code_generation__debug_code.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
     }
   ]
 }

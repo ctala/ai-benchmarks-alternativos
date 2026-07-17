@@ -29,25 +29,24 @@ _Texto largo en español neutro. El costo manda: es alto volumen._
 
 - **Usá:** **GPT-OSS 120B** — ≈$1/mes (calidad 8.23/10)
 - **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**278.6× más**) por apenas +0.25 de calidad — dentro del margen de error.
-- _20 modelos empatan en calidad en este pilar._
+- _18 modelos empatan en calidad en este pilar._
 
 ### Código y debugging
 
 _Generación y corrección de código._
 
-- **Usá:** **DeepSeek V3.2** — ≈$1/mes (calidad 8.36/10)
-- **Lo que te ahorrás:** GPT-4.1 cuesta ≈$38/mes (**27.2× más**) por apenas +0.03 de calidad — dentro del margen de error.
-- **Mejor open-source:** **Qwen3 Coder** — ≈$3/mes (calidad 8.48/10)
-- _7 modelos empatan en calidad en este pilar._
+- **Usá:** **DeepSeek V4 Flash (OpenRouter)** — ≈$1/mes (calidad 8.26/10)
+- **Lo que te ahorrás:** GPT-4.1 cuesta ≈$38/mes (**39.0× más**) por apenas +0.04 de calidad — dentro del margen de error.
+- _11 modelos empatan en calidad en este pilar._
 
 ### Razonamiento y estrategia
 
 _Análisis, decisiones, problemas con varios pasos._
 
-- **Usá:** **Qwen 3.6 Plus** — ≈$5/mes (calidad 8.59/10)
-- **Lo que te ahorrás:** Claude Opus 4.8 cuesta ≈$117/mes (**23.5× más**) por apenas -0.18 de calidad — dentro del margen de error.
+- **Usá:** **Qwen 3.6 Plus** — ≈$5/mes (calidad 8.39/10)
+- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**47.0× más**) por apenas -0.10 de calidad — dentro del margen de error.
 - **Mejor open-source:** **GLM 5** — ≈$9/mes (calidad 8.42/10)
-- _11 modelos empatan en calidad en este pilar._
+- _14 modelos empatan en calidad en este pilar._
 
 ---
 
@@ -70,6 +69,6 @@ Lo mejor que podés comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 El más barato de ese grupo — **MiniMax M3** — sale **≈$6/mes**.
 El más caro — **GPT-5.6 Sol** — sale **≈$140/mes**.
 
-Eso es **24.6× más caro** por una diferencia de calidad de **+0.04 puntos**, que está dentro del margen de error.
+Eso es **24.6× más caro** por una diferencia de calidad de **+0.03 puntos**, que está dentro del margen de error.
 
 Si te llevás una sola cosa de este benchmark, que sea esta.

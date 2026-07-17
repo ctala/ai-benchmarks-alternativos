@@ -1,0 +1,39 @@
+{
+  "archived_at": "2026-07-16T20:09:49+00:00",
+  "reason": "polluted_E1_E2_E3_general_suites",
+  "runs": [
+    {
+      "quality": 10.0,
+      "cost_score": 5.69,
+      "cost_usd": 0.005868,
+      "speed": 10.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 8.01,
+      "test_name": "weekly_planning",
+      "model": "Qwen 3.6 35B base (OpenRouter FP8)",
+      "model_id": "qwen/qwen3.6-35b-a3b",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 200.0,
+      "latency_first_token": 29.188,
+      "latency_total": 29.188,
+      "input_tokens": 210,
+      "output_tokens": 5839,
+      "response_preview": "Aquí tienes un plan semanal optimizado para un Product Manager, respetando todas tus restricciones fijas, distribuyendo la carga cognitiva de forma realista y priorizando bloques de trabajo profundo.\n\n### 📅 Plan Semanal Detallado\n*(Horario base sugerido: 08:00 – 17:00. Ajustable según tu zona horari",
+      "auto_quality": 10.0,
+      "judge_score": 5,
+      "judge_precision": 5,
+      "judge_relevancia": 5,
+      "judge_profundidad": 4,
+      "judge_claridad": 5,
+      "judge_utilidad": 5,
+      "judge_justificacion": "La respuesta es precisa, relevante, clara y altamente útil, proporcionando un plan detallado que se ajusta perfectamente a las restricciones y tareas dadas, con una estructura organizada y consejos prácticos.",
+      "suite": "task_management",
+      "run": 1,
+      "timestamp": "20260601_160634_2187576",
+      "response_file": "results/responses/20260601_160634_2187576/qwen3.6-35b__task_management__weekly_planning.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
+    }
+  ]
+}

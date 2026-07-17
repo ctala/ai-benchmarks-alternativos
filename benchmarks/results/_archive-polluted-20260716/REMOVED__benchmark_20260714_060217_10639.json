@@ -1,0 +1,39 @@
+{
+  "archived_at": "2026-07-16T20:09:49+00:00",
+  "reason": "polluted_E1_E2_E3_general_suites",
+  "runs": [
+    {
+      "quality": 10.0,
+      "cost_score": 10.0,
+      "cost_usd": 0.0,
+      "speed": 10.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 9.32,
+      "test_name": "business_analysis",
+      "model": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
+      "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 181.0,
+      "latency_first_token": 17.449,
+      "latency_total": 17.449,
+      "input_tokens": 213,
+      "output_tokens": 3158,
+      "response_preview": "### 1️⃣ Métricas clave (cálculos)\n\n| Métrica | Fórmula | Enero | Febrero | Marzo |\n|---------|---------|-------|---------|-------|\n| **Churn Rate** | Churns / Usuarios | 45 / 1 200 = **3.75 %** | 52 / 1 350 = **3.85 %** | 68 / 1 480 = **4.60 %** |\n| **Growth Rate (usuarios)** | (Usuarios actual – Us",
+      "auto_quality": 10.0,
+      "judge_score": 5,
+      "judge_precision": 5,
+      "judge_relevancia": 5,
+      "judge_profundidad": 4,
+      "judge_claridad": 5,
+      "judge_utilidad": 5,
+      "judge_justificacion": "La respuesta es precisa, relevante, clara y profundiza en las métricas clave y tendencias, ofreciendo acciones concretas y proyecciones útiles para un emprendedor.",
+      "suite": "reasoning",
+      "run": 1,
+      "timestamp": "20260714_060217_10639",
+      "response_file": "results/responses/20260714_060217_10639/or-nemotron-3-nano-omni-reasoning__reasoning__business_analysis.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
+    }
+  ]
+}

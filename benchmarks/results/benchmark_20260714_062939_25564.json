@@ -15,6 +15,10 @@
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
       "at": "2026-07-15T20:47:00+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
+    },
+    "polluted_cleanup": {
+      "at": "2026-07-16T20:09:49+00:00",
+      "removed": 1
     }
   },
   "results": [
@@ -54,39 +58,6 @@
       "rescored_by": "verificador-semantico",
       "rescored_at": "2026-07-15T20:46:59+00:00",
       "scoring": "verificable"
-    },
-    {
-      "quality": 8.0,
-      "cost_score": 10.0,
-      "cost_usd": 0.0,
-      "speed": 10.0,
-      "latency": 4.0,
-      "tool_calling": 7.0,
-      "final": 8.15,
-      "test_name": "translate_technical_en_es",
-      "model": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
-      "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 166.7,
-      "latency_first_token": 4.211,
-      "latency_total": 4.211,
-      "input_tokens": 166,
-      "output_tokens": 702,
-      "response_preview": "Para autenticarse con la API, incluye tu Bearer token en el encabezado Authorization. Los límites de tasa están fijados en 100 solicitudes por minuto para la capa gratuita. Si superas el límite de tasa, la API devuelve un código de estado 429 con un encabezado Retry-After que indica cuándo puedes re",
-      "auto_quality": 8.0,
-      "judge_score": 4.0,
-      "judge_precision": 4,
-      "judge_relevancia": 4,
-      "judge_profundidad": 3,
-      "judge_claridad": 4,
-      "judge_utilidad": 4,
-      "judge_justificacion": "La respuesta es precisa y relevante, manteniendo los términos técnicos en inglés y proporcionando información adicional útil sobre el manejo de webhooks, aunque no se completó la oración original.",
-      "suite": "translation",
-      "run": 1,
-      "timestamp": "20260714_062939_25564",
-      "response_file": "results/responses/20260714_062939_25564/or-nemotron-3-nano-omni-reasoning__translation__translate_technical_en_es.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 6.67,

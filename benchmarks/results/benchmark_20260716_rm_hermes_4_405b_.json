@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "timestamp": "20260716_rm_hermes_4_405b_",
+    "total_runs": 84,
+    "errors": 0,
+    "judge": {
+      "judge_model": "microsoft/phi-4",
+      "judge_provider": "openrouter",
+      "judge_is_local": false,
+      "evaluations": 1,
+      "estimated_cost_usd": 0.0007
+    },
+    "partial": false,
+    "polluted_cleanup": {
+      "at": "2026-07-17T10:56:31+00:00",
+      "removed": 13
+    }
+  },
+  "results": [
+    {
+      "quality": 5.833,
+      "cost_score": 7.693,
+      "cost_usd": 0.001,
+      "speed": 6.0,
+      "latency": 2.0,
+      "tool_calling": 7.0,
+      "final": 5.837,
+      "test_name": "model_as_router",
+      "model": "Hermes 4 405B",
+      "model_id": "nousresearch/hermes-4-405b",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 42.467,
+      "latency_first_token": 7.692,
+      "latency_total": 7.692,
+      "input_tokens": 286,
+      "output_tokens": 341,
+      "response_preview": "[\n  {\n    \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n    \"modelo\": \"deepseek-v3\",\n    \"razon\": \"Deepseek-v3 es mejor para el análisis y razonamiento necesario para procesar gran cantidad de texto y extraer insights clave de manera económica.\"\n  },\n  {\n    \"",
+      "auto_quality": 7.3,
+      "content_score": 7.0,
+      "answer_score": 7.5,
+      "scoring": "verificable",
+      "judge_score": 4.0,
+      "judge_precision": 4,
+      "judge_relevancia": 5,
+      "judge_profundidad": 4,
+      "judge_claridad": 5,
+      "judge_utilidad": 4,
+      "judge_justificacion": "La respuesta es precisa, relevante y clara, ofreciendo una asignación de modelos bien justificada para cada subtarea, con utilidad práctica para un emprendedor.",
+      "suite": "agent_capabilities",
+      "run": 1,
+      "timestamp": "20260716_rm_hermes_4_405b_",
+      "response_file": "results/responses/20260716_rm_hermes_4_405b_/hermes-4-405b__agent_capabilities__model_as_router.md",
+      "runs_averaged": 3
+    }
+  ]
+}

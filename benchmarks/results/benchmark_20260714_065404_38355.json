@@ -10,7 +10,11 @@
       "evaluations": 11,
       "estimated_cost_usd": 0.0184
     },
-    "partial": false
+    "partial": false,
+    "polluted_cleanup": {
+      "at": "2026-07-16T20:09:49+00:00",
+      "removed": 2
+    }
   },
   "results": [
     {
@@ -45,39 +49,6 @@
       "timestamp": "20260714_065404_38355",
       "response_file": "results/responses/20260714_065404_38355/or-glm5__startup_content__blog_actualidad_startup.md",
       "scoring": "juez-30-70"
-    },
-    {
-      "quality": 10.0,
-      "cost_score": 5.58,
-      "cost_usd": 0.006384,
-      "speed": 2.0,
-      "latency": 1.0,
-      "tool_calling": 7.0,
-      "final": 8.06,
-      "test_name": "curso_emprendimiento_modulo",
-      "model": "GLM 5",
-      "model_id": "z-ai/glm-5",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 8.9,
-      "latency_first_token": 365.269,
-      "latency_total": 365.269,
-      "input_tokens": 240,
-      "output_tokens": 3250,
-      "response_preview": "# Módulo 3: Automatización con IA: De la idea al flujo de trabajo\n\n## 1. Objetivo del Módulo\n\nEl objetivo de este módulo es que el emprendedor comprenda cómo conectar herramientas cotidianas (como Gmail, WhatsApp o Google Sheets) con Inteligencia Artificial para crear \"flujos de trabajo\" automáticos",
-      "auto_quality": 10.0,
-      "judge_score": 5,
-      "judge_precision": 5,
-      "judge_relevancia": 5,
-      "judge_profundidad": 4,
-      "judge_claridad": 5,
-      "judge_utilidad": 5,
-      "judge_justificacion": "La respuesta es precisa, relevante, clara y profundamente útil, proporcionando ejemplos prácticos y una explicación detallada de herramientas como n8n, lo que la hace altamente aplicable para emprendedores.",
-      "suite": "startup_content",
-      "run": 1,
-      "timestamp": "20260714_065404_38355",
-      "response_file": "results/responses/20260714_065404_38355/or-glm5__startup_content__curso_emprendimiento_modulo.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.72,
@@ -210,39 +181,6 @@
       "timestamp": "20260714_065404_38355",
       "response_file": "results/responses/20260714_065404_38355/or-qwen-2.5-72b__startup_content__blog_actualidad_startup.md",
       "scoring": "juez-30-70"
-    },
-    {
-      "quality": 10.0,
-      "cost_score": 8.61,
-      "cost_usd": 0.000626,
-      "speed": 6.0,
-      "latency": 1.0,
-      "tool_calling": 7.0,
-      "final": 8.82,
-      "test_name": "curso_emprendimiento_modulo",
-      "model": "Qwen 2.5 72B",
-      "model_id": "qwen/qwen-2.5-72b-instruct",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 32.4,
-      "latency_first_token": 41.311,
-      "latency_total": 41.311,
-      "input_tokens": 252,
-      "output_tokens": 1338,
-      "response_preview": "# Módulo 3: Automatización con IA: De la idea al flujo de trabajo\n\n## Objetivo del Módulo\nEn este módulo, aprenderás cómo la Inteligencia Artificial (IA) puede ayudarte a automatizar procesos clave en tu startup. A través de ejemplos prácticos y herramientas como N8N, exploraremos cómo implementar f",
-      "auto_quality": 10.0,
-      "judge_score": 5,
-      "judge_precision": 5,
-      "judge_relevancia": 5,
-      "judge_profundidad": 4,
-      "judge_claridad": 5,
-      "judge_utilidad": 5,
-      "judge_justificacion": "La respuesta es precisa, relevante, clara y profundamente útil, proporcionando ejemplos prácticos y herramientas específicas que un emprendedor podría implementar directamente.",
-      "suite": "startup_content",
-      "run": 1,
-      "timestamp": "20260714_065404_38355",
-      "response_file": "results/responses/20260714_065404_38355/or-qwen-2.5-72b__startup_content__curso_emprendimiento_modulo.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
     },
     {
       "quality": 9.8,

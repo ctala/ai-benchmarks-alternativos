@@ -1,0 +1,39 @@
+{
+  "archived_at": "2026-07-16T20:09:49+00:00",
+  "reason": "polluted_E1_E2_E3_general_suites",
+  "runs": [
+    {
+      "quality": 10.0,
+      "cost_score": 8.87,
+      "cost_usd": 0.000512,
+      "speed": 10.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 9.16,
+      "test_name": "news_perplexity_enrichment",
+      "model": "Ministral 14B",
+      "model_id": "mistralai/ministral-14b-2512",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 101.4,
+      "latency_first_token": 20.199,
+      "latency_total": 20.199,
+      "input_tokens": 514,
+      "output_tokens": 2048,
+      "response_preview": "## **DeepSeek V4: el modelo de IA abierto que compite con GPT-4o y Claude Sonnet sin depender de capital externo**\n\nEl ecosistema de inteligencia artificial ha vivido en los últimos meses una carrera por optimizar costos, escalar capacidades y democratizar el acceso a modelos avanzados. En ese conte",
+      "auto_quality": 10.0,
+      "judge_score": 5,
+      "judge_precision": 5,
+      "judge_relevancia": 5,
+      "judge_profundidad": 5,
+      "judge_claridad": 5,
+      "judge_utilidad": 5,
+      "judge_justificacion": "La respuesta integra con precisión el extracto original y los datos adicionales, proporcionando una visión detallada y estructurada de DeepSeek V4, con un enfoque en su arquitectura, estrategia de precios y origen, lo que la hace altamente relevante, profunda y útil para emprendedores.",
+      "suite": "news_seo_writing",
+      "run": 1,
+      "timestamp": "20260714_064727_34700",
+      "response_file": "results/responses/20260714_064727_34700/or-ministral-14b__news_seo_writing__news_perplexity_enrichment.md",
+      "scoring": "solo-rubrica-SIN-JUEZ"
+    }
+  ]
+}
