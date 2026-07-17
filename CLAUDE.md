@@ -91,7 +91,7 @@ El runner **guarda incrementalmente** tras cada test y puede continuar desde cua
 - `benchmarks/models.py` — Catálogo público de modelos: `MODELS` + `OLLAMA_MODELS` (en git, fuente única)
 - `benchmarks/config.py` — Lee env vars de `.env`, importa MODELS de models.py
 - `benchmarks/runner.py` — Motor principal, acepta `--resume`, `--rerun-empty`, `--rerun-failed`
-- `benchmarks/scoring.py` — Sistema de puntuación, pesos v3.0.2 y dict `PRICING` (fallback)
+- `benchmarks/scoring.py` — Sistema de puntuación, pesos (referencia congelada v4.0) y dict `PRICING` (fallback)
 - `benchmarks/llm_judge.py` — LLM-as-Judge con rúbrica en español (presets phi4/phi4-spark/phi4-vllm)
 - `benchmarks/export_for_pages.py` — Genera `docs/data/models.json` (single source of truth)
 - `benchmarks/regenerate_all.py` — Pipeline maestro que regenera todos los artefactos derivados
@@ -124,9 +124,9 @@ Constantes en `providers/adapters.py` (cima del archivo) — **este es el están
 
 **Origen del estándar**: detectado abril 25 2026 — 165 runs vacíos de thinking models con `max_tokens=2048` original + 6 timeouts de GPT-5.5 con `read=60s`. Tras el fix, GPT-5.5 subió de 5.76 a 6.41+ (sigue subiendo con la re-corrida de timeouts).
 
-## Scoring v3.0.2 + LLM-as-Judge
+## Scoring v4.0 (z-score congelado) + LLM-as-Judge
 
-El `score_global` es una **función ponderada y z-scoreada** de 4 componentes (ver `benchmarks/scoring.py`):
+El `score_global` es una **función ponderada y z-scoreada** de 4 componentes (ver `benchmarks/scoring.py`). **Desde v4.0 la referencia del z-score (mean/std por dimensión) está CONGELADA por versión** en `scoring_reference.json` (`score_method: zscore_frozen_v4`): agregar un modelo nuevo NO recalcula el score de los demás. La referencia solo se recalcula con `export_for_pages.py --recalibrate --scoring-version vX.Y` (evento de versión deliberado). Los pesos default siguen siendo 70/15/7.5/7.5:
 
 | Componente | Peso default | Qué mide |
 |---|---|---|
@@ -303,17 +303,20 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - Ubicado en Chile (latencia a servidores USA)
 - Suscripciones activas: OpenRouter, MiniMax (Agent Pro / highspeed), Anthropic (Claude Code), Kimi / MoonshotAI, Ollama Cloud, Xiaomi MiMo, xAI SuperGrok
 
-## Estado actual (v3.1.0, 2 Julio 2026) — ver ROADMAP.md para plan completo
+## Estado actual (v4.0.0, 17 Julio 2026) — ver ROADMAP.md para plan completo
 
 ### Ranking actual — NO se copia acá, se lee de la fuente
 
 **El ranking vivo está en el README** (bloque `<!-- AUTO-RANKING -->`, auto-generado) y en
 `docs/data/models.json`. **Este archivo ya no lo duplica, a propósito.**
 
-Por qué: el `score_global` es un **z-score normalizado contra toda la población**. Medir un
-modelo nuevo **recalcula el score de todos los anteriores**. Cualquier ranking copiado a mano
-queda obsoleto solo, sin que nadie toque el archivo — y eso ya pasó (julio 2026: el README
-publicaba Grok 4.5 = 6.99 mientras el sitio mostraba 5.84).
+Por qué: el `score_global` es un **z-score**. **Desde v4.0 la referencia (mean/std por
+dimensión) está CONGELADA por versión** en `scoring_reference.json` (`score_method:
+zscore_frozen_v4`): agregar/medir un modelo nuevo ya **NO recalcula el score de los demás** —
+se puntúa contra la referencia fija. Los scores solo se reajustan al publicar una versión nueva
+(`export_for_pages.py --recalibrate --scoring-version vX.Y`, evento deliberado). **Aun así, no
+hardcodees un score en un doc vivo**: entre versiones cambian, y un ranking copiado a mano queda
+obsoleto (pasó en julio 2026: el README publicaba Grok 4.5 = 6.99 mientras el sitio mostraba 5.84).
 
 Para ver el ranking al día:
 ```bash

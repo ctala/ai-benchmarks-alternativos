@@ -2,6 +2,20 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v4.0.0] - 2026-07-17 — Relanzamiento: referencia z-score congelada + limpieza definitiva + pase de UX
+
+### Scoring
+- **Referencia z-score CONGELADA por versión** (`scoring_reference.json`, `score_method: zscore_frozen_v4`): agregar/medir un modelo nuevo ya NO recalcula el score de los demás — se puntúa contra la referencia fija. Antes cada lote movía a todos. La referencia solo se recalcula con `export_for_pages.py --recalibrate --scoring-version vX.Y` (evento deliberado).
+- **Eje agéntico expuesto** (`agentic_score`): lo agéntico cuenta en la calidad headline Y como eje separado.
+- **Refusal policy**: rehusar filtrar credenciales o resistir ingeniería social ya NO penaliza (los tests `refusal_ok` puntúan la negativa como conducta correcta, quality=10).
+
+### Datos
+- **Limpieza definitiva**: archivado de runs corruptos (empties de rate-limit, fórmulas obsoletas, suites archivadas) + re-medición limpia. Nuevo campo `total_runs_measured` = esfuerzo total incl. descartados (27.741 = 23.369 activos + 4.372 archivados).
+- **Prompt-based tool calling** para modelos sin `tools` nativo (Hermes 4) + verificador robustecido (retries, response_format json, fallbacks).
+
+### Sitio / UX
+- Wizard guiado de 3 pasos, logo wordmark texto → root del benchmark, header/footer canónico único, español neutro (cero voseo), structured data dinámico con señales de frescura (dateModified/version), sección "Cómo se mide", tabla de resultados simplificada a 9 columnas.
+
 ## [v3.1.2] - 2026-07-12 — Integridad del ranking: dos rankings públicos contradictorios
 
 Auditoría de integridad disparada al preparar contenido sobre GPT-5.6 / Grok 4.5. **No se re-midió
