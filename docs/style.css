@@ -411,6 +411,7 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
 
 .tag {
   display: inline-block;
+  white-space: nowrap;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.6rem;
   font-weight: 700;
@@ -1193,6 +1194,19 @@ footer p { word-break: break-word; }
   .hero { padding: 3rem 0 1.5rem; text-align: center; }
   .hero h1 { font-size: 2rem; }
   .hero .lead { font-size: 1rem; max-width: 720px; margin-left: auto; margin-right: auto; }
+  /* Callout del curso + bloque "qué es": centrados como el lead (el hero es center en desktop) */
+  .hero-note {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-left: none;
+    border: 1px solid rgba(57, 255, 20, 0.22);
+  }
+  .hero-details { max-width: 640px; margin-left: auto; margin-right: auto; }
+  /* .meta hereda max-width de la regla de párrafos de main → sin margin auto quedaba
+     pegado a la izquierda en el hero centrado. Lo centramos (solo en el hero). */
+  .hero .meta { margin-left: auto; margin-right: auto; }
   .filters { padding: 1.75rem; }
   .filters h2 { font-size: 1.15rem; }
   .filter-grid {
