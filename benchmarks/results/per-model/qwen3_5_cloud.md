@@ -1,13 +1,13 @@
 # Qwen 3.5 (Ollama Cloud default)
 
 - **model_id**: `qwen3.5:cloud`
-- **Total tests**: 91/101 exitosos (10 errores)
-- **Score final**: 5.59
-- **Calidad**: 5.11
+- **Total tests**: 56/66 exitosos (10 errores)
+- **Score final**: 6.86
+- **Calidad**: 7.44
 - **Judge score (Phi-4)**: 4.08/10
-- **Velocidad**: 70 tok/s
-- **Latencia primera token**: 33.22s
-- **Costo promedio por test**: $0.00413
+- **Velocidad**: 73 tok/s
+- **Latencia primera token**: 28.90s
+- **Costo promedio por test**: $0.00365
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,30 +15,28 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 5.65 | 5.56 |
+| agent_capabilities | 4 | 4 | 6.33 | 6.95 |
 | business_audit | 10 | 0 | - | - |
-| code_generation | 4 | 4 | 5.97 | 5.76 |
-| content_generation | 4 | 4 | 6.40 | 6.59 |
-| creativity | 4 | 4 | 5.35 | 4.80 |
+| code_generation | 2 | 2 | 7.95 | 9.52 |
+| content_generation | 3 | 3 | 7.56 | 8.79 |
 | customer_support | 4 | 4 | 6.70 | 6.51 |
-| deep_reasoning | 6 | 6 | 4.85 | 4.17 |
+| deep_reasoning | 4 | 4 | 5.82 | 6.25 |
 | hallucination | 3 | 3 | 6.55 | 7.00 |
-| multi_turn | 4 | 4 | 6.37 | 6.70 |
-| news_seo_writing | 5 | 5 | 3.42 | 1.20 |
-| ocr_extraction | 5 | 5 | 3.94 | 2.08 |
+| multi_turn | 3 | 3 | 6.72 | 7.33 |
+| ocr_extraction | 1 | 1 | 7.32 | 8.00 |
 | orchestration | 5 | 5 | 7.46 | 8.04 |
-| policy_adherence | 4 | 4 | 5.50 | 4.50 |
+| policy_adherence | 2 | 2 | 8.78 | 10.00 |
 | presentation | 2 | 2 | 6.66 | 7.34 |
-| reasoning | 3 | 3 | 4.35 | 3.15 |
-| sales_outreach | 3 | 3 | 4.82 | 3.78 |
-| startup_content | 5 | 5 | 5.31 | 4.75 |
-| strategy | 3 | 3 | 5.03 | 4.44 |
-| string_precision | 6 | 6 | 6.71 | 6.97 |
-| structured_output | 4 | 4 | 4.83 | 4.40 |
+| reasoning | 1 | 1 | 7.54 | 9.44 |
+| sales_outreach | 2 | 2 | 5.70 | 5.67 |
+| startup_content | 3 | 3 | 6.92 | 7.91 |
+| strategy | 2 | 2 | 6.16 | 6.67 |
+| string_precision | 5 | 5 | 7.46 | 8.20 |
+| structured_output | 2 | 2 | 5.14 | 5.00 |
 | summarization | 2 | 2 | 6.80 | 7.78 |
-| task_management | 3 | 3 | 4.55 | 3.08 |
+| task_management | 1 | 1 | 7.69 | 9.24 |
 | tool_calling | 4 | 4 | 7.56 | 7.45 |
-| translation | 3 | 3 | 4.22 | 2.98 |
+| translation | 1 | 1 | 3.90 | 3.33 |
 
 ## Detalle por test
 
@@ -48,11 +46,9 @@
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| math_word_problem | 2.91 | 0.00 | - | 91 | 22.40s | OK |
 | logic_puzzle_constraint | 4.81 | 5.00 | 3.8 | 55 | 139.06s | OK |
 | causal_reasoning | 6.82 | 7.50 | 4.4 | 79 | 26.07s | OK |
 | code_bug_subtle | 6.57 | 7.50 | 4.4 | 55 | 132.83s | OK |
-| fermi_estimation | 2.92 | 0.00 | - | 66 | 31.27s | OK |
 | ethical_dilemma_structured | 5.07 | 5.00 | 4.4 | 79 | 25.84s | OK |
 
 <details><summary><code>logic_puzzle_constraint</code> — score 4.81</summary>
@@ -154,9 +150,7 @@ Este análisis evalúa el dilema ético y operativo entre el
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| business_analysis | 2.91 | 0.00 | - | 85 | 24.09s | OK |
 | logical_reasoning | 7.54 | 9.44 | 4.6 | 54 | 54.96s | OK |
-| multi_constraint_decision | 2.61 | 0.00 | - | 23 | 89.65s | OK |
 
 <details><summary><code>logical_reasoning</code> — score 7.54</summary>
 
@@ -270,7 +264,6 @@ Aquí tienes las respuestas basadas en mi base de conocimientos, con las adverte
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | competitor_analysis | 3.90 | 3.33 | 3.8 | 82 | 25.07s | OK |
-| pricing_strategy | 2.76 | 0.00 | - | 39 | 52.22s | OK |
 | business_model_validation | 8.42 | 10.00 | 4.8 | 45 | 45.11s | OK |
 
 <details><summary><code>competitor_analysis</code> — score 3.90</summary>
@@ -318,8 +311,6 @@ Aquí tienes la realidad fría, sin el filtro de "empoderamiento emprendedor".
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | python_api_integration | 7.86 | 9.52 | 4.8 | 70 | 14.07s | OK |
-| n8n_workflow_json | 3.91 | 2.00 | - | 73 | 28.06s | OK |
-| sql_query_complex | 4.06 | 2.00 | - | 113 | 18.09s | OK |
 | debug_code | 8.04 | 9.52 | 4.8 | 118 | 9.73s | OK |
 
 <details><summary><code>python_api_integration</code> — score 7.86</summary>
@@ -380,8 +371,6 @@ average = total / len(processed)  #
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | json_simple_extraction | 5.34 | 5.00 | 4.0 | 78 | 9.28s | OK |
-| json_array_classification | 4.66 | 3.80 | - | 32 | 63.23s | OK |
-| json_nested_complex | 4.36 | 3.80 | - | 14 | 146.30s | OK |
 | json_strict_no_extra | 4.94 | 5.00 | 4.0 | 28 | 29.10s | OK |
 
 <details><summary><code>json_simple_extraction</code> — score 5.34</summary>
@@ -429,7 +418,6 @@ average = total / len(processed)  #
 | copy_api_key | 2.02 | 1.00 | 3.8 | 3 | 148.60s | OK |
 | copy_jwt | 8.82 | 10.00 | 4.0 | 51 | 10.55s | OK |
 | copy_mixed_special | 8.33 | 10.00 | 3.6 | 8 | 83.55s | OK |
-| write_config_file | 3.01 | 0.80 | - | 28 | 73.91s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.05</summary>
 
@@ -519,11 +507,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| invoice_extraction | 2.91 | 0.00 | - | 76 | 26.93s | OK |
-| business_card_extraction | 3.16 | 0.80 | - | 47 | 43.42s | OK |
-| receipt_math_verification | 3.31 | 0.80 | - | 56 | 36.34s | OK |
 | screenshot_table_extraction | 7.32 | 8.00 | 3.8 | 106 | 18.77s | OK |
-| handwritten_notes_extraction | 3.01 | 0.80 | - | 22 | 91.87s | OK |
 
 <details><summary><code>screenshot_table_extraction</code> — score 7.32</summary>
 
@@ -560,7 +544,6 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_post_es | 2.92 | 0.00 | - | 98 | 20.89s | OK |
 | email_profesional | 7.52 | 8.72 | 4.8 | 115 | 12.29s | OK |
 | social_media_batch | 7.82 | 9.52 | 4.8 | 121 | 16.87s | OK |
 | product_description_en | 7.34 | 8.12 | 4.8 | 126 | 9.44s | OK |
@@ -636,9 +619,7 @@ Stop juggling devices. Aura integrates premium audio, health tracking, and ambia
 |------|-------|---------|-------|-------|----------|--------|
 | blog_actualidad_startup | 6.57 | 7.02 | 3.8 | 100 | 20.46s | OK |
 | curso_emprendimiento_modulo | 7.11 | 8.39 | 4.6 | 67 | 30.66s | OK |
-| workshop_outline | 2.91 | 0.00 | - | 82 | 24.88s | OK |
 | newsletter_startup | 7.07 | 8.32 | 4.4 | 77 | 26.51s | OK |
-| perplexity_style_research | 2.91 | 0.00 | - | 53 | 38.82s | OK |
 
 <details><summary><code>blog_actualidad_startup</code> — score 6.57</summary>
 
@@ -701,32 +682,12 @@ Bienvenidos a una nueva edición de **Ecosistema Startup**. Esta semana no hay t
 
 </details>
 
-#### news_seo_writing
-
-| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
-|------|-------|---------|-------|-------|----------|--------|
-| news_seo_article_full | 2.61 | 0.00 | - | 27 | 75.39s | OK |
-| news_json_output_strict | 4.41 | 3.00 | - | 54 | 37.67s | OK |
-| news_spanish_only | 4.41 | 3.00 | - | 70 | 29.04s | OK |
-| news_no_hallucination_sources | 2.91 | 0.00 | - | 70 | 29.42s | OK |
-| news_perplexity_enrichment | 2.76 | 0.00 | - | 34 | 59.99s | OK |
-
-#### creativity
-
-| Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
-|------|-------|---------|-------|-------|----------|--------|
-| creative_hook_writing | 5.31 | 4.80 | - | 57 | 35.94s | OK |
-| analogy_generation | 5.31 | 4.80 | - | 82 | 25.08s | OK |
-| depth_vs_superficial | 5.31 | 4.80 | - | 63 | 32.29s | OK |
-| storytelling_quality | 5.46 | 4.80 | - | 104 | 19.70s | OK |
-
 #### sales_outreach
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.34 | 8.00 | 4.8 | 100 | 17.82s | OK |
 | lead_qualification | 4.05 | 3.33 | 4.8 | 131 | 15.68s | OK |
-| campaign_optimization | 3.06 | 0.00 | - | 102 | 20.04s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.34</summary>
 
@@ -781,8 +742,6 @@ Lo curioso es que los equipos de fintech que asesoramos lograron triplic
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| translate_marketing_es_en | 5.86 | 5.60 | - | 119 | 17.18s | OK |
-| translate_technical_en_es | 2.91 | 0.00 | - | 55 | 37.06s | OK |
 | detect_language_issues | 3.90 | 3.33 | 4.0 | 70 | 29.15s | OK |
 
 <details><summary><code>detect_language_issues</code> — score 3.90</summary>
@@ -1138,7 +1097,6 @@ Voy a automatizar el proceso de onboarding paso a paso. Comencemos:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| content_iteration | 5.31 | 4.80 | - | 83 | 24.70s | OK |
 | support_escalation | 8.50 | 10.00 | 3.8 | 54 | 52.73s | OK |
 | requirements_change | 2.97 | 2.00 | 2.4 | 64 | 31.96s | OK |
 | debugging_conversation | 8.70 | 10.00 | 4.8 | 90 | 10.92s | OK |
@@ -1205,12 +1163,10 @@ Para manejar errores 429 correctamente, debes implementar un **Backoff Exponenci
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 2.91 | 0.00 | - | 78 | 26.17s | OK |
-| data_privacy_protection | 7.51 | 8.00 | 4.6 | 111 | 9.87s | OK |
-| language_and_tone_rules | 2.91 | 0.00 | - | 75 | 27.28s | OK |
+| data_privacy_protection | 8.91 | 10.00 | 4.6 | 111 | 9.87s | OK |
 | scope_boundaries | 8.65 | 10.00 | 4.2 | 94 | 13.89s | OK |
 
-<details><summary><code>data_privacy_protection</code> — score 7.51</summary>
+<details><summary><code>data_privacy_protection</code> — score 8.91</summary>
 
 **Stats**: latencia 9.87s · 111 tok/s · 235→1093 tokens · $0.00265
 
@@ -1258,7 +1214,6 @@ Para validar
 | agent_team_delegation | 7.30 | 8.68 | 4.2 | 90 | 6.64s | OK |
 | ask_clarification_before_acting | 8.54 | 9.12 | 4.8 | 83 | 2.96s | OK |
 | context_following_complex_system | 3.25 | 2.50 | 3.2 | 18 | 21.62s | OK |
-| model_as_router | 2.91 | 0.00 | - | 64 | 31.86s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 6.24</summary>
 
@@ -1346,8 +1301,6 @@ Esto sí puedo hacerlo. El contenido está alineado con nuestra línea editorial
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| extract_action_items | 2.91 | 0.00 | - | 89 | 23.10s | OK |
-| weekly_planning | 3.06 | 0.00 | - | 102 | 20.00s | OK |
 | project_breakdown | 7.69 | 9.24 | 4.6 | 120 | 17.02s | OK |
 
 <details><summary><code>project_breakdown</code> — score 7.69</summary>

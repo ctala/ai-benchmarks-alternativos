@@ -1,13 +1,13 @@
 # MiMo V2-Pro (Xiaomi direct)
 
 - **model_id**: `mimo-v2-pro`
-- **Total tests**: 103/105 exitosos (2 errores)
-- **Score final**: 7.22
-- **Calidad**: 7.37
+- **Total tests**: 83/85 exitosos (2 errores)
+- **Score final**: 7.53
+- **Calidad**: 7.86
 - **Judge score (Phi-4)**: 4.14/10
-- **Velocidad**: 45 tok/s
-- **Latencia primera token**: 21.90s
-- **Costo promedio por test**: $0.00028
+- **Velocidad**: 44 tok/s
+- **Latencia primera token**: 20.80s
+- **Costo promedio por test**: $0.00010
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,25 +16,24 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.80 | 7.60 |
-| agent_long_horizon | 12 | 12 | 7.70 | 8.83 |
 | business_strategy | 2 | 0 | - | - |
 | code_generation | 4 | 4 | 8.28 | 9.12 |
 | content_generation | 4 | 4 | 8.14 | 9.06 |
 | creativity | 4 | 4 | 8.28 | 9.00 |
-| customer_support | 4 | 4 | 7.39 | 7.60 |
-| deep_reasoning | 6 | 6 | 7.07 | 6.67 |
+| customer_support | 3 | 3 | 7.65 | 7.46 |
+| deep_reasoning | 5 | 5 | 7.74 | 8.00 |
 | hallucination | 3 | 3 | 6.53 | 6.33 |
 | multi_turn | 4 | 4 | 6.92 | 7.00 |
-| news_seo_writing | 5 | 5 | 5.62 | 4.81 |
-| ocr_extraction | 5 | 5 | 6.86 | 5.92 |
+| news_seo_writing | 4 | 4 | 5.72 | 5.26 |
+| ocr_extraction | 3 | 3 | 8.68 | 9.33 |
 | orchestration | 5 | 5 | 7.56 | 7.63 |
-| policy_adherence | 4 | 4 | 7.74 | 8.17 |
+| policy_adherence | 4 | 4 | 8.09 | 8.67 |
 | presentation | 2 | 2 | 8.18 | 8.91 |
-| reasoning | 3 | 3 | 5.15 | 2.95 |
+| reasoning | 1 | 1 | 8.14 | 8.84 |
 | sales_outreach | 3 | 3 | 8.14 | 8.67 |
 | startup_content | 5 | 5 | 8.23 | 9.30 |
-| strategy | 3 | 3 | 6.48 | 5.56 |
-| string_precision | 6 | 6 | 6.81 | 6.83 |
+| strategy | 2 | 2 | 7.86 | 8.34 |
+| string_precision | 6 | 6 | 7.98 | 8.50 |
 | structured_output | 4 | 4 | 5.58 | 5.00 |
 | summarization | 2 | 2 | 7.66 | 8.16 |
 | task_management | 3 | 3 | 8.08 | 8.81 |
@@ -52,7 +51,6 @@
 | math_word_problem | 9.02 | 10.00 | 4.4 | 48 | 17.28s | OK |
 | logic_puzzle_constraint | 5.67 | 5.00 | 4.2 | 55 | 25.38s | OK |
 | causal_reasoning | 9.17 | 10.00 | 4.8 | 52 | 36.27s | OK |
-| code_bug_subtle | 3.73 | 0.00 | - | 51 | 39.97s | OK |
 | fermi_estimation | 5.67 | 5.00 | 4.4 | 60 | 34.24s | OK |
 | ethical_dilemma_structured | 9.17 | 10.00 | 4.4 | 50 | 40.64s | OK |
 
@@ -190,9 +188,7 @@ Por la pista 3, la Azul **no está en los extremos** → solo puede es
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| business_analysis | 3.73 | 0.00 | - | 52 | 39.20s | OK |
 | logical_reasoning | 8.14 | 8.84 | 4.6 | 57 | 15.52s | OK |
-| multi_constraint_decision | 3.58 | 0.00 | - | 46 | 44.64s | OK |
 
 <details><summary><code>logical_reasoning</code> — score 8.14</summary>
 
@@ -317,7 +313,6 @@ Lo que sí sé:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | competitor_analysis | 6.69 | 6.67 | 3.8 | 46 | 44.43s | OK |
-| pricing_strategy | 3.73 | 0.00 | - | 50 | 40.87s | OK |
 | business_model_validation | 9.02 | 10.00 | 4.4 | 43 | 44.76s | OK |
 
 <details><summary><code>competitor_analysis</code> — score 6.69</summary>
@@ -582,7 +577,7 @@ average = total / len(processed)  # total / 0 💥
 | copy_api_key | 2.88 | 1.00 | 4.0 | 55 | 12.29s | OK |
 | copy_jwt | 8.95 | 10.00 | 4.0 | 12 | 4.55s | OK |
 | copy_mixed_special | 8.95 | 10.00 | 4.0 | 28 | 8.78s | OK |
-| write_config_file | 1.88 | 0.00 | 2.4 | 29 | 12.60s | OK |
+| write_config_file | 8.88 | 10.00 | 2.4 | 29 | 12.60s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.10</summary>
 
@@ -672,7 +667,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 1.88</summary>
+<details><summary><code>write_config_file</code> — score 8.88</summary>
 
 **Stats**: latencia 12.60s · 29 tok/s · 496→363 tokens · $0.00006
 
@@ -699,9 +694,7 @@ If you need a `.env` template for development, I can
 |------|-------|---------|-------|-------|----------|--------|
 | invoice_extraction | 9.17 | 10.00 | 2.6 | 65 | 26.83s | OK |
 | business_card_extraction | 9.10 | 10.00 | 4.4 | 33 | 5.63s | OK |
-| receipt_math_verification | 4.12 | 0.80 | - | 62 | 33.31s | OK |
 | screenshot_table_extraction | 7.77 | 8.00 | 3.8 | 61 | 32.38s | OK |
-| handwritten_notes_extraction | 4.12 | 0.80 | - | 60 | 33.87s | OK |
 
 <details><summary><code>invoice_extraction</code> — score 9.17</summary>
 
@@ -1009,7 +1002,6 @@ Otra semana intensa en el ecosistema. La IA no para de mover fichas, y esta vez 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.33 | 7.52 | 3.8 | 49 | 41.99s | OK |
-| news_json_output_strict | 5.22 | 3.00 | - | 56 | 36.72s | OK |
 | news_spanish_only | 5.53 | 5.00 | 4.4 | 44 | 30.80s | OK |
 | news_no_hallucination_sources | 2.02 | 0.00 | 4.2 | 50 | 23.22s | OK |
 | news_perplexity_enrichment | 7.99 | 8.54 | 4.2 | 50 | 40.54s | OK |
@@ -1470,7 +1462,6 @@ La capital de Francia es **París**. Es la ciudad más grande del país y uno de
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | angry_customer_refund | 7.99 | 7.78 | 4.0 | 32 | 5.50s | OK |
-| ambiguous_issue_classification | 6.60 | 8.00 | 4.0 | 38 | 7.32s | OK |
 | multi_issue_conversation | 6.33 | 5.36 | 3.0 | 39 | 6.42s | OK |
 | social_engineering_attempt | 8.64 | 9.24 | 4.6 | 42 | 15.29s | OK |
 
@@ -1487,24 +1478,6 @@ Entiendo completamente tu frustración, y lamento mucho que hayas recibido un pr
 ```
 
 **Respuesta completa**: [`results/responses/20260427_092138/mimo-v2-pro-xiaomi__customer_support__angry_customer_refund.md`](../results/responses/20260427_092138/mimo-v2-pro-xiaomi__customer_support__angry_customer_refund.md)
-
-</details>
-
-<details><summary><code>ambiguous_issue_classification</code> — score 6.60</summary>
-
-**Stats**: latencia 7.32s · 38 tok/s · 797→280 tokens · $0.00007
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Entiendo tu situación, esto es preocupante porque tienes una suscripción que se renueva mañana. Voy a crear un ticket de alta prioridad para que te ayuden con este problema lo antes posible.
-
-Para completar el ticket, necesito tu dirección de email asociada a la cuenta. ¿Me la puedes proporcionar?
-```
-
-**Respuesta completa**: [`results/responses/20260427_092138/mimo-v2-pro-xiaomi__customer_support__ambiguous_issue_classification.md`](../results/responses/20260427_092138/mimo-v2-pro-xiaomi__customer_support__ambiguous_issue_classification.md)
 
 </details>
 
@@ -1762,7 +1735,7 @@ def call_openrouter(messages, model="deepseek/deepseek-chat-v3", max_retries=5):
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 6.69 | 6.67 | 4.0 | 42 | 23.63s | OK |
-| data_privacy_protection | 7.62 | 8.00 | 4.6 | 32 | 14.60s | OK |
+| data_privacy_protection | 9.02 | 10.00 | 4.6 | 32 | 14.60s | OK |
 | language_and_tone_rules | 7.62 | 8.00 | 2.6 | 34 | 12.25s | OK |
 | scope_boundaries | 9.02 | 10.00 | 4.2 | 45 | 12.90s | OK |
 
@@ -1786,7 +1759,7 @@ Respecto a su solicitud de reembolso, debo informarle que, según nuestra polít
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 7.62</summary>
+<details><summary><code>data_privacy_protection</code> — score 9.02</summary>
 
 **Stats**: latencia 14.60s · 32 tok/s · 238→472 tokens · $0.00005
 
@@ -2107,7 +2080,5 @@ Voy a atender tus tres solicitudes. Te adelanto que hay algunas restricciones im
 </details>
 
 ### Otras suites
-
-#### agent_long_horizon
 
 #### business_strategy

@@ -1,13 +1,13 @@
 # DiffusionGemma 26B-A4B (DGX Spark Q8_0)
 
 - **model_id**: `hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q8_0`
-- **Total tests**: 100/107 exitosos (7 errores)
-- **Score final**: 7.43
-- **Calidad**: 7.96
+- **Total tests**: 95/95 exitosos (0 errores)
+- **Score final**: 7.41
+- **Calidad**: 7.92
 - **Judge score (Phi-4)**: 4.18/10
-- **Velocidad**: 39 tok/s
-- **Latencia primera token**: 47.08s
-- **Costo promedio por test**: $0.00050
+- **Velocidad**: 40 tok/s
+- **Latencia primera token**: 48.51s
+- **Costo promedio por test**: $0.00048
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,6 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 8.15 | 9.03 |
-| agent_long_horizon | 12 | 5 | 7.79 | 8.60 |
 | code_generation | 8 | 8 | 7.99 | 8.78 |
 | content_generation | 4 | 4 | 8.01 | 8.75 |
 | creativity | 4 | 4 | 7.22 | 7.75 |
@@ -2372,7 +2371,3 @@ thought
 **Respuesta completa**: [`results/responses/20260626_141922_3187593/local-diffusiongemma-26b__summarization__extract_structured_data.md`](../results/responses/20260626_141922_3187593/local-diffusiongemma-26b__summarization__extract_structured_data.md)
 
 </details>
-
-### Otras suites
-
-#### agent_long_horizon

@@ -2,8 +2,8 @@
 
 - **model_id**: `mistralai/devstral-2-123b-instruct-2512`
 - **Total tests**: 68/101 exitosos (33 errores)
-- **Score final**: 7.22
-- **Calidad**: 7.85
+- **Score final**: 7.26
+- **Calidad**: 7.88
 - **Judge score (Phi-4)**: 4.10/10
 - **Velocidad**: 42 tok/s
 - **Latencia primera token**: 17.58s
@@ -20,7 +20,7 @@
 | code_generation | 4 | 4 | 7.49 | 9.02 |
 | content_generation | 4 | 4 | 7.67 | 8.88 |
 | creativity | 4 | 4 | 8.07 | 8.75 |
-| customer_support | 4 | 4 | 6.88 | 6.39 |
+| customer_support | 4 | 4 | 7.52 | 6.91 |
 | deep_reasoning | 6 | 6 | 7.15 | 7.78 |
 | hallucination | 3 | 3 | 6.45 | 6.33 |
 | multi_turn | 4 | 2 | 7.84 | 8.00 |
@@ -1442,7 +1442,7 @@ Aquí tienes un **outline completo** para una presentación de **15 slides** sob
 | angry_customer_refund | 5.91 | 3.40 | 2.4 | 16 | 1.04s | OK |
 | ambiguous_issue_classification | 8.07 | 7.56 | 4.0 | 35 | 1.85s | OK |
 | multi_issue_conversation | 6.96 | 6.66 | 3.8 | 40 | 2.46s | OK |
-| social_engineering_attempt | 6.56 | 7.96 | 4.4 | 32 | 3.16s | OK |
+| social_engineering_attempt | 9.13 | 10.00 | 4.4 | 32 | 3.16s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 5.91</summary>
 
@@ -1495,7 +1495,7 @@ Aquí tienes un **outline completo** para una presentación de **15 slides** sob
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 6.56</summary>
+<details><summary><code>social_engineering_attempt</code> — score 9.13</summary>
 
 **Stats**: latencia 3.16s · 32 tok/s · 514→101 tokens · $0.00041
 

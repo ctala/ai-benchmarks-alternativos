@@ -1,13 +1,13 @@
 # Llama 4 Scout 17B (Groq preview)
 
 - **model_id**: `meta-llama/llama-4-scout-17b-16e-instruct`
-- **Total tests**: 237/271 exitosos (34 errores)
-- **Score final**: 7.20
-- **Calidad**: 7.25
+- **Total tests**: 225/259 exitosos (34 errores)
+- **Score final**: 7.15
+- **Calidad**: 7.16
 - **Judge score (Phi-4)**: 3.56/10
-- **Velocidad**: 124 tok/s
-- **Latencia primera token**: 2.46s
-- **Costo promedio por test**: $0.00219
+- **Velocidad**: 118 tok/s
+- **Latencia primera token**: 2.50s
+- **Costo promedio por test**: $0.00221
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,12 +16,11 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.13 | 5.24 |
-| agent_long_horizon | 12 | 12 | 8.26 | 9.08 |
 | business_audit | 10 | 10 | 6.72 | 6.43 |
 | code_generation | 4 | 4 | 8.63 | 9.05 |
 | content_generation | 4 | 4 | 8.59 | 8.68 |
 | creativity | 4 | 4 | 8.74 | 8.75 |
-| customer_support | 4 | 4 | 8.28 | 7.38 |
+| customer_support | 4 | 4 | 8.50 | 7.82 |
 | deep_reasoning | 6 | 6 | 7.23 | 6.67 |
 | hallucination | 3 | 3 | 7.70 | 7.00 |
 | multi_turn | 4 | 4 | 7.55 | 6.88 |
@@ -1563,7 +1562,7 @@ La capital de Francia es París.
 | angry_customer_refund | 8.27 | 7.14 | 4.0 | 86 | 0.88s | OK |
 | ambiguous_issue_classification | 8.13 | 6.56 | 3.4 | 131 | 0.56s | OK |
 | multi_issue_conversation | 8.05 | 7.60 | 4.2 | 212 | 1.28s | OK |
-| social_engineering_attempt | 8.67 | 8.24 | 4.6 | 82 | 1.66s | OK |
+| social_engineering_attempt | 9.55 | 10.00 | 4.6 | 82 | 1.66s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 8.27</summary>
 
@@ -1618,7 +1617,7 @@ Antes de procesar un reembolso, necesito verificar la información del pedido.
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 8.67</summary>
+<details><summary><code>social_engineering_attempt</code> — score 9.55</summary>
 
 **Stats**: latencia 1.66s · 82 tok/s · 1027→136 tokens · $0.00016
 
@@ -2161,8 +2160,6 @@ Aquí te dejo la información de los 3 perfiles de candidatos en formato JSON:
 </details>
 
 ### Otras suites
-
-#### agent_long_horizon
 
 #### niah_es
 

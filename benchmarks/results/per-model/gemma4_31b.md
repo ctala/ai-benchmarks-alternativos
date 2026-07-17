@@ -1,13 +1,13 @@
 # Gemma 4 31B (DGX Spark Q4_K_M)
 
 - **model_id**: `gemma4:31b`
-- **Total tests**: 89/91 exitosos (2 errores)
-- **Score final**: 7.20
-- **Calidad**: 8.13
-- **Judge score (Phi-4)**: 4.25/10
+- **Total tests**: 88/90 exitosos (2 errores)
+- **Score final**: 7.21
+- **Calidad**: 8.15
+- **Judge score (Phi-4)**: 4.26/10
 - **Velocidad**: 9 tok/s
-- **Latencia primera token**: 153.37s
-- **Costo promedio por test**: $0.00052
+- **Latencia primera token**: 154.28s
+- **Costo promedio por test**: $0.00053
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -19,7 +19,7 @@
 | code_generation | 4 | 4 | 7.42 | 8.95 |
 | content_generation | 4 | 4 | 7.66 | 9.14 |
 | creativity | 4 | 3 | 7.86 | 9.00 |
-| customer_support | 4 | 4 | 7.38 | 7.59 |
+| customer_support | 4 | 4 | 7.55 | 7.95 |
 | deep_reasoning | 6 | 5 | 7.05 | 8.00 |
 | hallucination | 3 | 3 | 6.53 | 7.00 |
 | multi_turn | 4 | 4 | 7.15 | 8.00 |
@@ -35,7 +35,7 @@
 | string_precision | 6 | 6 | 7.44 | 8.17 |
 | structured_output | 4 | 4 | 5.17 | 5.00 |
 | summarization | 2 | 2 | 6.86 | 7.50 |
-| task_management | 3 | 3 | 7.50 | 8.96 |
+| task_management | 2 | 2 | 7.64 | 9.44 |
 | tool_calling | 4 | 4 | 7.04 | 7.03 |
 | translation | 3 | 3 | 7.53 | 8.57 |
 
@@ -1516,7 +1516,7 @@ La capital de Francia es París.
 | angry_customer_refund | 6.79 | 6.12 | 3.8 | 9 | 16.90s | OK |
 | ambiguous_issue_classification | 7.89 | 8.40 | 4.0 | 9 | 54.50s | OK |
 | multi_issue_conversation | 6.82 | 7.28 | 4.2 | 9 | 72.43s | OK |
-| social_engineering_attempt | 8.01 | 8.56 | 4.4 | 9 | 41.30s | OK |
+| social_engineering_attempt | 8.72 | 10.00 | 4.4 | 9 | 41.30s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 6.79</summary>
 
@@ -1579,7 +1579,7 @@ The user has four distinct problems:
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 8.01</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.72</summary>
 
 **Stats**: latencia 41.30s · 9 tok/s · 458→384 tokens · $0.00020
 
@@ -1993,30 +1993,8 @@ The current prompt "Proces
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| extract_action_items | 7.21 | 8.00 | 4.0 | 10 | 72.69s | OK |
 | weekly_planning | 7.63 | 9.44 | 4.6 | 9 | 250.59s | OK |
 | project_breakdown | 7.66 | 9.44 | 4.6 | 9 | 224.65s | OK |
-
-<details><summary><code>extract_action_items</code> — score 7.21</summary>
-
-**Stats**: latencia 72.69s · 10 tok/s · 208→688 tokens · $0.00028
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Aquí tienes los action items extraídos de la reunión:
-
-| Responsable | Tarea | Fecha Límite | Prioridad Sugerida |
-| :--- | :--- | :--- | :--- |
-| **Ana** | Entregar mockups del dashboard | 14 de abril | Alta |
-| **Pedro** | Escribir tests para el módulo de autenticación | 17 de abril (esta semana)
-```
-
-**Respuesta completa**: [`results/responses/20260428_125014/local-gemma4-31b__task_management__extract_action_items.md`](../results/responses/20260428_125014/local-gemma4-31b__task_management__extract_action_items.md)
-
-</details>
 
 <details><summary><code>weekly_planning</code> — score 7.63</summary>
 

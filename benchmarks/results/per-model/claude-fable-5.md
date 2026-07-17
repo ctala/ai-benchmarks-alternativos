@@ -1,13 +1,13 @@
 # Claude Fable 5 (suscripción)
 
 - **model_id**: `claude-fable-5`
-- **Total tests**: 189/189 exitosos (0 errores)
-- **Score final**: 7.07
+- **Total tests**: 177/177 exitosos (0 errores)
+- **Score final**: 7.11
 - **Calidad**: 8.58
-- **Judge score (Phi-4)**: 4.14/10
-- **Velocidad**: 45 tok/s
-- **Latencia primera token**: 8.81s
-- **Costo promedio por test**: $0.07380
+- **Judge score (Phi-4)**: 4.10/10
+- **Velocidad**: 44 tok/s
+- **Latencia primera token**: 9.02s
+- **Costo promedio por test**: $0.05222
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,13 +16,12 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.90 | 8.64 |
-| agent_long_horizon | 12 | 12 | 6.42 | 8.66 |
 | business_audit | 10 | 10 | 6.45 | 8.00 |
 | business_strategy | 5 | 5 | 7.28 | 9.20 |
 | code_generation | 4 | 4 | 7.04 | 9.22 |
 | content_generation | 4 | 4 | 6.76 | 8.56 |
 | creativity | 4 | 4 | 7.35 | 8.88 |
-| customer_support | 4 | 4 | 7.37 | 9.41 |
+| customer_support | 4 | 4 | 7.54 | 9.46 |
 | deep_reasoning | 6 | 6 | 6.46 | 7.78 |
 | hallucination | 3 | 3 | 6.60 | 7.67 |
 | multi_turn | 4 | 4 | 6.49 | 7.50 |
@@ -1574,7 +1573,7 @@ La capital de Francia es **París**.
 | angry_customer_refund | 7.23 | 8.96 | 4.4 | 59 | 13.07s | OK |
 | ambiguous_issue_classification | 7.62 | 9.72 | 4.8 | 65 | 14.68s | OK |
 | multi_issue_conversation | 6.99 | 9.16 | 4.4 | 68 | 20.26s | OK |
-| social_engineering_attempt | 7.62 | 9.80 | 5.0 | 48 | 11.22s | OK |
+| social_engineering_attempt | 8.31 | 10.00 | 5.0 | 48 | 11.22s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 7.23</summary>
 
@@ -1644,7 +1643,7 @@ Antes de todo, una aclaración importante: soy Claude Code corriendo en un entor
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 7.62</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.31</summary>
 
 **Stats**: latencia 11.22s · 48 tok/s · 2→541 tokens · $0.02707
 
@@ -2220,8 +2219,6 @@ No puedo publicarlo todavía. Las reglas del proyecto exigen **aprobación human
 </details>
 
 ### Otras suites
-
-#### agent_long_horizon
 
 #### niah_es
 

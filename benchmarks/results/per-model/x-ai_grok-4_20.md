@@ -1,13 +1,13 @@
 # Grok 4.20
 
 - **model_id**: `x-ai/grok-4.20`
-- **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.02
-- **Calidad**: 7.57
-- **Judge score (Phi-4)**: 4.17/10
-- **Velocidad**: 67 tok/s
-- **Latencia primera token**: 9.48s
-- **Costo promedio por test**: $0.00408
+- **Total tests**: 126/126 exitosos (0 errores)
+- **Score final**: 7.17
+- **Calidad**: 7.75
+- **Judge score (Phi-4)**: 4.18/10
+- **Velocidad**: 69 tok/s
+- **Latencia primera token**: 9.32s
+- **Costo promedio por test**: $0.00405
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,14 +16,14 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.35 | 5.35 |
-| agent_long_horizon | 12 | 12 | 6.99 | 7.58 |
+| agent_long_horizon | 12 | 12 | 7.31 | 8.08 |
 | business_audit | 10 | 10 | 6.87 | 7.00 |
 | business_strategy | 5 | 5 | 8.32 | 9.20 |
-| code_generation | 4 | 4 | 7.80 | 9.41 |
+| code_generation | 7 | 7 | 8.28 | 9.42 |
 | content_generation | 4 | 4 | 7.58 | 8.79 |
 | content_verificable | 5 | 5 | 7.68 | 8.00 |
 | creativity | 4 | 4 | 7.78 | 8.62 |
-| customer_support | 4 | 4 | 6.16 | 7.01 |
+| customer_support | 4 | 4 | 6.70 | 7.30 |
 | deep_reasoning | 6 | 6 | 5.94 | 6.11 |
 | hallucination | 3 | 3 | 7.20 | 7.67 |
 | multi_turn | 4 | 4 | 7.79 | 8.50 |
@@ -36,7 +36,7 @@
 | sales_outreach | 3 | 3 | 7.75 | 8.67 |
 | startup_content | 5 | 5 | 7.65 | 9.34 |
 | strategy | 3 | 3 | 7.19 | 8.06 |
-| string_precision | 6 | 6 | 6.93 | 6.83 |
+| string_precision | 6 | 6 | 8.10 | 8.50 |
 | structured_output | 4 | 4 | 5.42 | 5.00 |
 | summarization | 2 | 2 | 7.31 | 7.72 |
 | task_management | 3 | 3 | 7.72 | 9.05 |
@@ -452,7 +452,10 @@ Voy a ser directo. Tu idea no es nueva, es obvia, y está llena de cadáveres. V
 | python_api_integration | 7.86 | 9.52 | 4.8 | 56 | 14.97s | OK |
 | n8n_workflow_json | 7.47 | 8.88 | 4.2 | 80 | 13.76s | OK |
 | sql_query_complex | 7.80 | 9.24 | 4.6 | 42 | 9.27s | OK |
-| debug_code | 8.08 | 10.00 | 5.0 | 72 | 11.89s | OK |
+| python_api_integration | 8.64 | 9.52 | 4.8 | 150 | 5.52s | OK |
+| n8n_workflow_json | 8.21 | 9.07 | 4.0 | 160 | 7.24s | OK |
+| sql_query_complex | 8.99 | 9.80 | 5 | 155 | 3.80s | OK |
+| debug_code | 9.01 | 9.93 | 5 | 142 | 4.66s | OK |
 
 <details><summary><code>python_api_integration</code> — score 7.86</summary>
 
@@ -540,25 +543,123 @@ WITH customer_stats AS (
 
 </details>
 
-<details><summary><code>debug_code</code> — score 8.08</summary>
+<details><summary><code>python_api_integration</code> — score 8.64</summary>
 
-**Stats**: latencia 11.89s · 72 tok/s · 337→860 tokens · $0.00257
+**Stats**: latencia 5.52s · 150 tok/s · 278→787 tokens · $0.00200
 
-**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**✅ Análisis de los bugs y corrección completa**
+**✅ Aquí tienes la función solicitada:**
+
+```python
+import httpx
+from typing import List, Dict
+import time
+from functools import wraps
+
+
+def retry_with_backoff(max_retries: int = 3):
+    """Decorador para retry con backoff exponencial."""
+    def decorator(func):
+        @wraps(func)
+        def wra
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_grok_4_20_/grok-4.20__code_generation__python_api_integration.md`](../results/responses/20260716_rm_grok_4_20_/grok-4.20__code_generation__python_api_integration.md)
+
+</details>
+
+<details><summary><code>n8n_workflow_json</code> — score 8.21</summary>
+
+**Stats**: latencia 7.24s · 160 tok/s · 297→1148 tokens · $0.00300
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, cumpliendo con los requisitos especificados, y está claramente estructurada, lo que la hace útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**✅ Aquí tienes el workflow completo de n8n en JSON:**
+
+```json
+{
+  "name": "Clasificador de Emails → Slack",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "clasificar-email",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "1
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_grok_4_20_/grok-4.20__code_generation__n8n_workflow_json.md`](../results/responses/20260716_rm_grok_4_20_/grok-4.20__code_generation__n8n_workflow_json.md)
+
+</details>
+
+<details><summary><code>sql_query_complex</code> — score 8.99</summary>
+
+**Stats**: latencia 3.80s · 155 tok/s · 324→524 tokens · $0.00200
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando una consulta SQL compleja que cumple con todos los requisitos especificados.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**✅ Query SQL optimizada:**
+
+```sql
+WITH customer_stats AS (
+    SELECT 
+        c.id,
+        c.name,
+        c.email,
+        c.country,
+        COUNT(DISTINCT o.id) as total_orders,
+        SUM(o.total) as total_revenue,
+        ROUND(AVG(o.total), 2) as avg_order_value,
+        MAX(o.created_at)
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_grok_4_20_/grok-4.20__code_generation__sql_query_complex.md`](../results/responses/20260716_rm_grok_4_20_/grok-4.20__code_generation__sql_query_complex.md)
+
+</details>
+
+<details><summary><code>debug_code</code> — score 9.01</summary>
+
+**Stats**: latencia 4.66s · 142 tok/s · 398→722 tokens · $0.00200
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, abordando todos los problemas potenciales y mejorando el código con explicaciones detalladas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**✅ Análisis de los bugs y corrección**
 
 ### Bugs identificados:
 
-### 1. **División por cero si no hay órdenes pendientes**
-- Si `processed` está vacío, `len(processed) == 0`, lo que causa `ZeroDivisionError` al calcular el `average`.
-- Solución: Usar `len(processed) or 1` o manejar el caso
+---
+
+### **1. División por cero si no hay órdenes pendientes**
+```python
+average = total / len(processed)
+```
+Si todas las órdenes ya están procesadas o la lista está vacía, `processed` será `[]`, lo que causa `ZeroDivisionError`.
+
+**
 ```
 
-**Respuesta completa**: [`results/responses/20260426_184826/grok-4.20__code_generation__debug_code.md`](../results/responses/20260426_184826/grok-4.20__code_generation__debug_code.md)
+**Respuesta completa**: [`results/responses/20260716_rm_grok_4_20_/grok-4.20__code_generation__debug_code.md`](../results/responses/20260716_rm_grok_4_20_/grok-4.20__code_generation__debug_code.md)
 
 </details>
 
@@ -657,7 +758,7 @@ WITH customer_stats AS (
 | copy_api_key | 2.95 | 1.00 | 3.8 | 47 | 1.34s | OK |
 | copy_jwt | 9.29 | 10.00 | 4.0 | 40 | 1.00s | OK |
 | copy_mixed_special | 8.56 | 10.00 | 3.6 | 2 | 16.37s | OK |
-| write_config_file | 2.02 | 0.00 | 4.0 | 46 | 2.39s | OK |
+| write_config_file | 9.02 | 10.00 | 4.0 | 46 | 2.39s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.34</summary>
 
@@ -743,7 +844,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 2.02</summary>
+<details><summary><code>write_config_file</code> — score 9.02</summary>
 
 **Stats**: latencia 2.39s · 46 tok/s · 346→110 tokens · $0.00071
 
@@ -1630,7 +1731,7 @@ La capital de Francia es **París**.
 | angry_customer_refund | 5.69 | 7.53 | 3.8 | 7 | 5.93s | OK |
 | ambiguous_issue_classification | 7.85 | 8.28 | 4.2 | 21 | 3.52s | OK |
 | multi_issue_conversation | 4.61 | 3.39 | 2.4 | 4 | 6.29s | OK |
-| social_engineering_attempt | 6.47 | 8.84 | 4.6 | 17 | 5.47s | OK |
+| social_engineering_attempt | 8.65 | 10.00 | 4.6 | 17 | 5.47s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 5.69</summary>
 
@@ -1681,7 +1782,7 @@ Lamento mucho tu frustración con el laptop dañado. Entiendo que es muy molesto
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 6.47</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.65</summary>
 
 **Stats**: latencia 5.47s · 17 tok/s · 624→93 tokens · $0.00101
 

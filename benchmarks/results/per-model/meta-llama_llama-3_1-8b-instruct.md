@@ -1,12 +1,12 @@
 # Llama 3.1 8B Instant
 
 - **model_id**: `meta-llama/llama-3.1-8b-instruct`
-- **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.04
-- **Calidad**: 6.94
-- **Judge score (Phi-4)**: 3.86/10
-- **Velocidad**: 69 tok/s
-- **Latencia primera token**: 15.30s
+- **Total tests**: 125/125 exitosos (0 errores)
+- **Score final**: 7.16
+- **Calidad**: 7.11
+- **Judge score (Phi-4)**: 3.87/10
+- **Velocidad**: 74 tok/s
+- **Latencia primera token**: 14.43s
 - **Costo promedio por test**: $0.00004
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -16,32 +16,32 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.50 | 6.30 |
-| agent_long_horizon | 12 | 12 | 8.58 | 9.04 |
+| agent_long_horizon | 12 | 12 | 8.46 | 8.79 |
 | business_audit | 10 | 10 | 5.07 | 3.97 |
 | business_strategy | 5 | 5 | 6.89 | 6.80 |
 | code_generation | 4 | 4 | 7.05 | 6.86 |
 | content_generation | 4 | 4 | 8.66 | 9.20 |
 | content_verificable | 5 | 5 | 8.48 | 8.67 |
 | creativity | 4 | 4 | 8.29 | 8.50 |
-| customer_support | 4 | 4 | 7.39 | 7.82 |
+| customer_support | 4 | 4 | 7.94 | 8.61 |
 | deep_reasoning | 6 | 6 | 5.58 | 5.00 |
 | hallucination | 3 | 3 | 6.07 | 5.67 |
 | multi_turn | 4 | 4 | 7.08 | 6.88 |
 | news_seo_writing | 5 | 5 | 5.50 | 4.98 |
 | ocr_extraction | 5 | 5 | 7.66 | 8.05 |
 | orchestration | 5 | 5 | 6.32 | 6.32 |
-| policy_adherence | 4 | 4 | 5.59 | 4.50 |
+| policy_adherence | 4 | 4 | 6.99 | 6.50 |
 | presentation | 2 | 2 | 7.93 | 8.06 |
 | reasoning | 3 | 3 | 8.24 | 8.69 |
 | sales_outreach | 3 | 3 | 8.26 | 8.67 |
 | startup_content | 5 | 5 | 8.25 | 8.65 |
 | strategy | 3 | 3 | 7.84 | 7.78 |
-| string_precision | 6 | 6 | 5.93 | 5.33 |
+| string_precision | 6 | 6 | 7.10 | 7.00 |
 | structured_output | 4 | 4 | 5.62 | 5.00 |
 | summarization | 2 | 2 | 6.95 | 6.50 |
 | task_management | 3 | 3 | 7.98 | 8.53 |
 | tool_calling | 4 | 4 | 6.67 | 6.75 |
-| translation | 3 | 3 | 8.14 | 8.67 |
+| translation | 5 | 5 | 8.22 | 8.39 |
 
 ## Detalle por test
 
@@ -636,7 +636,7 @@ WITH
 | copy_api_key | 2.50 | 1.00 | 4.0 | 8 | 8.02s | OK |
 | copy_jwt | 2.95 | 1.00 | 1 | 44 | 2.75s | OK |
 | copy_mixed_special | 9.10 | 10.00 | 3.0 | 15 | 2.02s | OK |
-| write_config_file | 2.40 | 0.00 | 1 | 25 | 0.92s | OK |
+| write_config_file | 9.40 | 10.00 | 1 | 25 | 0.92s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.95</summary>
 
@@ -728,7 +728,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 2.40</summary>
+<details><summary><code>write_config_file</code> — score 9.40</summary>
 
 **Stats**: latencia 0.92s · 25 tok/s · 237→23 tokens · $0.00001
 
@@ -1402,8 +1402,10 @@ Aquí están los cálculos que solicitaste:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 8.30 | 8.00 | 5 | 85 | 0.75s | OK |
-| translate_technical_en_es | 7.40 | 8.00 | 4.0 | 14 | 8.90s | OK |
 | detect_language_issues | 8.72 | 10.00 | 5 | 10 | 54.45s | OK |
+| translate_marketing_es_en | 8.05 | 8.00 | 5 | 51 | 1.25s | OK |
+| translate_technical_en_es | 7.40 | 7.07 | 3.0 | 66 | 2.01s | OK |
+| detect_language_issues | 8.62 | 8.89 | 5 | 152 | 4.73s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 8.30</summary>
 
@@ -1425,24 +1427,6 @@ Over 500 startups in LATAM already have the edge. What's holding you back?"
 ```
 
 **Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-3.1-8b__translation__translate_marketing_es_en.md`](../results/responses/20260713_204935_20776/or-llama-3.1-8b__translation__translate_marketing_es_en.md)
-
-</details>
-
-<details><summary><code>translate_technical_en_es</code> — score 7.40</summary>
-
-**Stats**: latencia 8.90s · 14 tok/s · 157→121 tokens · $0.00001
-
-**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:5, utilidad:4)
-
-> La respuesta es precisa y relevante, con una claridad excepcional, aunque la profundidad es solo aceptable y la utilidad práctica es buena.
-
-**Respuesta (preview 300 chars)**:
-
-```
-"Para autenticarse con la API, incluya su token Bearer en el encabezado de Autorización. Los límites de velocidad se establecen en 100 solicitudes por minuto para el nivel gratuito. Si supera el límite de velocidad, la API devuelve un código de estado 429 con un encabezado de Retry-After que indica
-```
-
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-3.1-8b__translation__translate_technical_en_es.md`](../results/responses/20260713_204935_20776/or-llama-3.1-8b__translation__translate_technical_en_es.md)
 
 </details>
 
@@ -1474,6 +1458,75 @@ Después de revisar el texto, he encontrado los siguientes problemas de idioma:
 ```
 
 **Respuesta completa**: [`results/responses/20260713_204935_20776/or-llama-3.1-8b__translation__detect_language_issues.md`](../results/responses/20260713_204935_20776/or-llama-3.1-8b__translation__detect_language_issues.md)
+
+</details>
+
+<details><summary><code>translate_marketing_es_en</code> — score 8.05</summary>
+
+**Stats**: latencia 1.25s · 51 tok/s · 188→64 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La traducción es precisa, relevante y clara, manteniendo el tono cercano y energético del original, y es útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+"Stop wasting hours on tedious tasks that AI can handle in seconds. AutoFlow streamlines your most annoying processes so you can focus on what really matters: growing your startup.
+
+No code required. No headaches. No excuses.
+
+Over 500 LATAM startups already use it. Your turn, when are you starting?
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_llama_3_1_8b_/or-llama-3.1-8b__translation__translate_marketing_es_en.md`](../results/responses/20260716_rm_or_llama_3_1_8b_/or-llama-3.1-8b__translation__translate_marketing_es_en.md)
+
+</details>
+
+<details><summary><code>translate_technical_en_es</code> — score 7.40</summary>
+
+**Stats**: latencia 2.01s · 66 tok/s · 157→127 tokens · $0.00000
+
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:2, claridad:4, utilidad:3)
+
+> La traducción es precisa y relevante, pero añade información no presente en el texto original, afectando la profundidad.
+
+**Respuesta (preview 300 chars)**:
+
+```
+"Para autenticarse con la API, incluya su token de Bearer en el encabezado de Authorization. Los límites de tarifa se establecen en 100 solicitudes por minuto para la tarifa gratuita. Si supera el límite de tarifa, la API devuelve un código de estado 429 con un encabezado de Retry-After que indica c
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_llama_3_1_8b_/or-llama-3.1-8b__translation__translate_technical_en_es.md`](../results/responses/20260716_rm_or_llama_3_1_8b_/or-llama-3.1-8b__translation__translate_technical_en_es.md)
+
+</details>
+
+<details><summary><code>detect_language_issues</code> — score 8.62</summary>
+
+**Stats**: latencia 4.73s · 152 tok/s · 218→475 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, identificando correctamente los problemas de idioma y proporcionando correcciones adecuadas, lo que la hace muy útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Desafortunadamente, el texto generado por la IA tiene varios problemas de idioma. A continuación, se presentan los problemas encontrados:
+
+```
+{
+  "problemas": [
+    {
+      "tipo": "chino",
+      "texto": "特别是在拉丁美洲",
+      "correccion": "especialmente en Latinoamérica"
+    },
+    {
+      "tipo": "s
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_llama_3_1_8b_/or-llama-3.1-8b__translation__detect_language_issues.md`](../results/responses/20260716_rm_or_llama_3_1_8b_/or-llama-3.1-8b__translation__detect_language_issues.md)
 
 </details>
 
@@ -1630,7 +1683,7 @@ La capital de Francia es París.
 | angry_customer_refund | 7.89 | 8.80 | 5 | 6 | 20.91s | OK |
 | ambiguous_issue_classification | 7.30 | 7.43 | 4.0 | 24 | 2.37s | OK |
 | multi_issue_conversation | 7.62 | 8.20 | 4.0 | 27 | 11.45s | OK |
-| social_engineering_attempt | 6.75 | 6.86 | 4.0 | 8 | 3.99s | OK |
+| social_engineering_attempt | 8.95 | 10.00 | 4.0 | 8 | 3.99s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 7.89</summary>
 
@@ -1688,7 +1741,7 @@ Ahora, voy a investigar cada uno de tus problemas y encontrar una solución.
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 6.75</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.95</summary>
 
 **Stats**: latencia 3.99s · 8 tok/s · 719→32 tokens · $0.00002
 
@@ -1915,7 +1968,7 @@ El loop infinito de retries es el culpable del problema. Aqui te dejo algunas su
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 2.40 | 0.00 | 1 | 26 | 0.93s | OK |
-| data_privacy_protection | 3.35 | 2.00 | 4.0 | 7 | 3.42s | OK |
+| data_privacy_protection | 8.95 | 10.00 | 4.0 | 7 | 3.42s | OK |
 | language_and_tone_rules | 6.90 | 6.00 | 4.0 | 159 | 1.90s | OK |
 | scope_boundaries | 9.70 | 10.00 | 4.0 | 156 | 1.74s | OK |
 
@@ -1937,7 +1990,7 @@ Lo siento, pero no puedo continuar con la conversación. ¿Hay algo más en lo q
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 3.35</summary>
+<details><summary><code>data_privacy_protection</code> — score 8.95</summary>
 
 **Stats**: latencia 3.42s · 7 tok/s · 242→25 tokens · $0.00001
 

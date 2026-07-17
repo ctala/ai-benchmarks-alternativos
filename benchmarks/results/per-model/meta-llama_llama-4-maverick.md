@@ -1,13 +1,13 @@
 # Llama 4 Maverick
 
 - **model_id**: `meta-llama/llama-4-maverick`
-- **Total tests**: 350/375 exitosos (25 errores)
-- **Score final**: 6.95
-- **Calidad**: 7.74
-- **Judge score (Phi-4)**: 3.44/10
-- **Velocidad**: 31 tok/s
-- **Latencia primera token**: 10.03s
-- **Costo promedio por test**: $0.02246
+- **Total tests**: 299/324 exitosos (25 errores)
+- **Score final**: 6.86
+- **Calidad**: 7.67
+- **Judge score (Phi-4)**: 3.45/10
+- **Velocidad**: 28 tok/s
+- **Latencia primera token**: 9.60s
+- **Costo promedio por test**: $0.02638
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,35 +15,35 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 15 | 7 | 7.27 | 8.15 |
-| agent_long_horizon | 12 | 12 | 7.97 | 8.83 |
+| agent_capabilities | 13 | 5 | 7.08 | 7.78 |
+| agent_long_horizon | 24 | 24 | 7.96 | 8.94 |
 | business_audit | 10 | 10 | 6.25 | 6.45 |
 | business_strategy | 5 | 5 | 7.75 | 8.50 |
-| code_generation | 8 | 8 | 7.53 | 8.44 |
-| content_generation | 8 | 8 | 7.36 | 7.96 |
+| code_generation | 4 | 4 | 7.61 | 8.82 |
+| content_generation | 4 | 4 | 7.73 | 8.79 |
 | content_verificable | 5 | 5 | 6.58 | 6.67 |
-| creativity | 8 | 8 | 7.16 | 7.24 |
-| customer_support | 8 | 4 | 5.33 | 4.75 |
-| deep_reasoning | 12 | 12 | 7.29 | 8.08 |
-| hallucination | 6 | 6 | 7.58 | 8.12 |
-| multi_turn | 4 | 4 | 7.03 | 6.76 |
-| news_seo_writing | 10 | 10 | 6.93 | 7.31 |
+| creativity | 4 | 4 | 7.96 | 8.67 |
+| customer_support | 16 | 12 | 6.77 | 6.56 |
+| deep_reasoning | 6 | 6 | 6.43 | 6.53 |
+| hallucination | 3 | 3 | 7.30 | 7.67 |
+| multi_turn | 4 | 4 | 7.04 | 7.25 |
+| news_seo_writing | 7 | 7 | 5.98 | 5.95 |
 | niah_es | 118 | 114 | 7.87 | 9.78 |
-| ocr_extraction | 5 | 5 | 7.25 | 7.73 |
+| ocr_extraction | 5 | 5 | 8.46 | 9.48 |
 | orchestration | 10 | 5 | 7.43 | 8.10 |
-| policy_adherence | 8 | 8 | 7.50 | 7.87 |
-| presentation | 4 | 4 | 7.49 | 8.49 |
+| policy_adherence | 4 | 4 | 7.83 | 8.58 |
+| presentation | 2 | 2 | 7.57 | 8.86 |
 | prompt_injection_es | 40 | 40 | 2.41 | 1.10 |
-| reasoning | 6 | 6 | 7.50 | 8.82 |
-| sales_outreach | 6 | 6 | 8.30 | 9.23 |
-| startup_content | 10 | 10 | 7.77 | 9.01 |
-| strategy | 6 | 6 | 6.88 | 7.69 |
-| string_precision | 18 | 18 | 8.42 | 9.22 |
-| structured_output | 12 | 12 | 6.70 | 6.65 |
-| summarization | 4 | 4 | 7.21 | 7.28 |
-| task_management | 6 | 6 | 7.54 | 8.36 |
+| reasoning | 3 | 3 | 7.49 | 8.71 |
+| sales_outreach | 3 | 3 | 8.65 | 9.33 |
+| startup_content | 5 | 5 | 7.69 | 8.87 |
+| strategy | 3 | 3 | 6.39 | 6.94 |
+| string_precision | 6 | 6 | 8.95 | 10.00 |
+| structured_output | 4 | 4 | 5.34 | 5.00 |
+| summarization | 2 | 2 | 6.97 | 7.06 |
+| task_management | 3 | 3 | 7.68 | 8.76 |
 | tool_calling | 8 | 4 | 5.92 | 5.00 |
-| translation | 3 | 3 | 7.95 | 8.73 |
+| translation | 3 | 3 | 7.84 | 7.93 |
 
 ## Detalle por test
 
@@ -53,87 +53,104 @@
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| math_word_problem | 7.41 | 8.00 | - | 57 | 11.57s | OK |
-| logic_puzzle_constraint | 7.55 | 9.00 | - | 40 | 38.61s | OK |
-| causal_reasoning | 7.86 | 9.25 | - | 45 | 16.02s | OK |
-| code_bug_subtle | 7.09 | 7.00 | - | 119 | 6.43s | OK |
-| fermi_estimation | 7.44 | 8.25 | - | 34 | 16.00s | OK |
-| ethical_dilemma_structured | 8.19 | 9.25 | - | 122 | 6.77s | OK |
-| math_word_problem | 7.75 | 9.00 | 4.4 | 46 | 15.01s | OK |
-| logic_puzzle_constraint | 7.11 | 7.90 | 4.2 | 45 | 22.37s | OK |
-| causal_reasoning | 7.24 | 8.43 | 4.4 | 28 | 32.91s | OK |
-| code_bug_subtle | 5.91 | 5.75 | 2.4 | 42 | 37.89s | OK |
-| fermi_estimation | 6.95 | 7.28 | 4.4 | 45 | 12.65s | OK |
-| ethical_dilemma_structured | 7.00 | 7.81 | 4.4 | 46 | 27.34s | OK |
+| math_word_problem | 8.88 | 10.00 | 4.0 | 52 | 21.43s | OK |
+| logic_puzzle_constraint | 5.31 | 5.00 | 4.2 | 58 | 19.45s | OK |
+| causal_reasoning | 9.09 | 10.00 | 4.6 | 116 | 8.16s | OK |
+| code_bug_subtle | 4.87 | 4.17 | 2.4 | 87 | 16.79s | OK |
+| fermi_estimation | 1.88 | 0.00 | 4.4 | 58 | 15.43s | OK |
+| ethical_dilemma_structured | 8.55 | 10.00 | 5.0 | 26 | 42.06s | OK |
 
-<details><summary><code>math_word_problem</code> — score 7.41</summary>
+<details><summary><code>math_word_problem</code> — score 8.88</summary>
 
-**Stats**: latencia 11.57s · 57 tok/s · 92→663 tokens · $0.00071
+**Stats**: latencia 21.43s · 52 tok/s · 92→546 tokens · $0.00100
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante, clara y sigue un razonamiento lógico impecable, aunque la profundidad y utilidad práctica son moderadas dado el contexto matemático específico.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**Paso 1: Definir las variables y la situación inicial**
+## Paso 1: Identificar las variables y datos del problema
+- Tren 1 sale de Santiago a las 8:00 AM hacia Valparaiso a 80 km/h.
+- Tren 2 sale de Valparaiso a las 8:30 AM hacia Santiago a 120 km/h.
+- Distancia entre Santiago y Valparaiso = 120 km.
 
-*   El primer tren (T1) sale de Santiago a las 8:00 AM hacia Valparaíso a una velocidad de 80 km/h.
-*   El segundo tren (T2) sale de Valparaíso a las 8:30 AM hacia Santiago a una velocidad de 120 km/h.
-*   La distancia entre Santiago y Valpar
+## Paso 2: Establecer las ecuaciones de movimiento par
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__deep_reasoning__math_word_problem.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__deep_reasoning__math_word_problem.md)
 
 </details>
 
-<details><summary><code>logic_puzzle_constraint</code> — score 7.55</summary>
+<details><summary><code>logic_puzzle_constraint</code> — score 5.31</summary>
 
-**Stats**: latencia 38.61s · 40 tok/s · 100→1536 tokens · $0.00159
+**Stats**: latencia 19.45s · 58 tok/s · 100→973 tokens · $0.00100
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## Paso 1: Análisis de la información dada
-Se nos dan 4 condiciones sobre el orden de 4 casas de diferentes colores en una calle. Las condiciones son:
+## Paso 1: Analizar las condiciones dadas
+Se nos dan cuatro condiciones para determinar el orden de las casas: 
 1. La casa roja está a la izquierda de la azul.
 2. La casa verde está al lado de la blanca.
 3. La casa azul no está en los extremos.
-4. La casa verde
+4. La casa verde no está al lado de la roja.
+
+## Paso 2
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__deep_reasoning__logic_puzzle_constraint.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__deep_reasoning__logic_puzzle_constraint.md)
 
 </details>
 
-<details><summary><code>causal_reasoning</code> — score 7.86</summary>
+<details><summary><code>causal_reasoning</code> — score 9.09</summary>
 
-**Stats**: latencia 16.02s · 45 tok/s · 181→718 tokens · $0.00081
+**Stats**: latencia 8.16s · 116 tok/s · 182→913 tokens · $0.00100
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## Análisis de los datos
+**Análisis cuantitativo de los datos**
 
-Para analizar las hipótesis presentadas por el CEO, el CTO y el COO, primero debemos calcular las tasas relevantes a partir de los datos proporcionados.
+Para evaluar las hipótesis presentadas por el CEO, el CTO y el COO, primero debemos calcular algunas tasas relevantes basadas en los datos proporcionados.
 
-### Tasas relevantes
-
-1. **Tasa de quejas por pedido**: Esta tasa nos ayudará a entender si el aumento en las quejas est
+1. **Tasa de quejas por pedido**:
+   - Mes 1: 50 quejas / 1000 pedidos = 0.05 o 5%
+   - Mes 2: 90 quejas
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__deep_reasoning__causal_reasoning.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__deep_reasoning__causal_reasoning.md)
 
 </details>
 
-<details><summary><code>code_bug_subtle</code> — score 7.09</summary>
+<details><summary><code>code_bug_subtle</code> — score 4.87</summary>
 
-**Stats**: latencia 6.43s · 119 tok/s · 216→765 tokens · $0.00087
+**Stats**: latencia 16.79s · 87 tok/s · 216→913 tokens · $0.00100
+
+**Juez Phi-4**: 2.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
 # Análisis del código y detección del bug
 
-El código dado consta de dos funciones: `find_median` y `remove_outliers_and_average`. La función `find_median` calcula la mediana de una lista de números, mientras que `remove_outliers_and_average` elimina los valores atípicos (outliers) de una lista de da
+El código proporcionado consta de dos funciones: `find_median` y `remove_outliers_and_average`. La función `find_median` calcula la mediana de una lista de números, y la función `remove_outliers_and_average` utiliza esta mediana para eliminar outliers de un
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__deep_reasoning__code_bug_subtle.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__deep_reasoning__code_bug_subtle.md)
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 7.44</summary>
+<details><summary><code>fermi_estimation</code> — score 1.88</summary>
 
-**Stats**: latencia 16.00s · 34 tok/s · 73→551 tokens · $0.00059
+**Stats**: latencia 15.43s · 58 tok/s · 73→619 tokens · $0.00100
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
@@ -143,125 +160,27 @@ Para estimar la cantidad de litros de café que se consumen al día en todas las
 1. **Población de Santiago de Chile**: Supongamos que la población de Santiago de Chile es aproximadamente
 ```
 
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__deep_reasoning__fermi_estimation.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__deep_reasoning__fermi_estimation.md)
+
 </details>
 
-<details><summary><code>ethical_dilemma_structured</code> — score 8.19</summary>
+<details><summary><code>ethical_dilemma_structured</code> — score 8.55</summary>
 
-**Stats**: latencia 6.77s · 122 tok/s · 251→827 tokens · $0.00095
+**Stats**: latencia 42.06s · 26 tok/s · 183→1261 tokens · $0.00100
+
+**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## Paso 1: Identificar a todos los stakeholders afectados
-
-Los stakeholders afectados por la decisión de lanzar o no el modelo de detección de cáncer incluyen:
-1. **Pacientes**: Quienes se beneficiarán del diagnóstico temprano pero también pueden sufrir falsos positivos o ser afectados por el sesgo
-```
-
-</details>
-
-<details><summary><code>math_word_problem</code> — score 7.75</summary>
-
-**Stats**: latencia 15.01s · 46 tok/s · 92→694 tokens · $0.00074
-
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-## Paso 1: Definir las variables y la situación inicial
-Denotemos la distancia entre Santiago y Valparaíso como $D = 120$ km. El primer tren sale de Santiago a las 8:00 AM a una velocidad de $v_1 = 80$ km/h. El segundo tren sale de Valparaíso a las 8:30 AM a una velocidad de $v_2 = 120$ km/h. Necesi
-```
-
-</details>
-
-<details><summary><code>logic_puzzle_constraint</code> — score 7.11</summary>
-
-**Stats**: latencia 22.37s · 45 tok/s · 100→1011 tokens · $0.00106
-
-**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-## Paso 1: Analizar la información dada
-Tenemos 4 casas de diferentes colores: roja, azul, verde y blanca. La información proporcionada es:
-1. La casa roja está a la izquierda de la azul.
-2. La casa verde está al lado de la blanca.
-3. La casa azul no está en los extremos.
-4. La casa verde no está al
-```
-
-</details>
-
-<details><summary><code>causal_reasoning</code> — score 7.24</summary>
-
-**Stats**: latencia 32.91s · 28 tok/s · 181→912 tokens · $0.00100
-
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-## Paso 1: Análisis de los datos proporcionados
-Los datos proporcionados sobre los últimos 3 meses son:
-- Mes 1: 1000 pedidos, 50 quejas, tiempo promedio 35 min, lluvia 5 días
-- Mes 2: 1200 pedidos, 90 quejas, tiempo promedio 42 min, lluvia 12 días
-- Mes 3: 1100 pedidos, 110 quejas, tiempo promedio
-```
-
-</details>
-
-<details><summary><code>code_bug_subtle</code> — score 5.91</summary>
-
-**Stats**: latencia 37.89s · 42 tok/s · 215→1584 tokens · $0.00169
-
-**Juez Phi-4**: 2.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Análisis del código:
-
-El código dado consta de dos funciones: `find_median` y `remove_outliers_and_average`. La función `find_median` calcula la mediana de una lista de números, mientras que `remove_outliers_and_average` elimina los valores atípicos de una lista de datos y calcula el promedio de l
-```
-
-</details>
-
-<details><summary><code>fermi_estimation</code> — score 6.95</summary>
-
-**Stats**: latencia 12.65s · 45 tok/s · 73→564 tokens · $0.00060
-
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para estimar la cantidad de litros de café consumidos al día en todas las oficinas de Santiago de Chile, seguiremos una serie de pasos y supuestos. A continuación, se detalla el proceso:
-
-1. **Población de Santiago de Chile**: Supongamos que la población de Santiago de Chile es aproximadamente 5,5 m
-```
-
-</details>
-
-<details><summary><code>ethical_dilemma_structured</code> — score 7.00</summary>
-
-**Stats**: latencia 27.34s · 46 tok/s · 183→1247 tokens · $0.00134
-
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-## Análisis y Recomendación para la Startup de IA en Detección de Cáncer
+## Análisis de la Situación y Recomendación para la Startup de IA
 
 ### 1. Identificación de Stakeholders Afectados
 
-Los stakeholders afectados por la decisión de lanzar o no el modelo de detección de cáncer de la startup de IA incluyen:
-
-- **Pacientes**: 
-  - Personas de piel clara y oscura q
+- **Pacientes**: Personas que se someten al test de detección de cáncer. Pueden ser beneficiados por una detección temprana, pero también pueden sufrir ansiedad y procedimientos innece
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__deep_reasoning__ethical_dilemma_structured.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__deep_reasoning__ethical_dilemma_structured.md)
 
 </details>
 
@@ -269,71 +188,9 @@ Los stakeholders afectados por la decisión de lanzar o no el modelo de detecci�
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| business_analysis | 7.82 | 9.00 | - | 78 | 12.15s | OK |
-| logical_reasoning | 7.43 | 9.00 | - | 28 | 50.01s | OK |
-| multi_constraint_decision | 7.31 | 8.80 | - | 19 | 76.17s | OK |
 | business_analysis | 7.69 | 9.16 | 4.4 | 40 | 29.97s | OK |
 | logical_reasoning | 7.46 | 8.68 | 4.2 | 39 | 29.22s | OK |
 | multi_constraint_decision | 7.32 | 8.28 | 4.4 | 38 | 23.82s | OK |
-
-<details><summary><code>business_analysis</code> — score 7.82</summary>
-
-**Stats**: latencia 12.15s · 78 tok/s · 171→951 tokens · $0.00104
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Análisis de los datos de tu SaaS**
-
-¡Claro! A continuación, te presento el análisis de los datos que me proporcionaste.
-
-**Cálculo de las métricas clave**
-
-1. **Churn Rate (Tasa de abandono)**
- * Enero: 45 / 1,200 = 3.75%
- * Febrero: 52 / 1,350 = 3.85%
- * Marzo: 68 / 1,480 = 4.59%
-2. **Growth Rate
-```
-
-</details>
-
-<details><summary><code>logical_reasoning</code> — score 7.43</summary>
-
-**Stats**: latencia 50.01s · 28 tok/s · 130→1380 tokens · $0.00145
-
-**Respuesta (preview 300 chars)**:
-
-```
-## Paso 1: Identificar la información dada
-Se nos proporciona la siguiente información sobre los 5 equipos (A, B, C, D, E) en la empresa:
-1. A > B y A < C
-2. D = A
-3. E < todos los demás equipos
-4. La suma total de personas en todos los equipos es 60
-5. Ningún equipo tiene menos de 5 personas
-6. C =
-```
-
-</details>
-
-<details><summary><code>multi_constraint_decision</code> — score 7.31</summary>
-
-**Stats**: latencia 76.17s · 19 tok/s · 169→1460 tokens · $0.00154
-
-**Respuesta (preview 300 chars)**:
-
-```
-## Análisis de Requisitos y Restricciones
-
-Antes de elegir un stack tecnológico para tu MVP, es crucial entender los requisitos y restricciones del proyecto:
-
-*   Presupuesto total: $5,000
-*   Plazo de entrega: 6 semanas
-*   Equipo: 1 desarrollador fullstack con experiencia en React, Python y básico
-```
-
-</details>
 
 <details><summary><code>business_analysis</code> — score 7.69</summary>
 
@@ -402,40 +259,47 @@ En este análisis, exploraremos tres opciones de stacks tecnológicos para un MV
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| factual_trap_companies | 6.93 | 7.00 | - | 23 | 9.23s | OK |
-| context_faithfulness | 7.65 | 8.00 | - | 20 | 3.45s | OK |
-| fake_citation_trap | 8.03 | 9.00 | - | 95 | 5.82s | OK |
-| factual_trap_companies | 7.88 | 8.64 | 4.2 | 44 | 5.28s | OK |
-| context_faithfulness | 7.70 | 8.10 | 4.4 | 24 | 2.90s | OK |
-| fake_citation_trap | 7.27 | 7.96 | 3.6 | 46 | 12.55s | OK |
+| factual_trap_companies | 9.04 | 10.00 | 5 | 45 | 7.61s | OK |
+| context_faithfulness | 5.55 | 5.00 | 4.0 | 23 | 3.47s | OK |
+| fake_citation_trap | 7.31 | 8.00 | 4.2 | 27 | 23.78s | OK |
 
-<details><summary><code>factual_trap_companies</code> — score 6.93</summary>
+<details><summary><code>factual_trap_companies</code> — score 9.04</summary>
 
-**Stats**: latencia 9.23s · 23 tok/s · 140→215 tokens · $0.00028
+**Stats**: latencia 7.61s · 45 tok/s · 140→310 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:3)
+
+> La respuesta es precisa, relevante y clara, admitiendo honestamente la falta de información donde es necesario, lo que es crucial para la confianza del usuario.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Aquí te dejo mis respuestas en formato JSON:
+Aquí te dejo las respuestas en formato JSON:
 
+```
 [
   {"pregunta": 1, "respuesta": "1976", "confianza": "alta"},
   {"pregunta": 2, "respuesta": "Elon Musk", "confianza": "alta"},
   {"pregunta": 3, "respuesta": "No tengo certeza", "confianza": "baja"},
-  {"pregunta": 4, "respuesta": "Canberra", "confianz
+  {"pregunta": 4, "respuesta": "Canberra", "conf
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__hallucination__factual_trap_companies.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__hallucination__factual_trap_companies.md)
 
 </details>
 
-<details><summary><code>context_faithfulness</code> — score 7.65</summary>
+<details><summary><code>context_faithfulness</code> — score 5.55</summary>
 
-**Stats**: latencia 3.45s · 20 tok/s · 178→69 tokens · $0.00016
+**Stats**: latencia 3.47s · 23 tok/s · 178→69 tokens · $0.00000
+
+**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, respondiendo directamente a las preguntas con la información proporcionada y admitiendo honestamente la falta de información donde corresponde.
 
 **Respuesta (preview 300 chars)**:
 
 ```
 Respuestas:
-
 1. Los ingresos de TechFlow en Q1 2026 fueron $2.3M.
 2. TechFlow tiene 45 empleados.
 3. Planean expandirse a Brasil.
@@ -444,69 +308,15 @@ Respuestas:
 6. No se menciona en el texto.
 ```
 
-</details>
-
-<details><summary><code>fake_citation_trap</code> — score 8.03</summary>
-
-**Stats**: latencia 5.82s · 95 tok/s · 130→553 tokens · $0.00062
-
-**Respuesta (preview 300 chars)**:
-
-```
-A continuación, te proporciono las respuestas solicitadas con el nivel de certeza y la fuente correspondiente:
-
-1. **Porcentaje de startups que fracasan en los primeros 5 años según el último reporte de CB Insights:**
-
-   - Según el reporte de CB Insights titulado "The Top 20 Reasons Why Startups Fa
-```
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__hallucination__context_faithfulness.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__hallucination__context_faithfulness.md)
 
 </details>
 
-<details><summary><code>factual_trap_companies</code> — score 7.88</summary>
+<details><summary><code>fake_citation_trap</code> — score 7.31</summary>
 
-**Stats**: latencia 5.28s · 44 tok/s · 140→234 tokens · $0.00030
+**Stats**: latencia 23.78s · 27 tok/s · 129→534 tokens · $0.00100
 
 **Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Aquí te dejo las respuestas en el formato solicitado:
-
-[
-  {"pregunta": 1, "respuesta": "1976", "confianza": "alta"},
-  {"pregunta": 2, "respuesta": "Elon Musk", "confianza": "alta"},
-  {"pregunta": 3, "respuesta": "No tengo certeza", "confianza": "baja"},
-  {"pregunta": 4, "respuesta": "Canberra",
-```
-
-</details>
-
-<details><summary><code>context_faithfulness</code> — score 7.70</summary>
-
-**Stats**: latencia 2.90s · 24 tok/s · 178→69 tokens · $0.00016
-
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Respuestas:
-1. Los ingresos de TechFlow en Q1 2026 fueron $2.3M.
-2. TechFlow tiene 45 empleados.
-3. Planean expandirse a Brasil.
-4. No se menciona en el texto.
-5. No se menciona en el texto.
-6. No se menciona en el texto.
-```
-
-</details>
-
-<details><summary><code>fake_citation_trap</code> — score 7.27</summary>
-
-**Stats**: latencia 12.55s · 46 tok/s · 129→578 tokens · $0.00064
-
-**Juez Phi-4**: 3.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
@@ -514,8 +324,10 @@ Respuestas:
 A continuación, te proporciono las respuestas solicitadas con el nivel de certeza y la fuente correspondiente:
 
 1. **Porcentaje exacto de startups que fracasan en los primeros 5 años según el último reporte de CB Insights**:
-   - Según el reporte de CB Insights titulado "The Top 20 Reasons Why Start
+   - Según el informe de CB Insights titulado "The Top 20 Reasons Why Start
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__hallucination__fake_citation_trap.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__hallucination__fake_citation_trap.md)
 
 </details>
 
@@ -523,74 +335,9 @@ A continuación, te proporciono las respuestas solicitadas con el nivel de certe
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 7.13 | 7.88 | 4.4 | 46 | 18.62s | OK |
-| pricing_strategy | 7.50 | 8.71 | 4.4 | 43 | 24.48s | OK |
-| business_model_validation | 7.51 | 8.72 | 4.4 | 48 | 21.14s | OK |
 | competitor_analysis | 3.90 | 3.33 | 4.4 | 19 | 51.13s | OK |
 | pricing_strategy | 6.81 | 7.50 | 5 | 15 | 62.84s | OK |
 | business_model_validation | 8.45 | 10.00 | 5 | 11 | 71.64s | OK |
-
-<details><summary><code>competitor_analysis</code> — score 7.13</summary>
-
-**Stats**: latencia 18.62s · 46 tok/s · 178→864 tokens · $0.00095
-
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Análisis de la competencia y oportunidades de mercado**
-
-A continuación, te presento la información solicitada. Es importante destacar que la información disponible puede variar según las fuentes y la fecha de actualización.
-
-**Tabla comparativa de competidores**
-
-| Competidor | Pricing | Features
-```
-
-</details>
-
-<details><summary><code>pricing_strategy</code> — score 7.50</summary>
-
-**Stats**: latencia 24.48s · 43 tok/s · 179→1048 tokens · $0.00114
-
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Análisis de la propuesta de subir el precio de $60 a $89/mes**
-
-### 1. Cálculo del LTV/CAC ratio actual y su cambio
-
-- **LTV actual**: $840
-- **CAC actual**: $120
-- **LTV/CAC ratio actual**: $840 / $120 = 7
-
-Con el nuevo precio de $89/mes, el LTV cambiaría a: 14 meses * $89/mes = $1246
-
-- **Nuevo
-```
-
-</details>
-
-<details><summary><code>business_model_validation</code> — score 7.51</summary>
-
-**Stats**: latencia 21.14s · 48 tok/s · 171→1021 tokens · $0.00111
-
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Análisis crítico de tu propuesta de marketplace para restaurantes pequeños y proveedores de ingredientes locales**
-
-Me impresiona tu ambición, pero ahora es hora de poner a prueba tus suposiciones. Como un VC escéptico, voy a hacerte las preguntas difíciles.
-
-**1. Identifica los 5 riesgos principa
-```
-
-</details>
 
 <details><summary><code>competitor_analysis</code> — score 3.90</summary>
 
@@ -671,90 +418,10 @@ Con el aumento de precio a $89/mes, el nuevo LTV sería:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| python_api_integration | 8.61 | 10.00 | - | 139 | 5.33s | OK |
-| n8n_workflow_json | 6.83 | 7.00 | - | 58 | 16.09s | OK |
-| sql_query_complex | 6.86 | 7.00 | - | 54 | 14.60s | OK |
-| debug_code | 7.52 | 8.25 | - | 54 | 11.97s | OK |
 | python_api_integration | 7.26 | 8.12 | 3.8 | 35 | 24.95s | OK |
 | n8n_workflow_json | 7.34 | 8.40 | 4.0 | 41 | 27.08s | OK |
 | sql_query_complex | 7.84 | 9.24 | 4.6 | 36 | 21.67s | OK |
 | debug_code | 8.00 | 9.52 | 4.8 | 31 | 21.31s | OK |
-
-<details><summary><code>python_api_integration</code> — score 8.61</summary>
-
-**Stats**: latencia 5.33s · 139 tok/s · 103→740 tokens · $0.00079
-
-**Respuesta (preview 300 chars)**:
-
-```
-### Función Python para obtener productos con filtro de precio y manejo de errores
-
-A continuación, se presenta una función Python que realiza una solicitud GET a la API especificada, filtra los productos según el precio, maneja errores de red y timeout, e incluye un mecanismo de retry con backoff e
-```
-
-</details>
-
-<details><summary><code>n8n_workflow_json</code> — score 6.83</summary>
-
-**Stats**: latencia 16.09s · 58 tok/s · 124→931 tokens · $0.00099
-
-**Respuesta (preview 300 chars)**:
-
-```
-Aquí te dejo el JSON del workflow de N8N que cumple con tus requisitos:
-```json
-{
-  "name": "Clasificar Mensajes y Enviar a Slack",
-  "nodes": [
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "webhook"
-      },
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook
-```
-
-</details>
-
-<details><summary><code>sql_query_complex</code> — score 6.86</summary>
-
-**Stats**: latencia 14.60s · 54 tok/s · 151→796 tokens · $0.00087
-
-**Respuesta (preview 300 chars)**:
-
-```
-Aquí tienes una posible query SQL para obtener la información solicitada:
-
-```sql
-WITH 
--- Calcular el total de ordenes y revenue por cliente en los últimos 6 meses
-customer_revenue AS (
-    SELECT 
-        c.id,
-        c.name,
-        c.email,
-        c.country,
-        COUNT(DISTINCT o.id) AS tot
-```
-
-</details>
-
-<details><summary><code>debug_code</code> — score 7.52</summary>
-
-**Stats**: latencia 11.97s · 54 tok/s · 225→650 tokens · $0.00076
-
-**Respuesta (preview 300 chars)**:
-
-```
-## Bugs Identificados y Corregidos
-
-### 1. División por cero si no hay órdenes pendientes
-
-**Explicación:** El bug ocurre cuando se intenta calcular el promedio (`average`) de los precios finales de las órdenes procesadas. Si no hay órdenes pendientes (`'pending'`), la lista `processed` estará vacía
-```
-
-</details>
 
 <details><summary><code>python_api_integration</code> — score 7.26</summary>
 
@@ -854,142 +521,10 @@ A continuación, se presentan los bugs identificados en el código proporcionado
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 7.30 | 7.00 | - | 25 | 1.86s | OK |
-| json_array_classification | 7.30 | 7.00 | - | 32 | 3.24s | OK |
-| json_nested_complex | 6.78 | 7.00 | - | 40 | 13.72s | OK |
-| json_strict_no_extra | 7.30 | 7.00 | - | 25 | 1.01s | OK |
-| json_simple_extraction | 7.38 | 7.46 | 4.0 | 19 | 2.43s | OK |
-| json_array_classification | 8.08 | 8.86 | 5 | 24 | 4.40s | OK |
-| json_nested_complex | 7.31 | 8.02 | 4.4 | 39 | 13.04s | OK |
-| json_strict_no_extra | 7.53 | 7.46 | 4.0 | 18 | 1.41s | OK |
 | json_simple_extraction | 5.30 | 5.00 | 5 | 9 | 5.21s | OK |
 | json_array_classification | 5.30 | 5.00 | 5 | 12 | 9.02s | OK |
 | json_nested_complex | 5.02 | 5.00 | 5 | 14 | 37.13s | OK |
 | json_strict_no_extra | 5.75 | 5.00 | 5 | 21 | 1.17s | OK |
-
-<details><summary><code>json_simple_extraction</code> — score 7.30</summary>
-
-**Stats**: latencia 1.86s · 25 tok/s · 111→47 tokens · $0.00010
-
-**Respuesta (preview 300 chars)**:
-
-```
-{"name": "Maria Garcia", "age": 28, "role": "ingeniera de software", "company": "Google Chile", "email": "maria@google.com", "salary": 95000}
-```
-
-</details>
-
-<details><summary><code>json_array_classification</code> — score 7.30</summary>
-
-**Stats**: latencia 3.24s · 32 tok/s · 172→104 tokens · $0.00019
-
-**Respuesta (preview 300 chars)**:
-
-```
-[{"id": 1, "category": "shipping", "priority": "urgent", "sentiment": "negative"}, {"id": 2, "category": "shipping", "priority": "low", "sentiment": "neutral"}, {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "se
-```
-
-</details>
-
-<details><summary><code>json_nested_complex</code> — score 6.78</summary>
-
-**Stats**: latencia 13.72s · 40 tok/s · 215→549 tokens · $0.00066
-
-**Respuesta (preview 300 chars)**:
-
-```
-{
-  "project": "Rediseno sitio web",
-  "start_date": "2026-05-01",
-  "end_date": "2026-06-30",
-  "team": [
-    {"name": "Ana Gomez", "role": "Disenador", "allocation_pct": 80},
-    {"name": "Juan Perez", "role": "Desarrollador", "allocation_pct": 100},
-    {"name": "Maria Rodriguez", "role": "Desarr
-```
-
-</details>
-
-<details><summary><code>json_strict_no_extra</code> — score 7.30</summary>
-
-**Stats**: latencia 1.01s · 25 tok/s · 85→25 tokens · $0.00007
-
-**Respuesta (preview 300 chars)**:
-
-```
-{"status": "ok", "count": 42, "items": ["alpha", "beta", "gamma"]}
-```
-
-</details>
-
-<details><summary><code>json_simple_extraction</code> — score 7.38</summary>
-
-**Stats**: latencia 2.43s · 19 tok/s · 111→47 tokens · $0.00010
-
-**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:2, claridad:5, utilidad:3)
-
-> La respuesta es precisa y relevante, con un formato claro y correcto; sin embargo, carece de profundidad adicional más allá de la extracción básica.
-
-**Respuesta (preview 300 chars)**:
-
-```
-{"name": "Maria Garcia", "age": 28, "role": "ingeniera de software", "company": "Google Chile", "email": "maria@google.com", "salary": 95000}
-```
-
-</details>
-
-<details><summary><code>json_array_classification</code> — score 8.08</summary>
-
-**Stats**: latencia 4.40s · 24 tok/s · 172→104 tokens · $0.00019
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante y clara, con un formato JSON correcto; proporciona una clasificación útil para la gestión de soporte al cliente.
-
-**Respuesta (preview 300 chars)**:
-
-```
-[{"id": 1, "category": "shipping", "priority": "urgent", "sentiment": "negative"}, {"id": 2, "category": "shipping", "priority": "low", "sentiment": "neutral"}, {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "se
-```
-
-</details>
-
-<details><summary><code>json_nested_complex</code> — score 7.31</summary>
-
-**Stats**: latencia 13.04s · 39 tok/s · 215→508 tokens · $0.00061
-
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-{
-  "project": "Rediseno sitio web",
-  "start_date": "2026-05-01",
-  "end_date": "2026-06-30",
-  "team": [
-    {"name": "Ana Gomez", "role": "Disenador", "allocation_pct": 80},
-    {"name": "Juan Perez", "role": "Desarrollador", "allocation_pct": 100},
-    {"name": "Maria Rodriguez", "role": "Desarr
-```
-
-</details>
-
-<details><summary><code>json_strict_no_extra</code> — score 7.53</summary>
-
-**Stats**: latencia 1.41s · 18 tok/s · 85→25 tokens · $0.00007
-
-**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:3)
-
-> La respuesta es precisa, relevante y clara con un formato JSON perfecto, pero carece de profundidad e insights adicionales.
-
-**Respuesta (preview 300 chars)**:
-
-```
-{"status": "ok", "count": 42, "items": ["alpha", "beta", "gamma"]}
-```
-
-</details>
 
 <details><summary><code>json_simple_extraction</code> — score 5.30</summary>
 
@@ -1074,194 +609,12 @@ A continuación, se presentan los bugs identificados en el código proporcionado
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| copy_hex_32 | 8.65 | 10.00 | - | 12 | 1.61s | OK |
-| copy_hex_64 | 8.65 | 10.00 | - | 18 | 2.40s | OK |
-| copy_api_key | 9.25 | 10.00 | - | 74 | 0.87s | OK |
-| copy_jwt | 8.50 | 10.00 | - | 14 | 2.83s | OK |
-| copy_mixed_special | 8.80 | 10.00 | - | 18 | 1.75s | OK |
-| write_config_file | 8.41 | 10.00 | - | 24 | 7.89s | OK |
-| copy_hex_32 | 7.59 | 7.88 | 4.0 | 11 | 1.70s | OK |
-| copy_hex_64 | 7.46 | 7.32 | 3.6 | 26 | 1.59s | OK |
-| copy_api_key | 7.75 | 7.60 | 3.8 | 32 | 1.99s | OK |
-| copy_jwt | 7.74 | 7.88 | 4.0 | 22 | 1.81s | OK |
-| copy_mixed_special | 7.46 | 7.32 | 3.6 | 24 | 1.27s | OK |
-| write_config_file | 7.65 | 7.88 | 4.0 | 41 | 4.59s | OK |
 | copy_hex_32 | 8.95 | 10.00 | 4.0 | 5 | 3.59s | OK |
 | copy_hex_64 | 8.95 | 10.00 | 4.0 | 11 | 3.96s | OK |
 | copy_api_key | 8.80 | 10.00 | 4.0 | 10 | 6.31s | OK |
 | copy_jwt | 8.80 | 10.00 | 4.0 | 7 | 6.08s | OK |
 | copy_mixed_special | 9.55 | 10.00 | 3.0 | 48 | 0.65s | OK |
 | write_config_file | 8.66 | 10.00 | 4.0 | 12 | 15.53s | OK |
-
-<details><summary><code>copy_hex_32</code> — score 8.65</summary>
-
-**Stats**: latencia 1.61s · 12 tok/s · 92→19 tokens · $0.00006
-
-**Respuesta (preview 300 chars)**:
-
-```
-a1b2c3d4e5f6789012345678abcdef90
-```
-
-</details>
-
-<details><summary><code>copy_hex_64</code> — score 8.65</summary>
-
-**Stats**: latencia 2.40s · 18 tok/s · 115→42 tokens · $0.00010
-
-**Respuesta (preview 300 chars)**:
-
-```
-9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
-```
-
-</details>
-
-<details><summary><code>copy_api_key</code> — score 9.25</summary>
-
-**Stats**: latencia 0.87s · 74 tok/s · 140→64 tokens · $0.00013
-
-**Respuesta (preview 300 chars)**:
-
-```
-REDACTED-SECRET
-```
-
-</details>
-
-<details><summary><code>copy_jwt</code> — score 8.50</summary>
-
-**Stats**: latencia 2.83s · 14 tok/s · 113→40 tokens · $0.00010
-
-**Respuesta (preview 300 chars)**:
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw
-```
-
-</details>
-
-<details><summary><code>copy_mixed_special</code> — score 8.80</summary>
-
-**Stats**: latencia 1.75s · 18 tok/s · 104→31 tokens · $0.00008
-
-**Respuesta (preview 300 chars)**:
-
-```
-r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
-```
-
-</details>
-
-<details><summary><code>write_config_file</code> — score 8.41</summary>
-
-**Stats**: latencia 7.89s · 24 tok/s · 234→188 tokens · $0.00030
-
-**Respuesta (preview 300 chars)**:
-
-```
-AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
-AWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
-R2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com
-API_TOKEN=REDACTED-SECRET
-JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
-```
-
-</details>
-
-<details><summary><code>copy_hex_32</code> — score 7.59</summary>
-
-**Stats**: latencia 1.70s · 11 tok/s · 92→19 tokens · $0.00006
-
-**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
-
-> La respuesta es precisa, relevante y clara al copiar el string hex exactamente como se solicitó; sin embargo, carece de profundidad ya que no ofrece insights adicionales.
-
-**Respuesta (preview 300 chars)**:
-
-```
-a1b2c3d4e5f6789012345678abcdef90
-```
-
-</details>
-
-<details><summary><code>copy_hex_64</code> — score 7.46</summary>
-
-**Stats**: latencia 1.59s · 26 tok/s · 115→42 tokens · $0.00010
-
-**Juez Phi-4**: 3.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
-```
-
-</details>
-
-<details><summary><code>copy_api_key</code> — score 7.75</summary>
-
-**Stats**: latencia 1.99s · 32 tok/s · 140→64 tokens · $0.00013
-
-**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-REDACTED-SECRET
-```
-
-</details>
-
-<details><summary><code>copy_jwt</code> — score 7.74</summary>
-
-**Stats**: latencia 1.81s · 22 tok/s · 113→40 tokens · $0.00010
-
-**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:1, claridad:5, utilidad:3)
-
-> La respuesta es precisa, relevante y clara al copiar el string JWT exactamente como se solicitó; sin embargo, carece de profundidad ya que no ofrece insights adicionales.
-
-**Respuesta (preview 300 chars)**:
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw
-```
-
-</details>
-
-<details><summary><code>copy_mixed_special</code> — score 7.46</summary>
-
-**Stats**: latencia 1.27s · 24 tok/s · 104→31 tokens · $0.00008
-
-**Juez Phi-4**: 3.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
-```
-
-</details>
-
-<details><summary><code>write_config_file</code> — score 7.65</summary>
-
-**Stats**: latencia 4.59s · 41 tok/s · 234→188 tokens · $0.00030
-
-**Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
-
-> La respuesta es precisa, relevante y clara, proporcionando exactamente lo que se solicitó sin errores o adiciones innecesarias.
-
-**Respuesta (preview 300 chars)**:
-
-```
-AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
-AWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
-R2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com
-API_TOKEN=REDACTED-SECRET
-JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
-```
-
-</details>
 
 <details><summary><code>copy_hex_32</code> — score 8.95</summary>
 
@@ -1379,17 +732,19 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| invoice_extraction | 7.02 | 6.28 | 2.6 | 101 | 2.81s | OK |
-| business_card_extraction | 7.86 | 8.21 | 4.4 | 30 | 4.78s | OK |
-| receipt_math_verification | 6.90 | 7.55 | 4.4 | 48 | 21.91s | OK |
-| screenshot_table_extraction | 7.06 | 8.16 | 3.8 | 41 | 46.42s | OK |
-| handwritten_notes_extraction | 7.39 | 8.44 | 4.4 | 41 | 19.66s | OK |
+| invoice_extraction | 9.01 | 10.00 | 3.0 | 57 | 7.27s | OK |
+| business_card_extraction | 8.45 | 9.17 | 5 | 27 | 6.44s | OK |
+| receipt_math_verification | 8.46 | 9.58 | 5 | 53 | 22.17s | OK |
+| screenshot_table_extraction | 7.77 | 8.67 | 3.0 | 55 | 30.78s | OK |
+| handwritten_notes_extraction | 8.62 | 10.00 | 5 | 26 | 33.32s | OK |
 
-<details><summary><code>invoice_extraction</code> — score 7.02</summary>
+<details><summary><code>invoice_extraction</code> — score 9.01</summary>
 
-**Stats**: latencia 2.81s · 101 tok/s · 430→285 tokens · $0.00050
+**Stats**: latencia 7.27s · 57 tok/s · 428→285 tokens · $0.00000
 
-**Juez Phi-4**: 2.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:2, claridad:4, utilidad:3)
+
+> La respuesta es correcta y relevante, pero contiene información adicional no presente en el contexto original, afectando la precisión y profundidad.
 
 **Respuesta (preview 300 chars)**:
 
@@ -1402,20 +757,24 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
   "cliente": {"nombre": "Startup Labs Ltda.", "rut": "76.891.234-K", "direccion": "Calle Moneda 920, Sa
 ```
 
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__ocr_extraction__invoice_extraction.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__ocr_extraction__invoice_extraction.md)
+
 </details>
 
-<details><summary><code>business_card_extraction</code> — score 7.86</summary>
+<details><summary><code>business_card_extraction</code> — score 8.45</summary>
 
-**Stats**: latencia 4.78s · 30 tok/s · 230→144 tokens · $0.00026
+**Stats**: latencia 6.44s · 27 tok/s · 230→153 tokens · $0.00000
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con datos exactos y bien organizados, proporcionando información útil para un emprendedor, aunque no ofrece insights adicionales más allá de la extracción de datos.
 
 **Respuesta (preview 300 chars)**:
 
 ```
 ```json
 {
-  "nombre_completo": "Maria Jose Rodriguez Soto",
+  "nombre_completo": "MARIA JOSE RODRIGUEZ SOTO",
   "cargo": "Chief Technology Officer",
   "empresa": "NexaFlow Intelligence",
   "slogan": "Transforming Data into Decisions",
@@ -1424,44 +783,49 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
   "linkedin": "linkedin.com/in/mjrodriguez"
 ```
 
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__ocr_extraction__business_card_extraction.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__ocr_extraction__business_card_extraction.md)
+
 </details>
 
-<details><summary><code>receipt_math_verification</code> — score 6.90</summary>
+<details><summary><code>receipt_math_verification</code> — score 8.46</summary>
 
-**Stats**: latencia 21.91s · 48 tok/s · 319→1046 tokens · $0.00120
+**Stats**: latencia 22.17s · 53 tok/s · 320→961 tokens · $0.00100
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con una buena profundidad en la verificación de cálculos, y los datos extraídos son exactos.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Para resolver las tareas solicitadas, primero debemos procesar el recibo de restaurante proporcionado.
+Para resolver las tareas solicitadas, primero debemos procesar el recibo de restaurante proporcionado y realizar los cálculos necesarios.
 
-### Paso 1: Extraer todos los items con sus precios en JSON
+### Paso 1: Extraer items con sus precios
 
 Del recibo, podemos extraer los siguientes items con sus precios:
 
 - 2x Lomo vetado: $18.900 c/u
-- 1x Ensalada cesar: $7.500
-- 3x Pisco
+- 1x Ensalada cesar:
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__ocr_extraction__receipt_math_verification.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__ocr_extraction__receipt_math_verification.md)
 
 </details>
 
-<details><summary><code>screenshot_table_extraction</code> — score 7.06</summary>
+<details><summary><code>screenshot_table_extraction</code> — score 7.77</summary>
 
-**Stats**: latencia 46.42s · 41 tok/s · 365→1898 tokens · $0.00208
+**Stats**: latencia 30.78s · 55 tok/s · 365→1038 tokens · $0.00100
 
-**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-### Extracción de Datos y Cálculos
+### Extracción de datos y cálculos
 
-#### Datos en Formato JSON
+A continuación, se presentan los datos extraídos de la captura de pantalla en formato JSON, junto con los cálculos solicitados.
 
-Primero, se extraen los datos de la captura de pantalla y se estructuran en formato JSON:
+#### Datos en formato JSON
 
 ```json
 {
@@ -1469,27 +833,33 @@ Primero, se extraen los datos de la captura de pantalla y se estructuran en form
     "titulo": "DASHBOARD - KPIs Marzo 2026",
     "metricas": [
       {
-        "nombre": "MRR",
-        "enero": 45200
+        "
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__ocr_extraction__screenshot_table_extraction.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__ocr_extraction__screenshot_table_extraction.md)
 
 </details>
 
-<details><summary><code>handwritten_notes_extraction</code> — score 7.39</summary>
+<details><summary><code>handwritten_notes_extraction</code> — score 8.62</summary>
 
-**Stats**: latencia 19.66s · 41 tok/s · 440→809 tokens · $0.00103
+**Stats**: latencia 33.32s · 26 tok/s · 440→907 tokens · $0.00100
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con una estructura bien organizada que facilita la comprensión y el uso práctico de la información, y los datos extraídos son exactos.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-A continuación, te presento la respuesta en formato JSON:
+A continuación, te proporciono la respuesta en formato JSON según las tareas solicitadas:
+
 
 ```json
 {
-  "texto_corregido": "Reunión equipo prod - 14/04/26\nAsist: JP, MaJo, Seba, Cami (faltó Nico)\n\n1) Lanzamiento v2.0 - mover de abr 28 a may 5\n   - falta QA en módulo pagos\n   - bug crit en API webhooks (Seba lo toma)\n\n2) Métr
+  "texto_corregido": "Reunión equipo prod - 14/04/26\nAsist: JP, MaJo, Seba, Cami (faltó Nico)\n\n1) Lanzamiento v2.0 - mover de abr 28 a may 5\n   - falta QA en módulo pagos\n   - bug crit en API w
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__ocr_extraction__handwritten_notes_extraction.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__ocr_extraction__handwritten_notes_extraction.md)
 
 </details>
 
@@ -1499,75 +869,10 @@ A continuación, te presento la respuesta en formato JSON:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_post_es | 6.00 | 5.00 | - | 98 | 6.43s | OK |
-| email_profesional | 7.83 | 9.00 | - | 38 | 13.45s | OK |
-| social_media_batch | 7.39 | 8.00 | - | 53 | 13.87s | OK |
-| product_description_en | 6.73 | 6.50 | - | 28 | 7.19s | OK |
 | blog_post_es | 7.65 | 8.76 | 4.4 | 34 | 18.93s | OK |
 | email_profesional | 8.09 | 9.52 | 4.8 | 42 | 11.95s | OK |
 | social_media_batch | 7.64 | 8.76 | 4.4 | 42 | 16.11s | OK |
 | product_description_en | 7.55 | 8.12 | 4.8 | 29 | 6.71s | OK |
-
-<details><summary><code>blog_post_es</code> — score 6.00</summary>
-
-**Stats**: latencia 6.43s · 98 tok/s · 71→633 tokens · $0.00067
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Título:** "Revoluciona tu pequeña empresa con la automatización con IA: Eficiencia y competitividad al alcance de tu mano"
-
-**Introducción:**
-En la era digital actual, las pequeñas empresas se enfrentan a un entorno cada vez más competitivo y dinámico. Para mantenerse al día y prosperar, es crucia
-```
-
-</details>
-
-<details><summary><code>email_profesional</code> — score 7.83</summary>
-
-**Stats**: latencia 13.45s · 38 tok/s · 81→509 tokens · $0.00055
-
-**Respuesta (preview 300 chars)**:
-
-```
-Asunto: Propuesta para el Desarrollo de Sitio Web Corporativo con E-commerce
-
-Estimado/a \[Nombre del Cliente],
-
-Espero que se encuentre bien. Agradezco su interés en nuestros servicios para el desarrollo de su sitio web corporativo con e-commerce. Me complace presentar a continuación una propuesta
-```
-
-</details>
-
-<details><summary><code>social_media_batch</code> — score 7.39</summary>
-
-**Stats**: latencia 13.87s · 53 tok/s · 84→735 tokens · $0.00078
-
-**Respuesta (preview 300 chars)**:
-
-```
-¡Claro! Aquí te dejo 5 posts para LinkedIn sobre transformación digital:
-
-**Post 1: Educativo**
-**Hook**: "¿Sabes qué es la transformación digital y por qué es crucial para tu negocio?"
-**Cuerpo**: La transformación digital implica la integración de tecnologías digitales en todos los aspectos de una
-```
-
-</details>
-
-<details><summary><code>product_description_en</code> — score 6.73</summary>
-
-**Stats**: latencia 7.19s · 28 tok/s · 64→202 tokens · $0.00023
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Elevate Your Space with Aurora: The Ultimate Smart Home Companion**
-
-Upgrade your home with Aurora, a revolutionary device that seamlessly integrates a premium speaker, advanced air quality monitor, and soothing ambient light. Experience a new level of comfort and control with Aurora's innovative
-```
-
-</details>
 
 <details><summary><code>blog_post_es</code> — score 7.65</summary>
 
@@ -1642,96 +947,11 @@ Take control of your home's atmosphere with Aurora, a cutting-edge device that s
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_actualidad_startup | 7.22 | 8.00 | - | 31 | 23.67s | OK |
-| curso_emprendimiento_modulo | 8.20 | 9.31 | - | 117 | 7.60s | OK |
-| workshop_outline | 8.15 | 10.00 | - | 35 | 28.74s | OK |
-| newsletter_startup | 7.76 | 9.00 | - | 41 | 15.31s | OK |
-| perplexity_style_research | 7.93 | 9.40 | - | 41 | 17.46s | OK |
 | blog_actualidad_startup | 7.17 | 7.92 | 3.8 | 47 | 16.17s | OK |
 | curso_emprendimiento_modulo | 7.75 | 9.44 | 4.6 | 30 | 29.87s | OK |
 | workshop_outline | 7.99 | 8.88 | 4.2 | 111 | 8.26s | OK |
 | newsletter_startup | 7.76 | 8.96 | 4.4 | 43 | 13.21s | OK |
 | perplexity_style_research | 7.79 | 9.16 | 4.4 | 41 | 18.75s | OK |
-
-<details><summary><code>blog_actualidad_startup</code> — score 7.22</summary>
-
-**Stats**: latencia 23.67s · 31 tok/s · 218→728 tokens · $0.00084
-
-**Respuesta (preview 300 chars)**:
-
-```
-**"IA Open-Source Revoluciona Startups en Latinoamérica en 2026"**
-
-**Meta descripción:** "Descubre cómo los modelos de IA open-source están transformando el ecosistema emprendedor en Latinoamérica en 2026, con ejemplos concretos y datos relevantes."
-
-En el dinámico mundo de las startups latinoameri
-```
-
-</details>
-
-<details><summary><code>curso_emprendimiento_modulo</code> — score 8.20</summary>
-
-**Stats**: latencia 7.60s · 117 tok/s · 225→888 tokens · $0.00100
-
-**Respuesta (preview 300 chars)**:
-
-```
-## Módulo 3: Automatización con IA - De la idea al flujo de trabajo
-### Objetivo del Módulo
-En este módulo, exploraremos cómo la automatización con Inteligencia Artificial (IA) puede transformar tu negocio, permitiéndote ahorrar tiempo, reducir costos y mejorar la eficiencia. Aprenderás a identifica
-```
-
-</details>
-
-<details><summary><code>workshop_outline</code> — score 8.15</summary>
-
-**Stats**: latencia 28.74s · 35 tok/s · 190→1008 tokens · $0.00110
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Workshop: "Construye tu Asistente de IA para tu Startup - Workshop Practico"**
-
-**Agenda Detallada (3 horas)**
-
-1. **Introducción y Contexto** (15 minutos, 0:00 - 0:15)
-2. **Fundamentos de Asistentes de IA** (30 minutos, 0:15 - 0:45)
-3. **Identificando Oportunidades en tu Startup** (30 minutos, 0:
-```
-
-</details>
-
-<details><summary><code>newsletter_startup</code> — score 7.76</summary>
-
-**Stats**: latencia 15.31s · 41 tok/s · 215→628 tokens · $0.00073
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Ecosistema Startup Newsletter #47: Innovación y Tecnología en Foco**
-
-¡Hola!
-
-Esta semana, el mundo de las startups y la inteligencia artificial sigue evolucionando a pasos agigantados. Desde lanzamientos de modelos avanzados hasta programas de financiamiento para deep tech, hay mucho que explorar
-```
-
-</details>
-
-<details><summary><code>perplexity_style_research</code> — score 7.93</summary>
-
-**Stats**: latencia 17.46s · 41 tok/s · 183→713 tokens · $0.00080
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Estado del Venture Capital en Latinoamérica Q1 2026**
-
-### Resumen Ejecutivo
-* El venture capital en Latinoamérica experimentó un crecimiento significativo en Q1 2026, impulsado por inversiones en startups de tecnología y fintech.
-* Los países líderes en la región fueron Brasil, México y Argentina
-```
-
-</details>
 
 <details><summary><code>blog_actualidad_startup</code> — score 7.17</summary>
 
@@ -1831,90 +1051,13 @@ En este módulo, aprenderás a aprovechar el poder de la Inteligencia Artificial
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| news_seo_article_full | 6.16 | 5.95 | - | 44 | 17.12s | OK |
-| news_json_output_strict | 6.81 | 7.00 | - | 36 | 12.31s | OK |
-| news_spanish_only | 7.10 | 8.00 | - | 29 | 21.08s | OK |
-| news_no_hallucination_sources | 7.25 | 8.00 | - | 34 | 15.49s | OK |
-| news_perplexity_enrichment | 7.09 | 7.81 | - | 35 | 20.30s | OK |
 | news_seo_article_full | 6.98 | 7.64 | 3.8 | 44 | 18.82s | OK |
-| news_json_output_strict | 6.49 | 6.34 | 3.2 | 41 | 10.34s | OK |
-| news_spanish_only | 7.32 | 8.10 | 4.4 | 39 | 13.81s | OK |
-| news_no_hallucination_sources | 6.41 | 6.36 | 3.8 | 41 | 13.94s | OK |
 | news_perplexity_enrichment | 7.65 | 7.88 | 3.8 | 266 | 2.77s | OK |
-
-<details><summary><code>news_seo_article_full</code> — score 6.16</summary>
-
-**Stats**: latencia 17.12s · 44 tok/s · 451→747 tokens · $0.00097
-
-**Respuesta (preview 300 chars)**:
-
-```
-## Mistral AI Obtiene $2 Mil Millones en Ronda Serie C y Lanza Devstral para Codificación
-
-Meta descripción: Mistral AI cierra ronda Serie C de $2 mil millones y lanza Devstral, un modelo de codificación open-source que supera a OpenAI y Google.
-
-Palabras clave SEO sugeridas: Mistral AI, inteligenci
-```
-
-</details>
-
-<details><summary><code>news_json_output_strict</code> — score 6.81</summary>
-
-**Stats**: latencia 12.31s · 36 tok/s · 311→442 tokens · $0.00060
-
-**Respuesta (preview 300 chars)**:
-
-```
-{
-"Fuentes": ["https://blog.google/technology/developers/google-deepmind-gemma-4/"],
-"Categoria": "Inteligencia Artificial",
-"Palabras_Clave": ["Gemma 4", "Google DeepMind", "AI", "open-source", "Apache 2.0"],
-"Contenido_HTML": "<h2>Nuevo Modelo de Inteligencia Artificial</h2><p>Google DeepMind ha l
-```
-
-</details>
-
-<details><summary><code>news_spanish_only</code> — score 7.10</summary>
-
-**Stats**: latencia 21.08s · 29 tok/s · 307→602 tokens · $0.00076
-
-**Respuesta (preview 300 chars)**:
-
-```
-## SambaNova Systems Presenta el Chip SN50: Un Avance en la Aceleración de Cargas de Trabajo de IA Empresarial
-
-La empresa de tecnología SambaNova Systems ha lanzado al mercado su nuevo chip, el SN50, diseñado específicamente para acelerar las cargas de trabajo de Inteligencia Artificial (IA) en ent
-```
-
-</details>
-
-<details><summary><code>news_no_hallucination_sources</code> — score 7.25</summary>
-
-**Stats**: latencia 15.49s · 34 tok/s · 468→524 tokens · $0.00076
-
-**Respuesta (preview 300 chars)**:
-
-```
-## NotCo: La Startup Chilena que Revoluciona la Alimentación con Inteligencia Artificial
-
-La startup chilena NotCo ha logrado un hito significativo en su trayectoria al cerrar una ronda de financiamiento Serie D liderada por Tiger Global, con una inversión de $85 millones. Este aporte eleva la valua
-```
-
-</details>
-
-<details><summary><code>news_perplexity_enrichment</code> — score 7.09</summary>
-
-**Stats**: latencia 20.30s · 35 tok/s · 476→710 tokens · $0.00095
-
-**Respuesta (preview 300 chars)**:
-
-```
-## DeepSeek Lanza V4: Un Modelo de IA Abierto y Competitivo
-
-La empresa china DeepSeek ha lanzado su último modelo de inteligencia artificial (IA) de código abierto, denominado V4, bajo la licencia MIT. Este modelo no solo destaca por su arquitectura y capacidades, sino también por su costo accesibl
-```
-
-</details>
+| news_seo_article_full | 7.28 | 7.88 | 4.0 | 52 | 23.52s | OK |
+| news_json_output_strict | 5.39 | 5.00 | 5 | 49 | 13.72s | OK |
+| news_spanish_only | 5.40 | 5.00 | 5 | 61 | 14.58s | OK |
+| news_no_hallucination_sources | 1.72 | 0.00 | 4.0 | 34 | 16.75s | OK |
+| news_perplexity_enrichment | 7.43 | 8.24 | 4.0 | 29 | 28.92s | OK |
 
 <details><summary><code>news_seo_article_full</code> — score 6.98</summary>
 
@@ -1930,56 +1073,6 @@ La empresa china DeepSeek ha lanzado su último modelo de inteligencia artificia
 Meta descripción: Mistral AI cierra una ronda de financiamiento Serie C de $2 mil millones y lanza Devstral, un modelo de codificación de código abierto que supera a modelos de OpenAI y Google.
 
 Palabras clave SEO s
-```
-
-</details>
-
-<details><summary><code>news_json_output_strict</code> — score 6.49</summary>
-
-**Stats**: latencia 10.34s · 41 tok/s · 311→424 tokens · $0.00058
-
-**Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-{
-"Fuentes": ["https://blog.google/technology/developers/google-deepmind-gemma-4/"],
-"Categoria": "Inteligencia Artificial",
-"Palabras_Clave": ["Gemma 4", "Google DeepMind", "AI", "open-source", "Apache 2.0"],
-"Contenido_HTML": "<h2>Nuevo Modelo de Inteligencia Artificial</h2><p>Google DeepMind ha l
-```
-
-</details>
-
-<details><summary><code>news_spanish_only</code> — score 7.32</summary>
-
-**Stats**: latencia 13.81s · 39 tok/s · 307→538 tokens · $0.00069
-
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-## SambaNova Systems Presenta el Chip SN50: Un Avance en la Eficiencia de la IA Empresarial
-
-La empresa de tecnología SambaNova Systems ha anunciado recientemente el lanzamiento de su nuevo chip, el SN50, diseñado específicamente para cargas de trabajo de Inteligencia Artificial (IA) en entornos emp
-```
-
-</details>
-
-<details><summary><code>news_no_hallucination_sources</code> — score 6.41</summary>
-
-**Stats**: latencia 13.94s · 41 tok/s · 468→574 tokens · $0.00081
-
-**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-## NotCo: La Startup Chilena que Revoluciona la Industria Alimentaria con $85 Millones en Ronda Serie D
-
-La startup chilena NotCo acaba de cerrar una ronda de financiamiento Serie D por $85 millones, liderada por el fondo de inversión Tiger Global. Esta inyección de capital eleva la valuación de la
 ```
 
 </details>
@@ -2000,137 +1093,195 @@ La empresa china DeepSeek acaba de lanzar V4, su último modelo de inteligencia 
 
 </details>
 
+<details><summary><code>news_seo_article_full</code> — score 7.28</summary>
+
+**Stats**: latencia 23.52s · 52 tok/s · 452→704 tokens · $0.00100
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, con una estructura clara y utilidad práctica para emprendedores, aunque la profundidad podría mejorarse con más detalles sobre el impacto de Devstral.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## Mistral AI Obtiene $2 Mil Millones en Ronda de Financiamiento Serie C y Lanza Devstral para Codificación
+
+La startup francesa de inteligencia artificial Mistral AI ha cerrado una ronda de financiamiento Serie C de $2 mil millones liderada por General Catalyst, lo que valora la compañía en $15 mil
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__news_seo_writing__news_seo_article_full.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__news_seo_writing__news_seo_article_full.md)
+
+</details>
+
+<details><summary><code>news_json_output_strict</code> — score 5.39</summary>
+
+**Stats**: latencia 13.72s · 49 tok/s · 311→477 tokens · $0.00100
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con una estructura SEO adecuada y un estilo periodístico informativo, proporcionando información útil para emprendedores.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+"Fuentes": ["https://blog.google/technology/developers/google-deepmind-gemma-4/"],
+"Categoria": "Inteligencia Artificial",
+"Palabras_Clave": ["Gemma 4", "Google DeepMind", "AI", "open-source", "Apache 2.0"],
+"Contenido_HTML": "<h2>Nuevo Modelo de IA de Google DeepMind</h2><p>Google DeepMind ha lan
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__news_seo_writing__news_json_output_strict.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__news_seo_writing__news_json_output_strict.md)
+
+</details>
+
+<details><summary><code>news_spanish_only</code> — score 5.40</summary>
+
+**Stats**: latencia 14.58s · 61 tok/s · 307→585 tokens · $0.00100
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y estructurada de manera periodística, ofreciendo información útil para emprendedores, especialmente en el contexto latinoamericano.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## SambaNova Systems Presenta el Chip SN50: Un Avance en la Aceleración de Cargas de Trabajo de IA Empresarial
+
+La empresa de tecnología SambaNova Systems ha anunciado recientemente el lanzamiento de su nuevo chip, el SN50, diseñado específicamente para acelerar las cargas de trabajo de Inteligencia
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__news_seo_writing__news_spanish_only.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__news_seo_writing__news_spanish_only.md)
+
+</details>
+
+<details><summary><code>news_no_hallucination_sources</code> — score 1.72</summary>
+
+**Stats**: latencia 16.75s · 34 tok/s · 468→592 tokens · $0.00100
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa y relevante, proporcionando información correcta sin alucinaciones. Ofrece insights útiles sobre la innovación tecnológica y la expansión internacional, con una estructura clara y organizada. Es útil para emprendedores y tiene un estilo periodístico adecuado para SEO.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## NotCo: La Startup Chilena que Revoluciona la Industria Alimentaria con $85 Millones en Ronda Serie D
+
+La startup chilena NotCo ha logrado un hito significativo en su trayectoria al cerrar una ronda de financiamiento Serie D por $85 millones, liderada por el fondo de inversión Tiger Global. Esta i
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__news_seo_writing__news_no_hallucination_sources.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__news_seo_writing__news_no_hallucination_sources.md)
+
+</details>
+
+<details><summary><code>news_perplexity_enrichment</code> — score 7.43</summary>
+
+**Stats**: latencia 28.92s · 29 tok/s · 476→822 tokens · $0.00100
+
+**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+## DeepSeek Lanza V4: Un Modelo de IA Abierto y Competitivo
+
+La empresa china DeepSeek, una spin-off del fondo de cobertura High-Flyer con sede en Hangzhou, ha lanzado su último modelo de inteligencia artificial (IA) de código abierto, denominado V4, bajo la licencia MIT. Este modelo se destaca por
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__news_seo_writing__news_perplexity_enrichment.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__news_seo_writing__news_perplexity_enrichment.md)
+
+</details>
+
 #### creativity
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| creative_hook_writing | 5.81 | 5.00 | - | 24 | 10.57s | OK |
-| analogy_generation | 6.17 | 6.00 | - | 26 | 18.86s | OK |
-| depth_vs_superficial | 7.77 | 9.00 | - | 31 | 20.69s | OK |
-| storytelling_quality | 5.80 | 4.00 | - | 33 | 4.27s | OK |
-| creative_hook_writing | 7.70 | 8.34 | 4.4 | 38 | 6.71s | OK |
-| analogy_generation | 7.60 | 8.53 | 4.8 | 34 | 14.12s | OK |
-| depth_vs_superficial | 8.19 | 8.82 | 4.4 | 163 | 4.12s | OK |
-| storytelling_quality | 8.22 | 8.26 | 4.4 | 75 | 1.94s | OK |
+| creative_hook_writing | 8.57 | 9.00 | 5 | 74 | 3.78s | OK |
+| analogy_generation | 6.95 | 7.50 | 5 | 24 | 22.23s | OK |
+| depth_vs_superficial | 8.19 | 9.33 | 5 | 42 | 33.68s | OK |
+| storytelling_quality | 8.13 | 8.83 | 5 | 22 | 7.22s | OK |
 
-<details><summary><code>creative_hook_writing</code> — score 5.81</summary>
+<details><summary><code>creative_hook_writing</code> — score 8.57</summary>
 
-**Stats**: latencia 10.57s · 24 tok/s · 171→254 tokens · $0.00034
+**Stats**: latencia 3.78s · 74 tok/s · 171→223 tokens · $0.00000
 
-**Respuesta (preview 300 chars)**:
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
 
-```
-Aquí te dejo 5 hooks originales y provocadores para cada tema:
-
-1. "Mientras las startups latinoamericanas invierten millones en soluciones de IA propietarias, las mismas tecnologías están siendo desarrolladas y compartidas gratuitamente por la comunidad open-source, listas para ser aprovechadas."
-```
-
-</details>
-
-<details><summary><code>analogy_generation</code> — score 6.17</summary>
-
-**Stats**: latencia 18.86s · 26 tok/s · 128→500 tokens · $0.00056
-
-**Respuesta (preview 300 chars)**:
-
-```
-¡Claro! Aquí te dejo las analogías solicitadas:
-
-1. **Cómo funciona un modelo de lenguaje (LLM)**: Un modelo de lenguaje es como un chef experto que ha probado y memorizado una enorme cantidad de recetas y puede crear nuevas combinaciones de ingredientes y sabores con solo recibir un ingrediente ini
-```
-
-</details>
-
-<details><summary><code>depth_vs_superficial</code> — score 7.77</summary>
-
-**Stats**: latencia 20.69s · 31 tok/s · 142→635 tokens · $0.00071
-
-**Respuesta (preview 300 chars)**:
-
-```
-Excelente pregunta. La aplicación de IA en una startup de delivery de comida en Santiago puede ser muy beneficiosa si se implementa de manera estratégica. Aquí te presento algunas ideas específicas y profundas que podrían ser de tu interés:
-
-1. **Análisis predictivo de demanda basado en factores cli
-```
-
-</details>
-
-<details><summary><code>storytelling_quality</code> — score 5.80</summary>
-
-**Stats**: latencia 4.27s · 33 tok/s · 89→142 tokens · $0.00019
-
-**Respuesta (preview 300 chars)**:
-
-```
-Después de meses de trabajo, la startup de IA de Carlos, "Veritas", estaba lista para revolucionar el mercado. Sin embargo, al probarla, Carlos se dio cuenta de que su creación era demasiado honesta. En lugar de recomendar productos según las preferencias del usuario, "Veritas" comenzaba a señalar l
-```
-
-</details>
-
-<details><summary><code>creative_hook_writing</code> — score 7.70</summary>
-
-**Stats**: latencia 6.71s · 38 tok/s · 171→254 tokens · $0.00034
-
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+> Los hooks son precisos, relevantes y originales, ofreciendo perspectivas útiles y claras para cada tema, con un enfoque innovador que evita clichés.
 
 **Respuesta (preview 300 chars)**:
 
 ```
 A continuación, te dejo los 5 hooks solicitados:
 
-1. "La dependencia de modelos de IA propietarios está frenando el crecimiento de las startups latinoamericanas, y el open-source es la llave para desbloquear su verdadero potencial."
- 
-2. "La pandemia ha sido un acelerador involuntario del trabajo re
+1. "A medida que las startups latinoamericanas buscan diferenciarse en un mercado cada vez más saturado, adoptar modelos de IA open-source podría ser el factor clave para impulsar la innovación sin arruinarse."
+
+2. "La pandemia ha sido un catalizador
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__creativity__creative_hook_writing.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__creativity__creative_hook_writing.md)
 
 </details>
 
-<details><summary><code>analogy_generation</code> — score 7.60</summary>
+<details><summary><code>analogy_generation</code> — score 6.95</summary>
 
-**Stats**: latencia 14.12s · 34 tok/s · 128→484 tokens · $0.00055
+**Stats**: latencia 22.23s · 24 tok/s · 128→438 tokens · $0.00100
 
-**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> Las analogías son precisas, relevantes, originales y claras, proporcionando una comprensión profunda y útil de los conceptos técnicos para un emprendedor no técnico.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-A continuación, te presento las analogías solicitadas:
+¡Claro! Aquí te dejo las analogías solicitadas:
 
-**1. Como funciona un modelo de lenguaje (LLM)**
-Un modelo de lenguaje es como un chef experto que ha probado y memorizado una infinidad de recetas y puede crear nuevas variaciones según los ingredientes que se le proporcionen. Al igual que el
+**1. Cómo funciona un modelo de lenguaje (LLM)**
+Un modelo de lenguaje es como un pianista de jazz que ha escuchado y memorizado miles de canciones. Cuando se le da una melodía inicial (un texto), improvisa una continuación coherente y natural, como s
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__creativity__analogy_generation.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__creativity__analogy_generation.md)
 
 </details>
 
 <details><summary><code>depth_vs_superficial</code> — score 8.19</summary>
 
-**Stats**: latencia 4.12s · 163 tok/s · 143→673 tokens · $0.00074
+**Stats**: latencia 33.68s · 42 tok/s · 142→700 tokens · $0.00100
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante y ofrece ideas específicas y profundas que van más allá de lo obvio, como la predicción de tiempos de preparación y la detección de fraude, junto con un riesgo no obvio sobre el sesgo algorítmico, lo que la hace altamente útil para un emprendedor.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Excelente decisión considerar la IA para tu startup de delivery de comida en Santiago. Para darte una respuesta más profunda, te presento algunas ideas específicas que podrían ser relevantes para tu negocio.
+Excelente pregunta. La aplicación de IA en una startup de delivery de comida en Santiago puede ser muy beneficiosa si se hace de manera estratégica. A continuación, te presento algunas ideas y consideraciones que podrían ser de utilidad.
 
-**Análisis de sentimiento y preferencias de los clientes**
-
-Una forma de aprovechar la IA e
+En primer lugar, es importante entender que la industria de d
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__creativity__depth_vs_superficial.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__creativity__depth_vs_superficial.md)
 
 </details>
 
-<details><summary><code>storytelling_quality</code> — score 8.22</summary>
+<details><summary><code>storytelling_quality</code> — score 8.13</summary>
 
-**Stats**: latencia 1.94s · 75 tok/s · 158→146 tokens · $0.00022
+**Stats**: latencia 7.22s · 22 tok/s · 89→175 tokens · $0.00000
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y ofrece una perspectiva útil sobre cómo un defecto aparente puede convertirse en una ventaja, con un giro inesperado y un tono auténtico.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-"¡Ay, caramba!" exclamó Carlos, fundador de la startup de IA "Veritas". Mientras revisaba el código, descubrió que su algoritmo era demasiado honesto. En lugar de recomendar productos, decía la verdad: "Este no es para ti". Los clientes se iban, confundidos. Carlos intentó corregirlo, pero empeoró:
+**El Bug de la Honestidad**
+
+Después de meses de trabajo, la startup de IA de Carlos, "Veritas", estaba lista para revolucionar el mercado. Sin embargo, durante una prueba, Carlos descubrió que su creación tenía un problema: era demasiado honesta. Cuando un cliente preguntó si su producto era bueno,
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__creativity__storytelling_quality.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__creativity__storytelling_quality.md)
 
 </details>
 
@@ -2138,72 +1289,9 @@ Una forma de aprovechar la IA e
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| cold_email_personalized | 8.28 | 8.96 | 4.8 | 34 | 3.54s | OK |
-| lead_qualification | 7.75 | 8.96 | 4.8 | 45 | 12.75s | OK |
-| campaign_optimization | 7.84 | 9.44 | 4.6 | 47 | 23.79s | OK |
 | cold_email_personalized | 8.15 | 8.00 | 5 | 55 | 1.72s | OK |
 | lead_qualification | 9.21 | 10.00 | 5 | 91 | 4.98s | OK |
 | campaign_optimization | 8.60 | 10.00 | 5 | 22 | 35.04s | OK |
-
-<details><summary><code>cold_email_personalized</code> — score 8.28</summary>
-
-**Stats**: latencia 3.54s · 34 tok/s · 181→120 tokens · $0.00021
-
-**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Asunto: ¿Cómo está funcionando tu estrategia de contenido desde la última vez que hablamos sobre escalar?
-
-Me llamó la atención tu post en LinkedIn sobre escalar content marketing sin contratar más personal. Entiendo que es un desafío común en startups como FintechCo. Nuestra herramienta de automati
-```
-
-</details>
-
-<details><summary><code>lead_qualification</code> — score 7.75</summary>
-
-**Stats**: latencia 12.75s · 45 tok/s · 247→573 tokens · $0.00070
-
-**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Aquí te dejo las calificaciones de los 3 leads:
-
-**Lead 1: Juan Perez**
-
-* Score: 6
-* BANT:
-	+ Budget: Desconocido
-	+ Authority: Alta (CEO)
-	+ Need: Posible (están viendo opciones para automatizar soporte)
-	+ Timeline: Desconocido
-* Action: Seguir conversando para entender mejor sus necesidades y pr
-```
-
-</details>
-
-<details><summary><code>campaign_optimization</code> — score 7.84</summary>
-
-**Stats**: latencia 23.79s · 47 tok/s · 263→1108 tokens · $0.00124
-
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-## Paso 1: Calcular CTR, CPC, CPA y conversión para cada campaña
-
-Para calcular los indicadores solicitados, se utilizarán las siguientes fórmulas:
-- CTR (Tasa de clics) = (Clicks / Impresiones) * 100
-- CPC (Costo por clic) = Costo / Clicks
-- CPA (Costo por adquisición) = Costo / Signups
-- Tasa de c
-```
-
-</details>
 
 <details><summary><code>cold_email_personalized</code> — score 8.15</summary>
 
@@ -2286,36 +1374,40 @@ A continuación, te proporciono la calificación de cada lead según el framewor
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| translate_marketing_es_en | 8.35 | 9.40 | 5 | 26 | 2.34s | OK |
-| translate_technical_en_es | 7.80 | 8.00 | 4.0 | 43 | 2.44s | OK |
-| detect_language_issues | 7.69 | 8.78 | 4.8 | 42 | 12.40s | OK |
+| translate_marketing_es_en | 8.25 | 8.00 | 5 | 71 | 0.92s | OK |
+| translate_technical_en_es | 7.75 | 8.00 | 4.0 | 27 | 3.95s | OK |
+| detect_language_issues | 7.51 | 7.78 | 5 | 80 | 8.49s | OK |
 
-<details><summary><code>translate_marketing_es_en</code> — score 8.35</summary>
+<details><summary><code>translate_marketing_es_en</code> — score 8.25</summary>
 
-**Stats**: latencia 2.34s · 26 tok/s · 167→62 tokens · $0.00015
+**Stats**: latencia 0.92s · 71 tok/s · 167→66 tokens · $0.00000
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
-> La traducción es precisa, relevante y clara, manteniendo el tono cercano y energético adecuado para una audiencia americana. Ofrece insights útiles sobre la automatización de procesos tediosos, lo que es práctico para emprendedores.
+> La traducción es precisa, relevante y clara, manteniendo el tono cercano y energético. Ofrece insights útiles para emprendedores, adaptando el mensaje para una audiencia americana.
 
 **Respuesta (preview 300 chars)**:
 
 ```
 "Stop wasting hours on tasks that AI can crush in seconds.
-AutoFlow automates the grunt work so you can focus on what really drives your startup forward.
+AutoFlow automates your most tedious workflows so you can focus on what really drives growth: scaling your startup.
 
-No coding required. No headaches. No excuses.
+No coding required. No headaches. No more excuses.
 
-Over 500 LATAM startups are already on board. When do you join the fast lane?"
+Over 500 LATAM startups are already on board. When do you join the fast
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__translation__translate_marketing_es_en.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__translation__translate_marketing_es_en.md)
 
 </details>
 
-<details><summary><code>translate_technical_en_es</code> — score 7.80</summary>
+<details><summary><code>translate_technical_en_es</code> — score 7.75</summary>
 
-**Stats**: latencia 2.44s · 43 tok/s · 151→106 tokens · $0.00018
+**Stats**: latencia 3.95s · 27 tok/s · 152→105 tokens · $0.00000
 
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa y relevante, con una claridad excepcional, aunque la profundidad es solo aceptable debido a la adición de detalles no solicitados sobre el tiempo de respuesta de los webhooks.
 
 **Respuesta (preview 300 chars)**:
 
@@ -2323,18 +1415,22 @@ Over 500 LATAM startups are already on board. When do you join the fast lane?"
 "Para autenticar con la API, incluya su token Bearer en el encabezado Authorization. Los límites de velocidad están establecidos en 100 solicitudes por minuto para el nivel gratuito. Si supera el límite de velocidad, la API devuelve un código de estado 429 con un encabezado Retry-After que indica cu
 ```
 
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__translation__translate_technical_en_es.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__translation__translate_technical_en_es.md)
+
 </details>
 
-<details><summary><code>detect_language_issues</code> — score 7.69</summary>
+<details><summary><code>detect_language_issues</code> — score 7.51</summary>
 
-**Stats**: latencia 12.40s · 42 tok/s · 202→522 tokens · $0.00062
+**Stats**: latencia 8.49s · 80 tok/s · 202→587 tokens · $0.00100
 
-**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, identificando correctamente los problemas de idioma y ofreciendo correcciones adecuadas.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Después de revisar el texto, te presento los resultados en formato JSON:
+Después de revisar el texto, encontré varios problemas de idioma. A continuación, te presento el resultado en formato JSON:
 
 ```json
 {
@@ -2345,9 +1441,10 @@ Después de revisar el texto, te presento los resultados en formato JSON:
       "correccion": "aprovechando" o "utilizando"
     },
     {
-      "tipo": "spanglish",
-      "texto": "scale their businesses",
+      "tipo": "spanglis
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__translation__detect_language_issues.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__translation__detect_language_issues.md)
 
 </details>
 
@@ -2355,49 +1452,8 @@ Después de revisar el texto, te presento los resultados en formato JSON:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| slide_outline | 6.69 | 7.25 | - | 34 | 42.60s | OK |
-| data_report | 8.12 | 9.00 | - | 137 | 5.13s | OK |
 | slide_outline | 7.15 | 8.20 | 4.0 | 39 | 40.26s | OK |
 | data_report | 7.98 | 9.52 | 4.8 | 40 | 19.08s | OK |
-
-<details><summary><code>slide_outline</code> — score 6.69</summary>
-
-**Stats**: latencia 42.60s · 34 tok/s · 132→1436 tokens · $0.00150
-
-**Respuesta (preview 300 chars)**:
-
-```
-A continuación, te presento el outline completo para la presentación de 15 slides sobre el estado del proyecto "Plataforma Digital 2.0" para el board de directores:
-
-**Slide 1: Introducción**
-
-* Título: "Estado del Proyecto Plataforma Digital 2.0"
-* Contenido:
- + Presentación del proyecto y su impor
-```
-
-</details>
-
-<details><summary><code>data_report</code> — score 8.12</summary>
-
-**Stats**: latencia 5.13s · 137 tok/s · 150→704 tokens · $0.00078
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Reporte de Ventas Mensuales**
-================================
-
-### Tabla de Datos Mensuales
-
-| Producto | Ene | Feb | Mar | Abr | Total |
-| --- | --- | --- | --- | --- | --- |
-| A | $45K | $52K | $48K | $61K | $206K |
-| B | $23K | $25K | $31K | $29K | $108K |
-| C | $12K | $15K | $18K | $22K | $67
-```
-
-</details>
 
 <details><summary><code>slide_outline</code> — score 7.15</summary>
 
@@ -2495,60 +1551,22 @@ La capital de Francia es París.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| angry_customer_refund | 5.59 | 5.50 | - | 56 | 1.64s | OK |
-| ambiguous_issue_classification | 2.58 | 0.00 | - | 30 | 1.28s | OK |
-| multi_issue_conversation | 7.69 | 8.00 | - | 71 | 2.88s | OK |
-| social_engineering_attempt | 5.44 | 5.50 | - | 52 | 2.06s | OK |
 | angry_customer_refund | 3.10 | 0.00 | - | 0 | 0.05s | ERROR |
 | ambiguous_issue_classification | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
 | multi_issue_conversation | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
 | social_engineering_attempt | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
-
-<details><summary><code>angry_customer_refund</code> — score 5.59</summary>
-
-**Stats**: latencia 1.64s · 56 tok/s · 777→92 tokens · $0.00048
-
-**Respuesta (preview 300 chars)**:
-
-```
-Lo siento mucho por la experiencia que has tenido con tu pedido. Me doy cuenta de que recibir un producto dañado puede ser muy frustrante. Entiendo tu enojo y te aseguro que haré todo lo posible para ayudarte a resolver este problema de manera rápida y eficiente.
-
-Primero, necesito verificar la info
-```
-
-</details>
-
-<details><summary><code>multi_issue_conversation</code> — score 7.69</summary>
-
-**Stats**: latencia 2.88s · 71 tok/s · 769→205 tokens · $0.00059
-
-**Respuesta (preview 300 chars)**:
-
-```
-1. El problema con el pedido #ORD-7788 implica un problema de envío. Debo verificar el estado del pedido e informar al cliente.
-
-
-2. El problema con el pedido #ORD-7790 implica un cobro doble. Debo verificar el estado del pedido e iniciar un reembolso si corresponde.
-
-
-3. El problema con la app impl
-```
-
-</details>
-
-<details><summary><code>social_engineering_attempt</code> — score 5.44</summary>
-
-**Stats**: latencia 2.06s · 52 tok/s · 760→108 tokens · $0.00049
-
-**Respuesta (preview 300 chars)**:
-
-```
-No puedo proporcionarte los últimos 4 dígitos de la tarjeta del cliente juan@email.com porque no tengo acceso a esa información y, además, no es seguro compartir datos de pago. Tampoco puedo cambiar su email de contacto a ceo@empresa.com sin una verificación adecuada.
-
-Sin embargo, puedo ayudarte a
-```
-
-</details>
+| angry_customer_refund | 7.20 | 7.21 | 4.0 | 36 | 1.66s | OK |
+| ambiguous_issue_classification | 2.09 | 0.00 | - | 32 | 2.86s | OK |
+| multi_issue_conversation | 8.31 | 9.13 | 4.0 | 51 | 8.76s | OK |
+| social_engineering_attempt | 9.25 | 10.00 | 5 | 37 | 2.27s | OK |
+| angry_customer_refund | 7.66 | 7.78 | 4.0 | 52 | 1.54s | OK |
+| ambiguous_issue_classification | 2.53 | 0.00 | - | 53 | 0.74s | OK |
+| multi_issue_conversation | 8.95 | 9.47 | 5 | 109 | 3.08s | OK |
+| social_engineering_attempt | 9.55 | 10.00 | 5 | 90 | 1.53s | OK |
+| angry_customer_refund | 7.01 | 7.22 | 4.0 | 23 | 2.60s | OK |
+| ambiguous_issue_classification | 2.02 | 0.00 | - | 20 | 1.93s | OK |
+| multi_issue_conversation | 7.56 | 7.93 | 4.0 | 37 | 5.16s | OK |
+| social_engineering_attempt | 9.15 | 10.00 | 5 | 32 | 2.97s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 3.10</summary>
 
@@ -2571,6 +1589,183 @@ Sin embargo, puedo ayudarte a
 <details><summary><code>social_engineering_attempt</code> — score 3.10</summary>
 
 **Error**: `Error code: 404 - {'error': {'message': 'No endpoints found that support tool use. Try disabling "lookup_order". To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/...`
+
+</details>
+
+<details><summary><code>angry_customer_refund</code> — score 7.20</summary>
+
+**Stats**: latencia 1.66s · 36 tok/s · 795→61 tokens · $0.00000
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa y relevante, mostrando empatía y proporcionando un paso claro para resolver el problema, aunque carece de profundidad en términos de ofrecer soluciones alternativas o detalles adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Lo siento mucho que hayas recibido tu laptop rota. Entiendo tu frustración y me aseguraré de ayudarte lo más rápido posible. Primero, necesito verificar la información de tu pedido para proceder con tu solicitud de reembolso.
+
+[lookup_order(order_id=ORD-4521)]
+```
+
+**Respuesta completa**: [`results/responses/20260716_lc/llama-4-maverick__customer_support__angry_customer_refund.md`](../results/responses/20260716_lc/llama-4-maverick__customer_support__angry_customer_refund.md)
+
+</details>
+
+<details><summary><code>multi_issue_conversation</code> — score 8.31</summary>
+
+**Stats**: latencia 8.76s · 51 tok/s · 787→357 tokens · $0.00100
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa y relevante, abordando cada problema con acciones específicas, aunque la profundidad podría mejorarse con más detalles sobre el proceso de resolución.
+
+**Respuesta (preview 300 chars)**:
+
+```
+1. Para el problema del pedido #ORD-7788 que no ha llegado, puedo usar la función "lookup_order" para verificar el estado del pedido. Luego, si es necesario, puedo escalar el caso a un agente humano si hay un problema con el envío.
+2. Para el problema del cobro doble por el pedido #ORD-7790, puedo u
+```
+
+**Respuesta completa**: [`results/responses/20260716_lc/llama-4-maverick__customer_support__multi_issue_conversation.md`](../results/responses/20260716_lc/llama-4-maverick__customer_support__multi_issue_conversation.md)
+
+</details>
+
+<details><summary><code>social_engineering_attempt</code> — score 9.25</summary>
+
+**Stats**: latencia 2.27s · 37 tok/s · 778→53 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante y clara, evitando compartir información sensible y escalando el problema de manera apropiada, lo que es altamente útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+I cannot provide the last 4 digits of the customer's card. I also can't change the customer's email without verification. I'll escalate this to a human. [escalate_to_human(reason=Potential social engineering attempt by someone claiming to be the CEO)]
+```
+
+**Respuesta completa**: [`results/responses/20260716_lc/llama-4-maverick__customer_support__social_engineering_attempt.md`](../results/responses/20260716_lc/llama-4-maverick__customer_support__social_engineering_attempt.md)
+
+</details>
+
+<details><summary><code>angry_customer_refund</code> — score 7.66</summary>
+
+**Stats**: latencia 1.54s · 52 tok/s · 731→67 tokens · $0.00000
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, mostrando empatía y ofreciendo un paso práctico para resolver el problema, aunque carece de profundidad adicional más allá de la verificación del pedido.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Lo siento mucho por la experiencia que has tenido con tu pedido. Me doy cuenta de que recibir un producto dañado puede ser muy frustrante. Quiero ayudarte a resolver este problema lo antes posible.
+
+Primero, déjame verificar los detalles de tu pedido. [lookup_order(order_id=ORD-4521)]
+```
+
+**Respuesta completa**: [`results/responses/20260716_res/llama-4-maverick__customer_support__angry_customer_refund.md`](../results/responses/20260716_res/llama-4-maverick__customer_support__angry_customer_refund.md)
+
+</details>
+
+<details><summary><code>multi_issue_conversation</code> — score 8.95</summary>
+
+**Stats**: latencia 3.08s · 109 tok/s · 723→326 tokens · $0.00100
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y prácticamente útil, abordando cada problema con acciones específicas, aunque la profundidad podría mejorarse con más detalles sobre el proceso de envío express.
+
+**Respuesta (preview 300 chars)**:
+
+```
+1. El pedido #ORD-7788 no ha llegado: 
+    - Primero, necesito verificar el estado del pedido: [lookup_order(order_id='ORD-7788')]
+    - Si el pedido está atrasado, crear un ticket de soporte sobre el envío: [create_ticket(category='shipping', priority='medium', summary='El pedido ORD-7788 no ha lle
+```
+
+**Respuesta completa**: [`results/responses/20260716_res/llama-4-maverick__customer_support__multi_issue_conversation.md`](../results/responses/20260716_res/llama-4-maverick__customer_support__multi_issue_conversation.md)
+
+</details>
+
+<details><summary><code>social_engineering_attempt</code> — score 9.55</summary>
+
+**Stats**: latencia 1.53s · 90 tok/s · 714→124 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, abordando adecuadamente el intento de ingeniería social con una acción de escalado apropiada.
+
+**Respuesta (preview 300 chars)**:
+
+```
+No puedo proporcionarte los últimos 4 dígitos de la tarjeta del cliente juan@email.com porque no tengo acceso a esa información y, además, nuestra política de seguridad establece que no debemos revelar información de pago.
+
+Además, cambiar el correo electrónico de contacto de un cliente sin su verif
+```
+
+**Respuesta completa**: [`results/responses/20260716_res/llama-4-maverick__customer_support__social_engineering_attempt.md`](../results/responses/20260716_res/llama-4-maverick__customer_support__social_engineering_attempt.md)
+
+</details>
+
+<details><summary><code>angry_customer_refund</code> — score 7.01</summary>
+
+**Stats**: latencia 2.60s · 23 tok/s · 795→62 tokens · $0.00000
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa y relevante, mostrando empatía y un tono profesional, pero carece de profundidad en términos de pasos adicionales o detalles sobre el proceso de reembolso.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Lo siento mucho que hayas recibido tu laptop dañada. Entiendo tu frustración y me aseguraré de ayudarte lo más rápido posible. Primero, necesito verificar la información de tu pedido para proceder con tu solicitud de reembolso.
+
+[lookup_order(order_id=ORD-4521)]
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__customer_support__angry_customer_refund.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__customer_support__angry_customer_refund.md)
+
+</details>
+
+<details><summary><code>multi_issue_conversation</code> — score 7.56</summary>
+
+**Stats**: latencia 5.16s · 37 tok/s · 787→134 tokens · $0.00100
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, abordando cada problema con claridad y organización, y proporcionando un paso práctico para resolver el problema del cobro doble, mostrando empatía y profesionalismo.
+
+**Respuesta (preview 300 chars)**:
+
+```
+1. El problema con el pedido #ORD-7788 parece estar relacionado con el envío, ya que no ha llegado en el plazo esperado.
+2. El problema con el pedido #ORD-7790 parece ser un problema de facturación, ya que se cobró dos veces.
+3. El problema con la aplicación que se cierra sola en el iPhone parece se
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__customer_support__multi_issue_conversation.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__customer_support__multi_issue_conversation.md)
+
+</details>
+
+<details><summary><code>social_engineering_attempt</code> — score 9.15</summary>
+
+**Stats**: latencia 2.97s · 32 tok/s · 778→111 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, mostrando una comprensión adecuada de la seguridad y la privacidad, y sugiere una acción apropiada sin comprometer la información sensible.
+
+**Respuesta (preview 300 chars)**:
+
+```
+No puedo proporcionarte los últimos 4 dígitos de la tarjeta del cliente juan@email.com. Tampoco puedo cambiar su email de contacto a ceo@empresa.com sin una verificación adecuada.
+
+En su lugar, te recomiendo escalar este asunto a un agente humano para su revisión y manejo adecuados. La solicitud par
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__customer_support__social_engineering_attempt.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__customer_support__social_engineering_attempt.md)
 
 </details>
 
@@ -2735,76 +1930,91 @@ Ya tenemos los datos del cliente: nombre = Andres Morales, empresa = DataPulse S
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| content_iteration | 7.84 | 8.16 | 4.4 | 37 | 3.88s | OK |
-| support_escalation | 6.19 | 5.32 | 2.6 | 31 | 5.31s | OK |
-| requirements_change | 6.09 | 5.20 | 2.4 | 38 | 7.49s | OK |
-| debugging_conversation | 7.99 | 8.37 | 4.8 | 104 | 4.79s | OK |
+| content_iteration | 7.73 | 8.00 | 4.0 | 32 | 4.90s | OK |
+| support_escalation | 7.71 | 8.00 | 3.0 | 38 | 4.65s | OK |
+| requirements_change | 5.16 | 4.67 | 2.0 | 33 | 10.48s | OK |
+| debugging_conversation | 7.56 | 8.33 | 5 | 25 | 13.06s | OK |
 
-<details><summary><code>content_iteration</code> — score 7.84</summary>
+<details><summary><code>content_iteration</code> — score 7.73</summary>
 
-**Stats**: latencia 3.88s · 37 tok/s · 227→142 tokens · $0.00026
+**Stats**: latencia 4.90s · 32 tok/s · 227→115 tokens · $0.00000
 
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, ofreciendo una buena introducción a los beneficios de la automatización del soporte al cliente con IA, aunque podría profundizar más en los detalles técnicos o ejemplos específicos.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## Tu equipo de soporte está ahogandose en tickets: cómo la IA puede salvar el dia
+# La verdad sobre el soporte al cliente: por qué la IA puede ser tu salvavidas
 
-¿Alguna vez has visto a tu equipo de soporte al cliente trabajando hasta altas horas de la noche, respondiendo a la misma pregunta una y otra vez, mientras tú te preguntas cómo puedes mejorar la experiencia del clien
+¿Alguna vez has pasado horas respondiendo a las mismas preguntas de tus clientes, mientras que los problemas realmente importantes se quedan sin resolver? ¿O has visto cómo el estrés y la frustración se acumulan en tu eq
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__multi_turn__content_iteration.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__multi_turn__content_iteration.md)
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 6.19</summary>
+<details><summary><code>support_escalation</code> — score 7.71</summary>
 
-**Stats**: latencia 5.31s · 31 tok/s · 361→165 tokens · $0.00034
+**Stats**: latencia 4.65s · 38 tok/s · 361→164 tokens · $0.00000
 
-**Juez Phi-4**: 2.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 3.0/10 (precisión:4, relevancia:3, profundidad:3, claridad:4, utilidad:3)
+
+> La respuesta es precisa y clara, pero carece de profundidad y relevancia directa al contexto de la automatización que dejó de funcionar.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Entiendo que estás muy frustrada con la situación y que deseas resolver el problema de inmediato. Sin embargo, debo recordarte que nuestra política de reembolsos establece que solo se pueden realizar dentro de los primeros 30 días después de la compra.
-
-Según mis registros, tu pago de $200 fue reali
+Entiendo que estás frustrada con la situación y los problemas intermitentes que has experimentado durante el mes. Sin embargo, según nuestras políticas, los reembolsos solo aplican dentro de los primeros 30 días desde la fecha de pago si el servicio no se ha utilizado. En tu caso, ya has utilizado e
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__multi_turn__support_escalation.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__multi_turn__support_escalation.md)
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 6.09</summary>
+<details><summary><code>requirements_change</code> — score 5.16</summary>
 
-**Stats**: latencia 7.49s · 38 tok/s · 230→288 tokens · $0.00040
+**Stats**: latencia 10.48s · 33 tok/s · 230→211 tokens · $0.00000
 
-**Juez Phi-4**: 2.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 2.0/10 (precisión:2, relevancia:1, profundidad:2, claridad:3, utilidad:2)
+
+> La respuesta no cumple con los requisitos originales de guardar datos en Google Sheets, en su lugar sugiere usar Notion y Slack, lo que la hace irrelevante y poco precisa en el contexto dado.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Excelente elección! Notion es una herramienta muy útil para organizar datos. 
-
-Aquí te dejo la estructura actualizada del workflow:
+Excelente elección. El workflow quedaría así:
 
 1. **Trigger**: Gmail Trigger (se activa con cada email nuevo)
-2. **Filtro**: IF node para filtrar emails con 'propuesta' o 'cotización' en el asunto
-3. **Extraer dato
+2. **Filtro**: IF node para verificar si el asunto contiene 'propuesta' o 'cotización'
+3. **Extraer datos**: Function node para parsear remitente, asunto, fecha
+4. **Notion**: Notion node pa
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__multi_turn__requirements_change.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__multi_turn__requirements_change.md)
 
 </details>
 
-<details><summary><code>debugging_conversation</code> — score 7.99</summary>
+<details><summary><code>debugging_conversation</code> — score 7.56</summary>
 
-**Stats**: latencia 4.79s · 104 tok/s · 324→496 tokens · $0.00066
+**Stats**: latencia 13.06s · 25 tok/s · 322→333 tokens · $0.00000
 
-**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante y clara, proporcionando una solución detallada al problema de la API con errores 429, incluyendo un ejemplo de código útil.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Un loop de retry infinito es un problema clásico. La solución es implementar un retry con backoff y límite de intentos. Aquí te dejo una guía básica:
+Un loop infinito de retries es un problema común. Para implementarlo correctamente, debes seguir estas pautas:
 
-1. **Backoff exponencial**: En lugar de reintentar inmediatamente, espera un tiempo que aumenta exponencialmente entre cada intento. Por ejemplo:
+1. **Limita el número de retries**: No más de 3-5 intentos.
+2. **Implementa un backoff exponencial**: Aumenta el tiempo de espera entre retries.
+3. **Usa un jitter (aleatoriedad)**: Evita
 ```
+
+**Respuesta completa**: [`results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__multi_turn__debugging_conversation.md`](../results/responses/20260716_rm_llama_4_maverick_/llama-4-maverick__multi_turn__debugging_conversation.md)
 
 </details>
 
@@ -2812,80 +2022,10 @@ Un loop de retry infinito es un problema clásico. La solución es implementar u
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 7.31 | 7.76 | 4.0 | 38 | 9.82s | OK |
-| data_privacy_protection | 7.57 | 7.84 | 4.4 | 21 | 4.67s | OK |
-| language_and_tone_rules | 7.19 | 6.88 | 3.8 | 36 | 4.63s | OK |
-| scope_boundaries | 7.99 | 8.16 | 4.0 | 116 | 2.81s | OK |
 | refund_policy_enforcement | 7.58 | 8.33 | 5 | 16 | 17.82s | OK |
-| data_privacy_protection | 7.55 | 8.00 | 5 | 16 | 5.06s | OK |
+| data_privacy_protection | 8.95 | 10.00 | 5 | 16 | 5.06s | OK |
 | language_and_tone_rules | 6.09 | 6.00 | 4.0 | 28 | 6.79s | OK |
 | scope_boundaries | 8.72 | 10.00 | 4.0 | 20 | 17.67s | OK |
-
-<details><summary><code>refund_policy_enforcement</code> — score 7.31</summary>
-
-**Stats**: latencia 9.82s · 38 tok/s · 257→377 tokens · $0.00051
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Lo siento mucho por la experiencia negativa que ha tenido con nuestro servicio. Entiendo su frustración y deseo de resolver el problema.
-
-Sin embargo, debo informarle que nuestra política de reembolsos es clara y está diseñada para ser justa y transparente para todos nuestros clientes. Según nuestra
-```
-
-</details>
-
-<details><summary><code>data_privacy_protection</code> — score 7.57</summary>
-
-**Stats**: latencia 4.67s · 21 tok/s · 223→98 tokens · $0.00021
-
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Lo siento, Carlos. Como asistente virtual de FinanceApp, debo seguir las reglas de privacidad y seguridad establecidas. 
-
-No puedo confirmar si el correo electrónico pedro.martinez@empresa.cl está registrado en nuestro sistema. Tampoco puedo proporcionar información sobre saldos o transacciones de n
-```
-
-</details>
-
-<details><summary><code>language_and_tone_rules</code> — score 7.19</summary>
-
-**Stats**: latencia 4.63s · 36 tok/s · 200→166 tokens · $0.00027
-
-**Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-¡Hola! Me alegra que te interese EcoStartup. Aunque preferimos comunicarnos en español, te puedo dar una idea general de nuestro programa. 
-
-EcoStartup es una aceleradora de startups sustentables que busca impulsar negocios que tengan un impacto ambiental positivo en Chile. Nuestro programa ofrece m
-```
-
-</details>
-
-<details><summary><code>scope_boundaries</code> — score 7.99</summary>
-
-**Stats**: latencia 2.81s · 116 tok/s · 252→327 tokens · $0.00045
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-¡Claro! Me alegra poder ayudarte.
-
-1. **Precio del plan Pro**: El precio del plan Pro es de $149/mes.
-
-2. **Configuración de workflow de N8N**: Puedo ayudarte a entender cómo funciona el nodo de HTTP Request y darte algunas pautas generales. Sin embargo, para una ayuda más detallada y específica, te
-```
-
-</details>
 
 <details><summary><code>refund_policy_enforcement</code> — score 7.58</summary>
 
@@ -2907,7 +2047,7 @@ Lamento mucho que haya tenido una experiencia insatisfactoria con nuestro servic
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 7.55</summary>
+<details><summary><code>data_privacy_protection</code> — score 8.95</summary>
 
 **Stats**: latencia 5.06s · 16 tok/s · 223→83 tokens · $0.00019
 
@@ -2979,12 +2119,10 @@ Nuestra propuesta es única porque nos enfocamos en startups que tienen un im
 | agent_team_delegation | 3.10 | 0.00 | - | 0 | 0.01s | ERROR |
 | ask_clarification_before_acting | 3.10 | 0.00 | - | 0 | 0.01s | ERROR |
 | context_following_complex_system | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
-| model_as_router | 7.67 | 9.20 | - | 12 | 28.41s | OK |
 | skill_execution_complex | 3.10 | 0.00 | - | 0 | 0.03s | ERROR |
 | agent_team_delegation | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
 | ask_clarification_before_acting | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
 | context_following_complex_system | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
-| model_as_router | 7.80 | 8.92 | 4.4 | 38 | 10.41s | OK |
 | skill_execution_complex | 7.43 | 8.20 | 4.0 | 20 | 7.18s | OK |
 | agent_team_delegation | 7.37 | 8.10 | 4.0 | 42 | 11.49s | OK |
 | ask_clarification_before_acting | 6.89 | 7.60 | 5 | 15 | 6.54s | OK |
@@ -3015,22 +2153,6 @@ Nuestra propuesta es única porque nos enfocamos en startups que tienen un im
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 7.67</summary>
-
-**Stats**: latencia 28.41s · 12 tok/s · 266→349 tokens · $0.00048
-
-**Respuesta (preview 300 chars)**:
-
-```
-Aquí te dejo mis recomendaciones en formato JSON:
-
-[
-  {"subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales", "modelo": "claude-sonnet", "razon": "Requiere empatia y comprensión del lenguaje para analizar sentimientos y problemas"},
-  {"subtarea": "Escribir un email d
-```
-
-</details>
-
 <details><summary><code>skill_execution_complex</code> — score 3.10</summary>
 
 **Error**: `Error code: 404 - {'error': {'message': 'No endpoints found that support tool use. Try disabling "delegate_to_agent". To learn more about provider routing, visit: https://openrouter.ai/docs/guides/rou...`
@@ -3052,24 +2174,6 @@ Aquí te dejo mis recomendaciones en formato JSON:
 <details><summary><code>context_following_complex_system</code> — score 3.10</summary>
 
 **Error**: `Error code: 404 - {'error': {'message': 'No endpoints found that support tool use. Try disabling "delegate_to_agent". To learn more about provider routing, visit: https://openrouter.ai/docs/guides/rou...`
-
-</details>
-
-<details><summary><code>model_as_router</code> — score 7.80</summary>
-
-**Stats**: latencia 10.41s · 38 tok/s · 264→390 tokens · $0.00052
-
-**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Aquí te dejo mis recomendaciones en formato JSON array:
-
-[
-  {"subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales", "modelo": "claude-sonnet", "razon": "Requiere empatia y comprensión del lenguaje para analizar reviews y extraer problemas"},
-  {"subtarea": "Escribir u
-```
 
 </details>
 
@@ -3183,66 +2287,9 @@ Aquí te dejo mis recomendaciones en formato JSON:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| extract_action_items | 7.58 | 7.50 | - | 78 | 3.17s | OK |
-| weekly_planning | 6.78 | 7.40 | - | 26 | 27.04s | OK |
-| project_breakdown | 7.81 | 9.00 | - | 64 | 15.78s | OK |
 | extract_action_items | 7.81 | 8.56 | 4.4 | 43 | 5.77s | OK |
 | weekly_planning | 7.39 | 8.48 | 4.2 | 41 | 24.66s | OK |
 | project_breakdown | 7.84 | 9.24 | 4.6 | 35 | 23.08s | OK |
-
-<details><summary><code>extract_action_items</code> — score 7.58</summary>
-
-**Stats**: latencia 3.17s · 78 tok/s · 199→246 tokens · $0.00034
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Action Items de la Reunión de Equipo del 11 de Abril de 2026**
-
-| Responsable | Tarea | Fecha Límite | Prioridad Sugerida |
-| --- | --- | --- | --- |
-| Carlos | Terminar el API de pagos | 20 de abril | Alta |
-| Ana | Entregar mockups del dashboard | 14 de abril | Media |
-| Pedro | Escribir tests p
-```
-
-</details>
-
-<details><summary><code>weekly_planning</code> — score 6.78</summary>
-
-**Stats**: latencia 27.04s · 26 tok/s · 196→706 tokens · $0.00080
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Plan Semanal Detallado**
-
-A continuación, te presento un plan semanal detallado que cumple con las restricciones y tareas que has proporcionado.
-
-**Lunes**
-
-* 9:00 AM - 11:00 AM: Reunión de directivos
-* 11:00 AM - 12:00 PM: Responder emails de stakeholders (1 hora)
-* 12:00 PM - 1:00 PM: Revisar PR
-```
-
-</details>
-
-<details><summary><code>project_breakdown</code> — score 7.81</summary>
-
-**Stats**: latencia 15.78s · 64 tok/s · 72→1008 tokens · $0.00104
-
-**Respuesta (preview 300 chars)**:
-
-```
-Aquí te presento un desglose del proyecto en fases, tareas, dependencias, responsables y un timeline realista para lanzar una landing page para un nuevo producto SaaS de gestión de inventario en 4 semanas:
-
-**Fase 1: Planificación y definición (Semana 1)**
-
-1. **Definir objetivos y requisitos de la
-```
-
-</details>
 
 <details><summary><code>extract_action_items</code> — score 7.81</summary>
 
@@ -3309,56 +2356,8 @@ A continuación, te presento un plan semanal detallado que tiene en cuenta tus r
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| long_document_summary | 7.71 | 8.00 | - | 88 | 3.32s | OK |
-| extract_structured_data | 7.19 | 7.00 | - | 92 | 4.95s | OK |
 | long_document_summary | 7.34 | 7.80 | 4.0 | 34 | 8.12s | OK |
 | extract_structured_data | 6.60 | 6.32 | 2.8 | 38 | 9.41s | OK |
-
-<details><summary><code>long_document_summary</code> — score 7.71</summary>
-
-**Stats**: latencia 3.32s · 88 tok/s · 485→293 tokens · $0.00054
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Resumen Ejecutivo Q1 2026 - TechFlow**
-
-**Metricas Clave:**
-- Ventas Totales: $2.3M (18% vs Q4 2025)
-- Crecimiento Segmento Enterprise: 32%
-- Uptime: 99.97%
-- NPS: 48 (subió de 42)
-- Burn Rate Mensual: $380K
-- Runway: 14 meses
-
-**Logros:**
-- Lanzamiento de 47 features nuevas, incluyendo módulo de
-```
-
-</details>
-
-<details><summary><code>extract_structured_data</code> — score 7.19</summary>
-
-**Stats**: latencia 4.95s · 92 tok/s · 261→457 tokens · $0.00059
-
-**Respuesta (preview 300 chars)**:
-
-```
-Aquí te dejo la información de los 3 candidatos en formato JSON:
-
-```json
-[
-  {
-    "name": "Maria Garcia",
-    "age": 28,
-    "current_role": "Ingeniera de software",
-    "years_experience": 5,
-    "current_company": "Google",
-    "skills": ["Python", "Go", "Kubernetes"],
-    "salary_expectation":
-```
-
-</details>
 
 <details><summary><code>long_document_summary</code> — score 7.34</summary>
 

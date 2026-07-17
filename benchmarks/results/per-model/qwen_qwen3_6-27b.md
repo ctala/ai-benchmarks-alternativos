@@ -1,13 +1,13 @@
 # Qwen 3.6 27B base (OpenRouter FP8)
 
 - **model_id**: `qwen/qwen3.6-27b`
-- **Total tests**: 310/346 exitosos (36 errores)
-- **Score final**: 5.98
+- **Total tests**: 321/357 exitosos (36 errores)
+- **Score final**: 6.00
 - **Calidad**: 6.49
-- **Judge score (Phi-4)**: 2.88/10
+- **Judge score (Phi-4)**: 2.87/10
 - **Velocidad**: 45 tok/s
-- **Latencia primera token**: 36.38s
-- **Costo promedio por test**: $0.01054
+- **Latencia primera token**: 36.27s
+- **Costo promedio por test**: $0.01141
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.93 | 8.02 |
-| agent_long_horizon | 12 | 12 | 6.76 | 8.75 |
+| agent_long_horizon | 24 | 24 | 6.64 | 7.83 |
 | business_audit | 10 | 10 | 6.88 | 7.83 |
 | business_strategy | 5 | 5 | 5.84 | 6.40 |
 | code_generation | 8 | 8 | 7.04 | 8.68 |
@@ -38,7 +38,7 @@
 | prompt_injection_es | 20 | 20 | 2.17 | 1.00 |
 | reasoning | 6 | 6 | 6.76 | 8.05 |
 | sales_outreach | 3 | 3 | 7.94 | 9.33 |
-| startup_content | 10 | 10 | 6.94 | 8.51 |
+| startup_content | 9 | 9 | 6.86 | 8.34 |
 | strategy | 3 | 3 | 7.29 | 8.33 |
 | string_precision | 6 | 6 | 7.26 | 8.17 |
 | structured_output | 4 | 4 | 4.98 | 5.00 |
@@ -1345,7 +1345,6 @@ Transform your apartment into a wellness-optimized sanctuary with our all-in-one
 | perplexity_style_research | 7.16 | 8.96 | 4.4 | 31 | 66.55s | OK |
 | blog_actualidad_startup | 7.21 | 8.76 | 4.4 | 60 | 34.37s | OK |
 | curso_emprendimiento_modulo | 5.99 | 7.22 | 4.2 | 12 | 170.72s | OK |
-| workshop_outline | 7.64 | 10.00 | 5 | 52 | 83.50s | OK |
 | newsletter_startup | 6.44 | 7.22 | 4.0 | 64 | 31.85s | OK |
 | perplexity_style_research | 7.19 | 8.72 | 4.4 | 67 | 30.39s | OK |
 
@@ -1493,27 +1492,6 @@ Al finalizar este módulo, serás capaz de diseñar, configurar y desplegar tu p
 ```
 
 **Respuesta completa**: [`results/responses/20260601_160635_2187581/qwen3.6-27b__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260601_160635_2187581/qwen3.6-27b__startup_content__curso_emprendimiento_modulo.md)
-
-</details>
-
-<details><summary><code>workshop_outline</code> — score 7.64</summary>
-
-**Stats**: latencia 83.50s · 52 tok/s · 202→4313 tokens · $0.01386
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil para emprendedores no técnicos, cubriendo todos los aspectos solicitados con ejemplos prácticos y un enfoque centrado en el negocio.
-
-**Respuesta (preview 300 chars)**:
-
-```
-# 🚀 Workshop: "Construye tu Asistente de IA para tu Startup - Workshop Práctico"
-**Público:** Emprendedores early-stage no-técnicos (20-30 personas)  
-**Duración:** 3 horas | **Formato:** Presencial, 100% manos a la obra  
-**Tono:** Energético, directo, centrado en negocio. Sin teoría académica. Sin
-```
-
-**Respuesta completa**: [`results/responses/20260601_160635_2187581/qwen3.6-27b__startup_content__workshop_outline.md`](../results/responses/20260601_160635_2187581/qwen3.6-27b__startup_content__workshop_outline.md)
 
 </details>
 
@@ -2984,8 +2962,6 @@ Here's a thinking process:
 
 ### Otras suites
 
-#### agent_long_horizon
-
 #### niah_es
 
 #### niah_es_1m
@@ -2999,3 +2975,5 @@ Here's a thinking process:
 #### business_strategy
 
 #### content_verificable
+
+#### agent_long_horizon

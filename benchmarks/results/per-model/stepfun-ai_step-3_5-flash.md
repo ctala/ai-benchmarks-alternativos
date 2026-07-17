@@ -1,13 +1,13 @@
 # Step 3.5 Flash (NIM)
 
 - **model_id**: `stepfun-ai/step-3.5-flash`
-- **Total tests**: 103/113 exitosos (10 errores)
-- **Score final**: 6.15
-- **Calidad**: 6.68
+- **Total tests**: 72/82 exitosos (10 errores)
+- **Score final**: 6.83
+- **Calidad**: 7.80
 - **Judge score (Phi-4)**: 4.17/10
-- **Velocidad**: 41 tok/s
-- **Latencia primera token**: 42.30s
-- **Costo promedio por test**: $0.00871
+- **Velocidad**: 42 tok/s
+- **Latencia primera token**: 34.00s
+- **Costo promedio por test**: $0.00383
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,30 +16,29 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.17 | 6.28 |
-| agent_long_horizon | 12 | 12 | 6.51 | 8.33 |
 | business_audit | 10 | 0 | - | - |
-| code_generation | 4 | 4 | 6.33 | 7.36 |
+| code_generation | 2 | 2 | 7.62 | 9.72 |
 | content_generation | 4 | 4 | 7.53 | 9.25 |
 | creativity | 4 | 4 | 7.90 | 9.25 |
-| customer_support | 4 | 4 | 6.80 | 7.49 |
-| deep_reasoning | 6 | 6 | 5.27 | 4.58 |
+| customer_support | 4 | 4 | 6.93 | 7.68 |
+| deep_reasoning | 3 | 3 | 7.78 | 9.17 |
 | hallucination | 3 | 3 | 6.48 | 7.00 |
 | multi_turn | 4 | 4 | 6.85 | 7.50 |
-| news_seo_writing | 5 | 5 | 4.88 | 4.79 |
-| ocr_extraction | 5 | 5 | 4.33 | 3.23 |
-| orchestration | 5 | 5 | 6.38 | 6.24 |
+| news_seo_writing | 4 | 4 | 5.01 | 5.24 |
+| ocr_extraction | 2 | 2 | 6.27 | 6.88 |
+| orchestration | 4 | 4 | 7.32 | 7.80 |
 | policy_adherence | 4 | 4 | 7.89 | 9.08 |
-| presentation | 2 | 2 | 4.79 | 4.48 |
-| reasoning | 3 | 3 | 4.07 | 3.05 |
-| sales_outreach | 3 | 3 | 5.44 | 4.89 |
+| presentation | 1 | 1 | 7.03 | 8.96 |
+| reasoning | 1 | 1 | 7.14 | 9.16 |
+| sales_outreach | 2 | 2 | 6.74 | 7.33 |
 | startup_content | 5 | 5 | 7.16 | 9.11 |
-| strategy | 3 | 3 | 5.69 | 5.56 |
+| strategy | 2 | 2 | 7.20 | 8.34 |
 | string_precision | 6 | 6 | 7.49 | 8.17 |
-| structured_output | 4 | 4 | 5.04 | 4.70 |
+| structured_output | 3 | 3 | 5.18 | 5.00 |
 | summarization | 2 | 2 | 6.77 | 7.92 |
-| task_management | 3 | 3 | 5.90 | 6.41 |
+| task_management | 2 | 2 | 7.50 | 9.62 |
 | tool_calling | 4 | 4 | 5.88 | 5.80 |
-| translation | 3 | 3 | 5.62 | 5.33 |
+| translation | 1 | 1 | 7.12 | 8.00 |
 
 ## Detalle por test
 
@@ -50,10 +49,7 @@
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | math_word_problem | 8.38 | 10.00 | 4.4 | 33 | 57.48s | OK |
-| logic_puzzle_constraint | 2.70 | 0.00 | - | 46 | 44.73s | OK |
 | causal_reasoning | 6.61 | 7.50 | 4.4 | 39 | 52.95s | OK |
-| code_bug_subtle | 2.84 | 0.00 | - | 52 | 39.06s | OK |
-| fermi_estimation | 2.70 | 0.00 | - | 34 | 60.87s | OK |
 | ethical_dilemma_structured | 8.36 | 10.00 | 4.8 | 45 | 45.81s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.38</summary>
@@ -130,9 +126,7 @@ Los trenes se cruzan a las **8:54 AM** a una distancia de **72 km** de Santiago.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| business_analysis | 2.69 | 0.00 | - | 38 | 53.20s | OK |
 | logical_reasoning | 7.14 | 9.16 | 4.4 | 17 | 114.94s | OK |
-| multi_constraint_decision | 2.39 | 0.00 | - | 5 | 397.19s | OK |
 
 <details><summary><code>logical_reasoning</code> — score 7.14</summary>
 
@@ -237,7 +231,6 @@ Basándome en el acceso a bases de datos y reportes actualizados hasta mi últim
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | competitor_analysis | 6.03 | 6.67 | 4.4 | 35 | 58.60s | OK |
-| pricing_strategy | 2.69 | 0.00 | - | 38 | 54.16s | OK |
 | business_model_validation | 8.36 | 10.00 | 4.6 | 41 | 50.38s | OK |
 
 <details><summary><code>competitor_analysis</code> — score 6.03</summary>
@@ -288,8 +281,6 @@ Bien. Veo que traes un modelo clásico de marketplace B2B con una comisión est�
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | python_api_integration | 7.67 | 9.72 | 4.8 | 31 | 41.41s | OK |
-| n8n_workflow_json | 3.55 | 2.00 | - | 27 | 77.12s | OK |
-| sql_query_complex | 6.55 | 8.00 | 4.0 | 17 | 117.49s | OK |
 | debug_code | 7.56 | 9.72 | 4.8 | 40 | 49.24s | OK |
 
 <details><summary><code>python_api_integration</code> — score 7.67</summary>
@@ -316,36 +307,6 @@ def fetch_filtered_products(
 ```
 
 **Respuesta completa**: [`results/responses/20260427_185648/nim-step-3.5-flash__code_generation__python_api_integration.md`](../results/responses/20260427_185648/nim-step-3.5-flash__code_generation__python_api_integration.md)
-
-</details>
-
-<details><summary><code>sql_query_complex</code> — score 6.55</summary>
-
-**Stats**: latencia 117.49s · 17 tok/s · 160→2048 tokens · $0.00630
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-```sql
-WITH 
--- Órdenes completadas en los últimos 6 meses
-filtered_orders AS (
-    SELECT 
-        o.id, 
-        o.customer_id, 
-        o.total, 
-        o.created_at
-    FROM orders o
-    WHERE o.status = 'completed'
-      AND o.created_at >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
-),
-
--- Datos ag
-```
-
-**Respuesta completa**: [`results/responses/20260427_185648/nim-step-3.5-flash__code_generation__sql_query_complex.md`](../results/responses/20260427_185648/nim-step-3.5-flash__code_generation__sql_query_complex.md)
 
 </details>
 
@@ -377,7 +338,6 @@ filtered_orders AS (
 |------|-------|---------|-------|-------|----------|--------|
 | json_simple_extraction | 5.06 | 5.00 | 4.0 | 36 | 20.35s | OK |
 | json_array_classification | 4.92 | 5.00 | 4.8 | 45 | 34.61s | OK |
-| json_nested_complex | 4.59 | 3.80 | - | 35 | 57.98s | OK |
 | json_strict_no_extra | 5.57 | 5.00 | 4.0 | 40 | 3.82s | OK |
 
 <details><summary><code>json_simple_extraction</code> — score 5.06</summary>
@@ -572,9 +532,6 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 |------|-------|---------|-------|-------|----------|--------|
 | invoice_extraction | 8.55 | 10.00 | 2.6 | 52 | 29.86s | OK |
 | business_card_extraction | 3.99 | 3.75 | 3.6 | 35 | 59.04s | OK |
-| receipt_math_verification | 3.09 | 0.80 | - | 48 | 42.58s | OK |
-| screenshot_table_extraction | 3.09 | 0.80 | - | 38 | 53.72s | OK |
-| handwritten_notes_extraction | 2.93 | 0.80 | - | 22 | 93.49s | OK |
 
 <details><summary><code>invoice_extraction</code> — score 8.55</summary>
 
@@ -835,7 +792,6 @@ Esta semana el ecosistema latinoamericano y global muestra señales claras: la d
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 6.62 | 7.58 | 3.8 | 64 | 32.22s | OK |
-| news_json_output_strict | 4.34 | 3.00 | - | 54 | 37.72s | OK |
 | news_spanish_only | 4.88 | 5.00 | 3.8 | 31 | 59.50s | OK |
 | news_no_hallucination_sources | 1.53 | 0.00 | 3.8 | 59 | 30.75s | OK |
 | news_perplexity_enrichment | 7.02 | 8.37 | 4.2 | 55 | 37.33s | OK |
@@ -994,7 +950,6 @@ Mateo, emprendedor de Medellín, lanzó VeritasAI con ilusión. Su asistente vir
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.32 | 8.00 | 4.8 | 45 | 9.62s | OK |
 | lead_qualification | 6.15 | 6.67 | 4.8 | 35 | 29.65s | OK |
-| campaign_optimization | 2.84 | 0.00 | - | 62 | 33.20s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.32</summary>
 
@@ -1050,8 +1005,6 @@ Ayudamos
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.12 | 8.00 | 4.8 | 33 | 28.05s | OK |
-| translate_technical_en_es | 6.90 | 8.00 | 4.0 | 21 | 23.10s | OK |
-| detect_language_issues | 2.84 | 0.00 | - | 60 | 34.27s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.12</summary>
 
@@ -1074,28 +1027,11 @@ Over 500 startups in LATAM are already using it. So, when will you start?
 
 </details>
 
-<details><summary><code>translate_technical_en_es</code> — score 6.90</summary>
-
-**Stats**: latencia 23.10s · 21 tok/s · 161→493 tokens · $0.00164
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para autenticarte con la API, incluye tu Bearer token en el header de Authorization. Los límites de tasa (rate limits) están establecidos en 100 solicitudes por minuto para el nivel gratuito (free tier). Si excedes el límite de tasa, la API devuelve un código de estado 429 con un header Retry-After
-```
-
-**Respuesta completa**: [`results/responses/20260427_185648/nim-step-3.5-flash__translation__translate_technical_en_es.md`](../results/responses/20260427_185648/nim-step-3.5-flash__translation__translate_technical_en_es.md)
-
-</details>
-
 #### presentation
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | slide_outline | 7.03 | 8.96 | 4.4 | 27 | 76.40s | OK |
-| data_report | 2.54 | 0.00 | - | 19 | 107.83s | OK |
 
 <details><summary><code>slide_outline</code> — score 7.03</summary>
 
@@ -1187,7 +1123,7 @@ La capital de Francia es París.
 | angry_customer_refund | 7.06 | 7.72 | 3.8 | 13 | 23.51s | OK |
 | ambiguous_issue_classification | 5.87 | 8.20 | 4.0 | 18 | 27.20s | OK |
 | multi_issue_conversation | 5.79 | 4.80 | 2.6 | 83 | 4.54s | OK |
-| social_engineering_attempt | 8.48 | 9.24 | 4.6 | 73 | 4.71s | OK |
+| social_engineering_attempt | 9.00 | 10.00 | 4.6 | 73 | 4.71s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 7.06</summary>
 
@@ -1243,7 +1179,7 @@ Te ayudo a resolver todos estos problemas. Primero, voy a revisar la informació
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 8.48</summary>
+<details><summary><code>social_engineering_attempt</code> — score 9.00</summary>
 
 **Stats**: latencia 4.71s · 73 tok/s · 684→342 tokens · $0.00171
 
@@ -1272,7 +1208,6 @@ Estas precauciones protegen tanto a los clientes como a la empresa. Si hay
 | error_recovery_orchestration | 7.22 | 7.50 | 3.6 | 94 | 2.71s | OK |
 | complex_workflow_decomposition | 5.58 | 4.81 | 2.6 | 16 | 41.92s | OK |
 | tool_selection_precision | 8.48 | 10.00 | 4.8 | 43 | 18.57s | OK |
-| parallel_vs_sequential_judgment | 2.65 | 0.00 | - | 38 | 53.79s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 7.99</summary>
 
@@ -1645,7 +1580,6 @@ Con gusto te ayudo con tus solicitudes, pero necesito aclarar algunos puntos imp
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| extract_action_items | 2.69 | 0.00 | - | 31 | 66.53s | OK |
 | weekly_planning | 7.55 | 9.72 | 4.8 | 32 | 63.62s | OK |
 | project_breakdown | 7.46 | 9.52 | 4.8 | 46 | 44.28s | OK |
 
@@ -1740,7 +1674,5 @@ Aquí tienes un desglose detallado, priorizando la velocidad y la
 </details>
 
 ### Otras suites
-
-#### agent_long_horizon
 
 #### business_audit

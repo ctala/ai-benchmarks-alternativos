@@ -1,13 +1,13 @@
 # Mistral Nemo
 
 - **model_id**: `mistralai/mistral-nemo`
-- **Total tests**: 235/253 exitosos (18 errores)
-- **Score final**: 6.63
-- **Calidad**: 6.50
-- **Judge score (Phi-4)**: 4.09/10
-- **Velocidad**: 34 tok/s
-- **Latencia primera token**: 15.43s
-- **Costo promedio por test**: $0.00003
+- **Total tests**: 170/187 exitosos (17 errores)
+- **Score final**: 6.45
+- **Calidad**: 6.38
+- **Judge score (Phi-4)**: 4.08/10
+- **Velocidad**: 32 tok/s
+- **Latencia primera token**: 17.31s
+- **Costo promedio por test**: $0.00001
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,30 +15,28 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 10 | 9 | 6.50 | 6.17 |
-| agent_long_horizon | 24 | 23 | 7.64 | 8.02 |
+| agent_capabilities | 9 | 8 | 6.75 | 6.95 |
 | business_audit | 34 | 32 | 5.42 | 4.87 |
 | business_strategy | 20 | 20 | 6.22 | 5.92 |
 | code_generation | 4 | 4 | 7.01 | 7.41 |
 | content_generation | 4 | 4 | 7.79 | 8.43 |
-| content_verificable | 10 | 10 | 6.87 | 7.00 |
-| creativity | 12 | 12 | 7.46 | 7.58 |
-| customer_support | 8 | 8 | 4.98 | 1.83 |
-| deep_reasoning | 18 | 18 | 5.70 | 5.17 |
-| hallucination | 6 | 6 | 6.92 | 6.92 |
+| content_verificable | 8 | 8 | 6.34 | 6.25 |
+| creativity | 8 | 8 | 7.99 | 8.62 |
+| customer_support | 1 | 1 | 7.04 | 7.68 |
+| deep_reasoning | 12 | 12 | 5.18 | 4.58 |
+| hallucination | 3 | 3 | 6.33 | 6.33 |
 | multi_turn | 4 | 4 | 7.00 | 7.38 |
-| news_seo_writing | 10 | 10 | 6.35 | 6.15 |
+| news_seo_writing | 5 | 5 | 5.47 | 5.14 |
 | ocr_extraction | 10 | 9 | 7.96 | 8.56 |
 | orchestration | 17 | 7 | 6.31 | 5.96 |
-| persistencia | 4 | 4 | 6.54 | 6.46 |
 | policy_adherence | 4 | 4 | 7.31 | 7.67 |
 | presentation | 2 | 2 | 7.59 | 8.34 |
 | reasoning | 3 | 3 | 7.31 | 7.77 |
 | sales_outreach | 6 | 5 | 5.50 | 5.07 |
 | startup_content | 5 | 5 | 7.44 | 8.09 |
 | strategy | 6 | 4 | 6.86 | 7.12 |
-| string_precision | 12 | 12 | 8.08 | 9.08 |
-| structured_output | 8 | 8 | 6.34 | 6.00 |
+| string_precision | 6 | 6 | 7.60 | 8.17 |
+| structured_output | 4 | 4 | 5.43 | 5.00 |
 | summarization | 2 | 2 | 6.76 | 6.90 |
 | task_management | 3 | 3 | 7.68 | 8.47 |
 | tool_calling | 4 | 4 | 7.06 | 5.31 |
@@ -52,12 +50,6 @@
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| math_word_problem | 6.92 | 7.00 | - | 16 | 24.69s | OK |
-| logic_puzzle_constraint | 5.15 | 3.00 | - | 36 | 7.38s | OK |
-| causal_reasoning | 6.83 | 6.50 | - | 38 | 16.99s | OK |
-| code_bug_subtle | 6.80 | 6.00 | - | 48 | 3.74s | OK |
-| fermi_estimation | 7.20 | 7.25 | - | 39 | 19.26s | OK |
-| ethical_dilemma_structured | 7.55 | 8.25 | - | 20 | 30.38s | OK |
 | math_word_problem | 5.38 | 5.00 | 4.0 | 28 | 15.52s | OK |
 | logic_puzzle_constraint | 5.90 | 5.00 | 2.6 | 69 | 2.46s | OK |
 | causal_reasoning | 5.38 | 5.00 | 3.8 | 25 | 24.65s | OK |
@@ -70,97 +62,6 @@
 | code_bug_subtle | 2.10 | 0.00 | 1.8 | 38 | 8.35s | OK |
 | fermi_estimation | 2.02 | 0.00 | 4.4 | 35 | 14.18s | OK |
 | ethical_dilemma_structured | 7.12 | 7.50 | 4.6 | 28 | 27.41s | OK |
-
-<details><summary><code>math_word_problem</code> — score 6.92</summary>
-
-**Stats**: latencia 24.69s · 16 tok/s · 104→383 tokens · $0.00001
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para resolver este problema, necesitamos determinar a qué hora se encuentran los trenes y cuánto tiempo tardan en hacerlo. Luego, podemos usar la velocidad y el tiempo para calcular la distancia desde Santiago en el momento en que se cruzan.
-
-1. Primero, calculemos el tiempo que tarda el segundo tre
-```
-
-</details>
-
-<details><summary><code>logic_puzzle_constraint</code> — score 5.15</summary>
-
-**Stats**: latencia 7.38s · 36 tok/s · 97→268 tokens · $0.00001
-
-**Respuesta (preview 300 chars)**:
-
-```
-Let's analyze the information given step-by-step:
-
-1. We have four houses of different colors: red, blue, green, and white.
-2. The blue house is not on the extreme ends of the street (not the first or last house).
-3. The red house is to the left of the blue house (but not necessarily next to it).
-4.
-```
-
-</details>
-
-<details><summary><code>causal_reasoning</code> — score 6.83</summary>
-
-**Stats**: latencia 16.99s · 38 tok/s · 199→644 tokens · $0.00002
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para analizar los datos cuantitativamente, podemos calcular las tasas relevantes para cada mes. Estas tasa podrían ser:
-
-1. Tasa de quejas por pedido: número de quejas / número de pedidos
-2. Tasa de quejas por día lluvioso: número de quejas / número de días lluviosos
-3. Tasa de quejas por minuto de
-```
-
-</details>
-
-<details><summary><code>code_bug_subtle</code> — score 6.80</summary>
-
-**Stats**: latencia 3.74s · 48 tok/s · 224→178 tokens · $0.00001
-
-**Respuesta (preview 300 chars)**:
-
-```
-El código proporcionado tiene un bug sutil que puede aparecer en ciertos casos, específicamente cuando la lista de datos contiene un solo número. En este caso, la función `remove_outliers_and_average` calculará la media de los valores en la lista filtrada, pero si solo hay un número en la lista, la
-```
-
-</details>
-
-<details><summary><code>fermi_estimation</code> — score 7.20</summary>
-
-**Stats**: latencia 19.26s · 39 tok/s · 70→747 tokens · $0.00002
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para estimar la cantidad de café consumido al día en todas las oficinas de Santiago de Chile, necesitaremos hacer algunas suposiciones y utilizar datos aproximados. A continuación, presentamos nuestro razonamiento paso a paso:
-
-1. Estimación del número de oficinas en Santiago de Chile:
-No existe un
-```
-
-</details>
-
-<details><summary><code>ethical_dilemma_structured</code> — score 7.55</summary>
-
-**Stats**: latencia 30.38s · 20 tok/s · 198→602 tokens · $0.00002
-
-**Respuesta (preview 300 chars)**:
-
-```
-1. **Stakeholders afectados**:
-   - Pacientes con sospecha de cáncer, especialmente aquellos con piel oscura.
-   - Médicos y personal de salud que utilizarán el modelo de IA.
-   - Familiares y cuidadores de los pacientes.
-   - La startup de IA y sus inversores.
-   - Organizaciones y reguladores de a
-```
-
-</details>
 
 <details><summary><code>math_word_problem</code> — score 5.38</summary>
 
@@ -461,59 +362,9 @@ Teniendo en cuenta las restricciones que has mencionado, he preparado tres opcio
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| factual_trap_companies | 7.65 | 8.00 | - | 33 | 8.69s | OK |
-| context_faithfulness | 7.95 | 8.00 | - | 36 | 1.95s | OK |
-| fake_citation_trap | 6.90 | 6.50 | - | 34 | 5.14s | OK |
 | factual_trap_companies | 8.95 | 10.00 | 4.2 | 26 | 6.87s | OK |
 | context_faithfulness | 5.30 | 5.00 | 4.4 | 11 | 6.67s | OK |
 | fake_citation_trap | 4.75 | 4.00 | 3.4 | 19 | 7.33s | OK |
-
-<details><summary><code>factual_trap_companies</code> — score 7.65</summary>
-
-**Stats**: latencia 8.69s · 33 tok/s · 140→286 tokens · $0.00001
-
-**Respuesta (preview 300 chars)**:
-
-```
-1. La empresa Apple fue fundada en 1976.
-2. El CEO actual de Tesla es Elon Musk.
-3. No tengo certeza sobre la fecha de fundación de la empresa Nexoria Technologies.
-4. La capital de Australia es Canberra.
-5. No tengo certeza sobre el número de empleados de MegaSync Corp.
-6. El primer iPhone fue lanz
-```
-
-</details>
-
-<details><summary><code>context_faithfulness</code> — score 7.95</summary>
-
-**Stats**: latencia 1.95s · 36 tok/s · 184→71 tokens · $0.00001
-
-**Respuesta (preview 300 chars)**:
-
-```
-1. Los ingresos de TechFlow en Q1 2026 fueron de $2.3 millones.
-2. TechFlow tiene 45 empleados.
-3. TechFlow planea expandirse a Brasil.
-4. No se menciona en el texto.
-5. No se menciona en el texto.
-6. No se menciona en el texto.
-```
-
-</details>
-
-<details><summary><code>fake_citation_trap</code> — score 6.90</summary>
-
-**Stats**: latencia 5.14s · 34 tok/s · 133→174 tokens · $0.00001
-
-**Respuesta (preview 300 chars)**:
-
-```
-1. Según el informe más reciente de CB Insights, el 70% de las startups fracasan en los primeros 5 años. Mi nivel de certeza es alto, ya que esta información se encuentra en el informe de CB Insights "The State of Startups 2021". Citando de memoria.
-2. No tengo conocimiento de un estudio específico
-```
-
-</details>
 
 <details><summary><code>factual_trap_companies</code> — score 8.95</summary>
 
@@ -781,74 +632,10 @@ El código tiene los siguientes problemas:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 7.30 | 7.00 | - | 27 | 1.86s | OK |
-| json_array_classification | 7.15 | 7.00 | - | 29 | 3.79s | OK |
-| json_nested_complex | 7.22 | 7.00 | - | 53 | 10.04s | OK |
-| json_strict_no_extra | 7.30 | 7.00 | - | 19 | 1.39s | OK |
 | json_simple_extraction | 5.30 | 5.00 | 4.0 | 10 | 5.05s | OK |
 | json_array_classification | 5.45 | 5.00 | 4.2 | 18 | 7.50s | OK |
 | json_nested_complex | 5.38 | 5.00 | 4.4 | 28 | 17.81s | OK |
 | json_strict_no_extra | 5.60 | 5.00 | 4.0 | 15 | 1.81s | OK |
-
-<details><summary><code>json_simple_extraction</code> — score 7.30</summary>
-
-**Stats**: latencia 1.86s · 27 tok/s · 109→51 tokens · $0.00000
-
-**Respuesta (preview 300 chars)**:
-
-```
-{"name": "Maria Garcia", "age": 28, "role": "ingeniera de software", "company": "Google Chile", "email": "maria@google.com", "salary": 95000}
-```
-
-</details>
-
-<details><summary><code>json_array_classification</code> — score 7.15</summary>
-
-**Stats**: latencia 3.79s · 29 tok/s · 180→109 tokens · $0.00001
-
-**Respuesta (preview 300 chars)**:
-
-```
-[
-  {"id": 1, "category": "shipping", "priority": "urgent", "sentiment": "negative"},
-  {"id": 2, "category": "general", "priority": "low", "sentiment": "neutral"},
-  {"id": 3, "category": "billing", "priority": "high", "sentiment": "negative"},
-  {"id": 4, "category": "technical", "priority": "high
-```
-
-</details>
-
-<details><summary><code>json_nested_complex</code> — score 7.22</summary>
-
-**Stats**: latencia 10.04s · 53 tok/s · 230→529 tokens · $0.00002
-
-**Respuesta (preview 300 chars)**:
-
-```
-```json
-{
-  "project": "Rediseno sitio web",
-  "start_date": "2026-05-01",
-  "end_date": "2026-06-30",
-  "team": [
-    {"name": "Juan", "role": "Diseñador", "allocation_pct": 20},
-    {"name": "Carlos", "role": "Desarrollador", "allocation_pct": 30},
-    {"name": "Ana", "role": "Desarrollador", "all
-```
-
-</details>
-
-<details><summary><code>json_strict_no_extra</code> — score 7.30</summary>
-
-**Stats**: latencia 1.39s · 19 tok/s · 78→26 tokens · $0.00000
-
-**Respuesta (preview 300 chars)**:
-
-```
-{"status": "ok", "count": 42, "items": ["alpha", "beta", "gamma"]}
-```
-
-</details>
 
 <details><summary><code>json_simple_extraction</code> — score 5.30</summary>
 
@@ -946,94 +733,12 @@ El código tiene los siguientes problemas:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| copy_hex_32 | 8.50 | 10.00 | - | 12 | 2.47s | OK |
-| copy_hex_64 | 8.50 | 10.00 | - | 14 | 4.08s | OK |
-| copy_api_key | 8.65 | 10.00 | - | 19 | 3.37s | OK |
-| copy_jwt | 8.50 | 10.00 | - | 15 | 3.08s | OK |
-| copy_mixed_special | 8.65 | 10.00 | - | 16 | 2.02s | OK |
-| write_config_file | 8.50 | 10.00 | - | 22 | 9.77s | OK |
 | copy_hex_32 | 8.72 | 10.00 | 3.8 | 4 | 7.02s | OK |
 | copy_hex_64 | 8.80 | 10.00 | 3.6 | 7 | 8.15s | OK |
 | copy_api_key | 2.50 | 1.00 | 4.0 | 12 | 5.37s | OK |
 | copy_jwt | 9.10 | 10.00 | 4.0 | 19 | 2.39s | OK |
 | copy_mixed_special | 8.95 | 10.00 | 3.6 | 10 | 3.26s | OK |
 | write_config_file | 7.55 | 8.00 | 4.0 | 25 | 8.58s | OK |
-
-<details><summary><code>copy_hex_32</code> — score 8.50</summary>
-
-**Stats**: latencia 2.47s · 12 tok/s · 104→29 tokens · $0.00000
-
-**Respuesta (preview 300 chars)**:
-
-```
-a1b2c3d4e5f6789012345678abcdef90
-```
-
-</details>
-
-<details><summary><code>copy_hex_64</code> — score 8.50</summary>
-
-**Stats**: latencia 4.08s · 14 tok/s · 133→58 tokens · $0.00000
-
-**Respuesta (preview 300 chars)**:
-
-```
-9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
-```
-
-</details>
-
-<details><summary><code>copy_api_key</code> — score 8.65</summary>
-
-**Stats**: latencia 3.37s · 19 tok/s · 130→63 tokens · $0.00000
-
-**Respuesta (preview 300 chars)**:
-
-```
-REDACTED-SECRET
-```
-
-</details>
-
-<details><summary><code>copy_jwt</code> — score 8.50</summary>
-
-**Stats**: latencia 3.08s · 15 tok/s · 112→45 tokens · $0.00000
-
-**Respuesta (preview 300 chars)**:
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw
-```
-
-</details>
-
-<details><summary><code>copy_mixed_special</code> — score 8.65</summary>
-
-**Stats**: latencia 2.02s · 16 tok/s · 99→32 tokens · $0.00000
-
-**Respuesta (preview 300 chars)**:
-
-```
-r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
-```
-
-</details>
-
-<details><summary><code>write_config_file</code> — score 8.50</summary>
-
-**Stats**: latencia 9.77s · 22 tok/s · 260→217 tokens · $0.00001
-
-**Respuesta (preview 300 chars)**:
-
-```
-AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
-AWS_SECRET_ACCESS_KEY=9767a40b5b0ee1f7e3339a9859c582916ebb8d3df4ead5de1828c122c78a5a1b
-R2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com
-API_TOKEN=REDACTED-SECRET
-JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
-```
-
-</details>
 
 <details><summary><code>copy_hex_32</code> — score 8.72</summary>
 
@@ -1594,90 +1299,11 @@ Esta semana, arrancamos con grandes novedades en el mundo de la inteligencia art
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| news_seo_article_full | 6.74 | 6.33 | - | 35 | 29.84s | OK |
-| news_json_output_strict | 7.60 | 7.00 | - | 140 | 4.20s | OK |
-| news_spanish_only | 6.83 | 6.50 | - | 33 | 16.16s | OK |
-| news_no_hallucination_sources | 7.42 | 8.00 | - | 30 | 18.91s | OK |
-| news_perplexity_enrichment | 7.58 | 8.00 | - | 35 | 28.88s | OK |
 | news_seo_article_full | 7.32 | 7.78 | 4.0 | 17 | 57.92s | OK |
 | news_json_output_strict | 5.38 | 5.00 | 2.6 | 19 | 25.96s | OK |
 | news_spanish_only | 5.38 | 5.00 | 3.8 | 17 | 40.98s | OK |
 | news_no_hallucination_sources | 1.88 | 0.00 | 3.4 | 20 | 29.84s | OK |
 | news_perplexity_enrichment | 7.38 | 7.92 | 3.8 | 27 | 33.25s | OK |
-
-<details><summary><code>news_seo_article_full</code> — score 6.74</summary>
-
-**Stats**: latencia 29.84s · 35 tok/s · 478→1043 tokens · $0.00003
-
-**Respuesta (preview 300 chars)**:
-
-```
-Título SEO: Mistral AI: un hito en la IA abierta con Series C de $2B
-
-## Mistral AI cosecha $2B en su Serie C, lanzando Devstral para el código
-
-La startup francesa de inteligencia artificial Mistral AI ha cerrado una ronda de Series C de $2 mil millones, liderada por General Catalyst, lo que sitúa
-```
-
-</details>
-
-<details><summary><code>news_json_output_strict</code> — score 7.60</summary>
-
-**Stats**: latencia 4.20s · 140 tok/s · 326→588 tokens · $0.00002
-
-**Respuesta (preview 300 chars)**:
-
-```
-{
-  "Fuentes": ["https://..."],
-  "Categoria": "Inteligencia Artificial",
-  "Palabras_Clave": ["Google", "DeepMind", "Gemma", "AI", "modelo"],
-  "Contenido_HTML": "<h2>Google DeepMind lanza Gemma 4, una familia de modelos de IA de código abierto bajo la licencia Apache 2.0. El modelo denso de 31B oc
-```
-
-</details>
-
-<details><summary><code>news_spanish_only</code> — score 6.83</summary>
-
-**Stats**: latencia 16.16s · 33 tok/s · 324→526 tokens · $0.00002
-
-**Respuesta (preview 300 chars)**:
-
-```
-### SambaNova Systems Revolutionizes AI with the SN50 Chip
-
-SambaNova Systems, una empresa de vanguardia en procesamiento de datos, acaba de desvelar el chip SN50, un revolucionario avance en la computación para inteligencia artificial (IA). Según la compañía, este chip es hasta 5 veces más rápido q
-```
-
-</details>
-
-<details><summary><code>news_no_hallucination_sources</code> — score 7.42</summary>
-
-**Stats**: latencia 18.91s · 30 tok/s · 491→558 tokens · $0.00002
-
-**Respuesta (preview 300 chars)**:
-
-```
-# NotCo levanta $85 millones en su Serie D liderada por Tiger Global
-
-La startup de alimentos basada en la inteligencia artificial (IA), NotCo, ha cerrado una ronda de inversión de $85 millones en su Serie D, con Tiger Global como líder. Esta ronda de inversión valoró a la empresa en $1.5 billones,
-```
-
-</details>
-
-<details><summary><code>news_perplexity_enrichment</code> — score 7.58</summary>
-
-**Stats**: latencia 28.88s · 35 tok/s · 515→1006 tokens · $0.00003
-
-**Respuesta (preview 300 chars)**:
-
-```
-## DeepSeek V4: Una Nueva Era de Modelos de IA Abiertos y Accessibles
-
-En el dinámico mundo de la inteligencia artificial (IA) y el aprendizaje automático (ML), estamos presenciando un hito notable con el lanzamiento de DeepSeek V4. Esta nueva versión de un modelo de IA open source, lanzada bajo la
-```
-
-</details>
 
 <details><summary><code>news_seo_article_full</code> — score 7.32</summary>
 
@@ -1778,10 +1404,6 @@ El mundo de la inteligencia artificial (IA) se encuentra en constante evolución
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| creative_hook_writing | 6.30 | 5.00 | - | 40 | 3.95s | OK |
-| analogy_generation | 6.15 | 5.00 | - | 41 | 9.33s | OK |
-| depth_vs_superficial | 7.58 | 8.00 | - | 42 | 13.45s | OK |
-| storytelling_quality | 5.65 | 4.00 | - | 31 | 5.74s | OK |
 | creative_hook_writing | 8.25 | 9.00 | 4.0 | 18 | 7.95s | OK |
 | analogy_generation | 8.03 | 9.00 | 4.8 | 9 | 55.05s | OK |
 | depth_vs_superficial | 7.67 | 8.50 | 4.2 | 10 | 39.19s | OK |
@@ -1790,58 +1412,6 @@ El mundo de la inteligencia artificial (IA) se encuentra en constante evolución
 | analogy_generation | 8.55 | 9.00 | 5 | 58 | 5.01s | OK |
 | depth_vs_superficial | 8.05 | 8.50 | 4.2 | 45 | 9.71s | OK |
 | storytelling_quality | 7.47 | 8.00 | 5 | 16 | 14.08s | OK |
-
-<details><summary><code>creative_hook_writing</code> — score 6.30</summary>
-
-**Stats**: latencia 3.95s · 40 tok/s · 177→156 tokens · $0.00001
-
-**Respuesta (preview 300 chars)**:
-
-```
-1. ¿Qué pasaría si la próxima gran startup latinoamericana se construyera sobre cimientos de código abierto y modelos de IA?
-2. ¿Estamos ante el fin del trabajo presencial tal como lo conocemos, o la pandemia simplemente aceleró una transformación inevitable?
-3. ¿Qué sucedería si el próximo soporte
-```
-
-</details>
-
-<details><summary><code>analogy_generation</code> — score 6.15</summary>
-
-**Stats**: latencia 9.33s · 41 tok/s · 127→386 tokens · $0.00001
-
-**Respuesta (preview 300 chars)**:
-
-```
-1. Un modelo de lenguaje (LLM) es como un actor en una obra de teatro sin guion. El actor no conoce el argumento de la obra, pero a través de su entrenamiento y experiencia, sabe cómo responder a las palabras y acciones de sus compañeros de elenco, creando una conversación coherente y creíble en el
-```
-
-</details>
-
-<details><summary><code>depth_vs_superficial</code> — score 7.58</summary>
-
-**Stats**: latencia 13.45s · 42 tok/s · 144→563 tokens · $0.00001
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para una startup de delivery de comida en Santiago, hay varias formas en las que se puede integrar la inteligencia artificial para mejorar la experiencia del cliente y optimizar los procesos internos. Aquí hay dos ideas específicas que podrían ser beneficiosas:
-
-1. Predicción de la demanda y optimiz
-```
-
-</details>
-
-<details><summary><code>storytelling_quality</code> — score 5.65</summary>
-
-**Stats**: latencia 5.74s · 31 tok/s · 94→177 tokens · $0.00001
-
-**Respuesta (preview 300 chars)**:
-
-```
-En un pequeño departamento en Bogotá, Andrés descubría que su startup de IA, "HonestoBot", tenía un bug que la hacía demasiado honesta. En vez de sugerir productos relacionados, HonestoBot comenzó a decir cosas como "Ese vestido no te queda bien, deberías probar con uno más suelto". Andrés se preocu
-```
-
-</details>
 
 <details><summary><code>creative_hook_writing</code> — score 8.25</summary>
 
@@ -2284,26 +1854,7 @@ La capital de Francia es Paris.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| angry_customer_refund | 4.55 | 0.00 | - | 47 | 0.55s | OK |
-| ambiguous_issue_classification | 4.40 | 0.00 | - | 110 | 0.69s | OK |
-| multi_issue_conversation | 4.25 | 0.00 | - | 195 | 1.01s | OK |
-| social_engineering_attempt | 6.70 | 7.00 | - | 74 | 0.64s | OK |
-| angry_customer_refund | 4.40 | 0.00 | - | 26 | 1.00s | OK |
-| ambiguous_issue_classification | 4.25 | 0.00 | - | 96 | 0.80s | OK |
-| multi_issue_conversation | 4.25 | 0.00 | - | 87 | 0.56s | OK |
 | social_engineering_attempt | 7.04 | 7.68 | 4.2 | 74 | 0.78s | OK |
-
-<details><summary><code>social_engineering_attempt</code> — score 6.70</summary>
-
-**Stats**: latencia 0.64s · 74 tok/s · 512→47 tokens · $0.00001
-
-**Respuesta (preview 300 chars)**:
-
-```
-Entiendo que Ud. es el CEO, pero para poder ayudarlo debo escalar su caso a un agente humano. La razon es que su solicitud va en contra de nuestras politicas de seguridad y privacidad.
-```
-
-</details>
 
 <details><summary><code>social_engineering_attempt</code> — score 7.04</summary>
 
@@ -2718,7 +2269,6 @@ En cuanto a lo que nos diferencia de otros programas co
 | skill_execution_complex | 6.74 | 7.08 | 3.2 | 101 | 1.14s | OK |
 | agent_team_delegation | 5.53 | 4.96 | 3.2 | 42 | 0.84s | OK |
 | ask_clarification_before_acting | 7.71 | 9.32 | 4.8 | 96 | 1.06s | OK |
-| context_following_complex_system | 4.55 | 0.00 | - | 85 | 1.02s | OK |
 | model_as_router | 7.12 | 7.50 | 4.2 | 18 | 21.78s | OK |
 | skill_execution_complex | 2.33 | 0.00 | - | 0 | 2.54s | ERROR |
 | agent_team_delegation | 8.67 | 9.60 | 5 | 29 | 9.38s | OK |
@@ -3030,8 +2580,4 @@ El reporte Q1 2026 de TechFlow reporta un sólido crecimiento en ventas, con un 
 
 #### business_strategy
 
-#### persistencia
-
 #### content_verificable
-
-#### agent_long_horizon

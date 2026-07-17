@@ -1,13 +1,13 @@
 # GPT-OSS 120B
 
 - **model_id**: `openai/gpt-oss-120b`
-- **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.48
-- **Calidad**: 7.77
-- **Judge score (Phi-4)**: 4.52/10
-- **Velocidad**: 69 tok/s
-- **Latencia primera token**: 32.57s
-- **Costo promedio por test**: $0.00039
+- **Total tests**: 134/134 exitosos (0 errores)
+- **Score final**: 7.59
+- **Calidad**: 7.93
+- **Judge score (Phi-4)**: 4.53/10
+- **Velocidad**: 68 tok/s
+- **Latencia primera token**: 30.64s
+- **Costo promedio por test**: $0.00033
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,30 +16,30 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 7.52 | 7.16 |
-| agent_long_horizon | 12 | 12 | 8.18 | 9.04 |
+| agent_long_horizon | 12 | 12 | 8.12 | 9.12 |
 | business_audit | 10 | 10 | 6.81 | 7.02 |
 | business_strategy | 5 | 5 | 7.41 | 7.87 |
-| code_generation | 4 | 4 | 8.55 | 9.50 |
+| code_generation | 7 | 7 | 8.37 | 9.19 |
 | content_generation | 4 | 4 | 8.60 | 9.20 |
 | content_verificable | 5 | 5 | 6.97 | 7.00 |
 | creativity | 4 | 4 | 8.11 | 8.62 |
-| customer_support | 4 | 4 | 6.79 | 7.07 |
+| customer_support | 4 | 4 | 7.00 | 7.37 |
 | deep_reasoning | 6 | 6 | 7.00 | 7.08 |
 | hallucination | 3 | 3 | 6.65 | 6.33 |
 | multi_turn | 4 | 4 | 7.05 | 7.00 |
 | news_seo_writing | 5 | 5 | 5.62 | 5.30 |
 | ocr_extraction | 5 | 5 | 7.69 | 7.75 |
 | orchestration | 5 | 5 | 7.77 | 7.45 |
-| policy_adherence | 4 | 4 | 7.04 | 7.17 |
-| presentation | 2 | 2 | 8.76 | 9.76 |
-| reasoning | 3 | 3 | 8.62 | 9.63 |
+| policy_adherence | 4 | 4 | 7.74 | 8.17 |
+| presentation | 3 | 3 | 8.71 | 9.75 |
+| reasoning | 5 | 5 | 8.55 | 9.46 |
 | sales_outreach | 3 | 3 | 7.96 | 8.67 |
-| startup_content | 5 | 5 | 8.80 | 9.64 |
+| startup_content | 9 | 9 | 8.75 | 9.52 |
 | strategy | 3 | 3 | 7.51 | 8.06 |
 | string_precision | 6 | 6 | 7.97 | 8.17 |
 | structured_output | 4 | 4 | 5.56 | 5.00 |
 | summarization | 2 | 2 | 7.62 | 8.00 |
-| task_management | 3 | 3 | 8.25 | 9.27 |
+| task_management | 4 | 4 | 8.49 | 9.36 |
 | tool_calling | 4 | 4 | 6.62 | 6.40 |
 | translation | 3 | 3 | 7.44 | 7.62 |
 
@@ -188,8 +188,10 @@ We need to identify subtle bug that appears only certain cases. Code: find_media
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | business_analysis | 8.61 | 9.56 | 5 | 46 | 44.22s | OK |
-| logical_reasoning | 8.95 | 10.00 | 5 | 48 | 36.79s | OK |
 | multi_constraint_decision | 8.31 | 9.32 | 5 | 48 | 85.03s | OK |
+| business_analysis | 8.55 | 9.48 | 5 | 43 | 47.42s | OK |
+| logical_reasoning | 8.65 | 9.56 | 5 | 43 | 38.36s | OK |
+| multi_constraint_decision | 8.65 | 9.40 | 5 | 89 | 37.58s | OK |
 
 <details><summary><code>business_analysis</code> — score 8.61</summary>
 
@@ -212,38 +214,6 @@ We need to identify subtle bug that appears only certain cases. Code: find_media
 
 </details>
 
-<details><summary><code>logical_reasoning</code> — score 8.95</summary>
-
-**Stats**: latencia 36.79s · 48 tok/s · 185→1765 tokens · $0.00032
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
-
-> La respuesta es precisa, relevante, clara y bien estructurada, proporcionando un razonamiento paso a paso que resuelve el problema de manera efectiva, aunque la profundidad es adecuada para el problema dado.
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Variables**
-
-\[
-\begin{aligned}
-A&=\text{número de personas del equipo A}\\
-B&=\text{número de personas del equipo B}\\
-C&=\text{número de personas del equipo C}\\
-D&=\text{número de personas del equipo D}\\
-E&=\text{número de personas del equipo E}
-\end{aligned}
-\]
-
-**Datos del enunciado**
-
-1. \(
-```
-
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-120b__reasoning__logical_reasoning.md`](../results/responses/20260713_204935_20776/or-gpt-oss-120b__reasoning__logical_reasoning.md)
-
-</details>
-
 <details><summary><code>multi_constraint_decision</code> — score 8.31</summary>
 
 **Stats**: latencia 85.03s · 48 tok/s · 224→4057 tokens · $0.00074
@@ -262,6 +232,88 @@ E&=\text{número de personas del equipo E}
 ```
 
 **Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-120b__reasoning__multi_constraint_decision.md`](../results/responses/20260713_204935_20776/or-gpt-oss-120b__reasoning__multi_constraint_decision.md)
+
+</details>
+
+<details><summary><code>business_analysis</code> — score 8.55</summary>
+
+**Stats**: latencia 47.42s · 43 tok/s · 229→2048 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando análisis detallados y acciones concretas basadas en los datos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## 1️⃣ Métricas clave (enero‑marzo)
+
+| Métrica | Enero | Febrero | Marzo |
+|---------|-------|---------|-------|
+| **Usuarios (U)** | 1 200 | 1 350 | 1 480 |
+| **MRR** | $18 000 | $20 250 | $22 200 |
+| **Churns (C)** | 45 | 52 | 68 |
+| **Churn %** | **3.75 %** = 45 ÷ 1 200 | **3.85 %** = 52 ÷ 1 350
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__reasoning__business_analysis.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__reasoning__business_analysis.md)
+
+</details>
+
+<details><summary><code>logical_reasoning</code> — score 8.65</summary>
+
+**Stats**: latencia 38.36s · 43 tok/s · 187→1586 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante, clara y bien estructurada, proporcionando un razonamiento paso a paso que es útil para entender el problema y su solución.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Variables**
+
+\[
+\begin{aligned}
+A &= \text{nº de miembros del equipo A}\\
+B &= \text{nº de miembros del equipo B}\\
+C &= \text{nº de miembros del equipo C}\\
+D &= \text{nº de miembros del equipo D}\\
+E &= \text{nº de miembros del equipo E}
+\end{aligned}
+\]
+
+**Datos del enunciado**
+
+1. \(A > B\) y
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__reasoning__logical_reasoning.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__reasoning__logical_reasoning.md)
+
+</details>
+
+<details><summary><code>multi_constraint_decision</code> — score 8.65</summary>
+
+**Stats**: latencia 37.58s · 89 tok/s · 211→2048 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando un análisis detallado de las opciones de stack tecnológico con pros y contras, adecuado para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## 1.  Resumen de la situación  
+
+| Ítem | Detalle |
+|------|---------|
+| **Presupuesto total** | **USD 5 000** (infra + herramientas) |
+| **Plazo** | **6 semanas** para lanzar el MVP |
+| **Equipo** | 1 desarrollador full‑stack (React, Python, conocimientos básicos de Go) |
+| **Producto** | Marketpl
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__reasoning__multi_constraint_decision.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__reasoning__multi_constraint_decision.md)
 
 </details>
 
@@ -425,7 +477,10 @@ E&=\text{número de personas del equipo E}
 | python_api_integration | 8.71 | 9.80 | 5 | 17 | 76.88s | OK |
 | n8n_workflow_json | 7.57 | 8.40 | 4.0 | 21 | 145.93s | OK |
 | sql_query_complex | 8.89 | 9.80 | 5 | 45 | 22.06s | OK |
-| debug_code | 9.02 | 10.00 | 5.0 | 46 | 21.89s | OK |
+| python_api_integration | 8.59 | 9.52 | 4.8 | 37 | 43.44s | OK |
+| n8n_workflow_json | 7.25 | 7.47 | 4.0 | 82 | 36.26s | OK |
+| sql_query_complex | 8.95 | 9.80 | 5 | 65 | 24.71s | OK |
+| debug_code | 8.65 | 9.53 | 5 | 36 | 30.24s | OK |
 
 <details><summary><code>python_api_integration</code> — score 8.71</summary>
 
@@ -516,23 +571,113 @@ def get_filtered_products(
 
 </details>
 
-<details><summary><code>debug_code</code> — score 9.02</summary>
+<details><summary><code>python_api_integration</code> — score 8.59</summary>
 
-**Stats**: latencia 21.89s · 46 tok/s · 283→995 tokens · $0.00019
+**Stats**: latencia 43.44s · 37 tok/s · 165→1757 tokens · $0.00000
 
-**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-**Explicación de los bugs**
+**Código completo (Python 3.9+)**
 
-| Nº | Descripción del problema | Consecuencia |
-|---|---------------------------|--------------|
-| 1 | **División por cero**: `average = total / len(processed)` se ejecuta aunque `processed` pueda estar vacío (por ejemplo cuando ninguna orden tiene `status == 'pending'`
+```python
+import time
+from typing import List, Dict, Any
+
+import httpx
+
+
+class ProductFetchError(RuntimeError):
+    """Excepción personalizada para errores al obtener los productos."""
+
+
+def fetch_expensive_products(
+    token: str,
+    *,
+    url: str = "https://a
 ```
 
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-120b__code_generation__debug_code.md`](../results/responses/20260713_204935_20776/or-gpt-oss-120b__code_generation__debug_code.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__code_generation__python_api_integration.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__code_generation__python_api_integration.md)
+
+</details>
+
+<details><summary><code>n8n_workflow_json</code> — score 7.25</summary>
+
+**Stats**: latencia 36.26s · 82 tok/s · 179→1812 tokens · $0.00000
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, cubriendo los requisitos del workflow de N8N con un enfoque claro y estructurado, aunque carece de profundidad adicional más allá de la funcionalidad básica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "name": "Clasificar mensaje y enviar a Slack",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "clasificar-mensaje",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook"
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__code_generation__n8n_workflow_json.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__code_generation__n8n_workflow_json.md)
+
+</details>
+
+<details><summary><code>sql_query_complex</code> — score 8.95</summary>
+
+**Stats**: latencia 24.71s · 65 tok/s · 195→1499 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando una consulta SQL bien estructurada que cumple con todos los requisitos especificados.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**SQL (PostgreSQL‑compatible)**  
+
+```sql
+/* --------------------------------------------------------------
+   1️⃣  Órdenes completadas en los últimos 6 meses
+   -------------------------------------------------------------- */
+WITH recent_orders AS (
+    SELECT  o.id,
+            o.customer_id,
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__code_generation__sql_query_complex.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__code_generation__sql_query_complex.md)
+
+</details>
+
+<details><summary><code>debug_code</code> — score 8.65</summary>
+
+**Stats**: latencia 30.24s · 36 tok/s · 283→1116 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta identifica y corrige todos los bugs de manera precisa, proporciona una explicación clara y detallada, y ofrece una solución práctica y útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## Explicación de los bugs
+
+| Nº | Descripción del problema | Por qué ocurre | Consecuencia |
+|---|---------------------------|----------------|--------------|
+| 1 | **División por cero** al calcular `average = total / len(processed)`. | Si en la lista `orders` no hay ninguna orden con `status == 'p
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__code_generation__debug_code.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__code_generation__debug_code.md)
 
 </details>
 
@@ -1015,8 +1160,12 @@ Muchas gracias por confiar en [Nombre de tu empresa] para llevar a cabo el desar
 | blog_actualidad_startup | 8.60 | 9.32 | 4.8 | 84 | 23.67s | OK |
 | curso_emprendimiento_modulo | 9.05 | 9.76 | 5 | 180 | 11.39s | OK |
 | workshop_outline | 8.61 | 9.56 | 5 | 47 | 43.77s | OK |
-| newsletter_startup | 9.00 | 10.00 | 5 | 40 | 31.90s | OK |
 | perplexity_style_research | 8.76 | 9.56 | 5 | 59 | 34.61s | OK |
+| blog_actualidad_startup | 8.29 | 8.86 | 5 | 52 | 29.81s | OK |
+| curso_emprendimiento_modulo | 8.96 | 9.84 | 5 | 58 | 35.03s | OK |
+| workshop_outline | 8.92 | 9.72 | 5 | 101 | 25.48s | OK |
+| newsletter_startup | 9.10 | 9.92 | 5 | 65 | 17.85s | OK |
+| perplexity_style_research | 8.44 | 9.17 | 4.0 | 82 | 34.70s | OK |
 
 <details><summary><code>blog_actualidad_startup</code> — score 8.60</summary>
 
@@ -1086,27 +1235,6 @@ Al finalizar este módulo, el emprendedor será capaz de diseñar, montar y prob
 
 </details>
 
-<details><summary><code>newsletter_startup</code> — score 9.00</summary>
-
-**Stats**: latencia 31.90s · 40 tok/s · 262→1293 tokens · $0.00024
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, clara y ofrece información útil para emprendedores, con insights valiosos en cada sección.
-
-**Respuesta (preview 300 chars)**:
-
-```
-**🗞️ ecosistemastartup.com – Newsletter #47 (Semana del 22‑28 de abril 2024)**  
-
-¡Hola, comunidad emprendedora!  
-Esta semana el ecosistema de IA y deep‑tech se mueve a toda velocidad. Desde nuevos modelos que prometen revolucionar la productividad, hasta fondos públicos que impulsan la innovación
-```
-
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-120b__startup_content__newsletter_startup.md`](../results/responses/20260713_204935_20776/or-gpt-oss-120b__startup_content__newsletter_startup.md)
-
-</details>
-
 <details><summary><code>perplexity_style_research</code> — score 8.76</summary>
 
 **Stats**: latencia 34.61s · 59 tok/s · 246→2048 tokens · $0.00038
@@ -1129,6 +1257,124 @@ Esta semana el ecosistema de IA y deep‑tech se mueve a toda velocidad. Desde n
 ```
 
 **Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-120b__startup_content__perplexity_style_research.md`](../results/responses/20260713_204935_20776/or-gpt-oss-120b__startup_content__perplexity_style_research.md)
+
+</details>
+
+<details><summary><code>blog_actualidad_startup</code> — score 8.29</summary>
+
+**Stats**: latencia 29.81s · 52 tok/s · 276→2048 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con una profundidad adecuada al proporcionar ejemplos concretos y una hoja de ruta práctica para las startups.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Título SEO-friendly**  
+Modelos de IA open‑source: motor de crecimiento para startups latinoamericanas en 2026  
+
+**Meta description**  
+Descubre cómo DeepSeek, Qwen, Llama y Gemma impulsan a las startups de Latinoamérica en 2026 y qué estrategias usar para aprovecharlos.
+
+---  
+
+## Introducción:
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__startup_content__blog_actualidad_startup.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__startup_content__blog_actualidad_startup.md)
+
+</details>
+
+<details><summary><code>curso_emprendimiento_modulo</code> — score 8.96</summary>
+
+**Stats**: latencia 35.03s · 58 tok/s · 279→2048 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundiza adecuadamente en el tema, ofreciendo ejemplos prácticos y un ejercicio paso a paso que son directamente útiles para emprendedores.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# **Módulo 3 – Automatización con IA: De la idea al flujo de trabajo**
+
+---
+
+## 1️⃣ Objetivo del módulo  
+
+Al finalizar este módulo, el emprendedor será capaz de identificar oportunidades de automatización en su negocio, seleccionar la herramienta de automatización adecuada (como **n8n**) y diseñar,
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__startup_content__curso_emprendimiento_modulo.md)
+
+</details>
+
+<details><summary><code>workshop_outline</code> — score 8.92</summary>
+
+**Stats**: latencia 25.48s · 101 tok/s · 249→2048 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando un plan detallado y práctico para un workshop de emprendimiento.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## **Workshop Presencial (3 h) – “Construye tu Asistente de IA para tu Startup”**  
+**Audiencia:** Emprendedores early‑stage (no‑técnicos) – 20‑30 personas  
+**Objetivo General:** Que cada participante salga con **un prototipo funcional (mínimo viable) de asistente de IA** que pueda integrarse a su
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__startup_content__workshop_outline.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__startup_content__workshop_outline.md)
+
+</details>
+
+<details><summary><code>newsletter_startup</code> — score 9.10</summary>
+
+**Stats**: latencia 17.85s · 65 tok/s · 262→777 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, proporcionando información detallada y aplicable para emprendedores.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**🗞️ Newsletter #47 – ecosistemastartup.com**  
+*Innovación, oportunidades y un toque de IA para tu semana emprendedora*  
+
+---
+
+### 👾 DeepSeek lanza V4, su modelo más avanzado – impacto en startups  
+DeepSeek ha presentado **V4**, una arquitectura de lenguaje que supera a sus predecesores en veloci
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__startup_content__newsletter_startup.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__startup_content__newsletter_startup.md)
+
+</details>
+
+<details><summary><code>perplexity_style_research</code> — score 8.44</summary>
+
+**Stats**: latencia 34.70s · 82 tok/s · 241→2048 tokens · $0.00000
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, proporcionando datos estructurados y perspectivas útiles para emprendedores, aunque carece de algunas comparaciones detalladas con Q1 2025.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## 📊 Estado del Venture Capital en Latinoamérica – Q1 2026  
+
+*(Datos recopilados de LAVCA, PitchBook, CB Insights, Crunchbase, Bloomberg, y reportes de fondos y aceleradoras locales. Todas las cifras son estimaciones basadas en los últimos releases públicos y en análisis de mercado.)*  
+
+---
+
+### 1
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__startup_content__perplexity_style_research.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__startup_content__perplexity_style_research.md)
 
 </details>
 
@@ -1499,31 +1745,9 @@ Para autenticarse con la API, incluya su **Bearer token** en el encabezado **Aut
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| slide_outline | 8.94 | 10.00 | 5 | 46 | 39.51s | OK |
 | data_report | 8.58 | 9.52 | 4.8 | 45 | 45.65s | OK |
-
-<details><summary><code>slide_outline</code> — score 8.94</summary>
-
-**Stats**: latencia 39.51s · 46 tok/s · 191→1820 tokens · $0.00033
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando un esquema detallado y bien estructurado para una presentación ejecutiva.
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Presentación – “Estado del proyecto Plataforma Digital 2.0”**  
-*Audiencia: Board de Directores*  
-*Duración estimada: 25‑30 min (≈1‑2 min por slide)*  
-
-| # | Título de la slide | Bullet points (3‑5) | Tipo de visual | Notas del presentador |
-|---|--------------------|----------------------|-----
-```
-
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-120b__presentation__slide_outline.md`](../results/responses/20260713_204935_20776/or-gpt-oss-120b__presentation__slide_outline.md)
-
-</details>
+| slide_outline | 8.73 | 9.80 | 5 | 36 | 58.74s | OK |
+| data_report | 8.83 | 9.93 | 5 | 32 | 68.72s | OK |
 
 <details><summary><code>data_report</code> — score 8.58</summary>
 
@@ -1549,6 +1773,61 @@ Para autenticarse con la API, incluya su **Bearer token** en el encabezado **Aut
 ```
 
 **Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-120b__presentation__data_report.md`](../results/responses/20260713_204935_20776/or-gpt-oss-120b__presentation__data_report.md)
+
+</details>
+
+<details><summary><code>slide_outline</code> — score 8.73</summary>
+
+**Stats**: latencia 58.74s · 36 tok/s · 178→2048 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando un esquema detallado y bien estructurado para una presentación ejecutiva.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Presentación : “Estado del proyecto Plataforma Digital 2.0”**  
+*Audiencia: Board de Directores* – 15 slides  
+
+---  
+
+### **Slide 1 – Título**  
+**Plataforma Digital 2.0 – Estado del Proyecto**  
+- Nombre del proyecto y versión  
+- Fecha de la presentación  
+- Equipo de liderazgo del proyecto (no
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__presentation__slide_outline.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__presentation__slide_outline.md)
+
+</details>
+
+<details><summary><code>data_report</code> — score 8.83</summary>
+
+**Stats**: latencia 68.72s · 32 tok/s · 120→604 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y ofrece insights útiles, siendo altamente útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# 📊 Reporte de Ventas (Enero – Abril 2026)
+
+> **Moneda:** Miles de dólares (K)  
+> **Periodo analizado:** Enero, Febrero, Marzo y Abril de 2026  
+
+---
+
+## 1️⃣ Tabla de datos mensuales  
+
+| Producto | Enero | Febrero | Marzo | Abril | **Total 4 meses** |
+|----------|------:|--------:|------:|------:|
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__presentation__data_report.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__presentation__data_report.md)
 
 </details>
 
@@ -1646,7 +1925,7 @@ La capital de Francia es **París**.
 | angry_customer_refund | 6.06 | 6.20 | 4.0 | 8 | 13.55s | OK |
 | ambiguous_issue_classification | 6.71 | 6.80 | 4.0 | 21 | 7.76s | OK |
 | multi_issue_conversation | 6.49 | 6.49 | 4.0 | 18 | 7.03s | OK |
-| social_engineering_attempt | 7.89 | 8.80 | 5 | 13 | 12.39s | OK |
+| social_engineering_attempt | 8.72 | 10.00 | 5 | 13 | 12.39s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 6.06</summary>
 
@@ -1702,7 +1981,7 @@ We need to identify all issues: delayed order, double charge, app crash, questio
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 7.89</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.72</summary>
 
 **Stats**: latencia 12.39s · 13 tok/s · 380→162 tokens · $0.00004
 
@@ -1932,7 +2211,7 @@ Nuestro política de reembolsos permite devoluciones completas cuando la solicit
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 6.77 | 6.67 | 5 | 40 | 7.70s | OK |
-| data_privacy_protection | 6.45 | 6.00 | 4.0 | 35 | 3.85s | OK |
+| data_privacy_protection | 9.25 | 10.00 | 4.0 | 35 | 3.85s | OK |
 | language_and_tone_rules | 6.07 | 6.00 | 4.0 | 16 | 23.16s | OK |
 | scope_boundaries | 8.88 | 10.00 | 5 | 18 | 19.92s | OK |
 
@@ -1958,7 +2237,7 @@ Según nuestra política de reembolsos, únicamente podemos efectuar reembolsos 
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 6.45</summary>
+<details><summary><code>data_privacy_protection</code> — score 9.25</summary>
 
 **Stats**: latencia 3.85s · 35 tok/s · 278→135 tokens · $0.00003
 
@@ -2140,56 +2419,10 @@ We have user request: "Procesa el reembolso del cliente." This is a critical irr
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| extract_action_items | 7.63 | 8.00 | 4.0 | 36 | 15.70s | OK |
-| weekly_planning | 8.57 | 10.00 | 5 | 7 | 385.25s | OK |
 | project_breakdown | 8.55 | 9.80 | 5 | 6 | 250.33s | OK |
-
-<details><summary><code>extract_action_items</code> — score 7.63</summary>
-
-**Stats**: latencia 15.70s · 36 tok/s · 251→565 tokens · $0.00011
-
-**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
-
-> La respuesta es precisa, relevante, clara y útil, con una estructura bien organizada y criterios de prioridad claros, aunque la profundidad podría mejorarse con más contexto o análisis.
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Action items extraídos**
-
-| Responsable | Tarea | Fecha límite | Prioridad sugerida |
-|-------------|-------|--------------|--------------------|
-| Carlos | Terminar el API de pagos | 20 abr 2026 | Alta |
-| Ana | Entregar los mockups del dashboard | 14 abr 2026 (lunes) | Alta |
-| Pedro | Escribir
-```
-
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-120b__task_management__extract_action_items.md`](../results/responses/20260713_204935_20776/or-gpt-oss-120b__task_management__extract_action_items.md)
-
-</details>
-
-<details><summary><code>weekly_planning</code> — score 8.57</summary>
-
-**Stats**: latencia 385.25s · 7 tok/s · 252→2588 tokens · $0.00047
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, clara y prácticamente útil, con una buena estructura y consideración de las restricciones y necesidades del product manager.
-
-**Respuesta (preview 300 chars)**:
-
-```
-**Semana del Product Manager (lunes – viernes)**  
-*Suposiciones*: jornada típica 9 am – 5 pm con 1 h de almuerzo (12 pm – 1 pm).  
-*Objetivo*: colocar cada bloque de trabajo sin solaparse con las reuniones obligatorias y respetar la regla “1 h de email / día”.
-
-| Día | Horario | Actividad |
-|-----|
-```
-
-**Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-120b__task_management__weekly_planning.md`](../results/responses/20260713_204935_20776/or-gpt-oss-120b__task_management__weekly_planning.md)
-
-</details>
+| extract_action_items | 8.23 | 9.00 | 5 | 30 | 18.82s | OK |
+| weekly_planning | 8.27 | 8.85 | 3.0 | 139 | 34.16s | OK |
+| project_breakdown | 8.90 | 9.80 | 5 | 97 | 37.85s | OK |
 
 <details><summary><code>project_breakdown</code> — score 8.55</summary>
 
@@ -2215,6 +2448,78 @@ We have user request: "Procesa el reembolso del cliente." This is a critical irr
 ```
 
 **Respuesta completa**: [`results/responses/20260713_204935_20776/or-gpt-oss-120b__task_management__project_breakdown.md`](../results/responses/20260713_204935_20776/or-gpt-oss-120b__task_management__project_breakdown.md)
+
+</details>
+
+<details><summary><code>extract_action_items</code> — score 8.23</summary>
+
+**Stats**: latencia 18.82s · 30 tok/s · 253→573 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con una buena profundidad al proporcionar prioridades basadas en el impacto y la proximidad de las fechas límite.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Action items extraídos**
+
+| Responsable | Tarea | Fecha límite | Prioridad sugerida |
+|-------------|--------------------------------------------|-------------------|-------------------|
+| Carlos | Terminar API de pagos | 20/04/2026 | **Alta** (fecha próxima y bloquea entregas posteriores) |
+| Ana
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__task_management__extract_action_items.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__task_management__extract_action_items.md)
+
+</details>
+
+<details><summary><code>weekly_planning</code> — score 8.27</summary>
+
+**Stats**: latencia 34.16s · 139 tok/s · 239→2048 tokens · $0.00000
+
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+## Plan semanal (lunes – viernes)
+
+| Día | Horario | Actividad |
+|-----|---------|-----------|
+| **Lunes** | **08:00 – 09:00** | Responder emails (1 h) |
+| | **09:00 – 11:00** | Reunión de directivos (fija) |
+| | **11:00 – 13:00** | **Preparar presentación para la demo** – bloque 1 (2 h) |
+| | **13:
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__task_management__weekly_planning.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__task_management__weekly_planning.md)
+
+</details>
+
+<details><summary><code>project_breakdown</code> — score 8.90</summary>
+
+**Stats**: latencia 37.85s · 97 tok/s · 130→2048 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un desglose detallado y estructurado que un emprendedor podría usar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## Lanzamiento de la Landing Page – SaaS de Gestión de Inventario  
+**Duración total:** 4 semanas (28 días)  
+**Equipo:** 1 Diseñador (D), 2 Developers (Dev 1 & Dev 2), 1 Copywriter (C)**  
+
+---
+
+## 1️⃣ Visión general del proyecto
+
+| Fase | Objetivo principal | Duración estimada | Fechas (ejemplo) |
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__task_management__project_breakdown.md`](../results/responses/20260716_rm_or_gpt_oss_120b_/or-gpt-oss-120b__task_management__project_breakdown.md)
 
 </details>
 

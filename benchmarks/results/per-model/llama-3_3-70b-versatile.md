@@ -1,13 +1,13 @@
 # Llama 3.3 70B (Groq)
 
 - **model_id**: `llama-3.3-70b-versatile`
-- **Total tests**: 169/271 exitosos (102 errores)
-- **Score final**: 7.27
-- **Calidad**: 7.59
+- **Total tests**: 141/243 exitosos (102 errores)
+- **Score final**: 7.19
+- **Calidad**: 7.38
 - **Judge score (Phi-4)**: 4.00/10
-- **Velocidad**: 173 tok/s
-- **Latencia primera token**: 2.48s
-- **Costo promedio por test**: $0.00736
+- **Velocidad**: 157 tok/s
+- **Latencia primera token**: 2.62s
+- **Costo promedio por test**: $0.00733
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,12 +16,11 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 3 | 7.14 | 6.61 |
-| agent_long_horizon | 27 | 27 | 7.91 | 9.09 |
 | business_audit | 10 | 0 | - | - |
 | code_generation | 4 | 4 | 8.01 | 8.38 |
 | content_generation | 4 | 4 | 8.34 | 8.74 |
 | creativity | 4 | 4 | 8.58 | 8.75 |
-| customer_support | 4 | 4 | 7.85 | 6.76 |
+| customer_support | 4 | 4 | 8.01 | 7.05 |
 | deep_reasoning | 6 | 6 | 6.45 | 5.83 |
 | hallucination | 3 | 3 | 8.53 | 8.33 |
 | multi_turn | 4 | 4 | 7.12 | 6.50 |
@@ -36,12 +35,12 @@
 | sales_outreach | 3 | 3 | 9.09 | 9.33 |
 | startup_content | 5 | 5 | 8.07 | 8.67 |
 | strategy | 3 | 3 | 7.93 | 8.06 |
-| string_precision | 6 | 6 | 7.51 | 6.83 |
+| string_precision | 6 | 6 | 8.68 | 8.50 |
 | structured_output | 4 | 4 | 6.21 | 5.00 |
 | summarization | 2 | 2 | 7.64 | 7.06 |
 | task_management | 3 | 3 | 8.13 | 8.53 |
 | tool_calling | 4 | 3 | 6.94 | 5.33 |
-| translation | 3 | 3 | 8.80 | 8.67 |
+| translation | 2 | 2 | 8.99 | 9.00 |
 
 ## Detalle por test
 
@@ -614,7 +613,7 @@ ultimas_ordenes AS (
 | copy_api_key | 3.70 | 1.00 | 4.0 | 160 | 0.40s | OK |
 | copy_jwt | 9.55 | 10.00 | 4.0 | 45 | 0.91s | OK |
 | copy_mixed_special | 9.55 | 10.00 | 3.6 | 50 | 0.62s | OK |
-| write_config_file | 2.70 | 0.00 | 1.4 | 61 | 0.51s | OK |
+| write_config_file | 9.70 | 10.00 | 1.4 | 61 | 0.51s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.85</summary>
 
@@ -700,7 +699,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 2.70</summary>
+<details><summary><code>write_config_file</code> — score 9.70</summary>
 
 **Stats**: latencia 0.51s · 61 tok/s · 262→31 tokens · $0.00018
 
@@ -1310,7 +1309,6 @@ Para calcular los indicadores clave de desempeño (KPI) de cada campaña, utiliz
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 8.45 | 8.00 | 5 | 116 | 0.63s | OK |
-| translate_technical_en_es | 8.40 | 8.00 | 4.0 | 146 | 0.82s | OK |
 | detect_language_issues | 9.54 | 10.00 | 4.6 | 292 | 1.50s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 8.45</summary>
@@ -1332,22 +1330,6 @@ Over 500 startups in Latin America are already on boar
 ```
 
 **Respuesta completa**: [`results/responses/20260426_074254/groq-llama-3.3-70b__translation__translate_marketing_es_en.md`](../results/responses/20260426_074254/groq-llama-3.3-70b__translation__translate_marketing_es_en.md)
-
-</details>
-
-<details><summary><code>translate_technical_en_es</code> — score 8.40</summary>
-
-**Stats**: latencia 0.82s · 146 tok/s · 182→120 tokens · $0.00020
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para autenticar con la API, incluya su token Bearer en el encabezado de Authorization. Los límites de velocidad están establecidos en 100 solicitudes por minuto para el nivel gratuito. Si supera el límite de velocidad, la API devuelve un código de estado 429 con un encabezado Retry-After que indica
-```
-
-**Respuesta completa**: [`results/responses/20260426_074254/groq-llama-3.3-70b__translation__translate_technical_en_es.md`](../results/responses/20260426_074254/groq-llama-3.3-70b__translation__translate_technical_en_es.md)
 
 </details>
 
@@ -1505,7 +1487,7 @@ En este reporte, se presentan los datos de ventas de tres productos (A, B y C) d
 | angry_customer_refund | 8.13 | 7.21 | 4.0 | 90 | 0.79s | OK |
 | ambiguous_issue_classification | 8.20 | 7.32 | 4.0 | 77 | 0.69s | OK |
 | multi_issue_conversation | 5.99 | 3.67 | 2.6 | 292 | 0.83s | OK |
-| social_engineering_attempt | 9.09 | 8.84 | 4.6 | 158 | 0.59s | OK |
+| social_engineering_attempt | 9.71 | 10.00 | 4.6 | 158 | 0.59s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 8.13</summary>
 
@@ -1556,7 +1538,7 @@ Lo siento mucho, entiendo que recibir un producto dañado puede ser muy frustran
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 9.09</summary>
+<details><summary><code>social_engineering_attempt</code> — score 9.71</summary>
 
 **Stats**: latencia 0.59s · 158 tok/s · 605→93 tokens · $0.00043
 
@@ -2049,8 +2031,6 @@ A continuación, te proporciono la información de los 3 candidatos en formato J
 </details>
 
 ### Otras suites
-
-#### agent_long_horizon
 
 #### niah_es
 

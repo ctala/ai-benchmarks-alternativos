@@ -1,13 +1,13 @@
 # Qwen 3.5 397B
 
 - **model_id**: `qwen/qwen3.5-397b-a17b`
-- **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.06
-- **Calidad**: 7.90
-- **Judge score (Phi-4)**: 4.45/10
-- **Velocidad**: 65 tok/s
-- **Latencia primera token**: 48.24s
-- **Costo promedio por test**: $0.00789
+- **Total tests**: 134/134 exitosos (0 errores)
+- **Score final**: 7.00
+- **Calidad**: 7.83
+- **Judge score (Phi-4)**: 4.42/10
+- **Velocidad**: 64 tok/s
+- **Latencia primera token**: 52.57s
+- **Costo promedio por test**: $0.00769
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,10 +16,10 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.90 | 7.30 |
-| agent_long_horizon | 12 | 12 | 7.29 | 8.50 |
+| agent_long_horizon | 12 | 12 | 6.68 | 7.92 |
 | business_audit | 10 | 10 | 7.21 | 8.20 |
 | business_strategy | 5 | 5 | 7.85 | 9.20 |
-| code_generation | 4 | 4 | 7.67 | 8.94 |
+| code_generation | 7 | 7 | 7.79 | 8.95 |
 | content_generation | 4 | 4 | 7.99 | 9.10 |
 | content_verificable | 5 | 5 | 5.67 | 6.13 |
 | creativity | 4 | 4 | 7.31 | 8.38 |
@@ -32,16 +32,16 @@
 | orchestration | 5 | 5 | 6.46 | 6.70 |
 | policy_adherence | 4 | 4 | 8.10 | 9.50 |
 | presentation | 2 | 2 | 7.29 | 8.16 |
-| reasoning | 3 | 3 | 7.64 | 8.65 |
+| reasoning | 4 | 4 | 7.34 | 8.26 |
 | sales_outreach | 3 | 3 | 8.10 | 9.33 |
-| startup_content | 5 | 5 | 7.64 | 8.89 |
+| startup_content | 9 | 9 | 7.59 | 8.72 |
 | strategy | 3 | 3 | 7.50 | 8.89 |
 | string_precision | 6 | 6 | 7.54 | 8.17 |
 | structured_output | 4 | 4 | 5.08 | 5.00 |
 | summarization | 2 | 2 | 7.18 | 8.12 |
-| task_management | 3 | 3 | 7.87 | 9.37 |
+| task_management | 4 | 4 | 6.45 | 7.11 |
 | tool_calling | 4 | 4 | 6.72 | 6.75 |
-| translation | 3 | 3 | 7.57 | 8.67 |
+| translation | 5 | 5 | 7.38 | 8.40 |
 
 ## Detalle por test
 
@@ -209,8 +209,9 @@ Para entender el impacto real, debemos desglosar a los interesados más allá de
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | business_analysis | 7.00 | 7.56 | 4.0 | 123 | 16.59s | OK |
-| logical_reasoning | 7.58 | 8.40 | 4.2 | 102 | 20.08s | OK |
-| multi_constraint_decision | 8.34 | 10.00 | 5 | 56 | 112.48s | OK |
+| business_analysis | 6.96 | 7.72 | 5 | 82 | 41.58s | OK |
+| logical_reasoning | 7.35 | 8.25 | 4.6 | 88 | 32.06s | OK |
+| multi_constraint_decision | 8.05 | 9.49 | 5 | 59 | 88.18s | OK |
 
 <details><summary><code>business_analysis</code> — score 7.00</summary>
 
@@ -230,45 +231,67 @@ Here's a thinking process that leads to the suggested analysis:
 
 </details>
 
-<details><summary><code>logical_reasoning</code> — score 7.58</summary>
+<details><summary><code>business_analysis</code> — score 6.96</summary>
 
-**Stats**: latencia 20.08s · 102 tok/s · 135→2048 tokens · $0.00507
+**Stats**: latencia 41.58s · 82 tok/s · 206→4851 tokens · $0.00700
 
-**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando análisis detallados y acciones concretas basadas en los datos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el análisis detallado de los datos de tu SaaS para el primer trimestre.
+
+### 1. Cálculo de Métricas Clave
+
+He calculado las métricas basándome en los datos proporcionados.
+*Nota: Para el Churn Rate de Enero, usé los usuarios finales como aproximación ya que no tenemos el dato de inicio d
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__reasoning__business_analysis.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__reasoning__business_analysis.md)
+
+</details>
+
+<details><summary><code>logical_reasoning</code> — score 7.35</summary>
+
+**Stats**: latencia 32.06s · 88 tok/s · 135→3663 tokens · $0.00600
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
 Aquí tienes la resolución del problema paso a paso:
 
-### 1. Definir las variables
-Llamemos al número de miembros de cada equipo con su letra correspondiente:
-*   $A$: Miembros del equipo A
-*   $B$: Miembros del equipo B
-*   $C$: Miembros del equipo C
-*   $D$: Miembros del equipo D
-*   $E$: Miembros
+### 1. Traducir las condiciones a ecuaciones y desigualdades
+
+Definamos las variables $A, B, C, D, E$ como el número de personas en cada equipo.
+
+1.  **$B < A < C$** (A tiene más que B pero menos que C)
+2.  **$D = A$** (D tiene el mismo número que
 ```
 
-**Respuesta completa**: [`results/responses/20260714_064253_32361/or-qwen3.5-397b__reasoning__logical_reasoning.md`](../results/responses/20260714_064253_32361/or-qwen3.5-397b__reasoning__logical_reasoning.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__reasoning__logical_reasoning.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__reasoning__logical_reasoning.md)
 
 </details>
 
-<details><summary><code>multi_constraint_decision</code> — score 8.34</summary>
+<details><summary><code>multi_constraint_decision</code> — score 8.05</summary>
 
-**Stats**: latencia 112.48s · 56 tok/s · 180→6339 tokens · $0.01560
+**Stats**: latencia 88.18s · 59 tok/s · 180→6454 tokens · $0.01200
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un análisis detallado de las opciones de stack tecnológico con pros y contras claros.
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un análisis detallado de múltiples opciones de stack tecnológico con pros y contras específicos, adecuados para la toma de decisiones de un emprendedor.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Este es un escenario clásico de "Time-to-Market" crítico. Con 6 semanas y 1 desarrollador, la prioridad número uno no es la escalabilidad técnica (5,000 usuarios son manejables por casi cualquier stack moderno), sino la **velocidad de desarrollo** y la **reducción de deuda técnica operativa** (menos
+Este es un escenario clásico de "Time-to-Market" crítico. Tienes 6 semanas, lo cual es **extremadamente ajustado** para un marketplace con chat en tiempo real y pagos. El presupuesto de $5,000 es saludable para herramientas e infraestructura, pero el cuello de botella será el tiempo del desarrollado
 ```
 
-**Respuesta completa**: [`results/responses/20260714_064253_32361/or-qwen3.5-397b__reasoning__multi_constraint_decision.md`](../results/responses/20260714_064253_32361/or-qwen3.5-397b__reasoning__multi_constraint_decision.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__reasoning__multi_constraint_decision.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__reasoning__multi_constraint_decision.md)
 
 </details>
 
@@ -431,8 +454,11 @@ Aquí está la realidad fría de tu negocio, sin el azúcar que te ponen los ace
 |------|-------|---------|-------|-------|----------|--------|
 | python_api_integration | 8.08 | 9.32 | 4.8 | 32 | 30.69s | OK |
 | n8n_workflow_json | 7.83 | 8.96 | 4.4 | 67 | 30.45s | OK |
-| sql_query_complex | 8.41 | 10.00 | 5.0 | 63 | 68.67s | OK |
 | debug_code | 6.37 | 7.48 | 3.2 | 14 | 131.05s | OK |
+| python_api_integration | 8.33 | 9.52 | 4.8 | 71 | 23.43s | OK |
+| n8n_workflow_json | 7.19 | 8.13 | 3.0 | 69 | 47.43s | OK |
+| sql_query_complex | 8.13 | 9.47 | 5 | 76 | 57.12s | OK |
+| debug_code | 8.58 | 9.80 | 5 | 79 | 15.73s | OK |
 
 <details><summary><code>python_api_integration</code> — score 8.08</summary>
 
@@ -483,24 +509,6 @@ Here's a thinking process that leads to the suggested n8n workflow JSON:
 
 </details>
 
-<details><summary><code>sql_query_complex</code> — score 8.41</summary>
-
-**Stats**: latencia 68.67s · 63 tok/s · 161→4307 tokens · $0.01061
-
-**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Aquí tienes la query SQL optimizada utilizando **CTEs (Common Table Expressions)** y **Window Functions** para resolver el requerimiento de manera limpia y eficiente.
-
-*Nota: La sintaxis de fechas (`INTERVAL '6 months'`) está basada en PostgreSQL/Standard SQL. Si usas MySQL, ver la nota al final.*
-```
-
-**Respuesta completa**: [`results/responses/20260714_063707_29430/or-qwen3.5-397b__code_generation__sql_query_complex.md`](../results/responses/20260714_063707_29430/or-qwen3.5-397b__code_generation__sql_query_complex.md)
-
-</details>
-
 <details><summary><code>debug_code</code> — score 6.37</summary>
 
 **Stats**: latencia 131.05s · 14 tok/s · 222→1802 tokens · $0.00450
@@ -519,6 +527,97 @@ Aquí tienes el análisis detallado de los bugs y la versión corregida del cód
 ```
 
 **Respuesta completa**: [`results/responses/20260714_063707_29430/or-qwen3.5-397b__code_generation__debug_code.md`](../results/responses/20260714_063707_29430/or-qwen3.5-397b__code_generation__debug_code.md)
+
+</details>
+
+<details><summary><code>python_api_integration</code> — score 8.33</summary>
+
+**Stats**: latencia 23.43s · 71 tok/s · 113→976 tokens · $0.00400
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+```python
+import httpx
+import time
+from typing import List, Dict, Any, Optional
+
+def get_expensive_products(
+    api_url: str = "https://api.example.com/products",
+    token: str = "",
+    max_retries: int = 3,
+    base_delay: float = 1.0,
+    timeout_seconds: float = 10.0
+) -> List[Dict[str, Any]]:
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__code_generation__python_api_integration.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__code_generation__python_api_integration.md)
+
+</details>
+
+<details><summary><code>n8n_workflow_json</code> — score 7.19</summary>
+
+**Stats**: latencia 47.43s · 69 tok/s · 125→2048 tokens · $0.00800
+
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el código JSON completo para el workflow de N8N.
+
+### Instrucciones previas:
+1.  **Credenciales:** Este workflow requiere que tengas configuradas las credenciales para **OpenAI** y **Slack** en tu instancia de N8N.
+2.  **Importar:** Copia el código de abajo, ve a tu N8N, haz clic en "A
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__code_generation__n8n_workflow_json.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__code_generation__n8n_workflow_json.md)
+
+</details>
+
+<details><summary><code>sql_query_complex</code> — score 8.13</summary>
+
+**Stats**: latencia 57.12s · 76 tok/s · 161→4439 tokens · $0.01000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando una consulta SQL bien estructurada que cumple con todos los requisitos especificados.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes la query SQL optimizada para PostgreSQL (la sintaxis es estándar para la mayoría de bases de datos modernas como MySQL 8+ o SQL Server con pequeños ajustes en las fechas).
+
+Utiliza **CTEs (Common Table Expressions)** para separar el cálculo de métricas del cliente del cálculo de la categ
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__code_generation__sql_query_complex.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__code_generation__sql_query_complex.md)
+
+</details>
+
+<details><summary><code>debug_code</code> — score 8.58</summary>
+
+**Stats**: latencia 15.73s · 79 tok/s · 244→1175 tokens · $0.00300
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, abordando todos los problemas potenciales y proporcionando un código corregido con ejemplos de uso.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Análisis y Corrección de Bugs
+
+## 🐛 Bug 1: División por Cero
+
+**Problema:** Si no hay órdenes con estado `'pending'`, la lista `processed` estará vacía. Al calcular `average = total / len(processed)`, se produce un `ZeroDivisionError`.
+
+**Solución:** Verificar si hay elementos antes de dividir.
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__code_generation__debug_code.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__code_generation__debug_code.md)
 
 </details>
 
@@ -994,10 +1093,14 @@ Upgrade your sanctuary with the device that does it all. Aura seamlessly blends 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | blog_actualidad_startup | 6.36 | 7.51 | 4.0 | 12 | 171.66s | OK |
-| curso_emprendimiento_modulo | 8.43 | 10.00 | 5 | 58 | 66.52s | OK |
 | workshop_outline | 6.99 | 7.98 | 4.0 | 34 | 60.53s | OK |
 | newsletter_startup | 8.57 | 9.80 | 5 | 126 | 16.22s | OK |
 | perplexity_style_research | 7.83 | 9.16 | 4.4 | 54 | 75.23s | OK |
+| blog_actualidad_startup | 7.97 | 9.27 | 4.0 | 54 | 57.12s | OK |
+| curso_emprendimiento_modulo | 7.78 | 9.00 | 4.8 | 62 | 53.64s | OK |
+| workshop_outline | 7.80 | 8.89 | 4.0 | 78 | 37.81s | OK |
+| newsletter_startup | 7.27 | 8.09 | 4.0 | 95 | 22.88s | OK |
+| perplexity_style_research | 7.72 | 8.81 | 4.4 | 81 | 45.93s | OK |
 
 <details><summary><code>blog_actualidad_startup</code> — score 6.36</summary>
 
@@ -1022,27 +1125,6 @@ Hace apenas dos años, integra
 ```
 
 **Respuesta completa**: [`results/responses/20260714_065116_36789/or-qwen3.5-397b__startup_content__blog_actualidad_startup.md`](../results/responses/20260714_065116_36789/or-qwen3.5-397b__startup_content__blog_actualidad_startup.md)
-
-</details>
-
-<details><summary><code>curso_emprendimiento_modulo</code> — score 8.43</summary>
-
-**Stats**: latencia 66.52s · 58 tok/s · 232→3848 tokens · $0.00952
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando ejemplos prácticos y herramientas específicas que un emprendedor puede aplicar directamente.
-
-**Respuesta (preview 300 chars)**:
-
-```
-# Módulo 3: Automatización con IA: De la idea al flujo de trabajo
-
-## 1. Objetivo del Módulo
-Al finalizar este módulo, serás capaz de diseñar e implementar flujos de trabajo automatizados que integren Inteligencia Artificial en tu negocio, permitiéndote reducir tareas repetitivas, operar 24/7 sin in
-```
-
-**Respuesta completa**: [`results/responses/20260714_065116_36789/or-qwen3.5-397b__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260714_065116_36789/or-qwen3.5-397b__startup_content__curso_emprendimiento_modulo.md)
 
 </details>
 
@@ -1106,6 +1188,110 @@ Thinking Process:
 ```
 
 **Respuesta completa**: [`results/responses/20260714_065116_36789/or-qwen3.5-397b__startup_content__perplexity_style_research.md`](../results/responses/20260714_065116_36789/or-qwen3.5-397b__startup_content__perplexity_style_research.md)
+
+</details>
+
+<details><summary><code>blog_actualidad_startup</code> — score 7.97</summary>
+
+**Stats**: latencia 57.12s · 54 tok/s · 239→2878 tokens · $0.00800
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, proporcionando información útil y perspectivas sobre el impacto de los modelos de IA open-source en las startups latinoamericanas, aunque podría profundizar más en ejemplos específicos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# IA Open-Source en 2026: El Boom para Startups LatAm
+
+**Meta description:** Descubre cómo modelos como Llama y DeepSeek reducen costos y democratizan la IA para emprendedores en Latinoamérica este 2026.
+
+El 2024 fue el año del hype, pero el 2026 se ha consolidado como el año de la eficiencia operat
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__startup_content__blog_actualidad_startup.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__startup_content__blog_actualidad_startup.md)
+
+</details>
+
+<details><summary><code>curso_emprendimiento_modulo</code> — score 7.78</summary>
+
+**Stats**: latencia 53.64s · 62 tok/s · 232→3518 tokens · $0.00800
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Módulo 3: Automatización con IA: De la idea al flujo de trabajo
+
+## 1. Objetivo del Módulo
+Al finalizar este módulo, serás capaz de diseñar e implementar flujos de trabajo automatizados que integren Inteligencia Artificial para eliminar tareas repetitivas, reducir errores humanos y escalar tu oper
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__startup_content__curso_emprendimiento_modulo.md)
+
+</details>
+
+<details><summary><code>workshop_outline</code> — score 7.80</summary>
+
+**Stats**: latencia 37.81s · 78 tok/s · 202→2048 tokens · $0.00600
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:4, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, proporcionando una estructura detallada y útil para el workshop, con una buena selección de herramientas adecuadas para una audiencia no técnica.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Thinking Process:
+
+1.  **Analyze the Request:**
+    *   **Role:** Facilitator of entrepreneurship and technology workshops with experience in Latin America.
+    *   **Task:** Create a complete outline for a 3-hour in-person workshop.
+    *   **Title:** "Construye tu Asistente de IA para tu Startup -
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__startup_content__workshop_outline.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__startup_content__workshop_outline.md)
+
+</details>
+
+<details><summary><code>newsletter_startup</code> — score 7.27</summary>
+
+**Stats**: latencia 22.88s · 95 tok/s · 224→2048 tokens · $0.00500
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, cubriendo los temas solicitados con información adecuada y organización clara, aunque la profundidad podría mejorarse con más detalles específicos en cada sección.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# 🚀 DeepSeek V4, $50M para Deep Tech y la IA que define el 2026
+
+¡Hola, comunidad! Bienvenidos a una nueva edición de **Ecosistema Startup**. 
+
+Esta semana la inteligencia artificial sigue acelerando el paso, pero lo interesante no es solo la tecnología, sino cómo se democratiza y financia. Desde mo
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__startup_content__newsletter_startup.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__startup_content__newsletter_startup.md)
+
+</details>
+
+<details><summary><code>perplexity_style_research</code> — score 7.72</summary>
+
+**Stats**: latencia 45.93s · 81 tok/s · 194→5026 tokens · $0.00800
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# 📊 Informe de Investigación: Estado del Venture Capital en Latinoamérica (Perspectivas Q1 2026)
+
+> **⚠️ Nota de Transparencia:** Al momento de esta investigación, **Q1 2026 es un periodo futuro**. Los datos específicos de inversión para este trimestre aún no existen. La siguiente información compil
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__startup_content__perplexity_style_research.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__startup_content__perplexity_style_research.md)
 
 </details>
 
@@ -1406,8 +1592,10 @@ Here's a thinking process that leads to the suggested analysis and recommendatio
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.16 | 8.00 | 4.0 | 84 | 24.24s | OK |
-| translate_technical_en_es | 7.10 | 8.00 | 4.0 | 59 | 47.55s | OK |
 | detect_language_issues | 8.46 | 10.00 | 5 | 62 | 54.04s | OK |
+| translate_marketing_es_en | 7.14 | 8.00 | 5 | 89 | 38.74s | OK |
+| translate_technical_en_es | 7.23 | 8.23 | 4.2 | 78 | 46.74s | OK |
+| detect_language_issues | 6.89 | 7.78 | 5 | 72 | 53.05s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.16</summary>
 
@@ -1430,24 +1618,6 @@ Thinking Process:
 ```
 
 **Respuesta completa**: [`results/responses/20260714_080715_76130/or-qwen3.5-397b__translation__translate_marketing_es_en.md`](../results/responses/20260714_080715_76130/or-qwen3.5-397b__translation__translate_marketing_es_en.md)
-
-</details>
-
-<details><summary><code>translate_technical_en_es</code> — score 7.10</summary>
-
-**Stats**: latencia 47.55s · 59 tok/s · 160→2800 tokens · $0.00692
-
-**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
-
-> La respuesta es precisa y relevante, manteniendo los términos técnicos en inglés y añadiendo información útil sobre el manejo de webhooks, aunque no se completa la oración original.
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para autenticarse con la API, incluya su token Bearer en el header Authorization. Los rate limits están establecidos en 100 requests por minuto para el free tier. Si excede el rate limit, la API devuelve un status code 429 con un header Retry-After que indica cuándo puede reanudar. Los endpoints de
-```
-
-**Respuesta completa**: [`results/responses/20260714_080715_76130/or-qwen3.5-397b__translation__translate_technical_en_es.md`](../results/responses/20260714_080715_76130/or-qwen3.5-397b__translation__translate_technical_en_es.md)
 
 </details>
 
@@ -1481,6 +1651,83 @@ Para autenticarse con la API, incluya su token Bearer en el header Authorization
 ```
 
 **Respuesta completa**: [`results/responses/20260714_080715_76130/or-qwen3.5-397b__translation__detect_language_issues.md`](../results/responses/20260714_080715_76130/or-qwen3.5-397b__translation__detect_language_issues.md)
+
+</details>
+
+<details><summary><code>translate_marketing_es_en</code> — score 7.14</summary>
+
+**Stats**: latencia 38.74s · 89 tok/s · 177→3401 tokens · $0.00700
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La traducción es precisa, relevante y clara, manteniendo el tono cercano y energético. Ofrece insights útiles para emprendedores, aunque la profundidad podría ser ligeramente mayor al proporcionar más contexto sobre el impacto de AutoFlow.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Stop wasting hours on what AI can do in seconds.
+AutoFlow automates the grunt work so you can focus on what truly matters: growing your startup.
+
+No code. No headaches. No excuses.
+
+500+ startups across LATAM are already using it. When's your turn?
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__translation__translate_marketing_es_en.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__translation__translate_marketing_es_en.md)
+
+</details>
+
+<details><summary><code>translate_technical_en_es</code> — score 7.23</summary>
+
+**Stats**: latencia 46.74s · 78 tok/s · 160→2048 tokens · $0.00800
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Thinking Process:
+
+1.  **Analyze the Request:**
+    *   Task: Translate technical documentation from English to Spanish.
+    *   Constraint 1: Keep standard technical terms in English (API, endpoint, token, etc.).
+    *   Constraint 2: Do not invent forced translations.
+    *   Constraint 3: Return
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__translation__translate_technical_en_es.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__translation__translate_technical_en_es.md)
+
+</details>
+
+<details><summary><code>detect_language_issues</code> — score 6.89</summary>
+
+**Stats**: latencia 53.05s · 72 tok/s · 205→3956 tokens · $0.00900
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa y relevante, identificando correctamente los problemas de idioma y ofreciendo correcciones adecuadas, con claridad y utilidad práctica para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "problemas": [
+    {
+      "tipo": "chino",
+      "texto": "En特别是在拉丁美洲,",
+      "correccion": "Especialmente en Latinoamérica,"
+    },
+    {
+      "tipo": "gramatical",
+      "texto": "estan",
+      "correccion": "están"
+    },
+    {
+      "tipo": "spanglish",
+      "texto": "leveraging",
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__translation__detect_language_issues.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__translation__detect_language_issues.md)
 
 </details>
 
@@ -2162,8 +2409,9 @@ Analizando según mis reglas:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | extract_action_items | 6.79 | 8.12 | 3.8 | 10 | 212.87s | OK |
-| weekly_planning | 8.34 | 10.00 | 5 | 65 | 94.34s | OK |
-| project_breakdown | 8.47 | 10.00 | 5 | 56 | 56.86s | OK |
+| extract_action_items | 4.24 | 3.85 | 1 | 74 | 29.92s | OK |
+| weekly_planning | 6.28 | 6.60 | 4.0 | 102 | 20.12s | OK |
+| project_breakdown | 8.47 | 9.87 | 5 | 63 | 32.71s | OK |
 
 <details><summary><code>extract_action_items</code> — score 6.79</summary>
 
@@ -2187,43 +2435,68 @@ Thinking Process:
 
 </details>
 
-<details><summary><code>weekly_planning</code> — score 8.34</summary>
+<details><summary><code>extract_action_items</code> — score 4.24</summary>
 
-**Stats**: latencia 94.34s · 65 tok/s · 210→6174 tokens · $0.01521
+**Stats**: latencia 29.92s · 74 tok/s · 209→2048 tokens · $0.00500
 
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+**Juez Phi-4**: 1/10 (precisión:1, relevancia:1, profundidad:1, claridad:1, utilidad:1)
 
-> La respuesta es precisa, relevante, clara y profundamente útil, con una estructura bien organizada que se alinea perfectamente con las restricciones y necesidades del product manager.
+> La respuesta es incompleta y carece de contenido, lo que la hace incorrecta, irrelevante y de utilidad práctica cero.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Aquí tienes un plan semanal optimizado para tu rol de Product Manager. Este horario prioriza el **trabajo profundo (Deep Work)** en los días con menos reuniones (martes) y agrupa las tareas contextuales (emails, 1:1s) para minimizar la fragmentación de tu atención.
-
-He asumido una jornada de **9:00
+| Responsable | Tarea | Fecha Límite | Prioridad Sugerida |
+| :
 ```
 
-**Respuesta completa**: [`results/responses/20260714_062949_25578/or-qwen3.5-397b__task_management__weekly_planning.md`](../results/responses/20260714_062949_25578/or-qwen3.5-397b__task_management__weekly_planning.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__task_management__extract_action_items.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__task_management__extract_action_items.md)
+
+</details>
+
+<details><summary><code>weekly_planning</code> — score 6.28</summary>
+
+**Stats**: latencia 20.12s · 102 tok/s · 210→2048 tokens · $0.00500
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, con una buena estructura y utilidad práctica, aunque podría profundizar más en la estrategia de gestión del tiempo.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Here's a thinking process that leads to the suggested weekly plan:
+
+1.  **Analyze the Request:**
+    *   **Role:** Product Manager (PM).
+    *   **Constraints (Fixed Meetings/Events):**
+        *   Monday: Exec Meeting (9-11 AM), Client Lunch (1-2 PM).
+        *   Tuesday: Free all day.
+        *
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__task_management__weekly_planning.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__task_management__weekly_planning.md)
 
 </details>
 
 <details><summary><code>project_breakdown</code> — score 8.47</summary>
 
-**Stats**: latencia 56.86s · 56 tok/s · 76→3192 tokens · $0.00785
+**Stats**: latencia 32.71s · 63 tok/s · 76→2048 tokens · $0.00500
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando un desglose detallado y realista del proyecto que un emprendedor podría aplicar directamente.
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando un desglose detallado y estructurado que un emprendedor podría usar directamente.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Este es un plan de proyecto agresivo pero realista para un lanzamiento en **4 semanas (20 días hábiles)**. Dado que el equipo es pequeño, la comunicación debe ser fluida y las aprobaciones rápidas (máximo 24 horas).
+Este es un plan de proyecto detallado y realista para lanzar una Landing Page de alta conversión en 4 semanas. Dado que es un SaaS B2B (Gestión de Inventario), la clave es transmitir confianza, claridad en la propuesta de valor y captura de leads (Waitlist o Demo).
 
-El enfoque es **"Mobile First"** y **"MVP de Marketing"**: El objetivo no es la per
+### **Resumen del Proyecto**
+*
 ```
 
-**Respuesta completa**: [`results/responses/20260714_062949_25578/or-qwen3.5-397b__task_management__project_breakdown.md`](../results/responses/20260714_062949_25578/or-qwen3.5-397b__task_management__project_breakdown.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__task_management__project_breakdown.md`](../results/responses/20260716_rm_or_qwen3_5_397b_/or-qwen3.5-397b__task_management__project_breakdown.md)
 
 </details>
 

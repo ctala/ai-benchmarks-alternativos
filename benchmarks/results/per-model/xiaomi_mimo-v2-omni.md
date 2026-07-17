@@ -1,13 +1,13 @@
 # MiMo-V2-Omni (multimodal)
 
 - **model_id**: `xiaomi/mimo-v2-omni`
-- **Total tests**: 103/113 exitosos (10 errores)
-- **Score final**: 6.90
-- **Calidad**: 7.38
+- **Total tests**: 84/94 exitosos (10 errores)
+- **Score final**: 7.07
+- **Calidad**: 7.57
 - **Judge score (Phi-4)**: 4.00/10
-- **Velocidad**: 86 tok/s
-- **Latencia primera token**: 12.32s
-- **Costo promedio por test**: $0.00417
+- **Velocidad**: 83 tok/s
+- **Latencia primera token**: 12.06s
+- **Costo promedio por test**: $0.00232
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,17 +16,16 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.97 | 6.26 |
-| agent_long_horizon | 12 | 12 | 7.27 | 8.88 |
 | business_audit | 10 | 0 | - | - |
-| code_generation | 4 | 4 | 6.43 | 6.64 |
+| code_generation | 3 | 3 | 7.20 | 8.19 |
 | content_generation | 4 | 4 | 7.88 | 9.33 |
 | creativity | 4 | 4 | 7.96 | 8.75 |
-| customer_support | 4 | 4 | 6.20 | 5.74 |
-| deep_reasoning | 6 | 6 | 6.45 | 6.11 |
+| customer_support | 3 | 3 | 6.22 | 4.98 |
+| deep_reasoning | 4 | 4 | 8.12 | 9.17 |
 | hallucination | 3 | 3 | 6.29 | 6.33 |
 | multi_turn | 4 | 4 | 7.10 | 7.50 |
-| news_seo_writing | 5 | 5 | 5.17 | 4.93 |
-| ocr_extraction | 5 | 5 | 7.81 | 8.16 |
+| news_seo_writing | 4 | 4 | 5.31 | 5.42 |
+| ocr_extraction | 4 | 4 | 8.89 | 10.00 |
 | orchestration | 5 | 5 | 4.63 | 4.05 |
 | policy_adherence | 4 | 4 | 8.27 | 9.08 |
 | presentation | 2 | 2 | 7.51 | 8.92 |
@@ -35,7 +34,7 @@
 | startup_content | 5 | 5 | 7.60 | 9.19 |
 | strategy | 3 | 3 | 8.64 | 10.00 |
 | string_precision | 6 | 6 | 7.89 | 8.17 |
-| structured_output | 4 | 4 | 5.37 | 4.70 |
+| structured_output | 3 | 3 | 5.49 | 5.00 |
 | summarization | 2 | 2 | 6.76 | 6.92 |
 | task_management | 3 | 3 | 7.90 | 9.21 |
 | tool_calling | 4 | 4 | 6.86 | 6.12 |
@@ -50,9 +49,7 @@
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | math_word_problem | 8.74 | 10.00 | 4.4 | 118 | 17.34s | OK |
-| logic_puzzle_constraint | 3.10 | 0.00 | - | 115 | 17.86s | OK |
 | causal_reasoning | 8.74 | 10.00 | 4.4 | 108 | 18.97s | OK |
-| code_bug_subtle | 3.10 | 0.00 | - | 102 | 20.10s | OK |
 | fermi_estimation | 6.41 | 6.67 | 4.4 | 125 | 16.36s | OK |
 | ethical_dilemma_structured | 8.59 | 10.00 | 4.4 | 97 | 21.10s | OK |
 
@@ -398,7 +395,6 @@ Perfecto. Como VC escéptico, aquí van las preguntas y análisis brutales. Prep
 |------|-------|---------|-------|-------|----------|--------|
 | python_api_integration | 7.57 | 8.88 | 4.2 | 116 | 15.25s | OK |
 | n8n_workflow_json | 7.16 | 8.12 | 3.8 | 123 | 16.67s | OK |
-| sql_query_complex | 4.10 | 2.00 | - | 100 | 20.43s | OK |
 | debug_code | 6.88 | 7.56 | 3.4 | 107 | 19.21s | OK |
 
 <details><summary><code>python_api_integration</code> — score 7.57</summary>
@@ -480,7 +476,6 @@ Cuando no hay órdenes con estado 'pending', `processed` queda vacío, y `len(pr
 |------|-------|---------|-------|-------|----------|--------|
 | json_simple_extraction | 5.41 | 5.00 | 4.0 | 92 | 6.36s | OK |
 | json_array_classification | 5.37 | 5.00 | 5 | 100 | 10.53s | OK |
-| json_nested_complex | 5.00 | 3.80 | - | 115 | 17.83s | OK |
 | json_strict_no_extra | 5.69 | 5.00 | 4.0 | 72 | 4.19s | OK |
 
 <details><summary><code>json_simple_extraction</code> — score 5.41</summary>
@@ -666,7 +661,6 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 | business_card_extraction | 9.25 | 10.00 | 4.2 | 64 | 2.93s | OK |
 | receipt_math_verification | 8.75 | 10.00 | 4.2 | 117 | 16.61s | OK |
 | screenshot_table_extraction | 8.81 | 10.00 | 3.8 | 103 | 13.58s | OK |
-| handwritten_notes_extraction | 3.50 | 0.80 | - | 104 | 19.74s | OK |
 
 <details><summary><code>invoice_extraction</code> — score 8.74</summary>
 
@@ -1005,7 +999,6 @@ Esta semana la inteligencia artificial siguió acelerando a pasos agigantados �
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 6.97 | 8.01 | 3.8 | 99 | 19.45s | OK |
-| news_json_output_strict | 4.60 | 3.00 | - | 117 | 17.46s | OK |
 | news_spanish_only | 5.18 | 5.00 | 4.4 | 96 | 13.85s | OK |
 | news_no_hallucination_sources | 1.67 | 0.00 | 3.8 | 86 | 15.79s | OK |
 | news_perplexity_enrichment | 7.42 | 8.65 | 4.4 | 104 | 19.59s | OK |
@@ -1459,7 +1452,6 @@ La capital de Francia es **París**. Es una de las ciudades más emblemáticas d
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | angry_customer_refund | 5.70 | 3.40 | 2.4 | 34 | 3.43s | OK |
-| ambiguous_issue_classification | 6.13 | 8.00 | 4.0 | 72 | 10.02s | OK |
 | multi_issue_conversation | 5.70 | 4.77 | 2.6 | 40 | 5.74s | OK |
 | social_engineering_attempt | 7.25 | 6.78 | 4.2 | 52 | 6.17s | OK |
 
@@ -1476,24 +1468,6 @@ La capital de Francia es **París**. Es una de las ciudades más emblemáticas d
 ```
 
 **Respuesta completa**: [`results/responses/20260426_184826/mimo-v2-omni__customer_support__angry_customer_refund.md`](../results/responses/20260426_184826/mimo-v2-omni__customer_support__angry_customer_refund.md)
-
-</details>
-
-<details><summary><code>ambiguous_issue_classification</code> — score 6.13</summary>
-
-**Stats**: latencia 10.02s · 72 tok/s · 797→719 tokens · $0.00176
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Entiendo que no puedes acceder a tu cuenta y que el email de recuperación no llega. Además, te preocupa la renovación de tu suscripción que se renueva mañana. 
-
-Para ayudarte, necesito tu email asociado a la cuenta para crear un ticket de soporte con prioridad alta (debido a que hay dinero involucra
-```
-
-**Respuesta completa**: [`results/responses/20260426_184826/mimo-v2-omni__customer_support__ambiguous_issue_classification.md`](../results/responses/20260426_184826/mimo-v2-omni__customer_support__ambiguous_issue_classification.md)
 
 </details>
 
@@ -2051,7 +2025,5 @@ Aquí tienes un plan semanal detallado:
 </details>
 
 ### Otras suites
-
-#### agent_long_horizon
 
 #### business_audit

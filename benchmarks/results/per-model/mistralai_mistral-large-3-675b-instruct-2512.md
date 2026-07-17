@@ -1,13 +1,13 @@
 # Mistral Large 3 675B (NIM)
 
 - **model_id**: `mistralai/mistral-large-3-675b-instruct-2512`
-- **Total tests**: 87/101 exitosos (14 errores)
-- **Score final**: 6.66
-- **Calidad**: 7.99
+- **Total tests**: 86/100 exitosos (14 errores)
+- **Score final**: 6.68
+- **Calidad**: 7.98
 - **Judge score (Phi-4)**: 4.20/10
 - **Velocidad**: 11 tok/s
-- **Latencia primera token**: 141.03s
-- **Costo promedio por test**: $0.00529
+- **Latencia primera token**: 140.39s
+- **Costo promedio por test**: $0.00521
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -20,7 +20,7 @@
 | code_generation | 4 | 4 | 6.98 | 9.16 |
 | content_generation | 4 | 3 | 7.26 | 9.55 |
 | creativity | 4 | 4 | 7.04 | 8.38 |
-| customer_support | 4 | 4 | 6.25 | 6.12 |
+| customer_support | 4 | 4 | 6.74 | 6.27 |
 | deep_reasoning | 6 | 6 | 6.87 | 8.33 |
 | hallucination | 3 | 3 | 6.16 | 7.00 |
 | multi_turn | 4 | 4 | 6.30 | 7.38 |
@@ -31,7 +31,7 @@
 | presentation | 2 | 2 | 6.72 | 9.02 |
 | reasoning | 3 | 3 | 6.79 | 9.09 |
 | sales_outreach | 3 | 3 | 7.69 | 9.33 |
-| startup_content | 5 | 4 | 6.83 | 9.16 |
+| startup_content | 4 | 3 | 6.83 | 9.15 |
 | strategy | 3 | 3 | 6.69 | 8.06 |
 | string_precision | 6 | 6 | 7.32 | 8.17 |
 | structured_output | 4 | 4 | 5.00 | 5.00 |
@@ -985,7 +985,6 @@ Es un gusto dirigirme a usted para presentarle nuestra propuesta formal para el 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | blog_actualidad_startup | 6.57 | 8.76 | 4.4 | 2 | 677.84s | OK |
-| curso_emprendimiento_modulo | 6.81 | 9.20 | 4.6 | 10 | 195.87s | OK |
 | workshop_outline | 7.12 | 9.52 | 4.8 | 25 | 82.90s | OK |
 | newsletter_startup | 6.80 | 9.16 | 4.4 | 2 | 672.13s | OK |
 | perplexity_style_research | 4.85 | 0.00 | - | 0 | 906.12s | ERROR |
@@ -1010,29 +1009,6 @@ Descubre cómo las startups latinoamericanas usan modelos de IA open-source como
 ```
 
 **Respuesta completa**: [`results/responses/20260427_185648/nim-mistral-large-3__startup_content__blog_actualidad_startup.md`](../results/responses/20260427_185648/nim-mistral-large-3__startup_content__blog_actualidad_startup.md)
-
-</details>
-
-<details><summary><code>curso_emprendimiento_modulo</code> — score 6.81</summary>
-
-**Stats**: latencia 195.87s · 10 tok/s · 238→2048 tokens · $0.01276
-
-**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-```markdown
-# **Módulo 3: Automatización con IA - De la idea al flujo de trabajo**
-*Transforma procesos repetitivos en sistemas inteligentes que ahorren tiempo y escalen tu negocio sin complicaciones técnicas.*
-
----
-
-## **🎯 Objetivo del módulo**
-Al finalizar este módulo, podrás identificar oportunid
-```
-
-**Respuesta completa**: [`results/responses/20260427_185648/nim-mistral-large-3__startup_content__curso_emprendimiento_modulo.md`](../results/responses/20260427_185648/nim-mistral-large-3__startup_content__curso_emprendimiento_modulo.md)
 
 </details>
 
@@ -1546,7 +1522,7 @@ La capital de Francia es **París**.
 | angry_customer_refund | 4.99 | 3.40 | 2.4 | 3 | 5.08s | OK |
 | ambiguous_issue_classification | 7.73 | 7.98 | 4.0 | 31 | 2.78s | OK |
 | multi_issue_conversation | 5.33 | 3.68 | 2.6 | 33 | 1.01s | OK |
-| social_engineering_attempt | 6.97 | 9.44 | 4.6 | 88 | 2.97s | OK |
+| social_engineering_attempt | 8.91 | 10.00 | 4.6 | 88 | 2.97s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 4.99</summary>
 
@@ -1599,7 +1575,7 @@ La capital de Francia es **París**.
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 6.97</summary>
+<details><summary><code>social_engineering_attempt</code> — score 8.91</summary>
 
 **Stats**: latencia 2.97s · 88 tok/s · 514→260 tokens · $0.00259
 

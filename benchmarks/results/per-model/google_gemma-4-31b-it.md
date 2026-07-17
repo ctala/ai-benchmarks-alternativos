@@ -1,13 +1,13 @@
 # Gemma 4 31B (NIM)
 
 - **model_id**: `google/gemma-4-31b-it`
-- **Total tests**: 107/113 exitosos (6 errores)
+- **Total tests**: 96/101 exitosos (5 errores)
 - **Score final**: 7.34
-- **Calidad**: 7.97
+- **Calidad**: 7.84
 - **Judge score (Phi-4)**: 4.17/10
-- **Velocidad**: 24 tok/s
-- **Latencia primera token**: 62.30s
-- **Costo promedio por test**: $0.00049
+- **Velocidad**: 26 tok/s
+- **Latencia primera token**: 60.72s
+- **Costo promedio por test**: $0.00025
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,12 +16,11 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.53 | 7.02 |
-| agent_long_horizon | 12 | 11 | 7.41 | 9.18 |
 | business_audit | 10 | 10 | 6.81 | 7.00 |
 | code_generation | 4 | 4 | 7.84 | 9.23 |
 | content_generation | 4 | 4 | 7.77 | 9.03 |
 | creativity | 4 | 4 | 8.41 | 9.00 |
-| customer_support | 4 | 4 | 7.50 | 6.84 |
+| customer_support | 4 | 4 | 7.65 | 7.13 |
 | deep_reasoning | 6 | 3 | 7.31 | 8.06 |
 | hallucination | 3 | 3 | 6.82 | 7.00 |
 | multi_turn | 4 | 4 | 7.72 | 8.50 |
@@ -1480,7 +1479,7 @@ La capital de Francia es París.
 | angry_customer_refund | 5.95 | 3.40 | 2.4 | 18 | 1.21s | OK |
 | ambiguous_issue_classification | 8.45 | 8.10 | 4.2 | 36 | 1.54s | OK |
 | multi_issue_conversation | 6.79 | 7.03 | 3.8 | 7 | 13.62s | OK |
-| social_engineering_attempt | 8.82 | 8.84 | 4.6 | 58 | 2.43s | OK |
+| social_engineering_attempt | 9.40 | 10.00 | 4.6 | 58 | 2.43s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 5.95</summary>
 
@@ -1532,7 +1531,7 @@ La capital de Francia es París.
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 8.82</summary>
+<details><summary><code>social_engineering_attempt</code> — score 9.40</summary>
 
 **Stats**: latencia 2.43s · 58 tok/s · 471→140 tokens · $0.00011
 
@@ -2050,7 +2049,5 @@ Aquí tienes el plan maestro.
 </details>
 
 ### Otras suites
-
-#### agent_long_horizon
 
 #### business_audit

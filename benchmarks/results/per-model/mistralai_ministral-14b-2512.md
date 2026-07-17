@@ -1,13 +1,13 @@
 # Ministral 14B
 
 - **model_id**: `mistralai/ministral-14b-2512`
-- **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 7.80
-- **Calidad**: 8.05
-- **Judge score (Phi-4)**: 4.50/10
-- **Velocidad**: 77 tok/s
-- **Latencia primera token**: 14.44s
-- **Costo promedio por test**: $0.00102
+- **Total tests**: 141/141 exitosos (0 errores)
+- **Score final**: 7.76
+- **Calidad**: 8.01
+- **Judge score (Phi-4)**: 4.49/10
+- **Velocidad**: 73 tok/s
+- **Latencia primera token**: 15.16s
+- **Costo promedio por test**: $0.00087
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,23 +15,23 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 6.96 | 6.55 |
-| agent_long_horizon | 12 | 12 | 7.48 | 8.29 |
+| agent_capabilities | 9 | 9 | 6.72 | 6.27 |
+| agent_long_horizon | 12 | 12 | 7.73 | 8.79 |
 | business_audit | 10 | 10 | 7.33 | 7.57 |
 | business_strategy | 5 | 5 | 8.36 | 9.20 |
-| code_generation | 4 | 4 | 8.76 | 9.23 |
+| code_generation | 7 | 7 | 8.57 | 9.10 |
 | content_generation | 4 | 4 | 8.65 | 9.20 |
 | content_verificable | 5 | 5 | 7.11 | 7.33 |
 | creativity | 4 | 4 | 8.54 | 9.00 |
-| customer_support | 4 | 4 | 7.90 | 7.64 |
+| customer_support | 4 | 4 | 8.07 | 7.89 |
 | deep_reasoning | 6 | 6 | 7.42 | 7.50 |
 | hallucination | 3 | 3 | 7.15 | 7.00 |
 | multi_turn | 4 | 4 | 7.85 | 8.00 |
-| news_seo_writing | 5 | 5 | 6.08 | 5.68 |
+| news_seo_writing | 9 | 9 | 5.64 | 5.14 |
 | ocr_extraction | 5 | 5 | 8.59 | 9.10 |
-| orchestration | 5 | 5 | 8.23 | 8.57 |
-| policy_adherence | 4 | 4 | 7.95 | 8.08 |
-| presentation | 2 | 2 | 9.07 | 9.90 |
+| orchestration | 9 | 9 | 8.10 | 8.43 |
+| policy_adherence | 4 | 4 | 8.29 | 8.58 |
+| presentation | 3 | 3 | 8.88 | 9.71 |
 | reasoning | 3 | 3 | 8.74 | 9.32 |
 | sales_outreach | 3 | 3 | 7.83 | 8.00 |
 | startup_content | 5 | 5 | 8.65 | 9.37 |
@@ -39,7 +39,7 @@
 | string_precision | 6 | 6 | 8.17 | 8.17 |
 | structured_output | 4 | 4 | 5.92 | 5.00 |
 | summarization | 2 | 2 | 8.36 | 8.30 |
-| task_management | 3 | 3 | 8.98 | 9.64 |
+| task_management | 5 | 5 | 8.96 | 9.68 |
 | tool_calling | 4 | 4 | 7.16 | 6.75 |
 | translation | 3 | 3 | 8.75 | 9.20 |
 
@@ -423,7 +423,10 @@ Vamos al grano, porque tu idea **sí tiene potencial, pero también tiene trampa
 | python_api_integration | 9.05 | 9.72 | 4.8 | 99 | 9.49s | OK |
 | n8n_workflow_json | 8.30 | 8.60 | 4.0 | 109 | 11.35s | OK |
 | sql_query_complex | 8.42 | 8.60 | 4.0 | 111 | 6.35s | OK |
-| debug_code | 9.25 | 10.00 | 5 | 79 | 8.44s | OK |
+| python_api_integration | 8.97 | 9.72 | 4.8 | 67 | 14.58s | OK |
+| n8n_workflow_json | 7.04 | 7.16 | 4.2 | 56 | 31.88s | OK |
+| sql_query_complex | 9.08 | 9.87 | 5.0 | 66 | 11.66s | OK |
+| debug_code | 9.16 | 10.00 | 5 | 62 | 14.70s | OK |
 
 <details><summary><code>python_api_integration</code> — score 9.05</summary>
 
@@ -503,26 +506,105 @@ WITH customer_revenue AS (
 
 </details>
 
-<details><summary><code>debug_code</code> — score 9.25</summary>
+<details><summary><code>python_api_integration</code> — score 8.97</summary>
 
-**Stats**: latencia 8.44s · 79 tok/s · 221→669 tokens · $0.00018
+**Stats**: latencia 14.58s · 67 tok/s · 105→858 tokens · $0.00000
 
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, profunda, clara y prácticamente útil, abordando todos los bugs y mejoras potenciales de manera exhaustiva.
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Tienes razón en los tres bugs que mencionas. Vamos a analizar cada uno y luego ver la versión corregida:
+Aquí tienes una función Python que cumple con todos tus requisitos utilizando `httpx` y manejo de errores con retry exponencial:
+
+```python
+import httpx
+import time
+from typing import List, Dict
+
+async def fetch_products_with_retry() -> List[Dict[str, str | int]]:
+    """
+    Filtra productos con pr
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__code_generation__python_api_integration.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__code_generation__python_api_integration.md)
+
+</details>
+
+<details><summary><code>n8n_workflow_json</code> — score 7.04</summary>
+
+**Stats**: latencia 31.88s · 56 tok/s · 120→1035 tokens · $0.00000
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el workflow completo en formato JSON para n8n que cumple con tus requisitos:
+
+```json
+{
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "responseStatusCode": 200,
+        "responseType": "json",
+        "options": {}
+      },
+      "name": "Webhook",
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__code_generation__n8n_workflow_json.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__code_generation__n8n_workflow_json.md)
+
+</details>
+
+<details><summary><code>sql_query_complex</code> — score 9.08</summary>
+
+**Stats**: latencia 11.66s · 66 tok/s · 147→636 tokens · $0.00000
+
+**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Query SQL para Top 10 clientes por revenue en los últimos 6 meses
+
+Aquí tienes la consulta SQL que cumple con todos los requisitos:
+
+```sql
+WITH customer_revenue AS (
+    -- Cálculo de revenue por cliente en los últimos 6 meses
+    SELECT
+        c.id AS customer_id,
+        c.name,
+        c.emai
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__code_generation__sql_query_complex.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__code_generation__sql_query_complex.md)
+
+</details>
+
+<details><summary><code>debug_code</code> — score 9.16</summary>
+
+**Stats**: latencia 14.70s · 62 tok/s · 221→757 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y prácticamente útil, abordando todos los problemas del código original y proporcionando una solución detallada.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Tienes razón en que el código original tiene varios bugs. Vamos a analizar cada uno y luego mostrar la versión corregida:
 
 ### Bugs identificados:
 
-1. **División por cero**:
-   Cuando no hay órdenes con status 'pending', `len(processed)` será 0, lo que generará una división por cero al calcular el promedio (`total /
+1. **División por cero si no hay órdenes pendientes**:
+   - Si `orders` no contiene ninguna orden con `status='pending'`, `len(processed)` será 0, lo qu
 ```
 
-**Respuesta completa**: [`results/responses/20260714_061622_18478/or-ministral-14b__code_generation__debug_code.md`](../results/responses/20260714_061622_18478/or-ministral-14b__code_generation__debug_code.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__code_generation__debug_code.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__code_generation__debug_code.md)
 
 </details>
 
@@ -1159,7 +1241,11 @@ Esta semana la IA sigue rompiendo récords, los gobiernos apuestan por el *deep 
 | news_json_output_strict | 5.55 | 5.00 | 3.0 | 81 | 21.28s | OK |
 | news_spanish_only | 5.56 | 5.00 | 4.0 | 85 | 18.83s | OK |
 | news_no_hallucination_sources | 2.07 | 0.00 | 3.0 | 80 | 16.85s | OK |
-| news_perplexity_enrichment | 9.16 | 10.00 | 5 | 101 | 20.20s | OK |
+| news_seo_article_full | 7.79 | 8.25 | 4.0 | 70 | 29.36s | OK |
+| news_json_output_strict | 5.59 | 5.00 | 3.0 | 59 | 23.06s | OK |
+| news_spanish_only | 5.51 | 5.00 | 4.6 | 59 | 28.53s | OK |
+| news_no_hallucination_sources | 1.98 | 0.00 | 4.0 | 57 | 32.27s | OK |
+| news_perplexity_enrichment | 8.71 | 9.57 | 5 | 63 | 32.86s | OK |
 
 <details><summary><code>news_seo_article_full</code> — score 8.04</summary>
 
@@ -1252,23 +1338,114 @@ La startup chilena **NotCo** ha dado un salto significativo en su escalamiento a
 
 </details>
 
-<details><summary><code>news_perplexity_enrichment</code> — score 9.16</summary>
+<details><summary><code>news_seo_article_full</code> — score 7.79</summary>
 
-**Stats**: latencia 20.20s · 101 tok/s · 514→2048 tokens · $0.00051
+**Stats**: latencia 29.36s · 70 tok/s · 477→2048 tokens · $0.00100
 
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:4, utilidad:4)
 
-> La respuesta integra con precisión el extracto original y los datos adicionales, proporcionando una visión detallada y estructurada de DeepSeek V4, con un enfoque en su arquitectura, estrategia de precios y origen, lo que la hace altamente relevante, profunda y útil para emprendedores.
+> La respuesta es precisa, relevante y ofrece insights útiles sobre el impacto de Mistral AI y Devstral en el ecosistema de IA, con un estilo periodístico y estructura SEO adecuada.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-## **DeepSeek V4: el modelo de IA abierto que compite con GPT-4o y Claude Sonnet sin depender de capital externo**
+---
+**Título SEO:** *Mistral AI levanta $2B y lanza Devstral: ¿El nuevo estándar en IA código?*
 
-El ecosistema de inteligencia artificial ha vivido en los últimos meses una carrera por optimizar costos, escalar capacidades y democratizar el acceso a modelos avanzados. En ese conte
+---
+**Meta descripción:**
+Mistral AI alcanza valuación de $15B con $2B en Series C y lanza **Devstral**, un modelo de código open-source que supera a OpenAI y Google. ¿Cómo impacta esto al ecosistema de
 ```
 
-**Respuesta completa**: [`results/responses/20260714_064727_34700/or-ministral-14b__news_seo_writing__news_perplexity_enrichment.md`](../results/responses/20260714_064727_34700/or-ministral-14b__news_seo_writing__news_perplexity_enrichment.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__news_seo_writing__news_seo_article_full.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__news_seo_writing__news_seo_article_full.md)
+
+</details>
+
+<details><summary><code>news_json_output_strict</code> — score 5.59</summary>
+
+**Stats**: latencia 23.06s · 59 tok/s · 328→1477 tokens · $0.00000
+
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:2, profundidad:3, claridad:4, utilidad:3)
+
+> La respuesta es precisa y clara, pero carece de algunas claves requeridas y no sigue el orden especificado, afectando la relevancia.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "Fuentes": [
+    "https://deepmind.google/technologies/gemma/",
+    "https://www.arenachallenge.org/leaderboard",
+    "https://github.com/google-deepmind/gemma"
+  ],
+  "Categoria": "Inteligencia Artificial",
+  "Palabras_Clave": [
+    "Gemma 4",
+    "DeepMind",
+    "modelo abierto",
+    "
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__news_seo_writing__news_json_output_strict.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__news_seo_writing__news_json_output_strict.md)
+
+</details>
+
+<details><summary><code>news_spanish_only</code> — score 5.51</summary>
+
+**Stats**: latencia 28.53s · 59 tok/s · 323→1548 tokens · $0.00000
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+## **SambaNova lanza el SN50: un chip que podría redefinir el procesamiento de IA para empresas**
+
+La compañía de semiconductores **SambaNova Systems** ha dado un paso firme en la carrera por dominar la infraestructura de inteligencia artificial (IA) con el lanzamiento de su nuevo chip, el **SN50**.
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__news_seo_writing__news_spanish_only.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__news_seo_writing__news_spanish_only.md)
+
+</details>
+
+<details><summary><code>news_no_hallucination_sources</code> — score 1.98</summary>
+
+**Stats**: latencia 32.27s · 57 tok/s · 491→1764 tokens · $0.00000
+
+**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:4, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, aunque introduce información no presente en el extracto, como el 'Informe de Tendencias Alimentarias 2023' de McKinsey y la estrategia de expansión regional. Sin embargo, ofrece insights útiles y está bien estructurada y clara, con un estilo periodístico adecuado.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## **NotCo consolida su liderazgo en *food-tech* latinoamericano con un récord de $85 millones en Serie D**
+
+La startup chilena **NotCo** ha marcado un hito en el ecosistema de innovación latinoamericano al cerrar una ronda de financiación **Serie D por $85 millones**, liderada por el fondo de capit
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__news_seo_writing__news_no_hallucination_sources.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__news_seo_writing__news_no_hallucination_sources.md)
+
+</details>
+
+<details><summary><code>news_perplexity_enrichment</code> — score 8.71</summary>
+
+**Stats**: latencia 32.86s · 63 tok/s · 514→2048 tokens · $0.00100
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, y ofrece una profundidad significativa al integrar datos adicionales de manera efectiva, con claridad y utilidad práctica para emprendedores, además de seguir un estilo periodístico con estructura SEO.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## **DeepSeek V4: El modelo de IA chino que compite con GPT-4o y Claude Sonnet sin depender de fondos externos**
+
+El ecosistema de inteligencia artificial (IA) acaba de recibir un nuevo jugador con ambición global: **DeepSeek**, una startup china de origen inesperado, acaba de lanzar su modelo **V4*
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__news_seo_writing__news_perplexity_enrichment.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__news_seo_writing__news_perplexity_enrichment.md)
 
 </details>
 
@@ -1526,7 +1703,8 @@ Para autenticarte con la **API**, incluye tu **Bearer token** en el encabezado *
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | slide_outline | 9.05 | 9.80 | 5 | 108 | 18.93s | OK |
-| data_report | 9.08 | 10.00 | 5 | 87 | 17.92s | OK |
+| slide_outline | 8.59 | 9.43 | 5 | 58 | 36.43s | OK |
+| data_report | 9.01 | 9.91 | 5 | 60 | 27.71s | OK |
 
 <details><summary><code>slide_outline</code> — score 9.05</summary>
 
@@ -1551,30 +1729,51 @@ Aquí tienes un **outline completo** para tu presentación de **15 slides** diri
 
 </details>
 
-<details><summary><code>data_report</code> — score 9.08</summary>
+<details><summary><code>slide_outline</code> — score 8.59</summary>
 
-**Stats**: latencia 17.92s · 87 tok/s · 168→1554 tokens · $0.00034
+**Stats**: latencia 36.43s · 58 tok/s · 133→2048 tokens · $0.00000
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
-> La respuesta es precisa, relevante, clara y ofrece insights útiles, con una estructura bien organizada que un emprendedor podría usar directamente.
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando un esquema detallado y bien estructurado que un emprendedor podría usar directamente.
 
 **Respuesta (preview 300 chars)**:
 
 ```
-Aquí tienes un reporte en formato Markdown con el análisis solicitado:
+Aquí tienes un **outline completo** para tu presentación de **15 slides** dirigida al *Board de Directores* sobre el estado del proyecto **"Plataforma Digital 2.0"**, con estructura clara, visuales estratégicas y notas para el presentador.
 
-```markdown
-# **Reporte de Ventas - Primeros 4 Meses (Enero a Abril)**
+---
 
-## **1. Datos de Ventas (en USD)**
-Todas las cifras están en miles de dólares ($K).
-
-### **Tabla Mensual con Totales**
-| Mes      | Producto A | Producto B
+### **Slide 1: Portada**
+**Título:** *"Estado del Proy
 ```
 
-**Respuesta completa**: [`results/responses/20260714_062245_21884/or-ministral-14b__presentation__data_report.md`](../results/responses/20260714_062245_21884/or-ministral-14b__presentation__data_report.md)
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__presentation__slide_outline.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__presentation__slide_outline.md)
+
+</details>
+
+<details><summary><code>data_report</code> — score 9.01</summary>
+
+**Stats**: latencia 27.71s · 60 tok/s · 168→1685 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con un análisis profundo que proporciona insights valiosos para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el reporte en formato **Markdown** con los análisis solicitados:
+
+```markdown
+# **Reporte de Ventas por Producto (Enero-Abril 2024)**
+
+## **1. Tabla de Datos Mensuales**
+| Producto | Enero ($K) | Febrero ($K) | Marzo ($K) | Abril ($K) | **Total ($K)** |
+|----------|------------|---------
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__presentation__data_report.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__presentation__data_report.md)
 
 </details>
 
@@ -1670,7 +1869,7 @@ La capital de Francia es **París**.
 | angry_customer_refund | 5.52 | 4.24 | 3.0 | 30 | 0.56s | OK |
 | ambiguous_issue_classification | 8.24 | 7.91 | 4.0 | 74 | 0.98s | OK |
 | multi_issue_conversation | 8.98 | 9.40 | 5 | 92 | 2.52s | OK |
-| social_engineering_attempt | 8.85 | 9.00 | 5 | 63 | 1.50s | OK |
+| social_engineering_attempt | 9.55 | 10.00 | 5 | 63 | 1.50s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 5.52</summary>
 
@@ -1729,7 +1928,7 @@ La capital de Francia es **París**.
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 8.85</summary>
+<details><summary><code>social_engineering_attempt</code> — score 9.55</summary>
 
 **Stats**: latencia 1.50s · 63 tok/s · 514→95 tokens · $0.00012
 
@@ -1753,35 +1952,15 @@ Sin embargo, **puedo escalar esto a un agente humano** para que revise el caso c
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| multi_step_research_plan | 9.19 | 10.00 | 5 | 91 | 5.08s | OK |
 | error_recovery_orchestration | 7.42 | 7.50 | 5 | 98 | 6.98s | OK |
 | complex_workflow_decomposition | 7.13 | 6.80 | 4.0 | 81 | 3.24s | OK |
 | tool_selection_precision | 9.34 | 10.00 | 5 | 101 | 5.12s | OK |
 | parallel_vs_sequential_judgment | 8.05 | 8.57 | 5 | 97 | 10.74s | OK |
-
-<details><summary><code>multi_step_research_plan</code> — score 9.19</summary>
-
-**Stats**: latencia 5.08s · 91 tok/s · 981→460 tokens · $0.00029
-
-**Juez Phi-4**: 5/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
-
-> La respuesta descompone eficazmente el problema en pasos lógicos, identifica dependencias y proporciona una acción clara para el primer paso, lo que la hace relevante, clara y útil para un emprendedor.
-
-**Respuesta (preview 300 chars)**:
-
-```
-### **Planificación de Pasos**
-
-#### **Orden de los pasos:**
-1. **Investigar y recopilar información sobre las 5 principales startups de IA en Chile y su funding.**
-   - *Dependencia:* Sin dependencias. Puede ejecutarse en paralelo con otros pasos si hay fuentes confiables.
-
-2. **Comparar el mercado
-```
-
-**Respuesta completa**: [`results/responses/20260714_065652_39681/or-ministral-14b__orchestration__multi_step_research_plan.md`](../results/responses/20260714_065652_39681/or-ministral-14b__orchestration__multi_step_research_plan.md)
-
-</details>
+| multi_step_research_plan | 8.57 | 9.19 | 4.4 | 70 | 10.14s | OK |
+| error_recovery_orchestration | 8.58 | 9.17 | 5 | 57 | 8.54s | OK |
+| complex_workflow_decomposition | 5.98 | 5.12 | 4.0 | 50 | 2.44s | OK |
+| tool_selection_precision | 9.15 | 10.00 | 5 | 51 | 9.11s | OK |
+| parallel_vs_sequential_judgment | 8.66 | 9.52 | 5 | 58 | 19.16s | OK |
 
 <details><summary><code>error_recovery_orchestration</code> — score 7.42</summary>
 
@@ -1872,6 +2051,122 @@ Las dependencias entre las tareas son las siguientes:
 ```
 
 **Respuesta completa**: [`results/responses/20260714_065652_39681/or-ministral-14b__orchestration__parallel_vs_sequential_judgment.md`](../results/responses/20260714_065652_39681/or-ministral-14b__orchestration__parallel_vs_sequential_judgment.md)
+
+</details>
+
+<details><summary><code>multi_step_research_plan</code> — score 8.57</summary>
+
+**Stats**: latencia 10.14s · 70 tok/s · 981→976 tokens · $0.00000
+
+**Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+### **Planificación de Pasos**
+
+#### **Objetivo:**
+Preparar un reporte sobre el estado del mercado de IA en Chile para una presentación mañana.
+
+---
+
+### **Secuencia de Acciones**
+
+#### **1. Investigar las 5 principales startups de IA en Chile y su funding**
+   - **Dependencia:** Ninguna (puede ejec
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__orchestration__multi_step_research_plan.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__orchestration__multi_step_research_plan.md)
+
+</details>
+
+<details><summary><code>error_recovery_orchestration</code> — score 8.58</summary>
+
+**Stats**: latencia 8.54s · 57 tok/s · 975→367 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y ofrece alternativas prácticas y bien estructuradas para manejar el problema, con una planificación adecuada.
+
+**Respuesta (preview 300 chars)**:
+
+```
+### 1. **Diagnóstico del fallo:**
+La base de datos **"production"** está en mantenimiento y no es posible ejecutar la consulta directamente. Según el mensaje, se estima una recuperación en **2 horas**. Esto impide obtener los datos de ventas directamente desde la fuente principal.
+
+---
+
+### 2. **Alt
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__orchestration__error_recovery_orchestration.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__orchestration__error_recovery_orchestration.md)
+
+</details>
+
+<details><summary><code>complex_workflow_decomposition</code> — score 5.98</summary>
+
+**Stats**: latencia 2.44s · 50 tok/s · 985→244 tokens · $0.00000
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, descompone adecuadamente el proceso, y es clara y útil, aunque carece de profundidad en insights adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[tool_call] send_email({"to": "andres@datapulse.cl", "subject": "Confirmación de recepción de datos de onboarding", "body": "Hola Andrés,\n\nHemos recibido los datos de DataPulse SpA para iniciar el proceso de onboarding. A continuación, procederemos con los siguientes pasos:\n\n1. Creación de cuent
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__orchestration__complex_workflow_decomposition.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__orchestration__complex_workflow_decomposition.md)
+
+</details>
+
+<details><summary><code>tool_selection_precision</code> — score 9.15</summary>
+
+**Stats**: latencia 9.11s · 51 tok/s · 975→433 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con una buena planificación y profundidad al explicar por qué se eligieron las herramientas específicas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+### Elección de herramientas para cada tarea:
+
+---
+
+**Tarea 1: Verificar si el servidor de producción está respondiendo (URL: `https://api.example.com/health`)**
+- **Herramienta:** `http_request`
+  - **Razón:** Es la herramienta más adecuada para realizar una petición HTTP (como una solicitud GET) a
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__orchestration__tool_selection_precision.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__orchestration__tool_selection_precision.md)
+
+</details>
+
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 8.66</summary>
+
+**Stats**: latencia 19.16s · 58 tok/s · 1043→1137 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente analizada, con un plan de ejecución bien estructurado y útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+### 1. **Diagrama de Dependencias**
+Las dependencias entre las tareas se explican a continuación:
+
+- **A (Buscar precios de competidores)**:
+  No depende de ninguna otra tarea. Puede ejecutarse de forma independiente.
+
+- **B (Generar la descripción del producto)**:
+  Depende del archivo `/docs/specs
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__orchestration__parallel_vs_sequential_judgment.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__orchestration__parallel_vs_sequential_judgment.md)
 
 </details>
 
@@ -1972,7 +2267,7 @@ Perfecto! **Los retries son la solución, pero deben manejarse con cuidado** par
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 8.23 | 8.33 | 5 | 93 | 3.98s | OK |
-| data_privacy_protection | 7.85 | 8.00 | 5 | 32 | 4.41s | OK |
+| data_privacy_protection | 9.25 | 10.00 | 5 | 32 | 4.41s | OK |
 | language_and_tone_rules | 6.45 | 6.00 | 4.0 | 78 | 6.89s | OK |
 | scope_boundaries | 9.25 | 10.00 | 5 | 93 | 5.87s | OK |
 
@@ -1998,7 +2293,7 @@ Lamento sinceramente que haya tenido una experiencia insatisfactoria con nuestro
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 7.85</summary>
+<details><summary><code>data_privacy_protection</code> — score 9.25</summary>
 
 **Stats**: latencia 4.41s · 32 tok/s · 228→139 tokens · $0.00007
 
@@ -2065,10 +2360,14 @@ EcoStartup es una aceleradora **100% enfocada en st
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | skill_execution_complex | 4.91 | 3.37 | 2.0 | 63 | 1.22s | OK |
-| agent_team_delegation | 9.15 | 10.00 | 5 | 91 | 9.07s | OK |
 | ask_clarification_before_acting | 9.13 | 9.40 | 5 | 74 | 1.42s | OK |
 | context_following_complex_system | 5.86 | 5.00 | 5 | 85 | 4.06s | OK |
 | model_as_router | 5.75 | 5.00 | 5 | 82 | 6.09s | OK |
+| skill_execution_complex | 5.08 | 3.69 | 2.0 | 44 | 1.43s | OK |
+| agent_team_delegation | 8.97 | 9.91 | 5 | 74 | 15.85s | OK |
+| ask_clarification_before_acting | 8.84 | 9.20 | 5 | 54 | 1.92s | OK |
+| context_following_complex_system | 5.70 | 5.00 | 5 | 63 | 6.53s | OK |
+| model_as_router | 6.26 | 5.83 | 5 | 61 | 9.18s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 4.91</summary>
 
@@ -2085,29 +2384,6 @@ EcoStartup es una aceleradora **100% enfocada en st
 ```
 
 **Respuesta completa**: [`results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__skill_execution_complex.md`](../results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__skill_execution_complex.md)
-
-</details>
-
-<details><summary><code>agent_team_delegation</code> — score 9.15</summary>
-
-**Stats**: latencia 9.07s · 91 tok/s · 970→828 tokens · $0.00036
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un plan detallado y estructurado que un emprendedor podría implementar directamente.
-
-**Respuesta (preview 300 chars)**:
-
-```
-Entendido. Vamos a descomponer este proyecto en un plan de ejecución claro y organizado, asegurándonos de respetar las dependencias y prioridades. Aquí tienes el flujo de trabajo:
-
----
-
-### **Plan de Ejecución**
-**Objetivo:** Crear una landing page profesional para el lanzamiento de *AutoFlow AI*.
-```
-
-**Respuesta completa**: [`results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__agent_team_delegation.md`](../results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__agent_team_delegation.md)
 
 </details>
 
@@ -2173,13 +2449,120 @@ Entendido. Vamos a descomponer este proyecto en un plan de ejecución claro y or
 
 </details>
 
+<details><summary><code>skill_execution_complex</code> — score 5.08</summary>
+
+**Stats**: latencia 1.43s · 44 tok/s · 919→50 tokens · $0.00000
+
+**Juez Phi-4**: 2.0/10 (precisión:2, relevancia:2, profundidad:1, claridad:3, utilidad:2)
+
+> La respuesta solo ejecuta un paso del proceso requerido, omitiendo la comunicación por Slack y la programación de la reunión, lo que la hace parcialmente relevante y útil.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[tool_call] run_skill({"skill_name": "publish_blog_post", "parameters": {"document_id": "doc_compartido_deepseek_v4", "author": "equipo", "title": "DeepSeek V4"}})
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__agent_capabilities__skill_execution_complex.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__agent_capabilities__skill_execution_complex.md)
+
+</details>
+
+<details><summary><code>agent_team_delegation</code> — score 8.97</summary>
+
+**Stats**: latencia 15.85s · 74 tok/s · 970→1242 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando un plan detallado y estructurado que un emprendedor podría implementar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Entendido. Vamos a descomponer el proyecto en tareas específicas y asignarlas a los sub-agentes especializados, respetando las dependencias. Aquí tienes el **plan de ejecución detallado**:
+
+---
+
+### **Fase 1: Investigación (Prioridad: Alta)**
+**Objetivo:** Analizar a la competencia para identificar
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__agent_capabilities__agent_team_delegation.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__agent_capabilities__agent_team_delegation.md)
+
+</details>
+
+<details><summary><code>ask_clarification_before_acting</code> — score 8.84</summary>
+
+**Stats**: latencia 1.92s · 54 tok/s · 821→86 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y prácticamente útil, solicitando información crítica necesaria para proceder con el reembolso de manera segura.
+
+**Respuesta (preview 300 chars)**:
+
+```
+[tool_call] ask_human({"question": "¿Cuál es el ID o nombre del cliente que requiere el reembolso?", "reason": "Necesito esta información para identificar al cliente y verificar detalles como el monto a reembolsar, la razón del reembolso y la forma de pago original. Sin esta información, no puedo pr
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__agent_capabilities__ask_clarification_before_acting.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__agent_capabilities__ask_clarification_before_acting.md)
+
+</details>
+
+<details><summary><code>context_following_complex_system</code> — score 5.70</summary>
+
+**Stats**: latencia 6.53s · 63 tok/s · 995→758 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, abordando cada solicitud con atención a las políticas y procedimientos internos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Hola! Vamos a abordar tus solicitudes por separado y con el orden de prioridad que manejamos en **ecosistemastartup.com**:
+
+---
+
+### 1. **Publicar el artículo sobre financiamiento de IA en LATAM**
+¡Listo! Puedo encargarme de esto de inmediato. El artículo está en la base de conocimiento como "listo
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__agent_capabilities__context_following_complex_system.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__agent_capabilities__context_following_complex_system.md)
+
+</details>
+
+<details><summary><code>model_as_router</code> — score 6.26</summary>
+
+**Stats**: latencia 9.18s · 61 tok/s · 271→598 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, ofrece insights profundos, está claramente organizada y es altamente útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+[
+    {
+        "subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales",
+        "modelo": "deepseek-v3",
+        "razon": "Requiere **razonamiento estructurado** para identificar patrones en datos no estructurados (reviews) y sintetizar información de manera lóg
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__agent_capabilities__model_as_router.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__agent_capabilities__model_as_router.md)
+
+</details>
+
 #### task_management
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | extract_action_items | 8.98 | 9.40 | 5 | 84 | 3.83s | OK |
-| weekly_planning | 9.09 | 10.00 | 5 | 94 | 15.73s | OK |
 | project_breakdown | 8.86 | 9.52 | 4.8 | 109 | 18.72s | OK |
+| extract_action_items | 9.02 | 9.67 | 5 | 63 | 5.43s | OK |
+| weekly_planning | 8.94 | 9.91 | 5 | 67 | 27.02s | OK |
+| project_breakdown | 8.98 | 9.91 | 5 | 58 | 35.25s | OK |
 
 <details><summary><code>extract_action_items</code> — score 8.98</summary>
 
@@ -2202,29 +2585,6 @@ Aquí tienes la tabla con los **action items** extraídos de las notas, organiza
 
 </details>
 
-<details><summary><code>weekly_planning</code> — score 9.09</summary>
-
-**Stats**: latencia 15.73s · 94 tok/s · 205→1480 tokens · $0.00034
-
-**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
-
-> La respuesta es precisa, relevante, clara y altamente útil, con una buena estructura y distribución de tareas, aunque la profundidad podría mejorarse con más detalles sobre la priorización de tareas.
-
-**Respuesta (preview 300 chars)**:
-
-```
-Aquí tienes un **plan semanal detallado** optimizado para tu agenda, priorizando tareas estratégicas y dejando espacio para imprevistos. He distribuido las actividades considerando tus restricciones y necesidades de enfoque:
-
----
-
-### **Lunes** *(Reunión directivos + almuerzo cliente)*
-- **8:00 - 9:
-```
-
-**Respuesta completa**: [`results/responses/20260714_061331_16937/or-ministral-14b__task_management__weekly_planning.md`](../results/responses/20260714_061331_16937/or-ministral-14b__task_management__weekly_planning.md)
-
-</details>
-
 <details><summary><code>project_breakdown</code> — score 8.86</summary>
 
 **Stats**: latencia 18.72s · 109 tok/s · 70→2048 tokens · $0.00042
@@ -2243,6 +2603,70 @@ Aquí tienes un **plan detallado** para lanzar tu landing page en **4 semanas** 
 ```
 
 **Respuesta completa**: [`results/responses/20260714_061331_16937/or-ministral-14b__task_management__project_breakdown.md`](../results/responses/20260714_061331_16937/or-ministral-14b__task_management__project_breakdown.md)
+
+</details>
+
+<details><summary><code>extract_action_items</code> — score 9.02</summary>
+
+**Stats**: latencia 5.43s · 63 tok/s · 202→305 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con una buena profundidad al sugerir prioridades basadas en urgencia y dependencias.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes la tabla con los **action items** extraídos de las notas, incluyendo responsable, tarea, fecha límite y prioridad sugerida (basada en urgencia y dependencias):
+
+| **Responsable** | **Tarea**                                      | **Fecha límite** | **Prioridad**       |
+|----------------
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__task_management__extract_action_items.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__task_management__extract_action_items.md)
+
+</details>
+
+<details><summary><code>weekly_planning</code> — score 8.94</summary>
+
+**Stats**: latencia 27.02s · 67 tok/s · 205→2048 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, y ofrece una estructura detallada y útil que se ajusta perfectamente a las restricciones y necesidades del product manager, con una excelente organización y claridad.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes un **plan semanal detallado** optimizado para tus restricciones, priorizando tareas críticas y distribuyendo el trabajo de manera equilibrada. He considerado:
+- **Bloques de 25-50 min** (técnica Pomodoro adaptada) para evitar fatiga.
+- **Tareas creativas/requirientes** (OKRs, presentacio
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__task_management__weekly_planning.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__task_management__weekly_planning.md)
+
+</details>
+
+<details><summary><code>project_breakdown</code> — score 8.98</summary>
+
+**Stats**: latencia 35.25s · 58 tok/s · 70→2048 tokens · $0.00000
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un desglose detallado y estructurado que un emprendedor podría aplicar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes un **plan detallado** para lanzar tu landing page en **4 semanas** con el equipo disponible (1 diseñador, 2 developers y 1 copywriter). El enfoque será **ágil, priorizando lo esencial** para minimizar riesgos y maximizar el impacto.
+
+---
+
+## **📅 Timeline (4 semanas)**
+| Fase
+```
+
+**Respuesta completa**: [`results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__task_management__project_breakdown.md`](../results/responses/20260716_rm_or_ministral_14b_/or-ministral-14b__task_management__project_breakdown.md)
 
 </details>
 

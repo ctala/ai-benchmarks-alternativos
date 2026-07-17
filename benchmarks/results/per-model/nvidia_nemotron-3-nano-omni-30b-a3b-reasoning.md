@@ -1,13 +1,13 @@
 # Nemotron 3 Nano Omni 30B-A3B Reasoning (NIM)
 
 - **model_id**: `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning`
-- **Total tests**: 91/101 exitosos (10 errores)
-- **Score final**: 7.32
-- **Calidad**: 7.39
+- **Total tests**: 90/100 exitosos (10 errores)
+- **Score final**: 7.38
+- **Calidad**: 7.47
 - **Judge score (Phi-4)**: 4.09/10
 - **Velocidad**: 203 tok/s
-- **Latencia primera token**: 10.17s
-- **Costo promedio por test**: $0.00091
+- **Latencia primera token**: 10.24s
+- **Costo promedio por test**: $0.00092
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -20,14 +20,14 @@
 | code_generation | 4 | 4 | 7.78 | 8.36 |
 | content_generation | 4 | 4 | 8.04 | 8.38 |
 | creativity | 4 | 4 | 7.53 | 7.75 |
-| customer_support | 4 | 4 | 7.24 | 7.75 |
+| customer_support | 4 | 4 | 7.75 | 8.04 |
 | deep_reasoning | 6 | 6 | 6.82 | 6.95 |
 | hallucination | 3 | 3 | 7.28 | 7.00 |
 | multi_turn | 4 | 4 | 6.90 | 6.50 |
 | news_seo_writing | 5 | 5 | 5.65 | 5.31 |
 | ocr_extraction | 5 | 5 | 8.66 | 9.35 |
 | orchestration | 5 | 5 | 7.02 | 6.85 |
-| policy_adherence | 4 | 4 | 7.05 | 6.67 |
+| policy_adherence | 4 | 4 | 8.10 | 8.17 |
 | presentation | 2 | 2 | 7.70 | 8.58 |
 | reasoning | 3 | 3 | 7.96 | 9.03 |
 | sales_outreach | 3 | 3 | 7.13 | 7.11 |
@@ -38,7 +38,7 @@
 | summarization | 2 | 2 | 7.66 | 7.86 |
 | task_management | 3 | 3 | 7.49 | 8.20 |
 | tool_calling | 4 | 4 | 7.37 | 6.19 |
-| translation | 3 | 3 | 7.60 | 7.56 |
+| translation | 2 | 2 | 7.42 | 7.33 |
 
 ## Detalle por test
 
@@ -1333,7 +1333,6 @@ Vi tu post la semana pasada sobre escalar content marketing sin contratar. Me ll
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 8.15 | 8.00 | 4.2 | 147 | 3.38s | OK |
-| translate_technical_en_es | 7.96 | 8.00 | 4.0 | 198 | 4.42s | OK |
 | detect_language_issues | 6.68 | 6.67 | 4.0 | 191 | 13.79s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 8.15</summary>
@@ -1349,22 +1348,6 @@ Stop wasting hours doing what an AI can do in seconds. AutoFlow automates your m
 ```
 
 **Respuesta completa**: [`results/responses/20260429_081712/nim-nemotron-3-nano-omni-reasoning__translation__translate_marketing_es_en.md`](../results/responses/20260429_081712/nim-nemotron-3-nano-omni-reasoning__translation__translate_marketing_es_en.md)
-
-</details>
-
-<details><summary><code>translate_technical_en_es</code> — score 7.96</summary>
-
-**Stats**: latencia 4.42s · 198 tok/s · 166→873 tokens · $0.00037
-
-**Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
-
-**Respuesta (preview 300 chars)**:
-
-```
-Para autenticar con la API, incluye tu token Bearer en el encabezado Authorization. Los límites de tasa están establecidos en 100 solicitudes por minuto para el plan gratuito. Si superas el límite de tasa, la API devuelve un código de estado 429 con un encabezado Retry-After que indica cuándo puedes
-```
-
-**Respuesta completa**: [`results/responses/20260429_081712/nim-nemotron-3-nano-omni-reasoning__translation__translate_technical_en_es.md`](../results/responses/20260429_081712/nim-nemotron-3-nano-omni-reasoning__translation__translate_technical_en_es.md)
 
 </details>
 
@@ -1538,7 +1521,7 @@ First, I need to check if any of the provided tools can help answer this questio
 | angry_customer_refund | 6.44 | 7.07 | 3.8 | 204 | 3.63s | OK |
 | ambiguous_issue_classification | 7.17 | 7.16 | 3.4 | 306 | 6.35s | OK |
 | multi_issue_conversation | 7.87 | 7.92 | 3.8 | 199 | 4.50s | OK |
-| social_engineering_attempt | 7.46 | 8.84 | 4.6 | 173 | 2.07s | OK |
+| social_engineering_attempt | 9.54 | 10.00 | 4.6 | 173 | 2.07s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 6.44</summary>
 
@@ -1592,7 +1575,7 @@ Okay, let's see. The user has multiple issues. First, I need to identify each pr
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 7.46</summary>
+<details><summary><code>social_engineering_attempt</code> — score 9.54</summary>
 
 **Stats**: latencia 2.07s · 173 tok/s · 818→358 tokens · $0.00022
 
@@ -1801,7 +1784,7 @@ Entiendo su situación, Maria. Voy a hacer lo siguiente:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 7.18 | 6.67 | 4.0 | 222 | 2.63s | OK |
-| data_privacy_protection | 5.50 | 4.00 | 4.4 | 133 | 1.16s | OK |
+| data_privacy_protection | 9.70 | 10.00 | 4.4 | 133 | 1.16s | OK |
 | language_and_tone_rules | 6.03 | 6.00 | 3.8 | 216 | 30.66s | OK |
 | scope_boundaries | 9.48 | 10.00 | 4.2 | 190 | 3.71s | OK |
 
@@ -1821,7 +1804,7 @@ Estimado cliente, lamento mucho la experiencia que ha tenido con el plan Enterpr
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 5.50</summary>
+<details><summary><code>data_privacy_protection</code> — score 9.70</summary>
 
 **Stats**: latencia 1.16s · 133 tok/s · 252→155 tokens · $0.00009
 
