@@ -1,6 +1,6 @@
 # Resultados por modelo
 
-Rankings de **141 modelos** evaluados con Phi-4 judge (Microsoft, 14B, MIT).
+Rankings de **142 modelos** evaluados con Phi-4 judge (Microsoft, 14B, MIT).
 
 Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y justificación del juez.
 
@@ -113,39 +113,40 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 105 | [Gemini 2.5 Pro](google_gemini-2_5-pro.md) | 6.62 | 7.63 | 92 | 159/159 | [ver detalles](google_gemini-2_5-pro.md) |
 | 106 | [Qwen 3.6 27B base (DGX Spark)](qwen3_6_27b.md) | 6.62 | 8.45 | 10 | 4/4 | [ver detalles](qwen3_6_27b.md) |
 | 107 | [MiniMax M2.7 (directo)](minimax-m2_7.md) | 6.61 | 5.00 | 64 | 4/4 | [ver detalles](minimax-m2_7.md) |
-| 108 | [Kimi K2.5 (NIM)](moonshotai_kimi-k2_5.md) | 6.55 | 7.33 | 27 | 83/83 | [ver detalles](moonshotai_kimi-k2_5.md) |
-| 109 | [Qwen3-Coder-Next (OpenRouter FP8)](qwen_qwen3-coder-next.md) | 6.51 | 6.34 | 62 | 315/321 | [ver detalles](qwen_qwen3-coder-next.md) |
-| 110 | [MiniMax M2.7 Highspeed](minimax-m2_7-highspeed.md) | 6.50 | 5.00 | 46 | 4/4 | [ver detalles](minimax-m2_7-highspeed.md) |
-| 111 | [Mistral Nemo](mistralai_mistral-nemo.md) | 6.45 | 6.38 | 32 | 170/187 | [ver detalles](mistralai_mistral-nemo.md) |
-| 112 | [Mistral Magistral Small (NIM)](mistralai_magistral-small-2506.md) | 6.44 | 7.38 | 23 | 8/89 | [ver detalles](mistralai_magistral-small-2506.md) |
-| 113 | [Claude Fable 5](anthropic_claude-fable-5.md) | 6.42 | 7.73 | 42 | 209/209 | [ver detalles](anthropic_claude-fable-5.md) |
-| 114 | [Claude Sonnet 4.6 (ultimo Anthropic)](anthropic_claude-sonnet-4-6.md) | 6.40 | 7.33 | 46 | 186/186 | [ver detalles](anthropic_claude-sonnet-4-6.md) |
-| 115 | [GPT-5.5](gpt-5_5.md) | 6.38 | 7.49 | 53 | 201/208 | [ver detalles](gpt-5_5.md) |
-| 116 | [Qwen 3.6 35B base (OpenRouter FP8)](qwen_qwen3_6-35b-a3b.md) | 6.37 | 6.31 | 125 | 292/328 | [ver detalles](qwen_qwen3_6-35b-a3b.md) |
-| 117 | [Gemma 4 12B (Spark llama-server, reasoning)](gemma-4-12b-it-q4_k_m_gguf.md) | 6.37 | 6.70 | 22 | 109/109 | [ver detalles](gemma-4-12b-it-q4_k_m_gguf.md) |
-| 118 | [Claude Opus 4.7](anthropic_claude-opus-4-7.md) | 6.30 | 7.69 | 51 | 252/252 | [ver detalles](anthropic_claude-opus-4-7.md) |
-| 119 | [Claude Opus 4.8](anthropic_claude-opus-4_8.md) | 6.25 | 7.51 | 47 | 307/322 | [ver detalles](anthropic_claude-opus-4_8.md) |
-| 120 | [Gemma 4 31B (Spark llama-server Q4_K_M)](gemma-4-31b-it-q4_k_m_gguf.md) | 6.25 | 6.71 | 8 | 110/110 | [ver detalles](gemma-4-31b-it-q4_k_m_gguf.md) |
-| 121 | [Qwen 3.7 Max](qwen_qwen3_7-max.md) | 6.21 | 7.21 | 56 | 158/158 | [ver detalles](qwen_qwen3_7-max.md) |
-| 122 | [Gemini 3.1 Pro](google_gemini-3_1-pro-preview.md) | 6.15 | 7.21 | 84 | 195/210 | [ver detalles](google_gemini-3_1-pro-preview.md) |
-| 123 | [Gemma 4 31B](google_gemma-4-31b-it.md) | 6.13 | 7.33 | 4 | 68/77 | [ver detalles](google_gemma-4-31b-it.md) |
-| 124 | [Kimi K2.5](moonshotai_kimi-k2_5.md) | 6.08 | 5.00 | 20 | 4/4 | [ver detalles](moonshotai_kimi-k2_5.md) |
-| 125 | [Gemini 3.5 Flash](google_gemini-3_5-flash.md) | 6.02 | 6.41 | 102 | 401/416 | [ver detalles](google_gemini-3_5-flash.md) |
-| 126 | [Qwen 3.6 27B base (OpenRouter FP8)](qwen_qwen3_6-27b.md) | 6.00 | 6.49 | 45 | 321/357 | [ver detalles](qwen_qwen3_6-27b.md) |
-| 127 | [Claude Sonnet 4.6](anthropic_claude-sonnet-4-6.md) | 6.00 | 5.00 | 57 | 4/4 | [ver detalles](anthropic_claude-sonnet-4-6.md) |
-| 128 | [DeepSeek R1 (reasoning)](deepseek_deepseek-r1.md) | 5.80 | 6.39 | 21 | 293/327 | [ver detalles](deepseek_deepseek-r1.md) |
-| 129 | [DeepSeek V4 Flash (Ollama Cloud)](deepseek-v4-flash.md) | 5.62 | 4.25 | 25 | 45/45 | [ver detalles](deepseek-v4-flash.md) |
-| 130 | [DeepSeek V4 Pro (Ollama Cloud)](deepseek-v4-pro.md) | 5.47 | 4.22 | 17 | 45/45 | [ver detalles](deepseek-v4-pro.md) |
-| 131 | [Kimi K2 Thinking](moonshotai_kimi-k2-thinking.md) | 5.36 | 5.00 | 161 | 2/2 | [ver detalles](moonshotai_kimi-k2-thinking.md) |
-| 132 | [GPT-5.5 Pro](gpt-5_5-pro.md) | - | - | - | 0/58 | [ver detalles](gpt-5_5-pro.md) |
-| 133 | [DeepSeek R1 (free)](deepseek_deepseek-r1_free.md) | - | - | - | 0/91 | [ver detalles](deepseek_deepseek-r1_free.md) |
-| 134 | [Llama 3.3 70B (free)](meta-llama_llama-3_3-70b-instruct_free.md) | - | - | - | 0/91 | [ver detalles](meta-llama_llama-3_3-70b-instruct_free.md) |
-| 135 | [Qwen3 Coder 480B (free)](qwen_qwen3-coder-480b_free.md) | - | - | - | 0/91 | [ver detalles](qwen_qwen3-coder-480b_free.md) |
-| 136 | [MiMo-V2-Flash (free)](xiaomi_mimo-v2-flash_free.md) | - | - | - | 0/182 | [ver detalles](xiaomi_mimo-v2-flash_free.md) |
-| 137 | [Qwen 3.6 Plus (free)](qwen_qwen3_6-plus_free.md) | - | - | - | 0/182 | [ver detalles](qwen_qwen3_6-plus_free.md) |
-| 138 | [Step3 (StepFun)](stepfun-ai_step3.md) | - | - | - | 0/91 | [ver detalles](stepfun-ai_step3.md) |
-| 139 | [Seed-OSS 36B Instruct](bytedance_seed-oss-36b-instruct.md) | - | - | - | 0/91 | [ver detalles](bytedance_seed-oss-36b-instruct.md) |
-| 140 | [North Mini Code](cohere_north-mini-code.md) | - | - | - | 0/7 | [ver detalles](cohere_north-mini-code.md) |
-| 141 | [Step 3.5 Flash](stepfun_step-3_5-flash.md) | - | - | - | 0/2 | [ver detalles](stepfun_step-3_5-flash.md) |
+| 108 | [Kimi K3](moonshotai_kimi-k3.md) | 6.59 | 8.00 | 33 | 143/143 | [ver detalles](moonshotai_kimi-k3.md) |
+| 109 | [Kimi K2.5 (NIM)](moonshotai_kimi-k2_5.md) | 6.55 | 7.33 | 27 | 83/83 | [ver detalles](moonshotai_kimi-k2_5.md) |
+| 110 | [Qwen3-Coder-Next (OpenRouter FP8)](qwen_qwen3-coder-next.md) | 6.51 | 6.34 | 62 | 315/321 | [ver detalles](qwen_qwen3-coder-next.md) |
+| 111 | [MiniMax M2.7 Highspeed](minimax-m2_7-highspeed.md) | 6.50 | 5.00 | 46 | 4/4 | [ver detalles](minimax-m2_7-highspeed.md) |
+| 112 | [Mistral Nemo](mistralai_mistral-nemo.md) | 6.45 | 6.38 | 32 | 170/187 | [ver detalles](mistralai_mistral-nemo.md) |
+| 113 | [Mistral Magistral Small (NIM)](mistralai_magistral-small-2506.md) | 6.44 | 7.38 | 23 | 8/89 | [ver detalles](mistralai_magistral-small-2506.md) |
+| 114 | [Claude Fable 5](anthropic_claude-fable-5.md) | 6.42 | 7.73 | 42 | 209/209 | [ver detalles](anthropic_claude-fable-5.md) |
+| 115 | [Claude Sonnet 4.6 (ultimo Anthropic)](anthropic_claude-sonnet-4-6.md) | 6.40 | 7.33 | 46 | 186/186 | [ver detalles](anthropic_claude-sonnet-4-6.md) |
+| 116 | [GPT-5.5](gpt-5_5.md) | 6.38 | 7.49 | 53 | 201/208 | [ver detalles](gpt-5_5.md) |
+| 117 | [Qwen 3.6 35B base (OpenRouter FP8)](qwen_qwen3_6-35b-a3b.md) | 6.37 | 6.31 | 125 | 292/328 | [ver detalles](qwen_qwen3_6-35b-a3b.md) |
+| 118 | [Gemma 4 12B (Spark llama-server, reasoning)](gemma-4-12b-it-q4_k_m_gguf.md) | 6.37 | 6.70 | 22 | 109/109 | [ver detalles](gemma-4-12b-it-q4_k_m_gguf.md) |
+| 119 | [Claude Opus 4.7](anthropic_claude-opus-4-7.md) | 6.30 | 7.69 | 51 | 252/252 | [ver detalles](anthropic_claude-opus-4-7.md) |
+| 120 | [Claude Opus 4.8](anthropic_claude-opus-4_8.md) | 6.25 | 7.51 | 47 | 307/322 | [ver detalles](anthropic_claude-opus-4_8.md) |
+| 121 | [Gemma 4 31B (Spark llama-server Q4_K_M)](gemma-4-31b-it-q4_k_m_gguf.md) | 6.25 | 6.71 | 8 | 110/110 | [ver detalles](gemma-4-31b-it-q4_k_m_gguf.md) |
+| 122 | [Qwen 3.7 Max](qwen_qwen3_7-max.md) | 6.21 | 7.21 | 56 | 158/158 | [ver detalles](qwen_qwen3_7-max.md) |
+| 123 | [Gemini 3.1 Pro](google_gemini-3_1-pro-preview.md) | 6.15 | 7.21 | 84 | 195/210 | [ver detalles](google_gemini-3_1-pro-preview.md) |
+| 124 | [Gemma 4 31B](google_gemma-4-31b-it.md) | 6.13 | 7.33 | 4 | 68/77 | [ver detalles](google_gemma-4-31b-it.md) |
+| 125 | [Kimi K2.5](moonshotai_kimi-k2_5.md) | 6.08 | 5.00 | 20 | 4/4 | [ver detalles](moonshotai_kimi-k2_5.md) |
+| 126 | [Gemini 3.5 Flash](google_gemini-3_5-flash.md) | 6.02 | 6.41 | 102 | 401/416 | [ver detalles](google_gemini-3_5-flash.md) |
+| 127 | [Qwen 3.6 27B base (OpenRouter FP8)](qwen_qwen3_6-27b.md) | 6.00 | 6.49 | 45 | 321/357 | [ver detalles](qwen_qwen3_6-27b.md) |
+| 128 | [Claude Sonnet 4.6](anthropic_claude-sonnet-4-6.md) | 6.00 | 5.00 | 57 | 4/4 | [ver detalles](anthropic_claude-sonnet-4-6.md) |
+| 129 | [DeepSeek R1 (reasoning)](deepseek_deepseek-r1.md) | 5.80 | 6.39 | 21 | 293/327 | [ver detalles](deepseek_deepseek-r1.md) |
+| 130 | [DeepSeek V4 Flash (Ollama Cloud)](deepseek-v4-flash.md) | 5.62 | 4.25 | 25 | 45/45 | [ver detalles](deepseek-v4-flash.md) |
+| 131 | [DeepSeek V4 Pro (Ollama Cloud)](deepseek-v4-pro.md) | 5.47 | 4.22 | 17 | 45/45 | [ver detalles](deepseek-v4-pro.md) |
+| 132 | [Kimi K2 Thinking](moonshotai_kimi-k2-thinking.md) | 5.36 | 5.00 | 161 | 2/2 | [ver detalles](moonshotai_kimi-k2-thinking.md) |
+| 133 | [GPT-5.5 Pro](gpt-5_5-pro.md) | - | - | - | 0/58 | [ver detalles](gpt-5_5-pro.md) |
+| 134 | [DeepSeek R1 (free)](deepseek_deepseek-r1_free.md) | - | - | - | 0/91 | [ver detalles](deepseek_deepseek-r1_free.md) |
+| 135 | [Llama 3.3 70B (free)](meta-llama_llama-3_3-70b-instruct_free.md) | - | - | - | 0/91 | [ver detalles](meta-llama_llama-3_3-70b-instruct_free.md) |
+| 136 | [Qwen3 Coder 480B (free)](qwen_qwen3-coder-480b_free.md) | - | - | - | 0/91 | [ver detalles](qwen_qwen3-coder-480b_free.md) |
+| 137 | [MiMo-V2-Flash (free)](xiaomi_mimo-v2-flash_free.md) | - | - | - | 0/182 | [ver detalles](xiaomi_mimo-v2-flash_free.md) |
+| 138 | [Qwen 3.6 Plus (free)](qwen_qwen3_6-plus_free.md) | - | - | - | 0/182 | [ver detalles](qwen_qwen3_6-plus_free.md) |
+| 139 | [Step3 (StepFun)](stepfun-ai_step3.md) | - | - | - | 0/91 | [ver detalles](stepfun-ai_step3.md) |
+| 140 | [Seed-OSS 36B Instruct](bytedance_seed-oss-36b-instruct.md) | - | - | - | 0/91 | [ver detalles](bytedance_seed-oss-36b-instruct.md) |
+| 141 | [North Mini Code](cohere_north-mini-code.md) | - | - | - | 0/7 | [ver detalles](cohere_north-mini-code.md) |
+| 142 | [Step 3.5 Flash](stepfun_step-3_5-flash.md) | - | - | - | 0/2 | [ver detalles](stepfun_step-3_5-flash.md) |
 
 > Generado con `python benchmarks/generate_per_model_md.py`
