@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-07-17 · 69 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-07-18 · 70 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -29,7 +29,7 @@ _Texto largo en español neutro. El costo manda: es alto volumen._
 
 - **Usá:** **GPT-OSS 120B** — ≈$1/mes (calidad 8.41/10)
 - **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**278.6× más**) por apenas +0.06 de calidad — dentro del margen de error.
-- _7 modelos empatan en calidad en este pilar._
+- _8 modelos empatan en calidad en este pilar._
 
 ### Código y debugging
 
@@ -38,7 +38,7 @@ _Generación y corrección de código._
 - **Usá:** **DeepSeek V3.2** — ≈$1/mes (calidad 8.69/10)
 - **Lo que te ahorrás:** Claude Opus 4.7 cuesta ≈$117/mes (**84.2× más**) por apenas +0.09 de calidad — dentro del margen de error.
 - **Mejor open-source:** **Nemotron 3 Super** — ≈$2/mes (calidad 8.62/10)
-- _15 modelos empatan en calidad en este pilar._
+- _16 modelos empatan en calidad en este pilar._
 
 ### Razonamiento y estrategia
 
@@ -65,7 +65,7 @@ Lo mejor que podés comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 ## El resumen de todo el benchmark
 
-**25 modelos empatan en calidad** en la cima del ranking global.
+**26 modelos empatan en calidad** en la cima del ranking global.
 
 El más barato de ese grupo — **Ministral 14B** — sale **≈$1/mes**.
 El más caro — **GPT-5.6 Sol** — sale **≈$140/mes**.

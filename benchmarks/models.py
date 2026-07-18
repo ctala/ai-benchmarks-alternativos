@@ -292,6 +292,18 @@ MODELS = {
         "niah_max_context": 131072,
         "notes": "Coding-focused K2.7 family, reasoning mandatory. Precio vía OpenRouter API jun 2026 ($0.74/$3.50). Contexto 262K; niah capado a 128K porque 256K+output supera el límite real.",
     },
+    "kimi-k3": {
+        "id": "moonshotai/kimi-k3",
+        "name": "Kimi K3",
+        "cost_input": 3.0,
+        "cost_output": 15.0,
+        "tier": "premium",
+        "open_source": False,  # ⚠️ pesos/licencia de K3 SIN confirmar (el salto de precio 5× vs K2.6 sugiere modelo mayor, posible API-only). Verificar en HF/Moonshot antes de marcar open.
+        "thinking": True,
+        "niah_max_context": 131072,
+        "context_window": 1048576,
+        "notes": "Kimi K3 (Moonshot), 1M contexto, premium $3/$15 vía OpenRouter (jul 2026). Thinking. niah capado a 128K (256K+output supera el límite real). ⚠️ open_source/licencia sin confirmar.",
+    },
 
     # --- GLM (Zhipu AI / Z.ai) ---
     "glm-5.1": {

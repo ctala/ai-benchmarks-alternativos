@@ -54,7 +54,7 @@ def _timeout_handler(signum, frame):
 THINKING_MODELS = (
     "gpt-5", "o3", "o1",                    # OpenAI thinking
     "glm-5", "GLM-5",                       # Zhipu agentic
-    "kimi-k2.6", "kimi-k2.7", "Kimi",       # Moonshot K2.6+
+    "kimi-k2.6", "kimi-k2.7", "kimi-k3", "Kimi",  # Moonshot K2.6+ / K3
     "nemotron", "Nemotron",                 # NVIDIA Nemotron 3+
     "gemini-2.5-pro", "gemini-3-pro",       # Google Pro tier (reasoning interno)
     "deepseek-v4", "deepseek-r",            # DeepSeek V4+ (R1, V4 Pro, V4 Flash) — descubierto abril 27 con 30/91 NoneType en V4 Pro
