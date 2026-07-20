@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T07:08:43",
+  "generated_at": "2026-07-20T07:48:22",
   "total_models": 171,
   "tested_count": 119,
   "ranked_count": 70,
@@ -154,6 +154,20 @@
       "price_month_usd": 30,
       "url": "https://grok.com/plans",
       "notes": "$30/mes o $300/año. Acceso consumer a Grok 4/4.1 (128K, DeepSearch, Big Brain, voz). NO incluye API access (igual que Anthropic Pro). Grok 4.3 + multi-agente requieren SuperGrok Heavy $300/mes."
+    },
+    "kimi_moderato": {
+      "name": "Kimi (Moonshot)",
+      "plan": "Moderato",
+      "price_month_usd": 19,
+      "url": "https://kimi.com",
+      "notes": "$19/mes (anual -20%). Acceso a K2.6 en el chat + Kimi Code (credits de entrada) + Deep Research. Tiers superiores: Allegretto $39, Allegro $99, Vivace $199 (Agent Swarm). K3 vía API o tier alto."
+    },
+    "alibaba_coding_pro": {
+      "name": "Alibaba Model Studio",
+      "plan": "Coding Plan Pro",
+      "price_month_usd": 50,
+      "url": "https://www.alibabacloud.com/help/en/model-studio/coding-plan",
+      "notes": "~$50/mes, hasta 90K requests/mes con modelos Qwen (Model Studio). El Coding Plan Lite ($10) se discontinuó para nuevos (mar 2026). Qwen Chat consumer es gratis; API = pay-as-you-go DashScope."
     }
   },
   "models": [
