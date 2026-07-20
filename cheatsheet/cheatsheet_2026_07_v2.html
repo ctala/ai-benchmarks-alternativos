@@ -270,15 +270,15 @@ strong { color: #ffffff; }
     <h1>AI Model Benchmark</h1>
     <div class="subtitle">Guia para Emprendedores Hispanohablantes</div>
     <div class="month">Julio 2026</div>
-    <p class="meta">94 modelos con cobertura ≥50 runs · 10,853+ runs preservados · v2.9.0</p>
+    <p class="meta">119 modelos medidos (171 catalogados, 70 rankeados) · 27,884+ runs reales · v4.0</p>
 
     <div class="stats">
         <div class="stat-box">
-            <span class="stat-number">94</span>
-            <span class="stat-label">Modelos</span>
+            <span class="stat-number">119</span>
+            <span class="stat-label">Modelos medidos</span>
         </div>
         <div class="stat-box">
-            <span class="stat-number">26</span>
+            <span class="stat-number">29</span>
             <span class="stat-label">Suites</span>
         </div>
         <div class="stat-box">
@@ -286,7 +286,7 @@ strong { color: #ffffff; }
             <span class="stat-label">Tests/modelo</span>
         </div>
         <div class="stat-box">
-            <span class="stat-number">10,853+</span>
+            <span class="stat-number">27,884+</span>
             <span class="stat-label">Runs totales</span>
         </div>
     </div>
@@ -294,17 +294,17 @@ strong { color: #ffffff; }
     <p class="meta">Medido desde Santiago, Chile · 9 vías (OpenRouter, OpenAI, Anthropic, Groq, NVIDIA NIM, Xiaomi, Ollama Cloud, MiniMax, suscripción Claude Code)</p>
 
     <div class="score-formula">
-        <div class="title">Como se calcula el Score (v2.9.0 · z-score)</div>
-        <div class="row"><span class="pct">60%</span>Calidad (formato + sustancia + LLM-as-Judge Phi-4 14B local, MIT)</div>
-        <div class="row"><span class="pct">20%</span>Costo (curva log inversa: $0.001/call=8.0, $0.01=5.0, $0.10=2.0)</div>
-        <div class="row"><span class="pct">10%</span>Velocidad (tokens por segundo)</div>
-        <div class="row"><span class="pct">10%</span>Latencia (tiempo hasta primera respuesta)</div>
-        <div class="row"><span class="pct">0%</span>Tool Calling — sale del compuesto, queda como badge (era ruido: var 0.24)</div>
+        <div class="title">Como se calcula el Score (v4.0 · z-score congelado)</div>
+        <div class="row"><span class="pct">70%</span>Calidad (formato + sustancia + LLM-as-Judge Phi-4 14B local, MIT)</div>
+        <div class="row"><span class="pct">15%</span>Costo (curva log inversa: $0.001/call=8.0, $0.01=5.0, $0.10=2.0)</div>
+        <div class="row"><span class="pct">7.5%</span>Velocidad (tokens por segundo)</div>
+        <div class="row"><span class="pct">7.5%</span>Latencia (tiempo hasta primera respuesta)</div>
+        <div class="row"><span class="pct">0%</span>Tool Calling — sale del compuesto, queda como badge</div>
     </div>
     <p class="meta" style="margin-top:8px;font-size:7.5pt;max-width:700px;">
-        <strong>Nuevo en v2.9</strong>: cada dimensión se <strong>estandariza (z-score)</strong> antes de ponderar, así el
-        peso nominal = la influencia REAL. Antes el costo (varianza 1.85) decidía el ranking pese a su 20%,
-        aplastando a la calidad apelotonada (var 0.59). Fórmula: score = clamp(5.5 + 3.3·Σ wᵢ·z(dimᵢ), 0, 10).
+        <strong>v4.0 · referencia congelada</strong>: cada dimensión se <strong>estandariza (z-score)</strong> contra una
+        referencia <strong>congelada por versión</strong>, así agregar o medir un modelo nuevo ya NO recalcula el score de
+        los demás (los números dejan de caducar solos). Fórmula: score = clamp(5.5 + 3.3·Σ wᵢ·z(dimᵢ), 0, 10).
     </p>
 
     <p class="meta" style="margin-top: 14px; font-size: 8pt; max-width: 700px;">
@@ -319,54 +319,44 @@ strong { color: #ffffff; }
 <div class="page">
     <h2>Hallazgos clave de Julio 2026</h2>
     <p style="font-size: 9pt; color: #b0b0b0; margin-bottom: 12px;">
-        Insights cuantitativos del benchmark v2.9.0. Dos hallazgos metodológicos: (1) el peso nominal NO
-        era la influencia real (lo arreglamos con z-score), y (2) nuestra medición de long-context mentía de 5 formas.
+        Insights del benchmark v4.0. El cambio grande del mes es metodológico: la referencia del score quedó
+        <strong>congelada por versión</strong> — los números dejan de moverse solos. Y medimos un flagship nuevo (Kimi K3)
+        que ilustra la tesis entera: calidad frontier ≠ valor.
     </p>
 
     <div class="two-col">
         <div>
-            <h3>★ Las 5 formas en que el NIAH-es nos mentía <span style="font-size:8pt;color:#b0b0b0;">(2 junio 2026)</span></h3>
-            <p style="font-size:9pt;"><strong>1. Needles-secreto</strong>: los needles eran credenciales → el test medía <em>fuga</em>, no retrieval (modelos seguros rehúsan, el juez los premia).
-            <strong>2. Lumping</strong>: niah era ~54% de los tests y desigual entre modelos → distorsionaba el ranking.
-            <strong>3. El juez no ve el needle</strong> (recibe 500 chars) → marca extracciones correctas como alucinación.
-            <strong>4. Heurística de tokens</strong> excedía la ventana (1M→1.14M reales→error).
-            <strong>5. Needles distintos por tamaño</strong> → rankings FALSOS ("Gemini 3.5 peor", "zigzag DeepSeek" eran artefactos).</p>
+            <h3>❄️ La referencia quedó congelada (v4.0)</h3>
+            <p style="font-size:9pt;">Antes, medir un modelo nuevo <strong>recalculaba el score de todos</strong> (z-score contra la
+            población viva) → cualquier número publicado caducaba solo. Desde v4.0 la referencia (media/desviación por dimensión)
+            se <strong>congela por versión</strong>: agregar o medir un modelo nuevo ya <strong>NO mueve</strong> a los demás.
+            <strong>Validado en la práctica</strong>: medimos Kimi K3 y los otros 118 modelos no cambiaron ni un decimal.</p>
 
-            <h3>La verdad con medición limpia</h3>
-            <p style="font-size:9pt;">Sobre needles neutros, <strong>todos los modelos top retrievean ~10 en todos los tamaños hasta su techo</strong>.
-            El NIAH-es neutro NO discrimina. Los diferenciadores reales son otros dos (→).</p>
+            <h3>💡 Calidad ≠ valor: los de arriba empatan</h3>
+            <p style="font-size:9pt;">Los modelos de la cima <strong>empatan en calidad</strong> (el top ~10 cabe en ~0.2 puntos).
+            Lo que cambia —<strong>hasta 100×</strong>— es el precio. Pagar premium no compra más calidad de respuesta; a lo sumo
+            compra <strong>seguridad</strong> y <strong>agéntico</strong>. Por eso esto es una calculadora con TUS pesos, no un ranking único.</p>
 
-            <h3>Contexto USABLE ≠ declarado</h3>
-            <p style="font-size:9pt;">Gemini 2.5/3.5 Flash Lite, DeepSeek V4 Flash y Llama 4 Maverick llegan a <strong>800K</strong>.
-            <strong>MiniMax M3 declara 1M pero erorea a 800K → usable 512K</strong> (OpenRouter: 256K). El número de marketing no es el real.</p>
+            <h3>📏 Contexto USABLE ≠ declarado</h3>
+            <p style="font-size:9pt;">El contexto de marketing miente. <strong>MiniMax M3 declara 1M pero su contexto usable real es 512K</strong>
+            (OpenRouter lo corta a 256K). Con needles neutros, los modelos top retrievean parejo hasta su techo real —
+            el diferenciador no es el número declarado, sino dónde deja de funcionar de verdad.</p>
         </div>
         <div>
-            <h3>🛡️ Seguridad: premium NO filtra, cheap sí <span style="font-size:8pt;color:#b0b0b0;">(2 junio 2026)</span></h3>
-            <p style="font-size:9pt;">Suite nueva <strong>prompt_injection_es</strong> (secreto plantado en doc, ¿lo filtra?):
-            <strong>Claude Opus 4.8 8.79</strong> y <strong>MiniMax M3 ~8.05 rehúsan</strong>;
-            DeepSeek/Gemini/Llama/Qwen/Nemotron <strong>~1.7–2.0 filtran</strong>. Si tu agente procesa datos sensibles, esto pesa.</p>
+            <h3>🚀 Kimi K3: frontier en calidad, premium en valor <span style="font-size:8pt;color:#b0b0b0;">(jul 2026)</span></h3>
+            <p style="font-size:9pt;">El nuevo flagship de Moonshot (1M ctx, $3/$15) entra <strong>#11 en calidad pura</strong> (8.22, a solo
+            0.17 del #1) — clúster frontier, <strong>coincide con los benchmarks públicos</strong>. Pero en el score de valor cae a
+            <strong>#31</strong>: premium + lento (34 tok/s). Calidad frontier no es lo mismo que buen valor — la historia entera del benchmark en un modelo.</p>
 
-            <h3>★ El peso nominal ≠ la influencia real <span style="font-size:8pt;color:#b0b0b0;">(4 junio 2026)</span></h3>
-            <p style="font-size:9pt;">La influencia real = peso × varianza. El <strong>costo (var 1.85) decidía el ranking</strong> pese a su 20%
-            nominal, aplastando a la calidad apelotonada (var 0.59). Fix v2.9: <strong>z-score</strong> — estandarizamos cada
-            dimensión antes de ponderar → 60% quality = 60% de influencia REAL. Efecto: <strong>Opus 4.8 #63→#17</strong>,
-            DeepSeek V4 Flash #7→#3, los líderes de calidad/coding suben. El costo sigue importando, pero ya no manda solo.</p>
+            <h3>🛡️ Seguridad: premium NO filtra, cheap sí</h3>
+            <p style="font-size:9pt;">Suite <strong>prompt_injection_es</strong> (secreto plantado en un doc, ¿lo filtra?):
+            los <strong>premium rehúsan</strong> (Opus 4.8 ~8.8), varios <strong>baratos filtran</strong> (~2). Si tu agente procesa
+            documentos de terceros, la seguridad pesa más que ganar 0.2 de calidad — y ahí el orden del ranking cambia.</p>
 
-            <h3>🖥️ Local en Spark: el 12B le gana al 31B <span style="font-size:8pt;color:#b0b0b0;">(5 junio 2026)</span></h3>
-            <p style="font-size:9pt;">Gemma 4 en llama-server (Q4): el <strong>12B supera al 31B en los 6 pilares</strong> y es 2.6× más rápido
-            (21 vs 8 tok/s). Y el <strong>reasoning interno NO ayuda</strong>: misma calidad (8.12=8.12) y <strong>2× la latencia</strong>
-            (56→107s). Para agentes locales: cargá el 12B con reasoning OFF (<code>enable_thinking=false</code>).</p>
-
-            <h3>Qwen 3.7 Max: el marketing no se traslada al español <span style="font-size:8pt;color:#b0b0b0;">(jun 2026)</span></h3>
-            <p style="font-size:9pt;">El nuevo flagship de Alibaba (1M ctx, $2.50/$7.50) queda <strong>#20 en calidad (8.13)</strong> en nuestra
-            suite — su propio <strong>Qwen 3.6 Max lo supera (8.62)</strong> y además <strong>filtra credenciales</strong> (seguridad ~2).
-            Su fama de "vence a Opus en agéntico" (Terminal-Bench/SWE-Bench en inglés) NO se traslada a tareas en español. Caro + lento → <strong>#55</strong> en el compuesto.</p>
-
-            <h3>🔑 Long-context de Claude medido por suscripción <span style="font-size:8pt;color:#b0b0b0;">(7 junio 2026)</span></h3>
-            <p style="font-size:9pt;">Medimos Anthropic vía la <strong>suscripción Claude Code (CLI, $0)</strong>, no la API. El long-context fallaba:
-            el prompt de 256K iba como argumento → <code>Errno 7 arg too long</code>. Fix: pasarlo por <strong>stdin</strong>.
-            Ahora <strong>Opus 4.8 retrieva hasta 256K, Sonnet/Haiku 128K</strong> — sin pagar API. Lección: auditá cada
-            respuesta individual (needle, juez, heurística) — cada pieza puede inyectar un sesgo que parece un hallazgo.</p>
+            <h3>🤖 El agéntico ahora es un eje propio (v4.0)</h3>
+            <p style="font-size:9pt;">Las tareas agénticas (multi-turno, orquestación, horizonte largo) son donde los premium se
+            diferencian de verdad. En v4.0 el <strong>agéntico cuenta en la calidad titular Y se expone como eje aparte</strong>
+            (<code>agentic_score</code>), para rankear por "qué tan buen agente es" sin que lo tape el promedio.</p>
         </div>
     </div>
 
@@ -385,112 +375,112 @@ strong { color: #ffffff; }
         <tbody>
             <tr>
                 <td>1</td>
-                <td><strong>DeepSeek R1 (reasoning)</strong></td>
-                <td><strong>8.33</strong></td>
-                <td>8.69</td>
-                <td>5.84</td>
-                <td>6.8</td>
-                <td>3.88</td>
-                <td>1.07</td>
+                <td><strong>GPT-5.6 Luna</strong></td>
+                <td><strong>8.34</strong></td>
+                <td>8.41</td>
+                <td>5.83</td>
+                <td>6.92</td>
+                <td>9.03</td>
+                <td>2.75</td>
                 <td>openrouter</td>
             </tr>
             <tr>
                 <td>2</td>
-                <td><strong>DeepSeek V4 Flash (OpenRouter)</strong></td>
-                <td><strong>8.23</strong></td>
-                <td>8.34</td>
-                <td>7.92</td>
-                <td>7.1</td>
-                <td>7.44</td>
-                <td>1.83</td>
-                <td>openrouter</td>
+                <td><strong>GPT-5.4 Mini</strong></td>
+                <td><strong>7.80</strong></td>
+                <td>8.21</td>
+                <td>7.47</td>
+                <td>6.97</td>
+                <td>8.87</td>
+                <td>3.55</td>
+                <td>openai_direct</td>
             </tr>
             <tr>
                 <td>3</td>
-                <td><strong>Qwen3-Coder-Next (OpenRouter FP8)</strong></td>
-                <td><strong>8.15</strong></td>
-                <td>8.22</td>
-                <td>7.64</td>
-                <td>6.78</td>
-                <td>8.83</td>
-                <td>3.48</td>
+                <td><strong>Ministral 14B</strong></td>
+                <td><strong>7.21</strong></td>
+                <td>8.16</td>
+                <td>7.83</td>
+                <td>6.96</td>
+                <td>7.69</td>
+                <td>2.31</td>
                 <td>openrouter</td>
             </tr>
             <tr>
                 <td>4</td>
-                <td><strong>Claude Haiku 4.5 (suscripción)</strong></td>
-                <td><strong>8.00</strong></td>
-                <td>8.44</td>
-                <td>5.13</td>
-                <td>6.29</td>
-                <td>8.88</td>
-                <td>2.74</td>
-                <td>claude_code</td>
+                <td><strong>Gemma 4 26B MoE (3.8B activos)</strong></td>
+                <td><strong>7.19</strong></td>
+                <td>8.19</td>
+                <td>7.81</td>
+                <td>7.14</td>
+                <td>6.39</td>
+                <td>2.22</td>
+                <td>openrouter</td>
             </tr>
             <tr>
                 <td>5</td>
-                <td><strong>Llama 3.3 70B (Groq)</strong></td>
-                <td><strong>7.94</strong></td>
-                <td>8.01</td>
-                <td>7.85</td>
-                <td>7.14</td>
-                <td>9.62</td>
-                <td>5.83</td>
-                <td>groq_direct</td>
+                <td><strong>Qwen 3.6 Plus</strong></td>
+                <td><strong>7.17</strong></td>
+                <td>8.27</td>
+                <td>6.26</td>
+                <td>7.17</td>
+                <td>7.64</td>
+                <td>1.08</td>
+                <td>openrouter</td>
             </tr>
             <tr>
                 <td>6</td>
-                <td><strong>MiniMax M3 (directo / sub)</strong></td>
-                <td><strong>7.92</strong></td>
-                <td>8.47</td>
-                <td>6.89</td>
-                <td>7.16</td>
-                <td>4.47</td>
-                <td>1.25</td>
-                <td>minimax_direct</td>
+                <td><strong>GLM 5.2</strong></td>
+                <td><strong>7.14</strong></td>
+                <td>8.3</td>
+                <td>5.85</td>
+                <td>7.18</td>
+                <td>6.64</td>
+                <td>1.24</td>
+                <td>openrouter</td>
             </tr>
             <tr>
                 <td>7</td>
-                <td><strong>Claude Opus 4.8 (suscripción)</strong></td>
-                <td><strong>7.88</strong></td>
-                <td>8.65</td>
-                <td>2.71</td>
-                <td>6.31</td>
-                <td>7.5</td>
-                <td>2.95</td>
-                <td>claude_code</td>
+                <td><strong>Mistral Large 3 675B</strong></td>
+                <td><strong>7.08</strong></td>
+                <td>8.18</td>
+                <td>7.16</td>
+                <td>7.0</td>
+                <td>7.41</td>
+                <td>2.11</td>
+                <td>openrouter</td>
             </tr>
             <tr>
                 <td>8</td>
-                <td><strong>Devstral Small</strong></td>
-                <td><strong>7.83</strong></td>
-                <td>8.03</td>
-                <td>7.95</td>
-                <td>6.75</td>
-                <td>9.2</td>
-                <td>4.97</td>
+                <td><strong>Nemotron Super 49B v1.5</strong></td>
+                <td><strong>6.87</strong></td>
+                <td>8.17</td>
+                <td>7.6</td>
+                <td>6.9</td>
+                <td>6.94</td>
+                <td>1.12</td>
                 <td>openrouter</td>
             </tr>
             <tr>
                 <td>9</td>
-                <td><strong>Claude Sonnet 4.6 (suscripción)</strong></td>
-                <td><strong>7.80</strong></td>
-                <td>8.57</td>
-                <td>3.98</td>
-                <td>6.29</td>
-                <td>6.76</td>
-                <td>2.39</td>
-                <td>claude_code</td>
+                <td><strong>Claude Opus 4.6</strong></td>
+                <td><strong>6.86</strong></td>
+                <td>8.34</td>
+                <td>3.7</td>
+                <td>7.1</td>
+                <td>6.48</td>
+                <td>1.44</td>
+                <td>openrouter</td>
             </tr>
             <tr>
                 <td>10</td>
-                <td><strong>Qwen 3.6 Max</strong></td>
-                <td><strong>7.76</strong></td>
-                <td>8.62</td>
-                <td>4.32</td>
-                <td>7.21</td>
-                <td>6.0</td>
-                <td>1.06</td>
+                <td><strong>GLM 5</strong></td>
+                <td><strong>6.86</strong></td>
+                <td>8.24</td>
+                <td>6.26</td>
+                <td>7.08</td>
+                <td>6.28</td>
+                <td>1.21</td>
                 <td>openrouter</td>
             </tr>
         </tbody>
@@ -501,29 +491,29 @@ strong { color: #ffffff; }
         <thead><tr><th>#</th><th>Modelo</th><th>Quality</th><th>Final compuesto</th></tr></thead>
         <tbody>
             <tr>
-                <td>1</td><td>DeepSeek R1 (reasoning)</td>
-                <td><strong>8.69</strong></td>
-                <td>8.33</td>
+                <td>1</td><td>GPT-5.6 Luna</td>
+                <td><strong>8.41</strong></td>
+                <td>8.34</td>
             </tr>
             <tr>
-                <td>2</td><td>Claude Opus 4.8 (suscripción)</td>
-                <td><strong>8.65</strong></td>
-                <td>7.88</td>
+                <td>2</td><td>Claude Opus 4.6</td>
+                <td><strong>8.34</strong></td>
+                <td>6.86</td>
             </tr>
             <tr>
-                <td>3</td><td>Qwen 3.6 Max</td>
-                <td><strong>8.62</strong></td>
-                <td>7.76</td>
+                <td>3</td><td>GLM 5.2</td>
+                <td><strong>8.3</strong></td>
+                <td>7.14</td>
             </tr>
             <tr>
-                <td>4</td><td>Claude Sonnet 4.6 (suscripción)</td>
-                <td><strong>8.57</strong></td>
-                <td>7.80</td>
+                <td>4</td><td>Claude Opus 4.8</td>
+                <td><strong>8.3</strong></td>
+                <td>6.85</td>
             </tr>
             <tr>
-                <td>5</td><td>Claude Opus 4.7 (suscripción)</td>
-                <td><strong>8.55</strong></td>
-                <td>7.44</td>
+                <td>5</td><td>DeepSeek R1 (reasoning)</td>
+                <td><strong>8.29</strong></td>
+                <td>6.70</td>
             </tr>
         </tbody>
     </table>
@@ -534,7 +524,7 @@ strong { color: #ffffff; }
         Opus/Gemini/Hermes 4 suben fuerte. Si el costo importa: top compuesto.
     </div>
 
-    <p class="guino">Ranking completo de 94 modelos en https://benchmarks.cristiantala.com/ · datos crudos en https://github.com/ctala/ai-benchmarks-alternativos</p>
+    <p class="guino">Ranking completo de 70 modelos en https://benchmarks.cristiantala.com/ · datos crudos en https://github.com/ctala/ai-benchmarks-alternativos</p>
 </div>
 
 <!-- ============================================================ -->
@@ -553,9 +543,9 @@ strong { color: #ffffff; }
             <table>
                 <thead><tr><th>Recomendación</th><th>Score agéntico</th><th>Costo</th></tr></thead>
                 <tbody>
-                    <tr><td>🥇 GPT-OSS 120B (Ollama Cloud)</td><td><strong>8.15</strong> (#1 ALH)</td><td>$30/mes sub</td></tr>
-                    <tr><td>🥈 Llama 3.3 70B Groq</td><td>7.60</td><td>$0.59/$0.79 per M</td></tr>
-                    <tr><td>🥉 MiMo V2.5 (Xiaomi sub)</td><td>7.65</td><td>$14/mes sub</td></tr>
+                    <tr><td>🥇 GPT-OSS 120B</td><td><strong>8.15</strong> (#1 ALH)</td><td>$30/mes sub (Ollama)</td></tr>
+                    <tr><td>🥈 Llama 3.3 70B</td><td>7.60</td><td>$0.59/$0.79 per M</td></tr>
+                    <tr><td>🥉 MiMo V2.5</td><td>7.65</td><td>$14/mes sub</td></tr>
                 </tbody>
             </table>
 
@@ -563,7 +553,7 @@ strong { color: #ffffff; }
             <table>
                 <thead><tr><th>Modelo</th><th>Notas</th></tr></thead>
                 <tbody>
-                    <tr><td><strong>Devstral Small</strong></td><td>Apache 2.0 · #1 NIAH-ES · Specialist · $0.10/$0.30</td></tr>
+                    <tr><td><strong>Qwen3 Coder</strong></td><td>Apache 2.0 · coding specialist · $0.2/$0.6 · calidad 7.85</td></tr>
                     <tr><td>Devstral 2 (Dic 2025)</td><td>Apache 2.0 · 256K context</td></tr>
                 </tbody>
             </table>
@@ -572,7 +562,7 @@ strong { color: #ffffff; }
             <table>
                 <thead><tr><th>Modelo</th><th>Notas</th></tr></thead>
                 <tbody>
-                    <tr><td><strong>MiMo V2.5 (Xiaomi sub)</strong></td><td>Sub $14/mes · español neutro fuerte</td></tr>
+                    <tr><td><strong>MiMo V2.5</strong></td><td>Sub $14/mes · español neutro fuerte</td></tr>
                     <tr><td>Gemini 3.1 Flash Lite</td><td>$0.25/$1.50 · Google directo</td></tr>
                 </tbody>
             </table>
@@ -582,8 +572,8 @@ strong { color: #ffffff; }
             <table>
                 <thead><tr><th>Modelo</th><th>Notas</th></tr></thead>
                 <tbody>
-                    <tr><td><strong>GPT-OSS 120B Cloud</strong></td><td>#1 agent_long_horizon (8.15)</td></tr>
-                    <tr><td>Llama 3.3 70B Groq</td><td>Latencia ultra baja (270 tok/s)</td></tr>
+                    <tr><td><strong>GPT-OSS 120B</strong></td><td>#1 agent_long_horizon (8.15)</td></tr>
+                    <tr><td>Llama 3.3 70B</td><td>Latencia ultra baja (270 tok/s)</td></tr>
                 </tbody>
             </table>
 
@@ -591,17 +581,17 @@ strong { color: #ffffff; }
             <table>
                 <thead><tr><th>Modelo</th><th>Notas</th></tr></thead>
                 <tbody>
-                    <tr><td><strong>DeepSeek V4 Flash (NIM)</strong></td><td>GRATIS · 40 RPM · 1M context</td></tr>
+                    <tr><td><strong>DeepSeek V4 Flash</strong></td><td>$0.10/M · 1M context · barato</td></tr>
                     <tr><td>Mistral Small 4</td><td>$0.15/$0.60 · top quality</td></tr>
                 </tbody>
             </table>
 
-            <h3>Skill: Long-context (contexto USABLE, v2.8)</h3>
+            <h3>Skill: Long-context (contexto USABLE, v4.0)</h3>
             <table>
                 <thead><tr><th>Modelo</th><th>Contexto usable real</th></tr></thead>
                 <tbody>
                     <tr><td><strong>Gemini 2.5/3.5 Flash Lite, DeepSeek V4 Flash, Llama 4 Maverick</strong></td><td>800K ✅</td></tr>
-                    <tr><td>MiniMax M3 (sub/directo)</td><td>declara 1M, usable 512K ⚠️</td></tr>
+                    <tr><td>MiniMax M3</td><td>declara 1M, usable 512K ⚠️</td></tr>
                 </tbody>
             </table>
             <p style="font-size:8pt;color:#b0b0b0;">El retrieval NO discrimina (todos ~10 hasta su techo); lo que importa es el contexto <em>usable</em> (declarado ≠ real). Ver Hallazgos.</p>
@@ -627,58 +617,58 @@ strong { color: #ffffff; }
         <div>
             <h3>Razonamiento (single-turn)</h3>
             <table><thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead><tbody>
-<tr><td>1</td><td>Devstral Small</td><td><strong>8.13</strong></td></tr>
-<tr><td>2</td><td>Llama 4 Scout 17B (G</td><td><strong>8.12</strong></td></tr>
-<tr><td>3</td><td>Gemini 3.1 Flash Lit</td><td><strong>8.12</strong></td></tr>
-<tr><td>4</td><td>Grok 4.1 Fast</td><td><strong>8.05</strong></td></tr>
-<tr><td>5</td><td>DeepSeek V4 Flash (O</td><td><strong>8.03</strong></td></tr>
+<tr><td>1</td><td>Gemini 3.1 Flash Lit</td><td><strong>7.65</strong></td></tr>
+<tr><td>2</td><td>GPT-5.6 Luna</td><td><strong>7.64</strong></td></tr>
+<tr><td>3</td><td>GPT-5.4 Mini</td><td><strong>7.61</strong></td></tr>
+<tr><td>4</td><td>Mistral Small 4</td><td><strong>7.53</strong></td></tr>
+<tr><td>5</td><td>Ministral 14B</td><td><strong>7.48</strong></td></tr>
             </tbody></table>
 
             <h3>Coding</h3>
             <table><thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead><tbody>
-<tr><td>1</td><td>Devstral Small</td><td><strong>8.23</strong></td></tr>
-<tr><td>2</td><td>Gemini 2.5 Flash Lit</td><td><strong>8.10</strong></td></tr>
-<tr><td>3</td><td>Llama 4 Scout 17B (G</td><td><strong>7.91</strong></td></tr>
-<tr><td>4</td><td>GPT-4.1</td><td><strong>7.90</strong></td></tr>
-<tr><td>5</td><td>Qwen3-Coder-Next (Op</td><td><strong>7.88</strong></td></tr>
+<tr><td>1</td><td>GPT-5.4 Mini</td><td><strong>8.18</strong></td></tr>
+<tr><td>2</td><td>Qwen3 Coder</td><td><strong>8.13</strong></td></tr>
+<tr><td>3</td><td>Nemotron 3 Ultra 550</td><td><strong>8.11</strong></td></tr>
+<tr><td>4</td><td>Gemini 2.5 Flash Lit</td><td><strong>8.10</strong></td></tr>
+<tr><td>5</td><td>GPT-4.1</td><td><strong>7.93</strong></td></tr>
             </tbody></table>
         </div>
         <div>
             <h3>Contenido / Marketing</h3>
             <table><thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead><tbody>
-<tr><td>1</td><td>GPT-OSS 20B (Groq)</td><td><strong>8.25</strong></td></tr>
-<tr><td>2</td><td>Qwen3-Coder-Next (Op</td><td><strong>8.14</strong></td></tr>
-<tr><td>3</td><td>Llama 3.3 70B (Groq)</td><td><strong>8.12</strong></td></tr>
-<tr><td>4</td><td>Gemini 3.1 Flash Lit</td><td><strong>8.10</strong></td></tr>
-<tr><td>5</td><td>Llama 4 Scout 17B (G</td><td><strong>8.08</strong></td></tr>
+<tr><td>1</td><td>Ministral 14B</td><td><strong>7.85</strong></td></tr>
+<tr><td>2</td><td>Gemini 2.5 Flash Lit</td><td><strong>7.80</strong></td></tr>
+<tr><td>3</td><td>Llama 4 Scout 17B</td><td><strong>7.74</strong></td></tr>
+<tr><td>4</td><td>Qwen 3-Next 80B Inst</td><td><strong>7.73</strong></td></tr>
+<tr><td>5</td><td>GPT-5.4 Mini</td><td><strong>7.65</strong></td></tr>
             </tbody></table>
 
             <h3>Agentes / Operaciones</h3>
             <table><thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead><tbody>
-<tr><td>1</td><td>Claude Haiku 4.5 (su</td><td><strong>7.85</strong></td></tr>
-<tr><td>2</td><td>Qwen 3.6 35B base (O</td><td><strong>7.67</strong></td></tr>
-<tr><td>3</td><td>DiffusionGemma 26B-A</td><td><strong>7.57</strong></td></tr>
-<tr><td>4</td><td>Llama 3.1 8B Instant</td><td><strong>7.57</strong></td></tr>
-<tr><td>5</td><td>Qwen3-Coder-Next (Op</td><td><strong>7.54</strong></td></tr>
+<tr><td>1</td><td>Mistral Large 3 675B</td><td><strong>7.67</strong></td></tr>
+<tr><td>2</td><td>Ministral 14B</td><td><strong>7.59</strong></td></tr>
+<tr><td>3</td><td>Qwen 3.6 35B base (O</td><td><strong>7.59</strong></td></tr>
+<tr><td>4</td><td>Qwen 3.5 35B</td><td><strong>7.53</strong></td></tr>
+<tr><td>5</td><td>GPT-5.4 Mini</td><td><strong>7.51</strong></td></tr>
             </tbody></table>
         </div>
         <div>
             <h3>Multi-step (agent_long_horizon)</h3>
             <table><thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead><tbody>
-<tr><td>1</td><td>Llama 3.3 70B (Groq)</td><td><strong>8.61</strong></td></tr>
-<tr><td>2</td><td>Llama 4 Scout 17B (G</td><td><strong>8.59</strong></td></tr>
-<tr><td>3</td><td>GPT-OSS 120B (Ollama</td><td><strong>8.52</strong></td></tr>
-<tr><td>4</td><td>MiMo V2-Omni (Xiaomi</td><td><strong>8.46</strong></td></tr>
-<tr><td>5</td><td>Devstral Small</td><td><strong>8.37</strong></td></tr>
+<tr><td>1</td><td>GPT-5.6 Luna</td><td><strong>8.29</strong></td></tr>
+<tr><td>2</td><td>Llama 3.1 8B Instant</td><td><strong>8.22</strong></td></tr>
+<tr><td>3</td><td>DeepSeek V4 Flash (O</td><td><strong>8.20</strong></td></tr>
+<tr><td>4</td><td>Mistral Small 4</td><td><strong>8.19</strong></td></tr>
+<tr><td>5</td><td>Nemotron Super 49B v</td><td><strong>8.17</strong></td></tr>
             </tbody></table>
 
             <h3>Aguja-en-Pajar (NIAH-ES)</h3>
             <table><thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead><tbody>
-<tr><td>1</td><td>Claude Haiku 4.5 (su</td><td><strong>8.80</strong></td></tr>
-<tr><td>2</td><td>Claude Sonnet 4.6 (s</td><td><strong>8.71</strong></td></tr>
-<tr><td>3</td><td>Claude Opus 4.8 (sus</td><td><strong>8.48</strong></td></tr>
-<tr><td>4</td><td>Qwen 3-Next 80B Inst</td><td><strong>8.41</strong></td></tr>
-<tr><td>5</td><td>Claude Fable 5 (susc</td><td><strong>8.33</strong></td></tr>
+<tr><td>1</td><td>Qwen 3.6 35B base (O</td><td><strong>8.39</strong></td></tr>
+<tr><td>2</td><td>Mistral Small 4</td><td><strong>8.38</strong></td></tr>
+<tr><td>3</td><td>Devstral 2 (Dic 2025</td><td><strong>8.36</strong></td></tr>
+<tr><td>4</td><td>Qwen3-Coder-Next (Op</td><td><strong>8.35</strong></td></tr>
+<tr><td>5</td><td>DeepSeek V4 Flash (O</td><td><strong>8.31</strong></td></tr>
             </tbody></table>
         </div>
     </div>
@@ -698,9 +688,9 @@ strong { color: #ffffff; }
             <table>
                 <thead><tr><th>Modelo</th><th>Input $/M</th><th>Output $/M</th></tr></thead>
                 <tbody>
-                    <tr><td>Llama 3.3 70B Groq</td><td>$0.59</td><td>$0.79</td></tr>
-                    <tr><td>Llama 3.1 8B Groq</td><td>$0.05</td><td>$0.08</td></tr>
-                    <tr><td>Devstral Small</td><td>$0.10</td><td>$0.30</td></tr>
+                    <tr><td>Llama 3.3 70B</td><td>$0.59</td><td>$0.79</td></tr>
+                    <tr><td>Llama 3.1 8B</td><td>$0.05</td><td>$0.08</td></tr>
+                    <tr><td>Qwen3 Coder</td><td>$0.20</td><td>$0.60</td></tr>
                     <tr><td>Mistral Small 4</td><td>$0.15</td><td>$0.60</td></tr>
                     <tr><td>Gemini 3.1 Flash Lite</td><td>$0.25</td><td>$1.50</td></tr>
                     <tr><td>Grok 4.1 Fast</td><td>$0.20</td><td>$0.50</td></tr>
@@ -720,10 +710,13 @@ strong { color: #ffffff; }
             <table>
                 <thead><tr><th>Plan</th><th>Precio</th><th>Modelos</th></tr></thead>
                 <tbody>
-                    <tr><td><strong>Xiaomi MiMo Standard</strong></td><td><strong>$14/mes</strong></td><td>4 modelos: V2.5, V2.5-Pro, V2-Pro, V2-Omni · 200M credits/mes</td></tr>
-                    <tr><td>MiniMax Agent Pro</td><td>$19/mes</td><td>M2.7 Highspeed · generosos límites</td></tr>
-                    <tr><td>Anthropic Pro</td><td>$20/mes</td><td>Claude (web only, NO API)</td></tr>
-                    <tr><td>Ollama Cloud Pro</td><td>$30/mes</td><td>5 modelos: GPT-OSS 120B, DeepSeek V4 Pro/Flash, Qwen 3.5 397B/default</td></tr>
+                    <tr><td><strong>Xiaomi MiMo Standard</strong></td><td>$14/mes</td><td>200M credits/mes. Off-peak 16-24 UTC = 0.8x consumption. Acceso a 8 …</td></tr>
+                    <tr><td><strong>MiniMax Agent Pro</strong></td><td>$19/mes</td><td>Acceso a M2.7 highspeed + límites generosos para agentes (1k+ calls/…</td></tr>
+                    <tr><td><strong>Kimi (Moonshot)</strong></td><td>$19/mes</td><td>$19/mes (anual -20%). Acceso a K2.6 en el chat + Kimi Code (credits …</td></tr>
+                    <tr><td><strong>Anthropic Pro</strong></td><td>$20/mes</td><td>Sub Anthropic Pro $20/mes. NO incluye API access (solo claude.ai web…</td></tr>
+                    <tr><td><strong>Ollama Cloud</strong></td><td>$30/mes</td><td>Rate limit varía por modelo. Recomendado para uso a volumen mid (1-1…</td></tr>
+                    <tr><td><strong>xAI SuperGrok</strong></td><td>$30/mes</td><td>$30/mes o $300/año. Acceso consumer a Grok 4/4.1 (128K, DeepSearch, …</td></tr>
+                    <tr><td><strong>Alibaba Model Studio</strong></td><td>$50/mes</td><td>~$50/mes, hasta 90K requests/mes con modelos Qwen (Model Studio). El…</td></tr>
                 </tbody>
             </table>
 
@@ -768,7 +761,7 @@ strong { color: #ffffff; }
                 <tbody>
                     <tr><td>Gemma 4 26B MoE</td><td>~14 GB</td></tr>
                     <tr><td>Qwen 3.5 25B</td><td>~13 GB</td></tr>
-                    <tr><td>Devstral Small (Mistral 24B)</td><td>~13 GB</td></tr>
+                    <tr><td>Mistral Small 4 (24B)</td><td>~14 GB</td></tr>
                 </tbody>
             </table>
 
@@ -823,7 +816,7 @@ strong { color: #ffffff; }
 <div class="page">
     <h2>Mapa de Proveedores</h2>
     <p style="font-size:9pt; color:#b0b0b0; margin-bottom:10px;">
-        9 providers (incl. suscripción Claude Code) — junio 2026. Ordenados por costo (de más barato a más caro).
+        9 providers (incl. suscripción Claude Code) — Julio 2026. Ordenados por costo (de más barato a más caro).
     </p>
 
     <table>
@@ -929,7 +922,7 @@ strong { color: #ffffff; }
 
     <div class="two-col">
         <div>
-            <h3>Tests por modelo en 26 suites</h3>
+            <h3>Tests por modelo en 29 suites</h3>
             <table>
                 <thead><tr><th>Tipo</th><th>Suites</th><th>Tests</th></tr></thead>
                 <tbody>
@@ -959,11 +952,11 @@ strong { color: #ffffff; }
 
             <h3>Que SI medimos</h3>
             <ul style="font-size:9pt; padding-left: 20px;">
-                <li>✅ <strong>Calidad</strong> (50%): formato + sustancia + LLM-as-Judge Phi-4 14B local</li>
-                <li>✅ <strong>Costo real</strong> (20%): por provider exacto, curva log inversa</li>
-                <li>✅ <strong>Tool calling</strong> (15%): function calling para agentes</li>
+                <li>✅ <strong>Calidad</strong> (70%): formato + sustancia + LLM-as-Judge Phi-4 14B local</li>
+                <li>✅ <strong>Costo real</strong> (15%): por provider exacto, curva log inversa</li>
                 <li>✅ <strong>Velocidad</strong> (7.5%): tokens por segundo</li>
                 <li>✅ <strong>Latencia</strong> (7.5%): primer token (medida desde Chile)</li>
+                <li>✅ <strong>Tool calling</strong> (badge, no pesa el score): function calling para agentes</li>
                 <li>✅ Multi-turn long-horizon (8+ turnos)</li>
                 <li>✅ Long-context retrieval hasta 800K (contexto usable, dimensión aparte)</li>
             </ul>
@@ -997,15 +990,15 @@ strong { color: #ffffff; }
 
     <div class="qr-container">
         <div class="qr-box">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAIAAABOs7xcAAAE4UlEQVR4nO3dMXIlNRRAUUxRJKSzD2LvfwUshoTEbMAKREkjiXtOalf/tn1LwZue1x+fXz9+gf+7X0/fAPwMQidB6CQInQShkyB0EoROwm+jL/z1x+8/8z7+sz///mfq+0c/16rrjIyuv+p+Rnbf521G9+9EJ0HoJAidBKGTIHQShE6C0EkYztFHVs13Z70yxx2Zvf9VP+/uufgrPTjRSRA6CUInQegkCJ0EoZMgdBKm5+gjt81lZ5/z3j2nP/Xc/Mju+fdtPTjRSRA6CUInQegkCJ0EoZMgdBKWzdFfsXs+vepzV+2BOfXz3saJToLQSRA6CUInQegkCJ0EoZOQm6OPrNojvur7d1+nNl93opMgdBKEToLQSRA6CUInQegkLJujvzJ/ve09mq/M72fd1oMTnQShkyB0EoROgtBJEDoJQidheo7++vs+Z53ar7LqvaS797280oMTnQShkyB0EoROgtBJEDoJQidhOEe/7Xni2+zer7LKqnn56z040UkQOglCJ0HoJAidBKGTIHQSPj6/fnz7hd3PT69y6v2gI7e9r3TVdV7/+zrRSRA6CUInQegkCJ0EoZMgdBKWzdFn3bZX5LbPfWVfyqxT/TjRSRA6CUInQegkCJ0EoZMgdBKWvWd0ZPdzz7v3i++2++c9Naff/Vz+7PWd6CQInQShkyB0EoROgtBJEDoJy/aj735+fdU+71PPwZ+6/ivvH919P050EoROgtBJEDoJQidB6CQInYRj+9Ffmcue2ke++zqnnNo370QnQegkCJ0EoZMgdBKEToLQSRjO0Vc5tWd9ld3z9ZHb9rSsYj86bCR0EoROgtBJEDoJQidB6CRM70e/7bnw3Z87e/1Zr+wpv23fi70u8A2hkyB0EoROgtBJEDoJQifh+efRb/vckdt+DyO37ZmxHx0mCJ0EoZMgdBKEToLQSRA6CcPn0V+f+57af7Lqfl55nv6297OOONFJEDoJQidB6CQInQShkyB0Eo7tdVn1/bftR9+9f2Zk1e/htt/niP3o8A2hkyB0EoROgtBJEDoJQidheo5e24sycmoefNue8lPvN7XXBb4hdBKEToLQSRA6CUInQegkTM/RZ62as77y/tHZzx059R7WU3b/XZzoJAidBKGTIHQShE6C0EkQOgnL5uivvM9y9/6TVfPg255H381eF1hA6CQInQShkyB0EoROgtBJ+Pj8+nH6HrbY/Xz5bXtmRk49p37bvhcnOglCJ0HoJAidBKGTIHQShE7C8Hn0255XHln1PPeq6896ZR/LqX83WHV9JzoJQidB6CQInQShkyB0EoROwvPvGZ39/tn5+qn3cd62p+WVPfEjTnQShE6C0EkQOglCJ0HoJAidhGP70Ud2z+lve656978PzF7n1P9D2P13caKTIHQShE6C0EkQOglCJ0HoJCybo7/itvd3rrqf1/8dY9X3249OmtBJEDoJQidB6CQInQShk5Cbo4+8Mi+ftfs5+FPsdYFvCJ0EoZMgdBKEToLQSRA6Ccvm6Kf2po+cup/d7x899d7TU9dfNb93opMgdBKEToLQSRA6CUInQegkfHx+/fj2C7c9fzyye/66ym1z6N3vQ919n7Oc6CQInQShkyB0EoROgtBJEDoJwzk6/J840UkQOglCJ0HoJAidBKGTIHQS/gUuHSG+fjRQ4QAAAABJRU5ErkJggg==" alt="QR Calculadora">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAIAAABOs7xcAAAE3ElEQVR4nO3dMW7sNhRAUTsw0qT1Pqb2/legxaRJ42zAKgSQn6TvOe03NPL4ghhw+J/ev74/3+C3+2v1DcCfIHQShE6C0EkQOglCJ0HoJHzc/cP1z99vJ3j9+9+jn7/7vUZd587d9Ufdz6r73M3d/VvRSRA6CUInQegkCJ0EoZMgdNr76HdG7e8+dco+7qj7H/X7zt4Xfx3SgxWdBKGTIHQShE6C0EkQOglCJ+HxPvqd3fZln57znr1Pv+rc/Kj7Ob0HKzoJQidB6CQInQShkyB0EoROwrB99FPM3p8e9bqj5sCs+n13Y0UnQegkCJ0EoZMgdBKEToLQScjto8+eIz7q52df54rtr1vRSRA6CUInQegkCJ0EoZMgdBKG7aOfsv+623M0T9m/P70HKzoJQidB6CQInQShkyB0EoROwkfteZ9PrZqvMuq5pLPnvVyH9GBFJ0HoJAidBKGTIHQShE6C0Gnvo+92nng3s+erjDJqv/x1eA9WdBKEToLQSRA6CUInQegkCJ2E96/vzyXnp0dZ9XzQO7s9r3TUda7D/75WdBKEToLQSRA6CUInQegkCJ2EYfvoT+02V2S31z1lXspTq/qxopMgdBKEToLQSRA6CUInQegkDHvO6Kpzz7Pni882+/ddtU//mnwu/+n1regkCJ0EoZMgdBKEToLQSRA6CcPmo88+vz5qnveqc/Crrn/K80dfk+/Hik6C0EkQOglCJ0HoJAidBKGTsGw++in7sqvmkc++ziqr5s1b0UkQOglCJ0HoJAidBKGTIHTa++ijrJqzPsrs/fU7u81pGcV8dJjIRxcShE6C0EkQOglCJ0HoJDyej77bufDZr/v0+k+dMqf82mzei7ku8AMfXUgQOglCJ0HoJAidBKGTcPx59N1e95T34c5uc2bMR4cHfHQhQegkCJ0EoZMgdBKETvs8+un7vqvmn4y6n1PO0782ez7rHSs6CUInQegkCJ0EoZMgdBKETsKyuS6jfn63+eiz58/Mfh+uzd7PO0+/T7CikyB0EoROgtBJEDoJQidB6CQ83kevzUXZbT94tznl16Lnm5qPDj/w0YUEoZMgdBKEToLQSRA6CY/30Z8atc96yvNHn77unVXPYV1l9t/Fik6C0EkQOglCJ0HoJAidBKGT8FF7nuXs+Sej9oN3O48+m7kuMICPLiQInQShkyB0EoROgtBJeP/6/nz7jWafL99tzsydVefUr83mvVjRSRA6CUInQegkCJ0EoZMgdNrn0Xc7r3xn1HnuUdd/6pR5LNei7w1GXd+KToLQSRA6CUInQegkCJ0EoZNw/HNGn/780/31Vc/j3G1Oy+uQOfF3rOgkCJ0EoZMgdBKEToLQSRA6Ccvmo6/ap9/tXPXs7weeXuda9P8QZv9drOgkCJ0EoZMgdBKEToLQSRA6CcP20U+x2/M7R93P6d9jzH4/regkCJ0EoZMgdBKEToLQSRA6Cbl99Dun7Jfvdg5+FXNd4Ac+upAgdBKEToLQSRA6CUInYdg++qq56bvdz+znj6567ulr0fVH7d9b0UkQOglCJ0HoJAidBKGTIHQS3r++P484f3xn9v7rKLvtQ78mPw919n0+ZUUnQegkCJ0EoZMgdBKEToLQae+jw29iRSdB6CQInQShkyB0EoROgtB5K/gfLh0hvhhM/bAAAAAASUVORK5CYII=" alt="QR Calculadora">
             <div class="qr-label">🎛 Calculadora interactiva</div>
             <div class="qr-url">https://benchmarks.cristiantala.com/</div>
             <p style="font-size: 8pt; color: #b0b0b0; margin-top: 8px; line-height: 1.4;">
-                Filtra por presupuesto, calidad, velocidad. Top 94 modelos actualizados.
+                Filtra por presupuesto, calidad, velocidad. Top 70 modelos actualizados.
             </p>
         </div>
         <div class="qr-box">
-            <img src="data:image/png;base64,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" alt="QR Comunidad">
+            <img src="data:image/png;base64,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" alt="QR Comunidad">
             <div class="qr-label">👥 Comunidad Skool</div>
             <div class="qr-url">https://www.skool.com/cagala-aprende-repite</div>
             <p style="font-size: 8pt; color: #b0b0b0; margin-top: 8px; line-height: 1.4;">
@@ -1029,7 +1022,7 @@ strong { color: #ffffff; }
             github.com/ctala/ai-benchmarks-alternativos
         </p>
         <p style="font-family: 'JetBrains Mono', monospace; color: #00d4ff; font-size: 10pt; margin-top: 4px;">
-            cristiantala.com · Julio 2026 · v2.9.0 · MIT
+            cristiantala.com · Julio 2026 · v4.0 · MIT
         </p>
     </div>
 
