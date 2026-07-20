@@ -312,7 +312,7 @@ MODELS = {
         "cost_input": 3.0,
         "cost_output": 15.0,
         "tier": "premium",
-        "open_source": False,  # ⚠️ pesos/licencia de K3 SIN confirmar (el salto de precio 5× vs K2.6 sugiere modelo mayor, posible API-only). Verificar en HF/Moonshot antes de marcar open.
+        "open_source": True,  # open-weight anunciado por Moonshot; liberación de pesos 27-jul-2026 (el modelo abierto más grande hasta la fecha, 2.8B params MoE). Hasta el 27-jul solo API.
         "thinking": True,
         "niah_max_context": 131072,
         "context_window": 1048576,
