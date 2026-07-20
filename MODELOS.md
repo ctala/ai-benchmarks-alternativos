@@ -58,7 +58,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `anthropic/claude-haiku-4.5` | ❌  | $1.0/5.0 | **6.09** | 119 | [per-model](benchmarks/results/per-model/anthropic_claude-haiku-4_5.md) | — |
 | `xiaomi/mimo-v2.5` | ❌  | $0.4/2.0 | **6.02** | 139 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5.md) | — |
 | `google/gemini-3.1-flash-lite-preview` | ❌  | $0.25/1.5 | **5.93** | 139 | [per-model](benchmarks/results/per-model/google_gemini-3_1-flash-lite-preview.md) | — |
-| `moonshotai/kimi-k3` | ❌  | $3.0/15.0 | **5.90** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
+| `moonshotai/kimi-k3` | ✅  | $3.0/15.0 | **5.90** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
 | `qwen/qwen3-next-80b-a3b-instruct` | ✅ Apache 2.0 | $0.09/1.1 | **5.89** | 133 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-instruct.md) | — |
 | `qwen/qwen3.7-max` | ❌ Proprietary | $2.5/7.5 | **5.80** | 134 | [per-model](benchmarks/results/per-model/qwen_qwen3_7-max.md) | — |
 | `google/gemini-2.5-flash-lite` | ❌  | $0.1/0.4 | **5.69** | 129 | [per-model](benchmarks/results/per-model/google_gemini-2_5-flash-lite.md) | — |
@@ -113,7 +113,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `anthropic/claude-opus-4-7` | ❌  | $5.0/25.0 | **8.26** | 172 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-7.md) | — |
 | `z-ai/glm-5.1` | ✅ MIT | $0.95/3.15 | **8.25** | 154 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
 | `z-ai/glm-5` | ✅ MIT | $0.6/1.92 | **8.24** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5.md) | [responses](benchmarks/results/responses/20260716_rm_glm_5_2_/) |
-| `moonshotai/kimi-k3` | ❌  | $3.0/15.0 | **8.22** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
+| `moonshotai/kimi-k3` | ✅  | $3.0/15.0 | **8.22** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
 | `gpt-5.4-mini` | ❌  | $0.5/1.5 | **8.21** | 130 | [per-model](benchmarks/results/per-model/gpt-5_4-mini.md) | — |
 | `gpt-5.4` | ❌  | $5.0/15.0 | **8.20** | 124 | [per-model](benchmarks/results/per-model/gpt-5_4.md) | — |
 | `openai/gpt-5.6-sol` | ❌  | $5.0/30.0 | **8.20** | 141 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-sol.md) | — |
@@ -225,7 +225,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `gpt-5.4` | ❌  | $5.0/15.0 | **6.88** | 124 | [per-model](benchmarks/results/per-model/gpt-5_4.md) | — |
 | `qwen/qwen3.5-35b-a3b` | ✅ Apache 2.0 | $0.14/1.0 | **6.86** | 125 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-35b-a3b.md) | — |
 | `anthropic/claude-opus-4.8` | ❌  | $5.0/25.0 | **6.86** | 127 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4_8.md) | — |
-| `moonshotai/kimi-k3` | ❌  | $3.0/15.0 | **6.85** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
+| `moonshotai/kimi-k3` | ✅  | $3.0/15.0 | **6.85** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
 | `z-ai/glm-5.2` | ✅ MIT | $0.95/3.0 | **6.84** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5_2.md) | — |
 | `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.385/2.45 | **6.82** | 130 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-397b-a17b.md) | — |
 | `deepseek/deepseek-v4-pro` | ✅ MIT | $0.435/0.87 | **6.81** | 172 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-pro.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_pro_/) |
@@ -307,7 +307,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `qwen/qwen3.7-max` | ❌ Proprietary | $2.5/7.5 | **6.89** | 134 | [per-model](benchmarks/results/per-model/qwen_qwen3_7-max.md) | — |
 | `anthropic/claude-opus-4-7` | ❌  | $5.0/25.0 | **6.88** | 172 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-7.md) | — |
 | `minimax/minimax-m3` | ❌  | $0.3/1.2 | **6.84** | 206 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/20260716_rm_minimax_m3_/) |
-| `moonshotai/kimi-k3` | ❌  | $3.0/15.0 | **6.83** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
+| `moonshotai/kimi-k3` | ✅  | $3.0/15.0 | **6.83** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
 | `xiaomi/mimo-v2.5-pro` | ❌  | $1.0/3.0 | **6.83** | 138 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5-pro.md) | — |
 | `anthropic/claude-sonnet-4-6` | ❌  | $3.0/15.0 | **6.82** | 133 | [per-model](benchmarks/results/per-model/anthropic_claude-sonnet-4-6.md) | — |
 | `meta-llama/llama-3.3-70b-instruct` | ✅ Llama Community | $0.1/0.32 | **6.82** | 147 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_3-70b-instruct.md) | — |
@@ -390,7 +390,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.29/3.2 | **6.65** | 158 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-27b.md) | — |
 | `anthropic/claude-sonnet-4-6` | ❌  | $3.0/15.0 | **6.65** | 133 | [per-model](benchmarks/results/per-model/anthropic_claude-sonnet-4-6.md) | — |
 | `anthropic/claude-fable-5` | ❌ Proprietary | $10.0/50.0 | **6.59** | 185 | [per-model](benchmarks/results/per-model/anthropic_claude-fable-5.md) | [responses](benchmarks/results/responses/20260716_rm_or_claude_fable_5_/) |
-| `moonshotai/kimi-k3` | ❌  | $3.0/15.0 | **6.57** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
+| `moonshotai/kimi-k3` | ✅  | $3.0/15.0 | **6.57** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
 | `anthropic/claude-opus-4-7` | ❌  | $5.0/25.0 | **6.51** | 172 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-7.md) | — |
 | `z-ai/glm-5.1` | ✅ MIT | $0.95/3.15 | **6.48** | 154 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
 | `moonshotai/kimi-k2.6` | ✅ Modified MIT | $0.73/3.49 | **6.46** | 213 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_6.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
@@ -423,7 +423,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `z-ai/glm-5` | ✅ MIT | $0.6/1.92 | **6.86** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5.md) | [responses](benchmarks/results/responses/20260716_rm_glm_5_2_/) |
 | `anthropic/claude-sonnet-4-6` | ❌  | $3.0/15.0 | **6.74** | 133 | [per-model](benchmarks/results/per-model/anthropic_claude-sonnet-4-6.md) | — |
 | `deepseek/deepseek-v4-flash` | ✅ MIT | $0.098/0.197 | **6.64** | 144 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-flash.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_flash_/) |
-| `moonshotai/kimi-k3` | ❌  | $3.0/15.0 | **6.52** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
+| `moonshotai/kimi-k3` | ✅  | $3.0/15.0 | **6.52** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
 | `nvidia/llama-3.3-nemotron-super-49b-v1.5` | ✅ NVIDIA Open Model | $0.4/0.4 | **6.52** | 128 | [per-model](benchmarks/results/per-model/nvidia_llama-3_3-nemotron-super-49b-v1_5.md) | [responses](benchmarks/results/responses/20260716_rm_nemotron_super_/) |
 | `deepseek/deepseek-r1` | ✅ MIT | $0.7/2.5 | **6.51** | 138 | [per-model](benchmarks/results/per-model/deepseek_deepseek-r1.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_r1_/) |
 | `xiaomi/mimo-v2.5-pro` | ❌  | $1.0/3.0 | **6.50** | 138 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5-pro.md) | — |
