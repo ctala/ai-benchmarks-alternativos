@@ -2,7 +2,7 @@
 
 - **model_id**: `qwen3.6:27b`
 - **Total tests**: 4/4 exitosos (0 errores)
-- **Score final**: 6.62
+- **Score final**: 6.98
 - **Calidad**: 8.45
 - **Judge score (Phi-4)**: 4.50/10
 - **Velocidad**: 10 tok/s
@@ -15,8 +15,8 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| content_generation | 2 | 2 | 6.53 | 8.24 |
-| reasoning | 2 | 2 | 6.71 | 8.66 |
+| content_generation | 2 | 2 | 6.84 | 8.24 |
+| reasoning | 2 | 2 | 7.12 | 8.66 |
 
 ## Detalle por test
 
@@ -26,10 +26,10 @@
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| business_analysis | 6.56 | 8.36 | 4.4 | 11 | 189.04s | OK |
-| logical_reasoning | 6.86 | 8.96 | 4.4 | 11 | 191.22s | OK |
+| business_analysis | 6.91 | 8.36 | 4.4 | 11 | 189.04s | OK |
+| logical_reasoning | 7.33 | 8.96 | 4.4 | 11 | 191.22s | OK |
 
-<details><summary><code>business_analysis</code> — score 6.56</summary>
+<details><summary><code>business_analysis</code> — score 6.91</summary>
 
 **Stats**: latencia 189.04s · 11 tok/s · 206→2048 tokens · $0.00661
 
@@ -52,7 +52,7 @@ Here's a thinking process:
 
 </details>
 
-<details><summary><code>logical_reasoning</code> — score 6.86</summary>
+<details><summary><code>logical_reasoning</code> — score 7.33</summary>
 
 **Stats**: latencia 191.22s · 11 tok/s · 135→2048 tokens · $0.00659
 
@@ -83,10 +83,10 @@ Here's a thinking process:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_post_es | 6.36 | 7.96 | 4.4 | 11 | 190.27s | OK |
-| email_profesional | 6.70 | 8.52 | 4.8 | 8 | 211.83s | OK |
+| blog_post_es | 6.63 | 7.96 | 4.4 | 11 | 190.27s | OK |
+| email_profesional | 7.06 | 8.52 | 4.8 | 8 | 211.83s | OK |
 
-<details><summary><code>blog_post_es</code> — score 6.36</summary>
+<details><summary><code>blog_post_es</code> — score 6.63</summary>
 
 **Stats**: latencia 190.27s · 11 tok/s · 71→2048 tokens · $0.00657
 
@@ -104,7 +104,7 @@ Durante años, la inteligencia artificial parecía un lujo reservado exclusivame
 
 </details>
 
-<details><summary><code>email_profesional</code> — score 6.70</summary>
+<details><summary><code>email_profesional</code> — score 7.06</summary>
 
 **Stats**: latencia 211.83s · 8 tok/s · 82→1674 tokens · $0.00538
 

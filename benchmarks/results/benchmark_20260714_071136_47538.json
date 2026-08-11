@@ -132,7 +132,7 @@
     {
       "quality": 8.0,
       "cost_score": 10.0,
-      "cost_usd": 5.6e-05,
+      "cost_usd": 7.1e-05,
       "speed": 1.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -168,8 +168,8 @@
     },
     {
       "quality": 6.67,
-      "cost_score": 10.0,
-      "cost_usd": 0.000181,
+      "cost_score": 9.94,
+      "cost_usd": 0.000225,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,

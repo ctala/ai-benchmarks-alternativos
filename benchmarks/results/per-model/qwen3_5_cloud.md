@@ -2,7 +2,7 @@
 
 - **model_id**: `qwen3.5:cloud`
 - **Total tests**: 56/66 exitosos (10 errores)
-- **Score final**: 6.86
+- **Score final**: 6.89
 - **Calidad**: 7.44
 - **Judge score (Phi-4)**: 4.08/10
 - **Velocidad**: 73 tok/s
@@ -15,27 +15,27 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 4 | 4 | 6.33 | 6.95 |
+| agent_capabilities | 4 | 4 | 6.75 | 6.95 |
 | business_audit | 10 | 0 | - | - |
-| code_generation | 2 | 2 | 7.95 | 9.52 |
-| content_generation | 3 | 3 | 7.56 | 8.79 |
-| customer_support | 4 | 4 | 6.70 | 6.51 |
+| code_generation | 2 | 2 | 8.46 | 9.52 |
+| content_generation | 3 | 3 | 7.95 | 8.79 |
+| customer_support | 4 | 4 | 6.21 | 6.51 |
 | deep_reasoning | 4 | 4 | 5.82 | 6.25 |
 | hallucination | 3 | 3 | 6.55 | 7.00 |
 | multi_turn | 3 | 3 | 6.72 | 7.33 |
 | ocr_extraction | 1 | 1 | 7.32 | 8.00 |
-| orchestration | 5 | 5 | 7.46 | 8.04 |
+| orchestration | 5 | 5 | 7.23 | 8.04 |
 | policy_adherence | 2 | 2 | 8.78 | 10.00 |
-| presentation | 2 | 2 | 6.66 | 7.34 |
-| reasoning | 1 | 1 | 7.54 | 9.44 |
+| presentation | 2 | 2 | 6.78 | 7.34 |
+| reasoning | 1 | 1 | 8.10 | 9.44 |
 | sales_outreach | 2 | 2 | 5.70 | 5.67 |
-| startup_content | 3 | 3 | 6.92 | 7.91 |
+| startup_content | 3 | 3 | 7.15 | 7.91 |
 | strategy | 2 | 2 | 6.16 | 6.67 |
 | string_precision | 5 | 5 | 7.46 | 8.20 |
 | structured_output | 2 | 2 | 5.14 | 5.00 |
-| summarization | 2 | 2 | 6.80 | 7.78 |
-| task_management | 1 | 1 | 7.69 | 9.24 |
-| tool_calling | 4 | 4 | 7.56 | 7.45 |
+| summarization | 2 | 2 | 7.01 | 7.78 |
+| task_management | 1 | 1 | 8.19 | 9.24 |
+| tool_calling | 4 | 4 | 7.16 | 7.45 |
 | translation | 1 | 1 | 3.90 | 3.33 |
 
 ## Detalle por test
@@ -150,9 +150,9 @@ Este análisis evalúa el dilema ético y operativo entre el
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| logical_reasoning | 7.54 | 9.44 | 4.6 | 54 | 54.96s | OK |
+| logical_reasoning | 8.10 | 9.44 | 4.6 | 54 | 54.96s | OK |
 
-<details><summary><code>logical_reasoning</code> — score 7.54</summary>
+<details><summary><code>logical_reasoning</code> — score 8.10</summary>
 
 **Stats**: latencia 54.96s · 54 tok/s · 135→2958 tokens · $0.00697
 
@@ -310,10 +310,10 @@ Aquí tienes la realidad fría, sin el filtro de "empoderamiento emprendedor".
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| python_api_integration | 7.86 | 9.52 | 4.8 | 70 | 14.07s | OK |
-| debug_code | 8.04 | 9.52 | 4.8 | 118 | 9.73s | OK |
+| python_api_integration | 8.37 | 9.52 | 4.8 | 70 | 14.07s | OK |
+| debug_code | 8.56 | 9.52 | 4.8 | 118 | 9.73s | OK |
 
-<details><summary><code>python_api_integration</code> — score 7.86</summary>
+<details><summary><code>python_api_integration</code> — score 8.37</summary>
 
 **Stats**: latencia 14.07s · 70 tok/s · 113→980 tokens · $0.00234
 
@@ -341,7 +341,7 @@ def fetch_products(
 
 </details>
 
-<details><summary><code>debug_code</code> — score 8.04</summary>
+<details><summary><code>debug_code</code> — score 8.56</summary>
 
 **Stats**: latencia 9.73s · 118 tok/s · 244→1145 tokens · $0.00277
 
@@ -544,11 +544,11 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| email_profesional | 7.52 | 8.72 | 4.8 | 115 | 12.29s | OK |
-| social_media_batch | 7.82 | 9.52 | 4.8 | 121 | 16.87s | OK |
-| product_description_en | 7.34 | 8.12 | 4.8 | 126 | 9.44s | OK |
+| email_profesional | 7.89 | 8.72 | 4.8 | 115 | 12.29s | OK |
+| social_media_batch | 8.38 | 9.52 | 4.8 | 121 | 16.87s | OK |
+| product_description_en | 7.58 | 8.12 | 4.8 | 126 | 9.44s | OK |
 
-<details><summary><code>email_profesional</code> — score 7.52</summary>
+<details><summary><code>email_profesional</code> — score 7.89</summary>
 
 **Stats**: latencia 12.29s · 115 tok/s · 82→1415 tokens · $0.00334
 
@@ -570,7 +570,7 @@ En primer lugar, quiero agradecerle por la oportunidad de presentar esta propues
 
 </details>
 
-<details><summary><code>social_media_batch</code> — score 7.82</summary>
+<details><summary><code>social_media_batch</code> — score 8.38</summary>
 
 **Stats**: latencia 16.87s · 121 tok/s · 85→2048 tokens · $0.00483
 
@@ -593,7 +593,7 @@ Si digitalizas procesos obs
 
 </details>
 
-<details><summary><code>product_description_en</code> — score 7.34</summary>
+<details><summary><code>product_description_en</code> — score 7.58</summary>
 
 **Stats**: latencia 9.44s · 126 tok/s · 65→1194 tokens · $0.00282
 
@@ -617,11 +617,11 @@ Stop juggling devices. Aura integrates premium audio, health tracking, and ambia
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_actualidad_startup | 6.57 | 7.02 | 3.8 | 100 | 20.46s | OK |
-| curso_emprendimiento_modulo | 7.11 | 8.39 | 4.6 | 67 | 30.66s | OK |
-| newsletter_startup | 7.07 | 8.32 | 4.4 | 77 | 26.51s | OK |
+| blog_actualidad_startup | 6.63 | 7.02 | 3.8 | 100 | 20.46s | OK |
+| curso_emprendimiento_modulo | 7.44 | 8.39 | 4.6 | 67 | 30.66s | OK |
+| newsletter_startup | 7.39 | 8.32 | 4.4 | 77 | 26.51s | OK |
 
-<details><summary><code>blog_actualidad_startup</code> — score 6.57</summary>
+<details><summary><code>blog_actualidad_startup</code> — score 6.63</summary>
 
 **Stats**: latencia 20.46s · 100 tok/s · 239→2048 tokens · $0.00489
 
@@ -643,7 +643,7 @@ Hace apenas dos años, integrar inteligencia artificial de punta en un producto 
 
 </details>
 
-<details><summary><code>curso_emprendimiento_modulo</code> — score 7.11</summary>
+<details><summary><code>curso_emprendimiento_modulo</code> — score 7.44</summary>
 
 **Stats**: latencia 30.66s · 67 tok/s · 232→2048 tokens · $0.00488
 
@@ -662,7 +662,7 @@ Al finalizar este módulo, serás capaz de diseñar e implementar flujos de trab
 
 </details>
 
-<details><summary><code>newsletter_startup</code> — score 7.07</summary>
+<details><summary><code>newsletter_startup</code> — score 7.39</summary>
 
 **Stats**: latencia 26.51s · 77 tok/s · 224→2048 tokens · $0.00488
 
@@ -773,10 +773,10 @@ Lo curioso es que los equipos de fintech que asesoramos lograron triplic
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| slide_outline | 6.95 | 8.08 | 4.0 | 74 | 27.80s | OK |
-| data_report | 6.36 | 6.60 | 3.2 | 104 | 19.78s | OK |
+| slide_outline | 7.22 | 8.08 | 4.0 | 74 | 27.80s | OK |
+| data_report | 6.34 | 6.60 | 3.2 | 104 | 19.78s | OK |
 
-<details><summary><code>slide_outline</code> — score 6.95</summary>
+<details><summary><code>slide_outline</code> — score 7.22</summary>
 
 **Stats**: latencia 27.80s · 74 tok/s · 137→2048 tokens · $0.00485
 
@@ -798,7 +798,7 @@ Aquí tienes el outline completo para la presentación del estado del proyecto "
 
 </details>
 
-<details><summary><code>data_report</code> — score 6.36</summary>
+<details><summary><code>data_report</code> — score 6.34</summary>
 
 **Stats**: latencia 19.78s · 104 tok/s · 171→2048 tokens · $0.00486
 
@@ -827,12 +827,12 @@ A continuación se detallan las ventas por producto y los totales consolidados p
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| single_tool_calendar | 7.84 | 7.66 | 4.4 | 86 | 3.00s | OK |
-| multi_tool_sequential | 7.89 | 7.66 | 4.4 | 108 | 4.07s | OK |
-| tool_with_reasoning | 7.46 | 7.38 | 4.2 | 101 | 8.70s | OK |
-| no_tool_needed | 7.06 | 7.10 | 4.0 | 13 | 9.72s | OK |
+| single_tool_calendar | 7.47 | 7.66 | 4.4 | 86 | 3.00s | OK |
+| multi_tool_sequential | 7.54 | 7.66 | 4.4 | 108 | 4.07s | OK |
+| tool_with_reasoning | 7.09 | 7.38 | 4.2 | 101 | 8.70s | OK |
+| no_tool_needed | 6.55 | 7.10 | 4.0 | 13 | 9.72s | OK |
 
-<details><summary><code>single_tool_calendar</code> — score 7.84</summary>
+<details><summary><code>single_tool_calendar</code> — score 7.47</summary>
 
 **Stats**: latencia 3.00s · 86 tok/s · 950→258 tokens · $0.00097
 
@@ -848,7 +848,7 @@ A continuación se detallan las ventas por producto y los totales consolidados p
 
 </details>
 
-<details><summary><code>multi_tool_sequential</code> — score 7.89</summary>
+<details><summary><code>multi_tool_sequential</code> — score 7.54</summary>
 
 **Stats**: latencia 4.07s · 108 tok/s · 979→440 tokens · $0.00141
 
@@ -865,7 +865,7 @@ A continuación se detallan las ventas por producto y los totales consolidados p
 
 </details>
 
-<details><summary><code>tool_with_reasoning</code> — score 7.46</summary>
+<details><summary><code>tool_with_reasoning</code> — score 7.09</summary>
 
 **Stats**: latencia 8.70s · 101 tok/s · 954→880 tokens · $0.00243
 
@@ -882,7 +882,7 @@ A continuación se detallan las ventas por producto y los totales consolidados p
 
 </details>
 
-<details><summary><code>no_tool_needed</code> — score 7.06</summary>
+<details><summary><code>no_tool_needed</code> — score 6.55</summary>
 
 **Stats**: latencia 9.72s · 13 tok/s · 912→128 tokens · $0.00065
 
@@ -904,12 +904,12 @@ La capital de Francia es **París**. Es la ciudad más grande del país y uno de
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| angry_customer_refund | 7.87 | 7.72 | 3.8 | 58 | 4.61s | OK |
-| ambiguous_issue_classification | 7.24 | 8.16 | 4.2 | 5 | 97.51s | OK |
-| multi_issue_conversation | 4.97 | 3.39 | 2.4 | 48 | 5.21s | OK |
-| social_engineering_attempt | 6.70 | 6.76 | 4.2 | 9 | 34.13s | OK |
+| angry_customer_refund | 7.51 | 7.72 | 3.8 | 58 | 4.61s | OK |
+| ambiguous_issue_classification | 7.00 | 8.16 | 4.2 | 5 | 97.51s | OK |
+| multi_issue_conversation | 4.19 | 3.39 | 2.4 | 48 | 5.21s | OK |
+| social_engineering_attempt | 6.15 | 6.76 | 4.2 | 9 | 34.13s | OK |
 
-<details><summary><code>angry_customer_refund</code> — score 7.87</summary>
+<details><summary><code>angry_customer_refund</code> — score 7.51</summary>
 
 **Stats**: latencia 4.61s · 58 tok/s · 871→267 tokens · $0.00096
 
@@ -927,7 +927,7 @@ Antes de procesar su reembolso, necesito verificar la información
 
 </details>
 
-<details><summary><code>ambiguous_issue_classification</code> — score 7.24</summary>
+<details><summary><code>ambiguous_issue_classification</code> — score 7.00</summary>
 
 **Stats**: latencia 97.51s · 5 tok/s · 851→454 tokens · $0.00139
 
@@ -943,7 +943,7 @@ Antes de procesar su reembolso, necesito verificar la información
 
 </details>
 
-<details><summary><code>multi_issue_conversation</code> — score 4.97</summary>
+<details><summary><code>multi_issue_conversation</code> — score 4.19</summary>
 
 **Stats**: latencia 5.21s · 48 tok/s · 867→251 tokens · $0.00093
 
@@ -960,7 +960,7 @@ Antes de procesar su reembolso, necesito verificar la información
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 6.70</summary>
+<details><summary><code>social_engineering_attempt</code> — score 6.15</summary>
 
 **Stats**: latencia 34.13s · 9 tok/s · 853→299 tokens · $0.00103
 
@@ -980,13 +980,13 @@ Antes de procesar su reembolso, necesito verificar la información
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| multi_step_research_plan | 8.08 | 8.88 | 4.2 | 84 | 8.49s | OK |
+| multi_step_research_plan | 8.01 | 8.88 | 4.2 | 84 | 8.49s | OK |
 | error_recovery_orchestration | 7.01 | 7.50 | 3.6 | 42 | 7.95s | OK |
-| complex_workflow_decomposition | 5.05 | 3.83 | 2.0 | 8 | 76.31s | OK |
+| complex_workflow_decomposition | 3.97 | 3.83 | 2.0 | 8 | 76.31s | OK |
 | tool_selection_precision | 8.81 | 10.00 | 4.2 | 66 | 9.37s | OK |
 | parallel_vs_sequential_judgment | 8.33 | 10.00 | 4.6 | 26 | 46.38s | OK |
 
-<details><summary><code>multi_step_research_plan</code> — score 8.08</summary>
+<details><summary><code>multi_step_research_plan</code> — score 8.01</summary>
 
 **Stats**: latencia 8.49s · 84 tok/s · 1504→717 tokens · $0.00226
 
@@ -1028,7 +1028,7 @@ Entiendo la urgencia. Voy a explorar alternativas para obtener los datos de vent
 
 </details>
 
-<details><summary><code>complex_workflow_decomposition</code> — score 5.05</summary>
+<details><summary><code>complex_workflow_decomposition</code> — score 3.97</summary>
 
 **Stats**: latencia 76.31s · 8 tok/s · 1506→622 tokens · $0.00204
 
@@ -1210,12 +1210,12 @@ Para validar
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| skill_execution_complex | 6.24 | 7.48 | 3.2 | 115 | 4.68s | OK |
-| agent_team_delegation | 7.30 | 8.68 | 4.2 | 90 | 6.64s | OK |
-| ask_clarification_before_acting | 8.54 | 9.12 | 4.8 | 83 | 2.96s | OK |
+| skill_execution_complex | 7.37 | 7.48 | 3.2 | 115 | 4.68s | OK |
+| agent_team_delegation | 7.89 | 8.68 | 4.2 | 90 | 6.64s | OK |
+| ask_clarification_before_acting | 8.47 | 9.12 | 4.8 | 83 | 2.96s | OK |
 | context_following_complex_system | 3.25 | 2.50 | 3.2 | 18 | 21.62s | OK |
 
-<details><summary><code>skill_execution_complex</code> — score 6.24</summary>
+<details><summary><code>skill_execution_complex</code> — score 7.37</summary>
 
 **Stats**: latencia 4.68s · 115 tok/s · 1369→538 tokens · $0.00179
 
@@ -1237,7 +1237,7 @@ Sin embargo, me falta información crítica antes de proceder:
 
 </details>
 
-<details><summary><code>agent_team_delegation</code> — score 7.30</summary>
+<details><summary><code>agent_team_delegation</code> — score 7.89</summary>
 
 **Stats**: latencia 6.64s · 90 tok/s · 1429→598 tokens · $0.00196
 
@@ -1261,7 +1261,7 @@ Voy a coordinar a los 5 sub-agentes para crear la landing page. Aquí está el p
 
 </details>
 
-<details><summary><code>ask_clarification_before_acting</code> — score 8.54</summary>
+<details><summary><code>ask_clarification_before_acting</code> — score 8.47</summary>
 
 **Stats**: latencia 2.96s · 83 tok/s · 1271→247 tokens · $0.00107
 
@@ -1301,9 +1301,9 @@ Esto sí puedo hacerlo. El contenido está alineado con nuestra línea editorial
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| project_breakdown | 7.69 | 9.24 | 4.6 | 120 | 17.02s | OK |
+| project_breakdown | 8.19 | 9.24 | 4.6 | 120 | 17.02s | OK |
 
-<details><summary><code>project_breakdown</code> — score 7.69</summary>
+<details><summary><code>project_breakdown</code> — score 8.19</summary>
 
 **Stats**: latencia 17.02s · 120 tok/s · 76→2048 tokens · $0.00482
 
@@ -1325,10 +1325,10 @@ Este es un plan de proyecto detallado y realista para lanzar una Landing Page de
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| long_document_summary | 7.25 | 8.68 | 4.2 | 79 | 26.03s | OK |
-| extract_structured_data | 6.36 | 6.88 | 3.2 | 67 | 29.83s | OK |
+| long_document_summary | 7.64 | 8.68 | 4.2 | 79 | 26.03s | OK |
+| extract_structured_data | 6.39 | 6.88 | 3.2 | 67 | 29.83s | OK |
 
-<details><summary><code>long_document_summary</code> — score 7.25</summary>
+<details><summary><code>long_document_summary</code> — score 7.64</summary>
 
 **Stats**: latencia 26.03s · 79 tok/s · 463→2048 tokens · $0.00497
 
@@ -1348,7 +1348,7 @@ Este es un plan de proyecto detallado y realista para lanzar una Landing Page de
 
 </details>
 
-<details><summary><code>extract_structured_data</code> — score 6.36</summary>
+<details><summary><code>extract_structured_data</code> — score 6.39</summary>
 
 **Stats**: latencia 29.83s · 67 tok/s · 275→1998 tokens · $0.00478
 

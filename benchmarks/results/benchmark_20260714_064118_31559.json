@@ -169,7 +169,7 @@
     {
       "quality": 5.0,
       "cost_score": 10.0,
-      "cost_usd": 3.7e-05,
+      "cost_usd": 4.6e-05,
       "speed": 4.0,
       "latency": 6.0,
       "tool_calling": 7.0,
@@ -206,7 +206,7 @@
     {
       "quality": 5.0,
       "cost_score": 10.0,
-      "cost_usd": 7.6e-05,
+      "cost_usd": 9.5e-05,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 7.0,
@@ -242,12 +242,12 @@
     },
     {
       "quality": 5.0,
-      "cost_score": 9.18,
-      "cost_usd": 0.000405,
+      "cost_score": 8.89,
+      "cost_usd": 0.000503,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 5.25,
+      "final": 5.21,
       "test_name": "json_nested_complex",
       "model": "DeepSeek V3",
       "model_id": "deepseek/deepseek-v3.2",
@@ -280,7 +280,7 @@
     {
       "quality": 5.0,
       "cost_score": 10.0,
-      "cost_usd": 2.7e-05,
+      "cost_usd": 3.4e-05,
       "speed": 2.0,
       "latency": 4.0,
       "tool_calling": 7.0,

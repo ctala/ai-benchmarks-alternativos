@@ -21,7 +21,7 @@
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 3.8e-05,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 7.0,
@@ -58,7 +58,7 @@
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 4.7e-05,
       "speed": 6.0,
       "latency": 4.0,
       "tool_calling": 7.0,
@@ -95,7 +95,7 @@
     {
       "quality": 1.0,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 5.4e-05,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
@@ -132,7 +132,7 @@
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 5e-05,
       "speed": 6.0,
       "latency": 4.0,
       "tool_calling": 7.0,
@@ -169,7 +169,7 @@
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 6.5e-05,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
@@ -206,7 +206,7 @@
     {
       "quality": 8.0,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 0.000131,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -243,7 +243,7 @@
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 8.6e-05,
+      "cost_usd": 9.2e-05,
       "speed": 6.0,
       "latency": 6.0,
       "tool_calling": 7.0,
@@ -280,7 +280,7 @@
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 0.00018,
+      "cost_usd": 0.000188,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
@@ -317,7 +317,7 @@
     {
       "quality": 1.0,
       "cost_score": 10.0,
-      "cost_usd": 0.000175,
+      "cost_usd": 0.000185,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
@@ -354,7 +354,7 @@
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 0.000138,
+      "cost_usd": 0.000146,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
@@ -391,7 +391,7 @@
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 0.000111,
+      "cost_usd": 0.000118,
       "speed": 8.0,
       "latency": 6.0,
       "tool_calling": 7.0,
@@ -427,12 +427,12 @@
     },
     {
       "quality": 8.0,
-      "cost_score": 9.41,
-      "cost_usd": 0.000339,
+      "cost_score": 9.34,
+      "cost_usd": 0.000357,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 7.91,
+      "final": 7.9,
       "test_name": "write_config_file",
       "model": "MiniMax M2.5",
       "model_id": "minimax/minimax-m2.5",

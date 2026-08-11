@@ -28,74 +28,74 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 
 | Modelo | OS | $ in/out | Score | Runs | Per-model MD | Responses |
 |---|---|---:|---:|---:|---|---|
-| `openai/gpt-5.6-luna` | ❌  | $1.0/6.0 | **8.34** | 138 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-luna.md) | — |
-| `gpt-5.4-mini` | ❌  | $0.5/1.5 | **7.80** | 130 | [per-model](benchmarks/results/per-model/gpt-5_4-mini.md) | — |
+| `openai/gpt-5.6-luna` | ❌  | $0.1/0.6 | **8.80** | 138 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-luna.md) | — |
+| `gpt-5.4-mini` | ❌  | $0.5/1.5 | **7.79** | 130 | [per-model](benchmarks/results/per-model/gpt-5_4-mini.md) | — |
+| `z-ai/glm-5.2` | ✅ MIT | $0.4886/1.5356 | **7.33** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5_2.md) | — |
 | `mistralai/ministral-14b-2512` | ✅ Apache 2.0 | $0.2/0.2 | **7.21** | 137 | [per-model](benchmarks/results/per-model/mistralai_ministral-14b-2512.md) | — |
-| `google/gemma-4-26b-a4b-it` | ✅ Apache 2.0 | $0.15/0.3 | **7.19** | 137 | [per-model](benchmarks/results/per-model/google_gemma-4-26b-a4b-it.md) | [responses](benchmarks/results/responses/20260716_rm_gemma_4_26b_/) |
-| `qwen/qwen3.6-plus` | ❌ Proprietary | $0.18/1.07 | **7.17** | 140 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-plus.md) | — |
-| `z-ai/glm-5.2` | ✅ MIT | $0.95/3.0 | **7.14** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5_2.md) | — |
+| `google/gemma-4-26b-a4b-it` | ✅ Apache 2.0 | $0.12/0.4 | **7.19** | 137 | [per-model](benchmarks/results/per-model/google_gemma-4-26b-a4b-it.md) | [responses](benchmarks/results/responses/20260716_rm_gemma_4_26b_/) |
 | `mistralai/mistral-large-2512` | ✅ Apache 2.0 | $0.5/1.5 | **7.08** | 128 | [per-model](benchmarks/results/per-model/mistralai_mistral-large-2512.md) | [responses](benchmarks/results/responses/20260716_rm_mistral_large_/) |
+| `qwen/qwen3.6-plus` | ❌ Proprietary | $0.325/1.95 | **7.00** | 140 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-plus.md) | — |
 | `nvidia/llama-3.3-nemotron-super-49b-v1.5` | ✅ NVIDIA Open Model | $0.4/0.4 | **6.87** | 128 | [per-model](benchmarks/results/per-model/nvidia_llama-3_3-nemotron-super-49b-v1_5.md) | [responses](benchmarks/results/responses/20260716_rm_nemotron_super_/) |
 | `anthropic/claude-opus-4-6` | ❌  | $5.0/25.0 | **6.86** | 185 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-6.md) | — |
-| `z-ai/glm-5` | ✅ MIT | $0.6/1.92 | **6.86** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5.md) | [responses](benchmarks/results/responses/20260716_rm_glm_5_2_/) |
 | `anthropic/claude-opus-4.8` | ❌  | $5.0/25.0 | **6.85** | 127 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4_8.md) | — |
 | `gpt-4.1` | ❌  | $2.0/8.0 | **6.79** | 139 | [per-model](benchmarks/results/per-model/gpt-4_1.md) | — |
+| `xiaomi/mimo-v2.5-pro` | ❌  | $0.435/0.87 | **6.79** | 138 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5-pro.md) | — |
+| `z-ai/glm-5.1` | ✅ MIT | $0.952/2.992 | **6.78** | 154 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
 | `gpt-5.4` | ❌  | $5.0/15.0 | **6.78** | 124 | [per-model](benchmarks/results/per-model/gpt-5_4.md) | — |
-| `z-ai/glm-5.1` | ✅ MIT | $0.95/3.15 | **6.77** | 154 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
+| `z-ai/glm-5` | ✅ MIT | $0.95/2.55 | **6.77** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5.md) | [responses](benchmarks/results/responses/20260716_rm_glm_5_2_/) |
 | `deepseek/deepseek-r1` | ✅ MIT | $0.7/2.5 | **6.70** | 138 | [per-model](benchmarks/results/per-model/deepseek_deepseek-r1.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_r1_/) |
-| `deepseek/deepseek-v3.2` | ✅ MIT | $0.214/0.322 | **6.65** | 132 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v3_2.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v3_/) |
+| `deepseek/deepseek-v3.2` | ✅ MIT | $0.269/0.4 | **6.65** | 132 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v3_2.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v3_/) |
 | `minimax/minimax-m3` | ❌  | $0.3/1.2 | **6.57** | 206 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/20260716_rm_minimax_m3_/) |
-| `qwen/qwen3.6-max-preview` | ❌ Proprietary | $1.04/6.24 | **6.54** | 149 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-max-preview.md) | — |
+| `qwen/qwen3.6-max-preview` | ❌ Proprietary | $1.027/6.162 | **6.54** | 149 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-max-preview.md) | — |
 | `anthropic/claude-opus-4-7` | ❌  | $5.0/25.0 | **6.51** | 172 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-7.md) | — |
 | `mistralai/mistral-large` | ❌ MRL (no comercial) | $2.0/6.0 | **6.50** | 141 | [per-model](benchmarks/results/per-model/mistralai_mistral-large.md) | [responses](benchmarks/results/responses/20260716_rm_or_mistral_large_3_/) |
-| `xiaomi/mimo-v2.5-pro` | ❌  | $1.0/3.0 | **6.49** | 138 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5-pro.md) | — |
-| `minimax/minimax-m2.5` | ✅ MIT | $0.15/0.9 | **6.49** | 128 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_5.md) | — |
-| `deepseek/deepseek-chat` | ❌  | $0.14/0.28 | **6.47** | 246 | [per-model](benchmarks/results/per-model/deepseek_deepseek-chat.md) | — |
-| `deepseek/deepseek-v4-flash` | ✅ MIT | $0.098/0.197 | **6.30** | 144 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-flash.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_flash_/) |
+| `openai/gpt-5.6-terra` | ❌  | $1/6 | **6.49** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-terra.md) | — |
+| `minimax/minimax-m2.5` | ✅ MIT | $0.22/0.9 | **6.48** | 128 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_5.md) | — |
+| `deepseek/deepseek-chat` | ❌  | $0.2574/1.0287 | **6.34** | 246 | [per-model](benchmarks/results/per-model/deepseek_deepseek-chat.md) | — |
+| `deepseek/deepseek-v4-flash` | ✅ MIT | $0.14/0.28 | **6.29** | 144 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-flash.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_flash_/) |
 | `anthropic/claude-sonnet-4-6` | ❌  | $3.0/15.0 | **6.28** | 133 | [per-model](benchmarks/results/per-model/anthropic_claude-sonnet-4-6.md) | — |
+| `xiaomi/mimo-v2.5` | ❌  | $0.14/0.28 | **6.28** | 139 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5.md) | — |
 | `openai/gpt-5.6-sol` | ❌  | $5.0/30.0 | **6.25** | 141 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-sol.md) | — |
-| `openai/gpt-5.6-terra` | ❌  | $2.5/15.0 | **6.22** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-terra.md) | — |
 | `anthropic/claude-haiku-4.5` | ❌  | $1.0/5.0 | **6.09** | 119 | [per-model](benchmarks/results/per-model/anthropic_claude-haiku-4_5.md) | — |
-| `xiaomi/mimo-v2.5` | ❌  | $0.4/2.0 | **6.02** | 139 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5.md) | — |
+| `qwen/qwen3.7-max` | ❌ Proprietary | $1.475/4.425 | **5.97** | 134 | [per-model](benchmarks/results/per-model/qwen_qwen3_7-max.md) | — |
 | `google/gemini-3.1-flash-lite-preview` | ❌  | $0.25/1.5 | **5.93** | 139 | [per-model](benchmarks/results/per-model/google_gemini-3_1-flash-lite-preview.md) | — |
 | `moonshotai/kimi-k3` | ✅  | $3.0/15.0 | **5.90** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
 | `qwen/qwen3-next-80b-a3b-instruct` | ✅ Apache 2.0 | $0.09/1.1 | **5.89** | 133 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-instruct.md) | — |
-| `qwen/qwen3.7-max` | ❌ Proprietary | $2.5/7.5 | **5.80** | 134 | [per-model](benchmarks/results/per-model/qwen_qwen3_7-max.md) | — |
 | `google/gemini-2.5-flash-lite` | ❌  | $0.1/0.4 | **5.69** | 129 | [per-model](benchmarks/results/per-model/google_gemini-2_5-flash-lite.md) | — |
 | `qwen/qwen3.5-35b-a3b` | ✅ Apache 2.0 | $0.14/1.0 | **5.64** | 125 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-35b-a3b.md) | — |
-| `moonshotai/kimi-k2` | ✅ Modified MIT | $0.2/0.8 | **5.56** | 156 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_7_code_/) |
-| `qwen/qwen3-coder` | ✅ Apache 2.0 | $0.2/0.6 | **5.56** | 138 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder.md) | [responses](benchmarks/results/responses/20260716_sr/) |
-| `deepseek/deepseek-v4-pro` | ✅ MIT | $0.435/0.87 | **5.53** | 172 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-pro.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_pro_/) |
+| `qwen/qwen3-coder` | ✅ Apache 2.0 | $0.3/1 | **5.52** | 138 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder.md) | [responses](benchmarks/results/responses/20260716_sr/) |
 | `gpt-4.1-mini` | ❌  | $0.4/1.6 | **5.46** | 138 | [per-model](benchmarks/results/per-model/gpt-4_1-mini.md) | — |
+| `deepseek/deepseek-v4-pro` | ✅ MIT | $0.63168/1.26336 | **5.44** | 172 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-pro.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_pro_/) |
 | `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | ✅ NVIDIA Open License | $0.1/0.4 | **5.44** | 147 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-nano-omni-30b-a3b-reasoning_free.md) | — |
+| `meta-llama/llama-4-maverick` | ✅ Llama Community | $0.2/0.696 | **5.43** | 141 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-maverick.md) | [responses](benchmarks/results/responses/20260716_rm_llama_4_maverick_/) |
 | `google/gemini-2.5-flash` | ❌  | $0.3/2.5 | **5.42** | 138 | [per-model](benchmarks/results/per-model/google_gemini-2_5-flash.md) | — |
 | `nousresearch/hermes-4-405b` | ✅ Llama 3 community | $1.0/3.0 | **5.41** | 138 | [per-model](benchmarks/results/per-model/nousresearch_hermes-4-405b.md) | [responses](benchmarks/results/responses/20260716_rm_hermes_4_405b_/) |
-| `meta-llama/llama-4-maverick` | ✅ Llama Community | $0.5/1.0 | **5.39** | 141 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-maverick.md) | [responses](benchmarks/results/responses/20260716_rm_llama_4_maverick_/) |
-| `nvidia/nemotron-3-ultra-550b-a55b` | ✅ NVIDIA Open Model | $0.5/2.2 | **5.37** | 137 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-ultra-550b-a55b.md) | — |
+| `moonshotai/kimi-k2` | ✅ Modified MIT | $0.57/2.3 | **5.39** | 156 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_7_code_/) |
 | `mistralai/mistral-small-2603` | ✅ Apache 2.0 | $0.15/0.6 | **5.37** | 126 | [per-model](benchmarks/results/per-model/mistralai_mistral-small-2603.md) | — |
 | `mistralai/devstral-2512` | ✅ Apache 2.0 | $0.4/2.0 | **5.30** | 136 | [per-model](benchmarks/results/per-model/mistralai_devstral-2512.md) | [responses](benchmarks/results/responses/20260716_rm_devstral_2_/) |
 | `openai/gpt-oss-120b` | ✅ Apache 2.0 | $0.036/0.18 | **5.29** | 130 | [per-model](benchmarks/results/per-model/openai_gpt-oss-120b.md) | [responses](benchmarks/results/responses/20260716_rm_or_gpt_oss_120b_/) |
+| `moonshotai/kimi-k2.6` | ✅ Modified MIT | $0.5795/2.44 | **5.26** | 213 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_6.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
+| `nvidia/nemotron-3-ultra-550b-a55b` | ✅ NVIDIA Open Model | $0.6/3.6 | **5.25** | 137 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-ultra-550b-a55b.md) | — |
 | `x-ai/grok-4.5` | ❌  | $2.0/6.0 | **5.21** | 133 | [per-model](benchmarks/results/per-model/x-ai_grok-4_5.md) | — |
 | `nvidia/nemotron-nano-9b-v2:free` | ✅ NVIDIA Open License | $0.05/0.2 | **5.16** | 124 | [per-model](benchmarks/results/per-model/nvidia_nemotron-nano-9b-v2_free.md) | [responses](benchmarks/results/responses/20260716_rnano/) |
-| `moonshotai/kimi-k2.6` | ✅ Modified MIT | $0.73/3.49 | **5.15** | 213 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_6.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
 | `qwen/qwen3.6-35b-a3b` | ✅ Apache 2.0 | $0.14/1.0 | **5.14** | 133 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-35b-a3b.md) | — |
 | `anthropic/claude-fable-5` | ❌ Proprietary | $10.0/50.0 | **5.12** | 185 | [per-model](benchmarks/results/per-model/anthropic_claude-fable-5.md) | [responses](benchmarks/results/responses/20260716_rm_or_claude_fable_5_/) |
 | `minimax/minimax-m2.7` | ❌  | $0.3/1.2 | **5.02** | 193 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_7.md) | — |
 | `x-ai/grok-4.20` | ❌  | $1.25/2.5 | **4.67** | 122 | [per-model](benchmarks/results/per-model/x-ai_grok-4_20.md) | — |
 | `x-ai/grok-4.3` | ❌  | $1.25/2.5 | **4.64** | 143 | [per-model](benchmarks/results/per-model/x-ai_grok-4_3.md) | — |
-| `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.385/2.45 | **4.59** | 130 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-397b-a17b.md) | — |
 | `meta-llama/llama-4-scout` | ✅ Llama Community | $0.1/0.3 | **4.51** | 128 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-scout.md) | [responses](benchmarks/results/responses/20260716_rm_or_llama_4_scout_/) |
+| `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.5/3.6 | **4.47** | 130 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-397b-a17b.md) | — |
 | `qwen/qwen3-coder-next` | ✅ Apache 2.0 | $0.11/0.8 | **4.43** | 156 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder-next.md) | [responses](benchmarks/results/responses/20260716_sr/) |
-| `nvidia/nemotron-3-super-120b-a12b` | ✅ NVIDIA Open | $0.1/0.5 | **4.31** | 135 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-super-120b-a12b.md) | — |
+| `nvidia/nemotron-3-super-120b-a12b` | ✅ NVIDIA Open | $0.085/0.4 | **4.33** | 135 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-super-120b-a12b.md) | — |
 | `meta-llama/llama-3.3-70b-instruct` | ✅ Llama Community | $0.1/0.32 | **4.18** | 147 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_3-70b-instruct.md) | — |
 | `nousresearch/hermes-4-70b` | ✅ Llama 3 community | $0.13/0.4 | **3.96** | 141 | [per-model](benchmarks/results/per-model/nousresearch_hermes-4-70b.md) | [responses](benchmarks/results/responses/20260716_rm_hermes_4_70b_/) |
 | `openai/gpt-oss-20b` | ✅ Apache 2.0 | $0.029/0.14 | **3.88** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-oss-20b.md) | [responses](benchmarks/results/responses/20260716_rm_or_gpt_oss_20b_/) |
-| `moonshotai/kimi-k2.7-code` | ✅ Modified MIT | $0.74/3.5 | **3.80** | 133 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_7-code.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
-| `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.29/3.2 | **3.54** | 158 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-27b.md) | — |
+| `moonshotai/kimi-k2.7-code` | ✅ Modified MIT | $0.7/3.5 | **3.80** | 133 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_7-code.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
+| `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.6/3.6 | **3.50** | 158 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-27b.md) | — |
 | `google/gemini-2.5-pro` | ❌  | $1.25/10.0 | **3.24** | 155 | [per-model](benchmarks/results/per-model/google_gemini-2_5-pro.md) | — |
-| `qwen/qwen3-next-80b-a3b-thinking` | ✅ Apache 2.0 | $0.098/0.78 | **3.07** | 132 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-thinking.md) | — |
+| `qwen/qwen3-next-80b-a3b-thinking` | ✅ Apache 2.0 | $0.15/1.2 | **2.95** | 132 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-thinking.md) | — |
 | `nvidia/nemotron-3-nano-30b-a3b` | ✅ NVIDIA Open | $0.05/0.2 | **2.66** | 128 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-nano-30b-a3b.md) | — |
-| `meta-llama/llama-3.1-8b-instruct` | ✅ Llama Community | $0.02/0.03 | **1.44** | 121 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_1-8b-instruct.md) | — |
+| `meta-llama/llama-3.1-8b-instruct` | ✅ Llama Community | $0.05/0.08 | **1.44** | 121 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_1-8b-instruct.md) | — |
 | `google/gemini-3.5-flash` | ❌  | $1.5/9.0 | **1.43** | 142 | [per-model](benchmarks/results/per-model/google_gemini-3_5-flash.md) | — |
 | `google/gemini-3.1-pro-preview` | ❌  | $2.0/12.0 | **0.50** | 119 | [per-model](benchmarks/results/per-model/google_gemini-3_1-pro-preview.md) | — |
 
@@ -103,49 +103,49 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 
 | Modelo | OS | $ in/out | Score | Runs | Per-model MD | Responses |
 |---|---|---:|---:|---:|---|---|
-| `openai/gpt-5.6-luna` | ❌  | $1.0/6.0 | **8.41** | 138 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-luna.md) | — |
+| `openai/gpt-5.6-luna` | ❌  | $0.1/0.6 | **8.41** | 138 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-luna.md) | — |
 | `anthropic/claude-opus-4-6` | ❌  | $5.0/25.0 | **8.34** | 185 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-6.md) | — |
-| `z-ai/glm-5.2` | ✅ MIT | $0.95/3.0 | **8.30** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5_2.md) | — |
+| `z-ai/glm-5.2` | ✅ MIT | $0.4886/1.5356 | **8.30** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5_2.md) | — |
 | `anthropic/claude-opus-4.8` | ❌  | $5.0/25.0 | **8.30** | 127 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4_8.md) | — |
 | `deepseek/deepseek-r1` | ✅ MIT | $0.7/2.5 | **8.29** | 138 | [per-model](benchmarks/results/per-model/deepseek_deepseek-r1.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_r1_/) |
-| `qwen/qwen3.6-max-preview` | ❌ Proprietary | $1.04/6.24 | **8.29** | 149 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-max-preview.md) | — |
-| `qwen/qwen3.6-plus` | ❌ Proprietary | $0.18/1.07 | **8.27** | 140 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-plus.md) | — |
+| `qwen/qwen3.6-max-preview` | ❌ Proprietary | $1.027/6.162 | **8.29** | 149 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-max-preview.md) | — |
+| `qwen/qwen3.6-plus` | ❌ Proprietary | $0.325/1.95 | **8.27** | 140 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-plus.md) | — |
 | `anthropic/claude-opus-4-7` | ❌  | $5.0/25.0 | **8.26** | 172 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-7.md) | — |
-| `z-ai/glm-5.1` | ✅ MIT | $0.95/3.15 | **8.25** | 154 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
-| `z-ai/glm-5` | ✅ MIT | $0.6/1.92 | **8.24** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5.md) | [responses](benchmarks/results/responses/20260716_rm_glm_5_2_/) |
+| `z-ai/glm-5.1` | ✅ MIT | $0.952/2.992 | **8.25** | 154 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
+| `z-ai/glm-5` | ✅ MIT | $0.95/2.55 | **8.24** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5.md) | [responses](benchmarks/results/responses/20260716_rm_glm_5_2_/) |
 | `moonshotai/kimi-k3` | ✅  | $3.0/15.0 | **8.22** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
 | `gpt-5.4-mini` | ❌  | $0.5/1.5 | **8.21** | 130 | [per-model](benchmarks/results/per-model/gpt-5_4-mini.md) | — |
 | `gpt-5.4` | ❌  | $5.0/15.0 | **8.20** | 124 | [per-model](benchmarks/results/per-model/gpt-5_4.md) | — |
 | `openai/gpt-5.6-sol` | ❌  | $5.0/30.0 | **8.20** | 141 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-sol.md) | — |
-| `google/gemma-4-26b-a4b-it` | ✅ Apache 2.0 | $0.15/0.3 | **8.19** | 137 | [per-model](benchmarks/results/per-model/google_gemma-4-26b-a4b-it.md) | [responses](benchmarks/results/responses/20260716_rm_gemma_4_26b_/) |
+| `google/gemma-4-26b-a4b-it` | ✅ Apache 2.0 | $0.12/0.4 | **8.19** | 137 | [per-model](benchmarks/results/per-model/google_gemma-4-26b-a4b-it.md) | [responses](benchmarks/results/responses/20260716_rm_gemma_4_26b_/) |
 | `mistralai/mistral-large-2512` | ✅ Apache 2.0 | $0.5/1.5 | **8.18** | 128 | [per-model](benchmarks/results/per-model/mistralai_mistral-large-2512.md) | [responses](benchmarks/results/responses/20260716_rm_mistral_large_/) |
 | `nvidia/llama-3.3-nemotron-super-49b-v1.5` | ✅ NVIDIA Open Model | $0.4/0.4 | **8.17** | 128 | [per-model](benchmarks/results/per-model/nvidia_llama-3_3-nemotron-super-49b-v1_5.md) | [responses](benchmarks/results/responses/20260716_rm_nemotron_super_/) |
 | `anthropic/claude-sonnet-4-6` | ❌  | $3.0/15.0 | **8.17** | 133 | [per-model](benchmarks/results/per-model/anthropic_claude-sonnet-4-6.md) | — |
 | `mistralai/ministral-14b-2512` | ✅ Apache 2.0 | $0.2/0.2 | **8.16** | 137 | [per-model](benchmarks/results/per-model/mistralai_ministral-14b-2512.md) | — |
+| `xiaomi/mimo-v2.5-pro` | ❌  | $0.435/0.87 | **8.15** | 138 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5-pro.md) | — |
 | `minimax/minimax-m3` | ❌  | $0.3/1.2 | **8.15** | 206 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/20260716_rm_minimax_m3_/) |
 | `mistralai/mistral-large` | ❌ MRL (no comercial) | $2.0/6.0 | **8.15** | 141 | [per-model](benchmarks/results/per-model/mistralai_mistral-large.md) | [responses](benchmarks/results/responses/20260716_rm_or_mistral_large_3_/) |
-| `xiaomi/mimo-v2.5-pro` | ❌  | $1.0/3.0 | **8.15** | 138 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5-pro.md) | — |
-| `deepseek/deepseek-v3.2` | ✅ MIT | $0.214/0.322 | **8.14** | 132 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v3_2.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v3_/) |
-| `deepseek/deepseek-chat` | ❌  | $0.14/0.28 | **8.13** | 246 | [per-model](benchmarks/results/per-model/deepseek_deepseek-chat.md) | — |
+| `deepseek/deepseek-v3.2` | ✅ MIT | $0.269/0.4 | **8.14** | 132 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v3_2.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v3_/) |
+| `deepseek/deepseek-chat` | ❌  | $0.2574/1.0287 | **8.13** | 246 | [per-model](benchmarks/results/per-model/deepseek_deepseek-chat.md) | — |
 | `gpt-4.1` | ❌  | $2.0/8.0 | **8.12** | 139 | [per-model](benchmarks/results/per-model/gpt-4_1.md) | — |
-| `qwen/qwen3.7-max` | ❌ Proprietary | $2.5/7.5 | **8.12** | 134 | [per-model](benchmarks/results/per-model/qwen_qwen3_7-max.md) | — |
-| `openai/gpt-5.6-terra` | ❌  | $2.5/15.0 | **8.09** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-terra.md) | — |
-| `minimax/minimax-m2.5` | ✅ MIT | $0.15/0.9 | **8.06** | 128 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_5.md) | — |
-| `xiaomi/mimo-v2.5` | ❌  | $0.4/2.0 | **8.05** | 139 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5.md) | — |
+| `qwen/qwen3.7-max` | ❌ Proprietary | $1.475/4.425 | **8.12** | 134 | [per-model](benchmarks/results/per-model/qwen_qwen3_7-max.md) | — |
+| `openai/gpt-5.6-terra` | ❌  | $1/6 | **8.09** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-terra.md) | — |
+| `minimax/minimax-m2.5` | ✅ MIT | $0.22/0.9 | **8.06** | 128 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_5.md) | — |
+| `xiaomi/mimo-v2.5` | ❌  | $0.14/0.28 | **8.05** | 139 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5.md) | — |
 | `anthropic/claude-fable-5` | ❌ Proprietary | $10.0/50.0 | **8.05** | 185 | [per-model](benchmarks/results/per-model/anthropic_claude-fable-5.md) | [responses](benchmarks/results/responses/20260716_rm_or_claude_fable_5_/) |
-| `deepseek/deepseek-v4-flash` | ✅ MIT | $0.098/0.197 | **8.02** | 144 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-flash.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_flash_/) |
-| `moonshotai/kimi-k2.6` | ✅ Modified MIT | $0.73/3.49 | **8.00** | 213 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_6.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
+| `deepseek/deepseek-v4-flash` | ✅ MIT | $0.14/0.28 | **8.02** | 144 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-flash.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_flash_/) |
+| `moonshotai/kimi-k2.6` | ✅ Modified MIT | $0.5795/2.44 | **8.00** | 213 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_6.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
 | `anthropic/claude-haiku-4.5` | ❌  | $1.0/5.0 | **7.97** | 119 | [per-model](benchmarks/results/per-model/anthropic_claude-haiku-4_5.md) | — |
-| `deepseek/deepseek-v4-pro` | ✅ MIT | $0.435/0.87 | **7.95** | 172 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-pro.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_pro_/) |
-| `moonshotai/kimi-k2` | ✅ Modified MIT | $0.2/0.8 | **7.94** | 156 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_7_code_/) |
+| `deepseek/deepseek-v4-pro` | ✅ MIT | $0.63168/1.26336 | **7.95** | 172 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-pro.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_pro_/) |
+| `moonshotai/kimi-k2` | ✅ Modified MIT | $0.57/2.3 | **7.94** | 156 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_7_code_/) |
 | `nousresearch/hermes-4-405b` | ✅ Llama 3 community | $1.0/3.0 | **7.93** | 138 | [per-model](benchmarks/results/per-model/nousresearch_hermes-4-405b.md) | [responses](benchmarks/results/responses/20260716_rm_hermes_4_405b_/) |
 | `x-ai/grok-4.5` | ❌  | $2.0/6.0 | **7.91** | 133 | [per-model](benchmarks/results/per-model/x-ai_grok-4_5.md) | — |
 | `qwen/qwen3.5-35b-a3b` | ✅ Apache 2.0 | $0.14/1.0 | **7.90** | 125 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-35b-a3b.md) | — |
-| `meta-llama/llama-4-maverick` | ✅ Llama Community | $0.5/1.0 | **7.88** | 141 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-maverick.md) | [responses](benchmarks/results/responses/20260716_rm_llama_4_maverick_/) |
+| `meta-llama/llama-4-maverick` | ✅ Llama Community | $0.2/0.696 | **7.88** | 141 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-maverick.md) | [responses](benchmarks/results/responses/20260716_rm_llama_4_maverick_/) |
 | `qwen/qwen3-next-80b-a3b-instruct` | ✅ Apache 2.0 | $0.09/1.1 | **7.87** | 133 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-instruct.md) | — |
 | `nvidia/nemotron-nano-9b-v2:free` | ✅ NVIDIA Open License | $0.05/0.2 | **7.87** | 124 | [per-model](benchmarks/results/per-model/nvidia_nemotron-nano-9b-v2_free.md) | [responses](benchmarks/results/responses/20260716_rnano/) |
-| `nvidia/nemotron-3-ultra-550b-a55b` | ✅ NVIDIA Open Model | $0.5/2.2 | **7.86** | 137 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-ultra-550b-a55b.md) | — |
-| `qwen/qwen3-coder` | ✅ Apache 2.0 | $0.2/0.6 | **7.85** | 138 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder.md) | [responses](benchmarks/results/responses/20260716_sr/) |
+| `nvidia/nemotron-3-ultra-550b-a55b` | ✅ NVIDIA Open Model | $0.6/3.6 | **7.86** | 137 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-ultra-550b-a55b.md) | — |
+| `qwen/qwen3-coder` | ✅ Apache 2.0 | $0.3/1 | **7.85** | 138 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder.md) | [responses](benchmarks/results/responses/20260716_sr/) |
 | `mistralai/devstral-2512` | ✅ Apache 2.0 | $0.4/2.0 | **7.85** | 136 | [per-model](benchmarks/results/per-model/mistralai_devstral-2512.md) | [responses](benchmarks/results/responses/20260716_rm_devstral_2_/) |
 | `openai/gpt-oss-120b` | ✅ Apache 2.0 | $0.036/0.18 | **7.85** | 130 | [per-model](benchmarks/results/per-model/openai_gpt-oss-120b.md) | [responses](benchmarks/results/responses/20260716_rm_or_gpt_oss_120b_/) |
 | `minimax/minimax-m2.7` | ❌  | $0.3/1.2 | **7.85** | 193 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_7.md) | — |
@@ -153,34 +153,34 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `google/gemini-2.5-flash` | ❌  | $0.3/2.5 | **7.83** | 138 | [per-model](benchmarks/results/per-model/google_gemini-2_5-flash.md) | — |
 | `google/gemini-3.1-flash-lite-preview` | ❌  | $0.25/1.5 | **7.82** | 139 | [per-model](benchmarks/results/per-model/google_gemini-3_1-flash-lite-preview.md) | — |
 | `qwen/qwen3.6-35b-a3b` | ✅ Apache 2.0 | $0.14/1.0 | **7.82** | 133 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-35b-a3b.md) | — |
-| `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.385/2.45 | **7.82** | 130 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-397b-a17b.md) | — |
+| `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.5/3.6 | **7.82** | 130 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-397b-a17b.md) | — |
 | `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | ✅ NVIDIA Open License | $0.1/0.4 | **7.81** | 147 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-nano-omni-30b-a3b-reasoning_free.md) | — |
 | `google/gemini-2.5-flash-lite` | ❌  | $0.1/0.4 | **7.79** | 129 | [per-model](benchmarks/results/per-model/google_gemini-2_5-flash-lite.md) | — |
 | `mistralai/mistral-small-2603` | ✅ Apache 2.0 | $0.15/0.6 | **7.75** | 126 | [per-model](benchmarks/results/per-model/mistralai_mistral-small-2603.md) | — |
 | `x-ai/grok-4.20` | ❌  | $1.25/2.5 | **7.73** | 122 | [per-model](benchmarks/results/per-model/x-ai_grok-4_20.md) | — |
 | `x-ai/grok-4.3` | ❌  | $1.25/2.5 | **7.72** | 143 | [per-model](benchmarks/results/per-model/x-ai_grok-4_3.md) | — |
-| `moonshotai/kimi-k2.7-code` | ✅ Modified MIT | $0.74/3.5 | **7.71** | 133 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_7-code.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
-| `nvidia/nemotron-3-super-120b-a12b` | ✅ NVIDIA Open | $0.1/0.5 | **7.68** | 135 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-super-120b-a12b.md) | — |
+| `moonshotai/kimi-k2.7-code` | ✅ Modified MIT | $0.7/3.5 | **7.71** | 133 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_7-code.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
+| `nvidia/nemotron-3-super-120b-a12b` | ✅ NVIDIA Open | $0.085/0.4 | **7.68** | 135 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-super-120b-a12b.md) | — |
 | `meta-llama/llama-3.3-70b-instruct` | ✅ Llama Community | $0.1/0.32 | **7.66** | 147 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_3-70b-instruct.md) | — |
-| `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.29/3.2 | **7.66** | 158 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-27b.md) | — |
+| `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.6/3.6 | **7.66** | 158 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-27b.md) | — |
 | `google/gemini-2.5-pro` | ❌  | $1.25/10.0 | **7.63** | 155 | [per-model](benchmarks/results/per-model/google_gemini-2_5-pro.md) | — |
 | `qwen/qwen3-coder-next` | ✅ Apache 2.0 | $0.11/0.8 | **7.60** | 156 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder-next.md) | [responses](benchmarks/results/responses/20260716_sr/) |
 | `meta-llama/llama-4-scout` | ✅ Llama Community | $0.1/0.3 | **7.59** | 128 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-scout.md) | [responses](benchmarks/results/responses/20260716_rm_or_llama_4_scout_/) |
 | `openai/gpt-oss-20b` | ✅ Apache 2.0 | $0.029/0.14 | **7.53** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-oss-20b.md) | [responses](benchmarks/results/responses/20260716_rm_or_gpt_oss_20b_/) |
 | `nousresearch/hermes-4-70b` | ✅ Llama 3 community | $0.13/0.4 | **7.52** | 141 | [per-model](benchmarks/results/per-model/nousresearch_hermes-4-70b.md) | [responses](benchmarks/results/responses/20260716_rm_hermes_4_70b_/) |
-| `qwen/qwen3-next-80b-a3b-thinking` | ✅ Apache 2.0 | $0.098/0.78 | **7.44** | 132 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-thinking.md) | — |
+| `qwen/qwen3-next-80b-a3b-thinking` | ✅ Apache 2.0 | $0.15/1.2 | **7.44** | 132 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-thinking.md) | — |
 | `nvidia/nemotron-3-nano-30b-a3b` | ✅ NVIDIA Open | $0.05/0.2 | **7.32** | 128 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-nano-30b-a3b.md) | — |
 | `google/gemini-3.5-flash` | ❌  | $1.5/9.0 | **7.20** | 142 | [per-model](benchmarks/results/per-model/google_gemini-3_5-flash.md) | — |
 | `google/gemini-3.1-pro-preview` | ❌  | $2.0/12.0 | **7.11** | 119 | [per-model](benchmarks/results/per-model/google_gemini-3_1-pro-preview.md) | — |
-| `meta-llama/llama-3.1-8b-instruct` | ✅ Llama Community | $0.02/0.03 | **7.09** | 121 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_1-8b-instruct.md) | — |
+| `meta-llama/llama-3.1-8b-instruct` | ✅ Llama Community | $0.05/0.08 | **7.09** | 121 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_1-8b-instruct.md) | — |
 
 #### Mejor coding
 
 | Modelo | OS | $ in/out | Score | Runs | Per-model MD | Responses |
 |---|---|---:|---:|---:|---|---|
-| `nvidia/nemotron-3-ultra-550b-a55b` | ✅ NVIDIA Open Model | $0.5/2.2 | **7.77** | 137 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-ultra-550b-a55b.md) | — |
+| `nvidia/nemotron-3-ultra-550b-a55b` | ✅ NVIDIA Open Model | $0.6/3.6 | **7.73** | 137 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-ultra-550b-a55b.md) | — |
 | `gpt-5.4-mini` | ❌  | $0.5/1.5 | **7.70** | 130 | [per-model](benchmarks/results/per-model/gpt-5_4-mini.md) | — |
-| `qwen/qwen3-coder` | ✅ Apache 2.0 | $0.2/0.6 | **7.70** | 138 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder.md) | [responses](benchmarks/results/responses/20260716_sr/) |
+| `qwen/qwen3-coder` | ✅ Apache 2.0 | $0.3/1 | **7.70** | 138 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder.md) | [responses](benchmarks/results/responses/20260716_sr/) |
 | `google/gemini-2.5-flash-lite` | ❌  | $0.1/0.4 | **7.64** | 129 | [per-model](benchmarks/results/per-model/google_gemini-2_5-flash-lite.md) | — |
 | `gpt-4.1-mini` | ❌  | $0.4/1.6 | **7.56** | 138 | [per-model](benchmarks/results/per-model/gpt-4_1-mini.md) | — |
 | `mistralai/mistral-large` | ❌ MRL (no comercial) | $2.0/6.0 | **7.54** | 141 | [per-model](benchmarks/results/per-model/mistralai_mistral-large.md) | [responses](benchmarks/results/responses/20260716_rm_or_mistral_large_3_/) |
@@ -189,63 +189,63 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | ✅ NVIDIA Open License | $0.1/0.4 | **7.43** | 147 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-nano-omni-30b-a3b-reasoning_free.md) | — |
 | `qwen/qwen3-coder-next` | ✅ Apache 2.0 | $0.11/0.8 | **7.42** | 156 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder-next.md) | [responses](benchmarks/results/responses/20260716_sr/) |
 | `mistralai/mistral-small-2603` | ✅ Apache 2.0 | $0.15/0.6 | **7.40** | 126 | [per-model](benchmarks/results/per-model/mistralai_mistral-small-2603.md) | — |
-| `qwen/qwen3.6-plus` | ❌ Proprietary | $0.18/1.07 | **7.40** | 140 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-plus.md) | — |
+| `xiaomi/mimo-v2.5-pro` | ❌  | $0.435/0.87 | **7.36** | 138 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5-pro.md) | — |
 | `google/gemini-3.1-flash-lite-preview` | ❌  | $0.25/1.5 | **7.35** | 139 | [per-model](benchmarks/results/per-model/google_gemini-3_1-flash-lite-preview.md) | — |
-| `nvidia/nemotron-3-super-120b-a12b` | ✅ NVIDIA Open | $0.1/0.5 | **7.32** | 135 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-super-120b-a12b.md) | — |
+| `xiaomi/mimo-v2.5` | ❌  | $0.14/0.28 | **7.34** | 139 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5.md) | — |
+| `qwen/qwen3.6-plus` | ❌ Proprietary | $0.325/1.95 | **7.33** | 140 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-plus.md) | — |
+| `nvidia/nemotron-3-super-120b-a12b` | ✅ NVIDIA Open | $0.085/0.4 | **7.32** | 135 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-super-120b-a12b.md) | — |
+| `openai/gpt-5.6-luna` | ❌  | $0.1/0.6 | **7.31** | 138 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-luna.md) | — |
 | `mistralai/ministral-14b-2512` | ✅ Apache 2.0 | $0.2/0.2 | **7.30** | 137 | [per-model](benchmarks/results/per-model/mistralai_ministral-14b-2512.md) | — |
 | `mistralai/mistral-large-2512` | ✅ Apache 2.0 | $0.5/1.5 | **7.29** | 128 | [per-model](benchmarks/results/per-model/mistralai_mistral-large-2512.md) | [responses](benchmarks/results/responses/20260716_rm_mistral_large_/) |
-| `deepseek/deepseek-chat` | ❌  | $0.14/0.28 | **7.26** | 246 | [per-model](benchmarks/results/per-model/deepseek_deepseek-chat.md) | — |
 | `x-ai/grok-4.20` | ❌  | $1.25/2.5 | **7.25** | 122 | [per-model](benchmarks/results/per-model/x-ai_grok-4_20.md) | — |
+| `deepseek/deepseek-chat` | ❌  | $0.2574/1.0287 | **7.25** | 246 | [per-model](benchmarks/results/per-model/deepseek_deepseek-chat.md) | — |
 | `mistralai/devstral-2512` | ✅ Apache 2.0 | $0.4/2.0 | **7.25** | 136 | [per-model](benchmarks/results/per-model/mistralai_devstral-2512.md) | [responses](benchmarks/results/responses/20260716_rm_devstral_2_/) |
 | `openai/gpt-oss-20b` | ✅ Apache 2.0 | $0.029/0.14 | **7.25** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-oss-20b.md) | [responses](benchmarks/results/responses/20260716_rm_or_gpt_oss_20b_/) |
 | `x-ai/grok-4.5` | ❌  | $2.0/6.0 | **7.24** | 133 | [per-model](benchmarks/results/per-model/x-ai_grok-4_5.md) | — |
-| `moonshotai/kimi-k2` | ✅ Modified MIT | $0.2/0.8 | **7.24** | 156 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_7_code_/) |
-| `xiaomi/mimo-v2.5-pro` | ❌  | $1.0/3.0 | **7.23** | 138 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5-pro.md) | — |
-| `xiaomi/mimo-v2.5` | ❌  | $0.4/2.0 | **7.22** | 139 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5.md) | — |
-| `meta-llama/llama-4-maverick` | ✅ Llama Community | $0.5/1.0 | **7.21** | 141 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-maverick.md) | [responses](benchmarks/results/responses/20260716_rm_llama_4_maverick_/) |
+| `meta-llama/llama-4-maverick` | ✅ Llama Community | $0.2/0.696 | **7.22** | 141 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-maverick.md) | [responses](benchmarks/results/responses/20260716_rm_llama_4_maverick_/) |
 | `anthropic/claude-haiku-4.5` | ❌  | $1.0/5.0 | **7.21** | 119 | [per-model](benchmarks/results/per-model/anthropic_claude-haiku-4_5.md) | — |
-| `deepseek/deepseek-v4-flash` | ✅ MIT | $0.098/0.197 | **7.19** | 144 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-flash.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_flash_/) |
+| `moonshotai/kimi-k2` | ✅ Modified MIT | $0.57/2.3 | **7.20** | 156 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_7_code_/) |
+| `deepseek/deepseek-v4-flash` | ✅ MIT | $0.14/0.28 | **7.19** | 144 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-flash.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_flash_/) |
 | `anthropic/claude-sonnet-4-6` | ❌  | $3.0/15.0 | **7.19** | 133 | [per-model](benchmarks/results/per-model/anthropic_claude-sonnet-4-6.md) | — |
 | `nvidia/nemotron-3-nano-30b-a3b` | ✅ NVIDIA Open | $0.05/0.2 | **7.17** | 128 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-nano-30b-a3b.md) | — |
-| `openai/gpt-5.6-luna` | ❌  | $1.0/6.0 | **7.16** | 138 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-luna.md) | — |
-| `minimax/minimax-m2.5` | ✅ MIT | $0.15/0.9 | **7.13** | 128 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_5.md) | — |
+| `minimax/minimax-m2.5` | ✅ MIT | $0.22/0.9 | **7.13** | 128 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_5.md) | — |
 | `x-ai/grok-4.3` | ❌  | $1.25/2.5 | **7.12** | 143 | [per-model](benchmarks/results/per-model/x-ai_grok-4_3.md) | — |
 | `minimax/minimax-m2.7` | ❌  | $0.3/1.2 | **7.11** | 193 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_7.md) | — |
 | `anthropic/claude-opus-4-7` | ❌  | $5.0/25.0 | **7.10** | 172 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-7.md) | — |
-| `google/gemma-4-26b-a4b-it` | ✅ Apache 2.0 | $0.15/0.3 | **7.09** | 137 | [per-model](benchmarks/results/per-model/google_gemma-4-26b-a4b-it.md) | [responses](benchmarks/results/responses/20260716_rm_gemma_4_26b_/) |
+| `openai/gpt-5.6-terra` | ❌  | $1/6 | **7.10** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-terra.md) | — |
+| `google/gemma-4-26b-a4b-it` | ✅ Apache 2.0 | $0.12/0.4 | **7.09** | 137 | [per-model](benchmarks/results/per-model/google_gemma-4-26b-a4b-it.md) | [responses](benchmarks/results/responses/20260716_rm_gemma_4_26b_/) |
 | `google/gemini-2.5-flash` | ❌  | $0.3/2.5 | **7.07** | 138 | [per-model](benchmarks/results/per-model/google_gemini-2_5-flash.md) | — |
-| `z-ai/glm-5.1` | ✅ MIT | $0.95/3.15 | **7.06** | 154 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
+| `z-ai/glm-5.1` | ✅ MIT | $0.952/2.992 | **7.07** | 154 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
 | `openai/gpt-oss-120b` | ✅ Apache 2.0 | $0.036/0.18 | **7.04** | 130 | [per-model](benchmarks/results/per-model/openai_gpt-oss-120b.md) | [responses](benchmarks/results/responses/20260716_rm_or_gpt_oss_120b_/) |
 | `nvidia/llama-3.3-nemotron-super-49b-v1.5` | ✅ NVIDIA Open Model | $0.4/0.4 | **7.03** | 128 | [per-model](benchmarks/results/per-model/nvidia_llama-3_3-nemotron-super-49b-v1_5.md) | [responses](benchmarks/results/responses/20260716_rm_nemotron_super_/) |
-| `deepseek/deepseek-v3.2` | ✅ MIT | $0.214/0.322 | **7.02** | 132 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v3_2.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v3_/) |
+| `deepseek/deepseek-v3.2` | ✅ MIT | $0.269/0.4 | **7.02** | 132 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v3_2.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v3_/) |
 | `nvidia/nemotron-nano-9b-v2:free` | ✅ NVIDIA Open License | $0.05/0.2 | **7.01** | 124 | [per-model](benchmarks/results/per-model/nvidia_nemotron-nano-9b-v2_free.md) | [responses](benchmarks/results/responses/20260716_rnano/) |
 | `nousresearch/hermes-4-70b` | ✅ Llama 3 community | $0.13/0.4 | **7.00** | 141 | [per-model](benchmarks/results/per-model/nousresearch_hermes-4-70b.md) | [responses](benchmarks/results/responses/20260716_rm_hermes_4_70b_/) |
-| `openai/gpt-5.6-terra` | ❌  | $2.5/15.0 | **6.99** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-terra.md) | — |
-| `z-ai/glm-5` | ✅ MIT | $0.6/1.92 | **6.89** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5.md) | [responses](benchmarks/results/responses/20260716_rm_glm_5_2_/) |
+| `z-ai/glm-5.2` | ✅ MIT | $0.4886/1.5356 | **6.92** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5_2.md) | — |
 | `gpt-5.4` | ❌  | $5.0/15.0 | **6.88** | 124 | [per-model](benchmarks/results/per-model/gpt-5_4.md) | — |
 | `qwen/qwen3.5-35b-a3b` | ✅ Apache 2.0 | $0.14/1.0 | **6.86** | 125 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-35b-a3b.md) | — |
 | `anthropic/claude-opus-4.8` | ❌  | $5.0/25.0 | **6.86** | 127 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4_8.md) | — |
 | `moonshotai/kimi-k3` | ✅  | $3.0/15.0 | **6.85** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
-| `z-ai/glm-5.2` | ✅ MIT | $0.95/3.0 | **6.84** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5_2.md) | — |
-| `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.385/2.45 | **6.82** | 130 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-397b-a17b.md) | — |
-| `deepseek/deepseek-v4-pro` | ✅ MIT | $0.435/0.87 | **6.81** | 172 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-pro.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_pro_/) |
+| `z-ai/glm-5` | ✅ MIT | $0.95/2.55 | **6.85** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5.md) | [responses](benchmarks/results/responses/20260716_rm_glm_5_2_/) |
 | `nousresearch/hermes-4-405b` | ✅ Llama 3 community | $1.0/3.0 | **6.80** | 138 | [per-model](benchmarks/results/per-model/nousresearch_hermes-4-405b.md) | [responses](benchmarks/results/responses/20260716_rm_hermes_4_405b_/) |
 | `minimax/minimax-m3` | ❌  | $0.3/1.2 | **6.79** | 206 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/20260716_rm_minimax_m3_/) |
+| `deepseek/deepseek-v4-pro` | ✅ MIT | $0.63168/1.26336 | **6.78** | 172 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-pro.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_pro_/) |
 | `meta-llama/llama-4-scout` | ✅ Llama Community | $0.1/0.3 | **6.78** | 128 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-scout.md) | [responses](benchmarks/results/responses/20260716_rm_or_llama_4_scout_/) |
-| `moonshotai/kimi-k2.7-code` | ✅ Modified MIT | $0.74/3.5 | **6.74** | 133 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_7-code.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
+| `moonshotai/kimi-k2.7-code` | ✅ Modified MIT | $0.7/3.5 | **6.74** | 133 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_7-code.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
+| `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.5/3.6 | **6.74** | 130 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-397b-a17b.md) | — |
 | `anthropic/claude-opus-4-6` | ❌  | $5.0/25.0 | **6.71** | 185 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-6.md) | — |
 | `qwen/qwen3.6-35b-a3b` | ✅ Apache 2.0 | $0.14/1.0 | **6.71** | 133 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-35b-a3b.md) | — |
+| `qwen/qwen3.7-max` | ❌ Proprietary | $1.475/4.425 | **6.71** | 134 | [per-model](benchmarks/results/per-model/qwen_qwen3_7-max.md) | — |
 | `openai/gpt-5.6-sol` | ❌  | $5.0/30.0 | **6.70** | 141 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-sol.md) | — |
 | `deepseek/deepseek-r1` | ✅ MIT | $0.7/2.5 | **6.67** | 138 | [per-model](benchmarks/results/per-model/deepseek_deepseek-r1.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_r1_/) |
 | `meta-llama/llama-3.3-70b-instruct` | ✅ Llama Community | $0.1/0.32 | **6.65** | 147 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_3-70b-instruct.md) | — |
-| `qwen/qwen3-next-80b-a3b-thinking` | ✅ Apache 2.0 | $0.098/0.78 | **6.63** | 132 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-thinking.md) | — |
-| `qwen/qwen3.7-max` | ❌ Proprietary | $2.5/7.5 | **6.61** | 134 | [per-model](benchmarks/results/per-model/qwen_qwen3_7-max.md) | — |
-| `qwen/qwen3.6-max-preview` | ❌ Proprietary | $1.04/6.24 | **6.59** | 149 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-max-preview.md) | — |
-| `moonshotai/kimi-k2.6` | ✅ Modified MIT | $0.73/3.49 | **6.59** | 213 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_6.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
-| `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.29/3.2 | **6.56** | 158 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-27b.md) | — |
+| `moonshotai/kimi-k2.6` | ✅ Modified MIT | $0.5795/2.44 | **6.64** | 213 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_6.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
+| `qwen/qwen3.6-max-preview` | ❌ Proprietary | $1.027/6.162 | **6.60** | 149 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-max-preview.md) | — |
+| `qwen/qwen3-next-80b-a3b-thinking` | ✅ Apache 2.0 | $0.15/1.2 | **6.57** | 132 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-thinking.md) | — |
+| `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.6/3.6 | **6.54** | 158 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-27b.md) | — |
 | `google/gemini-3.5-flash` | ❌  | $1.5/9.0 | **6.41** | 142 | [per-model](benchmarks/results/per-model/google_gemini-3_5-flash.md) | — |
 | `google/gemini-3.1-pro-preview` | ❌  | $2.0/12.0 | **6.29** | 119 | [per-model](benchmarks/results/per-model/google_gemini-3_1-pro-preview.md) | — |
-| `meta-llama/llama-3.1-8b-instruct` | ✅ Llama Community | $0.02/0.03 | **6.29** | 121 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_1-8b-instruct.md) | — |
+| `meta-llama/llama-3.1-8b-instruct` | ✅ Llama Community | $0.05/0.08 | **6.29** | 121 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_1-8b-instruct.md) | — |
 | `google/gemini-2.5-pro` | ❌  | $1.25/10.0 | **6.24** | 155 | [per-model](benchmarks/results/per-model/google_gemini-2_5-pro.md) | — |
 | `anthropic/claude-fable-5` | ❌ Proprietary | $10.0/50.0 | **6.13** | 185 | [per-model](benchmarks/results/per-model/anthropic_claude-fable-5.md) | [responses](benchmarks/results/responses/20260716_rm_or_claude_fable_5_/) |
 
@@ -257,70 +257,70 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `mistralai/mistral-small-2603` | ✅ Apache 2.0 | $0.15/0.6 | **8.13** | 126 | [per-model](benchmarks/results/per-model/mistralai_mistral-small-2603.md) | — |
 | `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | ✅ NVIDIA Open License | $0.1/0.4 | **8.01** | 147 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-nano-omni-30b-a3b-reasoning_free.md) | — |
 | `qwen/qwen3-next-80b-a3b-instruct` | ✅ Apache 2.0 | $0.09/1.1 | **7.94** | 133 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-instruct.md) | — |
+| `openai/gpt-5.6-luna` | ❌  | $0.1/0.6 | **7.92** | 138 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-luna.md) | — |
 | `mistralai/ministral-14b-2512` | ✅ Apache 2.0 | $0.2/0.2 | **7.88** | 137 | [per-model](benchmarks/results/per-model/mistralai_ministral-14b-2512.md) | — |
 | `nvidia/nemotron-nano-9b-v2:free` | ✅ NVIDIA Open License | $0.05/0.2 | **7.88** | 124 | [per-model](benchmarks/results/per-model/nvidia_nemotron-nano-9b-v2_free.md) | [responses](benchmarks/results/responses/20260716_rnano/) |
-| `google/gemma-4-26b-a4b-it` | ✅ Apache 2.0 | $0.15/0.3 | **7.87** | 137 | [per-model](benchmarks/results/per-model/google_gemma-4-26b-a4b-it.md) | [responses](benchmarks/results/responses/20260716_rm_gemma_4_26b_/) |
-| `minimax/minimax-m2.5` | ✅ MIT | $0.15/0.9 | **7.84** | 128 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_5.md) | — |
+| `google/gemma-4-26b-a4b-it` | ✅ Apache 2.0 | $0.12/0.4 | **7.87** | 137 | [per-model](benchmarks/results/per-model/google_gemma-4-26b-a4b-it.md) | [responses](benchmarks/results/responses/20260716_rm_gemma_4_26b_/) |
 | `anthropic/claude-haiku-4.5` | ❌  | $1.0/5.0 | **7.84** | 119 | [per-model](benchmarks/results/per-model/anthropic_claude-haiku-4_5.md) | — |
+| `minimax/minimax-m2.5` | ✅ MIT | $0.22/0.9 | **7.84** | 128 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_5.md) | — |
 | `mistralai/mistral-large-2512` | ✅ Apache 2.0 | $0.5/1.5 | **7.82** | 128 | [per-model](benchmarks/results/per-model/mistralai_mistral-large-2512.md) | [responses](benchmarks/results/responses/20260716_rm_mistral_large_/) |
-| `deepseek/deepseek-v3.2` | ✅ MIT | $0.214/0.322 | **7.77** | 132 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v3_2.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v3_/) |
-| `qwen/qwen3-coder` | ✅ Apache 2.0 | $0.2/0.6 | **7.77** | 138 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder.md) | [responses](benchmarks/results/responses/20260716_sr/) |
-| `gpt-5.4-mini` | ❌  | $0.5/1.5 | **7.76** | 130 | [per-model](benchmarks/results/per-model/gpt-5_4-mini.md) | — |
-| `nvidia/nemotron-3-ultra-550b-a55b` | ✅ NVIDIA Open Model | $0.5/2.2 | **7.75** | 137 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-ultra-550b-a55b.md) | — |
-| `moonshotai/kimi-k2` | ✅ Modified MIT | $0.2/0.8 | **7.71** | 156 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_7_code_/) |
+| `deepseek/deepseek-v3.2` | ✅ MIT | $0.269/0.4 | **7.77** | 132 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v3_2.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v3_/) |
+| `gpt-5.4-mini` | ❌  | $0.5/1.5 | **7.75** | 130 | [per-model](benchmarks/results/per-model/gpt-5_4-mini.md) | — |
+| `qwen/qwen3-coder` | ✅ Apache 2.0 | $0.3/1 | **7.72** | 138 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder.md) | [responses](benchmarks/results/responses/20260716_sr/) |
 | `mistralai/devstral-2512` | ✅ Apache 2.0 | $0.4/2.0 | **7.67** | 136 | [per-model](benchmarks/results/per-model/mistralai_devstral-2512.md) | [responses](benchmarks/results/responses/20260716_rm_devstral_2_/) |
 | `nvidia/llama-3.3-nemotron-super-49b-v1.5` | ✅ NVIDIA Open Model | $0.4/0.4 | **7.66** | 128 | [per-model](benchmarks/results/per-model/nvidia_llama-3_3-nemotron-super-49b-v1_5.md) | [responses](benchmarks/results/responses/20260716_rm_nemotron_super_/) |
-| `deepseek/deepseek-chat` | ❌  | $0.14/0.28 | **7.63** | 246 | [per-model](benchmarks/results/per-model/deepseek_deepseek-chat.md) | — |
-| `gpt-4.1-mini` | ❌  | $0.4/1.6 | **7.61** | 138 | [per-model](benchmarks/results/per-model/gpt-4_1-mini.md) | — |
+| `nvidia/nemotron-3-ultra-550b-a55b` | ✅ NVIDIA Open Model | $0.6/3.6 | **7.66** | 137 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-ultra-550b-a55b.md) | — |
 | `google/gemini-2.5-flash-lite` | ❌  | $0.1/0.4 | **7.60** | 129 | [per-model](benchmarks/results/per-model/google_gemini-2_5-flash-lite.md) | — |
+| `gpt-4.1-mini` | ❌  | $0.4/1.6 | **7.59** | 138 | [per-model](benchmarks/results/per-model/gpt-4_1-mini.md) | — |
 | `openai/gpt-oss-120b` | ✅ Apache 2.0 | $0.036/0.18 | **7.59** | 130 | [per-model](benchmarks/results/per-model/openai_gpt-oss-120b.md) | [responses](benchmarks/results/responses/20260716_rm_or_gpt_oss_120b_/) |
-| `deepseek/deepseek-v4-flash` | ✅ MIT | $0.098/0.197 | **7.57** | 144 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-flash.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_flash_/) |
-| `openai/gpt-5.6-luna` | ❌  | $1.0/6.0 | **7.53** | 138 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-luna.md) | — |
+| `deepseek/deepseek-chat` | ❌  | $0.2574/1.0287 | **7.58** | 246 | [per-model](benchmarks/results/per-model/deepseek_deepseek-chat.md) | — |
+| `moonshotai/kimi-k2` | ✅ Modified MIT | $0.57/2.3 | **7.55** | 156 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_7_code_/) |
+| `deepseek/deepseek-v4-flash` | ✅ MIT | $0.14/0.28 | **7.54** | 144 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-flash.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_flash_/) |
 | `gpt-4.1` | ❌  | $2.0/8.0 | **7.53** | 139 | [per-model](benchmarks/results/per-model/gpt-4_1.md) | — |
 | `qwen/qwen3.6-35b-a3b` | ✅ Apache 2.0 | $0.14/1.0 | **7.50** | 133 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-35b-a3b.md) | — |
+| `xiaomi/mimo-v2.5` | ❌  | $0.14/0.28 | **7.49** | 139 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5.md) | — |
+| `z-ai/glm-5.2` | ✅ MIT | $0.4886/1.5356 | **7.45** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5_2.md) | — |
 | `minimax/minimax-m2.7` | ❌  | $0.3/1.2 | **7.45** | 193 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_7.md) | — |
 | `nvidia/nemotron-3-nano-30b-a3b` | ✅ NVIDIA Open | $0.05/0.2 | **7.43** | 128 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-nano-30b-a3b.md) | — |
 | `qwen/qwen3-coder-next` | ✅ Apache 2.0 | $0.11/0.8 | **7.41** | 156 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder-next.md) | [responses](benchmarks/results/responses/20260716_sr/) |
 | `openai/gpt-oss-20b` | ✅ Apache 2.0 | $0.029/0.14 | **7.40** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-oss-20b.md) | [responses](benchmarks/results/responses/20260716_rm_or_gpt_oss_20b_/) |
-| `qwen/qwen3.6-plus` | ❌ Proprietary | $0.18/1.07 | **7.38** | 140 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-plus.md) | — |
 | `google/gemini-2.5-flash` | ❌  | $0.3/2.5 | **7.36** | 138 | [per-model](benchmarks/results/per-model/google_gemini-2_5-flash.md) | — |
-| `deepseek/deepseek-v4-pro` | ✅ MIT | $0.435/0.87 | **7.33** | 172 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-pro.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_pro_/) |
-| `z-ai/glm-5.2` | ✅ MIT | $0.95/3.0 | **7.31** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5_2.md) | — |
 | `mistralai/mistral-large` | ❌ MRL (no comercial) | $2.0/6.0 | **7.31** | 141 | [per-model](benchmarks/results/per-model/mistralai_mistral-large.md) | [responses](benchmarks/results/responses/20260716_rm_or_mistral_large_3_/) |
+| `openai/gpt-5.6-terra` | ❌  | $1/6 | **7.30** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-terra.md) | — |
 | `meta-llama/llama-4-scout` | ✅ Llama Community | $0.1/0.3 | **7.29** | 128 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-scout.md) | [responses](benchmarks/results/responses/20260716_rm_or_llama_4_scout_/) |
 | `qwen/qwen3.5-35b-a3b` | ✅ Apache 2.0 | $0.14/1.0 | **7.28** | 125 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-35b-a3b.md) | — |
+| `qwen/qwen3.6-plus` | ❌ Proprietary | $0.325/1.95 | **7.27** | 140 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-plus.md) | — |
+| `deepseek/deepseek-v4-pro` | ✅ MIT | $0.63168/1.26336 | **7.26** | 172 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-pro.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_pro_/) |
 | `nousresearch/hermes-4-70b` | ✅ Llama 3 community | $0.13/0.4 | **7.25** | 141 | [per-model](benchmarks/results/per-model/nousresearch_hermes-4-70b.md) | [responses](benchmarks/results/responses/20260716_rm_hermes_4_70b_/) |
 | `anthropic/claude-opus-4-6` | ❌  | $5.0/25.0 | **7.23** | 185 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-6.md) | — |
-| `xiaomi/mimo-v2.5` | ❌  | $0.4/2.0 | **7.22** | 139 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5.md) | — |
-| `z-ai/glm-5.1` | ✅ MIT | $0.95/3.15 | **7.21** | 154 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
-| `z-ai/glm-5` | ✅ MIT | $0.6/1.92 | **7.20** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5.md) | [responses](benchmarks/results/responses/20260716_rm_glm_5_2_/) |
+| `z-ai/glm-5.1` | ✅ MIT | $0.952/2.992 | **7.21** | 154 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
 | `anthropic/claude-opus-4.8` | ❌  | $5.0/25.0 | **7.17** | 127 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4_8.md) | — |
-| `openai/gpt-5.6-terra` | ❌  | $2.5/15.0 | **7.13** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-terra.md) | — |
+| `z-ai/glm-5` | ✅ MIT | $0.95/2.55 | **7.15** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5.md) | [responses](benchmarks/results/responses/20260716_rm_glm_5_2_/) |
 | `deepseek/deepseek-r1` | ✅ MIT | $0.7/2.5 | **7.12** | 138 | [per-model](benchmarks/results/per-model/deepseek_deepseek-r1.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_r1_/) |
-| `meta-llama/llama-4-maverick` | ✅ Llama Community | $0.5/1.0 | **7.10** | 141 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-maverick.md) | [responses](benchmarks/results/responses/20260716_rm_llama_4_maverick_/) |
+| `meta-llama/llama-4-maverick` | ✅ Llama Community | $0.2/0.696 | **7.12** | 141 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-maverick.md) | [responses](benchmarks/results/responses/20260716_rm_llama_4_maverick_/) |
+| `xiaomi/mimo-v2.5-pro` | ❌  | $0.435/0.87 | **7.06** | 138 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5-pro.md) | — |
 | `nousresearch/hermes-4-405b` | ✅ Llama 3 community | $1.0/3.0 | **7.04** | 138 | [per-model](benchmarks/results/per-model/nousresearch_hermes-4-405b.md) | [responses](benchmarks/results/responses/20260716_rm_hermes_4_405b_/) |
 | `x-ai/grok-4.5` | ❌  | $2.0/6.0 | **7.02** | 133 | [per-model](benchmarks/results/per-model/x-ai_grok-4_5.md) | — |
+| `qwen/qwen3.6-max-preview` | ❌ Proprietary | $1.027/6.162 | **7.02** | 149 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-max-preview.md) | — |
 | `x-ai/grok-4.20` | ❌  | $1.25/2.5 | **7.02** | 122 | [per-model](benchmarks/results/per-model/x-ai_grok-4_20.md) | — |
-| `qwen/qwen3.6-max-preview` | ❌ Proprietary | $1.04/6.24 | **7.01** | 149 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-max-preview.md) | — |
+| `qwen/qwen3.7-max` | ❌ Proprietary | $1.475/4.425 | **7.01** | 134 | [per-model](benchmarks/results/per-model/qwen_qwen3_7-max.md) | — |
 | `gpt-5.4` | ❌  | $5.0/15.0 | **6.96** | 124 | [per-model](benchmarks/results/per-model/gpt-5_4.md) | — |
 | `anthropic/claude-fable-5` | ❌ Proprietary | $10.0/50.0 | **6.91** | 185 | [per-model](benchmarks/results/per-model/anthropic_claude-fable-5.md) | [responses](benchmarks/results/responses/20260716_rm_or_claude_fable_5_/) |
-| `qwen/qwen3.7-max` | ❌ Proprietary | $2.5/7.5 | **6.89** | 134 | [per-model](benchmarks/results/per-model/qwen_qwen3_7-max.md) | — |
 | `anthropic/claude-opus-4-7` | ❌  | $5.0/25.0 | **6.88** | 172 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-7.md) | — |
+| `moonshotai/kimi-k2.6` | ✅ Modified MIT | $0.5795/2.44 | **6.87** | 213 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_6.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
 | `minimax/minimax-m3` | ❌  | $0.3/1.2 | **6.84** | 206 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/20260716_rm_minimax_m3_/) |
 | `moonshotai/kimi-k3` | ✅  | $3.0/15.0 | **6.83** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
-| `xiaomi/mimo-v2.5-pro` | ❌  | $1.0/3.0 | **6.83** | 138 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5-pro.md) | — |
 | `anthropic/claude-sonnet-4-6` | ❌  | $3.0/15.0 | **6.82** | 133 | [per-model](benchmarks/results/per-model/anthropic_claude-sonnet-4-6.md) | — |
 | `meta-llama/llama-3.3-70b-instruct` | ✅ Llama Community | $0.1/0.32 | **6.82** | 147 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_3-70b-instruct.md) | — |
-| `moonshotai/kimi-k2.7-code` | ✅ Modified MIT | $0.74/3.5 | **6.82** | 133 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_7-code.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
-| `moonshotai/kimi-k2.6` | ✅ Modified MIT | $0.73/3.49 | **6.79** | 213 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_6.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
-| `nvidia/nemotron-3-super-120b-a12b` | ✅ NVIDIA Open | $0.1/0.5 | **6.71** | 135 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-super-120b-a12b.md) | — |
-| `meta-llama/llama-3.1-8b-instruct` | ✅ Llama Community | $0.02/0.03 | **6.61** | 121 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_1-8b-instruct.md) | — |
+| `moonshotai/kimi-k2.7-code` | ✅ Modified MIT | $0.7/3.5 | **6.82** | 133 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_7-code.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
+| `nvidia/nemotron-3-super-120b-a12b` | ✅ NVIDIA Open | $0.085/0.4 | **6.72** | 135 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-super-120b-a12b.md) | — |
+| `meta-llama/llama-3.1-8b-instruct` | ✅ Llama Community | $0.05/0.08 | **6.61** | 121 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_1-8b-instruct.md) | — |
 | `x-ai/grok-4.3` | ❌  | $1.25/2.5 | **6.54** | 143 | [per-model](benchmarks/results/per-model/x-ai_grok-4_3.md) | — |
-| `qwen/qwen3-next-80b-a3b-thinking` | ✅ Apache 2.0 | $0.098/0.78 | **6.43** | 132 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-thinking.md) | — |
-| `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.385/2.45 | **6.42** | 130 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-397b-a17b.md) | — |
 | `openai/gpt-5.6-sol` | ❌  | $5.0/30.0 | **6.38** | 141 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-sol.md) | — |
 | `google/gemini-2.5-pro` | ❌  | $1.25/10.0 | **6.38** | 155 | [per-model](benchmarks/results/per-model/google_gemini-2_5-pro.md) | — |
-| `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.29/3.2 | **5.97** | 158 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-27b.md) | — |
+| `qwen/qwen3-next-80b-a3b-thinking` | ✅ Apache 2.0 | $0.15/1.2 | **6.34** | 132 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-thinking.md) | — |
+| `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.5/3.6 | **6.34** | 130 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-397b-a17b.md) | — |
+| `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.6/3.6 | **5.95** | 158 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-27b.md) | — |
 | `google/gemini-3.5-flash` | ❌  | $1.5/9.0 | **5.00** | 142 | [per-model](benchmarks/results/per-model/google_gemini-3_5-flash.md) | — |
 | `google/gemini-3.1-pro-preview` | ❌  | $2.0/12.0 | **4.85** | 119 | [per-model](benchmarks/results/per-model/google_gemini-3_1-pro-preview.md) | — |
 
@@ -328,6 +328,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 
 | Modelo | OS | $ in/out | Score | Runs | Per-model MD | Responses |
 |---|---|---:|---:|---:|---|---|
+| `openai/gpt-5.6-luna` | ❌  | $0.1/0.6 | **7.68** | 138 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-luna.md) | — |
 | `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | ✅ NVIDIA Open License | $0.1/0.4 | **7.64** | 147 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-nano-omni-30b-a3b-reasoning_free.md) | — |
 | `qwen/qwen3-next-80b-a3b-instruct` | ✅ Apache 2.0 | $0.09/1.1 | **7.61** | 133 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-instruct.md) | — |
 | `mistralai/mistral-small-2603` | ✅ Apache 2.0 | $0.15/0.6 | **7.58** | 126 | [per-model](benchmarks/results/per-model/mistralai_mistral-small-2603.md) | — |
@@ -338,62 +339,61 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `qwen/qwen3-coder-next` | ✅ Apache 2.0 | $0.11/0.8 | **7.51** | 156 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder-next.md) | [responses](benchmarks/results/responses/20260716_sr/) |
 | `openai/gpt-oss-20b` | ✅ Apache 2.0 | $0.029/0.14 | **7.50** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-oss-20b.md) | [responses](benchmarks/results/responses/20260716_rm_or_gpt_oss_20b_/) |
 | `nvidia/llama-3.3-nemotron-super-49b-v1.5` | ✅ NVIDIA Open Model | $0.4/0.4 | **7.49** | 128 | [per-model](benchmarks/results/per-model/nvidia_llama-3_3-nemotron-super-49b-v1_5.md) | [responses](benchmarks/results/responses/20260716_rm_nemotron_super_/) |
-| `deepseek/deepseek-v4-flash` | ✅ MIT | $0.098/0.197 | **7.48** | 144 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-flash.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_flash_/) |
+| `deepseek/deepseek-v4-flash` | ✅ MIT | $0.14/0.28 | **7.48** | 144 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-flash.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_flash_/) |
 | `gpt-5.4-mini` | ❌  | $0.5/1.5 | **7.47** | 130 | [per-model](benchmarks/results/per-model/gpt-5_4-mini.md) | — |
-| `minimax/minimax-m2.5` | ✅ MIT | $0.15/0.9 | **7.45** | 128 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_5.md) | — |
+| `minimax/minimax-m2.5` | ✅ MIT | $0.22/0.9 | **7.45** | 128 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_5.md) | — |
 | `openai/gpt-oss-120b` | ✅ Apache 2.0 | $0.036/0.18 | **7.41** | 130 | [per-model](benchmarks/results/per-model/openai_gpt-oss-120b.md) | [responses](benchmarks/results/responses/20260716_rm_or_gpt_oss_120b_/) |
-| `deepseek/deepseek-v3.2` | ✅ MIT | $0.214/0.322 | **7.41** | 132 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v3_2.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v3_/) |
-| `qwen/qwen3-coder` | ✅ Apache 2.0 | $0.2/0.6 | **7.38** | 138 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder.md) | [responses](benchmarks/results/responses/20260716_sr/) |
-| `google/gemma-4-26b-a4b-it` | ✅ Apache 2.0 | $0.15/0.3 | **7.37** | 137 | [per-model](benchmarks/results/per-model/google_gemma-4-26b-a4b-it.md) | [responses](benchmarks/results/responses/20260716_rm_gemma_4_26b_/) |
+| `deepseek/deepseek-v3.2` | ✅ MIT | $0.269/0.4 | **7.41** | 132 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v3_2.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v3_/) |
+| `xiaomi/mimo-v2.5` | ❌  | $0.14/0.28 | **7.38** | 139 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5.md) | — |
+| `google/gemma-4-26b-a4b-it` | ✅ Apache 2.0 | $0.12/0.4 | **7.37** | 137 | [per-model](benchmarks/results/per-model/google_gemma-4-26b-a4b-it.md) | [responses](benchmarks/results/responses/20260716_rm_gemma_4_26b_/) |
 | `google/gemini-2.5-flash` | ❌  | $0.3/2.5 | **7.36** | 138 | [per-model](benchmarks/results/per-model/google_gemini-2_5-flash.md) | — |
 | `nvidia/nemotron-nano-9b-v2:free` | ✅ NVIDIA Open License | $0.05/0.2 | **7.36** | 124 | [per-model](benchmarks/results/per-model/nvidia_nemotron-nano-9b-v2_free.md) | [responses](benchmarks/results/responses/20260716_rnano/) |
+| `qwen/qwen3-coder` | ✅ Apache 2.0 | $0.3/1 | **7.35** | 138 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder.md) | [responses](benchmarks/results/responses/20260716_sr/) |
 | `mistralai/mistral-large-2512` | ✅ Apache 2.0 | $0.5/1.5 | **7.34** | 128 | [per-model](benchmarks/results/per-model/mistralai_mistral-large-2512.md) | [responses](benchmarks/results/responses/20260716_rm_mistral_large_/) |
-| `openai/gpt-5.6-luna` | ❌  | $1.0/6.0 | **7.33** | 138 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-luna.md) | — |
 | `qwen/qwen3.6-35b-a3b` | ✅ Apache 2.0 | $0.14/1.0 | **7.29** | 133 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-35b-a3b.md) | — |
 | `nousresearch/hermes-4-70b` | ✅ Llama 3 community | $0.13/0.4 | **7.29** | 141 | [per-model](benchmarks/results/per-model/nousresearch_hermes-4-70b.md) | [responses](benchmarks/results/responses/20260716_rm_hermes_4_70b_/) |
 | `anthropic/claude-haiku-4.5` | ❌  | $1.0/5.0 | **7.28** | 119 | [per-model](benchmarks/results/per-model/anthropic_claude-haiku-4_5.md) | — |
 | `nvidia/nemotron-3-nano-30b-a3b` | ✅ NVIDIA Open | $0.05/0.2 | **7.28** | 128 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-nano-30b-a3b.md) | — |
-| `gpt-4.1-mini` | ❌  | $0.4/1.6 | **7.28** | 138 | [per-model](benchmarks/results/per-model/gpt-4_1-mini.md) | — |
-| `qwen/qwen3-next-80b-a3b-thinking` | ✅ Apache 2.0 | $0.098/0.78 | **7.22** | 132 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-thinking.md) | — |
-| `nvidia/nemotron-3-ultra-550b-a55b` | ✅ NVIDIA Open Model | $0.5/2.2 | **7.22** | 137 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-ultra-550b-a55b.md) | — |
+| `gpt-4.1-mini` | ❌  | $0.4/1.6 | **7.27** | 138 | [per-model](benchmarks/results/per-model/gpt-4_1-mini.md) | — |
+| `xiaomi/mimo-v2.5-pro` | ❌  | $0.435/0.87 | **7.22** | 138 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5-pro.md) | — |
 | `meta-llama/llama-3.3-70b-instruct` | ✅ Llama Community | $0.1/0.32 | **7.20** | 147 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_3-70b-instruct.md) | — |
 | `mistralai/devstral-2512` | ✅ Apache 2.0 | $0.4/2.0 | **7.19** | 136 | [per-model](benchmarks/results/per-model/mistralai_devstral-2512.md) | [responses](benchmarks/results/responses/20260716_rm_devstral_2_/) |
-| `deepseek/deepseek-chat` | ❌  | $0.14/0.28 | **7.19** | 246 | [per-model](benchmarks/results/per-model/deepseek_deepseek-chat.md) | — |
 | `minimax/minimax-m3` | ❌  | $0.3/1.2 | **7.19** | 206 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/20260716_rm_minimax_m3_/) |
-| `xiaomi/mimo-v2.5` | ❌  | $0.4/2.0 | **7.17** | 139 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5.md) | — |
-| `meta-llama/llama-3.1-8b-instruct` | ✅ Llama Community | $0.02/0.03 | **7.16** | 121 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_1-8b-instruct.md) | — |
-| `nvidia/nemotron-3-super-120b-a12b` | ✅ NVIDIA Open | $0.1/0.5 | **7.15** | 135 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-super-120b-a12b.md) | — |
-| `deepseek/deepseek-v4-pro` | ✅ MIT | $0.435/0.87 | **7.13** | 172 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-pro.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_pro_/) |
+| `deepseek/deepseek-chat` | ❌  | $0.2574/1.0287 | **7.18** | 246 | [per-model](benchmarks/results/per-model/deepseek_deepseek-chat.md) | — |
+| `nvidia/nemotron-3-super-120b-a12b` | ✅ NVIDIA Open | $0.085/0.4 | **7.16** | 135 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-super-120b-a12b.md) | — |
+| `meta-llama/llama-3.1-8b-instruct` | ✅ Llama Community | $0.05/0.08 | **7.16** | 121 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_1-8b-instruct.md) | — |
+| `openai/gpt-5.6-terra` | ❌  | $1/6 | **7.16** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-terra.md) | — |
+| `qwen/qwen3-next-80b-a3b-thinking` | ✅ Apache 2.0 | $0.15/1.2 | **7.14** | 132 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-thinking.md) | — |
+| `nvidia/nemotron-3-ultra-550b-a55b` | ✅ NVIDIA Open Model | $0.6/3.6 | **7.13** | 137 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-ultra-550b-a55b.md) | — |
 | `x-ai/grok-4.20` | ❌  | $1.25/2.5 | **7.12** | 122 | [per-model](benchmarks/results/per-model/x-ai_grok-4_20.md) | — |
-| `meta-llama/llama-4-maverick` | ✅ Llama Community | $0.5/1.0 | **7.09** | 141 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-maverick.md) | [responses](benchmarks/results/responses/20260716_rm_llama_4_maverick_/) |
-| `z-ai/glm-5` | ✅ MIT | $0.6/1.92 | **7.06** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5.md) | [responses](benchmarks/results/responses/20260716_rm_glm_5_2_/) |
-| `gpt-4.1` | ❌  | $2.0/8.0 | **7.05** | 139 | [per-model](benchmarks/results/per-model/gpt-4_1.md) | — |
+| `meta-llama/llama-4-maverick` | ✅ Llama Community | $0.2/0.696 | **7.09** | 141 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-maverick.md) | [responses](benchmarks/results/responses/20260716_rm_llama_4_maverick_/) |
+| `deepseek/deepseek-v4-pro` | ✅ MIT | $0.63168/1.26336 | **7.06** | 172 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-pro.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_pro_/) |
+| `gpt-4.1` | ❌  | $2.0/8.0 | **7.04** | 139 | [per-model](benchmarks/results/per-model/gpt-4_1.md) | — |
 | `deepseek/deepseek-r1` | ✅ MIT | $0.7/2.5 | **7.03** | 138 | [per-model](benchmarks/results/per-model/deepseek_deepseek-r1.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_r1_/) |
 | `x-ai/grok-4.5` | ❌  | $2.0/6.0 | **7.02** | 133 | [per-model](benchmarks/results/per-model/x-ai_grok-4_5.md) | — |
-| `moonshotai/kimi-k2` | ✅ Modified MIT | $0.2/0.8 | **7.02** | 156 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_7_code_/) |
-| `xiaomi/mimo-v2.5-pro` | ❌  | $1.0/3.0 | **7.00** | 138 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5-pro.md) | — |
-| `openai/gpt-5.6-terra` | ❌  | $2.5/15.0 | **6.98** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-terra.md) | — |
-| `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.385/2.45 | **6.98** | 130 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-397b-a17b.md) | — |
+| `z-ai/glm-5` | ✅ MIT | $0.95/2.55 | **7.01** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5.md) | [responses](benchmarks/results/responses/20260716_rm_glm_5_2_/) |
 | `minimax/minimax-m2.7` | ❌  | $0.3/1.2 | **6.97** | 193 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_7.md) | — |
 | `mistralai/mistral-large` | ❌ MRL (no comercial) | $2.0/6.0 | **6.94** | 141 | [per-model](benchmarks/results/per-model/mistralai_mistral-large.md) | [responses](benchmarks/results/responses/20260716_rm_or_mistral_large_3_/) |
-| `qwen/qwen3.6-plus` | ❌ Proprietary | $0.18/1.07 | **6.91** | 140 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-plus.md) | — |
+| `z-ai/glm-5.2` | ✅ MIT | $0.4886/1.5356 | **6.92** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5_2.md) | — |
+| `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.5/3.6 | **6.90** | 130 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-397b-a17b.md) | — |
+| `moonshotai/kimi-k2` | ✅ Modified MIT | $0.57/2.3 | **6.86** | 156 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_7_code_/) |
 | `qwen/qwen3.5-35b-a3b` | ✅ Apache 2.0 | $0.14/1.0 | **6.83** | 125 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-35b-a3b.md) | — |
 | `nousresearch/hermes-4-405b` | ✅ Llama 3 community | $1.0/3.0 | **6.80** | 138 | [per-model](benchmarks/results/per-model/nousresearch_hermes-4-405b.md) | [responses](benchmarks/results/responses/20260716_rm_hermes_4_405b_/) |
-| `z-ai/glm-5.2` | ✅ MIT | $0.95/3.0 | **6.79** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5_2.md) | — |
+| `qwen/qwen3.6-plus` | ❌ Proprietary | $0.325/1.95 | **6.79** | 140 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-plus.md) | — |
 | `x-ai/grok-4.3` | ❌  | $1.25/2.5 | **6.78** | 143 | [per-model](benchmarks/results/per-model/x-ai_grok-4_3.md) | — |
+| `qwen/qwen3.7-max` | ❌ Proprietary | $1.475/4.425 | **6.77** | 134 | [per-model](benchmarks/results/per-model/qwen_qwen3_7-max.md) | — |
 | `gpt-5.4` | ❌  | $5.0/15.0 | **6.76** | 124 | [per-model](benchmarks/results/per-model/gpt-5_4.md) | — |
 | `openai/gpt-5.6-sol` | ❌  | $5.0/30.0 | **6.76** | 141 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-sol.md) | — |
-| `moonshotai/kimi-k2.7-code` | ✅ Modified MIT | $0.74/3.5 | **6.70** | 133 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_7-code.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
+| `moonshotai/kimi-k2.7-code` | ✅ Modified MIT | $0.7/3.5 | **6.70** | 133 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_7-code.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
 | `anthropic/claude-opus-4.8` | ❌  | $5.0/25.0 | **6.68** | 127 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4_8.md) | — |
-| `qwen/qwen3.7-max` | ❌ Proprietary | $2.5/7.5 | **6.67** | 134 | [per-model](benchmarks/results/per-model/qwen_qwen3_7-max.md) | — |
-| `qwen/qwen3.6-max-preview` | ❌ Proprietary | $1.04/6.24 | **6.66** | 149 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-max-preview.md) | — |
-| `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.29/3.2 | **6.65** | 158 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-27b.md) | — |
+| `qwen/qwen3.6-max-preview` | ❌ Proprietary | $1.027/6.162 | **6.66** | 149 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-max-preview.md) | — |
 | `anthropic/claude-sonnet-4-6` | ❌  | $3.0/15.0 | **6.65** | 133 | [per-model](benchmarks/results/per-model/anthropic_claude-sonnet-4-6.md) | — |
+| `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.6/3.6 | **6.63** | 158 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-27b.md) | — |
 | `anthropic/claude-fable-5` | ❌ Proprietary | $10.0/50.0 | **6.59** | 185 | [per-model](benchmarks/results/per-model/anthropic_claude-fable-5.md) | [responses](benchmarks/results/responses/20260716_rm_or_claude_fable_5_/) |
 | `moonshotai/kimi-k3` | ✅  | $3.0/15.0 | **6.57** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
+| `moonshotai/kimi-k2.6` | ✅ Modified MIT | $0.5795/2.44 | **6.53** | 213 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_6.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
 | `anthropic/claude-opus-4-7` | ❌  | $5.0/25.0 | **6.51** | 172 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-7.md) | — |
-| `z-ai/glm-5.1` | ✅ MIT | $0.95/3.15 | **6.48** | 154 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
-| `moonshotai/kimi-k2.6` | ✅ Modified MIT | $0.73/3.49 | **6.46** | 213 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_6.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
+| `z-ai/glm-5.1` | ✅ MIT | $0.952/2.992 | **6.49** | 154 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
 | `anthropic/claude-opus-4-6` | ❌  | $5.0/25.0 | **6.43** | 185 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-6.md) | — |
 | `google/gemini-3.5-flash` | ❌  | $1.5/9.0 | **6.29** | 142 | [per-model](benchmarks/results/per-model/google_gemini-3_5-flash.md) | — |
 | `google/gemini-3.1-pro-preview` | ❌  | $2.0/12.0 | **6.26** | 119 | [per-model](benchmarks/results/per-model/google_gemini-3_1-pro-preview.md) | — |
@@ -403,75 +403,75 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 
 | Modelo | OS | $ in/out | Score | Runs | Per-model MD | Responses |
 |---|---|---:|---:|---:|---|---|
-| `openai/gpt-5.6-luna` | ❌  | $1.0/6.0 | **9.29** | 138 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-luna.md) | — |
-| `gpt-5.4-mini` | ❌  | $0.5/1.5 | **8.21** | 130 | [per-model](benchmarks/results/per-model/gpt-5_4-mini.md) | — |
-| `anthropic/claude-opus-4.8` | ❌  | $5.0/25.0 | **7.79** | 127 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4_8.md) | — |
-| `mistralai/ministral-14b-2512` | ✅ Apache 2.0 | $0.2/0.2 | **7.68** | 137 | [per-model](benchmarks/results/per-model/mistralai_ministral-14b-2512.md) | — |
-| `anthropic/claude-opus-4-6` | ❌  | $5.0/25.0 | **7.68** | 185 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-6.md) | — |
-| `gpt-5.4` | ❌  | $5.0/15.0 | **7.48** | 124 | [per-model](benchmarks/results/per-model/gpt-5_4.md) | — |
-| `anthropic/claude-opus-4-7` | ❌  | $5.0/25.0 | **7.38** | 172 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-7.md) | — |
-| `z-ai/glm-5.2` | ✅ MIT | $0.95/3.0 | **7.37** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5_2.md) | — |
-| `qwen/qwen3.6-plus` | ❌ Proprietary | $0.18/1.07 | **7.35** | 140 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-plus.md) | — |
-| `gpt-4.1` | ❌  | $2.0/8.0 | **7.31** | 139 | [per-model](benchmarks/results/per-model/gpt-4_1.md) | — |
-| `mistralai/mistral-large-2512` | ✅ Apache 2.0 | $0.5/1.5 | **7.09** | 128 | [per-model](benchmarks/results/per-model/mistralai_mistral-large-2512.md) | [responses](benchmarks/results/responses/20260716_rm_mistral_large_/) |
-| `qwen/qwen3.6-max-preview` | ❌ Proprietary | $1.04/6.24 | **7.05** | 149 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-max-preview.md) | — |
-| `z-ai/glm-5.1` | ✅ MIT | $0.95/3.15 | **7.03** | 154 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
-| `google/gemma-4-26b-a4b-it` | ✅ Apache 2.0 | $0.15/0.3 | **6.95** | 137 | [per-model](benchmarks/results/per-model/google_gemma-4-26b-a4b-it.md) | [responses](benchmarks/results/responses/20260716_rm_gemma_4_26b_/) |
-| `openai/gpt-5.6-sol` | ❌  | $5.0/30.0 | **6.94** | 141 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-sol.md) | — |
-| `openai/gpt-5.6-terra` | ❌  | $2.5/15.0 | **6.91** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-terra.md) | — |
-| `mistralai/mistral-large` | ❌ MRL (no comercial) | $2.0/6.0 | **6.87** | 141 | [per-model](benchmarks/results/per-model/mistralai_mistral-large.md) | [responses](benchmarks/results/responses/20260716_rm_or_mistral_large_3_/) |
-| `z-ai/glm-5` | ✅ MIT | $0.6/1.92 | **6.86** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5.md) | [responses](benchmarks/results/responses/20260716_rm_glm_5_2_/) |
-| `anthropic/claude-sonnet-4-6` | ❌  | $3.0/15.0 | **6.74** | 133 | [per-model](benchmarks/results/per-model/anthropic_claude-sonnet-4-6.md) | — |
-| `deepseek/deepseek-v4-flash` | ✅ MIT | $0.098/0.197 | **6.64** | 144 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-flash.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_flash_/) |
-| `moonshotai/kimi-k3` | ✅  | $3.0/15.0 | **6.52** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
-| `nvidia/llama-3.3-nemotron-super-49b-v1.5` | ✅ NVIDIA Open Model | $0.4/0.4 | **6.52** | 128 | [per-model](benchmarks/results/per-model/nvidia_llama-3_3-nemotron-super-49b-v1_5.md) | [responses](benchmarks/results/responses/20260716_rm_nemotron_super_/) |
-| `deepseek/deepseek-r1` | ✅ MIT | $0.7/2.5 | **6.51** | 138 | [per-model](benchmarks/results/per-model/deepseek_deepseek-r1.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_r1_/) |
-| `xiaomi/mimo-v2.5-pro` | ❌  | $1.0/3.0 | **6.50** | 138 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5-pro.md) | — |
-| `minimax/minimax-m3` | ❌  | $0.3/1.2 | **6.45** | 206 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/20260716_rm_minimax_m3_/) |
-| `anthropic/claude-haiku-4.5` | ❌  | $1.0/5.0 | **6.41** | 119 | [per-model](benchmarks/results/per-model/anthropic_claude-haiku-4_5.md) | — |
-| `qwen/qwen3.7-max` | ❌ Proprietary | $2.5/7.5 | **6.34** | 134 | [per-model](benchmarks/results/per-model/qwen_qwen3_7-max.md) | — |
-| `minimax/minimax-m2.5` | ✅ MIT | $0.15/0.9 | **6.16** | 128 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_5.md) | — |
-| `deepseek/deepseek-v3.2` | ✅ MIT | $0.214/0.322 | **6.07** | 132 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v3_2.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v3_/) |
-| `google/gemini-3.1-flash-lite-preview` | ❌  | $0.25/1.5 | **5.98** | 139 | [per-model](benchmarks/results/per-model/google_gemini-3_1-flash-lite-preview.md) | — |
-| `deepseek/deepseek-chat` | ❌  | $0.14/0.28 | **5.94** | 246 | [per-model](benchmarks/results/per-model/deepseek_deepseek-chat.md) | — |
-| `qwen/qwen3-next-80b-a3b-instruct` | ✅ Apache 2.0 | $0.09/1.1 | **5.77** | 133 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-instruct.md) | — |
-| `xiaomi/mimo-v2.5` | ❌  | $0.4/2.0 | **5.69** | 139 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5.md) | — |
-| `anthropic/claude-fable-5` | ❌ Proprietary | $10.0/50.0 | **5.67** | 185 | [per-model](benchmarks/results/per-model/anthropic_claude-fable-5.md) | [responses](benchmarks/results/responses/20260716_rm_or_claude_fable_5_/) |
-| `openai/gpt-oss-120b` | ✅ Apache 2.0 | $0.036/0.18 | **5.63** | 130 | [per-model](benchmarks/results/per-model/openai_gpt-oss-120b.md) | [responses](benchmarks/results/responses/20260716_rm_or_gpt_oss_120b_/) |
-| `google/gemini-2.5-flash-lite` | ❌  | $0.1/0.4 | **5.50** | 129 | [per-model](benchmarks/results/per-model/google_gemini-2_5-flash-lite.md) | — |
-| `x-ai/grok-4.5` | ❌  | $2.0/6.0 | **5.46** | 133 | [per-model](benchmarks/results/per-model/x-ai_grok-4_5.md) | — |
-| `qwen/qwen3.5-35b-a3b` | ✅ Apache 2.0 | $0.14/1.0 | **5.44** | 125 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-35b-a3b.md) | — |
-| `google/gemini-2.5-flash` | ❌  | $0.3/2.5 | **5.38** | 138 | [per-model](benchmarks/results/per-model/google_gemini-2_5-flash.md) | — |
-| `nvidia/nemotron-3-ultra-550b-a55b` | ✅ NVIDIA Open Model | $0.5/2.2 | **5.25** | 137 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-ultra-550b-a55b.md) | — |
-| `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | ✅ NVIDIA Open License | $0.1/0.4 | **5.13** | 147 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-nano-omni-30b-a3b-reasoning_free.md) | — |
-| `moonshotai/kimi-k2.6` | ✅ Modified MIT | $0.73/3.49 | **5.09** | 213 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_6.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
-| `gpt-4.1-mini` | ❌  | $0.4/1.6 | **5.09** | 138 | [per-model](benchmarks/results/per-model/gpt-4_1-mini.md) | — |
-| `mistralai/mistral-small-2603` | ✅ Apache 2.0 | $0.15/0.6 | **5.08** | 126 | [per-model](benchmarks/results/per-model/mistralai_mistral-small-2603.md) | — |
-| `qwen/qwen3-coder` | ✅ Apache 2.0 | $0.2/0.6 | **5.08** | 138 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder.md) | [responses](benchmarks/results/responses/20260716_sr/) |
-| `nvidia/nemotron-nano-9b-v2:free` | ✅ NVIDIA Open License | $0.05/0.2 | **5.06** | 124 | [per-model](benchmarks/results/per-model/nvidia_nemotron-nano-9b-v2_free.md) | [responses](benchmarks/results/responses/20260716_rnano/) |
-| `mistralai/devstral-2512` | ✅ Apache 2.0 | $0.4/2.0 | **4.94** | 136 | [per-model](benchmarks/results/per-model/mistralai_devstral-2512.md) | [responses](benchmarks/results/responses/20260716_rm_devstral_2_/) |
-| `deepseek/deepseek-v4-pro` | ✅ MIT | $0.435/0.87 | **4.93** | 172 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-pro.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_pro_/) |
-| `meta-llama/llama-3.1-8b-instruct` | ✅ Llama Community | $0.02/0.03 | **4.90** | 121 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_1-8b-instruct.md) | — |
-| `qwen/qwen3.6-35b-a3b` | ✅ Apache 2.0 | $0.14/1.0 | **4.88** | 133 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-35b-a3b.md) | — |
-| `nousresearch/hermes-4-405b` | ✅ Llama 3 community | $1.0/3.0 | **4.84** | 138 | [per-model](benchmarks/results/per-model/nousresearch_hermes-4-405b.md) | [responses](benchmarks/results/responses/20260716_rm_hermes_4_405b_/) |
-| `moonshotai/kimi-k2` | ✅ Modified MIT | $0.2/0.8 | **4.80** | 156 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_7_code_/) |
-| `meta-llama/llama-4-maverick` | ✅ Llama Community | $0.5/1.0 | **4.72** | 141 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-maverick.md) | [responses](benchmarks/results/responses/20260716_rm_llama_4_maverick_/) |
-| `openai/gpt-oss-20b` | ✅ Apache 2.0 | $0.029/0.14 | **4.66** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-oss-20b.md) | [responses](benchmarks/results/responses/20260716_rm_or_gpt_oss_20b_/) |
-| `minimax/minimax-m2.7` | ❌  | $0.3/1.2 | **4.46** | 193 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_7.md) | — |
-| `x-ai/grok-4.3` | ❌  | $1.25/2.5 | **4.41** | 143 | [per-model](benchmarks/results/per-model/x-ai_grok-4_3.md) | — |
-| `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.385/2.45 | **4.23** | 130 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-397b-a17b.md) | — |
-| `x-ai/grok-4.20` | ❌  | $1.25/2.5 | **4.22** | 122 | [per-model](benchmarks/results/per-model/x-ai_grok-4_20.md) | — |
-| `meta-llama/llama-4-scout` | ✅ Llama Community | $0.1/0.3 | **3.95** | 128 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-scout.md) | [responses](benchmarks/results/responses/20260716_rm_or_llama_4_scout_/) |
-| `qwen/qwen3-coder-next` | ✅ Apache 2.0 | $0.11/0.8 | **3.93** | 156 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder-next.md) | [responses](benchmarks/results/responses/20260716_sr/) |
-| `nvidia/nemotron-3-super-120b-a12b` | ✅ NVIDIA Open | $0.1/0.5 | **3.45** | 135 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-super-120b-a12b.md) | — |
-| `google/gemini-2.5-pro` | ❌  | $1.25/10.0 | **3.31** | 155 | [per-model](benchmarks/results/per-model/google_gemini-2_5-pro.md) | — |
-| `moonshotai/kimi-k2.7-code` | ✅ Modified MIT | $0.74/3.5 | **3.29** | 133 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_7-code.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
-| `nousresearch/hermes-4-70b` | ✅ Llama 3 community | $0.13/0.4 | **3.16** | 141 | [per-model](benchmarks/results/per-model/nousresearch_hermes-4-70b.md) | [responses](benchmarks/results/responses/20260716_rm_hermes_4_70b_/) |
-| `meta-llama/llama-3.3-70b-instruct` | ✅ Llama Community | $0.1/0.32 | **3.05** | 147 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_3-70b-instruct.md) | — |
-| `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.29/3.2 | **3.02** | 158 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-27b.md) | — |
-| `qwen/qwen3-next-80b-a3b-thinking` | ✅ Apache 2.0 | $0.098/0.78 | **2.39** | 132 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-thinking.md) | — |
-| `nvidia/nemotron-3-nano-30b-a3b` | ✅ NVIDIA Open | $0.05/0.2 | **2.32** | 128 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-nano-30b-a3b.md) | — |
-| `google/gemini-3.5-flash` | ❌  | $1.5/9.0 | **0.93** | 142 | [per-model](benchmarks/results/per-model/google_gemini-3_5-flash.md) | — |
+| `openai/gpt-5.6-luna` | ❌  | $0.1/0.6 | **9.27** | 138 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-luna.md) | — |
+| `gpt-5.4-mini` | ❌  | $0.5/1.5 | **8.20** | 130 | [per-model](benchmarks/results/per-model/gpt-5_4-mini.md) | — |
+| `mistralai/ministral-14b-2512` | ✅ Apache 2.0 | $0.2/0.2 | **7.97** | 137 | [per-model](benchmarks/results/per-model/mistralai_ministral-14b-2512.md) | — |
+| `anthropic/claude-opus-4.8` | ❌  | $5.0/25.0 | **7.77** | 127 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4_8.md) | — |
+| `anthropic/claude-opus-4-6` | ❌  | $5.0/25.0 | **7.66** | 185 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-6.md) | — |
+| `gpt-5.4` | ❌  | $5.0/15.0 | **7.46** | 124 | [per-model](benchmarks/results/per-model/gpt-5_4.md) | — |
+| `anthropic/claude-opus-4-7` | ❌  | $5.0/25.0 | **7.36** | 172 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-7.md) | — |
+| `z-ai/glm-5.2` | ✅ MIT | $0.4886/1.5356 | **7.35** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5_2.md) | — |
+| `qwen/qwen3.6-plus` | ❌ Proprietary | $0.325/1.95 | **7.33** | 140 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-plus.md) | — |
+| `gpt-4.1` | ❌  | $2.0/8.0 | **7.29** | 139 | [per-model](benchmarks/results/per-model/gpt-4_1.md) | — |
+| `mistralai/mistral-large-2512` | ✅ Apache 2.0 | $0.5/1.5 | **7.07** | 128 | [per-model](benchmarks/results/per-model/mistralai_mistral-large-2512.md) | [responses](benchmarks/results/responses/20260716_rm_mistral_large_/) |
+| `qwen/qwen3.6-max-preview` | ❌ Proprietary | $1.027/6.162 | **7.03** | 149 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-max-preview.md) | — |
+| `z-ai/glm-5.1` | ✅ MIT | $0.952/2.992 | **7.01** | 154 | [per-model](benchmarks/results/per-model/z-ai_glm-5_1.md) | — |
+| `google/gemma-4-26b-a4b-it` | ✅ Apache 2.0 | $0.12/0.4 | **6.93** | 137 | [per-model](benchmarks/results/per-model/google_gemma-4-26b-a4b-it.md) | [responses](benchmarks/results/responses/20260716_rm_gemma_4_26b_/) |
+| `openai/gpt-5.6-sol` | ❌  | $5.0/30.0 | **6.92** | 141 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-sol.md) | — |
+| `openai/gpt-5.6-terra` | ❌  | $1/6 | **6.89** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-terra.md) | — |
+| `mistralai/mistral-large` | ❌ MRL (no comercial) | $2.0/6.0 | **6.86** | 141 | [per-model](benchmarks/results/per-model/mistralai_mistral-large.md) | [responses](benchmarks/results/responses/20260716_rm_or_mistral_large_3_/) |
+| `z-ai/glm-5` | ✅ MIT | $0.95/2.55 | **6.85** | 130 | [per-model](benchmarks/results/per-model/z-ai_glm-5.md) | [responses](benchmarks/results/responses/20260716_rm_glm_5_2_/) |
+| `anthropic/claude-sonnet-4-6` | ❌  | $3.0/15.0 | **6.72** | 133 | [per-model](benchmarks/results/per-model/anthropic_claude-sonnet-4-6.md) | — |
+| `moonshotai/kimi-k3` | ✅  | $3.0/15.0 | **6.51** | 119 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k3.md) | [responses](benchmarks/results/responses/20260717_sanity/) |
+| `nvidia/llama-3.3-nemotron-super-49b-v1.5` | ✅ NVIDIA Open Model | $0.4/0.4 | **6.50** | 128 | [per-model](benchmarks/results/per-model/nvidia_llama-3_3-nemotron-super-49b-v1_5.md) | [responses](benchmarks/results/responses/20260716_rm_nemotron_super_/) |
+| `deepseek/deepseek-r1` | ✅ MIT | $0.7/2.5 | **6.50** | 138 | [per-model](benchmarks/results/per-model/deepseek_deepseek-r1.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_r1_/) |
+| `xiaomi/mimo-v2.5-pro` | ❌  | $0.435/0.87 | **6.49** | 138 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5-pro.md) | — |
+| `minimax/minimax-m3` | ❌  | $0.3/1.2 | **6.43** | 206 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/20260716_rm_minimax_m3_/) |
+| `anthropic/claude-haiku-4.5` | ❌  | $1.0/5.0 | **6.39** | 119 | [per-model](benchmarks/results/per-model/anthropic_claude-haiku-4_5.md) | — |
+| `qwen/qwen3.7-max` | ❌ Proprietary | $1.475/4.425 | **6.33** | 134 | [per-model](benchmarks/results/per-model/qwen_qwen3_7-max.md) | — |
+| `openai/gpt-oss-120b` | ✅ Apache 2.0 | $0.036/0.18 | **6.21** | 130 | [per-model](benchmarks/results/per-model/openai_gpt-oss-120b.md) | [responses](benchmarks/results/responses/20260716_rm_or_gpt_oss_120b_/) |
+| `minimax/minimax-m2.5` | ✅ MIT | $0.22/0.9 | **6.14** | 128 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_5.md) | — |
+| `deepseek/deepseek-v3.2` | ✅ MIT | $0.269/0.4 | **6.05** | 132 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v3_2.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v3_/) |
+| `google/gemini-3.1-flash-lite-preview` | ❌  | $0.25/1.5 | **5.97** | 139 | [per-model](benchmarks/results/per-model/google_gemini-3_1-flash-lite-preview.md) | — |
+| `deepseek/deepseek-chat` | ❌  | $0.2574/1.0287 | **5.91** | 246 | [per-model](benchmarks/results/per-model/deepseek_deepseek-chat.md) | — |
+| `deepseek/deepseek-v4-flash` | ✅ MIT | $0.14/0.28 | **5.82** | 144 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-flash.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_flash_/) |
+| `qwen/qwen3-next-80b-a3b-instruct` | ✅ Apache 2.0 | $0.09/1.1 | **5.75** | 133 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-instruct.md) | — |
+| `xiaomi/mimo-v2.5` | ❌  | $0.14/0.28 | **5.69** | 139 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2_5.md) | — |
+| `anthropic/claude-fable-5` | ❌ Proprietary | $10.0/50.0 | **5.65** | 185 | [per-model](benchmarks/results/per-model/anthropic_claude-fable-5.md) | [responses](benchmarks/results/responses/20260716_rm_or_claude_fable_5_/) |
+| `openai/gpt-oss-20b` | ✅ Apache 2.0 | $0.029/0.14 | **5.54** | 126 | [per-model](benchmarks/results/per-model/openai_gpt-oss-20b.md) | [responses](benchmarks/results/responses/20260716_rm_or_gpt_oss_20b_/) |
+| `nvidia/nemotron-nano-9b-v2:free` | ✅ NVIDIA Open License | $0.05/0.2 | **5.50** | 124 | [per-model](benchmarks/results/per-model/nvidia_nemotron-nano-9b-v2_free.md) | [responses](benchmarks/results/responses/20260716_rnano/) |
+| `google/gemini-2.5-flash-lite` | ❌  | $0.1/0.4 | **5.49** | 129 | [per-model](benchmarks/results/per-model/google_gemini-2_5-flash-lite.md) | — |
+| `x-ai/grok-4.5` | ❌  | $2.0/6.0 | **5.44** | 133 | [per-model](benchmarks/results/per-model/x-ai_grok-4_5.md) | — |
+| `qwen/qwen3.5-35b-a3b` | ✅ Apache 2.0 | $0.14/1.0 | **5.43** | 125 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-35b-a3b.md) | — |
+| `google/gemini-2.5-flash` | ❌  | $0.3/2.5 | **5.36** | 138 | [per-model](benchmarks/results/per-model/google_gemini-2_5-flash.md) | — |
+| `nvidia/nemotron-3-ultra-550b-a55b` | ✅ NVIDIA Open Model | $0.6/3.6 | **5.23** | 137 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-ultra-550b-a55b.md) | — |
+| `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | ✅ NVIDIA Open License | $0.1/0.4 | **5.12** | 147 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-nano-omni-30b-a3b-reasoning_free.md) | — |
+| `moonshotai/kimi-k2.6` | ✅ Modified MIT | $0.5795/2.44 | **5.07** | 213 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_6.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
+| `gpt-4.1-mini` | ❌  | $0.4/1.6 | **5.07** | 138 | [per-model](benchmarks/results/per-model/gpt-4_1-mini.md) | — |
+| `mistralai/mistral-small-2603` | ✅ Apache 2.0 | $0.15/0.6 | **5.07** | 126 | [per-model](benchmarks/results/per-model/mistralai_mistral-small-2603.md) | — |
+| `qwen/qwen3-coder` | ✅ Apache 2.0 | $0.3/1 | **5.06** | 138 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder.md) | [responses](benchmarks/results/responses/20260716_sr/) |
+| `mistralai/devstral-2512` | ✅ Apache 2.0 | $0.4/2.0 | **4.93** | 136 | [per-model](benchmarks/results/per-model/mistralai_devstral-2512.md) | [responses](benchmarks/results/responses/20260716_rm_devstral_2_/) |
+| `deepseek/deepseek-v4-pro` | ✅ MIT | $0.63168/1.26336 | **4.91** | 172 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-pro.md) | [responses](benchmarks/results/responses/20260716_rm_deepseek_v4_pro_/) |
+| `qwen/qwen3.6-35b-a3b` | ✅ Apache 2.0 | $0.14/1.0 | **4.87** | 133 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-35b-a3b.md) | — |
+| `nousresearch/hermes-4-405b` | ✅ Llama 3 community | $1.0/3.0 | **4.82** | 138 | [per-model](benchmarks/results/per-model/nousresearch_hermes-4-405b.md) | [responses](benchmarks/results/responses/20260716_rm_hermes_4_405b_/) |
+| `moonshotai/kimi-k2` | ✅ Modified MIT | $0.57/2.3 | **4.79** | 156 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_7_code_/) |
+| `meta-llama/llama-4-maverick` | ✅ Llama Community | $0.2/0.696 | **4.70** | 141 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-maverick.md) | [responses](benchmarks/results/responses/20260716_rm_llama_4_maverick_/) |
+| `minimax/minimax-m2.7` | ❌  | $0.3/1.2 | **4.45** | 193 | [per-model](benchmarks/results/per-model/minimax_minimax-m2_7.md) | — |
+| `x-ai/grok-4.3` | ❌  | $1.25/2.5 | **4.39** | 143 | [per-model](benchmarks/results/per-model/x-ai_grok-4_3.md) | — |
+| `qwen/qwen3.5-397b-a17b` | ✅ Apache 2.0 | $0.5/3.6 | **4.22** | 130 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-397b-a17b.md) | — |
+| `x-ai/grok-4.20` | ❌  | $1.25/2.5 | **4.21** | 122 | [per-model](benchmarks/results/per-model/x-ai_grok-4_20.md) | — |
+| `meta-llama/llama-3.1-8b-instruct` | ✅ Llama Community | $0.05/0.08 | **4.13** | 121 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_1-8b-instruct.md) | — |
+| `meta-llama/llama-4-scout` | ✅ Llama Community | $0.1/0.3 | **3.94** | 128 | [per-model](benchmarks/results/per-model/meta-llama_llama-4-scout.md) | [responses](benchmarks/results/responses/20260716_rm_or_llama_4_scout_/) |
+| `qwen/qwen3-coder-next` | ✅ Apache 2.0 | $0.11/0.8 | **3.91** | 156 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder-next.md) | [responses](benchmarks/results/responses/20260716_sr/) |
+| `nvidia/nemotron-3-super-120b-a12b` | ✅ NVIDIA Open | $0.085/0.4 | **3.44** | 135 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-super-120b-a12b.md) | — |
+| `google/gemini-2.5-pro` | ❌  | $1.25/10.0 | **3.29** | 155 | [per-model](benchmarks/results/per-model/google_gemini-2_5-pro.md) | — |
+| `moonshotai/kimi-k2.7-code` | ✅ Modified MIT | $0.7/3.5 | **3.27** | 133 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_7-code.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
+| `nousresearch/hermes-4-70b` | ✅ Llama 3 community | $0.13/0.4 | **3.14** | 141 | [per-model](benchmarks/results/per-model/nousresearch_hermes-4-70b.md) | [responses](benchmarks/results/responses/20260716_rm_hermes_4_70b_/) |
+| `meta-llama/llama-3.3-70b-instruct` | ✅ Llama Community | $0.1/0.32 | **3.03** | 147 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_3-70b-instruct.md) | — |
+| `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.6/3.6 | **3.00** | 158 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-27b.md) | — |
+| `nvidia/nemotron-3-nano-30b-a3b` | ✅ NVIDIA Open | $0.05/0.2 | **2.77** | 128 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-nano-30b-a3b.md) | — |
+| `qwen/qwen3-next-80b-a3b-thinking` | ✅ Apache 2.0 | $0.15/1.2 | **2.37** | 132 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-thinking.md) | — |
+| `google/gemini-3.5-flash` | ❌  | $1.5/9.0 | **0.91** | 142 | [per-model](benchmarks/results/per-model/google_gemini-3_5-flash.md) | — |
 | `google/gemini-3.1-pro-preview` | ❌  | $2.0/12.0 | **0.00** | 119 | [per-model](benchmarks/results/per-model/google_gemini-3_1-pro-preview.md) | — |
 
 #### Vía suscripción Claude — plano propio (comparables entre sí)

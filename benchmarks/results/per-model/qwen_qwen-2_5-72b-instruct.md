@@ -20,11 +20,11 @@
 | code_generation | 2 | 2 | 8.30 | 9.16 |
 | content_generation | 4 | 4 | 8.42 | 9.45 |
 | creativity | 4 | 0 | - | - |
-| customer_support | 4 | 1 | 7.12 | 7.96 |
+| customer_support | 4 | 1 | 7.11 | 7.96 |
 | deep_reasoning | 6 | 6 | 6.55 | 6.67 |
 | hallucination | 3 | 0 | - | - |
 | multi_turn | 1 | 0 | - | - |
-| news_seo_writing | 5 | 4 | 4.98 | 4.55 |
+| news_seo_writing | 5 | 4 | 4.97 | 4.55 |
 | ocr_extraction | 5 | 5 | 8.51 | 9.35 |
 | orchestration | 5 | 5 | 6.41 | 6.55 |
 | policy_adherence | 1 | 1 | 6.49 | 6.67 |
@@ -35,7 +35,7 @@
 | strategy | 3 | 2 | 6.79 | 7.08 |
 | string_precision | 6 | 5 | 7.50 | 7.80 |
 | structured_output | 4 | 4 | 5.71 | 5.00 |
-| summarization | 2 | 2 | 7.36 | 7.90 |
+| summarization | 2 | 2 | 7.35 | 7.90 |
 | task_management | 2 | 2 | 8.15 | 8.80 |
 | tool_calling | 4 | 4 | 6.00 | 6.05 |
 | translation | 2 | 2 | 7.19 | 7.33 |
@@ -717,7 +717,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 | blog_post_es | 8.60 | 9.80 | 5 | 20 | 50.94s | OK |
 | email_profesional | 8.51 | 9.60 | 5 | 22 | 34.78s | OK |
 | social_media_batch | 8.26 | 9.20 | 5 | 20 | 31.06s | OK |
-| product_description_en | 8.32 | 9.20 | 5 | 23 | 12.81s | OK |
+| product_description_en | 8.31 | 9.20 | 5 | 23 | 12.81s | OK |
 
 <details><summary><code>blog_post_es</code> — score 8.60</summary>
 
@@ -786,7 +786,7 @@ Me complace enviarle nuestra propuesta para el desarrollo de su sitio web corpor
 
 </details>
 
-<details><summary><code>product_description_en</code> — score 8.32</summary>
+<details><summary><code>product_description_en</code> — score 8.31</summary>
 
 **Stats**: latencia 12.81s · 23 tok/s · 63→294 tokens · $0.00014
 
@@ -920,7 +920,7 @@ Step into the future with the AuraSphere, the ultimate smart home device that se
 | news_json_output_strict | 5.12 | 5.00 | 3.0 | 15 | 42.76s | OK |
 | news_spanish_only | 5.37 | 5.00 | 5 | 33 | 27.01s | OK |
 | news_no_hallucination_sources | 1.84 | 0.00 | 4.0 | 36 | 25.54s | OK |
-| news_perplexity_enrichment | 7.57 | 8.20 | 4.0 | 38 | 27.02s | OK |
+| news_perplexity_enrichment | 7.56 | 8.20 | 4.0 | 38 | 27.02s | OK |
 
 <details><summary><code>news_seo_article_full</code> — score 2.33</summary>
 
@@ -990,7 +990,7 @@ NotCo, una startup chilena fundada en 2015 por Matias Muchnick, ha logrado un hi
 
 </details>
 
-<details><summary><code>news_perplexity_enrichment</code> — score 7.57</summary>
+<details><summary><code>news_perplexity_enrichment</code> — score 7.56</summary>
 
 **Stats**: latencia 27.02s · 38 tok/s · 526→1027 tokens · $0.00060
 
@@ -1258,12 +1258,12 @@ Over 500 startups in LATAM are already using it. When are you starting?"
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| angry_customer_refund | 7.12 | 7.96 | 4.0 | 2 | 58.21s | OK |
+| angry_customer_refund | 7.11 | 7.96 | 4.0 | 2 | 58.21s | OK |
 | ambiguous_issue_classification | 2.33 | 0.00 | - | 0 | 18.36s | ERROR |
 | multi_issue_conversation | 2.33 | 0.00 | - | 0 | 19.15s | ERROR |
 | social_engineering_attempt | 2.33 | 0.00 | - | 0 | 18.44s | ERROR |
 
-<details><summary><code>angry_customer_refund</code> — score 7.12</summary>
+<details><summary><code>angry_customer_refund</code> — score 7.11</summary>
 
 **Stats**: latencia 58.21s · 2 tok/s · 934→92 tokens · $0.00037
 
@@ -1305,13 +1305,13 @@ Voy a verificar la información de tu pedido antes de proceder con el reembolso.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| multi_step_research_plan | 6.56 | 6.68 | 3.2 | 36 | 7.69s | OK |
+| multi_step_research_plan | 6.55 | 6.68 | 3.2 | 36 | 7.69s | OK |
 | error_recovery_orchestration | 5.55 | 5.00 | 4.0 | 32 | 3.08s | OK |
 | complex_workflow_decomposition | 6.53 | 6.80 | 4.0 | 33 | 16.74s | OK |
 | tool_selection_precision | 8.64 | 10.00 | 5 | 30 | 13.58s | OK |
 | parallel_vs_sequential_judgment | 4.77 | 4.29 | 4.4 | 34 | 15.02s | OK |
 
-<details><summary><code>multi_step_research_plan</code> — score 6.56</summary>
+<details><summary><code>multi_step_research_plan</code> — score 6.55</summary>
 
 **Stats**: latencia 7.69s · 36 tok/s · 1563→274 tokens · $0.00067
 
@@ -1630,10 +1630,10 @@ Claro, aquí tienes un plan semanal detallado con bloques de tiempo específicos
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| long_document_summary | 8.23 | 9.20 | 5 | 24 | 17.33s | OK |
+| long_document_summary | 8.22 | 9.20 | 5 | 24 | 17.33s | OK |
 | extract_structured_data | 6.48 | 6.60 | 3.0 | 27 | 12.57s | OK |
 
-<details><summary><code>long_document_summary</code> — score 8.23</summary>
+<details><summary><code>long_document_summary</code> — score 8.22</summary>
 
 **Stats**: latencia 17.33s · 24 tok/s · 489→416 tokens · $0.00034
 

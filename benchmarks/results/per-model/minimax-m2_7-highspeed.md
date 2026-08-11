@@ -2,7 +2,7 @@
 
 - **model_id**: `MiniMax-M2.7-highspeed`
 - **Total tests**: 4/4 exitosos (0 errores)
-- **Score final**: 6.50
+- **Score final**: 5.72
 - **Calidad**: 5.00
 - **Velocidad**: 46 tok/s
 - **Latencia primera token**: 3.20s
@@ -14,7 +14,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| tool_calling | 4 | 4 | 6.50 | 5.00 |
+| tool_calling | 4 | 4 | 5.72 | 5.00 |
 
 ## Detalle por test
 
@@ -24,12 +24,12 @@
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| single_tool_calendar | 6.62 | 5.00 | - | 42 | 3.25s | OK |
-| multi_tool_sequential | 6.70 | 5.00 | - | 59 | 3.74s | OK |
-| tool_with_reasoning | 6.03 | 5.00 | - | 50 | 2.44s | OK |
-| no_tool_needed | 6.66 | 5.00 | - | 32 | 3.37s | OK |
+| single_tool_calendar | 5.65 | 5.00 | - | 42 | 3.25s | OK |
+| multi_tool_sequential | 5.75 | 5.00 | - | 59 | 3.74s | OK |
+| tool_with_reasoning | 5.81 | 5.00 | - | 50 | 2.44s | OK |
+| no_tool_needed | 5.68 | 5.00 | - | 32 | 3.37s | OK |
 
-<details><summary><code>single_tool_calendar</code> — score 6.62</summary>
+<details><summary><code>single_tool_calendar</code> — score 5.65</summary>
 
 **Stats**: latencia 3.25s · 42 tok/s · 630→138 tokens · $0.00036
 
@@ -49,7 +49,7 @@ Voy a usar la función create_calendar_event con estos parámetros.
 
 </details>
 
-<details><summary><code>multi_tool_sequential</code> — score 6.70</summary>
+<details><summary><code>multi_tool_sequential</code> — score 5.75</summary>
 
 **Stats**: latencia 3.74s · 59 tok/s · 656→221 tokens · $0.00046
 
@@ -66,7 +66,7 @@ Voy a ejecutar amba
 
 </details>
 
-<details><summary><code>tool_with_reasoning</code> — score 6.03</summary>
+<details><summary><code>tool_with_reasoning</code> — score 5.81</summary>
 
 **Stats**: latencia 2.44s · 50 tok/s · 630→122 tokens · $0.00034
 
@@ -84,7 +84,7 @@ Voy a ejecutar ambas tareas en paralelo ya que son independientes.
 
 </details>
 
-<details><summary><code>no_tool_needed</code> — score 6.66</summary>
+<details><summary><code>no_tool_needed</code> — score 5.68</summary>
 
 **Stats**: latencia 3.37s · 32 tok/s · 599→106 tokens · $0.00031
 

@@ -16,7 +16,7 @@
     {
       "quality": 4.24,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 8.6e-05,
       "speed": 3.333,
       "latency": 6.0,
       "tool_calling": 10.0,
@@ -52,11 +52,11 @@
     {
       "quality": 7.49,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 9.7e-05,
       "speed": 4.667,
       "latency": 4.0,
       "tool_calling": 9.0,
-      "final": 7.393,
+      "final": 7.39,
       "test_name": "ambiguous_issue_classification",
       "model": "Llama 3.3 70B",
       "model_id": "meta-llama/llama-3.3-70b-instruct",
@@ -88,7 +88,7 @@
     {
       "quality": 9.293,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 0.000164,
       "speed": 4.667,
       "latency": 1.667,
       "tool_calling": 0.0,
@@ -124,7 +124,7 @@
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 9.3e-05,
       "speed": 4.667,
       "latency": 4.0,
       "tool_calling": 0.0,

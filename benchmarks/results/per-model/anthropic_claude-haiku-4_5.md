@@ -56,7 +56,7 @@
 | logic_puzzle_constraint | 5.36 | 5.00 | 4.4 | 130 | 5.13s | OK |
 | causal_reasoning | 8.62 | 10.00 | 5.0 | 135 | 11.19s | OK |
 | code_bug_subtle | 7.10 | 7.50 | 5 | 135 | 5.05s | OK |
-| fermi_estimation | 6.48 | 6.67 | 4.4 | 128 | 6.51s | OK |
+| fermi_estimation | 6.49 | 6.67 | 4.4 | 128 | 6.51s | OK |
 | ethical_dilemma_structured | 8.57 | 10.00 | 5.0 | 116 | 17.64s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.85</summary>
@@ -165,7 +165,7 @@ Tracemos con un ejemplo: `data = [5, 5, 5]`
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 6.48</summary>
+<details><summary><code>fermi_estimation</code> — score 6.49</summary>
 
 **Stats**: latencia 6.51s · 128 tok/s · 88→833 tokens · $0.00425
 

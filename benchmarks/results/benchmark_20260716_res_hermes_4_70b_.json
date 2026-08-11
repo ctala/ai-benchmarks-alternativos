@@ -20,11 +20,11 @@
     {
       "quality": 5.833,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 0.0002,
       "speed": 9.333,
       "latency": 3.333,
       "tool_calling": 7.0,
-      "final": 6.533,
+      "final": 6.53,
       "test_name": "model_as_router",
       "model": "Hermes 4 70B",
       "model_id": "nousresearch/hermes-4-70b",

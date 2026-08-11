@@ -2,7 +2,7 @@
 
 - **model_id**: `mistralai/magistral-small-2506`
 - **Total tests**: 8/89 exitosos (81 errores)
-- **Score final**: 6.44
+- **Score final**: 6.82
 - **Calidad**: 7.38
 - **Judge score (Phi-4)**: 4.56/10
 - **Velocidad**: 23 tok/s
@@ -17,7 +17,7 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 0 | - | - |
 | code_generation | 4 | 0 | - | - |
-| content_generation | 4 | 4 | 7.39 | 9.16 |
+| content_generation | 4 | 4 | 7.83 | 9.16 |
 | creativity | 4 | 0 | - | - |
 | customer_support | 4 | 0 | - | - |
 | deep_reasoning | 6 | 0 | - | - |
@@ -36,7 +36,7 @@
 | structured_output | 4 | 0 | - | - |
 | summarization | 2 | 0 | - | - |
 | task_management | 1 | 0 | - | - |
-| tool_calling | 4 | 4 | 5.49 | 5.59 |
+| tool_calling | 4 | 4 | 5.80 | 5.59 |
 | translation | 3 | 0 | - | - |
 
 ## Detalle por test
@@ -329,12 +329,12 @@
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_post_es | 6.80 | 8.08 | 4.2 | 25 | 68.64s | OK |
-| email_profesional | 7.72 | 9.52 | 4.8 | 25 | 30.25s | OK |
-| social_media_batch | 7.42 | 9.24 | 4.6 | 25 | 58.65s | OK |
-| product_description_en | 7.62 | 9.80 | 5 | 25 | 81.50s | OK |
+| blog_post_es | 7.04 | 8.08 | 4.2 | 25 | 68.64s | OK |
+| email_profesional | 8.19 | 9.52 | 4.8 | 25 | 30.25s | OK |
+| social_media_batch | 7.88 | 9.24 | 4.6 | 25 | 58.65s | OK |
+| product_description_en | 8.21 | 9.80 | 5 | 25 | 81.50s | OK |
 
-<details><summary><code>blog_post_es</code> — score 6.80</summary>
+<details><summary><code>blog_post_es</code> — score 7.04</summary>
 
 **Stats**: latencia 68.64s · 25 tok/s · 234→1732 tokens · $0.00271
 
@@ -354,7 +354,7 @@ En el mundo actual, donde la tecnología avanza a un ritmo vertiginoso, las pequ
 
 </details>
 
-<details><summary><code>email_profesional</code> — score 7.72</summary>
+<details><summary><code>email_profesional</code> — score 8.19</summary>
 
 **Stats**: latencia 30.25s · 25 tok/s · 248→763 tokens · $0.00127
 
@@ -374,7 +374,7 @@ Espero que este mensaje lo encuentre bien. Agradecemos su interés en nuestros s
 
 </details>
 
-<details><summary><code>social_media_batch</code> — score 7.42</summary>
+<details><summary><code>social_media_batch</code> — score 7.88</summary>
 
 **Stats**: latencia 58.65s · 25 tok/s · 246→1478 tokens · $0.00234
 
@@ -392,7 +392,7 @@ Espero que este mensaje lo encuentre bien. Agradecemos su interés en nuestros s
 
 </details>
 
-<details><summary><code>product_description_en</code> — score 7.62</summary>
+<details><summary><code>product_description_en</code> — score 8.21</summary>
 
 **Stats**: latencia 81.50s · 25 tok/s · 229→2048 tokens · $0.00319
 
@@ -603,12 +603,12 @@ Espero que este mensaje lo encuentre bien. Agradecemos su interés en nuestros s
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| single_tool_calendar | 5.58 | 7.38 | 4.2 | 25 | 27.23s | OK |
-| multi_tool_sequential | 4.87 | 5.00 | - | 21 | 4.60s | OK |
-| tool_with_reasoning | 4.88 | 5.00 | - | 22 | 4.03s | OK |
-| no_tool_needed | 6.62 | 5.00 | - | 18 | 1.06s | OK |
+| single_tool_calendar | 6.68 | 7.38 | 4.2 | 25 | 27.23s | OK |
+| multi_tool_sequential | 5.43 | 5.00 | - | 21 | 4.60s | OK |
+| tool_with_reasoning | 5.44 | 5.00 | - | 22 | 4.03s | OK |
+| no_tool_needed | 5.65 | 5.00 | - | 18 | 1.06s | OK |
 
-<details><summary><code>single_tool_calendar</code> — score 5.58</summary>
+<details><summary><code>single_tool_calendar</code> — score 6.68</summary>
 
 **Stats**: latencia 27.23s · 25 tok/s · 701→678 tokens · $0.00137
 

@@ -2,6 +2,84 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v4.0.1] - 2026-08-11 — Precios: un solo punto de verdad (y el ranking se movió)
+
+Corrección de datos, **no de fórmula**. La calidad, los pesos y la referencia z-score congelada
+(`scoring_reference.json`, v4.0) quedaron **intactos**: no se recalibró nada y no se midió ningún
+modelo nuevo. Lo único que cambió es el precio — que pesa 15% del score y, a diferencia de una
+suite constante, **sí mueve el orden**.
+
+### El problema: dos fuentes de precio, y ninguna al día
+El costo se escribía a mano en dos archivos distintos (`models.py` y el dict `PRICING` de
+`scoring.py`). Cruzados contra la API pública de OpenRouter el 11-ago: **34 precios equivocados en
+el catálogo**, y entre los dos archivos **34 ids con valores distintos** más 19 ids que ya no
+existen en ninguna parte.
+
+Ya se había arreglado a mano antes. Dos veces. En **v2.6.3 (22-may-2026)** se corrigieron 7
+precios "en ambos" archivos, y en junio otro más. El caso que lo prueba: **Grok 4.20** se corrigió
+en mayo de `$2/$6` a `$1.25/$2.50`; en agosto `PRICING` decía otra vez `$2.00/$6.00` — el valor
+exacto de antes de la corrección. **Un precio a mano no solo caduca: se revierte.**
+
+### Corregido
+- **`sync_prices.py` (nuevo)**: sincroniza el catálogo contra `openrouter.ai/api/v1/models`
+  (pública, sin auth). Idempotente, con backup, y **nunca escribe $0** (regla dura: un modelo
+  gratis gana el eje costo artificialmente). Respeta `free_runtime`. **34 precios corregidos**,
+  diff de 52 líneas, **cero cambios fuera de `cost_input`/`cost_output`**.
+- **`PRICING` ya no se mantiene a mano: se DERIVA de `MODELS` + `OLLAMA_MODELS`.** Un solo punto
+  de verdad. Los 19 ids huérfanos se borraron **después de verificar que no tenían ningún run**
+  en los 20.192 del histórico (el único con runs, `minimax/minimax-m2.7-highspeed`, ya matcheaba
+  por nombre y nunca usó el fallback). Las 13 entradas en $0 desaparecieron con eso.
+  Regla de colisión documentada: cuando un mismo `id` tiene varias entradas con precios distintos
+  (8 casos: el mismo modelo por OpenRouter, Groq o NIM), **gana el más caro** — ante la duda,
+  nunca sub-costear.
+- **Import muerto** de `PRICING` en `export_for_pages.py`: importado y jamás usado, con un
+  docstring que decía que recalculaba costo con él. Quitado y el docstring corregido.
+- **`rescore_costs.py`** propagó el precio nuevo a los runs históricos: **12.020 de 20.192 runs**
+  (idempotente; la 2ª corrida da 0). Toca exactamente 3 campos —`cost_usd`, `cost_score`,
+  `final`— verificado sobre el diff completo.
+
+### Delta real del ranking publicado
+**20 modelos** se movieron ≥0,05 en `score_global`. Nadie entró ni salió del ranking (70 antes y
+después) y el #1 no cambió. Todos los movimientos se explican por su cambio de precio.
+
+| Modelo | Score | Posición | Precio $/M (antes → ahora) |
+|---|---|---|---|
+| **GPT-5.6 Luna** | 8.34 → **8.80** | #1 → #1 | 1.00/6.00 → **0.10/0.60** (se le cobraba 10× de más) |
+| MiMo-V2.5 Pro | 6.49 → 6.79 | #21 → **#12** | 1.00/3.00 → 0.435/0.87 |
+| GPT-5.6 Terra | 6.22 → 6.49 | #27 → #22 | 2.50/15.00 → 1.00/6.00 |
+| MiMo-V2.5 (omnimodal) | 6.02 → 6.28 | #29 → #27 | 0.40/2.00 → 0.14/0.28 |
+| GLM 5.2 | 7.14 → 7.33 | #6 → **#3** | 0.95/3.00 → 0.49/1.54 |
+| Qwen 3.6 Plus | 7.17 → 7.00 | #5 → #7 | 0.18/1.07 → 0.325/1.95 |
+| Kimi K2 | 5.56 → 5.39 | #36 → #43 | 0.20/0.80 → 0.57/2.30 |
+| **DeepSeek V3.2** | 6.47 → 6.34 | #23 → #24 | 0.14/0.28 → **0.2574/1.0287** |
+| GLM 5 | 6.86 → 6.77 | #10 → #15 | 0.60/1.92 → 0.95/2.55 |
+
+Los otros 11 se mueven ≤0,17. Cinco son variantes NIM/Ollama Cloud cuyo precio propio no cambió:
+se mueven porque el export normaliza el costo al **equivalente OpenRouter**, y ese sí cambió.
+
+**Lo que hay que decir en voz alta:** el #1 subía porque se le cobraba **10× de más**, y
+**DeepSeek V3.2 —el modelo que corre en producción en Eco— se publicaba 3,7× más barato de lo que
+cuesta**. Al corregirlo baja un puesto. Es el precio de tener el número bien.
+
+### Dos guardrails que fallaban en verde (encontrados de paso, NO arreglados acá)
+- **`check_endpoints.py` corre ciego.** Solo `benchmarks/config.py` carga el `.env`, y ese script
+  nunca lo importa: cuando lo dispara `regenerate_all.py` reporta **SIN CREDENCIAL en los 70
+  modelos** y por lo tanto **nunca puede encontrar un muerto**. Es el chequeo que existe porque
+  Devstral Small estuvo #5 meses después de que Mistral apagara su endpoint. Encima, la
+  `OPENROUTER_API_KEY` del `.env` hoy devuelve **401**, así que ni cargando el `.env` habría
+  servido. (El sync de precios no se ve afectado: ese endpoint es público.)
+- **`check_consistency.py` no ve los bloques auto-generados.** Solo caza claims narrativos con la
+  palabra "score"; las filas de la tabla `AUTO-RANKING` del README no la tienen. Dio verde con el
+  README diciendo 8.34 y `models.json` 8.80. La red para eso es correr `regenerate_all.py` antes
+  de commitear — que es lo que se hizo.
+
+### Fuera de alcance a propósito
+Los 3 scorers huérfanos (`json_valid`, `json_exact`, `language_check`) y el `else: return 5.0` de
+`scoring.py:132` **siguen sin tocarse**: `structured_output` continúa publicando 5,00 fijo en los
+117 modelos. Es el arreglo correcto y es el más riesgoso del plan — toca `quality_avg` de todos a
+la vez, la misma superficie que colapsó el ranking a 6 modelos en julio. Va con protocolo propio
+(baseline + rama aparte + un scorer por vez). Ver `PLAN-AGOSTO-2026.md`.
+
 ## [v4.0.0] - 2026-07-17 — Relanzamiento: referencia z-score congelada + limpieza definitiva + pase de UX
 
 ### Scoring

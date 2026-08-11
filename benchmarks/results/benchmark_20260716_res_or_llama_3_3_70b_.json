@@ -16,11 +16,11 @@
     {
       "quality": 7.693,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 9.4e-05,
       "speed": 7.333,
       "latency": 5.333,
       "tool_calling": 0.0,
-      "final": 7.837,
+      "final": 7.84,
       "test_name": "angry_customer_refund",
       "model": "Llama 3.3 70B",
       "model_id": "meta-llama/llama-3.3-70b-instruct",
@@ -52,7 +52,7 @@
     {
       "quality": 0.0,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 9.9e-05,
       "speed": 8.0,
       "latency": 6.0,
       "tool_calling": 0.0,
@@ -81,7 +81,7 @@
     {
       "quality": 0.94,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 8.5e-05,
       "speed": 6.0,
       "latency": 8.0,
       "tool_calling": 2.333,
@@ -117,7 +117,7 @@
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 0.000128,
       "speed": 8.0,
       "latency": 5.333,
       "tool_calling": 0.0,
