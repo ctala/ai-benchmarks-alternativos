@@ -6,7 +6,9 @@ Consolida:
 - Metadata desde benchmarks/config.py (MODELS dict): tier, pricing, license, provider, notas
 - Métricas desde benchmarks/results/*.json (todos los lotes): score promedio,
   tok/s, latencia, tasa de éxito por suite/pilar
-- Recalcula costo con PRICING actualizado (más fiable que cost_usd guardado)
+- Usa el `cost_usd` guardado en cada run. Quien lo realinea con el precio del
+  catálogo es `rescore_costs.py`, que corre ANTES de este script (ver la cadena
+  documentada en `sync_prices.py`). Este export no repuntúa costo.
 
 El JSON resultante se commitea con el repo y se sirve estáticamente desde
 GitHub Pages en https://benchmarks.cristiantala.com/data/models.json
@@ -25,7 +27,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from benchmarks.config import MODELS as _CLOUD_MODELS
 from benchmarks.models import OLLAMA_MODELS, SUBSCRIPTIONS
-from benchmarks.scoring import PRICING, compute_final_score, cost_score_log, DEFAULT_WEIGHTS
+from benchmarks.scoring import compute_final_score, cost_score_log, DEFAULT_WEIGHTS
 
 # Costo minimo por call para modelos gratis/free tier/suscripcion.
 # Evita cost_score 10.0 artificial y hace comparables todos los modelos.

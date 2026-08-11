@@ -969,12 +969,12 @@ thought
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_post_es | 7.53 | 7.88 | 4.2 | 55 | 28.09s | OK |
+| blog_post_es | 7.52 | 7.88 | 4.2 | 55 | 28.09s | OK |
 | email_profesional | 7.55 | 8.08 | 4.2 | 37 | 34.81s | OK |
 | social_media_batch | 8.37 | 9.52 | 4.8 | 27 | 57.24s | OK |
 | product_description_en | 8.60 | 9.52 | 4.8 | 36 | 28.43s | OK |
 
-<details><summary><code>blog_post_es</code> — score 7.53</summary>
+<details><summary><code>blog_post_es</code> — score 7.52</summary>
 
 **Stats**: latencia 28.09s · 55 tok/s · 0→1536 tokens · $0.00051
 
@@ -1200,7 +1200,7 @@ Compile current information for a writer.
 | news_json_output_strict | 5.15 | 5.00 | 3.2 | 23 | 90.11s | OK |
 | news_spanish_only | 5.18 | 5.00 | 4.0 | 26 | 68.07s | OK |
 | news_no_hallucination_sources | 1.65 | 0.00 | 4.0 | 21 | 97.02s | OK |
-| news_perplexity_enrichment | 7.82 | 8.82 | 4.4 | 18 | 113.28s | OK |
+| news_perplexity_enrichment | 7.83 | 8.82 | 4.4 | 18 | 113.28s | OK |
 
 <details><summary><code>news_seo_article_full</code> — score 7.78</summary>
 
@@ -1290,7 +1290,7 @@ thought
 
 </details>
 
-<details><summary><code>news_perplexity_enrichment</code> — score 7.82</summary>
+<details><summary><code>news_perplexity_enrichment</code> — score 7.83</summary>
 
 **Stats**: latencia 113.28s · 18 tok/s · 0→2048 tokens · $0.00068
 

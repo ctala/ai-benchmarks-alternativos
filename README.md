@@ -86,16 +86,16 @@ Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad*
 
 | # | Modelo | Score | Quality | Cost | Provider | $/1k calls | Runs |
 |---|---|---:|---:|---:|---|---:|---:|
-| 1 | **GPT-5.6 Luna** | **8.34** | 8.41 | 5.83 | openrouter | $9.30 | 138 |
-| 2 | **GPT-5.4 Mini** | **7.80** | 8.21 | 7.47 | openai_direct | $2.40 | 130 |
-| 3 | **Ministral 14B** | **7.21** | 8.16 | 7.83 | openrouter | $0.36 | 137 |
-| 4 | **Gemma 4 26B MoE (3.8B activos)** | **7.19** | 8.19 | 7.81 | openrouter | $0.49 | 137 |
-| 5 | **Qwen 3.6 Plus** | **7.17** | 8.27 | 6.26 | openrouter | $1.66 | 140 |
-| 6 | **GLM 5.2** | **7.14** | 8.30 | 5.85 | openrouter | $4.79 | 130 |
-| 7 | **Mistral Large 3 675B** | **7.08** | 8.18 | 7.16 | openrouter | $2.40 | 128 |
+| 1 | **GPT-5.6 Luna** | **8.80** | 8.41 | 7.70 | openrouter | $0.93 | 138 |
+| 2 | **GPT-5.4 Mini** | **7.79** | 8.21 | 7.45 | openai_direct | $2.40 | 130 |
+| 3 | **GLM 5.2** | **7.33** | 8.30 | 6.65 | openrouter | $2.45 | 130 |
+| 4 | **Ministral 14B** | **7.21** | 8.16 | 7.83 | openrouter | $0.36 | 137 |
+| 5 | **Gemma 4 26B MoE (3.8B activos)** | **7.19** | 8.19 | 7.81 | openrouter | $0.64 | 137 |
+| 6 | **Mistral Large 3 675B** | **7.08** | 8.18 | 7.16 | openrouter | $2.40 | 128 |
+| 7 | **Qwen 3.6 Plus** | **7.00** | 8.27 | 5.53 | openrouter | $3.02 | 140 |
 | 8 | **Nemotron Super 49B v1.5** | **6.87** | 8.17 | 7.60 | openrouter | $0.72 | 128 |
 | 9 | **Claude Opus 4.6** | **6.86** | 8.34 | 3.70 | openrouter | $39.00 | 185 |
-| 10 | **GLM 5** | **6.86** | 8.24 | 6.26 | openrouter | $3.06 | 130 |
+| 10 | **Claude Opus 4.8** | **6.85** | 8.30 | 3.75 | openrouter | $39.00 | 127 |
 
 > **Piso de ranking: 50 runs.** Solo compiten los 70 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
 

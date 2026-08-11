@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.21/10
 - **Velocidad**: 137 tok/s
 - **Latencia primera token**: 5.77s
-- **Costo promedio por test**: $0.00027
+- **Costo promedio por test**: $0.00029
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -19,8 +19,8 @@
 | agent_long_horizon | 12 | 12 | 8.12 | 8.75 |
 | business_audit | 10 | 10 | 6.33 | 5.45 |
 | business_strategy | 5 | 5 | 8.26 | 8.40 |
-| code_generation | 4 | 4 | 8.34 | 8.65 |
-| content_generation | 4 | 4 | 8.89 | 9.40 |
+| code_generation | 4 | 4 | 8.33 | 8.65 |
+| content_generation | 4 | 4 | 8.88 | 9.40 |
 | content_verificable | 5 | 5 | 7.49 | 7.33 |
 | creativity | 4 | 4 | 9.13 | 9.25 |
 | customer_support | 4 | 4 | 8.28 | 7.97 |
@@ -29,12 +29,12 @@
 | multi_turn | 4 | 4 | 7.40 | 7.50 |
 | news_seo_writing | 5 | 5 | 5.90 | 5.28 |
 | ocr_extraction | 5 | 5 | 8.29 | 8.70 |
-| orchestration | 5 | 5 | 7.27 | 7.12 |
+| orchestration | 5 | 5 | 7.26 | 7.12 |
 | policy_adherence | 4 | 4 | 8.95 | 9.08 |
 | presentation | 2 | 2 | 8.88 | 9.00 |
 | reasoning | 3 | 3 | 8.67 | 9.05 |
 | sales_outreach | 3 | 3 | 8.04 | 8.00 |
-| startup_content | 9 | 9 | 8.76 | 9.29 |
+| startup_content | 9 | 9 | 8.75 | 9.29 |
 | strategy | 3 | 3 | 8.50 | 8.89 |
 | string_precision | 6 | 6 | 6.97 | 6.67 |
 | structured_output | 4 | 4 | 5.88 | 5.00 |
@@ -197,7 +197,7 @@ Recomendación**
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | business_analysis | 8.54 | 8.60 | 4.0 | 308 | 2.52s | OK |
-| logical_reasoning | 8.70 | 9.60 | 5 | 31 | 28.78s | OK |
+| logical_reasoning | 8.69 | 9.60 | 5 | 31 | 28.78s | OK |
 | multi_constraint_decision | 8.78 | 8.96 | 4.4 | 306 | 2.78s | OK |
 
 <details><summary><code>business_analysis</code> — score 8.54</summary>
@@ -227,7 +227,7 @@ Recomendación**
 
 </details>
 
-<details><summary><code>logical_reasoning</code> — score 8.70</summary>
+<details><summary><code>logical_reasoning</code> — score 8.69</summary>
 
 **Stats**: latencia 28.78s · 31 tok/s · 130→886 tokens · $0.00028
 
@@ -444,7 +444,7 @@ Entiendo que estás buscando crear una aplicación que conecte restaurantes pequ
 | python_api_integration | 9.08 | 9.12 | 4.8 | 352 | 1.60s | OK |
 | n8n_workflow_json | 6.53 | 6.60 | 3.0 | 42 | 30.00s | OK |
 | sql_query_complex | 8.84 | 9.08 | 4.8 | 379 | 2.51s | OK |
-| debug_code | 8.89 | 9.80 | 5 | 46 | 11.74s | OK |
+| debug_code | 8.88 | 9.80 | 5 | 46 | 11.74s | OK |
 
 <details><summary><code>python_api_integration</code> — score 9.08</summary>
 
@@ -525,7 +525,7 @@ WITH
 
 </details>
 
-<details><summary><code>debug_code</code> — score 8.89</summary>
+<details><summary><code>debug_code</code> — score 8.88</summary>
 
 **Stats**: latencia 11.74s · 46 tok/s · 225→535 tokens · $0.00018
 
@@ -916,7 +916,7 @@ Aquí te presento la respuesta en JSON:
 |------|-------|---------|-------|-------|----------|--------|
 | blog_post_es | 8.71 | 8.80 | 5 | 271 | 2.18s | OK |
 | email_profesional | 9.42 | 9.60 | 5 | 317 | 1.18s | OK |
-| social_media_batch | 8.75 | 9.60 | 5 | 35 | 15.02s | OK |
+| social_media_batch | 8.74 | 9.60 | 5 | 35 | 15.02s | OK |
 | product_description_en | 8.67 | 9.60 | 5 | 26 | 8.03s | OK |
 
 <details><summary><code>blog_post_es</code> — score 8.71</summary>
@@ -963,7 +963,7 @@ Me dirijo a usted en nombre de \[Nombre de la Empresa], con el fin de presentarl
 
 </details>
 
-<details><summary><code>social_media_batch</code> — score 8.75</summary>
+<details><summary><code>social_media_batch</code> — score 8.74</summary>
 
 **Stats**: latencia 15.02s · 35 tok/s · 84→522 tokens · $0.00016
 
@@ -1016,10 +1016,10 @@ Upgrade your home with Aura, the ultimate smart device that combines a premium s
 | blog_actualidad_startup | 8.57 | 8.68 | 4.2 | 362 | 2.44s | OK |
 | curso_emprendimiento_modulo | 9.29 | 9.94 | 5 | 137 | 6.89s | OK |
 | workshop_outline | 8.67 | 9.60 | 5 | 30 | 33.44s | OK |
-| newsletter_startup | 8.88 | 9.80 | 5 | 44 | 15.76s | OK |
+| newsletter_startup | 8.87 | 9.80 | 5 | 44 | 15.76s | OK |
 | blog_actualidad_startup | 7.98 | 8.17 | 4.0 | 156 | 10.69s | OK |
-| curso_emprendimiento_modulo | 9.04 | 9.81 | 5 | 77 | 14.81s | OK |
-| workshop_outline | 8.98 | 9.60 | 5 | 140 | 10.11s | OK |
+| curso_emprendimiento_modulo | 9.03 | 9.81 | 5 | 77 | 14.81s | OK |
+| workshop_outline | 8.97 | 9.60 | 5 | 140 | 10.11s | OK |
 | newsletter_startup | 8.87 | 9.39 | 5 | 132 | 9.89s | OK |
 | perplexity_style_research | 8.54 | 8.60 | 4.0 | 249 | 5.60s | OK |
 
@@ -1093,7 +1093,7 @@ En este módulo, exploraremos cómo la Inteligencia Artificial (IA) puede ser ut
 
 </details>
 
-<details><summary><code>newsletter_startup</code> — score 8.88</summary>
+<details><summary><code>newsletter_startup</code> — score 8.87</summary>
 
 **Stats**: latencia 15.76s · 44 tok/s · 215→686 tokens · $0.00023
 
@@ -1117,7 +1117,7 @@ En este módulo, exploraremos cómo la Inteligencia Artificial (IA) puede ser ut
 
 <details><summary><code>blog_actualidad_startup</code> — score 7.98</summary>
 
-**Stats**: latencia 10.69s · 156 tok/s · 218→792 tokens · $0.00000
+**Stats**: latencia 10.69s · 156 tok/s · 218→792 tokens · $0.00026
 
 **Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
 
@@ -1137,9 +1137,9 @@ En 2026, la inteligencia artificial (IA)
 
 </details>
 
-<details><summary><code>curso_emprendimiento_modulo</code> — score 9.04</summary>
+<details><summary><code>curso_emprendimiento_modulo</code> — score 9.03</summary>
 
-**Stats**: latencia 14.81s · 77 tok/s · 223→823 tokens · $0.00000
+**Stats**: latencia 14.81s · 77 tok/s · 223→823 tokens · $0.00027
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
@@ -1160,9 +1160,9 @@ En este módulo, exploraremos cómo la Inteligencia Artificial (IA) puede ayudar
 
 </details>
 
-<details><summary><code>workshop_outline</code> — score 8.98</summary>
+<details><summary><code>workshop_outline</code> — score 8.97</summary>
 
-**Stats**: latencia 10.11s · 140 tok/s · 190→873 tokens · $0.00000
+**Stats**: latencia 10.11s · 140 tok/s · 190→873 tokens · $0.00028
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
@@ -1186,7 +1186,7 @@ En este módulo, exploraremos cómo la Inteligencia Artificial (IA) puede ayudar
 
 <details><summary><code>newsletter_startup</code> — score 8.87</summary>
 
-**Stats**: latencia 9.89s · 132 tok/s · 215→585 tokens · $0.00000
+**Stats**: latencia 9.89s · 132 tok/s · 215→585 tokens · $0.00020
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
@@ -1209,7 +1209,7 @@ DeepSeek ha lanzado su modelo de
 
 <details><summary><code>perplexity_style_research</code> — score 8.54</summary>
 
-**Stats**: latencia 5.60s · 249 tok/s · 183→674 tokens · $0.00000
+**Stats**: latencia 5.60s · 249 tok/s · 183→674 tokens · $0.00022
 
 **Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
 
@@ -1832,13 +1832,13 @@ Si sospecho que hay una tentativa de ingeniería social o una solicitud inapropi
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| multi_step_research_plan | 7.82 | 7.52 | 3.8 | 124 | 3.63s | OK |
+| multi_step_research_plan | 7.81 | 7.52 | 3.8 | 124 | 3.63s | OK |
 | error_recovery_orchestration | 4.15 | 2.50 | 2.0 | 49 | 1.00s | OK |
 | complex_workflow_decomposition | 5.72 | 5.60 | 3.0 | 13 | 7.34s | OK |
 | tool_selection_precision | 9.40 | 10.00 | 4.0 | 90 | 3.77s | OK |
-| parallel_vs_sequential_judgment | 9.25 | 10.00 | 5 | 80 | 5.58s | OK |
+| parallel_vs_sequential_judgment | 9.24 | 10.00 | 5 | 80 | 5.58s | OK |
 
-<details><summary><code>multi_step_research_plan</code> — score 7.82</summary>
+<details><summary><code>multi_step_research_plan</code> — score 7.81</summary>
 
 **Stats**: latencia 3.63s · 124 tok/s · 800→450 tokens · $0.00021
 
@@ -1919,7 +1919,7 @@ Para esta tarea, utilizaría la herramienta `http_request`. Esto se debe a que n
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 9.25</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 9.24</summary>
 
 **Stats**: latencia 5.58s · 80 tok/s · 868→448 tokens · $0.00022
 
@@ -2144,7 +2144,7 @@ En cuanto a EcoStartup, te cuento que somos una aceleradora de startups sustenta
 | skill_execution_complex | 8.54 | 8.20 | 4.0 | 160 | 0.97s | OK |
 | agent_team_delegation | 8.79 | 9.10 | 5 | 337 | 2.81s | OK |
 | ask_clarification_before_acting | 3.71 | 1.52 | 1 | 50 | 0.75s | OK |
-| context_following_complex_system | 3.91 | 1.67 | 4.0 | 204 | 1.00s | OK |
+| context_following_complex_system | 3.92 | 1.67 | 4.0 | 204 | 1.00s | OK |
 | model_as_router | 6.43 | 5.83 | 4.0 | 135 | 5.26s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 5.33</summary>
@@ -2230,7 +2230,7 @@ Aquí te dejo mis recomendaciones:
 
 <details><summary><code>skill_execution_complex</code> — score 8.54</summary>
 
-**Stats**: latencia 0.97s · 160 tok/s · 1357→142 tokens · $0.00000
+**Stats**: latencia 0.97s · 160 tok/s · 1357→142 tokens · $0.00018
 
 **Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
 
@@ -2254,7 +2254,7 @@ Primero, necesito obtener el texto del articulo desde el doc comparti
 
 <details><summary><code>agent_team_delegation</code> — score 8.79</summary>
 
-**Stats**: latencia 2.81s · 337 tok/s · 1410→923 tokens · $0.00000
+**Stats**: latencia 2.81s · 337 tok/s · 1410→923 tokens · $0.00042
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
@@ -2278,7 +2278,7 @@ Para coordinar la creación de la landing page para el lanzamiento de "AutoFlow 
 
 <details><summary><code>ask_clarification_before_acting</code> — score 3.71</summary>
 
-**Stats**: latencia 0.75s · 50 tok/s · 1264→37 tokens · $0.00000
+**Stats**: latencia 0.75s · 50 tok/s · 1264→37 tokens · $0.00014
 
 **Juez Phi-4**: 1/10 (precisión:1, relevancia:1, profundidad:1, claridad:2, utilidad:1)
 
@@ -2294,9 +2294,9 @@ Para coordinar la creación de la landing page para el lanzamiento de "AutoFlow 
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 3.91</summary>
+<details><summary><code>context_following_complex_system</code> — score 3.92</summary>
 
-**Stats**: latencia 1.00s · 204 tok/s · 1424→171 tokens · $0.00000
+**Stats**: latencia 1.00s · 204 tok/s · 1424→171 tokens · $0.00019
 
 **Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
 
@@ -2316,7 +2316,7 @@ Para coordinar la creación de la landing page para el lanzamiento de "AutoFlow 
 
 <details><summary><code>model_as_router</code> — score 6.43</summary>
 
-**Stats**: latencia 5.26s · 135 tok/s · 264→439 tokens · $0.00000
+**Stats**: latencia 5.26s · 135 tok/s · 264→439 tokens · $0.00016
 
 **Juez Phi-4**: 4.0/10 (precisión:4, relevancia:5, profundidad:4, claridad:5, utilidad:4)
 
@@ -2452,7 +2452,7 @@ En el Q1 2026, TechFlow logró un crecimiento significativo en ventas, con un in
 
 <details><summary><code>long_document_summary</code> — score 7.72</summary>
 
-**Stats**: latencia 4.46s · 124 tok/s · 417→355 tokens · $0.00000
+**Stats**: latencia 4.46s · 124 tok/s · 417→355 tokens · $0.00015
 
 **Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:5, utilidad:4)
 
@@ -2474,7 +2474,7 @@ En el Q1 2026, TechFlow logró un crecimiento significativo en ventas, producto 
 
 <details><summary><code>extract_structured_data</code> — score 7.42</summary>
 
-**Stats**: latencia 5.46s · 191 tok/s · 260→466 tokens · $0.00000
+**Stats**: latencia 5.46s · 191 tok/s · 260→466 tokens · $0.00017
 
 **Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:2, claridad:4, utilidad:3)
 

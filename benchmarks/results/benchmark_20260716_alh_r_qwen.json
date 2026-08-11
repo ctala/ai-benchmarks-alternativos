@@ -9,12 +9,12 @@
   "results": [
     {
       "quality": 10.0,
-      "cost_score": 2.46,
-      "cost_usd": 0.070159,
+      "cost_score": 2.48,
+      "cost_usd": 0.069282,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.89,
+      "final": 7.9,
       "test_name": "context_retention_8turns",
       "model": "Qwen 3.6 Max",
       "model_id": "qwen/qwen3.6-max-preview",
@@ -37,8 +37,8 @@
     },
     {
       "quality": 10.0,
-      "cost_score": 4.45,
-      "cost_usd": 0.015237,
+      "cost_score": 4.47,
+      "cost_usd": 0.015047,
       "speed": 4.0,
       "latency": 4.0,
       "tool_calling": 7.0,
@@ -65,8 +65,8 @@
     },
     {
       "quality": 4.5,
-      "cost_score": 1.68,
-      "cost_usd": 0.127947,
+      "cost_score": 1.7,
+      "cost_usd": 0.126348,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -93,8 +93,8 @@
     },
     {
       "quality": 10.0,
-      "cost_score": 0.48,
-      "cost_usd": 0.321019,
+      "cost_score": 0.5,
+      "cost_usd": 0.317006,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,

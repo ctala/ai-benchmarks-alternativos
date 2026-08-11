@@ -21,7 +21,7 @@
     {
       "quality": 5.0,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 0.000126,
       "speed": 10.0,
       "latency": 4.0,
       "tool_calling": 7.0,
@@ -58,7 +58,7 @@
     {
       "quality": 5.0,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 0.000182,
       "speed": 10.0,
       "latency": 4.0,
       "tool_calling": 7.0,
@@ -94,12 +94,12 @@
     },
     {
       "quality": 5.0,
-      "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_score": 8.01,
+      "cost_usd": 0.000994,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 5.83,
+      "final": 5.53,
       "test_name": "json_nested_complex",
       "model": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
       "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
@@ -132,7 +132,7 @@
     {
       "quality": 5.0,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 4.8e-05,
       "speed": 8.0,
       "latency": 6.0,
       "tool_calling": 7.0,

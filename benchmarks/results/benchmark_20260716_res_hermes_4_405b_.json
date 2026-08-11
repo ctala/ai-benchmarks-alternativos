@@ -19,12 +19,12 @@
   "results": [
     {
       "quality": 5.0,
-      "cost_score": 7.8,
-      "cost_usd": 0.001,
+      "cost_score": 7.65,
+      "cost_usd": 0.001309,
       "speed": 5.333,
       "latency": 1.667,
       "tool_calling": 7.0,
-      "final": 5.197,
+      "final": 5.17,
       "test_name": "model_as_router",
       "model": "Hermes 4 405B",
       "model_id": "nousresearch/hermes-4-405b",

@@ -119,7 +119,7 @@
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 5.69,
+      "final": 5.7,
       "test_name": "debug_code",
       "model": "Qwen 3.5 35B",
       "model_id": "qwen/qwen3.5-35b-a3b",

@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.45/10
 - **Velocidad**: 126 tok/s
 - **Latencia primera token**: 21.84s
-- **Costo promedio por test**: $0.00286
+- **Costo promedio por test**: $0.00291
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -17,22 +17,22 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 7.72 | 7.96 |
 | agent_long_horizon | 12 | 12 | 7.64 | 8.54 |
-| business_audit | 10 | 10 | 7.21 | 7.71 |
-| business_strategy | 5 | 5 | 8.09 | 9.07 |
+| business_audit | 10 | 10 | 7.20 | 7.71 |
+| business_strategy | 5 | 5 | 8.13 | 9.07 |
 | code_generation | 4 | 4 | 7.33 | 7.76 |
 | content_generation | 4 | 4 | 7.20 | 7.60 |
-| content_verificable | 5 | 5 | 7.02 | 7.47 |
+| content_verificable | 5 | 5 | 7.03 | 7.47 |
 | creativity | 4 | 4 | 7.83 | 8.50 |
 | customer_support | 4 | 4 | 8.55 | 8.80 |
 | deep_reasoning | 6 | 6 | 6.95 | 7.50 |
 | hallucination | 3 | 3 | 6.24 | 6.33 |
 | multi_turn | 4 | 4 | 6.97 | 7.12 |
-| news_seo_writing | 9 | 9 | 5.25 | 4.95 |
+| news_seo_writing | 9 | 9 | 5.24 | 4.95 |
 | ocr_extraction | 5 | 5 | 8.53 | 9.60 |
 | orchestration | 5 | 5 | 7.41 | 7.38 |
 | policy_adherence | 4 | 4 | 8.01 | 8.67 |
 | presentation | 2 | 2 | 7.60 | 8.16 |
-| reasoning | 5 | 5 | 7.70 | 8.43 |
+| reasoning | 5 | 5 | 7.64 | 8.43 |
 | sales_outreach | 3 | 3 | 8.35 | 9.33 |
 | startup_content | 5 | 5 | 7.85 | 8.66 |
 | strategy | 3 | 3 | 7.49 | 8.06 |
@@ -189,9 +189,9 @@ Esta es una situación compleja que se sitúa en la intersección de la ética m
 |------|-------|---------|-------|-------|----------|--------|
 | logical_reasoning | 7.61 | 8.18 | 4.6 | 115 | 17.86s | OK |
 | multi_constraint_decision | 7.82 | 8.48 | 5 | 181 | 11.31s | OK |
-| business_analysis | 7.53 | 8.39 | 5 | 73 | 45.56s | OK |
-| logical_reasoning | 7.88 | 8.76 | 4.6 | 128 | 25.92s | OK |
-| multi_constraint_decision | 7.66 | 8.36 | 5 | 128 | 26.86s | OK |
+| business_analysis | 7.39 | 8.39 | 5 | 73 | 45.56s | OK |
+| logical_reasoning | 7.85 | 8.76 | 4.6 | 128 | 25.92s | OK |
+| multi_constraint_decision | 7.52 | 8.36 | 5 | 128 | 26.86s | OK |
 
 <details><summary><code>logical_reasoning</code> — score 7.61</summary>
 
@@ -237,9 +237,9 @@ Here's a thinking process that leads to the suggested tech stack recommendation:
 
 </details>
 
-<details><summary><code>business_analysis</code> — score 7.53</summary>
+<details><summary><code>business_analysis</code> — score 7.39</summary>
 
-**Stats**: latencia 45.56s · 73 tok/s · 206→6118 tokens · $0.00300
+**Stats**: latencia 45.56s · 73 tok/s · 206→6118 tokens · $0.00615
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
 
@@ -261,9 +261,9 @@ Asumiendo un precio promedio por usuario (ARPU) constante de **$15 USD** ($18,00
 
 </details>
 
-<details><summary><code>logical_reasoning</code> — score 7.88</summary>
+<details><summary><code>logical_reasoning</code> — score 7.85</summary>
 
-**Stats**: latencia 25.92s · 128 tok/s · 135→3735 tokens · $0.00300
+**Stats**: latencia 25.92s · 128 tok/s · 135→3735 tokens · $0.00375
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -284,9 +284,9 @@ Traducimos las 7 condiciones del problema a expresiones matemáticas:
 
 </details>
 
-<details><summary><code>multi_constraint_decision</code> — score 7.66</summary>
+<details><summary><code>multi_constraint_decision</code> — score 7.52</summary>
 
-**Stats**: latencia 26.86s · 128 tok/s · 180→6119 tokens · $0.00300
+**Stats**: latencia 26.86s · 128 tok/s · 180→6119 tokens · $0.00614
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
 
@@ -461,7 +461,7 @@ Aquí tienes tu "due diligence" pre-inversión. No estoy aquí a
 | python_api_integration | 8.90 | 9.72 | 4.8 | 161 | 6.35s | OK |
 | n8n_workflow_json | 6.77 | 7.20 | 3.0 | 60 | 33.98s | OK |
 | sql_query_complex | 7.96 | 8.68 | 4.2 | 182 | 11.24s | OK |
-| debug_code | 5.69 | 5.45 | 2.0 | 127 | 16.10s | OK |
+| debug_code | 5.70 | 5.45 | 2.0 | 127 | 16.10s | OK |
 
 <details><summary><code>python_api_integration</code> — score 8.90</summary>
 
@@ -534,7 +534,7 @@ Here's a thinking process that leads to the suggested SQL query:
 
 </details>
 
-<details><summary><code>debug_code</code> — score 5.69</summary>
+<details><summary><code>debug_code</code> — score 5.70</summary>
 
 **Stats**: latencia 16.10s · 127 tok/s · 244→2048 tokens · $0.00208
 
@@ -911,7 +911,7 @@ Thinking Process:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | blog_post_es | 8.04 | 8.80 | 5 | 176 | 11.62s | OK |
-| email_profesional | 8.61 | 9.40 | 5 | 166 | 8.83s | OK |
+| email_profesional | 8.60 | 9.40 | 5 | 166 | 8.83s | OK |
 | social_media_batch | 8.32 | 9.41 | 5 | 60 | 33.92s | OK |
 | product_description_en | 3.84 | 2.80 | 1 | 202 | 10.15s | OK |
 
@@ -935,7 +935,7 @@ En el mundo empresarial actual, la inteligencia artificial (IA) ya no es exclusi
 
 </details>
 
-<details><summary><code>email_profesional</code> — score 8.61</summary>
+<details><summary><code>email_profesional</code> — score 8.60</summary>
 
 **Stats**: latencia 8.83s · 166 tok/s · 82→1464 tokens · $0.00147
 
@@ -1150,11 +1150,11 @@ Thinking Process:
 | news_spanish_only | 5.38 | 5.00 | 4.8 | 183 | 11.20s | OK |
 | news_no_hallucination_sources | 1.88 | 0.00 | 4.6 | 192 | 10.65s | OK |
 | news_perplexity_enrichment | 7.49 | 8.20 | 4.0 | 125 | 32.40s | OK |
-| news_seo_article_full | 7.20 | 7.68 | 3.2 | 143 | 21.87s | OK |
-| news_json_output_strict | 5.26 | 5.00 | 3.0 | 137 | 24.16s | OK |
+| news_seo_article_full | 7.26 | 7.68 | 3.2 | 143 | 21.87s | OK |
+| news_json_output_strict | 5.13 | 5.00 | 3.0 | 137 | 24.16s | OK |
 | news_spanish_only | 5.23 | 5.00 | 4.4 | 88 | 23.52s | OK |
-| news_no_hallucination_sources | 1.71 | 0.00 | 5 | 102 | 38.45s | OK |
-| news_perplexity_enrichment | 7.88 | 8.71 | 4.0 | 124 | 22.50s | OK |
+| news_no_hallucination_sources | 1.83 | 0.00 | 5 | 102 | 38.45s | OK |
+| news_perplexity_enrichment | 7.79 | 8.71 | 4.0 | 124 | 22.50s | OK |
 
 <details><summary><code>news_json_output_strict</code> — score 5.21</summary>
 
@@ -1250,9 +1250,9 @@ El lanzamiento de DeepSeek V4 marca un hito significativo en el mercado de intel
 
 </details>
 
-<details><summary><code>news_seo_article_full</code> — score 7.20</summary>
+<details><summary><code>news_seo_article_full</code> — score 7.26</summary>
 
-**Stats**: latencia 21.87s · 143 tok/s · 478→2048 tokens · $0.00300
+**Stats**: latencia 21.87s · 143 tok/s · 478→2048 tokens · $0.00212
 
 **Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1271,9 +1271,9 @@ Thinking Process:
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.26</summary>
+<details><summary><code>news_json_output_strict</code> — score 5.13</summary>
 
-**Stats**: latencia 24.16s · 137 tok/s · 324→5880 tokens · $0.00300
+**Stats**: latencia 24.16s · 137 tok/s · 324→5880 tokens · $0.00592
 
 **Juez Phi-4**: 3.0/10 (precisión:3, relevancia:2, profundidad:3, claridad:4, utilidad:3)
 
@@ -1302,7 +1302,7 @@ Thinking Process:
 
 <details><summary><code>news_spanish_only</code> — score 5.23</summary>
 
-**Stats**: latencia 23.52s · 88 tok/s · 321→2048 tokens · $0.00200
+**Stats**: latencia 23.52s · 88 tok/s · 321→2048 tokens · $0.00209
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -1321,9 +1321,9 @@ Thinking Process:
 
 </details>
 
-<details><summary><code>news_no_hallucination_sources</code> — score 1.71</summary>
+<details><summary><code>news_no_hallucination_sources</code> — score 1.83</summary>
 
-**Stats**: latencia 38.45s · 102 tok/s · 489→2048 tokens · $0.00400
+**Stats**: latencia 38.45s · 102 tok/s · 489→2048 tokens · $0.00212
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
 
@@ -1344,9 +1344,9 @@ Thinking Process:
 
 </details>
 
-<details><summary><code>news_perplexity_enrichment</code> — score 7.88</summary>
+<details><summary><code>news_perplexity_enrichment</code> — score 7.79</summary>
 
-**Stats**: latencia 22.50s · 124 tok/s · 507→4216 tokens · $0.00300
+**Stats**: latencia 22.50s · 124 tok/s · 507→4216 tokens · $0.00429
 
 **Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
