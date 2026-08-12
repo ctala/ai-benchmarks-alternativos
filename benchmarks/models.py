@@ -1334,6 +1334,100 @@ MODELS = {
         "open_source": True, "license": "NVIDIA Open",
     },
 
+    # ── Grupo A: referencias obligadas (12-ago-2026) ────────────────────────
+    # Ausencias que un lector notaría. Se miden en el PLANO COMÚN (OpenRouter) para
+    # que compitan; las variantes por suscripción van aparte, como Opus 4.7/4.8.
+    "claude-sonnet-5": {
+        "id": "anthropic/claude-sonnet-5",
+        "name": "Claude Sonnet 5",
+        "cost_input": 2.00, "cost_output": 10.00,
+        "tier": "medium",
+        "context_window": 1000000,
+        "niah_max_context": 262144,  # cap de costo, igual que Opus 4.8
+        "publisher": "Anthropic",
+        "notes": "Referencia obligada: 1M ctx a $2/$10. Publicado 30-jun-2026.",
+    },
+    "claude-opus-5": {
+        "id": "anthropic/claude-opus-5",
+        "name": "Claude Opus 5",
+        "cost_input": 5.00, "cost_output": 25.00,
+        "tier": "premium",
+        "context_window": 1000000,
+        "niah_max_context": 262144,
+        "publisher": "Anthropic",
+        "notes": "Flagship Anthropic. Publicado 24-jul-2026.",
+    },
+    "claude-opus-5-fast": {
+        "id": "anthropic/claude-opus-5-fast",
+        "name": "Claude Opus 5 Fast",
+        "cost_input": 10.00, "cost_output": 50.00,
+        "tier": "premium",
+        "context_window": 1000000,
+        "niah_max_context": 262144,
+        "publisher": "Anthropic",
+        # El más caro del catálogo, y se mide igual por una razón concreta: `opus-5-fast`
+        # REDACTA EN PRODUCCIÓN en el copiloto de CAR (COPILOTO_MODELO_REDACCION).
+        # Medir lo que ya usás es la categoría de mayor valor del benchmark.
+        # ⚠️ NO existe como modelo del CLI de Claude Code (probado: "There's an issue with
+        # the selected model"). Es el modo /fast, no un id. Solo se puede por OpenRouter.
+        "notes": "Redacta en producción en el copiloto de CAR. Solo por API: no existe como modelo del CLI.",
+    },
+    "claude-opus-5-sub": {
+        # Variante de suscripción: $0 marginal. Verificado 12-ago que `claude -p --model
+        # claude-opus-5` responde. Fuera del plano común, para comparar infraestructuras.
+        "provider_variant": True,
+        "id": "claude-opus-5",
+        "name": "Claude Opus 5 (suscripción)",
+        "cost_input": 5.00, "cost_output": 25.00,
+        "tier": "subscription", "provider": "claude_code",
+        "subscriptions": ["anthropic_pro"], "free_runtime": True,
+        "context_window": 1000000,
+        "notes": "Opus 5 vía suscripción Claude Code, costo marginal $0.",
+    },
+    "claude-sonnet-5-sub": {
+        "provider_variant": True,
+        "id": "claude-sonnet-5",
+        "name": "Claude Sonnet 5 (suscripción)",
+        "cost_input": 2.00, "cost_output": 10.00,
+        "tier": "subscription", "provider": "claude_code",
+        "subscriptions": ["anthropic_pro"], "free_runtime": True,
+        "context_window": 1000000,
+        "notes": "Sonnet 5 vía suscripción Claude Code, costo marginal $0.",
+    },
+    "gpt-5.6-luna-pro": {
+        "id": "openai/gpt-5.6-luna-pro",
+        "name": "GPT-5.6 Luna Pro",
+        "cost_input": 0.10, "cost_output": 0.60,
+        "tier": "cheap",
+        "context_window": 1050000,
+        "niah_max_context": 262144,
+        "publisher": "OpenAI",
+        "notes": "Mismo precio que Luna (#1 actual) con 1,05M de contexto. Publicado 9-jul-2026.",
+    },
+    "gpt-5.6-terra-pro": {
+        "id": "openai/gpt-5.6-terra-pro",
+        "name": "GPT-5.6 Terra Pro",
+        "cost_input": 1.00, "cost_output": 6.00,
+        "tier": "medium",
+        "context_window": 1050000,
+        "niah_max_context": 262144,
+        "publisher": "OpenAI",
+        "notes": "Publicado 9-jul-2026.",
+    },
+    "muse-spark-1.2": {
+        "id": "meta/muse-spark-1.2",
+        "name": "Muse Spark 1.2",
+        "cost_input": 1.25, "cost_output": 4.25,
+        "tier": "medium",
+        "context_window": 1048576,
+        "niah_max_context": 262144,
+        "publisher": "Meta",
+        # El modelo del que DESTILARON Muse Glimmer: comparar destilado vs original.
+        # ⚠️ Requería confirmación de edad en la cuenta de OpenRouter (403 hasta el
+        # 12-ago). Y es THINKING: con max_tokens=300 devolvió content="" y 297 tokens
+        # de reasoning — sin el patrón en THINKING_MODELS se medía en blanco.
+        "notes": "Original del que se destiló Muse Glimmer 30B. Multimodal texto+imagen+audio+video.",
+    },
     # ── Agregados el 12-ago-2026 ────────────────────────────────────────────────
     # Criterio de entrada: **utilidad para un emprendedor, no novedad**. Hay 405
     # modelos en OpenRouter y ~104 acá; la brecha no se cierra, se prioriza. Estos
