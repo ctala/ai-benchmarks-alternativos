@@ -941,6 +941,35 @@ MODELS = {
     # --- NVIDIA NIM (gratis con 40 RPM, OpenAI-compatible, 100+ modelos) ---
     # Ideal para benchmarks: secuencial, mismo formato API. Free tier suficiente.
     # Catálogo completo: https://build.nvidia.com/explore/discover
+    "nim-nemotron-3.5-lightning": {
+        # Variante de proveedor — y acá NO es un lujo comparativo, es la ÚNICA forma de
+        # medir sus capacidades agénticas.
+        #
+        # Por OpenRouter, Nemotron 3.5 Lightning falla las 4 suites con herramientas con
+        # "No endpoints found that support tool use": sus dos proveedores (DeepInfra y
+        # CoreWeave) no las exponen. Eso hacía parecer que el modelo no sabe hacer tool
+        # calling — justo el modelo que NVIDIA vende para "always-on agents".
+        #
+        # Verificado el 12-ago-2026 contra NIM: el mismo modelo emite una tool call
+        # válida a la primera → `crear_evento({"titulo":"Demo con inversor",...})`.
+        # No era el modelo: era la ruta. Es la diferencia entre "no puede" y "por acá no".
+        "provider_variant": True,
+        # Única ruta con tool calling: por OpenRouter ningún proveedor lo expone.
+        "ruta_unica": True,
+        "id": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "name": "Nemotron 3.5 Lightning (NIM)",
+        # NIM corre gratis con 40 RPM; se costea al precio de OpenRouter del MISMO modelo
+        # para que la comparación sea justa (regla dura: nunca $0 en el ranking).
+        "cost_input": 0.10, "cost_output": 0.25,
+        "free_runtime": True,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "publisher": "NVIDIA",
+        "weights_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+        "open_source": True,
+        "context_window": 262144,
+        "notes": "Única ruta con tool calling. Mide lo que OpenRouter no puede: las 4 suites con herramientas.",
+    },
     "nim-nemotron-super-1.5": {
         # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
         # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.

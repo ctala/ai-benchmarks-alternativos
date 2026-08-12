@@ -193,7 +193,27 @@ def has_pillars(m):
 
 def rank_models(models, cfg):
     # ≥50 runs (estándar del benchmark) → un outlier con 3-12 runs no lidera por azar
-    base = [m for m in models if (m.get("score_global") or 0) > 0 and (m.get("runs") or 0) >= 50 and has_pillars(m)]
+    # ── SOLO EL PLANO COMÚN ─────────────────────────────────────────────────
+    #
+    # Antes el filtro era solo `runs >= 50`, así que entraban a TODAS las páginas
+    # pSEO los modelos medidos fuera del plano común: self-hosted del Spark,
+    # variantes de NIM/Ollama Cloud/Groq y los de suscripción. 49 de 117 candidatos.
+    #
+    # No son comparables: su velocidad y su latencia son de ESA infra, no del modelo
+    # (Qwen 3.5 397B da 7,96 en NIM y 5,46 en Ollama Cloud). `models.json` ya lo
+    # resuelve con `ranked` —que exige plano común, muestra sólida y examen completo—
+    # y las páginas lo estaban ignorando. Por eso **DiffusionGemma corriendo en el
+    # Spark encabezaba /mejor-llm-para-agentes/**.
+    #
+    # EXCEPCIÓN, declarada en el config con `ruta_unica: True`: una variante entra si
+    # es la ÚNICA forma de medir una capacidad. Caso real: Nemotron 3.5 Lightning no
+    # tiene NINGÚN proveedor en OpenRouter que exponga `tools`, así que sus 4 suites
+    # con herramientas solo se pueden medir por NIM. Excluirlo sería publicar que no
+    # puede hacer tool calling cuando lo que no puede es esa ruta.
+    base = [m for m in models
+            if (m.get("score_global") or 0) > 0 and (m.get("runs") or 0) >= 50
+            and has_pillars(m)
+            and (m.get("ranked") or m.get("ruta_unica"))]
     crit = cfg["criterion"]
     if crit == "pillar":
         pil = cfg["pillar"]
