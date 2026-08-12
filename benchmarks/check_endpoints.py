@@ -43,6 +43,16 @@ from pathlib import Path
 ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT))
 
+# ⚠️ Este import NO es decorativo: `benchmarks/config.py` es el ÚNICO módulo del repo que
+# corre `load_dotenv()`. Sin él, el `.env` nunca se lee, `build_providers()` no encuentra
+# ninguna credencial y ESTE SCRIPT REPORTA "SIN CREDENCIAL" EN TODOS LOS MODELOS — es decir,
+# no puede detectar un solo muerto y termina en verde.
+#
+# Fallo real (11-ago-2026): corriendo dentro de `regenerate_all.py` dio SIN CREDENCIAL en los
+# 70 rankeados. El pipeline no vio ningún MUERTO y publicó sin avisar nada. El guardrail que
+# existe porque Devstral Small estuvo #5 con el endpoint apagado llevaba tiempo ciego.
+# Si alguna vez hay que quitar este import, mover el `load_dotenv()` primero.
+import benchmarks.config  # noqa: E402,F401  ← carga el .env. NO borrar (ver arriba)
 from benchmarks.models import MODELS, OLLAMA_MODELS  # noqa: E402
 from providers.registry import MissingCredential, build_providers, provider_for  # noqa: E402
 
@@ -60,6 +70,14 @@ DEAD_MARKERS = (
     "has been removed",
     "decommissioned",   # la palabra que usa Groq
     "has been shut down",
+    # 12-ago-2026 · Devstral 2 (`mistralai/devstral-2512`), RANKEADO con 136 runs, devolvía
+    # 404 con este texto y caía al bucket genérico "ERROR" — o sea, se publicaba igual.
+    # El mensaje de OpenRouter además se contradice: dice "migrá al slug pago:
+    # mistralai/devstral-2512", que es EXACTAMENTE el slug que se estaba llamando. No hay
+    # a dónde migrar. Confirmado por dos vías independientes: cero ids `devstral` en el
+    # catálogo público, y la cuenta sana (mistral-large-2512 responde 200 con la misma key).
+    "period has ended",
+    "please migrate to",
 )
 # Errores del momento. El modelo existe; el intento fue malo.
 TRANSIENT_MARKERS = ("rate limit", "429", "timeout", "timed out", "502", "503", "504", "overloaded")

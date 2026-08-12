@@ -503,6 +503,7 @@ MODELS = {
         "license": "Apache 2.0",
     },
     "devstral-2": {
+        "retired": True,  # openrouter: Error code: 404 - {'error': {'message': 'The free Devstral 2 (12-aug-2026)
         "id": "mistralai/devstral-2512",
         "name": "Devstral 2 (Dic 2025)",
         "cost_input": 0.40,
@@ -1593,6 +1594,7 @@ MODELS = {
         "open_source": True, "license": "Apache 2.0",
     },
     "or-nemotron-super-1.5": {
+        "retired": True,  # openrouter: Error code: 404 - {'error': {'message': 'No endpoints found  (12-aug-2026)
         "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
         "name": "Nemotron Super 49B v1.5",
         "cost_input": 0.4, "cost_output": 0.4,

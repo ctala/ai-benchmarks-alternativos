@@ -93,11 +93,11 @@ Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad*
 | 5 | **Gemma 4 26B MoE (3.8B activos)** | **7.19** | 8.19 | 7.81 | openrouter | $0.64 | 137 |
 | 6 | **Mistral Large 3 675B** | **7.08** | 8.18 | 7.16 | openrouter | $2.40 | 128 |
 | 7 | **Qwen 3.6 Plus** | **7.00** | 8.27 | 5.53 | openrouter | $3.02 | 140 |
-| 8 | **Nemotron Super 49B v1.5** | **6.87** | 8.17 | 7.60 | openrouter | $0.72 | 128 |
-| 9 | **Claude Opus 4.6** | **6.86** | 8.34 | 3.70 | openrouter | $39.00 | 185 |
-| 10 | **Claude Opus 4.8** | **6.85** | 8.30 | 3.75 | openrouter | $39.00 | 127 |
+| 8 | **Claude Opus 4.6** | **6.86** | 8.34 | 3.70 | openrouter | $39.00 | 185 |
+| 9 | **Claude Opus 4.8** | **6.85** | 8.30 | 3.75 | openrouter | $39.00 | 127 |
+| 10 | **GPT-4.1** | **6.79** | 8.12 | 5.94 | openai_direct | $12.60 | 139 |
 
-> **Piso de ranking: 50 runs.** Solo compiten los 70 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
+> **Piso de ranking: 50 runs.** Solo compiten los 68 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
 
 > **Este ranking es un punto de partida, no un veredicto.** El score pondera calidad (70%), costo (15%), velocidad (7.5%) y latencia (7.5%) para un perfil de emprendedor genérico. **Tu caso probablemente no sea ese.** Si corrés batch de noche, la latencia no te importa y este ranking la está penalizando igual; si atendés usuarios en vivo, te importa el doble. Ajustá los pesos a tu caso en la [calculadora](https://benchmarks.cristiantala.com/) o mirá las tablas por caso de uso en [MODELOS.md](MODELOS.md).
 
