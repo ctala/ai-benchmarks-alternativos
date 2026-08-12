@@ -196,6 +196,30 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - **Versionar resultados JSON** siempre en git
 - **Flujo ROADMAP↔CHANGELOG**: todo lo que se marca completo en ROADMAP.md migra a CHANGELOG.md con el commit
 - **3 cortes de ranking en README**: (1) **global** = todos los modelos. (2) **solo alternativas** = sin Anthropic + sin OpenAI + sin Google propietarios (Gemini Flash / Flash Lite / Pro). Sí se permiten modelos Google open-source (Gemma). (3) **solo open-source** = todos los modelos con `open_source: True`. Siempre los 3 al actualizar resultados.
+- **No reinventamos la rueda: nuestro valor NO está en cómo se mide, está en QUÉ medimos.**
+
+  El motor de medición —scoring, agregación, verificadores, diseño de tests agénticos— es un
+  problema ya resuelto por gente con más recursos. Ahí **se adopta y se adapta**, no se
+  inventa. Lo que nadie más hace, y es el activo real de este repo, es probar modelos contra
+  **las decisiones de un emprendedor hispanohablante**: en español, con casos de producción
+  reales (Eco, Flip, Hermes, CAR), a precios que un pyme puede pagar.
+
+  Ya adoptado, con la fuente verificada (12-ago-2026):
+
+  | De dónde | Qué se adoptó |
+  |---|---|
+  | **LiveBench** | verdad objetiva por sobre juez LLM · `max_tokens` uniforme |
+  | **lm-eval-harness** | prompts publicados y versionados · recortar la traza de CoT |
+  | **Artificial Analysis** | Model ≠ Endpoint · costo y velocidad **fuera** del índice de calidad |
+  | **BFCL** | state-based evaluation · **subset matching** de trayectorias · multi-turn con tope de pasos · categoría de alucinación de herramientas |
+  | **τ-bench** | **`pass^k`**: fiabilidad sobre k intentos en vez de una media |
+
+  **Antes de construir un mecanismo de medición, buscar quién lo resolvió** y por qué lo hizo
+  así. Si existe, se adopta citando la fuente; si no encaja, se adapta y se documenta el
+  porqué. Construir desde cero solo lo que nadie construye: **las suites y los casos**.
+
+  El corolario incómodo: cuando nuestro motor difiere del estándar, la hipótesis por defecto
+  es que estamos equivocados nosotros. Pasó cinco veces el 12-ago.
 - **Una regla sin instrumento que la haga cumplir es una regla que ya se rompió.** Es la
   lección que engloba a las otras, y se pagó **cinco veces el 12-ago-2026**: el guardrail
   de endpoints corría sin cargar el `.env` (reportaba SIN CREDENCIAL en los 70 y **no podía
