@@ -251,7 +251,23 @@ class UnifiedProvider:
             # use") en vez de devolver una respuesta plausible y falsa. Fallar ruidoso es
             # la doctrina del repo; un número plausible y falso es peor que ninguno.
             if self.provider_name == "openrouter" and (tools or kwargs.get("response_format")):
+                # ⚠️ `require_parameters` exige que el proveedor declare TODOS los
+                # parámetros del request, y `temperature` es el que sobra.
+                #
+                # Medido el 12-ago-2026 con `openai/gpt-5.6-luna-pro`: sus 5 proveedores
+                # soportan `tools`, pero NINGUNO declara `temperature` (es un modelo de
+                # razonamiento; OpenAI los sirve con temperatura fija). Resultado:
+                #
+                #   tools + temperature + require_parameters   → 404, sin endpoints
+                #   tools + require_parameters SIN temperature → ✅ OpenAI, tool_call ok
+                #
+                # `FIXED_TEMP_MODELS` ya cubría este caso pero solo para gpt-5.5/o1/o3;
+                # la familia 5.6 no estaba. En vez de perseguir nombres de modelo uno por
+                # uno —que es cómo se llegó a este bug— se omite `temperature` SIEMPRE que
+                # se activa require_parameters. Cuesta poco: el default del proveedor es
+                # razonable y esos tests miden uso de herramientas, no creatividad.
                 extra_body["provider"] = {"require_parameters": True}
+                kwargs.pop("temperature", None)
 
             if "ollama" in self.provider_name.lower():
                 extra_body["keep_alive"] = "30m"
