@@ -39,6 +39,7 @@ from benchmarks.scoring import (
 )
 from benchmarks.llm_judge import LLMJudge, create_judge, judge_score_to_10, JUDGE_PRESETS
 from providers.adapters import UnifiedProvider, OpenAIResponsesProvider, ClaudeCodeProvider, DiffusionGemmaProvider, BenchmarkResult
+from providers.adapters import THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS
 
 # Importar tests
 from benchmarks.tests import content_generation, tool_calling, task_management
@@ -1229,7 +1230,23 @@ def run_benchmark(args):
                 # niah_max_context: cap de costo opcional (ej. premium capeado a
                 # 256K para no pagar los tramos 1M caros). Default = context window real.
                 ctx_window = model_config.get("niah_max_context") or model_config.get("context_window")
-                if ctx_needed and ctx_window and ctx_needed > ctx_window:
+                # La RESPUESTA también ocupa contexto. Comparar solo el prompt contra la
+                # ventana deja pasar el tramo del borde: un prompt de 128.000 en un modelo
+                # de 131.072 no deja lugar ni para un token de salida, y a los thinking les
+                # reservamos 8.192. El provider devuelve 400 "maximum context length is N"
+                # y el test cuenta como FALLO cuando en realidad nunca cabía.
+                #
+                # Medido el 12-ago-2026: **378 runs históricos perdidos así, en 23 modelos**
+                # (Qwen 3.6 27B/35B 36 cada uno, Hermes 4 70B 36, Mistral Small 4 33,
+                # MiniMax M3 31…). El eje long-context tenía agujeros sistemáticos que no
+                # se le atribuían a nada, porque el error parecía del modelo.
+                #
+                # No es una re-reparación: el skip se introdujo en 8fcb81b6 y nunca se le
+                # puso margen de salida. Verificado en el historial y en el CHANGELOG.
+                # 2048 es el max_tokens con el que el runner llama (literal en los call sites).
+                # Se reserva el peor caso (thinking ×4) para no volver a pedir de más.
+                reserva_salida = max(2048 * THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS)
+                if ctx_needed and ctx_window and ctx_needed + reserva_salida > ctx_window:
                     print(f"  [{completed}/{total_runs}] {short_model} ({local_completed}/{tests_per_model}) | "
                           f"{suite_name}/{test['name']}... SKIP (ctx {ctx_needed:,}>{ctx_window:,})", flush=True)
                     continue
