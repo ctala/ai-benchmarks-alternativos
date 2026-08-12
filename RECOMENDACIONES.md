@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-08-11 · 70 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-08-12 · 68 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -65,7 +65,7 @@ Lo mejor que podés comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 ## El resumen de todo el benchmark
 
-**26 modelos empatan en calidad** en la cima del ranking global.
+**25 modelos empatan en calidad** en la cima del ranking global.
 
 El más barato de ese grupo — **Ministral 14B** — sale **≈$1/mes**.
 El más caro — **GPT-5.6 Sol** — sale **≈$140/mes**.

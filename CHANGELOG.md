@@ -2,6 +2,49 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v4.0.2] - 2026-08-12 — El guardrail de endpoints dejó de correr ciego (y encontró 2 muertos rankeados)
+
+`check_endpoints.py` existe desde julio porque **Devstral Small estuvo #5 del ranking meses después
+de que Mistral apagara su endpoint**, recomendado en 11 páginas del sitio. Resulta que desde
+entonces el chequeo **nunca detectó nada, porque nunca pudo**.
+
+### Por qué estaba ciego
+`benchmarks/config.py` es el único módulo que corre `load_dotenv()`, y `check_endpoints.py` no lo
+importaba. Corriendo dentro de `regenerate_all.py` no leía el `.env`, no encontraba ninguna
+credencial y clasificaba **SIN CREDENCIAL a los 70 rankeados**: cero pings reales, cero muertos
+posibles, y el pipeline terminaba en verde. Un guardrail que no puede fallar tampoco puede avisar.
+
+Encima, la `OPENROUTER_API_KEY` del `.env` devolvía **401**. Dos fallos apilados: aunque el import
+hubiera estado, no habría servido. La key se rotó el 12-ago.
+
+### Corregido
+- **`import benchmarks.config`** en `check_endpoints.py`, con el comentario que explica por qué no
+  se puede borrar.
+- **`DEAD_MARKERS` ampliado** con `"period has ended"` / `"please migrate to"`. Devstral 2 caía al
+  bucket genérico `ERROR` —o sea, se publicaba igual— porque OpenRouter usa una redacción que la
+  lista no contemplaba. El mensaje además se contradice: *"migrá al slug pago:
+  `mistralai/devstral-2512`"*, que es exactamente el slug que se estaba llamando.
+
+### Retirados (`retired: True`) — 2 modelos que estaban en el ranking
+| Modelo | Estaba | Runs | Evidencia |
+|---|---|---|---|
+| **Nemotron Super 49B v1.5** (`or-nemotron-super-1.5`) | **#8** | 128 | 404 "No endpoints found" + ausente del catálogo público de OpenRouter |
+| **Devstral 2 (Dic 2025)** (`devstral-2`) | #45 | 136 | 404 + **cero ids `devstral`** en el catálogo + búsqueda en la UI sin resultados |
+
+Ambos confirmados por **tres vías independientes** antes de tocarlos (ping, catálogo público, UI),
+y con la cuenta verificada sana (`mistral-large-2512` responde 200 con la misma key). El error
+inverso —matar un modelo vivo— ya se cometió una vez con Llama 3.1 8B y cuesta igual de caro.
+
+**Ranking: 70 → 68 rankeados. No entra nadie, y ningún score se movió** (la referencia z-score
+congelada de v4.0 funcionando como debe). Sus runs siguen en los datos: alimentan el análisis
+histórico y aparecen en la sección *Retirados* de MODELOS.md.
+
+### Matiz importante: no murió el modelo, murió la RUTA
+Los dos siguen disponibles vía **NVIDIA NIM**, y ahí los tenemos medidos: `nim-nemotron-super-1.5`
+(92 runs) y `nim-devstral-2-123b` (64 runs), ninguno retirado. Decir "el modelo murió" sería
+falso. Lo correcto es *"ya no está en OpenRouter"* — que para quien lo integró por ahí es la
+misma mala noticia, pero para quien elige modelo es información distinta.
+
 ## [v4.0.1] - 2026-08-11 — Precios: un solo punto de verdad (y el ranking se movió)
 
 Corrección de datos, **no de fórmula**. La calidad, los pesos y la referencia z-score congelada
