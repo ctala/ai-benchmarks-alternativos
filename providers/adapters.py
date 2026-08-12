@@ -65,6 +65,22 @@ THINKING_MODELS = (
                                             # 22/143 runs con respuesta VACÍA y success=True (copy_jwt: 1 token) — el mismo
                                             # modo de falla de los 165 runs vacíos de abril. Su primer examen canónico salió
                                             # inválido (Q 7.64 = artefacto) y está en cuarentena (*.invalid).
+    # Lote del 12-ago-2026. Los 9 se probaron con max_tokens=300 ANTES de medirlos y
+    # todos gastaron el budget en reasoning; CINCO devolvieron content="" (qwen3.7-flash,
+    # laguna-xs, laguna-s, tencent/hy3, inkling-small). Sin estos patrones ese lote entero
+    # se medía en blanco. Upstage Solar Pro 4 dio 0 tokens de reasoning y por eso NO está.
+    "ling-3.0",                             # inclusionAI Ling 3.0 Flash
+    "qwen3.7",                              # cubre flash además de max/plus de abajo
+    "nex-n2",                               # Nex AGI N2 Mini
+    "laguna",                               # Poolside Laguna XS/S 2.1
+    "tencent/hy3",                          # Tencent Hy3 (id completo: "hy3" solo es ambiguo)
+    "inkling",                              # Thinking Machines Inkling / Inkling Small
+    "glimmer", "muse-glimmer",              # Meta Muse Glimmer (12 ago 2026) — detectado ANTES de medirlo:
+                                            # con max_tokens=300 devolvió content="" y 202 reasoning tokens.
+                                            # Es la primera vez que este modo de falla se caza antes y no
+                                            # después de pagar un examen entero en blanco. Nemotron 3.5
+                                            # Lightning hace lo mismo (209 reasoning tokens) y ya lo cubre
+                                            # el patrón "nemotron" de arriba.
 )
 
 # Modelos que sólo aceptan temperature=1.0 (rechazan otros con error 400).
