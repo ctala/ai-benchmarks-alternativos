@@ -91,6 +91,19 @@ def main() -> int:
             print("   Sus datos NO se pierden: quedan como estadística histórica, fuera de las")
             print("   recomendaciones y de la calculadora.\n")
 
+    # 0b. ¿Cada suite mide lo que su nombre dice? (audit_suites.py)
+    #
+    # Los tres casos que lo motivaron aparecieron POR CASUALIDAD, encadenando dudas:
+    # structured_output publicando 5,00 fijo, orchestration con correlación −0,07 con
+    # elegir la herramienta, y agentic_score —la página de "Agentes"— con −0,26 contra
+    # el tool calling real. Si hace falta que alguien sospeche para encontrarlos, los
+    # que nadie sospeche siguen publicados. Por eso corre en cada regeneración.
+    #
+    # No aborta: reporta. Decidir qué hacer con una suite desalineada es una decisión
+    # de diseño, no algo que un pipeline deba resolver solo.
+    if not args.dry_run:
+        run_script("audit_suites.py", [], dry_run=False, allow_fail=True)
+
     # 1. Single source of truth para la calculadora y todo lo demás
     run_script("export_for_pages.py", [], dry_run=args.dry_run)
 
