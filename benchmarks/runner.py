@@ -528,10 +528,35 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     # puntúa SOLO con el regex de extracción (sin juez ni formato). Hallazgo 2 jun.
     is_niah = answer_type == "niah_extraction"
 
-    # LLM-as-Judge (si esta habilitado) — saltear para niah
+    # ¿Este test esconde un hecho comprobable? Se decide ACÁ ARRIBA, antes de llamar al
+    # juez, y no más abajo junto al scoring — porque de esto depende si el juez se llama.
+    tiene_verdad_objetiva = bool(test.get("expected_answer"))
+
+    # LLM-as-Judge — saltear para niah Y para todo test con verdad objetiva.
+    #
+    # El commit del 13-jul decidió que "donde hay verdad verificable, el juez no opina":
+    # abajo, `quality = answer_score` para esos tests y el veredicto del juez se DESCARTA.
+    # Pero la llamada se seguía haciendo igual. Medido el 12-ago-2026:
+    #
+    #   · el juez tarda 77 s por test (mediana bajo carga; 31 s aislado)
+    #   · el modelo que estamos midiendo tarda 5 s
+    #   · 96 de los 147 tests no-niah tienen verdad objetiva = 65%
+    #
+    # O sea: 2,1 HORAS por modelo esperando una opinión que el scoring tira a la basura.
+    # Y no es que sobrara capacidad: `microsoft/phi-4` tiene UN SOLO proveedor en
+    # OpenRouter (DeepInfra), así que los runners paralelos hacen cola en el mismo
+    # endpoint — por eso subir la concurrencia no aceleraba nada.
+    #
+    # No cambia NINGÚN score: esos tests ya se puntuaban solo con `answer_score`. Tampoco
+    # rompe la procedencia: el marcador `scoring` se setea en "verificable" mire o no mire
+    # el juez, y `_misma_formula` solo compara ese string.
+    #
+    # Lo único que se pierde es `judge_justificacion` como metadato de auditoría en esos
+    # tests — que además decía cualquier cosa: el bakeoff de seis jueces mostró que todos
+    # saturan y que la correlación de phi-4 con la verdad objetiva es 0,00.
     judge_result = None
     judge_quality = -1.0
-    if judge and result.success and result.response and not is_niah:
+    if judge and result.success and result.response and not is_niah and not tiene_verdad_objetiva:
         judge_result = judge.evaluate(result.response, test, suite_name)
         judge_quality = judge_score_to_10(judge_result)
 
@@ -558,8 +583,6 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     # porque el juez no distingue — dejarle el 70% del peso las borraba.
     #
     # Es lo que niah_es ya hacía. Ahora vale para toda suite con verdad verificable.
-    tiene_verdad_objetiva = bool(test.get("expected_answer"))
-
     if is_niah:
         quality = answer_score  # retrieval puro: solo el regex de extracción
     elif tiene_verdad_objetiva:
