@@ -47,7 +47,9 @@ def load_models_export():
     data = json.loads(MODELS_JSON.read_text())
     scored = [m for m in data.get("models", []) if m.get("score_global") is not None]
     ranked = [m for m in scored if m.get("ranked")]
-    retired = [m for m in scored if m.get("retired")]
+    # Los retirados se toman del catálogo COMPLETO, no de `scored`: un modelo retirado
+    # sin runs también tiene que avisar que no se puede usar.
+    retired = [m for m in data.get("models", []) if m.get("retired")]
     # Plano suscripción: medidos vía Claude Code (claude -p). Camino distinto al plano
     # común — comparables ENTRE SÍ, no contra los de API (ver build_subscription_table).
     subscription = [m for m in scored if m.get("provider") == "claude_code"
@@ -60,7 +62,7 @@ def load_models_export():
     # variantes (100+ runs) bajo el título "muestra parcial <50 runs" — etiqueta falsa.
     in_review = [m for m in scored if not m.get("ranked") and not m.get("retired")
                  and not m.get("provider_variant") and not m.get("self_hosted")]
-    return ranked, in_review, retired, subscription, variants
+    return ranked, in_review, retired, subscription, variants, data.get("models", [])
 
 
 def find_response_dirs(model_id: str) -> list[str]:
@@ -258,32 +260,76 @@ def build_variants_note(models: list[dict]) -> str:
     )
 
 
-def build_retired_table(models: list[dict]) -> str:
-    """Modelos que el proveedor retiró. Se muestran para no dejar a nadie colgado.
+def build_retired_table(models: list[dict], todos: list[dict] = ()) -> str:
+    """Modelos retirados, con CUÁNDO, POR QUÉ y si siguen vivos por otra ruta.
 
     Alguien que buscó "Devstral Small" y llega acá merece enterarse de que el endpoint
     ya no existe — no encontrar una tabla que se lo recomienda. Los datos históricos
     quedan (son reales), pero fuera del ranking.
+
+    Tres cosas que esta tabla NO hacía hasta el 12-ago-2026, y por qué importan:
+
+    1. **No decía cuándo ni por qué.** El dato existía como comentario en `models.py`,
+       ilegible para este generador. Un retiro sin fecha no se puede comunicar ni auditar.
+    2. **Mezclaba dos cosas distintas bajo "el proveedor ya no los sirve".** Phi-4 figuraba
+       ahí siendo que es el JUEZ del benchmark: no lo retiró nadie, decidimos que no
+       compite. El título mentía para ese caso.
+    3. **No decía que el modelo puede seguir vivo por otra ruta.** Nemotron Super 49B salió
+       de OpenRouter y sigue en NVIDIA NIM, donde lo tenemos medido con 92 runs. "Retirado"
+       a secas hace pensar que el modelo murió, y lo que murió fue UNA ruta.
     """
+    por_id = {}
+    for m in todos:
+        if not m.get("retired"):
+            por_id.setdefault(m.get("id"), []).append(m)
+
+    def alternativa(m: dict) -> str:
+        otras = [o for o in por_id.get(m.get("id"), []) if o.get("key") != m.get("key")]
+        if not otras:
+            return "—"
+        o = max(otras, key=lambda x: x.get("runs") or 0)
+        return f"✅ {o['name']} ({o.get('runs', 0)} runs)"
+
+    ETIQUETA = {
+        "provider": "proveedor",
+        "policy": "decisión propia",
+        "unknown": "sin registrar",
+    }
     lines = [
-        "#### Retirados — el proveedor ya no los sirve",
+        "#### Retirados — fuera del ranking y de las recomendaciones",
         "",
-        "> **Estos modelos ya no se pueden llamar.** El endpoint devuelve *deprecated* o "
-        "*no endpoints found*. Sus números son reales y quedan acá por transparencia "
-        "(alimentan el análisis histórico), pero **están fuera del ranking y de las "
-        "recomendaciones**: un modelo que no puedes usar no es un candidato. "
-        "Devstral Small llegó a estar **#5** antes de que su endpoint desapareciera.",
+        "> **Un modelo que no puedes usar no es un candidato.** Sus números son reales y "
+        "quedan acá por transparencia (alimentan el análisis histórico), pero no compiten. "
+        "Devstral Small llegó a estar **#5** antes de que su endpoint desapareciera, y "
+        "Nemotron Super 49B v1.5 estaba **#8** el día que NVIDIA lo sacó de OpenRouter.",
         "",
-        "| Modelo | OS | $ in/out | Score (histórico) | Runs | Per-model MD | Responses |",
-        "|---|---|---:|---:|---:|---|---|",
+        "> **`Quién`** distingue lo que decidió el proveedor de lo que decidimos nosotros: "
+        "Phi-4 no lo retiró nadie, es el modelo juez y no compite. **`Sigue vivo en`** "
+        "avisa cuando lo que murió fue *una ruta* y no el modelo — el caso normal, no la "
+        "excepción. Y el retiro **se re-verifica** (`check_endpoints.py --recheck-retired`): "
+        "el 12-ago-2026 dos modelos retirados en julio habían vuelto a responder porque un "
+        "proveedor los recogió, y volvieron al catálogo.",
+        "",
+        "| Modelo | Retirado | Quién | Causa | Sigue vivo en | Score (histórico) | Runs |",
+        "|---|---|---|---|---|---:|---:|",
     ]
-    for m in sorted(models, key=lambda x: -(x.get("score_global") or -1)):
-        lines.append(row_for_model(m, "score_global"))
+    for m in sorted(models, key=lambda x: (x.get("retired_at") or "", -(x.get("score_global") or -1)), reverse=True):
+        score = m.get("score_global")
+        lines.append(
+            f"| `{m.get('id') or m.get('key')}` | {m.get('retired_at') or '—'} "
+            f"| {ETIQUETA.get(m.get('retired_kind'), '—')} | {m.get('retired_reason') or '—'} "
+            f"| {alternativa(m)} | **{score:.2f}** | {m.get('runs', 0)} |"
+            if score is not None else
+            f"| `{m.get('id') or m.get('key')}` | {m.get('retired_at') or '—'} "
+            f"| {ETIQUETA.get(m.get('retired_kind'), '—')} | {m.get('retired_reason') or '—'} "
+            f"| {alternativa(m)} | — | {m.get('runs', 0)} |"
+        )
     return "\n".join(lines)
 
 
 def build_table(ranked: list[dict], in_review: list[dict], retired: list[dict] = (),
-                subscription: list[dict] = (), variants: list[dict] = ()) -> str:
+                subscription: list[dict] = (), variants: list[dict] = (),
+                todos: list[dict] = ()) -> str:
     sections = [
         build_global_table(ranked),
         "",
@@ -304,7 +350,7 @@ def build_table(ranked: list[dict], in_review: list[dict], retired: list[dict] =
     if in_review:
         sections += ["", build_in_review_table(in_review)]
     if retired:
-        sections += ["", build_retired_table(list(retired))]
+        sections += ["", build_retired_table(list(retired), list(todos))]
     return "\n".join(sections)
 
 
@@ -313,8 +359,8 @@ def main():
     ap.add_argument("-i", "--in-place", action="store_true", help="Actualiza MODELOS.md in-place")
     args = ap.parse_args()
 
-    ranked, in_review, retired, subscription, variants = load_models_export()
-    table = build_table(ranked, in_review, retired, subscription, variants)
+    ranked, in_review, retired, subscription, variants, todos = load_models_export()
+    table = build_table(ranked, in_review, retired, subscription, variants, todos)
 
     if args.in_place:
         modelos_md = ROOT / "MODELOS.md"

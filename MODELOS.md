@@ -486,26 +486,29 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 |---|---|---:|---:|---:|---|---|
 | `gpt-5.5` | ❌  | $5.0/30.0 | **5.85** | 152 | [per-model](benchmarks/results/per-model/gpt-5_5.md) | — |
 | `moonshotai/kimi-k2-thinking` | ✅ Modified MIT | $0.6/2.5 | **5.36** | 2 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2-thinking.md) | [responses](benchmarks/results/responses/20260716_rm_kimi_k2_/) |
+| `qwen/qwen-2.5-72b-instruct` | ✅ Apache 2.0 | $0.36/0.4 | **3.87** | 63 | [per-model](benchmarks/results/per-model/qwen_qwen-2_5-72b-instruct.md) | — |
 | `mistralai/mistral-nemo` | ✅ Apache 2.0 | $0.02/0.02 | **0.00** | 166 | [per-model](benchmarks/results/per-model/mistralai_mistral-nemo.md) | [responses](benchmarks/results/responses/20260715_082251_44555/) |
 
-#### Retirados — el proveedor ya no los sirve
+#### Retirados — fuera del ranking y de las recomendaciones
 
-> **Estos modelos ya no se pueden llamar.** El endpoint devuelve *deprecated* o *no endpoints found*. Sus números son reales y quedan acá por transparencia (alimentan el análisis histórico), pero **están fuera del ranking y de las recomendaciones**: un modelo que no puedes usar no es un candidato. Devstral Small llegó a estar **#5** antes de que su endpoint desapareciera.
+> **Un modelo que no puedes usar no es un candidato.** Sus números son reales y quedan acá por transparencia (alimentan el análisis histórico), pero no compiten. Devstral Small llegó a estar **#5** antes de que su endpoint desapareciera, y Nemotron Super 49B v1.5 estaba **#8** el día que NVIDIA lo sacó de OpenRouter.
 
-| Modelo | OS | $ in/out | Score (histórico) | Runs | Per-model MD | Responses |
-|---|---|---:|---:|---:|---|---|
-| `xiaomi/mimo-v2-flash` | ✅ MIT | $0.09/0.29 | **10.00** | 31 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2-flash.md) | [responses](benchmarks/results/responses/20260429_165839/) |
-| `mistralai/devstral-small` | ✅ Apache 2.0 | $0.1/0.3 | **9.86** | 34 | [per-model](benchmarks/results/per-model/mistralai_devstral-small.md) | [responses](benchmarks/results/responses/20260430_200512/) |
-| `nvidia/llama-3.3-nemotron-super-49b-v1.5` | ✅ NVIDIA Open Model | $0.4/0.4 | **6.87** | 128 | [per-model](benchmarks/results/per-model/nvidia_llama-3_3-nemotron-super-49b-v1_5.md) | [responses](benchmarks/results/responses/20260716_rm_nemotron_super_/) |
-| `mimo-v2-omni` | ✅ MIT | $0.07/0.07 | **6.07** | 74 | [per-model](benchmarks/results/per-model/mimo-v2-omni.md) | [responses](benchmarks/results/responses/20260429_165839/) |
-| `mimo-v2-pro` | ✅ MIT | $0.07/0.07 | **5.85** | 79 | [per-model](benchmarks/results/per-model/mimo-v2-pro.md) | [responses](benchmarks/results/responses/20260429_165839/) |
-| `xiaomi/mimo-v2-pro` | ❌ Proprietary | $1.0/3.0 | **5.72** | 79 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2-pro.md) | [responses](benchmarks/results/responses/20260429_165839/) |
-| `x-ai/grok-4.1-fast` | ❌  | $0.2/0.5 | **5.37** | 86 | [per-model](benchmarks/results/per-model/x-ai_grok-4_1-fast.md) | — |
-| `mistralai/devstral-2512` | ✅ Apache 2.0 | $0.4/2.0 | **5.30** | 136 | [per-model](benchmarks/results/per-model/mistralai_devstral-2512.md) | [responses](benchmarks/results/responses/20260716_rm_devstral_2_/) |
-| `mistralai/devstral-medium` | ✅ Apache 2.0 | $0.4/2.0 | **4.70** | 83 | [per-model](benchmarks/results/per-model/mistralai_devstral-medium.md) | [responses](benchmarks/results/responses/20260430_200512/) |
-| `xiaomi/mimo-v2-omni` | ❌  | $0.4/2.0 | **4.17** | 80 | [per-model](benchmarks/results/per-model/xiaomi_mimo-v2-omni.md) | [responses](benchmarks/results/responses/20260429_165839/) |
-| `qwen/qwen-2.5-72b-instruct` | ✅ Apache 2.0 | $0.36/0.4 | **3.87** | 63 | [per-model](benchmarks/results/per-model/qwen_qwen-2_5-72b-instruct.md) | — |
-| `qwen3.5:cloud` | ✅ Apache 2.0 | $0.39/2.34 | **2.80** | 52 | [per-model](benchmarks/results/per-model/qwen3_5_cloud.md) | — |
+> **`Quién`** distingue lo que decidió el proveedor de lo que decidimos nosotros: Phi-4 no lo retiró nadie, es el modelo juez y no compite. **`Sigue vivo en`** avisa cuando lo que murió fue *una ruta* y no el modelo — el caso normal, no la excepción. Y el retiro **se re-verifica** (`check_endpoints.py --recheck-retired`): el 12-ago-2026 dos modelos retirados en julio habían vuelto a responder porque un proveedor los recogió, y volvieron al catálogo.
+
+| Modelo | Retirado | Quién | Causa | Sigue vivo en | Score (histórico) | Runs |
+|---|---|---|---|---|---:|---:|
+| `mistralai/devstral-2512` | 2026-08-12 | proveedor | OpenRouter 404: la familia Devstral entera salió del catálogo | — | **5.30** | 136 |
+| `nvidia/llama-3.3-nemotron-super-49b-v1.5` | 2026-08-12 | proveedor | OpenRouter 404 'No endpoints found'; NVIDIA movió su oferta a la familia Nemotron 3 | ✅ Nemotron Super 49B v1.5 (NIM) (92 runs) | **6.87** | 128 |
+| `phi4` | 2026-07-14 | decisión propia | decisión del benchmark, no del proveedor: no compite (Phi-4 es el modelo juez) | — | — | 0 |
+| `qwen3.5:cloud` | 2026-07-14 | sin registrar | sin causa registrada; fecha recuperada del historial de git | — | **2.80** | 52 |
+| `mimo-v2-pro` | 2026-07-14 | sin registrar | sin causa registrada; fecha recuperada del historial de git | — | **5.85** | 79 |
+| `mimo-v2-omni` | 2026-07-14 | sin registrar | sin causa registrada; fecha recuperada del historial de git | — | **6.07** | 74 |
+| `xiaomi/mimo-v2-omni` | 2026-07-13 | proveedor | Xiaomi lo deprecó; recomienda migrar a MiMo V2.5 | — | **4.17** | 80 |
+| `mistralai/devstral-medium` | 2026-07-13 | proveedor | OpenRouter: 'No endpoints found' | — | **4.70** | 83 |
+| `x-ai/grok-4.1-fast` | 2026-07-13 | proveedor | xAI lo deprecó; recomienda migrar a Grok 4.3 | — | **5.37** | 86 |
+| `xiaomi/mimo-v2-pro` | 2026-07-13 | proveedor | Xiaomi deprecó el modelo | — | **5.72** | 79 |
+| `mistralai/devstral-small` | 2026-07-13 | proveedor | OpenRouter: 'No endpoints found'. Llegó a estar #5 del ranking. | — | **9.86** | 34 |
+| `xiaomi/mimo-v2-flash` | 2026-07-13 | proveedor | Xiaomi deprecó el modelo | — | **10.00** | 31 |
 
 <!-- AUTO-TABLE-END -->
 

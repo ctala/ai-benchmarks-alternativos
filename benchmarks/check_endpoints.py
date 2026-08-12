@@ -137,7 +137,7 @@ def patch_models_py(dead: dict) -> int:
     """Añade `retired: True` a los modelos muertos, con la causa y la fecha."""
     import re
     t = MODELS_PY.read_text()
-    today = time.strftime("%d-%b-%Y").lower()
+    today = time.strftime("%Y-%m-%d")
     n = 0
     for key, why in dead.items():
         m = re.search(rf'("{re.escape(key)}"\s*:\s*\{{)', t)
@@ -146,7 +146,17 @@ def patch_models_py(dead: dict) -> int:
             continue
         if "retired" in t[m.end(): m.end() + 400]:
             continue
-        t = t[:m.end()] + f'\n        "retired": True,  # {why} ({today})' + t[m.end():]
+        # Campos ESTRUCTURADOS, no un comentario. Hasta el 12-ago-2026 la causa y la fecha
+        # se escribían como `# texto (fecha)`: ningún generador podía leerlas, así que el
+        # sitio no mostraba nada y la sección "Retirados" de MODELOS.md no podía decir ni
+        # cuándo ni por qué. Peor: mezclaba los que sacó el proveedor con los que sacamos
+        # nosotros (Phi-4 estaba listado bajo "el proveedor ya no los sirve" siendo que es
+        # el juez del benchmark). Con campos, eso lo resuelve el generador.
+        campos = (f'\n        "retired": True,'
+                  f'\n        "retired_at": "{today}",'
+                  f'\n        "retired_reason": "{why[:150]}",'
+                  f'\n        "retired_kind": "provider",')
+        t = t[:m.end()] + campos + t[m.end():]
         n += 1
     if n:
         MODELS_PY.write_text(t)
@@ -157,6 +167,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--ranked", action="store_true", help="Solo los que están en el ranking")
     ap.add_argument("--fix", action="store_true", help="Parchea models.py con retired: True")
+    ap.add_argument("--recheck-retired", action="store_true",
+                    help="Al revés: pinguea SOLO los retirados y avisa si alguno revivió")
     args = ap.parse_args()
 
     catalog = {**MODELS, **OLLAMA_MODELS}
@@ -168,10 +180,20 @@ def main():
         d = json.loads(MODELS_JSON.read_text())
         only = {m["name"] for m in d["models"] if m.get("ranked")}
 
-    targets = {
-        k: v for k, v in catalog.items()
-        if not v.get("retired") and (only is None or v.get("name") in only)
-    }
+    if args.recheck_retired:
+        # El retiro NO es una puerta de una sola vía, y esto lo descubrimos tarde.
+        # `stepfun/step-3.5-flash` y `qwen/qwen-2.5-72b-instruct` se retiraron el
+        # 14-jul-2026 con razón —ningún proveedor los servía— y el 12-ago-2026 volvían a
+        # responder 200 (SiliconFlow y DeepInfra los recogieron). Como el chequeo normal
+        # EXCLUYE a los retirados, un modelo que revive queda muerto para siempre en
+        # nuestros datos: el error espejo de publicar uno muerto, y más difícil de ver
+        # porque nada falla. Este modo existe para que eso se detecte solo.
+        targets = {k: v for k, v in catalog.items() if v.get("retired")}
+    else:
+        targets = {
+            k: v for k, v in catalog.items()
+            if not v.get("retired") and (only is None or v.get("name") in only)
+        }
     P = build_providers(include_ollama=True)
     print(f"Chequeando {len(targets)} endpoints (ping de 1 token cada uno)…\n")
 
@@ -207,6 +229,21 @@ def main():
         print("\n  … INTERMITENTES — NO se retiran; el modelo existe:")
         for k, name, det in buckets["INTERMITENTE"]:
             print(f"       {name[:34]:<36} {det[:44]}")
+
+    if args.recheck_retired:
+        # En este modo la noticia es al revés: un retirado que responde REVIVIÓ.
+        if buckets["VIVO"]:
+            print("\n  🔄 RESUCITADOS — están marcados retirados y HOY responden:")
+            for k, name, _ in buckets["VIVO"]:
+                cfg = catalog[k]
+                print(f"       {name[:34]:<36} ({k})  retirado el {cfg.get('retired_at','?')}")
+                print(f"         └ causa registrada: {cfg.get('retired_reason','—')}")
+            print("\n     Volver a activarlos es una DECISIÓN, no un automatismo: quitar")
+            print("     `retired` los devuelve al catálogo y puede reincorporarlos al")
+            print("     ranking. Verificá con un ping de contenido real antes de tocar.")
+        else:
+            print("\n  ✓ Ningún retirado revivió.")
+        return 0
 
     if args.fix and dead_reasons:
         n = patch_models_py(dead_reasons)
