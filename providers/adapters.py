@@ -75,6 +75,8 @@ THINKING_MODELS = (
     "laguna",                               # Poolside Laguna XS/S 2.1
     "tencent/hy3",                          # Tencent Hy3 (id completo: "hy3" solo es ambiguo)
     "inkling",                              # Thinking Machines Inkling / Inkling Small
+    "muse-spark",                            # Meta Muse Spark 1.2 — 297 reasoning tokens
+                                            # y content vacío en el pre-vuelo del 12-ago.
     "glimmer", "muse-glimmer",              # Meta Muse Glimmer (12 ago 2026) — detectado ANTES de medirlo:
                                             # con max_tokens=300 devolvió content="" y 202 reasoning tokens.
                                             # Es la primera vez que este modo de falla se caza antes y no
