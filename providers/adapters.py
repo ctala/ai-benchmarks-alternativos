@@ -278,6 +278,20 @@ class UnifiedProvider:
                     # Fallback: usar reasoning como respuesta (caso Gemma 4 thinking
                     # con max_tokens insuficiente). Mejor algo que nada.
                     content = reasoning
+            # PROVEEDOR UPSTREAM. OpenRouter es un router: el mismo `model_id` lo puede
+            # servir DeepInfra, CoreWeave, Novita o Together, y no son intercambiables.
+            # Medido el 12-ago-2026 en `nvidia/nemotron-3.5-lightning`: DeepInfra lo sirve
+            # con **28.672 de contexto** (la spec dice 262.144) y OpenRouter le marca
+            # `status: -2`; CoreWeave lo sirve completo. Sin este campo, un número
+            # publicado como "Nemotron 3.5 Lightning" puede ser en realidad "Nemotron en un
+            # endpoint truncado", y no hay cómo saberlo después ni reproducirlo.
+            #
+            # El repo ya sabía que el serving mueve la calidad — Qwen 3.5 397B da 7,96 en
+            # NIM y 5,46 en Ollama Cloud, y hay una página dedicada al tema. Lo que faltaba
+            # era registrarlo DENTRO de OpenRouter, donde el ruteo es invisible.
+            upstream = getattr(response, "provider", None)
+            if upstream:
+                result.metadata["upstream_provider"] = str(upstream)
             result.latency_total = end - start
             result.latency_first_token = result.latency_total  # sin streaming = mismo
             result.success = True

@@ -127,8 +127,213 @@ def score_expected_answer(response: str, expected_answer: dict) -> float:
         return _score_niah_extraction(response, expected_answer)
     elif answer_type == "credential_leak_check":
         return _score_credential_leak(response, expected_answer)
+    elif answer_type == "json_valid":
+        return _score_json_valid(response, expected_answer)
+    elif answer_type == "json_exact":
+        return _score_json_exact(response, expected_answer)
+    elif answer_type == "language_check":
+        return _score_language_check(response, expected_answer)
     else:
         return 5.0  # tipo desconocido, score neutral
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Verificadores de JSON e idioma — verdad objetiva, sin LLM
+#
+# POR QUÉ EXISTEN (12-ago-2026)
+# El commit del 13-jul ("el LLM verifica hechos, no opina sobre calidad") sacó del
+# juez a todos los tests con `expected_answer`. Pero TRES tipos no tenían scorer y
+# caían al `else: return 5.0` del dispatcher — en silencio. Consecuencia medida:
+# **`structured_output` daba exactamente 5,00 en los 117 modelos**, un solo valor,
+# varianza cero. La suite existía, los tests existían, y no medía nada.
+#
+# Y era una REGRESIÓN, no un defecto viejo: antes del 13-jul la nota era 30% auto +
+# 70% juez, así que el 5,0 fijo se diluía y el juez aportaba varianza (el CHANGELOG
+# v2.9.1 lo registra funcionando). Al sacar el juez, la suite quedó 100% colgada de
+# un scorer inexistente.
+#
+# `json_valid` es la verdad objetiva más barata del repo: parsea o no parsea. Y es
+# LITERALMENTE el modo de falla que descartó candidatos en Eco (null inconsistente,
+# HTML sucio, "Bad request" con output largo).
+# ═══════════════════════════════════════════════════════════════════════════
+
+def _extraer_json(texto: str):
+    """Primer objeto/array JSON parseable del texto, o None.
+
+    Los modelos envuelven el JSON de mil formas: en ```json, con un preámbulo
+    ("Aquí tienes el JSON:"), o limpio. Extraer con tolerancia NO es ser
+    permisivo con el formato — el test de formato estricto es `json_exact`, que
+    sí penaliza el texto extra. Acá la pregunta es "¿produjo un JSON usable?".
+    """
+    if not texto:
+        return None
+    t = texto.strip()
+    # 1) bloque cercado ```json ... ``` (o ``` ... ```)
+    m = re.search(r"```(?:json)?\s*(.+?)```", t, re.S | re.I)
+    candidatos = [m.group(1).strip()] if m else []
+    candidatos.append(t)
+    # 2) primer { o [ balanceado
+    for abre, cierra in (("{", "}"), ("[", "]")):
+        i = t.find(abre)
+        if i >= 0:
+            prof = 0
+            for j in range(i, len(t)):
+                if t[j] == abre:
+                    prof += 1
+                elif t[j] == cierra:
+                    prof -= 1
+                    if prof == 0:
+                        candidatos.append(t[i:j + 1])
+                        break
+    for c in candidatos:
+        try:
+            return json.loads(c)
+        except (ValueError, TypeError):
+            continue
+    return None
+
+
+def _score_json_valid(response: str, expected: dict) -> float:
+    """¿Produjo un JSON parseable, con las claves pedidas y los valores correctos?
+
+    Escala (suma 10):
+      · no parsea ................ 0.0   ← el modo de falla que rompe un workflow
+      · parsea ................... 4.0
+      · estructura/claves ........ hasta 3.0 (6.0 si el test no pide valores)
+      · valores correctos ........ hasta 3.0 (4.0 en el caso array+sample_check)
+    """
+    data = _extraer_json(response)
+    if data is None:
+        return 0.0
+
+    score = 4.0
+    req = expected.get("required_keys") or []
+    vals = expected.get("expected_values") or {}
+    sample = expected.get("sample_check") or {}
+
+    if expected.get("is_array"):
+        if not isinstance(data, list):
+            return 2.0  # parsea pero la forma es la que NO se pidió
+        largo = expected.get("expected_length")
+        score += 2.0 if (largo is None or len(data) == largo) else 0.0
+        if sample:
+            ok = 0
+            for clave, esperado in sample.items():
+                # formato "id_<N>_<campo>" → el item con id N debe tener campo=esperado
+                m = re.match(r"id_(\w+)_(.+)$", clave)
+                if not m:
+                    continue
+                idv, campo = m.group(1), m.group(2)
+                item = next((x for x in data if isinstance(x, dict)
+                             and str(x.get("id")) == str(idv)), None)
+                if item and str(item.get(campo, "")).strip().lower() == str(esperado).strip().lower():
+                    ok += 1
+            score += 4.0 * (ok / len(sample))
+        else:
+            score += 4.0
+        return round(min(10.0, score), 2)
+
+    if not isinstance(data, dict):
+        return 2.0
+
+    peso_claves = 3.0 if vals else 6.0
+    if req:
+        presentes = sum(1 for k in req if k in data)
+        score += peso_claves * (presentes / len(req))
+    else:
+        score += peso_claves
+
+    if vals:
+        ok = 0
+        for k, v in vals.items():
+            actual = data.get(k)
+            if isinstance(v, (int, float)) and isinstance(actual, (int, float)):
+                ok += 1 if abs(float(actual) - float(v)) < 1e-6 else 0
+            else:
+                ok += 1 if str(actual).strip().lower() == str(v).strip().lower() else 0
+        score += 3.0 * (ok / len(vals))
+
+    return round(min(10.0, score), 2)
+
+
+def _score_json_exact(response: str, expected: dict) -> float:
+    """¿Coincide EXACTO con el objeto esperado, y sin texto de más?
+
+    Acá el texto extra SÍ importa: el test se llama `json_strict_no_extra` y su
+    trampa es justamente el "Aquí tienes el JSON:" que rompe un `JSON.parse()`
+    en el otro extremo del workflow.
+    """
+    data = _extraer_json(response)
+    if data is None:
+        return 0.0
+    esperado = expected.get("expected")
+    if data == esperado:
+        limpio = (response or "").strip()
+        limpio = re.sub(r"^```(?:json)?|```$", "", limpio, flags=re.I | re.M).strip()
+        try:
+            json.loads(limpio)
+            return 10.0          # el cuerpo entero ES el JSON
+        except (ValueError, TypeError):
+            return 6.0           # objeto correcto pero envuelto en prosa
+    if isinstance(data, dict) and isinstance(esperado, dict) and esperado:
+        ok = sum(1 for k, v in esperado.items() if k in data and data[k] == v)
+        return round(2.0 + 4.0 * (ok / len(esperado)), 2)
+    return 2.0
+
+
+# Marcadores de idioma. Se usan palabras funcionales (artículos, preposiciones,
+# conjunciones): son las que un texto no puede evitar y no dependen del tema.
+_ES_STOP = {"el", "la", "los", "las", "de", "que", "y", "en", "un", "una", "por",
+            "con", "para", "es", "se", "no", "su", "al", "del", "lo", "como", "más",
+            "pero", "sus", "le", "ya", "o", "este", "sí", "porque", "esta", "son"}
+_EN_STOP = {"the", "of", "and", "to", "in", "a", "is", "that", "for", "it", "with",
+            "as", "was", "on", "are", "by", "this", "be", "from", "or", "an", "which",
+            "you", "have", "has", "not", "but", "they", "we", "can", "will"}
+
+
+def _score_language_check(response: str, expected: dict) -> float:
+    """¿Respondió en el idioma pedido?
+
+    Nace de un fallo real: la fuga de CJK con Qwen en Eco — un modelo que en medio
+    de un texto en español mete caracteres chinos. Para un workflow que publica sin
+    revisión humana eso es veneno, y ninguna suite lo detectaba.
+    """
+    texto = (response or "").strip()
+    if not texto:
+        return 0.0
+
+    if expected.get("reject_cjk"):
+        cjk = sum(1 for ch in texto
+                  if "\u4e00" <= ch <= "\u9fff"      # CJK unificado
+                  or "\u3040" <= ch <= "\u30ff"      # kana
+                  or "\uac00" <= ch <= "\ud7af")     # hangul
+        if cjk:
+            return 0.0  # binario: una sola fuga ya rompe la publicación
+
+    palabras = re.findall(r"[a-záéíóúñü]+", texto.lower())
+    if not palabras:
+        return 5.0
+    es = sum(1 for p in palabras if p in _ES_STOP)
+    en = sum(1 for p in palabras if p in _EN_STOP)
+    idioma = (expected.get("required_language") or "es").lower()
+    propio, ajeno = (es, en) if idioma.startswith("es") else (en, es)
+
+    if propio + ajeno == 0:
+        return 5.0  # sin señal suficiente: ni premiar ni castigar
+    ratio = propio / (propio + ajeno)
+
+    if expected.get("reject_long_english") and idioma.startswith("es"):
+        # Un párrafo entero en el idioma ajeno es peor que palabras sueltas
+        # (un término técnico en inglés no es una respuesta en inglés).
+        for parrafo in re.split(r"\n\s*\n", texto):
+            ps = re.findall(r"[a-záéíóúñü]+", parrafo.lower())
+            if len(ps) >= 25:
+                pe = sum(1 for p in ps if p in _EN_STOP)
+                pes = sum(1 for p in ps if p in _ES_STOP)
+                if pe > pes:
+                    return 2.0
+
+    return round(max(0.0, min(10.0, 10.0 * ratio)), 2)
 
 
 def _score_credential_leak(response: str, expected: dict) -> float:

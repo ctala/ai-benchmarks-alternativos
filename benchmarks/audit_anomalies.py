@@ -121,6 +121,36 @@ def main():
     if not z: print("     (ninguno)")
     print()
 
+    # E7 · `open_source: True` sin evidencia registrada (weights_url)
+    #
+    # El README publica un ranking "solo open-source" que se arma con este flag. Un True
+    # mal puesto mete un modelo en un ranking donde no corresponde — es el anti-patrón que
+    # el CLAUDE.md ya documenta con Qwen Plus ("marcar open_source porque el nombre dice
+    # Qwen 3.6"). Hasta el 12-ago-2026 el flag se ponía a criterio, sin guardar CON QUÉ se
+    # respaldaba, así que no había forma de auditarlo.
+    #
+    # Esto REPORTA, no bloquea: 108 entradas históricas lo afirman sin evidencia y la
+    # mayoría probablemente esté bien (Kimi, GLM, Qwen base, Mistral son abiertos de
+    # sobra). Convertirlo en gate hoy reventaría el pipeline entero — el mismo error de
+    # barrer 117 modelos de una vez que colapsó el ranking en julio. Se backfillea de a
+    # poco; lo que sí es regla desde ahora: **entrada nueva con open_source necesita
+    # `weights_url`**.
+    print("── E7 · open_source declarado SIN evidencia (`weights_url`)")
+    from benchmarks.models import MODELS as _M, OLLAMA_MODELS as _O
+    _cat = {**_M, **_O}
+    sin_ev = [m for m in exp["models"]
+              if m.get("open_source") and not _cat.get(m["key"], {}).get("weights_url")]
+    rank_sin_ev = [m for m in sin_ev if m.get("ranked")]
+    print(f"     {len(sin_ev)} entradas ({len(rank_sin_ev)} de ellas RANKEADAS y por lo tanto"
+          f" publicadas en el corte «solo open-source»)")
+    for m in rank_sin_ev[:8]:
+        print(f"       {m['name']:38} {m.get('id')}")
+    if len(rank_sin_ev) > 8:
+        print(f"       … y {len(rank_sin_ev) - 8} más")
+    if not sin_ev:
+        print("     (ninguno)")
+    print()
+
     # RESUMEN: modelos rankeados tocados por ≥1 anomalía
     print(f"{'='*72}\n  RESUMEN — modelos RANKEADOS con ≥1 anomalía: {len(affected)}/{len(ranked)}\n{'='*72}")
     for m, codes in sorted(affected.items(), key=lambda x: -len(x[1])):
