@@ -1,7 +1,7 @@
 {
   "metadata": {
     "timestamp": "20260812_tools_kimi-k2.6",
-    "total_runs": 17,
+    "total_runs": 18,
     "errors": 0,
     "judge": {
       "judge_model": "microsoft/phi-4",
@@ -10,7 +10,7 @@
       "evaluations": 14,
       "estimated_cost_usd": 0.0135
     },
-    "partial": true
+    "partial": false
   },
   "results": [
     {
@@ -579,6 +579,34 @@
       "run": 1,
       "timestamp": "20260812_tools_kimi-k2.6",
       "response_file": "results/responses/20260812_tools_kimi-k2.6/kimi-k2.6__agent_capabilities__context_following_complex_system.md"
+    },
+    {
+      "quality": 7.5,
+      "cost_score": 5.27,
+      "cost_usd": 0.008104,
+      "speed": 6.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 6.57,
+      "test_name": "model_as_router",
+      "model": "Kimi K2.6",
+      "model_id": "moonshotai/kimi-k2.6",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 38.9,
+      "latency_first_token": 83.507,
+      "latency_total": 83.507,
+      "input_tokens": 304,
+      "output_tokens": 3249,
+      "response_preview": "```json\n[\n  {\n    \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n    \"modelo\": \"deepseek-v3\",\n    \"razon\": \"Requiere razonamiento profundo para sintetizar 500 reviews en insights accionables. Su costo muy bajo ($0.14/M) es ideal para procesar gran volumen de te",
+      "auto_quality": 7.7,
+      "content_score": 8.0,
+      "answer_score": 7.5,
+      "scoring": "verificable",
+      "suite": "agent_capabilities",
+      "run": 1,
+      "timestamp": "20260812_tools_kimi-k2.6",
+      "response_file": "results/responses/20260812_tools_kimi-k2.6/kimi-k2.6__agent_capabilities__model_as_router.md"
     }
   ]
 }
