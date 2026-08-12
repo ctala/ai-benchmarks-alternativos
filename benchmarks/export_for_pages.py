@@ -915,6 +915,15 @@ def build_export(recalibrate=False, scoring_version=None):
             # alimentan el análisis de dispersión), pero fuera del ranking y de las
             # recomendaciones. Ver `retired` en models.py.
             "retired": bool(cfg.get("retired")),
+            # Cuándo, por qué y de quién fue la decisión. Hasta el 12-ago-2026 esto vivía
+            # como comentario en models.py: ilegible para los generadores, así que el sitio
+            # no decía nada y quien había integrado un modelo retirado no tenía cómo
+            # enterarse. `retired_kind` separa lo que sacó el PROVEEDOR de lo que sacamos
+            # nosotros (`policy`, ej. Phi-4 que es el juez) — la tabla los mezclaba y por
+            # lo tanto mentía sobre uno de los dos.
+            "retired_at": cfg.get("retired_at"),
+            "retired_reason": cfg.get("retired_reason"),
+            "retired_kind": cfg.get("retired_kind"),
             # Rankeable = muestra sólida, endpoint vivo, y medido en el PLANO COMÚN.
             # Una `provider_variant` (el mismo modelo servido por NIM/Groq/Ollama Cloud)
             # queda fuera: su velocidad y su latencia son de esa infra, no del modelo, y

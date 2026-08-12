@@ -346,7 +346,13 @@ MODELS = {
 
     # --- Xiaomi MiMo ---
     "mimo-v2-flash": {
-        "retired": True,  # Xiaomi: modelo deprecado (13-jul-2026)
+        "retired": True,
+
+        "retired_at": "2026-07-13",
+
+        "retired_reason": "Xiaomi deprecó el modelo",
+
+        "retired_kind": "provider",
         "id": "xiaomi/mimo-v2-flash",
         "name": "MiMo-V2-Flash",
         "cost_input": 0.09,
@@ -356,7 +362,13 @@ MODELS = {
         "license": "MIT",
     },
     "mimo-v2-pro": {
-        "retired": True,  # Xiaomi: modelo deprecado (13-jul-2026)
+        "retired": True,
+
+        "retired_at": "2026-07-13",
+
+        "retired_reason": "Xiaomi deprecó el modelo",
+
+        "retired_kind": "provider",
         "id": "xiaomi/mimo-v2-pro",
         "name": "MiMo-V2-Pro",
         "cost_input": 1.00,
@@ -483,7 +495,13 @@ MODELS = {
         "license": "MRL (no comercial)",
     },
     "devstral": {
-        "retired": True,  # OpenRouter: "No endpoints found" (13-jul-2026). Estaba #5 del ranking.
+        "retired": True,
+
+        "retired_at": "2026-07-13",
+
+        "retired_reason": "OpenRouter: 'No endpoints found'. Llegó a estar #5 del ranking.",
+
+        "retired_kind": "provider",
         "id": "mistralai/devstral-small",
         "name": "Devstral Small",
         "cost_input": 0.10,
@@ -493,7 +511,13 @@ MODELS = {
         "license": "Apache 2.0",
     },
     "devstral-medium": {
-        "retired": True,  # OpenRouter: No endpoints found (13-jul-2026)
+        "retired": True,
+
+        "retired_at": "2026-07-13",
+
+        "retired_reason": "OpenRouter: 'No endpoints found'",
+
+        "retired_kind": "provider",
         "id": "mistralai/devstral-medium",
         "name": "Devstral Medium",
         "cost_input": 0.40,
@@ -503,7 +527,13 @@ MODELS = {
         "license": "Apache 2.0",
     },
     "devstral-2": {
-        "retired": True,  # openrouter: Error code: 404 - {'error': {'message': 'The free Devstral 2 (12-aug-2026)
+        "retired": True,
+
+        "retired_at": "2026-08-12",
+
+        "retired_reason": "OpenRouter 404: la familia Devstral entera salió del catálogo",
+
+        "retired_kind": "provider",
         "id": "mistralai/devstral-2512",
         "name": "Devstral 2 (Dic 2025)",
         "cost_input": 0.40,
@@ -879,6 +909,9 @@ MODELS = {
         # Id ambiguo (`qwen3.5:cloud`): Ollama no documenta qué tamaño sirve. Sin saber
         # QUÉ es, no se puede rankear ni recomendar.
         "retired": True,
+        "retired_at": "2026-07-14",
+        "retired_reason": "sin causa registrada; fecha recuperada del historial de git",
+        "retired_kind": "unknown",
         "unavailable": "id ambiguo (`qwen3.5:cloud`): Ollama no documenta qué tamaño sirve",
         "id": "qwen3.5:cloud",
         "name": "Qwen 3.5 (Ollama Cloud default)",
@@ -1215,7 +1248,10 @@ MODELS = {
     "grok-4.1-fast": {
         # Endpoint MUERTO: el proveedor lo apagó. Los datos quedan como estadística
         # histórica (son mediciones reales), pero no compite ni se recomienda.
-        "retired": True,  # xAI: deprecated, recomienda migrar a Grok 4.3 (13-jul-2026)
+        "retired": True,
+        "retired_at": "2026-07-13",
+        "retired_reason": "xAI lo deprecó; recomienda migrar a Grok 4.3",
+        "retired_kind": "provider",
         "id": "x-ai/grok-4.1-fast",
         "name": "Grok 4.1 Fast",
         "cost_input": 0.20, "cost_output": 0.50,
@@ -1280,7 +1316,10 @@ MODELS = {
     "mimo-v2-omni": {
         # Endpoint MUERTO: el proveedor lo apagó. Los datos quedan como estadística
         # histórica (son mediciones reales), pero no compite ni se recomienda.
-        "retired": True,  # Xiaomi: deprecated, recomienda migrar a mimo-v2.5 (13-jul-2026)
+        "retired": True,
+        "retired_at": "2026-07-13",
+        "retired_reason": "Xiaomi lo deprecó; recomienda migrar a MiMo V2.5",
+        "retired_kind": "provider",
         "id": "xiaomi/mimo-v2-omni",
         "name": "MiMo-V2-Omni (multimodal)",
         "cost_input": 0.40, "cost_output": 2.00,
@@ -1444,6 +1483,9 @@ MODELS = {
         # pública en OpenRouter está deprecada. No lo puede llamar nadie sin ese plan.
         # Los datos quedan como estadística histórica.
         "retired": True,
+        "retired_at": "2026-07-14",
+        "retired_reason": "sin causa registrada; fecha recuperada del historial de git",
+        "retired_kind": "unknown",
         "id": "mimo-v2-pro",
         "name": "MiMo V2-Pro (Xiaomi direct)",
         "cost_input": 0.07, "cost_output": 0.07,
@@ -1458,6 +1500,9 @@ MODELS = {
         # pública en OpenRouter está deprecada. No lo puede llamar nadie sin ese plan.
         # Los datos quedan como estadística histórica.
         "retired": True,
+        "retired_at": "2026-07-14",
+        "retired_reason": "sin causa registrada; fecha recuperada del historial de git",
+        "retired_kind": "unknown",
         "id": "mimo-v2-omni",
         "name": "MiMo V2-Omni (Xiaomi direct)",
         "cost_input": 0.07, "cost_output": 0.07,
@@ -1594,7 +1639,13 @@ MODELS = {
         "open_source": True, "license": "Apache 2.0",
     },
     "or-nemotron-super-1.5": {
-        "retired": True,  # openrouter: Error code: 404 - {'error': {'message': 'No endpoints found  (12-aug-2026)
+        "retired": True,
+
+        "retired_at": "2026-08-12",
+
+        "retired_reason": "OpenRouter 404 'No endpoints found'; NVIDIA movió su oferta a la familia Nemotron 3",
+
+        "retired_kind": "provider",
         "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
         "name": "Nemotron Super 49B v1.5",
         "cost_input": 0.4, "cost_output": 0.4,
@@ -1637,10 +1688,14 @@ MODELS = {
         "open_source": True, "license": "Apache 2.0",
     },
     "or-step-3.5-flash": {
-        # OpenRouter lista el id pero NINGÚN proveedor lo sirve: "No endpoints found".
-        # El modelo existe en el catálogo y no se puede llamar — que para quien
-        # decide es lo mismo que no existir. (14-jul-2026)
-        "retired": True,
+        # RESUCITÓ. El 14-jul-2026 se retiró porque OpenRouter listaba el id pero NINGÚN
+        # proveedor lo servía ("No endpoints found") — cierto entonces. El 12-ago-2026
+        # responde HTTP 200 servido por SiliconFlow: volvió un proveedor.
+        # Lección: **el retiro no es una puerta de una sola vía.** Un modelo retirado que
+        # nunca se vuelve a chequear queda muerto para siempre en nuestros datos, que es
+        # el error espejo de publicar uno muerto. Por eso existe `--recheck-retired`.
+        # ⚠️ Es un THINKING model: con max_tokens bajo devuelve content="" y 33 reasoning
+        # tokens. Antes de medirlo hay que agregarlo a THINKING_MODELS en adapters.py.
         "id": "stepfun/step-3.5-flash",
         "name": "Step 3.5 Flash",
         "cost_input": 0.1, "cost_output": 0.3,
@@ -1720,10 +1775,10 @@ MODELS = {
         "open_source": True, "license": "Apache 2.0",
     },
     "or-qwen-2.5-72b": {
-        # OpenRouter lo lista pero ningún proveedor lo sirve: el upstream responde
-        # "does not exist". Está en el catálogo y no se puede llamar — que para quien
-        # decide es lo mismo que no existir. (14-jul-2026)
-        "retired": True,
+        # RESUCITÓ. El 14-jul-2026 se retiró porque ningún proveedor lo servía (el upstream
+        # respondía "does not exist") — cierto entonces. El 12-ago-2026 responde HTTP 200
+        # servido por DeepInfra: contestó "Santiago" a la capital de Chile.
+        # Ver la nota de `or-step-3.5-flash`: el retiro se re-chequea, no es definitivo.
         "id": "qwen/qwen-2.5-72b-instruct",
         "name": "Qwen 2.5 72B",
         "cost_input": 0.36, "cost_output": 0.4,
@@ -2062,7 +2117,10 @@ OLLAMA_MODELS = {
         # ("no puede auto-preferirse"). Medirlo rompería esa premisa: se estaría
         # puntuando a sí mismo. Hoy tiene 0 runs; que siga así.
         "is_judge": True,
-        "retired": True,  # no es que muriera: es que no compite
+        "retired": True,
+        "retired_at": "2026-07-14",
+        "retired_reason": "decisión del benchmark, no del proveedor: no compite (Phi-4 es el modelo juez)",
+        "retired_kind": "policy",
         "id": "phi4",
         "name": "Phi-4 14B (local)",
         "cost_input": 0.0,
