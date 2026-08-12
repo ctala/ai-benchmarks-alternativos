@@ -715,6 +715,26 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     if (result.metadata or {}).get("subscription_measured"):
         scores["subscription_measured"] = True
 
+    # ── LO QUE SE CALCULA Y SE TIRABA ──────────────────────────────────────
+    # Auditado el 12-ago-2026: de los 16 campos del `BenchmarkResult`, SIETE no
+    # llegaban al JSON. Dos hacían daño concreto:
+    #
+    #   · `tool_calls_made` — sin él no se puede responder "¿este modelo llamó a la
+    #     herramienta?" sin re-medir. Buscando eso leí un campo inexistente y casi
+    #     publico un hallazgo falso ("68 de 68 con cero tool calls"): la query daba
+    #     cero para todos porque el campo no estaba, no porque no llamaran.
+    #   · `metadata` — ahí vive `upstream_provider`, que agregamos HOY justamente
+    #     para saber por qué endpoint se midió cada run. Se calculaba y se perdía.
+    #     También `finish_reason`, `api_refusal` y la `trajectory` multi-turno.
+    #
+    # Se guarda acotado: la trayectoria y el reasoning ya viven en el `.md` (pesan
+    # mucho para el JSON), acá van las claves que se consultan al auditar.
+    scores["tool_calls_made"] = getattr(result, "tool_calls_made", 0) or 0
+    _md = result.metadata or {}
+    for _k in ("upstream_provider", "finish_reason", "native_finish_reason", "api_refusal"):
+        if _md.get(_k) is not None:
+            scores[_k] = _md[_k]
+
     # Guardar datos del juez si disponible
     if judge_result and judge_quality >= 0:
         scores["judge_score"] = judge_result.get("score_final", -1)
@@ -838,7 +858,20 @@ def run_benchmark(args):
     # Variantes de proveedor: ya no se miden. El modelo canónico vive en OpenRouter
     # (plano común) y es el que recibe runs nuevos. Estas filas conservan su medición
     # histórica en NIM/Groq/Ollama Cloud para la comparación entre infraestructuras.
-    variantes = [k for k in list(models) if models[k].get("provider_variant")]
+    # EXCEPCIÓN: si la variante se pidió EXPLÍCITAMENTE por --models, se corre.
+    #
+    # El descarte en bloque asume que el modelo canónico de OpenRouter puede medir todo.
+    # No siempre: Nemotron 3.5 Lightning falla las 4 suites con herramientas por
+    # OpenRouter —ninguno de sus dos proveedores las expone— y por NIM emite una tool call
+    # válida a la primera. Ahí la variante no es una comparación de infraestructura: es la
+    # ÚNICA ruta que puede medir esa capacidad.
+    #
+    # Y pedir un modelo por nombre para que el runner lo descarte en silencio y anuncie
+    # "No hay modelos seleccionados" es el mismo fallo callado que nos costó dos vueltas
+    # hoy con las keys. Un pedido explícito se respeta o se rechaza fuerte; no se ignora.
+    pedidos = set(args.models or [])
+    variantes = [k for k in list(models)
+                 if models[k].get("provider_variant") and k not in pedidos]
     for k in variantes:
         models.pop(k)
     if variantes:
