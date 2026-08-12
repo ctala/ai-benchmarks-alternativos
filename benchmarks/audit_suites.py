@@ -167,6 +167,37 @@ def main() -> int:
     else:
         print("\n  ✓ todo lo que se calcula se guarda (o vive en el .md a propósito)")
 
+    # ── Endpoints :free ─────────────────────────────────────────────────────
+    #
+    # REGLA (Cristian, 12-ago-2026): **nunca medir en un endpoint `:free`.**
+    #
+    # Medido ese día: los runs contra ids `:free` fallan **69,2%** (651 de 941),
+    # contra **10,9%** de los pagos — seis veces más. Un free tier tiene rate limits
+    # agresivos, puede servirse con otra cuantización y puede desaparecer sin aviso.
+    # Nada de eso es el modelo, y todo entra al número que publicamos.
+    #
+    # No siempre hay alternativa en OpenRouter: `nemotron-nano-9b-v2` y
+    # `nemotron-3-nano-omni-...-reasoning` SOLO existen como `:free` ahí. Los dos están
+    # en NVIDIA NIM, que es la ruta correcta para medirlos.
+    print("\n" + "=" * 78)
+    print("  ENDPOINTS `:free` — regla: nunca medir ahí")
+    print("=" * 78)
+    from benchmarks.models import MODELS as _M2, OLLAMA_MODELS as _O2
+    libres = [(k, c) for k, c in {**_M2, **_O2}.items()
+              if ":free" in str(c.get("id", "")) and not c.get("retired")]
+    rank_names = {m["name"] for m in exp["models"] if m.get("ranked")}
+    if libres:
+        print()
+        for k, c in libres:
+            rk = "  ← RANKEADO" if c.get("name") in rank_names else ""
+            print(f"     {k:<36} {c.get('id')}{rk}")
+        rankeados = [k for k, c in libres if c.get("name") in rank_names]
+        if rankeados:
+            problemas.append((":free", f"{len(rankeados)} rankeados medidos en free tier: {rankeados}"))
+        print(f"\n     {len(libres)} entradas con id `:free` · {len(rankeados)} de ellas RANKEADAS")
+    else:
+        print("\n  ✓ ninguna entrada usa un endpoint `:free`")
+
     print("\n" + "=" * 78)
     print(f"  PROBLEMAS DETECTADOS: {len(problemas)}")
     for s, v in problemas:
