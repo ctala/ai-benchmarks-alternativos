@@ -1319,7 +1319,6 @@ MODELS = {
         "name": "Nemotron 3.5 Lightning",
         "cost_input": 0.10, "cost_output": 0.25,
         "tier": "ultra_cheap",
-        "open_source": True, "license": "NVIDIA Open",
         "context_window": 262144,
         # MoE de 3B activos sobre 30B totales. En OpenRouter existe también como `:free`
         # con 1M de contexto; NO se usa — regla dura: nunca $0 como precio del ranking.
@@ -1332,6 +1331,9 @@ MODELS = {
         # revisar ESO antes de concluir nada sobre el modelo.
         # ⚠️ Publicado el 11-ago-2026: se mide con UN día de vida. Los proveedores suelen
         # ajustar el serving en los primeros días, así que conviene re-verificar en un mes.
+        "publisher": "NVIDIA",
+        "weights_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+        "open_source": True,
         "notes": "MoE 3B activos/30B totales, publicado 11-ago-2026. Pesos en HuggingFace. Precio del tier pago; existe :free a 1M ctx.",
     },
     "muse-glimmer-30b": {
@@ -1344,12 +1346,14 @@ MODELS = {
         # El NOMBRE de la licencia no está publicado ni en la API ni en la ficha, así que
         # no se inventa — es el anti-patrón de Qwen Plus del CLAUDE.md al revés: acá los
         # pesos existen, lo que falta es cómo se llama el permiso.
-        "open_source": True,
         "context_window": 131072,
         # Denso de 30B (NO es MoE, a diferencia del Lightning). Publicado 9-ago-2026.
         # La ficha le atribuye "reliable tool use" y +100 idiomas, y la API sí lista
         # `tools`/`tool_choice` — o sea que la suite de tool calling le corresponde de
         # verdad, al revés que a Lightning.
+        "publisher": "Meta Superintelligence Labs",
+        "weights_url": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+        "open_source": True,
         "notes": "Denso 30B multimodal texto+imagen, publicado 9-ago-2026. Destilado de Muse Spark, orientado a agentes en hardware de consumo. Pesos en HuggingFace; licencia sin nombre publicado.",
     },
 
@@ -1368,6 +1372,9 @@ MODELS = {
         "cost_input": 0.021, "cost_output": 0.063,
         "tier": "ultra_cheap",
         "context_window": 262144,
+        "publisher": "inclusionAI",
+        "weights_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+        "open_source": True,
         "notes": "El más barato del catálogo (publicado 23-jul-2026). Thinking. Licencia sin verificar.",
     },
     "solar-pro4": {
@@ -1377,6 +1384,7 @@ MODELS = {
         "tier": "ultra_cheap",
         "context_window": 524288,
         # El ÚNICO del lote que NO es thinking: 0 tokens de reasoning en el pre-vuelo.
+        "publisher": "Upstage",
         "notes": "Publicado 10-ago-2026. No-thinking (verificado). Licencia sin verificar.",
     },
     "qwen3.7-flash": {
@@ -1385,6 +1393,7 @@ MODELS = {
         "cost_input": 0.03, "cost_output": 0.13,
         "tier": "ultra_cheap",
         "context_window": 1000000,
+        "publisher": "Alibaba",
         "notes": "1M de contexto a $0,03. Multimodal texto+imagen+video. Tier 'Flash' nuevo: NO se sabe si los pesos son abiertos (la regla Base/Plus/Max no lo cubre).",
     },
     "nex-n2-mini": {
@@ -1393,6 +1402,9 @@ MODELS = {
         "cost_input": 0.025, "cost_output": 0.10,
         "tier": "ultra_cheap",
         "context_window": 262144,
+        "publisher": "Nex AGI",
+        "weights_url": "https://huggingface.co/nex-agi/Nex-N2-Mini",
+        "open_source": True,
         "notes": "Publicado 24-jun-2026. Multimodal texto+imagen. ⚠️ En el pre-vuelo falló un cálculo de porcentaje simple (dio 17,49% donde iba 19,13%) — n=1, lo dirá el examen.",
     },
     "laguna-xs-2.1": {
@@ -1401,6 +1413,10 @@ MODELS = {
         "cost_input": 0.06, "cost_output": 0.12,
         "tier": "ultra_cheap",
         "context_window": 262144,
+        "publisher": "Poolside",
+        "weights_url": "https://huggingface.co/poolside/Laguna-XS-2.1",
+        "open_source": True,
+        "license": "OpenMDW-1.1",
         "notes": "Hermano chico del Laguna S. Publicado 2-jul-2026. Licencia sin verificar.",
     },
     "deepseek-v4-flash-0731": {
@@ -1408,11 +1424,13 @@ MODELS = {
         "name": "DeepSeek V4 Flash 0731",
         "cost_input": 0.08, "cost_output": 0.18,
         "tier": "ultra_cheap",
-        "open_source": True, "license": "MIT",
         "context_window": 1048576,
         # Snapshot distinto del V4 Flash que ya está medido → distinto id, distinto modelo,
         # se mide (regla de re-medición del CLAUDE.md). Además es el que ALUCINÓ en Eco:
         # comparar el snapshot nuevo contra el viejo es una pregunta con dueño.
+        "publisher": "DeepSeek",
+        "weights_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+        "open_source": True,
         "notes": "Snapshot 31-jul-2026 del V4 Flash. Más barato que el id base ($0,08/$0,18 vs $0,14/$0,28).",
     },
     "tencent-hy3": {
@@ -1421,6 +1439,9 @@ MODELS = {
         "cost_input": 0.132, "cost_output": 0.528,
         "tier": "cheap",
         "context_window": 262144,
+        "publisher": "Tencent",
+        "weights_url": "https://huggingface.co/tencent/Hy3",
+        "open_source": True,
         "notes": "Publicado 6-jul-2026. Existe también hy3-preview a mitad de precio, sin medir. Licencia sin verificar.",
     },
     "laguna-s-2.1": {
@@ -1430,8 +1451,11 @@ MODELS = {
         "tier": "ultra_cheap",
         # Pesos abiertos según la tabla del post de NVIDIA (11-ago-2026), que además dice
         # que corre en UN SOLO DGX Spark con NVFP4 → candidato directo a medirse local.
-        "open_source": True,
         "context_window": 1048576,
+        "publisher": "Poolside",
+        "weights_url": "https://huggingface.co/poolside/Laguna-S-2.1",
+        "open_source": True,
+        "license": "OpenMDW-1.1",
         "notes": "118B para coding agéntico, 1M ctx a $0,09. Corre en un solo DGX Spark (NVFP4) según NVIDIA. Estaba pendiente en el ROADMAP desde julio.",
     },
     "inkling-small": {
@@ -1441,8 +1465,10 @@ MODELS = {
         "tier": "cheap",
         # Pesos abiertos según el post de NVIDIA. ⚠️ Pero ahí mismo dice que necesita un
         # DGX Station o DOS Spark: con un Spark solo NO corre local.
-        "open_source": True,
         "context_window": 524288,
+        "publisher": "Thinking Machines Lab",
+        "weights_url": "https://huggingface.co/thinkingmachines/Inkling-Small",
+        "open_source": True,
         "notes": "276B con 12B activos, multimodal texto+imagen+audio. Local exige DGX Station o 2 Spark — no entra en uno solo.",
     },
     # ⏸️ `meta/muse-spark-1.2` (el modelo del que destilaron Glimmer, $1,25/$4,25, 1M ctx):
