@@ -182,7 +182,20 @@ class UnifiedProvider:
                     model.startswith(p) or p in model for p in THINKING_MODELS
                 )
                 if is_thinking:
-                    token_param = "max_completion_tokens"
+                    # `max_completion_tokens` es el nombre de OpenAI. OpenRouter lo ACEPTA
+                    # y lo respeta (verificado 12-ago-2026: tope 50 → out_tok 50,
+                    # finish=length, igual que con `max_tokens`), pero **ningún proveedor
+                    # lo declara** en sus `supported_parameters`. Consecuencia: activar
+                    # `require_parameters: true` con este nombre filtra a TODOS los
+                    # proveedores y devuelve "No endpoints found that can handle the
+                    # requested parameters" — incluso en modelos sanos como Gemma 4 26B,
+                    # que está #5 del ranking y hace tool calling sin problema.
+                    #
+                    # Por eso en OpenRouter se manda `max_tokens`, que es universal. No se
+                    # pierde nada (los dos se respetan) y habilita exigir que el proveedor
+                    # soporte de verdad las tools que le mandamos.
+                    token_param = ("max_tokens" if self.provider_name == "openrouter"
+                                   else "max_completion_tokens")
                     effective_max = max(max_tokens * THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS)
                 else:
                     token_param = "max_tokens"
@@ -205,6 +218,39 @@ class UnifiedProvider:
             # benchmark (91 tests por modelo) — evita cold start repetido. Default
             # Ollama es 5min, queda corto si el run es lento.
             extra_body = {}
+
+            # ── OpenRouter: exigir que el proveedor SOPORTE lo que le mandamos ──
+            #
+            # Esto no es una optimización, es corregir una medición inválida. La doc de
+            # OpenRouter (verificada 12-ago-2026) dice, textual:
+            #
+            #   `require_parameters` — **default `false`**. "With the default routing
+            #   strategy, providers that don't support all the LLM parameters specified in
+            #   your request can still receive the request, but WILL IGNORE UNKNOWN
+            #   PARAMETERS."
+            #
+            #   Y sobre tools: "a small set of parameters is used as a SOFT PREFERENCE when
+            #   choosing between providers of the same model: `tools`, `response_format`…
+            #   though it MAY STILL FALL BACK to others if necessary."
+            #
+            # Traducido al benchmark: mandábamos `tools` y OpenRouter podía rutear a un
+            # proveedor que los descarta en silencio. El modelo nunca veía las herramientas,
+            # respondía texto plano, y nosotros lo anotábamos como "no llamó a la
+            # herramienta". Eso es un artefacto de RUTEO anotado como defecto del MODELO —
+            # la misma clase de error que marcar muerto a un Llama que estaba vivo.
+            #
+            # Es candidato directo a explicar por qué la suite `tool_calling` "no
+            # discriminaba" (todos entre 5,3 y 7,2, incluido uno que no puede emitir una
+            # tool call) y por eso salió del score en v3.x. Y `response_format` está en la
+            # MISMA lista: de ahí depende `structured_output`.
+            #
+            # ⚠️ Efecto colateral esperado y correcto: si NINGÚN proveedor del modelo
+            # soporta tools, ahora falla ruidoso ("No endpoints found that support tool
+            # use") en vez de devolver una respuesta plausible y falsa. Fallar ruidoso es
+            # la doctrina del repo; un número plausible y falso es peor que ninguno.
+            if self.provider_name == "openrouter" and (tools or kwargs.get("response_format")):
+                extra_body["provider"] = {"require_parameters": True}
+
             if "ollama" in self.provider_name.lower():
                 extra_body["keep_alive"] = "30m"
             # llama-server: apagar el reasoning interno de Gemma 4 (verificado:
