@@ -144,6 +144,7 @@ medición, está en qué medimos** (ver la regla en `CLAUDE.md`).
 
 | Script | Para qué | Cuándo |
 |---|---|---|
+| **`canario.py`** | **18 tests en 1 modelo: verifica INVARIANTES. Si sale 🔴 el lote no se lanza** | **PASO 0, antes de CUALQUIER lote** |
 | `sync_prices.py` | precios contra la API de OpenRouter | antes de cada release |
 | `check_endpoints.py` | ¿siguen vivos? `--recheck-retired`: ¿alguno revivió? | antes de un lote y del release |
 | `audit_suites.py` | **¿cada suite mide lo que su nombre dice?** | en `regenerate_all` |

@@ -146,6 +146,46 @@ números dejan de caducar solos. Reglas:
 
 ---
 
+# PASO 0 — el canario. Un comando, y no se lanza nada si sale rojo
+
+```bash
+.venv/bin/python benchmarks/canario.py --models <primer-modelo-del-lote>
+# Claude por API:  --models claude-opus-5 --extra --allow-anthropic-api
+```
+
+**Si sale 🔴, el lote NO se lanza.** Corre 18 tests (3 suites) en 1 modelo y verifica
+**invariantes**, no bugs conocidos:
+
+| Invariante | Qué caza |
+|---|---|
+| Responde y el `content` no viene vacío | thinking sin su patrón en `THINKING_MODELS` |
+| Emite tool calls donde el test da herramientas | ruteo, `require_parameters`, proveedor sin tools |
+| Registra `upstream_provider` | mediciones que después no se pueden auditar |
+| Guarda `prompt_sha` | runs sin trazabilidad de su entrada |
+| Tasa de fallo bajo 34% | cualquier cosa sistémica |
+
+**Por qué existe, con los números del 12-ago:** ese día los fallos se partieron en dos
+grupos limpios. Los **anticipados** —Glimmer y Muse Spark thinking, 5 de 9 devolviendo
+vacío, 19 keys inventadas, 2 modelos muertos en el ranking— **todos tenían un chequeo
+previo**. Los **descubiertos tarde** —`temperature` + `require_parameters` (4 runs), skip
+de niah sin margen (**378 runs en 23 modelos**), el juez corriendo donde su veredicto se
+descarta (meses), `orchestration` midiendo prosa (meses)— **ninguno lo tenía**.
+
+Anticipamos lo que tiene instrumento. No es cuestión de atención.
+
+La diferencia con `audit_suites.py`, `E7`, `E8` y `check_endpoints.py`: esos buscan
+problemas **conocidos**. El canario verifica que se cumplan los invariantes, así que caza
+**regresiones que todavía no conocemos** — la clase que más duele. El caso que lo motivó
+fue un arreglo de la mañana rompiendo algo de la tarde.
+
+> ⚠️ **Su primera versión falló su propia validación**, y quedó como recordatorio: dijo
+> "invariantes OK" para un modelo con las 4 pruebas de herramientas caídas, porque
+> filtraba por runs exitosos y la lista quedaba vacía. **Un chequeo que no puede fallar no
+> es un chequeo.** Si tocás `canario.py`, validalo contra un caso que SABÉS que está roto
+> antes de confiar en un verde.
+
+---
+
 # Checklist de pre-vuelo (12-ago-2026) — 6 chequeos, 3 minutos, evitan un lote entero
 
 Cada uno existe porque su ausencia costó un lote o publicó un dato falso **ese mismo día**.

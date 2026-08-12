@@ -196,6 +196,13 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - **Versionar resultados JSON** siempre en git
 - **Flujo ROADMAP↔CHANGELOG**: todo lo que se marca completo en ROADMAP.md migra a CHANGELOG.md con el commit
 - **3 cortes de ranking en README**: (1) **global** = todos los modelos. (2) **solo alternativas** = sin Anthropic + sin OpenAI + sin Google propietarios (Gemini Flash / Flash Lite / Pro). Sí se permiten modelos Google open-source (Gemma). (3) **solo open-source** = todos los modelos con `open_source: True`. Siempre los 3 al actualizar resultados.
+- **Antes de lanzar un lote, corre el canario.** `python benchmarks/canario.py --models
+  <primer-modelo>`. Si sale 🔴, no se lanza. Verifica **invariantes** —responde, emite tool
+  calls, registra el proveedor, guarda la entrada, tasa de fallo bajo umbral— y por eso caza
+  regresiones que todavía no conocemos, a diferencia de los detectores que buscan problemas
+  ya conocidos. El 12-ago los fallos anticipados fueron TODOS los que tenían un chequeo
+  previo; los descubiertos tarde (378 runs perdidos en niah, meses de `orchestration`
+  midiendo prosa) no tenían ninguno. Detalle y por qué: `RUNBOOK-MEDICION.md`, PASO 0.
 - **Nunca medir en un endpoint `:free`.** Medido el 12-ago-2026: los runs contra ids
   `:free` fallan **69,2%** (651 de 941) contra **10,9%** de los pagos — **seis veces más**.
   Un free tier trae rate limits agresivos, puede servirse con otra cuantización y puede
