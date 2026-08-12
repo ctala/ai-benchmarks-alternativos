@@ -196,6 +196,19 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - **Versionar resultados JSON** siempre en git
 - **Flujo ROADMAP↔CHANGELOG**: todo lo que se marca completo en ROADMAP.md migra a CHANGELOG.md con el commit
 - **3 cortes de ranking en README**: (1) **global** = todos los modelos. (2) **solo alternativas** = sin Anthropic + sin OpenAI + sin Google propietarios (Gemini Flash / Flash Lite / Pro). Sí se permiten modelos Google open-source (Gemma). (3) **solo open-source** = todos los modelos con `open_source: True`. Siempre los 3 al actualizar resultados.
+- **Nunca medir en un endpoint `:free`.** Medido el 12-ago-2026: los runs contra ids
+  `:free` fallan **69,2%** (651 de 941) contra **10,9%** de los pagos — **seis veces más**.
+  Un free tier trae rate limits agresivos, puede servirse con otra cuantización y puede
+  desaparecer sin aviso. Nada de eso es el modelo, y todo entra al número que publicamos.
+
+  Si un modelo **solo** existe como `:free` en OpenRouter, se mide por la infra de su
+  creador (NIM, API propia), no por el free tier. Caso real: `nemotron-nano-9b-v2` y
+  `nemotron-3-nano-omni-30b-a3b-reasoning` solo están como `:free` en OpenRouter y **los
+  dos están en NVIDIA NIM**. Guardrail: `audit_suites.py` lista toda entrada con `:free` y
+  marca las que están rankeadas.
+
+  ⚠️ Distinto de `free_runtime`, que es correcto: un modelo que corre gratis (NIM 40 RPM,
+  Spark) pero **se costea al precio de OpenRouter** para que la comparación sea justa.
 - **No reinventamos la rueda: nuestro valor NO está en cómo se mide, está en QUÉ medimos.**
 
   El motor de medición —scoring, agregación, verificadores, diseño de tests agénticos— es un
