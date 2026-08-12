@@ -132,6 +132,105 @@ decidir si un tramo entra. Eso solo ya evitaba 378 fallos históricos falsos en 
 
 ---
 
+### 2.4 Las suites agénticas: medir orquestar, no narrar
+
+**La evidencia, sobre 719 runs de 125 modelos en la suite `orchestration`:**
+
+```
+correlación  tool_calling ↔ quality   :  −0,07   ← CERO
+correlación  content_score ↔ quality  :  +0,55
+```
+
+**La suite no mide orquestación.** Su nota está desacoplada de elegir bien la herramienta y
+la manda la prosa. Es un test de *explicar un plan* con nombre de orquestación.
+
+El caso que lo destapó: Nemotron 3.5 Lightning sacó **10,0 eligiendo la herramienta
+correcta y 2,5 de nota** en `tool_selection_precision`. Emitió la tool call y no explicó —
+que es lo que hace un agente en un loop real. Qwen 3.6 35B sacó **0,0 en tool calling y
+7,5 de nota** en el mismo test: escribió bien y no llamó a nada. **El que orquestó bien
+perdió; el que narró bien ganó.**
+
+Y se confirma por el otro lado: en `agent_long_horizon`, la **única** suite multi-turno,
+el orden se invierte — Lightning **8,92** vs Qwen **7,06**.
+
+**Los tres problemas de diseño:**
+
+1. **Un número para dos capacidades.** Elegir herramienta y explicar el plan se colapsan en
+   `quality`, y gana la que no da nombre a la suite.
+2. **Un solo turno para medir algo multi-turno.** Un agente real actúa, observa el
+   resultado y después explica. El test pide todo junto y puntúa la explicación, penalizando
+   el patrón *act-first* — que es el más eficiente en producción.
+3. **Duplica una señal que ya existe.** `tool_calling` se mide aparte y bien; la nota de la
+   suite lo ignora.
+
+**Qué se hace (decisión de Cristian, 12-ago): se cambian los prompts.** Un test que no mide
+lo que dice medir no se conserva por comparabilidad — la comparabilidad de un número
+equivocado no vale nada. Por eso esto es v4.1 y no un parche.
+
+| | Hoy | v4.1 |
+|---|---|---|
+| Tipo | `single` en 4 de 5 suites agénticas | **`multi_turn_script`** — la maquinaria ya existe |
+| Ciclo | pedir plan + ejecución en un turno | **actuar → observar resultado → continuar** |
+| Nota | una, dominada por la prosa | **dos señales separadas**: selección de herramienta y convergencia |
+| Estilo | premia narrar antes de actuar | **no induce estilo**: se mide qué logró, no cómo lo contó |
+
+**Costo:** ~$79 de re-medición sobre los 68 rankeados (multi-turno, ~5 llamadas por test;
+el input acumula historial así que el real es algo mayor). **2.939 runs** quedan fuera de
+comparación, incluidos los 342 que re-medimos hoy — asumido: se re-mide una vez, no tres.
+
+**Conexión con `presupuesto_de_tarea`** (del plan de agosto): el rediseño multi-turno es el
+mismo motor que necesita el test del caso Terra. Se construyen juntos.
+
+### 2.5 Cómo miden los que ya lo resolvieron (BFCL y τ-bench)
+
+Investigado el 12-ago contra las fuentes. **No inventamos el test de orquestación: adoptamos
+el diseño de BFCL y le sumamos lo nuestro.**
+
+**Berkeley Function Calling Leaderboard** — el estándar de facto en tool calling:
+
+| Práctica de BFCL | Qué resuelve de lo nuestro |
+|---|---|
+| **Objective checks, NO juez LLM.** *"Expert human labelers manually review all data points and label the ground truth"*, unit tests y `mypy` | Nuestras 4 suites agénticas las decide el juez (+0,99 en `tool_calling`), y ese juez satura |
+| **State-based evaluation**: comparar *"the backend system's state after all function calls are executed"* | Mide si LOGRÓ la tarea, no si la contó bien. Mata el problema de la prosa |
+| **Response-based con subset matching**: el camino ejecutado *"contains the ground truth as a subset, even if it contains additional function calls"*, para admitir *"different, equally valid trajectories"* y recuperación de errores | **Resuelve exactamente el caso Lightning vs Qwen**: uno actúa primero y el otro narra primero. Con subset matching, los dos pasan si llegan |
+| **Multi-turn con límite de pasos**: termina cuando *"the model doesn't output any valid function calls"* o a los 20 pasos. Se evalúa al final de CADA turno y solo aprueba quien *"passes both checks in all turns"* | Nuestras suites son single-turn y penalizan al que actúa sin narrar |
+| **Categoría dedicada a alucinación**: 240+ entradas, detecta llamadas innecesarias (ej. autenticar cuando ya estaba autenticado) | No medimos la herramienta llamada de más, solo la que falta |
+
+**τ-bench (Sierra)** aporta la pieza que nos falta por otro lado: **`pass^k`** — correr la misma
+tarea k veces y reportar con qué fiabilidad la resuelve. Es la respuesta directa a nuestro
+**±0,58 de ruido con n=1**: en vez de subir `RUNS_PER_TEST` para achicar el error de una
+media, se mide y se publica la **consistencia**, que para un agente que corre 24/7 es más
+útil que el promedio.
+
+**El diseño de la suite nueva, entonces:**
+
+1. **Estado verificable al final**, no prosa. La tarea se logró o no.
+2. **Subset matching** sobre la trayectoria: distintos caminos válidos aprueban igual.
+3. **Multi-turn con tope de pasos** — la maquinaria de `multi_turn_script` ya existe.
+4. **Sin juez.** Verificador determinista, como manda la doctrina del 13-jul.
+5. **Llamadas de más también cuentan**: la categoría de alucinación de BFCL.
+6. **`pass^k`** en vez de una media: qué tan seguido lo logra, no cuán lindo lo cuenta.
+
+### 2.6 Los tres ejes publicados que hay que arreglar antes de re-medir
+
+Detectado por `audit_suites.py` el 12-ago:
+
+| Eje | Problema | Qué hacer |
+|---|---|---|
+| **`agentic_score`** | sale SOLO de `agent_long_horizon` (multi-turno sin herramientas) y correlaciona **−0,26** con el tool calling real. **Es el que alimenta la página "mejor LLM para agentes"** | Recomponerlo: multi-turno **+ tool calling real**. O renombrarlo a lo que mide |
+| **`niah_score_avg`** | **poblado en 0 de 68** rankeados. Medimos 2.932 runs de long-context y el eje publicado no los usa | Computarlo desde los runs que ya existen |
+| **La página de agentes** | usa `agentic_score`; el dato bueno (`tool_calling_score_avg`) **está poblado en los 68** y no se usa | Componer la recomendación con ambos |
+
+**Re-medir antes de arreglar estos ejes sería pagar dos veces**: los runs nuevos alimentarían
+un eje mal compuesto.
+
+### 2.7 Punto ciego conocido del propio detector
+
+`audit_suites.py` infiere la señal esperada de los tests. En suites con rúbrica determinista
+—`agent_long_horizon`— no hay `content_score` ni `answer_score` que correlacionar y devuelve
+`—` en vez de fallar ruidoso. **Queda anotado**: el detector no cubre las suites con rúbrica
+propia, que hay que auditar a mano hasta que se le agregue el caso.
+
 ## 3. A evaluar en v4.1 (no decidido): sacar costo y velocidad del score
 
 Artificial Analysis reporta **costo y velocidad aparte** del Intelligence Index. Nosotros
