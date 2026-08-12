@@ -394,11 +394,25 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     ]
     speed_scores = [r.get("speed") for r in general if r.get("speed") is not None]
     latency_scores = [r.get("latency") for r in general if r.get("latency") is not None]
-    # El badge de tool calling se calcula sobre TODOS los runs (general + la suite
-    # tool_calling, que ya no esta en general). Si se calculara solo sobre `general`,
-    # sacar la suite del quality habria vaciado tambien el badge.
+    # ── Tool calling: SOLO sobre las suites que dan herramientas ────────────
+    #
+    # Antes se promediaba sobre TODOS los runs (`general + tool_runs`). Medido el
+    # 12-ago-2026: **el 87% de esos runs son tests que no dan herramientas**, y ahí
+    # `tool_calling` toma un valor por defecto. El promedio quedaba dominado por la
+    # constante y **aplastaba el rango real de 3,11–8,36 a 6,09–7,28**.
+    #
+    # Eso explica el diagnóstico de v3.x —"tool_calling no discrimina, todos entre 5,3
+    # y 7,2"— que sacó la dimensión del score. No era la suite: era el promedio. Se
+    # descartó una señal buena por leerla diluida.
+    #
+    # Con solo las suites que dan herramientas, DiffusionGemma 26B saca 2,50 (0,0 en los
+    # tests que exigen llamada, 10,0 en el que pide NO llamar) y Claude Opus 4.8 saca
+    # 10,00. Discrimina, y siempre discriminó.
+    SUITES_CON_TOOLS = {"tool_calling", "customer_support", "orchestration",
+                        "agent_capabilities"}
     tc_scores = [r.get("tool_calling") for r in (general + tool_runs)
-                 if r.get("tool_calling") is not None]
+                 if r.get("tool_calling") is not None
+                 and r.get("suite") in SUITES_CON_TOOLS]
 
     # Score por pilar (general) Y por suite (incluye niah para visibilidad)
     by_pillar = defaultdict(list)

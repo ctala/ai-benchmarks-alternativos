@@ -236,8 +236,35 @@ def pillar_quality(m, name):
     return ((m.get("dims_by_pillar") or {}).get(name) or {}).get("quality_avg") or 0
 
 
+# Peso del tool calling REAL en las páginas de agentes. Interino: cuando v4.1
+# rediseñe las suites agénticas (state-based + subset matching, diseño BFCL), el
+# pilar va a medir capacidad agéntica de verdad y esto sobra.
+PESO_TOOLS_AGENTES = 0.5
+
+
 def score_for(m, cfg):
     if cfg["criterion"] == "pillar":
+        # ── AGENTES: el pilar solo no alcanza ───────────────────────────────
+        #
+        # Medido el 12-ago-2026: las 7 suites del pilar "Agentes" tienen su nota
+        # dominada por la PROSA, no por el uso de herramientas. Correlación entre
+        # `quality` y `tool_calling` en las 4 suites que dan tools: de −0,17 a
+        # +0,13, y en tres de ellas manda el juez (hasta +0,99).
+        #
+        # Consecuencia publicada: **DiffusionGemma 26B encabezaba
+        # /mejor-llm-para-agentes/ con "Agentes 8.8"** — un modelo de difusión local
+        # cuyo score REAL de tool calling es 1,72. Estaba en el <meta description>,
+        # o sea en el título que ve Google, y la página apunta a "llm para hermes".
+        #
+        # Hasta que v4.1 arregle las suites, el ranking de agentes incorpora la única
+        # señal que sí mide capacidad agéntica y que ya teníamos medida. Con esto
+        # DiffusionGemma pasa de #1 a #112 y el top queda con modelos de tool calling
+        # 8,1–8,4.
+        if cfg["pillar"] == "Agentes":
+            tool = m.get("tool_calling_score_avg")
+            if tool is not None:
+                return ((1 - PESO_TOOLS_AGENTES) * pillar_quality(m, cfg["pillar"])
+                        + PESO_TOOLS_AGENTES * tool)
         return pillar_quality(m, cfg["pillar"])
     if cfg["criterion"] == "suite":
         return suite(m, cfg["suite"])
