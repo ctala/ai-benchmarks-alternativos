@@ -151,6 +151,46 @@ def main():
         print("     (ninguno)")
     print()
 
+    # E8 · CERO tool calls en una suite entera de herramientas
+    #
+    # Este detector es de una clase que el repo NO tenía. Todos los demás cazan AUSENCIA:
+    # respuestas vacías (E1), procedencia faltante (E3), alta tasa de fallo (E4), rutas
+    # muertas (E5), precio en $0 (E6). Un run contaminado es lo contrario — es PRESENCIA:
+    # tiene número, tiene forma válida y pasa `validate.py` sin chistar.
+    #
+    # Por eso el fallback de ruteo de OpenRouter vivió meses invisible: mandábamos `tools`,
+    # el router podía elegir un proveedor que las ignora (soft preference, documentado), el
+    # modelo respondía texto plano y quedaba anotado como "no llamó a la herramienta". No
+    # fallaba nada. Lo destapó el contraste con producción —Llama 3.3 70B emite tool calls
+    # en Flip y acá no las emitía en el 45% de sus runs—, no un guardrail.
+    #
+    # Cero tool calls en una suite entera es o un hallazgo real (el modelo no sabe/no
+    # puede) o un artefacto de transporte. Las dos cosas merecen que algo chille; hoy
+    # ninguna lo hacía.
+    print("── E8 · Cero tool calls en una suite ENTERA de herramientas")
+    SUITES_TOOLS = {"tool_calling", "customer_support", "orchestration", "agent_capabilities"}
+    por_par = defaultdict(lambda: [0, 0, set()])   # (modelo, suite) -> [ok, con_tool, proveedores]
+    for r in runs:
+        if r.get("suite") in SUITES_TOOLS and r.get("success"):
+            d = por_par[(r.get("model"), r.get("suite"))]
+            d[0] += 1
+            if (r.get("tool_calling") or 0) > 0:
+                d[1] += 1
+            up = (r.get("metadata") or {}).get("upstream_provider")
+            if up:
+                d[2].add(up)
+    sospechosos = [(m, s, v) for (m, s), v in por_par.items() if v[0] >= 3 and v[1] == 0]
+    for m, s, v in sorted(sospechosos, key=lambda x: -x[2][0]):
+        flag = " ← RANKEADO" if m in ranked else ""
+        prov = ", ".join(sorted(v[2])) if v[2] else "sin registrar (medición vieja)"
+        print(f"     {str(m)[:34]:<36} {s:<20} {v[0]} runs, 0 tool calls{flag}")
+        print(f"        └ proveedor: {prov}")
+        if m in ranked:
+            affected[m].add("E8")
+    if not sospechosos:
+        print("     (ninguno)")
+    print()
+
     # RESUMEN: modelos rankeados tocados por ≥1 anomalía
     print(f"{'='*72}\n  RESUMEN — modelos RANKEADOS con ≥1 anomalía: {len(affected)}/{len(ranked)}\n{'='*72}")
     for m, codes in sorted(affected.items(), key=lambda x: -len(x[1])):
