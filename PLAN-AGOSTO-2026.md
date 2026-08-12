@@ -19,6 +19,36 @@ CHANGELOG para el delta completo. Resumen:
 **Lo que sigue pendiente del plan:** P0 guardrail de tipos huérfanos · P1 suite `produccion_real`
 · P0-c los 3 scorers (**septiembre, con protocolo propio**) · P3 DATASHEET + CheatSheet + tag.
 
+### 📏 PENDIENTE para la próxima tanda: `RUNS_PER_TEST` en las suites con herramientas
+
+**Medido el 12-ago-2026, no estimado.** Se re-midieron las 4 suites con herramientas
+(`tool_calling`, `customer_support`, `orchestration`, `agent_capabilities`) en 15 modelos,
+con el ruteo ya corregido. Comparando contra la medición anterior de los MISMOS modelos:
+
+```
+Δ quality   media +0,11  ·  desviación ±0,58  ·  subieron 10, bajaron 5
+Δ %toolcall media −1,8pp ·  subieron 3,  bajaron 7
+```
+
+**El delta es simétrico**, o sea que las dos mediciones difieren por azar, no por el fix.
+Eso convierte el ±0,58 en una medición directa del **ruido del instrumento con
+`--quick` (1 run por test)**.
+
+**Y explica algo que llevaba meses sin explicación.** En v3.x se sacó `tool_calling` del
+score con el argumento de que "no discriminaba: todos entre 5,3 y 7,2". Con un rango útil
+de 1,9 puntos y un ruido de ±0,58, **más de la mitad del rango es ruido**. El problema
+nunca fue que la suite midiera lo que no importa: es que **no tiene resolución** con n=1.
+
+Ojo con la conclusión fácil: esto también dice que el *par de validación* de Flip
+(gpt-oss-20b 6,91 vs llama-3.3 7,18) está **dentro del ruido** — esa diferencia de 0,27 no
+significa nada. El contraste con producción sigue siendo válido; el número que lo
+"confirmaba" no lo confirmaba.
+
+**Qué hacer (decidido: va en la próxima tanda, no ahora):** subir `RUNS_PER_TEST` para
+estas suites. Triplica el costo de esa parte y por eso no se hace a mitad del lote de
+agosto. Antes de subirlo, calcular cuántos runs hacen falta para bajar el ruido bajo 0,2 —
+con n=3 el error estándar cae ~1,7×, que probablemente no alcance.
+
 ### 🔴 Deuda nueva encontrada el 11-ago (dos guardrails que fallan EN VERDE)
 
 1. **`check_endpoints.py` corre ciego.** Solo `benchmarks/config.py` carga el `.env`, y ese script

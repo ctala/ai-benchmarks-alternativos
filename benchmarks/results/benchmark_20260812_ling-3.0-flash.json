@@ -1,16 +1,16 @@
 {
   "metadata": {
     "timestamp": "20260812_ling-3.0-flash",
-    "total_runs": 364,
+    "total_runs": 386,
     "errors": 0,
     "judge": {
       "judge_model": "microsoft/phi-4",
       "judge_provider": "openrouter",
       "judge_is_local": false,
-      "evaluations": 3,
-      "estimated_cost_usd": 0.0044
+      "evaluations": 5,
+      "estimated_cost_usd": 0.0076
     },
-    "partial": true
+    "partial": false
   },
   "results": [
     {
@@ -6123,6 +6123,76 @@
       "run": 1,
       "timestamp": "20260812_ling-3.0-flash",
       "response_file": "results/responses/20260812_ling-3.0-flash/ling-3.0-flash__integridad_idioma__fuente_china_sin_avisar.md"
+    },
+    {
+      "quality": 9.74,
+      "cost_score": 10.0,
+      "cost_usd": 0.000139,
+      "speed": 10.0,
+      "latency": 2.0,
+      "tool_calling": 7.0,
+      "final": 9.22,
+      "test_name": "jerga_tecnica_densa",
+      "model": "Ling 3.0 Flash",
+      "model_id": "inclusionai/ling-3.0-flash",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 333.7,
+      "latency_first_token": 6.391,
+      "latency_total": 6.391,
+      "input_tokens": 223,
+      "output_tokens": 2133,
+      "response_preview": "Cuando se habla de modelos de inteligencia artificial grandes, como los que tienen decenas de miles de millones de parámetros, existe un problema fundamental: generan texto una palabra a la vez, y eso hace que las respuestas tarden en llegar. Para un fundador que ofrece un producto con inteligencia ",
+      "auto_quality": 7.44,
+      "content_score": 4.0,
+      "answer_score": 9.74,
+      "scoring": "verificable",
+      "judge_score": 5,
+      "judge_precision": 5,
+      "judge_relevancia": 5,
+      "judge_profundidad": 5,
+      "judge_claridad": 5,
+      "judge_utilidad": 5,
+      "judge_justificacion": "La respuesta es precisa, relevante, profunda, clara y extremadamente útil para un emprendedor, explicando conceptos complejos de manera accesible.",
+      "suite": "integridad_idioma",
+      "run": 1,
+      "timestamp": "20260812_ling-3.0-flash",
+      "response_file": "results/responses/20260812_ling-3.0-flash/ling-3.0-flash__integridad_idioma__jerga_tecnica_densa.md"
+    },
+    {
+      "quality": 9.71,
+      "cost_score": 10.0,
+      "cost_usd": 0.000148,
+      "speed": 10.0,
+      "latency": 2.0,
+      "tool_calling": 7.0,
+      "final": 9.2,
+      "test_name": "conversacion_mixta_es_en",
+      "model": "Ling 3.0 Flash",
+      "model_id": "inclusionai/ling-3.0-flash",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 374.4,
+      "latency_first_token": 6.044,
+      "latency_total": 6.044,
+      "input_tokens": 252,
+      "output_tokens": 2263,
+      "response_preview": "## Resumen Ejecutivo — Resultados del Q3 y Decisión del Board\n\nLa empresa cerró el tercer trimestre con un ARR (ingreso recurrente anual) de 1,2 millones de dólares, lo que representa un crecimiento del 34 % respecto al trimestre anterior. Este dato refuerza la tendencia de expansión sostenida que l",
+      "auto_quality": 9.29,
+      "content_score": 8.67,
+      "answer_score": 9.71,
+      "scoring": "verificable",
+      "judge_score": 5,
+      "judge_precision": 5,
+      "judge_relevancia": 5,
+      "judge_profundidad": 5,
+      "judge_claridad": 5,
+      "judge_utilidad": 5,
+      "judge_justificacion": "La respuesta es precisa, relevante, profunda, clara y extremadamente útil para un emprendedor, proporcionando un análisis detallado y contextualizado de los datos financieros y estratégicos.",
+      "suite": "integridad_idioma",
+      "run": 1,
+      "timestamp": "20260812_ling-3.0-flash",
+      "response_file": "results/responses/20260812_ling-3.0-flash/ling-3.0-flash__integridad_idioma__conversacion_mixta_es_en.md"
     }
   ]
 }
