@@ -42,6 +42,7 @@ from providers.adapters import UnifiedProvider, OpenAIResponsesProvider, ClaudeC
 
 # Importar tests
 from benchmarks.tests import content_generation, tool_calling, task_management
+from benchmarks.tests import integridad_idioma  # suite nueva 12-ago-2026
 from benchmarks.tests import code_generation, reasoning, summarization, presentation
 from benchmarks.tests import startup_content, deep_reasoning, customer_support, structured_output
 from benchmarks.tests import hallucination, creativity, string_precision, news_seo_writing
@@ -125,6 +126,9 @@ ALL_TEST_SUITES = {
     "niah_es": niah_es.TESTS,
     # niah_es_1m / niah_es_lite superseded por el grid escalonado de niah_es v3
     # (8K-1M con skip por context window). Imports conservados por compat.
+    # Integridad de idioma: eje APARTE (como niah y seguridad), no entra a la
+    # calidad titular. Nace de la fuga de CJK real en el pipeline de Eco.
+    "integridad_idioma": integridad_idioma.TESTS,
     "prompt_injection_es": prompt_injection_es.TESTS,
 }
 
