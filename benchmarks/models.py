@@ -1305,6 +1305,152 @@ MODELS = {
         "open_source": True, "license": "NVIDIA Open",
     },
 
+    # ── Agregados el 12-ago-2026 ────────────────────────────────────────────────
+    # Criterio de entrada: **utilidad para un emprendedor, no novedad**. Hay 405
+    # modelos en OpenRouter y ~104 acá; la brecha no se cierra, se prioriza. Estos
+    # dos entran porque un pyme podría elegirlos de verdad: precio que puede pagar,
+    # acceso real, y un caso de uso del ICP (agentes / contenido).
+    #
+    # ⚠️ Los DOS son thinking models: medidos con `max_tokens=300` devolvieron
+    # `content=""` con ~200 tokens de reasoning. Ver THINKING_MODELS en
+    # providers/adapters.py — sin eso el examen entero sale vacío y puntúa 0.
+    "nemotron-3.5-lightning": {
+        "id": "nvidia/nemotron-3.5-lightning",
+        "name": "Nemotron 3.5 Lightning",
+        "cost_input": 0.10, "cost_output": 0.25,
+        "tier": "ultra_cheap",
+        "open_source": True, "license": "NVIDIA Open",
+        "context_window": 262144,
+        # MoE de 3B activos sobre 30B totales. En OpenRouter existe también como `:free`
+        # con 1M de contexto; NO se usa — regla dura: nunca $0 como precio del ranking.
+        # Pesos abiertos y descargables: huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16
+        # → candidato real a medirse TAMBIÉN local (30B totales entran en el Spark).
+        # La licencia NO está declarada en la ficha de OpenRouter; "NVIDIA Open" sigue la
+        # convención que ya usan las otras entradas Nemotron de este catálogo.
+        # ⚠️ Su ficha en OpenRouter NO lista `tools` ni `tool_choice`, pese a venderse para
+        # "cargas agénticas de alto throughput". Si la suite de tool calling le va mal,
+        # revisar ESO antes de concluir nada sobre el modelo.
+        # ⚠️ Publicado el 11-ago-2026: se mide con UN día de vida. Los proveedores suelen
+        # ajustar el serving en los primeros días, así que conviene re-verificar en un mes.
+        "notes": "MoE 3B activos/30B totales, publicado 11-ago-2026. Pesos en HuggingFace. Precio del tier pago; existe :free a 1M ctx.",
+    },
+    "muse-glimmer-30b": {
+        "id": "meta/muse-glimmer-30b",
+        "name": "Muse Glimmer 30B",
+        "cost_input": 0.35, "cost_output": 1.50,
+        "tier": "cheap",
+        # Open-weight CONFIRMADO por pesos descargables, no por el nombre del modelo:
+        # huggingface.co/meta-models/Muse-Glimmer-30B (verificado en la ficha, 12-ago-2026).
+        # El NOMBRE de la licencia no está publicado ni en la API ni en la ficha, así que
+        # no se inventa — es el anti-patrón de Qwen Plus del CLAUDE.md al revés: acá los
+        # pesos existen, lo que falta es cómo se llama el permiso.
+        "open_source": True,
+        "context_window": 131072,
+        # Denso de 30B (NO es MoE, a diferencia del Lightning). Publicado 9-ago-2026.
+        # La ficha le atribuye "reliable tool use" y +100 idiomas, y la API sí lista
+        # `tools`/`tool_choice` — o sea que la suite de tool calling le corresponde de
+        # verdad, al revés que a Lightning.
+        "notes": "Denso 30B multimodal texto+imagen, publicado 9-ago-2026. Destilado de Muse Spark, orientado a agentes en hardware de consumo. Pesos en HuggingFace; licencia sin nombre publicado.",
+    },
+
+    # ── Lote "donde decide un pyme" + locales del post de NVIDIA (12-ago-2026) ──
+    # Todos publicados en los últimos 60 días y elegidos por el mismo criterio: precio que
+    # un emprendedor puede pagar y un caso de uso del ICP. Los 9 juntos cuestan ~$0,55 de
+    # medición: el grupo más barato del catálogo y el que más decisiones mueve.
+    #
+    # ⚠️ `open_source` se declara SOLO donde hay evidencia (pesos publicados o la tabla del
+    # post de NVIDIA). Donde no la hay se omite a propósito — es el anti-patrón de Qwen
+    # Plus del CLAUDE.md: marcar open_source porque el nombre suena a abierto. En especial
+    # Qwen "Flash" es un tier NUEVO: no se sabe si sigue la regla Base=abierto/Plus=cerrado.
+    "ling-3.0-flash": {
+        "id": "inclusionai/ling-3.0-flash",
+        "name": "Ling 3.0 Flash",
+        "cost_input": 0.021, "cost_output": 0.063,
+        "tier": "ultra_cheap",
+        "context_window": 262144,
+        "notes": "El más barato del catálogo (publicado 23-jul-2026). Thinking. Licencia sin verificar.",
+    },
+    "solar-pro4": {
+        "id": "upstage/solar-pro4",
+        "name": "Solar Pro 4",
+        "cost_input": 0.03, "cost_output": 0.12,
+        "tier": "ultra_cheap",
+        "context_window": 524288,
+        # El ÚNICO del lote que NO es thinking: 0 tokens de reasoning en el pre-vuelo.
+        "notes": "Publicado 10-ago-2026. No-thinking (verificado). Licencia sin verificar.",
+    },
+    "qwen3.7-flash": {
+        "id": "qwen/qwen3.7-flash",
+        "name": "Qwen 3.7 Flash",
+        "cost_input": 0.03, "cost_output": 0.13,
+        "tier": "ultra_cheap",
+        "context_window": 1000000,
+        "notes": "1M de contexto a $0,03. Multimodal texto+imagen+video. Tier 'Flash' nuevo: NO se sabe si los pesos son abiertos (la regla Base/Plus/Max no lo cubre).",
+    },
+    "nex-n2-mini": {
+        "id": "nex-agi/nex-n2-mini",
+        "name": "Nex-N2-Mini",
+        "cost_input": 0.025, "cost_output": 0.10,
+        "tier": "ultra_cheap",
+        "context_window": 262144,
+        "notes": "Publicado 24-jun-2026. Multimodal texto+imagen. ⚠️ En el pre-vuelo falló un cálculo de porcentaje simple (dio 17,49% donde iba 19,13%) — n=1, lo dirá el examen.",
+    },
+    "laguna-xs-2.1": {
+        "id": "poolside/laguna-xs-2.1",
+        "name": "Poolside Laguna XS 2.1",
+        "cost_input": 0.06, "cost_output": 0.12,
+        "tier": "ultra_cheap",
+        "context_window": 262144,
+        "notes": "Hermano chico del Laguna S. Publicado 2-jul-2026. Licencia sin verificar.",
+    },
+    "deepseek-v4-flash-0731": {
+        "id": "deepseek/deepseek-v4-flash-0731",
+        "name": "DeepSeek V4 Flash 0731",
+        "cost_input": 0.08, "cost_output": 0.18,
+        "tier": "ultra_cheap",
+        "open_source": True, "license": "MIT",
+        "context_window": 1048576,
+        # Snapshot distinto del V4 Flash que ya está medido → distinto id, distinto modelo,
+        # se mide (regla de re-medición del CLAUDE.md). Además es el que ALUCINÓ en Eco:
+        # comparar el snapshot nuevo contra el viejo es una pregunta con dueño.
+        "notes": "Snapshot 31-jul-2026 del V4 Flash. Más barato que el id base ($0,08/$0,18 vs $0,14/$0,28).",
+    },
+    "tencent-hy3": {
+        "id": "tencent/hy3",
+        "name": "Tencent Hy3",
+        "cost_input": 0.132, "cost_output": 0.528,
+        "tier": "cheap",
+        "context_window": 262144,
+        "notes": "Publicado 6-jul-2026. Existe también hy3-preview a mitad de precio, sin medir. Licencia sin verificar.",
+    },
+    "laguna-s-2.1": {
+        "id": "poolside/laguna-s-2.1",
+        "name": "Poolside Laguna S 2.1",
+        "cost_input": 0.09, "cost_output": 0.18,
+        "tier": "ultra_cheap",
+        # Pesos abiertos según la tabla del post de NVIDIA (11-ago-2026), que además dice
+        # que corre en UN SOLO DGX Spark con NVFP4 → candidato directo a medirse local.
+        "open_source": True,
+        "context_window": 1048576,
+        "notes": "118B para coding agéntico, 1M ctx a $0,09. Corre en un solo DGX Spark (NVFP4) según NVIDIA. Estaba pendiente en el ROADMAP desde julio.",
+    },
+    "inkling-small": {
+        "id": "thinkingmachines/inkling-small",
+        "name": "Inkling Small",
+        "cost_input": 0.45, "cost_output": 1.20,
+        "tier": "cheap",
+        # Pesos abiertos según el post de NVIDIA. ⚠️ Pero ahí mismo dice que necesita un
+        # DGX Station o DOS Spark: con un Spark solo NO corre local.
+        "open_source": True,
+        "context_window": 524288,
+        "notes": "276B con 12B activos, multimodal texto+imagen+audio. Local exige DGX Station o 2 Spark — no entra en uno solo.",
+    },
+    # ⏸️ `meta/muse-spark-1.2` (el modelo del que destilaron Glimmer, $1,25/$4,25, 1M ctx):
+    # NO se puede llamar todavía. Devuelve 403: "This model requires you to complete the
+    # following before use: 18+ age confirmation" → se habilita en
+    # openrouter.ai/settings/preferences. No es un modelo muerto ni una key inválida:
+    # es una atestación de la cuenta. Entra al catálogo cuando esté confirmada.
+
     # --- Xiaomi MiMo extras ---
     "mimo-v2-flash-free": {
         "id": "xiaomi/mimo-v2-flash:free",
