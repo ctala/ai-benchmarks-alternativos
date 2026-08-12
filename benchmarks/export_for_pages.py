@@ -944,6 +944,10 @@ def build_export(recalibrate=False, scoring_version=None):
             # dejarla competir haría que un modelo se enfrente a sí mismo en dos puestos.
             # Sus datos NO se borran — alimentan la comparación entre proveedores.
             "provider_variant": bool(cfg.get("provider_variant")),
+            # Variante que es la ÚNICA ruta para medir una capacidad. Entra a las
+            # páginas pSEO pese a no estar en el plano común, porque excluirla
+            # publicaría "no puede" cuando lo cierto es "por esa ruta no".
+            "ruta_unica": bool(cfg.get("ruta_unica")),
             # Self-hosted: corre en la máquina del autor (DGX Spark, llama-server, Ollama).
             # Su velocidad es la de ESE hardware, no la del modelo. Compararlo en la misma
             # tabla que un modelo servido por un datacenter es el mismo error que mezclar
