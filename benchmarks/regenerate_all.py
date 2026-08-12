@@ -107,6 +107,12 @@ def main() -> int:
     # forma de DECISION y era el unico que no se regeneraba. Ya no.
     run_script("generate_recomendaciones.py", ["-i"], dry_run=args.dry_run)
 
+    # 2d. PROMPTS.md — el texto exacto de cada test, con su prompt_sha.
+    # Va en el pipeline porque si un prompt cambia y el catálogo no se regenera, los
+    # hashes de los runs dejan de coincidir con el archivo y nadie se entera. Es el
+    # mismo tipo de silencio que ya nos costó cuatro bugs este mes.
+    run_script("generate_prompts_catalog.py", ["-o", "PROMPTS.md"], dry_run=args.dry_run)
+
     # 3. TESTS.md
     run_script("generate_tests_md.py", ["-o", "TESTS.md"], dry_run=args.dry_run)
 

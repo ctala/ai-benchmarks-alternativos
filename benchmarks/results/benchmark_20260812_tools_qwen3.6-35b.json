@@ -46,7 +46,9 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__tool_calling__single_tool_calendar.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__tool_calling__single_tool_calendar.md",
+      "prompt_sha": "5c473247a0c1",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 8.5,
@@ -81,7 +83,9 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__tool_calling__multi_tool_sequential.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__tool_calling__multi_tool_sequential.md",
+      "prompt_sha": "fd713dd7f25f",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 4.86,
@@ -116,7 +120,9 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__tool_calling__tool_with_reasoning.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__tool_calling__tool_with_reasoning.md",
+      "prompt_sha": "a8e9ef29518a",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 5.7,
@@ -151,7 +157,9 @@
       "suite": "tool_calling",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__tool_calling__no_tool_needed.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__tool_calling__no_tool_needed.md",
+      "prompt_sha": "59b8cf042466",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 9.8,
@@ -186,7 +194,9 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__customer_support__angry_customer_refund.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__customer_support__angry_customer_refund.md",
+      "prompt_sha": "7b1b38c3ceb2",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 7.6,
@@ -221,7 +231,9 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__customer_support__ambiguous_issue_classification.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__customer_support__ambiguous_issue_classification.md",
+      "prompt_sha": "03a5fb855aa1",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 9.1,
@@ -256,7 +268,9 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__customer_support__multi_issue_conversation.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__customer_support__multi_issue_conversation.md",
+      "prompt_sha": "78a399a38fd2",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 10.0,
@@ -291,7 +305,9 @@
       "suite": "customer_support",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__customer_support__social_engineering_attempt.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__customer_support__social_engineering_attempt.md",
+      "prompt_sha": "2d9b59bcfaca",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 8.32,
@@ -326,7 +342,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__orchestration__multi_step_research_plan.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__orchestration__multi_step_research_plan.md",
+      "prompt_sha": "79bdffc54a00",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 5.0,
@@ -354,7 +372,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__orchestration__error_recovery_orchestration.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__orchestration__error_recovery_orchestration.md",
+      "prompt_sha": "6983a51b449e",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 8.6,
@@ -389,7 +409,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__orchestration__complex_workflow_decomposition.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__orchestration__complex_workflow_decomposition.md",
+      "prompt_sha": "55f3e40199a5",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 7.5,
@@ -417,7 +439,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__orchestration__tool_selection_precision.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__orchestration__tool_selection_precision.md",
+      "prompt_sha": "9936ac8bd203",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 10.0,
@@ -445,7 +469,9 @@
       "suite": "orchestration",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__orchestration__parallel_vs_sequential_judgment.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__orchestration__parallel_vs_sequential_judgment.md",
+      "prompt_sha": "2171c665c1a0",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 7.36,
@@ -480,7 +506,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__agent_capabilities__skill_execution_complex.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__agent_capabilities__skill_execution_complex.md",
+      "prompt_sha": "b44db0f79475",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 8.68,
@@ -515,7 +543,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__agent_capabilities__agent_team_delegation.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__agent_capabilities__agent_team_delegation.md",
+      "prompt_sha": "30c41da9810e",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 8.72,
@@ -550,7 +580,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__agent_capabilities__ask_clarification_before_acting.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__agent_capabilities__ask_clarification_before_acting.md",
+      "prompt_sha": "014ad2978e59",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 7.5,
@@ -578,7 +610,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__agent_capabilities__context_following_complex_system.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__agent_capabilities__context_following_complex_system.md",
+      "prompt_sha": "8fe8b699669f",
+      "prompt_sha_derivado": true
     },
     {
       "quality": 5.0,
@@ -606,7 +640,9 @@
       "suite": "agent_capabilities",
       "run": 1,
       "timestamp": "20260812_tools_qwen3.6-35b",
-      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__agent_capabilities__model_as_router.md"
+      "response_file": "results/responses/20260812_tools_qwen3.6-35b/qwen3.6-35b__agent_capabilities__model_as_router.md",
+      "prompt_sha": "74f503304fab",
+      "prompt_sha_derivado": true
     }
   ]
 }
