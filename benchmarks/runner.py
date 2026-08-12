@@ -308,6 +308,27 @@ def run_single_test(
     return result
 
 
+def _prompt_sha(test: dict) -> str:
+    """Huella corta y estable de la ENTRADA de un test.
+
+    Para tests normales: system + user tal como se mandan.
+    Para multi-turno: system + los turnos del usuario (el guion es fijo; las respuestas
+    del modelo no son parte de la entrada).
+    Para niah: la receta de generación, no el haystack — es determinista y guardar
+    800K tokens por test no es viable.
+    """
+    import hashlib, json as _json
+    if test.get("type") == "multi_turn_script":
+        base = [test.get("system_prompt", "")] + [
+            (t.get("user", "") if isinstance(t, dict) else str(t)) for t in test.get("script", [])]
+    elif test.get("context_tokens"):
+        base = ["niah", test.get("name", ""), str(test.get("context_tokens")),
+                str(test.get("needle_idx", "")), str(test.get("position_pct", ""))]
+    else:
+        base = [f"{m.get('role')}:{m.get('content')}" for m in test.get("messages", [])]
+    return hashlib.sha256(_json.dumps(base, ensure_ascii=False).encode()).hexdigest()[:12]
+
+
 def run_multi_turn_script(
     provider: UnifiedProvider,
     model_id: str,
@@ -1151,10 +1172,11 @@ def run_benchmark(args):
     def _safe_slug(s: str) -> str:
         return "".join(c if c.isalnum() or c in "-_." else "_" for c in s)[:80]
 
-    def _save_response(result, scores, model_key, suite, test_name):
+    def _save_response(result, scores, model_key, suite, test_name, messages=None, test_meta=None):
         """Guarda la respuesta completa del modelo en un archivo .md auditable."""
         if not getattr(result, "response", None):
             return
+        test_meta = test_meta or {}
         fname = f"{_safe_slug(model_key)}__{_safe_slug(suite)}__{_safe_slug(test_name)}.md"
         path = responses_dir / fname
         header = [
@@ -1169,6 +1191,40 @@ def run_benchmark(args):
             header.append(f"- judge_score: {scores.get('judge_score')} | justificación: {scores.get('judge_justificacion','')}")
         if scores.get("error"):
             header.append(f"- error: {scores.get('error')}")
+        # ── LA ENTRADA EXACTA ───────────────────────────────────────────────
+        #
+        # Hasta el 12-ago-2026 esto NO se guardaba. El `.md` se llamaba "auditable"
+        # y tenía media auditoría: la salida sin la entrada. Peor, el dataclass ya
+        # capturaba `prompt=messages[-1]["content"][:200]` — truncado a 200 chars, solo
+        # el último mensaje, y nunca persistido. Y en multi-turno la trayectoria completa
+        # se armaba (`metadata["trajectory"]`) y se tiraba, porque `metadata` no llega
+        # al JSON: de un test de 8 turnos quedaba UNA respuesta.
+        #
+        # Regla dura del repo: "no modificar prompts de tests, son la línea base de
+        # comparabilidad". Era una regla sin nadie que la chequeara — como tantas otras
+        # que fallaron en silencio este mes. Con `prompt_sha` en cada run, "usamos el
+        # mismo prompt" deja de ser una promesa y pasa a ser verificable.
+        traj = (getattr(result, "metadata", None) or {}).get("trajectory")
+        if traj:
+            header += ["", f"## Conversación completa ({len(traj)} turnos)", ""]
+            for i, t in enumerate(traj, 1):
+                u = t[0] if isinstance(t, (list, tuple)) else t.get("user", "")
+                a = t[1] if isinstance(t, (list, tuple)) else t.get("assistant", "")
+                header += [f"### Turno {i} — usuario", "", _redact_secrets(str(u)), "",
+                           f"### Turno {i} — modelo", "", _redact_secrets(str(a)), ""]
+        elif messages:
+            if str(suite).startswith("niah"):
+                # El haystack llega a 800K tokens: guardarlo reventaría el repo. Es
+                # determinista (corpus commiteado + needle + posición), así que la
+                # RECETA + el hash prueban qué se mandó sin almacenarlo.
+                header += ["", "## Entrada (niah: generada, no almacenada)", "",
+                           f"- receta: context_tokens={test_meta.get('context_tokens')} · "
+                           f"needle={test_meta.get('needle_idx')} · pos={test_meta.get('position_pct')}%",
+                           "- el corpus está commiteado; con la receta se regenera idéntica"]
+            else:
+                header += ["", "## Entrada exacta (lo que recibió el modelo)", ""]
+                for m in messages:
+                    header += [f"**{m.get('role','?')}:**", "", _redact_secrets(str(m.get("content",""))), ""]
         header += ["", "## Respuesta completa", "", _redact_secrets(result.response)]
         # Garantizar que el directorio existe (defensa contra race conditions
         # o cwd inesperados — el primer mkdir en linea 436 puede no alcanzar
@@ -1304,7 +1360,20 @@ def run_benchmark(args):
                     scores["suite"] = suite_name
                     scores["run"] = run_num + 1
                     scores["timestamp"] = timestamp
-                    _save_response(result, scores, model_key, suite_name, test["name"])
+                    # HUELLA DEL PROMPT. La regla dura "no modificar prompts de tests"
+                    # existe porque son la línea base de comparabilidad — pero hasta hoy
+                    # nada la verificaba: si alguien tocaba un prompt, los runs viejos y
+                    # nuevos se promediaban como si fueran el mismo examen y nadie se
+                    # enteraba. Es el mismo patrón que el skip de niah sin margen, el juez
+                    # que corría de más y el ruteo sin require_parameters: una regla
+                    # escrita, sin nadie que la chequee.
+                    #
+                    # Con esto, comparar dos runs del mismo test es comparar dos hashes.
+                    # Incluye system + user, así que también caza un cambio en el system
+                    # prompt, que es la mitad de la instrucción en varias suites.
+                    scores["prompt_sha"] = _prompt_sha(test)
+                    _save_response(result, scores, model_key, suite_name, test["name"],
+                                   messages=test.get("messages"), test_meta=test)
                     run_scores.append(scores)
 
                     # Registrar duración real en ventana móvil

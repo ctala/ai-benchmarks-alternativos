@@ -196,7 +196,25 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - **Versionar resultados JSON** siempre en git
 - **Flujo ROADMAP↔CHANGELOG**: todo lo que se marca completo en ROADMAP.md migra a CHANGELOG.md con el commit
 - **3 cortes de ranking en README**: (1) **global** = todos los modelos. (2) **solo alternativas** = sin Anthropic + sin OpenAI + sin Google propietarios (Gemini Flash / Flash Lite / Pro). Sí se permiten modelos Google open-source (Gemma). (3) **solo open-source** = todos los modelos con `open_source: True`. Siempre los 3 al actualizar resultados.
-- **No modificar prompts de tests**. Los prompts y criterios de `benchmarks/tests/` son la línea base de comparabilidad del benchmark. Cambios de stack de producción (p. ej. OpenClaw → Hermes) se reflejan en `README.md`, `CLAUDE.md` y generadores pSEO, **nunca en los tests**. Si hay que medir algo nuevo, se agrega como suite/test adicional; no se reescribe uno existente.
+- **Cada run guarda su ENTRADA, no solo su salida.** El `.md` de
+  `results/responses/` lleva el prompt exacto (system + user) y, en multi-turno, la
+  **conversación completa**; el JSON lleva `prompt_sha`, la huella del input. En `niah`
+  se guarda la receta de generación (corpus + needle + posición), no el haystack: son
+  hasta 800K tokens por test.
+
+  **Por qué es regla y no una mejora:** hasta el 12-ago-2026 el `.md` se llamaba
+  "auditable" y tenía **media auditoría** — la respuesta sin la pregunta. El dataclass
+  capturaba `prompt=messages[-1]["content"][:200]` (truncado, solo el último mensaje) y
+  no lo persistía. En multi-turno la trayectoria se armaba en `metadata["trajectory"]` y
+  se tiraba: de un test de 8 turnos quedaba UNA respuesta. Sin la entrada no se puede
+  auditar un resultado raro ni reproducirlo — solo creerle.
+- **No modificar prompts de tests** — y ahora hay quién lo verifique.
+  `prompt_sha` hace que comparar dos runs del mismo test sea comparar dos hashes. La
+  regla existía desde siempre; **nada la chequeaba**, así que un prompt editado mezclaba
+  runs viejos y nuevos como si fueran el mismo examen, en silencio. Es el mismo patrón
+  que el skip de `niah` sin margen de salida, el juez que corría donde su veredicto se
+  descartaba y el ruteo sin `require_parameters`: **una regla escrita sin instrumento que
+  la haga cumplir es una regla que ya se rompió y no te enteraste.** Los prompts y criterios de `benchmarks/tests/` son la línea base de comparabilidad del benchmark. Cambios de stack de producción (p. ej. OpenClaw → Hermes) se reflejan en `README.md`, `CLAUDE.md` y generadores pSEO, **nunca en los tests**. Si hay que medir algo nuevo, se agrega como suite/test adicional; no se reescribe uno existente.
 - **API keys**: las 4 keys (OPENROUTER, OPENAI, MINIMAX, OLLAMA_CLOUD) viven en `.env` (gitignored). Nunca hardcodear en config.py ni imprimir en chat. Usar `len()` para validar presencia.
 - **Regla de auto-generación**: antes de cualquier commit que toque benchmarks/results/, config, tests o docs/, ejecutar el pipeline maestro:
   ```bash
