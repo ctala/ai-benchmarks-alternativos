@@ -1,0 +1,15 @@
+# Qwen 3.7 Flash — niah_es/niah_es_library_volumes_800000_p50
+
+- model_id: `qwen/qwen3.7-flash`
+- success: True  | final: 7.81 | quality: 10.0
+- latency_total: 150.997s | tokens_per_second: 9.3
+- input_tokens: 776368 | output_tokens: 1404
+
+## Entrada (niah: generada, no almacenada)
+
+- receta: context_tokens=800000 · needle=None · pos=None%
+- el corpus está commiteado; con la receta se regenera idéntica
+
+## Respuesta completa
+
+Según el documento proporcionado, la Biblioteca Regional de Tarapacá conserva exactamente **84.500** volúmenes, de los cuales **3.200** son ediciones anteriores al año 1900.
