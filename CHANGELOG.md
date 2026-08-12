@@ -2,6 +2,103 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v4.0.3] - 2026-08-12 — El día que el instrumento se midió a sí mismo
+
+Sesión larga que empezó siendo "corregir precios" y terminó encontrando **cinco reglas
+correctas que nada verificaba**. Ninguna estaba mal escrita; todas fallaban en silencio.
+
+> **La lección que engloba a las demás, y queda en CLAUDE.md:**
+> *una regla sin instrumento que la haga cumplir es una regla que ya se rompió y no te
+> enteraste.*
+
+### 🔴 Bugs que publicaban datos falsos
+
+| Bug | Consecuencia medida |
+|---|---|
+| **`check_endpoints.py` nunca cargaba el `.env`** | reportaba SIN CREDENCIAL en los 70 rankeados → **no podía detectar un solo muerto**. El guardrail existía porque Devstral Small estuvo #5 con el endpoint apagado, y llevaba tiempo ciego |
+| **`structured_output` publicaba 5,00 fijo** en los 117 modelos | le faltaban los scorers `json_valid`/`json_exact`/`language_check`; caían al `else: return 5.0` |
+| **El skip de `niah` ignoraba el presupuesto de salida** | **378 runs históricos perdidos en 23 modelos**, contados como fallo del modelo cuando el prompt nunca cabía |
+| **Se mandaban `tools` a proveedores que las ignoran** | doc de OpenRouter: sin `require_parameters` es solo *soft preference*. El modelo nunca las ve y queda anotado como "no llamó a la herramienta" |
+| **El juez corría donde su veredicto se descarta** | 96 de 147 tests no-niah tienen verdad objetiva → **2,1 h por modelo** esperando una opinión que el scoring tira |
+| **34 precios equivocados** | a **GPT-5.6 Luna se le cobraba 10× de más** siendo #1; **DeepSeek V3.2** —el que corre en producción en Eco— se publicaba **3,7× más barato** de lo que cuesta |
+
+### ✅ Lo que se instaló
+
+**Scoring.** Los 3 scorers huérfanos implementados y validados contra **755 respuestas
+reales ya guardadas**: `structured_output` pasó de un valor único a rango 0–10 con 57
+valores distintos. Encontró en datos viejos la fuga que motivó el test: `nim-step-3.5-flash`
+escribió **硬件** y `mimo-v2.5-or` **直接** en artículos en español. ⚠️ El `rescore_all.py`
+que los aplica al histórico **queda pendiente**, con el baseline congelado en
+`results/_baselines/`.
+
+**Trazabilidad.** `PROMPTS.md` con los **206 prompts exactos** + `prompt_sha` por run + la
+entrada guardada en cada `.md` + la **conversación completa** en multi-turno (antes se
+guardaba solo la última respuesta de 8 turnos). Habilitó auditar si algún prompt cambió con
+runs a ambos lados: **7 suites sospechosas, 6 cosméticas, `niah` real**.
+
+**Endpoint ≠ modelo.** Cada run registra `upstream_provider`. **40 de 68 rankeados tienen
+proveedores no equivalentes**: Nemotron 3 Super va de 8.000 a 1.000.000 de contexto según
+cuál toque; Kimi K2.6 de `int4` a `bf16`. Nemotron 3.5 Lightning se midió en un endpoint
+con **28.672 de contexto cuando su spec dice 262.144**.
+
+**Retiros.** `retired_at` / `retired_reason` / `retired_kind` estructurados (antes:
+comentarios ilegibles para los generadores). La tabla distingue lo que sacó el proveedor de
+lo que decidimos nosotros —Phi-4 figuraba como "el proveedor ya no lo sirve" siendo el
+juez— y avisa si el modelo **sigue vivo por otra ruta**. Y `--recheck-retired`: **el retiro
+no es una puerta de una sola vía**, dos modelos habían resucitado.
+
+**Detectores nuevos.** `E7` (open_source sin evidencia: 108 entradas, **37 rankeadas** y
+publicadas en el corte "solo open-source") y `E8` (cero tool calls en una suite entera) —
+el primero que caza **presencia** sospechosa y no ausencia.
+
+**Herramientas.** `sync_prices.py` (los precios se sincronizan, no se escriben) ·
+`release_diff.py` (el DATASHEET sale de un diff automático, ordenado por impacto en una
+decisión) · `generate_prompts_catalog.py`.
+
+### 📊 Datos
+
+- **11 modelos nuevos** al catálogo, elegidos por utilidad para el ICP y no por novedad
+  (Nemotron 3.5 Lightning, Muse Glimmer 30B, Laguna S/XS 2.1, Inkling Small, Ling 3.0
+  Flash, Solar Pro 4, Qwen 3.7 Flash, Nex-N2-Mini, Tencent Hy3, DeepSeek V4 Flash 0731)
+- **342 runs** de suites con herramientas re-medidos con el ruteo garantizado
+- **2.501 runs archivados**: 443 de tools + 2.058 de `niah` anteriores al rediseño del 2-jun
+- **12.020 runs** re-costeados · **2 modelos retirados** del ranking, **2 resucitados**
+- Suite nueva **`integridad_idioma`** (4 tests), eje aparte
+
+### 🔬 Lo que midió el instrumento sobre sí mismo
+
+- **Ruido: ±0,58** con `--quick` (n=1) en las suites con herramientas. Explica mejor que
+  cualquier hipótesis por qué `tool_calling` "no discriminaba": con un rango útil de 1,9
+  puntos, **más de la mitad es ruido**. Corolario: el par de validación de Flip
+  (gpt-oss-20b 6,91 vs llama-3.3 7,18) **está dentro del ruido**.
+- **El español necesita 1,62× más tokens** (2,47 chars/token vs 4,00 inglés, medido sobre
+  3.410 respuestas). Con `max_tokens=2048` entran ~920 palabras y los tests piden hasta
+  1.300 → **31,3% de las respuestas de modelos no-thinking estaban truncadas por el
+  harness**, no por el modelo.
+- **Examen común: 93%** en las suites que puntúan (116 de 125 tests en los 68 modelos). El
+  38% que asustaba al principio era `niah` y `prompt_injection`, que difieren **por
+  diseño**.
+
+### 🙅 Dos hipótesis propias que el dato NO sostuvo
+
+Quedan registradas porque el repo vale por sus números, no por tener razón:
+
+1. **"El fallback de ruteo explicaba la anomalía de `tool_calling`".** No. Re-medidos los 19
+   modelos expuestos: Δ quality **+0,22 con t=1,61** (no significativo) y **correlación
+   +0,07** entre exposición al ruteo y mejora — cero, y con el signo al revés del predicho.
+   Hay **un** caso real y grande (Llama 3.3 70B, 55% → 94% de tool calls), no diecinueve.
+2. **"Apagar el thinking iguala la cancha".** Verificado: apagarlo **cambia la capacidad**.
+   Sin razonar, Nemotron Lightning respondió 41,98% y MiniMax M3 respondió 10,93% a un
+   cálculo cuya respuesta es 19,13%. Por eso v4.1 **recorta la traza al puntuar** en vez de
+   apagar el razonamiento.
+
+### 📋 Pendiente, con plan escrito
+
+`rescore_all.py` (mueve `quality_avg` de los 117, con baseline congelado) · el
+`else: return 5.0` → `raise` en su propio commit · y **v4.1**, que agrupa todo lo que rompe
+comparabilidad en **una sola frontera**: `max_tokens` uniforme, traza de razonamiento
+recortada y `niah` con prompt canónico por celda. Ver `PLAN-V4.1.md`.
+
 ## [v4.0.2] - 2026-08-12 — El guardrail de endpoints dejó de correr ciego (y encontró 2 muertos rankeados)
 
 `check_endpoints.py` existe desde julio porque **Devstral Small estuvo #5 del ranking meses después

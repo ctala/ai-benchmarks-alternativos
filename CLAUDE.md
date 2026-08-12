@@ -196,6 +196,30 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - **Versionar resultados JSON** siempre en git
 - **Flujo ROADMAP↔CHANGELOG**: todo lo que se marca completo en ROADMAP.md migra a CHANGELOG.md con el commit
 - **3 cortes de ranking en README**: (1) **global** = todos los modelos. (2) **solo alternativas** = sin Anthropic + sin OpenAI + sin Google propietarios (Gemini Flash / Flash Lite / Pro). Sí se permiten modelos Google open-source (Gemma). (3) **solo open-source** = todos los modelos con `open_source: True`. Siempre los 3 al actualizar resultados.
+- **Una regla sin instrumento que la haga cumplir es una regla que ya se rompió.** Es la
+  lección que engloba a las otras, y se pagó **cinco veces el 12-ago-2026**: el guardrail
+  de endpoints corría sin cargar el `.env` (reportaba SIN CREDENCIAL en los 70 y **no podía
+  detectar un muerto**); el skip de `niah` no reservaba el presupuesto de salida (378 runs
+  perdidos); el juez corría donde su veredicto se descarta (2,1 h por modelo); se mandaban
+  `tools` a proveedores que las ignoran; y "no modificar prompts" no tenía quién lo
+  verificara. **Las cinco eran reglas correctas y escritas.** Al agregar o revisar una
+  regla, la pregunta no es si está documentada: es **qué falla ruidoso si se viola**.
+- **Los detectores cazan AUSENCIA; la contaminación es PRESENCIA.** E1 vacíos, E3 sin
+  procedencia, E4 tasa de fallo, E5 rutas muertas, E6 precio $0 — todos detectan lo que
+  falta. Un run contaminado tiene número, tiene forma válida y pasa `validate.py`. Por eso
+  el fallback de ruteo vivió meses invisible y **lo destapó el contraste con producción**,
+  no un guardrail. `E8` es el primero de esa clase; cuando agregues un detector, preguntate
+  si caza lo que sobra o solo lo que falta.
+- **Endpoint ≠ modelo.** OpenRouter es un router: 40 de 68 rankeados tienen proveedores no
+  equivalentes (contexto de 8.000 a 1.000.000; cuantización de `int4` a `bf16`). Cada run
+  registra `upstream_provider`. Sin eso, un número publicado como "modelo X" puede ser
+  "modelo X en un endpoint truncado" y no hay forma de saberlo después.
+- **Antes de construir, mirar qué hacen los que ya funcionan** (Regla #10 del repo padre).
+  Verificado el 12-ago contra las fuentes: prompts publicados (lm-eval-harness), verdad
+  objetiva por sobre juez LLM (LiveBench), `max_tokens` uniforme, Model≠Endpoint y
+  **costo/velocidad reportados APARTE del índice de calidad** (Artificial Analysis). Tres
+  de esas ya las teníamos por otro camino; la cuarta explica un problema que el
+  post-mortem de julio ya había descrito sin saber que tenía solución conocida.
 - **Cada run guarda su ENTRADA, no solo su salida.** El `.md` de
   `results/responses/` lleva el prompt exacto (system + user) y, en multi-turno, la
   **conversación completa**; el JSON lleva `prompt_sha`, la huella del input. En `niah`
