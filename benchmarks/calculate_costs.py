@@ -123,6 +123,66 @@ def estimar(modelo_ref: str, precio_in: float, precio_out: float, results_dir: s
     return 0
 
 
+def gastado(prefijo: str, results_dir: str):
+    """Cuánto se gastó DE VERDAD en un lote, separando lo pagado de lo nocional.
+
+    Por qué existe (13-ago-2026): reporté $40,45 de gasto y la key de OpenRouter
+    marcaba $77,32. No mentí un total: sumé a mano solo los modelos que estaba
+    mirando en los reportes de avance y me salté siete archivos, entre ellos uno de
+    $17,69. **No había instrumento que sumara todo** — el mismo patrón que el resto
+    del repo documenta cinco veces.
+
+    Y separa lo nocional porque si no, sobra: las variantes de suscripción
+    (`provider: claude_code`) se costean al precio de OpenRouter para que la
+    comparación sea justa, pero **no se pagan**. Sumadas al total daban $95,66
+    contra $77,32 de la key. Descontadas: $77,57. Cuadra con 25 centavos de
+    diferencia por redondeo.
+
+    Uso:  python benchmarks/calculate_costs.py --gastado 20260812
+    """
+    import glob
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+    from benchmarks.models import MODELS, OLLAMA_MODELS
+    catalogo = {**MODELS, **OLLAMA_MODELS}
+    nocionales = {c.get("id") for c in catalogo.values()
+                  if c.get("provider") in ("claude_code",)}
+
+    pagado = nocional = 0.0
+    filas = []
+    for f in sorted(glob.glob(os.path.join(results_dir, f"benchmark_{prefijo}*.json"))):
+        try:
+            d = json.load(open(f))
+        except Exception:
+            continue
+        items = d if isinstance(d, list) else d.get("results", [])
+        c_pag = c_noc = 0.0
+        for r in items:
+            if not isinstance(r, dict):
+                continue
+            c = r.get("cost_usd") or 0
+            if r.get("model_id") in nocionales:
+                c_noc += c
+            else:
+                c_pag += c
+        if c_pag or c_noc:
+            filas.append((c_pag, c_noc, len(items), os.path.basename(f)))
+        pagado += c_pag
+        nocional += c_noc
+
+    filas.sort(key=lambda x: -(x[0] + x[1]))
+    print(f"  {'pagado':>9} {'nocional':>9} {'runs':>6}  archivo")
+    for cp, cn, k, f in filas:
+        marca = "  ← suscripción, NO se paga" if cn > cp else ""
+        print(f"  {cp:>9.2f} {cn:>9.2f} {k:>6}  {f[:44]}{marca}")
+    print(f"\n  GASTO REAL (lo que cobra el proveedor): ${pagado:.2f}")
+    if nocional:
+        print(f"  nocional por suscripción (comparabilidad): ${nocional:.2f}")
+        print(f"  suma de cost_usd, que NO es el gasto:      ${pagado + nocional:.2f}")
+    print("\n  Contrastá contra el dashboard del proveedor. Si no cuadra, falta un archivo.")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--markdown", action="store_true", help="Emitir tabla en formato Markdown")
@@ -133,7 +193,13 @@ def main():
                          "y usa MODELO (ya medido) como referencia de consumo.")
     ap.add_argument("--precio-in", type=float, help="USD por millón de tokens de input")
     ap.add_argument("--precio-out", type=float, help="USD por millón de tokens de output")
+    ap.add_argument("--gastado", metavar="PREFIJO",
+                    help="Cuánto se gastó de verdad en un lote (ej. 20260812), separando "
+                         "lo pagado de lo nocional por suscripción. Contrastar con la key.")
     args = ap.parse_args()
+
+    if args.gastado:
+        sys.exit(gastado(args.gastado, args.results_dir))
 
     if args.estimar:
         if args.precio_in is None or args.precio_out is None:
