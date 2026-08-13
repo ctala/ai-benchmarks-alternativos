@@ -45,6 +45,17 @@ LIVE_DOCS = [
     "COMPARATIVA.md",
 ]
 
+# Docs vivos que además recomiendan modelos por nombre. Se revisan por MODELOS
+# RETIRADOS (no por scores: varios son narrativos y sus cifras son de contexto).
+# Auditado el 13-ago-2026: DIEZ documentos citaban modelos que ya no existen —
+# Devstral Small entre ellos, que es el incidente que el propio CLAUDE.md documenta
+# como conocido (llegó a ser #5 del ranking meses después de que su endpoint muriera).
+# Un doc que recomienda un modelo muerto manda a alguien a integrarlo y estrellarse.
+DOCS_QUE_RECOMIENDAN = LIVE_DOCS + [
+    "COMPARATIVA.md", "SUSCRIPCIONES.md", "PACKS.md", "CASOS_DE_USO.md",
+    "PROVEEDORES.md", "BENCHMARKS_EXTERNOS.md", "THINKING_EXPLAINED.md",
+]
+
 # Snapshots con fecha: conservan el valor del momento a proposito. No se tocan.
 HISTORICAL_DOCS = ["CHANGELOG.md", "DATASHEET_", "INSIGHTS.md", "ESTADO_SESION.md"]
 
@@ -124,6 +135,57 @@ def check_doc(path: Path, models: dict, verbose: bool = False) -> list[str]:
     return findings
 
 
+def _chequear_retirados(root) -> list[str]:
+    """¿Algún doc vivo sigue recomendando un modelo que ya no se puede usar?
+
+    Es distinto del chequeo de scores: acá no importa si la cifra caducó, importa que
+    el modelo NO EXISTE. El caso canónico es Devstral Small — estuvo #5 del ranking y
+    en 11 páginas del sitio meses después de que Mistral apagara su endpoint.
+    """
+    import json as _json
+    data = _json.loads((root / "docs" / "data" / "models.json").read_text())
+    retirados = {m["name"]: m.get("retired_at") for m in data.get("models", [])
+                 if isinstance(m, dict) and m.get("retired_at")}
+    hallazgos = []
+    for doc in dict.fromkeys(DOCS_QUE_RECOMIENDAN):
+        p = root / doc
+        if not p.exists():
+            continue
+        txt = p.read_text(encoding="utf-8", errors="ignore")
+        # Distinguir RECOMENDAR de NOMBRAR. Varios docs citan a Devstral Small a
+        # propósito —es el incidente que enseña por qué existe check_endpoints— y
+        # marcarlos sería ruido que entrena a ignorar el guardrail. Si cerca de la
+        # mención hay una marca de retiro, es narrativa deliberada.
+        MARCAS = ("retir", "murió", "murio", "muerto", "deprec", "ya no existe",
+                  "ya no", "desapareci", "apagó", "apago", "404", "histórico", "historico")
+        citados = []
+        for n in retirados:
+            if not n or n not in txt:
+                continue
+            deliberadas = 0
+            total = 0
+            for i in range(len(txt)):
+                i = txt.find(n, i if i else 0)
+                if i < 0:
+                    break
+                total += 1
+                ctx = txt[max(0, i - 250): i + 250].lower()
+                if any(mk in ctx for mk in MARCAS):
+                    deliberadas += 1
+                if total > 12:
+                    break
+            # Solo alarma si hay menciones SIN contexto de retiro.
+            if total > deliberadas:
+                citados.append(n)
+        if citados:
+            hallazgos.append(
+                f"{doc}: cita {len(citados)} modelo(s) RETIRADO(s) — "
+                f"{', '.join(sorted(citados)[:4])}"
+                + (" …" if len(citados) > 4 else "")
+            )
+    return hallazgos
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("-v", "--verbose", action="store_true")
@@ -140,6 +202,18 @@ def main():
     print(f"Validando {len(LIVE_DOCS)} docs vivos contra models.json "
           f"({len(models)} modelos con score)…")
     print(f"(Ignorados por diseño — son snapshots con fecha: {', '.join(HISTORICAL_DOCS)})\n")
+
+    # AVISO, no bloqueo: un doc que recomienda un modelo retirado es un problema real
+    # —el caso Devstral Small— pero limpiarlo es trabajo editorial, no algo que un
+    # pipeline deba exigir antes de dejar publicar una regeneración. Se reporta cada
+    # vez para que no se olvide, y la decisión de cuándo limpiarlo es humana.
+    retirados = _chequear_retirados(ROOT)
+    if retirados:
+        print(f"⚠️  {len(retirados)} doc(s) mencionan modelos RETIRADOS sin decir que lo están:")
+        for r in retirados:
+            print(f"    · {r}")
+        print("    Un modelo que no se puede usar no es un candidato. Si la mención es")
+        print("    deliberada (contar el incidente), agregá la palabra 'retirado' cerca.\n")
 
     if not all_findings:
         print("✅ Sin drift: los docs vivos coinciden con la fuente.")
