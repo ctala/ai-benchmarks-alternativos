@@ -58,6 +58,34 @@
 | 13-ago-2026 | **Vigente** | **El canario es un gate, no una recomendación**: el runner bloquea lotes de >3 modelos sin recibo fresco | Estaba documentado en 6 archivos y exigido en 0. Documentarlo por séptima vez no lo iba a arreglar | [RUNBOOK PASO 0](RUNBOOK-MEDICION.md) · `runner.py:_exigir_canario` |
 | 13-ago-2026 | **Vigente** | Un doc curado **no incrusta datos**: si necesita datos, se genera, o el dato se enlaza | `PROVEEDORES.md` lleva 113 días diciendo "GPT-4o, GPT-5.2, o3" con cero menciones a GPT-5.6 | [check_docs.py](benchmarks/check_docs.py) |
 
+### ⚠️ Cifras que la escala z-scoreada infló (revisar antes de citarlas)
+
+El z-score amplificaba ~6× las diferencias reales. **Toda cifra escrita antes del 13-ago que
+compare dos modelos está inflada en esa proporción.** La primera que se corrigió:
+
+| afirmación | decía | real (escala absoluta) |
+|---|---|---|
+| Efecto del serving (Qwen 3.5 397B, NIM vs Ollama Cloud) | 7,96 vs 5,46 → "2,5 puntos" | **8,42 vs 7,97 → 0,45** |
+
+La conclusión no cambia —medir variantes aparte sigue siendo correcto, 0,45 sobre un rango
+de 1,39 mueve muchas posiciones— pero **el tamaño que publicábamos como justificación era
+falso**. Lo detectó Cristian: *"el Qwen 3.5 me llama la atención, quizás algo se hizo mal"*.
+
+**Accionable:** al citar cualquier comparación anterior al 13-ago, recalcularla contra
+`score_calidad` en vez de copiarla.
+
+**Barrido hecho (13-ago).** Se buscaron en todos los docs vivos las comparaciones numéricas
+en prosa —`X vs Y`, `sube de X a Y`, `N puntos de diferencia`, `score X`— y el resultado fue
+**mejor de lo temido**: cero afirmaciones con cifras infladas. Las únicas 9 coincidencias eran
+la curva de costo (no compara modelos), una cita histórica entrecomillada, y `RECOMENDACIONES.md`,
+que se regenera.
+
+Pero el barrido encontró **otra cosa**: `RECOMENDACIONES.md` decía "calidad 8.73/10" para Llama
+3.3 70B, y ese 8,73 era su nota **dentro del pilar Contenido** — su calidad global es 7,91.
+Quien leyera la cifra la comparaba contra la escala general y se llevaba un modelo 0,8 puntos
+mejor de lo que es. **No era un dato falso: era un dato sin su unidad.** Corregido — ahora el
+rótulo nombra el pilar.
+
 ## Pendientes de decidir
 
 | Tema | Qué falta saber | Dónde |
