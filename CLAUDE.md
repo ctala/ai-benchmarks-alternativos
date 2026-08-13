@@ -394,8 +394,17 @@ auditar ni revertir.**
   cuenta en el ranking: OpenRouter es un intermediario y la calidad es la misma. NO crear una
   fila `or-<modelo>` vacía "para medirlo en el plano común" — queda un duplicado con 0 runs que
   confunde. Esto SOLO vale para first-party: en Groq/NIM/Ollama Cloud la calidad SÍ cambia por
-  serving (cuantización/config — caso Qwen 3.5 397B: 7.96 en NIM vs 5.46 en Ollama Cloud) y la
+  serving (cuantización/config — caso Qwen 3.5 397B: **8,42 en NIM vs 7,97 en Ollama Cloud**,
+  medido 13-ago sobre las 22 suites comunes y solo runs exitosos) y la
   variante se mide aparte como `provider_variant`.
+
+  ⚠️ **Esta cifra decía «7,96 vs 5,46» y estaba inflada.** Era la escala z-scoreada, que
+  amplificaba ~6× las diferencias reales (por eso se abandonó en v4.1). El efecto del
+  serving es **0,45**, no 2,5. Sigue siendo grande —la población entera abarca 1,39
+  puntos, así que 0,45 mueve muchas posiciones— y la práctica de medir variantes aparte
+  sigue siendo correcta. Lo que estaba mal era el tamaño que publicábamos como
+  justificación. Lo detectó Cristian preguntando *"el Qwen 3.5 me llama la atención,
+  quizás algo se hizo mal"*.
 - **Un (id, name) = UNA config en MODELS.** El export asigna los runs por `(model_id, name)`:
   dos configs con el mismo par reciben LOS MISMOS runs y el modelo aparece duplicado con todo
   contado dos veces (pasó con Kimi K2.5 y Gemma 4 31B, dedup 14-jul-2026). Antes de agregar un
