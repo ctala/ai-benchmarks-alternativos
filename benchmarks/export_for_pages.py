@@ -1082,34 +1082,33 @@ def build_export(recalibrate=False, scoring_version=None):
     # publicaba #7. Las dos cifras son verdad CON etiqueta; ninguna lo es bajo un
     # rótulo que dice "score_global". Separarlos no pierde la tesis de valor por
     # dólar: la hace legible.
-    _zq = {}
+    # ── ESCALA ABSOLUTA (13-ago-2026) — el índice YA NO se z-scorea ───────────────
+    # `score_calidad` es `quality_avg` tal cual: la media de las notas 0-10 que cada
+    # run recibe por rúbrica. **10 = perfecto en todo el examen, 0 = falló todo.**
+    # No se compara contra la población, así que:
+    #
+    #   · agregar un modelo NO mueve el score de nadie — nunca más;
+    #   · no hay evento de recalibración para este eje, ni referencia que envejezca;
+    #   · un score citado en un post deja de caducar solo.
+    #
+    # POR QUÉ SE SACÓ EL Z-SCORE. Estiraba una diferencia real de 1,39 puntos
+    # (la calidad de los 82 rankeados va de 7,26 a 8,65) hasta 8 puntos de escala
+    # publicada. Llama 3.1 8B mide **7,26 sobre 10** y lo publicábamos como **0,50**,
+    # que se lee como inservible. Es el mismo error que la etiqueta "Caro" para un
+    # modelo de $1,86/mes: un número que promete más de lo que mide.
+    #
+    # EL RANGO SE VA A VER CHICO, Y ESO ES EL DATO, NO UN DEFECTO. La causa es que
+    # parte del examen ya no discrimina: 5 de 28 suites tienen ≥60% de runs con 10,0
+    # perfecto (`string_precision` 96%, `niah_es` 91%, `structured_output` 78%,
+    # `content_verificable` 77%, `ocr_extraction` 64%). El z-score venía tapando eso
+    # simulando una dispersión que el examen no produce.
+    #
+    # La forma correcta de ensanchar el rango es **endurecer las suites saturadas**,
+    # no estirar la escala: con el ancla fija, tests más difíciles separan a los
+    # modelos solos y sin cambiarle el significado al número.
     for m in models_export:
         q = m.get("quality_avg")
-        if q is None:
-            continue
-        _zq[id(m)] = (q - norm_stats["quality_avg"]["mean"]) / norm_stats["quality_avg"]["std"]
-    # Pendiente propia y atada por LOS DOS extremos. El compuesto promedia cuatro
-    # dimensiones y eso amortigua su z; el de una sola se dispersa mucho más, así
-    # que la regla del compuesto (que solo mira el piso) satura por arriba: al
-    # probarla, CINCO modelos quedaron empatados en 10,00 — un score que ya no
-    # ordena. El techo 9.5 deja aire para que el líder no toque el tope.
-    _CEIL_Q = 9.5
-    if _frozen_rescale and _frozen_rescale.get("slope_calidad"):
-        _slope_q = _frozen_rescale["slope_calidad"]
-    else:
-        _zq_rank = [z for m, z in ((m, _zq.get(id(m))) for m in models_export)
-                    if z is not None and m.get("ranked")]
-        _slope_q = 3.3
-        if _zq_rank:
-            _lo, _hi = min(_zq_rank), max(_zq_rank)
-            if _lo < 0:
-                _slope_q = min(_slope_q, (_OFFSET - _FLOOR) / abs(_lo))
-            if _hi > 0:
-                _slope_q = min(_slope_q, (_CEIL_Q - _OFFSET) / _hi)
-    for m in models_export:
-        zq = _zq.get(id(m))
-        m["score_calidad"] = (None if zq is None
-                              else round(max(0.0, min(10.0, _OFFSET + _slope_q * zq)), 2))
+        m["score_calidad"] = None if q is None else round(q, 2)
 
     # ── FRONTERA DE PARETO — el segundo eje publicado ────────────────────────────
     # Un modelo está en la frontera si NINGÚN otro es a la vez mejor, más barato Y
@@ -1138,10 +1137,13 @@ def build_export(recalibrate=False, scoring_version=None):
         m["pareto"] = not dominado
 
     # (3) Persistir la referencia SOLO en recalibración deliberada (evento de versión).
+    # Ya no lleva `slope_calidad`: el índice de calidad es absoluto (`quality_avg` sin
+    # transformar) y por definición no tiene referencia que congelar. La referencia
+    # sigue existiendo para el COMPUESTO, que sí mezcla dimensiones con unidades
+    # distintas y necesita z-scorearlas para que el peso nominal sea el peso real.
     if recalibrate:
         _persist_scoring_reference(norm_stats, norm_stats_by_pillar,
-                                   {"offset": _OFFSET, "slope": round(_slope, 4),
-                                    "slope_calidad": round(_slope_q, 4)},
+                                   {"offset": _OFFSET, "slope": round(_slope, 4)},
                                    scoring_version)
 
     # Sort: ranked (muestra solida) primero, luego tested, luego score desc.

@@ -2,7 +2,7 @@
 
 - model_id: `anthropic/claude-opus-5`
 - success: True  | final: 6.7 | quality: 8.0
-- latency_total: 35.413s | tokens_per_second: 57.8
+- latency_total: 34.774s | tokens_per_second: 58.9
 - input_tokens: 306 | output_tokens: 2048
 
 ## Entrada exacta (lo que recibió el modelo)
@@ -36,82 +36,84 @@ Botón: EMPIEZA HOY
 
 ## Respuesta completa
 
-# Vale, vamos.
+## Diagnóstico en una frase
 
-## El diagnóstico brutal
+Esto no es una oferta. Es una lista de cosas que hay dentro de una carpeta de Google Drive, con un precio pegado encima.
 
-Tu oferta no es una oferta. Es un menú de un restaurante sin nombre, sin precios claros de por qué vale la pena, y sin nadie que te haya dicho que la comida es buena.
+Podría ser tu comunidad o la de otras 4.000 personas que lanzaron exactamente lo mismo entre 2023 y hoy. Si yo cambio "IA" por "Amazon FBA" o "copywriting", el texto sigue funcionando igual. Eso te dice todo.
 
-Podría ser de 4.000 comunidades de IA distintas y nadie notaría la diferencia. Eso es el problema real: **no hay ni una sola frase aquí que un competidor no pueda copiar y pegar tal cual.**
-
-Vamos punto por punto.
+Vamos por partes.
 
 ---
 
-## 1. El título es humo
+## 1. El título no dice nada
 
-> "Transforma tu negocio con el poder de la IA"
+**"Transforma tu negocio con el poder de la IA"**
 
-"Transforma", "el poder de", "siguiente nivel". Tres clichés en dos líneas. Cuando alguien lee esto, su cerebro lo procesa como ruido de fondo, igual que "servicio de calidad" o "atención personalizada". No genera ninguna imagen mental. No promete nada medible. No hay riesgo de que sea falso, porque no dice nada.
+Cero información. No sé qué negocio, no sé qué se transforma, no sé cuánto, no sé en cuánto tiempo. "El poder de la IA" es relleno de agencia de marketing de 2010.
 
-**El test:** si tu titular podría aparecer en un banner de un banco, en un curso de Excel y en una consultoría de logística cambiando dos palabras, no es un titular. Es relleno.
+**El problema real:** no has elegido a quién le hablas. "Emprendedores" no es un público, es un censo. Un dueño de agencia de 12 personas, una coach solo-preneur y un e-commerce de suplementos tienen problemas que no se parecen en nada.
 
-**Qué hacer:** un titular necesita tres cosas concretas — **quién**, **qué resultado**, **en cuánto tiempo o con qué esfuerzo.**
+**Qué hacer:** título = [público específico] + [resultado medible] + [tiempo o mecanismo].
 
-Ejemplos de estructura (no los copies, adáptalos a tu verdad):
+- ❌ "Transforma tu negocio con el poder de la IA"
+- ✅ "Para agencias de marketing de 3-15 personas: entrega el doble de proyectos sin contratar a nadie más"
+- ✅ "Recupera 10 horas a la semana en tu consultora automatizando propuestas, reportes y seguimiento de clientes"
 
-- "Para agencias de 2–10 personas: automatiza la parte aburrida de tu operación y recupera 10 horas a la semana"
-- "Cómo dueños de e-commerce están respondiendo el 80% de sus tickets de soporte sin contratar a nadie más"
-
-Fíjate que ambos son *falsables*. Alguien podría decir "eso es mentira". Eso es buena señal. Un claim que no se puede desmentir tampoco se puede creer.
-
----
-
-## 2. No sé para quién es, y por eso no es para nadie
-
-"Emprendedores como tú" es la frase más vacía del marketing digital. Un freelance diseñador, el dueño de una cadena de gimnasios y un founder de SaaS con inversión son tres planetas distintos. Sus problemas con IA no se parecen en nada. Y como intentas hablarles a los tres, ninguno siente que le hablas a él.
-
-**Qué hacer:** elige UN nicho y ponlo en el título. Sí, vas a perder gente. Vas a ganar conversión. Un nicho estrecho con mensaje afilado convierte muchísimo mejor que un mensaje amplio y difuso.
-
-Pregúntate: ¿quiénes son los 20 clientes que ya tengo o que ya me han pedido ayuda? ¿Qué tienen en común? Ese es tu nicho. No lo inventes en un pizarrón.
+Fíjate que en las dos buenas ni siquiera hace falta decir "IA". La IA es tu **cómo**, no tu **qué**. A nadie le importa tu cómo hasta que le importa tu qué.
 
 ---
 
-## 3. Tu lista de features no vende nada
+## 2. Vendes features, no resultados — y encima features de las malas
 
+```
 - Acceso a la comunidad
 - Cursos exclusivos
 - Sesiones en vivo
 - Plantillas y recursos
 - Soporte de la comunidad
+```
 
-Esto es un inventario, no una oferta. Y encima "acceso a la comunidad" y "soporte de la comunidad" son básicamente lo mismo escrito dos veces para que la lista se vea más larga. La gente lo nota. Rellenar listas destruye credibilidad.
+Esta lista dice: "te doy más cosas que hacer". Tu cliente ya está ahogado. Le estás vendiendo trabajo, no alivio.
 
-Cada punto genera preguntas que no respondes:
+Peor: "acceso a la comunidad" y "soporte de la comunidad" son el mismo ítem escrito dos veces para que la lista parezca más larga. Se nota. Y cuando se nota, pierdes credibilidad en todo lo demás.
 
-- **"Cursos exclusivos"** — ¿Cuántos? ¿Sobre qué? ¿Exclusivos por qué, porque nadie más los tiene o porque nadie más los quiere? "Exclusivo" sin especificar es una palabra muerta.
-- **"Sesiones en vivo"** — ¿Con quién? ¿Cada cuánto? ¿Es un Q&A o me revisas mi caso? Enorme diferencia de valor.
-- **"Plantillas y recursos"** — Las plantillas son a menudo lo más valioso de una comunidad y aquí las tiras en una línea genérica. ¿Qué plantilla? "47 prompts probados para..." ya es algo. "Plantillas" no es nada.
+**Qué hacer:** cada línea tiene que responder "¿y eso qué me consigue?".
 
-**Qué hacer:** convierte cada feature en el resultado que produce, con especificidad numérica.
+- ❌ Cursos exclusivos
+- ✅ **Ruta de 14 días** hasta tu primer proceso automatizado funcionando (no teoría: sales con la cosa andando)
 
-En vez de "Plantillas y recursos":
-> **Biblioteca de 34 automatizaciones listas para clonar** — la de seguimiento de leads te ahorra ~4h/semana; solo cambias tus datos y funciona.
+- ❌ Sesiones en vivo
+- ✅ **Clínica en vivo los martes:** traes tu proceso más doloroso y salimos con él resuelto o con el plan exacto para resolverlo
 
-En vez de "Sesiones en vivo":
-> **Sesión de trabajo en directo cada martes** — traes tu problema, salimos con la automatización construida. No es una charla, es que te sientas a trabajar conmigo.
+- ❌ Plantillas y recursos
+- ✅ **31 automatizaciones listas para copiar** (propuestas, onboarding de cliente, reportes semanales, seguimiento de leads) — funcionando en menos de 20 min cada una
 
-Menos puntos, más carne. Tres features específicos ganan a diez genéricos.
+- ❌ Acceso a la comunidad
+- ✅ **Respuesta a cualquier pregunta técnica en <12h** de alguien que ya lo implementó, no de otro principiante adivinando
 
 ---
 
-## 4. Cero prueba. Cero. Nada.
+## 3. No hay ni una sola prueba
 
-No hay un testimonio. No hay un número de miembros. No hay un caso. No dices quién eres tú ni por qué deberías ser tú quien me enseñe esto.
+Ni un número. Ni un nombre. Ni un caso. Ni quién eres tú y por qué debería escucharte sobre IA en lugar de a cualquier tipo de LinkedIn con un avatar generado.
 
-Estás pidiendo $49/mes recurrentes a un desconocido, en la categoría más saturada de humo del planeta ahora mismo, y no ofreces una sola razón para creerte. Un extraño en internet no te da su tarjeta porque tu lista de bullets tenga cinco puntos.
+Estás pidiendo $49/mes a un desconocido basándote en… ¿confianza en tu diseño de botón?
 
-**Qué hacer, en orden de facilidad:**
+**Qué hacer:** necesitas al menos uno de estos tres, hoy:
 
-1. **Tu credibilidad, en una línea.** ¿Qué has hecho tú? "Automaticé la operación de mi agencia de 12 personas y bajé costes operativos un 30%" — algo. Si no tienes nada, ese es tu problema real y ninguna copy lo arregla.
-2. **3 testimonios con resultado concreto, nombre y foto.** No "¡me encanta la comunidad!" sino "En tres semanas monté el sistema de propuestas y ahora cierro presupuestos en 20 minutos en vez de dos horas." Si no tienes testimonios, regala 3 me
+1. **Tu propia cifra:** "así reduje el tiempo de propuestas de mi agencia de 4h a 25 min" (concreto, verificable, tuyo)
+2. **Un caso de alguien:** nombre, negocio, situación antes, situación después, cuánto tiempo. Uno bueno vale más que diez "¡increíble comunidad! 🔥"
+3. **Prueba por demostración:** si no tienes casos, *muestra* el resultado. Un video de 3 minutos donde construyes en directo una automatización que ahorra 5 horas semanales. Eso es prueba.
+
+Si no tienes ninguno de los tres: no tienes oferta todavía. Tienes una idea. Consigue 5 clientes gratis o casi gratis, genera los casos, y **después** lanzas.
+
+---
+
+## 4. El precio está desnudo
+
+$49/mes, así, solo, sin nada al lado. El cerebro del lector no tiene con qué compararlo, así que lo compara con Netflix. Y pierdes.
+
+**Qué hacer:** ancla contra el coste del problema, no contra otras suscripciones.
+
+> "Un becario que te haga esto cuesta $1.200/mes. Una agencia de automatización cobra $3.000 de setup. Si esto te devuelve 4 horas al mes, ya se pagó al doble. $49/mes

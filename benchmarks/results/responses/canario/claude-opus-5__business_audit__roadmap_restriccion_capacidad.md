@@ -1,8 +1,8 @@
 # Claude Opus 5 — business_audit/roadmap_restriccion_capacidad
 
 - model_id: `anthropic/claude-opus-5`
-- success: True  | final: 5.3 | quality: 6.0
-- latency_total: 33.279s | tokens_per_second: 61.5
+- success: True  | final: 6.7 | quality: 8.0
+- latency_total: 32.943s | tokens_per_second: 62.2
 - input_tokens: 418 | output_tokens: 2048
 
 ## Entrada exacta (lo que recibió el modelo)
@@ -27,28 +27,31 @@ Ordename el trimestre.
 
 ## Respuesta completa
 
-## Primero, la matemática de capacidad
+## Primero, la aritmética de capacidad
 
-Tus estimaciones están en semanas full-time (40h). Tu semana real son 20h. Traducción:
+Tus estimaciones están en "semanas a tiempo completo" (40h). Tu semana real son 20h. El factor de conversión es 2x, y para fundador solo (sin revisión de código, con interrupciones de soporte) es más honesto 2.2x.
 
-| Iniciativa | Esfuerzo declarado | En TUS semanas |
-|---|---|---|
-| A) Reescritura | 3 meses FT (~480h) | ~24 semanas |
-| B) Flujo de alta | 1 semana FT (40h) | 2 semanas |
-| C) Panel métricas | 3 semanas FT (120h) | 6 semanas + depende de A |
-| D) 10 videos | 2 semanas FT (80h) | 4 semanas |
+| | Estimado | Real en tu calendario | Cabe en 8 semanas |
+|---|---|---|---|
+| A) Reescritura | 3 meses FT (~480h) | ~24 semanas | No |
+| B) Alta | 1 semana (40h) | ~2 semanas | Sí |
+| C) Panel | 3 semanas (120h) | ~6 semanas + bloqueado por A | No |
+| D) 10 videos | 2 semanas (80h) | ~4 semanas | Sí, pero se come la mitad del trimestre |
 
-Tienes 160h nominales en el trimestre. Con descuento por realidad (fuegos, días malos, cambio de contexto) puedes comprometer **110-120h**. No 160.
+Capacidad total: 8 × 20h = **160h**. Planificable de verdad: **~128h** (20% de reserva para picos de soporte, un día malo, un cliente enojado). Lo que pides suma ~680h. Sobras 5x.
 
-Consecuencia dura: A no cabe. Ni cerca. Y C, encadenada a A, tampoco existe este trimestre.
+## El orden
 
-## Veredicto por iniciativa
+**Semanas 1–2 — B, el flujo de alta (30h)**
 
-**B — Hazla ya. Semana 1.**
-Pierdes 60% en el paso 2. Es el multiplicador de todo lo demás: cada video que grabes, cada mejora de plataforma, se filtra por ese agujero. Es también tu iniciativa más barata. No hay debate.
+No es negociable y va primero. Perder 60% en el paso 2 significa que todo lo demás que hagas rinde 40%. Hacer D antes que B es meter agua en un balde agujereado: pagás por tráfico que se cae solo.
 
-**A — Mátala como iniciativa del trimestre.**
-No la "pospongas", ciérrala. A 20h/semana son 6 meses de tu vida sin enviar nada al cliente. Lo que sí hago: un **spike de 12h** en la semana 6 para escribir qué te duele exactamente. Casi siempre "reescribir" es el envoltorio de 3 problemas concretos (build lento, un módulo podrido, un ORM que pelea contigo) que se arreglan por separado y en semanas, no en trimestres.
+Medio día antes de tocar código: instrumentá el paso 2 para saber *dónde* se van (¿campo específico? ¿validación? ¿pide tarjeta? ¿tiempo de carga?). Arreglar a ciegas es el error clásico acá.
 
-**C — Desbloquéala de A y valida antes de construir.**
-Pregunta incómoda: ¿el panel *realmente* necesita la
+**Semanas 3–4 — B, segunda pasada (20h)**
+
+Esto es lo que casi nadie reserva. Un primer arreglo raramente lleva 60% a 20%; lleva 60% a 40%. Dejá espacio explícito para leer los datos de dos semanas e iterar. Si a la semana 3 el número ya bajó lo suficiente, liberás estas horas y las mandás abajo. Pero reservalas.
+
+**Semanas 5–6 — D recortado: 5 videos, no 10 (30h)**
+
+Dos ajustes. Uno: la mitad del alcance. 5 videos publicados enseñan lo mismo sobre si el canal funciona que 10, y con datos decidís en el próximo trimestre si vale escalar. Dos: grab

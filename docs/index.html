@@ -151,8 +151,13 @@
         Para investigación académica → los oficiales. Para decidir qué poner en producción en español → esto.
         Desde v4.1 el orden por defecto es el <strong>índice de calidad</strong>: solo calidad, con el
         precio y la latencia al lado en vez de mezclados adentro —un modelo caro no es peor, es caro—.
-        Si querés que el precio pese, movés los pesos vos. Todo contra una
-        <a href="#como-se-mide">referencia congelada</a> (agregar un modelo no cambia el score de los demás).
+        Si querés que el precio pese, movés los pesos vos. La escala es <strong>absoluta</strong>:
+        es la nota media del examen, donde 10 sería perfecto en todo. No se compara contra los
+        otros modelos, así que <strong>agregar uno nuevo no mueve el score de nadie</strong> y una
+        cifra citada no caduca sola. Los 82 rankeados caen entre <strong>7,26 y 8,65</strong>: sí,
+        están apretados — es el dato, no un defecto del gráfico. Parte del examen ya no los
+        distingue (<a href="#como-se-mide">5 de 28 suites</a> las resuelven casi todos con nota
+        perfecta), y eso se arregla con pruebas más difíciles, no estirando la escala.
         <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/BENCHMARKS_EXTERNOS.md" target="_blank" rel="noopener">Cross-references con los oficiales</a>.
       </p>
     </details>
@@ -317,9 +322,11 @@
       </div>
 
       <div class="filter">
-        <label for="quality">Calidad mínima (score 0-10): <output id="quality-out">6.5</output></label>
-        <input type="range" id="quality" min="0" max="10" step="0.1" value="6.5">
-        <small>Score ponderado del benchmark (Phi-4 judge)</small>
+        <label for="quality">Calidad mínima: <output id="quality-out">8.0</output></label>
+        <input type="range" id="quality" min="7" max="8.7" step="0.05" value="8.0">
+        <small>Nota media del examen, escala absoluta 0-10 (10 = perfecto en todo).
+        Los 82 rankeados caen entre <strong>7,26 y 8,65</strong>: están más cerca entre sí
+        de lo que un ranking sugiere, y por eso el slider se mueve en ese tramo.</small>
       </div>
 
       <div class="filter">
@@ -843,6 +850,6 @@
   </div>
 </footer>
 
-<script src="app.js?v=20260813c"></script>
+<script src="app.js?v=20260813d"></script>
 </body>
 </html>
