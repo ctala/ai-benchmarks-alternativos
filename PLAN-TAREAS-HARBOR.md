@@ -66,7 +66,24 @@ Y es **verificable contando strings en el JSON**. Sin juez, sin ambigüedad.
 
 ---
 
-## Tarea 1 — Flujo n8n con nodo oficial (la principal)
+## Las tres FORMAS de trabajo, no las tres herramientas
+
+Corrección del 13-ago (Cristian: *"no me refiero solo a n8n, puede ser otra cosa"*). Lo que
+hay que cubrir no son tres integraciones — son tres **formas** de pedirle algo a un agente,
+que fallan por motivos distintos:
+
+| forma | qué se le pide | por qué falla un agente |
+|---|---|---|
+| **Construir** | "armá este flujo / esta integración" | no conoce el componente oficial y lo improvisa |
+| **Diagnosticar** | "esto no funciona, ¿por qué?" | se queda en el síntoma, no llega a la causa |
+| **Abstenerse** | pedido con una premisa equivocada | obedece en vez de corregir |
+
+Las tres tienen verificación objetiva. La segunda es la más novedosa **y la que más
+material tiene ya escrito**.
+
+---
+
+## Tarea 1 — Flujo n8n con nodo oficial (forma: CONSTRUIR)
 
 **Enunciado (lo que se le da al agente):** — reescrito para ser representativo
 
@@ -100,7 +117,35 @@ entero de la tarea. **Se reporta aparte, no como pass/fail**, porque es un gradi
 nodos `code`, hay que endurecerla (ej. pedir manejo de rate limit del modelo, o que el resumen
 respete un largo verificable). Si todos usan `code`, es demasiado difícil o el MCP no está dando la info.
 
-## Tarea 2 — Integración con API real (MercadoLibre)
+## Tarea 2 — Diagnosticar un incidente real (forma: DIAGNOSTICAR) ⭐
+
+**La fuente ya existe: `operacion/TROUBLESHOOTING.md` tiene 14 incidentes reales**, cada uno
+con síntoma, causa y fix documentados. Son fallos que le costaron horas a Cristian, y la
+causa documentada **es la verdad de terreno** — no hace falta juez.
+
+| síntoma que se le da al agente | causa real (oculta, es la respuesta) |
+|---|---|
+| n8n dice `success` pero la acción no ocurrió | el último nodo falla en silencio |
+| Skool `members:approve` devuelve 404 | se usó `id` (userId) en vez de `memberId` |
+| WordPress REST devuelve `1010` o cuelga | falta User-Agent de navegador (bot-block de Cloudflare) |
+| Borrar `*cache*` con `find` rompió los plugins | borró clases PHP, no solo caché |
+| Listmonk SMTP 535 tras un PUT de settings | se escribió el password enmascarado `••••` literal |
+
+**Formato:** al agente se le da el síntoma y acceso al repo/logs relevantes. Tiene que
+llegar a la causa. **Verificación:** ¿nombró la causa documentada? Es un check de string
+sobre conceptos clave, no una nota de un juez.
+
+**Por qué es la mejor de las tres:**
+- La verdad de terreno **ya está escrita**, no hay que inventarla.
+- Son fallos **silenciosos** —status verde, resultado nulo—, que es donde un agente
+  mediocre se queda tranquilo y uno bueno desconfía. Discrimina por diseño.
+- **Nadie más las tiene.** Son incidentes de una operación real, en español, con este stack.
+
+⚠️ **Cuidado con la contaminación:** el `TROUBLESHOOTING.md` está en un repo. Si el agente
+tiene acceso a él, lee la respuesta. Hay que **sacarlo del contexto** que se le entrega, o
+usar incidentes que no estén publicados.
+
+## Tarea 3 — Integración con API real (MercadoLibre) (forma: CONSTRUIR, variante API)
 
 **Por qué MeLi y no otra:** es la API que un emprendedor LATAM toca de verdad, tiene OAuth
 con refresh, pagina distinto a lo obvio, y su documentación está en español e inglés
@@ -120,7 +165,7 @@ el agente asuma paginación por offset— es visible en el código.** Un agente 
 `scroll_id` escribe un bucle de `offset` que funciona hasta el resultado 1.000 y después
 devuelve vacío en silencio. Ése es el error caro y real.
 
-## Tarea 3 — La tarea trampa (opcional, alto valor)
+## Tarea 4 — La tarea trampa (forma: ABSTENERSE)
 
 Una tarea **cuya mejor respuesta es no hacerla como se pide**:
 
