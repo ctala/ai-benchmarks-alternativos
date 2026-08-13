@@ -1,7 +1,7 @@
 {
   "metadata": {
     "timestamp": "20260812_claude-opus-5-sub",
-    "total_runs": 117,
+    "total_runs": 118,
     "errors": 1,
     "judge": {
       "judge_model": "microsoft/phi-4",
@@ -3899,6 +3899,36 @@
       "timestamp": "20260812_claude-opus-5-sub",
       "prompt_sha": "534e80d3a4ba",
       "response_file": "results/responses/20260812_claude-opus-5-sub/claude-opus-5-sub__agent_long_horizon__skill_with_failure_recovery.md"
+    },
+    {
+      "quality": 10.0,
+      "cost_score": 1.01,
+      "cost_usd": 0.2136,
+      "speed": 6.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 7.68,
+      "test_name": "skill_dependency_chain",
+      "model": "Claude Opus 5 (suscripción)",
+      "model_id": "claude-opus-5",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 40.1,
+      "latency_first_token": 21.752,
+      "latency_total": 184.216,
+      "input_tokens": 10,
+      "output_tokens": 8542,
+      "response_preview": "**Flujo completo.** Los 4 pasos confirmados:\n\n| Paso | Resultado |\n|---|---|\n| Consulta DB | 3 categorías, julio 2026, ventas completadas |\n| Reporte PDF | 8 páginas, 2,4 MB |\n| Guardado | `/reports/sales_monthly.pdf` |\n| Email | Enviado a gerente@empresa.com con adjunto |\n\n---\n\n**Algo que hice mal ",
+      "auto_quality": 10.0,
+      "turns_executed": 5,
+      "turns_total": 5,
+      "scoring": "verificable",
+      "subscription_measured": true,
+      "suite": "agent_long_horizon",
+      "run": 1,
+      "timestamp": "20260812_claude-opus-5-sub",
+      "prompt_sha": "2a78c9d27669",
+      "response_file": "results/responses/20260812_claude-opus-5-sub/claude-opus-5-sub__agent_long_horizon__skill_dependency_chain.md"
     }
   ]
 }
