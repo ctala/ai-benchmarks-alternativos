@@ -1,8 +1,0 @@
-sku,producto,unidad,precio_unitario,desc_10_24,desc_25_49,desc_50_mas,estado
-LIC-STD,Licencia Plataforma Standard,usuario/mes,18900,5%,12%,20%,activo
-LIC-PRO,Licencia Plataforma Pro,usuario/mes,32500,5%,12%,20%,activo
-IMP-BAS,Implementación básica,proyecto,1450000,,,,activo
-IMP-AVZ,Implementación avanzada,proyecto,2890000,,,,activo
-CAP-ONL,Capacitación online,sesión,180000,10%,15%,15%,activo
-CAP-PRE,Capacitación presencial,sesión,420000,10%,15%,15%,DESCONTINUADO
-SOP-PRE,Soporte premium,mes,290000,,,,activo
