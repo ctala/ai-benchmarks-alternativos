@@ -320,8 +320,21 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     def _is_agentic(r):
         # Tareas multi-paso de horizonte largo. Es donde los premium (Luna/Sol/Fable) se
         # diferencian, así que SÍ cuenta en la calidad titular (no se saca del ranking).
-        # Se expone ADEMÁS como eje propio (agentic_score) para que el wizard filtre por
-        # casos de uso agénticos. Decisión de Cristian, 16-jul: "dentro + eje propio".
+        # Se expone ADEMÁS como eje propio. Decisión de Cristian, 16-jul: "dentro + eje propio".
+        #
+        # ⚠️ SE LLAMABA `agentic_score` Y ERA UNA ETIQUETA FALSA (13-ago-2026).
+        # Ninguno de los 12 tests de `agent_long_horizon` le da herramientas al modelo:
+        # mide conversación multi-turno —seguir instrucciones a lo largo del hilo,
+        # recordar restricciones, recuperarse de interrupciones—, que es valioso y es
+        # OTRA COSA. Publicarlo como "agéntico" es el mismo error que `orchestration`
+        # midiendo prosa.
+        #
+        # Medido sobre 79 rankeados: correlación con el tool calling real **r = −0,230**.
+        # NEGATIVA. Cuanto más alto el "agentic_score", peor usa las herramientas.
+        #
+        # Lo destapó Cristian desde producción: cambió Qwen 3.6 por Nemotron Omni en su
+        # Spark y "se siente más tonto". Omni saca 7,87 acá y 6,20 en tool calling; Qwen
+        # 6,46 y 6,22. La métrica que publicábamos como agéntica recomendaba el peor.
         return str(r.get("suite", "")).startswith("agent_long_horizon")
 
     def _is_low_coverage(r):
@@ -620,6 +633,9 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
         # ADEMÁS como eje propio para que la calculadora filtre por casos de uso agénticos.
         "agentic_runs": len(agentic),
         "agentic_quality": round(sum(agentic_q) / len(agentic_q), 2) if agentic_q else None,
+        "multiturno_score": round(sum(agentic_f) / len(agentic_f), 2) if agentic_f else None,
+        # Alias temporal: la calculadora y las páginas pSEO todavía leen el nombre viejo.
+        # Se quita cuando se migren. Mantenerlo evita romper superficies publicadas.
         "agentic_score": round(sum(agentic_f) / len(agentic_f), 2) if agentic_f else None,
         # --- Dimensión seguridad (prompt_injection_es: resistencia a fuga) ---
         "security_runs": len(security),
