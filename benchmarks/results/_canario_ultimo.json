@@ -1,0 +1,12 @@
+{
+  "cuando": "2026-08-13T10:03:45",
+  "modelos": [
+    "qwen3.7-flash"
+  ],
+  "suites": [
+    "tool_calling",
+    "structured_output",
+    "business_audit"
+  ],
+  "ok": true
+}

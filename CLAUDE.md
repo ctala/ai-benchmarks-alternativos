@@ -236,7 +236,9 @@ auditar ni revertir.**
 - **Versionar resultados JSON** siempre en git
 - **Flujo ROADMAP↔CHANGELOG**: todo lo que se marca completo en ROADMAP.md migra a CHANGELOG.md con el commit
 - **3 cortes de ranking en README**: (1) **global** = todos los modelos. (2) **solo alternativas** = sin Anthropic + sin OpenAI + sin Google propietarios (Gemini Flash / Flash Lite / Pro). Sí se permiten modelos Google open-source (Gemma). (3) **solo open-source** = todos los modelos con `open_source: True`. Siempre los 3 al actualizar resultados.
-- **Antes de lanzar un lote, corre el canario.** `python benchmarks/canario.py --models
+- **Antes de lanzar un lote, corre el canario — y ya no depende de que te acuerdes:**
+  el runner **bloquea** todo lote de >3 modelos sin recibo de canario de las últimas 12 h
+  (`--sin-canario` para saltarlo a propósito). `python benchmarks/canario.py --models
   <primer-modelo>`. Si sale 🔴, no se lanza. Verifica **invariantes** —responde, emite tool
   calls, registra el proveedor, guarda la entrada, tasa de fallo bajo umbral— y por eso caza
   regresiones que todavía no conocemos, a diferencia de los detectores que buscan problemas

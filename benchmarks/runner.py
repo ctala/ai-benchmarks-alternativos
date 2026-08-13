@@ -761,8 +761,61 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     return scores
 
 
+MODELOS_SIN_CANARIO = 3          # hasta acá es una prueba, no un lote
+CANARIO_VIGENCIA_HORAS = 12      # más viejo que esto ya no dice nada del estado actual
+
+
+def _exigir_canario(args) -> None:
+    """Un lote grande no arranca sin canario fresco.
+
+    El canario estaba documentado en SEIS archivos y exigido en NINGUNO: se corría
+    cuando alguien se acordaba. El 13-ago-2026 Cristian lo marcó — *"que quede bien
+    documentado, o si no se nos va a olvidar"*— y la respuesta honesta era que
+    documentarlo más no iba a servir: ya estaba documentado de sobra.
+
+    Lo que faltaba era esto. Es la regla de oro del repo aplicada a sí misma: **una
+    regla sin instrumento que la haga cumplir es una regla que ya se rompió.**
+
+    Se puede saltar con `--sin-canario`, a propósito y ruidosamente: hay casos
+    legítimos (re-correr un resume, un solo test). Lo que no puede pasar es saltarlo
+    sin enterarse.
+    """
+    import datetime as _dt
+    if getattr(args, "sin_canario", False):
+        return
+    n = len(getattr(args, "models", None) or [])
+    if n and n <= MODELOS_SIN_CANARIO:
+        return
+
+    recibo = Path(__file__).resolve().parent.parent / "benchmarks" / "results" / "_canario_ultimo.json"
+    problema = None
+    if not recibo.exists():
+        problema = "no hay ningún canario registrado"
+    else:
+        try:
+            d = json.loads(recibo.read_text())
+            edad = (_dt.datetime.now() - _dt.datetime.fromisoformat(d["cuando"]))
+            horas = edad.total_seconds() / 3600
+            if not d.get("ok"):
+                problema = "el último canario FALLÓ"
+            elif horas > CANARIO_VIGENCIA_HORAS:
+                problema = f"el último canario tiene {horas:.0f} h (máx {CANARIO_VIGENCIA_HORAS})"
+        except Exception as e:
+            problema = f"el recibo del canario no se pudo leer ({e})"
+
+    if problema:
+        console.print(f"\n[red]✗ Lote bloqueado: {problema}.[/red]")
+        console.print("  El canario cuesta centavos y caza lo que los detectores no ven —")
+        console.print("  regresiones que todavía no conocemos. Lanzar sin él ya costó")
+        console.print("  medio lote en blanco y 19 corridas fallidas.\n")
+        console.print("  [bold]python benchmarks/canario.py --models <primer-modelo>[/bold]")
+        console.print("  (o `--sin-canario` si sabés por qué lo estás saltando)\n")
+        sys.exit(2)
+
+
 def run_benchmark(args):
     """Ejecuta el benchmark completo."""
+    _exigir_canario(args)
     try:
         from benchmarks.config import OPENROUTER_API_KEY, MODELS, RUNS_PER_TEST, REQUEST_TIMEOUT, RESULTS_DIR, INCLUDE_OLLAMA
     except ImportError:
@@ -1587,6 +1640,9 @@ def main():
     parser.add_argument("--tier", help="Solo modelos de un tier",
                        choices=["free", "ultra_cheap", "cheap", "medium", "premium", "local"])
     parser.add_argument("--quick", action="store_true", help="1 run por test (rapido)")
+    parser.add_argument("--sin-canario", action="store_true",
+                        help="saltar el canario obligatorio (solo si sabés por qué: "
+                             "re-correr un resume, un test suelto). Lotes grandes lo exigen.")
     parser.add_argument("--judge", action="store_true",
                        help="Usar LLM-as-Judge (Gemma 4 local si Ollama disponible, sino Claude Haiku)")
     parser.add_argument("--judge-model", type=str, default=None,
