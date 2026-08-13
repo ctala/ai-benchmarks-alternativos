@@ -53,6 +53,8 @@
 | 13-ago-2026 | **Vigente** | Calendario: día 1 = release con presentación **congelada**; ventana trimestral para medición | Que dejar de ser sorpresa | [PLAN-ESTABILIDAD §4](PLAN-ESTABILIDAD.md) |
 | 12-ago-2026 | Vigente | **Una regla sin instrumento que la haga cumplir es una regla que ya se rompió** | Se pagó cinco veces en un día: reglas correctas, escritas, que fallaban en silencio | [CLAUDE.md](CLAUDE.md) |
 | 13-ago-2026 | **Vigente** | Cada superficie nueva llega con su guardrail, en el mismo commit | Corolario de la anterior | [PLAN-ESTABILIDAD R3](PLAN-ESTABILIDAD.md) |
+| 13-ago-2026 | **Vigente** | **El canario es un gate, no una recomendación**: el runner bloquea lotes de >3 modelos sin recibo fresco | Estaba documentado en 6 archivos y exigido en 0. Documentarlo por séptima vez no lo iba a arreglar | [RUNBOOK PASO 0](RUNBOOK-MEDICION.md) · `runner.py:_exigir_canario` |
+| 13-ago-2026 | **Vigente** | Un doc curado **no incrusta datos**: si necesita datos, se genera, o el dato se enlaza | `PROVEEDORES.md` lleva 113 días diciendo "GPT-4o, GPT-5.2, o3" con cero menciones a GPT-5.6 | [check_docs.py](benchmarks/check_docs.py) |
 
 ## Pendientes de decidir
 

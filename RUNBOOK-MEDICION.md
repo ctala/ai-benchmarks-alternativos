@@ -185,7 +185,16 @@ números dejan de caducar solos. Reglas:
 
 ---
 
-# PASO 0 — el canario. Un comando, y no se lanza nada si sale rojo
+# PASO 0 — el canario. Lo EXIGE el runner, no tu memoria
+
+> **Desde el 13-ago-2026 el gate es real.** Un lote de **más de 3 modelos se niega a
+> arrancar** sin un recibo de canario de las últimas 12 h
+> (`benchmarks/results/_canario_ultimo.json`, que el canario escribe solo). Se salta con
+> `--sin-canario`, a propósito y ruidosamente.
+>
+> Por qué se agregó: el canario estaba documentado en **seis** archivos y exigido en
+> **ninguno** — se corría cuando alguien se acordaba. Documentarlo por séptima vez no
+> iba a arreglar eso. Es la regla de oro del repo aplicada a sí misma.
 
 ```bash
 .venv/bin/python benchmarks/canario.py --models <primer-modelo-del-lote>
