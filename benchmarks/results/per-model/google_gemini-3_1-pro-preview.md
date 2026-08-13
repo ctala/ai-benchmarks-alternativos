@@ -1,13 +1,13 @@
 # Gemini 3.1 Pro
 
 - **model_id**: `google/gemini-3.1-pro-preview`
-- **Total tests**: 123/123 exitosos (0 errores)
-- **Score final**: 6.48
-- **Calidad**: 7.33
-- **Judge score (Phi-4)**: 3.99/10
-- **Velocidad**: 94 tok/s
-- **Latencia primera token**: 17.12s
-- **Costo promedio por test**: $0.03071
+- **Total tests**: 141/141 exitosos (0 errores)
+- **Score final**: 6.58
+- **Calidad**: 7.40
+- **Judge score (Phi-4)**: 3.96/10
+- **Velocidad**: 92 tok/s
+- **Latencia primera token**: 15.65s
+- **Costo promedio por test**: $0.02759
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,6 +33,7 @@
 | policy_adherence | 4 | 4 | 7.40 | 8.58 |
 | presentation | 2 | 2 | 5.31 | 5.70 |
 | reasoning | 3 | 3 | 6.11 | 6.81 |
+| retrieval_distractores | 8 | 8 | 8.23 | 9.38 |
 | sales_outreach | 3 | 3 | 4.76 | 4.89 |
 | startup_content | 5 | 5 | 7.02 | 8.25 |
 | strategy | 3 | 3 | 7.47 | 8.89 |
@@ -41,6 +42,7 @@
 | summarization | 2 | 2 | 6.54 | 7.30 |
 | task_management | 3 | 3 | 7.09 | 8.17 |
 | tool_calling | 4 | 4 | 5.92 | 6.43 |
+| tool_calling_adversarial | 10 | 10 | 6.43 | 6.68 |
 | translation | 3 | 3 | 6.64 | 7.46 |
 
 ## Detalle por test
@@ -2102,3 +2104,7 @@ Para un SaaS de gestión de inventario, el enfoque debe estar en la **claridad d
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

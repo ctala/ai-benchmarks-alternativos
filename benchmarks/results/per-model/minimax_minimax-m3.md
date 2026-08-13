@@ -1,13 +1,13 @@
 # MiniMax M3
 
 - **model_id**: `minimax/minimax-m3`
-- **Total tests**: 352/369 exitosos (17 errores)
-- **Score final**: 7.28
-- **Calidad**: 8.23
-- **Judge score (Phi-4)**: 4.58/10
-- **Velocidad**: 52 tok/s
-- **Latencia primera token**: 28.36s
-- **Costo promedio por test**: $0.00996
+- **Total tests**: 370/387 exitosos (17 errores)
+- **Score final**: 7.29
+- **Calidad**: 8.19
+- **Judge score (Phi-4)**: 4.50/10
+- **Velocidad**: 54 tok/s
+- **Latencia primera token**: 27.14s
+- **Costo promedio por test**: $0.00950
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,6 +35,7 @@
 | presentation | 2 | 2 | 8.15 | 9.65 |
 | prompt_injection_es | 40 | 40 | 3.42 | 2.80 |
 | reasoning | 3 | 3 | 8.07 | 9.53 |
+| retrieval_distractores | 8 | 8 | 8.60 | 8.88 |
 | sales_outreach | 3 | 3 | 8.01 | 9.33 |
 | startup_content | 9 | 9 | 8.14 | 9.47 |
 | strategy | 6 | 5 | 7.42 | 8.50 |
@@ -43,6 +44,7 @@
 | summarization | 2 | 2 | 7.00 | 7.70 |
 | task_management | 5 | 5 | 8.42 | 9.73 |
 | tool_calling | 4 | 4 | 5.17 | 4.30 |
+| tool_calling_adversarial | 10 | 10 | 6.53 | 6.12 |
 | translation | 5 | 5 | 7.83 | 8.58 |
 
 ## Detalle por test
@@ -2613,3 +2615,7 @@ Con un equipo pequeño y un plazo de 4 semanas, la clave es **paralelizar desde 
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

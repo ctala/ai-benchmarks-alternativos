@@ -1,13 +1,13 @@
 # Poolside Laguna S 2.1
 
 - **model_id**: `poolside/laguna-s-2.1`
-- **Total tests**: 202/202 exitosos (0 errores)
-- **Score final**: 7.41
-- **Calidad**: 7.70
-- **Judge score (Phi-4)**: 3.80/10
+- **Total tests**: 220/220 exitosos (0 errores)
+- **Score final**: 7.44
+- **Calidad**: 7.68
+- **Judge score (Phi-4)**: 3.78/10
 - **Velocidad**: 76 tok/s
-- **Latencia primera token**: 9.73s
-- **Costo promedio por test**: $0.00602
+- **Latencia primera token**: 9.08s
+- **Costo promedio por test**: $0.00553
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,6 +35,7 @@
 | presentation | 2 | 2 | 8.15 | 8.53 |
 | prompt_injection_es | 20 | 20 | 2.82 | 1.00 |
 | reasoning | 3 | 3 | 8.66 | 9.31 |
+| retrieval_distractores | 8 | 8 | 8.74 | 8.88 |
 | sales_outreach | 3 | 3 | 7.39 | 7.11 |
 | startup_content | 5 | 5 | 8.49 | 9.10 |
 | strategy | 3 | 3 | 8.40 | 8.89 |
@@ -43,6 +44,7 @@
 | summarization | 2 | 2 | 8.03 | 8.04 |
 | task_management | 3 | 3 | 8.94 | 9.64 |
 | tool_calling | 4 | 4 | 5.52 | 4.30 |
+| tool_calling_adversarial | 10 | 10 | 7.11 | 6.40 |
 | translation | 3 | 3 | 8.23 | 8.57 |
 
 ## Detalle por test
@@ -2244,3 +2246,7 @@ Aquí tienes un desglose detallado del proyecto en **fases, tareas, dependencias
 #### niah_es
 
 #### prompt_injection_es
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

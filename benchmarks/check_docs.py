@@ -87,6 +87,14 @@ def main() -> int:
         m = MARCA.search(cabeza)
         clase_def = _clase_por_defecto(p.name)
 
+        # Un doc GENERADO no necesita marca: el pipeline lo reescribe entero y se la
+        # lleva puesta en cada corrida. Su clase se sabe por el nombre, que es más
+        # confiable que una marca que se borra sola. (Lo destapó test_guardrails el
+        # 13-ago: tras regenerate_all, los 5 generados quedaban «sin declarar».)
+        if not m and clase_def == "generado":
+            ok += 1
+            continue
+
         if not m:
             if args.marcar:
                 fecha = _ultimo_commit(p.name) or hoy.isoformat()

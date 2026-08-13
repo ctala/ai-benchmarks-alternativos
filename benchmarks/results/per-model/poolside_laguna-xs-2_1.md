@@ -1,13 +1,13 @@
 # Poolside Laguna XS 2.1
 
 - **model_id**: `poolside/laguna-xs-2.1`
-- **Total tests**: 192/192 exitosos (0 errores)
-- **Score final**: 7.77
-- **Calidad**: 7.85
-- **Judge score (Phi-4)**: 4.13/10
-- **Velocidad**: 151 tok/s
-- **Latencia primera token**: 6.80s
-- **Costo promedio por test**: $0.00156
+- **Total tests**: 210/210 exitosos (0 errores)
+- **Score final**: 7.79
+- **Calidad**: 7.84
+- **Judge score (Phi-4)**: 4.11/10
+- **Velocidad**: 150 tok/s
+- **Latencia primera token**: 6.39s
+- **Costo promedio por test**: $0.00143
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -36,6 +36,7 @@
 | presentation | 2 | 2 | 8.75 | 9.30 |
 | prompt_injection_es | 20 | 20 | 3.10 | 1.00 |
 | reasoning | 3 | 3 | 9.12 | 9.87 |
+| retrieval_distractores | 8 | 8 | 8.49 | 8.38 |
 | sales_outreach | 3 | 3 | 8.98 | 9.33 |
 | startup_content | 5 | 5 | 8.83 | 9.22 |
 | strategy | 3 | 3 | 7.25 | 7.22 |
@@ -44,6 +45,7 @@
 | summarization | 2 | 2 | 7.44 | 7.20 |
 | task_management | 3 | 3 | 8.87 | 9.21 |
 | tool_calling | 4 | 4 | 6.16 | 5.00 |
+| tool_calling_adversarial | 10 | 10 | 7.64 | 7.10 |
 | translation | 3 | 3 | 7.77 | 7.46 |
 
 ## Detalle por test
@@ -2117,3 +2119,7 @@ Aquí tienes un desglose realista del proyecto para lanzar la landing page en 4 
 #### integridad_idioma
 
 #### prompt_injection_es
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

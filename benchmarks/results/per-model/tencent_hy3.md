@@ -1,13 +1,13 @@
 # Tencent Hy3
 
 - **model_id**: `tencent/hy3`
-- **Total tests**: 192/192 exitosos (0 errores)
-- **Score final**: 7.34
-- **Calidad**: 8.03
-- **Judge score (Phi-4)**: 4.31/10
-- **Velocidad**: 65 tok/s
-- **Latencia primera token**: 41.97s
-- **Costo promedio por test**: $0.00430
+- **Total tests**: 210/210 exitosos (0 errores)
+- **Score final**: 7.37
+- **Calidad**: 8.02
+- **Judge score (Phi-4)**: 4.24/10
+- **Velocidad**: 64 tok/s
+- **Latencia primera token**: 39.08s
+- **Costo promedio por test**: $0.00396
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -36,6 +36,7 @@
 | presentation | 2 | 2 | 8.39 | 9.66 |
 | prompt_injection_es | 20 | 20 | 2.61 | 1.00 |
 | reasoning | 3 | 3 | 8.29 | 9.63 |
+| retrieval_distractores | 8 | 8 | 8.40 | 8.88 |
 | sales_outreach | 3 | 3 | 6.71 | 7.11 |
 | startup_content | 5 | 5 | 8.35 | 9.54 |
 | strategy | 3 | 3 | 8.66 | 10.00 |
@@ -44,6 +45,7 @@
 | summarization | 2 | 2 | 6.99 | 7.40 |
 | task_management | 3 | 3 | 8.46 | 9.80 |
 | tool_calling | 4 | 4 | 5.53 | 5.00 |
+| tool_calling_adversarial | 10 | 10 | 7.08 | 7.10 |
 | translation | 3 | 3 | 7.97 | 8.67 |
 
 ## Detalle por test
@@ -2051,3 +2053,7 @@ Para lanzar una landing page SaaS en 4 semanas (aprox. 20 días hábiles) con un
 #### integridad_idioma
 
 #### prompt_injection_es
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

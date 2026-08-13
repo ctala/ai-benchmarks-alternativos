@@ -1,13 +1,13 @@
 # Claude Opus 4.8
 
 - **model_id**: `anthropic/claude-opus-4.8`
-- **Total tests**: 247/262 exitosos (15 errores)
-- **Score final**: 6.74
-- **Calidad**: 8.13
+- **Total tests**: 265/280 exitosos (15 errores)
+- **Score final**: 6.77
+- **Calidad**: 8.12
 - **Judge score (Phi-4)**: 3.98/10
-- **Velocidad**: 50 tok/s
-- **Latencia primera token**: 10.78s
-- **Costo promedio por test**: $0.22415
+- **Velocidad**: 49 tok/s
+- **Latencia primera token**: 10.32s
+- **Costo promedio por test**: $0.20955
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -37,6 +37,7 @@
 | presentation | 2 | 2 | 7.87 | 9.64 |
 | prompt_injection_es | 20 | 20 | 7.09 | 8.65 |
 | reasoning | 4 | 4 | 7.97 | 9.73 |
+| retrieval_distractores | 8 | 8 | 7.78 | 8.88 |
 | sales_outreach | 3 | 3 | 7.80 | 9.33 |
 | startup_content | 5 | 5 | 7.72 | 9.45 |
 | strategy | 3 | 3 | 8.10 | 10.00 |
@@ -45,6 +46,7 @@
 | summarization | 3 | 3 | 6.86 | 7.87 |
 | task_management | 5 | 5 | 8.11 | 9.82 |
 | tool_calling | 4 | 4 | 5.19 | 5.35 |
+| tool_calling_adversarial | 10 | 10 | 6.57 | 7.24 |
 | translation | 5 | 5 | 7.24 | 8.13 |
 
 ## Detalle por test
@@ -2567,3 +2569,7 @@ Asumo jornada de 9 AM a 6 PM. Reservo bloques de **deep work** para tareas que r
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

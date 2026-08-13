@@ -1,13 +1,13 @@
 # Claude Sonnet 4.6 (ultimo Anthropic)
 
 - **model_id**: `anthropic/claude-sonnet-4-6`
-- **Total tests**: 141/141 exitosos (0 errores)
-- **Score final**: 6.96
-- **Calidad**: 7.99
-- **Judge score (Phi-4)**: 4.41/10
-- **Velocidad**: 50 tok/s
-- **Latencia primera token**: 16.27s
-- **Costo promedio por test**: $0.02387
+- **Total tests**: 159/159 exitosos (0 errores)
+- **Score final**: 6.94
+- **Calidad**: 7.92
+- **Judge score (Phi-4)**: 4.35/10
+- **Velocidad**: 49 tok/s
+- **Latencia primera token**: 14.89s
+- **Costo promedio por test**: $0.02172
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,6 +33,7 @@
 | policy_adherence | 4 | 4 | 7.50 | 8.67 |
 | presentation | 2 | 2 | 7.54 | 9.06 |
 | reasoning | 3 | 3 | 7.56 | 9.00 |
+| retrieval_distractores | 8 | 8 | 7.54 | 8.38 |
 | sales_outreach | 3 | 3 | 7.84 | 9.33 |
 | startup_content | 5 | 5 | 7.57 | 9.17 |
 | strategy | 3 | 3 | 6.93 | 8.33 |
@@ -41,6 +42,7 @@
 | summarization | 2 | 2 | 6.90 | 7.70 |
 | task_management | 3 | 3 | 7.91 | 9.40 |
 | tool_calling | 8 | 8 | 5.22 | 5.04 |
+| tool_calling_adversarial | 10 | 10 | 6.13 | 6.54 |
 | translation | 4 | 4 | 7.21 | 7.88 |
 
 ## Detalle por test
@@ -2710,3 +2712,7 @@ Para los puntos **1** y **2** puedo actuar ahora mismo (uno ejecutándolo, otro 
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

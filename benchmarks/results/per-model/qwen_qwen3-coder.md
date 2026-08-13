@@ -1,13 +1,13 @@
 # Qwen3 Coder
 
 - **model_id**: `qwen/qwen3-coder`
-- **Total tests**: 146/146 exitosos (0 errores)
-- **Score final**: 7.54
-- **Calidad**: 7.92
-- **Judge score (Phi-4)**: 4.31/10
-- **Velocidad**: 66 tok/s
-- **Latencia primera token**: 9.94s
-- **Costo promedio por test**: $0.00147
+- **Total tests**: 164/164 exitosos (0 errores)
+- **Score final**: 7.45
+- **Calidad**: 7.81
+- **Judge score (Phi-4)**: 4.18/10
+- **Velocidad**: 60 tok/s
+- **Latencia primera token**: 9.63s
+- **Costo promedio por test**: $0.00134
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,6 +33,7 @@
 | policy_adherence | 4 | 4 | 7.25 | 7.25 |
 | presentation | 2 | 2 | 7.98 | 8.82 |
 | reasoning | 3 | 3 | 8.26 | 9.35 |
+| retrieval_distractores | 8 | 8 | 8.16 | 8.88 |
 | sales_outreach | 3 | 3 | 8.64 | 9.33 |
 | startup_content | 5 | 5 | 8.31 | 9.25 |
 | strategy | 3 | 3 | 7.45 | 8.06 |
@@ -41,6 +42,7 @@
 | summarization | 2 | 2 | 6.93 | 7.34 |
 | task_management | 5 | 5 | 8.59 | 9.22 |
 | tool_calling | 8 | 8 | 6.23 | 5.95 |
+| tool_calling_adversarial | 10 | 10 | 5.55 | 5.42 |
 | translation | 3 | 3 | 7.70 | 7.56 |
 
 ## Detalle por test
@@ -2401,3 +2403,7 @@ TechFlow reporta un crecimiento del 18% en ventas trimestrales, alcanzando $2.3M
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

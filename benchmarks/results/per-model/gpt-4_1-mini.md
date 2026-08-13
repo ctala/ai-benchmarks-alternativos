@@ -1,13 +1,13 @@
 # GPT-4.1 Mini
 
 - **model_id**: `gpt-4.1-mini`
-- **Total tests**: 146/146 exitosos (0 errores)
-- **Score final**: 7.52
-- **Calidad**: 7.86
-- **Judge score (Phi-4)**: 4.40/10
-- **Velocidad**: 60 tok/s
-- **Latencia primera token**: 7.40s
-- **Costo promedio por test**: $0.00150
+- **Total tests**: 164/164 exitosos (0 errores)
+- **Score final**: 7.47
+- **Calidad**: 7.76
+- **Judge score (Phi-4)**: 4.26/10
+- **Velocidad**: 56 tok/s
+- **Latencia primera token**: 6.81s
+- **Costo promedio por test**: $0.00136
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,6 +33,7 @@
 | policy_adherence | 4 | 4 | 7.73 | 7.75 |
 | presentation | 2 | 2 | 7.78 | 8.86 |
 | reasoning | 3 | 3 | 8.01 | 9.21 |
+| retrieval_distractores | 8 | 8 | 8.23 | 8.88 |
 | sales_outreach | 3 | 3 | 7.35 | 7.56 |
 | startup_content | 5 | 5 | 8.11 | 9.11 |
 | strategy | 3 | 3 | 7.43 | 8.06 |
@@ -41,6 +42,7 @@
 | summarization | 2 | 2 | 7.00 | 7.10 |
 | task_management | 3 | 3 | 8.11 | 8.74 |
 | tool_calling | 8 | 8 | 6.14 | 5.26 |
+| tool_calling_adversarial | 10 | 10 | 6.09 | 5.42 |
 | translation | 3 | 3 | 8.25 | 8.67 |
 
 ## Detalle por test
@@ -2341,3 +2343,7 @@ TechFlow reportó ventas totales de $2.3M en Q1 2026, un aumento del 18% respect
 #### business_strategy
 
 #### content_verificable
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

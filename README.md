@@ -3,7 +3,7 @@
 
 **Version 3.1.1** | Ultima actualizacion: 10 de Julio de 2026 | [📊 Datasheet junio](DATASHEET_2026-06.md) · [📄 CheatSheet PDF julio](cheatsheet/AI_Model_Benchmark_CheatSheet_Julio_2026.pdf) · [📄 Executive Brief julio](cheatsheet/AI_Model_Benchmark_ExecutiveBrief_July_2026.pdf)
 
-> **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con <!-- AUTO:tests_marketing -->29,000+<!-- /AUTO --> tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N o Hermes con presupuestos reales.
+> **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con <!-- AUTO:tests_marketing -->30,000+<!-- /AUTO --> tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N o Hermes con presupuestos reales.
 
 > 📍 **Qué es este benchmark (y qué NO es)**: este benchmark **NO sustituye** a los benchmarks académicos validados (HumanEval, MMLU, GSM8K, SWE-bench Verified, NIAH original en inglés, MT-Bench, LMSYS Arena). Es un **complemento** diseñado específicamente para **emprendedores hispanohablantes** que necesitan decidir qué modelo usar en situaciones reales (N8N, Hermes, blogs de actualidad, soporte cliente, agentes, contenido en español neutro). Para investigación académica o capacidades fundamentales del modelo, prioriza los benchmarks oficiales — citados en [BENCHMARKS_EXTERNOS.md](BENCHMARKS_EXTERNOS.md). Para **decidir qué modelo poner en producción para un caso de uso aplicado en español**, esto suma información que los benchmarks oficiales no cubren: costo en provider real, latencia desde Latam, español neutro, agentes multi-turno, y debugging real (que medimos vía cross-ref con SWE-bench/Hermes-Eval, NO replicamos).
 
@@ -91,16 +91,16 @@ Solo calidad. **El precio y la velocidad se muestran al lado, no van dentro del 
 
 | # | Modelo | Calidad | $/1k calls | Latencia | Provider | Runs |
 |---|---|---:|---:|---:|---|---:|
-| 1 | **Tencent Hy3** | **8.65** | $0.83 | 70s | openrouter | 119 |
-| 2 | **GPT-5.6 Luna** | **8.59** | $0.93 | 12s | openrouter | 138 |
-| 3 | **DeepSeek R1 (reasoning)** | **8.55** | $3.96 | 134s | openrouter | 134 |
-| 4 | **Qwen 3.7 Flash** | **8.54** | $0.20 | 35s | openrouter | 119 |
-| 5 | **Claude Opus 4.6** | **8.53** | $39.00 | 36s | openrouter | 185 |
-| 6 | **Inkling Small** | **8.50** | $1.94 | 121s | openrouter | 119 |
-| 7 | **GPT-5.6 Terra Pro** | **8.49** | $9.30 | 31s | openrouter | 119 |
-| 8 | **GLM 5** | **8.49** | $4.11 | 86s | openrouter | 130 |
-| 9 | **Claude Opus 4.8** | **8.47** | $39.00 | 23s | openrouter | 127 |
-| 10 | **GPT-5.4** | **8.46** | $24.00 | 16s | openai_direct | 124 |
+| 1 | **Tencent Hy3** | **8.55** | $0.83 | 62s | openrouter | 137 |
+| 2 | **GPT-5.6 Luna** | **8.49** | $0.93 | 11s | openrouter | 156 |
+| 3 | **DeepSeek R1 (reasoning)** | **8.46** | $3.96 | 122s | openrouter | 152 |
+| 4 | **Qwen 3.7 Flash** | **8.45** | $0.20 | 27s | openrouter | 173 |
+| 5 | **Qwen 3.6 Max** | **8.43** | $9.55 | 109s | openrouter | 167 |
+| 6 | **Claude Opus 4.8** | **8.40** | $39.00 | 21s | openrouter | 145 |
+| 7 | **Qwen 3.6 Plus** | **8.39** | $3.02 | 83s | openrouter | 158 |
+| 8 | **GLM 5** | **8.39** | $4.11 | 79s | openrouter | 148 |
+| 9 | **Inkling Small** | **8.36** | $1.94 | 106s | openrouter | 137 |
+| 10 | **Gemma 4 26B MoE (3.8B activos)** | **8.35** | $0.64 | 25s | openrouter | 149 |
 
 ### Calidad por dólar — ¿cuánto rinde cada peso?
 
@@ -108,38 +108,37 @@ Calidad dividido por lo que cuesta. **Premia lo barato a propósito**: un modelo
 
 | # | Modelo | Calidad/$ | Calidad | $/1k calls | Provider |
 |---|---|---:|---:|---:|---|
-| 1 | **Ling 3.0 Flash** | **79.7** | 8.05 | $0.10 | openrouter |
-| 2 | **Llama 3.1 8B Instant** | **53.8** | 7.26 | $0.14 | openrouter |
-| 3 | **Nex-N2-Mini** | **52.3** | 8.26 | $0.16 | openrouter |
-| 4 | **Solar Pro 4** | **43.1** | 8.15 | $0.19 | openrouter |
-| 5 | **Qwen 3.7 Flash** | **41.9** | 8.54 | $0.20 | openrouter |
-| 6 | **Poolside Laguna XS 2.1** | **41.8** | 8.28 | $0.20 | openrouter |
-| 7 | **GPT-OSS 20B** | **35.7** | 7.82 | $0.22 | openrouter |
-| 8 | **GPT-OSS 120B** | **28.9** | 8.13 | $0.28 | openrouter |
-| 9 | **DeepSeek V4 Flash 0731** | **27.8** | 8.17 | $0.29 | openrouter |
-| 10 | **Poolside Laguna S 2.1** | **26.6** | 7.90 | $0.30 | openrouter |
+| 1 | **Ling 3.0 Flash** | **78.8** | 7.96 | $0.10 | openrouter |
+| 2 | **Llama 3.1 8B Instant** | **52.9** | 7.14 | $0.14 | openrouter |
+| 3 | **Nex-N2-Mini** | **51.8** | 8.19 | $0.16 | openrouter |
+| 4 | **Solar Pro 4** | **42.8** | 8.08 | $0.19 | openrouter |
+| 5 | **Qwen 3.7 Flash** | **41.4** | 8.45 | $0.20 | openrouter |
+| 6 | **Poolside Laguna XS 2.1** | **41.4** | 8.20 | $0.20 | openrouter |
+| 7 | **GPT-OSS 20B** | **35.8** | 7.85 | $0.22 | openrouter |
+| 8 | **GPT-OSS 120B** | **28.8** | 8.08 | $0.28 | openrouter |
+| 9 | **DeepSeek V4 Flash 0731** | **27.4** | 8.05 | $0.29 | openrouter |
+| 10 | **Poolside Laguna S 2.1** | **26.4** | 7.85 | $0.30 | openrouter |
 
 ### Frontera de Pareto — ¿cuáles vale la pena siquiera considerar?
 
-Los **13 de 82** modelos que nadie domina: para el resto existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking —dentro de la frontera la elección depende de tu caso— es un descarte.
+Los **12 de 79** modelos que nadie domina: para el resto existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking —dentro de la frontera la elección depende de tu caso— es un descarte.
 
 | Modelo | Calidad | $/1k calls | Latencia | Provider |
 |---|---:|---:|---:|---|
-| **Tencent Hy3** | 8.65 | $0.83 | 70s | openrouter |
-| **GPT-5.6 Luna** | 8.59 | $0.93 | 12s | openrouter |
-| **Qwen 3.7 Flash** | 8.54 | $0.20 | 35s | openrouter |
-| **Gemma 4 26B MoE (3.8B activos)** | 8.45 | $0.64 | 29s | openrouter |
-| **DeepSeek V4 Flash (OpenRouter)** | 8.34 | $0.46 | 32s | openrouter |
-| **Ministral 14B** | 8.30 | $0.36 | 26s | openrouter |
-| **GPT-5.4 Mini** | 8.29 | $2.40 | 7s | openai_direct |
-| **Poolside Laguna XS 2.1** | 8.28 | $0.20 | 11s | openrouter |
-| **Nex-N2-Mini** | 8.26 | $0.16 | 20s | openrouter |
-| **Gemini 3.1 Flash Lite** | 8.16 | $2.33 | 5s | openrouter |
-| **Ling 3.0 Flash** | 8.05 | $0.10 | 14s | openrouter |
-| **Llama 4 Scout 17B** | 7.96 | $0.48 | 9s | openrouter |
-| **Gemini 2.5 Flash Lite** | 7.86 | $0.63 | 6s | openrouter |
+| **Tencent Hy3** | 8.55 | $0.83 | 62s | openrouter |
+| **GPT-5.6 Luna** | 8.49 | $0.93 | 11s | openrouter |
+| **Qwen 3.7 Flash** | 8.45 | $0.20 | 27s | openrouter |
+| **Gemma 4 26B MoE (3.8B activos)** | 8.35 | $0.64 | 25s | openrouter |
+| **Claude Haiku 4.5** | 8.23 | $7.80 | 9s | openrouter |
+| **Poolside Laguna XS 2.1** | 8.20 | $0.20 | 10s | openrouter |
+| **Nex-N2-Mini** | 8.19 | $0.16 | 18s | openrouter |
+| **GPT-5.4 Mini** | 8.18 | $2.40 | 7s | openai_direct |
+| **Gemini 3.1 Flash Lite** | 8.06 | $2.33 | 4s | openrouter |
+| **Ling 3.0 Flash** | 7.96 | $0.10 | 12s | openrouter |
+| **Llama 4 Scout 17B** | 7.88 | $0.48 | 8s | openrouter |
+| **Gemini 2.5 Flash Lite** | 7.84 | $0.63 | 5s | openrouter |
 
-> **Piso de ranking: 50 runs.** Solo compiten los 82 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
+> **Piso de ranking: 50 runs.** Solo compiten los 79 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
 
 > **Por qué la calidad va sola.** Hasta v4.0 publicábamos un número que mezclaba calidad con precio, y movía modelos sin avisar: Claude Opus 4.6 es **#5 en calidad** y salía **#18**; Poolside Laguna XS es **#29** y salía **#7**. Las dos cifras eran verdad, pero bajo un rótulo que no lo decía. Ahora el precio se muestra al lado y cada quien decide qué pesa. Es lo mismo que hace [Artificial Analysis](https://artificialanalysis.ai/) con su Intelligence Index.
 
@@ -264,7 +263,7 @@ Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2
 | Modelos con cobertura completa (≥20 runs) | **<!-- AUTO:tested_count -->138<!-- /AUTO -->** |
 | Modelos con datos parciales (1-19 runs) | **17** (incluye variantes thinking de modelos hybrid) |
 | Tests por modelo | **91 single-turn (23 suites) + 12 agent_long_horizon multi-turno = 103 tests** |
-| Runs preservados en JSON | **<!-- AUTO:tests_marketing -->29,000+<!-- /AUTO -->** (con éxito) |
+| Runs preservados en JSON | **<!-- AUTO:tests_marketing -->30,000+<!-- /AUTO -->** (con éxito) |
 | Tokens consumidos (preservados) | ~2.5M input + ~7M output |
 | **Costo APIs (OpenAI/OpenRouter/MiniMax/Anthropic/Xiaomi)** | **~$350-400 USD** desde el 11 de abril, + gasto continuo de OpenRouter cada mes para las actualizaciones |
 | **Suscripciones + modelos simultáneos** (Xiaomi, MiniMax, Claude, Ollama Cloud — varias a la vez para poder probar) | **~$300/mes** |

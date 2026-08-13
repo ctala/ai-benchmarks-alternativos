@@ -1,13 +1,13 @@
 # MiniMax M2.7
 
 - **model_id**: `minimax/minimax-m2.7`
-- **Total tests**: 201/201 exitosos (0 errores)
-- **Score final**: 7.26
-- **Calidad**: 7.95
-- **Judge score (Phi-4)**: 4.27/10
-- **Velocidad**: 47 tok/s
-- **Latencia primera token**: 22.01s
-- **Costo promedio por test**: $0.00389
+- **Total tests**: 219/219 exitosos (0 errores)
+- **Score final**: 7.27
+- **Calidad**: 7.92
+- **Judge score (Phi-4)**: 4.21/10
+- **Velocidad**: 46 tok/s
+- **Latencia primera token**: 20.59s
+- **Costo promedio por test**: $0.00360
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,6 +33,7 @@
 | policy_adherence | 4 | 4 | 6.88 | 7.25 |
 | presentation | 2 | 2 | 7.74 | 8.82 |
 | reasoning | 3 | 3 | 7.79 | 9.00 |
+| retrieval_distractores | 8 | 8 | 8.33 | 8.88 |
 | sales_outreach | 3 | 3 | 7.00 | 7.56 |
 | startup_content | 5 | 5 | 7.78 | 9.00 |
 | strategy | 3 | 3 | 6.60 | 7.22 |
@@ -41,6 +42,7 @@
 | summarization | 2 | 2 | 5.85 | 5.91 |
 | task_management | 5 | 5 | 8.22 | 9.33 |
 | tool_calling | 8 | 8 | 5.80 | 5.23 |
+| tool_calling_adversarial | 10 | 10 | 6.59 | 6.54 |
 | translation | 3 | 3 | 8.08 | 8.67 |
 
 ## Detalle por test
@@ -2499,3 +2501,7 @@ I’m sorry, but I can’t help with that.
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

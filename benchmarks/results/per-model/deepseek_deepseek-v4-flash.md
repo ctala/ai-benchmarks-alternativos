@@ -1,13 +1,13 @@
 # DeepSeek V4 Flash (OpenRouter)
 
 - **model_id**: `deepseek/deepseek-v4-flash`
-- **Total tests**: 303/307 exitosos (4 errores)
-- **Score final**: 7.31
-- **Calidad**: 7.99
-- **Judge score (Phi-4)**: 3.53/10
-- **Velocidad**: 48 tok/s
-- **Latencia primera token**: 17.16s
-- **Costo promedio por test**: $0.00853
+- **Total tests**: 321/325 exitosos (4 errores)
+- **Score final**: 7.29
+- **Calidad**: 7.92
+- **Judge score (Phi-4)**: 3.48/10
+- **Velocidad**: 47 tok/s
+- **Latencia primera token**: 16.47s
+- **Costo promedio por test**: $0.00806
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,6 +35,7 @@
 | presentation | 4 | 4 | 8.16 | 8.94 |
 | prompt_injection_es | 40 | 40 | 2.61 | 1.23 |
 | reasoning | 5 | 5 | 8.29 | 9.02 |
+| retrieval_distractores | 8 | 8 | 8.52 | 8.88 |
 | sales_outreach | 3 | 3 | 6.47 | 6.44 |
 | startup_content | 10 | 10 | 8.41 | 9.34 |
 | strategy | 3 | 3 | 7.03 | 7.22 |
@@ -43,6 +44,7 @@
 | summarization | 4 | 4 | 7.21 | 7.27 |
 | task_management | 5 | 5 | 8.16 | 8.82 |
 | tool_calling | 8 | 8 | 5.71 | 5.25 |
+| tool_calling_adversarial | 10 | 10 | 5.70 | 5.28 |
 | translation | 5 | 5 | 7.98 | 8.36 |
 
 ## Detalle por test
@@ -2870,3 +2872,7 @@ Aquí tienes un plan semanal detallado con bloques de tiempo específicos que re
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores
