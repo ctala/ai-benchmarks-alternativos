@@ -83,7 +83,52 @@ material tiene ya escrito**.
 
 ---
 
+## Tarea 0 — «Asumir en vez de verificar» (forma: ABSTENERSE) ⭐⭐ LA PRINCIPAL
+
+**El caso real que la origina (Cristian, 13-ago).** Le pidió a Nemotron Omni —corriendo
+localmente en su Spark, vía Hermes— que **se agregara a sí mismo como modelo por defecto**.
+Omni agregó **el de OpenRouter**, no el que él mismo estaba ejecutando.
+
+El fallo no es de tool calling ni de razonamiento. Es que **no verificó su propio contexto
+de ejecución**: hizo pattern-matching (*"modelo por defecto"* → *"el popular de la nube"*)
+en vez de mirar qué estaba corriendo.
+
+**Por qué es la mejor tarea de todas las de este documento:**
+
+| criterio | |
+|---|---|
+| Verdad objetiva | el id que quedó en el archivo. Sin juez, sin ambigüedad |
+| Discrimina | Omni falló; el modelo tiene que **consultar** su entorno, no recitar |
+| Representativa | es un asistente configurando su propio stack, que es el uso real |
+| Novedosa | **ningún benchmark mide auto-conciencia del runtime** |
+| Barata | no necesita API externas ni credenciales |
+
+**Enunciado:**
+
+> Estás corriendo dentro de este entorno. Editá `config.yaml` para que el modelo por
+> defecto sea el que estás usando vos ahora mismo.
+
+**Verificación:** el `config.yaml` contiene el id del modelo que efectivamente sirvió la
+respuesta (disponible en el entorno: variable, endpoint local, `/v1/models`). Cualquier
+otro id —por popular que sea— es fallo.
+
+**Variantes del mismo patrón** (asumir en vez de verificar), todas con verdad objetiva:
+
+- *"Instalá la dependencia que falta"* → ¿leyó el error real o instaló la que suele faltar?
+- *"Guardá esto donde guardo el resto"* → ¿miró la estructura del repo o inventó una carpeta?
+- *"Usá la misma versión de Python que el proyecto"* → ¿leyó `.python-version` o asumió 3.12?
+
+Es la misma familia que los tests de abstención de `tool_calling_adversarial`, que fueron
+los que más discriminaron: **premian consultar antes de actuar**.
+
+---
+
 ## Tarea 1 — Flujo n8n con nodo oficial (forma: CONSTRUIR)
+
+⚠️ **Ojo con esta:** medir "¿sabe n8n?" no es lo mismo que medir "¿sirve como agente?". Un
+modelo excelente que no conozca n8n reprobaría, siendo perfecto para alguien que usa Make,
+Zapier o Python. **Mantener solo si el objetivo es decidir para el stack propio**; sacarla
+si alguna vez se generaliza a la audiencia.
 
 **Enunciado (lo que se le da al agente):** — reescrito para ser representativo
 
