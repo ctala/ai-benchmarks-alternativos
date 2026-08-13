@@ -1,3 +1,4 @@
+<!-- doc: generado -->
 # Prompts del benchmark — texto exacto
 
 > **Auto-generado por `benchmarks/generate_prompts_catalog.py`. No editar a mano.**

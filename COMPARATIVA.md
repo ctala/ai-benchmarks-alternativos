@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-07-01 -->
 # Comparativa Completa de Proveedores y Modelos
 
 > Ultima actualizacion: 23 de Abril de 2026

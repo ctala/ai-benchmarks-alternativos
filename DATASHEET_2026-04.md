@@ -1,3 +1,4 @@
+<!-- doc: snapshot -->
 ---
 title: "Datasheet abril 2026 — snapshot del benchmark al cierre del mes"
 mes: "2026-04"

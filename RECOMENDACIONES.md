@@ -1,3 +1,4 @@
+<!-- doc: generado -->
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.

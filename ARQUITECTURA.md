@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-07-01 -->
 ---
 title: Arquitectura del Benchmark de Modelos AI Alternativos
 version: v2.3.0

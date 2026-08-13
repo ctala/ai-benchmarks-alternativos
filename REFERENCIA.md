@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-08-12 -->
 # REFERENCIA — lo que ya sabemos, para no volver a averiguarlo
 
 > **Leer ANTES de investigar, proponer o "arreglar" algo.** Este archivo existe porque el

@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-08-12 -->
 # Plan release Agosto 2026 — terminar de aplicar la doctrina del verificador
 
 ## 📍 ESTADO AL 11-AGO-2026 16:30 (leer primero)

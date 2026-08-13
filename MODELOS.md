@@ -1,3 +1,4 @@
+<!-- doc: generado -->
 # Inventario de Modelos del Benchmark
 
 > Snapshot de cobertura: qué modelos están probados, cuáles esperan en cola, y qué falta del mercado. Actualizado 2 de Junio 2026.

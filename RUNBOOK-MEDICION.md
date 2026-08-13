@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-08-12 -->
 # RUNBOOK — medir modelos / backfill de suites (leer ANTES de correr un lote)
 
 Este doc existe porque en la sesión del 14-16 jul 2026 se **redescubrió tres veces**

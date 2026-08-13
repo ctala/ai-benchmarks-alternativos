@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-08-13 -->
 # Plan de estabilidad — que dejemos de rehacer el benchmark todos los meses
 
 > **Origen (13-ago-2026).** Cristian: *"Estoy super decepcionado de tener que rehacer todo,
@@ -113,7 +114,9 @@ en Hermes o n8n.
 | **una vez por trimestre** | ventana de cambios de medición (suites, prompts, límites). Se anuncia, se mide una vez. |
 | **cuando haga falta** | correcciones de bug y guardrails. No tocan comparabilidad. |
 
-Septiembre = release normal (los 23 modelos detectados). **v4.2 = ventana de octubre.**
+**Las dos suites duras se miden AHORA (ago-2026)**, para que la base quede firme antes del
+release de septiembre — decisión de Cristian, 13-ago. **Septiembre = modelos nuevos y nada
+más** (los 23 detectados). La próxima ventana de medición queda libre para lo que aparezca.
 
 ## 5. La prueba de si esto funcionó
 

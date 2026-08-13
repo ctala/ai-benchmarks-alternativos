@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-07-01 -->
 # Packs por Suscripcion: Que Obtienes y Como Usarlo
 
 > Ultima actualizacion: 22 de Abril de 2026
