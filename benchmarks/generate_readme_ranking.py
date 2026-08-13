@@ -46,7 +46,9 @@ def load_ranked() -> tuple[list[dict], dict]:
         m for m in data.get("models", [])
         if m.get("ranked") and m.get("score_global") is not None
     ]
-    ranked.sort(key=lambda m: -m["score_global"])
+    # Orden por CALIDAD: desde v4.1 el titular responde "¿qué modelo es mejor?".
+    # El compuesto (score_global) va en su propia tabla, más abajo.
+    ranked.sort(key=lambda m: -(m.get("score_calidad") or 0))
     return ranked, data
 
 
@@ -66,15 +68,38 @@ def build_block(ranked: list[dict], data: dict) -> str:
         f"`docs/data/models.json`. **No editar a mano** — el z-score se recalcula "
         f"con cada modelo nuevo y una tabla escrita a mano queda obsoleta sola.",
         "",
-        "| # | Modelo | Score | Quality | Cost | Provider | $/1k calls | Runs |",
-        "|---|---|---:|---:|---:|---|---:|---:|",
+        "### Índice de calidad — ¿qué modelo responde mejor?",
+        "",
+        "Solo calidad. **El precio y la velocidad se muestran al lado, no van dentro del "
+        "número** — un modelo caro no es peor, es caro, y mezclarlo esconde cuál es cuál.",
+        "",
+        "| # | Modelo | Calidad | $/1k calls | Latencia | Provider | Runs |",
+        "|---|---|---:|---:|---:|---|---:|",
     ]
     for i, m in enumerate(ranked[:TOP_N], 1):
-        q = m.get("quality_avg")
-        c = m.get("cost_score_avg")
+        lat = m.get("latency_avg_s")
+        lines.append(
+            f"| {i} | **{m['name']}** | **{(m.get('score_calidad') or 0):.2f}** | "
+            f"{fmt_cost(m)} | {f'{lat:.0f}s' if lat is not None else '—'} | "
+            f"{m.get('provider', '?')} | {m.get('runs', 0)} |"
+        )
+
+    por_valor = sorted(ranked, key=lambda m: -m["score_global"])[:TOP_N]
+    lines += [
+        "",
+        "### Mejor valor — ¿qué me conviene pagar?",
+        "",
+        "Acá sí entra el precio: calidad (70%), costo (15%), velocidad (7,5%) y latencia "
+        "(7,5%) para un perfil de emprendedor genérico. **Es otra pregunta, no un ranking "
+        "mejor.**",
+        "",
+        "| # | Modelo | Valor | Calidad | $/1k calls | Provider |",
+        "|---|---|---:|---:|---:|---|",
+    ]
+    for i, m in enumerate(por_valor, 1):
         lines.append(
             f"| {i} | **{m['name']}** | **{m['score_global']:.2f}** | "
-            f"{q:.2f} | {c:.2f} | {m.get('provider', '?')} | {fmt_cost(m)} | {m.get('runs', 0)} |"
+            f"{(m.get('score_calidad') or 0):.2f} | {fmt_cost(m)} | {m.get('provider', '?')} |"
         )
 
     lines += [
@@ -84,13 +109,17 @@ def build_block(ranked: list[dict], data: dict) -> str:
         f"emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su "
         f"score marcado como indicativo.",
         "",
-        f"> **Este ranking es un punto de partida, no un veredicto.** El score pondera calidad "
-        f"(70%), costo (15%), velocidad (7.5%) y latencia (7.5%) para un perfil de emprendedor "
-        f"genérico. **Tu caso probablemente no sea ese.** Si corrés batch de noche, la latencia "
-        f"no te importa y este ranking la está penalizando igual; si atendés usuarios en vivo, "
-        f"te importa el doble. Ajustá los pesos a tu caso en la "
-        f"[calculadora](https://benchmarks.cristiantala.com/) o mirá las tablas por caso de uso "
-        f"en [MODELOS.md](MODELOS.md).",
+        f"> **Por qué dos tablas y no una.** Hasta v4.0 publicábamos un solo número que mezclaba "
+        f"calidad con precio, y eso movía modelos sin avisar: Claude Opus 4.6 es **#5 en "
+        f"calidad** y salía **#18**; Poolside Laguna XS es **#29 en calidad** y salía **#7**. "
+        f"Las dos cifras eran verdad, pero bajo un rótulo que no lo decía. Separadas, cada una "
+        f"responde su pregunta.",
+        "",
+        f"> **Ninguna de las dos es tu caso exacto.** Si corrés batch de noche, la latencia no te "
+        f"importa y la tabla de valor la penaliza igual; si atendés usuarios en vivo, te importa "
+        f"el doble. Ajustá los pesos en la [calculadora]"
+        f"(https://benchmarks.cristiantala.com/) o mirá las tablas por caso de uso en "
+        f"[MODELOS.md](MODELOS.md).",
         "",
         END,
     ]
