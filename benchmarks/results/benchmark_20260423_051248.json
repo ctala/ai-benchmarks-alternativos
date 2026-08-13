@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:27:04+00:00",
+      "at": "2026-08-13T04:06:11+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     },
     "polluted_cleanup": {
@@ -9584,7 +9584,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:27:00+00:00",
+      "rescored_at": "2026-08-13T04:06:06+00:00",
       "content_score": 10.0,
       "answer_score": 5.0,
       "scoring": "verificable"
@@ -9621,7 +9621,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:27:03+00:00",
+      "rescored_at": "2026-08-13T04:06:08+00:00",
       "content_score": 10.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -9658,7 +9658,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:27:03+00:00",
+      "rescored_at": "2026-08-13T04:06:08+00:00",
       "content_score": 9.34,
       "answer_score": 8.0,
       "scoring": "verificable"
@@ -9695,7 +9695,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:27:03+00:00",
+      "rescored_at": "2026-08-13T04:06:08+00:00",
       "content_score": 4.67,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -9732,7 +9732,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:27:03+00:00",
+      "rescored_at": "2026-08-13T04:06:08+00:00",
       "content_score": 5.34,
       "answer_score": 6.5,
       "scoring": "verificable"
@@ -9769,7 +9769,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:27:03+00:00",
+      "rescored_at": "2026-08-13T04:06:08+00:00",
       "content_score": 4.0,
       "answer_score": 9.0,
       "scoring": "verificable"
@@ -9808,13 +9808,13 @@
       "scoring": "juez-30-70"
     },
     {
-      "quality": 5.0,
+      "quality": 10.0,
       "cost_score": 4.49,
       "cost_usd": 0.014771,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.55,
+      "final": 8.05,
       "test_name": "news_json_output_strict",
       "model": "GLM-5.1",
       "model_id": "z-ai/glm-5.1",
@@ -9826,7 +9826,7 @@
       "input_tokens": 307,
       "output_tokens": 4839,
       "response_preview": "{\n  \"Fuentes\": [\n    \"https://deepmind.google/announcements/gemma-4\",\n    \"https://blog.google/technology/ai/gemma-4-release/\"\n  ],\n  \"Categoria\": \"Inteligencia Artificial\",\n  \"Palabras_Clave\": [\n    \"Gemma 4\",\n    \"Google DeepMind\",\n    \"Open Source\",\n    \"Apache 2.0\",\n    \"Modelo IA\"\n  ],\n  \"Conte",
-      "auto_quality": 5.0,
+      "auto_quality": 10.0,
       "judge_score": 2.8,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -9839,19 +9839,19 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:27:03+00:00",
+      "rescored_at": "2026-08-13T04:06:08+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0,
+      "answer_score": 10.0,
       "scoring": "verificable"
     },
     {
-      "quality": 5.0,
+      "quality": 9.55,
       "cost_score": 5.1,
       "cost_usd": 0.009291,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.79,
+      "final": 7.97,
       "test_name": "news_spanish_only",
       "model": "GLM-5.1",
       "model_id": "z-ai/glm-5.1",
@@ -9863,7 +9863,7 @@
       "input_tokens": 315,
       "output_tokens": 3005,
       "response_preview": "SambaNova Systems ha presentado su nuevo chip SN50, una pieza de hardware que busca modificar las reglas del mercado de infraestructura para inteligencia artificial. En un ecosistema dominado por la escasez y el alto costo de las GPUs tradicionales, la compañía asegura que su nuevo procesador ofrece",
-      "auto_quality": 5.0,
+      "auto_quality": 9.55,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -9876,9 +9876,9 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__news_seo_writing__news_spanish_only.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:27:03+00:00",
+      "rescored_at": "2026-08-13T04:06:08+00:00",
       "content_score": 8.67,
-      "answer_score": 5.0,
+      "answer_score": 9.55,
       "scoring": "verificable"
     },
     {
@@ -9913,7 +9913,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:27:04+00:00",
+      "rescored_at": "2026-08-13T04:06:11+00:00",
       "content_score": 4.0,
       "answer_score": 8.75,
       "scoring": "verificable"
@@ -9950,7 +9950,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:27:04+00:00",
+      "rescored_at": "2026-08-13T04:06:11+00:00",
       "content_score": 4.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -9987,7 +9987,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:27:04+00:00",
+      "rescored_at": "2026-08-13T04:06:11+00:00",
       "content_score": 10.0,
       "answer_score": 7.5,
       "scoring": "verificable"
@@ -10024,7 +10024,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/glm-5.1__translation__detect_language_issues.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:27:04+00:00",
+      "rescored_at": "2026-08-13T04:06:11+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -10096,13 +10096,13 @@
       "scoring": "juez-30-70"
     },
     {
-      "quality": 5.0,
+      "quality": 10.0,
       "cost_score": 8.87,
       "cost_usd": 0.000511,
       "speed": 1.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.98,
+      "final": 8.48,
       "test_name": "news_json_output_strict",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -10114,7 +10114,7 @@
       "input_tokens": 314,
       "output_tokens": 1212,
       "response_preview": "{\n  \"Fuentes\": [\n    \"https://deepmind.com/blog/gemma-4-release\",\n    \"https://huggingface.co/google/gemma-4\"\n  ],\n  \"Categoria\": \"Inteligencia Artificial\",\n  \"Palabras_Clave\": [\n    \"Gemma 4\",\n    \"Google DeepMind\",\n    \"IA abierta\",\n    \"Apache 2.0\",\n    \"Arena leaderboard\"\n  ],\n  \"Contenido_HTML\"",
-      "auto_quality": 5.0,
+      "auto_quality": 10.0,
       "judge_score": 3.2,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -10127,9 +10127,9 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/nemotron-super__news_seo_writing__news_json_output_strict.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:27:04+00:00",
+      "rescored_at": "2026-08-13T04:06:11+00:00",
       "content_score": 8.0,
-      "answer_score": 5.0,
+      "answer_score": 10.0,
       "scoring": "verificable"
     },
     {
@@ -10164,7 +10164,7 @@
       "timestamp": "20260423_051248",
       "response_file": "results/responses/20260423_051248/nemotron-super__multi_turn__requirements_change.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:27:04+00:00",
+      "rescored_at": "2026-08-13T04:06:11+00:00",
       "content_score": 10.0,
       "answer_score": 4.0,
       "scoring": "verificable"
