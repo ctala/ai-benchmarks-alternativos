@@ -19,16 +19,16 @@ Todos los costos asumen **3,000 llamadas/mes** (≈100 por día). Para tu volume
 
 _El modelo decide y llama herramientas. Necesitás fiabilidad en tool calling._
 
-- **Usá:** **Qwen 3.7 Flash** — ≈$1/mes (calidad 8.17/10)
+- **Usá:** **Qwen 3.7 Flash** — ≈$1/mes (calidad en Agentes 8.17/10)
 - **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**383.6× más**) por apenas -0.14 de calidad — dentro del margen de error.
-- **Mejor open-source:** **Ministral 14B** — ≈$1/mes (calidad 7.93/10)
+- **Mejor open-source:** **Ministral 14B** — ≈$1/mes (calidad en Agentes 7.93/10)
 - _9 modelos empatan en calidad en este pilar._
 
 ### Contenido y marketing (blog, SEO, copy)
 
 _Texto largo en español neutro. El costo manda: es alto volumen._
 
-- **Usá:** **Llama 3.3 70B** — ≈$2/mes (calidad 8.73/10)
+- **Usá:** **Llama 3.3 70B** — ≈$2/mes (calidad en Contenido 8.73/10)
 - **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**152.9× más**) por apenas +0.09 de calidad — dentro del margen de error.
 - _5 modelos empatan en calidad en este pilar._
 
@@ -36,7 +36,7 @@ _Texto largo en español neutro. El costo manda: es alto volumen._
 
 _Generación y corrección de código._
 
-- **Usá:** **Nex-N2-Mini** — ≈$0/mes (calidad 9.60/10)
+- **Usá:** **Nex-N2-Mini** — ≈$0/mes (calidad en Coding 9.60/10)
 - **Lo que te ahorrás:** Muse Spark 1.2 cuesta ≈$20/mes (**43.1× más**) por apenas +0.13 de calidad — dentro del margen de error.
 - _6 modelos empatan en calidad en este pilar._
 
@@ -44,7 +44,7 @@ _Generación y corrección de código._
 
 _Análisis, decisiones, problemas con varios pasos._
 
-- **Usá:** **Ling 3.0 Flash** — ≈$0/mes (calidad 8.33/10)
+- **Usá:** **Ling 3.0 Flash** — ≈$0/mes (calidad en Razonamiento 8.33/10)
 - **Lo que te ahorrás:** Claude Opus 4.7 cuesta ≈$117/mes (**390.0× más**) por apenas +0.00 de calidad — dentro del margen de error.
 - _14 modelos empatan en calidad en este pilar._
 

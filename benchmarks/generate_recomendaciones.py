@@ -58,11 +58,22 @@ PRESUPUESTOS = [
 ]
 
 
-def fmt(v: dict, key: str = "best") -> str:
+def fmt(v: dict, key: str = "best", pilar: str | None = None) -> str:
+    """Rótulo de una recomendación.
+
+    El pilar se NOMBRA a propósito. Antes decía sólo "calidad 8.73/10" en una sección
+    por caso de uso, y ese 8,73 era la nota de Llama 3.3 70B **dentro del pilar
+    Contenido** — su calidad global es 7,91. Quien leyera la cifra la comparaba contra
+    la escala general y se llevaba un modelo 0,8 puntos mejor de lo que es. No era un
+    dato falso: era un dato sin su unidad. (13-ago-2026, barriendo comparaciones
+    numéricas en prosa a pedido de Cristian.)
+    """
     c = v.get(key)
     if not c:
         return "—"
-    return f"**{c['name']}** — ≈${c['cost_month']:,.0f}/mes (calidad {c['quality']:.2f}/10)"
+    donde = f" en {pilar}" if pilar else " global"
+    return (f"**{c['name']}** — ≈${c['cost_month']:,.0f}/mes "
+            f"(calidad{donde} {c['quality']:.2f}/10)")
 
 
 def main():
@@ -108,16 +119,16 @@ def main():
         A("")
         A(f"_{nota}_")
         A("")
-        A(f"- **Usá:** {fmt(v)}")
+        A(f"- **Usá:** {fmt(v, pilar=pilar)}")
         if "priciest" in v:
             p = v["priciest"]
             A(f"- **Lo que te ahorrás:** {p['name']} cuesta ≈${p['cost_month']:,.0f}/mes "
               f"(**{p['times']}× más**) por apenas {p['quality_gap']:+.2f} de calidad — "
               f"dentro del margen de error.")
         if "open" in v:
-            A(f"- **Mejor open-source:** {fmt(v, 'open')}")
+            A(f"- **Mejor open-source:** {fmt(v, 'open', pilar=pilar)}")
         if "local" in v:
-            A(f"- **Si tenés hardware propio:** {fmt(v, 'local')}")
+            A(f"- **Si tenés hardware propio:** {fmt(v, 'local', pilar=pilar)}")
         A(f"- _{v['band_size']} modelos empatan en calidad en este pilar._")
         A("")
 

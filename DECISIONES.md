@@ -74,6 +74,18 @@ falso**. Lo detectó Cristian: *"el Qwen 3.5 me llama la atención, quizás algo
 **Accionable:** al citar cualquier comparación anterior al 13-ago, recalcularla contra
 `score_calidad` en vez de copiarla.
 
+**Barrido hecho (13-ago).** Se buscaron en todos los docs vivos las comparaciones numéricas
+en prosa —`X vs Y`, `sube de X a Y`, `N puntos de diferencia`, `score X`— y el resultado fue
+**mejor de lo temido**: cero afirmaciones con cifras infladas. Las únicas 9 coincidencias eran
+la curva de costo (no compara modelos), una cita histórica entrecomillada, y `RECOMENDACIONES.md`,
+que se regenera.
+
+Pero el barrido encontró **otra cosa**: `RECOMENDACIONES.md` decía "calidad 8.73/10" para Llama
+3.3 70B, y ese 8,73 era su nota **dentro del pilar Contenido** — su calidad global es 7,91.
+Quien leyera la cifra la comparaba contra la escala general y se llevaba un modelo 0,8 puntos
+mejor de lo que es. **No era un dato falso: era un dato sin su unidad.** Corregido — ahora el
+rótulo nombra el pilar.
+
 ## Pendientes de decidir
 
 | Tema | Qué falta saber | Dónde |
