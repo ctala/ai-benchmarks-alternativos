@@ -877,13 +877,24 @@ function render() {
       const f = freeLabel(m);
       return `<span class="cb-badge cb-free" title="${f.tip}">${f.label}</span>`;
     }
+    // Etiquetas RELATIVAS, no veredictos. Antes decían "Excelente / Bueno /
+    // Aceptable / Caro" sobre una medida que es relativa al mejor de la lista, y eso
+    // producía dos mentiras a la vez:
+    //
+    //   1. Un acantilado. Tencent Hy3 (29%) salía "Aceptable" y GPT-5.6 Luna (24%)
+    //      "Caro" — un punto porcentual de diferencia, dos categorías que suenan
+    //      opuestas. Sus costos: $1,66 y $1,86 al mes.
+    //   2. Peor: llamarle "Caro" a un modelo de $1,86/mes es falso en cualquier
+    //      lectura normal. Solo significaba "rinde menos por peso que el más barato
+    //      de la lista". Un outlier barato define el 100% y pinta de caros a todos.
+    //
+    // Ahora el badge dice el número y contra qué se compara. Sin acantilado: dos
+    // modelos parecidos muestran cifras parecidas, que es lo que son.
     const pct = Math.round((m._efficiency / maxEfficiency) * 100);
-    let label, cls;
-    if (pct >= 75)      { label = "Excelente"; cls = "cb-excellent"; }
-    else if (pct >= 50) { label = "Bueno";     cls = "cb-good"; }
-    else if (pct >= 25) { label = "Aceptable"; cls = "cb-ok"; }
-    else                { label = "Caro";      cls = "cb-poor"; }
-    return `<span class="cb-badge ${cls}" title="Costo-beneficio relativo a la mejor opción de la lista (eficiencia ${pct}%). Score² ÷ costo mensual.">${label}</span>`;
+    const cls = pct >= 75 ? "cb-excellent" : pct >= 40 ? "cb-good"
+              : pct >= 15 ? "cb-ok" : "cb-poor";
+    const etiqueta = pct >= 100 ? "el mejor" : `${pct}% del mejor`;
+    return `<span class="cb-badge ${cls}" title="Calidad por peso gastado, comparada con la mejor opción de ESTA lista (no en absoluto): score² ÷ costo mensual. ${pct}% significa que rinde ${(100/Math.max(pct,1)).toFixed(1)}× menos calidad por peso que el líder — no que sea caro.">${etiqueta}</span>`;
   };
 
   // Mostrar columnas de componentes (Quality + Cost score + Tools) solo en
@@ -907,7 +918,7 @@ function render() {
             <th class="num sortable" onclick="toggleSort('tools')" title="Tool calling (badge, no pondera el score global): adherencia al schema OpenAI tools. 10 = perfecto, 7 = N/A (test sin tools). Click para ordenar">Tools ${sortIndicator("tools")}</th>
           ` : ""}
           <th class="num sortable" onclick="toggleSort('cost_month')" title="Costo total/mes según presupuesto y calls. Click para ordenar">Costo/mes ${sortIndicator("cost_month")}</th>
-          <th class="num sortable" onclick="toggleSort('cb')" title="Costo-beneficio relativo: score² / costo. 100% = mejor. Click para ordenar">C/B ${sortIndicator("cb")}</th>
+          <th class="num sortable" onclick="toggleSort('cb')" title="Calidad por peso gastado, RELATIVO al mejor de esta lista. 100% = el que más rinde. No es un juicio de si el modelo es caro en absoluto. Click para ordenar">Rinde ${sortIndicator("cb")}</th>
           <th>Tier</th>
         </tr>
       </thead>

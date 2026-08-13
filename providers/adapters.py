@@ -363,6 +363,19 @@ class UnifiedProvider:
             if response.usage:
                 result.input_tokens = getattr(response.usage, "prompt_tokens", 0) or 0
                 result.output_tokens = getattr(response.usage, "completion_tokens", 0) or 0
+                # Tokens de razonamiento interno. Se capturaban SOLO en el adapter de
+                # Responses API (OpenAI directo); por OpenRouter —que es por donde pasan
+                # los 26 thinking rankeados— no se guardaban. Resultado: 3.901 runs de
+                # agosto sin un solo `reasoning_tokens`, así que era imposible auditar
+                # después con cuánto razonamiento se midió cada modelo.
+                #
+                # Sondeado el 13-ago-2026: los modelos SÍ razonan por default (Opus 5: 87
+                # tokens, Sonnet 5: 152, Luna: 46, Hy3: 199). Pero eso se supo mandando una
+                # sonda a mano, no leyendo los datos — que es justamente el problema.
+                det = getattr(response.usage, "completion_tokens_details", None)
+                rt = getattr(det, "reasoning_tokens", None) if det else None
+                if rt:
+                    result.metadata["reasoning_tokens"] = rt
 
             if choice.message.tool_calls:
                 result.tool_calls_made = len(choice.message.tool_calls)
