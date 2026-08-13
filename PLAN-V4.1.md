@@ -231,18 +231,83 @@ un eje mal compuesto.
 `—` en vez de fallar ruidoso. **Queda anotado**: el detector no cubre las suites con rúbrica
 propia, que hay que auditar a mano hasta que se le agregue el caso.
 
-## 3. A evaluar en v4.1 (no decidido): sacar costo y velocidad del score
+## 3. DECIDIDO (Cristian, 13-ago-2026): dos ejes publicados, no uno
 
-Artificial Analysis reporta **costo y velocidad aparte** del Intelligence Index. Nosotros
-los metemos al compuesto (15% + 7,5% + 7,5%), y el post-mortem de julio ya documentó la
-consecuencia sin conectarla con esto:
+> **Esta decisión está tomada. No volver a discutirla** — si aparece la duda otra vez,
+> la respuesta y su evidencia están acá abajo.
 
-> *"Fragilidad del z-score: con la calidad apelotonada (top todos 8.1-8.3, std 0.35), el
-> compuesto queda decidido por costo/velocidad → Opus 4.8 con calidad 8.28 cae a 6.86."*
+**Qué se publica desde v4.1:**
 
-Es el mismo diagnóstico que AA resuelve por diseño. **Cambiar esto reordena el ranking
-entero**, así que no entra por default: se mide primero cuánto se movería y se decide con
-el dato a la vista. El wizard y las páginas por criterio de v4.0 ya iban en esa dirección.
+| | Qué es | Rol |
+|---|---|---|
+| **Índice de calidad** | solo `quality_avg`, z-scoreado | **el titular**. Responde "¿qué modelo es mejor?" |
+| **Mejor valor** | el compuesto actual 70/15/7,5/7,5, renombrado | segunda tabla, explícita. Responde "¿qué me conviene pagar?" |
+| Calculadora | sliders de peso + filtros, ya existe | la capa de personalización. **No se toca** |
+
+Costo, velocidad y latencia se reportan **como columnas al lado del índice de calidad**,
+nunca dentro de él.
+
+### La evidencia que cerró la discusión
+
+Medido el 13-ago sobre los 82 rankeados:
+
+1. **El compuesto ya es calidad en ~80%.** Descomponiendo la contribución (w·z) de cada
+   dimensión: Luna 1,11 de 1,38 · Opus 5 −1,04 de −1,40. Costo aporta como máximo ±0,30.
+   Si el ranking fuera **solo** calidad, la posición media se movería **6,8 puestos de 82**.
+2. **Pero el 20% restante desplaza sistemáticamente**, y ahí está el engaño:
+
+   | | calidad | publicado | Δ | precio |
+   |---|---|---|---|---|
+   | Claude Opus 4.6 | **#5** | #18 | −13 | $39,00/1k |
+   | Kimi K3 | #44 | #67 | −23 | $23,40/1k |
+   | Poolside Laguna XS 2.1 | #29 | **#7** | +22 | $0,20/1k |
+   | Gemini 3.1 Flash Lite | #41 | #22 | +19 | $2,33/1k |
+
+   Castiga caro, premia barato. **Las dos frases son verdad con etiqueta; ninguna lo es
+   bajo un rótulo que dice `score_global`.**
+3. En el top 10 las dos listas **comparten 7 modelos**. La diferencia son justo los caros
+   — que es exactamente la información útil, no ruido.
+
+### Por qué así y no de otra forma
+
+- **Artificial Analysis** reporta costo y velocidad **aparte** del Intelligence Index. El
+  CLAUDE.md ya dice que cuando nuestro motor difiere del estándar, la hipótesis por defecto
+  es que nos equivocamos nosotros. Acá diferíamos.
+- **No cuesta re-medir nada**: es agregación sobre el mismo dato. Y v4.1 ya es una frontera
+  de comparabilidad declarada — el momento más barato, mismo argumento que el de no hacer
+  un release intermedio.
+- El post-mortem de julio ya había descrito el síntoma sin saber que tenía solución
+  conocida: *"con la calidad apelotonada, el compuesto queda decidido por costo/velocidad →
+  Opus 4.8 con calidad 8.28 cae a 6.86."*
+
+### Lo que se descartó, y por qué
+
+- **Más ejes** (calidad+velocidad, calidad sin latencia, etc.): fuera del sitio estático.
+  Cinco tablas no las lee nadie y cada una es otra superficie donde caducan cifras. Ese
+  caso ya lo resuelve la calculadora.
+- **Multiplicar los 3 cortes × 2 ejes = 6 tablas**: no. Los 3 cortes (global /
+  alternativas / open-source) son **filtros**; esto es un **eje**. Son ortogonales. Los 3
+  cortes van sobre el índice de calidad, y **una sola** tabla de mejor valor.
+
+### Advertencias que NO desaparecen con este cambio
+
+- **No rescata a los Claude Opus.** Opus 5 es **#76 de 82 en calidad pura** (7,70).
+  Verificado: no es el compuesto, no es el juez (4,26 contra una media de 4,38, dentro de
+  rango), no es una suite rota — pierde repartido y gana en cuatro. El cambio de eje mejora
+  la honestidad del titular, no ese resultado.
+- **El juez casi no discrimina**: puntúa a los 82 rankeados entre **3,88 y 4,70** — 0,82
+  puntos de rango en una escala de 10. O sea que `quality_avg` la está decidiendo el
+  criterio automático, no el juez. Es un hallazgo aparte y merece su propia revisión.
+
+### ⚠️ Secuencia obligatoria — recalibrar DESPUÉS, no antes
+
+La referencia congelada guarda `mean`/`std` **de las dimensiones que componen el score**.
+Si se recalibra ahora (§3.bis) y después se cambia la composición, hay que recalibrar dos
+veces y la primera frontera no sirve para nada. **Orden correcto:**
+
+1. Implementar los dos ejes en `export_for_pages.py` + generadores.
+2. Recalibrar **una vez**, ya contra la definición nueva (`--recalibrate --scoring-version v4.1`).
+3. Regenerar todo, auditar, taggear.
 
 ---
 
@@ -279,6 +344,11 @@ uniforme, no un reordenamiento. Top 3 recalibrado: Luna 8,77 · Tencent Hy3 8,48
 Flash 8,30.
 
 ### Las tres salidas
+
+**→ ELEGIDA la 1 (Cristian, 13-ago). Con una condición de orden: se recalibra DESPUÉS de
+implementar los dos ejes de §3, nunca antes — la referencia guarda mean/std de las
+dimensiones que componen el score, así que recalibrar contra la composición vieja es
+trabajo que se tira.**
 
 1. **Recalibrar como parte de v4.1** (recomendada). La escala de calidad cambió de verdad,
    así que la referencia tiene que cambiar con ella. v4.1 ya es una frontera de
