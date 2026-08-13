@@ -798,7 +798,24 @@ function render() {
     return;
   }
   empty.hidden = true;
-  summary.textContent = `${ranked.length} modelos cumplen tus criterios, ordenados por score (mayor a menor).`;
+  // Decir CUÁNTOS de cuántos, y qué filtro es el que más corta.
+  // Antes decía solo "24 modelos cumplen tus criterios": el usuario veía 24 sobre un
+  // catálogo que anuncia 82 y no tenía forma de saber por qué. El umbral de calidad
+  // por defecto (6,5) deja pasar el top 29% — no está roto, pero era invisible, y un
+  // filtro invisible se lee como un dato faltante. Peor: modelos conocidos
+  // desaparecían sin explicación (Claude Opus 5 sale por calidad 3,03).
+  const universo = state.data.models.filter(m => m.ranked && (m.runs || 0) > 0);
+  const cortes = [
+    { nombre: `calidad ≥${f.quality}`, n: universo.filter(m => (getScore(m, f.task, f.subtask) ?? 0) < f.quality).length },
+    { nombre: `presupuesto $${f.budget}/mes`, n: universo.filter(m => costPerMonth(m, f.calls) > f.budget).length },
+    { nombre: "usan bien las herramientas", n: f.onlyTools ? universo.filter(m => (m.tool_calling_score_avg ?? 0) < TOOL_CALLING_MIN).length : 0 },
+    { nombre: "solo open source", n: f.onlyOpen ? universo.filter(m => !m.open_source).length : 0 },
+  ].filter(c => c.n > 0).sort((a, b) => b.n - a.n);
+  const detalle = cortes.length
+    ? ` · el que más corta: ${cortes[0].nombre} (deja fuera ${cortes[0].n})`
+    : "";
+  summary.textContent =
+    `${ranked.length} de ${universo.length} modelos rankeados cumplen tus criterios${detalle}.`;
 
   // Sin límite — mostramos todos los que pasan los filtros.
   const top = ranked;
@@ -807,6 +824,8 @@ function render() {
   if (f.subtask) {
     const suite = (SUITES_BY_PILLAR[f.task] || []).find(s => s.value === f.subtask);
     taskLabel = suite ? suite.label.split(" (")[0] : f.subtask;
+  } else if (f.task === "score_calidad") {
+    taskLabel = "Calidad";
   } else if (f.task !== "score_global") {
     taskLabel = f.task;
   }
