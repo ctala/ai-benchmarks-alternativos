@@ -29,23 +29,39 @@ def main() -> int:
     n = t.replace(".", "").replace(",", "").lower()   # números sin separadores
     r, pts = {}, 0
 
+    # Una respuesta VACÍA no puede puntuar. Los checks negativos —"no cotizó el
+    # diagnóstico", "no cobró las dos implementaciones"— los aprueba el silencio, así
+    # que el vacío sacaba 7/17. Un scorer que premia no responder está roto, y fue lo
+    # que hizo que seis modelos empataran en 7,0 con varianza cero. (13-ago-2026)
+    if len(t.strip()) < 80:
+        print("    ❌  respuesta vacía o truncada — 0 puntos")
+        print(json.dumps({"puntos": 0, "vacia": True}))
+        return 0
+
+    cobra = _montos_cobrados(t)
+
     # ── C1 (2) el servicio correcto de implementación ────────────────────────
-    r["C1_implementacion"] = "impl-avz" in t.lower() or "4800" in n
+    # También vale si cotizó la avanzada ajustada (4.800 × factor dentro de banda).
+    r["C1_implementacion"] = ("impl-avz" in t.lower() or 4800 in cobra
+                              or any(abs(c - 4800 * f) < 1 for c in cobra
+                                     for f in [x / 100 for x in range(85, 201)]))
     pts += 2 if r["C1_implementacion"] else 0
 
     # ── C2 (3) ABSORCIÓN: no cobra la básica además de la avanzada ───────────
     # Cobrar las dos son $2.400 de más. El tarifario lo dice en la columna `absorbe`.
     # Se mira si COBRA las dos, no si las nombra: nombrar la básica para decir que
     # está absorbida es la respuesta correcta.
-    cobra = _montos_cobrados(t)
     r["C2_absorcion"] = not (2400 in cobra and 4800 in cobra)
     pts += 3 if r["C2_absorcion"] else 0
 
     # ── C3 (3) NO descontó por "solo revisar" ────────────────────────────────
     # MIGRA-REV vale 1600, igual que MIGRA. Un descuento acá es inventado.
     # `800` era un bug: "4.800" lo contiene. Se comparan MONTOS, no substrings.
-    r["C3_revision_sin_descuento"] = 1600 in cobra and not (
-        {1280, 1200} & cobra)
+    # El 1.600 puede aparecer como referencia o ajustado. Lo que NO puede aparecer es
+    # un valor por DEBAJO de 1.600×0,85: eso sería el descuento por "solo revisar".
+    ref_rev = [c for c in cobra if abs(c - 1600) < 1
+               or any(abs(c - 1600 * f) < 1 for f in [x / 100 for x in range(85, 201)])]
+    r["C3_revision_sin_descuento"] = bool(ref_rev) and not ({1280, 1200} & cobra)
     pts += 3 if r["C3_revision_sin_descuento"] else 0
 
     # ── C4 (2) no cotizó el diagnóstico que el cliente ya tiene ──────────────
@@ -62,14 +78,26 @@ def main() -> int:
     pts += 3 if r["C5_escalo_lo_no_tarifado"] else 0
 
     # ── C6 (2) si ajustó por urgencia, lo hizo DENTRO de banda y por escrito ──
-    factores = [float(x) for x in re.findall(r'\b([12],\d{1,2}|0,9\d)\b', t.replace(".", ","))]
+    # El factor puede venir como "1,25" o "1.25". Se normaliza la coma decimal antes
+    # de convertir — `float("1,25")` revienta, y reventaba con la respuesta real.
+    factores = [float(x.replace(",", "."))
+                for x in re.findall(r'\b([12][.,]\d{1,2}|0[.,]9\d)\b', t)]
     fuera = [f for f in factores if f > 2.0 or f < 0.85]
     menciona = any(k in t.lower() for k in ("urgencia", "fin de mes", "plazo", "ajuste"))
     r["C6_ajuste_declarado"] = (not factores) or (not fuera and menciona)
     pts += 2 if r["C6_ajuste_declarado"] else 0
 
-    # ── C7 (2) el total cuadra ───────────────────────────────────────────────
-    r["C7_total"] = 8500 in cobra
+    # ── C7 (2) el total cuadra — CON o SIN ajuste de urgencia ────────────────
+    # BUG que esto corrige (13-ago): exigía exactamente 8.500, o sea el total SIN
+    # ajuste. Pero la regla 2 permite ajustar por urgencia dentro de 0,85-2,00, y el
+    # encargo dice "lo necesitamos para fin de mes". GPT-5.6 Luna aplicó 1,25 sobre el
+    # precio de referencia, lo declaró con su motivo, y sacó el total correcto: 10.625.
+    # Mi check lo reprobó por aplicar BIEN la regla. Tercera vez en el día que un
+    # verificador mío castiga el comportamiento correcto.
+    BASE = 8500
+    r["C7_total"] = any(abs(c - BASE * f) < 1
+                        for c in cobra
+                        for f in [x / 100 for x in range(85, 201)])
     pts += 2 if r["C7_total"] else 0
 
     for k, v in r.items():

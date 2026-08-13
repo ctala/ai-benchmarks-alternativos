@@ -1,0 +1,10 @@
+  openai/gpt-5.6-luna                run 1/10: 17/17
+  openai/gpt-5.6-luna                run 2/10: 12/17
+  openai/gpt-5.6-luna                run 3/10: 12/17
+  openai/gpt-5.6-luna                run 4/10: 14/17
+  openai/gpt-5.6-luna                run 5/10: 17/17
+  openai/gpt-5.6-luna                run 6/10: 12/17
+  openai/gpt-5.6-luna                run 7/10: 17/17
+  openai/gpt-5.6-luna                run 8/10: 14/17
+  openai/gpt-5.6-luna                run 9/10: 12/17
+  openai/gpt-5.6-luna                run 10/10: 12/17
