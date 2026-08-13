@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-13T07:58:13",
+  "generated_at": "2026-08-13T08:35:57",
   "total_models": 191,
   "tested_count": 138,
   "ranked_count": 82,
-  "total_runs_measured": 29284,
-  "total_runs_active": 24912,
+  "total_runs_measured": 29158,
+  "total_runs_active": 24786,
   "total_runs_discarded": 4372,
   "thresholds": {
     "tested_min_runs": 20,
@@ -300,12 +300,7 @@
         "content_verificable": 9.63,
         "agent_long_horizon": 9.75
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 51,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.59,
       "quality_ci95": 0.392,
       "cost_score_avg": 7.7,
@@ -468,12 +463,7 @@
         "integridad_idioma": 5.8,
         "prompt_injection_es": 1.0
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.65,
       "quality_ci95": 0.395,
       "cost_score_avg": 7.11,
@@ -533,7 +523,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 119,
-      "total_runs": 206,
+      "total_runs": 242,
       "score_global": 8.3,
       "score_by_pillar": {
         "Razonamiento": 7.54,
@@ -601,7 +591,9 @@
         "agent_long_horizon": 8.08,
         "niah_es": 8.42,
         "integridad_idioma": 8.74,
-        "prompt_injection_es": 3.11
+        "prompt_injection_es": 3.11,
+        "retrieval_distractores": 8.7,
+        "tool_calling_adversarial": 7.67
       },
       "quality_by_suite": {
         "business_audit": 7.6,
@@ -633,7 +625,9 @@
         "agent_long_horizon": 8.83,
         "niah_es": 9.6,
         "integridad_idioma": 9.59,
-        "prompt_injection_es": 1.45
+        "prompt_injection_es": 1.45,
+        "retrieval_distractores": 9.38,
+        "tool_calling_adversarial": 8.08
       },
       "suites_incompletas": {},
       "quality_avg": 8.54,
@@ -952,12 +946,7 @@
         "integridad_idioma": 9.61,
         "prompt_injection_es": 1.45
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 51,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.5,
       "quality_ci95": 0.421,
       "cost_score_avg": 6.54,
@@ -1272,12 +1261,7 @@
         "integridad_idioma": 9.64,
         "prompt_injection_es": 1.0
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.28,
       "quality_ci95": 0.407,
       "cost_score_avg": 7.94,
@@ -1591,12 +1575,7 @@
         "integridad_idioma": 9.66,
         "prompt_injection_es": 9.1
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.49,
       "quality_ci95": 0.404,
       "cost_score_avg": 3.97,
@@ -1908,12 +1887,7 @@
         "orchestration": 7.71,
         "agent_capabilities": 7.9
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 41,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.55,
       "quality_ci95": 0.373,
       "cost_score_avg": 5.97,
@@ -2227,12 +2201,7 @@
         "integridad_idioma": 7.2,
         "prompt_injection_es": 6.85
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.26,
       "quality_ci95": 0.436,
       "cost_score_avg": 7.94,
@@ -2394,12 +2363,7 @@
         "integridad_idioma": 9.53,
         "prompt_injection_es": 10.0
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.39,
       "quality_ci95": 0.448,
       "cost_score_avg": 5.21,
@@ -3189,12 +3153,7 @@
         "content_verificable": 10.0,
         "agent_long_horizon": 9.33
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 51,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.36,
       "quality_ci95": 0.43,
       "cost_score_avg": 5.81,
@@ -3407,7 +3366,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 127,
-      "total_runs": 307,
+      "total_runs": 247,
       "score_global": 6.77,
       "score_by_pillar": {
         "Contenido": 7.29,
@@ -3519,9 +3478,9 @@
       "latency_avg_s": 23.34,
       "total_input_tokens": 308025,
       "total_output_tokens": 191921,
-      "long_context_runs": 156,
-      "long_context_quality": 6.75,
-      "long_context_score": 5.49,
+      "long_context_runs": 96,
+      "long_context_quality": 7.66,
+      "long_context_score": 6.12,
       "long_context_by_size": {
         "8000": 10.0,
         "64000": 10.0,
@@ -3668,12 +3627,7 @@
         "content_verificable": 9.33,
         "agent_long_horizon": 8.33
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 51,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.16,
       "quality_ci95": 0.422,
       "cost_score_avg": 7.65,
@@ -3836,12 +3790,7 @@
         "prompt_injection_es": 8.65,
         "integridad_idioma": 9.56
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 30,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.29,
       "quality_ci95": 0.402,
       "cost_score_avg": 6.81,
@@ -4458,12 +4407,7 @@
         "orchestration": 8.34,
         "agent_capabilities": 7.61
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.15,
       "quality_ci95": 0.412,
       "cost_score_avg": 7.79,
@@ -4623,12 +4567,7 @@
         "orchestration": 7.16,
         "agent_capabilities": 5.38
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 51,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.3,
       "quality_ci95": 0.417,
       "cost_score_avg": 6.65,
@@ -4789,12 +4728,7 @@
         "content_verificable": 8.53,
         "agent_long_horizon": 8.99
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.43,
       "quality_ci95": 0.398,
       "cost_score_avg": 4.14,
@@ -5106,12 +5040,7 @@
         "orchestration": 8.74,
         "agent_capabilities": 7.1
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.36,
       "quality_ci95": 0.389,
       "cost_score_avg": 5.24,
@@ -5271,12 +5200,7 @@
         "content_verificable": 9.0,
         "agent_long_horizon": 9.33
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 51,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.37,
       "quality_ci95": 0.397,
       "cost_score_avg": 3.9,
@@ -5741,12 +5665,7 @@
         "prompt_injection_es": 2.35,
         "integridad_idioma": 9.6
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.05,
       "quality_ci95": 0.438,
       "cost_score_avg": 7.97,
@@ -6214,12 +6133,7 @@
         "integridad_idioma": 7.24,
         "prompt_injection_es": 1.0
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 51,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.15,
       "quality_ci95": 0.474,
       "cost_score_avg": 7.96,
@@ -7609,12 +7523,7 @@
         "content_verificable": 10.0,
         "agent_long_horizon": 9.25
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 51,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.17,
       "quality_ci95": 0.482,
       "cost_score_avg": 5.06,
@@ -9154,12 +9063,7 @@
         "content_verificable": 6.4,
         "agent_long_horizon": 8.08
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 7.91,
       "quality_ci95": 0.468,
       "cost_score_avg": 7.58,
@@ -10101,12 +10005,7 @@
         "orchestration": 7.88,
         "agent_capabilities": 7.45
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 7.95,
       "quality_ci95": 0.418,
       "cost_score_avg": 6.72,
@@ -10264,12 +10163,7 @@
         "content_verificable": 8.53,
         "agent_long_horizon": 8.75
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 7.96,
       "quality_ci95": 0.474,
       "cost_score_avg": 6.08,
@@ -10583,12 +10477,7 @@
         "integridad_idioma": 9.62,
         "prompt_injection_es": 7.75
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.03,
       "quality_ci95": 0.45,
       "cost_score_avg": 4.7,
@@ -11054,12 +10943,7 @@
         "content_verificable": 7.53,
         "agent_long_horizon": 8.44
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.01,
       "quality_ci95": 0.428,
       "cost_score_avg": 5.48,
@@ -11215,12 +11099,7 @@
         "agent_long_horizon": 8.17,
         "summarization": 7.4
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 53,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 7.87,
       "quality_ci95": 0.487,
       "cost_score_avg": 6.47,
@@ -11684,12 +11563,7 @@
         "customer_support": 8.21,
         "orchestration": 6.63
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 30,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 7.75,
       "quality_ci95": 0.437,
       "cost_score_avg": 7.95,
@@ -11848,12 +11722,7 @@
         "content_verificable": 9.33,
         "agent_long_horizon": 7.83
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 7.88,
       "quality_ci95": 0.446,
       "cost_score_avg": 5.22,
@@ -12525,7 +12394,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 142,
-      "total_runs": 401,
+      "total_runs": 341,
       "score_global": 1.4,
       "score_by_pillar": {
         "Contenido": 6.56,
@@ -12637,9 +12506,9 @@
       "latency_avg_s": 13.97,
       "total_input_tokens": 344713,
       "total_output_tokens": 242340,
-      "long_context_runs": 215,
-      "long_context_quality": 6.77,
-      "long_context_score": 6.01,
+      "long_context_runs": 155,
+      "long_context_quality": 7.99,
+      "long_context_score": 6.85,
       "long_context_by_size": {
         "8000": 10.0,
         "64000": 9.92,
@@ -12844,7 +12713,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 121,
-      "total_runs": 125,
+      "total_runs": 143,
       "score_global": 1.14,
       "score_by_pillar": {
         "Razonamiento": 5.96,
@@ -12909,7 +12778,9 @@
         "tool_calling": 6.18,
         "customer_support": 8.26,
         "orchestration": 6.06,
-        "agent_capabilities": 6.63
+        "agent_capabilities": 6.63,
+        "tool_calling_adversarial": 5.72,
+        "retrieval_distractores": 7.16
       },
       "quality_by_suite": {
         "business_audit": 4.17,
@@ -12938,7 +12809,9 @@
         "tool_calling": 5.35,
         "customer_support": 8.32,
         "orchestration": 5.15,
-        "agent_capabilities": 6.26
+        "agent_capabilities": 6.26,
+        "tool_calling_adversarial": 4.72,
+        "retrieval_distractores": 7.62
       },
       "suites_incompletas": {},
       "quality_avg": 7.26,
@@ -13543,12 +13416,7 @@
         "integridad_idioma": 9.53,
         "prompt_injection_es": 8.2
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 55,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.86,
       "quality_ci95": 0.354,
       "cost_score_avg": 4.08,
@@ -13716,10 +13584,6 @@
         "business_audit": {
           "rindio": 8,
           "total": 10
-        },
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
         }
       },
       "quality_avg": 8.6,
@@ -13886,12 +13750,7 @@
         "business_audit": 8.0,
         "business_strategy": 9.2
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 51,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.61,
       "quality_ci95": 0.385,
       "cost_score_avg": 2.85,
@@ -14189,10 +14048,6 @@
         "customer_support": {
           "rindio": 3,
           "total": 4
-        },
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
         }
       },
       "quality_avg": 8.49,
@@ -14861,10 +14716,6 @@
         "translation": {
           "rindio": 2,
           "total": 3
-        },
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
         }
       },
       "quality_avg": 8.29,
@@ -15555,10 +15406,6 @@
         "translation": {
           "rindio": 2,
           "total": 3
-        },
-        "niah_es": {
-          "rindio": 44,
-          "total": 59
         }
       },
       "quality_avg": 8.38,
@@ -16080,10 +15927,6 @@
         "translation": {
           "rindio": 2,
           "total": 3
-        },
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
         }
       },
       "quality_avg": 8.29,
@@ -16247,10 +16090,6 @@
         "translation": {
           "rindio": 2,
           "total": 3
-        },
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
         }
       },
       "quality_avg": 8.13,
@@ -18503,10 +18342,6 @@
         "agent_capabilities": {
           "rindio": 1,
           "total": 5
-        },
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
         }
       },
       "quality_avg": 7.98,
@@ -18664,12 +18499,7 @@
         "niah_es": 10.0,
         "agent_long_horizon": 8.29
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 32,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 8.07,
       "quality_ci95": 0.443,
       "cost_score_avg": 7.02,
@@ -19401,10 +19231,6 @@
         "agent_capabilities": {
           "rindio": 4,
           "total": 5
-        },
-        "niah_es": {
-          "rindio": 55,
-          "total": 59
         }
       },
       "quality_avg": 8.11,
@@ -19934,10 +19760,6 @@
         "agent_capabilities": 6.61
       },
       "suites_incompletas": {
-        "niah_es": {
-          "rindio": 45,
-          "total": 59
-        },
         "tool_calling": {
           "rindio": 1,
           "total": 4
@@ -20290,12 +20112,7 @@
         "niah_es": 9.89,
         "business_audit": 6.83
       },
-      "suites_incompletas": {
-        "niah_es": {
-          "rindio": 50,
-          "total": 59
-        }
-      },
+      "suites_incompletas": {},
       "quality_avg": 7.66,
       "quality_ci95": 0.504,
       "cost_score_avg": 8.0,

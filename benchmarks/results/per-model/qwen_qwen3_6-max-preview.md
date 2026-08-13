@@ -1,7 +1,7 @@
 # Qwen 3.6 Max
 
 - **model_id**: `qwen/qwen3.6-max-preview`
-- **Total tests**: 271/449 exitosos (178 errores)
+- **Total tests**: 271/389 exitosos (118 errores)
 - **Score final**: 6.92
 - **Calidad**: 8.32
 - **Judge score (Phi-4)**: 4.02/10
@@ -28,7 +28,7 @@
 | hallucination | 3 | 3 | 6.62 | 7.67 |
 | multi_turn | 4 | 4 | 6.82 | 8.00 |
 | news_seo_writing | 9 | 9 | 5.33 | 6.08 |
-| niah_es | 213 | 98 | 7.86 | 9.85 |
+| niah_es | 153 | 98 | 7.86 | 9.85 |
 | niah_es_1m | 15 | 0 | - | - |
 | niah_es_lite | 45 | 0 | - | - |
 | ocr_extraction | 5 | 5 | 7.86 | 9.60 |
@@ -2626,11 +2626,11 @@ Aquí tienes un plan de proyecto realista, optimizado para un equipo pequeño y 
 
 ### Otras suites
 
-#### niah_es
-
 #### niah_es_1m
 
 #### niah_es_lite
+
+#### niah_es
 
 #### prompt_injection_es
 

@@ -94,6 +94,12 @@ jobs:
       - name: Verificar que la calculadora sigue alineada con los datos
         run: python benchmarks/check_calculator.py
 
+      # Control de versiones. El repo la declara en 6 superficies y el 13-ago-2026 dos
+      # estaban desfasadas sin que nada fallara: no habia tag de v4.1 y el README
+      # presentaba v4.0 como vigente.
+      - name: Verificar que el repo declara una sola version de si mismo
+        run: python benchmarks/check_version.py
+
       - name: Commit si hay cambios
         run: |
           git config user.name "github-actions[bot]"

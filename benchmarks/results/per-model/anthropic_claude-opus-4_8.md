@@ -1,13 +1,13 @@
 # Claude Opus 4.8
 
 - **model_id**: `anthropic/claude-opus-4.8`
-- **Total tests**: 307/322 exitosos (15 errores)
-- **Score final**: 6.30
-- **Calidad**: 7.57
-- **Judge score (Phi-4)**: 3.57/10
-- **Velocidad**: 47 tok/s
-- **Latencia primera token**: 10.01s
-- **Costo promedio por test**: $0.31531
+- **Total tests**: 247/262 exitosos (15 errores)
+- **Score final**: 6.74
+- **Calidad**: 8.13
+- **Judge score (Phi-4)**: 3.98/10
+- **Velocidad**: 50 tok/s
+- **Latencia primera token**: 10.78s
+- **Costo promedio por test**: $0.22415
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -28,7 +28,7 @@
 | hallucination | 3 | 3 | 6.40 | 7.00 |
 | multi_turn | 4 | 4 | 7.28 | 8.50 |
 | news_seo_writing | 5 | 5 | 6.03 | 7.02 |
-| niah_es | 111 | 111 | 5.91 | 7.43 |
+| niah_es | 51 | 51 | 7.59 | 9.95 |
 | niah_es_1m | 15 | 0 | - | - |
 | niah_es_lite | 45 | 45 | 4.47 | 5.07 |
 | ocr_extraction | 5 | 5 | 8.02 | 9.50 |
@@ -2552,11 +2552,11 @@ Asumo jornada de 9 AM a 6 PM. Reservo bloques de **deep work** para tareas que r
 
 ### Otras suites
 
-#### niah_es
-
 #### niah_es_1m
 
 #### niah_es_lite
+
+#### niah_es
 
 #### prompt_injection_es
 

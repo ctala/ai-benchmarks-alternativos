@@ -190,6 +190,45 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - `ARQUITECTURA.md` — regenerado cuando cambia arquitectura del runner/scoring
 - `tutoriales/*.md` — actualizar al cambiar API del runner o agregar features
 
+## Estándar de versiones y control de cambios (13-ago-2026)
+
+**Todo se maneja con versiones. Un cambio sin versión es un cambio que nadie puede
+auditar ni revertir.**
+
+1. **`DECISIONES.md` es el índice único.** Antes de proponer un cambio de diseño,
+   buscá ahí. Si la decisión está tomada, se respeta o se revierte **explícitamente** —
+   no se reabre por olvido. Una decisión entra al índice **en el mismo commit** en que
+   se toma: una línea con qué, por qué y el enlace al detalle.
+   *Por qué existe:* el repo tiene 34 documentos en la raíz y las decisiones estaban
+   repartidas en 13. El problema nunca fue falta de documentación — fue no saber dónde
+   buscarla. En esta sesión reabrí una discusión que ya estaba medio resuelta en
+   `PLAN-V4.1.md` porque no la encontré.
+
+2. **Dos clases de cambio, y se tratan distinto** (detalle en `PLAN-ESTABILIDAD.md`):
+   - **Presentación** (composición del score, escala, columnas, etiquetas): se simula
+     **antes** contra los runs en disco — cuesta minutos y $0 — y puede cambiar.
+   - **Medición** (prompts, `max_tokens`, suites, criterios): cambia **una vez por
+     trimestre**, en ventana declarada. Todo lo que rompe comparabilidad entra en el
+     mismo corte.
+
+3. **Las suites se AGREGAN, nunca se editan.** Una suite nueva cuesta $29-43 y no
+   invalida un solo run. **Editar una existente invalida todo el histórico.** Si una
+   suite dejó de servir, se jubila del score (gratis) y se agrega otra.
+
+4. **La versión se declara en 6 superficies y todas tienen que coincidir**:
+   `scoring_reference.json` · `docs/data/models.json` · `CHANGELOG.md` ·
+   `docs/index.html` · git tag · README. Lo verifica **`check_version.py`**, que corre
+   en `regenerate_all.py` y en el Action.
+   *Por qué:* el 13-ago el repo declaraba tres versiones distintas de sí mismo —sin tag
+   de v4.1 y con el README presentando v4.0 como vigente— y nada fallaba.
+
+5. **Todo cambio va al `CHANGELOG.md`, con su versión, antes de mergear a `main`.**
+   Publicar sin entrada es publicar sin traza: pasó con v4.1 hasta que se marcó.
+
+6. **Cada superficie nueva llega con su guardrail, en el mismo commit.** Corolario de
+   la regla de oro del repo (*una regla sin instrumento que la haga cumplir es una regla
+   que ya se rompió*).
+
 ## Reglas del proyecto
 
 - **Guardado atómico**: el runner vuelca JSON tras cada test, no esperar al final
