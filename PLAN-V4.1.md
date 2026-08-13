@@ -241,11 +241,42 @@ propia, que hay que auditar a mano hasta que se le agregue el caso.
 | | Qué es | Rol |
 |---|---|---|
 | **Índice de calidad** | solo `quality_avg`, z-scoreado | **el titular**. Responde "¿qué modelo es mejor?" |
-| **Mejor valor** | el compuesto actual 70/15/7,5/7,5, renombrado | segunda tabla, explícita. Responde "¿qué me conviene pagar?" |
+| **Frontera de Pareto** | los no dominados en calidad + precio + latencia | responde "¿cuáles vale la pena considerar?". **13 de 82** |
+| **Calidad por dólar** | ratio `score_calidad ÷ $/1k` | responde "con el presupuesto como límite, ¿qué rinde más?" |
 | Calculadora | sliders de peso + filtros, ya existe | la capa de personalización. **No se toca** |
 
 Costo, velocidad y latencia se reportan **como columnas al lado del índice de calidad**,
 nunca dentro de él.
+
+### ⚠️ Corrección del 13-ago: NO se publica una segunda tabla de "mejor valor"
+
+La primera versión de esta decisión ponía el compuesto 70/15/7,5/7,5 como segunda tabla.
+**Cristian preguntó si no eran dos scores con el mismo resultado. Lo eran.** Medido:
+
+| segundo eje candidato | r con el índice de calidad | ¿aporta? |
+|---|---|---|
+| compuesto 70/15/7,5/7,5 | **0,943** (r²=0,889) | no — 6 de 10 del top compartido, 2 modelos sin moverse |
+| compuesto v2.9 60/20/10/10 | **0,882** | no |
+| **frontera de Pareto** | deja fuera a **69 de 82** | **sí** |
+| **calidad por dólar** (ratio) | **0,052** | **sí**, casi ortogonal |
+
+**Todos los compuestos terminan igual, y la razón es estructural:** el costo z-scoreado
+aporta ±0,30 al compuesto contra ±1,3 de la calidad. El precio no mueve el orden lo
+suficiente como para contar otra cosa. Cualquier tabla que sea "calidad con un poco de
+precio" es el ranking de calidad con otro título.
+
+Lo que sí informa son las métricas que **no** son un promedio ponderado: un **descarte**
+(la frontera) y un **ratio** (calidad/$). Por eso `build_quality_table` y el ranking de
+pesos v2.9 salieron del output de MODELOS.md.
+
+**Calidad por dólar va en el README, no solo en MODELOS.md** (Cristian, 13-ago: *"puede
+ser de los que más sirvan a emprendedores"*). Es la pregunta que se hace alguien con el
+presupuesto como límite duro — no "cuál es el mejor" sino "cuánto me rinde cada peso" — y
+además destapa cosas que el ranking esconde: **Qwen 3.7 Flash sale #3 con calidad 8,89**,
+o sea rinde por bueno *y* barato, mientras el resto del top rinde solo por barato.
+
+`score_global` **se queda en el JSON** —es el peso por defecto de la calculadora, ahí sí
+tiene sentido— pero **deja de publicarse como ranking**.
 
 ### La evidencia que cerró la discusión
 

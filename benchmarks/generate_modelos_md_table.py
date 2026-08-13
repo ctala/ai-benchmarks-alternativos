@@ -93,15 +93,19 @@ def build_links(model_id: str) -> tuple[str, str]:
     return link_md, link_resp
 
 
-def row_for_model(m: dict, score_key: str = "score_global") -> str:
-    """Fila con AMBOS ejes visibles (v4.1). El `score_key` decide cuál va en negrita:
-    el que ordena esa tabla. Mostrar los dos siempre es deliberado — es lo que deja
-    ver de un vistazo que un modelo caro puede ser excelente y aun así no convenir."""
+def row_for_model(m: dict, score_key: str = "score_calidad") -> str:
+    """Fila con calidad + marcador de frontera (v4.1).
+
+    NO lleva columna de "valor": el compuesto correlaciona r=0,943 con el índice de
+    calidad, así que publicarlo al lado era repetir la misma información con otro
+    nombre. El marcador ⭐ sí agrega algo — deja fuera a 69 de 82.
+    """
     mid = m.get("id", "?")
     fmt = lambda v: f"{v:.2f}" if v is not None else "—"
-    cal, val = m.get("score_calidad"), m.get("score_global")
-    cal_s = f"**{fmt(cal)}**" if score_key == "score_calidad" else fmt(cal)
-    val_s = f"**{fmt(val)}**" if score_key != "score_calidad" else fmt(val)
+    # La columna de score muestra SIEMPRE el criterio que ordena esa tabla — si no,
+    # una tabla por suite quedaría ordenada por una cosa y mostrando otra.
+    cal_s = f"**{fmt(m.get(score_key))}**"
+    val_s = "⭐" if m.get("pareto") else ""
     runs = m.get("runs", 0)
     os_label = "✅" if m.get("open_source") else "❌" if m.get("open_source") is False else "?"
     license_str = m.get("license") or ""
@@ -119,8 +123,8 @@ def table_header(title: str) -> list[str]:
     return [
         f"#### {title}",
         "",
-        "| Modelo | OS | $ in/out | Calidad | Valor | Runs | Per-model MD | Responses |",
-        "|---|---|---:|---:|---:|---:|---|---|",
+        "| Modelo | OS | $ in/out | Calidad | Frontera | Runs | Per-model MD | Responses |",
+        "|---|---|---:|---:|:-:|---:|---|---|",
     ]
 
 
@@ -130,7 +134,7 @@ def build_global_table(models: list[dict]) -> str:
     dentro de un solo número."""
     lines = table_header(
         "Índice de calidad — qué modelo responde mejor "
-        "(la columna *Valor* pondera además costo 15%, velocidad 7,5% y latencia 7,5%)"
+        "(⭐ = en la frontera de Pareto: nadie lo supera a la vez en calidad, precio y latencia)"
     )
     for m in sorted(models, key=lambda x: -(x.get("score_calidad") or -1)):
         lines.append(row_for_model(m, "score_calidad"))
@@ -163,40 +167,37 @@ def build_suite_table(models: list[dict], suites: list[str], title: str) -> str:
 
 
 def build_cost_efficiency_table(models: list[dict]) -> str:
-    """Ranking por relación calidad/costo usando score_global_linear con pesos viejos (60/20/10/10)."""
-    import statistics
-    import math
+    """Calidad por dólar: `score_calidad` ÷ ($/1k calls). Un ratio, no un compuesto.
 
-    def cost_score_log(c):
-        if c <= 1e-6:
-            return 10.0
-        return max(0.0, min(10.0, 8.0 - 3.0 * math.log10(c / 0.001)))
+    Reemplaza (13-ago-2026) al ranking de pesos v2.9 (60/20/10/10), que se sacó por
+    redundante: correlacionaba **r = 0,882** con el índice de calidad. Todos los
+    compuestos que probamos terminan igual — el costo z-scoreado aporta ±0,30 contra
+    ±1,3 de la calidad, así que el precio casi no mueve el orden y la tabla resultante
+    es el ranking de calidad otra vez, con otro título.
 
-    tested = list(models)  # ya vienen filtrados a muestra solida (>=50 runs)
-    q_vals = [m.get("quality_avg", 0) for m in tested]
-    c_vals = [cost_score_log(m.get("cost_per_1k_calls_usd", 0)) for m in tested]
-    s_vals = [m.get("speed_score_avg", 0) for m in tested]
-    l_vals = [m.get("latency_score_avg", 0) for m in tested]
+    El ratio **sí** es información nueva: **r = 0,052** con el índice de calidad, o sea
+    prácticamente ortogonal. Y responde una pregunta real que ninguna otra tabla
+    responde: *"con el presupuesto como límite duro, ¿qué rinde más por peso?"*
 
-    def zscore(vals, val):
-        mu = statistics.mean(vals)
-        sd = statistics.pstdev(vals)
-        return (val - mu) / sd if sd > 0 else 0
-
-    # Pesos viejos v2.9: quality 60%, cost 20%, speed 10%, latency 10%
-    weights = {"q": 0.60, "c": 0.20, "s": 0.10, "l": 0.10}
+    ⚠️ Por construcción premia lo barato: un modelo de calidad media a $0,10 le gana a
+    uno excelente a $1. Eso NO es un defecto a corregir — es literalmente lo que la
+    métrica dice. Por eso la columna de calidad va al lado: para que se vea qué se
+    está resignando.
+    """
+    tested = [m for m in models if (m.get("cost_per_1k_calls_usd") or 0) > 0
+              and m.get("score_calidad") is not None]
     for m in tested:
-        zq = zscore(q_vals, m.get("quality_avg", 0))
-        zc = zscore(c_vals, cost_score_log(m.get("cost_per_1k_calls_usd", 0)))
-        zs = zscore(s_vals, m.get("speed_score_avg", 0))
-        zl = zscore(l_vals, m.get("latency_score_avg", 0))
-        z = weights["q"] * zq + weights["c"] * zc + weights["s"] * zs + weights["l"] * zl
-        m["_cost_eff_score"] = max(0.0, min(10.0, 5.5 + 3.3 * z))
+        m["_qpd"] = m["score_calidad"] / m["cost_per_1k_calls_usd"]
 
-    lines = table_header("Mejor relación calidad/costo (pesos v2.9: 60% quality, 20% costo, 10% speed, 10% latency)")
-    for m in sorted(tested, key=lambda x: -x.get("_cost_eff_score", 0)):
-        lines.append(row_for_model(m, "_cost_eff_score"))
-        del m["_cost_eff_score"]
+    lines = table_header(
+        "Calidad por dólar — cuánta calidad rinde cada peso "
+        "(calidad ÷ $/1k calls; premia lo barato a propósito, mirá la columna Calidad)"
+    )
+    # Cabecera propia: acá el número que ordena NO es un score 0-10, es un ratio.
+    lines[2] = "| Modelo | OS | $ in/out | Calidad/$ | Frontera | Runs | Per-model MD | Responses |"
+    for m in sorted(tested, key=lambda x: -x["_qpd"]):
+        lines.append(row_for_model(m, "_qpd"))
+        del m["_qpd"]
     return "\n".join(lines)
 
 
@@ -214,9 +215,9 @@ def build_in_review_table(models: list[dict]) -> str:
         "quede arriba (o abajo) por azar. Se listan para no esconderlos, pero **no compiten** "
         "en las tablas de arriba hasta completar la cobertura.",
         "",
-        "| Modelo | OS | $ in/out | Calidad (indic.) | Valor (indic.) | Runs "
+        "| Modelo | OS | $ in/out | Calidad (indic.) | Frontera | Runs "
         "| Per-model MD | Responses |",
-        "|---|---|---:|---:|---:|---:|---|---|",
+        "|---|---|---:|---:|:-:|---:|---|---|",
     ]
     for m in sorted(models, key=lambda x: -(x.get("score_calidad") or -1)):
         lines.append(row_for_model(m, "score_calidad"))
@@ -343,10 +344,12 @@ def build_retired_table(models: list[dict], todos: list[dict] = ()) -> str:
 def build_table(ranked: list[dict], in_review: list[dict], retired: list[dict] = (),
                 subscription: list[dict] = (), variants: list[dict] = (),
                 todos: list[dict] = ()) -> str:
+    # `build_quality_table` ("Mejor calidad pura") salió del output en v4.1: ordenaba por
+    # `quality_avg` y la tabla principal ahora ordena por `score_calidad`, que es su
+    # z-score — misma monotonía, mismo orden, dos tablas idénticas. La función queda por
+    # si se la necesita en otro contexto, pero no se publica.
     sections = [
         build_global_table(ranked),
-        "",
-        build_quality_table(ranked),
         "",
         build_suite_table(ranked, ["code_generation", "structured_output", "string_precision"], "Mejor coding"),
         "",
