@@ -100,6 +100,13 @@ jobs:
       - name: Verificar que el repo declara una sola version de si mismo
         run: python benchmarks/check_version.py
 
+      # Quis custodiet ipsos custodes. El repo tenia OCHO guardrails y CERO pruebas:
+      # si uno se rompia, pasaba en verde y nadie se enteraba — el mismo modo de falla
+      # que los guardrails vinieron a resolver, un nivel mas arriba. Esta prueba les
+      # presenta una version rota del mundo y exige que fallen.
+      - name: Probar que los guardrails cazan su propio fallo
+        run: python benchmarks/test_guardrails.py
+
       - name: Commit si hay cambios
         run: |
           git config user.name "github-actions[bot]"

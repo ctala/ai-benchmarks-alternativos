@@ -1,0 +1,18 @@
+# Grok 4.20 — tool_calling_adversarial/alucinacion_funcion_inexistente
+
+- model_id: `x-ai/grok-4.20`
+- success: True  | final: 4.16 | quality: 2.9
+- latency_total: 0.802s | tokens_per_second: 22.4
+- input_tokens: 633 | output_tokens: 18
+- judge_score: 1 | justificación: La respuesta es incorrecta porque inventa una herramienta que no existe, lo cual va en contra de las instrucciones. No aborda directamente la tarea de anular la factura con el RUT equivocado, y no proporciona insights o utilidad práctica.
+
+## Entrada exacta (lo que recibió el modelo)
+
+**user:**
+
+Anula la factura F-0377, la emitimos con el RUT equivocado.
+
+
+## Respuesta completa
+
+[tool_call] buscar_factura({"numero_factura":"F-0377"})
