@@ -1,13 +1,13 @@
 # Gemini 2.5 Flash Lite
 
 - **model_id**: `google/gemini-2.5-flash-lite`
-- **Total tests**: 309/313 exitosos (4 errores)
-- **Score final**: 7.25
-- **Calidad**: 7.64
+- **Total tests**: 301/305 exitosos (4 errores)
+- **Score final**: 7.22
+- **Calidad**: 7.61
 - **Judge score (Phi-4)**: 3.45/10
-- **Velocidad**: 77 tok/s
-- **Latencia primera token**: 4.13s
-- **Costo promedio por test**: $0.00540
+- **Velocidad**: 78 tok/s
+- **Latencia primera token**: 4.20s
+- **Costo promedio por test**: $0.00554
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,6 @@
 | presentation | 2 | 2 | 8.19 | 8.54 |
 | prompt_injection_es | 40 | 40 | 2.62 | 1.00 |
 | reasoning | 3 | 3 | 8.33 | 8.88 |
-| retrieval_distractores | 8 | 8 | 8.59 | 8.88 |
 | sales_outreach | 3 | 3 | 8.27 | 8.22 |
 | startup_content | 5 | 5 | 8.59 | 9.20 |
 | strategy | 3 | 3 | 6.27 | 5.83 |
@@ -2427,5 +2426,3 @@ TechFlow experimentó un sólido primer trimestre de 2026, con ventas totales de
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

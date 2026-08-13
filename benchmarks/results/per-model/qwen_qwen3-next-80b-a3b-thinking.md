@@ -1,13 +1,13 @@
 # Qwen 3-Next 80B Thinking
 
 - **model_id**: `qwen/qwen3-next-80b-a3b-thinking`
-- **Total tests**: 154/154 exitosos (0 errores)
-- **Score final**: 7.07
-- **Calidad**: 7.52
+- **Total tests**: 146/146 exitosos (0 errores)
+- **Score final**: 7.02
+- **Calidad**: 7.48
 - **Judge score (Phi-4)**: 4.24/10
-- **Velocidad**: 153 tok/s
-- **Latencia primera token**: 22.14s
-- **Costo promedio por test**: $0.00594
+- **Velocidad**: 156 tok/s
+- **Latencia primera token**: 22.93s
+- **Costo promedio por test**: $0.00621
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,7 +33,6 @@
 | policy_adherence | 4 | 4 | 8.04 | 8.67 |
 | presentation | 2 | 2 | 8.29 | 9.52 |
 | reasoning | 5 | 5 | 7.91 | 9.03 |
-| retrieval_distractores | 8 | 8 | 7.86 | 8.38 |
 | sales_outreach | 3 | 3 | 8.36 | 9.33 |
 | startup_content | 5 | 5 | 8.13 | 9.15 |
 | strategy | 3 | 3 | 5.97 | 6.22 |
@@ -2481,5 +2480,3 @@ Sales: $2.3M total, 18% increase from Q4 2025's $1.9
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

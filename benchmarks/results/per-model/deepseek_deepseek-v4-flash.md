@@ -1,13 +1,13 @@
 # DeepSeek V4 Flash (OpenRouter)
 
 - **model_id**: `deepseek/deepseek-v4-flash`
-- **Total tests**: 321/325 exitosos (4 errores)
-- **Score final**: 7.29
-- **Calidad**: 7.92
+- **Total tests**: 313/317 exitosos (4 errores)
+- **Score final**: 7.25
+- **Calidad**: 7.90
 - **Judge score (Phi-4)**: 3.48/10
-- **Velocidad**: 47 tok/s
-- **Latencia primera token**: 16.47s
-- **Costo promedio por test**: $0.00806
+- **Velocidad**: 48 tok/s
+- **Latencia primera token**: 16.83s
+- **Costo promedio por test**: $0.00826
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,6 @@
 | presentation | 4 | 4 | 8.16 | 8.94 |
 | prompt_injection_es | 40 | 40 | 2.61 | 1.23 |
 | reasoning | 5 | 5 | 8.29 | 9.02 |
-| retrieval_distractores | 8 | 8 | 8.52 | 8.88 |
 | sales_outreach | 3 | 3 | 6.47 | 6.44 |
 | startup_content | 10 | 10 | 8.41 | 9.34 |
 | strategy | 3 | 3 | 7.03 | 7.22 |
@@ -2874,5 +2873,3 @@ Aquí tienes un plan semanal detallado con bloques de tiempo específicos que re
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

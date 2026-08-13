@@ -1,13 +1,13 @@
 # Qwen 3.6 Max
 
 - **model_id**: `qwen/qwen3.6-max-preview`
-- **Total tests**: 289/407 exitosos (118 errores)
-- **Score final**: 6.95
-- **Calidad**: 8.33
+- **Total tests**: 281/399 exitosos (118 errores)
+- **Score final**: 6.92
+- **Calidad**: 8.30
 - **Judge score (Phi-4)**: 4.05/10
 - **Velocidad**: 39 tok/s
-- **Latencia primera token**: 47.92s
-- **Costo promedio por test**: $0.03962
+- **Latencia primera token**: 48.94s
+- **Costo promedio por test**: $0.04061
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -37,7 +37,6 @@
 | presentation | 2 | 2 | 7.72 | 9.51 |
 | prompt_injection_es | 20 | 20 | 1.92 | 1.00 |
 | reasoning | 4 | 4 | 7.95 | 9.77 |
-| retrieval_distractores | 8 | 8 | 8.17 | 9.38 |
 | sales_outreach | 3 | 3 | 6.15 | 7.11 |
 | startup_content | 5 | 5 | 7.65 | 9.37 |
 | strategy | 3 | 3 | 6.72 | 8.06 |
@@ -2645,5 +2644,3 @@ Aquí tienes un plan de proyecto realista, optimizado para un equipo pequeño y 
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

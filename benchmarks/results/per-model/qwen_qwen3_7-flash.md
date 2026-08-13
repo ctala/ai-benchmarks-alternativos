@@ -1,13 +1,13 @@
 # Qwen 3.7 Flash
 
 - **model_id**: `qwen/qwen3.7-flash`
-- **Total tests**: 260/260 exitosos (0 errores)
-- **Score final**: 7.79
-- **Calidad**: 8.08
+- **Total tests**: 280/280 exitosos (0 errores)
+- **Score final**: 7.82
+- **Calidad**: 8.10
 - **Judge score (Phi-4)**: 4.49/10
-- **Velocidad**: 105 tok/s
-- **Latencia primera token**: 19.25s
-- **Costo promedio por test**: $0.00145
+- **Velocidad**: 106 tok/s
+- **Latencia primera token**: 18.36s
+- **Costo promedio por test**: $0.00136
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -36,7 +36,7 @@
 | presentation | 2 | 2 | 8.89 | 9.70 |
 | prompt_injection_es | 20 | 20 | 3.32 | 1.45 |
 | reasoning | 3 | 3 | 9.00 | 9.81 |
-| retrieval_distractores | 24 | 24 | 8.69 | 8.96 |
+| retrieval_distractores | 44 | 44 | 8.47 | 8.64 |
 | sales_outreach | 3 | 3 | 7.23 | 7.11 |
 | startup_content | 5 | 5 | 8.70 | 9.36 |
 | strategy | 3 | 3 | 7.73 | 8.06 |

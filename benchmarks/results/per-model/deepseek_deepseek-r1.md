@@ -1,13 +1,13 @@
 # DeepSeek R1 (reasoning)
 
 - **model_id**: `deepseek/deepseek-r1`
-- **Total tests**: 217/221 exitosos (4 errores)
-- **Score final**: 6.65
-- **Calidad**: 7.55
+- **Total tests**: 209/213 exitosos (4 errores)
+- **Score final**: 6.61
+- **Calidad**: 7.50
 - **Judge score (Phi-4)**: 3.97/10
 - **Velocidad**: 21 tok/s
-- **Latencia primera token**: 73.77s
-- **Costo promedio por test**: $0.00924
+- **Latencia primera token**: 76.05s
+- **Costo promedio por test**: $0.00954
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,6 @@
 | presentation | 2 | 2 | 7.97 | 9.72 |
 | prompt_injection_es | 20 | 20 | 1.90 | 1.00 |
 | reasoning | 5 | 5 | 7.67 | 9.45 |
-| retrieval_distractores | 8 | 8 | 7.83 | 8.88 |
 | sales_outreach | 3 | 3 | 7.84 | 9.33 |
 | startup_content | 9 | 9 | 7.96 | 9.65 |
 | strategy | 3 | 3 | 6.83 | 8.06 |
@@ -2561,5 +2560,3 @@ Ventas totales: $2.3M (+18% vs. Q4 2025). Runway: 14 meses. Burn rate: $380K/mes
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

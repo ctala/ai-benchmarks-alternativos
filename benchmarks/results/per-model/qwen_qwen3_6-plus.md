@@ -1,13 +1,13 @@
 # Qwen 3.6 Plus
 
 - **model_id**: `qwen/qwen3.6-plus`
-- **Total tests**: 166/171 exitosos (5 errores)
-- **Score final**: 7.30
-- **Calidad**: 8.23
+- **Total tests**: 158/163 exitosos (5 errores)
+- **Score final**: 7.24
+- **Calidad**: 8.18
 - **Judge score (Phi-4)**: 4.49/10
 - **Velocidad**: 52 tok/s
-- **Latencia primera token**: 50.76s
-- **Costo promedio por test**: $0.00925
+- **Latencia primera token**: 52.60s
+- **Costo promedio por test**: $0.00963
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,7 +33,6 @@
 | policy_adherence | 4 | 4 | 7.61 | 8.58 |
 | presentation | 2 | 2 | 7.73 | 8.99 |
 | reasoning | 3 | 3 | 7.84 | 9.19 |
-| retrieval_distractores | 8 | 8 | 8.38 | 9.38 |
 | sales_outreach | 3 | 3 | 6.49 | 7.11 |
 | startup_content | 5 | 5 | 7.87 | 9.17 |
 | strategy | 3 | 3 | 7.07 | 8.06 |
@@ -2262,5 +2261,3 @@ Aquí tienes un plan estructurado, realista y listo para ejecutar, diseñado esp
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

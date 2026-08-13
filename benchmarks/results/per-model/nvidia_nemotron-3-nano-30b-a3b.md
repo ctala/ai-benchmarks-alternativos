@@ -1,13 +1,13 @@
 # Nemotron 3 Nano 30B
 
 - **model_id**: `nvidia/nemotron-3-nano-30b-a3b`
-- **Total tests**: 150/153 exitosos (3 errores)
-- **Score final**: 7.52
-- **Calidad**: 7.64
+- **Total tests**: 142/145 exitosos (3 errores)
+- **Score final**: 7.44
+- **Calidad**: 7.57
 - **Judge score (Phi-4)**: 4.09/10
-- **Velocidad**: 109 tok/s
-- **Latencia primera token**: 18.97s
-- **Costo promedio por test**: $0.00075
+- **Velocidad**: 107 tok/s
+- **Latencia primera token**: 19.98s
+- **Costo promedio por test**: $0.00079
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,7 +33,6 @@
 | policy_adherence | 4 | 4 | 6.58 | 6.17 |
 | presentation | 2 | 2 | 8.48 | 9.16 |
 | reasoning | 3 | 3 | 8.19 | 8.87 |
-| retrieval_distractores | 8 | 8 | 8.95 | 8.88 |
 | sales_outreach | 3 | 3 | 6.71 | 6.44 |
 | startup_content | 5 | 5 | 8.56 | 9.29 |
 | strategy | 3 | 3 | 7.66 | 8.06 |
@@ -2164,5 +2163,3 @@ A continuación tienes un desglose completo en **fases**, con sus **tareas**, **
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

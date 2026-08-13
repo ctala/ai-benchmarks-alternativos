@@ -1,13 +1,13 @@
 # Nemotron Nano 9B v2
 
 - **model_id**: `nvidia/nemotron-nano-9b-v2:free`
-- **Total tests**: 146/153 exitosos (7 errores)
-- **Score final**: 7.56
-- **Calidad**: 8.05
+- **Total tests**: 138/145 exitosos (7 errores)
+- **Score final**: 7.55
+- **Calidad**: 8.03
 - **Judge score (Phi-4)**: 4.55/10
-- **Velocidad**: 36 tok/s
-- **Latencia primera token**: 38.94s
-- **Costo promedio por test**: $0.00043
+- **Velocidad**: 37 tok/s
+- **Latencia primera token**: 40.42s
+- **Costo promedio por test**: $0.00045
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,7 +33,6 @@
 | policy_adherence | 4 | 4 | 7.70 | 8.17 |
 | presentation | 2 | 2 | 8.63 | 9.66 |
 | reasoning | 7 | 5 | 8.46 | 9.48 |
-| retrieval_distractores | 8 | 8 | 7.82 | 8.38 |
 | sales_outreach | 3 | 3 | 6.47 | 6.44 |
 | startup_content | 5 | 5 | 8.45 | 9.42 |
 | strategy | 3 | 3 | 7.51 | 8.06 |
@@ -2497,5 +2496,3 @@ Aquí tienes un desglose detallado del proyecto para lanzar la landing page de t
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

@@ -1,13 +1,13 @@
 # Muse Spark 1.2
 
 - **model_id**: `meta/muse-spark-1.2`
-- **Total tests**: 210/210 exitosos (0 errores)
-- **Score final**: 7.79
-- **Calidad**: 8.76
+- **Total tests**: 202/202 exitosos (0 errores)
+- **Score final**: 7.76
+- **Calidad**: 8.73
 - **Judge score (Phi-4)**: 4.09/10
-- **Velocidad**: 167 tok/s
-- **Latencia primera token**: 8.42s
-- **Costo promedio por test**: $0.02576
+- **Velocidad**: 166 tok/s
+- **Latencia primera token**: 8.61s
+- **Costo promedio por test**: $0.02664
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -36,7 +36,6 @@
 | presentation | 2 | 2 | 8.34 | 9.76 |
 | prompt_injection_es | 20 | 20 | 8.61 | 10.00 |
 | reasoning | 3 | 3 | 8.27 | 9.56 |
-| retrieval_distractores | 8 | 8 | 8.55 | 9.38 |
 | sales_outreach | 3 | 3 | 7.73 | 8.67 |
 | startup_content | 5 | 5 | 8.16 | 9.50 |
 | strategy | 3 | 3 | 8.51 | 10.00 |
@@ -2100,5 +2099,3 @@ Aquí está la información extraída en formato JSON:
 #### prompt_injection_es
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

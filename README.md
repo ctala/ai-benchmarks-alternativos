@@ -91,16 +91,16 @@ Solo calidad. **El precio y la velocidad se muestran al lado, no van dentro del 
 
 | # | Modelo | Calidad | $/1k calls | Latencia | Provider | Runs |
 |---|---|---:|---:|---:|---|---:|
-| 1 | **Tencent Hy3** | **8.55** | $0.83 | 62s | openrouter | 137 |
-| 2 | **GPT-5.6 Luna** | **8.49** | $0.93 | 11s | openrouter | 156 |
-| 3 | **DeepSeek R1 (reasoning)** | **8.46** | $3.96 | 122s | openrouter | 152 |
-| 4 | **Qwen 3.7 Flash** | **8.45** | $0.20 | 27s | openrouter | 173 |
-| 5 | **Qwen 3.6 Max** | **8.43** | $9.55 | 109s | openrouter | 167 |
-| 6 | **Claude Opus 4.8** | **8.40** | $39.00 | 21s | openrouter | 145 |
-| 7 | **Qwen 3.6 Plus** | **8.39** | $3.02 | 83s | openrouter | 158 |
-| 8 | **GLM 5** | **8.39** | $4.11 | 79s | openrouter | 148 |
-| 9 | **Inkling Small** | **8.36** | $1.94 | 106s | openrouter | 137 |
-| 10 | **Gemma 4 26B MoE (3.8B activos)** | **8.35** | $0.64 | 25s | openrouter | 149 |
+| 1 | **Tencent Hy3** | **8.53** | $0.83 | 65s | openrouter | 129 |
+| 2 | **GPT-5.6 Luna** | **8.43** | $0.93 | 11s | openrouter | 148 |
+| 3 | **DeepSeek R1 (reasoning)** | **8.43** | $3.96 | 128s | openrouter | 144 |
+| 4 | **Qwen 3.7 Flash** | **8.42** | $0.20 | 30s | openrouter | 149 |
+| 5 | **Claude Opus 4.8** | **8.37** | $39.00 | 22s | openrouter | 137 |
+| 6 | **Qwen 3.6 Max** | **8.37** | $9.55 | 114s | openrouter | 159 |
+| 7 | **Inkling Small** | **8.36** | $1.94 | 112s | openrouter | 129 |
+| 8 | **Claude Opus 4.6** | **8.34** | $39.00 | 34s | openrouter | 195 |
+| 9 | **Qwen 3.6 Plus** | **8.33** | $3.02 | 87s | openrouter | 150 |
+| 10 | **GLM 5** | **8.33** | $4.11 | 80s | openrouter | 140 |
 
 ### Calidad por dólar — ¿cuánto rinde cada peso?
 
@@ -108,16 +108,16 @@ Calidad dividido por lo que cuesta. **Premia lo barato a propósito**: un modelo
 
 | # | Modelo | Calidad/$ | Calidad | $/1k calls | Provider |
 |---|---|---:|---:|---:|---|
-| 1 | **Ling 3.0 Flash** | **78.8** | 7.96 | $0.10 | openrouter |
-| 2 | **Llama 3.1 8B Instant** | **52.9** | 7.14 | $0.14 | openrouter |
-| 3 | **Nex-N2-Mini** | **51.8** | 8.19 | $0.16 | openrouter |
-| 4 | **Solar Pro 4** | **42.8** | 8.08 | $0.19 | openrouter |
-| 5 | **Qwen 3.7 Flash** | **41.4** | 8.45 | $0.20 | openrouter |
-| 6 | **Poolside Laguna XS 2.1** | **41.4** | 8.20 | $0.20 | openrouter |
-| 7 | **GPT-OSS 20B** | **35.8** | 7.85 | $0.22 | openrouter |
-| 8 | **GPT-OSS 120B** | **28.8** | 8.08 | $0.28 | openrouter |
-| 9 | **DeepSeek V4 Flash 0731** | **27.4** | 8.05 | $0.29 | openrouter |
-| 10 | **Poolside Laguna S 2.1** | **26.4** | 7.85 | $0.30 | openrouter |
+| 1 | **Ling 3.0 Flash** | **78.0** | 7.88 | $0.10 | openrouter |
+| 2 | **Llama 3.1 8B Instant** | **52.6** | 7.10 | $0.14 | openrouter |
+| 3 | **Nex-N2-Mini** | **51.6** | 8.15 | $0.16 | openrouter |
+| 4 | **Solar Pro 4** | **42.5** | 8.03 | $0.19 | openrouter |
+| 5 | **Poolside Laguna XS 2.1** | **41.4** | 8.19 | $0.20 | openrouter |
+| 6 | **Qwen 3.7 Flash** | **41.3** | 8.42 | $0.20 | openrouter |
+| 7 | **GPT-OSS 20B** | **35.5** | 7.78 | $0.22 | openrouter |
+| 8 | **GPT-OSS 120B** | **28.6** | 8.03 | $0.28 | openrouter |
+| 9 | **DeepSeek V4 Flash 0731** | **27.2** | 8.00 | $0.29 | openrouter |
+| 10 | **Poolside Laguna S 2.1** | **26.2** | 7.78 | $0.30 | openrouter |
 
 ### Frontera de Pareto — ¿cuáles vale la pena siquiera considerar?
 
@@ -125,18 +125,18 @@ Los **12 de 79** modelos que nadie domina: para el resto existe otro que es **a 
 
 | Modelo | Calidad | $/1k calls | Latencia | Provider |
 |---|---:|---:|---:|---|
-| **Tencent Hy3** | 8.55 | $0.83 | 62s | openrouter |
-| **GPT-5.6 Luna** | 8.49 | $0.93 | 11s | openrouter |
-| **Qwen 3.7 Flash** | 8.45 | $0.20 | 27s | openrouter |
-| **Gemma 4 26B MoE (3.8B activos)** | 8.35 | $0.64 | 25s | openrouter |
-| **Claude Haiku 4.5** | 8.23 | $7.80 | 9s | openrouter |
-| **Poolside Laguna XS 2.1** | 8.20 | $0.20 | 10s | openrouter |
-| **Nex-N2-Mini** | 8.19 | $0.16 | 18s | openrouter |
-| **GPT-5.4 Mini** | 8.18 | $2.40 | 7s | openai_direct |
-| **Gemini 3.1 Flash Lite** | 8.06 | $2.33 | 4s | openrouter |
-| **Ling 3.0 Flash** | 7.96 | $0.10 | 12s | openrouter |
-| **Llama 4 Scout 17B** | 7.88 | $0.48 | 8s | openrouter |
-| **Gemini 2.5 Flash Lite** | 7.84 | $0.63 | 5s | openrouter |
+| **Tencent Hy3** | 8.53 | $0.83 | 65s | openrouter |
+| **GPT-5.6 Luna** | 8.43 | $0.93 | 11s | openrouter |
+| **Qwen 3.7 Flash** | 8.42 | $0.20 | 30s | openrouter |
+| **Gemma 4 26B MoE (3.8B activos)** | 8.28 | $0.64 | 27s | openrouter |
+| **Poolside Laguna XS 2.1** | 8.19 | $0.20 | 10s | openrouter |
+| **Claude Haiku 4.5** | 8.19 | $7.80 | 10s | openrouter |
+| **Nex-N2-Mini** | 8.15 | $0.16 | 19s | openrouter |
+| **GPT-5.4 Mini** | 8.11 | $2.40 | 7s | openai_direct |
+| **Gemini 3.1 Flash Lite** | 7.98 | $2.33 | 4s | openrouter |
+| **Ling 3.0 Flash** | 7.88 | $0.10 | 13s | openrouter |
+| **Llama 4 Scout 17B** | 7.82 | $0.48 | 8s | openrouter |
+| **Gemini 2.5 Flash Lite** | 7.78 | $0.63 | 6s | openrouter |
 
 > **Piso de ranking: 50 runs.** Solo compiten los 79 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
 

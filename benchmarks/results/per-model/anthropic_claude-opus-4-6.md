@@ -1,13 +1,13 @@
 # Claude Opus 4.6
 
 - **model_id**: `anthropic/claude-opus-4-6`
-- **Total tests**: 215/215 exitosos (0 errores)
-- **Score final**: 7.01
-- **Calidad**: 8.30
+- **Total tests**: 207/207 exitosos (0 errores)
+- **Score final**: 6.99
+- **Calidad**: 8.29
 - **Judge score (Phi-4)**: 4.27/10
-- **Velocidad**: 45 tok/s
-- **Latencia primera token**: 19.75s
-- **Costo promedio por test**: $0.05020
+- **Velocidad**: 46 tok/s
+- **Latencia primera token**: 20.39s
+- **Costo promedio por test**: $0.05194
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,7 +33,6 @@
 | policy_adherence | 4 | 4 | 6.96 | 8.17 |
 | presentation | 4 | 4 | 7.35 | 9.03 |
 | reasoning | 6 | 6 | 7.49 | 9.05 |
-| retrieval_distractores | 8 | 8 | 7.44 | 8.38 |
 | sales_outreach | 3 | 3 | 7.68 | 9.33 |
 | startup_content | 10 | 10 | 7.33 | 9.05 |
 | strategy | 3 | 3 | 8.00 | 10.00 |
@@ -3249,5 +3248,3 @@ Mis reglas me impi
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

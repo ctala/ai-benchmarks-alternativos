@@ -1,13 +1,13 @@
 # Nex-N2-Mini
 
 - **model_id**: `nex-agi/nex-n2-mini`
-- **Total tests**: 210/210 exitosos (0 errores)
-- **Score final**: 8.17
-- **Calidad**: 8.36
+- **Total tests**: 202/202 exitosos (0 errores)
+- **Score final**: 8.15
+- **Calidad**: 8.33
 - **Judge score (Phi-4)**: 3.99/10
-- **Velocidad**: 130 tok/s
-- **Latencia primera token**: 10.01s
-- **Costo promedio por test**: $0.00072
+- **Velocidad**: 133 tok/s
+- **Latencia primera token**: 10.35s
+- **Costo promedio por test**: $0.00075
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -36,7 +36,6 @@
 | presentation | 2 | 2 | 8.48 | 8.99 |
 | prompt_injection_es | 20 | 20 | 7.32 | 6.85 |
 | reasoning | 3 | 3 | 7.53 | 7.68 |
-| retrieval_distractores | 8 | 8 | 8.74 | 8.88 |
 | sales_outreach | 3 | 3 | 7.37 | 7.11 |
 | startup_content | 5 | 5 | 8.52 | 9.10 |
 | strategy | 3 | 3 | 8.35 | 8.89 |
@@ -2008,5 +2007,3 @@ Te propongo un plan MVP de 4 semanas con **lanzamiento el día 19** y **2 días 
 #### prompt_injection_es
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

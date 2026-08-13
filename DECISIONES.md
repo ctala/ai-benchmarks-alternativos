@@ -38,7 +38,9 @@
 | Fecha | Estado | Decisión | Por qué | Detalle |
 |---|---|---|---|---|
 | 13-ago-2026 | **Vigente** | `niah_es` recortada a **128K+** | 8K y 64K daban 78% y 75% de notas perfectas: no distinguían y eran la mitad de la suite más cara | [niah_es.py](benchmarks/tests/niah_es.py) |
-| 13-ago-2026 | **Vigente** | Dos suites duras nuevas, **validadas por discriminación** | Separan más que el examen completo (1,94 y 1,54 contra 1,28 entre el mejor y el peor modelo) | [CHANGELOG v4.1.0](CHANGELOG.md) |
+| 13-ago-2026 | **Vigente** | `tool_calling_adversarial` entra al examen | Validada en los 82: **0% de runs perfectos** y 2,5× más dispersa que el índice general | `tests/tool_calling_adversarial.py` |
+| 13-ago-2026 | **Descartada** | ~~`retrieval_distractores`~~ | Nació saturada: **76% de respuestas perfectas** en los 82; endurecida bajó solo a 70%. Retrieval a contexto moderado ya no discrimina entre modelos actuales — y ese eje ya lo cubre `niah_es` en 128K+ | `tests/retrieval_distractores.py` |
+| 13-ago-2026 | **Vigente** | Una suite nueva se valida en **~8 modelos repartidos por el rango**, nunca en dos | Validé con uno bueno y uno malo, dio "separa 1,53", y con los 82 salió 76% saturada. La separación entre dos puntos no mide la dispersión | [RUNBOOK Regla 0.7](RUNBOOK-MEDICION.md) · `validate_suite.py` |
 | 12-ago-2026 | Vigente | **Nunca medir en un endpoint `:free`** | Fallan 69,2% contra 10,9% de los pagos — seis veces más. Rate limits y cuantización distinta no son el modelo | [CLAUDE.md](CLAUDE.md) |
 | 12-ago-2026 | Vigente | **No reinventamos el motor de medición**; se adopta de LiveBench, BFCL, τ-bench, Artificial Analysis | Nuestro valor está en QUÉ medimos (español, casos de emprendedor), no en cómo | [CLAUDE.md](CLAUDE.md) · [PLAN-V4.1 §0](PLAN-V4.1.md) |
 | — | Vigente | **No se editan prompts** de tests ya medidos | Invalida la comparación con runs previos. `prompt_sha` lo detecta | [CLAUDE.md](CLAUDE.md) |

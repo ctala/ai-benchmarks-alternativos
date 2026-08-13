@@ -1,12 +1,12 @@
 # Llama 3.1 8B Instant
 
 - **model_id**: `meta-llama/llama-3.1-8b-instruct`
-- **Total tests**: 161/161 exitosos (0 errores)
-- **Score final**: 7.25
-- **Calidad**: 7.03
+- **Total tests**: 163/163 exitosos (0 errores)
+- **Score final**: 7.21
+- **Calidad**: 6.96
 - **Judge score (Phi-4)**: 3.65/10
-- **Velocidad**: 90 tok/s
-- **Latencia primera token**: 10.52s
+- **Velocidad**: 91 tok/s
+- **Latencia primera token**: 10.46s
 - **Costo promedio por test**: $0.00009
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -33,7 +33,7 @@
 | policy_adherence | 4 | 4 | 5.59 | 4.50 |
 | presentation | 2 | 2 | 7.93 | 8.06 |
 | reasoning | 3 | 3 | 8.24 | 8.69 |
-| retrieval_distractores | 16 | 16 | 7.69 | 7.88 |
+| retrieval_distractores | 18 | 18 | 7.30 | 7.17 |
 | sales_outreach | 3 | 3 | 8.73 | 9.33 |
 | startup_content | 5 | 5 | 8.25 | 8.65 |
 | strategy | 3 | 3 | 7.84 | 7.78 |

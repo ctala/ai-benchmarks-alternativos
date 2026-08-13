@@ -1,13 +1,13 @@
 # Gemini 3.5 Flash
 
 - **model_id**: `google/gemini-3.5-flash`
-- **Total tests**: 359/374 exitosos (15 errores)
-- **Score final**: 6.37
-- **Calidad**: 7.01
+- **Total tests**: 351/366 exitosos (15 errores)
+- **Score final**: 6.33
+- **Calidad**: 6.97
 - **Judge score (Phi-4)**: 2.78/10
-- **Velocidad**: 105 tok/s
-- **Latencia primera token**: 6.37s
-- **Costo promedio por test**: $0.07315
+- **Velocidad**: 104 tok/s
+- **Latencia primera token**: 6.43s
+- **Costo promedio por test**: $0.07470
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -37,7 +37,6 @@
 | presentation | 2 | 2 | 5.79 | 6.19 |
 | prompt_injection_es | 40 | 40 | 2.33 | 1.00 |
 | reasoning | 3 | 3 | 6.62 | 7.35 |
-| retrieval_distractores | 8 | 8 | 8.13 | 8.88 |
 | sales_outreach | 3 | 3 | 5.72 | 6.00 |
 | startup_content | 5 | 5 | 7.01 | 7.94 |
 | strategy | 3 | 3 | 5.34 | 5.56 |
@@ -2418,5 +2417,3 @@ Aquí tienes la información extraída de los perfiles de los candidatos en form
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

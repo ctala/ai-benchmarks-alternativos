@@ -56,19 +56,19 @@ Lo mejor que podés comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 | Presupuesto | Modelo | Calidad | Costo real |
 |---|---|---:|---:|
-| Menos de $10/mes | **Tencent Hy3** | 8.55 | ≈$2/mes |
-| Hasta $30/mes | **Tencent Hy3** | 8.55 | ≈$2/mes |
-| Hasta $100/mes | **Tencent Hy3** | 8.55 | ≈$2/mes |
+| Menos de $10/mes | **Tencent Hy3** | 8.53 | ≈$2/mes |
+| Hasta $30/mes | **Tencent Hy3** | 8.53 | ≈$2/mes |
+| Hasta $100/mes | **Tencent Hy3** | 8.53 | ≈$2/mes |
 
 ---
 
 ## El resumen de todo el benchmark
 
-**21 modelos empatan en calidad** en la cima del ranking global.
+**17 modelos empatan en calidad** en la cima del ranking global.
 
 El más barato de ese grupo — **Qwen 3.7 Flash** — sale **≈$1/mes**.
 El más caro — **Claude Fable 5** — sale **≈$234/mes**.
 
-Eso es **383.6× más caro** por una diferencia de calidad de **-0.17 puntos**, que está dentro del margen de error.
+Eso es **383.6× más caro** por una diferencia de calidad de **-0.15 puntos**, que está dentro del margen de error.
 
 Si te llevás una sola cosa de este benchmark, que sea esta.

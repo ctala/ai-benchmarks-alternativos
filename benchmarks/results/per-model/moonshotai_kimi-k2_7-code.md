@@ -1,13 +1,13 @@
 # Kimi K2.7 Code
 
 - **model_id**: `moonshotai/kimi-k2.7-code`
-- **Total tests**: 243/271 exitosos (28 errores)
-- **Score final**: 7.04
-- **Calidad**: 8.09
+- **Total tests**: 235/263 exitosos (28 errores)
+- **Score final**: 7.00
+- **Calidad**: 8.06
 - **Judge score (Phi-4)**: 3.78/10
 - **Velocidad**: 46 tok/s
-- **Latencia primera token**: 42.19s
-- **Costo promedio por test**: $0.02078
+- **Latencia primera token**: 43.52s
+- **Costo promedio por test**: $0.02145
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,6 @@
 | presentation | 2 | 2 | 7.65 | 8.96 |
 | prompt_injection_es | 20 | 20 | 3.17 | 2.35 |
 | reasoning | 11 | 5 | 7.98 | 9.45 |
-| retrieval_distractores | 8 | 8 | 8.27 | 8.88 |
 | sales_outreach | 3 | 3 | 6.47 | 7.11 |
 | startup_content | 5 | 5 | 7.61 | 9.25 |
 | strategy | 3 | 3 | 7.29 | 8.89 |
@@ -2254,5 +2253,3 @@ TechFlow cerró Q1 2026 con ventas de **$2.3M (+18% vs Q4 2025)**, impulsadas po
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

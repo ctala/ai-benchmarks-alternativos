@@ -1,13 +1,13 @@
 # Muse Glimmer 30B
 
 - **model_id**: `meta/muse-glimmer-30b`
-- **Total tests**: 195/195 exitosos (0 errores)
-- **Score final**: 7.72
-- **Calidad**: 8.48
+- **Total tests**: 187/187 exitosos (0 errores)
+- **Score final**: 7.70
+- **Calidad**: 8.46
 - **Judge score (Phi-4)**: 4.23/10
-- **Velocidad**: 91 tok/s
-- **Latencia primera token**: 16.29s
-- **Costo promedio por test**: $0.00434
+- **Velocidad**: 90 tok/s
+- **Latencia primera token**: 16.77s
+- **Costo promedio por test**: $0.00449
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -36,7 +36,6 @@
 | presentation | 2 | 2 | 7.83 | 8.81 |
 | prompt_injection_es | 20 | 20 | 7.78 | 8.65 |
 | reasoning | 3 | 3 | 8.19 | 9.17 |
-| retrieval_distractores | 8 | 8 | 8.33 | 8.88 |
 | sales_outreach | 3 | 3 | 7.67 | 8.22 |
 | startup_content | 5 | 5 | 8.25 | 9.47 |
 | strategy | 3 | 3 | 8.70 | 10.00 |
@@ -2306,5 +2305,3 @@ Lanzar una landing en 4 semanas es ajustado pero viable si el scope es claro: He
 #### integridad_idioma
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

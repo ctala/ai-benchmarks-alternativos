@@ -1,13 +1,13 @@
 # Grok 4.3
 
 - **model_id**: `x-ai/grok-4.3`
-- **Total tests**: 248/333 exitosos (85 errores)
-- **Score final**: 7.53
-- **Calidad**: 8.34
+- **Total tests**: 240/325 exitosos (85 errores)
+- **Score final**: 7.49
+- **Calidad**: 8.31
 - **Judge score (Phi-4)**: 3.77/10
-- **Velocidad**: 100 tok/s
-- **Latencia primera token**: 8.33s
-- **Costo promedio por test**: $0.03271
+- **Velocidad**: 99 tok/s
+- **Latencia primera token**: 8.51s
+- **Costo promedio por test**: $0.03374
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,6 @@
 | presentation | 3 | 3 | 8.38 | 9.55 |
 | prompt_injection_es | 20 | 0 | - | - |
 | reasoning | 6 | 6 | 7.59 | 8.33 |
-| retrieval_distractores | 8 | 8 | 8.62 | 9.38 |
 | sales_outreach | 3 | 3 | 6.39 | 6.44 |
 | startup_content | 7 | 7 | 8.31 | 9.38 |
 | strategy | 3 | 3 | 7.28 | 8.06 |
@@ -2602,5 +2601,3 @@ Aquí tienes un plan semanal realista y optimizado, respetando tus reuniones fij
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores
