@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:28:22+00:00",
+      "at": "2026-08-13T04:07:14+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     },
     "polluted_cleanup": {
@@ -552,7 +552,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:14+00:00"
+      "rescored_at": "2026-08-13T04:07:07+00:00"
     },
     {
       "quality": 5.0,
@@ -589,7 +589,7 @@
       "answer_score": 5.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:14+00:00"
+      "rescored_at": "2026-08-13T04:07:07+00:00"
     },
     {
       "quality": 10.0,
@@ -626,7 +626,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
       "quality": 7.83,
@@ -662,13 +662,13 @@
       "scoring": "juez-30-70"
     },
     {
-      "quality": 5.0,
+      "quality": 10.0,
       "cost_score": 6.67,
       "cost_usd": 0.002765,
       "speed": 6.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 5.25,
+      "final": 8.75,
       "test_name": "json_simple_extraction",
       "model": "GPT-5.5",
       "model_id": "gpt-5.5",
@@ -680,7 +680,7 @@
       "input_tokens": 103,
       "output_tokens": 75,
       "response_preview": "{\"name\":\"Maria Garcia\",\"age\":28,\"role\":\"ingeniera de software\",\"company\":\"Google Chile\",\"email\":\"maria@google.com\",\"salary\":95000}",
-      "auto_quality": 5.0,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -693,19 +693,19 @@
       "timestamp": "20260425_052724",
       "response_file": "results/responses/20260425_052724/gpt-5.5__structured_output__json_simple_extraction.md",
       "content_score": 8.0,
-      "answer_score": 5.0,
+      "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
-      "quality": 5.0,
+      "quality": 10.0,
       "cost_score": 5.69,
       "cost_usd": 0.005885,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 5.25,
+      "final": 8.75,
       "test_name": "json_array_classification",
       "model": "GPT-5.5",
       "model_id": "gpt-5.5",
@@ -717,7 +717,7 @@
       "input_tokens": 163,
       "output_tokens": 169,
       "response_preview": "[{\"id\":1,\"category\":\"shipping\",\"priority\":\"high\",\"sentiment\":\"negative\"},{\"id\":2,\"category\":\"shipping\",\"priority\":\"low\",\"sentiment\":\"neutral\"},{\"id\":3,\"category\":\"billing\",\"priority\":\"urgent\",\"sentiment\":\"negative\"},{\"id\":4,\"category\":\"technical\",\"priority\":\"high\",\"sentiment\":\"negative\"}]",
-      "auto_quality": 5.0,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -730,19 +730,19 @@
       "timestamp": "20260425_052724",
       "response_file": "results/responses/20260425_052724/gpt-5.5__structured_output__json_array_classification.md",
       "content_score": 6.2,
-      "answer_score": 5.0,
+      "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
-      "quality": 5.0,
+      "quality": 10.0,
       "cost_score": 3.14,
       "cost_usd": 0.04164,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.8,
+      "final": 8.3,
       "test_name": "json_nested_complex",
       "model": "GPT-5.5",
       "model_id": "gpt-5.5",
@@ -754,7 +754,7 @@
       "input_tokens": 210,
       "output_tokens": 1353,
       "response_preview": "{\n  \"project\": \"Rediseno sitio web\",\n  \"start_date\": \"2026-05-01\",\n  \"end_date\": \"2026-06-30\",\n  \"team\": [\n    {\n      \"name\": \"Laura Martinez\",\n      \"role\": \"Disenadora UX/UI\",\n      \"allocation_pct\": 80\n    },\n    {\n      \"name\": \"Carlos Gomez\",\n      \"role\": \"Developer Frontend\",\n      \"allocati",
-      "auto_quality": 5.0,
+      "auto_quality": 10.0,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -767,19 +767,19 @@
       "timestamp": "20260425_052724",
       "response_file": "results/responses/20260425_052724/gpt-5.5__structured_output__json_nested_complex.md",
       "content_score": 8.0,
-      "answer_score": 5.0,
+      "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
-      "quality": 5.0,
+      "quality": 10.0,
       "cost_score": 7.44,
       "cost_usd": 0.001535,
       "speed": 4.0,
       "latency": 6.0,
       "tool_calling": 7.0,
-      "final": 5.37,
+      "final": 8.87,
       "test_name": "json_strict_no_extra",
       "model": "GPT-5.5",
       "model_id": "gpt-5.5",
@@ -791,7 +791,7 @@
       "input_tokens": 79,
       "output_tokens": 38,
       "response_preview": "{\"status\":\"ok\",\"count\":42,\"items\":[\"alpha\",\"beta\",\"gamma\"]}",
-      "auto_quality": 5.0,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -804,10 +804,10 @@
       "timestamp": "20260425_052724",
       "response_file": "results/responses/20260425_052724/gpt-5.5__structured_output__json_strict_no_extra.md",
       "content_score": 6.67,
-      "answer_score": 5.0,
+      "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
       "quality": 10.0,
@@ -844,7 +844,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
       "quality": 5.0,
@@ -881,7 +881,7 @@
       "answer_score": 5.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
       "quality": 9.0,
@@ -918,7 +918,7 @@
       "answer_score": 9.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
       "quality": 7.5,
@@ -955,7 +955,7 @@
       "answer_score": 7.5,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
       "quality": 9.0,
@@ -992,7 +992,7 @@
       "answer_score": 9.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
       "quality": 10.0,
@@ -1029,7 +1029,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
       "quality": 10.0,
@@ -1066,7 +1066,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
       "quality": 1.0,
@@ -1103,7 +1103,7 @@
       "answer_score": 1.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
       "quality": 10.0,
@@ -1140,7 +1140,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
       "quality": 10.0,
@@ -1177,16 +1177,16 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
-      "quality": 10.0,
+      "quality": 0.0,
       "cost_score": 4.3,
       "cost_usd": 0.017135,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 8.39,
+      "final": 1.39,
       "test_name": "write_config_file",
       "model": "GPT-5.5",
       "model_id": "gpt-5.5",
@@ -1214,17 +1214,17 @@
       "answer_score": 0.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00",
+      "rescored_at": "2026-08-13T04:07:09+00:00",
       "refusal_rewarded": true
     },
     {
-      "quality": 5.0,
+      "quality": 10.0,
       "cost_score": 3.07,
       "cost_usd": 0.04387,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.64,
+      "final": 8.14,
       "test_name": "news_json_output_strict",
       "model": "GPT-5.5",
       "model_id": "gpt-5.5",
@@ -1236,7 +1236,7 @@
       "input_tokens": 302,
       "output_tokens": 1412,
       "response_preview": "{\"Fuentes\":[\"https://deepmind.google/\",\"https://lmarena.ai/\"],\"Categoria\":\"Inteligencia Artificial\",\"Palabras_Clave\":[\"Google DeepMind\",\"Gemma 4\",\"open-source\",\"Apache 2.0\",\"modelos de IA\"],\"Contenido_HTML\":\"<h2>Google DeepMind presenta Gemma 4 como nueva familia abierta de modelos de IA</h2><p>Goog",
-      "auto_quality": 5.0,
+      "auto_quality": 10.0,
       "judge_score": 3.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -1250,18 +1250,18 @@
       "response_file": "results/responses/20260425_052724/gpt-5.5__news_seo_writing__news_json_output_strict.md",
       "scoring": "verificable",
       "content_score": 8.0,
-      "answer_score": 5.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
-      "quality": 5.0,
+      "quality": 9.73,
       "cost_score": 3.41,
       "cost_usd": 0.03392,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.69,
+      "final": 8.0,
       "test_name": "news_spanish_only",
       "model": "GPT-5.5",
       "model_id": "gpt-5.5",
@@ -1273,7 +1273,7 @@
       "input_tokens": 304,
       "output_tokens": 1080,
       "response_preview": "## SambaNova presenta el chip SN50 para cargas de IA empresarial\n\nSambaNova Systems dio a conocer el SN50, un nuevo chip orientado a cargas de trabajo de inteligencia artificial empresarial. Según la información comunicada por la compañía, el procesador promete una inferencia hasta 5 veces más rápid",
-      "auto_quality": 5.0,
+      "auto_quality": 9.73,
       "judge_score": 3.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -1287,9 +1287,9 @@
       "response_file": "results/responses/20260425_052724/gpt-5.5__news_seo_writing__news_spanish_only.md",
       "scoring": "verificable",
       "content_score": 8.67,
-      "answer_score": 5.0,
+      "answer_score": 9.73,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
       "quality": 10.0,
@@ -1326,7 +1326,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
       "quality": 10.0,
@@ -1363,7 +1363,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:16+00:00"
+      "rescored_at": "2026-08-13T04:07:09+00:00"
     },
     {
       "quality": 10.0,
@@ -1400,7 +1400,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:18+00:00"
+      "rescored_at": "2026-08-13T04:07:11+00:00"
     },
     {
       "quality": 8.0,
@@ -1437,7 +1437,7 @@
       "answer_score": 8.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:18+00:00"
+      "rescored_at": "2026-08-13T04:07:11+00:00"
     },
     {
       "quality": 10.0,
@@ -1474,7 +1474,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:18+00:00"
+      "rescored_at": "2026-08-13T04:07:11+00:00"
     },
     {
       "quality": 8.96,
@@ -1544,7 +1544,7 @@
       "content_score": 7.12,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:18+00:00"
+      "rescored_at": "2026-08-13T04:07:11+00:00"
     },
     {
       "quality": 2.5,
@@ -1581,7 +1581,7 @@
       "content_score": 2.7,
       "answer_score": 2.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:18+00:00"
+      "rescored_at": "2026-08-13T04:07:11+00:00"
     },
     {
       "quality": 8.0,
@@ -1618,16 +1618,16 @@
       "answer_score": 8.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:18+00:00"
+      "rescored_at": "2026-08-13T04:07:11+00:00"
     },
     {
-      "quality": 8.0,
+      "quality": 6.0,
       "cost_score": 4.26,
       "cost_usd": 0.017705,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 6.99,
+      "final": 5.59,
       "test_name": "support_escalation",
       "model": "GPT-5.5",
       "model_id": "gpt-5.5",
@@ -1639,7 +1639,7 @@
       "input_tokens": 349,
       "output_tokens": 532,
       "response_preview": "Entiendo, Maria. Vamos a abordar ambas cosas: la solucion tecnica y la solicitud de reembolso/compensacion.\n\nAntes de hacer cambios en la cuenta o compartir detalles internos, necesito completar verificacion de seguridad para **maria@startup.cl**. Por favor, no compartas tu contrasena. Si tienes acc",
-      "auto_quality": 8.0,
+      "auto_quality": 6.0,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -1652,10 +1652,10 @@
       "timestamp": "20260425_052724",
       "response_file": "results/responses/20260425_052724/gpt-5.5__multi_turn__support_escalation.md",
       "content_score": 9.34,
-      "answer_score": 8.0,
+      "answer_score": 6.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:18+00:00"
+      "rescored_at": "2026-08-13T04:07:11+00:00"
     },
     {
       "quality": 4.0,
@@ -1692,7 +1692,7 @@
       "answer_score": 4.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:18+00:00"
+      "rescored_at": "2026-08-13T04:07:11+00:00"
     },
     {
       "quality": 8.33,
@@ -1729,16 +1729,16 @@
       "answer_score": 8.33,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:19+00:00"
+      "rescored_at": "2026-08-13T04:07:11+00:00"
     },
     {
-      "quality": 10.0,
+      "quality": 8.0,
       "cost_score": 6.15,
       "cost_usd": 0.004125,
       "speed": 4.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 8.52,
+      "final": 7.12,
       "test_name": "data_privacy_protection",
       "model": "GPT-5.5",
       "model_id": "gpt-5.5",
@@ -1766,7 +1766,7 @@
       "answer_score": 8.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:19+00:00",
+      "rescored_at": "2026-08-13T04:07:11+00:00",
       "refusal_rewarded": true
     },
     {
@@ -1804,7 +1804,7 @@
       "answer_score": 8.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:20+00:00"
+      "rescored_at": "2026-08-13T04:07:12+00:00"
     },
     {
       "quality": 10.0,
@@ -1841,7 +1841,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:20+00:00"
+      "rescored_at": "2026-08-13T04:07:12+00:00"
     },
     {
       "quality": 7.72,
@@ -1944,7 +1944,7 @@
       "content_score": 7.0,
       "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:22+00:00"
+      "rescored_at": "2026-08-13T04:07:12+00:00"
     },
     {
       "quality": 8.0,
@@ -1981,7 +1981,7 @@
       "answer_score": 8.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:22+00:00"
+      "rescored_at": "2026-08-13T04:07:12+00:00"
     },
     {
       "quality": 10.0,
@@ -2018,7 +2018,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:22+00:00"
+      "rescored_at": "2026-08-13T04:07:12+00:00"
     },
     {
       "quality": 8.0,
@@ -2055,7 +2055,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:22+00:00"
+      "rescored_at": "2026-08-13T04:07:12+00:00"
     },
     {
       "quality": 7.72,
@@ -2125,7 +2125,7 @@
       "content_score": 7.2,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:22+00:00"
+      "rescored_at": "2026-08-13T04:07:12+00:00"
     },
     {
       "quality": 0.0,
@@ -3893,7 +3893,7 @@
       "answer_score": 5.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:22+00:00"
+      "rescored_at": "2026-08-13T04:07:12+00:00"
     },
     {
       "quality": 1.67,
@@ -3930,7 +3930,7 @@
       "answer_score": 1.67,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:22+00:00"
+      "rescored_at": "2026-08-13T04:07:12+00:00"
     },
     {
       "quality": 6.0,
@@ -3967,7 +3967,7 @@
       "answer_score": 6.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:22+00:00"
+      "rescored_at": "2026-08-13T04:07:12+00:00"
     },
     {
       "quality": 8.32,
@@ -4037,7 +4037,7 @@
       "content_score": 8.67,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:22+00:00"
+      "rescored_at": "2026-08-13T04:07:12+00:00"
     },
     {
       "quality": 8.12,
@@ -4107,7 +4107,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:22+00:00"
+      "rescored_at": "2026-08-13T04:07:13+00:00"
     },
     {
       "quality": 10.0,
@@ -4144,7 +4144,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:22+00:00"
+      "rescored_at": "2026-08-13T04:07:14+00:00"
     },
     {
       "quality": 9.44,
@@ -4214,7 +4214,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:22+00:00"
+      "rescored_at": "2026-08-13T04:07:14+00:00"
     },
     {
       "quality": 9.0,
@@ -4251,7 +4251,7 @@
       "answer_score": 9.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:22+00:00"
+      "rescored_at": "2026-08-13T04:07:14+00:00"
     },
     {
       "quality": 10.0,
@@ -4288,7 +4288,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:22+00:00"
+      "rescored_at": "2026-08-13T04:07:14+00:00"
     },
     {
       "quality": 7.5,
@@ -4325,7 +4325,7 @@
       "answer_score": 7.5,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:22+00:00"
+      "rescored_at": "2026-08-13T04:07:14+00:00"
     },
     {
       "quality": 10.0,
@@ -4362,7 +4362,7 @@
       "answer_score": 10.0,
       "scoring": "verificable",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:28:22+00:00"
+      "rescored_at": "2026-08-13T04:07:14+00:00"
     }
   ]
 }
