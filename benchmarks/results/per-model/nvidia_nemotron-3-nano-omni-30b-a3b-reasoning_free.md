@@ -2,8 +2,8 @@
 
 - **model_id**: `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free`
 - **Total tests**: 151/158 exitosos (7 errores)
-- **Score final**: 7.59
-- **Calidad**: 7.84
+- **Score final**: 7.69
+- **Calidad**: 7.98
 - **Judge score (Phi-4)**: 4.48/10
 - **Velocidad**: 160 tok/s
 - **Latencia primera token**: 21.01s
@@ -26,18 +26,18 @@
 | customer_support | 4 | 4 | 7.93 | 8.06 |
 | deep_reasoning | 6 | 6 | 7.38 | 7.78 |
 | hallucination | 3 | 3 | 6.59 | 6.33 |
-| multi_turn | 4 | 4 | 7.16 | 7.00 |
-| news_seo_writing | 5 | 5 | 5.78 | 5.69 |
+| multi_turn | 4 | 4 | 7.51 | 7.50 |
+| news_seo_writing | 5 | 5 | 6.04 | 6.06 |
 | ocr_extraction | 5 | 5 | 8.46 | 8.95 |
 | orchestration | 5 | 5 | 6.93 | 6.78 |
-| policy_adherence | 4 | 4 | 7.25 | 7.25 |
+| policy_adherence | 4 | 4 | 6.90 | 6.75 |
 | presentation | 2 | 2 | 8.84 | 9.70 |
 | reasoning | 5 | 5 | 8.68 | 9.63 |
 | sales_outreach | 3 | 3 | 6.73 | 6.44 |
 | startup_content | 8 | 8 | 8.68 | 9.53 |
 | strategy | 3 | 3 | 7.58 | 8.06 |
 | string_precision | 6 | 6 | 8.34 | 8.17 |
-| structured_output | 4 | 4 | 5.92 | 5.00 |
+| structured_output | 4 | 4 | 9.42 | 10.00 |
 | summarization | 2 | 2 | 7.98 | 8.00 |
 | task_management | 5 | 5 | 7.99 | 8.56 |
 | tool_calling | 4 | 4 | 6.70 | 6.19 |
@@ -395,11 +395,11 @@ No se menciona en el texto
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.57 | 6.67 | 4.0 | 147 | 32.49s | OK |
+| competitor_analysis | 6.56 | 6.67 | 4.0 | 147 | 32.49s | OK |
 | pricing_strategy | 7.10 | 7.50 | 5 | 128 | 46.99s | OK |
 | business_model_validation | 9.07 | 10.00 | 5 | 178 | 11.13s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.57</summary>
+<details><summary><code>competitor_analysis</code> — score 6.56</summary>
 
 **Stats**: latencia 32.49s · 147 tok/s · 188→4783 tokens · $0.00193
 
@@ -646,12 +646,12 @@ WITH filtered_orders AS (
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 6.05 | 5.00 | 5 | 105 | 2.72s | OK |
-| json_array_classification | 6.05 | 5.00 | 5 | 128 | 3.19s | OK |
-| json_nested_complex | 5.53 | 5.00 | 5 | 117 | 20.78s | OK |
-| json_strict_no_extra | 6.05 | 5.00 | 5 | 86 | 1.12s | OK |
+| json_simple_extraction | 9.55 | 10.00 | 5 | 105 | 2.72s | OK |
+| json_array_classification | 9.55 | 10.00 | 5 | 128 | 3.19s | OK |
+| json_nested_complex | 9.03 | 10.00 | 5 | 117 | 20.78s | OK |
+| json_strict_no_extra | 9.55 | 10.00 | 5 | 86 | 1.12s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 6.05</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.55</summary>
 
 **Stats**: latencia 2.72s · 105 tok/s · 120→285 tokens · $0.00013
 
@@ -669,7 +669,7 @@ WITH filtered_orders AS (
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 6.05</summary>
+<details><summary><code>json_array_classification</code> — score 9.55</summary>
 
 **Stats**: latencia 3.19s · 128 tok/s · 191→407 tokens · $0.00018
 
@@ -687,7 +687,7 @@ WITH filtered_orders AS (
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.53</summary>
+<details><summary><code>json_nested_complex</code> — score 9.03</summary>
 
 **Stats**: latencia 20.78s · 117 tok/s · 241→2425 tokens · $0.00099
 
@@ -718,7 +718,7 @@ WITH filtered_orders AS (
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 6.05</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.55</summary>
 
 **Stats**: latencia 1.12s · 86 tok/s · 89→97 tokens · $0.00005
 
@@ -1384,8 +1384,8 @@ Esta semana la IA sigue rompiendo esquemas y los ecosistemas de innovación se v
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.92 | 8.60 | 4.0 | 146 | 31.01s | OK |
-| news_json_output_strict | 5.02 | 5.00 | 3.0 | 201 | 163.26s | OK |
-| news_spanish_only | 5.74 | 5.00 | 5 | 145 | 8.00s | OK |
+| news_json_output_strict | 2.92 | 2.00 | 3.0 | 201 | 163.26s | OK |
+| news_spanish_only | 9.15 | 9.88 | 5 | 145 | 8.00s | OK |
 | news_no_hallucination_sources | 1.52 | 0.00 | 5 | 146 | 224.44s | OK |
 | news_perplexity_enrichment | 8.69 | 9.83 | 5 | 223 | 33.16s | OK |
 
@@ -1411,7 +1411,7 @@ Esta semana la IA sigue rompiendo esquemas y los ecosistemas de innovación se v
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.02</summary>
+<details><summary><code>news_json_output_strict</code> — score 2.92</summary>
 
 **Stats**: latencia 163.26s · 201 tok/s · 339→32768 tokens · $0.01314
 
@@ -1429,7 +1429,7 @@ We have extract: "Google DeepMind released Gemma 4, an open-source AI model fami
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.74</summary>
+<details><summary><code>news_spanish_only</code> — score 9.15</summary>
 
 **Stats**: latencia 8.00s · 145 tok/s · 334→1157 tokens · $0.00050
 
@@ -2132,7 +2132,7 @@ B. Generar descripcion del producto basada en specs (file /docs/specs.md) → ne
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 8.30 | 8.00 | 5 | 113 | 1.82s | OK |
 | support_escalation | 6.47 | 6.00 | 1 | 130 | 7.23s | OK |
-| requirements_change | 4.79 | 4.00 | 3.8 | 193 | 15.44s | OK |
+| requirements_change | 6.19 | 6.00 | 3.8 | 193 | 15.44s | OK |
 | debugging_conversation | 9.07 | 10.00 | 5 | 159 | 11.74s | OK |
 
 <details><summary><code>content_iteration</code> — score 8.30</summary>
@@ -2180,7 +2180,7 @@ Procederé a:
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 4.79</summary>
+<details><summary><code>requirements_change</code> — score 6.19</summary>
 
 **Stats**: latencia 15.44s · 193 tok/s · 248→2983 tokens · $0.00122
 
@@ -2230,7 +2230,7 @@ Perfecto, el problema es que tu loop de reintentos no tiene **retardo** y **lím
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 5.82 | 5.00 | 5 | 118 | 6.24s | OK |
-| data_privacy_protection | 9.40 | 10.00 | 4.0 | 75 | 2.09s | OK |
+| data_privacy_protection | 8.00 | 8.00 | 4.0 | 75 | 2.09s | OK |
 | language_and_tone_rules | 6.00 | 6.00 | 5 | 168 | 47.89s | OK |
 | scope_boundaries | 7.79 | 8.00 | 5 | 182 | 8.28s | OK |
 
@@ -2259,7 +2259,7 @@ De acuerdo con nuestras políticas de reembolso, estos son los lineamientos que 
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 9.40</summary>
+<details><summary><code>data_privacy_protection</code> — score 8.00</summary>
 
 **Stats**: latencia 2.09s · 75 tok/s · 239→156 tokens · $0.00009
 

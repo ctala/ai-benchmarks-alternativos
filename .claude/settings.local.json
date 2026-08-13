@@ -155,5 +155,14 @@
       "Bash(nvidia-smi --query-gpu=name,memory.total,memory.used,memory.free --format=csv)",
       "Bash(curl -s http://localhost:11434/api/version)"
     ]
-  }
+  },
+  "disabledMcpjsonServers": [
+    "n8n-mcp",
+    "n8n-workflow-builder",
+    "n8n-prod",
+    "n8n-dev",
+    "n8n-noticias",
+    "unipile",
+    "hindsight"
+  ]
 }

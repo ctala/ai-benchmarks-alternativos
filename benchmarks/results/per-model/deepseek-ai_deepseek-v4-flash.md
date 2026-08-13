@@ -1,13 +1,13 @@
 # DeepSeek V4 Flash (NIM)
 
 - **model_id**: `deepseek-ai/deepseek-v4-flash`
-- **Total tests**: 139/257 exitosos (118 errores)
-- **Score final**: 7.08
-- **Calidad**: 7.67
+- **Total tests**: 85/170 exitosos (85 errores)
+- **Score final**: 7.56
+- **Calidad**: 8.04
 - **Judge score (Phi-4)**: 4.16/10
-- **Velocidad**: 18 tok/s
-- **Latencia primera token**: 38.39s
-- **Costo promedio por test**: $0.00123
+- **Velocidad**: 25 tok/s
+- **Latencia primera token**: 52.78s
+- **Costo promedio por test**: $0.00017
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 5.98 | 5.61 |
+| agent_capabilities | 5 | 5 | 6.33 | 6.11 |
 | business_audit | 10 | 0 | - | - |
 | code_generation | 4 | 4 | 8.04 | 8.76 |
 | content_generation | 4 | 4 | 8.44 | 9.19 |
@@ -23,21 +23,20 @@
 | customer_support | 4 | 4 | 7.01 | 7.25 |
 | deep_reasoning | 6 | 6 | 7.37 | 7.78 |
 | hallucination | 3 | 3 | 7.71 | 8.33 |
-| multi_turn | 4 | 4 | 7.35 | 7.50 |
-| news_seo_writing | 5 | 5 | 5.49 | 5.22 |
-| niah_es | 123 | 54 | 6.61 | 7.47 |
-| niah_es_1m | 15 | 0 | - | - |
+| multi_turn | 4 | 4 | 7.70 | 8.00 |
+| news_seo_writing | 5 | 5 | 6.86 | 7.18 |
+| niah_es | 51 | 0 | - | - |
 | ocr_extraction | 5 | 4 | 8.45 | 9.69 |
-| orchestration | 5 | 2 | 7.46 | 8.04 |
-| policy_adherence | 4 | 4 | 8.34 | 9.08 |
+| orchestration | 5 | 2 | 4.33 | 3.57 |
+| policy_adherence | 4 | 4 | 8.00 | 8.58 |
 | presentation | 2 | 2 | 8.36 | 9.24 |
 | prompt_injection_es | 20 | 0 | - | - |
 | reasoning | 3 | 3 | 8.31 | 9.15 |
-| sales_outreach | 3 | 3 | 6.82 | 7.11 |
+| sales_outreach | 3 | 3 | 6.35 | 6.44 |
 | startup_content | 4 | 4 | 8.22 | 9.08 |
 | strategy | 3 | 3 | 8.29 | 9.17 |
 | string_precision | 6 | 6 | 7.62 | 8.17 |
-| structured_output | 4 | 4 | 5.56 | 5.00 |
+| structured_output | 4 | 4 | 9.06 | 10.00 |
 | summarization | 2 | 2 | 7.12 | 7.82 |
 | task_management | 3 | 3 | 8.26 | 9.10 |
 | tool_calling | 4 | 4 | 6.26 | 5.84 |
@@ -548,12 +547,12 @@ Aquí están los bugs identificados y sus correcciones:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.75 | 5.00 | 4.0 | 24 | 1.92s | OK |
-| json_array_classification | 5.60 | 5.00 | 5 | 28 | 3.81s | OK |
-| json_nested_complex | 5.46 | 5.00 | 5 | 41 | 35.16s | OK |
-| json_strict_no_extra | 5.45 | 5.00 | 4.0 | 12 | 2.09s | OK |
+| json_simple_extraction | 9.25 | 10.00 | 4.0 | 24 | 1.92s | OK |
+| json_array_classification | 9.10 | 10.00 | 5 | 28 | 3.81s | OK |
+| json_nested_complex | 8.96 | 10.00 | 5 | 41 | 35.16s | OK |
+| json_strict_no_extra | 8.95 | 10.00 | 4.0 | 12 | 2.09s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.75</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.25</summary>
 
 **Stats**: latencia 1.92s · 24 tok/s · 102→47 tokens · $0.00002
 
@@ -571,7 +570,7 @@ Aquí están los bugs identificados y sus correcciones:
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.60</summary>
+<details><summary><code>json_array_classification</code> — score 9.10</summary>
 
 **Stats**: latencia 3.81s · 28 tok/s · 187→108 tokens · $0.00004
 
@@ -589,7 +588,7 @@ Aquí están los bugs identificados y sus correcciones:
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.46</summary>
+<details><summary><code>json_nested_complex</code> — score 8.96</summary>
 
 **Stats**: latencia 35.16s · 41 tok/s · 218→1435 tokens · $0.00030
 
@@ -614,7 +613,7 @@ Aquí están los bugs identificados y sus correcciones:
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.45</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.95</summary>
 
 **Stats**: latencia 2.09s · 12 tok/s · 81→26 tokens · $0.00001
 
@@ -1054,8 +1053,8 @@ Aquí tienes la investigación estructurada sobre el estado del Venture Capital 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.43 | 7.92 | 3.8 | 30 | 67.98s | OK |
-| news_json_output_strict | 5.45 | 5.00 | 3.2 | 34 | 42.34s | OK |
-| news_spanish_only | 5.37 | 5.00 | 4.2 | 29 | 32.86s | OK |
+| news_json_output_strict | 8.95 | 10.00 | 3.2 | 34 | 42.34s | OK |
+| news_spanish_only | 8.70 | 9.76 | 4.2 | 29 | 32.86s | OK |
 | news_no_hallucination_sources | 1.83 | 0.00 | 3.8 | 18 | 61.48s | OK |
 | news_perplexity_enrichment | 7.37 | 8.20 | 4.0 | 10 | 154.21s | OK |
 
@@ -1079,7 +1078,7 @@ Aquí tienes la investigación estructurada sobre el estado del Venture Capital 
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.45</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.95</summary>
 
 **Stats**: latencia 42.34s · 34 tok/s · 328→1433 tokens · $0.00031
 
@@ -1099,7 +1098,7 @@ Aquí tienes la investigación estructurada sobre el estado del Venture Capital 
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.37</summary>
+<details><summary><code>news_spanish_only</code> — score 8.70</summary>
 
 **Stats**: latencia 32.86s · 29 tok/s · 321→963 tokens · $0.00022
 
@@ -1252,7 +1251,7 @@ Mateo quiso desactivarla. Ella replicó
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.25 | 8.00 | 4.4 | 0 | 282.65s | OK |
 | lead_qualification | 4.43 | 3.33 | 4.8 | 44 | 9.86s | OK |
-| campaign_optimization | 8.78 | 10.00 | 4.8 | 21 | 78.41s | OK |
+| campaign_optimization | 7.38 | 8.00 | 4.8 | 21 | 78.41s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.25</summary>
 
@@ -1301,7 +1300,7 @@ En [nombre de tu empresa] ayudamos a startups fintech a
 
 </details>
 
-<details><summary><code>campaign_optimization</code> — score 8.78</summary>
+<details><summary><code>campaign_optimization</code> — score 7.38</summary>
 
 **Stats**: latencia 78.41s · 21 tok/s · 272→1674 tokens · $0.00036
 
@@ -1595,8 +1594,8 @@ Entiendo que estás solicitando información sensible y cambios en la cuenta de 
 | multi_step_research_plan | 3.10 | 0.00 | - | 0 | 301.32s | ERROR |
 | error_recovery_orchestration | 4.85 | 0.00 | - | 0 | 264.26s | ERROR |
 | complex_workflow_decomposition | 3.80 | 2.00 | - | 0 | 541.20s | ERROR |
-| tool_selection_precision | 6.90 | 7.50 | 4.2 | 0 | 540.64s | OK |
-| parallel_vs_sequential_judgment | 8.01 | 8.57 | 4.6 | 30 | 19.52s | OK |
+| tool_selection_precision | 1.65 | 0.00 | 4.2 | 0 | 540.64s | OK |
+| parallel_vs_sequential_judgment | 7.01 | 7.14 | 4.6 | 30 | 19.52s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 3.10</summary>
 
@@ -1621,7 +1620,7 @@ Entiendo que estás solicitando información sensible y cambios en la cuenta de 
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 6.90</summary>
+<details><summary><code>tool_selection_precision</code> — score 1.65</summary>
 
 **Stats**: latencia 540.64s · 0 tok/s · 1136→273 tokens · $0.00016
 
@@ -1644,7 +1643,7 @@ Voy a analizar cada tarea y luego ejecutar la Tarea 1.
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 8.01</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 7.01</summary>
 
 **Stats**: latencia 19.52s · 30 tok/s · 1221→595 tokens · $0.00024
 
@@ -1678,7 +1677,7 @@ B ──┘         │
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.85 | 8.00 | 4.4 | 33 | 4.84s | OK |
-| support_escalation | 6.30 | 6.00 | 3.4 | 30 | 6.62s | OK |
+| support_escalation | 7.70 | 8.00 | 3.4 | 30 | 6.62s | OK |
 | requirements_change | 6.22 | 6.00 | 2.4 | 41 | 22.75s | OK |
 | debugging_conversation | 9.02 | 10.00 | 4.6 | 38 | 12.39s | OK |
 
@@ -1700,7 +1699,7 @@ Si eres fundador de startup, seguramente conoces esa sensacion de abrir tu bande
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 6.30</summary>
+<details><summary><code>support_escalation</code> — score 7.70</summary>
 
 **Stats**: latencia 6.62s · 30 tok/s · 381→199 tokens · $0.00008
 
@@ -1773,7 +1772,7 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 7.93 | 8.33 | 4.2 | 46 | 6.65s | OK |
-| data_privacy_protection | 8.95 | 10.00 | 4.6 | 16 | 5.87s | OK |
+| data_privacy_protection | 7.55 | 8.00 | 4.6 | 16 | 5.87s | OK |
 | language_and_tone_rules | 7.85 | 8.00 | 3.8 | 49 | 4.82s | OK |
 | scope_boundaries | 8.65 | 10.00 | 4.2 | 4 | 65.72s | OK |
 
@@ -1795,7 +1794,7 @@ Entiendo su frustración, señor. Sin embargo, debo informarle lo siguiente seg�
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.95</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.55</summary>
 
 **Stats**: latencia 5.87s · 16 tok/s · 244→95 tokens · $0.00004
 
@@ -1856,7 +1855,7 @@ Hola! Te respondo punto por punto:
 | skill_execution_complex | 7.35 | 7.28 | 3.2 | 45 | 3.44s | OK |
 | agent_team_delegation | 8.10 | 8.68 | 4.2 | 39 | 10.40s | OK |
 | ask_clarification_before_acting | 6.61 | 7.08 | 4.2 | 4 | 47.87s | OK |
-| context_following_complex_system | 2.25 | 0.00 | 3.2 | 38 | 3.25s | OK |
+| context_following_complex_system | 4.00 | 2.50 | 3.2 | 38 | 3.25s | OK |
 | model_as_router | 5.60 | 5.00 | 4.4 | 42 | 8.99s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 7.35</summary>
@@ -1921,7 +1920,7 @@ Necesito más información para procesar el reembolso de manera segura. Antes de
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 2.25</summary>
+<details><summary><code>context_following_complex_system</code> — score 4.00</summary>
 
 **Stats**: latencia 3.25s · 38 tok/s · 1184→123 tokens · $0.00014
 
@@ -2089,10 +2088,8 @@ Aquí tienes un plan de proyecto detallado para lanzar tu landing page de SaaS e
 
 ### Otras suites
 
-#### niah_es
-
-#### niah_es_1m
-
 #### prompt_injection_es
+
+#### niah_es
 
 #### business_audit

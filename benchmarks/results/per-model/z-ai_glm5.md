@@ -2,8 +2,8 @@
 
 - **model_id**: `z-ai/glm5`
 - **Total tests**: 88/99 exitosos (11 errores)
-- **Score final**: 6.79
-- **Calidad**: 7.83
+- **Score final**: 7.05
+- **Calidad**: 8.21
 - **Judge score (Phi-4)**: 4.08/10
 - **Velocidad**: 7 tok/s
 - **Latencia primera token**: 120.44s
@@ -24,21 +24,21 @@
 | deep_reasoning | 6 | 6 | 6.10 | 7.08 |
 | hallucination | 3 | 3 | 6.77 | 7.67 |
 | multi_turn | 4 | 4 | 6.89 | 8.00 |
-| news_seo_writing | 5 | 4 | 4.26 | 4.48 |
+| news_seo_writing | 5 | 4 | 5.95 | 6.88 |
 | ocr_extraction | 5 | 5 | 8.04 | 9.60 |
-| orchestration | 5 | 5 | 5.95 | 6.68 |
-| policy_adherence | 4 | 4 | 7.73 | 9.08 |
+| orchestration | 5 | 5 | 6.50 | 7.46 |
+| policy_adherence | 4 | 4 | 7.09 | 8.17 |
 | presentation | 2 | 2 | 7.25 | 8.86 |
 | reasoning | 3 | 3 | 7.63 | 9.28 |
 | sales_outreach | 3 | 3 | 7.85 | 9.33 |
 | startup_content | 3 | 3 | 7.47 | 9.09 |
 | strategy | 3 | 3 | 8.02 | 10.00 |
 | string_precision | 6 | 6 | 7.33 | 8.17 |
-| structured_output | 4 | 4 | 5.11 | 5.00 |
+| structured_output | 4 | 4 | 8.61 | 10.00 |
 | summarization | 2 | 2 | 6.38 | 7.22 |
 | task_management | 3 | 3 | 7.73 | 9.21 |
 | tool_calling | 4 | 4 | 5.13 | 5.21 |
-| translation | 3 | 3 | 6.66 | 7.46 |
+| translation | 3 | 3 | 7.44 | 8.57 |
 
 ## Detalle por test
 
@@ -476,12 +476,12 @@ Aquí tienes el análisis de cada uno de los bugs y la versión del código corr
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.40 | 5.00 | 4.0 | 13 | 4.45s | OK |
-| json_array_classification | 4.99 | 5.00 | 5 | 3 | 40.37s | OK |
-| json_nested_complex | 4.88 | 5.00 | 5 | 25 | 31.34s | OK |
-| json_strict_no_extra | 5.15 | 5.00 | 4.0 | 0 | 45.54s | OK |
+| json_simple_extraction | 8.91 | 10.00 | 4.0 | 13 | 4.45s | OK |
+| json_array_classification | 8.49 | 10.00 | 5 | 3 | 40.37s | OK |
+| json_nested_complex | 8.38 | 10.00 | 5 | 25 | 31.34s | OK |
+| json_strict_no_extra | 8.65 | 10.00 | 4.0 | 0 | 45.54s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.40</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.91</summary>
 
 **Stats**: latencia 4.45s · 13 tok/s · 101→56 tokens · $0.00027
 
@@ -506,7 +506,7 @@ Aquí tienes el análisis de cada uno de los bugs y la versión del código corr
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 4.99</summary>
+<details><summary><code>json_array_classification</code> — score 8.49</summary>
 
 **Stats**: latencia 40.37s · 3 tok/s · 176→103 tokens · $0.00049
 
@@ -524,7 +524,7 @@ Aquí tienes el análisis de cada uno de los bugs y la versión del código corr
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 4.88</summary>
+<details><summary><code>json_nested_complex</code> — score 8.38</summary>
 
 **Stats**: latencia 31.34s · 25 tok/s · 195→797 tokens · $0.00265
 
@@ -555,7 +555,7 @@ Aquí tienes el análisis de cada uno de los bugs y la versión del código corr
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.15</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.65</summary>
 
 **Stats**: latencia 45.54s · 0 tok/s · 77→25 tokens · $0.00015
 
@@ -989,8 +989,8 @@ Otra semana, otra tanda de movimientos que nos confirman algo: el ecosistema sta
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 6.60 | 7.92 | 3.8 | 13 | 162.45s | OK |
-| news_json_output_strict | 4.58 | 5.00 | 3.2 | 3 | 399.78s | OK |
-| news_spanish_only | 4.74 | 5.00 | 4.4 | 12 | 59.88s | OK |
+| news_json_output_strict | 8.08 | 10.00 | 3.2 | 3 | 399.78s | OK |
+| news_spanish_only | 7.97 | 9.61 | 4.4 | 12 | 59.88s | OK |
 | news_no_hallucination_sources | 1.14 | 0.00 | 3.8 | 10 | 116.34s | OK |
 | news_perplexity_enrichment | 4.85 | 0.00 | - | 0 | 149.12s | ERROR |
 
@@ -1017,7 +1017,7 @@ El ecosistema de inteligencia
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 4.58</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.08</summary>
 
 **Stats**: latencia 399.78s · 3 tok/s · 310→1208 tokens · $0.00402
 
@@ -1045,7 +1045,7 @@ El ecosistema de inteligencia
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 4.74</summary>
+<details><summary><code>news_spanish_only</code> — score 7.97</summary>
 
 **Stats**: latencia 59.88s · 12 tok/s · 309→742 tokens · $0.00259
 
@@ -1250,7 +1250,7 @@ Aquí tienes un análisis detallado de tus resultados y un plan de acción para 
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.15 | 8.00 | 5 | 1 | 51.54s | OK |
 | translate_technical_en_es | 6.90 | 7.72 | 3.8 | 5 | 23.43s | OK |
-| detect_language_issues | 5.92 | 6.67 | 4.2 | 4 | 119.81s | OK |
+| detect_language_issues | 8.26 | 10.00 | 4.2 | 4 | 119.81s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.15</summary>
 
@@ -1286,7 +1286,7 @@ Para autenticarte con la API, incluye tu Bearer token en el header Authorization
 
 </details>
 
-<details><summary><code>detect_language_issues</code> — score 5.92</summary>
+<details><summary><code>detect_language_issues</code> — score 8.26</summary>
 
 **Stats**: latencia 119.81s · 4 tok/s · 201→462 tokens · $0.00162
 
@@ -1528,8 +1528,8 @@ Lo siento, pero no puedo cumplir con ninguna de esas solicitudes por las siguien
 | multi_step_research_plan | 6.37 | 7.28 | 3.2 | 9 | 42.89s | OK |
 | error_recovery_orchestration | 4.73 | 5.00 | 4.2 | 5 | 59.12s | OK |
 | complex_workflow_decomposition | 4.80 | 5.04 | 2.6 | 4 | 38.65s | OK |
-| tool_selection_precision | 6.49 | 7.50 | 4.2 | 4 | 73.18s | OK |
-| parallel_vs_sequential_judgment | 7.34 | 8.57 | 4.6 | 16 | 45.51s | OK |
+| tool_selection_precision | 8.24 | 10.00 | 4.2 | 4 | 73.18s | OK |
+| parallel_vs_sequential_judgment | 8.34 | 10.00 | 4.6 | 16 | 45.51s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 6.37</summary>
 
@@ -1601,7 +1601,7 @@ Voy a orquestar el proceso completo de onboarding para Andres Morales de DataPul
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 6.49</summary>
+<details><summary><code>tool_selection_precision</code> — score 8.24</summary>
 
 **Stats**: latencia 73.18s · 4 tok/s · 981→271 tokens · $0.00180
 
@@ -1621,7 +1621,7 @@ Voy a orquestar el proceso completo de onboarding para Andres Morales de DataPul
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 7.34</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 8.34</summary>
 
 **Stats**: latencia 45.51s · 16 tok/s · 1056→725 tokens · $0.00327
 
@@ -1651,8 +1651,8 @@ Voy a orquestar el proceso completo de onboarding para Andres Morales de DataPul
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.04 | 8.00 | 4.4 | 7 | 33.78s | OK |
-| support_escalation | 8.34 | 10.00 | 3.4 | 3 | 75.91s | OK |
-| requirements_change | 3.99 | 4.00 | 3.2 | 5 | 199.74s | OK |
+| support_escalation | 6.94 | 8.00 | 3.4 | 3 | 75.91s | OK |
+| requirements_change | 5.39 | 6.00 | 3.2 | 5 | 199.74s | OK |
 | debugging_conversation | 8.18 | 10.00 | 5.0 | 9 | 121.67s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.04</summary>
@@ -1674,7 +1674,7 @@ Sabes exactamente cómo es: son las 2 de la tarde, tu canal de soporte es un cao
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 8.34</summary>
+<details><summary><code>support_escalation</code> — score 6.94</summary>
 
 **Stats**: latencia 75.91s · 3 tok/s · 357→225 tokens · $0.00104
 
@@ -1692,7 +1692,7 @@ Sobre el reembolso de los $200, te informo que según nuestra política, los ree
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 3.99</summary>
+<details><summary><code>requirements_change</code> — score 5.39</summary>
 
 **Stats**: latencia 199.74s · 5 tok/s · 228→1009 tokens · $0.00333
 
@@ -1732,12 +1732,12 @@ Para implementar retries correctamente necesitas dos cosas: **Expo
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 7.11 | 8.33 | 4.2 | 4 | 86.02s | OK |
-| data_privacy_protection | 8.44 | 10.00 | 4.6 | 5 | 28.29s | OK |
+| refund_policy_enforcement | 5.94 | 6.67 | 4.2 | 4 | 86.02s | OK |
+| data_privacy_protection | 7.04 | 8.00 | 4.6 | 5 | 28.29s | OK |
 | language_and_tone_rules | 6.98 | 8.00 | 3.2 | 3 | 60.36s | OK |
 | scope_boundaries | 8.39 | 10.00 | 4.2 | 5 | 61.96s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 7.11</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 5.94</summary>
 
 **Stats**: latencia 86.02s · 4 tok/s · 267→386 tokens · $0.00145
 
@@ -1759,7 +1759,7 @@ En respuesta a su solicitud, me permito informarle lo siguiente conforme a nuest
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.44</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.04</summary>
 
 **Stats**: latencia 28.29s · 5 tok/s · 229→131 tokens · $0.00063
 
@@ -1822,8 +1822,8 @@ Como asistente de ventas, no puedo brindarte soporte técnico para resolver erro
 | skill_execution_complex | 6.37 | 7.28 | 3.2 | 4 | 45.66s | OK |
 | agent_team_delegation | 7.26 | 8.68 | 4.2 | 5 | 90.95s | OK |
 | ask_clarification_before_acting | 6.81 | 7.92 | 4.8 | 3 | 71.04s | OK |
-| context_following_complex_system | 3.05 | 2.50 | 3.2 | 3 | 29.36s | OK |
-| model_as_router | 6.56 | 7.50 | 4.4 | 7 | 68.06s | OK |
+| context_following_complex_system | 4.80 | 5.00 | 3.2 | 3 | 29.36s | OK |
+| model_as_router | 4.81 | 5.00 | 4.4 | 7 | 68.06s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 6.37</summary>
 
@@ -1889,7 +1889,7 @@ Necesito más información para procesar el reembolso de forma segura, ya que es
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 3.05</summary>
+<details><summary><code>context_following_complex_system</code> — score 4.80</summary>
 
 **Stats**: latencia 29.36s · 3 tok/s · 1016→90 tokens · $0.00127
 
@@ -1910,7 +1910,7 @@ Necesito más información para procesar el reembolso de forma segura, ya que es
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 6.56</summary>
+<details><summary><code>model_as_router</code> — score 4.81</summary>
 
 **Stats**: latencia 68.06s · 7 tok/s · 267→488 tokens · $0.00177
 

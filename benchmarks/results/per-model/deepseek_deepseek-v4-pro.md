@@ -1,13 +1,13 @@
 # DeepSeek V4 Pro
 
 - **model_id**: `deepseek/deepseek-v4-pro`
-- **Total tests**: 224/246 exitosos (22 errores)
-- **Score final**: 6.52
-- **Calidad**: 7.12
-- **Judge score (Phi-4)**: 3.69/10
-- **Velocidad**: 42 tok/s
-- **Latencia primera token**: 42.34s
-- **Costo promedio por test**: $0.00692
+- **Total tests**: 179/201 exitosos (22 errores)
+- **Score final**: 7.31
+- **Calidad**: 8.12
+- **Judge score (Phi-4)**: 4.33/10
+- **Velocidad**: 46 tok/s
+- **Latencia primera token**: 50.28s
+- **Costo promedio por test**: $0.00391
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -21,16 +21,15 @@
 | business_strategy | 5 | 5 | 7.11 | 7.87 |
 | code_generation | 10 | 8 | 8.02 | 9.14 |
 | content_generation | 7 | 7 | 7.92 | 8.99 |
-| content_verificable | 5 | 5 | 7.70 | 8.53 |
+| content_verificable | 5 | 5 | 8.17 | 9.20 |
 | creativity | 8 | 7 | 8.01 | 9.14 |
 | customer_support | 8 | 4 | 7.79 | 8.38 |
 | deep_reasoning | 11 | 9 | 6.74 | 7.50 |
 | hallucination | 6 | 5 | 7.31 | 8.00 |
-| multi_turn | 8 | 7 | 6.54 | 6.86 |
-| news_seo_writing | 10 | 9 | 5.23 | 5.42 |
-| niah_es_lite | 45 | 45 | 4.11 | 4.23 |
+| multi_turn | 8 | 7 | 6.94 | 7.43 |
+| news_seo_writing | 10 | 9 | 6.38 | 7.06 |
 | ocr_extraction | 9 | 8 | 8.07 | 9.34 |
-| orchestration | 10 | 8 | 7.21 | 7.86 |
+| orchestration | 10 | 8 | 6.33 | 6.61 |
 | policy_adherence | 7 | 7 | 8.12 | 9.08 |
 | presentation | 3 | 3 | 7.80 | 8.98 |
 | reasoning | 5 | 5 | 8.09 | 9.35 |
@@ -38,7 +37,7 @@
 | startup_content | 10 | 9 | 7.95 | 9.28 |
 | strategy | 3 | 3 | 6.48 | 7.22 |
 | string_precision | 12 | 11 | 7.51 | 8.00 |
-| structured_output | 8 | 7 | 5.17 | 5.00 |
+| structured_output | 8 | 7 | 8.67 | 10.00 |
 | summarization | 2 | 2 | 7.08 | 7.82 |
 | task_management | 6 | 5 | 7.81 | 8.93 |
 | tool_calling | 8 | 7 | 5.79 | 5.58 |
@@ -856,16 +855,16 @@ Si la lista `orders` no contiene ningún pedido con `status == 'pending'`, la va
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_array_classification | 5.13 | 5.00 | 5 | 19 | 26.06s | OK |
+| json_array_classification | 8.63 | 10.00 | 5 | 19 | 26.06s | OK |
 | json_simple_extraction | 6.18 | 3.80 | - | 0 | 0.00s | ERROR |
-| json_nested_complex | 4.79 | 5.00 | 4.4 | 32 | 217.81s | OK |
-| json_strict_no_extra | 5.15 | 5.00 | 4.0 | 1 | 35.55s | OK |
-| json_simple_extraction | 5.49 | 5.00 | 4.0 | 33 | 7.47s | OK |
-| json_array_classification | 5.43 | 5.00 | 5 | 50 | 10.23s | OK |
-| json_nested_complex | 5.02 | 5.00 | 5 | 96 | 50.10s | OK |
-| json_strict_no_extra | 5.21 | 5.00 | 5 | 11 | 13.89s | OK |
+| json_nested_complex | 8.29 | 10.00 | 4.4 | 32 | 217.81s | OK |
+| json_strict_no_extra | 8.65 | 10.00 | 4.0 | 1 | 35.55s | OK |
+| json_simple_extraction | 8.99 | 10.00 | 4.0 | 33 | 7.47s | OK |
+| json_array_classification | 8.93 | 10.00 | 5 | 50 | 10.23s | OK |
+| json_nested_complex | 8.52 | 10.00 | 5 | 96 | 50.10s | OK |
+| json_strict_no_extra | 8.71 | 10.00 | 5 | 11 | 13.89s | OK |
 
-<details><summary><code>json_array_classification</code> — score 5.13</summary>
+<details><summary><code>json_array_classification</code> — score 8.63</summary>
 
 **Stats**: latencia 26.06s · 19 tok/s · 187→501 tokens · $0.00075
 
@@ -889,7 +888,7 @@ Si la lista `orders` no contiene ningún pedido con `status == 'pending'`, la va
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 4.79</summary>
+<details><summary><code>json_nested_complex</code> — score 8.29</summary>
 
 **Stats**: latencia 217.81s · 32 tok/s · 218→7058 tokens · $0.00906
 
@@ -921,7 +920,7 @@ Si la lista `orders` no contiene ningún pedido con `status == 'pending'`, la va
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.15</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.65</summary>
 
 **Stats**: latencia 35.55s · 1 tok/s · 81→26 tokens · $0.00008
 
@@ -939,7 +938,7 @@ Si la lista `orders` no contiene ningún pedido con `status == 'pending'`, la va
 
 </details>
 
-<details><summary><code>json_simple_extraction</code> — score 5.49</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.99</summary>
 
 **Stats**: latencia 7.47s · 33 tok/s · 102→245 tokens · $0.00037
 
@@ -957,7 +956,7 @@ Si la lista `orders` no contiene ningún pedido con `status == 'pending'`, la va
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.43</summary>
+<details><summary><code>json_array_classification</code> — score 8.93</summary>
 
 **Stats**: latencia 10.23s · 50 tok/s · 187→513 tokens · $0.00077
 
@@ -975,7 +974,7 @@ Si la lista `orders` no contiene ningún pedido con `status == 'pending'`, la va
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.02</summary>
+<details><summary><code>json_nested_complex</code> — score 8.52</summary>
 
 **Stats**: latencia 50.10s · 96 tok/s · 218→4802 tokens · $0.00620
 
@@ -1000,7 +999,7 @@ Si la lista `orders` no contiene ningún pedido con `status == 'pending'`, la va
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.21</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.71</summary>
 
 **Stats**: latencia 13.89s · 11 tok/s · 81→147 tokens · $0.00024
 
@@ -1851,13 +1850,13 @@ Abrimos otra semana con movimientos que confirman que la inteligencia artificial
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 6.82 | 7.92 | 3.8 | 36 | 220.55s | OK |
-| news_json_output_strict | 4.55 | 5.00 | 3.2 | 20 | 570.40s | OK |
+| news_json_output_strict | 8.05 | 10.00 | 3.2 | 20 | 570.40s | OK |
 | news_no_hallucination_sources | 1.44 | 0.00 | 4.0 | 31 | 98.52s | OK |
 | news_perplexity_enrichment | 6.87 | 7.86 | 4.0 | 30 | 69.46s | OK |
 | news_spanish_only | 5.90 | 3.00 | - | 0 | 0.00s | ERROR |
 | news_seo_article_full | 7.15 | 8.20 | 4.0 | 51 | 160.52s | OK |
-| news_json_output_strict | 5.00 | 5.00 | 3.0 | 80 | 63.98s | OK |
-| news_spanish_only | 5.20 | 5.00 | 4.0 | 89 | 19.67s | OK |
+| news_json_output_strict | 8.50 | 10.00 | 3.0 | 80 | 63.98s | OK |
+| news_spanish_only | 8.54 | 9.77 | 4.0 | 89 | 19.67s | OK |
 | news_no_hallucination_sources | 1.52 | 0.00 | 4.0 | 46 | 43.28s | OK |
 | news_perplexity_enrichment | 8.51 | 9.80 | 5 | 63 | 36.41s | OK |
 
@@ -1881,7 +1880,7 @@ Abrimos otra semana con movimientos que confirman que la inteligencia artificial
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 4.55</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.05</summary>
 
 **Stats**: latencia 570.40s · 20 tok/s · 328→11324 tokens · $0.01451
 
@@ -1977,7 +1976,7 @@ La startup china DeepSeek acaba de liberar la cuarta versión de su modelo de le
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.00</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.50</summary>
 
 **Stats**: latencia 63.98s · 80 tok/s · 328→5140 tokens · $0.00670
 
@@ -1999,7 +1998,7 @@ La startup china DeepSeek acaba de liberar la cuarta versión de su modelo de le
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.20</summary>
+<details><summary><code>news_spanish_only</code> — score 8.54</summary>
 
 **Stats**: latencia 19.67s · 89 tok/s · 321→1758 tokens · $0.00242
 
@@ -2753,14 +2752,14 @@ Esto tiene todas las señales de un intento de ingeniería social. No puedo —n
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | multi_step_research_plan | 7.72 | 8.68 | 4.2 | 36 | 16.73s | OK |
-| tool_selection_precision | 4.99 | 5.00 | 4.2 | 29 | 21.90s | OK |
+| tool_selection_precision | 3.24 | 2.50 | 4.2 | 29 | 21.90s | OK |
 | parallel_vs_sequential_judgment | 8.58 | 10.00 | 4.6 | 34 | 29.92s | OK |
 | error_recovery_orchestration | 4.85 | 0.00 | - | 0 | 1.16s | ERROR |
 | complex_workflow_decomposition | 3.80 | 2.00 | - | 0 | 1.08s | ERROR |
 | multi_step_research_plan | 7.23 | 7.80 | 4.0 | 56 | 14.13s | OK |
 | error_recovery_orchestration | 7.13 | 7.50 | 5 | 57 | 9.86s | OK |
 | complex_workflow_decomposition | 4.50 | 3.91 | 2.0 | 55 | 14.97s | OK |
-| tool_selection_precision | 8.77 | 10.00 | 5 | 64 | 12.01s | OK |
+| tool_selection_precision | 3.52 | 2.50 | 5 | 64 | 12.01s | OK |
 | parallel_vs_sequential_judgment | 8.72 | 10.00 | 4.8 | 73 | 15.00s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 7.72</summary>
@@ -2786,7 +2785,7 @@ A continuación, detallo la secuencia de pasos necesarios para construir el repo
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 4.99</summary>
+<details><summary><code>tool_selection_precision</code> — score 3.24</summary>
 
 **Stats**: latencia 21.90s · 29 tok/s · 1135→643 tokens · $0.00153
 
@@ -2907,7 +2906,7 @@ Comencemos con el proceso de onboarding. Primero, voy a crear la cuenta de Andr�
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 8.77</summary>
+<details><summary><code>tool_selection_precision</code> — score 3.52</summary>
 
 **Stats**: latencia 12.01s · 64 tok/s · 1135→774 tokens · $0.00169
 
@@ -2964,8 +2963,8 @@ B (descripción) ──┘                        ├──→ D (landing) ─�
 | requirements_change | 4.37 | 4.00 | 3.6 | 47 | 34.99s | OK |
 | debugging_conversation | 4.85 | 0.00 | - | 0 | 0.00s | ERROR |
 | content_iteration | 7.29 | 8.00 | 5 | 38 | 21.99s | OK |
-| support_escalation | 7.60 | 8.00 | 5 | 53 | 8.16s | OK |
-| requirements_change | 4.97 | 4.00 | 2.0 | 49 | 2.87s | OK |
+| support_escalation | 9.00 | 10.00 | 5 | 53 | 8.16s | OK |
+| requirements_change | 6.37 | 6.00 | 2.0 | 49 | 2.87s | OK |
 | debugging_conversation | 8.65 | 10.00 | 5 | 29 | 12.40s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.19</summary>
@@ -3053,7 +3052,7 @@ Son las once de la noche y estás tú mismo respondiendo por enésima vez cómo 
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 7.60</summary>
+<details><summary><code>support_escalation</code> — score 9.00</summary>
 
 **Stats**: latencia 8.16s · 53 tok/s · 381→436 tokens · $0.00079
 
@@ -3075,7 +3074,7 @@ Maria, entiendo perfectamente tu frustración y quiero ser transparente contigo 
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 4.97</summary>
+<details><summary><code>requirements_change</code> — score 6.37</summary>
 
 **Stats**: latencia 2.87s · 49 tok/s · 244→141 tokens · $0.00033
 
@@ -3134,7 +3133,7 @@ def call_openrouter(prompt, max_retries=3):
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 7.38 | 8.33 | 4.0 | 23 | 34.79s | OK |
 | scope_boundaries | 8.57 | 10.00 | 4.2 | 22 | 30.37s | OK |
-| data_privacy_protection | 8.62 | 10.00 | 4.6 | 18 | 26.99s | OK |
+| data_privacy_protection | 8.63 | 10.00 | 4.6 | 18 | 26.99s | OK |
 | refund_policy_enforcement | 6.92 | 7.22 | 5 | 52 | 13.56s | OK |
 | data_privacy_protection | 9.03 | 10.00 | 5 | 55 | 6.40s | OK |
 | language_and_tone_rules | 7.51 | 8.00 | 3.0 | 53 | 10.93s | OK |
@@ -3180,7 +3179,7 @@ Sin embargo, de acuerdo con nuestras políticas estrictas, los reembolsos solo p
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.62</summary>
+<details><summary><code>data_privacy_protection</code> — score 8.63</summary>
 
 **Stats**: latencia 26.99s · 18 tok/s · 244→491 tokens · $0.00077
 
@@ -3663,8 +3662,6 @@ Aquí tienes un desglose detallado en fases, tareas, dependencias, responsables 
 </details>
 
 ### Otras suites
-
-#### niah_es_lite
 
 #### business_audit
 

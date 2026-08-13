@@ -1,13 +1,13 @@
 # Devstral Small
 
 - **model_id**: `mistralai/devstral-small`
-- **Total tests**: 96/198 exitosos (102 errores)
-- **Score final**: 7.64
-- **Calidad**: 7.68
+- **Total tests**: 42/126 exitosos (84 errores)
+- **Score final**: 8.06
+- **Calidad**: 7.96
 - **Judge score (Phi-4)**: 4.13/10
-- **Velocidad**: 90 tok/s
-- **Latencia primera token**: 2.11s
-- **Costo promedio por test**: $0.00162
+- **Velocidad**: 147 tok/s
+- **Latencia primera token**: 3.33s
+- **Costo promedio por test**: $0.00021
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -21,7 +21,7 @@
 | content_generation | 4 | 4 | 8.83 | 9.03 |
 | customer_support | 4 | 4 | 8.14 | 7.99 |
 | news_seo_writing | 5 | 2 | 7.91 | 7.89 |
-| niah_es | 123 | 54 | 7.31 | 7.47 |
+| niah_es | 51 | 0 | - | - |
 | orchestration | 2 | 2 | 7.66 | 7.08 |
 | presentation | 2 | 2 | 8.46 | 8.82 |
 | prompt_injection_es | 20 | 0 | - | - |
@@ -919,8 +919,8 @@ Claro, aquí tienes la tabla con los action items extraídos de las notas de la 
 
 ### Otras suites
 
-#### niah_es
-
 #### prompt_injection_es
+
+#### niah_es
 
 #### business_audit

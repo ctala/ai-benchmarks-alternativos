@@ -2,8 +2,8 @@
 
 - **model_id**: `x-ai/grok-4.5`
 - **Total tests**: 253/304 exitosos (51 errores)
-- **Score final**: 7.11
-- **Calidad**: 8.22
+- **Score final**: 7.20
+- **Calidad**: 8.35
 - **Judge score (Phi-4)**: 3.78/10
 - **Velocidad**: 82 tok/s
 - **Latencia primera token**: 14.86s
@@ -15,9 +15,9 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 4.67 | 4.34 |
+| agent_capabilities | 5 | 5 | 4.32 | 3.84 |
 | agent_long_horizon | 12 | 12 | 7.71 | 9.25 |
-| business_audit | 10 | 10 | 7.46 | 8.60 |
+| business_audit | 10 | 10 | 7.60 | 8.80 |
 | business_strategy | 5 | 5 | 7.77 | 9.20 |
 | code_generation | 4 | 4 | 7.81 | 8.92 |
 | content_generation | 4 | 4 | 8.07 | 9.40 |
@@ -27,7 +27,7 @@
 | deep_reasoning | 6 | 6 | 5.92 | 6.53 |
 | hallucination | 3 | 3 | 6.65 | 7.00 |
 | multi_turn | 4 | 4 | 6.79 | 7.50 |
-| news_seo_writing | 5 | 5 | 5.18 | 5.54 |
+| news_seo_writing | 5 | 5 | 6.53 | 7.46 |
 | niah_es | 147 | 96 | 7.91 | 9.83 |
 | ocr_extraction | 5 | 5 | 8.13 | 9.35 |
 | orchestration | 5 | 5 | 2.99 | 2.04 |
@@ -39,11 +39,11 @@
 | startup_content | 9 | 9 | 7.75 | 9.10 |
 | strategy | 3 | 3 | 8.32 | 10.00 |
 | string_precision | 11 | 11 | 8.45 | 9.18 |
-| structured_output | 4 | 4 | 5.45 | 5.00 |
+| structured_output | 4 | 4 | 8.95 | 10.00 |
 | summarization | 2 | 2 | 7.22 | 8.10 |
 | task_management | 3 | 3 | 8.25 | 9.62 |
 | tool_calling | 4 | 4 | 5.48 | 5.23 |
-| translation | 5 | 5 | 7.03 | 7.69 |
+| translation | 5 | 5 | 7.50 | 8.36 |
 
 ## Detalle por test
 
@@ -548,12 +548,12 @@ Se modifican l
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.54 | 5.00 | 5 | 123 | 2.92s | OK |
-| json_array_classification | 5.35 | 5.00 | 5 | 112 | 5.38s | OK |
-| json_nested_complex | 5.13 | 5.00 | 5 | 137 | 10.87s | OK |
-| json_strict_no_extra | 5.77 | 5.00 | 5 | 110 | 1.75s | OK |
+| json_simple_extraction | 9.04 | 10.00 | 5 | 123 | 2.92s | OK |
+| json_array_classification | 8.85 | 10.00 | 5 | 112 | 5.38s | OK |
+| json_nested_complex | 8.63 | 10.00 | 5 | 137 | 10.87s | OK |
+| json_strict_no_extra | 9.27 | 10.00 | 5 | 110 | 1.75s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.54</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.04</summary>
 
 **Stats**: latencia 2.92s · 123 tok/s · 306→375 tokens · $0.00286
 
@@ -571,7 +571,7 @@ Se modifican l
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.35</summary>
+<details><summary><code>json_array_classification</code> — score 8.85</summary>
 
 **Stats**: latencia 5.38s · 112 tok/s · 379→657 tokens · $0.00470
 
@@ -589,7 +589,7 @@ Se modifican l
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.13</summary>
+<details><summary><code>json_nested_complex</code> — score 8.63</summary>
 
 **Stats**: latencia 10.87s · 137 tok/s · 424→1258 tokens · $0.00840
 
@@ -607,7 +607,7 @@ Se modifican l
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.77</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.27</summary>
 
 **Stats**: latencia 1.75s · 110 tok/s · 279→161 tokens · $0.00152
 
@@ -1318,8 +1318,8 @@ Como Q1 2026 es muy reciente/futuro relativo a reportes consolidados, comienzo c
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.29 | 8.53 | 5 | 86 | 36.49s | OK |
-| news_json_output_strict | 4.65 | 5.00 | 3.0 | 91 | 71.86s | OK |
-| news_spanish_only | 4.89 | 5.00 | 5 | 86 | 20.17s | OK |
+| news_json_output_strict | 8.15 | 10.00 | 3.0 | 91 | 71.86s | OK |
+| news_spanish_only | 8.14 | 9.64 | 5 | 86 | 20.17s | OK |
 | news_no_hallucination_sources | 1.30 | 0.00 | 5 | 83 | 29.78s | OK |
 | news_perplexity_enrichment | 7.75 | 9.14 | 5 | 80 | 30.49s | OK |
 
@@ -1345,7 +1345,7 @@ Como Q1 2026 es muy reciente/futuro relativo a reportes consolidados, comienzo c
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 4.65</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.15</summary>
 
 **Stats**: latencia 71.86s · 91 tok/s · 517→6625 tokens · $0.04078
 
@@ -1361,7 +1361,7 @@ Como Q1 2026 es muy reciente/futuro relativo a reportes consolidados, comienzo c
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 4.89</summary>
+<details><summary><code>news_spanish_only</code> — score 8.14</summary>
 
 **Stats**: latencia 20.17s · 86 tok/s · 506→1828 tokens · $0.01198
 
@@ -1586,7 +1586,7 @@ Vi tu post de la semana pasada sobre cómo escalar content marketing sin sumar h
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.25 | 8.00 | 5 | 105 | 11.99s | OK |
-| detect_language_issues | 6.28 | 6.67 | 5 | 128 | 11.14s | OK |
+| detect_language_issues | 8.61 | 10.00 | 5 | 128 | 11.14s | OK |
 | translate_marketing_es_en | 7.31 | 8.00 | 5 | 109 | 8.51s | OK |
 | translate_technical_en_es | 7.22 | 8.00 | 4.0 | 131 | 9.59s | OK |
 | detect_language_issues | 7.09 | 7.78 | 5 | 131 | 12.14s | OK |
@@ -1614,7 +1614,7 @@ Over 500 startups across LatAm already run on it. When are you jumping in?
 
 </details>
 
-<details><summary><code>detect_language_issues</code> — score 6.28</summary>
+<details><summary><code>detect_language_issues</code> — score 8.61</summary>
 
 **Stats**: latencia 11.14s · 128 tok/s · 394→1243 tokens · $0.00825
 
@@ -2326,7 +2326,7 @@ Sobre ot
 | agent_team_delegation | 4.17 | 3.49 | 1 | 97 | 4.42s | OK |
 | ask_clarification_before_acting | 3.95 | 3.37 | 2.0 | 55 | 6.29s | OK |
 | context_following_complex_system | 3.41 | 2.50 | 4.0 | 131 | 85.24s | OK |
-| model_as_router | 6.86 | 7.50 | 5 | 119 | 16.76s | OK |
+| model_as_router | 5.11 | 5.00 | 5 | 119 | 16.76s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 4.97</summary>
 
@@ -2404,7 +2404,7 @@ Sí, el artículo está listo. Voy a publicarlo ahora mismo usando la herramient
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 6.86</summary>
+<details><summary><code>model_as_router</code> — score 5.11</summary>
 
 **Stats**: latencia 16.76s · 119 tok/s · 463→1427 tokens · $0.00949
 

@@ -2,8 +2,8 @@
 
 - **model_id**: `xiaomi/mimo-v2-pro`
 - **Total tests**: 83/93 exitosos (10 errores)
-- **Score final**: 7.14
-- **Calidad**: 7.87
+- **Score final**: 7.35
+- **Calidad**: 8.16
 - **Judge score (Phi-4)**: 4.15/10
 - **Velocidad**: 51 tok/s
 - **Latencia primera token**: 19.84s
@@ -23,18 +23,18 @@
 | customer_support | 4 | 4 | 6.79 | 7.25 |
 | deep_reasoning | 4 | 4 | 5.97 | 6.25 |
 | hallucination | 3 | 3 | 7.08 | 7.67 |
-| multi_turn | 4 | 4 | 6.59 | 7.00 |
-| news_seo_writing | 4 | 4 | 5.42 | 5.53 |
+| multi_turn | 4 | 4 | 7.29 | 8.00 |
+| news_seo_writing | 4 | 4 | 6.24 | 6.71 |
 | ocr_extraction | 3 | 3 | 8.68 | 10.00 |
-| orchestration | 4 | 4 | 7.76 | 9.04 |
+| orchestration | 4 | 4 | 6.38 | 7.08 |
 | policy_adherence | 4 | 4 | 7.75 | 8.67 |
 | presentation | 2 | 2 | 7.88 | 9.06 |
 | reasoning | 3 | 3 | 7.61 | 8.79 |
 | sales_outreach | 3 | 3 | 8.17 | 9.33 |
 | startup_content | 5 | 5 | 7.94 | 9.17 |
-| strategy | 3 | 3 | 7.15 | 8.06 |
+| strategy | 3 | 3 | 7.93 | 9.17 |
 | string_precision | 6 | 6 | 7.74 | 8.17 |
-| structured_output | 4 | 4 | 5.21 | 5.00 |
+| structured_output | 4 | 4 | 8.71 | 10.00 |
 | summarization | 2 | 2 | 7.38 | 8.26 |
 | task_management | 3 | 3 | 8.08 | 9.24 |
 | tool_calling | 4 | 4 | 5.41 | 5.38 |
@@ -348,11 +348,11 @@ CB Insights publicó un análisis famoso (alrededor de
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.18 | 6.67 | 4.4 | 56 | 36.56s | OK |
+| competitor_analysis | 8.51 | 10.00 | 4.4 | 56 | 36.56s | OK |
 | pricing_strategy | 6.76 | 7.50 | 4.6 | 64 | 31.98s | OK |
 | business_model_validation | 8.51 | 10.00 | 4.8 | 51 | 40.15s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.18</summary>
+<details><summary><code>competitor_analysis</code> — score 8.51</summary>
 
 **Stats**: latencia 36.56s · 56 tok/s · 188→2048 tokens · $0.00633
 
@@ -547,12 +547,12 @@ Si ninguna orden tiene estado `'pending'`, la lista `processed` queda vacía y `
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.19 | 5.00 | 4.0 | 61 | 13.73s | OK |
-| json_array_classification | 5.15 | 5.00 | 4.8 | 70 | 13.97s | OK |
-| json_nested_complex | 5.05 | 5.00 | 4.4 | 69 | 24.20s | OK |
-| json_strict_no_extra | 5.45 | 5.00 | 4.0 | 8 | 4.97s | OK |
+| json_simple_extraction | 8.69 | 10.00 | 4.0 | 61 | 13.73s | OK |
+| json_array_classification | 8.65 | 10.00 | 4.8 | 70 | 13.97s | OK |
+| json_nested_complex | 8.55 | 10.00 | 4.4 | 69 | 24.20s | OK |
+| json_strict_no_extra | 8.95 | 10.00 | 4.0 | 8 | 4.97s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.19</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.69</summary>
 
 **Stats**: latencia 13.73s · 61 tok/s · 114→837 tokens · $0.00263
 
@@ -570,7 +570,7 @@ Si ninguna orden tiene estado `'pending'`, la lista `processed` queda vacía y `
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.15</summary>
+<details><summary><code>json_array_classification</code> — score 8.65</summary>
 
 **Stats**: latencia 13.97s · 70 tok/s · 183→972 tokens · $0.00310
 
@@ -590,7 +590,7 @@ Si ninguna orden tiene estado `'pending'`, la lista `processed` queda vacía y `
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.05</summary>
+<details><summary><code>json_nested_complex</code> — score 8.55</summary>
 
 **Stats**: latencia 24.20s · 69 tok/s · 225→1671 tokens · $0.00524
 
@@ -614,7 +614,7 @@ Si ninguna orden tiene estado `'pending'`, la lista `processed` queda vacía y `
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.45</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.95</summary>
 
 **Stats**: latencia 4.97s · 8 tok/s · 83→39 tokens · $0.00020
 
@@ -1072,7 +1072,7 @@ Bienvenidos a otra edición cargada de movidas que están redefiniendo el ecosis
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 6.89 | 7.69 | 3.8 | 65 | 31.54s | OK |
-| news_spanish_only | 5.13 | 5.00 | 4.4 | 56 | 19.12s | OK |
+| news_spanish_only | 8.41 | 9.69 | 4.4 | 56 | 19.12s | OK |
 | news_no_hallucination_sources | 1.55 | 0.00 | 3.8 | 59 | 26.50s | OK |
 | news_perplexity_enrichment | 8.11 | 9.44 | 4.6 | 57 | 35.57s | OK |
 
@@ -1096,7 +1096,7 @@ Bienvenidos a otra edición cargada de movidas que están redefiniendo el ecosis
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.13</summary>
+<details><summary><code>news_spanish_only</code> — score 8.41</summary>
 
 **Stats**: latencia 19.12s · 56 tok/s · 328→1068 tokens · $0.00353
 
@@ -1577,9 +1577,9 @@ Lamento informarte que **no puedo cumplir con ninguna de esas solicitudes** por 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | multi_step_research_plan | 7.70 | 8.68 | 4.2 | 63 | 11.38s | OK |
-| error_recovery_orchestration | 6.49 | 7.50 | 3.8 | 13 | 29.84s | OK |
-| tool_selection_precision | 8.73 | 10.00 | 4.2 | 64 | 8.71s | OK |
-| parallel_vs_sequential_judgment | 8.11 | 10.00 | 4.8 | 14 | 88.97s | OK |
+| error_recovery_orchestration | 8.24 | 10.00 | 3.8 | 13 | 29.84s | OK |
+| tool_selection_precision | 3.48 | 2.50 | 4.2 | 64 | 8.71s | OK |
+| parallel_vs_sequential_judgment | 6.11 | 7.14 | 4.8 | 14 | 88.97s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 7.70</summary>
 
@@ -1605,7 +1605,7 @@ Lamento informarte que **no puedo cumplir con ninguna de esas solicitudes** por 
 
 </details>
 
-<details><summary><code>error_recovery_orchestration</code> — score 6.49</summary>
+<details><summary><code>error_recovery_orchestration</code> — score 8.24</summary>
 
 **Stats**: latencia 29.84s · 13 tok/s · 1418→377 tokens · $0.00255
 
@@ -1628,7 +1628,7 @@ Entiendo la urgencia. La BD `production` está en mantenimiento por 2 horas. Ten
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 8.73</summary>
+<details><summary><code>tool_selection_precision</code> — score 3.48</summary>
 
 **Stats**: latencia 8.71s · 64 tok/s · 1396→553 tokens · $0.00305
 
@@ -1649,7 +1649,7 @@ Entiendo la urgencia. La BD `production` está en mantenimiento por 2 horas. Ten
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 8.11</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 6.11</summary>
 
 **Stats**: latencia 88.97s · 14 tok/s · 1469→1205 tokens · $0.00508
 
@@ -1677,8 +1677,8 @@ Entiendo la urgencia. La BD `production` está en mantenimiento por 2 horas. Ten
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.32 | 8.00 | 3.8 | 27 | 5.60s | OK |
-| support_escalation | 6.03 | 6.00 | 4.4 | 52 | 9.21s | OK |
-| requirements_change | 4.33 | 4.00 | 1.6 | 71 | 25.61s | OK |
+| support_escalation | 7.43 | 8.00 | 4.4 | 52 | 9.21s | OK |
+| requirements_change | 5.73 | 6.00 | 1.6 | 71 | 25.61s | OK |
 | debugging_conversation | 8.68 | 10.00 | 4.8 | 56 | 14.21s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.32</summary>
@@ -1699,7 +1699,7 @@ Son las 11 de la noche, acabas de cerrar una ronda de inversion, y tu bandeja de
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 6.03</summary>
+<details><summary><code>support_escalation</code> — score 7.43</summary>
 
 **Stats**: latencia 9.21s · 52 tok/s · 390→479 tokens · $0.00183
 
@@ -1720,7 +1720,7 @@ Voy a ser transparente contigo:
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 4.33</summary>
+<details><summary><code>requirements_change</code> — score 5.73</summary>
 
 **Stats**: latencia 25.61s · 71 tok/s · 244→1827 tokens · $0.00573
 

@@ -2,8 +2,8 @@
 
 - **model_id**: `nvidia/nemotron-nano-9b-v2:free`
 - **Total tests**: 128/135 exitosos (7 errores)
-- **Score final**: 7.43
-- **Calidad**: 7.89
+- **Score final**: 7.53
+- **Calidad**: 8.03
 - **Judge score (Phi-4)**: 4.54/10
 - **Velocidad**: 36 tok/s
 - **Latencia primera token**: 42.81s
@@ -26,18 +26,18 @@
 | customer_support | 4 | 4 | 7.48 | 7.85 |
 | deep_reasoning | 6 | 6 | 7.51 | 8.20 |
 | hallucination | 3 | 3 | 6.88 | 7.00 |
-| multi_turn | 4 | 4 | 7.26 | 7.50 |
-| news_seo_writing | 5 | 5 | 5.62 | 5.35 |
+| multi_turn | 4 | 4 | 6.91 | 7.00 |
+| news_seo_writing | 5 | 5 | 5.85 | 5.67 |
 | ocr_extraction | 5 | 5 | 7.94 | 8.60 |
-| orchestration | 5 | 5 | 7.11 | 7.42 |
+| orchestration | 5 | 5 | 6.76 | 6.92 |
 | policy_adherence | 4 | 4 | 7.70 | 8.17 |
 | presentation | 2 | 2 | 8.63 | 9.66 |
 | reasoning | 7 | 5 | 8.46 | 9.48 |
-| sales_outreach | 3 | 3 | 6.00 | 5.78 |
+| sales_outreach | 3 | 3 | 6.47 | 6.44 |
 | startup_content | 5 | 5 | 8.45 | 9.42 |
 | strategy | 3 | 3 | 7.51 | 8.06 |
 | string_precision | 6 | 6 | 7.83 | 8.17 |
-| structured_output | 4 | 4 | 5.46 | 5.00 |
+| structured_output | 4 | 4 | 8.72 | 9.67 |
 | summarization | 2 | 2 | 7.20 | 7.40 |
 | task_management | 7 | 4 | 8.71 | 9.75 |
 | tool_calling | 4 | 4 | 7.37 | 7.45 |
@@ -55,7 +55,7 @@
 | logic_puzzle_constraint | 5.30 | 5.00 | 4.0 | 34 | 99.50s | OK |
 | causal_reasoning | 8.68 | 10.00 | 5 | 24 | 117.62s | OK |
 | code_bug_subtle | 6.73 | 7.50 | 2.0 | 27 | 301.30s | OK |
-| fermi_estimation | 6.47 | 6.67 | 4.4 | 30 | 53.32s | OK |
+| fermi_estimation | 6.46 | 6.67 | 4.4 | 30 | 53.32s | OK |
 | ethical_dilemma_structured | 8.91 | 10.00 | 5.0 | 39 | 47.45s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.98</summary>
@@ -153,7 +153,7 @@ First, the function find_median sorts the list and returns the median.
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 6.47</summary>
+<details><summary><code>fermi_estimation</code> — score 6.46</summary>
 
 **Stats**: latencia 53.32s · 30 tok/s · 77→1592 tokens · $0.00032
 
@@ -636,12 +636,12 @@ WITH customer_category_sums AS (
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.38 | 5.00 | 5 | 26 | 20.05s | OK |
-| json_array_classification | 5.53 | 5.00 | 5 | 36 | 14.81s | OK |
-| json_nested_complex | 5.31 | 5.00 | 5 | 29 | 50.41s | OK |
-| json_strict_no_extra | 5.60 | 5.00 | 5 | 37 | 9.96s | OK |
+| json_simple_extraction | 8.88 | 10.00 | 5 | 26 | 20.05s | OK |
+| json_array_classification | 8.09 | 8.67 | 5 | 36 | 14.81s | OK |
+| json_nested_complex | 8.81 | 10.00 | 5 | 29 | 50.41s | OK |
+| json_strict_no_extra | 9.10 | 10.00 | 5 | 37 | 9.96s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.38</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.88</summary>
 
 **Stats**: latencia 20.05s · 26 tok/s · 116→524 tokens · $0.00011
 
@@ -659,7 +659,7 @@ WITH customer_category_sums AS (
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.53</summary>
+<details><summary><code>json_array_classification</code> — score 8.09</summary>
 
 **Stats**: latencia 14.81s · 36 tok/s · 187→531 tokens · $0.00012
 
@@ -677,7 +677,7 @@ WITH customer_category_sums AS (
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.31</summary>
+<details><summary><code>json_nested_complex</code> — score 8.81</summary>
 
 **Stats**: latencia 50.41s · 29 tok/s · 237→1445 tokens · $0.00030
 
@@ -702,7 +702,7 @@ WITH customer_category_sums AS (
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.60</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.10</summary>
 
 **Stats**: latencia 9.96s · 37 tok/s · 85→368 tokens · $0.00008
 
@@ -1209,8 +1209,8 @@ En ecosistemastartup.com, cada semana te llevamos las noticias más relevantes p
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.74 | 8.35 | 4.0 | 50 | 40.30s | OK |
-| news_json_output_strict | 5.29 | 5.00 | 2.0 | 43 | 80.59s | OK |
-| news_spanish_only | 5.39 | 5.00 | 5 | 46 | 44.40s | OK |
+| news_json_output_strict | 3.19 | 2.00 | 2.0 | 43 | 80.59s | OK |
+| news_spanish_only | 8.61 | 9.60 | 5 | 46 | 44.40s | OK |
 | news_no_hallucination_sources | 1.95 | 0.00 | 4.0 | 34 | 42.62s | OK |
 | news_perplexity_enrichment | 7.74 | 8.40 | 4.0 | 35 | 67.39s | OK |
 
@@ -1236,7 +1236,7 @@ En ecosistemastartup.com, cada semana te llevamos las noticias más relevantes p
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.29</summary>
+<details><summary><code>news_json_output_strict</code> — score 3.19</summary>
 
 **Stats**: latencia 80.59s · 43 tok/s · 335→3460 tokens · $0.00071
 
@@ -1258,7 +1258,7 @@ En ecosistemastartup.com, cada semana te llevamos las noticias más relevantes p
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.39</summary>
+<details><summary><code>news_spanish_only</code> — score 8.61</summary>
 
 **Stats**: latencia 44.40s · 46 tok/s · 331→2025 tokens · $0.00042
 
@@ -1408,8 +1408,8 @@ Clara, emprendedora de Bogotá, lanzó "HonestaAI", una startup de chatbots para
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.62 | 8.00 | 5 | 31 | 12.29s | OK |
-| lead_qualification | 4.31 | 3.33 | 5 | 44 | 29.37s | OK |
-| campaign_optimization | 6.08 | 6.00 | 5 | 43 | 51.45s | OK |
+| lead_qualification | 4.32 | 3.33 | 5 | 44 | 29.37s | OK |
+| campaign_optimization | 7.48 | 8.00 | 5 | 43 | 51.45s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.62</summary>
 
@@ -1435,7 +1435,7 @@ Ofrezco una he
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 4.31</summary>
+<details><summary><code>lead_qualification</code> — score 4.32</summary>
 
 **Stats**: latencia 29.37s · 44 tok/s · 260→1277 tokens · $0.00027
 
@@ -1464,7 +1464,7 @@ Ofrezco una he
 
 </details>
 
-<details><summary><code>campaign_optimization</code> — score 6.08</summary>
+<details><summary><code>campaign_optimization</code> — score 7.48</summary>
 
 **Stats**: latencia 51.45s · 43 tok/s · 312→2220 tokens · $0.00046
 
@@ -1853,7 +1853,7 @@ For the email change request, I can create a support ticket to document the requ
 | multi_step_research_plan | 6.02 | 5.92 | 3.8 | 26 | 21.67s | OK |
 | error_recovery_orchestration | 5.38 | 5.00 | 4.0 | 29 | 22.18s | OK |
 | complex_workflow_decomposition | 6.23 | 6.16 | 3.4 | 41 | 37.89s | OK |
-| tool_selection_precision | 9.02 | 10.00 | 5 | 32 | 22.35s | OK |
+| tool_selection_precision | 7.28 | 7.50 | 5 | 32 | 22.35s | OK |
 | parallel_vs_sequential_judgment | 8.88 | 10.00 | 5 | 25 | 22.50s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 6.02</summary>
@@ -1913,7 +1913,7 @@ Step 1: The client sends their data via email. The user has already provided the
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 9.02</summary>
+<details><summary><code>tool_selection_precision</code> — score 7.28</summary>
 
 **Stats**: latencia 22.35s · 32 tok/s · 1064→716 tokens · $0.00020
 
@@ -1960,7 +1960,7 @@ First, task A is to search competitors' prices. This doesn't depend on any other
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.62 | 8.00 | 5 | 31 | 16.99s | OK |
 | support_escalation | 6.22 | 6.00 | 5 | 43 | 17.31s | OK |
-| requirements_change | 6.19 | 6.00 | 5 | 32 | 37.83s | OK |
+| requirements_change | 4.79 | 4.00 | 5 | 32 | 37.83s | OK |
 | debugging_conversation | 9.01 | 10.00 | 5 | 32 | 33.84s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.62</summary>
@@ -2006,7 +2006,7 @@ Entiendo perfectamente tu situación, María. Vamos a actuar de inmediato en dos
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 6.19</summary>
+<details><summary><code>requirements_change</code> — score 4.79</summary>
 
 **Stats**: latencia 37.83s · 32 tok/s · 239→1221 tokens · $0.00026
 

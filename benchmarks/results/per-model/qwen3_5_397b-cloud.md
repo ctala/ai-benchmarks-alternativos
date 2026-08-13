@@ -2,8 +2,8 @@
 
 - **model_id**: `qwen3.5:397b-cloud`
 - **Total tests**: 60/70 exitosos (10 errores)
-- **Score final**: 7.03
-- **Calidad**: 7.69
+- **Score final**: 7.23
+- **Calidad**: 7.97
 - **Judge score (Phi-4)**: 4.05/10
 - **Velocidad**: 68 tok/s
 - **Latencia primera token**: 33.45s
@@ -15,15 +15,15 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 4 | 4 | 6.08 | 6.27 |
+| agent_capabilities | 4 | 4 | 6.52 | 6.89 |
 | business_audit | 10 | 0 | - | - |
 | code_generation | 4 | 4 | 7.89 | 9.18 |
 | content_generation | 4 | 4 | 7.69 | 8.79 |
 | creativity | 1 | 1 | 8.07 | 9.00 |
 | customer_support | 3 | 3 | 6.73 | 6.58 |
-| deep_reasoning | 2 | 2 | 3.40 | 2.50 |
+| deep_reasoning | 2 | 2 | 4.27 | 3.75 |
 | hallucination | 2 | 2 | 6.12 | 6.25 |
-| multi_turn | 2 | 2 | 7.16 | 8.00 |
+| multi_turn | 2 | 2 | 7.86 | 9.00 |
 | ocr_extraction | 2 | 2 | 7.95 | 9.00 |
 | orchestration | 5 | 5 | 7.25 | 8.04 |
 | policy_adherence | 3 | 3 | 8.18 | 9.33 |
@@ -33,7 +33,7 @@
 | startup_content | 4 | 4 | 7.37 | 8.59 |
 | strategy | 2 | 2 | 6.16 | 6.67 |
 | string_precision | 6 | 6 | 7.64 | 8.17 |
-| structured_output | 2 | 2 | 5.50 | 5.00 |
+| structured_output | 2 | 2 | 9.00 | 10.00 |
 | summarization | 2 | 2 | 6.70 | 7.30 |
 | task_management | 3 | 3 | 7.78 | 9.21 |
 | tool_calling | 4 | 4 | 6.89 | 7.24 |
@@ -48,7 +48,7 @@
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | math_word_problem | 5.07 | 5.00 | 4.0 | 98 | 20.87s | OK |
-| causal_reasoning | 1.72 | 0.00 | 2.6 | 124 | 16.59s | OK |
+| causal_reasoning | 3.47 | 2.50 | 2.6 | 124 | 16.59s | OK |
 
 <details><summary><code>math_word_problem</code> — score 5.07</summary>
 
@@ -74,7 +74,7 @@ Aquí tienes el razonamiento paso a paso para resolver el problema:
 
 </details>
 
-<details><summary><code>causal_reasoning</code> — score 1.72</summary>
+<details><summary><code>causal_reasoning</code> — score 3.47</summary>
 
 **Stats**: latencia 16.59s · 124 tok/s · 205→2048 tokens · $0.00487
 
@@ -329,10 +329,10 @@ WITH orders_last_6_months AS (
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.49 | 5.00 | 4.0 | 110 | 6.51s | OK |
-| json_strict_no_extra | 5.52 | 5.00 | 4.0 | 109 | 5.84s | OK |
+| json_simple_extraction | 8.99 | 10.00 | 4.0 | 110 | 6.51s | OK |
+| json_strict_no_extra | 9.02 | 10.00 | 4.0 | 109 | 5.84s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.49</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.99</summary>
 
 **Stats**: latencia 6.51s · 110 tok/s · 118→715 tokens · $0.00172
 
@@ -350,7 +350,7 @@ WITH orders_last_6_months AS (
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.52</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.02</summary>
 
 **Stats**: latencia 5.84s · 109 tok/s · 85→639 tokens · $0.00153
 
@@ -996,9 +996,9 @@ La capital de Francia es París.
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | multi_step_research_plan | 7.79 | 8.88 | 4.2 | 42 | 16.29s | OK |
-| error_recovery_orchestration | 7.12 | 7.50 | 3.8 | 81 | 5.00s | OK |
+| error_recovery_orchestration | 8.87 | 10.00 | 3.8 | 81 | 5.00s | OK |
 | complex_workflow_decomposition | 4.03 | 3.83 | 2.0 | 10 | 39.78s | OK |
-| tool_selection_precision | 8.69 | 10.00 | 4.8 | 76 | 10.96s | OK |
+| tool_selection_precision | 6.94 | 7.50 | 4.8 | 76 | 10.96s | OK |
 | parallel_vs_sequential_judgment | 8.60 | 10.00 | 4.6 | 79 | 18.50s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 7.79</summary>
@@ -1023,7 +1023,7 @@ La capital de Francia es París.
 
 </details>
 
-<details><summary><code>error_recovery_orchestration</code> — score 7.12</summary>
+<details><summary><code>error_recovery_orchestration</code> — score 8.87</summary>
 
 **Stats**: latencia 5.00s · 81 tok/s · 1532→403 tokens · $0.00154
 
@@ -1064,7 +1064,7 @@ Voy a automatizar el proceso de onboarding paso a paso. Comencemos:
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 8.69</summary>
+<details><summary><code>tool_selection_precision</code> — score 6.94</summary>
 
 **Stats**: latencia 10.96s · 76 tok/s · 1500→831 tokens · $0.00253
 
@@ -1112,10 +1112,10 @@ Voy a automatizar el proceso de onboarding paso a paso. Comencemos:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| requirements_change | 5.62 | 6.00 | 2.6 | 44 | 46.87s | OK |
+| requirements_change | 7.02 | 8.00 | 2.6 | 44 | 46.87s | OK |
 | debugging_conversation | 8.70 | 10.00 | 5.0 | 68 | 14.88s | OK |
 
-<details><summary><code>requirements_change</code> — score 5.62</summary>
+<details><summary><code>requirements_change</code> — score 7.02</summary>
 
 **Stats**: latencia 46.87s · 44 tok/s · 233→2048 tokens · $0.00488
 
@@ -1230,7 +1230,7 @@ Sobre Start-Up Chile y Startup Mexico, prefiero no opinar sobre otros programas.
 | skill_execution_complex | 7.07 | 7.28 | 3.2 | 102 | 5.82s | OK |
 | agent_team_delegation | 7.79 | 8.68 | 4.2 | 70 | 10.66s | OK |
 | ask_clarification_before_acting | 8.18 | 9.12 | 4.8 | 42 | 6.54s | OK |
-| context_following_complex_system | 1.29 | 0.00 | 3.2 | 5 | 71.08s | OK |
+| context_following_complex_system | 3.04 | 2.50 | 3.2 | 5 | 71.08s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 7.07</summary>
 
@@ -1293,7 +1293,7 @@ Voy a coordinar a todo el equipo para crear la landing page. Aquí está el plan
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 1.29</summary>
+<details><summary><code>context_following_complex_system</code> — score 3.04</summary>
 
 **Stats**: latencia 71.08s · 5 tok/s · 1438→345 tokens · $0.00137
 

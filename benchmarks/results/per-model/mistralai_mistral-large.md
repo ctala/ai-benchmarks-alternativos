@@ -2,8 +2,8 @@
 
 - **model_id**: `mistralai/mistral-large`
 - **Total tests**: 149/157 exitosos (8 errores)
-- **Score final**: 7.24
-- **Calidad**: 8.12
+- **Score final**: 7.19
+- **Calidad**: 8.06
 - **Judge score (Phi-4)**: 4.39/10
 - **Velocidad**: 54 tok/s
 - **Latencia primera token**: 16.41s
@@ -18,10 +18,10 @@
 | agent_capabilities | 8 | 8 | 7.20 | 8.09 |
 | agent_long_horizon | 24 | 24 | 7.49 | 9.04 |
 | business_audit | 10 | 10 | 6.72 | 7.40 |
-| business_strategy | 5 | 5 | 7.94 | 9.20 |
+| business_strategy | 5 | 5 | 7.66 | 8.80 |
 | code_generation | 4 | 4 | 8.11 | 9.39 |
 | content_generation | 4 | 4 | 7.72 | 8.89 |
-| content_verificable | 5 | 5 | 6.79 | 7.33 |
+| content_verificable | 5 | 5 | 6.32 | 6.67 |
 | creativity | 4 | 4 | 7.60 | 8.54 |
 | customer_support | 4 | 4 | 7.01 | 7.33 |
 | deep_reasoning | 6 | 6 | 6.72 | 7.50 |
@@ -30,14 +30,14 @@
 | news_seo_writing | 15 | 7 | 5.80 | 6.28 |
 | ocr_extraction | 5 | 5 | 8.06 | 9.10 |
 | orchestration | 6 | 6 | 7.31 | 8.08 |
-| policy_adherence | 4 | 4 | 8.13 | 9.08 |
+| policy_adherence | 4 | 4 | 6.79 | 7.17 |
 | presentation | 2 | 2 | 7.72 | 9.06 |
 | reasoning | 3 | 3 | 7.91 | 9.28 |
 | sales_outreach | 3 | 3 | 6.60 | 7.11 |
 | startup_content | 9 | 9 | 7.88 | 9.29 |
 | strategy | 3 | 3 | 7.02 | 8.06 |
-| string_precision | 6 | 6 | 9.12 | 10.00 |
-| structured_output | 4 | 4 | 5.53 | 5.00 |
+| string_precision | 6 | 6 | 7.84 | 8.17 |
+| structured_output | 4 | 4 | 8.10 | 8.67 |
 | summarization | 2 | 2 | 7.04 | 7.70 |
 | task_management | 3 | 3 | 7.89 | 9.08 |
 | tool_calling | 8 | 8 | 5.49 | 5.16 |
@@ -539,12 +539,12 @@ Vamos a analizar cada uno de los bugs mencionados y otros posibles problemas, ju
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.85 | 5.00 | 5 | 50 | 1.27s | OK |
-| json_array_classification | 5.74 | 5.00 | 5 | 70 | 1.62s | OK |
-| json_nested_complex | 4.97 | 5.00 | 5 | 92 | 13.92s | OK |
-| json_strict_no_extra | 5.56 | 5.00 | 2.0 | 77 | 2.33s | OK |
+| json_simple_extraction | 9.35 | 10.00 | 5 | 50 | 1.27s | OK |
+| json_array_classification | 9.24 | 10.00 | 5 | 70 | 1.62s | OK |
+| json_nested_complex | 8.47 | 10.00 | 5 | 92 | 13.92s | OK |
+| json_strict_no_extra | 5.33 | 4.67 | 2.0 | 77 | 2.33s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.85</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.35</summary>
 
 **Stats**: latencia 1.27s · 50 tok/s · 109→64 tokens · $0.00060
 
@@ -571,7 +571,7 @@ Vamos a analizar cada uno de los bugs mencionados y otros posibles problemas, ju
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.74</summary>
+<details><summary><code>json_array_classification</code> — score 9.24</summary>
 
 **Stats**: latencia 1.62s · 70 tok/s · 180→114 tokens · $0.00104
 
@@ -594,7 +594,7 @@ Vamos a analizar cada uno de los bugs mencionados y otros posibles problemas, ju
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 4.97</summary>
+<details><summary><code>json_nested_complex</code> — score 8.47</summary>
 
 **Stats**: latencia 13.92s · 92 tok/s · 230→1279 tokens · $0.00813
 
@@ -625,7 +625,7 @@ Vamos a analizar cada uno de los bugs mencionados y otros posibles problemas, ju
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.56</summary>
+<details><summary><code>json_strict_no_extra</code> — score 5.33</summary>
 
 **Stats**: latencia 2.33s · 77 tok/s · 78→179 tokens · $0.00123
 
@@ -673,10 +673,10 @@ Vamos a analizar cada uno de los bugs mencionados y otros posibles problemas, ju
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 9.30 | 10.00 | 4.0 | 30 | 0.98s | OK |
 | copy_hex_64 | 9.20 | 10.00 | 4.0 | 32 | 1.84s | OK |
-| copy_api_key | 8.89 | 10.00 | 4.0 | 21 | 3.11s | OK |
+| copy_api_key | 2.59 | 1.00 | 4.0 | 21 | 3.11s | OK |
 | copy_jwt | 9.24 | 10.00 | 4.0 | 39 | 1.19s | OK |
 | copy_mixed_special | 9.13 | 10.00 | 3.0 | 26 | 1.28s | OK |
-| write_config_file | 8.96 | 10.00 | 2.0 | 59 | 4.31s | OK |
+| write_config_file | 7.56 | 8.00 | 2.0 | 59 | 4.31s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.30</summary>
 
@@ -714,7 +714,7 @@ CLAVE-ROTADA-Y-PURGADA
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 8.89</summary>
+<details><summary><code>copy_api_key</code> — score 2.59</summary>
 
 **Stats**: latencia 3.11s · 21 tok/s · 130→64 tokens · $0.00064
 
@@ -768,7 +768,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 8.96</summary>
+<details><summary><code>write_config_file</code> — score 7.56</summary>
 
 **Stats**: latencia 4.31s · 59 tok/s · 259→254 tokens · $0.00204
 
@@ -2155,12 +2155,12 @@ import rando
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 7.59 | 8.33 | 5 | 50 | 6.98s | OK |
-| data_privacy_protection | 8.86 | 10.00 | 5 | 47 | 3.99s | OK |
+| refund_policy_enforcement | 6.43 | 6.67 | 5 | 50 | 6.98s | OK |
+| data_privacy_protection | 7.46 | 8.00 | 5 | 47 | 3.99s | OK |
 | language_and_tone_rules | 7.28 | 8.00 | 3.8 | 46 | 5.16s | OK |
-| scope_boundaries | 8.78 | 10.00 | 4.0 | 60 | 5.05s | OK |
+| scope_boundaries | 5.98 | 6.00 | 4.0 | 60 | 5.05s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 7.59</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 6.43</summary>
 
 **Stats**: latencia 6.98s · 50 tok/s · 266→350 tokens · $0.00263
 
@@ -2180,7 +2180,7 @@ En relación a su solicitud de reembolso, debo informarle que, según nuestra po
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.86</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.46</summary>
 
 **Stats**: latencia 3.99s · 47 tok/s · 228→187 tokens · $0.00158
 
@@ -2221,7 +2221,7 @@ Nuestro programa es una aceleradora para startups que buscan soluciones **verdes
 
 </details>
 
-<details><summary><code>scope_boundaries</code> — score 8.78</summary>
+<details><summary><code>scope_boundaries</code> — score 5.98</summary>
 
 **Stats**: latencia 5.05s · 60 tok/s · 270→301 tokens · $0.00235
 

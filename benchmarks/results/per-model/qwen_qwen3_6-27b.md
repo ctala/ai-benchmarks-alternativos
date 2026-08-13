@@ -1,13 +1,13 @@
 # Qwen 3.6 27B base (OpenRouter FP8)
 
 - **model_id**: `qwen/qwen3.6-27b`
-- **Total tests**: 321/357 exitosos (36 errores)
-- **Score final**: 5.84
-- **Calidad**: 6.49
-- **Judge score (Phi-4)**: 2.87/10
-- **Velocidad**: 45 tok/s
-- **Latencia primera token**: 36.27s
-- **Costo promedio por test**: $0.01793
+- **Total tests**: 231/237 exitosos (6 errores)
+- **Score final**: 6.72
+- **Calidad**: 7.72
+- **Judge score (Phi-4)**: 3.94/10
+- **Velocidad**: 48 tok/s
+- **Latencia primera token**: 41.31s
+- **Costo promedio por test**: $0.01759
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,22 +26,20 @@
 | customer_support | 4 | 4 | 7.60 | 8.58 |
 | deep_reasoning | 7 | 7 | 5.36 | 5.71 |
 | hallucination | 3 | 3 | 4.75 | 4.83 |
-| multi_turn | 4 | 4 | 5.01 | 5.12 |
-| news_seo_writing | 5 | 5 | 5.02 | 5.28 |
-| niah_es | 111 | 90 | 5.82 | 6.74 |
-| niah_es_1m | 15 | 0 | - | - |
-| niah_es_lite | 45 | 45 | 3.85 | 3.65 |
+| multi_turn | 4 | 4 | 6.24 | 6.88 |
+| news_seo_writing | 5 | 5 | 4.18 | 4.08 |
+| niah_es | 51 | 45 | 7.91 | 9.87 |
 | ocr_extraction | 5 | 5 | 8.11 | 9.60 |
-| orchestration | 5 | 5 | 6.58 | 7.16 |
+| orchestration | 5 | 5 | 6.93 | 7.66 |
 | policy_adherence | 4 | 4 | 7.18 | 8.17 |
 | presentation | 4 | 4 | 7.67 | 9.02 |
 | prompt_injection_es | 20 | 20 | 2.07 | 1.00 |
 | reasoning | 6 | 6 | 7.02 | 8.05 |
 | sales_outreach | 3 | 3 | 7.91 | 9.33 |
 | startup_content | 9 | 9 | 7.18 | 8.34 |
-| strategy | 3 | 3 | 7.26 | 8.33 |
+| strategy | 3 | 3 | 7.85 | 9.17 |
 | string_precision | 6 | 6 | 7.23 | 8.17 |
-| structured_output | 4 | 4 | 4.96 | 5.00 |
+| structured_output | 4 | 4 | 8.46 | 10.00 |
 | summarization | 4 | 4 | 7.13 | 8.06 |
 | task_management | 6 | 6 | 7.46 | 8.57 |
 | tool_calling | 8 | 8 | 6.54 | 6.86 |
@@ -444,7 +442,7 @@ Aquí
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | competitor_analysis | 8.48 | 10.00 | 4.2 | 72 | 28.23s | OK |
-| pricing_strategy | 4.83 | 5.00 | 4.0 | 47 | 43.59s | OK |
+| pricing_strategy | 6.58 | 7.50 | 4.0 | 47 | 43.59s | OK |
 | business_model_validation | 8.48 | 10.00 | 4.2 | 69 | 29.59s | OK |
 
 <details><summary><code>competitor_analysis</code> — score 8.48</summary>
@@ -469,7 +467,7 @@ Here's a thinking process:
 
 </details>
 
-<details><summary><code>pricing_strategy</code> — score 4.83</summary>
+<details><summary><code>pricing_strategy</code> — score 6.58</summary>
 
 **Stats**: latencia 43.59s · 47 tok/s · 201→2048 tokens · $0.00749
 
@@ -711,12 +709,12 @@ Here's a thinking process:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.11 | 5.00 | 5 | 74 | 14.64s | OK |
-| json_array_classification | 4.98 | 5.00 | 5 | 70 | 29.96s | OK |
-| json_nested_complex | 4.68 | 5.00 | 5 | 29 | 71.42s | OK |
-| json_strict_no_extra | 5.05 | 5.00 | 5 | 28 | 10.70s | OK |
+| json_simple_extraction | 8.61 | 10.00 | 5 | 74 | 14.64s | OK |
+| json_array_classification | 8.48 | 10.00 | 5 | 70 | 29.96s | OK |
+| json_nested_complex | 8.18 | 10.00 | 5 | 29 | 71.42s | OK |
+| json_strict_no_extra | 8.55 | 10.00 | 5 | 28 | 10.70s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.11</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.61</summary>
 
 **Stats**: latencia 14.64s · 74 tok/s · 118→1082 tokens · $0.00397
 
@@ -734,7 +732,7 @@ Here's a thinking process:
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 4.98</summary>
+<details><summary><code>json_array_classification</code> — score 8.48</summary>
 
 **Stats**: latencia 29.96s · 70 tok/s · 179→2110 tokens · $0.00770
 
@@ -752,7 +750,7 @@ Here's a thinking process:
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 4.68</summary>
+<details><summary><code>json_nested_complex</code> — score 8.18</summary>
 
 **Stats**: latencia 71.42s · 29 tok/s · 242→2048 tokens · $0.00752
 
@@ -779,7 +777,7 @@ Here's a thinking process:
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.05</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.55</summary>
 
 **Stats**: latencia 10.70s · 28 tok/s · 85→298 tokens · $0.00112
 
@@ -1545,8 +1543,8 @@ Here's a thinking process:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 6.62 | 7.99 | 4.0 | 13 | 161.63s | OK |
-| news_json_output_strict | 4.98 | 5.00 | 3.0 | 55 | 37.01s | OK |
-| news_spanish_only | 4.98 | 5.00 | 4.0 | 56 | 36.78s | OK |
+| news_json_output_strict | 2.88 | 2.00 | 3.0 | 55 | 37.01s | OK |
+| news_spanish_only | 2.88 | 2.00 | 4.0 | 56 | 36.78s | OK |
 | news_no_hallucination_sources | 1.33 | 0.00 | 4.6 | 34 | 60.13s | OK |
 | news_perplexity_enrichment | 7.21 | 8.40 | 4.0 | 31 | 66.79s | OK |
 
@@ -1572,7 +1570,7 @@ Here's a thinking process:
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 4.98</summary>
+<details><summary><code>news_json_output_strict</code> — score 2.88</summary>
 
 **Stats**: latencia 37.01s · 55 tok/s · 324→2048 tokens · $0.00757
 
@@ -1595,7 +1593,7 @@ Here's a thinking process:
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 4.98</summary>
+<details><summary><code>news_spanish_only</code> — score 2.88</summary>
 
 **Stats**: latencia 36.78s · 56 tok/s · 321→2048 tokens · $0.00756
 
@@ -2291,7 +2289,7 @@ Here's a thinking process:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | multi_step_research_plan | 7.67 | 8.60 | 4.0 | 63 | 11.05s | OK |
-| error_recovery_orchestration | 5.29 | 5.00 | 4.0 | 61 | 7.17s | OK |
+| error_recovery_orchestration | 7.04 | 7.50 | 4.0 | 61 | 7.17s | OK |
 | complex_workflow_decomposition | 6.51 | 7.20 | 4.0 | 66 | 31.02s | OK |
 | tool_selection_precision | 4.94 | 5.00 | 5 | 47 | 21.34s | OK |
 | parallel_vs_sequential_judgment | 8.50 | 10.00 | 4.8 | 68 | 24.38s | OK |
@@ -2319,7 +2317,7 @@ Here's a thinking process:
 
 </details>
 
-<details><summary><code>error_recovery_orchestration</code> — score 5.29</summary>
+<details><summary><code>error_recovery_orchestration</code> — score 7.04</summary>
 
 **Stats**: latencia 7.17s · 61 tok/s · 1202→440 tokens · $0.00231
 
@@ -2409,9 +2407,9 @@ Aquí tienes el análisis de cada tarea y la herramienta más adecuada:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.01 | 8.00 | 5 | 48 | 28.36s | OK |
-| support_escalation | 2.88 | 2.00 | 3.0 | 57 | 35.74s | OK |
+| support_escalation | 4.28 | 4.00 | 3.0 | 57 | 35.74s | OK |
 | requirements_change | 6.93 | 8.00 | 5 | 31 | 66.61s | OK |
-| debugging_conversation | 3.23 | 2.50 | 4.0 | 57 | 35.93s | OK |
+| debugging_conversation | 6.73 | 7.50 | 4.0 | 57 | 35.93s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.01</summary>
 
@@ -2433,7 +2431,7 @@ Son las 10:47 p.m. Tu móvil vibra con otro ticket de “no puedo acceder a mi c
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 2.88</summary>
+<details><summary><code>support_escalation</code> — score 4.28</summary>
 
 **Stats**: latencia 35.74s · 57 tok/s · 364→2048 tokens · $0.00759
 
@@ -2477,7 +2475,7 @@ Here's a thinking process:
 
 </details>
 
-<details><summary><code>debugging_conversation</code> — score 3.23</summary>
+<details><summary><code>debugging_conversation</code> — score 6.73</summary>
 
 **Stats**: latencia 35.93s · 57 tok/s · 340→2048 tokens · $0.00758
 
@@ -2963,10 +2961,6 @@ Here's a thinking process:
 ### Otras suites
 
 #### niah_es
-
-#### niah_es_1m
-
-#### niah_es_lite
 
 #### prompt_injection_es
 

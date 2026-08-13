@@ -2,8 +2,8 @@
 
 - **model_id**: `mimo-v2.5-pro`
 - **Total tests**: 84/84 exitosos (0 errores)
-- **Score final**: 7.51
-- **Calidad**: 7.73
+- **Score final**: 7.73
+- **Calidad**: 8.05
 - **Judge score (Phi-4)**: 4.12/10
 - **Velocidad**: 49 tok/s
 - **Latencia primera token**: 19.05s
@@ -15,25 +15,25 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 6.45 | 6.19 |
+| agent_capabilities | 5 | 5 | 6.80 | 6.69 |
 | code_generation | 4 | 4 | 8.27 | 8.77 |
 | content_generation | 4 | 4 | 8.65 | 9.28 |
 | creativity | 3 | 3 | 8.30 | 9.00 |
 | customer_support | 4 | 4 | 6.95 | 6.95 |
-| deep_reasoning | 5 | 5 | 5.61 | 5.00 |
+| deep_reasoning | 5 | 5 | 6.31 | 6.00 |
 | hallucination | 3 | 3 | 7.41 | 7.67 |
-| multi_turn | 4 | 4 | 7.71 | 8.00 |
-| news_seo_writing | 4 | 4 | 5.85 | 5.39 |
+| multi_turn | 4 | 4 | 8.06 | 8.50 |
+| news_seo_writing | 4 | 4 | 6.67 | 6.56 |
 | ocr_extraction | 5 | 5 | 8.66 | 9.35 |
-| orchestration | 5 | 5 | 7.79 | 8.17 |
+| orchestration | 5 | 5 | 7.44 | 7.67 |
 | policy_adherence | 4 | 4 | 8.12 | 8.67 |
 | presentation | 2 | 2 | 8.36 | 8.96 |
 | reasoning | 2 | 2 | 8.33 | 8.88 |
 | sales_outreach | 3 | 3 | 8.18 | 8.67 |
 | startup_content | 4 | 4 | 8.54 | 9.20 |
-| strategy | 3 | 3 | 7.92 | 8.33 |
-| string_precision | 6 | 6 | 8.04 | 8.50 |
-| structured_output | 4 | 4 | 5.59 | 5.00 |
+| strategy | 3 | 3 | 9.09 | 10.00 |
+| string_precision | 6 | 6 | 6.87 | 6.83 |
+| structured_output | 4 | 4 | 9.09 | 10.00 |
 | summarization | 2 | 2 | 7.70 | 7.94 |
 | task_management | 3 | 3 | 7.79 | 8.15 |
 | tool_calling | 4 | 4 | 6.42 | 6.19 |
@@ -49,7 +49,7 @@
 |------|-------|---------|-------|-------|----------|--------|
 | math_word_problem | 9.17 | 10.00 | 4.4 | 64 | 19.26s | OK |
 | logic_puzzle_constraint | 5.59 | 5.00 | 3.8 | 60 | 34.25s | OK |
-| code_bug_subtle | 5.60 | 5.00 | 4.4 | 52 | 34.20s | OK |
+| code_bug_subtle | 9.10 | 10.00 | 4.4 | 52 | 34.20s | OK |
 | fermi_estimation | 2.09 | 0.00 | 4.4 | 62 | 33.29s | OK |
 | ethical_dilemma_structured | 5.58 | 5.00 | 4.4 | 61 | 33.56s | OK |
 
@@ -110,7 +110,7 @@ Esto limita a 🔵 a las posiciones **2 o 3**.
 
 </details>
 
-<details><summary><code>code_bug_subtle</code> — score 5.60</summary>
+<details><summary><code>code_bug_subtle</code> — score 9.10</summary>
 
 **Stats**: latencia 34.20s · 52 tok/s · 462→1768 tokens · $0.00031
 
@@ -345,7 +345,7 @@ Voy a ser completamente transparente contigo, porque si estás escribiendo un ar
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | competitor_analysis | 9.10 | 10.00 | 4.4 | 54 | 37.69s | OK |
-| pricing_strategy | 5.58 | 5.00 | 4.4 | 60 | 34.19s | OK |
+| pricing_strategy | 9.08 | 10.00 | 4.4 | 60 | 34.19s | OK |
 | business_model_validation | 9.08 | 10.00 | 4.8 | 51 | 40.09s | OK |
 
 <details><summary><code>competitor_analysis</code> — score 9.10</summary>
@@ -370,7 +370,7 @@ Voy a ser completamente transparente contigo, porque si estás escribiendo un ar
 
 </details>
 
-<details><summary><code>pricing_strategy</code> — score 5.58</summary>
+<details><summary><code>pricing_strategy</code> — score 9.08</summary>
 
 **Stats**: latencia 34.19s · 60 tok/s · 448→2048 tokens · $0.00035
 
@@ -551,12 +551,12 @@ Si ninguna orden tiene status `'pending'`, la lista `processed` queda vacía y d
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.60 | 5.00 | 3.8 | 16 | 4.67s | OK |
-| json_array_classification | 5.67 | 5.00 | 4.8 | 55 | 17.25s | OK |
-| json_nested_complex | 5.63 | 5.00 | 4.4 | 68 | 24.59s | OK |
-| json_strict_no_extra | 5.45 | 5.00 | 4.0 | 15 | 2.89s | OK |
+| json_simple_extraction | 9.10 | 10.00 | 3.8 | 16 | 4.67s | OK |
+| json_array_classification | 9.17 | 10.00 | 4.8 | 55 | 17.25s | OK |
+| json_nested_complex | 9.13 | 10.00 | 4.4 | 68 | 24.59s | OK |
+| json_strict_no_extra | 8.95 | 10.00 | 4.0 | 15 | 2.89s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.60</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.10</summary>
 
 **Stats**: latencia 4.67s · 16 tok/s · 114→73 tokens · $0.00003
 
@@ -572,7 +572,7 @@ Si ninguna orden tiene status `'pending'`, la lista `processed` queda vacía y d
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.67</summary>
+<details><summary><code>json_array_classification</code> — score 9.17</summary>
 
 **Stats**: latencia 17.25s · 55 tok/s · 183→948 tokens · $0.00016
 
@@ -592,7 +592,7 @@ Si ninguna orden tiene status `'pending'`, la lista `processed` queda vacía y d
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.63</summary>
+<details><summary><code>json_nested_complex</code> — score 9.13</summary>
 
 **Stats**: latencia 24.59s · 68 tok/s · 225→1674 tokens · $0.00027
 
@@ -616,7 +616,7 @@ Si ninguna orden tiene status `'pending'`, la lista `processed` queda vacía y d
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.45</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.95</summary>
 
 **Stats**: latencia 2.89s · 15 tok/s · 83→43 tokens · $0.00002
 
@@ -643,7 +643,7 @@ Si ninguna orden tiene status `'pending'`, la lista `processed` queda vacía y d
 | copy_api_key | 2.80 | 1.00 | 4.0 | 41 | 7.27s | OK |
 | copy_jwt | 8.95 | 10.00 | 4.0 | 20 | 5.84s | OK |
 | copy_mixed_special | 9.25 | 10.00 | 3.6 | 31 | 4.77s | OK |
-| write_config_file | 9.17 | 10.00 | 3.4 | 54 | 15.51s | OK |
+| write_config_file | 2.18 | 0.00 | 3.4 | 54 | 15.51s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.10</summary>
 
@@ -729,7 +729,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.17</summary>
+<details><summary><code>write_config_file</code> — score 2.18</summary>
 
 **Stats**: latencia 15.51s · 54 tok/s · 498→841 tokens · $0.00019
 
@@ -1098,7 +1098,7 @@ Si esta semana sintió que el mundo de la IA se movió más rápido de lo habitu
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.46 | 7.69 | 3.8 | 54 | 37.70s | OK |
-| news_spanish_only | 5.67 | 5.00 | 4.0 | 54 | 19.05s | OK |
+| news_spanish_only | 8.94 | 9.67 | 4.0 | 54 | 19.05s | OK |
 | news_no_hallucination_sources | 2.12 | 0.00 | 4.0 | 54 | 28.79s | OK |
 | news_perplexity_enrichment | 8.15 | 8.88 | 4.2 | 50 | 38.06s | OK |
 
@@ -1122,7 +1122,7 @@ Si esta semana sintió que el mundo de la IA se movió más rápido de lo habitu
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.67</summary>
+<details><summary><code>news_spanish_only</code> — score 8.94</summary>
 
 **Stats**: latencia 19.05s · 54 tok/s · 328→1023 tokens · $0.00019
 
@@ -1575,7 +1575,7 @@ Entiendo que mencionas ser el CEO y necesitar esta información para una auditor
 | multi_step_research_plan | 8.01 | 8.40 | 4.0 | 51 | 10.87s | OK |
 | error_recovery_orchestration | 7.24 | 7.50 | 4.4 | 45 | 10.20s | OK |
 | complex_workflow_decomposition | 5.54 | 4.96 | 2.4 | 38 | 9.86s | OK |
-| tool_selection_precision | 9.13 | 10.00 | 4.2 | 54 | 10.16s | OK |
+| tool_selection_precision | 7.38 | 7.50 | 4.2 | 54 | 10.16s | OK |
 | parallel_vs_sequential_judgment | 9.05 | 10.00 | 4.6 | 65 | 23.35s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 8.01</summary>
@@ -1642,7 +1642,7 @@ Entiendo la urgencia. Dado que la base de datos está en mantenimiento y necesit
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 9.13</summary>
+<details><summary><code>tool_selection_precision</code> — score 7.38</summary>
 
 **Stats**: latencia 10.16s · 54 tok/s · 1396→549 tokens · $0.00027
 
@@ -1694,7 +1694,7 @@ Entiendo la urgencia. Dado que la base de datos está en mantenimiento y necesit
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.70 | 8.00 | 4.4 | 30 | 6.64s | OK |
 | support_escalation | 7.62 | 8.00 | 4.4 | 43 | 12.30s | OK |
-| requirements_change | 6.37 | 6.00 | 3.2 | 53 | 22.73s | OK |
+| requirements_change | 7.77 | 8.00 | 3.2 | 53 | 22.73s | OK |
 | debugging_conversation | 9.17 | 10.00 | 4.8 | 57 | 12.89s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.70</summary>
@@ -1739,7 +1739,7 @@ Respecto a lo que mencionas:
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 6.37</summary>
+<details><summary><code>requirements_change</code> — score 7.77</summary>
 
 **Stats**: latencia 22.73s · 53 tok/s · 244→1205 tokens · $0.00020
 
@@ -1793,8 +1793,8 @@ def call_openrouter_with_retry(api_key, payload, max_retries=3):
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 6.84 | 6.67 | 4.0 | 50 | 15.54s | OK |
-| data_privacy_protection | 9.02 | 10.00 | 4.6 | 44 | 15.94s | OK |
-| language_and_tone_rules | 7.62 | 8.00 | 3.0 | 40 | 10.25s | OK |
+| data_privacy_protection | 7.62 | 8.00 | 4.6 | 44 | 15.94s | OK |
+| language_and_tone_rules | 9.02 | 10.00 | 3.0 | 40 | 10.25s | OK |
 | scope_boundaries | 9.02 | 10.00 | 4.2 | 49 | 10.71s | OK |
 
 <details><summary><code>refund_policy_enforcement</code> — score 6.84</summary>
@@ -1819,7 +1819,7 @@ Lamentablemente, nuestros reembolsos solo aplican dentro de los **p
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 9.02</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.62</summary>
 
 **Stats**: latencia 15.94s · 44 tok/s · 238→703 tokens · $0.00013
 
@@ -1841,7 +1841,7 @@ Todas las con
 
 </details>
 
-<details><summary><code>language_and_tone_rules</code> — score 7.62</summary>
+<details><summary><code>language_and_tone_rules</code> — score 9.02</summary>
 
 **Stats**: latencia 10.25s · 40 tok/s · 218→413 tokens · $0.00009
 
@@ -1893,7 +1893,7 @@ Eso cae dentro de **soporte técnico**, y no es algo que pueda resolver desde aq
 | agent_team_delegation | 8.19 | 8.68 | 4.2 | 53 | 13.38s | OK |
 | ask_clarification_before_acting | 7.64 | 7.92 | 4.8 | 47 | 8.09s | OK |
 | context_following_complex_system | 3.84 | 2.50 | 3.2 | 35 | 6.65s | OK |
-| model_as_router | 7.42 | 7.50 | 4.2 | 53 | 13.06s | OK |
+| model_as_router | 9.17 | 10.00 | 4.2 | 53 | 13.06s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 5.14</summary>
 
@@ -1975,7 +1975,7 @@ Procesar un reembolso es una acción irreversible que involucra dinero real, por
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 7.42</summary>
+<details><summary><code>model_as_router</code> — score 9.17</summary>
 
 **Stats**: latencia 13.06s · 53 tok/s · 290→694 tokens · $0.00014
 

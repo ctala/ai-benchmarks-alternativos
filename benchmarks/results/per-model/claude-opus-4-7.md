@@ -2,8 +2,8 @@
 
 - **model_id**: `claude-opus-4-7`
 - **Total tests**: 70/87 exitosos (17 errores)
-- **Score final**: 6.86
-- **Calidad**: 8.05
+- **Score final**: 7.01
+- **Calidad**: 8.27
 - **Judge score (Phi-4)**: 4.43/10
 - **Velocidad**: 53 tok/s
 - **Latencia primera token**: 21.47s
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 0 | - | - |
-| business_audit | 10 | 10 | 6.72 | 8.20 |
+| business_audit | 10 | 10 | 6.44 | 7.80 |
 | code_generation | 3 | 3 | 7.65 | 9.28 |
 | content_generation | 4 | 4 | 7.82 | 9.45 |
 | creativity | 4 | 4 | 7.41 | 9.00 |
@@ -24,7 +24,7 @@
 | deep_reasoning | 6 | 6 | 5.96 | 6.95 |
 | hallucination | 3 | 3 | 5.51 | 5.67 |
 | multi_turn | 4 | 1 | 7.04 | 8.00 |
-| news_seo_writing | 5 | 5 | 4.81 | 5.36 |
+| news_seo_writing | 5 | 5 | 6.12 | 7.22 |
 | ocr_extraction | 5 | 5 | 8.31 | 10.00 |
 | orchestration | 5 | 4 | 6.08 | 7.12 |
 | policy_adherence | 4 | 0 | - | - |
@@ -33,8 +33,8 @@
 | sales_outreach | 3 | 2 | 8.34 | 10.00 |
 | startup_content | 3 | 3 | 7.57 | 9.39 |
 | strategy | 3 | 0 | - | - |
-| string_precision | 6 | 6 | 7.61 | 8.50 |
-| structured_output | 4 | 4 | 4.96 | 5.00 |
+| string_precision | 6 | 6 | 6.45 | 6.83 |
+| structured_output | 4 | 4 | 8.46 | 10.00 |
 | summarization | 1 | 1 | 6.07 | 6.60 |
 | task_management | 1 | 1 | 7.98 | 9.52 |
 | translation | 2 | 2 | 6.73 | 7.33 |
@@ -487,12 +487,12 @@ Si `orders` está vacío o no hay ninguna orden con `sta
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.22 | 5.00 | 4.0 | 24 | 2.42s | OK |
-| json_array_classification | 5.20 | 5.00 | 5 | 46 | 3.03s | OK |
-| json_nested_complex | 4.57 | 5.00 | 5 | 97 | 25.52s | OK |
-| json_strict_no_extra | 4.85 | 5.00 | 5 | 1 | 62.98s | OK |
+| json_simple_extraction | 8.72 | 10.00 | 4.0 | 24 | 2.42s | OK |
+| json_array_classification | 8.70 | 10.00 | 5 | 46 | 3.03s | OK |
+| json_nested_complex | 8.07 | 10.00 | 5 | 97 | 25.52s | OK |
+| json_strict_no_extra | 8.35 | 10.00 | 5 | 1 | 62.98s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.22</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.72</summary>
 
 **Stats**: latencia 2.42s · 24 tok/s · 6→58 tokens · $0.00148
 
@@ -510,7 +510,7 @@ Si `orders` está vacío o no hay ninguna orden con `sta
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.20</summary>
+<details><summary><code>json_array_classification</code> — score 8.70</summary>
 
 **Stats**: latencia 3.03s · 46 tok/s · 6→139 tokens · $0.00350
 
@@ -528,7 +528,7 @@ Si `orders` está vacío o no hay ninguna orden con `sta
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 4.57</summary>
+<details><summary><code>json_nested_complex</code> — score 8.07</summary>
 
 **Stats**: latencia 25.52s · 97 tok/s · 6→2471 tokens · $0.06180
 
@@ -553,7 +553,7 @@ Si `orders` está vacío o no hay ninguna orden con `sta
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 4.85</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.35</summary>
 
 **Stats**: latencia 62.98s · 1 tok/s · 6→38 tokens · $0.00098
 
@@ -580,7 +580,7 @@ Si `orders` está vacío o no hay ninguna orden con `sta
 | copy_api_key | 2.38 | 1.00 | 4.0 | 16 | 4.64s | OK |
 | copy_jwt | 8.70 | 10.00 | 4.0 | 16 | 4.05s | OK |
 | copy_mixed_special | 8.92 | 10.00 | 3.0 | 26 | 1.79s | OK |
-| write_config_file | 8.34 | 10.00 | 4.0 | 47 | 8.77s | OK |
+| write_config_file | 1.34 | 0.00 | 4.0 | 47 | 8.77s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.73</summary>
 
@@ -672,7 +672,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 8.34</summary>
+<details><summary><code>write_config_file</code> — score 1.34</summary>
 
 **Stats**: latencia 8.77s · 47 tok/s · 6→412 tokens · $0.01033
 
@@ -1030,8 +1030,8 @@ Semana corta en días, larga en noticias. Si tenés 4 minutos, te resumo lo que 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 6.84 | 8.40 | 4.0 | 58 | 74.23s | OK |
-| news_json_output_strict | 4.62 | 5.00 | 3.0 | 61 | 31.02s | OK |
-| news_spanish_only | 4.54 | 5.00 | 4.6 | 49 | 27.93s | OK |
+| news_json_output_strict | 8.12 | 10.00 | 3.0 | 61 | 31.02s | OK |
+| news_spanish_only | 7.55 | 9.30 | 4.6 | 49 | 27.93s | OK |
 | news_no_hallucination_sources | 1.12 | 0.00 | 4.0 | 55 | 35.47s | OK |
 | news_perplexity_enrichment | 6.95 | 8.40 | 4.0 | 57 | 41.98s | OK |
 
@@ -1059,7 +1059,7 @@ Semana corta en días, larga en noticias. Si tenés 4 minutos, te resumo lo que 
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 4.62</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.12</summary>
 
 **Stats**: latencia 31.02s · 61 tok/s · 6→1879 tokens · $0.04700
 
@@ -1075,7 +1075,7 @@ Semana corta en días, larga en noticias. Si tenés 4 minutos, te resumo lo que 
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 4.54</summary>
+<details><summary><code>news_spanish_only</code> — score 7.55</summary>
 
 **Stats**: latencia 27.93s · 49 tok/s · 6→1358 tokens · $0.03398
 

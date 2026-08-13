@@ -2,8 +2,8 @@
 
 - **model_id**: `google/gemini-2.5-pro`
 - **Total tests**: 159/159 exitosos (0 errores)
-- **Score final**: 6.65
-- **Calidad**: 7.63
+- **Score final**: 6.72
+- **Calidad**: 7.73
 - **Judge score (Phi-4)**: 4.04/10
 - **Velocidad**: 92 tok/s
 - **Latencia primera token**: 27.48s
@@ -15,19 +15,19 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 9 | 9 | 6.61 | 7.37 |
+| agent_capabilities | 9 | 9 | 6.80 | 7.64 |
 | agent_long_horizon | 24 | 24 | 6.81 | 8.40 |
-| business_audit | 10 | 10 | 6.92 | 8.20 |
+| business_audit | 10 | 10 | 6.78 | 8.00 |
 | business_strategy | 5 | 5 | 7.69 | 9.20 |
 | code_generation | 4 | 4 | 6.28 | 7.09 |
 | content_generation | 4 | 4 | 7.55 | 8.78 |
 | content_verificable | 5 | 5 | 7.84 | 9.33 |
 | creativity | 6 | 6 | 7.37 | 8.75 |
 | customer_support | 4 | 4 | 7.21 | 8.12 |
-| deep_reasoning | 8 | 8 | 5.08 | 5.52 |
+| deep_reasoning | 8 | 8 | 5.30 | 5.83 |
 | hallucination | 3 | 3 | 3.64 | 3.17 |
 | multi_turn | 4 | 4 | 6.27 | 6.88 |
-| news_seo_writing | 5 | 5 | 4.19 | 4.07 |
+| news_seo_writing | 5 | 5 | 4.43 | 4.41 |
 | ocr_extraction | 8 | 8 | 7.92 | 9.21 |
 | orchestration | 15 | 15 | 6.83 | 7.64 |
 | policy_adherence | 4 | 4 | 7.39 | 8.67 |
@@ -37,7 +37,7 @@
 | startup_content | 5 | 5 | 6.87 | 8.02 |
 | strategy | 4 | 4 | 4.98 | 5.42 |
 | string_precision | 6 | 6 | 7.39 | 8.17 |
-| structured_output | 4 | 4 | 5.04 | 5.00 |
+| structured_output | 4 | 4 | 7.14 | 8.00 |
 | summarization | 2 | 2 | 6.00 | 6.52 |
 | task_management | 3 | 3 | 7.56 | 8.90 |
 | tool_calling | 4 | 4 | 5.45 | 5.35 |
@@ -56,8 +56,8 @@
 | math_word_problem | 8.35 | 10.00 | 4.4 | 110 | 28.54s | OK |
 | logic_puzzle_constraint | 0.81 | 0.00 | 3.2 | 14 | 163.43s | OK |
 | causal_reasoning | 8.30 | 10.00 | 5.0 | 108 | 37.69s | OK |
-| code_bug_subtle | 2.91 | 2.50 | 1.8 | 113 | 72.40s | OK |
-| fermi_estimation | 2.46 | 1.67 | 4.4 | 104 | 42.06s | OK |
+| code_bug_subtle | 4.66 | 5.00 | 1.8 | 113 | 72.40s | OK |
+| fermi_estimation | 2.45 | 1.67 | 4.4 | 104 | 42.06s | OK |
 | ethical_dilemma_structured | 8.09 | 10.00 | 5.0 | 89 | 62.71s | OK |
 
 <details><summary><code>math_word_problem</code> — score 4.94</summary>
@@ -161,7 +161,7 @@ Para evaluar las hipótesis, no podemos usar los números absolutos. Necesitamos
 
 </details>
 
-<details><summary><code>code_bug_subtle</code> — score 2.91</summary>
+<details><summary><code>code_bug_subtle</code> — score 4.66</summary>
 
 **Stats**: latencia 72.40s · 113 tok/s · 243→8188 tokens · $0.08218
 
@@ -182,7 +182,7 @@ ret
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 2.46</summary>
+<details><summary><code>fermi_estimation</code> — score 2.45</summary>
 
 **Stats**: latencia 42.06s · 104 tok/s · 66→4376 tokens · $0.04384
 
@@ -591,12 +591,12 @@ from typing import List, Dict
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.07 | 5.00 | 4.0 | 79 | 8.46s | OK |
-| json_array_classification | 5.01 | 5.00 | 4.8 | 113 | 12.03s | OK |
-| json_nested_complex | 4.93 | 5.00 | 4.0 | 128 | 15.81s | OK |
-| json_strict_no_extra | 5.15 | 5.00 | 4.0 | 69 | 6.70s | OK |
+| json_simple_extraction | 8.57 | 10.00 | 4.0 | 79 | 8.46s | OK |
+| json_array_classification | 8.51 | 10.00 | 4.8 | 113 | 12.03s | OK |
+| json_nested_complex | 2.83 | 2.00 | 4.0 | 128 | 15.81s | OK |
+| json_strict_no_extra | 8.65 | 10.00 | 4.0 | 69 | 6.70s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.07</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.57</summary>
 
 **Stats**: latencia 8.46s · 79 tok/s · 105→670 tokens · $0.00683
 
@@ -623,7 +623,7 @@ from typing import List, Dict
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.01</summary>
+<details><summary><code>json_array_classification</code> — score 8.51</summary>
 
 **Stats**: latencia 12.03s · 113 tok/s · 164→1359 tokens · $0.01379
 
@@ -657,7 +657,7 @@ from typing import List, Dict
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 4.93</summary>
+<details><summary><code>json_nested_complex</code> — score 2.83</summary>
 
 **Stats**: latencia 15.81s · 128 tok/s · 233→2023 tokens · $0.02052
 
@@ -689,7 +689,7 @@ from typing import List, Dict
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.15</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.65</summary>
 
 **Stats**: latencia 6.70s · 69 tok/s · 72→460 tokens · $0.00469
 
@@ -1276,13 +1276,13 @@ Claro, aquí tienes una investigación proyectada sobre el estado del venture ca
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| news_json_output_strict | 4.93 | 5.00 | 3.0 | 110 | 18.47s | OK |
-| news_spanish_only | 4.93 | 5.00 | 3.6 | 108 | 18.81s | OK |
+| news_json_output_strict | 2.83 | 2.00 | 3.0 | 110 | 18.47s | OK |
+| news_spanish_only | 8.24 | 9.73 | 3.6 | 108 | 18.81s | OK |
 | news_no_hallucination_sources | 1.43 | 0.00 | 4.0 | 111 | 18.36s | OK |
 | news_perplexity_enrichment | 2.63 | 1.93 | 1.2 | 90 | 22.44s | OK |
 | news_seo_article_full | 7.01 | 8.40 | 4.0 | 96 | 45.31s | OK |
 
-<details><summary><code>news_json_output_strict</code> — score 4.93</summary>
+<details><summary><code>news_json_output_strict</code> — score 2.83</summary>
 
 **Stats**: latencia 18.47s · 110 tok/s · 307→2035 tokens · $0.02073
 
@@ -1313,7 +1313,7 @@ Claro, aquí tienes una investigación proyectada sobre el estado del venture ca
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 4.93</summary>
+<details><summary><code>news_spanish_only</code> — score 8.24</summary>
 
 **Stats**: latencia 18.81s · 108 tok/s · 311→2041 tokens · $0.02080
 
@@ -1962,12 +1962,12 @@ No puedo revelar información de pago ni cambiar la dirección de correo electr�
 | error_recovery_orchestration | 6.68 | 7.50 | 4.0 | 78 | 12.30s | OK |
 | complex_workflow_decomposition | 5.39 | 5.40 | 3.0 | 71 | 7.16s | OK |
 | tool_selection_precision | 6.79 | 7.50 | 5 | 79 | 9.71s | OK |
-| parallel_vs_sequential_judgment | 7.38 | 8.57 | 5 | 109 | 24.30s | OK |
+| parallel_vs_sequential_judgment | 8.38 | 10.00 | 5 | 109 | 24.30s | OK |
 | multi_step_research_plan | 7.23 | 8.32 | 3.8 | 88 | 12.11s | OK |
 | error_recovery_orchestration | 6.90 | 7.50 | 4.0 | 64 | 6.57s | OK |
 | complex_workflow_decomposition | 5.11 | 5.22 | 3.0 | 79 | 10.04s | OK |
 | tool_selection_precision | 6.77 | 7.50 | 5 | 98 | 8.78s | OK |
-| parallel_vs_sequential_judgment | 8.40 | 10.00 | 5 | 111 | 21.04s | OK |
+| parallel_vs_sequential_judgment | 7.40 | 8.57 | 5 | 111 | 21.04s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 6.61</summary>
 
@@ -2162,7 +2162,7 @@ Claro, aquí está el análisis de cada tarea y la herramienta más adecuada, se
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 7.38</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 8.38</summary>
 
 **Stats**: latencia 24.30s · 109 tok/s · 452→2646 tokens · $0.02703
 
@@ -2268,7 +2268,7 @@ Claro, aquí tienes el análisis de cada tarea y la ejecución de la primera.
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 8.40</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 7.40</summary>
 
 **Stats**: latencia 21.04s · 111 tok/s · 452→2332 tokens · $0.02388
 
@@ -2483,7 +2483,7 @@ Somos una aceleradora enfocada 100% en startups que buscan generar un impacto am
 | skill_execution_complex | 7.03 | 8.20 | 4.0 | 90 | 21.64s | OK |
 | agent_team_delegation | 8.24 | 9.80 | 5 | 101 | 26.59s | OK |
 | ask_clarification_before_acting | 7.73 | 8.70 | 5 | 68 | 6.75s | OK |
-| context_following_complex_system | 6.62 | 7.50 | 5 | 86 | 14.49s | OK |
+| context_following_complex_system | 8.37 | 10.00 | 5 | 86 | 14.49s | OK |
 | model_as_router | 8.28 | 10.00 | 4.0 | 95 | 22.19s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 5.58</summary>
@@ -2631,7 +2631,7 @@ I am currently seeking clarificat
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 6.62</summary>
+<details><summary><code>context_following_complex_system</code> — score 8.37</summary>
 
 **Stats**: latencia 14.49s · 86 tok/s · 491→1253 tokens · $0.01314
 

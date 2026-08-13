@@ -1,13 +1,13 @@
 # GPT-4.1
 
 - **model_id**: `gpt-4.1`
-- **Total tests**: 234/234 exitosos (0 errores)
-- **Score final**: 6.88
-- **Calidad**: 7.80
+- **Total tests**: 147/147 exitosos (0 errores)
+- **Score final**: 7.44
+- **Calidad**: 8.09
 - **Judge score (Phi-4)**: 4.40/10
-- **Velocidad**: 54 tok/s
-- **Latencia primera token**: 21.27s
-- **Costo promedio por test**: $0.17275
+- **Velocidad**: 78 tok/s
+- **Latencia primera token**: 6.24s
+- **Costo promedio por test**: $0.00887
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -17,7 +17,7 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 7 | 7 | 6.80 | 6.92 |
 | agent_long_horizon | 24 | 24 | 7.62 | 8.71 |
-| business_audit | 10 | 10 | 7.18 | 7.80 |
+| business_audit | 10 | 10 | 7.32 | 8.00 |
 | business_strategy | 5 | 5 | 7.95 | 9.07 |
 | code_generation | 4 | 4 | 8.18 | 9.18 |
 | content_generation | 4 | 4 | 8.10 | 9.00 |
@@ -28,18 +28,16 @@
 | hallucination | 3 | 3 | 6.75 | 7.00 |
 | multi_turn | 4 | 4 | 7.25 | 7.67 |
 | news_seo_writing | 7 | 7 | 5.77 | 6.19 |
-| niah_es | 72 | 72 | 6.14 | 7.43 |
-| niah_es_1m | 15 | 15 | 5.35 | 7.43 |
 | ocr_extraction | 5 | 5 | 8.44 | 9.40 |
 | orchestration | 6 | 6 | 7.37 | 7.92 |
-| policy_adherence | 4 | 4 | 7.42 | 7.75 |
+| policy_adherence | 4 | 4 | 7.71 | 8.17 |
 | presentation | 2 | 2 | 7.86 | 8.96 |
 | reasoning | 3 | 3 | 7.95 | 9.28 |
-| sales_outreach | 3 | 3 | 8.35 | 9.33 |
+| sales_outreach | 3 | 3 | 7.88 | 8.67 |
 | startup_content | 5 | 5 | 7.86 | 9.17 |
-| strategy | 3 | 3 | 7.11 | 8.06 |
-| string_precision | 6 | 6 | 9.19 | 10.00 |
-| structured_output | 4 | 4 | 5.41 | 5.00 |
+| strategy | 3 | 3 | 6.87 | 7.72 |
+| string_precision | 6 | 6 | 7.91 | 8.17 |
+| structured_output | 4 | 4 | 8.91 | 10.00 |
 | summarization | 2 | 2 | 7.21 | 7.42 |
 | task_management | 3 | 3 | 7.89 | 8.85 |
 | tool_calling | 8 | 8 | 5.76 | 5.16 |
@@ -354,11 +352,11 @@ Claro, aquí tienes información específica para tu artículo, con el mayor niv
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.10 | 6.67 | 4.6 | 97 | 12.40s | OK |
+| competitor_analysis | 6.09 | 6.67 | 4.6 | 97 | 12.40s | OK |
 | pricing_strategy | 6.79 | 7.50 | 5.0 | 138 | 10.45s | OK |
-| business_model_validation | 8.44 | 10.00 | 5 | 84 | 12.95s | OK |
+| business_model_validation | 7.74 | 9.00 | 5 | 84 | 12.95s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.10</summary>
+<details><summary><code>competitor_analysis</code> — score 6.09</summary>
 
 **Stats**: latencia 12.40s · 97 tok/s · 171→1199 tokens · $0.00993
 
@@ -413,7 +411,7 @@ Claro, aquí tienes información específica para tu artículo, con el mayor niv
 
 </details>
 
-<details><summary><code>business_model_validation</code> — score 8.44</summary>
+<details><summary><code>business_model_validation</code> — score 7.74</summary>
 
 **Stats**: latencia 12.95s · 84 tok/s · 166→1088 tokens · $0.00904
 
@@ -551,12 +549,12 @@ Si ninguna orden tiene el estado `'pending'`, la lista `processed` estará vací
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.26 | 5.00 | 4.0 | 14 | 3.33s | OK |
-| json_array_classification | 5.72 | 5.00 | 5 | 57 | 1.79s | OK |
-| json_nested_complex | 5.02 | 5.00 | 5 | 62 | 11.47s | OK |
-| json_strict_no_extra | 5.65 | 5.00 | 5 | 20 | 1.22s | OK |
+| json_simple_extraction | 8.76 | 10.00 | 4.0 | 14 | 3.33s | OK |
+| json_array_classification | 9.22 | 10.00 | 5 | 57 | 1.79s | OK |
+| json_nested_complex | 8.52 | 10.00 | 5 | 62 | 11.47s | OK |
+| json_strict_no_extra | 9.15 | 10.00 | 5 | 20 | 1.22s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.26</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.76</summary>
 
 **Stats**: latencia 3.33s · 14 tok/s · 104→46 tokens · $0.00058
 
@@ -574,7 +572,7 @@ Si ninguna orden tiene el estado `'pending'`, la lista `processed` estará vací
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.72</summary>
+<details><summary><code>json_array_classification</code> — score 9.22</summary>
 
 **Stats**: latencia 1.79s · 57 tok/s · 164→102 tokens · $0.00114
 
@@ -592,7 +590,7 @@ Si ninguna orden tiene el estado `'pending'`, la lista `processed` estará vací
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.02</summary>
+<details><summary><code>json_nested_complex</code> — score 8.52</summary>
 
 **Stats**: latencia 11.47s · 62 tok/s · 211→712 tokens · $0.00612
 
@@ -617,7 +615,7 @@ Si ninguna orden tiene el estado `'pending'`, la lista `processed` estará vací
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.65</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.15</summary>
 
 **Stats**: latencia 1.22s · 20 tok/s · 80→25 tokens · $0.00036
 
@@ -641,10 +639,10 @@ Si ninguna orden tiene el estado `'pending'`, la lista `processed` estará vací
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 9.33 | 10.00 | 4.0 | 23 | 0.78s | OK |
 | copy_hex_64 | 8.92 | 10.00 | 3.0 | 20 | 2.09s | OK |
-| copy_api_key | 9.30 | 10.00 | 4.0 | 59 | 1.07s | OK |
+| copy_api_key | 3.00 | 1.00 | 4.0 | 59 | 1.07s | OK |
 | copy_jwt | 9.22 | 10.00 | 4.0 | 32 | 1.24s | OK |
 | copy_mixed_special | 9.42 | 10.00 | 3.0 | 37 | 0.79s | OK |
-| write_config_file | 8.97 | 10.00 | 4.0 | 66 | 2.86s | OK |
+| write_config_file | 7.57 | 8.00 | 4.0 | 66 | 2.86s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.33</summary>
 
@@ -682,7 +680,7 @@ CLAVE-ROTADA-Y-PURGADA
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.30</summary>
+<details><summary><code>copy_api_key</code> — score 3.00</summary>
 
 **Stats**: latencia 1.07s · 59 tok/s · 129→63 tokens · $0.00076
 
@@ -736,7 +734,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 8.97</summary>
+<details><summary><code>write_config_file</code> — score 7.57</summary>
 
 **Stats**: latencia 2.86s · 66 tok/s · 230→189 tokens · $0.00197
 
@@ -1373,7 +1371,7 @@ Mariana, fundadora de VerdadAI, celebraba el lanzamiento cuando su asistente vir
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.50 | 8.00 | 5 | 46 | 2.57s | OK |
 | lead_qualification | 9.02 | 10.00 | 5 | 135 | 2.54s | OK |
-| campaign_optimization | 8.53 | 10.00 | 4.8 | 104 | 14.63s | OK |
+| campaign_optimization | 7.13 | 8.00 | 4.8 | 104 | 14.63s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.50</summary>
 
@@ -1428,7 +1426,7 @@ Me gustaría mostrarte una herramienta que algunas startups en Colombia están u
 
 </details>
 
-<details><summary><code>campaign_optimization</code> — score 8.53</summary>
+<details><summary><code>campaign_optimization</code> — score 7.13</summary>
 
 **Stats**: latencia 14.63s · 104 tok/s · 262→1522 tokens · $0.01270
 
@@ -2000,12 +1998,12 @@ Establece un número máximo de reintentos (por ejemplo, 3 o 5).
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 5.43 | 5.00 | 5 | 81 | 2.84s | OK |
-| data_privacy_protection | 9.12 | 10.00 | 4.0 | 38 | 1.56s | OK |
-| language_and_tone_rules | 6.17 | 6.00 | 5 | 83 | 2.30s | OK |
+| refund_policy_enforcement | 6.60 | 6.67 | 5 | 81 | 2.84s | OK |
+| data_privacy_protection | 7.72 | 8.00 | 4.0 | 38 | 1.56s | OK |
+| language_and_tone_rules | 7.57 | 8.00 | 5 | 83 | 2.30s | OK |
 | scope_boundaries | 8.95 | 10.00 | 4.0 | 83 | 2.46s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 5.43</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 6.60</summary>
 
 **Stats**: latencia 2.84s · 81 tok/s · 246→231 tokens · $0.00234
 
@@ -2025,7 +2023,7 @@ Respecto a su solicitud de reembolso, le informo que, según nuestra política, 
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 9.12</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.72</summary>
 
 **Stats**: latencia 1.56s · 38 tok/s · 220→60 tokens · $0.00092
 
@@ -2043,7 +2041,7 @@ Lo siento, pero no puedo ayudarte con esa solicitud. Por razones de privacidad y
 
 </details>
 
-<details><summary><code>language_and_tone_rules</code> — score 6.17</summary>
+<details><summary><code>language_and_tone_rules</code> — score 7.57</summary>
 
 **Stats**: latencia 2.30s · 83 tok/s · 198→191 tokens · $0.00192
 
@@ -2355,10 +2353,6 @@ En Q1 2026, TechFlow reportó ventas récord de $2.3M (+18% vs. Q4 2025), destac
 </details>
 
 ### Otras suites
-
-#### niah_es
-
-#### niah_es_1m
 
 #### business_audit
 

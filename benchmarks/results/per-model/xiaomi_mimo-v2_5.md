@@ -2,8 +2,8 @@
 
 - **model_id**: `xiaomi/mimo-v2.5`
 - **Total tests**: 143/143 exitosos (0 errores)
-- **Score final**: 7.57
-- **Calidad**: 8.02
+- **Score final**: 7.62
+- **Calidad**: 8.09
 - **Judge score (Phi-4)**: 4.24/10
 - **Velocidad**: 54 tok/s
 - **Latencia primera token**: 40.78s
@@ -17,8 +17,8 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 8 | 8 | 7.40 | 7.50 |
 | agent_long_horizon | 12 | 12 | 7.85 | 9.08 |
-| business_audit | 10 | 10 | 7.36 | 8.00 |
-| business_strategy | 5 | 5 | 8.17 | 9.20 |
+| business_audit | 10 | 10 | 7.22 | 7.80 |
+| business_strategy | 5 | 5 | 7.89 | 8.80 |
 | code_generation | 7 | 7 | 8.05 | 8.68 |
 | content_generation | 4 | 4 | 8.65 | 9.30 |
 | content_verificable | 5 | 5 | 6.61 | 6.67 |
@@ -30,14 +30,14 @@
 | news_seo_writing | 7 | 7 | 6.21 | 6.11 |
 | ocr_extraction | 5 | 5 | 8.57 | 9.43 |
 | orchestration | 7 | 7 | 6.48 | 6.52 |
-| policy_adherence | 4 | 4 | 8.15 | 8.67 |
+| policy_adherence | 4 | 4 | 7.51 | 7.75 |
 | presentation | 2 | 2 | 8.50 | 9.06 |
 | reasoning | 5 | 5 | 8.28 | 8.94 |
-| sales_outreach | 3 | 3 | 6.85 | 7.11 |
+| sales_outreach | 3 | 3 | 7.17 | 7.56 |
 | startup_content | 9 | 9 | 8.35 | 9.11 |
-| strategy | 3 | 3 | 5.95 | 6.11 |
-| string_precision | 6 | 6 | 9.04 | 10.00 |
-| structured_output | 4 | 4 | 5.56 | 5.00 |
+| strategy | 3 | 3 | 7.50 | 8.33 |
+| string_precision | 6 | 6 | 7.76 | 8.17 |
+| structured_output | 4 | 4 | 9.06 | 10.00 |
 | summarization | 2 | 2 | 7.52 | 7.64 |
 | task_management | 3 | 3 | 8.46 | 8.93 |
 | tool_calling | 4 | 4 | 6.69 | 6.26 |
@@ -432,11 +432,11 @@ CB Insights ha publicado repetidamente un dato que se ha convertido en referenci
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 3.86 | 3.33 | 3.8 | 7 | 289.02s | OK |
+| competitor_analysis | 8.52 | 10.00 | 3.8 | 7 | 289.02s | OK |
 | pricing_strategy | 5.02 | 5.00 | 4.2 | 9 | 232.10s | OK |
 | business_model_validation | 8.96 | 10.00 | 5 | 58 | 35.38s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 3.86</summary>
+<details><summary><code>competitor_analysis</code> — score 8.52</summary>
 
 **Stats**: latencia 289.02s · 7 tok/s · 188→2048 tokens · $0.00060
 
@@ -712,12 +712,12 @@ WIT
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.30 | 5.00 | 5 | 8 | 8.91s | OK |
-| json_array_classification | 5.64 | 5.00 | 5 | 50 | 16.55s | OK |
-| json_nested_complex | 5.55 | 5.00 | 5 | 84 | 16.11s | OK |
-| json_strict_no_extra | 5.75 | 5.00 | 5 | 25 | 1.61s | OK |
+| json_simple_extraction | 8.80 | 10.00 | 5 | 8 | 8.91s | OK |
+| json_array_classification | 9.14 | 10.00 | 5 | 50 | 16.55s | OK |
+| json_nested_complex | 9.05 | 10.00 | 5 | 84 | 16.11s | OK |
+| json_strict_no_extra | 9.25 | 10.00 | 5 | 25 | 1.61s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.30</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.80</summary>
 
 **Stats**: latencia 8.91s · 8 tok/s · 114→69 tokens · $0.00003
 
@@ -735,7 +735,7 @@ WIT
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.64</summary>
+<details><summary><code>json_array_classification</code> — score 9.14</summary>
 
 **Stats**: latencia 16.55s · 50 tok/s · 183→829 tokens · $0.00026
 
@@ -757,7 +757,7 @@ WIT
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.55</summary>
+<details><summary><code>json_nested_complex</code> — score 9.05</summary>
 
 **Stats**: latencia 16.11s · 84 tok/s · 225→1359 tokens · $0.00041
 
@@ -782,7 +782,7 @@ WIT
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.75</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.25</summary>
 
 **Stats**: latencia 1.61s · 25 tok/s · 83→40 tokens · $0.00002
 
@@ -806,10 +806,10 @@ WIT
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 9.25 | 10.00 | 4.0 | 27 | 1.47s | OK |
 | copy_hex_64 | 9.10 | 10.00 | 3.0 | 18 | 3.97s | OK |
-| copy_api_key | 8.72 | 10.00 | 4.0 | 7 | 10.21s | OK |
+| copy_api_key | 2.43 | 1.00 | 4.0 | 7 | 10.21s | OK |
 | copy_jwt | 9.55 | 10.00 | 4.0 | 51 | 1.03s | OK |
 | copy_mixed_special | 8.65 | 10.00 | 3.0 | 4 | 10.84s | OK |
-| write_config_file | 9.00 | 10.00 | 4.0 | 38 | 19.73s | OK |
+| write_config_file | 7.60 | 8.00 | 4.0 | 38 | 19.73s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.25</summary>
 
@@ -847,7 +847,7 @@ CLAVE-ROTADA-Y-PURGADA
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 8.72</summary>
+<details><summary><code>copy_api_key</code> — score 2.43</summary>
 
 **Stats**: latencia 10.21s · 7 tok/s · 135→76 tokens · $0.00004
 
@@ -901,7 +901,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.00</summary>
+<details><summary><code>write_config_file</code> — score 7.60</summary>
 
 **Stats**: latencia 19.73s · 38 tok/s · 271→741 tokens · $0.00024
 
@@ -1637,8 +1637,8 @@ Carlos, colombiano de Medellín, lanzó RectAI: una asistente de redacción para
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.33 | 8.00 | 5 | 9 | 51.85s | OK |
-| lead_qualification | 4.27 | 3.33 | 5 | 38 | 27.06s | OK |
-| campaign_optimization | 8.96 | 10.00 | 5 | 60 | 34.03s | OK |
+| lead_qualification | 6.61 | 6.67 | 5 | 38 | 27.06s | OK |
+| campaign_optimization | 7.56 | 8.00 | 5 | 60 | 34.03s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.33</summary>
 
@@ -1666,7 +1666,7 @@ Con 50 empleados en Serie A, el equipo de marketing seguramente está generando 
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 4.27</summary>
+<details><summary><code>lead_qualification</code> — score 6.61</summary>
 
 **Stats**: latencia 27.06s · 38 tok/s · 264→1036 tokens · $0.00033
 
@@ -1692,7 +1692,7 @@ Con 50 empleados en Serie A, el equipo de marketing seguramente está generando 
 
 </details>
 
-<details><summary><code>campaign_optimization</code> — score 8.96</summary>
+<details><summary><code>campaign_optimization</code> — score 7.56</summary>
 
 **Stats**: latencia 34.03s · 60 tok/s · 546→2048 tokens · $0.00065
 
@@ -2369,12 +2369,12 @@ class RateLimitRetry:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 6.92 | 6.67 | 5 | 64 | 8.39s | OK |
-| data_privacy_protection | 9.10 | 10.00 | 5 | 42 | 9.28s | OK |
+| refund_policy_enforcement | 5.75 | 5.00 | 5 | 64 | 8.39s | OK |
+| data_privacy_protection | 7.70 | 8.00 | 5 | 42 | 9.28s | OK |
 | language_and_tone_rules | 7.33 | 8.00 | 4.0 | 6 | 72.79s | OK |
 | scope_boundaries | 9.25 | 10.00 | 5 | 58 | 9.46s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 6.92</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 5.75</summary>
 
 **Stats**: latencia 8.39s · 64 tok/s · 286→538 tokens · $0.00019
 
@@ -2392,7 +2392,7 @@ Entiendo su frustración, y lamento que haya tenido una experiencia negativa con
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 9.10</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.70</summary>
 
 **Stats**: latencia 9.28s · 42 tok/s · 238→394 tokens · $0.00014
 

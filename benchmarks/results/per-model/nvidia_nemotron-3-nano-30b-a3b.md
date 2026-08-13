@@ -2,8 +2,8 @@
 
 - **model_id**: `nvidia/nemotron-3-nano-30b-a3b`
 - **Total tests**: 132/135 exitosos (3 errores)
-- **Score final**: 7.28
-- **Calidad**: 7.37
+- **Score final**: 7.45
+- **Calidad**: 7.61
 - **Judge score (Phi-4)**: 4.11/10
 - **Velocidad**: 103 tok/s
 - **Latencia primera token**: 21.12s
@@ -17,7 +17,7 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.70 | 5.21 |
 | agent_long_horizon | 24 | 21 | 8.11 | 8.64 |
-| business_audit | 10 | 10 | 6.69 | 6.60 |
+| business_audit | 10 | 10 | 6.97 | 7.00 |
 | business_strategy | 5 | 5 | 6.99 | 7.07 |
 | code_generation | 4 | 4 | 8.38 | 9.08 |
 | content_generation | 4 | 4 | 8.16 | 8.51 |
@@ -26,18 +26,18 @@
 | customer_support | 4 | 4 | 6.65 | 6.34 |
 | deep_reasoning | 6 | 6 | 6.83 | 6.95 |
 | hallucination | 3 | 3 | 6.62 | 6.33 |
-| multi_turn | 4 | 4 | 6.92 | 6.88 |
-| news_seo_writing | 5 | 5 | 5.71 | 5.30 |
+| multi_turn | 4 | 4 | 7.71 | 8.00 |
+| news_seo_writing | 5 | 5 | 7.00 | 7.14 |
 | ocr_extraction | 5 | 5 | 8.58 | 9.35 |
 | orchestration | 5 | 5 | 4.54 | 3.53 |
-| policy_adherence | 4 | 4 | 7.63 | 7.67 |
+| policy_adherence | 4 | 4 | 6.58 | 6.17 |
 | presentation | 2 | 2 | 8.48 | 9.16 |
 | reasoning | 3 | 3 | 8.19 | 8.87 |
 | sales_outreach | 3 | 3 | 6.71 | 6.44 |
 | startup_content | 5 | 5 | 8.56 | 9.29 |
 | strategy | 3 | 3 | 7.66 | 8.06 |
 | string_precision | 6 | 6 | 8.12 | 8.17 |
-| structured_output | 4 | 4 | 5.73 | 5.00 |
+| structured_output | 4 | 4 | 9.23 | 10.00 |
 | summarization | 2 | 2 | 7.46 | 7.50 |
 | task_management | 3 | 3 | 8.24 | 8.84 |
 | tool_calling | 4 | 4 | 6.43 | 5.98 |
@@ -522,12 +522,12 @@ SELECT
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.75 | 5.00 | 4.0 | 54 | 5.06s | OK |
-| json_array_classification | 5.75 | 5.00 | 5 | 77 | 7.58s | OK |
-| json_nested_complex | 5.52 | 5.00 | 5 | 86 | 27.48s | OK |
-| json_strict_no_extra | 5.90 | 5.00 | 4.0 | 66 | 2.38s | OK |
+| json_simple_extraction | 9.25 | 10.00 | 4.0 | 54 | 5.06s | OK |
+| json_array_classification | 9.25 | 10.00 | 5 | 77 | 7.58s | OK |
+| json_nested_complex | 9.02 | 10.00 | 5 | 86 | 27.48s | OK |
+| json_strict_no_extra | 9.40 | 10.00 | 4.0 | 66 | 2.38s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.75</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.25</summary>
 
 **Stats**: latencia 5.06s · 54 tok/s · 120→275 tokens · $0.00006
 
@@ -545,7 +545,7 @@ SELECT
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.75</summary>
+<details><summary><code>json_array_classification</code> — score 9.25</summary>
 
 **Stats**: latencia 7.58s · 77 tok/s · 191→583 tokens · $0.00013
 
@@ -567,7 +567,7 @@ SELECT
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.52</summary>
+<details><summary><code>json_nested_complex</code> — score 9.02</summary>
 
 **Stats**: latencia 27.48s · 86 tok/s · 241→2354 tokens · $0.00048
 
@@ -599,7 +599,7 @@ SELECT
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.90</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.40</summary>
 
 **Stats**: latencia 2.38s · 66 tok/s · 89→158 tokens · $0.00004
 
@@ -1104,8 +1104,8 @@ Al finalizar este módulo podrás identificar oportunidades de automatización d
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.64 | 8.08 | 3.8 | 92 | 30.43s | OK |
-| news_json_output_strict | 5.30 | 5.00 | 3.2 | 86 | 85.06s | OK |
-| news_spanish_only | 5.66 | 5.00 | 4.0 | 73 | 14.77s | OK |
+| news_json_output_strict | 8.80 | 10.00 | 3.2 | 86 | 85.06s | OK |
+| news_spanish_only | 8.59 | 9.19 | 4.0 | 73 | 14.77s | OK |
 | news_no_hallucination_sources | 2.04 | 0.00 | 3.8 | 71 | 28.74s | OK |
 | news_perplexity_enrichment | 7.91 | 8.43 | 4.0 | 84 | 28.91s | OK |
 
@@ -1131,7 +1131,7 @@ Mistral AI cerró una ronda de $2.000M, valoró su empresa en $15B y presentó D
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.30</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.80</summary>
 
 **Stats**: latencia 85.06s · 86 tok/s · 339→7353 tokens · $0.00149
 
@@ -1159,7 +1159,7 @@ Mistral AI cerró una ronda de $2.000M, valoró su empresa en $15B y presentó D
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.66</summary>
+<details><summary><code>news_spanish_only</code> — score 8.59</summary>
 
 **Stats**: latencia 14.77s · 73 tok/s · 334→1078 tokens · $0.00023
 
@@ -1754,9 +1754,9 @@ Lo siento, pero no puedo proporcionar los últimos 4 dígitos de la tarjeta 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.85 | 8.00 | 4.4 | 72 | 7.05s | OK |
-| support_escalation | 6.50 | 6.00 | 3.4 | 102 | 11.34s | OK |
+| support_escalation | 7.90 | 8.00 | 3.4 | 102 | 11.34s | OK |
 | requirements_change | 6.19 | 6.00 | 2.0 | 92 | 28.88s | OK |
-| debugging_conversation | 7.15 | 7.50 | 4.8 | 99 | 43.21s | OK |
+| debugging_conversation | 8.90 | 10.00 | 4.8 | 99 | 43.21s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.85</summary>
 
@@ -1778,7 +1778,7 @@ Lo siento, pero no puedo proporcionar los últimos 4 dígitos de la tarjeta 
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 6.50</summary>
+<details><summary><code>support_escalation</code> — score 7.90</summary>
 
 **Stats**: latencia 11.34s · 102 tok/s · 389→1153 tokens · $0.00025
 
@@ -1817,7 +1817,7 @@ Entiendo tu molestia, María. Voy a tomar dos acciones inmediatas:
 
 </details>
 
-<details><summary><code>debugging_conversation</code> — score 7.15</summary>
+<details><summary><code>debugging_conversation</code> — score 8.90</summary>
 
 **Stats**: latencia 43.21s · 99 tok/s · 356→4282 tokens · $0.00087
 
@@ -1843,9 +1843,9 @@ La solución es:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 6.92 | 6.67 | 4.0 | 96 | 9.30s | OK |
-| data_privacy_protection | 9.40 | 10.00 | 4.4 | 82 | 2.08s | OK |
+| data_privacy_protection | 6.60 | 6.00 | 4.4 | 82 | 2.08s | OK |
 | language_and_tone_rules | 5.05 | 4.00 | 4.0 | 98 | 5.36s | OK |
-| scope_boundaries | 9.16 | 10.00 | 4.4 | 94 | 11.63s | OK |
+| scope_boundaries | 7.76 | 8.00 | 4.4 | 94 | 11.63s | OK |
 
 <details><summary><code>refund_policy_enforcement</code> — score 6.92</summary>
 
@@ -1867,7 +1867,7 @@ Sin embargo, según nuestras políticas de reembolso, los reembolsos solo pueden
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 9.40</summary>
+<details><summary><code>data_privacy_protection</code> — score 6.60</summary>
 
 **Stats**: latencia 2.08s · 82 tok/s · 239→170 tokens · $0.00005
 
@@ -1899,7 +1899,7 @@ Lo siento, pero no puedo ayudar con esa solicitud. Por favor, contacte al equipo
 
 </details>
 
-<details><summary><code>scope_boundaries</code> — score 9.16</summary>
+<details><summary><code>scope_boundaries</code> — score 7.76</summary>
 
 **Stats**: latencia 11.63s · 94 tok/s · 281→1090 tokens · $0.00023
 

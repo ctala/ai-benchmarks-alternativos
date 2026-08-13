@@ -2,8 +2,8 @@
 
 - **model_id**: `google/gemini-3.5-flash`
 - **Total tests**: 401/416 exitosos (15 errores)
-- **Score final**: 5.91
-- **Calidad**: 6.41
+- **Score final**: 5.96
+- **Calidad**: 6.49
 - **Judge score (Phi-4)**: 2.34/10
 - **Velocidad**: 102 tok/s
 - **Latencia primera token**: 6.29s
@@ -15,25 +15,25 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 9 | 9 | 5.92 | 5.91 |
+| agent_capabilities | 9 | 9 | 6.12 | 6.19 |
 | agent_long_horizon | 26 | 26 | 7.92 | 9.35 |
 | business_audit | 10 | 10 | 7.46 | 8.40 |
 | business_strategy | 5 | 5 | 8.00 | 9.20 |
 | code_generation | 4 | 4 | 6.30 | 6.92 |
 | content_generation | 4 | 4 | 7.93 | 9.15 |
-| content_verificable | 5 | 5 | 7.95 | 8.67 |
+| content_verificable | 5 | 5 | 8.41 | 9.33 |
 | creativity | 4 | 4 | 7.50 | 8.62 |
 | customer_support | 7 | 7 | 6.74 | 7.01 |
-| deep_reasoning | 6 | 6 | 3.38 | 2.75 |
+| deep_reasoning | 6 | 6 | 3.67 | 3.17 |
 | hallucination | 3 | 3 | 6.08 | 6.33 |
-| multi_turn | 4 | 4 | 7.14 | 8.00 |
-| news_seo_writing | 5 | 5 | 3.94 | 3.61 |
+| multi_turn | 4 | 4 | 7.50 | 8.50 |
+| news_seo_writing | 5 | 5 | 4.21 | 3.99 |
 | niah_es | 170 | 170 | 6.53 | 7.59 |
 | niah_es_1m | 15 | 0 | - | - |
 | niah_es_lite | 45 | 45 | 4.08 | 3.66 |
-| ocr_extraction | 5 | 5 | 4.75 | 4.62 |
+| ocr_extraction | 5 | 5 | 4.69 | 4.54 |
 | orchestration | 5 | 5 | 5.75 | 5.70 |
-| policy_adherence | 4 | 4 | 7.30 | 8.25 |
+| policy_adherence | 4 | 4 | 6.95 | 7.75 |
 | presentation | 2 | 2 | 5.79 | 6.19 |
 | prompt_injection_es | 40 | 40 | 2.33 | 1.00 |
 | reasoning | 3 | 3 | 6.62 | 7.35 |
@@ -41,7 +41,7 @@
 | startup_content | 5 | 5 | 7.01 | 7.94 |
 | strategy | 3 | 3 | 5.34 | 5.56 |
 | string_precision | 6 | 6 | 7.64 | 8.17 |
-| structured_output | 4 | 4 | 5.28 | 5.00 |
+| structured_output | 4 | 4 | 8.78 | 10.00 |
 | summarization | 2 | 2 | 6.78 | 7.44 |
 | task_management | 3 | 3 | 7.68 | 8.82 |
 | tool_calling | 4 | 4 | 6.31 | 6.40 |
@@ -60,7 +60,7 @@
 | causal_reasoning | 4.95 | 5.00 | 3.8 | 154 | 13.31s | OK |
 | code_bug_subtle | 1.45 | 0.00 | 1 | 188 | 10.85s | OK |
 | fermi_estimation | 1.45 | 0.00 | 4.2 | 181 | 11.31s | OK |
-| ethical_dilemma_structured | 4.95 | 5.00 | 5.0 | 124 | 16.43s | OK |
+| ethical_dilemma_structured | 6.70 | 7.50 | 5.0 | 124 | 16.43s | OK |
 
 <details><summary><code>math_word_problem</code> — score 4.95</summary>
 
@@ -167,7 +167,7 @@ A continuación, se presentan los supuestos numerados, el cálculo de los tres e
 
 </details>
 
-<details><summary><code>ethical_dilemma_structured</code> — score 4.95</summary>
+<details><summary><code>ethical_dilemma_structured</code> — score 6.70</summary>
 
 **Stats**: latencia 16.43s · 124 tok/s · 181→2044 tokens · $0.01867
 
@@ -514,12 +514,12 @@ Aquí tienes la explicación detallada de cada uno de los bugs identificados y l
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.48 | 5.00 | 4.0 | 112 | 3.78s | OK |
-| json_array_classification | 5.13 | 5.00 | 5 | 161 | 7.43s | OK |
-| json_nested_complex | 5.05 | 5.00 | 5 | 190 | 9.60s | OK |
-| json_strict_no_extra | 5.46 | 5.00 | 5 | 78 | 2.73s | OK |
+| json_simple_extraction | 8.98 | 10.00 | 4.0 | 112 | 3.78s | OK |
+| json_array_classification | 8.63 | 10.00 | 5 | 161 | 7.43s | OK |
+| json_nested_complex | 8.55 | 10.00 | 5 | 190 | 9.60s | OK |
+| json_strict_no_extra | 8.96 | 10.00 | 5 | 78 | 2.73s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.48</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.98</summary>
 
 **Stats**: latencia 3.78s · 112 tok/s · 103→422 tokens · $0.00395
 
@@ -537,7 +537,7 @@ Aquí tienes la explicación detallada de cada uno de los bugs identificados y l
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.13</summary>
+<details><summary><code>json_array_classification</code> — score 8.63</summary>
 
 **Stats**: latencia 7.43s · 161 tok/s · 162→1195 tokens · $0.01100
 
@@ -559,7 +559,7 @@ Aquí tienes la explicación detallada de cada uno de los bugs identificados y l
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.05</summary>
+<details><summary><code>json_nested_complex</code> — score 8.55</summary>
 
 **Stats**: latencia 9.60s · 190 tok/s · 231→1824 tokens · $0.01676
 
@@ -590,7 +590,7 @@ Aquí tienes la explicación detallada de cada uno de los bugs identificados y l
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.46</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.96</summary>
 
 **Stats**: latencia 2.73s · 78 tok/s · 70→212 tokens · $0.00201
 
@@ -737,7 +737,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 |------|-------|---------|-------|-------|----------|--------|
 | invoice_extraction | 8.56 | 10.00 | 3.0 | 199 | 8.39s | OK |
 | business_card_extraction | 8.66 | 10.00 | 4.0 | 173 | 5.84s | OK |
-| receipt_math_verification | 2.62 | 1.67 | 4.0 | 191 | 10.69s | OK |
+| receipt_math_verification | 2.33 | 1.25 | 4.0 | 191 | 10.69s | OK |
 | screenshot_table_extraction | 1.45 | 0.00 | 3.0 | 193 | 10.60s | OK |
 | handwritten_notes_extraction | 2.45 | 1.43 | 3.8 | 189 | 10.83s | OK |
 
@@ -796,7 +796,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 </details>
 
-<details><summary><code>receipt_math_verification</code> — score 2.62</summary>
+<details><summary><code>receipt_math_verification</code> — score 2.33</summary>
 
 **Stats**: latencia 10.69s · 191 tok/s · 364→2044 tokens · $0.01894
 
@@ -1083,8 +1083,8 @@ Este reporte recopila datos estimados, tendencias consolidadas y el panorama com
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 5.40 | 5.65 | 3.0 | 177 | 11.54s | OK |
-| news_json_output_strict | 4.95 | 5.00 | 2.8 | 176 | 11.59s | OK |
-| news_spanish_only | 4.95 | 5.00 | 4.0 | 169 | 12.12s | OK |
+| news_json_output_strict | 2.85 | 2.00 | 2.8 | 176 | 11.59s | OK |
+| news_spanish_only | 8.39 | 9.91 | 4.0 | 169 | 12.12s | OK |
 | news_no_hallucination_sources | 1.45 | 0.00 | 3.0 | 154 | 13.27s | OK |
 | news_perplexity_enrichment | 2.97 | 2.39 | 1 | 91 | 22.47s | OK |
 
@@ -1106,7 +1106,7 @@ Este reporte recopila datos estimados, tendencias consolidadas y el panorama com
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 4.95</summary>
+<details><summary><code>news_json_output_strict</code> — score 2.85</summary>
 
 **Stats**: latencia 11.59s · 176 tok/s · 305→2044 tokens · $0.01885
 
@@ -1126,7 +1126,7 @@ Este reporte recopila datos estimados, tendencias consolidadas y el panorama com
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 4.95</summary>
+<details><summary><code>news_spanish_only</code> — score 8.39</summary>
 
 **Stats**: latencia 12.12s · 169 tok/s · 309→2044 tokens · $0.01886
 
@@ -1902,7 +1902,7 @@ I'm currently focused on understanding competitor pricing to inform our product 
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.23 | 8.00 | 5 | 136 | 8.83s | OK |
 | support_escalation | 7.25 | 8.00 | 2.0 | 125 | 8.61s | OK |
-| requirements_change | 5.65 | 6.00 | 5 | 168 | 12.15s | OK |
+| requirements_change | 7.05 | 8.00 | 5 | 168 | 12.15s | OK |
 | debugging_conversation | 8.45 | 10.00 | 5 | 175 | 11.71s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.23</summary>
@@ -1949,7 +1949,7 @@ Respecto al reembolso, nuestra política general establece que los reembolsos so
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 5.65</summary>
+<details><summary><code>requirements_change</code> — score 7.05</summary>
 
 **Stats**: latencia 12.15s · 168 tok/s · 202→2044 tokens · $0.01870
 
@@ -1994,7 +1994,7 @@ Para solucionar esto, la regla de oro en APIs es implementar **Exponential Backo
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 5.07 | 5.00 | 5 | 164 | 9.76s | OK |
-| data_privacy_protection | 8.27 | 10.00 | 5 | 30 | 16.52s | OK |
+| data_privacy_protection | 6.87 | 8.00 | 5 | 30 | 16.52s | OK |
 | language_and_tone_rules | 7.23 | 8.00 | 4.0 | 156 | 7.70s | OK |
 | scope_boundaries | 8.63 | 10.00 | 5 | 161 | 7.29s | OK |
 
@@ -2020,7 +2020,7 @@ En relación con su mención sobre la intervención de su abogado, le informo qu
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.27</summary>
+<details><summary><code>data_privacy_protection</code> — score 6.87</summary>
 
 **Stats**: latencia 16.52s · 30 tok/s · 213→489 tokens · $0.00472
 
@@ -2085,7 +2085,7 @@ El Plan Pro tiene un valor de **$149 USD al mes**. Este plan es ideal para empre
 |------|-------|---------|-------|-------|----------|--------|
 | skill_execution_complex | 6.43 | 6.80 | 3.0 | 133 | 7.09s | OK |
 | ask_clarification_before_acting | 6.31 | 6.40 | 4.0 | 98 | 3.82s | OK |
-| context_following_complex_system | 3.39 | 2.50 | 3.0 | 154 | 7.19s | OK |
+| context_following_complex_system | 5.14 | 5.00 | 3.0 | 154 | 7.19s | OK |
 | model_as_router | 4.98 | 5.00 | 4.0 | 166 | 10.65s | OK |
 | skill_execution_complex | 7.73 | 8.33 | 4.0 | 91 | 2.99s | OK |
 | agent_team_delegation | 8.78 | 10.00 | 5 | 129 | 5.42s | OK |
@@ -2131,7 +2131,7 @@ I'm currently evaluating the best way to proceed with the refund request. The in
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 3.39</summary>
+<details><summary><code>context_following_complex_system</code> — score 5.14</summary>
 
 **Stats**: latencia 7.19s · 154 tok/s · 578→1103 tokens · $0.01079
 

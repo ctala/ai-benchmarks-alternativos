@@ -2,8 +2,8 @@
 
 - **model_id**: `mistralai/devstral-medium`
 - **Total tests**: 87/100 exitosos (13 errores)
-- **Score final**: 7.23
-- **Calidad**: 7.65
+- **Score final**: 7.47
+- **Calidad**: 7.99
 - **Judge score (Phi-4)**: 4.07/10
 - **Velocidad**: 61 tok/s
 - **Latencia primera token**: 22.91s
@@ -23,18 +23,18 @@
 | customer_support | 4 | 4 | 7.24 | 7.73 |
 | deep_reasoning | 6 | 6 | 7.39 | 7.92 |
 | hallucination | 3 | 3 | 6.23 | 6.33 |
-| multi_turn | 4 | 4 | 6.10 | 6.38 |
-| news_seo_writing | 5 | 5 | 5.45 | 5.13 |
+| multi_turn | 4 | 4 | 6.45 | 6.88 |
+| news_seo_writing | 5 | 5 | 6.84 | 7.12 |
 | ocr_extraction | 5 | 5 | 8.29 | 9.10 |
 | orchestration | 5 | 5 | 6.98 | 7.49 |
-| policy_adherence | 4 | 4 | 7.64 | 8.17 |
+| policy_adherence | 4 | 4 | 7.29 | 7.67 |
 | presentation | 2 | 2 | 8.28 | 9.06 |
 | reasoning | 3 | 3 | 7.69 | 8.56 |
 | sales_outreach | 3 | 3 | 7.13 | 7.11 |
 | startup_content | 5 | 5 | 8.13 | 9.04 |
 | strategy | 3 | 3 | 6.90 | 7.72 |
 | string_precision | 6 | 6 | 8.01 | 8.17 |
-| structured_output | 4 | 4 | 5.52 | 5.00 |
+| structured_output | 4 | 4 | 9.02 | 10.00 |
 | summarization | 1 | 1 | 6.96 | 6.88 |
 | task_management | 3 | 3 | 8.17 | 8.83 |
 | tool_calling | 4 | 4 | 5.90 | 5.98 |
@@ -50,8 +50,8 @@
 |------|-------|---------|-------|-------|----------|--------|
 | math_word_problem | 8.76 | 10.00 | 4.4 | 71 | 12.20s | OK |
 | logic_puzzle_constraint | 5.16 | 5.00 | 4.4 | 36 | 18.99s | OK |
-| causal_reasoning | 8.99 | 10.00 | 4.4 | 108 | 7.58s | OK |
-| code_bug_subtle | 7.14 | 7.50 | 2.0 | 89 | 7.07s | OK |
+| causal_reasoning | 7.24 | 7.50 | 4.4 | 108 | 7.58s | OK |
+| code_bug_subtle | 8.89 | 10.00 | 2.0 | 89 | 7.07s | OK |
 | fermi_estimation | 5.36 | 5.00 | 4.4 | 96 | 7.99s | OK |
 | ethical_dilemma_structured | 8.95 | 10.00 | 4.4 | 115 | 8.91s | OK |
 
@@ -95,7 +95,7 @@ Para resolver este problema, vamos a analizar las restricciones una por una y pr
 
 </details>
 
-<details><summary><code>causal_reasoning</code> — score 8.99</summary>
+<details><summary><code>causal_reasoning</code> — score 7.24</summary>
 
 **Stats**: latencia 7.58s · 108 tok/s · 197→817 tokens · $0.00171
 
@@ -115,7 +115,7 @@ Para analizar los datos cuantitativamente, primero calcularemos algunas tasas re
 
 </details>
 
-<details><summary><code>code_bug_subtle</code> — score 7.14</summary>
+<details><summary><code>code_bug_subtle</code> — score 8.89</summary>
 
 **Stats**: latencia 7.07s · 89 tok/s · 222→631 tokens · $0.00135
 
@@ -322,11 +322,11 @@ Claro, aquí tienes la información que solicitaste:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.12 | 6.67 | 4.4 | 21 | 43.77s | OK |
+| competitor_analysis | 6.11 | 6.67 | 4.4 | 21 | 43.77s | OK |
 | pricing_strategy | 6.85 | 7.50 | 4.6 | 42 | 22.17s | OK |
 | business_model_validation | 7.74 | 9.00 | 4.6 | 23 | 43.16s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.12</summary>
+<details><summary><code>competitor_analysis</code> — score 6.11</summary>
 
 **Stats**: latencia 43.77s · 21 tok/s · 177→932 tokens · $0.00194
 
@@ -506,12 +506,12 @@ Claro, vamos a identificar y corregir los bugs en el código proporcionado.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.90 | 5.00 | 4.0 | 47 | 1.11s | OK |
-| json_array_classification | 5.24 | 5.00 | 5 | 12 | 8.93s | OK |
-| json_nested_complex | 5.03 | 5.00 | 4.4 | 23 | 25.60s | OK |
-| json_strict_no_extra | 5.90 | 5.00 | 4.0 | 29 | 0.93s | OK |
+| json_simple_extraction | 9.40 | 10.00 | 4.0 | 47 | 1.11s | OK |
+| json_array_classification | 8.74 | 10.00 | 5 | 12 | 8.93s | OK |
+| json_nested_complex | 8.53 | 10.00 | 4.4 | 23 | 25.60s | OK |
+| json_strict_no_extra | 9.40 | 10.00 | 4.0 | 29 | 0.93s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.90</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.40</summary>
 
 **Stats**: latencia 1.11s · 47 tok/s · 109→52 tokens · $0.00015
 
@@ -529,7 +529,7 @@ Claro, vamos a identificar y corregir los bugs en el código proporcionado.
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.24</summary>
+<details><summary><code>json_array_classification</code> — score 8.74</summary>
 
 **Stats**: latencia 8.93s · 12 tok/s · 180→111 tokens · $0.00029
 
@@ -551,7 +551,7 @@ Claro, vamos a identificar y corregir los bugs en el código proporcionado.
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.03</summary>
+<details><summary><code>json_nested_complex</code> — score 8.53</summary>
 
 **Stats**: latencia 25.60s · 23 tok/s · 230→596 tokens · $0.00128
 
@@ -574,7 +574,7 @@ Claro, vamos a identificar y corregir los bugs en el código proporcionado.
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.90</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.40</summary>
 
 **Stats**: latencia 0.93s · 29 tok/s · 78→27 tokens · $0.00009
 
@@ -1052,8 +1052,8 @@ Esta semana traemos noticias emocionantes del mundo de las startups y la intelig
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.30 | 7.79 | 3.8 | 92 | 8.17s | OK |
-| news_json_output_strict | 5.39 | 5.00 | 2.6 | 92 | 6.51s | OK |
-| news_spanish_only | 5.42 | 5.00 | 3.8 | 90 | 5.85s | OK |
+| news_json_output_strict | 8.89 | 10.00 | 2.6 | 92 | 6.51s | OK |
+| news_spanish_only | 8.87 | 9.93 | 3.8 | 90 | 5.85s | OK |
 | news_no_hallucination_sources | 1.63 | 0.00 | 3.8 | 33 | 21.99s | OK |
 | news_perplexity_enrichment | 7.49 | 7.86 | 3.8 | 101 | 7.79s | OK |
 
@@ -1077,7 +1077,7 @@ La startup francesa de inteligencia artificial, Mistral AI, ha cerrado una ronda
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.39</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.89</summary>
 
 **Stats**: latencia 6.51s · 92 tok/s · 328→602 tokens · $0.00134
 
@@ -1097,7 +1097,7 @@ La startup francesa de inteligencia artificial, Mistral AI, ha cerrado una ronda
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.42</summary>
+<details><summary><code>news_spanish_only</code> — score 8.87</summary>
 
 **Stats**: latencia 5.85s · 90 tok/s · 323→527 tokens · $0.00118
 
@@ -1670,7 +1670,7 @@ Para cada tarea, seleccionaré la herramienta más apropiada y explicaré por qu
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.91 | 8.00 | 4.2 | 52 | 2.44s | OK |
 | support_escalation | 4.30 | 4.00 | 1.6 | 3 | 51.77s | OK |
-| requirements_change | 5.57 | 6.00 | 3.6 | 24 | 58.85s | OK |
+| requirements_change | 6.97 | 8.00 | 3.6 | 24 | 58.85s | OK |
 | debugging_conversation | 6.63 | 7.50 | 4.6 | 10 | 57.84s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.91</summary>
@@ -1709,7 +1709,7 @@ Entiendo tu solicitud, Maria. Primero, necesito confirmar algunos detalles antes
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 5.57</summary>
+<details><summary><code>requirements_change</code> — score 6.97</summary>
 
 **Stats**: latencia 58.85s · 24 tok/s · 227→1399 tokens · $0.00289
 
@@ -1754,7 +1754,7 @@ Entiendo tu solicitud, Maria. Primero, necesito confirmar algunos detalles antes
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 6.36 | 6.67 | 4.0 | 20 | 10.63s | OK |
-| data_privacy_protection | 9.04 | 10.00 | 4.4 | 28 | 3.58s | OK |
+| data_privacy_protection | 7.64 | 8.00 | 4.4 | 28 | 3.58s | OK |
 | language_and_tone_rules | 6.01 | 6.00 | 4.0 | 20 | 9.03s | OK |
 | scope_boundaries | 9.17 | 10.00 | 4.2 | 69 | 4.15s | OK |
 
@@ -1776,7 +1776,7 @@ En su caso, como la compra fue realizada ha
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 9.04</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.64</summary>
 
 **Stats**: latencia 3.58s · 28 tok/s · 228→99 tokens · $0.00029
 
@@ -1839,8 +1839,8 @@ Sob
 | skill_execution_complex | 7.30 | 7.08 | 3.2 | 80 | 1.56s | OK |
 | agent_team_delegation | 8.39 | 9.16 | 4.4 | 122 | 5.96s | OK |
 | ask_clarification_before_acting | 5.65 | 5.68 | 3.2 | 7 | 6.06s | OK |
-| context_following_complex_system | 5.65 | 5.00 | 4.2 | 66 | 2.88s | OK |
-| model_as_router | 7.55 | 7.50 | 4.2 | 123 | 2.63s | OK |
+| context_following_complex_system | 7.40 | 7.50 | 4.2 | 66 | 2.88s | OK |
+| model_as_router | 5.80 | 5.00 | 4.2 | 123 | 2.63s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 7.30</summary>
 
@@ -1902,7 +1902,7 @@ Lo siento, pero no puedo procesar reembolsos ni realizar acciones que involucren
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 5.65</summary>
+<details><summary><code>context_following_complex_system</code> — score 7.40</summary>
 
 **Stats**: latencia 2.88s · 66 tok/s · 995→191 tokens · $0.00078
 
@@ -1922,7 +1922,7 @@ Entiendo que necesitas ayuda con varias tareas. Vamos a abordarlas una por una:
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 7.55</summary>
+<details><summary><code>model_as_router</code> — score 5.80</summary>
 
 **Stats**: latencia 2.63s · 123 tok/s · 271→325 tokens · $0.00076
 

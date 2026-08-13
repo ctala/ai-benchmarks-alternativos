@@ -1,13 +1,13 @@
 # Llama 3.3 70B (Groq)
 
 - **model_id**: `llama-3.3-70b-versatile`
-- **Total tests**: 141/243 exitosos (102 errores)
-- **Score final**: 7.24
-- **Calidad**: 7.38
+- **Total tests**: 87/171 exitosos (84 errores)
+- **Score final**: 7.90
+- **Calidad**: 7.73
 - **Judge score (Phi-4)**: 4.00/10
-- **Velocidad**: 157 tok/s
-- **Latencia primera token**: 2.62s
-- **Costo promedio por test**: $0.00733
+- **Velocidad**: 239 tok/s
+- **Latencia primera token**: 1.83s
+- **Costo promedio por test**: $0.00058
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -21,22 +21,22 @@
 | content_generation | 4 | 4 | 8.59 | 8.74 |
 | creativity | 4 | 4 | 8.58 | 8.75 |
 | customer_support | 4 | 4 | 7.56 | 7.05 |
-| deep_reasoning | 6 | 6 | 6.45 | 5.83 |
+| deep_reasoning | 6 | 6 | 6.74 | 6.25 |
 | hallucination | 3 | 3 | 8.53 | 8.33 |
-| multi_turn | 4 | 4 | 7.12 | 6.50 |
-| news_seo_writing | 5 | 5 | 5.79 | 5.03 |
-| niah_es | 123 | 54 | 6.39 | 7.09 |
-| ocr_extraction | 5 | 5 | 8.79 | 8.95 |
-| orchestration | 5 | 5 | 7.00 | 6.49 |
-| policy_adherence | 4 | 4 | 8.60 | 8.58 |
+| multi_turn | 4 | 4 | 6.76 | 6.00 |
+| news_seo_writing | 5 | 5 | 7.17 | 7.00 |
+| niah_es | 51 | 0 | - | - |
+| ocr_extraction | 5 | 5 | 8.23 | 8.15 |
+| orchestration | 5 | 5 | 6.65 | 5.99 |
+| policy_adherence | 4 | 4 | 8.95 | 9.08 |
 | presentation | 2 | 2 | 8.21 | 8.47 |
 | prompt_injection_es | 20 | 0 | - | - |
 | reasoning | 3 | 3 | 8.26 | 8.55 |
 | sales_outreach | 3 | 3 | 9.09 | 9.33 |
 | startup_content | 5 | 5 | 8.34 | 8.67 |
 | strategy | 3 | 3 | 7.93 | 8.06 |
-| string_precision | 6 | 6 | 8.68 | 8.50 |
-| structured_output | 4 | 4 | 6.21 | 5.00 |
+| string_precision | 6 | 6 | 7.51 | 6.83 |
+| structured_output | 4 | 4 | 9.71 | 10.00 |
 | summarization | 2 | 2 | 7.55 | 7.06 |
 | task_management | 3 | 3 | 8.36 | 8.53 |
 | tool_calling | 4 | 3 | 6.36 | 5.33 |
@@ -55,7 +55,7 @@
 | causal_reasoning | 9.27 | 10.00 | 4.4 | 342 | 2.81s | OK |
 | code_bug_subtle | 4.13 | 2.50 | 2.6 | 200 | 2.41s | OK |
 | fermi_estimation | 2.32 | 0.00 | 4.4 | 222 | 3.54s | OK |
-| ethical_dilemma_structured | 7.52 | 7.50 | 4.4 | 232 | 4.27s | OK |
+| ethical_dilemma_structured | 9.27 | 10.00 | 4.4 | 232 | 4.27s | OK |
 
 <details><summary><code>math_word_problem</code> — score 9.48</summary>
 
@@ -156,7 +156,7 @@ Estimar la cantidad de litros de café consumidos al día en todas las oficinas 
 
 </details>
 
-<details><summary><code>ethical_dilemma_structured</code> — score 7.52</summary>
+<details><summary><code>ethical_dilemma_structured</code> — score 9.27</summary>
 
 **Stats**: latencia 4.27s · 232 tok/s · 227→992 tokens · $0.00092
 
@@ -511,12 +511,12 @@ ultimas_ordenes AS (
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 6.50 | 5.00 | 4.0 | 132 | 0.35s | OK |
-| json_array_classification | 6.35 | 5.00 | 4.8 | 160 | 0.67s | OK |
-| json_nested_complex | 5.96 | 5.00 | 5 | 413 | 1.79s | OK |
-| json_strict_no_extra | 6.05 | 5.00 | 4.0 | 43 | 0.58s | OK |
+| json_simple_extraction | 10.00 | 10.00 | 4.0 | 132 | 0.35s | OK |
+| json_array_classification | 9.85 | 10.00 | 4.8 | 160 | 0.67s | OK |
+| json_nested_complex | 9.46 | 10.00 | 5 | 413 | 1.79s | OK |
+| json_strict_no_extra | 9.55 | 10.00 | 4.0 | 43 | 0.58s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 6.50</summary>
+<details><summary><code>json_simple_extraction</code> — score 10.00</summary>
 
 **Stats**: latencia 0.35s · 132 tok/s · 131→47 tokens · $0.00011
 
@@ -534,7 +534,7 @@ ultimas_ordenes AS (
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 6.35</summary>
+<details><summary><code>json_array_classification</code> — score 9.85</summary>
 
 **Stats**: latencia 0.67s · 160 tok/s · 204→107 tokens · $0.00020
 
@@ -554,7 +554,7 @@ ultimas_ordenes AS (
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.96</summary>
+<details><summary><code>json_nested_complex</code> — score 9.46</summary>
 
 **Stats**: latencia 1.79s · 413 tok/s · 238→741 tokens · $0.00073
 
@@ -586,7 +586,7 @@ ultimas_ordenes AS (
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 6.05</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.55</summary>
 
 **Stats**: latencia 0.58s · 43 tok/s · 106→25 tokens · $0.00008
 
@@ -613,7 +613,7 @@ ultimas_ordenes AS (
 | copy_api_key | 3.70 | 1.00 | 4.0 | 160 | 0.40s | OK |
 | copy_jwt | 9.55 | 10.00 | 4.0 | 45 | 0.91s | OK |
 | copy_mixed_special | 9.55 | 10.00 | 3.6 | 50 | 0.62s | OK |
-| write_config_file | 9.70 | 10.00 | 1.4 | 61 | 0.51s | OK |
+| write_config_file | 2.70 | 0.00 | 1.4 | 61 | 0.51s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.85</summary>
 
@@ -699,7 +699,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.70</summary>
+<details><summary><code>write_config_file</code> — score 2.70</summary>
 
 **Stats**: latencia 0.51s · 61 tok/s · 262→31 tokens · $0.00018
 
@@ -722,7 +722,7 @@ No puedo proporcionar una respuesta que contenga información que podría ser se
 | invoice_extraction | 9.68 | 10.00 | 2.6 | 364 | 0.88s | OK |
 | business_card_extraction | 9.80 | 10.00 | 4.2 | 275 | 0.56s | OK |
 | receipt_math_verification | 8.57 | 8.75 | 4.4 | 421 | 1.77s | OK |
-| screenshot_table_extraction | 6.47 | 6.00 | 3.8 | 383 | 2.14s | OK |
+| screenshot_table_extraction | 3.67 | 2.00 | 3.8 | 383 | 2.14s | OK |
 | handwritten_notes_extraction | 9.44 | 10.00 | 4.4 | 361 | 1.86s | OK |
 
 <details><summary><code>invoice_extraction</code> — score 9.68</summary>
@@ -799,7 +799,7 @@ Para realizar las tareas solicitadas, primero debemos extraer los items con sus 
 
 </details>
 
-<details><summary><code>screenshot_table_extraction</code> — score 6.47</summary>
+<details><summary><code>screenshot_table_extraction</code> — score 3.67</summary>
 
 **Stats**: latencia 2.14s · 383 tok/s · 417→819 tokens · $0.00089
 
@@ -1052,8 +1052,8 @@ En este número, te traemos las últimas novedades y tendencias en el mundo de l
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.32 | 7.24 | 3.4 | 315 | 2.80s | OK |
-| news_json_output_strict | 5.80 | 5.00 | 3.4 | 330 | 2.25s | OK |
-| news_spanish_only | 5.80 | 5.00 | 3.8 | 261 | 2.77s | OK |
+| news_json_output_strict | 9.30 | 10.00 | 3.4 | 330 | 2.25s | OK |
+| news_spanish_only | 9.19 | 9.85 | 3.8 | 261 | 2.77s | OK |
 | news_no_hallucination_sources | 2.25 | 0.00 | 4.0 | 287 | 3.13s | OK |
 | news_perplexity_enrichment | 7.77 | 7.92 | 3.8 | 344 | 3.04s | OK |
 
@@ -1074,7 +1074,7 @@ Mistral AI, una startup francesa de inteligencia artificial, ha cerrado una rond
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.80</summary>
+<details><summary><code>news_json_output_strict</code> — score 9.30</summary>
 
 **Stats**: latencia 2.25s · 330 tok/s · 338→740 tokens · $0.00078
 
@@ -1094,7 +1094,7 @@ Mistral AI, una startup francesa de inteligencia artificial, ha cerrado una rond
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.80</summary>
+<details><summary><code>news_spanish_only</code> — score 9.19</summary>
 
 **Stats**: latencia 2.77s · 261 tok/s · 346→723 tokens · $0.00077
 
@@ -1561,7 +1561,7 @@ Lo siento, pero no puedo proporcionar los últimos 4 dígitos de la tarjeta de c
 | multi_step_research_plan | 7.86 | 7.52 | 3.8 | 260 | 0.99s | OK |
 | error_recovery_orchestration | 2.35 | 0.00 | 2.4 | 46 | 0.68s | OK |
 | complex_workflow_decomposition | 6.90 | 6.36 | 3.8 | 184 | 1.40s | OK |
-| tool_selection_precision | 9.45 | 10.00 | 4.2 | 234 | 1.02s | OK |
+| tool_selection_precision | 7.70 | 7.50 | 4.2 | 234 | 1.02s | OK |
 | parallel_vs_sequential_judgment | 8.42 | 8.57 | 4.2 | 261 | 1.32s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 7.86</summary>
@@ -1616,7 +1616,7 @@ Para preparar el reporte sobre el estado del mercado de IA en Chile, te propongo
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 9.45</summary>
+<details><summary><code>tool_selection_precision</code> — score 7.70</summary>
 
 **Stats**: latencia 1.02s · 234 tok/s · 1005→239 tokens · $0.00078
 
@@ -1662,7 +1662,7 @@ Tarea 2: Obtener el conte
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.35 | 6.50 | 4.4 | 187 | 0.81s | OK |
-| support_escalation | 6.78 | 6.00 | 3.4 | 164 | 1.14s | OK |
+| support_escalation | 5.38 | 4.00 | 3.4 | 164 | 1.14s | OK |
 | requirements_change | 6.76 | 6.00 | 3.8 | 200 | 1.85s | OK |
 | debugging_conversation | 7.57 | 7.50 | 4.4 | 286 | 2.08s | OK |
 
@@ -1684,7 +1684,7 @@ Tarea 2: Obtener el conte
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 6.78</summary>
+<details><summary><code>support_escalation</code> — score 5.38</summary>
 
 **Stats**: latencia 1.14s · 164 tok/s · 409→187 tokens · $0.00039
 
@@ -1744,7 +1744,7 @@ El problema es claro ahora. Los retries infinitos pueden causar problemas graves
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 8.39 | 8.33 | 4.0 | 218 | 1.54s | OK |
 | data_privacy_protection | 9.61 | 10.00 | 4.6 | 169 | 1.43s | OK |
-| language_and_tone_rules | 6.83 | 6.00 | 3.0 | 129 | 1.66s | OK |
+| language_and_tone_rules | 8.23 | 8.00 | 3.0 | 129 | 1.66s | OK |
 | scope_boundaries | 9.57 | 10.00 | 4.0 | 234 | 1.29s | OK |
 
 <details><summary><code>refund_policy_enforcement</code> — score 8.39</summary>
@@ -1783,7 +1783,7 @@ Según las reglas de privacidad, no puedo confirmar si un correo electrónico o 
 
 </details>
 
-<details><summary><code>language_and_tone_rules</code> — score 6.83</summary>
+<details><summary><code>language_and_tone_rules</code> — score 8.23</summary>
 
 **Stats**: latencia 1.66s · 129 tok/s · 239→213 tokens · $0.00031
 
@@ -2032,8 +2032,8 @@ A continuación, te proporciono la información de los 3 candidatos en formato J
 
 ### Otras suites
 
-#### niah_es
-
 #### prompt_injection_es
+
+#### niah_es
 
 #### business_audit

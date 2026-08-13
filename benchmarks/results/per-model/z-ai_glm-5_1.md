@@ -2,8 +2,8 @@
 
 - **model_id**: `z-ai/glm-5.1`
 - **Total tests**: 101/101 exitosos (0 errores)
-- **Score final**: 6.85
-- **Calidad**: 7.91
+- **Score final**: 7.02
+- **Calidad**: 8.16
 - **Judge score (Phi-4)**: 4.10/10
 - **Velocidad**: 12 tok/s
 - **Latencia primera token**: 99.50s
@@ -16,25 +16,25 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 5.33 | 5.78 |
-| business_audit | 10 | 10 | 6.84 | 7.80 |
+| business_audit | 10 | 10 | 6.98 | 8.00 |
 | code_generation | 4 | 4 | 7.56 | 9.09 |
 | content_generation | 4 | 4 | 7.65 | 9.02 |
 | creativity | 4 | 4 | 7.61 | 9.00 |
 | customer_support | 4 | 4 | 6.50 | 7.35 |
 | deep_reasoning | 6 | 6 | 6.66 | 7.78 |
 | hallucination | 3 | 3 | 6.78 | 7.67 |
-| multi_turn | 4 | 4 | 6.93 | 8.00 |
-| news_seo_writing | 5 | 5 | 4.92 | 5.38 |
+| multi_turn | 4 | 4 | 6.58 | 7.50 |
+| news_seo_writing | 5 | 5 | 6.26 | 7.30 |
 | ocr_extraction | 5 | 5 | 8.31 | 10.00 |
-| orchestration | 5 | 5 | 6.26 | 7.14 |
-| policy_adherence | 4 | 4 | 7.48 | 8.67 |
+| orchestration | 5 | 5 | 5.76 | 6.43 |
+| policy_adherence | 4 | 4 | 7.42 | 8.58 |
 | presentation | 2 | 2 | 7.27 | 8.86 |
 | reasoning | 3 | 3 | 7.55 | 9.19 |
 | sales_outreach | 3 | 3 | 7.83 | 9.33 |
 | startup_content | 5 | 5 | 7.54 | 9.23 |
 | strategy | 3 | 3 | 6.68 | 8.06 |
 | string_precision | 6 | 6 | 7.30 | 8.17 |
-| structured_output | 4 | 4 | 5.06 | 5.00 |
+| structured_output | 4 | 4 | 8.56 | 10.00 |
 | summarization | 2 | 2 | 6.68 | 7.50 |
 | task_management | 3 | 3 | 7.65 | 9.15 |
 | tool_calling | 4 | 4 | 5.67 | 6.05 |
@@ -52,7 +52,7 @@
 | logic_puzzle_constraint | 4.81 | 5.00 | 4.4 | 21 | 57.30s | OK |
 | causal_reasoning | 8.14 | 10.00 | 4.8 | 8 | 172.55s | OK |
 | code_bug_subtle | 4.72 | 5.00 | 1.6 | 6 | 151.62s | OK |
-| fermi_estimation | 5.97 | 6.67 | 4.4 | 17 | 79.45s | OK |
+| fermi_estimation | 5.96 | 6.67 | 4.4 | 17 | 79.45s | OK |
 | ethical_dilemma_structured | 8.07 | 10.00 | 4.8 | 9 | 217.75s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.26</summary>
@@ -136,7 +136,7 @@ El código falla específicamente cuando la lista `data` cumple estas dos condic
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 5.97</summary>
+<details><summary><code>fermi_estimation</code> — score 5.96</summary>
 
 **Stats**: latencia 79.45s · 17 tok/s · 73→1327 tokens · $0.00416
 
@@ -328,11 +328,11 @@ Aquí tienes los datos solicitados, con la desagregación exacta de certeza y m�
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 5.65 | 6.67 | 4.4 | 2 | 840.75s | OK |
+| competitor_analysis | 5.64 | 6.67 | 4.4 | 2 | 840.75s | OK |
 | pricing_strategy | 6.32 | 7.50 | 4.6 | 10 | 188.93s | OK |
 | business_model_validation | 8.07 | 10.00 | 4.8 | 7 | 263.21s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 5.65</summary>
+<details><summary><code>competitor_analysis</code> — score 5.64</summary>
 
 **Stats**: latencia 840.75s · 2 tok/s · 177→2126 tokens · $0.00672
 
@@ -483,12 +483,12 @@ El cálculo `average = total / len(processed)` fal
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.10 | 5.00 | 5 | 2 | 24.08s | OK |
-| json_array_classification | 4.99 | 5.00 | 5 | 5 | 21.97s | OK |
-| json_nested_complex | 4.71 | 5.00 | 5 | 7 | 138.28s | OK |
-| json_strict_no_extra | 5.45 | 5.00 | 4.0 | 8 | 3.29s | OK |
+| json_simple_extraction | 8.61 | 10.00 | 5 | 2 | 24.08s | OK |
+| json_array_classification | 8.49 | 10.00 | 5 | 5 | 21.97s | OK |
+| json_nested_complex | 8.21 | 10.00 | 5 | 7 | 138.28s | OK |
+| json_strict_no_extra | 8.95 | 10.00 | 4.0 | 8 | 3.29s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.10</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.61</summary>
 
 **Stats**: latencia 24.08s · 2 tok/s · 101→56 tokens · $0.00027
 
@@ -513,7 +513,7 @@ El cálculo `average = total / len(processed)` fal
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 4.99</summary>
+<details><summary><code>json_array_classification</code> — score 8.49</summary>
 
 **Stats**: latencia 21.97s · 5 tok/s · 176→103 tokens · $0.00049
 
@@ -531,7 +531,7 @@ El cálculo `average = total / len(processed)` fal
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 4.71</summary>
+<details><summary><code>json_nested_complex</code> — score 8.21</summary>
 
 **Stats**: latencia 138.28s · 7 tok/s · 195→909 tokens · $0.00299
 
@@ -562,7 +562,7 @@ El cálculo `average = total / len(processed)` fal
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.45</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.95</summary>
 
 **Stats**: latencia 3.29s · 8 tok/s · 77→25 tokens · $0.00015
 
@@ -1036,8 +1036,8 @@ Otra semana, otro terremoto en el mundo de la innovación. Si creías que la int
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 6.83 | 8.32 | 3.8 | 12 | 219.84s | OK |
-| news_json_output_strict | 4.62 | 5.00 | 2.8 | 9 | 153.70s | OK |
-| news_spanish_only | 4.72 | 5.00 | 4.4 | 6 | 140.16s | OK |
+| news_json_output_strict | 8.12 | 10.00 | 2.8 | 9 | 153.70s | OK |
+| news_spanish_only | 7.93 | 9.58 | 4.4 | 6 | 140.16s | OK |
 | news_no_hallucination_sources | 1.16 | 0.00 | 3.8 | 11 | 99.52s | OK |
 | news_perplexity_enrichment | 7.26 | 8.60 | 4.0 | 18 | 93.21s | OK |
 
@@ -1061,7 +1061,7 @@ Otra semana, otro terremoto en el mundo de la innovación. Si creías que la int
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 4.62</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.12</summary>
 
 **Stats**: latencia 153.70s · 9 tok/s · 310→1434 tokens · $0.00472
 
@@ -1090,7 +1090,7 @@ Otra semana, otro terremoto en el mundo de la innovación. Si creías que la int
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 4.72</summary>
+<details><summary><code>news_spanish_only</code> — score 7.93</summary>
 
 **Stats**: latencia 140.16s · 6 tok/s · 309→823 tokens · $0.00284
 
@@ -1590,8 +1590,8 @@ Lo siento, pero no puedo cumplir con ninguna de esas dos solicitudes, y debo exp
 | multi_step_research_plan | 6.88 | 8.12 | 3.8 | 4 | 100.26s | OK |
 | error_recovery_orchestration | 4.80 | 5.00 | 3.8 | 2 | 41.58s | OK |
 | complex_workflow_decomposition | 4.07 | 4.01 | 2.0 | 3 | 55.45s | OK |
-| tool_selection_precision | 8.31 | 10.00 | 4.2 | 5 | 48.83s | OK |
-| parallel_vs_sequential_judgment | 7.22 | 8.57 | 4.6 | 6 | 90.26s | OK |
+| tool_selection_precision | 4.81 | 5.00 | 4.2 | 5 | 48.83s | OK |
+| parallel_vs_sequential_judgment | 8.22 | 10.00 | 4.6 | 6 | 90.26s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 6.88</summary>
 
@@ -1655,7 +1655,7 @@ Voy a orquestar el proceso completo de onboarding paso a paso. Empecemos.
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 8.31</summary>
+<details><summary><code>tool_selection_precision</code> — score 4.81</summary>
 
 **Stats**: latencia 48.83s · 5 tok/s · 981→265 tokens · $0.00178
 
@@ -1675,7 +1675,7 @@ Voy a orquestar el proceso completo de onboarding paso a paso. Empecemos.
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 7.22</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 8.22</summary>
 
 **Stats**: latencia 90.26s · 6 tok/s · 1056→575 tokens · $0.00281
 
@@ -1705,7 +1705,7 @@ Voy a orquestar el proceso completo de onboarding paso a paso. Empecemos.
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.05 | 8.00 | 4.4 | 6 | 32.74s | OK |
 | support_escalation | 7.05 | 8.00 | 3.4 | 9 | 20.21s | OK |
-| requirements_change | 5.40 | 6.00 | 2.4 | 10 | 100.16s | OK |
+| requirements_change | 4.00 | 4.00 | 2.4 | 10 | 100.16s | OK |
 | debugging_conversation | 8.21 | 10.00 | 4.8 | 7 | 129.10s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.05</summary>
@@ -1745,7 +1745,7 @@ Con respecto al reembolso completo de los $200, debo aclararte que según nuestr
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 5.40</summary>
+<details><summary><code>requirements_change</code> — score 4.00</summary>
 
 **Stats**: latencia 100.16s · 10 tok/s · 228→978 tokens · $0.00324
 
@@ -1793,12 +1793,12 @@ En lugar de reintentar inmed
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 6.01 | 6.67 | 4.2 | 6 | 75.17s | OK |
-| data_privacy_protection | 8.48 | 10.00 | 4.4 | 6 | 28.37s | OK |
+| refund_policy_enforcement | 7.17 | 8.33 | 4.2 | 6 | 75.17s | OK |
+| data_privacy_protection | 7.08 | 8.00 | 4.4 | 6 | 28.37s | OK |
 | language_and_tone_rules | 7.05 | 8.00 | 3.4 | 10 | 22.01s | OK |
 | scope_boundaries | 8.38 | 10.00 | 4.2 | 11 | 28.41s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 6.01</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 7.17</summary>
 
 **Stats**: latencia 75.17s · 6 tok/s · 267→420 tokens · $0.00155
 
@@ -1818,7 +1818,7 @@ Gracias por contactar al equipo de soporte de CloudTools SaaS. Lamento mucho que
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.48</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.08</summary>
 
 **Stats**: latencia 28.37s · 6 tok/s · 229→167 tokens · $0.00074
 

@@ -1,13 +1,13 @@
 # Claude Opus 4.7
 
 - **model_id**: `anthropic/claude-opus-4-7`
-- **Total tests**: 252/252 exitosos (0 errores)
-- **Score final**: 6.45
-- **Calidad**: 7.69
+- **Total tests**: 180/180 exitosos (0 errores)
+- **Score final**: 6.96
+- **Calidad**: 8.21
 - **Judge score (Phi-4)**: 4.38/10
-- **Velocidad**: 51 tok/s
-- **Latencia primera token**: 14.20s
-- **Costo promedio por test**: $0.24314
+- **Velocidad**: 60 tok/s
+- **Latencia primera token**: 17.49s
+- **Costo promedio por test**: $0.06481
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -17,7 +17,7 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 11 | 11 | 6.93 | 8.10 |
 | agent_long_horizon | 24 | 24 | 6.54 | 8.10 |
-| business_audit | 10 | 10 | 6.76 | 8.00 |
+| business_audit | 10 | 10 | 7.04 | 8.40 |
 | business_strategy | 5 | 5 | 7.52 | 9.20 |
 | code_generation | 8 | 8 | 7.54 | 9.08 |
 | content_generation | 8 | 8 | 7.32 | 8.73 |
@@ -28,17 +28,16 @@
 | hallucination | 3 | 3 | 6.08 | 6.56 |
 | multi_turn | 4 | 4 | 6.67 | 7.67 |
 | news_seo_writing | 9 | 9 | 5.53 | 6.32 |
-| niah_es | 72 | 72 | 5.29 | 6.51 |
 | ocr_extraction | 5 | 5 | 8.28 | 9.87 |
 | orchestration | 9 | 9 | 6.78 | 7.86 |
-| policy_adherence | 4 | 4 | 7.70 | 9.08 |
+| policy_adherence | 4 | 4 | 7.06 | 8.17 |
 | presentation | 4 | 4 | 7.45 | 9.06 |
 | reasoning | 6 | 6 | 7.68 | 9.31 |
 | sales_outreach | 3 | 3 | 7.78 | 9.33 |
 | startup_content | 10 | 10 | 7.51 | 9.15 |
 | strategy | 3 | 3 | 7.47 | 9.17 |
-| string_precision | 6 | 6 | 8.66 | 10.00 |
-| structured_output | 4 | 4 | 5.09 | 5.00 |
+| string_precision | 6 | 6 | 7.38 | 8.17 |
+| structured_output | 4 | 4 | 8.59 | 10.00 |
 | summarization | 4 | 4 | 6.83 | 7.81 |
 | task_management | 6 | 6 | 7.62 | 9.20 |
 | tool_calling | 8 | 8 | 5.26 | 5.42 |
@@ -769,12 +768,12 @@ Si ninguna orden tiene status `'pending'`, `processed` estará vacío y `total /
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.14 | 5.00 | 4.0 | 24 | 2.41s | OK |
-| json_array_classification | 5.30 | 5.00 | 5 | 54 | 2.31s | OK |
-| json_nested_complex | 4.70 | 5.00 | 5 | 69 | 17.16s | OK |
-| json_strict_no_extra | 5.21 | 5.00 | 5 | 16 | 2.33s | OK |
+| json_simple_extraction | 8.64 | 10.00 | 4.0 | 24 | 2.41s | OK |
+| json_array_classification | 8.80 | 10.00 | 5 | 54 | 2.31s | OK |
+| json_nested_complex | 8.20 | 10.00 | 5 | 69 | 17.16s | OK |
+| json_strict_no_extra | 8.71 | 10.00 | 5 | 16 | 2.33s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.14</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.64</summary>
 
 **Stats**: latencia 2.41s · 24 tok/s · 158→58 tokens · $0.00224
 
@@ -792,7 +791,7 @@ Si ninguna orden tiene status `'pending'`, `processed` estará vacío y `total /
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.30</summary>
+<details><summary><code>json_array_classification</code> — score 8.80</summary>
 
 **Stats**: latencia 2.31s · 54 tok/s · 285→124 tokens · $0.00453
 
@@ -810,7 +809,7 @@ Si ninguna orden tiene status `'pending'`, `processed` estará vacío y `total /
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 4.70</summary>
+<details><summary><code>json_nested_complex</code> — score 8.20</summary>
 
 **Stats**: latencia 17.16s · 69 tok/s · 309→1177 tokens · $0.03097
 
@@ -835,7 +834,7 @@ Si ninguna orden tiene status `'pending'`, `processed` estará vacío y `total /
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.21</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.71</summary>
 
 **Stats**: latencia 2.33s · 16 tok/s · 134→38 tokens · $0.00162
 
@@ -859,10 +858,10 @@ Si ninguna orden tiene status `'pending'`, `processed` estará vacío y `total /
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 8.75 | 10.00 | 4.0 | 14 | 1.84s | OK |
 | copy_hex_64 | 8.66 | 10.00 | 3.0 | 15 | 3.32s | OK |
-| copy_api_key | 8.60 | 10.00 | 4.0 | 27 | 2.69s | OK |
+| copy_api_key | 2.30 | 1.00 | 4.0 | 27 | 2.69s | OK |
 | copy_jwt | 8.62 | 10.00 | 4.0 | 26 | 2.44s | OK |
 | copy_mixed_special | 8.67 | 10.00 | 3.0 | 19 | 2.39s | OK |
-| write_config_file | 8.67 | 10.00 | 4.0 | 78 | 3.64s | OK |
+| write_config_file | 7.27 | 8.00 | 4.0 | 78 | 3.64s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.75</summary>
 
@@ -900,7 +899,7 @@ CLAVE-ROTADA-Y-PURGADA
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 8.60</summary>
+<details><summary><code>copy_api_key</code> — score 2.30</summary>
 
 **Stats**: latencia 2.69s · 27 tok/s · 183→72 tokens · $0.00271
 
@@ -954,7 +953,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 8.67</summary>
+<details><summary><code>write_config_file</code> — score 7.27</summary>
 
 **Stats**: latencia 3.64s · 78 tok/s · 356→285 tokens · $0.00890
 
@@ -2628,12 +2627,12 @@ Ahi esta el problema - un retry sin backoff en un 429 es catastrofico, porque ca
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 7.10 | 8.33 | 5 | 59 | 13.35s | OK |
-| data_privacy_protection | 8.46 | 10.00 | 5 | 52 | 8.09s | OK |
+| refund_policy_enforcement | 5.94 | 6.67 | 5 | 59 | 13.35s | OK |
+| data_privacy_protection | 7.06 | 8.00 | 5 | 52 | 8.09s | OK |
 | language_and_tone_rules | 6.95 | 8.00 | 3.0 | 51 | 10.20s | OK |
 | scope_boundaries | 8.30 | 10.00 | 4.0 | 52 | 12.69s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 7.10</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 5.94</summary>
 
 **Stats**: latencia 13.35s · 59 tok/s · 428→786 tokens · $0.02179
 
@@ -2655,7 +2654,7 @@ Lamento sinceramente que su experiencia con nuestro servicio no haya cumplido co
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.46</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.06</summary>
 
 **Stats**: latencia 8.09s · 52 tok/s · 392→424 tokens · $0.01256
 
@@ -3200,8 +3199,6 @@ Asumiendo jornada de **9 AM - 6 PM** con almuerzo 12-1 PM (salvo excepciones).
 </details>
 
 ### Otras suites
-
-#### niah_es
 
 #### business_audit
 

@@ -2,8 +2,8 @@
 
 - **model_id**: `mistralai/ministral-14b-instruct-2512`
 - **Total tests**: 89/100 exitosos (11 errores)
-- **Score final**: 7.25
-- **Calidad**: 7.78
+- **Score final**: 7.29
+- **Calidad**: 7.83
 - **Judge score (Phi-4)**: 4.12/10
 - **Velocidad**: 21 tok/s
 - **Latencia primera token**: 48.80s
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 7.06 | 7.44 |
+| agent_capabilities | 5 | 5 | 6.71 | 6.94 |
 | business_audit | 10 | 0 | - | - |
 | code_generation | 4 | 4 | 7.71 | 8.53 |
 | content_generation | 4 | 4 | 8.12 | 8.89 |
@@ -23,18 +23,18 @@
 | customer_support | 4 | 4 | 6.25 | 6.23 |
 | deep_reasoning | 6 | 6 | 6.92 | 7.50 |
 | hallucination | 3 | 3 | 5.63 | 5.67 |
-| multi_turn | 4 | 4 | 7.35 | 8.00 |
-| news_seo_writing | 5 | 5 | 5.44 | 5.43 |
-| ocr_extraction | 5 | 5 | 8.45 | 9.50 |
+| multi_turn | 4 | 4 | 7.36 | 8.00 |
+| news_seo_writing | 5 | 5 | 5.68 | 5.76 |
+| ocr_extraction | 5 | 5 | 7.93 | 8.75 |
 | orchestration | 5 | 4 | 7.62 | 8.25 |
-| policy_adherence | 4 | 4 | 7.60 | 8.17 |
+| policy_adherence | 4 | 4 | 7.25 | 7.67 |
 | presentation | 2 | 2 | 7.74 | 8.64 |
 | reasoning | 3 | 3 | 8.06 | 9.25 |
-| sales_outreach | 3 | 3 | 6.27 | 6.44 |
+| sales_outreach | 3 | 3 | 7.05 | 7.56 |
 | startup_content | 4 | 4 | 8.11 | 9.17 |
 | strategy | 3 | 3 | 7.25 | 8.06 |
 | string_precision | 6 | 6 | 7.83 | 8.17 |
-| structured_output | 4 | 4 | 5.20 | 5.00 |
+| structured_output | 4 | 4 | 6.60 | 7.00 |
 | summarization | 2 | 2 | 7.81 | 8.40 |
 | task_management | 3 | 3 | 8.10 | 9.15 |
 | tool_calling | 4 | 4 | 7.20 | 7.17 |
@@ -513,12 +513,12 @@ Tienes razón en los tres bugs que mencionas. Vamos a analizar cada uno y luego 
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.30 | 5.00 | 3.6 | 13 | 7.42s | OK |
-| json_array_classification | 5.23 | 5.00 | 4.8 | 10 | 14.64s | OK |
-| json_nested_complex | 4.96 | 5.00 | 4.0 | 14 | 147.15s | OK |
-| json_strict_no_extra | 5.30 | 5.00 | 3.0 | 13 | 5.24s | OK |
+| json_simple_extraction | 8.80 | 10.00 | 3.6 | 13 | 7.42s | OK |
+| json_array_classification | 8.72 | 10.00 | 4.8 | 10 | 14.64s | OK |
+| json_nested_complex | 2.86 | 2.00 | 4.0 | 14 | 147.15s | OK |
+| json_strict_no_extra | 6.00 | 6.00 | 3.0 | 13 | 5.24s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.30</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.80</summary>
 
 **Stats**: latencia 7.42s · 13 tok/s · 109→96 tokens · $0.00005
 
@@ -548,7 +548,7 @@ Tienes razón en los tres bugs que mencionas. Vamos a analizar cada uno y luego 
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.23</summary>
+<details><summary><code>json_array_classification</code> — score 8.72</summary>
 
 **Stats**: latencia 14.64s · 10 tok/s · 180→143 tokens · $0.00007
 
@@ -580,7 +580,7 @@ Tienes razón en los tres bugs que mencionas. Vamos a analizar cada uno y luego 
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 4.96</summary>
+<details><summary><code>json_nested_complex</code> — score 2.86</summary>
 
 **Stats**: latencia 147.15s · 14 tok/s · 230→2048 tokens · $0.00084
 
@@ -603,7 +603,7 @@ Tienes razón en los tres bugs que mencionas. Vamos a analizar cada uno y luego 
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.30</summary>
+<details><summary><code>json_strict_no_extra</code> — score 6.00</summary>
 
 **Stats**: latencia 5.24s · 13 tok/s · 78→70 tokens · $0.00004
 
@@ -755,7 +755,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiI
 |------|-------|---------|-------|-------|----------|--------|
 | invoice_extraction | 8.88 | 10.00 | 2.6 | 23 | 17.55s | OK |
 | business_card_extraction | 8.95 | 10.00 | 4.2 | 22 | 8.02s | OK |
-| receipt_math_verification | 7.00 | 7.50 | 4.4 | 24 | 38.36s | OK |
+| receipt_math_verification | 4.38 | 3.75 | 4.4 | 24 | 38.36s | OK |
 | screenshot_table_extraction | 8.73 | 10.00 | 3.8 | 22 | 48.68s | OK |
 | handwritten_notes_extraction | 8.70 | 10.00 | 4.4 | 22 | 52.58s | OK |
 
@@ -811,7 +811,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiI
 
 </details>
 
-<details><summary><code>receipt_math_verification</code> — score 7.00</summary>
+<details><summary><code>receipt_math_verification</code> — score 4.38</summary>
 
 **Stats**: latencia 38.36s · 24 tok/s · 371→917 tokens · $0.00040
 
@@ -1094,8 +1094,8 @@ Esta semana la IA sigue dominando titulares, pero con un giro: desde modelos *op
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.39 | 8.27 | 4.2 | 24 | 86.13s | OK |
-| news_json_output_strict | 5.16 | 5.00 | 3.2 | 25 | 61.01s | OK |
-| news_spanish_only | 5.14 | 5.00 | 3.8 | 23 | 73.25s | OK |
+| news_json_output_strict | 3.06 | 2.00 | 3.2 | 25 | 61.01s | OK |
+| news_spanish_only | 8.41 | 9.67 | 3.8 | 23 | 73.25s | OK |
 | news_no_hallucination_sources | 1.71 | 0.00 | 3.8 | 23 | 49.49s | OK |
 | news_perplexity_enrichment | 7.82 | 8.88 | 4.2 | 22 | 95.27s | OK |
 
@@ -1120,7 +1120,7 @@ Mistral AI levanta $2B y lanza **Devstral**, su modelo de código open-source co
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.16</summary>
+<details><summary><code>news_json_output_strict</code> — score 3.06</summary>
 
 **Stats**: latencia 61.01s · 25 tok/s · 328→1529 tokens · $0.00064
 
@@ -1145,7 +1145,7 @@ Mistral AI levanta $2B y lanza **Devstral**, su modelo de código open-source co
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.14</summary>
+<details><summary><code>news_spanish_only</code> — score 8.41</summary>
 
 **Stats**: latencia 73.25s · 23 tok/s · 323→1717 tokens · $0.00072
 
@@ -1289,7 +1289,7 @@ Carlos celebró el lanzamiento de *HonestAI*, su startup de chatbots éticos. Ha
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.47 | 8.00 | 4.4 | 20 | 15.47s | OK |
-| lead_qualification | 4.13 | 3.33 | 4.8 | 20 | 36.41s | OK |
+| lead_qualification | 6.46 | 6.67 | 4.8 | 20 | 36.41s | OK |
 | campaign_optimization | 7.21 | 8.00 | 4.4 | 21 | 98.48s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.47</summary>
@@ -1313,7 +1313,7 @@ Tu post en LinkedIn sobre escalar content marketing *sin contratar* me llamó la
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 4.13</summary>
+<details><summary><code>lead_qualification</code> — score 6.46</summary>
 
 **Stats**: latencia 36.41s · 20 tok/s · 253→747 tokens · $0.00032
 
@@ -1743,8 +1743,8 @@ Aquí está el análisis de las dependencias entre las tareas:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.47 | 8.00 | 4.4 | 22 | 11.14s | OK |
-| support_escalation | 8.84 | 10.00 | 4.4 | 22 | 25.48s | OK |
-| requirements_change | 4.43 | 4.00 | 3.2 | 22 | 81.43s | OK |
+| support_escalation | 7.44 | 8.00 | 4.4 | 22 | 25.48s | OK |
+| requirements_change | 5.83 | 6.00 | 3.2 | 22 | 81.43s | OK |
 | debugging_conversation | 8.68 | 10.00 | 4.6 | 21 | 66.42s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.47</summary>
@@ -1765,7 +1765,7 @@ Imagina esto: son las 3 AM y suena el pitido de un nuevo ticket en Zendesk. *"Mi
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 8.84</summary>
+<details><summary><code>support_escalation</code> — score 7.44</summary>
 
 **Stats**: latencia 25.48s · 22 tok/s · 358→552 tokens · $0.00026
 
@@ -1783,7 +1783,7 @@ Entiendo tu frustración, María, y lamento mucho los problemas continuos que ha
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 4.43</summary>
+<details><summary><code>requirements_change</code> — score 5.83</summary>
 
 **Stats**: latencia 81.43s · 22 tok/s · 227→1783 tokens · $0.00074
 
@@ -1831,7 +1831,7 @@ Usa un algoritmo de *backoff exponencial* para manejar errores 429 (*Too Many Re
 | refund_policy_enforcement | 6.54 | 6.67 | 4.0 | 20 | 15.83s | OK |
 | data_privacy_protection | 8.95 | 10.00 | 4.4 | 21 | 7.87s | OK |
 | language_and_tone_rules | 6.07 | 6.00 | 3.6 | 21 | 18.06s | OK |
-| scope_boundaries | 8.84 | 10.00 | 4.4 | 21 | 26.63s | OK |
+| scope_boundaries | 7.44 | 8.00 | 4.4 | 21 | 26.63s | OK |
 
 <details><summary><code>refund_policy_enforcement</code> — score 6.54</summary>
 
@@ -1889,7 +1889,7 @@ EcoStartup es un **programa de aceleración de 6 meses** para startups chilenas 
 
 </details>
 
-<details><summary><code>scope_boundaries</code> — score 8.84</summary>
+<details><summary><code>scope_boundaries</code> — score 7.44</summary>
 
 **Stats**: latencia 26.63s · 21 tok/s · 270→564 tokens · $0.00025
 
@@ -1918,7 +1918,7 @@ EcoStartup es un **programa de aceleración de 6 meses** para startups chilenas 
 | skill_execution_complex | 4.72 | 3.96 | 2.4 | 18 | 5.38s | OK |
 | agent_team_delegation | 8.49 | 9.72 | 4.8 | 21 | 55.79s | OK |
 | ask_clarification_before_acting | 8.06 | 8.52 | 4.8 | 16 | 4.13s | OK |
-| context_following_complex_system | 6.95 | 7.50 | 4.0 | 20 | 53.21s | OK |
+| context_following_complex_system | 5.20 | 5.00 | 4.0 | 20 | 53.21s | OK |
 | model_as_router | 7.10 | 7.50 | 4.4 | 20 | 28.25s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 4.72</summary>
@@ -1976,7 +1976,7 @@ Entendido. Aquí tienes el **plan de ejecución detallado** para crear la landin
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 6.95</summary>
+<details><summary><code>context_following_complex_system</code> — score 5.20</summary>
 
 **Stats**: latencia 53.21s · 20 tok/s · 995→1087 tokens · $0.00053
 

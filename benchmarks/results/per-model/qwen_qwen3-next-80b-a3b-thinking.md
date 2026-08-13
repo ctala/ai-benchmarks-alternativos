@@ -2,8 +2,8 @@
 
 - **model_id**: `qwen/qwen3-next-80b-a3b-thinking`
 - **Total tests**: 136/136 exitosos (0 errores)
-- **Score final**: 6.94
-- **Calidad**: 7.39
+- **Score final**: 7.01
+- **Calidad**: 7.49
 - **Judge score (Phi-4)**: 4.25/10
 - **Velocidad**: 156 tok/s
 - **Latencia primera token**: 24.23s
@@ -15,20 +15,20 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 7.29 | 7.77 |
+| agent_capabilities | 5 | 5 | 6.94 | 7.27 |
 | agent_long_horizon | 12 | 12 | 6.53 | 7.21 |
-| business_audit | 10 | 10 | 6.52 | 6.80 |
+| business_audit | 10 | 10 | 6.41 | 6.63 |
 | business_strategy | 5 | 5 | 7.95 | 8.80 |
 | code_generation | 6 | 6 | 7.38 | 8.13 |
 | content_generation | 4 | 4 | 8.02 | 8.82 |
-| content_verificable | 5 | 5 | 6.89 | 7.33 |
+| content_verificable | 5 | 5 | 6.65 | 7.00 |
 | creativity | 4 | 4 | 8.13 | 9.25 |
 | customer_support | 7 | 7 | 7.74 | 8.31 |
 | deep_reasoning | 6 | 6 | 4.97 | 4.71 |
 | hallucination | 3 | 3 | 6.43 | 6.33 |
 | multi_turn | 4 | 4 | 6.00 | 6.00 |
-| news_seo_writing | 9 | 9 | 5.00 | 4.83 |
-| ocr_extraction | 5 | 5 | 8.15 | 9.27 |
+| news_seo_writing | 9 | 9 | 5.73 | 5.88 |
+| ocr_extraction | 5 | 5 | 8.16 | 9.27 |
 | orchestration | 5 | 5 | 7.06 | 7.58 |
 | policy_adherence | 4 | 4 | 8.04 | 8.67 |
 | presentation | 2 | 2 | 8.29 | 9.52 |
@@ -37,7 +37,7 @@
 | startup_content | 5 | 5 | 8.13 | 9.15 |
 | strategy | 3 | 3 | 5.97 | 6.22 |
 | string_precision | 6 | 6 | 6.78 | 6.67 |
-| structured_output | 4 | 4 | 5.50 | 5.00 |
+| structured_output | 4 | 4 | 7.25 | 7.50 |
 | summarization | 2 | 2 | 6.61 | 6.93 |
 | task_management | 3 | 3 | 6.55 | 6.82 |
 | tool_calling | 4 | 4 | 6.79 | 6.75 |
@@ -54,9 +54,9 @@
 | math_word_problem | 5.35 | 5.00 | 4.0 | 130 | 15.77s | OK |
 | logic_puzzle_constraint | 2.37 | 0.75 | 4.0 | 133 | 15.35s | OK |
 | causal_reasoning | 8.59 | 10.00 | 5.0 | 177 | 44.51s | OK |
-| code_bug_subtle | 4.86 | 5.00 | 5 | 353 | 72.30s | OK |
+| code_bug_subtle | 3.11 | 2.50 | 5 | 353 | 72.30s | OK |
 | fermi_estimation | 1.54 | 0.00 | 4.4 | 183 | 53.99s | OK |
-| ethical_dilemma_structured | 7.10 | 7.50 | 4.0 | 149 | 13.74s | OK |
+| ethical_dilemma_structured | 8.85 | 10.00 | 4.0 | 149 | 13.74s | OK |
 
 <details><summary><code>math_word_problem</code> — score 5.35</summary>
 
@@ -121,7 +121,7 @@ Okay, let's try to figure out the order of the four houses. So we have four hous
 
 </details>
 
-<details><summary><code>code_bug_subtle</code> — score 4.86</summary>
+<details><summary><code>code_bug_subtle</code> — score 3.11</summary>
 
 **Stats**: latencia 72.30s · 353 tok/s · 219→25520 tokens · $0.03066
 
@@ -167,7 +167,7 @@ def remove_outliers_and
 
 </details>
 
-<details><summary><code>ethical_dilemma_structured</code> — score 7.10</summary>
+<details><summary><code>ethical_dilemma_structured</code> — score 8.85</summary>
 
 **Stats**: latencia 13.74s · 149 tok/s · 205→2048 tokens · $0.00249
 
@@ -628,12 +628,12 @@ WITH recent_orders AS (
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.57 | 5.00 | 5 | 178 | 5.50s | OK |
-| json_array_classification | 5.25 | 5.00 | 5 | 156 | 21.93s | OK |
-| json_nested_complex | 5.35 | 5.00 | 4.0 | 154 | 13.28s | OK |
-| json_strict_no_extra | 5.81 | 5.00 | 5 | 154 | 3.82s | OK |
+| json_simple_extraction | 9.07 | 10.00 | 5 | 178 | 5.50s | OK |
+| json_array_classification | 8.75 | 10.00 | 5 | 156 | 21.93s | OK |
+| json_nested_complex | 1.85 | 0.00 | 4.0 | 154 | 13.28s | OK |
+| json_strict_no_extra | 9.31 | 10.00 | 5 | 154 | 3.82s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.57</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.07</summary>
 
 **Stats**: latencia 5.50s · 178 tok/s · 116→977 tokens · $0.00119
 
@@ -651,7 +651,7 @@ WITH recent_orders AS (
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.25</summary>
+<details><summary><code>json_array_classification</code> — score 8.75</summary>
 
 **Stats**: latencia 21.93s · 156 tok/s · 185→3428 tokens · $0.00414
 
@@ -669,7 +669,7 @@ WITH recent_orders AS (
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.35</summary>
+<details><summary><code>json_nested_complex</code> — score 1.85</summary>
 
 **Stats**: latencia 13.28s · 154 tok/s · 229→2048 tokens · $0.00249
 
@@ -689,7 +689,7 @@ First, the project name is "Rediseno sitio web". Start and end dates are given: 
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.81</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.31</summary>
 
 **Stats**: latencia 3.82s · 154 tok/s · 85→589 tokens · $0.00072
 
@@ -836,13 +836,13 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| invoice_extraction | 7.67 | 8.33 | 1 | 129 | 15.90s | OK |
+| invoice_extraction | 7.68 | 8.33 | 1 | 129 | 15.90s | OK |
 | business_card_extraction | 8.61 | 10.00 | 4.0 | 186 | 37.40s | OK |
 | receipt_math_verification | 8.85 | 10.00 | 5 | 125 | 16.34s | OK |
 | screenshot_table_extraction | 7.15 | 8.00 | 3.0 | 192 | 48.78s | OK |
 | handwritten_notes_extraction | 8.49 | 10.00 | 5 | 195 | 64.31s | OK |
 
-<details><summary><code>invoice_extraction</code> — score 7.67</summary>
+<details><summary><code>invoice_extraction</code> — score 7.68</summary>
 
 **Stats**: latencia 15.90s · 129 tok/s · 508→2048 tokens · $0.00253
 
@@ -1176,8 +1176,8 @@ Esta semana la innovación en IA y el ecosistema startup se aceleran con lanzami
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.48 | 8.40 | 4.0 | 160 | 45.75s | OK |
-| news_json_output_strict | 5.02 | 5.00 | 3.2 | 184 | 61.03s | OK |
-| news_spanish_only | 5.18 | 5.00 | 5 | 154 | 30.71s | OK |
+| news_json_output_strict | 8.52 | 10.00 | 3.2 | 184 | 61.03s | OK |
+| news_spanish_only | 8.29 | 9.44 | 5 | 154 | 30.71s | OK |
 | news_no_hallucination_sources | 1.55 | 0.00 | 4.0 | 150 | 63.53s | OK |
 | news_seo_article_full | 5.98 | 6.28 | 4.0 | 139 | 36.97s | OK |
 | news_json_output_strict | 5.03 | 5.00 | 3.4 | 181 | 52.91s | OK |
@@ -1205,7 +1205,7 @@ La startup francesa Mistral AI ha cerrado una ronda de financiación de $2.000 m
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.02</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.52</summary>
 
 **Stats**: latencia 61.03s · 184 tok/s · 325→11243 tokens · $0.01354
 
@@ -1221,7 +1221,7 @@ La startup francesa Mistral AI ha cerrado una ronda de financiación de $2.000 m
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.18</summary>
+<details><summary><code>news_spanish_only</code> — score 8.29</summary>
 
 **Stats**: latencia 30.71s · 154 tok/s · 330→4714 tokens · $0.00571
 
@@ -2058,8 +2058,8 @@ D → F
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.45 | 8.00 | 3.0 | 138 | 14.88s | OK |
-| support_escalation | 3.17 | 2.00 | 5 | 154 | 19.28s | OK |
-| requirements_change | 4.65 | 4.00 | 4.0 | 151 | 13.54s | OK |
+| support_escalation | 1.77 | 0.00 | 5 | 154 | 19.28s | OK |
+| requirements_change | 6.05 | 6.00 | 4.0 | 151 | 13.54s | OK |
 | debugging_conversation | 8.71 | 10.00 | 5 | 158 | 25.56s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.45</summary>
@@ -2082,7 +2082,7 @@ First, I need to fix the title. "Por qué las startups
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 3.17</summary>
+<details><summary><code>support_escalation</code> — score 1.77</summary>
 
 **Stats**: latencia 19.28s · 154 tok/s · 392→2960 tokens · $0.00361
 
@@ -2102,7 +2102,7 @@ Para agilizar el proceso, revisa tu bandeja de entrada
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 4.65</summary>
+<details><summary><code>requirements_change</code> — score 6.05</summary>
 
 **Stats**: latencia 13.54s · 151 tok/s · 248→2048 tokens · $0.00249
 
@@ -2241,7 +2241,7 @@ En cuanto a inteligencia artificial y aprendizaje automático, son un tool
 | agent_team_delegation | 7.72 | 8.50 | 5 | 136 | 21.86s | OK |
 | ask_clarification_before_acting | 8.66 | 9.12 | 4.8 | 130 | 4.81s | OK |
 | context_following_complex_system | 6.96 | 7.50 | 2.0 | 147 | 26.72s | OK |
-| model_as_router | 7.00 | 7.50 | 4.0 | 147 | 23.39s | OK |
+| model_as_router | 5.25 | 5.00 | 4.0 | 147 | 23.39s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 6.11</summary>
 
@@ -2320,7 +2320,7 @@ Hmm, the first task is publishing an article. Looking at the tools available, th
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 7.00</summary>
+<details><summary><code>model_as_router</code> — score 5.25</summary>
 
 **Stats**: latencia 23.39s · 147 tok/s · 292→3446 tokens · $0.00418
 

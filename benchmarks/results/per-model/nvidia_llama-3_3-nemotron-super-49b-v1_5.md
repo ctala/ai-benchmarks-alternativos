@@ -2,8 +2,8 @@
 
 - **model_id**: `nvidia/llama-3.3-nemotron-super-49b-v1.5`
 - **Total tests**: 132/132 exitosos (0 errores)
-- **Score final**: 7.53
-- **Calidad**: 8.15
+- **Score final**: 7.68
+- **Calidad**: 8.36
 - **Judge score (Phi-4)**: 4.39/10
 - **Velocidad**: 49 tok/s
 - **Latencia primera token**: 40.06s
@@ -24,20 +24,20 @@
 | content_verificable | 5 | 5 | 7.18 | 7.33 |
 | creativity | 4 | 4 | 8.16 | 9.00 |
 | customer_support | 4 | 4 | 7.65 | 8.20 |
-| deep_reasoning | 6 | 6 | 7.16 | 7.92 |
+| deep_reasoning | 6 | 6 | 7.45 | 8.33 |
 | hallucination | 3 | 3 | 7.31 | 7.67 |
-| multi_turn | 4 | 4 | 6.67 | 6.88 |
-| news_seo_writing | 5 | 5 | 5.58 | 5.42 |
+| multi_turn | 4 | 4 | 7.02 | 7.38 |
+| news_seo_writing | 5 | 5 | 6.92 | 7.34 |
 | ocr_extraction | 5 | 5 | 8.57 | 9.60 |
-| orchestration | 5 | 5 | 6.58 | 6.84 |
-| policy_adherence | 4 | 4 | 8.01 | 8.67 |
+| orchestration | 5 | 5 | 6.23 | 6.34 |
+| policy_adherence | 4 | 4 | 7.31 | 7.67 |
 | presentation | 2 | 2 | 8.57 | 9.80 |
 | reasoning | 5 | 5 | 8.03 | 9.02 |
 | sales_outreach | 3 | 3 | 6.91 | 7.11 |
 | startup_content | 8 | 8 | 8.31 | 9.26 |
 | strategy | 3 | 3 | 7.50 | 8.06 |
 | string_precision | 6 | 6 | 7.71 | 8.17 |
-| structured_output | 4 | 4 | 5.47 | 5.00 |
+| structured_output | 4 | 4 | 8.97 | 10.00 |
 | summarization | 2 | 2 | 7.58 | 8.20 |
 | task_management | 4 | 4 | 8.26 | 9.22 |
 | tool_calling | 4 | 4 | 5.97 | 5.70 |
@@ -54,7 +54,7 @@
 | math_word_problem | 8.77 | 10.00 | 4.6 | 49 | 39.59s | OK |
 | logic_puzzle_constraint | 4.99 | 5.00 | 4.2 | 48 | 171.86s | OK |
 | causal_reasoning | 8.55 | 10.00 | 5.0 | 46 | 126.43s | OK |
-| code_bug_subtle | 6.74 | 7.50 | 4.0 | 46 | 179.11s | OK |
+| code_bug_subtle | 8.49 | 10.00 | 4.0 | 46 | 179.11s | OK |
 | fermi_estimation | 5.16 | 5.00 | 4.4 | 44 | 76.80s | OK |
 | ethical_dilemma_structured | 8.73 | 10.00 | 5.0 | 48 | 46.57s | OK |
 
@@ -124,7 +124,7 @@ Las casas están ordenadas de izquierda a derecha de la siguiente manera: **Roja
 
 </details>
 
-<details><summary><code>code_bug_subtle</code> — score 6.74</summary>
+<details><summary><code>code_bug_subtle</code> — score 8.49</summary>
 
 **Stats**: latencia 179.11s · 46 tok/s · 230→8192 tokens · $0.00337
 
@@ -681,12 +681,12 @@ WITH recent_orders AS (
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.38 | 5.00 | 4.0 | 47 | 21.20s | OK |
-| json_array_classification | 5.46 | 5.00 | 5 | 49 | 11.12s | OK |
-| json_nested_complex | 5.44 | 5.00 | 5 | 52 | 30.28s | OK |
-| json_strict_no_extra | 5.59 | 5.00 | 5 | 47 | 9.95s | OK |
+| json_simple_extraction | 8.88 | 10.00 | 4.0 | 47 | 21.20s | OK |
+| json_array_classification | 8.96 | 10.00 | 5 | 49 | 11.12s | OK |
+| json_nested_complex | 8.94 | 10.00 | 5 | 52 | 30.28s | OK |
+| json_strict_no_extra | 9.09 | 10.00 | 5 | 47 | 9.95s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.38</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.88</summary>
 
 **Stats**: latencia 21.20s · 47 tok/s · 115→990 tokens · $0.00044
 
@@ -704,7 +704,7 @@ WITH recent_orders AS (
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.46</summary>
+<details><summary><code>json_array_classification</code> — score 8.96</summary>
 
 **Stats**: latencia 11.12s · 49 tok/s · 188→548 tokens · $0.00029
 
@@ -722,7 +722,7 @@ WITH recent_orders AS (
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.44</summary>
+<details><summary><code>json_nested_complex</code> — score 8.94</summary>
 
 **Stats**: latencia 30.28s · 52 tok/s · 222→1590 tokens · $0.00072
 
@@ -748,7 +748,7 @@ WITH recent_orders AS (
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.59</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.09</summary>
 
 **Stats**: latencia 9.95s · 47 tok/s · 90→467 tokens · $0.00022
 
@@ -1342,8 +1342,8 @@ Esta semana, exploramos avances en inteligencia artificial, nuevos programas de 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.64 | 8.49 | 4.0 | 33 | 74.31s | OK |
-| news_json_output_strict | 5.31 | 5.00 | 3.0 | 47 | 27.87s | OK |
-| news_spanish_only | 5.27 | 5.00 | 5 | 50 | 33.68s | OK |
+| news_json_output_strict | 8.81 | 10.00 | 3.0 | 47 | 27.87s | OK |
+| news_spanish_only | 8.48 | 9.59 | 5 | 50 | 33.68s | OK |
 | news_no_hallucination_sources | 1.75 | 0.00 | 3.0 | 50 | 34.35s | OK |
 | news_perplexity_enrichment | 7.91 | 8.60 | 4.0 | 50 | 36.50s | OK |
 
@@ -1369,7 +1369,7 @@ Esta semana, exploramos avances en inteligencia artificial, nuevos programas de 
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.31</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.81</summary>
 
 **Stats**: latencia 27.87s · 47 tok/s · 322→1312 tokens · $0.00065
 
@@ -1392,7 +1392,7 @@ Esta semana, exploramos avances en inteligencia artificial, nuevos programas de 
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.27</summary>
+<details><summary><code>news_spanish_only</code> — score 8.48</summary>
 
 **Stats**: latencia 33.68s · 50 tok/s · 331→1671 tokens · $0.00080
 
@@ -1544,7 +1544,7 @@ Carlos, emprendedor colombiano, notó que su IA, *Veritas*, respondía con crude
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.59 | 8.00 | 5 | 38 | 11.72s | OK |
-| lead_qualification | 4.34 | 3.33 | 5 | 54 | 18.06s | OK |
+| lead_qualification | 4.35 | 3.33 | 5 | 54 | 18.06s | OK |
 | campaign_optimization | 8.80 | 10.00 | 5 | 54 | 63.34s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.59</summary>
@@ -1571,7 +1571,7 @@ Nuestra herramienta de IA aut
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 4.34</summary>
+<details><summary><code>lead_qualification</code> — score 4.35</summary>
 
 **Stats**: latencia 18.06s · 54 tok/s · 270→967 tokens · $0.00049
 
@@ -1950,7 +1950,7 @@ First, I need to check the policies. The instructions clearly state that I shou
 | multi_step_research_plan | 7.57 | 8.12 | 3.8 | 52 | 24.68s | OK |
 | error_recovery_orchestration | 5.41 | 5.00 | 3.0 | 49 | 7.05s | OK |
 | complex_workflow_decomposition | 4.24 | 3.59 | 2.0 | 53 | 82.88s | OK |
-| tool_selection_precision | 7.03 | 7.50 | 5 | 47 | 17.75s | OK |
+| tool_selection_precision | 5.28 | 5.00 | 5 | 47 | 17.75s | OK |
 | parallel_vs_sequential_judgment | 8.67 | 10.00 | 4.0 | 49 | 43.42s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 7.57</summary>
@@ -2012,7 +2012,7 @@ Voy a verificar si existe un respaldo de la base de datos que podamos usar.
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 7.03</summary>
+<details><summary><code>tool_selection_precision</code> — score 5.28</summary>
 
 **Stats**: latencia 17.75s · 47 tok/s · 1070→840 tokens · $0.00076
 
@@ -2057,7 +2057,7 @@ First, I need
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.52 | 8.00 | 5 | 48 | 13.54s | OK |
-| support_escalation | 6.11 | 6.00 | 1 | 47 | 12.58s | OK |
+| support_escalation | 7.51 | 8.00 | 1 | 47 | 12.58s | OK |
 | requirements_change | 6.00 | 6.00 | 5 | 49 | 29.76s | OK |
 | debugging_conversation | 7.06 | 7.50 | 5 | 49 | 25.41s | OK |
 
@@ -2083,7 +2083,7 @@ First, I need
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 6.11</summary>
+<details><summary><code>support_escalation</code> — score 7.51</summary>
 
 **Stats**: latencia 12.58s · 47 tok/s · 393→592 tokens · $0.00039
 
@@ -2158,7 +2158,7 @@ im
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 6.56 | 6.67 | 5 | 48 | 15.80s | OK |
-| data_privacy_protection | 9.07 | 10.00 | 5 | 48 | 7.75s | OK |
+| data_privacy_protection | 6.27 | 6.00 | 5 | 48 | 7.75s | OK |
 | language_and_tone_rules | 7.55 | 8.00 | 3.8 | 48 | 12.10s | OK |
 | scope_boundaries | 8.87 | 10.00 | 4.0 | 46 | 19.71s | OK |
 
@@ -2184,7 +2184,7 @@ Lamentamos profundamente que haya tenido una experiencia insatisfactoria con nue
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 9.07</summary>
+<details><summary><code>data_privacy_protection</code> — score 6.27</summary>
 
 **Stats**: latencia 7.75s · 48 tok/s · 246→371 tokens · $0.00025
 

@@ -2,8 +2,8 @@
 
 - **model_id**: `mistralai/devstral-2-123b-instruct-2512`
 - **Total tests**: 68/101 exitosos (33 errores)
-- **Score final**: 7.37
-- **Calidad**: 7.88
+- **Score final**: 7.68
+- **Calidad**: 8.32
 - **Judge score (Phi-4)**: 4.10/10
 - **Velocidad**: 42 tok/s
 - **Latencia primera token**: 17.58s
@@ -24,7 +24,7 @@
 | deep_reasoning | 6 | 6 | 7.15 | 7.78 |
 | hallucination | 3 | 3 | 6.45 | 6.33 |
 | multi_turn | 4 | 2 | 7.84 | 8.00 |
-| news_seo_writing | 5 | 5 | 5.40 | 5.28 |
+| news_seo_writing | 5 | 5 | 6.79 | 7.27 |
 | ocr_extraction | 5 | 5 | 8.29 | 9.35 |
 | orchestration | 5 | 4 | 7.82 | 8.26 |
 | policy_adherence | 4 | 0 | - | - |
@@ -34,7 +34,7 @@
 | startup_content | 5 | 5 | 8.04 | 9.19 |
 | strategy | 3 | 0 | - | - |
 | string_precision | 6 | 6 | 7.91 | 8.17 |
-| structured_output | 4 | 4 | 5.49 | 5.00 |
+| structured_output | 4 | 4 | 8.98 | 10.00 |
 | summarization | 2 | 0 | - | - |
 | task_management | 3 | 3 | 8.14 | 9.12 |
 | tool_calling | 4 | 4 | 6.56 | 6.33 |
@@ -483,12 +483,12 @@ WITH customer_orders AS (
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.60 | 5.00 | 5 | 23 | 2.56s | OK |
-| json_array_classification | 5.69 | 5.00 | 5 | 39 | 2.83s | OK |
-| json_nested_complex | 4.90 | 5.00 | 4.0 | 27 | 43.98s | OK |
-| json_strict_no_extra | 5.75 | 5.00 | 4.0 | 19 | 1.41s | OK |
+| json_simple_extraction | 9.10 | 10.00 | 5 | 23 | 2.56s | OK |
+| json_array_classification | 9.19 | 10.00 | 5 | 39 | 2.83s | OK |
+| json_nested_complex | 8.40 | 10.00 | 4.0 | 27 | 43.98s | OK |
+| json_strict_no_extra | 9.25 | 10.00 | 4.0 | 19 | 1.41s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.60</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.10</summary>
 
 **Stats**: latencia 2.56s · 23 tok/s · 109→60 tokens · $0.00016
 
@@ -513,7 +513,7 @@ WITH customer_orders AS (
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.69</summary>
+<details><summary><code>json_array_classification</code> — score 9.19</summary>
 
 **Stats**: latencia 2.83s · 39 tok/s · 180→111 tokens · $0.00029
 
@@ -535,7 +535,7 @@ WITH customer_orders AS (
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 4.90</summary>
+<details><summary><code>json_nested_complex</code> — score 8.40</summary>
 
 **Stats**: latencia 43.98s · 27 tok/s · 230→1191 tokens · $0.00247
 
@@ -561,7 +561,7 @@ WITH customer_orders AS (
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.75</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.25</summary>
 
 **Stats**: latencia 1.41s · 19 tok/s · 78→27 tokens · $0.00009
 
@@ -1064,8 +1064,8 @@ Esta semana la inteligencia artificial sigue dominando el ecosistema, pero con u
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.21 | 7.97 | 3.8 | 49 | 14.96s | OK |
-| news_json_output_strict | 5.26 | 5.00 | 2.0 | 51 | 16.29s | OK |
-| news_spanish_only | 5.16 | 5.00 | 4.4 | 46 | 13.99s | OK |
+| news_json_output_strict | 8.76 | 10.00 | 2.0 | 51 | 16.29s | OK |
+| news_spanish_only | 8.61 | 9.94 | 4.4 | 46 | 13.99s | OK |
 | news_no_hallucination_sources | 1.73 | 0.00 | 3.8 | 62 | 15.70s | OK |
 | news_perplexity_enrichment | 7.65 | 8.44 | 4.2 | 56 | 15.51s | OK |
 
@@ -1089,7 +1089,7 @@ Mistral AI, la startup de inteligencia artificial con sede en Francia, ha cerrad
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.26</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.76</summary>
 
 **Stats**: latencia 16.29s · 51 tok/s · 328→829 tokens · $0.00179
 
@@ -1112,7 +1112,7 @@ Mistral AI, la startup de inteligencia artificial con sede en Francia, ha cerrad
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.16</summary>
+<details><summary><code>news_spanish_only</code> — score 8.61</summary>
 
 **Stats**: latencia 13.99s · 46 tok/s · 323→646 tokens · $0.00142
 

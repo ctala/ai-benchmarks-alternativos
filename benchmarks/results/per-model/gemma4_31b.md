@@ -2,8 +2,8 @@
 
 - **model_id**: `gemma4:31b`
 - **Total tests**: 88/90 exitosos (2 errores)
-- **Score final**: 7.28
-- **Calidad**: 8.15
+- **Score final**: 7.45
+- **Calidad**: 8.40
 - **Judge score (Phi-4)**: 4.26/10
 - **Velocidad**: 9 tok/s
 - **Latencia primera token**: 154.28s
@@ -15,17 +15,17 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 7.96 | 9.06 |
+| agent_capabilities | 5 | 5 | 7.61 | 8.56 |
 | code_generation | 4 | 4 | 7.73 | 8.95 |
 | content_generation | 4 | 4 | 8.00 | 9.14 |
 | creativity | 4 | 3 | 7.86 | 9.00 |
 | customer_support | 4 | 4 | 7.27 | 7.95 |
-| deep_reasoning | 6 | 5 | 7.06 | 8.00 |
+| deep_reasoning | 6 | 5 | 7.05 | 8.00 |
 | hallucination | 3 | 3 | 6.53 | 7.00 |
-| multi_turn | 4 | 4 | 7.15 | 8.00 |
-| news_seo_writing | 5 | 5 | 5.29 | 5.45 |
-| ocr_extraction | 5 | 5 | 8.36 | 9.75 |
-| orchestration | 5 | 5 | 7.71 | 8.72 |
+| multi_turn | 4 | 4 | 6.80 | 7.50 |
+| news_seo_writing | 5 | 5 | 6.64 | 7.38 |
+| ocr_extraction | 5 | 5 | 8.53 | 10.00 |
+| orchestration | 5 | 5 | 7.01 | 7.72 |
 | policy_adherence | 4 | 4 | 8.02 | 9.08 |
 | presentation | 2 | 2 | 7.58 | 8.81 |
 | reasoning | 3 | 3 | 8.05 | 9.44 |
@@ -33,7 +33,7 @@
 | startup_content | 5 | 5 | 7.89 | 9.18 |
 | strategy | 3 | 3 | 7.10 | 8.06 |
 | string_precision | 6 | 6 | 7.44 | 8.17 |
-| structured_output | 4 | 4 | 5.17 | 5.00 |
+| structured_output | 4 | 4 | 8.66 | 10.00 |
 | summarization | 2 | 2 | 6.85 | 7.50 |
 | task_management | 2 | 2 | 8.07 | 9.44 |
 | tool_calling | 4 | 4 | 6.63 | 7.03 |
@@ -52,7 +52,7 @@
 | causal_reasoning | 8.49 | 10.00 | 4.8 | 9 | 197.04s | OK |
 | code_bug_subtle | 4.85 | 0.00 | - | 0 | 1021.51s | ERROR |
 | fermi_estimation | 4.98 | 5.00 | 4.4 | 9 | 211.91s | OK |
-| ethical_dilemma_structured | 8.49 | 10.00 | 4.4 | 9 | 206.36s | OK |
+| ethical_dilemma_structured | 8.48 | 10.00 | 4.4 | 9 | 206.36s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.49</summary>
 
@@ -144,7 +144,7 @@ Aquí tienes el razonamiento paso a paso:
 
 </details>
 
-<details><summary><code>ethical_dilemma_structured</code> — score 8.49</summary>
+<details><summary><code>ethical_dilemma_structured</code> — score 8.48</summary>
 
 **Stats**: latencia 206.36s · 9 tok/s · 197→1924 tokens · $0.00074
 
@@ -484,12 +484,12 @@ Aquí tienes la explicación detallada de los errores y el código corregido.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.23 | 5.00 | 4.0 | 10 | 33.76s | OK |
-| json_array_classification | 5.19 | 5.00 | 5 | 10 | 68.34s | OK |
-| json_nested_complex | 5.03 | 5.00 | 5 | 9 | 156.60s | OK |
-| json_strict_no_extra | 5.23 | 5.00 | 4.0 | 10 | 18.33s | OK |
+| json_simple_extraction | 8.72 | 10.00 | 4.0 | 10 | 33.76s | OK |
+| json_array_classification | 8.69 | 10.00 | 5 | 10 | 68.34s | OK |
+| json_nested_complex | 8.53 | 10.00 | 5 | 9 | 156.60s | OK |
+| json_strict_no_extra | 8.72 | 10.00 | 4.0 | 10 | 18.33s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.23</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.72</summary>
 
 **Stats**: latencia 33.76s · 10 tok/s · 119→322 tokens · $0.00013
 
@@ -507,7 +507,7 @@ Aquí tienes la explicación detallada de los errores y el código corregido.
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.19</summary>
+<details><summary><code>json_array_classification</code> — score 8.69</summary>
 
 **Stats**: latencia 68.34s · 10 tok/s · 178→649 tokens · $0.00026
 
@@ -529,7 +529,7 @@ Aquí tienes la explicación detallada de los errores y el código corregido.
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.03</summary>
+<details><summary><code>json_nested_complex</code> — score 8.53</summary>
 
 **Stats**: latencia 156.60s · 9 tok/s · 247→1464 tokens · $0.00057
 
@@ -560,7 +560,7 @@ Aquí tienes la explicación detallada de los errores y el código corregido.
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.23</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.72</summary>
 
 **Stats**: latencia 18.33s · 10 tok/s · 86→175 tokens · $0.00007
 
@@ -701,7 +701,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 |------|-------|---------|-------|-------|----------|--------|
 | invoice_extraction | 8.61 | 10.00 | 2.6 | 9 | 97.69s | OK |
 | business_card_extraction | 8.70 | 10.00 | 4.2 | 9 | 61.01s | OK |
-| receipt_math_verification | 7.65 | 8.75 | 4.2 | 11 | 138.88s | OK |
+| receipt_math_verification | 8.52 | 10.00 | 4.2 | 11 | 138.88s | OK |
 | screenshot_table_extraction | 8.36 | 10.00 | 3.2 | 4 | 565.10s | OK |
 | handwritten_notes_extraction | 8.46 | 10.00 | 4.4 | 9 | 225.43s | OK |
 
@@ -757,7 +757,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 </details>
 
-<details><summary><code>receipt_math_verification</code> — score 7.65</summary>
+<details><summary><code>receipt_math_verification</code> — score 8.52</summary>
 
 **Stats**: latencia 138.88s · 11 tok/s · 384→1508 tokens · $0.00060
 
@@ -1048,8 +1048,8 @@ Bienvenidos a una nueva entrega de nuestra dosi
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.29 | 8.39 | 4.0 | 9 | 288.62s | OK |
-| news_json_output_strict | 4.95 | 5.00 | 3.2 | 9 | 248.80s | OK |
-| news_spanish_only | 5.03 | 5.00 | 4.0 | 9 | 161.14s | OK |
+| news_json_output_strict | 8.45 | 10.00 | 3.2 | 9 | 248.80s | OK |
+| news_spanish_only | 8.25 | 9.61 | 4.0 | 9 | 161.14s | OK |
 | news_no_hallucination_sources | 1.51 | 0.00 | 3.8 | 9 | 168.59s | OK |
 | news_perplexity_enrichment | 7.69 | 8.88 | 4.2 | 9 | 215.14s | OK |
 
@@ -1072,7 +1072,7 @@ Bienvenidos a una nueva entrega de nuestra dosi
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 4.95</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.45</summary>
 
 **Stats**: latencia 248.80s · 9 tok/s · 325→2312 tokens · $0.00089
 
@@ -1092,7 +1092,7 @@ Bienvenidos a una nueva entrega de nuestra dosi
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.03</summary>
+<details><summary><code>news_spanish_only</code> — score 8.25</summary>
 
 **Stats**: latencia 161.14s · 9 tok/s · 325→1502 tokens · $0.00060
 
@@ -1604,7 +1604,7 @@ De acuerdo con mis protocolos de seguridad, tengo estrictamente prohibido revela
 | multi_step_research_plan | 7.81 | 8.88 | 4.2 | 9 | 93.79s | OK |
 | error_recovery_orchestration | 8.65 | 10.00 | 4.2 | 9 | 61.50s | OK |
 | complex_workflow_decomposition | 6.64 | 7.20 | 4.0 | 9 | 88.38s | OK |
-| tool_selection_precision | 6.92 | 7.50 | 4.2 | 9 | 56.41s | OK |
+| tool_selection_precision | 3.42 | 2.50 | 4.2 | 9 | 56.41s | OK |
 | parallel_vs_sequential_judgment | 8.53 | 10.00 | 4.8 | 9 | 137.93s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 7.81</summary>
@@ -1668,7 +1668,7 @@ I need to break this down into atomic steps and execute them using the available
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 6.92</summary>
+<details><summary><code>tool_selection_precision</code> — score 3.42</summary>
 
 **Stats**: latencia 56.41s · 9 tok/s · 853→512 tokens · $0.00029
 
@@ -1714,9 +1714,9 @@ El flujo de trabajo presenta las siguientes dependencias:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.14 | 8.00 | 4.4 | 9 | 154.20s | OK |
-| support_escalation | 8.58 | 10.00 | 4.0 | 9 | 120.48s | OK |
+| support_escalation | 7.18 | 8.00 | 4.0 | 9 | 120.48s | OK |
 | requirements_change | 4.37 | 4.00 | 3.2 | 9 | 131.65s | OK |
-| debugging_conversation | 8.50 | 10.00 | 4.8 | 9 | 181.34s | OK |
+| debugging_conversation | 8.51 | 10.00 | 4.8 | 9 | 181.34s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.14</summary>
 
@@ -1736,7 +1736,7 @@ Si queremos que el fundador o el responsable de operaciones se sienta identifica
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 8.58</summary>
+<details><summary><code>support_escalation</code> — score 7.18</summary>
 
 **Stats**: latencia 120.48s · 9 tok/s · 358→1121 tokens · $0.00046
 
@@ -1774,7 +1774,7 @@ Lo más eficiente aquí es **filtrar los correos desde la fuente (Gmail)** en lu
 
 </details>
 
-<details><summary><code>debugging_conversation</code> — score 8.50</summary>
+<details><summary><code>debugging_conversation</code> — score 8.51</summary>
 
 **Stats**: latencia 181.34s · 9 tok/s · 342→1684 tokens · $0.00066
 
@@ -1885,7 +1885,7 @@ Hola, con gusto te ayudo con tus consultas. Aquí tienes la información detalla
 | agent_team_delegation | 7.81 | 8.86 | 4.4 | 9 | 84.40s | OK |
 | ask_clarification_before_acting | 7.48 | 8.22 | 4.8 | 9 | 29.69s | OK |
 | context_following_complex_system | 8.64 | 10.00 | 4.8 | 9 | 68.71s | OK |
-| model_as_router | 8.58 | 10.00 | 4.2 | 9 | 120.43s | OK |
+| model_as_router | 6.83 | 7.50 | 4.2 | 9 | 120.43s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 7.29</summary>
 
@@ -1967,7 +1967,7 @@ The current prompt "Proces
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 8.58</summary>
+<details><summary><code>model_as_router</code> — score 6.83</summary>
 
 **Stats**: latencia 120.43s · 9 tok/s · 282→1125 tokens · $0.00045
 

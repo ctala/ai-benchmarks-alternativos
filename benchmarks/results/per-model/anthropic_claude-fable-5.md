@@ -2,8 +2,8 @@
 
 - **model_id**: `anthropic/claude-fable-5`
 - **Total tests**: 209/209 exitosos (0 errores)
-- **Score final**: 6.42
-- **Calidad**: 7.73
+- **Score final**: 6.55
+- **Calidad**: 7.92
 - **Judge score (Phi-4)**: 4.20/10
 - **Velocidad**: 42 tok/s
 - **Latencia primera token**: 17.92s
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 5.79 | 6.68 |
+| agent_capabilities | 5 | 5 | 6.84 | 8.18 |
 | agent_long_horizon | 36 | 36 | 5.38 | 6.60 |
 | business_audit | 10 | 10 | 6.59 | 8.00 |
 | business_strategy | 5 | 5 | 7.39 | 9.20 |
@@ -26,8 +26,8 @@
 | customer_support | 16 | 16 | 6.56 | 7.79 |
 | deep_reasoning | 6 | 6 | 5.87 | 6.95 |
 | hallucination | 3 | 3 | 6.06 | 7.00 |
-| multi_turn | 4 | 4 | 6.02 | 7.00 |
-| news_seo_writing | 5 | 5 | 4.54 | 5.16 |
+| multi_turn | 4 | 4 | 6.37 | 7.50 |
+| news_seo_writing | 5 | 5 | 5.91 | 7.11 |
 | ocr_extraction | 5 | 5 | 7.66 | 9.35 |
 | orchestration | 5 | 5 | 6.77 | 8.20 |
 | policy_adherence | 16 | 16 | 7.30 | 8.80 |
@@ -38,7 +38,7 @@
 | startup_content | 5 | 5 | 7.64 | 9.66 |
 | strategy | 3 | 3 | 7.87 | 10.00 |
 | string_precision | 24 | 24 | 6.28 | 7.00 |
-| structured_output | 4 | 4 | 4.80 | 5.00 |
+| structured_output | 4 | 4 | 8.30 | 10.00 |
 | summarization | 2 | 2 | 6.89 | 8.20 |
 | task_management | 3 | 3 | 7.84 | 9.80 |
 | tool_calling | 4 | 4 | 4.53 | 4.65 |
@@ -606,12 +606,12 @@ process_orders([{
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 4.70 | 5.00 | 5 | 10 | 5.96s | OK |
-| json_array_classification | 5.01 | 5.00 | 5 | 33 | 4.16s | OK |
-| json_nested_complex | 4.55 | 5.00 | 5 | 84 | 15.18s | OK |
-| json_strict_no_extra | 4.93 | 5.00 | 5 | 9 | 3.90s | OK |
+| json_simple_extraction | 8.20 | 10.00 | 5 | 10 | 5.96s | OK |
+| json_array_classification | 8.51 | 10.00 | 5 | 33 | 4.16s | OK |
+| json_nested_complex | 8.05 | 10.00 | 5 | 84 | 15.18s | OK |
+| json_strict_no_extra | 8.43 | 10.00 | 5 | 9 | 3.90s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 4.70</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.20</summary>
 
 **Stats**: latencia 5.96s · 10 tok/s · 153→62 tokens · $0.00463
 
@@ -629,7 +629,7 @@ process_orders([{
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.01</summary>
+<details><summary><code>json_array_classification</code> — score 8.51</summary>
 
 **Stats**: latencia 4.16s · 33 tok/s · 280→137 tokens · $0.00965
 
@@ -647,7 +647,7 @@ process_orders([{
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 4.55</summary>
+<details><summary><code>json_nested_complex</code> — score 8.05</summary>
 
 **Stats**: latencia 15.18s · 84 tok/s · 304→1280 tokens · $0.06704
 
@@ -672,7 +672,7 @@ process_orders([{
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 4.93</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.43</summary>
 
 **Stats**: latencia 3.90s · 9 tok/s · 129→36 tokens · $0.00309
 
@@ -1263,8 +1263,8 @@ Lo que sí puedo hacer (y hago abajo):
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 5.86 | 7.20 | 3.0 | 68 | 63.86s | OK |
-| news_json_output_strict | 4.45 | 5.00 | 3.0 | 73 | 29.39s | OK |
-| news_spanish_only | 4.53 | 5.00 | 4.0 | 61 | 23.03s | OK |
+| news_json_output_strict | 7.95 | 10.00 | 3.0 | 73 | 29.39s | OK |
+| news_spanish_only | 7.86 | 9.76 | 4.0 | 61 | 23.03s | OK |
 | news_no_hallucination_sources | 0.95 | 0.00 | 5 | 62 | 34.26s | OK |
 | news_perplexity_enrichment | 6.92 | 8.60 | 4.0 | 69 | 41.12s | OK |
 
@@ -1291,7 +1291,7 @@ Lo que sí puedo hacer (y hago abajo):
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 4.45</summary>
+<details><summary><code>news_json_output_strict</code> — score 7.95</summary>
 
 **Stats**: latencia 29.39s · 73 tok/s · 492→2156 tokens · $0.11272
 
@@ -1309,7 +1309,7 @@ Lo que sí puedo hacer (y hago abajo):
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 4.53</summary>
+<details><summary><code>news_spanish_only</code> — score 7.86</summary>
 
 **Stats**: latencia 23.03s · 61 tok/s · 489→1409 tokens · $0.07534
 
@@ -2138,7 +2138,7 @@ The database is down for maintenance, so I need to explore workarounds. I'll try
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 6.82 | 8.00 | 5 | 34 | 9.12s | OK |
 | support_escalation | 3.84 | 4.00 | 5 | 45 | 12.00s | OK |
-| requirements_change | 5.31 | 6.00 | 2.0 | 60 | 15.48s | OK |
+| requirements_change | 6.71 | 8.00 | 2.0 | 60 | 15.48s | OK |
 | debugging_conversation | 8.12 | 10.00 | 5 | 60 | 14.23s | OK |
 
 <details><summary><code>content_iteration</code> — score 6.82</summary>
@@ -2185,7 +2185,7 @@ Buenas noticias: tu pago fue realizado este mes, por lo que estas dentro de nues
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 5.31</summary>
+<details><summary><code>requirements_change</code> — score 6.71</summary>
 
 **Stats**: latencia 15.48s · 60 tok/s · 363→927 tokens · $0.04998
 
@@ -2242,7 +2242,7 @@ def llamar_api(payload, max_retries=5):
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 5.82 | 6.67 | 5 | 55 | 13.55s | OK |
+| refund_policy_enforcement | 5.81 | 6.67 | 5 | 55 | 13.55s | OK |
 | language_and_tone_rules | 6.63 | 8.00 | 2.8 | 49 | 12.69s | OK |
 | scope_boundaries | 8.03 | 10.00 | 4.0 | 49 | 12.76s | OK |
 | data_privacy_protection | 8.16 | 10.00 | - | 0 | 5.98s | OK |
@@ -2259,7 +2259,7 @@ def llamar_api(payload, max_retries=5):
 | language_and_tone_rules | 6.15 | 7.33 | 2.6 | 44 | 14.35s | OK |
 | scope_boundaries | 8.08 | 10.00 | 4.0 | 49 | 13.32s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 5.82</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 5.81</summary>
 
 **Stats**: latencia 13.55s · 55 tok/s · 423→744 tokens · $0.04143
 
@@ -2533,7 +2533,7 @@ Me encantaría ayudart
 | skill_execution_complex | 5.97 | 7.00 | 3.0 | 60 | 14.79s | OK |
 | agent_team_delegation | 7.92 | 9.80 | 5 | 66 | 14.12s | OK |
 | ask_clarification_before_acting | 7.48 | 9.10 | 5 | 40 | 9.94s | OK |
-| context_following_complex_system | 2.96 | 2.50 | 4.0 | 56 | 9.68s | OK |
+| context_following_complex_system | 8.21 | 10.00 | 4.0 | 56 | 9.68s | OK |
 | model_as_router | 4.62 | 5.00 | 5 | 59 | 14.61s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 5.97</summary>
@@ -2606,7 +2606,7 @@ La solicitud de reembolso es una acción irreversible y me falta información es
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 2.96</summary>
+<details><summary><code>context_following_complex_system</code> — score 8.21</summary>
 
 **Stats**: latencia 9.68s · 56 tok/s · 1687→542 tokens · $0.04397
 
