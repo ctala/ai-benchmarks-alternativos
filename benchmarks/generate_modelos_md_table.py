@@ -94,9 +94,14 @@ def build_links(model_id: str) -> tuple[str, str]:
 
 
 def row_for_model(m: dict, score_key: str = "score_global") -> str:
+    """Fila con AMBOS ejes visibles (v4.1). El `score_key` decide cuál va en negrita:
+    el que ordena esa tabla. Mostrar los dos siempre es deliberado — es lo que deja
+    ver de un vistazo que un modelo caro puede ser excelente y aun así no convenir."""
     mid = m.get("id", "?")
-    score = m.get(score_key)
-    score_str = f"**{score:.2f}**" if score is not None else "—"
+    fmt = lambda v: f"{v:.2f}" if v is not None else "—"
+    cal, val = m.get("score_calidad"), m.get("score_global")
+    cal_s = f"**{fmt(cal)}**" if score_key == "score_calidad" else fmt(cal)
+    val_s = f"**{fmt(val)}**" if score_key != "score_calidad" else fmt(val)
     runs = m.get("runs", 0)
     os_label = "✅" if m.get("open_source") else "❌" if m.get("open_source") is False else "?"
     license_str = m.get("license") or ""
@@ -105,7 +110,8 @@ def row_for_model(m: dict, score_key: str = "score_global") -> str:
     cost = f"${ci}/{co}" if ci is not None and co is not None else "—"
     link_md, link_resp = build_links(mid)
     return (
-        f"| `{mid}` | {os_label} {license_str} | {cost} | {score_str} | {runs} | {link_md} | {link_resp} |"
+        f"| `{mid}` | {os_label} {license_str} | {cost} | {cal_s} | {val_s} | {runs} "
+        f"| {link_md} | {link_resp} |"
     )
 
 
@@ -113,15 +119,21 @@ def table_header(title: str) -> list[str]:
     return [
         f"#### {title}",
         "",
-        "| Modelo | OS | $ in/out | Score | Runs | Per-model MD | Responses |",
-        "|---|---|---:|---:|---:|---|---|",
+        "| Modelo | OS | $ in/out | Calidad | Valor | Runs | Per-model MD | Responses |",
+        "|---|---|---:|---:|---:|---:|---|---|",
     ]
 
 
 def build_global_table(models: list[dict]) -> str:
-    lines = table_header("Score global (perfil emprendedor: calidad 70%, costo 15%, velocidad 7.5%, latencia 7.5%)")
-    for m in sorted(models, key=lambda x: -(x.get("score_global") or -1)):
-        lines.append(row_for_model(m, "score_global"))
+    """Tabla principal, ordenada por CALIDAD desde v4.1 (PLAN-V4.1.md §3).
+    `Valor` queda como columna al lado para que se vea el trade-off, no escondido
+    dentro de un solo número."""
+    lines = table_header(
+        "Índice de calidad — qué modelo responde mejor "
+        "(la columna *Valor* pondera además costo 15%, velocidad 7,5% y latencia 7,5%)"
+    )
+    for m in sorted(models, key=lambda x: -(x.get("score_calidad") or -1)):
+        lines.append(row_for_model(m, "score_calidad"))
     return "\n".join(lines)
 
 
@@ -202,11 +214,12 @@ def build_in_review_table(models: list[dict]) -> str:
         "quede arriba (o abajo) por azar. Se listan para no esconderlos, pero **no compiten** "
         "en las tablas de arriba hasta completar la cobertura.",
         "",
-        "| Modelo | OS | $ in/out | Score (indicativo) | Runs | Per-model MD | Responses |",
-        "|---|---|---:|---:|---:|---|---|",
+        "| Modelo | OS | $ in/out | Calidad (indic.) | Valor (indic.) | Runs "
+        "| Per-model MD | Responses |",
+        "|---|---|---:|---:|---:|---:|---|---|",
     ]
-    for m in sorted(models, key=lambda x: -(x.get("score_global") or -1)):
-        lines.append(row_for_model(m, "score_global"))
+    for m in sorted(models, key=lambda x: -(x.get("score_calidad") or -1)):
+        lines.append(row_for_model(m, "score_calidad"))
     return "\n".join(lines)
 
 
