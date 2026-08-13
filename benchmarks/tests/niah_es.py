@@ -255,8 +255,25 @@ def _build_test(needle_idx: int, ctx_tokens: int, pos_pct: int) -> dict:
 # hasta su context window (ver `context_tokens` + skip en runner.py).
 # Total para un modelo de 1M: 15+15+15+6+4+4 = 59 tests.
 GRID = [
-    (8000,    5, [25, 50, 75]),   # baseline corto (retrieval "fácil")
-    (64000,   5, [25, 50, 75]),
+    # ── RECORTE del 13-ago-2026: se van 8K y 64K ──────────────────────────────
+    # Medido sobre 4.480 runs históricos, el porcentaje de respuestas perfectas por
+    # tramo:
+    #
+    #     8K → 78%    64K → 72%    128K → 69%    256K → 41%    800K → 45%
+    #
+    # Los tramos cortos ya no distinguen a nadie: un needle único en 8K de contexto
+    # es un problema resuelto para los modelos actuales. Eran **30 de 59 tests por
+    # modelo** —la mitad de la suite más cara del examen— produciendo casi puro 10.
+    #
+    # Además de no informar, costaban: `niah_es` es la razón de que medir un Claude
+    # Opus salga $73. Con este recorte el examen completo de un modelo caro baja
+    # ~$40 y la señal de contexto largo queda intacta, que es donde 256K+ todavía
+    # separa (41-45% de perfectos).
+    #
+    # NO se "arregla" la suite editando sus prompts: eso invalidaría los runs
+    # históricos. Se recorta la grilla, que solo deja de generar tests — los runs
+    # viejos de 8K/64K siguen siendo válidos para el análisis histórico, solo que
+    # ya no se re-miden. (PLAN-ESTABILIDAD.md R2.)
     (128000,  5, [25, 50, 75]),
     (256000,  3, [50, 75]),
     (512000,  2, [50, 75]),

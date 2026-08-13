@@ -44,6 +44,11 @@ from providers.adapters import THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS
 # Importar tests
 from benchmarks.tests import content_generation, tool_calling, task_management
 from benchmarks.tests import integridad_idioma  # suite nueva 12-ago-2026
+# Suites duras (13-ago-2026). Se AGREGAN, no reemplazan: ningún run previo se
+# invalida. Miden donde el examen todavía discrimina — tool calling (0% de notas
+# perfectas) — y cubren el hueco que dejó el recorte de niah_es a 128K+.
+from benchmarks.tests import tool_calling_adversarial
+from benchmarks.tests import retrieval_distractores
 from benchmarks.tests import code_generation, reasoning, summarization, presentation
 from benchmarks.tests import startup_content, deep_reasoning, customer_support, structured_output
 from benchmarks.tests import hallucination, creativity, string_precision, news_seo_writing
@@ -130,6 +135,8 @@ ALL_TEST_SUITES = {
     # Integridad de idioma: eje APARTE (como niah y seguridad), no entra a la
     # calidad titular. Nace de la fuga de CJK real en el pipeline de Eco.
     "integridad_idioma": integridad_idioma.TESTS,
+    "tool_calling_adversarial": tool_calling_adversarial.TESTS,
+    "retrieval_distractores": retrieval_distractores.TESTS,
     "prompt_injection_es": prompt_injection_es.TESTS,
 }
 
