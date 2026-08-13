@@ -1,13 +1,13 @@
 # Gemini 3.5 Flash
 
 - **model_id**: `google/gemini-3.5-flash`
-- **Total tests**: 401/416 exitosos (15 errores)
-- **Score final**: 5.96
-- **Calidad**: 6.49
-- **Judge score (Phi-4)**: 2.34/10
-- **Velocidad**: 102 tok/s
-- **Latencia primera token**: 6.29s
-- **Costo promedio por test**: $0.08390
+- **Total tests**: 341/356 exitosos (15 errores)
+- **Score final**: 6.33
+- **Calidad**: 6.99
+- **Judge score (Phi-4)**: 2.75/10
+- **Velocidad**: 105 tok/s
+- **Latencia primera token**: 6.49s
+- **Costo promedio por test**: $0.07676
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -28,7 +28,7 @@
 | hallucination | 3 | 3 | 6.08 | 6.33 |
 | multi_turn | 4 | 4 | 7.50 | 8.50 |
 | news_seo_writing | 5 | 5 | 4.21 | 3.99 |
-| niah_es | 170 | 170 | 6.53 | 7.59 |
+| niah_es | 110 | 110 | 7.99 | 9.76 |
 | niah_es_1m | 15 | 0 | - | - |
 | niah_es_lite | 45 | 45 | 4.08 | 3.66 |
 | ocr_extraction | 5 | 5 | 4.69 | 4.54 |
@@ -2399,11 +2399,11 @@ Aquí tienes la información extraída de los perfiles de los candidatos en form
 
 ### Otras suites
 
-#### niah_es
-
 #### niah_es_1m
 
 #### niah_es_lite
+
+#### niah_es
 
 #### prompt_injection_es
 
