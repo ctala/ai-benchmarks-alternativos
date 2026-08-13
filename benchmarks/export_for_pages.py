@@ -1069,10 +1069,53 @@ def build_export(recalibrate=False, scoring_version=None):
         m["score_global_linear"] = m.get("score_global")  # guardar el lineal por referencia
         m["score_global"] = round(max(0.0, min(10.0, _OFFSET + _slope * z_comp)), 2)
 
+    # ── ÍNDICE DE CALIDAD — el titular desde v4.1 ────────────────────────────────
+    # Decisión de Cristian, 13-ago-2026 (PLAN-V4.1.md §3). Se publican DOS ejes:
+    #   score_calidad  → "¿qué modelo es mejor?"      solo quality_avg
+    #   score_global   → "¿qué me conviene pagar?"    el compuesto 70/15/7,5/7,5
+    # Costo, velocidad y latencia se muestran COMO COLUMNAS al lado del índice de
+    # calidad, nunca dentro de él. Es lo que hace Artificial Analysis.
+    #
+    # Por qué: el compuesto ya era calidad en ~80% (Luna aportaba 1,11 de 1,38),
+    # pero el 20% restante desplazaba sistemáticamente — castigaba caro y premiaba
+    # barato. Opus 4.6 era #5 en calidad y se publicaba #18; Laguna XS era #29 y se
+    # publicaba #7. Las dos cifras son verdad CON etiqueta; ninguna lo es bajo un
+    # rótulo que dice "score_global". Separarlos no pierde la tesis de valor por
+    # dólar: la hace legible.
+    _zq = {}
+    for m in models_export:
+        q = m.get("quality_avg")
+        if q is None:
+            continue
+        _zq[id(m)] = (q - norm_stats["quality_avg"]["mean"]) / norm_stats["quality_avg"]["std"]
+    # Pendiente propia y atada por LOS DOS extremos. El compuesto promedia cuatro
+    # dimensiones y eso amortigua su z; el de una sola se dispersa mucho más, así
+    # que la regla del compuesto (que solo mira el piso) satura por arriba: al
+    # probarla, CINCO modelos quedaron empatados en 10,00 — un score que ya no
+    # ordena. El techo 9.5 deja aire para que el líder no toque el tope.
+    _CEIL_Q = 9.5
+    if _frozen_rescale and _frozen_rescale.get("slope_calidad"):
+        _slope_q = _frozen_rescale["slope_calidad"]
+    else:
+        _zq_rank = [z for m, z in ((m, _zq.get(id(m))) for m in models_export)
+                    if z is not None and m.get("ranked")]
+        _slope_q = 3.3
+        if _zq_rank:
+            _lo, _hi = min(_zq_rank), max(_zq_rank)
+            if _lo < 0:
+                _slope_q = min(_slope_q, (_OFFSET - _FLOOR) / abs(_lo))
+            if _hi > 0:
+                _slope_q = min(_slope_q, (_CEIL_Q - _OFFSET) / _hi)
+    for m in models_export:
+        zq = _zq.get(id(m))
+        m["score_calidad"] = (None if zq is None
+                              else round(max(0.0, min(10.0, _OFFSET + _slope_q * zq)), 2))
+
     # (3) Persistir la referencia SOLO en recalibración deliberada (evento de versión).
     if recalibrate:
         _persist_scoring_reference(norm_stats, norm_stats_by_pillar,
-                                   {"offset": _OFFSET, "slope": round(_slope, 4)},
+                                   {"offset": _OFFSET, "slope": round(_slope, 4),
+                                    "slope_calidad": round(_slope_q, 4)},
                                    scoring_version)
 
     # Sort: ranked (muestra solida) primero, luego tested, luego score desc.
