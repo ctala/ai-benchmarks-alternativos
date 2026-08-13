@@ -13,7 +13,7 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:40:55+00:00",
+      "at": "2026-08-13T04:14:56+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -45,7 +45,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:45+00:00",
+      "rescored_at": "2026-08-13T04:14:49+00:00",
       "scoring": "verificable"
     },
     {
@@ -75,17 +75,17 @@
       "content_score": 4.0,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:45+00:00",
+      "rescored_at": "2026-08-13T04:14:49+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 4.0,
+      "quality": 6.0,
       "cost_score": 10.0,
       "cost_usd": 7e-06,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 4.9,
+      "final": 6.3,
       "test_name": "churn_mezcla_free_y_pago",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -97,15 +97,15 @@
       "input_tokens": 180,
       "output_tokens": 182,
       "response_preview": "Lo primero que debes hacer es comprender que los usuarios en el plan gratuito no son lo mismo que los usuarios de pago. Es importante tener en cuenta que el churn se mide de manera diferente para cada uno de estos grupos de usuarios.\n\nEn el caso de los usuarios del plan gratuito, el churn es bajo (a",
-      "auto_quality": 4.0,
+      "auto_quality": 6.0,
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_075422_74587",
       "response_file": "results/responses/20260713_075422_74587/mistral-nemo__business_audit__churn_mezcla_free_y_pago.md",
       "content_score": 4.0,
-      "answer_score": 4.0,
+      "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:45+00:00",
+      "rescored_at": "2026-08-13T04:14:49+00:00",
       "scoring": "verificable"
     },
     {
@@ -135,17 +135,17 @@
       "content_score": 4.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:45+00:00",
+      "rescored_at": "2026-08-13T04:14:49+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 4.0,
+      "quality": 6.0,
       "cost_score": 10.0,
       "cost_usd": 1.2e-05,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 5.05,
+      "final": 6.45,
       "test_name": "roadmap_restriccion_capacidad",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -157,15 +157,15 @@
       "input_tokens": 255,
       "output_tokens": 322,
       "response_preview": "Dado que tienes 4 horas al día disponibles para construir, y tienes 8 semanas hasta el cierre del trimestre, puedes dedicar un total de 160 horas de trabajo enfocado a construir.\n\nEn base a tu planificación, el esfuerzo estimado para cada iniciativa es el siguiente:\n\nA) Reescribir la plataforma en o",
-      "auto_quality": 4.0,
+      "auto_quality": 6.0,
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_075422_74587",
       "response_file": "results/responses/20260713_075422_74587/mistral-nemo__business_audit__roadmap_restriccion_capacidad.md",
       "content_score": 4.0,
-      "answer_score": 4.0,
+      "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:45+00:00",
+      "rescored_at": "2026-08-13T04:14:49+00:00",
       "scoring": "verificable"
     },
     {
@@ -195,7 +195,7 @@
       "content_score": 3.34,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:45+00:00",
+      "rescored_at": "2026-08-13T04:14:49+00:00",
       "scoring": "verificable"
     },
     {
@@ -225,17 +225,17 @@
       "content_score": 4.0,
       "answer_score": 6.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:45+00:00",
+      "rescored_at": "2026-08-13T04:14:49+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.33,
+      "quality": 10.0,
       "cost_score": 10.0,
       "cost_usd": 1.1e-05,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.93,
+      "final": 9.1,
       "test_name": "validacion_idea_intencion_vs_compra",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -247,15 +247,15 @@
       "input_tokens": 175,
       "output_tokens": 371,
       "response_preview": "Es comprensible que estés emocionado con tu idea y quieras dedicarte a ella a tiempo completo, pero es importante ser cauteloso y asegurarte de que has validado adecuadamente tu idea antes de renunciar a tu trabajo actual. Aquí hay algunos puntos a considerar:\n\n1. La encuesta que realizaste puede no",
-      "auto_quality": 8.33,
+      "auto_quality": 10.0,
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_075422_74587",
       "response_file": "results/responses/20260713_075422_74587/mistral-nemo__business_audit__validacion_idea_intencion_vs_compra.md",
       "content_score": 4.67,
-      "answer_score": 8.33,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:45+00:00",
+      "rescored_at": "2026-08-13T04:14:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -285,7 +285,7 @@
       "content_score": 4.67,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:45+00:00",
+      "rescored_at": "2026-08-13T04:14:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -315,7 +315,7 @@
       "content_score": 0.02,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:45+00:00",
+      "rescored_at": "2026-08-13T04:14:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -345,7 +345,7 @@
       "content_score": 7.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:45+00:00",
+      "rescored_at": "2026-08-13T04:14:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -375,17 +375,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:45+00:00",
+      "rescored_at": "2026-08-13T04:14:50+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 0.0,
+      "quality": 4.0,
       "cost_score": 10.0,
       "cost_usd": 7e-06,
       "speed": 4.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 2.1,
+      "final": 4.9,
       "test_name": "elegir_negocio_con_dependencia_oculta",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -397,15 +397,15 @@
       "input_tokens": 324,
       "output_tokens": 37,
       "response_preview": "La opción que te recomendaría para enfocarte en los próximos 3 meses es la OPCIÓN C: Contenido patrocinado en el medio que ya oper",
-      "auto_quality": 0.0,
+      "auto_quality": 4.0,
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_075422_74587",
       "response_file": "results/responses/20260713_075422_74587/mistral-nemo__business_strategy__elegir_negocio_con_dependencia_oculta.md",
       "content_score": 2.3,
-      "answer_score": 0.0,
+      "answer_score": 4.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:45+00:00",
+      "rescored_at": "2026-08-13T04:14:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -435,7 +435,7 @@
       "content_score": 6.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:45+00:00",
+      "rescored_at": "2026-08-13T04:14:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -465,7 +465,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:45+00:00",
+      "rescored_at": "2026-08-13T04:14:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -495,7 +495,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:46+00:00",
+      "rescored_at": "2026-08-13T04:14:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -525,7 +525,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:46+00:00",
+      "rescored_at": "2026-08-13T04:14:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -555,7 +555,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:47+00:00",
+      "rescored_at": "2026-08-13T04:14:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -585,7 +585,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:47+00:00",
+      "rescored_at": "2026-08-13T04:14:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -615,7 +615,7 @@
       "content_score": 6.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:47+00:00",
+      "rescored_at": "2026-08-13T04:14:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -645,7 +645,7 @@
       "content_score": 6.0,
       "answer_score": 4.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:47+00:00",
+      "rescored_at": "2026-08-13T04:14:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -675,7 +675,7 @@
       "content_score": 6.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:47+00:00",
+      "rescored_at": "2026-08-13T04:14:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -705,7 +705,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:48+00:00",
+      "rescored_at": "2026-08-13T04:14:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -735,7 +735,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:48+00:00",
+      "rescored_at": "2026-08-13T04:14:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -765,7 +765,7 @@
       "content_score": 4.67,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:48+00:00",
+      "rescored_at": "2026-08-13T04:14:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -795,7 +795,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:48+00:00",
+      "rescored_at": "2026-08-13T04:14:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -825,7 +825,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:48+00:00",
+      "rescored_at": "2026-08-13T04:14:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -855,7 +855,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:48+00:00",
+      "rescored_at": "2026-08-13T04:14:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -885,17 +885,17 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:48+00:00",
+      "rescored_at": "2026-08-13T04:14:51+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 6.93,
       "cost_usd": 0.002266,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.17,
+      "final": 8.57,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "MiniMax M3",
       "model_id": "minimax/minimax-m3",
@@ -907,15 +907,15 @@
       "input_tokens": 292,
       "output_tokens": 1815,
       "response_preview": "# No. Un muro de pago duro te va a matar el negocio.\n\nY te lo demuestro con números antes de proponerte alternativas.\n\n## Por qué $5.400/mes es una ilusión\n\nTu activo no son los 600 suscriptores que aún no tienes. **Tu activo son las 300.000 visitas orgánicas**. Es lo que te falta entender:\n\n- 300.0",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_075422_74587",
       "response_file": "results/responses/20260713_075422_74587/minimax-m3__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 5.34,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:48+00:00",
+      "rescored_at": "2026-08-13T04:14:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -946,7 +946,7 @@
       "content_score": 6.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:48+00:00",
+      "rescored_at": "2026-08-13T04:14:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -977,7 +977,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:48+00:00",
+      "rescored_at": "2026-08-13T04:14:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -1008,7 +1008,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:49+00:00",
+      "rescored_at": "2026-08-13T04:14:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -1039,7 +1039,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:49+00:00",
+      "rescored_at": "2026-08-13T04:14:54+00:00",
       "scoring": "verificable"
     },
     {
@@ -1070,7 +1070,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:50+00:00",
+      "rescored_at": "2026-08-13T04:14:54+00:00",
       "scoring": "verificable"
     },
     {
@@ -1101,7 +1101,7 @@
       "content_score": 6.0,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:50+00:00",
+      "rescored_at": "2026-08-13T04:14:54+00:00",
       "scoring": "verificable"
     },
     {
@@ -1132,7 +1132,7 @@
       "content_score": 5.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:50+00:00",
+      "rescored_at": "2026-08-13T04:14:54+00:00",
       "scoring": "verificable"
     },
     {
@@ -1163,7 +1163,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:51+00:00",
+      "rescored_at": "2026-08-13T04:14:54+00:00",
       "scoring": "verificable"
     },
     {
@@ -1194,7 +1194,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:51+00:00",
+      "rescored_at": "2026-08-13T04:14:54+00:00",
       "scoring": "verificable"
     },
     {
@@ -1225,7 +1225,7 @@
       "content_score": 5.34,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:51+00:00",
+      "rescored_at": "2026-08-13T04:14:54+00:00",
       "scoring": "verificable"
     },
     {
@@ -1256,7 +1256,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:51+00:00",
+      "rescored_at": "2026-08-13T04:14:54+00:00",
       "scoring": "verificable"
     },
     {
@@ -1287,7 +1287,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:51+00:00",
+      "rescored_at": "2026-08-13T04:14:54+00:00",
       "scoring": "verificable"
     },
     {
@@ -1318,7 +1318,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:51+00:00",
+      "rescored_at": "2026-08-13T04:14:54+00:00",
       "scoring": "verificable"
     },
     {
@@ -1349,7 +1349,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:51+00:00",
+      "rescored_at": "2026-08-13T04:14:54+00:00",
       "scoring": "verificable"
     },
     {
@@ -1380,17 +1380,17 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:51+00:00",
+      "rescored_at": "2026-08-13T04:14:54+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 10.0,
+      "quality": 8.0,
       "cost_score": 2.21,
       "cost_usd": 0.08492,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.01,
+      "final": 6.61,
       "test_name": "atribucion_correlacion_temporal",
       "model": "Claude Opus 4.8 (suscripción)",
       "model_id": "claude-opus-4-8",
@@ -1402,16 +1402,16 @@
       "input_tokens": 4,
       "output_tokens": 3396,
       "response_preview": "## Respuesta corta\n\nNo se puede saber. Con estos datos no hay forma de separar el efecto de la secuencia del efecto de los ads y del creador. Y ni siquiera está claro que haya un efecto que separar.\n\n## Qué dicen los números realmente\n\n**1. Tres intervenciones en la misma ventana.**\nEmails (1-mar), ",
-      "auto_quality": 10.0,
+      "auto_quality": 8.0,
       "subscription_measured": true,
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_075422_74587",
       "response_file": "results/responses/20260713_075422_74587/claude-opus-4.8-sub__business_audit__atribucion_correlacion_temporal.md",
       "content_score": 6.0,
-      "answer_score": 10.0,
+      "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:51+00:00",
+      "rescored_at": "2026-08-13T04:14:54+00:00",
       "scoring": "verificable"
     },
     {
@@ -1442,7 +1442,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:51+00:00",
+      "rescored_at": "2026-08-13T04:14:54+00:00",
       "scoring": "verificable"
     },
     {
@@ -1473,7 +1473,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:51+00:00",
+      "rescored_at": "2026-08-13T04:14:54+00:00",
       "scoring": "verificable"
     },
     {
@@ -1504,7 +1504,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:53+00:00",
+      "rescored_at": "2026-08-13T04:14:55+00:00",
       "scoring": "verificable"
     },
     {
@@ -1535,7 +1535,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:53+00:00",
+      "rescored_at": "2026-08-13T04:14:55+00:00",
       "scoring": "verificable"
     },
     {
@@ -1566,7 +1566,7 @@
       "content_score": 6.0,
       "answer_score": 4.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:53+00:00",
+      "rescored_at": "2026-08-13T04:14:55+00:00",
       "scoring": "verificable"
     },
     {
@@ -1597,7 +1597,7 @@
       "content_score": 6.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:53+00:00",
+      "rescored_at": "2026-08-13T04:14:55+00:00",
       "scoring": "verificable"
     },
     {
@@ -1628,7 +1628,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:55+00:00",
+      "rescored_at": "2026-08-13T04:14:56+00:00",
       "scoring": "verificable"
     },
     {
@@ -1659,7 +1659,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:55+00:00",
+      "rescored_at": "2026-08-13T04:14:56+00:00",
       "scoring": "verificable"
     },
     {
@@ -1690,7 +1690,7 @@
       "content_score": 5.34,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:55+00:00",
+      "rescored_at": "2026-08-13T04:14:56+00:00",
       "scoring": "verificable"
     },
     {
@@ -1721,7 +1721,7 @@
       "content_score": 10.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:55+00:00",
+      "rescored_at": "2026-08-13T04:14:56+00:00",
       "scoring": "verificable"
     },
     {
@@ -1752,7 +1752,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:55+00:00",
+      "rescored_at": "2026-08-13T04:14:56+00:00",
       "scoring": "verificable"
     },
     {
@@ -1783,7 +1783,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:55+00:00",
+      "rescored_at": "2026-08-13T04:14:56+00:00",
       "scoring": "verificable"
     }
   ]

@@ -113,8 +113,8 @@ MODELS = {
     "deepseek-v3": {
         "id": "deepseek/deepseek-chat",
         "name": "DeepSeek V3.2",
-        "cost_input": 0.14,
-        "cost_output": 0.28,
+        "cost_input": 0.2574,
+        "cost_output": 1.0287,
         "tier": "cheap",
     },
     "minimax-m2.7": {
@@ -205,8 +205,8 @@ MODELS = {
     "qwen-3.6-max": {
         "id": "qwen/qwen3.6-max-preview",
         "name": "Qwen 3.6 Max",
-        "cost_input": 1.04,
-        "cost_output": 6.24,
+        "cost_input": 1.027,
+        "cost_output": 6.162,
         "tier": "medium",
         "open_source": False,
         "license": "Proprietary",
@@ -215,8 +215,8 @@ MODELS = {
     "qwen-3.7-max": {
         "id": "qwen/qwen3.7-max",
         "name": "Qwen 3.7 Max",
-        "cost_input": 2.50,
-        "cost_output": 7.50,
+        "cost_input": 1.475,
+        "cost_output": 4.425,
         "tier": "premium",
         "open_source": False,
         "license": "Proprietary",
@@ -227,8 +227,8 @@ MODELS = {
     "qwen-3.6-plus": {
         "id": "qwen/qwen3.6-plus",
         "name": "Qwen 3.6 Plus",
-        "cost_input": 0.18,
-        "cost_output": 1.07,
+        "cost_input": 0.325,
+        "cost_output": 1.95,
         "tier": "cheap",
         "open_source": False,
         "license": "Proprietary",
@@ -249,8 +249,8 @@ MODELS = {
     "kimi-k2": {
         "id": "moonshotai/kimi-k2",
         "name": "Kimi K2",
-        "cost_input": 0.20,
-        "cost_output": 0.80,
+        "cost_input": 0.57,
+        "cost_output": 2.3,
         "tier": "cheap",
         "open_source": True,
         "license": "Modified MIT",
@@ -262,8 +262,8 @@ MODELS = {
     "kimi-k2.5-thinking": {
         "id": "moonshotai/kimi-k2.5",
         "name": "Kimi K2.5 (thinking)",
-        "cost_input": 0.20,
-        "cost_output": 0.80,
+        "cost_input": 0.57,
+        "cost_output": 2.85,
         "tier": "cheap",
         "open_source": True,
         "license": "Modified MIT",
@@ -275,8 +275,8 @@ MODELS = {
     "kimi-k2.6": {
         "id": "moonshotai/kimi-k2.6",
         "name": "Kimi K2.6",
-        "cost_input": 0.73,
-        "cost_output": 3.49,
+        "cost_input": 0.5795,
+        "cost_output": 2.44,
         "tier": "cheap",
         "open_source": True,
         "license": "Modified MIT",
@@ -285,8 +285,8 @@ MODELS = {
     "kimi-k2.6-thinking": {
         "id": "moonshotai/kimi-k2.6",
         "name": "Kimi K2.6 (thinking)",
-        "cost_input": 0.73,
-        "cost_output": 3.49,
+        "cost_input": 0.5795,
+        "cost_output": 2.44,
         "tier": "cheap",
         "open_source": True,
         "license": "Modified MIT",
@@ -297,8 +297,8 @@ MODELS = {
     "kimi-k2.7-code": {
         "id": "moonshotai/kimi-k2.7-code",
         "name": "Kimi K2.7 Code",
-        "cost_input": 0.74,
-        "cost_output": 3.50,
+        "cost_input": 0.7,
+        "cost_output": 3.5,
         "tier": "medium",
         "open_source": True,
         "license": "Modified MIT",
@@ -323,8 +323,8 @@ MODELS = {
     "glm-5.1": {
         "id": "z-ai/glm-5.1",
         "name": "GLM-5.1",
-        "cost_input": 0.95,
-        "cost_output": 3.15,
+        "cost_input": 0.952,
+        "cost_output": 2.992,
         "tier": "cheap",
         "open_source": True,
         "license": "MIT",
@@ -332,8 +332,8 @@ MODELS = {
     "glm-5.2": {
         "id": "z-ai/glm-5.2",
         "name": "GLM 5.2",
-        "cost_input": 0.95,
-        "cost_output": 3.00,
+        "cost_input": 0.4886,
+        "cost_output": 1.5356,
         "tier": "cheap",
         "open_source": True,
         "license": "MIT",
@@ -346,7 +346,13 @@ MODELS = {
 
     # --- Xiaomi MiMo ---
     "mimo-v2-flash": {
-        "retired": True,  # Xiaomi: modelo deprecado (13-jul-2026)
+        "retired": True,
+
+        "retired_at": "2026-07-13",
+
+        "retired_reason": "Xiaomi deprecó el modelo",
+
+        "retired_kind": "provider",
         "id": "xiaomi/mimo-v2-flash",
         "name": "MiMo-V2-Flash",
         "cost_input": 0.09,
@@ -356,7 +362,13 @@ MODELS = {
         "license": "MIT",
     },
     "mimo-v2-pro": {
-        "retired": True,  # Xiaomi: modelo deprecado (13-jul-2026)
+        "retired": True,
+
+        "retired_at": "2026-07-13",
+
+        "retired_reason": "Xiaomi deprecó el modelo",
+
+        "retired_kind": "provider",
         "id": "xiaomi/mimo-v2-pro",
         "name": "MiMo-V2-Pro",
         "cost_input": 1.00,
@@ -371,8 +383,8 @@ MODELS = {
     "nemotron-super": {
         "id": "nvidia/nemotron-3-super-120b-a12b",
         "name": "Nemotron 3 Super",
-        "cost_input": 0.10,
-        "cost_output": 0.50,
+        "cost_input": 0.085,
+        "cost_output": 0.4,
         "tier": "ultra_cheap",
         "open_source": True,
         "license": "NVIDIA Open",
@@ -483,7 +495,13 @@ MODELS = {
         "license": "MRL (no comercial)",
     },
     "devstral": {
-        "retired": True,  # OpenRouter: "No endpoints found" (13-jul-2026). Estaba #5 del ranking.
+        "retired": True,
+
+        "retired_at": "2026-07-13",
+
+        "retired_reason": "OpenRouter: 'No endpoints found'. Llegó a estar #5 del ranking.",
+
+        "retired_kind": "provider",
         "id": "mistralai/devstral-small",
         "name": "Devstral Small",
         "cost_input": 0.10,
@@ -493,7 +511,13 @@ MODELS = {
         "license": "Apache 2.0",
     },
     "devstral-medium": {
-        "retired": True,  # OpenRouter: No endpoints found (13-jul-2026)
+        "retired": True,
+
+        "retired_at": "2026-07-13",
+
+        "retired_reason": "OpenRouter: 'No endpoints found'",
+
+        "retired_kind": "provider",
         "id": "mistralai/devstral-medium",
         "name": "Devstral Medium",
         "cost_input": 0.40,
@@ -503,6 +527,13 @@ MODELS = {
         "license": "Apache 2.0",
     },
     "devstral-2": {
+        "retired": True,
+
+        "retired_at": "2026-08-12",
+
+        "retired_reason": "OpenRouter 404: la familia Devstral entera salió del catálogo",
+
+        "retired_kind": "provider",
         "id": "mistralai/devstral-2512",
         "name": "Devstral 2 (Dic 2025)",
         "cost_input": 0.40,
@@ -567,8 +598,8 @@ MODELS = {
     "gemma-4-26b": {
         "id": "google/gemma-4-26b-a4b-it",
         "name": "Gemma 4 26B MoE (3.8B activos)",
-        "cost_input": 0.15,
-        "cost_output": 0.30,
+        "cost_input": 0.12,
+        "cost_output": 0.4,
         "tier": "cheap",
         "open_source": True,
         "license": "Apache 2.0",
@@ -576,8 +607,8 @@ MODELS = {
     "llama-4-maverick": {
         "id": "meta-llama/llama-4-maverick",
         "name": "Llama 4 Maverick",
-        "cost_input": 0.50,
-        "cost_output": 1.00,
+        "cost_input": 0.2,
+        "cost_output": 0.696,
         "tier": "cheap",
         "open_source": True,
         "license": "Llama Community",
@@ -585,8 +616,8 @@ MODELS = {
     "qwen3-coder": {
         "id": "qwen/qwen3-coder",
         "name": "Qwen3 Coder",
-        "cost_input": 0.20,
-        "cost_output": 0.60,
+        "cost_input": 0.3,
+        "cost_output": 1,
         "tier": "cheap",
         "open_source": True,
         "license": "Apache 2.0",
@@ -598,8 +629,8 @@ MODELS = {
     "qwen3.6-27b": {
         "id": "qwen/qwen3.6-27b",
         "name": "Qwen 3.6 27B base (OpenRouter FP8)",
-        "cost_input": 0.29,
-        "cost_output": 3.20,
+        "cost_input": 0.6,
+        "cost_output": 3.6,
         "tier": "cheap",
         "open_source": True,
         "license": "Apache 2.0",
@@ -718,8 +749,8 @@ MODELS = {
     "gpt-5.6-luna": {
         "id": "openai/gpt-5.6-luna",
         "name": "GPT-5.6 Luna",
-        "cost_input": 1.00,
-        "cost_output": 6.00,
+        "cost_input": 0.1,
+        "cost_output": 0.6,
         "tier": "cheap",
         "niah_max_context": 262144,
         "notes": "Variante rápida y económica de GPT-5.6 (GA 9 jul 2026). $1/$6 vía OpenRouter.",
@@ -738,8 +769,8 @@ MODELS = {
     "gpt-5.6-terra": {
         "id": "openai/gpt-5.6-terra",
         "name": "GPT-5.6 Terra",
-        "cost_input": 2.50,
-        "cost_output": 15.00,
+        "cost_input": 1,
+        "cost_output": 6,
         "tier": "medium",
         "niah_max_context": 262144,
         "notes": "Variante balanceada de GPT-5.6. OpenAI la ubica al nivel de GPT-5.5 a mitad de costo. $2.5/$15 vía OpenRouter.",
@@ -809,7 +840,7 @@ MODELS = {
         "provider_variant": True,
         "id": "openai/gpt-oss-120b",
         "name": "GPT-OSS 120B (Groq)",
-        "cost_input": 0.15, "cost_output": 0.60,
+        "cost_input": 0.037, "cost_output": 0.17,
         "tier": "cheap", "provider": "groq_direct",
         "open_source": True, "license": "Apache 2.0",
     },
@@ -819,7 +850,7 @@ MODELS = {
         "provider_variant": True,
         "id": "openai/gpt-oss-20b",
         "name": "GPT-OSS 20B (Groq)",
-        "cost_input": 0.075, "cost_output": 0.30,
+        "cost_input": 0.03, "cost_output": 0.13,
         "tier": "ultra_cheap", "provider": "groq_direct",
         "open_source": True, "license": "Apache 2.0",
     },
@@ -878,6 +909,9 @@ MODELS = {
         # Id ambiguo (`qwen3.5:cloud`): Ollama no documenta qué tamaño sirve. Sin saber
         # QUÉ es, no se puede rankear ni recomendar.
         "retired": True,
+        "retired_at": "2026-07-14",
+        "retired_reason": "sin causa registrada; fecha recuperada del historial de git",
+        "retired_kind": "unknown",
         "unavailable": "id ambiguo (`qwen3.5:cloud`): Ollama no documenta qué tamaño sirve",
         "id": "qwen3.5:cloud",
         "name": "Qwen 3.5 (Ollama Cloud default)",
@@ -907,6 +941,35 @@ MODELS = {
     # --- NVIDIA NIM (gratis con 40 RPM, OpenAI-compatible, 100+ modelos) ---
     # Ideal para benchmarks: secuencial, mismo formato API. Free tier suficiente.
     # Catálogo completo: https://build.nvidia.com/explore/discover
+    "nim-nemotron-3.5-lightning": {
+        # Variante de proveedor — y acá NO es un lujo comparativo, es la ÚNICA forma de
+        # medir sus capacidades agénticas.
+        #
+        # Por OpenRouter, Nemotron 3.5 Lightning falla las 4 suites con herramientas con
+        # "No endpoints found that support tool use": sus dos proveedores (DeepInfra y
+        # CoreWeave) no las exponen. Eso hacía parecer que el modelo no sabe hacer tool
+        # calling — justo el modelo que NVIDIA vende para "always-on agents".
+        #
+        # Verificado el 12-ago-2026 contra NIM: el mismo modelo emite una tool call
+        # válida a la primera → `crear_evento({"titulo":"Demo con inversor",...})`.
+        # No era el modelo: era la ruta. Es la diferencia entre "no puede" y "por acá no".
+        "provider_variant": True,
+        # Única ruta con tool calling: por OpenRouter ningún proveedor lo expone.
+        "ruta_unica": True,
+        "id": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "name": "Nemotron 3.5 Lightning (NIM)",
+        # NIM corre gratis con 40 RPM; se costea al precio de OpenRouter del MISMO modelo
+        # para que la comparación sea justa (regla dura: nunca $0 en el ranking).
+        "cost_input": 0.10, "cost_output": 0.25,
+        "free_runtime": True,
+        "tier": "cloud_nim",
+        "provider": "nvidia_nim",
+        "publisher": "NVIDIA",
+        "weights_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+        "open_source": True,
+        "context_window": 262144,
+        "notes": "Única ruta con tool calling. Mide lo que OpenRouter no puede: las 4 suites con herramientas.",
+    },
     "nim-nemotron-super-1.5": {
         # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
         # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
@@ -922,7 +985,7 @@ MODELS = {
     "openrouter-nemotron-3-ultra-550b": {
         "id": "nvidia/nemotron-3-ultra-550b-a55b",
         "name": "Nemotron 3 Ultra 550B",
-        "cost_input": 0.5, "cost_output": 2.2,
+        "cost_input": 0.6, "cost_output": 3.6,
         "tier": "cloud",
         "provider": "openrouter",
         "open_source": True, "license": "NVIDIA Open Model",
@@ -1155,7 +1218,7 @@ MODELS = {
     "deepseek-v4-flash": {
         "id": "deepseek/deepseek-v4-flash",
         "name": "DeepSeek V4 Flash (OpenRouter)",
-        "cost_input": 0.098, "cost_output": 0.197,
+        "cost_input": 0.14, "cost_output": 0.28,
         "tier": "cheap",
         "open_source": True, "license": "MIT",
         "notes": "284B params, 13B activos, 1M context. Sucesor V3.2. Precio re-verificado vía OpenRouter API 1 jun 2026 ($0.098/$0.197, antes $0.112/$0.224).",
@@ -1172,7 +1235,7 @@ MODELS = {
     "deepseek-v4-pro": {
         "id": "deepseek/deepseek-v4-pro",
         "name": "DeepSeek V4 Pro",
-        "cost_input": 0.435, "cost_output": 0.87,
+        "cost_input": 0.63168, "cost_output": 1.26336,
         "tier": "cheap",
         "open_source": True, "license": "MIT",
         "notes": "1.6T params, 49B activos, 1M context. Flagship V4. Precio corregido may 2026 vía OpenRouter API ($0.435/$0.87, antes teníamos $1.74/$3.48 — 4x sobreprecio). Re-clasificado a tier cheap.",
@@ -1214,7 +1277,10 @@ MODELS = {
     "grok-4.1-fast": {
         # Endpoint MUERTO: el proveedor lo apagó. Los datos quedan como estadística
         # histórica (son mediciones reales), pero no compite ni se recomienda.
-        "retired": True,  # xAI: deprecated, recomienda migrar a Grok 4.3 (13-jul-2026)
+        "retired": True,
+        "retired_at": "2026-07-13",
+        "retired_reason": "xAI lo deprecó; recomienda migrar a Grok 4.3",
+        "retired_kind": "provider",
         "id": "x-ai/grok-4.1-fast",
         "name": "Grok 4.1 Fast",
         "cost_input": 0.20, "cost_output": 0.50,
@@ -1245,7 +1311,7 @@ MODELS = {
     "grok-4.20-multi-agent": {
         "id": "x-ai/grok-4.20-multi-agent",
         "name": "Grok 4.20 Multi-Agent",
-        "cost_input": 2.00, "cost_output": 6.00,
+        "cost_input": 1.25, "cost_output": 2.5,
         "tier": "premium",
         "notes": "Variante multi-agente (Heavy) de Grok 4.20, contexto 2M. Precio vía OpenRouter API may 2026.",
     },
@@ -1268,6 +1334,272 @@ MODELS = {
         "open_source": True, "license": "NVIDIA Open",
     },
 
+    # ── Grupo A: referencias obligadas (12-ago-2026) ────────────────────────
+    # Ausencias que un lector notaría. Se miden en el PLANO COMÚN (OpenRouter) para
+    # que compitan; las variantes por suscripción van aparte, como Opus 4.7/4.8.
+    "claude-sonnet-5": {
+        "id": "anthropic/claude-sonnet-5",
+        "name": "Claude Sonnet 5",
+        "cost_input": 2.00, "cost_output": 10.00,
+        "tier": "medium",
+        "context_window": 1000000,
+        "niah_max_context": 262144,  # cap de costo, igual que Opus 4.8
+        "publisher": "Anthropic",
+        "notes": "Referencia obligada: 1M ctx a $2/$10. Publicado 30-jun-2026.",
+    },
+    "claude-opus-5": {
+        "id": "anthropic/claude-opus-5",
+        "name": "Claude Opus 5",
+        "cost_input": 5.00, "cost_output": 25.00,
+        "tier": "premium",
+        "context_window": 1000000,
+        "niah_max_context": 262144,
+        "publisher": "Anthropic",
+        "notes": "Flagship Anthropic. Publicado 24-jul-2026.",
+    },
+    "claude-opus-5-fast": {
+        "id": "anthropic/claude-opus-5-fast",
+        "name": "Claude Opus 5 Fast",
+        "cost_input": 10.00, "cost_output": 50.00,
+        "tier": "premium",
+        "context_window": 1000000,
+        "niah_max_context": 262144,
+        "publisher": "Anthropic",
+        # El más caro del catálogo, y se mide igual por una razón concreta: `opus-5-fast`
+        # REDACTA EN PRODUCCIÓN en el copiloto de CAR (COPILOTO_MODELO_REDACCION).
+        # Medir lo que ya usás es la categoría de mayor valor del benchmark.
+        # ⚠️ NO existe como modelo del CLI de Claude Code (probado: "There's an issue with
+        # the selected model"). Es el modo /fast, no un id. Solo se puede por OpenRouter.
+        "notes": "Redacta en producción en el copiloto de CAR. Solo por API: no existe como modelo del CLI.",
+    },
+    "claude-opus-5-sub": {
+        # Variante de suscripción: $0 marginal. Verificado 12-ago que `claude -p --model
+        # claude-opus-5` responde. Fuera del plano común, para comparar infraestructuras.
+        "provider_variant": True,
+        "id": "claude-opus-5",
+        "name": "Claude Opus 5 (suscripción)",
+        "cost_input": 5.00, "cost_output": 25.00,
+        "tier": "subscription", "provider": "claude_code",
+        "subscriptions": ["anthropic_pro"], "free_runtime": True,
+        "context_window": 1000000,
+        "notes": "Opus 5 vía suscripción Claude Code, costo marginal $0.",
+    },
+    "claude-sonnet-5-sub": {
+        "provider_variant": True,
+        "id": "claude-sonnet-5",
+        "name": "Claude Sonnet 5 (suscripción)",
+        "cost_input": 2.00, "cost_output": 10.00,
+        "tier": "subscription", "provider": "claude_code",
+        "subscriptions": ["anthropic_pro"], "free_runtime": True,
+        "context_window": 1000000,
+        "notes": "Sonnet 5 vía suscripción Claude Code, costo marginal $0.",
+    },
+    "gpt-5.6-luna-pro": {
+        "id": "openai/gpt-5.6-luna-pro",
+        "name": "GPT-5.6 Luna Pro",
+        "cost_input": 0.10, "cost_output": 0.60,
+        "tier": "cheap",
+        "context_window": 1050000,
+        "niah_max_context": 262144,
+        "publisher": "OpenAI",
+        "notes": "Mismo precio que Luna (#1 actual) con 1,05M de contexto. Publicado 9-jul-2026.",
+    },
+    "gpt-5.6-terra-pro": {
+        "id": "openai/gpt-5.6-terra-pro",
+        "name": "GPT-5.6 Terra Pro",
+        "cost_input": 1.00, "cost_output": 6.00,
+        "tier": "medium",
+        "context_window": 1050000,
+        "niah_max_context": 262144,
+        "publisher": "OpenAI",
+        "notes": "Publicado 9-jul-2026.",
+    },
+    "muse-spark-1.2": {
+        "id": "meta/muse-spark-1.2",
+        "name": "Muse Spark 1.2",
+        "cost_input": 1.25, "cost_output": 4.25,
+        "tier": "medium",
+        "context_window": 1048576,
+        "niah_max_context": 262144,
+        "publisher": "Meta",
+        # El modelo del que DESTILARON Muse Glimmer: comparar destilado vs original.
+        # ⚠️ Requería confirmación de edad en la cuenta de OpenRouter (403 hasta el
+        # 12-ago). Y es THINKING: con max_tokens=300 devolvió content="" y 297 tokens
+        # de reasoning — sin el patrón en THINKING_MODELS se medía en blanco.
+        "notes": "Original del que se destiló Muse Glimmer 30B. Multimodal texto+imagen+audio+video.",
+    },
+    # ── Agregados el 12-ago-2026 ────────────────────────────────────────────────
+    # Criterio de entrada: **utilidad para un emprendedor, no novedad**. Hay 405
+    # modelos en OpenRouter y ~104 acá; la brecha no se cierra, se prioriza. Estos
+    # dos entran porque un pyme podría elegirlos de verdad: precio que puede pagar,
+    # acceso real, y un caso de uso del ICP (agentes / contenido).
+    #
+    # ⚠️ Los DOS son thinking models: medidos con `max_tokens=300` devolvieron
+    # `content=""` con ~200 tokens de reasoning. Ver THINKING_MODELS en
+    # providers/adapters.py — sin eso el examen entero sale vacío y puntúa 0.
+    "nemotron-3.5-lightning": {
+        "id": "nvidia/nemotron-3.5-lightning",
+        "name": "Nemotron 3.5 Lightning",
+        "cost_input": 0.10, "cost_output": 0.25,
+        "tier": "ultra_cheap",
+        "context_window": 262144,
+        # MoE de 3B activos sobre 30B totales. En OpenRouter existe también como `:free`
+        # con 1M de contexto; NO se usa — regla dura: nunca $0 como precio del ranking.
+        # Pesos abiertos y descargables: huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16
+        # → candidato real a medirse TAMBIÉN local (30B totales entran en el Spark).
+        # La licencia NO está declarada en la ficha de OpenRouter; "NVIDIA Open" sigue la
+        # convención que ya usan las otras entradas Nemotron de este catálogo.
+        # ⚠️ Su ficha en OpenRouter NO lista `tools` ni `tool_choice`, pese a venderse para
+        # "cargas agénticas de alto throughput". Si la suite de tool calling le va mal,
+        # revisar ESO antes de concluir nada sobre el modelo.
+        # ⚠️ Publicado el 11-ago-2026: se mide con UN día de vida. Los proveedores suelen
+        # ajustar el serving en los primeros días, así que conviene re-verificar en un mes.
+        "publisher": "NVIDIA",
+        "weights_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+        "open_source": True,
+        "notes": "MoE 3B activos/30B totales, publicado 11-ago-2026. Pesos en HuggingFace. Precio del tier pago; existe :free a 1M ctx.",
+    },
+    "muse-glimmer-30b": {
+        "id": "meta/muse-glimmer-30b",
+        "name": "Muse Glimmer 30B",
+        "cost_input": 0.35, "cost_output": 1.50,
+        "tier": "cheap",
+        # Open-weight CONFIRMADO por pesos descargables, no por el nombre del modelo:
+        # huggingface.co/meta-models/Muse-Glimmer-30B (verificado en la ficha, 12-ago-2026).
+        # El NOMBRE de la licencia no está publicado ni en la API ni en la ficha, así que
+        # no se inventa — es el anti-patrón de Qwen Plus del CLAUDE.md al revés: acá los
+        # pesos existen, lo que falta es cómo se llama el permiso.
+        "context_window": 131072,
+        # Denso de 30B (NO es MoE, a diferencia del Lightning). Publicado 9-ago-2026.
+        # La ficha le atribuye "reliable tool use" y +100 idiomas, y la API sí lista
+        # `tools`/`tool_choice` — o sea que la suite de tool calling le corresponde de
+        # verdad, al revés que a Lightning.
+        "publisher": "Meta Superintelligence Labs",
+        "weights_url": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+        "open_source": True,
+        "notes": "Denso 30B multimodal texto+imagen, publicado 9-ago-2026. Destilado de Muse Spark, orientado a agentes en hardware de consumo. Pesos en HuggingFace; licencia sin nombre publicado.",
+    },
+
+    # ── Lote "donde decide un pyme" + locales del post de NVIDIA (12-ago-2026) ──
+    # Todos publicados en los últimos 60 días y elegidos por el mismo criterio: precio que
+    # un emprendedor puede pagar y un caso de uso del ICP. Los 9 juntos cuestan ~$0,55 de
+    # medición: el grupo más barato del catálogo y el que más decisiones mueve.
+    #
+    # ⚠️ `open_source` se declara SOLO donde hay evidencia (pesos publicados o la tabla del
+    # post de NVIDIA). Donde no la hay se omite a propósito — es el anti-patrón de Qwen
+    # Plus del CLAUDE.md: marcar open_source porque el nombre suena a abierto. En especial
+    # Qwen "Flash" es un tier NUEVO: no se sabe si sigue la regla Base=abierto/Plus=cerrado.
+    "ling-3.0-flash": {
+        "id": "inclusionai/ling-3.0-flash",
+        "name": "Ling 3.0 Flash",
+        "cost_input": 0.021, "cost_output": 0.063,
+        "tier": "ultra_cheap",
+        "context_window": 262144,
+        "publisher": "inclusionAI",
+        "weights_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+        "open_source": True,
+        "notes": "El más barato del catálogo (publicado 23-jul-2026). Thinking. Licencia sin verificar.",
+    },
+    "solar-pro4": {
+        "id": "upstage/solar-pro4",
+        "name": "Solar Pro 4",
+        "cost_input": 0.03, "cost_output": 0.12,
+        "tier": "ultra_cheap",
+        "context_window": 524288,
+        # El ÚNICO del lote que NO es thinking: 0 tokens de reasoning en el pre-vuelo.
+        "publisher": "Upstage",
+        "notes": "Publicado 10-ago-2026. No-thinking (verificado). Licencia sin verificar.",
+    },
+    "qwen3.7-flash": {
+        "id": "qwen/qwen3.7-flash",
+        "name": "Qwen 3.7 Flash",
+        "cost_input": 0.03, "cost_output": 0.13,
+        "tier": "ultra_cheap",
+        "context_window": 1000000,
+        "publisher": "Alibaba",
+        "notes": "1M de contexto a $0,03. Multimodal texto+imagen+video. Tier 'Flash' nuevo: NO se sabe si los pesos son abiertos (la regla Base/Plus/Max no lo cubre).",
+    },
+    "nex-n2-mini": {
+        "id": "nex-agi/nex-n2-mini",
+        "name": "Nex-N2-Mini",
+        "cost_input": 0.025, "cost_output": 0.10,
+        "tier": "ultra_cheap",
+        "context_window": 262144,
+        "publisher": "Nex AGI",
+        "weights_url": "https://huggingface.co/nex-agi/Nex-N2-Mini",
+        "open_source": True,
+        "notes": "Publicado 24-jun-2026. Multimodal texto+imagen. ⚠️ En el pre-vuelo falló un cálculo de porcentaje simple (dio 17,49% donde iba 19,13%) — n=1, lo dirá el examen.",
+    },
+    "laguna-xs-2.1": {
+        "id": "poolside/laguna-xs-2.1",
+        "name": "Poolside Laguna XS 2.1",
+        "cost_input": 0.06, "cost_output": 0.12,
+        "tier": "ultra_cheap",
+        "context_window": 262144,
+        "publisher": "Poolside",
+        "weights_url": "https://huggingface.co/poolside/Laguna-XS-2.1",
+        "open_source": True,
+        "license": "OpenMDW-1.1",
+        "notes": "Hermano chico del Laguna S. Publicado 2-jul-2026. Licencia sin verificar.",
+    },
+    "deepseek-v4-flash-0731": {
+        "id": "deepseek/deepseek-v4-flash-0731",
+        "name": "DeepSeek V4 Flash 0731",
+        "cost_input": 0.08, "cost_output": 0.18,
+        "tier": "ultra_cheap",
+        "context_window": 1048576,
+        # Snapshot distinto del V4 Flash que ya está medido → distinto id, distinto modelo,
+        # se mide (regla de re-medición del CLAUDE.md). Además es el que ALUCINÓ en Eco:
+        # comparar el snapshot nuevo contra el viejo es una pregunta con dueño.
+        "publisher": "DeepSeek",
+        "weights_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+        "open_source": True,
+        "notes": "Snapshot 31-jul-2026 del V4 Flash. Más barato que el id base ($0,08/$0,18 vs $0,14/$0,28).",
+    },
+    "tencent-hy3": {
+        "id": "tencent/hy3",
+        "name": "Tencent Hy3",
+        "cost_input": 0.132, "cost_output": 0.528,
+        "tier": "cheap",
+        "context_window": 262144,
+        "publisher": "Tencent",
+        "weights_url": "https://huggingface.co/tencent/Hy3",
+        "open_source": True,
+        "notes": "Publicado 6-jul-2026. Existe también hy3-preview a mitad de precio, sin medir. Licencia sin verificar.",
+    },
+    "laguna-s-2.1": {
+        "id": "poolside/laguna-s-2.1",
+        "name": "Poolside Laguna S 2.1",
+        "cost_input": 0.09, "cost_output": 0.18,
+        "tier": "ultra_cheap",
+        # Pesos abiertos según la tabla del post de NVIDIA (11-ago-2026), que además dice
+        # que corre en UN SOLO DGX Spark con NVFP4 → candidato directo a medirse local.
+        "context_window": 1048576,
+        "publisher": "Poolside",
+        "weights_url": "https://huggingface.co/poolside/Laguna-S-2.1",
+        "open_source": True,
+        "license": "OpenMDW-1.1",
+        "notes": "118B para coding agéntico, 1M ctx a $0,09. Corre en un solo DGX Spark (NVFP4) según NVIDIA. Estaba pendiente en el ROADMAP desde julio.",
+    },
+    "inkling-small": {
+        "id": "thinkingmachines/inkling-small",
+        "name": "Inkling Small",
+        "cost_input": 0.45, "cost_output": 1.20,
+        "tier": "cheap",
+        # Pesos abiertos según el post de NVIDIA. ⚠️ Pero ahí mismo dice que necesita un
+        # DGX Station o DOS Spark: con un Spark solo NO corre local.
+        "context_window": 524288,
+        "publisher": "Thinking Machines Lab",
+        "weights_url": "https://huggingface.co/thinkingmachines/Inkling-Small",
+        "open_source": True,
+        "notes": "276B con 12B activos, multimodal texto+imagen+audio. Local exige DGX Station o 2 Spark — no entra en uno solo.",
+    },
+    # ⏸️ `meta/muse-spark-1.2` (el modelo del que destilaron Glimmer, $1,25/$4,25, 1M ctx):
+    # NO se puede llamar todavía. Devuelve 403: "This model requires you to complete the
+    # following before use: 18+ age confirmation" → se habilita en
+    # openrouter.ai/settings/preferences. No es un modelo muerto ni una key inválida:
+    # es una atestación de la cuenta. Entra al catálogo cuando esté confirmada.
+
     # --- Xiaomi MiMo extras ---
     "mimo-v2-flash-free": {
         "id": "xiaomi/mimo-v2-flash:free",
@@ -1279,7 +1611,10 @@ MODELS = {
     "mimo-v2-omni": {
         # Endpoint MUERTO: el proveedor lo apagó. Los datos quedan como estadística
         # histórica (son mediciones reales), pero no compite ni se recomienda.
-        "retired": True,  # Xiaomi: deprecated, recomienda migrar a mimo-v2.5 (13-jul-2026)
+        "retired": True,
+        "retired_at": "2026-07-13",
+        "retired_reason": "Xiaomi lo deprecó; recomienda migrar a MiMo V2.5",
+        "retired_kind": "provider",
         "id": "xiaomi/mimo-v2-omni",
         "name": "MiMo-V2-Omni (multimodal)",
         "cost_input": 0.40, "cost_output": 2.00,
@@ -1386,14 +1721,14 @@ MODELS = {
     "mimo-v2.5-or": {
         "id": "xiaomi/mimo-v2.5",
         "name": "MiMo-V2.5 (omnimodal)",
-        "cost_input": 0.40, "cost_output": 2.00,
+        "cost_input": 0.14, "cost_output": 0.28,
         "tier": "cheap",
         "notes": "Omnimodal Pro-level a mitad de costo del Pro. 1.05M context.",
     },
     "mimo-v2.5-pro-or": {
         "id": "xiaomi/mimo-v2.5-pro",
         "name": "MiMo-V2.5 Pro",
-        "cost_input": 1.00, "cost_output": 3.00,
+        "cost_input": 0.435, "cost_output": 0.87,
         "tier": "medium",
         "notes": "Flagship Xiaomi 2026, agentic capabilities. 1.05M context.",
     },
@@ -1443,6 +1778,9 @@ MODELS = {
         # pública en OpenRouter está deprecada. No lo puede llamar nadie sin ese plan.
         # Los datos quedan como estadística histórica.
         "retired": True,
+        "retired_at": "2026-07-14",
+        "retired_reason": "sin causa registrada; fecha recuperada del historial de git",
+        "retired_kind": "unknown",
         "id": "mimo-v2-pro",
         "name": "MiMo V2-Pro (Xiaomi direct)",
         "cost_input": 0.07, "cost_output": 0.07,
@@ -1457,6 +1795,9 @@ MODELS = {
         # pública en OpenRouter está deprecada. No lo puede llamar nadie sin ese plan.
         # Los datos quedan como estadística histórica.
         "retired": True,
+        "retired_at": "2026-07-14",
+        "retired_reason": "sin causa registrada; fecha recuperada del historial de git",
+        "retired_kind": "unknown",
         "id": "mimo-v2-omni",
         "name": "MiMo V2-Omni (Xiaomi direct)",
         "cost_input": 0.07, "cost_output": 0.07,
@@ -1567,7 +1908,7 @@ MODELS = {
     "or-llama-3.1-8b": {
         "id": "meta-llama/llama-3.1-8b-instruct",
         "name": "Llama 3.1 8B Instant",
-        "cost_input": 0.02, "cost_output": 0.03,
+        "cost_input": 0.05, "cost_output": 0.08,
         "tier": "ultra_cheap", "provider": "openrouter",
         "open_source": True, "license": "Llama Community",
     },
@@ -1593,6 +1934,13 @@ MODELS = {
         "open_source": True, "license": "Apache 2.0",
     },
     "or-nemotron-super-1.5": {
+        "retired": True,
+
+        "retired_at": "2026-08-12",
+
+        "retired_reason": "OpenRouter 404 'No endpoints found'; NVIDIA movió su oferta a la familia Nemotron 3",
+
+        "retired_kind": "provider",
         "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
         "name": "Nemotron Super 49B v1.5",
         "cost_input": 0.4, "cost_output": 0.4,
@@ -1609,7 +1957,7 @@ MODELS = {
     "or-qwen3-next-thinking": {
         "id": "qwen/qwen3-next-80b-a3b-thinking",
         "name": "Qwen 3-Next 80B Thinking",
-        "cost_input": 0.098, "cost_output": 0.78,
+        "cost_input": 0.15, "cost_output": 1.2,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "Apache 2.0",
     },
@@ -1623,7 +1971,7 @@ MODELS = {
     "or-kimi-k2.5": {
         "id": "moonshotai/kimi-k2.5",
         "name": "Kimi K2.5",
-        "cost_input": 0.375, "cost_output": 2.025,
+        "cost_input": 0.57, "cost_output": 2.85,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "Modified MIT",
     },
@@ -1635,10 +1983,14 @@ MODELS = {
         "open_source": True, "license": "Apache 2.0",
     },
     "or-step-3.5-flash": {
-        # OpenRouter lista el id pero NINGÚN proveedor lo sirve: "No endpoints found".
-        # El modelo existe en el catálogo y no se puede llamar — que para quien
-        # decide es lo mismo que no existir. (14-jul-2026)
-        "retired": True,
+        # RESUCITÓ. El 14-jul-2026 se retiró porque OpenRouter listaba el id pero NINGÚN
+        # proveedor lo servía ("No endpoints found") — cierto entonces. El 12-ago-2026
+        # responde HTTP 200 servido por SiliconFlow: volvió un proveedor.
+        # Lección: **el retiro no es una puerta de una sola vía.** Un modelo retirado que
+        # nunca se vuelve a chequear queda muerto para siempre en nuestros datos, que es
+        # el error espejo de publicar uno muerto. Por eso existe `--recheck-retired`.
+        # ⚠️ Es un THINKING model: con max_tokens bajo devuelve content="" y 33 reasoning
+        # tokens. Antes de medirlo hay que agregarlo a THINKING_MODELS en adapters.py.
         "id": "stepfun/step-3.5-flash",
         "name": "Step 3.5 Flash",
         "cost_input": 0.1, "cost_output": 0.3,
@@ -1648,7 +2000,7 @@ MODELS = {
     "or-glm5": {
         "id": "z-ai/glm-5",
         "name": "GLM 5",
-        "cost_input": 0.6, "cost_output": 1.92,
+        "cost_input": 0.95, "cost_output": 2.55,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "MIT",
     },
@@ -1681,14 +2033,14 @@ MODELS = {
     "or-gemma-4-31b": {
         "id": "google/gemma-4-31b-it",
         "name": "Gemma 4 31B",
-        "cost_input": 0.12, "cost_output": 0.35,
+        "cost_input": 0.1, "cost_output": 0.34,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "Gemma Terms",
     },
     "or-qwen3.5-397b": {
         "id": "qwen/qwen3.5-397b-a17b",
         "name": "Qwen 3.5 397B",
-        "cost_input": 0.385, "cost_output": 2.45,
+        "cost_input": 0.5, "cost_output": 3.6,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "Apache 2.0",
     },
@@ -1718,10 +2070,10 @@ MODELS = {
         "open_source": True, "license": "Apache 2.0",
     },
     "or-qwen-2.5-72b": {
-        # OpenRouter lo lista pero ningún proveedor lo sirve: el upstream responde
-        # "does not exist". Está en el catálogo y no se puede llamar — que para quien
-        # decide es lo mismo que no existir. (14-jul-2026)
-        "retired": True,
+        # RESUCITÓ. El 14-jul-2026 se retiró porque ningún proveedor lo servía (el upstream
+        # respondía "does not exist") — cierto entonces. El 12-ago-2026 responde HTTP 200
+        # servido por DeepInfra: contestó "Santiago" a la capital de Chile.
+        # Ver la nota de `or-step-3.5-flash`: el retiro se re-chequea, no es definitivo.
         "id": "qwen/qwen-2.5-72b-instruct",
         "name": "Qwen 2.5 72B",
         "cost_input": 0.36, "cost_output": 0.4,
@@ -1731,14 +2083,14 @@ MODELS = {
     "or-deepseek-v3": {
         "id": "deepseek/deepseek-v3.2",
         "name": "DeepSeek V3",
-        "cost_input": 0.214, "cost_output": 0.322,
+        "cost_input": 0.269, "cost_output": 0.4,
         "tier": "cheap", "provider": "openrouter",
         "open_source": True, "license": "MIT",
     },
     "or-minimax-m2.5": {
         "id": "minimax/minimax-m2.5",
         "name": "MiniMax M2.5",
-        "cost_input": 0.15, "cost_output": 0.9,
+        "cost_input": 0.22, "cost_output": 0.9,
         "tier": "cheap", "provider": "openrouter",
         "open_source": True, "license": "MIT",
     },
@@ -2060,7 +2412,10 @@ OLLAMA_MODELS = {
         # ("no puede auto-preferirse"). Medirlo rompería esa premisa: se estaría
         # puntuando a sí mismo. Hoy tiene 0 runs; que siga así.
         "is_judge": True,
-        "retired": True,  # no es que muriera: es que no compite
+        "retired": True,
+        "retired_at": "2026-07-14",
+        "retired_reason": "decisión del benchmark, no del proveedor: no compite (Phi-4 es el modelo juez)",
+        "retired_kind": "policy",
         "id": "phi4",
         "name": "Phi-4 14B (local)",
         "cost_input": 0.0,

@@ -13,19 +13,19 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:51:32+00:00",
+      "at": "2026-08-13T04:23:00+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
   "results": [
     {
       "quality": 10.0,
-      "cost_score": 5.85,
-      "cost_usd": 0.005219,
+      "cost_score": 7.43,
+      "cost_usd": 0.00155,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.55,
+      "final": 8.79,
       "test_name": "atribucion_correlacion_temporal",
       "model": "MiMo-V2.5 Pro",
       "model_id": "xiaomi/mimo-v2.5-pro",
@@ -53,16 +53,16 @@
       "timestamp": "20260714_164601_56410",
       "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__atribucion_correlacion_temporal.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:31+00:00"
+      "rescored_at": "2026-08-13T04:22:59+00:00"
     },
     {
       "quality": 10.0,
-      "cost_score": 6.09,
-      "cost_usd": 0.004319,
+      "cost_score": 7.67,
+      "cost_usd": 0.001286,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.44,
+      "final": 8.68,
       "test_name": "auditoria_pnl_error_plantado",
       "model": "MiMo-V2.5 Pro",
       "model_id": "xiaomi/mimo-v2.5-pro",
@@ -90,16 +90,16 @@
       "timestamp": "20260714_164601_56410",
       "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__auditoria_pnl_error_plantado.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:31+00:00"
+      "rescored_at": "2026-08-13T04:22:59+00:00"
     },
     {
       "quality": 10.0,
-      "cost_score": 6.15,
-      "cost_usd": 0.004129,
+      "cost_score": 7.74,
+      "cost_usd": 0.001225,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.45,
+      "final": 8.69,
       "test_name": "churn_mezcla_free_y_pago",
       "model": "MiMo-V2.5 Pro",
       "model_id": "xiaomi/mimo-v2.5-pro",
@@ -127,16 +127,16 @@
       "timestamp": "20260714_164601_56410",
       "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__churn_mezcla_free_y_pago.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:31+00:00"
+      "rescored_at": "2026-08-13T04:22:59+00:00"
     },
     {
       "quality": 8.0,
-      "cost_score": 6.11,
-      "cost_usd": 0.004262,
+      "cost_score": 7.7,
+      "cost_usd": 0.001258,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.19,
+      "final": 7.43,
       "test_name": "retention_sobre_100_interpretacion",
       "model": "MiMo-V2.5 Pro",
       "model_id": "xiaomi/mimo-v2.5-pro",
@@ -164,16 +164,16 @@
       "timestamp": "20260714_164601_56410",
       "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__retention_sobre_100_interpretacion.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:32+00:00"
+      "rescored_at": "2026-08-13T04:22:59+00:00"
     },
     {
       "quality": 8.0,
-      "cost_score": 5.82,
-      "cost_usd": 0.005312,
+      "cost_score": 7.4,
+      "cost_usd": 0.00158,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.15,
+      "final": 7.39,
       "test_name": "roadmap_restriccion_capacidad",
       "model": "MiMo-V2.5 Pro",
       "model_id": "xiaomi/mimo-v2.5-pro",
@@ -201,16 +201,16 @@
       "timestamp": "20260714_164601_56410",
       "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__roadmap_restriccion_capacidad.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:32+00:00"
+      "rescored_at": "2026-08-13T04:22:59+00:00"
     },
     {
       "quality": 2.0,
-      "cost_score": 5.59,
-      "cost_usd": 0.006347,
+      "cost_score": 7.18,
+      "cost_usd": 0.00187,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 2.76,
+      "final": 3.0,
       "test_name": "teardown_competidor_sin_inventar",
       "model": "MiMo-V2.5 Pro",
       "model_id": "xiaomi/mimo-v2.5-pro",
@@ -238,16 +238,16 @@
       "timestamp": "20260714_164601_56410",
       "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__teardown_competidor_sin_inventar.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:32+00:00"
+      "rescored_at": "2026-08-13T04:22:59+00:00"
     },
     {
       "quality": 8.0,
-      "cost_score": 6.19,
-      "cost_usd": 0.00401,
+      "cost_score": 7.77,
+      "cost_usd": 0.00119,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.2,
+      "final": 7.44,
       "test_name": "roast_oferta_sin_cliches",
       "model": "MiMo-V2.5 Pro",
       "model_id": "xiaomi/mimo-v2.5-pro",
@@ -275,16 +275,16 @@
       "timestamp": "20260714_164601_56410",
       "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__roast_oferta_sin_cliches.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:32+00:00"
+      "rescored_at": "2026-08-13T04:22:59+00:00"
     },
     {
       "quality": 10.0,
-      "cost_score": 5.78,
-      "cost_usd": 0.005488,
+      "cost_score": 7.37,
+      "cost_usd": 0.001618,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.39,
+      "final": 8.63,
       "test_name": "validacion_idea_intencion_vs_compra",
       "model": "MiMo-V2.5 Pro",
       "model_id": "xiaomi/mimo-v2.5-pro",
@@ -312,16 +312,16 @@
       "timestamp": "20260714_164601_56410",
       "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__validacion_idea_intencion_vs_compra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:32+00:00"
+      "rescored_at": "2026-08-13T04:23:00+00:00"
     },
     {
       "quality": 10.0,
-      "cost_score": 6.22,
-      "cost_usd": 0.003932,
+      "cost_score": 7.79,
+      "cost_usd": 0.001173,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.46,
+      "final": 8.69,
       "test_name": "escalar_con_ltv_mal_calculado",
       "model": "MiMo-V2.5 Pro",
       "model_id": "xiaomi/mimo-v2.5-pro",
@@ -349,16 +349,16 @@
       "timestamp": "20260714_164601_56410",
       "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__escalar_con_ltv_mal_calculado.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:32+00:00"
+      "rescored_at": "2026-08-13T04:23:00+00:00"
     },
     {
       "quality": 2.0,
-      "cost_score": 7.68,
-      "cost_usd": 0.001275,
+      "cost_score": 9.24,
+      "cost_usd": 0.000385,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 2.93,
+      "final": 3.16,
       "test_name": "decision_precio_datos_insuficientes",
       "model": "MiMo-V2.5 Pro",
       "model_id": "xiaomi/mimo-v2.5-pro",
@@ -386,7 +386,7 @@
       "timestamp": "20260714_164601_56410",
       "response_file": "results/responses/20260714_164601_56410/mimo-v2.5-pro-or__business_audit__decision_precio_datos_insuficientes.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:32+00:00"
+      "rescored_at": "2026-08-13T04:23:00+00:00"
     }
   ]
 }

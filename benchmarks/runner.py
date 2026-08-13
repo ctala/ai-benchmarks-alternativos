@@ -39,9 +39,11 @@ from benchmarks.scoring import (
 )
 from benchmarks.llm_judge import LLMJudge, create_judge, judge_score_to_10, JUDGE_PRESETS
 from providers.adapters import UnifiedProvider, OpenAIResponsesProvider, ClaudeCodeProvider, DiffusionGemmaProvider, BenchmarkResult
+from providers.adapters import THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS
 
 # Importar tests
 from benchmarks.tests import content_generation, tool_calling, task_management
+from benchmarks.tests import integridad_idioma  # suite nueva 12-ago-2026
 from benchmarks.tests import code_generation, reasoning, summarization, presentation
 from benchmarks.tests import startup_content, deep_reasoning, customer_support, structured_output
 from benchmarks.tests import hallucination, creativity, string_precision, news_seo_writing
@@ -125,6 +127,9 @@ ALL_TEST_SUITES = {
     "niah_es": niah_es.TESTS,
     # niah_es_1m / niah_es_lite superseded por el grid escalonado de niah_es v3
     # (8K-1M con skip por context window). Imports conservados por compat.
+    # Integridad de idioma: eje APARTE (como niah y seguridad), no entra a la
+    # calidad titular. Nace de la fuga de CJK real en el pipeline de Eco.
+    "integridad_idioma": integridad_idioma.TESTS,
     "prompt_injection_es": prompt_injection_es.TESTS,
 }
 
@@ -301,6 +306,27 @@ def run_single_test(
         result.success = False
         result.error = "respuesta vacía y el reintento falló — reparable con --rerun-failed"
     return result
+
+
+def _prompt_sha(test: dict) -> str:
+    """Huella corta y estable de la ENTRADA de un test.
+
+    Para tests normales: system + user tal como se mandan.
+    Para multi-turno: system + los turnos del usuario (el guion es fijo; las respuestas
+    del modelo no son parte de la entrada).
+    Para niah: la receta de generación, no el haystack — es determinista y guardar
+    800K tokens por test no es viable.
+    """
+    import hashlib, json as _json
+    if test.get("type") == "multi_turn_script":
+        base = [test.get("system_prompt", "")] + [
+            (t.get("user", "") if isinstance(t, dict) else str(t)) for t in test.get("script", [])]
+    elif test.get("context_tokens"):
+        base = ["niah", test.get("name", ""), str(test.get("context_tokens")),
+                str(test.get("needle_idx", "")), str(test.get("position_pct", ""))]
+    else:
+        base = [f"{m.get('role')}:{m.get('content')}" for m in test.get("messages", [])]
+    return hashlib.sha256(_json.dumps(base, ensure_ascii=False).encode()).hexdigest()[:12]
 
 
 def run_multi_turn_script(
@@ -523,10 +549,35 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     # puntúa SOLO con el regex de extracción (sin juez ni formato). Hallazgo 2 jun.
     is_niah = answer_type == "niah_extraction"
 
-    # LLM-as-Judge (si esta habilitado) — saltear para niah
+    # ¿Este test esconde un hecho comprobable? Se decide ACÁ ARRIBA, antes de llamar al
+    # juez, y no más abajo junto al scoring — porque de esto depende si el juez se llama.
+    tiene_verdad_objetiva = bool(test.get("expected_answer"))
+
+    # LLM-as-Judge — saltear para niah Y para todo test con verdad objetiva.
+    #
+    # El commit del 13-jul decidió que "donde hay verdad verificable, el juez no opina":
+    # abajo, `quality = answer_score` para esos tests y el veredicto del juez se DESCARTA.
+    # Pero la llamada se seguía haciendo igual. Medido el 12-ago-2026:
+    #
+    #   · el juez tarda 77 s por test (mediana bajo carga; 31 s aislado)
+    #   · el modelo que estamos midiendo tarda 5 s
+    #   · 96 de los 147 tests no-niah tienen verdad objetiva = 65%
+    #
+    # O sea: 2,1 HORAS por modelo esperando una opinión que el scoring tira a la basura.
+    # Y no es que sobrara capacidad: `microsoft/phi-4` tiene UN SOLO proveedor en
+    # OpenRouter (DeepInfra), así que los runners paralelos hacen cola en el mismo
+    # endpoint — por eso subir la concurrencia no aceleraba nada.
+    #
+    # No cambia NINGÚN score: esos tests ya se puntuaban solo con `answer_score`. Tampoco
+    # rompe la procedencia: el marcador `scoring` se setea en "verificable" mire o no mire
+    # el juez, y `_misma_formula` solo compara ese string.
+    #
+    # Lo único que se pierde es `judge_justificacion` como metadato de auditoría en esos
+    # tests — que además decía cualquier cosa: el bakeoff de seis jueces mostró que todos
+    # saturan y que la correlación de phi-4 con la verdad objetiva es 0,00.
     judge_result = None
     judge_quality = -1.0
-    if judge and result.success and result.response and not is_niah:
+    if judge and result.success and result.response and not is_niah and not tiene_verdad_objetiva:
         judge_result = judge.evaluate(result.response, test, suite_name)
         judge_quality = judge_score_to_10(judge_result)
 
@@ -553,8 +604,6 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     # porque el juez no distingue — dejarle el 70% del peso las borraba.
     #
     # Es lo que niah_es ya hacía. Ahora vale para toda suite con verdad verificable.
-    tiene_verdad_objetiva = bool(test.get("expected_answer"))
-
     if is_niah:
         quality = answer_score  # retrieval puro: solo el regex de extracción
     elif tiene_verdad_objetiva:
@@ -665,6 +714,26 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     # Auditable: marca medición vía suscripción (claude_code CLI, $0) y NO vía API.
     if (result.metadata or {}).get("subscription_measured"):
         scores["subscription_measured"] = True
+
+    # ── LO QUE SE CALCULA Y SE TIRABA ──────────────────────────────────────
+    # Auditado el 12-ago-2026: de los 16 campos del `BenchmarkResult`, SIETE no
+    # llegaban al JSON. Dos hacían daño concreto:
+    #
+    #   · `tool_calls_made` — sin él no se puede responder "¿este modelo llamó a la
+    #     herramienta?" sin re-medir. Buscando eso leí un campo inexistente y casi
+    #     publico un hallazgo falso ("68 de 68 con cero tool calls"): la query daba
+    #     cero para todos porque el campo no estaba, no porque no llamaran.
+    #   · `metadata` — ahí vive `upstream_provider`, que agregamos HOY justamente
+    #     para saber por qué endpoint se midió cada run. Se calculaba y se perdía.
+    #     También `finish_reason`, `api_refusal` y la `trajectory` multi-turno.
+    #
+    # Se guarda acotado: la trayectoria y el reasoning ya viven en el `.md` (pesan
+    # mucho para el JSON), acá van las claves que se consultan al auditar.
+    scores["tool_calls_made"] = getattr(result, "tool_calls_made", 0) or 0
+    _md = result.metadata or {}
+    for _k in ("upstream_provider", "finish_reason", "native_finish_reason", "api_refusal"):
+        if _md.get(_k) is not None:
+            scores[_k] = _md[_k]
 
     # Guardar datos del juez si disponible
     if judge_result and judge_quality >= 0:
@@ -789,7 +858,20 @@ def run_benchmark(args):
     # Variantes de proveedor: ya no se miden. El modelo canónico vive en OpenRouter
     # (plano común) y es el que recibe runs nuevos. Estas filas conservan su medición
     # histórica en NIM/Groq/Ollama Cloud para la comparación entre infraestructuras.
-    variantes = [k for k in list(models) if models[k].get("provider_variant")]
+    # EXCEPCIÓN: si la variante se pidió EXPLÍCITAMENTE por --models, se corre.
+    #
+    # El descarte en bloque asume que el modelo canónico de OpenRouter puede medir todo.
+    # No siempre: Nemotron 3.5 Lightning falla las 4 suites con herramientas por
+    # OpenRouter —ninguno de sus dos proveedores las expone— y por NIM emite una tool call
+    # válida a la primera. Ahí la variante no es una comparación de infraestructura: es la
+    # ÚNICA ruta que puede medir esa capacidad.
+    #
+    # Y pedir un modelo por nombre para que el runner lo descarte en silencio y anuncie
+    # "No hay modelos seleccionados" es el mismo fallo callado que nos costó dos vueltas
+    # hoy con las keys. Un pedido explícito se respeta o se rechaza fuerte; no se ignora.
+    pedidos = set(args.models or [])
+    variantes = [k for k in list(models)
+                 if models[k].get("provider_variant") and k not in pedidos]
     for k in variantes:
         models.pop(k)
     if variantes:
@@ -1123,10 +1205,11 @@ def run_benchmark(args):
     def _safe_slug(s: str) -> str:
         return "".join(c if c.isalnum() or c in "-_." else "_" for c in s)[:80]
 
-    def _save_response(result, scores, model_key, suite, test_name):
+    def _save_response(result, scores, model_key, suite, test_name, messages=None, test_meta=None):
         """Guarda la respuesta completa del modelo en un archivo .md auditable."""
         if not getattr(result, "response", None):
             return
+        test_meta = test_meta or {}
         fname = f"{_safe_slug(model_key)}__{_safe_slug(suite)}__{_safe_slug(test_name)}.md"
         path = responses_dir / fname
         header = [
@@ -1141,6 +1224,40 @@ def run_benchmark(args):
             header.append(f"- judge_score: {scores.get('judge_score')} | justificación: {scores.get('judge_justificacion','')}")
         if scores.get("error"):
             header.append(f"- error: {scores.get('error')}")
+        # ── LA ENTRADA EXACTA ───────────────────────────────────────────────
+        #
+        # Hasta el 12-ago-2026 esto NO se guardaba. El `.md` se llamaba "auditable"
+        # y tenía media auditoría: la salida sin la entrada. Peor, el dataclass ya
+        # capturaba `prompt=messages[-1]["content"][:200]` — truncado a 200 chars, solo
+        # el último mensaje, y nunca persistido. Y en multi-turno la trayectoria completa
+        # se armaba (`metadata["trajectory"]`) y se tiraba, porque `metadata` no llega
+        # al JSON: de un test de 8 turnos quedaba UNA respuesta.
+        #
+        # Regla dura del repo: "no modificar prompts de tests, son la línea base de
+        # comparabilidad". Era una regla sin nadie que la chequeara — como tantas otras
+        # que fallaron en silencio este mes. Con `prompt_sha` en cada run, "usamos el
+        # mismo prompt" deja de ser una promesa y pasa a ser verificable.
+        traj = (getattr(result, "metadata", None) or {}).get("trajectory")
+        if traj:
+            header += ["", f"## Conversación completa ({len(traj)} turnos)", ""]
+            for i, t in enumerate(traj, 1):
+                u = t[0] if isinstance(t, (list, tuple)) else t.get("user", "")
+                a = t[1] if isinstance(t, (list, tuple)) else t.get("assistant", "")
+                header += [f"### Turno {i} — usuario", "", _redact_secrets(str(u)), "",
+                           f"### Turno {i} — modelo", "", _redact_secrets(str(a)), ""]
+        elif messages:
+            if str(suite).startswith("niah"):
+                # El haystack llega a 800K tokens: guardarlo reventaría el repo. Es
+                # determinista (corpus commiteado + needle + posición), así que la
+                # RECETA + el hash prueban qué se mandó sin almacenarlo.
+                header += ["", "## Entrada (niah: generada, no almacenada)", "",
+                           f"- receta: context_tokens={test_meta.get('context_tokens')} · "
+                           f"needle={test_meta.get('needle_idx')} · pos={test_meta.get('position_pct')}%",
+                           "- el corpus está commiteado; con la receta se regenera idéntica"]
+            else:
+                header += ["", "## Entrada exacta (lo que recibió el modelo)", ""]
+                for m in messages:
+                    header += [f"**{m.get('role','?')}:**", "", _redact_secrets(str(m.get("content",""))), ""]
         header += ["", "## Respuesta completa", "", _redact_secrets(result.response)]
         # Garantizar que el directorio existe (defensa contra race conditions
         # o cwd inesperados — el primer mkdir en linea 436 puede no alcanzar
@@ -1225,7 +1342,23 @@ def run_benchmark(args):
                 # niah_max_context: cap de costo opcional (ej. premium capeado a
                 # 256K para no pagar los tramos 1M caros). Default = context window real.
                 ctx_window = model_config.get("niah_max_context") or model_config.get("context_window")
-                if ctx_needed and ctx_window and ctx_needed > ctx_window:
+                # La RESPUESTA también ocupa contexto. Comparar solo el prompt contra la
+                # ventana deja pasar el tramo del borde: un prompt de 128.000 en un modelo
+                # de 131.072 no deja lugar ni para un token de salida, y a los thinking les
+                # reservamos 8.192. El provider devuelve 400 "maximum context length is N"
+                # y el test cuenta como FALLO cuando en realidad nunca cabía.
+                #
+                # Medido el 12-ago-2026: **378 runs históricos perdidos así, en 23 modelos**
+                # (Qwen 3.6 27B/35B 36 cada uno, Hermes 4 70B 36, Mistral Small 4 33,
+                # MiniMax M3 31…). El eje long-context tenía agujeros sistemáticos que no
+                # se le atribuían a nada, porque el error parecía del modelo.
+                #
+                # No es una re-reparación: el skip se introdujo en 8fcb81b6 y nunca se le
+                # puso margen de salida. Verificado en el historial y en el CHANGELOG.
+                # 2048 es el max_tokens con el que el runner llama (literal en los call sites).
+                # Se reserva el peor caso (thinking ×4) para no volver a pedir de más.
+                reserva_salida = max(2048 * THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS)
+                if ctx_needed and ctx_window and ctx_needed + reserva_salida > ctx_window:
                     print(f"  [{completed}/{total_runs}] {short_model} ({local_completed}/{tests_per_model}) | "
                           f"{suite_name}/{test['name']}... SKIP (ctx {ctx_needed:,}>{ctx_window:,})", flush=True)
                     continue
@@ -1260,7 +1393,20 @@ def run_benchmark(args):
                     scores["suite"] = suite_name
                     scores["run"] = run_num + 1
                     scores["timestamp"] = timestamp
-                    _save_response(result, scores, model_key, suite_name, test["name"])
+                    # HUELLA DEL PROMPT. La regla dura "no modificar prompts de tests"
+                    # existe porque son la línea base de comparabilidad — pero hasta hoy
+                    # nada la verificaba: si alguien tocaba un prompt, los runs viejos y
+                    # nuevos se promediaban como si fueran el mismo examen y nadie se
+                    # enteraba. Es el mismo patrón que el skip de niah sin margen, el juez
+                    # que corría de más y el ruteo sin require_parameters: una regla
+                    # escrita, sin nadie que la chequee.
+                    #
+                    # Con esto, comparar dos runs del mismo test es comparar dos hashes.
+                    # Incluye system + user, así que también caza un cambio en el system
+                    # prompt, que es la mitad de la instrucción en varias suites.
+                    scores["prompt_sha"] = _prompt_sha(test)
+                    _save_response(result, scores, model_key, suite_name, test["name"],
+                                   messages=test.get("messages"), test_meta=test)
                     run_scores.append(scores)
 
                     # Registrar duración real en ventana móvil

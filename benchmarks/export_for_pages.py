@@ -6,7 +6,9 @@ Consolida:
 - Metadata desde benchmarks/config.py (MODELS dict): tier, pricing, license, provider, notas
 - Métricas desde benchmarks/results/*.json (todos los lotes): score promedio,
   tok/s, latencia, tasa de éxito por suite/pilar
-- Recalcula costo con PRICING actualizado (más fiable que cost_usd guardado)
+- Usa el `cost_usd` guardado en cada run. Quien lo realinea con el precio del
+  catálogo es `rescore_costs.py`, que corre ANTES de este script (ver la cadena
+  documentada en `sync_prices.py`). Este export no repuntúa costo.
 
 El JSON resultante se commitea con el repo y se sirve estáticamente desde
 GitHub Pages en https://benchmarks.cristiantala.com/data/models.json
@@ -25,7 +27,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from benchmarks.config import MODELS as _CLOUD_MODELS
 from benchmarks.models import OLLAMA_MODELS, SUBSCRIPTIONS
-from benchmarks.scoring import PRICING, compute_final_score, cost_score_log, DEFAULT_WEIGHTS
+from benchmarks.scoring import compute_final_score, cost_score_log, DEFAULT_WEIGHTS
 
 # Costo minimo por call para modelos gratis/free tier/suscripcion.
 # Evita cost_score 10.0 artificial y hace comparables todos los modelos.
@@ -392,11 +394,25 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     ]
     speed_scores = [r.get("speed") for r in general if r.get("speed") is not None]
     latency_scores = [r.get("latency") for r in general if r.get("latency") is not None]
-    # El badge de tool calling se calcula sobre TODOS los runs (general + la suite
-    # tool_calling, que ya no esta en general). Si se calculara solo sobre `general`,
-    # sacar la suite del quality habria vaciado tambien el badge.
+    # ── Tool calling: SOLO sobre las suites que dan herramientas ────────────
+    #
+    # Antes se promediaba sobre TODOS los runs (`general + tool_runs`). Medido el
+    # 12-ago-2026: **el 87% de esos runs son tests que no dan herramientas**, y ahí
+    # `tool_calling` toma un valor por defecto. El promedio quedaba dominado por la
+    # constante y **aplastaba el rango real de 3,11–8,36 a 6,09–7,28**.
+    #
+    # Eso explica el diagnóstico de v3.x —"tool_calling no discrimina, todos entre 5,3
+    # y 7,2"— que sacó la dimensión del score. No era la suite: era el promedio. Se
+    # descartó una señal buena por leerla diluida.
+    #
+    # Con solo las suites que dan herramientas, DiffusionGemma 26B saca 2,50 (0,0 en los
+    # tests que exigen llamada, 10,0 en el que pide NO llamar) y Claude Opus 4.8 saca
+    # 10,00. Discrimina, y siempre discriminó.
+    SUITES_CON_TOOLS = {"tool_calling", "customer_support", "orchestration",
+                        "agent_capabilities"}
     tc_scores = [r.get("tool_calling") for r in (general + tool_runs)
-                 if r.get("tool_calling") is not None]
+                 if r.get("tool_calling") is not None
+                 and r.get("suite") in SUITES_CON_TOOLS]
 
     # Score por pilar (general) Y por suite (incluye niah para visibilidad)
     by_pillar = defaultdict(list)
@@ -913,12 +929,25 @@ def build_export(recalibrate=False, scoring_version=None):
             # alimentan el análisis de dispersión), pero fuera del ranking y de las
             # recomendaciones. Ver `retired` en models.py.
             "retired": bool(cfg.get("retired")),
+            # Cuándo, por qué y de quién fue la decisión. Hasta el 12-ago-2026 esto vivía
+            # como comentario en models.py: ilegible para los generadores, así que el sitio
+            # no decía nada y quien había integrado un modelo retirado no tenía cómo
+            # enterarse. `retired_kind` separa lo que sacó el PROVEEDOR de lo que sacamos
+            # nosotros (`policy`, ej. Phi-4 que es el juez) — la tabla los mezclaba y por
+            # lo tanto mentía sobre uno de los dos.
+            "retired_at": cfg.get("retired_at"),
+            "retired_reason": cfg.get("retired_reason"),
+            "retired_kind": cfg.get("retired_kind"),
             # Rankeable = muestra sólida, endpoint vivo, y medido en el PLANO COMÚN.
             # Una `provider_variant` (el mismo modelo servido por NIM/Groq/Ollama Cloud)
             # queda fuera: su velocidad y su latencia son de esa infra, no del modelo, y
             # dejarla competir haría que un modelo se enfrente a sí mismo en dos puestos.
             # Sus datos NO se borran — alimentan la comparación entre proveedores.
             "provider_variant": bool(cfg.get("provider_variant")),
+            # Variante que es la ÚNICA ruta para medir una capacidad. Entra a las
+            # páginas pSEO pese a no estar en el plano común, porque excluirla
+            # publicaría "no puede" cuando lo cierto es "por esa ruta no".
+            "ruta_unica": bool(cfg.get("ruta_unica")),
             # Self-hosted: corre en la máquina del autor (DGX Spark, llama-server, Ollama).
             # Su velocidad es la de ESE hardware, no la del modelo. Compararlo en la misma
             # tabla que un modelo servido por un datacenter es el mismo error que mezclar
@@ -1040,10 +1069,79 @@ def build_export(recalibrate=False, scoring_version=None):
         m["score_global_linear"] = m.get("score_global")  # guardar el lineal por referencia
         m["score_global"] = round(max(0.0, min(10.0, _OFFSET + _slope * z_comp)), 2)
 
+    # ── ÍNDICE DE CALIDAD — el titular desde v4.1 ────────────────────────────────
+    # Decisión de Cristian, 13-ago-2026 (PLAN-V4.1.md §3). Se publican DOS ejes:
+    #   score_calidad  → "¿qué modelo es mejor?"      solo quality_avg
+    #   score_global   → "¿qué me conviene pagar?"    el compuesto 70/15/7,5/7,5
+    # Costo, velocidad y latencia se muestran COMO COLUMNAS al lado del índice de
+    # calidad, nunca dentro de él. Es lo que hace Artificial Analysis.
+    #
+    # Por qué: el compuesto ya era calidad en ~80% (Luna aportaba 1,11 de 1,38),
+    # pero el 20% restante desplazaba sistemáticamente — castigaba caro y premiaba
+    # barato. Opus 4.6 era #5 en calidad y se publicaba #18; Laguna XS era #29 y se
+    # publicaba #7. Las dos cifras son verdad CON etiqueta; ninguna lo es bajo un
+    # rótulo que dice "score_global". Separarlos no pierde la tesis de valor por
+    # dólar: la hace legible.
+    _zq = {}
+    for m in models_export:
+        q = m.get("quality_avg")
+        if q is None:
+            continue
+        _zq[id(m)] = (q - norm_stats["quality_avg"]["mean"]) / norm_stats["quality_avg"]["std"]
+    # Pendiente propia y atada por LOS DOS extremos. El compuesto promedia cuatro
+    # dimensiones y eso amortigua su z; el de una sola se dispersa mucho más, así
+    # que la regla del compuesto (que solo mira el piso) satura por arriba: al
+    # probarla, CINCO modelos quedaron empatados en 10,00 — un score que ya no
+    # ordena. El techo 9.5 deja aire para que el líder no toque el tope.
+    _CEIL_Q = 9.5
+    if _frozen_rescale and _frozen_rescale.get("slope_calidad"):
+        _slope_q = _frozen_rescale["slope_calidad"]
+    else:
+        _zq_rank = [z for m, z in ((m, _zq.get(id(m))) for m in models_export)
+                    if z is not None and m.get("ranked")]
+        _slope_q = 3.3
+        if _zq_rank:
+            _lo, _hi = min(_zq_rank), max(_zq_rank)
+            if _lo < 0:
+                _slope_q = min(_slope_q, (_OFFSET - _FLOOR) / abs(_lo))
+            if _hi > 0:
+                _slope_q = min(_slope_q, (_CEIL_Q - _OFFSET) / _hi)
+    for m in models_export:
+        zq = _zq.get(id(m))
+        m["score_calidad"] = (None if zq is None
+                              else round(max(0.0, min(10.0, _OFFSET + _slope_q * zq)), 2))
+
+    # ── FRONTERA DE PARETO — el segundo eje publicado ────────────────────────────
+    # Un modelo está en la frontera si NINGÚN otro es a la vez mejor, más barato Y
+    # más rápido. Todo lo que queda fuera está estrictamente dominado: existe algo
+    # que le gana en las tres cosas.
+    #
+    # Por qué esto y no una segunda tabla de "mejor valor" (corrección del 13-ago):
+    # el compuesto 70/15/7,5/7,5 correlaciona **r = 0,943** con el índice de calidad
+    # — 6 de 10 del top compartido, 2 modelos que no se mueven ni un puesto. Eran dos
+    # tablas para decir casi lo mismo. La causa es de diseño: el costo aporta ±0,30 al
+    # z compuesto contra ±1,3 de la calidad, así que el precio casi no mueve el orden.
+    # La frontera, en cambio, deja fuera a 69 de 82: información nueva, no una
+    # reordenación de la misma lista. Y responde la pregunta que el ranking no puede,
+    # que es "¿cuáles vale la pena siquiera considerar?".
+    _PARETO_DIMS = [("score_calidad", True), ("cost_per_1k_calls_usd", False),
+                    ("latency_avg_s", False)]
+    _cands = [m for m in models_export
+              if m.get("ranked") and all(m.get(c) is not None for c, _ in _PARETO_DIMS)]
+    for m in models_export:
+        m["pareto"] = False
+    for m in _cands:
+        dominado = any(
+            all((o[c] > m[c]) if hi else (o[c] < m[c]) for c, hi in _PARETO_DIMS)
+            for o in _cands
+        )
+        m["pareto"] = not dominado
+
     # (3) Persistir la referencia SOLO en recalibración deliberada (evento de versión).
     if recalibrate:
         _persist_scoring_reference(norm_stats, norm_stats_by_pillar,
-                                   {"offset": _OFFSET, "slope": round(_slope, 4)},
+                                   {"offset": _OFFSET, "slope": round(_slope, 4),
+                                    "slope_calidad": round(_slope_q, 4)},
                                    scoring_version)
 
     # Sort: ranked (muestra solida) primero, luego tested, luego score desc.

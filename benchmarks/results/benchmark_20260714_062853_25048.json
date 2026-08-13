@@ -13,19 +13,19 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:46:59+00:00",
+      "at": "2026-08-13T04:20:11+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
   "results": [
     {
       "quality": 8.0,
-      "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_score": 9.25,
+      "cost_usd": 0.000384,
       "speed": 10.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 8.15,
+      "final": 8.04,
       "test_name": "cold_email_personalized",
       "model": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
       "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
@@ -52,17 +52,17 @@
       "content_score": 7.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:56+00:00",
+      "rescored_at": "2026-08-13T04:20:09+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 3.33,
-      "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_score": 9.1,
+      "cost_usd": 0.00043,
       "speed": 10.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 4.73,
+      "final": 4.6,
       "test_name": "lead_qualification",
       "model": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
       "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
@@ -89,17 +89,17 @@
       "content_score": 6.0,
       "answer_score": 3.33,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:57+00:00",
+      "rescored_at": "2026-08-13T04:20:10+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 8.0,
-      "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_score": 7.43,
+      "cost_usd": 0.001551,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.92,
+      "final": 7.54,
       "test_name": "campaign_optimization",
       "model": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
       "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
@@ -126,7 +126,7 @@
       "content_score": 10.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:59+00:00",
+      "rescored_at": "2026-08-13T04:20:11+00:00",
       "scoring": "verificable"
     }
   ]

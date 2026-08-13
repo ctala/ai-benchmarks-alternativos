@@ -1,0 +1,101 @@
+{
+  "version": "v4.0",
+  "computed_at": "2026-07-17T11:41:05",
+  "score_method": "zscore_frozen_v4",
+  "norm_stats": {
+    "quality_avg": {
+      "mean": 7.9246,
+      "std": 0.2932
+    },
+    "cost_score_avg": {
+      "mean": 6.4357,
+      "std": 1.406
+    },
+    "speed_score_avg": {
+      "mean": 7.3058,
+      "std": 1.3388
+    },
+    "latency_score_avg": {
+      "mean": 2.0758,
+      "std": 0.8401
+    }
+  },
+  "norm_stats_by_pillar": {
+    "Agentes": {
+      "quality_avg": {
+        "mean": 7.3403,
+        "std": 0.4632
+      },
+      "cost_score_avg": {
+        "mean": 7.0211,
+        "std": 1.2017
+      },
+      "speed_score_avg": {
+        "mean": 6.9916,
+        "std": 1.4649
+      },
+      "latency_score_avg": {
+        "mean": 2.709,
+        "std": 1.2356
+      }
+    },
+    "Coding": {
+      "quality_avg": {
+        "mean": 8.1081,
+        "std": 0.4777
+      },
+      "cost_score_avg": {
+        "mean": 6.9933,
+        "std": 1.0727
+      },
+      "speed_score_avg": {
+        "mean": 7.0567,
+        "std": 1.5609
+      },
+      "latency_score_avg": {
+        "mean": 2.8141,
+        "std": 1.1361
+      }
+    },
+    "Contenido": {
+      "quality_avg": {
+        "mean": 8.0076,
+        "std": 0.3088
+      },
+      "cost_score_avg": {
+        "mean": 6.4627,
+        "std": 1.5199
+      },
+      "speed_score_avg": {
+        "mean": 7.504,
+        "std": 1.4453
+      },
+      "latency_score_avg": {
+        "mean": 1.6437,
+        "std": 0.658
+      }
+    },
+    "Razonamiento": {
+      "quality_avg": {
+        "mean": 7.7624,
+        "std": 0.5226
+      },
+      "cost_score_avg": {
+        "mean": 6.3497,
+        "std": 1.5651
+      },
+      "speed_score_avg": {
+        "mean": 7.395,
+        "std": 1.4115
+      },
+      "latency_score_avg": {
+        "mean": 1.4833,
+        "std": 0.6036
+      }
+    }
+  },
+  "score_rescale": {
+    "offset": 5.5,
+    "slope": 2.2729
+  }
+}

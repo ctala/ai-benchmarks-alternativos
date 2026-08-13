@@ -2,6 +2,224 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v4.0.3] - 2026-08-12 — El día que el instrumento se midió a sí mismo
+
+Sesión larga que empezó siendo "corregir precios" y terminó encontrando **cinco reglas
+correctas que nada verificaba**. Ninguna estaba mal escrita; todas fallaban en silencio.
+
+> **La lección que engloba a las demás, y queda en CLAUDE.md:**
+> *una regla sin instrumento que la haga cumplir es una regla que ya se rompió y no te
+> enteraste.*
+
+### 🔴 Bugs que publicaban datos falsos
+
+| Bug | Consecuencia medida |
+|---|---|
+| **`check_endpoints.py` nunca cargaba el `.env`** | reportaba SIN CREDENCIAL en los 70 rankeados → **no podía detectar un solo muerto**. El guardrail existía porque Devstral Small estuvo #5 con el endpoint apagado, y llevaba tiempo ciego |
+| **`structured_output` publicaba 5,00 fijo** en los 117 modelos | le faltaban los scorers `json_valid`/`json_exact`/`language_check`; caían al `else: return 5.0` |
+| **El skip de `niah` ignoraba el presupuesto de salida** | **378 runs históricos perdidos en 23 modelos**, contados como fallo del modelo cuando el prompt nunca cabía |
+| **Se mandaban `tools` a proveedores que las ignoran** | doc de OpenRouter: sin `require_parameters` es solo *soft preference*. El modelo nunca las ve y queda anotado como "no llamó a la herramienta" |
+| **El juez corría donde su veredicto se descarta** | 96 de 147 tests no-niah tienen verdad objetiva → **2,1 h por modelo** esperando una opinión que el scoring tira |
+| **34 precios equivocados** | a **GPT-5.6 Luna se le cobraba 10× de más** siendo #1; **DeepSeek V3.2** —el que corre en producción en Eco— se publicaba **3,7× más barato** de lo que cuesta |
+
+### ✅ Lo que se instaló
+
+**Scoring.** Los 3 scorers huérfanos implementados y validados contra **755 respuestas
+reales ya guardadas**: `structured_output` pasó de un valor único a rango 0–10 con 57
+valores distintos. Encontró en datos viejos la fuga que motivó el test: `nim-step-3.5-flash`
+escribió **硬件** y `mimo-v2.5-or` **直接** en artículos en español. ⚠️ El `rescore_all.py`
+que los aplica al histórico **queda pendiente**, con el baseline congelado en
+`results/_baselines/`.
+
+**Trazabilidad.** `PROMPTS.md` con los **206 prompts exactos** + `prompt_sha` por run + la
+entrada guardada en cada `.md` + la **conversación completa** en multi-turno (antes se
+guardaba solo la última respuesta de 8 turnos). Habilitó auditar si algún prompt cambió con
+runs a ambos lados: **7 suites sospechosas, 6 cosméticas, `niah` real**.
+
+**Endpoint ≠ modelo.** Cada run registra `upstream_provider`. **40 de 68 rankeados tienen
+proveedores no equivalentes**: Nemotron 3 Super va de 8.000 a 1.000.000 de contexto según
+cuál toque; Kimi K2.6 de `int4` a `bf16`. Nemotron 3.5 Lightning se midió en un endpoint
+con **28.672 de contexto cuando su spec dice 262.144**.
+
+**Retiros.** `retired_at` / `retired_reason` / `retired_kind` estructurados (antes:
+comentarios ilegibles para los generadores). La tabla distingue lo que sacó el proveedor de
+lo que decidimos nosotros —Phi-4 figuraba como "el proveedor ya no lo sirve" siendo el
+juez— y avisa si el modelo **sigue vivo por otra ruta**. Y `--recheck-retired`: **el retiro
+no es una puerta de una sola vía**, dos modelos habían resucitado.
+
+**Detectores nuevos.** `E7` (open_source sin evidencia: 108 entradas, **37 rankeadas** y
+publicadas en el corte "solo open-source") y `E8` (cero tool calls en una suite entera) —
+el primero que caza **presencia** sospechosa y no ausencia.
+
+**Herramientas.** `sync_prices.py` (los precios se sincronizan, no se escriben) ·
+`release_diff.py` (el DATASHEET sale de un diff automático, ordenado por impacto en una
+decisión) · `generate_prompts_catalog.py`.
+
+### 📊 Datos
+
+- **11 modelos nuevos** al catálogo, elegidos por utilidad para el ICP y no por novedad
+  (Nemotron 3.5 Lightning, Muse Glimmer 30B, Laguna S/XS 2.1, Inkling Small, Ling 3.0
+  Flash, Solar Pro 4, Qwen 3.7 Flash, Nex-N2-Mini, Tencent Hy3, DeepSeek V4 Flash 0731)
+- **342 runs** de suites con herramientas re-medidos con el ruteo garantizado
+- **2.501 runs archivados**: 443 de tools + 2.058 de `niah` anteriores al rediseño del 2-jun
+- **12.020 runs** re-costeados · **2 modelos retirados** del ranking, **2 resucitados**
+- Suite nueva **`integridad_idioma`** (4 tests), eje aparte
+
+### 🔬 Lo que midió el instrumento sobre sí mismo
+
+- **Ruido: ±0,58** con `--quick` (n=1) en las suites con herramientas. Explica mejor que
+  cualquier hipótesis por qué `tool_calling` "no discriminaba": con un rango útil de 1,9
+  puntos, **más de la mitad es ruido**. Corolario: el par de validación de Flip
+  (gpt-oss-20b 6,91 vs llama-3.3 7,18) **está dentro del ruido**.
+- **El español necesita 1,62× más tokens** (2,47 chars/token vs 4,00 inglés, medido sobre
+  3.410 respuestas). Con `max_tokens=2048` entran ~920 palabras y los tests piden hasta
+  1.300 → **31,3% de las respuestas de modelos no-thinking estaban truncadas por el
+  harness**, no por el modelo.
+- **Examen común: 93%** en las suites que puntúan (116 de 125 tests en los 68 modelos). El
+  38% que asustaba al principio era `niah` y `prompt_injection`, que difieren **por
+  diseño**.
+
+### 🙅 Dos hipótesis propias que el dato NO sostuvo
+
+Quedan registradas porque el repo vale por sus números, no por tener razón:
+
+1. **"El fallback de ruteo explicaba la anomalía de `tool_calling`".** No. Re-medidos los 19
+   modelos expuestos: Δ quality **+0,22 con t=1,61** (no significativo) y **correlación
+   +0,07** entre exposición al ruteo y mejora — cero, y con el signo al revés del predicho.
+   Hay **un** caso real y grande (Llama 3.3 70B, 55% → 94% de tool calls), no diecinueve.
+2. **"Apagar el thinking iguala la cancha".** Verificado: apagarlo **cambia la capacidad**.
+   Sin razonar, Nemotron Lightning respondió 41,98% y MiniMax M3 respondió 10,93% a un
+   cálculo cuya respuesta es 19,13%. Por eso v4.1 **recorta la traza al puntuar** en vez de
+   apagar el razonamiento.
+
+### 📋 Pendiente, con plan escrito
+
+`rescore_all.py` (mueve `quality_avg` de los 117, con baseline congelado) · el
+`else: return 5.0` → `raise` en su propio commit · y **v4.1**, que agrupa todo lo que rompe
+comparabilidad en **una sola frontera**: `max_tokens` uniforme, traza de razonamiento
+recortada y `niah` con prompt canónico por celda. Ver `PLAN-V4.1.md`.
+
+## [v4.0.2] - 2026-08-12 — El guardrail de endpoints dejó de correr ciego (y encontró 2 muertos rankeados)
+
+`check_endpoints.py` existe desde julio porque **Devstral Small estuvo #5 del ranking meses después
+de que Mistral apagara su endpoint**, recomendado en 11 páginas del sitio. Resulta que desde
+entonces el chequeo **nunca detectó nada, porque nunca pudo**.
+
+### Por qué estaba ciego
+`benchmarks/config.py` es el único módulo que corre `load_dotenv()`, y `check_endpoints.py` no lo
+importaba. Corriendo dentro de `regenerate_all.py` no leía el `.env`, no encontraba ninguna
+credencial y clasificaba **SIN CREDENCIAL a los 70 rankeados**: cero pings reales, cero muertos
+posibles, y el pipeline terminaba en verde. Un guardrail que no puede fallar tampoco puede avisar.
+
+Encima, la `OPENROUTER_API_KEY` del `.env` devolvía **401**. Dos fallos apilados: aunque el import
+hubiera estado, no habría servido. La key se rotó el 12-ago.
+
+### Corregido
+- **`import benchmarks.config`** en `check_endpoints.py`, con el comentario que explica por qué no
+  se puede borrar.
+- **`DEAD_MARKERS` ampliado** con `"period has ended"` / `"please migrate to"`. Devstral 2 caía al
+  bucket genérico `ERROR` —o sea, se publicaba igual— porque OpenRouter usa una redacción que la
+  lista no contemplaba. El mensaje además se contradice: *"migrá al slug pago:
+  `mistralai/devstral-2512`"*, que es exactamente el slug que se estaba llamando.
+
+### Retirados (`retired: True`) — 2 modelos que estaban en el ranking
+| Modelo | Estaba | Runs | Evidencia |
+|---|---|---|---|
+| **Nemotron Super 49B v1.5** (`or-nemotron-super-1.5`) | **#8** | 128 | 404 "No endpoints found" + ausente del catálogo público de OpenRouter |
+| **Devstral 2 (Dic 2025)** (`devstral-2`) | #45 | 136 | 404 + **cero ids `devstral`** en el catálogo + búsqueda en la UI sin resultados |
+
+Ambos confirmados por **tres vías independientes** antes de tocarlos (ping, catálogo público, UI),
+y con la cuenta verificada sana (`mistral-large-2512` responde 200 con la misma key). El error
+inverso —matar un modelo vivo— ya se cometió una vez con Llama 3.1 8B y cuesta igual de caro.
+
+**Ranking: 70 → 68 rankeados. No entra nadie, y ningún score se movió** (la referencia z-score
+congelada de v4.0 funcionando como debe). Sus runs siguen en los datos: alimentan el análisis
+histórico y aparecen en la sección *Retirados* de MODELOS.md.
+
+### Matiz importante: no murió el modelo, murió la RUTA
+Los dos siguen disponibles vía **NVIDIA NIM**, y ahí los tenemos medidos: `nim-nemotron-super-1.5`
+(92 runs) y `nim-devstral-2-123b` (64 runs), ninguno retirado. Decir "el modelo murió" sería
+falso. Lo correcto es *"ya no está en OpenRouter"* — que para quien lo integró por ahí es la
+misma mala noticia, pero para quien elige modelo es información distinta.
+
+## [v4.0.1] - 2026-08-11 — Precios: un solo punto de verdad (y el ranking se movió)
+
+Corrección de datos, **no de fórmula**. La calidad, los pesos y la referencia z-score congelada
+(`scoring_reference.json`, v4.0) quedaron **intactos**: no se recalibró nada y no se midió ningún
+modelo nuevo. Lo único que cambió es el precio — que pesa 15% del score y, a diferencia de una
+suite constante, **sí mueve el orden**.
+
+### El problema: dos fuentes de precio, y ninguna al día
+El costo se escribía a mano en dos archivos distintos (`models.py` y el dict `PRICING` de
+`scoring.py`). Cruzados contra la API pública de OpenRouter el 11-ago: **34 precios equivocados en
+el catálogo**, y entre los dos archivos **34 ids con valores distintos** más 19 ids que ya no
+existen en ninguna parte.
+
+Ya se había arreglado a mano antes. Dos veces. En **v2.6.3 (22-may-2026)** se corrigieron 7
+precios "en ambos" archivos, y en junio otro más. El caso que lo prueba: **Grok 4.20** se corrigió
+en mayo de `$2/$6` a `$1.25/$2.50`; en agosto `PRICING` decía otra vez `$2.00/$6.00` — el valor
+exacto de antes de la corrección. **Un precio a mano no solo caduca: se revierte.**
+
+### Corregido
+- **`sync_prices.py` (nuevo)**: sincroniza el catálogo contra `openrouter.ai/api/v1/models`
+  (pública, sin auth). Idempotente, con backup, y **nunca escribe $0** (regla dura: un modelo
+  gratis gana el eje costo artificialmente). Respeta `free_runtime`. **34 precios corregidos**,
+  diff de 52 líneas, **cero cambios fuera de `cost_input`/`cost_output`**.
+- **`PRICING` ya no se mantiene a mano: se DERIVA de `MODELS` + `OLLAMA_MODELS`.** Un solo punto
+  de verdad. Los 19 ids huérfanos se borraron **después de verificar que no tenían ningún run**
+  en los 20.192 del histórico (el único con runs, `minimax/minimax-m2.7-highspeed`, ya matcheaba
+  por nombre y nunca usó el fallback). Las 13 entradas en $0 desaparecieron con eso.
+  Regla de colisión documentada: cuando un mismo `id` tiene varias entradas con precios distintos
+  (8 casos: el mismo modelo por OpenRouter, Groq o NIM), **gana el más caro** — ante la duda,
+  nunca sub-costear.
+- **Import muerto** de `PRICING` en `export_for_pages.py`: importado y jamás usado, con un
+  docstring que decía que recalculaba costo con él. Quitado y el docstring corregido.
+- **`rescore_costs.py`** propagó el precio nuevo a los runs históricos: **12.020 de 20.192 runs**
+  (idempotente; la 2ª corrida da 0). Toca exactamente 3 campos —`cost_usd`, `cost_score`,
+  `final`— verificado sobre el diff completo.
+
+### Delta real del ranking publicado
+**20 modelos** se movieron ≥0,05 en `score_global`. Nadie entró ni salió del ranking (70 antes y
+después) y el #1 no cambió. Todos los movimientos se explican por su cambio de precio.
+
+| Modelo | Score | Posición | Precio $/M (antes → ahora) |
+|---|---|---|---|
+| **GPT-5.6 Luna** | 8.34 → **8.80** | #1 → #1 | 1.00/6.00 → **0.10/0.60** (se le cobraba 10× de más) |
+| MiMo-V2.5 Pro | 6.49 → 6.79 | #21 → **#12** | 1.00/3.00 → 0.435/0.87 |
+| GPT-5.6 Terra | 6.22 → 6.49 | #27 → #22 | 2.50/15.00 → 1.00/6.00 |
+| MiMo-V2.5 (omnimodal) | 6.02 → 6.28 | #29 → #27 | 0.40/2.00 → 0.14/0.28 |
+| GLM 5.2 | 7.14 → 7.33 | #6 → **#3** | 0.95/3.00 → 0.49/1.54 |
+| Qwen 3.6 Plus | 7.17 → 7.00 | #5 → #7 | 0.18/1.07 → 0.325/1.95 |
+| Kimi K2 | 5.56 → 5.39 | #36 → #43 | 0.20/0.80 → 0.57/2.30 |
+| **DeepSeek V3.2** | 6.47 → 6.34 | #23 → #24 | 0.14/0.28 → **0.2574/1.0287** |
+| GLM 5 | 6.86 → 6.77 | #10 → #15 | 0.60/1.92 → 0.95/2.55 |
+
+Los otros 11 se mueven ≤0,17. Cinco son variantes NIM/Ollama Cloud cuyo precio propio no cambió:
+se mueven porque el export normaliza el costo al **equivalente OpenRouter**, y ese sí cambió.
+
+**Lo que hay que decir en voz alta:** el #1 subía porque se le cobraba **10× de más**, y
+**DeepSeek V3.2 —el modelo que corre en producción en Eco— se publicaba 3,7× más barato de lo que
+cuesta**. Al corregirlo baja un puesto. Es el precio de tener el número bien.
+
+### Dos guardrails que fallaban en verde (encontrados de paso, NO arreglados acá)
+- **`check_endpoints.py` corre ciego.** Solo `benchmarks/config.py` carga el `.env`, y ese script
+  nunca lo importa: cuando lo dispara `regenerate_all.py` reporta **SIN CREDENCIAL en los 70
+  modelos** y por lo tanto **nunca puede encontrar un muerto**. Es el chequeo que existe porque
+  Devstral Small estuvo #5 meses después de que Mistral apagara su endpoint. Encima, la
+  `OPENROUTER_API_KEY` del `.env` hoy devuelve **401**, así que ni cargando el `.env` habría
+  servido. (El sync de precios no se ve afectado: ese endpoint es público.)
+- **`check_consistency.py` no ve los bloques auto-generados.** Solo caza claims narrativos con la
+  palabra "score"; las filas de la tabla `AUTO-RANKING` del README no la tienen. Dio verde con el
+  README diciendo 8.34 y `models.json` 8.80. La red para eso es correr `regenerate_all.py` antes
+  de commitear — que es lo que se hizo.
+
+### Fuera de alcance a propósito
+Los 3 scorers huérfanos (`json_valid`, `json_exact`, `language_check`) y el `else: return 5.0` de
+`scoring.py:132` **siguen sin tocarse**: `structured_output` continúa publicando 5,00 fijo en los
+117 modelos. Es el arreglo correcto y es el más riesgoso del plan — toca `quality_avg` de todos a
+la vez, la misma superficie que colapsó el ranking a 6 modelos en julio. Va con protocolo propio
+(baseline + rama aparte + un scorer por vez). Ver `PLAN-AGOSTO-2026.md`.
+
 ## [v4.0.0] - 2026-07-17 — Relanzamiento: referencia z-score congelada + limpieza definitiva + pase de UX
 
 ### Scoring

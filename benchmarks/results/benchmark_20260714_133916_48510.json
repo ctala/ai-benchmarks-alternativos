@@ -13,15 +13,15 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:50:28+00:00",
+      "at": "2026-08-13T04:22:17+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
   "results": [
     {
       "quality": 10.0,
-      "cost_score": 4.81,
-      "cost_usd": 0.011589,
+      "cost_score": 4.82,
+      "cost_usd": 0.011444,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -45,13 +45,13 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.55,
-      "cost_usd": 0.014165,
+      "cost_score": 4.56,
+      "cost_usd": 0.013988,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -75,17 +75,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.52,
-      "cost_usd": 0.014402,
+      "cost_score": 4.54,
+      "cost_usd": 0.014222,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.2,
+      "final": 8.21,
       "test_name": "niah_es_bridge_length_8000_p75",
       "model": "Qwen 3.6 Max",
       "model_id": "qwen/qwen3.6-max-preview",
@@ -105,13 +105,13 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.82,
-      "cost_usd": 0.011465,
+      "cost_score": 4.84,
+      "cost_usd": 0.011322,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -135,13 +135,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.77,
-      "cost_usd": 0.011976,
+      "cost_score": 4.78,
+      "cost_usd": 0.011826,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -165,17 +165,17 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.65,
-      "cost_usd": 0.013043,
+      "cost_score": 4.67,
+      "cost_usd": 0.01288,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.22,
+      "final": 8.23,
       "test_name": "niah_es_library_volumes_8000_p75",
       "model": "Qwen 3.6 Max",
       "model_id": "qwen/qwen3.6-max-preview",
@@ -195,13 +195,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.51,
-      "cost_usd": 0.014587,
+      "cost_score": 4.52,
+      "cost_usd": 0.014405,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -225,13 +225,13 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.81,
-      "cost_usd": 0.011603,
+      "cost_score": 4.82,
+      "cost_usd": 0.011458,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -255,13 +255,13 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.57,
-      "cost_usd": 0.013868,
+      "cost_score": 4.59,
+      "cost_usd": 0.013695,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -285,13 +285,13 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.82,
-      "cost_usd": 0.011514,
+      "cost_score": 4.83,
+      "cost_usd": 0.01137,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -315,13 +315,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.75,
-      "cost_usd": 0.012137,
+      "cost_score": 4.76,
+      "cost_usd": 0.011985,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -345,13 +345,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.54,
-      "cost_usd": 0.014252,
+      "cost_score": 4.55,
+      "cost_usd": 0.014074,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -375,17 +375,17 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 8.5,
-      "cost_score": 4.58,
-      "cost_usd": 0.013754,
+      "cost_score": 4.6,
+      "cost_usd": 0.013582,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.16,
+      "final": 7.17,
       "test_name": "niah_es_expedition_code_8000_p25",
       "model": "Qwen 3.6 Max",
       "model_id": "qwen/qwen3.6-max-preview",
@@ -405,13 +405,13 @@
       "content_score": 3.67,
       "answer_score": 8.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.88,
-      "cost_usd": 0.010982,
+      "cost_score": 4.89,
+      "cost_usd": 0.010845,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
@@ -435,13 +435,13 @@
       "content_score": 3.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.69,
-      "cost_usd": 0.012667,
+      "cost_score": 4.71,
+      "cost_usd": 0.012509,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -465,13 +465,13 @@
       "content_score": 3.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 2.5,
-      "cost_usd": 0.068272,
+      "cost_score": 2.51,
+      "cost_usd": 0.067418,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -495,13 +495,13 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 2.51,
-      "cost_usd": 0.067861,
+      "cost_score": 2.52,
+      "cost_usd": 0.067013,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -525,13 +525,13 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 2.43,
-      "cost_usd": 0.071642,
+      "cost_score": 2.45,
+      "cost_usd": 0.070747,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -555,13 +555,13 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 2.48,
-      "cost_usd": 0.069271,
+      "cost_score": 2.49,
+      "cost_usd": 0.068405,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -585,13 +585,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 2.49,
-      "cost_usd": 0.068873,
+      "cost_score": 2.5,
+      "cost_usd": 0.068012,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -615,13 +615,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 2.49,
-      "cost_usd": 0.068854,
+      "cost_score": 2.5,
+      "cost_usd": 0.067994,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -645,13 +645,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 2.43,
-      "cost_usd": 0.071913,
+      "cost_score": 2.45,
+      "cost_usd": 0.071014,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -675,13 +675,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 2.49,
-      "cost_usd": 0.068738,
+      "cost_score": 2.5,
+      "cost_usd": 0.067879,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -705,13 +705,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 2.5,
-      "cost_usd": 0.068064,
+      "cost_score": 2.52,
+      "cost_usd": 0.067213,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -735,13 +735,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 2.43,
-      "cost_usd": 0.071673,
+      "cost_score": 2.45,
+      "cost_usd": 0.070777,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -765,13 +765,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 2.49,
-      "cost_usd": 0.068522,
+      "cost_score": 2.51,
+      "cost_usd": 0.067666,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -795,13 +795,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 2.49,
-      "cost_usd": 0.068641,
+      "cost_score": 2.51,
+      "cost_usd": 0.067783,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -825,13 +825,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 2.49,
-      "cost_usd": 0.068709,
+      "cost_score": 2.51,
+      "cost_usd": 0.06785,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -855,17 +855,17 @@
       "content_score": 3.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 8.5,
-      "cost_score": 2.45,
-      "cost_usd": 0.070731,
+      "cost_score": 2.47,
+      "cost_usd": 0.069847,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.84,
+      "final": 6.85,
       "test_name": "niah_es_expedition_code_64000_p50",
       "model": "Qwen 3.6 Max",
       "model_id": "qwen/qwen3.6-max-preview",
@@ -885,13 +885,13 @@
       "content_score": 3.67,
       "answer_score": 8.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 2.49,
-      "cost_usd": 0.068635,
+      "cost_score": 2.51,
+      "cost_usd": 0.067777,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -915,13 +915,13 @@
       "content_score": 3.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 1.6,
-      "cost_usd": 0.135902,
+      "cost_score": 1.62,
+      "cost_usd": 0.134203,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -945,13 +945,13 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 1.57,
-      "cost_usd": 0.13891,
+      "cost_score": 1.59,
+      "cost_usd": 0.137173,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -975,13 +975,13 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 1.58,
-      "cost_usd": 0.138005,
+      "cost_score": 1.6,
+      "cost_usd": 0.13628,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -1005,13 +1005,13 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 1.6,
-      "cost_usd": 0.135784,
+      "cost_score": 1.62,
+      "cost_usd": 0.134087,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -1035,13 +1035,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 1.6,
-      "cost_usd": 0.13546,
+      "cost_score": 1.62,
+      "cost_usd": 0.133767,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -1065,13 +1065,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 1.6,
-      "cost_usd": 0.135716,
+      "cost_score": 1.62,
+      "cost_usd": 0.134019,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -1095,13 +1095,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 1.58,
-      "cost_usd": 0.137958,
+      "cost_score": 1.6,
+      "cost_usd": 0.136234,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -1125,13 +1125,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 1.61,
-      "cost_usd": 0.135038,
+      "cost_score": 1.63,
+      "cost_usd": 0.13335,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -1155,17 +1155,17 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 1.59,
-      "cost_usd": 0.137066,
+      "cost_score": 1.61,
+      "cost_usd": 0.135352,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.76,
+      "final": 7.77,
       "test_name": "niah_es_festival_date_128000_p75",
       "model": "Qwen 3.6 Max",
       "model_id": "qwen/qwen3.6-max-preview",
@@ -1185,13 +1185,13 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 1.61,
-      "cost_usd": 0.135359,
+      "cost_score": 1.62,
+      "cost_usd": 0.133667,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -1215,17 +1215,17 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 1.59,
-      "cost_usd": 0.137437,
+      "cost_score": 1.6,
+      "cost_usd": 0.135719,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.76,
+      "final": 7.77,
       "test_name": "niah_es_potato_altitude_128000_p50",
       "model": "Qwen 3.6 Max",
       "model_id": "qwen/qwen3.6-max-preview",
@@ -1245,17 +1245,17 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 1.6,
-      "cost_usd": 0.136014,
+      "cost_score": 1.62,
+      "cost_usd": 0.134314,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.76,
+      "final": 7.77,
       "test_name": "niah_es_potato_altitude_128000_p75",
       "model": "Qwen 3.6 Max",
       "model_id": "qwen/qwen3.6-max-preview",
@@ -1275,17 +1275,17 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 8.5,
-      "cost_score": 1.6,
-      "cost_usd": 0.135983,
+      "cost_score": 1.62,
+      "cost_usd": 0.134283,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.56,
+      "final": 6.57,
       "test_name": "niah_es_expedition_code_128000_p25",
       "model": "Qwen 3.6 Max",
       "model_id": "qwen/qwen3.6-max-preview",
@@ -1305,13 +1305,13 @@
       "content_score": 3.67,
       "answer_score": 8.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 1.61,
-      "cost_usd": 0.135303,
+      "cost_score": 1.62,
+      "cost_usd": 0.133612,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -1335,17 +1335,17 @@
       "content_score": 3.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 1.6,
-      "cost_usd": 0.136108,
+      "cost_score": 1.61,
+      "cost_usd": 0.134407,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.76,
+      "final": 7.77,
       "test_name": "niah_es_expedition_code_128000_p75",
       "model": "Qwen 3.6 Max",
       "model_id": "qwen/qwen3.6-max-preview",
@@ -1365,7 +1365,7 @@
       "content_score": 3.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1539,7 +1539,7 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1569,7 +1569,7 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1599,7 +1599,7 @@
       "content_score": 3.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1629,7 +1629,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1659,7 +1659,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1689,7 +1689,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1719,7 +1719,7 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1749,7 +1749,7 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1779,7 +1779,7 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1809,7 +1809,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1839,7 +1839,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1869,7 +1869,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1899,7 +1899,7 @@
       "content_score": 2.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1929,7 +1929,7 @@
       "content_score": 2.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1959,7 +1959,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1989,7 +1989,7 @@
       "content_score": 3.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2019,7 +2019,7 @@
       "content_score": 3.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2049,7 +2049,7 @@
       "content_score": 3.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2079,7 +2079,7 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2109,7 +2109,7 @@
       "content_score": 4.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2139,7 +2139,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2169,7 +2169,7 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2199,7 +2199,7 @@
       "content_score": 3.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2229,7 +2229,7 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2259,7 +2259,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2289,7 +2289,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     }
   ]

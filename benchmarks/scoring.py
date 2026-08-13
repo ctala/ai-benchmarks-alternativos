@@ -127,8 +127,213 @@ def score_expected_answer(response: str, expected_answer: dict) -> float:
         return _score_niah_extraction(response, expected_answer)
     elif answer_type == "credential_leak_check":
         return _score_credential_leak(response, expected_answer)
+    elif answer_type == "json_valid":
+        return _score_json_valid(response, expected_answer)
+    elif answer_type == "json_exact":
+        return _score_json_exact(response, expected_answer)
+    elif answer_type == "language_check":
+        return _score_language_check(response, expected_answer)
     else:
         return 5.0  # tipo desconocido, score neutral
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Verificadores de JSON e idioma — verdad objetiva, sin LLM
+#
+# POR QUÉ EXISTEN (12-ago-2026)
+# El commit del 13-jul ("el LLM verifica hechos, no opina sobre calidad") sacó del
+# juez a todos los tests con `expected_answer`. Pero TRES tipos no tenían scorer y
+# caían al `else: return 5.0` del dispatcher — en silencio. Consecuencia medida:
+# **`structured_output` daba exactamente 5,00 en los 117 modelos**, un solo valor,
+# varianza cero. La suite existía, los tests existían, y no medía nada.
+#
+# Y era una REGRESIÓN, no un defecto viejo: antes del 13-jul la nota era 30% auto +
+# 70% juez, así que el 5,0 fijo se diluía y el juez aportaba varianza (el CHANGELOG
+# v2.9.1 lo registra funcionando). Al sacar el juez, la suite quedó 100% colgada de
+# un scorer inexistente.
+#
+# `json_valid` es la verdad objetiva más barata del repo: parsea o no parsea. Y es
+# LITERALMENTE el modo de falla que descartó candidatos en Eco (null inconsistente,
+# HTML sucio, "Bad request" con output largo).
+# ═══════════════════════════════════════════════════════════════════════════
+
+def _extraer_json(texto: str):
+    """Primer objeto/array JSON parseable del texto, o None.
+
+    Los modelos envuelven el JSON de mil formas: en ```json, con un preámbulo
+    ("Aquí tienes el JSON:"), o limpio. Extraer con tolerancia NO es ser
+    permisivo con el formato — el test de formato estricto es `json_exact`, que
+    sí penaliza el texto extra. Acá la pregunta es "¿produjo un JSON usable?".
+    """
+    if not texto:
+        return None
+    t = texto.strip()
+    # 1) bloque cercado ```json ... ``` (o ``` ... ```)
+    m = re.search(r"```(?:json)?\s*(.+?)```", t, re.S | re.I)
+    candidatos = [m.group(1).strip()] if m else []
+    candidatos.append(t)
+    # 2) primer { o [ balanceado
+    for abre, cierra in (("{", "}"), ("[", "]")):
+        i = t.find(abre)
+        if i >= 0:
+            prof = 0
+            for j in range(i, len(t)):
+                if t[j] == abre:
+                    prof += 1
+                elif t[j] == cierra:
+                    prof -= 1
+                    if prof == 0:
+                        candidatos.append(t[i:j + 1])
+                        break
+    for c in candidatos:
+        try:
+            return json.loads(c)
+        except (ValueError, TypeError):
+            continue
+    return None
+
+
+def _score_json_valid(response: str, expected: dict) -> float:
+    """¿Produjo un JSON parseable, con las claves pedidas y los valores correctos?
+
+    Escala (suma 10):
+      · no parsea ................ 0.0   ← el modo de falla que rompe un workflow
+      · parsea ................... 4.0
+      · estructura/claves ........ hasta 3.0 (6.0 si el test no pide valores)
+      · valores correctos ........ hasta 3.0 (4.0 en el caso array+sample_check)
+    """
+    data = _extraer_json(response)
+    if data is None:
+        return 0.0
+
+    score = 4.0
+    req = expected.get("required_keys") or []
+    vals = expected.get("expected_values") or {}
+    sample = expected.get("sample_check") or {}
+
+    if expected.get("is_array"):
+        if not isinstance(data, list):
+            return 2.0  # parsea pero la forma es la que NO se pidió
+        largo = expected.get("expected_length")
+        score += 2.0 if (largo is None or len(data) == largo) else 0.0
+        if sample:
+            ok = 0
+            for clave, esperado in sample.items():
+                # formato "id_<N>_<campo>" → el item con id N debe tener campo=esperado
+                m = re.match(r"id_(\w+)_(.+)$", clave)
+                if not m:
+                    continue
+                idv, campo = m.group(1), m.group(2)
+                item = next((x for x in data if isinstance(x, dict)
+                             and str(x.get("id")) == str(idv)), None)
+                if item and str(item.get(campo, "")).strip().lower() == str(esperado).strip().lower():
+                    ok += 1
+            score += 4.0 * (ok / len(sample))
+        else:
+            score += 4.0
+        return round(min(10.0, score), 2)
+
+    if not isinstance(data, dict):
+        return 2.0
+
+    peso_claves = 3.0 if vals else 6.0
+    if req:
+        presentes = sum(1 for k in req if k in data)
+        score += peso_claves * (presentes / len(req))
+    else:
+        score += peso_claves
+
+    if vals:
+        ok = 0
+        for k, v in vals.items():
+            actual = data.get(k)
+            if isinstance(v, (int, float)) and isinstance(actual, (int, float)):
+                ok += 1 if abs(float(actual) - float(v)) < 1e-6 else 0
+            else:
+                ok += 1 if str(actual).strip().lower() == str(v).strip().lower() else 0
+        score += 3.0 * (ok / len(vals))
+
+    return round(min(10.0, score), 2)
+
+
+def _score_json_exact(response: str, expected: dict) -> float:
+    """¿Coincide EXACTO con el objeto esperado, y sin texto de más?
+
+    Acá el texto extra SÍ importa: el test se llama `json_strict_no_extra` y su
+    trampa es justamente el "Aquí tienes el JSON:" que rompe un `JSON.parse()`
+    en el otro extremo del workflow.
+    """
+    data = _extraer_json(response)
+    if data is None:
+        return 0.0
+    esperado = expected.get("expected")
+    if data == esperado:
+        limpio = (response or "").strip()
+        limpio = re.sub(r"^```(?:json)?|```$", "", limpio, flags=re.I | re.M).strip()
+        try:
+            json.loads(limpio)
+            return 10.0          # el cuerpo entero ES el JSON
+        except (ValueError, TypeError):
+            return 6.0           # objeto correcto pero envuelto en prosa
+    if isinstance(data, dict) and isinstance(esperado, dict) and esperado:
+        ok = sum(1 for k, v in esperado.items() if k in data and data[k] == v)
+        return round(2.0 + 4.0 * (ok / len(esperado)), 2)
+    return 2.0
+
+
+# Marcadores de idioma. Se usan palabras funcionales (artículos, preposiciones,
+# conjunciones): son las que un texto no puede evitar y no dependen del tema.
+_ES_STOP = {"el", "la", "los", "las", "de", "que", "y", "en", "un", "una", "por",
+            "con", "para", "es", "se", "no", "su", "al", "del", "lo", "como", "más",
+            "pero", "sus", "le", "ya", "o", "este", "sí", "porque", "esta", "son"}
+_EN_STOP = {"the", "of", "and", "to", "in", "a", "is", "that", "for", "it", "with",
+            "as", "was", "on", "are", "by", "this", "be", "from", "or", "an", "which",
+            "you", "have", "has", "not", "but", "they", "we", "can", "will"}
+
+
+def _score_language_check(response: str, expected: dict) -> float:
+    """¿Respondió en el idioma pedido?
+
+    Nace de un fallo real: la fuga de CJK con Qwen en Eco — un modelo que en medio
+    de un texto en español mete caracteres chinos. Para un workflow que publica sin
+    revisión humana eso es veneno, y ninguna suite lo detectaba.
+    """
+    texto = (response or "").strip()
+    if not texto:
+        return 0.0
+
+    if expected.get("reject_cjk"):
+        cjk = sum(1 for ch in texto
+                  if "\u4e00" <= ch <= "\u9fff"      # CJK unificado
+                  or "\u3040" <= ch <= "\u30ff"      # kana
+                  or "\uac00" <= ch <= "\ud7af")     # hangul
+        if cjk:
+            return 0.0  # binario: una sola fuga ya rompe la publicación
+
+    palabras = re.findall(r"[a-záéíóúñü]+", texto.lower())
+    if not palabras:
+        return 5.0
+    es = sum(1 for p in palabras if p in _ES_STOP)
+    en = sum(1 for p in palabras if p in _EN_STOP)
+    idioma = (expected.get("required_language") or "es").lower()
+    propio, ajeno = (es, en) if idioma.startswith("es") else (en, es)
+
+    if propio + ajeno == 0:
+        return 5.0  # sin señal suficiente: ni premiar ni castigar
+    ratio = propio / (propio + ajeno)
+
+    if expected.get("reject_long_english") and idioma.startswith("es"):
+        # Un párrafo entero en el idioma ajeno es peor que palabras sueltas
+        # (un término técnico en inglés no es una respuesta en inglés).
+        for parrafo in re.split(r"\n\s*\n", texto):
+            ps = re.findall(r"[a-záéíóúñü]+", parrafo.lower())
+            if len(ps) >= 25:
+                pe = sum(1 for p in ps if p in _EN_STOP)
+                pes = sum(1 for p in ps if p in _ES_STOP)
+                if pe > pes:
+                    return 2.0
+
+    return round(max(0.0, min(10.0, 10.0 * ratio)), 2)
 
 
 def _score_credential_leak(response: str, expected: dict) -> float:
@@ -646,148 +851,62 @@ def score_latency(first_token_seconds: float) -> float:
         return 1.0
 
 
-# Precios por millon de tokens (input, output)
-PRICING = {
-    # ====== Anthropic (faltaban — causaban under-estimation grande) ======
-    "anthropic/claude-fable-5": (10.00, 50.00),  # tier sobre Opus, verificado OpenRouter jun 2026
-    "anthropic/claude-opus-4-7": (5.00, 25.00),   # corregido may 2026 (OpenRouter API)
-    "anthropic/claude-opus-4-6": (5.00, 25.00),
-    "anthropic/claude-opus-4.8": (5.00, 25.00),  # flagship jun 2026   # corregido may 2026 (era 15/75 stale)
-    "anthropic/claude-sonnet-4-6": (3.00, 15.00),
-    "anthropic/claude-sonnet-4": (3.00, 15.00),
-    "anthropic/claude-haiku-4-5": (0.80, 4.00),
+# ── Precios por millón de tokens (input, output) ─────────────────────────────
+# DERIVADO de `models.py`. **No editar a mano**: se construye desde MODELS +
+# OLLAMA_MODELS, que es la fuente única de precio del repo (CLAUDE.md) y la que
+# `sync_prices.py` mantiene al día contra la API pública de OpenRouter.
+#
+# POR QUÉ DEJÓ DE SER UN DICT A MANO (11-ago-2026)
+# ------------------------------------------------
+# Era una SEGUNDA fuente de precio, escrita a mano, y divergía: 34 ids con un
+# valor distinto al del config y 19 ids que ya no existen en el catálogo. En
+# v2.6.3 (22-may-2026) se corrigieron los precios "en ambos" archivos a mano y
+# volvieron a divergir en tres meses. Un precio a mano no solo caduca: se
+# revierte. Con dos fuentes, siempre hay una mintiendo.
+#
+# QUÉ SE PERDIÓ AL DERIVARLO (verificado ANTES de borrar, 11-ago-2026)
+# --------------------------------------------------------------------
+# Los 19 ids huérfanos (gpt-4o, o3-mini, grok-2, deepseek-reasoner, …) no tenían
+# NINGÚN run en los 20.192 del histórico, salvo `minimax/minimax-m2.7-highspeed`
+# (5 runs), que ya matchea por nombre contra el config y nunca usó este fallback.
+#
+# QUIÉN LO CONSUME (los tres son fallback, no el camino principal)
+# ---------------------------------------------------------------
+#   · `estimate_cost()` acá abajo — solo si la llamada no trae `prices` explícito.
+#     El runner sí los pasa, tomados del config.
+#   · `rescore_costs.py` — solo si el NOMBRE del run no está en el config
+#     (7 runs de 20.192 al 11-ago-2026).
+#   · `calculate_costs.py` — reporte de costo de los lotes históricos.
+#
+# REGLAS DE CONSTRUCCIÓN
+# ----------------------
+#   · Se saltan las entradas sin precio > 0 en AMBOS campos — regla dura del
+#     proyecto: nunca $0 en el ranking (un $0 infla el cost_score a ~10 y arruina
+#     la comparación). Hoy son 5 modelos locales sin equivalente OR mapeado.
+#   · Un mismo `id` puede tener VARIAS entradas con precios distintos: el mismo
+#     modelo servido por OpenRouter, Groq o NIM (8 casos hoy). Un dict keyed por
+#     id no puede representar eso — es la ambigüedad que ya documentaba
+#     `rescore_costs.py`. Como acá no se sabe el proveedor, **gana el más caro**:
+#     ante la duda, nunca sub-costear. Cuando el proveedor SÍ se conoce, el precio
+#     sale del config por nombre y esta tabla ni se consulta.
+def _build_pricing() -> dict:
+    """{model_id: (costo_input_por_M, costo_output_por_M)} derivado del catálogo."""
+    from benchmarks.models import MODELS, OLLAMA_MODELS
 
-    # ====== OpenAI ======
-    "gpt-4o": (2.50, 10.00),
-    "gpt-4o-mini": (0.15, 0.60),
-    "gpt-4o:high": (5.00, 15.00),
-    "openai/gpt-4o": (2.50, 10.00),
-    "openai/gpt-4o:high": (5.00, 15.00),
-    "gpt-4.1": (2.00, 8.00),
-    "gpt-4.1-mini": (0.40, 1.60),
-    "gpt-5.4": (1.25, 10.00),     # corregido: era 2.50/10
-    "gpt-5.4-mini": (0.25, 2.00), # corregido: era 0.50/1.50
-    "gpt-5.5": (8.00, 45.00),     # corregido: era 5.00/30
-    "gpt-5.5-pro": (30.00, 180.00),
-    "o3-mini": (1.10, 4.40),
-    # OpenAI OSS (Groq + OpenRouter)
-    "openai/gpt-oss-120b": (0.15, 0.60),
-    "openai/gpt-oss-20b": (0.075, 0.30),
+    tabla: dict = {}
+    for key, cfg in {**MODELS, **OLLAMA_MODELS}.items():
+        mid = cfg.get("id") or key
+        ci = float(cfg.get("cost_input") or 0)
+        co = float(cfg.get("cost_output") or 0)
+        if ci <= 0 or co <= 0:
+            continue
+        prev = tabla.get(mid)
+        if prev is None or (co, ci) > (prev[1], prev[0]):
+            tabla[mid] = (ci, co)
+    return tabla
 
-    # ====== Xiaomi MiMo Token Plan ======
-    # Pricing calculado del Standard $14.08 first / $16 normal x 200M credits
-    # = $0.0704/M credits. 1 token = 1 credit en V2.5; 2 credits en V2.5-Pro.
-    # Off-peak 16-24 UTC = 0.8x = $0.056 V2.5 / $0.113 V2.5-Pro
-    "mimo-v2.5": (0.07, 0.07),
-    "mimo-v2.5-pro": (0.14, 0.14),
-    "mimo-v2-pro": (0.07, 0.07),  # via Xiaomi direct (subscription)
-    "mimo-v2-omni": (0.07, 0.07),  # via Xiaomi direct (subscription)
 
-    # ====== DeepSeek ======
-    "deepseek-chat": (0.252, 0.378),  # V3.2 actualizado abril 2026
-    "deepseek/deepseek-chat": (0.252, 0.378),
-    "deepseek/deepseek-v4-flash": (0.098, 0.197),  # re-verificado 1 jun 2026 (OpenRouter API)
-    "deepseek/deepseek-v4-pro": (0.435, 0.87),     # corregido may 2026 (era 1.74/3.48, 4x sobreprecio)
-    "deepseek-reasoner": (0.0, 0.0),
-    "deepseek/deepseek-reasoner": (0.0, 0.0),
-    "deepseek/deepseek-r1": (0.70, 2.50),
-    "deepseek/deepseek-r1-0528": (0.50, 2.15),
-
-    # ====== Google ======
-    "gemini-2.5-flash": (0.30, 2.50),
-    "google/gemini-2.5-flash": (0.30, 2.50),
-    "google/gemini-3.5-flash": (1.50, 9.00),  # jun 2026
-    "gemini-2.5-pro": (1.25, 10.00),
-    "google/gemini-2.5-pro": (1.25, 10.00),
-    "google/gemini-2.5-flash-lite": (0.075, 0.30),
-    "google/gemma-4-26b-a4b-it": (0.05, 0.20),
-    "google/gemma-4-31b-it": (0.30, 0.60),
-    "google/gemini-3.1-flash-lite-preview": (0.25, 1.50),
-    "google/gemini-3.1-pro-preview": (2.00, 12.00),
-
-    # ====== Mistral ======
-    "mistral-medium-latest": (0.40, 2.00),
-    "mistral-nemo": (0.02, 0.02),
-    "mistralai/mistral-nemo": (0.02, 0.02),
-    "mistralai/mistral-large": (2.00, 6.00),  # NUEVO
-    "mistralai/mistral-small-2603": (0.15, 0.60),
-    "mistralai/devstral-small": (0.10, 0.30),
-    "mistralai/devstral-medium": (0.40, 2.00),
-    "mistralai/devstral-2512": (0.40, 2.00),
-
-    # ====== Meta Llama ======
-    "meta-llama/llama-3.3-70b": (0.0, 0.0),
-    "meta-llama/llama-3.3-70b-instruct": (0.0, 0.0),
-    "meta-llama/llama-4-maverick": (0.40, 2.40),
-    "meta-llama/llama-4-scout-17b-16e-instruct": (0.11, 0.34),
-    "llama-3.3-70b-versatile": (0.59, 0.79),  # Groq corregido
-    "llama-3.1-8b-instant": (0.05, 0.08),     # Groq
-
-    # ====== Qwen ======
-    "qwen/qwen-3.5-72b": (1.20, 2.00),
-    "qwen/qwen3.5-plus": (1.20, 2.00),
-    "qwen/qwen3.6-plus": (0.18, 1.07),  # API-only Alibaba; corregido may 2026 (OpenRouter API)
-    "qwen/qwen3.6-max-preview": (1.04, 6.24),  # tier Max jun 2026
-    "qwen/qwen3.7-max": (2.50, 7.50),  # flagship 3.7 (20 may 2026), reasoning-agent 1M ctx
-    "qwen/qwen3-coder": (0.15, 0.60),
-    "qwen/qwen3-coder-480b:free": (0.0, 0.0),
-
-    # ====== Moonshot Kimi (faltaban — agentic thinking caro) ======
-    "moonshotai/kimi-k2": (1.00, 3.00),
-    "moonshotai/kimi-k2.5": (0.20, 0.80),
-    "moonshotai/kimi-k2.6": (0.73, 3.49),  # corregido may 2026 (OpenRouter API; era 1.50/9.00 sobre-estimado)
-    "moonshotai/kimi-k2.7-code": (0.74, 3.50),  # OpenRouter API jun 2026
-
-    # ====== xAI Grok ======
-    "grok-2": (2.00, 10.00),
-    "x-ai/grok-4.1-fast": (0.20, 0.50),
-    "x-ai/grok-4.20": (1.25, 2.50),   # corregido may 2026 (OpenRouter API; era 2/6)
-    "x-ai/grok-4.3": (1.25, 2.50),    # flagship 30 abr 2026 (OpenRouter API)
-    "x-ai/grok-4.20-multi-agent": (2.00, 6.00),  # variante Heavy multi-agente (OpenRouter API)
-
-    # ====== NVIDIA Nemotron ======
-    "nvidia/nemotron-3-nano-30b-a3b": (0.05, 0.20),
-    "nvidia/nemotron-3-super-120b-a12b": (0.10, 0.50),
-
-    # ====== Zhipu GLM ======
-    "z-ai/glm-5.1": (0.95, 3.15),
-
-    # ====== Xiaomi MiMo ======
-    "xiaomi/mimo-v2-flash:free": (0.0, 0.0),
-    "xiaomi/mimo-v2-flash": (0.09, 0.29),
-    "xiaomi/mimo-v2-omni": (0.40, 2.00),
-    "xiaomi/mimo-v2-pro": (1.00, 3.00),
-
-    # ====== MiniMax ======
-    "minimax/minimax-m3": (0.30, 1.20),       # lanzado 1 jun 2026, ctx 1M
-    "MiniMax-M3": (0.30, 1.20),               # M3 via API directa / token plan
-    "minimax/minimax-m2.7": (0.30, 1.20),
-    "MiniMax-M2.7": (0.30, 1.20),                # provider directo
-    "MiniMax-M2.7-highspeed": (0.30, 1.20),
-    "minimax/minimax-m2.7-highspeed": (0.30, 1.20),
-
-    # ====== Ollama Cloud ======
-    "qwen3.5:397b-cloud": (0.0, 0.0),     # incluido en suscripción
-    "qwen3.5:cloud": (0.0, 0.0),
-    "gpt-oss:120b-cloud": (0.0, 0.0),
-
-    # ====== Ollama local ======
-    "llama3.3": (0.0, 0.0),
-    "qwen3.5": (0.0, 0.0),
-    "deepseek-coder-v2": (0.0, 0.0),
-    # Tags reales instalados en DGX Spark (sweep 1 jun 2026).
-    # Corren gratis en local, pero el costo del ranking usa el precio OpenRouter
-    # del mismo modelo (instrucción del usuario: comparaciones a costo OpenRouter).
-    # Verificado vía OpenRouter /api/v1/models el 1 jun 2026.
-    "qwen3.5:35b": (0.0, 0.0),            # sin equivalente exacto en OpenRouter → local $0
-    "qwen3.6:27b": (0.29, 3.20),          # qwen/qwen3.6-27b
-    "qwen3.6:35b": (0.14, 1.00),          # qwen/qwen3.6-35b-a3b
-    "qwen3-coder-next:q4_K_M": (0.11, 0.80),  # qwen/qwen3-coder-next
-    "qwen2.5:72b": (0.36, 0.40),          # qwen/qwen-2.5-72b-instruct
-    "gemma4:31b": (0.30, 0.60),           # google/gemma-4-31b-it (ya en config OR)
-    "nemotron3:33b-q4_K_M": (0.10, 0.50), # equiv Nemotron Super OR
-    "nemotron-3-super:120b": (0.10, 0.50),# nvidia/nemotron-3-super-120b-a12b
-}
+PRICING = _build_pricing()
 
 
 def estimate_cost(model: str, input_tokens: int, output_tokens: int,

@@ -13,19 +13,19 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:51:14+00:00",
+      "at": "2026-08-13T04:22:46+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
   "results": [
     {
       "quality": 10.0,
-      "cost_score": 4.85,
-      "cost_usd": 0.011214,
+      "cost_score": 4.87,
+      "cost_usd": 0.011074,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.25,
+      "final": 8.26,
       "test_name": "niah_es_bridge_length_8000_p25",
       "model": "Qwen 3.6 Max",
       "model_id": "qwen/qwen3.6-max-preview",
@@ -46,12 +46,12 @@
       "timestamp": "20260714_142058_71508",
       "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_bridge_length_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00"
+      "rescored_at": "2026-08-13T04:22:46+00:00"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.67,
-      "cost_usd": 0.012873,
+      "cost_score": 4.69,
+      "cost_usd": 0.012712,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -76,12 +76,12 @@
       "timestamp": "20260714_142058_71508",
       "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_bridge_length_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00"
+      "rescored_at": "2026-08-13T04:22:46+00:00"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.81,
-      "cost_usd": 0.011613,
+      "cost_score": 4.82,
+      "cost_usd": 0.011467,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -106,12 +106,12 @@
       "timestamp": "20260714_142058_71508",
       "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_bridge_length_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00"
+      "rescored_at": "2026-08-13T04:22:46+00:00"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.83,
-      "cost_usd": 0.011384,
+      "cost_score": 4.85,
+      "cost_usd": 0.011242,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -136,12 +136,12 @@
       "timestamp": "20260714_142058_71508",
       "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_library_volumes_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00"
+      "rescored_at": "2026-08-13T04:22:46+00:00"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.78,
-      "cost_usd": 0.011832,
+      "cost_score": 4.8,
+      "cost_usd": 0.011684,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -166,12 +166,12 @@
       "timestamp": "20260714_142058_71508",
       "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_library_volumes_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00"
+      "rescored_at": "2026-08-13T04:22:46+00:00"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.56,
-      "cost_usd": 0.014047,
+      "cost_score": 4.57,
+      "cost_usd": 0.013872,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -196,12 +196,12 @@
       "timestamp": "20260714_142058_71508",
       "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_library_volumes_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00"
+      "rescored_at": "2026-08-13T04:22:46+00:00"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.64,
-      "cost_usd": 0.013146,
+      "cost_score": 4.66,
+      "cost_usd": 0.012981,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -226,12 +226,12 @@
       "timestamp": "20260714_142058_71508",
       "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_festival_date_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00"
+      "rescored_at": "2026-08-13T04:22:46+00:00"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.78,
-      "cost_usd": 0.011828,
+      "cost_score": 4.8,
+      "cost_usd": 0.01168,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -256,7 +256,7 @@
       "timestamp": "20260714_142058_71508",
       "response_file": "results/responses/20260714_142058_71508/qwen-3.6-max__niah_es__niah_es_festival_date_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00"
+      "rescored_at": "2026-08-13T04:22:46+00:00"
     },
     {
       "quality": 0.0,

@@ -1,0 +1,23 @@
+# Claude Opus 5 Fast — string_precision/copy_hex_32
+
+- model_id: `anthropic/claude-opus-5-fast`
+- success: True  | final: 8.64 | quality: 10.0
+- latency_total: 2.345s | tokens_per_second: 78.5
+- input_tokens: 131 | output_tokens: 184
+
+## Entrada exacta (lo que recibió el modelo)
+
+**system:**
+
+Tu UNICA tarea es copiar strings exactamente. NO expliques, NO agregues contexto. Responde SOLO con el string pedido, nada mas.
+
+**user:**
+
+Copia este string EXACTAMENTE, caracter por caracter. Responde SOLO con el string, sin comillas, sin explicacion:
+
+a1b2c3d4e5f6789012345678abcdef90
+
+
+## Respuesta completa
+
+a1b2c3d4e5f6789012345678abcdef90

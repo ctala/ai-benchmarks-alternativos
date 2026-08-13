@@ -2,8 +2,8 @@
 
 - **model_id**: `hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q8_0`
 - **Total tests**: 95/95 exitosos (0 errores)
-- **Score final**: 7.41
-- **Calidad**: 7.92
+- **Score final**: 7.56
+- **Calidad**: 8.13
 - **Judge score (Phi-4)**: 4.18/10
 - **Velocidad**: 40 tok/s
 - **Latencia primera token**: 48.51s
@@ -22,8 +22,8 @@
 | customer_support | 4 | 4 | 8.06 | 8.76 |
 | deep_reasoning | 6 | 6 | 6.94 | 7.50 |
 | hallucination | 3 | 3 | 7.36 | 7.67 |
-| multi_turn | 4 | 4 | 6.99 | 7.50 |
-| news_seo_writing | 5 | 5 | 5.52 | 5.52 |
+| multi_turn | 4 | 4 | 7.34 | 8.00 |
+| news_seo_writing | 5 | 5 | 5.80 | 5.92 |
 | ocr_extraction | 5 | 5 | 8.63 | 9.60 |
 | orchestration | 5 | 5 | 8.25 | 9.27 |
 | policy_adherence | 4 | 4 | 9.02 | 10.00 |
@@ -31,9 +31,9 @@
 | reasoning | 3 | 3 | 8.02 | 9.03 |
 | sales_outreach | 3 | 3 | 8.38 | 9.33 |
 | startup_content | 5 | 5 | 7.93 | 8.96 |
-| strategy | 3 | 3 | 8.07 | 9.17 |
+| strategy | 3 | 3 | 8.65 | 10.00 |
 | string_precision | 6 | 6 | 3.74 | 2.17 |
-| structured_output | 4 | 4 | 5.68 | 5.00 |
+| structured_output | 4 | 4 | 7.96 | 8.25 |
 | summarization | 2 | 2 | 7.52 | 7.92 |
 | task_management | 3 | 3 | 8.34 | 9.33 |
 | tool_calling | 4 | 4 | 7.29 | 7.31 |
@@ -337,7 +337,7 @@ thought
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | competitor_analysis | 8.65 | 10.00 | 4.4 | 23 | 89.54s | OK |
-| pricing_strategy | 6.90 | 7.50 | 4.4 | 25 | 81.91s | OK |
+| pricing_strategy | 8.65 | 10.00 | 4.4 | 25 | 81.91s | OK |
 | business_model_validation | 8.65 | 10.00 | 4.6 | 22 | 92.01s | OK |
 
 <details><summary><code>competitor_analysis</code> — score 8.65</summary>
@@ -362,7 +362,7 @@ thought
 
 </details>
 
-<details><summary><code>pricing_strategy</code> — score 6.90</summary>
+<details><summary><code>pricing_strategy</code> — score 8.65</summary>
 
 **Stats**: latencia 81.91s · 25 tok/s · 0→2048 tokens · $0.00068
 
@@ -613,12 +613,12 @@ thought
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 6.05 | 5.00 | 5 | 130 | 3.95s | OK |
-| json_array_classification | 5.64 | 5.00 | 5 | 64 | 11.94s | OK |
-| json_nested_complex | 5.45 | 5.00 | 4.4 | 51 | 40.22s | OK |
-| json_strict_no_extra | 5.60 | 5.00 | 2.6 | 35 | 7.29s | OK |
+| json_simple_extraction | 7.45 | 7.00 | 5 | 130 | 3.95s | OK |
+| json_array_classification | 9.14 | 10.00 | 5 | 64 | 11.94s | OK |
+| json_nested_complex | 8.95 | 10.00 | 4.4 | 51 | 40.22s | OK |
+| json_strict_no_extra | 6.30 | 6.00 | 2.6 | 35 | 7.29s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 6.05</summary>
+<details><summary><code>json_simple_extraction</code> — score 7.45</summary>
 
 **Stats**: latencia 3.95s · 130 tok/s · 0→512 tokens · $0.00017
 
@@ -639,7 +639,7 @@ thought
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.64</summary>
+<details><summary><code>json_array_classification</code> — score 9.14</summary>
 
 **Stats**: latencia 11.94s · 64 tok/s · 0→768 tokens · $0.00025
 
@@ -663,7 +663,7 @@ thought
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.45</summary>
+<details><summary><code>json_nested_complex</code> — score 8.95</summary>
 
 **Stats**: latencia 40.22s · 51 tok/s · 0→2048 tokens · $0.00068
 
@@ -685,7 +685,7 @@ thought
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.60</summary>
+<details><summary><code>json_strict_no_extra</code> — score 6.30</summary>
 
 **Stats**: latencia 7.29s · 35 tok/s · 0→256 tokens · $0.00008
 
@@ -969,12 +969,12 @@ thought
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_post_es | 7.53 | 7.88 | 4.2 | 55 | 28.09s | OK |
+| blog_post_es | 7.52 | 7.88 | 4.2 | 55 | 28.09s | OK |
 | email_profesional | 7.55 | 8.08 | 4.2 | 37 | 34.81s | OK |
 | social_media_batch | 8.37 | 9.52 | 4.8 | 27 | 57.24s | OK |
 | product_description_en | 8.60 | 9.52 | 4.8 | 36 | 28.43s | OK |
 
-<details><summary><code>blog_post_es</code> — score 7.53</summary>
+<details><summary><code>blog_post_es</code> — score 7.52</summary>
 
 **Stats**: latencia 28.09s · 55 tok/s · 0→1536 tokens · $0.00051
 
@@ -1197,10 +1197,10 @@ Compile current information for a writer.
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.78 | 8.76 | 4.4 | 21 | 98.53s | OK |
-| news_json_output_strict | 5.15 | 5.00 | 3.2 | 23 | 90.11s | OK |
-| news_spanish_only | 5.18 | 5.00 | 4.0 | 26 | 68.07s | OK |
+| news_json_output_strict | 8.65 | 10.00 | 3.2 | 23 | 90.11s | OK |
+| news_spanish_only | 3.08 | 2.00 | 4.0 | 26 | 68.07s | OK |
 | news_no_hallucination_sources | 1.65 | 0.00 | 4.0 | 21 | 97.02s | OK |
-| news_perplexity_enrichment | 7.82 | 8.82 | 4.4 | 18 | 113.28s | OK |
+| news_perplexity_enrichment | 7.83 | 8.82 | 4.4 | 18 | 113.28s | OK |
 
 <details><summary><code>news_seo_article_full</code> — score 7.78</summary>
 
@@ -1225,7 +1225,7 @@ thought
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.15</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.65</summary>
 
 **Stats**: latencia 90.11s · 23 tok/s · 0→2048 tokens · $0.00068
 
@@ -1244,7 +1244,7 @@ thought
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.18</summary>
+<details><summary><code>news_spanish_only</code> — score 3.08</summary>
 
 **Stats**: latencia 68.07s · 26 tok/s · 0→1792 tokens · $0.00059
 
@@ -1290,7 +1290,7 @@ thought
 
 </details>
 
-<details><summary><code>news_perplexity_enrichment</code> — score 7.82</summary>
+<details><summary><code>news_perplexity_enrichment</code> — score 7.83</summary>
 
 **Stats**: latencia 113.28s · 18 tok/s · 0→2048 tokens · $0.00068
 
@@ -1937,7 +1937,7 @@ thought
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.39 | 8.00 | 4.8 | 28 | 37.01s | OK |
 | support_escalation | 5.99 | 6.00 | 4.2 | 29 | 35.24s | OK |
-| requirements_change | 5.91 | 6.00 | 4.2 | 27 | 56.18s | OK |
+| requirements_change | 7.31 | 8.00 | 4.2 | 27 | 56.18s | OK |
 | debugging_conversation | 8.68 | 10.00 | 4.6 | 26 | 69.16s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.39</summary>
@@ -1984,7 +1984,7 @@ thought
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 5.91</summary>
+<details><summary><code>requirements_change</code> — score 7.31</summary>
 
 **Stats**: latencia 56.18s · 27 tok/s · 0→1536 tokens · $0.00051
 

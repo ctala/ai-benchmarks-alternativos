@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:43:16+00:00",
+      "at": "2026-08-13T04:16:56+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     },
     "polluted_cleanup": {
@@ -56,17 +56,17 @@
       "content_score": 4.0,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:15+00:00",
+      "rescored_at": "2026-08-13T04:16:55+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 3.33,
+      "quality": 0.0,
       "cost_score": 10.0,
       "cost_usd": 6e-06,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 4.28,
+      "final": 1.95,
       "test_name": "fuentes_que_se_contradicen",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -78,7 +78,7 @@
       "input_tokens": 146,
       "output_tokens": 177,
       "response_preview": "La adopción de inteligencia artificial (IA) en América Latina y el Caribe (LATAM) está experimentando un crecimiento meteórico, con más de un tercio de las pequeñas y medianas empresas (pymes) de la región ya utilizando herramientas de IA generativa, según una encuesta regional publicada en marzo de",
-      "auto_quality": 3.33,
+      "auto_quality": 0.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -91,9 +91,9 @@
       "timestamp": "20260713_165812_97857",
       "response_file": "results/responses/20260713_165812_97857/mistral-nemo__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 4.0,
-      "answer_score": 3.33,
+      "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:16+00:00",
+      "rescored_at": "2026-08-13T04:16:56+00:00",
       "scoring": "verificable"
     },
     {
@@ -130,7 +130,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:16+00:00",
+      "rescored_at": "2026-08-13T04:16:56+00:00",
       "scoring": "verificable"
     },
     {
@@ -167,7 +167,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:16+00:00",
+      "rescored_at": "2026-08-13T04:16:56+00:00",
       "scoring": "verificable"
     },
     {
@@ -204,7 +204,7 @@
       "content_score": 4.67,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:16+00:00",
+      "rescored_at": "2026-08-13T04:16:56+00:00",
       "scoring": "verificable"
     },
     {
@@ -241,17 +241,17 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:16+00:00",
+      "rescored_at": "2026-08-13T04:16:56+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 6.02,
-      "cost_usd": 0.004571,
+      "cost_score": 9.02,
+      "cost_usd": 0.000457,
       "speed": 10.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 8.8,
+      "final": 9.25,
       "test_name": "dato_falso_en_el_brief",
       "model": "GPT-5.6 Luna",
       "model_id": "openai/gpt-5.6-luna",
@@ -278,17 +278,17 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:16+00:00",
+      "rescored_at": "2026-08-13T04:16:56+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.67,
-      "cost_score": 7.43,
-      "cost_usd": 0.001544,
+      "quality": 10.0,
+      "cost_score": 10.0,
+      "cost_usd": 0.000154,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 6.68,
+      "final": 9.4,
       "test_name": "fuentes_que_se_contradicen",
       "model": "GPT-5.6 Luna",
       "model_id": "openai/gpt-5.6-luna",
@@ -300,7 +300,7 @@
       "input_tokens": 134,
       "output_tokens": 235,
       "response_preview": "La adopción de inteligencia artificial generativa en las pymes latinoamericanas podría estar entre una de cada diez y una de cada tres empresas, según qué estudio se consulte. Una encuesta regional realizada en marzo de 2026 sitúa la penetración en el 34%, mientras que un informe sectorial publicado",
-      "auto_quality": 6.67,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -313,19 +313,19 @@
       "timestamp": "20260713_165812_97857",
       "response_file": "results/responses/20260713_165812_97857/gpt-5.6-luna__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 4.0,
-      "answer_score": 6.67,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:16+00:00",
+      "rescored_at": "2026-08-13T04:16:56+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 6.11,
-      "cost_usd": 0.004277,
+      "cost_score": 9.11,
+      "cost_usd": 0.000428,
       "speed": 10.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 8.82,
+      "final": 9.27,
       "test_name": "audiencia_que_ya_sabe",
       "model": "GPT-5.6 Luna",
       "model_id": "openai/gpt-5.6-luna",
@@ -352,7 +352,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:16+00:00",
+      "rescored_at": "2026-08-13T04:16:56+00:00",
       "scoring": "verificable"
     }
   ]

@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:46:17+00:00",
+      "at": "2026-08-13T04:19:30+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,7 +52,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:14+00:00",
+      "rescored_at": "2026-08-13T04:19:28+00:00",
       "scoring": "verificable"
     },
     {
@@ -89,7 +89,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:14+00:00",
+      "rescored_at": "2026-08-13T04:19:28+00:00",
       "scoring": "verificable"
     },
     {
@@ -126,7 +126,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:17+00:00",
+      "rescored_at": "2026-08-13T04:19:30+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,7 +163,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:17+00:00",
+      "rescored_at": "2026-08-13T04:19:30+00:00",
       "scoring": "verificable"
     },
     {
@@ -200,7 +200,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:17+00:00",
+      "rescored_at": "2026-08-13T04:19:30+00:00",
       "scoring": "verificable"
     },
     {
@@ -237,7 +237,7 @@
       "content_score": 10.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:17+00:00",
+      "rescored_at": "2026-08-13T04:19:30+00:00",
       "scoring": "verificable"
     },
     {
@@ -274,7 +274,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:17+00:00",
+      "rescored_at": "2026-08-13T04:19:30+00:00",
       "scoring": "verificable"
     },
     {
@@ -311,7 +311,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:17+00:00",
+      "rescored_at": "2026-08-13T04:19:30+00:00",
       "scoring": "verificable"
     },
     {
@@ -348,7 +348,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:17+00:00",
+      "rescored_at": "2026-08-13T04:19:30+00:00",
       "scoring": "verificable"
     },
     {
@@ -385,17 +385,17 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:17+00:00",
+      "rescored_at": "2026-08-13T04:19:30+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 8.0,
-      "cost_score": 8.76,
-      "cost_usd": 0.000558,
+      "cost_score": 8.48,
+      "cost_usd": 0.000694,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.29,
+      "final": 7.25,
       "test_name": "plan_monetizar_medio_con_restricciones",
       "model": "DeepSeek V3",
       "model_id": "deepseek/deepseek-v3.2",
@@ -422,13 +422,13 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:17+00:00",
+      "rescored_at": "2026-08-13T04:19:30+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 0.000155,
+      "cost_usd": 0.000193,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 7.0,
@@ -459,17 +459,17 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:17+00:00",
+      "rescored_at": "2026-08-13T04:19:30+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 9.77,
-      "cost_usd": 0.000258,
+      "cost_score": 9.48,
+      "cost_usd": 0.000321,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.84,
+      "final": 8.8,
       "test_name": "elegir_negocio_con_dependencia_oculta",
       "model": "DeepSeek V3",
       "model_id": "deepseek/deepseek-v3.2",
@@ -496,17 +496,17 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:17+00:00",
+      "rescored_at": "2026-08-13T04:19:30+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 8.0,
-      "cost_score": 9.2,
-      "cost_usd": 0.000398,
+      "cost_score": 8.92,
+      "cost_usd": 0.000495,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.51,
+      "final": 7.46,
       "test_name": "disenar_experimento_para_matar_la_idea",
       "model": "DeepSeek V3",
       "model_id": "deepseek/deepseek-v3.2",
@@ -533,17 +533,17 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:17+00:00",
+      "rescored_at": "2026-08-13T04:19:30+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 9.25,
-      "cost_usd": 0.000382,
+      "cost_score": 8.97,
+      "cost_usd": 0.000475,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.76,
+      "final": 8.72,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "DeepSeek V3",
       "model_id": "deepseek/deepseek-v3.2",
@@ -570,7 +570,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:17+00:00",
+      "rescored_at": "2026-08-13T04:19:30+00:00",
       "scoring": "verificable"
     }
   ]

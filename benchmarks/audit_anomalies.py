@@ -121,6 +121,76 @@ def main():
     if not z: print("     (ninguno)")
     print()
 
+    # E7 · `open_source: True` sin evidencia registrada (weights_url)
+    #
+    # El README publica un ranking "solo open-source" que se arma con este flag. Un True
+    # mal puesto mete un modelo en un ranking donde no corresponde — es el anti-patrón que
+    # el CLAUDE.md ya documenta con Qwen Plus ("marcar open_source porque el nombre dice
+    # Qwen 3.6"). Hasta el 12-ago-2026 el flag se ponía a criterio, sin guardar CON QUÉ se
+    # respaldaba, así que no había forma de auditarlo.
+    #
+    # Esto REPORTA, no bloquea: 108 entradas históricas lo afirman sin evidencia y la
+    # mayoría probablemente esté bien (Kimi, GLM, Qwen base, Mistral son abiertos de
+    # sobra). Convertirlo en gate hoy reventaría el pipeline entero — el mismo error de
+    # barrer 117 modelos de una vez que colapsó el ranking en julio. Se backfillea de a
+    # poco; lo que sí es regla desde ahora: **entrada nueva con open_source necesita
+    # `weights_url`**.
+    print("── E7 · open_source declarado SIN evidencia (`weights_url`)")
+    from benchmarks.models import MODELS as _M, OLLAMA_MODELS as _O
+    _cat = {**_M, **_O}
+    sin_ev = [m for m in exp["models"]
+              if m.get("open_source") and not _cat.get(m["key"], {}).get("weights_url")]
+    rank_sin_ev = [m for m in sin_ev if m.get("ranked")]
+    print(f"     {len(sin_ev)} entradas ({len(rank_sin_ev)} de ellas RANKEADAS y por lo tanto"
+          f" publicadas en el corte «solo open-source»)")
+    for m in rank_sin_ev[:8]:
+        print(f"       {m['name']:38} {m.get('id')}")
+    if len(rank_sin_ev) > 8:
+        print(f"       … y {len(rank_sin_ev) - 8} más")
+    if not sin_ev:
+        print("     (ninguno)")
+    print()
+
+    # E8 · CERO tool calls en una suite entera de herramientas
+    #
+    # Este detector es de una clase que el repo NO tenía. Todos los demás cazan AUSENCIA:
+    # respuestas vacías (E1), procedencia faltante (E3), alta tasa de fallo (E4), rutas
+    # muertas (E5), precio en $0 (E6). Un run contaminado es lo contrario — es PRESENCIA:
+    # tiene número, tiene forma válida y pasa `validate.py` sin chistar.
+    #
+    # Por eso el fallback de ruteo de OpenRouter vivió meses invisible: mandábamos `tools`,
+    # el router podía elegir un proveedor que las ignora (soft preference, documentado), el
+    # modelo respondía texto plano y quedaba anotado como "no llamó a la herramienta". No
+    # fallaba nada. Lo destapó el contraste con producción —Llama 3.3 70B emite tool calls
+    # en Flip y acá no las emitía en el 45% de sus runs—, no un guardrail.
+    #
+    # Cero tool calls en una suite entera es o un hallazgo real (el modelo no sabe/no
+    # puede) o un artefacto de transporte. Las dos cosas merecen que algo chille; hoy
+    # ninguna lo hacía.
+    print("── E8 · Cero tool calls en una suite ENTERA de herramientas")
+    SUITES_TOOLS = {"tool_calling", "customer_support", "orchestration", "agent_capabilities"}
+    por_par = defaultdict(lambda: [0, 0, set()])   # (modelo, suite) -> [ok, con_tool, proveedores]
+    for r in runs:
+        if r.get("suite") in SUITES_TOOLS and r.get("success"):
+            d = por_par[(r.get("model"), r.get("suite"))]
+            d[0] += 1
+            if (r.get("tool_calling") or 0) > 0:
+                d[1] += 1
+            up = (r.get("metadata") or {}).get("upstream_provider")
+            if up:
+                d[2].add(up)
+    sospechosos = [(m, s, v) for (m, s), v in por_par.items() if v[0] >= 3 and v[1] == 0]
+    for m, s, v in sorted(sospechosos, key=lambda x: -x[2][0]):
+        flag = " ← RANKEADO" if m in ranked else ""
+        prov = ", ".join(sorted(v[2])) if v[2] else "sin registrar (medición vieja)"
+        print(f"     {str(m)[:34]:<36} {s:<20} {v[0]} runs, 0 tool calls{flag}")
+        print(f"        └ proveedor: {prov}")
+        if m in ranked:
+            affected[m].add("E8")
+    if not sospechosos:
+        print("     (ninguno)")
+    print()
+
     # RESUMEN: modelos rankeados tocados por ≥1 anomalía
     print(f"{'='*72}\n  RESUMEN — modelos RANKEADOS con ≥1 anomalía: {len(affected)}/{len(ranked)}\n{'='*72}")
     for m, codes in sorted(affected.items(), key=lambda x: -len(x[1])):

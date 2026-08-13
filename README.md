@@ -2,7 +2,7 @@
 
 **Version 3.1.1** | Ultima actualizacion: 10 de Julio de 2026 | [📊 Datasheet junio](DATASHEET_2026-06.md) · [📄 CheatSheet PDF julio](cheatsheet/AI_Model_Benchmark_CheatSheet_Julio_2026.pdf) · [📄 Executive Brief julio](cheatsheet/AI_Model_Benchmark_ExecutiveBrief_July_2026.pdf)
 
-> **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con <!-- AUTO:tests_marketing -->27,000+<!-- /AUTO --> tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N o Hermes con presupuestos reales.
+> **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con <!-- AUTO:tests_marketing -->29,000+<!-- /AUTO --> tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N o Hermes con presupuestos reales.
 
 > 📍 **Qué es este benchmark (y qué NO es)**: este benchmark **NO sustituye** a los benchmarks académicos validados (HumanEval, MMLU, GSM8K, SWE-bench Verified, NIAH original en inglés, MT-Bench, LMSYS Arena). Es un **complemento** diseñado específicamente para **emprendedores hispanohablantes** que necesitan decidir qué modelo usar en situaciones reales (N8N, Hermes, blogs de actualidad, soporte cliente, agentes, contenido en español neutro). Para investigación académica o capacidades fundamentales del modelo, prioriza los benchmarks oficiales — citados en [BENCHMARKS_EXTERNOS.md](BENCHMARKS_EXTERNOS.md). Para **decidir qué modelo poner en producción para un caso de uso aplicado en español**, esto suma información que los benchmarks oficiales no cubren: costo en provider real, latencia desde Latam, español neutro, agentes multi-turno, y debugging real (que medimos vía cross-ref con SWE-bench/Hermes-Eval, NO replicamos).
 
@@ -10,7 +10,7 @@
 
 Benchmark de modelos AI para emprendedores y equipos que usan agentes (N8N, Hermes). Evalua modelos en los 4 pilares del emprendedor: **Razonamiento, Coding, Contenido/Marketing, y Agentes/Operaciones**. Incluye LLM-as-Judge local con Phi-4 (Microsoft, cero conflicto de interes) y la nueva suite **`agent_long_horizon`** que mide capacidades agénticas en multi-turno largo (lo que el single-turn no captura).
 
-**Cobertura actual**: <!-- AUTO:tested_count -->119<!-- /AUTO --> modelos con ≥20 runs (<!-- AUTO:total_models -->171<!-- /AUTO --> catalogados, incluido **Claude Fable 5** medido el día 1), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v4.0 (jul 2026)** = la **referencia z-score quedó congelada por versión** (`scoring_reference.json`): agregar o medir un modelo nuevo ya no recalcula el score de los demás — se puntúa contra una referencia fija. **v3.0.2 (junio)** = ajuste de **normalización de costos**: todos los modelos se comparan con un costo mínimo de referencia de **$0.001/call**, y los que no tienen equivalente OpenRouter usan su costo real de provider como aproximación estándar. **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
+**Cobertura actual**: <!-- AUTO:tested_count -->138<!-- /AUTO --> modelos con ≥20 runs (<!-- AUTO:total_models -->191<!-- /AUTO --> catalogados, incluido **Claude Fable 5** medido el día 1), juez Phi-4 (servido en vLLM FP16 sobre DGX Spark). **v4.0 (jul 2026)** = la **referencia z-score quedó congelada por versión** (`scoring_reference.json`): agregar o medir un modelo nuevo ya no recalcula el score de los demás — se puntúa contra una referencia fija. **v3.0.2 (junio)** = ajuste de **normalización de costos**: todos los modelos se comparan con un costo mínimo de referencia de **$0.001/call**, y los que no tienen equivalente OpenRouter usan su costo real de provider como aproximación estándar. **v2.8 (junio)** = long-context y seguridad como **dimensiones separadas** del score general, tras descubrir que la suite NIAH-es en español nos mentía de [5 formas distintas](DATASHEET_2026-06.md) (needles-secreto, lumping, el juez no ve el needle, overshoot de tokens, needles distintos por tamaño). Con medición limpia, el retrieval long-context **no discrimina** a los modelos top — los diferenciadores reales son el **contexto usable** (declarado ≠ usable: MiniMax M3 dice 1M, usable 512K) y la **resistencia a fuga de credenciales** (Opus 4.8 8.79 rehúsa, los cheap filtran).
 
 ## Score = combinación ponderada (NO solo calidad)
 
@@ -84,22 +84,67 @@ Modelos académicamente top (Opus, GPT-5.x) siguen sin liderar **no por calidad*
 
 > Auto-generado por `benchmarks/generate_readme_ranking.py` desde `docs/data/models.json`. **No editar a mano** — el z-score se recalcula con cada modelo nuevo y una tabla escrita a mano queda obsoleta sola.
 
-| # | Modelo | Score | Quality | Cost | Provider | $/1k calls | Runs |
-|---|---|---:|---:|---:|---|---:|---:|
-| 1 | **GPT-5.6 Luna** | **8.34** | 8.41 | 5.83 | openrouter | $9.30 | 138 |
-| 2 | **GPT-5.4 Mini** | **7.80** | 8.21 | 7.47 | openai_direct | $2.40 | 130 |
-| 3 | **Ministral 14B** | **7.21** | 8.16 | 7.83 | openrouter | $0.36 | 137 |
-| 4 | **Gemma 4 26B MoE (3.8B activos)** | **7.19** | 8.19 | 7.81 | openrouter | $0.49 | 137 |
-| 5 | **Qwen 3.6 Plus** | **7.17** | 8.27 | 6.26 | openrouter | $1.66 | 140 |
-| 6 | **GLM 5.2** | **7.14** | 8.30 | 5.85 | openrouter | $4.79 | 130 |
-| 7 | **Mistral Large 3 675B** | **7.08** | 8.18 | 7.16 | openrouter | $2.40 | 128 |
-| 8 | **Nemotron Super 49B v1.5** | **6.87** | 8.17 | 7.60 | openrouter | $0.72 | 128 |
-| 9 | **Claude Opus 4.6** | **6.86** | 8.34 | 3.70 | openrouter | $39.00 | 185 |
-| 10 | **GLM 5** | **6.86** | 8.24 | 6.26 | openrouter | $3.06 | 130 |
+### Índice de calidad — ¿qué modelo responde mejor?
 
-> **Piso de ranking: 50 runs.** Solo compiten los 70 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
+Solo calidad. **El precio y la velocidad se muestran al lado, no van dentro del número** — un modelo caro no es peor, es caro, y mezclarlo esconde cuál es cuál.
 
-> **Este ranking es un punto de partida, no un veredicto.** El score pondera calidad (70%), costo (15%), velocidad (7.5%) y latencia (7.5%) para un perfil de emprendedor genérico. **Tu caso probablemente no sea ese.** Si corrés batch de noche, la latencia no te importa y este ranking la está penalizando igual; si atendés usuarios en vivo, te importa el doble. Ajustá los pesos a tu caso en la [calculadora](https://benchmarks.cristiantala.com/) o mirá las tablas por caso de uso en [MODELOS.md](MODELOS.md).
+| # | Modelo | Calidad | $/1k calls | Latencia | Provider | Runs |
+|---|---|---:|---:|---:|---|---:|
+| 1 | **Tencent Hy3** | **8.48** | $0.83 | 70s | openrouter | 119 |
+| 2 | **GPT-5.6 Luna** | **8.14** | $0.93 | 12s | openrouter | 138 |
+| 3 | **DeepSeek R1 (reasoning)** | **7.91** | $3.96 | 134s | openrouter | 134 |
+| 4 | **Qwen 3.7 Flash** | **7.85** | $0.20 | 35s | openrouter | 119 |
+| 5 | **Claude Opus 4.6** | **7.79** | $39.00 | 36s | openrouter | 185 |
+| 6 | **Inkling Small** | **7.62** | $1.94 | 121s | openrouter | 119 |
+| 7 | **GPT-5.6 Terra Pro** | **7.56** | $9.30 | 31s | openrouter | 119 |
+| 8 | **GLM 5** | **7.56** | $4.11 | 86s | openrouter | 130 |
+| 9 | **Claude Opus 4.8** | **7.45** | $39.00 | 23s | openrouter | 127 |
+| 10 | **GPT-5.4** | **7.39** | $24.00 | 16s | openai_direct | 124 |
+
+### Calidad por dólar — ¿cuánto rinde cada peso?
+
+Calidad dividido por lo que cuesta. **Premia lo barato a propósito**: un modelo de calidad media a $0,10 le gana a uno excelente a $1. Mirá la columna *Calidad* para ver qué estás resignando.
+
+| # | Modelo | Calidad/$ | Calidad | $/1k calls | Provider |
+|---|---|---:|---:|---:|---|
+| 1 | **Ling 3.0 Flash** | **49.9** | 5.04 | $0.10 | openrouter |
+| 2 | **Nex-N2-Mini** | **39.5** | 6.24 | $0.16 | openrouter |
+| 3 | **Qwen 3.7 Flash** | **38.5** | 7.85 | $0.20 | openrouter |
+| 4 | **Poolside Laguna XS 2.1** | **32.1** | 6.36 | $0.20 | openrouter |
+| 5 | **Solar Pro 4** | **29.7** | 5.61 | $0.19 | openrouter |
+| 6 | **GPT-OSS 120B** | **19.5** | 5.49 | $0.28 | openrouter |
+| 7 | **DeepSeek V4 Flash 0731** | **19.5** | 5.72 | $0.29 | openrouter |
+| 8 | **Ministral 14B** | **18.0** | 6.47 | $0.36 | openrouter |
+| 9 | **GPT-OSS 20B** | **17.0** | 3.72 | $0.22 | openrouter |
+| 10 | **Nemotron Nano 9B v2** | **15.4** | 4.86 | $0.32 | openrouter |
+
+### Frontera de Pareto — ¿cuáles vale la pena siquiera considerar?
+
+Los **13 de 82** modelos que nadie domina: para el resto existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking —dentro de la frontera la elección depende de tu caso— es un descarte.
+
+| Modelo | Calidad | $/1k calls | Latencia | Provider |
+|---|---:|---:|---:|---|
+| **Tencent Hy3** | 8.48 | $0.83 | 70s | openrouter |
+| **GPT-5.6 Luna** | 8.14 | $0.93 | 12s | openrouter |
+| **Qwen 3.7 Flash** | 7.85 | $0.20 | 35s | openrouter |
+| **Gemma 4 26B MoE (3.8B activos)** | 7.33 | $0.64 | 29s | openrouter |
+| **DeepSeek V4 Flash (OpenRouter)** | 6.70 | $0.46 | 32s | openrouter |
+| **Ministral 14B** | 6.47 | $0.36 | 26s | openrouter |
+| **GPT-5.4 Mini** | 6.41 | $2.40 | 7s | openai_direct |
+| **Poolside Laguna XS 2.1** | 6.36 | $0.20 | 11s | openrouter |
+| **Nex-N2-Mini** | 6.24 | $0.16 | 20s | openrouter |
+| **Gemini 3.1 Flash Lite** | 5.67 | $2.33 | 5s | openrouter |
+| **Ling 3.0 Flash** | 5.04 | $0.10 | 14s | openrouter |
+| **Llama 4 Scout 17B** | 4.52 | $0.48 | 9s | openrouter |
+| **Gemini 2.5 Flash Lite** | 3.94 | $0.63 | 6s | openrouter |
+
+> **Piso de ranking: 50 runs.** Solo compiten los 82 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
+
+> **Por qué la calidad va sola.** Hasta v4.0 publicábamos un número que mezclaba calidad con precio, y movía modelos sin avisar: Claude Opus 4.6 es **#5 en calidad** y salía **#18**; Poolside Laguna XS es **#29** y salía **#7**. Las dos cifras eran verdad, pero bajo un rótulo que no lo decía. Ahora el precio se muestra al lado y cada quien decide qué pesa. Es lo mismo que hace [Artificial Analysis](https://artificialanalysis.ai/) con su Intelligence Index.
+
+> **La frontera es frágil a propósito, y conviene saberlo.** Basta un modelo nuevo, bueno y barato para que varios de esta lista queden dominados de un día para otro. Eso es lo que debe pasar. Pero también significa que **depende de que los datos del líder sean correctos**: si la calidad del tope está sobreestimada, la frontera se ensancha.
+
+> **Nada de esto es tu caso exacto.** Si corrés batch de noche, la latencia no te importa y acá está pesando; si atendés usuarios en vivo, te importa el doble. Ajustá los pesos en la [calculadora](https://benchmarks.cristiantala.com/) o mirá las tablas por caso de uso en [MODELOS.md](MODELOS.md).
 
 <!-- AUTO-RANKING-END -->
 
@@ -214,11 +259,11 @@ Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2
 
 | Recurso invertido | Cantidad |
 |---|---|
-| Modelos en config | **<!-- AUTO:total_models -->171<!-- /AUTO --> únicos** |
-| Modelos con cobertura completa (≥20 runs) | **<!-- AUTO:tested_count -->119<!-- /AUTO -->** |
+| Modelos en config | **<!-- AUTO:total_models -->191<!-- /AUTO --> únicos** |
+| Modelos con cobertura completa (≥20 runs) | **<!-- AUTO:tested_count -->138<!-- /AUTO -->** |
 | Modelos con datos parciales (1-19 runs) | **17** (incluye variantes thinking de modelos hybrid) |
 | Tests por modelo | **91 single-turn (23 suites) + 12 agent_long_horizon multi-turno = 103 tests** |
-| Runs preservados en JSON | **<!-- AUTO:tests_marketing -->27,000+<!-- /AUTO -->** (con éxito) |
+| Runs preservados en JSON | **<!-- AUTO:tests_marketing -->29,000+<!-- /AUTO -->** (con éxito) |
 | Tokens consumidos (preservados) | ~2.5M input + ~7M output |
 | **Costo APIs (OpenAI/OpenRouter/MiniMax/Anthropic/Xiaomi)** | **~$350-400 USD** desde el 11 de abril, + gasto continuo de OpenRouter cada mes para las actualizaciones |
 | **Suscripciones + modelos simultáneos** (Xiaomi, MiniMax, Claude, Ollama Cloud — varias a la vez para poder probar) | **~$300/mes** |

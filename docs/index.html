@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calculadora de Modelos IA en español: alternativas a Claude, GPT-5 y Gemini para N8N y Hermes</title>
-<meta name="description" content="Compara 170 modelos de IA con 27,000+ tests reales: precio, calidad, velocidad y tool calling. Encuentra alternativas a Claude, GPT-5, Gemini para agentes N8N, Hermes y emprendedores. Benchmark gratis y open source.">
+<meta name="description" content="Compara 191 modelos de IA con 29.000+ tests reales: precio, calidad, velocidad y tool calling. Encuentra alternativas a Claude, GPT-5, Gemini para agentes N8N, Hermes y emprendedores. Benchmark gratis y open source.">
 <meta name="keywords" content="benchmark LLM, alternativas Claude, alternativas GPT, modelos IA español, comparación modelos AI, OpenRouter, N8N, Hermes, agentes IA, LLM open source, calculadora modelos IA, Phi-4 judge, Devstral, GPT-5, Gemini, Llama, DeepSeek, Qwen, Mistral">
 <meta name="author" content="Cristian Tala">
 <link rel="canonical" href="https://benchmarks.cristiantala.com/">
 
 <meta property="og:title" content="Calculadora de Modelos IA en español: alternativas a Claude, GPT-5 y Gemini">
-<meta property="og:description" content="Compara 170 modelos de IA con 27,000+ tests reales. Encuentra el mejor para tu agente N8N, Hermes o uso personal.">
+<meta property="og:description" content="Compara 191 modelos de IA con 29.000+ tests reales. Encuentra el mejor para tu agente N8N, Hermes o uso personal.">
 <meta property="og:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -22,7 +22,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Calculadora de Modelos IA en español">
-<meta name="twitter:description" content="Compara 170 modelos con tests reales. Alternativas a Claude, GPT-5 y Gemini para N8N y Hermes.">
+<meta name="twitter:description" content="Compara 191 modelos con tests reales. Alternativas a Claude, GPT-5 y Gemini para N8N y Hermes.">
 <meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
 <meta name="twitter:creator" content="@cristiantala">
 
@@ -34,7 +34,7 @@
       "@type": "Dataset",
       "@id": "https://benchmarks.cristiantala.com/#dataset",
       "name": "Benchmark de Modelos AI Alternativos",
-      "description": "Benchmark abierto de 170 modelos de IA (LLMs) con 27.000+ tests reales organizados en 4 pilares (Razonamiento, Coding, Contenido, Agentes) + long-context y seguridad como dimensiones separadas. Evaluación con LLM-as-Judge Phi-4 local.",
+      "description": "Benchmark abierto de 191 modelos de IA (LLMs) con 29.000+ tests reales organizados en 4 pilares (Razonamiento, Coding, Contenido, Agentes) + long-context y seguridad como dimensiones separadas. Evaluación con LLM-as-Judge Phi-4 local.",
       "url": "https://benchmarks.cristiantala.com/",
       "sameAs": "https://github.com/ctala/ai-benchmarks-alternativos",
       "version": "v4.0",
@@ -63,7 +63,7 @@
       "name": "Calculadora de Modelos IA",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Web",
-      "description": "Calculadora interactiva para encontrar el mejor modelo IA según presupuesto, calidad, velocidad, tarea y caso de uso. Filtra entre 170 modelos benchmarkeados con pesos ajustables.",
+      "description": "Calculadora interactiva para encontrar el mejor modelo IA según presupuesto, calidad, velocidad, tarea y caso de uso. Filtra entre 191 modelos benchmarkeados (82 con muestra suficiente para rankear) con pesos ajustables.",
       "url": "https://benchmarks.cristiantala.com/",
       "softwareVersion": "v4.0",
       "datePublished": "2026-04-11",
@@ -149,13 +149,15 @@
         <strong>complementa</strong> con lo que a quien emprende le importa y ellos no miden —costo en el
         proveedor real, latencia desde LATAM, español neutro y agentes multi-turno (N8N, Hermes, soporte).
         Para investigación académica → los oficiales. Para decidir qué poner en producción en español → esto.
-        El score global pondera 70% calidad + 15% costo + 7,5% velocidad + 7,5% latencia, con
+        Desde v4.1 el orden por defecto es el <strong>índice de calidad</strong>: solo calidad, con el
+        precio y la latencia al lado en vez de mezclados adentro —un modelo caro no es peor, es caro—.
+        Si querés que el precio pese, movés los pesos vos. Todo contra una
         <a href="#como-se-mide">referencia congelada</a> (agregar un modelo no cambia el score de los demás).
         <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/BENCHMARKS_EXTERNOS.md" target="_blank" rel="noopener">Cross-references con los oficiales</a>.
       </p>
     </details>
     <p class="meta">
-      Dataset <strong>v4.0</strong> · <span id="hero-updated" aria-live="polite">julio 2026</span> ·
+      Dataset <strong>v4.1</strong> · <span id="hero-updated" aria-live="polite">julio 2026</span> ·
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">ver repo</a>
     </p>
   </section>
@@ -380,7 +382,8 @@
       <div class="filter">
         <label for="task">Tarea principal:</label>
         <select id="task">
-          <option value="score_global">Cualquiera (score global)</option>
+          <option value="score_calidad">Cualquiera (índice de calidad)</option>
+          <option value="score_global">Ajustado a mis pesos (calidad + costo + velocidad)</option>
           <option value="Razonamiento">Razonamiento</option>
           <option value="Coding">Coding</option>
           <option value="Contenido">Contenido</option>
@@ -425,7 +428,7 @@
         </label>
         <label class="check">
           <input type="checkbox" id="only-tools" />
-          Sólo con tool calling (N8N / Hermes / agentes)
+          Sólo los que USAN bien las herramientas (N8N / Hermes / agentes)
         </label>
         <label class="check">
           <input type="checkbox" id="only-thinking" />
@@ -767,7 +770,7 @@
       "name": "¿Cuál es la mejor alternativa a Claude para agentes N8N?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hoy los mejores modelos abiertos del ranking — GLM 5.2 (MIT), DeepSeek R1 (MIT), Ministral 14B (Apache 2.0) — dan calidad al nivel de los premium por una fracción del precio. El ranking se recalcula con cada lote: la respuesta con los números del día está en la calculadora, con presets por caso de uso. Si tu agente maneja credenciales, mira también la columna de seguridad."
+        "text": "Para un agente no decide la calidad general sino si el modelo USA bien las herramientas, que es otra medición. Entre los abiertos: GLM 5.2 (MIT, 8,15 en tool calling), DeepSeek V4 Flash (MIT, 7,60) y Ministral 14B (Apache 2.0, 6,81) rinden a nivel premium por una fracción del precio. Cuidado con elegir por el ranking general: DeepSeek R1 es top-3 en calidad y saca 4,23 usando herramientas — excelente para razonar, malo para un agente. El ranking se recalcula con cada lote: la respuesta con los números del día está en la calculadora, con presets por caso de uso. Si tu agente maneja credenciales, mira también la columna de seguridad."
       }
     },
     {
@@ -840,6 +843,6 @@
   </div>
 </footer>
 
-<script src="app.js?v=20260717"></script>
+<script src="app.js?v=20260813"></script>
 </body>
 </html>

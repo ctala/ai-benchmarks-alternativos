@@ -2,12 +2,12 @@
 
 - **model_id**: `deepseek-ai/deepseek-v4-pro`
 - **Total tests**: 3/51 exitosos (48 errores)
-- **Score final**: 7.79
+- **Score final**: 7.68
 - **Calidad**: 8.83
 - **Judge score (Phi-4)**: 4.67/10
 - **Velocidad**: 5 tok/s
 - **Latencia primera token**: 176.92s
-- **Costo promedio por test**: $0.00000
+- **Costo promedio por test**: $0.00059
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | code_generation | 4 | 0 | - | - |
-| content_generation | 8 | 2 | 7.95 | 9.42 |
+| content_generation | 8 | 2 | 8.08 | 9.42 |
 | creativity | 2 | 0 | - | - |
 | customer_support | 4 | 0 | - | - |
 | deep_reasoning | 6 | 0 | - | - |
@@ -27,7 +27,7 @@
 | structured_output | 4 | 0 | - | - |
 | summarization | 2 | 0 | - | - |
 | task_management | 3 | 0 | - | - |
-| tool_calling | 5 | 1 | 7.48 | 7.66 |
+| tool_calling | 5 | 1 | 6.87 | 7.66 |
 
 ## Detalle por test
 
@@ -206,8 +206,8 @@
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_post_es | 8.04 | 9.52 | 4.8 | 10 | 110.05s | OK |
-| email_profesional | 7.86 | 9.32 | 4.8 | 4 | 106.82s | OK |
+| blog_post_es | 8.10 | 9.52 | 4.8 | 10 | 110.05s | OK |
+| email_profesional | 8.06 | 9.32 | 4.8 | 4 | 106.82s | OK |
 | social_media_batch | 4.85 | 0.00 | - | 0 | 619.65s | ERROR |
 | product_description_en | 5.55 | 2.00 | - | 0 | 401.78s | ERROR |
 | blog_post_es | 3.88 | 0.00 | - | 0 | 0.14s | ERROR |
@@ -215,9 +215,9 @@
 | social_media_batch | 3.88 | 0.00 | - | 0 | 0.01s | ERROR |
 | product_description_en | 4.88 | 2.00 | - | 0 | 0.01s | ERROR |
 
-<details><summary><code>blog_post_es</code> — score 8.04</summary>
+<details><summary><code>blog_post_es</code> — score 8.10</summary>
 
-**Stats**: latencia 110.05s · 10 tok/s · 64→1050 tokens · $0.00000
+**Stats**: latencia 110.05s · 10 tok/s · 64→1050 tokens · $0.00094
 
 **Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -234,9 +234,9 @@ Durante décadas, la automatización avanzada fue un lujo exclusivo de las grand
 
 </details>
 
-<details><summary><code>email_profesional</code> — score 7.86</summary>
+<details><summary><code>email_profesional</code> — score 8.06</summary>
 
-**Stats**: latencia 106.82s · 4 tok/s · 78→394 tokens · $0.00000
+**Stats**: latencia 106.82s · 4 tok/s · 78→394 tokens · $0.00038
 
 **Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -384,15 +384,15 @@ Espero que este mensaje le encuentre bien. En respuesta a su solicitud, adjunto 
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| single_tool_calendar | 7.48 | 7.66 | 4.4 | 0 | 313.89s | OK |
+| single_tool_calendar | 6.87 | 7.66 | 4.4 | 0 | 313.89s | OK |
 | single_tool_calendar | 2.83 | 0.00 | - | 0 | 0.01s | ERROR |
 | multi_tool_sequential | 2.83 | 0.00 | - | 0 | 0.01s | ERROR |
 | tool_with_reasoning | 2.83 | 0.00 | - | 0 | 0.01s | ERROR |
 | no_tool_needed | 4.33 | 0.00 | - | 0 | 0.01s | ERROR |
 
-<details><summary><code>single_tool_calendar</code> — score 7.48</summary>
+<details><summary><code>single_tool_calendar</code> — score 6.87</summary>
 
-**Stats**: latencia 313.89s · 0 tok/s · 739→140 tokens · $0.00000
+**Stats**: latencia 313.89s · 0 tok/s · 739→140 tokens · $0.00044
 
 **Juez Phi-4**: 4.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 

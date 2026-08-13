@@ -65,6 +65,24 @@ THINKING_MODELS = (
                                             # 22/143 runs con respuesta VACÍA y success=True (copy_jwt: 1 token) — el mismo
                                             # modo de falla de los 165 runs vacíos de abril. Su primer examen canónico salió
                                             # inválido (Q 7.64 = artefacto) y está en cuarentena (*.invalid).
+    # Lote del 12-ago-2026. Los 9 se probaron con max_tokens=300 ANTES de medirlos y
+    # todos gastaron el budget en reasoning; CINCO devolvieron content="" (qwen3.7-flash,
+    # laguna-xs, laguna-s, tencent/hy3, inkling-small). Sin estos patrones ese lote entero
+    # se medía en blanco. Upstage Solar Pro 4 dio 0 tokens de reasoning y por eso NO está.
+    "ling-3.0",                             # inclusionAI Ling 3.0 Flash
+    "qwen3.7",                              # cubre flash además de max/plus de abajo
+    "nex-n2",                               # Nex AGI N2 Mini
+    "laguna",                               # Poolside Laguna XS/S 2.1
+    "tencent/hy3",                          # Tencent Hy3 (id completo: "hy3" solo es ambiguo)
+    "inkling",                              # Thinking Machines Inkling / Inkling Small
+    "muse-spark",                            # Meta Muse Spark 1.2 — 297 reasoning tokens
+                                            # y content vacío en el pre-vuelo del 12-ago.
+    "glimmer", "muse-glimmer",              # Meta Muse Glimmer (12 ago 2026) — detectado ANTES de medirlo:
+                                            # con max_tokens=300 devolvió content="" y 202 reasoning tokens.
+                                            # Es la primera vez que este modo de falla se caza antes y no
+                                            # después de pagar un examen entero en blanco. Nemotron 3.5
+                                            # Lightning hace lo mismo (209 reasoning tokens) y ya lo cubre
+                                            # el patrón "nemotron" de arriba.
 )
 
 # Modelos que sólo aceptan temperature=1.0 (rechazan otros con error 400).
@@ -166,7 +184,20 @@ class UnifiedProvider:
                     model.startswith(p) or p in model for p in THINKING_MODELS
                 )
                 if is_thinking:
-                    token_param = "max_completion_tokens"
+                    # `max_completion_tokens` es el nombre de OpenAI. OpenRouter lo ACEPTA
+                    # y lo respeta (verificado 12-ago-2026: tope 50 → out_tok 50,
+                    # finish=length, igual que con `max_tokens`), pero **ningún proveedor
+                    # lo declara** en sus `supported_parameters`. Consecuencia: activar
+                    # `require_parameters: true` con este nombre filtra a TODOS los
+                    # proveedores y devuelve "No endpoints found that can handle the
+                    # requested parameters" — incluso en modelos sanos como Gemma 4 26B,
+                    # que está #5 del ranking y hace tool calling sin problema.
+                    #
+                    # Por eso en OpenRouter se manda `max_tokens`, que es universal. No se
+                    # pierde nada (los dos se respetan) y habilita exigir que el proveedor
+                    # soporte de verdad las tools que le mandamos.
+                    token_param = ("max_tokens" if self.provider_name == "openrouter"
+                                   else "max_completion_tokens")
                     effective_max = max(max_tokens * THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS)
                 else:
                     token_param = "max_tokens"
@@ -189,6 +220,55 @@ class UnifiedProvider:
             # benchmark (91 tests por modelo) — evita cold start repetido. Default
             # Ollama es 5min, queda corto si el run es lento.
             extra_body = {}
+
+            # ── OpenRouter: exigir que el proveedor SOPORTE lo que le mandamos ──
+            #
+            # Esto no es una optimización, es corregir una medición inválida. La doc de
+            # OpenRouter (verificada 12-ago-2026) dice, textual:
+            #
+            #   `require_parameters` — **default `false`**. "With the default routing
+            #   strategy, providers that don't support all the LLM parameters specified in
+            #   your request can still receive the request, but WILL IGNORE UNKNOWN
+            #   PARAMETERS."
+            #
+            #   Y sobre tools: "a small set of parameters is used as a SOFT PREFERENCE when
+            #   choosing between providers of the same model: `tools`, `response_format`…
+            #   though it MAY STILL FALL BACK to others if necessary."
+            #
+            # Traducido al benchmark: mandábamos `tools` y OpenRouter podía rutear a un
+            # proveedor que los descarta en silencio. El modelo nunca veía las herramientas,
+            # respondía texto plano, y nosotros lo anotábamos como "no llamó a la
+            # herramienta". Eso es un artefacto de RUTEO anotado como defecto del MODELO —
+            # la misma clase de error que marcar muerto a un Llama que estaba vivo.
+            #
+            # Es candidato directo a explicar por qué la suite `tool_calling` "no
+            # discriminaba" (todos entre 5,3 y 7,2, incluido uno que no puede emitir una
+            # tool call) y por eso salió del score en v3.x. Y `response_format` está en la
+            # MISMA lista: de ahí depende `structured_output`.
+            #
+            # ⚠️ Efecto colateral esperado y correcto: si NINGÚN proveedor del modelo
+            # soporta tools, ahora falla ruidoso ("No endpoints found that support tool
+            # use") en vez de devolver una respuesta plausible y falsa. Fallar ruidoso es
+            # la doctrina del repo; un número plausible y falso es peor que ninguno.
+            if self.provider_name == "openrouter" and (tools or kwargs.get("response_format")):
+                # ⚠️ `require_parameters` exige que el proveedor declare TODOS los
+                # parámetros del request, y `temperature` es el que sobra.
+                #
+                # Medido el 12-ago-2026 con `openai/gpt-5.6-luna-pro`: sus 5 proveedores
+                # soportan `tools`, pero NINGUNO declara `temperature` (es un modelo de
+                # razonamiento; OpenAI los sirve con temperatura fija). Resultado:
+                #
+                #   tools + temperature + require_parameters   → 404, sin endpoints
+                #   tools + require_parameters SIN temperature → ✅ OpenAI, tool_call ok
+                #
+                # `FIXED_TEMP_MODELS` ya cubría este caso pero solo para gpt-5.5/o1/o3;
+                # la familia 5.6 no estaba. En vez de perseguir nombres de modelo uno por
+                # uno —que es cómo se llegó a este bug— se omite `temperature` SIEMPRE que
+                # se activa require_parameters. Cuesta poco: el default del proveedor es
+                # razonable y esos tests miden uso de herramientas, no creatividad.
+                extra_body["provider"] = {"require_parameters": True}
+                kwargs.pop("temperature", None)
+
             if "ollama" in self.provider_name.lower():
                 extra_body["keep_alive"] = "30m"
             # llama-server: apagar el reasoning interno de Gemma 4 (verificado:
@@ -262,6 +342,20 @@ class UnifiedProvider:
                     # Fallback: usar reasoning como respuesta (caso Gemma 4 thinking
                     # con max_tokens insuficiente). Mejor algo que nada.
                     content = reasoning
+            # PROVEEDOR UPSTREAM. OpenRouter es un router: el mismo `model_id` lo puede
+            # servir DeepInfra, CoreWeave, Novita o Together, y no son intercambiables.
+            # Medido el 12-ago-2026 en `nvidia/nemotron-3.5-lightning`: DeepInfra lo sirve
+            # con **28.672 de contexto** (la spec dice 262.144) y OpenRouter le marca
+            # `status: -2`; CoreWeave lo sirve completo. Sin este campo, un número
+            # publicado como "Nemotron 3.5 Lightning" puede ser en realidad "Nemotron en un
+            # endpoint truncado", y no hay cómo saberlo después ni reproducirlo.
+            #
+            # El repo ya sabía que el serving mueve la calidad — Qwen 3.5 397B da 7,96 en
+            # NIM y 5,46 en Ollama Cloud, y hay una página dedicada al tema. Lo que faltaba
+            # era registrarlo DENTRO de OpenRouter, donde el ruteo es invisible.
+            upstream = getattr(response, "provider", None)
+            if upstream:
+                result.metadata["upstream_provider"] = str(upstream)
             result.latency_total = end - start
             result.latency_first_token = result.latency_total  # sin streaming = mismo
             result.success = True

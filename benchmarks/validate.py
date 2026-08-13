@@ -287,24 +287,36 @@ def c3_superficies_coinciden(models, verbose):
     —que sí filtran ≥50— mostraban otro ganador. Misma data, dos rankings públicos
     contradictorios.
     """
-    r = sorted([m for m in models if m.get("ranked")],
-               key=lambda x: -(x.get("score_global") or 0))
-    if not r:
+    # Desde v4.1 el titular es el ÍNDICE DE CALIDAD, no el compuesto: los docs publican
+    # `score_calidad`. Chequear contra `score_global` daba un falso positivo — avisaba que
+    # MODELOS.md "no menciona al #1" cuando el doc estaba correcto y el criterio era el
+    # viejo. Se verifican AMBOS líderes: el de calidad (lo que se publica) y el del
+    # compuesto (que sigue en el JSON para la calculadora).
+    ranked = [m for m in models if m.get("ranked")]
+    if not ranked:
         fallo("C3 · superficies", "no hay modelos rankeados")
         return
-    n1, n = r[0]["name"], len(r)
+    n = len(ranked)
+    top_cal = max(ranked, key=lambda x: (x.get("score_calidad") or 0))
+    top_comp = max(ranked, key=lambda x: (x.get("score_global") or 0))
 
     for doc in ("README.md", "MODELOS.md"):
         p = ROOT / doc
         if not p.exists():
             continue
         txt = p.read_text(encoding="utf-8")
-        # el #1 tiene que aparecer; si el doc nombra OTRO como #1, es contradicción
-        if n1 not in txt:
-            aviso("C3 · superficies", f"{doc} no menciona al #1 actual ({n1})")
+        # Se acepta el NOMBRE o el ID: el README rotula con nombre y las tablas de
+        # MODELOS.md con el id (`tencent/hy3`). Buscar solo el nombre daba un falso
+        # positivo contra un doc que estaba perfectamente sincronizado.
+        if top_cal["name"] not in txt and (top_cal.get("id") or "\0") not in txt:
+            aviso("C3 · superficies",
+                  f"{doc} no menciona al #1 en calidad ({top_cal['name']})")
 
     if verbose:
-        print(f"  ✅ C3 · el #1 ({n1}) y el conteo ({n} rankeados) coinciden entre superficies")
+        extra = ("" if top_cal["name"] == top_comp["name"]
+                 else f" · #1 del compuesto: {top_comp['name']}")
+        print(f"  ✅ C3 · el #1 en calidad ({top_cal['name']}) y el conteo "
+              f"({n} rankeados) coinciden entre superficies{extra}")
 
 
 # ─────────────────────────────────────────────────────────────────────────────

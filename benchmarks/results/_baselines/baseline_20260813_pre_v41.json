@@ -1,0 +1,348 @@
+{
+ "generado": "2026-08-13",
+ "motivo": "antes de recalibrar a v4.1 (dos ejes)",
+ "scoring_version": "v4.0",
+ "ranked": 68,
+ "modelos": {
+  "gpt-5.6-luna": {
+   "name": "GPT-5.6 Luna",
+   "score_global": 8.8,
+   "quality_avg": 8.41
+  },
+  "gpt-5.4-mini": {
+   "name": "GPT-5.4 Mini",
+   "score_global": 7.79,
+   "quality_avg": 8.21
+  },
+  "glm-5.2": {
+   "name": "GLM 5.2",
+   "score_global": 7.33,
+   "quality_avg": 8.3
+  },
+  "or-ministral-14b": {
+   "name": "Ministral 14B",
+   "score_global": 7.21,
+   "quality_avg": 8.16
+  },
+  "gemma-4-26b": {
+   "name": "Gemma 4 26B MoE (3.8B activos)",
+   "score_global": 7.19,
+   "quality_avg": 8.19
+  },
+  "or-mistral-large-3": {
+   "name": "Mistral Large 3 675B",
+   "score_global": 7.08,
+   "quality_avg": 8.18
+  },
+  "qwen-3.6-plus": {
+   "name": "Qwen 3.6 Plus",
+   "score_global": 7.0,
+   "quality_avg": 8.27
+  },
+  "claude-opus-4.6": {
+   "name": "Claude Opus 4.6",
+   "score_global": 6.86,
+   "quality_avg": 8.34
+  },
+  "claude-opus-4.8": {
+   "name": "Claude Opus 4.8",
+   "score_global": 6.85,
+   "quality_avg": 8.3
+  },
+  "gpt-4.1": {
+   "name": "GPT-4.1",
+   "score_global": 6.79,
+   "quality_avg": 8.12
+  },
+  "mimo-v2.5-pro-or": {
+   "name": "MiMo-V2.5 Pro",
+   "score_global": 6.79,
+   "quality_avg": 8.15
+  },
+  "glm-5.1": {
+   "name": "GLM-5.1",
+   "score_global": 6.78,
+   "quality_avg": 8.25
+  },
+  "gpt-5.4": {
+   "name": "GPT-5.4",
+   "score_global": 6.78,
+   "quality_avg": 8.2
+  },
+  "or-glm5": {
+   "name": "GLM 5",
+   "score_global": 6.77,
+   "quality_avg": 8.24
+  },
+  "deepseek-r1": {
+   "name": "DeepSeek R1 (reasoning)",
+   "score_global": 6.7,
+   "quality_avg": 8.29
+  },
+  "or-deepseek-v3": {
+   "name": "DeepSeek V3",
+   "score_global": 6.65,
+   "quality_avg": 8.14
+  },
+  "minimax-m3": {
+   "name": "MiniMax M3",
+   "score_global": 6.57,
+   "quality_avg": 8.15
+  },
+  "qwen-3.6-max": {
+   "name": "Qwen 3.6 Max",
+   "score_global": 6.54,
+   "quality_avg": 8.29
+  },
+  "claude-opus-4.7": {
+   "name": "Claude Opus 4.7",
+   "score_global": 6.51,
+   "quality_avg": 8.26
+  },
+  "mistral-large": {
+   "name": "Mistral Large",
+   "score_global": 6.5,
+   "quality_avg": 8.15
+  },
+  "gpt-5.6-terra": {
+   "name": "GPT-5.6 Terra",
+   "score_global": 6.49,
+   "quality_avg": 8.09
+  },
+  "or-minimax-m2.5": {
+   "name": "MiniMax M2.5",
+   "score_global": 6.48,
+   "quality_avg": 8.06
+  },
+  "deepseek-v3": {
+   "name": "DeepSeek V3.2",
+   "score_global": 6.34,
+   "quality_avg": 8.13
+  },
+  "deepseek-v4-flash": {
+   "name": "DeepSeek V4 Flash (OpenRouter)",
+   "score_global": 6.29,
+   "quality_avg": 8.02
+  },
+  "claude-sonnet-4.6": {
+   "name": "Claude Sonnet 4.6 (ultimo Anthropic)",
+   "score_global": 6.28,
+   "quality_avg": 8.17
+  },
+  "mimo-v2.5-or": {
+   "name": "MiMo-V2.5 (omnimodal)",
+   "score_global": 6.28,
+   "quality_avg": 8.05
+  },
+  "gpt-5.6-sol": {
+   "name": "GPT-5.6 Sol",
+   "score_global": 6.25,
+   "quality_avg": 8.2
+  },
+  "claude-haiku-4.5": {
+   "name": "Claude Haiku 4.5",
+   "score_global": 6.09,
+   "quality_avg": 7.97
+  },
+  "qwen-3.7-max": {
+   "name": "Qwen 3.7 Max",
+   "score_global": 5.97,
+   "quality_avg": 8.12
+  },
+  "gemini-3.1-flash-lite": {
+   "name": "Gemini 3.1 Flash Lite",
+   "score_global": 5.93,
+   "quality_avg": 7.82
+  },
+  "kimi-k3": {
+   "name": "Kimi K3",
+   "score_global": 5.9,
+   "quality_avg": 8.22
+  },
+  "or-qwen3-next-instruct": {
+   "name": "Qwen 3-Next 80B Instruct",
+   "score_global": 5.89,
+   "quality_avg": 7.87
+  },
+  "gemini-flash-lite": {
+   "name": "Gemini 2.5 Flash Lite",
+   "score_global": 5.69,
+   "quality_avg": 7.79
+  },
+  "or-qwen-3.5-35b": {
+   "name": "Qwen 3.5 35B",
+   "score_global": 5.64,
+   "quality_avg": 7.9
+  },
+  "qwen3-coder": {
+   "name": "Qwen3 Coder",
+   "score_global": 5.52,
+   "quality_avg": 7.85
+  },
+  "gpt-4.1-mini": {
+   "name": "GPT-4.1 Mini",
+   "score_global": 5.46,
+   "quality_avg": 7.83
+  },
+  "deepseek-v4-pro": {
+   "name": "DeepSeek V4 Pro",
+   "score_global": 5.44,
+   "quality_avg": 7.95
+  },
+  "or-nemotron-3-nano-omni-reasoning": {
+   "name": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
+   "score_global": 5.44,
+   "quality_avg": 7.81
+  },
+  "llama-4-maverick": {
+   "name": "Llama 4 Maverick",
+   "score_global": 5.43,
+   "quality_avg": 7.88
+  },
+  "gemini-flash": {
+   "name": "Gemini 2.5 Flash",
+   "score_global": 5.42,
+   "quality_avg": 7.83
+  },
+  "hermes-4-405b": {
+   "name": "Hermes 4 405B",
+   "score_global": 5.41,
+   "quality_avg": 7.93
+  },
+  "kimi-k2": {
+   "name": "Kimi K2",
+   "score_global": 5.39,
+   "quality_avg": 7.94
+  },
+  "mistral-small-4": {
+   "name": "Mistral Small 4",
+   "score_global": 5.37,
+   "quality_avg": 7.75
+  },
+  "or-gpt-oss-120b": {
+   "name": "GPT-OSS 120B",
+   "score_global": 5.29,
+   "quality_avg": 7.85
+  },
+  "kimi-k2.6": {
+   "name": "Kimi K2.6",
+   "score_global": 5.26,
+   "quality_avg": 8.0
+  },
+  "openrouter-nemotron-3-ultra-550b": {
+   "name": "Nemotron 3 Ultra 550B",
+   "score_global": 5.25,
+   "quality_avg": 7.86
+  },
+  "grok-4.5": {
+   "name": "Grok 4.5",
+   "score_global": 5.21,
+   "quality_avg": 7.91
+  },
+  "or-nemotron-nano-9b-v2": {
+   "name": "Nemotron Nano 9B v2",
+   "score_global": 5.16,
+   "quality_avg": 7.87
+  },
+  "qwen3.6-35b": {
+   "name": "Qwen 3.6 35B base (OpenRouter FP8)",
+   "score_global": 5.14,
+   "quality_avg": 7.82
+  },
+  "or-claude-fable-5": {
+   "name": "Claude Fable 5",
+   "score_global": 5.12,
+   "quality_avg": 8.05
+  },
+  "minimax-m2.7": {
+   "name": "MiniMax M2.7",
+   "score_global": 5.02,
+   "quality_avg": 7.85
+  },
+  "grok-4.20": {
+   "name": "Grok 4.20",
+   "score_global": 4.67,
+   "quality_avg": 7.73
+  },
+  "grok-4.3": {
+   "name": "Grok 4.3",
+   "score_global": 4.64,
+   "quality_avg": 7.72
+  },
+  "or-llama-4-scout": {
+   "name": "Llama 4 Scout 17B",
+   "score_global": 4.51,
+   "quality_avg": 7.59
+  },
+  "or-qwen3.5-397b": {
+   "name": "Qwen 3.5 397B",
+   "score_global": 4.47,
+   "quality_avg": 7.82
+  },
+  "qwen3-coder-next": {
+   "name": "Qwen3-Coder-Next (OpenRouter FP8)",
+   "score_global": 4.43,
+   "quality_avg": 7.6
+  },
+  "nemotron-super": {
+   "name": "Nemotron 3 Super",
+   "score_global": 4.33,
+   "quality_avg": 7.68
+  },
+  "or-llama-3.3-70b": {
+   "name": "Llama 3.3 70B",
+   "score_global": 4.18,
+   "quality_avg": 7.66
+  },
+  "hermes-4-70b": {
+   "name": "Hermes 4 70B",
+   "score_global": 3.96,
+   "quality_avg": 7.52
+  },
+  "or-gpt-oss-20b": {
+   "name": "GPT-OSS 20B",
+   "score_global": 3.88,
+   "quality_avg": 7.53
+  },
+  "kimi-k2.7-code": {
+   "name": "Kimi K2.7 Code",
+   "score_global": 3.8,
+   "quality_avg": 7.71
+  },
+  "qwen3.6-27b": {
+   "name": "Qwen 3.6 27B base (OpenRouter FP8)",
+   "score_global": 3.5,
+   "quality_avg": 7.66
+  },
+  "gemini-pro": {
+   "name": "Gemini 2.5 Pro",
+   "score_global": 3.24,
+   "quality_avg": 7.63
+  },
+  "or-qwen3-next-thinking": {
+   "name": "Qwen 3-Next 80B Thinking",
+   "score_global": 2.95,
+   "quality_avg": 7.44
+  },
+  "nemotron-nano": {
+   "name": "Nemotron 3 Nano 30B",
+   "score_global": 2.66,
+   "quality_avg": 7.32
+  },
+  "or-llama-3.1-8b": {
+   "name": "Llama 3.1 8B Instant",
+   "score_global": 1.44,
+   "quality_avg": 7.09
+  },
+  "gemini-3.5-flash": {
+   "name": "Gemini 3.5 Flash",
+   "score_global": 1.43,
+   "quality_avg": 7.2
+  },
+  "gemini-3.1-pro": {
+   "name": "Gemini 3.1 Pro",
+   "score_global": 0.5,
+   "quality_avg": 7.11
+  }
+ }
+}
