@@ -731,7 +731,13 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     # mucho para el JSON), acá van las claves que se consultan al auditar.
     scores["tool_calls_made"] = getattr(result, "tool_calls_made", 0) or 0
     _md = result.metadata or {}
-    for _k in ("upstream_provider", "finish_reason", "native_finish_reason", "api_refusal"):
+    # `reasoning_tokens` entra acá el 13-ago-2026. Sin él no se podía saber DESPUÉS con
+    # cuánto razonamiento se midió un modelo: los 3.901 runs de agosto no tienen ni uno,
+    # así que la pregunta "¿lo medimos con thinking o sin thinking?" solo se podía
+    # responder mandando una sonda nueva. Con esto, el nivel de razonamiento queda en el
+    # dato y se puede auditar como cualquier otra cosa.
+    for _k in ("upstream_provider", "finish_reason", "native_finish_reason", "api_refusal",
+               "reasoning_tokens"):
         if _md.get(_k) is not None:
             scores[_k] = _md[_k]
 
