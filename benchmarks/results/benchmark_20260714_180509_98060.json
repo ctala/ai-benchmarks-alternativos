@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:51:35+00:00",
+      "at": "2026-08-13T04:23:02+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     },
     "polluted_cleanup": {
@@ -23,13 +23,13 @@
   },
   "results": [
     {
-      "quality": 7.5,
+      "quality": 5.0,
       "cost_score": 10.0,
       "cost_usd": 0.000162,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 7.65,
+      "final": 5.9,
       "test_name": "model_as_router",
       "model": "Hermes 4 70B",
       "model_id": "nousresearch/hermes-4-70b",
@@ -41,9 +41,9 @@
       "input_tokens": 286,
       "output_tokens": 313,
       "response_preview": "[\n  {\"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\", \"modelo\": \"deepseek-v3\", \"razon\": \"El modelo deepseek-v3 es muy bueno para razonamiento y analisis, ademas de ser muy barato.\"},\n  {\"subtarea\": \"Escribir un email de disculpas a clientes afectados por un bug\",",
-      "auto_quality": 7.5,
+      "auto_quality": 5.0,
       "content_score": 8.0,
-      "answer_score": 7.5,
+      "answer_score": 5.0,
       "scoring": "verificable",
       "judge_score": 4.0,
       "judge_precision": 4,
@@ -57,7 +57,7 @@
       "timestamp": "20260714_180509_98060",
       "response_file": "results/responses/20260714_180509_98060/hermes-4-70b__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:35+00:00"
+      "rescored_at": "2026-08-13T04:23:02+00:00"
     }
   ]
 }

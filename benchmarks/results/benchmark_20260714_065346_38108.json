@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:47:38+00:00",
+      "at": "2026-08-13T04:20:43+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,17 +52,17 @@
       "content_score": 8.0,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:37+00:00",
+      "rescored_at": "2026-08-13T04:20:42+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 7.5,
+      "quality": 10.0,
       "cost_score": 7.05,
       "cost_usd": 0.002076,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.13,
+      "final": 8.88,
       "test_name": "pricing_strategy",
       "model": "Qwen 3.5 35B",
       "model_id": "qwen/qwen3.5-35b-a3b",
@@ -74,7 +74,7 @@
       "input_tokens": 201,
       "output_tokens": 2048,
       "response_preview": "Here's a thinking process that leads to the suggested analysis:\n\n1.  **Understand the Goal:** The user wants an analysis of raising their SaaS inventory management price from $60 to $89/month. They provided specific metrics (CAC, LTV, Churn, Customers, Competitor Prices, Cost per User) and requested",
-      "auto_quality": 7.5,
+      "auto_quality": 10.0,
       "judge_score": 4.4,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -87,9 +87,9 @@
       "timestamp": "20260714_065346_38108",
       "response_file": "results/responses/20260714_065346_38108/or-qwen-3.5-35b__strategy__pricing_strategy.md",
       "content_score": 5.74,
-      "answer_score": 7.5,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:38+00:00",
+      "rescored_at": "2026-08-13T04:20:43+00:00",
       "scoring": "verificable"
     },
     {
@@ -126,7 +126,7 @@
       "content_score": 10.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:38+00:00",
+      "rescored_at": "2026-08-13T04:20:43+00:00",
       "scoring": "verificable"
     }
   ]

@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:52:27+00:00",
+      "at": "2026-08-13T04:23:41+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -134,7 +134,7 @@
       "timestamp": "20260715_082251_44555",
       "response_file": "results/responses/20260715_082251_44555/mistral-nemo__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:24+00:00"
+      "rescored_at": "2026-08-13T04:23:39+00:00"
     },
     {
       "quality": 0.0,
@@ -198,7 +198,7 @@
       "timestamp": "20260715_082251_44555",
       "response_file": "results/responses/20260715_082251_44555/mistral-nemo__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:24+00:00"
+      "rescored_at": "2026-08-13T04:23:39+00:00"
     },
     {
       "quality": 0.0,
@@ -316,16 +316,16 @@
       "timestamp": "20260715_082251_44555",
       "response_file": "results/responses/20260715_082251_44555/mistral-nemo__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:24+00:00"
+      "rescored_at": "2026-08-13T04:23:39+00:00"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 10.0,
       "cost_usd": 2.2e-05,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.77,
+      "final": 9.17,
       "test_name": "campaign_optimization",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -337,9 +337,9 @@
       "input_tokens": 303,
       "output_tokens": 783,
       "response_preview": "1. Cálculos de indicadores clave de rendimiento (KPIs) para cada campaña:\n* Campaña A:\n\t+ CTR: 3% (1,500 clicks / 50,000 impressions)\n\t+ CPC: $1.40 (2,100 costo / 1,500 clicks)\n\t+ CPA: $46.67 (2,100 costo / 45 signups)\n\t+ Tasa de conversión: 3% (45 signups / 1,500 clicks)\n* Campaña B:\n\t+ CTR: 4% (4,",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "content_score": 8.67,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "scoring": "verificable",
       "judge_score": 5,
       "judge_precision": 5,
@@ -353,7 +353,7 @@
       "timestamp": "20260715_082251_44555",
       "response_file": "results/responses/20260715_082251_44555/mistral-nemo__sales_outreach__campaign_optimization.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:25+00:00"
+      "rescored_at": "2026-08-13T04:23:40+00:00"
     },
     {
       "quality": 8.32,
@@ -425,7 +425,7 @@
       "timestamp": "20260715_082251_44555",
       "response_file": "results/responses/20260715_082251_44555/gemini-pro__orchestration__error_recovery_orchestration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:25+00:00"
+      "rescored_at": "2026-08-13T04:23:40+00:00"
     },
     {
       "quality": 5.22,
@@ -497,16 +497,16 @@
       "timestamp": "20260715_082251_44555",
       "response_file": "results/responses/20260715_082251_44555/gemini-pro__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:25+00:00"
+      "rescored_at": "2026-08-13T04:23:40+00:00"
     },
     {
-      "quality": 10.0,
+      "quality": 8.57,
       "cost_score": 3.87,
       "cost_usd": 0.023885,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.4,
+      "final": 7.4,
       "test_name": "parallel_vs_sequential_judgment",
       "model": "Gemini 2.5 Pro",
       "model_id": "google/gemini-2.5-pro",
@@ -518,9 +518,9 @@
       "input_tokens": 452,
       "output_tokens": 2332,
       "response_preview": "Claro, analicemos las dependencias y optimicemos el plan.\n\n### 1. Análisis y Diagrama de Dependencias\n\nPrimero, clasifico cada tarea como paralela o secuencial y establezco sus dependencias.\n\n*   **A. Buscar precios de competidores:** No tiene dependencias. **(Inicial)**\n*   **B. Generar descripción",
-      "auto_quality": 10.0,
+      "auto_quality": 8.57,
       "content_score": 10.0,
-      "answer_score": 10.0,
+      "answer_score": 8.57,
       "scoring": "verificable",
       "judge_score": 5,
       "judge_precision": 5,
@@ -534,7 +534,7 @@
       "timestamp": "20260715_082251_44555",
       "response_file": "results/responses/20260715_082251_44555/gemini-pro__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:26+00:00"
+      "rescored_at": "2026-08-13T04:23:41+00:00"
     },
     {
       "quality": 6.67,
@@ -571,7 +571,7 @@
       "timestamp": "20260715_082251_44555",
       "response_file": "results/responses/20260715_082251_44555/gemini-pro__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:26+00:00"
+      "rescored_at": "2026-08-13T04:23:41+00:00"
     },
     {
       "quality": 5.0,
@@ -608,7 +608,7 @@
       "timestamp": "20260715_082251_44555",
       "response_file": "results/responses/20260715_082251_44555/gemini-pro__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:26+00:00"
+      "rescored_at": "2026-08-13T04:23:41+00:00"
     },
     {
       "quality": 10.0,
@@ -645,7 +645,7 @@
       "timestamp": "20260715_082251_44555",
       "response_file": "results/responses/20260715_082251_44555/gemini-pro__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:26+00:00"
+      "rescored_at": "2026-08-13T04:23:41+00:00"
     },
     {
       "quality": 8.0,
@@ -682,7 +682,7 @@
       "timestamp": "20260715_082251_44555",
       "response_file": "results/responses/20260715_082251_44555/gemini-pro__sales_outreach__cold_email_personalized.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:26+00:00"
+      "rescored_at": "2026-08-13T04:23:41+00:00"
     },
     {
       "quality": 3.33,
@@ -719,7 +719,7 @@
       "timestamp": "20260715_082251_44555",
       "response_file": "results/responses/20260715_082251_44555/gemini-pro__sales_outreach__lead_qualification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:26+00:00"
+      "rescored_at": "2026-08-13T04:23:41+00:00"
     },
     {
       "quality": 10.0,
@@ -756,7 +756,7 @@
       "timestamp": "20260715_082251_44555",
       "response_file": "results/responses/20260715_082251_44555/gemini-pro__sales_outreach__campaign_optimization.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:27+00:00"
+      "rescored_at": "2026-08-13T04:23:41+00:00"
     }
   ]
 }

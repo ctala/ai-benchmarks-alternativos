@@ -13,7 +13,7 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:50:25+00:00",
+      "at": "2026-08-13T04:22:16+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,7 +52,7 @@
       "content_score": 8.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:22+00:00",
+      "rescored_at": "2026-08-13T04:22:14+00:00",
       "scoring": "verificable"
     },
     {
@@ -89,17 +89,17 @@
       "content_score": 8.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:24+00:00",
+      "rescored_at": "2026-08-13T04:22:15+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 4.85,
       "cost_usd": 0.011202,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.7,
+      "final": 8.1,
       "test_name": "campaign_optimization",
       "model": "GLM 5",
       "model_id": "z-ai/glm-5",
@@ -111,7 +111,7 @@
       "input_tokens": 271,
       "output_tokens": 4292,
       "response_preview": "Aquí tienes el análisis completo de tus campañas de Google Ads.\n\n### 1. Métricas Calculadas\n\nAquí están los KPIs clave para cada campaña:\n\n| Métrica | **Campaña A** (Landing) | **Campaña B** (Blog) | **Campaña C** (Competidor) |\n| :--- | :--- | :--- | :--- |\n| **CTR (Click-Through Rate)** | **3.00%*",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -124,9 +124,9 @@
       "timestamp": "20260714_084325_94549",
       "response_file": "results/responses/20260714_084325_94549/or-glm5__sales_outreach__campaign_optimization.md",
       "content_score": 10.0,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:25+00:00",
+      "rescored_at": "2026-08-13T04:22:16+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,7 +163,7 @@
       "content_score": 6.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:25+00:00",
+      "rescored_at": "2026-08-13T04:22:16+00:00",
       "scoring": "verificable"
     }
   ]

@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:51:21+00:00",
+      "at": "2026-08-13T04:22:52+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -53,7 +53,7 @@
       "timestamp": "20260714_155132_26707",
       "response_file": "results/responses/20260714_155132_26707/deepseek-v4-pro__string_precision__copy_hex_32.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     },
     {
       "quality": 10.0,
@@ -90,7 +90,7 @@
       "timestamp": "20260714_155132_26707",
       "response_file": "results/responses/20260714_155132_26707/deepseek-v4-pro__string_precision__copy_hex_64.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     },
     {
       "quality": 1.0,
@@ -127,7 +127,7 @@
       "timestamp": "20260714_155132_26707",
       "response_file": "results/responses/20260714_155132_26707/deepseek-v4-pro__string_precision__copy_api_key.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     },
     {
       "quality": 10.0,
@@ -164,7 +164,7 @@
       "timestamp": "20260714_155132_26707",
       "response_file": "results/responses/20260714_155132_26707/deepseek-v4-pro__string_precision__copy_jwt.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     },
     {
       "quality": 10.0,
@@ -201,7 +201,7 @@
       "timestamp": "20260714_155132_26707",
       "response_file": "results/responses/20260714_155132_26707/deepseek-v4-pro__string_precision__copy_mixed_special.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     },
     {
       "quality": 8.0,
@@ -238,7 +238,7 @@
       "timestamp": "20260714_155132_26707",
       "response_file": "results/responses/20260714_155132_26707/deepseek-v4-pro__string_precision__write_config_file.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     }
   ]
 }

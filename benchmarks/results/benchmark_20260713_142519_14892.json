@@ -13,7 +13,7 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:43:09+00:00",
+      "at": "2026-08-13T04:16:48+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -50,7 +50,7 @@
       "timestamp": "20260713_142519_14892",
       "response_file": "results/responses/20260713_142519_14892/minimax-m3__business_audit__atribucion_correlacion_temporal.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:09+00:00",
+      "rescored_at": "2026-08-13T04:16:48+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
@@ -87,19 +87,19 @@
       "timestamp": "20260713_142519_14892",
       "response_file": "results/responses/20260713_142519_14892/minimax-m3__business_audit__auditoria_pnl_error_plantado.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:09+00:00",
+      "rescored_at": "2026-08-13T04:16:48+00:00",
       "content_score": 6.0,
       "answer_score": 10.0,
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 6.87,
       "cost_usd": 0.002381,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.46,
+      "final": 8.86,
       "test_name": "churn_mezcla_free_y_pago",
       "model": "MiniMax M3",
       "model_id": "minimax/minimax-m3",
@@ -111,7 +111,7 @@
       "input_tokens": 318,
       "output_tokens": 1905,
       "response_preview": "# Antes de actuar, segmentemos el número\n\nTu pánico viene de medir dos poblaciones radicalmente distintas con la misma regla. Respiremos y miremos qué dice realmente cada segmento.\n\n## Verificación matemática\n\n- **Blended (mezclado):** 62 / 200 = **31%** ✓ correcto, pero inútil como KPI\n- **Free pla",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -124,9 +124,9 @@
       "timestamp": "20260713_142519_14892",
       "response_file": "results/responses/20260713_142519_14892/minimax-m3__business_audit__churn_mezcla_free_y_pago.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:09+00:00",
+      "rescored_at": "2026-08-13T04:16:48+00:00",
       "content_score": 6.0,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "scoring": "verificable"
     }
   ]

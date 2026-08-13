@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:51:24+00:00",
+      "at": "2026-08-13T04:22:54+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -53,7 +53,7 @@
       "timestamp": "20260714_163618_51389",
       "response_file": "results/responses/20260714_163618_51389/minimax-m3__strategy__competitor_analysis.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:23+00:00"
+      "rescored_at": "2026-08-13T04:22:53+00:00"
     },
     {
       "quality": 5.0,
@@ -90,7 +90,7 @@
       "timestamp": "20260714_163618_51389",
       "response_file": "results/responses/20260714_163618_51389/minimax-m3__strategy__pricing_strategy.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:24+00:00"
+      "rescored_at": "2026-08-13T04:22:54+00:00"
     },
     {
       "quality": 10.0,
@@ -127,7 +127,7 @@
       "timestamp": "20260714_163618_51389",
       "response_file": "results/responses/20260714_163618_51389/minimax-m3__strategy__business_model_validation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:24+00:00"
+      "rescored_at": "2026-08-13T04:22:54+00:00"
     }
   ]
 }

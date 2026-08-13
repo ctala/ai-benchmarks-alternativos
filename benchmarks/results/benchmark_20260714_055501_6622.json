@@ -13,7 +13,7 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:46:09+00:00",
+      "at": "2026-08-13T04:19:25+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,7 +52,7 @@
       "content_score": 5.34,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:08+00:00",
+      "rescored_at": "2026-08-13T04:19:24+00:00",
       "scoring": "verificable"
     },
     {
@@ -89,7 +89,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:08+00:00",
+      "rescored_at": "2026-08-13T04:19:24+00:00",
       "scoring": "verificable"
     },
     {
@@ -126,7 +126,7 @@
       "content_score": 4.0,
       "answer_score": 3.33,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:09+00:00",
+      "rescored_at": "2026-08-13T04:19:25+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,7 +163,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:09+00:00",
+      "rescored_at": "2026-08-13T04:19:25+00:00",
       "scoring": "verificable"
     },
     {
@@ -200,7 +200,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:09+00:00",
+      "rescored_at": "2026-08-13T04:19:25+00:00",
       "scoring": "verificable"
     },
     {
@@ -237,7 +237,7 @@
       "content_score": 4.67,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:09+00:00",
+      "rescored_at": "2026-08-13T04:19:25+00:00",
       "scoring": "verificable"
     },
     {
@@ -274,7 +274,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:09+00:00",
+      "rescored_at": "2026-08-13T04:19:25+00:00",
       "scoring": "verificable"
     },
     {
@@ -311,7 +311,7 @@
       "content_score": 4.0,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:09+00:00",
+      "rescored_at": "2026-08-13T04:19:25+00:00",
       "scoring": "verificable"
     },
     {
@@ -348,7 +348,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:09+00:00",
+      "rescored_at": "2026-08-13T04:19:25+00:00",
       "scoring": "verificable"
     },
     {
@@ -385,7 +385,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:09+00:00",
+      "rescored_at": "2026-08-13T04:19:25+00:00",
       "scoring": "verificable"
     },
     {
@@ -422,7 +422,7 @@
       "content_score": 4.0,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:09+00:00",
+      "rescored_at": "2026-08-13T04:19:25+00:00",
       "scoring": "verificable"
     },
     {
@@ -459,17 +459,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:09+00:00",
+      "rescored_at": "2026-08-13T04:19:25+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.67,
+      "quality": 10.0,
       "cost_score": 8.33,
       "cost_usd": 0.000779,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 6.52,
+      "final": 8.85,
       "test_name": "fuentes_que_se_contradicen",
       "model": "Hermes 4 405B",
       "model_id": "nousresearch/hermes-4-405b",
@@ -481,7 +481,7 @@
       "input_tokens": 149,
       "output_tokens": 210,
       "response_preview": "El panorama de la inteligencia artificial en América Latina está marcado por una contradicción sorprendente: según una encuesta regional de marzo de 2026, el 34% de las pequeñas y medianas empresas (pymes) ya utiliza herramientas de IA generativa. Sin embargo, un informe sectorial de abril de 2026 r",
-      "auto_quality": 6.67,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -494,9 +494,9 @@
       "timestamp": "20260714_055501_6622",
       "response_file": "results/responses/20260714_055501_6622/hermes-4-405b__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 4.0,
-      "answer_score": 6.67,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:09+00:00",
+      "rescored_at": "2026-08-13T04:19:25+00:00",
       "scoring": "verificable"
     },
     {
@@ -533,7 +533,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:09+00:00",
+      "rescored_at": "2026-08-13T04:19:25+00:00",
       "scoring": "verificable"
     },
     {
@@ -570,7 +570,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:09+00:00",
+      "rescored_at": "2026-08-13T04:19:25+00:00",
       "scoring": "verificable"
     }
   ]

@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:40:32+00:00",
+      "at": "2026-08-13T04:14:33+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -45,7 +45,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:27+00:00",
+      "rescored_at": "2026-08-13T04:14:30+00:00",
       "scoring": "verificable"
     },
     {
@@ -75,17 +75,17 @@
       "content_score": 4.0,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:27+00:00",
+      "rescored_at": "2026-08-13T04:14:30+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 4.0,
+      "quality": 6.0,
       "cost_score": 10.0,
       "cost_usd": 1.3e-05,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.67,
+      "final": 6.07,
       "test_name": "churn_mezcla_free_y_pago",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -97,15 +97,15 @@
       "input_tokens": 178,
       "output_tokens": 479,
       "response_preview": "Lo primero que debes hacer es verificar si el churn reportado del 31% se refiere a todos los usuarios o solo a los usuarios de pago. Es posible que el churn se calcule solo para los usuarios de pago, lo que explicaría la gran diferencia entre el churn reportado y el churn que esperabas.\n\nSi el churn",
-      "auto_quality": 4.0,
+      "auto_quality": 6.0,
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260712_183827_1328",
       "response_file": "results/responses/20260712_183827_1328/mistral-nemo__business_audit__churn_mezcla_free_y_pago.md",
       "content_score": 4.67,
-      "answer_score": 4.0,
+      "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:29+00:00",
+      "rescored_at": "2026-08-13T04:14:30+00:00",
       "scoring": "verificable"
     },
     {
@@ -135,7 +135,7 @@
       "content_score": 4.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:29+00:00",
+      "rescored_at": "2026-08-13T04:14:30+00:00",
       "scoring": "verificable"
     },
     {
@@ -165,7 +165,7 @@
       "content_score": 4.67,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:29+00:00",
+      "rescored_at": "2026-08-13T04:14:30+00:00",
       "scoring": "verificable"
     },
     {
@@ -195,7 +195,7 @@
       "content_score": 4.67,
       "answer_score": 4.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:29+00:00",
+      "rescored_at": "2026-08-13T04:14:30+00:00",
       "scoring": "verificable"
     },
     {
@@ -223,13 +223,13 @@
       "timestamp": "20260712_183827_1328"
     },
     {
-      "quality": 6.67,
+      "quality": 8.33,
       "cost_score": 10.0,
       "cost_usd": 1.2e-05,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.54,
+      "final": 7.71,
       "test_name": "validacion_idea_intencion_vs_compra",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -241,15 +241,15 @@
       "input_tokens": 175,
       "output_tokens": 407,
       "response_preview": "Aunque los resultados de tu encuesta y la lista de espera pueden seeming presagios prometedores, aún hay algunos factores importantes a considerar antes de renunciar a tu trabajo actual:\n\n1. Tamaño de la muestra: Aunque el 85% de las 40 personas encuestadas dijeron que el problema les duele, esto re",
-      "auto_quality": 6.67,
+      "auto_quality": 8.33,
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260712_183827_1328",
       "response_file": "results/responses/20260712_183827_1328/mistral-nemo__business_audit__validacion_idea_intencion_vs_compra.md",
       "content_score": 4.67,
-      "answer_score": 6.67,
+      "answer_score": 8.33,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:29+00:00",
+      "rescored_at": "2026-08-13T04:14:31+00:00",
       "scoring": "verificable"
     },
     {
@@ -303,7 +303,7 @@
       "content_score": 0.02,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:29+00:00",
+      "rescored_at": "2026-08-13T04:14:31+00:00",
       "scoring": "verificable"
     },
     {
@@ -333,7 +333,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:29+00:00",
+      "rescored_at": "2026-08-13T04:14:31+00:00",
       "scoring": "verificable"
     },
     {
@@ -363,7 +363,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:29+00:00",
+      "rescored_at": "2026-08-13T04:14:31+00:00",
       "scoring": "verificable"
     },
     {
@@ -393,7 +393,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:29+00:00",
+      "rescored_at": "2026-08-13T04:14:31+00:00",
       "scoring": "verificable"
     },
     {
@@ -423,17 +423,17 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:29+00:00",
+      "rescored_at": "2026-08-13T04:14:31+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 4.0,
+      "quality": 6.0,
       "cost_score": 6.59,
       "cost_usd": 0.002955,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.61,
+      "final": 6.01,
       "test_name": "roadmap_restriccion_capacidad",
       "model": "MiniMax M3",
       "model_id": "minimax/minimax-m3",
@@ -445,15 +445,15 @@
       "input_tokens": 398,
       "output_tokens": 2363,
       "response_preview": "**El número primero, sin edulcorar:** 8 semanas × 4h/día = 160h. La opción A necesita ~480h. **A no entra en este trimestre.** No es una decisión estratégica, es aritmética. Y disfrazarla de \"lo voy sacando en hueco\" te va a consumir sin entregar nada. Súmalo a eso el coste de conmutación de context",
-      "auto_quality": 4.0,
+      "auto_quality": 6.0,
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260712_183827_1328",
       "response_file": "results/responses/20260712_183827_1328/minimax-m3__business_audit__roadmap_restriccion_capacidad.md",
       "content_score": 5.34,
-      "answer_score": 4.0,
+      "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:31+00:00",
+      "rescored_at": "2026-08-13T04:14:32+00:00",
       "scoring": "verificable"
     },
     {
@@ -483,7 +483,7 @@
       "content_score": 6.0,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:31+00:00",
+      "rescored_at": "2026-08-13T04:14:32+00:00",
       "scoring": "verificable"
     },
     {
@@ -513,7 +513,7 @@
       "content_score": 6.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:31+00:00",
+      "rescored_at": "2026-08-13T04:14:32+00:00",
       "scoring": "verificable"
     },
     {
@@ -543,7 +543,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:31+00:00",
+      "rescored_at": "2026-08-13T04:14:33+00:00",
       "scoring": "verificable"
     },
     {
@@ -573,7 +573,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:31+00:00",
+      "rescored_at": "2026-08-13T04:14:33+00:00",
       "scoring": "verificable"
     },
     {
@@ -603,7 +603,7 @@
       "content_score": 5.34,
       "answer_score": 4.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:31+00:00",
+      "rescored_at": "2026-08-13T04:14:33+00:00",
       "scoring": "verificable"
     },
     {
@@ -634,7 +634,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:31+00:00",
+      "rescored_at": "2026-08-13T04:14:33+00:00",
       "scoring": "verificable"
     },
     {
@@ -665,7 +665,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:31+00:00",
+      "rescored_at": "2026-08-13T04:14:33+00:00",
       "scoring": "verificable"
     },
     {
@@ -696,17 +696,17 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:31+00:00",
+      "rescored_at": "2026-08-13T04:14:33+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 10.0,
+      "quality": 8.0,
       "cost_score": 2.38,
       "cost_usd": 0.074445,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.03,
+      "final": 6.63,
       "test_name": "retention_sobre_100_interpretacion",
       "model": "Claude Opus 4.8 (suscripción)",
       "model_id": "claude-opus-4-8",
@@ -718,26 +718,26 @@
       "input_tokens": 4,
       "output_tokens": 2977,
       "response_preview": "## No. Y el propio dato que me diste lo desmiente\n\n\"Retención de ingresos: 114%\" es **NRR** (Net Revenue Retention). No mide cuánta gente se queda: mide cuántos **dólares netos** quedan de la base anterior, después de sumar expansión. Son cosas distintas y ahí está la trampa.\n\nCon tus números:\n\n| Mé",
-      "auto_quality": 10.0,
+      "auto_quality": 8.0,
       "subscription_measured": true,
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260712_183827_1328",
       "response_file": "results/responses/20260712_183827_1328/claude-opus-4.8-sub__business_audit__retention_sobre_100_interpretacion.md",
       "content_score": 6.0,
-      "answer_score": 10.0,
+      "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:31+00:00",
+      "rescored_at": "2026-08-13T04:14:33+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 2.29,
       "cost_usd": 0.08017,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.62,
+      "final": 8.02,
       "test_name": "roadmap_restriccion_capacidad",
       "model": "Claude Opus 4.8 (suscripción)",
       "model_id": "claude-opus-4-8",
@@ -749,16 +749,16 @@
       "input_tokens": 4,
       "output_tokens": 3206,
       "response_preview": "## Primero la matemática, porque ahí se acaba la discusión\n\n- 4h/día × 5 días = **20h/semana**\n- 8 semanas = **160h teóricas**\n- Descuento realista (imprevistos, soporte que se desborda, un día malo por semana): **~120-130h reales de construcción en el trimestre**\n\nAhora traduzco tus estimaciones. C",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "subscription_measured": true,
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260712_183827_1328",
       "response_file": "results/responses/20260712_183827_1328/claude-opus-4.8-sub__business_audit__roadmap_restriccion_capacidad.md",
       "content_score": 5.34,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:32+00:00",
+      "rescored_at": "2026-08-13T04:14:33+00:00",
       "scoring": "verificable"
     },
     {
@@ -789,7 +789,7 @@
       "content_score": 6.0,
       "answer_score": 4.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:32+00:00",
+      "rescored_at": "2026-08-13T04:14:33+00:00",
       "scoring": "verificable"
     },
     {
@@ -820,7 +820,7 @@
       "content_score": 6.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:32+00:00",
+      "rescored_at": "2026-08-13T04:14:33+00:00",
       "scoring": "verificable"
     },
     {
@@ -851,7 +851,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:32+00:00",
+      "rescored_at": "2026-08-13T04:14:33+00:00",
       "scoring": "verificable"
     },
     {
@@ -882,7 +882,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:32+00:00",
+      "rescored_at": "2026-08-13T04:14:33+00:00",
       "scoring": "verificable"
     },
     {
@@ -913,7 +913,7 @@
       "content_score": 5.34,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:32+00:00",
+      "rescored_at": "2026-08-13T04:14:33+00:00",
       "scoring": "verificable"
     },
     {

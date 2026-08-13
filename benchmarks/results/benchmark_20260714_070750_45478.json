@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:48:07+00:00",
+      "at": "2026-08-13T04:21:07+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,7 +52,7 @@
       "content_score": 8.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:03+00:00",
+      "rescored_at": "2026-08-13T04:21:04+00:00",
       "scoring": "verificable"
     },
     {
@@ -89,7 +89,7 @@
       "content_score": 9.34,
       "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:03+00:00",
+      "rescored_at": "2026-08-13T04:21:04+00:00",
       "scoring": "verificable"
     },
     {
@@ -126,17 +126,17 @@
       "content_score": 9.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:07+00:00",
+      "rescored_at": "2026-08-13T04:21:06+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 7.5,
+      "quality": 10.0,
       "cost_score": 4.03,
       "cost_usd": 0.021094,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.38,
+      "final": 8.13,
       "test_name": "code_bug_subtle",
       "model": "GLM 5",
       "model_id": "z-ai/glm-5",
@@ -148,7 +148,7 @@
       "input_tokens": 215,
       "output_tokens": 8192,
       "response_preview": "The user wants me to find a subtle bug in the provided Python code without executing it.\nThe code consists of two functions: `find_median` and `remove_outliers_and_average`.\nThe hint suggests thinking about specific data cases rather than the general algorithm.\n\n**Analyzing `find_median(numbers)`:**",
-      "auto_quality": 7.5,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -161,9 +161,9 @@
       "timestamp": "20260714_070750_45478",
       "response_file": "results/responses/20260714_070750_45478/or-glm5__deep_reasoning__code_bug_subtle.md",
       "content_score": 6.67,
-      "answer_score": 7.5,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:07+00:00",
+      "rescored_at": "2026-08-13T04:21:06+00:00",
       "scoring": "verificable"
     },
     {
@@ -200,7 +200,7 @@
       "content_score": 10.0,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:07+00:00",
+      "rescored_at": "2026-08-13T04:21:06+00:00",
       "scoring": "verificable"
     },
     {
@@ -237,7 +237,7 @@
       "content_score": 10.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:07+00:00",
+      "rescored_at": "2026-08-13T04:21:07+00:00",
       "scoring": "verificable"
     },
     {
@@ -274,7 +274,7 @@
       "content_score": 10.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:07+00:00",
+      "rescored_at": "2026-08-13T04:21:07+00:00",
       "scoring": "verificable"
     },
     {
@@ -311,7 +311,7 @@
       "content_score": 10.0,
       "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:07+00:00",
+      "rescored_at": "2026-08-13T04:21:07+00:00",
       "scoring": "verificable"
     },
     {
@@ -348,7 +348,7 @@
       "content_score": 10.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:07+00:00",
+      "rescored_at": "2026-08-13T04:21:07+00:00",
       "scoring": "verificable"
     },
     {
@@ -385,7 +385,7 @@
       "content_score": 9.34,
       "answer_score": 2.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:07+00:00",
+      "rescored_at": "2026-08-13T04:21:07+00:00",
       "scoring": "verificable"
     },
     {
@@ -422,17 +422,17 @@
       "content_score": 10.0,
       "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:07+00:00",
+      "rescored_at": "2026-08-13T04:21:07+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 7.5,
+      "quality": 10.0,
       "cost_score": 8.82,
       "cost_usd": 0.000534,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.1,
+      "final": 8.85,
       "test_name": "ethical_dilemma_structured",
       "model": "Qwen 2.5 72B",
       "model_id": "qwen/qwen-2.5-72b-instruct",
@@ -444,7 +444,7 @@
       "input_tokens": 203,
       "output_tokens": 1152,
       "response_preview": "### Análisis de la Decisión\n\n#### 1. Identificación de Stakeholders Afectados\n1. **Pacientes con cáncer**: Aquellos que podrían ser diagnosticados correctamente y beneficiarse del tratamiento temprano.\n2. **Pacientes que no tienen cáncer pero reciben falsos positivos**: Estos pacientes experimentará",
-      "auto_quality": 7.5,
+      "auto_quality": 10.0,
       "judge_score": 4.6,
       "judge_precision": 3,
       "judge_relevancia": 3,
@@ -457,9 +457,9 @@
       "timestamp": "20260714_070750_45478",
       "response_file": "results/responses/20260714_070750_45478/or-qwen-2.5-72b__deep_reasoning__ethical_dilemma_structured.md",
       "content_score": 10.0,
-      "answer_score": 7.5,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:07+00:00",
+      "rescored_at": "2026-08-13T04:21:07+00:00",
       "scoring": "verificable"
     }
   ]

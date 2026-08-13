@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:49:25+00:00",
+      "at": "2026-08-13T04:21:49+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,7 +52,7 @@
       "content_score": 7.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:21+00:00",
+      "rescored_at": "2026-08-13T04:21:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -62,7 +62,7 @@
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.31,
+      "final": 4.32,
       "test_name": "lead_qualification",
       "model": "Nemotron Nano 9B v2",
       "model_id": "nvidia/nemotron-nano-9b-v2:free",
@@ -89,17 +89,17 @@
       "content_score": 8.0,
       "answer_score": 3.33,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:22+00:00",
+      "rescored_at": "2026-08-13T04:21:47+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.0,
+      "quality": 8.0,
       "cost_score": 9.01,
       "cost_usd": 0.00046,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.08,
+      "final": 7.48,
       "test_name": "campaign_optimization",
       "model": "Nemotron Nano 9B v2",
       "model_id": "nvidia/nemotron-nano-9b-v2:free",
@@ -111,7 +111,7 @@
       "input_tokens": 312,
       "output_tokens": 2220,
       "response_preview": "\n\n### **1. Cálculo de métricas clave por campaña:**\n\n#### **Campaña A (Landing principal):**\n- **CTR (Click-Through Rate):**  \n  (1,500 clics / 50,000 impresiones) × 100 = **3%**.  \n- **CPC (Costo por clic):**  \n  $2,100 / 1,500 clics = **$1.40 por clic**.  \n- **CPA (Costo por adquisición):**  \n  $2",
-      "auto_quality": 6.0,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -124,9 +124,9 @@
       "timestamp": "20260714_074908_66806",
       "response_file": "results/responses/20260714_074908_66806/or-nemotron-nano-9b-v2__sales_outreach__campaign_optimization.md",
       "content_score": 9.34,
-      "answer_score": 6.0,
+      "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:25+00:00",
+      "rescored_at": "2026-08-13T04:21:48+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,17 +163,17 @@
       "content_score": 6.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:25+00:00",
+      "rescored_at": "2026-08-13T04:21:48+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 10.0,
+      "quality": 6.67,
       "cost_score": 8.48,
       "cost_usd": 0.00069,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.95,
+      "final": 6.61,
       "test_name": "lead_qualification",
       "model": "MiniMax M2.5",
       "model_id": "minimax/minimax-m2.5",
@@ -185,7 +185,7 @@
       "input_tokens": 247,
       "output_tokens": 706,
       "response_preview": "```json\n[\n  {\n    \"lead\": \"Juan Perez, CEO startup 5 personas\",\n    \"score\": 5,\n    \"bant\": {\n      \"budget\": \"No mentioned - startup pequeña probablemente budget limitado\",\n      \"authority\": \"SI - CEO, decision maker\",\n      \"need\": \"SI - buscando automatizar soporte\",\n      \"timeline\": \"No mentio",
-      "auto_quality": 10.0,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -198,9 +198,9 @@
       "timestamp": "20260714_074908_66806",
       "response_file": "results/responses/20260714_074908_66806/or-minimax-m2.5__sales_outreach__lead_qualification.md",
       "content_score": 8.0,
-      "answer_score": 10.0,
+      "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:25+00:00",
+      "rescored_at": "2026-08-13T04:21:48+00:00",
       "scoring": "verificable"
     },
     {
@@ -237,7 +237,7 @@
       "content_score": 9.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:25+00:00",
+      "rescored_at": "2026-08-13T04:21:49+00:00",
       "scoring": "verificable"
     }
   ]

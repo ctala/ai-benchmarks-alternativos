@@ -13,7 +13,7 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:43:47+00:00",
+      "at": "2026-08-13T04:17:19+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,7 +52,7 @@
       "content_score": 6.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:16+00:00",
+      "rescored_at": "2026-08-13T04:16:56+00:00",
       "scoring": "verificable"
     },
     {
@@ -89,17 +89,17 @@
       "content_score": 4.67,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:16+00:00",
+      "rescored_at": "2026-08-13T04:16:56+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 6.0,
       "cost_score": 10.0,
       "cost_usd": 1.1e-05,
       "speed": 6.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 7.85,
+      "final": 6.45,
       "test_name": "elegir_negocio_con_dependencia_oculta",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -111,7 +111,7 @@
       "input_tokens": 324,
       "output_tokens": 202,
       "response_preview": "La opción que recomendaría sería la opción C: Contenido patrocinado en el medio que ya opero. La razón es que esta opción te permite generar ingresos de manera más rápida y con menos inversión de tiempo y recursos. Al no requerir la construcción de un nuevo producto y ya tener el tráfico y la audien",
-      "auto_quality": 8.0,
+      "auto_quality": 6.0,
       "judge_score": 4.0,
       "judge_precision": 3,
       "judge_relevancia": 4,
@@ -124,9 +124,9 @@
       "timestamp": "20260713_171017_4861",
       "response_file": "results/responses/20260713_171017_4861/mistral-nemo__business_strategy__elegir_negocio_con_dependencia_oculta.md",
       "content_score": 4.0,
-      "answer_score": 8.0,
+      "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:18+00:00",
+      "rescored_at": "2026-08-13T04:16:58+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,17 +163,17 @@
       "content_score": 5.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:18+00:00",
+      "rescored_at": "2026-08-13T04:16:58+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 10.0,
       "cost_usd": 1.4e-05,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.77,
+      "final": 9.17,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -185,7 +185,7 @@
       "input_tokens": 150,
       "output_tokens": 566,
       "response_preview": "Entiendo tu preocupación por mantener tu tráfico orgánico y tus ingresos futuros. Sin embargo, poner un muro de pago puede tener implicaciones en tu estrategia y en el comportamiento de tus visitantes. A continuación, te presento algunas consideraciones y alternativas que podrías tener en cuenta:\n\n1",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -198,9 +198,9 @@
       "timestamp": "20260713_171017_4861",
       "response_file": "results/responses/20260713_171017_4861/mistral-nemo__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 4.67,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:18+00:00",
+      "rescored_at": "2026-08-13T04:16:58+00:00",
       "scoring": "verificable"
     },
     {
@@ -237,7 +237,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:18+00:00",
+      "rescored_at": "2026-08-13T04:16:58+00:00",
       "scoring": "verificable"
     },
     {
@@ -274,7 +274,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:18+00:00",
+      "rescored_at": "2026-08-13T04:16:58+00:00",
       "scoring": "verificable"
     },
     {
@@ -311,7 +311,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:18+00:00",
+      "rescored_at": "2026-08-13T04:16:58+00:00",
       "scoring": "verificable"
     },
     {
@@ -348,7 +348,7 @@
       "content_score": 8.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:18+00:00",
+      "rescored_at": "2026-08-13T04:16:58+00:00",
       "scoring": "verificable"
     },
     {
@@ -385,7 +385,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:19+00:00",
+      "rescored_at": "2026-08-13T04:16:58+00:00",
       "scoring": "verificable"
     },
     {
@@ -422,7 +422,7 @@
       "content_score": 7.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:19+00:00",
+      "rescored_at": "2026-08-13T04:16:58+00:00",
       "scoring": "verificable"
     },
     {
@@ -459,7 +459,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:19+00:00",
+      "rescored_at": "2026-08-13T04:16:58+00:00",
       "scoring": "verificable"
     },
     {
@@ -496,7 +496,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:19+00:00",
+      "rescored_at": "2026-08-13T04:16:58+00:00",
       "scoring": "verificable"
     },
     {
@@ -533,17 +533,17 @@
       "content_score": 10.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:19+00:00",
+      "rescored_at": "2026-08-13T04:16:58+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 7.39,
       "cost_usd": 0.001595,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.08,
+      "final": 8.48,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "MiniMax M2.7",
       "model_id": "minimax/minimax-m2.7",
@@ -555,7 +555,7 @@
       "input_tokens": 136,
       "output_tokens": 1295,
       "response_preview": "# Análisis: Tu idea mata la gallina\n\n## El problema central\n\nTu activo no son los $9/mes. Tu activo es el **tráfico orgánico de Google** (300k visitas/mes). Si lo que propones reduce ese tráfico aunque sea un 20%, has perdido más de lo que ganas.\n\n---\n\n## Por qué tu cálculo probablemente falla\n\n| Va",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -568,9 +568,9 @@
       "timestamp": "20260713_171017_4861",
       "response_file": "results/responses/20260713_171017_4861/minimax-m2.7__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 5.34,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:19+00:00",
+      "rescored_at": "2026-08-13T04:16:58+00:00",
       "scoring": "verificable"
     },
     {
@@ -607,7 +607,7 @@
       "content_score": 10.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:19+00:00",
+      "rescored_at": "2026-08-13T04:16:58+00:00",
       "scoring": "verificable"
     },
     {
@@ -644,7 +644,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:19+00:00",
+      "rescored_at": "2026-08-13T04:16:58+00:00",
       "scoring": "verificable"
     },
     {
@@ -681,7 +681,7 @@
       "content_score": 6.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:19+00:00",
+      "rescored_at": "2026-08-13T04:16:59+00:00",
       "scoring": "verificable"
     },
     {
@@ -718,17 +718,17 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:19+00:00",
+      "rescored_at": "2026-08-13T04:16:59+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 6.64,
       "cost_usd": 0.002848,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.27,
+      "final": 8.67,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "MiniMax M3",
       "model_id": "minimax/minimax-m3",
@@ -740,7 +740,7 @@
       "input_tokens": 292,
       "output_tokens": 2300,
       "response_preview": "# No. No pongas un muro de pago duro.\n\nY no por una cuestión ideológica, sino porque **la operación que describes destruye el activo que la hace posible**.\n\nVoy a desglosar el problema y después lo que sí funciona.\n\n---\n\n## El error de tu modelo mental\n\nEstás calculando así:\n\n> 300.000 visitas × 0,2",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -753,9 +753,9 @@
       "timestamp": "20260713_171017_4861",
       "response_file": "results/responses/20260713_171017_4861/minimax-m3__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 6.0,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:19+00:00",
+      "rescored_at": "2026-08-13T04:16:59+00:00",
       "scoring": "verificable"
     },
     {
@@ -792,7 +792,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:19+00:00",
+      "rescored_at": "2026-08-13T04:16:59+00:00",
       "scoring": "verificable"
     },
     {
@@ -829,7 +829,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:19+00:00",
+      "rescored_at": "2026-08-13T04:16:59+00:00",
       "scoring": "verificable"
     },
     {
@@ -866,7 +866,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:21+00:00",
+      "rescored_at": "2026-08-13T04:17:00+00:00",
       "scoring": "verificable"
     },
     {
@@ -903,7 +903,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:21+00:00",
+      "rescored_at": "2026-08-13T04:17:00+00:00",
       "scoring": "verificable"
     },
     {
@@ -940,7 +940,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:21+00:00",
+      "rescored_at": "2026-08-13T04:17:01+00:00",
       "scoring": "verificable"
     },
     {
@@ -977,7 +977,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:21+00:00",
+      "rescored_at": "2026-08-13T04:17:01+00:00",
       "scoring": "verificable"
     },
     {
@@ -1014,7 +1014,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:21+00:00",
+      "rescored_at": "2026-08-13T04:17:01+00:00",
       "scoring": "verificable"
     },
     {
@@ -1051,7 +1051,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:21+00:00",
+      "rescored_at": "2026-08-13T04:17:01+00:00",
       "scoring": "verificable"
     },
     {
@@ -1088,17 +1088,17 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:21+00:00",
+      "rescored_at": "2026-08-13T04:17:01+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 5.86,
       "cost_usd": 0.005162,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.3,
+      "final": 8.7,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "Gemini 2.5 Flash",
       "model_id": "google/gemini-2.5-flash",
@@ -1110,7 +1110,7 @@
       "input_tokens": 139,
       "output_tokens": 2048,
       "response_preview": "¡Excelente pregunta! Es crucial analizar esto con mucho cuidado, porque como bien dices, muchas monetizaciones pueden \"matar la gallina de los huevos de oro\". Tu negocio depende enteramente del tráfico orgánico de Google, y un muro de pago puede tener un impacto devastador en esa fuente de tráfico.\n",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1123,9 +1123,9 @@
       "timestamp": "20260713_171017_4861",
       "response_file": "results/responses/20260713_171017_4861/gemini-flash__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 6.0,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:21+00:00",
+      "rescored_at": "2026-08-13T04:17:01+00:00",
       "scoring": "verificable"
     },
     {
@@ -1162,7 +1162,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:21+00:00",
+      "rescored_at": "2026-08-13T04:17:01+00:00",
       "scoring": "verificable"
     },
     {
@@ -1199,7 +1199,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:21+00:00",
+      "rescored_at": "2026-08-13T04:17:01+00:00",
       "scoring": "verificable"
     },
     {
@@ -1236,7 +1236,7 @@
       "content_score": 3.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:21+00:00",
+      "rescored_at": "2026-08-13T04:17:01+00:00",
       "scoring": "verificable"
     },
     {
@@ -1273,7 +1273,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:21+00:00",
+      "rescored_at": "2026-08-13T04:17:01+00:00",
       "scoring": "verificable"
     },
     {
@@ -1310,7 +1310,7 @@
       "content_score": 3.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:23+00:00",
+      "rescored_at": "2026-08-13T04:17:01+00:00",
       "scoring": "verificable"
     },
     {
@@ -1347,7 +1347,7 @@
       "content_score": 10.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:23+00:00",
+      "rescored_at": "2026-08-13T04:17:01+00:00",
       "scoring": "verificable"
     },
     {
@@ -1384,7 +1384,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:23+00:00",
+      "rescored_at": "2026-08-13T04:17:01+00:00",
       "scoring": "verificable"
     },
     {
@@ -1421,7 +1421,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:23+00:00",
+      "rescored_at": "2026-08-13T04:17:02+00:00",
       "scoring": "verificable"
     },
     {
@@ -1458,7 +1458,7 @@
       "content_score": 9.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:23+00:00",
+      "rescored_at": "2026-08-13T04:17:02+00:00",
       "scoring": "verificable"
     },
     {
@@ -1495,7 +1495,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:23+00:00",
+      "rescored_at": "2026-08-13T04:17:02+00:00",
       "scoring": "verificable"
     },
     {
@@ -1532,7 +1532,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:23+00:00",
+      "rescored_at": "2026-08-13T04:17:02+00:00",
       "scoring": "verificable"
     },
     {
@@ -1569,7 +1569,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:23+00:00",
+      "rescored_at": "2026-08-13T04:17:02+00:00",
       "scoring": "verificable"
     },
     {
@@ -1606,7 +1606,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:03+00:00",
       "scoring": "verificable"
     },
     {
@@ -1643,7 +1643,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:03+00:00",
       "scoring": "verificable"
     },
     {
@@ -1680,7 +1680,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:03+00:00",
       "scoring": "verificable"
     },
     {
@@ -1717,7 +1717,7 @@
       "content_score": 7.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:03+00:00",
       "scoring": "verificable"
     },
     {
@@ -1754,7 +1754,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:03+00:00",
       "scoring": "verificable"
     },
     {
@@ -1791,7 +1791,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:03+00:00",
       "scoring": "verificable"
     },
     {
@@ -1828,17 +1828,17 @@
       "content_score": 7.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:03+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 7.35,
       "cost_usd": 0.001645,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.23,
+      "final": 8.63,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "Kimi K2",
       "model_id": "moonshotai/kimi-k2",
@@ -1850,7 +1850,7 @@
       "input_tokens": 179,
       "output_tokens": 671,
       "response_preview": "No lo hagas. **Estás proponiendo matar la gallina.**\n\nTu activo generador de valor no es el contenido. Es **el tráfico orgánico de Google**. Y ese tráfico existe porque Google indexa y rankea tu contenido. Un muro de pago lo hace invisible para Google.\n\n---\n\n## Por qué el muro de pago destruye tu ac",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1863,9 +1863,9 @@
       "timestamp": "20260713_171017_4861",
       "response_file": "results/responses/20260713_171017_4861/kimi-k2__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 5.34,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:03+00:00",
       "scoring": "verificable"
     },
     {
@@ -1902,7 +1902,7 @@
       "content_score": 9.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:03+00:00",
       "scoring": "verificable"
     },
     {
@@ -1939,7 +1939,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:03+00:00",
       "scoring": "verificable"
     },
     {
@@ -1976,7 +1976,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:03+00:00",
       "scoring": "verificable"
     },
     {
@@ -2013,7 +2013,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:03+00:00",
       "scoring": "verificable"
     },
     {
@@ -2050,7 +2050,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:03+00:00",
       "scoring": "verificable"
     },
     {
@@ -2087,7 +2087,7 @@
       "content_score": 8.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:03+00:00",
       "scoring": "verificable"
     },
     {
@@ -2124,7 +2124,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:03+00:00",
       "scoring": "verificable"
     },
     {
@@ -2161,7 +2161,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:04+00:00",
       "scoring": "verificable"
     },
     {
@@ -2198,7 +2198,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:04+00:00",
       "scoring": "verificable"
     },
     {
@@ -2235,7 +2235,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:04+00:00",
       "scoring": "verificable"
     },
     {
@@ -2272,7 +2272,7 @@
       "content_score": 10.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:04+00:00",
       "scoring": "verificable"
     },
     {
@@ -2309,7 +2309,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:25+00:00",
+      "rescored_at": "2026-08-13T04:17:04+00:00",
       "scoring": "verificable"
     },
     {
@@ -2346,7 +2346,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:26+00:00",
+      "rescored_at": "2026-08-13T04:17:05+00:00",
       "scoring": "verificable"
     },
     {
@@ -2383,7 +2383,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:26+00:00",
+      "rescored_at": "2026-08-13T04:17:05+00:00",
       "scoring": "verificable"
     },
     {
@@ -2420,7 +2420,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:27+00:00",
+      "rescored_at": "2026-08-13T04:17:05+00:00",
       "scoring": "verificable"
     },
     {
@@ -2457,7 +2457,7 @@
       "content_score": 10.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:27+00:00",
+      "rescored_at": "2026-08-13T04:17:05+00:00",
       "scoring": "verificable"
     },
     {
@@ -2494,7 +2494,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:27+00:00",
+      "rescored_at": "2026-08-13T04:17:05+00:00",
       "scoring": "verificable"
     },
     {
@@ -2531,7 +2531,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:27+00:00",
+      "rescored_at": "2026-08-13T04:17:06+00:00",
       "scoring": "verificable"
     },
     {
@@ -2568,7 +2568,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:27+00:00",
+      "rescored_at": "2026-08-13T04:17:06+00:00",
       "scoring": "verificable"
     },
     {
@@ -2605,7 +2605,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:27+00:00",
+      "rescored_at": "2026-08-13T04:17:06+00:00",
       "scoring": "verificable"
     },
     {
@@ -2642,7 +2642,7 @@
       "content_score": 10.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:27+00:00",
+      "rescored_at": "2026-08-13T04:17:06+00:00",
       "scoring": "verificable"
     },
     {
@@ -2652,7 +2652,7 @@
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.21,
+      "final": 4.22,
       "test_name": "plan_aritmetica_no_cierra",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -2679,7 +2679,7 @@
       "content_score": 6.0,
       "answer_score": 3.33,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:27+00:00",
+      "rescored_at": "2026-08-13T04:17:06+00:00",
       "scoring": "verificable"
     },
     {
@@ -2716,7 +2716,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:27+00:00",
+      "rescored_at": "2026-08-13T04:17:06+00:00",
       "scoring": "verificable"
     },
     {
@@ -2753,7 +2753,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:27+00:00",
+      "rescored_at": "2026-08-13T04:17:06+00:00",
       "scoring": "verificable"
     },
     {
@@ -2790,7 +2790,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:28+00:00",
+      "rescored_at": "2026-08-13T04:17:06+00:00",
       "scoring": "verificable"
     },
     {
@@ -2827,7 +2827,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:28+00:00",
+      "rescored_at": "2026-08-13T04:17:06+00:00",
       "scoring": "verificable"
     },
     {
@@ -2864,7 +2864,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:28+00:00",
+      "rescored_at": "2026-08-13T04:17:06+00:00",
       "scoring": "verificable"
     },
     {
@@ -2901,7 +2901,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:28+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -2938,17 +2938,17 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:28+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 10.0,
+      "quality": 8.0,
       "cost_score": 5.31,
       "cost_usd": 0.007884,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.47,
+      "final": 7.07,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "Mistral Large",
       "model_id": "mistralai/mistral-large",
@@ -2960,7 +2960,7 @@
       "input_tokens": 150,
       "output_tokens": 1264,
       "response_preview": "Antes de tomar una decisión tan drástica como implementar un **muro de pago**, es crucial analizar el impacto que tendría en tu activo principal: **el tráfico orgánico de Google**. Vamos a desglosar los riesgos y alternativas:\n\n---\n\n### **1. Riesgos del muro de pago (por qué podría matar la gallina)",
-      "auto_quality": 10.0,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2973,9 +2973,9 @@
       "timestamp": "20260713_171017_4861",
       "response_file": "results/responses/20260713_171017_4861/mistral-large__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 6.0,
-      "answer_score": 10.0,
+      "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:28+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3012,7 +3012,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:28+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3049,7 +3049,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:28+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3086,7 +3086,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:28+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3123,17 +3123,17 @@
       "content_score": 9.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:28+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 10.0,
+      "quality": 6.0,
       "cost_score": 7.33,
       "cost_usd": 0.001674,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.77,
+      "final": 5.97,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "Devstral 2 (Dic 2025)",
       "model_id": "mistralai/devstral-2512",
@@ -3145,7 +3145,7 @@
       "input_tokens": 150,
       "output_tokens": 807,
       "response_preview": "**Análisis estratégico para tu negocio basado en tráfico orgánico:**\n\n### **Riesgo crítico del muro de pago:**\n1. **Impacto en el SEO y tráfico orgánico:**\n   - Google prioriza contenido accesible. Un muro de pago puede reducir tu visibilidad en búsquedas (menos indexación, menor CTR).\n   - **Ejempl",
-      "auto_quality": 10.0,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3158,9 +3158,9 @@
       "timestamp": "20260713_171017_4861",
       "response_file": "results/responses/20260713_171017_4861/devstral-2__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 6.0,
-      "answer_score": 10.0,
+      "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:31+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3197,7 +3197,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:31+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3234,7 +3234,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:31+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3271,7 +3271,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:31+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3308,7 +3308,7 @@
       "content_score": 7.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:31+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3345,7 +3345,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:31+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3382,7 +3382,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:31+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3419,7 +3419,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:31+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3456,7 +3456,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:31+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3466,7 +3466,7 @@
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.34,
+      "final": 7.35,
       "test_name": "disenar_experimento_para_matar_la_idea",
       "model": "Gemma 4 26B MoE (3.8B activos)",
       "model_id": "google/gemma-4-26b-a4b-it",
@@ -3493,7 +3493,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:31+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3530,7 +3530,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:32+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3567,7 +3567,7 @@
       "content_score": 7.34,
       "answer_score": 6.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:32+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3604,7 +3604,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:32+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3641,7 +3641,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:32+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
@@ -3678,17 +3678,17 @@
       "content_score": 9.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:32+00:00",
+      "rescored_at": "2026-08-13T04:17:09+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 9.08,
       "cost_usd": 0.000435,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.34,
+      "final": 8.74,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "Llama 4 Maverick",
       "model_id": "meta-llama/llama-4-maverick",
@@ -3700,7 +3700,7 @@
       "input_tokens": 145,
       "output_tokens": 584,
       "response_preview": "**Análisis de la Situación**\n\nEntiendo tu preocupación y tu objetivo de generar ingresos a través de tu contenido. Sin embargo, antes de tomar una decisión, es importante analizar los posibles efectos de implementar un muro de pago en tu negocio.\n\n**Riesgos de Implementar un Muro de Pago**\n\n1. **Pér",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3713,9 +3713,9 @@
       "timestamp": "20260713_171017_4861",
       "response_file": "results/responses/20260713_171017_4861/llama-4-maverick__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 5.34,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:32+00:00",
+      "rescored_at": "2026-08-13T04:17:10+00:00",
       "scoring": "verificable"
     },
     {
@@ -3752,7 +3752,7 @@
       "content_score": 7.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:32+00:00",
+      "rescored_at": "2026-08-13T04:17:10+00:00",
       "scoring": "verificable"
     },
     {
@@ -3789,7 +3789,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:32+00:00",
+      "rescored_at": "2026-08-13T04:17:10+00:00",
       "scoring": "verificable"
     },
     {
@@ -3826,7 +3826,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:32+00:00",
+      "rescored_at": "2026-08-13T04:17:10+00:00",
       "scoring": "verificable"
     },
     {
@@ -3863,17 +3863,17 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:32+00:00",
+      "rescored_at": "2026-08-13T04:17:10+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 7.73,
       "cost_usd": 0.00123,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.43,
+      "final": 8.83,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "Qwen3 Coder",
       "model_id": "qwen/qwen3-coder",
@@ -3885,7 +3885,7 @@
       "input_tokens": 174,
       "output_tokens": 1178,
       "response_preview": "¡Excelente que estés pensando estratégicamente! Tu activo principal no es solo el contenido, **tu activo es el tráfico orgánico de Google**. Ese tráfico es **gratuito**, escalable y probablemente el resultado de meses o años de trabajo SEO. Y como bien señalas: **ponerle un muro de pago puede matar ",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3898,9 +3898,9 @@
       "timestamp": "20260713_171017_4861",
       "response_file": "results/responses/20260713_171017_4861/qwen3-coder__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 6.0,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:32+00:00",
+      "rescored_at": "2026-08-13T04:17:10+00:00",
       "scoring": "verificable"
     },
     {
@@ -3937,7 +3937,7 @@
       "content_score": 3.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:32+00:00",
+      "rescored_at": "2026-08-13T04:17:10+00:00",
       "scoring": "verificable"
     },
     {
@@ -3974,7 +3974,7 @@
       "content_score": 4.39,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:32+00:00",
+      "rescored_at": "2026-08-13T04:17:10+00:00",
       "scoring": "verificable"
     },
     {
@@ -4011,7 +4011,7 @@
       "content_score": 5.03,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:34+00:00",
+      "rescored_at": "2026-08-13T04:17:10+00:00",
       "scoring": "verificable"
     },
     {
@@ -4048,7 +4048,7 @@
       "content_score": 7.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:34+00:00",
+      "rescored_at": "2026-08-13T04:17:10+00:00",
       "scoring": "verificable"
     },
     {
@@ -4085,7 +4085,7 @@
       "content_score": 5.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:34+00:00",
+      "rescored_at": "2026-08-13T04:17:10+00:00",
       "scoring": "verificable"
     },
     {
@@ -4122,7 +4122,7 @@
       "content_score": 3.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:34+00:00",
+      "rescored_at": "2026-08-13T04:17:10+00:00",
       "scoring": "verificable"
     },
     {
@@ -4159,7 +4159,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:34+00:00",
+      "rescored_at": "2026-08-13T04:17:10+00:00",
       "scoring": "verificable"
     },
     {
@@ -4196,7 +4196,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:34+00:00",
+      "rescored_at": "2026-08-13T04:17:10+00:00",
       "scoring": "verificable"
     },
     {
@@ -4233,7 +4233,7 @@
       "content_score": 7.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:34+00:00",
+      "rescored_at": "2026-08-13T04:17:10+00:00",
       "scoring": "verificable"
     },
     {
@@ -4270,7 +4270,7 @@
       "content_score": 4.95,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:34+00:00",
+      "rescored_at": "2026-08-13T04:17:12+00:00",
       "scoring": "verificable"
     },
     {
@@ -4307,7 +4307,7 @@
       "content_score": 7.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:34+00:00",
+      "rescored_at": "2026-08-13T04:17:12+00:00",
       "scoring": "verificable"
     },
     {
@@ -4344,7 +4344,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:34+00:00",
+      "rescored_at": "2026-08-13T04:17:12+00:00",
       "scoring": "verificable"
     },
     {
@@ -4381,7 +4381,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:34+00:00",
+      "rescored_at": "2026-08-13T04:17:12+00:00",
       "scoring": "verificable"
     },
     {
@@ -4418,7 +4418,7 @@
       "content_score": 7.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:34+00:00",
+      "rescored_at": "2026-08-13T04:17:12+00:00",
       "scoring": "verificable"
     },
     {
@@ -4455,7 +4455,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:35+00:00",
+      "rescored_at": "2026-08-13T04:17:12+00:00",
       "scoring": "verificable"
     },
     {
@@ -4492,7 +4492,7 @@
       "content_score": 9.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:35+00:00",
+      "rescored_at": "2026-08-13T04:17:12+00:00",
       "scoring": "verificable"
     },
     {
@@ -4529,7 +4529,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:35+00:00",
+      "rescored_at": "2026-08-13T04:17:12+00:00",
       "scoring": "verificable"
     },
     {
@@ -4566,7 +4566,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:35+00:00",
+      "rescored_at": "2026-08-13T04:17:12+00:00",
       "scoring": "verificable"
     },
     {
@@ -4603,7 +4603,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:35+00:00",
+      "rescored_at": "2026-08-13T04:17:12+00:00",
       "scoring": "verificable"
     },
     {
@@ -4640,7 +4640,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:35+00:00",
+      "rescored_at": "2026-08-13T04:17:13+00:00",
       "scoring": "verificable"
     },
     {
@@ -4677,7 +4677,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:35+00:00",
+      "rescored_at": "2026-08-13T04:17:13+00:00",
       "scoring": "verificable"
     },
     {
@@ -4714,7 +4714,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:35+00:00",
+      "rescored_at": "2026-08-13T04:17:13+00:00",
       "scoring": "verificable"
     },
     {
@@ -4751,7 +4751,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:35+00:00",
+      "rescored_at": "2026-08-13T04:17:13+00:00",
       "scoring": "verificable"
     },
     {
@@ -4788,17 +4788,17 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:35+00:00",
+      "rescored_at": "2026-08-13T04:17:13+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 8.24,
       "cost_usd": 0.000833,
       "speed": 10.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.74,
+      "final": 9.14,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "Gemini 2.5 Flash Lite",
       "model_id": "google/gemini-2.5-flash-lite",
@@ -4810,7 +4810,7 @@
       "input_tokens": 139,
       "output_tokens": 2048,
       "response_preview": "Entiendo perfectamente tu situación. Eres un \"árbol\" que da frutos (tráfico orgánico) y quieres asegurarte de que siga dando frutos en el futuro, e incluso quieres que esos frutos te generen ingresos directos. La idea de un muro de pago es tentadora porque parece una forma directa de monetizar tu ac",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4823,9 +4823,9 @@
       "timestamp": "20260713_171017_4861",
       "response_file": "results/responses/20260713_171017_4861/gemini-flash-lite__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 6.0,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:36+00:00",
+      "rescored_at": "2026-08-13T04:17:13+00:00",
       "scoring": "verificable"
     },
     {
@@ -4862,7 +4862,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:36+00:00",
+      "rescored_at": "2026-08-13T04:17:13+00:00",
       "scoring": "verificable"
     },
     {
@@ -4899,7 +4899,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:36+00:00",
+      "rescored_at": "2026-08-13T04:17:13+00:00",
       "scoring": "verificable"
     },
     {
@@ -4936,7 +4936,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:36+00:00",
+      "rescored_at": "2026-08-13T04:17:13+00:00",
       "scoring": "verificable"
     },
     {
@@ -4973,17 +4973,17 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:36+00:00",
+      "rescored_at": "2026-08-13T04:17:13+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 7.93,
       "cost_usd": 0.001056,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.61,
+      "final": 9.01,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "GPT-5.6 Luna",
       "model_id": "openai/gpt-5.6-luna",
@@ -4995,7 +4995,7 @@
       "input_tokens": 136,
       "output_tokens": 1737,
       "response_preview": "No lo haría **de golpe ni sobre todo el contenido**. Tu tráfico orgánico no es solo una fuente de visitas: es el activo que permite adquirir usuarios. Si ocultas aquello por lo que Google te envía tráfico, puedes deteriorar precisamente el activo del que depende la suscripción.\n\nAdemás, la cuenta de",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -5008,9 +5008,9 @@
       "timestamp": "20260713_171017_4861",
       "response_file": "results/responses/20260713_171017_4861/gpt-5.6-luna__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 6.0,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:37+00:00",
+      "rescored_at": "2026-08-13T04:17:14+00:00",
       "scoring": "verificable"
     },
     {
@@ -5047,7 +5047,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:37+00:00",
+      "rescored_at": "2026-08-13T04:17:14+00:00",
       "scoring": "verificable"
     },
     {
@@ -5084,7 +5084,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:37+00:00",
+      "rescored_at": "2026-08-13T04:17:14+00:00",
       "scoring": "verificable"
     },
     {
@@ -5121,7 +5121,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:37+00:00",
+      "rescored_at": "2026-08-13T04:17:14+00:00",
       "scoring": "verificable"
     },
     {
@@ -5158,17 +5158,17 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:37+00:00",
+      "rescored_at": "2026-08-13T04:17:14+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 10.0,
+      "quality": 6.0,
       "cost_score": 4.66,
       "cost_usd": 0.01294,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.37,
+      "final": 5.57,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "GPT-5.6 Terra",
       "model_id": "openai/gpt-5.6-terra",
@@ -5180,7 +5180,7 @@
       "input_tokens": 136,
       "output_tokens": 2134,
       "response_preview": "No pondría un muro de pago total sobre todo el contenido si el 100% de tu futuro depende de Google.\n\nTu idea de “solo necesito 600 suscriptores” parece simple, pero omite el activo que estás monetizando: **la visibilidad orgánica**. Si bloqueas aquello por lo que Google te posiciona y los usuarios t",
-      "auto_quality": 10.0,
+      "auto_quality": 6.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -5193,9 +5193,9 @@
       "timestamp": "20260713_171017_4861",
       "response_file": "results/responses/20260713_171017_4861/gpt-5.6-terra__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 6.0,
-      "answer_score": 10.0,
+      "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:14+00:00",
       "scoring": "verificable"
     },
     {
@@ -5232,7 +5232,7 @@
       "content_score": 10.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:14+00:00",
       "scoring": "verificable"
     },
     {
@@ -5269,7 +5269,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:14+00:00",
       "scoring": "verificable"
     },
     {
@@ -5306,7 +5306,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:15+00:00",
       "scoring": "verificable"
     },
     {
@@ -5343,7 +5343,7 @@
       "content_score": 0.1,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:15+00:00",
       "scoring": "verificable"
     },
     {
@@ -5380,7 +5380,7 @@
       "content_score": 6.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:15+00:00",
       "scoring": "verificable"
     },
     {
@@ -5417,7 +5417,7 @@
       "content_score": 8.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:15+00:00",
       "scoring": "verificable"
     },
     {
@@ -5454,7 +5454,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:15+00:00",
       "scoring": "verificable"
     },
     {
@@ -5491,7 +5491,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:15+00:00",
       "scoring": "verificable"
     },
     {
@@ -5528,7 +5528,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:15+00:00",
       "scoring": "verificable"
     },
     {
@@ -5565,7 +5565,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:16+00:00",
       "scoring": "verificable"
     },
     {
@@ -5602,7 +5602,7 @@
       "content_score": 9.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:16+00:00",
       "scoring": "verificable"
     },
     {
@@ -5639,7 +5639,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:16+00:00",
       "scoring": "verificable"
     },
     {
@@ -5676,7 +5676,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:16+00:00",
       "scoring": "verificable"
     },
     {
@@ -5713,7 +5713,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:16+00:00",
       "scoring": "verificable"
     },
     {
@@ -5750,7 +5750,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:16+00:00",
       "scoring": "verificable"
     },
     {
@@ -5787,7 +5787,7 @@
       "content_score": 8.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:16+00:00",
       "scoring": "verificable"
     },
     {
@@ -5824,7 +5824,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:16+00:00",
       "scoring": "verificable"
     },
     {
@@ -5861,7 +5861,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:18+00:00",
       "scoring": "verificable"
     },
     {
@@ -5898,17 +5898,17 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:18+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 6.19,
       "cost_usd": 0.004023,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.9,
+      "final": 8.3,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "DeepSeek R1 (reasoning)",
       "model_id": "deepseek/deepseek-r1",
@@ -5920,7 +5920,7 @@
       "input_tokens": 154,
       "output_tokens": 1566,
       "response_preview": "**No recomiendo implementar un muro de pago completo en tu situación actual.** Es un riesgo extremo que podría destruir tu negocio. Aquí el análisis y alternativas:\n\n### Problemas clave de tu plan:\n1. **Destrucción del tráfico orgánico:**  \n   - Google penaliza contenido bloqueado por paywalls en su",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -5933,9 +5933,9 @@
       "timestamp": "20260713_171017_4861",
       "response_file": "results/responses/20260713_171017_4861/deepseek-r1__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 6.0,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:18+00:00",
       "scoring": "verificable"
     },
     {
@@ -5972,7 +5972,7 @@
       "content_score": 10.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:18+00:00",
       "scoring": "verificable"
     },
     {
@@ -6009,7 +6009,7 @@
       "content_score": 5.34,
       "answer_score": 3.33,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:43+00:00",
+      "rescored_at": "2026-08-13T04:17:18+00:00",
       "scoring": "verificable"
     },
     {
@@ -6046,7 +6046,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:44+00:00",
+      "rescored_at": "2026-08-13T04:17:18+00:00",
       "scoring": "verificable"
     },
     {
@@ -6083,7 +6083,7 @@
       "content_score": 6.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:44+00:00",
+      "rescored_at": "2026-08-13T04:17:18+00:00",
       "scoring": "verificable"
     },
     {
@@ -6120,7 +6120,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:45+00:00",
+      "rescored_at": "2026-08-13T04:17:18+00:00",
       "scoring": "verificable"
     },
     {
@@ -6157,7 +6157,7 @@
       "content_score": 10.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:45+00:00",
+      "rescored_at": "2026-08-13T04:17:18+00:00",
       "scoring": "verificable"
     },
     {
@@ -6194,7 +6194,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:45+00:00",
+      "rescored_at": "2026-08-13T04:17:18+00:00",
       "scoring": "verificable"
     },
     {
@@ -6231,7 +6231,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:45+00:00",
+      "rescored_at": "2026-08-13T04:17:18+00:00",
       "scoring": "verificable"
     },
     {
@@ -6268,7 +6268,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:45+00:00",
+      "rescored_at": "2026-08-13T04:17:18+00:00",
       "scoring": "verificable"
     },
     {
@@ -6305,7 +6305,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:46+00:00",
+      "rescored_at": "2026-08-13T04:17:18+00:00",
       "scoring": "verificable"
     },
     {
@@ -6342,7 +6342,7 @@
       "content_score": 1.92,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:46+00:00",
+      "rescored_at": "2026-08-13T04:17:18+00:00",
       "scoring": "verificable"
     },
     {
@@ -6379,7 +6379,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:46+00:00",
+      "rescored_at": "2026-08-13T04:17:18+00:00",
       "scoring": "verificable"
     },
     {
@@ -6416,7 +6416,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:47+00:00",
+      "rescored_at": "2026-08-13T04:17:19+00:00",
       "scoring": "verificable"
     },
     {
@@ -6453,7 +6453,7 @@
       "content_score": 7.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:47+00:00",
+      "rescored_at": "2026-08-13T04:17:19+00:00",
       "scoring": "verificable"
     },
     {
@@ -6490,7 +6490,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:47+00:00",
+      "rescored_at": "2026-08-13T04:17:19+00:00",
       "scoring": "verificable"
     },
     {

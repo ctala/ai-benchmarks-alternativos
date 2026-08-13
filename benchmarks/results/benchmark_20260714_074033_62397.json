@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:49:03+00:00",
+      "at": "2026-08-13T04:21:35+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -151,7 +151,7 @@
       "content_score": 2.67,
       "answer_score": 7.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:03+00:00",
+      "rescored_at": "2026-08-13T04:21:35+00:00",
       "scoring": "verificable"
     },
     {
@@ -188,7 +188,7 @@
       "content_score": 7.0,
       "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:03+00:00",
+      "rescored_at": "2026-08-13T04:21:35+00:00",
       "scoring": "verificable"
     },
     {
@@ -324,17 +324,17 @@
       "content_score": 4.94,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:03+00:00",
+      "rescored_at": "2026-08-13T04:21:35+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 7.5,
+      "quality": 5.0,
       "cost_score": 8.46,
       "cost_usd": 0.000701,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.19,
+      "final": 5.44,
       "test_name": "model_as_router",
       "model": "MiniMax M2.5",
       "model_id": "minimax/minimax-m2.5",
@@ -346,7 +346,7 @@
       "input_tokens": 264,
       "output_tokens": 714,
       "response_preview": "```json\n[\n  {\n    \"subtarea\": \"Analizar 500 reviews y extraer los 5 problemas principales\",\n    \"modelo\": \"deepseek-v3\",\n    \"razon\": \"Excelente razonamiento para identificar patrones y categorizar problemas. Muy económico para procesar gran volumen.\"\n  },\n  {\n    \"subtarea\": \"Escribir email de disc",
-      "auto_quality": 7.5,
+      "auto_quality": 5.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -359,9 +359,9 @@
       "timestamp": "20260714_074033_62397",
       "response_file": "results/responses/20260714_074033_62397/or-minimax-m2.5__agent_capabilities__model_as_router.md",
       "content_score": 7.0,
-      "answer_score": 7.5,
+      "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:03+00:00",
+      "rescored_at": "2026-08-13T04:21:35+00:00",
       "scoring": "verificable"
     }
   ]

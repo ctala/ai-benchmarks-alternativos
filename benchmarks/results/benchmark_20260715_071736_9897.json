@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:52:21+00:00",
+      "at": "2026-08-13T04:23:37+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     },
     "polluted_cleanup": {
@@ -57,7 +57,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:02+00:00"
+      "rescored_at": "2026-08-13T04:23:23+00:00"
     },
     {
       "quality": 5.0,
@@ -94,16 +94,16 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:02+00:00"
+      "rescored_at": "2026-08-13T04:23:23+00:00"
     },
     {
-      "quality": 7.5,
+      "quality": 10.0,
       "cost_score": 10.0,
       "cost_usd": 1.4e-05,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.28,
+      "final": 9.02,
       "test_name": "causal_reasoning",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -115,9 +115,9 @@
       "input_tokens": 199,
       "output_tokens": 525,
       "response_preview": "Para analizar los datos cuantitativamente, podemos calcular las tasas relevantes para cada mes y compararlas entre sí.\n\nEn primer lugar, podemos calcular la tasa de quejas por pedido para cada mes:\n- Mes 1: 50 quejas / 1000 pedidos = 0.05 o 5%\n- Mes 2: 90 quejas / 1200 pedidos = 0.075 o 7.5%\n- Mes 3",
-      "auto_quality": 7.5,
+      "auto_quality": 10.0,
       "content_score": 6.0,
-      "answer_score": 7.5,
+      "answer_score": 10.0,
       "scoring": "verificable",
       "judge_score": 5,
       "judge_precision": 5,
@@ -131,7 +131,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:05+00:00"
+      "rescored_at": "2026-08-13T04:23:26+00:00"
     },
     {
       "quality": 0.0,
@@ -168,7 +168,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:05+00:00"
+      "rescored_at": "2026-08-13T04:23:26+00:00"
     },
     {
       "quality": 0.0,
@@ -205,7 +205,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:05+00:00"
+      "rescored_at": "2026-08-13T04:23:26+00:00"
     },
     {
       "quality": 7.5,
@@ -242,7 +242,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/mistral-nemo__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:05+00:00"
+      "rescored_at": "2026-08-13T04:23:26+00:00"
     },
     {
       "quality": 9.0,
@@ -279,7 +279,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/mistral-nemo__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:05+00:00"
+      "rescored_at": "2026-08-13T04:23:26+00:00"
     },
     {
       "quality": 9.0,
@@ -316,7 +316,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/mistral-nemo__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:05+00:00"
+      "rescored_at": "2026-08-13T04:23:26+00:00"
     },
     {
       "quality": 8.5,
@@ -353,7 +353,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/mistral-nemo__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:05+00:00"
+      "rescored_at": "2026-08-13T04:23:26+00:00"
     },
     {
       "quality": 8.0,
@@ -390,7 +390,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/mistral-nemo__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:05+00:00"
+      "rescored_at": "2026-08-13T04:23:26+00:00"
     },
     {
       "quality": 0.0,
@@ -454,7 +454,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:05+00:00"
+      "rescored_at": "2026-08-13T04:23:26+00:00"
     },
     {
       "quality": 7.5,
@@ -491,7 +491,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
       "quality": 8.0,
@@ -528,7 +528,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
       "quality": 10.0,
@@ -565,7 +565,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/mistral-nemo__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
       "quality": 0.0,
@@ -834,16 +834,16 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/mistral-nemo__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
-      "quality": 7.5,
+      "quality": 5.0,
       "cost_score": 10.0,
       "cost_usd": 1.4e-05,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.12,
+      "final": 5.38,
       "test_name": "model_as_router",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -855,9 +855,9 @@
       "input_tokens": 270,
       "output_tokens": 407,
       "response_preview": "[\n  {\n    \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n    \"modelo\": \"deepseek-v3\",\n    \"razon\": \"El modelo deepseek-v3 es mejor para tareas de razonamiento y análisis de texto, lo que lo hace ideal para extraer los problemas principales de los reviews de usu",
-      "auto_quality": 7.5,
+      "auto_quality": 5.0,
       "content_score": 8.0,
-      "answer_score": 7.5,
+      "answer_score": 5.0,
       "scoring": "verificable",
       "judge_score": 4.0,
       "judge_precision": 4,
@@ -871,7 +871,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/mistral-nemo__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
       "quality": 10.0,
@@ -908,7 +908,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
       "quality": 5.0,
@@ -945,7 +945,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
       "quality": 10.0,
@@ -982,7 +982,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
       "quality": 7.5,
@@ -1019,7 +1019,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
       "quality": 0.0,
@@ -1056,16 +1056,16 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
-      "quality": 7.5,
+      "quality": 10.0,
       "cost_score": 4.09,
       "cost_usd": 0.020115,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.69,
+      "final": 8.44,
       "test_name": "ethical_dilemma_structured",
       "model": "Kimi K2.6",
       "model_id": "moonshotai/kimi-k2.6",
@@ -1077,9 +1077,9 @@
       "input_tokens": 218,
       "output_tokens": 8192,
       "response_preview": "El usuario solicita un análisis estructurado de un dilema ético y de negocio en una startup de IA médica. Necesito:\n\n1. Identificar stakeholders\n2. Análisis cuantitativo de trade-offs\n3. Tres opciones con pros/contras\n4. Recomendación final con justificación\n\nContexto:\n- Precisión general: 95%\n- Fal",
-      "auto_quality": 7.5,
+      "auto_quality": 10.0,
       "content_score": 9.34,
-      "answer_score": 7.5,
+      "answer_score": 10.0,
       "scoring": "verificable",
       "judge_score": 4.2,
       "judge_precision": 3,
@@ -1093,7 +1093,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
       "quality": 8.0,
@@ -1130,7 +1130,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
       "quality": 8.0,
@@ -1167,7 +1167,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
       "quality": 10.0,
@@ -1204,7 +1204,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
       "quality": 9.0,
@@ -1241,7 +1241,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
       "quality": 10.0,
@@ -1278,7 +1278,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
       "quality": 10.0,
@@ -1315,7 +1315,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:07+00:00"
+      "rescored_at": "2026-08-13T04:23:27+00:00"
     },
     {
       "quality": 8.75,
@@ -1352,16 +1352,16 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:09+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 4.61,
       "cost_usd": 0.01349,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.12,
+      "final": 8.52,
       "test_name": "screenshot_table_extraction",
       "model": "Kimi K2.6",
       "model_id": "moonshotai/kimi-k2.6",
@@ -1373,9 +1373,9 @@
       "input_tokens": 386,
       "output_tokens": 5437,
       "response_preview": "```json\n{\n  \"dashboard\": \"DASHBOARD - KPIs Marzo 2026\",\n  \"datos_extraidos\": {\n    \"periodos\": [\"Enero\", \"Febrero\", \"Marzo\"],\n    \"metricas\": [\n      {\"nombre\": \"MRR\", \"unidad\": \"USD\", \"valores\": [45200, 48700, 52100], \"display\": [\"$45.2K\", \"$48.7K\", \"$52.1K\"], \"var_mom\": \"+7.0%\"},\n      {\"nombre\": ",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "content_score": 8.0,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "scoring": "verificable",
       "judge_score": 3.0,
       "judge_precision": 2,
@@ -1389,7 +1389,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:09+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 10.0,
@@ -1426,7 +1426,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/kimi-k2.6__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:09+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 10.0,
@@ -1463,7 +1463,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:10+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 0.0,
@@ -1500,7 +1500,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:10+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 10.0,
@@ -1537,16 +1537,16 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:10+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
-      "quality": 2.5,
+      "quality": 5.0,
       "cost_score": 2.26,
       "cost_usd": 0.082184,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 2.91,
+      "final": 4.66,
       "test_name": "code_bug_subtle",
       "model": "Gemini 2.5 Pro",
       "model_id": "google/gemini-2.5-pro",
@@ -1558,9 +1558,9 @@
       "input_tokens": 243,
       "output_tokens": 8188,
       "response_preview": "¡Excelente pregunta! Este es un bug muy sutil y un gran ejemplo de cómo un código que parece correcto a nivel algorítmico puede fallar en un caso específico.\n\nEl bug es una excepción de tipo `ZeroDivisionError` que ocurre en la última línea de la función `remove_outliers_and_average`:\n\n```python\nret",
-      "auto_quality": 2.5,
+      "auto_quality": 5.0,
       "content_score": 10.0,
-      "answer_score": 2.5,
+      "answer_score": 5.0,
       "scoring": "verificable",
       "judge_score": 1.8,
       "judge_precision": 3,
@@ -1574,7 +1574,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:10+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 1.67,
@@ -1583,7 +1583,7 @@
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 2.46,
+      "final": 2.45,
       "test_name": "fermi_estimation",
       "model": "Gemini 2.5 Pro",
       "model_id": "google/gemini-2.5-pro",
@@ -1611,7 +1611,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:10+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 10.0,
@@ -1648,7 +1648,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:10+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 9.0,
@@ -1685,7 +1685,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:10+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 8.0,
@@ -1722,7 +1722,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:10+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 9.0,
@@ -1759,7 +1759,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:10+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 9.0,
@@ -1796,7 +1796,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:10+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 10.0,
@@ -1833,7 +1833,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:10+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 10.0,
@@ -1870,7 +1870,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:10+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 10.0,
@@ -1907,7 +1907,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:11+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 8.0,
@@ -1944,7 +1944,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:11+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 10.0,
@@ -1981,7 +1981,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:11+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 8.6,
@@ -2053,7 +2053,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__orchestration__error_recovery_orchestration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:11+00:00"
+      "rescored_at": "2026-08-13T04:23:29+00:00"
     },
     {
       "quality": 5.4,
@@ -2125,16 +2125,16 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:11+00:00"
+      "rescored_at": "2026-08-13T04:23:30+00:00"
     },
     {
-      "quality": 8.57,
+      "quality": 10.0,
       "cost_score": 3.7,
       "cost_usd": 0.027025,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.38,
+      "final": 8.38,
       "test_name": "parallel_vs_sequential_judgment",
       "model": "Gemini 2.5 Pro",
       "model_id": "google/gemini-2.5-pro",
@@ -2146,9 +2146,9 @@
       "input_tokens": 452,
       "output_tokens": 2646,
       "response_preview": "¡Excelente plan! Analicemos las tareas para optimizar la ejecución.\n\nSe trata de un flujo de trabajo con varias dependencias. La clasificación es la siguiente:\n\n*   **Paralelizable:** Tareas que no dependen de los resultados de otras y pueden ejecutarse simultáneamente.\n*   **Secuencial:** Tareas qu",
-      "auto_quality": 8.57,
+      "auto_quality": 10.0,
       "content_score": 10.0,
-      "answer_score": 8.57,
+      "answer_score": 10.0,
       "scoring": "verificable",
       "judge_score": 5,
       "judge_precision": 5,
@@ -2162,7 +2162,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:14+00:00"
+      "rescored_at": "2026-08-13T04:23:32+00:00"
     },
     {
       "quality": 8.2,
@@ -2270,13 +2270,13 @@
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__agent_capabilities__ask_clarification_before_acting.md"
     },
     {
-      "quality": 7.5,
+      "quality": 10.0,
       "cost_score": 4.64,
       "cost_usd": 0.013144,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 10.0,
-      "final": 6.62,
+      "final": 8.37,
       "test_name": "context_following_complex_system",
       "model": "Gemini 2.5 Pro",
       "model_id": "google/gemini-2.5-pro",
@@ -2288,9 +2288,9 @@
       "input_tokens": 491,
       "output_tokens": 1253,
       "response_preview": "¡Hola! He procesado tus solicitudes. Aquí tienes el resumen:\n\n1.  **Publicación del artículo:** Ya he iniciado el proceso para publicar tu artículo sobre la financiación de la IA en LATAM.\n\n2.  **Aprobación de presupuesto:** El presupuesto de $2,000 para la campaña de marketing excede mi límite de a",
-      "auto_quality": 7.5,
+      "auto_quality": 10.0,
       "content_score": 5.34,
-      "answer_score": 7.5,
+      "answer_score": 10.0,
       "scoring": "verificable",
       "judge_score": 5,
       "judge_precision": 5,
@@ -2304,7 +2304,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:14+00:00"
+      "rescored_at": "2026-08-13T04:23:32+00:00"
     },
     {
       "quality": 10.0,
@@ -2341,7 +2341,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/gemini-pro__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:14+00:00"
+      "rescored_at": "2026-08-13T04:23:32+00:00"
     },
     {
       "quality": 10.0,
@@ -2378,7 +2378,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:14+00:00"
+      "rescored_at": "2026-08-13T04:23:32+00:00"
     },
     {
       "quality": 5.0,
@@ -2415,7 +2415,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:14+00:00"
+      "rescored_at": "2026-08-13T04:23:32+00:00"
     },
     {
       "quality": 10.0,
@@ -2452,7 +2452,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:14+00:00"
+      "rescored_at": "2026-08-13T04:23:32+00:00"
     },
     {
       "quality": 5.0,
@@ -2489,7 +2489,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:14+00:00"
+      "rescored_at": "2026-08-13T04:23:32+00:00"
     },
     {
       "quality": 5.0,
@@ -2526,7 +2526,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:14+00:00"
+      "rescored_at": "2026-08-13T04:23:32+00:00"
     },
     {
       "quality": 10.0,
@@ -2563,7 +2563,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:14+00:00"
+      "rescored_at": "2026-08-13T04:23:32+00:00"
     },
     {
       "quality": 9.0,
@@ -2600,7 +2600,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:14+00:00"
+      "rescored_at": "2026-08-13T04:23:32+00:00"
     },
     {
       "quality": 8.0,
@@ -2637,7 +2637,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:14+00:00"
+      "rescored_at": "2026-08-13T04:23:32+00:00"
     },
     {
       "quality": 9.0,
@@ -2674,7 +2674,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:14+00:00"
+      "rescored_at": "2026-08-13T04:23:32+00:00"
     },
     {
       "quality": 8.5,
@@ -2711,7 +2711,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:14+00:00"
+      "rescored_at": "2026-08-13T04:23:32+00:00"
     },
     {
       "quality": 10.0,
@@ -2748,7 +2748,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:14+00:00"
+      "rescored_at": "2026-08-13T04:23:32+00:00"
     },
     {
       "quality": 10.0,
@@ -2785,7 +2785,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:14+00:00"
+      "rescored_at": "2026-08-13T04:23:32+00:00"
     },
     {
       "quality": 7.5,
@@ -2822,7 +2822,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:15+00:00"
+      "rescored_at": "2026-08-13T04:23:33+00:00"
     },
     {
       "quality": 10.0,
@@ -2859,7 +2859,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:15+00:00"
+      "rescored_at": "2026-08-13T04:23:33+00:00"
     },
     {
       "quality": 10.0,
@@ -2896,7 +2896,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:15+00:00"
+      "rescored_at": "2026-08-13T04:23:33+00:00"
     },
     {
       "quality": 8.4,
@@ -2968,7 +2968,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__orchestration__error_recovery_orchestration.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:15+00:00"
+      "rescored_at": "2026-08-13T04:23:33+00:00"
     },
     {
       "quality": 3.57,
@@ -3006,13 +3006,13 @@
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__orchestration__complex_workflow_decomposition.md"
     },
     {
-      "quality": 10.0,
+      "quality": 5.0,
       "cost_score": 8.45,
       "cost_usd": 0.000707,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 10.0,
-      "final": 9.02,
+      "final": 5.52,
       "test_name": "tool_selection_precision",
       "model": "Qwen3 Coder",
       "model_id": "qwen/qwen3-coder",
@@ -3024,9 +3024,9 @@
       "input_tokens": 1360,
       "output_tokens": 299,
       "response_preview": "Voy a analizar cada tarea y determinar la herramienta mas apropiada:\n\n**Tarea 1: Verificar si el servidor de produccion esta respondiendo**\n- Herramienta: `http_request`\n- Razon: Es una verificacion directa de disponibilidad de un endpoint HTTP, lo cual es exactamente lo que esta herramienta hace.\n\n",
-      "auto_quality": 10.0,
+      "auto_quality": 5.0,
       "content_score": 4.67,
-      "answer_score": 10.0,
+      "answer_score": 5.0,
       "scoring": "verificable",
       "judge_score": 5,
       "judge_precision": 5,
@@ -3040,7 +3040,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__orchestration__tool_selection_precision.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:15+00:00"
+      "rescored_at": "2026-08-13T04:23:33+00:00"
     },
     {
       "quality": 10.0,
@@ -3077,7 +3077,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__orchestration__parallel_vs_sequential_judgment.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:17+00:00"
+      "rescored_at": "2026-08-13T04:23:33+00:00"
     },
     {
       "quality": 3.04,
@@ -3185,13 +3185,13 @@
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__agent_capabilities__ask_clarification_before_acting.md"
     },
     {
-      "quality": 5.0,
+      "quality": 7.5,
       "cost_score": 8.7,
       "cost_usd": 0.000582,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 5.0,
-      "final": 5.71,
+      "final": 7.46,
       "test_name": "context_following_complex_system",
       "model": "Qwen3 Coder",
       "model_id": "qwen/qwen3-coder",
@@ -3203,9 +3203,9 @@
       "input_tokens": 1358,
       "output_tokens": 175,
       "response_preview": "Voy a ayudarte con esos tres puntos, pero necesito aclarar algunas cosas importantes:\n\n1. Para publicar el artículo sobre financiamiento de IA en LATAM, puedo ejecutar el skill correspondiente.\n2. En cuanto al presupuesto de $2,000, este excede mi límite de aprobación (que es de $500), así que neces",
-      "auto_quality": 5.0,
+      "auto_quality": 7.5,
       "content_score": 4.67,
-      "answer_score": 5.0,
+      "answer_score": 7.5,
       "scoring": "verificable",
       "judge_score": 5,
       "judge_precision": 5,
@@ -3219,16 +3219,16 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__agent_capabilities__context_following_complex_system.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:17+00:00"
+      "rescored_at": "2026-08-13T04:23:33+00:00"
     },
     {
-      "quality": 7.5,
+      "quality": 5.0,
       "cost_score": 9.19,
       "cost_usd": 0.000403,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 7.53,
+      "final": 5.78,
       "test_name": "model_as_router",
       "model": "Qwen3 Coder",
       "model_id": "qwen/qwen3-coder",
@@ -3240,9 +3240,9 @@
       "input_tokens": 292,
       "output_tokens": 315,
       "response_preview": "[\n  {\n    \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n    \"modelo\": \"deepseek-v3\",\n    \"razon\": \"Requiere razonamiento analítico para identificar patrones y sintetizar información de gran volumen\"\n  },\n  {\n    \"subtarea\": \"Escribir un email de disculpas a cl",
-      "auto_quality": 7.5,
+      "auto_quality": 5.0,
       "content_score": 8.0,
-      "answer_score": 7.5,
+      "answer_score": 5.0,
       "scoring": "verificable",
       "judge_score": 5,
       "judge_precision": 5,
@@ -3256,7 +3256,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/qwen3-coder__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:17+00:00"
+      "rescored_at": "2026-08-13T04:23:33+00:00"
     },
     {
       "quality": 10.0,
@@ -3293,7 +3293,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:17+00:00"
+      "rescored_at": "2026-08-13T04:23:33+00:00"
     },
     {
       "quality": 5.0,
@@ -3330,16 +3330,16 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:17+00:00"
+      "rescored_at": "2026-08-13T04:23:33+00:00"
     },
     {
-      "quality": 7.5,
+      "quality": 10.0,
       "cost_score": 9.95,
       "cost_usd": 0.000224,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.49,
+      "final": 9.24,
       "test_name": "causal_reasoning",
       "model": "Hermes 4 70B",
       "model_id": "nousresearch/hermes-4-70b",
@@ -3351,9 +3351,9 @@
       "input_tokens": 221,
       "output_tokens": 487,
       "response_preview": "Para analizar los datos cuantitativamente, primero vamos a calcular las tasas de quejas y el tiempo promedio de entrega por pedido para cada mes:\n\nMes 1: \nTasa de quejas = 50 quejas / 1000 pedidos = 0.05\nTiempo promedio por pedido = 35 min\n\nMes 2:\nTasa de quejas = 90 quejas / 1200 pedidos = 0.075\nTi",
-      "auto_quality": 7.5,
+      "auto_quality": 10.0,
       "content_score": 7.67,
-      "answer_score": 7.5,
+      "answer_score": 10.0,
       "scoring": "verificable",
       "judge_score": 4.2,
       "judge_precision": 3,
@@ -3367,16 +3367,16 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:17+00:00"
+      "rescored_at": "2026-08-13T04:23:33+00:00"
     },
     {
-      "quality": 7.5,
+      "quality": 5.0,
       "cost_score": 10.0,
       "cost_usd": 0.000149,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 7.65,
+      "final": 5.9,
       "test_name": "code_bug_subtle",
       "model": "Hermes 4 70B",
       "model_id": "nousresearch/hermes-4-70b",
@@ -3388,9 +3388,9 @@
       "input_tokens": 235,
       "output_tokens": 295,
       "response_preview": "El bug ocurre cuando el conjunto de datos tiene exactamente 3 elementos. En este caso, el código fallará con un error de `ZeroDivisionError` en la línea `return sum(filtered) / len(filtered)` dentro de la función `remove_outliers_and_average`.\n\nEsto sucede porque, para un conjunto de datos de 3 elem",
-      "auto_quality": 7.5,
+      "auto_quality": 5.0,
       "content_score": 8.0,
-      "answer_score": 7.5,
+      "answer_score": 5.0,
       "scoring": "verificable",
       "judge_score": 1.4,
       "judge_precision": 3,
@@ -3404,7 +3404,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:17+00:00"
+      "rescored_at": "2026-08-13T04:23:34+00:00"
     },
     {
       "quality": 5.0,
@@ -3441,7 +3441,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:17+00:00"
+      "rescored_at": "2026-08-13T04:23:34+00:00"
     },
     {
       "quality": 7.5,
@@ -3478,7 +3478,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:17+00:00"
+      "rescored_at": "2026-08-13T04:23:34+00:00"
     },
     {
       "quality": 7.5,
@@ -3515,7 +3515,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:17+00:00"
+      "rescored_at": "2026-08-13T04:23:34+00:00"
     },
     {
       "quality": 7.5,
@@ -3552,7 +3552,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:17+00:00"
+      "rescored_at": "2026-08-13T04:23:34+00:00"
     },
     {
       "quality": 9.0,
@@ -3589,7 +3589,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:17+00:00"
+      "rescored_at": "2026-08-13T04:23:34+00:00"
     },
     {
       "quality": 8.0,
@@ -3626,7 +3626,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:17+00:00"
+      "rescored_at": "2026-08-13T04:23:34+00:00"
     },
     {
       "quality": 10.0,
@@ -3663,7 +3663,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:17+00:00"
+      "rescored_at": "2026-08-13T04:23:34+00:00"
     },
     {
       "quality": 10.0,
@@ -3700,7 +3700,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:17+00:00"
+      "rescored_at": "2026-08-13T04:23:34+00:00"
     },
     {
       "quality": 7.5,
@@ -3737,16 +3737,16 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:19+00:00"
+      "rescored_at": "2026-08-13T04:23:36+00:00"
     },
     {
-      "quality": 4.0,
+      "quality": 6.0,
       "cost_score": 9.66,
       "cost_usd": 0.00028,
       "speed": 10.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 5.15,
+      "final": 6.55,
       "test_name": "screenshot_table_extraction",
       "model": "Hermes 4 70B",
       "model_id": "nousresearch/hermes-4-70b",
@@ -3758,9 +3758,9 @@
       "input_tokens": 406,
       "output_tokens": 567,
       "response_preview": "{\n  \"dashboard\": \"KPIs Marzo 2026\",\n  \"metricas\": [\n    {\n      \"nombre\": \"MRR\",\n      \"enero\": 45200,\n      \"febrero\": 48700,\n      \"marzo\": 52100,\n      \"variacion\": \"7.0%\"\n    },\n    {\n      \"nombre\": \"Churn Rate\",\n      \"enero\": 4.2,\n      \"febrero\": 3.8,\n      \"marzo\": 3.1,\n      \"variacion\": \"",
-      "auto_quality": 4.0,
+      "auto_quality": 6.0,
       "content_score": 8.0,
-      "answer_score": 4.0,
+      "answer_score": 6.0,
       "scoring": "verificable",
       "judge_score": 2.0,
       "judge_precision": 2,
@@ -3774,7 +3774,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:19+00:00"
+      "rescored_at": "2026-08-13T04:23:36+00:00"
     },
     {
       "quality": 10.0,
@@ -3811,16 +3811,16 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:19+00:00"
+      "rescored_at": "2026-08-13T04:23:36+00:00"
     },
     {
-      "quality": 7.5,
+      "quality": 10.0,
       "cost_score": 10.0,
       "cost_usd": 0.00018,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 7.65,
+      "final": 9.4,
       "test_name": "model_as_router",
       "model": "Hermes 4 70B",
       "model_id": "nousresearch/hermes-4-70b",
@@ -3832,9 +3832,9 @@
       "input_tokens": 286,
       "output_tokens": 357,
       "response_preview": "[\n  {\n    \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n    \"modelo\": \"deepseek-v3\",\n    \"razon\": \"Este modelo es mejor para razonamiento y analisis de texto, ideal para identificar patrones y problemas comunes en las reviews.\"\n  },\n  {\n    \"subtarea\": \"Escrib",
-      "auto_quality": 7.5,
+      "auto_quality": 10.0,
       "content_score": 8.0,
-      "answer_score": 7.5,
+      "answer_score": 10.0,
       "scoring": "verificable",
       "judge_score": 4.0,
       "judge_precision": 4,
@@ -3848,7 +3848,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-70b__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:19+00:00"
+      "rescored_at": "2026-08-13T04:23:36+00:00"
     },
     {
       "quality": 10.0,
@@ -3885,7 +3885,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:19+00:00"
+      "rescored_at": "2026-08-13T04:23:36+00:00"
     },
     {
       "quality": 5.0,
@@ -3922,7 +3922,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:19+00:00"
+      "rescored_at": "2026-08-13T04:23:36+00:00"
     },
     {
       "quality": 10.0,
@@ -3959,7 +3959,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:19+00:00"
+      "rescored_at": "2026-08-13T04:23:36+00:00"
     },
     {
       "quality": 5.0,
@@ -3996,7 +3996,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:19+00:00"
+      "rescored_at": "2026-08-13T04:23:36+00:00"
     },
     {
       "quality": 0.0,
@@ -4033,7 +4033,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:19+00:00"
+      "rescored_at": "2026-08-13T04:23:36+00:00"
     },
     {
       "quality": 10.0,
@@ -4070,7 +4070,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:19+00:00"
+      "rescored_at": "2026-08-13T04:23:36+00:00"
     },
     {
       "quality": 9.0,
@@ -4107,7 +4107,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:19+00:00"
+      "rescored_at": "2026-08-13T04:23:36+00:00"
     },
     {
       "quality": 7.5,
@@ -4144,7 +4144,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:19+00:00"
+      "rescored_at": "2026-08-13T04:23:36+00:00"
     },
     {
       "quality": 9.0,
@@ -4181,7 +4181,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:19+00:00"
+      "rescored_at": "2026-08-13T04:23:36+00:00"
     },
     {
       "quality": 9.0,
@@ -4218,7 +4218,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:19+00:00"
+      "rescored_at": "2026-08-13T04:23:36+00:00"
     },
     {
       "quality": 10.0,
@@ -4255,7 +4255,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__ocr_extraction__invoice_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:19+00:00"
+      "rescored_at": "2026-08-13T04:23:36+00:00"
     },
     {
       "quality": 10.0,
@@ -4292,7 +4292,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__ocr_extraction__business_card_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:19+00:00"
+      "rescored_at": "2026-08-13T04:23:36+00:00"
     },
     {
       "quality": 7.5,
@@ -4329,7 +4329,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__ocr_extraction__receipt_math_verification.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:21+00:00"
+      "rescored_at": "2026-08-13T04:23:37+00:00"
     },
     {
       "quality": 10.0,
@@ -4366,7 +4366,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__ocr_extraction__screenshot_table_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:21+00:00"
+      "rescored_at": "2026-08-13T04:23:37+00:00"
     },
     {
       "quality": 10.0,
@@ -4403,16 +4403,16 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__ocr_extraction__handwritten_notes_extraction.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:21+00:00"
+      "rescored_at": "2026-08-13T04:23:37+00:00"
     },
     {
-      "quality": 7.5,
+      "quality": 5.0,
       "cost_score": 7.76,
       "cost_usd": 0.001201,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.01,
+      "final": 5.26,
       "test_name": "model_as_router",
       "model": "Hermes 4 405B",
       "model_id": "nousresearch/hermes-4-405b",
@@ -4424,9 +4424,9 @@
       "input_tokens": 286,
       "output_tokens": 305,
       "response_preview": "[\n  {\n    \"subtarea\": \"Analizar 500 reviews de usuarios y extraer los 5 problemas principales\",\n    \"modelo\": \"gemini-flash-lite\",\n    \"razon\": \"Procesar grandes volúmenes de texto rápidamente para extraer insights\"\n  },\n  {\n    \"subtarea\": \"Escribir un email de disculpas a clientes afectados por un",
-      "auto_quality": 7.5,
+      "auto_quality": 5.0,
       "content_score": 8.0,
-      "answer_score": 7.5,
+      "answer_score": 5.0,
       "scoring": "verificable",
       "judge_score": 4.0,
       "judge_precision": 4,
@@ -4440,7 +4440,7 @@
       "timestamp": "20260715_071736_9897",
       "response_file": "results/responses/20260715_071736_9897/hermes-4-405b__agent_capabilities__model_as_router.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:52:21+00:00"
+      "rescored_at": "2026-08-13T04:23:37+00:00"
     }
   ]
 }

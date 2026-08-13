@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:51:21+00:00",
+      "at": "2026-08-13T04:22:52+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -53,7 +53,7 @@
       "timestamp": "20260714_153502_16058",
       "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:18+00:00"
+      "rescored_at": "2026-08-13T04:22:50+00:00"
     },
     {
       "quality": 5.0,
@@ -90,7 +90,7 @@
       "timestamp": "20260714_153502_16058",
       "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:18+00:00"
+      "rescored_at": "2026-08-13T04:22:50+00:00"
     },
     {
       "quality": 10.0,
@@ -127,7 +127,7 @@
       "timestamp": "20260714_153502_16058",
       "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     },
     {
       "quality": 7.5,
@@ -164,7 +164,7 @@
       "timestamp": "20260714_153502_16058",
       "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     },
     {
       "quality": 0.0,
@@ -201,7 +201,7 @@
       "timestamp": "20260714_153502_16058",
       "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     },
     {
       "quality": 10.0,
@@ -238,7 +238,7 @@
       "timestamp": "20260714_153502_16058",
       "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     }
   ]
 }

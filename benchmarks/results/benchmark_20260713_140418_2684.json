@@ -13,7 +13,7 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:43:01+00:00",
+      "at": "2026-08-13T04:16:40+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     },
     "polluted_cleanup": {
@@ -49,7 +49,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:00+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -79,7 +79,7 @@
       "content_score": 5.34,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:00+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -109,7 +109,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:00+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -139,17 +139,17 @@
       "content_score": 4.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.0,
+      "quality": 8.0,
       "cost_score": 9.54,
       "cost_usd": 0.000307,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.16,
+      "final": 7.56,
       "test_name": "roadmap_restriccion_capacidad",
       "model": "Llama 3.3 70B",
       "model_id": "meta-llama/llama-3.3-70b-instruct",
@@ -161,15 +161,15 @@
       "input_tokens": 279,
       "output_tokens": 873,
       "response_preview": "Excelente enfoque en priorizar con la capacidad real del equipo (en este caso, tú mismo). Considerando tus 4 horas diarias disponibles para construir y las 8 semanas hasta el cierre del trimestre, te propongo el siguiente orden de priorización:\n\n1. **Iniciativa B: Arreglar el flujo de alta** (~1 sem",
-      "auto_quality": 6.0,
+      "auto_quality": 8.0,
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_140418_2684",
       "response_file": "results/responses/20260713_140418_2684/or-llama-3.3-70b__business_audit__roadmap_restriccion_capacidad.md",
       "content_score": 5.34,
-      "answer_score": 6.0,
+      "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -199,7 +199,7 @@
       "content_score": 4.67,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -229,7 +229,7 @@
       "content_score": 5.34,
       "answer_score": 6.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -259,7 +259,7 @@
       "content_score": 5.34,
       "answer_score": 8.33,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -289,7 +289,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -319,7 +319,7 @@
       "content_score": 0.02,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -349,7 +349,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -379,17 +379,17 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 4.0,
+      "quality": 6.0,
       "cost_score": 10.0,
       "cost_usd": 0.00017,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.83,
+      "final": 6.22,
       "test_name": "elegir_negocio_con_dependencia_oculta",
       "model": "Llama 3.3 70B",
       "model_id": "meta-llama/llama-3.3-70b-instruct",
@@ -401,15 +401,15 @@
       "input_tokens": 347,
       "output_tokens": 424,
       "response_preview": "La elección depende de varios factores, incluyendo tus habilidades, recursos y objetivos a corto plazo. Sin embargo, considerando tus restricciones de tiempo (4 horas al día, 3 meses de caja) y la necesidad de generar ingresos antes de que se te acabe el colchón, la opción más viable parece ser la *",
-      "auto_quality": 4.0,
+      "auto_quality": 6.0,
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_140418_2684",
       "response_file": "results/responses/20260713_140418_2684/or-llama-3.3-70b__business_strategy__elegir_negocio_con_dependencia_oculta.md",
       "content_score": 5.34,
-      "answer_score": 4.0,
+      "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -439,7 +439,7 @@
       "content_score": 7.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -469,7 +469,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:40+00:00",
       "scoring": "verificable"
     }
   ]
