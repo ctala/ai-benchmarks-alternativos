@@ -118,7 +118,58 @@ en Hermes o n8n.
 release de septiembre — decisión de Cristian, 13-ago. **Septiembre = modelos nuevos y nada
 más** (los 23 detectados). La próxima ventana de medición queda libre para lo que aparezca.
 
-## 5. La prueba de si esto funcionó
+## 5. Lo que FALTA cerrar — comprometido, con orden
+
+> **Decisión de Cristian (13-ago):** se hace **después** de medir las dos suites nuevas y
+> de actualizar el sitio. No antes: la base primero, el refinamiento después.
+
+Cuatro riesgos quedaron **expuestos** al cierre de la sesión. Están acá para que no se
+confundan con "ya está resuelto", y con el enfoque propuesto para cada uno:
+
+### 5.1 Duplicidad entre documentos — el que más se parece a la frustración original
+
+**Hoy no hay nada.** La dispersión de 34 docs en la raíz, con decisiones repartidas en 13,
+se encontró **a mano**. Si mañana dos docs vuelven a decir lo mismo con distinta cifra,
+nadie se entera hasta que alguien lo lea.
+
+*Enfoque:* comparar los docs por similitud de contenido (shingles o TF-IDF sobre párrafos,
+sin dependencias pesadas) y marcar pares con solapamiento alto. No para borrar
+automáticamente — para **decidir cuál es la fuente y cuál se convierte en puntero**. Sale
+como `check_duplicados.py`, en la familia de los otros guardrails.
+
+*Señal de que funcionó:* que el primer reporte encuentre pares que hoy no sabemos que existen.
+
+### 5.2 Un doc verificado pero igual equivocado
+
+`check_docs.py` verifica que **alguien lo miró**, no que el contenido sea correcto. Es
+honesto al respecto, pero es un techo real: la fecha se puede actualizar sin arreglar nada.
+
+*Enfoque:* extender el chequeo de datos incrustados. Ya sabemos que **el patrón que pudre
+un doc es la data pegada en la prosa** (`PROVEEDORES.md` con su lista de modelos de hace
+113 días). Un chequeo que detecte nombres de modelo, precios y scores dentro de docs
+curados —y exija que se enlacen en vez de copiarse— ataca la causa, no el síntoma.
+
+### 5.3 Superficies nuevas sin guardrail
+
+La regla R3 exige que cada superficie llegue con el suyo. **Nada lo verifica**: una página
+creada mañana no está cubierta hasta que alguien lo note.
+
+*Enfoque:* un inventario de superficies publicadas (docs vivos, páginas pSEO, calculadora,
+OG, feeds) contra la lista de lo que cada guardrail cubre. Lo que quede sin cubrir, se
+reporta.
+
+### 5.4 Pérdida de trabajo si muere una sesión
+
+Los commits automáticos durante los lotes de anoche fueron **ad-hoc** — un bloque que
+agregué al script de estado, no un mecanismo del repo.
+
+*Enfoque:* que el runner haga commit de sus resultados cada N tests, no que dependa de que
+quien lo lanza se acuerde de armar el heartbeat. Es el mismo patrón del canario: la regla
+existe, le falta el instrumento.
+
+---
+
+## 6. La prueba de si esto funcionó
 
 Dentro de tres meses, la pregunta no es si el ranking mejoró: es **cuántas veces cambiamos
 la presentación en público**. Si la respuesta es "una, en la ventana anunciada", funcionó.

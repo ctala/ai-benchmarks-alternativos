@@ -63,6 +63,7 @@
 | Niveles de razonamiento | `effort=high` **no** es el techo de Anthropic. Estamos comparando modelos en configuraciones que no sabemos si son equivalentes | [CHANGELOG v4.1.0](CHANGELOG.md) |
 | Benchmarks de terceros (SWE-Bench, GPQA) | Solo si la fuente es consultable y automatizable. Copiar de una landing devuelve el problema de cifras que caducan | [PLAN-V4.1 §3.ter](PLAN-V4.1.md) |
 | Pilar del blog | Su sección de método explica el compuesto, que ya no se publica. Necesita reescritura, no find-replace | [CHANGELOG v4.1.0](CHANGELOG.md) |
+| **Nemotron 3 Nano Omni sin tools** | 18 de 19 fallos del lote de suites nuevas son ese modelo: *'No endpoints found that support tool use'*. Es uno de los 2 rankeados medidos en **free tier**, que el CLAUDE.md dice medir por NIM. Decidir: medir por NIM, o marcar la suite como no-aplicable para él | `audit_suites.py` |
 | **9 docs citan modelos retirados** | Auditoría 13-ago: `COMPARATIVA`, `SUSCRIPCIONES`, `PROVEEDORES`, `CASOS_DE_USO`, `BENCHMARKS_EXTERNOS`, `THINKING_EXPLAINED` y otros recomiendan modelos que ya no existen — Devstral Small entre ellos. `check_consistency` lo avisa en cada corrida; limpiarlo es trabajo editorial pendiente | `check_consistency.py` |
 | **5 docs vigentes sin verificar >90 días** | Ya no depende de que alguien se acuerde: `check_docs.py` los marca en cada corrida. Veredicto por doc abajo | `check_docs.py` |
 
