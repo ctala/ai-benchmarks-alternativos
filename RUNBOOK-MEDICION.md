@@ -52,15 +52,53 @@ El juez `phi4-or` (Phi-4 por OpenRouter) NO es el cuello — pero OJO: **rompe c
 sin puntuar = gap sistemático en varios modelos. Si un test es gap en 3+ modelos a la vez,
 sospechar del VERIFICADOR, no de los modelos.
 
-## Regla 0.5 — costo: estimar con ×RUNS_PER_TEST y multiplicador reasoning/agentic
+## Regla 0.5 — costo: estimar POR SUITE, nunca con un $/run promedio
 
-`average_scores` guarda los tokens de UN run (no la suma), así que estimar el costo sobre los
-registros promediados **subestima ×3** (se pagan 3 llamadas por test). Además reasoning
-(thinking largo) y agentic (multi-turno) disparan los tokens muy por encima del promedio.
-**Antes de correr: multiplicar por RUNS_PER_TEST, aplicar factor reasoning/agentic, y nombrar
-los modelos caros por separado** (Fable/Opus vía OpenRouter fueron ~$33 de ~$60 totales).
-Una re-medición estimada en $18 costó ~$55-70. `--rerun-empty` targeted, nunca re-correr
-suites completas caras.
+```bash
+.venv/bin/python benchmarks/calculate_costs.py --estimar <modelo-ya-medido> \
+    --precio-in 5.0 --precio-out 25.0
+```
+
+**Corré esto antes de cada lote.** Usa el consumo real por suite de un examen ya medido y lo
+aplica al precio del modelo objetivo. Marca las suites de contexto largo / multi-turno y avisa
+si la referencia está incompleta.
+
+**El promedio de $/run miente, y miente hacia abajo.** No todas las suites cuestan igual, ni
+parecido: el costo se concentra en unas pocas y promediarlo lo reparte entre 192 runs hasta
+volverlo invisible. Medido el 12-ago-2026 sobre un examen completo:
+
+| suite | tok-in/run | share del costo | share de los runs |
+|---|---|---|---|
+| `niah_es` | 107.960 | ~74% | 23% |
+| `agent_long_horizon` | 19.316 | ~13% | 6% |
+| `prompt_injection_es` | 16.172 | ~5% | 10% |
+| todo lo demás (26 suites) | ~300 | ~8% | 61% |
+
+Son **86× a 360×** más input por run. `niah_es` es contexto largo de verdad (100K+ tokens de
+haystack) y `agent_long_horizon` reenvía la conversación entera en cada turno, así que un test
+de 13 turnos paga el contexto 13 veces, creciendo — su costo va con el **cuadrado** de los turnos.
+
+**El fallo que lo motivó:** estimé el Grupo A en $15,09. El examen completo de los dos Claude
+Opus costaba **$98,96** — error de **6,6×**. Se cortó a los $18,64, con `niah_es` todavía por
+delante en ambos (habría sido +$73). Y lo incómodo: **esta regla ya existía y ya decía que
+multi-turno dispara los tokens.** Estaba escrita y no alcanzó, porque no tenía instrumento —
+el mismo patrón que el skip de `niah` sin margen de salida y el juez corriendo donde su
+veredicto se descarta. Por eso ahora la regla ES el comando de arriba.
+
+### Corolario — `niah_es` y `prompt_injection_es` son OMITIBLES sin perder el ranking
+
+`export_for_pages.py:896-903` los trata como **pilares aparte**: se reportan por separado y un
+examen incompleto ahí se marca «no medido»; **no bloquean `ranked` ni contaminan el score**.
+Así que en un modelo caro se puede correr el examen que rankea y saltar `niah_es`. No son
+equivalentes y no se omiten juntos: en Opus 5 Fast `niah_es` cuesta **$48,77** y
+`prompt_injection_es` **$3,55**. La seguridad se mide siempre; el contexto largo es el que se
+negocia.
+
+Lo demás que sigue valiendo: `average_scores` guarda los tokens de UN run (no la suma), así que
+estimar sobre los registros promediados **subestima ×3** (se pagan 3 llamadas por test). Nombrá
+los modelos caros por separado (Fable/Opus vía OpenRouter fueron ~$33 de ~$60 totales). Una
+re-medición estimada en $18 costó ~$55-70. `--rerun-empty` targeted, nunca re-correr suites
+completas caras.
 
 ## Regla 1 — resume de nombre FIJO, nunca diff `before/after`
 
