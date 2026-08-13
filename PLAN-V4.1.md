@@ -246,10 +246,72 @@ el dato a la vista. El wizard y las páginas por criterio de v4.0 ya iban en esa
 
 ---
 
+## 3.bis — BLOQUEANTE: el rescore dejó la referencia congelada obsoleta
+
+**Estado: el rescore está hecho (10.503 runs, 13-ago 01:30) y NO se publicó a propósito.**
+`docs/data/models.json` sigue siendo el de las 07:15. Decisión pendiente de Cristian.
+
+### Qué pasó
+
+Los 3 scorers huérfanos hacen lo que debían: donde antes había un `5.0` de relleno, ahora
+hay una nota real. Efecto medido sobre **los mismos 68 modelos**:
+
+| | media `quality_avg` | sd |
+|---|---|---|
+| referencia congelada v4.0 | 7,9246 | 0,2932 |
+| los 68 antes del rescore | 7,926 | 0,296 |
+| **los 68 después** | **8,114** | 0,283 |
+
+**+0,187 de media = +0,64 desviaciones.** Como `score = 5,5 + 3,3·z` y calidad pesa 70%,
+eso son **+1,48 puntos de inflación** para el modelo promedio. Observado: **65 de 68 se
+movieron ≥0,3, y 64 hacia arriba** (de +0,38 a +2,17). GPT-5.6 Luna pasaría de 8,80 a
+**9,77**.
+
+No es que el ranking cambió: **la vara quedó corta**. La referencia v4.0 está calibrada
+contra la escala vieja, en la que un tercio de los tests devolvía 5,0 fijo.
+
+### Por qué no se arregla solo
+
+Recalibrar es un **evento de versión deliberado** (`export_for_pages.py --recalibrate
+--scoring-version vX.Y`) y estaba explícitamente fuera de alcance. Simulado sin escribir:
+baja todo ~1 punto y **el orden se mantiene casi intacto** — confirma que la inflación es
+uniforme, no un reordenamiento. Top 3 recalibrado: Luna 8,77 · Tencent Hy3 8,48 · Qwen 3.7
+Flash 8,30.
+
+### Las tres salidas
+
+1. **Recalibrar como parte de v4.1** (recomendada). La escala de calidad cambió de verdad,
+   así que la referencia tiene que cambiar con ella. v4.1 ya es una frontera de
+   comparabilidad declarada — meter esto ahí no agrega una ruptura, usa la que ya hay.
+2. **Recalibrar ya como v4.0.1.** Publica antes, pero abre una frontera extra para
+   cerrarla en semanas. Contradice la decisión de "una sola frontera".
+3. **Publicar sin recalibrar.** Descartada: todo número absoluto quedaría inflado ~1,5
+   puntos y el `check_consistency` empezaría a marcar los docs vivos.
+
+### Ojo aparte: los Claude Opus quedan al fondo y NO es un bug
+
+Opus 5 daría **#77 de 82** (2,19 recalibrado). Verificado suite por suite contra Luna y
+Sonnet 5: pierde repartido en muchas suites y **gana en varias** (`sales_outreach` +2,22,
+`prompt_injection_es` +1,80, `summarization` +1,37, `policy_adherence` +1,00). No hay una
+suite rota. Lo que lo hunde es el compuesto: calidad 7,70 **bajo la media de 8,13**, coste
+3,35 (de los más caros) y latencia 1,42 (35s). Tres de cuatro dimensiones en contra.
+
+Es lo que el benchmark mide a propósito — valor para un emprendedor, no capacidad
+absoluta — pero publicar «el insignia de Anthropic es penúltimo» **exige decirlo con esa
+salvedad al lado**, o el titular miente por omisión. Al redactar el release: nombrar que
+pierde por precio y latencia, no por incapacidad.
+
+⚠️ La sensibilidad del compuesto es alta por construcción: la sd de calidad entre modelos
+es **0,289** sobre una media de 8,13. Una diferencia de 0,4 en calidad = 1,4 sd = varios
+puntos de score. Vale revisarlo en §3 junto con sacar costo/velocidad del índice.
+
+---
+
 ## 4. Lo que NO entra en v4.1
 
 - **Los scorers huérfanos ya están** (`json_valid`, `json_exact`, `language_check`,
-  12-ago). Falta aplicar `rescore_all.py`: va ANTES de v4.1, con el baseline congelado.
+  12-ago). `rescore_all.py` **ya se aplicó** (13-ago): 10.503 runs. Destapó el bloqueante
+  de §3.bis — sin publicar hasta decidir.
 - **`else: return 5.0` → `raise`**: su propio commit, después del rescore validado.
 - **`RUNS_PER_TEST`**: medido el ruido (±0,58 con n=1). Decisión de Cristian: próxima
   tanda, no ahora.
