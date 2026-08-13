@@ -1,13 +1,13 @@
 # Llama 3.3 70B
 
 - **model_id**: `meta-llama/llama-3.3-70b-instruct`
-- **Total tests**: 158/158 exitosos (0 errores)
-- **Score final**: 7.45
-- **Calidad**: 7.86
+- **Total tests**: 150/150 exitosos (0 errores)
+- **Score final**: 7.40
+- **Calidad**: 7.81
 - **Judge score (Phi-4)**: 4.22/10
 - **Velocidad**: 31 tok/s
-- **Latencia primera token**: 22.43s
-- **Costo promedio por test**: $0.00030
+- **Latencia primera token**: 23.43s
+- **Costo promedio por test**: $0.00031
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,7 +33,6 @@
 | policy_adherence | 4 | 4 | 7.45 | 7.58 |
 | presentation | 2 | 2 | 8.55 | 9.41 |
 | reasoning | 3 | 3 | 8.19 | 9.15 |
-| retrieval_distractores | 8 | 8 | 8.28 | 8.88 |
 | sales_outreach | 3 | 3 | 8.41 | 9.33 |
 | startup_content | 5 | 5 | 8.39 | 9.19 |
 | strategy | 3 | 3 | 7.49 | 8.06 |
@@ -2261,5 +2260,3 @@ Aquí te dejo la información de los candidatos en formato JSON:
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

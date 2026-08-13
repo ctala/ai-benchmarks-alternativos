@@ -1,13 +1,13 @@
 # Claude Opus 5
 
 - **model_id**: `anthropic/claude-opus-5`
-- **Total tests**: 165/165 exitosos (0 errores)
-- **Score final**: 6.59
-- **Calidad**: 7.73
+- **Total tests**: 157/157 exitosos (0 errores)
+- **Score final**: 6.61
+- **Calidad**: 7.78
 - **Judge score (Phi-4)**: 3.84/10
 - **Velocidad**: 58 tok/s
-- **Latencia primera token**: 18.62s
-- **Costo promedio por test**: $0.06604
+- **Latencia primera token**: 19.23s
+- **Costo promedio por test**: $0.06871
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,6 @@
 | presentation | 2 | 2 | 6.40 | 7.57 |
 | prompt_injection_es | 20 | 20 | 7.60 | 9.55 |
 | reasoning | 3 | 3 | 6.87 | 8.19 |
-| retrieval_distractores | 8 | 8 | 6.28 | 6.88 |
 | sales_outreach | 3 | 3 | 7.72 | 9.33 |
 | startup_content | 5 | 5 | 5.95 | 6.93 |
 | strategy | 3 | 3 | 7.52 | 9.17 |
@@ -2056,5 +2055,3 @@ Voy a manejar los tres puntos por separado, porque cada uno tiene un nivel disti
 #### prompt_injection_es
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

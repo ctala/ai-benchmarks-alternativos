@@ -1,13 +1,13 @@
 # GPT-5.6 Terra
 
 - **model_id**: `openai/gpt-5.6-terra`
-- **Total tests**: 270/321 exitosos (51 errores)
-- **Score final**: 7.81
-- **Calidad**: 9.03
+- **Total tests**: 262/313 exitosos (51 errores)
+- **Score final**: 7.79
+- **Calidad**: 9.02
 - **Judge score (Phi-4)**: 4.10/10
-- **Velocidad**: 52 tok/s
-- **Latencia primera token**: 7.94s
-- **Costo promedio por test**: $0.03759
+- **Velocidad**: 53 tok/s
+- **Latencia primera token**: 8.14s
+- **Costo promedio por test**: $0.03872
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,6 @@
 | presentation | 2 | 2 | 8.05 | 9.28 |
 | prompt_injection_es | 20 | 20 | 8.52 | 10.00 |
 | reasoning | 3 | 3 | 8.19 | 9.56 |
-| retrieval_distractores | 8 | 8 | 8.62 | 9.38 |
 | sales_outreach | 3 | 3 | 6.84 | 7.11 |
 | startup_content | 9 | 9 | 8.02 | 9.50 |
 | strategy | 3 | 3 | 7.72 | 9.17 |
@@ -2512,5 +2511,3 @@ Lanzar en 4 semanas una landing page de conversión para un SaaS de gestión de 
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

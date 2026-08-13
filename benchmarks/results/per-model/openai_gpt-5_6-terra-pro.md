@@ -1,13 +1,13 @@
 # GPT-5.6 Terra Pro
 
 - **model_id**: `openai/gpt-5.6-terra-pro`
-- **Total tests**: 209/210 exitosos (1 errores)
-- **Score final**: 7.47
-- **Calidad**: 8.75
+- **Total tests**: 201/202 exitosos (1 errores)
+- **Score final**: 7.44
+- **Calidad**: 8.73
 - **Judge score (Phi-4)**: 3.98/10
-- **Velocidad**: 110 tok/s
-- **Latencia primera token**: 15.08s
-- **Costo promedio por test**: $0.08494
+- **Velocidad**: 113 tok/s
+- **Latencia primera token**: 15.57s
+- **Costo promedio por test**: $0.08818
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -36,7 +36,6 @@
 | presentation | 2 | 2 | 7.37 | 8.69 |
 | prompt_injection_es | 20 | 20 | 7.63 | 9.10 |
 | reasoning | 3 | 3 | 7.87 | 9.47 |
-| retrieval_distractores | 8 | 8 | 8.28 | 9.38 |
 | sales_outreach | 3 | 3 | 6.44 | 7.11 |
 | startup_content | 5 | 5 | 7.63 | 9.19 |
 | strategy | 3 | 3 | 7.54 | 9.17 |
@@ -2172,5 +2171,3 @@ A continuación propongo un plan de 4 semanas / 20 días hábiles para lanzar un
 #### prompt_injection_es
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

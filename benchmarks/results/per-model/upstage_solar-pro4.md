@@ -1,13 +1,13 @@
 # Solar Pro 4
 
 - **model_id**: `upstage/solar-pro4`
-- **Total tests**: 216/220 exitosos (4 errores)
-- **Score final**: 7.37
-- **Calidad**: 7.77
+- **Total tests**: 208/212 exitosos (4 errores)
+- **Score final**: 7.33
+- **Calidad**: 7.73
 - **Judge score (Phi-4)**: 4.33/10
-- **Velocidad**: 34 tok/s
-- **Latencia primera token**: 14.91s
-- **Costo promedio por test**: $0.00086
+- **Velocidad**: 35 tok/s
+- **Latencia primera token**: 15.25s
+- **Costo promedio por test**: $0.00089
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -36,7 +36,6 @@
 | presentation | 2 | 2 | 8.29 | 8.96 |
 | prompt_injection_es | 20 | 20 | 2.57 | 1.00 |
 | reasoning | 3 | 3 | 8.89 | 9.68 |
-| retrieval_distractores | 8 | 8 | 8.30 | 8.88 |
 | sales_outreach | 3 | 3 | 6.97 | 7.11 |
 | startup_content | 5 | 5 | 8.61 | 9.43 |
 | strategy | 3 | 3 | 7.05 | 7.22 |
@@ -2048,5 +2047,3 @@ El objetivo de la Landing Page (LP) no es vender el producto completo hoy,
 #### prompt_injection_es
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

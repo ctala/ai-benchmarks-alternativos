@@ -1,13 +1,13 @@
 # GPT-5.6 Luna
 
 - **model_id**: `openai/gpt-5.6-luna`
-- **Total tests**: 282/333 exitosos (51 errores)
-- **Score final**: 8.28
-- **Calidad**: 8.97
+- **Total tests**: 274/325 exitosos (51 errores)
+- **Score final**: 8.27
+- **Calidad**: 8.96
 - **Judge score (Phi-4)**: 4.12/10
-- **Velocidad**: 70 tok/s
-- **Latencia primera token**: 5.35s
-- **Costo promedio por test**: $0.00358
+- **Velocidad**: 71 tok/s
+- **Latencia primera token**: 5.46s
+- **Costo promedio por test**: $0.00368
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,6 @@
 | presentation | 2 | 2 | 8.45 | 9.30 |
 | prompt_injection_es | 20 | 20 | 7.54 | 7.75 |
 | reasoning | 3 | 3 | 8.62 | 9.42 |
-| retrieval_distractores | 8 | 8 | 8.80 | 9.38 |
 | sales_outreach | 3 | 3 | 7.27 | 7.11 |
 | startup_content | 7 | 7 | 8.56 | 9.49 |
 | strategy | 3 | 3 | 8.85 | 10.00 |
@@ -2509,5 +2508,3 @@ Asumo una jornada laboral aproximada de **8:30 AM a 6:00 PM**, con bloques de co
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

@@ -1,13 +1,13 @@
 # DeepSeek V3
 
 - **model_id**: `deepseek/deepseek-v3.2`
-- **Total tests**: 152/152 exitosos (0 errores)
-- **Score final**: 7.69
-- **Calidad**: 8.29
+- **Total tests**: 144/144 exitosos (0 errores)
+- **Score final**: 7.66
+- **Calidad**: 8.26
 - **Judge score (Phi-4)**: 4.47/10
 - **Velocidad**: 32 tok/s
-- **Latencia primera token**: 21.25s
-- **Costo promedio por test**: $0.00072
+- **Latencia primera token**: 22.22s
+- **Costo promedio por test**: $0.00075
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,7 +33,6 @@
 | policy_adherence | 4 | 4 | 7.06 | 7.33 |
 | presentation | 2 | 2 | 8.45 | 9.48 |
 | reasoning | 4 | 4 | 8.53 | 9.57 |
-| retrieval_distractores | 8 | 8 | 8.27 | 8.88 |
 | sales_outreach | 3 | 3 | 6.91 | 7.11 |
 | startup_content | 8 | 8 | 8.37 | 9.36 |
 | strategy | 3 | 3 | 7.34 | 8.06 |
@@ -2585,5 +2584,3 @@ Aquí tienes un plan semanal detallado, respetando tus restricciones y asignando
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

@@ -1,13 +1,13 @@
 # Claude Fable 5
 
 - **model_id**: `anthropic/claude-fable-5`
-- **Total tests**: 227/227 exitosos (0 errores)
-- **Score final**: 6.53
-- **Calidad**: 7.89
+- **Total tests**: 219/219 exitosos (0 errores)
+- **Score final**: 6.52
+- **Calidad**: 7.87
 - **Judge score (Phi-4)**: 4.18/10
-- **Velocidad**: 41 tok/s
-- **Latencia primera token**: 17.17s
-- **Costo promedio por test**: $0.13560
+- **Velocidad**: 42 tok/s
+- **Latencia primera token**: 17.49s
+- **Costo promedio por test**: $0.13998
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -34,7 +34,6 @@
 | presentation | 2 | 2 | 7.72 | 9.80 |
 | prompt_injection_es | 20 | 20 | 6.09 | 7.75 |
 | reasoning | 3 | 3 | 7.95 | 10.00 |
-| retrieval_distractores | 8 | 8 | 6.91 | 8.38 |
 | sales_outreach | 3 | 3 | 7.61 | 9.33 |
 | startup_content | 5 | 5 | 7.64 | 9.66 |
 | strategy | 3 | 3 | 7.87 | 10.00 |
@@ -2802,5 +2801,3 @@ La solicitud de reembolso es una acción irreversible y me falta información es
 #### agent_long_horizon
 
 #### tool_calling_adversarial
-
-#### retrieval_distractores

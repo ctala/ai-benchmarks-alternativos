@@ -48,7 +48,8 @@ from benchmarks.tests import integridad_idioma  # suite nueva 12-ago-2026
 # invalida. Miden donde el examen todavía discrimina — tool calling (0% de notas
 # perfectas) — y cubren el hueco que dejó el recorte de niah_es a 128K+.
 from benchmarks.tests import tool_calling_adversarial
-from benchmarks.tests import retrieval_distractores
+# `retrieval_distractores` NO se registra: se midió en los 82 y salió saturada (76% de
+# respuestas perfectas; endurecida bajó solo a 70%). El archivo queda con el análisis.
 from benchmarks.tests import code_generation, reasoning, summarization, presentation
 from benchmarks.tests import startup_content, deep_reasoning, customer_support, structured_output
 from benchmarks.tests import hallucination, creativity, string_precision, news_seo_writing
@@ -136,7 +137,6 @@ ALL_TEST_SUITES = {
     # calidad titular. Nace de la fuga de CJK real en el pipeline de Eco.
     "integridad_idioma": integridad_idioma.TESTS,
     "tool_calling_adversarial": tool_calling_adversarial.TESTS,
-    "retrieval_distractores": retrieval_distractores.TESTS,
     "prompt_injection_es": prompt_injection_es.TESTS,
 }
 
@@ -1130,8 +1130,18 @@ def run_benchmark(args):
     # Si hay tests `reasoning` en la corrida y el verificador no responde, ABORTAMOS.
     # Sin él, scoring.py levanta excepción por diseño: un score plausible y falso es
     # peor que ningún score.
+    # Tipos que NO se pueden puntuar sin el verificador semántico. `reasoning` lo
+    # necesita para comparar insights; `must_not_assert` para distinguir AFIRMAR una
+    # falsedad de DESMENTIRLA — el que la desmiente también la menciona, así que un
+    # regex castigaría al que acertó.
+    #
+    # El gate miraba SOLO `reasoning`. Nunca se notó porque las suites que usan
+    # `must_not_assert` traen además tests `reasoning`, así que el verificador
+    # quedaba configurado de rebote. Al correr `retrieval_distractores` sola
+    # —must_not_assert sin reasoning— el runner reventó. (13-ago-2026)
+    TIPOS_CON_VERIFICADOR = {"reasoning", "must_not_assert"}
     hay_reasoning = any(
-        (t.get("expected_answer") or {}).get("type") == "reasoning"
+        (t.get("expected_answer") or {}).get("type") in TIPOS_CON_VERIFICADOR
         for tests in test_suites.values() for t in tests
     )
     if hay_reasoning:
