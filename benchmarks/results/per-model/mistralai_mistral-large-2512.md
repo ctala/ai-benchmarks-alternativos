@@ -2,8 +2,8 @@
 
 - **model_id**: `mistralai/mistral-large-2512`
 - **Total tests**: 132/132 exitosos (0 errores)
-- **Score final**: 7.61
-- **Calidad**: 8.22
+- **Score final**: 7.76
+- **Calidad**: 8.43
 - **Judge score (Phi-4)**: 4.53/10
 - **Velocidad**: 56 tok/s
 - **Latencia primera token**: 15.64s
@@ -26,18 +26,18 @@
 | customer_support | 4 | 4 | 7.70 | 7.93 |
 | deep_reasoning | 6 | 6 | 7.26 | 7.92 |
 | hallucination | 3 | 3 | 6.92 | 7.00 |
-| multi_turn | 4 | 4 | 6.78 | 7.00 |
-| news_seo_writing | 5 | 5 | 5.47 | 5.40 |
+| multi_turn | 4 | 4 | 7.13 | 7.50 |
+| news_seo_writing | 5 | 5 | 6.85 | 7.37 |
 | ocr_extraction | 5 | 5 | 8.33 | 9.10 |
-| orchestration | 5 | 5 | 8.21 | 8.95 |
-| policy_adherence | 4 | 4 | 8.38 | 9.08 |
+| orchestration | 5 | 5 | 7.51 | 7.95 |
+| policy_adherence | 4 | 4 | 8.03 | 8.58 |
 | presentation | 2 | 2 | 8.53 | 9.81 |
 | reasoning | 3 | 3 | 8.38 | 9.59 |
-| sales_outreach | 3 | 3 | 6.94 | 7.11 |
+| sales_outreach | 3 | 3 | 7.72 | 8.22 |
 | startup_content | 8 | 8 | 8.17 | 9.31 |
 | strategy | 3 | 3 | 7.30 | 8.06 |
 | string_precision | 6 | 6 | 8.11 | 8.17 |
-| structured_output | 4 | 4 | 5.72 | 5.00 |
+| structured_output | 4 | 4 | 9.22 | 10.00 |
 | summarization | 2 | 2 | 6.89 | 7.00 |
 | task_management | 4 | 4 | 8.67 | 9.74 |
 | tool_calling | 4 | 4 | 7.17 | 7.10 |
@@ -630,12 +630,12 @@ Vamos a analizar cada uno de los bugs identificados y luego proporcionaré la ve
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.75 | 5.00 | 5 | 31 | 2.07s | OK |
-| json_array_classification | 5.86 | 5.00 | 5 | 56 | 2.03s | OK |
-| json_nested_complex | 5.23 | 5.00 | 5 | 75 | 17.26s | OK |
-| json_strict_no_extra | 6.05 | 5.00 | 5 | 32 | 0.95s | OK |
+| json_simple_extraction | 9.25 | 10.00 | 5 | 31 | 2.07s | OK |
+| json_array_classification | 9.36 | 10.00 | 5 | 56 | 2.03s | OK |
+| json_nested_complex | 8.73 | 10.00 | 5 | 75 | 17.26s | OK |
+| json_strict_no_extra | 9.55 | 10.00 | 5 | 32 | 0.95s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.75</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.25</summary>
 
 **Stats**: latencia 2.07s · 31 tok/s · 109→64 tokens · $0.00015
 
@@ -662,7 +662,7 @@ Vamos a analizar cada uno de los bugs identificados y luego proporcionaré la ve
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.86</summary>
+<details><summary><code>json_array_classification</code> — score 9.36</summary>
 
 **Stats**: latencia 2.03s · 56 tok/s · 180→114 tokens · $0.00026
 
@@ -685,7 +685,7 @@ Vamos a analizar cada uno de los bugs identificados y luego proporcionaré la ve
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.23</summary>
+<details><summary><code>json_nested_complex</code> — score 8.73</summary>
 
 **Stats**: latencia 17.26s · 75 tok/s · 230→1293 tokens · $0.00205
 
@@ -716,7 +716,7 @@ Vamos a analizar cada uno de los bugs identificados y luego proporcionaré la ve
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 6.05</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.55</summary>
 
 **Stats**: latencia 0.95s · 32 tok/s · 78→31 tokens · $0.00009
 
@@ -1310,8 +1310,8 @@ DeepSeek, la startup ch
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.52 | 8.40 | 4.0 | 57 | 36.18s | OK |
-| news_json_output_strict | 5.22 | 5.00 | 3.0 | 54 | 24.57s | OK |
-| news_spanish_only | 5.22 | 5.00 | 4.6 | 55 | 25.32s | OK |
+| news_json_output_strict | 8.72 | 10.00 | 3.0 | 54 | 24.57s | OK |
+| news_spanish_only | 8.61 | 9.85 | 4.6 | 55 | 25.32s | OK |
 | news_no_hallucination_sources | 1.73 | 0.00 | 3.0 | 52 | 24.09s | OK |
 | news_perplexity_enrichment | 7.66 | 8.60 | 4.0 | 55 | 37.43s | OK |
 
@@ -1340,7 +1340,7 @@ DeepSeek, la startup ch
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.22</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.72</summary>
 
 **Stats**: latencia 24.57s · 54 tok/s · 328→1334 tokens · $0.00216
 
@@ -1363,7 +1363,7 @@ DeepSeek, la startup ch
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.22</summary>
+<details><summary><code>news_spanish_only</code> — score 8.61</summary>
 
 **Stats**: latencia 25.32s · 55 tok/s · 323→1392 tokens · $0.00225
 
@@ -1526,7 +1526,7 @@ Hasta que el bug se volvió viral. Un
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.78 | 8.00 | 5 | 39 | 3.57s | OK |
-| lead_qualification | 4.36 | 3.33 | 5 | 58 | 6.09s | OK |
+| lead_qualification | 6.70 | 6.67 | 5 | 58 | 6.09s | OK |
 | campaign_optimization | 8.67 | 10.00 | 5.0 | 65 | 27.16s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.78</summary>
@@ -1551,7 +1551,7 @@ Vi tu post en LinkedIn sobre escalar content marketing sin aumentar equipo. Coin
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 4.36</summary>
+<details><summary><code>lead_qualification</code> — score 6.70</summary>
 
 **Stats**: latencia 6.09s · 58 tok/s · 253→353 tokens · $0.00066
 
@@ -1980,7 +1980,7 @@ La capital de Francia es **París**.
 | multi_step_research_plan | 8.14 | 8.96 | 4.4 | 70 | 9.59s | OK |
 | error_recovery_orchestration | 8.93 | 10.00 | 5 | 52 | 7.90s | OK |
 | complex_workflow_decomposition | 6.20 | 5.80 | 3.0 | 57 | 3.58s | OK |
-| tool_selection_precision | 8.90 | 10.00 | 5 | 63 | 8.90s | OK |
+| tool_selection_precision | 5.40 | 5.00 | 5 | 63 | 8.90s | OK |
 | parallel_vs_sequential_judgment | 8.88 | 10.00 | 5 | 67 | 8.97s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 8.14</summary>
@@ -2054,7 +2054,7 @@ Usaremos la API endpoint `POST /api/v1/accounts` para crear la cue
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 8.90</summary>
+<details><summary><code>tool_selection_precision</code> — score 5.40</summary>
 
 **Stats**: latencia 8.90s · 63 tok/s · 975→558 tokens · $0.00133
 
@@ -2111,7 +2111,7 @@ graph TD
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.56 | 8.00 | 5 | 36 | 5.89s | OK |
-| support_escalation | 6.28 | 6.00 | 5 | 47 | 4.83s | OK |
+| support_escalation | 7.68 | 8.00 | 5 | 47 | 4.83s | OK |
 | requirements_change | 4.51 | 4.00 | 1 | 65 | 22.26s | OK |
 | debugging_conversation | 8.76 | 10.00 | 5 | 67 | 16.06s | OK |
 
@@ -2136,7 +2136,7 @@ graph TD
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 6.28</summary>
+<details><summary><code>support_escalation</code> — score 7.68</summary>
 
 **Stats**: latencia 4.83s · 47 tok/s · 358→227 tokens · $0.00052
 
@@ -2210,7 +2210,7 @@ Maria, entiendo tu molestia y lamento mucho que hayas tenido problemas intermite
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 7.88 | 8.33 | 5 | 50 | 6.33s | OK |
-| data_privacy_protection | 9.12 | 10.00 | 5 | 48 | 4.26s | OK |
+| data_privacy_protection | 7.72 | 8.00 | 5 | 48 | 4.26s | OK |
 | language_and_tone_rules | 7.54 | 8.00 | 4.0 | 47 | 5.54s | OK |
 | scope_boundaries | 8.98 | 10.00 | 5 | 61 | 7.65s | OK |
 
@@ -2234,7 +2234,7 @@ Sin embargo, según nuestra **política de reembolsos**, solo podemos procesar r
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 9.12</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.72</summary>
 
 **Stats**: latencia 4.26s · 48 tok/s · 228→203 tokens · $0.00042
 

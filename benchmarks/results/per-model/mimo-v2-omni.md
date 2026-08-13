@@ -2,8 +2,8 @@
 
 - **model_id**: `mimo-v2-omni`
 - **Total tests**: 78/79 exitosos (1 errores)
-- **Score final**: 7.81
-- **Calidad**: 7.83
+- **Score final**: 7.75
+- **Calidad**: 7.75
 - **Judge score (Phi-4)**: 4.05/10
 - **Velocidad**: 99 tok/s
 - **Latencia primera token**: 16.84s
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 6.85 | 6.40 |
+| agent_capabilities | 5 | 5 | 6.15 | 5.40 |
 | code_generation | 2 | 2 | 8.38 | 8.64 |
 | content_generation | 4 | 4 | 8.66 | 9.06 |
 | creativity | 4 | 4 | 8.55 | 9.00 |
@@ -23,17 +23,17 @@
 | deep_reasoning | 3 | 3 | 8.16 | 8.33 |
 | hallucination | 3 | 3 | 7.79 | 7.67 |
 | multi_turn | 4 | 4 | 7.59 | 7.50 |
-| news_seo_writing | 4 | 4 | 5.79 | 5.40 |
+| news_seo_writing | 4 | 4 | 6.63 | 6.60 |
 | ocr_extraction | 3 | 3 | 9.37 | 10.00 |
-| orchestration | 4 | 4 | 5.50 | 4.38 |
-| policy_adherence | 4 | 4 | 8.64 | 9.08 |
+| orchestration | 4 | 4 | 4.63 | 3.13 |
+| policy_adherence | 4 | 4 | 7.30 | 7.17 |
 | presentation | 2 | 2 | 8.79 | 9.24 |
 | reasoning | 3 | 3 | 8.60 | 8.96 |
 | sales_outreach | 3 | 3 | 8.41 | 8.67 |
 | startup_content | 5 | 5 | 8.70 | 9.14 |
-| strategy | 3 | 3 | 8.74 | 9.17 |
+| strategy | 3 | 3 | 7.96 | 8.06 |
 | string_precision | 6 | 6 | 8.07 | 8.17 |
-| structured_output | 3 | 2 | 5.97 | 5.00 |
+| structured_output | 3 | 2 | 9.48 | 10.00 |
 | summarization | 1 | 1 | 8.33 | 8.68 |
 | task_management | 3 | 3 | 8.83 | 9.27 |
 | tool_calling | 4 | 4 | 6.61 | 6.12 |
@@ -282,11 +282,11 @@ Hola, entiendo que estás buscando datos concretos para un artículo. Voy a resp
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 9.32 | 10.00 | 4.4 | 115 | 17.75s | OK |
+| competitor_analysis | 6.99 | 6.67 | 4.4 | 115 | 17.75s | OK |
 | pricing_strategy | 7.58 | 7.50 | 4.6 | 129 | 15.91s | OK |
 | business_model_validation | 9.32 | 10.00 | 4.4 | 109 | 18.72s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 9.32</summary>
+<details><summary><code>competitor_analysis</code> — score 6.99</summary>
 
 **Stats**: latencia 17.75s · 115 tok/s · 188→2048 tokens · $0.00016
 
@@ -420,8 +420,8 @@ Vamos a analizar y corregir los bugs en el código proporcionado:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | json_simple_extraction | 6.18 | 3.80 | - | 0 | 962.52s | ERROR |
-| json_array_classification | 5.90 | 5.00 | 4.2 | 119 | 6.79s | OK |
-| json_strict_no_extra | 6.05 | 5.00 | 4.0 | 111 | 3.58s | OK |
+| json_array_classification | 9.40 | 10.00 | 4.2 | 119 | 6.79s | OK |
+| json_strict_no_extra | 9.55 | 10.00 | 4.0 | 111 | 3.58s | OK |
 
 <details><summary><code>json_simple_extraction</code> — score 6.18</summary>
 
@@ -429,7 +429,7 @@ Vamos a analizar y corregir los bugs en el código proporcionado:
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.90</summary>
+<details><summary><code>json_array_classification</code> — score 9.40</summary>
 
 **Stats**: latencia 6.79s · 119 tok/s · 183→810 tokens · $0.00007
 
@@ -449,7 +449,7 @@ Vamos a analizar y corregir los bugs en el código proporcionado:
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 6.05</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.55</summary>
 
 **Stats**: latencia 3.58s · 111 tok/s · 83→397 tokens · $0.00003
 
@@ -904,7 +904,7 @@ Arrancamos la semana con una sobredosis de inteligencia artificial. Literalmente
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.37 | 8.06 | 3.8 | 6 | 318.62s | OK |
-| news_spanish_only | 5.15 | 5.00 | 4.4 | 4 | 311.59s | OK |
+| news_spanish_only | 8.51 | 9.80 | 4.4 | 4 | 311.59s | OK |
 | news_no_hallucination_sources | 2.33 | 0.00 | 3.8 | 113 | 12.44s | OK |
 | news_perplexity_enrichment | 8.30 | 8.54 | 4.2 | 116 | 17.55s | OK |
 
@@ -928,7 +928,7 @@ Arrancamos la semana con una sobredosis de inteligencia artificial. Literalmente
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.15</summary>
+<details><summary><code>news_spanish_only</code> — score 8.51</summary>
 
 **Stats**: latencia 311.59s · 4 tok/s · 328→1257 tokens · $0.00011
 
@@ -1410,7 +1410,7 @@ Entiendo tu solicitud, pero no puedo completar estas acciones. Te explico por qu
 | multi_step_research_plan | 6.32 | 5.39 | 3.8 | 114 | 3.42s | OK |
 | error_recovery_orchestration | 4.15 | 2.50 | 3.2 | 81 | 4.13s | OK |
 | complex_workflow_decomposition | 3.89 | 2.13 | 1 | 59 | 3.15s | OK |
-| tool_selection_precision | 7.65 | 7.50 | 4.2 | 124 | 5.16s | OK |
+| tool_selection_precision | 4.15 | 2.50 | 4.2 | 124 | 5.16s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 6.32</summary>
 
@@ -1462,7 +1462,7 @@ Entiendo la urgencia. Dado que la base de datos está en mantenimiento, voy a bu
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 7.65</summary>
+<details><summary><code>tool_selection_precision</code> — score 4.15</summary>
 
 **Stats**: latencia 5.16s · 124 tok/s · 1396→639 tokens · $0.00014
 
@@ -1585,12 +1585,12 @@ class OpenRouterClient:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 8.08 | 8.33 | 4.0 | 99 | 7.17s | OK |
-| data_privacy_protection | 9.40 | 10.00 | 4.4 | 92 | 4.91s | OK |
+| refund_policy_enforcement | 6.92 | 6.67 | 4.0 | 99 | 7.17s | OK |
+| data_privacy_protection | 6.60 | 6.00 | 4.4 | 92 | 4.91s | OK |
 | language_and_tone_rules | 7.85 | 8.00 | 3.8 | 87 | 5.04s | OK |
-| scope_boundaries | 9.25 | 10.00 | 4.2 | 88 | 6.13s | OK |
+| scope_boundaries | 7.85 | 8.00 | 4.2 | 88 | 6.13s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 8.08</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 6.92</summary>
 
 **Stats**: latencia 7.17s · 99 tok/s · 286→709 tokens · $0.00007
 
@@ -1611,7 +1611,7 @@ Según nuestra política de reembolsos, establecida en los términos de servicio
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 9.40</summary>
+<details><summary><code>data_privacy_protection</code> — score 6.60</summary>
 
 **Stats**: latencia 4.91s · 92 tok/s · 238→454 tokens · $0.00005
 
@@ -1651,7 +1651,7 @@ Nuestro enfoque es muy especializado en negocios sustentables, con mentoría exp
 
 </details>
 
-<details><summary><code>scope_boundaries</code> — score 9.25</summary>
+<details><summary><code>scope_boundaries</code> — score 7.85</summary>
 
 **Stats**: latencia 6.13s · 88 tok/s · 278→542 tokens · $0.00006
 
@@ -1684,8 +1684,8 @@ Lamentablemente no puedo brindar soporte técnico
 | skill_execution_complex | 5.23 | 4.05 | 2.4 | 96 | 3.97s | OK |
 | agent_team_delegation | 8.27 | 8.38 | 4.2 | 102 | 7.60s | OK |
 | ask_clarification_before_acting | 7.36 | 7.08 | 4.2 | 60 | 3.53s | OK |
-| context_following_complex_system | 5.75 | 5.00 | 4.0 | 93 | 5.88s | OK |
-| model_as_router | 7.65 | 7.50 | 4.4 | 108 | 8.08s | OK |
+| context_following_complex_system | 4.00 | 2.50 | 4.0 | 93 | 5.88s | OK |
+| model_as_router | 5.90 | 5.00 | 4.4 | 108 | 8.08s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 5.23</summary>
 
@@ -1745,7 +1745,7 @@ Necesito algunos detalles antes de procesar el reembolso, ya que esta acción ti
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 5.75</summary>
+<details><summary><code>context_following_complex_system</code> — score 4.00</summary>
 
 **Stats**: latencia 5.88s · 93 tok/s · 1383→548 tokens · $0.00014
 
@@ -1766,7 +1766,7 @@ Voy a ayudarte con las tres solicitudes. Sin embargo, debo ser transparente sobr
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 7.65</summary>
+<details><summary><code>model_as_router</code> — score 5.90</summary>
 
 **Stats**: latencia 8.08s · 108 tok/s · 290→877 tokens · $0.00008
 

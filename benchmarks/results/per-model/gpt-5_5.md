@@ -1,13 +1,13 @@
 # GPT-5.5
 
 - **model_id**: `gpt-5.5`
-- **Total tests**: 201/208 exitosos (7 errores)
-- **Score final**: 6.49
-- **Calidad**: 7.49
+- **Total tests**: 156/163 exitosos (7 errores)
+- **Score final**: 6.78
+- **Calidad**: 7.83
 - **Judge score (Phi-4)**: 4.17/10
-- **Velocidad**: 53 tok/s
-- **Latencia primera token**: 17.84s
-- **Costo promedio por test**: $0.07379
+- **Velocidad**: 57 tok/s
+- **Latencia primera token**: 21.76s
+- **Costo promedio por test**: $0.05606
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,19 +26,18 @@
 | customer_support | 17 | 13 | 6.65 | 7.22 |
 | deep_reasoning | 6 | 6 | 5.96 | 6.95 |
 | hallucination | 3 | 3 | 6.49 | 7.00 |
-| multi_turn | 4 | 4 | 6.58 | 7.50 |
-| news_seo_writing | 5 | 5 | 4.72 | 5.29 |
-| niah_es_lite | 45 | 45 | 5.73 | 6.68 |
+| multi_turn | 4 | 4 | 6.23 | 7.00 |
+| news_seo_writing | 5 | 5 | 6.08 | 7.23 |
 | ocr_extraction | 5 | 5 | 8.07 | 9.60 |
 | orchestration | 24 | 24 | 5.65 | 6.05 |
-| policy_adherence | 4 | 4 | 7.78 | 9.08 |
+| policy_adherence | 4 | 4 | 7.43 | 8.58 |
 | presentation | 2 | 2 | 7.36 | 8.96 |
 | reasoning | 3 | 3 | 7.36 | 9.28 |
 | sales_outreach | 3 | 3 | 7.86 | 9.33 |
 | startup_content | 5 | 5 | 7.29 | 9.04 |
 | strategy | 3 | 3 | 7.29 | 9.17 |
-| string_precision | 6 | 6 | 7.66 | 8.50 |
-| structured_output | 4 | 4 | 5.17 | 5.00 |
+| string_precision | 6 | 6 | 6.50 | 6.83 |
+| structured_output | 4 | 4 | 8.67 | 10.00 |
 | summarization | 2 | 2 | 6.93 | 7.72 |
 | task_management | 3 | 3 | 6.96 | 8.33 |
 | tool_calling | 4 | 4 | 5.30 | 5.31 |
@@ -581,12 +580,12 @@ ZeroDivisionErro
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.25 | 5.00 | 4.0 | 34 | 2.19s | OK |
-| json_array_classification | 5.25 | 5.00 | 5 | 57 | 2.96s | OK |
-| json_nested_complex | 4.80 | 5.00 | 4.4 | 112 | 12.05s | OK |
-| json_strict_no_extra | 5.37 | 5.00 | 4.0 | 25 | 1.54s | OK |
+| json_simple_extraction | 8.75 | 10.00 | 4.0 | 34 | 2.19s | OK |
+| json_array_classification | 8.75 | 10.00 | 5 | 57 | 2.96s | OK |
+| json_nested_complex | 8.30 | 10.00 | 4.4 | 112 | 12.05s | OK |
+| json_strict_no_extra | 8.87 | 10.00 | 4.0 | 25 | 1.54s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.25</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.75</summary>
 
 **Stats**: latencia 2.19s · 34 tok/s · 103→75 tokens · $0.00277
 
@@ -604,7 +603,7 @@ ZeroDivisionErro
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.25</summary>
+<details><summary><code>json_array_classification</code> — score 8.75</summary>
 
 **Stats**: latencia 2.96s · 57 tok/s · 163→169 tokens · $0.00588
 
@@ -622,7 +621,7 @@ ZeroDivisionErro
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 4.80</summary>
+<details><summary><code>json_nested_complex</code> — score 8.30</summary>
 
 **Stats**: latencia 12.05s · 112 tok/s · 210→1353 tokens · $0.04164
 
@@ -651,7 +650,7 @@ ZeroDivisionErro
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.37</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.87</summary>
 
 **Stats**: latencia 1.54s · 25 tok/s · 79→38 tokens · $0.00153
 
@@ -678,7 +677,7 @@ ZeroDivisionErro
 | copy_api_key | 2.31 | 1.00 | 4.0 | 46 | 3.65s | OK |
 | copy_jwt | 8.94 | 10.00 | 4.0 | 32 | 1.83s | OK |
 | copy_mixed_special | 8.83 | 10.00 | 4.0 | 27 | 1.76s | OK |
-| write_config_file | 8.39 | 10.00 | 1.4 | 59 | 8.97s | OK |
+| write_config_file | 1.39 | 0.00 | 1.4 | 59 | 8.97s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.88</summary>
 
@@ -768,7 +767,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 8.39</summary>
+<details><summary><code>write_config_file</code> — score 1.39</summary>
 
 **Stats**: latencia 8.97s · 59 tok/s · 229→533 tokens · $0.01714
 
@@ -1134,13 +1133,13 @@ Al finalizar este módulo, el emprendedor será capaz de identificar procesos re
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| news_json_output_strict | 4.64 | 5.00 | 3.4 | 64 | 21.98s | OK |
-| news_spanish_only | 4.69 | 5.00 | 3.4 | 59 | 18.18s | OK |
+| news_json_output_strict | 8.14 | 10.00 | 3.4 | 64 | 21.98s | OK |
+| news_spanish_only | 8.00 | 9.73 | 3.4 | 59 | 18.18s | OK |
 | news_seo_article_full | 6.50 | 8.32 | 3.8 | 28 | 118.42s | OK |
 | news_no_hallucination_sources | 1.07 | 0.00 | 4.0 | 58 | 34.72s | OK |
 | news_perplexity_enrichment | 6.71 | 8.12 | 3.8 | 61 | 40.84s | OK |
 
-<details><summary><code>news_json_output_strict</code> — score 4.64</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.14</summary>
 
 **Stats**: latencia 21.98s · 64 tok/s · 302→1412 tokens · $0.04387
 
@@ -1156,7 +1155,7 @@ Al finalizar este módulo, el emprendedor será capaz de identificar procesos re
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 4.69</summary>
+<details><summary><code>news_spanish_only</code> — score 8.00</summary>
 
 **Stats**: latencia 18.18s · 59 tok/s · 304→1080 tokens · $0.03392
 
@@ -2436,7 +2435,7 @@ Usaré `http_request` para la Tarea 1 porque es una verificación directa de dis
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.20 | 8.00 | 4.2 | 43 | 3.71s | OK |
-| support_escalation | 6.99 | 8.00 | 4.4 | 56 | 9.59s | OK |
+| support_escalation | 5.59 | 6.00 | 4.4 | 56 | 9.59s | OK |
 | requirements_change | 3.95 | 4.00 | 2.0 | 87 | 15.02s | OK |
 | debugging_conversation | 8.19 | 10.00 | 4.6 | 101 | 22.75s | OK |
 
@@ -2458,7 +2457,7 @@ Si en tu startup el soporte al cliente todavía depende de revisar bandejas de e
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 6.99</summary>
+<details><summary><code>support_escalation</code> — score 5.59</summary>
 
 **Stats**: latencia 9.59s · 56 tok/s · 349→532 tokens · $0.01770
 
@@ -2536,7 +2535,7 @@ La regla general:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 7.22 | 8.33 | 4.0 | 58 | 9.31s | OK |
-| data_privacy_protection | 8.52 | 10.00 | 4.4 | 26 | 3.88s | OK |
+| data_privacy_protection | 7.12 | 8.00 | 4.4 | 26 | 3.88s | OK |
 | language_and_tone_rules | 6.91 | 8.00 | 3.2 | 47 | 8.06s | OK |
 | scope_boundaries | 8.47 | 10.00 | 4.2 | 62 | 5.69s | OK |
 
@@ -2560,7 +2559,7 @@ Sobre su solicitud:
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.52</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.12</summary>
 
 **Stats**: latencia 3.88s · 26 tok/s · 219→101 tokens · $0.00413
 
@@ -2919,8 +2918,6 @@ El objetivo es llegar al lanzamiento con una landing funcional, responsive, medi
 </details>
 
 ### Otras suites
-
-#### niah_es_lite
 
 #### business_audit
 

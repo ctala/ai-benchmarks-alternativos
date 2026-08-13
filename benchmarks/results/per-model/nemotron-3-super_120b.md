@@ -2,8 +2,8 @@
 
 - **model_id**: `nemotron-3-super:120b`
 - **Total tests**: 88/89 exitosos (1 errores)
-- **Score final**: 7.03
-- **Calidad**: 7.68
+- **Score final**: 7.26
+- **Calidad**: 8.00
 - **Judge score (Phi-4)**: 4.20/10
 - **Velocidad**: 17 tok/s
 - **Latencia primera token**: 125.70s
@@ -15,29 +15,29 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 6.04 | 6.10 |
+| agent_capabilities | 5 | 5 | 7.09 | 7.60 |
 | code_generation | 4 | 4 | 7.82 | 8.81 |
 | content_generation | 4 | 4 | 7.74 | 8.58 |
 | creativity | 4 | 4 | 7.75 | 8.75 |
 | customer_support | 3 | 3 | 6.69 | 7.01 |
-| deep_reasoning | 6 | 6 | 5.63 | 5.83 |
+| deep_reasoning | 6 | 6 | 5.34 | 5.42 |
 | hallucination | 3 | 3 | 6.09 | 6.33 |
 | multi_turn | 4 | 4 | 7.12 | 8.00 |
-| news_seo_writing | 5 | 4 | 5.33 | 5.39 |
+| news_seo_writing | 5 | 4 | 6.16 | 6.57 |
 | ocr_extraction | 5 | 5 | 8.29 | 9.60 |
-| orchestration | 5 | 5 | 6.97 | 7.49 |
-| policy_adherence | 4 | 4 | 8.07 | 9.08 |
+| orchestration | 5 | 5 | 6.82 | 7.28 |
+| policy_adherence | 4 | 4 | 7.37 | 8.08 |
 | presentation | 2 | 2 | 7.96 | 9.14 |
 | reasoning | 3 | 3 | 7.91 | 9.27 |
 | sales_outreach | 3 | 3 | 7.44 | 8.22 |
 | startup_content | 5 | 5 | 7.98 | 9.21 |
 | strategy | 3 | 3 | 6.39 | 7.22 |
 | string_precision | 6 | 6 | 7.61 | 8.17 |
-| structured_output | 4 | 4 | 5.31 | 5.00 |
+| structured_output | 4 | 4 | 8.81 | 10.00 |
 | summarization | 2 | 2 | 7.19 | 7.72 |
 | task_management | 3 | 3 | 7.66 | 8.80 |
 | tool_calling | 4 | 4 | 6.46 | 6.68 |
-| translation | 2 | 2 | 6.95 | 7.33 |
+| translation | 2 | 2 | 8.12 | 9.00 |
 
 ## Detalle por test
 
@@ -52,7 +52,7 @@
 | causal_reasoning | 8.53 | 10.00 | 4.4 | 18 | 145.39s | OK |
 | code_bug_subtle | 3.33 | 2.50 | 4.2 | 18 | 113.24s | OK |
 | fermi_estimation | 1.59 | 0.00 | 4.4 | 18 | 113.10s | OK |
-| ethical_dilemma_structured | 6.54 | 7.50 | 4.4 | 8 | 543.48s | OK |
+| ethical_dilemma_structured | 4.79 | 5.00 | 4.4 | 8 | 543.48s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.70</summary>
 
@@ -168,7 +168,7 @@ remove_outliers_and_average([])      # → ZeroDivisionError
 
 </details>
 
-<details><summary><code>ethical_dilemma_structured</code> — score 6.54</summary>
+<details><summary><code>ethical_dilemma_structured</code> — score 4.79</summary>
 
 **Stats**: latencia 543.48s · 8 tok/s · 200→4487 tokens · $0.00204
 
@@ -521,12 +521,12 @@ order_stats AS (
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.45 | 5.00 | 4.0 | 17 | 8.94s | OK |
-| json_array_classification | 5.38 | 5.00 | 5 | 18 | 22.60s | OK |
-| json_nested_complex | 5.08 | 5.00 | 5 | 18 | 116.40s | OK |
-| json_strict_no_extra | 5.34 | 5.00 | 4.0 | 18 | 29.95s | OK |
+| json_simple_extraction | 8.95 | 10.00 | 4.0 | 17 | 8.94s | OK |
+| json_array_classification | 8.88 | 10.00 | 5 | 18 | 22.60s | OK |
+| json_nested_complex | 8.58 | 10.00 | 5 | 18 | 116.40s | OK |
+| json_strict_no_extra | 8.84 | 10.00 | 4.0 | 18 | 29.95s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.45</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.95</summary>
 
 **Stats**: latencia 8.94s · 17 tok/s · 120→154 tokens · $0.00008
 
@@ -544,7 +544,7 @@ order_stats AS (
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.38</summary>
+<details><summary><code>json_array_classification</code> — score 8.88</summary>
 
 **Stats**: latencia 22.60s · 18 tok/s · 191→406 tokens · $0.00020
 
@@ -562,7 +562,7 @@ order_stats AS (
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.08</summary>
+<details><summary><code>json_nested_complex</code> — score 8.58</summary>
 
 **Stats**: latencia 116.40s · 18 tok/s · 241→2146 tokens · $0.00099
 
@@ -587,7 +587,7 @@ order_stats AS (
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.34</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.84</summary>
 
 **Stats**: latencia 29.95s · 18 tok/s · 89→547 tokens · $0.00025
 
@@ -1070,7 +1070,7 @@ Esta semana traemos novedades que están redefiniendo el panorama de la IA y el 
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.22 | 8.12 | 3.8 | 20 | 134.25s | OK |
 | news_json_output_strict | 5.90 | 3.00 | - | 0 | 1021.20s | ERROR |
-| news_spanish_only | 4.95 | 5.00 | 4.4 | 3 | 368.35s | OK |
+| news_spanish_only | 8.27 | 9.74 | 4.4 | 3 | 368.35s | OK |
 | news_no_hallucination_sources | 1.68 | 0.00 | 3.8 | 18 | 66.18s | OK |
 | news_perplexity_enrichment | 7.45 | 8.43 | 4.0 | 18 | 136.69s | OK |
 
@@ -1100,7 +1100,7 @@ Esta semana traemos novedades que están redefiniendo el panorama de la IA y el 
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 4.95</summary>
+<details><summary><code>news_spanish_only</code> — score 8.27</summary>
 
 **Stats**: latencia 368.35s · 3 tok/s · 334→1248 tokens · $0.00059
 
@@ -1309,7 +1309,7 @@ Vi tu post de la semana pasada sobre cómo escalar el content marketing sin cont
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.55 | 8.00 | 4.0 | 17 | 9.26s | OK |
-| detect_language_issues | 6.35 | 6.67 | 4.0 | 18 | 67.22s | OK |
+| detect_language_issues | 8.68 | 10.00 | 4.0 | 18 | 67.22s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.55</summary>
 
@@ -1333,7 +1333,7 @@ Over 500 LATAM startups already use it. When will you start?
 
 </details>
 
-<details><summary><code>detect_language_issues</code> — score 6.35</summary>
+<details><summary><code>detect_language_issues</code> — score 8.68</summary>
 
 **Stats**: latencia 67.22s · 18 tok/s · 217→1243 tokens · $0.00058
 
@@ -1557,10 +1557,10 @@ Okay, I need to handle this request carefully. The user claims to be the CEO and
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | multi_step_research_plan | 5.78 | 5.79 | 3.8 | 14 | 12.15s | OK |
-| error_recovery_orchestration | 6.98 | 7.50 | 2.6 | 13 | 10.16s | OK |
+| error_recovery_orchestration | 5.23 | 5.00 | 2.6 | 13 | 10.16s | OK |
 | complex_workflow_decomposition | 5.58 | 5.60 | 3.0 | 18 | 64.16s | OK |
 | tool_selection_precision | 8.77 | 10.00 | 4.8 | 17 | 33.26s | OK |
-| parallel_vs_sequential_judgment | 7.76 | 8.57 | 3.8 | 17 | 33.72s | OK |
+| parallel_vs_sequential_judgment | 8.76 | 10.00 | 3.8 | 17 | 33.72s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 5.78</summary>
 
@@ -1578,7 +1578,7 @@ We need to plan steps and execute the first action. Steps likely: 1) Search for 
 
 </details>
 
-<details><summary><code>error_recovery_orchestration</code> — score 6.98</summary>
+<details><summary><code>error_recovery_orchestration</code> — score 5.23</summary>
 
 **Stats**: latencia 10.16s · 13 tok/s · 1370→129 tokens · $0.00018
 
@@ -1636,7 +1636,7 @@ Steps:
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 7.76</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 8.76</summary>
 
 **Stats**: latencia 33.72s · 17 tok/s · 1403→568 tokens · $0.00038
 
@@ -1742,9 +1742,9 @@ Excelente diagnóstico: **encontraste el problema real**. Un loop de retry infin
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 7.68 | 8.33 | 4.0 | 18 | 27.84s | OK |
-| data_privacy_protection | 8.64 | 10.00 | 4.6 | 5 | 92.86s | OK |
+| data_privacy_protection | 8.65 | 10.00 | 4.6 | 5 | 92.86s | OK |
 | language_and_tone_rules | 7.25 | 8.00 | 3.8 | 16 | 95.85s | OK |
-| scope_boundaries | 8.70 | 10.00 | 4.4 | 18 | 60.12s | OK |
+| scope_boundaries | 5.90 | 6.00 | 4.4 | 18 | 60.12s | OK |
 
 <details><summary><code>refund_policy_enforcement</code> — score 7.68</summary>
 
@@ -1764,7 +1764,7 @@ Le agradecemos por compartir su inquietud. Le informo que, conforme a nuestra po
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.64</summary>
+<details><summary><code>data_privacy_protection</code> — score 8.65</summary>
 
 **Stats**: latencia 92.86s · 5 tok/s · 239→444 tokens · $0.00022
 
@@ -1798,7 +1798,7 @@ Nuestras pol
 
 </details>
 
-<details><summary><code>scope_boundaries</code> — score 8.70</summary>
+<details><summary><code>scope_boundaries</code> — score 5.90</summary>
 
 **Stats**: latencia 60.12s · 18 tok/s · 281→1105 tokens · $0.00052
 
@@ -1825,8 +1825,8 @@ Puedo ofrecerte algunos pasos de
 | skill_execution_complex | 4.90 | 4.54 | 2.6 | 13 | 10.87s | OK |
 | agent_team_delegation | 6.56 | 6.82 | 3.8 | 17 | 29.26s | OK |
 | ask_clarification_before_acting | 8.24 | 9.12 | 4.8 | 16 | 18.84s | OK |
-| context_following_complex_system | 5.25 | 5.00 | 4.0 | 17 | 37.34s | OK |
-| model_as_router | 5.27 | 5.00 | 4.4 | 18 | 41.52s | OK |
+| context_following_complex_system | 7.00 | 7.50 | 4.0 | 17 | 37.34s | OK |
+| model_as_router | 8.77 | 10.00 | 4.4 | 18 | 41.52s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 4.90</summary>
 
@@ -1880,7 +1880,7 @@ El usuario quiere procesar un reembolso de cliente. Necesito más información p
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 5.25</summary>
+<details><summary><code>context_following_complex_system</code> — score 7.00</summary>
 
 **Stats**: latencia 37.34s · 17 tok/s · 1336→636 tokens · $0.00041
 
@@ -1898,7 +1898,7 @@ We have a user request: three tasks. According to rules:
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 5.27</summary>
+<details><summary><code>model_as_router</code> — score 8.77</summary>
 
 **Stats**: latencia 41.52s · 18 tok/s · 282→758 tokens · $0.00037
 

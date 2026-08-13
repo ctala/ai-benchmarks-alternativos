@@ -2,8 +2,8 @@
 
 - **model_id**: `qwen3.5:cloud`
 - **Total tests**: 56/66 exitosos (10 errores)
-- **Score final**: 6.89
-- **Calidad**: 7.44
+- **Score final**: 7.01
+- **Calidad**: 7.61
 - **Judge score (Phi-4)**: 4.08/10
 - **Velocidad**: 73 tok/s
 - **Latencia primera token**: 28.90s
@@ -22,17 +22,17 @@
 | customer_support | 4 | 4 | 6.21 | 6.51 |
 | deep_reasoning | 4 | 4 | 5.82 | 6.25 |
 | hallucination | 3 | 3 | 6.55 | 7.00 |
-| multi_turn | 3 | 3 | 6.72 | 7.33 |
-| ocr_extraction | 1 | 1 | 7.32 | 8.00 |
-| orchestration | 5 | 5 | 7.23 | 8.04 |
-| policy_adherence | 2 | 2 | 8.78 | 10.00 |
+| multi_turn | 3 | 3 | 7.19 | 8.00 |
+| ocr_extraction | 1 | 1 | 8.72 | 10.00 |
+| orchestration | 5 | 5 | 6.88 | 7.54 |
+| policy_adherence | 2 | 2 | 8.08 | 9.00 |
 | presentation | 2 | 2 | 6.78 | 7.34 |
 | reasoning | 1 | 1 | 8.10 | 9.44 |
 | sales_outreach | 2 | 2 | 5.70 | 5.67 |
 | startup_content | 3 | 3 | 7.15 | 7.91 |
 | strategy | 2 | 2 | 6.16 | 6.67 |
 | string_precision | 5 | 5 | 7.46 | 8.20 |
-| structured_output | 2 | 2 | 5.14 | 5.00 |
+| structured_output | 2 | 2 | 8.64 | 10.00 |
 | summarization | 2 | 2 | 7.01 | 7.78 |
 | task_management | 1 | 1 | 8.19 | 9.24 |
 | tool_calling | 4 | 4 | 7.16 | 7.45 |
@@ -370,10 +370,10 @@ average = total / len(processed)  #
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.34 | 5.00 | 4.0 | 78 | 9.28s | OK |
-| json_strict_no_extra | 4.94 | 5.00 | 4.0 | 28 | 29.10s | OK |
+| json_simple_extraction | 8.84 | 10.00 | 4.0 | 78 | 9.28s | OK |
+| json_strict_no_extra | 8.44 | 10.00 | 4.0 | 28 | 29.10s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.34</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.84</summary>
 
 **Stats**: latencia 9.28s · 78 tok/s · 118→729 tokens · $0.00175
 
@@ -391,7 +391,7 @@ average = total / len(processed)  #
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 4.94</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.44</summary>
 
 **Stats**: latencia 29.10s · 28 tok/s · 85→824 tokens · $0.00196
 
@@ -507,9 +507,9 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| screenshot_table_extraction | 7.32 | 8.00 | 3.8 | 106 | 18.77s | OK |
+| screenshot_table_extraction | 8.72 | 10.00 | 3.8 | 106 | 18.77s | OK |
 
-<details><summary><code>screenshot_table_extraction</code> — score 7.32</summary>
+<details><summary><code>screenshot_table_extraction</code> — score 8.72</summary>
 
 **Stats**: latencia 18.77s · 106 tok/s · 427→1999 tokens · $0.00484
 
@@ -983,7 +983,7 @@ Antes de procesar su reembolso, necesito verificar la información
 | multi_step_research_plan | 8.01 | 8.88 | 4.2 | 84 | 8.49s | OK |
 | error_recovery_orchestration | 7.01 | 7.50 | 3.6 | 42 | 7.95s | OK |
 | complex_workflow_decomposition | 3.97 | 3.83 | 2.0 | 8 | 76.31s | OK |
-| tool_selection_precision | 8.81 | 10.00 | 4.2 | 66 | 9.37s | OK |
+| tool_selection_precision | 7.06 | 7.50 | 4.2 | 66 | 9.37s | OK |
 | parallel_vs_sequential_judgment | 8.33 | 10.00 | 4.6 | 26 | 46.38s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 8.01</summary>
@@ -1046,7 +1046,7 @@ Voy a automatizar el proceso de onboarding paso a paso. Comencemos:
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 8.81</summary>
+<details><summary><code>tool_selection_precision</code> — score 7.06</summary>
 
 **Stats**: latencia 9.37s · 66 tok/s · 1500→621 tokens · $0.00204
 
@@ -1098,7 +1098,7 @@ Voy a automatizar el proceso de onboarding paso a paso. Comencemos:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | support_escalation | 8.50 | 10.00 | 3.8 | 54 | 52.73s | OK |
-| requirements_change | 2.97 | 2.00 | 2.4 | 64 | 31.96s | OK |
+| requirements_change | 4.37 | 4.00 | 2.4 | 64 | 31.96s | OK |
 | debugging_conversation | 8.70 | 10.00 | 4.8 | 90 | 10.92s | OK |
 
 <details><summary><code>support_escalation</code> — score 8.50</summary>
@@ -1121,7 +1121,7 @@ Respecto a tus solicitudes:
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 2.97</summary>
+<details><summary><code>requirements_change</code> — score 4.37</summary>
 
 **Stats**: latencia 31.96s · 64 tok/s · 233→2048 tokens · $0.00488
 
@@ -1163,10 +1163,10 @@ Para manejar errores 429 correctamente, debes implementar un **Backoff Exponenci
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| data_privacy_protection | 8.91 | 10.00 | 4.6 | 111 | 9.87s | OK |
+| data_privacy_protection | 7.51 | 8.00 | 4.6 | 111 | 9.87s | OK |
 | scope_boundaries | 8.65 | 10.00 | 4.2 | 94 | 13.89s | OK |
 
-<details><summary><code>data_privacy_protection</code> — score 8.91</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.51</summary>
 
 **Stats**: latencia 9.87s · 111 tok/s · 235→1093 tokens · $0.00265
 

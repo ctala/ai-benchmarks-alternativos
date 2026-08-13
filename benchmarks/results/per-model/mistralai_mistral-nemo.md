@@ -2,8 +2,8 @@
 
 - **model_id**: `mistralai/mistral-nemo`
 - **Total tests**: 170/187 exitosos (17 errores)
-- **Score final**: 6.47
-- **Calidad**: 6.38
+- **Score final**: 6.64
+- **Calidad**: 6.62
 - **Judge score (Phi-4)**: 4.08/10
 - **Velocidad**: 32 tok/s
 - **Latencia primera token**: 17.31s
@@ -16,27 +16,27 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 9 | 8 | 7.09 | 6.95 |
-| business_audit | 34 | 32 | 5.42 | 4.87 |
-| business_strategy | 20 | 20 | 6.22 | 5.92 |
+| business_audit | 34 | 32 | 5.71 | 5.29 |
+| business_strategy | 20 | 20 | 6.57 | 6.42 |
 | code_generation | 4 | 4 | 6.95 | 7.41 |
 | content_generation | 4 | 4 | 7.92 | 8.43 |
-| content_verificable | 8 | 8 | 6.34 | 6.25 |
+| content_verificable | 8 | 8 | 6.05 | 5.83 |
 | creativity | 8 | 8 | 7.99 | 8.62 |
 | customer_support | 1 | 1 | 8.08 | 7.68 |
-| deep_reasoning | 12 | 12 | 5.18 | 4.58 |
+| deep_reasoning | 12 | 12 | 5.32 | 4.79 |
 | hallucination | 3 | 3 | 6.33 | 6.33 |
 | multi_turn | 4 | 4 | 7.00 | 7.38 |
-| news_seo_writing | 5 | 5 | 5.48 | 5.14 |
+| news_seo_writing | 5 | 5 | 5.71 | 5.48 |
 | ocr_extraction | 10 | 9 | 7.96 | 8.56 |
-| orchestration | 17 | 7 | 6.48 | 5.96 |
-| policy_adherence | 4 | 4 | 7.31 | 7.67 |
+| orchestration | 17 | 7 | 6.33 | 5.76 |
+| policy_adherence | 4 | 4 | 6.96 | 7.17 |
 | presentation | 2 | 2 | 7.71 | 8.34 |
 | reasoning | 3 | 3 | 7.32 | 7.77 |
-| sales_outreach | 6 | 5 | 5.50 | 5.07 |
+| sales_outreach | 6 | 5 | 5.78 | 5.47 |
 | startup_content | 5 | 5 | 7.51 | 8.09 |
 | strategy | 6 | 4 | 6.86 | 7.12 |
 | string_precision | 6 | 6 | 7.60 | 8.17 |
-| structured_output | 4 | 4 | 5.43 | 5.00 |
+| structured_output | 4 | 4 | 8.70 | 9.67 |
 | summarization | 2 | 2 | 6.59 | 6.90 |
 | task_management | 3 | 3 | 7.83 | 8.47 |
 | tool_calling | 4 | 4 | 6.31 | 5.31 |
@@ -58,7 +58,7 @@
 | ethical_dilemma_structured | 8.72 | 10.00 | 4.4 | 14 | 42.33s | OK |
 | math_word_problem | 5.38 | 5.00 | 2.8 | 25 | 18.64s | OK |
 | logic_puzzle_constraint | 5.75 | 5.00 | 4.2 | 60 | 9.83s | OK |
-| causal_reasoning | 7.28 | 7.50 | 5 | 34 | 15.66s | OK |
+| causal_reasoning | 9.02 | 10.00 | 5 | 34 | 15.66s | OK |
 | code_bug_subtle | 2.10 | 0.00 | 1.8 | 38 | 8.35s | OK |
 | fermi_estimation | 2.02 | 0.00 | 4.4 | 35 | 14.18s | OK |
 | ethical_dilemma_structured | 7.12 | 7.50 | 4.6 | 28 | 27.41s | OK |
@@ -213,7 +213,7 @@ Podemos empezar a
 
 </details>
 
-<details><summary><code>causal_reasoning</code> — score 7.28</summary>
+<details><summary><code>causal_reasoning</code> — score 9.02</summary>
 
 **Stats**: latencia 15.66s · 34 tok/s · 199→525 tokens · $0.00001
 
@@ -632,12 +632,12 @@ El código tiene los siguientes problemas:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.30 | 5.00 | 4.0 | 10 | 5.05s | OK |
-| json_array_classification | 5.45 | 5.00 | 4.2 | 18 | 7.50s | OK |
-| json_nested_complex | 5.38 | 5.00 | 4.4 | 28 | 17.81s | OK |
-| json_strict_no_extra | 5.60 | 5.00 | 4.0 | 15 | 1.81s | OK |
+| json_simple_extraction | 8.80 | 10.00 | 4.0 | 10 | 5.05s | OK |
+| json_array_classification | 8.02 | 8.67 | 4.2 | 18 | 7.50s | OK |
+| json_nested_complex | 8.88 | 10.00 | 4.4 | 28 | 17.81s | OK |
+| json_strict_no_extra | 9.10 | 10.00 | 4.0 | 15 | 1.81s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.30</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.80</summary>
 
 **Stats**: latencia 5.05s · 10 tok/s · 107→52 tokens · $0.00000
 
@@ -655,7 +655,7 @@ El código tiene los siguientes problemas:
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.45</summary>
+<details><summary><code>json_array_classification</code> — score 8.02</summary>
 
 **Stats**: latencia 7.50s · 18 tok/s · 178→138 tokens · $0.00001
 
@@ -688,7 +688,7 @@ El código tiene los siguientes problemas:
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.38</summary>
+<details><summary><code>json_nested_complex</code> — score 8.88</summary>
 
 **Stats**: latencia 17.81s · 28 tok/s · 228→497 tokens · $0.00002
 
@@ -711,7 +711,7 @@ El código tiene los siguientes problemas:
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.60</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.10</summary>
 
 **Stats**: latencia 1.81s · 15 tok/s · 76→27 tokens · $0.00000
 
@@ -1300,8 +1300,8 @@ Esta semana, arrancamos con grandes novedades en el mundo de la inteligencia art
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.32 | 7.78 | 4.0 | 17 | 57.92s | OK |
-| news_json_output_strict | 5.38 | 5.00 | 2.6 | 19 | 25.96s | OK |
-| news_spanish_only | 5.38 | 5.00 | 3.8 | 17 | 40.98s | OK |
+| news_json_output_strict | 3.27 | 2.00 | 2.6 | 19 | 25.96s | OK |
+| news_spanish_only | 8.68 | 9.72 | 3.8 | 17 | 40.98s | OK |
 | news_no_hallucination_sources | 1.88 | 0.00 | 3.4 | 20 | 29.84s | OK |
 | news_perplexity_enrichment | 7.42 | 7.92 | 3.8 | 27 | 33.25s | OK |
 
@@ -1326,7 +1326,7 @@ Palabras clave SEO sugeridas: inteligencia artificial, Mistral AI, m
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.38</summary>
+<details><summary><code>news_json_output_strict</code> — score 3.27</summary>
 
 **Stats**: latencia 25.96s · 19 tok/s · 326→502 tokens · $0.00002
 
@@ -1346,7 +1346,7 @@ Palabras clave SEO sugeridas: inteligencia artificial, Mistral AI, m
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.38</summary>
+<details><summary><code>news_spanish_only</code> — score 8.68</summary>
 
 **Stats**: latencia 40.98s · 17 tok/s · 322→704 tokens · $0.00002
 
@@ -1566,7 +1566,7 @@ Un día,
 | campaign_optimization | 6.07 | 6.00 | 3.8 | 24 | 24.64s | OK |
 | cold_email_personalized | 7.92 | 8.00 | - | 0 | 0.00s | ERROR |
 | lead_qualification | 1.88 | 0.00 | 5 | 23 | 15.97s | OK |
-| campaign_optimization | 7.77 | 8.00 | 5 | 62 | 12.67s | OK |
+| campaign_optimization | 9.17 | 10.00 | 5 | 62 | 12.67s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.55</summary>
 
@@ -1673,7 +1673,7 @@ Lead 1:
 
 </details>
 
-<details><summary><code>campaign_optimization</code> — score 7.77</summary>
+<details><summary><code>campaign_optimization</code> — score 9.17</summary>
 
 **Stats**: latencia 12.67s · 62 tok/s · 303→783 tokens · $0.00002
 
@@ -1880,7 +1880,7 @@ Comprendido. Sin embargo, como modelo de lenguaje, no tengo acceso a la informac
 | error_recovery_orchestration | 4.85 | 0.00 | - | 0 | 0.62s | ERROR |
 | complex_workflow_decomposition | 5.45 | 4.14 | 2.4 | 50 | 0.52s | OK |
 | tool_selection_precision | 4.15 | 2.50 | 4.2 | 94 | 3.85s | OK |
-| parallel_vs_sequential_judgment | 7.55 | 7.14 | 4.2 | 114 | 2.56s | OK |
+| parallel_vs_sequential_judgment | 6.55 | 5.71 | 4.2 | 114 | 2.56s | OK |
 | multi_step_research_plan | 7.69 | 7.56 | 4.0 | 54 | 2.50s | OK |
 | multi_step_research_plan | 6.28 | 6.40 | 3.2 | 14 | 9.38s | OK |
 | multi_step_research_plan | 2.33 | 0.00 | - | 0 | 2.22s | ERROR |
@@ -1952,7 +1952,7 @@ Para verificar si el servidor de produccion esta respondiendo, usaria la herrami
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 7.55</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 6.55</summary>
 
 **Stats**: latencia 2.56s · 114 tok/s · 1041→292 tokens · $0.00003
 
@@ -2188,7 +2188,7 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 6.54 | 6.67 | 4.0 | 17 | 16.57s | OK |
 | data_privacy_protection | 8.95 | 10.00 | 4.6 | 20 | 5.30s | OK |
-| language_and_tone_rules | 6.30 | 6.00 | 4.4 | 49 | 5.08s | OK |
+| language_and_tone_rules | 4.90 | 4.00 | 4.4 | 49 | 5.08s | OK |
 | scope_boundaries | 7.47 | 8.00 | 4.2 | 24 | 11.02s | OK |
 
 <details><summary><code>refund_policy_enforcement</code> — score 6.54</summary>
@@ -2225,7 +2225,7 @@ Lamento informarte que, debido a las políticas de privacidad y seguridad de Fin
 
 </details>
 
-<details><summary><code>language_and_tone_rules</code> — score 6.30</summary>
+<details><summary><code>language_and_tone_rules</code> — score 4.90</summary>
 
 **Stats**: latencia 5.08s · 49 tok/s · 212→247 tokens · $0.00001
 
@@ -2269,12 +2269,12 @@ En cuanto a lo que nos diferencia de otros programas co
 | skill_execution_complex | 7.66 | 7.08 | 3.2 | 101 | 1.14s | OK |
 | agent_team_delegation | 6.02 | 4.96 | 3.2 | 42 | 0.84s | OK |
 | ask_clarification_before_acting | 9.07 | 9.32 | 4.8 | 96 | 1.06s | OK |
-| model_as_router | 7.12 | 7.50 | 4.2 | 18 | 21.78s | OK |
+| model_as_router | 8.88 | 10.00 | 4.2 | 18 | 21.78s | OK |
 | skill_execution_complex | 2.33 | 0.00 | - | 0 | 2.54s | ERROR |
 | agent_team_delegation | 8.67 | 9.60 | 5 | 29 | 9.38s | OK |
 | ask_clarification_before_acting | 8.97 | 9.60 | 5 | 35 | 2.58s | OK |
 | context_following_complex_system | 2.10 | 0.00 | 4.0 | 26 | 3.61s | OK |
-| model_as_router | 7.12 | 7.50 | 4.0 | 22 | 18.75s | OK |
+| model_as_router | 5.38 | 5.00 | 4.0 | 22 | 18.75s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 7.66</summary>
 
@@ -2336,7 +2336,7 @@ Una
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 7.12</summary>
+<details><summary><code>model_as_router</code> — score 8.88</summary>
 
 **Stats**: latencia 21.78s · 18 tok/s · 270→391 tokens · $0.00001
 
@@ -2433,7 +2433,7 @@ Una vez que tenga esta informa
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 7.12</summary>
+<details><summary><code>model_as_router</code> — score 5.38</summary>
 
 **Stats**: latencia 18.75s · 22 tok/s · 270→407 tokens · $0.00001
 

@@ -1,13 +1,13 @@
 # Devstral 2 (Dic 2025)
 
 - **model_id**: `mistralai/devstral-2512`
-- **Total tests**: 229/251 exitosos (22 errores)
-- **Score final**: 7.33
-- **Calidad**: 8.03
+- **Total tests**: 172/191 exitosos (19 errores)
+- **Score final**: 7.61
+- **Calidad**: 8.38
 - **Judge score (Phi-4)**: 4.28/10
-- **Velocidad**: 47 tok/s
-- **Latencia primera token**: 10.73s
-- **Costo promedio por test**: $0.00762
+- **Velocidad**: 54 tok/s
+- **Latencia primera token**: 13.46s
+- **Costo promedio por test**: $0.00669
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -17,8 +17,8 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 7.81 | 8.26 |
 | agent_long_horizon | 24 | 24 | 7.21 | 8.29 |
-| business_audit | 10 | 10 | 6.24 | 6.60 |
-| business_strategy | 5 | 5 | 8.20 | 9.20 |
+| business_audit | 10 | 10 | 6.52 | 7.00 |
+| business_strategy | 5 | 5 | 7.64 | 8.40 |
 | code_generation | 4 | 4 | 8.30 | 9.23 |
 | content_generation | 4 | 4 | 8.20 | 9.00 |
 | content_verificable | 5 | 5 | 6.29 | 6.00 |
@@ -26,20 +26,19 @@
 | customer_support | 5 | 5 | 7.67 | 8.06 |
 | deep_reasoning | 6 | 6 | 7.30 | 7.92 |
 | hallucination | 3 | 3 | 6.17 | 5.92 |
-| multi_turn | 4 | 4 | 7.58 | 8.00 |
-| news_seo_writing | 5 | 5 | 5.33 | 5.28 |
-| niah_es | 66 | 44 | 7.97 | 9.35 |
-| niah_es_lite | 45 | 45 | 6.74 | 7.40 |
+| multi_turn | 4 | 4 | 7.24 | 7.50 |
+| news_seo_writing | 5 | 5 | 6.69 | 7.23 |
+| niah_es | 51 | 32 | 8.36 | 10.00 |
 | ocr_extraction | 5 | 5 | 8.83 | 9.75 |
 | orchestration | 9 | 9 | 7.29 | 7.53 |
-| policy_adherence | 4 | 4 | 8.20 | 8.67 |
+| policy_adherence | 4 | 4 | 7.85 | 8.17 |
 | presentation | 2 | 2 | 7.71 | 8.84 |
 | reasoning | 3 | 3 | 8.05 | 9.16 |
 | sales_outreach | 3 | 3 | 6.94 | 7.11 |
 | startup_content | 5 | 5 | 8.06 | 9.15 |
 | strategy | 3 | 3 | 6.67 | 7.22 |
 | string_precision | 6 | 6 | 8.21 | 8.17 |
-| structured_output | 4 | 4 | 5.71 | 5.00 |
+| structured_output | 4 | 4 | 9.21 | 10.00 |
 | summarization | 2 | 2 | 7.59 | 8.06 |
 | task_management | 3 | 3 | 8.28 | 9.12 |
 | tool_calling | 4 | 4 | 5.78 | 5.00 |
@@ -362,11 +361,11 @@ Según el último reporte de **CB Insights** (*"The Startup Failure Report"*, 20
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.27 | 6.67 | 4.6 | 79 | 26.07s | OK |
+| competitor_analysis | 6.26 | 6.67 | 4.6 | 79 | 26.07s | OK |
 | pricing_strategy | 5.11 | 5.00 | 4.6 | 76 | 24.63s | OK |
 | business_model_validation | 8.63 | 10.00 | 4.6 | 75 | 22.68s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.27</summary>
+<details><summary><code>competitor_analysis</code> — score 6.26</summary>
 
 **Stats**: latencia 26.07s · 79 tok/s · 177→2048 tokens · $0.00417
 
@@ -552,12 +551,12 @@ WITH customer_orders AS (
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.60 | 5.00 | 5 | 26 | 2.28s | OK |
-| json_array_classification | 5.99 | 5.00 | 5 | 57 | 1.94s | OK |
-| json_nested_complex | 5.34 | 5.00 | 4.0 | 114 | 10.79s | OK |
-| json_strict_no_extra | 5.90 | 5.00 | 4.0 | 28 | 0.95s | OK |
+| json_simple_extraction | 9.10 | 10.00 | 5 | 26 | 2.28s | OK |
+| json_array_classification | 9.49 | 10.00 | 5 | 57 | 1.94s | OK |
+| json_nested_complex | 8.84 | 10.00 | 4.0 | 114 | 10.79s | OK |
+| json_strict_no_extra | 9.40 | 10.00 | 4.0 | 28 | 0.95s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.60</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.10</summary>
 
 **Stats**: latencia 2.28s · 26 tok/s · 109→60 tokens · $0.00016
 
@@ -582,7 +581,7 @@ WITH customer_orders AS (
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.99</summary>
+<details><summary><code>json_array_classification</code> — score 9.49</summary>
 
 **Stats**: latencia 1.94s · 57 tok/s · 180→111 tokens · $0.00029
 
@@ -604,7 +603,7 @@ WITH customer_orders AS (
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.34</summary>
+<details><summary><code>json_nested_complex</code> — score 8.84</summary>
 
 **Stats**: latencia 10.79s · 114 tok/s · 230→1228 tokens · $0.00255
 
@@ -630,7 +629,7 @@ WITH customer_orders AS (
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.90</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.40</summary>
 
 **Stats**: latencia 0.95s · 28 tok/s · 78→27 tokens · $0.00009
 
@@ -1123,8 +1122,8 @@ Esta semana viene cargada de novedades en inteligencia artificial, programas de 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.07 | 8.09 | 3.8 | 26 | 43.18s | OK |
-| news_json_output_strict | 5.28 | 5.00 | 2.4 | 54 | 14.30s | OK |
-| news_spanish_only | 5.23 | 5.00 | 4.4 | 73 | 13.11s | OK |
+| news_json_output_strict | 8.78 | 10.00 | 2.4 | 54 | 14.30s | OK |
+| news_spanish_only | 8.54 | 9.72 | 4.4 | 73 | 13.11s | OK |
 | news_no_hallucination_sources | 1.73 | 0.00 | 4.0 | 69 | 13.77s | OK |
 | news_perplexity_enrichment | 7.35 | 8.32 | 3.8 | 43 | 28.96s | OK |
 
@@ -1150,7 +1149,7 @@ Esta semana viene cargada de novedades en inteligencia artificial, programas de 
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.28</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.78</summary>
 
 **Stats**: latencia 14.30s · 54 tok/s · 328→766 tokens · $0.00166
 
@@ -1171,7 +1170,7 @@ Esta semana viene cargada de novedades en inteligencia artificial, programas de 
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.23</summary>
+<details><summary><code>news_spanish_only</code> — score 8.54</summary>
 
 **Stats**: latencia 13.11s · 73 tok/s · 323→960 tokens · $0.00205
 
@@ -1839,12 +1838,12 @@ Puedo obtener los datos de ventas desde un archivo CSV que se genera diariamente
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| content_iteration | 7.81 | 8.00 | 4.4 | 57 | 4.05s | OK |
+| content_iteration | 7.82 | 8.00 | 4.4 | 57 | 4.05s | OK |
 | support_escalation | 7.67 | 8.00 | 4.0 | 42 | 4.54s | OK |
-| requirements_change | 5.96 | 6.00 | 4.6 | 78 | 10.75s | OK |
+| requirements_change | 4.56 | 4.00 | 4.6 | 78 | 10.75s | OK |
 | debugging_conversation | 8.90 | 10.00 | 4.6 | 66 | 8.66s | OK |
 
-<details><summary><code>content_iteration</code> — score 7.81</summary>
+<details><summary><code>content_iteration</code> — score 7.82</summary>
 
 **Stats**: latencia 4.05s · 57 tok/s · 233→231 tokens · $0.00056
 
@@ -1880,7 +1879,7 @@ Entiendo tu frustración, María. Vamos a proceder de la siguiente manera:
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 5.96</summary>
+<details><summary><code>requirements_change</code> — score 4.56</summary>
 
 **Stats**: latencia 10.75s · 78 tok/s · 227→835 tokens · $0.00176
 
@@ -1931,12 +1930,12 @@ import opena
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 6.88 | 6.67 | 4.0 | 57 | 4.18s | OK |
-| data_privacy_protection | 9.12 | 10.00 | 4.6 | 44 | 3.65s | OK |
+| refund_policy_enforcement | 6.87 | 6.67 | 4.0 | 57 | 4.18s | OK |
+| data_privacy_protection | 7.72 | 8.00 | 4.6 | 44 | 3.65s | OK |
 | language_and_tone_rules | 7.82 | 8.00 | 3.0 | 51 | 4.48s | OK |
 | scope_boundaries | 8.98 | 10.00 | 4.2 | 60 | 6.32s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 6.88</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 6.87</summary>
 
 **Stats**: latencia 4.18s · 57 tok/s · 266→237 tokens · $0.00058
 
@@ -1954,7 +1953,7 @@ En su
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 9.12</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.72</summary>
 
 **Stats**: latencia 3.65s · 44 tok/s · 228→159 tokens · $0.00041
 
@@ -2252,14 +2251,12 @@ Aquí tienes la información de los tres candidatos en formato JSON:
 
 ### Otras suites
 
-#### niah_es
-
-#### niah_es_lite
-
 #### business_audit
 
 #### business_strategy
 
 #### content_verificable
+
+#### niah_es
 
 #### agent_long_horizon

@@ -2,8 +2,8 @@
 
 - **model_id**: `minimax/minimax-m2.7`
 - **Total tests**: 201/201 exitosos (0 errores)
-- **Score final**: 7.22
-- **Calidad**: 7.89
+- **Score final**: 7.26
+- **Calidad**: 7.95
 - **Judge score (Phi-4)**: 4.27/10
 - **Velocidad**: 47 tok/s
 - **Latencia primera token**: 22.01s
@@ -17,27 +17,27 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 8 | 8 | 6.54 | 6.66 |
 | agent_long_horizon | 74 | 74 | 7.39 | 8.35 |
-| business_audit | 10 | 10 | 6.58 | 7.00 |
-| business_strategy | 5 | 5 | 7.75 | 8.80 |
+| business_audit | 10 | 10 | 6.32 | 6.63 |
+| business_strategy | 5 | 5 | 8.03 | 9.20 |
 | code_generation | 4 | 4 | 6.92 | 7.68 |
 | content_generation | 4 | 4 | 7.85 | 8.93 |
-| content_verificable | 5 | 5 | 6.73 | 7.00 |
+| content_verificable | 5 | 5 | 7.90 | 8.67 |
 | creativity | 4 | 4 | 7.07 | 7.88 |
 | customer_support | 7 | 7 | 7.57 | 8.06 |
 | deep_reasoning | 6 | 6 | 7.10 | 7.92 |
 | hallucination | 3 | 3 | 6.70 | 7.00 |
-| multi_turn | 4 | 4 | 7.02 | 7.50 |
+| multi_turn | 4 | 4 | 7.72 | 8.50 |
 | news_seo_writing | 7 | 7 | 5.85 | 6.00 |
 | ocr_extraction | 5 | 5 | 8.72 | 9.75 |
 | orchestration | 7 | 7 | 6.54 | 6.56 |
-| policy_adherence | 4 | 4 | 7.58 | 8.25 |
+| policy_adherence | 4 | 4 | 6.88 | 7.25 |
 | presentation | 2 | 2 | 7.74 | 8.82 |
 | reasoning | 3 | 3 | 7.79 | 9.00 |
-| sales_outreach | 3 | 3 | 7.47 | 8.22 |
+| sales_outreach | 3 | 3 | 7.00 | 7.56 |
 | startup_content | 5 | 5 | 7.78 | 9.00 |
 | strategy | 3 | 3 | 6.60 | 7.22 |
-| string_precision | 6 | 6 | 9.19 | 10.00 |
-| structured_output | 4 | 4 | 5.63 | 5.00 |
+| string_precision | 6 | 6 | 7.91 | 8.17 |
+| structured_output | 4 | 4 | 9.13 | 10.00 |
 | summarization | 2 | 2 | 5.85 | 5.91 |
 | task_management | 5 | 5 | 8.22 | 9.33 |
 | tool_calling | 8 | 8 | 5.80 | 5.23 |
@@ -560,12 +560,12 @@ Si no hay órdenes con `status == 'pending'`, `processed` estará vacío, causan
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.75 | 5.00 | 5 | 43 | 3.08s | OK |
-| json_array_classification | 5.89 | 5.00 | 5 | 149 | 2.37s | OK |
-| json_nested_complex | 5.27 | 5.00 | 4.0 | 80 | 16.82s | OK |
-| json_strict_no_extra | 5.60 | 5.00 | 5 | 25 | 2.28s | OK |
+| json_simple_extraction | 9.25 | 10.00 | 5 | 43 | 3.08s | OK |
+| json_array_classification | 9.40 | 10.00 | 5 | 149 | 2.37s | OK |
+| json_nested_complex | 8.77 | 10.00 | 4.0 | 80 | 16.82s | OK |
+| json_strict_no_extra | 9.10 | 10.00 | 5 | 25 | 2.28s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.75</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.25</summary>
 
 **Stats**: latencia 3.08s · 43 tok/s · 111→132 tokens · $0.00019
 
@@ -583,7 +583,7 @@ Si no hay órdenes con `status == 'pending'`, `processed` estará vacío, causan
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.89</summary>
+<details><summary><code>json_array_classification</code> — score 9.40</summary>
 
 **Stats**: latencia 2.37s · 149 tok/s · 172→354 tokens · $0.00048
 
@@ -601,7 +601,7 @@ Si no hay órdenes con `status == 'pending'`, `processed` estará vacío, causan
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.27</summary>
+<details><summary><code>json_nested_complex</code> — score 8.77</summary>
 
 **Stats**: latencia 16.82s · 80 tok/s · 216→1344 tokens · $0.00168
 
@@ -619,7 +619,7 @@ Si no hay órdenes con `status == 'pending'`, `processed` estará vacío, causan
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.60</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.10</summary>
 
 **Stats**: latencia 2.28s · 25 tok/s · 82→57 tokens · $0.00009
 
@@ -643,10 +643,10 @@ Si no hay órdenes con `status == 'pending'`, `processed` estará vacío, causan
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 9.04 | 10.00 | 4.0 | 69 | 7.12s | OK |
 | copy_hex_64 | 9.40 | 10.00 | 4.0 | 50 | 2.61s | OK |
-| copy_api_key | 9.37 | 10.00 | 4.0 | 59 | 2.96s | OK |
+| copy_api_key | 3.07 | 1.00 | 4.0 | 59 | 2.96s | OK |
 | copy_jwt | 9.22 | 10.00 | 4.0 | 48 | 3.76s | OK |
 | copy_mixed_special | 9.25 | 10.00 | 3.0 | 48 | 2.56s | OK |
-| write_config_file | 8.85 | 10.00 | 4.0 | 66 | 13.33s | OK |
+| write_config_file | 7.45 | 8.00 | 4.0 | 66 | 13.33s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.04</summary>
 
@@ -684,7 +684,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.37</summary>
+<details><summary><code>copy_api_key</code> — score 3.07</summary>
 
 **Stats**: latencia 2.96s · 59 tok/s · 136→175 tokens · $0.00025
 
@@ -738,7 +738,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 8.85</summary>
+<details><summary><code>write_config_file</code> — score 7.45</summary>
 
 **Stats**: latencia 13.33s · 66 tok/s · 266→886 tokens · $0.00114
 
@@ -1360,8 +1360,8 @@ We need to
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.46 | 8.00 | 5 | 30 | 8.12s | OK |
-| lead_qualification | 6.41 | 6.67 | 5 | 44 | 16.52s | OK |
-| campaign_optimization | 8.54 | 10.00 | 5 | 47 | 43.25s | OK |
+| lead_qualification | 6.40 | 6.67 | 5 | 44 | 16.52s | OK |
+| campaign_optimization | 7.14 | 8.00 | 5 | 47 | 43.25s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.46</summary>
 
@@ -1387,7 +1387,7 @@ En FintechCo con 50 personas, el equipo de marketing probablemente dedica demasi
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 6.41</summary>
+<details><summary><code>lead_qualification</code> — score 6.40</summary>
 
 **Stats**: latencia 16.52s · 44 tok/s · 247→725 tokens · $0.00094
 
@@ -1413,7 +1413,7 @@ En FintechCo con 50 personas, el equipo de marketing probablemente dedica demasi
 
 </details>
 
-<details><summary><code>campaign_optimization</code> — score 8.54</summary>
+<details><summary><code>campaign_optimization</code> — score 7.14</summary>
 
 **Stats**: latencia 43.25s · 47 tok/s · 291→2048 tokens · $0.00254
 
@@ -1918,7 +1918,7 @@ Voy a ejecutar el proceso de onboarding completo. Comenzaré con los pasos que p
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.33 | 8.00 | 4.0 | 28 | 11.52s | OK |
 | support_escalation | 7.39 | 8.00 | 5 | 33 | 15.58s | OK |
-| requirements_change | 4.57 | 4.00 | 2.0 | 42 | 14.34s | OK |
+| requirements_change | 7.37 | 8.00 | 2.0 | 42 | 14.34s | OK |
 | debugging_conversation | 8.79 | 10.00 | 5 | 48 | 10.85s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.33</summary>
@@ -1966,7 +1966,7 @@ Maria, te entiendo perfectamente y quiero ser transparente contigo:
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 4.57</summary>
+<details><summary><code>requirements_change</code> — score 7.37</summary>
 
 **Stats**: latencia 14.34s · 42 tok/s · 228→604 tokens · $0.00079
 
@@ -2034,7 +2034,7 @@ def call_with_retry(prompt, max_retries=5, base_delay=1):
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 5.27 | 5.00 | 5 | 44 | 13.81s | OK |
-| data_privacy_protection | 8.84 | 10.00 | 5 | 38 | 10.56s | OK |
+| data_privacy_protection | 6.04 | 6.00 | 5 | 38 | 10.56s | OK |
 | language_and_tone_rules | 7.43 | 8.00 | 4.0 | 38 | 11.43s | OK |
 | scope_boundaries | 8.79 | 10.00 | 5 | 39 | 13.40s | OK |
 
@@ -2062,7 +2062,7 @@ Estimado cliente, comprendo su frustración, pero debo informarle que **no es po
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.84</summary>
+<details><summary><code>data_privacy_protection</code> — score 6.04</summary>
 
 **Stats**: latencia 10.56s · 38 tok/s · 219→397 tokens · $0.00054
 

@@ -2,8 +2,8 @@
 
 - **model_id**: `stepfun-ai/step-3.5-flash`
 - **Total tests**: 72/82 exitosos (10 errores)
-- **Score final**: 6.97
-- **Calidad**: 7.80
+- **Score final**: 7.09
+- **Calidad**: 7.96
 - **Judge score (Phi-4)**: 4.17/10
 - **Velocidad**: 42 tok/s
 - **Latencia primera token**: 34.00s
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 5.87 | 6.28 |
+| agent_capabilities | 5 | 5 | 6.22 | 6.78 |
 | business_audit | 10 | 0 | - | - |
 | code_generation | 2 | 2 | 8.21 | 9.72 |
 | content_generation | 4 | 4 | 8.00 | 9.25 |
@@ -23,18 +23,18 @@
 | customer_support | 4 | 4 | 7.06 | 7.68 |
 | deep_reasoning | 3 | 3 | 7.78 | 9.17 |
 | hallucination | 3 | 3 | 6.48 | 7.00 |
-| multi_turn | 4 | 4 | 6.85 | 7.50 |
-| news_seo_writing | 4 | 4 | 5.14 | 5.24 |
+| multi_turn | 4 | 4 | 7.20 | 8.00 |
+| news_seo_writing | 4 | 4 | 4.27 | 3.99 |
 | ocr_extraction | 2 | 2 | 6.27 | 6.88 |
-| orchestration | 4 | 4 | 7.09 | 7.80 |
-| policy_adherence | 4 | 4 | 7.89 | 9.08 |
+| orchestration | 4 | 4 | 6.21 | 6.55 |
+| policy_adherence | 4 | 4 | 8.24 | 9.58 |
 | presentation | 1 | 1 | 7.49 | 8.96 |
 | reasoning | 1 | 1 | 7.64 | 9.16 |
 | sales_outreach | 2 | 2 | 6.74 | 7.33 |
 | startup_content | 5 | 5 | 7.66 | 9.11 |
 | strategy | 2 | 2 | 7.20 | 8.34 |
 | string_precision | 6 | 6 | 7.49 | 8.17 |
-| structured_output | 3 | 3 | 5.18 | 5.00 |
+| structured_output | 3 | 3 | 8.68 | 10.00 |
 | summarization | 2 | 2 | 6.99 | 7.92 |
 | task_management | 2 | 2 | 8.10 | 9.62 |
 | tool_calling | 4 | 4 | 5.56 | 5.80 |
@@ -336,11 +336,11 @@ def fetch_filtered_products(
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.06 | 5.00 | 4.0 | 36 | 20.35s | OK |
-| json_array_classification | 4.92 | 5.00 | 4.8 | 45 | 34.61s | OK |
-| json_strict_no_extra | 5.57 | 5.00 | 4.0 | 40 | 3.82s | OK |
+| json_simple_extraction | 8.56 | 10.00 | 4.0 | 36 | 20.35s | OK |
+| json_array_classification | 8.42 | 10.00 | 4.8 | 45 | 34.61s | OK |
+| json_strict_no_extra | 9.07 | 10.00 | 4.0 | 40 | 3.82s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.06</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.56</summary>
 
 **Stats**: latencia 20.35s · 36 tok/s · 115→735 tokens · $0.00232
 
@@ -358,7 +358,7 @@ def fetch_filtered_products(
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 4.92</summary>
+<details><summary><code>json_array_classification</code> — score 8.42</summary>
 
 **Stats**: latencia 34.61s · 45 tok/s · 200→1557 tokens · $0.00487
 
@@ -391,7 +391,7 @@ def fetch_filtered_products(
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.57</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.07</summary>
 
 **Stats**: latencia 3.82s · 40 tok/s · 94→153 tokens · $0.00055
 
@@ -792,7 +792,7 @@ Esta semana el ecosistema latinoamericano y global muestra señales claras: la d
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 6.81 | 7.58 | 3.8 | 64 | 32.22s | OK |
-| news_spanish_only | 4.88 | 5.00 | 3.8 | 31 | 59.50s | OK |
+| news_spanish_only | 1.38 | 0.00 | 3.8 | 31 | 59.50s | OK |
 | news_no_hallucination_sources | 1.53 | 0.00 | 3.8 | 59 | 30.75s | OK |
 | news_perplexity_enrichment | 7.36 | 8.37 | 4.2 | 55 | 37.33s | OK |
 
@@ -814,7 +814,7 @@ La startup de inteligencia artificial francesa Mistral AI ha dado un golpe sobre
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 4.88</summary>
+<details><summary><code>news_spanish_only</code> — score 1.38</summary>
 
 **Stats**: latencia 59.50s · 31 tok/s · 334→1871 tokens · $0.00595
 
@@ -949,7 +949,7 @@ Mateo, emprendedor de Medellín, lanzó VeritasAI con ilusión. Su asistente vir
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.32 | 8.00 | 4.8 | 45 | 9.62s | OK |
-| lead_qualification | 6.16 | 6.67 | 4.8 | 35 | 29.65s | OK |
+| lead_qualification | 6.15 | 6.67 | 4.8 | 35 | 29.65s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.32</summary>
 
@@ -973,7 +973,7 @@ Ayudamos
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 6.16</summary>
+<details><summary><code>lead_qualification</code> — score 6.15</summary>
 
 **Stats**: latencia 29.65s · 35 tok/s · 274→1039 tokens · $0.00339
 
@@ -1207,7 +1207,7 @@ Estas precauciones protegen tanto a los clientes como a la empresa. Si hay
 | multi_step_research_plan | 7.94 | 8.88 | 4.2 | 84 | 7.72s | OK |
 | error_recovery_orchestration | 7.22 | 7.50 | 3.6 | 94 | 2.71s | OK |
 | complex_workflow_decomposition | 4.72 | 4.81 | 2.6 | 16 | 41.92s | OK |
-| tool_selection_precision | 8.48 | 10.00 | 4.8 | 43 | 18.57s | OK |
+| tool_selection_precision | 4.98 | 5.00 | 4.8 | 43 | 18.57s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 7.94</summary>
 
@@ -1267,7 +1267,7 @@ Voy a automatizar el proceso de onboarding para Andres Morales. Descompongo el p
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 8.48</summary>
+<details><summary><code>tool_selection_precision</code> — score 4.98</summary>
 
 **Stats**: latencia 18.57s · 43 tok/s · 1156→795 tokens · $0.00354
 
@@ -1293,7 +1293,7 @@ Voy a analizar cada tarea y seleccionar la herramienta más apropiada:
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.17 | 8.00 | 4.6 | 43 | 15.06s | OK |
 | support_escalation | 7.40 | 8.00 | 3.2 | 85 | 6.89s | OK |
-| requirements_change | 4.20 | 4.00 | 4.0 | 41 | 40.99s | OK |
+| requirements_change | 5.60 | 6.00 | 4.0 | 41 | 40.99s | OK |
 | debugging_conversation | 8.62 | 10.00 | 4.8 | 81 | 13.42s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.17</summary>
@@ -1332,7 +1332,7 @@ Si los problemas intermitentes comenzaron hace más de un mes, un reembolso comp
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 4.20</summary>
+<details><summary><code>requirements_change</code> — score 5.60</summary>
 
 **Stats**: latencia 40.99s · 41 tok/s · 264→1676 tokens · $0.00529
 
@@ -1382,7 +1382,7 @@ Los 429 requieren esperar el tiempo que indi
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 7.04 | 8.33 | 4.2 | 13 | 69.53s | OK |
 | data_privacy_protection | 8.84 | 10.00 | 4.6 | 53 | 9.69s | OK |
-| language_and_tone_rules | 7.05 | 8.00 | 3.8 | 27 | 21.12s | OK |
+| language_and_tone_rules | 8.45 | 10.00 | 3.8 | 27 | 21.12s | OK |
 | scope_boundaries | 8.63 | 10.00 | 4.8 | 91 | 11.54s | OK |
 
 <details><summary><code>refund_policy_enforcement</code> — score 7.04</summary>
@@ -1423,7 +1423,7 @@ Para verificar ide
 
 </details>
 
-<details><summary><code>language_and_tone_rules</code> — score 7.05</summary>
+<details><summary><code>language_and_tone_rules</code> — score 8.45</summary>
 
 **Stats**: latencia 21.12s · 27 tok/s · 217→561 tokens · $0.00190
 
@@ -1473,7 +1473,7 @@ El plan Pro tiene un costo de **$149 USD/mes** (facturado en USD). Incluye todas
 | skill_execution_complex | 7.41 | 8.40 | 4.0 | 36 | 14.74s | OK |
 | agent_team_delegation | 7.40 | 8.66 | 4.4 | 30 | 24.15s | OK |
 | ask_clarification_before_acting | 8.50 | 9.32 | 4.8 | 81 | 3.72s | OK |
-| context_following_complex_system | 4.68 | 5.00 | 3.8 | 14 | 53.50s | OK |
+| context_following_complex_system | 6.43 | 7.50 | 3.8 | 14 | 53.50s | OK |
 | model_as_router | 1.36 | 0.00 | 2.4 | 44 | 46.88s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 7.41</summary>
@@ -1538,7 +1538,7 @@ Necesito más información para procesar el reembolso de manera segura. Por favo
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 4.68</summary>
+<details><summary><code>context_following_complex_system</code> — score 6.43</summary>
 
 **Stats**: latencia 53.50s · 14 tok/s · 1184→753 tokens · $0.00344
 

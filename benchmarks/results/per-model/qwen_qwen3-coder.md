@@ -2,8 +2,8 @@
 
 - **model_id**: `qwen/qwen3-coder`
 - **Total tests**: 146/146 exitosos (0 errores)
-- **Score final**: 7.49
-- **Calidad**: 7.85
+- **Score final**: 7.54
+- **Calidad**: 7.92
 - **Judge score (Phi-4)**: 4.31/10
 - **Velocidad**: 66 tok/s
 - **Latencia primera token**: 9.94s
@@ -17,11 +17,11 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 7 | 7 | 7.07 | 7.02 |
 | agent_long_horizon | 24 | 24 | 7.78 | 8.58 |
-| business_audit | 10 | 10 | 6.80 | 7.00 |
-| business_strategy | 5 | 5 | 8.06 | 8.80 |
+| business_audit | 10 | 10 | 6.68 | 6.83 |
+| business_strategy | 5 | 5 | 8.34 | 9.20 |
 | code_generation | 4 | 4 | 8.72 | 9.46 |
 | content_generation | 4 | 4 | 8.25 | 8.93 |
-| content_verificable | 5 | 5 | 6.94 | 7.33 |
+| content_verificable | 5 | 5 | 7.40 | 8.00 |
 | creativity | 4 | 4 | 8.11 | 8.62 |
 | customer_support | 4 | 4 | 6.81 | 6.55 |
 | deep_reasoning | 6 | 6 | 7.19 | 7.50 |
@@ -29,15 +29,15 @@
 | multi_turn | 4 | 4 | 6.76 | 6.38 |
 | news_seo_writing | 7 | 7 | 6.23 | 6.27 |
 | ocr_extraction | 5 | 5 | 8.94 | 9.50 |
-| orchestration | 6 | 6 | 6.77 | 6.81 |
-| policy_adherence | 4 | 4 | 7.95 | 8.25 |
+| orchestration | 6 | 6 | 6.19 | 5.98 |
+| policy_adherence | 4 | 4 | 7.25 | 7.25 |
 | presentation | 2 | 2 | 7.98 | 8.82 |
 | reasoning | 3 | 3 | 8.26 | 9.35 |
-| sales_outreach | 3 | 3 | 7.09 | 7.11 |
+| sales_outreach | 3 | 3 | 8.64 | 9.33 |
 | startup_content | 5 | 5 | 8.31 | 9.25 |
 | strategy | 3 | 3 | 7.45 | 8.06 |
-| string_precision | 6 | 6 | 9.25 | 10.00 |
-| structured_output | 4 | 4 | 5.71 | 5.00 |
+| string_precision | 6 | 6 | 7.97 | 8.17 |
+| structured_output | 4 | 4 | 9.21 | 10.00 |
 | summarization | 2 | 2 | 6.93 | 7.34 |
 | task_management | 5 | 5 | 8.59 | 9.22 |
 | tool_calling | 8 | 8 | 6.23 | 5.95 |
@@ -553,12 +553,12 @@ Si no hay órdenes con status 'pending', la lista `processed` estará vacía y e
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.30 | 5.00 | 5 | 7 | 7.59s | OK |
-| json_array_classification | 6.35 | 5.00 | 5 | 120 | 0.85s | OK |
-| json_nested_complex | 5.59 | 5.00 | 5 | 131 | 7.55s | OK |
-| json_strict_no_extra | 5.60 | 5.00 | 5 | 13 | 1.90s | OK |
+| json_simple_extraction | 8.80 | 10.00 | 5 | 7 | 7.59s | OK |
+| json_array_classification | 9.85 | 10.00 | 5 | 120 | 0.85s | OK |
+| json_nested_complex | 9.09 | 10.00 | 5 | 131 | 7.55s | OK |
+| json_strict_no_extra | 9.10 | 10.00 | 5 | 13 | 1.90s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.30</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.80</summary>
 
 **Stats**: latencia 7.59s · 7 tok/s · 116→50 tokens · $0.00009
 
@@ -576,7 +576,7 @@ Si no hay órdenes con status 'pending', la lista `processed` estará vacía y e
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 6.35</summary>
+<details><summary><code>json_array_classification</code> — score 9.85</summary>
 
 **Stats**: latencia 0.85s · 120 tok/s · 185→102 tokens · $0.00016
 
@@ -594,7 +594,7 @@ Si no hay órdenes con status 'pending', la lista `processed` estará vacía y e
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.59</summary>
+<details><summary><code>json_nested_complex</code> — score 9.09</summary>
 
 **Stats**: latencia 7.55s · 131 tok/s · 227→989 tokens · $0.00106
 
@@ -619,7 +619,7 @@ Si no hay órdenes con status 'pending', la lista `processed` estará vacía y e
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.60</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.10</summary>
 
 **Stats**: latencia 1.90s · 13 tok/s · 85→25 tokens · $0.00005
 
@@ -643,10 +643,10 @@ Si no hay órdenes con status 'pending', la lista `processed` estará vacía y e
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 8.95 | 10.00 | 4.0 | 11 | 2.65s | OK |
 | copy_hex_64 | 9.70 | 10.00 | 3.0 | 86 | 0.66s | OK |
-| copy_api_key | 9.70 | 10.00 | 4.0 | 76 | 0.83s | OK |
+| copy_api_key | 3.40 | 1.00 | 4.0 | 76 | 0.83s | OK |
 | copy_jwt | 8.80 | 10.00 | 4.0 | 7 | 5.95s | OK |
 | copy_mixed_special | 8.72 | 10.00 | 3.0 | 5 | 6.64s | OK |
-| write_config_file | 9.65 | 10.00 | 4.0 | 172 | 1.21s | OK |
+| write_config_file | 8.25 | 8.00 | 4.0 | 172 | 1.21s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.95</summary>
 
@@ -684,7 +684,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.70</summary>
+<details><summary><code>copy_api_key</code> — score 3.40</summary>
 
 **Stats**: latencia 0.83s · 76 tok/s · 137→63 tokens · $0.00010
 
@@ -738,7 +738,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.65</summary>
+<details><summary><code>write_config_file</code> — score 8.25</summary>
 
 **Stats**: latencia 1.21s · 172 tok/s · 255→208 tokens · $0.00028
 
@@ -1356,7 +1356,7 @@ Carlos lanzó "HonestIA", una startup que prometía transparencia total. El bug:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 8.15 | 8.00 | 5 | 74 | 1.82s | OK |
-| lead_qualification | 4.28 | 3.33 | 5 | 46 | 8.36s | OK |
+| lead_qualification | 8.95 | 10.00 | 5 | 46 | 8.36s | OK |
 | campaign_optimization | 8.83 | 10.00 | 5 | 69 | 17.00s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 8.15</summary>
@@ -1385,7 +1385,7 @@ Nosotros ayudamos a startups como FintechCo a automatizar hasta el 80% del conte
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 4.28</summary>
+<details><summary><code>lead_qualification</code> — score 8.95</summary>
 
 **Stats**: latencia 8.36s · 46 tok/s · 266→386 tokens · $0.00047
 
@@ -1754,7 +1754,7 @@ Voy a ayudarte con cada uno de tus problemas. Vamos a abordarlos uno por uno.
 | multi_step_research_plan | 8.05 | 8.40 | 4.0 | 58 | 4.97s | OK |
 | error_recovery_orchestration | 1.95 | 0.00 | 3.0 | 16 | 2.88s | OK |
 | complex_workflow_decomposition | 4.59 | 3.57 | 2.0 | 37 | 2.06s | OK |
-| tool_selection_precision | 9.02 | 10.00 | 5 | 54 | 5.59s | OK |
+| tool_selection_precision | 5.52 | 5.00 | 5 | 54 | 5.59s | OK |
 | parallel_vs_sequential_judgment | 8.95 | 10.00 | 5 | 65 | 9.11s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 8.08</summary>
@@ -1834,7 +1834,7 @@ Voy a buscar el reporte de ventas del mes pasado en los archivos.
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 9.02</summary>
+<details><summary><code>tool_selection_precision</code> — score 5.52</summary>
 
 **Stats**: latencia 5.59s · 54 tok/s · 1360→299 tokens · $0.00071
 
@@ -1988,7 +1988,7 @@ import r
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 5.50 | 5.00 | 5 | 31 | 8.63s | OK |
 | data_privacy_protection | 9.55 | 10.00 | 5 | 55 | 1.62s | OK |
-| language_and_tone_rules | 7.77 | 8.00 | 3.0 | 50 | 5.01s | OK |
+| language_and_tone_rules | 4.97 | 4.00 | 3.0 | 50 | 5.01s | OK |
 | scope_boundaries | 8.99 | 10.00 | 4.0 | 45 | 6.41s | OK |
 
 <details><summary><code>refund_policy_enforcement</code> — score 5.50</summary>
@@ -2031,7 +2031,7 @@ Lo siento, pero no puedo proporcionar esa información. Según nuestras polític
 
 </details>
 
-<details><summary><code>language_and_tone_rules</code> — score 7.77</summary>
+<details><summary><code>language_and_tone_rules</code> — score 4.97</summary>
 
 **Stats**: latencia 5.01s · 50 tok/s · 220→251 tokens · $0.00032
 
@@ -2082,8 +2082,8 @@ Nuestro programa en EcoStartup apoya emprendimientos que generan impacto ambient
 | skill_execution_complex | 4.69 | 3.04 | 2.0 | 77 | 0.74s | OK |
 | agent_team_delegation | 8.97 | 9.70 | 5 | 83 | 2.97s | OK |
 | ask_clarification_before_acting | 9.25 | 9.80 | 5 | 71 | 1.86s | OK |
-| context_following_complex_system | 5.71 | 5.00 | 5 | 59 | 2.96s | OK |
-| model_as_router | 7.53 | 7.50 | 5 | 99 | 3.18s | OK |
+| context_following_complex_system | 7.46 | 7.50 | 5 | 59 | 2.96s | OK |
+| model_as_router | 5.78 | 5.00 | 5 | 99 | 3.18s | OK |
 
 <details><summary><code>agent_team_delegation</code> — score 6.36</summary>
 
@@ -2182,7 +2182,7 @@ Para procesar el reembolso del cliente, necesito algunos detalles específicos. 
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 5.71</summary>
+<details><summary><code>context_following_complex_system</code> — score 7.46</summary>
 
 **Stats**: latencia 2.96s · 59 tok/s · 1358→175 tokens · $0.00058
 
@@ -2203,7 +2203,7 @@ Voy a ayudarte con esos tres puntos, pero necesito aclarar algunas cosas importa
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 7.53</summary>
+<details><summary><code>model_as_router</code> — score 5.78</summary>
 
 **Stats**: latencia 3.18s · 99 tok/s · 292→315 tokens · $0.00040
 

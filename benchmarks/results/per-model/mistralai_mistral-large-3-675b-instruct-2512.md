@@ -2,8 +2,8 @@
 
 - **model_id**: `mistralai/mistral-large-3-675b-instruct-2512`
 - **Total tests**: 86/100 exitosos (14 errores)
-- **Score final**: 6.80
-- **Calidad**: 7.98
+- **Score final**: 7.08
+- **Calidad**: 8.38
 - **Judge score (Phi-4)**: 4.20/10
 - **Velocidad**: 11 tok/s
 - **Latencia primera token**: 140.39s
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 6.75 | 7.97 |
+| agent_capabilities | 5 | 5 | 7.10 | 8.47 |
 | business_audit | 10 | 0 | - | - |
 | code_generation | 4 | 4 | 7.47 | 9.16 |
 | content_generation | 4 | 3 | 7.80 | 9.55 |
@@ -24,17 +24,17 @@
 | deep_reasoning | 6 | 6 | 6.87 | 8.33 |
 | hallucination | 3 | 3 | 6.16 | 7.00 |
 | multi_turn | 4 | 4 | 6.30 | 7.38 |
-| news_seo_writing | 5 | 4 | 4.19 | 4.63 |
+| news_seo_writing | 5 | 4 | 5.89 | 7.05 |
 | ocr_extraction | 5 | 5 | 7.52 | 9.10 |
 | orchestration | 5 | 5 | 7.03 | 8.49 |
-| policy_adherence | 4 | 4 | 7.11 | 8.25 |
+| policy_adherence | 4 | 4 | 7.40 | 8.67 |
 | presentation | 2 | 2 | 7.24 | 9.02 |
 | reasoning | 3 | 3 | 7.31 | 9.09 |
 | sales_outreach | 3 | 3 | 7.69 | 9.33 |
 | startup_content | 4 | 3 | 7.36 | 9.15 |
 | strategy | 3 | 3 | 6.69 | 8.06 |
 | string_precision | 6 | 6 | 7.32 | 8.17 |
-| structured_output | 4 | 4 | 5.00 | 5.00 |
+| structured_output | 4 | 4 | 8.50 | 10.00 |
 | summarization | 2 | 2 | 7.08 | 8.26 |
 | task_management | 3 | 2 | 7.37 | 9.00 |
 | tool_calling | 4 | 4 | 6.33 | 7.03 |
@@ -534,12 +534,12 @@ Vamos a analizar cada uno de los bugs identificados y luego mostraré la versió
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.02 | 5.00 | 4.0 | 5 | 12.01s | OK |
-| json_array_classification | 5.44 | 5.00 | 4.2 | 32 | 3.60s | OK |
-| json_nested_complex | 4.50 | 5.00 | 4.0 | 5 | 267.38s | OK |
-| json_strict_no_extra | 5.06 | 5.00 | 4.0 | 3 | 11.63s | OK |
+| json_simple_extraction | 8.52 | 10.00 | 4.0 | 5 | 12.01s | OK |
+| json_array_classification | 8.94 | 10.00 | 4.2 | 32 | 3.60s | OK |
+| json_nested_complex | 8.00 | 10.00 | 4.0 | 5 | 267.38s | OK |
+| json_strict_no_extra | 8.56 | 10.00 | 4.0 | 3 | 11.63s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.02</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.52</summary>
 
 **Stats**: latencia 12.01s · 5 tok/s · 109→64 tokens · $0.00060
 
@@ -566,7 +566,7 @@ Vamos a analizar cada uno de los bugs identificados y luego mostraré la versió
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.44</summary>
+<details><summary><code>json_array_classification</code> — score 8.94</summary>
 
 **Stats**: latencia 3.60s · 32 tok/s · 184→114 tokens · $0.00105
 
@@ -587,7 +587,7 @@ Vamos a analizar cada uno de los bugs identificados y luego mostraré la versió
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 4.50</summary>
+<details><summary><code>json_nested_complex</code> — score 8.00</summary>
 
 **Stats**: latencia 267.38s · 5 tok/s · 216→1403 tokens · $0.00885
 
@@ -618,7 +618,7 @@ Vamos a analizar cada uno de los bugs identificados y luego mostraré la versió
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.06</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.56</summary>
 
 **Stats**: latencia 11.63s · 3 tok/s · 78→31 tokens · $0.00034
 
@@ -1064,8 +1064,8 @@ Esta semana el ecosistema tecnológico no da tregua: desde modelos de IA que rom
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 4.85 | 0.00 | - | 0 | 906.13s | ERROR |
-| news_json_output_strict | 4.56 | 5.00 | 2.0 | 7 | 138.67s | OK |
-| news_spanish_only | 4.43 | 5.00 | 3.8 | 5 | 267.86s | OK |
+| news_json_output_strict | 8.06 | 10.00 | 2.0 | 7 | 138.67s | OK |
+| news_spanish_only | 7.72 | 9.70 | 3.8 | 5 | 267.86s | OK |
 | news_no_hallucination_sources | 0.99 | 0.00 | 4.0 | 6 | 239.01s | OK |
 | news_perplexity_enrichment | 6.80 | 8.51 | 4.2 | 4 | 527.89s | OK |
 
@@ -1075,7 +1075,7 @@ Esta semana el ecosistema tecnológico no da tregua: desde modelos de IA que rom
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 4.56</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.06</summary>
 
 **Stats**: latencia 138.67s · 7 tok/s · 332→988 tokens · $0.00659
 
@@ -1098,7 +1098,7 @@ Esta semana el ecosistema tecnológico no da tregua: desde modelos de IA que rom
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 4.43</summary>
+<details><summary><code>news_spanish_only</code> — score 7.72</summary>
 
 **Stats**: latencia 267.86s · 5 tok/s · 317→1303 tokens · $0.00845
 
@@ -1813,12 +1813,12 @@ from urllib3.u
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 4.78 | 5.00 | 4.0 | 12 | 21.86s | OK |
+| refund_policy_enforcement | 5.95 | 6.67 | 4.0 | 12 | 21.86s | OK |
 | data_privacy_protection | 8.27 | 10.00 | 4.6 | 4 | 47.84s | OK |
 | language_and_tone_rules | 6.79 | 8.00 | 3.6 | 4 | 80.82s | OK |
 | scope_boundaries | 8.58 | 10.00 | 4.4 | 54 | 12.19s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 4.78</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 5.95</summary>
 
 **Stats**: latencia 21.86s · 12 tok/s · 269→259 tokens · $0.00209
 
@@ -1901,8 +1901,8 @@ El **Plan Pro** tiene un costo de **$149 USD/mes** (o su equivalente en CLP). In
 | skill_execution_complex | 7.10 | 8.40 | 4.0 | 5 | 31.10s | OK |
 | agent_team_delegation | 7.49 | 9.44 | 4.6 | 4 | 407.97s | OK |
 | ask_clarification_before_acting | 7.79 | 9.52 | 4.8 | 5 | 51.72s | OK |
-| context_following_complex_system | 6.66 | 7.50 | 4.8 | 46 | 10.37s | OK |
-| model_as_router | 4.71 | 5.00 | 4.4 | 14 | 29.28s | OK |
+| context_following_complex_system | 4.91 | 5.00 | 4.8 | 46 | 10.37s | OK |
+| model_as_router | 8.21 | 10.00 | 4.4 | 14 | 29.28s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 7.10</summary>
 
@@ -1965,7 +1965,7 @@ Para procesar el reembolso del cliente, necesito algunos detalles adicionales pa
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 6.66</summary>
+<details><summary><code>context_following_complex_system</code> — score 4.91</summary>
 
 **Stats**: latencia 10.37s · 46 tok/s · 998→482 tokens · $0.00489
 
@@ -1986,7 +1986,7 @@ Para procesar el reembolso del cliente, necesito algunos detalles adicionales pa
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 4.71</summary>
+<details><summary><code>model_as_router</code> — score 8.21</summary>
 
 **Stats**: latencia 29.28s · 14 tok/s · 267→401 tokens · $0.00294
 

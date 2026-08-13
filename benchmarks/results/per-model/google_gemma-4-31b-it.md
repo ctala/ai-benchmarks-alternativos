@@ -2,8 +2,8 @@
 
 - **model_id**: `google/gemma-4-31b-it`
 - **Total tests**: 96/101 exitosos (5 errores)
-- **Score final**: 7.38
-- **Calidad**: 7.84
+- **Score final**: 7.56
+- **Calidad**: 8.11
 - **Judge score (Phi-4)**: 4.17/10
 - **Velocidad**: 26 tok/s
 - **Latencia primera token**: 60.72s
@@ -15,8 +15,8 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 6.78 | 7.02 |
-| business_audit | 10 | 10 | 6.81 | 7.00 |
+| agent_capabilities | 5 | 5 | 6.08 | 6.02 |
+| business_audit | 10 | 10 | 6.83 | 7.03 |
 | code_generation | 4 | 4 | 8.18 | 9.23 |
 | content_generation | 4 | 4 | 8.05 | 9.03 |
 | creativity | 4 | 4 | 8.41 | 9.00 |
@@ -24,7 +24,7 @@
 | deep_reasoning | 6 | 3 | 7.31 | 8.06 |
 | hallucination | 3 | 3 | 6.82 | 7.00 |
 | multi_turn | 4 | 4 | 7.72 | 8.50 |
-| news_seo_writing | 5 | 5 | 5.63 | 5.59 |
+| news_seo_writing | 5 | 5 | 7.00 | 7.53 |
 | ocr_extraction | 5 | 5 | 8.48 | 9.75 |
 | orchestration | 5 | 5 | 5.48 | 5.33 |
 | policy_adherence | 4 | 4 | 7.87 | 8.58 |
@@ -34,7 +34,7 @@
 | startup_content | 5 | 3 | 8.32 | 9.36 |
 | strategy | 3 | 3 | 7.93 | 8.89 |
 | string_precision | 6 | 6 | 7.74 | 8.17 |
-| structured_output | 4 | 4 | 5.59 | 5.00 |
+| structured_output | 4 | 4 | 9.09 | 10.00 |
 | summarization | 2 | 2 | 7.55 | 8.06 |
 | task_management | 3 | 3 | 8.15 | 9.12 |
 | tool_calling | 4 | 4 | 7.38 | 7.17 |
@@ -454,12 +454,12 @@ Aquí tienes la explicación detallada de los errores y la versión corregida de
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.60 | 5.00 | 4.0 | 24 | 2.71s | OK |
-| json_array_classification | 5.75 | 5.00 | 4.8 | 33 | 4.75s | OK |
-| json_nested_complex | 5.28 | 5.00 | 5 | 26 | 33.98s | OK |
-| json_strict_no_extra | 5.75 | 5.00 | 4.0 | 17 | 1.51s | OK |
+| json_simple_extraction | 9.10 | 10.00 | 4.0 | 24 | 2.71s | OK |
+| json_array_classification | 9.25 | 10.00 | 4.8 | 33 | 4.75s | OK |
+| json_nested_complex | 8.78 | 10.00 | 5 | 26 | 33.98s | OK |
+| json_strict_no_extra | 9.25 | 10.00 | 4.0 | 17 | 1.51s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.60</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.10</summary>
 
 **Stats**: latencia 2.71s · 24 tok/s · 131→65 tokens · $0.00004
 
@@ -484,7 +484,7 @@ Aquí tienes la explicación detallada de los errores y la versión corregida de
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.75</summary>
+<details><summary><code>json_array_classification</code> — score 9.25</summary>
 
 **Stats**: latencia 4.75s · 33 tok/s · 191→156 tokens · $0.00008
 
@@ -517,7 +517,7 @@ Aquí tienes la explicación detallada de los errores y la versión corregida de
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.28</summary>
+<details><summary><code>json_nested_complex</code> — score 8.78</summary>
 
 **Stats**: latencia 33.98s · 26 tok/s · 232→880 tokens · $0.00035
 
@@ -548,7 +548,7 @@ Aquí tienes la explicación detallada de los errores y la versión corregida de
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.75</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.25</summary>
 
 **Stats**: latencia 1.51s · 17 tok/s · 100→26 tokens · $0.00002
 
@@ -1007,8 +1007,8 @@ Aquí tienes e
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 8.32 | 9.05 | 4.4 | 69 | 19.60s | OK |
-| news_json_output_strict | 5.29 | 5.00 | 2.4 | 18 | 42.37s | OK |
-| news_spanish_only | 5.16 | 5.00 | 4.4 | 12 | 57.84s | OK |
+| news_json_output_strict | 8.80 | 10.00 | 2.4 | 18 | 42.37s | OK |
+| news_spanish_only | 8.46 | 9.71 | 4.4 | 12 | 57.84s | OK |
 | news_no_hallucination_sources | 1.64 | 0.00 | 4.2 | 9 | 76.89s | OK |
 | news_perplexity_enrichment | 7.76 | 8.88 | 4.2 | 9 | 139.33s | OK |
 
@@ -1033,7 +1033,7 @@ Aquí tienes e
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.29</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.80</summary>
 
 **Stats**: latencia 42.37s · 18 tok/s · 336→768 tokens · $0.00032
 
@@ -1059,7 +1059,7 @@ Aquí tienes e
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.16</summary>
+<details><summary><code>news_spanish_only</code> — score 8.46</summary>
 
 **Stats**: latencia 57.84s · 12 tok/s · 327→691 tokens · $0.00030
 
@@ -1825,8 +1825,8 @@ Nuestro programa es una aceleradora enfocada en darle un empujón a emprendimien
 | skill_execution_complex | 6.61 | 7.08 | 3.2 | 1 | 112.86s | OK |
 | agent_team_delegation | 8.48 | 9.52 | 4.8 | 29 | 17.45s | OK |
 | ask_clarification_before_acting | 8.06 | 8.52 | 4.8 | 22 | 3.09s | OK |
-| context_following_complex_system | 3.40 | 2.50 | 3.8 | 1 | 294.89s | OK |
-| model_as_router | 7.35 | 7.50 | 4.4 | 38 | 9.45s | OK |
+| context_following_complex_system | 1.65 | 0.00 | 3.8 | 1 | 294.89s | OK |
+| model_as_router | 5.60 | 5.00 | 4.4 | 38 | 9.45s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 6.61</summary>
 
@@ -1883,7 +1883,7 @@ Entendido. Como Agente Coordinador, voy a gestionar el despliegue de este proyec
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 3.40</summary>
+<details><summary><code>context_following_complex_system</code> — score 1.65</summary>
 
 **Stats**: latencia 294.89s · 1 tok/s · 926→263 tokens · $0.00021
 
@@ -1900,7 +1900,7 @@ Entendido. Como Agente Coordinador, voy a gestionar el despliegue de este proyec
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 7.35</summary>
+<details><summary><code>model_as_router</code> — score 5.60</summary>
 
 **Stats**: latencia 9.45s · 38 tok/s · 287→363 tokens · $0.00017
 

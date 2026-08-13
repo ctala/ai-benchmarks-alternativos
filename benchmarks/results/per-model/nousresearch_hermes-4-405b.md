@@ -2,8 +2,8 @@
 
 - **model_id**: `nousresearch/hermes-4-405b`
 - **Total tests**: 138/163 exitosos (25 errores)
-- **Score final**: 7.17
-- **Calidad**: 7.90
+- **Score final**: 7.38
+- **Calidad**: 8.20
 - **Judge score (Phi-4)**: 4.27/10
 - **Velocidad**: 33 tok/s
 - **Latencia primera token**: 16.30s
@@ -15,19 +15,19 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 13 | 9 | 6.44 | 6.91 |
+| agent_capabilities | 13 | 9 | 6.64 | 7.19 |
 | agent_long_horizon | 12 | 12 | 7.71 | 9.04 |
-| business_audit | 10 | 10 | 6.92 | 7.65 |
-| business_strategy | 5 | 5 | 7.39 | 8.40 |
+| business_audit | 10 | 10 | 6.78 | 7.45 |
+| business_strategy | 5 | 5 | 7.67 | 8.80 |
 | code_generation | 4 | 4 | 7.49 | 8.49 |
 | content_generation | 4 | 4 | 7.59 | 8.49 |
-| content_verificable | 5 | 5 | 6.88 | 7.33 |
+| content_verificable | 5 | 5 | 7.35 | 8.00 |
 | creativity | 8 | 8 | 7.63 | 8.50 |
 | customer_support | 12 | 4 | 7.89 | 8.82 |
-| deep_reasoning | 12 | 12 | 6.29 | 6.81 |
+| deep_reasoning | 12 | 12 | 6.73 | 7.43 |
 | hallucination | 3 | 3 | 7.18 | 7.67 |
-| multi_turn | 4 | 4 | 7.50 | 8.00 |
-| news_seo_writing | 5 | 5 | 5.22 | 5.31 |
+| multi_turn | 4 | 4 | 7.85 | 8.50 |
+| news_seo_writing | 5 | 5 | 6.58 | 7.26 |
 | ocr_extraction | 10 | 10 | 8.33 | 9.50 |
 | orchestration | 10 | 5 | 6.76 | 7.51 |
 | policy_adherence | 4 | 4 | 6.91 | 7.17 |
@@ -37,11 +37,11 @@
 | startup_content | 5 | 5 | 7.60 | 8.74 |
 | strategy | 3 | 3 | 7.16 | 8.06 |
 | string_precision | 6 | 6 | 7.80 | 8.17 |
-| structured_output | 4 | 4 | 5.51 | 5.00 |
+| structured_output | 4 | 4 | 9.01 | 10.00 |
 | summarization | 2 | 2 | 6.56 | 7.10 |
 | task_management | 3 | 3 | 7.79 | 8.66 |
 | tool_calling | 8 | 0 | - | - |
-| translation | 3 | 3 | 7.96 | 8.57 |
+| translation | 3 | 3 | 7.18 | 7.46 |
 
 ## Detalle por test
 
@@ -54,7 +54,7 @@
 | math_word_problem | 8.66 | 10.00 | 4.0 | 35 | 12.09s | OK |
 | logic_puzzle_constraint | 5.09 | 5.00 | 4.4 | 36 | 17.12s | OK |
 | causal_reasoning | 8.58 | 10.00 | 4.4 | 36 | 17.50s | OK |
-| code_bug_subtle | 1.62 | 0.00 | 2.4 | 36 | 13.88s | OK |
+| code_bug_subtle | 6.87 | 7.50 | 2.4 | 36 | 13.88s | OK |
 | fermi_estimation | 6.17 | 6.67 | 4.4 | 37 | 27.42s | OK |
 | ethical_dilemma_structured | 8.49 | 10.00 | 4.4 | 35 | 30.50s | OK |
 | math_word_problem | 8.48 | 10.00 | 4.6 | 18 | 27.08s | OK |
@@ -130,7 +130,7 @@ Para analizar las hipótesis, calculemos las tasas de quejas por pedido y las qu
 
 </details>
 
-<details><summary><code>code_bug_subtle</code> — score 1.62</summary>
+<details><summary><code>code_bug_subtle</code> — score 6.87</summary>
 
 **Stats**: latencia 13.88s · 36 tok/s · 235→499 tokens · $0.00173
 
@@ -633,12 +633,12 @@ Bueno, veo tres bugs principales en este código. Te explicaré cada uno y te da
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.72 | 5.00 | 4.0 | 29 | 1.61s | OK |
-| json_array_classification | 5.55 | 5.00 | 5 | 32 | 4.18s | OK |
-| json_nested_complex | 5.03 | 5.00 | 4.8 | 34 | 24.35s | OK |
-| json_strict_no_extra | 5.75 | 5.00 | 4.0 | 25 | 1.01s | OK |
+| json_simple_extraction | 9.22 | 10.00 | 4.0 | 29 | 1.61s | OK |
+| json_array_classification | 9.05 | 10.00 | 5 | 32 | 4.18s | OK |
+| json_nested_complex | 8.53 | 10.00 | 4.8 | 34 | 24.35s | OK |
+| json_strict_no_extra | 9.25 | 10.00 | 4.0 | 25 | 1.01s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.72</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.22</summary>
 
 **Stats**: latencia 1.61s · 29 tok/s · 111→47 tokens · $0.00025
 
@@ -656,7 +656,7 @@ Bueno, veo tres bugs principales en este código. Te explicaré cada uno y te da
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.55</summary>
+<details><summary><code>json_array_classification</code> — score 9.05</summary>
 
 **Stats**: latencia 4.18s · 32 tok/s · 184→135 tokens · $0.00059
 
@@ -691,7 +691,7 @@ Bueno, veo tres bugs principales en este código. Te explicaré cada uno y te da
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.03</summary>
+<details><summary><code>json_nested_complex</code> — score 8.53</summary>
 
 **Stats**: latencia 24.35s · 34 tok/s · 218→839 tokens · $0.00274
 
@@ -714,7 +714,7 @@ Bueno, veo tres bugs principales en este código. Te explicaré cada uno y te da
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.75</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.25</summary>
 
 **Stats**: latencia 1.01s · 25 tok/s · 86→25 tokens · $0.00016
 
@@ -1348,8 +1348,8 @@ Resumen Ejecutivo:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.11 | 8.09 | 3.8 | 39 | 30.59s | OK |
-| news_json_output_strict | 5.07 | 5.00 | 2.6 | 36 | 17.75s | OK |
-| news_spanish_only | 5.04 | 5.00 | 3.8 | 39 | 19.47s | OK |
+| news_json_output_strict | 8.57 | 10.00 | 2.6 | 36 | 17.75s | OK |
+| news_spanish_only | 8.34 | 9.71 | 3.8 | 39 | 19.47s | OK |
 | news_no_hallucination_sources | 1.54 | 0.00 | 3.8 | 36 | 19.36s | OK |
 | news_perplexity_enrichment | 7.36 | 8.48 | 4.2 | 35 | 40.09s | OK |
 
@@ -1373,7 +1373,7 @@ Resumen Ejecutivo:
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.07</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.57</summary>
 
 **Stats**: latencia 17.75s · 36 tok/s · 318→640 tokens · $0.00224
 
@@ -1393,7 +1393,7 @@ Resumen Ejecutivo:
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.04</summary>
+<details><summary><code>news_spanish_only</code> — score 8.34</summary>
 
 **Stats**: latencia 19.47s · 39 tok/s · 326→754 tokens · $0.00259
 
@@ -1684,7 +1684,7 @@ Para cada campaña, calcularemos:
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.90 | 8.00 | 5 | 30 | 1.99s | OK |
 | translate_technical_en_es | 7.33 | 7.72 | 3.8 | 30 | 3.96s | OK |
-| detect_language_issues | 8.65 | 10.00 | 5 | 39 | 10.71s | OK |
+| detect_language_issues | 6.32 | 6.67 | 5 | 39 | 10.71s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.90</summary>
 
@@ -1725,7 +1725,7 @@ Para autenticarte con la API, incluye tu Bearer token en el header de Authorizat
 
 </details>
 
-<details><summary><code>detect_language_issues</code> — score 8.65</summary>
+<details><summary><code>detect_language_issues</code> — score 6.32</summary>
 
 **Stats**: latencia 10.71s · 39 tok/s · 218→418 tokens · $0.00147
 
@@ -2183,7 +2183,7 @@ Tarea 2: Para obtener el conteo de usuarios activos del ultimo mes, usaria la he
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.61 | 8.00 | 4.4 | 32 | 4.82s | OK |
-| support_escalation | 6.00 | 6.00 | 4.4 | 34 | 5.72s | OK |
+| support_escalation | 7.40 | 8.00 | 4.4 | 34 | 5.72s | OK |
 | requirements_change | 7.61 | 8.00 | 3.6 | 35 | 4.64s | OK |
 | debugging_conversation | 8.77 | 10.00 | 4.4 | 36 | 7.53s | OK |
 
@@ -2206,7 +2206,7 @@ este desafio. Pero qu
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 6.00</summary>
+<details><summary><code>support_escalation</code> — score 7.40</summary>
 
 **Stats**: latencia 5.72s · 34 tok/s · 389→196 tokens · $0.00098
 
@@ -2274,9 +2274,9 @@ func hacerRequest():
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 6.41 | 6.67 | 4.0 | 37 | 9.41s | OK |
-| data_privacy_protection | 4.76 | 4.00 | 4.4 | 26 | 2.51s | OK |
+| data_privacy_protection | 6.16 | 6.00 | 4.4 | 26 | 2.51s | OK |
 | language_and_tone_rules | 7.63 | 8.00 | 2.8 | 31 | 4.80s | OK |
-| scope_boundaries | 8.82 | 10.00 | 4.0 | 36 | 5.95s | OK |
+| scope_boundaries | 7.42 | 8.00 | 4.0 | 36 | 5.95s | OK |
 
 <details><summary><code>refund_policy_enforcement</code> — score 6.41</summary>
 
@@ -2298,7 +2298,7 @@ Lamento mucho las molestias que ha experimentado con nuestro servicio. A continu
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 4.76</summary>
+<details><summary><code>data_privacy_protection</code> — score 6.16</summary>
 
 **Stats**: latencia 2.51s · 26 tok/s · 242→66 tokens · $0.00044
 
@@ -2332,7 +2332,7 @@ Sobre inteligencia artificial y machine learning,
 
 </details>
 
-<details><summary><code>scope_boundaries</code> — score 8.82</summary>
+<details><summary><code>scope_boundaries</code> — score 7.42</summary>
 
 **Stats**: latencia 5.95s · 36 tok/s · 276→216 tokens · $0.00092
 
@@ -2360,8 +2360,8 @@ Hola, te puedo ayudar con tus consultas:
 | agent_team_delegation | 3.10 | 0.00 | - | 0 | 0.01s | ERROR |
 | ask_clarification_before_acting | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
 | context_following_complex_system | 3.10 | 0.00 | - | 0 | 0.02s | ERROR |
-| model_as_router | 5.27 | 5.00 | 4.2 | 36 | 8.10s | OK |
-| model_as_router | 7.01 | 7.50 | 4.0 | 42 | 7.28s | OK |
+| model_as_router | 8.77 | 10.00 | 4.2 | 36 | 8.10s | OK |
+| model_as_router | 5.26 | 5.00 | 4.0 | 42 | 7.28s | OK |
 | skill_execution_complex | 6.86 | 7.70 | 4.0 | 19 | 12.56s | OK |
 | agent_team_delegation | 8.00 | 9.37 | 5 | 27 | 20.16s | OK |
 | ask_clarification_before_acting | 7.99 | 9.30 | 5 | 23 | 13.31s | OK |
@@ -2394,7 +2394,7 @@ Hola, te puedo ayudar con tus consultas:
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 5.27</summary>
+<details><summary><code>model_as_router</code> — score 8.77</summary>
 
 **Stats**: latencia 8.10s · 36 tok/s · 286→296 tokens · $0.00117
 
@@ -2417,7 +2417,7 @@ Hola, te puedo ayudar con tus consultas:
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 7.01</summary>
+<details><summary><code>model_as_router</code> — score 5.26</summary>
 
 **Stats**: latencia 7.28s · 42 tok/s · 286→305 tokens · $0.00120
 

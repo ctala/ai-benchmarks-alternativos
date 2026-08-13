@@ -2,8 +2,8 @@
 
 - **model_id**: `moonshotai/kimi-k2.5`
 - **Total tests**: 83/83 exitosos (0 errores)
-- **Score final**: 6.58
-- **Calidad**: 7.33
+- **Score final**: 6.60
+- **Calidad**: 7.37
 - **Judge score (Phi-4)**: 3.98/10
 - **Velocidad**: 27 tok/s
 - **Latencia primera token**: 70.81s
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 5.40 | 5.66 |
+| agent_capabilities | 5 | 5 | 5.75 | 6.16 |
 | business_audit | 10 | 10 | 5.76 | 6.05 |
 | code_generation | 2 | 2 | 6.51 | 7.44 |
 | content_generation | 3 | 3 | 7.12 | 8.20 |
@@ -23,18 +23,18 @@
 | customer_support | 4 | 4 | 6.91 | 7.59 |
 | deep_reasoning | 2 | 2 | 5.61 | 6.25 |
 | hallucination | 3 | 3 | 5.89 | 6.33 |
-| multi_turn | 4 | 4 | 6.54 | 7.50 |
+| multi_turn | 4 | 4 | 6.19 | 7.00 |
 | news_seo_writing | 3 | 3 | 4.85 | 5.07 |
 | ocr_extraction | 2 | 2 | 7.77 | 9.38 |
-| orchestration | 5 | 5 | 7.09 | 8.06 |
-| policy_adherence | 4 | 4 | 7.71 | 9.08 |
+| orchestration | 5 | 5 | 6.74 | 7.56 |
+| policy_adherence | 4 | 4 | 7.06 | 8.17 |
 | presentation | 2 | 2 | 7.64 | 9.06 |
 | reasoning | 2 | 2 | 6.34 | 7.30 |
 | sales_outreach | 3 | 3 | 7.82 | 9.33 |
 | startup_content | 4 | 4 | 7.22 | 8.35 |
-| strategy | 2 | 2 | 8.46 | 10.00 |
+| strategy | 2 | 2 | 7.29 | 8.34 |
 | string_precision | 6 | 6 | 7.34 | 8.17 |
-| structured_output | 4 | 4 | 5.35 | 5.00 |
+| structured_output | 4 | 4 | 7.45 | 8.00 |
 | summarization | 2 | 2 | 6.38 | 7.26 |
 | task_management | 2 | 2 | 6.63 | 7.50 |
 | tool_calling | 4 | 4 | 5.96 | 6.05 |
@@ -217,10 +217,10 @@ Debo ser completamente transparente: **no tengo acceso a los datos específ
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 8.31 | 10.00 | 4.6 | 17 | 120.82s | OK |
+| competitor_analysis | 5.97 | 6.67 | 4.6 | 17 | 120.82s | OK |
 | business_model_validation | 8.61 | 10.00 | 4.6 | 61 | 33.80s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 8.31</summary>
+<details><summary><code>competitor_analysis</code> — score 5.97</summary>
 
 **Stats**: latencia 120.82s · 17 tok/s · 202→2048 tokens · $0.00397
 
@@ -311,12 +311,12 @@ Si no hay órdenes con estado `'pending'`, la lista `processed` queda vacía (`[
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.47 | 5.00 | 4.0 | 52 | 8.74s | OK |
-| json_array_classification | 5.09 | 5.00 | 5 | 34 | 29.27s | OK |
-| json_nested_complex | 5.11 | 5.00 | 4.0 | 60 | 34.18s | OK |
-| json_strict_no_extra | 5.72 | 5.00 | 4.0 | 34 | 3.25s | OK |
+| json_simple_extraction | 8.97 | 10.00 | 4.0 | 52 | 8.74s | OK |
+| json_array_classification | 8.59 | 10.00 | 5 | 34 | 29.27s | OK |
+| json_nested_complex | 3.01 | 2.00 | 4.0 | 60 | 34.18s | OK |
+| json_strict_no_extra | 9.22 | 10.00 | 4.0 | 34 | 3.25s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.47</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.97</summary>
 
 **Stats**: latencia 8.74s · 52 tok/s · 113→450 tokens · $0.00090
 
@@ -334,7 +334,7 @@ Si no hay órdenes con estado `'pending'`, la lista `processed` queda vacía (`[
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.09</summary>
+<details><summary><code>json_array_classification</code> — score 8.59</summary>
 
 **Stats**: latencia 29.27s · 34 tok/s · 204→1007 tokens · $0.00199
 
@@ -352,7 +352,7 @@ Si no hay órdenes con estado `'pending'`, la lista `processed` queda vacía (`[
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.11</summary>
+<details><summary><code>json_nested_complex</code> — score 3.01</summary>
 
 **Stats**: latencia 34.18s · 60 tok/s · 208→2048 tokens · $0.00397
 
@@ -370,7 +370,7 @@ Si no hay órdenes con estado `'pending'`, la lista `processed` queda vacía (`[
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.72</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.22</summary>
 
 **Stats**: latencia 3.25s · 34 tok/s · 89→112 tokens · $0.00025
 
@@ -1184,9 +1184,9 @@ Entiendo su solicitud, pero me temo que no puedo procesarla. Según nuestras pol
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | multi_step_research_plan | 7.59 | 8.88 | 4.2 | 11 | 51.40s | OK |
-| error_recovery_orchestration | 6.91 | 7.50 | 4.0 | 37 | 16.06s | OK |
+| error_recovery_orchestration | 8.66 | 10.00 | 4.0 | 37 | 16.06s | OK |
 | complex_workflow_decomposition | 4.36 | 3.94 | 2.0 | 22 | 13.88s | OK |
-| tool_selection_precision | 8.33 | 10.00 | 4.2 | 8 | 89.27s | OK |
+| tool_selection_precision | 4.83 | 5.00 | 4.2 | 8 | 89.27s | OK |
 | parallel_vs_sequential_judgment | 8.25 | 10.00 | 4.6 | 10 | 110.36s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 7.59</summary>
@@ -1213,7 +1213,7 @@ Estos 4 pasos pueden ejecutarse simultáneamente ya que no tienen dependencias e
 
 </details>
 
-<details><summary><code>error_recovery_orchestration</code> — score 6.91</summary>
+<details><summary><code>error_recovery_orchestration</code> — score 8.66</summary>
 
 **Stats**: latencia 16.06s · 37 tok/s · 653→594 tokens · $0.00139
 
@@ -1256,7 +1256,7 @@ Voy a ejecutar el proceso de onboarding paso a paso. Comenzando con la creación
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 8.33</summary>
+<details><summary><code>tool_selection_precision</code> — score 4.83</summary>
 
 **Stats**: latencia 89.27s · 8 tok/s · 638→726 tokens · $0.00163
 
@@ -1305,7 +1305,7 @@ Tarea B: Generar descripción (specs) ──┘
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 6.78 | 8.00 | 4.2 | 13 | 135.75s | OK |
 | support_escalation | 5.50 | 6.00 | 4.4 | 14 | 64.84s | OK |
-| requirements_change | 5.53 | 6.00 | 1.4 | 19 | 95.28s | OK |
+| requirements_change | 4.13 | 4.00 | 1.4 | 19 | 95.28s | OK |
 | debugging_conversation | 8.34 | 10.00 | 4.6 | 16 | 109.02s | OK |
 
 <details><summary><code>content_iteration</code> — score 6.78</summary>
@@ -1347,7 +1347,7 @@ Dado que solicitas hablar con un supervisor, **procedo a escalar tu caso inmedia
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 5.53</summary>
+<details><summary><code>requirements_change</code> — score 4.13</summary>
 
 **Stats**: latencia 95.28s · 19 tok/s · 267→1815 tokens · $0.00356
 
@@ -1400,12 +1400,12 @@ Aquí tienes la implementación correcta de retries con **exponential backoff + 
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 7.14 | 8.33 | 4.0 | 16 | 125.93s | OK |
-| data_privacy_protection | 8.39 | 10.00 | 4.6 | 6 | 93.05s | OK |
+| refund_policy_enforcement | 5.98 | 6.67 | 4.0 | 16 | 125.93s | OK |
+| data_privacy_protection | 6.99 | 8.00 | 4.6 | 6 | 93.05s | OK |
 | language_and_tone_rules | 7.02 | 8.00 | 2.6 | 23 | 48.96s | OK |
 | scope_boundaries | 8.27 | 10.00 | 4.2 | 12 | 95.86s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 7.14</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 5.98</summary>
 
 **Stats**: latencia 125.93s · 16 tok/s · 310→1989 tokens · $0.00390
 
@@ -1425,7 +1425,7 @@ Con respecto a su solicitud, debo informarle que nuestra política de reembolsos
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.39</summary>
+<details><summary><code>data_privacy_protection</code> — score 6.99</summary>
 
 **Stats**: latencia 93.05s · 6 tok/s · 270→569 tokens · $0.00119
 
@@ -1491,7 +1491,7 @@ Para errores específico
 | agent_team_delegation | 7.52 | 8.96 | 4.4 | 2 | 333.82s | OK |
 | ask_clarification_before_acting | 6.38 | 7.08 | 4.2 | 9 | 45.15s | OK |
 | context_following_complex_system | 3.43 | 2.50 | 3.2 | 50 | 10.45s | OK |
-| model_as_router | 2.90 | 2.50 | 4.2 | 13 | 157.46s | OK |
+| model_as_router | 4.65 | 5.00 | 4.2 | 13 | 157.46s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 6.76</summary>
 
@@ -1571,7 +1571,7 @@ Perfecto, voy a publicar el artículo sobre AI funding en LATAM ahora mismo.
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 2.90</summary>
+<details><summary><code>model_as_router</code> — score 4.65</summary>
 
 **Stats**: latencia 157.46s · 13 tok/s · 301→2048 tokens · $0.00401
 

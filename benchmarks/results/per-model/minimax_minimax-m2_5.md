@@ -2,8 +2,8 @@
 
 - **model_id**: `minimax/minimax-m2.5`
 - **Total tests**: 132/132 exitosos (0 errores)
-- **Score final**: 7.58
-- **Calidad**: 8.07
+- **Score final**: 7.67
+- **Calidad**: 8.20
 - **Judge score (Phi-4)**: 4.47/10
 - **Velocidad**: 59 tok/s
 - **Latencia primera token**: 15.57s
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 6.19 | 5.81 |
+| agent_capabilities | 5 | 5 | 5.84 | 5.31 |
 | agent_long_horizon | 12 | 12 | 8.06 | 9.12 |
 | business_audit | 10 | 10 | 6.92 | 7.30 |
 | business_strategy | 5 | 5 | 8.21 | 9.20 |
@@ -27,17 +27,17 @@
 | deep_reasoning | 6 | 6 | 7.33 | 7.92 |
 | hallucination | 3 | 3 | 8.01 | 8.33 |
 | multi_turn | 4 | 4 | 7.54 | 7.88 |
-| news_seo_writing | 5 | 5 | 5.46 | 5.26 |
+| news_seo_writing | 5 | 5 | 6.81 | 7.20 |
 | ocr_extraction | 5 | 5 | 8.55 | 9.35 |
-| orchestration | 5 | 5 | 7.36 | 7.50 |
-| policy_adherence | 4 | 4 | 8.08 | 8.67 |
+| orchestration | 5 | 5 | 5.96 | 5.50 |
+| policy_adherence | 4 | 4 | 8.02 | 8.58 |
 | presentation | 2 | 2 | 8.55 | 9.65 |
 | reasoning | 3 | 3 | 8.36 | 9.43 |
-| sales_outreach | 3 | 3 | 8.45 | 9.33 |
+| sales_outreach | 3 | 3 | 7.67 | 8.22 |
 | startup_content | 9 | 9 | 8.31 | 9.43 |
-| strategy | 3 | 3 | 6.14 | 6.39 |
+| strategy | 3 | 3 | 6.92 | 7.50 |
 | string_precision | 6 | 6 | 8.12 | 8.17 |
-| structured_output | 4 | 4 | 5.65 | 5.00 |
+| structured_output | 4 | 4 | 9.15 | 10.00 |
 | summarization | 2 | 2 | 7.01 | 7.40 |
 | task_management | 3 | 3 | 8.71 | 9.73 |
 | tool_calling | 4 | 4 | 7.04 | 6.75 |
@@ -368,11 +368,11 @@ CB Insights es conocido por publicar estadísticas sobre fracaso de startups. La
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.29 | 6.67 | 4.6 | 49 | 38.24s | OK |
+| competitor_analysis | 8.62 | 10.00 | 4.6 | 49 | 38.24s | OK |
 | pricing_strategy | 3.50 | 2.50 | 4.0 | 52 | 39.62s | OK |
 | business_model_validation | 8.63 | 10.00 | 5 | 47 | 37.97s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.29</summary>
+<details><summary><code>competitor_analysis</code> — score 8.62</summary>
 
 **Stats**: latencia 38.24s · 49 tok/s · 171→1865 tokens · $0.00172
 
@@ -572,12 +572,12 @@ El código modifica directamente `
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.75 | 5.00 | 5 | 39 | 3.45s | OK |
-| json_array_classification | 5.63 | 5.00 | 5 | 63 | 6.33s | OK |
-| json_nested_complex | 5.31 | 5.00 | 5 | 74 | 20.39s | OK |
-| json_strict_no_extra | 5.90 | 5.00 | 5 | 38 | 1.53s | OK |
+| json_simple_extraction | 9.25 | 10.00 | 5 | 39 | 3.45s | OK |
+| json_array_classification | 9.13 | 10.00 | 5 | 63 | 6.33s | OK |
+| json_nested_complex | 8.81 | 10.00 | 5 | 74 | 20.39s | OK |
+| json_strict_no_extra | 9.40 | 10.00 | 5 | 38 | 1.53s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.75</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.25</summary>
 
 **Stats**: latencia 3.45s · 39 tok/s · 111→134 tokens · $0.00015
 
@@ -595,7 +595,7 @@ El código modifica directamente `
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.63</summary>
+<details><summary><code>json_array_classification</code> — score 9.13</summary>
 
 **Stats**: latencia 6.33s · 63 tok/s · 170→400 tokens · $0.00040
 
@@ -613,7 +613,7 @@ El código modifica directamente `
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.31</summary>
+<details><summary><code>json_nested_complex</code> — score 8.81</summary>
 
 **Stats**: latencia 20.39s · 74 tok/s · 216→1515 tokens · $0.00141
 
@@ -638,7 +638,7 @@ El código modifica directamente `
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.90</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.40</summary>
 
 **Stats**: latencia 1.53s · 38 tok/s · 82→58 tokens · $0.00007
 
@@ -1271,8 +1271,8 @@ Esta semana viene cargada de noticias que van directo al terreno de las startups
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.15 | 7.92 | 3.8 | 45 | 43.85s | OK |
-| news_json_output_strict | 5.33 | 5.00 | 3.0 | 72 | 17.99s | OK |
-| news_spanish_only | 5.26 | 5.00 | 5 | 44 | 19.65s | OK |
+| news_json_output_strict | 8.83 | 10.00 | 3.0 | 72 | 17.99s | OK |
+| news_spanish_only | 8.53 | 9.68 | 5 | 44 | 19.65s | OK |
 | news_no_hallucination_sources | 1.88 | 0.00 | 4.0 | 56 | 17.64s | OK |
 | news_perplexity_enrichment | 7.68 | 8.40 | 4.0 | 61 | 25.26s | OK |
 
@@ -1294,7 +1294,7 @@ Esta semana viene cargada de noticias que van directo al terreno de las startups
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.33</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.83</summary>
 
 **Stats**: latencia 17.99s · 72 tok/s · 314→1290 tokens · $0.00123
 
@@ -1312,7 +1312,7 @@ Esta semana viene cargada de noticias que van directo al terreno de las startups
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.26</summary>
+<details><summary><code>news_spanish_only</code> — score 8.53</summary>
 
 **Stats**: latencia 19.65s · 44 tok/s · 298→875 tokens · $0.00085
 
@@ -1472,7 +1472,7 @@ Desesperado, prepara una demo para inversores. La IA presenta el producto y突�
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.65 | 8.00 | 5 | 31 | 8.47s | OK |
-| lead_qualification | 8.95 | 10.00 | 5 | 61 | 11.57s | OK |
+| lead_qualification | 6.61 | 6.67 | 5 | 61 | 11.57s | OK |
 | campaign_optimization | 8.75 | 10.00 | 5 | 61 | 33.38s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.65</summary>
@@ -1503,7 +1503,7 @@ Const
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 8.95</summary>
+<details><summary><code>lead_qualification</code> — score 6.61</summary>
 
 **Stats**: latencia 11.57s · 61 tok/s · 247→706 tokens · $0.00069
 
@@ -2005,7 +2005,7 @@ No puedo proporcionar los últimos 4 dígitos (ni ninguna información) de la ta
 | multi_step_research_plan | 8.24 | 8.60 | 4.0 | 70 | 4.89s | OK |
 | error_recovery_orchestration | 5.64 | 5.00 | 3.0 | 50 | 3.39s | OK |
 | complex_workflow_decomposition | 5.02 | 3.92 | 2.0 | 68 | 3.01s | OK |
-| tool_selection_precision | 9.05 | 10.00 | 4.0 | 70 | 5.81s | OK |
+| tool_selection_precision | 2.05 | 0.00 | 4.0 | 70 | 5.81s | OK |
 | parallel_vs_sequential_judgment | 8.85 | 10.00 | 5 | 90 | 11.02s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 8.24</summary>
@@ -2071,7 +2071,7 @@ Voy a ejecutar el proceso de onboarding paso a paso. Empiezo con la creación de
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 9.05</summary>
+<details><summary><code>tool_selection_precision</code> — score 2.05</summary>
 
 **Stats**: latencia 5.81s · 70 tok/s · 1014→408 tokens · $0.00059
 
@@ -2125,8 +2125,8 @@ Voy a ejecutar el proceso de onboarding paso a paso. Empiezo con la creación de
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.59 | 8.00 | 5 | 44 | 8.48s | OK |
-| support_escalation | 7.41 | 8.00 | 5 | 47 | 13.60s | OK |
-| requirements_change | 7.78 | 8.00 | 3.0 | 53 | 5.48s | OK |
+| support_escalation | 8.81 | 10.00 | 5 | 47 | 13.60s | OK |
+| requirements_change | 6.38 | 6.00 | 3.0 | 53 | 5.48s | OK |
 | debugging_conversation | 7.37 | 7.50 | 5 | 66 | 6.03s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.59</summary>
@@ -2149,7 +2149,7 @@ Cada vez que un cliente potencial te escribe a las 11pm y no le respondes hasta 
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 7.41</summary>
+<details><summary><code>support_escalation</code> — score 8.81</summary>
 
 **Stats**: latencia 13.60s · 47 tok/s · 348→641 tokens · $0.00065
 
@@ -2173,7 +2173,7 @@ Te explico lo que puedo hacer desde mi posicion:
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 7.78</summary>
+<details><summary><code>requirements_change</code> — score 6.38</summary>
 
 **Stats**: latencia 5.48s · 53 tok/s · 228→290 tokens · $0.00031
 
@@ -2233,12 +2233,12 @@ retry_strategy = Retry(
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 6.74 | 6.67 | 5 | 58 | 9.53s | OK |
-| data_privacy_protection | 9.00 | 10.00 | 5 | 47 | 7.51s | OK |
+| refund_policy_enforcement | 7.90 | 8.33 | 5 | 58 | 9.53s | OK |
+| data_privacy_protection | 7.60 | 8.00 | 5 | 47 | 7.51s | OK |
 | language_and_tone_rules | 7.59 | 8.00 | 4.0 | 45 | 8.00s | OK |
 | scope_boundaries | 8.99 | 10.00 | 4.0 | 48 | 7.67s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 6.74</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 7.90</summary>
 
 **Stats**: latencia 9.53s · 58 tok/s · 250→552 tokens · $0.00055
 
@@ -2260,7 +2260,7 @@ Señor, entiendo su frustración, pero debo informarle que no puedo procesar su 
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 9.00</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.60</summary>
 
 **Stats**: latencia 7.51s · 47 tok/s · 219→351 tokens · $0.00036
 
@@ -2339,7 +2339,7 @@ Para eso necesitas soporte técnico especializado. Por favor contacta a **soport
 | agent_team_delegation | 7.91 | 8.40 | 4.0 | 74 | 6.76s | OK |
 | ask_clarification_before_acting | 8.86 | 9.60 | 5 | 45 | 4.78s | OK |
 | context_following_complex_system | 2.24 | 0.00 | 3.0 | 61 | 4.68s | OK |
-| model_as_router | 7.19 | 7.50 | 4.0 | 60 | 11.87s | OK |
+| model_as_router | 5.44 | 5.00 | 4.0 | 60 | 11.87s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 4.75</summary>
 
@@ -2430,7 +2430,7 @@ Esto puedo hacerlo. Voy a delegarlo al agente especializado:
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 7.19</summary>
+<details><summary><code>model_as_router</code> — score 5.44</summary>
 
 **Stats**: latencia 11.87s · 60 tok/s · 264→714 tokens · $0.00070
 

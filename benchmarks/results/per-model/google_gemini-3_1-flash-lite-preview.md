@@ -1,13 +1,13 @@
 # Gemini 3.1 Flash Lite
 
 - **model_id**: `google/gemini-3.1-flash-lite-preview`
-- **Total tests**: 259/310 exitosos (51 errores)
-- **Score final**: 7.22
-- **Calidad**: 7.52
+- **Total tests**: 214/265 exitosos (51 errores)
+- **Score final**: 7.41
+- **Calidad**: 7.74
 - **Judge score (Phi-4)**: 3.82/10
-- **Velocidad**: 89 tok/s
-- **Latencia primera token**: 2.65s
-- **Costo promedio por test**: $0.00629
+- **Velocidad**: 101 tok/s
+- **Latencia primera token**: 2.89s
+- **Costo promedio por test**: $0.00620
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 5 | 5 | 5.74 | 4.83 |
+| agent_capabilities | 5 | 5 | 6.09 | 5.33 |
 | agent_long_horizon | 12 | 12 | 7.80 | 8.33 |
 | business_audit | 10 | 10 | 6.89 | 6.80 |
 | business_strategy | 5 | 5 | 8.57 | 9.20 |
@@ -24,23 +24,22 @@
 | content_verificable | 5 | 5 | 8.80 | 9.33 |
 | creativity | 4 | 4 | 8.61 | 9.00 |
 | customer_support | 4 | 4 | 7.12 | 6.63 |
-| deep_reasoning | 6 | 6 | 7.71 | 7.92 |
+| deep_reasoning | 6 | 6 | 8.00 | 8.33 |
 | hallucination | 3 | 3 | 7.87 | 7.67 |
 | multi_turn | 4 | 4 | 8.00 | 8.00 |
-| news_seo_writing | 5 | 5 | 5.70 | 5.26 |
+| news_seo_writing | 5 | 5 | 7.07 | 7.21 |
 | niah_es | 102 | 51 | 8.24 | 9.79 |
-| niah_es_lite | 45 | 45 | 6.90 | 7.38 |
 | ocr_extraction | 5 | 5 | 9.09 | 9.75 |
 | orchestration | 25 | 25 | 7.03 | 6.66 |
 | policy_adherence | 4 | 4 | 8.53 | 8.67 |
 | presentation | 2 | 2 | 8.06 | 8.54 |
 | prompt_injection_es | 20 | 20 | 2.43 | 1.00 |
 | reasoning | 3 | 3 | 8.56 | 9.21 |
-| sales_outreach | 3 | 3 | 6.14 | 5.33 |
+| sales_outreach | 3 | 3 | 6.91 | 6.44 |
 | startup_content | 5 | 5 | 8.42 | 9.19 |
-| strategy | 3 | 3 | 7.69 | 8.06 |
+| strategy | 3 | 3 | 8.27 | 8.89 |
 | string_precision | 6 | 6 | 8.22 | 8.17 |
-| structured_output | 4 | 4 | 5.85 | 5.00 |
+| structured_output | 4 | 4 | 9.35 | 10.00 |
 | summarization | 2 | 2 | 7.58 | 7.50 |
 | task_management | 3 | 3 | 8.63 | 9.12 |
 | tool_calling | 4 | 4 | 7.29 | 7.24 |
@@ -57,7 +56,7 @@
 | math_word_problem | 9.21 | 10.00 | 4.4 | 248 | 3.27s | OK |
 | logic_puzzle_constraint | 5.66 | 5.00 | 4.2 | 246 | 4.16s | OK |
 | causal_reasoning | 9.20 | 10.00 | 5.0 | 235 | 3.49s | OK |
-| code_bug_subtle | 7.44 | 7.50 | 1.6 | 191 | 4.62s | OK |
+| code_bug_subtle | 9.19 | 10.00 | 1.6 | 191 | 4.62s | OK |
 | fermi_estimation | 5.72 | 5.00 | 4.4 | 200 | 3.90s | OK |
 | ethical_dilemma_structured | 9.02 | 10.00 | 4.4 | 173 | 5.54s | OK |
 
@@ -123,7 +122,7 @@ Para analizar la situación, primero debemos calcular la **Tasa de Quejas (TQ)**
 
 </details>
 
-<details><summary><code>code_bug_subtle</code> — score 7.44</summary>
+<details><summary><code>code_bug_subtle</code> — score 9.19</summary>
 
 **Stats**: latencia 4.62s · 191 tok/s · 244→882 tokens · $0.00138
 
@@ -348,11 +347,11 @@ Aquí tienes la información solicitada basada en los datos disponibles a fecha 
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.67 | 6.67 | 4.6 | 172 | 6.40s | OK |
-| pricing_strategy | 7.41 | 7.50 | 4.6 | 222 | 4.72s | OK |
+| competitor_analysis | 6.66 | 6.67 | 4.6 | 172 | 6.40s | OK |
+| pricing_strategy | 9.16 | 10.00 | 4.6 | 222 | 4.72s | OK |
 | business_model_validation | 9.00 | 10.00 | 4.8 | 182 | 6.05s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.67</summary>
+<details><summary><code>competitor_analysis</code> — score 6.66</summary>
 
 **Stats**: latencia 6.40s · 172 tok/s · 168→1098 tokens · $0.00169
 
@@ -372,7 +371,7 @@ Aquí tienes el análisis solicitado:
 
 </details>
 
-<details><summary><code>pricing_strategy</code> — score 7.41</summary>
+<details><summary><code>pricing_strategy</code> — score 9.16</summary>
 
 **Stats**: latencia 4.72s · 222 tok/s · 184→1048 tokens · $0.00162
 
@@ -512,12 +511,12 @@ Aquí tienes la explicación de los bugs identificados y la versión corregida d
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.90 | 5.00 | 4.0 | 42 | 1.19s | OK |
-| json_array_classification | 6.15 | 5.00 | 4.8 | 134 | 1.16s | OK |
-| json_nested_complex | 5.74 | 5.00 | 5 | 245 | 2.68s | OK |
-| json_strict_no_extra | 5.60 | 5.00 | 4.0 | 13 | 1.86s | OK |
+| json_simple_extraction | 9.40 | 10.00 | 4.0 | 42 | 1.19s | OK |
+| json_array_classification | 9.65 | 10.00 | 4.8 | 134 | 1.16s | OK |
+| json_nested_complex | 9.24 | 10.00 | 5 | 245 | 2.68s | OK |
+| json_strict_no_extra | 9.10 | 10.00 | 4.0 | 13 | 1.86s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.90</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.40</summary>
 
 **Stats**: latencia 1.19s · 42 tok/s · 105→50 tokens · $0.00010
 
@@ -535,7 +534,7 @@ Aquí tienes la explicación de los bugs identificados y la versión corregida d
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 6.15</summary>
+<details><summary><code>json_array_classification</code> — score 9.65</summary>
 
 **Stats**: latencia 1.16s · 134 tok/s · 164→155 tokens · $0.00027
 
@@ -568,7 +567,7 @@ Aquí tienes la explicación de los bugs identificados y la versión corregida d
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.74</summary>
+<details><summary><code>json_nested_complex</code> — score 9.24</summary>
 
 **Stats**: latencia 2.68s · 245 tok/s · 233→656 tokens · $0.00104
 
@@ -599,7 +598,7 @@ Aquí tienes la explicación de los bugs identificados y la versión corregida d
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.60</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.10</summary>
 
 **Stats**: latencia 1.86s · 13 tok/s · 72→25 tokens · $0.00006
 
@@ -1084,8 +1083,8 @@ Como asistente de investigación, he compilado los datos proyectados y las tende
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.53 | 7.91 | 3.8 | 190 | 5.59s | OK |
-| news_json_output_strict | 5.18 | 5.00 | 3.2 | 30 | 26.82s | OK |
-| news_spanish_only | 5.71 | 5.00 | 4.2 | 182 | 4.19s | OK |
+| news_json_output_strict | 8.68 | 10.00 | 3.2 | 30 | 26.82s | OK |
+| news_spanish_only | 9.03 | 9.74 | 4.2 | 182 | 4.19s | OK |
 | news_no_hallucination_sources | 2.21 | 0.00 | 3.8 | 180 | 4.10s | OK |
 | news_perplexity_enrichment | 7.88 | 8.40 | 4.0 | 196 | 5.39s | OK |
 
@@ -1109,7 +1108,7 @@ Como asistente de investigación, he compilado los datos proyectados y las tende
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.18</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.68</summary>
 
 **Stats**: latencia 26.82s · 30 tok/s · 307→805 tokens · $0.00128
 
@@ -1129,7 +1128,7 @@ Como asistente de investigación, he compilado los datos proyectados y las tende
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.71</summary>
+<details><summary><code>news_spanish_only</code> — score 9.03</summary>
 
 **Stats**: latencia 4.19s · 182 tok/s · 311→761 tokens · $0.00122
 
@@ -1270,7 +1269,7 @@ Mateo, el genio detrás de «VeritasAI», sonrió al presentar su algoritmo ante
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 8.15 | 8.00 | 4.8 | 98 | 1.19s | OK |
-| lead_qualification | 2.50 | 0.00 | 4.8 | 194 | 1.84s | OK |
+| lead_qualification | 4.83 | 3.33 | 4.8 | 194 | 1.84s | OK |
 | campaign_optimization | 7.76 | 8.00 | 4.6 | 223 | 4.57s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 8.15</summary>
@@ -1295,7 +1294,7 @@ He desarrollado un sistema de automatización con IA
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 2.50</summary>
+<details><summary><code>lead_qualification</code> — score 4.83</summary>
 
 **Stats**: latencia 1.84s · 194 tok/s · 245→357 tokens · $0.00060
 
@@ -2373,7 +2372,7 @@ Sobre tu consulta, en **EcoStartup** nos enfocamos 100% en proyectos con impacto
 | skill_execution_complex | 4.37 | 2.64 | 1.8 | 36 | 0.80s | OK |
 | agent_team_delegation | 8.51 | 8.86 | 4.4 | 105 | 3.24s | OK |
 | ask_clarification_before_acting | 7.41 | 7.66 | 4.4 | 30 | 2.30s | OK |
-| context_following_complex_system | 2.43 | 0.00 | 3.8 | 70 | 1.64s | OK |
+| context_following_complex_system | 4.18 | 2.50 | 3.8 | 70 | 1.64s | OK |
 | model_as_router | 6.00 | 5.00 | 4.4 | 208 | 1.72s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 4.37</summary>
@@ -2428,7 +2427,7 @@ Para ejecutar este proyecto de manera estructurada, he diseñado el siguiente pl
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 2.43</summary>
+<details><summary><code>context_following_complex_system</code> — score 4.18</summary>
 
 **Stats**: latencia 1.64s · 70 tok/s · 895→114 tokens · $0.00040
 
@@ -2599,8 +2598,6 @@ Aquí tienes la información extraída de los tres candidatos en formato JSON:
 </details>
 
 ### Otras suites
-
-#### niah_es_lite
 
 #### prompt_injection_es
 

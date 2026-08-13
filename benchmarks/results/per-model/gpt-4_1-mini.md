@@ -2,8 +2,8 @@
 
 - **model_id**: `gpt-4.1-mini`
 - **Total tests**: 146/146 exitosos (0 errores)
-- **Score final**: 7.46
-- **Calidad**: 7.76
+- **Score final**: 7.52
+- **Calidad**: 7.86
 - **Judge score (Phi-4)**: 4.40/10
 - **Velocidad**: 60 tok/s
 - **Latencia primera token**: 7.40s
@@ -17,7 +17,7 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 7 | 7 | 6.82 | 6.64 |
 | agent_long_horizon | 24 | 24 | 7.68 | 8.46 |
-| business_audit | 10 | 10 | 6.44 | 6.47 |
+| business_audit | 10 | 10 | 6.56 | 6.63 |
 | business_strategy | 5 | 5 | 8.14 | 8.80 |
 | code_generation | 4 | 4 | 8.02 | 8.71 |
 | content_generation | 4 | 4 | 8.24 | 8.87 |
@@ -30,14 +30,14 @@
 | news_seo_writing | 7 | 7 | 6.08 | 6.07 |
 | ocr_extraction | 5 | 5 | 8.42 | 9.10 |
 | orchestration | 6 | 6 | 7.50 | 7.57 |
-| policy_adherence | 4 | 4 | 8.09 | 8.25 |
+| policy_adherence | 4 | 4 | 7.73 | 7.75 |
 | presentation | 2 | 2 | 7.78 | 8.86 |
 | reasoning | 3 | 3 | 8.01 | 9.21 |
-| sales_outreach | 3 | 3 | 6.57 | 6.44 |
+| sales_outreach | 3 | 3 | 7.35 | 7.56 |
 | startup_content | 5 | 5 | 8.11 | 9.11 |
-| strategy | 3 | 3 | 6.85 | 7.22 |
-| string_precision | 6 | 6 | 9.38 | 10.00 |
-| structured_output | 4 | 4 | 5.81 | 5.00 |
+| strategy | 3 | 3 | 7.43 | 8.06 |
+| string_precision | 6 | 6 | 8.10 | 8.17 |
+| structured_output | 4 | 4 | 9.31 | 10.00 |
 | summarization | 2 | 2 | 7.00 | 7.10 |
 | task_management | 3 | 3 | 8.11 | 8.74 |
 | tool_calling | 8 | 8 | 6.14 | 5.26 |
@@ -368,11 +368,11 @@ Claro, aquí tienes la información con el nivel de certeza y fuente indicada:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.55 | 6.67 | 4.6 | 87 | 9.92s | OK |
-| pricing_strategy | 5.22 | 5.00 | 5 | 75 | 17.83s | OK |
+| competitor_analysis | 6.54 | 6.67 | 4.6 | 87 | 9.92s | OK |
+| pricing_strategy | 6.97 | 7.50 | 5 | 75 | 17.83s | OK |
 | business_model_validation | 8.78 | 10.00 | 5 | 79 | 12.70s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.55</summary>
+<details><summary><code>competitor_analysis</code> — score 6.54</summary>
 
 **Stats**: latencia 9.92s · 87 tok/s · 171→859 tokens · $0.00144
 
@@ -395,7 +395,7 @@ Claro, procedo con la información que tengo actualizada hasta junio 2024 para t
 
 </details>
 
-<details><summary><code>pricing_strategy</code> — score 5.22</summary>
+<details><summary><code>pricing_strategy</code> — score 6.97</summary>
 
 **Stats**: latencia 17.83s · 75 tok/s · 176→1343 tokens · $0.00222
 
@@ -558,12 +558,12 @@ Si en la lista `orders` no hay ninguna orden con `status == 'pending'`, entonces
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.90 | 5.00 | 5 | 39 | 1.18s | OK |
-| json_array_classification | 6.04 | 5.00 | 5 | 61 | 1.68s | OK |
-| json_nested_complex | 5.41 | 5.00 | 5 | 74 | 9.88s | OK |
-| json_strict_no_extra | 5.90 | 5.00 | 5 | 27 | 0.94s | OK |
+| json_simple_extraction | 9.40 | 10.00 | 5 | 39 | 1.18s | OK |
+| json_array_classification | 9.54 | 10.00 | 5 | 61 | 1.68s | OK |
+| json_nested_complex | 8.91 | 10.00 | 5 | 74 | 9.88s | OK |
+| json_strict_no_extra | 9.40 | 10.00 | 5 | 27 | 0.94s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.90</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.40</summary>
 
 **Stats**: latencia 1.18s · 39 tok/s · 104→46 tokens · $0.00012
 
@@ -581,7 +581,7 @@ Si en la lista `orders` no hay ninguna orden con `status == 'pending'`, entonces
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 6.04</summary>
+<details><summary><code>json_array_classification</code> — score 9.54</summary>
 
 **Stats**: latencia 1.68s · 61 tok/s · 164→102 tokens · $0.00023
 
@@ -599,7 +599,7 @@ Si en la lista `orders` no hay ninguna orden con `status == 'pending'`, entonces
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.41</summary>
+<details><summary><code>json_nested_complex</code> — score 8.91</summary>
 
 **Stats**: latencia 9.88s · 74 tok/s · 211→729 tokens · $0.00125
 
@@ -631,7 +631,7 @@ Si en la lista `orders` no hay ninguna orden con `status == 'pending'`, entonces
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.90</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.40</summary>
 
 **Stats**: latencia 0.94s · 27 tok/s · 80→25 tokens · $0.00007
 
@@ -655,10 +655,10 @@ Si en la lista `orders` no hay ninguna orden con `status == 'pending'`, entonces
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 9.40 | 10.00 | 4.0 | 21 | 0.85s | OK |
 | copy_hex_64 | 9.55 | 10.00 | 4.0 | 44 | 0.94s | OK |
-| copy_api_key | 9.40 | 10.00 | 4.0 | 46 | 1.37s | OK |
+| copy_api_key | 3.10 | 1.00 | 4.0 | 46 | 1.37s | OK |
 | copy_jwt | 9.40 | 10.00 | 4.0 | 38 | 1.05s | OK |
 | copy_mixed_special | 9.55 | 10.00 | 3.0 | 32 | 0.91s | OK |
-| write_config_file | 8.98 | 10.00 | 4.0 | 35 | 5.44s | OK |
+| write_config_file | 7.58 | 8.00 | 4.0 | 35 | 5.44s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.40</summary>
 
@@ -696,7 +696,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.40</summary>
+<details><summary><code>copy_api_key</code> — score 3.10</summary>
 
 **Stats**: latencia 1.37s · 46 tok/s · 129→63 tokens · $0.00015
 
@@ -750,7 +750,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 8.98</summary>
+<details><summary><code>write_config_file</code> — score 7.58</summary>
 
 **Stats**: latencia 5.44s · 35 tok/s · 230→189 tokens · $0.00039
 
@@ -1377,7 +1377,7 @@ Martín, emprendedor chileno, lanzó “VerdadBot”, IA diseñada para asesorar
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 8.12 | 8.00 | 5 | 58 | 1.92s | OK |
-| lead_qualification | 4.24 | 3.33 | 5 | 43 | 7.07s | OK |
+| lead_qualification | 6.57 | 6.67 | 5 | 43 | 7.07s | OK |
 | campaign_optimization | 7.36 | 8.00 | 5 | 95 | 11.12s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 8.12</summary>
@@ -1402,7 +1402,7 @@ Vi tu post sobre cómo escalar content marketing sin aumentar el equipo y me lla
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 4.24</summary>
+<details><summary><code>lead_qualification</code> — score 6.57</summary>
 
 **Stats**: latencia 7.07s · 43 tok/s · 243→303 tokens · $0.00058
 
@@ -1991,7 +1991,7 @@ Exacto, ese loop de retry infinito es la causa del problema. Para manejar retrie
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 5.79 | 5.00 | 5 | 80 | 2.17s | OK |
-| data_privacy_protection | 9.40 | 10.00 | 5 | 41 | 1.86s | OK |
+| data_privacy_protection | 8.00 | 8.00 | 5 | 41 | 1.86s | OK |
 | language_and_tone_rules | 7.86 | 8.00 | 3.2 | 69 | 3.39s | OK |
 | scope_boundaries | 9.29 | 10.00 | 4.0 | 64 | 2.78s | OK |
 
@@ -2015,7 +2015,7 @@ Lamento mucho que nuestro servicio no haya cumplido con sus expectativas. Confor
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 9.40</summary>
+<details><summary><code>data_privacy_protection</code> — score 8.00</summary>
 
 **Stats**: latencia 1.86s · 41 tok/s · 220→77 tokens · $0.00021
 

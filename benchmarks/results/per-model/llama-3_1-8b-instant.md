@@ -1,13 +1,13 @@
 # Llama 3.1 8B Instant (Groq)
 
 - **model_id**: `llama-3.1-8b-instant`
-- **Total tests**: 132/226 exitosos (94 errores)
-- **Score final**: 7.33
-- **Calidad**: 6.95
+- **Total tests**: 87/181 exitosos (94 errores)
+- **Score final**: 7.93
+- **Calidad**: 7.38
 - **Judge score (Phi-4)**: 3.90/10
-- **Velocidad**: 252 tok/s
-- **Latencia primera token**: 2.65s
-- **Costo promedio por test**: $0.00056
+- **Velocidad**: 367 tok/s
+- **Latencia primera token**: 1.27s
+- **Costo promedio por test**: $0.00006
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -23,13 +23,12 @@
 | customer_support | 4 | 3 | 8.39 | 7.92 |
 | deep_reasoning | 6 | 6 | 6.37 | 5.28 |
 | hallucination | 3 | 3 | 7.75 | 7.00 |
-| multi_turn | 4 | 4 | 7.94 | 7.38 |
-| news_seo_writing | 4 | 4 | 5.66 | 4.34 |
+| multi_turn | 4 | 4 | 8.29 | 7.88 |
+| news_seo_writing | 4 | 4 | 7.38 | 6.79 |
 | niah_es | 51 | 0 | - | - |
-| niah_es_lite | 45 | 45 | 6.58 | 6.68 |
-| ocr_extraction | 5 | 5 | 8.08 | 7.55 |
-| orchestration | 5 | 4 | 6.86 | 5.89 |
-| policy_adherence | 4 | 4 | 8.22 | 7.67 |
+| ocr_extraction | 5 | 5 | 8.43 | 8.05 |
+| orchestration | 5 | 4 | 6.23 | 5.00 |
+| policy_adherence | 4 | 4 | 7.58 | 6.75 |
 | presentation | 2 | 2 | 8.48 | 8.48 |
 | prompt_injection_es | 20 | 0 | - | - |
 | reasoning | 3 | 3 | 8.13 | 7.83 |
@@ -37,7 +36,7 @@
 | startup_content | 5 | 5 | 8.50 | 8.41 |
 | strategy | 3 | 3 | 6.15 | 5.00 |
 | string_precision | 6 | 6 | 7.52 | 6.67 |
-| structured_output | 4 | 4 | 6.35 | 5.00 |
+| structured_output | 4 | 4 | 9.62 | 9.67 |
 | summarization | 2 | 2 | 8.09 | 7.48 |
 | task_management | 3 | 3 | 8.59 | 8.41 |
 | tool_calling | 4 | 3 | 8.12 | 7.38 |
@@ -507,12 +506,12 @@ WITH
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 6.50 | 5.00 | 5 | 182 | 0.30s | OK |
-| json_array_classification | 6.50 | 5.00 | 5 | 269 | 0.40s | OK |
-| json_nested_complex | 6.05 | 5.00 | 4.8 | 357 | 2.03s | OK |
-| json_strict_no_extra | 6.35 | 5.00 | 4.0 | 86 | 0.29s | OK |
+| json_simple_extraction | 10.00 | 10.00 | 5 | 182 | 0.30s | OK |
+| json_array_classification | 9.07 | 8.67 | 5 | 269 | 0.40s | OK |
+| json_nested_complex | 9.55 | 10.00 | 4.8 | 357 | 2.03s | OK |
+| json_strict_no_extra | 9.85 | 10.00 | 4.0 | 86 | 0.29s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 6.50</summary>
+<details><summary><code>json_simple_extraction</code> — score 10.00</summary>
 
 **Stats**: latencia 0.30s · 182 tok/s · 131→55 tokens · $0.00001
 
@@ -537,7 +536,7 @@ WITH
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 6.50</summary>
+<details><summary><code>json_array_classification</code> — score 9.07</summary>
 
 **Stats**: latencia 0.40s · 269 tok/s · 204→107 tokens · $0.00002
 
@@ -559,7 +558,7 @@ WITH
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 6.05</summary>
+<details><summary><code>json_nested_complex</code> — score 9.55</summary>
 
 **Stats**: latencia 2.03s · 357 tok/s · 238→723 tokens · $0.00007
 
@@ -583,7 +582,7 @@ WITH
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 6.35</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.85</summary>
 
 **Stats**: latencia 0.29s · 86 tok/s · 106→25 tokens · $0.00001
 
@@ -720,7 +719,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 |------|-------|---------|-------|-------|----------|--------|
 | invoice_extraction | 9.85 | 10.00 | 2.6 | 511 | 0.55s | OK |
 | business_card_extraction | 10.00 | 10.00 | 4.2 | 328 | 0.47s | OK |
-| receipt_math_verification | 5.33 | 3.75 | 4.0 | 449 | 1.03s | OK |
+| receipt_math_verification | 7.08 | 6.25 | 4.0 | 449 | 1.03s | OK |
 | screenshot_table_extraction | 5.50 | 4.00 | 3.2 | 641 | 1.22s | OK |
 | handwritten_notes_extraction | 9.70 | 10.00 | 4.4 | 387 | 1.95s | OK |
 
@@ -768,7 +767,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 </details>
 
-<details><summary><code>receipt_math_verification</code> — score 5.33</summary>
+<details><summary><code>receipt_math_verification</code> — score 7.08</summary>
 
 **Stats**: latencia 1.03s · 449 tok/s · 347→462 tokens · $0.00005
 
@@ -1057,12 +1056,12 @@ En este número de nuestro newsletter, te presentamos las últimas noticias sobr
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| news_json_output_strict | 6.20 | 5.00 | 2.6 | 445 | 1.28s | OK |
-| news_spanish_only | 6.05 | 5.00 | 3.8 | 237 | 3.25s | OK |
+| news_json_output_strict | 9.70 | 10.00 | 2.6 | 445 | 1.28s | OK |
+| news_spanish_only | 9.42 | 9.82 | 3.8 | 237 | 3.25s | OK |
 | news_no_hallucination_sources | 2.70 | 0.00 | 2.6 | 474 | 1.59s | OK |
 | news_perplexity_enrichment | 7.70 | 7.36 | 3.4 | 545 | 2.08s | OK |
 
-<details><summary><code>news_json_output_strict</code> — score 6.20</summary>
+<details><summary><code>news_json_output_strict</code> — score 9.70</summary>
 
 **Stats**: latencia 1.28s · 445 tok/s · 338→570 tokens · $0.00006
 
@@ -1082,7 +1081,7 @@ En este número de nuestro newsletter, te presentamos las últimas noticias sobr
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 6.05</summary>
+<details><summary><code>news_spanish_only</code> — score 9.42</summary>
 
 **Stats**: latencia 3.25s · 237 tok/s · 346→771 tokens · $0.00008
 
@@ -1555,8 +1554,8 @@ No puedo ayudarte a obtener la información de pago del cliente ni a cambiar su 
 | multi_step_research_plan | 8.11 | 7.52 | 3.8 | 483 | 0.93s | OK |
 | error_recovery_orchestration | 4.85 | 0.00 | - | 0 | 0.46s | ERROR |
 | complex_workflow_decomposition | 6.68 | 5.68 | 3.2 | 507 | 1.13s | OK |
-| tool_selection_precision | 8.10 | 7.50 | 4.2 | 377 | 0.68s | OK |
-| parallel_vs_sequential_judgment | 4.55 | 2.86 | 4.2 | 200 | 2.36s | OK |
+| tool_selection_precision | 4.60 | 2.50 | 4.2 | 377 | 0.68s | OK |
+| parallel_vs_sequential_judgment | 5.55 | 4.29 | 4.2 | 200 | 2.36s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 8.11</summary>
 
@@ -1602,7 +1601,7 @@ No puedo ayudarte a obtener la información de pago del cliente ni a cambiar su 
 
 </details>
 
-<details><summary><code>tool_selection_precision</code> — score 8.10</summary>
+<details><summary><code>tool_selection_precision</code> — score 4.60</summary>
 
 **Stats**: latencia 0.68s · 377 tok/s · 1005→255 tokens · $0.00007
 
@@ -1621,7 +1620,7 @@ Tarea 2: Usaría la función query_database para obtener el conte
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 4.55</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 5.55</summary>
 
 **Stats**: latencia 2.36s · 200 tok/s · 1081→472 tokens · $0.00009
 
@@ -1647,7 +1646,7 @@ La tarea D (Crear la landing page) dep
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 8.45 | 8.00 | 4.4 | 309 | 0.78s | OK |
-| support_escalation | 8.45 | 8.00 | 3.8 | 268 | 0.90s | OK |
+| support_escalation | 9.85 | 10.00 | 3.8 | 268 | 0.90s | OK |
 | requirements_change | 6.90 | 6.00 | 3.0 | 425 | 1.50s | OK |
 | debugging_conversation | 7.95 | 7.50 | 4.4 | 454 | 1.22s | OK |
 
@@ -1671,7 +1670,7 @@ Recuerdas ese momento en el que tu equipo de atención al cliente estaba complet
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 8.45</summary>
+<details><summary><code>support_escalation</code> — score 9.85</summary>
 
 **Stats**: latencia 0.90s · 268 tok/s · 409→241 tokens · $0.00004
 
@@ -1735,12 +1734,12 @@ Implementa un mecanismo de retry con expiración exponencial, es decir, cada int
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 7.52 | 6.67 | 4.0 | 275 | 0.87s | OK |
-| data_privacy_protection | 10.00 | 10.00 | 4.4 | 153 | 0.43s | OK |
-| language_and_tone_rules | 7.05 | 6.00 | 3.2 | 430 | 0.67s | OK |
+| refund_policy_enforcement | 6.35 | 5.00 | 4.0 | 275 | 0.87s | OK |
+| data_privacy_protection | 7.20 | 6.00 | 4.4 | 153 | 0.43s | OK |
+| language_and_tone_rules | 8.45 | 8.00 | 3.2 | 430 | 0.67s | OK |
 | scope_boundaries | 8.30 | 8.00 | 4.2 | 337 | 1.07s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 7.52</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 6.35</summary>
 
 **Stats**: latencia 0.87s · 275 tok/s · 301→240 tokens · $0.00003
 
@@ -1758,7 +1757,7 @@ Si desea, puedo ofrecerle un crédito de servicio de ac
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 10.00</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.20</summary>
 
 **Stats**: latencia 0.43s · 153 tok/s · 262→66 tokens · $0.00002
 
@@ -1776,7 +1775,7 @@ Si necesitas ayuda para contactar con el equipo de seguridad de FinanceApp, pued
 
 </details>
 
-<details><summary><code>language_and_tone_rules</code> — score 7.05</summary>
+<details><summary><code>language_and_tone_rules</code> — score 8.45</summary>
 
 **Stats**: latencia 0.67s · 430 tok/s · 239→289 tokens · $0.00003
 
@@ -2047,8 +2046,6 @@ Aquí están los perfiles de candidatos en formato JSON:
 </details>
 
 ### Otras suites
-
-#### niah_es_lite
 
 #### prompt_injection_es
 

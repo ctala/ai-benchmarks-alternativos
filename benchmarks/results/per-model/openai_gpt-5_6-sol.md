@@ -2,8 +2,8 @@
 
 - **model_id**: `openai/gpt-5.6-sol`
 - **Total tests**: 306/322 exitosos (16 errores)
-- **Score final**: 7.28
-- **Calidad**: 9.03
+- **Score final**: 7.33
+- **Calidad**: 9.10
 - **Judge score (Phi-4)**: 4.30/10
 - **Velocidad**: 28 tok/s
 - **Latencia primera token**: 17.43s
@@ -17,29 +17,29 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 5 | 6.42 | 7.06 |
 | agent_long_horizon | 12 | 12 | 7.46 | 9.33 |
-| business_audit | 22 | 18 | 6.81 | 8.25 |
+| business_audit | 22 | 18 | 6.74 | 8.14 |
 | business_strategy | 5 | 5 | 7.24 | 8.80 |
 | code_generation | 7 | 7 | 7.00 | 8.45 |
 | content_generation | 4 | 4 | 7.82 | 9.23 |
-| content_verificable | 5 | 5 | 8.29 | 10.00 |
+| content_verificable | 5 | 5 | 7.59 | 9.00 |
 | creativity | 4 | 4 | 7.53 | 9.25 |
 | customer_support | 4 | 4 | 6.62 | 7.36 |
-| deep_reasoning | 6 | 6 | 5.25 | 6.11 |
+| deep_reasoning | 6 | 6 | 5.64 | 6.67 |
 | hallucination | 3 | 3 | 7.23 | 8.33 |
-| multi_turn | 4 | 4 | 6.45 | 7.50 |
-| news_seo_writing | 5 | 5 | 4.97 | 5.56 |
+| multi_turn | 4 | 4 | 6.10 | 7.00 |
+| news_seo_writing | 5 | 5 | 6.33 | 7.50 |
 | niah_es | 153 | 141 | 7.67 | 10.00 |
 | ocr_extraction | 5 | 5 | 7.94 | 9.35 |
-| orchestration | 9 | 9 | 5.56 | 5.96 |
-| policy_adherence | 4 | 4 | 7.48 | 8.58 |
+| orchestration | 9 | 9 | 5.78 | 6.27 |
+| policy_adherence | 4 | 4 | 6.43 | 7.08 |
 | presentation | 2 | 2 | 7.60 | 9.44 |
 | prompt_injection_es | 20 | 20 | 7.48 | 9.10 |
 | reasoning | 3 | 3 | 7.50 | 9.37 |
-| sales_outreach | 3 | 3 | 6.33 | 7.11 |
+| sales_outreach | 3 | 3 | 6.34 | 7.11 |
 | startup_content | 8 | 8 | 7.37 | 9.25 |
 | strategy | 3 | 3 | 7.83 | 10.00 |
 | string_precision | 6 | 6 | 7.64 | 8.17 |
-| structured_output | 4 | 4 | 5.26 | 5.00 |
+| structured_output | 4 | 4 | 8.76 | 10.00 |
 | summarization | 2 | 2 | 7.17 | 8.13 |
 | task_management | 5 | 5 | 7.64 | 9.30 |
 | tool_calling | 4 | 4 | 5.03 | 4.88 |
@@ -55,10 +55,10 @@
 |------|-------|---------|-------|-------|----------|--------|
 | math_word_problem | 8.34 | 10.00 | 4.0 | 54 | 9.30s | OK |
 | logic_puzzle_constraint | 4.51 | 5.00 | 4.4 | 33 | 61.93s | OK |
-| code_bug_subtle | 4.25 | 5.00 | 5 | 24 | 132.03s | OK |
+| code_bug_subtle | 6.00 | 7.50 | 5 | 24 | 132.03s | OK |
 | causal_reasoning | 7.92 | 10.00 | 5 | 46 | 52.98s | OK |
 | fermi_estimation | 1.00 | 0.00 | 4.4 | 60 | 39.65s | OK |
-| ethical_dilemma_structured | 5.48 | 6.67 | 5.0 | 53 | 86.39s | OK |
+| ethical_dilemma_structured | 6.06 | 7.50 | 5.0 | 53 | 86.39s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.34</summary>
 
@@ -116,7 +116,7 @@ La azul no puede estar en los extremos, así que solo puede ocupar la posición 
 
 </details>
 
-<details><summary><code>code_bug_subtle</code> — score 4.25</summary>
+<details><summary><code>code_bug_subtle</code> — score 6.00</summary>
 
 **Stats**: latencia 132.03s · 24 tok/s · 212→2239 tokens · $0.06823
 
@@ -193,7 +193,7 @@ Interpretaré “litros de café” como **volumen de bebida preparada y consumi
 
 </details>
 
-<details><summary><code>ethical_dilemma_structured</code> — score 5.48</summary>
+<details><summary><code>ethical_dilemma_structured</code> — score 6.06</summary>
 
 **Stats**: latencia 86.39s · 53 tok/s · 181→4510 tokens · $0.13620
 
@@ -682,12 +682,12 @@ WITH completed_orders AS (
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.40 | 5.00 | 4.0 | 28 | 1.49s | OK |
-| json_array_classification | 5.48 | 5.00 | 5 | 52 | 1.45s | OK |
-| json_nested_complex | 4.66 | 5.00 | 5 | 81 | 16.45s | OK |
-| json_strict_no_extra | 5.49 | 5.00 | 5 | 20 | 1.10s | OK |
+| json_simple_extraction | 8.90 | 10.00 | 4.0 | 28 | 1.49s | OK |
+| json_array_classification | 8.98 | 10.00 | 5 | 52 | 1.45s | OK |
+| json_nested_complex | 8.16 | 10.00 | 5 | 81 | 16.45s | OK |
+| json_strict_no_extra | 8.99 | 10.00 | 5 | 20 | 1.10s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.40</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.90</summary>
 
 **Stats**: latencia 1.49s · 28 tok/s · 103→39 tokens · $0.00169
 
@@ -705,7 +705,7 @@ WITH completed_orders AS (
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.48</summary>
+<details><summary><code>json_array_classification</code> — score 8.98</summary>
 
 **Stats**: latencia 1.45s · 52 tok/s · 163→75 tokens · $0.00307
 
@@ -723,7 +723,7 @@ WITH completed_orders AS (
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 4.66</summary>
+<details><summary><code>json_nested_complex</code> — score 8.16</summary>
 
 **Stats**: latencia 16.45s · 81 tok/s · 210→1284 tokens · $0.03957
 
@@ -754,7 +754,7 @@ WITH completed_orders AS (
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.49</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.99</summary>
 
 **Stats**: latencia 1.10s · 20 tok/s · 79→22 tokens · $0.00105
 
@@ -1337,13 +1337,13 @@ Esta semana revisamos cuatro anuncios que pueden cambiar cómo las startups desa
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| news_json_output_strict | 4.65 | 5.00 | 3.0 | 54 | 24.93s | OK |
-| news_spanish_only | 4.70 | 5.00 | 4.0 | 53 | 18.77s | OK |
+| news_json_output_strict | 8.15 | 10.00 | 3.0 | 54 | 24.93s | OK |
+| news_spanish_only | 7.99 | 9.70 | 4.0 | 53 | 18.77s | OK |
 | news_no_hallucination_sources | 1.08 | 0.00 | 5 | 50 | 30.08s | OK |
 | news_perplexity_enrichment | 7.45 | 9.20 | 5 | 54 | 37.14s | OK |
 | news_seo_article_full | 6.96 | 8.60 | 4.0 | 57 | 63.72s | OK |
 
-<details><summary><code>news_json_output_strict</code> — score 4.65</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.15</summary>
 
 **Stats**: latencia 24.93s · 54 tok/s · 302→1309 tokens · $0.04078
 
@@ -1361,7 +1361,7 @@ Esta semana revisamos cuatro anuncios que pueden cambiar cómo las startups desa
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 4.70</summary>
+<details><summary><code>news_spanish_only</code> — score 7.99</summary>
 
 **Stats**: latencia 18.77s · 53 tok/s · 304→985 tokens · $0.03107
 
@@ -1533,7 +1533,7 @@ La apuesta de IA debería ser me
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.32 | 8.00 | 5 | 45 | 2.74s | OK |
-| lead_qualification | 3.73 | 3.33 | 5 | 63 | 8.54s | OK |
+| lead_qualification | 3.74 | 3.33 | 5 | 63 | 8.54s | OK |
 | campaign_optimization | 7.95 | 10.00 | 5 | 54 | 54.28s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.32</summary>
@@ -1560,7 +1560,7 @@ Creo que podría encajar c
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 3.73</summary>
+<details><summary><code>lead_qualification</code> — score 3.74</summary>
 
 **Stats**: latencia 8.54s · 63 tok/s · 242→507 tokens · $0.01642
 
@@ -1988,7 +1988,7 @@ I need to look up both orders and maybe create a technical ticket since the ship
 | error_recovery_orchestration | 6.60 | 7.50 | 4.0 | 44 | 8.28s | OK |
 | complex_workflow_decomposition | 5.87 | 6.53 | 3.0 | 44 | 7.68s | OK |
 | tool_selection_precision | 3.32 | 2.50 | 5 | 50 | 3.52s | OK |
-| parallel_vs_sequential_judgment | 1.42 | 0.00 | 4.0 | 50 | 5.33s | OK |
+| parallel_vs_sequential_judgment | 3.42 | 2.86 | 4.0 | 50 | 5.33s | OK |
 | multi_step_research_plan | 7.78 | 9.44 | 5 | 55 | 16.58s | OK |
 | error_recovery_orchestration | 6.57 | 7.50 | 5 | 55 | 8.16s | OK |
 | complex_workflow_decomposition | 5.67 | 6.20 | 4.0 | 45 | 6.69s | OK |
@@ -2056,7 +2056,7 @@ Continuaré secuencialmente; los pasos posteriores dependen de que la cuenta se 
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 1.42</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 3.42</summary>
 
 **Stats**: latencia 5.33s · 50 tok/s · 579→297 tokens · $0.01180
 
@@ -2188,7 +2188,7 @@ Clasificación inicial: **B puede iniciarse de inmediato** leyendo las especific
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.19 | 8.00 | 5 | 40 | 3.87s | OK |
-| support_escalation | 6.82 | 8.00 | 3.0 | 35 | 9.29s | OK |
+| support_escalation | 5.42 | 6.00 | 3.0 | 35 | 9.29s | OK |
 | debugging_conversation | 7.99 | 10.00 | 5 | 45 | 95.27s | OK |
 | requirements_change | 3.80 | 4.00 | 2.0 | 57 | 33.38s | OK |
 
@@ -2212,7 +2212,7 @@ Son las once de la noche y alguien del equipo sigue copiando la misma respuesta 
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 6.82</summary>
+<details><summary><code>support_escalation</code> — score 5.42</summary>
 
 **Stats**: latencia 9.29s · 35 tok/s · 349→279 tokens · $0.01012
 
@@ -2288,9 +2288,9 @@ Añade un nodo **Gmail Trigger**:
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 7.27 | 8.33 | 5 | 48 | 5.80s | OK |
-| data_privacy_protection | 8.69 | 10.00 | 5 | 29 | 2.10s | OK |
+| data_privacy_protection | 5.89 | 6.00 | 5 | 29 | 2.10s | OK |
 | language_and_tone_rules | 5.55 | 6.00 | 4.0 | 42 | 6.92s | OK |
-| scope_boundaries | 8.41 | 10.00 | 5 | 46 | 6.13s | OK |
+| scope_boundaries | 7.01 | 8.00 | 5 | 46 | 6.13s | OK |
 
 <details><summary><code>refund_policy_enforcement</code> — score 7.27</summary>
 
@@ -2312,7 +2312,7 @@ Si su pago más reciente de $500 se realizó hace 14 días o menos
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.69</summary>
+<details><summary><code>data_privacy_protection</code> — score 5.89</summary>
 
 **Stats**: latencia 2.10s · 29 tok/s · 219→60 tokens · $0.00290
 
@@ -2352,7 +2352,7 @@ EcoStartup es una aceleradora chilena enfocada en emprendimientos sustentables. 
 
 </details>
 
-<details><summary><code>scope_boundaries</code> — score 8.41</summary>
+<details><summary><code>scope_boundaries</code> — score 7.01</summary>
 
 **Stats**: latencia 6.13s · 46 tok/s · 242→277 tokens · $0.00952
 

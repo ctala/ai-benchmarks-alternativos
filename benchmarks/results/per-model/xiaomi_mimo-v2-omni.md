@@ -2,8 +2,8 @@
 
 - **model_id**: `xiaomi/mimo-v2-omni`
 - **Total tests**: 84/94 exitosos (10 errores)
-- **Score final**: 7.14
-- **Calidad**: 7.57
+- **Score final**: 7.26
+- **Calidad**: 7.75
 - **Judge score (Phi-4)**: 4.00/10
 - **Velocidad**: 83 tok/s
 - **Latencia primera token**: 12.06s
@@ -23,18 +23,18 @@
 | customer_support | 3 | 3 | 5.44 | 4.98 |
 | deep_reasoning | 4 | 4 | 8.12 | 9.17 |
 | hallucination | 3 | 3 | 6.29 | 6.33 |
-| multi_turn | 4 | 4 | 7.10 | 7.50 |
-| news_seo_writing | 4 | 4 | 5.46 | 5.42 |
-| ocr_extraction | 4 | 4 | 8.89 | 10.00 |
+| multi_turn | 4 | 4 | 6.75 | 7.00 |
+| news_seo_writing | 4 | 4 | 6.31 | 6.62 |
+| ocr_extraction | 4 | 4 | 8.67 | 9.69 |
 | orchestration | 5 | 5 | 4.78 | 4.05 |
-| policy_adherence | 4 | 4 | 8.27 | 9.08 |
+| policy_adherence | 4 | 4 | 7.92 | 8.58 |
 | presentation | 2 | 2 | 7.93 | 8.92 |
 | reasoning | 3 | 3 | 7.97 | 8.96 |
 | sales_outreach | 3 | 3 | 6.16 | 6.44 |
 | startup_content | 5 | 5 | 8.08 | 9.19 |
 | strategy | 3 | 3 | 8.64 | 10.00 |
 | string_precision | 6 | 6 | 7.89 | 8.17 |
-| structured_output | 3 | 3 | 5.49 | 5.00 |
+| structured_output | 3 | 3 | 8.99 | 10.00 |
 | summarization | 2 | 2 | 6.72 | 6.92 |
 | task_management | 3 | 3 | 8.35 | 9.21 |
 | tool_calling | 4 | 4 | 6.36 | 6.12 |
@@ -474,11 +474,11 @@ Cuando no hay órdenes con estado 'pending', `processed` queda vacío, y `len(pr
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.41 | 5.00 | 4.0 | 92 | 6.36s | OK |
-| json_array_classification | 5.37 | 5.00 | 5 | 100 | 10.53s | OK |
-| json_strict_no_extra | 5.69 | 5.00 | 4.0 | 72 | 4.19s | OK |
+| json_simple_extraction | 8.91 | 10.00 | 4.0 | 92 | 6.36s | OK |
+| json_array_classification | 8.87 | 10.00 | 5 | 100 | 10.53s | OK |
+| json_strict_no_extra | 9.19 | 10.00 | 4.0 | 72 | 4.19s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.41</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.91</summary>
 
 **Stats**: latencia 6.36s · 92 tok/s · 114→588 tokens · $0.00122
 
@@ -496,7 +496,7 @@ Cuando no hay órdenes con estado 'pending', `processed` queda vacío, y `len(pr
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.37</summary>
+<details><summary><code>json_array_classification</code> — score 8.87</summary>
 
 **Stats**: latencia 10.53s · 100 tok/s · 183→1055 tokens · $0.00218
 
@@ -518,7 +518,7 @@ Cuando no hay órdenes con estado 'pending', `processed` queda vacío, y `len(pr
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.69</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.19</summary>
 
 **Stats**: latencia 4.19s · 72 tok/s · 83→304 tokens · $0.00064
 
@@ -659,7 +659,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 |------|-------|---------|-------|-------|----------|--------|
 | invoice_extraction | 8.74 | 10.00 | 2.6 | 122 | 16.71s | OK |
 | business_card_extraction | 9.25 | 10.00 | 4.2 | 64 | 2.93s | OK |
-| receipt_math_verification | 8.75 | 10.00 | 4.2 | 117 | 16.61s | OK |
+| receipt_math_verification | 7.87 | 8.75 | 4.2 | 117 | 16.61s | OK |
 | screenshot_table_extraction | 8.81 | 10.00 | 3.8 | 103 | 13.58s | OK |
 
 <details><summary><code>invoice_extraction</code> — score 8.74</summary>
@@ -713,7 +713,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 </details>
 
-<details><summary><code>receipt_math_verification</code> — score 8.75</summary>
+<details><summary><code>receipt_math_verification</code> — score 7.87</summary>
 
 **Stats**: latencia 16.61s · 117 tok/s · 596→1945 tokens · $0.00413
 
@@ -999,7 +999,7 @@ Esta semana la inteligencia artificial siguió acelerando a pasos agigantados �
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 7.21 | 8.01 | 3.8 | 99 | 19.45s | OK |
-| news_spanish_only | 5.18 | 5.00 | 4.4 | 96 | 13.85s | OK |
+| news_spanish_only | 8.56 | 9.84 | 4.4 | 96 | 13.85s | OK |
 | news_no_hallucination_sources | 1.67 | 0.00 | 3.8 | 86 | 15.79s | OK |
 | news_perplexity_enrichment | 7.79 | 8.65 | 4.4 | 104 | 19.59s | OK |
 
@@ -1025,7 +1025,7 @@ Esta semana la inteligencia artificial siguió acelerando a pasos agigantados �
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.18</summary>
+<details><summary><code>news_spanish_only</code> — score 8.56</summary>
 
 **Stats**: latencia 13.85s · 96 tok/s · 328→1323 tokens · $0.00278
 
@@ -1615,7 +1615,7 @@ Entiendo la urgencia. Voy a buscar alternativas para obtener los datos. Primero,
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 7.58 | 8.00 | 4.4 | 53 | 7.06s | OK |
-| support_escalation | 7.49 | 8.00 | 4.4 | 79 | 7.56s | OK |
+| support_escalation | 6.09 | 6.00 | 4.4 | 79 | 7.56s | OK |
 | requirements_change | 4.53 | 4.00 | 2.4 | 90 | 10.91s | OK |
 | debugging_conversation | 8.81 | 10.00 | 3.8 | 114 | 12.76s | OK |
 
@@ -1638,7 +1638,7 @@ Lo sabes porque lo vives: estás creciendo, cada vez hay más usuarios, y el can
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 7.49</summary>
+<details><summary><code>support_escalation</code> — score 6.09</summary>
 
 **Stats**: latencia 7.56s · 79 tok/s · 390→597 tokens · $0.00135
 
@@ -1709,12 +1709,12 @@ import httpx
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 7.66 | 8.33 | 4.0 | 95 | 8.98s | OK |
-| data_privacy_protection | 8.95 | 10.00 | 4.6 | 66 | 6.81s | OK |
+| refund_policy_enforcement | 7.67 | 8.33 | 4.0 | 95 | 8.98s | OK |
+| data_privacy_protection | 7.55 | 8.00 | 4.6 | 66 | 6.81s | OK |
 | language_and_tone_rules | 7.55 | 8.00 | 3.8 | 70 | 6.58s | OK |
 | scope_boundaries | 8.91 | 10.00 | 4.2 | 82 | 6.76s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 7.66</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 7.67</summary>
 
 **Stats**: latencia 8.98s · 95 tok/s · 286→857 tokens · $0.00183
 
@@ -1734,7 +1734,7 @@ Sin embargo, debo informarle que, según nuestra política de reembolsos, solo p
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.95</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.55</summary>
 
 **Stats**: latencia 6.81s · 66 tok/s · 238→449 tokens · $0.00099
 
@@ -1804,8 +1804,8 @@ EcoStartup es una aceleradora enfocada en negocios que cuidan el planeta. Nos di
 | skill_execution_complex | 4.53 | 4.36 | 2.6 | 17 | 32.25s | OK |
 | agent_team_delegation | 7.85 | 8.68 | 4.2 | 98 | 9.61s | OK |
 | ask_clarification_before_acting | 7.89 | 8.28 | 4.2 | 79 | 3.42s | OK |
-| context_following_complex_system | 3.78 | 2.50 | 3.2 | 91 | 4.74s | OK |
-| model_as_router | 6.69 | 7.50 | 4.4 | 27 | 35.36s | OK |
+| context_following_complex_system | 5.53 | 5.00 | 3.2 | 91 | 4.74s | OK |
+| model_as_router | 4.94 | 5.00 | 4.4 | 27 | 35.36s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 4.53</summary>
 
@@ -1862,7 +1862,7 @@ Voy a coordinar a los 5 sub-agentes para crear tu landing page completa. Aquí e
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 3.78</summary>
+<details><summary><code>context_following_complex_system</code> — score 5.53</summary>
 
 **Stats**: latencia 4.74s · 91 tok/s · 1383→432 tokens · $0.00142
 
@@ -1882,7 +1882,7 @@ Voy a responder a tus tres solicitudes:
 
 </details>
 
-<details><summary><code>model_as_router</code> — score 6.69</summary>
+<details><summary><code>model_as_router</code> — score 4.94</summary>
 
 **Stats**: latencia 35.36s · 27 tok/s · 290→957 tokens · $0.00203
 

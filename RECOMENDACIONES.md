@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-08-12 · 68 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-08-13 · 82 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -19,35 +19,34 @@ Todos los costos asumen **3,000 llamadas/mes** (≈100 por día). Para tu volume
 
 _El modelo decide y llama herramientas. Necesitás fiabilidad en tool calling._
 
-- **Usá:** **Qwen 3.6 35B base (OpenRouter FP8)** — ≈$5/mes (calidad 8.10/10)
-- **Lo que te ahorrás:** Qwen 3.6 Max cuesta ≈$29/mes (**6.2× más**) por apenas -0.07 de calidad — dentro del margen de error.
-- _4 modelos empatan en calidad en este pilar._
+- **Usá:** **Qwen 3.7 Flash** — ≈$1/mes (calidad 8.17/10)
+- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**383.6× más**) por apenas -0.14 de calidad — dentro del margen de error.
+- **Mejor open-source:** **Ministral 14B** — ≈$1/mes (calidad 7.93/10)
+- _9 modelos empatan en calidad en este pilar._
 
 ### Contenido y marketing (blog, SEO, copy)
 
 _Texto largo en español neutro. El costo manda: es alto volumen._
 
-- **Usá:** **GPT-OSS 120B** — ≈$1/mes (calidad 8.41/10)
-- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**278.6× más**) por apenas +0.06 de calidad — dentro del margen de error.
-- _8 modelos empatan en calidad en este pilar._
+- **Usá:** **Llama 3.3 70B** — ≈$2/mes (calidad 8.73/10)
+- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**152.9× más**) por apenas +0.09 de calidad — dentro del margen de error.
+- _5 modelos empatan en calidad en este pilar._
 
 ### Código y debugging
 
 _Generación y corrección de código._
 
-- **Usá:** **MiMo-V2.5 (omnimodal)** — ≈$1/mes (calidad 8.54/10)
-- **Lo que te ahorrás:** Claude Opus 4.7 cuesta ≈$117/mes (**84.2× más**) por apenas +0.24 de calidad — dentro del margen de error.
-- **Mejor open-source:** **Nemotron 3 Super** — ≈$2/mes (calidad 8.62/10)
-- _16 modelos empatan en calidad en este pilar._
+- **Usá:** **Nex-N2-Mini** — ≈$0/mes (calidad 9.60/10)
+- **Lo que te ahorrás:** GPT-5.6 Terra Pro cuesta ≈$28/mes (**59.4× más**) por apenas +0.02 de calidad — dentro del margen de error.
+- _7 modelos empatan en calidad en este pilar._
 
 ### Razonamiento y estrategia
 
 _Análisis, decisiones, problemas con varios pasos._
 
-- **Usá:** **GPT-5.6 Luna** — ≈$3/mes (calidad 8.58/10)
-- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**83.9× más**) por apenas -0.29 de calidad — dentro del margen de error.
-- **Mejor open-source:** **GLM 5.2** — ≈$7/mes (calidad 8.44/10)
-- _12 modelos empatan en calidad en este pilar._
+- **Usá:** **Ling 3.0 Flash** — ≈$0/mes (calidad 8.33/10)
+- **Lo que te ahorrás:** Claude Opus 4.7 cuesta ≈$117/mes (**390.0× más**) por apenas +0.00 de calidad — dentro del margen de error.
+- _14 modelos empatan en calidad en este pilar._
 
 ---
 
@@ -57,19 +56,19 @@ Lo mejor que podés comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 | Presupuesto | Modelo | Calidad | Costo real |
 |---|---|---:|---:|
-| Menos de $10/mes | **GPT-5.6 Luna** | 8.41 | ≈$3/mes |
-| Hasta $30/mes | **GPT-5.6 Luna** | 8.41 | ≈$3/mes |
-| Hasta $100/mes | **GPT-5.6 Luna** | 8.41 | ≈$3/mes |
+| Menos de $10/mes | **Tencent Hy3** | 8.65 | ≈$2/mes |
+| Hasta $30/mes | **Tencent Hy3** | 8.65 | ≈$2/mes |
+| Hasta $100/mes | **Tencent Hy3** | 8.65 | ≈$2/mes |
 
 ---
 
 ## El resumen de todo el benchmark
 
-**25 modelos empatan en calidad** en la cima del ranking global.
+**22 modelos empatan en calidad** en la cima del ranking global.
 
-El más barato de ese grupo — **Ministral 14B** — sale **≈$1/mes**.
-El más caro — **GPT-5.6 Sol** — sale **≈$140/mes**.
+El más barato de ese grupo — **Qwen 3.7 Flash** — sale **≈$1/mes**.
+El más caro — **Claude Fable 5** — sale **≈$234/mes**.
 
-Eso es **129.2× más caro** por una diferencia de calidad de **+0.04 puntos**, que está dentro del margen de error.
+Eso es **383.6× más caro** por una diferencia de calidad de **-0.16 puntos**, que está dentro del margen de error.
 
 Si te llevás una sola cosa de este benchmark, que sea esta.

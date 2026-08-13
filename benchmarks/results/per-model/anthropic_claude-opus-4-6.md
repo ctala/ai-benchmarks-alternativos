@@ -2,8 +2,8 @@
 
 - **model_id**: `anthropic/claude-opus-4-6`
 - **Total tests**: 197/197 exitosos (0 errores)
-- **Score final**: 6.95
-- **Calidad**: 8.26
+- **Score final**: 7.05
+- **Calidad**: 8.41
 - **Judge score (Phi-4)**: 4.33/10
 - **Velocidad**: 46 tok/s
 - **Latencia primera token**: 21.21s
@@ -17,27 +17,27 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 8 | 8 | 6.62 | 7.65 |
 | agent_long_horizon | 24 | 24 | 7.20 | 9.10 |
-| business_audit | 20 | 20 | 6.34 | 7.50 |
+| business_audit | 20 | 20 | 6.62 | 7.90 |
 | business_strategy | 10 | 10 | 7.47 | 9.20 |
 | code_generation | 8 | 8 | 7.53 | 9.08 |
 | content_generation | 8 | 8 | 7.23 | 8.69 |
-| content_verificable | 10 | 10 | 7.98 | 9.67 |
+| content_verificable | 10 | 10 | 8.21 | 10.00 |
 | creativity | 4 | 4 | 7.48 | 9.00 |
 | customer_support | 7 | 7 | 7.14 | 8.33 |
-| deep_reasoning | 6 | 6 | 6.97 | 8.33 |
+| deep_reasoning | 6 | 6 | 6.68 | 7.92 |
 | hallucination | 3 | 3 | 7.34 | 8.33 |
 | multi_turn | 4 | 4 | 6.85 | 8.00 |
-| news_seo_writing | 7 | 7 | 5.31 | 6.16 |
+| news_seo_writing | 7 | 7 | 6.27 | 7.54 |
 | ocr_extraction | 5 | 5 | 7.73 | 9.10 |
-| orchestration | 7 | 7 | 6.30 | 7.20 |
-| policy_adherence | 4 | 4 | 7.60 | 9.08 |
+| orchestration | 7 | 7 | 6.46 | 7.44 |
+| policy_adherence | 4 | 4 | 6.96 | 8.17 |
 | presentation | 4 | 4 | 7.35 | 9.03 |
 | reasoning | 6 | 6 | 7.49 | 9.05 |
 | sales_outreach | 3 | 3 | 7.68 | 9.33 |
 | startup_content | 10 | 10 | 7.33 | 9.05 |
-| strategy | 3 | 3 | 7.42 | 9.17 |
-| string_precision | 6 | 6 | 7.55 | 8.50 |
-| structured_output | 4 | 4 | 5.06 | 5.00 |
+| strategy | 3 | 3 | 8.00 | 10.00 |
+| string_precision | 6 | 6 | 6.38 | 6.83 |
+| structured_output | 4 | 4 | 8.56 | 10.00 |
 | summarization | 4 | 4 | 6.92 | 7.98 |
 | task_management | 6 | 6 | 7.62 | 9.21 |
 | tool_calling | 12 | 12 | 5.31 | 5.47 |
@@ -54,7 +54,7 @@
 | math_word_problem | 8.27 | 10.00 | 4.4 | 60 | 14.54s | OK |
 | logic_puzzle_constraint | 4.72 | 5.00 | 4.2 | 59 | 18.69s | OK |
 | causal_reasoning | 8.12 | 10.00 | 5.0 | 51 | 37.01s | OK |
-| code_bug_subtle | 8.22 | 10.00 | 4.4 | 55 | 19.48s | OK |
+| code_bug_subtle | 6.47 | 7.50 | 4.4 | 55 | 19.48s | OK |
 | fermi_estimation | 4.55 | 5.00 | 4.4 | 50 | 25.26s | OK |
 | ethical_dilemma_structured | 7.95 | 10.00 | 4.8 | 45 | 45.17s | OK |
 
@@ -133,7 +133,7 @@ Colores: Roja (R), Azul (A), Verde (V), Blanca (B)
 
 </details>
 
-<details><summary><code>code_bug_subtle</code> — score 8.22</summary>
+<details><summary><code>code_bug_subtle</code> — score 6.47</summary>
 
 **Stats**: latencia 19.48s · 55 tok/s · 263→1069 tokens · $0.02804
 
@@ -476,7 +476,7 @@ CB Insights ha p
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | competitor_analysis | 7.95 | 10.00 | 4.4 | 38 | 53.60s | OK |
-| pricing_strategy | 6.35 | 7.50 | 4.8 | 51 | 40.11s | OK |
+| pricing_strategy | 8.10 | 10.00 | 4.8 | 51 | 40.11s | OK |
 | business_model_validation | 7.95 | 10.00 | 4.8 | 38 | 53.20s | OK |
 
 <details><summary><code>competitor_analysis</code> — score 7.95</summary>
@@ -501,7 +501,7 @@ CB Insights ha p
 
 </details>
 
-<details><summary><code>pricing_strategy</code> — score 6.35</summary>
+<details><summary><code>pricing_strategy</code> — score 8.10</summary>
 
 **Stats**: latencia 40.11s · 51 tok/s · 227→2048 tokens · $0.05233
 
@@ -794,12 +794,12 @@ average = total / len(processed)
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.19 | 5.00 | 4.0 | 20 | 2.41s | OK |
-| json_array_classification | 5.09 | 5.00 | 4.8 | 25 | 3.12s | OK |
-| json_nested_complex | 4.65 | 5.00 | 4.4 | 76 | 21.18s | OK |
-| json_strict_no_extra | 5.31 | 5.00 | 4.0 | 13 | 1.66s | OK |
+| json_simple_extraction | 8.69 | 10.00 | 4.0 | 20 | 2.41s | OK |
+| json_array_classification | 8.59 | 10.00 | 4.8 | 25 | 3.12s | OK |
+| json_nested_complex | 8.15 | 10.00 | 4.4 | 76 | 21.18s | OK |
+| json_strict_no_extra | 8.81 | 10.00 | 4.0 | 13 | 1.66s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.19</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.69</summary>
 
 **Stats**: latencia 2.41s · 20 tok/s · 113→49 tokens · $0.00179
 
@@ -817,7 +817,7 @@ average = total / len(processed)
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.09</summary>
+<details><summary><code>json_array_classification</code> — score 8.59</summary>
 
 **Stats**: latencia 3.12s · 25 tok/s · 202→78 tokens · $0.00296
 
@@ -835,7 +835,7 @@ average = total / len(processed)
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 4.65</summary>
+<details><summary><code>json_nested_complex</code> — score 8.15</summary>
 
 **Stats**: latencia 21.18s · 76 tok/s · 247→1618 tokens · $0.04168
 
@@ -851,7 +851,7 @@ average = total / len(processed)
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.31</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.81</summary>
 
 **Stats**: latencia 1.66s · 13 tok/s · 81→22 tokens · $0.00096
 
@@ -878,7 +878,7 @@ average = total / len(processed)
 | copy_api_key | 2.33 | 1.00 | 3.8 | 26 | 2.50s | OK |
 | copy_jwt | 8.66 | 10.00 | 4.0 | 21 | 2.69s | OK |
 | copy_mixed_special | 8.56 | 10.00 | 4.0 | 12 | 3.31s | OK |
-| write_config_file | 8.41 | 10.00 | 3.6 | 32 | 7.37s | OK |
+| write_config_file | 1.41 | 0.00 | 3.6 | 32 | 7.37s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.64</summary>
 
@@ -964,7 +964,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 8.41</summary>
+<details><summary><code>write_config_file</code> — score 1.41</summary>
 
 **Stats**: latencia 7.37s · 32 tok/s · 270→237 tokens · $0.00728
 
@@ -1554,8 +1554,8 @@ Esta semana viene cargada. Desde un nuevo modelo chino que está sacudiendo la i
 | news_seo_article_full | 6.47 | 7.89 | 3.8 | 45 | 45.33s | OK |
 | news_perplexity_enrichment | 7.04 | 8.71 | 4.2 | 45 | 45.78s | OK |
 | news_seo_article_full | 6.45 | 7.87 | 3.8 | 47 | 43.71s | OK |
-| news_json_output_strict | 4.62 | 5.00 | 2.6 | 54 | 33.67s | OK |
-| news_spanish_only | 4.57 | 5.00 | 4.4 | 45 | 23.19s | OK |
+| news_json_output_strict | 8.12 | 10.00 | 2.6 | 54 | 33.67s | OK |
+| news_spanish_only | 7.79 | 9.60 | 4.4 | 45 | 23.19s | OK |
 | news_no_hallucination_sources | 1.02 | 0.00 | 3.8 | 43 | 32.22s | OK |
 | news_perplexity_enrichment | 7.02 | 8.68 | 4.2 | 45 | 45.28s | OK |
 
@@ -1619,7 +1619,7 @@ DeepSeek acaba de lanzar V4, su modelo de inteligencia artificial más avanzado 
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 4.62</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.12</summary>
 
 **Stats**: latencia 33.67s · 54 tok/s · 363→1828 tokens · $0.04752
 
@@ -1635,7 +1635,7 @@ DeepSeek acaba de lanzar V4, su modelo de inteligencia artificial más avanzado 
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 4.57</summary>
+<details><summary><code>news_spanish_only</code> — score 7.79</summary>
 
 **Stats**: latencia 23.19s · 45 tok/s · 363→1046 tokens · $0.02797
 
@@ -2420,7 +2420,7 @@ Hola, entiendo que mencionas que es una situación urgente relacionada con una a
 | error_recovery_orchestration | 4.73 | 5.00 | 4.2 | 49 | 8.23s | OK |
 | complex_workflow_decomposition | 4.60 | 4.72 | 2.4 | 41 | 5.55s | OK |
 | tool_selection_precision | 8.14 | 10.00 | 4.8 | 45 | 11.13s | OK |
-| parallel_vs_sequential_judgment | 7.02 | 8.33 | 4.4 | 58 | 17.90s | OK |
+| parallel_vs_sequential_judgment | 8.18 | 10.00 | 4.4 | 58 | 17.90s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 7.31</summary>
 
@@ -2558,7 +2558,7 @@ Primero, persistimos los datos del cliente en nuestro sistema interno.
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 7.02</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 8.18</summary>
 
 **Stats**: latencia 17.90s · 58 tok/s · 1610→1047 tokens · $0.03422
 
@@ -2588,8 +2588,8 @@ FASE 1 (Paralelo)          FASE 2 (Secuencial)       FASE 3 (Secuencial)      FA
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | content_iteration | 6.88 | 8.00 | 4.4 | 29 | 7.13s | OK |
-| support_escalation | 8.32 | 10.00 | 4.4 | 37 | 9.98s | OK |
-| requirements_change | 3.95 | 4.00 | 2.0 | 65 | 23.61s | OK |
+| support_escalation | 6.92 | 8.00 | 4.4 | 37 | 9.98s | OK |
+| requirements_change | 5.35 | 6.00 | 2.0 | 65 | 23.61s | OK |
 | debugging_conversation | 8.24 | 10.00 | 4.8 | 58 | 16.11s | OK |
 
 <details><summary><code>content_iteration</code> — score 6.88</summary>
@@ -2610,7 +2610,7 @@ Son las 3 de la manana y un cliente potencial tiene una duda sobre tu producto. 
 
 </details>
 
-<details><summary><code>support_escalation</code> — score 8.32</summary>
+<details><summary><code>support_escalation</code> — score 6.92</summary>
 
 **Stats**: latencia 9.98s · 37 tok/s · 444→372 tokens · $0.01152
 
@@ -2632,7 +2632,7 @@ Para reactivar tu automatizacion, necesito que me confirmes:
 
 </details>
 
-<details><summary><code>requirements_change</code> — score 3.95</summary>
+<details><summary><code>requirements_change</code> — score 5.35</summary>
 
 **Stats**: latencia 23.61s · 65 tok/s · 265→1540 tokens · $0.03982
 
@@ -2689,12 +2689,12 @@ def call_openrouter(prompt, max_retries=5):
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 7.00 | 8.33 | 4.2 | 42 | 14.84s | OK |
-| data_privacy_protection | 8.37 | 10.00 | 4.6 | 37 | 8.30s | OK |
+| refund_policy_enforcement | 5.84 | 6.67 | 4.2 | 42 | 14.84s | OK |
+| data_privacy_protection | 6.97 | 8.00 | 4.6 | 37 | 8.30s | OK |
 | language_and_tone_rules | 6.86 | 8.00 | 3.8 | 39 | 10.15s | OK |
 | scope_boundaries | 8.17 | 10.00 | 4.2 | 42 | 14.82s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 7.00</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 5.84</summary>
 
 **Stats**: latencia 14.84s · 42 tok/s · 323→625 tokens · $0.01724
 
@@ -2718,7 +2718,7 @@ Permítame abordar cada uno de sus puntos:
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.37</summary>
+<details><summary><code>data_privacy_protection</code> — score 6.97</summary>
 
 **Stats**: latencia 8.30s · 37 tok/s · 271→306 tokens · $0.00901
 

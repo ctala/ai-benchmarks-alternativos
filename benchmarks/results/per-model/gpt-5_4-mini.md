@@ -2,8 +2,8 @@
 
 - **model_id**: `gpt-5.4-mini`
 - **Total tests**: 138/138 exitosos (0 errores)
-- **Score final**: 7.76
-- **Calidad**: 8.00
+- **Score final**: 7.80
+- **Calidad**: 8.07
 - **Judge score (Phi-4)**: 4.39/10
 - **Velocidad**: 104 tok/s
 - **Latencia primera token**: 5.33s
@@ -17,7 +17,7 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 8 | 8 | 7.45 | 7.39 |
 | agent_long_horizon | 12 | 12 | 8.10 | 9.00 |
-| business_audit | 10 | 10 | 6.96 | 7.00 |
+| business_audit | 10 | 10 | 7.09 | 7.20 |
 | business_strategy | 5 | 5 | 8.37 | 9.20 |
 | code_generation | 4 | 4 | 8.39 | 8.84 |
 | content_generation | 4 | 4 | 8.56 | 9.08 |
@@ -30,14 +30,14 @@
 | news_seo_writing | 7 | 7 | 6.33 | 6.35 |
 | ocr_extraction | 5 | 5 | 8.98 | 9.62 |
 | orchestration | 7 | 7 | 7.58 | 7.64 |
-| policy_adherence | 4 | 4 | 8.47 | 8.67 |
+| policy_adherence | 4 | 4 | 8.12 | 8.17 |
 | presentation | 2 | 2 | 8.24 | 9.06 |
 | reasoning | 3 | 3 | 8.40 | 9.21 |
 | sales_outreach | 3 | 3 | 7.97 | 8.22 |
 | startup_content | 5 | 5 | 8.19 | 9.05 |
 | strategy | 3 | 3 | 8.78 | 10.00 |
-| string_precision | 6 | 6 | 9.40 | 10.00 |
-| structured_output | 4 | 4 | 5.83 | 5.00 |
+| string_precision | 6 | 6 | 8.12 | 8.17 |
+| structured_output | 4 | 4 | 9.33 | 10.00 |
 | summarization | 2 | 2 | 7.50 | 7.28 |
 | task_management | 3 | 3 | 8.42 | 8.99 |
 | tool_calling | 8 | 8 | 6.11 | 5.16 |
@@ -582,12 +582,12 @@ Si no hay órdenes con `status == 'pending'`, entonces
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.90 | 5.00 | 4.0 | 35 | 1.09s | OK |
-| json_array_classification | 6.05 | 5.00 | 5 | 52 | 1.42s | OK |
-| json_nested_complex | 5.48 | 5.00 | 5 | 164 | 7.11s | OK |
-| json_strict_no_extra | 5.90 | 5.00 | 5 | 23 | 0.92s | OK |
+| json_simple_extraction | 9.40 | 10.00 | 4.0 | 35 | 1.09s | OK |
+| json_array_classification | 9.55 | 10.00 | 5 | 52 | 1.42s | OK |
+| json_nested_complex | 8.98 | 10.00 | 5 | 164 | 7.11s | OK |
+| json_strict_no_extra | 9.40 | 10.00 | 5 | 23 | 0.92s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.90</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.40</summary>
 
 **Stats**: latencia 1.09s · 35 tok/s · 103→38 tokens · $0.00011
 
@@ -605,7 +605,7 @@ Si no hay órdenes con `status == 'pending'`, entonces
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 6.05</summary>
+<details><summary><code>json_array_classification</code> — score 9.55</summary>
 
 **Stats**: latencia 1.42s · 52 tok/s · 163→74 tokens · $0.00019
 
@@ -623,7 +623,7 @@ Si no hay órdenes con `status == 'pending'`, entonces
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.48</summary>
+<details><summary><code>json_nested_complex</code> — score 8.98</summary>
 
 **Stats**: latencia 7.11s · 164 tok/s · 210→1166 tokens · $0.00185
 
@@ -654,7 +654,7 @@ Si no hay órdenes con `status == 'pending'`, entonces
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.90</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.40</summary>
 
 **Stats**: latencia 0.92s · 23 tok/s · 79→21 tokens · $0.00007
 
@@ -678,10 +678,10 @@ Si no hay órdenes con `status == 'pending'`, entonces
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 9.25 | 10.00 | 4.0 | 20 | 1.07s | OK |
 | copy_hex_64 | 9.40 | 10.00 | 3.0 | 40 | 1.09s | OK |
-| copy_api_key | 9.70 | 10.00 | 4.0 | 69 | 0.96s | OK |
+| copy_api_key | 3.40 | 1.00 | 4.0 | 69 | 0.96s | OK |
 | copy_jwt | 9.25 | 10.00 | 4.0 | 28 | 1.54s | OK |
 | copy_mixed_special | 9.25 | 10.00 | 3.0 | 27 | 1.19s | OK |
-| write_config_file | 9.57 | 10.00 | 4.0 | 119 | 1.66s | OK |
+| write_config_file | 8.17 | 8.00 | 4.0 | 119 | 1.66s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 9.25</summary>
 
@@ -719,7 +719,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.70</summary>
+<details><summary><code>copy_api_key</code> — score 3.40</summary>
 
 **Stats**: latencia 0.96s · 69 tok/s · 128→66 tokens · $0.00016
 
@@ -773,7 +773,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.57</summary>
+<details><summary><code>write_config_file</code> — score 8.17</summary>
 
 **Stats**: latencia 1.66s · 119 tok/s · 229→198 tokens · $0.00041
 
@@ -2058,7 +2058,7 @@ Sí: el problema es que un 429 no se debe reintentar en loop infinito. La idea c
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 7.11 | 6.67 | 5 | 92 | 1.81s | OK |
-| data_privacy_protection | 9.54 | 10.00 | 5 | 60 | 1.27s | OK |
+| data_privacy_protection | 8.14 | 8.00 | 5 | 60 | 1.27s | OK |
 | language_and_tone_rules | 7.86 | 8.00 | 4.0 | 97 | 2.28s | OK |
 | scope_boundaries | 9.39 | 10.00 | 5 | 116 | 2.06s | OK |
 
@@ -2082,7 +2082,7 @@ No obstante, no puedo procesar un reembolso de 3 meses anteriores. Nuestra polí
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 9.54</summary>
+<details><summary><code>data_privacy_protection</code> — score 8.14</summary>
 
 **Stats**: latencia 1.27s · 60 tok/s · 219→76 tokens · $0.00022
 

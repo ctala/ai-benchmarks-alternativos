@@ -2,8 +2,8 @@
 
 - **model_id**: `mistralai/ministral-14b-2512`
 - **Total tests**: 141/141 exitosos (0 errores)
-- **Score final**: 7.76
-- **Calidad**: 8.01
+- **Score final**: 7.85
+- **Calidad**: 8.14
 - **Judge score (Phi-4)**: 4.49/10
 - **Velocidad**: 73 tok/s
 - **Latencia primera token**: 15.16s
@@ -15,7 +15,7 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 9 | 9 | 6.72 | 6.27 |
+| agent_capabilities | 9 | 9 | 6.91 | 6.54 |
 | agent_long_horizon | 12 | 12 | 7.73 | 8.79 |
 | business_audit | 10 | 10 | 7.33 | 7.57 |
 | business_strategy | 5 | 5 | 8.36 | 9.20 |
@@ -27,17 +27,17 @@
 | deep_reasoning | 6 | 6 | 7.42 | 7.50 |
 | hallucination | 3 | 3 | 7.15 | 7.00 |
 | multi_turn | 4 | 4 | 7.85 | 8.00 |
-| news_seo_writing | 9 | 9 | 5.64 | 5.14 |
+| news_seo_writing | 9 | 9 | 5.77 | 5.32 |
 | ocr_extraction | 5 | 5 | 8.59 | 9.10 |
-| orchestration | 9 | 9 | 8.09 | 8.43 |
+| orchestration | 9 | 9 | 8.20 | 8.59 |
 | policy_adherence | 4 | 4 | 8.29 | 8.58 |
 | presentation | 3 | 3 | 8.88 | 9.71 |
 | reasoning | 3 | 3 | 8.73 | 9.32 |
-| sales_outreach | 3 | 3 | 7.83 | 8.00 |
+| sales_outreach | 3 | 3 | 8.29 | 8.67 |
 | startup_content | 5 | 5 | 8.65 | 9.37 |
 | strategy | 3 | 3 | 7.67 | 8.06 |
 | string_precision | 6 | 6 | 8.17 | 8.17 |
-| structured_output | 4 | 4 | 5.92 | 5.00 |
+| structured_output | 4 | 4 | 8.02 | 8.00 |
 | summarization | 2 | 2 | 8.36 | 8.30 |
 | task_management | 5 | 5 | 8.95 | 9.68 |
 | tool_calling | 4 | 4 | 7.16 | 6.75 |
@@ -612,12 +612,12 @@ Tienes razón en que el código original tiene varios bugs. Vamos a analizar cad
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 6.05 | 5.00 | 4.0 | 81 | 1.20s | OK |
-| json_array_classification | 5.90 | 5.00 | 5 | 68 | 2.12s | OK |
-| json_nested_complex | 5.68 | 5.00 | 4.0 | 111 | 18.48s | OK |
-| json_strict_no_extra | 6.05 | 5.00 | 5 | 48 | 0.78s | OK |
+| json_simple_extraction | 9.55 | 10.00 | 4.0 | 81 | 1.20s | OK |
+| json_array_classification | 9.40 | 10.00 | 5 | 68 | 2.12s | OK |
+| json_nested_complex | 3.58 | 2.00 | 4.0 | 111 | 18.48s | OK |
+| json_strict_no_extra | 9.55 | 10.00 | 5 | 48 | 0.78s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 6.05</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.55</summary>
 
 **Stats**: latencia 1.20s · 81 tok/s · 109→97 tokens · $0.00004
 
@@ -649,7 +649,7 @@ Tienes razón en que el código original tiene varios bugs. Vamos a analizar cad
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.90</summary>
+<details><summary><code>json_array_classification</code> — score 9.40</summary>
 
 **Stats**: latencia 2.12s · 68 tok/s · 180→143 tokens · $0.00006
 
@@ -683,7 +683,7 @@ Tienes razón en que el código original tiene varios bugs. Vamos a analizar cad
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.68</summary>
+<details><summary><code>json_nested_complex</code> — score 3.58</summary>
 
 **Stats**: latencia 18.48s · 111 tok/s · 230→2048 tokens · $0.00046
 
@@ -707,7 +707,7 @@ Tienes razón en que el código original tiene varios bugs. Vamos a analizar cad
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 6.05</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.55</summary>
 
 **Stats**: latencia 0.78s · 48 tok/s · 78→37 tokens · $0.00002
 
@@ -1238,8 +1238,8 @@ Esta semana la IA sigue rompiendo récords, los gobiernos apuestan por el *deep 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 8.04 | 8.40 | 4.0 | 107 | 19.13s | OK |
-| news_json_output_strict | 5.55 | 5.00 | 3.0 | 81 | 21.28s | OK |
-| news_spanish_only | 5.56 | 5.00 | 4.0 | 85 | 18.83s | OK |
+| news_json_output_strict | 3.45 | 2.00 | 3.0 | 81 | 21.28s | OK |
+| news_spanish_only | 8.80 | 9.62 | 4.0 | 85 | 18.83s | OK |
 | news_no_hallucination_sources | 2.07 | 0.00 | 3.0 | 80 | 16.85s | OK |
 | news_seo_article_full | 7.79 | 8.25 | 4.0 | 70 | 29.36s | OK |
 | news_json_output_strict | 5.57 | 5.00 | 3.0 | 59 | 23.06s | OK |
@@ -1271,7 +1271,7 @@ Esta semana la IA sigue rompiendo récords, los gobiernos apuestan por el *deep 
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 5.55</summary>
+<details><summary><code>news_json_output_strict</code> — score 3.45</summary>
 
 **Stats**: latencia 21.28s · 81 tok/s · 328→1720 tokens · $0.00041
 
@@ -1300,7 +1300,7 @@ Esta semana la IA sigue rompiendo récords, los gobiernos apuestan por el *deep 
 
 </details>
 
-<details><summary><code>news_spanish_only</code> — score 5.56</summary>
+<details><summary><code>news_spanish_only</code> — score 8.80</summary>
 
 **Stats**: latencia 18.83s · 85 tok/s · 323→1600 tokens · $0.00038
 
@@ -1544,7 +1544,7 @@ El *
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 8.00 | 8.00 | 5 | 57 | 4.10s | OK |
 | lead_qualification | 9.25 | 10.00 | 5 | 81 | 8.38s | OK |
-| campaign_optimization | 6.23 | 6.00 | 5 | 84 | 23.99s | OK |
+| campaign_optimization | 7.63 | 8.00 | 5 | 84 | 23.99s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 8.00</summary>
 
@@ -1595,7 +1595,7 @@ Vi tu post sobre escalar el content marketing sin aumentar el equipo, y justo ay
 
 </details>
 
-<details><summary><code>campaign_optimization</code> — score 6.23</summary>
+<details><summary><code>campaign_optimization</code> — score 7.63</summary>
 
 **Stats**: latencia 23.99s · 84 tok/s · 303→2003 tokens · $0.00046
 
@@ -1955,7 +1955,7 @@ Sin embargo, **puedo escalar esto a un agente humano** para que revise el caso c
 | error_recovery_orchestration | 7.42 | 7.50 | 5 | 98 | 6.98s | OK |
 | complex_workflow_decomposition | 7.13 | 6.80 | 4.0 | 81 | 3.24s | OK |
 | tool_selection_precision | 9.34 | 10.00 | 5 | 101 | 5.12s | OK |
-| parallel_vs_sequential_judgment | 8.05 | 8.57 | 5 | 97 | 10.74s | OK |
+| parallel_vs_sequential_judgment | 9.05 | 10.00 | 5 | 97 | 10.74s | OK |
 | multi_step_research_plan | 8.54 | 9.19 | 4.4 | 70 | 10.14s | OK |
 | error_recovery_orchestration | 8.60 | 9.17 | 5 | 57 | 8.54s | OK |
 | complex_workflow_decomposition | 5.96 | 5.12 | 4.0 | 50 | 2.44s | OK |
@@ -2029,7 +2029,7 @@ Esta tarea requiere realizar una solicitud HTTP (como una petición `GET`) a una
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 8.05</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 9.05</summary>
 
 **Stats**: latencia 10.74s · 97 tok/s · 1043→1038 tokens · $0.00042
 
@@ -2361,7 +2361,7 @@ EcoStartup es una aceleradora **100% enfocada en st
 |------|-------|---------|-------|-------|----------|--------|
 | skill_execution_complex | 4.91 | 3.37 | 2.0 | 63 | 1.22s | OK |
 | ask_clarification_before_acting | 9.13 | 9.40 | 5 | 74 | 1.42s | OK |
-| context_following_complex_system | 5.86 | 5.00 | 5 | 85 | 4.06s | OK |
+| context_following_complex_system | 7.61 | 7.50 | 5 | 85 | 4.06s | OK |
 | model_as_router | 5.75 | 5.00 | 5 | 82 | 6.09s | OK |
 | skill_execution_complex | 5.08 | 3.69 | 2.0 | 44 | 1.43s | OK |
 | agent_team_delegation | 8.97 | 9.91 | 5 | 74 | 15.85s | OK |
@@ -2405,7 +2405,7 @@ EcoStartup es una aceleradora **100% enfocada en st
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 5.86</summary>
+<details><summary><code>context_following_complex_system</code> — score 7.61</summary>
 
 **Stats**: latencia 4.06s · 85 tok/s · 995→345 tokens · $0.00027
 

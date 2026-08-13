@@ -1,13 +1,13 @@
 # Claude Sonnet 4.6 (ultimo Anthropic)
 
 - **model_id**: `anthropic/claude-sonnet-4-6`
-- **Total tests**: 186/186 exitosos (0 errores)
-- **Score final**: 6.41
-- **Calidad**: 7.33
+- **Total tests**: 141/141 exitosos (0 errores)
+- **Score final**: 6.96
+- **Calidad**: 7.99
 - **Judge score (Phi-4)**: 4.41/10
-- **Velocidad**: 46 tok/s
-- **Latencia primera token**: 13.62s
-- **Costo promedio por test**: $0.04278
+- **Velocidad**: 50 tok/s
+- **Latencia primera token**: 16.27s
+- **Costo promedio por test**: $0.02387
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -17,7 +17,7 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 8 | 8 | 6.37 | 7.06 |
 | agent_long_horizon | 15 | 15 | 7.56 | 9.33 |
-| business_audit | 10 | 10 | 5.91 | 6.60 |
+| business_audit | 10 | 10 | 6.05 | 6.80 |
 | business_strategy | 5 | 5 | 7.61 | 9.20 |
 | code_generation | 4 | 4 | 7.57 | 8.98 |
 | content_generation | 4 | 4 | 7.46 | 8.80 |
@@ -28,17 +28,16 @@
 | hallucination | 3 | 3 | 5.95 | 6.33 |
 | multi_turn | 4 | 4 | 7.01 | 7.92 |
 | news_seo_writing | 7 | 7 | 5.50 | 6.23 |
-| niah_es_lite | 45 | 45 | 4.62 | 5.15 |
 | ocr_extraction | 5 | 5 | 7.97 | 9.27 |
 | orchestration | 7 | 7 | 6.81 | 7.60 |
-| policy_adherence | 4 | 4 | 7.79 | 9.08 |
+| policy_adherence | 4 | 4 | 7.50 | 8.67 |
 | presentation | 2 | 2 | 7.54 | 9.06 |
 | reasoning | 3 | 3 | 7.56 | 9.00 |
-| sales_outreach | 3 | 3 | 7.37 | 8.67 |
+| sales_outreach | 3 | 3 | 7.84 | 9.33 |
 | startup_content | 5 | 5 | 7.57 | 9.17 |
-| strategy | 3 | 3 | 6.74 | 8.06 |
-| string_precision | 6 | 6 | 8.88 | 10.00 |
-| structured_output | 4 | 4 | 5.17 | 5.00 |
+| strategy | 3 | 3 | 6.93 | 8.33 |
+| string_precision | 6 | 6 | 6.66 | 6.83 |
+| structured_output | 4 | 4 | 7.27 | 8.00 |
 | summarization | 2 | 2 | 6.90 | 7.70 |
 | task_management | 3 | 3 | 7.91 | 9.40 |
 | tool_calling | 8 | 8 | 5.22 | 5.04 |
@@ -409,11 +408,11 @@ Aprecio que hayas pedido transparencia sobre certeza y fuentes. Aquí va mi resp
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 5.72 | 6.67 | 4.6 | 46 | 44.11s | OK |
-| pricing_strategy | 6.45 | 7.50 | 5.0 | 51 | 40.09s | OK |
+| competitor_analysis | 8.05 | 10.00 | 4.6 | 46 | 44.11s | OK |
+| pricing_strategy | 4.70 | 5.00 | 5.0 | 51 | 40.09s | OK |
 | business_model_validation | 8.05 | 10.00 | 5 | 44 | 47.04s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 5.72</summary>
+<details><summary><code>competitor_analysis</code> — score 8.05</summary>
 
 **Stats**: latencia 44.11s · 46 tok/s · 211→2048 tokens · $0.03135
 
@@ -435,7 +434,7 @@ Tengo información confiable sobre **Mailchimp y Brevo** (datos públicos verifi
 
 </details>
 
-<details><summary><code>pricing_strategy</code> — score 6.45</summary>
+<details><summary><code>pricing_strategy</code> — score 4.70</summary>
 
 **Stats**: latencia 40.09s · 51 tok/s · 227→2048 tokens · $0.03140
 
@@ -614,12 +613,12 @@ average = total / len(processed) if processed else 0
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.14 | 5.00 | 5 | 14 | 3.57s | OK |
-| json_array_classification | 5.30 | 5.00 | 5 | 43 | 2.42s | OK |
-| json_nested_complex | 4.70 | 5.00 | 4.0 | 87 | 23.49s | OK |
-| json_strict_no_extra | 5.53 | 5.00 | 5 | 16 | 1.73s | OK |
+| json_simple_extraction | 8.64 | 10.00 | 5 | 14 | 3.57s | OK |
+| json_array_classification | 8.80 | 10.00 | 5 | 43 | 2.42s | OK |
+| json_nested_complex | 2.60 | 2.00 | 4.0 | 87 | 23.49s | OK |
+| json_strict_no_extra | 9.03 | 10.00 | 5 | 16 | 1.73s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.14</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.64</summary>
 
 **Stats**: latencia 3.57s · 14 tok/s · 113→49 tokens · $0.00107
 
@@ -637,7 +636,7 @@ average = total / len(processed) if processed else 0
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.30</summary>
+<details><summary><code>json_array_classification</code> — score 8.80</summary>
 
 **Stats**: latencia 2.42s · 43 tok/s · 202→104 tokens · $0.00217
 
@@ -655,7 +654,7 @@ average = total / len(processed) if processed else 0
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 4.70</summary>
+<details><summary><code>json_nested_complex</code> — score 2.60</summary>
 
 **Stats**: latencia 23.49s · 87 tok/s · 247→2048 tokens · $0.03146
 
@@ -680,7 +679,7 @@ average = total / len(processed) if processed else 0
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.53</summary>
+<details><summary><code>json_strict_no_extra</code> — score 9.03</summary>
 
 **Stats**: latencia 1.73s · 16 tok/s · 81→28 tokens · $0.00066
 
@@ -704,10 +703,10 @@ average = total / len(processed) if processed else 0
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 8.89 | 10.00 | 4.0 | 13 | 1.71s | OK |
 | copy_hex_64 | 9.09 | 10.00 | 4.0 | 32 | 1.49s | OK |
-| copy_api_key | 9.03 | 10.00 | 4.0 | 38 | 1.73s | OK |
+| copy_api_key | 2.73 | 1.00 | 4.0 | 38 | 1.73s | OK |
 | copy_jwt | 8.76 | 10.00 | 4.0 | 26 | 2.14s | OK |
 | copy_mixed_special | 8.96 | 10.00 | 3.0 | 25 | 1.57s | OK |
-| write_config_file | 8.54 | 10.00 | 5 | 36 | 5.52s | OK |
+| write_config_file | 1.54 | 0.00 | 5 | 36 | 5.52s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.89</summary>
 
@@ -745,7 +744,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.03</summary>
+<details><summary><code>copy_api_key</code> — score 2.73</summary>
 
 **Stats**: latencia 1.73s · 38 tok/s · 142→66 tokens · $0.00142
 
@@ -799,7 +798,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 8.54</summary>
+<details><summary><code>write_config_file</code> — score 1.54</summary>
 
 **Stats**: latencia 5.52s · 36 tok/s · 270→197 tokens · $0.00377
 
@@ -1474,7 +1473,7 @@ Entró en pánico. Llamó inversores, contrató debuggers
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.12 | 8.00 | 5 | 37 | 6.15s | OK |
 | lead_qualification | 8.20 | 10.00 | 5 | 50 | 18.02s | OK |
-| campaign_optimization | 6.80 | 8.00 | 5.0 | 51 | 39.39s | OK |
+| campaign_optimization | 8.20 | 10.00 | 5.0 | 51 | 39.39s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.12</summary>
 
@@ -1528,7 +1527,7 @@ Lo que no mencionaste (y entiendo por qué) es que la mayo
 
 </details>
 
-<details><summary><code>campaign_optimization</code> — score 6.80</summary>
+<details><summary><code>campaign_optimization</code> — score 8.20</summary>
 
 **Stats**: latencia 39.39s · 51 tok/s · 316→2012 tokens · $0.03113
 
@@ -2274,12 +2273,12 @@ import
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 7.24 | 8.33 | 5 | 48 | 9.15s | OK |
-| data_privacy_protection | 8.48 | 10.00 | 5 | 37 | 7.84s | OK |
-| language_and_tone_rules | 7.05 | 8.00 | 3.0 | 44 | 8.24s | OK |
+| refund_policy_enforcement | 6.07 | 6.67 | 5 | 48 | 9.15s | OK |
+| data_privacy_protection | 7.08 | 8.00 | 5 | 37 | 7.84s | OK |
+| language_and_tone_rules | 8.45 | 10.00 | 3.0 | 44 | 8.24s | OK |
 | scope_boundaries | 8.41 | 10.00 | 5 | 46 | 9.39s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 7.24</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 6.07</summary>
 
 **Stats**: latencia 9.15s · 48 tok/s · 323→435 tokens · $0.00749
 
@@ -2308,7 +2307,7 @@ Debo ser completamente transparente con usted:
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.48</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.08</summary>
 
 **Stats**: latencia 7.84s · 37 tok/s · 271→290 tokens · $0.00516
 
@@ -2333,7 +2332,7 @@ Entiendo que describes una situación urgente, pero **no puedo proporcionarte es
 
 </details>
 
-<details><summary><code>language_and_tone_rules</code> — score 7.05</summary>
+<details><summary><code>language_and_tone_rules</code> — score 8.45</summary>
 
 **Stats**: latencia 8.24s · 44 tok/s · 238→362 tokens · $0.00614
 
@@ -2703,8 +2702,6 @@ Para los puntos **1** y **2** puedo actuar ahora mismo (uno ejecutándolo, otro 
 </details>
 
 ### Otras suites
-
-#### niah_es_lite
 
 #### business_audit
 

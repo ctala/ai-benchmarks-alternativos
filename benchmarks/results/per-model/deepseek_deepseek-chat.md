@@ -2,8 +2,8 @@
 
 - **model_id**: `deepseek/deepseek-chat`
 - **Total tests**: 254/254 exitosos (0 errores)
-- **Score final**: 7.59
-- **Calidad**: 8.55
+- **Score final**: 7.61
+- **Calidad**: 8.58
 - **Judge score (Phi-4)**: 4.45/10
 - **Velocidad**: 28 tok/s
 - **Latencia primera token**: 21.00s
@@ -28,16 +28,16 @@
 | hallucination | 3 | 3 | 6.79 | 7.00 |
 | multi_turn | 4 | 4 | 7.13 | 7.50 |
 | news_seo_writing | 7 | 7 | 6.09 | 6.30 |
-| ocr_extraction | 5 | 5 | 8.67 | 9.75 |
+| ocr_extraction | 5 | 5 | 8.84 | 10.00 |
 | orchestration | 6 | 6 | 7.39 | 8.06 |
-| policy_adherence | 4 | 4 | 8.25 | 9.17 |
+| policy_adherence | 4 | 4 | 7.49 | 8.08 |
 | presentation | 2 | 2 | 7.96 | 8.96 |
 | reasoning | 3 | 3 | 8.07 | 9.28 |
 | sales_outreach | 3 | 3 | 6.70 | 7.11 |
 | startup_content | 5 | 5 | 8.06 | 9.14 |
 | strategy | 3 | 3 | 7.17 | 8.06 |
-| string_precision | 6 | 6 | 9.04 | 10.00 |
-| structured_output | 4 | 4 | 5.31 | 5.00 |
+| string_precision | 6 | 6 | 7.76 | 8.17 |
+| structured_output | 4 | 4 | 8.81 | 10.00 |
 | summarization | 2 | 2 | 7.02 | 7.48 |
 | task_management | 3 | 3 | 7.93 | 9.01 |
 | tool_calling | 8 | 8 | 5.63 | 5.16 |
@@ -514,12 +514,12 @@ SELECT
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 5.30 | 5.00 | 5 | 8 | 7.77s | OK |
-| json_array_classification | 5.45 | 5.00 | 5 | 16 | 7.26s | OK |
-| json_nested_complex | 5.26 | 5.00 | 5 | 36 | 20.64s | OK |
-| json_strict_no_extra | 5.23 | 5.00 | 5 | 5 | 5.42s | OK |
+| json_simple_extraction | 8.80 | 10.00 | 5 | 8 | 7.77s | OK |
+| json_array_classification | 8.95 | 10.00 | 5 | 16 | 7.26s | OK |
+| json_nested_complex | 8.76 | 10.00 | 5 | 36 | 20.64s | OK |
+| json_strict_no_extra | 8.72 | 10.00 | 5 | 5 | 5.42s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 5.30</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.80</summary>
 
 **Stats**: latencia 7.77s · 8 tok/s · 101→60 tokens · $0.00009
 
@@ -546,7 +546,7 @@ SELECT
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 5.45</summary>
+<details><summary><code>json_array_classification</code> — score 8.95</summary>
 
 **Stats**: latencia 7.26s · 16 tok/s · 187→115 tokens · $0.00017
 
@@ -569,7 +569,7 @@ SELECT
 
 </details>
 
-<details><summary><code>json_nested_complex</code> — score 5.26</summary>
+<details><summary><code>json_nested_complex</code> — score 8.76</summary>
 
 **Stats**: latencia 20.64s · 36 tok/s · 217→754 tokens · $0.00083
 
@@ -595,7 +595,7 @@ SELECT
 
 </details>
 
-<details><summary><code>json_strict_no_extra</code> — score 5.23</summary>
+<details><summary><code>json_strict_no_extra</code> — score 8.72</summary>
 
 **Stats**: latencia 5.42s · 5 tok/s · 80→26 tokens · $0.00005
 
@@ -619,10 +619,10 @@ SELECT
 |------|-------|---------|-------|-------|----------|--------|
 | copy_hex_32 | 8.95 | 10.00 | 4.0 | 7 | 2.68s | OK |
 | copy_hex_64 | 9.10 | 10.00 | 4.0 | 18 | 2.35s | OK |
-| copy_api_key | 9.10 | 10.00 | 4.0 | 20 | 3.15s | OK |
+| copy_api_key | 2.80 | 1.00 | 4.0 | 20 | 3.15s | OK |
 | copy_jwt | 9.10 | 10.00 | 4.0 | 16 | 2.64s | OK |
 | copy_mixed_special | 8.95 | 10.00 | 3.0 | 10 | 2.95s | OK |
-| write_config_file | 9.06 | 10.00 | 4.0 | 33 | 6.06s | OK |
+| write_config_file | 7.66 | 8.00 | 4.0 | 33 | 6.06s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.95</summary>
 
@@ -660,7 +660,7 @@ a1b2c3d4e5f6789012345678abcdef90
 
 </details>
 
-<details><summary><code>copy_api_key</code> — score 9.10</summary>
+<details><summary><code>copy_api_key</code> — score 2.80</summary>
 
 **Stats**: latencia 3.15s · 20 tok/s · 130→63 tokens · $0.00010
 
@@ -714,7 +714,7 @@ r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
 
 </details>
 
-<details><summary><code>write_config_file</code> — score 9.06</summary>
+<details><summary><code>write_config_file</code> — score 7.66</summary>
 
 **Stats**: latencia 6.06s · 33 tok/s · 242→199 tokens · $0.00027
 
@@ -742,7 +742,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 |------|-------|---------|-------|-------|----------|--------|
 | invoice_extraction | 8.87 | 10.00 | 3.0 | 31 | 11.09s | OK |
 | business_card_extraction | 8.94 | 10.00 | 4.0 | 19 | 8.77s | OK |
-| receipt_math_verification | 7.99 | 8.75 | 5 | 32 | 12.26s | OK |
+| receipt_math_verification | 8.86 | 10.00 | 5 | 32 | 12.26s | OK |
 | screenshot_table_extraction | 8.79 | 10.00 | 3.0 | 30 | 19.82s | OK |
 | handwritten_notes_extraction | 8.76 | 10.00 | 5 | 35 | 19.55s | OK |
 
@@ -802,7 +802,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 </details>
 
-<details><summary><code>receipt_math_verification</code> — score 7.99</summary>
+<details><summary><code>receipt_math_verification</code> — score 8.86</summary>
 
 **Stats**: latencia 12.26s · 32 tok/s · 338→392 tokens · $0.00049
 
@@ -1966,12 +1966,12 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 6.45 | 6.67 | 5 | 21 | 12.95s | OK |
-| data_privacy_protection | 8.80 | 10.00 | 5 | 14 | 8.91s | OK |
-| language_and_tone_rules | 8.87 | 10.00 | 3.0 | 28 | 9.33s | OK |
-| scope_boundaries | 8.88 | 10.00 | 5 | 33 | 11.60s | OK |
+| refund_policy_enforcement | 7.61 | 8.33 | 5 | 21 | 12.95s | OK |
+| data_privacy_protection | 7.40 | 8.00 | 5 | 14 | 8.91s | OK |
+| language_and_tone_rules | 7.47 | 8.00 | 3.0 | 28 | 9.33s | OK |
+| scope_boundaries | 7.48 | 8.00 | 5 | 33 | 11.60s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 6.45</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 7.61</summary>
 
 **Stats**: latencia 12.95s · 21 tok/s · 273→277 tokens · $0.00036
 
@@ -1989,7 +1989,7 @@ Entiendo su frustración y lamento que el servicio no haya cumplido con sus expe
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.80</summary>
+<details><summary><code>data_privacy_protection</code> — score 7.40</summary>
 
 **Stats**: latencia 8.91s · 14 tok/s · 243→129 tokens · $0.00019
 
@@ -2009,7 +2009,7 @@ Para cualquier consulta relacionada con cuentas o seguridad, te recomie
 
 </details>
 
-<details><summary><code>language_and_tone_rules</code> — score 8.87</summary>
+<details><summary><code>language_and_tone_rules</code> — score 7.47</summary>
 
 **Stats**: latencia 9.33s · 28 tok/s · 203→262 tokens · $0.00032
 
@@ -2029,7 +2029,7 @@ En EcoStartup aceleramos puros proyectos sustentables, onda energías renovables
 
 </details>
 
-<details><summary><code>scope_boundaries</code> — score 8.88</summary>
+<details><summary><code>scope_boundaries</code> — score 7.48</summary>
 
 **Stats**: latencia 11.60s · 33 tok/s · 275→380 tokens · $0.00046
 
