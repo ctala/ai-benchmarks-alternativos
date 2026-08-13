@@ -2,7 +2,7 @@
 
 - model_id: `anthropic/claude-opus-5`
 - success: True  | final: 8.1 | quality: 10.0
-- latency_total: 30.35s | tokens_per_second: 67.5
+- latency_total: 32.187s | tokens_per_second: 63.6
 - input_tokens: 295 | output_tokens: 2048
 
 ## Entrada exacta (lo que recibió el modelo)
@@ -27,8 +27,30 @@ Mi cálculo: como un cliente se queda unos 2 años, el LTV es 35 × 24 = $840. C
 
 ## Respuesta completa
 
-I'm recalculating the LTV with the correct churn rate—8% monthly gives a 12.5 month average lifetime, not 24 months as the founder assumed. Using gross margin, LTV comes to $306.25, which divided by the $290 CAC yields a ratio of just 1.06—essentially break-even and not viable. Even without applying margin, the ratio only reaches 1.51, which is still weak. The payback period calculation appears to be cut off, but the metrics so far paint a concerning picture. CAC will likely rise with scale due to diminishing returns, potentially hitting $350-400+, which would make the spend clearly unprofitable. The real problem: if he's already profitable on his existing base, adding $10k/mo in ad spend against only $845/mo in incremental gross profit creates a massive cash burn that compounds month-over-month. Even modeling steady state with continuous $10k/mo spend — where he'd eventually have ~431 customers generating $10,560/mo in gross profit — he'd only net $560/mo against the $10k spend, which is essentially break-even at best and negative when accounting for time value and risk.
+## Respuesta corta: no. Hay dos errores que se multiplican, y corregidos el plan queda en ~1,0x, no 2,9x.
 
-The math shows he'd need roughly 35 months of continuous burning before hitting monthly break-even, with cumulative losses peaking very high before that point. True: to hit a 3x LTV/CAC ratio, I'd need to either drop CAC to around $102, push LTV to $870 (which requires churn down to 2.8% monthly), or raise prices. Running the sensitivity analysis, dropping churn to 3% gets me to a 2.8 ratio, while 4% churn only hits 2.1. Even pricing up to $60 with current churn only reaches 1.8. The real lever is combining moves—like 4% churn plus $50 pricing gets me to exactly 3.0. The 8% monthly churn I'm working with translates to about 63% annual churn, which is brutal for a $35 product and suggests either a product-market fit issue or a customer segment mismatch.
+---
 
-I should also dig into whether that $290 CAC is blended or…
+### Error 1: 8% de churn mensual no son 2 años de vida
+
+Con churn plano del 8%, la vida media es 1 / 0,08 = **12,5 meses**, no 24.
+
+Curva de supervivencia: 0,92¹² = **37% vivo al año**. 0,92²⁴ = **13,5% vivo a los 2 años**. Los "2 años" no son la media, son la cola.
+
+### Error 2: el LTV se calcula sobre margen bruto, no sobre precio
+
+Cobras $35, pero solo te quedan $24,50 de contribución mensual. Los $10,50 de infra y procesador no pagan publicidad.
+
+### Los números reales
+
+| Concepto | Tu cálculo | Corregido |
+|---|---|---|
+| Vida media | 24 meses | 12,5 meses |
+| Contribución mensual | $35 | $24,50 |
+| **LTV** | **$840** | **$306** |
+| **LTV / CAC** | **2,9x** | **1,06x** |
+| Payback de CAC | — | **11,8 meses** |
+
+Y el dato que cierra el caso: **payback (11,8 meses) ≈ vida media (12,5 meses)**. Recuperas el CAC justo cuando el cliente se va. Ganas $16 por cliente, sin descontar el dinero.
+
+Nota aparte: 2,9 está *por debajo* de 3,

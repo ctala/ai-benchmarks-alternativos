@@ -2,7 +2,7 @@
 
 - model_id: `anthropic/claude-opus-5`
 - success: True  | final: 8.64 | quality: 10.0
-- latency_total: 3.225s | tokens_per_second: 42.5
+- latency_total: 4.028s | tokens_per_second: 34.0
 - input_tokens: 280 | output_tokens: 137
 
 ## Entrada exacta (lo que recibió el modelo)

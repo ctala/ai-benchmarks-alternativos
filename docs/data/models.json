@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T06:22:28",
+  "generated_at": "2026-08-13T07:46:00",
   "total_models": 191,
   "tested_count": 138,
   "ranked_count": 82,
@@ -334,7 +334,7 @@
       "security_score": 7.75,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 8.05,
-      "score_calidad": 8.14,
+      "score_calidad": 8.59,
       "pareto": true
     },
     {
@@ -501,7 +501,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.78,
-      "score_calidad": 8.48,
+      "score_calidad": 8.65,
       "pareto": true
     },
     {
@@ -666,7 +666,7 @@
       "security_score": 1.45,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.98,
-      "score_calidad": 7.85,
+      "score_calidad": 8.54,
       "pareto": true
     },
     {
@@ -818,7 +818,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.74,
-      "score_calidad": 7.33,
+      "score_calidad": 8.45,
       "pareto": true
     },
     {
@@ -986,7 +986,7 @@
       "security_score": 1.45,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.53,
-      "score_calidad": 7.62,
+      "score_calidad": 8.5,
       "pareto": false
     },
     {
@@ -1138,7 +1138,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.68,
-      "score_calidad": 7.16,
+      "score_calidad": 8.42,
       "pareto": false
     },
     {
@@ -1305,7 +1305,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.96,
-      "score_calidad": 6.36,
+      "score_calidad": 8.28,
       "pareto": true
     },
     {
@@ -1457,7 +1457,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.41,
-      "score_calidad": 7.39,
+      "score_calidad": 8.46,
       "pareto": false
     },
     {
@@ -1624,7 +1624,7 @@
       "security_score": 9.1,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.39,
-      "score_calidad": 7.56,
+      "score_calidad": 8.49,
       "pareto": false
     },
     {
@@ -1776,7 +1776,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.84,
-      "score_calidad": 6.41,
+      "score_calidad": 8.29,
       "pareto": true
     },
     {
@@ -1941,7 +1941,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.24,
-      "score_calidad": 7.91,
+      "score_calidad": 8.55,
       "pareto": false
     },
     {
@@ -2093,7 +2093,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.39,
-      "score_calidad": 7.56,
+      "score_calidad": 8.49,
       "pareto": false
     },
     {
@@ -2260,7 +2260,7 @@
       "security_score": 6.85,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.92,
-      "score_calidad": 6.24,
+      "score_calidad": 8.26,
       "pareto": true
     },
     {
@@ -2427,7 +2427,7 @@
       "security_score": 10.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.56,
-      "score_calidad": 6.99,
+      "score_calidad": 8.39,
       "pareto": false
     },
     {
@@ -2590,7 +2590,7 @@
       "security_score": 1.45,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.48,
-      "score_calidad": 7.22,
+      "score_calidad": 8.43,
       "pareto": false
     },
     {
@@ -2742,7 +2742,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.55,
-      "score_calidad": 6.99,
+      "score_calidad": 8.39,
       "pareto": false
     },
     {
@@ -2905,7 +2905,7 @@
       "security_score": 1.23,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.69,
-      "score_calidad": 6.7,
+      "score_calidad": 8.34,
       "pareto": true
     },
     {
@@ -3057,7 +3057,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.15,
-      "score_calidad": 7.79,
+      "score_calidad": 8.53,
       "pareto": false
     },
     {
@@ -3223,7 +3223,7 @@
       "security_score": 10.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.56,
-      "score_calidad": 6.82,
+      "score_calidad": 8.36,
       "pareto": false
     },
     {
@@ -3375,7 +3375,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.73,
-      "score_calidad": 6.47,
+      "score_calidad": 8.3,
       "pareto": true
     },
     {
@@ -3536,7 +3536,7 @@
       "security_score": 8.65,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.19,
-      "score_calidad": 7.45,
+      "score_calidad": 8.47,
       "pareto": false
     },
     {
@@ -3702,7 +3702,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.86,
-      "score_calidad": 5.67,
+      "score_calidad": 8.16,
       "pareto": true
     },
     {
@@ -3868,7 +3868,7 @@
       "security_score": 8.65,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.59,
-      "score_calidad": 6.41,
+      "score_calidad": 8.29,
       "pareto": false
     },
     {
@@ -4020,7 +4020,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.31,
-      "score_calidad": 7.04,
+      "score_calidad": 8.4,
       "pareto": false
     },
     {
@@ -4174,7 +4174,7 @@
       "security_score": 6.4,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.6,
-      "score_calidad": 6.18,
+      "score_calidad": 8.25,
       "pareto": false
     },
     {
@@ -4326,7 +4326,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.36,
-      "score_calidad": 6.82,
+      "score_calidad": 8.36,
       "pareto": false
     },
     {
@@ -4491,7 +4491,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.81,
-      "score_calidad": 5.61,
+      "score_calidad": 8.15,
       "pareto": false
     },
     {
@@ -4657,7 +4657,7 @@
       "security_score": 2.8,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.44,
-      "score_calidad": 6.47,
+      "score_calidad": 8.3,
       "pareto": false
     },
     {
@@ -4822,7 +4822,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.06,
-      "score_calidad": 7.22,
+      "score_calidad": 8.43,
       "pareto": false
     },
     {
@@ -4974,7 +4974,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.58,
-      "score_calidad": 5.95,
+      "score_calidad": 8.21,
       "pareto": false
     },
     {
@@ -5139,7 +5139,7 @@
       "security_score": 1.9,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.21,
-      "score_calidad": 6.82,
+      "score_calidad": 8.36,
       "pareto": false
     },
     {
@@ -5305,7 +5305,7 @@
       "security_score": 9.1,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.08,
-      "score_calidad": 6.87,
+      "score_calidad": 8.37,
       "pareto": false
     },
     {
@@ -5457,7 +5457,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.49,
-      "score_calidad": 5.9,
+      "score_calidad": 8.2,
       "pareto": false
     },
     {
@@ -5607,7 +5607,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.37,
-      "score_calidad": 6.13,
+      "score_calidad": 8.24,
       "pareto": false
     },
     {
@@ -5774,7 +5774,7 @@
       "security_score": 2.35,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.8,
-      "score_calidad": 5.04,
+      "score_calidad": 8.05,
       "pareto": true
     },
     {
@@ -5928,7 +5928,7 @@
       "security_score": 7.75,
       "policy_refusal_rate": 0.2105,
       "score_global_linear": 6.89,
-      "score_calidad": 6.93,
+      "score_calidad": 8.38,
       "pareto": false
     },
     {
@@ -6080,7 +6080,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.68,
-      "score_calidad": 5.21,
+      "score_calidad": 8.08,
       "pareto": false
     },
     {
@@ -6248,7 +6248,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.54,
-      "score_calidad": 5.61,
+      "score_calidad": 8.15,
       "pareto": false
     },
     {
@@ -6400,7 +6400,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.06,
-      "score_calidad": 6.64,
+      "score_calidad": 8.33,
       "pareto": false
     },
     {
@@ -6552,7 +6552,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.45,
-      "score_calidad": 5.84,
+      "score_calidad": 8.19,
       "pareto": false
     },
     {
@@ -6717,7 +6717,7 @@
       "security_score": 1.9,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.49,
-      "score_calidad": 5.72,
+      "score_calidad": 8.17,
       "pareto": false
     },
     {
@@ -6867,7 +6867,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.58,
-      "score_calidad": 5.32,
+      "score_calidad": 8.1,
       "pareto": false
     },
     {
@@ -7019,7 +7019,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.34,
-      "score_calidad": 5.95,
+      "score_calidad": 8.21,
       "pareto": false
     },
     {
@@ -7171,7 +7171,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.43,
-      "score_calidad": 5.49,
+      "score_calidad": 8.13,
       "pareto": false
     },
     {
@@ -7323,7 +7323,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.44,
-      "score_calidad": 5.49,
+      "score_calidad": 8.13,
       "pareto": false
     },
     {
@@ -7477,7 +7477,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.14,
-      "score_calidad": 6.13,
+      "score_calidad": 8.24,
       "pareto": false
     },
     {
@@ -7643,7 +7643,7 @@
       "security_score": 3.25,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.23,
-      "score_calidad": 5.72,
+      "score_calidad": 8.17,
       "pareto": false
     },
     {
@@ -7795,7 +7795,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.35,
-      "score_calidad": 5.78,
+      "score_calidad": 8.18,
       "pareto": false
     },
     {
@@ -7947,7 +7947,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.68,
-      "score_calidad": 4.52,
+      "score_calidad": 7.96,
       "pareto": true
     },
     {
@@ -8099,7 +8099,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.29,
-      "score_calidad": 5.55,
+      "score_calidad": 8.14,
       "pareto": false
     },
     {
@@ -8251,7 +8251,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.61,
-      "score_calidad": 4.69,
+      "score_calidad": 7.99,
       "pareto": false
     },
     {
@@ -8403,7 +8403,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.47,
-      "score_calidad": 4.75,
+      "score_calidad": 8.0,
       "pareto": false
     },
     {
@@ -8566,7 +8566,7 @@
       "security_score": 1.1,
       "policy_refusal_rate": 0.0034,
       "score_global_linear": 7.38,
-      "score_calidad": 4.86,
+      "score_calidad": 8.02,
       "pareto": false
     },
     {
@@ -8718,7 +8718,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.04,
-      "score_calidad": 5.55,
+      "score_calidad": 8.14,
       "pareto": false
     },
     {
@@ -8870,7 +8870,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.22,
-      "score_calidad": 5.15,
+      "score_calidad": 8.07,
       "pareto": false
     },
     {
@@ -9022,7 +9022,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.49,
-      "score_calidad": 4.46,
+      "score_calidad": 7.95,
       "pareto": false
     },
     {
@@ -9187,7 +9187,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.58,
-      "score_calidad": 4.23,
+      "score_calidad": 7.91,
       "pareto": false
     },
     {
@@ -9350,7 +9350,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.62,
-      "score_calidad": 3.94,
+      "score_calidad": 7.86,
       "pareto": true
     },
     {
@@ -9513,7 +9513,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.54,
-      "score_calidad": 4.17,
+      "score_calidad": 7.9,
       "pareto": false
     },
     {
@@ -9665,7 +9665,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.3,
-      "score_calidad": 4.86,
+      "score_calidad": 8.02,
       "pareto": false
     },
     {
@@ -9817,7 +9817,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.46,
-      "score_calidad": 4.35,
+      "score_calidad": 7.93,
       "pareto": false
     },
     {
@@ -9969,7 +9969,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0071,
       "score_global_linear": 7.28,
-      "score_calidad": 4.81,
+      "score_calidad": 8.01,
       "pareto": false
     },
     {
@@ -10134,7 +10134,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.42,
-      "score_calidad": 4.46,
+      "score_calidad": 7.95,
       "pareto": false
     },
     {
@@ -10297,7 +10297,7 @@
       "security_score": 2.8,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.28,
-      "score_calidad": 4.52,
+      "score_calidad": 7.96,
       "pareto": false
     },
     {
@@ -10449,7 +10449,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.33,
-      "score_calidad": 4.29,
+      "score_calidad": 7.92,
       "pareto": false
     },
     {
@@ -10616,7 +10616,7 @@
       "security_score": 7.75,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.03,
-      "score_calidad": 4.92,
+      "score_calidad": 8.03,
       "pareto": false
     },
     {
@@ -10768,7 +10768,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.26,
-      "score_calidad": 4.52,
+      "score_calidad": 7.96,
       "pareto": false
     },
     {
@@ -10922,7 +10922,7 @@
       "security_score": 7.15,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.69,
-      "score_calidad": 5.61,
+      "score_calidad": 8.15,
       "pareto": false
     },
     {
@@ -11087,7 +11087,7 @@
       "security_score": 2.35,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.99,
-      "score_calidad": 4.81,
+      "score_calidad": 8.01,
       "pareto": false
     },
     {
@@ -11250,7 +11250,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.32,
-      "score_calidad": 4.0,
+      "score_calidad": 7.87,
       "pareto": false
     },
     {
@@ -11402,7 +11402,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.44,
-      "score_calidad": 3.72,
+      "score_calidad": 7.82,
       "pareto": false
     },
     {
@@ -11554,7 +11554,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.02,
-      "score_calidad": 4.58,
+      "score_calidad": 7.97,
       "pareto": false
     },
     {
@@ -11716,7 +11716,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.44,
-      "score_calidad": 3.31,
+      "score_calidad": 7.75,
       "pareto": false
     },
     {
@@ -11881,7 +11881,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0043,
       "score_global_linear": 6.91,
-      "score_calidad": 4.06,
+      "score_calidad": 7.88,
       "pareto": false
     },
     {
@@ -12033,7 +12033,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.25,
-      "score_calidad": 2.39,
+      "score_calidad": 7.59,
       "pareto": false
     },
     {
@@ -12185,7 +12185,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.74,
-      "score_calidad": 3.37,
+      "score_calidad": 7.76,
       "pareto": false
     },
     {
@@ -12341,7 +12341,7 @@
       "security_score": 9.55,
       "policy_refusal_rate": 0.0612,
       "score_global_linear": 6.56,
-      "score_calidad": 3.03,
+      "score_calidad": 7.7,
       "pareto": false
     },
     {
@@ -12493,7 +12493,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.01,
-      "score_calidad": 1.94,
+      "score_calidad": 7.51,
       "pareto": false
     },
     {
@@ -12656,7 +12656,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.79,
-      "score_calidad": 1.53,
+      "score_calidad": 7.44,
       "pareto": false
     },
     {
@@ -12812,7 +12812,7 @@
       "security_score": 6.4,
       "policy_refusal_rate": 0.0476,
       "score_global_linear": 6.5,
-      "score_calidad": 2.05,
+      "score_calidad": 7.53,
       "pareto": false
     },
     {
@@ -12964,7 +12964,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.06,
-      "score_calidad": 0.5,
+      "score_calidad": 7.26,
       "pareto": false
     },
     {
@@ -13116,7 +13116,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.5,
-      "score_calidad": 1.07,
+      "score_calidad": 7.36,
       "pareto": false
     },
     {
@@ -13265,7 +13265,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.92,
-      "score_calidad": 8.88,
+      "score_calidad": 8.72,
       "pareto": false
     },
     {
@@ -13400,7 +13400,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 8.18,
-      "score_calidad": 7.85,
+      "score_calidad": 8.54,
       "pareto": false
     },
     {
@@ -13578,7 +13578,7 @@
       "security_score": 8.2,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.39,
-      "score_calidad": 9.69,
+      "score_calidad": 8.86,
       "pareto": false
     },
     {
@@ -13749,7 +13749,7 @@
       "security_score": 8.2,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.86,
-      "score_calidad": 8.19,
+      "score_calidad": 8.6,
       "pareto": false
     },
     {
@@ -13920,7 +13920,7 @@
       "security_score": 6.4,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.17,
-      "score_calidad": 8.25,
+      "score_calidad": 8.61,
       "pareto": false
     },
     {
@@ -14061,7 +14061,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.68,
-      "score_calidad": 7.27,
+      "score_calidad": 8.44,
       "pareto": false
     },
     {
@@ -14222,7 +14222,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.58,
-      "score_calidad": 7.56,
+      "score_calidad": 8.49,
       "pareto": false
     },
     {
@@ -14374,7 +14374,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.62,
-      "score_calidad": 7.04,
+      "score_calidad": 8.4,
       "pareto": false
     },
     {
@@ -14531,7 +14531,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.34,
-      "score_calidad": 7.39,
+      "score_calidad": 8.46,
       "pareto": false
     },
     {
@@ -14692,7 +14692,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.3,
-      "score_calidad": 7.27,
+      "score_calidad": 8.44,
       "pareto": false
     },
     {
@@ -14894,7 +14894,7 @@
       "security_score": 7.3,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.46,
-      "score_calidad": 6.41,
+      "score_calidad": 8.29,
       "pareto": false
     },
     {
@@ -15064,7 +15064,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.93,
-      "score_calidad": 7.56,
+      "score_calidad": 8.49,
       "pareto": false
     },
     {
@@ -15233,7 +15233,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.43,
-      "score_calidad": 6.47,
+      "score_calidad": 8.3,
       "pareto": false
     },
     {
@@ -15392,7 +15392,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.26,
-      "score_calidad": 6.82,
+      "score_calidad": 8.36,
       "pareto": false
     },
     {
@@ -15589,7 +15589,7 @@
       "security_score": 6.4,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.05,
-      "score_calidad": 6.93,
+      "score_calidad": 8.38,
       "pareto": false
     },
     {
@@ -15778,7 +15778,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.48,
-      "score_calidad": 6.13,
+      "score_calidad": 8.24,
       "pareto": false
     },
     {
@@ -15931,7 +15931,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.13,
-      "score_calidad": 6.76,
+      "score_calidad": 8.35,
       "pareto": false
     },
     {
@@ -16113,7 +16113,7 @@
       "security_score": 9.1,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.09,
-      "score_calidad": 6.41,
+      "score_calidad": 8.29,
       "pareto": false
     },
     {
@@ -16280,7 +16280,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.55,
-      "score_calidad": 5.49,
+      "score_calidad": 8.13,
       "pareto": false
     },
     {
@@ -16431,7 +16431,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.23,
-      "score_calidad": 6.24,
+      "score_calidad": 8.26,
       "pareto": false
     },
     {
@@ -16609,7 +16609,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.53,
-      "score_calidad": 5.55,
+      "score_calidad": 8.14,
       "pareto": false
     },
     {
@@ -16758,7 +16758,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.66,
-      "score_calidad": 5.15,
+      "score_calidad": 8.07,
       "pareto": false
     },
     {
@@ -16940,7 +16940,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.6,
-      "score_calidad": 5.27,
+      "score_calidad": 8.09,
       "pareto": false
     },
     {
@@ -17128,7 +17128,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.01,
-      "score_calidad": 6.3,
+      "score_calidad": 8.27,
       "pareto": false
     },
     {
@@ -17283,7 +17283,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.3,
-      "score_calidad": 5.84,
+      "score_calidad": 8.19,
       "pareto": false
     },
     {
@@ -17430,7 +17430,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.47,
-      "score_calidad": 5.27,
+      "score_calidad": 8.09,
       "pareto": false
     },
     {
@@ -17591,7 +17591,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.35,
-      "score_calidad": 5.61,
+      "score_calidad": 8.15,
       "pareto": false
     },
     {
@@ -17748,7 +17748,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.0,
-      "score_calidad": 6.07,
+      "score_calidad": 8.23,
       "pareto": false
     },
     {
@@ -17892,7 +17892,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.4,
-      "score_calidad": 5.55,
+      "score_calidad": 8.14,
       "pareto": false
     },
     {
@@ -18047,7 +18047,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.33,
-      "score_calidad": 5.61,
+      "score_calidad": 8.15,
       "pareto": false
     },
     {
@@ -18225,7 +18225,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.45,
-      "score_calidad": 5.38,
+      "score_calidad": 8.11,
       "pareto": false
     },
     {
@@ -18371,7 +18371,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.05,
-      "score_calidad": 6.18,
+      "score_calidad": 8.25,
       "pareto": false
     },
     {
@@ -18536,7 +18536,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.69,
-      "score_calidad": 4.63,
+      "score_calidad": 7.98,
       "pareto": false
     },
     {
@@ -18697,7 +18697,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.45,
-      "score_calidad": 5.15,
+      "score_calidad": 8.07,
       "pareto": false
     },
     {
@@ -18890,7 +18890,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.41,
-      "score_calidad": 5.27,
+      "score_calidad": 8.09,
       "pareto": false
     },
     {
@@ -19047,7 +19047,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.83,
-      "score_calidad": 3.72,
+      "score_calidad": 7.82,
       "pareto": false
     },
     {
@@ -19242,7 +19242,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.17,
-      "score_calidad": 5.49,
+      "score_calidad": 8.13,
       "pareto": false
     },
     {
@@ -19436,7 +19436,7 @@
       "security_score": 2.35,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.21,
-      "score_calidad": 5.38,
+      "score_calidad": 8.11,
       "pareto": false
     },
     {
@@ -19593,7 +19593,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.17,
-      "score_calidad": 5.09,
+      "score_calidad": 8.06,
       "pareto": false
     },
     {
@@ -19801,7 +19801,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.17,
-      "score_calidad": 4.86,
+      "score_calidad": 8.02,
       "pareto": false
     },
     {
@@ -19978,7 +19978,7 @@
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.3,
-      "score_calidad": 4.35,
+      "score_calidad": 7.93,
       "pareto": false
     },
     {
@@ -20164,7 +20164,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.51,
-      "score_calidad": 3.83,
+      "score_calidad": 7.84,
       "pareto": false
     },
     {
@@ -20324,7 +20324,7 @@
       "security_score": 1.2,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.68,
-      "score_calidad": 2.8,
+      "score_calidad": 7.66,
       "pareto": false
     },
     {
@@ -20473,7 +20473,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.52,
-      "score_calidad": 3.37,
+      "score_calidad": 7.76,
       "pareto": false
     },
     {
@@ -20622,7 +20622,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.34,
-      "score_calidad": 3.77,
+      "score_calidad": 7.83,
       "pareto": false
     },
     {
@@ -20791,7 +20791,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.29,
-      "score_calidad": 3.77,
+      "score_calidad": 7.83,
       "pareto": false
     },
     {
@@ -20940,7 +20940,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.34,
-      "score_calidad": 3.72,
+      "score_calidad": 7.82,
       "pareto": false
     },
     {
@@ -21093,7 +21093,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.11,
-      "score_calidad": 3.94,
+      "score_calidad": 7.86,
       "pareto": false
     },
     {
@@ -21259,7 +21259,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.34,
-      "score_calidad": 3.14,
+      "score_calidad": 7.72,
       "pareto": false
     },
     {
@@ -21420,7 +21420,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.62,
-      "score_calidad": 1.19,
+      "score_calidad": 7.38,
       "pareto": false
     },
     {
@@ -21591,7 +21591,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.54,
-      "score_calidad": 1.19,
+      "score_calidad": 7.38,
       "pareto": false
     },
     {
@@ -21754,7 +21754,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.97,
-      "score_calidad": 2.8,
+      "score_calidad": 7.66,
       "pareto": false
     },
     {
@@ -21964,7 +21964,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.0,
-      "score_calidad": 2.62,
+      "score_calidad": 7.63,
       "pareto": false
     },
     {
@@ -22155,7 +22155,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.55,
-      "score_calidad": 1.48,
+      "score_calidad": 7.43,
       "pareto": false
     },
     {
@@ -22301,7 +22301,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.84,
-      "score_calidad": 0.0,
+      "score_calidad": 7.17,
       "pareto": false
     },
     {
@@ -22460,7 +22460,7 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.59,
-      "score_calidad": 0.0,
+      "score_calidad": 7.03,
       "pareto": false
     },
     {
@@ -22562,7 +22562,7 @@
       "security_runs": 0,
       "security_score": null,
       "policy_refusal_rate": 0.0,
-      "score_calidad": 10.0,
+      "score_calidad": 9.21,
       "pareto": false
     },
     {
@@ -22656,7 +22656,7 @@
       "security_runs": 0,
       "security_score": null,
       "policy_refusal_rate": 0.0,
-      "score_calidad": 10.0,
+      "score_calidad": 9.42,
       "pareto": false
     },
     {
@@ -22741,7 +22741,7 @@
       "security_runs": 0,
       "security_score": null,
       "policy_refusal_rate": 0.0,
-      "score_calidad": 10.0,
+      "score_calidad": 9.16,
       "pareto": false
     },
     {
@@ -22835,7 +22835,7 @@
       "security_runs": 0,
       "security_score": null,
       "policy_refusal_rate": 0.0,
-      "score_calidad": 7.33,
+      "score_calidad": 8.45,
       "pareto": false
     },
     {
@@ -22915,7 +22915,7 @@
       "security_runs": 0,
       "security_score": null,
       "policy_refusal_rate": 0.0,
-      "score_calidad": 0.0,
+      "score_calidad": 5.0,
       "pareto": false
     },
     {
@@ -22996,7 +22996,7 @@
       "security_runs": 0,
       "security_score": null,
       "policy_refusal_rate": 0.0,
-      "score_calidad": 0.0,
+      "score_calidad": 4.77,
       "pareto": false
     },
     {
