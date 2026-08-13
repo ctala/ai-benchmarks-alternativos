@@ -1,13 +1,13 @@
 # Llama 3.1 8B Instant
 
 - **model_id**: `meta-llama/llama-3.1-8b-instruct`
-- **Total tests**: 125/125 exitosos (0 errores)
-- **Score final**: 7.34
-- **Calidad**: 7.22
-- **Judge score (Phi-4)**: 3.84/10
-- **Velocidad**: 97 tok/s
-- **Latencia primera token**: 13.09s
-- **Costo promedio por test**: $0.00011
+- **Total tests**: 163/163 exitosos (0 errores)
+- **Score final**: 7.21
+- **Calidad**: 6.96
+- **Judge score (Phi-4)**: 3.65/10
+- **Velocidad**: 91 tok/s
+- **Latencia primera token**: 10.46s
+- **Costo promedio por test**: $0.00009
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,6 +33,7 @@
 | policy_adherence | 4 | 4 | 5.59 | 4.50 |
 | presentation | 2 | 2 | 7.93 | 8.06 |
 | reasoning | 3 | 3 | 8.24 | 8.69 |
+| retrieval_distractores | 18 | 18 | 7.30 | 7.17 |
 | sales_outreach | 3 | 3 | 8.73 | 9.33 |
 | startup_content | 5 | 5 | 8.25 | 8.65 |
 | strategy | 3 | 3 | 7.84 | 7.78 |
@@ -41,6 +42,7 @@
 | summarization | 2 | 2 | 6.95 | 6.50 |
 | task_management | 3 | 3 | 7.97 | 8.53 |
 | tool_calling | 4 | 4 | 6.48 | 5.35 |
+| tool_calling_adversarial | 20 | 20 | 6.35 | 5.14 |
 | translation | 5 | 5 | 8.22 | 8.39 |
 
 ## Detalle por test
@@ -2292,3 +2294,7 @@ Aquí está la información de los 3 candidatos en formato JSON:
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

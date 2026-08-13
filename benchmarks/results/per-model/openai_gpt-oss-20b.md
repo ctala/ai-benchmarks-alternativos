@@ -1,13 +1,13 @@
 # GPT-OSS 20B
 
 - **model_id**: `openai/gpt-oss-20b`
-- **Total tests**: 130/130 exitosos (0 errores)
-- **Score final**: 7.70
-- **Calidad**: 7.82
-- **Judge score (Phi-4)**: 4.40/10
-- **Velocidad**: 95 tok/s
-- **Latencia primera token**: 19.64s
-- **Costo promedio por test**: $0.00027
+- **Total tests**: 140/140 exitosos (0 errores)
+- **Score final**: 7.69
+- **Calidad**: 7.79
+- **Judge score (Phi-4)**: 4.38/10
+- **Velocidad**: 94 tok/s
+- **Latencia primera token**: 18.50s
+- **Costo promedio por test**: $0.00025
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -41,6 +41,7 @@
 | summarization | 2 | 2 | 7.81 | 8.00 |
 | task_management | 3 | 3 | 8.30 | 8.55 |
 | tool_calling | 4 | 4 | 6.58 | 5.70 |
+| tool_calling_adversarial | 10 | 10 | 7.55 | 7.32 |
 | translation | 5 | 5 | 8.26 | 8.58 |
 
 ## Detalle por test
@@ -2387,3 +2388,5 @@ We need to respond in Spanish per rule. The user requests: publish article, appr
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial

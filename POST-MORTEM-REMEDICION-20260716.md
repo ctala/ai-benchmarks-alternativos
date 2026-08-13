@@ -1,3 +1,4 @@
+<!-- doc: snapshot -->
 # Post-mortem — re-medición limpia + v4.0 (16-17 jul 2026)
 
 Registro honesto de TODOS los errores generados y bugs encontrados durante la limpieza

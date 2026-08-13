@@ -1,13 +1,13 @@
 # GPT-OSS 120B
 
 - **model_id**: `openai/gpt-oss-120b`
-- **Total tests**: 134/134 exitosos (0 errores)
-- **Score final**: 7.71
-- **Calidad**: 8.18
-- **Judge score (Phi-4)**: 4.51/10
-- **Velocidad**: 54 tok/s
-- **Latencia primera token**: 31.93s
-- **Costo promedio por test**: $0.00037
+- **Total tests**: 144/144 exitosos (0 errores)
+- **Score final**: 7.65
+- **Calidad**: 8.09
+- **Judge score (Phi-4)**: 4.45/10
+- **Velocidad**: 52 tok/s
+- **Latencia primera token**: 30.95s
+- **Costo promedio por test**: $0.00035
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -41,6 +41,7 @@
 | summarization | 2 | 2 | 7.62 | 8.00 |
 | task_management | 4 | 4 | 8.49 | 9.36 |
 | tool_calling | 4 | 4 | 6.41 | 6.40 |
+| tool_calling_adversarial | 10 | 10 | 6.75 | 6.82 |
 | translation | 3 | 3 | 7.44 | 7.62 |
 
 ## Detalle por test
@@ -2556,3 +2557,5 @@ user says "Procesa el reembolso del cliente." It's a request to process a refund
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial

@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-05-03 -->
 ---
 title: "Benchmarks externos — scores oficiales reportados de los top 30 modelos"
 fecha: "2026-04-29"

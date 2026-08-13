@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-07-14 -->
 # AGENTS.md — Guía de decisión de modelos IA para agentes autónomos
 
 > **Para humanos**: este archivo está optimizado para que agentes IA (Claude Code, Cursor, GPT, etc.) lo consuman como contexto y recomienden modelos basados en datos del benchmark, no en entrenamiento previo.

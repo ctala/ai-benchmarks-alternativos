@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-04-25 -->
 # Descubrimientos y Observaciones
 
 > Hallazgos no obvios descubiertos durante los benchmarks. Actualizado cada edicion.

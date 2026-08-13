@@ -1,3 +1,4 @@
+<!-- doc: snapshot -->
 ---
 title: "Datasheet mayo 2026 — comparación vs abril"
 mes: "2026-05"

@@ -1,9 +1,9 @@
 # Claude Opus 5 — business_audit/atribucion_correlacion_temporal
 
 - model_id: `anthropic/claude-opus-5`
-- success: True  | final: 5.3 | quality: 6.0
-- latency_total: 33.673s | tokens_per_second: 60.8
-- input_tokens: 364 | output_tokens: 2048
+- success: True  | final: 8.12 | quality: 10.0
+- latency_total: 31.432s | tokens_per_second: 59.0
+- input_tokens: 364 | output_tokens: 1855
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -28,27 +28,48 @@ Contexto adicional: también el 3 de marzo empecé a pagar publicidad ($400 en e
 
 ## Respuesta completa
 
-## Conclusión corta
+# Conclusión corta
 
-**No se puede saber.** Con estos datos no hay forma de separar el efecto de la secuencia de emails del de los $400 de publicidad y de la mención del creador. Los tres empezaron en la misma ventana de 12 días. Cualquier número que te dé de "la secuencia aportó X" sería inventado.
+**No se puede saber.** Con estos números no hay forma de atribuirle el crecimiento a la secuencia de emails, ni de descartar que haya funcionado. Tienes tres intervenciones solapadas en el mismo mes y un solo mes de comparación.
 
-Y hay un segundo problema, más incómodo: **incluso si la secuencia hubiera sido la única cosa que cambió, 9 → 14 altas no alcanza para concluir que algo funcionó.**
+# Por qué los datos no alcanzan
 
-## Por qué el "+56% de altas" es más débil de lo que parece
+**1. Tres causas candidatas, un solo resultado**
+En marzo pasaron tres cosas: la secuencia (1/3), la publicidad (3/3) y la mención del creador (12/3). Las tres apuntan en la dirección de más altas. No hay nada en los datos que permita separar sus efectos. Esto es un problema de diseño, no de análisis: ningún método arregla un experimento donde todo cambió a la vez.
 
-- **Febrero tiene 28 días, marzo 31.** En tasa diaria es 0,32 → 0,45 altas/día, o sea +41%, no +56%.
-- **Con números tan chicos, la variación aleatoria explica esto sin problema.** Si tu tasa real fuera constante en 9 altas/mes, ver 14 o más en un mes cualquiera pasa aproximadamente 1 de cada 13 o 14 meses solo por azar. No es raro. No tenés un mes anterior con 14 solo porque no me mostraste los meses anteriores — ¿los tenés?
-- **Un solo mes de comparación no es una línea base.** Necesito 6–12 meses para saber si 9 era un mes flojo, si venías creciendo igual desde antes, y si hay estacionalidad (enero/febrero suelen ser distintos).
+**2. El delta es demasiado pequeño para ser señal**
+9 → 14 altas es +5 conversiones. En ese rango, la variación normal mes a mes puede explicar el movimiento sin que haya pasado nada. Si en enero tuviste 13 y en diciembre 8, esos "+29%" son ruido. **No me diste los meses anteriores, así que ni siquiera sé cuál es tu rango habitual.** Ese es el dato que más falta.
 
-## Por qué el MRR tampoco ayuda
+**3. El MRR y las altas cuentan historias que no verifiqué que encajen**
++$1.200 de MRR con 14 altas implica ~$86 por alta. Si tu plan cuesta menos que eso, parte del crecimiento vino de otra parte: upgrades de usuarios existentes, cambio de precios, menos cancelaciones, anualidades cobradas de golpe. Y si vino de ahí, la secuencia (que apunta a usuarios del plan gratuito) no es la explicación. Tampoco sé cuántas bajas hubo: +$1.200 neto podría ser +$1.600 en altas y -$400 en churn, o cualquier otra combinación.
 
-+$1.200 con 14 altas implica ~$86 por alta. Eso no cuadra con casi ningún plan de comunidad mensual, así que hay algo más ahí: planes anuales contados como MRR, upgrades de usuarios existentes, un cambio de precio, o churn muy bajo. **El MRR es una cifra neta** (altas − bajas − downgrades + expansión) y me la estás dando sin sus componentes. Ahora mismo el +29% podría ser en buena parte una venta anual grande, y no tendría nada que ver con la secuencia.
+**4. Falta el denominador**
+14 altas sobre cuántos usuarios gratuitos? Si la publicidad te trajo tráfico nuevo, tu base de free users creció en marzo. Más altas con una base más grande puede significar la misma tasa de conversión o incluso peor. La cifra absoluta no distingue entre "convierto mejor" y "tengo más gente a la que convertir".
 
-Antes de discutir atribución, necesito el MRR descompuesto: nuevo, expansión, contracción, churn.
+**5. El timing del creador es verificable y no lo miré**
+La mención fue el 12 de marzo. Si las altas se concentran alrededor de esa fecha, tienes una pista fuerte de que no fue el email. Si están repartidas parejo, otra. Este es el chequeo más barato que puedes hacer hoy mismo con datos que ya tienes.
 
-## Lo que haría falta para tener una respuesta
+# Qué haría falta
 
-**Nivel 1 — lo que probablemente ya tenés y respondería mucho (esta semana):**
+**Ahora, con lo que ya tienes registrado:**
 
-1. **Origen de cada una de las 14 altas.** ¿Cuántas venían de UTMs de publicidad? ¿Cuántas se registraron entre el 12 y el 20 de marzo (ventana del creador)?
-2. **La pregunta clave: ¿cuántos de los 14 eran us
+- **Altas por día de marzo y febrero.** Busca el pico alrededor del 12.
+- **Altas segmentadas por origen:** ¿el usuario entró por la publicidad, por el video, o ya estaba en tu base antes del 1 de marzo? Solo los que ya estaban antes del 1/3 pudieron ser afectados por la secuencia sin contaminación de los otros dos canales. Ese subgrupo es tu mejor aproximación disponible.
+- **Descomposición del MRR:** altas nuevas, upgrades, cancelaciones, cambios de precio. Necesito saber de dónde vinieron los $1.200.
+- **Usuarios gratuitos activos al inicio de cada mes**, para calcular tasa de conversión en lugar de conteo.
+- **Métricas de la secuencia:** aperturas, clics, y cuántos de los que convirtieron habían abierto al menos un email. Si convirtieron gente que nunca abrió un email, ya sabes algo.
+- **Altas de los 6-12 meses previos.** Sin esto no puedes distinguir señal de ruido, ni descartar estacionalidad.
+
+**Para tener una respuesta real, no una pista:**
+
+- **Prueba con grupo de control.** Divide a los usuarios gratuitos nuevos: mitad recibe la secuencia, mitad no. Compara tasa de conversión a 30 días. Es la única forma de aislar el efecto.
+- **Advertencia sobre el tamaño:** con tu volumen actual (~10-15 altas/mes), un test así tarda meses en dar algo concluyente. Detectar una mejora modesta requiere cientos de usuarios por rama. Conviene decidir de antemano cuánto tiempo lo vas a correr y qué diferencia mínima te haría cambiar de decisión, para no mirar los números cada semana y detenerte cuando se vean bien.
+- **No cambies tres cosas a la vez otra vez.** Si necesitas moverte rápido, al menos espacia las intervenciones dos o tres semanas.
+
+# Lo honesto
+
+La secuencia puede haber funcionado perfectamente. También puede no haber hecho nada y el crecimiento ser del video, o de la publicidad, o azar. Estos datos son compatibles con las tres historias.
+
+Lo que sí puedes concluir hoy: **marzo fue mejor que febrero.** Eso es todo. Y si mañana apagas la secuencia y las altas caen, tampoco sabrás si fue por eso o porque se agotó el efecto del video.
+
+Empieza por el desglose de altas por día y por origen. Con eso mañana ya tienes una idea mucho mejor, y es gratis.

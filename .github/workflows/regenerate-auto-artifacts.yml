@@ -27,6 +27,14 @@ on:
       - 'benchmarks/tests/**'
       - 'providers/adapters.py'
       - 'docs/**/*.html'
+      # La calculadora es código a mano que consume el JSON generado. Si alguien la
+      # edita, el guardrail `check_calculator.py` tiene que correr: el 13-ago-2026
+      # quedaron 11 umbrales calibrados para una escala que ya no existía, y la página
+      # cargaba igual sin una queja.
+      - 'docs/app.js'
+      - 'benchmarks/generate_readme_ranking.py'
+      - 'benchmarks/generate_rankings.py'
+      - 'benchmarks/generate_comparison.py'
   workflow_dispatch:  # permite re-correr manualmente
 
 permissions:
@@ -77,6 +85,27 @@ jobs:
       # que medir un modelo nuevo caduca toda cifra escrita a mano.
       - name: Verificar consistencia de scores en docs vivos
         run: python benchmarks/check_consistency.py
+
+      # Guardrail de la calculadora. NO se regenera —es codigo a mano— pero consume
+      # el JSON que este workflow acaba de reescribir. Cuando cambia la forma del
+      # dato nadie le avisa: el 13-ago-2026 quedaron 11 umbrales calibrados para una
+      # escala que ya no existia y el filtro por defecto dejaba pasar los 82 modelos.
+      # La pagina cargaba igual. Este paso falla el build en ese caso.
+      - name: Verificar que la calculadora sigue alineada con los datos
+        run: python benchmarks/check_calculator.py
+
+      # Control de versiones. El repo la declara en 6 superficies y el 13-ago-2026 dos
+      # estaban desfasadas sin que nada fallara: no habia tag de v4.1 y el README
+      # presentaba v4.0 como vigente.
+      - name: Verificar que el repo declara una sola version de si mismo
+        run: python benchmarks/check_version.py
+
+      # Quis custodiet ipsos custodes. El repo tenia OCHO guardrails y CERO pruebas:
+      # si uno se rompia, pasaba en verde y nadie se enteraba — el mismo modo de falla
+      # que los guardrails vinieron a resolver, un nivel mas arriba. Esta prueba les
+      # presenta una version rota del mundo y exige que fallen.
+      - name: Probar que los guardrails cazan su propio fallo
+        run: python benchmarks/test_guardrails.py
 
       - name: Commit si hay cambios
         run: |

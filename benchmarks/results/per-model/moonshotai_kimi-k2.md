@@ -1,13 +1,13 @@
 # Kimi K2
 
 - **model_id**: `moonshotai/kimi-k2`
-- **Total tests**: 163/185 exitosos (22 errores)
-- **Score final**: 7.27
-- **Calidad**: 8.06
-- **Judge score (Phi-4)**: 4.32/10
-- **Velocidad**: 33 tok/s
-- **Latencia primera token**: 19.45s
-- **Costo promedio por test**: $0.00351
+- **Total tests**: 173/195 exitosos (22 errores)
+- **Score final**: 7.25
+- **Calidad**: 8.00
+- **Judge score (Phi-4)**: 4.29/10
+- **Velocidad**: 32 tok/s
+- **Latencia primera token**: 18.70s
+- **Costo promedio por test**: $0.00333
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -41,6 +41,7 @@
 | summarization | 2 | 2 | 6.58 | 6.91 |
 | task_management | 3 | 3 | 7.62 | 8.62 |
 | tool_calling | 8 | 7 | 5.42 | 5.12 |
+| tool_calling_adversarial | 10 | 10 | 6.83 | 6.96 |
 | translation | 4 | 4 | 7.58 | 8.04 |
 
 ## Detalle por test
@@ -3029,3 +3030,5 @@ SEMANA 0 – DÍA 0 (Ki
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial

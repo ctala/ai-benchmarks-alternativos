@@ -1,13 +1,13 @@
 # Gemini 3.1 Flash Lite
 
 - **model_id**: `google/gemini-3.1-flash-lite-preview`
-- **Total tests**: 214/265 exitosos (51 errores)
-- **Score final**: 7.41
-- **Calidad**: 7.74
-- **Judge score (Phi-4)**: 3.82/10
-- **Velocidad**: 101 tok/s
-- **Latencia primera token**: 2.89s
-- **Costo promedio por test**: $0.00620
+- **Total tests**: 224/275 exitosos (51 errores)
+- **Score final**: 7.38
+- **Calidad**: 7.65
+- **Judge score (Phi-4)**: 3.77/10
+- **Velocidad**: 100 tok/s
+- **Latencia primera token**: 2.80s
+- **Costo promedio por test**: $0.00593
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -43,6 +43,7 @@
 | summarization | 2 | 2 | 7.58 | 7.50 |
 | task_management | 3 | 3 | 8.63 | 9.12 |
 | tool_calling | 4 | 4 | 7.29 | 7.24 |
+| tool_calling_adversarial | 10 | 10 | 6.61 | 5.84 |
 | translation | 3 | 3 | 8.58 | 8.57 |
 
 ## Detalle por test
@@ -2610,3 +2611,5 @@ Aquí tienes la información extraída de los tres candidatos en formato JSON:
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial

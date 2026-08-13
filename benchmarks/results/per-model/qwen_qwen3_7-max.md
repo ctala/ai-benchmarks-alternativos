@@ -1,13 +1,13 @@
 # Qwen 3.7 Max
 
 - **model_id**: `qwen/qwen3.7-max`
-- **Total tests**: 158/158 exitosos (0 errores)
-- **Score final**: 6.46
-- **Calidad**: 7.30
-- **Judge score (Phi-4)**: 3.77/10
-- **Velocidad**: 56 tok/s
-- **Latencia primera token**: 46.44s
-- **Costo promedio por test**: $0.02433
+- **Total tests**: 168/168 exitosos (0 errores)
+- **Score final**: 6.48
+- **Calidad**: 7.29
+- **Judge score (Phi-4)**: 3.79/10
+- **Velocidad**: 55 tok/s
+- **Latencia primera token**: 44.21s
+- **Costo promedio por test**: $0.02304
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -42,6 +42,7 @@
 | summarization | 2 | 2 | 6.54 | 7.36 |
 | task_management | 3 | 3 | 7.80 | 9.27 |
 | tool_calling | 4 | 4 | 5.65 | 5.63 |
+| tool_calling_adversarial | 10 | 10 | 6.79 | 7.24 |
 | translation | 3 | 3 | 7.49 | 8.57 |
 
 ## Detalle por test
@@ -2227,3 +2228,5 @@ A continuación, te presento el **Plan de Proyecto Ágil** estructurado para tu 
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial

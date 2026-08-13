@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-07-16 -->
 # Relanzamiento v4.0 del benchmark — decisión + plan
 
 *Aprobado por Cristian el 16-jul-2026. Sobre `benchmarks.cristiantala.com`.*

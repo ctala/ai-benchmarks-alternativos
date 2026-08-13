@@ -195,6 +195,28 @@ def main() -> int:
             print("   Arreglalos antes de publicar: los números de arriba NO coinciden con models.json.")
             return 1
 
+        # La calculadora NO se regenera —es código a mano— pero consume el JSON que este
+        # pipeline acaba de reescribir. Cuando cambia la forma del dato, nadie le avisa.
+        # El 13-ago eso dejó 11 umbrales calibrados para una escala que ya no existía: el
+        # filtro por defecto dejaba pasar los 82 y la página cargaba igual, sin una queja.
+        # El repo declara su versión en 6 lugares. El 13-ago dos estaban desfasados
+        # —no había tag de v4.1 y el README presentaba v4.0 como vigente— sin que nada
+        # fallara. Un repo que dice tres versiones distintas de sí mismo no tiene
+        # control de cambios, tiene tres relatos.
+        print()
+        rc = run_script("check_version.py", [], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ El pipeline regeneró, pero el control de versión está roto.")
+            print("   Alinealo antes de publicar: el repo declara versiones distintas de sí mismo.")
+            return 1
+
+        print()
+        rc = run_script("check_calculator.py", [], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ El pipeline regeneró, pero la calculadora quedó desalineada.")
+            print("   Sus filtros mienten en silencio: la página carga y no protesta.")
+            return 1
+
     print("\n✅ Pipeline de regeneración completado — y sin drift.")
     return 0
 

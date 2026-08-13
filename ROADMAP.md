@@ -1,7 +1,8 @@
+<!-- doc: vigente | verificado: 2026-08-13 -->
 # Roadmap del Benchmark
 
 > Ultima actualizacion: 17 de Julio de 2026 (relanzamiento v4.0.0: referencia z-score congelada + eje agéntico + limpieza de datos + refusal policy + pase de UX)
-> Estado del ranking: **v4.0.0 — <!-- AUTO:total_models -->191<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->138<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->29,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
+> Estado del ranking: **v4.0.0 — <!-- AUTO:total_models -->191<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->138<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->30,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
 > Cobertura faltante: ver [TESTS_FALTANTES.md](TESTS_FALTANTES.md) (30 modelos sin runs o con cobertura parcial).
 > **Próximo release: Agosto 2026** (cadencia mensual). Lo último publicado es el **relanzamiento v4.0.0 (17-jul-2026)** — ver [CHANGELOG.md](CHANGELOG.md).
 

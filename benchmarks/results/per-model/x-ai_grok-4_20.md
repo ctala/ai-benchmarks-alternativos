@@ -1,13 +1,13 @@
 # Grok 4.20
 
 - **model_id**: `x-ai/grok-4.20`
-- **Total tests**: 126/126 exitosos (0 errores)
-- **Score final**: 7.35
-- **Calidad**: 7.93
-- **Judge score (Phi-4)**: 4.18/10
-- **Velocidad**: 69 tok/s
-- **Latencia primera token**: 9.32s
-- **Costo promedio por test**: $0.00406
+- **Total tests**: 136/136 exitosos (0 errores)
+- **Score final**: 7.20
+- **Calidad**: 7.68
+- **Judge score (Phi-4)**: 4.02/10
+- **Velocidad**: 65 tok/s
+- **Latencia primera token**: 8.70s
+- **Costo promedio por test**: $0.00382
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -41,6 +41,7 @@
 | summarization | 2 | 2 | 7.44 | 7.72 |
 | task_management | 3 | 3 | 8.13 | 9.05 |
 | tool_calling | 4 | 4 | 6.62 | 7.10 |
+| tool_calling_adversarial | 10 | 10 | 5.32 | 4.51 |
 | translation | 3 | 3 | 7.73 | 8.36 |
 
 ## Detalle por test
@@ -2338,3 +2339,5 @@ Las ventas del primer trimestre alcanzaron **$2.3M**, representando un crecimien
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial

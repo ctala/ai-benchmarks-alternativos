@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-07-12 -->
 # IA para Emprendedores: Todos los Casos de Uso Reales
 
 > Para un fundador solo o equipo pequeño que necesita hacer todo.

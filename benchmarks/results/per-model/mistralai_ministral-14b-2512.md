@@ -1,13 +1,13 @@
 # Ministral 14B
 
 - **model_id**: `mistralai/ministral-14b-2512`
-- **Total tests**: 141/141 exitosos (0 errores)
-- **Score final**: 7.85
-- **Calidad**: 8.14
-- **Judge score (Phi-4)**: 4.49/10
-- **Velocidad**: 73 tok/s
-- **Latencia primera token**: 15.16s
-- **Costo promedio por test**: $0.00091
+- **Total tests**: 151/151 exitosos (0 errores)
+- **Score final**: 7.78
+- **Calidad**: 8.01
+- **Judge score (Phi-4)**: 4.40/10
+- **Velocidad**: 71 tok/s
+- **Latencia primera token**: 14.25s
+- **Costo promedio por test**: $0.00086
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -41,6 +41,7 @@
 | summarization | 2 | 2 | 8.36 | 8.30 |
 | task_management | 5 | 5 | 8.95 | 9.68 |
 | tool_calling | 4 | 4 | 7.16 | 6.75 |
+| tool_calling_adversarial | 10 | 10 | 6.80 | 6.12 |
 | translation | 3 | 3 | 8.75 | 9.20 |
 
 ## Detalle por test
@@ -2737,3 +2738,5 @@ Aquí tienes un **plan detallado** para lanzar tu landing page en **4 semanas** 
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
