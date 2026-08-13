@@ -46,7 +46,9 @@ def load_ranked() -> tuple[list[dict], dict]:
         m for m in data.get("models", [])
         if m.get("ranked") and m.get("score_global") is not None
     ]
-    ranked.sort(key=lambda m: -m["score_global"])
+    # Orden por CALIDAD: desde v4.1 el titular responde "¿qué modelo es mejor?".
+    # El compuesto (score_global) va en su propia tabla, más abajo.
+    ranked.sort(key=lambda m: -(m.get("score_calidad") or 0))
     return ranked, data
 
 
@@ -66,15 +68,64 @@ def build_block(ranked: list[dict], data: dict) -> str:
         f"`docs/data/models.json`. **No editar a mano** — el z-score se recalcula "
         f"con cada modelo nuevo y una tabla escrita a mano queda obsoleta sola.",
         "",
-        "| # | Modelo | Score | Quality | Cost | Provider | $/1k calls | Runs |",
-        "|---|---|---:|---:|---:|---|---:|---:|",
+        "### Índice de calidad — ¿qué modelo responde mejor?",
+        "",
+        "Solo calidad. **El precio y la velocidad se muestran al lado, no van dentro del "
+        "número** — un modelo caro no es peor, es caro, y mezclarlo esconde cuál es cuál.",
+        "",
+        "| # | Modelo | Calidad | $/1k calls | Latencia | Provider | Runs |",
+        "|---|---|---:|---:|---:|---|---:|",
     ]
     for i, m in enumerate(ranked[:TOP_N], 1):
-        q = m.get("quality_avg")
-        c = m.get("cost_score_avg")
+        lat = m.get("latency_avg_s")
         lines.append(
-            f"| {i} | **{m['name']}** | **{m['score_global']:.2f}** | "
-            f"{q:.2f} | {c:.2f} | {m.get('provider', '?')} | {fmt_cost(m)} | {m.get('runs', 0)} |"
+            f"| {i} | **{m['name']}** | **{(m.get('score_calidad') or 0):.2f}** | "
+            f"{fmt_cost(m)} | {f'{lat:.0f}s' if lat is not None else '—'} | "
+            f"{m.get('provider', '?')} | {m.get('runs', 0)} |"
+        )
+
+    # Calidad por dólar. Va ANTES de la frontera a propósito: para un emprendedor con el
+    # presupuesto como límite duro, "cuánto rinde cada peso" es la pregunta que de verdad
+    # se hace. Y es la única métrica del set que no correlaciona con el ranking de calidad
+    # (r = 0,05): no es el mismo orden con otro nombre.
+    por_peso = sorted([m for m in ranked if (m.get("cost_per_1k_calls_usd") or 0) > 0],
+                      key=lambda m: -(m["score_calidad"] / m["cost_per_1k_calls_usd"]))[:TOP_N]
+    lines += [
+        "",
+        "### Calidad por dólar — ¿cuánto rinde cada peso?",
+        "",
+        "Calidad dividido por lo que cuesta. **Premia lo barato a propósito**: un modelo "
+        "de calidad media a $0,10 le gana a uno excelente a $1. Mirá la columna *Calidad* "
+        "para ver qué estás resignando.",
+        "",
+        "| # | Modelo | Calidad/$ | Calidad | $/1k calls | Provider |",
+        "|---|---|---:|---:|---:|---|",
+    ]
+    for i, m in enumerate(por_peso, 1):
+        ratio = m["score_calidad"] / m["cost_per_1k_calls_usd"]
+        lines.append(
+            f"| {i} | **{m['name']}** | **{ratio:,.1f}** | {m['score_calidad']:.2f} | "
+            f"{fmt_cost(m)} | {m.get('provider', '?')} |"
+        )
+
+    frontera = sorted([m for m in ranked if m.get("pareto")],
+                      key=lambda m: -(m.get("score_calidad") or 0))
+    lines += [
+        "",
+        "### Frontera de Pareto — ¿cuáles vale la pena siquiera considerar?",
+        "",
+        f"Los **{len(frontera)} de {ranked_count}** modelos que nadie domina: para el resto "
+        f"existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking "
+        f"—dentro de la frontera la elección depende de tu caso— es un descarte.",
+        "",
+        "| Modelo | Calidad | $/1k calls | Latencia | Provider |",
+        "|---|---:|---:|---:|---|",
+    ]
+    for m in frontera:
+        lat = m.get("latency_avg_s")
+        lines.append(
+            f"| **{m['name']}** | {(m.get('score_calidad') or 0):.2f} | {fmt_cost(m)} | "
+            f"{f'{lat:.0f}s' if lat is not None else '—'} | {m.get('provider', '?')} |"
         )
 
     lines += [
@@ -84,13 +135,23 @@ def build_block(ranked: list[dict], data: dict) -> str:
         f"emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su "
         f"score marcado como indicativo.",
         "",
-        f"> **Este ranking es un punto de partida, no un veredicto.** El score pondera calidad "
-        f"(70%), costo (15%), velocidad (7.5%) y latencia (7.5%) para un perfil de emprendedor "
-        f"genérico. **Tu caso probablemente no sea ese.** Si corrés batch de noche, la latencia "
-        f"no te importa y este ranking la está penalizando igual; si atendés usuarios en vivo, "
-        f"te importa el doble. Ajustá los pesos a tu caso en la "
-        f"[calculadora](https://benchmarks.cristiantala.com/) o mirá las tablas por caso de uso "
-        f"en [MODELOS.md](MODELOS.md).",
+        f"> **Por qué la calidad va sola.** Hasta v4.0 publicábamos un número que mezclaba "
+        f"calidad con precio, y movía modelos sin avisar: Claude Opus 4.6 es **#5 en calidad** "
+        f"y salía **#18**; Poolside Laguna XS es **#29** y salía **#7**. Las dos cifras eran "
+        f"verdad, pero bajo un rótulo que no lo decía. Ahora el precio se muestra al lado y "
+        f"cada quien decide qué pesa. Es lo mismo que hace "
+        f"[Artificial Analysis](https://artificialanalysis.ai/) con su Intelligence Index.",
+        "",
+        f"> **La frontera es frágil a propósito, y conviene saberlo.** Basta un modelo nuevo, "
+        f"bueno y barato para que varios de esta lista queden dominados de un día para otro. "
+        f"Eso es lo que debe pasar. Pero también significa que **depende de que los datos del "
+        f"líder sean correctos**: si la calidad del tope está sobreestimada, la frontera se "
+        f"ensancha.",
+        "",
+        f"> **Nada de esto es tu caso exacto.** Si corrés batch de noche, la latencia no te "
+        f"importa y acá está pesando; si atendés usuarios en vivo, te importa el doble. Ajustá "
+        f"los pesos en la [calculadora](https://benchmarks.cristiantala.com/) o mirá las tablas "
+        f"por caso de uso en [MODELOS.md](MODELOS.md).",
         "",
         END,
     ]

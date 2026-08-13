@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:48:14+00:00",
+      "at": "2026-08-13T04:21:11+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -21,7 +21,7 @@
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 0.000108,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -52,13 +52,13 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:14+00:00",
+      "rescored_at": "2026-08-13T04:21:11+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 5.0,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 9.1e-05,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -89,13 +89,13 @@
       "content_score": 8.67,
       "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:14+00:00",
+      "rescored_at": "2026-08-13T04:21:11+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 6.0,
       "cost_score": 10.0,
-      "cost_usd": 0.0,
+      "cost_usd": 0.000211,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -126,17 +126,17 @@
       "content_score": 9.34,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:14+00:00",
+      "rescored_at": "2026-08-13T04:21:11+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 9.37,
-      "cost_usd": 0.00035,
+      "cost_score": 9.32,
+      "cost_usd": 0.000362,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 9.31,
+      "final": 9.3,
       "test_name": "factual_trap_companies",
       "model": "MiniMax M2.5",
       "model_id": "minimax/minimax-m2.5",
@@ -163,17 +163,17 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:14+00:00",
+      "rescored_at": "2026-08-13T04:21:11+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 5.0,
-      "cost_score": 9.78,
-      "cost_usd": 0.000254,
+      "cost_score": 9.72,
+      "cost_usd": 0.000266,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 5.87,
+      "final": 5.86,
       "test_name": "context_faithfulness",
       "model": "MiniMax M2.5",
       "model_id": "minimax/minimax-m2.5",
@@ -200,13 +200,13 @@
       "content_score": 9.34,
       "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:14+00:00",
+      "rescored_at": "2026-08-13T04:21:11+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 7.95,
-      "cost_usd": 0.001037,
+      "cost_score": 7.94,
+      "cost_usd": 0.001048,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -237,7 +237,7 @@
       "content_score": 9.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:14+00:00",
+      "rescored_at": "2026-08-13T04:21:11+00:00",
       "scoring": "verificable"
     }
   ]

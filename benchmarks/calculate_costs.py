@@ -52,11 +52,93 @@ LOTES = [
 PRE_V21_ESTIMATE_USD = 3.0  # rough estimate for early v1.x runs not preserved
 
 
+# ── Estimación PROSPECTIVA ────────────────────────────────────────────────────
+# Por qué existe (12-ago-2026): la Regla 0.5 del RUNBOOK ya decía que multi-turno
+# dispara los tokens "muy por encima del promedio". Estaba escrita, y aun así
+# estimé Grupo A en $15,09 cuando iba a costar ~$32 — el doble.
+#
+# La causa es aritmética y no se ve promediando: `agent_long_horizon` reenvía la
+# conversación entera en cada turno, así que un test de 13 turnos paga el
+# contexto 13 veces, creciendo. Medido en Claude Opus 5 Fast: 25.837 tokens de
+# input por run contra ~300 de una suite normal — **86×**. Esa suite se llevó el
+# 44% del costo del modelo en el 7,5% de los runs.
+#
+# Estimar con un promedio global de $/run reparte ese pico entre 192 runs y lo
+# esconde. Por eso este estimador proyecta **por suite**, nunca en bloque.
+def estimar(modelo_ref: str, precio_in: float, precio_out: float, results_dir: str):
+    """Proyecta el costo del examen completo usando el consumo real por suite
+    de un examen ya medido (`modelo_ref`), aplicado a otro precio."""
+    import glob
+    from collections import defaultdict
+
+    runs = []
+    for f in glob.glob(os.path.join(results_dir, "*.json")):
+        try:
+            d = json.load(open(f))
+        except Exception:
+            continue
+        # algunos JSONs históricos son una lista pelada de runs, no {"results": [...]}
+        items = d if isinstance(d, list) else d.get("results", [])
+        for r in items:
+            if not isinstance(r, dict):
+                continue
+            if r.get("model_id") == modelo_ref or r.get("model") == modelo_ref:
+                if r.get("success"):
+                    runs.append(r)
+    if not runs:
+        print(f"✗ no hay runs de '{modelo_ref}' para usar como referencia")
+        return 1
+
+    por = defaultdict(lambda: [0, 0, 0])  # suite -> [n, tok_in, tok_out]
+    for r in runs:
+        s = r.get("suite", "?")
+        por[s][0] += 1
+        por[s][1] += r.get("input_tokens") or 0
+        por[s][2] += r.get("output_tokens") or 0
+
+    print(f"Referencia: {modelo_ref} · {len(runs)} runs · {len(por)} suites")
+    print(f"Precio objetivo: ${precio_in}/M in · ${precio_out}/M out\n")
+    print(f"  {'suite':<24} {'runs':>5} {'tok-in/run':>11} {'$/run':>8} {'$ suite':>9}")
+    total = 0.0
+    for s, (n, ti, to) in sorted(por.items(), key=lambda x: -(x[1][1] / max(x[1][0], 1))):
+        c = (ti / 1_000_000) * precio_in + (to / 1_000_000) * precio_out
+        total += c
+        marca = "  ⚠ multi-turno" if ti / max(n, 1) > 5000 else ""
+        print(f"  {s:<24} {n:>5} {ti/max(n,1):>11,.0f} {c/max(n,1):>8.3f} {c:>9.2f}{marca}")
+    print(f"\n  TOTAL examen completo ≈ ${total:.2f}")
+    # Si la referencia es un examen a medias, el total sale corto EN SILENCIO —
+    # el mismo modo de falla que este estimador vino a evitar. Que grite.
+    if len(runs) < 170:
+        falta = 192 - len(runs)
+        print(f"  ⚠️  REFERENCIA INCOMPLETA: {len(runs)}/192 runs. Faltan ~{falta} y el "
+              f"total de arriba NO los incluye.\n"
+              f"     Si los que faltan son de una suite multi-turno, el costo real es "
+              f"bastante mayor. Usá una referencia completa.")
+    caras = {s: v for s, v in por.items() if v[1] / max(v[0], 1) > 5000}
+    if caras:
+        cc = sum((v[1]/1_000_000)*precio_in + (v[2]/1_000_000)*precio_out for v in caras.values())
+        nn = sum(v[0] for v in caras.values())
+        print(f"  de los cuales {', '.join(caras)}: ${cc:.2f} "
+              f"({cc/total*100:.0f}% del costo en {nn/len(runs)*100:.0f}% de los runs)")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--markdown", action="store_true", help="Emitir tabla en formato Markdown")
     ap.add_argument("--results-dir", default="benchmarks/results", help="Carpeta con JSONs")
+    ap.add_argument("--estimar", metavar="MODELO",
+                    help="Proyectar el costo de un examen completo ANTES de lanzarlo, "
+                         "por suite. Requiere --precio-in/--precio-out del modelo objetivo "
+                         "y usa MODELO (ya medido) como referencia de consumo.")
+    ap.add_argument("--precio-in", type=float, help="USD por millón de tokens de input")
+    ap.add_argument("--precio-out", type=float, help="USD por millón de tokens de output")
     args = ap.parse_args()
+
+    if args.estimar:
+        if args.precio_in is None or args.precio_out is None:
+            ap.error("--estimar requiere --precio-in y --precio-out")
+        sys.exit(estimar(args.estimar, args.precio_in, args.precio_out, args.results_dir))
 
     rows = []
     total_cost = 0.0

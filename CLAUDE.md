@@ -196,7 +196,93 @@ Tres tiers en la oferta Alibaba — distinción importante para el ranking "open
 - **Versionar resultados JSON** siempre en git
 - **Flujo ROADMAP↔CHANGELOG**: todo lo que se marca completo en ROADMAP.md migra a CHANGELOG.md con el commit
 - **3 cortes de ranking en README**: (1) **global** = todos los modelos. (2) **solo alternativas** = sin Anthropic + sin OpenAI + sin Google propietarios (Gemini Flash / Flash Lite / Pro). Sí se permiten modelos Google open-source (Gemma). (3) **solo open-source** = todos los modelos con `open_source: True`. Siempre los 3 al actualizar resultados.
-- **No modificar prompts de tests**. Los prompts y criterios de `benchmarks/tests/` son la línea base de comparabilidad del benchmark. Cambios de stack de producción (p. ej. OpenClaw → Hermes) se reflejan en `README.md`, `CLAUDE.md` y generadores pSEO, **nunca en los tests**. Si hay que medir algo nuevo, se agrega como suite/test adicional; no se reescribe uno existente.
+- **Antes de lanzar un lote, corre el canario.** `python benchmarks/canario.py --models
+  <primer-modelo>`. Si sale 🔴, no se lanza. Verifica **invariantes** —responde, emite tool
+  calls, registra el proveedor, guarda la entrada, tasa de fallo bajo umbral— y por eso caza
+  regresiones que todavía no conocemos, a diferencia de los detectores que buscan problemas
+  ya conocidos. El 12-ago los fallos anticipados fueron TODOS los que tenían un chequeo
+  previo; los descubiertos tarde (378 runs perdidos en niah, meses de `orchestration`
+  midiendo prosa) no tenían ninguno. Detalle y por qué: `RUNBOOK-MEDICION.md`, PASO 0.
+- **Nunca medir en un endpoint `:free`.** Medido el 12-ago-2026: los runs contra ids
+  `:free` fallan **69,2%** (651 de 941) contra **10,9%** de los pagos — **seis veces más**.
+  Un free tier trae rate limits agresivos, puede servirse con otra cuantización y puede
+  desaparecer sin aviso. Nada de eso es el modelo, y todo entra al número que publicamos.
+
+  Si un modelo **solo** existe como `:free` en OpenRouter, se mide por la infra de su
+  creador (NIM, API propia), no por el free tier. Caso real: `nemotron-nano-9b-v2` y
+  `nemotron-3-nano-omni-30b-a3b-reasoning` solo están como `:free` en OpenRouter y **los
+  dos están en NVIDIA NIM**. Guardrail: `audit_suites.py` lista toda entrada con `:free` y
+  marca las que están rankeadas.
+
+  ⚠️ Distinto de `free_runtime`, que es correcto: un modelo que corre gratis (NIM 40 RPM,
+  Spark) pero **se costea al precio de OpenRouter** para que la comparación sea justa.
+- **No reinventamos la rueda: nuestro valor NO está en cómo se mide, está en QUÉ medimos.**
+
+  El motor de medición —scoring, agregación, verificadores, diseño de tests agénticos— es un
+  problema ya resuelto por gente con más recursos. Ahí **se adopta y se adapta**, no se
+  inventa. Lo que nadie más hace, y es el activo real de este repo, es probar modelos contra
+  **las decisiones de un emprendedor hispanohablante**: en español, con casos de producción
+  reales (Eco, Flip, Hermes, CAR), a precios que un pyme puede pagar.
+
+  Ya adoptado, con la fuente verificada (12-ago-2026):
+
+  | De dónde | Qué se adoptó |
+  |---|---|
+  | **LiveBench** | verdad objetiva por sobre juez LLM · `max_tokens` uniforme |
+  | **lm-eval-harness** | prompts publicados y versionados · recortar la traza de CoT |
+  | **Artificial Analysis** | Model ≠ Endpoint · costo y velocidad **fuera** del índice de calidad |
+  | **BFCL** | state-based evaluation · **subset matching** de trayectorias · multi-turn con tope de pasos · categoría de alucinación de herramientas |
+  | **τ-bench** | **`pass^k`**: fiabilidad sobre k intentos en vez de una media |
+
+  **Antes de construir un mecanismo de medición, buscar quién lo resolvió** y por qué lo hizo
+  así. Si existe, se adopta citando la fuente; si no encaja, se adapta y se documenta el
+  porqué. Construir desde cero solo lo que nadie construye: **las suites y los casos**.
+
+  El corolario incómodo: cuando nuestro motor difiere del estándar, la hipótesis por defecto
+  es que estamos equivocados nosotros. Pasó cinco veces el 12-ago.
+- **Una regla sin instrumento que la haga cumplir es una regla que ya se rompió.** Es la
+  lección que engloba a las otras, y se pagó **cinco veces el 12-ago-2026**: el guardrail
+  de endpoints corría sin cargar el `.env` (reportaba SIN CREDENCIAL en los 70 y **no podía
+  detectar un muerto**); el skip de `niah` no reservaba el presupuesto de salida (378 runs
+  perdidos); el juez corría donde su veredicto se descarta (2,1 h por modelo); se mandaban
+  `tools` a proveedores que las ignoran; y "no modificar prompts" no tenía quién lo
+  verificara. **Las cinco eran reglas correctas y escritas.** Al agregar o revisar una
+  regla, la pregunta no es si está documentada: es **qué falla ruidoso si se viola**.
+- **Los detectores cazan AUSENCIA; la contaminación es PRESENCIA.** E1 vacíos, E3 sin
+  procedencia, E4 tasa de fallo, E5 rutas muertas, E6 precio $0 — todos detectan lo que
+  falta. Un run contaminado tiene número, tiene forma válida y pasa `validate.py`. Por eso
+  el fallback de ruteo vivió meses invisible y **lo destapó el contraste con producción**,
+  no un guardrail. `E8` es el primero de esa clase; cuando agregues un detector, preguntate
+  si caza lo que sobra o solo lo que falta.
+- **Endpoint ≠ modelo.** OpenRouter es un router: 40 de 68 rankeados tienen proveedores no
+  equivalentes (contexto de 8.000 a 1.000.000; cuantización de `int4` a `bf16`). Cada run
+  registra `upstream_provider`. Sin eso, un número publicado como "modelo X" puede ser
+  "modelo X en un endpoint truncado" y no hay forma de saberlo después.
+- **Antes de construir, mirar qué hacen los que ya funcionan** (Regla #10 del repo padre).
+  Verificado el 12-ago contra las fuentes: prompts publicados (lm-eval-harness), verdad
+  objetiva por sobre juez LLM (LiveBench), `max_tokens` uniforme, Model≠Endpoint y
+  **costo/velocidad reportados APARTE del índice de calidad** (Artificial Analysis). Tres
+  de esas ya las teníamos por otro camino; la cuarta explica un problema que el
+  post-mortem de julio ya había descrito sin saber que tenía solución conocida.
+- **Cada run guarda su ENTRADA, no solo su salida.** El `.md` de
+  `results/responses/` lleva el prompt exacto (system + user) y, en multi-turno, la
+  **conversación completa**; el JSON lleva `prompt_sha`, la huella del input. En `niah`
+  se guarda la receta de generación (corpus + needle + posición), no el haystack: son
+  hasta 800K tokens por test.
+
+  **Por qué es regla y no una mejora:** hasta el 12-ago-2026 el `.md` se llamaba
+  "auditable" y tenía **media auditoría** — la respuesta sin la pregunta. El dataclass
+  capturaba `prompt=messages[-1]["content"][:200]` (truncado, solo el último mensaje) y
+  no lo persistía. En multi-turno la trayectoria se armaba en `metadata["trajectory"]` y
+  se tiraba: de un test de 8 turnos quedaba UNA respuesta. Sin la entrada no se puede
+  auditar un resultado raro ni reproducirlo — solo creerle.
+- **No modificar prompts de tests** — y ahora hay quién lo verifique.
+  `prompt_sha` hace que comparar dos runs del mismo test sea comparar dos hashes. La
+  regla existía desde siempre; **nada la chequeaba**, así que un prompt editado mezclaba
+  runs viejos y nuevos como si fueran el mismo examen, en silencio. Es el mismo patrón
+  que el skip de `niah` sin margen de salida, el juez que corría donde su veredicto se
+  descartaba y el ruteo sin `require_parameters`: **una regla escrita sin instrumento que
+  la haga cumplir es una regla que ya se rompió y no te enteraste.** Los prompts y criterios de `benchmarks/tests/` son la línea base de comparabilidad del benchmark. Cambios de stack de producción (p. ej. OpenClaw → Hermes) se reflejan en `README.md`, `CLAUDE.md` y generadores pSEO, **nunca en los tests**. Si hay que medir algo nuevo, se agrega como suite/test adicional; no se reescribe uno existente.
 - **API keys**: las 4 keys (OPENROUTER, OPENAI, MINIMAX, OLLAMA_CLOUD) viven en `.env` (gitignored). Nunca hardcodear en config.py ni imprimir en chat. Usar `len()` para validar presencia.
 - **Regla de auto-generación**: antes de cualquier commit que toque benchmarks/results/, config, tests o docs/, ejecutar el pipeline maestro:
   ```bash

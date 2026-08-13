@@ -13,19 +13,19 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:51:21+00:00",
+      "at": "2026-08-13T04:22:52+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
   "results": [
     {
       "quality": 10.0,
-      "cost_score": 8.68,
-      "cost_usd": 0.000595,
+      "cost_score": 8.19,
+      "cost_usd": 0.000864,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.68,
+      "final": 8.6,
       "test_name": "factual_trap_companies",
       "model": "DeepSeek V4 Pro",
       "model_id": "deepseek/deepseek-v4-pro",
@@ -53,16 +53,16 @@
       "timestamp": "20260714_154655_23197",
       "response_file": "results/responses/20260714_154655_23197/deepseek-v4-pro__hallucination__factual_trap_companies.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     },
     {
       "quality": 5.0,
-      "cost_score": 9.1,
-      "cost_usd": 0.000428,
+      "cost_score": 8.62,
+      "cost_usd": 0.000622,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 5.62,
+      "final": 5.54,
       "test_name": "context_faithfulness",
       "model": "DeepSeek V4 Pro",
       "model_id": "deepseek/deepseek-v4-pro",
@@ -90,16 +90,16 @@
       "timestamp": "20260714_154655_23197",
       "response_file": "results/responses/20260714_154655_23197/deepseek-v4-pro__hallucination__context_faithfulness.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     },
     {
       "quality": 10.0,
-      "cost_score": 8.61,
-      "cost_usd": 0.000627,
+      "cost_score": 8.12,
+      "cost_usd": 0.000911,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.67,
+      "final": 8.59,
       "test_name": "fake_citation_trap",
       "model": "DeepSeek V4 Pro",
       "model_id": "deepseek/deepseek-v4-pro",
@@ -127,7 +127,7 @@
       "timestamp": "20260714_154655_23197",
       "response_file": "results/responses/20260714_154655_23197/deepseek-v4-pro__hallucination__fake_citation_trap.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     }
   ]
 }

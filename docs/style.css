@@ -429,6 +429,13 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
 .tag.thinking { color: var(--magenta); border-color: rgba(255, 0, 110, 0.3); }
 .tag.tools { color: var(--cyan); border-color: rgba(0, 212, 255, 0.3); }
 .tag.multimodal { color: #ffaa00; border-color: rgba(255, 170, 0, 0.3); }
+/* Frontera de Pareto: morado de marca (brand.json #7a00df, aclarado para contraste
+   sobre fondo oscuro). Es el tag más "fuerte" del set a propósito — marca a 13 de 82. */
+.tag.pareto {
+  color: #b478ff;
+  border-color: rgba(122, 0, 223, 0.45);
+  background: rgba(122, 0, 223, 0.08);
+}
 .tag.tag-warn {
   color: #ffd700;
   border-color: rgba(255, 215, 0, 0.4);

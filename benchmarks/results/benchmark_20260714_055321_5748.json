@@ -13,7 +13,7 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:46:07+00:00",
+      "at": "2026-08-13T04:19:23+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,7 +52,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:04+00:00",
+      "rescored_at": "2026-08-13T04:19:20+00:00",
       "scoring": "verificable"
     },
     {
@@ -89,7 +89,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:04+00:00",
+      "rescored_at": "2026-08-13T04:19:20+00:00",
       "scoring": "verificable"
     },
     {
@@ -126,7 +126,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:06+00:00",
+      "rescored_at": "2026-08-13T04:19:23+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,17 +163,17 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:06+00:00",
+      "rescored_at": "2026-08-13T04:19:23+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 10.0,
+      "quality": 8.0,
       "cost_score": 6.61,
       "cost_usd": 0.002896,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.67,
+      "final": 7.27,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "Grok 4.3",
       "model_id": "x-ai/grok-4.3",
@@ -185,7 +185,7 @@
       "input_tokens": 321,
       "output_tokens": 998,
       "response_preview": "**No lo hagas.** Sería matar la gallina de los huevos de oro.\n\nTu modelo actual depende 100% de que Google siga enviando 300k visitas al mes. Un muro de pago duro (todo el contenido detrás de $9) destruye eso casi con total seguridad. Google no indexa bien el contenido paywalled, los usuarios dejan ",
-      "auto_quality": 10.0,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -198,9 +198,9 @@
       "timestamp": "20260714_055321_5748",
       "response_file": "results/responses/20260714_055321_5748/grok-4.3__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 6.0,
-      "answer_score": 10.0,
+      "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:07+00:00",
+      "rescored_at": "2026-08-13T04:19:23+00:00",
       "scoring": "verificable"
     },
     {
@@ -237,7 +237,7 @@
       "content_score": 7.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:07+00:00",
+      "rescored_at": "2026-08-13T04:19:23+00:00",
       "scoring": "verificable"
     },
     {
@@ -274,7 +274,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:07+00:00",
+      "rescored_at": "2026-08-13T04:19:23+00:00",
       "scoring": "verificable"
     },
     {
@@ -311,7 +311,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:07+00:00",
+      "rescored_at": "2026-08-13T04:19:23+00:00",
       "scoring": "verificable"
     },
     {
@@ -348,7 +348,7 @@
       "content_score": 10.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:07+00:00",
+      "rescored_at": "2026-08-13T04:19:23+00:00",
       "scoring": "verificable"
     },
     {
@@ -385,7 +385,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:07+00:00",
+      "rescored_at": "2026-08-13T04:19:23+00:00",
       "scoring": "verificable"
     },
     {

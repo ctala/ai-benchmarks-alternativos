@@ -42,34 +42,38 @@ const SUITES_BY_PILLAR = {
 
 // Presets de presupuesto — calibrados para emprendedores hispanohablantes.
 // Cada preset configura los 4 sliders de filtros + tarea principal.
+// Umbral de tool calling para el filtro "sirve para agentes". 6,0 sobre la nota MEDIDA,
+// no sobre el flag de capacidad declarada (que declaran los 82 y por eso no filtraba nada).
+const TOOL_CALLING_MIN = 6.0;
+
 const PRESETS_BUDGET = {
   personal: {
     budget: 5,
     calls: 300,        // ~10 calls/día
     quality: 6.0,      // aceptable para chat personal
     speed: 0,
-    task: "score_global",
+    task: "score_calidad",
   },
   solopreneur: {
     budget: 25,
     calls: 3000,       // ~100 calls/día (1-2 agentes N8N pequeños)
     quality: 6.5,
     speed: 0,
-    task: "score_global",
+    task: "score_calidad",
   },
   pyme: {
     budget: 100,
     calls: 30000,      // ~1000 calls/día (varios workflows en paralelo)
     quality: 7.0,      // calidad relevante para producto
     speed: 50,         // latencia importa
-    task: "score_global",
+    task: "score_calidad",
   },
   produccion: {
     budget: 500,
     calls: 300000,     // ~10K calls/día (tráfico de producto SaaS)
     quality: 7.0,
     speed: 100,        // alta velocidad crítica
-    task: "score_global",
+    task: "score_calidad",
   },
 };
 
@@ -78,19 +82,19 @@ const PRESETS_USE_CASE = {
   calidad: {
     label: "Calidad sobre todo",
     weights: { quality: 90, cost: 5, speed: 2.5, latency: 2.5 },
-    task: "score_global",
+    task: "score_calidad",
     quality: 7.5,
   },
   barato_rapido: {
     label: "Barato y rápido",
     weights: { quality: 40, cost: 35, speed: 15, latency: 10 },
-    task: "score_global",
+    task: "score_calidad",
     quality: 6.0,
   },
   chat_vivo: {
     label: "Chat en vivo (baja latencia)",
     weights: { quality: 50, cost: 15, speed: 10, latency: 25 },
-    task: "score_global",
+    task: "score_calidad",
     quality: 6.5,
     speed: 100,
   },
@@ -145,7 +149,7 @@ const state = {
     calls: 2000,
     quality: 6.5,
     speed: 0,
-    task: "score_global",
+    task: "score_calidad",
     subtask: "",  // suite específica (opcional). Vacío = promedio del pilar
     onlyOpen: false,
     exclProprietary: false,
@@ -488,7 +492,13 @@ function getScore(model, taskKey, subtaskKey) {
   if (subtaskKey) {
     return model.score_by_suite?.[subtaskKey] ?? null;
   }
-  // Score global: recomputar con z-score y los pesos del usuario.
+  // Índice de calidad (v4.1): el titular. Es calidad SOLA — no mezcla precio ni
+  // velocidad, que van como columnas. Se sirve pre-horneado desde el JSON para que
+  // coincida exactamente con lo que publican README y MODELOS.md.
+  if (taskKey === "score_calidad") return model.score_calidad ?? null;
+  // Score compuesto: recomputar con z-score y los pesos del usuario. Dejó de ser el
+  // titular publicado (correlacionaba r=0,943 con calidad) pero acá SÍ tiene sentido,
+  // porque el usuario mueve los pesos y deja de ser "calidad con ruido de precio".
   if (taskKey === "score_global") return computeZScore(model, state.weights);
   // Pilar: TAMBIÉN se recompone con los pesos del usuario. Antes se devolvía
   // score_by_pillar (pesos fijos) y los sliders quedaban de adorno.
@@ -501,7 +511,7 @@ function updateSubtaskOptions() {
   const pillar = state.filters.task;
 
   // Solo mostrar el sub-select cuando hay un pilar específico (no global)
-  if (pillar === "score_global" || !SUITES_BY_PILLAR[pillar]) {
+  if (pillar === "score_global" || pillar === "score_calidad" || !SUITES_BY_PILLAR[pillar]) {
     wrap.hidden = true;
     select.value = "";
     state.filters.subtask = "";
@@ -568,7 +578,12 @@ function filterAndRank(models, f) {
     if (f.exclProprietary && isProprietary(m)) return false;
 
     // Filtros por capacidad
-    if (f.onlyTools && !m.tool_calling) return false;
+    // `tool_calling` es un flag de capacidad DECLARADA, y lo declaran los 82 rankeados:
+    // filtrando por ahí el checkbox no ocultaba a nadie — era decorativo. Lo que importa
+    // para un agente no es si el modelo dice soportar herramientas, es si las usa bien.
+    // Con la nota medida y umbral 6,0 quedan fuera 12, entre ellos DeepSeek R1: #3 en
+    // calidad y 4,23 en tool calling. Excelente, barato, e inservible en un harness.
+    if (f.onlyTools && (m.tool_calling_score_avg ?? 0) < TOOL_CALLING_MIN) return false;
     if (f.onlyThinking && !m.thinking) return false;
     if (f.onlyMultimodal && !m.multimodal) return false;
 
@@ -743,8 +758,13 @@ function modelTags(m) {
   // Solo mostrar tag de OSS cuando aplica — "propietario" es default implícito
   // (si no es OS), no necesita tag explícito que agrega ruido visual
   if (m.open_source) tags.push(`<span class="tag os">${m.license || "OSS"}</span>`);
+  // Frontera de Pareto (v4.1): ningún otro modelo lo supera a la vez en calidad,
+  // precio Y latencia. De 82 rankeados solo 13 lo logran — el resto está dominado.
+  if (m.pareto) tags.push(`<span class="tag pareto" title="Frontera de Pareto: ningún otro modelo es a la vez mejor, más barato y más rápido">⭐ frontera</span>`);
   // Capabilities (vienen del JSON, inferidas en export_for_pages.py)
-  if (m.tool_calling) tags.push(`<span class="tag tools" title="Soporta tool calling">🔧 tools</span>`);
+  // Ojo: `tool_calling` es capacidad DECLARADA (la declaran los 82 rankeados). El tag
+  // informa que existe; el filtro usa la nota MEDIDA, que es otra cosa.
+  if (m.tool_calling) tags.push(`<span class="tag tools" title="Declara soporte de tool calling. La nota medida está en la columna Tools">🔧 tools</span>`);
   if (m.thinking) tags.push(`<span class="tag thinking" title="Razonamiento interno">🧠 thinking</span>`);
   if (m.multimodal) tags.push(`<span class="tag multimodal" title="Texto + imagen/audio">🎨 multimodal</span>`);
   // Tag de cobertura: sólo cuando es <50 runs (parcial). El default oculta estos

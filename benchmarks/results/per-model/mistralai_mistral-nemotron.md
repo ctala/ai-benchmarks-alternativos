@@ -2,7 +2,7 @@
 
 - **model_id**: `mistralai/mistral-nemotron`
 - **Total tests**: 12/91 exitosos (79 errores)
-- **Score final**: 7.30
+- **Score final**: 7.64
 - **Calidad**: 8.04
 - **Judge score (Phi-4)**: 4.10/10
 - **Velocidad**: 38 tok/s
@@ -16,8 +16,8 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 5 | 0 | - | - |
-| code_generation | 4 | 1 | 8.17 | 9.72 |
-| content_generation | 4 | 4 | 7.96 | 9.25 |
+| code_generation | 4 | 1 | 8.67 | 9.72 |
+| content_generation | 4 | 4 | 8.34 | 9.25 |
 | creativity | 4 | 0 | - | - |
 | customer_support | 4 | 0 | - | - |
 | deep_reasoning | 6 | 0 | - | - |
@@ -35,8 +35,8 @@
 | string_precision | 6 | 0 | - | - |
 | structured_output | 4 | 0 | - | - |
 | summarization | 2 | 0 | - | - |
-| task_management | 3 | 3 | 7.90 | 8.99 |
-| tool_calling | 4 | 4 | 5.96 | 5.70 |
+| task_management | 3 | 3 | 8.24 | 8.99 |
+| tool_calling | 4 | 4 | 6.23 | 5.70 |
 | translation | 3 | 0 | - | - |
 
 ## Detalle por test
@@ -174,12 +174,12 @@
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| python_api_integration | 8.17 | 9.72 | 4.8 | 52 | 16.21s | OK |
+| python_api_integration | 8.67 | 9.72 | 4.8 | 52 | 16.21s | OK |
 | n8n_workflow_json | 5.55 | 2.00 | - | 0 | 316.94s | ERROR |
 | sql_query_complex | 5.55 | 2.00 | - | 0 | 2.32s | ERROR |
 | debug_code | 4.85 | 0.00 | - | 0 | 13.49s | ERROR |
 
-<details><summary><code>python_api_integration</code> — score 8.17</summary>
+<details><summary><code>python_api_integration</code> — score 8.67</summary>
 
 **Stats**: latencia 16.21s · 52 tok/s · 105→852 tokens · $0.00105
 
@@ -347,12 +347,12 @@ async def get_expensive_products(bearer_token: str) -> Lis
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_post_es | 7.13 | 8.56 | 4.4 | 6 | 143.23s | OK |
-| email_profesional | 8.28 | 9.72 | 4.8 | 51 | 10.99s | OK |
-| social_media_batch | 7.80 | 8.92 | 4.8 | 54 | 14.24s | OK |
-| product_description_en | 8.64 | 9.80 | 5 | 46 | 4.47s | OK |
+| blog_post_es | 7.40 | 8.56 | 4.4 | 6 | 143.23s | OK |
+| email_profesional | 8.75 | 9.72 | 4.8 | 51 | 10.99s | OK |
+| social_media_batch | 8.13 | 8.92 | 4.8 | 54 | 14.24s | OK |
+| product_description_en | 9.07 | 9.80 | 5 | 46 | 4.47s | OK |
 
-<details><summary><code>blog_post_es</code> — score 7.13</summary>
+<details><summary><code>blog_post_es</code> — score 7.40</summary>
 
 **Stats**: latencia 143.23s · 6 tok/s · 65→901 tokens · $0.00110
 
@@ -372,7 +372,7 @@ En un mundo empresarial cada vez más competitivo, las pequeñas empresas buscan
 
 </details>
 
-<details><summary><code>email_profesional</code> — score 8.28</summary>
+<details><summary><code>email_profesional</code> — score 8.75</summary>
 
 **Stats**: latencia 10.99s · 51 tok/s · 79→562 tokens · $0.00070
 
@@ -392,7 +392,7 @@ Es un placer presentarle nuestra propuesta para el desarrollo del sitio web corp
 
 </details>
 
-<details><summary><code>social_media_batch</code> — score 7.80</summary>
+<details><summary><code>social_media_batch</code> — score 8.13</summary>
 
 **Stats**: latencia 14.24s · 54 tok/s · 77→767 tokens · $0.00094
 
@@ -412,7 +412,7 @@ La digitalización ya no es una opción, es una necesidad. Desde automatización
 
 </details>
 
-<details><summary><code>product_description_en</code> — score 8.64</summary>
+<details><summary><code>product_description_en</code> — score 9.07</summary>
 
 **Stats**: latencia 4.47s · 46 tok/s · 60→208 tokens · $0.00027
 
@@ -624,12 +624,12 @@ La digitalización ya no es una opción, es una necesidad. Desde automatización
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| single_tool_calendar | 4.90 | 4.30 | 2.0 | 20 | 1.17s | OK |
-| multi_tool_sequential | 5.80 | 6.26 | 3.4 | 40 | 2.45s | OK |
-| tool_with_reasoning | 5.74 | 5.98 | 3.2 | 28 | 1.30s | OK |
-| no_tool_needed | 7.38 | 6.26 | 3.4 | 10 | 0.76s | OK |
+| single_tool_calendar | 5.26 | 4.30 | 2.0 | 20 | 1.17s | OK |
+| multi_tool_sequential | 6.58 | 6.26 | 3.4 | 40 | 2.45s | OK |
+| tool_with_reasoning | 6.44 | 5.98 | 3.2 | 28 | 1.30s | OK |
+| no_tool_needed | 6.63 | 6.26 | 3.4 | 10 | 0.76s | OK |
 
-<details><summary><code>single_tool_calendar</code> — score 4.90</summary>
+<details><summary><code>single_tool_calendar</code> — score 5.26</summary>
 
 **Stats**: latencia 1.17s · 20 tok/s · 532→23 tokens · $0.00019
 
@@ -645,7 +645,7 @@ Para agendar la reunión de proyecto, necesito la descripción del evento. ¿Pod
 
 </details>
 
-<details><summary><code>multi_tool_sequential</code> — score 5.80</summary>
+<details><summary><code>multi_tool_sequential</code> — score 6.58</summary>
 
 **Stats**: latencia 2.45s · 40 tok/s · 565→99 tokens · $0.00029
 
@@ -667,7 +667,7 @@ Para realizar las tareas solicitadas, necesito confirmar algunos detalles adicio
 
 </details>
 
-<details><summary><code>tool_with_reasoning</code> — score 5.74</summary>
+<details><summary><code>tool_with_reasoning</code> — score 6.44</summary>
 
 **Stats**: latencia 1.30s · 28 tok/s · 559→36 tokens · $0.00021
 
@@ -683,7 +683,7 @@ Entendido. Crearé un recordatorio para hoy a las 5 PM para repasar las slides y
 
 </details>
 
-<details><summary><code>no_tool_needed</code> — score 7.38</summary>
+<details><summary><code>no_tool_needed</code> — score 6.63</summary>
 
 **Stats**: latencia 0.76s · 10 tok/s · 494→8 tokens · $0.00016
 
@@ -882,11 +882,11 @@ La capital de Francia es París.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| extract_action_items | 7.88 | 8.28 | 4.2 | 45 | 3.96s | OK |
-| weekly_planning | 7.86 | 9.24 | 4.6 | 54 | 20.19s | OK |
-| project_breakdown | 7.97 | 9.44 | 4.6 | 53 | 20.44s | OK |
+| extract_action_items | 8.00 | 8.28 | 4.2 | 45 | 3.96s | OK |
+| weekly_planning | 8.28 | 9.24 | 4.6 | 54 | 20.19s | OK |
+| project_breakdown | 8.43 | 9.44 | 4.6 | 53 | 20.44s | OK |
 
-<details><summary><code>extract_action_items</code> — score 7.88</summary>
+<details><summary><code>extract_action_items</code> — score 8.00</summary>
 
 **Stats**: latencia 3.96s · 45 tok/s · 202→177 tokens · $0.00027
 
@@ -905,7 +905,7 @@ Aquí tienes la tabla con los **action items** extraídos de las notas de la reu
 
 </details>
 
-<details><summary><code>weekly_planning</code> — score 7.86</summary>
+<details><summary><code>weekly_planning</code> — score 8.28</summary>
 
 **Stats**: latencia 20.19s · 54 tok/s · 205→1085 tokens · $0.00136
 
@@ -926,7 +926,7 @@ Aquí tienes un plan semanal detallado que distribuye las tareas según tus rest
 
 </details>
 
-<details><summary><code>project_breakdown</code> — score 7.97</summary>
+<details><summary><code>project_breakdown</code> — score 8.43</summary>
 
 **Stats**: latencia 20.44s · 53 tok/s · 70→1088 tokens · $0.00133
 

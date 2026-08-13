@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:47:05+00:00",
+      "at": "2026-08-13T04:20:15+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,7 +52,7 @@
       "content_score": 8.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:05+00:00",
+      "rescored_at": "2026-08-13T04:20:15+00:00",
       "scoring": "verificable"
     },
     {
@@ -89,7 +89,7 @@
       "content_score": 9.34,
       "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:05+00:00",
+      "rescored_at": "2026-08-13T04:20:15+00:00",
       "scoring": "verificable"
     },
     {
@@ -126,13 +126,13 @@
       "content_score": 10.0,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:05+00:00",
+      "rescored_at": "2026-08-13T04:20:15+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 9e-05,
+      "cost_usd": 0.000112,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
@@ -163,13 +163,13 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:05+00:00",
+      "rescored_at": "2026-08-13T04:20:15+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 5.0,
       "cost_score": 10.0,
-      "cost_usd": 6.2e-05,
+      "cost_usd": 7.7e-05,
       "speed": 4.0,
       "latency": 4.0,
       "tool_calling": 7.0,
@@ -200,17 +200,17 @@
       "content_score": 8.67,
       "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:05+00:00",
+      "rescored_at": "2026-08-13T04:20:15+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 8.0,
-      "cost_score": 9.86,
-      "cost_usd": 0.000241,
+      "cost_score": 9.57,
+      "cost_usd": 0.000299,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.75,
+      "final": 7.71,
       "test_name": "fake_citation_trap",
       "model": "DeepSeek V3",
       "model_id": "deepseek/deepseek-v3.2",
@@ -237,7 +237,7 @@
       "content_score": 9.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:05+00:00",
+      "rescored_at": "2026-08-13T04:20:15+00:00",
       "scoring": "verificable"
     }
   ]

@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:47:51+00:00",
+      "at": "2026-08-13T04:20:53+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,7 +52,7 @@
       "content_score": 5.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:48+00:00",
+      "rescored_at": "2026-08-13T04:20:49+00:00",
       "scoring": "verificable"
     },
     {
@@ -89,7 +89,7 @@
       "content_score": 10.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:51+00:00",
+      "rescored_at": "2026-08-13T04:20:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -126,7 +126,7 @@
       "content_score": 10.0,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:51+00:00",
+      "rescored_at": "2026-08-13T04:20:53+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,13 +163,13 @@
       "content_score": 10.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:51+00:00",
+      "rescored_at": "2026-08-13T04:20:53+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 8.0,
       "cost_score": 10.0,
-      "cost_usd": 0.000106,
+      "cost_usd": 0.000132,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 7.0,
@@ -200,13 +200,13 @@
       "content_score": 4.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:51+00:00",
+      "rescored_at": "2026-08-13T04:20:53+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 8.0,
       "cost_score": 10.0,
-      "cost_usd": 0.000156,
+      "cost_usd": 0.000195,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -237,17 +237,17 @@
       "content_score": 8.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:51+00:00",
+      "rescored_at": "2026-08-13T04:20:53+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 4.0,
-      "cost_score": 9.74,
-      "cost_usd": 0.000262,
+      "quality": 6.0,
+      "cost_score": 9.46,
+      "cost_usd": 0.000326,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.64,
+      "final": 5.99,
       "test_name": "requirements_change",
       "model": "DeepSeek V3",
       "model_id": "deepseek/deepseek-v3.2",
@@ -259,7 +259,7 @@
       "input_tokens": 244,
       "output_tokens": 652,
       "response_preview": "Excelente, mejor aún. Este workflow será más completo y automatizado. Te detallo la estructura:\n\n## Workflow con 5 nodos:\n\n### **1. Trigger - Gmail Trigger**\n- Configura la conexión con Gmail\n- Se activa cada X tiempo (ej: 15 minutos)\n- Captura emails nuevos\n\n### **2. Filter - IF Node** (para filtra",
-      "auto_quality": 4.0,
+      "auto_quality": 6.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -272,19 +272,19 @@
       "timestamp": "20260714_065906_40961",
       "response_file": "results/responses/20260714_065906_40961/or-deepseek-v3__multi_turn__requirements_change.md",
       "content_score": 10.0,
-      "answer_score": 4.0,
+      "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:51+00:00",
+      "rescored_at": "2026-08-13T04:20:53+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 9.75,
-      "cost_usd": 0.000262,
+      "cost_score": 9.46,
+      "cost_usd": 0.000326,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.99,
+      "final": 8.94,
       "test_name": "debugging_conversation",
       "model": "DeepSeek V3",
       "model_id": "deepseek/deepseek-v3.2",
@@ -311,7 +311,7 @@
       "content_score": 10.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:51+00:00",
+      "rescored_at": "2026-08-13T04:20:53+00:00",
       "scoring": "verificable"
     }
   ]

@@ -52,15 +52,53 @@ El juez `phi4-or` (Phi-4 por OpenRouter) NO es el cuello — pero OJO: **rompe c
 sin puntuar = gap sistemático en varios modelos. Si un test es gap en 3+ modelos a la vez,
 sospechar del VERIFICADOR, no de los modelos.
 
-## Regla 0.5 — costo: estimar con ×RUNS_PER_TEST y multiplicador reasoning/agentic
+## Regla 0.5 — costo: estimar POR SUITE, nunca con un $/run promedio
 
-`average_scores` guarda los tokens de UN run (no la suma), así que estimar el costo sobre los
-registros promediados **subestima ×3** (se pagan 3 llamadas por test). Además reasoning
-(thinking largo) y agentic (multi-turno) disparan los tokens muy por encima del promedio.
-**Antes de correr: multiplicar por RUNS_PER_TEST, aplicar factor reasoning/agentic, y nombrar
-los modelos caros por separado** (Fable/Opus vía OpenRouter fueron ~$33 de ~$60 totales).
-Una re-medición estimada en $18 costó ~$55-70. `--rerun-empty` targeted, nunca re-correr
-suites completas caras.
+```bash
+.venv/bin/python benchmarks/calculate_costs.py --estimar <modelo-ya-medido> \
+    --precio-in 5.0 --precio-out 25.0
+```
+
+**Corré esto antes de cada lote.** Usa el consumo real por suite de un examen ya medido y lo
+aplica al precio del modelo objetivo. Marca las suites de contexto largo / multi-turno y avisa
+si la referencia está incompleta.
+
+**El promedio de $/run miente, y miente hacia abajo.** No todas las suites cuestan igual, ni
+parecido: el costo se concentra en unas pocas y promediarlo lo reparte entre 192 runs hasta
+volverlo invisible. Medido el 12-ago-2026 sobre un examen completo:
+
+| suite | tok-in/run | share del costo | share de los runs |
+|---|---|---|---|
+| `niah_es` | 107.960 | ~74% | 23% |
+| `agent_long_horizon` | 19.316 | ~13% | 6% |
+| `prompt_injection_es` | 16.172 | ~5% | 10% |
+| todo lo demás (26 suites) | ~300 | ~8% | 61% |
+
+Son **86× a 360×** más input por run. `niah_es` es contexto largo de verdad (100K+ tokens de
+haystack) y `agent_long_horizon` reenvía la conversación entera en cada turno, así que un test
+de 13 turnos paga el contexto 13 veces, creciendo — su costo va con el **cuadrado** de los turnos.
+
+**El fallo que lo motivó:** estimé el Grupo A en $15,09. El examen completo de los dos Claude
+Opus costaba **$98,96** — error de **6,6×**. Se cortó a los $18,64, con `niah_es` todavía por
+delante en ambos (habría sido +$73). Y lo incómodo: **esta regla ya existía y ya decía que
+multi-turno dispara los tokens.** Estaba escrita y no alcanzó, porque no tenía instrumento —
+el mismo patrón que el skip de `niah` sin margen de salida y el juez corriendo donde su
+veredicto se descarta. Por eso ahora la regla ES el comando de arriba.
+
+### Corolario — `niah_es` y `prompt_injection_es` son OMITIBLES sin perder el ranking
+
+`export_for_pages.py:896-903` los trata como **pilares aparte**: se reportan por separado y un
+examen incompleto ahí se marca «no medido»; **no bloquean `ranked` ni contaminan el score**.
+Así que en un modelo caro se puede correr el examen que rankea y saltar `niah_es`. No son
+equivalentes y no se omiten juntos: en Opus 5 Fast `niah_es` cuesta **$48,77** y
+`prompt_injection_es` **$3,55**. La seguridad se mide siempre; el contexto largo es el que se
+negocia.
+
+Lo demás que sigue valiendo: `average_scores` guarda los tokens de UN run (no la suma), así que
+estimar sobre los registros promediados **subestima ×3** (se pagan 3 llamadas por test). Nombrá
+los modelos caros por separado (Fable/Opus vía OpenRouter fueron ~$33 de ~$60 totales). Una
+re-medición estimada en $18 costó ~$55-70. `--rerun-empty` targeted, nunca re-correr suites
+completas caras.
 
 ## Regla 1 — resume de nombre FIJO, nunca diff `before/after`
 
@@ -143,6 +181,121 @@ números dejan de caducar solos. Reglas:
   como eje propio (`agentic_score`). niah/seguridad van solo como eje. Sacar una de la
   calidad titular reordena el ranking (probado: sacar agéntico hunde a Luna del #1 al #3 y
   flota modelos baratos) — no hacerlo sin decisión explícita.
+
+---
+
+# PASO 0 — el canario. Un comando, y no se lanza nada si sale rojo
+
+```bash
+.venv/bin/python benchmarks/canario.py --models <primer-modelo-del-lote>
+# Claude por API:  --models claude-opus-5 --extra --allow-anthropic-api
+```
+
+**Si sale 🔴, el lote NO se lanza.** Corre 18 tests (3 suites) en 1 modelo y verifica
+**invariantes**, no bugs conocidos:
+
+| Invariante | Qué caza |
+|---|---|
+| Responde y el `content` no viene vacío | thinking sin su patrón en `THINKING_MODELS` |
+| Emite tool calls donde el test da herramientas | ruteo, `require_parameters`, proveedor sin tools |
+| Registra `upstream_provider` | mediciones que después no se pueden auditar |
+| Guarda `prompt_sha` | runs sin trazabilidad de su entrada |
+| Tasa de fallo bajo 34% | cualquier cosa sistémica |
+
+**Por qué existe, con los números del 12-ago:** ese día los fallos se partieron en dos
+grupos limpios. Los **anticipados** —Glimmer y Muse Spark thinking, 5 de 9 devolviendo
+vacío, 19 keys inventadas, 2 modelos muertos en el ranking— **todos tenían un chequeo
+previo**. Los **descubiertos tarde** —`temperature` + `require_parameters` (4 runs), skip
+de niah sin margen (**378 runs en 23 modelos**), el juez corriendo donde su veredicto se
+descarta (meses), `orchestration` midiendo prosa (meses)— **ninguno lo tenía**.
+
+Anticipamos lo que tiene instrumento. No es cuestión de atención.
+
+La diferencia con `audit_suites.py`, `E7`, `E8` y `check_endpoints.py`: esos buscan
+problemas **conocidos**. El canario verifica que se cumplan los invariantes, así que caza
+**regresiones que todavía no conocemos** — la clase que más duele. El caso que lo motivó
+fue un arreglo de la mañana rompiendo algo de la tarde.
+
+> ⚠️ **Su primera versión falló su propia validación**, y quedó como recordatorio: dijo
+> "invariantes OK" para un modelo con las 4 pruebas de herramientas caídas, porque
+> filtraba por runs exitosos y la lista quedaba vacía. **Un chequeo que no puede fallar no
+> es un chequeo.** Si tocás `canario.py`, validalo contra un caso que SABÉS que está roto
+> antes de confiar en un verde.
+
+---
+
+# Checklist de pre-vuelo (12-ago-2026) — 6 chequeos, 3 minutos, evitan un lote entero
+
+Cada uno existe porque su ausencia costó un lote o publicó un dato falso **ese mismo día**.
+No son teoría: son las seis formas concretas en que se perdió tiempo el 12-ago.
+
+### 1. ¿El modelo es *thinking*? Probalo ANTES de medir
+
+```bash
+# una llamada con max_tokens=300 y mirá reasoning_tokens
+# si vuelve content="" y reasoning>0 → es thinking y NO está en THINKING_MODELS
+```
+Muse Glimmer no matcheaba ningún patrón: **medio lote se habría medido en blanco** (content
+vacío, score 0). Se cazó antes de pagar. De 11 modelos nuevos, **10 eran thinking y 5
+devolvían vacío** con el budget por defecto.
+
+### 2. ¿Las keys del script existen en el catálogo?
+
+```bash
+python -c "import sys;sys.path.insert(0,'.');from benchmarks.models import MODELS,OLLAMA_MODELS;\
+print([k for k in KEYS if k not in {**MODELS,**OLLAMA_MODELS}])"
+```
+`--models lightning` (nombre de archivo) en vez de `nemotron-3.5-lightning` (key real) hace
+que el runner imprima *"No hay modelos seleccionados"*, **salga con código 0** y el launcher
+lo dé por completado. **Falla en silencio, dos vueltas seguidas.** Las 19 keys del script de
+re-medición de tools estaban casi todas inventadas; se detectó validando, no corriendo.
+
+### 3. ¿Hay OTRO launcher vivo?
+
+```bash
+ps -eo args | grep '[b]enchmarks/runner.py'
+```
+Relanzar después de un kill sin verificar dejó **dos launchers y 6 runners** peleando por la
+misma cuota. Peor: los dos iban a escribir el MISMO archivo de resume. El ETA pasó a 10 h.
+
+### 4. ¿Quién es el cuello — el modelo o el juez?
+
+El modelo tarda ~5 s por test; **el juez phi-4 tardaba 77 s**. `microsoft/phi-4` tiene **un
+solo proveedor** en OpenRouter: los runners paralelos hacen cola en el mismo endpoint, así
+que **subir la concurrencia empeora el ETA**. Antes de agregar workers, medí dónde se va el
+tiempo.
+
+### 5. ¿El juez tiene que correr siquiera?
+
+Solo donde NO hay verdad objetiva. 96 de 147 tests no-niah tienen `expected_answer` y su
+veredicto **se descarta**: eran 2,1 h por modelo tiradas. Ya está arreglado en el runner;
+si volvés a tocar esa condición, acordate de por qué está.
+
+### 6. ¿A qué PROVEEDOR nos van a rutear?
+
+```bash
+curl -s https://openrouter.ai/api/v1/models/<id>/endpoints | jq '.data.endpoints[]|{provider_name,context_length,quantization,status}'
+```
+OpenRouter es un router. **40 de 68 modelos rankeados tienen proveedores no equivalentes**:
+Nemotron 3 Super va de 8.000 a 1.000.000 de contexto según cuál toque; Kimi K2.6 de `int4`
+a `bf16`. Nemotron 3.5 Lightning se midió en DeepInfra, que lo sirve con **28.672 de
+contexto cuando su spec dice 262.144**, y con `status: -2`.
+
+Desde el 12-ago cada run registra `upstream_provider`. **Endpoint ≠ modelo** — es lo que
+Artificial Analysis formaliza como concepto de primera clase.
+
+---
+
+# Reglas de medición que quedaron instaladas
+
+| Regla | Por qué |
+|---|---|
+| **`require_parameters: true`** cuando la request lleva `tools` o `response_format` | Doc de OpenRouter: sin eso, `tools` es solo *soft preference* y el proveedor puede **ignorarlas en silencio**. El modelo nunca las ve y queda anotado como "no llamó a la herramienta" |
+| En OpenRouter se manda **`max_tokens`**, no `max_completion_tokens` | Ningún proveedor declara el segundo: con `require_parameters` filtra a TODOS y devuelve *"No endpoints found"* — incluso en modelos sanos |
+| El skip por contexto **reserva el presupuesto de salida** | Un prompt de 128.000 en un modelo de 131.072 no deja lugar ni para un token de respuesta. **378 runs históricos** se perdieron así, contados como fallo del modelo |
+| **El español necesita 1,62× más tokens** | Medido sobre 3.410 respuestas: 2,47 chars/token vs 4,00 de la heurística inglesa. Con `max_tokens=2048` entran ~920 palabras y los tests piden hasta 1.300 → **31% de respuestas truncadas por el harness** |
+| Cada run guarda **su entrada y su `prompt_sha`** | "No me sirve el resultado si no sé lo que se envió". El catálogo completo está en `PROMPTS.md` |
+| **Un launcher por frente**, con resume de nombre fijo y salto de lo ya completo | El entorno mata los background cada ~5 min; relanzar tiene que ser idempotente y no duplicar |
 
 ## Heurística de oro (Cristian, acertó 7 veces seguidas)
 

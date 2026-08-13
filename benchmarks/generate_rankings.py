@@ -193,7 +193,27 @@ def has_pillars(m):
 
 def rank_models(models, cfg):
     # ≥50 runs (estándar del benchmark) → un outlier con 3-12 runs no lidera por azar
-    base = [m for m in models if (m.get("score_global") or 0) > 0 and (m.get("runs") or 0) >= 50 and has_pillars(m)]
+    # ── SOLO EL PLANO COMÚN ─────────────────────────────────────────────────
+    #
+    # Antes el filtro era solo `runs >= 50`, así que entraban a TODAS las páginas
+    # pSEO los modelos medidos fuera del plano común: self-hosted del Spark,
+    # variantes de NIM/Ollama Cloud/Groq y los de suscripción. 49 de 117 candidatos.
+    #
+    # No son comparables: su velocidad y su latencia son de ESA infra, no del modelo
+    # (Qwen 3.5 397B da 7,96 en NIM y 5,46 en Ollama Cloud). `models.json` ya lo
+    # resuelve con `ranked` —que exige plano común, muestra sólida y examen completo—
+    # y las páginas lo estaban ignorando. Por eso **DiffusionGemma corriendo en el
+    # Spark encabezaba /mejor-llm-para-agentes/**.
+    #
+    # EXCEPCIÓN, declarada en el config con `ruta_unica: True`: una variante entra si
+    # es la ÚNICA forma de medir una capacidad. Caso real: Nemotron 3.5 Lightning no
+    # tiene NINGÚN proveedor en OpenRouter que exponga `tools`, así que sus 4 suites
+    # con herramientas solo se pueden medir por NIM. Excluirlo sería publicar que no
+    # puede hacer tool calling cuando lo que no puede es esa ruta.
+    base = [m for m in models
+            if (m.get("score_global") or 0) > 0 and (m.get("runs") or 0) >= 50
+            and has_pillars(m)
+            and (m.get("ranked") or m.get("ruta_unica"))]
     crit = cfg["criterion"]
     if crit == "pillar":
         pil = cfg["pillar"]
@@ -236,8 +256,35 @@ def pillar_quality(m, name):
     return ((m.get("dims_by_pillar") or {}).get(name) or {}).get("quality_avg") or 0
 
 
+# Peso del tool calling REAL en las páginas de agentes. Interino: cuando v4.1
+# rediseñe las suites agénticas (state-based + subset matching, diseño BFCL), el
+# pilar va a medir capacidad agéntica de verdad y esto sobra.
+PESO_TOOLS_AGENTES = 0.5
+
+
 def score_for(m, cfg):
     if cfg["criterion"] == "pillar":
+        # ── AGENTES: el pilar solo no alcanza ───────────────────────────────
+        #
+        # Medido el 12-ago-2026: las 7 suites del pilar "Agentes" tienen su nota
+        # dominada por la PROSA, no por el uso de herramientas. Correlación entre
+        # `quality` y `tool_calling` en las 4 suites que dan tools: de −0,17 a
+        # +0,13, y en tres de ellas manda el juez (hasta +0,99).
+        #
+        # Consecuencia publicada: **DiffusionGemma 26B encabezaba
+        # /mejor-llm-para-agentes/ con "Agentes 8.8"** — un modelo de difusión local
+        # cuyo score REAL de tool calling es 1,72. Estaba en el <meta description>,
+        # o sea en el título que ve Google, y la página apunta a "llm para hermes".
+        #
+        # Hasta que v4.1 arregle las suites, el ranking de agentes incorpora la única
+        # señal que sí mide capacidad agéntica y que ya teníamos medida. Con esto
+        # DiffusionGemma pasa de #1 a #112 y el top queda con modelos de tool calling
+        # 8,1–8,4.
+        if cfg["pillar"] == "Agentes":
+            tool = m.get("tool_calling_score_avg")
+            if tool is not None:
+                return ((1 - PESO_TOOLS_AGENTES) * pillar_quality(m, cfg["pillar"])
+                        + PESO_TOOLS_AGENTES * tool)
         return pillar_quality(m, cfg["pillar"])
     if cfg["criterion"] == "suite":
         return suite(m, cfg["suite"])

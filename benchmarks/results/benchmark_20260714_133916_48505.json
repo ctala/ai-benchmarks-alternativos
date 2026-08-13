@@ -13,19 +13,19 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:50:28+00:00",
+      "at": "2026-08-13T04:22:17+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
   "results": [
     {
       "quality": 10.0,
-      "cost_score": 8.11,
-      "cost_usd": 0.000918,
+      "cost_score": 8.34,
+      "cost_usd": 0.000773,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 8.97,
+      "final": 9.0,
       "test_name": "niah_es_bridge_length_8000_p25",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -45,17 +45,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 8.1,
-      "cost_usd": 0.000925,
+      "cost_score": 8.33,
+      "cost_usd": 0.000778,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.74,
+      "final": 8.77,
       "test_name": "niah_es_bridge_length_8000_p50",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -75,17 +75,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 8.19,
-      "cost_usd": 0.000865,
+      "cost_score": 8.41,
+      "cost_usd": 0.00073,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 8.68,
+      "final": 8.71,
       "test_name": "niah_es_bridge_length_8000_p75",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -105,17 +105,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 3.33,
-      "cost_score": 8.25,
-      "cost_usd": 0.000828,
+      "cost_score": 8.46,
+      "cost_usd": 0.0007,
       "speed": 1.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 3.72,
+      "final": 3.75,
       "test_name": "niah_es_library_volumes_8000_p25",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -135,17 +135,17 @@
       "content_score": 3.67,
       "answer_score": 3.33,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 4.67,
-      "cost_score": 7.93,
-      "cost_usd": 0.001055,
+      "cost_score": 8.16,
+      "cost_usd": 0.000882,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 5.13,
+      "final": 5.17,
       "test_name": "niah_es_library_volumes_8000_p50",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -165,17 +165,17 @@
       "content_score": 0.8,
       "answer_score": 4.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 6.67,
-      "cost_score": 8.19,
-      "cost_usd": 0.000867,
+      "cost_score": 8.41,
+      "cost_usd": 0.000732,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 6.8,
+      "final": 6.83,
       "test_name": "niah_es_library_volumes_8000_p75",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -195,17 +195,17 @@
       "content_score": 0.8,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 8.22,
-      "cost_usd": 0.000844,
+      "cost_score": 8.44,
+      "cost_usd": 0.000713,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 8.68,
+      "final": 8.72,
       "test_name": "niah_es_festival_date_8000_p25",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -225,17 +225,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 8.17,
-      "cost_usd": 0.000876,
+      "cost_score": 8.4,
+      "cost_usd": 0.000738,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 9.13,
+      "final": 9.16,
       "test_name": "niah_es_festival_date_8000_p50",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -255,17 +255,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 8.21,
-      "cost_usd": 0.000851,
+      "cost_score": 8.43,
+      "cost_usd": 0.000718,
       "speed": 6.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 8.98,
+      "final": 9.01,
       "test_name": "niah_es_festival_date_8000_p75",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -285,17 +285,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 8.09,
-      "cost_usd": 0.000933,
+      "cost_score": 8.32,
+      "cost_usd": 0.000785,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 8.81,
+      "final": 8.85,
       "test_name": "niah_es_potato_altitude_8000_p25",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -315,17 +315,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 8.16,
-      "cost_usd": 0.000882,
+      "cost_score": 8.39,
+      "cost_usd": 0.000744,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 9.12,
+      "final": 9.16,
       "test_name": "niah_es_potato_altitude_8000_p50",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -345,7 +345,7 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -374,12 +374,12 @@
     },
     {
       "quality": 8.5,
-      "cost_score": 8.12,
-      "cost_usd": 0.000912,
+      "cost_score": 8.35,
+      "cost_usd": 0.000767,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.92,
+      "final": 7.95,
       "test_name": "niah_es_expedition_code_8000_p25",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -399,17 +399,17 @@
       "content_score": 0.8,
       "answer_score": 8.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 8.5,
-      "cost_score": 8.22,
-      "cost_usd": 0.000847,
+      "cost_score": 8.44,
+      "cost_usd": 0.000716,
       "speed": 6.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 7.93,
+      "final": 7.97,
       "test_name": "niah_es_expedition_code_8000_p50",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -429,17 +429,17 @@
       "content_score": 0.8,
       "answer_score": 8.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 8.5,
-      "cost_score": 8.16,
-      "cost_usd": 0.000882,
+      "cost_score": 8.39,
+      "cost_usd": 0.000744,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 8.07,
+      "final": 8.11,
       "test_name": "niah_es_expedition_code_8000_p75",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -459,17 +459,17 @@
       "content_score": 0.8,
       "answer_score": 8.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 5.6,
-      "cost_usd": 0.006318,
+      "cost_score": 5.81,
+      "cost_usd": 0.005363,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 8.44,
+      "final": 8.47,
       "test_name": "niah_es_bridge_length_64000_p25",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -489,17 +489,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 9.0,
-      "cost_score": 5.59,
-      "cost_usd": 0.006335,
+      "cost_score": 5.81,
+      "cost_usd": 0.005377,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.74,
+      "final": 7.77,
       "test_name": "niah_es_bridge_length_64000_p50",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -519,17 +519,17 @@
       "content_score": 3.0,
       "answer_score": 9.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 5.6,
-      "cost_usd": 0.006316,
+      "cost_score": 5.81,
+      "cost_usd": 0.005361,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 8.44,
+      "final": 8.47,
       "test_name": "niah_es_bridge_length_64000_p75",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -549,17 +549,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 4.67,
-      "cost_score": 5.6,
-      "cost_usd": 0.006318,
+      "cost_score": 5.81,
+      "cost_usd": 0.005363,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 4.71,
+      "final": 4.74,
       "test_name": "niah_es_library_volumes_64000_p25",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -579,17 +579,17 @@
       "content_score": 0.8,
       "answer_score": 4.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 4.67,
-      "cost_score": 5.6,
-      "cost_usd": 0.00633,
+      "cost_score": 5.81,
+      "cost_usd": 0.005372,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 4.71,
+      "final": 4.74,
       "test_name": "niah_es_library_volumes_64000_p50",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -609,17 +609,17 @@
       "content_score": 0.8,
       "answer_score": 4.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 4.67,
-      "cost_score": 5.6,
-      "cost_usd": 0.006313,
+      "cost_score": 5.81,
+      "cost_usd": 0.005359,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.48,
+      "final": 4.52,
       "test_name": "niah_es_library_volumes_64000_p75",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -639,17 +639,17 @@
       "content_score": 0.8,
       "answer_score": 4.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 5.6,
-      "cost_usd": 0.006291,
+      "cost_score": 5.82,
+      "cost_usd": 0.005342,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 8.44,
+      "final": 8.47,
       "test_name": "niah_es_festival_date_64000_p25",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -669,17 +669,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 5.6,
-      "cost_usd": 0.006299,
+      "cost_score": 5.82,
+      "cost_usd": 0.005348,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 8.44,
+      "final": 8.47,
       "test_name": "niah_es_festival_date_64000_p50",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -699,17 +699,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 5.6,
-      "cost_usd": 0.006318,
+      "cost_score": 5.81,
+      "cost_usd": 0.005363,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.21,
+      "final": 8.25,
       "test_name": "niah_es_festival_date_64000_p75",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -729,17 +729,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 8.5,
-      "cost_score": 5.56,
-      "cost_usd": 0.006489,
+      "cost_score": 5.78,
+      "cost_usd": 0.0055,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.16,
+      "final": 7.19,
       "test_name": "niah_es_potato_altitude_64000_p25",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -759,17 +759,17 @@
       "content_score": 0.8,
       "answer_score": 8.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 5.62,
-      "cost_usd": 0.006194,
+      "cost_score": 5.84,
+      "cost_usd": 0.005264,
       "speed": 2.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 8.29,
+      "final": 8.33,
       "test_name": "niah_es_potato_altitude_64000_p50",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -789,17 +789,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 5.59,
-      "cost_usd": 0.006334,
+      "cost_score": 5.81,
+      "cost_usd": 0.005376,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.21,
+      "final": 8.25,
       "test_name": "niah_es_potato_altitude_64000_p75",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -819,17 +819,17 @@
       "content_score": 1.2,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 5.59,
-      "cost_usd": 0.00635,
+      "cost_score": 5.81,
+      "cost_usd": 0.005389,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.21,
+      "final": 8.25,
       "test_name": "niah_es_expedition_code_64000_p25",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -849,17 +849,17 @@
       "content_score": 1.2,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 5.6,
-      "cost_usd": 0.006329,
+      "cost_score": 5.81,
+      "cost_usd": 0.005372,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 8.44,
+      "final": 8.47,
       "test_name": "niah_es_expedition_code_64000_p50",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -879,17 +879,17 @@
       "content_score": 1.2,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 8.5,
-      "cost_score": 5.6,
-      "cost_usd": 0.006295,
+      "cost_score": 5.82,
+      "cost_usd": 0.005345,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.17,
+      "final": 7.2,
       "test_name": "niah_es_expedition_code_64000_p75",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -909,17 +909,17 @@
       "content_score": 0.8,
       "answer_score": 8.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.7,
-      "cost_usd": 0.012618,
+      "cost_score": 4.91,
+      "cost_usd": 0.010718,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 8.15,
+      "final": 8.19,
       "test_name": "niah_es_bridge_length_128000_p25",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -939,17 +939,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.69,
-      "cost_usd": 0.01273,
+      "cost_score": 4.9,
+      "cost_usd": 0.010808,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.23,
+      "final": 8.26,
       "test_name": "niah_es_bridge_length_128000_p50",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -969,17 +969,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.7,
-      "cost_usd": 0.012583,
+      "cost_score": 4.91,
+      "cost_usd": 0.010691,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 8.16,
+      "final": 8.19,
       "test_name": "niah_es_bridge_length_128000_p75",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -999,17 +999,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 6.67,
-      "cost_score": 4.69,
-      "cost_usd": 0.012661,
+      "cost_score": 4.91,
+      "cost_usd": 0.010753,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 5.97,
+      "final": 6.0,
       "test_name": "niah_es_library_volumes_128000_p25",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -1029,17 +1029,17 @@
       "content_score": 0.8,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 6.67,
-      "cost_score": 4.7,
-      "cost_usd": 0.012572,
+      "cost_score": 4.91,
+      "cost_usd": 0.010682,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 5.82,
+      "final": 5.86,
       "test_name": "niah_es_library_volumes_128000_p50",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -1059,17 +1059,17 @@
       "content_score": 0.8,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.71,
-      "cost_usd": 0.012532,
+      "cost_score": 4.92,
+      "cost_usd": 0.01065,
       "speed": 2.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.93,
+      "final": 7.96,
       "test_name": "niah_es_library_volumes_128000_p75",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -1089,17 +1089,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.7,
-      "cost_usd": 0.012611,
+      "cost_score": 4.91,
+      "cost_usd": 0.010712,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.08,
+      "final": 8.11,
       "test_name": "niah_es_festival_date_128000_p25",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -1119,17 +1119,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.7,
-      "cost_usd": 0.012576,
+      "cost_score": 4.91,
+      "cost_usd": 0.010684,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.08,
+      "final": 8.11,
       "test_name": "niah_es_festival_date_128000_p50",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -1149,17 +1149,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.7,
-      "cost_usd": 0.012637,
+      "cost_score": 4.91,
+      "cost_usd": 0.010733,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.08,
+      "final": 8.11,
       "test_name": "niah_es_festival_date_128000_p75",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -1179,17 +1179,17 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.71,
-      "cost_usd": 0.012497,
+      "cost_score": 4.92,
+      "cost_usd": 0.010622,
       "speed": 2.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 8.01,
+      "final": 8.04,
       "test_name": "niah_es_potato_altitude_128000_p25",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -1209,17 +1209,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.7,
-      "cost_usd": 0.012563,
+      "cost_score": 4.91,
+      "cost_usd": 0.010675,
       "speed": 2.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.93,
+      "final": 7.96,
       "test_name": "niah_es_potato_altitude_128000_p50",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -1239,17 +1239,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 4.7,
-      "cost_usd": 0.012626,
+      "cost_score": 4.91,
+      "cost_usd": 0.010725,
       "speed": 2.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.93,
+      "final": 7.96,
       "test_name": "niah_es_potato_altitude_128000_p75",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -1269,7 +1269,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1298,12 +1298,12 @@
     },
     {
       "quality": 8.5,
-      "cost_score": 4.69,
-      "cost_usd": 0.012641,
+      "cost_score": 4.91,
+      "cost_usd": 0.010737,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.03,
+      "final": 7.06,
       "test_name": "niah_es_expedition_code_128000_p50",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -1323,17 +1323,17 @@
       "content_score": 0.8,
       "answer_score": 8.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 8.5,
-      "cost_score": 4.7,
-      "cost_usd": 0.01255,
+      "cost_score": 4.92,
+      "cost_usd": 0.010664,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.11,
+      "final": 7.14,
       "test_name": "niah_es_expedition_code_128000_p75",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -1353,7 +1353,7 @@
       "content_score": 0.8,
       "answer_score": 8.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1719,7 +1719,7 @@
       "content_score": 3.67,
       "answer_score": 9.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1749,7 +1749,7 @@
       "content_score": 3.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1779,7 +1779,7 @@
       "content_score": 3.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1809,7 +1809,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1839,7 +1839,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1869,7 +1869,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1899,7 +1899,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1929,7 +1929,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1959,7 +1959,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -1989,7 +1989,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2019,7 +2019,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2049,7 +2049,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2079,7 +2079,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2109,7 +2109,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2139,7 +2139,7 @@
       "content_score": 2.27,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2169,7 +2169,7 @@
       "content_score": 3.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2199,7 +2199,7 @@
       "content_score": 3.67,
       "answer_score": 9.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2229,7 +2229,7 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2259,7 +2259,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2289,7 +2289,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2319,7 +2319,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2349,7 +2349,7 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2379,7 +2379,7 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2409,7 +2409,7 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2439,7 +2439,7 @@
       "content_score": 4.0,
       "answer_score": 8.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2469,7 +2469,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2499,7 +2499,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2529,7 +2529,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2559,7 +2559,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2589,7 +2589,7 @@
       "content_score": 1.2,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2619,7 +2619,7 @@
       "content_score": 3.0,
       "answer_score": 9.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2649,7 +2649,7 @@
       "content_score": 3.0,
       "answer_score": 9.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2679,7 +2679,7 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2709,7 +2709,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2739,7 +2739,7 @@
       "content_score": 4.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2769,7 +2769,7 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2799,7 +2799,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2829,7 +2829,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2859,7 +2859,7 @@
       "content_score": 3.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2889,7 +2889,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2919,7 +2919,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2949,7 +2949,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -2979,7 +2979,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -3009,7 +3009,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -3039,7 +3039,7 @@
       "content_score": 1.2,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     }
   ]

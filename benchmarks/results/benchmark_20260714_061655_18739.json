@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:46:37+00:00",
+      "at": "2026-08-13T04:19:51+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,7 +52,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:36+00:00",
+      "rescored_at": "2026-08-13T04:19:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -89,7 +89,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:36+00:00",
+      "rescored_at": "2026-08-13T04:19:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -126,7 +126,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:36+00:00",
+      "rescored_at": "2026-08-13T04:19:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,7 +163,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:36+00:00",
+      "rescored_at": "2026-08-13T04:19:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -200,7 +200,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:36+00:00",
+      "rescored_at": "2026-08-13T04:19:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -237,7 +237,7 @@
       "content_score": 6.0,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:36+00:00",
+      "rescored_at": "2026-08-13T04:19:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -274,7 +274,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:36+00:00",
+      "rescored_at": "2026-08-13T04:19:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -311,7 +311,7 @@
       "content_score": 4.67,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:37+00:00",
+      "rescored_at": "2026-08-13T04:19:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -348,7 +348,7 @@
       "content_score": 6.0,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:37+00:00",
+      "rescored_at": "2026-08-13T04:19:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -385,17 +385,17 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:37+00:00",
+      "rescored_at": "2026-08-13T04:19:51+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 5.88,
-      "cost_usd": 0.005079,
+      "cost_score": 5.38,
+      "cost_usd": 0.007452,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.26,
+      "final": 8.18,
       "test_name": "dato_falso_en_el_brief",
       "model": "Qwen 3.5 397B",
       "model_id": "qwen/qwen3.5-397b-a17b",
@@ -422,17 +422,17 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:37+00:00",
+      "rescored_at": "2026-08-13T04:19:51+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 2.0,
-      "cost_score": 5.88,
-      "cost_usd": 0.00508,
+      "cost_score": 5.38,
+      "cost_usd": 0.007454,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 2.81,
+      "final": 2.73,
       "test_name": "restriccion_que_pelea_con_el_pedido",
       "model": "Qwen 3.5 397B",
       "model_id": "qwen/qwen3.5-397b-a17b",
@@ -459,17 +459,17 @@
       "content_score": 5.34,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:37+00:00",
+      "rescored_at": "2026-08-13T04:19:51+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 6.67,
-      "cost_score": 5.88,
-      "cost_usd": 0.005077,
+      "cost_score": 5.38,
+      "cost_usd": 0.007449,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.22,
+      "final": 6.15,
       "test_name": "fuentes_que_se_contradicen",
       "model": "Qwen 3.5 397B",
       "model_id": "qwen/qwen3.5-397b-a17b",
@@ -496,17 +496,17 @@
       "content_score": 5.34,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:37+00:00",
+      "rescored_at": "2026-08-13T04:19:51+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 10.0,
-      "cost_score": 5.89,
-      "cost_usd": 0.00506,
+      "cost_score": 5.39,
+      "cost_usd": 0.007428,
       "speed": 2.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.11,
+      "final": 8.03,
       "test_name": "audiencia_que_ya_sabe",
       "model": "Qwen 3.5 397B",
       "model_id": "qwen/qwen3.5-397b-a17b",
@@ -533,17 +533,17 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:37+00:00",
+      "rescored_at": "2026-08-13T04:19:51+00:00",
       "scoring": "verificable"
     },
     {
       "quality": 2.0,
-      "cost_score": 5.88,
-      "cost_usd": 0.005089,
+      "cost_score": 5.38,
+      "cost_usd": 0.007465,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 2.96,
+      "final": 2.88,
       "test_name": "anuncio_sin_call_to_action",
       "model": "Qwen 3.5 397B",
       "model_id": "qwen/qwen3.5-397b-a17b",
@@ -570,7 +570,7 @@
       "content_score": 5.34,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:37+00:00",
+      "rescored_at": "2026-08-13T04:19:51+00:00",
       "scoring": "verificable"
     }
   ]

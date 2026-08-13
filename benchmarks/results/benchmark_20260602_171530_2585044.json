@@ -24,7 +24,7 @@
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.13,
+      "final": 7.82,
       "test_name": "logical_reasoning",
       "model": "Claude Opus 4.8 (suscripción)",
       "model_id": "claude-opus-4-8",

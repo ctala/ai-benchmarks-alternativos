@@ -13,7 +13,7 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:43:01+00:00",
+      "at": "2026-08-13T04:16:40+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     },
     "polluted_cleanup": {
@@ -49,7 +49,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:00+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -79,7 +79,7 @@
       "content_score": 5.34,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:00+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -109,7 +109,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:00+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -139,17 +139,17 @@
       "content_score": 4.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.0,
+      "quality": 8.0,
       "cost_score": 9.54,
       "cost_usd": 0.000307,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.16,
+      "final": 7.56,
       "test_name": "roadmap_restriccion_capacidad",
       "model": "Llama 3.3 70B",
       "model_id": "meta-llama/llama-3.3-70b-instruct",
@@ -161,15 +161,15 @@
       "input_tokens": 279,
       "output_tokens": 873,
       "response_preview": "Excelente enfoque en priorizar con la capacidad real del equipo (en este caso, tú mismo). Considerando tus 4 horas diarias disponibles para construir y las 8 semanas hasta el cierre del trimestre, te propongo el siguiente orden de priorización:\n\n1. **Iniciativa B: Arreglar el flujo de alta** (~1 sem",
-      "auto_quality": 6.0,
+      "auto_quality": 8.0,
       "suite": "business_audit",
       "run": 1,
       "timestamp": "20260713_140418_2684",
       "response_file": "results/responses/20260713_140418_2684/or-llama-3.3-70b__business_audit__roadmap_restriccion_capacidad.md",
       "content_score": 5.34,
-      "answer_score": 6.0,
+      "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -199,7 +199,7 @@
       "content_score": 4.67,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -229,7 +229,7 @@
       "content_score": 5.34,
       "answer_score": 6.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -259,7 +259,7 @@
       "content_score": 5.34,
       "answer_score": 8.33,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -289,7 +289,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -319,7 +319,7 @@
       "content_score": 0.02,
       "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -349,7 +349,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -379,17 +379,17 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 4.0,
+      "quality": 6.0,
       "cost_score": 10.0,
       "cost_usd": 0.00017,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.83,
+      "final": 6.22,
       "test_name": "elegir_negocio_con_dependencia_oculta",
       "model": "Llama 3.3 70B",
       "model_id": "meta-llama/llama-3.3-70b-instruct",
@@ -401,15 +401,15 @@
       "input_tokens": 347,
       "output_tokens": 424,
       "response_preview": "La elección depende de varios factores, incluyendo tus habilidades, recursos y objetivos a corto plazo. Sin embargo, considerando tus restricciones de tiempo (4 horas al día, 3 meses de caja) y la necesidad de generar ingresos antes de que se te acabe el colchón, la opción más viable parece ser la *",
-      "auto_quality": 4.0,
+      "auto_quality": 6.0,
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_140418_2684",
       "response_file": "results/responses/20260713_140418_2684/or-llama-3.3-70b__business_strategy__elegir_negocio_con_dependencia_oculta.md",
       "content_score": 5.34,
-      "answer_score": 4.0,
+      "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -439,7 +439,7 @@
       "content_score": 7.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:39+00:00",
       "scoring": "verificable"
     },
     {
@@ -469,112 +469,8 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:43:01+00:00",
+      "rescored_at": "2026-08-13T04:16:40+00:00",
       "scoring": "verificable"
-    },
-    {
-      "quality": 5.0,
-      "cost_score": 10.0,
-      "cost_usd": 0.000105,
-      "speed": 4.0,
-      "latency": 4.0,
-      "tool_calling": 8.5,
-      "final": 5.6,
-      "test_name": "single_tool_calendar",
-      "model": "Llama 3.3 70B",
-      "model_id": "meta-llama/llama-3.3-70b-instruct",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 23.3,
-      "latency_first_token": 2.919,
-      "latency_total": 2.919,
-      "input_tokens": 831,
-      "output_tokens": 68,
-      "response_preview": "[tool_call] create_calendar_event({\"title\": \"Sprint Planning Q2\", \"date\": \"2026-05-15\", \"time\": \"10:00\", \"duration_minutes\": \"60\", \"description\": \"Reunión de proyecto\"})",
-      "auto_quality": 5.0,
-      "suite": "tool_calling",
-      "run": 1,
-      "timestamp": "20260713_140418_2684",
-      "response_file": "results/responses/20260713_140418_2684/or-llama-3.3-70b__tool_calling__single_tool_calendar.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
-    },
-    {
-      "quality": 5.0,
-      "cost_score": 10.0,
-      "cost_usd": 0.000101,
-      "speed": 2.0,
-      "latency": 2.0,
-      "tool_calling": 5.0,
-      "final": 5.3,
-      "test_name": "multi_tool_sequential",
-      "model": "Llama 3.3 70B",
-      "model_id": "meta-llama/llama-3.3-70b-instruct",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 7.7,
-      "latency_first_token": 5.966,
-      "latency_total": 5.966,
-      "input_tokens": 866,
-      "output_tokens": 46,
-      "response_preview": "[tool_call] create_task({\"title\": \"Revisar contrato cliente ABC\", \"due_date\": \"2026-05-10\", \"priority\": \"urgent\"})",
-      "auto_quality": 5.0,
-      "suite": "tool_calling",
-      "run": 1,
-      "timestamp": "20260713_140418_2684",
-      "response_file": "results/responses/20260713_140418_2684/or-llama-3.3-70b__tool_calling__multi_tool_sequential.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
-    },
-    {
-      "quality": 5.0,
-      "cost_score": 10.0,
-      "cost_usd": 0.000104,
-      "speed": 2.0,
-      "latency": 2.0,
-      "tool_calling": 5.0,
-      "final": 5.3,
-      "test_name": "tool_with_reasoning",
-      "model": "Llama 3.3 70B",
-      "model_id": "meta-llama/llama-3.3-70b-instruct",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 12.0,
-      "latency_first_token": 6.183,
-      "latency_total": 6.183,
-      "input_tokens": 804,
-      "output_tokens": 74,
-      "response_preview": "[tool_call] create_calendar_event({\"date\": \"2024-02-25\", \"duration_minutes\": \"60\", \"time\": \"17:00\", \"title\": \"Recordatorio: Repasar slides de presentacion\", \"description\": \"Repasar las slides para la presentacion de manana\"})",
-      "auto_quality": 5.0,
-      "suite": "tool_calling",
-      "run": 1,
-      "timestamp": "20260713_140418_2684",
-      "response_file": "results/responses/20260713_140418_2684/or-llama-3.3-70b__tool_calling__tool_with_reasoning.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
-    },
-    {
-      "quality": 5.0,
-      "cost_score": 10.0,
-      "cost_usd": 8.8e-05,
-      "speed": 4.0,
-      "latency": 6.0,
-      "tool_calling": 5.0,
-      "final": 5.75,
-      "test_name": "no_tool_needed",
-      "model": "Llama 3.3 70B",
-      "model_id": "meta-llama/llama-3.3-70b-instruct",
-      "success": true,
-      "error": "",
-      "tokens_per_second": 18.9,
-      "latency_first_token": 1.374,
-      "latency_total": 1.374,
-      "input_tokens": 800,
-      "output_tokens": 26,
-      "response_preview": "[tool_call] search_web({\"query\": \"Capital de Francia\"})",
-      "auto_quality": 5.0,
-      "suite": "tool_calling",
-      "run": 1,
-      "timestamp": "20260713_140418_2684",
-      "response_file": "results/responses/20260713_140418_2684/or-llama-3.3-70b__tool_calling__no_tool_needed.md",
-      "scoring": "solo-rubrica-SIN-JUEZ"
     }
   ]
 }

@@ -13,19 +13,19 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:51:21+00:00",
+      "at": "2026-08-13T04:22:52+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
   "results": [
     {
       "quality": 10.0,
-      "cost_score": 8.12,
-      "cost_usd": 0.000915,
+      "cost_score": 7.63,
+      "cost_usd": 0.001329,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.89,
+      "final": 8.82,
       "test_name": "math_word_problem",
       "model": "DeepSeek V4 Pro",
       "model_id": "deepseek/deepseek-v4-pro",
@@ -53,16 +53,16 @@
       "timestamp": "20260714_153502_16058",
       "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__math_word_problem.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:18+00:00"
+      "rescored_at": "2026-08-13T04:22:50+00:00"
     },
     {
       "quality": 5.0,
-      "cost_score": 6.23,
-      "cost_usd": 0.003884,
+      "cost_score": 5.75,
+      "cost_usd": 0.00564,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 5.11,
+      "final": 5.04,
       "test_name": "logic_puzzle_constraint",
       "model": "DeepSeek V4 Pro",
       "model_id": "deepseek/deepseek-v4-pro",
@@ -90,16 +90,16 @@
       "timestamp": "20260714_153502_16058",
       "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__logic_puzzle_constraint.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:18+00:00"
+      "rescored_at": "2026-08-13T04:22:50+00:00"
     },
     {
       "quality": 10.0,
-      "cost_score": 7.97,
-      "cost_usd": 0.001023,
+      "cost_score": 7.48,
+      "cost_usd": 0.001486,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.57,
+      "final": 8.5,
       "test_name": "causal_reasoning",
       "model": "DeepSeek V4 Pro",
       "model_id": "deepseek/deepseek-v4-pro",
@@ -127,16 +127,16 @@
       "timestamp": "20260714_153502_16058",
       "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__causal_reasoning.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     },
     {
       "quality": 7.5,
-      "cost_score": 5.42,
-      "cost_usd": 0.007225,
+      "cost_score": 4.94,
+      "cost_usd": 0.010492,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.59,
+      "final": 6.52,
       "test_name": "code_bug_subtle",
       "model": "DeepSeek V4 Pro",
       "model_id": "deepseek/deepseek-v4-pro",
@@ -164,16 +164,16 @@
       "timestamp": "20260714_153502_16058",
       "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__code_bug_subtle.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     },
     {
       "quality": 0.0,
-      "cost_score": 5.75,
-      "cost_usd": 0.005626,
+      "cost_score": 5.26,
+      "cost_usd": 0.00817,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 1.54,
+      "final": 1.46,
       "test_name": "fermi_estimation",
       "model": "DeepSeek V4 Pro",
       "model_id": "deepseek/deepseek-v4-pro",
@@ -201,16 +201,16 @@
       "timestamp": "20260714_153502_16058",
       "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__fermi_estimation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     },
     {
       "quality": 10.0,
-      "cost_score": 5.86,
-      "cost_usd": 0.005154,
+      "cost_score": 5.38,
+      "cost_usd": 0.007485,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.55,
+      "final": 8.48,
       "test_name": "ethical_dilemma_structured",
       "model": "DeepSeek V4 Pro",
       "model_id": "deepseek/deepseek-v4-pro",
@@ -238,7 +238,7 @@
       "timestamp": "20260714_153502_16058",
       "response_file": "results/responses/20260714_153502_16058/deepseek-v4-pro__deep_reasoning__ethical_dilemma_structured.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     }
   ]
 }
