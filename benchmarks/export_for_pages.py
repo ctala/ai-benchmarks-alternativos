@@ -1111,6 +1111,32 @@ def build_export(recalibrate=False, scoring_version=None):
         m["score_calidad"] = (None if zq is None
                               else round(max(0.0, min(10.0, _OFFSET + _slope_q * zq)), 2))
 
+    # ── FRONTERA DE PARETO — el segundo eje publicado ────────────────────────────
+    # Un modelo está en la frontera si NINGÚN otro es a la vez mejor, más barato Y
+    # más rápido. Todo lo que queda fuera está estrictamente dominado: existe algo
+    # que le gana en las tres cosas.
+    #
+    # Por qué esto y no una segunda tabla de "mejor valor" (corrección del 13-ago):
+    # el compuesto 70/15/7,5/7,5 correlaciona **r = 0,943** con el índice de calidad
+    # — 6 de 10 del top compartido, 2 modelos que no se mueven ni un puesto. Eran dos
+    # tablas para decir casi lo mismo. La causa es de diseño: el costo aporta ±0,30 al
+    # z compuesto contra ±1,3 de la calidad, así que el precio casi no mueve el orden.
+    # La frontera, en cambio, deja fuera a 69 de 82: información nueva, no una
+    # reordenación de la misma lista. Y responde la pregunta que el ranking no puede,
+    # que es "¿cuáles vale la pena siquiera considerar?".
+    _PARETO_DIMS = [("score_calidad", True), ("cost_per_1k_calls_usd", False),
+                    ("latency_avg_s", False)]
+    _cands = [m for m in models_export
+              if m.get("ranked") and all(m.get(c) is not None for c, _ in _PARETO_DIMS)]
+    for m in models_export:
+        m["pareto"] = False
+    for m in _cands:
+        dominado = any(
+            all((o[c] > m[c]) if hi else (o[c] < m[c]) for c, hi in _PARETO_DIMS)
+            for o in _cands
+        )
+        m["pareto"] = not dominado
+
     # (3) Persistir la referencia SOLO en recalibración deliberada (evento de versión).
     if recalibrate:
         _persist_scoring_reference(norm_stats, norm_stats_by_pillar,
