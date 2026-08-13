@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-06-26 -->
 # Tests Faltantes por Modelo
 
 > Tracking de cobertura del benchmark. Generado automáticamente desde los resultados JSON.

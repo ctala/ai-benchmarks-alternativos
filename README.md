@@ -1,3 +1,4 @@
+<!-- doc: generado -->
 # Benchmark de Modelos AI Alternativos: comparación abierta de LLMs en español para N8N, Hermes y emprendedores
 
 **Version 3.1.1** | Ultima actualizacion: 10 de Julio de 2026 | [📊 Datasheet junio](DATASHEET_2026-06.md) · [📄 CheatSheet PDF julio](cheatsheet/AI_Model_Benchmark_CheatSheet_Julio_2026.pdf) · [📄 Executive Brief julio](cheatsheet/AI_Model_Benchmark_ExecutiveBrief_July_2026.pdf)

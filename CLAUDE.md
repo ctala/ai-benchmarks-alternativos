@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-08-13 -->
 # CLAUDE.md - Guia para Agentes
 
 > **Relación con `AGENTS.md`**: `AGENTS.md` es la guía canónica de **recomendación de modelos** —filosofía, schema de `docs/data/models.json`, reglas por caso de uso y anti-patrones. `CLAUDE.md` es la guía técnica del **proyecto y pipeline**. Antes de recomendar un modelo, leer `AGENTS.md`; antes de modificar código, tests o docs, leer esta guía.

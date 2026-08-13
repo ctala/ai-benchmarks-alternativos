@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-07-01 -->
 # Comparacion de Suscripciones Mensuales Fijas
 
 > Ultima actualizacion: 22 de Abril de 2026

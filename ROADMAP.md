@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-08-13 -->
 # Roadmap del Benchmark
 
 > Ultima actualizacion: 17 de Julio de 2026 (relanzamiento v4.0.0: referencia z-score congelada + eje agéntico + limpieza de datos + refusal policy + pase de UX)

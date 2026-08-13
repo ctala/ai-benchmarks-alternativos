@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-07-01 -->
 ---
 title: "Insights del benchmark — qué dice la data, no el marketing"
 fecha: "2026-06-26"

@@ -1,3 +1,4 @@
+<!-- doc: snapshot -->
 # Changelog
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.

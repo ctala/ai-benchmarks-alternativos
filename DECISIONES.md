@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-08-13 -->
 # Decisiones — índice único
 
 > **Qué es esto y qué NO es.** Es un **índice**, no un lugar nuevo donde escribir. Cada
@@ -61,7 +62,23 @@
 | Benchmarks de terceros (SWE-Bench, GPQA) | Solo si la fuente es consultable y automatizable. Copiar de una landing devuelve el problema de cifras que caducan | [PLAN-V4.1 §3.ter](PLAN-V4.1.md) |
 | Pilar del blog | Su sección de método explica el compuesto, que ya no se publica. Necesita reescritura, no find-replace | [CHANGELOG v4.1.0](CHANGELOG.md) |
 | **9 docs citan modelos retirados** | Auditoría 13-ago: `COMPARATIVA`, `SUSCRIPCIONES`, `PROVEEDORES`, `CASOS_DE_USO`, `BENCHMARKS_EXTERNOS`, `THINKING_EXPLAINED` y otros recomiendan modelos que ya no existen — Devstral Small entre ellos. `check_consistency` lo avisa en cada corrida; limpiarlo es trabajo editorial pendiente | `check_consistency.py` |
-| **8 docs sin tocar >45 días** | `PROVEEDORES` (113d), `DESCUBRIMIENTOS` (110d), `BENCHMARKS_EXTERNOS`/`NIAH_*`/`DATASHEET_04-05` (102d). Decidir cuáles son snapshots con fecha (se congelan) y cuáles son docs vivos podridos | — |
+| **5 docs vigentes sin verificar >90 días** | Ya no depende de que alguien se acuerde: `check_docs.py` los marca en cada corrida. Veredicto por doc abajo | `check_docs.py` |
+
+### Veredicto sobre los 5 docs podridos (13-ago-2026)
+
+**El patrón común: prosa curada con DATOS incrustados.** Un doc editorial no se pudre; lo
+que se pudre es la tabla de modelos que alguien pegó adentro. De ahí la regla:
+
+> **Un doc curado no incrusta datos. Si necesita datos, se genera — o el dato se enlaza,
+> no se copia.**
+
+| doc | qué pasa | veredicto |
+|---|---|---|
+| `PROVEEDORES.md` (113d) | El perfil editorial de cada proveedor **sirve** (fundadores, foco, fortalezas). Lo podrido es la lista de modelos incrustada: dice "GPT-4o, GPT-5.2, o3" y **cero menciones** a GPT-5.6, Opus 5 o Tencent Hy3 | **Sacar las listas de modelos**, dejar el perfil. Enlazar a MODELOS.md |
+| `NIAH_ES_DESIGN.md` (102d) | Declara `version: v1 piloto` y la suite va por **v3 con grilla recortada hoy**. Documenta una contribución novedosa (primer NIAH público en español) → tiene valor propio | **Actualizar el bloque de versión**, no borrar |
+| `NIAH_CROSSREF.md` (102d) | Compara con la literatura inglesa. Esa literatura no cambia | **Marcar `snapshot`** — es una comparación con fecha, no un doc vivo |
+| `BENCHMARKS_EXTERNOS.md` (102d) | Es el terreno del candidato v4.2 (SWE-Bench/GPQA). Se toca cuando eso se decida | Revisar **junto con** [§3.ter](PLAN-V4.1.md) |
+| `DESCUBRIMIENTOS.md` (110d) | Enlazado desde `generate_tests_md.py` y el sitemap: **se publica**, así que un lector llega ahí | Revisar contenido; es el de mayor riesgo de los cinco |
 
 ---
 
