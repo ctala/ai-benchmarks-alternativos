@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:48:14+00:00",
+      "at": "2026-08-13T04:21:11+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     },
     "polluted_cleanup": {
@@ -56,7 +56,7 @@
       "content_score": 8.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:11+00:00",
+      "rescored_at": "2026-08-13T04:21:10+00:00",
       "scoring": "verificable"
     },
     {
@@ -126,7 +126,7 @@
       "content_score": 7.87,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:13+00:00",
+      "rescored_at": "2026-08-13T04:21:11+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,7 +163,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:13+00:00",
+      "rescored_at": "2026-08-13T04:21:11+00:00",
       "scoring": "verificable"
     },
     {
@@ -173,7 +173,7 @@
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.54,
+      "final": 6.53,
       "test_name": "detect_language_issues",
       "model": "DeepSeek V3",
       "model_id": "deepseek/deepseek-v3.2",
@@ -200,7 +200,7 @@
       "content_score": 6.2,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:14+00:00",
+      "rescored_at": "2026-08-13T04:21:11+00:00",
       "scoring": "verificable"
     }
   ]

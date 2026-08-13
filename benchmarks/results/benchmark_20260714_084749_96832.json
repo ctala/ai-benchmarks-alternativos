@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:50:28+00:00",
+      "at": "2026-08-13T04:22:17+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     },
     "polluted_cleanup": {
@@ -56,17 +56,17 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:25+00:00",
+      "rescored_at": "2026-08-13T04:22:16+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 10.0,
+      "quality": 6.67,
       "cost_score": 5.5,
       "cost_usd": 0.006808,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.35,
+      "final": 6.02,
       "test_name": "detect_language_issues",
       "model": "GLM 5",
       "model_id": "z-ai/glm-5",
@@ -78,7 +78,7 @@
       "input_tokens": 201,
       "output_tokens": 2595,
       "response_preview": "```json\n{\n  \"problemas\": [\n    {\n      \"tipo\": \"chino\",\n      \"texto\": \"特别是\",\n      \"correccion\": \"especialmente / particularmente\"\n    },\n    {\n      \"tipo\": \"gramatical\",\n      \"texto\": \"estan\",\n      \"correccion\": \"están\"\n    },\n    {\n      \"tipo\": \"spanglish\",\n      \"texto\": \"leveraging\",\n      ",
-      "auto_quality": 10.0,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -91,9 +91,9 @@
       "timestamp": "20260714_084749_96832",
       "response_file": "results/responses/20260714_084749_96832/or-glm5__translation__detect_language_issues.md",
       "content_score": 7.0,
-      "answer_score": 10.0,
+      "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:26+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -130,7 +130,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:26+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     },
     {
@@ -167,7 +167,7 @@
       "content_score": 7.0,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:28+00:00",
+      "rescored_at": "2026-08-13T04:22:17+00:00",
       "scoring": "verificable"
     }
   ]

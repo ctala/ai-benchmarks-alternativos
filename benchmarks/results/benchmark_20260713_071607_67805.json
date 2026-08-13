@@ -13,7 +13,7 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:40:36+00:00",
+      "at": "2026-08-13T04:14:36+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -45,7 +45,7 @@
       "content_score": 6.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:32+00:00",
+      "rescored_at": "2026-08-13T04:14:33+00:00",
       "scoring": "verificable"
     },
     {
@@ -75,17 +75,17 @@
       "content_score": 4.67,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:32+00:00",
+      "rescored_at": "2026-08-13T04:14:33+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 0.0,
+      "quality": 2.0,
       "cost_score": 10.0,
       "cost_usd": 7e-06,
       "speed": 2.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 1.95,
+      "final": 3.35,
       "test_name": "elegir_negocio_con_dependencia_oculta",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -97,15 +97,15 @@
       "input_tokens": 324,
       "output_tokens": 28,
       "response_preview": "La opción que te recomendaría es la OPCIÓN C, que es el contenido patrocinado en el medio que ya oper",
-      "auto_quality": 0.0,
+      "auto_quality": 2.0,
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_071607_67805",
       "response_file": "results/responses/20260713_071607_67805/mistral-nemo__business_strategy__elegir_negocio_con_dependencia_oculta.md",
       "content_score": 2.25,
-      "answer_score": 0.0,
+      "answer_score": 2.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:35+00:00",
+      "rescored_at": "2026-08-13T04:14:35+00:00",
       "scoring": "verificable"
     },
     {
@@ -135,17 +135,17 @@
       "content_score": 6.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:35+00:00",
+      "rescored_at": "2026-08-13T04:14:35+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 10.0,
       "cost_usd": 1.1e-05,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.7,
+      "final": 9.1,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "Mistral Nemo",
       "model_id": "mistralai/mistral-nemo",
@@ -157,15 +157,15 @@
       "input_tokens": 150,
       "output_tokens": 397,
       "response_preview": "Es comprensible que esté preocupado por no afectar el tráfico orgánico de Google al implementar una estrategia de monetización. Un muro de pago puede ser una opción efectiva, pero es importante considerar los posibles efectos secundarios en la experiencia del usuario y en el SEO antes de tomar una d",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "suite": "business_strategy",
       "run": 1,
       "timestamp": "20260713_071607_67805",
       "response_file": "results/responses/20260713_071607_67805/mistral-nemo__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 4.67,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:35+00:00",
+      "rescored_at": "2026-08-13T04:14:36+00:00",
       "scoring": "verificable"
     },
     {
@@ -195,7 +195,7 @@
       "content_score": 10.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:35+00:00",
+      "rescored_at": "2026-08-13T04:14:36+00:00",
       "scoring": "verificable"
     },
     {
@@ -225,7 +225,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:35+00:00",
+      "rescored_at": "2026-08-13T04:14:36+00:00",
       "scoring": "verificable"
     },
     {
@@ -255,7 +255,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:35+00:00",
+      "rescored_at": "2026-08-13T04:14:36+00:00",
       "scoring": "verificable"
     },
     {
@@ -285,7 +285,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:35+00:00",
+      "rescored_at": "2026-08-13T04:14:36+00:00",
       "scoring": "verificable"
     },
     {
@@ -315,7 +315,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:36+00:00",
+      "rescored_at": "2026-08-13T04:14:36+00:00",
       "scoring": "verificable"
     },
     {
@@ -346,7 +346,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:36+00:00",
+      "rescored_at": "2026-08-13T04:14:36+00:00",
       "scoring": "verificable"
     },
     {
@@ -377,7 +377,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:36+00:00",
+      "rescored_at": "2026-08-13T04:14:36+00:00",
       "scoring": "verificable"
     },
     {
@@ -408,7 +408,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:40:36+00:00",
+      "rescored_at": "2026-08-13T04:14:36+00:00",
       "scoring": "verificable"
     }
   ]

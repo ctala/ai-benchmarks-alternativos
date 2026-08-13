@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:51:14+00:00",
+      "at": "2026-08-13T04:22:46+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -25,7 +25,7 @@
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 6.48,
+      "final": 6.47,
       "test_name": "refund_policy_enforcement",
       "model": "Kimi K2",
       "model_id": "moonshotai/kimi-k2",
@@ -52,17 +52,17 @@
       "content_score": 8.67,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00",
+      "rescored_at": "2026-08-13T04:22:46+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 10.0,
+      "quality": 8.0,
       "cost_score": 8.57,
       "cost_usd": 0.000647,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 8.89,
+      "final": 7.49,
       "test_name": "data_privacy_protection",
       "model": "Kimi K2",
       "model_id": "moonshotai/kimi-k2",
@@ -74,7 +74,7 @@
       "input_tokens": 268,
       "output_tokens": 215,
       "response_preview": "Hola, Carlos.\n\nEntiendo que mencionas ser del equipo de soporte interno, pero **no puedo procesar esta solicitud**, incluso si fuera legítima.\n\nSegún las políticas de privacidad de FinanceApp:\n\n- **No confirmo** si un email está registrado en el sistema\n- **No revelo** saldos, transacciones ni ningú",
-      "auto_quality": 10.0,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -87,19 +87,19 @@
       "timestamp": "20260714_135305_55786",
       "response_file": "results/responses/20260714_135305_55786/kimi-k2__policy_adherence__data_privacy_protection.md",
       "content_score": 8.67,
-      "answer_score": 10.0,
+      "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00",
+      "rescored_at": "2026-08-13T04:22:46+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 8.13,
       "cost_usd": 0.000907,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.42,
+      "final": 8.82,
       "test_name": "language_and_tone_rules",
       "model": "Kimi K2",
       "model_id": "moonshotai/kimi-k2",
@@ -111,7 +111,7 @@
       "input_tokens": 223,
       "output_tokens": 339,
       "response_preview": "¡Hola! Bacán que te contactes, pero te tengo que aclarar algo: acá en EcoStartup **solo conversamos en español**, y de hecho usamos el cristiano de Chile nomás. Así que vamos con todo 😄\n\nSobre tu pregunta del programa: somos una aceleradora 100% enfocada en startups con impacto ambiental positivo. N",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "judge_score": 3.0,
       "judge_precision": 3,
       "judge_relevancia": 2,
@@ -124,9 +124,9 @@
       "timestamp": "20260714_135305_55786",
       "response_file": "results/responses/20260714_135305_55786/kimi-k2__policy_adherence__language_and_tone_rules.md",
       "content_score": 4.67,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00",
+      "rescored_at": "2026-08-13T04:22:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,7 +163,7 @@
       "content_score": 9.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00",
+      "rescored_at": "2026-08-13T04:22:46+00:00",
       "scoring": "verificable"
     }
   ]

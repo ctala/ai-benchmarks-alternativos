@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:49:12+00:00",
+      "at": "2026-08-13T04:21:41+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,17 +52,17 @@
       "content_score": 4.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:09+00:00",
+      "rescored_at": "2026-08-13T04:21:38+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.0,
+      "quality": 8.0,
       "cost_score": 8.85,
       "cost_usd": 0.000519,
       "speed": 6.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 6.28,
+      "final": 7.68,
       "test_name": "support_escalation",
       "model": "Mistral Large 3 675B",
       "model_id": "mistralai/mistral-large-2512",
@@ -74,7 +74,7 @@
       "input_tokens": 358,
       "output_tokens": 227,
       "response_preview": "Maria, entiendo tu molestia y lamento mucho que hayas tenido problemas intermitentes durante un mes. Vamos a resolver esto paso a paso:\n\n1. **Reembolso**: Según nuestras políticas, los reembolsos solo aplican dentro de los primeros 30 días de facturación. Como mencionas que llevas un mes con problem",
-      "auto_quality": 6.0,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -87,9 +87,9 @@
       "timestamp": "20260714_074313_63719",
       "response_file": "results/responses/20260714_074313_63719/or-mistral-large-3__multi_turn__support_escalation.md",
       "content_score": 9.34,
-      "answer_score": 6.0,
+      "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:11+00:00",
+      "rescored_at": "2026-08-13T04:21:41+00:00",
       "scoring": "verificable"
     },
     {
@@ -126,7 +126,7 @@
       "content_score": 10.0,
       "answer_score": 4.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:12+00:00",
+      "rescored_at": "2026-08-13T04:21:41+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,7 +163,7 @@
       "content_score": 10.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:12+00:00",
+      "rescored_at": "2026-08-13T04:21:41+00:00",
       "scoring": "verificable"
     },
     {
@@ -200,7 +200,7 @@
       "content_score": 5.34,
       "answer_score": 6.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:12+00:00",
+      "rescored_at": "2026-08-13T04:21:41+00:00",
       "scoring": "verificable"
     },
     {
@@ -237,17 +237,17 @@
       "content_score": 9.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:12+00:00",
+      "rescored_at": "2026-08-13T04:21:41+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 4.0,
+      "quality": 6.0,
       "cost_score": 5.38,
       "cost_usd": 0.007489,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.28,
+      "final": 5.68,
       "test_name": "requirements_change",
       "model": "Qwen 3.5 397B",
       "model_id": "qwen/qwen3.5-397b-a17b",
@@ -259,7 +259,7 @@
       "input_tokens": 233,
       "output_tokens": 2048,
       "response_preview": "¡Excelente ajuste! Esa combinación (Gmail + Notion + Slack) es mucho más potente para gestionar leads o oportunidades comerciales. Notion te sirve como CRM ligero y Slack te mantiene alerta en tiempo real.\n\nAquí tienes la estructura optimizada del workflow en N8N:\n\n### 🏗️ Estructura del Workflow\n\n1.",
-      "auto_quality": 4.0,
+      "auto_quality": 6.0,
       "judge_score": 2.0,
       "judge_precision": 2,
       "judge_relevancia": 1,
@@ -272,9 +272,9 @@
       "timestamp": "20260714_074313_63719",
       "response_file": "results/responses/20260714_074313_63719/or-qwen3.5-397b__multi_turn__requirements_change.md",
       "content_score": 10.0,
-      "answer_score": 4.0,
+      "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:12+00:00",
+      "rescored_at": "2026-08-13T04:21:41+00:00",
       "scoring": "verificable"
     },
     {
@@ -311,7 +311,7 @@
       "content_score": 9.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:12+00:00",
+      "rescored_at": "2026-08-13T04:21:41+00:00",
       "scoring": "verificable"
     }
   ]

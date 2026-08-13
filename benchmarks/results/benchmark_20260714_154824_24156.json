@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:51:21+00:00",
+      "at": "2026-08-13T04:22:52+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -53,7 +53,7 @@
       "timestamp": "20260714_154824_24156",
       "response_file": "results/responses/20260714_154824_24156/deepseek-v4-pro__creativity__creative_hook_writing.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     },
     {
       "quality": 8.0,
@@ -90,7 +90,7 @@
       "timestamp": "20260714_154824_24156",
       "response_file": "results/responses/20260714_154824_24156/deepseek-v4-pro__creativity__analogy_generation.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     },
     {
       "quality": 10.0,
@@ -127,7 +127,7 @@
       "timestamp": "20260714_154824_24156",
       "response_file": "results/responses/20260714_154824_24156/deepseek-v4-pro__creativity__depth_vs_superficial.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     },
     {
       "quality": 9.0,
@@ -164,7 +164,7 @@
       "timestamp": "20260714_154824_24156",
       "response_file": "results/responses/20260714_154824_24156/deepseek-v4-pro__creativity__storytelling_quality.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:21+00:00"
+      "rescored_at": "2026-08-13T04:22:52+00:00"
     }
   ]
 }

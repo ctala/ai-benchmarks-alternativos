@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:51:14+00:00",
+      "at": "2026-08-13T04:22:46+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -46,7 +46,7 @@
       "timestamp": "20260714_142058_71505",
       "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_bridge_length_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00"
+      "rescored_at": "2026-08-13T04:22:46+00:00"
     },
     {
       "quality": 10.0,
@@ -76,7 +76,7 @@
       "timestamp": "20260714_142058_71505",
       "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_bridge_length_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00"
+      "rescored_at": "2026-08-13T04:22:46+00:00"
     },
     {
       "quality": 0.0,
@@ -187,7 +187,7 @@
       "timestamp": "20260714_142058_71505",
       "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_library_volumes_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00"
+      "rescored_at": "2026-08-13T04:22:46+00:00"
     },
     {
       "quality": 0.0,
@@ -244,7 +244,7 @@
       "timestamp": "20260714_142058_71505",
       "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_festival_date_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00"
+      "rescored_at": "2026-08-13T04:22:46+00:00"
     },
     {
       "quality": 10.0,
@@ -274,7 +274,7 @@
       "timestamp": "20260714_142058_71505",
       "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_festival_date_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00"
+      "rescored_at": "2026-08-13T04:22:46+00:00"
     },
     {
       "quality": 0.0,
@@ -331,7 +331,7 @@
       "timestamp": "20260714_142058_71505",
       "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_potato_altitude_8000_p50.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00"
+      "rescored_at": "2026-08-13T04:22:46+00:00"
     },
     {
       "quality": 10.0,
@@ -361,7 +361,7 @@
       "timestamp": "20260714_142058_71505",
       "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_potato_altitude_8000_p75.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00"
+      "rescored_at": "2026-08-13T04:22:46+00:00"
     },
     {
       "quality": 8.5,
@@ -391,7 +391,7 @@
       "timestamp": "20260714_142058_71505",
       "response_file": "results/responses/20260714_142058_71505/nemotron-super__niah_es__niah_es_expedition_code_8000_p25.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:14+00:00"
+      "rescored_at": "2026-08-13T04:22:46+00:00"
     },
     {
       "quality": 0.0,

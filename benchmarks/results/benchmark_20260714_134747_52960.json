@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:50:59+00:00",
+      "at": "2026-08-13T04:22:34+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,17 +52,17 @@
       "content_score": 4.67,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:56+00:00",
+      "rescored_at": "2026-08-13T04:22:31+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 8.0,
+      "quality": 10.0,
       "cost_score": 8.3,
       "cost_usd": 0.000791,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 7.6,
+      "final": 9.0,
       "test_name": "support_escalation",
       "model": "DeepSeek V4 Pro",
       "model_id": "deepseek/deepseek-v4-pro",
@@ -74,7 +74,7 @@
       "input_tokens": 381,
       "output_tokens": 436,
       "response_preview": "Maria, entiendo perfectamente tu frustración y quiero ser transparente contigo sobre lo que podemos hacer:\n\n✅ **Solución técnica**: Ya estoy revisando tu workflow. En breves minutos puedo guiarte para reactivarlo o hacerlo por ti.\n\n✅ **Compensación por los 3 días**: Te aplicaré un crédito proporcion",
-      "auto_quality": 8.0,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -87,19 +87,19 @@
       "timestamp": "20260714_134747_52960",
       "response_file": "results/responses/20260714_134747_52960/deepseek-v4-pro__multi_turn__support_escalation.md",
       "content_score": 8.67,
-      "answer_score": 8.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:59+00:00",
+      "rescored_at": "2026-08-13T04:22:34+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 4.0,
+      "quality": 6.0,
       "cost_score": 9.44,
       "cost_usd": 0.000332,
       "speed": 6.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 4.97,
+      "final": 6.37,
       "test_name": "requirements_change",
       "model": "DeepSeek V4 Pro",
       "model_id": "deepseek/deepseek-v4-pro",
@@ -111,7 +111,7 @@
       "input_tokens": 244,
       "output_tokens": 141,
       "response_preview": "Perfecto, vamos a ajustar el workflow. Quedaría así:\n\n**Flujo completo:**\n1. **Gmail Trigger** → Detecta nuevo email\n2. **IF Node** → Filtra asuntos con \"propuesta\" o \"cotización\"\n3. **Notion Node** → Crea una página en tu base de datos\n4. **Slack Node** → Te notifica en un canal\n\n¿Te detallo la con",
-      "auto_quality": 4.0,
+      "auto_quality": 6.0,
       "judge_score": 2.0,
       "judge_precision": 2,
       "judge_relevancia": 1,
@@ -124,9 +124,9 @@
       "timestamp": "20260714_134747_52960",
       "response_file": "results/responses/20260714_134747_52960/deepseek-v4-pro__multi_turn__requirements_change.md",
       "content_score": 9.0,
-      "answer_score": 4.0,
+      "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:59+00:00",
+      "rescored_at": "2026-08-13T04:22:34+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,7 +163,7 @@
       "content_score": 8.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:50:59+00:00",
+      "rescored_at": "2026-08-13T04:22:34+00:00",
       "scoring": "verificable"
     }
   ]

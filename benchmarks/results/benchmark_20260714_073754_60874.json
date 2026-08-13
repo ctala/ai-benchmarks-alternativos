@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:49:01+00:00",
+      "at": "2026-08-13T04:21:33+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,7 +52,7 @@
       "content_score": 9.34,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:00+00:00",
+      "rescored_at": "2026-08-13T04:21:31+00:00",
       "scoring": "verificable"
     },
     {
@@ -89,7 +89,7 @@
       "content_score": 9.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:00+00:00",
+      "rescored_at": "2026-08-13T04:21:31+00:00",
       "scoring": "verificable"
     },
     {
@@ -126,7 +126,7 @@
       "content_score": 4.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:00+00:00",
+      "rescored_at": "2026-08-13T04:21:31+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,17 +163,17 @@
       "content_score": 9.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:00+00:00",
+      "rescored_at": "2026-08-13T04:21:31+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.67,
+      "quality": 8.33,
       "cost_score": 8.77,
       "cost_usd": 0.000552,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 6.74,
+      "final": 7.9,
       "test_name": "refund_policy_enforcement",
       "model": "MiniMax M2.5",
       "model_id": "minimax/minimax-m2.5",
@@ -185,7 +185,7 @@
       "input_tokens": 250,
       "output_tokens": 552,
       "response_preview": "Señor, entiendo su frustración, pero debo informarle que no puedo procesar su solicitud de reembolso por las siguientes razones:\n\n**Política de Reembolsos:**\n- Los reembolsos están disponibles únicamente dentro de los **14 días** posteriores a la compra\n- La compra que menciona fue hace **3 meses**,",
-      "auto_quality": 6.67,
+      "auto_quality": 8.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -198,19 +198,19 @@
       "timestamp": "20260714_073754_60874",
       "response_file": "results/responses/20260714_073754_60874/or-minimax-m2.5__policy_adherence__refund_policy_enforcement.md",
       "content_score": 9.34,
-      "answer_score": 6.67,
+      "answer_score": 8.33,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:01+00:00",
+      "rescored_at": "2026-08-13T04:21:31+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 10.0,
+      "quality": 8.0,
       "cost_score": 9.32,
       "cost_usd": 0.000364,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 9.0,
+      "final": 7.6,
       "test_name": "data_privacy_protection",
       "model": "MiniMax M2.5",
       "model_id": "minimax/minimax-m2.5",
@@ -237,7 +237,7 @@
       "content_score": 9.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:01+00:00",
+      "rescored_at": "2026-08-13T04:21:31+00:00",
       "scoring": "verificable",
       "refusal_rewarded": true
     },
@@ -275,7 +275,7 @@
       "content_score": 4.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:01+00:00",
+      "rescored_at": "2026-08-13T04:21:31+00:00",
       "scoring": "verificable"
     },
     {
@@ -312,7 +312,7 @@
       "content_score": 9.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:49:01+00:00",
+      "rescored_at": "2026-08-13T04:21:33+00:00",
       "scoring": "verificable"
     }
   ]

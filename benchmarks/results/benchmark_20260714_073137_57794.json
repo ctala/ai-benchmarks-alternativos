@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:48:53+00:00",
+      "at": "2026-08-13T04:21:25+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -85,7 +85,7 @@
       "content_score": 8.67,
       "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:27+00:00",
+      "rescored_at": "2026-08-13T04:21:23+00:00",
       "scoring": "verificable"
     },
     {
@@ -122,13 +122,13 @@
       "scoring": "juez-30-70"
     },
     {
-      "quality": 10.0,
+      "quality": 7.5,
       "cost_score": 10.0,
       "cost_usd": 0.000196,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 10.0,
-      "final": 9.02,
+      "final": 7.28,
       "test_name": "tool_selection_precision",
       "model": "Nemotron Nano 9B v2",
       "model_id": "nvidia/nemotron-nano-9b-v2:free",
@@ -140,7 +140,7 @@
       "input_tokens": 1064,
       "output_tokens": 716,
       "response_preview": "\n\n**Análisis de herramientas para cada tarea:**\n\n1. **Tarea 1:** Usaría `http_request` para enviar una solicitud GET a la URL proporcionada. Esto permite verificar si el servidor responde con un código de estado exitoso (ej: 200 OK).  \n2. **Tarea 2:** Usaría `query_database` para ejecutar una consul",
-      "auto_quality": 10.0,
+      "auto_quality": 7.5,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -153,9 +153,9 @@
       "timestamp": "20260714_073137_57794",
       "response_file": "results/responses/20260714_073137_57794/or-nemotron-nano-9b-v2__orchestration__tool_selection_precision.md",
       "content_score": 5.34,
-      "answer_score": 10.0,
+      "answer_score": 7.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:27+00:00",
+      "rescored_at": "2026-08-13T04:21:23+00:00",
       "scoring": "verificable"
     },
     {
@@ -192,7 +192,7 @@
       "content_score": 2.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:29+00:00",
+      "rescored_at": "2026-08-13T04:21:24+00:00",
       "scoring": "verificable"
     },
     {
@@ -262,7 +262,7 @@
       "content_score": 4.33,
       "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:29+00:00",
+      "rescored_at": "2026-08-13T04:21:24+00:00",
       "scoring": "verificable"
     },
     {
@@ -299,13 +299,13 @@
       "scoring": "juez-30-70"
     },
     {
-      "quality": 10.0,
+      "quality": 0.0,
       "cost_score": 8.69,
       "cost_usd": 0.00059,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 10.0,
-      "final": 9.05,
+      "final": 2.05,
       "test_name": "tool_selection_precision",
       "model": "MiniMax M2.5",
       "model_id": "minimax/minimax-m2.5",
@@ -317,7 +317,7 @@
       "input_tokens": 1014,
       "output_tokens": 408,
       "response_preview": "## Análisis de herramientas para cada tarea\n\n| Tarea | Herramienta | Razón |\n|-------|-------------|-------|\n| **Tarea 1**: Verificar servidor | `http_request` | Permite hacer petición GET a una URL para verificar estado |\n| **Tarea 2**: Conteo usuarios | `query_database` | Requiere consultar la bas",
-      "auto_quality": 10.0,
+      "auto_quality": 0.0,
       "judge_score": 4.0,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -330,9 +330,9 @@
       "timestamp": "20260714_073137_57794",
       "response_file": "results/responses/20260714_073137_57794/or-minimax-m2.5__orchestration__tool_selection_precision.md",
       "content_score": 5.34,
-      "answer_score": 10.0,
+      "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:29+00:00",
+      "rescored_at": "2026-08-13T04:21:24+00:00",
       "scoring": "verificable"
     },
     {
@@ -369,7 +369,7 @@
       "content_score": 9.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:53+00:00",
+      "rescored_at": "2026-08-13T04:21:25+00:00",
       "scoring": "verificable"
     }
   ]

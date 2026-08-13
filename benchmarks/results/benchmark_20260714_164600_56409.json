@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:51:28+00:00",
+      "at": "2026-08-13T04:22:57+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -53,7 +53,7 @@
       "timestamp": "20260714_164600_56409",
       "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__atribucion_correlacion_temporal.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:26+00:00"
+      "rescored_at": "2026-08-13T04:22:56+00:00"
     },
     {
       "quality": 10.0,
@@ -90,7 +90,7 @@
       "timestamp": "20260714_164600_56409",
       "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__auditoria_pnl_error_plantado.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:26+00:00"
+      "rescored_at": "2026-08-13T04:22:56+00:00"
     },
     {
       "quality": 10.0,
@@ -127,7 +127,7 @@
       "timestamp": "20260714_164600_56409",
       "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__churn_mezcla_free_y_pago.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:27+00:00"
+      "rescored_at": "2026-08-13T04:22:56+00:00"
     },
     {
       "quality": 8.0,
@@ -164,7 +164,7 @@
       "timestamp": "20260714_164600_56409",
       "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__retention_sobre_100_interpretacion.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:27+00:00"
+      "rescored_at": "2026-08-13T04:22:57+00:00"
     },
     {
       "quality": 10.0,
@@ -201,7 +201,7 @@
       "timestamp": "20260714_164600_56409",
       "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__roadmap_restriccion_capacidad.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:28+00:00"
+      "rescored_at": "2026-08-13T04:22:57+00:00"
     },
     {
       "quality": 4.0,
@@ -238,7 +238,7 @@
       "timestamp": "20260714_164600_56409",
       "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__teardown_competidor_sin_inventar.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:28+00:00"
+      "rescored_at": "2026-08-13T04:22:57+00:00"
     },
     {
       "quality": 8.0,
@@ -275,7 +275,7 @@
       "timestamp": "20260714_164600_56409",
       "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__roast_oferta_sin_cliches.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:28+00:00"
+      "rescored_at": "2026-08-13T04:22:57+00:00"
     },
     {
       "quality": 10.0,
@@ -312,7 +312,7 @@
       "timestamp": "20260714_164600_56409",
       "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__validacion_idea_intencion_vs_compra.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:28+00:00"
+      "rescored_at": "2026-08-13T04:22:57+00:00"
     },
     {
       "quality": 10.0,
@@ -349,7 +349,7 @@
       "timestamp": "20260714_164600_56409",
       "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__escalar_con_ltv_mal_calculado.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:28+00:00"
+      "rescored_at": "2026-08-13T04:22:57+00:00"
     },
     {
       "quality": 2.0,
@@ -386,7 +386,7 @@
       "timestamp": "20260714_164600_56409",
       "response_file": "results/responses/20260714_164600_56409/gpt-5.6-sol__business_audit__decision_precio_datos_insuficientes.md",
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:51:28+00:00"
+      "rescored_at": "2026-08-13T04:22:57+00:00"
     }
   ]
 }

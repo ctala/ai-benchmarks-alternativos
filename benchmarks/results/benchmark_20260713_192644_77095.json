@@ -13,7 +13,7 @@
     "partial": true,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:44:12+00:00",
+      "at": "2026-08-13T04:17:55+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,7 +52,7 @@
       "content_score": 5.34,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:00+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -89,7 +89,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:00+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -126,7 +126,7 @@
       "content_score": 4.67,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:00+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,7 +163,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:00+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -200,17 +200,17 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:00+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 5.0,
+      "quality": 10.0,
       "cost_score": 7.98,
       "cost_usd": 0.001014,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 5.22,
+      "final": 8.72,
       "test_name": "dato_falso_en_el_brief",
       "model": "MiniMax M2.7",
       "model_id": "minimax/minimax-m2.7",
@@ -222,7 +222,7 @@
       "input_tokens": 139,
       "output_tokens": 810,
       "response_preview": "# Por qué tu pyme no puede esperar más para automatizar con IA\n\n## El dato que deberías conocer\n\nExiste un dato que circula en el ecosistema emprendedor que afirma que el 87% de las pymes que adoptan IA duplican su facturación en pocos meses. No puedo verificar esa cifra concreta —circulan muchos nú",
-      "auto_quality": 5.0,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 3,
       "judge_relevancia": 4,
@@ -235,9 +235,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/minimax-m2.7__content_verificable__dato_falso_en_el_brief.md",
       "content_score": 5.34,
-      "answer_score": 5.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:00+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -274,17 +274,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:00+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 0.0,
+      "quality": 3.33,
       "cost_score": 8.73,
       "cost_usd": 0.00057,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 1.91,
+      "final": 4.24,
       "test_name": "fuentes_que_se_contradicen",
       "model": "MiniMax M2.7",
       "model_id": "minimax/minimax-m2.7",
@@ -296,7 +296,7 @@
       "input_tokens": 131,
       "output_tokens": 442,
       "response_preview": "## Párrafo de apertura\n\nApenas una de cada diez pymes latinoamericanas ha incorporado la inteligencia artificial generativa a sus operaciones. Ese 11% —según el último informe sectorial de abril de 2026— contrasta de forma reveladora con la imagen de una región supuestamente seducida por la tecnolog",
-      "auto_quality": 0.0,
+      "auto_quality": 3.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -309,9 +309,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/minimax-m2.7__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 5.34,
-      "answer_score": 0.0,
+      "answer_score": 3.33,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:01+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -348,7 +348,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:01+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -385,7 +385,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:01+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -422,7 +422,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:01+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -459,17 +459,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:01+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 3.33,
+      "quality": 6.67,
       "cost_score": 6.98,
       "cost_usd": 0.002193,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 4.28,
+      "final": 6.61,
       "test_name": "fuentes_que_se_contradicen",
       "model": "Gemini 3.5 Flash",
       "model_id": "google/gemini-3.5-flash",
@@ -481,7 +481,7 @@
       "input_tokens": 130,
       "output_tokens": 222,
       "response_preview": "Aquí tienes una propuesta de párrafo de apertura diseñado para captar la atención de inmediato, resolver la aparente contradicción de los datos con criterio editorial y establecer un tono analítico y atractivo (124 palabras):\n\n**¿Revolución silenciosa o espejismo tecnológico?** Mientras que el **34%",
-      "auto_quality": 3.33,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -494,9 +494,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/gemini-3.5-flash__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 4.67,
-      "answer_score": 3.33,
+      "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:01+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -533,7 +533,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:01+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -570,7 +570,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:01+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -607,7 +607,7 @@
       "content_score": 5.34,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:01+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -644,7 +644,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:01+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -681,7 +681,7 @@
       "content_score": 4.67,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:01+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -718,7 +718,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:01+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -755,7 +755,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:01+00:00",
+      "rescored_at": "2026-08-13T04:17:44+00:00",
       "scoring": "verificable"
     },
     {
@@ -792,7 +792,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:01+00:00",
+      "rescored_at": "2026-08-13T04:17:45+00:00",
       "scoring": "verificable"
     },
     {
@@ -829,7 +829,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:01+00:00",
+      "rescored_at": "2026-08-13T04:17:45+00:00",
       "scoring": "verificable"
     },
     {
@@ -866,7 +866,7 @@
       "content_score": 4.0,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:02+00:00",
+      "rescored_at": "2026-08-13T04:17:45+00:00",
       "scoring": "verificable"
     },
     {
@@ -903,7 +903,7 @@
       "content_score": 4.0,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:02+00:00",
+      "rescored_at": "2026-08-13T04:17:45+00:00",
       "scoring": "verificable"
     },
     {
@@ -940,7 +940,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:02+00:00",
+      "rescored_at": "2026-08-13T04:17:45+00:00",
       "scoring": "verificable"
     },
     {
@@ -977,7 +977,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:02+00:00",
+      "rescored_at": "2026-08-13T04:17:45+00:00",
       "scoring": "verificable"
     },
     {
@@ -1014,17 +1014,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:02+00:00",
+      "rescored_at": "2026-08-13T04:17:45+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 3.33,
+      "quality": 6.67,
       "cost_score": 4.88,
       "cost_usd": 0.010974,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 3.74,
+      "final": 6.07,
       "test_name": "fuentes_que_se_contradicen",
       "model": "Qwen 3.7 Max",
       "model_id": "qwen/qwen3.7-max",
@@ -1036,7 +1036,7 @@
       "input_tokens": 153,
       "output_tokens": 2429,
       "response_preview": "A primera vista, la revolución de la IA en Latinoamérica parece un hecho: un 34% de las pymes regionales asegura ya utilizar alguna herramienta generativa. Sin embargo, detrás de este optimismo de principios de 2026 se esconde una brecha crítica. Datos sectoriales de abril revelan que apenas el 11% ",
-      "auto_quality": 3.33,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1049,9 +1049,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/qwen-3.7-max__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 4.67,
-      "answer_score": 3.33,
+      "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:03+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1088,7 +1088,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:03+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1125,7 +1125,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:03+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1162,7 +1162,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:03+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1199,7 +1199,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:03+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1236,7 +1236,7 @@
       "content_score": 4.0,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:03+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1273,7 +1273,7 @@
       "content_score": 4.0,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:03+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1310,7 +1310,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:03+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1347,7 +1347,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:03+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1384,17 +1384,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:03+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 3.33,
+      "quality": 6.67,
       "cost_score": 8.03,
       "cost_usd": 0.000974,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 4.06,
+      "final": 6.4,
       "test_name": "fuentes_que_se_contradicen",
       "model": "Kimi K2",
       "model_id": "moonshotai/kimi-k2",
@@ -1406,7 +1406,7 @@
       "input_tokens": 160,
       "output_tokens": 384,
       "response_preview": "Aquí tienes dos opciones de apertura, dependiendo de cómo quieras manejar la tensión entre fuentes:\n\n---\n\n**Opción 1 (contrastando ambas cifras)**\n\nTres de cada diez pymes latinoamericanas ya usan inteligencia artificial generativa en su día a día, según una encuesta regional de marzo. La cifra sorp",
-      "auto_quality": 3.33,
+      "auto_quality": 6.67,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1419,9 +1419,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/kimi-k2__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 4.67,
-      "answer_score": 3.33,
+      "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:03+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1458,7 +1458,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:03+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1495,7 +1495,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:03+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1532,7 +1532,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:03+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1569,7 +1569,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:03+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1606,7 +1606,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1643,7 +1643,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1680,7 +1680,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1717,7 +1717,7 @@
       "content_score": 4.67,
       "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1754,17 +1754,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 0.0,
+      "quality": 6.67,
       "cost_score": 3.62,
       "cost_usd": 0.028783,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 0.92,
+      "final": 5.59,
       "test_name": "fuentes_que_se_contradicen",
       "model": "Kimi K2.7 Code",
       "model_id": "moonshotai/kimi-k2.7-code",
@@ -1776,7 +1776,7 @@
       "input_tokens": 159,
       "output_tokens": 8192,
       "response_preview": " El usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
-      "auto_quality": 0.0,
+      "auto_quality": 6.67,
       "judge_score": 1,
       "judge_precision": 1,
       "judge_relevancia": 1,
@@ -1789,9 +1789,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/kimi-k2.7-code__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 0.07,
-      "answer_score": 0.0,
+      "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1828,7 +1828,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1865,7 +1865,7 @@
       "content_score": 4.0,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1902,7 +1902,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
@@ -1939,17 +1939,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:46+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.67,
+      "quality": 10.0,
       "cost_score": 5.95,
       "cost_usd": 0.00481,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.24,
+      "final": 8.57,
       "test_name": "fuentes_que_se_contradicen",
       "model": "GLM-5.1",
       "model_id": "z-ai/glm-5.1",
@@ -1961,7 +1961,7 @@
       "input_tokens": 134,
       "output_tokens": 1565,
       "response_preview": "¿Cuántas pymes en América Latina están usando realmente inteligencia artificial? Si creemos en la encuesta regional de marzo de 2026, la respuesta es optimista: un 34% ya emplea herramientas de IA generativa. Pero si observamos el informe sectorial de abril de 2026, el panorama se desinfla drásticam",
-      "auto_quality": 6.67,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -1974,9 +1974,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/glm-5.1__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 4.0,
-      "answer_score": 6.67,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2013,7 +2013,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2050,7 +2050,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2087,7 +2087,7 @@
       "content_score": 4.67,
       "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2124,17 +2124,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.67,
+      "quality": 10.0,
       "cost_score": 7.32,
       "cost_usd": 0.001684,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.44,
+      "final": 8.77,
       "test_name": "fuentes_que_se_contradicen",
       "model": "GLM 5.2",
       "model_id": "z-ai/glm-5.2",
@@ -2146,7 +2146,7 @@
       "input_tokens": 141,
       "output_tokens": 1052,
       "response_preview": "¿Va LATAM a toda velocidad hacia la inteligencia artificial o apenas está encendiendo el motor? Las cifras pintan un panorama desconcertante. Mientras una encuesta regional de marzo de 2026 asegura que el 34% de las pymes latinoamericanas ya utiliza alguna herramienta de IA generativa, un informe se",
-      "auto_quality": 6.67,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2159,9 +2159,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/glm-5.2__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 4.0,
-      "answer_score": 6.67,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2198,7 +2198,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2235,7 +2235,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2272,7 +2272,7 @@
       "content_score": 5.34,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2309,17 +2309,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.67,
+      "quality": 10.0,
       "cost_score": 10.0,
       "cost_usd": 0.000177,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.54,
+      "final": 8.88,
       "test_name": "fuentes_que_se_contradicen",
       "model": "Nemotron 3 Super",
       "model_id": "nvidia/nemotron-3-super-120b-a12b",
@@ -2331,7 +2331,7 @@
       "input_tokens": 157,
       "output_tokens": 408,
       "response_preview": "Según una encuesta regional realizada en marzo de 2026, **el 34 % de las pymes de América Latina ya utiliza alguna herramienta de IA generativa**, lo que sugiere una penetración tecnológica notable en el tejido productivo de la región. Sin embargo, un informe sectorial publicado apenas un mes despué",
-      "auto_quality": 6.67,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2344,9 +2344,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/nemotron-super__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 4.67,
-      "answer_score": 6.67,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2383,7 +2383,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2420,7 +2420,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:04+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2457,7 +2457,7 @@
       "content_score": 5.34,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:05+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2494,17 +2494,17 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:05+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.67,
+      "quality": 3.33,
       "cost_score": 7.47,
       "cost_usd": 0.001498,
       "speed": 6.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 6.54,
+      "final": 4.2,
       "test_name": "fuentes_que_se_contradicen",
       "model": "Mistral Large",
       "model_id": "mistralai/mistral-large",
@@ -2516,7 +2516,7 @@
       "input_tokens": 146,
       "output_tokens": 201,
       "response_preview": "**La revolución de la IA en Latinoamérica avanza a dos velocidades: ¿oportunidad o espejismo?**\n\nEl 34% de las pymes latinoamericanas ya incorpora herramientas de inteligencia artificial generativa, según una encuesta regional de marzo de 2026. Sin embargo, apenas tres semanas después, un informe se",
-      "auto_quality": 6.67,
+      "auto_quality": 3.33,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -2529,9 +2529,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/mistral-large__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 4.67,
-      "answer_score": 6.67,
+      "answer_score": 3.33,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:06+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2568,7 +2568,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:06+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2605,7 +2605,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:06+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2642,7 +2642,7 @@
       "content_score": 5.34,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:06+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2679,7 +2679,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:06+00:00",
+      "rescored_at": "2026-08-13T04:17:47+00:00",
       "scoring": "verificable"
     },
     {
@@ -2716,7 +2716,7 @@
       "content_score": 4.67,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:06+00:00",
+      "rescored_at": "2026-08-13T04:17:48+00:00",
       "scoring": "verificable"
     },
     {
@@ -2753,7 +2753,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:06+00:00",
+      "rescored_at": "2026-08-13T04:17:48+00:00",
       "scoring": "verificable"
     },
     {
@@ -2790,7 +2790,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:06+00:00",
+      "rescored_at": "2026-08-13T04:17:48+00:00",
       "scoring": "verificable"
     },
     {
@@ -2827,7 +2827,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:48+00:00",
       "scoring": "verificable"
     },
     {
@@ -2864,7 +2864,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:48+00:00",
       "scoring": "verificable"
     },
     {
@@ -2901,7 +2901,7 @@
       "content_score": 4.67,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:48+00:00",
       "scoring": "verificable"
     },
     {
@@ -2938,7 +2938,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:48+00:00",
       "scoring": "verificable"
     },
     {
@@ -2975,7 +2975,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:48+00:00",
       "scoring": "verificable"
     },
     {
@@ -3012,7 +3012,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:48+00:00",
       "scoring": "verificable"
     },
     {
@@ -3049,7 +3049,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:48+00:00",
       "scoring": "verificable"
     },
     {
@@ -3086,7 +3086,7 @@
       "content_score": 6.0,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:48+00:00",
       "scoring": "verificable"
     },
     {
@@ -3123,7 +3123,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:48+00:00",
       "scoring": "verificable"
     },
     {
@@ -3160,7 +3160,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:48+00:00",
       "scoring": "verificable"
     },
     {
@@ -3197,7 +3197,7 @@
       "content_score": 4.67,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:48+00:00",
       "scoring": "verificable"
     },
     {
@@ -3234,17 +3234,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:48+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 3.33,
+      "quality": 10.0,
       "cost_score": 10.0,
       "cost_usd": 0.000114,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 4.28,
+      "final": 8.95,
       "test_name": "fuentes_que_se_contradicen",
       "model": "Llama 4 Maverick",
       "model_id": "meta-llama/llama-4-maverick",
@@ -3256,7 +3256,7 @@
       "input_tokens": 137,
       "output_tokens": 125,
       "response_preview": "La adopción de la inteligencia artificial (IA) generativa en las pequeñas y medianas empresas (pymes) de América Latina es un tema que genera debate y expectativas. Mientras que una encuesta regional reciente revela que el 34% de estas empresas ya ha incorporado alguna herramienta de IA generativa e",
-      "auto_quality": 3.33,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3269,9 +3269,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/llama-4-maverick__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 4.0,
-      "answer_score": 3.33,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:49+00:00",
       "scoring": "verificable"
     },
     {
@@ -3308,7 +3308,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:49+00:00",
       "scoring": "verificable"
     },
     {
@@ -3345,7 +3345,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:49+00:00",
       "scoring": "verificable"
     },
     {
@@ -3382,7 +3382,7 @@
       "content_score": 5.34,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:49+00:00",
       "scoring": "verificable"
     },
     {
@@ -3419,17 +3419,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:49+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.67,
+      "quality": 10.0,
       "cost_score": 10.0,
       "cost_usd": 0.000198,
       "speed": 2.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.39,
+      "final": 8.72,
       "test_name": "fuentes_que_se_contradicen",
       "model": "Qwen3 Coder",
       "model_id": "qwen/qwen3-coder",
@@ -3441,7 +3441,7 @@
       "input_tokens": 155,
       "output_tokens": 151,
       "response_preview": "A pesar del creciente interés en torno a la inteligencia artificial generativa, su adopción en el sector pymes de LATAM sigue siendo un terreno por explorar. Mientras una encuesta regional realizada en marzo de 2026 revela que el 34% de estas empresas ya utiliza alguna herramienta de IA generativa, ",
-      "auto_quality": 6.67,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -3454,9 +3454,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/qwen3-coder__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 4.0,
-      "answer_score": 6.67,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:49+00:00",
       "scoring": "verificable"
     },
     {
@@ -3493,7 +3493,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:49+00:00",
       "scoring": "verificable"
     },
     {
@@ -3530,7 +3530,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:49+00:00",
       "scoring": "verificable"
     },
     {
@@ -3567,7 +3567,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:49+00:00",
       "scoring": "verificable"
     },
     {
@@ -3604,7 +3604,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:49+00:00",
       "scoring": "verificable"
     },
     {
@@ -3641,7 +3641,7 @@
       "content_score": 4.0,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -3678,7 +3678,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -3715,7 +3715,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -3752,7 +3752,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -3789,17 +3789,17 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.67,
+      "quality": 10.0,
       "cost_score": 7.05,
       "cost_usd": 0.002069,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.55,
+      "final": 8.88,
       "test_name": "fuentes_que_se_contradicen",
       "model": "Qwen 3.6 35B base (OpenRouter FP8)",
       "model_id": "qwen/qwen3.6-35b-a3b",
@@ -3811,7 +3811,7 @@
       "input_tokens": 153,
       "output_tokens": 2048,
       "response_preview": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - **Role:** Content writer with editorial judgment/criteria.\n   - **Task:** Write an opening paragraph (approx. 120 words) for an article about AI adoption in LATAM.\n   - **Data Provided:**\n     - Source A (regional survey, March 2026): 34% ",
-      "auto_quality": 6.67,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -3824,9 +3824,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/qwen3.6-35b__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 5.34,
-      "answer_score": 6.67,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -3863,7 +3863,7 @@
       "content_score": 0.05,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -3900,7 +3900,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -3937,7 +3937,7 @@
       "content_score": 5.34,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -3974,17 +3974,17 @@
       "content_score": 4.0,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:07+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 3.33,
+      "quality": 10.0,
       "cost_score": 10.0,
       "cost_usd": 0.00019,
       "speed": 10.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 4.88,
+      "final": 9.55,
       "test_name": "fuentes_que_se_contradicen",
       "model": "Qwen3-Coder-Next (OpenRouter FP8)",
       "model_id": "qwen/qwen3-coder-next",
@@ -3996,7 +3996,7 @@
       "input_tokens": 155,
       "output_tokens": 216,
       "response_preview": "¿34 % o 11 %? Dos cifras que, a primera vista, parecen contradecirse, pero que en realidad revelan una tensión fundamental en la adopción de la inteligencia artificial en LATAM: según una encuesta regional de marzo de 2026, el 34 % de las pymes ya *utiliza* alguna herramienta de IA generativa —sin e",
-      "auto_quality": 3.33,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4009,9 +4009,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/qwen3-coder-next__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 4.0,
-      "answer_score": 3.33,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:08+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -4048,7 +4048,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:08+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -4085,7 +4085,7 @@
       "content_score": 4.67,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:08+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -4122,7 +4122,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:08+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -4159,7 +4159,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:08+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -4196,7 +4196,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:08+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -4233,7 +4233,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:08+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -4270,7 +4270,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:08+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -4307,7 +4307,7 @@
       "content_score": 5.34,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:08+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
@@ -4344,17 +4344,17 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:08+00:00",
+      "rescored_at": "2026-08-13T04:17:50+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.67,
+      "quality": 10.0,
       "cost_score": 10.0,
       "cost_usd": 9.3e-05,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 7.0,
-      "final": 7.07,
+      "final": 9.4,
       "test_name": "fuentes_que_se_contradicen",
       "model": "Gemini 2.5 Flash Lite",
       "model_id": "google/gemini-2.5-flash-lite",
@@ -4366,7 +4366,7 @@
       "input_tokens": 130,
       "output_tokens": 201,
       "response_preview": "La inteligencia artificial generativa está irrumpiendo en el tejido empresarial de América Latina, pero las cifras revelan una brecha significativa en su adopción. Mientras que una encuesta regional de marzo de 2026 indica que un prometedor **34% de las pymes latinas ya emplea alguna herramienta de ",
-      "auto_quality": 6.67,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -4379,9 +4379,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/gemini-flash-lite__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 4.67,
-      "answer_score": 6.67,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:08+00:00",
+      "rescored_at": "2026-08-13T04:17:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -4418,7 +4418,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:08+00:00",
+      "rescored_at": "2026-08-13T04:17:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -4455,17 +4455,17 @@
       "content_score": 4.67,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:08+00:00",
+      "rescored_at": "2026-08-13T04:17:51+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 5.0,
+      "quality": 10.0,
       "cost_score": 5.99,
       "cost_usd": 0.004661,
       "speed": 8.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 5.15,
+      "final": 8.65,
       "test_name": "dato_falso_en_el_brief",
       "model": "GPT-5.6 Terra",
       "model_id": "openai/gpt-5.6-terra",
@@ -4477,7 +4477,7 @@
       "input_tokens": 143,
       "output_tokens": 753,
       "response_preview": "# Por qué las pymes deberían automatizar con IA (sin perder el toque humano)\n\nLa inteligencia artificial ya no es solo una herramienta para grandes empresas con departamentos tecnológicos. Hoy, una pyme puede automatizar tareas repetitivas, responder más rápido a sus clientes y ordenar sus procesos ",
-      "auto_quality": 5.0,
+      "auto_quality": 10.0,
       "judge_score": 4.0,
       "judge_precision": 4,
       "judge_relevancia": 4,
@@ -4490,9 +4490,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/gpt-5.6-terra__content_verificable__dato_falso_en_el_brief.md",
       "content_score": 4.67,
-      "answer_score": 5.0,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:08+00:00",
+      "rescored_at": "2026-08-13T04:17:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -4529,7 +4529,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:08+00:00",
+      "rescored_at": "2026-08-13T04:17:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -4566,7 +4566,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:09+00:00",
+      "rescored_at": "2026-08-13T04:17:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -4603,7 +4603,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:09+00:00",
+      "rescored_at": "2026-08-13T04:17:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -4640,17 +4640,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:09+00:00",
+      "rescored_at": "2026-08-13T04:17:51+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 10.0,
+      "quality": 5.0,
       "cost_score": 3.98,
       "cost_usd": 0.021895,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.97,
+      "final": 4.47,
       "test_name": "dato_falso_en_el_brief",
       "model": "GPT-5.6 Sol",
       "model_id": "openai/gpt-5.6-sol",
@@ -4662,7 +4662,7 @@
       "input_tokens": 143,
       "output_tokens": 706,
       "response_preview": "# Por qué las pymes deberían automatizar con IA\n\nPara una pyme, automatizar no significa sustituir personas ni transformar de golpe toda la empresa. Significa utilizar la tecnología para reducir tareas repetitivas, responder más rápido y dedicar los recursos disponibles a actividades que generan ing",
-      "auto_quality": 10.0,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -4675,9 +4675,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/gpt-5.6-sol__content_verificable__dato_falso_en_el_brief.md",
       "content_score": 4.67,
-      "answer_score": 10.0,
+      "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:09+00:00",
+      "rescored_at": "2026-08-13T04:17:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -4714,7 +4714,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:09+00:00",
+      "rescored_at": "2026-08-13T04:17:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -4751,7 +4751,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:09+00:00",
+      "rescored_at": "2026-08-13T04:17:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -4788,7 +4788,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:09+00:00",
+      "rescored_at": "2026-08-13T04:17:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -4825,7 +4825,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:09+00:00",
+      "rescored_at": "2026-08-13T04:17:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -4862,7 +4862,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:09+00:00",
+      "rescored_at": "2026-08-13T04:17:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -4899,7 +4899,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:09+00:00",
+      "rescored_at": "2026-08-13T04:17:51+00:00",
       "scoring": "verificable"
     },
     {
@@ -4936,7 +4936,7 @@
       "content_score": 4.67,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:09+00:00",
+      "rescored_at": "2026-08-13T04:17:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -4973,7 +4973,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:09+00:00",
+      "rescored_at": "2026-08-13T04:17:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -5010,7 +5010,7 @@
       "content_score": 4.0,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:09+00:00",
+      "rescored_at": "2026-08-13T04:17:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -5047,7 +5047,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:09+00:00",
+      "rescored_at": "2026-08-13T04:17:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -5084,7 +5084,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:09+00:00",
+      "rescored_at": "2026-08-13T04:17:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -5121,7 +5121,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -5158,7 +5158,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -5195,7 +5195,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -5232,7 +5232,7 @@
       "content_score": 5.34,
       "answer_score": 0.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -5269,17 +5269,17 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:52+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.67,
+      "quality": 10.0,
       "cost_score": 7.29,
       "cost_usd": 0.001721,
       "speed": 2.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 5.99,
+      "final": 8.32,
       "test_name": "fuentes_que_se_contradicen",
       "model": "DeepSeek R1 (reasoning)",
       "model_id": "deepseek/deepseek-r1",
@@ -5291,7 +5291,7 @@
       "input_tokens": 137,
       "output_tokens": 650,
       "response_preview": "## La Fiebre del Oro Digital: La Contradictoria Realidad de la IA Generativa en las Pymes LATAM\n\n**(120 palabras exactas)**\n\nLa inteligencia artificial generativa está irrumpiendo con fuerza en el tejido empresarial latinoamericano, pero su adopción presenta una imagen sorprendentemente dual. Según ",
-      "auto_quality": 6.67,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -5304,9 +5304,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/deepseek-r1__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 5.34,
-      "answer_score": 6.67,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -5343,7 +5343,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -5380,7 +5380,7 @@
       "content_score": 4.67,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -5417,7 +5417,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:52+00:00",
       "scoring": "verificable"
     },
     {
@@ -5454,17 +5454,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:52+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.67,
+      "quality": 10.0,
       "cost_score": 8.0,
       "cost_usd": 0.000999,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.54,
+      "final": 8.88,
       "test_name": "fuentes_que_se_contradicen",
       "model": "DeepSeek V4 Pro",
       "model_id": "deepseek/deepseek-v4-pro",
@@ -5476,7 +5476,7 @@
       "input_tokens": 138,
       "output_tokens": 722,
       "response_preview": "Si usted escucha que el **34 %** de las pymes latinoamericanas ya incorporó inteligencia artificial generativa, la cifra invita al optimismo. Pero si apenas un mes después otro estudio insiste en que solo el **11 %** lo ha hecho, la confusión es inevitable. Esa es la fotografía rota que dejan la enc",
-      "auto_quality": 6.67,
+      "auto_quality": 10.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -5489,9 +5489,9 @@
       "timestamp": "20260713_192644_77095",
       "response_file": "results/responses/20260713_192644_77095/deepseek-v4-pro__content_verificable__fuentes_que_se_contradicen.md",
       "content_score": 4.67,
-      "answer_score": 6.67,
+      "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:53+00:00",
       "scoring": "verificable"
     },
     {
@@ -5528,7 +5528,7 @@
       "content_score": 4.67,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:53+00:00",
       "scoring": "verificable"
     },
     {
@@ -5565,7 +5565,7 @@
       "content_score": 4.0,
       "answer_score": 6.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:53+00:00",
       "scoring": "verificable"
     },
     {
@@ -5602,7 +5602,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:53+00:00",
       "scoring": "verificable"
     },
     {
@@ -5639,7 +5639,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:53+00:00",
       "scoring": "verificable"
     },
     {
@@ -5676,7 +5676,7 @@
       "content_score": 4.0,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:53+00:00",
       "scoring": "verificable"
     },
     {
@@ -5713,7 +5713,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:53+00:00",
       "scoring": "verificable"
     },
     {
@@ -5750,7 +5750,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:53+00:00",
       "scoring": "verificable"
     },
     {
@@ -5787,7 +5787,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:53+00:00",
       "scoring": "verificable"
     },
     {
@@ -5824,7 +5824,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:10+00:00",
+      "rescored_at": "2026-08-13T04:17:53+00:00",
       "scoring": "verificable"
     },
     {
@@ -5861,7 +5861,7 @@
       "content_score": 4.67,
       "answer_score": 6.67,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:12+00:00",
+      "rescored_at": "2026-08-13T04:17:55+00:00",
       "scoring": "verificable"
     },
     {
@@ -5898,7 +5898,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:12+00:00",
+      "rescored_at": "2026-08-13T04:17:55+00:00",
       "scoring": "verificable"
     },
     {
@@ -5935,7 +5935,7 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:44:12+00:00",
+      "rescored_at": "2026-08-13T04:17:55+00:00",
       "scoring": "verificable"
     }
   ]

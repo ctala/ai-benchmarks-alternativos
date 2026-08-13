@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:48:01+00:00",
+      "at": "2026-08-13T04:21:02+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     },
     "polluted_cleanup": {
@@ -89,13 +89,13 @@
       "scoring": "juez-30-70"
     },
     {
-      "quality": 5.0,
+      "quality": 7.5,
       "cost_score": 9.72,
       "cost_usd": 0.000268,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 0.0,
-      "final": 5.86,
+      "final": 7.61,
       "test_name": "context_following_complex_system",
       "model": "Ministral 14B",
       "model_id": "mistralai/ministral-14b-2512",
@@ -107,7 +107,7 @@
       "input_tokens": 995,
       "output_tokens": 345,
       "response_preview": "¡Hola! Vamos a abordar tus solicitudes por orden de prioridad según nuestras reglas internas:\n\n1. **Publicar el artículo sobre financiamiento de IA en LATAM**:\n   Puedo encargarme de esto de inmediato. ¿Podrías confirmarme el título exacto del artículo y verificar que esté listo para su publicación?",
-      "auto_quality": 5.0,
+      "auto_quality": 7.5,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -120,9 +120,9 @@
       "timestamp": "20260714_070313_43014",
       "response_file": "results/responses/20260714_070313_43014/or-ministral-14b__agent_capabilities__context_following_complex_system.md",
       "content_score": 6.0,
-      "answer_score": 5.0,
+      "answer_score": 7.5,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:01+00:00",
+      "rescored_at": "2026-08-13T04:21:02+00:00",
       "scoring": "verificable"
     },
     {
@@ -159,7 +159,7 @@
       "content_score": 8.0,
       "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:48:01+00:00",
+      "rescored_at": "2026-08-13T04:21:02+00:00",
       "scoring": "verificable"
     }
   ]

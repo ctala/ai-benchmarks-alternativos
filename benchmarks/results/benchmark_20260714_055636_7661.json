@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:46:14+00:00",
+      "at": "2026-08-13T04:19:28+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,7 +52,7 @@
       "content_score": 4.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:09+00:00",
+      "rescored_at": "2026-08-13T04:19:25+00:00",
       "scoring": "verificable"
     },
     {
@@ -89,17 +89,17 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:09+00:00",
+      "rescored_at": "2026-08-13T04:19:25+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 10.0,
+      "quality": 8.0,
       "cost_score": 9.42,
       "cost_usd": 0.000337,
       "speed": 2.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.64,
+      "final": 7.24,
       "test_name": "elegir_negocio_con_dependencia_oculta",
       "model": "MiMo-V2.5 (omnimodal)",
       "model_id": "xiaomi/mimo-v2.5",
@@ -111,7 +111,7 @@
       "input_tokens": 346,
       "output_tokens": 1031,
       "response_preview": "# Opción C. Sin duda. Y el razonamiento es brutal por descarte:\n\n---\n\n## La regla que te salva la vida\n\nCon 3 meses de caja y 4 horas al día, la única pregunta que importa es:\n\n> **¿Qué me genera dinero en las primeras 2-3 semanas?**\n\nNo en 3 meses. No en 6 meses. En **semanas**.\n\n---\n\n## Por qué la",
-      "auto_quality": 10.0,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 4,
       "judge_relevancia": 5,
@@ -124,9 +124,9 @@
       "timestamp": "20260714_055636_7661",
       "response_file": "results/responses/20260714_055636_7661/mimo-v2.5-or__business_strategy__elegir_negocio_con_dependencia_oculta.md",
       "content_score": 6.0,
-      "answer_score": 10.0,
+      "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:13+00:00",
+      "rescored_at": "2026-08-13T04:19:28+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,7 +163,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:13+00:00",
+      "rescored_at": "2026-08-13T04:19:28+00:00",
       "scoring": "verificable"
     },
     {
@@ -200,7 +200,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:13+00:00",
+      "rescored_at": "2026-08-13T04:19:28+00:00",
       "scoring": "verificable"
     },
     {
@@ -237,7 +237,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:13+00:00",
+      "rescored_at": "2026-08-13T04:19:28+00:00",
       "scoring": "verificable"
     },
     {
@@ -274,7 +274,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:13+00:00",
+      "rescored_at": "2026-08-13T04:19:28+00:00",
       "scoring": "verificable"
     },
     {
@@ -311,7 +311,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:13+00:00",
+      "rescored_at": "2026-08-13T04:19:28+00:00",
       "scoring": "verificable"
     },
     {
@@ -348,7 +348,7 @@
       "content_score": 9.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:13+00:00",
+      "rescored_at": "2026-08-13T04:19:28+00:00",
       "scoring": "verificable"
     },
     {
@@ -385,7 +385,7 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:13+00:00",
+      "rescored_at": "2026-08-13T04:19:28+00:00",
       "scoring": "verificable"
     },
     {
@@ -422,7 +422,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:13+00:00",
+      "rescored_at": "2026-08-13T04:19:28+00:00",
       "scoring": "verificable"
     },
     {
@@ -459,17 +459,17 @@
       "content_score": 6.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:13+00:00",
+      "rescored_at": "2026-08-13T04:19:28+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.0,
+      "quality": 8.0,
       "cost_score": 9.3,
       "cost_usd": 0.00037,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.12,
+      "final": 7.52,
       "test_name": "elegir_negocio_con_dependencia_oculta",
       "model": "Qwen 2.5 72B",
       "model_id": "qwen/qwen-2.5-72b-instruct",
@@ -481,7 +481,7 @@
       "input_tokens": 348,
       "output_tokens": 612,
       "response_preview": "En tu situación, la opción más viable y pragmática es **OPCIÓN C — Contenido patrocinado en el medio que ya opero**. Aquí están las razones:\n\n### 1. **Tiempo y Recursos Disponibles:**\n- **Tiempo:** Tienes solo 3 meses de caja y 4 horas al día para trabajar. La opción C no requiere tiempo adicional d",
-      "auto_quality": 6.0,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -494,9 +494,9 @@
       "timestamp": "20260714_055636_7661",
       "response_file": "results/responses/20260714_055636_7661/or-qwen-2.5-72b__business_strategy__elegir_negocio_con_dependencia_oculta.md",
       "content_score": 5.34,
-      "answer_score": 6.0,
+      "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:13+00:00",
+      "rescored_at": "2026-08-13T04:19:28+00:00",
       "scoring": "verificable"
     },
     {
@@ -533,17 +533,17 @@
       "content_score": 8.34,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:13+00:00",
+      "rescored_at": "2026-08-13T04:19:28+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 6.0,
+      "quality": 8.0,
       "cost_score": 8.96,
       "cost_usd": 0.000478,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 6.07,
+      "final": 7.47,
       "test_name": "monetizar_sin_matar_el_activo",
       "model": "Qwen 2.5 72B",
       "model_id": "qwen/qwen-2.5-72b-instruct",
@@ -555,7 +555,7 @@
       "input_tokens": 174,
       "output_tokens": 1039,
       "response_preview": "Entiendo tu situación y la tentación de implementar un muro de pago para monetizar directamente tu tráfico orgánico. Sin embargo, es importante considerar cuidadosamente cómo esta acción podría afectar el valor a largo plazo de tu activo más valioso: el tráfico orgánico de Google.\n\n### Riesgos de Im",
-      "auto_quality": 6.0,
+      "auto_quality": 8.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -568,9 +568,9 @@
       "timestamp": "20260714_055636_7661",
       "response_file": "results/responses/20260714_055636_7661/or-qwen-2.5-72b__business_strategy__monetizar_sin_matar_el_activo.md",
       "content_score": 6.0,
-      "answer_score": 6.0,
+      "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:46:14+00:00",
+      "rescored_at": "2026-08-13T04:19:28+00:00",
       "scoring": "verificable"
     }
   ]

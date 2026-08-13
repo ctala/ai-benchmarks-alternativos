@@ -13,7 +13,7 @@
     "partial": false,
     "rescore": {
       "scorer": "verificador-semantico (benchmarks/verifier.py)",
-      "at": "2026-07-15T20:47:09+00:00",
+      "at": "2026-08-13T04:20:19+00:00",
       "cambio": "reasoning: keywords → verificación semántica · tests con expected_answer: sin juez LLM"
     }
   },
@@ -52,7 +52,7 @@
       "content_score": 9.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:05+00:00",
+      "rescored_at": "2026-08-13T04:20:15+00:00",
       "scoring": "verificable"
     },
     {
@@ -89,17 +89,17 @@
       "content_score": 4.0,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:05+00:00",
+      "rescored_at": "2026-08-13T04:20:15+00:00",
       "scoring": "verificable"
     },
     {
-      "quality": 10.0,
+      "quality": 5.0,
       "cost_score": 7.03,
       "cost_usd": 0.002099,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 8.88,
+      "final": 5.38,
       "test_name": "receipt_math_verification",
       "model": "Qwen 3.5 35B",
       "model_id": "qwen/qwen3.5-35b-a3b",
@@ -111,7 +111,7 @@
       "input_tokens": 367,
       "output_tokens": 2048,
       "response_preview": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Input: A restaurant receipt text.\n    *   Tasks:\n        1.  Extract items and prices into a JSON list.\n        2.  Verify if the subtotal is correct (sum of items).\n        3.  Verify if the tip (propina) is calculated correctly (based on the ",
-      "auto_quality": 10.0,
+      "auto_quality": 5.0,
       "judge_score": 5,
       "judge_precision": 5,
       "judge_relevancia": 5,
@@ -124,9 +124,9 @@
       "timestamp": "20260714_064620_34178",
       "response_file": "results/responses/20260714_064620_34178/or-qwen-3.5-35b__ocr_extraction__receipt_math_verification.md",
       "content_score": 5.34,
-      "answer_score": 10.0,
+      "answer_score": 5.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:09+00:00",
+      "rescored_at": "2026-08-13T04:20:19+00:00",
       "scoring": "verificable"
     },
     {
@@ -163,7 +163,7 @@
       "content_score": 8.0,
       "answer_score": 8.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:09+00:00",
+      "rescored_at": "2026-08-13T04:20:19+00:00",
       "scoring": "verificable"
     },
     {
@@ -200,7 +200,7 @@
       "content_score": 5.34,
       "answer_score": 10.0,
       "rescored_by": "verificador-semantico",
-      "rescored_at": "2026-07-15T20:47:09+00:00",
+      "rescored_at": "2026-08-13T04:20:19+00:00",
       "scoring": "verificable"
     }
   ]
