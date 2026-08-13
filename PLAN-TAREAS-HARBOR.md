@@ -83,7 +83,62 @@ material tiene ya escrito**.
 
 ---
 
-## Tarea 0 — «Asumir en vez de verificar» (forma: ABSTENERSE) ⭐⭐ LA PRINCIPAL
+## Tarea ⭐ RECOMENDADA — cotizar contra un motor de precios de referencia
+
+**El principio, que es lo que la hace sólida:** si existe un **motor de precios
+determinista**, la respuesta correcta es **computable**. No hay que decidir qué está bien ni
+pedirle a un juez que opine — se corre el motor con los ítems correctos y se compara.
+
+### El formato
+
+| | |
+|---|---|
+| Se le da | tarifario + catálogo + el encargo del cliente **en prosa** |
+| Se le pide | la cotización |
+| Verdad de terreno | lo que devuelve el motor de referencia |
+| Lo que discrimina | traducir prosa → servicios correctos, y aplicar las reglas |
+
+### Por qué discrimina: la respuesta plausible es la equivocada
+
+El catálogo tiene que incluir reglas **sutiles y contraintuitivas**, del tipo que existe en
+cualquier negocio de servicios real:
+
+- Una banda de ajuste (techo/piso) que se aplica sobre el **precio de referencia del ítem**,
+  no sobre el precio base. Confundirlos multiplica el resultado por 3.
+- Un servicio que **absorbe** a otros: revisar un documento de ese tipo se cobra como
+  hacerlo, no con descuento, porque revisarlo implica leerlo entero y explicarlo.
+- **Sin descuentos automáticos.** Un descuento que el motor aplica solo no aparece en
+  ninguna conversación y nadie lo aprueba.
+- Un catálogo grande (decenas de servicios): **elegir el correcto ya es la mitad del trabajo**.
+
+Un modelo que aplica el descuento de revisión donde no corresponde **da un número plausible
+y equivocado**. Eso es lo que se quiere medir: no si sabe multiplicar, sino si lee las reglas
+antes de aplicar la intuición.
+
+### Gradiente natural (lo que Cristian pidió)
+
+No es binaria. Un agente puede: elegir bien el servicio y errar la banda · acertar el número
+y no explicarlo línea por línea · acertar todo y no notar que el encargo requiere cotización
+humana.
+
+### Dos candados para que la verdad de terreno siga siendo verdad
+
+**1. Moneda fija: USD.** Un catálogo en moneda local o indexada (UF, IPC) hace que la
+respuesta correcta **cambie con la fecha**, y los runs viejos dejan de ser comparables. Es
+exactamente el problema de comparabilidad que costó esta sesión entera. **Precios en dólares,
+sin conversión.**
+
+**2. Congelar la versión del catálogo, con hash.** Si un precio cambia, la respuesta correcta
+cambia y los runs previos dejan de compararse **en silencio**. Mismo patrón que el
+`prompt_sha`: el hash se guarda y el benchmark **falla ruidoso** si el catálogo cambió.
+
+⚠️ **El catálogo del benchmark es PROPIO e inventado.** No se usan productos, precios ni
+reglas de un negocio real —ni propio ni de terceros—: el repo es público y un tarifario es
+información comercial. Se escribe un catálogo ficticio que *tenga la misma forma* (banda de
+ajuste, servicios que absorben a otros, sin descuentos automáticos), que es lo que produce la
+dificultad. La forma se puede publicar; los precios de alguien, no.
+
+## Tarea alternativa — «Asumir en vez de verificar» (forma: ABSTENERSE) ⭐⭐ LA PRINCIPAL
 
 **El caso real que la origina (Cristian, 13-ago).** Le pidió a Nemotron Omni —corriendo
 localmente en su Spark, vía Hermes— que **se agregara a sí mismo como modelo por defecto**.
