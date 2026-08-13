@@ -1,13 +1,13 @@
 # MiniMax M2.5
 
 - **model_id**: `minimax/minimax-m2.5`
-- **Total tests**: 132/132 exitosos (0 errores)
-- **Score final**: 7.67
-- **Calidad**: 8.20
-- **Judge score (Phi-4)**: 4.47/10
+- **Total tests**: 142/142 exitosos (0 errores)
+- **Score final**: 7.62
+- **Calidad**: 8.09
+- **Judge score (Phi-4)**: 4.42/10
 - **Velocidad**: 59 tok/s
-- **Latencia primera token**: 15.57s
-- **Costo promedio por test**: $0.00137
+- **Latencia primera token**: 14.72s
+- **Costo promedio por test**: $0.00129
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -41,6 +41,7 @@
 | summarization | 2 | 2 | 7.01 | 7.40 |
 | task_management | 3 | 3 | 8.71 | 9.73 |
 | tool_calling | 4 | 4 | 7.04 | 6.75 |
+| tool_calling_adversarial | 10 | 10 | 6.98 | 6.68 |
 | translation | 5 | 5 | 8.20 | 8.80 |
 
 ## Detalle por test
@@ -2609,3 +2610,5 @@ Crecimiento fuerte en enterprise (+32%) c
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial

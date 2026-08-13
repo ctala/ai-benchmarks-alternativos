@@ -2,7 +2,7 @@
 
 - model_id: `anthropic/claude-opus-5`
 - success: True  | final: 8.1 | quality: 10.0
-- latency_total: 35.063s | tokens_per_second: 58.4
+- latency_total: 35.686s | tokens_per_second: 57.4
 - input_tokens: 264 | output_tokens: 2048
 
 ## Entrada exacta (lo que recibió el modelo)
@@ -28,40 +28,62 @@ Creo que ya validé mi idea y quiero renunciar a mi trabajo para dedicarme a est
 
 ## Veredicto corto
 
-No, no está validado. Y no, no renuncies todavía.
+No, no está validado. Y no, no renuncies.
 
-Tienes **señales de interés**, que es una cosa. Validación es otra: es gente que ya te transfirió dinero por algo que aún no existe o que existe a medias. Tus ingresos son $0. Ese es el único número de tu lista que un inversor mira primero.
+Tienes **$0 en ingresos**. Esa es la única línea de tus datos que habla de dinero, y dice cero. Todo lo demás son opiniones gratuitas.
 
-## Por qué cada dato tuyo vale menos de lo que crees
+---
 
-**"40 personas de mi red"** — Ese es el peor sesgo posible. Tu red te quiere bien. Responder "sí, eso duele" es gratis y además te hace sentir apoyado. Nadie de tu círculo te va a decir en la cara que tu idea es mediocre.
+## Desarmemos tus "datos"
 
-**"85% dijo que el problema les duele"** — La pregunta correcta no es si duele. Es: *¿qué estás haciendo hoy para resolverlo y cuánto te cuesta?* Si la respuesta es "nada, lo aguanto", no es dolor: es incomodidad. La gente no paga por incomodidades.
+**"40 personas de mi red"**
+Tu red te quiere. Te van a decir que sí. Encuestar a tu red sobre tu propia idea no es investigación, es buscar aplausos. El sesgo de complacencia aquí es brutal: la gente miente para no incomodarte, y ni siquiera sabe que está mintiendo.
 
-**"72% pagaría $30 al mes"** — Esta es la métrica más engañosa que existe en early stage. La intención declarada de compra convierte históricamente a una fracción pequeña de la realidad. En la práctica, de esas 29 personas que dijeron sí, esperá 2 a 5 que saquen la tarjeta. Preguntar "¿pagarías?" mide amabilidad, no demanda.
+**"85% dijo que el problema les duele"**
+El 85% de la gente dice que le duele casi cualquier problema si se lo describes bien. Preguntar "¿te molesta X?" tiene una tasa de sí altísima y valor predictivo casi nulo. La pregunta que importa no es si les duele, es **qué han hecho al respecto**: ¿cuánto gastan hoy en resolverlo? ¿qué hoja de cálculo, qué herramienta a medias, qué asistente, qué proceso manual? Si no hay ningún gasto ni esfuerzo actual, el dolor es teórico.
 
-**"210 correos en lista de espera"** — Un email cuesta cero. Es curiosidad, no compromiso. Las conversiones típicas de lista de espera gratuita a pago rondan 1-5%. Eso te da entre 2 y 10 clientes. Entre $60 y $300 de MRR.
+**"72% pagaría $30 al mes"** ← esta es la más peligrosa
+Preguntar por intención de compra hipotética es el error clásico. En la práctica, la conversión de "dije que pagaría" a "pagué" suele caer entre 5 y 20 veces. Tu 72% en el mundo real es plausiblemente 5-10%. Y ese número lo pusiste tú en la pregunta; no descubriste el precio, lo sugeriste. Nadie negoció contigo. Nadie dijo "es caro". Nadie sacó una tarjeta.
 
-**"$0 de ingresos porque el producto no está listo"** — Esta es la frase que más veces escuché antes de un fracaso. El producto casi nunca es el bloqueo real; es la excusa cómoda para no exponerse al único test que importa: pedir dinero y ver si te lo dan.
+**"210 correos en lista de espera"**
+Un email cuesta cero. Es la moneda más devaluada que existe. Una lista de espera fría-tibia convierte típicamente entre 2% y 5% a pago cuando lanzas. Haz la cuenta:
 
-## La matemática que todavía no hiciste
+> 210 × 4% = **8 clientes** × $30 = **$240 MRR**
 
-A $30/mes, necesitás **~130 clientes pagando** solo para reemplazar un sueldo modesto de $4.000/mes. Con churn del 5% mensual, tenés que sumar 6-7 clientes nuevos cada mes solo para no retroceder.
+Y eso es el escenario optimista, con la lista más caliente que tendrás en tu vida (gente que se anotó voluntariamente). ¿Renuncias a tu salario por $240 al mes?
 
-Tu red entera son 40 personas. Después de agotarla, ¿de dónde salen los otros 120? Si no tenés respuesta concreta a esa pregunta — un canal, no una esperanza — no tenés negocio, tenés un proyecto.
+**"El producto no está listo"**
+Esta frase es donde mueren los proyectos. Es la excusa perfecta para no enfrentar nunca el momento del cobro. Te permite vivir indefinidamente en la fase agradable de la validación: la que solo tiene buenas noticias.
 
-## El test que tenés que correr en 30 días
+---
 
-Dejá de preguntar. Empezá a cobrar.
+## Lo que sí es validación
 
-1. **Escribí a los 210 de la lista.** Oferta de "socio fundador": acceso anticipado, precio de por vida $19/mes o $180 el año prepago. Link de pago real, activo, hoy.
-2. **Cobrá de verdad.** No "reservá tu lugar sin costo". Tarjeta, cargo efectivo. Si te da culpa cobrar por algo incompleto, ofrecé devolución total — pero cobrá primero.
-3. **Entregá a mano lo que prometés.** Si el software no está, resolvé el problema manualmente por Zoom, planilla y WhatsApp. Diez clientes atendidos artesanalmente te enseñan más que seis meses de código.
-4. **Medí tres cosas:** cuántos pagan, cuántos usan lo que les entregás en la semana 2, y cuántos siguen pagando en el mes 3.
+Una sola cosa: **dinero de desconocidos, transferido antes de que exista el producto.**
 
-## Mis criterios para que renuncies
+Tres niveles, de peor a mejor:
 
-No renuncies hasta tener las cuatro:
+1. **Email en landing** → señal de curiosidad. Casi ruido.
+2. **Carta de intención / persona en llamada diciendo "sí"** → señal débil.
+3. **Cobro efectivo, tarjeta pasada, dinero en tu cuenta** → señal. La única.
 
-- **25-30 clientes pagando** a precio completo, y **al menos la mitad fuera de tu red personal**.
-- **Retención comprobada:** el 70%+ sigue activo y pagando al tercer mes. La retención es la validación
+Puedes cobrar hoy sin producto. Se llama preventa, y es completamente legítimo si eres honesto:
+
+> "Lanzo en 8 semanas. Precio fundador: $30/mes, primeros 3 meses. Cobro ahora, si no lanzo te devuelvo todo."
+
+Si nadie pasa la tarjeta con garantía de devolución total, el problema no dolía tanto.
+
+**Alternativa igual de válida: entrega manual.** No construyas el software. Haz el trabajo a mano, tú, por WhatsApp y Google Sheets, cobrando los $30. Es horrible, no escala, y es exactamente lo que necesitas hacer. Te enseña el problema real y te da ingresos verdaderos. Si nadie paga por el resultado hecho a mano, tampoco pagará por el software.
+
+---
+
+## Tu prueba de 45 días (sin renunciar)
+
+Objetivo: convertir opinión en transacciones.
+
+**Semana 1-2**
+- Escribe a los 210. No un anuncio: una oferta con link de pago.
+- En paralelo, 15 conversaciones de 20 minutos con los que respondan. Preguntas de pasado, no de futuro: *¿cómo lo resolviste la última vez? ¿cuánto tiempo/dinero te costó? ¿qué probaste y por qué lo abandonaste?*
+
+**Semana 3-6**
+- Entrega manual a quien pagó. Sin código.

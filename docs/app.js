@@ -50,28 +50,28 @@ const PRESETS_BUDGET = {
   personal: {
     budget: 5,
     calls: 300,        // ~10 calls/día
-    quality: 6.0,      // aceptable para chat personal
+    quality: 7.8,      // aceptable para chat personal (escala absoluta)
     speed: 0,
     task: "score_calidad",
   },
   solopreneur: {
     budget: 25,
     calls: 3000,       // ~100 calls/día (1-2 agentes N8N pequeños)
-    quality: 6.5,
+    quality: 8.0,
     speed: 0,
     task: "score_calidad",
   },
   pyme: {
     budget: 100,
     calls: 30000,      // ~1000 calls/día (varios workflows en paralelo)
-    quality: 7.0,      // calidad relevante para producto
+    quality: 8.2,      // calidad relevante para producto (escala absoluta: 36 de 82)
     speed: 50,         // latencia importa
     task: "score_calidad",
   },
   produccion: {
     budget: 500,
     calls: 300000,     // ~10K calls/día (tráfico de producto SaaS)
-    quality: 7.0,
+    quality: 8.2,
     speed: 100,        // alta velocidad crítica
     task: "score_calidad",
   },
@@ -83,44 +83,44 @@ const PRESETS_USE_CASE = {
     label: "Calidad sobre todo",
     weights: { quality: 90, cost: 5, speed: 2.5, latency: 2.5 },
     task: "score_calidad",
-    quality: 7.5,
+    quality: 8.4,   // "calidad sobre todo": solo el cuartil alto
   },
   barato_rapido: {
     label: "Barato y rápido",
     weights: { quality: 40, cost: 35, speed: 15, latency: 10 },
     task: "score_calidad",
-    quality: 6.0,
+    quality: 7.8,   // "barato y rápido": la calidad cede, pero con piso real
   },
   chat_vivo: {
     label: "Chat en vivo (baja latencia)",
     weights: { quality: 50, cost: 15, speed: 10, latency: 25 },
     task: "score_calidad",
-    quality: 6.5,
+    quality: 8.2,
     speed: 100,
   },
   coding: {
     label: "Coding",
     weights: { quality: 70, cost: 15, speed: 7.5, latency: 7.5 },
     task: "Coding",
-    quality: 7.0,
+    quality: 8.4,
   },
   contenido: {
     label: "Contenido / Marketing",
     weights: { quality: 70, cost: 15, speed: 7.5, latency: 7.5 },
     task: "Contenido",
-    quality: 7.0,
+    quality: 8.4,
   },
   agentes: {
     label: "Agentes / Tools",
     weights: { quality: 70, cost: 15, speed: 7.5, latency: 7.5 },
     task: "Agentes",
-    quality: 6.5,
+    quality: 8.2,
   },
   razonamiento: {
     label: "Razonamiento profundo",
     weights: { quality: 90, cost: 5, speed: 2.5, latency: 2.5 },
     task: "Razonamiento",
-    quality: 7.0,
+    quality: 8.4,
   },
 };
 
@@ -147,7 +147,8 @@ const state = {
   filters: {
     budget: 500,        // Default para emprendedor con producto en producción
     calls: 2000,
-    quality: 6.5,
+    quality: 8.0,   // escala absoluta: deja pasar 58 de 82. Antes 6.5, que en
+                    // la escala nueva no filtra a nadie (el peor mide 7,26).
     speed: 0,
     task: "score_calidad",
     subtask: "",  // suite específica (opcional). Vacío = promedio del pilar
@@ -871,6 +872,21 @@ function render() {
     };
   };
 
+  // ── `formatEfficiency` ya NO se usa en la tabla (13-ago-2026) ────────────────
+  // La columna "Rinde" (score² ÷ costo) se sacó porque **ordenaba igual que ordenar
+  // por precio**: r = 0,999 contra el orden por costo puro, con 0,7 puestos de
+  // desplazamiento medio sobre 82 modelos.
+  //
+  // No es un defecto de la fórmula, es aritmética: la calidad de los rankeados varía
+  // 1,19× (7,26 a 8,65) y el costo varía **772×** ($0,10 a $78). Con esa asimetría
+  // "valor" ES precio, y la columna repetía la de al lado con otro nombre.
+  //
+  // Encima confundía: "0% del mejor" para Claude Opus 4.8 se leía como si no valiera
+  // nada, cuando su calidad es 7,45 de 10 — solo que cuesta $78/mes.
+  //
+  // Se deja la función por si vuelve a servir con un examen más discriminante (ver
+  // las 5 suites saturadas). Si la calidad vuelve a dispersarse, esta columna
+  // recupera sentido; hoy no lo tiene.
   const formatEfficiency = (m) => {
     if (!m._efficiency || maxEfficiency === 0) return "—";
     if (m._cost_month <= 0.01 && m._task_score >= 6) {
@@ -918,7 +934,6 @@ function render() {
             <th class="num sortable" onclick="toggleSort('tools')" title="Tool calling (badge, no pondera el score global): adherencia al schema OpenAI tools. 10 = perfecto, 7 = N/A (test sin tools). Click para ordenar">Tools ${sortIndicator("tools")}</th>
           ` : ""}
           <th class="num sortable" onclick="toggleSort('cost_month')" title="Costo total/mes según presupuesto y calls. Click para ordenar">Costo/mes ${sortIndicator("cost_month")}</th>
-          <th class="num sortable" onclick="toggleSort('cb')" title="Calidad por peso gastado, RELATIVO al mejor de esta lista. 100% = el que más rinde. No es un juicio de si el modelo es caro en absoluto. Click para ordenar">Rinde ${sortIndicator("cb")}</th>
           <th>Tier</th>
         </tr>
       </thead>
@@ -937,7 +952,6 @@ function render() {
               <td class="num">${componentPill(m.tool_calling_score_avg)}</td>
             ` : ""}
             <td class="num">$${m._cost_month.toFixed(2)}</td>
-            <td class="num">${formatEfficiency(m)}</td>
             <td>${m.tier}</td>
           </tr>
         `).join("")}

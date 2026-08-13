@@ -44,6 +44,12 @@ from providers.adapters import THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS
 # Importar tests
 from benchmarks.tests import content_generation, tool_calling, task_management
 from benchmarks.tests import integridad_idioma  # suite nueva 12-ago-2026
+# Suites duras (13-ago-2026). Se AGREGAN, no reemplazan: ningún run previo se
+# invalida. Miden donde el examen todavía discrimina — tool calling (0% de notas
+# perfectas) — y cubren el hueco que dejó el recorte de niah_es a 128K+.
+from benchmarks.tests import tool_calling_adversarial
+# `retrieval_distractores` NO se registra: se midió en los 82 y salió saturada (76% de
+# respuestas perfectas; endurecida bajó solo a 70%). El archivo queda con el análisis.
 from benchmarks.tests import code_generation, reasoning, summarization, presentation
 from benchmarks.tests import startup_content, deep_reasoning, customer_support, structured_output
 from benchmarks.tests import hallucination, creativity, string_precision, news_seo_writing
@@ -130,6 +136,7 @@ ALL_TEST_SUITES = {
     # Integridad de idioma: eje APARTE (como niah y seguridad), no entra a la
     # calidad titular. Nace de la fuga de CJK real en el pipeline de Eco.
     "integridad_idioma": integridad_idioma.TESTS,
+    "tool_calling_adversarial": tool_calling_adversarial.TESTS,
     "prompt_injection_es": prompt_injection_es.TESTS,
 }
 
@@ -754,8 +761,61 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     return scores
 
 
+MODELOS_SIN_CANARIO = 3          # hasta acá es una prueba, no un lote
+CANARIO_VIGENCIA_HORAS = 12      # más viejo que esto ya no dice nada del estado actual
+
+
+def _exigir_canario(args) -> None:
+    """Un lote grande no arranca sin canario fresco.
+
+    El canario estaba documentado en SEIS archivos y exigido en NINGUNO: se corría
+    cuando alguien se acordaba. El 13-ago-2026 Cristian lo marcó — *"que quede bien
+    documentado, o si no se nos va a olvidar"*— y la respuesta honesta era que
+    documentarlo más no iba a servir: ya estaba documentado de sobra.
+
+    Lo que faltaba era esto. Es la regla de oro del repo aplicada a sí misma: **una
+    regla sin instrumento que la haga cumplir es una regla que ya se rompió.**
+
+    Se puede saltar con `--sin-canario`, a propósito y ruidosamente: hay casos
+    legítimos (re-correr un resume, un solo test). Lo que no puede pasar es saltarlo
+    sin enterarse.
+    """
+    import datetime as _dt
+    if getattr(args, "sin_canario", False):
+        return
+    n = len(getattr(args, "models", None) or [])
+    if n and n <= MODELOS_SIN_CANARIO:
+        return
+
+    recibo = Path(__file__).resolve().parent.parent / "benchmarks" / "results" / "_canario_ultimo.json"
+    problema = None
+    if not recibo.exists():
+        problema = "no hay ningún canario registrado"
+    else:
+        try:
+            d = json.loads(recibo.read_text())
+            edad = (_dt.datetime.now() - _dt.datetime.fromisoformat(d["cuando"]))
+            horas = edad.total_seconds() / 3600
+            if not d.get("ok"):
+                problema = "el último canario FALLÓ"
+            elif horas > CANARIO_VIGENCIA_HORAS:
+                problema = f"el último canario tiene {horas:.0f} h (máx {CANARIO_VIGENCIA_HORAS})"
+        except Exception as e:
+            problema = f"el recibo del canario no se pudo leer ({e})"
+
+    if problema:
+        console.print(f"\n[red]✗ Lote bloqueado: {problema}.[/red]")
+        console.print("  El canario cuesta centavos y caza lo que los detectores no ven —")
+        console.print("  regresiones que todavía no conocemos. Lanzar sin él ya costó")
+        console.print("  medio lote en blanco y 19 corridas fallidas.\n")
+        console.print("  [bold]python benchmarks/canario.py --models <primer-modelo>[/bold]")
+        console.print("  (o `--sin-canario` si sabés por qué lo estás saltando)\n")
+        sys.exit(2)
+
+
 def run_benchmark(args):
     """Ejecuta el benchmark completo."""
+    _exigir_canario(args)
     try:
         from benchmarks.config import OPENROUTER_API_KEY, MODELS, RUNS_PER_TEST, REQUEST_TIMEOUT, RESULTS_DIR, INCLUDE_OLLAMA
     except ImportError:
@@ -1070,8 +1130,18 @@ def run_benchmark(args):
     # Si hay tests `reasoning` en la corrida y el verificador no responde, ABORTAMOS.
     # Sin él, scoring.py levanta excepción por diseño: un score plausible y falso es
     # peor que ningún score.
+    # Tipos que NO se pueden puntuar sin el verificador semántico. `reasoning` lo
+    # necesita para comparar insights; `must_not_assert` para distinguir AFIRMAR una
+    # falsedad de DESMENTIRLA — el que la desmiente también la menciona, así que un
+    # regex castigaría al que acertó.
+    #
+    # El gate miraba SOLO `reasoning`. Nunca se notó porque las suites que usan
+    # `must_not_assert` traen además tests `reasoning`, así que el verificador
+    # quedaba configurado de rebote. Al correr `retrieval_distractores` sola
+    # —must_not_assert sin reasoning— el runner reventó. (13-ago-2026)
+    TIPOS_CON_VERIFICADOR = {"reasoning", "must_not_assert"}
     hay_reasoning = any(
-        (t.get("expected_answer") or {}).get("type") == "reasoning"
+        (t.get("expected_answer") or {}).get("type") in TIPOS_CON_VERIFICADOR
         for tests in test_suites.values() for t in tests
     )
     if hay_reasoning:
@@ -1580,6 +1650,9 @@ def main():
     parser.add_argument("--tier", help="Solo modelos de un tier",
                        choices=["free", "ultra_cheap", "cheap", "medium", "premium", "local"])
     parser.add_argument("--quick", action="store_true", help="1 run por test (rapido)")
+    parser.add_argument("--sin-canario", action="store_true",
+                        help="saltar el canario obligatorio (solo si sabés por qué: "
+                             "re-correr un resume, un test suelto). Lotes grandes lo exigen.")
     parser.add_argument("--judge", action="store_true",
                        help="Usar LLM-as-Judge (Gemma 4 local si Ollama disponible, sino Claude Haiku)")
     parser.add_argument("--judge-model", type=str, default=None,

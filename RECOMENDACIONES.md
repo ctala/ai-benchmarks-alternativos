@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-08-13 · 82 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-08-13 · 79 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -37,8 +37,8 @@ _Texto largo en español neutro. El costo manda: es alto volumen._
 _Generación y corrección de código._
 
 - **Usá:** **Nex-N2-Mini** — ≈$0/mes (calidad 9.60/10)
-- **Lo que te ahorrás:** GPT-5.6 Terra Pro cuesta ≈$28/mes (**59.4× más**) por apenas +0.02 de calidad — dentro del margen de error.
-- _7 modelos empatan en calidad en este pilar._
+- **Lo que te ahorrás:** Muse Spark 1.2 cuesta ≈$20/mes (**43.1× más**) por apenas +0.13 de calidad — dentro del margen de error.
+- _6 modelos empatan en calidad en este pilar._
 
 ### Razonamiento y estrategia
 
@@ -56,19 +56,19 @@ Lo mejor que podés comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 | Presupuesto | Modelo | Calidad | Costo real |
 |---|---|---:|---:|
-| Menos de $10/mes | **Tencent Hy3** | 8.65 | ≈$2/mes |
-| Hasta $30/mes | **Tencent Hy3** | 8.65 | ≈$2/mes |
-| Hasta $100/mes | **Tencent Hy3** | 8.65 | ≈$2/mes |
+| Menos de $10/mes | **Tencent Hy3** | 8.53 | ≈$2/mes |
+| Hasta $30/mes | **Tencent Hy3** | 8.53 | ≈$2/mes |
+| Hasta $100/mes | **Tencent Hy3** | 8.53 | ≈$2/mes |
 
 ---
 
 ## El resumen de todo el benchmark
 
-**22 modelos empatan en calidad** en la cima del ranking global.
+**17 modelos empatan en calidad** en la cima del ranking global.
 
 El más barato de ese grupo — **Qwen 3.7 Flash** — sale **≈$1/mes**.
 El más caro — **Claude Fable 5** — sale **≈$234/mes**.
 
-Eso es **383.6× más caro** por una diferencia de calidad de **-0.16 puntos**, que está dentro del margen de error.
+Eso es **383.6× más caro** por una diferencia de calidad de **-0.15 puntos**, que está dentro del margen de error.
 
 Si te llevás una sola cosa de este benchmark, que sea esta.

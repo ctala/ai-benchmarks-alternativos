@@ -2,7 +2,7 @@
 
 - model_id: `anthropic/claude-opus-5`
 - success: True  | final: 8.1 | quality: 10.0
-- latency_total: 31.266s | tokens_per_second: 65.5
+- latency_total: 33.33s | tokens_per_second: 61.4
 - input_tokens: 216 | output_tokens: 2048
 
 ## Entrada exacta (lo que recibió el modelo)
@@ -24,30 +24,47 @@ Contexto: el mes pasado tenía 40 clientes de pago y este mes tengo 36, pero var
 
 ## Respuesta corta
 
-No. Estás leyendo dos métricas distintas como si fueran una.
+No. Estás leyendo una métrica de **ingresos** como si fuera una métrica de **clientes**. Son cosas distintas, y en tu caso apuntan en direcciones opuestas.
 
-"Retención de ingresos" del 114% (normalmente NRR, *net revenue retention*) mide **euros**, no **clientes**. Tu retención de clientes ese mes fue del 90% (36/40), no del 114%. Ambas cosas son ciertas a la vez y no se contradicen: perdiste clientes y aun así ganaste ingresos, porque las subidas de plan de los que se quedaron taparon el agujero.
+## Qué mide realmente ese 114%
 
-## Qué está pasando de verdad
+"Retención de ingresos" en la mayoría de paneles es **NRR (Net Revenue Retention)**:
 
-Con los números que das, y asumiendo que los 4 que faltan son bajas netas:
+```
+NRR = (MRR inicial + expansión − contracción − churn) / MRR inicial
+```
 
-- **Churn de clientes: ~10% mensual.** Si se mantuviera, en 12 meses te quedaría en torno al 28% de una cohorte (0,9¹²). Es decir, ~7 de cada 10 clientes se van en un año.
-- **Para llegar a 114% con esa fuga**, la expansión tuvo que ser enorme: si los que se fueron eran de tamaño medio (~10% del MRR), la expansión rondó el 24% del MRR inicial en un solo mes. Eso no viene de "varios" clientes repartidos: viene de unas pocas cuentas.
+La clave es que la **expansión está en el numerador**. Eso significa que unos pocos upgrades pueden compensar —y ocultar— la pérdida de varios clientes. El 114% no dice "casi nadie se va"; dice "el dinero que queda, más lo que subió de plan, supera lo que había".
 
-Y ahí está el riesgo real: **tu 114% depende de un puñado de cuentas que subieron de plan.** Si una de ellas baja o se va el mes que viene, el mismo panel te puede marcar 85% sin que nada más haya cambiado. La métrica es volátil porque la base es pequeña.
+## Tus números reales
 
-## Dos comprobaciones antes de seguir
+- **Retención de clientes (logo retention): 36/40 = 90%**
+- **Churn de clientes: 10% mensual**
 
-1. **¿36 son bajas netas o brutas?** Si captaste 3 nuevos y perdiste 7, tu churn no es 10% sino 17,5%. Necesitas los números brutos separados.
-2. **¿Tu panel excluye clientes nuevos del cálculo?** La NRR solo debe medir la cohorte que existía al inicio del periodo. Muchos paneles meten el MRR nuevo dentro, y entonces ese 114% no es retención: es crecimiento disfrazado, y no te dice nada sobre si aguantas a los clientes.
+Si eso se sostiene: `0,9^12 ≈ 28%`. Es decir, **perderías ~72% de tu base en un año**. Un 10% mensual es un churn alto en casi cualquier segmento B2B SaaS.
 
-## Por qué "todo a captación" es precisamente lo contrario
+Y una advertencia importante: **¿esos 36 incluyen clientes nuevos de este mes?** Si captaste, digamos, 3 nuevos, entonces de los 40 originales solo sobrevivieron 33 → retención real del 82,5%, churn del 17,5%. El neto (40 → 36) enmascara el bruto. Necesitas separar: *retenidos + nuevos − perdidos*.
 
-Con 10% de churn mensual, la vida media de un cliente es de unos 10 meses. Si tu CAC tarda más de eso en recuperarse, cada cliente nuevo que traes **destruye caja**. Estarías echando agua más rápido en un cubo agujereado: se ve movimiento, pero el nivel no sube. Y el churn encarece la captación de forma silenciosa, porque una parte creciente de tus nuevos clientes solo sirve para reponer los que se van, no para crecer.
+## La métrica que te falta: GRR
 
-## Qué mirar en su lugar
+Pide o calcula la **GRR (Gross Revenue Retention)**, que excluye la expansión:
 
-- **GRR (retención bruta de ingresos):** igual que la NRR pero sin contar expansión. Nunca pasa de 100% y te dice cuánto pierdes de verdad. Es la métrica honesta.
-- **Retención de clientes (logo retention)** por separado, con altas y bajas en bruto.
-- **Desglose del Net New MR
+```
+GRR = (MRR inicial − contracción − churn) / MRR inicial
+```
+
+La GRR **nunca puede pasar de 100%**. Es tu métrica de fugas real. Un patrón típico de tu situación sería algo como GRR 88-92% y expansión +24 puntos → NRR 114%. Eso no es un negocio sin churn: es un negocio con churn notable y unos pocos clientes tapando el agujero.
+
+## Por qué esto es frágil
+
+1. **La expansión tiene techo, el churn no.** Un cliente puede subir de plan 2 o 3 veces; irse solo lo hace una vez, y es definitivo.
+2. **Concentración.** Con 40 clientes, "varios subieron de plan" puede significar que 2 cuentas explican todo tu 114%. Si una de ellas se va el mes que viene, tu NRR se desploma por debajo de 100% sin que haya cambiado nada más.
+3. **Ruido estadístico.** A esta escala, un solo movimiento mueve la métrica varios puntos. No tomes decisiones estratégicas sobre una lectura mensual de una base de 40.
+4. **Te comes tu propio funnel de expansión.** Si los 4 que se fueron eran cuentas pequeñas, hoy no te duele en ingresos, pero eran precisamente los que iban a subir de plan en 6-12 meses.
+5. **Encarece la captación.** Con un 10% mensual de fuga, buena parte de cada nuevo cliente que traigas solo repone el hueco. Es un cubo agujereado: subir el caudal no arregla el agujero, solo aumenta la factura.
+
+## Qué haría yo antes de reasignar presupuesto
+
+- **Separar las tres métricas** en el panel: logo retention, GRR y NRR. Nunca mires solo la última.
+- **Contar los 4 que se fueron uno a uno.** Con 40 clientes puedes hablar con todos. ¿Mismo segmento? ¿Se fueron antes de los 90 días (problema de onboarding/fit) o después de 12 meses (problema de valor sostenido)?
+- **Calcular la concentración:** ¿qué % de

@@ -1,6 +1,112 @@
+<!-- doc: snapshot -->
 # Changelog
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
+
+## [v4.1.0] - 2026-08-13 — Dos ejes, una escala anclada, y tres columnas que decían lo mismo
+
+Cambia **qué publicamos**, no solo cuánto medimos. El hilo: cada número derivado que
+mezclaba calidad con precio resultó ser, medido, una de las dos cosas con otro nombre.
+
+### El titular deja de mezclar calidad con precio
+
+`score_global` (calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%) **castigaba caro
+y premiaba barato sin decirlo**: Claude Opus 4.6 era #5 en calidad y se publicaba #18;
+Poolside Laguna XS era #29 y se publicaba #7. Las dos cifras eran verdad *con etiqueta*;
+ninguna lo era bajo un rótulo que dice `score_global`.
+
+Ahora el titular es el **índice de calidad** y el precio va como columna al lado. Es lo que
+hace Artificial Analysis con su Intelligence Index.
+
+### Todo composite terminó siendo una copia. Medido tres veces
+
+| segundo eje candidato | correlación con calidad | veredicto |
+|---|---|---|
+| compuesto 70/15/7,5/7,5 | **r = 0,943** | copia |
+| compuesto v2.9 60/20/10/10 | **r = 0,882** | copia |
+| columna "Rinde" (score²÷costo) | **r = 0,999** con *ordenar por precio* | copia |
+| **frontera de Pareto** | deja fuera 69 de 82 | **aporta** |
+| **calidad por dólar** | **r = 0,052** | **aporta** |
+
+La causa es estructural, no de pesos: el costo z-scoreado aporta ±0,30 al compuesto contra
+±1,3 de la calidad. Y con la escala absoluta se ve todavía más crudo — la calidad varía
+**1,19×** y el costo **772×**, así que "valor" *es* precio.
+
+Lo que informa son las métricas que **no** son un promedio ponderado: un **descarte** (la
+frontera) y un **ratio** (calidad/$).
+
+### Escala absoluta: el índice deja de z-scorearse
+
+`score_calidad` pasa a ser `quality_avg` tal cual — la media de las notas 0-10 por rúbrica,
+donde 10 sería perfecto en todo el examen. Con eso **agregar un modelo no mueve el score de
+nadie, nunca más**, y una cifra citada deja de caducar sola.
+
+El z-score estiraba una diferencia real de 1,39 puntos hasta 8 puntos publicados: Llama 3.1
+8B mide **7,26 sobre 10** y se publicaba como **0,50**, que se lee como inservible.
+
+Rango nuevo: **7,26–8,65**. Se ve apretado porque lo está — y esa es la información.
+
+### Por qué está apretado: 5 de 28 suites ya no distinguen a nadie
+
+| suite | runs con 10,0 perfecto |
+|---|---|
+| `string_precision` | 96% |
+| `niah_es` | 91% |
+| `structured_output` | 78% |
+| `content_verificable` | 77% |
+| `ocr_extraction` | 64% |
+
+Todas usan scoring `verificable` (objetivo, pasa/no pasa) y **los modelos las pasan**. No es
+rúbrica blanda: es techo de dificultad. Se ensancha endureciendo las suites, no estirando la
+escala. Trabajo de v4.2.
+
+### Recalibración a v4.1
+
+Los 3 scorers huérfanos dejaron de devolver `5.0` de relleno: la calidad media de los mismos
+68 modelos subió de 7,926 a 8,114 (+0,64 σ), o sea **+1,48 puntos de inflación** contra una
+referencia calibrada para la escala vieja. Referencia regenerada; baselines en
+`results/_baselines/`.
+
+### Mediciones
+
+**13 modelos nuevos · 2.155 runs · $77,57 reales.** Rescore de **10.503 runs** desde las
+respuestas guardadas, sin re-medir ningún modelo ($1,25).
+
+### Instrumentos nuevos (el tema de v4.0.3, continuado)
+
+- **`calculate_costs.py --estimar`** — proyecta el costo POR SUITE antes de lanzar. Existe
+  porque estimé un lote en $15,09 y el examen completo costaba **$98,96** (6,6×). La Regla
+  0.5 ya advertía sobre multi-turno y no alcanzó.
+- **`calculate_costs.py --gastado`** — el gasto real de un lote, separando lo pagado de lo
+  nocional por suscripción. Existe porque reporté $40,45 sumando a mano y la key marcaba
+  $77,32: me había saltado siete archivos.
+- **`reasoning_tokens` se persiste** — se capturaba solo en Responses API; por OpenRouter,
+  que es por donde pasan los 26 thinking rankeados, no se guardaba. Los 3.901 runs de agosto
+  no tienen ni uno.
+- **Guardrail C3 corregido** — comparaba contra el líder del compuesto cuando ya se publica
+  el de calidad, y buscaba el nombre mientras MODELOS.md rotula con el id.
+
+### Correcciones al sitio
+
+- **"Caro" para un modelo de $1,86/mes.** Etiqueta absoluta sobre una medida relativa, con
+  acantilado: 29% salía "Aceptable" y 24% "Caro". La columna se eliminó (ver arriba).
+- **La lista filtraba en silencio.** Ahora dice "24 de 82 · el que más corta: calidad ≥8,0".
+- **La FAQ recomendaba DeepSeek R1 para agentes N8N** — saca 4,23 en tool calling, bajo el
+  umbral con que la propia calculadora lo filtra. Ahora es el contraejemplo.
+- **La OG image mostraba otro #1** que la página que anuncia.
+- **El filtro "sólo con tool calling" no filtraba nada**: usaba capacidad *declarada*, que
+  declaran los 82. Ahora usa la nota medida.
+
+### Pendiente, dicho explícitamente
+
+- El **pilar del blog** quedó desactualizado: su sección de método explica el compuesto, que
+  es justo lo que dejamos de publicar. Necesita reescritura, no find-replace.
+- **23 modelos nuevos** detectados en OpenRouter → lote de septiembre, para medirlos una sola
+  vez bajo v4.1.
+- **`effort=high` no es el techo de razonamiento de Anthropic.** Estamos comparando modelos
+  en configuraciones de razonamiento que no sabemos si son equivalentes.
+- **90 runs de `niah_es` con needles v2** (`api_key_*`, 4K y 16K) se escaparon del archivado
+  del 2-jun y contaminan la media: miden negativa ante credenciales, no retrieval.
 
 ## [v4.0.3] - 2026-08-12 — El día que el instrumento se midió a sí mismo
 

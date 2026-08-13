@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-07-01 -->
 # ESTADO_SESION.md
 
 > **Documento de continuidad** — última actualización 2026-04-30 (cierre de sesión post-v2.4.2). Si la sesión actual se cierra, este archivo permite reanudar desde donde quedaste sin perder contexto.

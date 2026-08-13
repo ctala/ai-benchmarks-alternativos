@@ -1,3 +1,4 @@
+<!-- doc: snapshot -->
 ---
 title: "Datasheet junio 2026 — v3.0.1: DiffusionGemma, unificación de scores y pesos v3.0"
 mes: "2026-06"

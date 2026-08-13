@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-08-12 -->
 # RUNBOOK — medir modelos / backfill de suites (leer ANTES de correr un lote)
 
 Este doc existe porque en la sesión del 14-16 jul 2026 se **redescubrió tres veces**
@@ -100,6 +101,44 @@ los modelos caros por separado (Fable/Opus vía OpenRouter fueron ~$33 de ~$60 t
 re-medición estimada en $18 costó ~$55-70. `--rerun-empty` targeted, nunca re-correr suites
 completas caras.
 
+## Regla 0.7 — una suite NUEVA se valida en una muestra ANTES del examen completo
+
+```bash
+.venv/bin/python benchmarks/validate_suite.py --suite <nombre>
+```
+
+**Nunca valides una suite con dos modelos.** El 13-ago-2026 escribí dos suites duras y las
+probé en uno bueno y uno malo. Las dos parecían discriminar:
+
+```
+retrieval_distractores   Qwen 3.7 Flash 8,99  ·  Llama 3.1 8B 7,46   → "separa 1,53"
+```
+
+Con los 82 medidos: **76% de respuestas perfectas.** Saturada de nacimiento, igual que las
+cinco suites que acabábamos de jubilar por eso mismo. Endurecerla la bajó a 70%. Se
+descartó.
+
+**Por qué engaña:** la separación entre dos puntos no mide la dispersión de la
+distribución. Un test que el 76% resuelve perfecto igual muestra diferencia entre el mejor
+y el peor — y eso fue justo lo que me convenció.
+
+El validador corre la suite en **~8 modelos repartidos por todo el rango** (no dos
+extremos) y aplica tres criterios:
+
+| | qué mide | rechaza si |
+|---|---|---|
+| **S1 saturación** | % de runs con nota perfecta | ≥60% (avisa desde 40%) |
+| **S2 dispersión** | sd de la media por modelo vs el índice general | < 1× |
+| **S3 rango** | piso y techo reales | nadie baja de 8,0 |
+
+⚠️ **S1 es el que importa.** Probado contra los dos casos conocidos: `tool_calling_adversarial`
+(0% saturación) y `retrieval_distractores` (75%) tenían **la misma dispersión, 1,03** — o sea
+que S2 solo no habría cazado nada. Lo que separa una suite viva de una muerta es cuánta
+gente la resuelve perfecto.
+
+Cuesta centavos. Medir los 82 y descubrirlo después cuesta el lote y, peor, el riesgo de
+publicar una suite que no informa.
+
 ## Regla 1 — resume de nombre FIJO, nunca diff `before/after`
 
 Este entorno **mata los background cada ~5 min**. El resume tiene que ser idempotente: un
@@ -184,7 +223,16 @@ números dejan de caducar solos. Reglas:
 
 ---
 
-# PASO 0 — el canario. Un comando, y no se lanza nada si sale rojo
+# PASO 0 — el canario. Lo EXIGE el runner, no tu memoria
+
+> **Desde el 13-ago-2026 el gate es real.** Un lote de **más de 3 modelos se niega a
+> arrancar** sin un recibo de canario de las últimas 12 h
+> (`benchmarks/results/_canario_ultimo.json`, que el canario escribe solo). Se salta con
+> `--sin-canario`, a propósito y ruidosamente.
+>
+> Por qué se agregó: el canario estaba documentado en **seis** archivos y exigido en
+> **ninguno** — se corría cuando alguien se acordaba. Documentarlo por séptima vez no
+> iba a arreglar eso. Es la regla de oro del repo aplicada a sí misma.
 
 ```bash
 .venv/bin/python benchmarks/canario.py --models <primer-modelo-del-lote>

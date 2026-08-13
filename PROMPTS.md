@@ -1,7 +1,7 @@
 # Prompts del benchmark — texto exacto
 
 > **Auto-generado por `benchmarks/generate_prompts_catalog.py`. No editar a mano.**
-**206 tests en 30 suites.**
+**186 tests en 31 suites.**
 
 
 Este archivo existe porque **un resultado sin su entrada no es auditable**: no se
@@ -2381,367 +2381,7 @@ IMPORTANTE:
 - No pierdas datos clave de ninguna fuente
 ````
 
-## `niah_es` — 59 tests
-
-### niah_es_bridge_length_8000_p25
-
-- `prompt_sha`: **`6981c9d05d92`**
-- NIAH-ES needle=bridge_length ctx=8000tok pos=25%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 8000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_bridge_length_8000_p50
-
-- `prompt_sha`: **`7c2bb608fa25`**
-- NIAH-ES needle=bridge_length ctx=8000tok pos=50%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 8000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_bridge_length_8000_p75
-
-- `prompt_sha`: **`00d3fa564749`**
-- NIAH-ES needle=bridge_length ctx=8000tok pos=75%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 8000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_library_volumes_8000_p25
-
-- `prompt_sha`: **`8b1df0f5b6cc`**
-- NIAH-ES needle=library_volumes ctx=8000tok pos=25%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 8000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_library_volumes_8000_p50
-
-- `prompt_sha`: **`c2842a4fffe5`**
-- NIAH-ES needle=library_volumes ctx=8000tok pos=50%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 8000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_library_volumes_8000_p75
-
-- `prompt_sha`: **`7962acf1cd18`**
-- NIAH-ES needle=library_volumes ctx=8000tok pos=75%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 8000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_festival_date_8000_p25
-
-- `prompt_sha`: **`8063c8a4ab9b`**
-- NIAH-ES needle=festival_date ctx=8000tok pos=25%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 8000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_festival_date_8000_p50
-
-- `prompt_sha`: **`70e193dee645`**
-- NIAH-ES needle=festival_date ctx=8000tok pos=50%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 8000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_festival_date_8000_p75
-
-- `prompt_sha`: **`be38bb27caff`**
-- NIAH-ES needle=festival_date ctx=8000tok pos=75%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 8000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_potato_altitude_8000_p25
-
-- `prompt_sha`: **`6a69f2c91385`**
-- NIAH-ES needle=potato_altitude ctx=8000tok pos=25%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 8000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_potato_altitude_8000_p50
-
-- `prompt_sha`: **`ddc68b5e13a0`**
-- NIAH-ES needle=potato_altitude ctx=8000tok pos=50%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 8000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_potato_altitude_8000_p75
-
-- `prompt_sha`: **`8edd7fc5a2a8`**
-- NIAH-ES needle=potato_altitude ctx=8000tok pos=75%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 8000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_expedition_code_8000_p25
-
-- `prompt_sha`: **`e3e134a169b1`**
-- NIAH-ES needle=expedition_code ctx=8000tok pos=25%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 8000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_expedition_code_8000_p50
-
-- `prompt_sha`: **`1040ec37d4d0`**
-- NIAH-ES needle=expedition_code ctx=8000tok pos=50%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 8000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_expedition_code_8000_p75
-
-- `prompt_sha`: **`08fbb4aa7020`**
-- NIAH-ES needle=expedition_code ctx=8000tok pos=75%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 8000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_bridge_length_64000_p25
-
-- `prompt_sha`: **`06acb25b01de`**
-- NIAH-ES needle=bridge_length ctx=64000tok pos=25%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 64000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_bridge_length_64000_p50
-
-- `prompt_sha`: **`cf0703f1db62`**
-- NIAH-ES needle=bridge_length ctx=64000tok pos=50%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 64000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_bridge_length_64000_p75
-
-- `prompt_sha`: **`5b93d847cd40`**
-- NIAH-ES needle=bridge_length ctx=64000tok pos=75%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 64000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_library_volumes_64000_p25
-
-- `prompt_sha`: **`445b84b5a538`**
-- NIAH-ES needle=library_volumes ctx=64000tok pos=25%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 64000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_library_volumes_64000_p50
-
-- `prompt_sha`: **`03dab64cbd6f`**
-- NIAH-ES needle=library_volumes ctx=64000tok pos=50%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 64000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_library_volumes_64000_p75
-
-- `prompt_sha`: **`361d417d0929`**
-- NIAH-ES needle=library_volumes ctx=64000tok pos=75%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 64000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_festival_date_64000_p25
-
-- `prompt_sha`: **`ee8a1b59a4b0`**
-- NIAH-ES needle=festival_date ctx=64000tok pos=25%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 64000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_festival_date_64000_p50
-
-- `prompt_sha`: **`7c59ab3c9067`**
-- NIAH-ES needle=festival_date ctx=64000tok pos=50%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 64000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_festival_date_64000_p75
-
-- `prompt_sha`: **`e41f0b89c742`**
-- NIAH-ES needle=festival_date ctx=64000tok pos=75%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 64000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_potato_altitude_64000_p25
-
-- `prompt_sha`: **`731c748fea50`**
-- NIAH-ES needle=potato_altitude ctx=64000tok pos=25%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 64000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_potato_altitude_64000_p50
-
-- `prompt_sha`: **`7f3ec65a184d`**
-- NIAH-ES needle=potato_altitude ctx=64000tok pos=50%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 64000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_potato_altitude_64000_p75
-
-- `prompt_sha`: **`9a60c711920e`**
-- NIAH-ES needle=potato_altitude ctx=64000tok pos=75%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 64000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_expedition_code_64000_p25
-
-- `prompt_sha`: **`16903ef85734`**
-- NIAH-ES needle=expedition_code ctx=64000tok pos=25%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 64000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_expedition_code_64000_p50
-
-- `prompt_sha`: **`ab369d344dd5`**
-- NIAH-ES needle=expedition_code ctx=64000tok pos=50%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 64000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
-
-### niah_es_expedition_code_64000_p75
-
-- `prompt_sha`: **`8e61fb45eba6`**
-- NIAH-ES needle=expedition_code ctx=64000tok pos=75%
-- verificador: `niah_extraction`
-
-**Entrada generada (no almacenada):**
-
-- `context_tokens`: 64000
-- `needle_idx`: None · `position_pct`: None
-- corpus commiteado en `benchmarks/tests/niah_es_corpus/`
+## `niah_es` — 29 tests
 
 ### niah_es_bridge_length_128000_p25
 
@@ -10112,6 +9752,118 @@ Manana tengo una presentacion importante a las 3 PM. Necesito prepararme. Crea u
 
 ````
 Cual es la capital de Francia?
+````
+
+## `tool_calling_adversarial` — 10 tests
+
+### abstencion_pregunta_conceptual
+
+- `prompt_sha`: **`6408549acb18`**
+- Pregunta conceptual con herramientas disponibles: no hay que llamar ninguna
+
+**User:**
+
+````
+¿Me conviene facturar por adelantado o contra entrega cuando el cliente es nuevo y no lo conozco?
+````
+
+### abstencion_dato_no_disponible
+
+- `prompt_sha`: **`bd22a8b229a1`**
+- Pide algo que ninguna herramienta puede responder: debe decirlo, no improvisar una llamada
+
+**User:**
+
+````
+¿Cuánto facturé en total el trimestre pasado?
+````
+
+### confundible_cliente_vs_factura
+
+- `prompt_sha`: **`14e018522676`**
+- Dos herramientas de búsqueda parecidas; el dato dado es un nombre, no un número de factura
+
+**User:**
+
+````
+Busca a Marcela Ovalle, creo que tiene algo pendiente.
+````
+
+### confundible_recordar_vs_emitir
+
+- `prompt_sha`: **`346bcfbf48a7`**
+- La factura ya existe: hay que recordar el pago, no emitir una nueva
+
+**User:**
+
+````
+La factura F-0412 está vencida hace tres semanas. Mándale algo al cliente, pero sin ser agresivo que es un cliente antiguo.
+````
+
+### confundible_verbo_enganoso
+
+- `prompt_sha`: **`0eab79b88285`**
+- El usuario dice 'facturar' pero pide consultar: el verbo no determina la herramienta
+
+**User:**
+
+````
+Necesito ver qué le facturamos a la constructora Andes el mes pasado. La factura es la F-0398.
+````
+
+### falta_parametro_monto
+
+- `prompt_sha`: **`f8d5605e085d`**
+- Pide emitir factura sin decir el monto: hay que preguntarlo
+
+**User:**
+
+````
+Emítele la factura al cliente CL-2291 por la consultoría de octubre.
+````
+
+### falta_parametro_ambiguo
+
+- `prompt_sha`: **`2e56be5e1b31`**
+- Dos clientes posibles y ningún ID: hay que desambiguar antes de operar
+
+**User:**
+
+````
+Emite la factura de siempre para Rodríguez, $450.000 por el mantenimiento.
+````
+
+### alucinacion_funcion_inexistente
+
+- `prompt_sha`: **`d4b5a0eba763`**
+- Pide una operación sin herramienta disponible: no debe inventar el nombre de una función
+
+**User:**
+
+````
+Anula la factura F-0377, la emitimos con el RUT equivocado.
+````
+
+### alucinacion_parametro_inexistente
+
+- `prompt_sha`: **`f6069819c0e6`**
+- Pide un filtro que el esquema no soporta: no debe inventar el parámetro
+
+**User:**
+
+````
+Búscame las facturas del cliente Andes que estén impagas y ordenadas por monto.
+````
+
+### alucinacion_encadenar_inexistente
+
+- `prompt_sha`: **`e96cf25c0ba7`**
+- Petición que requiere dos pasos, uno de ellos imposible: debe hacer el posible y decir el faltante
+
+**User:**
+
+````
+Busca al cliente Puentes Ltda. y mándale por WhatsApp el estado de cuenta.
 ````
 
 ## `translation` — 3 tests

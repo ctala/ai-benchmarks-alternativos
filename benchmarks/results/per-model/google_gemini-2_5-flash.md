@@ -1,13 +1,13 @@
 # Gemini 2.5 Flash
 
 - **model_id**: `google/gemini-2.5-flash`
-- **Total tests**: 142/142 exitosos (0 errores)
-- **Score final**: 7.63
-- **Calidad**: 8.11
-- **Judge score (Phi-4)**: 4.22/10
-- **Velocidad**: 111 tok/s
-- **Latencia primera token**: 6.87s
-- **Costo promedio por test**: $0.00505
+- **Total tests**: 152/152 exitosos (0 errores)
+- **Score final**: 7.56
+- **Calidad**: 8.01
+- **Judge score (Phi-4)**: 4.16/10
+- **Velocidad**: 106 tok/s
+- **Latencia primera token**: 6.64s
+- **Costo promedio por test**: $0.00472
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -41,6 +41,7 @@
 | summarization | 2 | 2 | 7.66 | 7.72 |
 | task_management | 3 | 3 | 7.75 | 8.14 |
 | tool_calling | 4 | 4 | 5.84 | 5.00 |
+| tool_calling_adversarial | 10 | 10 | 6.66 | 6.54 |
 | translation | 3 | 3 | 8.42 | 8.57 |
 
 ## Detalle por test
@@ -2360,3 +2361,5 @@ TechFlow cerró el Q1 2026 con un sólido crecimiento, alcanzando $2.3M en venta
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial

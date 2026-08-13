@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-04-22 -->
 # Guia de Proveedores y Modelos
 
 > Ultima actualizacion: 22 de Abril de 2026

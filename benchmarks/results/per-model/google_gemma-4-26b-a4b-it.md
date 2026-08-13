@@ -1,13 +1,13 @@
 # Gemma 4 26B MoE (3.8B activos)
 
 - **model_id**: `google/gemma-4-26b-a4b-it`
-- **Total tests**: 135/135 exitosos (0 errores)
-- **Score final**: 7.90
-- **Calidad**: 8.39
-- **Judge score (Phi-4)**: 4.28/10
-- **Velocidad**: 51 tok/s
-- **Latencia primera token**: 15.16s
-- **Costo promedio por test**: $0.00079
+- **Total tests**: 145/145 exitosos (0 errores)
+- **Score final**: 7.82
+- **Calidad**: 8.25
+- **Judge score (Phi-4)**: 4.20/10
+- **Velocidad**: 50 tok/s
+- **Latencia primera token**: 14.23s
+- **Costo promedio por test**: $0.00074
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -41,6 +41,7 @@
 | summarization | 2 | 2 | 7.15 | 7.16 |
 | task_management | 3 | 3 | 8.37 | 9.12 |
 | tool_calling | 4 | 4 | 7.20 | 6.75 |
+| tool_calling_adversarial | 10 | 10 | 6.85 | 6.26 |
 | translation | 3 | 3 | 7.95 | 8.57 |
 
 ## Detalle por test
@@ -2102,3 +2103,5 @@ TechFlow cerró el Q1 con ventas de **$2.3M (+18% vs Q4 2025)**, impulsadas por 
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial

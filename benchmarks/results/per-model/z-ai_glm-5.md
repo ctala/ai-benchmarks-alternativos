@@ -1,13 +1,13 @@
 # GLM 5
 
 - **model_id**: `z-ai/glm-5`
-- **Total tests**: 134/134 exitosos (0 errores)
-- **Score final**: 7.36
-- **Calidad**: 8.42
-- **Judge score (Phi-4)**: 4.47/10
+- **Total tests**: 144/144 exitosos (0 errores)
+- **Score final**: 7.28
+- **Calidad**: 8.28
+- **Judge score (Phi-4)**: 4.39/10
 - **Velocidad**: 48 tok/s
-- **Latencia primera token**: 68.94s
-- **Costo promedio por test**: $0.00780
+- **Latencia primera token**: 64.53s
+- **Costo promedio por test**: $0.00734
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -41,6 +41,7 @@
 | summarization | 2 | 2 | 7.30 | 8.20 |
 | task_management | 4 | 4 | 8.24 | 9.70 |
 | tool_calling | 4 | 4 | 5.18 | 4.65 |
+| tool_calling_adversarial | 10 | 10 | 6.34 | 6.40 |
 | translation | 5 | 5 | 6.97 | 7.91 |
 
 ## Detalle por test
@@ -2565,3 +2566,5 @@ Este es un plan de proyecto detallado para lanzar tu landing page en 4 semanas. 
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial

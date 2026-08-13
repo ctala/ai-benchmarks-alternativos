@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-08-13 -->
 # Plan v4.1 — una sola frontera de comparabilidad
 
 > **Decisión (Cristian, 12-ago-2026): agosto se cierra con v4.1 funcionando.** No se hace

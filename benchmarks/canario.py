@@ -156,6 +156,18 @@ def main() -> int:
         print(f"  {len(todos)} INVARIANTE(S) ROTO(S) — NO lanzar el lote")
         print("=" * 70)
         return 1
+    # Recibo. El canario estaba documentado en SEIS lugares y exigido en cero: se
+    # corría cuando alguien se acordaba. Con el recibo, el runner puede negarse a
+    # lanzar un lote grande sin uno fresco — que es la diferencia entre una regla
+    # escrita y una regla que se cumple.
+    import datetime as _dt
+    recibo = ROOT / "benchmarks" / "results" / "_canario_ultimo.json"
+    recibo.write_text(json.dumps({
+        "cuando": _dt.datetime.now().isoformat(timespec="seconds"),
+        "modelos": list(args.models),
+        "suites": list(SUITES_CANARIO),
+        "ok": True,
+    }, ensure_ascii=False, indent=2))
     print("  ✓ invariantes OK — el lote puede lanzarse")
     return 0
 

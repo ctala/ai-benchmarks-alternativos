@@ -1,0 +1,18 @@
+# Mistral Small 4 — tool_calling_adversarial/alucinacion_parametro_inexistente
+
+- model_id: `mistralai/mistral-small-2603`
+- success: True  | final: 4.43 | quality: 2.9
+- latency_total: 0.58s | tokens_per_second: 24.2
+- input_tokens: 490 | output_tokens: 14
+- judge_score: 1 | justificación: La respuesta es incorrecta y no relevante, ya que el modelo inventó un comando de herramienta que no existe en el esquema dado, ignorando la instrucción de buscar facturas impagas ordenadas por monto.
+
+## Entrada exacta (lo que recibió el modelo)
+
+**user:**
+
+Búscame las facturas del cliente Andes que estén impagas y ordenadas por monto.
+
+
+## Respuesta completa
+
+[tool_call] buscar_cliente({"query": "Andes"})

@@ -1,13 +1,13 @@
 # DeepSeek V4 Flash 0731
 
 - **model_id**: `deepseek/deepseek-v4-flash-0731`
-- **Total tests**: 206/206 exitosos (0 errores)
-- **Score final**: 7.38
-- **Calidad**: 7.98
-- **Judge score (Phi-4)**: 4.27/10
-- **Velocidad**: 45 tok/s
-- **Latencia primera token**: 44.49s
-- **Costo promedio por test**: $0.00451
+- **Total tests**: 216/216 exitosos (0 errores)
+- **Score final**: 7.32
+- **Calidad**: 7.89
+- **Judge score (Phi-4)**: 4.05/10
+- **Velocidad**: 44 tok/s
+- **Latencia primera token**: 43.42s
+- **Costo promedio por test**: $0.00430
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -44,6 +44,7 @@
 | summarization | 2 | 2 | 7.95 | 8.94 |
 | task_management | 3 | 3 | 8.55 | 9.73 |
 | tool_calling | 4 | 4 | 5.01 | 3.95 |
+| tool_calling_adversarial | 10 | 10 | 6.21 | 5.98 |
 | translation | 3 | 3 | 5.87 | 5.33 |
 
 ## Detalle por test
@@ -2052,3 +2053,5 @@ Aquí tienes un desglose realista del proyecto en **5
 #### integridad_idioma
 
 #### prompt_injection_es
+
+#### tool_calling_adversarial

@@ -1,3 +1,4 @@
+<!-- doc: vigente | verificado: 2026-05-03 -->
 ---
 title: "NIAH-ES — Needle-in-a-Haystack en español neutro"
 fecha: "2026-04-30"

@@ -133,8 +133,21 @@ def score_expected_answer(response: str, expected_answer: dict) -> float:
         return _score_json_exact(response, expected_answer)
     elif answer_type == "language_check":
         return _score_language_check(response, expected_answer)
+    elif answer_type == "exact_vs_distractor":
+        return _score_exact_vs_distractor(response, expected_answer)
     else:
-        return 5.0  # tipo desconocido, score neutral
+        # Antes devolvía 5.0 en silencio. Un tipo mal escrito —o un scorer que alguien
+        # olvida implementar— entregaba una nota media plausible y el error viajaba
+        # hasta el ranking sin que nada chillara. Es exactamente el patrón que este repo
+        # documenta una y otra vez: la regla existía, no había quién la hiciera cumplir.
+        raise ValueError(
+            f"tipo de expected_answer desconocido: {answer_type!r}. "
+            f"Tipos válidos: exact_string, multi_string_check, numeric, sequence, "
+            f"reasoning, constraint_check, must_not_assert, hallucination_check, "
+            f"honesty_check, creativity_check, depth_check, range, niah_extraction, "
+            f"credential_leak_check, json_valid, json_exact, language_check, "
+            f"exact_vs_distractor. Si agregaste un tipo, implementá su scorer."
+        )
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -1008,6 +1021,48 @@ def compute_final_score(
         "tool_calling": round(tool_calling, 2),
         "final": round(final, 2),
     }
+
+
+def _score_exact_vs_distractor(response: str, expected: dict) -> float:
+    """¿Dio el dato correcto SIN caer en el distractor? (0-10)
+
+    Existe porque ningún scorer previo verificaba las dos direcciones a la vez:
+    `multi_string_check` solo mira presencia y `constraint_check` solo ausencia. En un
+    documento con cuatro cifras del mismo formato, acertar no es encontrar un número —
+    es encontrar EL número y no confundirlo con el de al lado. Medir solo la presencia
+    premia al modelo que escupe todas las cifras del documento.
+
+    Score:
+      · 10  respondió el correcto y no mencionó ningún distractor
+      ·  6  respondió el correcto pero también nombró un distractor (ambiguo: quien lo
+            lea no sabe cuál es la respuesta)
+      ·  2  no respondió el correcto y sí un distractor (se equivocó de cifra)
+      ·  0  no aparece ninguno
+
+    Los números se comparan normalizados (se quitan puntos, comas y símbolo de moneda)
+    para que "$41.200.000", "41200000" y "41.200.000 pesos" cuenten igual.
+    """
+    import re as _re
+
+    def _norm(txt: str) -> str:
+        return _re.sub(r"[.,\s$]", "", txt)
+
+    resp = _norm(response)
+    correcto = expected.get("correcto", "")
+    distractores = expected.get("distractores", [])
+    if not correcto:
+        return 5.0
+
+    tiene_correcto = _norm(correcto) in resp
+    tiene_distractor = any(_norm(d) in resp for d in distractores if d)
+
+    if tiene_correcto and not tiene_distractor:
+        return 10.0
+    if tiene_correcto and tiene_distractor:
+        return 6.0
+    if tiene_distractor:
+        return 2.0
+    return 0.0
 
 
 def _score_constraint(response: str, expected: dict) -> float:

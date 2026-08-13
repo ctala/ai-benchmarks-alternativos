@@ -1,13 +1,13 @@
 # Gemini 3.1 Pro
 
 - **model_id**: `google/gemini-3.1-pro-preview`
-- **Total tests**: 123/123 exitosos (0 errores)
+- **Total tests**: 133/133 exitosos (0 errores)
 - **Score final**: 6.48
-- **Calidad**: 7.33
-- **Judge score (Phi-4)**: 3.99/10
-- **Velocidad**: 94 tok/s
-- **Latencia primera token**: 17.12s
-- **Costo promedio por test**: $0.03071
+- **Calidad**: 7.28
+- **Judge score (Phi-4)**: 3.96/10
+- **Velocidad**: 92 tok/s
+- **Latencia primera token**: 16.25s
+- **Costo promedio por test**: $0.02881
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -41,6 +41,7 @@
 | summarization | 2 | 2 | 6.54 | 7.30 |
 | task_management | 3 | 3 | 7.09 | 8.17 |
 | tool_calling | 4 | 4 | 5.92 | 6.43 |
+| tool_calling_adversarial | 10 | 10 | 6.43 | 6.68 |
 | translation | 3 | 3 | 6.64 | 7.46 |
 
 ## Detalle por test
@@ -2102,3 +2103,5 @@ Para un SaaS de gestión de inventario, el enfoque debe estar en la **claridad d
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial

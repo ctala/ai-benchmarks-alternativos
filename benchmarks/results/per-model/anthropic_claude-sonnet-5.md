@@ -1,13 +1,13 @@
 # Claude Sonnet 5
 
 - **model_id**: `anthropic/claude-sonnet-5`
-- **Total tests**: 192/192 exitosos (0 errores)
-- **Score final**: 7.15
-- **Calidad**: 8.45
-- **Judge score (Phi-4)**: 4.17/10
-- **Velocidad**: 59 tok/s
-- **Latencia primera token**: 11.72s
-- **Costo promedio por test**: $0.06872
+- **Total tests**: 202/202 exitosos (0 errores)
+- **Score final**: 7.11
+- **Calidad**: 8.37
+- **Judge score (Phi-4)**: 4.11/10
+- **Velocidad**: 58 tok/s
+- **Latencia primera token**: 11.48s
+- **Costo promedio por test**: $0.06556
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -44,6 +44,7 @@
 | summarization | 2 | 2 | 7.36 | 8.30 |
 | task_management | 3 | 3 | 8.13 | 9.71 |
 | tool_calling | 4 | 4 | 5.56 | 5.70 |
+| tool_calling_adversarial | 10 | 10 | 6.42 | 6.96 |
 | translation | 3 | 3 | 7.75 | 8.67 |
 
 ## Detalle por test
@@ -2087,3 +2088,5 @@ Ventas de $2.3M (+18% QoQ), impulsadas por enterprise (+32%). Ventas internacion
 #### integridad_idioma
 
 #### prompt_injection_es
+
+#### tool_calling_adversarial

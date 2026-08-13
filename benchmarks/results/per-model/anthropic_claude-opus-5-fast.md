@@ -1,13 +1,13 @@
 # Claude Opus 5 Fast
 
 - **model_id**: `anthropic/claude-opus-5-fast`
-- **Total tests**: 147/147 exitosos (0 errores)
-- **Score final**: 6.36
-- **Calidad**: 7.35
-- **Judge score (Phi-4)**: 4.03/10
-- **Velocidad**: 145 tok/s
-- **Latencia primera token**: 7.91s
-- **Costo promedio por test**: $0.13843
+- **Total tests**: 157/157 exitosos (0 errores)
+- **Score final**: 6.33
+- **Calidad**: 7.27
+- **Judge score (Phi-4)**: 3.88/10
+- **Velocidad**: 143 tok/s
+- **Latencia primera token**: 7.58s
+- **Costo promedio por test**: $0.13125
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -43,6 +43,7 @@
 | summarization | 2 | 2 | 7.14 | 8.20 |
 | task_management | 3 | 3 | 7.20 | 8.61 |
 | tool_calling | 4 | 4 | 4.82 | 4.65 |
+| tool_calling_adversarial | 10 | 10 | 5.85 | 6.12 |
 | translation | 3 | 3 | 6.65 | 7.56 |
 
 ## Detalle por test
@@ -2054,3 +2055,5 @@ Si estos
 #### integridad_idioma
 
 #### prompt_injection_es
+
+#### tool_calling_adversarial

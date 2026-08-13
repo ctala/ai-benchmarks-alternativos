@@ -1,13 +1,13 @@
 # Qwen3-Coder-Next (OpenRouter FP8)
 
 - **model_id**: `qwen/qwen3-coder-next`
-- **Total tests**: 225/231 exitosos (6 errores)
-- **Score final**: 7.25
-- **Calidad**: 7.54
-- **Judge score (Phi-4)**: 3.88/10
-- **Velocidad**: 75 tok/s
-- **Latencia primera token**: 7.99s
-- **Costo promedio por test**: $0.00291
+- **Total tests**: 235/241 exitosos (6 errores)
+- **Score final**: 7.23
+- **Calidad**: 7.48
+- **Judge score (Phi-4)**: 3.84/10
+- **Velocidad**: 74 tok/s
+- **Latencia primera token**: 7.70s
+- **Costo promedio por test**: $0.00279
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -43,6 +43,7 @@
 | summarization | 3 | 3 | 7.35 | 7.18 |
 | task_management | 5 | 5 | 8.82 | 9.63 |
 | tool_calling | 4 | 4 | 6.88 | 6.40 |
+| tool_calling_adversarial | 10 | 10 | 6.88 | 6.12 |
 | translation | 5 | 5 | 7.64 | 7.47 |
 
 ## Detalle por test
@@ -2808,3 +2809,5 @@ Ventas alcanzaron **$2.3M (+18% vs Q4 2025)**, impulsadas por un crecimiento del
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
