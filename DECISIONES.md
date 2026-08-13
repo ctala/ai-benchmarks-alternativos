@@ -84,6 +84,22 @@ que se pudre es la tabla de modelos que alguien pegó adentro. De ahí la regla:
 
 ---
 
+## Lo que sigue EXPUESTO (13-ago-2026)
+
+Preguntado directo por Cristian — *"¿entonces nunca más perderemos info?"*— la respuesta
+es **no**. Esto es lo que los guardrails **no** cubren, para que no se confunda "hay
+instrumentos" con "está resuelto":
+
+| Riesgo | Estado | Por qué |
+|---|---|---|
+| Que un guardrail se rompa y nadie note | **cubierto desde hoy** | `test_guardrails.py` les presenta un mundo roto y exige que fallen. Antes: 8 guardrails, 0 pruebas |
+| **Duplicidad entre documentos** | ⚠️ **expuesto** | Nada detecta que dos docs digan lo mismo. La dispersión de 34 docs se encontró a mano |
+| **Un doc verificado pero equivocado** | ⚠️ **expuesto** | `check_docs` verifica que ALGUIEN LO MIRÓ, no que el contenido sea correcto. Es honesto sobre eso, pero es un techo real |
+| **Superficies nuevas sin guardrail** | ⚠️ parcial | La regla R3 lo exige; nada lo verifica. Una página nueva mañana no está cubierta hasta que alguien lo note |
+| Pérdida de trabajo si muere una sesión | ⚠️ parcial | Los commits automáticos durante lotes fueron ad-hoc, no un mecanismo |
+
+---
+
 ## Los instrumentos que hacen cumplir todo esto
 
 Ninguna de las reglas de arriba se sostiene sola. Lo que las sostiene:
