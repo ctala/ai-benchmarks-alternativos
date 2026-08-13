@@ -149,13 +149,15 @@
         <strong>complementa</strong> con lo que a quien emprende le importa y ellos no miden —costo en el
         proveedor real, latencia desde LATAM, español neutro y agentes multi-turno (N8N, Hermes, soporte).
         Para investigación académica → los oficiales. Para decidir qué poner en producción en español → esto.
-        El score global pondera 70% calidad + 15% costo + 7,5% velocidad + 7,5% latencia, con
+        Desde v4.1 el orden por defecto es el <strong>índice de calidad</strong>: solo calidad, con el
+        precio y la latencia al lado en vez de mezclados adentro —un modelo caro no es peor, es caro—.
+        Si querés que el precio pese, movés los pesos vos. Todo contra una
         <a href="#como-se-mide">referencia congelada</a> (agregar un modelo no cambia el score de los demás).
         <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/BENCHMARKS_EXTERNOS.md" target="_blank" rel="noopener">Cross-references con los oficiales</a>.
       </p>
     </details>
     <p class="meta">
-      Dataset <strong>v4.0</strong> · <span id="hero-updated" aria-live="polite">julio 2026</span> ·
+      Dataset <strong>v4.1</strong> · <span id="hero-updated" aria-live="polite">julio 2026</span> ·
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">ver repo</a>
     </p>
   </section>
@@ -380,7 +382,8 @@
       <div class="filter">
         <label for="task">Tarea principal:</label>
         <select id="task">
-          <option value="score_global">Cualquiera (score global)</option>
+          <option value="score_calidad">Cualquiera (índice de calidad)</option>
+          <option value="score_global">Ajustado a mis pesos (calidad + costo + velocidad)</option>
           <option value="Razonamiento">Razonamiento</option>
           <option value="Coding">Coding</option>
           <option value="Contenido">Contenido</option>
@@ -425,7 +428,7 @@
         </label>
         <label class="check">
           <input type="checkbox" id="only-tools" />
-          Sólo con tool calling (N8N / Hermes / agentes)
+          Sólo los que USAN bien las herramientas (N8N / Hermes / agentes)
         </label>
         <label class="check">
           <input type="checkbox" id="only-thinking" />
@@ -840,6 +843,6 @@
   </div>
 </footer>
 
-<script src="app.js?v=20260717"></script>
+<script src="app.js?v=20260813"></script>
 </body>
 </html>
