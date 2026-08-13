@@ -408,6 +408,37 @@ puntos de score. Vale revisarlo en §3 junto con sacar costo/velocidad del índi
 
 ---
 
+## 3.ter — CANDIDATO v4.2: benchmarks de terceros como columnas complementarias
+
+Idea de Cristian (13-ago): mostrar resultados de otros benchmarks —SWE-Bench Verified,
+GPQA Diamond, HLE— para que se pueda comparar **en ejes que nosotros no medimos**.
+
+**A favor:** es exactamente la doctrina del repo (*"no reinventamos la rueda; nuestro valor
+está en QUÉ medimos"*). Coding agéntico y STEM complementan lo nuestro en vez de competir,
+y refuerzan el diferenciador: nadie más mide en español contra casos de un emprendedor.
+
+**Por qué NO en v4.1 — la trampa está en la fuente.** El disparador fue una tarjeta de
+lanzamiento que decía *"HLE con Tools — Supera DeepSeek V4 Pro"*. Eso no es un resultado,
+es **marketing del proveedor**: elige el scaffold, el subset y el best-of-n. Copiar esas
+cifras a mano nos devuelve el problema que llevamos meses corrigiendo — números
+hardcodeados que caducan solos y que nadie puede auditar.
+
+**Diseño que sí funciona (a resolver antes de construir):**
+
+1. **Solo de fuente consultable.** SWE-Bench y GPQA tienen leaderboards públicos; Artificial
+   Analysis y Epoch publican datasets. Si se puede *fetchear*, se regenera y `check_consistency`
+   lo protege. **Si hay que copiarlo a mano de una landing, no entra.**
+2. **Sección aparte con etiqueta de origen**: "medido por nosotros" vs "reportado por
+   terceros". Nunca en la misma columna, nunca sin fecha ni link a la fuente.
+3. **Jamás dentro de `score_calidad`.** Mismo principio que aplicamos al costo el 13-ago: si
+   mide otra cosa, va al lado, no adentro.
+
+**Cobertura esperada, para no sorprenderse:** solo los insignia publican estos números. De 82
+rankeados, probablemente ~20 tendrían dato. Una columna mayormente vacía es honesta, pero hay
+que decidir si se muestra igual o solo en las fichas por modelo.
+
+---
+
 ## 4. Lo que NO entra en v4.1
 
 - **Los scorers huérfanos ya están** (`json_valid`, `json_exact`, `language_check`,
