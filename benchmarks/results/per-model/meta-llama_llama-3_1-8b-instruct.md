@@ -1,13 +1,13 @@
 # Llama 3.1 8B Instant
 
 - **model_id**: `meta-llama/llama-3.1-8b-instruct`
-- **Total tests**: 143/143 exitosos (0 errores)
+- **Total tests**: 161/161 exitosos (0 errores)
 - **Score final**: 7.25
-- **Calidad**: 7.07
-- **Judge score (Phi-4)**: 3.71/10
-- **Velocidad**: 92 tok/s
-- **Latencia primera token**: 11.68s
-- **Costo promedio por test**: $0.00010
+- **Calidad**: 7.03
+- **Judge score (Phi-4)**: 3.65/10
+- **Velocidad**: 90 tok/s
+- **Latencia primera token**: 10.52s
+- **Costo promedio por test**: $0.00009
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,7 +33,7 @@
 | policy_adherence | 4 | 4 | 5.59 | 4.50 |
 | presentation | 2 | 2 | 7.93 | 8.06 |
 | reasoning | 3 | 3 | 8.24 | 8.69 |
-| retrieval_distractores | 8 | 8 | 7.46 | 7.62 |
+| retrieval_distractores | 16 | 16 | 7.69 | 7.88 |
 | sales_outreach | 3 | 3 | 8.73 | 9.33 |
 | startup_content | 5 | 5 | 8.25 | 8.65 |
 | strategy | 3 | 3 | 7.84 | 7.78 |
@@ -42,7 +42,7 @@
 | summarization | 2 | 2 | 6.95 | 6.50 |
 | task_management | 3 | 3 | 7.97 | 8.53 |
 | tool_calling | 4 | 4 | 6.48 | 5.35 |
-| tool_calling_adversarial | 10 | 10 | 6.02 | 4.72 |
+| tool_calling_adversarial | 20 | 20 | 6.35 | 5.14 |
 | translation | 5 | 5 | 8.22 | 8.39 |
 
 ## Detalle por test

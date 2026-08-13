@@ -1,13 +1,13 @@
 # GPT-5.6 Terra Pro
 
 - **model_id**: `openai/gpt-5.6-terra-pro`
-- **Total tests**: 192/192 exitosos (0 errores)
-- **Score final**: 7.50
-- **Calidad**: 8.84
-- **Judge score (Phi-4)**: 4.10/10
-- **Velocidad**: 116 tok/s
-- **Latencia primera token**: 16.01s
-- **Costo promedio por test**: $0.09213
+- **Total tests**: 209/210 exitosos (1 errores)
+- **Score final**: 7.47
+- **Calidad**: 8.75
+- **Judge score (Phi-4)**: 3.98/10
+- **Velocidad**: 110 tok/s
+- **Latencia primera token**: 15.08s
+- **Costo promedio por test**: $0.08494
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -36,6 +36,7 @@
 | presentation | 2 | 2 | 7.37 | 8.69 |
 | prompt_injection_es | 20 | 20 | 7.63 | 9.10 |
 | reasoning | 3 | 3 | 7.87 | 9.47 |
+| retrieval_distractores | 8 | 8 | 8.28 | 9.38 |
 | sales_outreach | 3 | 3 | 6.44 | 7.11 |
 | startup_content | 5 | 5 | 7.63 | 9.19 |
 | strategy | 3 | 3 | 7.54 | 9.17 |
@@ -44,6 +45,7 @@
 | summarization | 2 | 2 | 7.75 | 8.80 |
 | task_management | 3 | 3 | 7.81 | 9.20 |
 | tool_calling | 4 | 4 | 4.51 | 4.02 |
+| tool_calling_adversarial | 10 | 9 | 6.08 | 6.32 |
 | translation | 3 | 3 | 7.40 | 8.20 |
 
 ## Detalle por test
@@ -2168,3 +2170,7 @@ A continuación propongo un plan de 4 semanas / 20 días hábiles para lanzar un
 #### integridad_idioma
 
 #### prompt_injection_es
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

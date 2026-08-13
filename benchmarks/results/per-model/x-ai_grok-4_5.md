@@ -1,13 +1,13 @@
 # Grok 4.5
 
 - **model_id**: `x-ai/grok-4.5`
-- **Total tests**: 253/304 exitosos (51 errores)
-- **Score final**: 7.20
-- **Calidad**: 8.35
-- **Judge score (Phi-4)**: 3.78/10
-- **Velocidad**: 82 tok/s
-- **Latencia primera token**: 14.86s
-- **Costo promedio por test**: $0.06768
+- **Total tests**: 271/322 exitosos (51 errores)
+- **Score final**: 7.18
+- **Calidad**: 8.28
+- **Judge score (Phi-4)**: 3.75/10
+- **Velocidad**: 79 tok/s
+- **Latencia primera token**: 14.15s
+- **Costo promedio por test**: $0.06334
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,6 +35,7 @@
 | presentation | 2 | 2 | 8.32 | 9.79 |
 | prompt_injection_es | 20 | 20 | 3.82 | 3.25 |
 | reasoning | 3 | 3 | 8.11 | 9.63 |
+| retrieval_distractores | 8 | 8 | 8.07 | 8.88 |
 | sales_outreach | 3 | 3 | 6.57 | 7.11 |
 | startup_content | 9 | 9 | 7.75 | 9.10 |
 | strategy | 3 | 3 | 8.32 | 10.00 |
@@ -43,6 +44,7 @@
 | summarization | 2 | 2 | 7.22 | 8.10 |
 | task_management | 3 | 3 | 8.25 | 9.62 |
 | tool_calling | 4 | 4 | 5.48 | 5.23 |
+| tool_calling_adversarial | 10 | 10 | 6.04 | 6.12 |
 | translation | 5 | 5 | 7.50 | 8.36 |
 
 ## Detalle por test
@@ -2578,3 +2580,7 @@ Ventas $2.3M (+18% vs Q4). Enterprise +32%; SMB -2%. Internacional 28% (vs 22%).
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

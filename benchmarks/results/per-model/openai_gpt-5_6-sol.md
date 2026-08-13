@@ -1,13 +1,13 @@
 # GPT-5.6 Sol
 
 - **model_id**: `openai/gpt-5.6-sol`
-- **Total tests**: 306/322 exitosos (16 errores)
-- **Score final**: 7.33
-- **Calidad**: 9.10
-- **Judge score (Phi-4)**: 4.30/10
+- **Total tests**: 324/340 exitosos (16 errores)
+- **Score final**: 7.30
+- **Calidad**: 9.01
+- **Judge score (Phi-4)**: 4.24/10
 - **Velocidad**: 28 tok/s
-- **Latencia primera token**: 17.43s
-- **Costo promedio por test**: $0.19907
+- **Latencia primera token**: 16.61s
+- **Costo promedio por test**: $0.18821
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,6 +35,7 @@
 | presentation | 2 | 2 | 7.60 | 9.44 |
 | prompt_injection_es | 20 | 20 | 7.48 | 9.10 |
 | reasoning | 3 | 3 | 7.50 | 9.37 |
+| retrieval_distractores | 8 | 8 | 8.25 | 9.38 |
 | sales_outreach | 3 | 3 | 6.34 | 7.11 |
 | startup_content | 8 | 8 | 7.37 | 9.25 |
 | strategy | 3 | 3 | 7.83 | 10.00 |
@@ -43,6 +44,7 @@
 | summarization | 2 | 2 | 7.17 | 8.13 |
 | task_management | 5 | 5 | 7.64 | 9.30 |
 | tool_calling | 4 | 4 | 5.03 | 4.88 |
+| tool_calling_adversarial | 10 | 10 | 5.84 | 6.12 |
 | translation | 5 | 5 | 7.25 | 8.13 |
 
 ## Detalle por test
@@ -2687,3 +2689,7 @@ A continuación propongo un plan de **20 días laborables** para lanzar una land
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

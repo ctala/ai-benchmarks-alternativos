@@ -1,7 +1,7 @@
 # Nemotron 3 Nano Omni 30B-A3B Reasoning
 
 - **model_id**: `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free`
-- **Total tests**: 151/158 exitosos (7 errores)
+- **Total tests**: 151/176 exitosos (25 errores)
 - **Score final**: 7.69
 - **Calidad**: 7.98
 - **Judge score (Phi-4)**: 4.48/10
@@ -33,6 +33,7 @@
 | policy_adherence | 4 | 4 | 6.90 | 6.75 |
 | presentation | 2 | 2 | 8.84 | 9.70 |
 | reasoning | 5 | 5 | 8.68 | 9.63 |
+| retrieval_distractores | 8 | 0 | - | - |
 | sales_outreach | 3 | 3 | 6.73 | 6.44 |
 | startup_content | 8 | 8 | 8.68 | 9.53 |
 | strategy | 3 | 3 | 7.58 | 8.06 |
@@ -41,6 +42,7 @@
 | summarization | 2 | 2 | 7.98 | 8.00 |
 | task_management | 5 | 5 | 7.99 | 8.56 |
 | tool_calling | 4 | 4 | 6.70 | 6.19 |
+| tool_calling_adversarial | 10 | 0 | - | - |
 | translation | 5 | 5 | 7.61 | 7.69 |
 
 ## Detalle por test
@@ -2692,3 +2694,7 @@ We need to create a detailed weekly plan with specific time blocks, respecting t
 #### business_audit
 
 #### business_strategy
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

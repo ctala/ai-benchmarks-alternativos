@@ -1,13 +1,13 @@
 # Claude Opus 4.7
 
 - **model_id**: `anthropic/claude-opus-4-7`
-- **Total tests**: 180/180 exitosos (0 errores)
-- **Score final**: 6.96
+- **Total tests**: 198/198 exitosos (0 errores)
+- **Score final**: 6.97
 - **Calidad**: 8.21
 - **Judge score (Phi-4)**: 4.38/10
-- **Velocidad**: 60 tok/s
-- **Latencia primera token**: 17.49s
-- **Costo promedio por test**: $0.06481
+- **Velocidad**: 59 tok/s
+- **Latencia primera token**: 16.34s
+- **Costo promedio por test**: $0.05989
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,6 +33,7 @@
 | policy_adherence | 4 | 4 | 7.06 | 8.17 |
 | presentation | 4 | 4 | 7.45 | 9.06 |
 | reasoning | 6 | 6 | 7.68 | 9.31 |
+| retrieval_distractores | 8 | 8 | 7.73 | 8.88 |
 | sales_outreach | 3 | 3 | 7.78 | 9.33 |
 | startup_content | 10 | 10 | 7.51 | 9.15 |
 | strategy | 3 | 3 | 7.47 | 9.17 |
@@ -41,6 +42,7 @@
 | summarization | 4 | 4 | 6.83 | 7.81 |
 | task_management | 6 | 6 | 7.62 | 9.20 |
 | tool_calling | 8 | 8 | 5.26 | 5.42 |
+| tool_calling_adversarial | 10 | 10 | 6.71 | 7.66 |
 | translation | 4 | 4 | 6.75 | 7.60 |
 
 ## Detalle por test
@@ -3207,3 +3209,7 @@ Asumiendo jornada de **9 AM - 6 PM** con almuerzo 12-1 PM (salvo excepciones).
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

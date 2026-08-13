@@ -1,13 +1,13 @@
 # Nex-N2-Mini
 
 - **model_id**: `nex-agi/nex-n2-mini`
-- **Total tests**: 192/192 exitosos (0 errores)
-- **Score final**: 8.20
-- **Calidad**: 8.41
-- **Judge score (Phi-4)**: 4.04/10
-- **Velocidad**: 137 tok/s
-- **Latencia primera token**: 10.81s
-- **Costo promedio por test**: $0.00079
+- **Total tests**: 210/210 exitosos (0 errores)
+- **Score final**: 8.17
+- **Calidad**: 8.36
+- **Judge score (Phi-4)**: 3.99/10
+- **Velocidad**: 130 tok/s
+- **Latencia primera token**: 10.01s
+- **Costo promedio por test**: $0.00072
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -36,6 +36,7 @@
 | presentation | 2 | 2 | 8.48 | 8.99 |
 | prompt_injection_es | 20 | 20 | 7.32 | 6.85 |
 | reasoning | 3 | 3 | 7.53 | 7.68 |
+| retrieval_distractores | 8 | 8 | 8.74 | 8.88 |
 | sales_outreach | 3 | 3 | 7.37 | 7.11 |
 | startup_content | 5 | 5 | 8.52 | 9.10 |
 | strategy | 3 | 3 | 8.35 | 8.89 |
@@ -44,6 +45,7 @@
 | summarization | 2 | 2 | 8.28 | 8.18 |
 | task_management | 3 | 3 | 8.17 | 8.60 |
 | tool_calling | 4 | 4 | 6.45 | 5.35 |
+| tool_calling_adversarial | 10 | 10 | 7.28 | 6.82 |
 | translation | 3 | 3 | 8.60 | 8.67 |
 
 ## Detalle por test
@@ -2004,3 +2006,7 @@ Te propongo un plan MVP de 4 semanas con **lanzamiento el día 19** y **2 días 
 #### integridad_idioma
 
 #### prompt_injection_es
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

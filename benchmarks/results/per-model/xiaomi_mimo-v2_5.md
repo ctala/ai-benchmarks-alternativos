@@ -1,13 +1,13 @@
 # MiMo-V2.5 (omnimodal)
 
 - **model_id**: `xiaomi/mimo-v2.5`
-- **Total tests**: 143/143 exitosos (0 errores)
-- **Score final**: 7.62
-- **Calidad**: 8.09
-- **Judge score (Phi-4)**: 4.24/10
-- **Velocidad**: 54 tok/s
-- **Latencia primera token**: 40.78s
-- **Costo promedio por test**: $0.00073
+- **Total tests**: 161/161 exitosos (0 errores)
+- **Score final**: 7.63
+- **Calidad**: 8.07
+- **Judge score (Phi-4)**: 4.25/10
+- **Velocidad**: 53 tok/s
+- **Latencia primera token**: 36.83s
+- **Costo promedio por test**: $0.00067
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,6 +33,7 @@
 | policy_adherence | 4 | 4 | 7.51 | 7.75 |
 | presentation | 2 | 2 | 8.50 | 9.06 |
 | reasoning | 5 | 5 | 8.28 | 8.94 |
+| retrieval_distractores | 8 | 8 | 8.22 | 8.38 |
 | sales_outreach | 3 | 3 | 7.17 | 7.56 |
 | startup_content | 9 | 9 | 8.35 | 9.11 |
 | strategy | 3 | 3 | 7.50 | 8.33 |
@@ -41,6 +42,7 @@
 | summarization | 2 | 2 | 7.52 | 7.64 |
 | task_management | 3 | 3 | 8.46 | 8.93 |
 | tool_calling | 4 | 4 | 6.69 | 6.26 |
+| tool_calling_adversarial | 10 | 10 | 7.33 | 7.52 |
 | translation | 4 | 4 | 7.77 | 8.15 |
 
 ## Detalle por test
@@ -2800,3 +2802,7 @@ The user asks three things: publish an article about AI funding in LATAM ready; 
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

@@ -1,13 +1,13 @@
 # Claude Opus 5
 
 - **model_id**: `anthropic/claude-opus-5`
-- **Total tests**: 147/147 exitosos (0 errores)
-- **Score final**: 6.69
-- **Calidad**: 7.92
-- **Judge score (Phi-4)**: 4.05/10
-- **Velocidad**: 59 tok/s
-- **Latencia primera token**: 20.06s
-- **Costo promedio por test**: $0.07249
+- **Total tests**: 165/165 exitosos (0 errores)
+- **Score final**: 6.59
+- **Calidad**: 7.73
+- **Judge score (Phi-4)**: 3.84/10
+- **Velocidad**: 58 tok/s
+- **Latencia primera token**: 18.62s
+- **Costo promedio por test**: $0.06604
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,6 +35,7 @@
 | presentation | 2 | 2 | 6.40 | 7.57 |
 | prompt_injection_es | 20 | 20 | 7.60 | 9.55 |
 | reasoning | 3 | 3 | 6.87 | 8.19 |
+| retrieval_distractores | 8 | 8 | 6.28 | 6.88 |
 | sales_outreach | 3 | 3 | 7.72 | 9.33 |
 | startup_content | 5 | 5 | 5.95 | 6.93 |
 | strategy | 3 | 3 | 7.52 | 9.17 |
@@ -43,6 +44,7 @@
 | summarization | 2 | 2 | 7.66 | 9.20 |
 | task_management | 3 | 3 | 6.53 | 7.74 |
 | tool_calling | 4 | 4 | 4.71 | 4.65 |
+| tool_calling_adversarial | 10 | 10 | 5.43 | 5.70 |
 | translation | 3 | 3 | 7.47 | 8.67 |
 
 ## Detalle por test
@@ -2052,3 +2054,7 @@ Voy a manejar los tres puntos por separado, porque cada uno tiene un nivel disti
 #### integridad_idioma
 
 #### prompt_injection_es
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

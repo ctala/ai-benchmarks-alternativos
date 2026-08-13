@@ -899,7 +899,13 @@ def build_export(recalibrate=False, scoring_version=None):
         _PILARES_APARTE = ("niah", "prompt_injection")
         _incompletas_que_puntuan = {
             s: i for s, i in (metrics.get("suites_incompletas") or {}).items()
-            if not s.startswith(_PILARES_APARTE)
+            # Una suite EXCLUIDA del score por baja cobertura tampoco puede decidir
+            # quién rankea: no valdría para sumar y sí para restar. Es coherencia, no
+            # un arreglo de un caso concreto — al revisarlo (13-ago-2026) resultó que
+            # los 10 modelos que sospechábamos bloqueados por `integridad_idioma`
+            # estaban fuera por otra cosa: exámenes parciales en suites que SÍ puntúan
+            # (GPT-5.5 rindió 3 de 4 en customer_support). Ahí el sistema funciona bien.
+            if not s.startswith(_PILARES_APARTE) and s not in low_coverage
         }
 
         models_export.append({
@@ -968,8 +974,27 @@ def build_export(recalibrate=False, scoring_version=None):
             # Los pilares aparte (contexto largo, seguridad) NO bloquean: no alimentan la
             # calidad. Ahí el examen incompleto se marca «no medido» en ESE pilar.
             "examen_incompleto": bool(_incompletas_que_puntuan),
+            # ⛔ NUNCA rankea una medición hecha en un endpoint `:free`.
+            #
+            # No es preferencia: medido el 12-ago-2026, los runs contra ids `:free`
+            # fallan **69,2%** contra **10,9%** de los pagos — seis veces más. Un free
+            # tier trae rate limits agresivos, puede servirse con otra cuantización y
+            # puede desaparecer sin aviso. Nada de eso es el modelo, y todo entra al
+            # número que publicamos.
+            #
+            # La regla estaba escrita en CLAUDE.md **nombrando estos dos modelos**
+            # (`nemotron-nano-9b-v2`, `nemotron-3-nano-omni-...`) y aun así los dos
+            # estaban RANKEADOS por su entrada `:free`, con 124 y 147 runs. Las
+            # entradas NIM —las correctas— figuraban como `provider_variant`, o sea
+            # fuera del ranking. La regla escrita, aplicada al revés.
+            #
+            # Por eso el filtro va ACÁ y no en una lista de excepciones: cualquier
+            # entrada `:free` que alguien agregue mañana queda fuera sola, sin que
+            # nadie tenga que acordarse. Sus runs se conservan para análisis histórico.
+            "medido_en_free": ":free" in str(model_id),
             "ranked": (
                 metrics["runs"] >= MIN_RUNS_RANKED
+                and ":free" not in str(model_id)
                 and not cfg.get("retired")
                 and not cfg.get("provider_variant")
                 and not cfg.get("self_hosted")

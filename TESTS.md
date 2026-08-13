@@ -1,4 +1,3 @@
-<!-- doc: generado -->
 # Tests del Benchmark
 
 > Auto-generado por `benchmarks/generate_tests_md.py`. **No editar a mano** — re-correr el script tras agregar/cambiar tests.

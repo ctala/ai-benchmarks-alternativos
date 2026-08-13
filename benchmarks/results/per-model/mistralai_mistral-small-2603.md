@@ -1,13 +1,13 @@
 # Mistral Small 4
 
 - **model_id**: `mistralai/mistral-small-2603`
-- **Total tests**: 240/252 exitosos (12 errores)
-- **Score final**: 7.69
-- **Calidad**: 8.16
-- **Judge score (Phi-4)**: 3.79/10
-- **Velocidad**: 76 tok/s
-- **Latencia primera token**: 6.71s
-- **Costo promedio por test**: $0.00436
+- **Total tests**: 258/270 exitosos (12 errores)
+- **Score final**: 7.67
+- **Calidad**: 8.10
+- **Judge score (Phi-4)**: 3.74/10
+- **Velocidad**: 75 tok/s
+- **Latencia primera token**: 6.32s
+- **Costo promedio por test**: $0.00406
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,6 +35,7 @@
 | presentation | 2 | 2 | 7.97 | 8.96 |
 | prompt_injection_es | 20 | 20 | 2.80 | 1.00 |
 | reasoning | 3 | 3 | 8.50 | 9.03 |
+| retrieval_distractores | 8 | 8 | 8.78 | 8.88 |
 | sales_outreach | 3 | 3 | 6.56 | 6.44 |
 | startup_content | 9 | 9 | 8.55 | 9.32 |
 | strategy | 3 | 3 | 7.11 | 7.22 |
@@ -43,6 +44,7 @@
 | summarization | 2 | 2 | 7.53 | 7.30 |
 | task_management | 3 | 3 | 8.67 | 9.28 |
 | tool_calling | 4 | 4 | 6.54 | 5.70 |
+| tool_calling_adversarial | 10 | 10 | 6.50 | 5.84 |
 | translation | 3 | 3 | 7.68 | 7.37 |
 
 ## Detalle por test
@@ -2343,3 +2345,7 @@ Aquí tienes un **plan detallado en fases, tareas, dependencias, responsables y 
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

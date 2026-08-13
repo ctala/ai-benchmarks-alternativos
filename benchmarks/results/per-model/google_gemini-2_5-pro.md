@@ -1,13 +1,13 @@
 # Gemini 2.5 Pro
 
 - **model_id**: `google/gemini-2.5-pro`
-- **Total tests**: 159/159 exitosos (0 errores)
-- **Score final**: 6.72
+- **Total tests**: 177/177 exitosos (0 errores)
+- **Score final**: 6.76
 - **Calidad**: 7.73
-- **Judge score (Phi-4)**: 4.04/10
-- **Velocidad**: 92 tok/s
-- **Latencia primera token**: 27.48s
-- **Costo promedio por test**: $0.04220
+- **Judge score (Phi-4)**: 4.00/10
+- **Velocidad**: 90 tok/s
+- **Latencia primera token**: 25.40s
+- **Costo promedio por test**: $0.03845
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,6 +33,7 @@
 | policy_adherence | 4 | 4 | 7.39 | 8.67 |
 | presentation | 2 | 2 | 7.27 | 8.42 |
 | reasoning | 3 | 3 | 8.16 | 9.92 |
+| retrieval_distractores | 8 | 8 | 8.17 | 9.38 |
 | sales_outreach | 5 | 5 | 6.83 | 7.87 |
 | startup_content | 5 | 5 | 6.87 | 8.02 |
 | strategy | 4 | 4 | 4.98 | 5.42 |
@@ -41,6 +42,7 @@
 | summarization | 2 | 2 | 6.00 | 6.52 |
 | task_management | 3 | 3 | 7.56 | 8.90 |
 | tool_calling | 4 | 4 | 5.45 | 5.35 |
+| tool_calling_adversarial | 10 | 10 | 6.16 | 6.40 |
 | translation | 3 | 3 | 5.95 | 6.44 |
 
 ## Detalle por test
@@ -2814,3 +2816,7 @@ Claro, aquí tienes la información de los tres perfiles extraída y formateada 
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores

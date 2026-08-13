@@ -1,13 +1,13 @@
 # Gemma 4 26B MoE (3.8B activos)
 
 - **model_id**: `google/gemma-4-26b-a4b-it`
-- **Total tests**: 135/135 exitosos (0 errores)
-- **Score final**: 7.90
-- **Calidad**: 8.39
-- **Judge score (Phi-4)**: 4.28/10
-- **Velocidad**: 51 tok/s
-- **Latencia primera token**: 15.16s
-- **Costo promedio por test**: $0.00079
+- **Total tests**: 153/153 exitosos (0 errores)
+- **Score final**: 7.87
+- **Calidad**: 8.31
+- **Judge score (Phi-4)**: 4.20/10
+- **Velocidad**: 49 tok/s
+- **Latencia primera token**: 13.63s
+- **Costo promedio por test**: $0.00071
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,6 +33,7 @@
 | policy_adherence | 4 | 4 | 8.09 | 8.58 |
 | presentation | 2 | 2 | 7.96 | 8.54 |
 | reasoning | 3 | 3 | 8.30 | 9.21 |
+| retrieval_distractores | 8 | 8 | 8.70 | 9.38 |
 | sales_outreach | 3 | 3 | 7.85 | 8.22 |
 | startup_content | 5 | 5 | 8.33 | 9.14 |
 | strategy | 3 | 3 | 8.15 | 8.89 |
@@ -41,6 +42,7 @@
 | summarization | 2 | 2 | 7.15 | 7.16 |
 | task_management | 3 | 3 | 8.37 | 9.12 |
 | tool_calling | 4 | 4 | 7.20 | 6.75 |
+| tool_calling_adversarial | 10 | 10 | 6.85 | 6.26 |
 | translation | 3 | 3 | 7.95 | 8.57 |
 
 ## Detalle por test
@@ -2102,3 +2104,7 @@ TechFlow cerró el Q1 con ventas de **$2.3M (+18% vs Q4 2025)**, impulsadas por 
 #### content_verificable
 
 #### agent_long_horizon
+
+#### tool_calling_adversarial
+
+#### retrieval_distractores
