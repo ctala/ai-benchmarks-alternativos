@@ -229,6 +229,18 @@ def main() -> int:
             print("   Corré: python benchmarks/generate_superficies.py")
             return 1
 
+        # QA FUNCIONAL: check_calculator hace chequeos estáticos (que el campo exista,
+        # que el umbral caiga en rango) pero NUNCA ejecuta el filtrado. Un filtro que
+        # devuelve cero resultados no rompe nada: la página carga, no hay error en
+        # consola, y el usuario ve una tabla vacía. Esto corre la lógica de verdad.
+        print()
+        _qa = subprocess.run(["node", str(ROOT / "benchmarks" / "qa_calculadora.mjs")],
+                             cwd=ROOT)
+        if _qa.returncode != 0:
+            print("\n❌ El QA funcional de la calculadora falla — ver arriba.")
+            print("   La página cargaría igual: por eso hay que ejecutarla, no solo mirarla.")
+            return 1
+
         print()
         rc = run_script("check_calculator.py", [], dry_run=False, allow_fail=True)
         if rc != 0:
