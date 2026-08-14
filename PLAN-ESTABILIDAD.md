@@ -169,6 +169,59 @@ existe, le falta el instrumento.
 
 ---
 
+## 5.5 El eje que falta: tarea real end-to-end (dirección, no diseño)
+
+**Origen (13-ago).** Cristian trajo dos observaciones de producción que el benchmark no
+predecía: MiniMax M3 resolvió en 30 minutos lo que GPT-5.6 Terra no logró en un día, y al
+cambiar Qwen 3.6 por Nemotron Omni en su Spark, Hermes "se siente más tonto —hace otras
+cosas de las que le pido, no entiende bien la petición".
+
+### Lo que ya sabemos, medido
+
+1. **La señal existe y está enterrada.** Qwen le gana a Omni en `content_verificable`
+   (+2,18) y `policy_adherence` (+0,96) — literalmente "hace lo que le pido" y "respeta la
+   restricción". Omni le gana en `agent_long_horizon` (−1,41), que era **justo lo que
+   publicábamos como `agentic_score`**.
+2. **`agentic_score` era una etiqueta falsa.** Ninguno de los 12 tests de
+   `agent_long_horizon` da herramientas: mide conversación multi-turno. Correlación con el
+   tool calling real: **r = −0,230**, negativa. Renombrado a `multiturno_score`.
+3. **Existe un eje de "adherencia a la instrucción"** (`policy_adherence` +
+   `content_verificable`) que es **ortogonal al multi-turno (r = −0,02)** y predice la
+   experiencia de Cristian en los dos casos. Hoy no se publica en ninguna parte.
+
+### Lo que NO podemos resolver desde adentro
+
+Todas nuestras métricas son proxies y **se contradicen entre sí**. Elegir cuál tiene razón
+mirando solo nuestros datos es circular. Hace falta **verdad de terreno externa**.
+
+### El camino: adoptar el harness, escribir las tareas
+
+Decisión de Cristian: *"no reinventaría la rueda, cambiaría la tarea para algo de
+emprendimiento, pero si alguien ya resolvió el test mucho mejor."*
+
+**[Harbor](https://www.harborframework.com/)** — el harness de [Terminal-Bench
+2.0](https://github.com/harbor-framework/terminal-bench-2) — es el candidato:
+
+- **Task y scaffold desacoplados**: la misma tarea corre contra muchos agentes en igualdad
+  de condiciones. Su formato ya se usó para adaptar **26 benchmarks preexistentes**.
+- **Soporta los harnesses que importan**: Claude Code, Codex CLI, OpenHands, Mini-SWE-Agent.
+- Mide **finalización de la tarea**, que es el único juicio end-to-end que vale.
+
+**Lo que aportamos nosotros son las tareas**, y son las que nadie más escribe:
+
+| tarea candidata | qué se verifica objetivamente |
+|---|---|
+| Integración con la API de MercadoLibre | ¿funciona? ¿maneja auth y paginación? |
+| Flujo n8n vía su MCP | ¿usó los **nodos oficiales** o improvisó código? |
+
+Métricas por corrida, todas objetivas: **lo logró / usó los componentes correctos /
+iteraciones / tiempo / tokens de contexto / costo**.
+
+⚠️ **Antes de construir nada**: correr el harness tal cual con una tarea suya, para ver si
+el formato nos sirve. Adoptar mal cuesta más que no adoptar.
+
+---
+
 ## 6. La prueba de si esto funcionó
 
 Dentro de tres meses, la pregunta no es si el ranking mejoró: es **cuántas veces cambiamos

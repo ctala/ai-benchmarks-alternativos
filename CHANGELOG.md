@@ -3,6 +3,94 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v4.2.0] - 2026-08-14 — El benchmark deja de suponer que un buen modelo sirve en un agente
+
+Hasta hoy el sitio respondía *"¿qué modelo es mejor?"*. No respondía la pregunta que
+realmente se hace quien va a poner esto a operar su negocio: **¿este modelo puede
+ejecutar una tarea, de punta a punta, dentro de un agente?** Resultan ser preguntas
+distintas, y ahora hay data para probarlo.
+
+### La dimensión agéntica: 74 modelos medidos dentro de un agente real
+
+No es una suite nueva del runner. Es **Harbor** (el harness de Terminal-Bench) corriendo
+`mini-swe-agent` en Docker: el modelo recibe un correo de un cliente, lee el tarifario y
+las reglas en disco, decide qué se cobra y qué no, y escribe `cotizacion.json`. Un pytest
+verifica el artefacto. **Nada de parsear prosa** — que fue justo lo que produjo seis
+falsos negativos en la versión casera de esta misma tarea.
+
+**74 modelos · 231 corridas · 3 intentos cada uno · US$ 2,66 en total.**
+
+| resultado | modelos |
+|---|---|
+| perfecto en los 3 intentos | 48 |
+| parcial (0,44 – 0,97) | 21 |
+| **no pueden ejecutarla** | **5** |
+
+### El hallazgo que justifica publicarla aparte
+
+**Hermes 4 405B tiene índice de calidad 8,20 —mejor que 40 de los que resolvieron la
+tarea— y saca 0,00**, porque no existe endpoint que le dé herramientas. Verificado contra
+la fuente primaria: la documentación de Nous Research dice que Hermes 4 *"no está
+recomendado para usar dentro de Hermes Agent… está afinado para chat y razonamiento, no
+para el bucle rápido de tool-calling"*.
+
+Promediar 8,20 con 0,00 produce un número que miente sobre las dos cosas. Por eso la
+dimensión agéntica **no entra al índice de calidad**, igual que tool calling y seguridad
+— y por la misma razón que Artificial Analysis saca costo y velocidad de su índice.
+
+**Y el dato más accionable del lote:** `qwen3-next-80b-a3b` saca **0,81 en `instruct` y
+0,00 en `thinking`**. Mismo modelo, mismo tamaño, mismo proveedor. La variante que razona
+no sostiene el bucle de herramientas — y sus índices de calidad están casi empatados
+(7,93 vs 7,49), así que el ranking no te lo iba a decir nunca.
+
+### El estado vale más que el número
+
+Un reward 0 tiene tres causas que **no significan lo mismo**, y la media las colapsa:
+
+| estado | qué pasó |
+|---|---|
+| `sin_herramientas` | no existe endpoint con tool use. **Nunca vio el encargo** |
+| `rompe_bucle` | tiene herramientas y no sostiene el formato de tool call |
+| `hizo_mal_la_tarea` | corrió, entregó, y está mal |
+
+La causa se **deriva de la traza** con firmas explícitas, no se escribe a mano. Ya publiqué
+una vez un 0,0 que era del harness y no del modelo.
+
+### En la calculadora
+
+Filtro nuevo: **«Sólo los que COMPLETAN una tarea real dentro de un agente»** — corta 10 de
+79 rankeados (5 medidos que no pueden, 5 sin medir). Un modelo sin medición **no pasa**:
+mismo criterio conservador que el filtro de contexto efectivo.
+
+Y dos badges que se ven **siempre**, no solo con el filtro activo, porque el dato importa
+justo cuando nadie lo fue a buscar: `⛔ no corre en agente` (el único tag rojo del sitio) y
+`🤖 agente ✓`.
+
+### Guardrails nuevos, en el mismo commit
+
+- **`export_harbor.py`** — persiste los resultados a `tareas-agente/resultados.json`. Antes
+  vivían **solo** en `jobs/`, que está gitignored: un `rm -rf` borraba 222 corridas sin
+  dejar rastro. El runner tenía esto resuelto desde siempre; la tarea agéntica, por venir
+  de un harness externo, no lo heredó.
+- **Corridas con `task_checksum` distinto no se promedian.** Es `prompt_sha` para tareas
+  Harbor: si cambió un test, no es el mismo examen. Detectó 2 de 231 corridas que venían de
+  una versión vieja y habrían entrado calladas al promedio.
+- **Un resultado agéntico no se hereda entre proveedores** del mismo id. El lote corrió
+  contra `openrouter/<id>`; NIM y Groq son endpoints distintos. Sin esto, la variante NIM de
+  Qwen 3-Next heredaba un "no apto" que nadie midió en NIM.
+- **`check_version` ahora lee el schema.org.** Declaraba `v4.0` en dos campos mientras el
+  hero decía `v4.1`, y nada fallaba — la superficie que ven Google y los crawlers de IA
+  estaba una versión y media atrás.
+
+### Nota de versión
+
+`scoring_reference.json` pasa a `v4.2` pero **la calibración NO se recalculó**: v4.2 agrega
+una dimensión que se publica aparte y no toca el score. Los mean/std siguen siendo los de
+v4.1, y queda escrito en el archivo (`calibracion_heredada_de`) para que la etiqueta no se
+lea como un recálculo que no ocurrió.
+
+---
+
 ## [v4.1.0] - 2026-08-13 — Dos ejes, una escala anclada, y tres columnas que decían lo mismo
 
 Cambia **qué publicamos**, no solo cuánto medimos. El hilo: cada número derivado que

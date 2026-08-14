@@ -100,6 +100,11 @@ jobs:
       - name: Verificar que el repo declara una sola version de si mismo
         run: python benchmarks/check_version.py
 
+      # ¿Alguien construyo un camino de medicion por fuera del runner? El 13-ago-2026
+      # eso costo seis bugs y tres relanzamientos, todos pozos ya tapados en runner.py.
+      - name: Verificar que no hay medicion fuera del runner
+        run: python benchmarks/check_caminos.py
+
       # Quis custodiet ipsos custodes. El repo tenia OCHO guardrails y CERO pruebas:
       # si uno se rompia, pasaba en verde y nadie se enteraba — el mismo modo de falla
       # que los guardrails vinieron a resolver, un nivel mas arriba. Esta prueba les

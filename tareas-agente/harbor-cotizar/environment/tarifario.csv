@@ -1,0 +1,9 @@
+id,servicio,precio_usd,absorbe,nota
+DIAG,Diagnóstico de procesos,940,,
+IMPL-BAS,Implementación básica,2370,,
+IMPL-AVZ,Implementación avanzada,4810,IMPL-BAS,Incluye la básica; no se cobran las dos
+MIGRA,Migración de datos,1630,,
+MIGRA-REV,Revisión de migración ajena,1630,,Revisar cuesta lo mismo que hacer
+CAPA,Capacitación de equipo,710,,
+SOP-3M,Soporte 3 meses,1180,,
+INTEG,Integración con sistema externo,2090,,
