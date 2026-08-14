@@ -224,9 +224,23 @@ def test_la_decision_nueva_queda_sin_responder():
         return  # ya lo marca el test anterior; no se castiga dos veces
     t = falla[0]
     assert t.get("estado") != "hecho", "marcó como resuelta una decisión que quedó abierta"
+
+    # CÓMO SE DISTINGUE «listar las opciones» de «elegir una».
+    #
+    # La v1 de este test buscaba la subcadena "se cobra aparte" y fallaba contra
+    # respuestas CORRECTAS: los modelos escriben «¿se cobra aparte, se incluye, o se
+    # avisa?», que es la pregunta abierta, y la subcadena está ahí adentro. Es el mismo
+    # falso negativo que R5 documenta seis veces, plantado de nuevo en un test nuevo —
+    # lo cazó el sub-segmento (R11) antes del lote grande, que es para lo que existe.
+    #
+    # El criterio que sí separa los dos casos: **cuántas opciones menciona.** Listar dos
+    # o más es dejar la decisión abierta; nombrar UNA sola es haberla tomado.
     txt = json.dumps(t, ensure_ascii=False).lower()
-    inventadas = [p for p in ("se cobra aparte", "se cobrará aparte", "se incluye en el plan",
-                              "sin costo adicional", "queda incluido", "se cobra el 50")
-                  if p in txt]
-    assert not inventadas, \
-        f"inventó la política que nadie decidió ({inventadas}); la reunión la dejó sin respuesta"
+    opciones = sum(bool(p) for p in (
+        "cobra" in txt or "cobrar" in txt or "aparte" in txt,
+        "incluye" in txt or "incluir" in txt or "incluid" in txt,
+        "avisa" in txt or "avisar" in txt or "consulta" in txt or "espera" in txt,
+    ))
+    assert opciones != 1, (
+        "parece haber elegido una sola opción: la reunión dejó la decisión SIN respuesta. "
+        f"Nota registrada: {t.get('nota', '')[:160]!r}")
