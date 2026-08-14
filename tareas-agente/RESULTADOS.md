@@ -49,17 +49,46 @@ Es justo lo que la pregunta que originó este trabajo venía a capturar —*"pue
 eficiente en costo/calidad, pero si no lo puedo usar es otra cosa"*— y que el índice de
 calidad no muestra.
 
-## Resultados
+## Resultados — 8 modelos × 3 intentos
 
-| modelo | calidad publicada | reward (3 intentos) | runtime | nota |
-|---|---|---|---|---|
-| `tencent/hy3` | 8,53 | **1,0** | 4m 21s | |
-| `z-ai/glm-5` | 8,33 | **1,0** | 2m 02s | |
-| `nousresearch/hermes-4-405b` | 8,20 | — | 1m 09s | **incompatible: sin tool use** |
-| `upstage/solar-pro4` | 8,03 | 1,0 (1 intento) | | |
-| `qwen/qwen3-coder` | 7,74 | **0,67** (1 intento) | | falla parcial real |
+| modelo | calidad publicada | pass^3 | reward | runtime | veredicto |
+|---|---|---|---|---|---|
+| `tencent/hy3` | 8,53 | **3/3** | 1,0 | 4m 21s | **desatendido** |
+| `z-ai/glm-5` | 8,33 | **3/3** | 1,0 | **2m 02s** | **desatendido** |
+| `qwen/qwen3.5-397b-a17b` | 7,94 | **3/3** | 1,0 | 1m 48s | **desatendido** |
+| `upstage/solar-pro4` | 8,03 | 2/3 | 0,89 · 1,0 · 1,0 | 1m 39s | con revisión |
+| `qwen/qwen3-coder` | 7,74 | 0/3 | 0,89 constante | 1m 39s | con revisión |
+| `mistralai/ministral-14b-2512` | 8,13 | 0/3 | 0,78 · 0,67 · 0,89 | 1m 56s | con revisión |
+| `nousresearch/hermes-4-405b` | 8,20 | — | — | 1m 09s | **incompatible: sin tool use** |
+| `meta-llama/llama-4-maverick` | 7,88 | — | — | 1m 10s | **incompatible: rompe el formato** |
 
-*(lote en curso; se completa al cerrar)*
+### Tres categorías, no una escala
+
+Un reward 0 tiene **tres causas distintas** y mezclarlas produce un ranking falso:
+
+| categoría | qué pasó | ejemplo |
+|---|---|---|
+| **Hizo mal la tarea** | corrió, escribió la cotización, se equivocó | Ministral (0,67-0,89) |
+| **No soporta herramientas** | el agente no arranca | Hermes 4 405B |
+| **Rompe el bucle del agente** | soporta tools pero su formato de salida falla repetido (`RepeatedFormatError`) | Llama 4 Maverick |
+
+Las dos últimas son **incompatibilidades**, no notas bajas. Un modelo así no se puede usar
+en ese agente por bueno que sea su texto — y eso es una respuesta definitiva para "¿cuál
+pongo en mi agente?", que el índice de calidad no muestra.
+
+## Lo que responde este test
+
+**Para cotizar desatendido: GLM-5.** Tres de tres, en 2m02 — menos de la mitad del tiempo
+de Tencent Hy3, que logra lo mismo.
+
+**El índice de calidad no predice el resultado.** Ministral 14B (8,13) queda por debajo de
+Qwen3-Coder (7,74); Hermes 4 405B (8,20) es directamente inusable. La correlación entre
+calidad de texto y utilidad agéntica, en esta tarea, no existe.
+
+**El piso importa más que la media.** Ministral promedia 0,78 pero su piso es 0,67: nunca
+acertó todo. Qwen3-Coder promedia menos pero es **constante en 0,89** — falla siempre lo
+mismo, que es un defecto reparable con una instrucción. Para trabajo desatendido, un modelo
+predecible vale más que uno con mejor promedio y varianza.
 
 ## Lo que ya se puede decir
 
