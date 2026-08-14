@@ -216,12 +216,20 @@ auditar ni revertir.**
    invalida un solo run. **Editar una existente invalida todo el histórico.** Si una
    suite dejó de servir, se jubila del score (gratis) y se agrega otra.
 
-4. **La versión se declara en 6 superficies y todas tienen que coincidir**:
-   `scoring_reference.json` · `docs/data/models.json` · `CHANGELOG.md` ·
-   `docs/index.html` · git tag · README. Lo verifica **`check_version.py`**, que corre
-   en `regenerate_all.py` y en el Action.
+4. **Todo dato publicado en más de un lugar es una SUPERFICIE, y el mapa de cuáles son
+   vive en [`SUPERFICIES.md`](SUPERFICIES.md)** — qué tiene que coincidir con qué y qué
+   script lo hace cumplir. **Ese doc se GENERA** (`generate_superficies.py`) desde el
+   registro que los guardrails ejecutan, así que no puede desincronizarse del código.
+   Antes de publicar un dato que ya existe en otro lado: buscalo ahí, y si no está,
+   agregalo al registro **en el mismo commit**.
+   La versión, en particular, se declara hoy en **7 superficies** + git tag + entrada de
+   CHANGELOG, y lo verifica **`check_version.py`**.
    *Por qué:* el 13-ago el repo declaraba tres versiones distintas de sí mismo —sin tag
-   de v4.1 y con el README presentando v4.0 como vigente— y nada fallaba.
+   de v4.1 y con el README presentando v4.0 como vigente— y nada fallaba. El 14-ago
+   aparecieron **tres superficies más que el chequeo ni miraba** (el README y los dos
+   campos de versión del schema.org, que son los que leen Google y los crawlers de IA):
+   su docstring decía "seis" y el código leía cuatro. El problema no era el olvido —
+   **era que la lista no existía en ningún lugar verificable.**
 
 5. **Todo cambio va al `CHANGELOG.md`, con su versión, antes de mergear a `main`.**
    Publicar sin entrada es publicar sin traza: pasó con v4.1 hasta que se marcó.

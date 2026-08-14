@@ -51,47 +51,64 @@ def _norm(v: str | None) -> str | None:
     return f"v{m.group(1)}.{m.group(2)}" if m else v
 
 
+# ── EL REGISTRO DE SUPERFICIES ────────────────────────────────────────────────
+#
+# Ésta es la lista, y es la ÚNICA. Antes vivía repartida entre una docstring que
+# decía "seis" y un `_leer()` que leía cuatro — y las dos que faltaban estaban
+# desalineadas, claro. El 14-ago aparecieron TRES superficies no listadas en una
+# sola sesión (README y los dos campos del schema.org).
+#
+# El problema nunca fue el olvido: era que **la lista no existía en ninguna parte
+# verificable**. Un comentario en prosa no es un registro. Ahora agregar una
+# superficie es agregar una fila acá, `SUPERFICIES.md` se genera de esta lista, y
+# la doc no puede desincronizarse del chequeo porque no es una copia.
+#
+#   archivo · patrón (regex con 1 grupo, o clave si es JSON) · por qué importa
+SUPERFICIES = [
+    {"archivo": "scoring_reference.json", "json_key": "version",
+     "que_es": "la referencia congelada del score",
+     "por_que": "es la fuente de la calibración; si miente, todo score publicado queda sin origen"},
+    {"archivo": "docs/data/models.json", "json_key": "scoring_version",
+     "que_es": "el dataset que sirve el sitio",
+     "por_que": "es lo que consume la calculadora y cualquiera que baje los datos"},
+    {"archivo": "CHANGELOG.md", "patron": r"^## \[(v[\d.]+)\]",
+     "que_es": "la entrada más reciente",
+     "por_que": "publicar sin entrada es publicar sin traza. Pasó con v4.1"},
+    {"archivo": "README.md", "patron": r"^\*\*Versi[oó]n?\s+(v?[\d.]+)\*\*",
+     "que_es": "el encabezado",
+     "por_que": "es lo primero que ve un humano y lo que GitHub muestra en la home del repo. "
+                "El 14-ago decía «Version 3.1.1»: cuatro releases atrás"},
+    {"archivo": "docs/index.html", "patron": r"Dataset <strong>(v[\d.]+)",
+     "que_es": "el hero de la calculadora",
+     "por_que": "es la versión que lee un visitante del sitio"},
+    {"archivo": "docs/index.html", "patron": r'"version":\s*"(v[\d.]+)"',
+     "etiqueta": "schema.org:version",
+     "que_es": "el Dataset de schema.org",
+     "por_que": "es lo que leen Google y los crawlers de IA. El 14-ago decía v4.0 "
+                "mientras el hero decía v4.1, y nada fallaba"},
+    {"archivo": "docs/index.html", "patron": r'"softwareVersion":\s*"(v[\d.]+)"',
+     "etiqueta": "schema.org:softwareVersion",
+     "que_es": "el SoftwareApplication de schema.org",
+     "por_que": "ídem: superficie de buscadores, invisible para quien mira la página"},
+    # Además de éstas, V2 exige un git tag y V3 una entrada en el CHANGELOG.
+]
+
+
 def _leer() -> dict:
     fuentes: dict[str, str | None] = {}
-
-    p = ROOT / "scoring_reference.json"
-    if p.exists():
-        fuentes["scoring_reference.json"] = json.loads(p.read_text()).get("version")
-
-    p = ROOT / "docs" / "data" / "models.json"
-    if p.exists():
-        fuentes["models.json"] = json.loads(p.read_text()).get("scoring_version")
-
-    p = ROOT / "CHANGELOG.md"
-    if p.exists():
-        m = re.search(r"^## \[(v[\d.]+)\]", p.read_text(), re.M)
-        fuentes["CHANGELOG.md"] = m.group(1) if m else None
-
-    # El README es la primera cosa que lee un humano y la que GitHub muestra en la home
-    # del repo. El 14-ago declaraba **"Version 3.1.1"** —cuatro releases atrás— mientras
-    # el resto del repo decía v4.2, y este chequeo no lo miraba pese a nombrarlo en su
-    # propia lista de superficies. El guardrail estaba incompleto respecto de su docstring.
-    p = ROOT / "README.md"
-    if p.exists():
-        m = re.search(r"^\*\*Versi[oó]n?\s+(v?[\d.]+)\*\*", p.read_text(), re.M | re.I)
-        fuentes["README.md"] = m.group(1) if m else None
-
-    p = ROOT / "docs" / "index.html"
-    if p.exists():
-        html = p.read_text()
-        m = re.search(r"Dataset <strong>(v[\d.]+)", html)
-        fuentes["docs/index.html"] = m.group(1) if m else None
-
-        # El schema.org de la página declara la versión DOS veces más, y son las que
-        # leen Google y los crawlers de IA. El 14-ago las dos decían v4.0 mientras el
-        # hero decía v4.1 y nada fallaba: la superficie que ve un buscador estaba una
-        # versión y media atrás. Es el mismo agujero que motivó este guardrail, un
-        # nivel más adentro.
-        for campo in ("version", "softwareVersion"):
-            m = re.search(rf'"{campo}":\s*"(v[\d.]+)"', html)
-            if m:
-                fuentes[f"schema.org:{campo}"] = m.group(1)
-
+    for s in SUPERFICIES:
+        p = ROOT / s["archivo"]
+        etiqueta = s.get("etiqueta") or s["archivo"].split("/")[-1]
+        if not p.exists():
+            continue
+        if "json_key" in s:
+            try:
+                fuentes[etiqueta] = json.loads(p.read_text()).get(s["json_key"])
+            except Exception:
+                fuentes[etiqueta] = None
+        else:
+            m = re.search(s["patron"], p.read_text(), re.M | re.I)
+            fuentes[etiqueta] = m.group(1) if m else None
     return fuentes
 
 

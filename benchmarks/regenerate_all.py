@@ -218,6 +218,17 @@ def main() -> int:
             print("   Alinealo antes de publicar: el repo declara versiones distintas de sí mismo.")
             return 1
 
+        # SUPERFICIES.md es el mapa de qué tiene que coincidir con qué. Se GENERA del
+        # registro que los guardrails ejecutan, así que un mapa desactualizado significa
+        # que alguien agregó una superficie y no regeneró — o que un guardrail nombrado
+        # ahí ya no existe, que es peor: una superficie sin quien la haga cumplir.
+        print()
+        rc = run_script("generate_superficies.py", ["--check"], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ El mapa de superficies sincronizadas quedó desactualizado.")
+            print("   Corré: python benchmarks/generate_superficies.py")
+            return 1
+
         print()
         rc = run_script("check_calculator.py", [], dry_run=False, allow_fail=True)
         if rc != 0:

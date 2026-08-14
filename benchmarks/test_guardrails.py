@@ -144,6 +144,17 @@ def _t_scoring_raise():
     return False
 
 
+@prueba("generate_superficies", "el mapa de superficies desactualizado respecto del registro")
+def _t_superficies():
+    doc = ROOT / "SUPERFICIES.md"
+    with Sabotaje(doc):
+        # Se le quita una superficie al doc: el --check tiene que notar que ya no
+        # coincide con `check_version.SUPERFICIES`, que es de donde se genera.
+        doc.write_text(doc.read_text(encoding="utf-8").replace(
+            "| `README.md` |", "| `ARCHIVO-QUE-NO-VA` |", 1), encoding="utf-8")
+        return _correr("generate_superficies.py", "--check") != 0
+
+
 @prueba("check_caminos", "un script que mide fuera del runner")
 def _t_caminos():
     tmp = ROOT / "_desvio_de_prueba.py"
