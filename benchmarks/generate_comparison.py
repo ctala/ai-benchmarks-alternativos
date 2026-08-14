@@ -672,7 +672,15 @@ def page_shell(title, desc, kw, url, body):
         "url": url, "mainEntityOfPage": url,
         "publisher": {"@type": "Person", "name": "Cristian Tala", "url": "https://cristiantala.com"},
     }, ensure_ascii=False, indent=2)
+    # MARCA DE ORIGEN. Toda página que pasa por este shell es GENERADA: se rehace desde
+    # models.json en cada corrida del pipeline y por definición no puede caducar. Las que
+    # NO la llevan son a mano, y ésas sí hay que vigilar.
+    #
+    # Se marca acá y no en una lista aparte a propósito: una lista de "páginas a mano"
+    # sería otra superficie que se desincroniza el día que alguien agregue un generador.
+    # Derivar por ausencia de marca no se puede olvidar.
     return f"""<!DOCTYPE html>
+<!-- generado-por: benchmarks/ (pipeline) — no editar a mano, se sobrescribe -->
 <html lang="es">
 <head>
 <meta charset="UTF-8">

@@ -83,6 +83,18 @@ def _paginas_del_sitio() -> list[Path]:
         # Los stubs de redirección (noindex + meta refresh) no publican cifras.
         if 'http-equiv="refresh"' in t and "noindex" in t:
             continue
+        # Las GENERADAS llevan marca de origen (la pone `page_shell`): se rehacen desde
+        # models.json en cada pipeline, así que no pueden caducar. Se saltan para que el
+        # aviso de "sin verificar" señale SOLO lo que de verdad hay que vigilar — las
+        # hechas a mano. Sin este filtro salían 42 avisos y el ruido tapaba a las 3 que
+        # importaban.
+        if "generado-por: benchmarks/" in t:
+            continue
+        # La calculadora (docs/index.html) no trata de UN modelo: los sirve a todos desde
+        # models.json. No hay sujeto que atribuir, y su consistencia la cubre
+        # `check_calculator.py` + el QA funcional.
+        if p.parent == (ROOT / "docs"):
+            continue
         out.append(p)
     return out
 
@@ -132,12 +144,125 @@ def plausible_values(m: dict) -> list[float]:
     return vals
 
 
+
+
+# ── Páginas HTML: atribución por PÁGINA, no por línea ────────────────────────
+#
+# POR QUÉ (14-ago-2026). El chequeo de los .md atribuye un score al modelo nombrado en
+# LA MISMA LÍNEA. En prosa markdown eso funciona; en HTML no, y se midió por qué:
+#
+#   «score global de 6.93»      → el regex no admite el "de", y la línea nombra 3 modelos
+#   «score_global 6.93»         → el guion bajo rompe el patrón `score global`
+#   «Score global 6.93 8.07»    → matchea, pero el nombre está en la cabecera de la tabla
+#
+# Las tres son la misma causa: en una página el nombre del modelo vive en el título o en
+# un encabezado, lejos del número. Pero eso mismo da la solución — **la página es SOBRE
+# un modelo**, y eso está en el slug. Así que se atribuye por página y se busca en todo
+# el texto. Una comparación (`a-vs-b`) tiene dos sujetos: la cifra vale si coincide con
+# cualquiera de los dos (conservador, pero sigue cazando la que no es de ninguno).
+SCORE_EN_PAGINA_RE = re.compile(
+    r"score[\s_]*(?:global|de calidad)?\s*(?:de\s+)?[:=]?\s*\**\s*(\d{1,2}\.\d{1,2})\b",
+    re.IGNORECASE)
+
+
+# Páginas cuyo slug NO permite deducir el modelo. Renombrar el slug rompería URLs que
+# ya están indexadas, así que la atribución va acá, explícita. Es una lista corta y a
+# mano — pero el chequeo AVISA de toda página sin sujeto, así que una que falte se nota
+# sola en vez de pasar en silencio.
+SUJETOS_EXPLICITOS = {
+    "minimax-vs-kimi": ["MiniMax M3", "Kimi K2.6"],
+    "diffusiongemma-vs-gemma-4": ["DiffusionGemma 26B-A4B (DGX Spark Q8_0)",
+                                 "Gemma 4 26B MoE (3.8B activos)"],
+}
+
+
+def _sujetos_de_pagina(pg: Path, models: dict) -> list:
+    """Modelos de los que trata la página, deducidos del slug."""
+    if pg.parent.name in SUJETOS_EXPLICITOS:
+        return [models[n] for n in SUJETOS_EXPLICITOS[pg.parent.name] if n in models]
+    slug = pg.parent.name.lower().replace("_", "-")
+    hallados = []
+    for nombre, m in models.items():
+        # "GLM 5.2" → "glm-5-2" / "glm-5.2"; se prueban las dos formas
+        base = nombre.lower().replace(" ", "-")
+        for cand in (base, base.replace(".", "-"), base.replace(".", "")):
+            if cand and cand in slug:
+                hallados.append(m)
+                break
+    # el match más largo gana: "glm-5.2" antes que "glm-5"
+    hallados.sort(key=lambda m: -len(m["name"]))
+    return hallados[:2]
+
+
+def check_pagina(pg: Path, models: dict) -> list[str]:
+    sujetos = _sujetos_de_pagina(pg, models)
+    if not sujetos:
+        # NO se devuelve vacío en silencio. Una página sin sujeto detectable queda SIN
+        # VERIFICAR, y "verde porque no miré" es indistinguible de "verde porque está
+        # bien" — que es exactamente el modo de falla que este chequeo vino a matar.
+        # Medido: `diffusiongemma-vs-gemma-4` y `minimax-vs-kimi` caían acá.
+        return [f"__SIN_SUJETO__{pg.parent.name}"]
+    texto = _a_texto(pg.read_text(errors="replace"))
+    # QUÉ CUENTA COMO VALOR VÁLIDO — y por qué NO son todos.
+    #
+    # La primera versión aceptaba `plausible_values` + seguridad + **las 20 y pico de
+    # suites**. Medido: eso dejaba 54-67 valores distintos, que con tolerancia ±0,05
+    # cubren entre el 54% y el 67% del rango 0-10. O sea que se le escapaban dos de cada
+    # tres cifras caducas por azar — las de GLM 5.2 las cazó de suerte, porque 6,93 y
+    # 2,53 cayeron en el hueco. Un detector que acepta dos tercios del espacio no es un
+    # detector.
+    #
+    # Ahora entran los TITULARES (global, calidad, seguridad, pilares) siempre, y una
+    # suite solo si su nombre aparece en la página — que es cuando citarla es legítimo.
+    validos = set()
+    texto_pg = _a_texto(pg.read_text(errors="replace"))
+    bajo = texto_pg.lower()
+    for m in sujetos:
+        for k in ("score_global", "score_calidad", "quality_avg", "security_score"):
+            if m.get(k) is not None:
+                validos.add(round(float(m[k]), 2))
+        for v in (m.get("score_by_pillar") or {}).values():
+            if v is not None:
+                validos.add(round(float(v), 2))
+        for suite, v in (m.get("score_by_suite") or {}).items():
+            if v is None:
+                continue
+            etiqueta = suite.replace("_", " ").replace(" es", "").strip()
+            if suite.lower() in bajo or etiqueta.lower() in bajo:
+                validos.add(round(float(v), 2))
+    hallazgos = []
+    vistos = set()
+    for cifra in SCORE_EN_PAGINA_RE.findall(texto):
+        v = round(float(cifra), 2)
+        if v in vistos:
+            continue
+        vistos.add(v)
+        if not any(abs(v - ok) <= TOLERANCE for ok in validos):
+            quien = " / ".join(m["name"] for m in sujetos)
+            # Se muestran los valores PRINCIPALES, no los 65 de todas las suites: un
+            # mensaje que hay que leer con lupa no se lee.
+            claves = []
+            for m in sujetos:
+                for et, k in (("global", "score_global"), ("calidad", "score_calidad"),
+                              ("seguridad", "security_score")):
+                    if m.get(k) is not None:
+                        claves.append(f"{m['name']} {et} {float(m[k]):.2f}")
+            hallazgos.append(
+                f"{pg.parent.name}/index.html: publica {v} y no coincide con ningún "
+                f"score de {quien} — hoy: {' · '.join(claves)}")
+    return hallazgos
+
+
 def check_doc(path: Path, models: dict, verbose: bool = False) -> list[str]:
     findings = []
     if not path.exists():
         return findings
 
-    for lineno, line in enumerate(path.read_text().splitlines(), 1):
+    crudo = path.read_text(errors="replace")
+    if path.suffix.lower() in (".html", ".htm"):
+        crudo = _a_texto(crudo)
+
+    for lineno, line in enumerate(crudo.splitlines(), 1):
         if "score" not in line.lower():
             continue
 
@@ -241,8 +366,28 @@ def main():
     for doc in LIVE_DOCS:
         all_findings += check_doc(ROOT / doc, models, args.verbose)
 
-    print(f"Validando {len(LIVE_DOCS)} docs vivos contra models.json "
-          f"({len(models)} modelos con score)…")
+    # Las PÁGINAS del sitio, que hasta el 14-ago-2026 no miraba nadie. Se revisan todas
+    # —generadas incluidas— a propósito: una generada es consistente por construcción y
+    # no debería reportar nada; si reporta, es un bug del generador y también quiero
+    # saberlo. Listar a mano cuáles son "las de a mano" sería otra superficie que se
+    # desincroniza.
+    paginas = _paginas_del_sitio()
+    for pg in paginas:
+        all_findings += check_pagina(pg, models)
+
+    sin_sujeto = [f[len("__SIN_SUJETO__"):] for f in all_findings
+                  if f.startswith("__SIN_SUJETO__")]
+    all_findings = [f for f in all_findings if not f.startswith("__SIN_SUJETO__")]
+
+    print(f"Validando {len(LIVE_DOCS)} docs vivos + {len(paginas)} páginas del sitio "
+          f"contra models.json ({len(models)} modelos con score)…")
+    if sin_sujeto:
+        print(f"\n⚠️  {len(sin_sujeto)} página(s) SIN VERIFICAR — no se pudo deducir de qué "
+              f"modelo tratan a partir del slug:")
+        for x in sin_sujeto:
+            print(f"    · {x}")
+        print("    No es que estén bien: es que nadie las miró. Renombrá el slug para que "
+              "contenga\n    el nombre del modelo, o agregá la atribución a mano.")
     print(f"(Ignorados por diseño — son snapshots con fecha: {', '.join(HISTORICAL_DOCS)})\n")
 
     # AVISO, no bloqueo: un doc que recomienda un modelo retirado es un problema real
