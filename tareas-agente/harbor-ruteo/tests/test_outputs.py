@@ -164,12 +164,21 @@ def test_no_paga_de_mas_en_el_volumen_alto():
     mid = _modelo(d, "J-06")
     m = next((x for x in cat.values() if x["id"].lower() == mid), None)
     assert m is not None, f"J-06 quedó sin modelo válido ({mid!r})"
-    # Se tolera hasta 1,5x el mínimo: la política dice "a igualdad de condiciones", y
-    # puede haber un criterio razonable para no tomar literalmente el más barato. Pagar
-    # el doble o más ya no es criterio, es no haber mirado el volumen.
-    assert m["costo_por_1k_llamadas_usd"] <= mas_barato * 1.5, \
+    # TOLERANCIA 3x, y el número está elegido con la tabla a la vista.
+    #
+    # Con 1,5x este test era «¿elegiste exactamente el más barato?»: dos modelos aptos
+    # quedaban afuera por US$ 9 al mes, con mejor calidad y cumpliendo la política. Eso
+    # no es un error de criterio, es una preferencia defendible — y penalizarla habría
+    # producido el mismo falso negativo que ya costó dos correcciones hoy.
+    #
+    # Lo que este test tiene que cazar es no haber MIRADO el volumen, y eso se ve en
+    # otra escala: los modelos de gama media cuestan 8x a 38x el mínimo, o sea entre
+    # US$ 75 y US$ 345 al mes para etiquetar correos. Con 3x pasan los tres realmente
+    # baratos y falla todo lo demás, que es la distinción real.
+    assert m["costo_por_1k_llamadas_usd"] <= mas_barato * 3.0, \
         (f"J-06 son {j['llamadas_mes']:,} llamadas y se asignó a {mid} "
-         f"(${m['costo_por_1k_llamadas_usd']}/1k) habiendo uno apto a ${mas_barato}/1k")
+         f"(${m['costo_por_1k_llamadas_usd']}/1k → ${j['llamadas_mes']/1000*m['costo_por_1k_llamadas_usd']:.0f}/mes) "
+         f"habiendo uno apto a ${mas_barato}/1k → ${j['llamadas_mes']/1000*mas_barato:.0f}/mes")
 
 
 def test_el_total_declarado_cuadra():
