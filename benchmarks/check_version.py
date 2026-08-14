@@ -67,10 +67,30 @@ def _leer() -> dict:
         m = re.search(r"^## \[(v[\d.]+)\]", p.read_text(), re.M)
         fuentes["CHANGELOG.md"] = m.group(1) if m else None
 
+    # El README es la primera cosa que lee un humano y la que GitHub muestra en la home
+    # del repo. El 14-ago declaraba **"Version 3.1.1"** —cuatro releases atrás— mientras
+    # el resto del repo decía v4.2, y este chequeo no lo miraba pese a nombrarlo en su
+    # propia lista de superficies. El guardrail estaba incompleto respecto de su docstring.
+    p = ROOT / "README.md"
+    if p.exists():
+        m = re.search(r"^\*\*Versi[oó]n?\s+(v?[\d.]+)\*\*", p.read_text(), re.M | re.I)
+        fuentes["README.md"] = m.group(1) if m else None
+
     p = ROOT / "docs" / "index.html"
     if p.exists():
-        m = re.search(r"Dataset <strong>(v[\d.]+)", p.read_text())
+        html = p.read_text()
+        m = re.search(r"Dataset <strong>(v[\d.]+)", html)
         fuentes["docs/index.html"] = m.group(1) if m else None
+
+        # El schema.org de la página declara la versión DOS veces más, y son las que
+        # leen Google y los crawlers de IA. El 14-ago las dos decían v4.0 mientras el
+        # hero decía v4.1 y nada fallaba: la superficie que ve un buscador estaba una
+        # versión y media atrás. Es el mismo agujero que motivó este guardrail, un
+        # nivel más adentro.
+        for campo in ("version", "softwareVersion"):
+            m = re.search(rf'"{campo}":\s*"(v[\d.]+)"', html)
+            if m:
+                fuentes[f"schema.org:{campo}"] = m.group(1)
 
     return fuentes
 

@@ -49,6 +49,12 @@ SANCIONADOS = {
     "benchmarks/variance_analysis.py",
     "benchmarks/generate_manual_landings.py",
     "benchmarks/check_caminos.py",  # este archivo los nombra
+    # NO mide: CONTIENE la cadena de sabotaje (`requests.post(".../chat/completions")`)
+    # que escribe a un archivo temporal para comprobar que este mismo chequeo la caza.
+    # Un detector cuyo test lo hace fallar es un falso positivo, no un hallazgo — pero
+    # la exención va nombrada y con razón, nunca por patrón: exceptuar `test_*.py` en
+    # bloque dejaría un hueco por el que sí se podría medir de verdad.
+    "benchmarks/test_guardrails.py",
     # GENERA contenido, no mide: escribe posts desde INSIGHTS.md y no produce ningún
     # puntaje (verificado: cero menciones a quality/score). Llamar a un modelo para
     # PRODUCIR es legítimo; lo que no puede pasar por afuera es MEDIR.
