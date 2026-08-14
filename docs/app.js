@@ -1072,10 +1072,16 @@ const WIZ_AGENTES = [
     id: "asistente", ic: "💬", ot: "Asistente conversacional",
     od: "Estilo Hermes/Nyx: le hablás, hace facturas, cotiza, lee correo",
     // Pesa lo que hace fallar a un asistente: que NO haga lo que le pediste.
-    ejes: [["policy_adherence", 0.35], ["harbor_media", 0.25],
-           ["multiturno_score", 0.25], ["tool_calling_adversarial", 0.15]],
+    // La VELOCIDAD pesa acá y NO en el workflow. Es una asimetría deliberada: a un
+    // asistente personal le hablás y esperás la respuesta mirando; un workflow
+    // asíncrono se toma el tiempo que necesite y nadie lo nota. Sin este eje, DeepSeek
+    // V4 Pro entraba #3 de esta lista con **58 segundos de latencia media** — correcto
+    // por calidad, inusable como asistente.
+    ejes: [["policy_adherence", 0.30], ["harbor_media", 0.20], ["multiturno_score", 0.20],
+           ["latencia", 0.20], ["tool_calling_adversarial", 0.10]],
     nota: "Para un asistente, el fallo caro no es que no sepa: es que haga otra cosa. " +
-          "Por eso pesa más la <b>adherencia</b> que el tool calling.",
+          "Por eso pesa más la <b>adherencia</b> que el tool calling — y pesa la " +
+          "<b>latencia</b>, porque acá la espera se siente.",
   },
   {
     id: "workflow", ic: "⚙️", ot: "Workflow desatendido",
@@ -1086,7 +1092,8 @@ const WIZ_AGENTES = [
     ejes: [["harbor_piso", 0.35], ["tool_calling_adversarial", 0.25],
            ["policy_adherence", 0.20], ["structured_output", 0.20]],
     nota: "Nadie revisa la salida, así que se prioriza <b>constancia</b>: pesa el " +
-          "<b>peor</b> resultado de la tarea real, no el promedio.",
+          "<b>peor</b> resultado de la tarea real, no el promedio. La velocidad " +
+          "<b>no</b> entra: si corre asíncrono, que tarde no le cuesta nada a nadie.",
   },
   {
     id: "codigo", ic: "💻", ot: "Agente de código",
@@ -1107,6 +1114,13 @@ function wizEje(m, eje) {
   const h = m.agentico?.tareas?.["harbor-cotizar"];
   if (eje === "harbor_media") return h?.media != null ? h.media * 10 : null;
   if (eje === "harbor_piso") return h?.piso != null ? h.piso * 10 : null;
+  // `latency_score_avg` va de 1,06 a 4,69 (más alto = más rápido). Se estira a 0-10
+  // para que promedie con las suites sin quedar aplastado: un eje que solo se mueve
+  // entre 1 y 4,7 aportaría un quinto de lo que dice su peso.
+  if (eje === "latencia") {
+    const v = m.latency_score_avg;
+    return v == null ? null : Math.max(0, Math.min(10, (v - 1) * (10 / 3.7)));
+  }
   return (m.score_by_suite || {})[eje] ?? null;
 }
 
@@ -1279,6 +1293,7 @@ function wizResult() {
       policy_adherence: "Adherencia", multiturno_score: "Multiturno",
       tool_calling_adversarial: "Tool calling", structured_output: "JSON estructurado",
       code_generation: "Código", harbor_media: "Tarea real", harbor_piso: "Tarea real (peor)",
+      latencia: "Rapidez",
     };
     const cols = tipo.ejes.map(e => e[0]);
     const fila = (m, destacado) => `<tr${destacado ? ' class="wiz-top"' : ""}>
