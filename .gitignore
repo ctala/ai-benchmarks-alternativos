@@ -21,3 +21,6 @@ benchmarks/results/_archive-pre-verificador/
 # Backups de models.py que deja sync_prices.py antes de escribir. Son red de
 # seguridad local: el historial real es git, no un .bak versionado.
 benchmarks/results/_backups/
+
+# Harbor: artefactos de corridas (contienen trayectorias completas de agentes)
+jobs/
