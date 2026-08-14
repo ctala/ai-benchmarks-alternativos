@@ -1,7 +1,0 @@
-  prompt_sha 0a6c1a5c90ff · entorno {'encargo.md': 'a9a0bcb14ffa', 'reglas.md': '62165fa82d40', 'tarifario.csv': '8ad2f597e270'}
-  deepseek/deepseek-v4-flash         run 1/10: 12/17
-  deepseek/deepseek-v4-flash         run 2/10: 12/17
-  deepseek/deepseek-v4-flash         run 3/10: 10/17
-  deepseek/deepseek-v4-flash         run 4/10: 12/17
-  deepseek/deepseek-v4-flash         run 5/10: 7/17
-  deepseek/deepseek-v4-flash         run 6/10: 7/17

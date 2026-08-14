@@ -1,4 +1,4 @@
-<!-- modelo: openai/gpt-5.6-luna · run 2 · prompt_sha 0b60b37db38c -->
+<!-- modelo: tencent/hy3 · run 2 · prompt_sha 0b60b37db38c -->
 # ENTRADA
 
 ```
@@ -82,19 +82,42 @@ Podés agregar los campos que consideres necesarios.
 
 # SALIDA
 
-## Cotización
+**Cotización preliminar — 12 de agosto de 2026**
 
-Valores expresados en dólares estadounidenses (USD), netos.
+Estimados,
 
-- **Implementación avanzada — IMPL-AVZ:** precio de referencia **USD 4.810**. Incluye la implementación básica, por lo que **no se cobra IMPL-BAS por separado**. Se aplica un factor de **1,20** por la necesidad de puesta en marcha para fin de mes. **Total: USD 5.772**.
-- **Migración de datos — MIGRA:** precio de referencia **USD 1.630**. Corresponde realizar la migración desde cero, dado que el trabajo previo del proveedor anterior no será reutilizado. Se aplica un factor de **1,20** por urgencia. **Total: USD 1.956**.
-- **Integración con sistema externo/ERP — INTEG:** precio de referencia **USD 2.090**. Se aplica un factor de **1,20** por urgencia. **Total: USD 2.508**.
+A continuación les detallamos la cotización de los servicios que podemos facturar directamente según nuestro tarifario, más una nota sobre el ítem que requiere evaluación humana por no estar contemplado en lista.
 
-El **diagnóstico de procesos (DIAG)** no se incluye, ya que cuentan con un diagnóstico previo.
+**1. Implementación avanzada (IMPL-AVZ)**
+- Precio de referencia: USD 4.810
+- Este servicio absorbe la implementación básica (IMPL-BAS), por lo que no se cobra por separado (regla de tarifario).
+- Al requerir todo el proyecto para fin de mes (plazo ajustado), aplicamos un factor de urgencia de 1,8 sobre el precio de referencia del ítem (dentro de la banda permitida de 0,85 a 2,00).
+- **Subtotal: USD 8.658**
 
-La **certificación ISO 27001 del proveedor** no figura en nuestro tarifario y, de acuerdo con nuestra política, requiere una cotización humana específica. Por lo tanto, **no está incluida en este total** y deberá evaluarse por separado.
+**2. Migración de datos desde cero (MIGRA)**
+- Precio de referencia: USD 1.630
+- Corresponde la migración completa porque el avance previo no sirve; no es revisión de terceros (no aplica descuento alguno por "solo revisar", regla 4).
+- Factor de urgencia 1,8 por el mismo plazo de entrega.
+- **Subtotal: USD 2.934**
 
-**Total cotizado: USD 10.236 netos.**
+**3. Integración con ERP (INTEG)**
+- Precio de referencia: USD 2.090
+- Conexión de la plataforma con su sistema externo (ERP).
+- Factor de urgencia 1,8 por plazo de fin de mes.
+- **Subtotal: USD 3.762**
+
+**No se incluyen en esta cotización:**
+- *Diagnóstico de procesos (DIAG)*: tal como indican, ya cuentan con uno de otra consultora; no se cobra.
+- *Capacitación (CAPA)* y *Soporte 3 meses (SOP-3M)*: no fueron solicitados; pueden agregarse si los requieren.
+
+**Pendiente de cotización humana:**
+- *Certificación ISO 27001*: este requisito de su directorio no está en nuestro tarifario estándar. Por regla 7, no se estima por analogía y va a cotización humana. Les enviaremos un número dedicado a la brevedad.
+
+**Total cotizable según tarifario (sin ISO 27001): USD 15.354**
+
+Quedamos a su disposición para ajustar alcance o adelantar la cotización humana de la certificación.
+
+---
 
 ```json
 {
@@ -102,22 +125,53 @@ La **certificación ISO 27001 del proveedor** no figura en nuestro tarifario y, 
     {
       "sku": "IMPL-AVZ",
       "precio_referencia": 4810,
-      "factor": 1.2,
-      "total": 5772
+      "factor": 1.8,
+      "total": 8658,
+      "nota": "Incluye IMPL-BAS (absorbe); no se cobra aparte. Factor 1.8 por urgencia (fin de mes)."
     },
     {
       "sku": "MIGRA",
       "precio_referencia": 1630,
-      "factor": 1.2,
-      "total": 1956
+      "factor": 1.8,
+      "total": 2934,
+      "nota": "Migración desde cero. Factor 1.8 por urgencia."
     },
     {
       "sku": "INTEG",
       "precio_referencia": 2090,
-      "factor": 1.2,
-      "total": 2508
+      "factor": 1.8,
+      "total": 3762,
+      "nota": "Integración con ERP. Factor 1.8 por urgencia."
     }
   ],
-  "total_usd": 10236
+  "total_usd": 15354,
+  "cotizacion_humana": [
+    {
+      "sku": "ISO-27001",
+      "motivo": "No está en el tarifario. Certificación requerida por el directorio. Requiere cotización humana (regla 7)."
+    }
+  ],
+  "excluidos": [
+    {
+      "sku": "DIAG",
+      "motivo": "Cliente ya tiene diagnóstico de otra consultora; no se cobra."
+    },
+    {
+      "sku": "IMPL-BAS",
+      "motivo": "Absorbido por IMPL-AVZ."
+    },
+    {
+      "sku": "MIGRA-REV",
+      "motivo": "No aplica; se hace migración desde cero (MIGRA)."
+    },
+    {
+      "sku": "CAPA",
+      "motivo": "No solicitado."
+    },
+    {
+      "sku": "SOP-3M",
+      "motivo": "No solicitado."
+    }
+  ]
 }
 ```

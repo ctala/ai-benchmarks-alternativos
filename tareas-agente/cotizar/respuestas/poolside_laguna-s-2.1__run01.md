@@ -1,4 +1,4 @@
-<!-- modelo: poolside/laguna-s-2.1 · run 1 · prompt_sha 0a6c1a5c90ff -->
+<!-- modelo: poolside/laguna-s-2.1 · run 1 · prompt_sha 0b60b37db38c -->
 # ENTRADA
 
 ```
@@ -6,14 +6,14 @@ Sos el asistente de una consultora. Tenés estos archivos:
 
 === tarifario.csv ===
 id,servicio,precio_usd,absorbe,nota
-DIAG,Diagnóstico de procesos,900,,
-IMPL-BAS,Implementación básica,2400,,
-IMPL-AVZ,Implementación avanzada,4800,IMPL-BAS,Incluye la básica; no se cobran las dos
-MIGRA,Migración de datos,1600,,
-MIGRA-REV,Revisión de migración ajena,1600,,Revisar cuesta lo mismo que hacer
-CAPA,Capacitación de equipo,700,,
-SOP-3M,Soporte 3 meses,1200,,
-INTEG,Integración con sistema externo,2100,,
+DIAG,Diagnóstico de procesos,940,,
+IMPL-BAS,Implementación básica,2370,,
+IMPL-AVZ,Implementación avanzada,4810,IMPL-BAS,Incluye la básica; no se cobran las dos
+MIGRA,Migración de datos,1630,,
+MIGRA-REV,Revisión de migración ajena,1630,,Revisar cuesta lo mismo que hacer
+CAPA,Capacitación de equipo,710,,
+SOP-3M,Soporte 3 meses,1180,,
+INTEG,Integración con sistema externo,2090,,
 
 === reglas.md ===
 # Cómo se cotiza acá
@@ -48,57 +48,83 @@ INTEG,Integración con sistema externo,2100,,
 > Necesitamos poner en marcha la plataforma. Ya tenemos un diagnóstico hecho por otra
 > consultora, así que eso no haría falta.
 >
-> Queremos la implementación completa, con todo lo que incluye. Además tenemos una
-> migración que empezó un proveedor anterior y quedó a medias — necesitamos que alguien la
-> revise y la termine.
+> Queremos la implementación completa, con todo lo que incluye.
+>
+> Tenemos una migración de datos pendiente desde nuestro sistema viejo — háganla ustedes
+> desde cero, lo que había avanzado el proveedor anterior no sirve.
 >
 > También hay que conectar la plataforma con nuestro ERP.
 >
-> Y lo necesitamos **para fin de mes**, sé que es apretado.
+> Y una cosa más: nuestro directorio nos exige **certificación ISO 27001** del proveedor
+> antes de firmar. ¿Nos la pueden incluir?
+>
+> Lo necesitamos **para fin de mes**, sé que es apretado.
 >
 > Gracias.
 
 === TAREA ===
 Cotizá el encargo del cliente.
+
+Entregá dos cosas:
+
+1. La cotización en prosa, para enviarle al cliente.
+2. Al final, un bloque JSON con esta forma exacta, para cargar en el sistema:
+
+```json
+{
+  "lineas": [{"sku": "XXX", "precio_referencia": 0, "factor": 1.0, "total": 0}],
+  "total_usd": 0
+}
+```
+
+Podés agregar los campos que consideres necesarios.
 ```
 
 # SALIDA
 
 **Cotización para el cliente**  
-*Fecha: 12 de agosto de 2026*  
+
+Estimados,  
+
+Gracias por su consulta. A continuación, detallamos los servicios que cubrimos según su encargo:  
+
+1. **Implementación avanzada (IMPL-AVZ)**: $4.810 USD.  
+   - Incluye la implementación básica (IMPL-BAS), por lo que no se cobra por separado (según regla de absorción).  
+   - Ajuste por urgencia: factor **1.20** (dentro de la banda permitida: 0.85–2.00).  
+   - Subtotal: $5.772 USD.  
+
+2. **Migración de datos (MIGRA)**: $1.630 USD.  
+   - Se realizará desde cero, descartando el trabajo previo del proveedor ajeno.  
+   - Ajuste por urgencia: factor **1.20**.  
+   - Subtotal: $1.956 USD.  
+
+3. **Integración con ERP (INTEG)**: $2.090 USD.  
+   - Conexión de la plataforma con su sistema externo.  
+   - Ajuste por urgencia: factor **1.20**.  
+   - Subtotal: $2.508 USD.  
+
+**Total cotizado**: $10.236 USD.  
+
+**Nota adicional**:  
+- La **certificación ISO 27001** solicitada no está incluida en el tarifario actual. Para su inclusión, se requiere una cotización humana adicional, que coordinaremos por separado.  
+
+Quedamos atentos para confirmar y avanzar según su aprobación.  
+
+Atentamente,  
+[Su consultora]  
 
 ---
 
-### **1. Implementación avanzada (IMPL-AVZ)**  
-- **Precio base:** $4.800 USD  
-- **Ajuste por urgencia (2,00):** $4.800 × 2,00 = **$9.600 USD**  
-- **Motivo:** El cliente solicita la implementación completa, que incluye la básica (según la regla de absorción). La urgencia justifica el ajuste al tope de la banda.  
-
----
-
-### **2. Migración de datos (MIGRA)**  
-- **Precio base:** $1.600 USD  
-- **Ajuste por urgencia (2,00):** $1.600 × 2,00 = **$3.200 USD**  
-- **Motivo:** Aunque el cliente menciona una migración incompleta de un proveedor anterior, la regla establece que revisar una migración ajena (MIGRA-REV) cuesta lo mismo que realizarla (MIGRA). Por lo tanto, se cotiza **MIGRA** para cubrir tanto el análisis como la finalización del trabajo.  
-
----
-
-### **3. Integración con ERP (INTEG)**  
-- **Precio base:** $2.100 USD  
-- **Ajuste por urgencia (2,00):** $2.100 × 2,00 = **$4.200 USD**  
-- **Motivo:** Conexión con el sistema externo del cliente. La urgencia justifica el ajuste al tope de la banda.  
-
----
-
-### **Total:**  
-**$9.600 + $3.200 + $4.200 = $17.000 USD**  
-
----
-
-### **Notas adicionales:**  
-- **No se incluye DIAG** (diagnóstico ya realizado por otra consultora).  
-- **No se cobra MIGRA-REV** por separado, ya que revisar una migración ajena implica el mismo esfuerzo que realizarla (regla 4).  
-- **No hay descuentos aplicados**, ya que no se mencionan en el encargo.  
-- **Todos los precios están en USD, netos.**  
-
-Cualquier consulta, ¡avísenos!
+```json
+{
+  "lineas": [
+    {"sku": "IMPL-AVZ", "precio_referencia": 4810, "factor": 1.2, "total": 5772},
+    {"sku": "MIGRA", "precio_referencia": 1630, "factor": 1.2, "total": 1956},
+    {"sku": "INTEG", "precio_referencia": 2090, "factor": 1.2, "total": 2508}
+  ],
+  "total_usd": 10236,
+  "notas": [
+    "Certificación ISO 27001 no incluida en el tarifario; requiere cotización adicional."
+  ]
+}
+```

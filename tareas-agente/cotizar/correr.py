@@ -13,7 +13,21 @@ AQUI = Path(__file__).resolve().parent
 load_dotenv(AQUI.parent.parent / ".env")
 KEY = os.getenv("OPENROUTER_API_KEY")
 
-CONSIGNA = "Cotizá el encargo del cliente."
+CONSIGNA = """Cotizá el encargo del cliente.
+
+Entregá dos cosas:
+
+1. La cotización en prosa, para enviarle al cliente.
+2. Al final, un bloque JSON con esta forma exacta, para cargar en el sistema:
+
+```json
+{
+  "lineas": [{"sku": "XXX", "precio_referencia": 0, "factor": 1.0, "total": 0}],
+  "total_usd": 0
+}
+```
+
+Podés agregar los campos que consideres necesarios."""
 
 def huella_entorno() -> dict:
     """Hash de CADA archivo del entorno. El prompt se arma con ellos, así que si uno

@@ -1,24 +1,45 @@
 {
  "tencent/hy3": [
   {
-   "puntos": 11,
+   "puntos": 17,
    "C1_implementacion": true,
-   "C2_absorcion": false,
-   "C3_revision_sin_descuento": true,
+   "C2_absorcion": true,
+   "C3_migracion_sin_descuento": true,
    "C4_no_cotizo_diagnostico": true,
-   "C5_escalo_lo_no_tarifado": false,
-   "C6_ajuste_declarado": true,
-   "C7_total": true,
+   "C5_iso_sin_precio_y_mencionada": true,
+   "C6_factores_en_banda": true,
+   "C7_total_cuadra": true,
    "finish_reason": "stop",
-   "out_tokens": 7949,
-   "reasoning_tokens": 7074,
-   "chars": 2552,
+   "out_tokens": 4771,
+   "reasoning_tokens": 3850,
+   "chars": 2731,
    "respuesta": "respuestas/tencent_hy3__run01.md",
-   "prompt_sha": "0a6c1a5c90ff",
+   "prompt_sha": "0b60b37db38c",
    "entorno_sha": {
-    "encargo.md": "a9a0bcb14ffa",
+    "encargo.md": "ba26e5d6e9f3",
     "reglas.md": "62165fa82d40",
-    "tarifario.csv": "8ad2f597e270"
+    "tarifario.csv": "5aa834592258"
+   }
+  },
+  {
+   "puntos": 17,
+   "C1_implementacion": true,
+   "C2_absorcion": true,
+   "C3_migracion_sin_descuento": true,
+   "C4_no_cotizo_diagnostico": true,
+   "C5_iso_sin_precio_y_mencionada": true,
+   "C6_factores_en_banda": true,
+   "C7_total_cuadra": true,
+   "finish_reason": "stop",
+   "out_tokens": 7941,
+   "reasoning_tokens": 5709,
+   "chars": 3153,
+   "respuesta": "respuestas/tencent_hy3__run02.md",
+   "prompt_sha": "0b60b37db38c",
+   "entorno_sha": {
+    "encargo.md": "ba26e5d6e9f3",
+    "reglas.md": "62165fa82d40",
+    "tarifario.csv": "5aa834592258"
    }
   }
  ]

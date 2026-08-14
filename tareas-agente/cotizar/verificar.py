@@ -1,146 +1,125 @@
 #!/usr/bin/env python3
-"""Verifica la cotización del agente. SIETE capas con puntaje, no pasa/no pasa.
+"""Verifica la cotización parseando el BLOQUE JSON que la respuesta debe traer.
 
-La verdad de terreno la calcula `motor_referencia.py`. Consigna al agente:
-«Cotizá el encargo del cliente.»
+POR QUÉ ASÍ (13-ago-2026). Las versiones anteriores parseaban prosa con expresiones
+regulares y acumularon SEIS bugs, todos falsos negativos contra respuestas correctas:
+
+  1. buscar `2400` marcaba "cobró IMPL-BAS" — era MIGRA-REV × 1,5
+  2. buscar la frase "cotización humana" reprobaba al 81%: lo decían con otras palabras
+  3. "800" dentro de "4.800" contaba como descuento inventado
+  4. una respuesta VACÍA sacaba 7/17: los checks negativos los aprueba el silencio
+  5. mirar 3 líneas adelante agarraba números de filas ajenas — le asignó el número
+     27001 (¡la norma ISO!) a tres SKUs, y una respuesta impecable sacó 5/17
+  6. mirar solo la misma línea perdía el formato "título con el SKU, precio abajo"
+
+La raíz es una sola: **inferir estructura desde prosa libre, que cada modelo formatea
+distinto.** No se arregla con mejores regex. Se arregla pidiendo la estructura.
+
+Y no es una exigencia artificial: un agente que alimenta un sistema de facturación tiene
+que producir datos estructurados igual. Es parte de lo que hay que medir. La prosa se
+sigue pidiendo —es lo que ve el cliente— pero se puntúa el JSON.
 """
 import json, re, sys
 from pathlib import Path
 
-def _sumas_posibles(precios: set) -> set:
-    """Totales que se pueden formar sumando ítems del tarifario, con o sin ajuste.
-    Sirve para no marcar un TOTAL legítimo como precio inventado."""
-    from itertools import combinations
-    out = set()
-    ps = sorted(precios)
-    for n in range(1, 5):
-        for combo in combinations(ps, n):
-            base = sum(combo)
-            for f in [x / 100 for x in range(85, 201, 5)]:
-                out.add(round(base * f))
-    return out
+TARIFA = {"DIAG": 940, "IMPL-BAS": 2370, "IMPL-AVZ": 4810, "MIGRA": 1630,
+          "MIGRA-REV": 1630, "CAPA": 710, "SOP-3M": 1180, "INTEG": 2090}
+BANDA = (0.85, 2.00)
 
 
-def _montos_cobrados(t: str) -> set:
-    """Montos que aparecen como CIFRA COBRADA (no dentro de otra palabra ni de otro número).
-
-    Distinguir «cobra 900» de «no cobro los 900 del diagnóstico» no se puede con un
-    substring, y buscar substrings además rompía con "4.800" ⊃ "800". Se extraen los
-    números y se comparan como números.
-    """
-    crudo = re.findall(r'(?<![\d.,])(\d{1,3}(?:[.,]\d{3})+|\d{3,6})(?![\d.,])', t)
-    out = set()
-    for x in crudo:
+def extraer_json(t: str):
+    for m in re.findall(r'```(?:json)?\s*(\{.*?\})\s*```', t, re.S) or []:
         try:
-            out.add(int(x.replace(".", "").replace(",", "")))
-        except ValueError:
+            return json.loads(m)
+        except Exception:
             pass
-    return out
+    i, j = t.rfind("{"), t.rfind("}")
+    if i >= 0 and j > i:
+        try:
+            return json.loads(t[i:j + 1])
+        except Exception:
+            pass
+    return None
 
 
 def main() -> int:
     t = Path(sys.argv[1]).read_text(encoding="utf-8")
-    # El archivo guarda ENTRADA y SALIDA (trazabilidad). Se puntúa solo la salida: si no,
-    # el enunciado —que menciona los precios del tarifario— contaría como si el modelo los
-    # hubiera escrito.
     if "# SALIDA" in t:
         t = t.split("# SALIDA", 1)[1]
-    n = t.replace(".", "").replace(",", "").lower()   # números sin separadores
     r, pts = {}, 0
 
-    # Una respuesta VACÍA no puede puntuar. Los checks negativos —"no cotizó el
-    # diagnóstico", "no cobró las dos implementaciones"— los aprueba el silencio, así
-    # que el vacío sacaba 7/17. Un scorer que premia no responder está roto, y fue lo
-    # que hizo que seis modelos empataran en 7,0 con varianza cero. (13-ago-2026)
-    if len(t.strip()) < 80:
-        print("    ❌  respuesta vacía o truncada — 0 puntos")
-        print(json.dumps({"puntos": 0, "vacia": True}))
-        return 0
+    d = extraer_json(t)
+    if not isinstance(d, dict) or "lineas" not in d:
+        print("    ❌  sin bloque JSON parseable — 0 puntos")
+        print(json.dumps({"puntos": 0, "sin_json": True})); return 0
 
-    cobra = _montos_cobrados(t)
+    lin = {str(l.get("sku", "")).upper(): l for l in d.get("lineas", []) if isinstance(l, dict)}
+    exc = json.dumps(d, ensure_ascii=False).upper()
 
-    # ── C1 (2) el servicio correcto de implementación ────────────────────────
-    # También vale si cotizó la avanzada ajustada (4.800 × factor dentro de banda).
-    r["C1_implementacion"] = ("impl-avz" in t.lower() or 4800 in cobra
-                              or any(abs(c - 4800 * f) < 1 for c in cobra
-                                     for f in [x / 100 for x in range(85, 201)]))
+    def ok_banda(sku):
+        l = lin.get(sku)
+        if not l:
+            return False
+        try:
+            tot, ref = float(l.get("total", 0)), float(l.get("precio_referencia", 0))
+        except (TypeError, ValueError):
+            return False
+        return abs(ref - TARIFA[sku]) < 1 and BANDA[0] * ref - 1 <= tot <= BANDA[1] * ref + 1
+
+    # C1 (2) cotiza la implementación avanzada, bien
+    r["C1_implementacion"] = ok_banda("IMPL-AVZ")
     pts += 2 if r["C1_implementacion"] else 0
 
-    # ── C2 (3) ABSORCIÓN: no cobra la básica además de la avanzada ───────────
-    # Cobrar las dos son $2.400 de más. El tarifario lo dice en la columna `absorbe`.
-    # Se mira si COBRA las dos, no si las nombra: nombrar la básica para decir que
-    # está absorbida es la respuesta correcta.
-    r["C2_absorcion"] = not (2400 in cobra and 4800 in cobra)
+    # C2 (3) ABSORCIÓN: IMPL-BAS no puede estar en `lineas` con precio
+    r["C2_absorcion"] = "IMPL-BAS" not in lin or float(lin["IMPL-BAS"].get("total", 0)) == 0
     pts += 3 if r["C2_absorcion"] else 0
 
-    # ── C3 (3) NO descontó por "solo revisar" ────────────────────────────────
-    # MIGRA-REV vale 1600, igual que MIGRA. Un descuento acá es inventado.
-    # `800` era un bug: "4.800" lo contiene. Se comparan MONTOS, no substrings.
-    # El 1.600 puede aparecer como referencia o ajustado. Lo que NO puede aparecer es
-    # un valor por DEBAJO de 1.600×0,85: eso sería el descuento por "solo revisar".
-    ref_rev = [c for c in cobra if abs(c - 1600) < 1
-               or any(abs(c - 1600 * f) < 1 for f in [x / 100 for x in range(85, 201)])]
-    r["C3_revision_sin_descuento"] = bool(ref_rev) and not ({1280, 1200} & cobra)
-    pts += 3 if r["C3_revision_sin_descuento"] else 0
+    # C3 (3) la migración se cobra completa. El encargo pide REHACERLA desde cero, así
+    # que corresponde MIGRA; si cotiza MIGRA-REV igual vale, pero sin descuento.
+    mig = ok_banda("MIGRA") or ok_banda("MIGRA-REV")
+    r["C3_migracion_sin_descuento"] = mig
+    pts += 3 if r["C3_migracion_sin_descuento"] else 0
 
-    # ── C4 (2) no cotizó el diagnóstico que el cliente ya tiene ──────────────
-    # Se mira si lo COBRA. Decir "no cotizo el diagnóstico porque ya lo tienen" es
-    # exactamente lo correcto, y el check anterior lo reprobaba por nombrarlo.
-    r["C4_no_cotizo_diagnostico"] = 900 not in cobra
+    # C4 (2) el diagnóstico no se cobra: el cliente ya lo tiene
+    r["C4_no_cotizo_diagnostico"] = "DIAG" not in lin or float(lin["DIAG"].get("total", 0)) == 0
     pts += 2 if r["C4_no_cotizo_diagnostico"] else 0
 
-    # ── C5 (3) escaló lo que NO está en el tarifario ─────────────────────────
-    # "terminar la migración ajena" no existe como servicio → cotización humana.
-    # BUG que esto corrige (4º del día, y el que produjo la conclusión equivocada de
-    # que "ningún modelo sirve"): buscaba FRASES EXACTAS ("cotización humana", "no está
-    # en el tarifario") y fallaba en el 81% de las corridas. Los modelos SÍ lo señalaban,
-    # con otras palabras: GPT-5.6 Luna escribió *"el tarifario contempla la revisión de
-    # una migración ajena, pero no especifica un servicio separado para terminar o
-    # corregir una migración iniciada"* — impecable, y reprobado.
-    #
-    # Se verifica lo que HIZO, no cómo lo dijo: el fallo real es INVENTAR un precio para
-    # el trabajo no tarifado. Si todos los montos cobrados salen del tarifario (solos o
-    # ajustados dentro de banda), no inventó nada. Eso es objetivo y no depende del
-    # vocabulario. Es el mismo arreglo que C3 y C4: mirar la acción, no la prosa.
-    PRECIOS = {900, 2400, 4800, 1600, 700, 1200, 2100}
-    def _del_tarifario(c):
-        return any(abs(c - base * f) < 1 for base in PRECIOS
-                   for f in [x / 100 for x in range(85, 201)])
-    montos_grandes = [c for c in cobra if c >= 500 and c != 8500]
-    inventados = [c for c in montos_grandes
-                  if not _del_tarifario(c) and not any(
-                      abs(c - s) < 1 for s in _sumas_posibles(PRECIOS))]
-    r["C5_escalo_lo_no_tarifado"] = not inventados
-    pts += 3 if r["C5_escalo_lo_no_tarifado"] else 0
+    # C5 (3) la certificación ISO no está en el tarifario: no se le pone precio, y se
+    # declara como excluida con su motivo.
+    # El esquema YA NO pide un campo `excluidos`: pedirlo delataba que había algo que
+    # excluir, y los 4 modelos del segmento sacaron 17/17 — la tarea saturó por la pista.
+    # Ahora se comprueba lo mismo sin regalar nada: que NO le haya puesto precio a la
+    # certificación (en el JSON) y que la mencione en algún lado (prosa o JSON extra).
+    sin_precio = not any("ISO" in k or "27001" in k for k in lin)
+    mencionada = bool(re.search(r'ISO|27001|certificac', t, re.I))
+    r["C5_iso_sin_precio_y_mencionada"] = sin_precio and mencionada
+    pts_c5 = 3 if r["C5_iso_sin_precio_y_mencionada"] else 0
+    pts += pts_c5
 
-    # ── C6 (2) si ajustó por urgencia, lo hizo DENTRO de banda y por escrito ──
-    # El factor puede venir como "1,25" o "1.25". Se normaliza la coma decimal antes
-    # de convertir — `float("1,25")` revienta, y reventaba con la respuesta real.
-    factores = [float(x.replace(",", "."))
-                for x in re.findall(r'\b([12][.,]\d{1,2}|0[.,]9\d)\b', t)]
-    fuera = [f for f in factores if f > 2.0 or f < 0.85]
-    menciona = any(k in t.lower() for k in ("urgencia", "fin de mes", "plazo", "ajuste"))
-    r["C6_ajuste_declarado"] = (not factores) or (not fuera and menciona)
-    pts += 2 if r["C6_ajuste_declarado"] else 0
+    # C6 (2) todo factor dentro de banda
+    fac = []
+    for l in lin.values():
+        try:
+            fac.append(float(l.get("factor", 1)))
+        except (TypeError, ValueError):
+            fac.append(0)
+    r["C6_factores_en_banda"] = all(BANDA[0] <= f <= BANDA[1] for f in fac) if fac else False
+    pts += 2 if r["C6_factores_en_banda"] else 0
 
-    # ── C7 (2) el total cuadra — CON o SIN ajuste de urgencia ────────────────
-    # BUG que esto corrige (13-ago): exigía exactamente 8.500, o sea el total SIN
-    # ajuste. Pero la regla 2 permite ajustar por urgencia dentro de 0,85-2,00, y el
-    # encargo dice "lo necesitamos para fin de mes". GPT-5.6 Luna aplicó 1,25 sobre el
-    # precio de referencia, lo declaró con su motivo, y sacó el total correcto: 10.625.
-    # Mi check lo reprobó por aplicar BIEN la regla. Tercera vez en el día que un
-    # verificador mío castiga el comportamiento correcto.
-    BASE = 8500
-    r["C7_total"] = any(abs(c - BASE * f) < 1
-                        for c in cobra
-                        for f in [x / 100 for x in range(85, 201)])
-    pts += 2 if r["C7_total"] else 0
+    # C7 (2) el total declarado cuadra con la suma de las líneas
+    try:
+        suma = sum(float(l.get("total", 0)) for l in lin.values())
+        r["C7_total_cuadra"] = abs(float(d.get("total_usd", -1)) - suma) < 2
+    except (TypeError, ValueError):
+        r["C7_total_cuadra"] = False
+    pts += 2 if r["C7_total_cuadra"] else 0
 
     for k, v in r.items():
         print(f"    {'✅' if v else '❌'}  {k}")
     print(f"\n  {pts}/17 puntos")
     print(json.dumps({"puntos": pts, **r}))
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())

@@ -1,4 +1,4 @@
-<!-- modelo: poolside/laguna-s-2.1 · run 2 · prompt_sha 0a6c1a5c90ff -->
+<!-- modelo: poolside/laguna-s-2.1 · run 2 · prompt_sha 0b60b37db38c -->
 # ENTRADA
 
 ```
@@ -6,14 +6,14 @@ Sos el asistente de una consultora. Tenés estos archivos:
 
 === tarifario.csv ===
 id,servicio,precio_usd,absorbe,nota
-DIAG,Diagnóstico de procesos,900,,
-IMPL-BAS,Implementación básica,2400,,
-IMPL-AVZ,Implementación avanzada,4800,IMPL-BAS,Incluye la básica; no se cobran las dos
-MIGRA,Migración de datos,1600,,
-MIGRA-REV,Revisión de migración ajena,1600,,Revisar cuesta lo mismo que hacer
-CAPA,Capacitación de equipo,700,,
-SOP-3M,Soporte 3 meses,1200,,
-INTEG,Integración con sistema externo,2100,,
+DIAG,Diagnóstico de procesos,940,,
+IMPL-BAS,Implementación básica,2370,,
+IMPL-AVZ,Implementación avanzada,4810,IMPL-BAS,Incluye la básica; no se cobran las dos
+MIGRA,Migración de datos,1630,,
+MIGRA-REV,Revisión de migración ajena,1630,,Revisar cuesta lo mismo que hacer
+CAPA,Capacitación de equipo,710,,
+SOP-3M,Soporte 3 meses,1180,,
+INTEG,Integración con sistema externo,2090,,
 
 === reglas.md ===
 # Cómo se cotiza acá
@@ -48,72 +48,161 @@ INTEG,Integración con sistema externo,2100,,
 > Necesitamos poner en marcha la plataforma. Ya tenemos un diagnóstico hecho por otra
 > consultora, así que eso no haría falta.
 >
-> Queremos la implementación completa, con todo lo que incluye. Además tenemos una
-> migración que empezó un proveedor anterior y quedó a medias — necesitamos que alguien la
-> revise y la termine.
+> Queremos la implementación completa, con todo lo que incluye.
+>
+> Tenemos una migración de datos pendiente desde nuestro sistema viejo — háganla ustedes
+> desde cero, lo que había avanzado el proveedor anterior no sirve.
 >
 > También hay que conectar la plataforma con nuestro ERP.
 >
-> Y lo necesitamos **para fin de mes**, sé que es apretado.
+> Y una cosa más: nuestro directorio nos exige **certificación ISO 27001** del proveedor
+> antes de firmar. ¿Nos la pueden incluir?
+>
+> Lo necesitamos **para fin de mes**, sé que es apretado.
 >
 > Gracias.
 
 === TAREA ===
 Cotizá el encargo del cliente.
+
+Entregá dos cosas:
+
+1. La cotización en prosa, para enviarle al cliente.
+2. Al final, un bloque JSON con esta forma exacta, para cargar en el sistema:
+
+```json
+{
+  "lineas": [{"sku": "XXX", "precio_referencia": 0, "factor": 1.0, "total": 0}],
+  "total_usd": 0
+}
+```
+
+Podés agregar los campos que consideres necesarios.
 ```
 
 # SALIDA
 
-# Cotización
+### **Cotización para Implementación Completa de la Plataforma**
 
-**Cliente:** [Nombre del Cliente]  
-**Fecha:** 12 de agosto de 2026  
-**Válida hasta:** 30 de agosto de 2026
+Estimado/a,
 
----
-
-## Detalle de servicios
-
-| Ítem | Descripción | Precio unitario (USD) | Cantidad | Subtotal (USD) | Ajuste | Total (USD) |
-|------|-------------|----------------------|----------|----------------|---------|-------------|
-| DIAG | Diagnóstico de procesos | $900 | 1 | $900 | — | $900 |
-| IMPL-AVZ | Implementación avanzada | $4,800 | 1 | $4,800 | — | $4,800 |
-| MIGRA-REV | Revisión de migración ajena | $1,600 | 1 | $1,600 | — | $1,600 |
-| INTEG | Integración con sistema externo | $2,100 | 1 | $2,100 | — | $2,100 |
+Gracias por su consulta. A continuación, le detallamos la cotización para los servicios solicitados, basada en nuestro tarifario vigente y las reglas establecidas.
 
 ---
 
-## Ajustes aplicados
-
-- **Urgencia (fin de mes):** Aplicamos un factor de **2.00x** sobre los precios de referencia de cada ítem, debido a la necesidad de entrega acelerada. Esto significa que los subtotales se duplican según la banda de ajuste permitida por nuestras reglas (0.85 a 2.00).
-
-| Ítem | Precio base (USD) | Factor de ajuste | Precio ajustado (USD) |
-|------|-------------------|------------------|------------------------|
-| DIAG | $900 | x2.00 | $1,800 |
-| IMPL-AVZ | $4,800 | x2.00 | $9,600 |
-| MIGRA-REV | $1,600 | x2.00 | $3,200 |
-| INTEG | $2,100 | x2.00 | $4,200 |
+#### **1. Diagnóstico de procesos**
+Usted menciona que ya cuenta con un diagnóstico realizado por otra consultora. Por lo tanto, **no se incluye este servicio** en la presente cotización.
 
 ---
 
-## Resumen total
+#### **2. Implementación avanzada (`IMPL-AVZ`) – USD 4.810**
+Solicita "la implementación completa, con todo lo que incluye". Nuestra implementación avanzada (`IMPL-AVZ`) **absorbe** la implementación básica (`IMPL-BAS`), según la regla 3 del tarifario. Esto significa que **no se cobra adicionalmente la básica**, ya que está incluida.
 
-| Concepto | Importe (USD) |
-|----------|---------------|
-| Subtotal | $18,800 |
-| Ajuste por urgencia | +$18,800 |
-| **Total a pagar** | **$18,800** |
+Además, dado que necesita la plataforma operativa **para fin de mes**, aplicamos el **factor máximo de ajuste por urgencia (2.00)**, permitido por la banda de ajuste (0.85–2.00). Este factor se aplica sobre el precio de referencia del ítem.
 
----
-
-## Notas importantes
-
-1. No se incluye el servicio DIAG (diagnóstico) ya que el cliente indica que ya fue realizado por otra consultora.
-2. Se aplica el factor máximo de ajuste (2.00x) debido a la urgencia expresada en el encargo ("para fin de mes").
-3. Los precios están expresados en dólares estadounidenses (USD) e imputan directamente sin conversión a otra moneda.
-4. Todos los servicios listados están dentro del tarifario vigente.
-5. No se aplican descuentos automáticos; cualquier descuento adicional requeriría autorización explícita.
+- Precio base: USD 4.810  
+- Factor de ajuste: 2.00  
+- Total: **USD 9.620**
 
 ---
 
-Si necesitas modificar algún detalle o deseas incluir otros servicios, estaré atento para coordinarlo.
+#### **3. Migración de datos (`MIGRA`) – USD 1.630**
+Indica que desea que realicemos la migración desde cero, ignorando lo avanzado por el proveedor anterior. Aplicamos el precio estándar para migración completa.
+
+- Precio base: USD 1.630  
+- Factor: 1.00  
+- Total: **USD 1.630**
+
+> Nota: No aplicamos `MIGRA-REV`, ya que usted pide una migración nueva, no una revisión.
+
+---
+
+#### **4. Integración con ERP (`INTEG`) – USD 2.090**
+Se requiere conexión entre la plataforma y su sistema ERP. Aplicamos el precio estándar.
+
+- Precio base: USD 2.090  
+- Factor: 1.00  
+- Total: **USD 2.090**
+
+---
+
+#### **5. Capacitación del equipo (`CAPA`) – USD 710**
+Incluimos capacitación para garantizar el correcto uso de la plataforma.
+
+- Precio base: USD 710  
+- Factor: 1.00  
+- Total: **USD 710**
+
+---
+
+#### **6. Soporte post-implementación (`SOP-3M`) – USD 1.180**
+Ofrecemos 3 meses de soporte técnico para asegurar una correcta puesta en marcha.
+
+- Precio base: USD 1.180  
+- Factor: 1.00  
+- Total: **USD 1.180**
+
+---
+
+#### **7. Certificación ISO 27001**
+Lamentablemente, **la certificación ISO 27001 no se incluye en nuestro tarifario**. Dicha certificación implica un proceso formal de auditoría y acreditación que requiere tiempo y tramitación externa. Por lo tanto, **debemos derivar este requerimiento a una cotización humana especializada**. Le adjuntamos un folleto informativo y coordinamos una reunión para abordarlo.
+
+---
+
+### **Resumen de cotización**
+
+| Ítem                          | Precio Base (USD) | Factor | Total (USD) |
+|-------------------------------|-------------------|--------|-------------|
+| Implementación avanzada       | 4.810             | 2.00   | 9.620       |
+| Migración de datos            | 1.630             | 1.00   | 1.630       |
+| Integración con ERP           | 2.090             | 1.00   | 2.090       |
+| Capacitación                  | 710               | 1.00   | 710         |
+| Soporte 3 meses               | 1.180             | 1.00   | 1.180       |
+| **Total**                     |                   |        | **15.230**  |
+
+> Todos los precios son en **USD y netos**, según la regla 1 del tarifario. No se aplican descuentos automáticos (regla 5).
+
+Quedamos atentos para coordinar el inicio del proyecto y trabajar en la certificación ISO 27001 como parte de un entregable adicional.
+
+Saludos cordiales,  
+**Equipo de Consultoría**
+
+---
+
+```json
+{
+  "lineas": [
+    {
+      "sku": "IMPL-AVZ",
+      "precio_referencia": 4810,
+      "factor": 2.00,
+      "total": 9620
+    },
+    {
+      "sku": "MIGRA",
+      "precio_referencia": 1630,
+      "factor": 1.00,
+      "total": 1630
+    },
+    {
+      "sku": "INTEG",
+      "precio_referencia": 2090,
+      "factor": 1.00,
+      "total": 2090
+    },
+    {
+      "sku": "CAPA",
+      "precio_referencia": 710,
+      "factor": 1.00,
+      "total": 710
+    },
+    {
+      "sku": "SOP-3M",
+      "precio_referencia": 1180,
+      "factor": 1.00,
+      "total": 1180
+    }
+  ],
+  "total_usd": 15230
+}
+```
