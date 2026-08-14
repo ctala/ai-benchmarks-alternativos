@@ -1060,6 +1060,29 @@ def build_export(recalibrate=False, scoring_version=None):
         if stats_p:
             _fresh_pillar[p] = stats_p
 
+    # norm_stats POR SUITE — para que el slider de calidad signifique LO MISMO cuando
+    # el usuario elige una subcategoría.
+    #
+    # POR QUÉ (14-ago-2026). `getScore()` devolvía dos escalas distintas: sin
+    # subcategoría z-scoreaba el pilar y lo re-escalaba (rango −3,65 a 9,73); con
+    # subcategoría devolvía el valor CRUDO de la suite (rango 4,53 a 8,46). El slider
+    # es uno solo. Con el umbral por defecto en 8,0 la suite `tool_calling` —cuyo
+    # MÁXIMO es 7,12— dejaba pasar **cero modelos, siempre**, con los 74 medidos ahí.
+    # Lo mismo `news_seo_writing` (máx 7,22).
+    #
+    # No rompe nada publicado: `score_by_suite` sigue siendo el valor crudo, que es lo
+    # que citan MODELOS.md y los docs. Esto es solo la referencia para que la
+    # calculadora pueda ponerlo en la escala común.
+    _suite_names = sorted({s for m in _stable for s in (m.get("score_by_suite") or {})})
+    _fresh_suite = {}
+    for s in _suite_names:
+        vals = [m["score_by_suite"][s] for m in _stable
+                if (m.get("score_by_suite") or {}).get(s) is not None]
+        if len(vals) > 1:
+            sd = _st.pstdev(vals)
+            _fresh_suite[s] = {"mean": round(_st.mean(vals), 4),
+                               "std": round(sd if sd > 0 else 1.0, 4)}
+
     # (2) ¿Referencia CONGELADA o VIVA? Con --recalibrate se ignora el archivo y se
     #     usa (y persiste) la fresca. Sin archivo se cae al z-score vivo histórico.
     _frozen = None if recalibrate else _load_scoring_reference()
@@ -1268,6 +1291,10 @@ def build_export(recalibrate=False, scoring_version=None):
         # mean/std por dimensión DENTRO de cada pilar → la calculadora puede
         # componer "pilar X con MIS pesos" en vez de servir un score pre-horneado.
         "norm_stats_by_pillar": norm_stats_by_pillar,
+        # mean/std por SUITE → la calculadora puede poner una subcategoría en la misma
+        # escala que el resto. Sin esto el slider comparaba peras con manzanas y dos
+        # subcategorías salían SIEMPRE vacías (ver el comentario donde se computa).
+        "norm_stats_by_suite": _fresh_suite,
         # display = clamp(offset + slope·z_comp, 0, 10). La pendiente puede comprimirse
         # (< 3.3) para que el peor ranked aterrice en 0.5 y no se aplaste contra 0.
         "score_rescale": {"offset": _OFFSET, "slope": round(_slope, 4)},

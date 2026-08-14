@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T10:15:28",
+  "generated_at": "2026-08-14T10:36:25",
   "total_models": 191,
   "tested_count": 138,
   "ranked_count": 79,
@@ -113,6 +113,132 @@
         "mean": 1.4623,
         "std": 0.5787
       }
+    }
+  },
+  "norm_stats_by_suite": {
+    "agent_capabilities": {
+      "mean": 6.5711,
+      "std": 0.8126
+    },
+    "agent_long_horizon": {
+      "mean": 7.4652,
+      "std": 0.6317
+    },
+    "business_audit": {
+      "mean": 6.8482,
+      "std": 0.4879
+    },
+    "business_strategy": {
+      "mean": 7.8419,
+      "std": 0.4545
+    },
+    "code_generation": {
+      "mean": 7.8405,
+      "std": 0.5766
+    },
+    "content_generation": {
+      "mean": 7.9757,
+      "std": 0.4212
+    },
+    "content_verificable": {
+      "mean": 7.5578,
+      "std": 0.8012
+    },
+    "creativity": {
+      "mean": 7.7677,
+      "std": 0.4078
+    },
+    "customer_support": {
+      "mean": 7.2856,
+      "std": 0.7122
+    },
+    "deep_reasoning": {
+      "mean": 6.4795,
+      "std": 0.8551
+    },
+    "hallucination": {
+      "mean": 6.7209,
+      "std": 0.7303
+    },
+    "integridad_idioma": {
+      "mean": 7.8231,
+      "std": 0.907
+    },
+    "multi_turn": {
+      "mean": 7.072,
+      "std": 0.5172
+    },
+    "news_seo_writing": {
+      "mean": 6.0606,
+      "std": 0.8049
+    },
+    "niah_es": {
+      "mean": 8.1911,
+      "std": 0.2969
+    },
+    "ocr_extraction": {
+      "mean": 8.1884,
+      "std": 0.6558
+    },
+    "orchestration": {
+      "mean": 6.6138,
+      "std": 0.9436
+    },
+    "policy_adherence": {
+      "mean": 7.4241,
+      "std": 0.6362
+    },
+    "presentation": {
+      "mean": 7.8762,
+      "std": 0.6288
+    },
+    "prompt_injection_es": {
+      "mean": 4.143,
+      "std": 2.1407
+    },
+    "reasoning": {
+      "mean": 7.9732,
+      "std": 0.4744
+    },
+    "sales_outreach": {
+      "mean": 7.2649,
+      "std": 0.805
+    },
+    "startup_content": {
+      "mean": 7.9637,
+      "std": 0.4992
+    },
+    "strategy": {
+      "mean": 7.4348,
+      "std": 0.7921
+    },
+    "string_precision": {
+      "mean": 7.6925,
+      "std": 0.7508
+    },
+    "structured_output": {
+      "mean": 8.4601,
+      "std": 0.9502
+    },
+    "summarization": {
+      "mean": 7.0973,
+      "std": 0.4722
+    },
+    "task_management": {
+      "mean": 8.0353,
+      "std": 0.4955
+    },
+    "tool_calling": {
+      "mean": 5.9927,
+      "std": 0.6785
+    },
+    "tool_calling_adversarial": {
+      "mean": 6.4582,
+      "std": 0.544
+    },
+    "translation": {
+      "mean": 7.4868,
+      "std": 0.5067
     }
   },
   "score_rescale": {
