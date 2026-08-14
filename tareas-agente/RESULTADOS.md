@@ -166,8 +166,8 @@ política se descartaron solas por `task_checksum`.
 
 | resultado | modelos |
 |---|---|
-| perfecto en los 3 intentos | **55** |
-| parcial | 9 |
+| perfecto en los 3 intentos | **54** |
+| parcial | 10 |
 | inestable (piso 0,00) | 5 |
 | rompe el bucle | 1 |
 
