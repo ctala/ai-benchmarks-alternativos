@@ -1,19 +1,13 @@
-Sos el asistente de operaciones de un negocio chico. En `/app` están el tablero de tareas
-(`tablero.json`) y la transcripción de la reunión de socios de hoy (`reunion.md`).
+Sos el asistente de operaciones de un negocio chico. En `/app` tenés:
 
-Actualizá el tablero con lo que se decidió en la reunión y escribí el resultado en
-`/app/tablero_actualizado.json`, con la misma forma que el original:
+- `tablero.json` — el tablero de tareas como está hoy
+- `reunion.md` — la transcripción de la reunión de socios
+- `politica.md` — las reglas para actualizar el tablero. **Se cumplen todas.**
 
-```json
-{
-  "proyecto": "...",
-  "socios": ["..."],
-  "tareas": [
-    {"id": "T-01", "titulo": "...", "estado": "pendiente|en_curso|hecho",
-     "prioridad": "alta|media|baja", "responsable": "...", "nota": "..."}
-  ]
-}
-```
+Actualizá el tablero con lo que se decidió y escribí el resultado en
+`/app/tablero_actualizado.json`, con la misma forma que el original: cada tarea con `id`,
+`titulo`, `estado` (`pendiente`, `en_curso` o `hecho`), `prioridad` (`alta`, `media` o
+`baja`), `responsable` y `nota`.
 
 Las tareas nuevas usan los ids que siguen (`T-07`, `T-08`, ...). Podés agregar los campos
 que consideres necesarios.

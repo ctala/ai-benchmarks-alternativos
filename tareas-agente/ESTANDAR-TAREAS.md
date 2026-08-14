@@ -145,8 +145,15 @@ Declarada a propósito, para que no se confunda «hay estándar» con «cumplimo
 
 | Tarea | Criterio | Estado |
 |---|---|---|
-| `harbor-reunion` | 2 · `well_specified` | ❌ 13 tests, sin documento de política |
-| `harbor-ruteo` | 7 · `essential_difficulty` | ❌ la dificultad está en el formato, no en decidir |
+| `harbor-reunion` | 2 · `well_specified` | ✅ **resuelto 14-ago** — `politica.md` con 9 reglas |
+| `harbor-ruteo` | 7 · `essential_difficulty` | ✅ **resuelto 14-ago** — el artefacto lo produce `asignar.py` |
+| `harbor-cotizar` · `harbor-facturacion` | 7 · `essential_difficulty` | ⚠️ siguen pidiendo JSON a mano |
 | las 4 | τ · verificación por estado final | ❌ aserciones campo por campo |
 | las 4 | τ · usuario simulado | ❌ ninguna obliga a preguntar |
 | `harbor-cotizar` | 18 · justificar tolerancias | ⚠️ 7 tests sin consecuencia declarada |
+
+**Sobre el chequeo de C2:** cuenta líneas con forma de norma y **avisa**, no falla, salvo
+que no haya ninguna. Se intentó automatizar mejor cuatro veces —por nombre de archivo, por
+verbos, ampliando el patrón— y cada versión dejaba otra forma afuera. Un script puede
+decir *«acá hay 2 líneas normativas para 13 tests, miralo»*; no puede decir *«las reglas
+están completas»*. Fingir lo segundo daría confianza falsa.

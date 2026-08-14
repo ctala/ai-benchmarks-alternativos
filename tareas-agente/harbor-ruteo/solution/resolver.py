@@ -5,6 +5,7 @@ Nada precomputado (R8): si mañana cambia un precio del catálogo o un umbral de
 política, esto recalcula en vez de quedar mudo.
 """
 import json
+import sys
 from pathlib import Path
 
 APP = Path("/app") if Path("/app/catalogo.json").exists() else Path(__file__).parent.parent / "environment"
@@ -52,7 +53,13 @@ for j in tr["trabajos"]:
     asign.append({"trabajo": j["id"], "modelo": best["id"], "costo_mes_usd": costo,
                   "motivo": f"Cumple la política y es el más barato de {len(cand)} candidatos."})
 
-salida = {"asignaciones": asign, "costo_total_usd": round(total, 2)}
-destino = Path("/app/ruteo.json") if Path("/app").exists() else Path(__file__).parent / "ruteo.json"
-destino.write_text(json.dumps(salida, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+# La referencia registra las decisiones POR LA HERRAMIENTA, igual que el agente. Si
+# escribiera el JSON directo estaría validando un camino que la tarea ya no permite.
+import subprocess
+tool = str(APP / "asignar.py")
+for a in asign:
+    cmd = [sys.executable, tool, a["trabajo"]]
+    cmd += ["--escalar"] if a["modelo"] == "escalar_a_humano" else [a["modelo"]]
+    cmd += ["--motivo", a["motivo"]]
+    subprocess.run(cmd, check=True, capture_output=True)
 print(f"ruteo: {len(asign)} trabajos, ${total:.2f} de ${tr['presupuesto_mensual_usd']}")
