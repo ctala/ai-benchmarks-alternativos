@@ -187,6 +187,16 @@
       <div class="wiz-grid" id="wiz-tasks"></div>
     </div>
 
+    <!-- Paso 1b: qué TIPO de agente. Solo si eligió "Agentes / automatizar".
+         "Agente" no es una cosa: un asistente conversacional y un workflow desatendido
+         fallan distinto y se eligen con ejes distintos. -->
+    <div class="wiz-step" data-step="0.5" hidden>
+      <p class="wiz-qlabel">¿Qué tipo de agente?</p>
+      <h2 class="wiz-qh">No todos los agentes se eligen igual</h2>
+      <p class="wiz-hint">Un asistente al que le hablás falla distinto que un workflow que corre solo.</p>
+      <div class="wiz-grid" id="wiz-agentes"></div>
+    </div>
+
     <!-- Paso 2: presupuesto/volumen -->
     <div class="wiz-step" data-step="1" hidden>
       <p class="wiz-qlabel">Paso 2 de 3</p>

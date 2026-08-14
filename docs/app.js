@@ -1057,8 +1057,61 @@ function render() {
 // 3 preguntas de negocio → recomendación concreta. Reusa el motor real
 // (computeZScore + models.json congelado). La calculadora completa queda abajo.
 // ============================================================
+// Tipos de agente. Aparecen SOLO si el usuario eligió "Agentes / automatizar", porque
+// "agente" no es una cosa: un asistente conversacional y un workflow desatendido fallan
+// distinto y se eligen con ejes distintos.
+//
+// POR QUÉ (14-ago-2026). Cristian, mirando la tabla que le armé a mano en el chat:
+// *"la calculadora me tiene que ayudar a decidir esto"*. La tabla comparaba adherencia,
+// tool calling, multiturno y el reward de Harbor — y el wizard mostraba UN compuesto que
+// esconde justo esos ejes. Peor: el orden del pilar Agentes ponía a Qwen 3.7 Flash
+// primero, que es **el más bajo en adherencia** de ese grupo, y la adherencia es
+// exactamente el eje del fallo real que Cristian vivió ("le pedí algo e hizo otra cosa").
+const WIZ_AGENTES = [
+  {
+    id: "asistente", ic: "💬", ot: "Asistente conversacional",
+    od: "Estilo Hermes/Nyx: le hablás, hace facturas, cotiza, lee correo",
+    // Pesa lo que hace fallar a un asistente: que NO haga lo que le pediste.
+    ejes: [["policy_adherence", 0.35], ["harbor_media", 0.25],
+           ["multiturno_score", 0.25], ["tool_calling_adversarial", 0.15]],
+    nota: "Para un asistente, el fallo caro no es que no sepa: es que haga otra cosa. " +
+          "Por eso pesa más la <b>adherencia</b> que el tool calling.",
+  },
+  {
+    id: "workflow", ic: "⚙️", ot: "Workflow desatendido",
+    od: "N8N o cron: se dispara solo, nadie mira el resultado",
+    // Acá se usa el PISO de Harbor, no la media: sin humano revisando, lo que importa
+    // no es cómo sale en promedio sino qué tan mal puede salir. Un modelo que promedia
+    // 0,89 con piso 0,78 factura mal una de cada tantas veces, y nadie se entera.
+    ejes: [["harbor_piso", 0.35], ["tool_calling_adversarial", 0.25],
+           ["policy_adherence", 0.20], ["structured_output", 0.20]],
+    nota: "Nadie revisa la salida, así que se prioriza <b>constancia</b>: pesa el " +
+          "<b>peor</b> resultado de la tarea real, no el promedio.",
+  },
+  {
+    id: "codigo", ic: "💻", ot: "Agente de código",
+    od: "Lee y escribe archivos, corre comandos, itera",
+    ejes: [["code_generation", 0.35], ["tool_calling_adversarial", 0.30],
+           ["harbor_media", 0.20], ["multiturno_score", 0.15]],
+    nota: "Se combina capacidad de código con el bucle de herramientas: un agente de " +
+          "código que programa bien pero no sostiene el bucle no sirve.",
+  },
+];
+
+// Los ejes se leen de lugares distintos del modelo. Una sola función para que el
+// puntaje y la tabla NO puedan discrepar — si divergen, la tabla "explica" un orden
+// que no es el que se calculó, que es peor que no mostrar nada.
+// Harbor viene 0-1 y se lleva a 0-10 para promediarlo con las suites.
+function wizEje(m, eje) {
+  if (eje === "multiturno_score") return m.multiturno_score ?? null;
+  const h = m.agentico?.tareas?.["harbor-cotizar"];
+  if (eje === "harbor_media") return h?.media != null ? h.media * 10 : null;
+  if (eje === "harbor_piso") return h?.piso != null ? h.piso * 10 : null;
+  return (m.score_by_suite || {})[eje] ?? null;
+}
+
 const WIZ = {
-  step: 0, task: null, budget: null, os: false, tools: false,
+  step: 0, task: null, budget: null, os: false, tools: false, agente: null,
   tasks: [
     { id: "general", ic: "🧭", ot: "Un poco de todo", od: "No estoy seguro / uso general", pillar: null, page: null },
     { id: "coding", ic: "💻", ot: "Programar", od: "Código, debugging, scripts", pillar: "Coding", page: "/mejor-llm-para-programar/" },
@@ -1086,6 +1139,7 @@ function wizInit() {
      </button>`;
   document.getElementById("wiz-tasks").innerHTML = WIZ.tasks.map(o => optHtml(o, "task")).join("");
   document.getElementById("wiz-budgets").innerHTML = WIZ.budgets.map(o => optHtml(o, "budget")).join("");
+  document.getElementById("wiz-agentes").innerHTML = WIZ_AGENTES.map(o => optHtml(o, "agente")).join("");
 
   wiz.addEventListener("click", (e) => {
     const opt = e.target.closest(".wiz-opt");
@@ -1105,26 +1159,56 @@ function wizInit() {
     }
   });
 
+  // El paso 0.5 (tipo de agente) SOLO existe si la tarea elegida es "agentes".
+  // Se navega por una secuencia calculada en vez de step++ para que preguntar de más
+  // —o de menos— sea imposible por construcción.
+  const secuencia = () => WIZ.task === "agentes" ? [0, 0.5, 1, 2] : [0, 1, 2];
   document.getElementById("wiz-next").addEventListener("click", () => {
-    if (WIZ.step < 2) { WIZ.step++; wizRenderStep(); }
+    const seq = secuencia(), i = seq.indexOf(WIZ.step);
+    if (i < seq.length - 1) { WIZ.step = seq[i + 1]; wizRenderStep(); }
     else wizResult();
   });
   document.getElementById("wiz-back").addEventListener("click", () => {
-    if (WIZ.step > 0) { WIZ.step--; wizRenderStep(); }
+    const seq = secuencia(), i = seq.indexOf(WIZ.step);
+    if (i > 0) { WIZ.step = seq[i - 1]; wizRenderStep(); }
   });
   window.dataLayer = window.dataLayer || [];
 }
 
 function wizRenderStep() {
   const wiz = document.getElementById("wizard");
-  wiz.querySelectorAll(".wiz-step").forEach(s => { s.hidden = +s.dataset.step !== WIZ.step; });
-  wiz.querySelectorAll(".wiz-steps span").forEach((s, i) => s.classList.toggle("on", i <= WIZ.step));
+  wiz.querySelectorAll(".wiz-step").forEach(s => { s.hidden = parseFloat(s.dataset.step) !== WIZ.step; });
+  const seq = WIZ.task === "agentes" ? [0, 0.5, 1, 2] : [0, 1, 2];
+  const idx = Math.max(0, seq.indexOf(WIZ.step));
+  wiz.querySelectorAll(".wiz-steps span").forEach((s, i) => s.classList.toggle("on", i <= idx));
   document.getElementById("wiz-back").hidden = WIZ.step === 0;
   const next = document.getElementById("wiz-next");
   next.textContent = WIZ.step === 2 ? "Ver mi recomendación ✨" : "Siguiente →";
-  // el paso 3 es opcional: siempre habilitado
-  next.disabled = WIZ.step === 2 ? false : (WIZ.step === 0 ? !WIZ.task : !WIZ.budget);
+  // el último paso (restricciones) es opcional: siempre habilitado
+  next.disabled = WIZ.step === 2 ? false
+    : WIZ.step === 0 ? !WIZ.task
+    : WIZ.step === 0.5 ? !WIZ.agente
+    : !WIZ.budget;
   document.getElementById("wiz-result").hidden = true;
+}
+
+// Candidatos del wizard. Función aparte para que el QA pruebe la ruta REAL.
+//
+// FILTRO DURO (14-ago-2026): si el usuario viene a montar un agente, no se le
+// recomienda algo que NO PUEDE correr dentro de uno. Medido: 5 modelos quedan fuera, y
+// Hermes 4 405B estaba **#14** de esta misma lista, a una medición del podio.
+//
+// Y el toggle "tiene que usar herramientas" mentía: filtraba por
+// `tool_calling_score_avg`, que es la nota de una suite de TEXTO. Qwen 3-Next 80B
+// Thinking saca 6,41 ahí —pasa el umbral— y **0,00 dentro de un agente real**, porque
+// no sostiene el bucle. Marcar esa casilla y recibir ese modelo era el peor resultado
+// posible del wizard: el usuario pidió explícitamente lo único que ese modelo no puede.
+function wizCandidatos(todos, { os = false, tools = false, pillar = null } = {}) {
+  let models = todos.filter(m => m.ranked);
+  if (os) models = models.filter(m => m.open_source);
+  if (pillar === "Agentes" || tools) models = models.filter(m => m.sirve_para_agentes !== false);
+  if (tools) models = models.filter(m => (m.tool_calling_score_avg || 0) >= TOOL_CALLING_MIN);
+  return models;
 }
 
 function wizResult() {
@@ -1134,12 +1218,28 @@ function wizResult() {
   if (t.latency) w = { quality: 50, cost: 15, speed: 10, latency: 25 }; // chat prioriza latencia
   const pillar = t.pillar;
 
-  let models = state.data.models.filter(m => m.ranked);
-  if (WIZ.os) models = models.filter(m => m.open_source);
-  if (WIZ.tools) models = models.filter(m => (m.tool_calling_score_avg || 0) >= 6);
+  // Los candidatos salen de wizCandidatos() — la MISMA función que ejercita el QA.
+  // Replicar el filtro en el test sería una copia que se desincroniza, que es el bug
+  // que este repo ya pagó varias veces.
+  let models = wizCandidatos(state.data.models, { os: WIZ.os, tools: WIZ.tools, pillar });
+
+  // Con tipo de agente elegido se puntúa por SUS ejes, no por el compuesto del pilar.
+  const tipo = pillar === "Agentes" ? WIZ_AGENTES.find(a => a.id === WIZ.agente) : null;
+  const puntaje = (m) => {
+    if (!tipo) return computeZScore(m, w, pillar);
+    // Media ponderada de los ejes crudos del tipo. Escala absoluta, sin z-scorear:
+    // misma decisión que v4.1 y que `getScore` para subcategorías.
+    let suma = 0, peso = 0;
+    for (const [eje, p] of tipo.ejes) {
+      const v = wizEje(m, eje);
+      if (v == null) continue;
+      suma += v * p; peso += p;
+    }
+    return peso > 0 ? suma / peso : null;
+  };
 
   const scored = models
-    .map(m => ({ m, s: computeZScore(m, w, pillar) }))
+    .map(m => ({ m, s: puntaje(m) }))
     .filter(x => x.s != null)
     .sort((a, b2) => b2.s - a.s);
 
@@ -1163,9 +1263,47 @@ function wizResult() {
   ].join("");
 
   const taskLabel = t.id === "general" ? "uso general" : t.ot.toLowerCase();
-  const why = pillar
+  const why = tipo
+    ? `Es el mejor para un <b>${tipo.ot.toLowerCase()}</b> con tu presupuesto. ${tipo.nota}`
+    : pillar
     ? `Es el mejor en <b>${t.ot}</b> para tu presupuesto. La calidad se mide con los tests reales de ese pilar, no un promedio genérico.`
     : `Es el que mejor equilibra calidad y precio para <b>${taskLabel}</b> con tu volumen.`;
+
+  // Tabla de EJES: los números con los que se tomó la decisión, a la vista.
+  // Un compuesto solo te dice el orden; esto te deja discutirlo. Es exactamente la
+  // tabla que hubo que armar a mano en un chat para poder decidir — si la calculadora
+  // no la muestra, la decisión se toma afuera y la calculadora sobra.
+  const ejesTabla = () => {
+    if (!tipo) return "";
+    const ETIQ = {
+      policy_adherence: "Adherencia", multiturno_score: "Multiturno",
+      tool_calling_adversarial: "Tool calling", structured_output: "JSON estructurado",
+      code_generation: "Código", harbor_media: "Tarea real", harbor_piso: "Tarea real (peor)",
+    };
+    const cols = tipo.ejes.map(e => e[0]);
+    const fila = (m, destacado) => `<tr${destacado ? ' class="wiz-top"' : ""}>
+        <td>${m.name}</td>
+        ${cols.map(c => {
+          const v = wizEje(m, c);
+          return `<td>${v == null ? "—" : v.toFixed(2)}</td>`;
+        }).join("")}
+        <td>$${(m.cost_per_1k_calls_usd ?? 0).toFixed(2)}</td>
+      </tr>`;
+    const top5 = scored.slice(0, 5).map((x, i) => fila(x.m, i === 0)).join("");
+    return `
+      <div class="wiz-ejes">
+        <div class="dh">Con qué números se decidió <small>(peso: ${
+          tipo.ejes.map(([e, p]) => `${ETIQ[e]} ${Math.round(p * 100)}%`).join(" · ")})</small></div>
+        <div class="wiz-tabla-wrap">
+        <table class="wiz-tabla">
+          <thead><tr><th>Modelo</th>${cols.map(c => `<th>${ETIQ[c]}</th>`).join("")}<th>$/1k</th></tr></thead>
+          <tbody>${top5}</tbody>
+        </table>
+        </div>
+        <p class="wiz-nota">«Tarea real» = una cotización de punta a punta dentro de un agente
+        (Docker + herramientas), verificada por tests. 1,00 = la resolvió entera, en los 3 intentos.</p>
+      </div>`;
+  };
 
   const deeper = [];
   if (t.page) deeper.push(`<a href="${t.page}">Ranking completo: ${t.ot} <span class="ar">→</span></a>`);
@@ -1192,6 +1330,7 @@ function wizResult() {
         <div class="dh" style="color:var(--cyan)">💡 Si quieres gastar menos (misma tesis: la calidad top no cuesta caro)</div>
         <a href="#results"><b>${cheap.name}</b> — calidad ${cheap.quality_avg}/10 a ${price(cheap)} <span class="ar">→</span></a>
       </div>` : ""}
+      ${ejesTabla()}
       <div class="wiz-deeper">
         <div class="dh">Profundiza</div>
         ${deeper.join("")}

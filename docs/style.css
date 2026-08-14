@@ -1592,3 +1592,21 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 .wiz-restart { display: block; margin: 14px auto 0; background: none; border: none; color: var(--gray); font-family: inherit; font-size: 13px; cursor: pointer; text-decoration: underline; }
 .wiz-restart:hover { color: var(--white); }
 @media (max-width: 480px) { .wiz-grid { grid-template-columns: 1fr; } }
+
+/* ── Wizard: tabla de ejes de decisión (v4.2) ─────────────────────────────
+   Muestra los números con los que se eligió. Un compuesto solo da el orden;
+   esto deja discutirlo — que es lo que pedía tener la decisión adentro de la
+   calculadora en vez de armarla a mano por fuera. */
+.wiz-ejes { margin-top: 14px; padding: 14px; border: 1px solid rgba(122,0,223,.28);
+            border-radius: 10px; background: rgba(122,0,223,.05); }
+.wiz-ejes .dh { font-weight: 700; margin-bottom: 10px; }
+.wiz-ejes .dh small { font-weight: 400; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+.wiz-tabla-wrap { overflow-x: auto; }   /* wide en móvil: scrollea la tabla, no la página */
+.wiz-tabla { width: 100%; border-collapse: collapse; font-size: .86rem;
+             font-family: 'JetBrains Mono', monospace; }
+.wiz-tabla th, .wiz-tabla td { padding: 6px 8px; text-align: right; white-space: nowrap; }
+.wiz-tabla th:first-child, .wiz-tabla td:first-child { text-align: left; font-family: Inter, sans-serif; }
+.wiz-tabla thead th { color: var(--muted); font-weight: 600; border-bottom: 1px solid rgba(255,255,255,.12); }
+.wiz-tabla tbody tr + tr td { border-top: 1px solid rgba(255,255,255,.05); }
+.wiz-tabla tr.wiz-top td { color: var(--green); font-weight: 700; }
+.wiz-nota { margin-top: 8px; font-size: .78rem; color: var(--muted); }
