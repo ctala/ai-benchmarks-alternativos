@@ -29,6 +29,26 @@ agente?", esa es una respuesta definitiva — pero se reporta como *incompatible
 Es el segundo caso del mismo tipo: ayer `nemotron-3-nano-omni` falló las suites de tools
 por lo mismo, en su endpoint `:free`.
 
+### Pero no es el mismo caso: verificado dónde más se puede medir
+
+Con los Nemotron la salida era medirlos por NIM, porque ahí sí están. Con Hermes **no hay
+salida** (verificado el 14-ago):
+
+| vía | estado |
+|---|---|
+| OpenRouter | **un solo proveedor (Nebius), `tools = no`** |
+| NVIDIA NIM | **no está** — sus 102 modelos no incluyen ninguno de Nous Research |
+
+No es un problema de ruteo que se arregle cambiando de proveedor: es una limitación real
+del modelo en toda su distribución accesible hoy. Eso lo vuelve un **dato publicable**:
+
+> **Hermes 4 405B no se puede usar como cerebro de un agente que necesite herramientas.**
+> Da igual que su calidad de texto sea 8,20.
+
+Es justo lo que la pregunta que originó este trabajo venía a capturar —*"puede ser muy
+eficiente en costo/calidad, pero si no lo puedo usar es otra cosa"*— y que el índice de
+calidad no muestra.
+
 ## Resultados
 
 | modelo | calidad publicada | reward (3 intentos) | runtime | nota |
