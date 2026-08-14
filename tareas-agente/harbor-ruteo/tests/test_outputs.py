@@ -181,18 +181,6 @@ def test_no_paga_de_mas_en_el_volumen_alto():
          f"habiendo uno apto a ${mas_barato}/1k → ${j['llamadas_mes']/1000*mas_barato:.0f}/mes")
 
 
-def test_el_total_declarado_cuadra():
-    """El `costo_total_usd` declarado tiene que ser la suma de las asignaciones.
-
-    Consecuencia: un total que no cuadra es un presupuesto que no se puede auditar — y la
-    decisión de si el mes cierra o no se toma sobre ese número.
-    """
-    d = _cargar()
-    suma = sum(float(a.get("costo_mes_usd", 0) or 0) for a in d["asignaciones"])
-    assert abs(float(d.get("costo_total_usd", -1)) - suma) < 0.5, \
-        f"total declarado {d.get('costo_total_usd')} ≠ suma de asignaciones {suma:.2f}"
-
-
 def test_respeta_la_calidad_que_cada_trabajo_necesita():
     """Cada trabajo declara su `calidad_minima`, y el porqué está en su detalle: depende
     de qué pasa cuando la respuesta sale mal, no de cuánto cuesta el modelo.

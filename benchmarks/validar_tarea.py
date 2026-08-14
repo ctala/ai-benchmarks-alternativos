@@ -201,10 +201,17 @@ def validar(d: Path) -> Resultado:
     # un JSON armado a mano, el fallo probable es de sintaxis y no de criterio.
     # Medido en `harbor-ruteo`: los 4 modelos que entregaron sacaron 11/11 en las
     # decisiones; los 2 que fallaron lo hicieron por comillas mal cerradas.
-    if "json" in inst.lower() and "```" in inst:
-        r.avisa("C7", "la consigna pide un JSON escrito a mano: verificá que la dificultad "
-                      "esté en la DECISIÓN y no en la sintaxis. Si los fallos del "
-                      "sub-segmento son de formato, la rúbrica rechaza la tarea")
+    # La señal no es «menciona json» sino «muestra un ESQUEMA para copiar a mano»: un
+    # bloque cercado que contiene llaves y comillas. Si el bloque tiene comandos, el
+    # artefacto lo produce una herramienta y el formato deja de ser la dificultad.
+    esquema_a_mano = any("{" in b and '"' in b
+                         for b in re.findall(r"```[a-z]*\n(.*?)```", inst, re.S))
+    if esquema_a_mano:
+        r.avisa("C7", "la consigna muestra un esquema JSON para escribir a mano: verificá "
+                      "que la dificultad esté en la DECISIÓN y no en la sintaxis. Medido en "
+                      "`harbor-ruteo` v1: los que entregaron sacaron 11/11 en las decisiones "
+                      "y los que fallaron fue por comillas mal cerradas. La salida: que una "
+                      "HERRAMIENTA del entorno produzca el artefacto (patrón τ-bench)")
 
     # ── C21 · environment_hygiene ───────────────────────────────────────────
     dock = d / "environment" / "Dockerfile"

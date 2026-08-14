@@ -1,20 +1,16 @@
-Sos quien decide qué modelo de IA usa cada proceso del negocio. En `/app` tenés el
-catálogo de modelos disponibles con sus mediciones (`catalogo.json`), la cola de
-trabajos del mes con su volumen (`trabajos.json`) y la política de asignación
-(`politica.md`).
+Sos quien decide qué modelo de IA usa cada proceso del negocio. En `/app` tenés:
 
-Asigná un modelo a cada trabajo y escribí el resultado en `/app/ruteo.json`:
+- `catalogo.json` — los modelos disponibles con sus mediciones
+- `trabajos.json` — la cola de trabajos del mes, con su volumen y el presupuesto
+- `politica.md` — las reglas de asignación. **Se cumplen todas.**
 
-```json
-{
-  "asignaciones": [
-    {"trabajo": "J-01", "modelo": "modelo-X", "costo_mes_usd": 0, "motivo": "..."}
-  ],
-  "costo_total_usd": 0
-}
+Registrá una decisión por cada trabajo con la herramienta `asignar.py`, que es la única
+forma de dejarlas asentadas:
+
+```
+python /app/asignar.py --estado
+python /app/asignar.py J-01 modelo-B --motivo "por qué"
+python /app/asignar.py J-05 --escalar --motivo "por qué ninguno sirve"
 ```
 
-Si algún trabajo no debería asignarse a ningún modelo del catálogo, usá
-`"modelo": "escalar_a_humano"` y explicá por qué en el motivo.
-
-Tenés que respetar el presupuesto mensual que viene en `trabajos.json`.
+Terminás cuando los seis trabajos tengan decisión y el total respete el presupuesto.
