@@ -62,6 +62,15 @@ FIRMAS = [
      "falta la credencial del proveedor — no es un fallo del modelo"),
     ("limite_de_pasos", re.compile(r"LimitsExceeded|step limit", re.I),
      "se quedó sin pasos antes de terminar"),
+    # Descubierto el 14-ago en `harbor-ruteo`: deepseek-chat entró en un bucle
+    # degenerado repitiendo la misma frase, y su traza llegó a 676 KB contra un entorno
+    # de 7,6 KB — reventó su PROPIA ventana de contexto (180.517 tokens pedidos contra
+    # 163.840). No es la tarea ni el harness: es el modelo llenándose de su propia
+    # salida. Sin esta firma quedaba como `hizo_mal_la_tarea`, que sugiere que entendió
+    # mal el trabajo cuando en realidad nunca llegó a hacerlo.
+    ("desbordo_su_contexto", re.compile(
+        r"maximum context length is \d+ tokens|context_length_exceeded", re.I),
+     "entró en un bucle degenerado y reventó su propia ventana de contexto"),
 ]
 
 
