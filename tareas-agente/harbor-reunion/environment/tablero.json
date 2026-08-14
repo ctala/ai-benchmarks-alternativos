@@ -1,0 +1,55 @@
+{
+  "proyecto": "Vera — mantención de bicicletas a domicilio",
+  "socios": ["Marcela", "Diego"],
+  "actualizado": "2026-08-07",
+  "tareas": [
+    {
+      "id": "T-01",
+      "titulo": "Checkout con pago en línea",
+      "estado": "en_curso",
+      "prioridad": "alta",
+      "responsable": "Diego",
+      "nota": "Falta probar el flujo completo de punta a punta."
+    },
+    {
+      "id": "T-02",
+      "titulo": "Definir precio del plan mensual",
+      "estado": "en_curso",
+      "prioridad": "alta",
+      "responsable": "Marcela",
+      "nota": "Se barajaban 12.000 y 14.000 por mes."
+    },
+    {
+      "id": "T-03",
+      "titulo": "Contratar seguro de responsabilidad civil",
+      "estado": "pendiente",
+      "prioridad": "media",
+      "responsable": "Marcela",
+      "nota": "Cotizado con dos corredores, falta decidir."
+    },
+    {
+      "id": "T-04",
+      "titulo": "Comprar el segundo set de herramientas",
+      "estado": "pendiente",
+      "prioridad": "baja",
+      "responsable": "Diego",
+      "nota": "Para cuando entre el tercer técnico."
+    },
+    {
+      "id": "T-05",
+      "titulo": "Armar la ficha de servicio que firma el cliente",
+      "estado": "pendiente",
+      "prioridad": "media",
+      "responsable": "Marcela",
+      "nota": "Qué se revisa, qué no, y qué pasa si aparece una falla nueva."
+    },
+    {
+      "id": "T-06",
+      "titulo": "Landing con formulario de contacto",
+      "estado": "hecho",
+      "prioridad": "media",
+      "responsable": "Diego",
+      "nota": "Publicada el 2026-07-30."
+    }
+  ]
+}

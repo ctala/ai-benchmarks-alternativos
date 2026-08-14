@@ -91,13 +91,20 @@ def validar(d: Path) -> Resultado:
     # ── R2 · cada test declara su consecuencia ──────────────────────────────
     # Se busca plata, incumplimiento o una decisión: un test que sólo dice "verifica el
     # formato" es prolijidad, y la prolijidad no decide qué modelo usar.
+    # R2 pide que la consecuencia esté DECLARADA — "plata o una decisión", no plata
+    # obligatoriamente. La primera versión de este chequeo solo reconocía dinero y jerga
+    # legal, y marcó como incompletos 9 tests de `harbor-reunion` que sí explicaban su
+    # consecuencia, en términos operativos ("nadie la hace, y el tablero dice que sí
+    # tiene dueño"). El instrumento estaba más angosto que la regla que hace cumplir.
     sin_consecuencia = []
     for f in funcs:
         doc = ast.get_docstring(f) or ""
         if not doc:
             sin_consecuencia.append(f.name); continue
-        if not re.search(r"US\$|\bUSD\b|\$\s?\d|de más|de menos|incumpl|vencid|"
-                         r"duplicad|cobra|factura|human[oa]|decisión|riesgo", doc, re.I):
+        declara = re.search(r"consecuencia", doc, re.I)
+        cuantifica = re.search(r"US\$|\bUSD\b|\$\s?\d|de más|de menos|incumpl|vencid|"
+                               r"duplicad|cobra|factura|human[oa]|decisión|riesgo", doc, re.I)
+        if not (declara or cuantifica):
             sin_consecuencia.append(f.name)
     if sin_consecuencia:
         r.avisa("R2", f"sin consecuencia explícita en el docstring: {', '.join(sin_consecuencia)}")

@@ -1,0 +1,66 @@
+{
+  "proyecto": "Vera — mantención de bicicletas a domicilio",
+  "socios": [
+    "Marcela",
+    "Diego"
+  ],
+  "actualizado": "2026-08-14",
+  "tareas": [
+    {
+      "id": "T-01",
+      "titulo": "Checkout con pago en línea",
+      "estado": "en_curso",
+      "prioridad": "alta",
+      "responsable": "Diego",
+      "nota": "El pago funciona. Falta el correo de confirmación al cliente: sin eso no se cierra. Acordado como lo primero de la semana."
+    },
+    {
+      "id": "T-02",
+      "titulo": "Definir precio del plan mensual",
+      "estado": "hecho",
+      "prioridad": "alta",
+      "responsable": "Marcela",
+      "nota": "Plan mensual definido en 14.000 (se corrigió el 12.000 inicial)."
+    },
+    {
+      "id": "T-03",
+      "titulo": "Contratar seguro de responsabilidad civil",
+      "estado": "pendiente",
+      "prioridad": "media",
+      "responsable": "Marcela",
+      "nota": "Dos opciones del corredor. Se decide cuando esté la diferencia de precio entre la cobertura amplia y la básica."
+    },
+    {
+      "id": "T-04",
+      "titulo": "Comprar el segundo set de herramientas",
+      "estado": "pendiente",
+      "prioridad": "baja",
+      "responsable": "Diego",
+      "nota": "Sin cambios: no se contrata al tercer técnico hasta tener ingresos."
+    },
+    {
+      "id": "T-05",
+      "titulo": "Armar la ficha de servicio que firma el cliente",
+      "estado": "pendiente",
+      "prioridad": "alta",
+      "responsable": "Marcela",
+      "nota": "Sube a alta: sin la ficha firmada no se puede atender al primer cliente. Es la misma que 'condiciones del servicio'."
+    },
+    {
+      "id": "T-06",
+      "titulo": "Landing con formulario de contacto",
+      "estado": "hecho",
+      "prioridad": "media",
+      "responsable": "Diego",
+      "nota": "Publicada el 2026-07-30."
+    },
+    {
+      "id": "T-07",
+      "titulo": "Definir qué se hace ante una falla no prevista en la bici",
+      "estado": "pendiente",
+      "prioridad": "media",
+      "responsable": "Marcela",
+      "nota": "Pendiente de definir. Opciones mencionadas sin resolver: cobrar aparte, incluir, o avisar y esperar. No se tomó decisión en la reunión."
+    }
+  ]
+}
