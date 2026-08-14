@@ -59,6 +59,48 @@ DOCS_QUE_RECOMIENDAN = LIVE_DOCS + [
 # Snapshots con fecha: conservan el valor del momento a proposito. No se tocan.
 HISTORICAL_DOCS = ["CHANGELOG.md", "DATASHEET_", "INSIGHTS.md", "ESTADO_SESION.md"]
 
+# ── LAS PÁGINAS DEL SITIO ─────────────────────────────────────────────────────
+#
+# POR QUÉ (14-ago-2026). Este chequeo cubría SEIS archivos `.md` y ni un solo HTML.
+# Pero el sitio tiene 66 páginas y **3 de ellas no las genera nadie**: son a mano, con
+# cifras escritas a mano. Llevaban 28 días sin tocarse, estaban en el sitemap, y
+# `glm-5.2-explicado` publicaba «GLM 5.2 score global 6.93» cuando hoy es 6.20.
+#
+# Es la peor clase de superficie sin instrumento, porque **es la que ve Google**: los
+# .md los lee quien entra al repo; estas páginas las lee quien busca en un buscador.
+#
+# Se chequean TODAS las páginas, generadas incluidas, a propósito. Una generada es
+# consistente por construcción, así que no debería reportar nada — y si reporta, es un
+# bug del generador, que también quiero saber. Nada de listar a mano cuáles son "las de
+# a mano": esa lista sería otra superficie que se desincroniza.
+def _paginas_del_sitio() -> list[Path]:
+    docs = ROOT / "docs"
+    if not docs.exists():
+        return []
+    out = []
+    for p in sorted(docs.rglob("index.html")):
+        t = p.read_text(errors="replace")
+        # Los stubs de redirección (noindex + meta refresh) no publican cifras.
+        if 'http-equiv="refresh"' in t and "noindex" in t:
+            continue
+        out.append(p)
+    return out
+
+
+def _a_texto(html: str) -> str:
+    """HTML → texto plano conservando los saltos de línea.
+
+    El chequeo es por LÍNEA (un score y el modelo al que pertenece tienen que estar
+    juntos para poder atribuirlo). Si se aplastaran los saltos, una página entera sería
+    una sola línea con 40 modelos y 47 cifras: imposible decir cuál es de quién, que es
+    exactamente el falso positivo que la versión .md ya aprendió a evitar.
+    """
+    html = re.sub(r"<(script|style)\b[^>]*>.*?</\1>", " ", html,
+                  flags=re.S | re.I)
+    html = re.sub(r"<[^>]+>", " ", html)
+    html = html.replace("&nbsp;", " ").replace("&amp;", "&")
+    return re.sub(r"[ \t]+", " ", html)
+
 # Tolerancia: los docs redondean (8.1 vs 8.14). Solo marcamos drift real.
 TOLERANCE = 0.05
 

@@ -377,6 +377,7 @@ function bindFilters() {
   document.getElementById("task").addEventListener("change", e => {
     state.filters.task = e.target.value;
     state.filters.subtask = "";  // reset al cambiar pilar
+    clampUmbralAlEje();
     updateSubtaskOptions();
     render();
   });
@@ -388,6 +389,7 @@ function bindFilters() {
 
   document.getElementById("subtask").addEventListener("change", e => {
     state.filters.subtask = e.target.value;
+    clampUmbralAlEje();
     render();
   });
 
@@ -491,7 +493,24 @@ function costPerMonth(model, calls) {
 }
 
 function getScore(model, taskKey, subtaskKey) {
-  // Si hay sub-categoría seleccionada, usar score por suite específica
+  // Si hay sub-categoría seleccionada, usar score por suite específica —
+  // PUESTO EN LA ESCALA COMÚN.
+  //
+  // Antes devolvía el valor CRUDO y eso mezclaba dos escalas bajo un solo slider:
+  // el pilar viene z-scoreado y re-escalado (rango −3,65 a 9,73), la suite cruda va
+  // de 4,53 a 8,46. Con el umbral por defecto en 8,0 la suite `tool_calling` —máximo
+  // 7,12— devolvía CERO modelos siempre, con los 74 medidos ahí. Lo mismo
+  // `news_seo_writing`. La página cargaba sin error y mostraba una tabla vacía, que
+  // es exactamente el modo de falla que no se nota. Lo reportó Cristian; lo caza
+  // ahora `qa_calculadora.mjs`.
+  // Se devuelve el valor CRUDO, a propósito: es la escala absoluta que v4.1 adoptó
+  // (`score_calidad` = `quality_avg` sin z-scorear) porque el z-score estiraba 1,39
+  // puntos reales a 8 publicados. Z-scorear la suite acá lo reintroduciría por la
+  // puerta de atrás — probado: arreglaba `tool_calling` y rompía `structured_output`,
+  // donde todos puntúan alto y juntos, mostrando como mediocre a un eje en el que
+  // todos son buenos.
+  //
+  // Lo que se adapta es el SLIDER, en `clampUmbralAlEje()`.
   if (subtaskKey) {
     return model.score_by_suite?.[subtaskKey] ?? null;
   }
@@ -506,6 +525,50 @@ function getScore(model, taskKey, subtaskKey) {
   // Pilar: TAMBIÉN se recompone con los pesos del usuario. Antes se devolvía
   // score_by_pillar (pesos fijos) y los sliders quedaban de adorno.
   return computeZScore(model, state.weights, taskKey);
+}
+
+// Ajusta el umbral de calidad al RANGO REAL del eje que se está mirando.
+//
+// POR QUÉ (14-ago-2026, bug reportado por Cristian). Cada eje vive en su propia escala
+// absoluta: el índice de calidad va de 7,0 a 8,6; la suite `tool_calling` de 4,53 a
+// 7,12; `orchestration` de 2,99 a 8,23. El slider es UNO SOLO. Con el umbral por
+// defecto en 8,0, elegir «Tool calling» dejaba pasar CERO modelos —siempre— porque el
+// mejor de esa suite saca 7,12. La página cargaba, no tiraba error, y mostraba una
+// tabla vacía: el modo de falla que no se nota.
+//
+// La alternativa era z-scorear las suites para que todas compartieran escala. Se probó
+// y se descartó: reintroduce exactamente lo que v4.1 eliminó (el z-score estiraba 1,39
+// puntos reales a 8 publicados) y en `structured_output` —donde todos puntúan alto y
+// juntos— mostraba como mediocre a un eje en el que todos son buenos.
+//
+// Así que la escala se deja absoluta y honesta, y **se mueve el slider**: su tope pasa
+// a ser el máximo real del eje, y si el valor actual quedó por encima se baja a la
+// mediana. Se prefiere la mediana y no el máximo para que el listado arranque con
+// opciones, no con un solo modelo.
+function clampUmbralAlEje() {
+  const f = state.filters;
+  const modelos = (state.data?.models || []).filter(m => m.ranked && (m.runs || 0) > 0);
+  if (!modelos.length) return;
+
+  const vals = modelos
+    .map(m => f.subtask ? (m.score_by_suite || {})[f.subtask] : getScore(m, f.task, ""))
+    .filter(v => v != null)
+    .sort((a, b) => a - b);
+  if (!vals.length) return;
+
+  const max = vals[vals.length - 1];
+  const mediana = vals[Math.floor(vals.length / 2)];
+  const slider = document.getElementById("quality");
+  if (slider) {
+    slider.max = Math.ceil(max * 10) / 10;
+    slider.min = Math.floor(vals[0] * 10) / 10;
+  }
+  if (f.quality > max) {
+    f.quality = Math.round(mediana * 100) / 100;
+    if (slider) slider.value = f.quality;
+    const out = document.getElementById("quality-val");
+    if (out) out.textContent = f.quality.toFixed(2);
+  }
 }
 
 function updateSubtaskOptions() {
