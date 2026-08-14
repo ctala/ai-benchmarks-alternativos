@@ -203,6 +203,14 @@ def main() -> int:
         # —no había tag de v4.1 y el README presentaba v4.0 como vigente— sin que nada
         # fallara. Un repo que dice tres versiones distintas de sí mismo no tiene
         # control de cambios, tiene tres relatos.
+        # ¿Alguien construyó un camino de medición por fuera del runner? El 13-ago eso
+        # costó seis bugs y tres relanzamientos, todos pozos que el runner ya tenía tapados.
+        print()
+        rc = run_script("check_caminos.py", [], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ Hay medición fuera del runner. Ver arriba.")
+            return 1
+
         print()
         rc = run_script("check_version.py", [], dry_run=False, allow_fail=True)
         if rc != 0:
