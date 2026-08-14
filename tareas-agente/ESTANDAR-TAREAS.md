@@ -147,10 +147,26 @@ Declarada a propósito, para que no se confunda «hay estándar» con «cumplimo
 |---|---|---|
 | `harbor-reunion` | 2 · `well_specified` | ✅ **resuelto 14-ago** — `politica.md` con 9 reglas |
 | `harbor-ruteo` | 7 · `essential_difficulty` | ✅ **resuelto 14-ago** — el artefacto lo produce `asignar.py` |
-| `harbor-cotizar` · `harbor-facturacion` | 7 · `essential_difficulty` | ⚠️ siguen pidiendo JSON a mano |
+| `harbor-cotizar` · `harbor-facturacion` | 7 · `essential_difficulty` | ✅ **descartada con data** — ver abajo |
 | las 4 | τ · verificación por estado final | ❌ aserciones campo por campo |
 | las 4 | τ · usuario simulado | ❌ ninguna obliga a preguntar |
 | `harbor-cotizar` | 18 · justificar tolerancias | ⚠️ 7 tests sin consecuencia declarada |
+
+**Por qué C7 NO aplica a `cotizar` ni a `facturacion`, medido:**
+
+| tarea | corridas | fallos de formato | fallos de criterio |
+|---|---|---|---|
+| `harbor-cotizar` | 231 | 16 | **40** |
+| `harbor-facturacion` | 3 | 0 | **3** |
+
+El criterio 7 exige que la dificultad venga del razonamiento. En estas dos **viene de
+ahí**: el 71% y el 100% de los fallos son criterios de negocio. Convertirlas al patrón de
+herramienta costaría invalidar 231 corridas (~US$ 2,66) para arreglar algo que su propia
+data dice que no está roto. Distinto de `harbor-ruteo`, donde 11/11 en las decisiones sí
+confirmaba el diagnóstico.
+
+Es el criterio 18 aplicado al estándar mismo: **una deuda se declara con datos, y se
+descarta con datos.**
 
 **Sobre el chequeo de C2:** cuenta líneas con forma de norma y **avisa**, no falla, salvo
 que no haya ninguna. Se intentó automatizar mejor cuatro veces —por nombre de archivo, por
