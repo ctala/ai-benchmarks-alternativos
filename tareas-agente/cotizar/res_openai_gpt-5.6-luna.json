@@ -1,19 +1,46 @@
 {
  "openai/gpt-5.6-luna": [
   {
-   "puntos": 12,
+   "puntos": 17,
+   "C1_implementacion": true,
+   "C2_absorcion": true,
+   "C3_revision_sin_descuento": true,
+   "C4_no_cotizo_diagnostico": true,
+   "C5_escalo_lo_no_tarifado": true,
+   "C6_ajuste_declarado": true,
+   "C7_total": true,
+   "finish_reason": "stop",
+   "out_tokens": 910,
+   "reasoning_tokens": 516,
+   "chars": 1360,
+   "respuesta": "respuestas/openai_gpt-5.6-luna__run01.md",
+   "prompt_sha": "0a6c1a5c90ff",
+   "entorno_sha": {
+    "encargo.md": "a9a0bcb14ffa",
+    "reglas.md": "62165fa82d40",
+    "tarifario.csv": "8ad2f597e270"
+   }
+  },
+  {
+   "puntos": 14,
    "C1_implementacion": true,
    "C2_absorcion": true,
    "C3_revision_sin_descuento": true,
    "C4_no_cotizo_diagnostico": true,
    "C5_escalo_lo_no_tarifado": false,
    "C6_ajuste_declarado": true,
-   "C7_total": false,
+   "C7_total": true,
    "finish_reason": "stop",
-   "out_tokens": 921,
-   "reasoning_tokens": 516,
-   "chars": 1346,
-   "respuesta": "respuestas/openai_gpt-5.6-luna__run01.md"
+   "out_tokens": 1491,
+   "reasoning_tokens": 1034,
+   "chars": 1645,
+   "respuesta": "respuestas/openai_gpt-5.6-luna__run02.md",
+   "prompt_sha": "0a6c1a5c90ff",
+   "entorno_sha": {
+    "encargo.md": "a9a0bcb14ffa",
+    "reglas.md": "62165fa82d40",
+    "tarifario.csv": "8ad2f597e270"
+   }
   },
   {
    "puntos": 12,
@@ -25,10 +52,163 @@
    "C6_ajuste_declarado": true,
    "C7_total": false,
    "finish_reason": "stop",
-   "out_tokens": 932,
+   "out_tokens": 1337,
+   "reasoning_tokens": 919,
+   "chars": 1411,
+   "respuesta": "respuestas/openai_gpt-5.6-luna__run03.md",
+   "prompt_sha": "0a6c1a5c90ff",
+   "entorno_sha": {
+    "encargo.md": "a9a0bcb14ffa",
+    "reglas.md": "62165fa82d40",
+    "tarifario.csv": "8ad2f597e270"
+   }
+  },
+  {
+   "puntos": 12,
+   "C1_implementacion": true,
+   "C2_absorcion": true,
+   "C3_revision_sin_descuento": true,
+   "C4_no_cotizo_diagnostico": true,
+   "C5_escalo_lo_no_tarifado": false,
+   "C6_ajuste_declarado": true,
+   "C7_total": false,
+   "finish_reason": "stop",
+   "out_tokens": 1458,
+   "reasoning_tokens": 1034,
+   "chars": 1447,
+   "respuesta": "respuestas/openai_gpt-5.6-luna__run04.md",
+   "prompt_sha": "0a6c1a5c90ff",
+   "entorno_sha": {
+    "encargo.md": "a9a0bcb14ffa",
+    "reglas.md": "62165fa82d40",
+    "tarifario.csv": "8ad2f597e270"
+   }
+  },
+  {
+   "puntos": 12,
+   "C1_implementacion": true,
+   "C2_absorcion": true,
+   "C3_revision_sin_descuento": true,
+   "C4_no_cotizo_diagnostico": true,
+   "C5_escalo_lo_no_tarifado": false,
+   "C6_ajuste_declarado": true,
+   "C7_total": false,
+   "finish_reason": "stop",
+   "out_tokens": 945,
    "reasoning_tokens": 516,
-   "chars": 1404,
-   "respuesta": "respuestas/openai_gpt-5.6-luna__run02.md"
+   "chars": 1455,
+   "respuesta": "respuestas/openai_gpt-5.6-luna__run05.md",
+   "prompt_sha": "0a6c1a5c90ff",
+   "entorno_sha": {
+    "encargo.md": "a9a0bcb14ffa",
+    "reglas.md": "62165fa82d40",
+    "tarifario.csv": "8ad2f597e270"
+   }
+  },
+  {
+   "puntos": 14,
+   "C1_implementacion": true,
+   "C2_absorcion": true,
+   "C3_revision_sin_descuento": true,
+   "C4_no_cotizo_diagnostico": true,
+   "C5_escalo_lo_no_tarifado": false,
+   "C6_ajuste_declarado": true,
+   "C7_total": true,
+   "finish_reason": "stop",
+   "out_tokens": 1406,
+   "reasoning_tokens": 1034,
+   "chars": 1348,
+   "respuesta": "respuestas/openai_gpt-5.6-luna__run06.md",
+   "prompt_sha": "0a6c1a5c90ff",
+   "entorno_sha": {
+    "encargo.md": "a9a0bcb14ffa",
+    "reglas.md": "62165fa82d40",
+    "tarifario.csv": "8ad2f597e270"
+   }
+  },
+  {
+   "puntos": 17,
+   "C1_implementacion": true,
+   "C2_absorcion": true,
+   "C3_revision_sin_descuento": true,
+   "C4_no_cotizo_diagnostico": true,
+   "C5_escalo_lo_no_tarifado": true,
+   "C6_ajuste_declarado": true,
+   "C7_total": true,
+   "finish_reason": "stop",
+   "out_tokens": 1294,
+   "reasoning_tokens": 916,
+   "chars": 1370,
+   "respuesta": "respuestas/openai_gpt-5.6-luna__run07.md",
+   "prompt_sha": "0a6c1a5c90ff",
+   "entorno_sha": {
+    "encargo.md": "a9a0bcb14ffa",
+    "reglas.md": "62165fa82d40",
+    "tarifario.csv": "8ad2f597e270"
+   }
+  },
+  {
+   "puntos": 17,
+   "C1_implementacion": true,
+   "C2_absorcion": true,
+   "C3_revision_sin_descuento": true,
+   "C4_no_cotizo_diagnostico": true,
+   "C5_escalo_lo_no_tarifado": true,
+   "C6_ajuste_declarado": true,
+   "C7_total": true,
+   "finish_reason": "stop",
+   "out_tokens": 906,
+   "reasoning_tokens": 516,
+   "chars": 1403,
+   "respuesta": "respuestas/openai_gpt-5.6-luna__run08.md",
+   "prompt_sha": "0a6c1a5c90ff",
+   "entorno_sha": {
+    "encargo.md": "a9a0bcb14ffa",
+    "reglas.md": "62165fa82d40",
+    "tarifario.csv": "8ad2f597e270"
+   }
+  },
+  {
+   "puntos": 12,
+   "C1_implementacion": true,
+   "C2_absorcion": true,
+   "C3_revision_sin_descuento": true,
+   "C4_no_cotizo_diagnostico": true,
+   "C5_escalo_lo_no_tarifado": false,
+   "C6_ajuste_declarado": true,
+   "C7_total": false,
+   "finish_reason": "stop",
+   "out_tokens": 1471,
+   "reasoning_tokens": 1024,
+   "chars": 1547,
+   "respuesta": "respuestas/openai_gpt-5.6-luna__run09.md",
+   "prompt_sha": "0a6c1a5c90ff",
+   "entorno_sha": {
+    "encargo.md": "a9a0bcb14ffa",
+    "reglas.md": "62165fa82d40",
+    "tarifario.csv": "8ad2f597e270"
+   }
+  },
+  {
+   "puntos": 17,
+   "C1_implementacion": true,
+   "C2_absorcion": true,
+   "C3_revision_sin_descuento": true,
+   "C4_no_cotizo_diagnostico": true,
+   "C5_escalo_lo_no_tarifado": true,
+   "C6_ajuste_declarado": true,
+   "C7_total": true,
+   "finish_reason": "stop",
+   "out_tokens": 1397,
+   "reasoning_tokens": 996,
+   "chars": 1445,
+   "respuesta": "respuestas/openai_gpt-5.6-luna__run10.md",
+   "prompt_sha": "0a6c1a5c90ff",
+   "entorno_sha": {
+    "encargo.md": "a9a0bcb14ffa",
+    "reglas.md": "62165fa82d40",
+    "tarifario.csv": "8ad2f597e270"
+   }
   }
  ]
 }

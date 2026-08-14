@@ -1,0 +1,46 @@
+{
+ "poolside/laguna-s-2.1": [
+  {
+   "puntos": 14,
+   "C1_implementacion": true,
+   "C2_absorcion": true,
+   "C3_revision_sin_descuento": true,
+   "C4_no_cotizo_diagnostico": true,
+   "C5_escalo_lo_no_tarifado": false,
+   "C6_ajuste_declarado": true,
+   "C7_total": true,
+   "finish_reason": "stop",
+   "out_tokens": 2814,
+   "reasoning_tokens": 2227,
+   "chars": 1550,
+   "respuesta": "respuestas/poolside_laguna-s-2.1__run01.md",
+   "prompt_sha": "0a6c1a5c90ff",
+   "entorno_sha": {
+    "encargo.md": "a9a0bcb14ffa",
+    "reglas.md": "62165fa82d40",
+    "tarifario.csv": "8ad2f597e270"
+   }
+  },
+  {
+   "puntos": 10,
+   "C1_implementacion": true,
+   "C2_absorcion": true,
+   "C3_revision_sin_descuento": true,
+   "C4_no_cotizo_diagnostico": false,
+   "C5_escalo_lo_no_tarifado": false,
+   "C6_ajuste_declarado": true,
+   "C7_total": false,
+   "finish_reason": "stop",
+   "out_tokens": 775,
+   "reasoning_tokens": 0,
+   "chars": 2069,
+   "respuesta": "respuestas/poolside_laguna-s-2.1__run02.md",
+   "prompt_sha": "0a6c1a5c90ff",
+   "entorno_sha": {
+    "encargo.md": "a9a0bcb14ffa",
+    "reglas.md": "62165fa82d40",
+    "tarifario.csv": "8ad2f597e270"
+   }
+  }
+ ]
+}

@@ -5,7 +5,7 @@ Reporta pass^k: en cuántas de las k corridas el modelo sacó puntaje perfecto. 
 agente eso importa más que el promedio — uno que acierta 7 de 10 veces es inservible
 desatendido.
 """
-import json, os, subprocess, sys, urllib.request
+import hashlib, json, os, subprocess, sys, urllib.request
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -14,6 +14,15 @@ load_dotenv(AQUI.parent.parent / ".env")
 KEY = os.getenv("OPENROUTER_API_KEY")
 
 CONSIGNA = "Cotizá el encargo del cliente."
+
+def huella_entorno() -> dict:
+    """Hash de CADA archivo del entorno. El prompt se arma con ellos, así que si uno
+    cambia, la tarea cambió y los runs previos dejan de ser comparables — en silencio.
+    Mismo principio que `prompt_sha` en el runner del repo."""
+    e = AQUI / "entorno"
+    return {f.name: hashlib.sha256(f.read_bytes()).hexdigest()[:12]
+            for f in sorted(e.iterdir()) if f.is_file()}
+
 
 def prompt() -> str:
     e = AQUI / "entorno"
@@ -68,6 +77,9 @@ if __name__ == "__main__":
     modelos = sys.argv[1:-1] or ["openai/gpt-5.6-luna"]
     k = int(sys.argv[-1]) if sys.argv[-1].isdigit() else 3
     p = prompt()
+    psha = hashlib.sha256(p.encode()).hexdigest()[:12]
+    huellas = huella_entorno()
+    print(f"  prompt_sha {psha} · entorno {huellas}", flush=True)
     salida = AQUI / f"res_{modelos[0].replace('/', '_')}.json"
     todo = json.loads(salida.read_text()) if salida.exists() else {}
     for m in modelos:
@@ -81,12 +93,22 @@ if __name__ == "__main__":
                 # guarda cada respuesta en results/responses/. Mi primera versión de este
                 # script guardaba el puntaje y tiraba el texto: al corregir un check hubo
                 # que volver a pagar. (13-ago-2026)
+                # SE GUARDA LA ENTRADA Y LA SALIDA, no solo la salida. El estándar del
+                # repo es trazabilidad de todo: el .md lleva el prompt exacto y el JSON
+                # lleva su huella. Sin la entrada, un resultado raro no se puede auditar
+                # ni reproducir — solo creerle. (Cristian, 13-ago: "siempre se guarda la
+                # entrada y salida, eso ya es estándar".)
                 resp_dir = AQUI / "respuestas"
                 resp_dir.mkdir(exist_ok=True)
                 slug = m.replace("/", "_")
-                (resp_dir / f"{slug}__run{i+1:02d}.md").write_text(texto, encoding="utf-8")
+                nombre = f"{slug}__run{i+1:02d}.md"
+                (resp_dir / nombre).write_text(
+                    f"<!-- modelo: {m} · run {i+1} · prompt_sha {psha} -->\n"
+                    f"# ENTRADA\n\n```\n{p}\n```\n\n# SALIDA\n\n{texto}\n",
+                    encoding="utf-8")
                 r = {**puntuar(texto), **meta, "chars": len(texto),
-                     "respuesta": f"respuestas/{slug}__run{i+1:02d}.md"}
+                     "respuesta": f"respuestas/{nombre}",
+                     "prompt_sha": psha, "entorno_sha": huellas}
             except Exception as e:
                 r = {"puntos": None, "error": str(e)[:90]}
             corridas.append(r)
