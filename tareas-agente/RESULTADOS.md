@@ -151,6 +151,85 @@ corrige solo y no avisa es peor que uno que se equivoca ruidosamente.
 
 ---
 
+# Tarea 3 — procesar una reunión de socios (media)
+
+**68 modelos · 204 corridas · US$ 2,28 · media global 0,966**
+
+El input no son datos limpios: es una **conversación**, con el ruido de una conversación
+real. Alguien se corrige, algo se propone y se descarta, algo se da por cerrado y no lo
+está. El artefacto es el **tablero de tareas actualizado**, no un resumen.
+
+| resultado | modelos |
+|---|---|
+| perfecto en los 3 intentos | **49** |
+| parcial | 16 |
+| inestable (piso 0,00) | **3** |
+
+*(12 corridas se descartaron solas por `task_checksum` distinto: son del sub-segmento
+previo al arreglo del verificador. La disciplina de R17 funcionando sin que nadie la
+recuerde.)*
+
+## ⚠️ Esta tarea SATURA, y hay que decirlo
+
+**49 de 68 sacan perfecto (72%).** Por R12, eso la convierte en un **piso de usabilidad**
+—"¿este modelo puede procesar una reunión sin romper nada?"— y **no** en un ranking. No
+sirve para ordenar la cabeza.
+
+Parte de la saturación es culpa mía: la primera versión del verificador tenía un falso
+negativo que penalizaba respuestas correctas. Al arreglarlo, subieron todos. El número
+honesto es éste, no el inflado.
+
+## El hallazgo: 14 modelos inventaron un acuerdo que nadie tomó
+
+En la reunión, los socios discuten qué hacer cuando el técnico encuentra una falla no
+prevista. Ninguno lo tiene claro. Acuerdan **anotarlo como pendiente, sin respuesta**.
+
+**14 de 68 modelos escribieron una política igual.** Es el fallo más frecuente del lote
+—16 corridas, más del doble que el segundo— y no discrimina por calidad: la lista va
+desde 8,43 hasta 7,66.
+
+| modelo | calidad |
+|---|---|
+| `deepseek/deepseek-r1` | 8,43 |
+| `google/gemma-4-26b-a4b-it` | 8,28 |
+| `openai/gpt-5.6-terra` | 8,21 |
+| `meta/muse-glimmer-30b` | 8,14 |
+| `deepseek/deepseek-v4-flash` | 8,10 |
+| …y 9 más | |
+
+> El tablero queda afirmando una política que los socios nunca acordaron, y que alguien
+> va a ejecutar creyendo que se decidió. A diferencia de una factura mal emitida, **de
+> esto nadie se entera**: el resumen se ve perfectamente razonable.
+
+## Los otros modos de fallo
+
+| trampa | corridas | modelos |
+|---|---|---|
+| Inventar la decisión que nadie tomó | 16 | **14** |
+| No cerrar el precio que SÍ se decidió | 9 | 6 |
+| Cerrar el checkout que sigue abierto | 7 | 4 |
+| Crear la tarea de la app que se descartó | 7 | 5 |
+| No anotar la decisión pendiente | 7 | 4 |
+| Entregar un artefacto inválido | 6 | 4 |
+| Quedarse con el precio viejo (12.000) | 6 | 4 |
+
+**Todas las trampas cazaron a alguien.** Ninguna quedó decorativa.
+
+## La cola
+
+| modelo | media | piso | qué pasó |
+|---|---|---|---|
+| `meta-llama/llama-4-scout` | **0,00** | 0,00 | escribió **JSON inválido** en los 3 intentos |
+| `meta-llama/llama-3.3-70b-instruct` | 0,62 | **0,00** | inestable |
+| `x-ai/grok-4.20` | 0,67 | **0,00** | inestable |
+
+`llama-4-scout` saca **1,00 en cotizar** y 0,00 acá: corrió, entregó, y lo entregado no
+parsea. Es `hizo_mal_la_tarea`, no un problema del harness — un modelo que no puede
+emitir JSON válido para una tarea cuyo output *es* JSON no sirve, por bien que haya
+entendido la reunión.
+
+---
+
 ## Lo que costó, y por qué eso cambia el plan
 
 | | costo |
