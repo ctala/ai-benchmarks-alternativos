@@ -66,7 +66,8 @@ function cargarApp() {
   const fn = new Function("document", "window", "localStorage", "fetch",
     `${src}
      return { getScore, filterAndRank, costPerMonth, SUITES_BY_PILLAR,
-              PRESETS_BUDGET, state, TOOL_CALLING_MIN, clampUmbralAlEje };`);
+              PRESETS_BUDGET, state, TOOL_CALLING_MIN, clampUmbralAlEje,
+              WIZ, WIZ_AGENTES, wizEje, computeZScore, wizCandidatos };`);
   return fn(document, window,
             { getItem: () => null, setItem: () => {} },
             () => Promise.reject(new Error("sin red en QA")));
@@ -210,6 +211,103 @@ chequeo("Q7 · el filtro agéntico excluye a los que no corren en un agente", ()
   const r = app.filterAndRank(MODELOS, f);
   const colados = r.filter(m => m.sirve_para_agentes !== true).map(m => m.name);
   return colados.length ? [`pasaron sin evidencia: ${colados.join(", ")}`] : [];
+});
+
+
+// ═══════════════════════════════════════════════════════════════════════════
+// WIZARD — es la PUERTA DE ENTRADA del sitio y era una ruta de código aparte,
+// sin ningún test. Medido el 14-ago: no filtraba por `sirve_para_agentes`, así que
+// Hermes 4 405B estaba #14 de su ranking de agentes (a una medición del podio) y
+// **Qwen 3-Next 80B Thinking pasaba el toggle "tiene que usar herramientas"**
+// (tool_calling_score_avg 6,41 ≥ 6) sacando 0,00 dentro de un agente real.
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Réplica del scoring del wizard. Se apoya en `wizEje` REAL —no una copia— para que
+// un cambio de ejes en app.js no pase inadvertido acá.
+function wizPuntaje(m, tipo) {
+  let suma = 0, peso = 0;
+  for (const [eje, p] of tipo.ejes) {
+    const v = app.wizEje(m, eje);
+    if (v == null) continue;
+    suma += v * p; peso += p;
+  }
+  return peso > 0 ? suma / peso : null;
+}
+const APTOS = RANKED.filter(m => m.sirve_para_agentes !== false);
+
+chequeo("W1 · cada tarea × presupuesto del wizard devuelve una recomendación", () => {
+  const malas = [];
+  for (const t of app.WIZ.tasks) {
+    for (const b of app.WIZ.budgets) {
+      const w = t.latency ? { quality: 50, cost: 15, speed: 10, latency: 25 } : b.w;
+      const n = RANKED.map(m => app.computeZScore(m, w, t.pillar)).filter(v => v != null).length;
+      if (n === 0) malas.push(`${t.id} × ${b.id}: 0 modelos puntuables`);
+    }
+  }
+  return malas;
+});
+
+chequeo("W2 · el wizard NUNCA recomienda algo que no corre en un agente", () => {
+  const malas = [];
+  for (const tipo of app.WIZ_AGENTES) {
+    const r = APTOS.map(m => ({ m, s: wizPuntaje(m, tipo) }))
+      .filter(x => x.s != null).sort((a, b) => b.s - a.s);
+    const colados = r.slice(0, 10).filter(x => x.m.sirve_para_agentes !== true).map(x => x.m.name);
+    if (colados.length) malas.push(`${tipo.id}: en el top 10 sin evidencia agéntica → ${colados.join(", ")}`);
+    if (!r.length) malas.push(`${tipo.id}: 0 recomendaciones`);
+  }
+  // Se ejercita la RUTA REAL (wizCandidatos), no una réplica del filtro: el bug era
+  // justamente que el toggle filtraba por la nota de una suite de texto.
+  for (const combo of [{ tools: true }, { pillar: "Agentes" },
+                       { pillar: "Agentes", tools: true }, { pillar: "Agentes", os: true }]) {
+    const cand = app.wizCandidatos(MODELOS, combo);
+    const colados = cand.filter(m => m.sirve_para_agentes === false).map(m => m.name);
+    if (colados.length) malas.push(`wizCandidatos(${JSON.stringify(combo)}) deja pasar: ${colados.join(", ")}`);
+    if (!cand.length) malas.push(`wizCandidatos(${JSON.stringify(combo)}): 0 candidatos`);
+  }
+  return malas;
+});
+
+chequeo("W3 · cada eje que usa el wizard existe en los datos", () => {
+  const malas = [];
+  for (const tipo of app.WIZ_AGENTES) {
+    const suma = tipo.ejes.reduce((s, [, p]) => s + p, 0);
+    if (Math.abs(suma - 1) > 0.001) malas.push(`${tipo.id}: los pesos suman ${suma.toFixed(3)}, no 1`);
+    for (const [eje] of tipo.ejes) {
+      const n = APTOS.filter(m => app.wizEje(m, eje) != null).length;
+      if (n === 0) malas.push(`${tipo.id}/${eje}: 0 modelos lo tienen`);
+      else if (n < APTOS.length * 0.5) malas.push(`${tipo.id}/${eje}: solo ${n}/${APTOS.length} modelos`);
+    }
+  }
+  return malas;
+});
+
+chequeo("W4 · el paso «tipo de agente» aparece si y solo si la tarea es agentes", () => {
+  const malas = [];
+  const seq = (task) => task === "agentes" ? [0, 0.5, 1, 2] : [0, 1, 2];
+  for (const t of app.WIZ.tasks) {
+    const tiene = seq(t.id).includes(0.5);
+    if (t.id === "agentes" && !tiene) malas.push("agentes NO pregunta el tipo");
+    if (t.id !== "agentes" && tiene) malas.push(`${t.id} pregunta el tipo y no debería`);
+  }
+  if (!app.WIZ_AGENTES.length) malas.push("no hay tipos de agente definidos");
+  return malas;
+});
+
+chequeo("W5 · la tabla de ejes explica el MISMO orden que se calculó", () => {
+  const malas = [];
+  for (const tipo of app.WIZ_AGENTES) {
+    const r = APTOS.map(m => ({ m, s: wizPuntaje(m, tipo) }))
+      .filter(x => x.s != null).sort((a, b) => b.s - a.s).slice(0, 5);
+    // Cada columna de la tabla tiene que ser un eje del puntaje: si la tabla muestra
+    // una métrica que no pesó, "explica" una decisión que no se tomó con eso.
+    for (const x of r) {
+      for (const [eje] of tipo.ejes) {
+        if (app.wizEje(x.m, eje) === undefined) malas.push(`${tipo.id}: ${x.m.name} sin ${eje}`);
+      }
+    }
+  }
+  return malas;
 });
 
 // ── Reporte ─────────────────────────────────────────────────────────────────
