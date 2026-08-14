@@ -1,0 +1,31 @@
+schema_version = "1.1"
+artifacts = []
+
+[task]
+name = "ctala/reunion-socios-tablero-es"
+description = "Actualizar el tablero de tareas desde la transcripción de una reunión entre dos socios: cerrar lo resuelto, cambiar prioridades y agregar lo nuevo. La transcripción tiene el ruido de una conversación real — algo que se da por cerrado y no lo está, una idea que se descarta después de proponerla, una cifra corregida y un alcance que nadie definió."
+keywords = ["business", "spanish", "extraction", "meeting", "task-management"]
+[[task.authors]]
+name = "Cristian Tala"
+
+[metadata]
+difficulty = "hard"
+category = "business"
+tags = ["es", "meeting-notes", "instruction-adherence", "hallucination"]
+expert_time_estimate_min = 20.0
+junior_time_estimate_min = 45.0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 2048
+gpus = 0
+allow_internet = true
+mcp_servers = []

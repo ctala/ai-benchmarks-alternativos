@@ -62,6 +62,15 @@ FIRMAS = [
      "falta la credencial del proveedor — no es un fallo del modelo"),
     ("limite_de_pasos", re.compile(r"LimitsExceeded|step limit", re.I),
      "se quedó sin pasos antes de terminar"),
+    # Descubierto el 14-ago en `harbor-ruteo`: deepseek-chat entró en un bucle
+    # degenerado repitiendo la misma frase, y su traza llegó a 676 KB contra un entorno
+    # de 7,6 KB — reventó su PROPIA ventana de contexto (180.517 tokens pedidos contra
+    # 163.840). No es la tarea ni el harness: es el modelo llenándose de su propia
+    # salida. Sin esta firma quedaba como `hizo_mal_la_tarea`, que sugiere que entendió
+    # mal el trabajo cuando en realidad nunca llegó a hacerlo.
+    ("desbordo_su_contexto", re.compile(
+        r"maximum context length is \d+ tokens|context_length_exceeded", re.I),
+     "entró en un bucle degenerado y reventó su propia ventana de contexto"),
 ]
 
 
@@ -88,6 +97,7 @@ def _checksum_vigente() -> dict[str, str]:
     viejas de `harbor-cotizar` y habrían entrado al promedio sin decir nada.
     """
     conteo: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    mtimes: dict[str, dict[str, float]] = defaultdict(dict)
     for trial in JOBS.glob("*/*__*"):
         p = trial / "result.json"
         if not p.exists():
@@ -97,8 +107,24 @@ def _checksum_vigente() -> dict[str, str]:
         except Exception:
             continue
         if ck:
-            conteo[trial.name.split("__")[0]][ck] += 1
-    return {t: max(c, key=c.get) for t, c in conteo.items() if c}
+            tarea = trial.name.split("__")[0]
+            conteo[tarea][ck] += 1
+            mtimes[tarea][ck] = max(mtimes[tarea].get(ck, 0), p.stat().st_mtime)
+    # El vigente es el de la corrida MÁS RECIENTE, no el mayoritario.
+    #
+    # La v1 usaba mayoría, y eso funciona cuando quedan unos pocos rezagados viejos —
+    # pero se rompe justo cuando la tarea cambia a propósito: el 14-ago le agregué
+    # `politica.md` a `harbor-reunion` y quedaron **204 corridas de la versión vieja
+    # contra 1 de la nueva**. Por mayoría, el extractor habría descartado la corrida
+    # correcta y publicado las 204 obsoletas como si fueran de la tarea actual. El bug
+    # más peligroso posible: reportar en verde la versión equivocada.
+    vigente = {}
+    for t, c in conteo.items():
+        if not c:
+            continue
+        recientes = sorted(mtimes[t].items(), key=lambda kv: -kv[1])
+        vigente[t] = recientes[0][0]
+    return vigente
 
 
 def recolectar() -> dict:
@@ -136,6 +162,15 @@ def recolectar() -> dict:
 
         traza_p = trial / "agent" / "mini-swe-agent.txt"
         traza = traza_p.read_text(errors="replace") if traza_p.exists() else ""
+        # La causa se deriva de TODA corrida en cero, aunque el modelo promedie bien.
+        #
+        # POR QUÉ (14-ago-2026, lo pidió Cristian: *"revisa si los inestables son culpa
+        # nuestra"*). Antes, un modelo con 2 corridas perfectas y una en cero quedaba
+        # etiquetado `inestable` a secas, y la causa de ESA corrida se perdía. Pero
+        # «a veces rompe el bucle de herramientas» y «a veces hace mal la tarea» son
+        # riesgos distintos: el primero no se arregla con una instrucción mejor.
+        # Medido: grok-4.20 promedia 0,67 y su cero fue `rompe_bucle`; llama-3.3-70b
+        # promedia 0,62 y el suyo fue JSON malformado. Misma etiqueta, causas opuestas.
         causa, detalle = _causa(traza) if (reward in (None, 0.0)) else (None, None)
 
         res_p = trial / "result.json"
@@ -193,6 +228,11 @@ def _resumir(por_modelo, meta_tarea, descartadas) -> dict:
         detalle = next((i["detalle"] for i in intentos if i["detalle"]), None)
         if detalle:
             fila["motivo"] = detalle
+        # Causas de las corridas en cero de un modelo que NO es uniformemente cero.
+        # Sin esto, `inestable` es una etiqueta sin diagnóstico.
+        ceros = [i["causa"] or "hizo_mal_la_tarea" for i in intentos if i["reward"] == 0.0]
+        if ceros and estado not in ("sin_herramientas", "rompe_bucle", "sin_credencial"):
+            fila["causas_de_los_ceros"] = sorted(set(ceros))
 
         tareas.setdefault(tarea, {"modelos": {}, **meta_tarea.get(tarea, {})})
         tareas[tarea]["modelos"][modelo] = fila

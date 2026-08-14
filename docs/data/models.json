@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-14T10:36:25",
-  "total_models": 191,
+  "generated_at": "2026-08-14T17:53:54",
+  "total_models": 192,
   "tested_count": 138,
   "ranked_count": 79,
   "total_runs_measured": 30016,
@@ -468,6 +468,12 @@
             "piso": 1.0,
             "intentos": 5,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -645,6 +651,18 @@
             "media": 1.0,
             "piso": 1.0,
             "intentos": 6,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 2,
             "estado": "ok_siempre"
           }
         },
@@ -827,6 +845,12 @@
             "piso": 0.8889,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -1005,6 +1029,12 @@
             "piso": 0.7778,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -1184,6 +1214,12 @@
             "piso": 0.8889,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -1352,6 +1388,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 0.9744,
+            "piso": 0.9231,
+            "intentos": 3,
+            "estado": "ok_parcial"
           }
         },
         "estado": "apto"
@@ -1526,6 +1568,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -1706,9 +1754,15 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 0.3333,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "inestable"
           }
         },
-        "estado": "apto"
+        "estado": "inestable"
       },
       "sirve_para_agentes": true
     },
@@ -2032,6 +2086,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -2200,6 +2260,12 @@
             "piso": 0.8889,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -2374,6 +2440,12 @@
             "piso": 0.75,
             "intentos": 1,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -2551,6 +2623,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -2717,6 +2795,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -2899,6 +2983,18 @@
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 2,
             "estado": "ok_siempre"
           }
         },
@@ -3235,6 +3331,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 0.9487,
+            "piso": 0.9231,
+            "intentos": 3,
+            "estado": "ok_parcial"
           }
         },
         "estado": "apto"
@@ -3399,6 +3501,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -3579,6 +3687,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -3753,6 +3867,12 @@
             "piso": 0.625,
             "intentos": 1,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -3917,6 +4037,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -4095,6 +4221,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -4443,6 +4575,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 0.9487,
+            "piso": 0.9231,
+            "intentos": 3,
+            "estado": "ok_parcial"
           }
         },
         "estado": "apto"
@@ -4607,6 +4745,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -4788,6 +4932,12 @@
             "piso": 0.8889,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -4952,6 +5102,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -5135,6 +5291,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -5303,6 +5465,12 @@
             "piso": 0.8889,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -5476,6 +5644,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -5656,6 +5830,12 @@
             "piso": 0.6667,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -5832,6 +6012,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 0.9487,
+            "piso": 0.9231,
+            "intentos": 3,
+            "estado": "ok_parcial"
           }
         },
         "estado": "apto"
@@ -5996,6 +6182,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -6170,6 +6362,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -6338,6 +6536,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 0.9872,
+            "piso": 0.9231,
+            "intentos": 9,
+            "estado": "ok_parcial"
           }
         },
         "estado": "apto"
@@ -6673,6 +6877,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 0.9487,
+            "piso": 0.9231,
+            "intentos": 3,
+            "estado": "ok_parcial"
           }
         },
         "estado": "apto"
@@ -6837,6 +7047,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -7020,6 +7236,12 @@
             "piso": 0.8889,
             "intentos": 4,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -7190,6 +7412,18 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 2,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -7356,6 +7590,12 @@
             "piso": 0.8889,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -7524,6 +7764,12 @@
             "piso": 0.6667,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -7702,6 +7948,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -7870,6 +8122,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 6,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -8034,6 +8292,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -8219,6 +8483,12 @@
             "piso": 0.8889,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 0.9744,
+            "piso": 0.9231,
+            "intentos": 3,
+            "estado": "ok_parcial"
           }
         },
         "estado": "apto"
@@ -8387,9 +8657,22 @@
             "piso": 0.4444,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 0.9744,
+            "piso": 0.9231,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          },
+          "harbor-ruteo": {
+            "media": 0.5,
+            "piso": 0.0,
+            "intentos": 2,
+            "estado": "inestable",
+            "motivo": "entró en un bucle degenerado y reventó su propia ventana de contexto"
           }
         },
-        "estado": "apto"
+        "estado": "inestable"
       },
       "sirve_para_agentes": true
     },
@@ -8564,6 +8847,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -8732,9 +9021,15 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 0.4872,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "inestable"
           }
         },
-        "estado": "apto"
+        "estado": "inestable"
       },
       "sirve_para_agentes": true
     },
@@ -8904,6 +9199,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -9087,9 +9388,15 @@
             "piso": 0.7778,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 0.7308,
+            "piso": 0.0,
+            "intentos": 4,
+            "estado": "inestable"
           }
         },
-        "estado": "apto"
+        "estado": "inestable"
       },
       "sirve_para_agentes": true
     },
@@ -9251,6 +9558,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -9425,6 +9738,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -9777,9 +10096,21 @@
             "piso": 0.8889,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 0.9487,
+            "piso": 0.8462,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          },
+          "harbor-ruteo": {
+            "media": 0.0,
+            "piso": 0.0,
+            "intentos": 2,
+            "estado": "inestable"
           }
         },
-        "estado": "apto"
+        "estado": "inestable"
       },
       "sirve_para_agentes": true
     },
@@ -10122,6 +10453,12 @@
             "piso": 1.0,
             "intentos": 5,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -10286,6 +10623,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -10458,6 +10801,12 @@
             "piso": 0.8889,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -10630,6 +10979,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -10812,6 +11167,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -10980,6 +11341,13 @@
             "piso": 0.0,
             "intentos": 3,
             "estado": "inestable"
+          },
+          "harbor-reunion": {
+            "media": 0.641,
+            "piso": 0.0,
+            "intentos": 6,
+            "estado": "inestable",
+            "motivo": "tiene herramientas pero no sostiene el formato de tool call"
           }
         },
         "estado": "inestable"
@@ -11148,9 +11516,19 @@
             "piso": 0.8889,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 0.0,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "rompe_bucle",
+            "motivo": "tiene herramientas pero no sostiene el formato de tool call"
           }
         },
-        "estado": "apto"
+        "estado": "irregular",
+        "falla_en": [
+          "harbor-reunion"
+        ]
       },
       "sirve_para_agentes": true
     },
@@ -11470,6 +11848,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -11822,6 +12206,12 @@
             "piso": 0.625,
             "intentos": 1,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -11988,6 +12378,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -12168,6 +12564,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -12336,6 +12738,12 @@
             "piso": 0.7778,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -12510,6 +12918,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -12678,9 +13092,15 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 0.641,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "inestable"
           }
         },
-        "estado": "apto"
+        "estado": "inestable"
       },
       "sirve_para_agentes": true
     },
@@ -12846,6 +13266,12 @@
             "piso": 0.7778,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -13187,6 +13613,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -13366,6 +13798,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 6,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -13534,6 +13972,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -13874,6 +14318,18 @@
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 0.9744,
+            "piso": 0.9231,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 2,
             "estado": "ok_siempre"
           }
         },
@@ -24747,6 +25203,62 @@
       "sirve_para_agentes": null
     },
     {
+      "key": "gemini-3.6-flash",
+      "id": "google/gemini-3.6-flash",
+      "name": "Gemini 3.6 Flash",
+      "tier": "cheap",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 0.75,
+      "cost_output_per_M": 3.75,
+      "cost_per_1k_calls_usd": 5.85,
+      "context_window": 1048576,
+      "subscriptions": [],
+      "notes": "Sucesor del 3.5 Flash. La MITAD del precio de su antecesor ($1,50/$9 → $0,75/$3,75) con el mismo contexto de 1M. Existe `:batch` a $0,38/$1,88 que NO se mide: es otra ruta de servicio y mezclarla rompería el plano común.",
+      "tested": false,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "examen_incompleto": false,
+      "medido_en_free": false,
+      "ranked": false,
+      "sample_tier": "preliminary",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 0,
+      "total_runs": 0,
+      "score_global": null,
+      "score_by_pillar": {},
+      "dims_by_pillar": {},
+      "score_by_suite": {},
+      "quality_ci95": null,
+      "judge_score_avg": null,
+      "tokens_per_second": null,
+      "latency_avg_s": null,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "score_calidad": null,
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 6,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
+    },
+    {
       "key": "gemini-flash-thinking",
       "id": "google/gemini-2.5-flash",
       "name": "Gemini 2.5 Flash (thinking)",
@@ -24796,6 +25308,12 @@
             "piso": 0.8889,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -24944,6 +25462,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 0.9487,
+            "piso": 0.9231,
+            "intentos": 3,
+            "estado": "ok_parcial"
           }
         },
         "estado": "apto"
@@ -24996,6 +25520,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -25148,6 +25678,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -25200,6 +25736,12 @@
       "agentico": {
         "tareas": {
           "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
@@ -25554,6 +26096,12 @@
             "piso": 0.8889,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -25609,6 +26157,18 @@
             "media": 1.0,
             "piso": 1.0,
             "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 0.9744,
+            "piso": 0.9231,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 2,
             "estado": "ok_siempre"
           }
         },

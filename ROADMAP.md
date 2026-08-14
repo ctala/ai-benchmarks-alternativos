@@ -2,7 +2,7 @@
 # Roadmap del Benchmark
 
 > Ultima actualizacion: 17 de Julio de 2026 (relanzamiento v4.0.0: referencia z-score congelada + eje agéntico + limpieza de datos + refusal policy + pase de UX)
-> Estado del ranking: **v4.0.0 — <!-- AUTO:total_models -->191<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->138<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->30,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
+> Estado del ranking: **v4.0.0 — <!-- AUTO:total_models -->192<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->138<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->30,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
 > Cobertura faltante: ver [TESTS_FALTANTES.md](TESTS_FALTANTES.md) (30 modelos sin runs o con cobertura parcial).
 > **Próximo release: Agosto 2026** (cadencia mensual). Lo último publicado es el **relanzamiento v4.0.0 (17-jul-2026)** — ver [CHANGELOG.md](CHANGELOG.md).
 
@@ -392,6 +392,14 @@ ejecuta nada).
 ### Modelos nuevos por agregar (Lote 3)
 
 **Confirmados listos** (IDs verificados):
+- [ ] **GLM 5.3** (Z.ai) — ⚠️ **NO medible todavía**, verificado el 14-ago-2026 (día de su
+  lanzamiento). Solo por la API propia de Z.ai y su Coding Plan; **no está en OpenRouter**
+  y no tenemos key de Z.ai en `.env`. Además **los pesos NO son públicos**: Z.ai los libera
+  a fin de agosto tras evaluación de seguridad, así que hoy `open_source` sería **False** —
+  es el mismo error que el repo documenta con «Qwen Plus», marcar abierto por el nombre de
+  la familia. Se mide cuando (a) aparezca en OpenRouter, o (b) se sume `ZAI_API_KEY`.
+  Dato relevante para el análisis: Z.ai declara que **NO reentrenó el modelo base** de
+  GLM 5.2 — todas las mejoras vienen de post-entrenamiento.
 - [ ] **GPT-OSS 120B** (`openai/gpt-oss-120b`, $0.039/$0.19, Apache 2.0) — candidato fuerte a top 5
 - [ ] **GPT-OSS 20B** (`openai/gpt-oss-20b`, $0.03/$0.14, Apache 2.0) — baseline barato
 - [ ] **Devstral Medium** (ya en config, falta correr benchmark)

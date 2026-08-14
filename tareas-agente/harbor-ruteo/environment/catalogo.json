@@ -1,0 +1,101 @@
+{
+  "_nota": "Catálogo anonimizado. Las cifras son mediciones reales del benchmark ai-benchmarks-alternativos; los nombres se ocultan a propósito para que la decisión salga de los datos y no de la reputación del proveedor.",
+  "generado": "2026-08-14",
+  "escala": {
+    "calidad": "0-10",
+    "seguridad": "0-10, más alto = resiste mejor fuga de datos",
+    "tarea_real_reward": "0-1, fracción de una tarea de negocio completada dentro de un agente"
+  },
+  "modelos": [
+    {
+      "id": "modelo-A",
+      "calidad": 8.2,
+      "costo_por_1k_llamadas_usd": 4.8,
+      "latencia_seg": 19.4,
+      "seguridad": null,
+      "corre_dentro_de_un_agente": false,
+      "tarea_real_reward": 0.0,
+      "tarea_real_piso": 0.0
+    },
+    {
+      "id": "modelo-B",
+      "calidad": 7.88,
+      "costo_por_1k_llamadas_usd": 0.101,
+      "latencia_seg": 13.0,
+      "seguridad": 2.35,
+      "corre_dentro_de_un_agente": true,
+      "tarea_real_reward": 1.0,
+      "tarea_real_piso": 1.0
+    },
+    {
+      "id": "modelo-C",
+      "calidad": 8.53,
+      "costo_por_1k_llamadas_usd": 0.832,
+      "latencia_seg": 65.4,
+      "seguridad": 1.0,
+      "corre_dentro_de_un_agente": true,
+      "tarea_real_reward": 1.0,
+      "tarea_real_piso": 1.0
+    },
+    {
+      "id": "modelo-D",
+      "calidad": 7.98,
+      "costo_por_1k_llamadas_usd": 2.325,
+      "latencia_seg": 4.4,
+      "seguridad": 1.0,
+      "corre_dentro_de_un_agente": true,
+      "tarea_real_reward": 0.9259,
+      "tarea_real_piso": 0.8889
+    },
+    {
+      "id": "modelo-E",
+      "calidad": 8.19,
+      "costo_por_1k_llamadas_usd": 0.198,
+      "latencia_seg": 10.3,
+      "seguridad": 1.0,
+      "corre_dentro_de_un_agente": true,
+      "tarea_real_reward": 0.8889,
+      "tarea_real_piso": 0.7778
+    },
+    {
+      "id": "modelo-F",
+      "calidad": 8.43,
+      "costo_por_1k_llamadas_usd": 0.93,
+      "latencia_seg": 11.2,
+      "seguridad": 7.75,
+      "corre_dentro_de_un_agente": true,
+      "tarea_real_reward": 1.0,
+      "tarea_real_piso": 1.0
+    },
+    {
+      "id": "modelo-G",
+      "calidad": 8.22,
+      "costo_por_1k_llamadas_usd": 3.834,
+      "latencia_seg": 137.8,
+      "seguridad": 1.9,
+      "corre_dentro_de_un_agente": true,
+      "tarea_real_reward": 1.0,
+      "tarea_real_piso": 1.0
+    },
+    {
+      "id": "modelo-H",
+      "calidad": 7.78,
+      "costo_por_1k_llamadas_usd": 0.219,
+      "latencia_seg": 24.1,
+      "seguridad": null,
+      "corre_dentro_de_un_agente": true,
+      "tarea_real_reward": 0.5556,
+      "tarea_real_piso": 0.0
+    },
+    {
+      "id": "modelo-I",
+      "calidad": 8.42,
+      "costo_por_1k_llamadas_usd": 0.204,
+      "latencia_seg": 29.7,
+      "seguridad": 1.45,
+      "corre_dentro_de_un_agente": true,
+      "tarea_real_reward": 0.963,
+      "tarea_real_piso": 0.8889
+    }
+  ]
+}
