@@ -1177,6 +1177,58 @@ def build_export(recalibrate=False, scoring_version=None):
         )
         m["pareto"] = not dominado
 
+    # ── DIMENSIÓN AGÉNTICA — reward de tareas reales, FUERA del índice ───────────
+    # Qué es: la tarea corre dentro de un agente de verdad (Harbor + mini-swe-agent),
+    # en Docker, con herramientas. El modelo lee archivos, decide y escribe un
+    # artefacto; un pytest lo verifica. El reward es la fracción de checks que pasó.
+    #
+    # Por qué NO entra al índice de calidad, aunque sea tentador: es la misma regla que
+    # ya rige para tool calling y seguridad, y la razón de Artificial Analysis para
+    # sacar costo y velocidad de su Intelligence Index. Mezclar dos preguntas distintas
+    # en un número deja un número que no responde ninguna. Acá el contraste es brutal y
+    # lo demuestra solo: Hermes 4 405B tiene índice de calidad 8,20 —mejor que varios
+    # que resuelven la tarea— y saca **0,00**, porque no existe endpoint que le dé
+    # herramientas. Promediar esas dos cifras produce una mentira sobre las dos.
+    #
+    # `estado` importa más que `media`, y por eso se publica aparte: un 0,00 por falta
+    # de endpoint NO es el mismo hecho que un 0,00 por entregar mal el trabajo.
+    _agentico = {}
+    _p_ag = Path(__file__).resolve().parent.parent / "tareas-agente" / "resultados.json"
+    if _p_ag.exists():
+        try:
+            _d_ag = json.loads(_p_ag.read_text(encoding="utf-8"))
+            for _tarea, _dt in _d_ag.get("tareas", {}).items():
+                for _mid, _fila in _dt.get("modelos", {}).items():
+                    _agentico.setdefault(_mid, {})[_tarea] = _fila
+        except Exception as e:
+            print(f"  ⚠️  no se pudo leer resultados agénticos: {e}")
+
+    # Un modelo NO SIRVE en un agente si en alguna tarea quedó sin poder ejecutarla por
+    # razones del modelo o de su disponibilidad. Es un filtro duro, no un puntaje: para
+    # quien va a poner esto a operar su negocio, "no puede" es más accionable que "0,00".
+    _NO_SIRVE = {"sin_herramientas", "rompe_bucle"}
+    for m in models_export:
+        # El lote se corrió contra `openrouter/<id>`. Un config del MISMO id pero servido
+        # por otro proveedor (NIM, Groq, Ollama Cloud) NO hereda este resultado: es un
+        # endpoint distinto, con su cuantización y su config. Es la regla que ya rige para
+        # la calidad —Qwen 3.5 397B da 8,42 en NIM y 7,97 en Ollama Cloud, medido— y no
+        # hay razón para que la capacidad agéntica sea la excepción. Sin este filtro, la
+        # variante NIM de Qwen 3-Next heredaba un "no apto" que nadie midió en NIM.
+        _r = _agentico.get(m["id"]) if m.get("provider", "openrouter") == "openrouter" else None
+        if not _r:
+            m["agentico"] = None
+            m["sirve_para_agentes"] = None
+            continue
+        _estados = {t: f["estado"] for t, f in _r.items()}
+        m["agentico"] = {
+            "tareas": {t: {k: f[k] for k in ("media", "piso", "intentos", "estado")
+                           if k in f} | ({"motivo": f["motivo"]} if "motivo" in f else {})
+                       for t, f in _r.items()},
+            "estado": ("no_apto" if any(e in _NO_SIRVE for e in _estados.values())
+                       else "inestable" if "inestable" in _estados.values() else "apto"),
+        }
+        m["sirve_para_agentes"] = not any(e in _NO_SIRVE for e in _estados.values())
+
     # (3) Persistir la referencia SOLO en recalibración deliberada (evento de versión).
     # Ya no lleva `slope_calidad`: el índice de calidad es absoluto (`quality_avg` sin
     # transformar) y por definición no tiene referencia que congelar. La referencia

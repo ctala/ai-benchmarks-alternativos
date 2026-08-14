@@ -200,7 +200,8 @@ def rank_models(models, cfg):
     # variantes de NIM/Ollama Cloud/Groq y los de suscripción. 49 de 117 candidatos.
     #
     # No son comparables: su velocidad y su latencia son de ESA infra, no del modelo
-    # (Qwen 3.5 397B da 7,96 en NIM y 5,46 en Ollama Cloud). `models.json` ya lo
+    # (Qwen 3.5 397B da **8,42 en NIM y 7,97 en Ollama Cloud** — 0,45 de diferencia sobre
+    # una población que entera abarca 1,39, así que mueve muchas posiciones). `models.json` ya lo
     # resuelve con `ranked` —que exige plano común, muestra sólida y examen completo—
     # y las páginas lo estaban ignorando. Por eso **DiffusionGemma corriendo en el
     # Spark encabezaba /mejor-llm-para-agentes/**.
@@ -215,6 +216,23 @@ def rank_models(models, cfg):
             and has_pillars(m)
             and (m.get("ranked") or m.get("ruta_unica"))]
     crit = cfg["criterion"]
+
+    # ── EN LAS PÁGINAS DE AGENTES, LO QUE NO CORRE EN UN AGENTE NO SE RECOMIENDA ──
+    #
+    # `/mejor-llm-para-agentes/` y `/mejor-llm-para-n8n/` responden literalmente "¿cuál
+    # pongo en mi agente?". Medido el 14-ago dentro de un agente real: 5 modelos NO
+    # PUEDEN ejecutar la tarea —dos porque no existe endpoint con tool use, tres porque
+    # no sostienen el bucle— y varios de ellos puntúan alto en el pilar Agentes, que se
+    # calcula con suites de texto y tool calling declarado. **Hermes 4 405B saca 8,20 de
+    # calidad y 0,00 adentro de un agente.** Publicarlo en esa lista es exactamente el
+    # fallo que el repo declara como el peor posible: recomendar algo que no se puede
+    # usar. Es la misma regla que ya saca a los `retired` del ranking.
+    #
+    # Solo aplica al pilar Agentes: un modelo que no sostiene un bucle de herramientas
+    # puede seguir siendo excelente escribiendo código cuando lo manejás vos.
+    if crit == "pillar" and cfg.get("pillar") == "Agentes":
+        base = [m for m in base if m.get("sirve_para_agentes") is not False]
+
     if crit == "pillar":
         pil = cfg["pillar"]
         # Ordena por CAPACIDAD en la tarea, no por el compuesto con costo/velocidad.

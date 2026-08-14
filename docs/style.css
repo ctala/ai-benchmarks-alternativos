@@ -441,6 +441,21 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
   border-color: rgba(255, 215, 0, 0.4);
   background: rgba(255, 215, 0, 0.06);
 }
+/* Agéntico. El ✓ usa el verde neón de marca; el ⛔ es el único tag rojo del set,
+   a propósito: es la advertencia más cara que da el sitio —"esto no corre en un
+   agente"— y va a modelos con índice de calidad alto, donde el resto de la ficha
+   dice que sí conviene. */
+.tag.agentico {
+  color: var(--green);
+  border-color: rgba(57, 255, 20, 0.45);
+  background: rgba(57, 255, 20, 0.07);
+}
+.tag.tag-danger {
+  color: #ff5c5c;
+  border-color: rgba(255, 92, 92, 0.5);
+  background: rgba(255, 92, 92, 0.09);
+  font-weight: 600;
+}
 
 /* ====== Costo-beneficio (columna C/B) — etiquetas semánticas ====== */
 .cb-badge {
