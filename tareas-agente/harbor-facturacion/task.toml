@@ -1,0 +1,31 @@
+schema_version = "1.1"
+artifacts = []
+
+[task]
+name = "ctala/cierre-facturacion-es"
+description = "Cerrar la facturación mensual de una consultora: horas registradas con una línea duplicada, un cliente que excedió su tope contractual, otro con el contrato vencido y dos de fee fijo. Cada error cuesta plata real: sobrefacturar a un cliente o emitir sin contrato vigente."
+keywords = ["business", "spanish", "rules-following", "accounting"]
+[[task.authors]]
+name = "Cristian Tala"
+
+[metadata]
+difficulty = "hard"
+category = "business"
+tags = ["es", "billing", "instruction-adherence"]
+expert_time_estimate_min = 25.0
+junior_time_estimate_min = 60.0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 2048
+gpus = 0
+allow_internet = true
+mcp_servers = []
