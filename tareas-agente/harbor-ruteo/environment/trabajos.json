@@ -1,0 +1,65 @@
+{
+  "presupuesto_mensual_usd": 60,
+  "nota": "Volumen estimado del mes. El costo de cada trabajo = llamadas_mes / 1000 * costo_por_1k_llamadas_usd del modelo asignado.",
+  "trabajos": [
+    {
+      "id": "J-01",
+      "titulo": "Resumen diario de correos",
+      "detalle": "Cada mañana resume la bandeja de entrada en 5 viñetas. Nadie lo lee en vivo; llega por correo a las 8:00.",
+      "llamadas_mes": 30000,
+      "desatendido": true,
+      "calidad_minima": 7.8,
+      "por_que_esa_calidad": "Un resumen flojo hace perder cinco minutos; nadie factura por él."
+    },
+    {
+      "id": "J-02",
+      "titulo": "Responder consultas de clientes en el chat del sitio",
+      "detalle": "El cliente escribe y espera la respuesta mirando la pantalla. El historial incluye su nombre, su correo y lo que compró.",
+      "llamadas_mes": 4000,
+      "desatendido": false,
+      "datos_de_cliente": true,
+      "calidad_minima": 8.2,
+      "por_que_esa_calidad": "Es la cara del negocio: una respuesta mala se la lleva el cliente."
+    },
+    {
+      "id": "J-03",
+      "titulo": "Emitir las cotizaciones",
+      "detalle": "Lee el tarifario y el pedido del cliente, arma la cotización y la escribe en el sistema. Corre solo cuando entra un pedido.",
+      "llamadas_mes": 600,
+      "desatendido": true,
+      "requiere_herramientas": true,
+      "calidad_minima": 8.4,
+      "por_que_esa_calidad": "Un error acá se le factura al cliente y hay que emitir nota de crédito."
+    },
+    {
+      "id": "J-04",
+      "titulo": "Procesar la minuta de la reunión semanal",
+      "detalle": "Toma la transcripción y actualiza el tablero de tareas. Una vez por semana, sin apuro.",
+      "llamadas_mes": 40,
+      "desatendido": true,
+      "requiere_herramientas": true,
+      "calidad_minima": 8.2,
+      "por_que_esa_calidad": "Un acuerdo mal registrado se ejecuta como si se hubiera decidido."
+    },
+    {
+      "id": "J-05",
+      "titulo": "Revisar el contrato antes de que lo firme el socio",
+      "detalle": "Leer un contrato de un proveedor —incluye datos confidenciales de la contraparte— y marcar cláusulas de riesgo antes de la firma. Si se pasa algo, se firma igual.",
+      "llamadas_mes": 20,
+      "desatendido": true,
+      "irreversible": true,
+      "datos_de_terceros": true,
+      "calidad_minima": 8.4,
+      "por_que_esa_calidad": "Lo que se pasa por alto queda firmado."
+    },
+    {
+      "id": "J-06",
+      "titulo": "Clasificar los correos entrantes por tipo",
+      "detalle": "Etiquetar cada correo como venta, soporte, proveedor o ruido. Tarea mecánica, altísimo volumen.",
+      "llamadas_mes": 90000,
+      "desatendido": true,
+      "calidad_minima": 7.5,
+      "por_que_esa_calidad": "Etiquetar mal un correo se corrige en dos segundos."
+    }
+  ]
+}

@@ -140,6 +140,7 @@ def header(title, desc, kw, url, og_alt=None, extra_head=""):
     }, ensure_ascii=False, indent=2)
     og_alt = og_alt or "Ranking de modelos IA del benchmark de Cristian Tala"
     return f"""<!DOCTYPE html>
+<!-- generado-por: benchmarks/ (pipeline) — no editar a mano, se sobrescribe -->
 <html lang="es">
 <head>
 <meta charset="UTF-8">

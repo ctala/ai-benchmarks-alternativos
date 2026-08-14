@@ -175,6 +175,18 @@ MODELS = {
         "subscriptions": ["minimax_agent_pro"],
         "notes": "Acceso vía sub Agent Pro $19/mes. Misma calidad que M2.7 directo, latencia ultra baja.",
     },
+    "gemini-3.6-flash": {
+        "id": "google/gemini-3.6-flash",
+        "name": "Gemini 3.6 Flash",
+        "cost_input": 0.75,
+        "cost_output": 3.75,
+        "tier": "cheap",
+        "context_window": 1048576,
+        "notes": ("Sucesor del 3.5 Flash. La MITAD del precio de su antecesor "
+                  "($1,50/$9 → $0,75/$3,75) con el mismo contexto de 1M. Existe "
+                  "`:batch` a $0,38/$1,88 que NO se mide: es otra ruta de servicio "
+                  "y mezclarla rompería el plano común."),
+    },
     "gemini-3.5-flash": {
         "id": "google/gemini-3.5-flash",
         "name": "Gemini 3.5 Flash",

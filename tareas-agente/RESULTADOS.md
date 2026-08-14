@@ -151,6 +151,88 @@ corrige solo y no avisa es peor que uno que se equivoca ruidosamente.
 
 ---
 
+# Tarea 3 — procesar una reunión de socios (media)
+
+**70 modelos · 229 corridas · US$ 2,80 · media 0,950**
+
+El input no son datos limpios: es una **conversación**, con su ruido. Alguien se corrige,
+algo se propone y se descarta, algo se da por cerrado y no lo está. El artefacto es el
+**tablero de tareas actualizado**.
+
+Desde el 14-ago la tarea trae `politica.md` con las 9 reglas que los tests verifican
+—criterio 2 de la rúbrica, `well_specified`—. Las **reglas** están escritas; las
+**situaciones** siguen escondidas en la transcripción. Las 216 corridas de la versión sin
+política se descartaron solas por `task_checksum`.
+
+| resultado | modelos |
+|---|---|
+| perfecto en los 3 intentos | **54** |
+| parcial | 10 |
+| inestable (piso 0,00) | 5 |
+| rompe el bucle | 1 |
+
+## El hallazgo, y por qué escribir la regla lo VOLVIÓ MÁS FUERTE
+
+En la reunión los socios discuten qué hacer ante una falla no prevista. Ninguno lo tiene
+claro. Acuerdan anotarlo **sin respuesta**. Y la política, ahora, lo dice explícito:
+
+> *«No se elige una por ellos: el tablero pasaría a afirmar una política que nadie acordó
+> y que alguien va a ejecutar creyendo que se decidió.»*
+
+| | sin la regla escrita | **con la regla escrita** |
+|---|---|---|
+| Modelos que inventaron la política | 14 de 68 · **21%** | **8 de 70 · 11%** |
+
+Escribirla lo redujo a la mitad **y no lo eliminó**. Los 8 que quedan no fallaron por no
+deducir una regla tácita: **la incumplieron teniéndola delante.**
+
+| modelo | calidad |
+|---|---|
+| `deepseek/deepseek-r1` | 8,43 |
+| `google/gemma-4-26b-a4b-it` | 8,28 |
+| `deepseek/deepseek-chat` | 8,05 |
+| `meta-llama/llama-4-scout` | 7,82 |
+| `qwen/qwen3.5-35b-a3b` | 7,81 |
+| `google/gemini-2.5-flash-lite` | 7,78 |
+| `nvidia/nemotron-3-nano-30b-a3b` | 7,54 |
+| `openai/gpt-oss-20b` | 7,38 |
+
+Y el fallo más frecuente ahora es el mismo agujero por el otro lado: **12 modelos ni
+siquiera anotan la decisión pendiente** (19 corridas). Entre los que la omiten y los que
+la inventan, **20 de 70 no saben registrar «esto quedó sin decidir»**.
+
+## Los otros modos de fallo
+
+| trampa | corridas | modelos |
+|---|---|---|
+| No anotar la decisión pendiente | 19 | **12** |
+| Inventar la decisión que nadie tomó | 14 | 8 |
+| No cerrar el precio que SÍ se decidió | 11 | 7 |
+| Perder tareas del tablero | 10 | 6 |
+| Cerrar el checkout que sigue abierto | 10 | 7 |
+| No subir la prioridad acordada | 10 | 6 |
+
+## La cola
+
+| modelo | media | piso | estado |
+|---|---|---|---|
+| `qwen/qwen3.5-35b-a3b` | 0,00 | 0,00 | `rompe_bucle` |
+| `deepseek/deepseek-r1` | 0,33 | 0,00 | inestable |
+| `meta-llama/llama-4-scout` | 0,49 | 0,00 | inestable |
+| `nvidia/nemotron-3-nano-30b-a3b` | 0,64 | 0,00 | inestable |
+| `openai/gpt-oss-20b` | 0,64 | 0,00 | inestable |
+
+**DeepSeek R1 tiene el índice de calidad más alto de la cola (8,43) y saca 0,33 con piso
+0,00.** Es el mismo contraste que ya dio Hermes en cotizar: la calidad del texto no
+predice si el trabajo se hace.
+
+## Estreno
+
+**Gemini 3.6 Flash: 1,00 con piso 1,00** en su primera medición. Cuesta la mitad que su
+antecesor ($0,75/$3,75 contra $1,50/$9) con el mismo contexto de 1M.
+
+---
+
 ## Lo que costó, y por qué eso cambia el plan
 
 | | costo |
