@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T13:50:47",
+  "generated_at": "2026-08-14T10:15:28",
   "total_models": 191,
   "tested_count": 138,
   "ranked_count": 79,
@@ -22,7 +22,7 @@
     "latency": 0.075
   },
   "score_method": "zscore_frozen_v4",
-  "scoring_version": "v4.1",
+  "scoring_version": "v4.2",
   "norm_stats": {
     "quality_avg": {
       "mean": 8.1309,
@@ -334,7 +334,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.93,
       "score_calidad": 8.43,
-      "pareto": true
+      "pareto": true,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 5,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "tencent-hy3",
@@ -500,7 +512,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.71,
       "score_calidad": 8.53,
-      "pareto": true
+      "pareto": true,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 6,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "qwen3.7-flash",
@@ -669,7 +693,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.9,
       "score_calidad": 8.42,
-      "pareto": true
+      "pareto": true,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.963,
+            "piso": 0.8889,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "laguna-xs-2.1",
@@ -835,7 +871,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.91,
       "score_calidad": 8.19,
-      "pareto": true
+      "pareto": true,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.8889,
+            "piso": 0.7778,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "inkling-small",
@@ -1002,7 +1050,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.46,
       "score_calidad": 8.36,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.963,
+            "piso": 0.8889,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "gemma-4-26b",
@@ -1158,7 +1218,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.65,
       "score_calidad": 8.28,
-      "pareto": true
+      "pareto": true,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "nex-n2-mini",
@@ -1324,7 +1396,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.85,
       "score_calidad": 8.15,
-      "pareto": true
+      "pareto": true,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "deepseek-r1",
@@ -1488,7 +1572,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.18,
       "score_calidad": 8.43,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "gpt-5.4",
@@ -1644,7 +1740,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.34,
       "score_calidad": 8.32,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "qwen-3.6-plus",
@@ -1800,7 +1898,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.36,
       "score_calidad": 8.33,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "or-deepseek-v3",
@@ -1956,7 +2066,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.47,
       "score_calidad": 8.27,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.9259,
+            "piso": 0.8889,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "or-glm5",
@@ -2112,7 +2234,25 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.31,
       "score_calidad": 8.33,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-facturacion": {
+            "media": 0.75,
+            "piso": 0.75,
+            "intentos": 1,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "claude-opus-4.8",
@@ -2277,7 +2417,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.14,
       "score_calidad": 8.37,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "claude-haiku-4.5",
@@ -2435,7 +2587,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.58,
       "score_calidad": 8.19,
-      "pareto": true
+      "pareto": true,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "glm-5.2",
@@ -2602,7 +2766,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.41,
       "score_calidad": 8.28,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "gpt-5.4-mini",
@@ -2758,7 +2934,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.73,
       "score_calidad": 8.11,
-      "pareto": true
+      "pareto": true,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "gpt-5.6-terra",
@@ -2923,7 +3101,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.46,
       "score_calidad": 8.21,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "or-mistral-large-3",
@@ -3079,7 +3269,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.53,
       "score_calidad": 8.19,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "qwen-3.6-max",
@@ -3243,7 +3445,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.06,
       "score_calidad": 8.37,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "or-ministral-14b",
@@ -3399,7 +3613,25 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.63,
       "score_calidad": 8.13,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.7778,
+            "piso": 0.6667,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          },
+          "harbor-facturacion": {
+            "media": 0.625,
+            "piso": 0.625,
+            "intentos": 1,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "claude-opus-4.6",
@@ -3555,7 +3787,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.05,
       "score_calidad": 8.34,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "muse-spark-1.2",
@@ -3721,7 +3965,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.44,
       "score_calidad": 8.17,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "hermes-4-405b",
@@ -3875,7 +4131,20 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.37,
       "score_calidad": 8.2,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.0,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "sin_herramientas",
+            "motivo": "no existe endpoint con tool use — el modelo nunca llegó a correr"
+          }
+        },
+        "estado": "no_apto"
+      },
+      "sirve_para_agentes": false
     },
     {
       "key": "muse-glimmer-30b",
@@ -4040,7 +4309,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.52,
       "score_calidad": 8.14,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "glm-5.1",
@@ -4196,7 +4477,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.24,
       "score_calidad": 8.26,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "gemini-3.1-flash-lite",
@@ -4361,7 +4654,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.74,
       "score_calidad": 7.98,
-      "pareto": true
+      "pareto": true,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.9259,
+            "piso": 0.8889,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "claude-opus-4.7",
@@ -4517,7 +4822,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.03,
       "score_calidad": 8.28,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "deepseek-v4-flash",
@@ -4684,7 +5001,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.51,
       "score_calidad": 8.1,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "or-minimax-m2.5",
@@ -4840,7 +5169,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.51,
       "score_calidad": 8.09,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.963,
+            "piso": 0.8889,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "minimax-m3",
@@ -5005,7 +5346,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.36,
       "score_calidad": 8.13,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "mistral-small-4",
@@ -5169,7 +5522,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.68,
       "score_calidad": 7.97,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.7778,
+            "piso": 0.6667,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "kimi-k2.6",
@@ -5333,7 +5698,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.14,
       "score_calidad": 8.22,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "mimo-v2.5-or",
@@ -5489,7 +5866,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.4,
       "score_calidad": 8.08,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "or-claude-fable-5",
@@ -5647,7 +6036,19 @@
       "policy_refusal_rate": 0.2009,
       "score_global_linear": 6.82,
       "score_calidad": 8.27,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "deepseek-v4-pro",
@@ -5803,7 +6204,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.31,
       "score_calidad": 8.12,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "gpt-4.1",
@@ -5959,7 +6372,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.4,
       "score_calidad": 8.04,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "gpt-5.6-sol",
@@ -6124,7 +6539,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.99,
       "score_calidad": 8.2,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "mimo-v2.5-pro-or",
@@ -6280,7 +6707,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.37,
       "score_calidad": 8.08,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "solar-pro4",
@@ -6447,7 +6886,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.43,
       "score_calidad": 8.03,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.9722,
+            "piso": 0.8889,
+            "intentos": 4,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "qwen-3.7-max",
@@ -6605,7 +7056,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.11,
       "score_calidad": 8.16,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "gemini-flash",
@@ -6759,7 +7222,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.49,
       "score_calidad": 7.98,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.9259,
+            "piso": 0.8889,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "or-qwen3-next-instruct",
@@ -6915,7 +7390,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.58,
       "score_calidad": 7.93,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.8148,
+            "piso": 0.6667,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "ling-3.0-flash",
@@ -7081,7 +7568,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.7,
       "score_calidad": 7.88,
-      "pareto": true
+      "pareto": true,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "or-gpt-oss-120b",
@@ -7237,7 +7736,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.36,
       "score_calidad": 8.03,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "kimi-k2",
@@ -7393,7 +7904,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.25,
       "score_calidad": 8.05,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "deepseek-v4-flash-0731",
@@ -7562,7 +8085,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.36,
       "score_calidad": 8.0,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.963,
+            "piso": 0.8889,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "deepseek-v3",
@@ -7718,7 +8253,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.27,
       "score_calidad": 8.05,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.8148,
+            "piso": 0.4444,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "grok-4.5",
@@ -7883,7 +8430,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.14,
       "score_calidad": 8.01,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "or-llama-4-scout",
@@ -8039,7 +8598,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.59,
       "score_calidad": 7.82,
-      "pareto": true
+      "pareto": true,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "qwen3.6-35b",
@@ -8203,7 +8774,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.41,
       "score_calidad": 7.93,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "gemini-flash-lite",
@@ -8370,7 +8953,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.57,
       "score_calidad": 7.78,
-      "pareto": true
+      "pareto": true,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.9259,
+            "piso": 0.7778,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "claude-sonnet-4.6",
@@ -8526,7 +9121,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.97,
       "score_calidad": 8.02,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "openrouter-nemotron-3-ultra-550b",
@@ -8688,7 +9295,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.28,
       "score_calidad": 7.9,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "llama-4-maverick",
@@ -8855,7 +9474,20 @@
       "policy_refusal_rate": 0.0033,
       "score_global_linear": 7.31,
       "score_calidad": 7.88,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.0,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "rompe_bucle",
+            "motivo": "tiene herramientas pero no sostiene el formato de tool call"
+          }
+        },
+        "estado": "no_apto"
+      },
+      "sirve_para_agentes": false
     },
     {
       "key": "or-llama-3.3-70b",
@@ -9011,7 +9643,19 @@
       "policy_refusal_rate": 0.0067,
       "score_global_linear": 7.21,
       "score_calidad": 7.91,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.963,
+            "piso": 0.8889,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "qwen3-coder-next",
@@ -9175,7 +9819,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.5,
       "score_calidad": 7.77,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "laguna-s-2.1",
@@ -9342,7 +9988,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.49,
       "score_calidad": 7.78,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 5,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "or-qwen3.5-397b",
@@ -9498,7 +10156,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.04,
       "score_calidad": 7.94,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "mistral-large",
@@ -9654,7 +10324,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.12,
       "score_calidad": 7.9,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.963,
+            "piso": 0.8889,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "kimi-k2.7-code",
@@ -9818,7 +10500,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.01,
       "score_calidad": 7.94,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "claude-sonnet-5",
@@ -9984,7 +10678,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.99,
       "score_calidad": 7.94,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "or-gpt-oss-20b",
@@ -10140,7 +10846,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.42,
       "score_calidad": 7.78,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.5556,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "inestable"
+          }
+        },
+        "estado": "inestable"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "or-qwen-3.5-35b",
@@ -10296,7 +11014,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.35,
       "score_calidad": 7.81,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.8889,
+            "piso": 0.8889,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "gpt-4.1-mini",
@@ -10452,7 +11182,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.36,
       "score_calidad": 7.76,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "minimax-m2.7",
@@ -10608,7 +11340,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.19,
       "score_calidad": 7.85,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "hermes-4-70b",
@@ -10769,7 +11513,20 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.41,
       "score_calidad": 7.7,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.0,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "sin_herramientas",
+            "motivo": "no existe endpoint con tool use — el modelo nunca llegó a correr"
+          }
+        },
+        "estado": "no_apto"
+      },
+      "sirve_para_agentes": false
     },
     {
       "key": "qwen3-coder",
@@ -10925,7 +11682,25 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.29,
       "score_calidad": 7.74,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.8334,
+            "piso": 0.6667,
+            "intentos": 4,
+            "estado": "ok_parcial"
+          },
+          "harbor-facturacion": {
+            "media": 0.625,
+            "piso": 0.625,
+            "intentos": 1,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "kimi-k3",
@@ -11083,7 +11858,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.58,
       "score_calidad": 7.96,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "qwen3.6-27b",
@@ -11247,7 +12034,19 @@
       "policy_refusal_rate": 0.0041,
       "score_global_linear": 6.89,
       "score_calidad": 7.85,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "grok-4.20",
@@ -11403,7 +12202,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.17,
       "score_calidad": 7.66,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.8519,
+            "piso": 0.7778,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "grok-4.3",
@@ -11565,7 +12376,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.17,
       "score_calidad": 7.63,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "nemotron-nano",
@@ -11721,7 +12544,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.24,
       "score_calidad": 7.54,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "gemini-pro",
@@ -11877,7 +12712,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.69,
       "score_calidad": 7.65,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.8519,
+            "piso": 0.7778,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "or-qwen3-next-thinking",
@@ -12033,7 +12880,20 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.03,
       "score_calidad": 7.49,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.0,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "rompe_bucle",
+            "motivo": "tiene herramientas pero no sostiene el formato de tool call"
+          }
+        },
+        "estado": "no_apto"
+      },
+      "sirve_para_agentes": false
     },
     {
       "key": "claude-opus-5",
@@ -12193,7 +13053,19 @@
       "policy_refusal_rate": 0.0573,
       "score_global_linear": 6.48,
       "score_calidad": 7.55,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "gemini-3.5-flash",
@@ -12360,7 +13232,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.74,
       "score_calidad": 7.34,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "claude-opus-5-fast",
@@ -12520,7 +13404,19 @@
       "policy_refusal_rate": 0.0446,
       "score_global_linear": 6.45,
       "score_calidad": 7.42,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "or-llama-3.1-8b",
@@ -12676,7 +13572,20 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.99,
       "score_calidad": 7.1,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.0,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "rompe_bucle",
+            "motivo": "tiene herramientas pero no sostiene el formato de tool call"
+          }
+        },
+        "estado": "no_apto"
+      },
+      "sirve_para_agentes": false
     },
     {
       "key": "gemini-3.1-pro",
@@ -12832,7 +13741,19 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.49,
       "score_calidad": 7.31,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "mimo-v2-flash",
@@ -12983,7 +13904,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.92,
       "score_calidad": 8.72,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "devstral",
@@ -13120,7 +14043,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 8.18,
       "score_calidad": 8.54,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "claude-sonnet-5-sub",
@@ -13295,7 +14220,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.39,
       "score_calidad": 8.86,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "gpt-5.6-luna-pro",
@@ -13464,7 +14391,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.86,
       "score_calidad": 8.6,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "claude-fable-5-sub",
@@ -13632,7 +14561,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.17,
       "score_calidad": 8.61,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-devstral-2-123b",
@@ -13775,7 +14706,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.68,
       "score_calidad": 8.44,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "spark-gemma4-12b",
@@ -13934,7 +14867,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.58,
       "score_calidad": 8.49,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "or-nemotron-super-1.5",
@@ -14088,7 +15023,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.62,
       "score_calidad": 8.4,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "local-gemma4-31b",
@@ -14247,7 +15184,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.34,
       "score_calidad": 8.46,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-mistral-large-3",
@@ -14410,7 +15349,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.3,
       "score_calidad": 8.44,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "claude-haiku-4.5-sub",
@@ -14610,7 +15551,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.46,
       "score_calidad": 8.29,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "claude-opus-5-sub",
@@ -14782,7 +15725,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.93,
       "score_calidad": 8.49,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "gpt-5.6-terra-pro",
@@ -14953,7 +15898,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.3,
       "score_calidad": 8.34,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "mimo-v2-pro",
@@ -15124,7 +16071,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.43,
       "score_calidad": 8.3,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-qwen3.5-397b",
@@ -15285,7 +16234,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.26,
       "score_calidad": 8.36,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "claude-opus-4.8-sub",
@@ -15480,7 +16431,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.05,
       "score_calidad": 8.38,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "or-qwen-2.5-72b",
@@ -15671,7 +16624,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.48,
       "score_calidad": 8.24,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-glm5",
@@ -15826,7 +16781,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.13,
       "score_calidad": 8.35,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "claude-sonnet-4.6-sub",
@@ -16006,7 +16963,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.09,
       "score_calidad": 8.29,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-qwen3-next-instruct",
@@ -16171,7 +17130,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.55,
       "score_calidad": 8.13,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "spark-gemma4-31b-llamacpp",
@@ -16324,7 +17285,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.23,
       "score_calidad": 8.26,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "mimo-v2.5-pro",
@@ -16504,7 +17467,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.53,
       "score_calidad": 8.14,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "grok-4.1-fast",
@@ -16655,7 +17620,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.66,
       "score_calidad": 8.07,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "mimo-v2.5",
@@ -16839,7 +17806,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.6,
       "score_calidad": 8.09,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "claude-opus-4.7-sub",
@@ -17029,7 +17998,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.01,
       "score_calidad": 8.27,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "spark-gemma4-12b-think",
@@ -17186,7 +18157,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.3,
       "score_calidad": 8.19,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "devstral-medium",
@@ -17335,7 +18308,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.47,
       "score_calidad": 8.09,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-deepseek-v4-flash",
@@ -17498,7 +18473,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.35,
       "score_calidad": 8.15,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "gpt-5.5",
@@ -17657,7 +18634,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.0,
       "score_calidad": 8.23,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "local-diffusiongemma-26b",
@@ -17803,7 +18782,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.4,
       "score_calidad": 8.14,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-gemma-4-31b",
@@ -17960,7 +18941,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.33,
       "score_calidad": 8.15,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "mimo-v2-pro-xiaomi",
@@ -18140,7 +19123,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.45,
       "score_calidad": 8.11,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-glm-5.1",
@@ -18288,7 +19273,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.05,
       "score_calidad": 8.25,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nemotron-3.5-lightning",
@@ -18451,7 +19438,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.69,
       "score_calidad": 7.98,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "devstral-2",
@@ -18609,7 +19598,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.45,
       "score_calidad": 8.07,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-step-3.5-flash",
@@ -18804,7 +19795,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.41,
       "score_calidad": 8.09,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "or-nemotron-3-nano-omni-reasoning",
@@ -18958,7 +19951,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.61,
       "score_calidad": 7.99,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "groq-llama-3.3-70b",
@@ -19117,7 +20112,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.83,
       "score_calidad": 7.82,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-kimi-k2-thinking",
@@ -19314,7 +20311,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.17,
       "score_calidad": 8.13,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "minimax-m3-direct",
@@ -19506,7 +20505,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.21,
       "score_calidad": 8.11,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "or-nemotron-nano-9b-v2",
@@ -19662,7 +20663,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.32,
       "score_calidad": 8.02,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "local-nemotron-3-super-120b",
@@ -19821,7 +20824,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.17,
       "score_calidad": 8.06,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "qwen3.5-397b-cloud",
@@ -20031,7 +21036,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.17,
       "score_calidad": 8.02,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nemotron-super",
@@ -20206,7 +21213,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.3,
       "score_calidad": 7.93,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "mimo-v2-omni-xiaomi",
@@ -20394,7 +21403,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.51,
       "score_calidad": 7.84,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "groq-llama-4-scout",
@@ -20551,7 +21562,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.68,
       "score_calidad": 7.66,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-nemotron-3-nano-omni-reasoning",
@@ -20702,7 +21715,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.52,
       "score_calidad": 7.76,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-nemotron-nano-9b-v2",
@@ -20853,7 +21868,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.34,
       "score_calidad": 7.83,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "mimo-v2-omni",
@@ -21024,7 +22041,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.29,
       "score_calidad": 7.83,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "local-nemotron3-base-33b",
@@ -21175,7 +22194,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.34,
       "score_calidad": 7.82,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-ministral-14b",
@@ -21330,7 +22351,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.11,
       "score_calidad": 7.86,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "gpt-oss-120b-cloud",
@@ -21498,7 +22521,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.34,
       "score_calidad": 7.72,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "groq-llama-3.1-8b",
@@ -21661,7 +22686,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.62,
       "score_calidad": 7.38,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "groq-gpt-oss-20b",
@@ -21834,7 +22861,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.54,
       "score_calidad": 7.38,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-nemotron-super-1.5",
@@ -21999,7 +23028,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.97,
       "score_calidad": 7.66,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "qwen3.5-cloud",
@@ -22211,7 +23242,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.0,
       "score_calidad": 7.63,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-kimi-k2.5",
@@ -22404,7 +23437,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.55,
       "score_calidad": 7.43,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-qwen3-next-thinking",
@@ -22552,7 +23587,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.84,
       "score_calidad": 7.17,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "mistral-nemo",
@@ -22713,7 +23750,9 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.59,
       "score_calidad": 7.03,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-mistral-nemotron",
@@ -22817,7 +23856,9 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_calidad": 9.21,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-deepseek-v4-pro",
@@ -22913,7 +23954,9 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_calidad": 9.42,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-magistral-small",
@@ -23000,7 +24043,9 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_calidad": 9.16,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "local-qwen3.6-27b",
@@ -23096,7 +24141,9 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_calidad": 8.45,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "or-kimi-k2-thinking",
@@ -23178,7 +24225,9 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_calidad": 5.0,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "nim-nemotron-3.5-lightning",
@@ -23261,7 +24310,9 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_calidad": 4.77,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "deepseek-r1-free",
@@ -23305,7 +24356,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "llama-3.3-70b-free",
@@ -23349,7 +24402,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "qwen3-coder-free",
@@ -23393,7 +24448,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "minimax-m2.7-direct",
@@ -23475,7 +24532,9 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "minimax-m2.7-highspeed",
@@ -23557,7 +24616,9 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "gemini-flash-thinking",
@@ -23601,7 +24662,19 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.9259,
+            "piso": 0.8889,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "qwen-3.5-plus",
@@ -23645,7 +24718,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "kimi-k2.5-thinking",
@@ -23689,7 +24764,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "kimi-k2.6-thinking",
@@ -23733,7 +24810,19 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "claude-opus-4.7-thinking",
@@ -23777,7 +24866,19 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "gpt-4o",
@@ -23821,7 +24922,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "claude-sonnet",
@@ -23865,7 +24968,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "claude-sonnet-4.6-thinking",
@@ -23909,7 +25014,19 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "claude-haiku-4.5-thinking",
@@ -23953,7 +25070,19 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "openrouter-north-mini-code",
@@ -23997,7 +25126,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "gpt-5.5-pro",
@@ -24041,7 +25172,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "groq-gpt-oss-120b",
@@ -24085,7 +25218,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "gpt-4o-high",
@@ -24129,7 +25264,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "deepseek-v4-pro-cloud",
@@ -24182,7 +25319,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "deepseek-v4-flash-cloud",
@@ -24235,7 +25374,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "gemini-3.1-flash-lite-thinking",
@@ -24279,7 +25420,19 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.9259,
+            "piso": 0.8889,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "gemini-3.1-pro-thinking",
@@ -24323,7 +25476,19 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
     },
     {
       "key": "grok-4.20-multi-agent",
@@ -24367,7 +25532,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "mimo-v2-flash-free",
@@ -24411,7 +25578,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "qwen-3.6-plus-free",
@@ -24455,7 +25624,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "hermes-4-70b-thinking",
@@ -24499,7 +25670,20 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.0,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "sin_herramientas",
+            "motivo": "no existe endpoint con tool use — el modelo nunca llegó a correr"
+          }
+        },
+        "estado": "no_apto"
+      },
+      "sirve_para_agentes": false
     },
     {
       "key": "hermes-4-405b-thinking",
@@ -24543,7 +25727,20 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.0,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "sin_herramientas",
+            "motivo": "no existe endpoint con tool use — el modelo nunca llegó a correr"
+          }
+        },
+        "estado": "no_apto"
+      },
+      "sirve_para_agentes": false
     },
     {
       "key": "step3",
@@ -24587,7 +25784,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "seed-oss-36b",
@@ -24631,7 +25830,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "spark-gemma4-31b-think",
@@ -24675,7 +25876,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "or-kimi-k2.5",
@@ -24748,7 +25951,9 @@
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "or-step-3.5-flash",
@@ -24792,7 +25997,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "or-gemma-4-31b",
@@ -24869,7 +26076,9 @@
       "security_score": 1.82,
       "policy_refusal_rate": 0.0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "local-nemotron-3-nano-omni-reasoning",
@@ -24913,7 +26122,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "local-qwen3.5-35b",
@@ -24957,7 +26168,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "local-qwen3.6-35b",
@@ -25001,7 +26214,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "local-qwen3-coder-next",
@@ -25045,7 +26260,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "local-qwen2.5-72b",
@@ -25089,7 +26306,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "llama3.3-70b",
@@ -25133,7 +26352,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "llama4-maverick",
@@ -25177,7 +26398,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "gemma4-31b",
@@ -25221,7 +26444,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "gemma4-26b-moe",
@@ -25265,7 +26490,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "local-devstral-small-2",
@@ -25309,7 +26536,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "local-deepseek-v3",
@@ -25353,7 +26582,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "mistral-nemo-12b",
@@ -25397,7 +26628,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "phi-4-14b",
@@ -25441,7 +26674,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     },
     {
       "key": "minimax-m2.5",
@@ -25485,7 +26720,9 @@
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "score_calidad": null,
-      "pareto": false
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null
     }
   ]
 }
