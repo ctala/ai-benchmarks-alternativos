@@ -1,5 +1,5 @@
 {
-  "version": "v4.1",
+  "version": "v4.2",
   "computed_at": "2026-08-13T06:18:15",
   "score_method": "zscore_frozen_v4",
   "norm_stats": {
@@ -98,5 +98,7 @@
     "offset": 5.5,
     "slope": 2.37,
     "slope_calidad": 1.6609
-  }
+  },
+  "calibracion_heredada_de": "v4.1",
+  "nota_calibracion": "v4.2 NO recalibró: agrega la dimensión agéntica, que se publica aparte y no entra al score. Los mean/std son los computados en v4.1 (2026-08-13). La referencia solo se recalcula con --recalibrate, que es un evento deliberado."
 }
