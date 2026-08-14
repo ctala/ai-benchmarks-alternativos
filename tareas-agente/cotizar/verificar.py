@@ -40,6 +40,11 @@ def _montos_cobrados(t: str) -> set:
 
 def main() -> int:
     t = Path(sys.argv[1]).read_text(encoding="utf-8")
+    # El archivo guarda ENTRADA y SALIDA (trazabilidad). Se puntúa solo la salida: si no,
+    # el enunciado —que menciona los precios del tarifario— contaría como si el modelo los
+    # hubiera escrito.
+    if "# SALIDA" in t:
+        t = t.split("# SALIDA", 1)[1]
     n = t.replace(".", "").replace(",", "").lower()   # números sin separadores
     r, pts = {}, 0
 

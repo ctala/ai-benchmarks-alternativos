@@ -1,4 +1,4 @@
-<!-- modelo: openai/gpt-5.6-luna · run 2 · prompt_sha 0a6c1a5c90ff -->
+<!-- modelo: deepseek/deepseek-v4-flash · run 2 · prompt_sha 0a6c1a5c90ff -->
 # ENTRADA
 
 ```
@@ -64,23 +64,30 @@ Cotizá el encargo del cliente.
 
 # SALIDA
 
-## Cotización preliminar — 12 de agosto de 2026
+## Cotización – Proyecto de Implementación y Migración
 
-Precios netos en USD. Se aplica un factor de urgencia de **1,25** por la fecha solicitada —fin de agosto—, dentro de la banda permitida de 0,85 a 2,00.
+**Cliente:** [Nombre del cliente]  
+**Fecha:** 12 de agosto de 2026  
+**Referencia:** Encargo del 12/08/2026  
 
-| Ítem | Precio de referencia | Ajuste | Precio cotizado | Motivo |
-|---|---:|---:|---:|---|
-| **IMPL-AVZ — Implementación avanzada** | USD 4.800 | × 1,25 | **USD 6.000** | Implementación completa. Incluye la implementación básica; no se cobra IMPL-BAS aparte. |
-| **MIGRA-REV — Revisión de migración ajena** | USD 1.600 | × 1,25 | **USD 2.000** | Revisión integral de la migración iniciada por el proveedor anterior. Revisar cuesta lo mismo que hacer; no se aplica descuento por tratarse de una revisión. |
-| **INTEG — Integración con sistema externo** | USD 2.100 | × 1,25 | **USD 2.625** | Conexión con el ERP, considerada integración con sistema externo. |
+Según su solicitud, detallamos los servicios requeridos, aplicando las reglas del tarifario y un ajuste por urgencia (plazo hasta fin de mes, 19 días hábiles).  
 
-### Subtotal cotizado
+| Ítem | Servicio | Precio de referencia (USD) | Ajuste por urgencia (factor 1,2) | Precio final (USD) | Notas |
+|------|----------|----------------------------|----------------------------------|--------------------|-------|
+| 1 | **IMPL-AVZ** – Implementación avanzada | 4.800 | +20% | **5.760** | Incluye la implementación básica (IMPL-BAS) según regla de absorción. No se cobra aparte. |
+| 2 | **MIGRA-REV** – Revisión de migración ajena | 1.600 | +20% | **1.920** | Revisión de la migración iniciada por el proveedor anterior. El costo es igual al de hacerla (regla 4). |
+| 3 | **MIGRA** – Migración de datos | 1.600 | +20% | **1.920** | Finalización de la migración (completar el trabajo pendiente). Se factura aparte de la revisión, ya que son servicios distintos. |
+| 4 | **INTEG** – Integración con sistema externo (ERP) | 2.100 | +20% | **2.520** | Conexión de la plataforma con su ERP. |
+| | **Total** | | | **12.120 USD** | |
 
-**USD 10.625**
+### Detalle de ajustes
+- **Urgencia:** Se aplica un factor de **1,2** (banda permitida 0,85–2,00) debido al plazo ajustado solicitado (fin de mes). El incremento cubre la priorización y eventual dedicación extra necesaria para cumplir con la fecha.
 
-### Aclaraciones de alcance
+### Servicios no incluidos
+- **DIAG** (Diagnóstico): no se cotiza porque usted ya cuenta con un diagnóstico de otra consultora.
+- **CAPA** (Capacitación) y **SOP-3M** (Soporte): no fueron solicitados.
+- Cualquier otro servicio no listado en el tarifario requerirá una cotización humana separada (regla 7).
 
-- No se incluye el diagnóstico (**DIAG**), ya que el cliente informó que cuenta con uno realizado por otra consultora.
-- No se cobra la implementación básica por separado: está absorbida por la implementación avanzada.
-- La tarifa **MIGRA-REV** cubre la revisión de la migración ajena. La **finalización o corrección de los pendientes** no está descrita explícitamente como parte de ese ítem. Para cotizar esa parte hace falta relevar el estado de la migración y emitir una **cotización humana adicional**; no se estima por analogía con otro servicio.
-- Por lo tanto, **USD 10.625 no es aún el total final del encargo completo**: queda pendiente cotizar la terminación de la migración una vez revisado su alcance.
+**Forma de pago:** Dólares estadounidenses (USD), netos, según condiciones acordadas.
+
+Quedamos a su disposición para cualquier aclaración o ajuste adicional.
