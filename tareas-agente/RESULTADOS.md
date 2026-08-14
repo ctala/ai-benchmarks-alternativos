@@ -100,3 +100,45 @@ predecible vale más que uno con mejor promedio y varianza.
 3. **El andamiaje hace buena parte del trabajo.** En la versión single-shot estos mismos
    modelos sacaban entre 9 y 17 de 17; dentro de un agente, 1,0. Un modelo que falla
    respondiendo de una vez acierta cuando puede leer archivos e iterar.
+
+---
+
+# Tarea 2 — cierre de facturación (difícil)
+
+Cada test corresponde a **plata real mal cobrada**, no a prolijidad. La respuesta ingenua
+—sumar todo lo registrado sin mirar contratos ni duplicados— factura **USD 6.774,50 cuando
+corresponden 5.629,50: un 20% de más**.
+
+| error | costo |
+|---|---|
+| Contar la línea duplicada del registro de horas | **+$235** al cliente |
+| Ignorar el tope contractual de 40 h | **+$210** e incumplimiento de contrato |
+| Facturar al cliente con contrato vencido | **+$700** sin contrato vigente |
+
+## Resultados del sub-segmento
+
+| modelo | reward | qué falló |
+|---|---|---|
+| `z-ai/glm-5` | **0,75** | el duplicado · el total |
+| `qwen/qwen3-coder` | 0,625 | el duplicado · el total · no dejó constancia |
+| `mistralai/ministral-14b-2512` | 0,625 | el duplicado · el total · no dejó constancia |
+
+**Ninguno saca perfecto**, y GLM-5 —que acertaba 3 de 3 en cotizar— baja a 0,75. La tarea
+difícil separa donde la básica saturaba.
+
+## El hallazgo
+
+**Los tres fallaron el MISMO test: no vieron la línea duplicada.** Los tres le habrían
+cobrado USD 235 de más al cliente.
+
+Y lo que sí pasaron dice tanto como lo que fallaron: **los tres respetaron el tope
+contractual y ninguno facturó al contrato vencido.** O sea que leyeron los contratos. Lo
+que no hicieron fue **desconfiar de los datos**.
+
+> Los modelos leen las reglas. Lo que no hacen es dudar de los datos.
+> Un duplicado en una planilla —el error más común de cualquier operación— pasa derecho a
+> la factura del cliente.
+
+Segundo hallazgo: **dos de tres tampoco dejaron constancia** de lo que requería decisión
+humana (el tope excedido, el contrato vencido). Ajustaron en silencio. Un asistente que
+corrige solo y no avisa es peor que uno que se equivoca ruidosamente.

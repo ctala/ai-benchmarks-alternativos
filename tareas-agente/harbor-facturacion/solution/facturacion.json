@@ -1,0 +1,25 @@
+{
+  "facturas": [
+    {
+      "cliente_id": "CL-0142",
+      "neto_usd": 869.5
+    },
+    {
+      "cliente_id": "CL-0287",
+      "neto_usd": 2060.0
+    },
+    {
+      "cliente_id": "CL-0301",
+      "neto_usd": 1680.0
+    },
+    {
+      "cliente_id": "CL-0402",
+      "neto_usd": 1020.0
+    }
+  ],
+  "total_neto_usd": 5629.5,
+  "notas": [
+    "CL-0301: 45 h registradas, tope contractual 40 h sin autorización escrita — se facturan 40; las 5 restantes requieren autorización del cliente.",
+    "CL-0355: 14 h registradas pero contrato vencido el 2026-07-31 — no se factura, requiere renovación."
+  ]
+}
