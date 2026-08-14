@@ -97,6 +97,7 @@ def _checksum_vigente() -> dict[str, str]:
     viejas de `harbor-cotizar` y habrían entrado al promedio sin decir nada.
     """
     conteo: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    mtimes: dict[str, dict[str, float]] = defaultdict(dict)
     for trial in JOBS.glob("*/*__*"):
         p = trial / "result.json"
         if not p.exists():
@@ -106,8 +107,24 @@ def _checksum_vigente() -> dict[str, str]:
         except Exception:
             continue
         if ck:
-            conteo[trial.name.split("__")[0]][ck] += 1
-    return {t: max(c, key=c.get) for t, c in conteo.items() if c}
+            tarea = trial.name.split("__")[0]
+            conteo[tarea][ck] += 1
+            mtimes[tarea][ck] = max(mtimes[tarea].get(ck, 0), p.stat().st_mtime)
+    # El vigente es el de la corrida MÁS RECIENTE, no el mayoritario.
+    #
+    # La v1 usaba mayoría, y eso funciona cuando quedan unos pocos rezagados viejos —
+    # pero se rompe justo cuando la tarea cambia a propósito: el 14-ago le agregué
+    # `politica.md` a `harbor-reunion` y quedaron **204 corridas de la versión vieja
+    # contra 1 de la nueva**. Por mayoría, el extractor habría descartado la corrida
+    # correcta y publicado las 204 obsoletas como si fueran de la tarea actual. El bug
+    # más peligroso posible: reportar en verde la versión equivocada.
+    vigente = {}
+    for t, c in conteo.items():
+        if not c:
+            continue
+        recientes = sorted(mtimes[t].items(), key=lambda kv: -kv[1])
+        vigente[t] = recientes[0][0]
+    return vigente
 
 
 def recolectar() -> dict:
