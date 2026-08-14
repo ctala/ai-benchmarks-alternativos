@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Verifica que una tarea de Harbor cumpla el ESTÁNDAR antes de gastar en medirla.
 
+El estándar es la rúbrica de Terminal-Bench Science adaptada a negocio — ver
+`tareas-agente/ESTANDAR-TAREAS.md`. Los criterios se citan por su número (C2, C7…).
+
 POR QUÉ EXISTE (14-ago-2026)
 ----------------------------
 Cristian: *"deberíamos generar el estándar para cómo generamos los tests, o agentes que
@@ -145,11 +148,86 @@ def validar(d: Path) -> Resultado:
     else:
         r.pasa("R10")
 
-    # ── R17 · la consigna no revela las trampas ─────────────────────────────
     inst = (d / "instruction.md").read_text(encoding="utf-8") if (d / "instruction.md").exists() else ""
+
+    # ── C2 · well_specified + C15 · test_instruction_alignment ──────────────
+    # De la rúbrica de Terminal-Bench Science: la consigna debe describir COMPLETAMENTE
+    # lo que los tests verifican, con mapeo 1:1. Un examen con preguntas ocultas no mide
+    # criterio, mide adivinación.
+    #
+    # La forma de cumplirlo sin regalar las trampas la da τ-bench: un documento de
+    # POLÍTICA que el agente SÍ recibe. Oculto ≠ no especificado — las REGLAS van
+    # escritas, las SITUACIONES van escondidas en los datos.
+    # ¿El entorno ENUNCIA las reglas que los tests verifican?
+    #
+    # Cuatro intentos me llevó aceptar que esto no se automatiza bien. Primero busqué
+    # archivos llamados `politica*` — y `harbor-facturacion` tiene sus reglas en
+    # `README-negocio.md`. Después busqué verbos normativos — y «se factura» no matchea
+    # «se facturan». Cada parche del regex deja otra forma afuera.
+    #
+    # Así que el chequeo hace lo que SÍ puede: cuenta líneas con forma de norma y
+    # **falla solo cuando no hay ninguna**. Entre 1 y 2 avisa y lo decide un humano.
+    # Es la misma honestidad que el estándar declara para el criterio 5: hay cosas que
+    # un script no puede juzgar, y fingir que sí da confianza falsa.
+    entorno = list((d / "environment").glob("*")) if (d / "environment").is_dir() else []
+    NORMATIVO = re.compile(
+        r"\b(se factur\w*|se cobra\w*|no se cobra\w*|se asigna\w*|no se asigna\w*|"
+        r"debe\w*|se puede\w*|no se puede|s[oó]lo se|siempre|nunca|correspond\w*|"
+        r"es un tope|se escala|se aplica\w*|se elige|se respeta|requiere|exige)\b", re.I)
+    normas = 0
+    for f in entorno:
+        if f.suffix.lower() not in (".md", ".txt") or not f.is_file():
+            continue
+        normas = max(normas, sum(1 for l in f.read_text(errors="replace").splitlines()
+                                 if NORMATIVO.search(l)))
+    tiene_politica = normas >= 3
+
+    if len(funcs) > 6 and normas == 0:
+        r.falla("C2", f"{len(funcs)} tests y ningún documento del entorno enuncia REGLAS "
+                      f"(≥3 normas). La consigna sola ({len(inst.split())} palabras) no puede "
+                      f"especificar lo que verifican {len(funcs)} tests: se están testeando "
+                      f"reglas que nadie escribió. τ-bench lo resuelve con un documento de "
+                      f"política que el agente SÍ recibe")
+    elif len(funcs) > 6 and normas < 3:
+        r.avisa("C2", f"el entorno enuncia solo {normas} regla(s) para {len(funcs)} tests. "
+                      f"Puede estar bien —una regla puede cubrir varios tests— pero "
+                      f"revisalo: la consigna debe especificar QUÉ se verifica")
+    else:
+        r.pasa("C2")
+
+    # ── C7 · essential_difficulty ───────────────────────────────────────────
+    # La dificultad tiene que venir del razonamiento del negocio, no del formato. No se
+    # puede medir estáticamente, pero SÍ se puede avisar del olor: si toda la salida es
+    # un JSON armado a mano, el fallo probable es de sintaxis y no de criterio.
+    # Medido en `harbor-ruteo`: los 4 modelos que entregaron sacaron 11/11 en las
+    # decisiones; los 2 que fallaron lo hicieron por comillas mal cerradas.
+    if "json" in inst.lower() and "```" in inst:
+        r.avisa("C7", "la consigna pide un JSON escrito a mano: verificá que la dificultad "
+                      "esté en la DECISIÓN y no en la sintaxis. Si los fallos del "
+                      "sub-segmento son de formato, la rúbrica rechaza la tarea")
+
+    # ── C21 · environment_hygiene ───────────────────────────────────────────
+    dock = d / "environment" / "Dockerfile"
+    if dock.exists():
+        t = dock.read_text()
+        if "tests" in t or "solution" in t:
+            r.falla("C21", "el Dockerfile copia tests/ o solution/ a la imagen: el agente "
+                           "puede leer la respuesta")
+        else:
+            r.pasa("C21")
+
+    # ── C25 · expert_time_estimate ──────────────────────────────────────────
+    toml = (d / "task.toml").read_text() if (d / "task.toml").exists() else ""
+    m = re.search(r"expert_time_estimate_min\s*=\s*([\d.]+)", toml)
+    if not m or float(m.group(1)) <= 0:
+        r.falla("C25", "falta `expert_time_estimate_min` o es 0: calibra la dificultad y "
+                       "los timeouts del agente")
+    else:
+        r.pasa("C25")
+
     if len(inst.split()) > 250:
-        r.avisa("R4", f"la consigna tiene {len(inst.split())} palabras: consignas largas "
-                      f"tienden a explicar las trampas en vez de esconderlas en los datos")
+        r.avisa("C16", f"la consigna tiene {len(inst.split())} palabras: `instruction_clarity` "
+                       f"pide prosa mínima orientada al resultado, sin pistas de la solución")
     return r
 
 
