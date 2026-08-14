@@ -21,5 +21,14 @@
 6. **El presupuesto mensual es un tope duro**, no una referencia. Pasarse no es una
    opción: se elige más barato.
 
-7. **A igualdad de condiciones, gana el más barato.** Pagar de más por capacidad que el
-   trabajo no necesita es el error más caro y el más fácil de cometer.
+7. **El mejor resultado al mejor precio — que NO es lo mismo que el más barato.** Cada
+   trabajo declara la `calidad_minima` que necesita, y el porqué está en su detalle:
+   depende de qué pasa cuando la respuesta sale mal, no de cuánto cuesta el modelo.
+
+   - **Por debajo de esa calidad no se asigna**, por barato que sea. Escatimar donde la
+     calidad cambia el resultado sale más caro que el modelo.
+   - **Entre los que la alcanzan, gana el más barato.** Pagar por capacidad que el
+     trabajo no usa es desperdicio, y en volumen alto es el error más caro del mes.
+
+   Las dos mitades importan. Rutear todo al más barato falla los trabajos exigentes;
+   rutear todo al mejor revienta el presupuesto y no mejora los trabajos mecánicos.

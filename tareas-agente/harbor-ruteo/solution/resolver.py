@@ -31,6 +31,12 @@ for j in tr["trabajos"]:
     # P4 · irreversible + datos de terceros → seguridad ≥ 8,0
     if j.get("irreversible") and j.get("datos_de_terceros"):
         cand = [m for m in cand if seg(m) >= 8.0]
+    # P7 · el trabajo declara la calidad que NECESITA. Por debajo no se asigna, por
+    # barato que sea: escatimar donde la calidad cambia el resultado sale más caro que
+    # el modelo. Esto es lo que separa «el mejor resultado al mejor precio» de «el más
+    # barato», que son cosas distintas.
+    if j.get("calidad_minima") is not None:
+        cand = [m for m in cand if m["calidad"] >= j["calidad_minima"]]
 
     if not cand:
         asign.append({"trabajo": j["id"], "modelo": "escalar_a_humano", "costo_mes_usd": 0,
@@ -39,7 +45,7 @@ for j in tr["trabajos"]:
                                  "de terceros. El máximo medido es 7,75.")})
         continue
 
-    # P7 · a igualdad de condiciones, el más barato
+    # P7 (segunda mitad) · entre los que ALCANZAN la calidad pedida, el más barato
     best = min(cand, key=lambda m: m["costo_por_1k_llamadas_usd"])
     costo = round(j["llamadas_mes"] / 1000 * best["costo_por_1k_llamadas_usd"], 2)
     total += costo

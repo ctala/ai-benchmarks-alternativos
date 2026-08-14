@@ -14,15 +14,15 @@
     },
     {
       "trabajo": "J-03",
-      "modelo": "modelo-B",
-      "costo_mes_usd": 0.06,
-      "motivo": "Cumple la política y es el más barato de 7 candidatos."
+      "modelo": "modelo-I",
+      "costo_mes_usd": 0.12,
+      "motivo": "Cumple la política y es el más barato de 3 candidatos."
     },
     {
       "trabajo": "J-04",
-      "modelo": "modelo-B",
-      "costo_mes_usd": 0.0,
-      "motivo": "Cumple la política y es el más barato de 7 candidatos."
+      "modelo": "modelo-I",
+      "costo_mes_usd": 0.01,
+      "motivo": "Cumple la política y es el más barato de 4 candidatos."
     },
     {
       "trabajo": "J-05",
@@ -37,5 +37,5 @@
       "motivo": "Cumple la política y es el más barato de 7 candidatos."
     }
   ],
-  "costo_total_usd": 15.9
+  "costo_total_usd": 15.97
 }
