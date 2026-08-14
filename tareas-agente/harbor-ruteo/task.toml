@@ -1,0 +1,31 @@
+schema_version = "1.1"
+artifacts = []
+
+[task]
+name = "ctala/ruteo-de-modelos-es"
+description = "Decidir qué modelo de IA usa cada proceso del negocio: catálogo anonimizado con mediciones reales, cola de trabajos con su volumen, política escrita y un presupuesto que no alcanza para rutear todo al mejor. Incluye un trabajo que ningún modelo del catálogo puede tomar."
+keywords = ["business", "spanish", "orchestration", "routing", "cost-optimization"]
+[[task.authors]]
+name = "Cristian Tala"
+
+[metadata]
+difficulty = "hard"
+category = "business"
+tags = ["es", "model-routing", "instruction-adherence", "budget"]
+expert_time_estimate_min = 20.0
+junior_time_estimate_min = 50.0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 2048
+gpus = 0
+allow_internet = true
+mcp_servers = []
