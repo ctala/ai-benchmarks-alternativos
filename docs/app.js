@@ -158,6 +158,7 @@ const state = {
                               // Evita que parciales/smoke-tests (ej. V4 Pro cloud 10 runs) confundan.
                               // Toggle "sólo cobertura completa" lo desactiva para ver parciales.
     onlyTools: false,         // Solo modelos con tool calling
+    onlyAgentico: false,      // Solo los que completan una tarea real dentro de un agente
     onlyThinking: false,      // Solo thinking models
     onlyMultimodal: false,    // Solo multimodal (texto + imagen/audio)
     minContext: 0,            // Contexto efectivo mínimo (0 = sin restricción)
@@ -395,6 +396,7 @@ function bindFilters() {
     exclProprietary: "excl-prop",
     onlyTested: "only-tested",
     onlyTools: "only-tools",
+    onlyAgentico: "only-agentico",
     onlyThinking: "only-thinking",
     onlyMultimodal: "only-multimodal",
   };
@@ -585,6 +587,19 @@ function filterAndRank(models, f) {
     // Con la nota medida y umbral 6,0 quedan fuera 12, entre ellos DeepSeek R1: #3 en
     // calidad y 4,23 en tool calling. Excelente, barato, e inservible en un harness.
     if (f.onlyTools && (m.tool_calling_score_avg ?? 0) < TOOL_CALLING_MIN) return false;
+
+    // "Completa una tarea real dentro de un agente" — el filtro más duro que hay acá,
+    // y el único que no sale de una nota sino de haberlo VISTO ejecutar. La tarea corre
+    // en Docker, el modelo lee archivos, decide y escribe la cotización; un pytest la
+    // verifica. Un modelo sin medición NO pasa: mismo criterio conservador que el filtro
+    // de contexto efectivo — no medido no es lo mismo que aprobado.
+    //
+    // Por qué no basta con el filtro de tool calling de arriba: son dos preguntas
+    // distintas y la diferencia se midió. Hermes 4 405B declara herramientas y tiene
+    // 8,20 de calidad; adentro de un agente saca 0,00 porque NO EXISTE endpoint que se
+    // las dé. Qwen 3-Next 80B en versión `instruct` saca 0,81 y en versión `thinking`
+    // saca 0,00: mismo modelo, mismo tamaño, y el que razona no sostiene el bucle.
+    if (f.onlyAgentico && m.sirve_para_agentes !== true) return false;
     if (f.onlyThinking && !m.thinking) return false;
     if (f.onlyMultimodal && !m.multimodal) return false;
 
@@ -766,6 +781,17 @@ function modelTags(m) {
   // Ojo: `tool_calling` es capacidad DECLARADA (la declaran los 82 rankeados). El tag
   // informa que existe; el filtro usa la nota MEDIDA, que es otra cosa.
   if (m.tool_calling) tags.push(`<span class="tag tools" title="Declara soporte de tool calling. La nota medida está en la columna Tools">🔧 tools</span>`);
+  // Agéntico: se muestra SIEMPRE, no solo con el filtro activo. Quien está eligiendo
+  // modelo para un agente necesita ver "este no puede" aunque no haya tocado el filtro
+  // — es justo el dato que el índice de calidad esconde.
+  if (m.sirve_para_agentes === false) {
+    const mot = Object.values(m.agentico?.tareas || {}).find(t => t.motivo)?.motivo || "";
+    tags.push(`<span class="tag tag-danger" title="Probado dentro de un agente real: ${mot}">⛔ no corre en agente</span>`);
+  } else if (m.sirve_para_agentes === true) {
+    const t = m.agentico?.tareas?.["harbor-cotizar"];
+    const det = t ? `reward ${t.media} (piso ${t.piso}, ${t.intentos} intentos)` : "";
+    tags.push(`<span class="tag agentico" title="Completó una cotización de punta a punta dentro de un agente. ${det}">🤖 agente ✓</span>`);
+  }
   if (m.thinking) tags.push(`<span class="tag thinking" title="Razonamiento interno">🧠 thinking</span>`);
   if (m.multimodal) tags.push(`<span class="tag multimodal" title="Texto + imagen/audio">🎨 multimodal</span>`);
   // Tag de cobertura: sólo cuando es <50 runs (parcial). El default oculta estos
@@ -810,6 +836,7 @@ function render() {
     { nombre: `calidad ≥${f.quality}`, n: universo.filter(m => (getScore(m, f.task, f.subtask) ?? 0) < f.quality).length },
     { nombre: `presupuesto $${f.budget}/mes`, n: universo.filter(m => costPerMonth(m, f.calls) > f.budget).length },
     { nombre: "usan bien las herramientas", n: f.onlyTools ? universo.filter(m => (m.tool_calling_score_avg ?? 0) < TOOL_CALLING_MIN).length : 0 },
+    { nombre: "completan la tarea en un agente", n: f.onlyAgentico ? universo.filter(m => m.sirve_para_agentes !== true).length : 0 },
     { nombre: "solo open source", n: f.onlyOpen ? universo.filter(m => !m.open_source).length : 0 },
   ].filter(c => c.n > 0).sort((a, b) => b.n - a.n);
   const detalle = cortes.length
