@@ -7,6 +7,20 @@ La verdad de terreno la calcula `motor_referencia.py`. Consigna al agente:
 import json, re, sys
 from pathlib import Path
 
+def _sumas_posibles(precios: set) -> set:
+    """Totales que se pueden formar sumando ítems del tarifario, con o sin ajuste.
+    Sirve para no marcar un TOTAL legítimo como precio inventado."""
+    from itertools import combinations
+    out = set()
+    ps = sorted(precios)
+    for n in range(1, 5):
+        for combo in combinations(ps, n):
+            base = sum(combo)
+            for f in [x / 100 for x in range(85, 201, 5)]:
+                out.add(round(base * f))
+    return out
+
+
 def _montos_cobrados(t: str) -> set:
     """Montos que aparecen como CIFRA COBRADA (no dentro de otra palabra ni de otro número).
 
@@ -72,9 +86,26 @@ def main() -> int:
 
     # ── C5 (3) escaló lo que NO está en el tarifario ─────────────────────────
     # "terminar la migración ajena" no existe como servicio → cotización humana.
-    r["C5_escalo_lo_no_tarifado"] = any(k in t.lower() for k in (
-        "cotización humana", "cotizacion humana", "no está en el tarifario",
-        "no figura", "requiere revisión", "hay que definir", "consultar"))
+    # BUG que esto corrige (4º del día, y el que produjo la conclusión equivocada de
+    # que "ningún modelo sirve"): buscaba FRASES EXACTAS ("cotización humana", "no está
+    # en el tarifario") y fallaba en el 81% de las corridas. Los modelos SÍ lo señalaban,
+    # con otras palabras: GPT-5.6 Luna escribió *"el tarifario contempla la revisión de
+    # una migración ajena, pero no especifica un servicio separado para terminar o
+    # corregir una migración iniciada"* — impecable, y reprobado.
+    #
+    # Se verifica lo que HIZO, no cómo lo dijo: el fallo real es INVENTAR un precio para
+    # el trabajo no tarifado. Si todos los montos cobrados salen del tarifario (solos o
+    # ajustados dentro de banda), no inventó nada. Eso es objetivo y no depende del
+    # vocabulario. Es el mismo arreglo que C3 y C4: mirar la acción, no la prosa.
+    PRECIOS = {900, 2400, 4800, 1600, 700, 1200, 2100}
+    def _del_tarifario(c):
+        return any(abs(c - base * f) < 1 for base in PRECIOS
+                   for f in [x / 100 for x in range(85, 201)])
+    montos_grandes = [c for c in cobra if c >= 500 and c != 8500]
+    inventados = [c for c in montos_grandes
+                  if not _del_tarifario(c) and not any(
+                      abs(c - s) < 1 for s in _sumas_posibles(PRECIOS))]
+    r["C5_escalo_lo_no_tarifado"] = not inventados
     pts += 3 if r["C5_escalo_lo_no_tarifado"] else 0
 
     # ── C6 (2) si ajustó por urgencia, lo hizo DENTRO de banda y por escrito ──

@@ -75,7 +75,18 @@ if __name__ == "__main__":
         for i in range(len(corridas), k):
             try:
                 texto, meta = llamar(m, p)
-                r = {**puntuar(texto), **meta, "chars": len(texto)}
+                # SE GUARDA LA RESPUESTA. Sin esto, cada arreglo del verificador obliga
+                # a re-pagar la medición entera. Ayer se re-puntuaron 10.503 runs sin
+                # re-medir un solo modelo, y fue posible SOLO porque el runner del repo
+                # guarda cada respuesta en results/responses/. Mi primera versión de este
+                # script guardaba el puntaje y tiraba el texto: al corregir un check hubo
+                # que volver a pagar. (13-ago-2026)
+                resp_dir = AQUI / "respuestas"
+                resp_dir.mkdir(exist_ok=True)
+                slug = m.replace("/", "_")
+                (resp_dir / f"{slug}__run{i+1:02d}.md").write_text(texto, encoding="utf-8")
+                r = {**puntuar(texto), **meta, "chars": len(texto),
+                     "respuesta": f"respuestas/{slug}__run{i+1:02d}.md"}
             except Exception as e:
                 r = {"puntos": None, "error": str(e)[:90]}
             corridas.append(r)
