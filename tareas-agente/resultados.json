@@ -1,5 +1,5 @@
 {
-  "generado": "2026-08-14T14:08:51",
+  "generado": "2026-08-14T14:46:26",
   "harness": "harbor",
   "nota": "Reward de tareas agénticas. NO entra al índice de calidad: es una dimensión aparte, como tool calling y seguridad. Ver DECISIONES.md.",
   "tareas": {
@@ -1952,6 +1952,100 @@
         "media_global": 0.9664,
         "costo_usd": 2.28,
         "descartadas_por_checksum": 12
+      }
+    },
+    "harbor-ruteo": {
+      "modelos": {
+        "deepseek/deepseek-chat": {
+          "media": 0.5,
+          "piso": 0.0,
+          "techo": 1.0,
+          "intentos": 2,
+          "rewards": [
+            1.0,
+            0.0
+          ],
+          "estado": "inestable",
+          "costo_usd": 0.0,
+          "motivo": "entró en un bucle degenerado y reventó su propia ventana de contexto",
+          "causas_de_los_ceros": [
+            "desbordo_su_contexto"
+          ]
+        },
+        "google/gemini-3.1-pro-preview": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 2,
+          "rewards": [
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.34
+        },
+        "meta-llama/llama-3.3-70b-instruct": {
+          "media": 0.0,
+          "piso": 0.0,
+          "techo": 0.0,
+          "intentos": 2,
+          "rewards": [
+            0.0,
+            0.0
+          ],
+          "estado": "inestable",
+          "costo_usd": 0.0,
+          "causas_de_los_ceros": [
+            "hizo_mal_la_tarea"
+          ]
+        },
+        "qwen/qwen3.7-max": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 2,
+          "rewards": [
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "tencent/hy3": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 2,
+          "rewards": [
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "z-ai/glm-5.2": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 2,
+          "rewards": [
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        }
+      },
+      "task_checksum": "5c7ed0f842a07b3b0ca0c3fb4e546c766f7baa92776e1538d55d6166d45916c7",
+      "agente": "mini-swe-agent",
+      "resumen": {
+        "modelos": 6,
+        "corridas": 12,
+        "perfectos": 4,
+        "ceros": 1,
+        "media_global": 0.75,
+        "costo_usd": 0.34,
+        "descartadas_por_checksum": 4
       }
     }
   }
