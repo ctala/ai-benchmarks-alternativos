@@ -217,16 +217,31 @@ desde 8,43 hasta 7,66.
 
 ## La cola
 
-| modelo | media | piso | qué pasó |
+| modelo | media | piso | causa del cero |
 |---|---|---|---|
-| `meta-llama/llama-4-scout` | **0,00** | 0,00 | escribió **JSON inválido** en los 3 intentos |
-| `meta-llama/llama-3.3-70b-instruct` | 0,62 | **0,00** | inestable |
-| `x-ai/grok-4.20` | 0,67 | **0,00** | inestable |
+| `meta-llama/llama-4-scout` | **0,00** | 0,00 | `hizo_mal_la_tarea` — 3 de 3 |
+| `x-ai/grok-4.20` | 0,67 | **0,00** | `rompe_bucle` |
+| `meta-llama/llama-3.3-70b-instruct` | 0,62 | **0,00** | `hizo_mal_la_tarea` |
 
-`llama-4-scout` saca **1,00 en cotizar** y 0,00 acá: corrió, entregó, y lo entregado no
-parsea. Es `hizo_mal_la_tarea`, no un problema del harness — un modelo que no puede
-emitir JSON válido para una tarea cuyo output *es* JSON no sirve, por bien que haya
-entendido la reunión.
+**Verificado que ninguno es culpa del harness** (lo pidió Cristian: *"revisa si los
+inestables son culpa nuestra, en especial por la evidencia de llama 4 scout"*). Los cinco
+ceros del lote se clasificaron leyendo la traza:
+
+- **`llama-4-scout`, 3 de 3.** Su último paso literal fue
+  `cp /app/tablero.json /app/tablero_actualizado.json`: intentó editar el archivo de
+  **entrada** en el lugar, lo corrompió, y copió el resultado roto. Ese mismo modelo saca
+  **1,00 en cotizar**, así que no es incapacidad general — es que acá eligió una
+  estrategia que se rompe sola.
+- **`grok-4.20`.** Respondió sin tool calls hasta que el harness lo cortó
+  (`RepeatedFormatError`). Las otras dos corridas fueron perfectas.
+- **`llama-3.3-70b`.** JSON malformado en una corrida; las otras dos, 1,00 y 0,85.
+
+**Y la pregunta destapó un fallo en el instrumento**, no en los modelos: `inestable` era
+una etiqueta sin diagnóstico. Grok promedia 0,67 porque **rompe el bucle**; llama-3.3-70b
+promedia 0,62 porque **escribe JSON inválido**. Misma etiqueta, causas opuestas, y solo
+una de las dos se arregla con una instrucción mejor. Ahora `resultados.json` guarda
+`causas_de_los_ceros` para todo modelo que tenga alguna corrida en cero, aunque promedie
+bien.
 
 ---
 
