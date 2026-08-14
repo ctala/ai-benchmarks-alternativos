@@ -1,5 +1,5 @@
 {
-  "generado": "2026-08-14T13:25:46",
+  "generado": "2026-08-14T14:08:51",
   "harness": "harbor",
   "nota": "Reward de tareas agénticas. NO entra al índice de calidad: es una dimensión aparte, como tool calling y seguridad. Ver DECISIONES.md.",
   "tareas": {
@@ -659,7 +659,10 @@
             0.0
           ],
           "estado": "inestable",
-          "costo_usd": 0.0
+          "costo_usd": 0.0,
+          "causas_de_los_ceros": [
+            "hizo_mal_la_tarea"
+          ]
         },
         "poolside/laguna-s-2.1": {
           "media": 1.0,
@@ -1341,7 +1344,10 @@
             0.8462
           ],
           "estado": "inestable",
-          "costo_usd": 0.0
+          "costo_usd": 0.0,
+          "causas_de_los_ceros": [
+            "hizo_mal_la_tarea"
+          ]
         },
         "meta-llama/llama-4-scout": {
           "media": 0.0,
@@ -1354,7 +1360,10 @@
             0.0
           ],
           "estado": "inestable",
-          "costo_usd": 0.0
+          "costo_usd": 0.0,
+          "causas_de_los_ceros": [
+            "hizo_mal_la_tarea"
+          ]
         },
         "meta/muse-glimmer-30b": {
           "media": 0.9744,
@@ -1836,7 +1845,10 @@
           ],
           "estado": "inestable",
           "costo_usd": 0.0,
-          "motivo": "tiene herramientas pero no sostiene el formato de tool call"
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call",
+          "causas_de_los_ceros": [
+            "rompe_bucle"
+          ]
         },
         "x-ai/grok-4.3": {
           "media": 1.0,

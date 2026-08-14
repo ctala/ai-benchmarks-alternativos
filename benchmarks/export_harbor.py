@@ -136,6 +136,15 @@ def recolectar() -> dict:
 
         traza_p = trial / "agent" / "mini-swe-agent.txt"
         traza = traza_p.read_text(errors="replace") if traza_p.exists() else ""
+        # La causa se deriva de TODA corrida en cero, aunque el modelo promedie bien.
+        #
+        # POR QUÉ (14-ago-2026, lo pidió Cristian: *"revisa si los inestables son culpa
+        # nuestra"*). Antes, un modelo con 2 corridas perfectas y una en cero quedaba
+        # etiquetado `inestable` a secas, y la causa de ESA corrida se perdía. Pero
+        # «a veces rompe el bucle de herramientas» y «a veces hace mal la tarea» son
+        # riesgos distintos: el primero no se arregla con una instrucción mejor.
+        # Medido: grok-4.20 promedia 0,67 y su cero fue `rompe_bucle`; llama-3.3-70b
+        # promedia 0,62 y el suyo fue JSON malformado. Misma etiqueta, causas opuestas.
         causa, detalle = _causa(traza) if (reward in (None, 0.0)) else (None, None)
 
         res_p = trial / "result.json"
@@ -193,6 +202,11 @@ def _resumir(por_modelo, meta_tarea, descartadas) -> dict:
         detalle = next((i["detalle"] for i in intentos if i["detalle"]), None)
         if detalle:
             fila["motivo"] = detalle
+        # Causas de las corridas en cero de un modelo que NO es uniformemente cero.
+        # Sin esto, `inestable` es una etiqueta sin diagnóstico.
+        ceros = [i["causa"] or "hizo_mal_la_tarea" for i in intentos if i["reward"] == 0.0]
+        if ceros and estado not in ("sin_herramientas", "rompe_bucle", "sin_credencial"):
+            fila["causas_de_los_ceros"] = sorted(set(ceros))
 
         tareas.setdefault(tarea, {"modelos": {}, **meta_tarea.get(tarea, {})})
         tareas[tarea]["modelos"][modelo] = fila
