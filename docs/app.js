@@ -850,10 +850,16 @@ function modelTags(m) {
   if (m.sirve_para_agentes === false) {
     const mot = Object.values(m.agentico?.tareas || {}).find(t => t.motivo)?.motivo || "";
     tags.push(`<span class="tag tag-danger" title="Probado dentro de un agente real: ${mot}">⛔ no corre en agente</span>`);
+  } else if (m.agentico?.estado === "irregular") {
+    // Distinto de ⛔: éste SÍ completa alguna tarea agéntica y falla otra. Colapsarlo con
+    // «no puede» ocultaría justo la diferencia que decide una elección.
+    const f = (m.agentico.falla_en || []).map(x => x.replace("harbor-", "")).join(", ");
+    tags.push(`<span class="tag tag-warn" title="Completa unas tareas agénticas y falla otras. Falla en: ${f}">⚠️ agente irregular</span>`);
   } else if (m.sirve_para_agentes === true) {
-    const t = m.agentico?.tareas?.["harbor-cotizar"];
-    const det = t ? `reward ${t.media} (piso ${t.piso}, ${t.intentos} intentos)` : "";
-    tags.push(`<span class="tag agentico" title="Completó una cotización de punta a punta dentro de un agente. ${det}">🤖 agente ✓</span>`);
+    const t = m.agentico?.tareas || {};
+    const det = Object.entries(t).map(([k, v]) =>
+      `${k.replace("harbor-", "")} ${v.media} (piso ${v.piso})`).join(" · ");
+    tags.push(`<span class="tag agentico" title="Completó tareas de negocio de punta a punta dentro de un agente. ${det}">🤖 agente ✓</span>`);
   }
   if (m.thinking) tags.push(`<span class="tag thinking" title="Razonamiento interno">🧠 thinking</span>`);
   if (m.multimodal) tags.push(`<span class="tag multimodal" title="Texto + imagen/audio">🎨 multimodal</span>`);

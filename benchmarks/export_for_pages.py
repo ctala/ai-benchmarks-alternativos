@@ -1243,14 +1243,33 @@ def build_export(recalibrate=False, scoring_version=None):
             m["sirve_para_agentes"] = None
             continue
         _estados = {t: f["estado"] for t, f in _r.items()}
+        # NO APTO = no completó NINGUNA tarea agéntica. Que falle en una y funcione en
+        # otra es otra cosa, y merece otra etiqueta.
+        #
+        # POR QUÉ (14-ago-2026). La v1 marcaba no-apto ante CUALQUIER tarea en
+        # `sin_herramientas`/`rompe_bucle`, y al sumar `harbor-reunion` eso metió a
+        # Qwen 3.5 35B en la misma bolsa que Hermes 4 — cuando Hermes **no tiene endpoint
+        # con herramientas en ninguna parte** y Qwen completa `cotizar` y rompe el bucle
+        # en `reunion`. Uno es imposible, el otro es poco fiable, y para quien elige un
+        # modelo esa diferencia es la decisión entera.
+        #
+        # Es la misma lección de R13 —el estado vale más que el número— aplicada un nivel
+        # más arriba: un flag binario colapsa «nunca puede» con «a veces falla».
+        _ok = [t for t, e in _estados.items() if e not in _NO_SIRVE]
+        _mal = [t for t, e in _estados.items() if e in _NO_SIRVE]
         m["agentico"] = {
             "tareas": {t: {k: f[k] for k in ("media", "piso", "intentos", "estado")
                            if k in f} | ({"motivo": f["motivo"]} if "motivo" in f else {})
                        for t, f in _r.items()},
-            "estado": ("no_apto" if any(e in _NO_SIRVE for e in _estados.values())
+            "estado": ("no_apto" if not _ok
+                       else "irregular" if _mal
                        else "inestable" if "inestable" in _estados.values() else "apto"),
         }
-        m["sirve_para_agentes"] = not any(e in _NO_SIRVE for e in _estados.values())
+        # Irregular en alguna tarea NO es exclusión dura: completó al menos una. Se marca
+        # y se deja decidir a quien lee.
+        m["sirve_para_agentes"] = bool(_ok)
+        if _mal and _ok:
+            m["agentico"]["falla_en"] = sorted(_mal)
 
     # (3) Persistir la referencia SOLO en recalibración deliberada (evento de versión).
     # Ya no lleva `slope_calidad`: el índice de calidad es absoluto (`quality_avg` sin
