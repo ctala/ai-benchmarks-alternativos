@@ -153,95 +153,83 @@ corrige solo y no avisa es peor que uno que se equivoca ruidosamente.
 
 # Tarea 3 — procesar una reunión de socios (media)
 
-**68 modelos · 204 corridas · US$ 2,28 · media global 0,966**
+**70 modelos · 229 corridas · US$ 2,80 · media 0,950**
 
-El input no son datos limpios: es una **conversación**, con el ruido de una conversación
-real. Alguien se corrige, algo se propone y se descarta, algo se da por cerrado y no lo
-está. El artefacto es el **tablero de tareas actualizado**, no un resumen.
+El input no son datos limpios: es una **conversación**, con su ruido. Alguien se corrige,
+algo se propone y se descarta, algo se da por cerrado y no lo está. El artefacto es el
+**tablero de tareas actualizado**.
+
+Desde el 14-ago la tarea trae `politica.md` con las 9 reglas que los tests verifican
+—criterio 2 de la rúbrica, `well_specified`—. Las **reglas** están escritas; las
+**situaciones** siguen escondidas en la transcripción. Las 216 corridas de la versión sin
+política se descartaron solas por `task_checksum`.
 
 | resultado | modelos |
 |---|---|
-| perfecto en los 3 intentos | **49** |
-| parcial | 16 |
-| inestable (piso 0,00) | **3** |
+| perfecto en los 3 intentos | **55** |
+| parcial | 9 |
+| inestable (piso 0,00) | 5 |
+| rompe el bucle | 1 |
 
-*(12 corridas se descartaron solas por `task_checksum` distinto: son del sub-segmento
-previo al arreglo del verificador. La disciplina de R17 funcionando sin que nadie la
-recuerde.)*
+## El hallazgo, y por qué escribir la regla lo VOLVIÓ MÁS FUERTE
 
-## ⚠️ Esta tarea SATURA, y hay que decirlo
+En la reunión los socios discuten qué hacer ante una falla no prevista. Ninguno lo tiene
+claro. Acuerdan anotarlo **sin respuesta**. Y la política, ahora, lo dice explícito:
 
-**49 de 68 sacan perfecto (72%).** Por R12, eso la convierte en un **piso de usabilidad**
-—"¿este modelo puede procesar una reunión sin romper nada?"— y **no** en un ranking. No
-sirve para ordenar la cabeza.
+> *«No se elige una por ellos: el tablero pasaría a afirmar una política que nadie acordó
+> y que alguien va a ejecutar creyendo que se decidió.»*
 
-Parte de la saturación es culpa mía: la primera versión del verificador tenía un falso
-negativo que penalizaba respuestas correctas. Al arreglarlo, subieron todos. El número
-honesto es éste, no el inflado.
+| | sin la regla escrita | **con la regla escrita** |
+|---|---|---|
+| Modelos que inventaron la política | 14 de 68 · **21%** | **8 de 70 · 11%** |
 
-## El hallazgo: 14 modelos inventaron un acuerdo que nadie tomó
-
-En la reunión, los socios discuten qué hacer cuando el técnico encuentra una falla no
-prevista. Ninguno lo tiene claro. Acuerdan **anotarlo como pendiente, sin respuesta**.
-
-**14 de 68 modelos escribieron una política igual.** Es el fallo más frecuente del lote
-—16 corridas, más del doble que el segundo— y no discrimina por calidad: la lista va
-desde 8,43 hasta 7,66.
+Escribirla lo redujo a la mitad **y no lo eliminó**. Los 8 que quedan no fallaron por no
+deducir una regla tácita: **la incumplieron teniéndola delante.**
 
 | modelo | calidad |
 |---|---|
 | `deepseek/deepseek-r1` | 8,43 |
 | `google/gemma-4-26b-a4b-it` | 8,28 |
-| `openai/gpt-5.6-terra` | 8,21 |
-| `meta/muse-glimmer-30b` | 8,14 |
-| `deepseek/deepseek-v4-flash` | 8,10 |
-| …y 9 más | |
+| `deepseek/deepseek-chat` | 8,05 |
+| `meta-llama/llama-4-scout` | 7,82 |
+| `qwen/qwen3.5-35b-a3b` | 7,81 |
+| `google/gemini-2.5-flash-lite` | 7,78 |
+| `nvidia/nemotron-3-nano-30b-a3b` | 7,54 |
+| `openai/gpt-oss-20b` | 7,38 |
 
-> El tablero queda afirmando una política que los socios nunca acordaron, y que alguien
-> va a ejecutar creyendo que se decidió. A diferencia de una factura mal emitida, **de
-> esto nadie se entera**: el resumen se ve perfectamente razonable.
+Y el fallo más frecuente ahora es el mismo agujero por el otro lado: **12 modelos ni
+siquiera anotan la decisión pendiente** (19 corridas). Entre los que la omiten y los que
+la inventan, **20 de 70 no saben registrar «esto quedó sin decidir»**.
 
 ## Los otros modos de fallo
 
 | trampa | corridas | modelos |
 |---|---|---|
-| Inventar la decisión que nadie tomó | 16 | **14** |
-| No cerrar el precio que SÍ se decidió | 9 | 6 |
-| Cerrar el checkout que sigue abierto | 7 | 4 |
-| Crear la tarea de la app que se descartó | 7 | 5 |
-| No anotar la decisión pendiente | 7 | 4 |
-| Entregar un artefacto inválido | 6 | 4 |
-| Quedarse con el precio viejo (12.000) | 6 | 4 |
-
-**Todas las trampas cazaron a alguien.** Ninguna quedó decorativa.
+| No anotar la decisión pendiente | 19 | **12** |
+| Inventar la decisión que nadie tomó | 14 | 8 |
+| No cerrar el precio que SÍ se decidió | 11 | 7 |
+| Perder tareas del tablero | 10 | 6 |
+| Cerrar el checkout que sigue abierto | 10 | 7 |
+| No subir la prioridad acordada | 10 | 6 |
 
 ## La cola
 
-| modelo | media | piso | causa del cero |
+| modelo | media | piso | estado |
 |---|---|---|---|
-| `meta-llama/llama-4-scout` | **0,00** | 0,00 | `hizo_mal_la_tarea` — 3 de 3 |
-| `x-ai/grok-4.20` | 0,67 | **0,00** | `rompe_bucle` |
-| `meta-llama/llama-3.3-70b-instruct` | 0,62 | **0,00** | `hizo_mal_la_tarea` |
+| `qwen/qwen3.5-35b-a3b` | 0,00 | 0,00 | `rompe_bucle` |
+| `deepseek/deepseek-r1` | 0,33 | 0,00 | inestable |
+| `meta-llama/llama-4-scout` | 0,49 | 0,00 | inestable |
+| `nvidia/nemotron-3-nano-30b-a3b` | 0,64 | 0,00 | inestable |
+| `openai/gpt-oss-20b` | 0,64 | 0,00 | inestable |
 
-**Verificado que ninguno es culpa del harness** (lo pidió Cristian: *"revisa si los
-inestables son culpa nuestra, en especial por la evidencia de llama 4 scout"*). Los cinco
-ceros del lote se clasificaron leyendo la traza:
+**DeepSeek R1 tiene el índice de calidad más alto de la cola (8,43) y saca 0,33 con piso
+0,00.** Es el mismo contraste que ya dio Hermes en cotizar: la calidad del texto no
+predice si el trabajo se hace.
 
-- **`llama-4-scout`, 3 de 3.** Su último paso literal fue
-  `cp /app/tablero.json /app/tablero_actualizado.json`: intentó editar el archivo de
-  **entrada** en el lugar, lo corrompió, y copió el resultado roto. Ese mismo modelo saca
-  **1,00 en cotizar**, así que no es incapacidad general — es que acá eligió una
-  estrategia que se rompe sola.
-- **`grok-4.20`.** Respondió sin tool calls hasta que el harness lo cortó
-  (`RepeatedFormatError`). Las otras dos corridas fueron perfectas.
-- **`llama-3.3-70b`.** JSON malformado en una corrida; las otras dos, 1,00 y 0,85.
+## Estreno
 
-**Y la pregunta destapó un fallo en el instrumento**, no en los modelos: `inestable` era
-una etiqueta sin diagnóstico. Grok promedia 0,67 porque **rompe el bucle**; llama-3.3-70b
-promedia 0,62 porque **escribe JSON inválido**. Misma etiqueta, causas opuestas, y solo
-una de las dos se arregla con una instrucción mejor. Ahora `resultados.json` guarda
-`causas_de_los_ceros` para todo modelo que tenga alguna corrida en cero, aunque promedie
-bien.
+**Gemini 3.6 Flash: 1,00 con piso 1,00** en su primera medición. Cuesta la mitad que su
+antecesor ($0,75/$3,75 contra $1,50/$9) con el mismo contexto de 1M.
 
 ---
 

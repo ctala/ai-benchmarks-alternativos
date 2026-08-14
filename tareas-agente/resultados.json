@@ -1,5 +1,5 @@
 {
-  "generado": "2026-08-14T14:46:26",
+  "generado": "2026-08-14T17:39:22",
   "harness": "harbor",
   "nota": "Reward de tareas agénticas. NO entra al índice de calidad: es una dimensión aparte, como tool calling y seguridad. Ver DECISIONES.md.",
   "tareas": {
@@ -1071,7 +1071,7 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1
+          "costo_usd": 0.11
         },
         "anthropic/claude-opus-4-6": {
           "media": 1.0,
@@ -1084,7 +1084,7 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.35
+          "costo_usd": 0.36
         },
         "anthropic/claude-opus-4-7": {
           "media": 1.0,
@@ -1097,9 +1097,22 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.33
+          "costo_usd": 0.36
         },
         "anthropic/claude-opus-4.8": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "anthropic/claude-opus-5": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
@@ -1136,7 +1149,7 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.2
+          "costo_usd": 0.23
         },
         "anthropic/claude-sonnet-5": {
           "media": 1.0,
@@ -1152,30 +1165,33 @@
           "costo_usd": 0.0
         },
         "deepseek/deepseek-chat": {
-          "media": 0.9487,
-          "piso": 0.8462,
+          "media": 0.9744,
+          "piso": 0.9231,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
-            1.0,
-            0.8462
+            0.9231,
+            1.0
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.0
+          "costo_usd": 0.02
         },
         "deepseek/deepseek-r1": {
-          "media": 0.8974,
-          "piso": 0.7692,
+          "media": 0.3333,
+          "piso": 0.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
+            0.0,
             1.0,
-            0.7692,
-            0.9231
+            0.0
           ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.1
+          "estado": "inestable",
+          "costo_usd": 0.1,
+          "causas_de_los_ceros": [
+            "hizo_mal_la_tarea"
+          ]
         },
         "deepseek/deepseek-v3.2": {
           "media": 1.0,
@@ -1188,22 +1204,9 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.01
+          "costo_usd": 0.03
         },
         "deepseek/deepseek-v4-flash": {
-          "media": 0.9744,
-          "piso": 0.9231,
-          "techo": 1.0,
-          "intentos": 3,
-          "rewards": [
-            0.9231,
-            1.0,
-            1.0
-          ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.0
-        },
-        "deepseek/deepseek-v4-flash-0731": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
@@ -1216,11 +1219,24 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "deepseek/deepseek-v4-flash-0731": {
+          "media": 0.9744,
+          "piso": 0.9231,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            0.9231
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0
+        },
         "deepseek/deepseek-v4-pro": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
-          "intentos": 3,
+          "intentos": 9,
           "rewards": [
             1.0,
             1.0,
@@ -1240,20 +1256,24 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.03
+          "costo_usd": 0.09
         },
         "google/gemini-2.5-flash-lite": {
-          "media": 0.9744,
-          "piso": 0.9231,
+          "media": 0.7308,
+          "piso": 0.0,
           "techo": 1.0,
-          "intentos": 3,
+          "intentos": 4,
           "rewards": [
-            1.0,
             0.9231,
+            1.0,
+            0.0,
             1.0
           ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.0
+          "estado": "inestable",
+          "costo_usd": 0.0,
+          "causas_de_los_ceros": [
+            "hizo_mal_la_tarea"
+          ]
         },
         "google/gemini-2.5-pro": {
           "media": 1.0,
@@ -1266,19 +1286,19 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.12
+          "costo_usd": 0.18
         },
         "google/gemini-3.1-flash-lite-preview": {
-          "media": 0.9744,
-          "piso": 0.9231,
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
             1.0,
-            0.9231
+            1.0
           ],
-          "estado": "ok_parcial",
+          "estado": "ok_siempre",
           "costo_usd": 0.03
         },
         "google/gemini-3.1-pro-preview": {
@@ -1287,18 +1307,31 @@
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
-            1.0,
             0.9231,
+            1.0,
             1.0
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.24
+          "costo_usd": 0.49
         },
         "google/gemini-3.5-flash": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
-          "intentos": 3,
+          "intentos": 6,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "google/gemini-3.6-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 6,
           "rewards": [
             1.0,
             1.0,
@@ -1313,51 +1346,48 @@
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
-            1.0,
             0.9231,
+            1.0,
             1.0
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0
         },
         "inclusionai/ling-3.0-flash": {
-          "media": 0.9744,
-          "piso": 0.9231,
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
-            0.9231,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "meta-llama/llama-3.3-70b-instruct": {
+          "media": 0.9487,
+          "piso": 0.8462,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            0.8462,
             1.0
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0
         },
-        "meta-llama/llama-3.3-70b-instruct": {
-          "media": 0.6154,
+        "meta-llama/llama-4-scout": {
+          "media": 0.4872,
           "piso": 0.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             0.0,
-            1.0,
-            0.8462
-          ],
-          "estado": "inestable",
-          "costo_usd": 0.0,
-          "causas_de_los_ceros": [
-            "hizo_mal_la_tarea"
-          ]
-        },
-        "meta-llama/llama-4-scout": {
-          "media": 0.0,
-          "piso": 0.0,
-          "techo": 0.0,
-          "intentos": 3,
-          "rewards": [
-            0.0,
-            0.0,
-            0.0
+            0.4615,
+            1.0
           ],
           "estado": "inestable",
           "costo_usd": 0.0,
@@ -1366,14 +1396,14 @@
           ]
         },
         "meta/muse-glimmer-30b": {
-          "media": 0.9744,
+          "media": 0.9487,
           "piso": 0.9231,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
-            1.0,
             0.9231,
-            1.0
+            1.0,
+            0.9231
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0
@@ -1405,16 +1435,16 @@
           "costo_usd": 0.03
         },
         "minimax/minimax-m2.7": {
-          "media": 0.9487,
-          "piso": 0.8462,
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
             1.0,
-            0.8462
+            1.0
           ],
-          "estado": "ok_parcial",
+          "estado": "ok_siempre",
           "costo_usd": 0.0
         },
         "minimax/minimax-m3": {
@@ -1457,16 +1487,16 @@
           "costo_usd": 0.38
         },
         "mistralai/mistral-large-2512": {
-          "media": 0.9487,
-          "piso": 0.9231,
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
-            0.9231,
-            0.9231
+            1.0,
+            1.0
           ],
-          "estado": "ok_parcial",
+          "estado": "ok_siempre",
           "costo_usd": 0.03
         },
         "mistralai/mistral-small-2603": {
@@ -1496,16 +1526,16 @@
           "costo_usd": 0.0
         },
         "moonshotai/kimi-k2.6": {
-          "media": 1.0,
-          "piso": 1.0,
+          "media": 0.9487,
+          "piso": 0.9231,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
-            1.0,
-            1.0
+            0.9231,
+            0.9231
           ],
-          "estado": "ok_siempre",
+          "estado": "ok_parcial",
           "costo_usd": 0.0
         },
         "moonshotai/kimi-k2.7-code": {
@@ -1548,17 +1578,20 @@
           "costo_usd": 0.0
         },
         "nvidia/nemotron-3-nano-30b-a3b": {
-          "media": 0.9744,
-          "piso": 0.9231,
+          "media": 0.641,
+          "piso": 0.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
+            0.9231,
             1.0,
-            1.0,
-            0.9231
+            0.0
           ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.0
+          "estado": "inestable",
+          "costo_usd": 0.0,
+          "causas_de_los_ceros": [
+            "hizo_mal_la_tarea"
+          ]
         },
         "nvidia/nemotron-3-ultra-550b-a55b": {
           "media": 1.0,
@@ -1587,25 +1620,25 @@
           "costo_usd": 0.0
         },
         "openai/gpt-5.6-sol": {
-          "media": 1.0,
-          "piso": 1.0,
-          "techo": 1.0,
-          "intentos": 3,
-          "rewards": [
-            1.0,
-            1.0,
-            1.0
-          ],
-          "estado": "ok_siempre",
-          "costo_usd": 0.0
-        },
-        "openai/gpt-5.6-terra": {
-          "media": 0.9744,
+          "media": 0.9487,
           "piso": 0.9231,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
+            0.9231,
             1.0,
+            0.9231
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0
+        },
+        "openai/gpt-5.6-terra": {
+          "media": 0.9487,
+          "piso": 0.9231,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            0.9231,
             0.9231,
             1.0
           ],
@@ -1613,30 +1646,34 @@
           "costo_usd": 0.0
         },
         "openai/gpt-oss-120b": {
-          "media": 0.9744,
-          "piso": 0.9231,
-          "techo": 1.0,
-          "intentos": 3,
-          "rewards": [
-            0.9231,
-            1.0,
-            1.0
-          ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.02
-        },
-        "openai/gpt-oss-20b": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
-          "intentos": 3,
+          "intentos": 6,
           "rewards": [
             1.0,
             1.0,
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0
+          "costo_usd": 0.03
+        },
+        "openai/gpt-oss-20b": {
+          "media": 0.641,
+          "piso": 0.0,
+          "techo": 1.0,
+          "intentos": 6,
+          "rewards": [
+            0.9231,
+            0.0,
+            1.0
+          ],
+          "estado": "inestable",
+          "costo_usd": 0.0,
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call",
+          "causas_de_los_ceros": [
+            "rompe_bucle"
+          ]
         },
         "poolside/laguna-s-2.1": {
           "media": 1.0,
@@ -1665,32 +1702,6 @@
           "costo_usd": 0.0
         },
         "qwen/qwen3-coder": {
-          "media": 0.9744,
-          "piso": 0.9231,
-          "techo": 1.0,
-          "intentos": 3,
-          "rewards": [
-            1.0,
-            0.9231,
-            1.0
-          ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.03
-        },
-        "qwen/qwen3-next-80b-a3b-instruct": {
-          "media": 0.9744,
-          "piso": 0.9231,
-          "techo": 1.0,
-          "intentos": 3,
-          "rewards": [
-            1.0,
-            0.9231,
-            1.0
-          ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.0
-        },
-        "qwen/qwen3.5-35b-a3b": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
@@ -1701,7 +1712,34 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.03
+          "costo_usd": 0.0
+        },
+        "qwen/qwen3-next-80b-a3b-instruct": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "qwen/qwen3.5-35b-a3b": {
+          "media": 0.0,
+          "piso": 0.0,
+          "techo": 0.0,
+          "intentos": 3,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "estado": "rompe_bucle",
+          "costo_usd": 0.0,
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call"
         },
         "qwen/qwen3.5-397b-a17b": {
           "media": 1.0,
@@ -1714,7 +1752,7 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.06
+          "costo_usd": 0.09
         },
         "qwen/qwen3.6-27b": {
           "media": 1.0,
@@ -1834,21 +1872,17 @@
           "costo_usd": 0.0
         },
         "x-ai/grok-4.20": {
-          "media": 0.6667,
-          "piso": 0.0,
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
-            0.0,
+            1.0,
             1.0
           ],
-          "estado": "inestable",
-          "costo_usd": 0.0,
-          "motivo": "tiene herramientas pero no sostiene el formato de tool call",
-          "causas_de_los_ceros": [
-            "rompe_bucle"
-          ]
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
         },
         "x-ai/grok-4.3": {
           "media": 1.0,
@@ -1900,7 +1934,7 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.04
+          "costo_usd": 0.07
         },
         "z-ai/glm-5": {
           "media": 1.0,
@@ -1926,7 +1960,7 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.06
+          "costo_usd": 0.08
         },
         "z-ai/glm-5.2": {
           "media": 1.0,
@@ -1942,16 +1976,16 @@
           "costo_usd": 0.0
         }
       },
-      "task_checksum": "41d5ba6a3463574bd777989e28d7100cfad20cd639ab567f04757950b565f41d",
+      "task_checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
       "agente": "mini-swe-agent",
       "resumen": {
-        "modelos": 68,
-        "corridas": 204,
-        "perfectos": 49,
+        "modelos": 70,
+        "corridas": 229,
+        "perfectos": 55,
         "ceros": 1,
-        "media_global": 0.9664,
-        "costo_usd": 2.28,
-        "descartadas_por_checksum": 12
+        "media_global": 0.9496,
+        "costo_usd": 2.8,
+        "descartadas_por_checksum": 216
       }
     },
     "harbor-ruteo": {
