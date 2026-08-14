@@ -226,7 +226,16 @@ auditar ni revertir.**
 5. **Todo cambio va al `CHANGELOG.md`, con su versión, antes de mergear a `main`.**
    Publicar sin entrada es publicar sin traza: pasó con v4.1 hasta que se marcó.
 
-6. **Cada superficie nueva llega con su guardrail, en el mismo commit.** Corolario de
+6. **NO se mide por fuera del runner.** Un script propio que llame a los modelos pierde
+   de golpe el gate del canario, el presupuesto de los thinking models, los tres estados
+   de respuesta vacía, la paralelización y el guardado de entrada/salida. Para tareas
+   agénticas se usa **Harbor** (`harbor run -p <tarea> -a <agente> -m <modelo>`), no un
+   corredor propio. Lo verifica **`check_caminos.py`**, que corre en el pipeline y en el
+   Action.
+   *Por qué:* el 13-ago escribí uno y volví a pisar CINCO pozos que este repo ya tenía
+   tapados, en una sola tarde. No fue descuido — fue construir por fuera.
+
+7. **Cada superficie nueva llega con su guardrail, en el mismo commit.** Corolario de
    la regla de oro del repo (*una regla sin instrumento que la haga cumplir es una regla
    que ya se rompió*).
 
