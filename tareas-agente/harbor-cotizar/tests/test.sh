@@ -5,7 +5,7 @@
 set +e
 mkdir -p /logs/verifier
 
-pip install -q pytest pytest-json-ctrf 2>/dev/null
+pip install -q pytest==8.4.1 pytest-json-ctrf==0.3.5 2>/dev/null
 
 python -m pytest --ctrf /logs/verifier/ctrf.json /tests/test_outputs.py -rA
 RC=$?
