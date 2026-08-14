@@ -30,6 +30,10 @@
 | 13-ago-2026 | **Revertida** | ~~Segunda tabla de "mejor valor" (el compuesto)~~ | Correlacionaba **r = 0,943** con el índice de calidad: dos tablas para decir lo mismo | [PLAN-V4.1 §3 corrección](PLAN-V4.1.md) |
 | 13-ago-2026 | **Vigente** | Los segundos ejes son **frontera de Pareto** y **calidad por dólar** | Son las únicas métricas que no correlacionan con calidad (deja fuera 69 de 82; r = 0,052). Todo promedio ponderado terminó siendo una copia | [PLAN-V4.1 §3](PLAN-V4.1.md) |
 | 13-ago-2026 | **Revertida** | ~~Columna "Rinde" (score² ÷ costo)~~ | **r = 0,999** con ordenar por precio. La calidad varía 1,19× y el costo 772×: "valor" *es* precio | [CHANGELOG v4.1.0](CHANGELOG.md) |
+| 14-ago-2026 | **Vigente** | La **dimensión agéntica** (reward de tareas Harbor) se publica **aparte**, nunca dentro del índice de calidad | Misma regla que tool calling y seguridad. El contraste lo prueba solo: Hermes 4 405B tiene calidad 8,20 y saca **0,00** en un agente porque no existe endpoint con herramientas. Promediar las dos cifras miente sobre las dos | [export_for_pages.py](benchmarks/export_for_pages.py) · [tareas-agente/RESULTADOS.md](tareas-agente/RESULTADOS.md) |
+| 14-ago-2026 | **Vigente** | El **estado** vale más que el reward: un 0,00 por falta de endpoint ≠ un 0,00 por hacer mal el trabajo | Tres causas distintas (`sin_herramientas`, `rompe_bucle`, `hizo_mal_la_tarea`) que la media colapsa en un número. Ya publiqué una vez un 0,0 que era del harness | `export_harbor.py:FIRMAS` |
+| 14-ago-2026 | **Vigente** | Un resultado agéntico **NO se hereda entre proveedores** del mismo id | El lote corrió contra `openrouter/<id>`; NIM/Groq/Ollama Cloud son endpoints distintos. Misma regla que la calidad (Qwen 3.5 397B: 8,42 NIM vs 7,97 Ollama Cloud) | [export_for_pages.py](benchmarks/export_for_pages.py) |
+| 14-ago-2026 | **Vigente** | Corridas con `task_checksum` distinto **no se promedian** | Es `prompt_sha` para tareas Harbor: si cambió un test, no es el mismo examen. Medido: 2 de 231 corridas venían de una versión vieja y habrían entrado calladas | `export_harbor.py:_checksum_vigente` |
 | 17-jul-2026 | Vigente | Referencia z-score **congelada por versión** para el compuesto | Antes, medir un modelo nuevo movía el score de todos | [README](README.md) |
 | — | Vigente | **Nunca $0** como precio de un modelo del ranking | Un "gratis" gana el eje costo artificialmente y engaña la decisión que la calculadora existe para ayudar | [CLAUDE.md](CLAUDE.md) |
 
@@ -55,6 +59,8 @@
 | 13-ago-2026 | **Vigente** | Calendario: día 1 = release con presentación **congelada**; ventana trimestral para medición | Que dejar de ser sorpresa | [PLAN-ESTABILIDAD §4](PLAN-ESTABILIDAD.md) |
 | 12-ago-2026 | Vigente | **Una regla sin instrumento que la haga cumplir es una regla que ya se rompió** | Se pagó cinco veces en un día: reglas correctas, escritas, que fallaban en silencio | [CLAUDE.md](CLAUDE.md) |
 | 13-ago-2026 | **Vigente** | Cada superficie nueva llega con su guardrail, en el mismo commit | Corolario de la anterior | [PLAN-ESTABILIDAD R3](PLAN-ESTABILIDAD.md) |
+| 14-ago-2026 | **Vigente** | **El mapa de superficies sincronizadas se GENERA, no se escribe** | Un doc a mano con la lista se desincroniza igual que todo lo demás — es el mismo bug un nivel arriba, y es literalmente el que se encontró: la docstring de `check_version` decía "seis superficies" y el código leía cuatro | [SUPERFICIES.md](SUPERFICIES.md) · `generate_superficies.py` |
+| 14-ago-2026 | **Vigente** | Un guardrail nombrado en el mapa **tiene que existir en disco**, o el generador falla | Una fila que apunta a un chequeo borrado es una superficie sin quien la haga cumplir, disfrazada de superficie cubierta | `generate_superficies.py:CLASES` |
 | 13-ago-2026 | **Vigente** | **El canario es un gate, no una recomendación**: el runner bloquea lotes de >3 modelos sin recibo fresco | Estaba documentado en 6 archivos y exigido en 0. Documentarlo por séptima vez no lo iba a arreglar | [RUNBOOK PASO 0](RUNBOOK-MEDICION.md) · `runner.py:_exigir_canario` |
 | 13-ago-2026 | **Vigente** | Un doc curado **no incrusta datos**: si necesita datos, se genera, o el dato se enlaza | `PROVEEDORES.md` lleva 113 días diciendo "GPT-4o, GPT-5.2, o3" con cero menciones a GPT-5.6 | [check_docs.py](benchmarks/check_docs.py) |
 
@@ -135,9 +141,13 @@ instrumentos" con "está resuelto":
 
 Ninguna de las reglas de arriba se sostiene sola. Lo que las sostiene:
 
+> **El mapa completo de qué tiene que coincidir con qué está en [SUPERFICIES.md](SUPERFICIES.md)**
+> (generado). Esta tabla lista los instrumentos; ése lista las superficies que vigilan.
+
 | Guardrail | Qué caza |
 |---|---|
-| `check_version.py` | Las 6 superficies que declaran versión, desalineadas · falta de tag · falta de CHANGELOG |
+| `generate_superficies.py --check` | El mapa de superficies desactualizado · un guardrail nombrado que ya no existe |
+| `check_version.py` | Las 7 superficies que declaran versión, desalineadas · falta de tag · falta de CHANGELOG |
 | `check_consistency.py` | Un doc vivo citando un score que ya no existe |
 | `check_calculator.py` | Umbrales fuera de rango · filtros decorativos · campos que el JS lee y el export dejó de emitir |
 | `check_blog_consistency.py` | Cifras caducas en el blog |

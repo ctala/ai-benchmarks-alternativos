@@ -105,6 +105,12 @@ def row_for_model(m: dict, score_key: str = "score_calidad") -> str:
     # La columna de score muestra SIEMPRE el criterio que ordena esa tabla — si no,
     # una tabla por suite quedaría ordenada por una cosa y mostrando otra.
     cal_s = f"**{fmt(m.get(score_key))}**"
+    # Marcador agéntico (v4.2). Va en la tabla de CALIDAD a propósito: es justo ahí donde
+    # el dato falta más. Hermes 4 405B aparece con 8,20 —arriba de 40 modelos que sí
+    # resuelven la tarea— y no puede ejecutarla; sin marcador, la fila entera invita a
+    # integrarlo. `⛔` = medido y no puede. Vacío = sin medir, que NO es lo mismo que apto.
+    if m.get("sirve_para_agentes") is False:
+        cal_s += " ⛔"
     val_s = "⭐" if m.get("pareto") else ""
     runs = m.get("runs", 0)
     os_label = "✅" if m.get("open_source") else "❌" if m.get("open_source") is False else "?"
@@ -122,6 +128,13 @@ def row_for_model(m: dict, score_key: str = "score_calidad") -> str:
 def table_header(title: str) -> list[str]:
     return [
         f"#### {title}",
+        "",
+        # El ⛔ sale en TODAS las tablas porque `row_for_model` es compartido, así que la
+        # leyenda va acá y no solo en la primera: quien entra por un ancla a «Mejor
+        # coding» ve el símbolo y necesita saber qué significa en el mismo sitio.
+        "> ⛔ = medido dentro de un agente real y **no puede ejecutar la tarea** "
+        "(sin endpoint con herramientas, o no sostiene el bucle). "
+        "Ver [tareas-agente/RESULTADOS.md](tareas-agente/RESULTADOS.md).",
         "",
         "| Modelo | OS | $ in/out | Calidad | Frontera | Runs | Per-model MD | Responses |",
         "|---|---|---:|---:|:-:|---:|---|---|",

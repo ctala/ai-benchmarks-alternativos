@@ -1,0 +1,29 @@
+{
+  "lineas": [
+    {
+      "sku": "IMPL-AVZ",
+      "precio_referencia": 4810.0,
+      "factor": 1.25,
+      "total": 6012.5
+    },
+    {
+      "sku": "MIGRA",
+      "precio_referencia": 1630.0,
+      "factor": 1.25,
+      "total": 2037.5
+    },
+    {
+      "sku": "INTEG",
+      "precio_referencia": 2090.0,
+      "factor": 1.25,
+      "total": 2612.5
+    }
+  ],
+  "total_usd": 10662.5,
+  "notas": [
+    "IMPL-BAS absorbida por IMPL-AVZ (Incluye la básica; no se cobran las dos).",
+    "DIAG no se cotiza: el cliente ya tiene diagnóstico de otra consultora.",
+    "Certificación ISO 27001: no figura en el tarifario, requiere cotización humana.",
+    "Factor 1.25 por urgencia de fin de mes, dentro de la banda 0,85-2,00."
+  ]
+}

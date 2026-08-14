@@ -203,11 +203,30 @@ def main() -> int:
         # —no había tag de v4.1 y el README presentaba v4.0 como vigente— sin que nada
         # fallara. Un repo que dice tres versiones distintas de sí mismo no tiene
         # control de cambios, tiene tres relatos.
+        # ¿Alguien construyó un camino de medición por fuera del runner? El 13-ago eso
+        # costó seis bugs y tres relanzamientos, todos pozos que el runner ya tenía tapados.
+        print()
+        rc = run_script("check_caminos.py", [], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ Hay medición fuera del runner. Ver arriba.")
+            return 1
+
         print()
         rc = run_script("check_version.py", [], dry_run=False, allow_fail=True)
         if rc != 0:
             print("\n❌ El pipeline regeneró, pero el control de versión está roto.")
             print("   Alinealo antes de publicar: el repo declara versiones distintas de sí mismo.")
+            return 1
+
+        # SUPERFICIES.md es el mapa de qué tiene que coincidir con qué. Se GENERA del
+        # registro que los guardrails ejecutan, así que un mapa desactualizado significa
+        # que alguien agregó una superficie y no regeneró — o que un guardrail nombrado
+        # ahí ya no existe, que es peor: una superficie sin quien la haga cumplir.
+        print()
+        rc = run_script("generate_superficies.py", ["--check"], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ El mapa de superficies sincronizadas quedó desactualizado.")
+            print("   Corré: python benchmarks/generate_superficies.py")
             return 1
 
         print()

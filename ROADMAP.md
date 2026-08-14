@@ -299,8 +299,24 @@ El script `generate_per_model_md.py` ya tiene los datos; al migrar a HTML slider
 
 ## Roadmap: suite agéntica de persistencia (`persistence-harness`)
 
-> **Estado:** diseñada, no construida. Nace de un experimento FALLIDO (13-jul-2026) que
-> vale documentar porque el fallo enseña dónde está el límite real del benchmark.
+> **Estado (14-ago-2026): el harness ya existe, y NO lo construimos.** Lo de abajo pedía
+> "un harness con ejecución real, métrica binaria y el juez fuera del camino crítico".
+> Eso es **Terminal-Bench 2.0 / Harbor**, que ya lo resuelve — y la regla del repo dice
+> que el motor de medición se adopta, no se inventa; nuestro valor está en QUÉ medimos.
+>
+> Entregado en v4.2 (ver [tareas-agente/RESULTADOS.md](tareas-agente/RESULTADOS.md)):
+> ejecución real en Docker con herramientas · verificación por pytest sobre un artefacto,
+> sin juez · 74 modelos × 3 intentos · US$ 2,66. Ya produjo el hallazgo que ninguna suite
+> de texto podía dar: **5 modelos no pueden ejecutar la tarea**, y uno de ellos tiene
+> índice de calidad 8,20.
+>
+> **Lo que sigue pendiente de esta sección es el CASO, no el harness:** la API mock
+> adversaria que mide *disposición* (chocar de verdad y no rendirse) todavía no está
+> escrita como tarea Harbor. El diseño de abajo se conserva porque sigue siendo el
+> planteo correcto del caso — solo cambió quién pone la infraestructura.
+
+> **Origen:** un experimento FALLIDO (13-jul-2026) que vale documentar porque el fallo
+> enseña dónde está el límite real del benchmark.
 
 ### El fallo que hay que medir
 
@@ -389,7 +405,7 @@ ejecuta nada).
 - [ ] **Grok 4.1 Fast** ($0.20/$0.50, xAI) — tool calling de xAI, 2M ctx
 - [ ] **DeepSeek R1** — razonamiento puro, hay tier free
 - [ ] **DeepSeek V4** ($0.30/$0.50, MIT) — sucesor del V3.2 que quedó #10
-- [ ] **Hermes 4** (Nous Research) — modelo agentic open-source
+- [x] **Hermes 4** (Nous Research) — ~~modelo agentic open-source~~ **medido, y el rótulo era falso.** 70B y 405B están en el ranking de calidad (7,70 y 8,20), pero **NO son agénticos**: ningún endpoint accesible expone tool use y sacan **0,00** dentro de un agente. Lo confirma su propia documentación — Nous dice que Hermes 4 *"no está recomendado para usar dentro de Hermes Agent"*, que está afinado para chat y razonamiento. Ver [tareas-agente/RESULTADOS.md](tareas-agente/RESULTADOS.md)
 - [ ] **Gemini 3.1 Flash Lite** ($0.25/$1.50) — sucesor del #4 actual
 - [ ] **Gemini Flash más nuevo** (Gemini 3.1 Flash o superior, no la Lite) — verificar ID exacto en OpenRouter/Google; supera al 2.5 Flash que hoy está corriendo en Lote 3
 
