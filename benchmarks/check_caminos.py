@@ -55,6 +55,10 @@ SANCIONADOS = {
     # la exención va nombrada y con razón, nunca por patrón: exceptuar `test_*.py` en
     # bloque dejaría un hueco por el que sí se podría medir de verdad.
     "benchmarks/test_guardrails.py",
+    # NO puntúa ni rankea: manda un prompt corto y lee `reasoning_tokens` para saber
+    # cuánto razona cada modelo POR DEFAULT. Es de la misma familia que
+    # `check_endpoints.py` — sondea una capacidad, no mide calidad.
+    "benchmarks/sonda_razonamiento.py",
     # GENERA contenido, no mide: escribe posts desde INSIGHTS.md y no produce ningún
     # puntaje (verificado: cero menciones a quality/score). Llamar a un modelo para
     # PRODUCIR es legítimo; lo que no puede pasar por afuera es MEDIR.
