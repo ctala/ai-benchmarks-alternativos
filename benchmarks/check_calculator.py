@@ -29,6 +29,9 @@ C3. Los campos que el JS lee existen en el JSON (`score_calidad`, `pareto`, …)
     export deja de emitir uno, la UI muestra `undefined` sin quejarse.
 C4. Los filtros por capacidad discriminan de verdad: si un filtro deja pasar al 100%
     de los rankeados, es decorativo.
+C5. **La dirección inversa**: ¿la data ganó un eje que la calculadora ignora? C1-C4
+    preguntan si la calculadora se ROMPIÓ; C5 pregunta si quedó INCOMPLETA, que es más
+    silencioso — no hay error, hay una columna que nadie ve porque nunca se agregó.
 
 Uso:
     python benchmarks/check_calculator.py          # exit 1 si algo derivó
@@ -142,6 +145,56 @@ def main() -> int:
         fallo("C4", f"la frontera de Pareto marca a {pareto} de {n}: no discrimina")
     elif args.verbose:
         print(f"  ✅ C4 · la frontera marca a {pareto} de {n}")
+
+    # ── C5 · ¿la DATA ganó algo que la calculadora ignora? ──────────────────
+    #
+    # POR QUÉ (15-ago-2026). Cristian: *"pero ya te había pedido un guardrail para que la
+    # calculadora estuviera al día"*. Tenía razón, y el hueco era de dirección: C1-C4
+    # preguntan **«¿se rompió la calculadora porque cambió la data?»** — todos miran de
+    # JS hacia JSON. Ninguno preguntaba lo contrario.
+    #
+    # Y eso fue exactamente lo que pasó: se midieron ejes nuevos (`agent_long_horizon`,
+    # `tool_calling_adversarial`, `agentic_quality`), el JSON los trajo, la calculadora
+    # los ignoró, y los cuatro chequeos dieron verde. No se rompió nada: quedó incompleta,
+    # que es un fallo distinto y más silencioso — no hay error, hay una columna que nadie
+    # ve porque nunca se agregó.
+    js = APP_JS.read_text(errors="replace") if APP_JS.exists() else ""
+
+    # 5a · toda suite medida en la mitad o más de los rankeados debería poder elegirse
+    from collections import Counter
+    cob = Counter()
+    for m_ in ranked:
+        for suite in (m_.get("score_by_suite") or {}):
+            cob[suite] += 1
+    # Suites que respaldan una DIMENSIÓN publicada aparte: exigir además la suite sería
+    # pedir la misma información dos veces. `prompt_injection_es` se publica como
+    # `security_score`, `niah_es` como `effective_context`.
+    RESPALDAN_DIMENSION = {"prompt_injection_es": "security_score",
+                           "niah_es": "effective_context",
+                           "agent_long_horizon": "agentic_quality"}
+    for suite, veces in sorted(cob.items()):
+        if veces < n * 0.5:
+            continue                      # cobertura baja: todavía no corresponde exigirla
+        dim = RESPALDAN_DIMENSION.get(suite)
+        if dim and dim in js:
+            continue                      # ya visible por su dimensión
+        if f'"{suite}"' not in js:
+            aviso("C5", f"`{suite}` está medida en {veces}/{n} rankeados y la calculadora "
+                        f"NO la ofrece: es un eje que existe en los datos y nadie puede ver")
+
+    # 5b · dimensiones de primer nivel que deciden una elección
+    DIMENSIONES = {
+        "agentic_quality": "calidad en tareas multi-paso",
+        "security_score": "resistencia a fuga de datos",
+        "effective_context": "contexto que de verdad usa",
+        "sirve_para_agentes": "si corre dentro de un agente",
+        "multiturno_score": "sostener un hilo largo",
+    }
+    for campo, para_que in DIMENSIONES.items():
+        con = sum(1 for m_ in ranked if m_.get(campo) is not None)
+        if con >= n * 0.5 and campo not in js:
+            fallo("C5", f"`{campo}` ({para_que}) está en {con}/{n} rankeados y la "
+                        f"calculadora no lo usa en ninguna parte")
 
     print()
     for a in avisos:
