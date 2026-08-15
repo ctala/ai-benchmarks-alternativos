@@ -78,6 +78,19 @@ CLASES = [
                 "puede dejar una recomendación de seguridad peligrosa.",
     },
     {
+        "clase": "Cortes por eje del sitio",
+        "que_sincroniza": "las páginas que ordenan por UNA suite en vez de por un promedio",
+        "fuente": "`docs/data/models.json`",
+        "guardrail": "benchmarks/check_cortes.py",
+        "como": "Existen porque los promedios esconden: Gemini 3.6 Flash es #3 de 80 en "
+                "calidad agéntica y #76 de 80 en el índice general, y el pilar Agentes "
+                "tampoco lo mostraba (#65) porque también promedia. El chequeo avisa "
+                "cuando se mide una suite decisiva y nadie le hizo su corte, falla si una "
+                "página quedó desincronizada, y falla si un corte AGÉNTICO corona a un "
+                "modelo que no corre dentro de un agente — pasó con Llama 3.1 8B, #4 en "
+                "«tareas largas» y rompe el bucle de herramientas.",
+    },
+    {
         "clase": "Afirmaciones de método",
         "que_sincroniza": "que ningún doc VIVO afirme una metodología que ya se reemplazó",
         "fuente": "`DECISIONES.md`",
