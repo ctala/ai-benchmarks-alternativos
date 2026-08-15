@@ -1414,7 +1414,22 @@ MODELS = {
         "context_window": 1050000,
         "niah_max_context": 262144,
         "publisher": "OpenAI",
-        "notes": "Mismo precio que Luna (#1 actual) con 1,05M de contexto. Publicado 9-jul-2026.",
+        # VARIANTE DE ESFUERZO — no rankea y no se vuelve a medir (15-ago-2026).
+        #
+        # Cuesta EXACTAMENTE lo mismo que `gpt-5.6-luna` ($0,10/$0,60): no es otro
+        # producto, es el mismo modelo razonando más. Rankearlo obligaría a medir también
+        # Claude con extended thinking, o3 en high, Gemini con thinking budget… y ahí el
+        # benchmark se vuelve combinatorio. Cristian: *"ahí sí se nos escapa el benchmark"*.
+        #
+        # El criterio para separar «producto» de «esfuerzo» es el PRECIO, que es objetivo:
+        # Gemini 2.5 Pro cuesta distinto que el Flash → es producto y sí rankea.
+        #
+        # Ojo con la columna de costo: a igual precio por token, el modo Pro consume MÁS
+        # tokens razonando, así que el benchmark subestimaría lo que cuesta de verdad.
+        "effort_variant": True,
+        "no_medir": True,
+        "notes": ("Variante de MAYOR ESFUERZO de GPT-5.6 Luna, al mismo precio "
+                  "($0,10/$0,60). No rankea por política: ver DECISIONES.md."),
     },
     "gpt-5.6-terra-pro": {
         "id": "openai/gpt-5.6-terra-pro",
@@ -1424,7 +1439,13 @@ MODELS = {
         "context_window": 1050000,
         "niah_max_context": 262144,
         "publisher": "OpenAI",
-        "notes": "Publicado 9-jul-2026.",
+        # Variante de esfuerzo, mismo criterio que `gpt-5.6-luna-pro`: cuesta idéntico a
+        # `gpt-5.6-terra` ($1/$6), así que es el mismo modelo razonando más, no un producto
+        # distinto. No rankea y no se vuelve a medir.
+        "effort_variant": True,
+        "no_medir": True,
+        "notes": ("Variante de MAYOR ESFUERZO de GPT-5.6 Terra, al mismo precio ($1/$6). "
+                  "No rankea por política: ver DECISIONES.md."),
     },
     "muse-spark-1.2": {
         "id": "meta/muse-spark-1.2",
