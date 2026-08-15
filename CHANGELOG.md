@@ -95,6 +95,36 @@ sus pesos no son públicos todavía.
 `scoring_reference.json` sube a v4.3 pero **la calibración NO se recalculó**: nada de esto
 toca el score. Queda escrito en el archivo (`calibracion_heredada_de: v4.1`).
 
+### Después del tag — el sitio, bajo el mismo dataset
+
+Cinco cambios entraron después de taggear v4.3.0. No mueven un solo número medido, así
+que **la versión del dataset no se toca**; van acá porque la regla del repo es que un
+cambio publicado sin entrada es un cambio sin traza — y estos cuatro commits estuvieron
+justo así hasta que se escribió esto.
+
+- **6 cortes por eje individual en el sitio**, para que la web no quede distinta del repo:
+  el promedio de 29 suites es el que escondía a Gemini 3.6 Flash en el #76.
+- **La calculadora conocía los cortes a medias**: elegir una subcategoría podía devolver
+  un listado vacío, porque el umbral de calidad quedaba fuera del rango de ese eje.
+  Arreglado en `clampUmbralAlEje()`.
+- **`check_calculator` C5** — el guardrail miraba en una sola dirección. C1-C4 preguntaban
+  *"¿se rompió la calculadora porque cambió la data?"*; ninguno preguntaba lo contrario:
+  **un eje medido que la calculadora dejó de exponer**. Se mide y no se muestra: nada falla.
+- **QA funcional de la calculadora** (`qa_calculadora.mjs`, 16 chequeos): carga el `app.js`
+  real contra los datos reales, incluidos los 5 del wizard. El wizard se había roto antes
+  sin que nada avisara.
+- **Dos columnas nuevas en la tabla** — las que convierten un score en una decisión:
+
+  | columna | qué agrega |
+  |---|---|
+  | **Índice global** (al elegir un eje) | el puesto general al lado del puesto del eje. Un eje sin su global es medio dato: Gemini 3.6 Flash es #3 en calidad agéntica y #76 en el índice |
+  | **Tarea real** | media **y piso** de las tareas Harbor. Antes era un badge ✓ sin número, y `1,00 (piso 1,00)` llevaba la misma marca que `0,67 (piso 0,00)` |
+
+  El caso que las justifica se ve en una fila: `Llama 3.1 8B Instant` sale **#4 en tareas
+  largas con 8,20** y ahora muestra al lado *#80 en el índice* y *0,00 piso 0,00* — tres
+  señales alineadas donde antes había un 8,20 solo. El piso importa más que la media para
+  trabajo desatendido: es la diferencia entre «a veces sale mal» y «no sale mal».
+
 ---
 
 ## [v4.2.0] - 2026-08-14 — El benchmark deja de suponer que un buen modelo sirve en un agente
