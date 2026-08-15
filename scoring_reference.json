@@ -1,5 +1,5 @@
 {
-  "version": "v4.2",
+  "version": "v4.3",
   "computed_at": "2026-08-13T06:18:15",
   "score_method": "zscore_frozen_v4",
   "norm_stats": {
@@ -100,5 +100,5 @@
     "slope_calidad": 1.6609
   },
   "calibracion_heredada_de": "v4.1",
-  "nota_calibracion": "v4.2 NO recalibró: agrega la dimensión agéntica, que se publica aparte y no entra al score. Los mean/std son los computados en v4.1 (2026-08-13). La referencia solo se recalcula con --recalibrate, que es un evento deliberado."
+  "nota_calibracion": "v4.2 y v4.3 NO recalibraron. v4.2 agregó la dimensión agéntica y v4.3 agrega tareas nuevas, procedencia del juez y la política de variantes de esfuerzo — nada de eso toca el score. Los mean/std son los computados en v4.1 (2026-08-13). La referencia solo se recalcula con --recalibrate, que es un evento deliberado."
 }
