@@ -1531,7 +1531,12 @@ MODELS = {
         "publisher": "inclusionAI",
         "weights_url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
         "open_source": True,
-        "notes": "El más barato del catálogo (publicado 23-jul-2026). Thinking. Licencia sin verificar.",
+        "license": "MIT",
+        # Verificado el 15-ago-2026 contra la fuente: Ant Group (inclusionAI) liberó
+        # los pesos el 5-ago bajo MIT, en HuggingFace y ModelScope. La nota anterior
+        # decía «licencia sin verificar» — y una licencia sin verificar no se puede
+        # recomendar a nadie, que es justo para lo que se estaba por usar.
+        "notes": ("124B MoE con ~5,1B activos por token: por eso es el más barato del catálogo. Diseñado por Ant Group para inferencia agéntica, no es un modelo de chat que resulta que sirve — y eso se nota en las tareas reales (1,00 en cotizar, reunión y ruteo). Pesos abiertos bajo MIT desde el 5-ago-2026."),
     },
     "solar-pro4": {
         "id": "upstage/solar-pro4",

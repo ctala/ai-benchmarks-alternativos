@@ -155,6 +155,19 @@ def _t_superficies():
         return _correr("generate_superficies.py", "--check") != 0
 
 
+@prueba("check_cortes", "un corte por eje desincronizado de models.json")
+def _t_cortes():
+    pg = ROOT / "docs" / "mejor-llm-para-json" / "index.html"
+    if not pg.exists():
+        return False
+    with Sabotaje(pg):
+        import re as _re
+        pg.write_text(_re.sub(r"(<tr><td>1</td><td>(?:<strong>)?)[^<]+",
+                              r"\1Modelo Inventado", pg.read_text(encoding="utf-8"), count=1),
+                      encoding="utf-8")
+        return _correr("check_cortes.py") != 0
+
+
 @prueba("check_claims", "un doc vivo afirmando lo que una decisión vigente reemplazó")
 def _t_claims():
     rm = ROOT / "README.md"

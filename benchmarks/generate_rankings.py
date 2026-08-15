@@ -144,6 +144,101 @@ RANKINGS = [
         "why": "Un agente es una cadena de decisiones. Si falla en el segundo o tercer paso, todo el flujo se rompe. Medimos estabilidad multi-turno, coherencia de estado y uso correcto de herramientas.",
         "related": ["mejor-llm-para-n8n", "mejor-llm-para-tool-calling", "alternativas-claude"],
     },
+    # ── CORTES POR EJE INDIVIDUAL (15-ago-2026) ──────────────────────────────
+    #
+    # POR QUÉ. El sitio publicaba el índice global y los 4 pilares, y los dos son
+    # PROMEDIOS. Medido: **Gemini 3.6 Flash es #3 de 80 en calidad agéntica y #76 de 80
+    # en el índice global** — y el pilar Agentes tampoco lo mostraba (#65), porque
+    # también promedia. Cristian lo detectó usándolo: *"lo estoy usando en Hermes y
+    # funciona muy bien"*, contra un número que decía lo contrario.
+    #
+    # Un corte por eje NO es más granularidad del pilar: es dejar de promediar. Cada una
+    # de estas páginas muestra además **el contraste con el índice global**, porque una
+    # tabla que solo diga «#3» es tan parcial como una que solo diga «#76».
+    {
+        "slug": "mejor-llm-que-no-inventa-herramientas",
+        "title": "Mejor LLM que no inventa herramientas en 2026: ranking adversarial",
+        "h1": "Mejor LLM que NO inventa herramientas (2026)",
+        "intent_kw": "llm no inventa funciones, modelo alucina herramientas, tool calling adversarial, agente llama funcion inexistente",
+        "criterion": "suite", "suite": "tool_calling_adversarial",
+        "case": "resistir la tentación de llamar una herramienta que no existe o que no corresponde",
+        "what": "no inventar herramientas",
+        "lead": "Un agente que inventa una función falla de la peor manera: con confianza. "
+                "Este corte mide abstenerse cuando la herramienta correcta no está.",
+        "use_cases": ["agentes con catálogo acotado de funciones", "workflows donde un error se ejecuta", "integraciones con APIs reales"],
+        "why": "Medir «usa herramientas» premia al que siempre llama algo. Acá se mide lo contrario: reconocer cuándo NO hay herramienta que sirva y decirlo.",
+        "related": ["mejor-llm-para-tool-calling", "mejor-llm-para-agentes"],
+    },
+    {
+        "slug": "mejor-llm-para-json",
+        "title": "Mejor LLM para JSON estructurado en 2026: ranking con benchmark",
+        "h1": "Mejor LLM para emitir JSON válido (2026)",
+        "intent_kw": "mejor llm json, modelo json estructurado, llm schema valido, ia extraccion estructurada",
+        "criterion": "suite", "suite": "structured_output",
+        "case": "emitir JSON que parsea a la primera y respeta el schema pedido",
+        "what": "salida estructurada",
+        "lead": "Si la salida va a otro sistema, un JSON roto es una tarea que no se hizo. "
+                "Este corte ordena por salida estructurada, no por calidad de prosa.",
+        "use_cases": ["integraciones entre sistemas", "extracción de datos", "agentes que escriben archivos", "pipelines automatizados"],
+        "why": "Medido en nuestras tareas agénticas: modelos que entienden el trabajo perfectamente lo pierden todo por comillas mal cerradas. El JSON no es un detalle de formato, es el entregable.",
+        "related": ["mejor-llm-para-programar", "mejor-llm-para-agentes"],
+    },
+    {
+        "slug": "mejor-llm-seguro-datos-clientes",
+        "title": "Mejor LLM para datos de clientes en 2026: resistencia a fuga",
+        "h1": "Mejor LLM para manejar datos de clientes (2026)",
+        "intent_kw": "llm seguro datos clientes, prompt injection espanol, modelo no filtra datos, ia segura chatbot",
+        "criterion": "suite", "suite": "prompt_injection_es",
+        "case": "resistir que un usuario le saque datos o instrucciones con prompt injection",
+        "what": "resistencia a fuga de datos",
+        "lead": "Si tu agente atiende gente de afuera y toca datos de clientes, este es el único eje que importa primero. "
+                "El resto se arregla; una fuga no.",
+        "use_cases": ["chatbots de cara al público", "agentes con datos personales", "soporte automatizado", "cualquier cosa con RUT, correo o compras"],
+        "why": "La mayoría del catálogo puntúa MUY bajo acá, y el índice general no lo refleja porque la seguridad se reporta aparte. Un modelo excelente y barato puede ser el peor candidato posible para esto.",
+        "related": ["mejor-llm-para-agentes", "mejor-llm-en-espanol"],
+    },
+    {
+        "slug": "mejor-llm-para-tareas-largas",
+        "title": "Mejor LLM para tareas multi-paso en 2026: ranking por horizonte largo",
+        "h1": "Mejor LLM para tareas largas y multi-paso (2026)",
+        "intent_kw": "mejor llm tareas largas, llm multi paso, agente horizonte largo, mantener contexto conversacion, llm que no se pierde",
+        "criterion": "suite", "suite": "agent_long_horizon",
+        "case": "tareas multi-paso donde el modelo tiene que sostener el hilo (8-12 turnos)",
+        "what": "sostener una tarea larga",
+        "lead": "Un asistente que se pierde en el turno 8 no sirve, por bien que responda el turno 1. "
+                "Este corte ordena por la suite de horizonte largo, no por el promedio.",
+        "use_cases": ["asistentes conversacionales", "agentes que iteran", "procesos de varios pasos", "soporte con historial"],
+        "why": "El promedio general premia escribir bien y castiga poco perderse. Acá se mide lo contrario: recordar una restricción del turno 1 doce turnos después.",
+        "related": ["mejor-llm-para-agentes", "mejor-llm-para-tool-calling"],
+    },
+    {
+        "slug": "mejor-llm-para-seguir-instrucciones",
+        "title": "Mejor LLM para seguir instrucciones en 2026: ranking de adherencia",
+        "h1": "Mejor LLM para seguir instrucciones al pie de la letra (2026)",
+        "intent_kw": "llm que sigue instrucciones, modelo obediente, llm adherencia politica, ia que hace lo que le pides",
+        "criterion": "suite", "suite": "policy_adherence",
+        "case": "hacer exactamente lo que se pidió, ni más ni menos",
+        "what": "seguir instrucciones",
+        "lead": "El fallo caro de un asistente no es no saber: es hacer otra cosa. "
+                "Este corte ordena por adherencia a lo que se le pidió.",
+        "use_cases": ["asistentes que operan tu negocio", "agentes con políticas escritas", "flujos con reglas duras"],
+        "why": "Un modelo que 'mejora' tu instrucción por su cuenta es peligroso en producción: hace algo razonable que nadie pidió, y no avisa.",
+        "related": ["mejor-llm-para-agentes", "mejor-llm-para-tareas-largas"],
+    },
+    {
+        "slug": "mejor-llm-para-datos-exactos",
+        "title": "Mejor LLM para datos exactos en 2026: ranking de precisión literal",
+        "h1": "Mejor LLM para no equivocarse en un dato (2026)",
+        "intent_kw": "llm preciso datos, modelo que no inventa numeros, ia precision literal, llm hex jwt configs",
+        "criterion": "suite", "suite": "string_precision",
+        "case": "reproducir datos sin alterarlos: códigos, montos, identificadores, configuraciones",
+        "what": "precisión en datos literales",
+        "lead": "Un dígito cambiado en un monto o en un token no se nota hasta que duele. "
+                "Este corte ordena por precisión literal.",
+        "use_cases": ["facturación y cotizaciones", "configuraciones", "extracción de identificadores", "traspaso de datos entre sistemas"],
+        "why": "Es el eje que ningún promedio refleja y el que más rápido rompe una operación: los errores no se ven, se facturan.",
+        "related": ["mejor-llm-para-programar", "mejor-llm-para-agentes"],
+    },
     {
         "slug": "mejor-llm-para-tool-calling",
         "title": "Mejor LLM para tool calling en 2026: ranking con benchmark real",
@@ -230,7 +325,19 @@ def rank_models(models, cfg):
     #
     # Solo aplica al pilar Agentes: un modelo que no sostiene un bucle de herramientas
     # puede seguir siendo excelente escribiendo código cuando lo manejás vos.
-    if crit == "pillar" and cfg.get("pillar") == "Agentes":
+    # Suites que describen trabajo DENTRO de un agente. Se listan explícitas porque no
+    # todas las suites lo son: `summarization` no necesita herramientas, `tool_calling` sí.
+    SUITES_AGENTICAS = {"agent_long_horizon", "tool_calling", "tool_calling_adversarial",
+                        "policy_adherence", "agent_capabilities", "orchestration", "multi_turn"}
+    es_agentica = (crit == "pillar" and cfg.get("pillar") == "Agentes") or \
+                  (crit == "suite" and cfg.get("suite") in SUITES_AGENTICAS)
+    if es_agentica:
+        # Medido el 15-ago: `Llama 3.1 8B Instant` sale **#4 en agent_long_horizon** y NO
+        # corre dentro de un agente (rompe el bucle de herramientas). La suite mide
+        # sostener el hilo SIN herramientas, así que un modelo puede lucirse ahí y
+        # romperse apenas tiene que llamar algo. Publicarlo cuarto en «mejor LLM para
+        # tareas largas» es mandar a alguien a integrarlo — el mismo fallo que ya se
+        # atajó en el pilar Agentes, un nivel más adentro.
         base = [m for m in base if m.get("sirve_para_agentes") is not False]
 
     if crit == "pillar":
@@ -317,17 +424,42 @@ def score_label(cfg):
     return "Score global"
 
 
+# Puesto de cada modelo en el ÍNDICE DE CALIDAD global. Se calcula una vez y se usa en
+# la columna de contraste de los cortes por eje.
+#
+# POR QUÉ EXISTE ESA COLUMNA (15-ago-2026). Un corte por eje sin el global es tan parcial
+# como el global sin el eje. Medido: **Gemini 3.6 Flash es #3 de 80 en calidad agéntica y
+# #76 de 80 en el índice general** — quien lea solo una de las dos cifras se lleva una
+# conclusión falsa en cualquiera de los dos sentidos. La página tiene que mostrar las dos
+# juntas, que es exactamente el dato que ningún promedio da.
+_PUESTO_GLOBAL: dict[str, int] = {}
+
+
+def _cargar_puestos(models):
+    if _PUESTO_GLOBAL:
+        return
+    r = sorted([m for m in models if m.get("ranked") and m.get("score_calidad") is not None],
+               key=lambda m: -m["score_calidad"])
+    for i, m in enumerate(r, 1):
+        _PUESTO_GLOBAL[m["name"]] = i
+
+
 def table_head(cfg):
     base_cols = '<th scope="col">#</th><th scope="col">Modelo</th>'
     if cfg["criterion"] == "suite":
-        # La suite no está en los 4 pilares, así que va una columna aparte.
-        base_cols += f'<th scope="col">{esc(score_label(cfg))}</th>'
+        # Corte por eje: el eje + el CONTRASTE con el índice global. Los 4 pilares se
+        # sacaron a propósito — son promedios, y el punto de esta página es dejar de
+        # promediar.
+        base_cols += (f'<th scope="col">{esc(score_label(cfg))}</th>'
+                      '<th scope="col">Índice global</th>'
+                      '<th scope="col">Puesto global</th>')
     elif cfg["criterion"] == "pillar":
         # Para pilares, la columna del pilar relevante ya está entre Coding/Contenido/Razon./Agentes.
         pass
     else:
         base_cols += '<th scope="col">Global</th>'
-    base_cols += '<th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th>'
+    if cfg["criterion"] != "suite":
+        base_cols += '<th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th>'
     base_cols += '<th scope="col">$ in/out per M</th><th scope="col">Velocidad</th>'
     return f'<div class="table-scroll"><table class="results-table">\n      <thead>\n        <tr>{base_cols}</tr>\n      </thead>'
 
@@ -346,10 +478,15 @@ def row_ranking(rank, m, cfg, top=False, badges=None):
         nm += f' <span class="row-badge">{esc(badge)}</span>'
     relevant = score_for(m, cfg)
     if cfg["criterion"] == "suite":
-        # Ranking por suite: mostrar score de la suite + pilares auxiliares.
+        pg = _PUESTO_GLOBAL.get(m.get("name"))
+        gl = m.get("score_calidad")
+        # Se resalta cuando el modelo está MUY abajo en el global: es el caso que la
+        # página existe para mostrar — bueno en este eje, escondido por el promedio.
+        total = len(_PUESTO_GLOBAL) or 1
+        clase = ' class="contraste"' if pg and rank <= 5 and pg > total * 0.5 else ""
         return (f"<tr><td>{rank}</td><td>{nm}</td><td>{relevant:.1f}</td>"
-                f"<td>{pcell(m,'Coding')}</td><td>{pcell(m,'Contenido')}</td>"
-                f"<td>{pcell(m,'Razonamiento')}</td><td>{pcell(m,'Agentes')}</td>"
+                f"<td>{gl if gl is not None else '—'}</td>"
+                f"<td{clase}>{f'#{pg} de {total}' if pg else '—'}</td>"
                 f"<td>{fmt_cost(m)}</td><td>{round(m.get('tokens_per_second') or 0)} tok/s</td></tr>")
     # Ranking por pilar/costo/open_source: solo pilares y global (si aplica).
     global_col = f"<td>{m.get('score_global',0):.2f}</td>" if cfg["criterion"] != "pillar" else ""
@@ -871,6 +1008,7 @@ def main():
     ap.add_argument("--slug")
     args = ap.parse_args()
     models = load_models()
+    _cargar_puestos(models)   # puestos en el índice global, para la columna de contraste
     for cfg in RANKINGS:
         if args.slug and cfg["slug"] != args.slug:
             continue
