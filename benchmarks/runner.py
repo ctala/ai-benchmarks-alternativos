@@ -750,6 +750,22 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
 
     # Guardar datos del juez si disponible
     if judge_result and judge_quality >= 0:
+        # QUIÉN puso la nota, no solo cuál fue.
+        #
+        # POR QUÉ (14-ago-2026). Cristian: *"las últimas veces usamos phi en
+        # OpenRouter"*. Fui a verificarlo y **no se puede**: ninguno de los 14 lotes más
+        # recientes registra con qué juez se midió. El repo guarda `prompt_sha` para la
+        # entrada y `upstream_provider` para el endpoint del modelo evaluado, pero del
+        # instrumento que pone la nota no guardaba nada.
+        #
+        # Y hay al menos CUATRO rutas para el mismo juez —Ollama local, Spark por LAN,
+        # vLLM FP16, OpenRouter— con cuantizaciones distintas. Es el mismo «endpoint ≠
+        # modelo» que ya aplicamos a lo medido, y en el juez pesa más: un juez que
+        # puntúa distinto corre a TODOS los modelos que toca.
+        if judge is not None:
+            scores["judge_model"] = getattr(judge, "judge_model", None)
+            scores["judge_provider"] = getattr(judge, "provider", None)
+            scores["judge_base_url"] = getattr(judge, "base_url", None)
         scores["judge_score"] = judge_result.get("score_final", -1)
         scores["judge_precision"] = judge_result.get("precision", 0)
         scores["judge_relevancia"] = judge_result.get("relevancia", 0)
