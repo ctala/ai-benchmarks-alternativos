@@ -1,7 +1,7 @@
 {
-  "cuando": "2026-08-13T10:03:45",
+  "cuando": "2026-08-14T18:11:38",
   "modelos": [
-    "qwen3.7-flash"
+    "gemini-3.6-flash"
   ],
   "suites": [
     "tool_calling",

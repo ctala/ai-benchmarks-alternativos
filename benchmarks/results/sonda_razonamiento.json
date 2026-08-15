@@ -1,0 +1,174 @@
+{
+  "sondas": [
+    {
+      "fecha": "2026-08-15",
+      "resultados": [
+        {
+          "modelo": "gpt-5.6-luna",
+          "id": "openai/gpt-5.6-luna",
+          "ok": false,
+          "error": "'UnifiedProvider' object has no attribute 'complete'"
+        },
+        {
+          "modelo": "gpt-5.6-terra",
+          "id": "openai/gpt-5.6-terra",
+          "ok": false,
+          "error": "'UnifiedProvider' object has no attribute 'complete'"
+        },
+        {
+          "modelo": "claude-opus-5",
+          "id": "anthropic/claude-opus-5",
+          "ok": false,
+          "error": "'UnifiedProvider' object has no attribute 'complete'"
+        },
+        {
+          "modelo": "claude-sonnet-5",
+          "id": "anthropic/claude-sonnet-5",
+          "ok": false,
+          "error": "'UnifiedProvider' object has no attribute 'complete'"
+        },
+        {
+          "modelo": "claude-haiku-4.5",
+          "id": "anthropic/claude-haiku-4.5",
+          "ok": false,
+          "error": "'UnifiedProvider' object has no attribute 'complete'"
+        },
+        {
+          "modelo": "gemini-3.1-pro",
+          "id": "google/gemini-3.1-pro-preview",
+          "ok": false,
+          "error": "'UnifiedProvider' object has no attribute 'complete'"
+        },
+        {
+          "modelo": "tencent-hy3",
+          "id": "tencent/hy3",
+          "ok": false,
+          "error": "'UnifiedProvider' object has no attribute 'complete'"
+        },
+        {
+          "modelo": "deepseek-r1",
+          "id": "deepseek/deepseek-r1",
+          "ok": false,
+          "error": "'UnifiedProvider' object has no attribute 'complete'"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-08-15",
+      "resultados": [
+        {
+          "modelo": "gpt-5.6-luna",
+          "id": "openai/gpt-5.6-luna",
+          "ok": true,
+          "reasoning_tokens": 70,
+          "output_tokens": 80,
+          "razona_por_default": true,
+          "respuesta": "4033,61"
+        },
+        {
+          "modelo": "gpt-5.6-terra",
+          "id": "openai/gpt-5.6-terra",
+          "ok": true,
+          "reasoning_tokens": 36,
+          "output_tokens": 46,
+          "razona_por_default": true,
+          "respuesta": "4033,61"
+        },
+        {
+          "modelo": "claude-opus-5",
+          "id": "anthropic/claude-opus-5",
+          "ok": true,
+          "reasoning_tokens": 343,
+          "output_tokens": 361,
+          "razona_por_default": true,
+          "respuesta": "**4.033,61** (≈ 4.034)"
+        },
+        {
+          "modelo": "claude-sonnet-5",
+          "id": "anthropic/claude-sonnet-5",
+          "ok": true,
+          "reasoning_tokens": 148,
+          "output_tokens": 157,
+          "razona_por_default": true,
+          "respuesta": "**4.033,61**"
+        },
+        {
+          "modelo": "claude-haiku-4.5",
+          "id": "anthropic/claude-haiku-4.5",
+          "ok": true,
+          "reasoning_tokens": null,
+          "output_tokens": 9,
+          "razona_por_default": false,
+          "respuesta": "4.033,61"
+        },
+        {
+          "modelo": "gemini-3.1-pro",
+          "id": "google/gemini-3.1-pro-preview",
+          "ok": true,
+          "reasoning_tokens": 487,
+          "output_tokens": 494,
+          "razona_por_default": true,
+          "respuesta": "4033,61"
+        },
+        {
+          "modelo": "tencent-hy3",
+          "id": "tencent/hy3",
+          "ok": true,
+          "reasoning_tokens": 626,
+          "output_tokens": 632,
+          "razona_por_default": true,
+          "respuesta": "4033.61"
+        },
+        {
+          "modelo": "deepseek-r1",
+          "id": "deepseek/deepseek-r1",
+          "ok": true,
+          "reasoning_tokens": 7585,
+          "output_tokens": 7733,
+          "razona_por_default": true,
+          "respuesta": "El precio dado es 4.800 con IVA incluido del 19%. Para encon"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-08-15",
+      "resultados": [
+        {
+          "modelo": "gpt-5.6-luna",
+          "default": 52,
+          "low": null,
+          "medium": null,
+          "high": null
+        },
+        {
+          "modelo": "claude-opus-5",
+          "default": 260,
+          "low": null,
+          "medium": null,
+          "high": null
+        },
+        {
+          "modelo": "claude-sonnet-5",
+          "default": 40,
+          "low": null,
+          "medium": null,
+          "high": null
+        },
+        {
+          "modelo": "gemini-3.1-pro",
+          "default": 487,
+          "low": null,
+          "medium": null,
+          "high": null
+        },
+        {
+          "modelo": "tencent-hy3",
+          "default": 536,
+          "low": null,
+          "medium": null,
+          "high": null
+        }
+      ]
+    }
+  ]
+}

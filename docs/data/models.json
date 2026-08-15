@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-14T17:53:54",
+  "generated_at": "2026-08-15T10:30:01",
   "total_models": 192,
-  "tested_count": 138,
-  "ranked_count": 79,
-  "total_runs_measured": 30016,
-  "total_runs_active": 25644,
+  "tested_count": 139,
+  "ranked_count": 80,
+  "total_runs_measured": 30169,
+  "total_runs_active": 25797,
   "total_runs_discarded": 4372,
   "thresholds": {
     "tested_min_runs": 20,
@@ -22,7 +22,7 @@
     "latency": 0.075
   },
   "score_method": "zscore_frozen_v4",
-  "scoring_version": "v4.2",
+  "scoring_version": "v4.3",
   "norm_stats": {
     "quality_avg": {
       "mean": 8.1309,
@@ -117,128 +117,128 @@
   },
   "norm_stats_by_suite": {
     "agent_capabilities": {
-      "mean": 6.5711,
-      "std": 0.8126
+      "mean": 6.5755,
+      "std": 0.8084
     },
     "agent_long_horizon": {
-      "mean": 7.4652,
-      "std": 0.6317
+      "mean": 7.4741,
+      "std": 0.6328
     },
     "business_audit": {
-      "mean": 6.8482,
-      "std": 0.4879
+      "mean": 6.8509,
+      "std": 0.4854
     },
     "business_strategy": {
-      "mean": 7.8419,
-      "std": 0.4545
+      "mean": 7.8424,
+      "std": 0.4517
     },
     "code_generation": {
-      "mean": 7.8405,
-      "std": 0.5766
+      "mean": 7.8346,
+      "std": 0.5754
     },
     "content_generation": {
-      "mean": 7.9757,
-      "std": 0.4212
+      "mean": 7.9756,
+      "std": 0.4186
     },
     "content_verificable": {
-      "mean": 7.5578,
-      "std": 0.8012
+      "mean": 7.5584,
+      "std": 0.7962
     },
     "creativity": {
-      "mean": 7.7677,
-      "std": 0.4078
+      "mean": 7.764,
+      "std": 0.4066
     },
     "customer_support": {
-      "mean": 7.2856,
-      "std": 0.7122
+      "mean": 7.281,
+      "std": 0.7089
     },
     "deep_reasoning": {
-      "mean": 6.4795,
-      "std": 0.8551
+      "mean": 6.4539,
+      "std": 0.8797
     },
     "hallucination": {
-      "mean": 6.7209,
-      "std": 0.7303
+      "mean": 6.7154,
+      "std": 0.7274
     },
     "integridad_idioma": {
       "mean": 7.8231,
       "std": 0.907
     },
     "multi_turn": {
-      "mean": 7.072,
+      "mean": 7.0655,
       "std": 0.5172
     },
     "news_seo_writing": {
-      "mean": 6.0606,
-      "std": 0.8049
+      "mean": 6.0477,
+      "std": 0.808
     },
     "niah_es": {
       "mean": 8.1911,
       "std": 0.2969
     },
     "ocr_extraction": {
-      "mean": 8.1884,
-      "std": 0.6558
+      "mean": 8.1632,
+      "std": 0.6888
     },
     "orchestration": {
-      "mean": 6.6138,
-      "std": 0.9436
+      "mean": 6.5976,
+      "std": 0.9486
     },
     "policy_adherence": {
-      "mean": 7.4241,
-      "std": 0.6362
+      "mean": 7.4285,
+      "std": 0.6334
     },
     "presentation": {
-      "mean": 7.8762,
-      "std": 0.6288
+      "mean": 7.8567,
+      "std": 0.6483
     },
     "prompt_injection_es": {
-      "mean": 4.143,
-      "std": 2.1407
+      "mean": 4.1017,
+      "std": 2.1305
     },
     "reasoning": {
-      "mean": 7.9732,
-      "std": 0.4744
+      "mean": 7.954,
+      "std": 0.5013
     },
     "sales_outreach": {
-      "mean": 7.2649,
-      "std": 0.805
+      "mean": 7.2404,
+      "std": 0.8292
     },
     "startup_content": {
-      "mean": 7.9637,
-      "std": 0.4992
+      "mean": 7.9611,
+      "std": 0.4966
     },
     "strategy": {
-      "mean": 7.4348,
-      "std": 0.7921
+      "mean": 7.4109,
+      "std": 0.8154
     },
     "string_precision": {
-      "mean": 7.6925,
-      "std": 0.7508
+      "mean": 7.711,
+      "std": 0.7639
     },
     "structured_output": {
-      "mean": 8.4601,
-      "std": 0.9502
+      "mean": 8.4612,
+      "std": 0.9443
     },
     "summarization": {
-      "mean": 7.0973,
-      "std": 0.4722
+      "mean": 7.0959,
+      "std": 0.4694
     },
     "task_management": {
-      "mean": 8.0353,
-      "std": 0.4955
+      "mean": 8.0232,
+      "std": 0.5039
     },
     "tool_calling": {
-      "mean": 5.9927,
-      "std": 0.6785
+      "mean": 5.9915,
+      "std": 0.674
     },
     "tool_calling_adversarial": {
-      "mean": 6.4582,
-      "std": 0.544
+      "mean": 6.456,
+      "std": 0.541
     },
     "translation": {
-      "mean": 7.4868,
-      "std": 0.5067
+      "mean": 7.4901,
+      "std": 0.5043
     }
   },
   "score_rescale": {
@@ -312,6 +312,8 @@
       "subscriptions": [],
       "notes": "Variante rápida y económica de GPT-5.6 (GA 9 jul 2026). $1/$6 vía OpenRouter.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -474,6 +476,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -495,6 +503,8 @@
       "subscriptions": [],
       "notes": "Publicado 6-jul-2026. Existe también hy3-preview a mitad de precio, sin medir. Licencia sin verificar.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -662,7 +672,7 @@
           "harbor-ruteo": {
             "media": 1.0,
             "piso": 1.0,
-            "intentos": 2,
+            "intentos": 3,
             "estado": "ok_siempre"
           }
         },
@@ -685,6 +695,8 @@
       "subscriptions": [],
       "notes": "1M de contexto a $0,03. Multimodal texto+imagen+video. Tier 'Flash' nuevo: NO se sabe si los pesos son abiertos (la regla Base/Plus/Max no lo cubre).",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -851,6 +863,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -872,6 +890,8 @@
       "subscriptions": [],
       "notes": "Hermano chico del Laguna S. Publicado 2-jul-2026. Licencia sin verificar.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -1035,6 +1055,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -1056,6 +1082,8 @@
       "subscriptions": [],
       "notes": "276B con 12B activos, multimodal texto+imagen+audio. Local exige DGX Station o 2 Spark — no entra en uno solo.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -1220,6 +1248,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -1241,6 +1275,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -1394,6 +1430,12 @@
             "piso": 0.9231,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -1415,6 +1457,8 @@
       "subscriptions": [],
       "notes": "Publicado 24-jun-2026. Multimodal texto+imagen. ⚠️ En el pre-vuelo falló un cálculo de porcentaje simple (dio 17,49% donde iba 19,13%) — n=1, lo dirá el examen.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -1578,6 +1622,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 0.9333,
+            "piso": 0.9,
+            "intentos": 3,
+            "estado": "ok_parcial"
           }
         },
         "estado": "apto"
@@ -1599,6 +1649,8 @@
       "subscriptions": [],
       "notes": "Reasoning puro DeepSeek (versión paga estable). Llena el gap de razonamiento — el :free tenía 0 runs por flakiness. Verificado vía OpenRouter API 1 jun 2026 ($0.70/$2.50).",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -1760,6 +1812,13 @@
             "piso": 0.0,
             "intentos": 3,
             "estado": "inestable"
+          },
+          "harbor-ruteo": {
+            "media": 0.6667,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "inestable",
+            "motivo": "tiene herramientas pero no sostiene el formato de tool call"
           }
         },
         "estado": "inestable"
@@ -1781,6 +1840,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -1939,6 +2000,8 @@
       "subscriptions": [],
       "notes": "Plus = API-only propietario de Alibaba (NO confundir con Qwen 3.6 base que es Apache 2.0)",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -2092,6 +2155,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -2113,6 +2182,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -2266,6 +2337,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -2287,6 +2364,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -2446,6 +2525,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -2467,6 +2552,8 @@
       "subscriptions": [],
       "notes": "Flagship Anthropic más nuevo (jun 2026), contexto 1M. $5/$25 vía OpenRouter API. Techo de calidad de referencia. Sucesor de 4.7.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -2629,6 +2716,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 6,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -2650,6 +2743,8 @@
       "subscriptions": [],
       "notes": "Anthropic Haiku family. Hybrid (extended thinking opt-in).",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -2805,6 +2900,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -2826,6 +2927,8 @@
       "subscriptions": [],
       "notes": "Large-scale reasoning model de Z.ai con 1M de contexto y reasoning opcional. Benchmarks de terceros lo ubican fuerte en coding agents y tareas visuales/dataviz. Precio competitivo: $0.95/$3.00 por M tokens.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -2994,7 +3097,7 @@
           "harbor-ruteo": {
             "media": 1.0,
             "piso": 1.0,
-            "intentos": 2,
+            "intentos": 3,
             "estado": "ok_siempre"
           }
         },
@@ -3017,6 +3120,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -3175,6 +3280,8 @@
       "subscriptions": [],
       "notes": "Variante balanceada de GPT-5.6. OpenAI la ubica al nivel de GPT-5.5 a mitad de costo. $2.5/$15 vía OpenRouter.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -3337,6 +3444,12 @@
             "piso": 0.9231,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -3358,6 +3471,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -3511,6 +3626,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -3532,6 +3653,8 @@
       "subscriptions": [],
       "notes": "Tier Max de Alibaba (API-only propietario, el más capaz de la familia). Completa base+Plus+Max. $1.04/$6.24 vía OpenRouter API jun 2026.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -3693,6 +3816,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 6,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -3714,6 +3843,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -3873,6 +4004,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -3894,6 +4031,8 @@
       "subscriptions": [],
       "notes": "Precio corregido may 2026 vía web/OpenRouter: $5/$25 (antes $15/$75 stale).",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -4047,6 +4186,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -4068,6 +4213,8 @@
       "subscriptions": [],
       "notes": "Original del que se destiló Muse Glimmer 30B. Multimodal texto+imagen+audio+video.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -4231,6 +4378,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -4252,6 +4405,8 @@
       "subscriptions": [],
       "notes": "Flagship Hermes 4 con reasoning híbrido. Sin reasoning explícito en este config.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -4419,6 +4574,8 @@
       "subscriptions": [],
       "notes": "Denso 30B multimodal texto+imagen, publicado 9-ago-2026. Destilado de Muse Spark, orientado a agentes en hardware de consumo. Pesos en HuggingFace; licencia sin nombre publicado.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -4581,6 +4738,12 @@
             "piso": 0.9231,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -4602,6 +4765,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -4755,6 +4920,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -4776,6 +4947,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -4938,6 +5111,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -4959,6 +5138,8 @@
       "subscriptions": [],
       "notes": "Precio corregido may 2026 vía OpenRouter API: $5/$25 (antes teníamos $15/$75, era pricing viejo de Claude-3 Opus).",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -5112,6 +5293,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -5133,6 +5320,8 @@
       "subscriptions": [],
       "notes": "284B params, 13B activos, 1M context. Sucesor V3.2. Precio re-verificado vía OpenRouter API 1 jun 2026 ($0.098/$0.197, antes $0.112/$0.224).",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -5297,6 +5486,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -5318,6 +5513,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -5471,6 +5668,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 0.9667,
+            "piso": 0.9,
+            "intentos": 3,
+            "estado": "ok_parcial"
           }
         },
         "estado": "apto"
@@ -5492,6 +5695,8 @@
       "subscriptions": [],
       "notes": "Lanzado 1 jun 2026 (https://www.minimax.io/models/text/m3). Sucesor de M2.7 — caso activo de Cristian (sub MiniMax). Contexto 1M (vs 200k de M2.7), mismo precio $0.30/$1.20. Híbrido (emite <think>). Verificado vía OpenRouter API 1 jun 2026.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -5654,6 +5859,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 6,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -5675,6 +5886,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -5836,6 +6049,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -5857,6 +6076,8 @@
       "subscriptions": [],
       "notes": "Thinking model. Pesos públicos en HF (1.1T params). Precio corregido may 2026 vía OpenRouter API ($0.73/$3.49).",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -6018,6 +6239,12 @@
             "piso": 0.9231,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -6039,6 +6266,8 @@
       "subscriptions": [],
       "notes": "Omnimodal Pro-level a mitad de costo del Pro. 1.05M context.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -6192,6 +6421,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -6213,6 +6448,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -6368,6 +6605,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -6389,6 +6632,8 @@
       "subscriptions": [],
       "notes": "1.6T params, 49B activos, 1M context. Flagship V4. Precio corregido may 2026 vía OpenRouter API ($0.435/$0.87, antes teníamos $1.74/$3.48 — 4x sobreprecio). Re-clasificado a tier cheap.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -6542,6 +6787,12 @@
             "piso": 0.9231,
             "intentos": 9,
             "estado": "ok_parcial"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -6563,6 +6814,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -6721,6 +6974,8 @@
       "subscriptions": [],
       "notes": "Flagship GPT-5.6 (GA 9 jul 2026). $5/$30 vía OpenRouter.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -6883,6 +7138,12 @@
             "piso": 0.9231,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -6904,6 +7165,8 @@
       "subscriptions": [],
       "notes": "Flagship Xiaomi 2026, agentic capabilities. 1.05M context.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -7057,6 +7320,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -7078,6 +7347,8 @@
       "subscriptions": [],
       "notes": "Publicado 10-ago-2026. No-thinking (verificado). Licencia sin verificar.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -7242,6 +7513,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -7263,6 +7540,8 @@
       "subscriptions": [],
       "notes": "Flagship Qwen 3.7 (20 may 2026, API-only). Reasoning-agent, 1M contexto. Vence a Claude Opus 4.6 Max en Terminal-Bench 2.0, SWE-Bench Pro y MCP-Atlas. $2.50/$7.50 rate card vía OpenRouter (promo 50% a $1.25/$3.75 al lanzar). Plus (multimodal) no está en OR — pendiente para suite multimodal.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -7422,7 +7701,7 @@
           "harbor-ruteo": {
             "media": 1.0,
             "piso": 1.0,
-            "intentos": 2,
+            "intentos": 3,
             "estado": "ok_siempre"
           }
         },
@@ -7445,6 +7724,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -7596,6 +7877,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -7617,6 +7904,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -7770,6 +8059,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -7791,6 +8086,8 @@
       "subscriptions": [],
       "notes": "El más barato del catálogo (publicado 23-jul-2026). Thinking. Licencia sin verificar.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -7954,6 +8251,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -7975,6 +8278,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -8128,6 +8433,12 @@
             "piso": 1.0,
             "intentos": 6,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -8149,6 +8460,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -8302,6 +8615,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -8323,6 +8642,8 @@
       "subscriptions": [],
       "notes": "Snapshot 31-jul-2026 del V4 Flash. Más barato que el id base ($0,08/$0,18 vs $0,14/$0,28).",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -8489,6 +8810,12 @@
             "piso": 0.9231,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -8510,6 +8837,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -8665,14 +8994,13 @@
             "estado": "ok_parcial"
           },
           "harbor-ruteo": {
-            "media": 0.5,
-            "piso": 0.0,
-            "intentos": 2,
-            "estado": "inestable",
-            "motivo": "entró en un bucle degenerado y reventó su propia ventana de contexto"
+            "media": 0.9667,
+            "piso": 0.9,
+            "intentos": 3,
+            "estado": "ok_parcial"
           }
         },
-        "estado": "inestable"
+        "estado": "apto"
       },
       "sirve_para_agentes": true
     },
@@ -8691,6 +9019,8 @@
       "subscriptions": [],
       "notes": "Nuevo flagship xAI (jul 2026), contexto 500K. $2/$6 vía OpenRouter API jul 2026.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -8853,6 +9183,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -8874,6 +9210,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -9027,6 +9365,12 @@
             "piso": 0.0,
             "intentos": 3,
             "estado": "inestable"
+          },
+          "harbor-ruteo": {
+            "media": 0.7,
+            "piso": 0.6,
+            "intentos": 3,
+            "estado": "ok_parcial"
           }
         },
         "estado": "inestable"
@@ -9048,6 +9392,8 @@
       "subscriptions": [],
       "notes": "Qwen 3.6 BASE 35B (MoE a3b) vía OpenRouter (FP8). Par del local-qwen3.6-35b (Q4).",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -9209,6 +9555,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 6,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -9230,6 +9582,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -9394,6 +9748,12 @@
             "piso": 0.0,
             "intentos": 4,
             "estado": "inestable"
+          },
+          "harbor-ruteo": {
+            "media": 0.9,
+            "piso": 0.7,
+            "intentos": 3,
+            "estado": "ok_parcial"
           }
         },
         "estado": "inestable"
@@ -9415,6 +9775,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -9568,6 +9930,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -9589,6 +9957,8 @@
       "subscriptions": [],
       "notes": "Modelo más grande de la familia Nemotron 3 (550B total / 55B activos) vía OpenRouter. Mucho más rápido que NIM gratuito. Disponible también como :free con rate limit.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -9748,6 +10118,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -9769,6 +10145,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -9949,6 +10327,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -10104,13 +10484,13 @@
             "estado": "ok_parcial"
           },
           "harbor-ruteo": {
-            "media": 0.0,
-            "piso": 0.0,
-            "intentos": 2,
-            "estado": "inestable"
+            "media": 0.8667,
+            "piso": 0.7,
+            "intentos": 3,
+            "estado": "ok_parcial"
           }
         },
-        "estado": "inestable"
+        "estado": "apto"
       },
       "sirve_para_agentes": true
     },
@@ -10129,6 +10509,8 @@
       "subscriptions": [],
       "notes": "Coding next-gen vía OpenRouter (FP8). Par del local-qwen3-coder-next (Q4 en DGX Spark).",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -10295,6 +10677,8 @@
       "subscriptions": [],
       "notes": "118B para coding agéntico, 1M ctx a $0,09. Corre en un solo DGX Spark (NVFP4) según NVIDIA. Estaba pendiente en el ROADMAP desde julio.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -10459,6 +10843,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -10480,6 +10870,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -10633,6 +11025,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -10654,6 +11052,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -10807,6 +11207,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -10828,6 +11234,8 @@
       "subscriptions": [],
       "notes": "Coding-focused K2.7 family, reasoning mandatory. Precio vía OpenRouter API jun 2026 ($0.74/$3.50). Contexto 262K; niah capado a 128K porque 256K+output supera el límite real.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -10989,6 +11397,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -11010,6 +11424,8 @@
       "subscriptions": [],
       "notes": "Referencia obligada: 1M ctx a $2/$10. Publicado 30-jun-2026.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -11173,6 +11589,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -11194,6 +11616,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -11348,6 +11772,12 @@
             "intentos": 6,
             "estado": "inestable",
             "motivo": "tiene herramientas pero no sostiene el formato de tool call"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "inestable"
@@ -11369,6 +11799,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -11523,6 +11955,12 @@
             "intentos": 3,
             "estado": "rompe_bucle",
             "motivo": "tiene herramientas pero no sostiene el formato de tool call"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "irregular",
@@ -11547,6 +11985,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -11705,6 +12145,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -11858,6 +12300,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 6,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -11879,6 +12327,8 @@
       "subscriptions": [],
       "notes": "Hybrid reasoning mode. Open-source de Nous Research. Sin reasoning explícito en este config.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -12053,6 +12503,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -12212,6 +12664,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -12233,6 +12691,8 @@
       "subscriptions": [],
       "notes": "Kimi K3 (Moonshot), 1M contexto, premium $3/$15 vía OpenRouter (jul 2026). Thinking. niah capado a 128K (256K+output supera el límite real). ⚠️ open_source/licencia sin confirmar.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -12388,6 +12848,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -12409,6 +12875,8 @@
       "subscriptions": [],
       "notes": "Qwen 3.6 BASE abierto vía OpenRouter (FP8). Par del local-qwen3.6-27b (Q4 en DGX Spark) para medir delta cuantización.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -12570,6 +13038,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 6,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -12591,6 +13065,8 @@
       "subscriptions": [],
       "notes": "Precio corregido may 2026 vía OpenRouter API ($1.25/$2.50, antes $2/$6).",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -12744,6 +13220,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -12765,6 +13247,8 @@
       "subscriptions": [],
       "notes": "Flagship xAI (30 abr 2026), contexto 1M. Precio vía OpenRouter API may 2026.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -12924,6 +13408,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 0.9667,
+            "piso": 0.9,
+            "intentos": 3,
+            "estado": "ok_parcial"
           }
         },
         "estado": "apto"
@@ -12945,6 +13435,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -13098,6 +13590,12 @@
             "piso": 0.0,
             "intentos": 3,
             "estado": "inestable"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "inestable"
@@ -13119,6 +13617,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -13272,6 +13772,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -13293,6 +13799,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -13448,6 +13956,178 @@
       "sirve_para_agentes": false
     },
     {
+      "key": "gemini-3.6-flash",
+      "id": "google/gemini-3.6-flash",
+      "name": "Gemini 3.6 Flash",
+      "tier": "cheap",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 0.75,
+      "cost_output_per_M": 3.75,
+      "cost_per_1k_calls_usd": 5.85,
+      "context_window": 1048576,
+      "subscriptions": [],
+      "notes": "Sucesor del 3.5 Flash. La MITAD del precio de su antecesor ($1,50/$9 → $0,75/$3,75) con el mismo contexto de 1M. Existe `:batch` a $0,38/$1,88 que NO se mide: es otra ruta de servicio y mezclarla rompería el plano común.",
+      "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "examen_incompleto": false,
+      "medido_en_free": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 129,
+      "total_runs": 153,
+      "score_global": 1.6,
+      "score_by_pillar": {
+        "Razonamiento": 6.38,
+        "Contenido": 6.84,
+        "Agentes": 6.58,
+        "Coding": 7.87
+      },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 6.723,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 1.411,
+          "cost_score_avg": 5.444,
+          "quality_ci95": 1.166
+        },
+        "Contenido": {
+          "quality_avg": 7.374,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 1.357,
+          "cost_score_avg": 5.492,
+          "quality_ci95": 0.931
+        },
+        "Agentes": {
+          "quality_avg": 6.687,
+          "speed_score_avg": 9.793,
+          "latency_score_avg": 2.77,
+          "cost_score_avg": 6.406,
+          "quality_ci95": 0.854
+        },
+        "Coding": {
+          "quality_avg": 8.513,
+          "speed_score_avg": 9.965,
+          "latency_score_avg": 2.877,
+          "cost_score_avg": 6.335,
+          "quality_ci95": 1.152
+        }
+      },
+      "score_by_suite": {
+        "business_audit": 7.06,
+        "business_strategy": 7.88,
+        "content_verificable": 7.6,
+        "content_generation": 7.97,
+        "tool_calling": 5.9,
+        "task_management": 7.07,
+        "code_generation": 7.37,
+        "reasoning": 6.44,
+        "summarization": 6.98,
+        "presentation": 6.32,
+        "startup_content": 7.76,
+        "deep_reasoning": 4.43,
+        "customer_support": 6.92,
+        "structured_output": 8.55,
+        "hallucination": 6.28,
+        "creativity": 7.47,
+        "string_precision": 9.17,
+        "news_seo_writing": 5.03,
+        "ocr_extraction": 6.18,
+        "orchestration": 5.32,
+        "multi_turn": 6.55,
+        "policy_adherence": 7.78,
+        "agent_capabilities": 6.92,
+        "strategy": 5.52,
+        "sales_outreach": 5.3,
+        "translation": 7.75,
+        "agent_long_horizon": 8.18,
+        "tool_calling_adversarial": 6.28,
+        "prompt_injection_es": 2.45
+      },
+      "quality_by_suite": {
+        "business_audit": 7.71,
+        "business_strategy": 8.93,
+        "content_verificable": 8.44,
+        "content_generation": 8.94,
+        "tool_calling": 5.51,
+        "task_management": 7.67,
+        "code_generation": 8.14,
+        "reasoning": 6.82,
+        "summarization": 7.5,
+        "presentation": 6.69,
+        "startup_content": 8.77,
+        "deep_reasoning": 3.97,
+        "customer_support": 6.91,
+        "structured_output": 9.33,
+        "hallucination": 6.33,
+        "creativity": 8.29,
+        "string_precision": 10.0,
+        "news_seo_writing": 4.86,
+        "ocr_extraction": 6.37,
+        "orchestration": 4.75,
+        "multi_turn": 6.83,
+        "policy_adherence": 8.39,
+        "agent_capabilities": 7.32,
+        "strategy": 5.56,
+        "sales_outreach": 5.11,
+        "translation": 8.57,
+        "agent_long_horizon": 9.51,
+        "tool_calling_adversarial": 5.95,
+        "prompt_injection_es": 1.0
+      },
+      "suites_incompletas": {},
+      "quality_avg": 7.42,
+      "quality_ci95": 0.464,
+      "cost_score_avg": 5.77,
+      "speed_score_avg": 9.91,
+      "latency_score_avg": 2.15,
+      "tool_calling_score_avg": 7.44,
+      "judge_score_avg": 3.71,
+      "tokens_per_second": 171.0,
+      "latency_avg_s": 11.68,
+      "total_input_tokens": 173869,
+      "total_output_tokens": 255993,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "agentic_runs": 12,
+      "agentic_quality": 9.51,
+      "multiturno_score": 8.18,
+      "agentic_score": 8.18,
+      "security_runs": 20,
+      "security_score": 1.0,
+      "policy_refusal_rate": 0.0,
+      "score_global_linear": 6.97,
+      "score_calidad": 7.42,
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 6,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true
+    },
+    {
       "key": "claude-opus-5",
       "id": "anthropic/claude-opus-5",
       "name": "Claude Opus 5",
@@ -13462,6 +14142,8 @@
       "subscriptions": [],
       "notes": "Flagship Anthropic. Publicado 24-jul-2026.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -13619,6 +14301,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 6,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -13640,6 +14328,8 @@
       "subscriptions": [],
       "notes": "Sucesor del Flash (19 may 2026), contexto 1M. $1.50/$9 vía OpenRouter API. Releva al 2.5 Flash.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -13804,6 +14494,12 @@
             "piso": 1.0,
             "intentos": 6,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -13825,6 +14521,8 @@
       "subscriptions": [],
       "notes": "Redacta en producción en el copiloto de CAR. Solo por API: no existe como modelo del CLI.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -13982,6 +14680,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 6,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -14003,6 +14707,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -14172,6 +14878,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -14329,7 +15037,7 @@
           "harbor-ruteo": {
             "media": 1.0,
             "piso": 1.0,
-            "intentos": 2,
+            "intentos": 3,
             "estado": "ok_siempre"
           }
         },
@@ -14352,6 +15060,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": true,
       "retired_at": "2026-07-13",
       "retired_reason": "Xiaomi deprecó el modelo",
@@ -14505,6 +15215,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": true,
       "retired_at": "2026-07-13",
       "retired_reason": "OpenRouter: 'No endpoints found'. Llegó a estar #5 del ranking.",
@@ -14653,6 +15365,8 @@
       ],
       "notes": "Sonnet 5 vía suscripción Claude Code, costo marginal $0.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -14819,8 +15533,10 @@
       "cost_per_1k_calls_usd": 0.93,
       "context_window": 1050000,
       "subscriptions": [],
-      "notes": "Mismo precio que Luna (#1 actual) con 1,05M de contexto. Publicado 9-jul-2026.",
+      "notes": "Variante de MAYOR ESFUERZO de GPT-5.6 Luna, al mismo precio ($0,10/$0,60). No rankea por política: ver DECISIONES.md.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -15001,6 +15717,8 @@
       ],
       "notes": "Fable 5 medido por la suscripción Claude Code (no API) — a costo $0. Costeado a precio OpenRouter ($10/$50 = 2x Opus 4.8). Incluido en plan Max hasta 21-jun-2026; después solo API. CAVEAT: subscription_measured.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -15162,6 +15880,8 @@
       "subscriptions": [],
       "notes": "Mismo modelo que probamos via OpenRouter - comparar provider stability",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -15307,6 +16027,8 @@
       "subscriptions": [],
       "notes": "Q4_K_M en DGX Spark via llama.cpp/llama-server (multimodal). Medido SIN reasoning (enable_thinking=false) — uso agente/baja latencia. Comparar con el 31B llama-server.",
       "tested": true,
+      "reasoning_medido": "apagado",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -15468,6 +16190,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": true,
       "retired_at": "2026-08-12",
       "retired_reason": "OpenRouter 404 'No endpoints found'; NVIDIA movió su oferta a la familia Nemotron 3",
@@ -15624,6 +16348,8 @@
       "subscriptions": [],
       "notes": "Q4_K_M en DGX Spark via Ollama. Comparar con Gemma 4 31B NIM y OpenRouter.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -15785,6 +16511,8 @@
       "subscriptions": [],
       "notes": "Flagship Mistral diciembre 2025. Comparar contra Mistral Small 4 (#4 ranking).",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -15959,6 +16687,8 @@
       ],
       "notes": "Haiku 4.5 vía suscripción Claude Code.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -16161,6 +16891,8 @@
       ],
       "notes": "Opus 5 vía suscripción Claude Code, costo marginal $0.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -16324,8 +17056,10 @@
       "cost_per_1k_calls_usd": 9.3,
       "context_window": 1050000,
       "subscriptions": [],
-      "notes": "Publicado 9-jul-2026.",
+      "notes": "Variante de MAYOR ESFUERZO de GPT-5.6 Terra, al mismo precio ($1/$6). No rankea por política: ver DECISIONES.md.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -16499,6 +17233,8 @@
       "subscriptions": [],
       "notes": "API-only Xiaomi (NO confundir con MiMo V2 Flash que sí es MIT en HF). El Pro no se publica en HuggingFace.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": true,
       "retired_at": "2026-07-13",
       "retired_reason": "Xiaomi deprecó el modelo",
@@ -16672,6 +17408,8 @@
       "subscriptions": [],
       "notes": "Mismo modelo que Cristian usa via Ollama Cloud para producción — comparar",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -16844,6 +17582,8 @@
       ],
       "notes": "Opus 4.8 medido por la suscripción Claude Code (no API) — a costo $0. Costeado a precio OpenRouter ($5/$25). CAVEAT: subscription_measured.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -17032,6 +17772,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -17225,6 +17967,8 @@
       "subscriptions": [],
       "notes": "Z.AI flagship base, comparar con 5.1",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -17391,6 +18135,8 @@
       ],
       "notes": "Sonnet 4.6 vía suscripción Claude Code.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -17564,6 +18310,8 @@
       "subscriptions": [],
       "notes": "Próxima generación Qwen — pendiente desde Lote 4",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -17731,6 +18479,8 @@
       "subscriptions": [],
       "notes": "Q4_K_M en DGX Spark via llama.cpp/llama-server (multimodal). Medido SIN reasoning (enable_thinking=false) — uso agente/baja latencia. Comparar con 12B llama-server y 31B Ollama/NIM (esos SÍ razonan).",
       "tested": true,
+      "reasoning_medido": "apagado",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -17895,6 +18645,8 @@
       ],
       "notes": "Flagship reasoning, agentic, 1M context, lanzado 22 abril 2026",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -18068,6 +18820,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": true,
       "retired_at": "2026-07-13",
       "retired_reason": "xAI lo deprecó; recomienda migrar a Grok 4.3",
@@ -18230,6 +18984,8 @@
       ],
       "notes": "All-in-one multimodal nativo, 1M context, lanzado 22 abril 2026",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -18416,6 +19172,8 @@
       ],
       "notes": "Opus 4.7 vía suscripción Claude Code.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -18599,6 +19357,8 @@
       "subscriptions": [],
       "notes": "Mismo build que spark-gemma4-12b pero CON reasoning interno (default). Comparar delta calidad vs latencia contra la variante sin reasoning.",
       "tested": true,
+      "reasoning_medido": "high (llama-server)",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -18758,6 +19518,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": true,
       "retired_at": "2026-07-13",
       "retired_reason": "OpenRouter: 'No endpoints found'",
@@ -18909,6 +19671,8 @@
       "subscriptions": [],
       "notes": "Mismo modelo que probamos via OpenRouter — comparar latencia/calidad NIM vs OR",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -19074,6 +19838,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -19235,6 +20001,8 @@
       "subscriptions": [],
       "notes": "Modelo de difusión textual (NO autoregresivo) basado en Gemma 4 26B-A4B (3.8B activos). Genera bloques de 256 tokens en paralelo vía denoising, optimizado para velocidad y multimodalidad. Requiere llama.cpp PR #24423 (binario llama-diffusion-cli) o Unsloth Studio; Ollama todavía no lo soporta. Instrucciones: https://unsloth.ai/docs/models/diffusiongemma#llama.cpp-guide. Contexto 256K, vision nativa (OCR, documentos, UI, video frames), tool calling y thinking con <|think|>. Q8_0 (~25 GB) para medir calidad real sin pérdida de cuantización. Para probar en Spark: descargar Q8_0 y servir con llama-diffusion-cli -m gguf -ngl 99 -n 2048.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -19383,6 +20151,8 @@
       "subscriptions": [],
       "notes": "Mismo modelo que via OpenRouter (10 runs parciales) - completar via NIM gratis",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -19551,6 +20321,8 @@
       ],
       "notes": "Mismo modelo que via OpenRouter — comparar provider stability",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": true,
       "retired_at": "2026-07-14",
       "retired_reason": "sin causa registrada; fecha recuperada del historial de git",
@@ -19724,6 +20496,8 @@
       "subscriptions": [],
       "notes": "Z.AI agentic, no tenemos. Variante GLM 5 con mejoras",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -19874,6 +20648,8 @@
       "subscriptions": [],
       "notes": "MoE 3B activos/30B totales, publicado 11-ago-2026. Pesos en HuggingFace. Precio del tier pago; existe :free a 1M ctx.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -20039,6 +20815,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": true,
       "retired_at": "2026-08-12",
       "retired_reason": "OpenRouter 404: la familia Devstral entera salió del catálogo",
@@ -20199,6 +20977,8 @@
       "subscriptions": [],
       "notes": "Step 3.5 Flash - reemplazo de Step3 que fallo 91/91 con 404 en OpenRouter",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -20396,6 +21176,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -20552,6 +21334,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -20713,6 +21497,8 @@
       "subscriptions": [],
       "notes": "Variante thinking de K2 — comparar con K2.6 thinking",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -20921,6 +21707,8 @@
       ],
       "notes": "M3 vía API directa de MiniMax (token plan del usuario, key en .env). Mismo modelo que minimax-m3 (OpenRouter) — comparar provider stability + base para el eje cost-to-complete del caso real de Cristian. Costo del ranking = precio OpenRouter ($0.30/$1.20).",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -21106,6 +21894,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -21264,6 +22054,8 @@
       "subscriptions": [],
       "notes": "Q4_K_M en DGX Spark. Modelo gigante, primer test post cold start tarda ~3-5min.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -21434,6 +22226,8 @@
       ],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -21637,6 +22431,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -21823,6 +22619,8 @@
       ],
       "notes": "Mismo modelo que via OpenRouter — comparar provider stability",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": true,
       "retired_at": "2026-07-14",
       "retired_reason": "sin causa registrada; fecha recuperada del historial de git",
@@ -22004,6 +22802,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -22163,6 +22963,8 @@
       "subscriptions": [],
       "notes": "Lanzado 20 abril 2026. MoE 30B totales / 3B activos (A3B). Multimodal (texto+imagen+audio+video) + reasoning. Comparar contra Nano 30B normal y Nano 9B v2 — sirve para medir el costo de razonar y la ganancia de multimodal en single-turn texto.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -22316,6 +23118,8 @@
       "subscriptions": [],
       "notes": "Variante chica de Nemotron 3, comparar con Nano 30B",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -22469,6 +23273,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": true,
       "retired_at": "2026-07-13",
       "retired_reason": "Xiaomi lo deprecó; recomienda migrar a MiMo V2.5",
@@ -22642,6 +23448,8 @@
       "subscriptions": [],
       "notes": "Nemotron 3 base 33B (NO la versión Omni Reasoning) en Q4_K_M via Ollama oficial. Comparar con Nemotron 3 Super 120B (DGX, también Q4) y Nemotron 3 Nano Omni Reasoning cuando esté disponible.",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -22795,6 +23603,8 @@
       "subscriptions": [],
       "notes": "Mistral chico nuevo dic 2025 - comparar con Mistral Small 4",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -22961,6 +23771,8 @@
       ],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -23122,6 +23934,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -23287,6 +24101,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -23462,6 +24278,8 @@
       "subscriptions": [],
       "notes": "Versión iterada del Nemotron Super 120B que ya medimos en Lote 2",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -23638,6 +24456,8 @@
       ],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": true,
       "retired_at": "2026-07-14",
       "retired_reason": "sin causa registrada; fecha recuperada del historial de git",
@@ -23843,6 +24663,8 @@
       "subscriptions": [],
       "notes": "Version nueva 2026, no tenemos K2.5 antes. Comparar con K2.6 thinking",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -24038,6 +24860,8 @@
       "subscriptions": [],
       "notes": "Variante thinking — comparar con Qwen 3-Next Instruct",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -24188,6 +25012,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -24351,6 +25177,8 @@
       "subscriptions": [],
       "notes": "Colaboración Mistral × NVIDIA, optimizado en Nemo",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -24457,6 +25285,8 @@
       "subscriptions": [],
       "notes": "Re-test del flagship via NIM (vs OpenRouter que dio 76% cobertura en Lote 7-8)",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -24555,6 +25385,8 @@
       "subscriptions": [],
       "notes": "Mistral con razonamiento, tamano medio",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -24644,6 +25476,8 @@
       "subscriptions": [],
       "notes": "Qwen 3.6 BASE (Apache 2.0, pesos en HF) — cierra el gap del roadmap: solo teníamos Qwen 3.6 Plus (propietario API-only). Corre gratis local en DGX Spark; el costo del ranking usa el precio OpenRouter ($0.29/$3.20) para comparación justa.",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -24742,6 +25576,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -24826,6 +25662,8 @@
       "subscriptions": [],
       "notes": "Única ruta con tool calling. Mide lo que OpenRouter no puede: las 4 suites con herramientas.",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -24911,6 +25749,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -24957,6 +25797,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25003,6 +25845,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25058,6 +25902,8 @@
       ],
       "notes": "API directa MiniMax. Disponible también en sub Agent Pro $19/mes.",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25142,6 +25988,8 @@
       ],
       "notes": "Acceso vía sub Agent Pro $19/mes. Misma calidad que M2.7 directo, latencia ultra baja.",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25203,62 +26051,6 @@
       "sirve_para_agentes": null
     },
     {
-      "key": "gemini-3.6-flash",
-      "id": "google/gemini-3.6-flash",
-      "name": "Gemini 3.6 Flash",
-      "tier": "cheap",
-      "provider": "openrouter",
-      "open_source": false,
-      "license": "",
-      "cost_input_per_M": 0.75,
-      "cost_output_per_M": 3.75,
-      "cost_per_1k_calls_usd": 5.85,
-      "context_window": 1048576,
-      "subscriptions": [],
-      "notes": "Sucesor del 3.5 Flash. La MITAD del precio de su antecesor ($1,50/$9 → $0,75/$3,75) con el mismo contexto de 1M. Existe `:batch` a $0,38/$1,88 que NO se mide: es otra ruta de servicio y mezclarla rompería el plano común.",
-      "tested": false,
-      "retired": false,
-      "retired_at": null,
-      "retired_reason": null,
-      "retired_kind": null,
-      "provider_variant": false,
-      "ruta_unica": false,
-      "self_hosted": false,
-      "examen_incompleto": false,
-      "medido_en_free": false,
-      "ranked": false,
-      "sample_tier": "preliminary",
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": true,
-      "runs": 0,
-      "total_runs": 0,
-      "score_global": null,
-      "score_by_pillar": {},
-      "dims_by_pillar": {},
-      "score_by_suite": {},
-      "quality_ci95": null,
-      "judge_score_avg": null,
-      "tokens_per_second": null,
-      "latency_avg_s": null,
-      "total_input_tokens": 0,
-      "total_output_tokens": 0,
-      "score_calidad": null,
-      "pareto": false,
-      "agentico": {
-        "tareas": {
-          "harbor-reunion": {
-            "media": 1.0,
-            "piso": 1.0,
-            "intentos": 6,
-            "estado": "ok_siempre"
-          }
-        },
-        "estado": "apto"
-      },
-      "sirve_para_agentes": true
-    },
-    {
       "key": "gemini-flash-thinking",
       "id": "google/gemini-2.5-flash",
       "name": "Gemini 2.5 Flash (thinking)",
@@ -25273,6 +26065,8 @@
       "subscriptions": [],
       "notes": "Misma versión que gemini-flash con thinking forzado (effort=high).",
       "tested": false,
+      "reasoning_medido": "high (forzado)",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25314,6 +26108,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -25335,6 +26135,8 @@
       "subscriptions": [],
       "notes": "Plus = API-only propietario de Alibaba",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25381,6 +26183,8 @@
       "subscriptions": [],
       "notes": "Misma versión que kimi-k2.5 pero con reasoning forzado vía OpenRouter (effort=high).",
       "tested": false,
+      "reasoning_medido": "high (forzado)",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25427,6 +26231,8 @@
       "subscriptions": [],
       "notes": "Misma versión que kimi-k2.6 con thinking forzado vía OpenRouter (effort=high).",
       "tested": false,
+      "reasoning_medido": "high (forzado)",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25468,6 +26274,12 @@
             "piso": 0.9231,
             "intentos": 3,
             "estado": "ok_parcial"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -25489,6 +26301,8 @@
       "subscriptions": [],
       "notes": "Mismo modelo que claude-opus-4.7 con extended thinking forzado (effort=high). Reasoning tokens facturados como output a $25/M — ~5-7x más caro por test que sin thinking.",
       "tested": false,
+      "reasoning_medido": "high (forzado)",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25530,6 +26344,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -25551,6 +26371,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25597,6 +26419,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25643,6 +26467,8 @@
       "subscriptions": [],
       "notes": "Mismo modelo que claude-sonnet-4.6 con extended thinking forzado (effort=high). Reasoning tokens facturados como output a $15/M — ~5-7x más caro por test que sin thinking.",
       "tested": false,
+      "reasoning_medido": "high (forzado)",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25684,6 +26510,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -25705,6 +26537,8 @@
       "subscriptions": [],
       "notes": "Misma versión con extended thinking forzado.",
       "tested": false,
+      "reasoning_medido": "high (forzado)",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25746,6 +26580,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -25767,6 +26607,8 @@
       "subscriptions": [],
       "notes": "Modelo de Cohere enfocado en coding via OpenRouter (version de paga, sin rate limit restrictivo).",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25813,6 +26655,8 @@
       "subscriptions": [],
       "notes": "Sólo /v1/responses (no chat/completions)",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25859,6 +26703,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25905,6 +26751,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -25960,6 +26808,8 @@
       ],
       "notes": "Recien agregado a Ollama Cloud (abril 28). Smoke test 22s OK, sin timeouts vs OpenRouter (76% cobertura) y NIM (504s timeouts).",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26015,6 +26865,8 @@
       ],
       "notes": "Variante mas chica de V4. Comparar con V4 Flash NIM (7.07 score).",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26061,6 +26913,8 @@
       "subscriptions": [],
       "notes": "Misma versión con thinking forzado.",
       "tested": false,
+      "reasoning_medido": "high (forzado)",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26102,6 +26956,12 @@
             "piso": 1.0,
             "intentos": 3,
             "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
           }
         },
         "estado": "apto"
@@ -26123,6 +26983,8 @@
       "subscriptions": [],
       "notes": "Misma versión con thinking forzado (effort=high). Costo ~5x mayor por test que sin thinking.",
       "tested": false,
+      "reasoning_medido": "high (forzado)",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26168,7 +27030,7 @@
           "harbor-ruteo": {
             "media": 1.0,
             "piso": 1.0,
-            "intentos": 2,
+            "intentos": 3,
             "estado": "ok_siempre"
           }
         },
@@ -26191,6 +27053,8 @@
       "subscriptions": [],
       "notes": "Variante multi-agente (Heavy) de Grok 4.20, contexto 2M. Precio vía OpenRouter API may 2026.",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26237,6 +27101,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26283,6 +27149,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26329,6 +27197,8 @@
       "subscriptions": [],
       "notes": "Misma versión que hermes-4-70b pero con reasoning forzado vía OpenRouter (effort=high). Technical report reporta +12 puntos MMLU al activar reasoning (76.7 → 88.4).",
       "tested": false,
+      "reasoning_medido": "high (forzado)",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26386,6 +27256,8 @@
       "subscriptions": [],
       "notes": "Misma versión que hermes-4-405b pero con reasoning forzado.",
       "tested": false,
+      "reasoning_medido": "high (forzado)",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26443,6 +27315,8 @@
       "subscriptions": [],
       "notes": "MoE 321B/38B activos, multimodal reasoning. 65K context. Lanzado ago 2025.",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26489,6 +27363,8 @@
       "subscriptions": [],
       "notes": "Reasoning + math + coding + agentic. 131K context. ByteDance.",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26535,6 +27411,8 @@
       "subscriptions": [],
       "notes": "Mismo build que spark-gemma4-31b-llamacpp pero CON reasoning interno (default). Comparar delta calidad vs latencia contra la variante sin reasoning.",
       "tested": false,
+      "reasoning_medido": "high (llama-server)",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26581,6 +27459,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26656,6 +27536,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26702,6 +27584,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26781,6 +27665,8 @@
       "subscriptions": [],
       "notes": "MoE 30B totales / 3B activos (A3B), thinking + multimodal. GGUF community por unsloth — los tags oficiales de Ollama (nemotron3:33b) son la versión base, no la Omni Reasoning. Ollama: `ollama pull hf.co/unsloth/NVIDIA-Nemotron-3-Nano-Omni-30B-A3B-Reasoning-GGUF:Q4_K_M`. Comparar contra el mismo modelo via NIM (FP16) para medir costo de cuantización.",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26827,6 +27713,8 @@
       "subscriptions": [],
       "notes": "Tag real instalado en DGX Spark. Comparar vs Qwen 3.5 397B Cloud/NIM (misma familia, distinto tamaño).",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26873,6 +27761,8 @@
       "subscriptions": [],
       "notes": "Qwen 3.6 BASE 35B (MoE a3b) abierto. Corre gratis local en DGX Spark; costo del ranking = precio OpenRouter ($0.14/$1.00). Comparar vs 3.6 Plus propietario y vs 3.6 27B.",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26919,6 +27809,8 @@
       "subscriptions": [],
       "notes": "Coding-especializado next-gen. Corre gratis local en DGX Spark (Q4_K_M); costo del ranking = precio OpenRouter ($0.11/$0.80, FP8). Comparar vs Devstral Small (#1) y Qwen3 Coder en el pilar Coding. Caveat: la versión local Q4 puede rendir algo bajo la FP8 de OpenRouter.",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -26965,6 +27857,8 @@
       "subscriptions": [],
       "notes": "Generación previa instalada en el Spark — baseline para medir salto 2.5→3.5→3.6 a igual tamaño grande. Corre gratis local; costo del ranking = precio OpenRouter ($0.36/$0.40).",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -27011,6 +27905,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -27057,6 +27953,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -27103,6 +28001,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -27149,6 +28049,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -27195,6 +28097,8 @@
       "subscriptions": [],
       "notes": "Nueva generación pequeña de Mistral (24B). Verificar tag real en Ollama con `ollama pull devstral-small2:24b` antes de correr. Comparar contra Devstral Small original y Qwen3-Coder-Next en coding.",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -27241,6 +28145,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -27287,6 +28193,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,
@@ -27333,6 +28241,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": true,
       "retired_at": "2026-07-14",
       "retired_reason": "decisión del benchmark, no del proveedor: no compite (Phi-4 es el modelo juez)",
@@ -27379,6 +28289,8 @@
       "subscriptions": [],
       "notes": "",
       "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
       "retired": false,
       "retired_at": null,
       "retired_reason": null,

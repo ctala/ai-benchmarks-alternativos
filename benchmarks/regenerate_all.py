@@ -241,6 +241,14 @@ def main() -> int:
             print("   La página cargaría igual: por eso hay que ejecutarla, no solo mirarla.")
             return 1
 
+        # Afirmaciones de método caducas: prosa que fue correcta y hoy dice lo contrario
+        # de lo que hacemos. `check_consistency` caza CIFRAS; esto caza CLAIMS.
+        print()
+        rc = run_script("check_claims.py", [], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ Un doc vivo contradice una decisión vigente. Ver arriba.")
+            return 1
+
         print()
         rc = run_script("check_calculator.py", [], dry_run=False, allow_fail=True)
         if rc != 0:
