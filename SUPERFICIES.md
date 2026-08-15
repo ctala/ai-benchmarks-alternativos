@@ -65,6 +65,7 @@ Y dos condiciones más, que no son archivos:
 | **Scores citados en prosa** | toda cifra de score que aparezca en un doc VIVO (README, MODELOS, CLAUDE, AGENTS, RECOMENDACIONES, COMPARATIVA) | `docs/data/models.json` | `benchmarks/check_consistency.py` |
 | **Campos que la calculadora lee** | cada campo que `docs/app.js` consume, y cada umbral de filtro | `docs/data/models.json` | `benchmarks/check_calculator.py` |
 | **Cifras del pilar del blog** | el post cornerstone en el repo hermano `cristiantala-blog` | `docs/data/models.json` | `benchmarks/check_blog_consistency.py` |
+| **Cortes por eje del sitio** | las páginas que ordenan por UNA suite en vez de por un promedio | `docs/data/models.json` | `benchmarks/check_cortes.py` |
 | **Afirmaciones de método** | que ningún doc VIVO afirme una metodología que ya se reemplazó | `DECISIONES.md` | `benchmarks/check_claims.py` |
 | **Ciclo de vida de la documentación** | la marca `<!-- doc: vigente | verificado: FECHA -->` de cada doc | la fecha de verificación humana | `benchmarks/check_docs.py` |
 | **Caminos de medición** | que todo lo que llame a una API de modelos esté sancionado | la lista `SANCIONADOS` | `benchmarks/check_caminos.py` |
@@ -78,6 +79,8 @@ Y dos condiciones más, que no son archivos:
 **Campos que la calculadora lee** — caza un campo que el JS lee y el export dejó de emitir, y un umbral fuera del rango real de los datos (un filtro que no filtra a nadie es decorativo).
 
 **Cifras del pilar del blog** — un rescoring caduca TODAS las cifras del post — prosa, tablas y FAQ — y puede dejar una recomendación de seguridad peligrosa.
+
+**Cortes por eje del sitio** — Existen porque los promedios esconden: Gemini 3.6 Flash es #3 de 80 en calidad agéntica y #76 de 80 en el índice general, y el pilar Agentes tampoco lo mostraba (#65) porque también promedia. El chequeo avisa cuando se mide una suite decisiva y nadie le hizo su corte, falla si una página quedó desincronizada, y falla si un corte AGÉNTICO corona a un modelo que no corre dentro de un agente — pasó con Llama 3.1 8B, #4 en «tareas largas» y rompe el bucle de herramientas.
 
 **Afirmaciones de método** — `check_consistency` caza CIFRAS caducas; ésta caza CLAIMS caducos — prosa sin números que fue correcta y hoy dice lo contrario. El README llegó a tener un título que decía «Score = combinación ponderada (NO solo calidad)» mientras la decisión vigente era exactamente la opuesta, y sobrevivió a dos versiones. Citar un error está permitido: lo que se prohíbe es sostenerlo.
 

@@ -243,6 +243,15 @@ def main() -> int:
 
         # Afirmaciones de método caducas: prosa que fue correcta y hoy dice lo contrario
         # de lo que hacemos. `check_consistency` caza CIFRAS; esto caza CLAIMS.
+        # Los cortes por eje envejecen de tres formas y ninguna rompe nada: una suite
+        # nueva sin su corte, una página desincronizada, o un corte agéntico coronando a
+        # quien no corre en un agente.
+        print()
+        rc = run_script("check_cortes.py", [], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ Los cortes por eje no coinciden con los datos. Ver arriba.")
+            return 1
+
         print()
         rc = run_script("check_claims.py", [], dry_run=False, allow_fail=True)
         if rc != 0:
