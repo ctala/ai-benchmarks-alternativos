@@ -8,6 +8,8 @@ const TOKENS_OUT = 1500;
 // Las labels son user-facing en español neutro.
 const SUITES_BY_PILLAR = {
   Razonamiento: [
+    { value: "business_audit", label: "Auditar números (detectar el error plantado)" },
+    { value: "business_strategy", label: "Decisiones de negocio (pricing, prioridades)" },
     { value: "reasoning", label: "Razonamiento general (lógica, decisiones)" },
     { value: "deep_reasoning", label: "Razonamiento profundo (matemática, Fermi)" },
     { value: "hallucination", label: "Anti-hallucination (citas, contexto)" },
@@ -19,6 +21,7 @@ const SUITES_BY_PILLAR = {
     { value: "string_precision", label: "Precisión strings (hex, JWT, configs)" },
   ],
   Contenido: [
+    { value: "content_verificable", label: "Contenido con datos verificables (no inventar)" },
     { value: "content_generation", label: "Contenido genérico (blog, email, social)" },
     { value: "creativity", label: "Creatividad (hooks, analogías, narrativa)" },
     { value: "startup_content", label: "Contenido startup (newsletter, blog actualidad)" },

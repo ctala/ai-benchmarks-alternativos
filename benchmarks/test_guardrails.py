@@ -155,6 +155,17 @@ def _t_superficies():
         return _correr("generate_superficies.py", "--check") != 0
 
 
+@prueba("check_calculator C5", "un eje medido que la calculadora dejó de exponer")
+def _t_calc_c5():
+    app = ROOT / "docs" / "app.js"
+    with Sabotaje(app):
+        # C1-C4 preguntan si la calculadora se ROMPIÓ; C5 si quedó INCOMPLETA. Sin este
+        # test, el día que alguien saque un eje del JS todo sigue en verde.
+        app.write_text(app.read_text(encoding="utf-8").replace("agentic_quality", "_x_"),
+                       encoding="utf-8")
+        return _correr("check_calculator.py") != 0
+
+
 @prueba("check_cortes", "un corte por eje desincronizado de models.json")
 def _t_cortes():
     pg = ROOT / "docs" / "mejor-llm-para-json" / "index.html"
