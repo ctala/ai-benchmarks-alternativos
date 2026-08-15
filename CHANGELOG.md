@@ -3,6 +3,100 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v4.3.0] - 2026-08-15 — El estándar se adopta, el promedio deja de esconder, y el README deja de contradecirse
+
+Tres tareas agénticas medidas, un estándar que ya no es nuestro, y cuatro guardrails
+nuevos para clases de fallo que ningún detector cazaba.
+
+### El estándar de tareas dejó de ser propio
+
+`ESTANDAR-TAREAS.md` pasa a ser la [rúbrica de Terminal-Bench Science](https://github.com/harbor-framework/terminal-bench-science/blob/main/rubrics/task-implementation.toml)
+—25 criterios, del mismo Harbor que ya usábamos— adaptada de ciencia a negocio, más el
+diseño de dominio de [τ²-bench](https://github.com/sierra-research/tau2-bench).
+
+Antes eran 18 reglas deducidas de errores propios, una por una. **Dos de sus criterios
+describen exactamente los fallos que costaron correcciones ese mismo día:**
+`functional_verification` (no hacer matching de palabras) y `essential_difficulty` (la
+dificultad viene del razonamiento, no del formato). Estaban publicados desde antes.
+
+### Tres tareas medidas · US$ 9,3 en total
+
+| tarea | cobertura | hallazgo |
+|---|---|---|
+| **reunión de socios** | 70 modelos · 229 corridas | **20 de 70 no saben registrar «esto quedó sin decidir»** |
+| **ruteo de modelos** | 69 modelos · 231 corridas | satura (88%), pero **4 modelos exponen datos de clientes** |
+| **cotizar / facturación** | ya medidas | deuda C7 **descartada con data**, no con opinión |
+
+**El hallazgo de reunión se fortaleció al escribir la regla**: de 14/68 (21%) a 8/70
+(11%). Los que quedan no fallaron por no deducir algo tácito — lo incumplieron teniéndolo
+delante.
+
+En ruteo, la trampa que más cazó (11 corridas, 7 modelos) fue **asignar por debajo de la
+calidad que el trabajo necesita**, y existe por una corrección de Cristian: *«el ruteo no
+tiene que ser el más barato, es el mejor resultado al mejor precio»*. Sin ese test la
+tarea habría dado 68 de 69 perfectos y no habría medido nada.
+
+### El promedio esconde el eje que decide — ahora hay dos casos medidos
+
+| modelo | índice de calidad | trabajo agéntico |
+|---|---|---|
+| **Gemini 3.6 Flash** | **#76 de 80** | **#3 de 80** en calidad agéntica |
+| **DeepSeek R1** | **#3 del catálogo** | **el peor** de la tarea de ruteo |
+
+El primero salió de que Cristian dijera *«lo estoy usando en Hermes y funciona muy bien»*
+contra un número que decía lo contrario. Es top-7 en sostener un hilo largo y en precisión
+de datos, y penúltimo escribiendo copy de ventas — y el índice promedia 29 suites.
+
+### Variantes de esfuerzo: NO se rankean, y el criterio es el precio
+
+`gpt-5.6-luna-pro` cuesta **exactamente igual** que `gpt-5.6-luna` ($0,10/$0,60): no es
+otro producto, es el mismo modelo razonando más. Rankearlo obligaría a medir Claude con
+extended thinking, o3 en high, Gemini con thinking budget — y el benchmark se vuelve
+combinatorio. Gemini 2.5 Pro, en cambio, tiene precio propio: es producto y sí rankea.
+
+### Contra qué razonamiento medimos, medido
+
+Se sondeó empíricamente y **corrige algo que se afirmaba mal**: no es cierto que a
+Anthropic le vaya el thinking apagado.
+
+    DeepSeek R1   7.585 tok    Claude Opus 5    343    GPT-5.6 Luna  70
+    Tencent Hy3     626        Claude Sonnet 5  148    Haiku 4.5      0
+
+Los proveedores razonan por default aunque el cliente no configure nada, y **el default no
+es uniforme ni dentro de una familia**. Cada run graba ahora `judge_model` y
+`reasoning_tokens`: un cambio de default se verá como corrimiento de distribución.
+
+### El README pasa de 700 a 248 líneas
+
+Tenía un título de sección que **negaba la decisión vigente** («Score = combinación
+ponderada (NO solo calidad)») y declaraba «23 suites» cuando son 31. El detalle se mudó a
+`METODOLOGIA.md` sin perder los post-mortems que valen.
+
+### Guardrails nuevos (van 8, todos probados contra su propio fallo)
+
+- **`check_claims.py`** — afirmaciones de método caducas. `check_consistency` caza CIFRAS;
+  esto caza CLAIMS, prosa sin números que dice lo contrario de lo que hacemos.
+- **`completar_examen.py`** — modelos con muestra suficiente FUERA del ranking por
+  exámenes a medias. Había **7, bloqueados por 36 tests sueltos** — entre ellos uno con
+  calidad 8,60, más alta que el #1 publicado.
+- **`sonda_razonamiento.py`** — cuánto razona cada modelo por default, con histórico.
+- **`export_harbor`**: el checksum vigente es el **más reciente**, no el mayoritario. Por
+  mayoría habría publicado 204 corridas obsoletas **en verde**.
+- `no_apto` vs `irregular`: «nunca puede» y «a veces falla» dejan de ser la misma etiqueta.
+
+### Catálogo
+
+Entra **Gemini 3.6 Flash** (129 runs, a mitad de precio que su antecesor). **GLM 5.3**
+queda bloqueado con el motivo escrito: salió el 14-ago solo por la API de Z.ai, sin key, y
+sus pesos no son públicos todavía.
+
+### Nota de versión
+
+`scoring_reference.json` sube a v4.3 pero **la calibración NO se recalculó**: nada de esto
+toca el score. Queda escrito en el archivo (`calibracion_heredada_de: v4.1`).
+
+---
+
 ## [v4.2.0] - 2026-08-14 — El benchmark deja de suponer que un buen modelo sirve en un agente
 
 Hasta hoy el sitio respondía *"¿qué modelo es mejor?"*. No respondía la pregunta que

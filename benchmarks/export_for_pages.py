@@ -28,6 +28,9 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from benchmarks.config import MODELS as _CLOUD_MODELS
 from benchmarks.models import OLLAMA_MODELS, SUBSCRIPTIONS
 from benchmarks.scoring import compute_final_score, cost_score_log, DEFAULT_WEIGHTS
+# La lista de thinking models vive en el adapter (es donde se aplica). Se importa en vez
+# de copiarla: una copia se desincroniza el día que alguien agregue un modelo allá.
+from providers.adapters import THINKING_MODELS as _THINKING_PREFIXES
 
 # Costo minimo por call para modelos gratis/free tier/suscripcion.
 # Evita cost_score 10.0 artificial y hace comparables todos los modelos.
@@ -950,6 +953,34 @@ def build_export(recalibrate=False, scoring_version=None):
             # Se siguen exportando (los datos históricos valen: 161 runs de Devstral
             # alimentan el análisis de dispersión), pero fuera del ranking y de las
             # recomendaciones. Ver `retired` en models.py.
+            # CONTRA QUÉ ESFUERZO DE RAZONAMIENTO SE MIDIÓ.
+            #
+            # POR QUÉ (15-ago-2026). Cristian: *"me interesa saber contra qué
+            # razonamiento estamos midiendo los de OpenAI y los de Anthropic, si es
+            # normal o high"* — y después: *"que el benchmark lleve el tipo de thinking
+            # para que se sepa contra qué se mide"*.
+            #
+            # Verificado empíricamente en `adapters.py`: a OpenAI NUNCA se le manda
+            # `reasoning.effort` (GPT-5.x usa su default, que es `medium`), y a Anthropic
+            # el extended thinking va apagado salvo que el config diga `force_reasoning`.
+            # O sea: medimos **lo que recibe quien llama a la API sin configurar nada**,
+            # que es el caso de la audiencia.
+            #
+            # Se DERIVA del config, no se escribe a mano: si alguien agrega
+            # `force_reasoning` a un modelo, la etiqueta cambia sola.
+            "reasoning_medido": (
+                "high (forzado)" if cfg.get("force_reasoning")
+                else "apagado" if cfg.get("provider") == "llama_server"
+                else "high (llama-server)" if cfg.get("provider") == "llama_server_think"
+                else "default del proveedor"
+            ),
+            # Presupuesto de salida: los thinking models reciben max_tokens x4 (mín 8192)
+            # porque consumen tokens internos razonando. No es esfuerzo, es margen.
+            "presupuesto_thinking": bool(
+                cfg.get("force_reasoning")
+                or any(model_id.startswith(pref) or pref in str(model_id)
+                       for pref in _THINKING_PREFIXES)
+            ),
             "retired": bool(cfg.get("retired")),
             # Cuándo, por qué y de quién fue la decisión. Hasta el 12-ago-2026 esto vivía
             # como comentario en models.py: ilegible para los generadores, así que el sitio
@@ -1013,6 +1044,9 @@ def build_export(recalibrate=False, scoring_version=None):
                 and ":free" not in str(model_id)
                 and not cfg.get("retired")
                 and not cfg.get("provider_variant")
+                # Variante de mayor esfuerzo del MISMO modelo al MISMO precio: no es un
+                # producto distinto, y rankearla obligaría a medir el modo alto de todos.
+                and not cfg.get("effort_variant")
                 and not cfg.get("self_hosted")
                 and not _incompletas_que_puntuan
             ),

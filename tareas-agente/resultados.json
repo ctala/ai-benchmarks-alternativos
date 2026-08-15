@@ -1,5 +1,5 @@
 {
-  "generado": "2026-08-14T17:41:24",
+  "generado": "2026-08-15T07:18:04",
   "harness": "harbor",
   "nota": "Reward de tareas agénticas. NO entra al índice de calidad: es una dimensión aparte, como tool calling y seguridad. Ver DECISIONES.md.",
   "tareas": {
@@ -1993,55 +1993,755 @@
     },
     "harbor-ruteo": {
       "modelos": {
-        "deepseek/deepseek-chat": {
-          "media": 0.5,
-          "piso": 0.0,
-          "techo": 1.0,
-          "intentos": 2,
-          "rewards": [
-            1.0,
-            0.0
-          ],
-          "estado": "inestable",
-          "costo_usd": 0.0,
-          "motivo": "entró en un bucle degenerado y reventó su propia ventana de contexto",
-          "causas_de_los_ceros": [
-            "desbordo_su_contexto"
-          ]
-        },
-        "google/gemini-3.1-pro-preview": {
+        "anthropic/claude-fable-5": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
-          "intentos": 2,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "anthropic/claude-haiku-4.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.2
+        },
+        "anthropic/claude-opus-4-6": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.66
+        },
+        "anthropic/claude-opus-4-7": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.55
+        },
+        "anthropic/claude-opus-4.8": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 6,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "anthropic/claude-opus-5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 6,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "anthropic/claude-opus-5-fast": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 6,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "anthropic/claude-sonnet-4-6": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
           "rewards": [
             1.0,
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.34
+          "costo_usd": 0.23
         },
-        "meta-llama/llama-3.3-70b-instruct": {
-          "media": 0.0,
-          "piso": 0.0,
-          "techo": 0.0,
-          "intentos": 2,
+        "anthropic/claude-sonnet-5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
           "rewards": [
-            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "deepseek/deepseek-chat": {
+          "media": 0.9667,
+          "piso": 0.9,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            0.9,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.01
+        },
+        "deepseek/deepseek-r1": {
+          "media": 0.6667,
+          "piso": 0.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
             0.0
           ],
           "estado": "inestable",
-          "costo_usd": 0.0,
+          "costo_usd": 0.13,
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call",
           "causas_de_los_ceros": [
-            "hizo_mal_la_tarea"
+            "rompe_bucle"
           ]
+        },
+        "deepseek/deepseek-v3.2": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.11
+        },
+        "deepseek/deepseek-v4-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "deepseek/deepseek-v4-flash-0731": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "deepseek/deepseek-v4-pro": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "google/gemini-2.5-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.1
+        },
+        "google/gemini-2.5-flash-lite": {
+          "media": 0.9,
+          "piso": 0.7,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            0.7,
+            1.0
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0
+        },
+        "google/gemini-2.5-pro": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.21
+        },
+        "google/gemini-3.1-flash-lite-preview": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.03
+        },
+        "google/gemini-3.1-pro-preview": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.35
+        },
+        "google/gemini-3.5-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "google/gemma-4-26b-a4b-it": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "inclusionai/ling-3.0-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "meta-llama/llama-3.3-70b-instruct": {
+          "media": 0.8667,
+          "piso": 0.7,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            0.7,
+            1.0,
+            0.9
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0
+        },
+        "meta-llama/llama-4-scout": {
+          "media": 0.7,
+          "piso": 0.6,
+          "techo": 0.8,
+          "intentos": 3,
+          "rewards": [
+            0.6,
+            0.8,
+            0.7
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0
+        },
+        "meta/muse-glimmer-30b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "meta/muse-spark-1.2": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "minimax/minimax-m2.5": {
+          "media": 0.9667,
+          "piso": 0.9,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            0.9
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.06
+        },
+        "minimax/minimax-m2.7": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 6,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "minimax/minimax-m3": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 6,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "mistralai/ministral-14b-2512": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "mistralai/mistral-large": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.59
+        },
+        "mistralai/mistral-large-2512": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.03
+        },
+        "mistralai/mistral-small-2603": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "moonshotai/kimi-k2": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "moonshotai/kimi-k2.6": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "moonshotai/kimi-k2.7-code": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "moonshotai/kimi-k3": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "nex-agi/nex-n2-mini": {
+          "media": 0.9333,
+          "piso": 0.9,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            0.9,
+            0.9
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0
+        },
+        "nvidia/nemotron-3-nano-30b-a3b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "nvidia/nemotron-3-ultra-550b-a55b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "openai/gpt-5.6-luna": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "openai/gpt-5.6-sol": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "openai/gpt-5.6-terra": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "openai/gpt-oss-120b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.03
+        },
+        "openai/gpt-oss-20b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "poolside/laguna-s-2.1": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "poolside/laguna-xs-2.1": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "qwen/qwen3-coder": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.01
+        },
+        "qwen/qwen3-next-80b-a3b-instruct": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "qwen/qwen3.5-35b-a3b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.12
+        },
+        "qwen/qwen3.5-397b-a17b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.19
+        },
+        "qwen/qwen3.6-27b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 6,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "qwen/qwen3.6-35b-a3b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 6,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "qwen/qwen3.6-max-preview": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 6,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "qwen/qwen3.6-plus": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.13
+        },
+        "qwen/qwen3.7-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
         },
         "qwen/qwen3.7-max": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
-          "intentos": 2,
+          "intentos": 3,
           "rewards": [
+            1.0,
             1.0,
             1.0
           ],
@@ -2052,20 +2752,139 @@
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
-          "intentos": 2,
+          "intentos": 3,
           "rewards": [
+            1.0,
             1.0,
             1.0
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "thinkingmachines/inkling-small": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "upstage/solar-pro4": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "x-ai/grok-4.20": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "x-ai/grok-4.3": {
+          "media": 0.9667,
+          "piso": 0.9,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            0.9,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0
+        },
+        "x-ai/grok-4.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "xiaomi/mimo-v2.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.07
+        },
+        "xiaomi/mimo-v2.5-pro": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.15
+        },
+        "z-ai/glm-5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.06
+        },
+        "z-ai/glm-5.1": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.21
+        },
         "z-ai/glm-5.2": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
-          "intentos": 2,
+          "intentos": 3,
           "rewards": [
+            1.0,
             1.0,
             1.0
           ],
@@ -2073,16 +2892,16 @@
           "costo_usd": 0.0
         }
       },
-      "task_checksum": "5c7ed0f842a07b3b0ca0c3fb4e546c766f7baa92776e1538d55d6166d45916c7",
+      "task_checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
       "agente": "mini-swe-agent",
       "resumen": {
-        "modelos": 6,
-        "corridas": 12,
-        "perfectos": 4,
-        "ceros": 1,
-        "media_global": 0.75,
-        "costo_usd": 0.34,
-        "descartadas_por_checksum": 4
+        "modelos": 69,
+        "corridas": 231,
+        "perfectos": 61,
+        "ceros": 0,
+        "media_global": 0.985,
+        "costo_usd": 4.23,
+        "descartadas_por_checksum": 16
       }
     }
   }
