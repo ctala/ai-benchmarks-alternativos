@@ -81,6 +81,35 @@ Calidad dividido por lo que cuesta. **Premia lo barato a propósito**: un modelo
 | 9 | **DeepSeek V4 Flash 0731** | **27.2** | 8.00 | $0.29 | openrouter |
 | 10 | **Poolside Laguna S 2.1** | **26.2** | 7.78 | $0.30 | openrouter |
 
+### Frontera de Pareto — ¿cuáles vale la pena siquiera considerar?
+
+Los **12 de 80** modelos que nadie domina: para el resto existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking —dentro de la frontera la elección depende de tu caso— es un descarte.
+
+| Modelo | Calidad | $/1k calls | Latencia | Provider |
+|---|---:|---:|---:|---|
+| **Tencent Hy3** | 8.53 | $0.83 | 65s | openrouter |
+| **GPT-5.6 Luna** | 8.43 | $0.93 | 11s | openrouter |
+| **Qwen 3.7 Flash** | 8.42 | $0.20 | 30s | openrouter |
+| **Gemma 4 26B MoE (3.8B activos)** | 8.28 | $0.64 | 27s | openrouter |
+| **Poolside Laguna XS 2.1** | 8.19 | $0.20 | 10s | openrouter |
+| **Claude Haiku 4.5** | 8.19 | $7.80 | 10s | openrouter |
+| **Nex-N2-Mini** | 8.15 | $0.16 | 19s | openrouter |
+| **GPT-5.4 Mini** | 8.11 | $2.40 | 7s | openai_direct |
+| **Gemini 3.1 Flash Lite** | 7.98 | $2.33 | 4s | openrouter |
+| **Ling 3.0 Flash** | 7.88 | $0.10 | 13s | openrouter |
+| **Llama 4 Scout 17B** | 7.82 | $0.48 | 8s | openrouter |
+| **Gemini 2.5 Flash Lite** | 7.78 | $0.63 | 6s | openrouter |
+
+> **Piso de ranking: 50 runs.** Solo compiten los 80 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
+
+> **Por qué la calidad va sola.** Hasta v4.0 publicábamos un número que mezclaba calidad con precio, y movía modelos sin avisar: Claude Opus 4.6 es **#5 en calidad** y salía **#18**; Poolside Laguna XS es **#29** y salía **#7**. Las dos cifras eran verdad, pero bajo un rótulo que no lo decía. Ahora el precio se muestra al lado y cada quien decide qué pesa. Es lo mismo que hace [Artificial Analysis](https://artificialanalysis.ai/) con su Intelligence Index.
+
+> **La frontera es frágil a propósito, y conviene saberlo.** Basta un modelo nuevo, bueno y barato para que varios de esta lista queden dominados de un día para otro. Eso es lo que debe pasar. Pero también significa que **depende de que los datos del líder sean correctos**: si la calidad del tope está sobreestimada, la frontera se ensancha.
+
+> **Nada de esto es tu caso exacto.** Si corrés batch de noche, la latencia no te importa y acá está pesando; si atendés usuarios en vivo, te importa el doble. Ajustá los pesos en la [calculadora](https://benchmarks.cristiantala.com/) o mirá las tablas por caso de uso en [MODELOS.md](MODELOS.md).
+
+<!-- AUTO-RANKING-END -->
+
 ## 🎛️ Calculadora interactiva
 
 **[https://benchmarks.cristiantala.com/](https://benchmarks.cristiantala.com/)** — encuentra el modelo IA perfecto en 30 segundos.
