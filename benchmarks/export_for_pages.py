@@ -1044,6 +1044,9 @@ def build_export(recalibrate=False, scoring_version=None):
                 and ":free" not in str(model_id)
                 and not cfg.get("retired")
                 and not cfg.get("provider_variant")
+                # Variante de mayor esfuerzo del MISMO modelo al MISMO precio: no es un
+                # producto distinto, y rankearla obligaría a medir el modo alto de todos.
+                and not cfg.get("effort_variant")
                 and not cfg.get("self_hosted")
                 and not _incompletas_que_puntuan
             ),

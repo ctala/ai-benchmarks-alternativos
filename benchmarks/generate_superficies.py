@@ -78,6 +78,18 @@ CLASES = [
                 "puede dejar una recomendación de seguridad peligrosa.",
     },
     {
+        "clase": "Afirmaciones de método",
+        "que_sincroniza": "que ningún doc VIVO afirme una metodología que ya se reemplazó",
+        "fuente": "`DECISIONES.md`",
+        "guardrail": "benchmarks/check_claims.py",
+        "como": "`check_consistency` caza CIFRAS caducas; ésta caza CLAIMS caducos — prosa "
+                "sin números que fue correcta y hoy dice lo contrario. El README llegó a "
+                "tener un título que decía «Score = combinación ponderada (NO solo "
+                "calidad)» mientras la decisión vigente era exactamente la opuesta, y "
+                "sobrevivió a dos versiones. Citar un error está permitido: lo que se "
+                "prohíbe es sostenerlo.",
+    },
+    {
         "clase": "Ciclo de vida de la documentación",
         "que_sincroniza": "la marca `<!-- doc: vigente | verificado: FECHA -->` de cada doc",
         "fuente": "la fecha de verificación humana",

@@ -233,6 +233,80 @@ antecesor ($0,75/$3,75 contra $1,50/$9) con el mismo contexto de 1M.
 
 ---
 
+# Tarea 4 — rutear el trabajo entre modelos (piso)
+
+**69 modelos · 231 corridas · US$ 4,23 · media 0,985**
+
+No mide HACER una tarea: mide **decidir quién la hace**. Catálogo de 9 modelos con sus
+mediciones reales —**anonimizados**, para que la decisión salga de los datos y no de la
+reputación del proveedor—, una cola de 6 trabajos con su volumen, una política escrita y
+un presupuesto que no alcanza para rutear todo al mejor.
+
+El artefacto lo produce una **herramienta** (`asignar.py`), no el modelo: la v1 pedía
+escribir el JSON a mano y toda la dificultad quedaba en la sintaxis (criterio 7 de la
+rúbrica, `essential_difficulty`).
+
+| resultado | modelos |
+|---|---|
+| perfecto en los 3 intentos | **61 (88%)** |
+| parcial | 7 |
+| inestable | 1 |
+| cero | 0 |
+
+## ⚠️ Satura: es un piso de usabilidad
+
+88% perfecto. Sirve para «¿este modelo sabe repartir trabajo sin romper nada?», **no**
+para ordenar el top.
+
+## Lo que sí discrimina: escatimar
+
+| trampa | corridas | modelos |
+|---|---|---|
+| **Asignar por debajo de la calidad que el trabajo necesita** | **11** | **7** |
+| Mandar datos de cliente al modelo inseguro | 6 | 4 |
+| No escalar el trabajo irreversible | 4 | 3 |
+| Usar un modelo de piso bajo en trabajo desatendido | 3 | 3 |
+
+La primera es la mitad de las fallas, y **existe por una corrección de Cristian**: la v1
+de la política decía «a igualdad de condiciones gana el más barato», sin que ningún
+trabajo declarara cuánta calidad necesita — así el barato ganaba por defecto y la tarea
+premiaba escatimar. Su observación fue *«el ruteo no tiene que ser el más barato, es el
+mejor resultado al mejor precio»*.
+
+Sin ese test la tarea habría dado 68 de 69 perfectos y no habría medido nada.
+
+## Cuatro modelos exponen datos de clientes
+
+`deepseek-r1`, `gemini-2.5-flash-lite`, `llama-3.3-70b` y `llama-4-scout` mandaron el chat
+con nombre, correo y compras del cliente a un modelo con seguridad entre 1,00 y 2,35 —
+**teniendo el umbral escrito en la política**. Tres de los cuatro tampoco escalaron el
+contrato irreversible.
+
+## DeepSeek R1 falla los diez tests
+
+| | |
+|---|---|
+| índice de calidad | **8,43 — el 3º del catálogo** |
+| ruteo | **0,67 · piso 0,00** |
+
+Es el único que aparece en **todas** las trampas: usa el modelo que no corre en agente,
+trata «seguridad sin medir» como aprobada, revienta el presupuesto, paga de más en el
+volumen y rutea todo a un único modelo.
+
+> Es el mismo contraste del benchmark, ahora en las dos direcciones. **Gemini 3.6 Flash es
+> #76 en calidad y #3 en calidad agéntica. DeepSeek R1 es #3 en calidad y el peor de esta
+> tarea.** El promedio no predice ninguna de las dos.
+
+## Nota de método
+
+8 modelos quedaron sin datos en la primera pasada por `AgentSetupTimeoutError` —el
+contenedor no terminó de instalarse en 360 s— porque corrí este lote **en paralelo** con
+el examen de Gemini 3.6 Flash y la máquina se saturó. No fue de los modelos: rehechos con
+la máquina libre, los 8 sacaron 1,00 en los tres intentos. Paralelizar dos lotes tiene ese
+costo y conviene tenerlo escrito.
+
+---
+
 ## Lo que costó, y por qué eso cambia el plan
 
 | | costo |

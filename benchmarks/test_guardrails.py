@@ -155,6 +155,16 @@ def _t_superficies():
         return _correr("generate_superficies.py", "--check") != 0
 
 
+@prueba("check_claims", "un doc vivo afirmando lo que una decisión vigente reemplazó")
+def _t_claims():
+    rm = ROOT / "README.md"
+    with Sabotaje(rm):
+        rm.write_text(rm.read_text(encoding="utf-8") +
+                      "\n## Score = combinación ponderada (NO solo calidad)\n",
+                      encoding="utf-8")
+        return _correr("check_claims.py") != 0
+
+
 @prueba("check_caminos", "un script que mide fuera del runner")
 def _t_caminos():
     tmp = ROOT / "_desvio_de_prueba.py"

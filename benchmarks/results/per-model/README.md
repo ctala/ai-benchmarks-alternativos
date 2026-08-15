@@ -1,6 +1,6 @@
 # Resultados por modelo
 
-Rankings de **160 modelos** evaluados con Phi-4 judge (Microsoft, 14B, MIT).
+Rankings de **161 modelos** evaluados con Phi-4 judge (Microsoft, 14B, MIT).
 
 Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y justificación del juez.
 
@@ -148,23 +148,24 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 140 | [Kimi K3](moonshotai_kimi-k3.md) | 6.47 | 7.79 | 34 | 153/153 | [ver detalles](moonshotai_kimi-k3.md) |
 | 141 | [Gemma 4 31B (Spark llama-server Q4_K_M)](gemma-4-31b-it-q4_k_m_gguf.md) | 6.47 | 6.90 | 8 | 110/110 | [ver detalles](gemma-4-31b-it-q4_k_m_gguf.md) |
 | 142 | [Gemma 4 31B](google_gemma-4-31b-it.md) | 6.45 | 7.33 | 4 | 68/77 | [ver detalles](google_gemma-4-31b-it.md) |
-| 143 | [Gemini 3.5 Flash](google_gemini-3_5-flash.md) | 6.33 | 6.97 | 104 | 351/366 | [ver detalles](google_gemini-3_5-flash.md) |
-| 144 | [Claude Opus 5 Fast](anthropic_claude-opus-5-fast.md) | 6.33 | 7.27 | 143 | 157/157 | [ver detalles](anthropic_claude-opus-5-fast.md) |
-| 145 | [MiniMax M2.7 (directo)](minimax-m2_7.md) | 5.83 | 5.00 | 64 | 4/4 | [ver detalles](minimax-m2_7.md) |
-| 146 | [MiniMax M2.7 Highspeed](minimax-m2_7-highspeed.md) | 5.72 | 5.00 | 46 | 4/4 | [ver detalles](minimax-m2_7-highspeed.md) |
-| 147 | [Nemotron 3.5 Lightning (NIM)](nvidia_nemotron-3_5-lightning-30b-a3b.md) | 5.69 | 5.05 | 55 | 18/18 | [ver detalles](nvidia_nemotron-3_5-lightning-30b-a3b.md) |
-| 148 | [Kimi K2 Thinking](moonshotai_kimi-k2-thinking.md) | 5.36 | 5.00 | 161 | 2/2 | [ver detalles](moonshotai_kimi-k2-thinking.md) |
-| 149 | [Claude Sonnet 4.6](anthropic_claude-sonnet-4-6.md) | 5.21 | 5.00 | 57 | 4/4 | [ver detalles](anthropic_claude-sonnet-4-6.md) |
-| 150 | [Kimi K2.5](moonshotai_kimi-k2_5.md) | 5.08 | 5.00 | 20 | 4/4 | [ver detalles](moonshotai_kimi-k2_5.md) |
-| 151 | [GPT-5.5 Pro](gpt-5_5-pro.md) | - | - | - | 0/58 | [ver detalles](gpt-5_5-pro.md) |
-| 152 | [DeepSeek R1 (free)](deepseek_deepseek-r1_free.md) | - | - | - | 0/91 | [ver detalles](deepseek_deepseek-r1_free.md) |
-| 153 | [Llama 3.3 70B (free)](meta-llama_llama-3_3-70b-instruct_free.md) | - | - | - | 0/91 | [ver detalles](meta-llama_llama-3_3-70b-instruct_free.md) |
-| 154 | [Qwen3 Coder 480B (free)](qwen_qwen3-coder-480b_free.md) | - | - | - | 0/91 | [ver detalles](qwen_qwen3-coder-480b_free.md) |
-| 155 | [MiMo-V2-Flash (free)](xiaomi_mimo-v2-flash_free.md) | - | - | - | 0/182 | [ver detalles](xiaomi_mimo-v2-flash_free.md) |
-| 156 | [Qwen 3.6 Plus (free)](qwen_qwen3_6-plus_free.md) | - | - | - | 0/182 | [ver detalles](qwen_qwen3_6-plus_free.md) |
-| 157 | [Step3 (StepFun)](stepfun-ai_step3.md) | - | - | - | 0/91 | [ver detalles](stepfun-ai_step3.md) |
-| 158 | [Seed-OSS 36B Instruct](bytedance_seed-oss-36b-instruct.md) | - | - | - | 0/91 | [ver detalles](bytedance_seed-oss-36b-instruct.md) |
-| 159 | [North Mini Code](cohere_north-mini-code.md) | - | - | - | 0/7 | [ver detalles](cohere_north-mini-code.md) |
-| 160 | [Step 3.5 Flash](stepfun_step-3_5-flash.md) | - | - | - | 0/2 | [ver detalles](stepfun_step-3_5-flash.md) |
+| 143 | [Gemini 3.6 Flash](google_gemini-3_6-flash.md) | 6.35 | 6.53 | 159 | 153/153 | [ver detalles](google_gemini-3_6-flash.md) |
+| 144 | [Gemini 3.5 Flash](google_gemini-3_5-flash.md) | 6.33 | 6.97 | 104 | 351/366 | [ver detalles](google_gemini-3_5-flash.md) |
+| 145 | [Claude Opus 5 Fast](anthropic_claude-opus-5-fast.md) | 6.33 | 7.27 | 143 | 157/157 | [ver detalles](anthropic_claude-opus-5-fast.md) |
+| 146 | [MiniMax M2.7 (directo)](minimax-m2_7.md) | 5.83 | 5.00 | 64 | 4/4 | [ver detalles](minimax-m2_7.md) |
+| 147 | [MiniMax M2.7 Highspeed](minimax-m2_7-highspeed.md) | 5.72 | 5.00 | 46 | 4/4 | [ver detalles](minimax-m2_7-highspeed.md) |
+| 148 | [Nemotron 3.5 Lightning (NIM)](nvidia_nemotron-3_5-lightning-30b-a3b.md) | 5.69 | 5.05 | 55 | 18/18 | [ver detalles](nvidia_nemotron-3_5-lightning-30b-a3b.md) |
+| 149 | [Kimi K2 Thinking](moonshotai_kimi-k2-thinking.md) | 5.36 | 5.00 | 161 | 2/2 | [ver detalles](moonshotai_kimi-k2-thinking.md) |
+| 150 | [Claude Sonnet 4.6](anthropic_claude-sonnet-4-6.md) | 5.21 | 5.00 | 57 | 4/4 | [ver detalles](anthropic_claude-sonnet-4-6.md) |
+| 151 | [Kimi K2.5](moonshotai_kimi-k2_5.md) | 5.08 | 5.00 | 20 | 4/4 | [ver detalles](moonshotai_kimi-k2_5.md) |
+| 152 | [GPT-5.5 Pro](gpt-5_5-pro.md) | - | - | - | 0/58 | [ver detalles](gpt-5_5-pro.md) |
+| 153 | [DeepSeek R1 (free)](deepseek_deepseek-r1_free.md) | - | - | - | 0/91 | [ver detalles](deepseek_deepseek-r1_free.md) |
+| 154 | [Llama 3.3 70B (free)](meta-llama_llama-3_3-70b-instruct_free.md) | - | - | - | 0/91 | [ver detalles](meta-llama_llama-3_3-70b-instruct_free.md) |
+| 155 | [Qwen3 Coder 480B (free)](qwen_qwen3-coder-480b_free.md) | - | - | - | 0/91 | [ver detalles](qwen_qwen3-coder-480b_free.md) |
+| 156 | [MiMo-V2-Flash (free)](xiaomi_mimo-v2-flash_free.md) | - | - | - | 0/182 | [ver detalles](xiaomi_mimo-v2-flash_free.md) |
+| 157 | [Qwen 3.6 Plus (free)](qwen_qwen3_6-plus_free.md) | - | - | - | 0/182 | [ver detalles](qwen_qwen3_6-plus_free.md) |
+| 158 | [Step3 (StepFun)](stepfun-ai_step3.md) | - | - | - | 0/91 | [ver detalles](stepfun-ai_step3.md) |
+| 159 | [Seed-OSS 36B Instruct](bytedance_seed-oss-36b-instruct.md) | - | - | - | 0/91 | [ver detalles](bytedance_seed-oss-36b-instruct.md) |
+| 160 | [North Mini Code](cohere_north-mini-code.md) | - | - | - | 0/7 | [ver detalles](cohere_north-mini-code.md) |
+| 161 | [Step 3.5 Flash](stepfun_step-3_5-flash.md) | - | - | - | 0/2 | [ver detalles](stepfun_step-3_5-flash.md) |
 
 > Generado con `python benchmarks/generate_per_model_md.py`
