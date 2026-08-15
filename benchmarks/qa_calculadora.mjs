@@ -31,7 +31,7 @@
  *   node benchmarks/qa_calculadora.mjs -v
  */
 
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -213,6 +213,43 @@ chequeo("Q7 · el filtro agéntico excluye a los que no corren en un agente", ()
   return colados.length ? [`pasaron sin evidencia: ${colados.join(", ")}`] : [];
 });
 
+
+
+// ── Q8 · todo enlace interno de la portada apunta a una página que EXISTE ────
+// Se agregó al enlazar los 6 cortes por eje desde la portada: un `<a href>` a una
+// página borrada o renombrada no rompe nada en la calculadora —carga igual— y le da 404
+// al usuario. Es el mismo modo de falla silencioso de siempre, en la superficie que más
+// tráfico recibe.
+chequeo("Q8 · ningún enlace interno de la portada apunta a una página inexistente", () => {
+  const html = readFileSync(join(ROOT, "docs", "index.html"), "utf8");
+  const rotos = [];
+  for (const m of html.matchAll(/href="(\/[^"#?]*)"/g)) {
+    const ruta = m[1];
+    if (ruta === "/") continue;
+    const destino = join(ROOT, "docs", ruta.replace(/^\//, ""),
+                         ruta.endsWith("/") ? "index.html" : "");
+    const alt = join(ROOT, "docs", ruta.replace(/^\//, ""));
+    if (!existsSync(destino) && !existsSync(alt) && !existsSync(alt + ".html")) {
+      rotos.push(ruta);
+    }
+  }
+  return [...new Set(rotos)].map(r => `${r} — enlazada desde la portada y no existe`);
+});
+
+// ── Q9 · los cortes por eje generados están TODOS enlazados ─────────────────
+// La contracara: una página que se genera y nadie enlaza es trabajo publicado que nadie
+// encuentra. El guardrail `check_cortes.py` verifica que la página coincida con los
+// datos; esto verifica que además se pueda LLEGAR a ella.
+chequeo("Q9 · cada corte por eje generado está enlazado desde la portada", () => {
+  const html = readFileSync(join(ROOT, "docs", "index.html"), "utf8");
+  const src = readFileSync(join(ROOT, "benchmarks", "generate_rankings.py"), "utf8");
+  const bloque = src.slice(src.indexOf("RANKINGS = ["));
+  const cortes = [];
+  const re = /"slug":\s*"([^"]+)"[\s\S]{0,600}?"criterion":\s*"suite"/g;
+  for (const m of bloque.matchAll(re)) cortes.push(m[1]);
+  return cortes.filter(sl => !html.includes(`/${sl}/`))
+               .map(sl => `${sl}: se genera y NO se enlaza desde la portada`);
+});
 
 // ═══════════════════════════════════════════════════════════════════════════
 // WIZARD — es la PUERTA DE ENTRADA del sitio y era una ruta de código aparte,

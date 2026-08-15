@@ -32,6 +32,8 @@ const SUITES_BY_PILLAR = {
     { value: "ocr_extraction", label: "OCR / extracción de imágenes" },
   ],
   Agentes: [
+    { value: "agent_long_horizon", label: "Tareas largas (sostener el hilo 8-12 turnos)" },
+    { value: "tool_calling_adversarial", label: "No inventar herramientas (abstenerse cuando no hay)" },
     { value: "tool_calling", label: "Tool calling (function calls)" },
     { value: "orchestration", label: "Orquestación (workflows complejos)" },
     { value: "multi_turn", label: "Multi-turn (debugging, requirements)" },
@@ -1083,8 +1085,14 @@ const WIZ_AGENTES = [
     // asíncrono se toma el tiempo que necesite y nadie lo nota. Sin este eje, DeepSeek
     // V4 Pro entraba #3 de esta lista con **58 segundos de latencia media** — correcto
     // por calidad, inusable como asistente.
-    ejes: [["policy_adherence", 0.30], ["harbor_media", 0.20], ["multiturno_score", 0.20],
-           ["latencia", 0.20], ["tool_calling_adversarial", 0.10]],
+    // `agentic_quality` en vez de `multiturno_score`: las dos salen de
+    // `agent_long_horizon`, pero la primera es la CALIDAD pura y la segunda el score
+    // final, que mezcla costo y velocidad. El repo decidió en v4.1 que la calidad va
+    // sola y el precio al lado — acá aplica igual. Y es el eje que explicó lo que
+    // Cristian ya sabía por usarlo: Gemini 3.6 Flash es #3 de 80 ahí y #76 en el
+    // índice general.
+    ejes: [["policy_adherence", 0.30], ["agentic_quality", 0.25], ["harbor_media", 0.20],
+           ["latencia", 0.15], ["tool_calling_adversarial", 0.10]],
     nota: "Para un asistente, el fallo caro no es que no sepa: es que haga otra cosa. " +
           "Por eso pesa más la <b>adherencia</b> que el tool calling — y pesa la " +
           "<b>latencia</b>, porque acá la espera se siente.",
@@ -1117,6 +1125,7 @@ const WIZ_AGENTES = [
 // Harbor viene 0-1 y se lleva a 0-10 para promediarlo con las suites.
 function wizEje(m, eje) {
   if (eje === "multiturno_score") return m.multiturno_score ?? null;
+  if (eje === "agentic_quality") return m.agentic_quality ?? null;
   const h = m.agentico?.tareas?.["harbor-cotizar"];
   if (eje === "harbor_media") return h?.media != null ? h.media * 10 : null;
   if (eje === "harbor_piso") return h?.piso != null ? h.piso * 10 : null;
@@ -1297,6 +1306,7 @@ function wizResult() {
     if (!tipo) return "";
     const ETIQ = {
       policy_adherence: "Adherencia", multiturno_score: "Multiturno",
+      agentic_quality: "Calidad agéntica",
       tool_calling_adversarial: "Tool calling", structured_output: "JSON estructurado",
       code_generation: "Código", harbor_media: "Tarea real", harbor_piso: "Tarea real (peor)",
       latencia: "Rapidez",
