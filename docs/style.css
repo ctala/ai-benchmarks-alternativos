@@ -1610,3 +1610,13 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 .wiz-tabla tbody tr + tr td { border-top: 1px solid rgba(255,255,255,.05); }
 .wiz-tabla tr.wiz-top td { color: var(--green); font-weight: 700; }
 .wiz-nota { margin-top: 8px; font-size: .78rem; color: var(--muted); }
+
+/* ── Columnas nuevas: contraste con el global, y tarea real (v4.3) ─────────
+   El contraste se resalta solo cuando el modelo está en la mitad de abajo del
+   índice general: es el caso que la columna existe para mostrar — bueno en el
+   eje elegido, escondido por el promedio. */
+.results-table td.contraste { color: #b478ff; font-weight: 700; }
+.results-table td.ag-ok    { color: var(--green); }
+.results-table td.ag-medio { color: #ffd700; }
+.results-table td.ag-bajo  { color: #ff5c5c; font-weight: 600; }
+.results-table td small { color: var(--muted); font-weight: 400; font-size: .78em; }

@@ -251,6 +251,45 @@ chequeo("Q9 · cada corte por eje generado está enlazado desde la portada", () 
                .map(sl => `${sl}: se genera y NO se enlaza desde la portada`);
 });
 
+
+// ── Q10 · las columnas nuevas coinciden con models.json ─────────────────────
+// La columna de contraste y la de tarea real son código a mano sobre datos generados: si
+// el export cambia la forma de `agentico` o de `score_calidad`, la tabla no rompe —
+// muestra «—» en silencio, que es indistinguible de «no medido».
+chequeo("Q10 · las columnas de contraste y tarea real leen datos que existen", () => {
+  const malas = [];
+  const conAgentico = RANKED.filter(m => m.agentico && Object.keys(m.agentico.tareas || {}).length);
+  if (!conAgentico.length) malas.push("ningún modelo rankeado tiene `agentico.tareas`: la columna «Tarea real» mostraría — en todos");
+  const sinCalidad = RANKED.filter(m => m.score_calidad == null);
+  if (sinCalidad.length > RANKED.length * 0.1)
+    malas.push(`${sinCalidad.length}/${RANKED.length} rankeados sin score_calidad: la columna de contraste quedaría vacía`);
+  // cada tarea agéntica debe traer media Y piso — el piso es la mitad del punto
+  for (const m of conAgentico.slice(0, 20)) {
+    for (const [k, v] of Object.entries(m.agentico.tareas)) {
+      if (v.media == null || v.piso == null)
+        malas.push(`${m.name}/${k}: falta ${v.media == null ? "media" : "piso"} — el piso es la mitad del dato`);
+    }
+  }
+  return malas;
+});
+
+// ── Q11 · el puesto global de la calculadora coincide con el de las páginas ──
+// Las dos superficies publican el mismo ranking. Si difieren, el sitio se contradice
+// consigo mismo y el usuario no tiene cómo saber cuál creer.
+chequeo("Q11 · el puesto global coincide entre la calculadora y los cortes por eje", () => {
+  const r = RANKED.filter(m => m.score_calidad != null)
+                  .sort((a, b) => b.score_calidad - a.score_calidad);
+  if (!r.length) return ["no hay modelos con score_calidad"];
+  const primero = r[0];
+  const html = readFileSync(join(ROOT, "docs", "mejor-llm-para-datos-exactos", "index.html"), "utf8");
+  // la página muestra «8.19 | #22 de 80»: el total tiene que ser el mismo
+  const m = html.match(/#\d+ de (\d+)/);
+  if (!m) return ["la página de corte no publica el puesto global — ¿se regeneró?"];
+  const totalPagina = parseInt(m[1], 10);
+  return totalPagina === r.length ? []
+    : [`la página dice «de ${totalPagina}» y la calculadora ordena sobre ${r.length} modelos`];
+});
+
 // ═══════════════════════════════════════════════════════════════════════════
 // WIZARD — es la PUERTA DE ENTRADA del sitio y era una ruta de código aparte,
 // sin ningún test. Medido el 14-ago: no filtraba por `sirve_para_agentes`, así que

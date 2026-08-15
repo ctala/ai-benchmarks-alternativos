@@ -885,6 +885,50 @@ function modelTags(m) {
   return tags.join("");
 }
 
+// Puesto de cada modelo en el ÍNDICE DE CALIDAD, para la columna de contraste.
+// Es el mismo dato que publican las páginas de corte por eje: tiene que decir lo mismo o
+// el sitio se contradice consigo mismo.
+let _puestoGlobal = null;
+function puestoGlobal(m) {
+  if (!_puestoGlobal) {
+    _puestoGlobal = new Map();
+    const r = (state.data?.models || [])
+      .filter(x => x.ranked && x.score_calidad != null)
+      .sort((a, b) => b.score_calidad - a.score_calidad);
+    r.forEach((x, i) => _puestoGlobal.set(x.key, { pos: i + 1, total: r.length }));
+  }
+  return _puestoGlobal.get(m.key) || null;
+}
+
+// CONTRASTE. Cuando el usuario mira UN eje, el número de ese eje sin el global es medio
+// dato. Medido: Gemini 3.6 Flash es #3 de 80 en calidad agéntica y #76 de 80 en el
+// índice general — quien lea solo una de las dos se lleva una conclusión falsa, en
+// cualquiera de los dos sentidos.
+function celdaContraste(m) {
+  const g = puestoGlobal(m);
+  if (g == null || m.score_calidad == null) return `<td class="num">—</td>`;
+  // Se resalta cuando el modelo está en la mitad de abajo del global: ése es el caso que
+  // la columna existe para mostrar — bueno en este eje, escondido por el promedio.
+  const escondido = g.pos > g.total * 0.5;
+  const cls = escondido ? " contraste" : "";
+  return `<td class="num${cls}" title="Índice de calidad general ${m.score_calidad} · puesto ${g.pos} de ${g.total}">${m.score_calidad} <small>#${g.pos}</small></td>`;
+}
+
+// TAREA REAL. Antes esto era solo un badge ✓ sin número: un modelo con 1,00 (piso 1,00) y
+// otro con 0,67 (piso 0,00) llevaban la misma marca. El PISO importa más que la media
+// para trabajo desatendido — es la diferencia entre «a veces sale mal» y «no sale mal».
+function celdaAgentica(m) {
+  const t = m.agentico && m.agentico.tareas;
+  if (!t || !Object.keys(t).length) return `<td class="num" title="Sin medir dentro de un agente">—</td>`;
+  const vals = Object.values(t).filter(x => x.media != null);
+  if (!vals.length) return `<td class="num">—</td>`;
+  const media = vals.reduce((s, x) => s + x.media, 0) / vals.length;
+  const piso = Math.min(...vals.map(x => x.piso == null ? 0 : x.piso));
+  const det = Object.entries(t).map(([k, v]) => `${k.replace("harbor-", "")} ${v.media} (piso ${v.piso})`).join(" · ");
+  const cls = piso >= 0.99 ? "ag-ok" : piso >= 0.75 ? "ag-medio" : "ag-bajo";
+  return `<td class="num ${cls}" title="Tareas de negocio resueltas de punta a punta dentro de un agente. ${det}">${media.toFixed(2)} <small>piso ${piso.toFixed(2)}</small></td>`;
+}
+
 function render() {
   const f = state.filters;
   const ranked = filterAndRank(state.data.models, f);
@@ -1034,6 +1078,8 @@ function render() {
             <th class="num sortable" onclick="toggleSort('cost')" title="Cost score (15% por default): INVERSO al precio — 10 = gratis o muy barato, 5 = $0.01/call, 2 = $0.10/call, 0 = $1.00+/call. Más alto = más barato. Click para ordenar">Costo↓ ${sortIndicator("cost")}</th>
             <th class="num sortable" onclick="toggleSort('tools')" title="Tool calling (badge, no pondera el score global): adherencia al schema OpenAI tools. 10 = perfecto, 7 = N/A (test sin tools). Click para ordenar">Tools ${sortIndicator("tools")}</th>
           ` : ""}
+          ${f.subtask ? `<th class="num" title="Dónde queda este modelo en el ÍNDICE DE CALIDAD general. Un eje sin su global es medio dato.">Índice global</th>` : ""}
+          <th class="num" title="Tareas de negocio resueltas de punta a punta DENTRO de un agente (Docker + herramientas), verificadas por tests. Media y PISO — el peor de los intentos.">Tarea real</th>
           <th class="num sortable" onclick="toggleSort('cost_month')" title="Costo total/mes según presupuesto y calls. Click para ordenar">Costo/mes ${sortIndicator("cost_month")}</th>
           <th>Tier</th>
         </tr>
@@ -1052,6 +1098,8 @@ function render() {
               <td class="num">${componentPill(m.cost_score_avg)}</td>
               <td class="num">${componentPill(m.tool_calling_score_avg)}</td>
             ` : ""}
+            ${f.subtask ? celdaContraste(m) : ""}
+            ${celdaAgentica(m)}
             <td class="num">$${m._cost_month.toFixed(2)}</td>
             <td>${m.tier}</td>
           </tr>
