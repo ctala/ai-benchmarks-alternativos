@@ -125,6 +125,82 @@ justo así hasta que se escribió esto.
   señales alineadas donde antes había un 8,20 solo. El piso importa más que la media para
   trabajo desatendido: es la diferencia entre «a veces sale mal» y «no sale mal».
 
+### La fila de dos líneas — y lo que apareció al copiarla
+
+Cristian mandó la tabla de lanzamiento de Qwen3.8: *"ejemplo de cómo otros miden y
+comparan"*. Lo que hace bien es barato: cada fila dice **qué mide en humano** arriba
+(`Long-horizon office work`) y **el benchmark técnico** abajo (`CoWorkBench`), agrupadas
+por sección. Se lee sin saber qué es un benchmark.
+
+Nosotros teníamos la idea escrita **a mano en tres archivos**, y al medirla apareció que
+no era un problema cosmético:
+
+| | medido el 15-ago |
+|---|---|
+| suites dichas de **dos formas distintas** | **7** |
+| suites sin nombre humano (id técnico en la cara del usuario) | **2** |
+| suites en **pilares distintos** según qué archivo se leyera | **7 de 28** |
+| suites medidas que **no sumaban al promedio de su pilar** | **3** |
+
+Las tres últimas son `agent_long_horizon` (91 modelos), `tool_calling_adversarial` (82) y
+`content_verificable` (92). Las dos primeras son las suites **más agénticas** del
+benchmark, y el pilar Agentes las excluía — nadie lo decidió, `SUITE_TO_PILLAR`
+simplemente no las tenía y `export_for_pages` las salteaba en silencio. **Explica algo que
+ya estaba anotado sin causa**: que el pilar Agentes tampoco mostraba a Gemini 3.6 Flash.
+No era solo que promedia.
+
+Ahora el registro es uno (`benchmarks/suites.py`), viaja en `models.json` y el sitio lo
+lee en vez de copiarlo. Meter las tres al promedio mueve números publicados, así que queda
+declarado con su motivo (`en_promedio: False` + `nota`) hasta simularlo — no se decide de
+pasada.
+
+### Las comparaciones: eje por eje, y el examen parejo
+
+Las 36 páginas `X vs Y` ahora publican una tabla **fila por eje** entre los dos campeones,
+agrupada por pilar, con el nombre humano y el id técnico. Es la mejora de más superficie
+de esta entrega: son las páginas que traen gente al benchmark.
+
+Lo que **no** se copió de la tabla de Qwen es su punto ciego, y es el que más importa: ahí
+**9 de 32 celdas de rivales están vacías** —Muse Glimmer rinde 2 de 8, Opus 4.6 Max 5 de
+8— y de las cinco filas donde Qwen se marca ganador, **tres son filas donde Opus no tiene
+dato**. Ningún número miente; el sesgo está en qué filas se eligieron. Acá la cobertura va
+arriba de la tabla («los dos rindieron los 28 ejes» o «el examen no está parejo»), y un
+eje que rindió uno solo sale «sin comparar» y no cuenta para el veredicto.
+
+Al construirlo cayeron tres cosas que nadie estaba mirando:
+
+- **22 de 72 lados estaban coronados por un modelo que no rankea**, 15 de ellos variantes
+  PRO — que por la decisión del 15-ago **no compiten**. La decisión estaba escrita y las
+  páginas de más tráfico la ignoraban.
+- **3 páginas publicadas que ya no genera nadie**, con datos congelados desde junio.
+  `minimax-vs-kimi` y `diffusiongemma-vs-gemma-4` vuelven al generador;
+  `grok-4.3-vs-gpt-5.5` (duplicado del slug canónico, punto vs guion) pasa a ser un
+  redirect de verdad — estaba decidido desde julio y el archivo seguía sirviendo su copia.
+- Se descubrieron **preguntando lo contrario de lo habitual**: no «¿falta una página?»
+  sino **«¿sobra una?»**. Una huérfana no falla — carga, se ve bien y miente despacio.
+
+### Desde el índice de calidad se llega a cualquier eje
+
+El desplegable de subcategorías ahora aparece también sobre el índice de calidad, con los
+28 ejes **agrupados por pilar** (`<optgroup>`), y muestra debajo la línea humana + el id.
+Hasta acá, para llegar a `agent_long_horizon` había que saber de antemano que vivía bajo
+«Agentes» — y ese eje es justo el que separa un modelo que sirve para un agente de uno que
+no.
+
+### Guardrails: van 12, y 20 chequeos funcionales
+
+- **`check_suites.py`** — el registro tiene que seguir siendo uno: nadie puede volver a
+  escribir las etiquetas a mano en `app.js`, y toda suite medida necesita nombre humano.
+- **Q12–Q15** en el QA funcional: el menú sale del registro · desde el índice de calidad
+  se llega a cualquier eje sin vaciar la tabla · ninguna comparación corona a un
+  no-rankeado sin la salvedad · ninguna página publicada quedó sin dueño.
+- Los dos nuevos **fallan cuando deben** (`test_guardrails.py`, 12 de 12).
+
+Y un test que se arregló a sí mismo: **Q4 fallaba en los 4 presets** al reordenar el menú
+— no porque los presets se rompieran, sino porque `baseFiltros()` arrastraba la
+subcategoría que dejaba Q1. Un test que depende del orden en que corren los demás no
+prueba lo que dice probar.
+
 ---
 
 ## [v4.2.0] - 2026-08-14 — El benchmark deja de suponer que un buen modelo sirve en un agente

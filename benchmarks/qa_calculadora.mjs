@@ -31,7 +31,7 @@
  *   node benchmarks/qa_calculadora.mjs -v
  */
 
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -65,9 +65,10 @@ function cargarApp() {
   // Se exponen las funciones puras que el QA necesita ejercitar.
   const fn = new Function("document", "window", "localStorage", "fetch",
     `${src}
-     return { getScore, filterAndRank, costPerMonth, SUITES_BY_PILLAR,
-              PRESETS_BUDGET, state, TOOL_CALLING_MIN, clampUmbralAlEje,
-              WIZ, WIZ_AGENTES, wizEje, computeZScore, wizCandidatos };`);
+     return { getScore, filterAndRank, costPerMonth, PRESETS_BUDGET, state,
+              TOOL_CALLING_MIN, clampUmbralAlEje, WIZ, WIZ_AGENTES, wizEje,
+              computeZScore, wizCandidatos, cargarRegistroDeSuites,
+              get SUITES_BY_PILLAR() { return SUITES_BY_PILLAR; } };`);
   return fn(document, window,
             { getItem: () => null, setItem: () => {} },
             () => Promise.reject(new Error("sin red en QA")));
@@ -78,6 +79,10 @@ const datos = JSON.parse(readFileSync(join(ROOT, "docs", "data", "models.json"),
 // `getScore` lee `state.data` para sacar norm_stats y score_rescale — en el navegador
 // lo llena el fetch inicial. Sin esto el QA prueba una app a medio arrancar.
 app.state.data = datos;
+// El menú de subcategorías se arma desde `datos.suites` (el registro único). En el
+// navegador lo dispara `load()`; acá hay que llamarlo igual, o el QA probaría la app
+// con el menú vacío y todos los chequeos pasarían por no tener nada que recorrer.
+app.cargarRegistroDeSuites(datos);
 const MODELOS = datos.models;
 const RANKED = MODELOS.filter(m => m.ranked && (m.runs || 0) > 0);
 
@@ -95,8 +100,17 @@ function chequeo(nombre, fn) {
 
 // Filtros base: los defaults del estado, con presupuesto amplio para que el único
 // filtro que corte sea el que se está probando.
+//
+// `task`/`subtask` se RESETEAN a propósito. Los chequeos mutan `state.filters` (tienen
+// que hacerlo: prueban el flujo real, y cambiar de eje dispara el clamp del umbral), así
+// que sin este reset cada chequeo hereda el eje que dejó el anterior. Pasó de verdad el
+// 15-ago: al reordenar el menú, Q4 empezó a fallar en los 4 presets — no porque los
+// presets se rompieran, sino porque arrastraban la subcategoría que dejó Q1, y con
+// `subtask` puesto el umbral de calidad se aplica sobre la escala CRUDA de la suite. Un
+// test que depende del orden en que corren los demás no prueba lo que dice probar.
 const baseFiltros = () => ({
-  ...app.state.filters, budget: 100000, calls: 2000, speed: 0,
+  ...app.state.filters, task: "score_global", subtask: "",
+  budget: 100000, calls: 2000, speed: 0,
   onlyOpen: false, exclProprietary: false, onlyTested: true, onlyTools: false,
   onlyAgentico: false, onlyThinking: false, onlyMultimodal: false, minContext: 0,
 });
@@ -288,6 +302,133 @@ chequeo("Q11 · el puesto global coincide entre la calculadora y los cortes por 
   const totalPagina = parseInt(m[1], 10);
   return totalPagina === r.length ? []
     : [`la página dice «de ${totalPagina}» y la calculadora ordena sobre ${r.length} modelos`];
+});
+
+// ── Q12 · el menú sale del registro, y el registro cubre lo medido ──────────
+// El menú se construye desde `models.json`. Si el registro llega incompleto, el
+// desplegable pierde ejes en silencio: no hay error, sólo opciones que dejaron de
+// existir. Y si un eje llega sin línea humana, el usuario ve el id técnico.
+chequeo("Q12 · el menú de ejes sale del registro y ningún eje queda sin nombre humano", () => {
+  const malas = [];
+  const reg = datos.suites || {};
+  if (!Object.keys(reg).length) return ["models.json no trae `suites`: el menú queda vacío"];
+
+  const medidas = new Set();
+  for (const m of MODELOS) for (const s of Object.keys(m.score_by_suite || {})) medidas.add(s);
+  for (const s of medidas) {
+    if (!reg[s]) malas.push(`\`${s}\` está medida y no está en el registro`);
+    else if (!reg[s].menu || !reg[s].decide) malas.push(`\`${s}\` sin etiqueta o sin línea humana`);
+  }
+  // Lo que el menú ofrece tiene que existir en el registro y tener datos detrás.
+  for (const [pilar, suites] of Object.entries(app.SUITES_BY_PILLAR)) {
+    for (const s of suites) {
+      if (reg[s.value]?.pilar !== pilar) {
+        malas.push(`${pilar}/${s.value}: el menú lo pone acá y el registro dice ` +
+                   `${reg[s.value]?.pilar || "(ninguno)"}`);
+      }
+    }
+  }
+  return malas;
+});
+
+// ── Q13 · desde el índice de calidad se llega a CUALQUIER eje ───────────────
+// La agrupación por pilar del desplegable existe para eso: llegar a
+// `agent_long_horizon` sin saber de antemano que vive bajo «Agentes». Si el flujo
+// pierde un eje, ese eje deja de ser alcanzable y nada lo indica.
+chequeo("Q13 · desde el índice de calidad se puede elegir cualquier eje, y ninguno queda vacío", () => {
+  const malas = [];
+  const conPilar = Object.entries(datos.suites || {}).filter(([, s]) => s.pilar).map(([k]) => k);
+  const enMenu = new Set(Object.values(app.SUITES_BY_PILLAR).flat().map(s => s.value));
+  for (const s of conPilar) {
+    if (!enMenu.has(s)) { malas.push(`\`${s}\` tiene pilar y no es alcanzable desde el menú`); continue; }
+    Object.assign(app.state.filters, baseFiltros(), { task: "score_calidad", subtask: s });
+    app.clampUmbralAlEje();
+    const n = app.filterAndRank(MODELOS, app.state.filters).length;
+    const conDato = RANKED.filter(m => (m.score_by_suite || {})[s] != null).length;
+    if (n === 0 && conDato > 0) {
+      malas.push(`índice de calidad → \`${s}\`: 0 resultados con ${conDato} modelos medidos`);
+    }
+  }
+  return malas;
+});
+
+// ── Q14 · las comparaciones no coronan a un modelo sin decir que no rankea ──
+// Las páginas vs son el motor de tráfico. Medido el 15-ago: **22 de 72 lados estaban
+// coronados por un modelo que no rankea**, 15 de ellos variantes PRO — que por decisión
+// vigente no compiten. La decisión estaba escrita y las páginas la ignoraban.
+// Los slugs que ALGÚN generador produce. Se leen TODOS los `generate_*.py`, no solo
+// `generate_comparison.py`: `generate_variants.py` también escribe en `docs/*-vs-*/`
+// (sus páginas «qué variante uso» comparten el patrón de slug). Mirar un solo generador
+// dio un falso positivo el 15-ago — `grok-4-1-vs-4-5` se declaró huérfana, se redirigió,
+// y el pipeline la restauró en el mismo run.
+const _slugsDe = f => [...readFileSync(join(ROOT, "benchmarks", f), "utf8")
+  .matchAll(/"slug":\s*"([^"]+)"/g)].map(m => m[1]);
+
+const SLUGS_GENERADOS = new Set(
+  readdirSync(join(ROOT, "benchmarks"))
+    .filter(f => f.startsWith("generate_") && f.endsWith(".py"))
+    .flatMap(_slugsDe));
+
+// Solo las de `generate_comparison.py` llevan tabla eje por eje. Las de
+// `generate_variants.py` («¿qué variante de Grok uso?») son otra plantilla y comparten el
+// patrón de slug — exigirles la tabla las marcaría rotas sin estarlo.
+const SLUGS_COMPARACION = new Set(_slugsDe("generate_comparison.py"));
+
+chequeo("Q14 · ninguna comparación corona a un no-rankeado sin la salvedad escrita", () => {
+  const malas = [];
+  const nombres = new Map(MODELOS.map(m => [m.name, m]));
+  for (const slug of SLUGS_COMPARACION) {
+    const p = join(ROOT, "docs", slug, "index.html");
+    if (!existsSync(p)) continue;
+    const html = readFileSync(p, "utf8");
+    const h2 = html.match(/<h2>Eje por eje: (.+?) vs (.+?)<\/h2>/);
+    if (!h2) { malas.push(`${slug}: no publica la tabla eje por eje`); continue; }
+    for (const nm of [h2[1], h2[2]]) {
+      const m = nombres.get(nm.replace(/&amp;/g, "&"));
+      if (m && !m.ranked && !html.includes(`${nm} no está rankeado`)) {
+        malas.push(`${slug}: corona a «${nm}», que no rankea, sin la salvedad`);
+      }
+    }
+    if (!/class="cobertura /.test(html)) malas.push(`${slug}: sin nota de cobertura`);
+  }
+  return malas;
+});
+
+// ── Q15 · páginas publicadas que ya nadie regenera ──────────────────────────
+// Un directorio `-vs-` que no está en `COMPARISONS` es una página viva en el sitio,
+// indexada por Google, con datos congelados del día que se sacó del generador. No falla
+// nada: carga, se ve bien y miente despacio. Medido el 15-ago: **4 huérfanas**, y una
+// (`grok-4.3-vs-gpt-5.5`) duplica a `grok-4.3-vs-gpt-5-5` — dos URLs compitiendo por la
+// misma búsqueda.
+//
+// Es fallo, no aviso: borrarlas o volver a generarlas es una decisión, pero dejarlas sin
+// decidir es publicar datos que nadie mantiene.
+chequeo("Q15 · ninguna página de comparación quedó huérfana del generador", () => {
+  // Una huérfana puede ser legítima (un slug viejo que hoy es redirect), pero entonces
+  // el motivo está escrito en `HUERFANAS_DECLARADAS`. Lo que no se acepta es la tercera
+  // categoría: publicada, sin generador y sin que nadie haya decidido nada.
+  const gc = readFileSync(join(ROOT, "benchmarks", "generate_comparison.py"), "utf8");
+  const bloque = gc.slice(gc.indexOf("HUERFANAS_DECLARADAS"));
+  const declaradas = new Set([...bloque.matchAll(/^\s{4}"([^"]+)":/gm)].map(m => m[1]));
+  const dirs = readdirSync(join(ROOT, "docs"), { withFileTypes: true })
+    .filter(d => d.isDirectory() && d.name.includes("-vs-")).map(d => d.name);
+  const malas = [];
+  for (const d of dirs) {
+    if (SLUGS_GENERADOS.has(d) || declaradas.has(d)) continue;
+    malas.push(`docs/${d}/ está publicada y NO la genera nadie: sus datos quedaron ` +
+               `congelados. Agregala a COMPARISONS o declarala en HUERFANAS_DECLARADAS`);
+  }
+  // Una declarada tiene que ser realmente un redirect, no una página vieja con la
+  // etiqueta puesta: si sigue sirviendo su contenido, el problema sigue ahí.
+  for (const d of declaradas) {
+    const p = join(ROOT, "docs", d, "index.html");
+    if (existsSync(p) && !/http-equiv="refresh"|rel="canonical" href="[^"]*"\s*\/?>[\s\S]{0,200}redirect/i
+        .test(readFileSync(p, "utf8"))) {
+      malas.push(`docs/${d}/ está declarada como huérfana pero sigue sirviendo su ` +
+                 `contenido viejo — tiene que ser un redirect`);
+    }
+  }
+  return malas;
 });
 
 // ═══════════════════════════════════════════════════════════════════════════

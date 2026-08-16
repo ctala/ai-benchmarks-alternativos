@@ -302,7 +302,72 @@ COMPARISONS = [
         "title": "GPT-5.6 Luna vs Sol en 2026: comparación con benchmark real",
         "intent_kw": "gpt 5.6 luna vs sol, chatgpt 5.6 barato vs flagship, diferencia luna sol, gpt 5.6 comparativa",
     },
+    # RE-INCORPORADAS (15-ago-2026). Estaban publicadas y **fuera del generador**: sus
+    # datos se congelaron el 26 y el 29 de junio y nadie se enteró, porque una página
+    # huérfana no falla — carga, se ve bien y miente despacio. Lo destapó el chequeo Q15
+    # al preguntar lo contrario de lo habitual: no «¿falta una página?», sino «¿sobra
+    # una?». Las dos comparaciones siguen siendo válidas, así que vuelven al generador en
+    # vez de borrarse.
+    {
+        "slug": "minimax-vs-kimi",
+        "a": {"name": "MiniMax", "match": ["minimax"]},
+        "b": {"name": "Kimi (Moonshot)", "match": ["kimi"]},
+        "title": "MiniMax vs Kimi en 2026: comparación con benchmark real",
+        "intent_kw": "minimax vs kimi, kimi o minimax, comparativa minimax kimi, mejor modelo chino, alternativa china claude",
+    },
+    {
+        "slug": "diffusiongemma-vs-gemma-4",
+        "a": {"name": "DiffusionGemma", "match": ["diffusiongemma", "diffusion-gemma"]},
+        "b": {"name": "Gemma 4", "match": ["gemma-4", "gemma 4"]},
+        "title": "DiffusionGemma vs Gemma 4 en 2026: comparación con benchmark real",
+        "intent_kw": "diffusiongemma vs gemma 4, modelo difusion texto, gemma 4 benchmark, google open source llm",
+    },
 ]
+
+# Huérfanas que NO vuelven al generador, con el motivo escrito. Q15 exige que toda página
+# publicada esté acá o en COMPARISONS: una decisión declarada o una página mantenida, pero
+# no una tercera categoría silenciosa.
+HUERFANAS_DECLARADAS = {
+    "grok-4.3-vs-gpt-5.5": {
+        "destino": "grok-4.3-vs-gpt-5-5",
+        "por_que": "duplicado del slug canónico (punto vs guion). Dos URLs compitiendo "
+                   "por la misma búsqueda: se sirve como redirect, no se regenera.",
+    },
+}
+# NOTA para quien agregue una entrada acá: `grok-4-1-vs-4-5` PARECE huérfana desde este
+# archivo y no lo es — la genera `generate_variants.py`, que produce páginas «qué variante
+# uso» con el mismo patrón de slug. Se llegó a declarar como huérfana y a redirigirla; el
+# pipeline la restauró en el mismo run y ahí se vio el error. Por eso el chequeo mira
+# TODOS los generadores, no solo éste: dos scripts distintos escriben en `docs/*-vs-*/`.
+
+
+def escribir_redirects():
+    """Convierte cada huérfana declarada en un redirect al recurso vivo.
+
+    No se borran: la URL está indexada y su link equity es real. Un redirect la preserva,
+    corta la duplicación y deja de servir datos que nadie mantiene. Se genera desde acá
+    —y no a mano— para que no vuelva a quedar suelta: si el destino cambia, cambia acá.
+    """
+    for slug, cfg in HUERFANAS_DECLARADAS.items():
+        destino = f"{SITE}/{cfg['destino']}/"
+        d = DOCS / slug
+        d.mkdir(exist_ok=True)
+        (d / "index.html").write_text(f"""<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Esta comparación se movió</title>
+<link rel="canonical" href="{destino}">
+<meta name="robots" content="noindex, follow">
+<meta http-equiv="refresh" content="0; url={destino}">
+</head>
+<body>
+<p>Esta comparación se movió a <a href="{destino}">{destino}</a>.</p>
+<!-- redirect · {esc(cfg['por_que'])} -->
+</body>
+</html>
+""", encoding="utf-8")
+        print(f"↪ {slug} → {cfg['destino']} (redirect)")
 
 
 _JSON_CACHE = None
@@ -483,6 +548,175 @@ def row(rank, m, top=False):
 
 def best_in(arr, pil):
     return max(arr, key=lambda m: pillar(m, pil)) if arr else None
+
+
+# ── EJE POR EJE ───────────────────────────────────────────────────────────────
+#
+# POR QUÉ EXISTE (15-ago-2026)
+#
+# Cristian mandó la tabla de lanzamiento de Qwen3.8: *"ejemplo de cómo otros miden y
+# comparan"*. Lo que hace bien es la FILA: cada una dice qué mide en humano arriba
+# («Long-horizon office work») y el benchmark técnico abajo («CoWorkBench»), agrupadas
+# por sección. Se lee sin saber qué es un benchmark.
+#
+# Lo que hace mal es lo que acá se corrige, y es más importante: **su tabla tiene 32
+# celdas de rivales y 9 vacías.** Muse Glimmer rinde 2 de 8; Opus 4.6 Max, 5 de 8. Y de
+# las cinco filas donde Qwen se marca ganador, TRES son filas donde Opus no tiene dato.
+# Ningún número miente — el sesgo está en qué filas se eligieron y a quién se dejó fuera.
+#
+# Acá los dos rinden el mismo examen o se dice cuál falta, con el conteo a la vista. Es
+# la única ventaja estructural que tenemos sobre una tabla de fabricante, y hasta hoy no
+# la publicábamos en ningún lado.
+
+def _suite_val(m, suite):
+    return (m.get("score_by_suite") or {}).get(suite)
+
+
+def campeon(arr):
+    """El mejor de la familia que SÍ rankea, y por qué eso importa.
+
+    `family()` ordena por calidad media y devuelve al mejor — pero «mejor» incluía a los
+    que no rankean, y ahí hay dos clases distintas metidas en la misma bolsa:
+
+      · **Variantes de esfuerzo** (`GPT-5.6 Luna Pro`, `Terra Pro`): no rankean POR
+        POLÍTICA. Cuestan exactamente lo mismo que su base, así que no son otro producto
+        —es el mismo modelo razonando más— y rankearlas obligaría a medir Claude con
+        extended thinking, o3 en high, y el benchmark se vuelve combinatorio.
+      · **Exámenes a medias**: no rankean porque su promedio no es comparable.
+
+    Medido el 15-ago-2026: **22 de 72 lados de comparación estaban coronados por un
+    modelo que no rankea**, 15 de ellos variantes PRO. O sea: la decisión de no rankearlas
+    estaba tomada, escrita en DECISIONES.md… y las páginas de mayor tráfico las publicaban
+    igual como el mejor de su familia. Otra regla sin instrumento que la hiciera cumplir.
+
+    Si NINGUNO de la familia rankea se devuelve el mejor disponible: es preferible una
+    comparación con la salvedad escrita que una página vacía. La salvedad la pone
+    `_nota_campeon()`.
+    """
+    return next((m for m in arr if m.get("ranked")), arr[0] if arr else None)
+
+
+def _nota_campeon(m):
+    if not m or m.get("ranked"):
+        return ""
+    return (f'<p class="cobertura parcial">⚠️ <strong>{esc(m["name"])} no está rankeado</strong> '
+            f'({m.get("runs", 0)} corridas): entra acá porque es lo mejor medido de su familia, '
+            f'pero su nota no es del todo comparable con el resto del ranking. '
+            f'<a href="/">Ver el ranking completo</a>.</p>')
+
+
+def eje_por_eje(a, b):
+    """Tabla fila-por-eje entre los dos campeones, agrupada por pilar.
+
+    Incluye a propósito las suites que NO suman al promedio del pilar
+    (`agent_long_horizon`, `tool_calling_adversarial`, `content_verificable`): acá cada
+    eje se lee solo, así que excluirlas escondería justo lo que más decide en un agente.
+    """
+    reg = (get_meta().get("suites") or {})
+    if not reg:
+        return ""
+
+    por_pilar = {}
+    for sid, s in reg.items():
+        if s.get("pilar"):
+            por_pilar.setdefault(s["pilar"], []).append((sid, s))
+    aparte = [(sid, s) for sid, s in reg.items() if not s.get("pilar")]
+
+    gana_a = gana_b = comunes = solo_a = solo_b = 0
+    filas = []
+    for pil in PILLARS:
+        ejes = sorted(por_pilar.get(pil, []), key=lambda x: x[1]["decide"])
+        if not ejes:
+            continue
+        filas.append(f'<tr class="eje-pilar"><td colspan="4">{esc(pil)}</td></tr>')
+        for sid, s in ejes:
+            va, vb = _suite_val(a, sid), _suite_val(b, sid)
+            if va is not None and vb is not None:
+                comunes += 1
+                if va > vb:
+                    gana_a += 1
+                elif vb > va:
+                    gana_b += 1
+            elif va is not None:
+                solo_a += 1
+            elif vb is not None:
+                solo_b += 1
+            filas.append(_fila_eje(sid, s, va, vb))
+
+    if aparte:
+        filas.append('<tr class="eje-pilar"><td colspan="4">Se reportan aparte '
+                     '(no entran a ningún promedio)</td></tr>')
+        for sid, s in sorted(aparte, key=lambda x: x[1]["decide"]):
+            filas.append(_fila_eje(sid, s, _suite_val(a, sid), _suite_val(b, sid)))
+
+    na, nb = esc(a["name"]), esc(b["name"])
+    empates = comunes - gana_a - gana_b
+    veredicto = (f"<strong>{na}</strong> gana {gana_a} ejes, <strong>{nb}</strong> gana "
+                 f"{gana_b}" + (f", empatan {empates}" if empates else "") +
+                 f" — de {comunes} que ambos rindieron.")
+    return f"""<section class="eje-eje">
+  <h2>Eje por eje: {na} vs {nb}</h2>
+  <p class="meta">Los dos mejores de cada familia, comparados en cada cosa que se mide por separado.
+  Un promedio de 29 ejes esconde el que te importa: hay modelos que son <strong>#3 en trabajo
+  agéntico y #76 en el índice general</strong>. Nota /10, calidad pura.</p>
+  {_cobertura(na, nb, comunes, solo_a, solo_b)}
+  {_nota_campeon(a)}{_nota_campeon(b)}
+  <div class="table-scroll"><table class="results-table eje-tabla">
+    <thead><tr>
+      <th scope="col">Qué decide</th><th scope="col">{na}</th>
+      <th scope="col">{nb}</th><th scope="col">Gana</th>
+    </tr></thead>
+    <tbody>
+      {chr(10) + "      ".join(filas)}
+    </tbody>
+  </table></div>
+  <p class="meta">{veredicto}</p>
+</section>"""
+
+
+def _fila_eje(sid, s, va, vb):
+    """Fila de dos líneas: qué decide (humano) arriba, el id técnico abajo."""
+    def cel(v, otro):
+        if v is None:
+            return '<td class="num sin-dato" title="No rindió este eje">—</td>'
+        gana = otro is not None and v > otro
+        return f'<td class="num{" gana" if gana else ""}">{v:.2f}</td>'
+
+    if va is None and vb is None:
+        quien = '<td class="num sin-dato">—</td>'
+    elif va is None or vb is None:
+        quien = '<td class="num sin-dato" title="Solo uno lo rindió: no es comparable">sin comparar</td>'
+    elif abs(va - vb) < 0.005:
+        quien = '<td class="num">empate</td>'
+    else:
+        quien = f'<td class="num">{"←" if va > vb else "→"}</td>'
+    return (f'<tr><td class="eje-nombre">{esc(s["decide"])}'
+            f'<small>{esc(sid)}</small></td>'
+            f'{cel(va, vb)}{cel(vb, va)}{quien}</tr>')
+
+
+def _cobertura(na, nb, comunes, solo_a, solo_b):
+    """Cuántos ejes rindió cada uno. La tabla de un fabricante nunca lo dice.
+
+    Es lo que separa «X le gana a Y» de «X le gana a Y en las filas que elegí mostrar».
+    """
+    total_a, total_b = comunes + solo_a, comunes + solo_b
+    if not solo_a and not solo_b:
+        return (f'<p class="cobertura ok">✅ <strong>Mismo examen completo.</strong> Los dos '
+                f'rindieron los {comunes} ejes: cada fila de abajo es comparable.</p>')
+    def _falta(quien, n):
+        return f"a <strong>{quien}</strong> le {'falta 1' if n == 1 else f'faltan {n}'}"
+
+    faltan = []
+    if solo_b:
+        faltan.append(_falta(na, solo_b))
+    if solo_a:
+        faltan.append(_falta(nb, solo_a))
+    return (f'<p class="cobertura parcial">⚠️ <strong>El examen no está parejo.</strong> '
+            f'{na} rindió {total_a} ejes y {nb} rindió {total_b}; '
+            f'{" y ".join(faltan)}. Solo los <strong>{comunes}</strong> que rindieron los dos '
+            f'son comparables — los demás salen marcados «sin comparar» y no cuentan para el '
+            f'resultado.</p>')
 
 
 def methodology():
@@ -829,6 +1063,7 @@ def render(cfg, A, B):
     </table></div>
     <p class="meta">Filtra por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
   </section>
+  {eje_por_eje(campeon(A), campeon(B))}
   {analysis(a_name, b_name, A, B)}
   {faq(a_name, b_name, A, B)}
   <section class="cta-block">
@@ -855,6 +1090,8 @@ def main():
         outdir.mkdir(exist_ok=True)
         (outdir / "index.html").write_text(render(cfg, A, B), encoding="utf-8")
         print(f"✓ {cfg['slug']}: {len(A)} {cfg['a']['name']} + {len(B)} {cfg['b']['name']} → docs/{cfg['slug']}/index.html")
+    if not args.slug:
+        escribir_redirects()
 
 
 if __name__ == "__main__":
