@@ -3,6 +3,72 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v4.4.0] - 2026-08-16 — Las dos suites más agénticas entran al pilar Agentes, que llevaba meses sin ellas
+
+Un solo cambio, y no es una mejora: es **arreglar algo que estaba mal y nadie había
+decidido**. El titular publicado no se mueve — `score_calidad` y `score_global` cambian en
+**cero** modelos. Lo que cambia son los pilares, y bastante.
+
+### Qué estaba pasando
+
+Tres suites medidas tenían pilar natural y **no sumaban al promedio de su pilar**:
+
+| suite | pilar | modelos medidos |
+|---|---|---|
+| `agent_long_horizon` | Agentes | 91 |
+| `tool_calling_adversarial` | Agentes | 82 |
+| `content_verificable` | Contenido | 92 |
+
+Las dos primeras son las suites **más agénticas del benchmark** —sostener una tarea larga
+y no inventar herramientas— y el pilar Agentes, que es el que se mira para elegir un
+modelo de agente, las excluía. La tercera es la única suite de contenido donde se puede
+**fallar** (`content_generation` da media 9,37 y no distingue un 8B de Opus), así que
+Contenido quedaba apoyado justo en lo que no discrimina.
+
+Nadie lo decidió: el mapeo viejo no las tenía y `export_for_pages` las salteaba en
+silencio. Apareció al construir el registro único de suites (v4.3), no por un guardrail.
+
+### La simulación, que es la que decidió
+
+`benchmarks/simular_pilares.py` (nuevo) corre el export con y sin ellas, sobre los runs en
+disco, y cuesta $0. La pregunta que importaba no era *"¿cambia?"* —iba a cambiar— sino
+**"¿a quién castiga?"**: una suite que entra al promedio castiga al que no la rindió, y si
+los que no la rindieron son un grupo con algo en común, el promedio deja de medir calidad
+y empieza a medir quién se midió primero. Es la misma trampa por la que `integridad_idioma`
+sigue afuera (17% de cobertura).
+
+Se respondió sola: **las tres las rindió el 100% de los modelos rankeados.** No había
+sesgo de muestra que justificara excluirlas. Entraron.
+
+### Lo que se movió
+
+| pilar | modelos que cambian de puesto |
+|---|---|
+| **Agentes** | **77 de 80** |
+| **Contenido** | **75 de 80** |
+
+    Poolside Laguna XS 2.1   Agentes  #29 → #5    (+0,42)
+    DeepSeek V4 Pro          Agentes  #53 → #28
+    Nemotron 3 Nano 30B      Agentes  #78 → #58   (+0,61)
+    Inkling Small            Agentes  #18 → #45
+    GPT-4.1 Mini             Agentes  #20 → #40
+    Llama 3.3 70B            Contenido #16 → #40  (−0,29)
+    MiniMax M3               Contenido #30 → #13
+
+**Gemini 3.6 Flash sube del #65 al #50 en el pilar Agentes** — el caso que destapó todo
+esto, cuando Cristian dijo *"lo estoy usando en Hermes y funciona muy bien"* contra un
+número que decía lo contrario. Sigue lejos de su #3 en calidad agéntica, porque el pilar
+promedia nueve ejes y él brilla en dos; para eso están los cortes por eje.
+
+### Nota de versión
+
+`scoring_reference.json` sube a v4.4 y **la calibración NO se recalculó** (sigue
+`calibracion_heredada_de: v4.1`): esto no toca el score global. La versión sube igual
+porque **92 modelos publican pilares distintos** — sin bump, alguien que citó «Llama 3.3
+70B es #16 en Contenido» no tendría contra qué versión compararlo.
+
+---
+
 ## [v4.3.0] - 2026-08-15 — El estándar se adopta, el promedio deja de esconder, y el README deja de contradecirse
 
 Tres tareas agénticas medidas, un estándar que ya no es nuestro, y cuatro guardrails
