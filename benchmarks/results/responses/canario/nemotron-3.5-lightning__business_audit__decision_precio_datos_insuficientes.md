@@ -1,9 +1,9 @@
 # Nemotron 3.5 Lightning — business_audit/decision_precio_datos_insuficientes
 
 - model_id: `nvidia/nemotron-3.5-lightning`
-- success: True  | final: 3.52 | quality: 2.0
-- latency_total: 6.566s | tokens_per_second: 539.2
-- input_tokens: 112 | output_tokens: 3540
+- success: True  | final: 3.3 | quality: 2.0
+- latency_total: 27.253s | tokens_per_second: 274.9
+- input_tokens: 112 | output_tokens: 7493
 
 ## Entrada exacta (lo que recibió el modelo)
 

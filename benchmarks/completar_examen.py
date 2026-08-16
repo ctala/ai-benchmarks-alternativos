@@ -99,8 +99,26 @@ def armar_resume(model_id: str, destino: Path) -> int:
             continue
         items = d if isinstance(d, list) else d.get("results", [])
         for r in items:
-            if isinstance(r, dict) and (r.get("model_id") == model_id or r.get("model") == model_id):
-                runs.append(r)
+            if not isinstance(r, dict):
+                continue
+            if r.get("model_id") != model_id and r.get("model") != model_id:
+                continue
+            # SOLO los EXITOSOS. Consolidar también los fallidos hacía que este script no
+            # pudiera hacer su único trabajo, y lo hacía en silencio.
+            #
+            # `--resume` saltea por `(model_id, suite, test)`. El export, en cambio, solo
+            # cuenta runs con `success=True`. Un test que falló las cuatro veces aparece
+            # así: **incompleto para el export y completo para el resume**. Resultado: el
+            # runner lo saltea, el modelo sigue bloqueado, y el script imprime
+            # «✅ exámenes completados» sin haber corrido un solo test.
+            #
+            # Medido el 16-ago-2026: los 3 modelos que se intentaron desbloquear crearon
+            # sus directorios de respuestas VACÍOS y no hubo un solo run nuevo. GPT-5.5
+            # tenía `social_engineering_attempt` con 4 corridas, las 4 con `success=False`
+            # — justo el test que faltaba.
+            if not r.get("success"):
+                continue
+            runs.append(r)
     destino.write_text(json.dumps({"results": runs}, ensure_ascii=False), encoding="utf-8")
     return len(runs)
 
@@ -134,16 +152,59 @@ def main() -> int:
         print("\n  (solo reporte — correr con --correr para completarlos)")
         return 1
 
-    tmp = ROOT / "benchmarks" / "results" / "_resume_tmp"
-    tmp.mkdir(exist_ok=True)
+    # El archivo va en `results/` y se llama `benchmark_*`, NO en un subdirectorio.
+    #
+    # El runner hace `results_file = resume_path`: escribe SOBRE el archivo de resume. Y
+    # `load_all_results()` solo lee `benchmark_*.json` del directorio `results/` —ni
+    # subdirectorios, ni otros prefijos—. Con el resume en `_resume_tmp/resume_*.json`,
+    # todo lo que este script midiera caía en un limbo que el pipeline no mira: los
+    # modelos seguían bloqueados aunque los tests hubieran corrido perfecto.
+    #
+    # Es la otra mitad del fallo del 16-ago-2026: el primero impedía que los tests
+    # corrieran; éste tiraba el resultado si corrían. Los dos en silencio.
+    res = ROOT / "benchmarks" / "results"
     for x in b:
-        rf = tmp / f"resume_{x['key']}.json"
+        rf = res / f"benchmark_completar_{x['key']}.json"
         n = armar_resume(x["id"], rf)
         suites = sorted(x["incompletas"])
         print(f"\n▶ {x['name']} — {n} runs previos consolidados, suites: {', '.join(suites)}")
         cmd = [PY, str(ROOT / "benchmarks" / "runner.py"), "--judge", "--judge-model", "phi4",
                "--models", x["key"], "--tests", *suites, "--resume", str(rf), "--sin-canario"]
         subprocess.run(cmd, cwd=ROOT)
+    # VERIFICAR QUE ALGO CORRIÓ. La v1 imprimía «✅ exámenes completados» sin mirar nada,
+    # y el 16-ago-2026 lo dijo después de no correr un solo test: los tres modelos
+    # crearon su directorio de respuestas VACÍO y siguieron bloqueados. Un script que
+    # reporta éxito sin comprobarlo es peor que uno que falla — hace perder el rastro.
+    # Se verifica contra los RUNS EN DISCO, no contra `models.json`.
+    #
+    # La v1 llamaba a `bloqueados()`, que lee el JSON — y el JSON todavía es el de antes
+    # del lote, porque regenerarlo es el paso siguiente. Resultado: dijo «los 3 SIGUEN
+    # bloqueados» justo después de correr los 11 tests que los desbloqueaban. Un
+    # verificador que mira la foto vieja acusa en falso, y eso gasta la confianza que el
+    # verificador existe para dar.
+    sigue = []
+    for x in b:
+        faltan = []
+        for suite, inc in x["incompletas"].items():
+            hechos = set()
+            try:
+                d = json.loads((RESULTS / f"benchmark_completar_{x['key']}.json").read_text())
+                for r in (d if isinstance(d, list) else d.get("results", [])):
+                    if r.get("suite") == suite and r.get("success") and r.get("test_name"):
+                        hechos.add(r["test_name"])
+            except Exception:
+                pass
+            if len(hechos) < inc["total"]:
+                faltan.append(f"{suite} {len(hechos)}/{inc['total']}")
+        if faltan:
+            sigue.append(f"{x['name']}: {', '.join(faltan)}")
+    if sigue:
+        print(f"\n  ⚠️  {len(sigue)} modelo(s) siguen con el examen a medias EN DISCO:")
+        for s in sigue:
+            print(f"       {s}")
+        print("     Los tests no corrieron o volvieron a fallar. Si la salida de arriba dice")
+        print("     «SKIP (resume)», el consolidado está tapando el test que falta.")
+        return 1
     print("\n  ✅ exámenes completados — corré `regenerate_all.py` para que entren al ranking.")
     return 0
 

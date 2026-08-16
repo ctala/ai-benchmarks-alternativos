@@ -1,9 +1,9 @@
 # Nemotron 3.5 Lightning — structured_output/json_simple_extraction
 
 - model_id: `nvidia/nemotron-3.5-lightning`
-- success: True  | final: 9.7 | quality: 10.0
-- latency_total: 1.05s | tokens_per_second: 661.2
-- input_tokens: 120 | output_tokens: 694
+- success: True  | final: 9.42 | quality: 10.0
+- latency_total: 4.98s | tokens_per_second: 326.5
+- input_tokens: 120 | output_tokens: 1626
 
 ## Entrada exacta (lo que recibió el modelo)
 

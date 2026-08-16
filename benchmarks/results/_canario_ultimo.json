@@ -1,7 +1,7 @@
 {
-  "cuando": "2026-08-14T18:11:38",
+  "cuando": "2026-08-16T09:20:50",
   "modelos": [
-    "gemini-3.6-flash"
+    "nemotron-3.5-lightning"
   ],
   "suites": [
     "tool_calling",
