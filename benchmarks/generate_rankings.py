@@ -344,8 +344,14 @@ def rank_models(models, cfg):
         pil = cfg["pillar"]
         # Ordena por CAPACIDAD en la tarea, no por el compuesto con costo/velocidad.
         # Ver pillar_quality() para por qué.
-        base = [m for m in base if pillar_quality(m, pil) > 0]
-        return sorted(base, key=lambda m: -pillar_quality(m, pil))
+        #
+        # ⚠️ EL ORDEN Y LA CIFRA SALEN DE LA MISMA FUNCIÓN, y hasta el 16-ago-2026 no
+        # era así: acá se ordenaba por `pillar_quality` y la columna imprimía
+        # `score_for`, que para Agentes mezclaba tool calling. Resultado: la tabla se
+        # veía desordenada respecto de su propia columna —el #4 con más nota que el #3—
+        # y el criterio real era invisible. Pasaba en 16 páginas.
+        base = [m for m in base if score_for(m, cfg) is not None and score_for(m, cfg) > 0]
+        return sorted(base, key=lambda m: -score_for(m, cfg))
     if crit == "suite":
         sname = cfg["suite"]
         base = [m for m in base if suite(m, sname) > 0]
@@ -386,6 +392,31 @@ def pillar_quality(m, name):
 # pilar va a medir capacidad agéntica de verdad y esto sobra.
 PESO_TOOLS_AGENTES = 0.5
 
+# Peso de la tarea REAL (Harbor) frente a `tool_calling` al ordenar lo agéntico. Tiene que
+# coincidir con `PESO_TAREA_REAL` de `docs/app.js`: la calculadora y estas páginas ordenan
+# el mismo eje y no pueden decir cosas distintas. Lo verifica `check_calculator`.
+PESO_TAREA_REAL = 0.6
+
+
+def score_agentico(m):
+    """Lo que el modelo LOGRÓ dentro de un agente, no lo que escribe sobre agentes.
+
+    Media y PISO de las tareas Harbor (0-1, llevado a 0-10). El piso pesa porque para
+    trabajo desatendido «a veces falla» y «no falla» no son lo mismo, y promediar los
+    intentos los vuelve indistinguibles.
+    """
+    t = (m.get("agentico") or {}).get("tareas") or {}
+    vals = [x for x in t.values() if x.get("media") is not None]
+    if not vals:
+        return None
+    media = sum(x["media"] for x in vals) / len(vals)
+    piso = min((x.get("piso") if x.get("piso") is not None else 0) for x in vals)
+    real = (0.6 * media + 0.4 * piso) * 10
+    tools = m.get("tool_calling_score_avg")
+    if tools is None:
+        return real
+    return PESO_TAREA_REAL * real + (1 - PESO_TAREA_REAL) * tools
+
 
 def score_for(m, cfg):
     if cfg["criterion"] == "pillar":
@@ -405,11 +436,31 @@ def score_for(m, cfg):
         # señal que sí mide capacidad agéntica y que ya teníamos medida. Con esto
         # DiffusionGemma pasa de #1 a #112 y el top queda con modelos de tool calling
         # 8,1–8,4.
+        # ACTUALIZADO 16-ago-2026: el parche de arriba se midió contra verdad objetiva
+        # (el reward de las tareas Harbor, verificado por pytest, no por un juez) y se
+        # quedó corto. Sobre 75 modelos rankeados con tarea medida:
+        #
+        #     pilar Agentes solo                 −0,20   ← NEGATIVA
+        #     65% pilar + 35% tool_calling       +0,44   ← el parche
+        #     tool_calling solo                  +0,58
+        #
+        # O sea: el parche mejoraba, y el pilar que arrastraba adentro lo empeoraba. La
+        # causa de fondo es que las nueve suites del pilar miden PROSA sobre agentes,
+        # no ejecución — `agent_long_horizon` mide sostener el hilo SIN herramientas y
+        # `tool_calling_adversarial` mide abstenerse.
+        #
+        # Ahora se ordena por lo que se midió HACIENDO el trabajo. `tool_calling`
+        # desempata porque la tarea satura (muchos en 1,00).
         if cfg["pillar"] == "Agentes":
+            ag = score_agentico(m)
+            if ag is not None:
+                return ag
             tool = m.get("tool_calling_score_avg")
             if tool is not None:
-                return ((1 - PESO_TOOLS_AGENTES) * pillar_quality(m, cfg["pillar"])
-                        + PESO_TOOLS_AGENTES * tool)
+                # Sin tarea medida: el parche viejo, y topeado para que no supere a
+                # quien sí la rindió y la aprobó.
+                return min(5.9, (1 - PESO_TOOLS_AGENTES) * pillar_quality(m, cfg["pillar"])
+                           + PESO_TOOLS_AGENTES * tool)
         return pillar_quality(m, cfg["pillar"])
     if cfg["criterion"] == "suite":
         return suite(m, cfg["suite"])
@@ -454,8 +505,12 @@ def table_head(cfg):
                       '<th scope="col">Índice global</th>'
                       '<th scope="col">Puesto global</th>')
     elif cfg["criterion"] == "pillar":
-        # Para pilares, la columna del pilar relevante ya está entre Coding/Contenido/Razon./Agentes.
-        pass
+        # Antes acá no se agregaba columna, con este argumento: «la columna del pilar
+        # relevante ya está entre Coding/Contenido/Razon./Agentes». Era cierto mientras
+        # el orden fuera `pillar_quality`. Dejó de serlo el 16-ago, cuando Agentes pasó a
+        # ordenarse por la tarea Harbor: el número que decide el puesto no estaba en
+        # NINGUNA columna, y la tabla se leía desordenada respecto de todo lo que mostraba.
+        base_cols += f'<th scope="col">{esc(score_label(cfg))}</th>'
     else:
         base_cols += '<th scope="col">Global</th>'
     if cfg["criterion"] != "suite":
@@ -488,8 +543,11 @@ def row_ranking(rank, m, cfg, top=False, badges=None):
                 f"<td>{gl if gl is not None else '—'}</td>"
                 f"<td{clase}>{f'#{pg} de {total}' if pg else '—'}</td>"
                 f"<td>{fmt_cost(m)}</td><td>{round(m.get('tokens_per_second') or 0)} tok/s</td></tr>")
-    # Ranking por pilar/costo/open_source: solo pilares y global (si aplica).
-    global_col = f"<td>{m.get('score_global',0):.2f}</td>" if cfg["criterion"] != "pillar" else ""
+    # Ranking por pilar/costo/open_source: la columna que ORDENA primero, después los
+    # pilares como contexto. La columna que ordena tiene que estar: sin ella el lector ve
+    # un puesto que no puede verificar contra nada de lo que la tabla le muestra.
+    global_col = (f"<td><strong>{relevant:.1f}</strong></td>" if cfg["criterion"] == "pillar"
+                  else f"<td>{m.get('score_global',0):.2f}</td>")
     return (f"<tr><td>{rank}</td><td>{nm}</td>{global_col}"
             f"<td>{pcell(m,'Coding')}</td><td>{pcell(m,'Contenido')}</td>"
             f"<td>{pcell(m,'Razonamiento')}</td><td>{pcell(m,'Agentes')}</td>"

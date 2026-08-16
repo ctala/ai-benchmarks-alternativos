@@ -273,6 +273,18 @@ def main() -> int:
             print("\n❌ El registro de suites se partió otra vez. Ver arriba.")
             return 1
 
+        # ¿Lo que publican las 71 páginas lo sostiene la data? Los guardrails de arriba
+        # verifican esquema y sincronía; éste pregunta otra cosa: si el orden publicado
+        # predice el caso que la página promete, si la tabla explica su propio orden y si
+        # recomienda algo que no se puede usar. Corre en modo `--duro`: solo bloquea por
+        # severidad ALTA, porque los medios son deuda editorial conocida y bloquear por
+        # ellos convertiría el pipeline en algo que se saltea.
+        print()
+        rc = run_script("auditar_paginas.py", ["--duro"], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ Una página publica algo que la data no sostiene. Ver arriba.")
+            return 1
+
     print("\n✅ Pipeline de regeneración completado — y sin drift.")
     return 0
 
