@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T17:05:37",
+  "generated_at": "2026-08-15T22:32:14",
   "total_models": 192,
   "tested_count": 139,
   "ranked_count": 80,
@@ -294,6 +294,194 @@
       "price_month_usd": 50,
       "url": "https://www.alibabacloud.com/help/en/model-studio/coding-plan",
       "notes": "~$50/mes, hasta 90K requests/mes con modelos Qwen (Model Studio). El Coding Plan Lite ($10) se discontinuó para nuevos (mar 2026). Qwen Chat consumer es gratis; API = pay-as-you-go DashScope."
+    }
+  },
+  "suites": {
+    "reasoning": {
+      "pilar": "Razonamiento",
+      "en_promedio": true,
+      "menu": "Razonamiento general (lógica, decisiones)",
+      "decide": "razonar con varias piezas a la vez"
+    },
+    "deep_reasoning": {
+      "pilar": "Razonamiento",
+      "en_promedio": true,
+      "menu": "Razonamiento profundo (matemática, Fermi)",
+      "decide": "resolver un problema difícil sin atajos"
+    },
+    "hallucination": {
+      "pilar": "Razonamiento",
+      "en_promedio": true,
+      "menu": "Anti-alucinación (citas, contexto)",
+      "decide": "no inventar cuando no sabe"
+    },
+    "strategy": {
+      "pilar": "Razonamiento",
+      "en_promedio": true,
+      "menu": "Estrategia (pricing, planificación)",
+      "decide": "elegir entre opciones de negocio"
+    },
+    "business_audit": {
+      "pilar": "Razonamiento",
+      "en_promedio": true,
+      "menu": "Auditar números (detectar el error plantado)",
+      "decide": "encontrar el error en un número"
+    },
+    "business_strategy": {
+      "pilar": "Razonamiento",
+      "en_promedio": true,
+      "menu": "Decisiones de negocio (prioridades, plan)",
+      "decide": "armar un plan que se sostiene"
+    },
+    "code_generation": {
+      "pilar": "Coding",
+      "en_promedio": true,
+      "menu": "Generación de código (Python, SQL, debug)",
+      "decide": "escribir código que corre"
+    },
+    "structured_output": {
+      "pilar": "Coding",
+      "en_promedio": true,
+      "menu": "JSON estructurado (extracción, schemas)",
+      "decide": "emitir JSON válido a la primera"
+    },
+    "string_precision": {
+      "pilar": "Coding",
+      "en_promedio": true,
+      "menu": "Precisión literal (hex, JWT, configs)",
+      "decide": "no equivocarse en un dato"
+    },
+    "ocr_extraction": {
+      "pilar": "Coding",
+      "en_promedio": true,
+      "menu": "OCR / extracción desde imágenes",
+      "decide": "leer datos de una imagen"
+    },
+    "content_generation": {
+      "pilar": "Contenido",
+      "en_promedio": true,
+      "menu": "Contenido genérico (blog, email, social)",
+      "decide": "escribir un texto correcto"
+    },
+    "content_verificable": {
+      "pilar": "Contenido",
+      "en_promedio": false,
+      "menu": "Contenido con datos verificables (no inventar)",
+      "decide": "escribir sin caer en la trampa del brief"
+    },
+    "summarization": {
+      "pilar": "Contenido",
+      "en_promedio": true,
+      "menu": "Resúmenes y extracción de datos",
+      "decide": "resumir sin perder lo que importa"
+    },
+    "presentation": {
+      "pilar": "Contenido",
+      "en_promedio": true,
+      "menu": "Presentaciones (slides, reportes)",
+      "decide": "estructurar una presentación"
+    },
+    "startup_content": {
+      "pilar": "Contenido",
+      "en_promedio": true,
+      "menu": "Contenido startup (newsletter, actualidad)",
+      "decide": "escribir para una audiencia de negocio"
+    },
+    "creativity": {
+      "pilar": "Contenido",
+      "en_promedio": true,
+      "menu": "Creatividad (hooks, analogías, narrativa)",
+      "decide": "encontrar un ángulo que no es el obvio"
+    },
+    "news_seo_writing": {
+      "pilar": "Contenido",
+      "en_promedio": true,
+      "menu": "Noticias + SEO (artículos completos)",
+      "decide": "escribir un artículo publicable"
+    },
+    "sales_outreach": {
+      "pilar": "Contenido",
+      "en_promedio": true,
+      "menu": "Ventas en frío (cold email, campañas)",
+      "decide": "escribir para vender"
+    },
+    "translation": {
+      "pilar": "Contenido",
+      "en_promedio": true,
+      "menu": "Traducción (es↔en)",
+      "decide": "traducir sin deformar el sentido"
+    },
+    "tool_calling": {
+      "pilar": "Agentes",
+      "en_promedio": true,
+      "menu": "Tool calling (llamada de funciones)",
+      "decide": "llamar bien las funciones"
+    },
+    "tool_calling_adversarial": {
+      "pilar": "Agentes",
+      "en_promedio": false,
+      "menu": "No inventar herramientas (abstenerse cuando no hay)",
+      "decide": "no inventar herramientas que no existen"
+    },
+    "agent_long_horizon": {
+      "pilar": "Agentes",
+      "en_promedio": false,
+      "menu": "Tareas largas (sostener el hilo 8-12 turnos)",
+      "decide": "sostener una tarea larga"
+    },
+    "orchestration": {
+      "pilar": "Agentes",
+      "en_promedio": true,
+      "menu": "Orquestación (flujos de varios pasos)",
+      "decide": "coordinar un flujo de varios pasos"
+    },
+    "multi_turn": {
+      "pilar": "Agentes",
+      "en_promedio": true,
+      "menu": "Multi-turno (debugging, requisitos)",
+      "decide": "no perderse en una conversación larga"
+    },
+    "agent_capabilities": {
+      "pilar": "Agentes",
+      "en_promedio": true,
+      "menu": "Capacidades de agente (delegación, skills)",
+      "decide": "delegar y usar lo que tiene a mano"
+    },
+    "policy_adherence": {
+      "pilar": "Agentes",
+      "en_promedio": true,
+      "menu": "Seguir instrucciones al pie de la letra",
+      "decide": "hacer exactamente lo que se pidió"
+    },
+    "task_management": {
+      "pilar": "Agentes",
+      "en_promedio": true,
+      "menu": "Gestión de tareas (action items, planes)",
+      "decide": "convertir una conversación en tareas"
+    },
+    "customer_support": {
+      "pilar": "Agentes",
+      "en_promedio": true,
+      "menu": "Soporte al cliente (clasificar y responder)",
+      "decide": "clasificar y responder un ticket"
+    },
+    "niah_es": {
+      "pilar": null,
+      "en_promedio": false,
+      "menu": "Aguja en el pajar (contexto largo en español)",
+      "decide": "encontrar un dato dentro de un contexto enorme"
+    },
+    "prompt_injection_es": {
+      "pilar": null,
+      "en_promedio": false,
+      "menu": "Resistencia a prompt injection",
+      "decide": "resistir una fuga de datos"
+    },
+    "integridad_idioma": {
+      "pilar": null,
+      "en_promedio": false,
+      "menu": "Integridad de idioma (no mezclar idiomas)",
+      "decide": "no meter otro idioma en medio del texto"
     }
   },
   "models": [

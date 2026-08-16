@@ -1620,3 +1620,28 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 .results-table td.ag-medio { color: #ffd700; }
 .results-table td.ag-bajo  { color: #ff5c5c; font-weight: 600; }
 .results-table td small { color: var(--muted); font-weight: 400; font-size: .78em; }
+
+/* ── Tabla eje por eje de las comparaciones (v4.3) ─────────────────────────
+   La fila lleva DOS líneas —qué decide en humano arriba, el id técnico abajo—
+   copiado de la tabla de lanzamiento de Qwen3.8, que se lee sin saber qué es
+   un benchmark. Lo que NO se copia es su punto ciego: ahí 9 de 32 celdas de
+   los rivales están vacías y nada lo dice. Acá la cobertura va arriba de la
+   tabla, y un eje que rindió uno solo sale «sin comparar» y no puntúa. */
+.eje-tabla .eje-nombre { line-height: 1.25; }
+.eje-tabla .eje-nombre small {
+  display: block; color: var(--muted); font-size: .74em;
+  font-family: var(--mono, ui-monospace, monospace); margin-top: 2px;
+}
+.eje-tabla tr.eje-pilar td {
+  color: var(--cyan, #00d4ff); font-weight: 700; font-size: .78rem;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding-top: 18px; border-bottom: 1px solid rgba(255,255,255,.10);
+}
+.eje-tabla td.gana { color: var(--green); font-weight: 700; }
+.eje-tabla td.sin-dato { color: var(--muted); font-size: .82em; }
+.cobertura {
+  margin: 10px 0 14px; padding: 10px 14px; border-radius: 8px;
+  font-size: .88rem; line-height: 1.5;
+}
+.cobertura.ok      { background: rgba(57,255,20,.07);  border-left: 3px solid var(--green); }
+.cobertura.parcial { background: rgba(255,215,0,.07);  border-left: 3px solid #ffd700; }
