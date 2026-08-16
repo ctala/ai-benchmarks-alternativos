@@ -983,6 +983,11 @@ def build_export(recalibrate=False, scoring_version=None):
             # Groq (379 tok/s) con NIM (43 tok/s): no comparás modelos, comparás máquinas.
             # Responde otra pregunta —"¿puedo correrlo yo?"— y va en su propia tabla.
             "self_hosted": bool(cfg.get("self_hosted")),
+            # `no_medir` vivía SOLO en models.py, así que ninguna herramienta que lee el
+            # JSON lo sabía: `completar_examen` proponía gastar en Qwen 2.5 (sep-2024) y
+            # en las dos variantes PRO, que por política ni siquiera pueden rankear. La
+            # marca tiene que viajar con el dato o no la ve nadie.
+            "no_medir": bool(cfg.get("no_medir")),
             # EXAMEN INCOMPLETO ⟹ NO COMPITE.
             #
             # Un modelo que rindió 4 de los 10 tests de una suite tiene un promedio sacado
