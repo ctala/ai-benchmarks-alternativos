@@ -1262,9 +1262,28 @@ const WIZ_AGENTES = [
 function wizEje(m, eje) {
   if (eje === "multiturno_score") return m.multiturno_score ?? null;
   if (eje === "agentic_quality") return m.agentic_quality ?? null;
-  const h = m.agentico?.tareas?.["harbor-cotizar"];
-  if (eje === "harbor_media") return h?.media != null ? h.media * 10 : null;
-  if (eje === "harbor_piso") return h?.piso != null ? h.piso * 10 : null;
+  // TODAS las tareas medidas, no una.
+  //
+  // Hasta el 16-ago-2026 esto leía `tareas["harbor-cotizar"]` y nada más — un residuo de
+  // cuando cotizar era la única tarea que existía. Se agregaron `reunion` y `ruteo` y el
+  // wizard siguió juzgando el trabajo agéntico con la más fácil de las tres (cotizar
+  // satura: la resuelven perfecto 48 de 74).
+  //
+  // Lo destapó Cristian usando el wizard: le recomendaba **Llama 4 Scout 17B**, que saca
+  // 1,00 con piso 1,00 en cotizar… y **0,49 con piso 0,00 en reunion** — o sea, en al
+  // menos un intento no entregó nada. Su `estado` ya decía `inestable` y el wizard no
+  // tenía forma de enterarse, porque miraba la única tarea donde es perfecto.
+  //
+  // El piso es el MÍNIMO de todas: el peor intento de la peor tarea. Un promedio de
+  // pisos volvería a esconder justo el caso que el piso existe para mostrar.
+  const _t = m.agentico?.tareas;
+  if (eje === "harbor_media" || eje === "harbor_piso") {
+    const vs = Object.values(_t || {}).filter(x => x && x.media != null);
+    if (!vs.length) return null;
+    return eje === "harbor_media"
+      ? (vs.reduce((s, x) => s + x.media, 0) / vs.length) * 10
+      : Math.min(...vs.map(x => x.piso == null ? 0 : x.piso)) * 10;
+  }
   // `latency_score_avg` va de 1,06 a 4,69 (más alto = más rápido). Se estira a 0-10
   // para que promedie con las suites sin quedar aplastado: un eje que solo se mueve
   // entre 1 y 4,7 aportaría un quinto de lo que dice su peso.
@@ -1371,7 +1390,15 @@ function wizRenderStep() {
 function wizCandidatos(todos, { os = false, tools = false, pillar = null } = {}) {
   let models = todos.filter(m => m.ranked);
   if (os) models = models.filter(m => m.open_source);
-  if (pillar === "Agentes" || tools) models = models.filter(m => m.sirve_para_agentes !== false);
+  if (pillar === "Agentes" || tools) {
+    models = models.filter(m => m.sirve_para_agentes !== false);
+    // Y con EVIDENCIA: sin tarea agéntica medida, los ejes de Harbor devuelven null y el
+    // modelo puntúa solo con los que sí tiene — o sea, sube por prosa. Antes no se notaba
+    // porque `wizEje` leía únicamente `harbor-cotizar`, que casi todos rindieron; al
+    // pasar a leer las tres, GPT-5.4 Mini apareció en el top 10 sin haber rendido
+    // ninguna. Recomendar para un agente a quien nunca se probó en uno es adivinar.
+    models = models.filter(m => Object.keys(m.agentico?.tareas || {}).length > 0);
+  }
   if (tools) models = models.filter(m => (m.tool_calling_score_avg || 0) >= TOOL_CALLING_MIN);
   return models;
 }
