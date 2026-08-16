@@ -57,6 +57,22 @@ def bloqueados() -> list[dict]:
             continue
         if ":free" in (m.get("id") or "") or (m.get("runs") or 0) < 50:
             continue
+        # NO proponer lo que la política dice que no se mide. El detector sabía detectar
+        # el examen a medias y no conocía las reglas de QUÉ vale la pena medir, así que
+        # proponía gastar en dos casos donde el gasto no sirve de nada:
+        #
+        #   · VARIANTES DE ESFUERZO (`-Pro` al mismo precio): no rankean por decisión del
+        #     15-ago-2026. Completarles el examen no las mete al ranking — cuesta y no
+        #     cambia nada. Eran 2 de los 7 que proponía, y los dos primeros de la lista.
+        #   · MODELOS DE MÁS DE UN AÑO: el benchmark existe para decidir qué poner en
+        #     producción HOY. Qwen 2.5 (sep-2024) pedía 18 tests, la mitad del total.
+        #
+        # Es el patrón de siempre acá: una decisión escrita que no llegó a la superficie
+        # que la necesitaba.
+        if "esfuerzo" in (m.get("notes") or "").lower():
+            continue
+        if m.get("no_medir") or m.get("legacy"):
+            continue
         inc = {s: i for s, i in (m.get("suites_incompletas") or {}).items()
                if not s.startswith(PILARES_APARTE)}
         if inc:
