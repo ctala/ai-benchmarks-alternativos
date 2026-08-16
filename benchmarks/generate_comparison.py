@@ -476,11 +476,31 @@ def family(models, cfg):
     # Ordena por CALIDAD MEDIA en los 4 pilares, no por score_global.
     # Con el compuesto, /grok-vs-chatgpt/ ponia Grok 4.1 Fast arriba de Grok 4.5:
     # el barato encabezaba una pagina que promete decir cual es MEJOR.
-    def _cap(m):
-        vals = [pillar(m, p) for p in PILLARS]
-        vals = [v for v in vals if v > 0]
-        return sum(vals) / len(vals) if vals else 0
-    return sorted(out, key=lambda m: -_cap(m))
+    out.sort(key=lambda m: -capacidad(m))
+    # Los que NO rankean van al final, no adelante. 22 de 72 lados estaban coronados por
+    # uno —15 de ellos variantes PRO, que por decisión vigente no compiten— y encima
+    # desordenaban la tabla respecto de su propia columna. Se quedan (aportan contexto de
+    # familia) pero no encabezan.
+    return sorted(out, key=lambda m: not m.get("ranked"))
+
+
+def capacidad(m):
+    """Calidad media en los 4 pilares — el número que ORDENA estas tablas.
+
+    Estuvo invisible hasta el 16-ago-2026: la tabla mostraba «Global» (el compuesto con
+    costo y velocidad) y ordenaba por esto. Resultado, en /claude-vs-chatgpt/:
+
+        #1  global 6.24        #3  global 5.57
+        #4  global 6.22   ← más que el #3      #6  global 8.41  ← el mayor de la tabla
+
+    Un lector que intenta verificar el orden con la única columna de score que tiene
+    concluye, con razón, que la tabla está mal. Ahora la columna que ordena es la que se
+    publica, y el compuesto sale — responde otra pregunta y ya tiene su lugar en la
+    calculadora.
+    """
+    vals = [pillar(m, p) for p in PILLARS]
+    vals = [v for v in vals if v > 0]
+    return sum(vals) / len(vals) if vals else 0
 
 
 def pillar(m, name):
@@ -540,7 +560,7 @@ def pcell(m, p):
 
 def row(rank, m, top=False):
     nm = f"<strong>{esc(m.get('name'))}</strong>" if top else esc(m.get("name"))
-    return (f"<tr><td>{rank}</td><td>{nm}</td><td>{m.get('score_global',0):.2f}</td>"
+    return (f"<tr><td>{rank}</td><td>{nm}</td><td><strong>{capacidad(m):.2f}</strong></td>"
             f"<td>{pcell(m,'Coding')}</td><td>{pcell(m,'Contenido')}</td>"
             f"<td>{pcell(m,'Razonamiento')}</td><td>{pcell(m,'Agentes')}</td>"
             f"<td>{fmt_cost(m)}</td><td>{round(m.get('tokens_per_second') or 0)} tok/s</td></tr>")
@@ -1051,11 +1071,11 @@ def render(cfg, A, B):
   <section class="results">
     <div class="results-header">
       <h2>{esc(a_name)} vs {esc(b_name)}: tabla comparativa</h2>
-      <p class="meta">Score por pilar /10 = <strong>calidad en esa tarea</strong> (sin ponderar costo ni velocidad). Ordenado por calidad media, no por precio.</p>
+      <p class="meta"><strong>Calidad</strong> = media de los 4 pilares, y es la columna que ordena la tabla. Los pilares al lado, en la misma escala /10. Sin costo ni velocidad adentro: van en sus propias columnas.</p>
     </div>
     <div class="table-scroll"><table class="results-table">
       <thead>
-        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Global</th><th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th><th scope="col">$ in/out per M</th><th scope="col">Velocidad</th></tr>
+        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th><th scope="col">$ in/out per M</th><th scope="col">Velocidad</th></tr>
       </thead>
       <tbody>
         {rows}

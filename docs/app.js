@@ -483,7 +483,51 @@ function costPerMonth(model, calls) {
   return ((TOKENS_IN * ci) + (TOKENS_OUT * co)) * calls / 1_000_000;
 }
 
+// EL PILAR «AGENTES» NO SE ORDENA POR EL PILAR.
+//
+// Medido el 16-ago-2026 contra la única verdad objetiva que tenemos —el reward de las
+// tareas Harbor, verificado por pytest sobre artefactos, no por un juez—:
+//
+//     pilar Agentes                    −0,20   ← correlación NEGATIVA
+//     compuesto 65% pilar + 35% tools  +0,44
+//     tool_calling solo                +0,58
+//     tarea real Harbor                 (es la verdad)
+//
+// El pilar tiene nueve suites llamadas «Agentes» y ninguna mide EJECUTAR con
+// herramientas: `agent_long_horizon` mide sostener el hilo *sin* herramientas y
+// `tool_calling_adversarial` mide *abstenerse*. Ordenar por el pilar pone arriba a quien
+// escribe bien sobre agentes, no a quien opera uno.
+//
+// Así que el eje agéntico se ordena por lo que se midió haciendo el trabajo: la tarea de
+// negocio ejecutada de punta a punta. `tool_calling` desempata, porque la tarea satura
+// (muchos en 1,00) y sin desempate el orden sería arbitrario entre los perfectos.
+const PESO_TAREA_REAL = 0.6;
+
+function scoreAgentico(m) {
+  const t = (m.agentico && m.agentico.tareas) || null;
+  if (!t || !Object.keys(t).length) return null;
+  const vals = Object.values(t).filter(x => x.media != null);
+  if (!vals.length) return null;
+  const media = vals.reduce((s, x) => s + x.media, 0) / vals.length;
+  const piso = Math.min(...vals.map(x => x.piso == null ? 0 : x.piso));
+  // El PISO entra con la media: para trabajo desatendido, «a veces falla» y «no falla»
+  // no son lo mismo, y promediar los intentos los vuelve indistinguibles.
+  const real = (0.6 * media + 0.4 * piso) * 10;
+  const tools = m.tool_calling_score_avg;
+  return tools == null ? real
+    : PESO_TAREA_REAL * real + (1 - PESO_TAREA_REAL) * tools;
+}
+
 function getScore(model, taskKey, subtaskKey) {
+  // El pilar Agentes se ordena por trabajo agéntico REAL, no por su promedio de suites.
+  // Ver el bloque de arriba: el promedio correlaciona −0,20 con hacer la tarea.
+  if (taskKey === "Agentes" && !subtaskKey) {
+    const s = scoreAgentico(model);
+    if (s != null) return s;
+    // Sin tarea medida cae al pilar, pero nunca por encima de quien sí la rindió.
+    const p = computeZScore(model, state.weights, "Agentes");
+    return p == null ? null : Math.min(p, 5.9);
+  }
   // Si hay sub-categoría seleccionada, usar score por suite específica —
   // PUESTO EN LA ESCALA COMÚN.
   //
@@ -617,8 +661,30 @@ function isProprietary(model) {
   return Object.values(PROPRIETARY_GROUPS).some(check => check(model));
 }
 
+// Ejes cuyo resultado se lee como «¿sirve para mi agente?». En ellos, un modelo que no
+// corre dentro de un agente no es un candidato — igual que un modelo retirado.
+const EJES_AGENTICOS = new Set(["agent_long_horizon", "tool_calling", "tool_calling_adversarial",
+                                "policy_adherence", "agent_capabilities", "orchestration",
+                                "multi_turn"]);
+
+function ejeEsAgentico(f) {
+  return f.task === "Agentes" || EJES_AGENTICOS.has(f.subtask);
+}
+
 function filterAndRank(models, f) {
   const passes = models.filter(m => {
+    // NO APTOS PARA AGENTE: fuera cuando el eje elegido es agéntico.
+    //
+    // Medido el 16-ago-2026: con el pilar «Agentes» seleccionado, **Hermes 4 405B salía
+    // #3** con tarea real 0,00 — no existe endpoint que le dé herramientas, así que no
+    // puede ejecutar nada dentro de un agente. La página /mejor-llm-para-agentes/ ya los
+    // filtraba (check_cortes C3) y el wizard también (wizCandidatos), pero la tabla
+    // principal no: tres superficies, dos con el filtro y una sin él.
+    //
+    // El pilar los premia porque sus suites miden PROSA: medida contra el reward real de
+    // las tareas Harbor, la nota del pilar Agentes correlaciona **−0,20**. Mientras eso
+    // siga así, dejarlos competir es publicar el ranking al revés.
+    if (ejeEsAgentico(f) && m.sirve_para_agentes === false) return false;
     // DEPRECADOS: fuera SIEMPRE, sin importar qué filtros toque el usuario.
     //
     // Un modelo cuyo endpoint ya no existe no es un candidato: no lo podés llamar.
