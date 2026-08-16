@@ -104,6 +104,11 @@ MODELS = {
         "name": "Mistral Nemo",
         "cost_input": 0.02,
         "cost_output": 0.02,
+        # Salió en jul-2024: más de un año sin medir. Regla vigente
+        # (15-ago-2026): el benchmark existe para decidir qué poner en
+        # producción HOY, y medir esto gasta presupuesto en una decisión que
+        # ya nadie toma. Sus runs históricos siguen siendo válidos.
+        "no_medir": True,
         "tier": "ultra_cheap",
         "open_source": True,
         "license": "Apache 2.0",
@@ -2115,6 +2120,11 @@ MODELS = {
         "id": "qwen/qwen-2.5-72b-instruct",
         "name": "Qwen 2.5 72B",
         "cost_input": 0.36, "cost_output": 0.4,
+        # Salió en sep-2024: más de un año sin medir. Regla vigente
+        # (15-ago-2026): el benchmark existe para decidir qué poner en
+        # producción HOY, y medir esto gasta presupuesto en una decisión que
+        # ya nadie toma. Sus runs históricos siguen siendo válidos.
+        "no_medir": True,
         "tier": "cheap", "provider": "openrouter",
         "open_source": True, "license": "Apache 2.0",
     },
