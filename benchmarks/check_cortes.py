@@ -41,15 +41,14 @@ SUITES_AGENTICAS = {"agent_long_horizon", "tool_calling", "tool_calling_adversar
 
 # Ejes que MERECEN corte aunque todavía no lo tengan: los que deciden una elección real.
 # Si se mide una suite nueva de esta lista y no tiene página, se avisa.
-EJES_QUE_DECIDEN = {
-    "agent_long_horizon": "sostener una tarea larga",
-    "policy_adherence": "hacer exactamente lo que se pidió",
-    "string_precision": "no equivocarse en un dato",
-    "tool_calling": "llamar bien las funciones",
-    "tool_calling_adversarial": "no inventar herramientas",
-    "structured_output": "emitir JSON válido",
-    "prompt_injection_es": "resistir fuga de datos",
-}
+#
+# La lista es de ids; **la frase humana sale del registro** (`benchmarks/suites.py`), no
+# se escribe acá. Antes se escribía, y el 15-ago-2026 se midió el resultado: siete suites
+# dichas de dos formas distintas según el archivo que las nombrara.
+EJES_QUE_DECIDEN = [
+    "agent_long_horizon", "policy_adherence", "string_precision", "tool_calling",
+    "tool_calling_adversarial", "structured_output", "prompt_injection_es",
+]
 
 
 def _cortes_publicados() -> dict[str, Path]:
@@ -71,7 +70,9 @@ def main() -> int:
     fallos, avisos = [], []
 
     # ── C1 · ejes medidos que deciden y no tienen corte ────────────────────
-    for suite, para_que in EJES_QUE_DECIDEN.items():
+    from benchmarks.suites import decide as _decide  # noqa: E402
+    for suite in EJES_QUE_DECIDEN:
+        para_que = _decide(suite)
         n = sum(1 for m in ranked if (m.get("score_by_suite") or {}).get(suite) is not None)
         if n == 0:
             continue                      # todavía no se mide: no corresponde exigirlo

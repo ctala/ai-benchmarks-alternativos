@@ -4,46 +4,29 @@
 const TOKENS_IN = 300;
 const TOKENS_OUT = 1500;
 
-// Sub-categorías (suites) por pilar — sincronizado con SUITE_TO_PILLAR del export.
-// Las labels son user-facing en español neutro.
-const SUITES_BY_PILLAR = {
-  Razonamiento: [
-    { value: "business_audit", label: "Auditar números (detectar el error plantado)" },
-    { value: "business_strategy", label: "Decisiones de negocio (pricing, prioridades)" },
-    { value: "reasoning", label: "Razonamiento general (lógica, decisiones)" },
-    { value: "deep_reasoning", label: "Razonamiento profundo (matemática, Fermi)" },
-    { value: "hallucination", label: "Anti-hallucination (citas, contexto)" },
-    { value: "customer_support", label: "Soporte al cliente (clasificación)" },
-  ],
-  Coding: [
-    { value: "code_generation", label: "Generación de código (Python, SQL, debug)" },
-    { value: "structured_output", label: "JSON estructurado (extracción, schemas)" },
-    { value: "string_precision", label: "Precisión strings (hex, JWT, configs)" },
-  ],
-  Contenido: [
-    { value: "content_verificable", label: "Contenido con datos verificables (no inventar)" },
-    { value: "content_generation", label: "Contenido genérico (blog, email, social)" },
-    { value: "creativity", label: "Creatividad (hooks, analogías, narrativa)" },
-    { value: "startup_content", label: "Contenido startup (newsletter, blog actualidad)" },
-    { value: "summarization", label: "Resúmenes y extracción de datos" },
-    { value: "presentation", label: "Presentaciones (slides, reportes)" },
-    { value: "task_management", label: "Gestión de tareas (action items, plans)" },
-    { value: "translation", label: "Traducción (es↔en, problemas idioma)" },
-    { value: "news_seo_writing", label: "News + SEO (artículos completos)" },
-    { value: "sales_outreach", label: "Sales outreach (cold email, campañas)" },
-    { value: "strategy", label: "Estrategia (pricing, planning)" },
-    { value: "ocr_extraction", label: "OCR / extracción de imágenes" },
-  ],
-  Agentes: [
-    { value: "agent_long_horizon", label: "Tareas largas (sostener el hilo 8-12 turnos)" },
-    { value: "tool_calling_adversarial", label: "No inventar herramientas (abstenerse cuando no hay)" },
-    { value: "tool_calling", label: "Tool calling (function calls)" },
-    { value: "orchestration", label: "Orquestación (workflows complejos)" },
-    { value: "multi_turn", label: "Multi-turn (debugging, requirements)" },
-    { value: "agent_capabilities", label: "Capacidades agente (delegación, skills)" },
-    { value: "policy_adherence", label: "Policy adherence (límites, idioma)" },
-  ],
-};
+// Sub-categorías (suites) por pilar. NO se escriben acá: viajan en `models.json` bajo
+// `suites`, desde el registro único `benchmarks/suites.py`.
+//
+// Antes esta lista estaba escrita a mano y era una COPIA del mapeo del export. Y las
+// copias divergen: medido el 15-ago-2026, siete suites estaban en un pilar distinto según
+// de dónde se mirara (`strategy` acá en Contenido y allá en Razonamiento,
+// `task_management` acá en Contenido y allá en Agentes…), y tres — `agent_long_horizon`,
+// `tool_calling_adversarial`, `content_verificable` — figuraban acá dentro de un pilar
+// que el export no les reconocía, o sea que el usuario las elegía creyendo que sumaban a
+// un promedio del que estaban afuera.
+let SUITES_BY_PILLAR = {};
+
+function cargarRegistroDeSuites(data) {
+  const reg = data.suites || {};
+  const out = {};
+  for (const [value, s] of Object.entries(reg)) {
+    if (!s.pilar) continue;           // dimensión que se reporta aparte (niah, injection)
+    (out[s.pilar] ||= []).push({ value, label: s.menu, decide: s.decide });
+  }
+  for (const arr of Object.values(out)) arr.sort((a, b) => a.label.localeCompare(b.label, "es"));
+  SUITES_BY_PILLAR = out;
+  return out;
+}
 
 // Presets de presupuesto — calibrados para emprendedores hispanohablantes.
 // Cada preset configura los 4 sliders de filtros + tarea principal.
@@ -186,6 +169,8 @@ async function load() {
       "Error cargando datos. Verifica que docs/data/models.json esté generado.";
     return;
   }
+  // El menú de subcategorías se arma DESDE los datos, no desde una lista escrita acá.
+  cargarRegistroDeSuites(state.data);
   // Hero stats — esfuerzo total de medición: TODOS los modelos catalogados y TODOS
   // los runs ejecutados (incluidos los descartados en la limpieza). El conocimiento
   // costó todas esas corridas, no solo las que quedaron rankeadas. Fallback al conteo
@@ -395,6 +380,7 @@ function bindFilters() {
   document.getElementById("subtask").addEventListener("change", e => {
     state.filters.subtask = e.target.value;
     clampUmbralAlEje();
+    pistaDelEje();
     render();
   });
 
@@ -581,20 +567,50 @@ function updateSubtaskOptions() {
   const select = document.getElementById("subtask");
   const pillar = state.filters.task;
 
-  // Solo mostrar el sub-select cuando hay un pilar específico (no global)
-  if (pillar === "score_global" || pillar === "score_calidad" || !SUITES_BY_PILLAR[pillar]) {
+  // "Ajustado a mis pesos" compone las 4 dimensiones con los sliders: un eje suelto no
+  // tiene dónde entrar ahí. En el resto SIEMPRE se puede bajar a un eje.
+  if (pillar === "score_global") {
     wrap.hidden = true;
     select.value = "";
     state.filters.subtask = "";
     return;
   }
 
-  // Poblar opciones del pilar correspondiente
-  const suites = SUITES_BY_PILLAR[pillar];
-  select.innerHTML = `<option value="">Todas (promedio del pilar)</option>` +
-    suites.map(s => `<option value="${s.value}">${s.label}</option>`).join("");
+  const opt = s => `<option value="${s.value}">${s.label}</option>`;
+
+  if (SUITES_BY_PILLAR[pillar]) {
+    // Dentro de un pilar: sus ejes, planos.
+    select.innerHTML = `<option value="">Todas (promedio del pilar)</option>` +
+      SUITES_BY_PILLAR[pillar].map(opt).join("");
+  } else {
+    // ÍNDICE DE CALIDAD: todos los ejes, AGRUPADOS POR PILAR.
+    //
+    // Copiado de la tabla de lanzamiento de Qwen3.8, que agrupa sus filas en CODING y
+    // AGENT: la agrupación es lo que te deja encontrar tu caso sin conocer la
+    // taxonomía. Hasta acá, para llegar a `agent_long_horizon` había que saber de
+    // antemano que vivía bajo «Agentes» — y ese eje es justo el que separa a un modelo
+    // que sirve para un agente de uno que no. Es aditivo: el flujo por pilar no cambia.
+    select.innerHTML = `<option value="">Todo (índice de calidad general)</option>` +
+      Object.entries(SUITES_BY_PILLAR).map(([p, suites]) =>
+        `<optgroup label="${p}">${suites.map(opt).join("")}</optgroup>`).join("");
+  }
   select.value = state.filters.subtask || "";
   wrap.hidden = false;
+  pistaDelEje();
+}
+
+// La línea humana del eje elegido: «qué decides mirando esto» + el id técnico.
+//
+// Es la fila de dos líneas de la tabla de Qwen — `Long-horizon office work` arriba,
+// `CoWorkBench` abajo— aplicada al selector. El id importa: es lo que se busca en el
+// repo, y sin él la etiqueta bonita no lleva a ninguna parte.
+function pistaDelEje() {
+  const el = document.getElementById("subtask-hint");
+  if (!el) return;
+  const reg = (state.data?.suites || {})[state.filters.subtask];
+  el.innerHTML = reg
+    ? `Ordena por <strong>${reg.decide}</strong> <code>${state.filters.subtask}</code>`
+    : "Filtra por la suite específica que más se parece a tu caso real.";
 }
 
 function isProprietary(model) {
@@ -968,8 +984,11 @@ function render() {
   // Etiqueta de la columna Score: subtask > pillar > global
   let taskLabel = "Global";
   if (f.subtask) {
-    const suite = (SUITES_BY_PILLAR[f.task] || []).find(s => s.value === f.subtask);
-    taskLabel = suite ? suite.label.split(" (")[0] : f.subtask;
+    // Del registro, no del pilar: ahora se puede elegir un eje desde el índice de
+    // calidad, donde `SUITES_BY_PILLAR[f.task]` no existe y la etiqueta caía al id
+    // técnico.
+    const reg = (state.data?.suites || {})[f.subtask];
+    taskLabel = reg ? reg.menu.split(" (")[0] : f.subtask;
   } else if (f.task === "score_calidad") {
     taskLabel = "Calidad";
   } else if (f.task !== "score_global") {

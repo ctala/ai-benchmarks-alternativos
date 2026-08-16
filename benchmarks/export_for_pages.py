@@ -25,6 +25,7 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
+from benchmarks import suites as suites_reg
 from benchmarks.config import MODELS as _CLOUD_MODELS
 from benchmarks.models import OLLAMA_MODELS, SUBSCRIPTIONS
 from benchmarks.scoring import compute_final_score, cost_score_log, DEFAULT_WEIGHTS
@@ -95,38 +96,12 @@ def _recalc_final(r: dict) -> float:
     return scores["final"]
 
 
-# Mapeo suite → pilar (mismo orden que en generate_tests_md.py)
-SUITE_TO_PILLAR = {
-    "reasoning": "Razonamiento",
-    "deep_reasoning": "Razonamiento",
-    "hallucination": "Razonamiento",
-    "strategy": "Razonamiento",
-    # Auditoria de negocio: es razonamiento aplicado con trampas verificables
-    # (aritmetica que no cierra, causalidad falsa, metrica que mezcla poblaciones).
-    "business_audit": "Razonamiento",
-    # Planificacion estrategica: generar un plan VALIDO (restricciones, aritmetica,
-    # activos reales, falsabilidad). Es razonamiento aplicado, no redaccion.
-    "business_strategy": "Razonamiento",
-    "code_generation": "Coding",
-    "structured_output": "Coding",
-    "string_precision": "Coding",
-    "ocr_extraction": "Coding",
-    "content_generation": "Contenido",
-    "summarization": "Contenido",
-    "presentation": "Contenido",
-    "startup_content": "Contenido",
-    "creativity": "Contenido",
-    "news_seo_writing": "Contenido",
-    "sales_outreach": "Contenido",
-    "translation": "Contenido",
-    "tool_calling": "Agentes",
-    "task_management": "Agentes",
-    "customer_support": "Agentes",
-    "orchestration": "Agentes",
-    "multi_turn": "Agentes",
-    "policy_adherence": "Agentes",
-    "agent_capabilities": "Agentes",
-}
+# Mapeo suite → pilar. Vive en `benchmarks/suites.py`, que es EL registro: el mismo del
+# que salen las etiquetas del menú y la línea humana de cada eje. Antes esta tabla vivía
+# acá y una copia distinta en `docs/app.js`; siete suites estaban en pilares distintos
+# según de dónde se mirara, y tres no estaban acá en absoluto — o sea, medidas y fuera del
+# promedio de su pilar, en silencio.
+SUITE_TO_PILLAR = suites_reg.SUITE_TO_PILLAR
 
 
 def load_all_results():
@@ -1352,6 +1327,12 @@ def build_export(recalibrate=False, scoring_version=None):
         # (< 3.3) para que el peor ranked aterrice en 0.5 y no se aplaste contra 0.
         "score_rescale": {"offset": _OFFSET, "slope": round(_slope, 4)},
         "subscriptions_catalog": SUBSCRIPTIONS,  # catálogo completo de suscripciones disponibles
+        # EL REGISTRO DE SUITES viaja con los datos: id → pilar, etiqueta de menú y la
+        # línea humana («qué decides mirando esto»). Antes el sitio traía su propia copia
+        # a mano y ya había divergido en 7 suites, incluidas 3 que la calculadora ponía en
+        # un pilar que el export no reconocía. Ahora hay una sola lista y viaja. Ver
+        # benchmarks/suites.py y check_suites.py.
+        "suites": suites_reg.para_export(),
         "models": models_export,
     }
 
