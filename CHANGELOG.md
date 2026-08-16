@@ -3,6 +3,78 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v4.4.2] - 2026-08-16 — El QA es uno solo, y la herramienta que desbloqueaba modelos no podía funcionar
+
+### La fuente única de elegibilidad
+
+Cristian: *"tenemos solo una fuente de la verdad, la idea es que todos usen la misma. No
+puede recomendar algo que no cumpla lo que estamos haciendo."*
+
+Medido: **76 condicionales de filtrado en 25 archivos** decidiendo a mano si un modelo se
+puede recomendar. Y se puede fechar por qué se multiplicaron — cada regla nació de un
+fallo distinto y se aplicó **donde dolía ese día**: `score_by_pillar` (25-abr, la
+calculadora original), `retired` y `provider_variant` (13-jul, el día que se vio que
+Devstral Small llevaba meses **#5 con el endpoint apagado**), `sirve_para_agentes` (14-ago,
+por Hermes 4). Lo escrito antes no las tenía; lo escrito después las copiaba del vecino.
+
+`elegibilidad.py` decide **una vez**, en el export, y graba el veredicto en `m["elegible"]`
+con tres contextos (`catalogo`, `ranking`, `agentico`) y su motivo legible. Nadie
+recalcula. Reproduce exacto el `ranked` anterior: cero drift.
+
+### Un comando de QA, seis áreas, y hook pre-push
+
+`qa.py` corre **11 chequeos bloqueantes en 3 segundos**, agrupados en datos · suites ·
+calculadora · páginas · guardrails · versión. `instalar_hooks.py` lo engancha a `pre-push`.
+Doctrina completa en [QA.md](QA.md).
+
+**Cobertura del núcleo: 4% → 71%**, con 121 tests unitarios. `scoring.py` de 13% a 79%.
+
+### Lo agéntico se ordena por lo que se LOGRÓ
+
+Corrección de v4.4, medida contra el reward de las tareas Harbor (verdad objetiva,
+verificada por pytest):
+
+| qué ordena | correlación con resolver la tarea |
+|---|---|
+| pilar Agentes (v4.3) | −0,144 |
+| pilar Agentes con las dos suites nuevas (v4.4) | **−0,204** |
+| `tool_calling` solo | **+0,579** |
+
+Las nueve suites del pilar miden **prosa sobre agentes**, no ejecución. Ahora las tres
+superficies ordenan por media y piso de las tareas Harbor. `/modelos-n8n/` dejó de
+recomendar **Hermes 4 405B** para poner en un n8n, y la calculadora dejó de ponerlo #3.
+
+### La herramienta para desbloquear modelos no podía funcionar
+
+Al ir a completar 11 tests, `completar_examen --correr` imprimió **«✅ exámenes
+completados» sin correr un solo test**, dos veces. Dos bugs encadenados, los dos en
+silencio:
+
+1. **El resume consolidaba runs FALLIDOS.** `--resume` saltea por `(modelo, suite, test)`
+   sin mirar si el run sirvió; el export solo cuenta `success=True`. Un test que falló las
+   cuatro veces quedaba *incompleto para el export y completo para el resume*: se saltaba
+   para siempre. GPT-5.5 tenía `social_engineering_attempt` con 4 corridas, las 4
+   fallidas — justo el test que faltaba.
+2. **El output caía donde el pipeline no mira.** El runner hace `results_file =
+   resume_path`, y el resume vivía en `_resume_tmp/resume_*.json`. `load_all_results()`
+   solo lee `benchmark_*.json` de `results/`. Aunque los tests hubieran corrido perfecto,
+   el resultado se tiraba.
+
+El primero impedía correr; el segundo tiraba lo corrido. Por eso esos modelos llevaban
+días bloqueados. Ahora el resume consolida **solo runs exitosos**, el archivo va a
+`results/benchmark_completar_*.json`, y el script **verifica** que hayan quedado
+desbloqueados antes de reportar éxito — si no, sale con error y dice dónde mirar.
+
+### El detector tampoco conocía las reglas de qué medir
+
+De los 7 modelos que proponía desbloquear, **4 no correspondían**: dos variantes PRO (no
+rankean por política, completarles el examen no cambia nada) y dos de más de un año
+(Qwen 2.5 de sep-2024 pedía 18 tests, la mitad del gasto). Causa mecánica: `no_medir`
+vivía solo en `models.py` y **no se exportaba**, así que ninguna herramienta que lee el
+JSON podía verlo.
+
+---
+
 ## [v4.4.1] - 2026-08-16 — Lo agéntico se ordena por lo que se LOGRÓ, y las 71 páginas pasan por un auditor
 
 Cristian, tras encontrar tres fallos distintos mirando páginas sueltas: *"haz el análisis

@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-08-16 · 80 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-08-16 · 83 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
