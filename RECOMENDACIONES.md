@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-08-15 · 80 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-08-16 · 80 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -19,18 +19,16 @@ Todos los costos asumen **3,000 llamadas/mes** (≈100 por día). Para tu volume
 
 _El modelo decide y llama herramientas. Necesitás fiabilidad en tool calling._
 
-- **Usá:** **Qwen 3.7 Flash** — ≈$1/mes (calidad en Agentes 8.17/10)
-- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**383.6× más**) por apenas -0.14 de calidad — dentro del margen de error.
-- **Mejor open-source:** **Ministral 14B** — ≈$1/mes (calidad en Agentes 7.93/10)
-- _9 modelos empatan en calidad en este pilar._
+- **Usá:** **DeepSeek V3.2** — ≈$5/mes (calidad en Agentes 8.70/10)
+- _1 modelos empatan en calidad en este pilar._
 
 ### Contenido y marketing (blog, SEO, copy)
 
 _Texto largo en español neutro. El costo manda: es alto volumen._
 
-- **Usá:** **Llama 3.3 70B** — ≈$2/mes (calidad en Contenido 8.73/10)
-- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**152.9× más**) por apenas +0.09 de calidad — dentro del margen de error.
-- _5 modelos empatan en calidad en este pilar._
+- **Usá:** **DeepSeek V4 Flash (OpenRouter)** — ≈$1/mes (calidad en Contenido 8.71/10)
+- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**168.3× más**) por apenas +0.29 de calidad — dentro del margen de error.
+- _10 modelos empatan en calidad en este pilar._
 
 ### Código y debugging
 
