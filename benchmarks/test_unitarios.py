@@ -943,3 +943,38 @@ def test_niah_exige_el_patron_exacto_no_solo_el_tema():
     exacto = scoring.score_expected_answer("El contrato es AX-9931.", e)
     vago = scoring.score_expected_answer("Había un contrato mencionado en el texto.", e)
     assert exacto > vago
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# DOCS — marcar un retirado evita el daño; RECOMENDARLO sigue estando mal
+# ═══════════════════════════════════════════════════════════════════════════
+
+RECOMENDACIONES = ["README.md", "CASOS_DE_USO.md", "RECOMENDACIONES.md"]
+
+
+def test_ninguna_recomendacion_cita_un_modelo_retirado(datos):
+    """`check_consistency` acepta la mención si dice «retirado» — y está bien para una
+    tabla histórica. Pero en un doc que RECOMIENDA, «las alternativas consistentes son
+    Devstral Small (retirado)» no es honestidad, es una frase sin sentido.
+
+    Las dos cosas son distintas y hacían falta las dos: marcar evita que alguien lo
+    integre; sacarlo de la recomendación evita que se lo sugieran.
+    """
+    retirados = {m["name"] for m in datos["models"] if m.get("retired")}
+    malas = []
+    for doc in RECOMENDACIONES:
+        p = ROOT / doc
+        if not p.exists():
+            continue
+        for n, ln in enumerate(p.read_text().splitlines(), 1):
+            bajo = ln.lower()
+            # solo líneas que RECOMIENDAN, no las que cuentan historia
+            if not any(v in bajo for v in ("recomend", "alternativa", "usa ", "elegí",
+                                           "conviene", "mejor opción")):
+                continue
+            if ln.strip().startswith(">") or "retirado" in bajo and "(retirado)" not in ln:
+                continue
+            for r in retirados:
+                if r in ln:
+                    malas.append(f"{doc}:{n} recomienda «{r}», que está retirado")
+    assert not malas, "\n".join(malas)

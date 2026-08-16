@@ -240,8 +240,13 @@ def p3(pgs, d, por_nombre):
                 hallazgos.append((ALTA, slug, gen,
                                   f"página agéntica que lista modelos que NO corren dentro "
                                   f"de un agente: {', '.join(na[:4])}"))
+        # La salvedad vale en cualquiera de sus dos formas: el párrafo de la sección
+        # eje-por-eje («X no está rankeado») o el badge en la propia fila. Buscar solo la
+        # primera daba 10 falsos positivos con el badge ya puesto — el chequeo exigía una
+        # redacción, no la información.
+        con_salvedad = "no está rankeado" in html or 'class="row-badge no-rankea"' in html
         top3 = [n for i, n in filas if i <= 3 and n in no_rank]
-        if top3 and "no está rankeado" not in html:
+        if top3 and not con_salvedad:
             hallazgos.append((MEDIA, slug, gen,
                               f"corona en el top 3 a no-rankeado(s) sin salvedad: "
                               f"{', '.join(top3)}"))

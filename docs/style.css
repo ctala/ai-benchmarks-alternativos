@@ -1645,3 +1645,12 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 }
 .cobertura.ok      { background: rgba(57,255,20,.07);  border-left: 3px solid var(--green); }
 .cobertura.parcial { background: rgba(255,215,0,.07);  border-left: 3px solid #ffd700; }
+
+/* Un modelo que no rankea puede salir alto por calidad —las variantes PRO lo
+   hacen— y el lector que solo mira la tabla se llevaba una recomendación que el
+   repo había decidido no hacer. La salvedad va en la fila, no en una nota al pie. */
+.results-table .row-badge.no-rankea {
+  background: rgba(255,215,0,.14); color: #ffd700; border: 1px solid rgba(255,215,0,.3);
+  border-radius: 4px; padding: 1px 6px; font-size: .7em; font-weight: 600;
+  margin-left: 6px; white-space: nowrap; cursor: help;
+}

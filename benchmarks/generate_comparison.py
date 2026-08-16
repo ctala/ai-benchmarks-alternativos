@@ -16,6 +16,8 @@ Para agregar una comparación: añadir un dict a COMPARISONS. Cero HTML a mano.
 import argparse, json, html, re
 from datetime import date
 from pathlib import Path
+import sys as _sys; _sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from benchmarks import elegibilidad
 
 ROOT = Path(__file__).parent.parent
 DOCS = ROOT / "docs"
@@ -560,6 +562,13 @@ def pcell(m, p):
 
 def row(rank, m, top=False):
     nm = f"<strong>{esc(m.get('name'))}</strong>" if top else esc(m.get("name"))
+    # La salvedad va EN LA FILA, no solo en la sección eje-por-eje. Un modelo que no
+    # rankea puede aparecer alto por calidad —las variantes PRO lo hacen— y el lector que
+    # solo mira la tabla se lleva una recomendación que el repo decidió no hacer.
+    if not m.get("ranked"):
+        motivo = (m.get("elegible") or {}).get("motivos", {}).get("ranking")
+        titulo = elegibilidad.MOTIVOS.get(motivo, "no entra al ranking")
+        nm += f' <span class="row-badge no-rankea" title="{esc(titulo)}">no rankea</span>'
     return (f"<tr><td>{rank}</td><td>{nm}</td><td><strong>{capacidad(m):.2f}</strong></td>"
             f"<td>{pcell(m,'Coding')}</td><td>{pcell(m,'Contenido')}</td>"
             f"<td>{pcell(m,'Razonamiento')}</td><td>{pcell(m,'Agentes')}</td>"
