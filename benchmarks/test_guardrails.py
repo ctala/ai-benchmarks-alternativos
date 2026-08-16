@@ -189,6 +189,36 @@ def _t_claims():
         return _correr("check_claims.py") != 0
 
 
+@prueba("check_suites", "el sitio volviendo a escribir a mano las etiquetas de los ejes")
+def _t_suites():
+    app = ROOT / "docs" / "app.js"
+    with Sabotaje(app):
+        # La forma exacta que tenía la copia vieja. Vivió meses, divergió en 7 suites y
+        # nadie se enteró porque una etiqueta distinta no rompe nada: solo hace que el
+        # usuario elija un eje creyendo que está en otro pilar.
+        app.write_text(app.read_text(encoding="utf-8") +
+                       '\nconst _copia = [{ value: "tool_calling", label: "A mano otra vez" }];\n',
+                       encoding="utf-8")
+        return _correr("check_suites.py") != 0
+
+
+@prueba("qa Q15", "una página de comparación publicada que ya nadie regenera")
+def _t_huerfanas():
+    d = ROOT / "docs" / "modelo-fantasma-vs-otro"
+    try:
+        d.mkdir(exist_ok=True)
+        # Una huérfana no falla: carga, se ve bien y sirve datos congelados. Se descubrió
+        # preguntando lo contrario de lo habitual — no «¿falta una página?», sino
+        # «¿sobra una?» — y había cuatro, una de ellas mintiendo sobre su frescura.
+        (d / "index.html").write_text("<html><body>página congelada</body></html>")
+        r = subprocess.run(["node", str(ROOT / "benchmarks" / "qa_calculadora.mjs")],
+                           capture_output=True, text=True, cwd=ROOT)
+        return r.returncode != 0
+    finally:
+        (d / "index.html").unlink(missing_ok=True)
+        d.rmdir() if d.exists() else None
+
+
 @prueba("check_caminos", "un script que mide fuera del runner")
 def _t_caminos():
     tmp = ROOT / "_desvio_de_prueba.py"

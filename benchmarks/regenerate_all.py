@@ -265,6 +265,14 @@ def main() -> int:
             print("   Sus filtros mienten en silencio: la página carga y no protesta.")
             return 1
 
+        # El registro de suites tiene que seguir siendo UNO. Vivía a mano en tres
+        # archivos y siete suites terminaron en pilares distintos según cuál se leyera.
+        print()
+        rc = run_script("check_suites.py", [], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ El registro de suites se partió otra vez. Ver arriba.")
+            return 1
+
     print("\n✅ Pipeline de regeneración completado — y sin drift.")
     return 0
 
