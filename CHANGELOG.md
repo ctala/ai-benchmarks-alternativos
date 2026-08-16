@@ -3,6 +3,86 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v4.4.1] - 2026-08-16 — Lo agéntico se ordena por lo que se LOGRÓ, y las 71 páginas pasan por un auditor
+
+Cristian, tras encontrar tres fallos distintos mirando páginas sueltas: *"haz el análisis
+de todas las páginas por favor, seguimos encontrando errores como estos que impiden que
+sean páginas útiles."* Tenía razón en el diagnóstico: no eran casualidades de una página,
+eran **clases**.
+
+### La corrección que abre todo esto
+
+v4.4 metió `agent_long_horizon` y `tool_calling_adversarial` al pilar Agentes y se
+presentó como una mejora. Medido contra la única verdad objetiva que tenemos —el reward
+de las tareas Harbor, verificado por pytest sobre artefactos, no por un juez— **fue al
+revés**:
+
+| qué ordena | correlación con resolver la tarea |
+|---|---|
+| pilar Agentes antes (v4.3) | −0,144 |
+| pilar Agentes con las dos suites (v4.4) | **−0,204** |
+| compuesto 65% pilar + 35% tool calling | +0,444 |
+| `tool_calling` solo | +0,579 |
+
+El pilar tiene nueve suites llamadas «Agentes» y **ninguna mide ejecutar con
+herramientas**: `agent_long_horizon` mide sostener el hilo *sin* herramientas y
+`tool_calling_adversarial` mide *abstenerse*. Revertir tampoco arreglaba: −0,144 también
+es negativa. El problema era el pilar entero.
+
+**Ahora lo agéntico se ordena por lo que el modelo LOGRÓ**: media y piso de las tareas
+Harbor (60%) con `tool_calling` de desempate (40%), porque la tarea satura. Mismo criterio
+en las tres superficies —calculadora, `/mejor-llm-para-agentes/` y `/modelos-n8n/`— y los
+modelos que no corren dentro de un agente quedan fuera del listado, no listados con un
+badge.
+
+Efecto: `/modelos-n8n/` dejó de tener a **Hermes 4 405B** entre los diez que recomienda
+para poner en un n8n; su tarea real es 0,00 porque no existe endpoint que le dé
+herramientas. Y la calculadora dejó de ponerlo **#3** del pilar Agentes.
+
+### El auditor de páginas (`auditar_paginas.py`, nuevo)
+
+Barre las 71 páginas y les pregunta lo que ningún guardrail preguntaba: **¿lo que publica
+esta página lo sostiene la data?** Seis clases:
+
+| | qué caza |
+|---|---|
+| **P1** | el orden no predice el caso que la página promete |
+| **P2** | ninguna columna explica el orden de las filas |
+| **P3** | recomienda retirados, no-aptos o no-rankeados sin salvedad |
+| **P4** | muestra vacía o mínima |
+| **P5** | frescura falsa |
+| **P6** | cifras sin respaldo en `models.json` |
+
+Primera corrida: **146 hallazgos**. Tras verificar uno por uno quedaron **37 reales**; los
+otros 109 eran defectos del propio auditor —tolerancia de redondeo demasiado fina, leer
+una columna fija en páginas que ordenan por otra, no ver dentro de `<strong>`, contar
+filas solo si tenían columna de puesto, exigir monotonía en tablas que son dos bloques—.
+Cada corrección quedó escrita en su chequeo, porque el auditor equivocado publica ruido
+que entierra los hallazgos de verdad.
+
+### Lo que el auditor destapó y ya está arreglado
+
+- **P2 en 16 páginas: la tabla no explicaba su propio orden.** Los rankings por pilar
+  ordenaban por un número que **no estaba en ninguna columna**, y las comparaciones
+  mostraban «Global» (el compuesto con costo) mientras ordenaban por calidad media. En
+  `/claude-vs-chatgpt/` eso se veía así: el #1 con Global 6,24, el #4 con 6,22 y el #6 con
+  **8,41**, el mayor de la tabla. Un lector que intenta verificar el orden concluye, con
+  razón, que la tabla está mal. Ahora la columna que ordena es la que se publica.
+- **Las variantes PRO ya no encabezan** las tablas de comparación: van al final, donde
+  corresponde a algo que por decisión vigente no compite.
+
+Quedan 12 hallazgos medios —deuda editorial conocida, sobre todo variantes PRO citadas en
+prosa— y **cero altos**. El auditor corre dentro de `regenerate_all.py` en modo `--duro`:
+bloquea por severidad alta, no por deuda.
+
+### Una falsa alarma, anotada
+
+Sospeché que el pipeline daba «✅ sin drift» con un generador explotando. Se probó
+rompiendo un import a propósito: **aborta con exit 1**. Lo que había pasado es que mi
+`tail -3` cortó el error.
+
+---
+
 ## [v4.4.0] - 2026-08-16 — Las dos suites más agénticas entran al pilar Agentes, que llevaba meses sin ellas
 
 Un solo cambio, y no es una mejora: es **arreglar algo que estaba mal y nadie había

@@ -651,15 +651,32 @@ def row_n8n(rank, m):
     name = f"<strong>{esc(m['name'])}</strong>" if top else esc(m['name'])
     speed = m.get("tokens_per_second") or 0
     speed_str = f"{round(speed)} ⚡" if speed >= 200 else (f"{round(speed)}" if speed else "—")
-    return (f"<tr><td>{rank}</td><td>{name}</td><td>{m['score_global']:.2f}</td>"
+    # La columna que ORDENA, no el compuesto: la tabla mostraba `score_global` y ordenaba
+    # por otra cosa, así que se leía desordenada respecto de lo único que publicaba.
+    from generate_rankings import score_agentico
+    ag = score_agentico(m)
+    return (f"<tr><td>{rank}</td><td>{name}</td>"
+            f"<td><strong>{ag:.2f}</strong></td>"
             f"<td>{fmt_cost(m)}</td><td>{speed_str}</td><td>{esc(fmt_license(m))}</td></tr>")
 
 
 def gen_modelos_n8n(data):
     models = _recomendables(data)
     c = counts(data)
-    n8n = [m for m in models if m.get("tested") and ((m.get("score_by_pillar") or {}).get("Agentes", 0) > 0)]
-    n8n = sorted(n8n, key=lambda m: -m["score_by_pillar"]["Agentes"])[:10]
+    # Un agente n8n LLAMA HERRAMIENTAS. Ordenar por el pilar «Agentes» ponía arriba a
+    # quien escribe bien sobre agentes: medido el 16-ago, ese pilar correlaciona **−0,20**
+    # con resolver una tarea real dentro de un agente, y por eso **Hermes 4 405B** —que
+    # no tiene endpoint con herramientas y saca 0,00— salía #10 de la página que le dice
+    # a la gente qué poner en su n8n.
+    #
+    # Ahora ordena por lo que se midió HACIENDO el trabajo (mismo criterio que
+    # /mejor-llm-para-agentes/ y la calculadora), y los que no corren en un agente quedan
+    # fuera: en n8n eso no es un matiz, es que el flujo no arranca.
+    from generate_rankings import score_agentico
+    n8n = [m for m in models
+           if m.get("tested") and m.get("sirve_para_agentes") is not False
+           and score_agentico(m) is not None]
+    n8n = sorted(n8n, key=lambda m: -score_agentico(m))[:10]
 
     title = "Mejores modelos IA para agentes N8N: comparativa con benchmark real (2026)"
     desc = ("Qué modelo IA usar en tu agente N8N: 10 modelos comparados con tests reales de tool calling, "
@@ -672,7 +689,7 @@ def gen_modelos_n8n(data):
     rows = "\n        ".join(row_n8n(i + 1, m) for i, m in enumerate(n8n))
     table = f"""<div class="table-scroll"><table class="results-table">
       <thead>
-        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Score</th><th scope="col">$ in/out per M</th><th scope="col">Tok/s</th><th scope="col">License</th></tr>
+        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Tarea real en agente</th><th scope="col">$ in/out per M</th><th scope="col">Tok/s</th><th scope="col">License</th></tr>
       </thead>
       <tbody>
         {rows}
