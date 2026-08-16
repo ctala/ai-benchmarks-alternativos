@@ -54,7 +54,7 @@ El modelo PUEDE razonar, pero por default no lo hace. Hay que pasarle un paráme
 
 El modelo NO expone parámetro `reasoning` en el API. Aunque puede generar CoT inline en el `content` cuando se le pide, no hay budget separado de reasoning_tokens.
 
-Ejemplos: Llama 3/4 family, Mistral Small/Large/Devstral, Gemma 3/4, GPT-OSS 20B/120B, GPT-4.1, Qwen base, MiMo (la mayoría), Step 3.5 Flash, Grok 4.1 Fast.
+Ejemplos: Llama 3/4 family, Mistral Small/Large/Devstral, Gemma 3/4, GPT-OSS 20B/120B, GPT-4.1, Qwen base, MiMo (la mayoría), Step 3.5 Flash, Grok 4.1 Fast (retirado).
 
 ## Cómo lo activamos en este benchmark
 

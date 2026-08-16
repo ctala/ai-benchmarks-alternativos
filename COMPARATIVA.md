@@ -13,7 +13,7 @@
 |--------|---------|----------|--------------|-------------|----------|-----------|-------|
 | Mistral Nemo | $0.02 | $0.02 | Si | **Si** | Apache 2.0 | Mistral / OpenRouter | El mas barato, correr local |
 | Nemotron 3 Nano | $0.05 | $0.20 | Si | **Si** | NVIDIA Open | NVIDIA / OpenRouter | 30B MoE, 3B activos, ultra barato |
-| MiMo-V2-Flash | $0.09 | $0.29 | Si | **Si** | MIT | Xiaomi / OpenRouter | 309B MoE, 15B activos, 73.4% SWE-Bench |
+| MiMo-V2-Flash (retirado) | $0.09 | $0.29 | Si | **Si** | MIT | Xiaomi / OpenRouter | 309B MoE, 15B activos, 73.4% SWE-Bench |
 | Gemini 2.5 Flash-Lite | $0.10 | $0.40 | Si | No | Propietario | Google | Muy rapido, buena calidad |
 | DeepSeek V3.2 | $0.14 | $0.28 | Si | **Si** | MIT | DeepSeek / OpenRouter | Excelente calidad/precio, correr local |
 | Gemma 4 26B MoE | $0.15 | $0.30 | Si | **Si** | Apache 2.0 | Google / OpenRouter | Solo 3.8B activos, ideal DGX Spark |
@@ -30,12 +30,12 @@
 | MiniMax M2.7 HS | $0.30 | $1.20 | Si (SOTA) | Parcial | MIT (M2.5) | MiniMax / OpenRouter | Version highspeed |
 | Nemotron 3 Super | $0.10 | $0.50 | Si | **Si** | NVIDIA Open | NVIDIA / OpenRouter | 120B MoE, 12B activos, 1M ctx, mejor open agentic |
 | Mistral Small 4 | $0.15 | $0.60 | Si | **Si** | Apache 2.0 | Mistral / OpenRouter | 119B MoE, vision+coding+reasoning unificado |
-| Grok 4.1 Fast | $0.20 | $0.50 | Si | No | Propietario | xAI / OpenRouter | Mejor tool calling de xAI, 2M ctx |
+| Grok 4.1 Fast (retirado) | $0.20 | $0.50 | Si | No | Propietario | xAI / OpenRouter | Mejor tool calling de xAI, 2M ctx |
 | Gemini 3.1 Flash Lite | $0.25 | $1.50 | Si | No | Propietario | Google | Sucesor Flash Lite, niveles de pensamiento |
 | DeepSeek V4 | $0.30 | $0.50 | Si | **Si** | MIT | DeepSeek | Cache: $0.03/M input |
 | Gemini 2.5 Flash | $0.30 | $2.50 | Si | No | Propietario | Google | Muy rapido |
 | Qwen 3.6 Plus | $0.33 | ~$0.65 | Si | **Si** | Apache 2.0 | Alibaba / OpenRouter | 1M ctx |
-| Devstral 2 | $0.40 | $2.00 | Si | **Si** | MIT | Mistral / OpenRouter | 123B, 72.2% SWE-bench, upgrade de Devstral Small |
+| Devstral 2 | $0.40 | $2.00 | Si | **Si** | MIT | Mistral / OpenRouter | 123B, 72.2% SWE-bench, upgrade de Devstral Small (retirado) |
 | Mistral Medium 3 | $0.40 | $2.00 | Si | **Si** | Apache 2.0 | Mistral | Near-proprietary quality |
 | MiMo-V2-Omni | $0.40 | $2.00 | Si | No | Propietario | Xiaomi / OpenRouter | Multimodal: imagen, video, audio, 260K ctx |
 | GLM-5.1 | $0.95 | $3.15 | Si | **Si** | MIT | Zhipu / OpenRouter | 754B MoE, #1 SWE-Bench Pro, sesiones 8h |
@@ -46,7 +46,7 @@
 
 | Modelo | Input/M | Output/M | Tool Calling | Open Source | Licencia | Proveedor | Notas |
 |--------|---------|----------|--------------|-------------|----------|-----------|-------|
-| MiMo-V2-Pro | $1.00 | $3.00 | Si | No | Propietario | Xiaomi / OpenRouter | 1T MoE, 42B activos, ~Opus 4.6 en ClawEval |
+| MiMo-V2-Pro (retirado) | $1.00 | $3.00 | Si | No | Propietario | Xiaomi / OpenRouter | 1T MoE, 42B activos, ~Opus 4.6 en ClawEval |
 | Gemini 2.5 Pro | $1.25 | $10.00 | Si | No | Propietario | Google | Top 3 global |
 | Gemini 3.1 Pro | $2.00 | $12.00 | Si | No | Propietario | Google | 78.8% SWE-bench, upgrade Gemini 2.5 Pro |
 | Grok 4.20 | $2.00 | $6.00 | Si | No | Propietario | xAI | Multi-agent interno (4 agentes), baja alucinacion |
@@ -206,7 +206,7 @@ Todos estos modelos se pueden correr localmente con Ollama. Organizados por tama
 |------|--------|-------------------|-------------|----------------|-----------|
 | 1 | DeepSeek V3.2 | $0.14/$0.28 | **Si** | ~88% BFCL | **Mejor valor absoluto** |
 | 2 | Qwen 3.6 Plus | GRATIS (preview) | **Si** | ~87% BFCL | Gratis y excelente |
-| 3 | MiMo-V2-Flash | $0.09/$0.29 | **Si** | 73.4% SWE | Ultra barato, MIT license |
+| 3 | MiMo-V2-Flash (retirado) | $0.09/$0.29 | **Si** | 73.4% SWE | Ultra barato, MIT license |
 | 4 | Gemma 4 26B MoE | $0.15/$0.30 | **Si** | Muy buena | Ultra eficiente, rapido |
 | 4 | MiniMax M2.7 | $0.30/$1.20 | Parcial | ~92% BFCL | Mejor agente economico |
 | 5 | Gemma 4 31B | $0.30/$0.60 | **Si** | Excelente | #3 open en Arena |

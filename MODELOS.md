@@ -535,7 +535,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | xiaomi/mimo-v2-pro | No | 1.0/3.0 | L3 | Decepción: rinde menos que Flash |
 | mistralai/devstral-small | Si (Apache 2.0) | 0.10/0.30 | L1 | **#1 global 7.35** |
 | mistralai/devstral-medium | Si (Apache 2.0) | 0.40/2.0 | L3 | 3 errores 503 puntuales |
-| mistralai/devstral-2512 | Si (Apache 2.0) | 0.40/2.0 | L3 | Devstral 2 (Dic 2025) |
+| mistralai/devstral-2512 | Si (Apache 2.0) | 0.40/2.0 | L3 | Devstral 2 (Dic 2025) (retirado) |
 | mistralai/mistral-large | Si (Apache) | 2.0/6.0 | L2 | 100% timeout en news_seo_writing |
 | mistralai/mistral-nemo | Si (Apache) | 0.02/0.02 | L3 | Baseline ultra económico |
 | qwen/qwen3-coder | Si (Apache) | 0.15/0.60 | L2 | Sólido en coding |
@@ -600,7 +600,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | Modelo | Notas |
 |---|---|
 | `gpt-5.5-pro` | **Desbloqueado abril 25** — `OpenAIResponsesProvider` agregado. Smoke test OK: 39 reasoning_tokens + 46 output_tokens visibles para "hola" (~$0.009 por test, ~$72 por lote completo de 91 tests). Captura reasoning_tokens en metadata. |
-| **NVIDIA NIM (8 modelos)** | **Desbloqueado abril 25** — provider `nvidia_nim` con base URL `https://integrate.api.nvidia.com/v1`. Free tier: 40 RPM, **gratis** para benchmarks secuenciales. Catálogo de 135+ modelos. Smoke test OK con Nemotron Super 49B v1.5. Modelos agregados al config (claves `nim-*`): Nemotron Super 49B v1.5, Nemotron Ultra 253B, Qwen 3-Next 80B (instruct + thinking), Mistral-Nemotron, Kimi K2 Thinking, DeepSeek V4 Flash, Qwen 3.5 397B. |
+| **NVIDIA NIM (8 modelos)** | **Desbloqueado abril 25** — provider `nvidia_nim` con base URL `https://integrate.api.nvidia.com/v1`. Free tier: 40 RPM, **gratis** para benchmarks secuenciales. Catálogo de 135+ modelos. Smoke test OK con Nemotron Super 49B v1.5 (retirado). Modelos agregados al config (claves `nim-*`): Nemotron Super 49B v1.5, Nemotron Ultra 253B, Qwen 3-Next 80B (instruct + thinking), Mistral-Nemotron, Kimi K2 Thinking, DeepSeek V4 Flash, Qwen 3.5 397B. |
 
 ---
 
@@ -611,7 +611,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | Modelo | Esperado | $ aprox | Razón |
 |---|---|---|---|
 | Mistral Small 4 | `mistralai/mistral-small-2603` | 0.15/0.60 | Apache 2.0, baseline. **Está en `config.example.py`, falta copiar a `config.py`**. |
-| Grok 4.1 Fast | `x-ai/grok-4.1-fast` | 0.20/0.50 | xAI rápido. Está en `config.example.py`. |
+| Grok 4.1 Fast (retirado) | `x-ai/grok-4.1-fast` | 0.20/0.50 | xAI rápido. Está en `config.example.py`. |
 | Grok 4.20 | TBD | 2.0/6.0 | Flagship xAI |
 | Gemini 3.1 Flash Lite | TBD | 0.25/1.50 | Sucesor del 2.5 Flash Lite |
 | Gemini 3.1 Pro | TBD | 2.0/12 | Sucesor del 2.5 Pro |
@@ -633,7 +633,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 
 ### Sub-lote 6A: NIM gratis (8 modelos, ~2-3h, $0)
 Prioridad alta — gratis con 40 RPM, joyas no disponibles en otros providers:
-1. `nim-nemotron-super-1.5` (Nemotron Super 49B v1.5)
+1. `nim-nemotron-super-1.5` (Nemotron Super 49B v1.5 (retirado))
 2. `nim-nemotron-ultra-253b` (más grande de la familia)
 3. `nim-qwen3-next-instruct` (Qwen 3-Next 80B)
 4. `nim-qwen3-next-thinking` (Qwen 3-Next thinking)
@@ -736,8 +736,8 @@ Snapshot de los modelos probados — útil para juzgar si un modelo "recuerda" e
 ### Mistral
 | Modelo | Lanzamiento | Knowledge cutoff |
 |---|---|---|
-| Devstral Small | abr 2025 | abr 2024 |
-| Devstral Medium | nov 2025 | jul 2025 |
+| Devstral Small (retirado) | abr 2025 | abr 2024 |
+| Devstral Medium (retirado) | nov 2025 | jul 2025 |
 | Devstral 2 (2512) | dic 2025 | sep 2025 |
 | Mistral Large 2 | jul 2024 | feb 2024 |
 | Mistral Nemo | jul 2024 | feb 2024 |

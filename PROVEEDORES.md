@@ -38,8 +38,8 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 ### xAI (USA)
 - **Fundada**: 2023, por Elon Musk
 - **Foco**: Razonamiento, integracion con X/Twitter, agentes
-- **Modelos**: Grok 4.20 (multi-agent interno), Grok 4.1 Fast (mejor tool calling), Grok 4
-- **Fortalezas**: #4 en Arena, RPM mas alto del mercado (1200), 2M contexto, Grok 4.1 Fast a $0.20/$0.50
+- **Modelos**: Grok 4.20 (multi-agent interno), Grok 4.1 Fast (retirado) (mejor tool calling), Grok 4
+- **Fortalezas**: #4 en Arena, RPM mas alto del mercado (1200), 2M contexto, Grok 4.1 Fast (retirado) a $0.20/$0.50
 - **Debilidades**: Ecosistema joven, SuperGrok Heavy es carisimo ($300/mes)
 - **API**: api.x.ai | Suscripcion: SuperGrok $30/mes
 
@@ -110,11 +110,11 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 ### Xiaomi / MiMo (China, Beijing)
 - **Fundada**: 2010 (Xiaomi), equipo MiMo lanzado 2025
 - **Foco**: Modelos agenticos, razonamiento, multimodal (omni)
-- **Modelos**: MiMo-V2-Pro (1T params, flagship), MiMo-V2-Flash (309B MoE, open-source), MiMo-V2-Omni (multimodal)
-- **Fortalezas**: MiMo-V2-Pro rinde cerca de Opus 4.6 en ClawEval. Flash tiene 73.4% SWE-Bench (mejor open-source). Tool calling optimizado via RL. Flash es ultra barato ($0.09/$0.29).
+- **Modelos**: MiMo-V2-Pro (retirado) (1T params, flagship), MiMo-V2-Flash (retirado) (309B MoE, open-source), MiMo-V2-Omni (multimodal) (retirado)
+- **Fortalezas**: MiMo-V2-Pro (retirado) rinde cerca de Opus 4.6 en ClawEval. Flash tiene 73.4% SWE-Bench (mejor open-source). Tool calling optimizado via RL. Flash es ultra barato ($0.09/$0.29).
 - **Debilidades**: Pro y Omni son API-only (no open-source). Empresa china.
 - **API**: platform.xiaomimimo.com | Tambien via OpenRouter
-- **Open-source**: MiMo-V2-Flash (MIT license, 309B params, 15B activos)
+- **Open-source**: MiMo-V2-Flash (retirado) (MIT license, 309B params, 15B activos)
 
 ### Zhipu AI / GLM (China, Beijing)
 - **Fundada**: 2019, spin-off de Tsinghua University
@@ -171,8 +171,8 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 | Meta | Llama 3.3/4 | **Si** | Llama Community | Si (40-60 GB) |
 | Mistral | Nemo, Mixtral | **Si** | Apache 2.0 | Si (8-30 GB) |
 | Microsoft | Phi-4 | **Si** | MIT | Si (10 GB) |
-| Xiaomi | MiMo-V2-Flash | **Si** | MIT | Si (~40 GB Q4) |
-| Xiaomi | MiMo-V2-Pro | No | Propietario | No |
+| Xiaomi | MiMo-V2-Flash (retirado) | **Si** | MIT | Si (~40 GB Q4) |
+| Xiaomi | MiMo-V2-Pro (retirado) | No | Propietario | No |
 | Xiaomi | MiMo-V2-Omni | No | Propietario | No |
 | Zhipu | GLM-5.1 | **Si** | MIT | No (754B MoE) |
 | Zhipu | GLM-4.7 | **Si** | Apache 2.0 | Si (7 GB) |

@@ -70,9 +70,9 @@ docs/data/models.json                # JSON consolidado para programs (ver schem
 
 | Sub-tarea | Top recomendación | Por qué |
 |---|---|---|
-| Plugins WordPress (PHP) | Devstral Small / Devstral 2 | Apache 2.0, el lenguaje no es excusa para pagar premium |
+| Plugins WordPress (PHP) | Devstral Small (retirado) / Devstral 2 | Apache 2.0, el lenguaje no es excusa para pagar premium |
 | Templates N8N (JSON workflows) | Llama 3.3 70B Groq | 270 tok/s + JSON estructurado robusto. Ver `/modelos-n8n/` |
-| Scripts Python/Bash automatización | Devstral Small | Costo mínimo, calidad suficiente para scripts <500 líneas |
+| Scripts Python/Bash automatización | Devstral Small (retirado) | Costo mínimo, calidad suficiente para scripts <500 líneas |
 | Proyectos grandes con arquitectura | Claude Opus 4.7 / GPT-5.5 | Solo cuando hay que razonar sobre arquitectura. Caro pero justificado |
 | Refactor masivo | GPT-4.1 / Devstral 2 | Balance calidad/costo |
 | OCR / extracción de código de imágenes | Gemini 3.1 Flash | Multimodal nativo |
@@ -88,7 +88,7 @@ docs/data/models.json                # JSON consolidado para programs (ver schem
 | Copy de marketing | Mistral Small 4 / GPT-4.1 | Tono natural, no robótico |
 | Traducciones es↔en | Gemini 2.5 Flash | Coherencia multilingüe |
 | Posts redes sociales | Llama 3.3 70B Groq | Velocidad + tono casual |
-| Documentación técnica | Devstral Small | Estructura + precisión |
+| Documentación técnica | Devstral Small (retirado) | Estructura + precisión |
 
 ⚠️ **Antes de recomendar para contenido**: ¿extensión típica? ¿audiencia (técnica, B2B, consumer)? ¿requiere SEO específico?
 
