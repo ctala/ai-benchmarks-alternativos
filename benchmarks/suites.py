@@ -39,15 +39,21 @@ archivo ES la fuente. `models.json` la lleva, la calculadora la lee, los cortes 
 
 `en_promedio`
 -------------
-Una suite puede estar medida y **no sumar al promedio de su pilar**. Hoy eso le pasa a
-tres, y no por decisión: `SUITE_TO_PILLAR` simplemente no las tenía, así que
-`export_for_pages` las salteaba en silencio. El campo existe para que esa condición sea
-**explícita y contable** en vez de una ausencia — que es justo la clase de fallo que este
-repo ya sabe que sus detectores no cazan.
+Una suite puede estar medida y **no sumar al promedio de su pilar**. El campo existe para
+que esa condición sea **explícita y contable** en vez de una ausencia — que es justo la
+clase de fallo que este repo ya sabe que sus detectores no cazan.
 
-Ponerlas en `True` mueve números publicados: es un cambio de PRESENTACIÓN, y esos se
-simulan antes contra los runs en disco (`PLAN-ESTABILIDAD.md`). Hasta que esa simulación
-se corra y se decida, quedan en `False` con el motivo escrito.
+Al crearse el registro había tres así, y **ninguna por decisión**: `SUITE_TO_PILLAR`
+simplemente no las tenía y `export_for_pages` las salteaba en silencio. Se simuló el
+16-ago (`simular_pilares.py`) y la pregunta que decidía —*¿a quién castiga meterlas?*—
+se respondió sola: **las rindieron el 100% de los modelos rankeados**, así que no había
+sesgo de muestra que justificara excluirlas. Entraron. Movieron 77 de 80 puestos del pilar
+Agentes y 75 de 80 de Contenido, **sin tocar el índice de calidad ni el score global**.
+
+Hoy la única razón legítima para `False` es la que ya usan `integridad_idioma` y
+`niah_es`: cobertura insuficiente o dimensión que se reporta aparte a propósito. Ponerlas
+en `True` mueve números publicados, así que es un cambio de PRESENTACIÓN y se simula antes
+contra los runs en disco, que cuesta $0 (`PLAN-ESTABILIDAD.md` R1).
 """
 
 # pilar canónico · si suma al promedio del pilar · etiqueta de menú · qué decides con esto
@@ -118,13 +124,14 @@ SUITES = {
         "decide": "escribir un texto correcto",
     },
     "content_verificable": {
-        "pilar": "Contenido", "en_promedio": False,
+        "pilar": "Contenido", "en_promedio": True,
         "menu": "Contenido con datos verificables (no inventar)",
         "decide": "escribir sin caer en la trampa del brief",
-        "nota": "medida en 92 modelos y fuera del promedio de Contenido: `SUITE_TO_PILLAR` "
-                "nunca la tuvo. Es la única suite de contenido donde se puede FALLAR "
-                "(`content_generation` da media 9,37 y no distingue un 8B de Opus), así que "
-                "excluirla deja el pilar apoyado justo en lo que no discrimina.",
+        "nota": "entró al promedio el 16-ago-2026. Estuvo fuera sin que nadie lo decidiera "
+                "—`SUITE_TO_PILLAR` nunca la tuvo— y es la única suite de contenido donde "
+                "se puede FALLAR (`content_generation` da media 9,37 y no distingue un 8B "
+                "de Opus), así que excluirla dejaba el pilar apoyado justo en lo que no "
+                "discrimina. Al entrar se movieron 75 de 80 puestos de Contenido.",
     },
     "summarization": {
         "pilar": "Contenido", "en_promedio": True,
@@ -169,21 +176,22 @@ SUITES = {
         "decide": "llamar bien las funciones",
     },
     "tool_calling_adversarial": {
-        "pilar": "Agentes", "en_promedio": False,
+        "pilar": "Agentes", "en_promedio": True,
         "menu": "No inventar herramientas (abstenerse cuando no hay)",
         "decide": "no inventar herramientas que no existen",
-        "nota": "medida en 82 modelos y fuera del promedio de Agentes. Mide abstenerse, que "
-                "es el fallo caro de un agente en producción — y el pilar que lo excluye es "
-                "justo el que la gente mira para elegir un modelo de agente.",
+        "nota": "entró al promedio el 16-ago-2026. Mide abstenerse, que es el fallo caro de "
+                "un agente en producción, y el pilar que la excluía es justo el que se mira "
+                "para elegir un modelo de agente.",
     },
     "agent_long_horizon": {
-        "pilar": "Agentes", "en_promedio": False,
+        "pilar": "Agentes", "en_promedio": True,
         "menu": "Tareas largas (sostener el hilo 8-12 turnos)",
         "decide": "sostener una tarea larga",
-        "nota": "medida en 91 modelos y fuera del promedio de Agentes. Explica algo que ya "
-                "estaba anotado sin causa: el pilar Agentes ponía a Gemini 3.6 Flash en #65 "
-                "pese a ser #3 en calidad agéntica. No era solo que promedia — es que las "
-                "dos suites agénticas nuevas no entraban.",
+        "nota": "entró al promedio el 16-ago-2026. Su ausencia explicaba algo que estaba "
+                "anotado sin causa: el pilar Agentes ponía a Gemini 3.6 Flash en #65 pese a "
+                "ser #3 en calidad agéntica. No era solo que promedia — es que las dos "
+                "suites agénticas no entraban. Al entrar, sube al #50 y se movieron 77 de "
+                "80 puestos del pilar.",
     },
     "orchestration": {
         "pilar": "Agentes", "en_promedio": True,
