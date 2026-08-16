@@ -1,9 +1,9 @@
 # Nemotron 3.5 Lightning — business_audit/atribucion_correlacion_temporal
 
 - model_id: `nvidia/nemotron-3.5-lightning`
-- success: True  | final: 9.43 | quality: 10.0
-- latency_total: 3.699s | tokens_per_second: 415.2
-- input_tokens: 243 | output_tokens: 1536
+- success: True  | final: 9.16 | quality: 10.0
+- latency_total: 14.761s | tokens_per_second: 131.6
+- input_tokens: 243 | output_tokens: 1943
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -28,18 +28,33 @@ Contexto adicional: también el 3 de marzo empecé a pagar publicidad ($400 en e
 
 ## Respuesta completa
 
-Conclusión directa: **Con los datos que compartiste, no puedo decirte si la secuencia de emails funcionó.** Lo que ves es una correlación (las altas subieron y el MRR creció un 29%), pero la causalidad está completamente confundida por dos factores que ocurrieron al mismo tiempo y que son mucho más visibles:
+**Conclusión: No se puede saber si la secuencia de emails funcionó.**
 
-1. **Publicidad pagada:** Empezaste el 3 de marzo con $400 en gasto. Eso solo ya puede haber traído varios suscriptores nuevos.
-2. **Mención de un creador grande:** El 12 de marzo alguien con audiencia grande habló de la comunidad en un video. Eso suele generar un pico de tráfico y conversiones mucho mayor que una secuencia de 5 emails.
+Los datos que compartes muestran una correlación (el MRR subió y las conversiones aumentaron), pero **no demuestran causalidad**. Hay al menos tres factores concurrentes que podrían explicar todo o parte del crecimiento, y no hay en la información suficientes datos de atribución para aislar el efecto de la secuencia.
 
-Las altas al plan pago pasaron de 9 en febrero a 14 en marzo (+5). Dependiendo del precio de tu plan, eso podría representar una fracción pequeña o grande del crecimiento de $1.200 en MRR, pero no sabemos cuántas de esas 5 altas nuevas provinieron de los emails, cuántas de los anuncios y cuántas de la mención del creador.
+**Por qué los datos no sostienen la conclusión:**
+
+1. **Factores externos que ocurrieron al mismo tiempo:**
+   - Empezaste a pagar publicidad el 3 de marzo ($400 en el mes). Eso trae tráfico y conversiones, pero no tienes datos de cuántos registros o cuánto MRR generó ese tráfico.
+   - El 12 de marzo un creador con audiencia grande mencionó la comunidad en un video. Un solo shoutout de ese tipo suele generar un pico de inscripciones que puede durar días o semanas. No hay forma de saber cuántos de los +5 nuevos pagantes llegaron por ese canal vs. los emails vs. el tráfico orgánico habitual.
+
+2. **Falta de métricas de la propia secuencia:**
+   - No tienes tasas de apertura, de clics, ni tasa de conversión de email a pago. Una secuencia de 5 emails puede tener un rendimiento excelente, mediocre o pésimo; los datos de MRR y altas totales no lo revelan.
+   - No hay grupo de control (usuarios que no recibieron los emails) ni datos históricos de qué pasaba con las altas en semanas similares sin secuencia.
+
+3. **El salto numérico no cierra el círculo:**
+   - Pasaste de 9 a 14 altas pagas (+5). Si tu plan de pago tiene, por ejemplo, $20/mes, esos 5 nuevos usuarios representan $100 de MRR. Pero el MRR subió $1.200 (de $4.100 a $5.300). Eso significa que otros $1.100 provinieron de usuarios que ya estaban suscritos (renewals), upgrades, o bien de los anuncios y el mencio del creador. No hay datos para repartir ese crédito.
 
 **Qué haría falta para estar seguros:**
-- Un **grupo de control**: usuarios del plan gratuito que no recibieron los emails y comparar su tasa de conversión con la que sí los recibió.
-- **Atribución por fuente**: registrar de dónde vino cada alta (anuncio, búsqueda, recomendación, email, redes orgánicas, etc.).
-- **Métricas de engagement de los emails**: tasas de apertura, de clics y de conversión por cada uno de los 5 emails.
-- **Precio promedio por usuario (ARPU)**: para saber exactamente cuánto de ese +$1.200 en MRR viene de los 5 nuevos suscriptores netos.
-- **Seguimiento temporal**: ver si las conversiones se agrupan alrededor de los envíos de email, o alrededor del 12 de marzo (fecha de la mención).
 
-Sin esos datos, cualquier afirmación de "los emails funcionaron" sería una suposición cómoda, no una conclusión basada en evidencia. Si quieres aislar el efecto de la secuencia, lo próximo sería diseñar un test A/B o pausar los anuncios y la mención del creador durante un mes completo y ver qué pasa con la curva de conversión.
+Para atribuir el crecimiento a la secuencia de emails, necesitaría al menos uno de estos escenarios:
+
+| Qué medir / tener | Por qué importa |
+|-------------------|----------------|
+| **Resultados A/B**: Un grupo que recibió los 5 emails y otro que no (o recibió una versión placeholder). | Es la única forma estadísticamente válida de aislar el efecto de los emails. |
+| **Atribución de alta**: Tagging en el formulario de alta que pregunte "¿Cómo te enteraste?" o vincule la alta al origen (email, ad, redes sociales, referencia). | Permite contar cuántos de los +5 pagos vinieron específicamente de la secuencia. |
+| **Tasas de engagement**: Apertura y clics de la secuencia. | Incluso sin A/B, unos buenos números de engagement harían más plausible que los emails contribuyeran. |
+| **Precio promedio por usuario (ARPU) o plan desglosado**: Para verificar si los +5 nuevos pagos explican una parte lógica del +$1.200 MRR, o si el crecimiento viene de renovaciones/upsells. | Evita la ilusión de que los emails causaron todo el crecimiento. |
+| **Lag temporal**: Registrar la fecha exacta de cada alta y compararla con los días 1–5 de la secuencia, el 3 de marzo (anuncios) y el 12 de marzo (creador). | Permite ver si las altas se concentran en la ventana de los emails o se dispersan por los otros hitos. |
+
+**En resumen:** Con los datos actuales, la secuencia podría haber ayudado, podría haber sido irrelevante, o podría haber simplemente "atado" dos tendencias que venían de los anuncios y el mencio del creador. Para responder con certeza, se necesita datos de atribución y, idealmente, un diseño experimental controlado.

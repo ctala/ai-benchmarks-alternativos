@@ -1,9 +1,9 @@
 # Nemotron 3.5 Lightning — structured_output/json_array_classification
 
 - model_id: `nvidia/nemotron-3.5-lightning`
-- success: True  | final: 9.65 | quality: 10.0
-- latency_total: 1.524s | tokens_per_second: 682.9
-- input_tokens: 191 | output_tokens: 1041
+- success: True  | final: 8.22 | quality: 8.67
+- latency_total: 14.252s | tokens_per_second: 62.4
+- input_tokens: 191 | output_tokens: 889
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -25,4 +25,4 @@ Formato: [{"id": 1, "category": "", "priority": "", "sentiment": ""}, ...]
 
 ## Respuesta completa
 
-[{"id": 1, "category": "shipping", "priority": "urgent", "sentiment": "negative"}, {"id": 2, "category": "general", "priority": "low", "sentiment": "positive"}, {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "sentiment": "negative"}]
+[{"id": 1, "category": "shipping", "priority": "urgent", "sentiment": "negative"}, {"id": 2, "category": "general", "priority": "low", "sentiment": "positive"}, {"id": 3, "category": "billing", "priority": "high", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "sentiment": "negative"}]

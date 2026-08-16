@@ -1,9 +1,9 @@
 # Nemotron 3.5 Lightning — business_audit/roast_oferta_sin_cliches
 
 - model_id: `nvidia/nemotron-3.5-lightning`
-- success: True  | final: 7.76 | quality: 8.0
-- latency_total: 8.154s | tokens_per_second: 352.7
-- input_tokens: 182 | output_tokens: 2876
+- success: True  | final: 7.71 | quality: 8.0
+- latency_total: 13.147s | tokens_per_second: 187.5
+- input_tokens: 182 | output_tokens: 2465
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -36,57 +36,77 @@ Botón: EMPIEZA HOY
 
 ## Respuesta completa
 
-Escucha. Esta página no vende nada. Es una hoja de cálculo de características disfrazada de oferta. Te voy a partir la cara por la mitad, y luego te doy el bisturí para que cosas lo que está muerto.
+### Crítica Brutal (con arreglos concretos)
 
-### 1. El título es basura promocional
-**Problema:** "Transforma tu negocio con el poder de la IA". Es el título más visto en LinkedIn y newsletters en los últimos 18 meses. No dice nada. No hay quién, no hay resultado, no hay dolor específico. El cerebro del lector lo ignora en 0,2 segundos porque ya lo vio mil veces.
-**Fix:** Cambia el título por un beneficio específico y orientado a un ICP (Ideal Customer Profile). Ejemplo: *"Emprendedores que automatizan soporte y ventas con IA ahorran 15h/semana: entra al método"*
-
-### 2. Los bullets son características, no beneficios
-**Problema:** "Acceso a la comunidad", "Cursos exclusivos", "Sesiones en vivo". Eso es lo que *tienes*, no lo que *el cliente gana*. Nadie se suscribe a una comunidad por el mero hecho de existir. Se suscriben al resultado que de esa comunidad obtienen: networking, ahorro de tiempo, primeros ingresos, etc.
-**Fix:** Reescribe cada bullet como una transformación concreta. Ejemplo: En vez de "Cursos exclusivos", escribe *"Plantillas de prompts probadas que te ahorran 20h/mes en automatizaciones"*. En vez de "Soporte de la comunidad", escribe *"Respuestas a tus dudas de IA en menos de 24h por founders que ya escalaron"*.
-
-### 3. El precio $49/mes sin ancla es un tiro en el pie
-**Problema:** $49 es un precio "de impulso", pero para un producto de IA/community seña "barato" o "segundón". Sin un ancla (descuento anual, versión premium, resultado comprobado), el cerebro piensa: "Si es tan barato, ¿será basura?". O peor: "¿Por qué debería pagar mes a mes si no sé si funcionará?". Genera fricción indebida.
-**Fix:** O pones un precio que tenga sentido alineado al valor (ej. $97/mes con una promesa clara de ROI), o añades un ancla: *"Solo $49/mes mientras la comunidad crece (precio subirá un 300% en la próxima actualización)"*. O ofreces un trial de 7 días por $1.
-
-### 4. El CTA "EMPIEZA HOY" es débil y vago
-**Problema:** Es un mandato sin razón de ser. "Empieza hoy" ¿para qué? ¿Para perder tiempo? No hay urgencia, ni curiosidad, ni riesgo invertido. El CTA más potente da una razón inmediata: *"Consigue acceso ahora antes de que suba el precio"* o *"Consigue tu plantilla gratis hoy"*.
-**Fix:** Cambia el botón por una propuesta de valor en la acción. Ejemplo: Botón: *"Quiero mi plantilla de prompts gratis"* o *"Quiero entrar antes de que suba el precio"*.
-
-### 5. Cero diferenciación y autoridad
-**Problema:** La página podría ser de cualquier gurú de IA de tercer nivel. No hay tu rostro, no hay tu historia, no hay una metodología única, no hay testimonios. ¿Por qué tú? ¿Por qué esta comunidad y no la de Patreon gratis o el subreddit de IA?
-**Fix:** Añade una línea de autoridad al pie o en el título. Ejemplo: *"Única comunidad con auditoría mensual de prompts por IA (200+ founders ya escalaron)"*. O un pequeño testimonio en video de un alumno. O tu "mecanismo secreto" que nadie más tiene.
-
-### 6. "Emprendedores como tú" = "Nadie"
-**Problema:** Es el targeting más perezoso que existe. "Como tú" podría ser cualquier cosa, desde un freelance hasta un unicornio. No ayuda al lector a auto-identificarse. La gente compra cuando se siente hablado específicamente.
-**Fix:** Define al cliente en el propio título. Ejemplo: *"Para founders SaaS que quieren automatizar su embudo con IA sin escribir código"* o *"Para agencias que quieren duplicar sus clientes con IA en 90 días"*.
+Aquí no hay "buen intento". Si quieres vender a $49/mes, cada línea debe convencer en milisegundos. Si no, la gente pasa de largo.
 
 ---
 
-### Versión reconstruida (para que veas la diferencia)
-
-> **Transforma tu embudo de ventas con IA: Automatiza respuestas y captura 2x más clientes en 90 días**
->
-> Únete a 150+ founders que ya usan nuestros prompts y plantillas probadas para ahorrar 15h/semana y facturar más sin contratar.
->
-> - **Plantillas de prompts** listas para usar en ventas, soporte y marketing (ahorro inmediato).
-> - **Sesiones en vivo quincenales** donde desglosamos casos reales y resolvemos tus bloqueos.
-> - **Comunidad privada** de founders que comparten qué funciona y qué no (sin ruido).
-> - **Soporte directo**: Respuestas a tus dudas en menos de 24h.
->
-> **$97/mes** (o $997/año = 2 meses gratis). *Precio sube en 7 días.*
->
-> **[BOTÓN] Quiero mi plantilla gratis y entrar a la comunidad**
+#### 1. El título es ruido, no gancho
+**Lo que ves:** *"Transforma tu negocio con el poder de la IA"*
+**El problema real:** Es el título más usado en historia del marketing de IA. No dice quién eres, qué dolor resuelves ni por qué debería importarle ahora. El cerebro del visitante lo filtra como "más contenido genérico" en 0.5s.
+**Qué poner en su lugar:** Un título específico al avatar y al resultado. Ejemplo:
+> *"Deja de perder 10 horas a la semana en tareas repetitivas: Automatiza tu negocio con IA en 10 pasos"*
+> *(Otro válido: *"Para dueños de tiendas Shopify: Automatiza inventario y atención al cliente con IA en 3 días"*)  
+> **Por qué funciona:** El usuario se reconoce, ve un beneficio tangible y sabe exactamente de qué va.
 
 ---
 
-**Resumen rápido:**
-- Título específico + dolor/resultado.
-- Bullets = beneficios, no features.
-- Precio con ancla o valor claro.
-- CTA con razón de actuar.
-- Diferenciación/autoridad visible.
-- ICP definido en el mensaje.
+#### 2. Los beneficios son características vestidas de beneficios
+**Lo que ves:** 
+- Acceso a la comunidad
+- Cursos exclusivos
+- Sesiones en vivo
+- Plantillas y recursos
+- Soporte de la comunidad
+**El problema real:** Listas lo que *tienes*, no lo que *el usuario gana*. "Acceso a la comunidad" cuesta $49 al mes, pero ¿para qué? ¿Para networking? ¿Para que le resuelvan dudas? No lo sabe. Las personas compran resultados, no acceso.
+**Qué poner en su lugar:** Reescribe cada bala como un beneficio atado a una meta concreta. Ejemplo:
+- ❌ "Acceso a la comunidad"  
+- ✅ *"Red de 200 emprendedores que ya automatizaron sus procesos y comparten plantillas listas para usar"*
+- ❌ "Plantillas y recursos"  
+- ✅ *"10 plantillas de prompts y automatizaciones que te ahorran 20+ horas al mes"*
+- **Por qué funciona:** El cerebro procesa rápido el valor ("ahorro 20h") y el riesgo social ("red de 200") es inmediato.
 
-Arregla eso y tendrás una página que vende, no una que colecciona clicks.
+---
+
+#### 3. El precio es un riesgo sin garantía
+**Lo que ves:** `$49/mes`
+**El problema real:** $49 no es mucho dinero, pero es dinero suficiente como para que la gente dude si van a obtener valor. Sin prueba social, garantía o autoridad, el cerebro activa el modo "ahorro" y cierra la pestaña. No hay razón para pagar ahora.
+**Qué poner en su lugar:** Añade una de estas tres cosas justo arriba del precio:
+1. **Garantía:** *"Garantía 7 días: Si no ves valor, te devolvemos el dinero, sin preguntas."*
+2. **Prueba social:** *"Únete a +500 emprendedores que ya triplicaron su productividad."*
+3. **Urgencia/Intro:** *"Precio introductorio $49 (sube a $99 el próximo mes)."*  
+> **Colócalo antes del precio, no abajo. El precio debe aparecer después de haber vendido el beneficio.*
+
+---
+
+#### 4. El avatar es "todo el mundo"
+**Lo que ves:** *"Emprendedores como tú"*
+**El problema real:** "Emprendedores" es tan amplio que nadie se siente identificado. Un dueño de restaurante, un consultor y un vendedor dropshipping usan la IA de formas totalmente distintas. Si no narrowcas, nobody raises their hand.
+**Qué poner en su lugar:** Define un nicho en el subtítulo o en el CTA. Ejemplo:
+> *"Para creadores de contenido que quieren duplicar su output sin quemarse"*
+> *"Para agencias que quieren automatizar reportes y facturación con IA"*
+> **Por qué funciona:** La gente lee rápido y se autoSelecciona. Si encaja, se quedan. Si no, se van igual (y están contentos de no haber gastado tiempo).
+
+---
+
+#### 5. El CTA es olvidable
+**Lo que ves:** *"EMPIEZA HOY"*
+**El problema real:** Es genérico. "Empezar" es una acción vacía. No compromete emocionalmente ni recuerda el valor.
+**Qué poner en su lugar:** Haz el CTA sobre el resultado deseado. Ejemplos:
+- *"Quiero automatizar mi negocio ahora"*
+- *"Dame acceso a las plantillas probadas"*
+- *"Quiero unirme a la comunidad de automatizadores"*
+> **Prueba:** Cambia el color del botón a algo que contraste y usa un microcopy que refuerce el beneficio arriba del formulario.
+
+---
+
+### Resumen rápido para copiar y pegar:
+
+**Título:** *"Para creadores de contenido: Duplica tu output con IA en 10 horas a la semana"*  
+**Subtítulo:** *"Plantillas, comunidad y sesiones en vivo para automatizar lo que odias y enfocarte en lo que amas"*  
+**Bullets:** Beneficios atados a ahorro de tiempo/ingresos, no features.  
+**Precio:** `$49/mes | Garantía 7 días (si no ves valor, te devolvemos el dinero)`  
+**Botón:** *"Quiero automatizar mi negocio ahora"*  
+
+Cambia eso y verás la diferencia en la primera hora. Si el tráfico sigue bajo, el problema ya no es la oferta, es el canal.
