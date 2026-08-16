@@ -25,6 +25,7 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
+from benchmarks import elegibilidad
 from benchmarks import suites as suites_reg
 from benchmarks.config import MODELS as _CLOUD_MODELS
 from benchmarks.models import OLLAMA_MODELS, SUBSCRIPTIONS
@@ -1279,6 +1280,18 @@ def build_export(recalibrate=False, scoring_version=None):
         m["sirve_para_agentes"] = bool(_ok)
         if _mal and _ok:
             m["agentico"]["falla_en"] = sorted(_mal)
+
+    # ── EL VEREDICTO DE ELEGIBILIDAD, decidido UNA vez y grabado en el dato ──
+    #
+    # Antes cada superficie decidía por su cuenta si un modelo se podía recomendar: 76
+    # condicionales de filtrado repartidos en 25 archivos, y cada campo (`retired`,
+    # `provider_variant`, `sirve_para_agentes`) aplicado solo donde dolía el día que
+    # nació. Los generadores viejos no lo tenían y los nuevos lo copiaban del vecino.
+    #
+    # Ahora la regla se decide acá y viaja en `m["elegible"]`. Ninguna superficie —ni el
+    # JS del sitio, ni el QA— la recalcula. Ver `benchmarks/elegibilidad.py`.
+    for m in models_export:
+        m["elegible"] = elegibilidad.evaluar(m, MIN_RUNS_RANKED)
 
     # (3) Persistir la referencia SOLO en recalibración deliberada (evento de versión).
     # Ya no lleva `slope_calidad`: el índice de calidad es absoluto (`quality_avg` sin

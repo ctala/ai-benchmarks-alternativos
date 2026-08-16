@@ -450,7 +450,12 @@ function wizPuntaje(m, tipo) {
   }
   return peso > 0 ? suma / peso : null;
 }
-const APTOS = RANKED.filter(m => m.sirve_para_agentes !== false);
+// Los candidatos salen de `wizCandidatos` REAL, no de una réplica. Acá había una copia
+// (`RANKED.filter(sirve_para_agentes !== false)`) y el 16-ago se vio por qué importa: al
+// agregar el filtro de evidencia agéntica a la función real, el QA siguió probando la
+// lista vieja y reportó como fallo algo que ya estaba arreglado. Un test que reimplementa
+// lo que prueba, prueba su propia copia.
+const APTOS = app.wizCandidatos(MODELOS, { pillar: "Agentes" });
 
 chequeo("W1 · cada tarea × presupuesto del wizard devuelve una recomendación", () => {
   const malas = [];
