@@ -125,9 +125,9 @@
 | Prioridad | Modelo | Costo | Para que |
 |-----------|--------|-------|----------|
 | 1 | DeepSeek V3.2 | $0.14/$0.28 | Todo lo barato: contenido, coding, razonamiento |
-| 2 | Devstral Small | $0.10/$0.30 | Coding y tareas generales rapidas |
+| 2 | Qwen 3-Next 80B Instruct | $0.09/$1.10 | Coding y tareas generales rapidas |
 | 3 | Gemini Flash Lite | $0.10/$0.40 | Volumen alto, tareas simples, rapido |
-| 4 | MiMo-V2-Flash | $0.09/$0.29 | Alternativa ultra barata, open-source |
+| 4 | Ling 3.0 Flash | $0.02/$0.06 | Alternativa ultra barata, open-source |
 | 5 | GPT-4.1 Mini | $0.40/$1.60 | Tool calling, agentes |
 | 6 | Claude Sonnet 4.6 | $3/$15 | Soporte al cliente, contenido sensible |
 | 7 | MiniMax M2.7 | $0.30/$1.20 | Agentes N8N con suscripcion fija |

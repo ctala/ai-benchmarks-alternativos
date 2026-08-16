@@ -226,13 +226,13 @@ El catálogo completo vive en [MODELOS.md](MODELOS.md) y en la [calculadora](htt
 ## Preguntas frecuentes (FAQ)
 
 **¿Cuál es la mejor alternativa a Claude para agentes N8N en 2026?**
-Depende de la tarea, presupuesto y volumen. Las alternativas consistentes son Devstral Small, Mistral Small 4 y Llama 3.3 70B en Groq. El ranking cambia cada mes — ver [calculadora](https://benchmarks.cristiantala.com/) y [MODELOS.md](MODELOS.md) para filtrar por caso de uso.
+Depende de la tarea, presupuesto y volumen. Las alternativas consistentes son Qwen 3-Next 80B, Ling 3.0 Flash y Llama 3.3 70B en Groq. El ranking cambia cada mes — ver [calculadora](https://benchmarks.cristiantala.com/) y [MODELOS.md](MODELOS.md) para filtrar por caso de uso.
 
 **¿Vale la pena pagar GPT-5 o Claude Opus si hay alternativas más baratas?**
 Para tareas estándar (contenido, traducción, agentes simples), las alternativas open-source/cheap suelen dar resultados comparables. Para razonamiento profundo, código complejo, seguridad de datos sensibles o tool calling crítico, los premium aún tienen ventajas medibles. El delta real está en [INSIGHTS.md](INSIGHTS.md) y [DESCUBRIMIENTOS.md](DESCUBRIMIENTOS.md).
 
 **¿Qué modelos open-source recomiendan para correr local?**
-Para hardware ≥64GB RAM (o DGX Spark 128GB): Devstral Small, Qwen 3.6 base, Mistral Small 4, Gemma 4 y GPT-OSS. Ver [RECOMENDACIONES.md](RECOMENDACIONES.md) y [docs/modelos-open-source-local/](https://benchmarks.cristiantala.com/modelos-open-source-local/) para guía completa por hardware.
+Para hardware ≥64GB RAM (o DGX Spark 128GB): Qwen 3.6 base, Mistral Small 4, Gemma 4 y GPT-OSS. Ver [RECOMENDACIONES.md](RECOMENDACIONES.md) y [docs/modelos-open-source-local/](https://benchmarks.cristiantala.com/modelos-open-source-local/) para guía completa por hardware.
 
 **¿Por qué usar Phi-4 como juez en vez de GPT-4 o Claude?**
 Cero conflicto de interés (ningún proveedor del benchmark es también el juez), corre 100% local, gratis, licencia MIT y rúbrica en español. Detalles en sección [Eleccion del modelo juez y sesgo](#eleccion-del-modelo-juez-y-sesgo).

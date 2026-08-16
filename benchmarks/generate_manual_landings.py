@@ -274,9 +274,25 @@ def cta_block(links):
 </section>"""
 
 
+def _badge_no_rankea(m):
+    """La salvedad, en la fila. Un modelo que no rankea puede salir alto por calidad —las
+    variantes PRO lo hacen— y estas páginas lo coronaban en el top 3 sin decirlo. La
+    decisión de no rankearlas estaba tomada y escrita; faltaba que llegara al HTML.
+
+    El motivo sale de `elegibilidad.MOTIVOS`, la fuente única: si mañana cambia por qué un
+    modelo no rankea, el tooltip cambia solo."""
+    if m.get("ranked"):
+        return ""
+    from elegibilidad import MOTIVOS
+    mot = (m.get("elegible") or {}).get("motivos", {}).get("ranking")
+    return (f' <span class="row-badge no-rankea" '
+            f'title="{esc(MOTIVOS.get(mot, "no entra al ranking"))}">no rankea</span>')
+
+
 def row_alt(rank, m):
     top = rank == 1
     name = f"<strong>{esc(m['name'])}</strong>" if top else esc(m['name'])
+    name += _badge_no_rankea(m)
     return (f"<tr><td>{rank}</td><td>{name}</td><td>{m['score_global']:.2f}</td>"
             f"<td>{fmt_cost(m)}</td><td>{esc(fmt_license(m))}</td><td>{esc(fmt_provider_speed(m))}</td></tr>")
 
@@ -809,6 +825,7 @@ def gen_modelos_n8n(data):
 def row_cheap(rank, m):
     top = rank == 1
     name = f"<strong>{esc(m['name'])}</strong>" if top else esc(m['name'])
+    name += _badge_no_rankea(m)
     cost_1k = m.get("cost_per_1k_calls_usd") or 0
     cost_str = f"~${cost_1k * 5:.2f}" if cost_1k else "—"
     return (f"<tr><td>{rank}</td><td>{name}</td><td>{m['score_global']:.2f}</td>"

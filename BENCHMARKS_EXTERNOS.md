@@ -35,15 +35,15 @@ Notas metodologicas importantes:
 | 4 | GPT-OSS 20B | ~7.5 | N/A (HumanEval+ 78.4) | 68.9 | 69.5 | ~73 (MMLU-Pro) | [OpenAI gpt-oss model card][4] |
 | 5 | Mistral Small 4 | ~7.5 | ~85 (HumanEval+ tier Haiku) | N/A | N/A | ~81 | [Mistral Small 4 blog][5] |
 | 6 | Gemini 3.1 Flash Lite | ~7.5 | N/A | N/A | N/A | N/A (Global-MMLU-Lite: 81.1) | [Gemini 2.5 Flash-Lite card][6] |
-| 7 | Grok 4.1 Fast | ~7.5 | ~92 (Grok Code Fast 1) | 95.2 (Grok 4) | N/A | 92.1 (Grok 4) | [xAI Grok 4][7] |
+| 7 | Grok 4.1 Fast (retirado) | ~7.5 | ~92 (Grok Code Fast 1) | 95.2 (Grok 4) | N/A | 92.1 (Grok 4) | [xAI Grok 4][7] |
 | 8 | GPT-OSS 120B | ~7.5 | 88.3 | 74.2 | N/A | 86.4 | [OpenAI gpt-oss model card][4] |
-| 9 | Devstral Small | 7.35 | N/A (specialist coding) | N/A | N/A | N/A | [Mistral Devstral][8] |
+| 9 | Devstral Small (retirado) | 7.35 | N/A (specialist coding) | N/A | N/A | N/A | [Mistral Devstral][8] |
 | 10 | MiMo V2.5 | ~7.4 | N/A | N/A | N/A | N/A | [Xiaomi MiMo HF][9] |
 | 11 | MiMo V2.5-Pro | ~7.4 | N/A | N/A | N/A | N/A | [Xiaomi MiMo HF][9] |
 | 12 | Hermes 4 70B | ~7.4 | N/A (no reporta HumanEval) | N/A | 82.2 (Loose, no-reasoning) / 78.7 (reasoning) | 76.7 (no-reasoning) / 88.4 (reasoning) | [Hermes 4 Tech Report][10] |
 | 13 | GPT-4.1 | 7.29 | N/A (HumanEval saturado) | N/A | 87.4 | 90.2 | [OpenAI GPT-4.1][11] |
 | 14 | Devstral 2 (123B) | 7.22 | N/A (specialist coding) | N/A | N/A | N/A | [Mistral Devstral 2][12] |
-| 15 | MiMo V2-Flash | ~7.2 | 70.7 (HumanEval+) | 92.3 | N/A | 73.2 (MMLU-Pro) | [MiMo-V2-Flash Tech Report][13] |
+| 15 | MiMo V2-Flash | ~7.2 | 70.7 (HumanEval+) | 92.3 | N/A | 73.2 (MMLU-Pro) | [MiMo-V2-Flash (retirado) Tech Report][13] |
 | 16 | Gemma 4 31B | ~7.2 | N/A | N/A | N/A | N/A (modelo abril 2026) | [Google Gemma 4 (pendiente)][14] |
 | 17 | Nemotron 3 Nano 30B | ~7.2 | 78.05 (0-shot) | 92.34 (8-shot) | N/A | 81.07 (5-shot) | [NVIDIA Nemotron 3 Nano Tech Report][15] |
 | 18 | Gemini 2.5 Flash | ~7.2 | N/A (no reportado) | N/A | N/A | N/A (Global-MMLU-Lite: 88.4) | [Google DeepMind Gemini 2.5 Flash card][16] |
@@ -69,7 +69,7 @@ Notas metodologicas importantes:
 
 1. **Saturacion sistematica de los benchmarks academicos en frontera**. Modelos top-5 globales (GPT-5.4, Claude Opus 4.7, Gemini 3.1 Pro) ya casi no reportan MMLU/HumanEval/GSM8K — pasaron a reportar MMLU-Pro, HLE, GPQA Diamond, SWE-bench Verified, AIME. Esto sugiere que **nuestro benchmark aplicado tiene head-room academico** que los oficiales agotaron.
 
-2. **Convergencia notable en GSM8K**: todos los modelos open con score reportado caen en 89-97% (DeepSeek V3 89.3, MiMo-V2-Flash 92.3, Llama 3.1 8B 84.5, Nemotron Nano 92.34, Kimi K2 97.3). Estos numeros academicos no diferencian utilidad real para emprendedores. Nuestro ranking si los separa por mas de 1 punto en cuanto a calidad practica.
+2. **Convergencia notable en GSM8K**: todos los modelos open con score reportado caen en 89-97% (DeepSeek V3 89.3, MiMo-V2-Flash (retirado) 92.3, Llama 3.1 8B 84.5, Nemotron Nano 92.34, Kimi K2 97.3). Estos numeros academicos no diferencian utilidad real para emprendedores. Nuestro ranking si los separa por mas de 1 punto en cuanto a calidad practica.
 
 3. **Discrepancia en HumanEval Llama 3.3 70B**: Meta reporta 88.4 (excelente), pero en nuestro benchmark Llama 3.3 70B saca ~7.5 — empata con Llama 3.1 8B (que en HumanEval saca 72.6). Esto sugiere que **HumanEval mide algo distinto** que nuestros tests de coding aplicado en espanol (donde tamano de modelo importa menos que tool-calling y comprension de contexto castellano).
 
@@ -80,7 +80,7 @@ Notas metodologicas importantes:
 ## Sospechas a investigar
 
 - **Posible underperformance de Nemotron y Qwen3-Next 80B en espanol**: ambos tienen scores academicos top-tier en ingles pero quedan mid-tier en nuestro ranking. Hipotesis: corpus de training pesado en chino+ingles, debil en espanol latino.
-- **Devstral Small #9 en nuestro top con $0.10/$0.30 + 146 tok/s**: ningun benchmark academico estandar mide esto. Nuestro ranking si captura **eficiencia operacional** que SWE-bench/HumanEval ignoran. Esto valida el aporte de nuestro paper: medir aplicabilidad real, no proxy academico.
+- **Devstral Small (retirado) #9 en nuestro top con $0.10/$0.30 + 146 tok/s**: ningun benchmark academico estandar mide esto. Nuestro ranking si captura **eficiencia operacional** que SWE-bench/HumanEval ignoran. Esto valida el aporte de nuestro paper: medir aplicabilidad real, no proxy academico.
 
 ## Fuentes citadas
 
@@ -91,12 +91,12 @@ Notas metodologicas importantes:
 - [5] Mistral Small 4 — https://www.mindstudio.ai/blog/what-is-mistral-small-4 y https://mistral.ai/news/mistral-small-3
 - [6] Google Gemini 2.5 Flash-Lite Model Card — https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-2-5-Flash-Model-Card.pdf
 - [7] xAI Grok 4 — https://artificialanalysis.ai/models/grok-4 y https://forgecode.dev/blog/grok-4-initial-impression/
-- [8] Mistral Devstral Small 1.1 / 2507 — https://mistral.ai/news/devstral y https://huggingface.co/mistralai/Devstral-Small-2507
+- [8] Mistral Devstral Small (retirado) 1.1 / 2507 — https://mistral.ai/news/devstral y https://huggingface.co/mistralai/Devstral-Small-2507
 - [9] Xiaomi MiMo V2.5/Pro — https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro (sin technical report al 29 abril 2026)
 - [10] Hermes 4 Technical Report — https://arxiv.org/abs/2508.18255 y https://nousresearch.com/wp-content/uploads/2025/08/Hermes_4_Technical_Report.pdf
 - [11] OpenAI GPT-4.1 — https://openai.com/index/gpt-4-1/ y https://www.rdworldonline.com/openai-claims-gpt-4-1-sets-new-90-standard-in-mmlu-reasoning-benchmark/
 - [12] Mistral Devstral 2 — https://mistral.ai/news/devstral-2-vibe-cli y https://huggingface.co/mistralai/Devstral-2-123B-Instruct-2512
-- [13] MiMo-V2-Flash Technical Report — https://arxiv.org/pdf/2601.02780
+- [13] MiMo-V2-Flash (retirado) Technical Report — https://arxiv.org/pdf/2601.02780
 - [14] Google Gemma 4 (pendiente sin technical report al 29 abril 2026)
 - [15] NVIDIA Nemotron 3 Nano Technical Report — https://research.nvidia.com/labs/nemotron/files/NVIDIA-Nemotron-3-Nano-Technical-Report.pdf y https://huggingface.co/blog/nvidia/nemotron-3-nano-evaluation-recipe
 - [16] Google Gemini 2.5 Flash Model Card — https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-2-5-Flash-Model-Card.pdf

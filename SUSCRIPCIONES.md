@@ -81,7 +81,7 @@ Lanzado 22 abril 2026. **Una suscripción = 8 modelos** (V2.5 series + V2 series
 - MiMo-V2.5-Pro: flagship reasoning (1M context)
 - MiMo-V2.5: all-in-one multimodal nativo
 - MiMo-V2.5-TTS / VoiceClone / VoiceDesign: text-to-speech (gratis por tiempo limitado)
-- MiMo-V2-Pro, V2-Omni, V2-TTS: serie anterior
+- MiMo-V2-Pro (retirado), V2-Omni, V2-TTS: serie anterior
 
 **Descuentos disponibles**:
 - 12% off primera compra (incluido en precios "first" arriba)
@@ -100,7 +100,7 @@ Lanzado 22 abril 2026. **Una suscripción = 8 modelos** (V2.5 series + V2 series
 
 **Para benchmarkear V2.5 + V2.5-Pro**: requiere **Standard mínimo** (~110M credits para 91 tests × 2 modelos). Lite no alcanza.
 
-⚠️ **Pendiente del benchmark**: testear MiMo-V2.5 y V2.5-Pro en los 91 tests para validar si justifica la suscripción vs alternativas. Estado actual: solo V2 series (MiMo-V2-Flash, V2-Pro, V2-Omni) están en `docs/data/models.json`.
+⚠️ **Pendiente del benchmark**: testear MiMo-V2.5 y V2.5-Pro en los 91 tests para validar si justifica la suscripción vs alternativas. Estado actual: solo V2 series (MiMo-V2-Flash (retirado), V2-Pro, V2-Omni) están en `docs/data/models.json`.
 
 ---
 
@@ -201,7 +201,7 @@ Asumimos **300 input + 1500 output tokens por call** (escenario realista de agen
 
 | Modelo | Light | Casual | Active | Heavy | Power |
 |---|---:|---:|---:|---:|---:|
-| **Devstral Small** (#1 ranking, open) | $0.05 | $0.24 | $0.96 | $4.80 | $14.40 |
+| **Devstral Small (retirado)** (#1 ranking, open) | $0.05 | $0.24 | $0.96 | $4.80 | $14.40 |
 | **DeepSeek V3.2** (#7, open MIT) | $0.06 | $0.32 | $1.29 | $6.43 | $19.28 |
 | **DeepSeek V4 Flash** (open MIT) | $0.05 | $0.23 | $0.92 | $4.62 | $13.86 |
 | **Nemotron 3 Super** (NIM gratis 40 RPM) | $0 | $0 | $0 | $0 | $0 |
@@ -224,13 +224,13 @@ Calls/mes en que la suscripción cuesta lo mismo que pagar API. Por encima → l
 | **$10 MiniMax Coding Starter** | MiniMax M2.7 | 5,291 | Active → Heavy |
 | **$19 MiniMax Agent Pro** | MiniMax M2.7 | 10,052 | Heavy → Power |
 | **$20 MiniMax Coding Plus** | MiniMax M2.7 | 10,582 | Heavy → Power |
-| **$20 Ollama Cloud Pro** | Devstral Small | 41,666 | Power+ (no conviene si solo Devstral) |
+| **$20 Ollama Cloud Pro** | Devstral Small (retirado) | 41,666 | Power+ (no conviene si solo Devstral) |
 | **$20 Google AI Pro** | Gemini Flash Lite | 42,328 | Power+ |
 | **$30 SuperGrok** | ≈ GPT-4.1 | 2,380 | Active → Heavy |
 | **$50 MiniMax Coding Max** | MiniMax M2.7 | 26,455 | Heavy → Power |
 | **$50 Qwen Coding Pro** | Qwen3 Coder | 52,910 | Power+ |
 | **$69 MiniMax Agent Pro+** | MiniMax M2.7 | 36,507 | Power+ |
-| **$100 Ollama Cloud Max** | Devstral Small | 208,333 | Power+ |
+| **$100 Ollama Cloud Max** | Devstral Small (retirado) | 208,333 | Power+ |
 | **$150 MiniMax Coding Ultra** | MiniMax M2.7 | 79,365 | Power+ |
 | **$200 ChatGPT Pro** | GPT-5.5 (thinking) | 2,861 | Active → Heavy |
 
