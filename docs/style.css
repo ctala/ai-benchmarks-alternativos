@@ -1654,3 +1654,51 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
   border-radius: 4px; padding: 1px 6px; font-size: .7em; font-weight: 600;
   margin-left: 6px; white-space: nowrap; cursor: help;
 }
+
+/* ── La ficha del modelo: todo lo que decide, sin una columna más (v4.5) ────
+   Cristian, eligiendo modelo para su curso: «si veo la tabla usaría el de
+   Tencent, solo que es lento y eso no se entiende». Tencent Hy3 es #1 en
+   calidad y tarda 65,4s — el dato que explica la decisión no estaba en
+   pantalla. Una columna más no cabía (ya son 8); y el detalle solo lo necesita
+   la fila que estás por elegir. Por eso se abre. */
+.results-table tr.fila-modelo { cursor: pointer; }
+.results-table tr.fila-modelo:hover { background: rgba(255,255,255,.04); }
+.results-table tr.fila-modelo td:first-child::after {
+  content: "▸"; color: var(--muted); font-size: .8em; margin-left: 6px;
+}
+.ficha-wrap { display: none; }
+.ficha-wrap.abierta { display: table-row-group; }
+.results-table tr.ficha td {
+  background: rgba(0,0,0,.28); padding: 14px 18px 16px;
+  border-left: 3px solid var(--cyan, #00d4ff);
+}
+.ficha-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px 18px;
+}
+.ficha-grid .fd { display: flex; flex-direction: column; gap: 2px; }
+.ficha-grid .fd span { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.ficha-grid .fd b { font-size: 1.02rem; color: #fff; font-weight: 700; }
+.ficha-alertas { margin: 14px 0 0; padding: 0 0 0 18px; list-style: none; }
+.ficha-alertas li {
+  position: relative; margin: 7px 0; font-size: .87rem; line-height: 1.5;
+  color: #ffd9a8;
+}
+.ficha-alertas li::before {
+  content: "⚠"; position: absolute; left: -18px; color: #ffb340;
+}
+.ficha-pie { margin-top: 12px; font-size: .74rem; color: var(--muted); font-family: var(--mono, monospace); }
+
+/* El «empezar de nuevo» no se notaba: vivía solo al final, después de la tabla
+   de ejes y los enlaces, o sea fuera de pantalla justo cuando querés probar otra
+   combinación — que es exactamente cuando lo buscás. Ahora va arriba también, y
+   se ve como botón, no como enlace de pie. */
+.wiz-restart {
+  background: rgba(0,212,255,.12); color: var(--cyan, #00d4ff);
+  border: 1px solid rgba(0,212,255,.45); border-radius: 8px;
+  padding: 9px 18px; font-weight: 700; font-size: .9rem; cursor: pointer;
+  font-family: inherit; transition: background .15s;
+}
+.wiz-restart:hover { background: rgba(0,212,255,.22); }
+.wiz-restart.arriba { display: block; margin: 4px 0 18px; }
+.wiz-restart.abajo  { margin-top: 20px; }
