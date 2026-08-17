@@ -911,6 +911,12 @@ def build_export(recalibrate=False, scoring_version=None):
             "provider": cfg.get("provider", "openrouter"),
             "open_source": cfg.get("open_source", False),
             "license": cfg.get("license", ""),
+            # El repo de pesos, DECLARADO a mano y verificado. Se exporta porque las
+            # fichas por modelo (`/modelo/<key>/`) enlazan ahí en vez de copiar los
+            # benchmarks del fabricante — y sin este campo la única alternativa sería
+            # construir la URL de HuggingFace adivinando, que publica enlaces rotos.
+            "weights_url": cfg.get("weights_url"),
+            "publisher": cfg.get("publisher"),
             "cost_input_per_M": ci,
             "cost_output_per_M": co,
             "cost_per_1k_calls_usd": round(cost_per_1k_calls, 3),

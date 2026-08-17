@@ -342,6 +342,13 @@ def p4(pgs):
         html = p.read_text(errors="replace")
         if 'http-equiv="refresh"' in html:
             continue                      # es un redirect declarado
+        # Una FICHA habla de UN modelo: su tabla de alternativas trae 1-3 filas por
+        # diseño, y eso no es una muestra pobre. Sin leer el contrato, P4 marcaba las 83
+        # como «rankings que entregan una terna» — el falso positivo exacto que el
+        # contrato existe para evitar: la página dice lo que es, el auditor no adivina.
+        c = contrato_de(html)
+        if c and c.get("tipo") == "ficha":
+            continue
         n = _filas_datos(html)
         if n == 0:
             hallazgos.append((ALTA, slug, gen, "no publica NINGUNA fila de datos"))

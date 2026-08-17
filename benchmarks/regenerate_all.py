@@ -141,6 +141,11 @@ def main() -> int:
         # Las comparaciones A-vs-B no responden "cual de los TRES tomo".
         run_script("generate_variants.py", [], dry_run=args.dry_run)
         run_script("generate_manual_landings.py", [], dry_run=args.dry_run)
+        # Una ficha por modelo rankeado (`/modelo/<key>/`). Publica SUS numeros y enlaza
+        # los oficiales al fabricante en vez de copiarlos: el benchmark de lanzamiento lo
+        # hace quien construyo el modelo, con mas recursos y antes. Lo que no esta alla
+        # es como se comporta decidiendo algo de un negocio chico en espanol.
+        run_script("generate_model_cards.py", [], dry_run=args.dry_run)
         # Bloque "Explora" del home -> paginas pSEO. Sin esto las 35 comparaciones
         # y las 6 paginas de familia quedan huerfanas: cero enlaces internos desde
         # la pagina mas autoritativa del sitio. /claude-vs-chatgpt/ vale 2.480

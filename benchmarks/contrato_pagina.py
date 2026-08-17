@@ -44,7 +44,10 @@ import json
 import re
 
 CLAVES = ("tipo", "generador", "recomienda")
-TIPOS = ("ranking", "comparacion", "variantes", "landing", "explicativa", "redirect")
+TIPOS = ("ranking", "comparacion", "variantes", "landing", "explicativa", "redirect",
+         # `ficha`: una página por modelo (`/modelo/<key>/`). Publica los números de UN
+         # modelo y enlaza los oficiales al fabricante en vez de copiarlos.
+         "ficha")
 
 _RE = re.compile(
     r'<script type="application/json" id="contrato-pagina">\s*(\{.*?\})\s*</script>',
