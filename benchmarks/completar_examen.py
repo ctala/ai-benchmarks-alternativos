@@ -175,7 +175,7 @@ def main() -> int:
         # Para un lote desatendido esa diferencia es "listo mañana" contra "listo el
         # jueves". El juicio es el mismo modelo; cambia dónde corre. (~$0,07 por modelo.)
         cmd = [PY, str(ROOT / "benchmarks" / "runner.py"), "--judge", "--judge-model",
-               args.judge_model,
+               a.judge_model,
                "--models", x["key"], "--tests", *suites, "--resume", str(rf), "--sin-canario"]
         subprocess.run(cmd, cwd=ROOT)
     # VERIFICAR QUE ALGO CORRIÓ. La v1 imprimía «✅ exámenes completados» sin mirar nada,
