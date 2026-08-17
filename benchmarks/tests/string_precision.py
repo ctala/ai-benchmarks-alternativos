@@ -13,10 +13,14 @@ import random
 import string
 
 # Strings de prueba con dificultad creciente
-# Usamos strings fijos para reproducibilidad
+# Usamos strings fijos para reproducibilidad.
+# ⚠️ NUNCA usar credenciales reales aca. El 17-ago-2026 el valor de "hex_64" era la
+# Secret Key real de Cloudflare R2: se replico sola a PROMPTS.md, TESTS.md y ~600
+# archivos de results/ (cada resultado guarda el prompt), y el repo es publico.
+# Los fixtures se GENERAN: secrets.token_hex(32).
 TEST_STRINGS = {
     "hex_32": "a1b2c3d4e5f6789012345678abcdef90",
-    "hex_64": "CLAVE-ROTADA-Y-PURGADA",
+    "hex_64": "f1f582ca1235582d9d3ff70c348feb6d98c59aee5ef28ad58a20a45d8bfd08cb",  # sintetico, generado con secrets.token_hex(32)
     "api_key": "sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x",
     "jwt_segment": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw",
     "mixed_special": "r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza",
