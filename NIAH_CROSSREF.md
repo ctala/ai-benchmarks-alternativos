@@ -1,4 +1,5 @@
-<!-- doc: vigente | verificado: 2026-05-03 -->
+<!-- doc: snapshot -->
+<!-- Fechado a propósito: triangulación contra papers publicados. La literatura citada no cambia; si cambia, es un doc nuevo. -->
 ---
 title: "NIAH-ES vs literatura — triangulación con benchmarks NIAH oficiales"
 fecha: "2026-04-30"

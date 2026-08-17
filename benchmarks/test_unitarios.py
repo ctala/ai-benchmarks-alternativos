@@ -978,3 +978,29 @@ def test_ninguna_recomendacion_cita_un_modelo_retirado(datos):
                 if r in ln:
                     malas.append(f"{doc}:{n} recomienda «{r}», que está retirado")
     assert not malas, "\n".join(malas)
+
+
+def test_ningun_titulo_promete_un_modelo_retirado(datos):
+    """El `<title>` es lo que Google muestra: si promete un modelo, la página lo tiene.
+
+    `/grok-4-1-vs-4-5/` se titulaba «Grok 4.1, 4.20, 4.3 o 4.5» y **no comparaba 4.1
+    Fast**: está retirado y el generador lo excluye, con razón. Pero el título seguía
+    prometiéndolo, así que quien buscaba «grok 4.1 fast» llegaba a una página que no
+    responde. Filtrar el dato y no el titular deja la promesa colgada.
+    """
+    from pathlib import Path
+    import re as _re
+    retirados = {m["name"] for m in datos["models"] if m.get("retired")}
+    malas = []
+    for idx in sorted((ROOT / "docs").rglob("index.html")):
+        html = idx.read_text(errors="replace")
+        t = _re.search(r"<title>([^<]*)</title>", html)
+        if not t:
+            continue
+        for r in retirados:
+            # se compara sobre el nombre sin el sufijo de tier: «Grok 4.1» basta
+            corto = " ".join(r.split()[:2])
+            if corto in t.group(1) and corto not in _re.sub(r"<title>.*?</title>", "", html):
+                malas.append(f"docs/{idx.parent.name}/ promete «{corto}» en el title "
+                             f"y no lo muestra en la página")
+    assert not malas, "\n".join(malas)

@@ -51,9 +51,16 @@ TOLERANCE = 0.06  # los posts redondean (8.1 vs 8.14): solo marcamos drift real
 
 def load_bench():
     d = json.loads(MODELS_JSON.read_text())
+    # Por ÍNDICE DE CALIDAD, que es el titular desde v4.1 — no por el compuesto.
+    #
+    # El detector seguía ordenando por `score_global` y por eso acusaba al post de citar
+    # mal: decía que Claude Opus 4.8 «es #13» cuando en el ranking publicado es **#5**.
+    # Los dos números existen y miden cosas distintas; el que se publica es la calidad.
+    # Un guardrail que compara contra el criterio viejo convierte un post correcto en un
+    # falso positivo, y eso enseña a ignorarlo.
     ranked = sorted(
-        [m for m in d["models"] if m.get("ranked") and m.get("score_global") is not None],
-        key=lambda m: -m["score_global"],
+        [m for m in d["models"] if m.get("ranked") and m.get("score_calidad") is not None],
+        key=lambda m: -m["score_calidad"],
     )
     pos = {m["name"]: i for i, m in enumerate(ranked, 1)}
     return d, ranked, pos
@@ -177,9 +184,10 @@ def main():
 
     print(f"\n  {total} cifra(s) desactualizada(s).")
     print("  Ojo: el `seoTitle` PISA al `title` — es lo que Google muestra.")
-    print("  Y recordá que el score es z-score: cambia solo con cada modelo nuevo.")
-    print("  Preferí lenguaje durable ('de los más baratos que empatan arriba') a una")
-    print("  posición exacta, que vuelve a caducar en el próximo lote.")
+    print("  El titular es el ÍNDICE DE CALIDAD (escala absoluta, v4.1): una cifra citada")
+    print("  ya NO caduca al medir un modelo nuevo. Lo que sí se mueve son las POSICIONES,")
+    print("  porque el catálogo crece. Preferí lenguaje durable ('de los más baratos que")
+    print("  empatan arriba') a una posición exacta.")
     return 1
 
 
