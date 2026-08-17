@@ -685,7 +685,14 @@ MODELS = {
     },
     "claude-sonnet-4.6": {
         "id": "anthropic/claude-sonnet-4-6",
-        "name": "Claude Sonnet 4.6 (ultimo Anthropic)",
+        # El nombre decía «(ultimo Anthropic)» y era MENTIRA desde que salieron Sonnet 5 y
+        # Opus 5 — los dos rankeados. Un superlativo dentro del nombre de un modelo se
+        # pudre solo: viaja a las 71 páginas, al JSON y al blog, y nadie lo revisa porque
+        # parece parte del identificador. Lo cazó Cristian leyendo la página de agentes.
+        #
+        # Regla que queda: el `name` describe QUÉ es el modelo, nunca su posición ni su
+        # novedad. Eso lo dicen los datos, que se regeneran.
+        "name": "Claude Sonnet 4.6",
         "cost_input": 3.00,
         "cost_output": 15.00,
         "tier": "medium",
