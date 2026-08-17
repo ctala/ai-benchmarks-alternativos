@@ -19,8 +19,17 @@ let SUITES_BY_PILLAR = {};
 function cargarRegistroDeSuites(data) {
   const reg = data.suites || {};
   const out = {};
+  // Cobertura real de cada eje: cuántos rankeados lo rindieron. Una suite recién
+  // agregada tiene 1 o 2 modelos medidos, y ofrecerla en el menú es ofrecer una tabla
+  // vacía — el usuario elige un eje legítimo y no aparece nadie. Lo cazó Q3 el mismo día
+  // que se agregaron tres suites nuevas.
+  const rk = (data.models || []).filter(m => m.ranked);
+  const cobertura = {};
+  for (const m of rk) for (const k of Object.keys(m.score_by_suite || {})) cobertura[k] = (cobertura[k] || 0) + 1;
+  const MIN = Math.max(3, rk.length * 0.5);
   for (const [value, s] of Object.entries(reg)) {
     if (!s.pilar) continue;           // dimensión que se reporta aparte (niah, injection)
+    if ((cobertura[value] || 0) < MIN) continue;   // aún sin cobertura para decidir
     (out[s.pilar] ||= []).push({ value, label: s.menu, decide: s.decide });
   }
   for (const arr of Object.values(out)) arr.sort((a, b) => a.label.localeCompare(b.label, "es"));
