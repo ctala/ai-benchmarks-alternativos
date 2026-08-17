@@ -36,6 +36,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from benchmarks import suites as suites_reg  # noqa: E402
+from benchmarks import validate_suite  # noqa: E402  (los umbrales de saturación)
+from benchmarks.export_for_pages import MIN_SUITE_COVERAGE as COBERTURA_MINIMA  # noqa: E402
 
 CANDIDATAS = [k for k, s in suites_reg.SUITES.items()
               if s["pilar"] and not s["en_promedio"]]
@@ -145,14 +147,54 @@ def main() -> int:
         print("\n  (simulación — nada se escribió. `--aplicar` tras leer el reporte)")
         return 0
 
-    src = (ROOT / "benchmarks" / "suites.py").read_text()
+    # ── el gate: `--aplicar` NO puede aplicar lo que este mismo reporte descartó ──
+    #
+    # Bug real, 17-ago-2026: marcó las tres candidatas `en_promedio: True` mientras su
+    # propio reporte decía que dos tenían 10% de cobertura y habían fallado la validación
+    # por saturación. Marcarlas no las metía al score hoy (el export excluye <80% de
+    # cobertura) — las metía **el día que subieran de cobertura**, sin que nadie decidiera.
+    # Una suite saturada entrando sola a un pilar es exactamente lo que `validate_suite.py`
+    # existe para impedir.
+    #
+    # Es el patrón de siempre en este repo: la regla estaba escrita y no tenía instrumento.
+    # El reporte la enunciaba en pantalla y el código de abajo no la leía.
+    califican, rechazadas = [], []
     for k in CANDIDATAS:
+        rank = sum(1 for m in d["models"]
+                   if m.get("ranked") and k in (m.get("score_by_suite") or {}))
+        tot = sum(1 for m in d["models"] if m.get("ranked"))
+        notas = [(m.get("score_by_suite") or {}).get(k) for m in d["models"]
+                 if m.get("ranked") and k in (m.get("score_by_suite") or {})]
+        notas = [x for x in notas if x is not None]
+        cob = rank / tot if tot else 0.0
+        perf = (sum(1 for x in notas if x >= 9.9) / len(notas)) if notas else 1.0
+        if cob < COBERTURA_MINIMA:
+            rechazadas.append((k, f"{cob:.0%} de cobertura (mínimo {COBERTURA_MINIMA:.0%}): "
+                                  f"entraría castigando al que la rindió primero"))
+        elif perf >= validate_suite.SATURACION_MUERTA:
+            rechazadas.append((k, f"{perf:.0%} de notas perfectas: saturada, no discrimina. "
+                                  f"Endurecela y re-validá antes de sumarla al pilar"))
+        else:
+            califican.append(k)
+
+    if rechazadas:
+        print("\n  ⛔ NO se aplican (el reporte de arriba ya decía por qué):")
+        for k, motivo in rechazadas:
+            print(f"       · {k} — {motivo}")
+
+    if not califican:
+        print("\n  Ninguna candidata califica. Nada se escribió.")
+        return 1
+
+    src = (ROOT / "benchmarks" / "suites.py").read_text()
+    for k in califican:
         i = src.index(f'"{k}": {{')
         j = src.index('"en_promedio": False', i)
         src = src[:j] + '"en_promedio": True' + src[j + len('"en_promedio": False'):]
     (ROOT / "benchmarks" / "suites.py").write_text(src)
-    print(f"\n  ✅ {len(CANDIDATAS)} suite(s) marcadas `en_promedio: True`. "
-          f"Corré regenerate_all.py y revisá el CHANGELOG.")
+    print(f"\n  ✅ {len(califican)} suite(s) marcadas `en_promedio: True`: "
+          f"{', '.join(califican)}.")
+    print(f"     Escribí el motivo en su `nota` de suites.py y corré regenerate_all.py.")
     return 0
 
 

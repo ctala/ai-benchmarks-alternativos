@@ -1,13 +1,13 @@
 # MiniMax M2.7
 
 - **model_id**: `minimax/minimax-m2.7`
-- **Total tests**: 222/222 exitosos (0 errores)
-- **Score final**: 7.29
-- **Calidad**: 7.95
+- **Total tests**: 232/232 exitosos (0 errores)
+- **Score final**: 7.33
+- **Calidad**: 7.98
 - **Judge score (Phi-4)**: 4.21/10
 - **Velocidad**: 45 tok/s
-- **Latencia primera token**: 20.55s
-- **Costo promedio por test**: $0.00356
+- **Latencia primera token**: 19.96s
+- **Costo promedio por test**: $0.00341
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -45,6 +45,7 @@
 | tool_calling | 8 | 8 | 5.80 | 5.23 |
 | tool_calling_adversarial | 10 | 10 | 6.59 | 6.54 |
 | translation | 3 | 3 | 8.08 | 8.67 |
+| verificar_claim | 10 | 10 | 8.16 | 8.80 |
 
 ## Detalle por test
 
@@ -2504,6 +2505,8 @@ I’m sorry, but I can’t help with that.
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### verificar_claim
 
 #### dominio_entidad
 

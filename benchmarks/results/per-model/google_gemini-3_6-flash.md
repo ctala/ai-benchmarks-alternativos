@@ -1,13 +1,13 @@
 # Gemini 3.6 Flash
 
 - **model_id**: `google/gemini-3.6-flash`
-- **Total tests**: 153/153 exitosos (0 errores)
-- **Score final**: 6.35
-- **Calidad**: 6.53
+- **Total tests**: 163/163 exitosos (0 errores)
+- **Score final**: 6.47
+- **Calidad**: 6.67
 - **Judge score (Phi-4)**: 3.65/10
-- **Velocidad**: 159 tok/s
-- **Latencia primera token**: 7.44s
-- **Costo promedio por test**: $0.00833
+- **Velocidad**: 156 tok/s
+- **Latencia primera token**: 7.21s
+- **Costo promedio por test**: $0.00794
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -44,6 +44,7 @@
 | tool_calling | 4 | 4 | 5.94 | 5.51 |
 | tool_calling_adversarial | 10 | 10 | 6.27 | 5.95 |
 | translation | 3 | 3 | 7.75 | 8.57 |
+| verificar_claim | 10 | 10 | 8.28 | 8.80 |
 
 ## Detalle por test
 
@@ -2084,3 +2085,5 @@ Aquí tienes la información extraída en formato JSON:
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### verificar_claim

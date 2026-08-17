@@ -1,13 +1,13 @@
 # Qwen 3-Next 80B Instruct
 
 - **model_id**: `qwen/qwen3-next-80b-a3b-instruct`
-- **Total tests**: 147/147 exitosos (0 errores)
-- **Score final**: 7.67
-- **Calidad**: 7.86
+- **Total tests**: 157/157 exitosos (0 errores)
+- **Score final**: 7.75
+- **Calidad**: 7.95
 - **Judge score (Phi-4)**: 4.43/10
-- **Velocidad**: 108 tok/s
-- **Latencia primera token**: 7.71s
-- **Costo promedio por test**: $0.00149
+- **Velocidad**: 104 tok/s
+- **Latencia primera token**: 7.30s
+- **Costo promedio por test**: $0.00139
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -43,6 +43,7 @@
 | tool_calling | 4 | 4 | 7.28 | 6.75 |
 | tool_calling_adversarial | 10 | 10 | 6.74 | 6.12 |
 | translation | 5 | 5 | 8.49 | 8.58 |
+| verificar_claim | 10 | 10 | 8.95 | 9.30 |
 
 ## Detalle por test
 
@@ -2695,3 +2696,5 @@ Ventas alcanzaron $2.3M (+18% vs Q4’25), impulsadas por crecimiento del 32% en
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### verificar_claim

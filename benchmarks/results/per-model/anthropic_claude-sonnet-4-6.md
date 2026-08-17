@@ -1,13 +1,13 @@
-# Claude Sonnet 4.6 (ultimo Anthropic)
+# Claude Sonnet 4.6
 
 - **model_id**: `anthropic/claude-sonnet-4-6`
-- **Total tests**: 151/151 exitosos (0 errores)
-- **Score final**: 6.90
-- **Calidad**: 7.90
+- **Total tests**: 175/175 exitosos (0 errores)
+- **Score final**: 6.99
+- **Calidad**: 7.94
 - **Judge score (Phi-4)**: 4.35/10
-- **Velocidad**: 50 tok/s
-- **Latencia primera token**: 15.49s
-- **Costo promedio por test**: $0.02267
+- **Velocidad**: 47 tok/s
+- **Latencia primera token**: 13.71s
+- **Costo promedio por test**: $0.01994
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -40,9 +40,10 @@
 | structured_output | 4 | 4 | 7.27 | 8.00 |
 | summarization | 2 | 2 | 6.90 | 7.70 |
 | task_management | 3 | 3 | 7.91 | 9.40 |
-| tool_calling | 8 | 8 | 5.22 | 5.04 |
+| tool_calling | 12 | 12 | 5.22 | 5.02 |
 | tool_calling_adversarial | 10 | 10 | 6.13 | 6.54 |
 | translation | 4 | 4 | 7.21 | 7.88 |
+| verificar_claim | 20 | 20 | 7.97 | 8.85 |
 
 ## Detalle por test
 
@@ -1708,6 +1709,10 @@ Para autenticarte con la API, incluye tu Bearer token en el header de Authorizat
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
+| single_tool_calendar | 5.28 | 5.00 | - | 64 | 2.21s | OK |
+| multi_tool_sequential | 5.19 | 5.00 | - | 66 | 4.86s | OK |
+| tool_with_reasoning | 5.23 | 5.00 | - | 59 | 3.98s | OK |
+| no_tool_needed | 5.15 | 5.00 | - | 41 | 2.59s | OK |
 | single_tool_calendar | 5.28 | 5.00 | - | 66 | 2.12s | OK |
 | multi_tool_sequential | 5.20 | 5.00 | - | 62 | 4.77s | OK |
 | tool_with_reasoning | 5.23 | 5.00 | - | 74 | 3.13s | OK |
@@ -1716,6 +1721,56 @@ Para autenticarte con la API, incluye tu Bearer token en el header de Authorizat
 | multi_tool_sequential | 4.71 | 4.30 | 2.0 | 65 | 4.57s | OK |
 | tool_with_reasoning | 4.15 | 3.46 | 1.4 | 70 | 3.31s | OK |
 | no_tool_needed | 7.02 | 7.66 | 4.4 | 35 | 2.57s | OK |
+
+<details><summary><code>single_tool_calendar</code> — score 5.28</summary>
+
+**Stats**: latencia 2.21s · 64 tok/s · 1047→140 tokens · $0.00524
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Claro! Voy a crear el evento en el calendario ahora mismo.
+```
+
+</details>
+
+<details><summary><code>multi_tool_sequential</code> — score 5.19</summary>
+
+**Stats**: latencia 4.86s · 66 tok/s · 1088→322 tokens · $0.00809
+
+**Respuesta (preview 300 chars)**:
+
+```
+Voy a ejecutar ambas acciones simultáneamente ahora mismo. ¡Las dos son independientes entre sí!
+```
+
+</details>
+
+<details><summary><code>tool_with_reasoning</code> — score 5.23</summary>
+
+**Stats**: latencia 3.98s · 59 tok/s · 1091→234 tokens · $0.00678
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Perfecto! Voy a hacer ambas cosas al mismo tiempo ahora mismo. 🚀
+```
+
+</details>
+
+<details><summary><code>no_tool_needed</code> — score 5.15</summary>
+
+**Stats**: latencia 2.59s · 41 tok/s · 1010→105 tokens · $0.00460
+
+**Respuesta (preview 300 chars)**:
+
+```
+La capital de Francia es **París**.
+
+París es una de las ciudades más importantes y reconocidas del mundo, conocida por ser el centro político, cultural, económico y turístico del país. Alberga monumentos icónicos como la Torre Eiffel, el Museo del Louvre y la Catedral de Notre-Dame, entre muchos ot
+```
+
+</details>
 
 <details><summary><code>single_tool_calendar</code> — score 5.28</summary>
 
@@ -2713,3 +2768,5 @@ Para los puntos **1** y **2** puedo actuar ahora mismo (uno ejecutándolo, otro 
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### verificar_claim

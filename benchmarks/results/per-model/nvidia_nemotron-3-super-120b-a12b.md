@@ -1,13 +1,13 @@
 # Nemotron 3 Super
 
 - **model_id**: `nvidia/nemotron-3-super-120b-a12b`
-- **Total tests**: 502/590 exitosos (88 errores)
-- **Score final**: 7.04
-- **Calidad**: 7.72
+- **Total tests**: 512/600 exitosos (88 errores)
+- **Score final**: 7.07
+- **Calidad**: 7.74
 - **Judge score (Phi-4)**: 3.83/10
 - **Velocidad**: 90 tok/s
-- **Latencia primera token**: 39.78s
-- **Costo promedio por test**: $0.00318
+- **Latencia primera token**: 39.17s
+- **Costo promedio por test**: $0.00311
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -44,6 +44,7 @@
 | task_management | 6 | 6 | 7.75 | 8.60 |
 | tool_calling | 8 | 5 | 6.63 | 6.75 |
 | translation | 6 | 6 | 7.56 | 7.56 |
+| verificar_claim | 10 | 10 | 8.32 | 8.70 |
 
 ## Detalle por test
 
@@ -4239,3 +4240,5 @@ En Q1 2026, TechFlow alcanzó ventas de $2.3 M (+18 % vs Q4 2025), impul
 #### content_verificable
 
 #### agent_long_horizon
+
+#### verificar_claim

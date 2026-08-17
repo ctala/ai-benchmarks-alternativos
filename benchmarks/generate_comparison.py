@@ -343,6 +343,14 @@ HUERFANAS_DECLARADAS = {
 # TODOS los generadores, no solo éste: dos scripts distintos escriben en `docs/*-vs-*/`.
 
 
+def _contrato_redirect(slug, cfg):
+    """Un redirect también declara qué es. Sin esto, R7 lo marca en cada regeneración:
+    el contrato se ponía a mano y el generador lo pisaba."""
+    from contrato_pagina import emitir
+    return emitir(tipo="redirect", generador="generate_comparison", recomienda=[],
+                  nota=cfg["por_que"])
+
+
 def escribir_redirects():
     """Convierte cada huérfana declarada en un redirect al recurso vivo.
 
@@ -365,6 +373,7 @@ def escribir_redirects():
 </head>
 <body>
 <p>Esta comparación se movió a <a href="{destino}">{destino}</a>.</p>
+{_contrato_redirect(slug, cfg)}
 <!-- redirect · {esc(cfg['por_que'])} -->
 </body>
 </html>
@@ -924,8 +933,14 @@ def faq(a_name, b_name, A, B):
 </section>"""
 
 
-def page_shell(title, desc, kw, url, body):
-    """Shell HTML reusable (head + header + main + footer). Lo comparten comparaciones y rankings."""
+def page_shell(title, desc, kw, url, body, contrato=None):
+    """Shell HTML reusable (head + header + main + footer). Lo comparten comparaciones y rankings.
+
+    `contrato` es el bloque que declara QUÉ publica la página — tipo, generador y qué
+    modelos recomienda. Sin él, el auditor tiene que inferir la estructura del HTML con
+    expresiones regulares, y las 71 páginas tienen ocho formas distintas: cada regex
+    cubre unas y deja otras ciegas. Ver `contrato_pagina.py`.
+    """
     today = date.today().isoformat()
     published = existing_published(url, today)
     jsonld = json.dumps({
@@ -1047,6 +1062,7 @@ def page_shell(title, desc, kw, url, body):
 </header>
 <main class="container">
 {body}
+{contrato or ''}
 </main>
 <footer>
   <div class="container">
@@ -1100,7 +1116,14 @@ def render(cfg, A, B):
     <p>Filtra {esc(a_name)}, {esc(b_name)} y 100+ modelos más por presupuesto, calidad y tipo de tarea. En 30 segundos encuentras el mejor para ti.</p>
     <a href="/" class="cta-primary">Ir a la calculadora →</a>
   </section>"""
-    return page_shell(cfg["title"], desc, cfg["intent_kw"], url, body)
+    from contrato_pagina import emitir as _contrato
+    return page_shell(cfg["title"], desc, cfg["intent_kw"], url, body,
+                      contrato=_contrato(
+                          tipo="comparacion", generador="generate_comparison",
+                          recomienda=[m.get("name") for m in (A[:5] + B[:5])],
+                          ordena_por="Calidad (media de los 4 pilares)",
+                          tablas=[{"rol": "principal", "ordena_por": "Calidad",
+                                   "filas": len(A[:5] + B[:5]), "bloques": 2}]))
 
 
 def main():

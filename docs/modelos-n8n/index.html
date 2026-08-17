@@ -169,7 +169,7 @@
   <section class="results">
     <div class="results-header">
       <h2>Top 10 modelos para N8N (priorizando tool calling + velocidad)</h2>
-      <p class="meta">Ordenados por score en el pilar Agentes. Tool calling es badge de capacidad, no entra en el score global v4.4.2.</p>
+      <p class="meta">Ordenados por score en el pilar Agentes. Tool calling es badge de capacidad, no entra en el score global v4.5.0.</p>
     </div>
 
     <div class="table-scroll"><table class="results-table">
@@ -177,16 +177,16 @@
         <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Tarea real en agente</th><th scope="col">$ in/out per M</th><th scope="col">Tok/s</th><th scope="col">License</th></tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td><strong>Claude Opus 4.8</strong></td><td><strong>9.34</strong></td><td>$5.00 / $25.00</td><td>64</td><td>Propietaria</td></tr>
-        <tr><td>2</td><td>Claude Opus 4.7</td><td><strong>9.29</strong></td><td>$5.00 / $25.00</td><td>60</td><td>Propietaria</td></tr>
-        <tr><td>3</td><td>Qwen 3.7 Max</td><td><strong>9.29</strong></td><td>$1.48 / $4.42</td><td>56</td><td>Propietaria</td></tr>
-        <tr><td>4</td><td>Kimi K2</td><td><strong>9.29</strong></td><td>$0.57 / $2.30</td><td>33</td><td>Modified MIT</td></tr>
-        <tr><td>5</td><td>MiMo-V2.5 Pro</td><td><strong>9.27</strong></td><td>$0.43 / $0.87</td><td>51</td><td>Propietaria</td></tr>
-        <tr><td>6</td><td>Kimi K3</td><td><strong>9.27</strong></td><td>$3.00 / $15.00</td><td>35</td><td>Open source</td></tr>
-        <tr><td>7</td><td>GLM 5.2</td><td><strong>9.26</strong></td><td>$0.49 / $1.54</td><td>54</td><td>MIT</td></tr>
-        <tr><td>8</td><td>Qwen 3.6 Plus</td><td><strong>9.18</strong></td><td>$0.33 / $1.95</td><td>52</td><td>Propietaria</td></tr>
-        <tr><td>9</td><td>Qwen 3.5 397B</td><td><strong>9.16</strong></td><td>$0.50 / $3.60</td><td>65</td><td>Apache 2.0</td></tr>
-        <tr><td>10</td><td>Grok 4.5</td><td><strong>9.15</strong></td><td>$2.00 / $6.00</td><td>92</td><td>Propietaria</td></tr>
+        <tr><td>1</td><td><strong>Claude Sonnet 4.6</strong></td><td><strong>9.40</strong></td><td>$3.00 / $15.00</td><td>47</td><td>Propietaria</td></tr>
+        <tr><td>2</td><td>Claude Opus 4.8</td><td><strong>9.34</strong></td><td>$5.00 / $25.00</td><td>60</td><td>Propietaria</td></tr>
+        <tr><td>3</td><td>Claude Opus 4.7</td><td><strong>9.29</strong></td><td>$5.00 / $25.00</td><td>57</td><td>Propietaria</td></tr>
+        <tr><td>4</td><td>Qwen 3.7 Max</td><td><strong>9.29</strong></td><td>$1.48 / $4.42</td><td>56</td><td>Propietaria</td></tr>
+        <tr><td>5</td><td>Kimi K2</td><td><strong>9.29</strong></td><td>$0.57 / $2.30</td><td>33</td><td>Modified MIT</td></tr>
+        <tr><td>6</td><td>MiMo-V2.5 Pro</td><td><strong>9.27</strong></td><td>$0.43 / $0.87</td><td>49</td><td>Propietaria</td></tr>
+        <tr><td>7</td><td>Kimi K3</td><td><strong>9.27</strong></td><td>$3.00 / $15.00</td><td>35</td><td>Open source</td></tr>
+        <tr><td>8</td><td>GLM 5.2</td><td><strong>9.26</strong></td><td>$0.49 / $1.54</td><td>52</td><td>MIT</td></tr>
+        <tr><td>9</td><td>Qwen 3.6 Plus</td><td><strong>9.18</strong></td><td>$0.33 / $1.95</td><td>52</td><td>Propietaria</td></tr>
+        <tr><td>10</td><td>Qwen 3.5 397B</td><td><strong>9.16</strong></td><td>$0.50 / $3.60</td><td>65</td><td>Apache 2.0</td></tr>
       </tbody>
     </table></div>
 
@@ -200,9 +200,22 @@
 
     <h3>Si tu agente hace 100-500 calls/día con tool calling crítico</h3>
     <p>
-      <strong>Llama 3.1 8B Instant (Groq)</strong> es la elección dominante. 367 tok/s significa que workflows
-      con 5-10 LLM calls encadenados se sienten instantáneos. El JSON output es robusto — testeado en
-      <code>code_generation/n8n_workflow_json</code>.
+      <strong>Qwen 3.7 Flash</strong> es la mejor combinación medida: <strong>8,18 en tool calling</strong>
+      —el más alto del corte barato— con calidad 8,46 y $0,20 por cada 1.000 llamadas. El JSON output
+      es robusto, testeado en <code>code_generation/n8n_workflow_json</code>.
+    </p>
+    <p>
+      Si lo que te duele es la <em>espera</em> y no el costo, <strong>Llama 4 Scout 17B</strong> responde
+      en 7,6 s contra los 28 s de Qwen, y paga por eso medio punto de tool calling (7,62) y $0,48.
+      En un workflow de 5-10 llamadas encadenadas, esa diferencia son minutos por corrida.
+    </p>
+    <p class="nota">
+      Hasta el 16 de agosto de 2026 acá recomendábamos <strong>Llama 3.1 8B Instant en Groq</strong>,
+      que respondía en 1,3 s gracias a su LPU. <strong>Groq lo apagó</strong>, junto con Llama 3.3 70B
+      Versatile. Vale decir lo que se perdió: <strong>ningún modelo del ranking iguala esa latencia</strong>
+      por otra ruta. Groq recomienda migrar a GPT-OSS, y ahí conviene mirar el número que su anuncio no
+      menciona: <strong>GPT-OSS marca 6,4-6,5 en tool calling</strong> contra 8,0 del que reemplaza. Si tu
+      agente solo redacta, es un buen cambio; si llama herramientas, es un retroceso.
     </p>
 
     <h3>Si construyes un SaaS con miles de calls/mes</h3>
@@ -260,6 +273,10 @@
   <a href="/" class="cta-primary">Ir a la calculadora →</a>
   <p class="meta" style="margin-top: 1rem;">Ver también: <a href="/alternativas-claude/">alternativas a Claude</a> · <a href="/alternativas-chatgpt/">alternativas a ChatGPT</a> · <a href="/alternativas-gemini/">alternativas a Gemini</a> · <a href="/modelos-open-source-local/">open-source local</a></p>
 </section>
+{contrato}
+<script type="application/json" id="contrato-pagina">
+{"tipo": "landing", "generador": "generate_manual_landings", "recomienda": ["Claude Sonnet 4.6", "Claude Opus 4.8", "Claude Opus 4.7", "Qwen 3.7 Max", "Kimi K2", "MiMo-V2.5 Pro", "Kimi K3", "GLM 5.2", "Qwen 3.6 Plus", "Qwen 3.5 397B"]}
+</script>
 </main>
 
 <footer>

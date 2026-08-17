@@ -1,13 +1,13 @@
 # MiMo-V2.5 Pro
 
 - **model_id**: `xiaomi/mimo-v2.5-pro`
-- **Total tests**: 147/147 exitosos (0 errores)
-- **Score final**: 7.41
-- **Calidad**: 8.05
+- **Total tests**: 157/157 exitosos (0 errores)
+- **Score final**: 7.45
+- **Calidad**: 8.09
 - **Judge score (Phi-4)**: 4.34/10
-- **Velocidad**: 50 tok/s
-- **Latencia primera token**: 25.34s
-- **Costo promedio por test**: $0.00193
+- **Velocidad**: 49 tok/s
+- **Latencia primera token**: 24.22s
+- **Costo promedio por test**: $0.00181
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -43,6 +43,7 @@
 | tool_calling | 4 | 4 | 5.60 | 5.35 |
 | tool_calling_adversarial | 10 | 10 | 6.57 | 6.82 |
 | translation | 4 | 4 | 7.75 | 8.15 |
+| verificar_claim | 10 | 10 | 8.00 | 8.67 |
 
 ## Detalle por test
 
@@ -2610,3 +2611,5 @@ Aquí tienes los tres perfiles extraídos en formato JSON:
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### verificar_claim

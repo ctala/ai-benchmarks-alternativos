@@ -826,9 +826,16 @@ MODELS = {
         # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
         # Esta fila conserva la medición vía Groq para comparar infraestructuras.
         "provider_variant": True,
-        # Vivo en Groq, pero GROQ_API_KEY está vacía → no lo podemos medir.
-        # NO es retired: el modelo existe. Solo nos falta la llave.
-        "unavailable": "falta GROQ_API_KEY",
+        # Hasta el 16-ago-2026 decía «falta GROQ_API_KEY, NO es retired». Esa distinción
+        # era correcta y sigue importando: una credencial ausente no es un modelo muerto.
+        # Lo que cambió es que ahora hay evidencia externa — Groq lo apagó de verdad.
+        "retired": True,
+        "retired_at": "2026-08-16",
+        "retired_reason": (
+            "Groq deprecó el endpoint (anunciado por correo el 17-jun-2026, apagado el "
+            "16-ago). Recomiendan migrar a openai/gpt-oss-120b o qwen/qwen3.6-27b. "
+            "El modelo Llama 3.3 70B sigue vivo en OpenRouter: lo que murió es esta ruta."),
+        "retired_kind": "provider",
         "id": "llama-3.3-70b-versatile",
         "name": "Llama 3.3 70B (Groq)",
         "cost_input": 0.59, "cost_output": 0.79,
@@ -839,9 +846,13 @@ MODELS = {
         # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
         # Esta fila conserva la medición vía Groq para comparar infraestructuras.
         "provider_variant": True,
-        # Vivo en Groq, pero GROQ_API_KEY está vacía → no lo podemos medir.
-        # NO es retired: el modelo existe. Solo nos falta la llave.
-        "unavailable": "falta GROQ_API_KEY",
+        "retired": True,
+        "retired_at": "2026-08-16",
+        "retired_reason": (
+            "Groq deprecó el endpoint (anunciado el 17-jun-2026, apagado el 16-ago). "
+            "Recomiendan migrar a openai/gpt-oss-20b. Ojo: era el mejor de Groq en tool "
+            "calling (8,01) y el reemplazo sugerido marca 6,45."),
+        "retired_kind": "provider",
         "id": "llama-3.1-8b-instant",
         "name": "Llama 3.1 8B Instant (Groq)",
         "cost_input": 0.05, "cost_output": 0.08,

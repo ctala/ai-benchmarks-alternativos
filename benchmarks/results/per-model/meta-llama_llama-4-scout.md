@@ -1,13 +1,13 @@
 # Llama 4 Scout 17B
 
 - **model_id**: `meta-llama/llama-4-scout`
-- **Total tests**: 138/138 exitosos (0 errores)
-- **Score final**: 7.87
-- **Calidad**: 7.83
+- **Total tests**: 148/148 exitosos (0 errores)
+- **Score final**: 7.88
+- **Calidad**: 7.84
 - **Judge score (Phi-4)**: 4.22/10
-- **Velocidad**: 142 tok/s
-- **Latencia primera token**: 5.39s
-- **Costo promedio por test**: $0.00029
+- **Velocidad**: 135 tok/s
+- **Latencia primera token**: 5.12s
+- **Costo promedio por test**: $0.00027
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -43,6 +43,7 @@
 | tool_calling | 4 | 4 | 7.42 | 6.75 |
 | tool_calling_adversarial | 10 | 10 | 6.80 | 6.12 |
 | translation | 3 | 3 | 7.41 | 7.09 |
+| verificar_claim | 10 | 10 | 8.02 | 8.00 |
 
 ## Detalle por test
 
@@ -2412,3 +2413,5 @@ Aquí te dejo la información de los 3 perfiles de candidatos en formato JSON:
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### verificar_claim

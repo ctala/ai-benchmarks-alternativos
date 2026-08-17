@@ -1,13 +1,13 @@
 # GLM 5.2
 
 - **model_id**: `z-ai/glm-5.2`
-- **Total tests**: 223/224 exitosos (1 errores)
-- **Score final**: 7.13
-- **Calidad**: 8.06
+- **Total tests**: 233/234 exitosos (1 errores)
+- **Score final**: 7.17
+- **Calidad**: 8.09
 - **Judge score (Phi-4)**: 3.82/10
-- **Velocidad**: 49 tok/s
-- **Latencia primera token**: 30.27s
-- **Costo promedio por test**: $0.02512
+- **Velocidad**: 48 tok/s
+- **Latencia primera token**: 29.45s
+- **Costo promedio por test**: $0.02406
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -45,6 +45,7 @@
 | tool_calling | 4 | 4 | 5.51 | 5.49 |
 | tool_calling_adversarial | 10 | 10 | 6.72 | 6.54 |
 | translation | 8 | 7 | 7.04 | 7.57 |
+| verificar_claim | 10 | 10 | 8.19 | 8.90 |
 
 ## Detalle por test
 
@@ -2373,3 +2374,5 @@ Ventas de $2.3M (+18% QoQ) con un runway de 14 meses. El segmento enterprise cre
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### verificar_claim

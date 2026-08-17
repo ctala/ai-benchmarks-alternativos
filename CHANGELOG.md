@@ -3,6 +3,104 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v4.5.0] - 2026-08-17 — Verificar un dato entra al índice, y las páginas dejan de adivinarse
+
+### El eje nuevo: verificar un claim contra su fuente
+
+Un eje que ningún benchmark general mide y que decide cualquier flujo que publique sin
+humano revisando: **¿la fuente respalda lo que dice el titular?** Se mide en las **dos
+direcciones**, que es lo que casi nadie hace — dejar pasar lo inventado publica un dato
+falso con fuente citada; bloquear lo que sí estaba tira trabajo ya pagado. Medir una sola
+premia al que bloquea todo.
+
+**83 modelos rankeados, rango 6,30 – 8,65, σ 0,37, cero notas perfectas.** Lidera Claude
+Opus 4.8 (8,29); entre los baratos, Qwen 3-Next 80B (8,65) y Nemotron 3.5 Lightning (8,59).
+
+Entra al promedio del pilar Contenido y **mueve 77 de 83 modelos de puesto**: GPT-5.4 sube
+31, Hermes 4 405B sube 29, Qwen 3.5 35B baja 21. En el ranking global el movimiento es
+menor (máximo 10 puestos) porque Contenido es un pilar entre varios. Eso es la suite
+haciendo lo que se le pidió: separar al que **escribe** bien del que **verifica** bien, que
+hasta hoy eran indistinguibles.
+
+**Nació saturada y no se publicó así.** La v1 tenía seis casos y **cinco daban nota
+perfecta en todos los modelos** — 95% de runs perfectos. Yo la había probado en UNO, que es
+exactamente el error que la Regla 0.7 del runbook describe. `validate_suite.py` la rechazó
+con ocho modelos repartidos por el rango. Las trampas viejas eran de tipografía («42»
+contra «4,2»); las nuevas son la distancia entre lo que una fuente **afirma** y lo que un
+lector **infiere**: la cuenta que da pero nadie hizo, el plan que no es hecho, la
+atribución que no es afirmación.
+
+### El `--aplicar` que no leía su propio reporte
+
+`simular_pilares.py --aplicar` marcó **tres** suites como parte del promedio mientras el
+reporte que acababa de imprimir decía que dos tenían **10% de cobertura** y habían fallado
+la validación por saturación (una con **100% de runs perfectos y dispersión 0,00**).
+
+Hoy no entraban al score —el export excluye lo que está bajo 80% de cobertura— pero
+habrían entrado **solas el día que subiera la cobertura**, sin que nadie lo decidiera. El
+gate ahora usa los umbrales de `validate_suite.py` y se niega, nombrando el motivo. Y las
+dos notas del registro dicen ahora que están fuera **por saturación, no por cobertura**:
+la distinción cambia qué hay que hacer para arreglarlas.
+
+Mismo patrón de siempre: la regla estaba escrita, la imprimía en pantalla, y el código de
+abajo no la leía.
+
+### Las páginas declaran lo que publican
+
+Cristian, después del cuarto arreglo seguido en el auditor: *"solucionemos de manera
+definitiva lo de las páginas"*.
+
+Los cuatro arreglos anteriores eran **el mismo arreglo**. El auditor infería la estructura
+del HTML con expresiones regulares y las 71 páginas tienen **ocho formas distintas**: cada
+regex cubría unas y dejaba otras ciegas. P2 mezclaba las filas de dos tablas y declaraba
+desordenada una página ordenada; P3 no miraba 10 páginas sin columna de puesto; P4 contaba
+«cero filas» en páginas con 48.
+
+Ahora cada página **emite un contrato JSON** con lo que promete —tipo, generador, qué
+recomienda, qué ordena, cuántas tablas— y el auditor lo lee. **71 de 71 lo declaran**, y
+R7 impide publicar una sin él: un formato nuevo ya no puede entrar en silencio.
+
+Es la tercera vez que este repo resuelve un problema así con el mismo movimiento (el
+registro de suites, `m["elegible"]`, y ahora esto): **cuando el dato viaja declarado, nadie
+tiene que reconstruirlo.**
+
+### Groq apagó dos endpoints, y el guardrail frenó la publicación
+
+Groq deprecó `llama-3.3-70b-versatile` y `llama-3.1-8b-instant` el 16-ago. Se marcan
+retirados, con la aclaración de que **el modelo Llama 3.3 70B sigue vivo en OpenRouter**:
+lo que murió es la ruta.
+
+El registro decía antes *«falta GROQ_API_KEY, NO es retired»*, y esa distinción era
+correcta y sigue importando — una credencial ausente no es un modelo muerto. Lo que cambió
+es que ahora hay evidencia externa.
+
+Al regenerar, el pipeline **bloqueó la publicación**: `/modelos-n8n/` recomendaba el
+endpoint recién apagado. Se reemplazó por Qwen 3.7 Flash (tool calling 8,18, el más alto
+del corte barato) y Llama 4 Scout 17B para quien prioriza latencia, diciendo lo que se
+perdió: **ningún modelo del ranking iguala los 1,3 s de la LPU de Groq** por otra ruta.
+
+Y un dato que el anuncio de Groq no menciona: los reemplazos que recomienda son GPT-OSS, y
+**GPT-OSS marca 6,4-6,5 en tool calling contra 8,0 del que reemplaza** — el mismo número
+por las dos rutas, así que es el modelo y no el serving. Si el agente solo redacta es buen
+cambio; si llama herramientas, es un retroceso.
+
+### Además
+
+- **151 runs de Claude Sonnet 4.6 recuperados**: renombrar el modelo los había dejado
+  huérfanos (el export agrupa por `(model_id, name)`) y el modelo figuraba con 0 runs, con
+  4 páginas de comparación mostrando un lado vacío. El guardrail nuevo encontró de
+  inmediato otro caso preexistente: **Gemma 4 31B con 77 huérfanos** — declarado, pendiente
+  de decidir.
+- **`/mejor-llm-barato/` ordenaba por una columna que no mostraba.** Era la única página
+  que no había pasado por el arreglo de los rankings por pilar. De paso, P2 asumía que
+  «mayor es mejor» y marcaba como desordenada una página perfectamente ordenada de menor a
+  mayor precio.
+- **`check_cobertura.py`**, siete reglas transversales que preguntan lo que ningún
+  guardrail preguntaba: *¿esto que hicimos acá, debería estar también allá?* Nació de
+  encontrar la segunda tabla en 2 de 16 páginas y W6 verificando 2 de 8 promesas del
+  wizard. Encontró, dentro de un guardrail, que el regex de markdown de
+  `check_consistency` no tenía el `(?:de\s+)?` que sí tenía el de HTML.
+
 ## [v4.4.2] - 2026-08-16 — El QA es uno solo, y la herramienta que desbloqueaba modelos no podía funcionar
 
 ### La fuente única de elegibilidad

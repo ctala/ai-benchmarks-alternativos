@@ -1,13 +1,13 @@
 # Qwen3 Coder
 
 - **model_id**: `qwen/qwen3-coder`
-- **Total tests**: 156/156 exitosos (0 errores)
-- **Score final**: 7.41
-- **Calidad**: 7.76
+- **Total tests**: 166/166 exitosos (0 errores)
+- **Score final**: 7.46
+- **Calidad**: 7.80
 - **Judge score (Phi-4)**: 4.18/10
-- **Velocidad**: 62 tok/s
-- **Latencia primera token**: 9.75s
-- **Costo promedio por test**: $0.00140
+- **Velocidad**: 60 tok/s
+- **Latencia primera token**: 9.28s
+- **Costo promedio por test**: $0.00131
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -43,6 +43,7 @@
 | tool_calling | 8 | 8 | 6.23 | 5.95 |
 | tool_calling_adversarial | 10 | 10 | 5.55 | 5.42 |
 | translation | 3 | 3 | 7.70 | 7.56 |
+| verificar_claim | 10 | 10 | 8.22 | 8.50 |
 
 ## Detalle por test
 
@@ -2404,3 +2405,5 @@ TechFlow reporta un crecimiento del 18% en ventas trimestrales, alcanzando $2.3M
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### verificar_claim

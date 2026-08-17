@@ -1,13 +1,13 @@
 # Llama 4 Maverick
 
 - **model_id**: `meta-llama/llama-4-maverick`
-- **Total tests**: 301/305 exitosos (4 errores)
-- **Score final**: 7.05
-- **Calidad**: 7.71
+- **Total tests**: 311/315 exitosos (4 errores)
+- **Score final**: 7.08
+- **Calidad**: 7.73
 - **Judge score (Phi-4)**: 3.38/10
-- **Velocidad**: 28 tok/s
-- **Latencia primera token**: 10.49s
-- **Costo promedio por test**: $0.01061
+- **Velocidad**: 29 tok/s
+- **Latencia primera token**: 10.25s
+- **Costo promedio por test**: $0.01027
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -45,6 +45,7 @@
 | tool_calling | 4 | 4 | 5.98 | 6.05 |
 | tool_calling_adversarial | 10 | 10 | 6.76 | 6.12 |
 | translation | 3 | 3 | 7.86 | 7.93 |
+| verificar_claim | 10 | 10 | 8.05 | 8.17 |
 
 ## Detalle por test
 
@@ -2194,3 +2195,5 @@ Aquí está la información extraída de los 3 perfiles de candidatos en formato
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### verificar_claim

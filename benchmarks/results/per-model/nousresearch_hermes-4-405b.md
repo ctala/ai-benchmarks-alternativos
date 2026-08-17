@@ -1,13 +1,13 @@
 # Hermes 4 405B
 
 - **model_id**: `nousresearch/hermes-4-405b`
-- **Total tests**: 159/184 exitosos (25 errores)
-- **Score final**: 7.50
+- **Total tests**: 169/194 exitosos (25 errores)
+- **Score final**: 7.54
 - **Calidad**: 8.30
 - **Judge score (Phi-4)**: 4.29/10
 - **Velocidad**: 33 tok/s
-- **Latencia primera token**: 14.65s
-- **Costo promedio por test**: $0.00270
+- **Latencia primera token**: 13.87s
+- **Costo promedio por test**: $0.00254
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -45,6 +45,7 @@
 | tool_calling | 8 | 0 | - | - |
 | tool_calling_adversarial | 10 | 10 | 7.35 | 7.80 |
 | translation | 3 | 3 | 7.18 | 7.46 |
+| verificar_claim | 10 | 10 | 8.08 | 8.40 |
 
 ## Detalle por test
 
@@ -2749,6 +2750,8 @@ TechFlow reportó un sólido Q1 2026 con ventas totales de $2.3M (+18% vs Q4 202
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### verificar_claim
 
 #### dominio_entidad
 

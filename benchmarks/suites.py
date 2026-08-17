@@ -235,28 +235,34 @@ SUITES = {
     # ya se aplica a `integridad_idioma`. Pasan a `en_promedio: True` cuando tengan
     # cobertura (~80% de los rankeados).
     "verificar_claim": {
-        "pilar": "Contenido", "en_promedio": False,
+        "pilar": "Contenido", "en_promedio": True,
         "menu": "Verificar un dato contra su fuente",
         "decide": "decidir si una fuente respalda una afirmación",
-        "nota": "suite nueva, cobertura insuficiente para promediar. Mide las DOS "
-                "direcciones del error: dejar pasar lo inventado y bloquear lo que sí "
-                "estaba. Medir una sola engaña.",
+        "nota": "entró al promedio el 17-ago-2026 con 83/83 rankeados medidos (100%). "
+                "Mide las DOS direcciones del error: dejar pasar lo inventado y bloquear "
+                "lo que sí estaba. Medir una sola engaña.",
     },
     "extraer_claims": {
         "pilar": "Contenido", "en_promedio": False,
         "menu": "Extraer los datos verificables de un texto",
         "decide": "sacar TODOS los datos, no solo los fáciles",
-        "nota": "suite nueva, cobertura insuficiente. Mide COBERTURA además de "
-                "precisión: un extractor que saca 2 de 8 datos correctos tiene 100% de "
-                "precisión y deja el 75% sin verificar.",
+        "nota": "FUERA DEL PROMEDIO POR SATURACIÓN, no por cobertura. `validate_suite.py` "
+                "la rechazó: 94% de runs con nota perfecta — no discrimina, así que "
+                "sumarla al pilar solo agregaría ruido. Se endurece y se re-valida antes "
+                "de medirla en todos. Mide COBERTURA además de precisión: un extractor "
+                "que saca 2 de 8 datos correctos tiene 100% de precisión y deja el 75% "
+                "sin verificar.",
     },
     "dominio_entidad": {
         "pilar": "Contenido", "en_promedio": False,
         "menu": "Encontrar el sitio oficial de una empresa",
         "decide": "elegir el dominio real, o abstenerse",
-        "nota": "suite nueva, cobertura insuficiente. Incluye casos donde la respuesta "
-                "correcta es NULL: premia abstenerse, que es lo que separa a un modelo "
-                "útil de uno que siempre contesta algo.",
+        "nota": "FUERA DEL PROMEDIO POR SATURACIÓN, no por cobertura. `validate_suite.py` "
+                "la rechazó con el peor resultado posible: 100% de runs perfectos y "
+                "dispersión 0,00 — todos los modelos empatan, así que no aporta ninguna "
+                "información al pilar. Se endurece y se re-valida. Incluye casos donde la "
+                "respuesta correcta es NULL: premia abstenerse, que es lo que separa a un "
+                "modelo útil de uno que siempre contesta algo.",
     },
 
     # ── Dimensiones que se reportan APARTE (decisión vigente, no un olvido) ────

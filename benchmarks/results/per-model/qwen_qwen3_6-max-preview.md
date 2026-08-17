@@ -1,13 +1,13 @@
 # Qwen 3.6 Max
 
 - **model_id**: `qwen/qwen3.6-max-preview`
-- **Total tests**: 281/399 exitosos (118 errores)
-- **Score final**: 6.92
-- **Calidad**: 8.30
+- **Total tests**: 291/409 exitosos (118 errores)
+- **Score final**: 6.95
+- **Calidad**: 8.33
 - **Judge score (Phi-4)**: 4.05/10
-- **Velocidad**: 39 tok/s
-- **Latencia primera token**: 48.94s
-- **Costo promedio por test**: $0.04061
+- **Velocidad**: 40 tok/s
+- **Latencia primera token**: 47.75s
+- **Costo promedio por test**: $0.03943
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -47,6 +47,7 @@
 | tool_calling | 4 | 4 | 6.25 | 6.96 |
 | tool_calling_adversarial | 10 | 10 | 6.97 | 7.66 |
 | translation | 5 | 5 | 7.01 | 8.36 |
+| verificar_claim | 10 | 10 | 7.92 | 9.10 |
 
 ## Detalle por test
 
@@ -2644,3 +2645,5 @@ Aquí tienes un plan de proyecto realista, optimizado para un equipo pequeño y 
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### verificar_claim

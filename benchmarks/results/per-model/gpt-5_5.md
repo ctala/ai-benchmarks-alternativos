@@ -1,13 +1,13 @@
 # GPT-5.5
 
 - **model_id**: `gpt-5.5`
-- **Total tests**: 313/320 exitosos (7 errores)
-- **Score final**: 6.77
-- **Calidad**: 7.82
+- **Total tests**: 323/330 exitosos (7 errores)
+- **Score final**: 6.81
+- **Calidad**: 7.86
 - **Judge score (Phi-4)**: 4.17/10
-- **Velocidad**: 57 tok/s
-- **Latencia primera token**: 21.70s
-- **Costo promedio por test**: $0.05590
+- **Velocidad**: 56 tok/s
+- **Latencia primera token**: 21.16s
+- **Costo promedio por test**: $0.05434
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -42,6 +42,7 @@
 | task_management | 6 | 6 | 6.96 | 8.33 |
 | tool_calling | 8 | 8 | 5.30 | 5.31 |
 | translation | 13 | 10 | 6.70 | 7.41 |
+| verificar_claim | 10 | 10 | 7.85 | 9.00 |
 
 ## Detalle por test
 
@@ -5613,3 +5614,5 @@ El objetivo es llegar al lanzamiento con una landing funcional, responsive, medi
 #### business_strategy
 
 #### content_verificable
+
+#### verificar_claim

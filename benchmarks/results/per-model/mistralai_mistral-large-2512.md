@@ -1,13 +1,13 @@
 # Mistral Large 3 675B
 
 - **model_id**: `mistralai/mistral-large-2512`
-- **Total tests**: 142/142 exitosos (0 errores)
-- **Score final**: 7.64
-- **Calidad**: 8.23
+- **Total tests**: 152/152 exitosos (0 errores)
+- **Score final**: 7.68
+- **Calidad**: 8.25
 - **Judge score (Phi-4)**: 4.40/10
-- **Velocidad**: 54 tok/s
-- **Latencia primera token**: 14.83s
-- **Costo promedio por test**: $0.00341
+- **Velocidad**: 53 tok/s
+- **Latencia primera token**: 13.97s
+- **Costo promedio por test**: $0.00318
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -43,6 +43,7 @@
 | tool_calling | 4 | 4 | 7.17 | 7.10 |
 | tool_calling_adversarial | 10 | 10 | 6.01 | 5.56 |
 | translation | 5 | 5 | 8.23 | 8.71 |
+| verificar_claim | 10 | 10 | 8.28 | 8.50 |
 
 ## Detalle por test
 
@@ -2579,3 +2580,5 @@ Aquí tienes la información de los tres candidatos en formato JSON:
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### verificar_claim

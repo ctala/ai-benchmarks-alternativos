@@ -1,13 +1,13 @@
 # Qwen 3.6 35B base (OpenRouter FP8)
 
 - **model_id**: `qwen/qwen3.6-35b-a3b`
-- **Total tests**: 212/218 exitosos (6 errores)
-- **Score final**: 7.12
-- **Calidad**: 7.59
+- **Total tests**: 222/228 exitosos (6 errores)
+- **Score final**: 7.17
+- **Calidad**: 7.63
 - **Judge score (Phi-4)**: 3.90/10
-- **Velocidad**: 127 tok/s
-- **Latencia primera token**: 14.08s
-- **Costo promedio por test**: $0.00488
+- **Velocidad**: 129 tok/s
+- **Latencia primera token**: 13.75s
+- **Costo promedio por test**: $0.00471
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -45,6 +45,7 @@
 | tool_calling | 4 | 4 | 6.63 | 6.54 |
 | tool_calling_adversarial | 10 | 10 | 7.45 | 7.74 |
 | translation | 3 | 3 | 7.98 | 8.80 |
+| verificar_claim | 10 | 10 | 8.13 | 8.57 |
 
 ## Detalle por test
 
@@ -2311,3 +2312,5 @@ Here's a thinking process:
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### verificar_claim

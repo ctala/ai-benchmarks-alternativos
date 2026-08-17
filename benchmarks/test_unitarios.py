@@ -1029,3 +1029,54 @@ def test_ningun_titulo_promete_un_modelo_retirado(datos):
                 malas.append(f"docs/{idx.parent.name}/ promete «{corto}» en el title "
                              f"y no lo muestra en la página")
     assert not malas, "\n".join(malas)
+
+
+def test_ningun_modelo_del_catalogo_quedo_sin_sus_runs(datos):
+    """Un modelo con ≥20 runs en disco no puede aparecer con 0 en el dataset.
+
+    POR QUÉ (17-ago-2026). Renombrar «Claude Sonnet 4.6 (ultimo Anthropic)» —un nombre que
+    mentía— lo dejó con **0 runs**: el export agrupa por `(model_id, name)` y los 151 runs
+    históricos seguían con la etiqueta vieja. El modelo desapareció del ranking, cuatro
+    páginas de comparación se quedaron sin un lado, y **el arreglo correcto se llevó puesto
+    al modelo**.
+
+    Nada lo cazó: un modelo con 0 runs no está roto, simplemente no está. Por eso el
+    chequeo compara el dataset contra los runs EN DISCO, que es la única fuente que un
+    rename no toca.
+    """
+    import glob as _g
+    from collections import Counter
+    en_disco = Counter()
+    for f in _g.glob(str(ROOT / "benchmarks" / "results" / "benchmark_*.json")):
+        try:
+            d = json.loads(Path(f).read_text())
+        except Exception:
+            continue
+        for r in (d if isinstance(d, list) else d.get("results", [])):
+            if isinstance(r, dict) and r.get("model") and r.get("success"):
+                en_disco[r["model"]] += 1
+
+    # Huérfanos DECLARADOS: la condición se conoce y la decisión no es mía.
+    #
+    # `Gemma 4 31B` es la entrada canónica de OpenRouter y nunca se midió por ahí; sus 77
+    # runs se guardaron con el nombre corto ANTES de que la variante NIM se renombrara a
+    # «(NIM)». Reasignarlos cambia qué modelo se publica y con qué proveedor, así que se
+    # declara y se decide aparte — no se silencia ni se resuelve de pasada.
+    DECLARADOS = {
+        "Gemma 4 31B": "runs guardados con el nombre corto antes de que la variante NIM "
+                       "se renombrara. Reasignarlos define de qué proveedor es el número "
+                       "publicado: es una decisión, no una migración.",
+    }
+    publicados = {m["name"]: (m.get("runs") or 0) for m in datos["models"]}
+    malas = []
+    for nombre, n in en_disco.items():
+        if n < 20:
+            continue
+        if nombre in DECLARADOS:
+            continue
+        if nombre not in publicados:
+            malas.append(f"«{nombre}» tiene {n} runs en disco y NO existe en el catálogo "
+                         f"— ¿se renombró el modelo sin migrar su histórico?")
+        elif publicados[nombre] == 0:
+            malas.append(f"«{nombre}» tiene {n} runs en disco y 0 en el dataset")
+    assert not malas, "\n".join(malas)

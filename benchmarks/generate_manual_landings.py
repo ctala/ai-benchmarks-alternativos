@@ -27,6 +27,7 @@ import argparse
 import html
 import json
 import re
+import re
 from datetime import date
 from pathlib import Path
 
@@ -130,7 +131,7 @@ def fmt_runs(m):
     return str(m.get("runs", 0))
 
 
-def header(title, desc, kw, url, og_alt=None, extra_head=""):
+def header(title, desc, kw, url, og_alt=None, extra_head="", contrato=""):
     jsonld = json.dumps({
         "@context": "https://schema.org", "@type": "Article", "headline": title,
         "description": desc, "author": {"@type": "Person", "name": "Cristian Tala", "url": "https://cristiantala.com"},
@@ -226,6 +227,7 @@ def header(title, desc, kw, url, og_alt=None, extra_head=""):
 
 
 FOOTER = """
+{contrato}
 </main>
 
 <footer>
@@ -748,9 +750,22 @@ def gen_modelos_n8n(data):
 
     <h3>Si tu agente hace 100-500 calls/día con tool calling crítico</h3>
     <p>
-      <strong>Llama 3.1 8B Instant (Groq)</strong> es la elección dominante. 367 tok/s significa que workflows
-      con 5-10 LLM calls encadenados se sienten instantáneos. El JSON output es robusto — testeado en
-      <code>code_generation/n8n_workflow_json</code>.
+      <strong>Qwen 3.7 Flash</strong> es la mejor combinación medida: <strong>8,18 en tool calling</strong>
+      —el más alto del corte barato— con calidad 8,46 y $0,20 por cada 1.000 llamadas. El JSON output
+      es robusto, testeado en <code>code_generation/n8n_workflow_json</code>.
+    </p>
+    <p>
+      Si lo que te duele es la <em>espera</em> y no el costo, <strong>Llama 4 Scout 17B</strong> responde
+      en 7,6 s contra los 28 s de Qwen, y paga por eso medio punto de tool calling (7,62) y $0,48.
+      En un workflow de 5-10 llamadas encadenadas, esa diferencia son minutos por corrida.
+    </p>
+    <p class="nota">
+      Hasta el 16 de agosto de 2026 acá recomendábamos <strong>Llama 3.1 8B Instant en Groq</strong>,
+      que respondía en 1,3 s gracias a su LPU. <strong>Groq lo apagó</strong>, junto con Llama 3.3 70B
+      Versatile. Vale decir lo que se perdió: <strong>ningún modelo del ranking iguala esa latencia</strong>
+      por otra ruta. Groq recomienda migrar a GPT-OSS, y ahí conviene mirar el número que su anuncio no
+      menciona: <strong>GPT-OSS marca 6,4-6,5 en tool calling</strong> contra 8,0 del que reemplaza. Si tu
+      agente solo redacta, es un buen cambio; si llama herramientas, es un retroceso.
     </p>
 
     <h3>Si construyes un SaaS con miles de calls/mes</h3>
@@ -1441,6 +1456,25 @@ def _recomendables(data):
             and not m.get("self_hosted")]
 
 
+def _con_contrato(html, slug):
+    """Inyecta el contrato leyendo los modelos que la página realmente publica.
+
+    Se hace sobre el HTML terminado a propósito: el contrato tiene que describir lo
+    publicado, no lo que el generador pensaba publicar. Si mañana una landing filtra algo
+    más, el contrato lo refleja solo.
+    """
+    import sys as _s
+    _s.path.insert(0, str(Path(__file__).resolve().parent))
+    from contrato_pagina import emitir
+    nombres = [n.strip() for _, n in
+               re.findall(r"<tr><td>(\d+)</td><td>(?:<strong>)?([^<]+)", html)]
+    if not nombres:
+        nombres = [n.strip() for n in re.findall(r"<td>(?:<strong>)?([A-Z][^<]{2,38})</td>", html)][:10]
+    bloque = emitir(tipo="landing", generador="generate_manual_landings",
+                    recomienda=nombres[:10])
+    return html.replace("</main>", bloque + "\n</main>", 1) if "</main>" in html else html
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--slug", help="Generar solo esta landing")
@@ -1456,7 +1490,7 @@ def main():
         _no_recomendar_muertos(out, slug)
         d = DOCS / slug
         d.mkdir(exist_ok=True)
-        (d / "index.html").write_text(out, encoding="utf-8")
+        (d / "index.html").write_text(_con_contrato(out, slug), encoding="utf-8")
         print(f"✓ {slug} → docs/{slug}/index.html")
 
 

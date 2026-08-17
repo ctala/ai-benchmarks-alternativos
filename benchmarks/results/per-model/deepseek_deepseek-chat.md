@@ -1,13 +1,13 @@
 # DeepSeek V3.2
 
 - **model_id**: `deepseek/deepseek-chat`
-- **Total tests**: 264/264 exitosos (0 errores)
-- **Score final**: 7.57
-- **Calidad**: 8.50
+- **Total tests**: 274/274 exitosos (0 errores)
+- **Score final**: 7.58
+- **Calidad**: 8.49
 - **Judge score (Phi-4)**: 4.37/10
 - **Velocidad**: 27 tok/s
-- **Latencia primera token**: 20.39s
-- **Costo promedio por test**: $0.00336
+- **Latencia primera token**: 19.75s
+- **Costo promedio por test**: $0.00324
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -43,6 +43,7 @@
 | tool_calling | 8 | 8 | 5.63 | 5.16 |
 | tool_calling_adversarial | 10 | 10 | 6.54 | 6.54 |
 | translation | 4 | 4 | 7.49 | 7.94 |
+| verificar_claim | 10 | 10 | 7.83 | 8.20 |
 
 ## Detalle por test
 
@@ -2330,3 +2331,5 @@ Aquí tienes un plan detallado para lanzar tu landing page en **4 semanas** con 
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### verificar_claim

@@ -1,13 +1,13 @@
 # GPT-5.4
 
 - **model_id**: `gpt-5.4`
-- **Total tests**: 153/153 exitosos (0 errores)
-- **Score final**: 7.35
-- **Calidad**: 8.25
+- **Total tests**: 163/163 exitosos (0 errores)
+- **Score final**: 7.40
+- **Calidad**: 8.29
 - **Judge score (Phi-4)**: 4.22/10
-- **Velocidad**: 59 tok/s
-- **Latencia primera token**: 10.09s
-- **Costo promedio por test**: $0.02075
+- **Velocidad**: 58 tok/s
+- **Latencia primera token**: 9.55s
+- **Costo promedio por test**: $0.01960
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -45,6 +45,7 @@
 | tool_calling | 8 | 8 | 5.46 | 5.16 |
 | tool_calling_adversarial | 10 | 10 | 6.46 | 6.68 |
 | translation | 3 | 3 | 7.07 | 7.46 |
+| verificar_claim | 10 | 10 | 8.12 | 8.80 |
 
 ## Detalle por test
 
@@ -2320,6 +2321,8 @@ TechFlow cerró Q1 2026 con **ventas de $2.3M**, un crecimiento de **18% vs. Q4 
 #### content_verificable
 
 #### tool_calling_adversarial
+
+#### verificar_claim
 
 #### dominio_entidad
 

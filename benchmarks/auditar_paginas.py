@@ -108,6 +108,18 @@ def cargar():
     return d, por_nombre, real
 
 
+def contrato_de(html):
+    """El contrato declarado por la página, o None. Ver `contrato_pagina.py`.
+
+    Con esto el auditor deja de inferir la estructura con regex — que es la causa de los
+    cinco falsos positivos y puntos ciegos que se arreglaron uno por uno el 17-ago.
+    """
+    import sys as _s
+    _s.path.insert(0, str(ROOT / "benchmarks"))
+    from contrato_pagina import leer
+    return leer(html)
+
+
 def paginas():
     """slug → (path, generador)."""
     gens = {}
@@ -179,8 +191,12 @@ def _ordenada(vals, bloques=False):
     sobre las 10 filas las marcaba a todas — el salto entre familias no es un desorden,
     es la estructura de la página.
     """
+    # Descendente (mayor es mejor) O ascendente (menor es mejor: precio, latencia).
+    # Asumir una sola dirección marcaba /mejor-llm-barato/ como desordenada cuando estaba
+    # perfectamente ordenada — por precio, de menor a mayor.
     saltos = sum(1 for a, b in zip(vals, vals[1:]) if a < b - 0.051)
-    if saltos == 0:
+    saltos_asc = sum(1 for a, b in zip(vals, vals[1:]) if a > b + 0.051)
+    if saltos == 0 or saltos_asc == 0:
         return True
     if not bloques:
         return False
@@ -250,6 +266,30 @@ def p3(pgs, d, por_nombre):
     hallazgos = []
     for slug, (p, gen) in pgs.items():
         html = p.read_text(errors="replace")
+        c = contrato_de(html)
+        if c is not None:
+            # La página DECLARA qué recomienda: no hay que adivinarlo. Es la diferencia
+            # entre auditar la lista real y auditar lo que un regex alcanzó a ver.
+            if c["tipo"] == "redirect":
+                continue
+            rec = c.get("recomienda") or []
+            r = sorted({n for n in rec if n in retirados})
+            if r:
+                hallazgos.append((ALTA, slug, gen,
+                                  f"RECOMIENDA modelo(s) retirado(s): {', '.join(r[:4])} "
+                                  f"— su endpoint ya no existe"))
+            if re.search(r"agent|n8n|tool|herramienta|automatiza", slug):
+                na = [n for n in rec if n in no_aptos]
+                if na:
+                    hallazgos.append((ALTA, slug, gen,
+                                      f"página agéntica que recomienda modelos que NO corren "
+                                      f"dentro de un agente: {', '.join(na[:4])}"))
+            top3 = [n for n in rec[:3] if n in no_rank]
+            if top3 and not ("no está rankeado" in html or 'class="row-badge no-rankea"' in html):
+                hallazgos.append((MEDIA, slug, gen,
+                                  f"corona en el top 3 a no-rankeado(s) sin salvedad: "
+                                  f"{', '.join(top3)}"))
+            continue
         filas = _filas(html)
         if not filas:
             # SIN TABLA NUMERADA TAMBIÉN SE RECOMIENDA.

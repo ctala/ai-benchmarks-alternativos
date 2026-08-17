@@ -1,13 +1,13 @@
 # DeepSeek V4 Pro
 
 - **model_id**: `deepseek/deepseek-v4-pro`
-- **Total tests**: 189/211 exitosos (22 errores)
-- **Score final**: 7.30
-- **Calidad**: 8.06
+- **Total tests**: 199/221 exitosos (22 errores)
+- **Score final**: 7.36
+- **Calidad**: 8.11
 - **Judge score (Phi-4)**: 4.31/10
 - **Velocidad**: 46 tok/s
-- **Latencia primera token**: 47.87s
-- **Costo promedio por test**: $0.00374
+- **Latencia primera token**: 45.68s
+- **Costo promedio por test**: $0.00357
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -43,6 +43,7 @@
 | tool_calling | 8 | 7 | 5.79 | 5.58 |
 | tool_calling_adversarial | 10 | 10 | 7.01 | 7.10 |
 | translation | 5 | 5 | 7.29 | 7.84 |
+| verificar_claim | 10 | 10 | 8.44 | 9.00 |
 
 ## Detalle por test
 
@@ -3673,3 +3674,5 @@ Aquí tienes un desglose detallado en fases, tareas, dependencias, responsables 
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### verificar_claim

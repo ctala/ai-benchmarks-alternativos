@@ -1,13 +1,13 @@
 # Kimi K3
 
 - **model_id**: `moonshotai/kimi-k3`
-- **Total tests**: 153/153 exitosos (0 errores)
-- **Score final**: 6.47
-- **Calidad**: 7.79
+- **Total tests**: 163/163 exitosos (0 errores)
+- **Score final**: 6.55
+- **Calidad**: 7.87
 - **Judge score (Phi-4)**: 4.21/10
 - **Velocidad**: 34 tok/s
-- **Latencia primera token**: 73.54s
-- **Costo promedio por test**: $0.05707
+- **Latencia primera token**: 69.62s
+- **Costo promedio por test**: $0.05390
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -44,6 +44,7 @@
 | tool_calling | 4 | 4 | 5.44 | 5.70 |
 | tool_calling_adversarial | 10 | 10 | 5.30 | 5.70 |
 | translation | 3 | 3 | 6.81 | 8.14 |
+| verificar_claim | 10 | 10 | 7.79 | 9.00 |
 
 ## Detalle por test
 
@@ -2357,6 +2358,8 @@ Con 4 semanas y un equipo de 4, la clave es **paralelizar**: mientras el diseña
 ### Otras suites
 
 #### tool_calling_adversarial
+
+#### verificar_claim
 
 #### business_audit
 

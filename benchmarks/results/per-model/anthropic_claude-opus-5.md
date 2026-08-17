@@ -1,13 +1,13 @@
 # Claude Opus 5
 
 - **model_id**: `anthropic/claude-opus-5`
-- **Total tests**: 157/157 exitosos (0 errores)
-- **Score final**: 6.61
-- **Calidad**: 7.78
+- **Total tests**: 173/173 exitosos (0 errores)
+- **Score final**: 6.74
+- **Calidad**: 7.92
 - **Judge score (Phi-4)**: 3.84/10
-- **Velocidad**: 58 tok/s
-- **Latencia primera token**: 19.23s
-- **Costo promedio por test**: $0.06871
+- **Velocidad**: 56 tok/s
+- **Latencia primera token**: 17.95s
+- **Costo promedio por test**: $0.06306
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -45,6 +45,7 @@
 | tool_calling | 4 | 4 | 4.71 | 4.65 |
 | tool_calling_adversarial | 10 | 10 | 5.43 | 5.70 |
 | translation | 3 | 3 | 7.47 | 8.67 |
+| verificar_claim | 16 | 16 | 8.00 | 9.31 |
 
 ## Detalle por test
 
@@ -2055,3 +2056,5 @@ Voy a manejar los tres puntos por separado, porque cada uno tiene un nivel disti
 #### prompt_injection_es
 
 #### tool_calling_adversarial
+
+#### verificar_claim

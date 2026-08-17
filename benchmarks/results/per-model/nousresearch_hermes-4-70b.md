@@ -1,13 +1,13 @@
 # Hermes 4 70B
 
 - **model_id**: `nousresearch/hermes-4-70b`
-- **Total tests**: 242/352 exitosos (110 errores)
-- **Score final**: 7.49
-- **Calidad**: 7.70
+- **Total tests**: 252/362 exitosos (110 errores)
+- **Score final**: 7.52
+- **Calidad**: 7.72
 - **Judge score (Phi-4)**: 3.82/10
 - **Velocidad**: 53 tok/s
-- **Latencia primera token**: 4.52s
-- **Costo promedio por test**: $0.00159
+- **Latencia primera token**: 4.38s
+- **Costo promedio por test**: $0.00153
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -47,6 +47,7 @@
 | tool_calling | 8 | 0 | - | - |
 | tool_calling_adversarial | 10 | 10 | 7.43 | 7.10 |
 | translation | 3 | 3 | 8.16 | 8.29 |
+| verificar_claim | 10 | 10 | 8.32 | 8.10 |
 
 ## Detalle por test
 
@@ -2878,6 +2879,8 @@ Producto: Lanzamiento de 47 features, incluyendo modulo de IA con
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### verificar_claim
 
 #### dominio_entidad
 

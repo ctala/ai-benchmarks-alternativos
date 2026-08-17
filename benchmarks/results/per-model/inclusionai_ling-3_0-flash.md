@@ -1,13 +1,13 @@
 # Ling 3.0 Flash
 
 - **model_id**: `inclusionai/ling-3.0-flash`
-- **Total tests**: 202/202 exitosos (0 errores)
-- **Score final**: 7.72
-- **Calidad**: 7.65
+- **Total tests**: 212/212 exitosos (0 errores)
+- **Score final**: 7.76
+- **Calidad**: 7.70
 - **Judge score (Phi-4)**: 4.24/10
-- **Velocidad**: 221 tok/s
-- **Latencia primera token**: 7.06s
-- **Costo promedio por test**: $0.00054
+- **Velocidad**: 217 tok/s
+- **Latencia primera token**: 6.83s
+- **Costo promedio por test**: $0.00051
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -46,6 +46,7 @@
 | tool_calling | 4 | 4 | 5.37 | 3.81 |
 | tool_calling_adversarial | 10 | 10 | 6.77 | 5.84 |
 | translation | 3 | 3 | 8.63 | 8.76 |
+| verificar_claim | 10 | 10 | 8.60 | 8.60 |
 
 ## Detalle por test
 
@@ -2316,3 +2317,5 @@ Aquí tienes la información extraída en formato JSON:
 #### integridad_idioma
 
 #### tool_calling_adversarial
+
+#### verificar_claim
