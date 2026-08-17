@@ -257,8 +257,25 @@ def c1_nada_muerto_recomendado(models, verbose):
         except Exception:  # noqa: BLE001
             continue
         for n in muertos:
-            if n in txt:
-                culpables[n].append("home" if pagina.parent == docs else pagina.parent.name)
+            if n not in txt:
+                continue
+            # RECOMENDARLO y DECIR QUE ESTÁ MUERTO no son lo mismo.
+            #
+            # Este invariante existe para que nadie integre un endpoint apagado. Pero la
+            # mención acompañada de su estado es justo lo contrario: es la que evita el
+            # accidente. `/grok-4-1-vs-4-5/` dice «Grok 4.1 Fast quedó fuera: xAI apagó su
+            # endpoint» — quien busca ese modelo (y lo busca, la intención existe) merece
+            # esa respuesta, no una página que lo omite en silencio.
+            #
+            # Mismo matiz que ya tiene `check_consistency` para los docs. Se exige que la
+            # aclaración esté CERCA del nombre, no en cualquier parte de la página: si no,
+            # una nota al pie legitimaría diez recomendaciones arriba.
+            i = txt.index(n)
+            cerca = txt[max(0, i - 200):i + 200].lower()
+            if any(w in cerca for w in ("retirad", "apagó su endpoint", "ya no existe",
+                                        "quedó fuera", "descontinuad")):
+                continue
+            culpables[n].append("home" if pagina.parent == docs else pagina.parent.name)
     if culpables:
         det = "; ".join(f"«{n}» en {len(p)} páginas" for n, p in list(culpables.items())[:3])
         fallo("C1 · nada muerto recomendado",

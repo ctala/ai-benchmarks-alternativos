@@ -1,5 +1,18 @@
-<!-- doc: vigente | verificado: 2026-04-22 -->
+<!-- doc: vigente | verificado: 2026-08-16 -->
 # Guia de Proveedores y Modelos
+
+> **Qué vive en este doc y qué no.** Acá va lo **durable** de cada proveedor: quién es,
+> qué prioriza, sus fortalezas y límites estructurales, cómo se le pega a la API y cuánto
+> cuesta su suscripción. Eso cambia una vez al año.
+>
+> **La lista de modelos y sus precios NO vive acá.** Se pudre: este doc pasó 116 días
+> diciendo que OpenAI ofrecía «GPT-4o, GPT-5.2, o3» y que Opus costaba $15/$75 — cuatro
+> generaciones y un cambio de precio más tarde. Es la regla del repo: *un doc curado no
+> incrusta datos; si necesita datos, se genera o se enlaza.*
+>
+> Para el catálogo vivo: **[MODELOS.md](MODELOS.md)** (se regenera) ·
+> **[la calculadora](https://benchmarks.cristiantala.com/)** ·
+> **[el mismo modelo servido por distintos proveedores](https://benchmarks.cristiantala.com/mismo-modelo-distinto-proveedor/)**.
 
 > Ultima actualizacion: 22 de Abril de 2026
 
@@ -13,7 +26,6 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 - **Fundada**: 2015, San Francisco
 - **Fundadores**: Sam Altman, Elon Musk (salio), Greg Brockman, Ilya Sutskever (salio)
 - **Foco**: Modelos frontier de proposito general, lider en tool calling
-- **Modelos**: GPT-4o, GPT-5.2, o3, o1 (razonamiento), DALL-E (imagenes)
 - **Fortalezas**: Mejor tool calling del mercado, ecosistema maduro, ChatGPT masivo
 - **Debilidades**: Caro, no open-source, dependencia de un vendor
 - **API**: api.openai.com | Suscripcion: ChatGPT Plus $20/mes, Pro $200/mes
@@ -21,7 +33,6 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 ### Google DeepMind (USA/UK)
 - **Fundada**: 2023 (fusion de Google Brain + DeepMind, ambas ~2010)
 - **Foco**: Multimodal, velocidad, integracion con Google Workspace
-- **Modelos**: Gemini 2.5 Pro/Flash, Gemini 3.1 Pro, **Gemma 4** (open-source)
 - **Fortalezas**: Velocidad (Flash es muy rapido), contexto largo (1M+), tier gratuito generoso
 - **Debilidades**: Gemini Pro es caro en output ($10/M)
 - **API**: generativelanguage.googleapis.com | Suscripcion: AI Pro $19.99/mes
@@ -30,15 +41,13 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 ### Anthropic (USA)
 - **Fundada**: 2021, San Francisco, por ex-OpenAI (Dario y Daniela Amodei)
 - **Foco**: Safety, razonamiento, coding
-- **Modelos**: Claude Opus 4.6, Claude Sonnet 4.5, Claude Haiku
 - **Fortalezas**: #1 en Arena, mejor coding del mercado, excelente razonamiento
-- **Debilidades**: Muy caro (Opus $15/$75 per M), **suscripcion no da API para agentes**
+- **Debilidades**: Caro en el tier alto (ver precios vivos en MODELOS.md), **suscripcion no da API para agentes**
 - **API**: api.anthropic.com | Suscripcion: Pro $20/mes (solo chat web)
 
 ### xAI (USA)
 - **Fundada**: 2023, por Elon Musk
 - **Foco**: Razonamiento, integracion con X/Twitter, agentes
-- **Modelos**: Grok 4.20 (multi-agent interno), Grok 4.1 Fast (retirado) (mejor tool calling), Grok 4
 - **Fortalezas**: #4 en Arena, RPM mas alto del mercado (1200), 2M contexto, Grok 4.1 Fast (retirado) a $0.20/$0.50
 - **Debilidades**: Ecosistema joven, SuperGrok Heavy es carisimo ($300/mes)
 - **API**: api.x.ai | Suscripcion: SuperGrok $30/mes
@@ -50,7 +59,6 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 ### NVIDIA (USA)
 - **Fundada**: 1993, Jensen Huang
 - **Foco**: Modelos agenticos open-source optimizados para sus GPUs
-- **Modelos**: Nemotron 3 Super (120B MoE, 12B activos, 1M ctx), Nemotron 3 Nano (30B MoE, 3B activos)
 - **Fortalezas**: Modelos disenados para agentes, tool calling de primera clase, ultra baratos ($0.05-$0.10/M), corren eficientemente en DGX Spark
 - **Debilidades**: Modelos nuevos, ecosistema aun madurando
 - **API**: Via OpenRouter | Tambien descargables para inferencia local
@@ -59,7 +67,6 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 ### MiniMax (China, Beijing)
 - **Fundada**: 2021, por Yan Junjie (ex-SenseTime)
 - **Foco**: Modelos agenticos, coding, multimodal (texto, imagen, audio, video)
-- **Modelos**: M2.7 (flagship), M2.5 (open-source, MIT), M2.1 (coding plan)
 - **Fortalezas**: SOTA en tareas agenticas, tool calling excelente, genera imagenes y audio
 - **Debilidades**: Empresa china (posibles restricciones), M2.7 no es full open-source
 - **API**: api.minimax.io | Suscripcion: Coding Plan $10-$150/mes, Agent Pro $19/$69
@@ -69,7 +76,6 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 ### DeepSeek (China, Hangzhou)
 - **Fundada**: 2023, spin-off del fondo de inversion High-Flyer
 - **Foco**: Razonamiento, eficiencia, costo ultra-bajo
-- **Modelos**: DeepSeek V3.2, V4, R1 (razonamiento), Coder
 - **Fortalezas**: **Mejor relacion calidad/precio del mercado** ($0.14/$0.28), open-source MIT
 - **Debilidades**: Latencia variable (alta demanda), empresa china
 - **API**: api.deepseek.com | Sin suscripcion, solo pay-as-you-go
@@ -78,7 +84,6 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 ### Alibaba Cloud / Qwen (China, Hangzhou)
 - **Fundada**: Qwen team dentro de Alibaba Cloud (~2023)
 - **Foco**: Multiidioma, contexto largo (1M tokens), coding
-- **Modelos**: Qwen 3.6 Plus, Qwen 3.5 Plus, Qwen-Coder-Max
 - **Fortalezas**: 1M de contexto, excelente en espanol y chino, Apache 2.0, limites muy generosos (15K RPM)
 - **Debilidades**: Latencia alta desde Latam, Coding Plan Lite fue descontinuado
 - **API**: Alibaba Cloud Model Studio | Suscripcion: Coding Pro $50/mes
@@ -87,7 +92,6 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 ### Meta AI (USA)
 - **Fundada**: Equipo FAIR de Meta/Facebook
 - **Foco**: Modelos open-source de proposito general
-- **Modelos**: Llama 4 Maverick, Llama 3.3, Code Llama
 - **Fortalezas**: Open-source confiable, comunidad enorme, multimodal (Llama 4)
 - **Debilidades**: Licencia restrictiva (Llama Community, no Apache), necesita fine-tuning
 - **Open-source**: Llama Community License (uso comercial permitido con restricciones)
@@ -95,7 +99,6 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 ### Mistral AI (Francia, Paris)
 - **Fundada**: 2023, por ex-Google DeepMind y ex-Meta (Arthur Mensch, Guillaume Lample, Timothee Lacroix)
 - **Foco**: Eficiencia, multiidioma europeo, modelos compactos
-- **Modelos**: Mistral Large, Medium 3, Nemo (12B), Mixtral
 - **Fortalezas**: Nemo es el mas barato del mercado ($0.02/M), excelente en idiomas europeos, Apache 2.0
 - **Debilidades**: No esta en el top 5 global
 - **API**: api.mistral.ai | Suscripcion: Le Chat ~$15/mes
@@ -103,14 +106,12 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 
 ### Microsoft (USA)
 - **Foco**: Modelos compactos de alta calidad
-- **Modelos**: Phi-4 (14B)
 - **Fortalezas**: Calidad sorprendente para su tamano, MIT license
 - **Open-source**: MIT license
 
 ### Xiaomi / MiMo (China, Beijing)
 - **Fundada**: 2010 (Xiaomi), equipo MiMo lanzado 2025
 - **Foco**: Modelos agenticos, razonamiento, multimodal (omni)
-- **Modelos**: MiMo-V2-Pro (retirado) (1T params, flagship), MiMo-V2-Flash (retirado) (309B MoE, open-source), MiMo-V2-Omni (multimodal) (retirado)
 - **Fortalezas**: MiMo-V2-Pro (retirado) rinde cerca de Opus 4.6 en ClawEval. Flash tiene 73.4% SWE-Bench (mejor open-source). Tool calling optimizado via RL. Flash es ultra barato ($0.09/$0.29).
 - **Debilidades**: Pro y Omni son API-only (no open-source). Empresa china.
 - **API**: platform.xiaomimimo.com | Tambien via OpenRouter
@@ -119,7 +120,6 @@ Contexto sobre cada proveedor, quien lo creo, su foco y modelos principales.
 ### Zhipu AI / GLM (China, Beijing)
 - **Fundada**: 2019, spin-off de Tsinghua University
 - **Foco**: Modelos agenticos, tool calling, sesiones autonomas largas
-- **Modelos**: GLM-5.1 (754B MoE, MIT, #1 SWE-Bench Pro), GLM-4.7, GLM-4.7 Thinking
 - **Fortalezas**: GLM-5.1 disenado para 8h de sesiones autonomas con miles de tool calls. #1 SWE-Bench Pro (58.4%). $0.95/$3.15.
 - **Open-source**: MIT (GLM-5.1), Apache 2.0 (GLM-4.7)
 
