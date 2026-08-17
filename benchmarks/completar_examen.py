@@ -125,6 +125,8 @@ def armar_resume(model_id: str, destino: Path) -> int:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--judge-model", default="phi4-or",
+                    help="juez a usar (default phi4-or: el local es ~10x más lento)")
     ap.add_argument("--correr", action="store_true", help="completar los exámenes, no solo reportar")
     ap.add_argument("--modelos", nargs="*", help="limitar a estas keys")
     a = ap.parse_args()
@@ -168,7 +170,12 @@ def main() -> int:
         n = armar_resume(x["id"], rf)
         suites = sorted(x["incompletas"])
         print(f"\n▶ {x['name']} — {n} runs previos consolidados, suites: {', '.join(suites)}")
-        cmd = [PY, str(ROOT / "benchmarks" / "runner.py"), "--judge", "--judge-model", "phi4",
+        # phi4-or (Phi-4 por OpenRouter), NO el local: con el juez en Ollama el runner
+        # hace ~2 runs en 20 minutos contra ~30 en el mismo tiempo — medido el 17-ago.
+        # Para un lote desatendido esa diferencia es "listo mañana" contra "listo el
+        # jueves". El juicio es el mismo modelo; cambia dónde corre. (~$0,07 por modelo.)
+        cmd = [PY, str(ROOT / "benchmarks" / "runner.py"), "--judge", "--judge-model",
+               args.judge_model,
                "--models", x["key"], "--tests", *suites, "--resume", str(rf), "--sin-canario"]
         subprocess.run(cmd, cwd=ROOT)
     # VERIFICAR QUE ALGO CORRIÓ. La v1 imprimía «✅ exámenes completados» sin mirar nada,
