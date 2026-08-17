@@ -242,6 +242,19 @@ SUITES = {
                 "Mide las DOS direcciones del error: dejar pasar lo inventado y bloquear "
                 "lo que sí estaba. Medir una sola engaña.",
     },
+    "verificar_claims_lote": {
+        "pilar": "Contenido", "en_promedio": False,
+        "menu": "Verificar VARIOS datos de una vez (lote)",
+        "decide": "devolver un juicio por cada dato, no solo por los primeros",
+        "nota": "Creada el 17-ago-2026 después de que el gate de noticias de Eco fallara "
+                "en producción con el modelo que este benchmark recomendó. `verificar_claim` "
+                "manda UN claim y mide la calidad del juicio; producción manda ONCE, con un "
+                "prompt de 4.218 caracteres, y lo que falla es la ENTREGA: cuatro notas "
+                "devolvieron cero veredictos y se publicaron sin verificar. Un modelo puede "
+                "sacar 10,00 en la otra y 0 en ésta. FUERA DEL PROMEDIO hasta tener "
+                "cobertura: entra cuando la haya rendido suficiente gente, si no castigaría "
+                "al que la rinde primero.",
+    },
     "extraer_claims": {
         "pilar": "Contenido", "en_promedio": False,
         "menu": "Extraer los datos verificables de un texto",

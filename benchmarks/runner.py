@@ -49,6 +49,7 @@ from benchmarks.tests import integridad_idioma  # suite nueva 12-ago-2026
 # empresa pertenece un dominio. Las tres tienen respuesta objetiva —el dato está o no
 # está— así que no dependen del juez para puntuar lo esencial.
 from benchmarks.tests import verificar_claim, extraer_claims, dominio_entidad
+from benchmarks.tests import verificar_claims_lote
 # Suites duras (13-ago-2026). Se AGREGAN, no reemplazan: ningún run previo se
 # invalida. Miden donde el examen todavía discrimina — tool calling (0% de notas
 # perfectas) — y cubren el hueco que dejó el recorte de niah_es a 128K+.
@@ -142,6 +143,7 @@ ALL_TEST_SUITES = {
     # calidad titular. Nace de una fuga de CJK real en un pipeline de publicación automática.
     "integridad_idioma": integridad_idioma.TESTS,
     "verificar_claim": verificar_claim.TESTS,
+    "verificar_claims_lote": verificar_claims_lote.TESTS,
     "extraer_claims": extraer_claims.TESTS,
     "dominio_entidad": dominio_entidad.TESTS,
     "tool_calling_adversarial": tool_calling_adversarial.TESTS,
