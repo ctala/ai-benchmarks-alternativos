@@ -517,12 +517,46 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
 
     # Suites que el modelo NO terminó. Su promedio sale de un examen más corto que el de
     # los demás: se reporta, pero marcado — no se puede comparar contra quien rindió todo.
+    #
+    # ⚠️ 17-ago-2026 — ESTO MIRABA SOLO LAS SUITES QUE EL MODELO INTENTÓ.
+    # Cristian: *"no seguiría poniendo el filtro de 50 runs. Todos deben de tener todos y
+    # punto, si no no son comparables."* Y tenía razón sobre un hueco real: un modelo que
+    # rindiera 3 suites enteras y ninguna más salía con `incompletas = {}` —las 3 que hizo
+    # están completas— y lo único que lo frenaba era el umbral de 50 runs, que es un proxy
+    # y no el criterio. Dos modelos con 50 runs cada uno pueden haber rendido exámenes
+    # DISTINTOS: eso es justo lo que un ranking no puede permitir.
+    #
+    # Ahora se recorre el examen ENTERO (las suites con `en_promedio=True`), rendidas o
+    # no. Una suite que el modelo nunca tocó cuenta como `rindio: 0`, que es la verdad.
     from benchmarks.runner import ALL_TEST_SUITES as _TS
+    from benchmarks.suites import SUITES as _REGISTRO
+    _indice = [s for s, v in _REGISTRO.items() if v.get("en_promedio") and s in _TS]
+    # Se compara por NOMBRE, no por cantidad. Un modelo puede tener MÁS runs que
+    # tests esperados si la suite se editó y él rindió las dos versiones: GPT-5.6 Luna
+    # y MiniMax M3 tienen 7 tests en `content_verificable` donde hoy hay 5, porque
+    # `sin_call_to_action` y `restriccion_enterrada` se renombraron en algún momento.
+    # Contando, esos dos parecían incompletos; por nombre se ve que rindieron todo.
+    # (Que la suite se haya editado es OTRO problema, y va contra la regla dura del
+    # repo —las suites se agregan, nunca se editan—, pero no es de éstos castigarlo.)
+    _esperados = {s: {t["name"] for t in _TS[s]} for s in _indice}
     incompletas = {
-        s: {"rindio": len(tests_por_suite[s]), "total": len(_TS[s])}
-        for s in suites
-        if s in _TS and len(tests_por_suite[s]) < len(_TS[s])
+        s: {"rindio": len(_esperados[s] & tests_por_suite[s]), "total": len(_esperados[s])}
+        for s in _indice
+        if not _esperados[s] <= tests_por_suite[s]
     }
+    # Las suites que NO puntúan (niah, seguridad, idioma) siguen reportándose incompletas
+    # si se rindieron a medias, pero no bloquean: su score va aparte, por diseño.
+    incompletas.update({
+        s: {"rindio": len(tests_por_suite[s]), "total": len(_TS[s]), "fuera_del_indice": True}
+        for s in suites
+        if s in _TS and s not in _indice and len(tests_por_suite[s]) < len(_TS[s])
+    })
+
+    # El booleano POSITIVO: rindió los 143 tests del índice, no "no le falta ninguno".
+    # Un modelo sin runs da False acá, que es la verdad; con la negación daba True.
+    examen_completo = bool(_indice) and all(
+        _esperados[s] <= tests_por_suite[s] for s in _indice
+    )
 
     scores = finals_recalc  # mantener naming downstream
 
@@ -581,6 +615,7 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
         # sale de un examen más corto: NO es comparable con el de quien rindió todo.
         # Quien consuma score_by_suite tiene que mirar esto antes de comparar.
         "suites_incompletas": incompletas,
+        "examen_completo": examen_completo,
         # Componentes raw promedio (permite mostrar columnas separadas + recalcular pesos en calculadora)
         "quality_avg": round(sum(qualities) / len(qualities), 2) if qualities else None,
         # Incertidumbre de esa media. Sin esto, el ranking finge una precision que
@@ -1027,7 +1062,20 @@ def build_export(recalibrate=False, scoring_version=None):
             # nadie tenga que acordarse. Sus runs se conservan para análisis histórico.
             "medido_en_free": ":free" in str(model_id),
             "ranked": (
-                metrics["runs"] >= MIN_RUNS_RANKED
+                # El criterio ya NO es cuántos runs tiene, sino si rindió el examen
+                # entero: las 29 suites que puntúan con todos sus tests (143 en total).
+                # Como completarlo exige ≥143 runs, el viejo MIN_RUNS_RANKED=50 queda
+                # subsumido — un umbral arbitrario menos.
+                #
+                # Se lee un booleano POSITIVO (`examen_completo`) y no la ausencia de
+                # incompletas, porque ese dict está vacío por DOS razones opuestas: el
+                # modelo rindió todo, o no rindió nada y nunca hubo qué marcar. La
+                # primera versión de este cambio usaba la negación y metió al ranking
+                # 29 modelos con CERO runs —gpt-4o, claude-sonnet, las variantes
+                # `-thinking`—. Lo cazó la simulación, antes de publicarse: es
+                # exactamente el fallo que el repo persigue, leer ausencia de datos
+                # como datos en orden.
+                metrics.get("examen_completo") is True
                 and ":free" not in str(model_id)
                 and not cfg.get("retired")
                 and not cfg.get("provider_variant")

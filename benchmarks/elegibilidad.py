@@ -108,13 +108,49 @@ def evaluar(m: dict, umbral_ranking: int) -> dict:
     if m.get("self_hosted"):
         no("ranking", "self_hosted")
 
-    # ── Ranking: muestra suficiente y examen completo ──────────────────────
+    # ── Ranking: el MISMO examen, entero ───────────────────────────────────
+    #
+    # 17-ago-2026 — Cristian: *"no seguiría poniendo el filtro de 50 runs. Todos
+    # deben de tener todos y punto, si no no son comparables."*
+    #
+    # El umbral de 50 era un PROXY de comparabilidad, y como proxy fallaba en las
+    # dos direcciones: dos modelos con 50 runs pueden haber rendido tests
+    # distintos (no comparables, y pasaban), y uno con 40 runs de un examen que en
+    # ese momento fuera más corto quedaba fuera sin razón.
+    #
+    # El criterio real es rendir el examen entero: las 29 suites que puntúan, con
+    # todos sus tests. Son 143 tests, así que **cualquiera que lo complete tiene
+    # ≥143 runs** y el viejo umbral de 50 queda subsumido: no filtraba nada que
+    # éste no filtre mejor. Un umbral arbitrario menos.
+    #
+    # Simulado antes de aplicarlo, como manda PLAN-ESTABILIDAD R1 para un cambio
+    # de presentación: 78 de los 83 rankeados ya rendían el examen completo. A los
+    # 5 restantes les faltaban 51 tests EN TOTAL — se completan, no se pierden.
     if ":free" in (m.get("id") or ""):
         no("ranking", "free")
-    if (m.get("runs") or 0) < umbral_ranking:
-        no("ranking", "sin_muestra")
-    if m.get("suites_incompletas"):
+    # Las suites de fuera del índice (long-context, seguridad, idioma) se reportan
+    # incompletas si lo están, pero NO bloquean: su score va aparte a propósito, y
+    # exigirlas obligaría a medir 800K de contexto para rankear en Coding.
+    # Booleano POSITIVO, no ausencia de incompletas: ese dict está vacío tanto
+    # cuando el modelo rindió todo como cuando no rindió NADA, y leer la segunda
+    # como la primera metió 29 modelos con cero runs al ranking en la primera
+    # versión de este cambio (lo cazó la simulación, no un usuario).
+    if m.get("examen_completo") is not True:
         no("ranking", "examen_incompleto")
+        # Y tampoco al catálogo — o sea: fuera de la calculadora y de los listados.
+        # Cristian: *"Solo los medidos completos aparecen en el benchmark /
+        # calculadora. Si no, no aparecen."*
+        #
+        # Es más duro que lo anterior y es correcto: la calculadora existe para
+        # DECIDIR, y ofrecer un modelo cuyo promedio sale de un examen más corto es
+        # ofrecer una comparación que no se sostiene. «En evaluación» sonaba a
+        # prudente y en la práctica publicaba lo mismo con una etiqueta.
+        #
+        # Sus runs NO se pierden ni se borran: siguen en models.json con su motivo,
+        # y la entrada/salida de cada uno sigue guardada en results/responses/. Lo
+        # que se saca es la recomendación, no la evidencia — para eso está la
+        # auditoría. El camino de vuelta es medir lo que falta, no bajar el listón.
+        no("catalogo", "examen_incompleto")
     if m.get("notes") and "no rankea por política" in (m.get("notes") or "").lower():
         no("ranking", "esfuerzo")
 
