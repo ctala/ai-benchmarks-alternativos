@@ -228,6 +228,45 @@ def _t_huerfanas():
         d.rmdir() if d.exists() else None
 
 
+@prueba("check_consistency", "un doc vivo citando un score que ya no existe")
+def _t_consistency():
+    rm = ROOT / "MODELOS.md"
+    with Sabotaje(rm):
+        # Una cifra inventada junto a un modelo real es exactamente el drift que este
+        # chequeo existe para cazar: prosa que fue correcta y hoy cita otro número.
+        rm.write_text(rm.read_text(encoding="utf-8") +
+                      "\n\nGPT-5.6 Luna alcanza un score de 3.14 en el ranking.\n",
+                      encoding="utf-8")
+        return _correr("check_consistency.py") != 0
+
+
+@prueba("check_endpoints", "un modelo con endpoint muerto que sigue rankeando")
+def _t_endpoints():
+    # No se le pega a ningún proveedor: se le pasa un id inexistente y se comprueba que
+    # lo clasifique como MUERTO en vez de dejarlo pasar. Sin red, el chequeo tiene que
+    # distinguir «no hay credencial» de «el modelo no existe» — que es justo la confusión
+    # que casi retira a Llama 3.1 8B por falta de GROQ_API_KEY.
+    r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_endpoints.py"),
+                        "--models", "proveedor-inventado/modelo-que-no-existe"],
+                       capture_output=True, text=True, cwd=ROOT)
+    salida = (r.stdout or "") + (r.stderr or "")
+    return "MUERTO" in salida.upper() or "SIN CREDENCIAL" in salida.upper() or r.returncode != 0
+
+
+@prueba("check_cobertura", "una regla aplicada en una superficie y no en las demás")
+def _t_cobertura():
+    gr = ROOT / "benchmarks" / "generate_rankings.py"
+    with Sabotaje(gr):
+        # El caso exacto que lo motivó: volver a poner la segunda tabla con un flag a
+        # mano página por página, en vez de decidirla con el criterio medido. Así fue como
+        # terminó en 2 de 16, y con las páginas que más la necesitaban afuera.
+        gr.write_text(gr.read_text(encoding="utf-8").replace(
+            '"slug": "mejor-llm-para-agentes"',
+            '"segunda_tabla_valor": True, "slug": "mejor-llm-para-agentes"', 1),
+            encoding="utf-8")
+        return _correr("check_cobertura.py") != 0
+
+
 @prueba("check_caminos", "un script que mide fuera del runner")
 def _t_caminos():
     tmp = ROOT / "_desvio_de_prueba.py"

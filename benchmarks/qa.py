@@ -65,6 +65,8 @@ CHEQUEOS = [
      [PY, "benchmarks/check_claims.py"], True, True),
     ("guardrails", "cada guardrail falla cuando debe",
      [PY, "benchmarks/test_guardrails.py"], True, False),
+    ("guardrails", "cada regla está aplicada donde corresponde, no solo donde se hizo",
+     [PY, "benchmarks/check_cobertura.py"], True, True),
     ("guardrails", "nadie mide por fuera del runner",
      [PY, "benchmarks/check_caminos.py"], True, True),
     ("version", "las 7 superficies declaran lo mismo, con tag y CHANGELOG",

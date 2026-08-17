@@ -1,9 +1,9 @@
 # Qwen 3.7 Flash — business_audit/roadmap_restriccion_capacidad
 
 - model_id: `qwen/qwen3.7-flash`
-- success: True  | final: 9.09 | quality: 10.0
-- latency_total: 26.253s | tokens_per_second: 93.2
-- input_tokens: 255 | output_tokens: 2446
+- success: True  | final: 9.06 | quality: 10.0
+- latency_total: 29.148s | tokens_per_second: 97.9
+- input_tokens: 255 | output_tokens: 2855
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -27,53 +27,51 @@ Ordename el trimestre.
 
 ## Respuesta completa
 
-Aquí tienes el orden basado en **capacidad real**, no en aspiraciones. Lo he calculado con tus números y lo he estructurado para que no te quedes sin flujo ni pierdas semanas en bloqueos.
+Como jefe de producto que gestiona tu propia capacidad real (no la ideal), aquí tienes el orden y el plan de acción. Lo escribo con la crudeza que requiere un equipo de 1 persona: **no hay margen para apuestas de largo plazo ni dependencias bloqueantes en este trimestre.**
 
-### 🔢 Diagnóstico rápido (tu capacidad real)
-- Horas disponibles: `4h/día × 5 días × 8 semanas = 160 horas`
-- **A)** ~3 meses a tiempo completo ≈ `~480h` → **Fuera de alcance este trimestre**
-- **B)** ~1 semana ≈ `20-30h` → **Encaja sobradamente**
-- **C)** ~3 semanas ≈ `~120h` → Encaja en horas, pero **depende de A**
-- **D)** ~2 semanas ≈ `~40h` → Encaja y es independiente
-
----
-
-### 🥇 Orden de ejecución (Trimestre X)
-1. **B** → Arreglar flujo de alta
-2. **D** → Grabar 10 videos
-3. **A y C** → Posponer al próximo trimestre (o reescalar drásticamente si son vitales)
+### 🔹 Orden prioritario
+1. **B** (Arreglar flujo de alta)
+2. **D** (Grabar 10 videos)
+3. **C** (Panel de métricas) → *solo si se desacopla de A*
+4. **A** (Reescritura completa) → *posponer al siguiente trimestre*
 
 ---
 
-### 📅 Plan semanal concreto
-| Semanas | Foco | Entregable | Horas usadas |
-|--------|------|------------|--------------|
-| 1-2 | **B** | Flujo de alta corregido + validación con 5-10 usuarios reales | ~40h |
-| 3-6 | **D** | 10 videos grabados, editados y publicados (ritmo 2/semana) | ~60h |
-| 7-8 | Retención + Preparación Q+1 | Analizar métricas post-B, optimizar D, definir stack/alcance de A | ~20h |
+### 🔍 Por qué este orden (con tus números reales)
+| Iniciativa | Esfuerzo real (considerando contexto switching + pruebas + bugs) | Impacto en 8 sem | Dependencia | Decisión |
+|------------|---------------------------------------------------------------|------------------|-------------|----------|
+| **B**      | ~20h (1 semana enfocada)                                      | Alto (retiene usuarios que ya llegan) | Ninguna     | ✅ Hacer primero |
+| **D**      | ~40h (2 semanas, trabajo por lotes)                           | Medio (genera leads/autoridad)        | Ninguna     | ✅ Hacer segundo |
+| **C**      | ~60h (3 semanas)                                              | Medio                                     | Depende de A | ⚠️ Solo si se construye sobre la栈 actual o se pospone |
+| **A**      | ~480h+ (3 meses a tiempo completo)                            | Alto a futuro                             | Bloquea C   | ❌ Posponer. No cabe en 160h del trimestre |
 
-*Total usado: ~120h. Te sobran ~40h para imprevistos, iteraciones o empezar un slice mínimo de A si decides cambiar de opinión.*
-
----
-
-### ⚠️ Qué hacer con A y C
-- **A (Reescritura)**: Es un proyecto de infraestructura, no de crecimiento. Con 4h/día y sin equipo, te va a robar los 2 trimestres siguientes y probablemente termines a mitad de camino sin retorno visible. **No lo hagas hasta tener ≥3x más usuarios o ingresos recurrentes que justifiquen la migración.** Si la velocidad actual ya te frena en ventas/cierres, entonces sí priorízalo, pero empieza por migrar *solo una función crítica*, no todo el sistema.
-- **C (Panel de métricas)**: Al depender de A, está bloqueado. Si es crítico para retención o upsell, construye una versión “sin dependencias”: exporta datos a un JSON, muéstralos con una librería ligera o incluso compártelos vía email automatizado. No esperes a A para entregar valor.
+**Tu capacidad real:** 4h/día × 5 días = 20h/semana × 8 semanas = **160 horas totales**.  
+La reescritura (A) se come más del triple de ese presupuesto. Además, como fundador solo, cada cambio de stack implica rehacer integraciones, tests y soporte. Sin valor entregado al usuario hasta la semana 12+, estás apostando el trimestre a ciegas.
 
 ---
 
-### 🛡️ Reglas de oro para tu contexto (solo, 4h/día)
-1. **Elimina fugas antes de añadir grifos**. Un 60% de caída en el paso 2 del alta es un balde agujereado. Ciérralo primero. Cada usuario perdido es un video desperdiciado.
-2. **Secuencial > Paralelo**. El cambio de contexto en un equipo de 1 te cuesta el 30-40% de productividad efectiva. Bloquea semanas enteras por iniciativa.
-3. **El “impacto futuro” es un lujo operativo**. La reescritura paga cuando hay volumen que justifique la complejidad. Ahora tu prioridad es validar, retener y facturar.
-4. **Si algo depende de otro, rompe la dependencia o pospón**. No dejes que A secuestre tu trimestre. O bien entregas C como MVP independiente, o lo mueves a Q+1 junto con A.
+### 📅 Plan de 8 semanas (20h/semana)
+| Semanas | Enfoque | Detalle operativo |
+|---------|---------|-------------------|
+| **1-2** | **B**   | 100% dedicado a identificar el punto de fuga en paso 2, parchearlo, lanzar y monitorizar conversión. No añadas features nuevas. |
+| **3-4** | **D**   | Grabación en lote (1 video/día). Edición básica. Publicar según calendario. Deja 2h/semana para monitorear impacto de B. |
+| **5-6** | **D** + iteración | Terminar videos restantes. Si B mejoró <15%, invertir horas en micro-ajustes UX (copy, carga, validación campo). |
+| **7-8** | **Decisión crítica** | Evaluar datos. Si la栈 actual permite un panel de métricas mínimo (ej: tabla exportable + gráficos simples con librería ligera), hazlo. Si no, cierra el trimestre sin C. A queda en backlog técnico con límite de 2h/semana para investigación, no desarrollo. |
 
 ---
 
-### ✅ Tu acción inmediata (próximas 48h)
-1. Mide exactamente dónde cae el 60% en el paso 2 (campo, validación, error visual, carga lenta).
-2. Implementa el fix mínimo viable (no perfecciones, haz que funcione).
-3. Lánzalo a tráfico orgánico o leads existentes y mide conversión en 7 días.
-4. Si sube ≥15%, ya justificaste la semana. Sigue con los videos.
+### 🛑 Reglas de ejecución para fundador solo
+1. **Nunca empieces A si impide enviar B.** El flujo de alta es tu garganta. Si sangra, todo lo demás es ruido.
+2. **Desacopla C de A.** Las dependencias son veneno cuando eres una sola persona. Si necesitas métricas, entrégalas con la tecnología actual aunque sea “imperfecta”. La iteración posterior será más barata que esperar a A.
+3. **Buffer del 20%.** De esas 4h diarias, reserva 45 min improductivos por día (imprevistos, errores de producción, llamadas de soporte que se alargan). Tu plan debe caber en 16h/semana netas.
+4. **Critério de salida para A:** Solo retomarlo si después de B+C+D sigues teniendo latencia >2s en respuestas críticas o costos de infraestructura que escalan linealmente con usuarios. Si no, migra módulos aislados en pequeños sprints, no todo el sistema.
 
-¿Quieres que te ayude a escanear ese paso 2 y darte las 3 causas más probables + soluciones técnicas rápidas según tu stack actual?
+---
+
+### ✅ Resumen ejecutivo
+- **Semana 1-2:** Cierra la fuga (B). Sin esto, el trimestre es irrelevante.
+- **Semana 3-6:** Genera activo digital (D). Trabajo predecible, baja fricción cognitiva.
+- **Semana 7-8:** Decide sobre métricas (C) con datos reales. A queda fuera del cierre de trimestre.
+- **Regla de oro:** Como equipo de 1, tu ventaja no es velocidad bruta, es **ciclos de entrega cortos + feedback rápido**. Los proyectos que no muestran resultado en ≤3 semanas están matando tu capital de atención.
+
+Si quieres, te ayudo a desglosar B en tareas de máximo 2h cada una para que no pierdas ritmo con el cambio de contexto.

@@ -1,9 +1,9 @@
 # Qwen 3.7 Flash — business_audit/atribucion_correlacion_temporal
 
 - model_id: `qwen/qwen3.7-flash`
-- success: True  | final: 9.16 | quality: 10.0
-- latency_total: 19.48s | tokens_per_second: 89.8
-- input_tokens: 245 | output_tokens: 1750
+- success: True  | final: 9.27 | quality: 10.0
+- latency_total: 20.481s | tokens_per_second: 103.5
+- input_tokens: 245 | output_tokens: 2120
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -28,20 +28,36 @@ Contexto adicional: también el 3 de marzo empecé a pagar publicidad ($400 en e
 
 ## Respuesta completa
 
-**No se puede saber.** 
+**Conclusión directa:** No se puede saber con los datos que me proporcionas. Lo que tienes es una coincidencia temporal, no evidencia de causalidad.
 
-Lo que tienes son datos agregados de un mes donde coincidió activar tres fuentes de tráfico/conversión diferentes. Eso rompe cualquier intento de atribución causal con la información actual:
+### Por qué los números actuales no sostienen esa afirmación
+1. **Tres factores concurrentes generan ruido crítico:** 
+   - Inicias publicidad paga el 3 de marzo ($400).
+   - Un creador con audiencia grande menciona la comunidad el 12 de marzo.
+   - Lanzas la secuencia de emails el 1 de marzo.
+   Todos estos eventos suelen disparar tráfico, visibilidad y conversiones simultáneamente. Sin desagregar el origen de cada nuevo pago, cualquier atribución a los emails es especulativa.
 
-1. **Superposición temporal exacta:** Emails (1 mar), publicidad ($400 desde el 3 mar) y mención del creador (12 mar). Cualquiera de los tres, o su combinación, pudo impulsar tanto el MRR como las 14 altas de marzo.
-2. **MRR ≠ conversiones de la secuencia:** El salto de $4.100 a $5.300 incluye nuevos suscriptores pagados por cualquier canal, no solo usuarios gratuitos que subieron de nivel gracias a los emails.
-3. **Ausencia de línea base y grupo de control:** Un solo mes de comparación no descarta estacionalidad, crecimiento orgánico natural o efectos de red. Tampoco sabes cómo se comportó un segmento equivalente que no estuvo expuesto a la secuencia.
-4. **Falta de métricas intermedias:** No tienes aperturas, clics, retención en la secuencia ni tasa de conversión específica por email. Sin eso, no puedes rastrear el comportamiento real de los receptores.
+2. **El MRR y las "altas al pago" no miden lo mismo:** 
+   - El salto de $4.100 a $5.300 en MRR puede provenir casi totalmente de nuevos suscriptores captados por ads o el video, no de usuarios del plan gratuito que hicieron upgrade.
+   - Las conversiones pasaron de 9 a 14, pero sin conocer el tamaño de tu cohorte gratuita, la tasa de conversión histórica ni el momento exacto en que cada usuario recibió/respondió los emails, ese delta no es estadísticamente significativo ni atribuible.
 
-### Qué haría falta para estar seguros:
-- **Tracking por origen:** UTM, códigos de referido o segmentación nativa que distinga cuántas de esas 14 altas vinieron de usuarios que recibieron los emails vs. los que llegaron por ads, el video o tráfico orgánico.
-- **Métricas de la secuencia:** % de entregables, aperturas, clics en CTAs y conversión gratuita→pago exclusiva para quienes la completaron (o al menos la abrieron).
-- **Prueba controlada o A/B:** Comparar la evolución de un cohorte similar que no reciba la secuencia (o la reciba con retraso) contra el expuesto, manteniendo ads y menciones constantes si es posible.
-- **Desagregación financiera:** Separar el ingreso marginal atribuible a cada canal, calculando CAC/ROAS de los $400 de publicidad y evaluando el pico post-video. Restar ese impacto deja solo la porción atribuible a los emails.
-- **Ventana histórica más amplia:** Mínimo 3-6 meses previos para establecer tendencia natural y detectar patrones estacionales.
+3. **Falta trazabilidad y diseño de prueba:** 
+   - No hay grupo de control (usuarios expuestos vs. no expuestos a la secuencia).
+   - No se reportan métricas intermedias clave (tasa de apertura, clics, tiempo entre último email y conversión).
+   - No se indica cómo estás rastreando la fuente de cada conversión (UTMs, canal primario, evento de atribución). En entornos multi-canal, atribuir todo a un touchpoint automático es un error común de análisis.
 
-Hasta que no aíles la variable “secuencia de emails” con métricas de conversión directa, controles adecuados y trazabilidad por canal, la conclusión válida sigue siendo **no se puede saber**. Si quieres, puedo ayudarte a montar un experimento ligero (A/B por cohorte + tracking básico) que te dé una respuesta accionable sin frenar tus otras campañas.
+### Qué haría falta para estar seguros
+- **Desglose de adquisición por fuente:** cuántos nuevos pagos vinieron de orgánico/freemium, de ads, de referencia del creador, y de otros canales.
+- **Cohorte de conversión controlada:** comparar la tasa de upgrade de quienes sí recibieron la secuencia contra una cohorte similar que no la recibió (o contra febrero ajustado por estacionalidad y crecimiento orgánico histórico).
+- **Atribución clara:** implementar UTM consistentes + panel de analytics que registre el primer contacto y el canal primario antes de la compra. Sin esto, cualquier conclusión es ruido.
+- **Métricas de engagement con la secuencia:** aperturas, clics en CTAs, caída por etapa, y distribución temporal de conversiones respecto al día/número de email recibido.
+- **Control de contexto operativo:** ¿cambiaste precios, límites del plan gratuito, experiencia de onboarding o capacidad de soporte en marzo? Cualquier variación externa distorsiona la señal.
+
+### Recomendación operativa
+Por ahora, etiqueta este lanzamiento como **experimento en curso**. La próxima vez:
+1. Separa claramente los canales (ads, referencias orgánicas, emails) desde el click hasta la conversión.
+2. Mantén un grupo de control equivalente durante la prueba.
+3. Espera al menos 2-4 semanas después del último email para cerrar el ciclo de atribución.
+4. Compara tasas de conversión por cohorte, no solo deltas absolutos.
+
+Si quieres, puedo ayudarte a estructurar el seguimiento, definir las variables mínimas viables y armar un dashboard simple para tomar la decisión correctamente.

@@ -1,0 +1,1 @@
+{"metadata": {"timestamp": "validacion_verificar_claim", "total_runs": 70, "errors": 0, "judge": {"judge_model": "microsoft/phi-4", "judge_provider": "openrouter", "judge_is_local": false, "evaluations": 1, "estimated_cost_usd": 0.0007}, "partial": false}, "results": []}

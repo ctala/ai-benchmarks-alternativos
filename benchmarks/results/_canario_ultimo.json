@@ -1,7 +1,7 @@
 {
-  "cuando": "2026-08-16T09:20:50",
+  "cuando": "2026-08-17T07:46:33",
   "modelos": [
-    "nemotron-3.5-lightning"
+    "qwen3.7-flash"
   ],
   "suites": [
     "tool_calling",
