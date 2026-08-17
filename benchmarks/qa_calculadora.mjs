@@ -337,7 +337,17 @@ chequeo("Q12 · el menú de ejes sale del registro y ningún eje queda sin nombr
 // pierde un eje, ese eje deja de ser alcanzable y nada lo indica.
 chequeo("Q13 · desde el índice de calidad se puede elegir cualquier eje, y ninguno queda vacío", () => {
   const malas = [];
-  const conPilar = Object.entries(datos.suites || {}).filter(([, s]) => s.pilar).map(([k]) => k);
+  // Solo los ejes CON COBERTURA. Q3 exige no ofrecer un eje que casi nadie rindió (la
+  // tabla saldría vacía) y Q13 exigía que todo eje con pilar fuera alcanzable: las dos
+  // reglas se contradecían el día que se agregaron tres suites nuevas. Manda la de Q3
+  // —un eje sin cobertura no sirve para decidir— y Q13 verifica lo mismo sobre el
+  // subconjunto que sí sirve.
+  const rk = MODELOS.filter(m => m.ranked);
+  const cob = {};
+  for (const m of rk) for (const k of Object.keys(m.score_by_suite || {})) cob[k] = (cob[k] || 0) + 1;
+  const MINCOB = Math.max(3, rk.length * 0.5);
+  const conPilar = Object.entries(datos.suites || {})
+    .filter(([k, s]) => s.pilar && (cob[k] || 0) >= MINCOB).map(([k]) => k);
   const enMenu = new Set(Object.values(app.SUITES_BY_PILLAR).flat().map(s => s.value));
   for (const s of conPilar) {
     if (!enMenu.has(s)) { malas.push(`\`${s}\` tiene pilar y no es alcanzable desde el menú`); continue; }

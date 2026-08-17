@@ -1,13 +1,13 @@
 # Qwen 3.7 Flash
 
 - **model_id**: `qwen/qwen3.7-flash`
-- **Total tests**: 280/280 exitosos (0 errores)
-- **Score final**: 7.82
-- **Calidad**: 8.10
+- **Total tests**: 307/309 exitosos (2 errores)
+- **Score final**: 7.87
+- **Calidad**: 8.13
 - **Judge score (Phi-4)**: 4.49/10
-- **Velocidad**: 106 tok/s
-- **Latencia primera token**: 18.36s
-- **Costo promedio por test**: $0.00136
+- **Velocidad**: 107 tok/s
+- **Latencia primera token**: 17.51s
+- **Costo promedio por test**: $0.00124
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -25,6 +25,8 @@
 | creativity | 4 | 4 | 8.26 | 8.75 |
 | customer_support | 4 | 4 | 8.65 | 8.90 |
 | deep_reasoning | 6 | 6 | 7.41 | 7.50 |
+| dominio_entidad | 12 | 11 | 8.15 | 8.18 |
+| extraer_claims | 5 | 5 | 9.26 | 10.00 |
 | hallucination | 3 | 3 | 7.18 | 7.00 |
 | integridad_idioma | 4 | 4 | 8.88 | 9.59 |
 | multi_turn | 4 | 4 | 7.48 | 7.50 |
@@ -47,6 +49,7 @@
 | tool_calling | 4 | 4 | 6.96 | 6.40 |
 | tool_calling_adversarial | 30 | 30 | 7.25 | 7.05 |
 | translation | 3 | 3 | 8.24 | 8.67 |
+| verificar_claim | 12 | 11 | 8.18 | 8.18 |
 
 ## Detalle por test
 
@@ -2052,3 +2055,9 @@ Aquí tienes una planificación detallada y realista para lanzar la landing page
 #### tool_calling_adversarial
 
 #### retrieval_distractores
+
+#### verificar_claim
+
+#### extraer_claims
+
+#### dominio_entidad

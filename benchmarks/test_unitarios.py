@@ -737,10 +737,35 @@ def test_cada_clase_del_auditor_corre_sola(clase):
         assert h[0] in (aud.ALTA, aud.MEDIA, aud.BAJA)
 
 
-def test_simular_pilares_no_deja_suites_fuera():
-    """Tras la decisión del 16-ago no debería quedar ninguna suite con pilar sin promediar."""
-    import simular_pilares as sp
-    assert sp.CANDIDATAS == [], f"quedaron fuera del promedio: {sp.CANDIDATAS}"
+def test_toda_suite_fuera_del_promedio_tiene_motivo(datos):
+    """Una suite con pilar puede no promediar — pero solo con el motivo escrito.
+
+    La v1 exigía que NO quedara ninguna: `assert sp.CANDIDATAS == []`. Eso era cierto el
+    16-ago y dejó de serlo el 17, cuando entraron tres suites nuevas que legítimamente no
+    promedian todavía (1 modelo medido: un promedio ahí mide quién se midió primero, no
+    capacidad).
+
+    Es el mismo error que el self-test de `check_docs`: convertir un estado puntual del
+    repo en una ley. El test correcto no es «no hay ninguna», es «cada una tiene su
+    razón» — porque la razón es lo que evita que se queden fuera por olvido, que fue el
+    fallo original que costó tres suites en silencio.
+    """
+    from benchmarks.suites import SUITES
+    rankeados = [m for m in datos["models"] if m.get("ranked")]
+    malas = []
+    for k, s in SUITES.items():
+        if not s["pilar"] or s["en_promedio"]:
+            continue
+        if not s.get("nota"):
+            malas.append(f"{k}: fuera del promedio y sin motivo escrito")
+            continue
+        # Y el motivo tiene que seguir siendo cierto: si ya tiene cobertura, entra.
+        n = sum(1 for m in rankeados if k in (m.get("score_by_suite") or {}))
+        if n >= len(rankeados) * 0.8:
+            malas.append(f"{k}: ya la rindió el {n/len(rankeados):.0%} de los rankeados "
+                         f"— el motivo «cobertura insuficiente» caducó, corré "
+                         f"simular_pilares.py y decidí")
+    assert not malas, "\n".join(malas)
 
 
 def test_export_harbor_causas_cubren_los_ceros_conocidos():
