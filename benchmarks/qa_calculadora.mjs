@@ -67,7 +67,7 @@ function cargarApp() {
     `${src}
      return { getScore, filterAndRank, costPerMonth, PRESETS_BUDGET, state,
               TOOL_CALLING_MIN, clampUmbralAlEje, WIZ, WIZ_AGENTES, wizEje,
-              computeZScore, wizCandidatos, cargarRegistroDeSuites,
+              computeZScore, wizCandidatos, cargarRegistroDeSuites, wizDecidir, PRESETS_BUDGET,
               get SUITES_BY_PILLAR() { return SUITES_BY_PILLAR; } };`);
   return fn(document, window,
             { getItem: () => null, setItem: () => {} },
@@ -431,6 +431,66 @@ chequeo("Q15 · ninguna página de comparación quedó huérfana del generador",
   return malas;
 });
 
+
+// ── W6 · las 32 combinaciones del wizard, con la función REAL ───────────────
+// Cristian: *"quiero que revises las distintas combinaciones para ver que responda lo
+// que realmente debería"*. Barrer a mano encontró dos cosas; este chequeo las fija.
+chequeo("W6 · las 32 combinaciones del wizard devuelven algo defendible", () => {
+  const malas = [];
+  for (const t of app.WIZ.tasks) {
+    const tipos = t.pillar === "Agentes" ? app.WIZ_AGENTES.map(a => a.id) : [null];
+    for (const b of app.WIZ.budgets) {
+      for (const ag of tipos) {
+        const r = app.wizDecidir(t.id, b.id, ag);
+        const combo = `${t.id}/${b.id}${ag ? "/" + ag : ""}`;
+        if (!r.length) { malas.push(`${combo}: sin recomendación`); continue; }
+        const top = r[0].m;
+        // «Chat en vivo» no puede recomendar algo lento: es la única tarea donde la
+        // espera ES el caso de uso.
+        if (t.latency && (top.latency_avg_s || 0) > 20) {
+          malas.push(`${combo}: recomienda ${top.name}, que tarda ${top.latency_avg_s.toFixed(0)}s ` +
+                     `para «chat en vivo»`);
+        }
+        // Nada que no corra en un agente, en ninguna combinación agéntica.
+        if (t.pillar === "Agentes" && top.sirve_para_agentes === false) {
+          malas.push(`${combo}: recomienda ${top.name}, que no corre en un agente`);
+        }
+      }
+    }
+  }
+  return malas;
+});
+
+// ── W7 · el presupuesto tiene que servir de algo ────────────────────────────
+// Medido el 17-ago: en las **12 combinaciones de agentes** la recomendación era
+// IDÉNTICA para «Poco ~$5/mes» y «Mucho ~$500/mes», porque los ejes de cada tipo miden
+// capacidad y ninguno mide precio. Preguntarle el presupuesto a alguien y no usarlo es
+// peor que no preguntarlo: le enseña que el resultado está personalizado cuando no lo
+// está.
+//
+// No se exige que TODA tarea cambie —GPT-5.6 Luna gana razonamiento a cualquier peso
+// porque es barato Y bueno, y eso es legítimo—; se exige que el presupuesto llegue a
+// mover el orden en la mayoría, y que el podio no sea idéntico en los extremos.
+chequeo("W7 · el presupuesto cambia la recomendación en la mayoría de las tareas", () => {
+  const malas = [];
+  let mueve = 0, total = 0;
+  for (const t of app.WIZ.tasks) {
+    const tipos = t.pillar === "Agentes" ? app.WIZ_AGENTES.map(a => a.id) : [null];
+    for (const ag of tipos) {
+      total++;
+      const nombres = app.WIZ.budgets.map(b => (app.wizDecidir(t.id, b.id, ag)[0] || {}).m?.name);
+      const top5 = app.WIZ.budgets.map(b =>
+        app.wizDecidir(t.id, b.id, ag).slice(0, 5).map(x => x.m.name).join("|"));
+      if (new Set(nombres).size > 1 || new Set(top5).size > 1) mueve++;
+    }
+  }
+  if (mueve < total * 0.6) {
+    malas.push(`el presupuesto solo mueve ${mueve} de ${total} combinaciones: ` +
+               `el paso 2 del wizard es decorativo en el resto`);
+  }
+  return malas;
+});
+
 // ═══════════════════════════════════════════════════════════════════════════
 // WIZARD — es la PUERTA DE ENTRADA del sitio y era una ruta de código aparte,
 // sin ningún test. Medido el 14-ago: no filtraba por `sirve_para_agentes`, así que
@@ -526,6 +586,38 @@ chequeo("W5 · la tabla de ejes explica el MISMO orden que se calculó", () => {
     for (const x of r) {
       for (const [eje] of tipo.ejes) {
         if (app.wizEje(x.m, eje) === undefined) malas.push(`${tipo.id}: ${x.m.name} sin ${eje}`);
+      }
+    }
+  }
+  return malas;
+});
+
+// ── W8 · lo que recomienda TIENE QUE CABER en el presupuesto declarado ──────
+// Medido el 17-ago-2026: el preset «Poco · ~$5/mes» recomendaba **Claude Fable 5**, que
+// con las 300 llamadas/mes de ese mismo preset cuesta **$23,40** — 4,7 veces lo que el
+// usuario acababa de declarar. Sus pesos son calidad 85% / costo 5%: el precio entraba
+// tan poco que el mejor ganaba aunque no cupiera.
+//
+// Un peso bajo dice «me importa poco»; NO dice «puedo pagar cualquier cosa». El wizard
+// confundía las dos, y es el peor error posible en la pantalla que existe para respetar
+// un presupuesto.
+chequeo("W8 · la recomendación cabe en el presupuesto que el usuario declaró", () => {
+  const malas = [];
+  for (const t of app.WIZ.tasks) {
+    const tipos = t.pillar === "Agentes" ? app.WIZ_AGENTES.map(a => a.id) : [null];
+    for (const b of app.WIZ.budgets) {
+      const pre = app.PRESETS_BUDGET[b.id];
+      if (!pre) { malas.push(`el preset «${b.id}» del wizard no existe en PRESETS_BUDGET`); continue; }
+      for (const ag of tipos) {
+        const r = app.wizDecidir(t.id, b.id, ag);
+        if (!r.length) continue;
+        const m = r[0].m;
+        const mensual = (m.cost_per_1k_calls_usd || 0) * pre.calls / 1000;
+        // 1,5× de margen: nadie se ofende con $7 cuando dijo «~$5» si el salto lo vale.
+        if (mensual > pre.budget * 1.5) {
+          malas.push(`${t.id}/${b.id}${ag ? "/" + ag : ""}: recomienda ${m.name} a ` +
+                     `$${mensual.toFixed(2)}/mes cuando el preset declara $${pre.budget}`);
+        }
       }
     }
   }
