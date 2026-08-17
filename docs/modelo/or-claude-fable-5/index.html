@@ -203,15 +203,15 @@
 <main class="container">
   <section class="hero">
     <h1>Claude Fable 5: para qué sirve de verdad (benchmark en español)</h1>
-    <p class="lead">Su fuerte es <strong>Contenido</strong> (#1 de 83 entre los que rinden el examen completo), y donde menos rinde es <strong>Agentes</strong> (7.40 contra 9.09). Cuesta $78.00 por cada 1.000 llamadas.</p>
+    <p class="lead">Su fuerte es <strong>Contenido</strong> (#1 de 80 entre los que rinden el examen completo), y donde menos rinde es <strong>Agentes</strong> (7.40 contra 9.09). Cuesta $78.00 por cada 1.000 llamadas.</p>
     <p class="meta">Medido con <strong>205 runs</strong> que puntúan, juez Phi-4 local.
     Última actualización: 2026-08-17 ·
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos</a></p>
   </section>
   <div class="kpi-strip">
-    <div class="kpi "><span class="k-label">Puesto global</span><span class="k-value">#32<span class="k-unit"> de 83</span></span><span class="k-sub">mejor que el 62% de los rankeados</span></div>
-    <div class="kpi "><span class="k-label">Índice de calidad</span><span class="k-value">8.35<span class="k-unit">/10</span></span><span class="k-sub">11 modelos por encima</span></div>
-    <div class="kpi is-cyan"><span class="k-label">Por 1.000 llamadas</span><span class="k-value">$78.00</span><span class="k-sub">más barato que 1 de 83</span></div>
+    <div class="kpi "><span class="k-label">Puesto global</span><span class="k-value">#31<span class="k-unit"> de 80</span></span><span class="k-sub">mejor que el 62% de los rankeados</span></div>
+    <div class="kpi "><span class="k-label">Índice de calidad</span><span class="k-value">8.35<span class="k-unit">/10</span></span><span class="k-sub">12 modelos por encima</span></div>
+    <div class="kpi is-cyan"><span class="k-label">Por 1.000 llamadas</span><span class="k-value">$78.00</span><span class="k-sub">más barato que 1 de 80</span></div>
     <div class="kpi is-cyan"><span class="k-label">Velocidad</span><span class="k-value">43<span class="k-unit"> tok/s</span></span><span class="k-sub">34.6 s de espera media</span></div>
   </div>
   <div class="badges">
@@ -226,17 +226,17 @@
     se verían iguales. La marca vertical es la <strong>mediana</strong>.</p>
     <div class="bar-row">
       <span class="b-label">Coding</span>
-      <span class="bar-track"><span class="bar-fill bajo" style="width:25.9%"></span><span class="bar-median" style="left:69.2%"></span></span>
-      <span class="b-val bajo">7.86 <span class="delta">(-1.16 vs mediana)</span></span>
+      <span class="bar-track"><span class="bar-fill bajo" style="width:25.8%"></span><span class="bar-median" style="left:69.5%"></span></span>
+      <span class="b-val bajo">7.86 <span class="delta">(-1.17 vs mediana)</span></span>
     </div>
     <div class="bar-row">
       <span class="b-label">Contenido</span>
-      <span class="bar-track"><span class="bar-fill" style="width:100.0%"></span><span class="bar-median" style="left:63.9%"></span></span>
-      <span class="b-val">9.09 <span class="delta">(+0.74 vs mediana)</span></span>
+      <span class="bar-track"><span class="bar-fill" style="width:100.0%"></span><span class="bar-median" style="left:65.0%"></span></span>
+      <span class="b-val">9.09 <span class="delta">(+0.72 vs mediana)</span></span>
     </div>
     <div class="bar-row">
       <span class="b-label">Razonamiento</span>
-      <span class="bar-track"><span class="bar-fill" style="width:89.6%"></span><span class="bar-median" style="left:79.4%"></span></span>
+      <span class="bar-track"><span class="bar-fill" style="width:89.6%"></span><span class="bar-median" style="left:79.6%"></span></span>
       <span class="b-val">8.29 <span class="delta">(+0.30 vs mediana)</span></span>
     </div>
     <div class="bar-row">
@@ -288,23 +288,71 @@
     <p class="meta">Los tres salen de las mismas 29 tareas, el mismo juez y los mismos
     límites. Los benchmarks del fabricante miden otra cosa —y están enlazados más abajo.</p>
   </section>
+  <section class="results">
+    <div class="results-header">
+      <h2>Cuánto <code>max_tokens</code> darle, por tarea</h2>
+      <p class="meta">Si tu nodo o tu script queda por debajo de esto,
+      Claude Fable 5 <strong>no falla: entrega de menos</strong> — y quien lo consume lo
+      lee como que no había nada que reportar. Es el modo de falla más caro que hay,
+      porque se parece a que todo salió bien.</p>
+      
+    </div>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr><th scope="col">Tarea</th><th scope="col">Mediana</th>
+      <th scope="col">Peor caso medido</th><th scope="col">max_tokens sugerido</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Tareas largas (sostener el hilo 8-12 turnos)</th><td>6.671</td><td>21.558</td><td><strong>26.947</strong> <span class="meta">(piso)</span></td></tr>
+        <tr><th scope="row">Contenido startup (newsletter. actualidad)</th><td>2.588</td><td>6.584</td><td><strong>8.230</strong></td></tr>
+        <tr><th scope="row">Decisiones de negocio (prioridades. plan)</th><td>2.132</td><td>5.617</td><td><strong>7.021</strong></td></tr>
+        <tr><th scope="row">Presentaciones (slides. reportes)</th><td>4.676</td><td>4.676</td><td><strong>5.845</strong></td></tr>
+        <tr><th scope="row">Noticias + SEO (artículos completos)</th><td>2.156</td><td>4.323</td><td><strong>5.403</strong></td></tr>
+        <tr><th scope="row">Generación de código (Python. SQL. debug)</th><td>1.426</td><td>3.905</td><td><strong>4.881</strong></td></tr>
+        <tr><th scope="row">Estrategia (pricing. planificación)</th><td>3.178</td><td>3.619</td><td><strong>4.523</strong></td></tr>
+        <tr><th scope="row">Razonamiento general (lógica. decisiones)</th><td>2.660</td><td>3.418</td><td><strong>4.272</strong></td></tr>
+        <tr><th scope="row">Gestión de tareas (action items. planes)</th><td>3.162</td><td>3.252</td><td><strong>4.065</strong></td></tr>
+        <tr><th scope="row">Razonamiento profundo (matemática. Fermi)</th><td>1.970</td><td>3.246</td><td><strong>4.057</strong></td></tr>
+        <tr><th scope="row">Creatividad (hooks. analogías. narrativa)</th><td>1.879</td><td>3.077</td><td><strong>3.846</strong></td></tr>
+        <tr><th scope="row">Auditar números (detectar el error plantado)</th><td>1.332</td><td>3.040</td><td><strong>3.800</strong></td></tr>
+        <tr><th scope="row">Integridad de idioma (no mezclar idiomas)</th><td>1.694</td><td>2.371</td><td><strong>2.963</strong></td></tr>
+        <tr><th scope="row">Ventas en frío (cold email. campañas)</th><td>994</td><td>2.353</td><td><strong>2.941</strong></td></tr>
+        <tr><th scope="row">OCR / extracción desde imágenes</th><td>1.024</td><td>2.199</td><td><strong>2.748</strong></td></tr>
+        <tr><th scope="row">Contenido genérico (blog. email. social)</th><td>1.361</td><td>1.547</td><td><strong>1.933</strong></td></tr>
+        <tr><th scope="row">Anti-alucinación (citas. contexto)</th><td>537</td><td>1.446</td><td><strong>1.807</strong></td></tr>
+        <tr><th scope="row">JSON estructurado (extracción. schemas)</th><td>137</td><td>1.280</td><td><strong>1.600</strong></td></tr>
+        <tr><th scope="row">Contenido con datos verificables (no inventar)</th><td>775</td><td>1.188</td><td><strong>1.485</strong></td></tr>
+        <tr><th scope="row">Traducción (es↔en)</th><td>233</td><td>999</td><td><strong>1.248</strong></td></tr>
+        <tr><th scope="row">Capacidades de agente (delegación. skills)</th><td>866</td><td>939</td><td><strong>1.173</strong></td></tr>
+        <tr><th scope="row">Orquestación (flujos de varios pasos)</th><td>610</td><td>933</td><td><strong>1.166</strong></td></tr>
+        <tr><th scope="row">Multi-turno (debugging. requisitos)</th><td>861</td><td>927</td><td><strong>1.158</strong></td></tr>
+        <tr><th scope="row">Seguir instrucciones al pie de la letra</th><td>624</td><td>857</td><td><strong>1.071</strong></td></tr>
+        <tr><th scope="row">Resúmenes y extracción de datos</th><td>732</td><td>732</td><td><strong>915</strong></td></tr>
+        <tr><th scope="row">No inventar herramientas (abstenerse cuando no hay)</th><td>198</td><td>667</td><td><strong>833</strong></td></tr>
+        <tr><th scope="row">Resistencia a prompt injection</th><td>275</td><td>621</td><td><strong>776</strong></td></tr>
+        <tr><th scope="row">Tool calling (llamada de funciones)</th><td>387</td><td>486</td><td><strong>607</strong></td></tr>
+        <tr><th scope="row">Soporte al cliente (clasificar y responder)</th><td>206</td><td>433</td><td><strong>541</strong></td></tr>
+        <tr><th scope="row">Verificar un dato contra su fuente</th><td>170</td><td>264</td><td><strong>330</strong></td></tr>
+        <tr><th scope="row">Precisión literal (hex. JWT. configs)</th><td>5</td><td>47</td><td><strong>58</strong></td></tr>
+      </tbody>
+    </table></div>
+    <p class="meta">Las marcadas <strong>(piso)</strong> tocaron el techo del propio examen (8.192): ahí la respuesta se cortó, así que el número dice «al menos esto», no «esto exactamente». Dar más aire en esas.</p>
+  </section>
   <section>
     <h2>Qué hace bien y qué no</h2>
-    <p>Su media entre las 30 tareas medidas es <strong>6.93</strong>. Un
+    <p>Su media entre las 31 tareas medidas es <strong>6.96</strong>. Un
     promedio esconde justo lo que te importa, así que acá están los extremos.</p>
     <h3>Donde rinde por encima de sí mismo</h3>
     <ul>
-        <li><strong>JSON estructurado (extracción, schemas)</strong> — 8.30 (+1.37 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
-        <li><strong>Contenido con datos verificables (no inventar)</strong> — 8.02 (+1.09 contra su media). <span class="meta">Decide: escribir sin caer en la trampa del brief</span></li>
-        <li><strong>Razonamiento general (lógica, decisiones)</strong> — 7.95 (+1.02 contra su media). <span class="meta">Decide: razonar con varias piezas a la vez</span></li>
-        <li><strong>Estrategia (pricing, planificación)</strong> — 7.87 (+0.94 contra su media). <span class="meta">Decide: elegir entre opciones de negocio</span></li>
+        <li><strong>JSON estructurado (extracción, schemas)</strong> — 8.30 (+1.34 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
+        <li><strong>Contenido con datos verificables (no inventar)</strong> — 8.02 (+1.06 contra su media). <span class="meta">Decide: escribir sin caer en la trampa del brief</span></li>
+        <li><strong>Razonamiento general (lógica, decisiones)</strong> — 7.95 (+0.99 contra su media). <span class="meta">Decide: razonar con varias piezas a la vez</span></li>
+        <li><strong>Estrategia (pricing, planificación)</strong> — 7.87 (+0.91 contra su media). <span class="meta">Decide: elegir entre opciones de negocio</span></li>
     </ul>
     <h3>Donde se cae</h3>
     <ul>
-        <li><strong>Tool calling (llamada de funciones)</strong> — 4.53 (-2.40 contra su media). <span class="meta">Decide: llamar bien las funciones</span></li>
-        <li><strong>Tareas largas (sostener el hilo 8-12 turnos)</strong> — 5.38 (-1.55 contra su media). <span class="meta">Decide: sostener una tarea larga</span></li>
-        <li><strong>Razonamiento profundo (matemática, Fermi)</strong> — 5.86 (-1.07 contra su media). <span class="meta">Decide: resolver un problema difícil sin atajos</span></li>
-        <li><strong>Noticias + SEO (artículos completos)</strong> — 5.91 (-1.02 contra su media). <span class="meta">Decide: escribir un artículo publicable</span></li>
+        <li><strong>Tool calling (llamada de funciones)</strong> — 4.53 (-2.43 contra su media). <span class="meta">Decide: llamar bien las funciones</span></li>
+        <li><strong>Tareas largas (sostener el hilo 8-12 turnos)</strong> — 5.38 (-1.58 contra su media). <span class="meta">Decide: sostener una tarea larga</span></li>
+        <li><strong>Razonamiento profundo (matemática, Fermi)</strong> — 5.86 (-1.10 contra su media). <span class="meta">Decide: resolver un problema difícil sin atajos</span></li>
+        <li><strong>Noticias + SEO (artículos completos)</strong> — 5.91 (-1.05 contra su media). <span class="meta">Decide: escribir un artículo publicable</span></li>
     </ul>
   </section>
   <section class="results">

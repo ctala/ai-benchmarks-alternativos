@@ -1080,3 +1080,28 @@ def test_ningun_modelo_del_catalogo_quedo_sin_sus_runs(datos):
         elif publicados[nombre] == 0:
             malas.append(f"«{nombre}» tiene {n} runs en disco y 0 en el dataset")
     assert not malas, "\n".join(malas)
+
+
+def test_todo_rankeado_publica_su_presupuesto_de_salida(datos):
+    """El dato que evita el fallo silencioso no puede faltar en un modelo publicado.
+
+    17-ago-2026. El gate de noticias de Eco se configuró con `max_tokens: 2000`, se le
+    cambió el modelo por uno que razona, y con 12 claims el nuevo necesitaba 2.492: el
+    JSON se cortaba y devolvía MENOS veredictos de los pedidos. Un claim sin veredicto no
+    bloquea, así que el gate pasó de frenar el 15,6% a frenar el 0,0% — **en la dirección
+    peligrosa y en silencio**.
+
+    El repo tenía `output_tokens` en cada run desde siempre y no lo publicaba en ninguna
+    parte. Ahora sí, por tarea. Este test existe para que no se caiga de nuevo sin que
+    nadie se entere: si el export deja de emitirlo, la ficha se queda sin la sección y
+    nada más protesta.
+    """
+    faltan = [
+        m["key"] for m in datos["models"]
+        if m.get("ranked") and not ((m.get("presupuesto_salida") or {}).get("por_tarea"))
+    ]
+    assert not faltan, (
+        f"{len(faltan)} modelo(s) rankeados sin presupuesto de salida por tarea: "
+        f"{faltan[:5]}. Sin ese dato, quien los integre no sabe qué max_tokens darles, "
+        f"y quedarse corto no falla: entrega de menos."
+    )

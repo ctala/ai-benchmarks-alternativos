@@ -203,15 +203,15 @@
 <main class="container">
   <section class="hero">
     <h1>DeepSeek V4 Pro: para qué sirve de verdad (benchmark en español)</h1>
-    <p class="lead">Donde mejor rinde es <strong>Coding</strong> (#45 de 83 entre los que rinden el examen completo), y donde menos rinde es <strong>Agentes</strong> (7.54 contra 9.00). Cuesta $2.08 por cada 1.000 llamadas.</p>
+    <p class="lead">Donde mejor rinde es <strong>Coding</strong> (#44 de 80 entre los que rinden el examen completo), y donde menos rinde es <strong>Agentes</strong> (7.54 contra 9.00). Cuesta $2.08 por cada 1.000 llamadas.</p>
     <p class="meta">Medido con <strong>192 runs</strong> que puntúan, juez Phi-4 local.
     Última actualización: 2026-08-17 ·
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos</a></p>
   </section>
   <div class="kpi-strip">
-    <div class="kpi "><span class="k-label">Puesto global</span><span class="k-value">#35<span class="k-unit"> de 83</span></span><span class="k-sub">mejor que el 59% de los rankeados</span></div>
-    <div class="kpi "><span class="k-label">Índice de calidad</span><span class="k-value">8.18<span class="k-unit">/10</span></span><span class="k-sub">27 modelos por encima</span></div>
-    <div class="kpi is-cyan"><span class="k-label">Por 1.000 llamadas</span><span class="k-value">$2.08</span><span class="k-sub">más barato que 44 de 83</span></div>
+    <div class="kpi "><span class="k-label">Puesto global</span><span class="k-value">#34<span class="k-unit"> de 80</span></span><span class="k-sub">mejor que el 58% de los rankeados</span></div>
+    <div class="kpi "><span class="k-label">Índice de calidad</span><span class="k-value">8.18<span class="k-unit">/10</span></span><span class="k-sub">26 modelos por encima</span></div>
+    <div class="kpi is-cyan"><span class="k-label">Por 1.000 llamadas</span><span class="k-value">$2.08</span><span class="k-sub">más barato que 42 de 80</span></div>
     <div class="kpi is-cyan"><span class="k-label">Velocidad</span><span class="k-value">47<span class="k-unit"> tok/s</span></span><span class="k-sub">55.2 s de espera media</span></div>
   </div>
   <div class="badges">
@@ -227,17 +227,17 @@
     se verían iguales. La marca vertical es la <strong>mediana</strong>.</p>
     <div class="bar-row">
       <span class="b-label">Coding</span>
-      <span class="bar-track"><span class="bar-fill bajo" style="width:68.5%"></span><span class="bar-median" style="left:69.2%"></span></span>
-      <span class="b-val bajo">9.00 <span class="delta">(-0.02 vs mediana)</span></span>
+      <span class="bar-track"><span class="bar-fill bajo" style="width:68.3%"></span><span class="bar-median" style="left:69.5%"></span></span>
+      <span class="b-val bajo">9.00 <span class="delta">(-0.03 vs mediana)</span></span>
     </div>
     <div class="bar-row">
       <span class="b-label">Contenido</span>
-      <span class="bar-track"><span class="bar-fill" style="width:72.0%"></span><span class="bar-median" style="left:63.9%"></span></span>
-      <span class="b-val">8.52 <span class="delta">(+0.17 vs mediana)</span></span>
+      <span class="bar-track"><span class="bar-fill" style="width:72.0%"></span><span class="bar-median" style="left:65.0%"></span></span>
+      <span class="b-val">8.52 <span class="delta">(+0.14 vs mediana)</span></span>
     </div>
     <div class="bar-row">
       <span class="b-label">Razonamiento</span>
-      <span class="bar-track"><span class="bar-fill bajo" style="width:68.7%"></span><span class="bar-median" style="left:79.4%"></span></span>
+      <span class="bar-track"><span class="bar-fill bajo" style="width:68.7%"></span><span class="bar-median" style="left:79.6%"></span></span>
       <span class="b-val bajo">7.67 <span class="delta">(-0.32 vs mediana)</span></span>
     </div>
     <div class="bar-row">
@@ -287,6 +287,52 @@
     </ul>
     <p class="meta">Los tres salen de las mismas 29 tareas, el mismo juez y los mismos
     límites. Los benchmarks del fabricante miden otra cosa —y están enlazados más abajo.</p>
+  </section>
+  <section class="results">
+    <div class="results-header">
+      <h2>Cuánto <code>max_tokens</code> darle, por tarea</h2>
+      <p class="meta">Si tu nodo o tu script queda por debajo de esto,
+      DeepSeek V4 Pro <strong>no falla: entrega de menos</strong> — y quien lo consume lo
+      lee como que no había nada que reportar. Es el modo de falla más caro que hay,
+      porque se parece a que todo salió bien.</p>
+      <p class="meta">⚠️ Este modelo <strong>razona</strong>, y los tokens de razonamiento salen del mismo presupuesto: pide bastante más que uno que no razona para escribir la misma respuesta. Es el motivo exacto por el que un <code>max_tokens</code> heredado de otro modelo lo corta.</p>
+    </div>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr><th scope="col">Tarea</th><th scope="col">Mediana</th>
+      <th scope="col">Peor caso medido</th><th scope="col">max_tokens sugerido</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Tareas largas (sostener el hilo 8-12 turnos)</th><td>7.985</td><td>25.105</td><td><strong>31.381</strong> <span class="meta">(piso)</span></td></tr>
+        <tr><th scope="row">Noticias + SEO (artículos completos)</th><td>3.068</td><td>11.324</td><td><strong>14.155</strong> <span class="meta">(piso)</span></td></tr>
+        <tr><th scope="row">Razonamiento profundo (matemática. Fermi)</th><td>4.409</td><td>8.192</td><td><strong>10.240</strong> <span class="meta">(piso)</span></td></tr>
+        <tr><th scope="row">OCR / extracción desde imágenes</th><td>1.424</td><td>7.923</td><td><strong>9.903</strong></td></tr>
+        <tr><th scope="row">Decisiones de negocio (prioridades. plan)</th><td>2.644</td><td>7.290</td><td><strong>9.112</strong></td></tr>
+        <tr><th scope="row">JSON estructurado (extracción. schemas)</th><td>501</td><td>7.058</td><td><strong>8.822</strong></td></tr>
+        <tr><th scope="row">Contenido startup (newsletter. actualidad)</th><td>3.521</td><td>6.804</td><td><strong>8.505</strong></td></tr>
+        <tr><th scope="row">Estrategia (pricing. planificación)</th><td>3.686</td><td>6.163</td><td><strong>7.703</strong></td></tr>
+        <tr><th scope="row">Razonamiento general (lógica. decisiones)</th><td>5.328</td><td>6.151</td><td><strong>7.688</strong></td></tr>
+        <tr><th scope="row">Creatividad (hooks. analogías. narrativa)</th><td>1.401</td><td>5.807</td><td><strong>7.258</strong></td></tr>
+        <tr><th scope="row">Gestión de tareas (action items. planes)</th><td>3.179</td><td>5.168</td><td><strong>6.460</strong></td></tr>
+        <tr><th scope="row">Presentaciones (slides. reportes)</th><td>3.386</td><td>3.875</td><td><strong>4.843</strong></td></tr>
+        <tr><th scope="row">Ventas en frío (cold email. campañas)</th><td>1.551</td><td>3.759</td><td><strong>4.698</strong></td></tr>
+        <tr><th scope="row">Auditar números (detectar el error plantado)</th><td>1.555</td><td>3.181</td><td><strong>3.976</strong></td></tr>
+        <tr><th scope="row">Traducción (es↔en)</th><td>785</td><td>2.776</td><td><strong>3.470</strong></td></tr>
+        <tr><th scope="row">Generación de código (Python. SQL. debug)</th><td>2.193</td><td>2.404</td><td><strong>3.005</strong></td></tr>
+        <tr><th scope="row">Contenido genérico (blog. email. social)</th><td>1.528</td><td>2.102</td><td><strong>2.627</strong></td></tr>
+        <tr><th scope="row">Resúmenes y extracción de datos</th><td>1.848</td><td>1.848</td><td><strong>2.310</strong></td></tr>
+        <tr><th scope="row">Capacidades de agente (delegación. skills)</th><td>1.021</td><td>1.733</td><td><strong>2.166</strong></td></tr>
+        <tr><th scope="row">Multi-turno (debugging. requisitos)</th><td>817</td><td>1.658</td><td><strong>2.072</strong></td></tr>
+        <tr><th scope="row">Contenido con datos verificables (no inventar)</th><td>1.134</td><td>1.418</td><td><strong>1.772</strong></td></tr>
+        <tr><th scope="row">Orquestación (flujos de varios pasos)</th><td>795</td><td>1.097</td><td><strong>1.371</strong></td></tr>
+        <tr><th scope="row">Soporte al cliente (clasificar y responder)</th><td>472</td><td>975</td><td><strong>1.218</strong></td></tr>
+        <tr><th scope="row">Tool calling (llamada de funciones)</th><td>259</td><td>954</td><td><strong>1.192</strong></td></tr>
+        <tr><th scope="row">Anti-alucinación (citas. contexto)</th><td>611</td><td>905</td><td><strong>1.131</strong></td></tr>
+        <tr><th scope="row">Seguir instrucciones al pie de la letra</th><td>610</td><td>788</td><td><strong>985</strong></td></tr>
+        <tr><th scope="row">No inventar herramientas (abstenerse cuando no hay)</th><td>186</td><td>580</td><td><strong>725</strong></td></tr>
+        <tr><th scope="row">Precisión literal (hex. JWT. configs)</th><td>149</td><td>503</td><td><strong>628</strong></td></tr>
+        <tr><th scope="row">Verificar un dato contra su fuente</th><td>132</td><td>428</td><td><strong>535</strong></td></tr>
+      </tbody>
+    </table></div>
+    <p class="meta">Las marcadas <strong>(piso)</strong> tocaron el techo del propio examen (8.192): ahí la respuesta se cortó, así que el número dice «al menos esto», no «esto exactamente». Dar más aire en esas.</p>
   </section>
   <section>
     <h2>Qué hace bien y qué no</h2>

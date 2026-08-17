@@ -461,6 +461,68 @@ def contra_frontier(m: dict, ranked: list) -> str:
   </section>"""
 
 
+# ── el presupuesto de salida: el dato que evita el fallo silencioso ──────────
+def presupuesto(m: dict) -> str:
+    """Cuántos tokens de salida hay que darle a este modelo, POR TAREA.
+
+    POR QUÉ ESTÁ EN LA FICHA (17-ago-2026)
+    --------------------------------------
+    Cristian, después de que el gate de noticias de Eco fallara con el modelo que este
+    benchmark recomendó: *"de alguna manera tenemos que dar esa información de cuántos
+    tokens de salida se necesitan, o no pasarán esos errores"*. Y el matiz que lo hace
+    urgente: *"es muy buen dato que los deja pasar cuando se queda corto"*.
+
+    Quedarse corto **no rompe ruidoso**. El modelo entrega menos de lo que se le pidió
+    —menos veredictos, un JSON que no cierra— y quien lo consume lo lee como «nada que
+    reportar». En Eco eso convirtió un gate que frenaba el 15,6% de los claims en uno que
+    frenaba el 0,0%, y en el tablero se vio como una mejora.
+
+    Va por TAREA y no como un número único: el global queda dominado por las tareas
+    multi-turno y termina recomendando 23.767 tokens para clasificar una frase. Nadie
+    configura un nodo así, y un consejo que no se sigue no protege a nadie.
+    """
+    p = m.get("presupuesto_salida") or {}
+    por_tarea = {k: v for k, v in (p.get("por_tarea") or {}).items() if v and k in SUITES}
+    if not por_tarea:
+        return ""
+    orden = sorted(por_tarea.items(), key=lambda kv: -kv[1]["sugerido"])
+    _piso_tag = ' <span class="meta">(piso)</span>'
+    filas = "\n        ".join(
+        (f'<tr><th scope="row">{esc(SUITES[k]["menu"])}</th>'
+         f'<td>{v["p50"]:,}</td><td>{v["max"]:,}</td>'
+         f'<td><strong>{v["sugerido"]:,}</strong>'
+         f'{_piso_tag if v.get("piso") else ""}</td></tr>').replace(",", ".")
+        for k, v in orden)
+    piso = any(v.get("piso") for v in por_tarea.values())
+    nota_piso = ('<p class="meta">Las marcadas <strong>(piso)</strong> tocaron el techo del '
+                 'propio examen (8.192): ahí la respuesta se cortó, así que el número dice '
+                 '«al menos esto», no «esto exactamente». Dar más aire en esas.</p>'
+                 if piso else "")
+    thinking = ('<p class="meta">⚠️ Este modelo <strong>razona</strong>, y los tokens de '
+                'razonamiento salen del mismo presupuesto: pide bastante más que uno que no '
+                'razona para escribir la misma respuesta. Es el motivo exacto por el que un '
+                '<code>max_tokens</code> heredado de otro modelo lo corta.</p>'
+                if m.get("thinking") else "")
+    return f"""  <section class="results">
+    <div class="results-header">
+      <h2>Cuánto <code>max_tokens</code> darle, por tarea</h2>
+      <p class="meta">Si tu nodo o tu script queda por debajo de esto,
+      {esc(m['name'])} <strong>no falla: entrega de menos</strong> — y quien lo consume lo
+      lee como que no había nada que reportar. Es el modo de falla más caro que hay,
+      porque se parece a que todo salió bien.</p>
+      {thinking}
+    </div>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr><th scope="col">Tarea</th><th scope="col">Mediana</th>
+      <th scope="col">Peor caso medido</th><th scope="col">max_tokens sugerido</th></tr></thead>
+      <tbody>
+        {filas}
+      </tbody>
+    </table></div>
+    {nota_piso}
+  </section>"""
+
+
 # ── dónde brilla y dónde se cae, por tarea concreta ──────────────────────────
 def por_tarea(m: dict) -> str:
     """Un promedio de 29 ejes esconde el que le importa a quien lee. Esto lo abre:
@@ -609,6 +671,7 @@ def render(m: dict, ranked: list, puesto: int | None) -> str:
 {perfil(m, ranked)}
 {ficha(m, puesto, len(ranked))}
 {contra_frontier(m, ranked)}
+{presupuesto(m)}
 {por_tarea(m)}
 {alt_html}
 {oficial(m)}

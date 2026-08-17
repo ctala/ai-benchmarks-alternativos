@@ -552,6 +552,63 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
         if s in _TS and s not in _indice and len(tests_por_suite[s]) < len(_TS[s])
     })
 
+    # ── CUÁNTO PRESUPUESTO DE SALIDA PIDE ESTE MODELO (17-ago-2026) ──────────
+    #
+    # Cristian: *"de alguna manera tenemos que dar esa información de cuántos tokens de
+    # salida se necesitan, o no pasarán esos errores"* — y después el punto que lo hace
+    # urgente: *"es muy buen dato que los deja pasar cuando se queda corto"*.
+    #
+    # El repo tenía este número en CADA run y no lo publicaba en ninguna parte. El gate
+    # de noticias de Eco se configuró con `max_tokens: 2000` y funcionó meses, hasta que
+    # se cambió a un modelo que razona: con 12 claims necesita 2.492 tokens, se pasa del
+    # techo, el JSON se corta y devuelve MENOS veredictos de los pedidos.
+    #
+    # Y la dirección del fallo es la peligrosa: un claim sin veredicto **no bloquea**. El
+    # gate pasó de frenar el 15,6% a frenar el 0,0% y en el tablero se vio como una
+    # mejora. Quedarse corto de presupuesto no rompe: **abre la puerta en silencio**.
+    #
+    # Publicar el p90 por suite permite dimensionar el techo ANTES de poner un modelo a
+    # trabajar. El p90 y no la media, porque el techo tiene que aguantar el caso malo:
+    # con la media, uno de cada diez pedidos se corta.
+    _out_por_suite = defaultdict(list)
+    for r in runs:
+        if r.get("suite") and r.get("output_tokens"):
+            _out_por_suite[r["suite"]].append(r["output_tokens"])
+
+    def _p90(xs):
+        xs = sorted(xs)
+        return xs[min(int(len(xs) * 0.9), len(xs) - 1)] if xs else None
+
+    # POR TAREA, no un número global. Un solo `sugerido` para todo el modelo queda
+    # dominado por `agent_long_horizon` —doce turnos de conversación— y recomienda 23.767
+    # tokens para clasificar una frase. Nadie configura un nodo así, y un consejo que no
+    # se sigue no protege a nadie. Lo que se usa es el de LA tarea que vas a correr.
+    #
+    # `piso: true` marca los casos donde el número TOCÓ el techo del propio benchmark
+    # (8.192): ahí el run se cortó, así que no sabemos cuánto habría pedido — solo que
+    # necesita al menos eso. Publicarlo como medida exacta sería inventar la parte que
+    # justamente no se midió.
+    _todos_out = [r["output_tokens"] for r in runs if r.get("output_tokens")]
+    _TECHO = 8192  # THINKING_MIN_TOKENS del adapter: el máximo que este examen permite
+
+    def _resumen(xs):
+        if not xs:
+            return None
+        mx = max(xs)
+        return {
+            "p50": sorted(xs)[len(xs) // 2],
+            "p90": _p90(xs),
+            "max": mx,
+            # Peor caso observado con 25% de aire: calibrar al p90 corta uno de cada diez.
+            "sugerido": int(mx * 1.25),
+            "piso": mx >= _TECHO,
+        }
+
+    presupuesto_salida = {
+        **( _resumen(_todos_out) or {} ),
+        "por_tarea": {s: _resumen(v) for s, v in sorted(_out_por_suite.items())},
+    }
+
     # El booleano POSITIVO: rindió los 143 tests del índice, no "no le falta ninguno".
     # Un modelo sin runs da False acá, que es la verdad; con la negación daba True.
     examen_completo = bool(_indice) and all(
@@ -635,6 +692,7 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
         "latency_avg_s": round(sum(latencies) / len(latencies), 2) if latencies else None,
         "total_input_tokens": in_tokens,
         "total_output_tokens": out_tokens,
+        "presupuesto_salida": presupuesto_salida,
         # --- Dimensión long-context (niah_es), separada del score general ---
         "long_context_runs": len(niah),
         "long_context_quality": round(sum(niah_q) / len(niah_q), 2) if niah_q else None,

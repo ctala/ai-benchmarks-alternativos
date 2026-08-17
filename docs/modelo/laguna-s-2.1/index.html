@@ -203,15 +203,15 @@
 <main class="container">
   <section class="hero">
     <h1>Poolside Laguna S 2.1: para qué sirve de verdad (benchmark en español)</h1>
-    <p class="lead">Lo mejor que tiene es <strong>Coding</strong>, y aun así queda abajo (#69 de 83 entre los que rinden el examen completo), y donde menos rinde es <strong>Agentes</strong> (7.10 contra 8.53). Está en el tercio más barato del ranking: $0.297 por cada 1.000 llamadas.</p>
+    <p class="lead">Lo mejor que tiene es <strong>Coding</strong>, y aun así queda abajo (#67 de 80 entre los que rinden el examen completo), y donde menos rinde es <strong>Agentes</strong> (7.10 contra 8.53). Está en el tercio más barato del ranking: $0.297 por cada 1.000 llamadas.</p>
     <p class="meta">Medido con <strong>139 runs</strong> que puntúan, juez Phi-4 local.
     Última actualización: 2026-08-17 ·
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos</a></p>
   </section>
   <div class="kpi-strip">
-    <div class="kpi "><span class="k-label">Puesto global</span><span class="k-value">#59<span class="k-unit"> de 83</span></span><span class="k-sub">mejor que el 29% de los rankeados</span></div>
-    <div class="kpi "><span class="k-label">Índice de calidad</span><span class="k-value">7.85<span class="k-unit">/10</span></span><span class="k-sub">64 modelos por encima</span></div>
-    <div class="kpi is-cyan"><span class="k-label">Por 1.000 llamadas</span><span class="k-value">$0.297</span><span class="k-sub">más barato que 73 de 83</span></div>
+    <div class="kpi "><span class="k-label">Puesto global</span><span class="k-value">#57<span class="k-unit"> de 80</span></span><span class="k-sub">mejor que el 29% de los rankeados</span></div>
+    <div class="kpi "><span class="k-label">Índice de calidad</span><span class="k-value">7.85<span class="k-unit">/10</span></span><span class="k-sub">62 modelos por encima</span></div>
+    <div class="kpi is-cyan"><span class="k-label">Por 1.000 llamadas</span><span class="k-value">$0.297</span><span class="k-sub">más barato que 70 de 80</span></div>
     <div class="kpi is-cyan"><span class="k-label">Velocidad</span><span class="k-value">87<span class="k-unit"> tok/s</span></span><span class="k-sub">12.6 s de espera media</span></div>
   </div>
   <div class="badges">
@@ -227,17 +227,17 @@
     se verían iguales. La marca vertical es la <strong>mediana</strong>.</p>
     <div class="bar-row">
       <span class="b-label">Coding</span>
-      <span class="bar-track"><span class="bar-fill bajo" style="width:50.8%"></span><span class="bar-median" style="left:69.2%"></span></span>
-      <span class="b-val bajo">8.53 <span class="delta">(-0.49 vs mediana)</span></span>
+      <span class="bar-track"><span class="bar-fill bajo" style="width:50.7%"></span><span class="bar-median" style="left:69.5%"></span></span>
+      <span class="b-val bajo">8.53 <span class="delta">(-0.50 vs mediana)</span></span>
     </div>
     <div class="bar-row">
       <span class="b-label">Contenido</span>
-      <span class="bar-track"><span class="bar-fill bajo" style="width:40.2%"></span><span class="bar-median" style="left:63.9%"></span></span>
-      <span class="b-val bajo">7.86 <span class="delta">(-0.49 vs mediana)</span></span>
+      <span class="bar-track"><span class="bar-fill bajo" style="width:40.2%"></span><span class="bar-median" style="left:65.0%"></span></span>
+      <span class="b-val bajo">7.86 <span class="delta">(-0.51 vs mediana)</span></span>
     </div>
     <div class="bar-row">
       <span class="b-label">Razonamiento</span>
-      <span class="bar-track"><span class="bar-fill" style="width:87.3%"></span><span class="bar-median" style="left:79.4%"></span></span>
+      <span class="bar-track"><span class="bar-fill" style="width:87.3%"></span><span class="bar-median" style="left:79.6%"></span></span>
       <span class="b-val">8.22 <span class="delta">(+0.23 vs mediana)</span></span>
     </div>
     <div class="bar-row">
@@ -289,6 +289,54 @@
     </ul>
     <p class="meta">Los tres salen de las mismas 29 tareas, el mismo juez y los mismos
     límites. Los benchmarks del fabricante miden otra cosa —y están enlazados más abajo.</p>
+  </section>
+  <section class="results">
+    <div class="results-header">
+      <h2>Cuánto <code>max_tokens</code> darle, por tarea</h2>
+      <p class="meta">Si tu nodo o tu script queda por debajo de esto,
+      Poolside Laguna S 2.1 <strong>no falla: entrega de menos</strong> — y quien lo consume lo
+      lee como que no había nada que reportar. Es el modo de falla más caro que hay,
+      porque se parece a que todo salió bien.</p>
+      
+    </div>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr><th scope="col">Tarea</th><th scope="col">Mediana</th>
+      <th scope="col">Peor caso medido</th><th scope="col">max_tokens sugerido</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Tareas largas (sostener el hilo 8-12 turnos)</th><td>3.006</td><td>10.439</td><td><strong>13.048</strong> <span class="meta">(piso)</span></td></tr>
+        <tr><th scope="row">Contenido genérico (blog. email. social)</th><td>1.300</td><td>8.192</td><td><strong>10.240</strong> <span class="meta">(piso)</span></td></tr>
+        <tr><th scope="row">Razonamiento profundo (matemática. Fermi)</th><td>3.562</td><td>8.192</td><td><strong>10.240</strong> <span class="meta">(piso)</span></td></tr>
+        <tr><th scope="row">Noticias + SEO (artículos completos)</th><td>1.292</td><td>4.003</td><td><strong>5.003</strong></td></tr>
+        <tr><th scope="row">Contenido startup (newsletter. actualidad)</th><td>1.985</td><td>3.006</td><td><strong>3.757</strong></td></tr>
+        <tr><th scope="row">Razonamiento general (lógica. decisiones)</th><td>1.288</td><td>2.820</td><td><strong>3.525</strong></td></tr>
+        <tr><th scope="row">Gestión de tareas (action items. planes)</th><td>2.445</td><td>2.789</td><td><strong>3.486</strong></td></tr>
+        <tr><th scope="row">Presentaciones (slides. reportes)</th><td>2.335</td><td>2.335</td><td><strong>2.918</strong></td></tr>
+        <tr><th scope="row">Auditar números (detectar el error plantado)</th><td>1.718</td><td>2.321</td><td><strong>2.901</strong></td></tr>
+        <tr><th scope="row">Decisiones de negocio (prioridades. plan)</th><td>635</td><td>1.974</td><td><strong>2.467</strong></td></tr>
+        <tr><th scope="row">Contenido con datos verificables (no inventar)</th><td>357</td><td>1.740</td><td><strong>2.175</strong></td></tr>
+        <tr><th scope="row">Generación de código (Python. SQL. debug)</th><td>960</td><td>1.702</td><td><strong>2.127</strong></td></tr>
+        <tr><th scope="row">Capacidades de agente (delegación. skills)</th><td>627</td><td>1.565</td><td><strong>1.956</strong></td></tr>
+        <tr><th scope="row">Estrategia (pricing. planificación)</th><td>1.166</td><td>1.367</td><td><strong>1.708</strong></td></tr>
+        <tr><th scope="row">Ventas en frío (cold email. campañas)</th><td>425</td><td>1.183</td><td><strong>1.478</strong></td></tr>
+        <tr><th scope="row">JSON estructurado (extracción. schemas)</th><td>102</td><td>1.124</td><td><strong>1.405</strong></td></tr>
+        <tr><th scope="row">Traducción (es↔en)</th><td>600</td><td>1.064</td><td><strong>1.330</strong></td></tr>
+        <tr><th scope="row">OCR / extracción desde imágenes</th><td>425</td><td>887</td><td><strong>1.108</strong></td></tr>
+        <tr><th scope="row">Orquestación (flujos de varios pasos)</th><td>517</td><td>735</td><td><strong>918</strong></td></tr>
+        <tr><th scope="row">Anti-alucinación (citas. contexto)</th><td>691</td><td>725</td><td><strong>906</strong></td></tr>
+        <tr><th scope="row">Creatividad (hooks. analogías. narrativa)</th><td>563</td><td>620</td><td><strong>775</strong></td></tr>
+        <tr><th scope="row">Aguja en el pajar (contexto largo en español)</th><td>322</td><td>575</td><td><strong>718</strong></td></tr>
+        <tr><th scope="row">No inventar herramientas (abstenerse cuando no hay)</th><td>100</td><td>541</td><td><strong>676</strong></td></tr>
+        <tr><th scope="row">Resistencia a prompt injection</th><td>272</td><td>393</td><td><strong>491</strong></td></tr>
+        <tr><th scope="row">Seguir instrucciones al pie de la letra</th><td>311</td><td>383</td><td><strong>478</strong></td></tr>
+        <tr><th scope="row">Resúmenes y extracción de datos</th><td>371</td><td>371</td><td><strong>463</strong></td></tr>
+        <tr><th scope="row">Multi-turno (debugging. requisitos)</th><td>166</td><td>352</td><td><strong>440</strong></td></tr>
+        <tr><th scope="row">Verificar un dato contra su fuente</th><td>66</td><td>299</td><td><strong>373</strong></td></tr>
+        <tr><th scope="row">Soporte al cliente (clasificar y responder)</th><td>174</td><td>233</td><td><strong>291</strong></td></tr>
+        <tr><th scope="row">Precisión literal (hex. JWT. configs)</th><td>58</td><td>202</td><td><strong>252</strong></td></tr>
+        <tr><th scope="row">Tool calling (llamada de funciones)</th><td>103</td><td>149</td><td><strong>186</strong></td></tr>
+      </tbody>
+    </table></div>
+    <p class="meta">Las marcadas <strong>(piso)</strong> tocaron el techo del propio examen (8.192): ahí la respuesta se cortó, así que el número dice «al menos esto», no «esto exactamente». Dar más aire en esas.</p>
   </section>
   <section>
     <h2>Qué hace bien y qué no</h2>
