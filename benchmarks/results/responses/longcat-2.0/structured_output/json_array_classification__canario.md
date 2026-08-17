@@ -1,9 +1,9 @@
 # LongCat 2.0 — structured_output/json_array_classification
 
 - model_id: `meituan/longcat-2.0`
-- success: True  | final: 8.85 | quality: 10.0
-- latency_total: 16.509s | tokens_per_second: 53.4
-- input_tokens: 188 | output_tokens: 882
+- success: True  | final: 8.7 | quality: 10.0
+- latency_total: 20.309s | tokens_per_second: 43.3
+- input_tokens: 188 | output_tokens: 880
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -25,4 +25,4 @@ Formato: [{"id": 1, "category": "", "priority": "", "sentiment": ""}, ...]
 
 ## Respuesta completa
 
-[{"id": 1, "category": "shipping", "priority": "urgent", "sentiment": "negative"}, {"id": 2, "category": "general", "priority": "low", "sentiment": "neutral"}, {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "sentiment": "negative"}]
+[{"id": 1, "category": "shipping", "priority": "high", "sentiment": "negative"}, {"id": 2, "category": "general", "priority": "low", "sentiment": "neutral"}, {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "sentiment": "negative"}]

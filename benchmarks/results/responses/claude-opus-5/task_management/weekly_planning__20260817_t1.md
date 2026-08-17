@@ -1,10 +1,10 @@
 # Claude Opus 5 — task_management/weekly_planning
 
 - model_id: `anthropic/claude-opus-5`
-- success: True  | final: 7.9 | quality: 10.0
-- latency_total: 70.049s | tokens_per_second: 82.5
-- input_tokens: 320 | output_tokens: 5778
-- judge_score: 5 | justificación: La respuesta es precisa, altamente relevante, ofrece una planificación detallada y estructurada, es clara y fácil de entender, y es extremadamente útil para un emprendedor al integrar eficazmente las tareas y reuniones en un horario semanal.
+- success: True  | final: 7.95 | quality: 10.0
+- latency_total: 56.219s | tokens_per_second: 80.8
+- input_tokens: 320 | output_tokens: 4542
+- judge_score: 5 | justificación: La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando un plan semanal estructurado que incorpora todas las restricciones y tareas con una lógica bien pensada.
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -32,70 +32,66 @@ Crea un plan semanal detallado con bloques de tiempo especificos.
 
 # Plan Semanal — Product Manager
 
-**Supuestos** (ajústalos si no aplican): jornada 9:00–17:30, almuerzo ~13:00–14:00, viernes con foco en cierre. Total de trabajo a colocar: **16,5 h** de tareas + 8 h de reuniones fijas = holgura razonable.
+**Supuestos** (ajústalos si no aplican): jornada 9:00–18:00, almuerzo 12:00–13:00 (excepto lunes), semana de 45h con ~8h ya comprometidas en reuniones fijas.
 
-**Decisiones clave del plan:**
-- La **prep de la demo** es lo único con deadline duro (miércoles 15:00) → se parte en 2 bloques y termina la mañana del miércoles, con ensayo aparte.
-- Las **métricas van el lunes**, antes de los OKRs, porque son insumo directo del Q3.
-- Los **OKRs (4 h)** van completos el martes: es tu único día sin interrupciones y es la tarea que más exige foco profundo.
-- Los **emails** se hacen en bloque diario fijo, nunca a demanda.
-- Los **1:1s** se distribuyen (lun/mar/mié) para no acumularlos y llegar limpio a jueves/viernes.
+**Lógica del plan:**
+- La prep de la demo termina **el martes**, no el miércoles a las 2 PM. Cero riesgo de llegar sin material.
+- Los OKRs (4h, la tarea de mayor carga cognitiva) van el **martes**, tu único día sin interrupciones.
+- **Métricas el lunes**: alimentan tanto los OKRs del martes como la narrativa de la demo.
+- Emails en bloque fijo diario, nunca en modo reactivo.
+- ~20% de la semana queda como buffer (viernes), porque algo se va a mover.
 
 ---
 
-## LUNES — Día de inputs externos
+## LUNES — Día de contexto y datos
 
 | Hora | Bloque |
 |---|---|
 | 9:00–11:00 | 🔒 Reunión de directivos |
-| 11:00–11:30 | Descarga de notas + accionables de directivos |
-| 11:30–12:30 | **Revisar métricas del producto (1 h)** ✅ |
-| 12:30–13:00 | Prep almuerzo cliente (agenda + 3 preguntas clave) |
+| 11:00–11:15 | Notas y action items de la reunión (mientras está fresco) |
+| 11:15–12:15 | **Emails stakeholders** (1h) |
+| 12:15–13:00 | Prep del almuerzo: objetivos y preguntas para el cliente |
 | 13:00–14:00 | 🔒 Almuerzo con cliente |
-| 14:00–14:15 | Notas del cliente (en caliente) |
-| 14:15–15:15 | **Emails stakeholders (1 h)** ✅ |
-| 15:15–15:30 | Pausa |
-| 15:30–17:00 | **Demo prep — bloque 1 (1,5 h)**: storyline, guion, qué NO mostrar |
-| 17:00–17:30 | **1:1 reporte #1** ✅ |
-
-*Por qué:* aprovechas que sales de directivos y del cliente con contexto fresco para métricas y emails; la demo arranca temprano para tener margen.
-
----
-
-## MARTES — Deep work (protégelo, sin excepciones)
-
-| Hora | Bloque |
-|---|---|
-| 9:00–11:00 | **OKRs Q3 — bloque 1 (2 h)**: objetivos y alineación con métricas del lunes |
-| 11:00–11:15 | Pausa |
-| 11:15–13:15 | **OKRs Q3 — bloque 2 (2 h)**: key results, targets, owners ✅ (4 h completas) |
-| 13:15–14:15 | Almuerzo |
-| 14:15–16:15 | **Revisar PRDs pendientes (2 h)** ✅ |
-| 16:15–16:45 | **1:1 reporte #2** ✅ |
-| 16:45–17:45 | **Emails stakeholders (1 h)** ✅ |
-
-*Por qué:* mañana = trabajo creativo/estratégico (OKRs), tarde = trabajo analítico/reactivo (PRDs, emails). Calendario bloqueado como "Focus – no disponible".
+| 14:00–14:15 | Notas del cliente → backlog / insights |
+| 14:15–15:45 | **Prep demo — Bloque 1** (1.5h): estructura, guion, flujo |
+| 15:45–16:00 | Break |
+| 16:00–17:00 | **Revisar métricas del producto** (1h) |
+| 17:00–17:30 | **1:1 — Reporte #1** |
+| 17:30–18:00 | Cierre + prep del día de deep work |
 
 ---
 
-## MIÉRCOLES — Día de la demo
+## MARTES — Deep work (día protegido)
+
+> Bloquea el calendario como "Focus — no disponible". Slack en no molestar.
 
 | Hora | Bloque |
 |---|---|
-| 9:00–9:15 | Revisión del día |
-| 9:15–10:45 | **Demo prep — bloque 2 (1,5 h)**: slides finales + datos ✅ (3 h completas) |
-| 10:45–11:00 | Pausa |
-| 11:00–12:00 | **Emails stakeholders (1 h)** ✅ |
-| 12:00–12:30 | **1:1 reporte #3** ✅ |
-| 12:30–13:00 | Colchón |
-| 13:00–14:00 | Almuerzo |
-| 14:00–14:45 | Ensayo en voz alta + check técnico (audio, pantalla, links) |
-| 14:45–15:00 | Respirar / no hacer nada |
-| 15:00–16:00 | 🔒 **DEMO DE PRODUCTO** |
-| 16:00–16:30 | Notas post-demo + envío de seguimiento el mismo día |
-| 16:30–17:30 | Colchón libre |
+| 9:00–10:00 | **Emails stakeholders** (1h) |
+| 10:00–12:00 | **OKRs Q3 — Bloque 1** (2h): objetivos + key results borrador |
+| 12:00–13:00 | Almuerzo (fuera del escritorio) |
+| 13:00–15:00 | **OKRs Q3 — Bloque 2** (2h): métricas, targets, redacción final ✅ *tarea completa* |
+| 15:00–15:15 | Break |
+| 15:15–16:45 | **Prep demo — Bloque 2** (1.5h): slides, datos del lunes, cierre ✅ *tarea completa* |
+| 16:45–17:15 | **1:1 — Reporte #2** |
+| 17:15–18:00 | Buffer / revisión ligera de PRDs (adelanto) |
 
-*Regla:* el ensayo no cuenta como "preparar"; si el bloque 2 se alarga, la prep se recorta, no el ensayo.
+---
+
+## MIÉRCOLES — Día de demo
+
+| Hora | Bloque |
+|---|---|
+| 9:00–10:00 | **Emails stakeholders** (1h) |
+| 10:00–12:00 | **Revisar PRDs pendientes** (2h) ✅ *tarea completa* |
+| 12:00–13:00 | Almuerzo |
+| 13:00–14:00 | **Ensayo de la demo en voz alta** (buffer, no tarea nueva) |
+| 14:00–14:45 | Ajustes finales + prep de preguntas difíciles |
+| 14:45–15:00 | Setup técnico (audio, pantalla, entorno de la demo) |
+| 15:00–16:00 | 🔒 **Demo de producto** |
+| 16:00–16:30 | Debrief: feedback, objeciones, follow-ups |
+| 16:30–17:00 | **1:1 — Reporte #3** ✅ *tarea completa* |
+| 17:00–18:00 | Envío de follow-ups post-demo |
 
 ---
 
@@ -103,52 +99,56 @@ Crea un plan semanal detallado con bloques de tiempo especificos.
 
 | Hora | Bloque |
 |---|---|
-| 9:00–9:45 | Prep entrevistas: CVs, rúbrica, reparto de preguntas |
-| 9:45–10:00 | Pausa |
+| 9:00–9:45 | Prep entrevistas: CVs, preguntas, rúbrica |
+| 9:45–10:00 | Buffer |
 | 10:00–13:00 | 🔒 Entrevistas de hiring |
-| 13:00–14:00 | Almuerzo (obligatorio, vienes de 3 h intensas) |
-| 14:00–14:45 | Scorecards y feedback de entrevistas (en caliente, no lo dejes) |
-| 15:00–16:00 | **Emails stakeholders (1 h)** ✅ |
-| 16:00–17:00 | Colchón: seguimiento de demo / retoques OKRs |
-
-*Por qué:* jueves ya está cargado cognitivamente; no se le asigna ninguna tarea nueva de la lista salvo emails. El bloque de 16:00 es tu red de seguridad de la semana.
+| 13:00–14:00 | Almuerzo (necesario después de 3h de entrevistas) |
+| 14:00–15:00 | **Emails stakeholders** (1h) |
+| 15:00–16:00 | Scorecards y feedback de candidatos (mismo día = mejor calidad) |
+| 16:00–17:00 | Overflow: lo que se atrasó de lunes–miércoles |
+| 17:00–18:00 | Trabajo de producto ligero: grooming de backlog, respuestas a diseño/eng |
 
 ---
 
-## VIERNES — Cierre y consolidación
+## VIERNES — Cierre, buffer y retro
 
 | Hora | Bloque |
 |---|---|
-| 9:00–10:00 | **Emails stakeholders (1 h)** ✅ (5/5 completos) |
-| 10:00–11:00 | Colchón: cualquier tarea que se haya desbordado |
-| 11:00–12:30 | Circular OKRs Q3 para feedback + incorporar comentarios de PRDs |
-| 12:30–13:00 | Seguimientos pendientes de la semana |
-| 13:00–14:00 | Almuerzo |
-| 14:00–15:30 | Trabajo ligero / desbloquear al equipo |
-| 15:30–16:00 | Preparar retrospectiva (datos, temas, tono) |
+| 9:00–10:00 | **Emails stakeholders** (1h) ✅ *tarea completa* |
+| 10:00–10:30 | 1:1 de reserva / seguimiento si alguno se canceló |
+| 10:30–12:00 | **BUFFER PRINCIPAL**: cualquier tarea que se haya corrido |
+| 12:00–13:00 | Almuerzo |
+| 13:00–14:30 | Socializar OKRs Q3: compartir con directivos, recoger feedback |
+| 14:30–15:30 | Planificación de la próxima semana + revisión de prioridades |
+| 15:30–16:00 | Prep retro: datos, temas, tono |
 | 16:00–17:00 | 🔒 Retrospectiva |
-| 17:00–17:30 | Weekly review + planificar semana siguiente |
+| 17:00–17:30 | Action items de la retro + cierre de semana |
 
 ---
 
-## Checklist de tareas
+## Verificación de carga
 
-| Tarea | Horas | Ubicación | ✔ |
+| Tarea | Horas | Cuándo | Estado |
 |---|---|---|---|
-| Prep presentación demo | 3 h | Lun 15:30 + Mié 9:15 | ✅ |
-| Revisar PRDs | 2 h | Mar 14:15 | ✅ |
-| Escribir OKRs Q3 | 4 h | Mar 9:00 + 11:15 | ✅ |
-| Emails stakeholders | 5 × 1 h | Diario | ✅ |
-| Métricas del producto | 1 h | Lun 11:30 | ✅ |
-| 1:1s (3) | 1,5 h | Lun / Mar / Mié | ✅ |
+| Prep demo | 3h | Lun 14:15 + Mar 15:15 | Lista 24h antes ✅ |
+| Revisar PRDs | 2h | Mié 10:00 | ✅ |
+| OKRs Q3 | 4h | Mar 10:00 + 13:00 | ✅ |
+| Emails | 5h (1h/día) | Bloque fijo diario | ✅ |
+| Métricas | 1h | Lun 16:00 | ✅ |
+| 1:1s (3×30min) | 1.5h | Lun / Mar / Mié | ✅ |
+| **Total tareas** | **16.5h** | | |
+| Reuniones fijas | 8h | | |
+| **Comprometido** | **24.5h de 45h** | | 45% libre para imprevistos |
 
 ---
 
-## Reglas de contingencia
+## Reglas para que el plan sobreviva
 
-1. **Si algo se cae, cae en este orden:** revisión de PRDs → pulido de OKRs → nunca la prep de la demo ni los 1:1s.
-2. **Colchones de rescate:** Mié 16:30, Jue 16:00, Vie 10:00. Úsalos, no los llenes de antemano.
-3. **Si aparece un incendio el lunes**, mueve las métricas al martes 9:00 y desplaza los OKRs a Mar 10:00–14:00 (sigue cabiendo).
-4. **Si la demo se adelanta o llega antes**, el bloque 2 sube al martes 9:00 y los OKRs se dividen mar/jue.
-5. **Emails:** máximo 1 h con timer. Lo que no entre, se convierte en tarea agendada, no en horas extra.
-6. **Bloquea el martes en el calendario ya** — es el día que sostiene todo el plan.
+1. **Martes es intocable.** Si alguien pide reunión, ofrece jueves 16:00–18:00. Es el único día donde 4h de OKRs son posibles.
+2. **Regla de la demo:** si el miércoles a las 13:00 la presentación no está lista, el problema fue el lunes/martes. El bloque de ensayo no es para producir contenido.
+3. **Si se cae algo**, el orden de sacrificio es: métricas → 1:1 (reagendar, no cancelar) → PRDs → emails a 30 min → **nunca OKRs ni demo**.
+4. **1:1s temprano en la semana** para que tus reportes tengan la semana entera para actuar sobre lo que salga.
+
+**Punto de fricción a vigilar:** lunes tiene reunión de directivos + almuerzo con cliente + 4h de trabajo. Es el día más denso. Si el lunes suele descarrilarse en tu experiencia, mueve las métricas al martes 9:00 y los emails del lunes a 30 min.
+
+¿Quieres que ajuste horarios de jornada, o que reorganice asumiendo que tu energía cognitiva es mejor por la tarde?

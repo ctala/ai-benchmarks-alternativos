@@ -2,8 +2,8 @@
 
 - model_id: `google/gemini-3.5-flash-lite`
 - success: True  | final: 9.11 | quality: 10.0
-- latency_total: 2.753s | tokens_per_second: 282.6
-- input_tokens: 231 | output_tokens: 778
+- latency_total: 2.714s | tokens_per_second: 284.0
+- input_tokens: 231 | output_tokens: 771
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -47,12 +47,12 @@ Llena con datos realistas. El equipo tiene 1 disenador, 2 developers, 1 QA. Pres
       "allocation_pct": 100
     },
     {
-      "name": "Carlos Ruiz",
+      "name": "Carlos Perez",
       "role": "Frontend Developer",
       "allocation_pct": 100
     },
     {
-      "name": "Luis Perez",
+      "name": "Luis Rodriguez",
       "role": "Backend Developer",
       "allocation_pct": 100
     },
@@ -75,9 +75,9 @@ Llena con datos realistas. El equipo tiene 1 disenador, 2 developers, 1 QA. Pres
           "depends_on": null
         },
         {
-          "title": "Diseno de interfaz en Figma",
+          "title": "Prototipo UI en Figma",
           "assignee": "Ana Gomez",
-          "hours": 40,
+          "hours": 50,
           "depends_on": "Wireframes y Arquitectura de Informacion"
         }
       ]
@@ -85,38 +85,38 @@ Llena con datos realistas. El equipo tiene 1 disenador, 2 developers, 1 QA. Pres
     {
       "name": "Desarrollo",
       "start": "2026-05-21",
-      "end": "2026-06-15",
+      "end": "2026-06-20",
       "tasks": [
         {
-          "title": "Implementacion Frontend",
-          "assignee": "Carlos Ruiz",
+          "title": "Maquetacion Frontend",
+          "assignee": "Carlos Perez",
           "hours": 80,
-          "depends_on": "Diseno de interfaz en Figma"
+          "depends_on": "Prototipo UI en Figma"
         },
         {
           "title": "Desarrollo Backend y APIs",
-          "assignee": "Luis Perez",
+          "assignee": "Luis Rodriguez",
           "hours": 80,
-          "depends_on": "Diseno de interfaz en Figma"
+          "depends_on": null
         }
       ]
     },
     {
       "name": "Pruebas y Lanzamiento",
-      "start": "2026-06-16",
+      "start": "2026-06-21",
       "end": "2026-06-30",
       "tasks": [
         {
-          "title": "Pruebas de calidad y correccion de bugs",
+          "title": "Pruebas QA y Correccion de Bugs",
           "assignee": "Sofia Torres",
           "hours": 40,
-          "depends_on": "Implementacion Frontend"
+          "depends_on": "Maquetacion Frontend"
         },
         {
-          "title": "Despliegue a produccion",
-          "assignee": "Carlos Ruiz",
+          "title": "Despliegue a Produccion",
+          "assignee": "Luis Rodriguez",
           "hours": 10,
-          "depends_on": "Pruebas de calidad y correccion de bugs"
+          "depends_on": "Pruebas QA y Correccion de Bugs"
         }
       ]
     }
@@ -124,8 +124,8 @@ Llena con datos realistas. El equipo tiene 1 disenador, 2 developers, 1 QA. Pres
   "budget": {
     "total": 25000,
     "breakdown": {
-      "design": 6000,
-      "development": 15000,
+      "design": 7000,
+      "development": 14000,
       "testing": 4000
     }
   }

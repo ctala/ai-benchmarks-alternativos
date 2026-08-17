@@ -1,9 +1,9 @@
 # Sakana Namazu — structured_output/json_simple_extraction
 
 - model_id: `sakana/sakana-namazu`
-- success: True  | final: 9.62 | quality: 10.0
-- latency_total: 0.951s | tokens_per_second: 58.9
-- input_tokens: 113 | output_tokens: 56
+- success: True  | final: 9.32 | quality: 10.0
+- latency_total: 1.625s | tokens_per_second: 211.1
+- input_tokens: 113 | output_tokens: 343
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -22,11 +22,4 @@ Formato: {"name": "", "age": 0, "role": "", "company": "", "email": "", "salary"
 
 ## Respuesta completa
 
-{
-  "name": "Maria Garcia",
-  "age": 28,
-  "role": "ingeniera de software",
-  "company": "Google Chile",
-  "email": "maria@google.com",
-  "salary": 95000
-}
+{"name": "Maria Garcia", "age": 28, "role": "ingeniera de software", "company": "Google Chile", "email": "maria@google.com", "salary": 95000}

@@ -1,8 +1,8 @@
 # Sakana Namazu — business_audit/atribucion_correlacion_temporal
 
 - model_id: `sakana/sakana-namazu`
-- success: True  | final: 5.81 | quality: 6.0
-- latency_total: 11.033s | tokens_per_second: 185.6
+- success: True  | final: 8.61 | quality: 10.0
+- latency_total: 10.714s | tokens_per_second: 191.2
 - input_tokens: 270 | output_tokens: 2048
 
 ## Entrada exacta (lo que recibió el modelo)
@@ -28,18 +28,32 @@ Contexto adicional: también el 3 de marzo empecé a pagar publicidad ($400 en e
 
 ## Respuesta completa
 
-**Conclusión directa: No se puede saber si la secuencia de emails funcionó.** 
+**No se puede saber si la secuencia de emails funcionó.** Con los datos que tienes, atribuir el crecimiento de marzo a los emails sería una conjetura, no una conclusión.
 
-Con los datos que tienes es imposible atribuir el crecimiento de marzo a los emails. Lo único que puedo afirmar con seguridad es que **marzo fue un mes de crecimiento** (MRR +29%, altas +55%), pero no tengo forma de saber si eso ocurrió *por* los emails, *a pesar* de los emails o *independientemente* de ellos.
+### Por qué no hay evidencia suficiente
 
----
+Tienes tres eventos simultáneos en marzo que pueden explicar el mismo resultado:
 
-### Por qué no podemos dar por buena la secuencia
+1. **Secuencia de emails** (1 marzo) → dirigida a usuarios gratuitos existentes.
+2. **Publicidad pagada** (3 marzo) → puede traer nuevos usuarios gratuitos *y* pagos directos.
+3. **Mención de creador grande** (12 marzo) → suele generar picos de tráfico cualificado y conversiones inmediatas.
 
-Tienes tres eventos importantes solapados en menos de dos semanas:
+Además, estás midiendo **altas totales**, pero tu objetivo era convertir la **base gratuita preexistente**. Si entre las 14 altas de marzo hay usuarios que llegaron por los anuncios o el influencer y pagaron al instante, esas conversiones no deben atribuirse a la secuencia de emails.
 
-| Evento | Fecha | ¿Puede explicar altas y MRR? |
-|--------|-------|------------------------------|
-| Secuencia de 5 emails a gratuitos | 1 de marzo | Sí |
-| Inicio de publicidad pagada ($400) | 3 de marzo | Sí |
-| Mención de creador
+### Lo que los números SÍ dicen (y no dicen)
+
+- El MRR subió $1,200 (29%) y las altas pasaron de 9 a 14. En volúmenes pequeños, una diferencia de 5 altas puede ser ruido o puede explicarse fácilmente por un solo evento externo (la mención del creador, por ejemplo).
+- No sabes cuántas de esas 14 altas eran usuarios gratuitos que ya estaban antes del 1 de marzo.
+- No sabes si el pico de conversiones ocurrió después del envío de los emails, después del día 12 (mención) o fue distribuido durante todo el mes.
+- No tienes tasa de churn: parte del aumento de MRR podría deberse a menos cancelaciones, no a más altas.
+
+### Qué haría falta para estar seguros
+
+Para poder decir "la secuencia funcionó" necesitarías, como mínimo, una de estas cosas:
+
+1. **Atribución directa de cada alta**
+   - Taggear cada checkout con la fuente (email, ads, influencer, orgánico).
+   - Ver cuántas altas vineron del funnel de emails vs. otros canales.
+
+2. **Grupo de control (A/B test o cohorte)**
+   - Comparar la tasa de conversión de los usuarios gratuitos que recibieron la secuencia contra un grupo igual que no la recibió. Sin esto, no hay contrafactual

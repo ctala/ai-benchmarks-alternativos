@@ -628,28 +628,59 @@ def test_retirado_sale_de_los_tres_contextos():
 
 
 def test_free_no_rankea_pero_sigue_en_catalogo():
-    """Sus runs son reales; lo que no es comparable es su fiabilidad."""
-    v = eleg.evaluar({"id": "meta/llama:free", "runs": 500}, 50)
+    """Sus runs son reales; lo que no es comparable es su fiabilidad.
+
+    El fixture declara `examen_completo` porque desde el 17-ago-2026 ése es el
+    requisito de catálogo, y acá se prueba OTRA cosa: que un `:free` con el examen
+    entero siga listado y no rankee. Sin declararlo, el test pasaría a probar el
+    examen y dejaría de vigilar lo suyo.
+    """
+    v = eleg.evaluar({"id": "meta/llama:free", "runs": 500, "examen_completo": True}, 50)
     assert v["catalogo"] and not v["ranking"]
 
 
-def test_examen_incompleto_bloquea_el_ranking():
-    """Un promedio sobre 1 de 4 tests no compara con uno de 4 de 4."""
-    v = eleg.evaluar({"runs": 500, "suites_incompletas": {"coding": {"rindio": 1, "total": 4}}}, 50)
-    assert not v["ranking"] and v["catalogo"]
+def test_examen_incompleto_bloquea_el_ranking_Y_EL_CATALOGO():
+    """Un promedio sobre 1 de 4 tests no compara con uno de 4 de 4.
+
+    DECISIÓN REVERTIDA EXPLÍCITAMENTE (17-ago-2026). Antes esto bloqueaba el ranking
+    y dejaba al modelo en el catálogo, en la sección «En evaluación». Cristian:
+    *"solo los medidos completos aparecen en el benchmark / calculadora. Si no, no
+    aparecen."* Y tiene razón: la calculadora existe para DECIDIR, y ofrecer un
+    modelo cuyo promedio sale de un examen más corto es ofrecer una comparación que
+    no se sostiene. «En evaluación» sonaba prudente y publicaba lo mismo con una
+    etiqueta.
+
+    Los runs no se pierden: siguen en models.json con su motivo y su entrada/salida
+    en results/responses/. Se saca la recomendación, no la evidencia.
+    """
+    v = eleg.evaluar({"runs": 500, "examen_completo": False,
+                      "suites_incompletas": {"coding": {"rindio": 1, "total": 4}}}, 50)
+    assert not v["ranking"] and not v["catalogo"]
 
 
-def test_muestra_chica_bloquea_el_ranking():
-    """Con 3-12 runs un modelo puede liderar por azar."""
-    assert not eleg.evaluar({"runs": 12}, 50)["ranking"]
-    assert eleg.evaluar({"runs": 500}, 50)["ranking"]
+def test_el_umbral_de_runs_ya_no_decide_el_ranking():
+    """DECISIÓN REVERTIDA EXPLÍCITAMENTE (17-ago-2026).
+
+    Este test exigía `runs >= 50`. Cristian: *"no seguiría poniendo el filtro de 50
+    runs. Todos deben de tener todos y punto, si no no son comparables."*
+
+    El umbral era un PROXY y fallaba en las dos direcciones: dos modelos con 50 runs
+    pueden haber rendido tests DISTINTOS (pasaban igual), y uno con 40 de un examen
+    más corto quedaba fuera sin razón. Hoy decide el examen entero — 143 tests, así
+    que quien lo complete tiene ≥143 runs y el umbral quedó subsumido.
+
+    Lo que se vigila ahora es que la cantidad de runs NO mande: 12 runs con el examen
+    completo rankean, y 500 sin completarlo no.
+    """
+    assert eleg.evaluar({"runs": 12, "examen_completo": True}, 50)["ranking"]
+    assert not eleg.evaluar({"runs": 500, "examen_completo": False}, 50)["ranking"]
 
 
 def test_agentico_distingue_no_puede_de_no_se_sabe():
     """Hermes 4 (medido, todo cero) y GPT-5.4 Mini (nunca medido) NO son el mismo caso."""
-    no_puede = eleg.evaluar({"runs": 500, "sirve_para_agentes": False,
+    no_puede = eleg.evaluar({"runs": 500, "examen_completo": True, "sirve_para_agentes": False,
                              "agentico": {"tareas": {"a": {"media": 0}}}}, 50)
-    no_se_sabe = eleg.evaluar({"runs": 500}, 50)
+    no_se_sabe = eleg.evaluar({"runs": 500, "examen_completo": True}, 50)
     assert not no_puede["agentico"] and not no_se_sabe["agentico"]
     assert no_puede["motivos"]["agentico"] != no_se_sabe["motivos"]["agentico"]
     assert "no puede ejecutar" in eleg.explicar(no_puede, "agentico")
@@ -657,7 +688,7 @@ def test_agentico_distingue_no_puede_de_no_se_sabe():
 
 
 def test_con_evidencia_agentica_es_elegible():
-    v = eleg.evaluar({"runs": 500, "sirve_para_agentes": True,
+    v = eleg.evaluar({"runs": 500, "examen_completo": True, "sirve_para_agentes": True,
                       "agentico": {"tareas": {"harbor-cotizar": {"media": 1.0, "piso": 1.0}}}}, 50)
     assert v["agentico"] and v["ranking"]
 

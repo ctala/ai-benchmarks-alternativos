@@ -1,10 +1,10 @@
 # Gemini 3.6 Flash — startup_content/workshop_outline
 
 - model_id: `google/gemini-3.6-flash`
-- success: True  | final: 8.29 | quality: 9.72
-- latency_total: 26.948s | tokens_per_second: 157.9
-- input_tokens: 190 | output_tokens: 4255
-- judge_score: 4.8 | justificación: 
+- success: True  | final: 8.47 | quality: 10.0
+- latency_total: 28.431s | tokens_per_second: 155.8
+- input_tokens: 190 | output_tokens: 4430
+- judge_score: 5 | justificación: La respuesta es precisa, relevante, clara y profundamente útil para emprendedores no técnicos, proporcionando una agenda detallada y práctica para el workshop.
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -36,169 +36,162 @@ El tono debe ser energico y practico, no academico.
 
 ## Respuesta completa
 
-¡Hola! Qué excelente iniciativa. Para founders *early-stage* no técnicos, el secreto de este workshop es **quitarle el miedo a la tecnología** y mostrarles que "programar" un asistente hoy en día es saber estructurar el pensamiento y dar buenas instrucciones en español.
+¡Hola! Qué excelente iniciativa. Para emprendedores *no-técnicos*, la clave de este workshop es **democratizar la tecnología**: que pierdan el miedo, vean resultados inmediatos y salgan del evento con una herramienta real que les ahorre horas de trabajo esa misma semana.
 
-Aquí tienes el outline completo, diseñado con una metodología *hands-on* (70% práctica, 30% teoría), alto nivel de energía y formato visual para mantener a 20-30 personas conectadas durante las 3 horas.
-
----
-
-# 🚀 OUTLINE DEL WORKSHOP
-**Título:** Construye tu Asistente de IA para tu Startup (Sin escribir una sola línea de código)
-**Duración Total:** 3 Horas (180 minutos)
-**Audiencia:** 20-30 Emprendedores No-Técnicos (Early-Stage)
+Aquí tienes la propuesta completa para el workshop, diseñada con un enfoque 80% práctico, dinámico y con la jerga justa del ecosistema startup latinoamericano.
 
 ---
 
-## 🛠️ MATERIALES Y PREPARACIÓN PREVIA
-
-### Para el Facilitador / Organizador:
-*   Proyector/Pantalla grande y cable HDMI/Adaptadores.
-*   Conexión a Wi-Fi de alta velocidad (¡Crucial! Probarla antes con 30 conexiones simultáneas).
-*   Multitomas / Extensiones eléctricas en las mesas.
-*   Post-its de colores (2 bloques) y plumones gruesos (uno por participante).
-*   Un temporizador visible en pantalla (ej. ilovemt.com o un video de YouTube).
-
-### Para los Participantes (Enviar por email 48h antes):
-1.  **Laptop obligatoria** con cargador (No tablets, no celulares para el taller).
-2.  **Cuenta activa** en OpenAI (ChatGPT) o Anthropic (Claude). *Nota: Se puede hacer el 100% del workshop con cuentas gratuitas usando Custom Instructions / System Prompts, o con ChatGPT Plus / Claude Pro si quieren crear "Custom GPTs/Projects".*
-3.  Tener a la mano en digital: La propuesta de valor de su startup, preguntas frecuentes de sus clientes y un texto breve sobre su producto/servicio.
+# OUTLINE DEL WORKSHOP
+## "Construye tu Asistente de IA para tu Startup"
+**Duración:** 3 Horas | **Formato:** Presencial | **Audiencia:** 20-30 Founders No-Técnicos
 
 ---
 
-## ⏰ AGENDA DETALLADA (180 MINUTOS)
+### 1. MATERIALES Y PREPARACIÓN PREVIA
 
-```
-[00:00 - 00:15] Bloque 0: Rompehielos y El Nuevo Rol del Founder
-[00:15 - 00:45] Bloque 1: Prompt Engineering para Ejecutivos (El Framework R-C-T-F)
-[00:45 - 01:10] Bloque 2: Diseñando el "Cerebro" de tu Asistente (Prompt Canvas)
-[01:10 - 02:10] Bloque 3: ¡MANOS A LA OBRA! Construcción en Vivo + Break
-[02:10 - 02:45] Bloque 4: Stress Test en Parejas (Peer Review) & Optimización
-[02:45 - 03:00] Bloque 5: Demos Relámpago, Stack Futuro y Cierre
-```
+#### Para el Facilitador / Organización:
+*   Proyector/Pantalla grande con conexión HDMI/Type-C y sonido.
+*   Internet Wi-Fi de ALTA VELOCIDAD (crucial: 20-30 personas haciendo llamadas a APIs/modelos simultáneamente).
+*   Extensiones eléctricas / multicontactos (las laptops se agotarán).
+*   Post-its de colores (3 colores por persona) y plumones negros.
+*   Pizarra blanca o Flipchart.
+*   1 asistente/co-facilitador en sala (para destrabar problemas técnicos individuales).
+
+#### Para los Asistentes (Requisitos Previos enviados por email):
+*   Laptop con cargador (obligatorio, no celular ni tablet).
+*   Cuenta activa en **ChatGPT (Plus o versión Gratuita)** o **Claude.ai**.
+*   *Pre-work (5 minutos):* Traer identificado un "cuello de botella" de su startup (ej: responder las mismas 10 preguntas de clientes, redactar correos de ventas, analizar feedback, crear contenido).
 
 ---
 
-## 📑 DESGLOSE POR BLOQUES
+### 2. AGENDA DETALLADA Y BLOQUES
 
-### BLOQUE 0: Rompehielos y El Nuevo Rol del Founder
-*   **Duración:** 15 min
-*   **Slide Count Estimado:** 4 slides
-*   **Objetivo:** Elevar la energía, nivelar expectativas y cambiar la mentalidad de "usuario de chat" a "jefe de un empleado digital".
+#### VISIÓN GENERAL DE TIEMPOS
+*   **00:00 - 00:30** | Bloque 1: Bienvenida, Mindset y el "Súper Poder" de la IA
+*   **00:30 - 01:10** | Bloque 2: La Fórmula del Prompting para Founders
+*   **01:10 - 01:25** | *BREAK / NETWORKING (15 min)*
+*   **01:25 - 02:25** | Bloque 3: **MANOS A LA OBRA (Ejercicio Principal)**
+*   **02:25 - 02:45** | Bloque 4: Show & Tell + Testing Cruzado
+*   **02:45 - 03:00** | Bloque 5: Escalando tu Asistente y Cierre
+
+---
+
+### 3. DESGLOSE BLOQUE POR BLOQUE
+
+---
+
+#### BLOQUE 1: Bienvenida, Mindset y el "Súper Poder" de la IA
+*   **Duración:** 30 minutos (0:00 - 0:30)
+*   **Objetivo:** Romper el hielo, eliminar el mito de que la IA es "solo para programadores" y alinear las expectativas del workshop.
 *   **Dinámica:**
-    *   *Charla relámpago (5 min):* "¿Por qué hoy un founder no-técnico puede construir software usando lenguaje natural?".
-    *   *Ejercicio de calibración (10 min):* En parejas, responder: *"Si pudieras contratar a un pasante gratis hoy que trabaje 24/7, ¿cuál es la tarea más aburrida que le darías?"*. 3 personas comparten en voz alta.
-*   **Key Takeaway:** Un asistente de IA no es un buscador elegante; es un empleado junior infinitamente paciente al que debes saber delegar.
+    1.  *Icebreaker (10 min):* "El Muro del Dolor". Cada founder escribe en un Post-it rojo la tarea más aburrida/repetitiva de su semana y la pega en la pared.
+    2.  *Charla / Demo en vivo (20 min):* Presentación del facilitador. Mostrar en 3 minutos cómo un asistente mal configurado da respuestas genéricas y cómo uno bien configurado actúa como un empleado estrella Senior.
+*   **Key Takeaway:** *"La IA no va a reemplazar a tu startup, pero un founder usando IA va a reemplazar al founder que no la usa. La IA es tu primer empleado contratado por $0."*
+*   **Slide Count Estimado:** 5 slides.
 
 ---
 
-### BLOQUE 1: Prompt Engineering para Ejecutivos (Sin Jargón)
-*   **Duración:** 30 min
-*   **Slide Count Estimado:** 8 slides
-*   **Objetivo:** Enseñar la estructura lógica para comunicarse con LLMs de forma efectiva y consistente.
+#### BLOQUE 2: La Fórmula del Prompting para Founders
+*   **Duración:** 40 minutos (0:30 - 1:10)
+*   **Objetivo:** Enseñar la estructura lógica (Framework C.R.O.P.S.) para darle instrucciones precisas a un modelo de IA.
 *   **Dinámica:**
-    *   *Demo en vivo (10 min):* Facilitador muestra la diferencia entre un "Bad Prompt" (ej: *"Escríbeme respuestas para atención al cliente"*) vs. "Master Prompt" usando el Framework **R-C-T-F** (Rol, Contexto, Tarea, Formato/Límites).
-    *   *Ejercicio en caliente (15 min):* El facilitador muestra un prompt defectuoso en pantalla y la audiencia debe corregirlo a mano alzada.
-*   **Key Takeaway:** Si la IA te da una respuesta mediocre, el 90% de las veces es porque tu instrucción fue ambigua.
+    1.  *Charla interactiva (20 min):* Explicación de la anatomía de un System Prompt:
+        *   **C**ontexto (Quién eres y qué hace tu startup).
+        *   **R**ol (Qué persona/puesto asume la IA).
+        *   **O**bjetivo (Qué debe lograr la interacción).
+        *   **P**arametros/Límites (Qué NO debe hacer, tono de voz).
+        *   **S**alida (Formato exacto de respuesta: tabla, email, JSON, bullets).
+    2.  *Ejercicio rápido en parejas (20 min):* Analizar un "Prompt Basura" en pantalla y reescribirlo usando la fórmula C.R.O.P.S. Compartir 2 ejemplos con la sala.
+*   **Key Takeaway:** *"Basura entra, basura sale. El secreto de un asistente inteligente no es la tecnología, es la claridad de tus instrucciones."*
+*   **Slide Count Estimado:** 7 slides.
 
 ---
 
-### BLOQUE 2: Diseñando el "Cerebro" de tu Asistente
-*   **Duración:** 25 min
-*   **Slide Count Estimado:** 5 slides
-*   **Objetivo:** Aterrizar el caso de uso específico antes de tocar la computadora.
+☕ **BREAK / NETWORKING (15 minutos / 1:10 - 1:25)**
+*Música en vivo, café, agua. Consigna: Hablar con la persona de al lado sobre el post-it del Muro del Dolor.*
+
+---
+
+#### BLOQUE 3: MANOS A LA OBRA - Construye tu Asistente
+*(Ver sección 4 para el detalle completo del ejercicio)*
+*   **Duración:** 60 minutos (1:25 - 2:25)
+*   **Objetivo:** Que el 100% de los asistentes configure y cree la primera versión (MVP) de su propio asistente en vivo (usando Custom GPTs de OpenAI o Projects en Claude / Poe).
+*   **Dinámica:** Ejercicio práctico individual guiado paso a paso. El facilitador muestra el paso en la pantalla principal y luego los asistentes lo replican. El co-facilitador circula resolviendo dudas.
+*   **Key Takeaway:** *"Construir software antes tomaba meses y miles de dólares. Hoy toma 30 minutos de lógica e instrucciones claras."*
+*   **Slide Count Estimado:** 4 slides (Checklist de pasos visible todo el tiempo).
+
+---
+
+#### BLOQUE 4: Show & Tell + Testing Cruzado
+*   **Duración:** 20 minutos (2:25 - 2:45)
+*   **Objetivo:** Validar los asistentes en un entorno real, hacer prueba de estrés y recibir feedback inmediato.
 *   **Dinámica:**
-    *   *Ejercicio Análogo con "Prompt Canvas" impreso o en Post-its (20 min):*
-        Cada emprendedor elegirá **UN** uso de uso para su startup (ej: Calificador de Leads, Generador de Propuestas, Onboarding de Clientes, Soporte Nivel 1).
-        Llenarán su lienzo respondiendo:
-        1. **Rol:** ¿Quién es el bot?
-        2. **Contexto/Knowledge:** ¿Qué datos de la empresa debe saber?
-        3. **Reglas de Oro:** ¿Qué tiene ESTRICTAMENTE PROHIBIDO decir o hacer?
-        4. **Output Esperado:** ¿Cómo debe responder? (Listas, JSON, tono cercano, profesional, etc.).
-*   **Key Takeaway:** Primero piensa la estrategia en papel; la pantalla es solo el canal de ejecución.
+    1.  *Parejas de Testing (10 min):* Los founders se juntan de a dos. Founder A prueba el asistente de Founder B como si fuera un cliente/usuario difícil ("Intentar romper el bot").
+    2.  *Demo Day Exprés (10 min):* 3 founders voluntarios suben al escenario, proyectan su pantalla y muestran su asistente en acción durante 2 minutos cada uno.
+*   **Key Takeaway:** *"Tu asistente necesita iteración. Pruébalo con usuarios reales para descubrir sus puntos ciegos."*
+*   **Slide Count Estimado:** 2 slides (Reglas del juego y temporizador en pantalla).
 
 ---
 
-### BLOQUE 3: ¡MANOS A LA OBRA! Construcción en Vivo
-*   **Duración:** 60 min *(Incluye 10 min de receso/break activo)*
-*   **Slide Count Estimado:** 8 slides (Screenshots de guía paso a paso)
-*   **Objetivo:** Configurar y entrenar el asistente funcionalmente en la plataforma elegida.
+#### BLOQUE 5: Escalando tu Asistente y Cierre
+*   **Duración:** 15 minutos (2:45 - 3:00)
+*   **Objetivo:** Mostrar la hoja de ruta futura (cómo conectar este asistente a WhatsApp, CRM o Email sin código) y cerrar con alta energía.
 *   **Dinámica:**
-    *   *Live Demo / Follow-me (15 min):* El facilitador proyecta su pantalla y crea un Custom GPT (o configura las Custom Instructions de ChatGPT/Claude Projects) paso a paso, cargando un archivo de contexto (PDF/TXT) y probándolo.
-    *   *Trabajo Individual Guiado (35 min):* Todos abren sus laptops. Tienen 35 minutos para traducir su "Prompt Canvas" al sistema y cargar el conocimiento de su startup. El facilitador y un co-facilitador/staff van mesa por mesa resolviendo traba técnica.
-    *   *Bio-Break Integrado (10 min):* Pueden ir por café sin desconectarse de la dinámica.
-*   **Key Takeaway:** ¡Felicidades, acabas de desplegar tu primer producto con Inteligencia Artificial!
+    1.  *Demo relámpago (7 min):* Mostrar cómo conectar el asistente creado a Zapier/Make o Botpress/ManyChat para responder automáticamente en canales reales (sin profundizar en código).
+    2.  *Q&A y Cierre (8 min):* Espacio de preguntas rápidas, foto grupal y llamado a la acción.
+*   **Key Takeaway:** *"Hoy construiste el cerebro. El siguiente paso es conectarle los brazos (automatizaciones) a tu negocio."*
+*   **Slide Count Estimado:** 4 slides.
 
 ---
 
-### BLOQUE 4: Stress Test en Parejas & Optimización
-*   **Duración:** 35 min
-*   **Slide Count Estimado:** 3 slides
-*   **Objetivo:** Probar el asistente en condiciones reales, encontrar fallos ("alucinaciones") e iterar el prompt.
-*   **Dinámica:**
-    *   *Peer Testing (20 min):* Se cambian las laptops con el compañero de al lado. El compañero interpreta a un cliente "difícil", "confundido" o un "lead calificado". Intentará "romper" el asistente o sacarle información incorrecta.
-    *   *Ajuste e Iteración (15 min):* Cada founder recupera su laptop, analiza en qué falló su bot y ajusta las "Reglas de Oro" en el prompt para corregir el comportamiento.
-*   **Key Takeaway:** La IA no se programa a la primera; se itera a través del testeo constante.
+### 4. DETALLE DEL EJERCICIO PRINCIPAL (Bloque 3)
+
+**Nombre del Ejercicio:** "Mi Asistente MVP en 45 Minutos"
+
+**Descripción:**
+Cada emprendedor elegirá **UNA** de las siguientes 3 plantillas de asistente para construir (según su necesidad actual):
+
+1.  **Opción A: SDR de Ventas (Sales Assistant):** Entrenado con el pitch y FAQs de la startup para redactar correos de prospección hiper-personalizados y calificar leads.
+2.  **Opción B: Customer Success & Soporte:** Creado subiendo la documentación/PDFs de la startup para responder dudas complejas de clientes con el tono de la marca.
+3.  **Opción C: Growth & Content Copilot:** Un estratega de contenido entrenado con la propuesta de valor para generar ideas, guiones de video y posts adaptados a la audiencia objetivo.
+
+**Paso a Paso del Ejercicio (Guiado en pantalla):**
+
+*   **Paso 1 (10 min) - Configuración del Perfil:** Crear el GPT/Proyecto, asignarle un nombre, foto (usando DALL-E) y definir el *Role* y *Context*.
+*   **Paso 2 (15 min) - Inyección de Conocimiento (Knowledge Base):** Subir al asistente al menos 1 archivo relevante (PDF de la empresa, landing page guardada como texto, catálogo de precios o transcripts de llamadas con clientes).
+*   **Paso 3 (15 min) - Definición de Reglas y Guardrails (Instrucciones):** Escribir la lógica C.R.O.P.S., definir qué responder cuando no sepa la información ("Si no sabes la respuesta, di: *Dejame consultarlo con el equipo humano y te contacto*").
+*   **Paso 4 (10 min) - Calibración Inicial:** Hacer 3 preguntas de prueba en la ventana de chat y ajustar las instrucciones según los fallos observados.
 
 ---
 
-### BLOQUE 5: Demos Relámpago, Stack Futuro y Cierre
-*   **Duración:** 15 min
-*   **Slide Count Estimado:** 5 slides
-*   **Objetivo:** Celebrar los logros, mostrar los siguientes pasos para automatizar y cerrar con alta energía.
-*   **Dinámica:**
-    *   *Demos Relámpago (6 min):* 3 emprendedores voluntarios presentan en 2 minutos su asistente proyectado en pantalla funcionando.
-    *   *Visión del Stack Futuro (5 min):* Breve explicación de cómo conectar este asistente con WhatsApp/CRM en el futuro usando herramientas No-Code (Zapier, Make, Voiceflow, ManyChat) sin saturar de técnica.
-    *   *Cierre y Foto Grupal (4 min).*
-*   **Key Takeaway:** La ventaja competitiva no es la tecnología, es la velocidad con la que implementas la IA en tus procesos cotidianos.
+### 5. RECURSOS PARA LLEVAR A CASA (Take-Home Kit)
+
+Al finalizar, se enviará un correo o código QR con un repositorio en Notion/PDF que incluye:
+
+1.  **Plantilla "System Prompt Matrix" (Cheat-sheet):** Un documento editable con la estructura exacta C.R.O.P.S. para copiar y pegar en futuros proyectos.
+2.  **Librería de 10 Prompts para Founders:**
+    *   Prompt para validar ideas de producto.
+    *   Prompt para hacer análisis de competencia.
+    *   Prompt para preparar reuniones con inversionistas (Simulador de VC).
+    *   Prompts para copywriting y marketing.
+3.  **El "No-Code AI Tech Stack" Recomendado:** Lista curada de herramientas sin código para el siguiente nivel (Zapier, Make, Softr, Botpress, Voiceflow, Claude, ChatGPT).
+4.  **Acceso a la Comunidad:** Enlace al grupo de WhatsApp/Slack de egresados del workshop para seguir compartiendo prompts y dudas.
 
 ---
 
-## 🎯 EL EJERCICIO PRINCIPAL EN DETALLE
-**(Para el Bloque 2 y 3)**
+### 6. RESUMEN DE SLIDES ESTIMADO
 
-El ejercicio se llama **"El Asistente MVP"**.
-Para garantizar que todos terminen, los participantes eligen **1 de 3 Plantillas de Caso de Uso**:
-
-1.  **Opción A: El Vendedor Nocturno (SDR Bot):** Lee una consulta de un cliente entrante, le hace 3 preguntas clave para calificar si tiene presupuesto/interés y redacta un correo para agendar una llamada.
-2.  **Opción B: El Soporte Implacable (Customer Support):** Responde preguntas frecuentes usando el sitio web o un PDF de precios/servicios de la startup, manteniendo siempre la calma y el tono de marca.
-3.  **Opción C: El Copywriter de Founder (Content Bot):** Toma una idea en audio o texto sucio del founder y la convierte en un post de LinkedIn con la voz del emprendedor y una propuesta de valor clara.
-
-**Entregable al final de las 3 horas:**
-Cada participante tendrá una URL ejecutable o un System Prompt guardado en su cuenta personal que puede usar a partir de mañana en su empresa.
-
----
-
-## 📦 RECURSOS PARA LLEVAR A CASA (Digital Kit)
-
-Al finalizar, se envía un correo o código QR con un repositorio (Notion o Drive) que contiene:
-
-1.  **Prompt Engineering Cheatsheet (PDF 1 página):** Estructura del Framework R-C-T-F y verbos de comando recomendados.
-2.  **El "Prompt Canvas" Editable:** Plantilla en Google Docs / Notion.
-3.  **5 Prompts Maestros de Regalo:**
-    *   Prompt para análisis de competencia.
-    *   Prompt para crear customer personas.
-    *   Prompt para resumir feedback de clientes.
-    *   Prompt para estructurar un pitch deck.
-    *   Prompt para negociación de proveedores.
-4.  **Mapa de Herramientas No-Code AI:** Diagrama simple recomendando herramientas según el canal (WhatsApp = ManyChat + OpenAI; Web = Voiceflow/Chatbase; Interno = Custom GPTs / Claude Projects).
-
----
-
-## 📊 RESUMEN DE SLIDES ESTIMADO
-
-| Sección | No. de Slides | Enfoque |
+| Sección | No. de Slides | Contenido Clave |
 | :--- | :--- | :--- |
-| **Intro & Rompehielos** | 4 | Visuales, preguntas cortas, agenda. |
-| **Prompt Engineering (R-C-T-F)** | 8 | Ejemplos comparativos Antes/Después. |
-| **Explicación del Canvas** | 5 | Gráfico interactivo del lienzo. |
-| **Tutorial Paso a Paso (Demo)** | 8 | Capturas de pantalla gigantes con flechas claras. |
-| **Instrucciones del Testing** | 3 | Reglas del juego en parejas y temporizador. |
-| **Stack Futuro & Cierre** | 5 | Mapa visual no-code, QR de recursos y redes. |
-| **TOTAL ESTIMADO** | **33 Slides** | *(Pocas palabras, imágenes grandes y tipografía legible)* |
+| **Intro & Mindset** | 5 | Bienvenida, La regla del 10x, Demo impactante |
+| **Framework Prompting** | 7 | C.R.O.P.S., Ejemplos Antes/Después, Guardrails |
+| **Ejercicio Guiado** | 4 | Pantalla fija con la guía de pasos 1-4 |
+| **Testing & Demos** | 2 | Reglas de prueba de estrés + Timer de pitches |
+| **Siguientes Pasos** | 4 | No-code integrations, Stack técnico, QR de recursos |
+| **TOTAL** | **~22 Slides** | *Diseño minimalista, poco texto, visualmente moderno.* |
 
 ---
 
-### 💡 Consejos de Facilitación para Latinoamérica:
-*   **Lenguaje:** Evita anglicismos innecesarios; en lugar de "embeddings" o "fine-tuning", habla de "darle contexto" o "entrenar con tus propios datos".
-*   **Manejo del Ritmo:** En el Bloque 3, algunos irán muy rápido y otros se trabarán con la contraseña de OpenAI. Ten un asistente de apoyo en la sala para no detener el ritmo del grupo.
-*   **Pausas de Reconocimiento:** Haz que aplaudan a los valientes que presentan en la Demo Relámpago. Romper la timidez inicial genera una atmósfera de comunidad indispensable en ecosistemas de emprendimiento locales.
+### 🔥 CONSEJO DE FACILITACIÓN LATAM:
+Mantén la música alta durante los ejercicios prácticos (Lofi Beats o Pop en español suave), usa un lenguaje muy aterrizado ("vamos a desglosar esto", "cero rollo", "manos a la masa") y **felicita públicamente los errores** durante las demos: un asistente que "alucina" en vivo es la mejor oportunidad de enseñanza para toda la sala. ¡Mucho éxito con el taller!

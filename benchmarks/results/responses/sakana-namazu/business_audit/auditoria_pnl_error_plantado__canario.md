@@ -1,9 +1,9 @@
 # Sakana Namazu — business_audit/auditoria_pnl_error_plantado
 
 - model_id: `sakana/sakana-namazu`
-- success: True  | final: 8.69 | quality: 10.0
-- latency_total: 8.823s | tokens_per_second: 229.8
-- input_tokens: 224 | output_tokens: 2028
+- success: True  | final: 8.74 | quality: 10.0
+- latency_total: 7.402s | tokens_per_second: 200.6
+- input_tokens: 224 | output_tokens: 1485
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -35,37 +35,52 @@ MARGEN: 40%
 
 ## Respuesta completa
 
-**Los números no cierran.** Hay un error en tu suma de costos y eso cambia completamente la respuesta.
+**Los números no cierran.** Y esa diferencia es tan grande que cambia completamente la decisión.
 
-Si sumamos los costos detallados:
+Aquí está el problema:
+
+Lo que tú detallas como costos suma **$9.150**, no $7.400:
 
 - Infraestructura: $1.250
 - Publicidad: $3.900
 - Herramientas SaaS: $780
 - Procesador de pagos: $620
 - Contenido freelance: $2.600
+- **Suma real: $9.150**
 
-**Total real de costos: $9.150** (no $7.400).
-
-Por lo tanto:
-- **Beneficio real del mes: $3.250** ($12.400 – $9.150)
-- **Margen real: ~26%** (no 40%)
+Esto arroja un beneficio bruto de **$3.250** ($12.400 – $9.150), es decir, un **margen real del 26,2%**, no del 40% que indicas.
 
 ---
 
-### ¿Contrato o no?
+### Escenario actual (con tus cifras reales)
 
-**Con los números reales: No.**
+| Concepto | Monto |
+| :--- | :--- |
+| Ingresos | $12.400 |
+| Costos reales | $9.150 |
+| **Beneficio hoy** | **$3.250** |
+| **Margen hoy** | **26,2%** |
 
-Si contratas a alguien por $2.500/mes, tu beneficio se reduce a **$750 mensuales** ($3.250 – $2.500). Eso significa que estarías quedando con solo un **6% de margen** sobre tus ingresos actuales.
+Si encima contratas a alguien por **$2.500** mensuales adicionales:
 
-**El riesgo es muy alto:**
-- Si tus ingresos bajan un 10% (unos $1.240), entras en pérdida.
-- Si el nuevo empleado no se paga solo con crecimiento de ingresos, tu negocio empieza a quemar caja.
-- Ya tienes un costo alto en publicidad ($3.900, el 31% de tus ingresos), por lo que tu estructura no está tan holgada como parecía.
+| Concepto | Monto |
+| :--- | :--- |
+| Ingresos | $12.400 |
+| Costos totales ($9.150 + $2.500) | $11.650 |
+| **Nuevo beneficio** | **$750** |
+| **Nuevo margen** | **6,0%** |
 
-**¿Cuándo sí contratar?** Cuando una de estas dos se cumpla:
-1. Tengas un beneficio mensual **estable** de al menos $5.000-$6.000 durante 3-6 meses seguidos (para soportar el nuevo costo fijo sin temblar), o
-2. Estés 100% seguro de que ese empleado generará ingresos directos que cubran su sueldo y dejen margen (ej. te libere para vender más, automatice procesos que escalarán ingresos, etc.).
+Te quedarías con un margen de apenas el 6% y solo $750 de ganancia antes de impuestos o imprevistos. Eso es insostenible; un mes de baja en ventas o un gasto extra te deja en números rojos.
 
-De momento, **la matemática te dice que esperes**. Corregí la suma primero porque la decisión sobre personas no se toma con margen ficticio.
+---
+
+### Mi recomendación como controller
+
+**No contrates todavía.** Primero hay que hacer dos cosas:
+
+1. **Reconciliar tus costos.** ¿De dónde sale ese total de $7.400? ¿Faltan líneas por descontar o el detalle está mal? Necesitas saber tu número real.
+2. **Validar el retorno de la contratación.** Si esa persona no genera un aumento directo de ingresos (más suscripciones, más cursos vendidos, liberación de tu tiempo para vender), estás sumando costo fijo a un margen que ya es más ajustado de lo que aparece en el resumen.
+
+Cuando ajustes las cifras reales, la regla simple es esta: **no sumes costo fijo mensual si eso te deja con menos del 15-20% de margen de maniobra**, salvo que esa contratación tenga un ROI de ingresos demostrable en el corto plazo.
+
+Corrige primero el estado de resultados y luego revisamos si el negocio aguanta ese $2.500.

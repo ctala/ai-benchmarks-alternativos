@@ -1,9 +1,9 @@
 # Sakana Namazu — structured_output/json_strict_no_extra
 
 - model_id: `sakana/sakana-namazu`
-- success: True  | final: 9.45 | quality: 10.0
-- latency_total: 1.442s | tokens_per_second: 120.0
-- input_tokens: 89 | output_tokens: 173
+- success: True  | final: 9.47 | quality: 10.0
+- latency_total: 1.124s | tokens_per_second: 135.2
+- input_tokens: 89 | output_tokens: 152
 
 ## Entrada exacta (lo que recibió el modelo)
 

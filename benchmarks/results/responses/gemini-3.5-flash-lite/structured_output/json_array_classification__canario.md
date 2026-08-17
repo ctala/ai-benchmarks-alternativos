@@ -2,7 +2,7 @@
 
 - model_id: `google/gemini-3.5-flash-lite`
 - success: True  | final: 9.81 | quality: 10.0
-- latency_total: 0.859s | tokens_per_second: 100.1
+- latency_total: 0.8s | tokens_per_second: 107.5
 - input_tokens: 164 | output_tokens: 86
 
 ## Entrada exacta (lo que recibió el modelo)
@@ -29,12 +29,12 @@ Formato: [{"id": 1, "category": "", "priority": "", "sentiment": ""}, ...]
   {
     "id": 1,
     "category": "shipping",
-    "priority": "urgent",
+    "priority": "high",
     "sentiment": "negative"
   },
   {
     "id": 2,
-    "category": "general",
+    "category": "shipping",
     "priority": "low",
     "sentiment": "positive"
   },

@@ -324,6 +324,28 @@ def _t_secretos():
         tmp.unlink(missing_ok=True)
 
 
+@prueba("check_blog_consistency", "un post del blog citando un score que ya no existe")
+def _t_blog():
+    # El blog es OTRO repo, así que puede no estar clonado en esta máquina (CI). Sin él
+    # no hay nada que probar y la prueba pasa: acusar en falso sería peor.
+    blog = Path.home() / "Playground" / "sitios" / "cristiantala-blog"
+    posts = blog / "src" / "content" / "blog"
+    if not posts.is_dir():
+        return True
+    # El caso real de julio: ocho posts en producción con claims muertos, uno coronando
+    # como «#1 de mi benchmark» a un modelo que estaba #9.
+    tmp = posts / "_prueba_guardrail_blog.md"
+    try:
+        tmp.write_text(
+            "---\ntitle: prueba\nseoTitle: Modelo Inventado saca score 99.99 en mi benchmark\n"
+            "description: prueba\npubDate: 2026-08-17\n---\n\n"
+            "Modelo Inventado tiene un score de 99.99 y es el #1 de mi benchmark.\n",
+            encoding="utf-8")
+        return _correr("check_blog_consistency.py") != 0
+    finally:
+        tmp.unlink(missing_ok=True)
+
+
 def main() -> int:
     print("Probando que cada guardrail CACE su propio fallo:\n")
     for nombre, ok, detalle in resultados:

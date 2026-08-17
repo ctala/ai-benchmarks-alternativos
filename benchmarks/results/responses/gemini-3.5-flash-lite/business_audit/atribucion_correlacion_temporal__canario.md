@@ -1,9 +1,9 @@
 # Gemini 3.5 Flash Lite — business_audit/atribucion_correlacion_temporal
 
 - model_id: `google/gemini-3.5-flash-lite`
-- success: True  | final: 9.18 | quality: 10.0
-- latency_total: 3.113s | tokens_per_second: 173.8
-- input_tokens: 223 | output_tokens: 541
+- success: True  | final: 9.13 | quality: 10.0
+- latency_total: 3.929s | tokens_per_second: 176.6
+- input_tokens: 223 | output_tokens: 694
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -28,26 +28,34 @@ Contexto adicional: también el 3 de marzo empecé a pagar publicidad ($400 en e
 
 ## Respuesta completa
 
-Hola. Entiendo perfectamente la tentación de mirar el MRR, ver ese +29% y atribuírselo al último cambio que hicimos (los emails). Como analista, mi trabajo es arruinarte esa ilusión.
+Hola. Entiendo perfectamente la tentación de mirar el MRR, ver ese +29% y atribuírselo a los emails. Es una narrativa hermosa y muy fácil de vender. 
 
-**Conclusión:**
-**No se puede saber.** 
+Pero mi trabajo aquí es protegerte de ti mismo y de las conclusiones falsas. 
 
-Los datos que me das muestran correlación temporal, pero **no causalidad**. El incremento en el MRR y en las altas de marzo coincide con la activación de los emails, sí. Pero coincide *exactamente* con dos eventos externos de gran peso:
-1. Empezaste a pagar publicidad el 3 de marzo.
-2. Un creador con audiencia grande os mencionó el 12 de marzo.
+**Mi conclusión directa es: No se puede saber.**
 
-Cualquiera de estos dos factores —o una combinación de ambos, o incluso estacionalidad natural del negocio— podría ser el verdadero motor de las nuevas altas, o los emails podrían haber ayudado, o incluso haber molestado y frenado conversiones que la publicidad y el creador trajeron. Con este 
-conjunto de datos, es estadísticamente imposible aislar el impacto real de la secuencia de emails. Atribúselo a los emails sería adivinar, no analizar.
+Los datos que me das muestran correlación temporal, pero **no causalidad**. Y en analítica, asumir que porque una cosa pasó antes que la otra (o al mismo tiempo), la primera causó la segunda, es el camino más rápido para tomar malas decisiones con tu dinero.
+
+### ¿Por qué no podemos saber si los emails funcionaron?
+
+Tenemos un problema grave de **variables confusas**. Entre el 1 y el 31 de marzo pasaron al menos tres cosas importantes de forma simultánea:
+1. Lanzaste la secuencia de emails (1 de marzo).
+2. Empezaste a pagar publicidad ($400 el 3 de marzo).
+3. Un creador con audiencia grande os mencionó (12 de marzo).
+
+Cualquiera de estas tres acciones —o una combinación de las tres, o incluso factores estacionales ajenos a vosotros— pudo haber impulsado esas 5 altas adicionales (de 9 a 14) y los $1.200 extra de MRR. Los emails están compitiendo por el mérito con la pauta publicitaria y con tráfico orgánico de alto impacto (la mención del creador). Los datos actuales no nos permiten aislar el impacto de la secuencia.
 
 ---
 
 ### ¿Qué haría falta para estar seguros?
 
-Para poder evaluar si la secuencia de emails funcionó de verdad, necesitaríamos datos más limpios y granulares. Esto es lo que haría falta:
+Para poder afirmar con datos (y no con fe) que la secuencia de emails funcionó, necesitaríamos un escenario de medición más limpio o con mejor aislamiento. Idealmente:
 
-1. **Atribución por enlace (UTM / Tracking):** Necesitamos saber de dónde vienen exactamente las conversiones al plano pago. ¿Los usuarios que pagaron hicieron clic en los emails, vinieron del link del creador, o llegaron por el anuncio pagado? Sin esto, estamos ciegos.
-2. **Grupo de control (A/B Testing):** Idealmente, un porcentaje de los usuarios gratuitos (ej. 50%) no debería haber recibido la secuencia de emails, mientras que el otro 50% sí. Si el grupo con emails convierte significativamente más que el grupo de control (bajo las mismas condiciones de pauta y menciones), entonces podemos medir el impacto real.
-3. **Análisis de comportamiento por cohorte:** Ver si los usuarios que convirtieron en marzo abrieron y hicieron clic en los emails previos al pago. Si compraron sin haber abierto jamás un solo email de la secuencia, queda descartado que los emails fueran el catalizador de su compra.
+1. **Atribución por enlaces (UTMs):** Saber exactamente de dónde vino cada uno de esos 14 nuevos usuarios de marzo. ¿Hicieron clic en el botón del email, vinieron del anuncio de pago, o llegaron por el link del creador? Sin esto, estamos adivinando.
+2. **Datos a nivel de usuario:** Cruzar las fechas de alta con el comportamiento previo. ¿Cuántos de esos 14 usuarios abrieron y hicieron clic en los emails antes de pagar? Si los 5 nuevos compradores jamás abrieron la secuencia, sabemos con certeza absoluta que los emails *no* fueron el motor de su compra.
+3. **Prueba A/B (para la próxima):** Haber dividido a los usuarios del plan gratuito en dos grupos: al Grupo A (control) no se le envió la secuencia, y al Grupo B (variable) sí. Si el Grupo B convierte significativamente más que el A bajo las mismas condiciones de pauta y menciones, ahí tienes tu prueba matemática.
 
-Hasta que no tengamos ese nivel de detalle, lo único que sabemos con certeza es que marzo fue un buen mes financieramente. Pero el mérito exacto sigue siendo un misterio.
+### Mi recomendación como analista:
+No des por sentado que la secuencia es un éxito rotundo ni la apagues pensando que no sirve. Lo prudente ahora es **no tocar nada**, empezar a trackear bien las fuentes de tráfico (URLs con parámetros UTM en cada canal) y evaluar el próximo mes con datos limpios. 
+
+¿Tienes forma de saber de dónde vinieron esas 14 altas de marzo? Si no, nos tocará esperar a abril para medir con rigor.

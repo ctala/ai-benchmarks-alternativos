@@ -2,8 +2,8 @@
 
 - model_id: `meituan/longcat-2.0`
 - success: True  | final: 9.1 | quality: 10.0
-- latency_total: 2.99s | tokens_per_second: 17.4
-- input_tokens: 88 | output_tokens: 52
+- latency_total: 2.858s | tokens_per_second: 16.8
+- input_tokens: 88 | output_tokens: 48
 
 ## Entrada exacta (lo que recibió el modelo)
 

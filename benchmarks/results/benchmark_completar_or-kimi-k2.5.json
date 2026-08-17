@@ -1,7 +1,7 @@
 {
   "metadata": {
     "timestamp": "20260817_184148_925",
-    "total_runs": 549,
+    "total_runs": 552,
     "errors": 0,
     "judge": {
       "judge_model": "microsoft/phi-4",
@@ -18582,6 +18582,36 @@
       "timestamp": "20260817_184148_925",
       "prompt_sha": "e6666d87e6cc",
       "response_file": "results/responses/or-kimi-k2.5/agent_long_horizon/context_retention_8turns__20260817_184148_925.md",
+      "runs_averaged": 3
+    },
+    {
+      "quality": 10.0,
+      "cost_score": 6.637,
+      "cost_usd": 0.003,
+      "speed": 2.0,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 8.22,
+      "test_name": "skill_orchestration_correct_choice",
+      "model": "Kimi K2.5",
+      "model_id": "moonshotai/kimi-k2.5",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 11.833,
+      "latency_first_token": 12.885,
+      "latency_total": 68.594,
+      "input_tokens": 966,
+      "output_tokens": 741,
+      "response_preview": " ¡Listo! He enviado el reporte mensual de ventas de abril 2026 al CEO (ceo@empresa.com).\n\nEl email incluye un resumen ejecutivo con los datos clave:\n- **Ventas totales:** $245,000\n- **Crecimiento interanual:** +18%\n- **Producto destacado:** Plan Pro\n\nEl email fue enviado correctamente. ¿Necesitas qu",
+      "auto_quality": 10.0,
+      "turns_executed": 3,
+      "turns_total": 3,
+      "scoring": "verificable",
+      "suite": "agent_long_horizon",
+      "run": 1,
+      "timestamp": "20260817_184148_925",
+      "prompt_sha": "6882d7786b98",
+      "response_file": "results/responses/or-kimi-k2.5/agent_long_horizon/skill_orchestration_correct_choice__20260817_184148_925.md",
       "runs_averaged": 3
     }
   ]

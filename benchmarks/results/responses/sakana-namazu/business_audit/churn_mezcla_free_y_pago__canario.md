@@ -1,8 +1,8 @@
 # Sakana Namazu — business_audit/churn_mezcla_free_y_pago
 
 - model_id: `sakana/sakana-namazu`
-- success: True  | final: 8.68 | quality: 10.0
-- latency_total: 9.653s | tokens_per_second: 212.2
+- success: True  | final: 7.21 | quality: 8.0
+- latency_total: 11.039s | tokens_per_second: 185.5
 - input_tokens: 202 | output_tokens: 2048
 
 ## Entrada exacta (lo que recibió el modelo)
@@ -29,102 +29,42 @@ Detalle que encontré exportando la tabla:
 
 ## Respuesta completa
 
-El usuario está en pánico porque reporta un churn del 31% pero pensaba que estaba en 5%. Me da datos específicos y un detalle importante sobre la composición de usuarios (freemium vs pago).
+Primero: **respira**. El 31% es matemáticamente correcto, pero está midiendo la mezcla de dos negocios distintos. Una vez que separas la población, la foto cambia radicalmente.
 
-Primero, debo verificar qué población está midiendo realmente el churn, tal como indica mi instrucción sistema: "Antes de interpretar una métrica, verificas qué población está midiendo realmente."
+### 1. Lo que realmente está pasando (verificación de la población)
 
-Datos proporcionados:
-- Usuarios totales que se dieron de baja: 62
-- Usuarios totales a inicio de mes: 200
-- Churn reportado: 31% (62/200 = 0.31, eso matemáticamente cuadra)
+Tu panel está calculando:
+- **62 bajas / 200 usuarios totales = 31%**
 
-Detalle exportado:
-- De 200 usuarios: 178 gratuitos, 22 pagos
-- De 62 bajas: 60 gratuitos, 2 pagos
+Pero si desagregas por la verdadera división del negocio (free vs. pago), obtienes esto:
 
-Análisis de la métrica:
-El churn reportado de 31% es un churn AGREGADO/GLOBAL sobre TODA la base (pagos + gratuitos). Pero esto puede ser engañoso porque:
-1. Los usuarios gratuitos suelen tener mucho mayor churn que los pagos (es normal, no tienen barrera de salida monetaria ni compromiso).
-2. El churn de pagos es lo que realmente importa para el revenue y la salud del negocio.
-3. El churn de gratuitos importa para el funnel de conversión, pero bajar un usuario gratuito no es lo mismo que perder un cliente pagando.
+| Segmento | Usuarios a inicio de mes | Bajas | Churn real |
+| :--- | :--- | :--- | :--- |
+| **Plan gratuito** | 178 | 60 | **33.7%** |
+| **Plan de pago** | 22 | 2 | **9.1%** |
+| **Total** | 200 | 62 | 31% |
 
-Cálculos que debo hacer:
-1. Churn global: 62/200 = 31% (confirma el dato del panel)
-2. Churn de usuarios gratuitos: 60/178 = 33.7% ≈ 34%
-3. Churn de usuarios de pago: 2/22 = 9.1%
-4. Churn global ponderado por revenue (si tuviera datos, pero no los tengo, así que me enfocaré en la segmentación)
+**Tu churn de clientes de pago no es 31%. Es 9%.**
+El número que probablemente creías que estabas viendo (ese ~5%) corresponde al mundo de los *pagos*, no al total mezclado.
 
-También podría calcular la contribución de cada segmento al churn total:
-- Porcentaje de bajas gratuitas: 60/62 = 96.8% de las bajas
-- Porcentaje de bajas pagas: 2/62 = 3.2% de las bajas
+---
 
-Interpretación:
-- El churn de 31% está fuertemente sesgado por la masa de usuarios gratuitos.
-- El churn de pagos es 9.1%. Si el usuario pensaba que estaba en 5%, 9.1% está por encima pero no es una catástrofe comparado con 31%. Depende del sector, pero para SaaS un churn mensual de 5% anual sería ~60% anual lo cual es alto; mensual de 5% es extremadamente alto para SaaS (65% anual aprox). Pero 9.1% mensual es todavía más alto. Sin embargo, con solo 22 usuarios pagos, la muestra es muy pequeña (2 bajas = 9.1%). Un solo usuario más o menos cambia mucho la tasa.
-- El churn de gratuitos 33.7% puede ser normal o preocupante según el modelo.
+### 2. ¿Qué tan grave es?
 
-Necesito calmar al usuario pero ser riguroso:
-1. No es tan grave como parece porque el churn reportado mezcla dos poblaciones con comportamientos distintos.
-2. El churn relevante para el negocio (pagos) es 9.1%, no 31%.
-3. Pero 9.1% con solo 22 usuarios y 2 bajas es estadísticamente volátil. Si el mes que viene no se van pagos, baja a 0%; si se van 2 más, sube mucho.
-4. Los 60 gratuitos que se fueron representan 33.7% de esa base. Hay que entender por qué. ¿Fueron usuarios recientes? ¿Inactivos?
+No es una catástrofe, pero tampoco es para ignorarla. Depende de qué modelo de negocio tengas:
 
-Plan de acción:
-FASE 1: VERIFICAR Y SEPARAR (hoy mismo)
-- Separar métricas: churn de pagos, churn de gratuitos (idealmente por cohorte).
-- Verificar si las bajas de pagos fueron "voluntarias" (cancelación) o "involuntarias" (fallo de pago/tarjeta). El churn involuntario es más fácil de recuperar.
-- Calcular churn de revenue (dollar churn) si es posible, no solo customer churn.
+**Si eres Freemium (los free son leads de conversión):**
+- **Grave medio.** Un churn free del 34% puede significar que estás trayendo usuarios curiosos pero no calificados, o que tu onboarding gratuito no los lleva al "momento de valor". Estás perdiendo el embudo antes de convertirlos.
 
-FASE 2: CONTEXTO Y BENCHMARK (esta semana)
-- Comparar con meses anteriores (¿siempre fue así o es un pico?).
-- Benchmark de industria: SaaS B2B churn mensual saludable es 3-5% (anual ~31-46%), pero varía mucho. Para B2C o freemium, los gratuitos pueden tener 30-50% churn mensual.
-- Revisar antigüedad de los 60 gratuitos: si eran usuarios recientes que nunca activaron, es un problema de onboarding. Si eran antiguos inactivos que limpiaron la base, no es tan malo.
+**Si monetizas principalmente por pagos (B2B, SaaS, etc.):**
+- **Leve-Moderado.** Perdiste solo **2 clientes de pago**. El daño financiero inmediato es pequeño. Sin embargo, un churn de pago del 9% mensual es casi el doble de lo que esperabas (~5%), así que hay una tendencia a investigar.
 
-FASE 3: ACCIONES INMEDIATAS SEGMENTADAS
-Para pagos (2 bajas):
-- Contactarlos personalmente ahora. Entender razones.
-- Si es fallo de pago: campaña de recuperación de tarjetas (dunning).
-- Revisar si hubo cambio de precios, bug, o competencia.
+**El verdadero peligro:** Tomar decisiones con churn agregado. Si mañana lanzas una campaña que trae 500 usuarios free de baja calidad, tu churn "global" se desplomará al 10% sin que tu negocio de pago haya mejorado un milímetro.
 
-Para gratuitos (60 bajas):
-- Analizar cohorte: ¿cuándo se registraron? ¿Activaron alguna vez?
-- Si son "fantasmas" (registrados hace meses, nunca usaron): limpieza natural.
-- Si son usuarios activos recientes que se van: revisar roadmap, bugs, competencia, límites del plan gratuito.
-- Implementar "exit survey" para quienes se den de baja.
+---
 
-FASE 4: FIX DE REPORTING
-- Cambiar el dashboard para que muestre:
-  * Churn de clientes pagos
-  * Churn de MRR/ARR (revenue churn)
-  * Churn de gratuitos por separado
-  * Net churn vs gross churn
-- Establecer alertas por segmento.
-- Quizás mostrar "churn de usuarios activos" vs "churn de registrados".
+### 3. Tu plan de acción (por prioridad)
 
-FASE 5: ESTRATEGIA A MEDIANO PLAZO
-- Si la base de pagos es pequeña (22), enfocarse en retención de pagos es crítico.
-- Para gratuitos: entender cuál es su valor. Si son solo "relleno", quizás no merece la pena enfocarse en retenerlos sino en convertirlos rápido antes de que se vayan.
-- Si 178/200 son gratuitos, el modelo freemium tiene un embudo de conversión que revisar.
-
-Cuán grave es:
-- No es una catástrofe si el negocio depende de 22 pagos y 2 se fueron. Pero con una base tan pequeña, cada baja pesa mucho.
-- El 31% global es un número "fantasma" que mezcla peras con manzanas.
-- Lo grave verdadero: estar tomando decisiones con una métrica agregada incorrecta. Eso es un riesgo operativo.
-
-Estructura de la respuesta:
-1. Calma inmediata: la métrica está mal interpretada por mezcla de poblaciones.
-2. Verificación rigurosa: demuestro con números los churns separados.
-3. Qué significa realmente (qué tan grave es).
-4. Plan de acción inmediato (qué hacer hoy, esta semana, este mes).
-5. Fix del panel para evitar futuro pánico.
-
-Importante: Usar lenguaje de analista de retención. Enfocarme en "qué población está midiendo realmente".
-
-Voy a hacer los cálculos exactos:
-- Churn pagos: 2/22 = 0.090909... = 9.09%
-- Churn gratuitos: 60/178 = 0.337078... = 33.7%
-- Distribución: 89% de tu base es gratuita, y ellos representan 96.8% de las bajas.
-
-Otra cosa: ¿el "churn" de gratuitos es realmente baja? A veces los usuarios gratuitos simplemente dejan de usar pero no se "dan de baja". Aquí explicitamente dice "se dieron de baja", asumo que es una acción formal. Si es una plataforma donde gratuitos deben cancelar cuenta, entonces sí.
-
-También podría mencionar que con n=22, la tasa de 9.1% tiene un intervalo de
+#### Fase 1: Hoy (Detener el pánico y segmentar)
+1. **Separa tus dashboards.** Nunca más muestres un churn agregado Free + Paid. Crea tres métricas:
+   - *Free Abandonment Rate* (

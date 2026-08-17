@@ -1,8 +1,8 @@
 # Sakana Namazu — business_audit/validacion_idea_intencion_vs_compra
 
 - model_id: `sakana/sakana-namazu`
-- success: True  | final: 4.96 | quality: 5.0
-- latency_total: 33.71s | tokens_per_second: 60.8
+- success: True  | final: 8.61 | quality: 10.0
+- latency_total: 10.526s | tokens_per_second: 194.6
 - input_tokens: 199 | output_tokens: 2048
 
 ## Entrada exacta (lo que recibió el modelo)
@@ -26,14 +26,29 @@ Creo que ya validé mi idea y quiero renunciar a mi trabajo para dedicarme a est
 
 ## Respuesta completa
 
-**No. No renuncies. Tu idea no está validada.**
+**No. No está validado. No renuncies.**
 
-Lo siento si suena duro, pero en mi experiencia, lo que estás mostrando no son datos de validación, son **métricas de vanidad**. He visto a docenas de fundadores saltar al vacío con exactamente el mismo paquete de “evidencias” y estrellarse contra la realidad de un mercado que aplaude con las manos pero no abre la billetera.
+Y si renuncias ahora, estás tomando una decisión emocional, no de negocio. Te lo digo como alguien que ha visto a fundadores quemar ahorros, matrimonios y años de vida creyendo que una lista de correos y un porcentaje en una encuesta son una señal divina.
 
-Aquí está el desglose implacable de por qué cada punto que presentas vale casi cero:
+Aquí está el desglose de por qué tus datos son, en su mayoría, **ruido**:
 
-### 1. Tus 40 encuestados de tu red personal
-Cuando preguntas a amigos, ex-colegas o conocidos de LinkedIn, no estás midiendo demanda. Estás midiendo **cortesía**. La gente quiere ser amable. No te dirá que tu bebé es feo. Además, "¿te duele este problema?" es una pregunta de diagnóstico, no de compra.
+### 1. Tus encuestas no valen nada
+El 85% de dolor y el 72% de intención de pago son **basura estadística** cuando vienen de tu red y se recogen sin fricción real. La gente no miente por maldad; miente por educación. A tus amigos, ex-jefes o contactos de LinkedIn les cuesta decirte a la cara: "No, no pagaría ni $5 por esto". Además, "pagaría $30" es una fantasía hipotética. Es fácil prometer dinero futuro. Es muy distinto sacar la tarjeta de crédito hoy.
 
-### 2. El 72% que "pagaría $30 al mes"
-Esto es, estadísticamente, el dato más inútil del emprendimiento. Si tuviera un
+### 2. Tu lista de espera es una métrica de vanidad
+210 correos no son 210 clientes. En el mundo real, la conversión de una lista de espera genérica (donde la gente solo dejó un email) a pago real suele ser baja y a veces brutal. Podrías lanzar mañana y descubrir que te compran 3 personas. Un email cuesta un segundo de tiempo. Un dólar cuesta sudor. **El mercado vota con la billetera, no con el Gmail.**
+
+### 3. Tienes $0 en ingresos. Esa es la única verdad que importa.
+Lo único que has validado hasta ahora es que sabes hacer una landing page y un Google Forms. No has validado que existe un negocio. El hecho de que digas "todavía no cobré nada porque el producto no está listo" es una **excusa peligrosa**. Si tu solución es tan valiosa, deberías poder cobrar por una promesa, un depósito reembolsable, una preventa o un Letter of Intent con compromiso de pago. Si no puedes vender la promesa, no podrás vender el producto terminado.
+
+---
+
+### Qué necesitas para considerar esto "validado" (y ni siquiera así renunciar de inmediato)
+
+Necesitas ver **comportamiento**, no intenciones. Esto es lo mínimo:
+
+1. **Preventas reales.** Ofrece a tu lista de 210: "Paga $30 ahora y tendrás 3 meses gratis cuando lancemos la semana que viene". Si el problema duele de verdad, algunos pagarán por la ansiolina de tener la solución. Si nadie paga, tu negocio murió gratis, sin renunciar.
+2. **Depósitos reembolsables.** No quieres hacer el producto? Diles: "Déjame $30 hoy. Si no lanzo en 60 días, te devuelvo el dinero". Eso filtra a los curiosos de los compradores.
+3. **Tarjetas guardadas o cargos de prueba.** Que ingresen su tarjeta para "reservar su lugar". Que vean el cargo en el estado de cuenta.
+
+**Regla de oro:** Si no hay transferencia de valor monetario, no

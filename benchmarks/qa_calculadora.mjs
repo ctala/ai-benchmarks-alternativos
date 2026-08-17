@@ -742,6 +742,39 @@ chequeo("W11 · las tareas finas recomiendan por su eje medido, no por el pilar"
   return malas;
 });
 
+// ── W12 · las tareas que se juzgan por SUITES, no por pilar ─────────────────
+// `verificar` y `noticias` no tienen pilar: su promesa se apoya en suites concretas
+// (`verificar_claim`, `content_verificable`, `news_seo_writing`…). W9 cubre las tareas
+// con pilar y no las alcanza, así que quedaban sin nadie que verificara su promesa —
+// justo las dos más nuevas, y justo la que rompió el gate de Eco en producción.
+//
+// Recomendar para «que no publique lo que la fuente no dice» a un modelo que está
+// ABAJO en `verificar_claim` es exactamente el error que esa pantalla debe evitar.
+chequeo("W12 · las tareas sin pilar recomiendan a alguien fuerte en SUS suites", () => {
+  const malas = [];
+  for (const t of app.WIZ.tasks.filter(x => !x.pillar && x.suites?.length)) {
+    for (const b of app.WIZ.budgets) {
+      const r = app.wizDecidir(t.id, b.id, null);
+      if (!r.length) continue;
+      const m = r[0].m;
+      for (const suite of t.suites) {
+        const todos = RANKED.map(x => (x.quality_by_suite || {})[suite]).filter(v => v != null);
+        if (todos.length < 10) continue;   // sin población no hay con qué comparar
+        const q = (m.quality_by_suite || {})[suite];
+        if (q == null) continue;           // la suite puede no aplicarle; W-cobertura lo ve
+        const mu = todos.reduce((a, b2) => a + b2, 0) / todos.length;
+        const sd = Math.sqrt(todos.reduce((a, b2) => a + (b2 - mu) ** 2, 0) / todos.length);
+        // Mismo criterio que W10: una desviación por debajo de la media es «flojo ahí»
+        // de verdad. Un percentil convertiría un empate en un veredicto.
+        if (sd > 0 && q < mu - sd) {
+          malas.push(`${t.id}/${b.id}: recomienda ${m.name}, flojo en ${suite} (${q.toFixed(2)} vs media ${mu.toFixed(2)})`);
+        }
+      }
+    }
+  }
+  return malas;
+});
+
 // ── W10 · «Un poco de todo» no puede ser bueno en una sola cosa ─────────────
 // La tarea «Un poco de todo · no estoy seguro / uso general» promete un modelo PAREJO.
 // Recomendar uno excelente en un pilar y flojo en otro es lo contrario de lo que dice:
