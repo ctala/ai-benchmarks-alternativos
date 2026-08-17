@@ -44,6 +44,11 @@ from providers.adapters import THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS
 # Importar tests
 from benchmarks.tests import content_generation, tool_calling, task_management
 from benchmarks.tests import integridad_idioma  # suite nueva 12-ago-2026
+# Suites nuevas 17-ago-2026 — nacen de flujos que publican sin humano revisando, no de
+# un laboratorio: verificar un dato contra su fuente, extraerlo completo y resolver a qué
+# empresa pertenece un dominio. Las tres tienen respuesta objetiva —el dato está o no
+# está— así que no dependen del juez para puntuar lo esencial.
+from benchmarks.tests import verificar_claim, extraer_claims, dominio_entidad
 # Suites duras (13-ago-2026). Se AGREGAN, no reemplazan: ningún run previo se
 # invalida. Miden donde el examen todavía discrimina — tool calling (0% de notas
 # perfectas) — y cubren el hueco que dejó el recorte de niah_es a 128K+.
@@ -134,8 +139,11 @@ ALL_TEST_SUITES = {
     # niah_es_1m / niah_es_lite superseded por el grid escalonado de niah_es v3
     # (8K-1M con skip por context window). Imports conservados por compat.
     # Integridad de idioma: eje APARTE (como niah y seguridad), no entra a la
-    # calidad titular. Nace de la fuga de CJK real en el pipeline de Eco.
+    # calidad titular. Nace de una fuga de CJK real en un pipeline de publicación automática.
     "integridad_idioma": integridad_idioma.TESTS,
+    "verificar_claim": verificar_claim.TESTS,
+    "extraer_claims": extraer_claims.TESTS,
+    "dominio_entidad": dominio_entidad.TESTS,
     "tool_calling_adversarial": tool_calling_adversarial.TESTS,
     "prompt_injection_es": prompt_injection_es.TESTS,
 }

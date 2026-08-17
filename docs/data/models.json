@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-17T06:29:37",
+  "generated_at": "2026-08-17T07:13:08",
   "total_models": 192,
   "tested_count": 138,
   "ranked_count": 82,
-  "total_runs_measured": 30759,
-  "total_runs_active": 26387,
+  "total_runs_measured": 30788,
+  "total_runs_active": 26416,
   "total_runs_discarded": 4372,
   "thresholds": {
     "tested_min_runs": 20,
@@ -465,6 +465,24 @@
       "menu": "Soporte al cliente (clasificar y responder)",
       "decide": "clasificar y responder un ticket"
     },
+    "verificar_claim": {
+      "pilar": "Contenido",
+      "en_promedio": false,
+      "menu": "Verificar un dato contra su fuente",
+      "decide": "decidir si una fuente respalda una afirmación"
+    },
+    "extraer_claims": {
+      "pilar": "Contenido",
+      "en_promedio": false,
+      "menu": "Extraer los datos verificables de un texto",
+      "decide": "sacar TODOS los datos, no solo los fáciles"
+    },
+    "dominio_entidad": {
+      "pilar": "Contenido",
+      "en_promedio": false,
+      "menu": "Encontrar el sitio oficial de una empresa",
+      "decide": "elegir el dominio real, o abstenerse"
+    },
     "niah_es": {
       "pilar": null,
       "en_promedio": false,
@@ -915,7 +933,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 149,
-      "total_runs": 280,
+      "total_runs": 307,
       "score_global": 7.64,
       "score_by_pillar": {
         "Razonamiento": 7.54,
@@ -984,7 +1002,10 @@
         "niah_es": 8.42,
         "integridad_idioma": 8.74,
         "prompt_injection_es": 3.11,
-        "tool_calling_adversarial": 7.68
+        "tool_calling_adversarial": 7.68,
+        "verificar_claim": 7.98,
+        "extraer_claims": 9.03,
+        "dominio_entidad": 7.95
       },
       "quality_by_suite": {
         "business_audit": 7.6,
@@ -1017,7 +1038,10 @@
         "niah_es": 9.6,
         "integridad_idioma": 9.59,
         "prompt_injection_es": 1.45,
-        "tool_calling_adversarial": 8.08
+        "tool_calling_adversarial": 8.08,
+        "verificar_claim": 8.33,
+        "extraer_claims": 10.0,
+        "dominio_entidad": 8.33
       },
       "suites_incompletas": {},
       "quality_avg": 8.42,
