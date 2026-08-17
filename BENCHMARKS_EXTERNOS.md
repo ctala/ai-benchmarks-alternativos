@@ -1,4 +1,5 @@
-<!-- doc: vigente | verificado: 2026-05-03 -->
+<!-- doc: snapshot -->
+<!-- Fechado a propósito: scores oficiales que terceros publicaron el 29-abr-2026. Reescribirlos hoy sería inventar qué decía un paper que ya se publicó. -->
 ---
 title: "Benchmarks externos — scores oficiales reportados de los top 30 modelos"
 fecha: "2026-04-29"

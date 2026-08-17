@@ -1,7 +1,86 @@
-<!-- doc: vigente | verificado: 2026-04-25 -->
+<!-- doc: vigente | verificado: 2026-08-16 -->
 # Descubrimientos y Observaciones
 
 > Hallazgos no obvios descubiertos durante los benchmarks. Actualizado cada edicion.
+
+## Agosto 2026 (v4.2 – v4.4.2)
+
+### El pilar «Agentes» correlaciona NEGATIVO con hacer trabajo agéntico
+
+Lo más incómodo del mes. Contra la única verdad objetiva que tenemos —el reward de las
+tareas Harbor, verificadas por pytest sobre artefactos, no por un juez— sobre 75 modelos:
+
+    pilar Agentes                    −0,20   ← negativa
+    compuesto 65% pilar + 35% tools  +0,44
+    tool_calling solo                +0,58
+
+Las nueve suites que se llaman «Agentes» miden **prosa sobre agentes**, no ejecución:
+`agent_long_horizon` mide sostener el hilo **sin** herramientas y `tool_calling_adversarial`
+mide **abstenerse**. Ninguna mide llamar una función y que el flujo siga.
+
+Y el orden de los descubrimientos importa: primero metimos esas dos suites al pilar
+creyendo que lo mejoraban (v4.4) y la correlación **empeoró** de −0,14 a −0,20. El nombre
+de una suite no dice qué mide.
+
+### Un modelo puede ser #3 en una cosa y #76 en el promedio
+
+Gemini 3.6 Flash: **#3 de 80 en calidad agéntica y #76 de 80 en el índice general**. El
+promedio de 29 ejes lo entierra. Salió de que Cristian dijera *"lo estoy usando en Hermes
+y funciona muy bien"* contra un número que decía lo contrario — y terminó justificando
+publicar cortes por eje individual.
+
+### Calidad alta y cero dentro de un agente no son contradictorios
+
+**Hermes 4 405B tiene calidad 8,20 (top 10 abierto) y saca 0,00 en tareas agénticas**: no
+existe endpoint que le dé herramientas. **Llama 3.1 8B Instant sale #4 en «tareas largas»
+y también saca 0,00** — esa suite mide sostener el hilo sin herramientas, así que lucirse
+ahí y romper el bucle es perfectamente compatible.
+
+Corolario para quien elige: una nota de calidad no dice si el modelo **sirve para tu caso**.
+
+### El z-score inflaba las diferencias seis veces
+
+Toda la población entra en **1,43 puntos** de calidad real. El z-score los repartía sobre
+una escala de 0 a 10. La diferencia de serving de Qwen 3.5 397B (NIM vs Ollama Cloud) se
+publicó como **2,50 puntos** y el efecto real es **0,34**. Estuvo meses en el pilar del
+blog como argumento.
+
+Sigue siendo un efecto grande —0,34 sobre 1,43 mueve muchas posiciones— pero el tamaño
+que publicábamos era del método, no del mundo.
+
+### Una regla que no llegó a todas las superficies es una regla que no existe
+
+Medido: **76 condicionales de filtrado en 25 archivos** decidiendo a mano si un modelo se
+puede recomendar. Cada campo nació de un fallo distinto y se aplicó **donde dolía ese
+día**: `retired` el 13-jul (Devstral Small llevaba meses #5 con el endpoint apagado),
+`sirve_para_agentes` el 14-ago (Hermes 4). Lo escrito antes no los tenía; lo escrito
+después los copiaba del vecino.
+
+Consecuencia concreta: la página `/mejor-llm-para-agentes/` filtraba a los no-aptos y **la
+calculadora no** — ponía a Hermes 4 405B #3 del pilar Agentes.
+
+### Una herramienta puede reportar éxito sin haber hecho nada
+
+`completar_examen --correr` imprimió **«✅ exámenes completados» sin ejecutar un solo
+test**, dos veces seguidas, por dos bugs distintos:
+
+1. El resume consolidaba runs **fallidos**. `--resume` saltea por `(modelo, suite, test)`
+   sin mirar si el run sirvió; el export solo cuenta `success=True`. Un test que falló las
+   cuatro veces quedaba *incompleto para el export y completo para el resume*.
+2. El runner escribe sobre el archivo de resume, que vivía en un subdirectorio que
+   `load_all_results()` no lee. Aunque corriera perfecto, el resultado se tiraba.
+
+Siete modelos llevaban días fuera del ranking por eso. Al arreglarlo, 11 tests corrieron y
+los 11 pasaron — incluido `social_engineering_attempt`, que llevaba 4 fallos y estaba
+tapado.
+
+### Preguntar «¿sobra algo?» encuentra lo que «¿falta algo?» no ve
+
+Los detectores del repo cazan **ausencia**: un dato que falta, un score viejo, una página
+sin generar. Ninguno cazaba lo contrario: **3 páginas publicadas que ningún generador
+regeneraba** desde junio, sirviendo datos congelados. No fallan — cargan, se ven bien y
+mienten despacio. Una de ellas declaraba «última actualización» del día.
+
 
 ## Abril 2026 (Lote 4 + Hallazgos tecnicos)
 
