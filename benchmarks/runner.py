@@ -1299,8 +1299,20 @@ def run_benchmark(args):
             json.dump(output, f, indent=2, ensure_ascii=False)
 
     # Directorio para respuestas completas (output auditable por test)
-    responses_dir = results_dir / "responses" / timestamp
-    responses_dir.mkdir(parents=True, exist_ok=True)
+    #
+    # ESTRUCTURA (17-ago-2026). Cristian: *"las responses de los modelos las tendría en
+    # una carpeta por modelo bajo responses o verificar_claim, no todo junto"*.
+    #
+    # Antes: `responses/<timestamp>/<modelo>__<suite>__<test>.md` — todo plano dentro de
+    # la corrida. Con 555 carpetas de timestamp, responder «¿qué contestó este modelo en
+    # esta tarea?» obligaba a saber PRIMERO en qué corrida se midió, que es exactamente
+    # el dato que uno no tiene cuando va a auditar un resultado raro.
+    #
+    # Ahora: `responses/<modelo>/<suite>/<test>__<timestamp>.md`. Se navega por lo que
+    # uno sabe (el modelo y la tarea) y el timestamp queda en el nombre, así que dos
+    # corridas del mismo test conviven y se pueden comparar — que es para lo que sirve
+    # tener la entrada guardada además de la salida.
+    responses_root = results_dir / "responses"
 
     def _safe_slug(s: str) -> str:
         return "".join(c if c.isalnum() or c in "-_." else "_" for c in s)[:80]
@@ -1310,8 +1322,9 @@ def run_benchmark(args):
         if not getattr(result, "response", None):
             return
         test_meta = test_meta or {}
-        fname = f"{_safe_slug(model_key)}__{_safe_slug(suite)}__{_safe_slug(test_name)}.md"
-        path = responses_dir / fname
+        d = responses_root / _safe_slug(model_key) / _safe_slug(suite)
+        d.mkdir(parents=True, exist_ok=True)
+        path = d / f"{_safe_slug(test_name)}__{timestamp}.md"
         header = [
             f"# {scores.get('model','?')} — {suite}/{test_name}",
             "",

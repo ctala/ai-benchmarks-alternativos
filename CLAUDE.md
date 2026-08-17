@@ -57,7 +57,7 @@ source .venv/bin/activate
     --resume benchmarks/results/benchmark_YYYYMMDD_HHMMSS.json
 ```
 
-El runner **guarda incrementalmente** tras cada test y puede continuar desde cualquier punto. También guarda la respuesta completa por test en `benchmarks/results/responses/<timestamp>/<modelo>__<suite>__<test>.md` (auditable desde GitHub).
+El runner **guarda incrementalmente** tras cada test y puede continuar desde cualquier punto. También guarda la respuesta completa por test en `benchmarks/results/responses/<modelo>/<suite>/<test>__<timestamp>.md` (auditable desde GitHub).
 
 ## Como agregar un modelo nuevo
 
@@ -99,7 +99,7 @@ El runner **guarda incrementalmente** tras cada test y puede continuar desde cua
 - `benchmarks/generate_per_model_md.py` — Regenera MDs navegables desde JSON
 - `providers/adapters.py` — Adaptador unificado OpenAI-compatible con timeout y manejo de thinking models
 - `benchmarks/results/*.json` — Resultados históricos versionados en git
-- `benchmarks/results/responses/<timestamp>/` — Respuestas completas por test (nuevas corridas)
+- `benchmarks/results/responses/<modelo>/<suite>/` — Respuestas completas por test, navegables por modelo y tarea
 - `benchmarks/results/per-model/` — MDs navegables por modelo con ranking + link a responses
 
 ## Estándar del benchmark para thinking models

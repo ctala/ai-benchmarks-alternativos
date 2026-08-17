@@ -2590,4 +2590,4 @@ Devuelve un JSON con:
 
 ---
 
-Para ver respuestas reales por modelo: `benchmarks/results/responses/<timestamp>/<modelo>__<suite>__<test>.md`.
+Para ver respuestas reales por modelo: `benchmarks/results/responses/<modelo>/<suite>/<test>__<timestamp>.md`.
