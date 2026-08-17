@@ -119,6 +119,37 @@ def main() -> int:
                           f"corre dentro de un agente. Esta suite mide sostener el hilo "
                           f"SIN herramientas — lucirse acá y romper el bucle es compatible")
 
+
+    # ── C4 · la segunda tabla se decide con el dato, no a mano ─────────────
+    #
+    # POR QUÉ (17-ago-2026). Se activó a mano en dos cortes con el argumento «ahí el eje
+    # satura». Medido: ningún corte satura, y el criterio que sí importa —cuánto se
+    # parecen el orden por capacidad y el orden por capacidad-precio— decía lo contrario.
+    # Las páginas donde MÁS aportaba (español y contenido, correlación +0,244) eran justo
+    # las que no la tenían.
+    #
+    # Un flag a mano envejece con el catálogo: entra un modelo barato y bueno, la
+    # correlación cambia, y nadie vuelve a mirar. Esto verifica que lo publicado coincida
+    # con lo que el criterio dice HOY.
+    try:
+        import sys as _s
+        _s.path.insert(0, str(ROOT / "benchmarks"))
+        from generate_rankings import _lleva_segunda_tabla, RANKINGS, rank_models
+        _d = json.loads(MODELS_JSON.read_text())
+        for c in RANKINGS:
+            pg = DOCS / c["slug"] / "index.html"
+            if not pg.exists():
+                continue
+            debe = _lleva_segunda_tabla(c, rank_models(_d["models"], c))
+            tiene = "La misma capacidad, por lo que cuesta" in pg.read_text(errors="replace")
+            if debe != tiene:
+                fallos.append(
+                    f"`{c['slug']}`: {'le falta' if debe else 'le sobra'} la segunda tabla "
+                    f"(capacidad-por-precio). El criterio se mide, no se declara: "
+                    f"regenerá con generate_rankings.py")
+    except Exception as e:
+        avisos.append(f"no se pudo verificar la segunda tabla: {e}")
+
     print(f"\nVerificando {len(cortes)} cortes por eje contra models.json…\n")
     for a in avisos:
         print(f"  ⚠️  {a}")

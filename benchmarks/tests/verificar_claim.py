@@ -46,50 +46,121 @@ def _caso(claim, fuente):
 
 
 TESTS = [
+    # NOTA DE VALIDACIÓN (17-ago-2026). La v1 tenía seis casos y **cinco daban 7/7
+    # perfectos**: 95% de runs con nota máxima, dispersión 0,23 contra 0,29 del índice
+    # general. Nacía saturada. Lo detectó `validate_suite.py` en 7 modelos repartidos por
+    # el rango — yo la había probado en UNO, que es exactamente el error que la Regla 0.7
+    # del runbook describe.
+    #
+    # Lo que la hacía fácil: las trampas eran de tipografía («42» contra «4,2») o de tema
+    # («la fuente habla del Banco Central»). Ningún verificador serio falla ahí.
+    #
+    # Los casos de abajo son los que sí dividen, y son los que aparecen en producción:
+    # la distancia entre lo que una fuente AFIRMA y lo que un lector INFIERE.
     {
-        "name": "claim_respaldado_literal",
-        "description": "El dato está en la fuente, textual. Debe pasar.",
+        "name": "inferencia_aritmetica_correcta",
+        "description": (
+            "La fuente dice «duplicará su equipo de 50 personas». El claim dice «contratará "
+            "50 personas». La cuenta da — y la fuente NO lo afirma. Un verificador que "
+            "razona en vez de verificar lo aprueba."),
         "messages": _caso(
-            "Nordvia levantó una ronda semilla de 4,2 millones de dólares.",
+            "Nordvia contratará 50 personas durante el próximo año.",
             "TechFinance — 14 de agosto de 2026\n\n"
-            "La startup uruguaya Nordvia anunció el cierre de una ronda semilla de US$ 4,2 "
-            "millones liderada por Aurora Ventures, con participación de dos fondos "
-            "regionales. La compañía, fundada en 2024, opera en logística de última milla y "
-            "planea abrir oficinas en Chile durante el primer trimestre de 2027."),
+            "Nordvia cerró una ronda semilla de US$ 4,2 millones. Su equipo, de 50 "
+            "personas, se duplicará durante el próximo año según su CEO."),
         "criteria": {"max_words": 120},
         "expected_answer": {"type": "json_valid", "required_keys": ["veredicto"],
-                            "expected_values": {"veredicto": "RESPALDADO"}},
+                            "expected_values": {"veredicto": "NO_RESPALDADO"}},
     },
     {
-        "name": "claim_respaldado_parafraseado",
+        "name": "plan_no_es_hecho",
         "description": (
-            "El dato está pero dicho con otras palabras y otra unidad. Un verificador que "
-            "exige coincidencia literal lo bloquea, y eso es exactamente el sobre-bloqueo "
-            "que tira redacciones pagadas."),
+            "«Planea abrir oficinas» contra «abrirá oficinas». Un plan anunciado no es un "
+            "hecho ocurrido, y la diferencia es toda la nota."),
+        "messages": _caso(
+            "Nordvia abrirá oficinas en Chile en el primer trimestre de 2027.",
+            "TechFinance — 14 de agosto de 2026\n\n"
+            "Nordvia cerró una ronda semilla de US$ 4,2 millones. La compañía **planea** "
+            "abrir oficinas en Chile durante el primer trimestre de 2027, aunque la "
+            "decisión final depende de la evolución del mercado."),
+        "criteria": {"max_words": 120},
+        "expected_answer": {"type": "json_valid", "required_keys": ["veredicto"],
+                            "expected_values": {"veredicto": "NO_RESPALDADO"}},
+    },
+    {
+        "name": "atribucion_no_es_afirmacion",
+        "description": (
+            "La fuente dice que el CEO afirmó algo. El claim lo presenta como hecho. Que "
+            "alguien lo haya dicho es verdad; que sea cierto, no está respaldado."),
+        "messages": _caso(
+            "Nordvia será rentable en 2027.",
+            "TechFinance — 14 de agosto de 2026\n\n"
+            "«Vamos a ser rentables en 2027», afirmó Marta Iribarne, CEO de Nordvia, "
+            "durante la presentación de la ronda. La compañía no publica sus estados "
+            "financieros."),
+        "criteria": {"max_words": 120},
+        "expected_answer": {"type": "json_valid", "required_keys": ["veredicto"],
+                            "expected_values": {"veredicto": "NO_RESPALDADO"}},
+    },
+    {
+        "name": "cifra_de_otra_magnitud",
+        "description": (
+            "La fuente da el monto de la RONDA; el claim lo presenta como VALUACIÓN. Las "
+            "dos cifras son 4,2 millones y significan cosas distintas."),
+        "messages": _caso(
+            "Nordvia alcanzó una valuación de 4,2 millones de dólares.",
+            "TechFinance — 14 de agosto de 2026\n\n"
+            "Nordvia cerró una ronda semilla de US$ 4,2 millones liderada por Aurora "
+            "Ventures. La compañía no reveló su valuación post-money."),
+        "criteria": {"max_words": 120},
+        "expected_answer": {"type": "json_valid", "required_keys": ["veredicto"],
+                            "expected_values": {"veredicto": "CONTRADICE"}},
+    },
+    {
+        "name": "rango_compatible_pero_no_afirmado",
+        "description": (
+            "La fuente dice «más de 4 millones»; el claim dice «4,2 millones». Es "
+            "compatible y NO está afirmado. El verificador tiene que distinguir «no lo "
+            "contradice» de «lo respalda» — y ahí es donde se parten los modelos."),
+        "messages": _caso(
+            "Nordvia levantó 4,2 millones de dólares.",
+            "TechFinance — 14 de agosto de 2026\n\n"
+            "Nordvia cerró una ronda semilla de más de US$ 4 millones, según fuentes "
+            "cercanas a la operación. La compañía no confirmó el monto exacto."),
+        "criteria": {"max_words": 120},
+        "expected_answer": {"type": "json_valid", "required_keys": ["veredicto"],
+                            "expected_values": {"veredicto": "NO_RESPALDADO"}},
+    },
+    {
+        "name": "anuncio_no_es_cierre",
+        "description": (
+            "«Anunció el 14 de agosto el cierre» no dice CUÁNDO cerró. El claim fija una "
+            "fecha que la fuente no da."),
+        "messages": _caso(
+            "Nordvia cerró su ronda el 14 de agosto de 2026.",
+            "TechFinance — 14 de agosto de 2026\n\n"
+            "Nordvia anunció hoy que completó su ronda semilla de US$ 4,2 millones, "
+            "operación que según la compañía se firmó «a comienzos del trimestre»."),
+        "criteria": {"max_words": 120},
+        "expected_answer": {"type": "json_valid", "required_keys": ["veredicto"],
+                            "expected_values": {"veredicto": "NO_RESPALDADO"}},
+    },
+    # Los dos que SÍ deben pasar. Sin ellos la suite premiaría al que bloquea todo, que
+    # es el fallo caro del otro lado: tirar redacciones ya pagadas.
+    {
+        "name": "respaldado_pese_a_parafraseo",
+        "description": (
+            "Dicho con otras palabras y otra unidad, pero es el mismo hecho. Debe pasar: "
+            "un verificador que exige literalidad tira trabajo bueno."),
         "messages": _caso(
             "Nordvia emplea a unas 50 personas.",
             "TechFinance — 14 de agosto de 2026\n\n"
             "Nordvia cerró una ronda semilla de US$ 4,2 millones. Su equipo, que hoy suma "
             "medio centenar de empleados entre Montevideo y Buenos Aires, se duplicará "
-            "durante el próximo año según su CEO."),
+            "durante el próximo año."),
         "criteria": {"max_words": 120},
         "expected_answer": {"type": "json_valid", "required_keys": ["veredicto"],
                             "expected_values": {"veredicto": "RESPALDADO"}},
-    },
-    {
-        "name": "claim_ausente_en_la_fuente",
-        "description": (
-            "La fuente habla del tema y NO dice eso. Es la alucinación típica: plausible, "
-            "del mismo rubro, y no está."),
-        "messages": _caso(
-            "Nordvia alcanzó la rentabilidad en 2026.",
-            "TechFinance — 14 de agosto de 2026\n\n"
-            "La startup uruguaya Nordvia anunció el cierre de una ronda semilla de US$ 4,2 "
-            "millones liderada por Aurora Ventures. La compañía opera en logística de "
-            "última milla y planea abrir oficinas en Chile."),
-        "criteria": {"max_words": 120},
-        "expected_answer": {"type": "json_valid", "required_keys": ["veredicto"],
-                            "expected_values": {"veredicto": "NO_RESPALDADO"}},
     },
     {
         "name": "titular_contradice_cuerpo",

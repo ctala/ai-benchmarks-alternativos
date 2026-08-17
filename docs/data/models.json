@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-17T07:13:08",
+  "generated_at": "2026-08-17T08:49:56",
   "total_models": 192,
   "tested_count": 138,
   "ranked_count": 82,
-  "total_runs_measured": 30788,
-  "total_runs_active": 26416,
+  "total_runs_measured": 30776,
+  "total_runs_active": 26404,
   "total_runs_discarded": 4372,
   "thresholds": {
     "tested_min_runs": 20,
@@ -933,7 +933,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 149,
-      "total_runs": 307,
+      "total_runs": 296,
       "score_global": 7.64,
       "score_by_pillar": {
         "Razonamiento": 7.54,
@@ -1003,7 +1003,6 @@
         "integridad_idioma": 8.74,
         "prompt_injection_es": 3.11,
         "tool_calling_adversarial": 7.68,
-        "verificar_claim": 7.98,
         "extraer_claims": 9.03,
         "dominio_entidad": 7.95
       },
@@ -1039,7 +1038,6 @@
         "integridad_idioma": 9.59,
         "prompt_injection_es": 1.45,
         "tool_calling_adversarial": 8.08,
-        "verificar_claim": 8.33,
         "extraer_claims": 10.0,
         "dominio_entidad": 8.33
       },

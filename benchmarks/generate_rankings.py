@@ -47,7 +47,6 @@ RANKINGS = [
         "related": ["modelos-n8n", "mejor-llm-para-tool-calling", "alternativas-claude"],
     },
     {
-        "segunda_tabla_valor": True,
         "slug": "mejor-llm-para-n8n",
         "title": "Mejor LLM para N8N y agentes en 2026: ranking con benchmark real",
         "h1": "Mejor LLM para N8N y agentes (2026)",
@@ -132,7 +131,6 @@ RANKINGS = [
         "related": ["mejor-llm-en-espanol", "modelos-baratos-emprendedores", "alternativas-chatgpt"],
     },
     {
-        "segunda_tabla_valor": True,
         "slug": "mejor-llm-para-agentes",
         "title": "Mejor LLM para agentes y automatizaciones en 2026: ranking con benchmark",
         "h1": "Mejor LLM para agentes y automatizaciones (2026)",
@@ -986,6 +984,53 @@ def verdict_block(cfg, models):
 """
 
 
+# ¿QUÉ PÁGINAS LLEVAN LA SEGUNDA TABLA? Lo decide el dato, no la intuición.
+#
+# La v1 la activaba a mano en agentes y n8n con el argumento «ahí el eje satura». Medido
+# el 17-ago-2026, ese argumento era falso: NINGÚN corte satura (1-3% de notas perfectas).
+# Y el criterio correcto —cuánto se parecen los dos órdenes— decía lo contrario:
+#
+#     mejor-llm-en-espanol      +0,244   ← donde MÁS aporta, y no la tenía
+#     mejor-llm-para-contenido  +0,244
+#     mejor-llm-para-agentes    +0,826   ← donde la había puesto
+#
+# Si ordenar por capacidad y por capacidad-precio dan órdenes PARECIDOS, la segunda tabla
+# repite la primera y sobra — que es por lo que v4.1 revirtió una con r=0,943. Si dan
+# órdenes distintos, cada una responde una pregunta distinta y las dos valen.
+UMBRAL_SEGUNDA_TABLA = 0.70
+
+# Excepciones con motivo: no toda página con correlación baja la necesita.
+SIN_SEGUNDA_TABLA = {
+    # Ya ordena por precio: sería la misma página dos veces.
+    "mejor-llm-barato",
+    # Acá el precio NO debe decidir. Si tu agente procesa credenciales de clientes, el
+    # ahorro no compra nada — es el único eje donde pagar de más sí compra algo medible.
+    "mejor-llm-seguro-datos-clientes",
+}
+
+
+def _lleva_segunda_tabla(cfg, models):
+    """True si ordenar por capacidad y por capacidad-precio dan órdenes distintos."""
+    if cfg["slug"] in SIN_SEGUNDA_TABLA:
+        return False
+    from scoring import cost_score_log
+    vals = [(score_for(m, cfg), m) for m in models if score_for(m, cfg)]
+    if len(vals) < 10:
+        return False
+    por_q = sorted(vals, key=lambda x: -x[0])
+    por_v = sorted(vals, key=lambda x: -(0.7 * x[0]
+                                         + 0.3 * cost_score_log(cost_for_calls(x[1]) / 1000.0)))
+    rq = {id(m): i for i, (_, m) in enumerate(por_q)}
+    rv = {id(m): i for i, (_, m) in enumerate(por_v)}
+    xs = [rq[k] for k in rq]
+    ys = [rv[k] for k in rq]
+    n = len(xs)
+    mx, my = sum(xs) / n, sum(ys) / n
+    num = sum((a - mx) * (b - my) for a, b in zip(xs, ys))
+    den = (sum((a - mx) ** 2 for a in xs) * sum((b - my) ** 2 for b in ys)) ** 0.5
+    return bool(den) and (num / den) < UMBRAL_SEGUNDA_TABLA
+
+
 def tabla_valor(cfg, models):
     """SEGUNDA TABLA: calidad por lo que cuesta. Solo donde el eje satura.
 
@@ -1098,7 +1143,7 @@ def render_ranking(cfg, models):
     </table></div>
     <p class="meta">Filtra por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
   </section>
-  {tabla_valor(cfg, all_ranked) if cfg.get("segunda_tabla_valor") else ""}
+  {tabla_valor(cfg, all_ranked) if _lleva_segunda_tabla(cfg, all_ranked) else ""}
   {reading_guide(cfg, ranked)}
   {top3_explained(cfg, ranked)}
   {analysis(cfg, ranked)}

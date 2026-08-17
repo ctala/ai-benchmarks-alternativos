@@ -1,7 +1,7 @@
 # Prompts del benchmark — texto exacto
 
 > **Auto-generado por `benchmarks/generate_prompts_catalog.py`. No editar a mano.**
-**203 tests en 34 suites.**
+**207 tests en 34 suites.**
 
 
 Este archivo existe porque **un resultado sin su entrada no es auditable**: no se
@@ -10273,12 +10273,12 @@ Devuelve un JSON con:
 {"problemas": [{"tipo": "chino|spanglish|cliche|gramatical", "texto": "...", "correccion": "..."}], "score_idioma": 0-10, "veredicto": "publicable|necesita_edicion|inaceptable"}
 ````
 
-## `verificar_claim` — 6 tests
+## `verificar_claim` — 10 tests
 
-### claim_respaldado_literal
+### inferencia_aritmetica_correcta
 
-- `prompt_sha`: **`fd3b2a5c8a1d`**
-- El dato está en la fuente, textual. Debe pasar.
+- `prompt_sha`: **`3000c8eae3e0`**
+- La fuente dice «duplicará su equipo de 50 personas». El claim dice «contratará 50 personas». La cuenta da — y la fuente NO lo afirma. Un verificador que razona en vez de verificar lo aprueba.
 - verificador: `json_valid`
 
 **System:**
@@ -10300,18 +10300,183 @@ No uses conocimiento propio: solo lo que está en la fuente.
 
 ````
 CLAIM:
-Nordvia levantó una ronda semilla de 4,2 millones de dólares.
+Nordvia contratará 50 personas durante el próximo año.
 
 FUENTE:
 TechFinance — 14 de agosto de 2026
 
-La startup uruguaya Nordvia anunció el cierre de una ronda semilla de US$ 4,2 millones liderada por Aurora Ventures, con participación de dos fondos regionales. La compañía, fundada en 2024, opera en logística de última milla y planea abrir oficinas en Chile durante el primer trimestre de 2027.
+Nordvia cerró una ronda semilla de US$ 4,2 millones. Su equipo, de 50 personas, se duplicará durante el próximo año según su CEO.
 ````
 
-### claim_respaldado_parafraseado
+### plan_no_es_hecho
 
-- `prompt_sha`: **`9e31c96eefc6`**
-- El dato está pero dicho con otras palabras y otra unidad. Un verificador que exige coincidencia literal lo bloquea, y eso es exactamente el sobre-bloqueo que tira redacciones pagadas.
+- `prompt_sha`: **`a21037b81fe4`**
+- «Planea abrir oficinas» contra «abrirá oficinas». Un plan anunciado no es un hecho ocurrido, y la diferencia es toda la nota.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Sos el verificador de datos de una redacción. Recibís un CLAIM y la FUENTE de la que supuestamente sale. Tu única tarea es decidir si la fuente respalda el claim.
+
+Respondé SOLO con un JSON:
+{"veredicto": "RESPALDADO" | "NO_RESPALDADO" | "CONTRADICE", "motivo": "<una frase>"}
+
+RESPALDADO: la fuente afirma el claim, o algo equivalente.
+NO_RESPALDADO: la fuente no dice nada sobre eso.
+CONTRADICE: la fuente dice algo incompatible con el claim.
+
+No uses conocimiento propio: solo lo que está en la fuente.
+````
+
+**User:**
+
+````
+CLAIM:
+Nordvia abrirá oficinas en Chile en el primer trimestre de 2027.
+
+FUENTE:
+TechFinance — 14 de agosto de 2026
+
+Nordvia cerró una ronda semilla de US$ 4,2 millones. La compañía **planea** abrir oficinas en Chile durante el primer trimestre de 2027, aunque la decisión final depende de la evolución del mercado.
+````
+
+### atribucion_no_es_afirmacion
+
+- `prompt_sha`: **`41557dbb1aab`**
+- La fuente dice que el CEO afirmó algo. El claim lo presenta como hecho. Que alguien lo haya dicho es verdad; que sea cierto, no está respaldado.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Sos el verificador de datos de una redacción. Recibís un CLAIM y la FUENTE de la que supuestamente sale. Tu única tarea es decidir si la fuente respalda el claim.
+
+Respondé SOLO con un JSON:
+{"veredicto": "RESPALDADO" | "NO_RESPALDADO" | "CONTRADICE", "motivo": "<una frase>"}
+
+RESPALDADO: la fuente afirma el claim, o algo equivalente.
+NO_RESPALDADO: la fuente no dice nada sobre eso.
+CONTRADICE: la fuente dice algo incompatible con el claim.
+
+No uses conocimiento propio: solo lo que está en la fuente.
+````
+
+**User:**
+
+````
+CLAIM:
+Nordvia será rentable en 2027.
+
+FUENTE:
+TechFinance — 14 de agosto de 2026
+
+«Vamos a ser rentables en 2027», afirmó Marta Iribarne, CEO de Nordvia, durante la presentación de la ronda. La compañía no publica sus estados financieros.
+````
+
+### cifra_de_otra_magnitud
+
+- `prompt_sha`: **`98d9db7a4fbd`**
+- La fuente da el monto de la RONDA; el claim lo presenta como VALUACIÓN. Las dos cifras son 4,2 millones y significan cosas distintas.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Sos el verificador de datos de una redacción. Recibís un CLAIM y la FUENTE de la que supuestamente sale. Tu única tarea es decidir si la fuente respalda el claim.
+
+Respondé SOLO con un JSON:
+{"veredicto": "RESPALDADO" | "NO_RESPALDADO" | "CONTRADICE", "motivo": "<una frase>"}
+
+RESPALDADO: la fuente afirma el claim, o algo equivalente.
+NO_RESPALDADO: la fuente no dice nada sobre eso.
+CONTRADICE: la fuente dice algo incompatible con el claim.
+
+No uses conocimiento propio: solo lo que está en la fuente.
+````
+
+**User:**
+
+````
+CLAIM:
+Nordvia alcanzó una valuación de 4,2 millones de dólares.
+
+FUENTE:
+TechFinance — 14 de agosto de 2026
+
+Nordvia cerró una ronda semilla de US$ 4,2 millones liderada por Aurora Ventures. La compañía no reveló su valuación post-money.
+````
+
+### rango_compatible_pero_no_afirmado
+
+- `prompt_sha`: **`fa49527f3305`**
+- La fuente dice «más de 4 millones»; el claim dice «4,2 millones». Es compatible y NO está afirmado. El verificador tiene que distinguir «no lo contradice» de «lo respalda» — y ahí es donde se parten los modelos.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Sos el verificador de datos de una redacción. Recibís un CLAIM y la FUENTE de la que supuestamente sale. Tu única tarea es decidir si la fuente respalda el claim.
+
+Respondé SOLO con un JSON:
+{"veredicto": "RESPALDADO" | "NO_RESPALDADO" | "CONTRADICE", "motivo": "<una frase>"}
+
+RESPALDADO: la fuente afirma el claim, o algo equivalente.
+NO_RESPALDADO: la fuente no dice nada sobre eso.
+CONTRADICE: la fuente dice algo incompatible con el claim.
+
+No uses conocimiento propio: solo lo que está en la fuente.
+````
+
+**User:**
+
+````
+CLAIM:
+Nordvia levantó 4,2 millones de dólares.
+
+FUENTE:
+TechFinance — 14 de agosto de 2026
+
+Nordvia cerró una ronda semilla de más de US$ 4 millones, según fuentes cercanas a la operación. La compañía no confirmó el monto exacto.
+````
+
+### anuncio_no_es_cierre
+
+- `prompt_sha`: **`75e9a96d67ea`**
+- «Anunció el 14 de agosto el cierre» no dice CUÁNDO cerró. El claim fija una fecha que la fuente no da.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Sos el verificador de datos de una redacción. Recibís un CLAIM y la FUENTE de la que supuestamente sale. Tu única tarea es decidir si la fuente respalda el claim.
+
+Respondé SOLO con un JSON:
+{"veredicto": "RESPALDADO" | "NO_RESPALDADO" | "CONTRADICE", "motivo": "<una frase>"}
+
+RESPALDADO: la fuente afirma el claim, o algo equivalente.
+NO_RESPALDADO: la fuente no dice nada sobre eso.
+CONTRADICE: la fuente dice algo incompatible con el claim.
+
+No uses conocimiento propio: solo lo que está en la fuente.
+````
+
+**User:**
+
+````
+CLAIM:
+Nordvia cerró su ronda el 14 de agosto de 2026.
+
+FUENTE:
+TechFinance — 14 de agosto de 2026
+
+Nordvia anunció hoy que completó su ronda semilla de US$ 4,2 millones, operación que según la compañía se firmó «a comienzos del trimestre».
+````
+
+### respaldado_pese_a_parafraseo
+
+- `prompt_sha`: **`50f7292131f8`**
+- Dicho con otras palabras y otra unidad, pero es el mismo hecho. Debe pasar: un verificador que exige literalidad tira trabajo bueno.
 - verificador: `json_valid`
 
 **System:**
@@ -10338,40 +10503,7 @@ Nordvia emplea a unas 50 personas.
 FUENTE:
 TechFinance — 14 de agosto de 2026
 
-Nordvia cerró una ronda semilla de US$ 4,2 millones. Su equipo, que hoy suma medio centenar de empleados entre Montevideo y Buenos Aires, se duplicará durante el próximo año según su CEO.
-````
-
-### claim_ausente_en_la_fuente
-
-- `prompt_sha`: **`68012b0e6702`**
-- La fuente habla del tema y NO dice eso. Es la alucinación típica: plausible, del mismo rubro, y no está.
-- verificador: `json_valid`
-
-**System:**
-
-````
-Sos el verificador de datos de una redacción. Recibís un CLAIM y la FUENTE de la que supuestamente sale. Tu única tarea es decidir si la fuente respalda el claim.
-
-Respondé SOLO con un JSON:
-{"veredicto": "RESPALDADO" | "NO_RESPALDADO" | "CONTRADICE", "motivo": "<una frase>"}
-
-RESPALDADO: la fuente afirma el claim, o algo equivalente.
-NO_RESPALDADO: la fuente no dice nada sobre eso.
-CONTRADICE: la fuente dice algo incompatible con el claim.
-
-No uses conocimiento propio: solo lo que está en la fuente.
-````
-
-**User:**
-
-````
-CLAIM:
-Nordvia alcanzó la rentabilidad en 2026.
-
-FUENTE:
-TechFinance — 14 de agosto de 2026
-
-La startup uruguaya Nordvia anunció el cierre de una ronda semilla de US$ 4,2 millones liderada por Aurora Ventures. La compañía opera en logística de última milla y planea abrir oficinas en Chile.
+Nordvia cerró una ronda semilla de US$ 4,2 millones. Su equipo, que hoy suma medio centenar de empleados entre Montevideo y Buenos Aires, se duplicará durante el próximo año.
 ````
 
 ### titular_contradice_cuerpo

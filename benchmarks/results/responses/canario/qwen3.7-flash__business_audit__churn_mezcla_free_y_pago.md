@@ -1,9 +1,9 @@
 # Qwen 3.7 Flash — business_audit/churn_mezcla_free_y_pago
 
 - model_id: `qwen/qwen3.7-flash`
-- success: True  | final: 9.08 | quality: 10.0
-- latency_total: 30.163s | tokens_per_second: 85.7
-- input_tokens: 189 | output_tokens: 2585
+- success: True  | final: 9.06 | quality: 10.0
+- latency_total: 31.041s | tokens_per_second: 96.2
+- input_tokens: 189 | output_tokens: 2985
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -29,55 +29,63 @@ Detalle que encontré exportando la tabla:
 
 ## Respuesta completa
 
-Calma. El pánico viene de una definición de métrica, no necesariamente de un problema de negocio. Como analista de retención, mi primera regla es: **el denominador define la historia**. Vamos a desglosarlo paso a paso.
+Como analista de retención, mi primera regla es siempre esta: **nunca actúes sobre una métrica sin verificar primero qué población está midiendo y cómo se calculó**. En tu caso, el pánico es comprensible, pero los números te están jugando una mala pasada. Vamos paso a paso.
 
-### 🔍 1. Verificación de la población y cálculo real
-Tu panel está calculando: `Churn Global = Bajas Totales / Usuarios Totales a inicio de mes`
-`62 / 200 = 31%` ✅ Matemáticamente correcto, pero **poblacionalmente defectuoso**.
+### 🔍 1. Verificación de población y cálculo
+La fórmula que usó tu panel es:
+`Churn = Usuarios dados de baja / Usuarios al inicio del mes × 100`  
+`62 / 200 = 31%` ✅ Matemáticamente correcta.
 
-Al mezclar planes con comportamientos, LTV y ciclos de vida completamente distintos, estás generando un **artefacto estadístico**. Desglosemos por segmento:
+**Pero el error está en la población:** mezclar usuarios gratuitos y de pago en un mismo churn diluye la realidad del negocio. En modelos freemium, el churn gratuito suele ser alto y natural; el churn que impacta sostenibilidad, LTV y previsibilidad es el **Paid Churn**.
 
-| Segmento | Usuarios inicio mes | Bajas | Churn real |
-|----------|---------------------|-------|------------|
-| Gratuito | 178                 | 60    | **33.7%**  |
-| Pago     | 22                  | 2     | **9.1%**   |
+Desglosemos por segmento:
+| Segmento | Inicio de mes | Bajas | Churn real |
+|----------|---------------|-------|------------|
+| Gratuito | 178           | 60    | **33.7%**  |
+| Pago     | 22            | 2     | **9.1%**   |
 
-### 📉 2. ¿Qué tan grave es realmente?
-- **El 31% NO es un indicador de crisis operativa.** Es un error de agregación. En modelos freemium, el churn de gratuidad suele oscilar entre 25-40% mensual; mezclarlo con pago infla artificialmente la métrica.
-- **La señal roja real es el ~9.1% de churn mensual en usuarios de pago.** 
-  - Equivale a una retención anualizada cercana al 35-40% (si se mantiene), lo cual es insostenible en la mayoría de plataformas SaaS/B2B.
-  - Impacto financiero inmediato: bajo (solo 2 clientes), pero la **tendencia** es crítica si no se actúa rápido.
-
----
-
-### 🛠️ PLAN DE ACCIÓN (Priorizado por urgencia e impacto)
-
-#### 🟢 INMEDIATO (24-48h)
-1. **Corrige el dashboard**: Elimina el churn global mezclado. Crea dos KPIs independientes: `Churn Plan Gratuito` y `Churn Plan Pago`.
-2. **Define tu "churn de negocio"**: Usa solo el churn de pago (o churn ponderado por ingresos) como métrica ejecutiva. El churn de gratuito es un indicador de top-of-funnel/onboarding, no de salud financiera.
-3. **Contacta a los 2 clientes perdidos**: Llama personalmente. Pregunta: ¿qué falta? ¿problema técnico? ¿precio? ¿mejor alternativa? Documenta la razón en un CRM simple.
-
-#### 🟡 CORTO PLAZO (1-2 semanas)
-4. **Análisis por cohorte de pago**: Cruza las 2 bajas con su fecha de inicio. ¿Son nuevos (<30 días)? ¿Antiguos? El churn en novatos suele ser onboarding; en veteranos, value erosion o competencia.
-5. **Activa señales tempranas (leading indicators)**: Si aún no las tienes, empieza a rastrear:
-   - Caída en uso de feature clave (>30% menos que promedio)
-   - Tickets de soporte sin resolver >5 días
-   - Fallo en primer pago/cobro
-   - Ausencia de login >14 días
-6. **Implementa un flujo de retención proactivo**: Alertas automáticas a Customer Success/Soporte cuando un usuario de pago cruza umbrales de riesgo.
-
-#### 🔵 MEDIO/LARGO PLAZO (1 mes+)
-7. **Revisa pricing/value alignment**: 2 bajas pueden ser ruido, pero si se repiten, revisa si el plan cumple expectativas reales o si hay un gap entre lo vendido y lo entregado.
-8. **Segmenta la estrategia de gratuito**: Un churn del 33.7% no es malo si la plataforma depende de conversión. Optimiza onboarding, gamifica hitos, y diseña triggers de upgrade antes del abandono.
-9. **Adopta métricas de retención robustas**:
-   - `NRR (Net Revenue Retention)` o `GRR`
-   - `Churn por cohorte mensual`
-   - `Retention curva de supervivencia`
-   - Evita promedios simples que mezclen poblaciones heterogéneas.
+### 📊 2. ¿Qué tan grave es?
+- **Churn general (31%):** No es alarmante cuando se ve con lupa. Es típico en plataformas freemium donde la barrera de entrada es baja y muchos usuarios prueban sin intención de quedarse.
+- **Churn de pago (9.1%):** Es la métrica que sí importa. Un 9% mensual en B2C o SaaS pequeño es **elevado**, pero con solo 22 usuarios activos, la varianza estadística es alta. Perder 2 clientes en un mes puede ser ruido, pero si se repite 2-3 meses seguidos, indica fuga estructural.
+- **Conclusión:** No estás en crisis. Tienes una señal de alerta en el segmento que paga, pero el pánico viene de una métrica mal segmentada.
 
 ---
 
-### 💡 Conclusión analítica
-No estás perdiendo el 31% de tu base. Estás viendo un **error de reporte** que oculta un **problema real pero manejable**: tu churn de pago está alto. Con una corrección de métrica, contacto directo a los 2 clientes, y activación de señales tempranas, puedes estabilizar esa cifra en <3% mensual en 60-90 días sin tocar el tráfico gratuito.
+### 🛠️ 3. Plan de acción inmediato
 
-Si quieres, puedo ayudarte a estructurar el dashboard corregido o diseñar el esquema de cohortes para detectar exactamente en qué día/semana están abandonando tus usuarios de pago. Solo dime tu modelo de negocio (B2B/B2C, precio, ciclo de venta) y te doy los thresholds específicos.
+#### ✅ Fase 1: Validación y limpieza (Día 1-3)
+1. **Revisa la definición de "baja" en tu BD:** ¿Incluye trial expirados? ¿Cuentas duplicadas por re-registro? ¿Usuarios desactivados temporalmente marcados como `cancelled`? Filtra solo bajas confirmadas (razón explícita o transacción fallida recurrente).
+2. **Contacta a los 2 usuarios de pago perdidos:** Llama o envía un mensaje personal. Pregunta: ¿problema técnico?, ¿precio?, ¿falta de valor percibido?, ¿competencia? Anota patrones. Con n=2, cada respuesta vale oro.
+3. **Exporta cohortes:** No mires solo el snapshot mensual. Calcula churn por cohorte de registro (ej: usuarios que llegaron en marzo vs abril). Esto revela si el churn viene de malas adquisiciones o de degradación post-onboarding.
+
+#### 📈 Fase 2: Ajuste de métricas y dashboards (Semana 1)
+1. **Separa KPIs obligatoriamente:**
+   - `Free Churn` → métrica de volumen/top-of-funnel
+   - `Paid Churn` → métrica de salud de negocio
+   - `Net Revenue Churn` (si aplican upgrades/downgrades) → métrica financiera
+2. **Elimina el "churn global" del dashboard principal.** Si alguien pregunta, explica: *"Lo medimos separado porque las dinámicas de retención son distintas por plan"*.
+3. **Añade margen de confianza o advertencia de muestra:** Con <50 usuarios pagados, marca visualmente que los cambios mensuales pueden tener alta varianza.
+
+#### 🔄 Fase 3: Estrategia de retención (Semanas 2-4)
+| Segmento | Acción clave | Ejemplo concreto |
+|----------|--------------|------------------|
+| **Pago** | Proactive Success + Exit Flow | - Email de check-in a día 14 y 30<br>- Al hacer clic en "Cancelar": ofrecer pausa, cambio de plan, o encuesta de 1 pregunta<br>- Asignar responsable de cuenta o success manager rotativo |
+| **Gratuito** | Trigger de valor + Upgrade path | - Identificar hitos de uso (ej: 3ª sesión, primer feature key)<br>- Enviar tutorial contextual justo después<br>- Ofrecer prueba extendida o descuento de lanzamiento al pasar a pago |
+
+#### 📉 Fase 4: Monitoreo continuo
+- **Tracker semanal de Paid Churn** (no solo mensual)
+- **Ratio de Reactivación:** ¿Cuántos de los 60 gratuitos volvieron en 30 días? Si es >15%, tu producto tiene demanda latente.
+- **Umbral de alerta:** Si Paid Churn supera consistentemente **5-7% mensual durante 2 meses**, activa protocolo de retención intensiva (auditoría de onboarding, revisión de pricing, intervención manual de cuentas de alto LTV).
+
+---
+
+### 💡 Regla práctica para el futuro
+> *"Si el churn sube, primero pregunta: ¿qué población entró en la ecuación?"*  
+Un churn del 30% en free users no es fuego. Un churn del 9% en paid users es humo que hay que rastrear. Tu plataforma no está fallando; tu panel te estaba ocultando dónde está el riesgo real.
+
+Si quieres, puedo ayudarte a:
+- Configurar la fórmula exacta de Paid Churn en tu SQL/BI
+- Diseñar un flujo de exit survey de 1 pregunta
+- Crear un tracker semanal de retención por cohorte
+
+Solo dime en qué stack trabajas (Mixpanel, Amplitude, Looker, custom DB, etc.) y te doy el código o estructura lista para copiar.

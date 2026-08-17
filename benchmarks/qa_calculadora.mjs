@@ -634,6 +634,107 @@ chequeo("W8 · la recomendación cabe en el presupuesto que el usuario declaró"
   return malas;
 });
 
+// ── W9 · cada tarea recomienda a alguien que DESTACA en esa tarea ───────────
+// Cristian: *"no sé si viste los wizard y los QA respectivos para validar lo que sale, no
+// solo el de agentes"*. Tenía razón: W6 verificaba dos promesas de ocho — «chat en vivo»
+// (que no sea lento) y «agentes» (que corra en un agente). Las otras seis tareas
+// —programar, escribir, razonar, uso general— no tenían NINGUNA verificación de que el
+// recomendado fuera bueno en eso.
+//
+// Es aplicar a medias la regla que este mismo repo escribió el día anterior: cada palabra
+// de la interfaz es una promesa. «Programar» promete un modelo que programa bien.
+//
+// El umbral es el percentil 70 de SU pilar, no el podio: el wizard pondera precio y
+// velocidad, así que el mejor de la tarea puede legítimamente no ganar. Lo que no puede
+// pasar es que recomiende a alguien del montón para una tarea que eligió por su nombre.
+chequeo("W9 · cada tarea recomienda un modelo que destaca en ESA tarea", () => {
+  const malas = [];
+  const PILAR_DE = { coding: "Coding", contenido: "Contenido", razonamiento: "Razonamiento",
+                     agentes: "Agentes" };
+  for (const t of app.WIZ.tasks) {
+    const pil = PILAR_DE[t.id];
+    if (!pil) continue;                       // «general» y «chat» no prometen un pilar
+    const notas = RANKED.map(m => (m.dims_by_pillar || {})[pil]?.quality_avg)
+                        .filter(v => v != null).sort((a, b) => a - b);
+    if (notas.length < 10) continue;
+    const p70 = notas[Math.floor(notas.length * 0.70)];
+    const tipos = pil === "Agentes" ? app.WIZ_AGENTES.map(a => a.id) : [null];
+    for (const b of app.WIZ.budgets) {
+      for (const ag of tipos) {
+        const r = app.wizDecidir(t.id, b.id, ag);
+        if (!r.length) continue;
+        const m = r[0].m;
+        // Para AGENTES la vara es la TAREA REAL, no el pilar. Medir contra el pilar
+        // «Agentes» sería usar justo la métrica que se descartó el 16-ago por
+        // correlacionar −0,20 con resolver la tarea: el chequeo acusaría a un modelo que
+        // resuelve 3 de 3 tareas de negocio por no escribir bonito sobre agentes.
+        if (pil === "Agentes") {
+          const tar = Object.values((m.agentico || {}).tareas || {}).filter(x => x.media != null);
+          if (!tar.length) {
+            malas.push(`${t.id}/${b.id}/${ag}: recomienda ${m.name}, sin tarea agéntica medida`);
+          } else {
+            const media = tar.reduce((a, x) => a + x.media, 0) / tar.length;
+            if (media < 0.75) {
+              malas.push(`${t.id}/${b.id}/${ag}: recomienda ${m.name} con ${media.toFixed(2)} ` +
+                         `en la tarea real — no resuelve el trabajo que promete`);
+            }
+          }
+          continue;
+        }
+        const q = (m.dims_by_pillar || {})[pil]?.quality_avg;
+        if (q == null) {
+          malas.push(`${t.id}/${b.id}${ag ? "/" + ag : ""}: recomienda ${m.name}, que no ` +
+                     `tiene nota medida en ${pil}`);
+        } else if (q < p70) {
+          malas.push(`${t.id}/${b.id}${ag ? "/" + ag : ""}: recomienda ${m.name} con ` +
+                     `${q.toFixed(2)} en ${pil} — por debajo del percentil 70 (${p70.toFixed(2)})`);
+        }
+      }
+    }
+  }
+  return malas;
+});
+
+// ── W10 · «Un poco de todo» no puede ser bueno en una sola cosa ─────────────
+// La tarea «Un poco de todo · no estoy seguro / uso general» promete un modelo PAREJO.
+// Recomendar uno excelente en un pilar y flojo en otro es lo contrario de lo que dice:
+// quien elige esa opción es justamente el que no sabe dónde va a necesitarlo.
+chequeo("W10 · «un poco de todo» recomienda un modelo parejo, no un especialista", () => {
+  const malas = [];
+  const PIL = ["Coding", "Contenido", "Razonamiento", "Agentes"];
+  for (const b of app.WIZ.budgets) {
+    const r = app.wizDecidir("general", b.id, null);
+    if (!r.length) continue;
+    const m = r[0].m;
+    const notas = PIL.map(p => (m.dims_by_pillar || {})[p]?.quality_avg).filter(v => v != null);
+    if (notas.length < 4) {
+      malas.push(`general/${b.id}: recomienda ${m.name}, sin nota en los 4 pilares`);
+      continue;
+    }
+    // «Flojo» tiene que ser una distancia REAL, no un percentil.
+    //
+    // La v1 usaba el percentil 40 y acusaba a GPT-5.6 Luna de ser flojo en Coding con
+    // 8,78 contra un p40 de 8,90 — **0,24 desviaciones**. Con una población apelotonada,
+    // un percentil convierte un empate en un veredicto, y un chequeo que acusa por 0,12
+    // puntos enseña a ignorarlo: peor que no tenerlo.
+    //
+    // Ahora el criterio es una desviación estándar por debajo de la media de su pilar.
+    // Eso sí es «flojo ahí», y no depende de cuán comprimida esté la distribución.
+    for (const p of PIL) {
+      const todos = RANKED.map(x => (x.dims_by_pillar || {})[p]?.quality_avg).filter(v => v != null);
+      if (todos.length < 10) continue;
+      const mu = todos.reduce((a, b2) => a + b2, 0) / todos.length;
+      const sd = Math.sqrt(todos.reduce((a, b2) => a + (b2 - mu) ** 2, 0) / todos.length);
+      const q = (m.dims_by_pillar || {})[p].quality_avg;
+      if (q < mu - sd) {
+        malas.push(`general/${b.id}: ${m.name} está a ${((mu - q) / sd).toFixed(1)}σ por debajo ` +
+                   `de la media en ${p} (${q.toFixed(2)}) y se ofrece para «un poco de todo»`);
+      }
+    }
+  }
+  return malas;
+});
+
 // ── Reporte ─────────────────────────────────────────────────────────────────
 console.log("\nQA funcional de la calculadora — lógica real contra datos reales\n");
 for (const n of oks) console.log(`  ✅ ${n}`);

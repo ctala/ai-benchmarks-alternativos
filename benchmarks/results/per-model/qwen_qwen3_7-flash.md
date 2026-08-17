@@ -1,13 +1,13 @@
 # Qwen 3.7 Flash
 
 - **model_id**: `qwen/qwen3.7-flash`
-- **Total tests**: 307/309 exitosos (2 errores)
-- **Score final**: 7.87
+- **Total tests**: 296/297 exitosos (1 errores)
+- **Score final**: 7.86
 - **Calidad**: 8.13
 - **Judge score (Phi-4)**: 4.49/10
 - **Velocidad**: 107 tok/s
-- **Latencia primera token**: 17.51s
-- **Costo promedio por test**: $0.00124
+- **Latencia primera token**: 17.93s
+- **Costo promedio por test**: $0.00129
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -49,7 +49,6 @@
 | tool_calling | 4 | 4 | 6.96 | 6.40 |
 | tool_calling_adversarial | 30 | 30 | 7.25 | 7.05 |
 | translation | 3 | 3 | 8.24 | 8.67 |
-| verificar_claim | 12 | 11 | 8.18 | 8.18 |
 
 ## Detalle por test
 
@@ -2055,8 +2054,6 @@ Aquí tienes una planificación detallada y realista para lanzar la landing page
 #### tool_calling_adversarial
 
 #### retrieval_distractores
-
-#### verificar_claim
 
 #### extraer_claims
 

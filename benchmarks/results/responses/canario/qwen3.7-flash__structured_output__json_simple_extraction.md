@@ -2,8 +2,8 @@
 
 - model_id: `qwen/qwen3.7-flash`
 - success: True  | final: 9.4 | quality: 10.0
-- latency_total: 9.0s | tokens_per_second: 118.1
-- input_tokens: 118 | output_tokens: 1063
+- latency_total: 6.709s | tokens_per_second: 143.7
+- input_tokens: 118 | output_tokens: 964
 
 ## Entrada exacta (lo que recibió el modelo)
 

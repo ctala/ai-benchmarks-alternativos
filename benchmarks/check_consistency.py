@@ -121,8 +121,14 @@ TOLERANCE = 0.05
 # Deliberadamente estricto. Capturar cualquier numero de la linea daba 67
 # falsos positivos: se comia el "4.5" de "Grok 4.5" como si fuera un score, y
 # en lineas que listan varios modelos cruzaba todos los numeros contra todos.
+# El `(?:de\s+)?` NO estaba acá y sí en el patrón de las páginas HTML, donde se agregó el
+# 14-ago con el caso escrito al lado: «score global de 6.93 → el regex no admite el "de"».
+# Se arregló en una superficie y no en la otra, así que en los .md una frase natural como
+# «alcanza un score de 3.14» pasaba entera. Lo destapó `check_cobertura` el 17-ago, al
+# exigir que este guardrail tuviera prueba de su propio fallo: el sabotaje no lo hacía
+# fallar, y el motivo era este.
 SCORE_CLAIM_RE = re.compile(
-    r"score\s*(?:global\s*)?[:=]?\s*\**\s*(\d{1,2}\.\d{1,2})\b", re.IGNORECASE
+    r"score\s*(?:global\s*)?(?:de\s+)?[:=]?\s*\**\s*(\d{1,2}\.\d{1,2})\b", re.IGNORECASE
 )
 
 
