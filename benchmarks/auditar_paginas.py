@@ -194,10 +194,22 @@ def p2(pgs):
     """
     hallazgos = []
     for slug, (p, gen) in pgs.items():
-        html = p.read_text(errors="replace")
+        html_completo = p.read_text(errors="replace")
+        # UNA TABLA A LA VEZ. Antes se juntaban las filas de toda la página, así que una
+        # página con dos tablas —por ejemplo «calidad pura» y «calidad por precio», que
+        # ordenan distinto A PROPÓSITO— se reportaba como desordenada. El chequeo tiene
+        # que preguntar «¿esta tabla explica SU orden?», no «¿la página tiene un orden?».
+        for html in re.findall(r"<table.*?</table>", html_completo, re.S) or [html_completo]:
+            hallazgos += _p2_una_tabla(slug, gen, html)
+    return hallazgos
+
+
+def _p2_una_tabla(slug, gen, html):
+    hallazgos = []
+    if True:
         filas = re.findall(r"<tr><td>\d+</td>.*?</tr>", html, re.S)
         if len(filas) < 4:
-            continue
+            return hallazgos
         ncols = max(len(re.findall(r"<td[^>]*>", f)) for f in filas)
         alguna, columnas = False, 0
         for c in range(2, ncols):

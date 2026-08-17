@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-16T20:37:01",
+  "generated_at": "2026-08-17T05:47:09",
   "total_models": 192,
-  "tested_count": 139,
-  "ranked_count": 83,
+  "tested_count": 138,
+  "ranked_count": 82,
   "total_runs_measured": 30759,
   "total_runs_active": 26387,
   "total_runs_discarded": 4372,
@@ -117,128 +117,128 @@
   },
   "norm_stats_by_suite": {
     "agent_capabilities": {
-      "mean": 6.5684,
+      "mean": 6.578,
       "std": 0.795
     },
     "agent_long_horizon": {
-      "mean": 7.4875,
-      "std": 0.6296
+      "mean": 7.4883,
+      "std": 0.6334
     },
     "business_audit": {
-      "mean": 6.8566,
-      "std": 0.4816
+      "mean": 6.8666,
+      "std": 0.476
     },
     "business_strategy": {
-      "mean": 7.8367,
-      "std": 0.4596
+      "mean": 7.8395,
+      "std": 0.4617
     },
     "code_generation": {
-      "mean": 7.8371,
-      "std": 0.578
+      "mean": 7.8404,
+      "std": 0.5808
     },
     "content_generation": {
-      "mean": 7.9641,
-      "std": 0.4154
+      "mean": 7.9702,
+      "std": 0.4141
     },
     "content_verificable": {
-      "mean": 7.5487,
-      "std": 0.7891
+      "mean": 7.5383,
+      "std": 0.7883
     },
     "creativity": {
-      "mean": 7.7688,
-      "std": 0.4118
+      "mean": 7.7729,
+      "std": 0.4126
     },
     "customer_support": {
-      "mean": 7.2749,
-      "std": 0.7056
+      "mean": 7.2744,
+      "std": 0.7099
     },
     "deep_reasoning": {
-      "mean": 6.431,
-      "std": 0.8729
+      "mean": 6.4351,
+      "std": 0.8774
     },
     "hallucination": {
-      "mean": 6.6982,
-      "std": 0.7204
+      "mean": 6.7073,
+      "std": 0.72
     },
     "integridad_idioma": {
       "mean": 7.895,
       "std": 0.9117
     },
     "multi_turn": {
-      "mean": 7.0623,
-      "std": 0.5215
+      "mean": 7.0629,
+      "std": 0.5247
     },
     "news_seo_writing": {
-      "mean": 6.0449,
-      "std": 0.7939
+      "mean": 6.0588,
+      "std": 0.7887
     },
     "niah_es": {
       "mean": 8.1708,
       "std": 0.3147
     },
     "ocr_extraction": {
-      "mean": 8.1741,
-      "std": 0.6808
+      "mean": 8.1766,
+      "std": 0.6846
     },
     "orchestration": {
-      "mean": 6.5598,
-      "std": 0.9673
+      "mean": 6.5537,
+      "std": 0.9717
     },
     "policy_adherence": {
-      "mean": 7.4459,
-      "std": 0.6322
+      "mean": 7.4452,
+      "std": 0.636
     },
     "presentation": {
-      "mean": 7.8581,
-      "std": 0.6406
+      "mean": 7.862,
+      "std": 0.6435
     },
     "prompt_injection_es": {
       "mean": 4.0337,
       "std": 2.1059
     },
     "reasoning": {
-      "mean": 7.9518,
-      "std": 0.4984
+      "mean": 7.9566,
+      "std": 0.4996
     },
     "sales_outreach": {
-      "mean": 7.2586,
-      "std": 0.8201
+      "mean": 7.2515,
+      "std": 0.8225
     },
     "startup_content": {
-      "mean": 7.9616,
-      "std": 0.4981
+      "mean": 7.9663,
+      "std": 0.4992
     },
     "strategy": {
-      "mean": 7.421,
-      "std": 0.8048
+      "mean": 7.427,
+      "std": 0.8079
     },
     "string_precision": {
-      "mean": 7.7143,
-      "std": 0.7851
+      "mean": 7.7274,
+      "std": 0.7808
     },
     "structured_output": {
-      "mean": 8.4343,
-      "std": 0.9767
+      "mean": 8.4488,
+      "std": 0.9738
     },
     "summarization": {
-      "mean": 7.0959,
-      "std": 0.466
+      "mean": 7.0983,
+      "std": 0.4683
     },
     "task_management": {
-      "mean": 7.998,
-      "std": 0.5144
+      "mean": 7.999,
+      "std": 0.5175
     },
     "tool_calling": {
-      "mean": 5.9949,
-      "std": 0.6666
+      "mean": 6.005,
+      "std": 0.6651
     },
     "tool_calling_adversarial": {
-      "mean": 6.456,
-      "std": 0.541
+      "mean": 6.4601,
+      "std": 0.5432
     },
     "translation": {
-      "mean": 7.4807,
-      "std": 0.5008
+      "mean": 7.4843,
+      "std": 0.5028
     }
   },
   "score_rescale": {
@@ -10824,195 +10824,6 @@
         "motivos": {
           "agentico": "sin_evidencia_agentica"
         }
-      }
-    },
-    {
-      "key": "claude-sonnet-4.6",
-      "id": "anthropic/claude-sonnet-4-6",
-      "name": "Claude Sonnet 4.6 (ultimo Anthropic)",
-      "tier": "medium",
-      "provider": "openrouter",
-      "open_source": false,
-      "license": "",
-      "cost_input_per_M": 3.0,
-      "cost_output_per_M": 15.0,
-      "cost_per_1k_calls_usd": 23.4,
-      "context_window": null,
-      "subscriptions": [],
-      "notes": "",
-      "tested": true,
-      "reasoning_medido": "default del proveedor",
-      "presupuesto_thinking": false,
-      "retired": false,
-      "retired_at": null,
-      "retired_reason": null,
-      "retired_kind": null,
-      "provider_variant": false,
-      "ruta_unica": false,
-      "self_hosted": false,
-      "no_medir": false,
-      "examen_incompleto": false,
-      "medido_en_free": false,
-      "ranked": true,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": true,
-      "runs": 143,
-      "total_runs": 151,
-      "score_global": 4.35,
-      "score_by_pillar": {
-        "Agentes": 6.79,
-        "Contenido": 7.21,
-        "Coding": 7.31,
-        "Razonamiento": 6.54
-      },
-      "dims_by_pillar": {
-        "Agentes": {
-          "quality_avg": 7.699,
-          "speed_score_avg": 6.879,
-          "latency_score_avg": 2.379,
-          "cost_score_avg": 4.687,
-          "quality_ci95": 0.548
-        },
-        "Contenido": {
-          "quality_avg": 8.408,
-          "speed_score_avg": 6.611,
-          "latency_score_avg": 1.519,
-          "cost_score_avg": 4.686,
-          "quality_ci95": 0.608
-        },
-        "Coding": {
-          "quality_avg": 8.171,
-          "speed_score_avg": 6.316,
-          "latency_score_avg": 3.158,
-          "cost_score_avg": 5.891,
-          "quality_ci95": 1.431
-        },
-        "Razonamiento": {
-          "quality_avg": 7.554,
-          "speed_score_avg": 6.489,
-          "latency_score_avg": 1.278,
-          "cost_score_avg": 4.496,
-          "quality_ci95": 1.104
-        }
-      },
-      "score_by_suite": {
-        "content_generation": 7.46,
-        "tool_calling": 5.23,
-        "task_management": 7.91,
-        "code_generation": 7.57,
-        "reasoning": 7.56,
-        "summarization": 6.9,
-        "presentation": 7.54,
-        "startup_content": 7.57,
-        "customer_support": 7.31,
-        "news_seo_writing": 4.91,
-        "orchestration": 7.05,
-        "agent_capabilities": 5.78,
-        "translation": 7.19,
-        "business_audit": 6.04,
-        "business_strategy": 7.61,
-        "content_verificable": 8.4,
-        "structured_output": 7.25,
-        "string_precision": 6.64,
-        "policy_adherence": 7.5,
-        "strategy": 6.93,
-        "sales_outreach": 7.84,
-        "agent_long_horizon": 7.42,
-        "deep_reasoning": 6.09,
-        "hallucination": 5.95,
-        "creativity": 7.43,
-        "ocr_extraction": 7.97,
-        "multi_turn": 7.01,
-        "tool_calling_adversarial": 6.13
-      },
-      "quality_by_suite": {
-        "content_generation": 8.8,
-        "tool_calling": 5.07,
-        "task_management": 9.4,
-        "code_generation": 8.98,
-        "reasoning": 9.0,
-        "summarization": 7.7,
-        "presentation": 9.06,
-        "startup_content": 9.17,
-        "customer_support": 8.35,
-        "news_seo_writing": 5.36,
-        "orchestration": 7.99,
-        "agent_capabilities": 6.23,
-        "translation": 7.88,
-        "business_audit": 6.8,
-        "business_strategy": 9.2,
-        "content_verificable": 10.0,
-        "structured_output": 8.0,
-        "string_precision": 6.83,
-        "policy_adherence": 8.67,
-        "strategy": 8.33,
-        "sales_outreach": 9.33,
-        "agent_long_horizon": 9.17,
-        "deep_reasoning": 6.94,
-        "hallucination": 6.33,
-        "creativity": 8.75,
-        "ocr_extraction": 9.27,
-        "multi_turn": 7.92,
-        "tool_calling_adversarial": 6.54
-      },
-      "suites_incompletas": {},
-      "quality_avg": 8.02,
-      "quality_ci95": 0.443,
-      "cost_score_avg": 4.75,
-      "speed_score_avg": 6.63,
-      "latency_score_avg": 1.94,
-      "tool_calling_score_avg": 8.31,
-      "judge_score_avg": 4.4,
-      "tokens_per_second": 49.3,
-      "latency_avg_s": 23.18,
-      "total_input_tokens": 288164,
-      "total_output_tokens": 167378,
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "agentic_runs": 15,
-      "agentic_quality": 9.33,
-      "multiturno_score": 7.56,
-      "agentic_score": 7.56,
-      "security_runs": 0,
-      "security_score": null,
-      "policy_refusal_rate": 0.0,
-      "score_global_linear": 6.97,
-      "score_calidad": 8.02,
-      "pareto": false,
-      "agentico": {
-        "tareas": {
-          "harbor-cotizar": {
-            "media": 1.0,
-            "piso": 1.0,
-            "intentos": 3,
-            "estado": "ok_siempre"
-          },
-          "harbor-reunion": {
-            "media": 1.0,
-            "piso": 1.0,
-            "intentos": 3,
-            "estado": "ok_siempre"
-          },
-          "harbor-ruteo": {
-            "media": 1.0,
-            "piso": 1.0,
-            "intentos": 3,
-            "estado": "ok_siempre"
-          }
-        },
-        "estado": "apto"
-      },
-      "sirve_para_agentes": true,
-      "elegible": {
-        "catalogo": true,
-        "ranking": true,
-        "agentico": true,
-        "motivos": {}
       }
     },
     {
@@ -27969,6 +27780,114 @@
         "motivos": {
           "ranking": "sin_muestra",
           "agentico": "sin_evidencia_agentica"
+        }
+      }
+    },
+    {
+      "key": "claude-sonnet-4.6",
+      "id": "anthropic/claude-sonnet-4-6",
+      "name": "Claude Sonnet 4.6",
+      "tier": "medium",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "cost_input_per_M": 3.0,
+      "cost_output_per_M": 15.0,
+      "cost_per_1k_calls_usd": 23.4,
+      "context_window": null,
+      "subscriptions": [],
+      "notes": "",
+      "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "no_medir": false,
+      "examen_incompleto": false,
+      "medido_en_free": false,
+      "ranked": false,
+      "sample_tier": "preliminary",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 0,
+      "total_runs": 4,
+      "score_global": null,
+      "score_by_pillar": {
+        "Agentes": 5.21
+      },
+      "dims_by_pillar": {
+        "Agentes": {
+          "quality_avg": 5.0,
+          "speed_score_avg": 7.5,
+          "latency_score_avg": 4.0,
+          "cost_score_avg": 5.658,
+          "quality_ci95": 0.0
+        }
+      },
+      "score_by_suite": {},
+      "quality_by_suite": {},
+      "suites_incompletas": {},
+      "quality_avg": null,
+      "quality_ci95": null,
+      "cost_score_avg": null,
+      "speed_score_avg": null,
+      "latency_score_avg": null,
+      "tool_calling_score_avg": 10.0,
+      "judge_score_avg": null,
+      "tokens_per_second": null,
+      "latency_avg_s": null,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "agentic_runs": 0,
+      "agentic_quality": null,
+      "multiturno_score": null,
+      "agentic_score": null,
+      "security_runs": 0,
+      "security_score": null,
+      "policy_refusal_rate": 0.0,
+      "score_calidad": null,
+      "pareto": false,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true,
+      "elegible": {
+        "catalogo": true,
+        "ranking": false,
+        "agentico": true,
+        "motivos": {
+          "ranking": "sin_muestra"
         }
       }
     },
