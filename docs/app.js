@@ -1469,6 +1469,69 @@ function wizCandidatos(todos, { os = false, tools = false, pillar = null } = {})
   return models;
 }
 
+// LA DECISIÓN DEL WIZARD, en UNA función. La usa `wizResult()` para pintar y la usa el
+// QA para barrer las 32 combinaciones. Antes el barrido la reimplementaba, y una réplica
+// no prueba lo que dice probar: el 17-ago el test siguió dando el resultado viejo después
+// de arreglar la fórmula, porque probaba su propia copia. Es el mismo bug que ya se pagó
+// con `APTOS` en W2 — dos veces en dos días, así que ahora se elimina la copia.
+function wizDecidir(taskId, budgetId, agenteId, opts = {}) {
+  const t = WIZ.tasks.find(x => x.id === taskId);
+  const b = WIZ.budgets.find(x => x.id === budgetId);
+  if (!t || !b) return [];
+  let w = { ...b.w };
+  if (t.latency) w = { quality: 50, cost: 15, speed: 10, latency: 25 };
+  const pillar = t.pillar;
+  let models = wizCandidatos(state.data.models,
+    { os: opts.os || false, tools: opts.tools || !!t.tools, pillar });
+
+  // EL PRESUPUESTO ES UN TECHO, NO UNA PREFERENCIA.
+  //
+  // Medido el 17-ago-2026: el preset «Poco · ~$5/mes» recomendaba **Claude Fable 5**, que
+  // con las 300 llamadas/mes de ese mismo preset cuesta **$23,40** — 4,7 veces el
+  // presupuesto que el usuario acaba de declarar. Pasaba porque sus pesos son calidad 85%
+  // y costo 5%: el precio entra tan poco que el mejor gana aunque no quepa.
+  //
+  // Un peso bajo dice «me importa poco»; NO dice «puedo pagar cualquier cosa». Son dos
+  // cosas distintas y el wizard las confundía. Ahora el presupuesto filtra primero y
+  // pondera después.
+  //
+  // El margen de 1,5× es deliberado: alguien que dice «~$5» no se va a ofender con $7 si
+  // el salto de calidad lo vale, pero sí con $23. Si NADIE cabe, se devuelve el más
+  // barato disponible en vez de una lista vacía — una recomendación cara con su
+  // advertencia es más útil que ninguna.
+  // El monto y el volumen viven en `PRESETS_BUDGET`, no en `WIZ.budgets` —los ids
+  // coinciden a propósito—. Leerlos del objeto equivocado daba `undefined`, el techo
+  // quedaba NaN, no pasaba NADIE y caía al fallback de «los 5 más baratos»: con $500/mes
+  // recomendaba lo mismo que con $5.
+  const pre = PRESETS_BUDGET[budgetId] || {};
+  const techo = (pre.budget || 0) * 1.5;
+  const calls = pre.calls || 1000;
+  const cabe = !techo ? models : models.filter(m => {
+    const mensual = (m.cost_per_1k_calls_usd || 0) * calls / 1000;
+    return mensual <= techo;
+  });
+  models = cabe.length ? cabe
+    : models.slice().sort((x, y) => (x.cost_per_1k_calls_usd || 0) - (y.cost_per_1k_calls_usd || 0)).slice(0, 5);
+  const tipo = pillar === "Agentes" ? WIZ_AGENTES.find(a => a.id === agenteId) : null;
+  const pesoCosto = (w.cost || 0) / 100;
+  const puntaje = (m) => {
+    if (!tipo) return computeZScore(m, w, pillar);
+    let suma = 0, peso = 0;
+    for (const [eje, p] of tipo.ejes) {
+      const v = wizEje(m, eje);
+      if (v == null) continue;
+      suma += v * p; peso += p;
+    }
+    if (peso <= 0) return null;
+    const capacidad = suma / peso;
+    const cs = m.cost_score_avg;
+    if (cs == null || !pesoCosto) return capacidad;
+    return capacidad * (1 - pesoCosto) + cs * pesoCosto;
+  };
+  return models.map(m => ({ m, s: puntaje(m) })).filter(x => x.s != null)
+               .sort((a, b2) => b2.s - a.s);
+}
+
 function wizResult() {
   const t = WIZ.tasks.find(x => x.id === WIZ.task);
   const b = WIZ.budgets.find(x => x.id === WIZ.budget);
@@ -1476,30 +1539,10 @@ function wizResult() {
   if (t.latency) w = { quality: 50, cost: 15, speed: 10, latency: 25 }; // chat prioriza latencia
   const pillar = t.pillar;
 
-  // Los candidatos salen de wizCandidatos() — la MISMA función que ejercita el QA.
-  // Replicar el filtro en el test sería una copia que se desincroniza, que es el bug
-  // que este repo ya pagó varias veces.
-  let models = wizCandidatos(state.data.models, { os: WIZ.os, tools: WIZ.tools, pillar });
-
-  // Con tipo de agente elegido se puntúa por SUS ejes, no por el compuesto del pilar.
-  const tipo = pillar === "Agentes" ? WIZ_AGENTES.find(a => a.id === WIZ.agente) : null;
-  const puntaje = (m) => {
-    if (!tipo) return computeZScore(m, w, pillar);
-    // Media ponderada de los ejes crudos del tipo. Escala absoluta, sin z-scorear:
-    // misma decisión que v4.1 y que `getScore` para subcategorías.
-    let suma = 0, peso = 0;
-    for (const [eje, p] of tipo.ejes) {
-      const v = wizEje(m, eje);
-      if (v == null) continue;
-      suma += v * p; peso += p;
-    }
-    return peso > 0 ? suma / peso : null;
-  };
-
-  const scored = models
-    .map(m => ({ m, s: puntaje(m) }))
-    .filter(x => x.s != null)
-    .sort((a, b2) => b2.s - a.s);
+  // La decisión sale de `wizDecidir` — la MISMA que barre el QA. Ver su comentario.
+  const scored = wizDecidir(WIZ.task, WIZ.budget, WIZ.agente, { os: WIZ.os, tools: WIZ.tools });
+  const tipo = t.pillar === "Agentes" ? WIZ_AGENTES.find(a => a.id === WIZ.agente) : null;
+  let models = scored.map(x => x.m);
 
   const wrap = document.getElementById("wiz-result");
   if (!scored.length) {
