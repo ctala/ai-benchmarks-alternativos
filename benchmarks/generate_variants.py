@@ -93,12 +93,20 @@ FAMILIES = [
         "slug": "grok-4-1-vs-4-5",
         "family": "Grok",
         "match": ["grok"],
-        "title": "Grok 4.1, 4.20, 4.3 o 4.5: cuál usar en 2026 (benchmark real)",
+        # El título prometía «Grok 4.1, 4.20, 4.3 o 4.5» y la página NO compara 4.1 Fast:
+        # está retirado y el generador lo excluye, con razón —recomendar un endpoint
+        # apagado manda a alguien a estrellarse—. Pero la búsqueda «grok 4.1 fast» existe
+        # y es real, así que la respuesta correcta no es borrar la mención: es decir que
+        # se retiró y contra qué compararlo hoy. Eso responde la intención mejor que el
+        # título viejo, que prometía una fila inexistente.
+        "title": "Grok 4.20, 4.3 o 4.5: cuál usar en 2026 (benchmark real)",
         "h1": "Grok: ¿cuál de las versiones?",
-        "intent_kw": ("grok 4.5 vs 4.1, grok 4.5 vale la pena, cual grok usar, "
-                      "grok 4.1 fast opiniones, grok 4.5 benchmark"),
+        "intent_kw": ("grok 4.5 vs 4.3, grok 4.5 vale la pena, cual grok usar, "
+                      "grok 4.1 fast retirado, grok 4.5 benchmark"),
         "lead": ("xAI sacó versiones nuevas de Grok una detrás de otra. Las medimos todas con la misma "
-                 "suite, y el orden en que quedan no es el orden en que salieron."),
+                 "suite, y el orden en que quedan no es el orden en que salieron. "
+                 "**Grok 4.1 Fast quedó fuera**: xAI apagó su endpoint, así que ya no es "
+                 "un candidato por bien que midiera."),
     },
     {
         "slug": "deepseek-v4-flash-o-r1",

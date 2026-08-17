@@ -109,10 +109,19 @@ def _t_version():
 # ── check_docs: un doc vigente sin verificar hace demasiado ───────────────────
 @prueba("check_docs", "un doc vigente con verificación vencida")
 def _t_docs():
-    # No sabotea nada: hoy YA hay 5 docs vencidos, así que debe salir distinto de 0.
-    # Si algún día no hay ninguno, la prueba se vuelve vacía — por eso también se
-    # comprueba que con una ventana absurda (100 años) salga en verde.
-    vencidos = _correr("check_docs.py", "--dias", "90") != 0
+    # SABOTEA de verdad, con un doc propio. La v1 no saboteaba nada: se apoyaba en que
+    # «hoy YA hay 5 docs vencidos». El 16-ago-2026 se arreglaron los cinco y el test se
+    # quedó sin nada que cazar — su propio comentario lo había anticipado.
+    #
+    # Un test que solo pasa mientras el repo esté sucio se rompe justo cuando lo limpiás,
+    # y lo peor: hasta ese día daba verde sin probar nada.
+    tmp = ROOT / "_DOC_VENCIDO_DE_PRUEBA.md"
+    try:
+        tmp.write_text("<!-- doc: vigente | verificado: 2020-01-01 -->\n# prueba\n")
+        vencidos = _correr("check_docs.py", "--dias", "90") != 0
+    finally:
+        tmp.unlink(missing_ok=True)
+    # Y en verde cuando no hay ninguno: sin esto, un chequeo que SIEMPRE falla pasaría.
     sin_vencidos = _correr("check_docs.py", "--dias", "36500") == 0
     return vencidos and sin_vencidos
 

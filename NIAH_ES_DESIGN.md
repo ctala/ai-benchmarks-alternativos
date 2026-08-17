@@ -1,4 +1,5 @@
-<!-- doc: vigente | verificado: 2026-05-03 -->
+<!-- doc: snapshot -->
+<!-- Fechado a propósito: spec de diseño de la suite v1 piloto (30-abr-2026). Describe cómo se construyó, no el estado de nada. -->
 ---
 title: "NIAH-ES — Needle-in-a-Haystack en español neutro"
 fecha: "2026-04-30"
