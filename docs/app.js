@@ -1378,6 +1378,21 @@ const WIZ = {
     { id: "agentes", ic: "🔧", ot: "Agentes / automatizar", od: "N8N, flujos multi-paso, tareas", pillar: "Agentes", page: "/mejor-llm-para-agentes/" },
     { id: "razonamiento", ic: "🧠", ot: "Razonar / analizar", od: "Análisis, decisiones, matemática", pillar: "Razonamiento", page: "/mejor-llm-para-razonamiento/" },
     { id: "chat", ic: "💬", ot: "Chat en vivo", od: "Respuesta rápida, conversación", pillar: null, page: null, latency: true },
+    // TAREAS FINAS, puntuadas por las suites que de verdad las miden (17-ago-2026).
+    //
+    // Las seis de arriba son los pilares, y un pilar promedia hasta 29 ejes: sirve para
+    // «programar» y no para «¿con cuál verifico un dato antes de publicarlo?». Esa
+    // segunda pregunta es la que decide un pipeline de contenido, y la respuesta no está
+    // en el promedio de Contenido — está en `verificar_claim`, donde la población se
+    // reparte entre 6,30 y 8,65 mientras el promedio del pilar los deja apelmazados.
+    //
+    // Se puntúan por la media de SUS suites, no por el pilar. Un modelo sin ninguna de
+    // esas suites medidas NO aparece: recomendar sin evidencia del eje que se pregunta es
+    // exactamente lo que este benchmark existe para no hacer.
+    { id: "verificar", ic: "🔍", ot: "Verificar datos", od: "Que no publique lo que la fuente no dice",
+      pillar: null, page: null, suites: ["verificar_claim", "content_verificable", "hallucination"] },
+    { id: "noticias", ic: "📰", ot: "Escribir noticias", od: "Nota con fuentes, en español que no suene traducido",
+      pillar: null, page: null, suites: ["news_seo_writing", "verificar_claim", "integridad_idioma"] },
   ],
   budgets: [
     { id: "personal", ic: "🧑", ot: "Poco", od: "~$5/mes · uso personal", w: { quality: 85, cost: 5, speed: 5, latency: 5 } },
@@ -1524,6 +1539,19 @@ function wizDecidir(taskId, budgetId, agenteId, opts = {}) {
   const tipo = pillar === "Agentes" ? WIZ_AGENTES.find(a => a.id === agenteId) : null;
   const pesoCosto = (w.cost || 0) / 100;
   const puntaje = (m) => {
+    // Tarea fina: se juzga por las suites que la miden, en calidad pura (0-10), y recién
+    // después entra el costo con el peso del presupuesto. Sin ninguna suite medida
+    // devuelve null y el modelo queda fuera de la lista — preferimos no recomendar a
+    // recomendar por un promedio que no incluye el eje preguntado.
+    if (t.suites) {
+      const qs = m.quality_by_suite || {};
+      const vs = t.suites.map(s => qs[s]).filter(v => v != null);
+      if (!vs.length) return null;
+      const capacidad = vs.reduce((a, b3) => a + b3, 0) / vs.length;
+      const cs = m.cost_score_avg;
+      if (cs == null || !pesoCosto) return capacidad;
+      return capacidad * (1 - pesoCosto) + cs * pesoCosto;
+    }
     if (!tipo) return computeZScore(m, w, pillar);
     let suma = 0, peso = 0;
     for (const [eje, p] of tipo.ejes) {

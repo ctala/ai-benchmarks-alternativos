@@ -695,6 +695,53 @@ chequeo("W9 · cada tarea recomienda un modelo que destaca en ESA tarea", () => 
   return malas;
 });
 
+// ── W11 · las tareas finas recomiendan por SU eje, no por el pilar ──────────
+// Las tareas «Verificar datos» y «Escribir noticias» no prometen un pilar: prometen un
+// eje concreto y medido. «Verificar datos» promete que el modelo no publique lo que la
+// fuente no dice — eso vive en `verificar_claim`, donde la población se reparte entre
+// 6,30 y 8,65, no en el promedio de Contenido, que los deja apelmazados.
+//
+// Dos cosas se verifican, y la segunda es la que importa: (1) el recomendado tiene esas
+// suites medidas —recomendar sin evidencia del eje preguntado es el fallo que este
+// benchmark existe para no cometer—; y (2) queda sobre el percentil 70 de la población
+// EN ESE EJE. La vara no es el podio porque el wizard pondera precio, pero un modelo del
+// montón no puede ganar una tarea que el usuario eligió por su nombre.
+chequeo("W11 · las tareas finas recomiendan por su eje medido, no por el pilar", () => {
+  const malas = [];
+  for (const t of app.WIZ.tasks) {
+    if (!t.suites) continue;
+    // percentil 70 de la media de esas suites entre los rankeados que las rindieron
+    const notas = RANKED.map(m => {
+      const qs = m.quality_by_suite || {};
+      const vs = t.suites.map(s => qs[s]).filter(v => v != null);
+      return vs.length ? vs.reduce((a, b) => a + b, 0) / vs.length : null;
+    }).filter(v => v != null).sort((a, b) => a - b);
+    if (notas.length < 10) continue;
+    const p70 = notas[Math.floor(notas.length * 0.70)];
+    for (const b of app.WIZ.budgets) {
+      const r = app.wizDecidir(t.id, b.id, null);
+      if (!r.length) {
+        malas.push(`${t.id}/${b.id}: no recomienda NADA — la tarea existe en el menú y no responde`);
+        continue;
+      }
+      const m = r[0].m;
+      const qs = m.quality_by_suite || {};
+      const vs = t.suites.map(s => qs[s]).filter(v => v != null);
+      if (!vs.length) {
+        malas.push(`${t.id}/${b.id}: recomienda ${m.name}, sin NINGUNA de sus suites medida ` +
+                   `(${t.suites.join(", ")})`);
+        continue;
+      }
+      const media = vs.reduce((a, b2) => a + b2, 0) / vs.length;
+      if (media < p70) {
+        malas.push(`${t.id}/${b.id}: recomienda ${m.name} con ${media.toFixed(2)} en su ` +
+                   `propio eje — bajo el percentil 70 (${p70.toFixed(2)})`);
+      }
+    }
+  }
+  return malas;
+});
+
 // ── W10 · «Un poco de todo» no puede ser bueno en una sola cosa ─────────────
 // La tarea «Un poco de todo · no estoy seguro / uso general» promete un modelo PAREJO.
 // Recomendar uno excelente en un pilar y flojo en otro es lo contrario de lo que dice:

@@ -356,6 +356,18 @@ class UnifiedProvider:
             upstream = getattr(response, "provider", None)
             if upstream:
                 result.metadata["upstream_provider"] = str(upstream)
+            else:
+                # `response.provider` lo devuelve OPENROUTER, porque es lo único que
+                # rutea. En una API directa (NIM, MiniMax, Groq, Kimi) no hay ruteo: el
+                # proveedor upstream es el proveedor mismo. Sin esta rama el campo
+                # quedaba vacío en todo run que no pasara por OpenRouter, y el canario
+                # marcaba rojo a un modelo perfectamente sano — lo detectó el 17-ago con
+                # `nim-nemotron-3.5-lightning`, que respondió 18/18 y no registró ni uno.
+                #
+                # Se rellena en vez de relajar el chequeo a propósito: el invariante
+                # ("todo run sabe de dónde vino") es correcto, lo que faltaba era el dato
+                # en el único caso donde la respuesta es trivial.
+                result.metadata["upstream_provider"] = self.provider_name
             result.latency_total = end - start
             result.latency_first_token = result.latency_total  # sin streaming = mismo
             result.success = True
