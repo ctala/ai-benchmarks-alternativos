@@ -1,7 +1,7 @@
 # Prompts del benchmark — texto exacto
 
 > **Auto-generado por `benchmarks/generate_prompts_catalog.py`. No editar a mano.**
-**186 tests en 31 suites.**
+**203 tests en 34 suites.**
 
 
 Este archivo existe porque **un resultado sin su entrada no es auditable**: no se
@@ -1815,6 +1815,342 @@ El board te pide una recomendacion. Estructura tu analisis:
 4. Da tu recomendacion final con justificacion
 
 No busques la respuesta "correcta" - busca la mejor argumentada.
+````
+
+## `dominio_entidad` — 6 tests
+
+### dominio_oficial_claro
+
+- `prompt_sha`: **`1005caaeaaa6`**
+- El sitio real está entre las candidatas. Caso base: debe elegirlo.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Recibís el nombre de una empresa y una lista de URLs candidatas encontradas en una búsqueda. Elegí cuál es su SITIO WEB OFICIAL.
+
+Respondé SOLO con un JSON:
+{"dominio": "<dominio.com>" | null, "motivo": "<una frase>"}
+
+Reglas duras:
+- Un subdominio de una plataforma de sitios (squarespace, wixsite, myshopify, webflow.io, github.io) NO es el sitio oficial de la empresa.
+- Un artículo de prensa QUE HABLA de la empresa no es su sitio.
+- Un perfil en una red social o directorio no es su sitio.
+- Si ninguno es claramente el sitio oficial, respondé null. Es preferible null a adivinar: una ficha con el dominio equivocado es peor que una sin dominio.
+````
+
+**User:**
+
+````
+EMPRESA: Nordvia
+CONTEXTO: Startup uruguaya de logística de última milla, fundada en 2024.
+
+CANDIDATAS:
+- https://nordvia.com
+- https://www.linkedin.com/company/nordvia
+- https://techfinance.example/nordvia-levanta-ronda-semilla
+````
+
+### subdominio_de_plataforma
+
+- `prompt_sha`: **`655dccf2bdaf`**
+- EL CASO REAL. El sitio está hecho en una plataforma y vive en su subdominio. Responde, tiene el logo y el nombre — y no es un dominio propio. Un extractor que lo toma publica una ficha que envejece el día que la empresa migra.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Recibís el nombre de una empresa y una lista de URLs candidatas encontradas en una búsqueda. Elegí cuál es su SITIO WEB OFICIAL.
+
+Respondé SOLO con un JSON:
+{"dominio": "<dominio.com>" | null, "motivo": "<una frase>"}
+
+Reglas duras:
+- Un subdominio de una plataforma de sitios (squarespace, wixsite, myshopify, webflow.io, github.io) NO es el sitio oficial de la empresa.
+- Un artículo de prensa QUE HABLA de la empresa no es su sitio.
+- Un perfil en una red social o directorio no es su sitio.
+- Si ninguno es claramente el sitio oficial, respondé null. Es preferible null a adivinar: una ficha con el dominio equivocado es peor que una sin dominio.
+````
+
+**User:**
+
+````
+EMPRESA: Vertelia
+CONTEXTO: Tienda de indumentaria sustentable, opera en Argentina.
+
+CANDIDATAS:
+- https://vertelia.squarespace.com
+- https://www.instagram.com/vertelia
+- https://emprendedores.example/vertelia-el-caso-de-la-moda-circular
+````
+
+### solo_articulos_de_prensa
+
+- `prompt_sha`: **`f6775264b09e`**
+- La empresa existe y solo hay notas de medios sobre ella. La URL contiene su nombre y el artículo habla de ella: es la trampa más fácil de morder.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Recibís el nombre de una empresa y una lista de URLs candidatas encontradas en una búsqueda. Elegí cuál es su SITIO WEB OFICIAL.
+
+Respondé SOLO con un JSON:
+{"dominio": "<dominio.com>" | null, "motivo": "<una frase>"}
+
+Reglas duras:
+- Un subdominio de una plataforma de sitios (squarespace, wixsite, myshopify, webflow.io, github.io) NO es el sitio oficial de la empresa.
+- Un artículo de prensa QUE HABLA de la empresa no es su sitio.
+- Un perfil en una red social o directorio no es su sitio.
+- Si ninguno es claramente el sitio oficial, respondé null. Es preferible null a adivinar: una ficha con el dominio equivocado es peor que una sin dominio.
+````
+
+**User:**
+
+````
+EMPRESA: Kaltrix
+CONTEXTO: Empresa de software de gestión mencionada en prensa sectorial.
+
+CANDIDATAS:
+- https://diarioeconomico.example/kaltrix-cierra-acuerdo-con-retail
+- https://startupnews.example/tag/kaltrix
+- https://medium.example/@analista/por-que-kaltrix-crece
+````
+
+### homonimo_de_otro_rubro
+
+- `prompt_sha`: **`28c7337899ce`**
+- Hay un dominio con el nombre exacto — de otra empresa, en otro rubro y otro país. Elegirlo manda al lector a un sitio que no tiene nada que ver.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Recibís el nombre de una empresa y una lista de URLs candidatas encontradas en una búsqueda. Elegí cuál es su SITIO WEB OFICIAL.
+
+Respondé SOLO con un JSON:
+{"dominio": "<dominio.com>" | null, "motivo": "<una frase>"}
+
+Reglas duras:
+- Un subdominio de una plataforma de sitios (squarespace, wixsite, myshopify, webflow.io, github.io) NO es el sitio oficial de la empresa.
+- Un artículo de prensa QUE HABLA de la empresa no es su sitio.
+- Un perfil en una red social o directorio no es su sitio.
+- Si ninguno es claramente el sitio oficial, respondé null. Es preferible null a adivinar: una ficha con el dominio equivocado es peor que una sin dominio.
+````
+
+**User:**
+
+````
+EMPRESA: Aurora Ventures
+CONTEXTO: Fondo de inversión de etapa temprana con foco en LATAM.
+
+CANDIDATAS:
+- https://auroraventures.co.jp
+- https://auroraventures.vc
+- https://www.crunchbase.example/organization/aurora-ventures
+````
+
+### sitio_que_anuncia_cierre
+
+- `prompt_sha`: **`569cbc818901`**
+- CASO REAL. El dominio es el oficial y el sitio anuncia que la empresa cerró. Sigue siendo su dominio: la ficha es correcta, la que cambia es la nota. Un modelo que devuelve null acá pierde un dato que sí tenía.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Recibís el nombre de una empresa y una lista de URLs candidatas encontradas en una búsqueda. Elegí cuál es su SITIO WEB OFICIAL.
+
+Respondé SOLO con un JSON:
+{"dominio": "<dominio.com>" | null, "motivo": "<una frase>"}
+
+Reglas duras:
+- Un subdominio de una plataforma de sitios (squarespace, wixsite, myshopify, webflow.io, github.io) NO es el sitio oficial de la empresa.
+- Un artículo de prensa QUE HABLA de la empresa no es su sitio.
+- Un perfil en una red social o directorio no es su sitio.
+- Si ninguno es claramente el sitio oficial, respondé null. Es preferible null a adivinar: una ficha con el dominio equivocado es peor que una sin dominio.
+````
+
+**User:**
+
+````
+EMPRESA: Trevian
+CONTEXTO: Empresa de movilidad. El contexto indica que cesó operaciones en 2026.
+
+CANDIDATAS:
+- https://trevian.com  (el sitio muestra: «Trevian cesó operaciones el 30 de junio de 2026. Gracias a nuestros usuarios.»)
+- https://movilidadhoy.example/trevian-cierra-tras-cuatro-anos
+````
+
+### ninguna_candidata_sirve
+
+- `prompt_sha`: **`8a719a44d69d`**
+- Ninguna es el sitio. La respuesta correcta es abstenerse — y es el test que separa a un modelo útil de uno que siempre contesta algo.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Recibís el nombre de una empresa y una lista de URLs candidatas encontradas en una búsqueda. Elegí cuál es su SITIO WEB OFICIAL.
+
+Respondé SOLO con un JSON:
+{"dominio": "<dominio.com>" | null, "motivo": "<una frase>"}
+
+Reglas duras:
+- Un subdominio de una plataforma de sitios (squarespace, wixsite, myshopify, webflow.io, github.io) NO es el sitio oficial de la empresa.
+- Un artículo de prensa QUE HABLA de la empresa no es su sitio.
+- Un perfil en una red social o directorio no es su sitio.
+- Si ninguno es claramente el sitio oficial, respondé null. Es preferible null a adivinar: una ficha con el dominio equivocado es peor que una sin dominio.
+````
+
+**User:**
+
+````
+EMPRESA: Belmar Systems
+CONTEXTO: Consultora tecnológica pequeña, poca presencia digital.
+
+CANDIDATAS:
+- https://www.linkedin.com/company/belmar-systems
+- https://directorio-empresas.example/belmar-systems
+- https://facebook.example/belmarsystems
+````
+
+## `extraer_claims` — 5 tests
+
+### cobertura_ocho_claims
+
+- `prompt_sha`: **`3e3a93bb1e52`**
+- EL CASO QUE MOTIVÓ LA SUITE. La nota tiene ocho datos verificables. Un modelo que saca dos correctos tiene precisión perfecta y deja el 75% sin verificar.
+- verificador: `multi_string_check`
+
+**System:**
+
+````
+Extraé de la nota TODOS los datos verificables: cifras, fechas, nombres de empresas con su acción, y afirmaciones factuales que un verificador podría contrastar contra una fuente.
+
+Devolvé SOLO un JSON:
+{"claims": [{"texto": "<el dato, en una frase>", "tipo": "cifra|fecha|evento|cita"}]}
+
+Reglas:
+- NO extraigas opiniones, adjetivos ni proyecciones sin cifra.
+- NO inventes: si no está en el texto, no va.
+- Una cifra usada como EJEMPLO o comparación general no es un hecho de la nota.
+- Respetá las negaciones: «no cerró» no es «cerró».
+````
+
+**User:**
+
+````
+Nordvia cerró una ronda semilla de US$ 4,2 millones el 14 de agosto de 2026, liderada por Aurora Ventures. La empresa, fundada en 2024 en Montevideo, emplea a 50 personas y opera en 3 países. Su facturación anual llegó a € 1,8 millones en 2025. Según su CEO, Marta Iribarne, la compañía abrirá oficinas en Chile durante el primer trimestre de 2027.
+````
+
+### cifra_de_ejemplo_no_es_hecho
+
+- `prompt_sha`: **`9f7163a1a7cb`**
+- «Como referencia, una ronda semilla promedio en la región ronda los US$ 2 millones» es contexto, no un dato de esta empresa. Extraerlo manda a verificar algo que la nota nunca afirmó.
+- verificador: `must_not_assert`
+
+**System:**
+
+````
+Extraé de la nota TODOS los datos verificables: cifras, fechas, nombres de empresas con su acción, y afirmaciones factuales que un verificador podría contrastar contra una fuente.
+
+Devolvé SOLO un JSON:
+{"claims": [{"texto": "<el dato, en una frase>", "tipo": "cifra|fecha|evento|cita"}]}
+
+Reglas:
+- NO extraigas opiniones, adjetivos ni proyecciones sin cifra.
+- NO inventes: si no está en el texto, no va.
+- Una cifra usada como EJEMPLO o comparación general no es un hecho de la nota.
+- Respetá las negaciones: «no cerró» no es «cerró».
+````
+
+**User:**
+
+````
+Nordvia cerró una ronda semilla de US$ 4,2 millones. Como referencia, una ronda semilla promedio en América Latina ronda los US$ 2 millones, según datos del sector.
+````
+
+### negacion_no_se_invierte
+
+- `prompt_sha`: **`7c0106b0d8c6`**
+- «No cerró la ronda» extraído como «cerró la ronda» publica lo contrario de lo que dice la fuente, y con fuente citada.
+- verificador: `multi_string_check`
+
+**System:**
+
+````
+Extraé de la nota TODOS los datos verificables: cifras, fechas, nombres de empresas con su acción, y afirmaciones factuales que un verificador podría contrastar contra una fuente.
+
+Devolvé SOLO un JSON:
+{"claims": [{"texto": "<el dato, en una frase>", "tipo": "cifra|fecha|evento|cita"}]}
+
+Reglas:
+- NO extraigas opiniones, adjetivos ni proyecciones sin cifra.
+- NO inventes: si no está en el texto, no va.
+- Una cifra usada como EJEMPLO o comparación general no es un hecho de la nota.
+- Respetá las negaciones: «no cerró» no es «cerró».
+````
+
+**User:**
+
+````
+Meridian Labs no cerró la ronda Serie A que había anunciado en junio. La compañía confirmó que las negociaciones con Aurora Ventures se suspendieron.
+````
+
+### formatos_de_cifra_mezclados
+
+- `prompt_sha`: **`41ec63e3e49d`**
+- US$, €, «millones», «M» y «mil millones» en la misma nota. Un extractor que normaliza mal convierte 1,8 M€ en 1,8 dólares.
+- verificador: `multi_string_check`
+
+**System:**
+
+````
+Extraé de la nota TODOS los datos verificables: cifras, fechas, nombres de empresas con su acción, y afirmaciones factuales que un verificador podría contrastar contra una fuente.
+
+Devolvé SOLO un JSON:
+{"claims": [{"texto": "<el dato, en una frase>", "tipo": "cifra|fecha|evento|cita"}]}
+
+Reglas:
+- NO extraigas opiniones, adjetivos ni proyecciones sin cifra.
+- NO inventes: si no está en el texto, no va.
+- Una cifra usada como EJEMPLO o comparación general no es un hecho de la nota.
+- Respetá las negaciones: «no cerró» no es «cerró».
+````
+
+**User:**
+
+````
+La operación combinó US$ 4,2 millones de capital nuevo con € 1,8 M de deuda convertible. El fondo administra 2 mil millones de dólares en activos.
+````
+
+### atribucion_es_parte_del_hecho
+
+- `prompt_sha`: **`6661d07687e6`**
+- «Según su CEO, la empresa abrirá oficinas» y «la empresa abrirá oficinas» son verificables contra cosas distintas: una es que lo dijo, la otra que pasará.
+- verificador: `multi_string_check`
+
+**System:**
+
+````
+Extraé de la nota TODOS los datos verificables: cifras, fechas, nombres de empresas con su acción, y afirmaciones factuales que un verificador podría contrastar contra una fuente.
+
+Devolvé SOLO un JSON:
+{"claims": [{"texto": "<el dato, en una frase>", "tipo": "cifra|fecha|evento|cita"}]}
+
+Reglas:
+- NO extraigas opiniones, adjetivos ni proyecciones sin cifra.
+- NO inventes: si no está en el texto, no va.
+- Una cifra usada como EJEMPLO o comparación general no es un hecho de la nota.
+- Respetá las negaciones: «no cerró» no es «cerró».
+````
+
+**User:**
+
+````
+Según su CEO, Marta Iribarne, Nordvia abrirá oficinas en Chile en 2027. La empresa cerró una ronda de US$ 4,2 millones en agosto de 2026.
 ````
 
 ## `hallucination` — 3 tests
@@ -9935,4 +10271,205 @@ Las companies que adoptan AI tempranamente tienen un competitive advantage signi
 
 Devuelve un JSON con:
 {"problemas": [{"tipo": "chino|spanglish|cliche|gramatical", "texto": "...", "correccion": "..."}], "score_idioma": 0-10, "veredicto": "publicable|necesita_edicion|inaceptable"}
+````
+
+## `verificar_claim` — 6 tests
+
+### claim_respaldado_literal
+
+- `prompt_sha`: **`fd3b2a5c8a1d`**
+- El dato está en la fuente, textual. Debe pasar.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Sos el verificador de datos de una redacción. Recibís un CLAIM y la FUENTE de la que supuestamente sale. Tu única tarea es decidir si la fuente respalda el claim.
+
+Respondé SOLO con un JSON:
+{"veredicto": "RESPALDADO" | "NO_RESPALDADO" | "CONTRADICE", "motivo": "<una frase>"}
+
+RESPALDADO: la fuente afirma el claim, o algo equivalente.
+NO_RESPALDADO: la fuente no dice nada sobre eso.
+CONTRADICE: la fuente dice algo incompatible con el claim.
+
+No uses conocimiento propio: solo lo que está en la fuente.
+````
+
+**User:**
+
+````
+CLAIM:
+Nordvia levantó una ronda semilla de 4,2 millones de dólares.
+
+FUENTE:
+TechFinance — 14 de agosto de 2026
+
+La startup uruguaya Nordvia anunció el cierre de una ronda semilla de US$ 4,2 millones liderada por Aurora Ventures, con participación de dos fondos regionales. La compañía, fundada en 2024, opera en logística de última milla y planea abrir oficinas en Chile durante el primer trimestre de 2027.
+````
+
+### claim_respaldado_parafraseado
+
+- `prompt_sha`: **`9e31c96eefc6`**
+- El dato está pero dicho con otras palabras y otra unidad. Un verificador que exige coincidencia literal lo bloquea, y eso es exactamente el sobre-bloqueo que tira redacciones pagadas.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Sos el verificador de datos de una redacción. Recibís un CLAIM y la FUENTE de la que supuestamente sale. Tu única tarea es decidir si la fuente respalda el claim.
+
+Respondé SOLO con un JSON:
+{"veredicto": "RESPALDADO" | "NO_RESPALDADO" | "CONTRADICE", "motivo": "<una frase>"}
+
+RESPALDADO: la fuente afirma el claim, o algo equivalente.
+NO_RESPALDADO: la fuente no dice nada sobre eso.
+CONTRADICE: la fuente dice algo incompatible con el claim.
+
+No uses conocimiento propio: solo lo que está en la fuente.
+````
+
+**User:**
+
+````
+CLAIM:
+Nordvia emplea a unas 50 personas.
+
+FUENTE:
+TechFinance — 14 de agosto de 2026
+
+Nordvia cerró una ronda semilla de US$ 4,2 millones. Su equipo, que hoy suma medio centenar de empleados entre Montevideo y Buenos Aires, se duplicará durante el próximo año según su CEO.
+````
+
+### claim_ausente_en_la_fuente
+
+- `prompt_sha`: **`68012b0e6702`**
+- La fuente habla del tema y NO dice eso. Es la alucinación típica: plausible, del mismo rubro, y no está.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Sos el verificador de datos de una redacción. Recibís un CLAIM y la FUENTE de la que supuestamente sale. Tu única tarea es decidir si la fuente respalda el claim.
+
+Respondé SOLO con un JSON:
+{"veredicto": "RESPALDADO" | "NO_RESPALDADO" | "CONTRADICE", "motivo": "<una frase>"}
+
+RESPALDADO: la fuente afirma el claim, o algo equivalente.
+NO_RESPALDADO: la fuente no dice nada sobre eso.
+CONTRADICE: la fuente dice algo incompatible con el claim.
+
+No uses conocimiento propio: solo lo que está en la fuente.
+````
+
+**User:**
+
+````
+CLAIM:
+Nordvia alcanzó la rentabilidad en 2026.
+
+FUENTE:
+TechFinance — 14 de agosto de 2026
+
+La startup uruguaya Nordvia anunció el cierre de una ronda semilla de US$ 4,2 millones liderada por Aurora Ventures. La compañía opera en logística de última milla y planea abrir oficinas en Chile.
+````
+
+### titular_contradice_cuerpo
+
+- `prompt_sha`: **`d2f7d6e055b6`**
+- EL CASO CARO Y REAL. El titular afirma una cosa y el cuerpo del mismo artículo dice otra. Un verificador que se queda en el titular aprueba una nota falsa que además cita fuente — parece verificada.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Sos el verificador de datos de una redacción. Recibís un CLAIM y la FUENTE de la que supuestamente sale. Tu única tarea es decidir si la fuente respalda el claim.
+
+Respondé SOLO con un JSON:
+{"veredicto": "RESPALDADO" | "NO_RESPALDADO" | "CONTRADICE", "motivo": "<una frase>"}
+
+RESPALDADO: la fuente afirma el claim, o algo equivalente.
+NO_RESPALDADO: la fuente no dice nada sobre eso.
+CONTRADICE: la fuente dice algo incompatible con el claim.
+
+No uses conocimiento propio: solo lo que está en la fuente.
+````
+
+**User:**
+
+````
+CLAIM:
+Meridian Labs fue adquirida por Grupo Antares.
+
+FUENTE:
+MERIDIAN LABS SERÍA ADQUIRIDA POR GRUPO ANTARES
+Diario Económico — 12 de agosto de 2026
+
+Según tres fuentes cercanas a la operación, Grupo Antares habría iniciado conversaciones para adquirir Meridian Labs. Consultada por este medio, la compañía **desmintió la operación**: «no existe ningún acuerdo de compra ni negociaciones en curso», señaló su directora de comunicaciones. Grupo Antares declinó comentar.
+````
+
+### cifra_alterada
+
+- `prompt_sha`: **`b2229ec6b48f`**
+- La fuente dice 4,2 millones y el claim dice 42. Un dígito. Es el error que más rápido destruye la credibilidad de un medio.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Sos el verificador de datos de una redacción. Recibís un CLAIM y la FUENTE de la que supuestamente sale. Tu única tarea es decidir si la fuente respalda el claim.
+
+Respondé SOLO con un JSON:
+{"veredicto": "RESPALDADO" | "NO_RESPALDADO" | "CONTRADICE", "motivo": "<una frase>"}
+
+RESPALDADO: la fuente afirma el claim, o algo equivalente.
+NO_RESPALDADO: la fuente no dice nada sobre eso.
+CONTRADICE: la fuente dice algo incompatible con el claim.
+
+No uses conocimiento propio: solo lo que está en la fuente.
+````
+
+**User:**
+
+````
+CLAIM:
+Nordvia levantó una ronda semilla de 42 millones de dólares.
+
+FUENTE:
+TechFinance — 14 de agosto de 2026
+
+La startup uruguaya Nordvia anunció el cierre de una ronda semilla de US$ 4,2 millones liderada por Aurora Ventures.
+````
+
+### fuente_de_otro_tema
+
+- `prompt_sha`: **`70203339abd3`**
+- La fuente es real y no tiene nada que ver con el claim. Pasa cuando el pipeline asocia mal una URL a una nota.
+- verificador: `json_valid`
+
+**System:**
+
+````
+Sos el verificador de datos de una redacción. Recibís un CLAIM y la FUENTE de la que supuestamente sale. Tu única tarea es decidir si la fuente respalda el claim.
+
+Respondé SOLO con un JSON:
+{"veredicto": "RESPALDADO" | "NO_RESPALDADO" | "CONTRADICE", "motivo": "<una frase>"}
+
+RESPALDADO: la fuente afirma el claim, o algo equivalente.
+NO_RESPALDADO: la fuente no dice nada sobre eso.
+CONTRADICE: la fuente dice algo incompatible con el claim.
+
+No uses conocimiento propio: solo lo que está en la fuente.
+````
+
+**User:**
+
+````
+CLAIM:
+Nordvia levantó una ronda semilla de 4,2 millones de dólares.
+
+FUENTE:
+TechFinance — 9 de agosto de 2026
+
+El Banco Central de Uruguay mantuvo la tasa de política monetaria en 8,5% en su reunión de agosto, en línea con lo esperado por el mercado.
 ````

@@ -224,6 +224,41 @@ SUITES = {
         "decide": "clasificar y responder un ticket",
     },
 
+    # ── Verificación de datos (17-ago-2026) ───────────────────────────────────
+    #
+    # Las tres nacen de la misma pregunta: ¿este modelo sirve para un flujo que publica
+    # sin humano revisando? Su respuesta es objetiva —el dato está en la fuente o no
+    # está— así que no dependen del juez para lo esencial.
+    #
+    # Entran al pilar Contenido y NO promedian todavía: con 1 modelo medido, un promedio
+    # mediría el sesgo de quién se midió primero, no la capacidad. Es la misma regla que
+    # ya se aplica a `integridad_idioma`. Pasan a `en_promedio: True` cuando tengan
+    # cobertura (~80% de los rankeados).
+    "verificar_claim": {
+        "pilar": "Contenido", "en_promedio": False,
+        "menu": "Verificar un dato contra su fuente",
+        "decide": "decidir si una fuente respalda una afirmación",
+        "nota": "suite nueva, cobertura insuficiente para promediar. Mide las DOS "
+                "direcciones del error: dejar pasar lo inventado y bloquear lo que sí "
+                "estaba. Medir una sola engaña.",
+    },
+    "extraer_claims": {
+        "pilar": "Contenido", "en_promedio": False,
+        "menu": "Extraer los datos verificables de un texto",
+        "decide": "sacar TODOS los datos, no solo los fáciles",
+        "nota": "suite nueva, cobertura insuficiente. Mide COBERTURA además de "
+                "precisión: un extractor que saca 2 de 8 datos correctos tiene 100% de "
+                "precisión y deja el 75% sin verificar.",
+    },
+    "dominio_entidad": {
+        "pilar": "Contenido", "en_promedio": False,
+        "menu": "Encontrar el sitio oficial de una empresa",
+        "decide": "elegir el dominio real, o abstenerse",
+        "nota": "suite nueva, cobertura insuficiente. Incluye casos donde la respuesta "
+                "correcta es NULL: premia abstenerse, que es lo que separa a un modelo "
+                "útil de uno que siempre contesta algo.",
+    },
+
     # ── Dimensiones que se reportan APARTE (decisión vigente, no un olvido) ────
     "niah_es": {
         "pilar": None, "en_promedio": False,
