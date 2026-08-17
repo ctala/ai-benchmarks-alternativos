@@ -83,6 +83,30 @@ THINKING_MODELS = (
                                             # después de pagar un examen entero en blanco. Nemotron 3.5
                                             # Lightning hace lo mismo (209 reasoning tokens) y ya lo cubre
                                             # el patrón "nemotron" de arriba.
+    # ── 17-ago-2026: los cuatro que truncaban, y que ningún detector veía ───────
+    # Este modo de falla es DISTINTO al de arriba, y por eso sobrevivió meses. Los
+    # anteriores devuelven content="" — ruidoso, contable, con un guardrail que lo
+    # caza (E1 vacíos). Éstos devuelven una respuesta completa en forma, buena, y
+    # cortada a la mitad: `finish_reason="length"` con out_tokens clavado en 2048.
+    # Puntúa, promedia y se publica. No falta nada: SOBRA un techo.
+    #
+    # Medido sobre los runs en disco el día que se agregaron:
+    #
+    #     Claude Opus 5 Fast   33% de 167 runs cortados   p90 out = 2048
+    #     Claude Opus 5        31% de 173                 p90 out = 2048
+    #     Gemini 3.6 Flash     30% de 174
+    #     Claude Sonnet 5      15% de 222
+    #
+    # La misma familia por suscripción (provider `claude_code`, que no pasa por
+    # acá) tiene p90 = 10.231 y máximo 61.741. La brecha es de 0,81 de calidad en
+    # Opus 5 (7,68 contra 8,49) y 0,82 en Sonnet 5, en una población que entera
+    # abarca 1,4 puntos: **Opus 5 estaba publicado #79 de 83 por un techo nuestro.**
+    #
+    # Lo destapó Cristian preguntando por qué Opus 5 aparecía tan abajo. El
+    # guardrail que faltaba es `check_truncamiento.py`, agregado el mismo día.
+    "claude-opus-5", "claude-sonnet-5",     # Claude 5 (thinking por default vía API)
+    "gemini-3.6-flash",                     # Flash 3.6+ ya razona; el patrón
+                                            # `gemini-3-pro` de arriba no lo cubría.
 )
 
 # Modelos que sólo aceptan temperature=1.0 (rechazan otros con error 400).

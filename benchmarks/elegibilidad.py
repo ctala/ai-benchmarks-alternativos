@@ -67,6 +67,8 @@ MOTIVOS = {
     "sin_evidencia_agentica": "nunca se lo probó dentro de un agente; recomendarlo sería adivinar",
     "esfuerzo": "es la misma base razonando más, al mismo precio: no es otro producto",
     "self_hosted": "corre en hardware propio: su velocidad y costo no comparan con una API",
+    "ruta_suscripcion": ("es el mismo modelo por una suscripción personal: el precio y el "
+                         "cupo no son los que vas a pagar tú"),
 }
 
 
@@ -88,6 +90,21 @@ def evaluar(m: dict, umbral_ranking: int) -> dict:
             no(c, "retirado")
     if m.get("provider_variant"):
         no("ranking", "variante_proveedor")
+
+    # ── Las `-sub` salen del catálogo público (17-ago-2026) ────────────────
+    # Cristian: *"saca los modelos de suscripción de la lista para no seguir
+    # mareándonos"*. Cada Claude aparecía dos veces —`claude-opus-5` por API y
+    # `claude-opus-5-sub` por la suscripción de Claude Code— con nombres casi
+    # iguales y números distintos, y el lector no tiene cómo saber cuál le aplica.
+    # El que le aplica es SIEMPRE el de la API: la suscripción tiene un cupo
+    # personal y un precio que no puede reproducir.
+    #
+    # Sus runs NO se borran: siguen en los datos y son los que destaparon el
+    # truncamiento de la ruta API (0,81 de brecha en Opus 5). Esa comparación se
+    # sigue pudiendo hacer desde el JSON; lo que se saca es la fila duplicada de
+    # las páginas.
+    if m.get("provider") == "claude_code":
+        no("catalogo", "ruta_suscripcion")
     if m.get("self_hosted"):
         no("ranking", "self_hosted")
 

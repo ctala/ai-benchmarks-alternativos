@@ -93,6 +93,66 @@
     mask-image: linear-gradient(to top, #000 0%, transparent 75%);
   }
   .hero > * { position: relative; z-index: 1; }
+
+  /* ── Tira de KPIs: lo que se responde sin bajar ──────────────────────────
+     Una tabla de 15 filas trata «puesto #45» y «ventana de contexto» como si
+     pesaran lo mismo. No pesan igual: cuatro números deciden si el modelo
+     entra a la lista corta, y el resto es para cuando ya entró. */
+  .kpi-strip { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem;
+               margin: 1.75rem 0 1.25rem; }
+  @media (min-width: 720px) { .kpi-strip { grid-template-columns: repeat(4, 1fr); } }
+  .kpi { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+         padding: 1rem 1.1rem; position: relative; overflow: hidden; }
+  .kpi::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+                 background: var(--green); opacity: .8; }
+  .kpi.is-cyan::before { background: var(--cyan); }
+  .kpi.is-magenta::before { background: var(--magenta); }
+  .kpi .k-label { font-family: 'JetBrains Mono', monospace; font-size: .66rem;
+                  letter-spacing: .09em; text-transform: uppercase; color: var(--gray);
+                  display: block; margin-bottom: .4rem; }
+  .kpi .k-value { font-family: 'JetBrains Mono', monospace; font-size: 1.7rem;
+                  font-weight: 700; color: var(--white); line-height: 1.05; display: block; }
+  .kpi .k-value .k-unit { font-size: .9rem; color: var(--gray); font-weight: 400; }
+  .kpi .k-sub { font-size: .72rem; color: var(--gray); display: block; margin-top: .35rem; }
+
+  /* ── Badges: propiedades binarias, que en una tabla ocupan una fila cada una */
+  .badges { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 2rem; }
+  .badge { font-family: 'JetBrains Mono', monospace; font-size: .68rem; letter-spacing: .04em;
+           padding: .32rem .65rem; border-radius: 999px; border: 1px solid var(--border);
+           color: var(--gray-dark); background: rgba(255,255,255,.02); }
+  .badge.on { color: var(--green); border-color: rgba(57,255,20,.34); background: rgba(57,255,20,.07); }
+  .badge.info { color: var(--cyan); border-color: rgba(0,212,255,.30); background: rgba(0,212,255,.06); }
+  .badge.warn { color: var(--magenta); border-color: rgba(255,0,110,.34); background: rgba(255,0,110,.07); }
+
+  /* ── Perfil por pilar: una nota suelta no dice nada sin la población al lado.
+     La marca vertical es la MEDIANA de los rankeados en ese pilar, así que la
+     barra se lee como «arriba o abajo del resto», no como un 0-10 abstracto. */
+  .perfil { margin: 0 0 2.25rem; }
+  .bar-row { display: grid; grid-template-columns: 1fr auto; gap: .25rem .9rem;
+             margin-bottom: 1.15rem; align-items: center; }
+  @media (min-width: 720px) { .bar-row { grid-template-columns: 10.5rem 1fr auto; } }
+  .bar-row .b-label { font-family: 'JetBrains Mono', monospace; font-size: .78rem;
+                      color: var(--white); }
+  .bar-track { position: relative; height: 10px; background: rgba(255,255,255,.06);
+               border-radius: 999px; grid-column: 1 / -1; }
+  @media (min-width: 720px) { .bar-track { grid-column: auto; } }
+  .bar-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px;
+              background: linear-gradient(90deg, var(--cyan), var(--green)); }
+  .bar-fill.bajo { background: linear-gradient(90deg, #4a4a5e, var(--magenta)); }
+  .bar-median { position: absolute; top: -5px; bottom: -5px; width: 2px;
+                background: var(--gray); opacity: .7; }
+  .bar-row .b-val { font-family: 'JetBrains Mono', monospace; font-size: .82rem;
+                    font-weight: 700; color: var(--green); white-space: nowrap; }
+  .bar-row .b-val.bajo { color: var(--magenta); }
+  .bar-row .b-val .delta { color: var(--gray); font-weight: 400; font-size: .72rem; }
+  .perfil .leyenda { font-size: .75rem; color: var(--gray); margin-top: -.35rem; }
+
+  /* ── Tabla agrupada: el mismo dato, pero sabiendo de qué habla cada bloque */
+  .results-table tr.grupo th { font-family: 'JetBrains Mono', monospace; font-size: .68rem;
+        letter-spacing: .11em; text-transform: uppercase; color: var(--cyan);
+        padding-top: 1.35rem; background: transparent; }
+  .results-table td .riesgo { color: var(--magenta); font-weight: 700; }
+  .results-table td .bien { color: var(--green); font-weight: 700; }
 </style>
 </head>
 <body>
@@ -148,6 +208,45 @@
     Última actualización: 2026-08-17 ·
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos</a></p>
   </section>
+  <div class="kpi-strip">
+    <div class="kpi "><span class="k-label">Puesto global</span><span class="k-value">#26<span class="k-unit"> de 83</span></span><span class="k-sub">mejor que el 70% de los rankeados</span></div>
+    <div class="kpi "><span class="k-label">Índice de calidad</span><span class="k-value">8.04<span class="k-unit">/10</span></span><span class="k-sub">45 modelos por encima</span></div>
+    <div class="kpi is-cyan"><span class="k-label">Por 1.000 llamadas</span><span class="k-value">$2.33</span><span class="k-sub">más barato que 43 de 83</span></div>
+    <div class="kpi is-cyan"><span class="k-label">Velocidad</span><span class="k-value">133<span class="k-unit"> tok/s</span></span><span class="k-sub">4.2 s de espera media</span></div>
+  </div>
+  <div class="badges">
+    <span class="badge ">⬡ Propietario</span>
+    <span class="badge on">⚒ Tool calling</span>
+    <span class="badge info">◨ Multimodal</span>
+    <span class="badge info">⌸ 1048K de contexto</span>
+    <span class="badge warn">⛨ Prompt injection 1.0/10</span>
+  </div>
+  <section class="perfil">
+    <h2>Dónde está parado, pilar por pilar</h2>
+    <p class="leyenda">Cada barra va de peor a mejor del ranking, no de 0 a 10 —
+    la población entera cabe en poco más de un punto y en escala absoluta todas
+    se verían iguales. La marca vertical es la <strong>mediana</strong>.</p>
+    <div class="bar-row">
+      <span class="b-label">Coding</span>
+      <span class="bar-track"><span class="bar-fill" style="width:73.8%"></span><span class="bar-median" style="left:69.2%"></span></span>
+      <span class="b-val">9.14 <span class="delta">(+0.12 vs mediana)</span></span>
+    </div>
+    <div class="bar-row">
+      <span class="b-label">Contenido</span>
+      <span class="bar-track"><span class="bar-fill" style="width:72.6%"></span><span class="bar-median" style="left:63.9%"></span></span>
+      <span class="b-val">8.53 <span class="delta">(+0.18 vs mediana)</span></span>
+    </div>
+    <div class="bar-row">
+      <span class="b-label">Razonamiento</span>
+      <span class="bar-track"><span class="bar-fill" style="width:81.3%"></span><span class="bar-median" style="left:79.4%"></span></span>
+      <span class="b-val">8.04 <span class="delta">(+0.06 vs mediana)</span></span>
+    </div>
+    <div class="bar-row">
+      <span class="b-label">Agentes</span>
+      <span class="bar-track"><span class="bar-fill bajo" style="width:32.5%"></span><span class="bar-median" style="left:52.5%"></span></span>
+      <span class="b-val bajo">7.06 <span class="delta">(-0.49 vs mediana)</span></span>
+    </div>
+  </section>
   <section class="results">
     <div class="results-header">
       <h2>La ficha: Gemini 3.1 Flash Lite en números</h2>
@@ -156,23 +255,41 @@
     </div>
     <div class="table-scroll"><table class="results-table">
       <tbody>
-        <tr><th scope="row">Puesto en el ranking global</th><td>#26 de 83</td></tr>
-        <tr><th scope="row">Índice de calidad (0-10)</th><td>8.04</td></tr>
+        <tr class="grupo"><th scope="col" colspan="2">Calidad medida</th></tr>
         <tr><th scope="row">Runs que puntúan</th><td>159</td></tr>
-        <tr><th scope="row">— Calidad en Coding</th><td>9.14</td></tr>
-        <tr><th scope="row">— Calidad en Contenido</th><td>8.53</td></tr>
-        <tr><th scope="row">— Calidad en Razonamiento</th><td>8.04</td></tr>
-        <tr><th scope="row">— Calidad en Agentes</th><td>7.06</td></tr>
         <tr><th scope="row">Tool calling</th><td>7.69</td></tr>
-        <tr><th scope="row">Precio por 1.000 llamadas</th><td>$2.33</td></tr>
-        <tr><th scope="row">Precio por millón (in / out)</th><td>$0.250 / $1.50</td></tr>
-        <tr><th scope="row">Velocidad</th><td>133 tok/s</td></tr>
+        <tr><th scope="row">Resistencia a prompt injection</th><td><span class="riesgo">1.00</span></td></tr>
+        <tr class="grupo"><th scope="col" colspan="2">Precio</th></tr>
+        <tr><th scope="row">Precio por millón · entrada</th><td>$0.250</td></tr>
+        <tr><th scope="row">Precio por millón · salida</th><td>$1.50</td></tr>
+        <tr class="grupo"><th scope="col" colspan="2">Rendimiento y límites</th></tr>
         <tr><th scope="row">Latencia total media</th><td>4.2 s</td></tr>
         <tr><th scope="row">Ventana de contexto</th><td>1.048.576</td></tr>
         <tr><th scope="row">Contexto útil medido</th><td>256.000</td></tr>
-        <tr><th scope="row">Resistencia a prompt injection</th><td>1.00</td></tr>
       </tbody>
     </table></div>
+  </section>
+  <section class="results">
+    <div class="results-header">
+      <h2>Contra los mejores del ranking, en plata</h2>
+      <p class="meta">La pregunta útil no es cuánto le falta a Gemini 3.1 Flash Lite para ser
+      el mejor: es <strong>cuánta calidad extra estás comprando, y a cuántas veces el
+      precio</strong>. Eso es lo que decide si conviene.</p>
+    </div>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">$/1.000 llamadas</th></tr></thead>
+      <tbody>
+        <tr><td><strong style="color:var(--green);font-weight:700">Gemini 3.1 Flash Lite</strong><br><span class="meta">Este modelo</span></td><td>8.04</td><td>$2.33</td></tr>
+        <tr><td><strong>Tencent Hy3</strong><br><span class="meta">El de más calidad medida</span></td><td>8.57</td><td>$0.832</td></tr>
+        <tr><td><strong>Claude Opus 4.8</strong><br><span class="meta">El frontier más caro del top 10</span></td><td>8.45</td><td>$39.00</td></tr>
+      </tbody>
+    </table></div>
+    <ul>
+      <li><strong>Tencent Hy3</strong> (el techo medido) rinde 7% más <em>y además</em> es más barato: $0.832 contra $2.33. Acá no hay que elegir.</li>
+      <li><strong>Claude Opus 4.8</strong> (el caro que todos conocen) rinde <strong>5% más</strong> (8.45 contra 8.04) y cuesta <strong>17 veces más</strong> por llamada.</li>
+    </ul>
+    <p class="meta">Los tres salen de las mismas 29 tareas, el mismo juez y los mismos
+    límites. Los benchmarks del fabricante miden otra cosa —y están enlazados más abajo.</p>
   </section>
   <section>
     <h2>Qué hace bien y qué no</h2>
