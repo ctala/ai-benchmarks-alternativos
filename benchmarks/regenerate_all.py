@@ -279,6 +279,16 @@ def main() -> int:
         # recomienda algo que no se puede usar. Corre en modo `--duro`: solo bloquea por
         # severidad ALTA, porque los medios son deuda editorial conocida y bloquear por
         # ellos convertiría el pipeline en algo que se saltea.
+        # ¿Cada regla está aplicada DONDE CORRESPONDE, o solo donde se hizo? Es la clase
+        # de fallo que más se repitió: la segunda tabla en 2 de 16 páginas, W6 cubriendo 2
+        # de 8 promesas, el filtro de no-aptos en la página y no en la calculadora.
+        # Ninguna rompe nada: simplemente no tienen lo bueno.
+        print()
+        rc = run_script("check_cobertura.py", [], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ Una superficie quedó atrás de una regla que ya existe.")
+            return 1
+
         print()
         rc = run_script("auditar_paginas.py", ["--duro"], dry_run=False, allow_fail=True)
         if rc != 0:

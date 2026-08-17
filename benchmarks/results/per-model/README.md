@@ -14,8 +14,8 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 6 | [Llama 3.1 8B Instant (Groq)](llama-3_1-8b-instant.md) | 7.93 | 7.38 | 367 | 87/181 | [ver detalles](llama-3_1-8b-instant.md) |
 | 7 | [Llama 3.3 70B (Groq)](llama-3_3-70b-versatile.md) | 7.90 | 7.73 | 239 | 87/171 | [ver detalles](llama-3_3-70b-versatile.md) |
 | 8 | [Llama 4 Scout 17B](meta-llama_llama-4-scout.md) | 7.87 | 7.83 | 142 | 138/138 | [ver detalles](meta-llama_llama-4-scout.md) |
-| 9 | [Qwen 3.7 Flash](qwen_qwen3_7-flash.md) | 7.87 | 8.13 | 107 | 307/309 | [ver detalles](qwen_qwen3_7-flash.md) |
-| 10 | [MiMo-V2-Flash](xiaomi_mimo-v2-flash.md) | 7.86 | 8.31 | 53 | 35/45 | [ver detalles](xiaomi_mimo-v2-flash.md) |
+| 9 | [MiMo-V2-Flash](xiaomi_mimo-v2-flash.md) | 7.86 | 8.31 | 53 | 35/45 | [ver detalles](xiaomi_mimo-v2-flash.md) |
+| 10 | [Qwen 3.7 Flash](qwen_qwen3_7-flash.md) | 7.86 | 8.13 | 107 | 296/297 | [ver detalles](qwen_qwen3_7-flash.md) |
 | 11 | [MiMo V2.5 (Xiaomi)](mimo-v2_5.md) | 7.83 | 7.99 | 78 | 83/83 | [ver detalles](mimo-v2_5.md) |
 | 12 | [Gemma 4 26B MoE (3.8B activos)](google_gemma-4-26b-a4b-it.md) | 7.82 | 8.25 | 50 | 145/145 | [ver detalles](google_gemma-4-26b-a4b-it.md) |
 | 13 | [Claude Haiku 4.5 (suscripción)](claude-haiku-4-5.md) | 7.79 | 8.60 | 85 | 151/152 | [ver detalles](claude-haiku-4-5.md) |

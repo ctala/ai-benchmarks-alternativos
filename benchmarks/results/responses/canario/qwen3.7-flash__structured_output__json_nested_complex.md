@@ -1,9 +1,9 @@
 # Qwen 3.7 Flash — structured_output/json_nested_complex
 
 - model_id: `qwen/qwen3.7-flash`
-- success: True  | final: 9.16 | quality: 10.0
-- latency_total: 24.06s | tokens_per_second: 159.5
-- input_tokens: 242 | output_tokens: 3837
+- success: True  | final: 9.15 | quality: 10.0
+- latency_total: 26.292s | tokens_per_second: 151.4
+- input_tokens: 242 | output_tokens: 3980
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -41,48 +41,70 @@ Llena con datos realistas. El equipo tiene 1 disenador, 2 developers, 1 QA. Pres
   "start_date": "2026-05-01",
   "end_date": "2026-06-30",
   "team": [
-    {"name": "Ana López", "role": "Diseñador UX/UI", "allocation_pct": 100},
-    {"name": "Carlos Ruiz", "role": "Desarrollador Frontend", "allocation_pct": 100},
-    {"name": "Marta Gómez", "role": "Desarrollador Backend", "allocation_pct": 100},
-    {"name": "Luis Torres", "role": "QA Engineer", "allocation_pct": 75}
+    {"name": "Ana García", "role": "UX/UI Designer", "allocation_pct": 100},
+    {"name": "Carlos López", "role": "Frontend Developer", "allocation_pct": 100},
+    {"name": "Miguel Torres", "role": "Backend Developer", "allocation_pct": 80},
+    {"name": "Laura Ruiz", "role": "QA Engineer", "allocation_pct": 50}
   ],
   "phases": [
     {
-      "name": "Descubrimiento y Diseño",
+      "name": "Descubrimiento y Planificación",
       "start": "2026-05-01",
       "end": "2026-05-15",
       "tasks": [
-        {"title": "Wireframes y prototipos de alta fidelidad", "assignee": "Ana López", "hours": 40, "depends_on": null},
-        {"title": "Revisión y aprobación de mockups", "assignee": "Ana López", "hours": 16, "depends_on": "Wireframes y prototipos de alta fidelidad"}
+        {"title": "Kickoff y definición de alcance", "assignee": "Ana García", "hours": 16, "depends_on": null},
+        {"title": "Auditoría de contenido actual", "assignee": "Ana García", "hours": 24, "depends_on": null},
+        {"title": "Creación de mapa de usuarios", "assignee": "Carlos López", "hours": 20, "depends_on": null}
+      ]
+    },
+    {
+      "name": "Diseño UI/UX",
+      "start": "2026-05-16",
+      "end": "2026-06-05",
+      "tasks": [
+        {"title": "Wireframes de baja fidelidad", "assignee": "Ana García", "hours": 32, "depends_on": "Descubrimiento y Planificación"},
+        {"title": "Diseño visual y componentes", "assignee": "Ana García", "hours": 48, "depends_on": "Wireframes de baja fidelidad"},
+        {"title": "Prototipo interactivo", "assignee": "Ana García", "hours": 24, "depends_on": "Diseño visual y componentes"}
       ]
     },
     {
       "name": "Desarrollo",
-      "start": "2026-05-16",
-      "end": "2026-06-15",
+      "start": "2026-06-01",
+      "end": "2026-06-20",
       "tasks": [
-        {"title": "Maquetación frontend responsive", "assignee": "Carlos Ruiz", "hours": 80, "depends_on": "Revisión y aprobación de mockups"},
-        {"title": "Desarrollo backend e integración API", "assignee": "Marta Gómez", "hours": 90, "depends_on": "Revisión y aprobación de mockups"},
-        {"title": "Optimización y despliegue staging", "assignee": "Carlos Ruiz", "hours": 24, "depends_on": "Desarrollo backend e integración API"}
+        {"title": "Maquetación responsive", "assignee": "Carlos López", "hours": 64, "depends_on": "Prototipo interactivo"},
+        {"title": "Desarrollo API y backend", "assignee": "Miguel Torres", "hours": 72, "depends_on": "Descubrimiento y Planificación"},
+        {"title": "Integración CMS", "assignee": "Carlos López", "hours": 40, "depends_on": "Maquetación responsive"},
+        {"title": "Optimización de rendimiento", "assignee": "Miguel Torres", "hours": 32, "depends_on": "Desarrollo API y backend"}
       ]
     },
     {
-      "name": "Testing y Lanzamiento",
-      "start": "2026-06-16",
+      "name": "Testing y QA",
+      "start": "2026-06-15",
+      "end": "2026-06-25",
+      "tasks": [
+        {"title": "Pruebas funcionales", "assignee": "Laura Ruiz", "hours": 32, "depends_on": "Maquetación responsive"},
+        {"title": "Testing cross-browser/dispositivos", "assignee": "Laura Ruiz", "hours": 24, "depends_on": "Pruebas funcionales"},
+        {"title": "Corrección de bugs críticos", "assignee": "Carlos López", "hours": 16, "depends_on": "Testing cross-browser/dispositivos"}
+      ]
+    },
+    {
+      "name": "Lanzamiento",
+      "start": "2026-06-26",
       "end": "2026-06-30",
       "tasks": [
-        {"title": "Pruebas funcionales y compatibilidad", "assignee": "Luis Torres", "hours": 60, "depends_on": "Optimización y despliegue staging"},
-        {"title": "Corrección de incidencias críticas", "assignee": "Marta Gómez", "hours": 30, "depends_on": "Pruebas funcionales y compatibilidad"},
-        {"title": "Puesta en producción y monitoreo inicial", "assignee": "Luis Torres", "hours": 10, "depends_on": "Corrección de incidencias críticas"}
+        {"title": "Despliegue en producción", "assignee": "Miguel Torres", "hours": 12, "depends_on": "Testing y QA"},
+        {"title": "Capacitación al equipo", "assignee": "Ana García", "hours": 8, "depends_on": "Despliegue en producción"},
+        {"title": "Monitoreo post-lanzamiento", "assignee": "Laura Ruiz", "hours": 16, "depends_on": "Despliegue en producción"}
       ]
     }
   ],
   "budget": {
     "total": 25000,
     "breakdown": {
-      "design": 5000,
-      "development": 15000,
-      "testing": 5000
+      "design": 6500,
+      "development": 15500,
+      "testing": 3000
     }
   }
 }

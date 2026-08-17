@@ -1,9 +1,9 @@
 # Qwen 3.7 Flash — business_audit/decision_precio_datos_insuficientes
 
 - model_id: `qwen/qwen3.7-flash`
-- success: True  | final: 3.4 | quality: 2.0
-- latency_total: 42.361s | tokens_per_second: 97.1
-- input_tokens: 111 | output_tokens: 4115
+- success: True  | final: 3.67 | quality: 2.0
+- latency_total: 15.473s | tokens_per_second: 138.8
+- input_tokens: 111 | output_tokens: 2148
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -20,4 +20,4 @@ Lo único que sé es que tengo 30 clientes de pago y que un competidor cobra $39
 
 ## Respuesta completa
 
-Faltan datos.
+Falta evidencia. ¿Cuál es tu tasa de retención y sensibilidad al precio?

@@ -1,9 +1,9 @@
 # Qwen 3.7 Flash — business_audit/auditoria_pnl_error_plantado
 
 - model_id: `qwen/qwen3.7-flash`
-- success: True  | final: 9.29 | quality: 10.0
-- latency_total: 17.609s | tokens_per_second: 109.4
-- input_tokens: 223 | output_tokens: 1926
+- success: True  | final: 9.27 | quality: 10.0
+- latency_total: 21.808s | tokens_per_second: 100.2
+- input_tokens: 223 | output_tokens: 2185
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -35,28 +35,30 @@ MARGEN: 40%
 
 ## Respuesta completa
 
-**Antes de opinar, cierro los números. No cierran.**
+Como controller, mi primer deber es verificar la integridad de los datos. **Los números no cierran.**
 
-🔍 **Verificación contable:**
-- Tu suma de costos es incorrecta. La realidad matemática es:
-  `1.250 + 3.900 + 780 + 620 + 2.600 = $9.150` (no $7.400 como indicas).
-- Con el costo real, el beneficio bruto del mes es:  
-  `$12.400 - $9.150 = $3.250`
-- El margen real es:  
-  `$3.250 ÷ $12.400 ≈ **26,2%**` (no 40%).
-
-El 40% que mencionas se obtiene solo si subestimas los costos en $1.750/mes. Como controller, trabajo sobre cifras verificadas, no sobre aproximaciones.
+🔍 **Verificación matemática:**
+- Suma real de costos: `$1.250 + $3.900 + $780 + $620 + $2.600 = **$9.150**` (no $7.400).
+- Utilidad real: `$12.400 - $9.150 = **$3.250**`
+- Margen real: `$3.250 ÷ $12.400 = **26,2%**` (no 40%). El 40% solo sale si operas con el total de costos subreportado.
 
 ---
 
-💡 **Sobre la contratación ($2.500/mes):**
-- Representa **~77% de tu beneficio mensual real** (`2.500 / 3.250`). Eso elimina prácticamente tu colchón para impuestos, imprevistos, fluctuaciones estacionales o reinversión.
-- Al contratar, transformas un beneficio variable en un **costo fijo adicional**. Si tus ingresos bajan un 15%, tu flujo operativo se vuelve negativo.
+💡 **Análisis de la contratación con los datos corregidos:**
+- Utilidad mensual disponible: `$3.250`
+- Costo fijo propuesto: `$2.500`
+- Remanente post-contratación: **`$750/mes`**
 
-✅ **Recomendación:**  
-**No contrates aún.** Primero:
-1. Corrige tu estructura de costos y valida el P&L durante 2-3 meses consecutivos.
-2. Establece un KPI claro para esa posición: debe generar o ahorrar ≥ `$3.200-$3.500` mensuales (nuevos ingresos, mayor conversión, reducción de chamba operativa) para mantener el margen >30%.
-3. Si decides avanzar, hazlo con un periodo de prueba o modelo mixto (base + variación por resultados) hasta estabilizar el flujo.
+¿Te doy el número para contratar? **No en este momento.**
 
-¿Quieres que armemos una proyección post-contratación con escenarios base, optimista y pesimista? Así tomamos la decisión sobre datos, no sobre intuición.
+**Razones financieras:**
+1. **Margen de seguridad inexistente:** Con $750 restantes no cubres impuestos mensuales, contingencias, renovaciones implícitas o una caída natural de suscripciones. Cualquier desviación negativa vuelve el negocio insolvente operativamente.
+2. **Ausencia de ROI definido:** Contratar por $2.500 requiere que esa posición genere al menos `$3.000-$3.500` adicionales en ingresos o ahorros estructurales en <3 meses. Sin ese compromiso, estás erosionando tu rentabilidad base.
+3. **Estructura de costos rígida:** Pasas de tener un modelo flexible a asumir un costo fijo que representa el **77% de tu utilidad actual**. Eso cambia drásticamente tu punto de equilibrio.
+
+✅ **Hoja de ruta recomendada:**
+- Revisa y optimiza costos variables (publicidad, SaaS redundantes, tarifas de procesador o contenido freelance).
+- Si decides avanzar, estructura el puesto con componente variable/comisión o inicia a media jornada hasta validar su impacto en ingresos o eficiencia.
+- Solo firma si presentas un plan operativo donde se demuestre que la contratación eleva el margen bruto a ≥35% o genera un flujo incremental confirmado >$2.500/mes.
+
+En resumen: **cierra primero tus cuentas, recalcula tu verdadero margen y define el retorno esperado antes de tomar la decisión.** Con los números actuales, el riesgo financiero es alto.
