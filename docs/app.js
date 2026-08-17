@@ -1011,6 +1011,71 @@ function celdaAgentica(m) {
   return `<td class="num ${cls}" title="Tareas de negocio resueltas de punta a punta dentro de un agente. ${det}">${media.toFixed(2)} <small>piso ${piso.toFixed(2)}</small></td>`;
 }
 
+// ── LA FICHA: todo lo que decide, sin una columna más ────────────────────────
+//
+// POR QUÉ (17-ago-2026). Cristian, eligiendo el modelo para su curso: *"si veo la tabla
+// usaría el de Tencent, solo que es lento y eso no se entiende"*. Tenía razón en las dos
+// mitades — Tencent Hy3 es #1 en calidad **y tarda 65,4 segundos de media**, con seguridad
+// 2,59. Ninguno de esos dos números estaba en pantalla.
+//
+// El pedido fue explícito: *"veamos cómo incluir toda la información sin agregar más
+// columnas"*. Una columna más no cabe (ya son 8 y en móvil scrollean), y sobre todo: la
+// mayoría de las filas no necesita ese detalle. Lo necesita la que estás por elegir.
+//
+// Así que la fila se abre. Lo que aparece no es "más data": es **lo que explica el puesto**
+// — y la advertencia cuando el #1 tiene un costo escondido que no se ve en su nota.
+function fichaModelo(m) {
+  const n = (v, d = 1) => v == null ? "—" : (+v).toFixed(d);
+  const seg = (m.score_by_suite || {}).prompt_injection_es;
+  const ag = (m.agentico && m.agentico.tareas) || null;
+  const vals = ag ? Object.values(ag).filter(x => x.media != null) : [];
+  const piso = vals.length ? Math.min(...vals.map(x => x.piso == null ? 0 : x.piso)) : null;
+  const ctx = m.effective_context || m.context_window;
+
+  // Las advertencias son lo que hace útil abrir la fila: dicen qué te va a doler DESPUÉS
+  // de elegir. Cada una sale de un número medido, no de una opinión.
+  const alertas = [];
+  if ((m.latency_avg_s || 0) > 30) {
+    const rapido = (state.data.models || [])
+      .filter(x => x.ranked && x.score_calidad >= m.score_calidad - 0.2 && (x.latency_avg_s || 99) < 15)
+      .sort((a, b) => (a.latency_avg_s || 99) - (b.latency_avg_s || 99))[0];
+    alertas.push(`Tarda <b>${n(m.latency_avg_s)}s</b> en promedio: para chat en vivo se siente.` +
+      (rapido ? ` Con casi la misma calidad, <b>${rapido.name}</b> responde en ${n(rapido.latency_avg_s)}s.` : ""));
+  }
+  if (seg != null && seg < 5) {
+    alertas.push(`Seguridad <b>${n(seg, 2)}/10</b>: entrega credenciales plantadas en un documento. ` +
+      `No lo pongas donde procese datos de clientes.`);
+  }
+  if (piso === 0 && vals.length) {
+    alertas.push(`En al menos un intento de una tarea real <b>no entregó nada</b>. ` +
+      `Para trabajo desatendido eso es un incidente, no un promedio.`);
+  }
+  if (m.sirve_para_agentes === false) {
+    alertas.push(`<b>No corre dentro de un agente</b>: no existe endpoint que le dé herramientas.`);
+  }
+
+  const dato = (k, v, t) => `<div class="fd" title="${t || ""}"><span>${k}</span><b>${v}</b></div>`;
+  return `
+    <tr class="ficha"><td colspan="20">
+      <div class="ficha-grid">
+        ${dato("Velocidad", `${Math.round(m.tokens_per_second || 0)} tok/s`, "Tokens por segundo, promedio de todas las corridas")}
+        ${dato("Latencia", `${n(m.latency_avg_s)}s`, "Cuánto tarda en devolver la respuesta completa")}
+        ${dato("Contexto útil", ctx ? `${Math.round(ctx / 1000)}K` : "—", "Contexto verificado, no el declarado por el fabricante")}
+        ${dato("Seguridad", seg == null ? "—" : n(seg, 2), "Resistencia a que le saquen una credencial plantada en un documento")}
+        ${dato("Tarea real", vals.length ? `${n(vals.reduce((a, x) => a + x.media, 0) / vals.length, 2)} · piso ${n(piso, 2)}` : "sin medir",
+               "Tareas de negocio ejecutadas de punta a punta dentro de un agente")}
+        ${dato("Muestra", `${m.runs || 0} corridas`, "De cuántas ejecuciones sale su nota")}
+      </div>
+      ${alertas.length ? `<ul class="ficha-alertas">${alertas.map(a => `<li>${a}</li>`).join("")}</ul>` : ""}
+      <div class="ficha-pie">${m.open_source ? "Pesos abiertos" : "Propietario"} · ${m.id}</div>
+    </td></tr>`;
+}
+
+function toggleFicha(i) {
+  const f = document.getElementById(`ficha-${i}`);
+  if (f) f.classList.toggle("abierta");
+}
+
 function render() {
   const f = state.filters;
   const ranked = filterAndRank(state.data.models, f);
@@ -1171,7 +1236,7 @@ function render() {
       </thead>
       <tbody>
         ${sorted.map((m, i) => `
-          <tr>
+          <tr class="fila-modelo" onclick="toggleFicha(${i})" title="Click para ver velocidad, latencia, seguridad y por qué quedó acá">
             <td class="num">${i + 1}</td>
             <td>
               <span class="model-name">${m.name}</span>${notRankedBadge(m)}
@@ -1188,6 +1253,7 @@ function render() {
             <td class="num">$${m._cost_month.toFixed(2)}</td>
             <td>${m.tier}</td>
           </tr>
+          <tbody id="ficha-${i}" class="ficha-wrap">${fichaModelo(m)}</tbody>
         `).join("")}
       </tbody>
     </table>
@@ -1516,6 +1582,12 @@ function wizResult() {
         <div class="wiz-cost">
           <div><div class="k">Precio entrada</div><div class="v green">${price(top)}</div></div>
           <div><div class="k">~1.000 llamadas</div><div class="v">${per1k(top)}</div></div>
+          <!-- Velocidad y latencia: sin ellas la recomendación "no se entiende".
+               Tencent Hy3 es #1 en calidad y tarda 65,4s; el wizard lo proponía sin
+               decirlo. El dato que hace dudar es el que hay que mostrar primero. -->
+          <div><div class="k">Velocidad</div><div class="v">${Math.round(top.tokens_per_second || 0)} <small>tok/s</small></div></div>
+          <div><div class="k">Espera</div><div class="v${(top.latency_avg_s || 0) > 30 ? " lento" : ""}">${
+            top.latency_avg_s == null ? "—" : (+top.latency_avg_s).toFixed(1)} <small>s</small></div></div>
           <div><div class="k">Calidad</div><div class="v">${top.quality_avg ?? "—"}</div></div>
         </div>
       </div>
@@ -1524,12 +1596,42 @@ function wizResult() {
         <div class="dh" style="color:var(--cyan)">💡 Si quieres gastar menos (misma tesis: la calidad top no cuesta caro)</div>
         <a href="#results"><b>${cheap.name}</b> — calidad ${cheap.quality_avg}/10 a ${price(cheap)} <span class="ar">→</span></a>
       </div>` : ""}
+      <button class="wiz-restart arriba" type="button"
+              onclick="document.getElementById('wiz-restart').click()">↺ Probar con otro caso</button>
+      ${(() => {
+        // EL PERO. La pregunta de Cristian era «¿por qué no Tencent, que es el #1?».
+        // El wizard elegía bien y no lo explicaba: mostraba su elección, no la
+        // alternativa descartada. Acá se nombra al que tiene MÁS calidad pura y se dice
+        // con qué número perdió — que es la forma de que la recomendación se entienda.
+        const cand = wizCandidatos(state.data.models, { pillar: t.pillar, tools: t.tools });
+        const mejorCalidad = cand.filter(m => m.score_calidad != null)
+          .sort((a, b) => b.score_calidad - a.score_calidad)[0];
+        if (!mejorCalidad || mejorCalidad.name === top.name) return "";
+        const dq = (mejorCalidad.score_calidad - (top.score_calidad || 0)).toFixed(2);
+        const lat = mejorCalidad.latency_avg_s, seg = (mejorCalidad.score_by_suite || {}).prompt_injection_es;
+        const motivos = [];
+        if (lat != null && lat > (top.latency_avg_s || 0) * 1.5)
+          motivos.push(`tarda <b>${lat.toFixed(1)}s</b> contra ${(top.latency_avg_s || 0).toFixed(1)}s`);
+        if (seg != null && seg < 5) motivos.push(`su seguridad es <b>${seg}/10</b>`);
+        if ((mejorCalidad.cost_per_1k_calls_usd || 0) > (top.cost_per_1k_calls_usd || 0) * 2)
+          motivos.push(`cuesta <b>${per1k(mejorCalidad)}</b> contra ${per1k(top)}`);
+        if (!motivos.length) return "";
+        return `<div class="wiz-pero">
+          <div class="dh">¿Y por qué no ${mejorCalidad.name}, que tiene más calidad?</div>
+          <p>Tiene <b>+${dq}</b> de calidad, sí — pero ${motivos.join(", ")}.
+          Para <b>${taskLabel}</b> eso pesa más que la décima de nota.</p>
+        </div>`;
+      })()}
       ${ejesTabla()}
       <div class="wiz-deeper">
         <div class="dh">Profundiza</div>
         ${deeper.join("")}
       </div>
-      <button class="wiz-restart" id="wiz-restart" type="button">↺ Empezar de nuevo</button>
+      <!-- Arriba Y abajo. Cristian: «el empezar de nuevo no se nota». Estaba solo al
+           final, después de la tabla de ejes y los enlaces — o sea, fuera de pantalla
+           justo cuando querés probar otra combinación, que es el momento en que lo
+           buscás. El de arriba es el que se usa; el de abajo queda para quien leyó todo. -->
+      <button class="wiz-restart abajo" id="wiz-restart" type="button">↺ Probar con otro caso</button>
     </div>`;
   wrap.hidden = false;
   document.querySelectorAll(".wiz-step").forEach(s => s.hidden = true);
