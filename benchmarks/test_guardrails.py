@@ -277,6 +277,53 @@ def _t_caminos():
         tmp.unlink(missing_ok=True)
 
 
+@prueba("check_truncamiento", "una nota construida sobre respuestas cortadas a la mitad")
+def _t_truncamiento():
+    # Se fabrica el caso exacto del 17-ago: un modelo con la mitad del examen terminando
+    # en `finish_reason="length"`. Nada más está mal —los runs tienen contenido, éxito y
+    # forma válida—, que es precisamente por qué ningún otro detector lo ve.
+    #
+    # El archivo se escribe en results/ porque el chequeo lee de ahí; el nombre lleva
+    # `_prueba_` y se borra siempre, incluso si la prueba explota.
+    import json as _json
+    tmp = ROOT / "benchmarks" / "results" / "_prueba_truncamiento.json"
+    try:
+        runs = [{"model": "Modelo De Prueba Truncado", "model_id": "prueba/truncado",
+                 "suite": "reasoning", "success": True, "quality": 7.0,
+                 "finish_reason": "length" if i % 2 else "stop",
+                 "output_tokens": 2048 if i % 2 else 700}
+                for i in range(60)]
+        tmp.write_text(_json.dumps({"metadata": {"timestamp": "prueba"}, "results": runs}))
+        # --todos porque el modelo inventado no está en models.json (no es rankeado);
+        # lo que se prueba es que el umbral dispare, no la lista de rankeados.
+        return _correr("check_truncamiento.py", "--todos", "--duro") != 0
+    finally:
+        tmp.unlink(missing_ok=True)
+
+
+@prueba("check_secretos", "una credencial real del .env dentro de un archivo publicable")
+def _t_secretos():
+    # Se toma un valor REAL del .env y se lo escribe en un archivo versionado, que es
+    # exactamente la forma del incidente del 17-ago. Si el chequeo no lo ve, no sirve.
+    # El archivo se crea y se borra; el valor nunca se imprime ni queda en disco.
+    import sys as _sys
+    _sys.path.insert(0, str(ROOT / "benchmarks"))
+    from check_secretos import valores_del_env
+    env = valores_del_env()
+    if not env:
+        return True  # sin .env en esta máquina no hay nada que probar (CI)
+    valor = next(iter(env.values()))
+    tmp = ROOT / "_prueba_secreto.md"
+    try:
+        tmp.write_text(f"config de ejemplo\n\n    api_key = {valor}\n")
+        subprocess.run(["git", "add", "-N", str(tmp)], capture_output=True, cwd=ROOT)
+        return _correr("check_secretos.py") != 0
+    finally:
+        subprocess.run(["git", "rm", "-q", "--cached", "--force", str(tmp)],
+                       capture_output=True, cwd=ROOT)
+        tmp.unlink(missing_ok=True)
+
+
 def main() -> int:
     print("Probando que cada guardrail CACE su propio fallo:\n")
     for nombre, ok, detalle in resultados:

@@ -112,6 +112,27 @@ jobs:
       - name: Probar que los guardrails cazan su propio fallo
         run: python benchmarks/test_guardrails.py
 
+      # 123 pruebas del NUCLEO —los modulos que deciden lo que se publica— escritas el
+      # 16-ago cuando la cobertura medida daba 4%. Existian y **el CI no las corria**:
+      # una suite de pruebas que nadie ejecuta es documentacion, no una red.
+      - name: Probar el nucleo (unitarios)
+        run: |
+          pip install pytest
+          python benchmarks/test_unitarios.py
+
+      # 17-ago-2026: Claude Opus 5 publicado #79 de 83 con el 31% de su examen cortado
+      # por nuestro techo de tokens. Ningun detector lo veia: los seis cazan AUSENCIA
+      # (vacios, sin procedencia, rutas muertas, precio $0) y aca no falta nada, sobra
+      # un techo. La respuesta se publica completa en forma y cortada a la mitad.
+      - name: Verificar que ninguna nota se construyo sobre respuestas cortadas
+        run: python benchmarks/check_truncamiento.py
+
+      # El unico fallo del que no se vuelve. El 17-ago-2026 la Secret Key real de R2 era
+      # el FIXTURE de string_precision y se replico sola a PROMPTS.md, TESTS.md y ~600
+      # archivos de results/ — cada run guarda su prompt, y el repo es publico.
+      - name: Verificar que no hay credenciales en archivos versionados
+        run: python benchmarks/check_secretos.py
+
       - name: Commit si hay cambios
         run: |
           git config user.name "github-actions[bot]"
