@@ -1,13 +1,13 @@
 # MiniMax M3
 
 - **model_id**: `minimax/minimax-m3`
-- **Total tests**: 362/379 exitosos (17 errores)
-- **Score final**: 7.26
-- **Calidad**: 8.17
+- **Total tests**: 373/390 exitosos (17 errores)
+- **Score final**: 7.32
+- **Calidad**: 8.23
 - **Judge score (Phi-4)**: 4.50/10
-- **Velocidad**: 53 tok/s
-- **Latencia primera token**: 27.67s
-- **Costo promedio por test**: $0.00970
+- **Velocidad**: 54 tok/s
+- **Latencia primera token**: 27.00s
+- **Costo promedio por test**: $0.00944
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -25,6 +25,8 @@
 | creativity | 4 | 4 | 7.22 | 8.38 |
 | customer_support | 4 | 4 | 7.32 | 7.18 |
 | deep_reasoning | 6 | 6 | 5.61 | 6.08 |
+| dominio_entidad | 6 | 6 | 9.40 | 10.00 |
+| extraer_claims | 5 | 5 | 9.08 | 10.00 |
 | hallucination | 3 | 3 | 6.60 | 7.00 |
 | multi_turn | 4 | 4 | 6.66 | 7.00 |
 | news_seo_writing | 5 | 5 | 6.71 | 7.52 |
@@ -2616,3 +2618,7 @@ Con un equipo pequeño y un plazo de 4 semanas, la clave es **paralelizar desde 
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### dominio_entidad
+
+#### extraer_claims

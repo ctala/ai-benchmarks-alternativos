@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-17T08:49:56",
+  "generated_at": "2026-08-17T09:34:12",
   "total_models": 192,
   "tested_count": 138,
   "ranked_count": 82,
-  "total_runs_measured": 30776,
-  "total_runs_active": 26404,
+  "total_runs_measured": 30853,
+  "total_runs_active": 26481,
   "total_runs_discarded": 4372,
   "thresholds": {
     "tested_min_runs": 20,
@@ -155,6 +155,14 @@
     "deep_reasoning": {
       "mean": 6.4351,
       "std": 0.8774
+    },
+    "dominio_entidad": {
+      "mean": 8.8887,
+      "std": 0.3917
+    },
+    "extraer_claims": {
+      "mean": 8.6925,
+      "std": 0.5006
     },
     "hallucination": {
       "mean": 6.7073,
@@ -734,7 +742,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 129,
-      "total_runs": 202,
+      "total_runs": 213,
       "score_global": 7.81,
       "score_by_pillar": {
         "Razonamiento": 7.49,
@@ -803,7 +811,9 @@
         "niah_es": 8.47,
         "integridad_idioma": 5.71,
         "prompt_injection_es": 2.59,
-        "tool_calling_adversarial": 6.85
+        "tool_calling_adversarial": 6.85,
+        "dominio_entidad": 8.9,
+        "extraer_claims": 8.79
       },
       "quality_by_suite": {
         "business_audit": 8.2,
@@ -836,7 +846,9 @@
         "niah_es": 10.0,
         "integridad_idioma": 5.8,
         "prompt_injection_es": 1.0,
-        "tool_calling_adversarial": 7.1
+        "tool_calling_adversarial": 7.1,
+        "dominio_entidad": 10.0,
+        "extraer_claims": 10.0
       },
       "suites_incompletas": {},
       "quality_avg": 8.53,
@@ -2124,7 +2136,7 @@
       "thinking": true,
       "multimodal": true,
       "runs": 134,
-      "total_runs": 142,
+      "total_runs": 153,
       "score_global": 6.44,
       "score_by_pillar": {
         "Agentes": 7.01,
@@ -2190,7 +2202,9 @@
         "agent_long_horizon": 7.85,
         "business_strategy": 7.69,
         "content_verificable": 8.36,
-        "tool_calling_adversarial": 6.47
+        "tool_calling_adversarial": 6.47,
+        "dominio_entidad": 8.97,
+        "extraer_claims": 8.9
       },
       "quality_by_suite": {
         "content_generation": 9.13,
@@ -2220,7 +2234,9 @@
         "agent_long_horizon": 9.5,
         "business_strategy": 9.2,
         "content_verificable": 9.56,
-        "tool_calling_adversarial": 6.68
+        "tool_calling_adversarial": 6.68,
+        "dominio_entidad": 10.0,
+        "extraer_claims": 10.0
       },
       "suites_incompletas": {},
       "quality_avg": 8.32,
@@ -4791,7 +4807,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 148,
-      "total_runs": 148,
+      "total_runs": 159,
       "score_global": 5.8,
       "score_by_pillar": {
         "Contenido": 7.21,
@@ -4856,7 +4872,9 @@
         "agent_long_horizon": 7.72,
         "customer_support": 7.84,
         "orchestration": 6.76,
-        "tool_calling_adversarial": 7.32
+        "tool_calling_adversarial": 7.32,
+        "dominio_entidad": 9.03,
+        "extraer_claims": 9.01
       },
       "quality_by_suite": {
         "content_generation": 8.49,
@@ -4885,7 +4903,9 @@
         "agent_long_horizon": 9.04,
         "customer_support": 8.82,
         "orchestration": 7.51,
-        "tool_calling_adversarial": 7.8
+        "tool_calling_adversarial": 7.8,
+        "dominio_entidad": 10.0,
+        "extraer_claims": 10.0
       },
       "suites_incompletas": {},
       "quality_avg": 8.2,
@@ -6132,7 +6152,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 216,
-      "total_runs": 362,
+      "total_runs": 373,
       "score_global": 5.43,
       "score_by_pillar": {
         "Contenido": 7.74,
@@ -6200,7 +6220,9 @@
         "customer_support": 7.24,
         "orchestration": 6.96,
         "agent_capabilities": 5.66,
-        "tool_calling_adversarial": 6.38
+        "tool_calling_adversarial": 6.38,
+        "dominio_entidad": 9.17,
+        "extraer_claims": 9.05
       },
       "quality_by_suite": {
         "content_generation": 9.23,
@@ -6232,7 +6254,9 @@
         "customer_support": 7.18,
         "orchestration": 7.16,
         "agent_capabilities": 5.38,
-        "tool_calling_adversarial": 6.12
+        "tool_calling_adversarial": 6.12,
+        "dominio_entidad": 10.0,
+        "extraer_claims": 10.0
       },
       "suites_incompletas": {},
       "quality_avg": 8.13,
@@ -8016,7 +8040,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 129,
-      "total_runs": 208,
+      "total_runs": 219,
       "score_global": 5.15,
       "score_by_pillar": {
         "Razonamiento": 7.21,
@@ -8085,7 +8109,9 @@
         "niah_es": 8.19,
         "integridad_idioma": 6.9,
         "prompt_injection_es": 2.36,
-        "tool_calling_adversarial": 6.21
+        "tool_calling_adversarial": 6.21,
+        "dominio_entidad": 8.92,
+        "extraer_claims": 8.75
       },
       "quality_by_suite": {
         "business_audit": 6.47,
@@ -8118,7 +8144,9 @@
         "niah_es": 9.76,
         "integridad_idioma": 7.24,
         "prompt_injection_es": 1.0,
-        "tool_calling_adversarial": 6.54
+        "tool_calling_adversarial": 6.54,
+        "dominio_entidad": 10.0,
+        "extraer_claims": 10.0
       },
       "suites_incompletas": {},
       "quality_avg": 8.03,
@@ -13159,7 +13187,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 203,
-      "total_runs": 211,
+      "total_runs": 222,
       "score_global": 3.82,
       "score_by_pillar": {
         "Agentes": 6.91,
@@ -13225,7 +13253,9 @@
         "sales_outreach": 6.93,
         "agent_long_horizon": 7.6,
         "translation": 8.02,
-        "tool_calling_adversarial": 6.38
+        "tool_calling_adversarial": 6.38,
+        "dominio_entidad": 8.8,
+        "extraer_claims": 7.43
       },
       "quality_by_suite": {
         "content_generation": 8.93,
@@ -13255,7 +13285,9 @@
         "sales_outreach": 7.56,
         "agent_long_horizon": 8.66,
         "translation": 8.67,
-        "tool_calling_adversarial": 6.54
+        "tool_calling_adversarial": 6.54,
+        "dominio_entidad": 10.0,
+        "extraer_claims": 8.0
       },
       "suites_incompletas": {},
       "quality_avg": 7.85,
@@ -13348,7 +13380,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 151,
-      "total_runs": 231,
+      "total_runs": 242,
       "score_global": 3.71,
       "score_by_pillar": {
         "Contenido": 7.61,
@@ -13415,7 +13447,9 @@
         "agent_long_horizon": 8.04,
         "customer_support": 7.81,
         "orchestration": 6.74,
-        "tool_calling_adversarial": 7.13
+        "tool_calling_adversarial": 7.13,
+        "dominio_entidad": 9.37,
+        "extraer_claims": 8.58
       },
       "quality_by_suite": {
         "content_generation": 8.98,
@@ -13446,7 +13480,9 @@
         "agent_long_horizon": 8.62,
         "customer_support": 8.21,
         "orchestration": 6.63,
-        "tool_calling_adversarial": 7.1
+        "tool_calling_adversarial": 7.1,
+        "dominio_entidad": 10.0,
+        "extraer_claims": 9.0
       },
       "suites_incompletas": {},
       "quality_avg": 7.7,

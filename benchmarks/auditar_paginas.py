@@ -137,11 +137,24 @@ def p1(pgs, por_nombre, real):
             continue
         html = p.read_text(errors="replace")
         filas = _filas(html)
+        # SOLO LA PRIMERA TABLA. Una página puede tener dos que ordenan distinto a
+        # propósito (capacidad · capacidad-por-precio); mezclarlas produce un orden que
+        # no es el de ninguna.
+        primera = re.search(r"<table.*?</table>", html, re.S)
+        filas = _filas(primera.group(0)) if primera else filas
         pares = [(len(filas) - i, real[n]) for i, (_, n) in enumerate(filas) if n in real]
         # Mínimo 10: con 7 modelos una correlación de −0,45 es ruido, y publicarla como
         # hallazgo es el mismo error que se persigue — afirmar más de lo que la muestra
         # sostiene. Se prefiere no decir nada a decir algo que no aguanta.
         if len(pares) < 10:
+            continue
+        # Y SIN VARIANZA NO HAY NADA QUE CORRELACIONAR. En /mejor-llm-para-agentes/ los
+        # ocho publicados sacan **1,000 exacto** en la tarea real: correlacionar un grupo
+        # empatado da ruido (+0,09) y el chequeo lo reportaba como «el criterio no
+        # predice». Que todos empaten arriba es justamente lo que se quería — el orden lo
+        # decide el desempate, no la tarea.
+        ys = [y for _, y in pares]
+        if st.pstdev(ys) < 0.05:
             continue
         c = _corr([x for x, _ in pares], [y for _, y in pares])
         if c is None:
@@ -239,6 +252,23 @@ def p3(pgs, d, por_nombre):
         html = p.read_text(errors="replace")
         filas = _filas(html)
         if not filas:
+            # SIN TABLA NUMERADA TAMBIÉN SE RECOMIENDA.
+            #
+            # Medido el 17-ago-2026 al preguntarse si el escrutinio era parejo: **10
+            # páginas pasaban por 3 de las 6 clases** —las de variantes («¿cuál de los
+            # Grok?») y las explicativas— porque su tabla no lleva columna de puesto y
+            # `_filas()` no las veía. Son páginas publicadas que recomiendan modelos, y el
+            # chequeo que evita mandar a alguien contra un endpoint muerto no las miraba.
+            #
+            # Acá se buscan los nombres en el texto: menos preciso que una fila, pero un
+            # retirado nombrado en una página de recomendación es un problema igual, y es
+            # mejor un aviso revisable que un punto ciego.
+            texto = re.sub(r"<[^>]+>", " ", html)
+            r = sorted({n for n in retirados if n in texto})
+            if r:
+                hallazgos.append((MEDIA, slug, gen,
+                                  f"nombra modelo(s) RETIRADO(s) sin tabla que auditar: "
+                                  f"{', '.join(r[:4])}. Verificá que no los recomiende"))
             continue
         nombres = [n for _, n in filas]
         r = [n for n in nombres if n in retirados]
