@@ -143,3 +143,60 @@ que mira el HTML **ya generado** y pregunta si la data lo sostiene.
    `test_guardrails.py` con la prueba de que falla cuando debe.
 4. **¿Es una función del núcleo?** → lleva su test unitario con el **caso borde real** que
    la motivó, no un ejemplo inventado. Así el test explica por qué la función es como es.
+
+---
+
+## Chequeos de FLUJO vs chequeos de PROMESA
+
+> Cristian, tras el barrido del wizard: *"muchos de los errores que estás encontrando
+> deberían haber sido capturados por QA. Para que mejoremos el proceso de validación."*
+
+Tenía razón, y el patrón es de una sola clase. Los cinco chequeos que existían preguntaban
+todos lo mismo:
+
+| | preguntaba |
+|---|---|
+| W1 | ¿devuelve **algo**? |
+| W2 | ¿**no** recomienda algo inválido? |
+| W3 | ¿los ejes **existen**? |
+| W4 | ¿el paso **aparece** cuando debe? |
+| W5 | ¿la tabla **coincide** con el cálculo? |
+
+**Los cinco verifican que el flujo no esté roto. Ninguno verificaba que la respuesta fuera
+correcta.** Y los tres bugs del 17-ago los pasaron todos: el wizard devolvía una
+recomendación válida, con ejes existentes, en el paso correcto y coherente con su propia
+tabla — mientras **ignoraba el presupuesto en 12 de 32 combinaciones** y recomendaba algo
+que costaba 4,7 veces lo declarado.
+
+Es la misma distinción que el repo ya tiene escrita para los detectores de datos —*cazan
+ausencia; la contaminación es presencia*— un nivel más arriba: **cazan «no funciona», no
+cazan «funciona y está mal».**
+
+### La regla que sale de ahí
+
+> **Cada palabra de la interfaz es una promesa, y toda promesa necesita su verificador.**
+
+No alcanza con probar el camino: hay que probar que la respuesta cumple lo que la pantalla
+prometió. Literalmente lo que dice el texto:
+
+| lo que la interfaz promete | el chequeo que lo hace cumplir |
+|---|---|
+| «~$5/mes · uso personal» | **W8** — lo recomendado cabe en ese presupuesto |
+| «elegí cuánto vas a gastar» | **W7** — cambiarlo cambia la recomendación |
+| «Chat en vivo · respuesta rápida» | **W6** — no recomienda nada que tarde >20 s |
+| «Agentes / automatizar» | **W2** — nada que no corra dentro de un agente |
+| «tipo de agente» | **W6** — usa las tareas medidas, todas |
+
+### Cómo se agrega una pantalla nueva
+
+1. **Escribí las promesas primero.** Cada opción, cada etiqueta, cada preset es una
+   afirmación: «esto cuesta ~$5», «esto es rápido», «esto sirve para agentes».
+2. **Una promesa sin verificador no se publica.** Es la regla de oro del repo aplicada a
+   la interfaz: *una regla sin instrumento que la haga cumplir es una regla que ya se
+   rompió.*
+3. **Barré el espacio completo, no un caso.** Las 32 combinaciones del wizard son 32; el
+   bug del presupuesto solo se ve comparando dos extremos, y el de la tarea agéntica solo
+   se veía mirando las cuatro tareas juntas. Un caso de ejemplo habría pasado.
+4. **El test usa la función real, nunca una copia.** Pasó dos veces en dos días: `APTOS`
+   replicando `wizCandidatos` y el barrido replicando `wizResult`. Una réplica prueba la
+   réplica — y peor: da verde mientras el código real está roto.
