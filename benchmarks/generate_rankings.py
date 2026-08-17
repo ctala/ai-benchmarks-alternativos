@@ -47,6 +47,7 @@ RANKINGS = [
         "related": ["modelos-n8n", "mejor-llm-para-tool-calling", "alternativas-claude"],
     },
     {
+        "segunda_tabla_valor": True,
         "slug": "mejor-llm-para-n8n",
         "title": "Mejor LLM para N8N y agentes en 2026: ranking con benchmark real",
         "h1": "Mejor LLM para N8N y agentes (2026)",
@@ -131,6 +132,7 @@ RANKINGS = [
         "related": ["mejor-llm-en-espanol", "modelos-baratos-emprendedores", "alternativas-chatgpt"],
     },
     {
+        "segunda_tabla_valor": True,
         "slug": "mejor-llm-para-agentes",
         "title": "Mejor LLM para agentes y automatizaciones en 2026: ranking con benchmark",
         "h1": "Mejor LLM para agentes y automatizaciones (2026)",
@@ -984,6 +986,61 @@ def verdict_block(cfg, models):
 """
 
 
+def tabla_valor(cfg, models):
+    """SEGUNDA TABLA: calidad por lo que cuesta. Solo donde el eje satura.
+
+    POR QUÉ (17-ago-2026). Cristian, mirando /mejor-llm-para-agentes/: *"tendría dos
+    tablas: 100% calidad, y un ponderado costo-calidad"*. Lo dijo después de ver que el
+    top lo ocupaban tres Claude a $23-39 por mil llamadas y que **Qwen 3.7 Flash no
+    aparecía** — con la tarea real casi perfecta a **$0.20**, 190 veces más barato.
+
+    Las dos tablas se justifican solas: el orden de una y otra correlaciona **+0,005**.
+    No dicen lo mismo. (En v4.1 se revirtió una segunda tabla de «mejor valor» porque
+    correlacionaba r=0,943 con la primera — ahí sí sobraba. La diferencia es que el eje
+    agéntico **satura**: 36 de 75 modelos empatan en 1,00, y cuando media población
+    empata, lo que decide es el precio.)
+
+    La curva de costo es `cost_score_log`, la MISMA que ya usa el resto del repo. Inventar
+    otra fórmula acá sería tener dos definiciones de «barato».
+    """
+    from scoring import cost_score_log
+    vals = []
+    for m in models:
+        q = score_for(m, cfg)
+        if not q:
+            continue
+        c = cost_for_calls(m) / 1000.0          # costo por llamada
+        vals.append((0.7 * q + 0.3 * cost_score_log(c), q, m))
+    vals.sort(key=lambda x: -x[0])
+    filas = []
+    for i, (v, q, m) in enumerate(vals[:8], 1):
+        nm = f"<strong>{esc(m['name'])}</strong>" if i == 1 else esc(m["name"])
+        filas.append(
+            f"<tr><td>{i}</td><td>{nm}</td><td><strong>{v:.2f}</strong></td>"
+            f"<td>{q:.1f}</td><td>{fmt_usd(cost_for_calls(m))}</td>"
+            f"<td>{round(m.get('tokens_per_second') or 0)} tok/s</td></tr>")
+    return f"""<section class="results">
+    <div class="results-header">
+      <h2>La misma capacidad, por lo que cuesta</h2>
+      <p class="meta">La tabla de arriba ordena por capacidad y nada más — es la respuesta a
+      «¿quién lo hace mejor?». Ésta responde la otra pregunta, la de producción:
+      <strong>de los que pueden, cuál conviene</strong>. Fórmula: 70% capacidad + 30% precio,
+      con la misma curva de costo que usa el resto del benchmark.</p>
+      <p class="meta">Vale la pena mirarla porque <strong>este eje satura</strong>: casi la
+      mitad de los modelos medidos resuelven la tarea perfecta. Cuando tantos empatan en
+      capacidad, lo que decide es el precio — y los dos órdenes casi no se parecen.</p>
+    </div>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr><th scope="col">#</th><th scope="col">Modelo</th>
+      <th scope="col">Calidad×precio</th><th scope="col">{esc(score_label(cfg))}</th>
+      <th scope="col">$/1.000 llamadas</th><th scope="col">Velocidad</th></tr></thead>
+      <tbody>
+        {chr(10) + "        ".join(filas)}
+      </tbody>
+    </table></div>
+  </section>"""
+
+
 def render_ranking(cfg, models):
     all_ranked = rank_models(models, cfg)
     if not all_ranked:
@@ -1041,6 +1098,7 @@ def render_ranking(cfg, models):
     </table></div>
     <p class="meta">Filtra por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
   </section>
+  {tabla_valor(cfg, all_ranked) if cfg.get("segunda_tabla_valor") else ""}
   {reading_guide(cfg, ranked)}
   {top3_explained(cfg, ranked)}
   {analysis(cfg, ranked)}
