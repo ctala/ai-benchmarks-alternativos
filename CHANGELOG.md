@@ -20,6 +20,26 @@
   documentación del proveedor. Hoy 178 modelos declaran «default del proveedor» sin que
   sepamos qué significa: **cero runs registran `reasoning_tokens`**, así que el dato que
   lo decidiría no se está capturando. Queda como pendiente con método, no como duda.
+- **Once de trece modelos nuevos estaban midiendo con el techo pegado en 2.048** —Seed
+  2.1 Turbo cortó el 73% de su examen— porque razonan por default y no estaban en
+  `THINKING_MODELS`. La conclusión que casi se publica, «la generación Qwen 3.8 rinde
+  peor que la 3.7», era falsa: 3.6 Max y 3.7 Flash, de la misma familia y sí declarados,
+  cortan 0%. Seis patrones nuevos y re-medición pendiente.
+- El detector de truncamiento **estaba al revés**: miraba sólo los modelos ya rankeados,
+  o sea que era ciego justo donde más importa —un modelo nuevo publica su nota por
+  primera vez y no hay histórico con qué contrastarla—. Ahora mira todos por defecto.
+- Y sube al **canario**, que es donde se evita pagar: si más de la mitad de las
+  respuestas del pre-vuelo salen cortadas, el lote no arranca. La técnica ya existía
+  —el 12-ago se probaron 9 modelos con `max_tokens=300` y cinco salieron en blanco— pero
+  había quedado como anécdota en un comentario, no como paso obligatorio.
+- El timeout del canario sube a 75 min y **juzga con lo que alcanzó a medir** si expira:
+  al declarar thinking a media docena de familias sus respuestas pasaron de 2.048 a 8.192
+  tokens y el canario empezó a morir sin veredicto. Un gate que expira enseña a saltarlo
+  con `--sin-canario`, y ahí se pierden los cinco invariantes, no sólo éste.
+- LongCat 2.0 queda con el examen interrumpido en 24/143, por decisión: mide **2,5 min
+  por test**, cinco veces más lento que Sakana Namazu en el mismo examen y arrancando a
+  la misma hora. Con el criterio de examen completo no rankea, y su lentitud es en sí el
+  dato que lo descarta para uso en línea.
 - El runner **rechaza** los modelos marcados `no_medir` / `effort_variant`, incluso
   pedidos explícitamente por `--models`. Esos flags los miraba la capa que PUBLICA
   (`export_for_pages`, `completar_examen`) y no la que GASTA, así que una decisión de

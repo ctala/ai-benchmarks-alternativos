@@ -104,6 +104,29 @@ THINKING_MODELS = (
     #
     # Lo destapó Cristian preguntando por qué Opus 5 aparecía tan abajo. El
     # guardrail que faltaba es `check_truncamiento.py`, agregado el mismo día.
+    # ── 18-ago-2026: ONCE de trece modelos nuevos truncaban ─────────────────────
+    # Al medir el lote de agosto, el barrido de truncamiento dio esto:
+    #
+    #     Seed 2.1 Turbo   73% cortado      Qwen 3.8 Max     40%
+    #     Seed 2.0 Code    69%              Qwen 3.8 2.4T    39%
+    #     LongCat 2.0      46%              Gemini 3.7 Flash 18%
+    #     Qwen 3.8 27B     45%              KAT Coder Pro    14%
+    #     Sakana Namazu    43%              KAT Coder Air    13%
+    #
+    # Todos con p90 de salida clavado en 2.048. Y el contraste que lo prueba: Qwen 3.6
+    # Max y 3.7 Flash, de la MISMA familia y declarados acá, cortan 0% con p90 ~5.000.
+    # Sin este bloque, la conclusión publicable habría sido «la generación 3.8 rinde
+    # peor que la 3.7», cuando lo que pasaba es que le dábamos la mitad del presupuesto.
+    #
+    # La lección de fondo: en 2026 razonar por default es lo NORMAL, no la excepción.
+    # Esta lista nació como catálogo de rarezas y hoy describe a la mayoría; un modelo
+    # nuevo que no esté acá es la anomalía, no al revés.
+    "qwen3.8",                              # toda la familia 3.8 (max, 2.4t, 27b)
+    "seed-2",                               # ByteDance Seed 2.x
+    "longcat",                              # Meituan LongCat
+    "sakana",                               # Sakana Namazu
+    "gemini-3.7",                           # Flash 3.7+ razona por default
+    "kat-coder",                            # Kwaipilot KAT Coder Air/Pro
     "claude-opus-5", "claude-sonnet-5",     # Claude 5 (thinking por default vía API)
     "gemini-3.6-flash",                     # Flash 3.6+ ya razona; el patrón
                                             # `gemini-3-pro` de arriba no lo cubría.

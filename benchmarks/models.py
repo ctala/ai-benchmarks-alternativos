@@ -314,6 +314,15 @@ MODELS = {
         "notes": "Licencia sin verificar.",
     },
     "longcat-2.0": {
+        # 18-ago-2026: examen INTERRUMPIDO en 24 de 143 tests, por decisión.
+        # Medido contra los tres que arrancaron a la misma hora: 2,5 min por test,
+        # cinco veces más lento que Sakana Namazu (0,5) y 40% más que los Seed (1,8).
+        # Encima su proveedor devolvió respuesta vacía tres veces seguidas en
+        # `content_generation/social_media_batch`, sumando reintentos.
+        # Cristian: *"quizás decidir al tiro y lo dejamos pendiente para la próxima"*.
+        # Su lentitud NO es un defecto de medición: es un dato sobre el modelo, y por
+        # sí solo lo descarta para cualquier cosa que corra en línea. Se retoma en la
+        # próxima vuelta si sigue habiendo interés.
         "id": "meituan/longcat-2.0",
         "name": "LongCat 2.0",
         "cost_input": 0.30, "cost_output": 1.20,

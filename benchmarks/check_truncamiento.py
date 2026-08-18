@@ -90,7 +90,15 @@ def recolectar() -> dict:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--duro", action="store_true", help="exit 1 si algún rankeado cruza el umbral")
-    ap.add_argument("--todos", action="store_true", help="incluir los no rankeados")
+    # 18-ago-2026: ANTES esto era `--todos` y por defecto miraba SOLO los rankeados.
+    # Ese default dejó pasar el peor caso que hubo: once de trece modelos NUEVOS
+    # truncando (Seed 2.1 Turbo al 73%), invisibles porque todavía no rankeaban.
+    #
+    # Estaba exactamente al revés. Un modelo nuevo es donde MÁS importa: su nota se
+    # publica por primera vez y no hay histórico con qué contrastarla. Un rankeado
+    # que empieza a truncar, en cambio, se nota porque su score se mueve.
+    ap.add_argument("--solo-rankeados", action="store_true",
+                    help="mirar sólo los ya rankeados (era el default hasta el 18-ago)")
     a = ap.parse_args()
 
     st = recolectar()
@@ -106,7 +114,7 @@ def main() -> int:
         tot = sum(c.values())
         if tot < MIN_RUNS:
             continue
-        if not a.todos and m not in rankeados:
+        if a.solo_rankeados and m not in rankeados:
             continue
         p = c.get("length", 0) / tot
         if p >= UMBRAL:

@@ -386,6 +386,22 @@ def _t_veto():
     return "RECHAZADOS" in salida and "gpt-5.6-luna-pro" in salida
 
 
+@prueba("canario · truncamiento", "un modelo que razona sin estar declarado")
+def _t_canario_trunca():
+    # Se le pasan runs FABRICADOS con la firma del 18-ago: mitad cortados por el techo.
+    # No se mide nada — `revisar()` es una función pura, y por eso se puede probar sola.
+    import sys as _s
+    _s.path.insert(0, str(ROOT / "benchmarks"))
+    from canario import revisar
+    runs = [{"success": True, "response_preview": "texto", "output_tokens": 2048,
+             "finish_reason": "length", "suite": "business_audit", "tool_calls_made": 0}
+            for _ in range(12)]
+    runs += [{"success": True, "response_preview": "texto", "output_tokens": 400,
+              "finish_reason": "stop", "suite": "business_audit", "tool_calls_made": 0}
+             for _ in range(4)]
+    return any("CORTADAS" in p for p in revisar("modelo-de-prueba", runs))
+
+
 def main() -> int:
     print("Probando que cada guardrail CACE su propio fallo:\n")
     for nombre, ok, detalle in resultados:
