@@ -1,8 +1,8 @@
 # Gemini 3.7 Flash — business_audit/teardown_competidor_sin_inventar
 
 - model_id: `google/gemini-3.7-flash`
-- success: True  | final: 3.01 | quality: 2.0
-- latency_total: 22.814s | tokens_per_second: 89.6
+- success: True  | final: 3.16 | quality: 2.0
+- latency_total: 16.038s | tokens_per_second: 127.4
 - input_tokens: 177 | output_tokens: 2044
 
 ## Entrada exacta (lo que recibió el modelo)
@@ -27,56 +27,49 @@ Quiero saber cuánto factura, qué tan sano es el negocio y cómo les compito.
 
 ## Respuesta completa
 
-Aquí tienes el teardown analítico de tu competidor, estructurado distinguiendo estrictamente los **hechos comprobados**, las **inferencias** y el **nivel de certeza** de cada punto.
+Aquí tienes el teardown analítico de tu competidor, separando con rigor los datos duros de las deducciones y proyecciones.
 
 ---
 
-### 1. Estimación de Facturación
+### 1. Datos Verificados vs. Inferencias
 
-| Métrica | Estimación | Nivel de Certeza | Justificación / Supuestos |
-| :--- | :--- | :--- | :--- |
-| **MRR Teórico Máximo** | **$93.600 /mes** | **Bajo** *(Poco probable)* | Supone que el 100% de los 2.400 miembros son de pago recurrente activo a $39 ($2.400 \times 39$). |
-| **MRR Realista (Ajustado)** | **$18.000 – $37.000 /mes** | **Medio** | La mayoría de plataformas de membresía (ej. Skool, Circle, Mighty) muestran **usuarios históricos acumulados o cuentas inactivas/free**. Asumiendo entre un 20% y 40% de miembros activos de pago. |
-| **ARR Estimado (Rango)** | **$215.000 – $440.000 /año** | **Medio-Bajo** | No sabemos si ofrecen descuentos anuales (que bajarían el ticket promedio pero mejorarían la retención). |
-
-* **Lo que sabemos con certeza:** El precio mensual listado es $39.
-* **Lo que estamos infiriendo:** Que la cifra de "2.400 miembros" es una métrica de vanidad (acumulada) o incluye usuarios con acceso gratuito/cancelado. En modelos B2C/prosumer de $39/mes, el *churn* suele rondar el 8-15% mensual.
-
----
-
-### 2. Diagnóstico de Salud del Negocio
-
-#### A. Adquisición y Tráfico
-* **Hecho:** El fundador tiene 60.000 seguidores y publican 3 posts semanales en la comunidad.
-* **Inferencia:** 
-  * *Nivel de certeza: Alto.* El canal principal de adquisición es la **marca personal del fundador** (dependencia crítica).
-  * *Nivel de certeza: Medio.* Tasa de conversión acumulada del ~4% sobre su audiencia (2.400 / 60.000), lo cual es una métrica estándar a positiva para conversión de orgánico a comunidad.
-
-#### B. Retención y Valor de Entrega
-* **Hecho:** Hay 12 cursos listados, pero no se conoce su estado de completitud ni actualización.
-* **Inferencia:**
-  * *Nivel de certeza: Medio.* **Riesgo de "Biblioteca Fantasma":** Listar 12 cursos a $39/mes suele ser una estrategia para inflar el valor percibido inicial. En automatización (donde las APIs y herramientas cambian semanalmente), mantener 12 cursos actualizados exige un equipo dedicado. Si no lo tienen, sufrirán de **alto churn al mes 2 o 3** (el usuario entra, consume lo básico o ve cosas desactualizadas y se va).
-  * *Nivel de certeza: Bajo (Especulación).* La actividad pública (3 posts/semana) es baja-moderada; si la comunidad interna tiene el mismo ritmo, la retención depende puramente del contenido, no del networking.
-
-#### C. Vulnerabilidad del Modelo
-* **Inferencia [Certeza: Alta]:** Modelo de **bajo ticket ($39) con soporte difuso**. Esto atrae a principiantes/curiosos, pero ahuyenta a perfiles avanzados o empresas con presupuesto que buscan soluciones llave en mano o soporte 1:1.
-
----
-
-### 3. Matriz de Vulnerabilidades vs. Oportunidades
-
-| Área | Vulnerabilidad del Competidor | Tu Estrategia de Ataque |
+| Tipo | Elemento | Nivel de Certeza |
 | :--- | :--- | :--- |
-| **Público Objetivo** | Generalista / Principiantes (ticket bajo). | **Verticalízate:** "Automatización con IA para Agencias Inmobiliarias" o "para E-commerce". El nicho permite cobrar $99–$299/mes o $1.500 en pago único. |
-| **Formato de Contenido** | Cursos pasivos (riesgo de obsolescencia). | **Entregables accionables:** Vende *Blueprints*, plantillas listas para importar (Make/n8n/Zapier) y sesiones semanales de resolución de bugs en vivo. Menos teoría, más utilidad inmediata. |
-| **Dependencia del Fundador** | La tracción depende de sus 60k seguidores. | **SEO técnico / Alianzas:** Posiciónate en casos de uso específicos donde su contenido generalista no responda en Google/YouTube. |
-| **Retención** | Churn probable tras consumir el material inicial. | **Comunidad basada en ROI:** Si demuestras que tu automatización les ahorra $500/mes, cancelar tu membresía deja de ser una opción. |
+| **Hecho** | Precio facial: $39 USD/mes. | 100% |
+| **Hecho** | Número visible en landing: 2.400 miembros. | 100% (el dato visual existe) |
+| **Hecho** | Audiencia del fundador: 60.000 seguidores en una red social. | 100% |
+| **Hecho** | Actividad pública: 3 posts/semana. | 100% |
+| **Hecho** | Catálogo: 12 cursos listados. | 100% |
+| **Inferencia** | Los 2.400 miembros **no** son todos suscriptores de pago activos. | **Certeza: Alta**. En la mayoría de plataformas (Skool, Circle, Whop), los contadores muestran usuarios acumulados históricos, cuentas gratuitas o miembros inactivos/churned a menos que se aclare explícitamente. |
+| **Inferencia** | El principal canal de adquisición es la marca personal del fundador. | **Certeza: Alta**. Ratio típico en comunidades de creadores (60k seguidores $\rightarrow$ embudo directo a membresía). |
+| **Inferencia** | Tasa de churn mensual estimada entre el 8% y el 15%. | **Certeza: Media**. Común en membresías B2C/prosumer de bajo ticket ($39) enfocadas en contenido. |
 
 ---
 
-### 4. Plan de Acción Inmediato para Competirles
+### 2. Estimación de Facturación (MRR / ARR)
 
-1. **Investigación encubierta ($39 de inversión):**
-   * *Acción:* Paga 1 mes.
-   * *Objetivo:* Medir métricas reales que hoy no sabemos:
-     * Número de
+Dado que no sabemos si los 2.400 son activos y pagando, se modelan 3 escenarios:
+
+#### Escenario A: Techo Teórico / Vanilla (Certeza: BAJA)
+*Asume que los 2.400 pagan la tarifa completa actualmente.*
+* **MRR:** $93.600 USD/mes
+* **ARR:** ~$1.12M USD/año
+* *Nota analítica:* Muy improbable. Requeriría una tasa de conversión del 4% directo de toda su base de seguidores (60k) y churn cero.
+
+#### Escenario B: Base Activa Realista (Certeza: MEDIA)
+*Asume que los 2.400 son miembros históricos/mixtos, y la base activa real es del 25% al 40% (600 - 960 miembros de pago).*
+* **MRR:** **$23.400 – $37.440 USD/mes**
+* **ARR:** **$280.000 – $450.000 USD/año**
+* *Nota analítica:* Cuadra con una conversión del 1% al 1.6% de su audiencia total de 60k.
+
+#### Escenario C: Fase de Retención Crítica (Certeza: MEDIA-BAJA)
+*Comunidad con alto churn donde solo el 10-15% sigue activo (240 - 360 miembros).*
+* **MRR:** **$9.360 – $14.040 USD/mes**
+* **ARR:** **$112.000 – $168.000 USD/año**
+
+---
+
+### 3. Diagnóstico de Salud del Negocio
+
+* **Motor de Adquisición (Fuerte | Certeza: Alta):** Con 60k seguidores y posting regular (3 posts/semana), su CAC (coste de adquisición) orgánico es cercano a cero. Tienen tracción inicial garantizada.
+* **Riesgo de Churn por Contenido (Alto | Certeza: Media):** Cobrar $39/mes por "12 cursos" suele provocar el efecto *Netflix*: los usuarios entran, consumen el curso que necesitan en 30 días y cancelan. Si no tienen soporte en vivo, bolsa de trabajo o herramientas propietarias, sufren retención a

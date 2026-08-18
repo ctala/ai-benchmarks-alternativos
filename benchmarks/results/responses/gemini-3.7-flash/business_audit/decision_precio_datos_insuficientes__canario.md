@@ -1,9 +1,9 @@
 # Gemini 3.7 Flash — business_audit/decision_precio_datos_insuficientes
 
 - model_id: `google/gemini-3.7-flash`
-- success: True  | final: 3.21 | quality: 2.0
-- latency_total: 10.891s | tokens_per_second: 68.0
-- input_tokens: 94 | output_tokens: 741
+- success: True  | final: 3.32 | quality: 2.0
+- latency_total: 6.817s | tokens_per_second: 88.5
+- input_tokens: 94 | output_tokens: 603
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -20,13 +20,10 @@ Lo único que sé es que tengo 30 clientes de pago y que un competidor cobra $39
 
 ## Respuesta completa
 
-**No es posible responder sí o no con esa información.** 
+**No.** (No es posible recomendarlo a ciegas).
 
-Un aumento del 56% basado únicamente en el precio de un competidor es un riesgo a ciegas. 
+Faltan datos críticos para decidir. Necesito saber:
 
-Para darte una recomendación sustentada, necesito que me des estos datos:
-
-1. **Estrategia de aplicación:** ¿Subirás el precio a los 30 clientes actuales o solo a los nuevos?
-2. **Retención y Churn:** ¿Cuál es tu tasa de cancelación mensual actual?
-3. **Diferenciación:** ¿Tu oferta entrega igual, mayor o menor valor que la del competidor de $39?
-4. **Adquisición:** ¿Cuántos clientes nuevos captas al mes a $25?
+1. **Retención:** ¿Cuál es tu tasa de bajas (*churn*) mensual actual?
+2. **Diferenciación:** ¿Tu propuesta de valor es igual, mejor o peor que la del competidor de $39?
+3. **Estrategia:** ¿El aumento aplicará a los 30 clientes actuales o solo a los nuevos (*grandfathering*)?

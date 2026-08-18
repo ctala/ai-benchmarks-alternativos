@@ -1,9 +1,9 @@
 # Gemini 3.7 Flash — structured_output/json_simple_extraction
 
 - model_id: `google/gemini-3.7-flash`
-- success: True  | final: 9.31 | quality: 10.0
-- latency_total: 3.093s | tokens_per_second: 119.6
-- input_tokens: 103 | output_tokens: 370
+- success: True  | final: 9.17 | quality: 10.0
+- latency_total: 3.615s | tokens_per_second: 99.0
+- input_tokens: 103 | output_tokens: 358
 
 ## Entrada exacta (lo que recibió el modelo)
 

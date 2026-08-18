@@ -1,9 +1,9 @@
 # Gemini 3.7 Flash — business_audit/roadmap_restriccion_capacidad
 
 - model_id: `google/gemini-3.7-flash`
-- success: True  | final: 8.81 | quality: 10.0
-- latency_total: 14.687s | tokens_per_second: 106.4
-- input_tokens: 242 | output_tokens: 1562
+- success: True  | final: 8.83 | quality: 10.0
+- latency_total: 13.524s | tokens_per_second: 100.6
+- input_tokens: 242 | output_tokens: 1361
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -27,39 +27,46 @@ Ordename el trimestre.
 
 ## Respuesta completa
 
-Tu presupuesto real para construir este trimestre es de **160 horas** (8 semanas × 5 días × 4h). 
+Tu capacidad real para este trimestre no son 8 semanas: son **160 horas de construcción** (8 semanas × 5 días × 4h/día). Esto equivale a solo **4 semanas de trabajo a tiempo completo**.
 
-Cualquier estimación en "tiempo completo" (asumiendo 8h/día) a ti te cuesta el **doble de semanas calendario**. Con esa realidad sobre la mesa, aquí tienes el orden de tu trimestre:
-
----
-
-### Lo que NO vas a hacer (y por qué)
-
-*   **A (Reescritura): DESCARTADA.** Te tomaría unas 480 horas (~6 meses a tu ritmo actual). Si te metes aquí, congelas el negocio medio año y te quemas. La reescritura es un lujo que un fundador solo no se puede permitir sin tracción validada.
-*   **C (Panel de métricas): DESCARTADA.** Depende de A, por lo que queda bloqueada automáticamente. Además, impacto medio frente a resolver la adquisición/activación no justifica el esfuerzo ahora.
+Con esos números en la mano, esta es tu realidad y el plan de ejecución:
 
 ---
 
-### El plan de 8 semanas
+### Lo que se descarta de inmediato
 
-#### 1. Prioridad Absoluta: Iniciativa B (Arreglar el flujo de alta)
-* **Tiempo estimado:** Semanas 1 y 2 (~40 horas).
-* **Por qué:** Tienes un agujero en el barco donde pierdes al 60% de los usuarios. Cualquier esfuerzo de marketing o soporte es tirar el tiempo si la gente no pasa del paso 2. Es la victoria más rápida y de mayor ROI.
-
-#### 2. Prioridad Secundaria: Iniciativa D (10 videos de contenido)
-* **Tiempo estimado:** Semanas 3 a 6 (~80 horas).
-* **Por qué:** Ahora que el embudo no pierde al 60% en el paso 2, tiene sentido meter tráfico nuevo. No grabes los 10 de golpe: produce, edita y publica en bloques de 2 o 3 para medir si realmente atraen clientes antes de gastar las 80 horas completas.
-
-#### 3. Prioridad Oculta: Buffer y Reducción de Operación
-* **Tiempo estimado:** Semanas 7 y 8 (~40 horas).
-* **Por qué:** 
-  1. Las estimaciones siempre se desvían (imprevistos de soporte te van a comer horas).
-  2. **Objetivo estratégico:** Usa el tiempo sobrante para documentar FAQs, crear respuestas automáticas o mejorar procesos internos. Si bajas esas 2h de soporte a 1h/día, habrás ganado un 25% más de capacidad de desarrollo para el próximo trimestre.
+* **DESCARTADO: A) Reescribir la plataforma**
+  * **Por qué:** Pide ~3 meses a tiempo completo (~480 horas). Tienes 160 horas. Si lo intentas, terminarás el trimestre con el código a medias, sin lanzar nada, frustrado y con la plataforma vieja igual de rota.
+* **DESCARTADO: C) Panel de métricas**
+  * **Por qué:** Depende de A (que no harás) y consumiría 120 de tus 160 horas disponibles. Cero margen de error.
 
 ---
 
-### Resumen del Trimestre
-* **Semanas 1-2:** Arreglar y validar el paso 2 del alta (Iniciativa B).
-* **Semanas 3-6:** Crear y distribuir contenido (Iniciativa D, iterando en lotes).
-* **Semanas 7-8:** Margen para imprevistos + automatizar soporte para comprar tiempo futuro.
-* **Iniciativas A y C:** Archivadas hasta nuevo aviso.
+### Tu plan de trimestre (Las 8 semanas)
+
+Tu único foco debe ser: **tapar la fuga de dinero y luego meterle gente.**
+
+#### **Fase 1: Semanas 1 y 2 (40 horas) → Iniciativa B (Arreglar el alta)**
+* **Por qué primero:** Tienes un cubo agujereado perdiendo el 60% de los usuarios. Cualquier esfuerzo de marketing hoy es tirar el dinero.
+* **Estimación real:** 1 semana a tiempo completo = 2 semanas a tu ritmo de 4h/día.
+* **Meta:** Reducir la caída del paso 2 al menos a la mitad y medir el impacto directo en altas completadas.
+
+#### **Fase 2: Semanas 3 a 6 (80 horas) → Iniciativa D (10 Videos de contenido)**
+* **Por qué segundo:** Ahora que el embudo no pierde al 60% de la gente, tiene sentido atraer tráfico.
+* **Estimación real:** 2 semanas a tiempo completo = 4 semanas a tu ritmo de 4h/día.
+* **Consejo de solo founder:** No grabes y edites uno por uno. Agrupa por bloques: Semana 3 (guiones de los 10), Semana 4 (grabación en bloque), Semanas 5 y 6 (edición y programación).
+
+#### **Fase 3: Semanas 7 y 8 (40 horas) → Buffer / Deuda técnica quirúrgica**
+* **Qué hacer aquí:** **NO agregues features nuevas.**
+* Utiliza estas 40 horas para:
+  1. Atender los bugs que surjan de B y el tráfico de D.
+  2. Automatizar o crear documentación para las partes más repetitivas de tus 2h diarias de soporte (para intentar liberar 30 min/día el próximo trimestre).
+  3. Resolver *solamente* los cuellos de botella críticos de rendimiento del framework actual (parches, no reescritura).
+
+---
+
+### Resumen ejecutivo
+1. **Semanas 1-2:** Arregla el alta (B).
+2. **Semanas 3-6:** Produce los 10 videos (D).
+3. **Semanas 7-8:** Margen de seguridad y optimización de soporte.
+4. **A y C:** Fuera del roadmap hasta que tengas ingresos para contratar o capacidad real liberada.

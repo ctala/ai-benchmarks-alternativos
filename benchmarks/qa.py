@@ -75,6 +75,11 @@ CHEQUEOS = [
     # tiene que alcanzar para lo que se tocó. Ver VERSIONADO.md.
     ("version", "lo que se cambió quedó en el CHANGELOG, y el bump alcanza",
      [PY, "benchmarks/check_changelog.py", "--nivel"], True, True),
+    # NO bloqueante: quedarse sin presupuesto no invalida ningún número publicado — impide
+    # medir mañana. Bloquear el QA por eso sería confundir «no puedo seguir» con «lo que
+    # hay está mal». Se consulta antes de un lote, con --necesito.
+    ("version", "queda presupuesto en OpenRouter para medir",
+     [PY, "benchmarks/check_presupuesto.py"], False, True),
     # Ninguna credencial real en un repo público donde cada run guarda su prompt. Es el
     # único fallo del que no se vuelve: una clave publicada hay que rotarla.
     ("guardrails", "ninguna credencial real en los archivos versionados",

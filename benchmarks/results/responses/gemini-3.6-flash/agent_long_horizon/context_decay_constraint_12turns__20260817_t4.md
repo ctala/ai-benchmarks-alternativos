@@ -1,9 +1,9 @@
 # Gemini 3.6 Flash — agent_long_horizon/context_decay_constraint_12turns
 
 - model_id: `google/gemini-3.6-flash`
-- success: True  | final: 8.15 | quality: 10.0
-- latency_total: 122.073s | tokens_per_second: 168.8
-- input_tokens: 73139 | output_tokens: 20515
+- success: True  | final: 8.18 | quality: 10.0
+- latency_total: 118.082s | tokens_per_second: 151.3
+- input_tokens: 56971 | output_tokens: 17638
 
 ## Conversación completa (13 turnos)
 
@@ -13,23 +13,17 @@ Hola. Soy Diego, fundador de una marca de zapatillas urbanas en México. Regla a
 
 ### Turno 1 — modelo
 
-¡Hola, Diego! Qué gusto saludarte. ¡Claro que sí, estoy totalmente listo para trabajar contigo!
+¡Hola, Diego! Qué gusto saludarte. Regla anotada y grabada a fuego: **jamás mencionaré precios ni cifras de costos** en ningún texto, idea o contenido que desarrollemos. 
 
-Regla anotada y grabada a fuego: **jamás mencionaré precios, valores monetarios ni cifras de costo** sobre tus zapatillas en ninguno de los materiales, copys o estrategias que desarrollemos. El enfoque estará 100% en el valor de marca, el diseño, la calidad, el estilo de vida urbano y la experiencia del cliente.
+¡Estoy totalmente listo! El mercado de las zapatillas urbanas (*sneakers*) en México tiene un potencial enorme y el tercer trimestre (Q3: julio, agosto y septiembre) es clave, sobre todo con tendencias como el estilo de vida de verano, eventos urbanos y la temporada de regreso a clases/rutina.
 
-El tercer trimestre (Q3: Julio, Agosto y Septiembre) es un periodo fantástico en México. Tenemos el pico del verano, el movimiento de "regreso a clases/universidad" (ideal para el nicho urbano) y el mes patrio en septiembre, donde se puede conectar muy bien con el orgullo y la cultura local.
+Para empezar a estructurar la estrategia de Q3 de forma precisa, cuéntame un poco sobre estos puntos:
 
-Para empezar a estructurar tu campaña de Q3, te propongo abordar estos cuatro ejes iniciales:
+1. **El concepto de la marca:** ¿Cuál es la vibra o propuesta de valor principal de tus zapatillas? (Ej. diseño de autor mexicano, comodidad para el día a día, materiales sustentables, cultura *streetwear*, etc.).
+2. **Grandes hitos de Q3:** ¿Tienes pensado lanzar algún modelo/colección nueva durante estos meses o nos enfocaremos en posicionar tu catálogo actual?
+3. **Canales principales:** ¿Dónde se mueve hoy tu comunidad? (TikTok, Instagram, eventos presenciales, tienda en línea, etc.).
 
-1. **Concepto Creativo Principal:** ¿Cuál es la narrativa o el mensaje central que queremos transmitir este trimestre? (Ej. *"Conquista las calles"*, *"Estilo sin reglas"*, *"Orgullo Urbano"*).
-2. **Calendario Estratégico:**
-   * **Julio (Verano / Lifestyle):** Enfoque en frescura, viajes urbanos, festivales y uso diario.
-   * **Agosto (Back to School / Creadores de tendencias):** Enfoque en estudiantes universitarios, renovación de armario y marcar el ritmo del nuevo ciclo.
-   * **Septiembre (Identidad / Cultura Local):** Enfoque en el diseño mexicano, talento local y streetwear con raíces.
-3. **Estrategia de Contenido y Canales:** Reels/TikToks de UGC (contenido generado por usuarios), colaboraciones con influencers del nicho (skate, arte urbano, música) y mailing enfocado en estilo de vida.
-4. **Lanzamientos o Colores:** ¿Tienes pensado lanzar algún nuevo modelo, colorway o edición limitada durante estos meses?
-
-Cuéntame, ¿cómo ves esta estructura inicial y qué detalles o lanzamientos especiales tienes en mente para este trimestre? ¡Vamos con todo!
+Dime por dónde te gustaría empezar y le metemos con todo a ese plan.
 
 ### Turno 2 — usuario
 
@@ -37,52 +31,46 @@ Primero, dame un esquema general de campaña de 90 días en 3 fases.
 
 ### Turno 2 — modelo
 
-Aquí tienes el esquema general para la campaña de 90 días del Q3, estructurado en 3 fases estratégicas para construir el deseo de compra, posicionar la marca y cerrar con fuerza en el mercado mexicano.
+¡Excelente punto de partida! Para un trimestre (90 días) como el Q3, lo ideal es estructurar la campaña en un embudo narrativo: **despertar el deseo, detonar la acción y consolidar la comunidad**.
+
+Aquí tienes el esquema general de 90 días dividido en 3 fases clave para tus zapatillas:
 
 ---
 
-### **Fase 1: "Calentando la Calle" (Días 1 a 30 - Julio)**
-**Enfoque:** *Concientización (Awareness) y Estilo de Vida de Verano*
-
-*   **Objetivo:** Captar la atención, aumentar el alcance de la marca e inspirar con la estética urbana de tus zapatillas.
-*   **Narrativa:** El verano en la ciudad no se detiene; tus pasos marcan la pauta.
-*   **Acciones clave:**
-    *   **Teasers y Contenido Estético:** Reels y TikToks de ritmo rápido mostrando las zapatillas en entornos urbanos icónicos de México (skateparks, murales, azoteas, calles del centro).
-    *   **Estrategia con Influencers (Seeding):** Envíos de producto a microinfluencers del nicho (artistas urbanos, DJs, skaters, creadores de moda streetwear) para que las integren en sus *outfits* de verano.
-    *   **Lookbook Digital:** Publicación de combinaciones de ropa para el día a día resaltando la versatilidad de los diseños.
-*   **KPI principal:** Alcance, impresiones y crecimiento en seguidores interactivos.
+### **Fase 1: JULIO — "El Calentamiento" (Teaser y Expectativa)**
+* **Enfoque:** Posicionamiento de marca, *storytelling* e intriga.
+* **Objetivo:** Generar conversación, atraer audiencia calificada a tus redes/sitio web y preparar el terreno antes del impulso fuerte de ventas.
+* **Estrategia de Contenido:**
+  * **El origen:** Muestra el proceso de diseño, los detalles de fabricación y la inspiración detrás de tus modelos. Enfatiza la calidad del calzado hecho en México.
+  * **Cultura y Estilo de Vida:** Publica contenido visualmente atractivo que conecte el calzado con la arquitectura urbana, el arte callejero y la moda local.
+  * **Teasers:** Videos cortos y dinámicos mostrando detalles de cerca (texturas, suela, bordados) sin revelar el modelo completo de inmediato.
+* **Mensaje Clave:** *"Las calles tienen una nueva historia que contar. Prepárate para pisar fuerte."*
 
 ---
 
-### **Fase 2: "Define tu Ritmo" (Días 31 a 60 - Agosto)**
-**Enfoque:** *Consideración, Prueba Social y "Back to Campus/Street"*
-
-*   **Objetivo:** Demostrar el valor del producto (comodidad, durabilidad, diseño) y posicionarlo como el calzado indispensable para el regreso a la rutina universitaria y diaria.
-*   **Narrativa:** Regresa a tus actividades sin perder la esencia ni el estilo.
-*   **Acciones clave:**
-    *   **Demostración de Producto (Detalle):** Videos enfocados en la calidad de los materiales, la flexibilidad de la suela, la comodidad al caminar largas distancias y el proceso de diseño.
-    *   **Contenido de UGC y Prueba Social:** Compartir fotos y videos de clientes reales utilizando las zapatillas en su día a día (estudios, trabajo, salidas nocturnas).
-    *   **Guías de Estilo "Get Ready With Me" (GRWM):** Creadores mostrando cómo armar 5 *outfits* diferentes para la semana usando el mismo par.
-    *   **Campañas de Interacción:** Encuestas y dinámicas en redes sociales como *"¿Con qué estilo las llevarías tú?"*.
-*   **KPI principal:** *Engagement* (comentarios, guardados, compartidos) y visitas a la tienda web.
+### **Fase 2: AGOSTO — "Toma la Calle" (Lanzamiento y Conversión)**
+* **Enfoque:** Decisión de compra, versatilidad y validación social (aprovechando la época de regreso a la rutina / *back to school* / universidad).
+* **Objetivo:** Convertir el interés en ventas directas y generar *User Generated Content* (UGC).
+* **Estrategia de Contenido:**
+  * **"Outfit Inspo":** Muestra cómo combinar las zapatillas para distintas ocasiones (un día relajado, trabajo creativo, eventos de noche).
+  * **Prueba de Comodidad y Durabilidad:** Demuestra el rendimiento del calzado en el día a día urbano mediante dinámicas o retos en video.
+  * **Prueba Social:** Colaboraciones con creadores de contenido del nicho *streetwear* y moda que muestren cómo les quedan sus pares.
+* **Mensaje Clave:** *"Tu estilo de vida no se detiene. Diseñadas para destacar en cada paso."*
 
 ---
 
-### **Fase 3: "Orgullo y Movimiento" (Días 61 a 90 - Septiembre)**
-**Enfoque:** *Conversión, Identidad Local y Urgencia de Cierre*
-
-*   **Objetivo:** Convertir el interés generado en compras efectivas, aprovechando la energía del mes patrio y el sentido de pertenencia a la cultura urbana mexicana.
-*   **Narrativa:** Pasos con identidad. Talento, diseño y cultura local que se viste desde los pies.
-*   **Acciones clave:**
-    *   **Cultura e Identidad:** Campaña visual resaltando que es una marca mexicana hecha para la cultura urbana local. Colaboraciones o retratos de creadores mexicanos emergentes usando la marca.
-    *   **Llamados a la Acción Directos:** Lanzamiento de mensajes enfocados en la disponibilidad del producto (*"Asegura tu par antes de que se agoten los talles"*, *"Edición de temporada por tiempo limitado"*).
-    *   **Retargeting y Email Marketing:** Reimpactar a quienes visitaron la web en julio y agosto o dejaron carritos abandonados, destacando los beneficios de estilo y exclusividad.
-    *   **Cierre de Q3:** Galería de la comunidad *"La Calle Habla"* recopilando el mejor contenido generado por los clientes durante todo el trimestre.
-*   **KPI principal:** Tasa de conversión, ventas totales del trimestre y retorno de inversión publicitaria (ROAS).
+### **Fase 3: SEPTIEMBRE — "Orgullo Urbano" (Fidelización y Cierre de Q3)**
+* **Enfoque:** Identidad, pertenencia y recompra (conectando con el mes patrio en México desde un punto de vista urbano y moderno, no folclórico tradicional).
+* **Objetivo:** Fidelizar a los primeros compradores, recuperar carritos abandonados e impulsar las últimas unidades del trimestre.
+* **Estrategia de Contenido:**
+  * **Manifiesto de Marca:** Un video o gráfica potente celebrando el talento local, la cultura del *sneakerhead* en México y el orgullo de caminar la ciudad.
+  * **Comunidad:** Compartir las mejores fotos de los clientes usando sus zapatillas (UGC en feed y stories).
+  * **Incentivos Visuales:** Destacar entregas rápidas, empaques especiales o complementos exclusivos para acelerar las decisiones de compra finales.
+* **Mensaje Clave:** *"Hechas en México, creadas para tus calles. Marca tu propio camino."*
 
 ---
 
-¿Qué te parece esta progresión de 90 días, Diego? Si estás de acuerdo, podemos pasar a aterrizar la **Fase 1** con ideas específicas de contenido y mensajes clave.
+¿Qué te parece esta estructura de 90 días para el ritmo de tu marca? Si te convence, podemos pasar a aterrizar la **Fase 1 (Julio)** con ideas tácticas específicas de contenido.
 
 ### Turno 3 — usuario
 
@@ -90,51 +78,44 @@ Detalla la fase 1 (descubrimiento) en 5 acciones concretas.
 
 ### Turno 3 — modelo
 
-Aquí tienes el desglose detallado de la **Fase 1: "Calentando la Calle" (Julio)**. Estas 5 acciones concretas están diseñadas para generar máximo impacto visual, captar la atención de la comunidad urbana en México y construir deseabilidad alrededor de tu marca:
+Aquí tienes el desglose táctico para la **Fase 1 (Julio - Descubrimiento)**. El objetivo principal de este mes es generar curiosidad, construir autoridad de marca y hacer que la gente desee tener tus zapatillas antes de hacer el empuje comercial fuerte.
+
+Aquí las **5 acciones concretas**:
 
 ---
 
-### **1. Video Manifiesto: "La Ciudad se Camina" (Lanzamiento Visual)**
-*   **Concepto:** Un video corto de alto impacto (15 a 30 segundos) con ritmo dinámico y música urbana/hip-hop o electrónica mexicana. Muestra planos rápidos de las zapatillas en movimiento sobre distintos escenarios emblemáticos (el asfalto del Centro Histórico, un skatepark en Guadalajara, azoteas en Monterrey, el metro, etc.).
-*   **Formato:** Reels, TikTok y YouTube Shorts.
-*   **Mensaje clave:** *"No solo caminamos la ciudad, la marcamos. Descubre el nuevo ritmo de tus pasos."*
-*   **Objetivo:** Generar reproducciones masivas y posicionar la estética de la marca en la mente del consumidor.
+### **1. Serie de Videos "Detrás de la Suela" (Storytelling & Proceso)**
+* **Qué hacer:** Produce una serie de 3 a 4 videos cortos (Reels/TikToks) mostrando el proceso de creación: desde los primeros bocetos en papel, la selección de los materiales, hasta el ensamble en el taller.
+* **Por qué funciona:** Muestra el valor artesanal y la calidad del diseño mexicano. A la cultura *sneakerhead* le apasiona saber cómo se construyó el calzado que lleva puesto.
+* **Formato:** Tomas de primer plano con estética *cinematográfica*, música urbana suave de fondo y voz en off contando la inspiración.
 
 ---
 
-### **2. Estrategia de Seeding: "Crew Urbano" (PR & Creadores de Contenido)**
-*   **Concepto:** Seleccionar a 10-15 micro-influencers clave de la cultura urbana en México (skaters, DJs locales, artistas de graffiti, estilistas de streetwear y bailarines de hip-hop) y enviarles un kit especial de bienvenida a la marca.
-*   **Entregable solicitado:** Unboxing en historias/TikTok y un post mostrando cómo integran las zapatillas en su estilo personal diario.
-*   **Enfoque de comunicación:** Que hablen exclusivamente de la comodidad, la calidad de la suela, los detalles del diseño y el orgullo de usar una marca con identidad propia.
-*   **Objetivo:** Ganar credibilidad y alcance orgánico a través de líderes de opinión de la subcultura urbana.
+### **2. Seeding de Kits de Expectativa a Creadores Locales**
+* **Qué hacer:** Selecciona entre 8 y 12 micro-creadores de contenido (estilo de vida urbano, moda de calle, ilustradores, DJs locales) en ciudades clave como CDMX, Monterrey o Guadalajara. Envíales una caja negra o misteriosa con las zapatillas y un elemento de marca (ej. calcetines exclusivos o un print ilustrado).
+* **Por qué funciona:** Genera alcance orgánico inmediato. La indicación para ellos no es vender, sino hacer un *unboxing* enfocado en la primera impresión, la textura y el diseño.
 
 ---
 
-### **3. Galería Interactiva: "5 Vistas, 1 Par" (Lookbook Digital)**
-*   **Concepto:** Publicación de carruseles en Instagram y Pinterest que funcionen como una guía visual de estilo para el verano. Cada diapositiva muestra las zapatillas combinadas con distintas prendas de streetwear (pantalones cargo, shorts holgados, calcetines altos, hoodies ligeras).
-*   **Formato:** Carrusel de imágenes de alta resolución con fotografía de moda callejera (*street style*).
-*   **Llamado a la acción (CTA):** *"Guarda esta publicación para armar tu outfit de la semana. ¿Cuál estilo va más contigo: 1, 2, 3, 4 o 5?"*
-*   **Objetivo:** Aumentar la métrica de "Publicaciones guardadas" (clave para el algoritmo) y educar al cliente sobre la versatilidad del producto.
+### **3. Shooting Editorial "Caminando Tu Ciudad"**
+* **Qué hacer:** Realiza una sesión fotográfica y en video en ubicaciones urbanas icónicas y con personalidad (murales de arte urbano, arquitectura moderna, transporte, cafeterías de diseño). 
+* **Por qué funciona:** Define la identidad visual de la marca. No muestras solo un producto, muestras el *estilo de vida* de la persona que lo usa, logrando que tu audiencia objetivo se identifique al instante.
 
 ---
 
-### **4. Colaboración de Arte Urbano: "Lienzo de Asfalto"**
-*   **Concepto:** Aliarse con un muralista o artista gráfico mexicano emergente para realizar una sesión de fotos y video en el proceso de creación de un mural. El artista utiliza tus zapatillas durante la jornada de pintura, resaltando la resistencia, comodidad y conexión con el arte urbano.
-*   **Formato:** Video tipo mini-documental/detrás de cámaras (60 segundos) y galería de fotos estéticas.
-*   **Mensaje clave:** *"Diseño hecho para quienes crean sin pedir permiso. Creatividad mexicana de la cabeza a los pies."*
-*   **Objetivo:** Conectar la marca con la cultura artística local y transmitir un mensaje de autenticidad y producción con sentido.
+### **4. Dinámicas de Intriga e Interacción en Redes**
+* **Qué hacer:** Publica historias interactivas con juegos de "Adivina el detalle", encuestas de estilo (*"¿Estilo sobrio o arriesgado?"*) y acercamientos extremos (macro) a los materiales de las zapatillas sin revelar el modelo completo.
+* **Por qué funciona:** El algoritmo de Instagram y TikTok premia la interacción. Mantienes a la comunidad activa y especulando sobre el nuevo lanzamiento.
 
 ---
 
-### **5. Dinámica de Comunidad: "Sondeo Callejero" (Contenido Interactivo)**
-*   **Concepto:** Salir a la calle con un micrófono y una cámara a hacer preguntas rápidas a transeúntes sobre moda urbana: *"¿Qué es lo primero que le miras a alguien en su outfit?"*, *"¿Zapatillas blancas o con color?"*, *"¿Comodidad o diseño primero?"*.
-*   **Formato:** Videos cortos de entretenimiento para TikTok e Instagram Stories con encuestas integradas.
-*   **Llamado a la acción:** Interacción directa en Stories para que la audiencia vote sus preferencias.
-*   **Objetivo:** Generar empatía, aumentar los comentarios y recopilar información valiosa sobre los gustos de tu audiencia objetivo.
+### **5. Captación de Leads para "Acceso VIP / Primer Drop"**
+* **Qué hacer:** Implementa un registro simple en tu sitio web o un bot de WhatsApp con el mensaje: *"Sé de los primeros en caminar la ciudad con la nueva colección. Regístrate para acceso anticipado antes del lanzamiento oficial."*
+* **Por qué funciona:** Creas una base de datos de compradores altamente interesados a los que podrás enviarles un mensaje directo cuando inicie la Fase 2, asegurando ventas desde el minuto uno sin depender únicamente del algoritmo.
 
 ---
 
-¿Qué opinas de estas 5 acciones para arrancar Julio con todo el impacto en la calle?
+¿Cómo ves estas 5 acciones para arrancar el mes de julio con todo el impacto visual?
 
 ### Turno 4 — usuario
 
@@ -142,51 +123,43 @@ Ahora la fase 2 (consideración) con 5 acciones.
 
 ### Turno 4 — modelo
 
-Aquí tienes el desglose para la **Fase 2: "Define tu Ritmo" (Agosto)**. En esta etapa de consideración, el objetivo es resolver dudas, demostrar la calidad superior del producto y convencer a la audiencia de que tus zapatillas son la mejor opción para acompañarlos en su rutina diaria y en el regreso a clases o a la universidad.
+Aquí tienes el desglose táctico para la **Fase 2 (Agosto - Consideración y Conversión)**. En este punto, la gente ya conoce tu marca; ahora debemos resolver sus dudas, mostrarles cómo se integran las zapatillas a su vida diaria y darles el empujón definitivo para realizar su pedido.
+
+Aquí las **5 acciones concretas**:
 
 ---
 
-### **1. Serie "Prueba de Resistencia": Anatomía y Calidad del Calzado**
-*   **Concepto:** Videos macro y en primer plano enfocados en la construcción del calzado. Muestra la flexibilidad de la suela, la calidad de las costuras, la respirabilidad de los materiales y la plantilla ergonómica.
-*   **Formato:** Reels/TikToks dinámicos con texto en pantalla resaltando los atributos técnicos (ej. *"Suela de alta tracción"*, *"Piel/Textil de alta resistencia"*, *"Plantilla de confort prolongado"*).
-*   **Mensaje clave:** *"Diseñadas para aguantar el ritmo de la calle sin perder la forma ni el confort. Calidad que sientes desde el primer paso."*
-*   **Objetivo:** Transmitir confianza en el producto y justificar su valor a través de los materiales y la durabilidad.
+### **1. Serie "1 Par, 5 Fits" (Versatilidad y Estilo)**
+* **Qué hacer:** Publica videos cortos y galerías mostrando un mismo modelo combinado para 5 situaciones distintas (ej. día universitario, reunión casual de trabajo, cita nocturna, evento de fin de semana, look relajado de domingo).
+* **Por qué funciona:** Resuelve la pregunta más común del comprador: *"¿Con qué me las voy a poner?"*. Al demostrar que tus zapatillas funcionan con múltiples prendas, el valor percibido del producto se dispara.
 
 ---
 
-### **2. Reto GRWM: "1 Par, 5 Días de Universidad/Rutina"**
-*   **Concepto:** Colaboración con 3 creadores de contenido de moda universitaria/urbana para mostrar cómo vestir el mismo modelo de zapatillas de lunes a viernes con outfits totalmente distintos (casual, formal urbano, deportivo, etc.).
-*   **Formato:** Videos estilo *Get Ready With Me* (Prepárate conmigo) de ritmo rápido, ideales para TikTok e Instagram.
-*   **Mensaje clave:** *"Un solo par, infinitas combinaciones. Maximiza tu armario para este nuevo ciclo."*
-*   **Objetivo:** Demostrar la versatilidad del diseño y ayudar al cliente potencial a visualizar cómo se verían con ellas en su vida diaria.
+### **2. El "Wear Test" Urbano (Prueba de Rendimiento y Comodidad)**
+* **Qué hacer:** Graba un video tipo vlog donde un creador o tú mismo caminen durante todo un día por la ciudad (ej. 10,000 pasos en el Centro Histórico, Reforma o una zona de alto movimiento), mostrando cómo responden los materiales, la amortiguación de la suela y el estado del calzado al final del día.
+* **Por qué funciona:** Quita el miedo a la incomodidad o a la mala calidad. Demuestra con hechos que el calzado está diseñado para soportar el ritmo de la vida urbana.
 
 ---
 
-### **3. Campaña de Prueba Social: "La Voz del Asfalto" (UGC y Testimonios)**
-*   **Concepto:** Compilación de fotos, videos de unboxing y comentarios reales de los clientes que compraron durante la Fase 1. Se destacan las opiniones que hablan sobre la comodidad al caminar por horas, los cumplidos que reciben en la calle y la fidelidad de los colores.
-*   **Formato:** Carruseles en Instagram, videos de reacción y sección destacada en las historias de Instagram ("Opiniones").
-*   **Mensaje clave:** *"No lo decimos nosotros, lo dice la comunidad que ya camina las calles con nosotros."*
-*   **Objetivo:** Reducir el riesgo percibido y generar confianza en los nuevos compradores mediante validación de pares.
+### **3. Guía Interactiva "Encuentra tu Talla Perfecta"**
+* **Qué hacer:** Crea contenido educativo (gráficas en carrusel y videos breves) enseñando a la gente cómo medir su pie en casa y explicando el hormado de tus zapatillas (si viene reducido, justo o amplio).
+* **Por qué funciona:** El temor a equivocarse de talla es la principal barrera para comprar calzado en línea. Eliminar esa duda aumenta de forma drástica la conversión en tu tienda web.
 
 ---
 
-### **4. Guía Educativa: "Talla Perfecta y Cuidado del Sneaker"**
-*   **Concepto:** Contenido utilitario que resuelve las dos preguntas más frecuentes al comprar calzado en línea: *"¿Cómo sé cuál es mi talla exacta?"* y *"¿Cómo las limpio para que duren como nuevas?"*.
-*   **Formato:** Carrusel infográfico explicativo + Video corto tipo tutorial de limpieza rápida con productos básicos.
-*   **Llamado a la acción (CTA):** *"Consulta nuestra guía de tallas interactiva en la web y asegura el ajuste perfecto para tus pies."*
-*   **Objetivo:** Eliminar las fricciones en la decisión de compra en el e-commerce y educar al cliente para alargar la vida útil del producto.
+### **4. Amplificación de Reseñas y Unboxings (Social Proof)**
+* **Qué hacer:** Reutiliza las fotos, videos de *unboxing* y comentarios reales de los clientes de la Fase 1 o compradores iniciales. Publícalos en historias destacadas de Instagram, secciones de la web y anuncios pagados.
+* **Por qué funciona:** La gente no le cree al vendedor, le cree a otros compradores. Ver a personas reales luciendo el producto da la confianza final que un cliente indeciso necesita.
 
 ---
 
-### **5. Vlog de Creadores: "24 Horas en Mis Zapatillas"**
-*   **Concepto:** Un desafío en el que un creador de contenido (por ejemplo, un fotógrafo urbano, un bailarín o un estudiante activo) documenta un día entero de uso intensivo: desde la mañana en el transporte/auto, la universidad o trabajo, hasta una caminata nocturna o evento.
-*   **Formato:** Video largo para YouTube Shorts / Reels en formato Vlog diario.
-*   **Mensaje clave:** *"De la mañana a la noche. La comodidad que tus pies necesitan en las jornadas más largas."*
-*   **Objetivo:** Demostrar el rendimiento real del calzado en situaciones cotidianas de alto desgaste.
+### **5. Secuencia de Conversión por Email y WhatsApp (Incentivos de Valor)**
+* **Qué hacer:** Envía una secuencia de mensajes automatizados a la lista VIP que captaste en la Fase 1 y a quienes abandonen su carrito. En lugar de enfocarte en números, ofrece valores agregados exclusivos (ej. un par de agujetas/maldades extra de regalo, un calcetín de edición limitada de la marca o envío prioritario).
+* **Por qué funciona:** Motiva la compra inmediata mediante la percepción de un beneficio exclusivo o de edición limitada, acelerando el cierre de la venta.
 
 ---
 
-¿Qué te parece este enfoque para Agosto? Pasamos de inspirar visualmente en Julio a demostrar la calidad y la utilidad real en Agosto.
+¿Qué te parece este enfoque enfocado en derribar objeciones y activar las compras durante agosto?
 
 ### Turno 5 — usuario
 
@@ -194,58 +167,43 @@ Fase 3 (conversión) con 5 acciones.
 
 ### Turno 5 — modelo
 
-Aquí tienes el desglose para la **Fase 3: "Orgullo y Movimiento" (Septiembre)**. Esta fase está completamente enfocada en la conversión, aprovechando la energía del mes patrio en México, el sentido de pertenencia y la urgencia para que la audiencia dé el paso final de compra.
+Aquí tienes el desglose táctico para la **Fase 3 (Septiembre - Conversión Final, Orgullo Local y Fidelización)**. En este último mes de Q3, el objetivo es acelerar las compras pendientes mediante la sensación de escasez, conectar emocionalmente aprovechando el mes patrio desde una perspectiva urbana y asegurar la lealtad de quienes ya compraron.
+
+Aquí las **5 acciones concretas**:
 
 ---
 
-### **1. Campaña de Orgullo Local: "Pasos con Identidad"**
-*   **Concepto:** Conectar la marca con el orgullo de la cultura y el diseño mexicano contemporáneo durante las fiestas patrias. Se produce una serie visual potente que celebra el talento, las calles y la estética urbana de México.
-*   **Formato:** Video hero (30 segundos) + Anuncios en Meta y TikTok orientados a conversión.
-*   **Mensaje clave:** *"Diseño, cultura y actitud mexicana en cada paso. Viste con orgullo lo que se hace aquí."*
-*   **Llamado a la acción (CTA):** *"Elige tu modelo favorito y lleva la esencia de la calle contigo. Compra hoy en nuestra web."*
-*   **Objetivo:** Disparar el deseo de compra conectando emocionalmente con la identidad del consumidor.
+### **1. Alertas de "Pares Limitados" (Urgencia y Escasez)**
+* **Qué hacer:** Publica gráficos y videos mostrando el inventario en tiempo real de las tallas más solicitadas con frases como: *"Últimos pares en tu número"* o *"Edición de Q3 por agotarse"*.
+* **Por qué funciona:** El miedo a quedarse sin su talla (FOMO) impulsa a los usuarios que llevan semanas dudando a tomar la decisión de compra de inmediato.
 
 ---
 
-### **2. Estrategia de Escasez y Urgencia: "Últimas Tallas de Temporada"**
-*   **Concepto:** Activar alertas de inventario limitado para los modelos y colores más solicitados durante Julio y Agosto. Crear un sentido de oportunidad que acelere la decisión de compra.
-*   **Formato:** Anuncios dinámicos, Stories con stickers de cuenta regresiva y banners en la tienda web con etiquetas como *"Stock Limitado"* o *"Últimos Pares"*.
-*   **Mensaje clave:** *"Las tallas más buscadas se están agotando. No te quedes fuera de esta edición de temporada."*
-*   **Llamado a la acción (CTA):** *"Selecciona tu talla y asegura tu par antes de que se agoten definitivamente."*
-*   **Objetivo:** Generar FOMO (*Fear of Missing Out*) y acelerar las compras de los usuarios indecisos.
+### **2. Manifiesto "Orgullo de Calle" (Conexión Cultural de Septiembre)**
+* **Qué hacer:** Lanza un video potente en redes sociales que celebre el talento, la arquitectura y la cultura urbana de México. Destaca que tus zapatillas son diseñadas y hechas localmente para conquistar las calles de cualquier ciudad.
+* **Por qué funciona:** En septiembre, la pertenencia cultural está a flor de piel. Conectar el calzado con el orgullo local genera un vínculo emocional mucho más fuerte que una simple publicidad comercial.
 
 ---
 
-### **3. Retargeting Agresivo y Email Marketing: "Completa tu Look"**
-*   **Concepto:** Impactar directamente a las personas que visitaron la web en las Fases 1 y 2, o que dejaron productos en el carrito de compras, recordándoles las garantías de satisfacción y beneficios de compra.
-*   **Formato:** Correos electrónicos de recuperación de carrito y anuncios de retargeting en Instagram/Facebook.
-*   **Mensaje clave:** *"Tus próximas zapatillas favoritas siguen esperando por ti. Haz tu pedido hoy y recibelo en la puerta de tu casa con envío garantizado a todo México."*
-*   **Llamado a la acción (CTA):** *"Haz clic aquí para finalizar tu pedido en menos de 2 minutos."*
-*   **Objetivo:** Recalentar el tráfico frío/tibio generado en meses anteriores y convertirlo en ventas efectivas.
+### **3. Retargeting Visual Centrado en la Experiencia de Compra**
+* **Qué hacer:** Lanza campañas de anuncios dirigidos específicamente a quienes visitaron tu tienda en línea o agregaron productos al carrito sin finalizar. Los anuncios deben enfocarse en los beneficios del servicio: envío rápido a todo México, cambios de talla sin complicaciones y empaque de colección.
+* **Por qué funciona:** Ataca directamente los frenos logísticos. Al recordarles que la experiencia de compra es segura y sencilla, cierras las ventas de la audiencia con mayor intención.
 
 ---
 
-### **4. Incentivo de Valor Agregado: "Kit de Regalo de Temporada"**
-*   **Concepto:** Ofrecer un complemento exclusivo de regalo por cada compra realizada durante el mes de septiembre (por ejemplo: un par de calcetas urbanas de edición limitada, unas agujetas de diseño especial o un morral de tela con el logo de la marca).
-*   **Formato:** Unboxing en video mostrando el kit completo que recibe el cliente al abrir su paquete.
-*   **Mensaje clave:** *"Durante todo septiembre, cada par incluye de regalo nuestras calcetas exclusivas de edición especial. Elevamos tu estilo sin costo adicional."*
-*   **Llamado a la acción (CTA):** *"Pide tu par hoy y recibe tu kit exclusivo de regalo en tu caja."*
-*   **Objetivo:** Aumentar la percepción de valor de la marca e incentivar la compra inmediata sin devaluar el producto.
+### **4. Activación de Comunidad "Presume tus Pasos" (UGC e Incentivo)**
+* **Qué hacer:** Crea una dinámica donde invites a todos los que ya compraron sus zapatillas a subir un video o foto luciendo su par en la ciudad, etiquetando a la marca. Selecciona las mejores fotos para que aparezcan en la portada de tu sitio web o en el feed principal.
+* **Por qué funciona:** Refuerza la lealtad de tus primeros clientes haciéndolos sentir parte del club de la marca y, al mismo tiempo, genera un volumen masivo de prueba social para los nuevos visitantes.
 
 ---
 
-### **5. Sesiones en Vivo y Q&A de Cierre: "Muestra Directa de Producto"**
-*   **Concepto:** Transmisiones en vivo (*Instagram Live* o *TikTok Live*) donde el equipo o un creador aliado muestra todos los modelos en tiempo real, responde dudas de ajuste de talla, combinaciones de ropa y muestra el empaque final.
-*   **Formato:** Evento en vivo de 30-45 minutos con enlace directo a la tienda en pantalla.
-*   **Mensaje clave:** *"¿Tienes dudas sobre qué modelo o talla elegir? Conéctate, te las mostramos en vivo y te ayudamos a hacer tu pedido al momento."*
-*   **Llamado a la acción (CTA):** *"Toca el enlace en la pantalla para ir directamente a la tienda y seleccionar las tuyas mientras transmitimos."*
-*   **Objetivo:** Romper las últimas objeciones de compra en tiempo real y generar un pico de conversiones en directo.
+### **5. Beneficio de Cierre de Q3: "Complemento Exclusivo"**
+* **Qué hacer:** Para los últimos días del mes, incluye un accesorio especial de regalo en cada pedido (por ejemplo, una tote bag de la marca con diseño urbano, una plantilla ergonómica extra o un kit de stickers de edición limitada).
+* **Por qué funciona:** Añade un valor percibido altísimo al empaque final sin necesidad de devaluar el producto, dando la excusa perfecta para realizar el pedido antes de que termine el trimestre.
 
 ---
 
-Con esto cerramos las 3 fases del Q3. Pasamos de la **atención** en Julio, a la **confianza** en Agosto, y cerramos con la **acción directas de compra** en Septiembre. 
-
-¿Cómo sientes la estrategia completa de los 90 días para tu marca, Diego?
+Con estas 3 fases tenemos la ruta completa de 90 días para posicionar la marca y cerrar Q3 con gran fuerza. ¿Te gustaría que profundicemos en la estrategia de contenidos para redes o en el plan de colaboraciones?
 
 ### Turno 6 — usuario
 
@@ -253,46 +211,48 @@ Con esto cerramos las 3 fases del Q3. Pasamos de la **atención** en Julio, a la
 
 ### Turno 6 — modelo
 
-Para medir el éxito de la campaña de manera precisa y saber exactamente qué ajustar sobre la marcha, aquí tienes los **KPIs (Indicadores Clave de Desempeño)** divididos por cada fase del embudo:
+Para saber si la estrategia está funcionando en cada etapa de los 90 días, debes medir indicadores (KPIs) alineados con el objetivo específico de esa fase. 
+
+Aquí tienes la lista de KPIs para medir el éxito de tu campaña sin perderte en métricas vanidosas:
 
 ---
 
-### **Fase 1: Descubrimiento (Julio - "Calentando la Calle")**
-*El objetivo aquí es la visibilidad, el impacto visual y la construcción de comunidad.*
+### **Fase 1: JULIO — Descubrimiento (Awareness y Marca)**
+*El objetivo aquí es el **alcance, el interés inicial y la captación de prospectos**.*
 
-1. **Alcance e Impresiones Totales:** Número de personas únicas que ven tu contenido y cuántas veces se muestra en redes sociales (Meta, TikTok).
-2. **Crecimiento Neto de la Comunidad:** Porcentaje de aumento de nuevos seguidores e interactuantes en Instagram y TikTok.
-3. **Métrica de Interés (Guardados y Compartidos):** Cantidad de veces que los usuarios guardan tus publicaciones (lookbooks/estilos) o las envían por mensaje directo. Es el mejor indicador de deseo de marca.
-4. **Tasa de Retención de Video (Hook Rate):** Porcentaje de usuarios que ven más de los primeros 3 segundos de tus Reels o TikToks manifestando interés inicial.
-5. **CTR (Tasa de Clics) en Anuncios:** Porcentaje de personas que hacen clic en el enlace hacia la tienda web tras ver los anuncios de descubrimiento.
-
----
-
-### **Fase 2: Consideración (Agosto - "Define tu Ritmo")**
-*El objetivo aquí es validar la calidad del producto, educar al comprador y generar tráfico calificado a la tienda.*
-
-1. **Tasa de Interacción (Engagement Rate):** Comentarios, preguntas sobre tallas/disponibilidad y menciones en publicaciones de creadores.
-2. **Tráfico Cualificado a Páginas de Producto (PDP):** Cantidad de sesiones web que llegan directamente a ver los detalles de los modelos.
-3. **Tiempo de Permanencia en el Sitio Web:** Duración promedio de los usuarios explorando la tienda y número de páginas que visitan por sesión.
-4. **Tasa de Adición al Carrito (Add-to-Cart Rate):** Porcentaje de visitantes de la web que eligen su talla y agregan el producto al carrito (muestra una intención clara de compra).
-5. **Generación de UGC (Contenido de Usuarios):** Número de etiquetas y menciones de clientes o creadores utilizando las zapatillas en sus historias o videos.
+* **Alcance e Impresiones:** Número total de personas únicas que vieron tu contenido de marca en redes sociales.
+* **Tasa de Interacción (Engagement Rate):** Porcentaje de personas que guardan, comparten, comentan o dan "me gusta" a tus videos del proceso de diseño y *lifestyle*.
+* **Reproducciones Completas de Video (Hook & Hold Rate):** Cuántas personas ven tus videos cortos hasta el final (clave para saber si la estética visual engancha).
+* **Tráfico Nuevo a la Web:** Cantidad de visitas por primera vez a tu sitio.
+* **Tasa de Captación de Leads (Lista VIP):** Porcentaje de visitantes que se registraron para tener acceso anticipado a la colección.
 
 ---
 
-### **Fase 3: Conversión (Septiembre - "Orgullo y Movimiento")**
-*El objetivo aquí es el cierre de ventas, la efectividad de los anuncios y la aceleración de la decisión de compra.*
+### **Fase 2: AGOSTO — Consideración (Intención y Confianza)**
+*El objetivo aquí es la **evaluación del producto, interacción profunda y reducción de dudas**.*
 
-1. **Tasa de Conversión del E-commerce:** Porcentaje de visitantes totales de la tienda web que completan su pedido exitosamente.
-2. **ROAS (Retorno de la Inversión Publicitaria):** Proporción de ingresos generados por cada unidad invertida en pauta digital (Meta Ads, Google Ads, TikTok Ads).
-3. **Tasa de Recuperación de Carritos Abandonados:** Porcentaje de usuarios que completaron su pedido tras recibir correos o anuncios de retargeting.
-4. **Volumen Total de Unidades Vendidas:** Cantidad de pares entregados durante la campaña por modelo y talla.
-5. **Rendimiento de Email Marketing:** Tasa de apertura y tasa de clics en los correos enfocados en conversión y beneficios especiales del mes.
+* **Tasa de Adición al Carrito (Add-to-Cart Rate):** Porcentaje de visitantes que seleccionan su talla y agregan las zapatillas a la bolsa de compra.
+* **Tasa de Clics (CTR) en Anuncios:** Porcentaje de clics hacia la tienda en línea desde los videos de estilo (*1 Par, 5 Fits*) o pruebas de durabilidad.
+* **Tiempo de Permanencia en Ficha de Producto:** Cuánto tiempo pasan navegando en los detalles del calzado y la guía de tallas.
+* **Métricas de WhatsApp / DM:** Cantidad de conversaciones iniciadas por clientes pidiendo asesoría de tallas o envíos.
+* **Uso del Buscador de Tallas:** Número de clics o interacciones en la guía interactiva para elegir la medida correcta.
 
 ---
 
-**Tip estratégico:** Te sugiero revisar los KPIs de **Fase 1 semanalmente** para ajustar el tipo de contenido visual que mejor funciona, los de **Fase 2 cada 3-4 días** para optimizar la web, y los de **Fase 3 diariamente** para gestionar inventarios y presupuestos de anuncios en tiempo real.
+### **Fase 3: SEPTIEMBRE — Conversión (Venta Final y Fidelización)**
+*El objetivo aquí es el **volumen de pedidos, cierre de decisiones y lealtad**.*
 
-¿Te gustaría que profundicemos en las herramientas para medir estas métricas o en cómo estructurar el contenido de alguna de las fases?
+* **Tasa de Conversión Web (Conversion Rate %):** Porcentaje total de visitantes al sitio que completan su compra.
+* **Volumen de Unidades Vendidas:** Número de pares de zapatillas entregados durante el mes.
+* **Tasa de Recuperación de Carritos Abandonados:** Porcentaje de usuarios que regresaron a finalizar su compra tras recibir los mensajes de retargeting o email.
+* **Menciones y UGC Generado:** Cantidad de historias, reels y fotos donde los clientes etiquetan a la marca luciendo sus pares en la ciudad.
+* **Tasa de Recompra (Repeat Purchase Rate):** Porcentaje de clientes de colecciones pasadas que vuelven a pedir un nuevo modelo o accesorio.
+
+---
+
+**Tip Pro para Diego:** En Julio enfócate en el **Alcance y los Registros VIP**; en Agosto en las **Adiciones al Carrito**; y en Septiembre en la **Tasa de Conversión Total**. Así sabrás exactamente qué ajuste hacer mes con mes. 
+
+¿Quieres que elaboremos un ejemplo de guión para uno de los videos de la Fase 1?
 
 ### Turno 7 — usuario
 
@@ -300,51 +260,45 @@ Para medir el éxito de la campaña de manera precisa y saber exactamente qué a
 
 ### Turno 7 — modelo
 
-Para una marca e-commerce de *streetwear* y zapatillas en crecimiento en México, la recomendación ideal de distribución presupuestaria para una campaña de Q3 se trabaja en proporciones porcentuales. 
+Para una marca independiente de zapatillas urbanas en fase de crecimiento en México, la clave no es gastar fortunas, sino la **eficiencia en la distribución del presupuesto**. 
 
-Una estructura altamente efectiva se divide en una relación **70% para Paid Media (Publicidad Pagada)** y **30% para Orgánico, Producción y Creadores**.
+La recomendación general para un modelo de comercio electrónico (D2C) es trabajar con una proporción aproximada de **60% a 70% destinado a Paid Media (pauta publicitaria)** y **30% a 40% enfocado en Recursos Orgánicos y Producción de Contenido**.
 
-Aquí te detallo cómo optimizar esa distribución para que cada peso invertido rinda al máximo sin malgastar recursos:
-
----
-
-### **1. Reparto General del Presupuesto de Marketing**
-
-*   **70% — Paid Media (Pauta Digital Directa):**
-    Es el motor que garantiza el alcance masivo, la aceleración de tráfico calificado y las ventas constantes.
-    *   **Meta Ads (Instagram / Facebook):** 50% al 60% del paid media (esencial para moda visual y conversión).
-    *   **TikTok Ads:** 25% al 30% (clave para descubrimiento de marca y conexión con público joven).
-    *   **Google Ads (Búsqueda y Shopping):** 10% al 15% (captura a quienes ya buscan activamente zapatillas urbanas).
-
-*   **30% — Contenido Orgánico, Creadores y Producción:**
-    Es la gasolina del paid media. Sin buen contenido visual y respaldo cultural, la pauta pagada no convierte.
-    *   **Seeding / Envíos a Influencers y Creadores:** Asignación de pares e incentivos para la comunidad.
-    *   **Producción de Contenido:** Sesiones fotográficas *street style*, video grabado en calle y edición.
-    *   **Incentivos de Comunidad:** Complementos de regalo o dinámicas de interacción para los clientes.
+Así es como conviene distribuir ese presupuesto estratégico a lo largo de los 90 días:
 
 ---
 
-### **2. Cómo Distribuir la Pauta Pagada (Paid Media) a lo largo del Q3**
+### **1. Distribución del Presupuesto por Categoría**
 
-No debes gastar el presupuesto a partes iguales cada mes; la pauta debe escalar a medida que la audiencia está más lista para comprar:
+* **60% - 65% | Paid Media (Publicidad Digital Pagada):**
+  * **Meta Ads (Instagram / Facebook):** Tu canal principal de conversión visual y retargeting.
+  * **TikTok Ads:** Excelente para el alcance masivo en la Fase 1 y videos de estilo de vida en la Fase 2.
+  * **Google Search:** Para captar a personas que buscan directamente términos como "zapatillas urbanas de diseño", "sneakers hechos en México", etc.
 
-*   **Julio (Fase 1 - Descubrimiento): 25% a 30% del Paid Media**
-    *   *Enfoque:* Campañas de Alcance, Tráfico y Reproducciones de Video. Queremos llenar la parte alta del embudo con gente nueva que conozca el concepto de tu marca.
-
-*   **Agosto (Fase 2 - Consideración): 30% a 35% del Paid Media**
-    *   *Enfoque:* Campañas de Interacción, Visitas a Páginas de Producto y Adición al Carrito. Empezamos a retargetear a quienes vieron videos en Julio y buscamos público similar (*Lookalike*).
-
-*   **Septiembre (Fase 3 - Conversión): 35% a 40% del Paid Media**
-    *   *Enfoque:* Campañas directas de Ventas/Conversión y Retargeting Agresivo sobre visitas web y carritos abandonados. Aquí es donde se concentra la mayor fuerza de conversión del trimestre.
+* **35% - 40% | Contenido Orgánico, Producción y Seeding:**
+  * **Producción de fotos y video:** Sesiones urbanas (*shootings*) de alta calidad visual.
+  * **Seeding de producto:** El envío de pares a los micro-creadores e influenciadores seleccionados.
+  * **Accesorios de experiencia de cliente:** El diseño y producción de empaques especiales o detalles de regalo para la Fase 3.
 
 ---
 
-### **3. Regla de Oro para Maximizar la Inversión**
+### **2. Cómo Ajustar la Pauta Pagada por Fase del Trimestre**
 
-1.  **Reutiliza el contenido orgánico en Paid Media:** El contenido de los creadores (UGC) que mejor funcione de manera orgánica debe pautarse como anuncio (*Spark Ads* en TikTok o anuncios con contenido de creador en Meta). Suele ser mucho más rentable que los anuncios corporativos tradicionales.
-2.  **No apagues el Retargeting:** Reserva siempre entre un 15% y un 20% de tu pauta pagada mensual exclusivamente para reimpactar a la gente que ya interactuó con tu marca o visitó tu sitio web.
+El porcentaje de inversión publicitaria no debe ser estático; debe fluir según el objetivo de cada mes:
 
-Esta proporción 70/30 te permite mantener un flujo constante de clientes nuevos mientras construyes el valor percibido y la autoridad de tu marca en la calle. ¿Cómo ves esta distribución para tu modelo de negocio?
+* **Julio (Fase 1 - Descubrimiento): 20% del presupuesto de pauta**
+  * **Enfoque:** 70% a generación de alcance/tráfico hacia tus videos y 30% a la captación de registros VIP para la lista de espera.
+
+* **Agosto (Fase 2 - Consideración y Ventas): 50% del presupuesto de pauta**
+  * **Enfoque:** Aquí va el mayor esfuerzo. 50% a campañas de tráfico calificado (prospectos de valor) y 50% a campañas de conversión y mensajes directos.
+
+* **Septiembre (Fase 3 - Cierre y Retargeting): 30% del presupuesto de pauta**
+  * **Enfoque:** 60% dedicado a *Retargeting* (alcanzar a quienes visitaron la web o dejaron carritos en agosto) y 40% a anuncios de urgencia y orgullo de marca.
+
+---
+
+### **¿Por qué este equilibrio?**
+Si dependes 100% de lo orgánico, el algoritmo te limitará y el crecimiento será muy lento. Si dependes 100% de la pauta pagada sin un contenido orgánico visualmente atractivo y auténtico, los anuncios te saldrán más caros porque la gente no confiará en la marca. **El contenido orgánico enamora y la pauta escala la venta.**
 
 ### Turno 8 — usuario
 
@@ -352,57 +306,53 @@ Esta proporción 70/30 te permite mantener un flujo constante de clientes nuevos
 
 ### Turno 8 — modelo
 
-Para conectar de manera genuina con la audiencia urbana de 18 a 30 años en México (Gen Z y Millennials jóvenes), el tono de voz debe sentirse **auténtico, fresco, seguro de sí mismo y con calle, pero sin caer en forzamientos**. Esta generación detecta de inmediato cuando una marca intenta "hablar como joven" de forma falsa (*cringe*).
+Para conectar de verdad con la Generación Z y los Millennials jóvenes (18-30 años) en el nicho *streetwear* de México, el tono debe sentirse **auténtico, fresco, sin poses corporativas y profundamente conectado con la cultura de calle**. Esta audiencia detecta a kilómetros cuando una marca intenta "venderles" de forma agresiva o cuando fuerza el lenguaje.
 
-Aquí tienes la guía de tono de comunicación recomendada para tu marca:
+Te recomiendo definir el tono bajo el arquetipo de **"El Amigo Creador"** (alguien de su mismo grupo de edad que diseña cosas geniales para la comunidad, no una empresa lejana).
 
----
-
-### **1. Pilares del Tono de Voz**
-
-*   **Directo y Confiado (Sin rodeos):** Habla con seguridad. Tu marca no pide permiso; propone una estética y una actitud. Usa oraciones cortas, potentes y verbos de acción.
-*   **Cercano y de Comunidad (El "Crew"):** La audiencia no son "clientes", son parte de un colectivo o movimiento. El tono debe sentirse como la conversación entre dos amigos que comparten la pasión por los *sneakers*, el arte y la ropa urbana.
-*   **Orgullosamente Local (Mexicano Contemporáneo):** Utiliza un lenguaje natural de la cultura urbana de México, usando términos orgánicos del *streetwear* sin saturar (*flow, drop, crew, estilo, asfalto, pisada, actitud*).
-*   **Visual y Emocional:** El enfoque nunca es la transacción fría, sino **cómo se sienten** al usar las zapatillas y el impacto visual que generan en su día a día.
+Aquí tienes los **4 pilares del tono de comunicación** y cómo aplicarlos:
 
 ---
 
-### **2. Lo que SÍ se debe hacer (DOs) vs. Lo que NO (DON'Ts)**
-
-| **SÍ (Haz esto)** | **NO (Evita esto)** |
-| :--- | :--- |
-| **Habla de tú:** *"Eleva tu estilo hoy"*. | **Hablar de usted o muy formal:** *"Estimado cliente, le invitamos a comprar"*. |
-| **Enfócate en la actitud y el diseño:** *"Pisa fuerte, la ciudad es tuya"*. | **Lenguaje puramente corporativo/comercial:** *"Aproveche la promoción disponible"*. |
-| **Usa dinamismo y ritmo visual:** Emojis clave (⚡️, 🔥, 👟, 👁️) y textos breves. | **Párrafos eternos y cargados de texto:** Perderás su atención en 2 segundos. |
-| **Transmite exclusividad y pertenencia:** *"Solo para quienes saben de estilo"*. | **Sonoridad desactualizada o forzada:** Evita abusar de modismos que no encajen con la elegancia del streetwear. |
+### **1. Lenguaje Directo y Visual (Cero Rollo Corporativo)**
+* **Cómo hablar:** Sé breve, dinámico y enfócate en sensaciones, estética y actitud. Usa oraciones cortas.
+* **Vocabulario clave:** Términos naturales del entorno urbano en México como *flow, drop, crew, pisar fuerte, estilo, la calle, identidad, rifarse*.
+* **Lo que debes evitar:** Expresiones acartonadas como *"Le ofrecemos nuestro calzado de alta gama"* o *"Estimado cliente"*.
 
 ---
 
-### **3. Ejemplos Prácticos de Copy por Canal**
-
-#### **A. Redes Sociales (Reels / TikTok / Instagram Captions)**
-*   *Opción 1:* *"No es solo caminar, es cómo te ves mientras lo haces. Diseño mexicano para romper la rutina del asfalto. ⚡️ Haz tu pedido en la web."*
-*   *Opción 2:* *"El complemento que le faltaba a tu outfit de la semana. Comodidad real para aguantar de la mañana a la noche. ¿Cuál es tu color favorito?"*
-
-#### **B. Correos / Newsletter (Email Marketing)**
-*   *Asunto:* *"Tu estilo no se negocia. Nuevos modelos disponibles 👀"*
-*   *Cuerpo:* *"Hola, [Nombre]. Sabemos que en la calle la primera impresión lo es todo. Por eso diseñamos cada par pensando en la durabilidad y el estilo que necesitas para destacar. Explora el catálogo completo y asegura tu talla antes de que vuelen."*
-
-#### **C. Llamados a la Acción (CTAs en Anuncios o Web)**
-*   En lugar del clásico *"Comprar ahora"*, prueba con:
-    *   *"Asegura tu par"*
-    *   *"Eleva tu estilo"*
-    *   *"Descubre la colección"*
-    *   *"Únete al movimiento"*
+### **2. Estilizado pero Relajado (Un spanglish urbano natural)**
+* La cultura *sneaker* nació global pero se vive local. Integrar palabras en inglés que la comunidad usa a diario se siente natural si no se exagera.
+* **Usa términos comunes:** *Outfit, fit, drop, streetwear, unboxing, sneakers, look, vibes, lifestyle*.
+* **Ejemplo de frase:** *"Ese fit que llevas merece unas zapatillas a la altura. Lista la nueva colección."*
 
 ---
 
-### **4. La Regla de Oro del Tono:**
-> **"Habla sobre el impacto que el producto tiene en su identidad, no solo sobre el producto en sí."**
+### **3. Orgullo de Pertenencia y Cultura Local**
+* La juventud en México hoy aprecia muchísimo las marcas locales que hacen las cosas bien. Habla con orgullo del diseño mexicano, pero desde la modernidad, el arte, la música y la arquitectura de la ciudad (no desde el folclor tradicional).
+* **Ejemplo de frase:** *"Diseñadas en el corazón de la ciudad. Hechas por y para quienes caminan su propio camino."*
 
-A este rango de edad no solo le vendes un par de zapatillas; le vendes la seguridad de caminar por la ciudad sintiéndose cómodos, con estilo y representados por una marca local que entiende su cultura.
+---
 
-¿Qué te parece esta línea de comunicación para los textos de tus redes y anuncios?
+### **4. Ejemplos Prácticos: Cómo SÍ vs. Cómo NO hablar**
+
+* **Ejemplo 1: Presentando un nuevo modelo**
+  * ❌ **NO:** *"Le presentamos nuestro nuevo modelo de zapatillas de excelente calidad urbana con materiales duraderos."*
+  * ✅ **SÍ:** *"Diseño limpio. Materiales que aguantan el ritmo de tu día. El nuevo drop ya está aquí para elevar tu fit diario."*
+
+* **Ejemplo 2: Invitando a interactuar en Instagram**
+  * ❌ **NO:** *"Por favor, escriba en la sección de comentarios cuál es su color favorito para conocer su opinión."*
+  * ✅ **SÍ:** *"¿Silueta sobria o combinaciones arriesgadas? Déjanos en comentarios cuál va más con tu estilo."*
+
+* **Ejemplo 3: Mensaje para recuperar un carrito / invitar a comprar**
+  * ❌ **NO:** *"Atención: Le recordamos que tiene un producto pendiente de pago en nuestro carrito."*
+  * ✅ **SÍ:** *"Tus zapatillas te están esperando. Asegura tu talla antes de que se agote la edición de este mes."*
+
+---
+
+**Regla de oro para tu equipo:** Cuando redactes un texto para redes, hazte esta pregunta: *"¿Le diría esto en persona a un amigo en una cafetería o en un evento urbano?"* Si la respuesta es no, se reescribe. 
+
+¿Qué te parece esta personalidad para la voz de tu marca?
 
 ### Turno 9 — usuario
 
@@ -410,58 +360,53 @@ A este rango de edad no solo le vendes un par de zapatillas; le vendes la seguri
 
 ### Turno 9 — modelo
 
-Para tu marca de zapatillas urbanas en México, la clave no es buscar grandes celebridades masivas, sino **creadores con alta credibilidad en subculturas urbanas específicas**. La audiencia de 18 a 30 años valora la autenticidad por encima del número de seguidores; un micro-influencer con 15,000 seguidores en la escena del *streetwear* generará muchas más ventas y deseabilidad que un influencer de estilo de vida genérico con medio millón.
+Para una marca urbana de zapatillas en México, buscar influencers masivos o de entretenimiento general suele ser un error: son costosos, la audiencia no les cree sus recomendaciones de moda y el impacto en ventas es bajo. 
 
-Aquí tienes los **5 perfiles de influencers ideales** que debes buscar para tu estrategia de Q3:
+Debes enfocar la búsqueda en **micro y mid-tier creators (entre 10,000 y 150,000 seguidores)** que vivan la cultura de calle, tengan alta credibilidad y una comunidad muy comprometida.
 
----
-
-### **1. Creadores de Estilo de Vida Streetwear / Sneakerhead (Moda Urbana)**
-*   **¿Quiénes son?:** Creadores que suben contenido enfocado en *outfits*, combinaciones de ropa, *GRWM* (Prepárate conmigo) y reseñas de moda de calle.
-*   **Por qué buscarlos:** Tienen una audiencia que busca activamente inspiración visual para vestir y confía en sus recomendaciones de calzado.
-*   **Plataformas clave:** TikTok e Instagram (Reels y Carruseles).
-*   **Uso en la campaña:** Fase 1 y Fase 2 (Lookbooks, tutoriales de cómo estilizar las zapatillas para la universidad o salidas).
+Aquí tienes los **4 perfiles exactos de creadores** que deberías buscar:
 
 ---
 
-### **2. Músicos Emergentes y DJs de la Escena Urbana**
-*   **¿Quiénes son?:** Artistas locales de hip-hop, trap, reggaetón alternativo, música electrónica o DJs de fiestas y colectivos urbanos en ciudades clave (CDMX, Guadalajara, Monterrey, Puebla, etc.).
-*   **Por qué buscarlos:** Encarnan el ritmo y la actitud de la noche y la calle. Generan una asociación de marca muy aspiracional.
-*   **Plataformas clave:** Instagram (historias durante toquines/eventos) y TikTok.
-*   **Uso en la campaña:** Fase 1 y Fase 3 (Mostrar las zapatillas en el escenario, en cabina o en el backstage de eventos).
+### **1. El Creador de Moda y "GRWM" (Get Ready With Me) / Styling**
+* **Perfil:** Jóvenes apasionados por la moda de calle que basan sus videos en cómo armar outfits para la semana, combinar colores y hacer reseñas de ropa local.
+* **Por qué buscarlos:** Son los reyes de la Fase 2 (Consideración). Saben perfectamente cómo lucir el calzado y enseñarle a su audiencia cómo integrarlo a su guardarropa.
+* **Plataforma clave:** TikTok e Instagram Reels.
+* **Qué pedirles:** Videos dinámicos tipo *"5 outfits urbanos usando marcas mexicanas"* o *"Probando un nuevo par local"*.
 
 ---
 
-### **3. Artistas Visuales, Ilustradores y Muralistas**
-*   **¿Quiénes son?:** Creadores de arte urbano, graffiti, diseño gráfico o tatuadores reconocidos en la escena local.
-*   **Por qué buscarlos:** Aportan un valor cultural y artístico enorme. Demuestran que la marca apoya el talento local y que el calzado es lo suficientemente cómodo y resistente para jornadas de trabajo creativo.
-*   **Plataformas clave:** Instagram (fotos estéticas de alta calidad) y TikTok (videos del proceso creativo).
-*   **Uso en la campaña:** Fase 1 (Colaboración artística) y Fase 3 (Campañas de identidad y orgullo local en septiembre).
+### **2. El "Sneakerhead" / Creador Especializado en Calzado**
+* **Perfil:** Apasionados del calzado que analizan los materiales, la construcción de la suela, la historia del diseño, las agujetas y los empaques.
+* **Por qué buscarlos:** Aportan la máxima **validación técnica y de calidad**. Si un conocedor de zapatillas aprueba tu marca, la audiencia que duda sobre la calidad del producto confiará al instante.
+* **Plataforma clave:** YouTube (para videos largos de *unboxing* y revisión) y TikTok (para primeras impresiones).
+* **Qué pedirles:** Un *unboxing* detallado enfocado en las texturas, los acabados y la comodidad de la suela.
 
 ---
 
-### **4. Deportistas Urbanos (Skaters, BMX y Bailarines de Hip-Hop/Breakdance)**
-*   **¿Quiénes son?:** Jóvenes inmersos en la cultura de calle que usan el calzado en constante movimiento e impacto.
-*   **Por qué buscarlos:** Son la prueba definitiva de **durabilidad, flexibilidad y tracción de la suela**. Si las zapatillas aguantan una sesión de skate o baile, aguantan cualquier caminata diaria.
-*   **Plataformas clave:** TikTok e Instagram Reels (videos dinámicos en cámara lenta, trucos, rutinas).
-*   **Uso en la campaña:** Fase 2 (Pruebas de resistencia del producto).
+### **3. Creativos Urbanos (DJs, Fotógrafos, Muralistas, Creativos)**
+* **Perfil:** Creadores que no son "modelos de moda", sino artistas activos en la escena cultural de ciudades como CDMX, Guadalajara, Monterrey, Puebla, etc.
+* **Por qué buscarlos:** Le dan a tu marca **credibilidad de calle (*street cred*)**. Transmiten que tus zapatillas son las que usan las personas que realmente mueven la cultura creativa del país.
+* **Plataforma clave:** Instagram (fotos editoriales) y TikTok (vlogs cortos de su día a día).
+* **Qué pedirles:** Integración orgánica de las zapatillas en sus fotos de portafolio o en sus vlogs de trabajo/eventos.
 
 ---
 
-### **5. Estudiantes Universitarios Creadores de Contenido (Micro-Creators)**
-*   **¿Quiénes son?:** Jóvenes universitarios (18-24 años) con comunidades pequeñas (de 5,000 a 25,000 seguidores) pero con altísima interacción entre sus compañeros de campus.
-*   **Por qué buscarlos:** Generan contenido sumamente orgánico y cercano. Representan al consumidor del día a día.
-*   **Plataformas clave:** TikTok e Instagram Stories.
-*   **Uso en la campaña:** Fase 2 (Regreso a clases / "Un día en mi vida universitaria con mis zapatillas").
+### **4. Creadores de Estilo de Vida Universitario / Vida Nocturna**
+* **Perfil:** Estudiantes o jóvenes profesionales que documentan su día a día en la universidad, cafeterías de diseño, festivales de música o salidas de fin de semana.
+* **Por qué buscarlos:** Muestran la **durabilidad y versatilidad** del producto en la vida real. Son ideales para captar a la audiencia de 18 a 25 años durante el regreso a clases de agosto.
+* **Plataforma clave:** TikTok.
+* **Qué pedirles:** Contenido casual de "un día conmigo en la ciudad" mostrando que el calzado aguanta horas caminando sin perder el estilo.
 
 ---
 
-### **Criterios de Selección (Filtro de Calidad):**
-*   **Tamaño recomendado:** Prioriza **Micro (10k a 50k)** y **Mid-tier (50k a 150k)**. Ofrecen mejor tasa de interacción (*engagement*) y son más receptivos a acuerdos de producto (*seeding*) o colaboraciones accesibles.
-*   **Métrica clave a revisar:** Asegúrate de que sus comentarios no sean emojis genéricos, sino personas reales preguntando por sus *outfits*, marcas o estilos.
-*   **Coherencia de calzado:** Revisa su perfil previo; si ya usan zapatillas y moda urbana de forma natural, encajarán perfectamente con tu marca.
+### **Criterios clave para elegirlos (Filtro de Selección):**
 
-¿Cuál de estos 5 perfiles sientes que conecta mejor con el espíritu actual de tus diseños?
+* **Estética visual alineada:** Revisa su feed de los últimos 3 meses. ¿Su estilo de vestir encaja con el diseño de tus zapatillas?
+* **Tasa de interacción (Engagement):** Prefiere creadores con comentarios reales de gente preguntando *"¿de dónde es esa prenda?"* o *"¿dónde conseguiste eso?"*, en lugar de miles de likes con comentarios vacíos o bots.
+* **Ubicación estratégica:** Selecciona creadores repartidos en tus principales zonas de entrega o ciudades objetivo.
+
+Esta mezcla de perfiles te dará el equilibrio perfecto entre **estética, autoridad técnica y presencia en la vida real**.
 
 ### Turno 10 — usuario
 
@@ -469,41 +414,40 @@ Dame ideas para 3 colaboraciones con creadores.
 
 ### Turno 10 — modelo
 
-Aquí tienes 3 ideas de colaboraciones creativas, auténticas y con un alto impacto visual para tu marca de zapatillas en México, diseñadas sin caer en el típico patrocinio aburrido:
+Aquí tienes **3 ideas de colaboración creativas y dinámicas** para ejecutar durante la campaña de Q3, pensadas para llamar la atención de la comunidad de 18 a 30 años sin sonar a la típica publicidad pagada:
 
 ---
 
-### **1. "Mural de Asfalto" × Artista de Graffiti / Muralista Urbano**
-*   **Perfil del Creador:** Un artista urbano o muralista emergente de la escena local (CDMX, Guadalajara o Monterrey) con un estilo visual reconocible.
-*   **El Concepto:** El artista diseña y pinta un mural en una pared icónica de la ciudad inspirado en la energía de la cultura callejera y los colores de tu nueva colección. Durante todo el proceso de pintado (que requiere estar de pie por horas, subir andamios y moverse), el artista usa tus zapatillas.
-*   **Entregables de la Colaboración:**
-    *   **Video Tipo "Time-lapse" / Mini-documental (60 seg):** Muestra el proceso creativo del mural, combinando tomas detalladas del arte con tomas en primer plano de sus pies en movimiento y la comodidad del calzado.
-    *   **Edición Especial de Portacalcomanías:** El artista crea una ilustración exclusiva que se imprime en stickers y se regala en la compra de las zapatillas durante septiembre.
-*   **Por qué funciona:** Conecta de forma directa tu calzado con el arte urbano auténtico, respaldando la durabilidad del producto y el apoyo al talento mexicano.
+### **1. "Co-Creación de Edición Limitada" (Con Ilustrador o Muralista Urbano)**
+* **Tipo de Creador:** Un/a artista visual o ilustrador/a reconocido/a en la escena del arte urbano local en México.
+* **El Concepto:** En lugar de personalizar el calzado directamente, invítalo/a a diseñar un **accesorio exclusivo de colección** que acompañe a las zapatillas durante la Fase 3 (por ejemplo: un juego de agüetas/cordones con estampado de autor, unas plantillas ilustradas o una *tote bag* de edición limitada).
+* **Entregables:**
+  * Un video estilo mini-documental para TikTok/Reels mostrando al artista en su estudio bocetando el diseño, fusionando su arte con la silueta de tus zapatillas.
+  * Contenido del *unboxing* final con la caja especial y el accesorio de regalo.
+* **Por qué funciona:** Aporta un valor cultural enorme, posiciona tus zapatillas como una pieza de diseño y atrae a los seguidores del artista a tu marca de forma totalmente orgánica.
 
 ---
 
-### **2. "El Desafío de los 7 Días" × Stylist / Creador de Moda Streetwear**
-*   **Perfil del Creador:** Un creador de contenido enfocado en moda masculina/unisex urbana que acostumbra subir videos de *"Get Ready With Me"* (GRWM) y consejos de estilo.
-*   **El Concepto:** El creador acepta el reto de vestir **el mismo par de zapatillas durante 7 días consecutivos**, armando 7 *outfits* totalmente distintos para situaciones de la vida real (universidad, reunión de trabajo creativa, cita de noche, festival de música, domingo casual, etc.).
-*   **Entregables de la Colaboración:**
-    *   **Reel / TikTok de Ritmo Rápido:** Cambios de ropa dinámicos al ritmo de una pista urbana en tendencia, mostrando en cada corte cómo el calzado adapta el estilo de todo el conjunto.
-    *   **Carrusel de Fotos Lookbook:** Fotografías estilo *street photography* de alta calidad para publicar tanto en las redes del creador como en tu perfil.
-*   **Por qué funciona:** Resuelve la principal objeción del comprador: *"¿Con qué me las voy a poner?"*. Demuestra la versatilidad del diseño y genera guardados masivos en redes.
+### **2. Reto "24 Horas / 20,000 Pasos en la Ciudad" (Con Creador de Lifestyle / Vlogger)**
+* **Tipo de Creador:** Un/a vlogger dinámico que haga contenido sobre exploración urbana, mejores lugares para visitar en la ciudad o estilo de vida activo.
+* **El Concepto:** Un reto de resistencia urbana. El creador debe pasar todo un día intenso en la ciudad (desde el café de la mañana, un recorrido de fotos, transportarse por la zona centro, hasta un evento nocturno) usando tus zapatillas, documentando el viaje paso a paso.
+* **Entregables:**
+  * Video tipo *vlog* muy dinámico mostrando el estado inicial del calzado a las 8:00 AM y cómo se siente la comodidad al final de la jornada a las 11:00 PM.
+  * Fotos editoriales en las distintas locaciones urbanas que visitó.
+* **Por qué funciona:** Demuestra la comodidad y durabilidad del producto en un entorno real y exigente, respondiendo a la pregunta que todo comprador se hace sobre el uso diario.
 
 ---
 
-### **3. "Prueba de Fuego en la Calle" × Skater o Bailarín de Hip-Hop**
-*   **Perfil del Creador:** Un skater destacado de la escena local o un bailarín/a de breakdance/hip-hop con gran presencia estética y fluidez en video.
-*   **El Concepto:** Someter a tus zapatillas a una prueba de rendimiento extremo en el entorno para el que fueron diseñadas: la calle. El creador las utiliza durante una sesión intensa de trucos en skatepark o una rutina de baile sobre asfalto.
-*   **Entregables de la Colaboración:**
-    *   **Video Cinematográfico en Cámara Lenta:** Tomas espectaculares que muestren el agarre de la suela, la flexibilidad al doblarse el pie y la amortiguación al impactar el suelo.
-    *   **Revisión Honesta de Comodidad:** Historias posteriores a la sesión mostrando el estado del calzado, destacando la resistencia de los materiales tras el uso rudo.
-*   **Por qué funciona:** Genera la prueba social definitiva de calidad. Si las zapatillas aguantan el impacto del skate o el baile, la audiencia sabe que aguantarán perfectamente el uso diario en la ciudad.
+### **3. "Duelo de Fits: 1 Par, 2 Estilos" (Con 2 Creadores de Moda / Styling)**
+* **Tipo de Creador:** Dos creadores de moda urbana con estilos visuales contrastantes (por ejemplo: uno con un estilo más sobrio/minimalista y otro con un estilo más arriesgado/*oversized*).
+* **El Concepto:** Se les envía exactamente el **mismo modelo de zapatillas** a ambos. El reto consiste en que cada uno arme 3 *outfits* distintos utilizando únicamente prendas de marcas independientes mexicanas para combinar con tus zapatillas.
+* **Entregables:**
+  * Un video colaborativo (publicado al mismo tiempo en las cuentas de ambos creadores y la tuya) en formato de "Duelo de Estilos", donde la comunidad vota en los comentarios cuál propuesta de *fit* fue su favorita.
+* **Por qué funciona:** Duplicas el alcance al cruzar audiencias de dos creadores al mismo tiempo, generas interacción masiva con las votaciones y muestras la increíble versatilidad de tus zapatillas.
 
 ---
 
-¿Cuál de estas 3 ideas crees que encaja mejor con la personalidad de tu marca? Podemos empezar a redactar el guión o la propuesta para enviársela a los creadores.
+¿Cuál de estas tres ideas encaja mejor con la personalidad de tu catálogo para este Q3?
 
 ### Turno 11 — usuario
 
@@ -511,59 +455,57 @@ Aquí tienes 3 ideas de colaboraciones creativas, auténticas y con un alto impa
 
 ### Turno 11 — modelo
 
-Para asegurarte de que la inversión en creadores te dé un retorno real en deseabilidad y ventas, **nunca te fíes solo del número de seguidores** (es una métrica de vanidad). En el nicho *streetwear* y moda urbana, la credibilidad y el impacto de un creador se evalúan con estos 6 indicadores clave:
+Para no gastar presupuesto en creadores con seguidores falsos o audiencia no calificada, debes mirar mucho más allá del número total de seguidores (que es una métrica vanidosa). 
+
+Aquí tienes las **6 métricas e indicadores clave** que debes evaluar antes de firmar o enviar producto a cualquier creador:
 
 ---
 
-### **1. Tasa de Interacción (Engagement Rate - ER)**
-Es el porcentaje de seguidores que realmente interactúa con sus publicaciones.
-*   **Cómo calcularlo:** `[(Me gusta + Comentarios en sus últimas 10 publicaciones) / Número de seguidores] * 100` (o usa herramientas gratuitas como Social Blade o Modash).
-*   **Parámetro ideal:**
-    *   **Micro-creadores (10k a 50k seguidores):** ER entre **3% y 7%**.
-    *   **Creadores medianos (50k a 150k seguidores):** ER entre **2% y 4%**.
-*   *Por qué importa:* Un ER bajo indica audiencia muerta, seguidores comprados o contenido que la gente ignora al hacer scroll.
+### **1. Tasa de Interacción Real (Engagement Rate - ER)**
+* **Qué es:** El porcentaje de su audiencia que realmente interactúa con sus publicaciones.
+* **Referencia ideal:** 
+  * En **Instagram**: Entre **3.5% y 7%** para micro-creadores (10k a 50k) y más de **2.5%** para creadores medianos (50k a 150k).
+  * En **TikTok**: Idealmente por encima del **5% - 8%**.
+* **Cómo evaluarlo:** Divide el promedio de interacciones (likes + comentarios + compartidos) de sus últimas 10 publicaciones entre su número total de seguidores, y multiplícalo por 100.
 
 ---
 
-### **2. Demografía de la Audiencia (Ubicación y Edad)**
-Pídeles una captura de pantalla de sus estadísticas de cuenta (*Insights*) de los últimos 28 días.
-*   **Métrica a revisar:**
-    *   **Geografía:** Mínimo un **70% de audiencia radicada en México** (priorizando tus ciudades con mejor logística de entrega, como CDMX, GDL, MTY, etc.).
-    *   **Edad:** Mínimo un **60% de audiencia concentrada entre los 18 y 30 años**.
-*   *Por qué importa:* De nada sirve que un creador tenga 100k seguidores si el 80% está en España, Colombia o son menores de 15 años que no tienen poder de decisión de compra.
+### **2. Ubicación y Demografía de la Audiencia (Audience Demographics)**
+* **Qué evaluar:** Pídeles una captura de pantalla de las estadísticas de su cuenta (*Insights*).
+* **Lo que buscas:** 
+  * **País/Ciudad:** Que al menos el **70% - 80%** de su audiencia viva en **México** (y de preferencia en las ciudades donde más vendes).
+  * **Edad:** Que el grupo principal esté concentrado entre **18 y 34 años**.
 
 ---
 
-### **3. Promedio de Vistas Reales en Reels y TikToks**
-En contenido de video corto, los seguidores ya no determinan el alcance; lo determinan las reproducciones promedio por video.
-*   **Parámetro ideal:** Sus últimos 10 videos deberían promediar en vistas al menos el **20% al 30% de su total de seguidores** (ejemplo: si tiene 50k seguidores, sus videos deberían andar entre 10k y 15k vistas de manera constante).
-*   *Ojo con la "falsa viralidad":* Si tiene 9 videos con 2,000 vistas y solo 1 video con 1 millón, fue un golpe de suerte de algoritmo, no una audiencia fiel.
+### **3. Calidad de los Comentarios (Intención de Compra)**
+* **Qué evaluar:** Lee manualmente los comentarios de sus últimos 15 videos o fotos.
+* **Lo que buscas:** Comentarios reales donde la gente pregunte cosas como: *"¿De dónde son esas prendas?"*, *"¿Qué talla usas?"*, *"Pasen el link"*, *"Te ves genial con ese fit"*.
+* **Bandera roja (Red Flag):** Comentarios llenos de puros emojis vacíos (🔥, ❤️, 👏) o mensajes genéricos tipo "Gran foto", que suelen indicar grupos de apoyo (pods) o bots.
 
 ---
 
-### **4. Calidad Cualitativa de los Comentarios**
-Abre sus publicaciones recientes y lee qué escribe su comunidad.
-*   **Lo que buscas:** Comentarios reales como: *"¿De dónde son esos pantalones?"*, *"¡Qué buen outfit!"*, *"¿Dónde puedo conseguir ese par?"*, *"Rola el dato"*.
-*   **Red Flags (Banderas Rojas):** Comentarios que son solo emojis repetidos (🔥, ❤️, 👏), cuentas falsas/bots, o comentarios de "grupos de interacción" entre influencers que solo se felicitan entre sí sin interés real en el producto.
+### **4. Porcentaje de "Guardados" y "Compartidos" (Saves & Shares)**
+* **Qué evaluar:** En TikTok y Reels, solicita la métrica de cuántas personas guardan o comparten sus videos de moda/estilo.
+* **Por qué importa:** Un video guardado significa que el usuario quiere guardar la idea de *outfit* para después. Un video compartido significa que se lo envió a un amigo. Ambas métricas son los mayores indicadores de **intención de compra**.
 
 ---
 
-### **5. Coeficiente de Guardados y Compartidos (Métrica de Moda)**
-Pídeles el dato de cuántos "Guardados" (*Saves*) y "Compartidos" (*Shares*) generan sus videos o carruseles de outfits.
-*   *Por qué importa:* En la industria de la moda urbana, que alguien **guarde** una publicación significa *"Quiero armar este outfit en el futuro"* y que la **comparta** significa *"Mira este estilo, está increíble"*. Estas dos acciones son el paso previo a la intención de compra.
+### **5. Frecuencia y Saturación Comercial (Ratio Contenido vs. Publicidad)**
+* **Qué evaluar:** Revisa sus últimas 20 publicaciones para contar cuántas son colaboraciones pagadas con otras marcas.
+* **Lo que buscas:** Que la publicidad no supere el **20% o 30%** de su contenido total.
+* **Por qué importa:** Si un creador promociona una marca diferente cada dos días, su audiencia se vuelve inmune a sus recomendaciones y pierde credibilidad.
 
 ---
 
-### **6. Nivel de Saturación Comercial (Brand Saturation)**
-Revisa sus últimos 20 contenidos para ver cuántos son anuncios o patrocinios de otras marcas.
-*   **Parámetro ideal:** No más de 2 o 3 contenidos patrocinados por cada 10 publicaciones.
-*   *Por qué importa:* Si el perfil del creador parece una barra de comerciales donde un día promociona una bebida, al otro una app y al otro una marca de ropa cualquiera, la audiencia pierde la confianza y la colaboración no tendrá el impacto que buscas.
+### **6. Afinidad Estética y "Sneaker-Fit"**
+* **Qué evaluar:** Su historial visual reciente.
+* **Lo que buscas:** ¿Ya usa zapatillas urbanas de forma natural en sus outfits diarios? ¿La calidad de su cámara y la iluminación encajan con la estética visual que quieres para tu marca?
+* **Por qué importa:** Si el creador nunca viste estilo urbano y de repente aparece con tus zapatillas, la colaboración se sentirá forzada y la audiencia no la comprará emocionalmente.
 
 ---
 
-**Tip de trabajo:** Antes de cerrar cualquier acuerdo, solicita siempre su **Media Kit** actualizado con capturas reales de los *Analytics* de la plataforma donde vayas a pautar (Instagram o TikTok). 
-
-¿Te gustaría que preparemos un guión simple de primer contacto por mensaje directo o correo para enviar a los creadores que elijas?
+**Tip Pro de Evaluación:** Antes de cerrar trato, pídeles un PDF breve de su *Media Kit* o directamente capturas de pantalla de los *Insights* de su contenido más reciente. Un creador profesional no tendrá ningún problema en compartírtelo en minutos.
 
 ### Turno 12 — usuario
 
@@ -571,46 +513,44 @@ Revisa sus últimos 20 contenidos para ver cuántos son anuncios o patrocinios d
 
 ### Turno 12 — modelo
 
-Si la **Fase 1 (Descubrimiento)** no alcanza los objetivos esperados al cierre de julio, **no hay que entrar en pánico, pero sí actuar con agilidad**. En marketing digital para moda urbana, un inicio lento casi siempre se debe a tres factores: *falta de gancho visual en los primeros 3 segundos, segmentación incorrecta en anuncios o contenido demasiado rígido/corporativo*.
+Tener un plan de contingencia es lo que separa a las marcas improvisadas de las profesionales. Si al terminar Julio (Fase 1) notas que el alcance, las reproducciones de video o la captación de prospectos para la lista VIP están por debajo del objetivo, **no te pases a la Fase 2 a ciegas**. 
 
-Aquí tienes un **Plan de Contingencia y Pivot de 4 pasos** para corregir el rumbo inmediatamente al arrancar el segundo mes:
-
----
-
-### **1. Diagnóstico Rápido: La "Regla de los 3 Segundos"**
-Antes de cambiar la estrategia completa, analiza las métricas de retención de tus videos (Reels/TikToks):
-*   **Si las vistas caen antes del segundo 3:** El problema es el **gancho visual (hook)**. La gente está haciendo *scroll* porque el inicio no sorprende.
-*   **Si la gente ve el video completo pero no visita el perfil ni da clics:** El problema es el **Llamado a la Acción (CTA)** o que el video es entretenido pero no resalta el producto.
-
-**Acción inmediata:** Vuelve a editar los mejores videos cambiando únicamente los primeros 3 segundos. Inicia con tomas en primer plano de las zapatillas, cortes súper rápidos, o preguntas controversiales sobre estilo (*"3 errores al combinar sneakers blancos"*, *"El detalle que nadie nota en unas zapatillas urbanas"*).
+Aquí tienes el **Plan de Pivote Rápido** estructurado en 4 pasos para corregir el rumbo sin perder tiempo:
 
 ---
 
-### **2. Reajuste de Paid Media (Pauta Pagada)**
-Si el alcance orgánico no despegó, apoyamos el crecimiento ajustando la estrategia de anuncios:
-*   **Abre los públicos (Broad Targeting):** Si estabas segmentando por intereses muy específicos, prueba lanzar campañas en Meta Ads y TikTok Ads dejando la segmentación abierta (solo filtrando por edad 18-30 y ubicación geográfica en México). Deja que el algoritmo de video encuentre a los amantes de la moda urbana.
-*   **Pauta el contenido con mejor rendimiento orgánico:** Si un solo video de un creador o un Reel propio tuvo buen desempeño, ponle presupuesto de pauta inmediatamente usando el objetivo de "Visitas al perfil" o "Tráfico a la web".
+### **Paso 1: Diagnosticar la "Fuga" (¿Dónde se rompió el embudo?)**
+Antes de cambiar todo, identifica exactamente qué métrica falló:
+* **Si el video no tiene vistas:** El problema es el *Hook* (los primeros 3 segundos no llamaron la atención).
+* **Si el video tiene muchas vistas pero nadie da clic:** El problema es la *Llamada a la Acción (CTA)* o la propuesta visual no despertó el deseo suficiente.
+* **Si la gente entra a la web pero no se registra en la lista VIP:** El problema es la oferta de valor del registro (no se siente lo suficientemente atractiva o exclusiva).
 
 ---
 
-### **3. Giro en el Contenido: De Lo Estético a Lo "Real" (UGC)**
-A veces, el contenido con producción muy pulida tipo "comercial de televisión" genera desconfianza en la Gen Z.
-*   **Cambia el formato:** Deja a un lado las fotos de estudio perfectas y sustitúyelas por contenido estilo *UGC (Contenido Generado por Usuarios)* grabado directamente con un smartphone en la calle, con luz natural, mostrando las zapatillas en uso real.
-*   **Aumenta la prueba social:** Pide a los pocos compradores de julio que te envíen un video corto de 5 segundos pisando fuerte en la calle con sus zapatillas y publica esa compilación. La autenticidad vende más que la perfección.
+### **Paso 2: Ajuste Creativo de Emergencia (Optimizar Contenido)**
+Si el contenido orgánico no enganchó, haz estos ajustes inmediatos en el tipo de video:
+* **Cambia la narrativa visual:** En lugar de videos solo con música, usa voz en off contando datos curiosos del diseño o mostrando detalles muy de cerca (*macro shots* de las costuras, textura y lengüeta).
+* **Muestra el calzado puesto desde el segundo 1:** No dejes el producto para el final del video. En internet, si no ven las zapatillas puestas en los primeros 3 segundos, la gente desliza.
+* **Haz pruebas A/B de portadas y títulos:** Cambia los textos de la miniatura a preguntas intrigantes (ej. *"¿El diseño local puede competir con las marcas globales?"*).
 
 ---
 
-### **4. Traslape de Fases: Anticipa Acciones de la Fase 2**
-No esperes a que acabe el mes para meter contenido de consideración. Inyecta elementos de la Fase 2 desde el día 31:
-*   **Demuestra la calidad de inmediato:** Lanza videos mostrando los detalles de fabricación, la flexibilidad de la suela y la comodidad. Cuando la gente entiende el valor del diseño y la durabilidad, el interés por la marca se dispara.
-*   **Activa dinámicas de encuestas directas:** Usa las Historias de Instagram con stickers interactivos (*"¿Cuál de estos dos colores llevarías hoy?"*) para forzar la interacción y recalentar a la audiencia que estuvo pasiva en julio.
+### **Paso 3: Reforzar la Oferta de Registro VIP (Sin bajar el valor de la marca)**
+Si la gente no se está uniendo a la lista para el lanzamiento, fortalece los incentivos no monetarios:
+* En lugar de un registro pasivo, ofrece **acceso garantizado a las tallas más demandadas** antes de que se agoten en el lanzamiento público.
+* Promete un regalo físico exclusivo para los primeros registros (ej. un juego de cordones extra de edición limitada o un pin metálico de la marca).
+* Simplifica el formulario al máximo: pide únicamente el número de WhatsApp o el correo.
 
 ---
 
-**Resumen del Pivot:** 
-Si la Fase 1 falla, el diagnóstico suele ser **"menos pulido estético, más gancho, más calle y más video corto en uso real"**. 
+### **Paso 4: Redistribuir y Activar "Boosts" Tácticos**
+* **Reasigna pauta publicitaria:** Mueve un pequeño porcentaje del presupuesto del mes a "promocionar" o "impulsar" los 2 o 3 Reels/TikToks que mejor hayan funcionado de forma orgánica hacia una audiencia muy segmentada de fans del *streetwear*.
+* **Seeding de respuesta rápida:** Envía 3 o 4 pares extra a micro-creadores que tengan una comunidad pequeña pero hiperactiva, pidiéndoles contenido dinámico que pueda publicarse en menos de 48 horas.
 
-Con estas 4 correcciones, recuperaremos el terreno perdido durante las primeras dos semanas de agosto sin descuidar el objetivo final del trimestre. ¿Hace sentido esta ruta de rescate?
+---
+
+### **Cómo ajustar la transición a la Fase 2:**
+Si Julio no cumplió la meta, **no extiendas la intriga indefinidamente**. En Agosto arranca la Fase 2 (mostrar combinaciones de prendas y estilo de vida), pero mantén corriendo en paralelo los mejores anuncios de descubrimiento de la Fase 1 durante las primeras dos semanas. Así sigues llenando el embudo superior mientras empiezas a vender.
 
 ### Turno 13 — usuario
 
@@ -618,21 +558,21 @@ Con estas 4 correcciones, recuperaremos el terreno perdido durante las primeras 
 
 ### Turno 13 — modelo
 
-La ciudad no se camina de forma ordinaria, se conquista. 
+La ciudad no se camina, se conquista. Conoce el modelo **Norte**: nuestra silueta estrella diseñada para resistir tu ritmo diario. 
 
-Presentamos el modelo **‘Norte’**, diseñado para dominar el asfalto. Confeccionadas en cuero sintético de alta resistencia y una suela vulcanizada que soporta el ritmo diario de la calle, las ‘Norte’ combinan la durabilidad que exiges con un estilo urbano imponente. 
+Construidas con cuero sintético de alta densidad y una suela vulcanizada ultrarresistente que aguanta el pavimento de sol a sol, las **Norte** ofrecen el equilibrio perfecto entre durabilidad, comodidad superior y un estilo impecable para elevar cualquier *fit*.
 
-El equilibrio exacto entre confort prolongado, diseño local y actitud sin filtros. Eleva tus outfits y marca la pauta a cada paso.
+¿Listo para marcar el paso? Haz clic abajo y asegura tu par antes de que vuelen en tu talla. 
 
-Haz clic y asegura tu par hoy en la web. 👟⚡️
+**Hechas en México. Creadas para la calle.** 👟🔥
 
 
 ## Respuesta completa
 
-La ciudad no se camina de forma ordinaria, se conquista. 
+La ciudad no se camina, se conquista. Conoce el modelo **Norte**: nuestra silueta estrella diseñada para resistir tu ritmo diario. 
 
-Presentamos el modelo **‘Norte’**, diseñado para dominar el asfalto. Confeccionadas en cuero sintético de alta resistencia y una suela vulcanizada que soporta el ritmo diario de la calle, las ‘Norte’ combinan la durabilidad que exiges con un estilo urbano imponente. 
+Construidas con cuero sintético de alta densidad y una suela vulcanizada ultrarresistente que aguanta el pavimento de sol a sol, las **Norte** ofrecen el equilibrio perfecto entre durabilidad, comodidad superior y un estilo impecable para elevar cualquier *fit*.
 
-El equilibrio exacto entre confort prolongado, diseño local y actitud sin filtros. Eleva tus outfits y marca la pauta a cada paso.
+¿Listo para marcar el paso? Haz clic abajo y asegura tu par antes de que vuelen en tu talla. 
 
-Haz clic y asegura tu par hoy en la web. 👟⚡️
+**Hechas en México. Creadas para la calle.** 👟🔥

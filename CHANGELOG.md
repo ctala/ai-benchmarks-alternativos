@@ -15,6 +15,12 @@
   perder el relato no es hipotético. El nivel de versión deja de ser criterio y pasa a
   decidirlo **qué archivo se tocó**: `scoring_reference.json` es MAJOR, las suites y los
   criterios de ranking son MINOR, datos y arreglos son PATCH.
+- `check_presupuesto.py`: verifica que haya con qué pagar ANTES de lanzar un lote. Nace
+  de la noche del 17-ago, cuando la API key llegó a su tope a las 20:57 y se llevó el
+  juez —que puntúa todo—: Opus 5 murió a mitad del examen y dos chunks ni arrancaron. El
+  canario ya verificaba que los modelos respondan; nadie verificaba que hubiera con qué
+  pagarles. Distingue el tope de la KEY del saldo de la cuenta, que es lo que confundió
+  la recarga del día siguiente.
 - `qa.py` gana tres chequeos que estaban enganchados al pipeline pero **no al comando de
   QA**, que es donde alguien los busca: credenciales, truncamiento y CHANGELOG. Era el
   mismo patrón que persigue `check_cobertura` — la regla aplicada donde uno se acordó.

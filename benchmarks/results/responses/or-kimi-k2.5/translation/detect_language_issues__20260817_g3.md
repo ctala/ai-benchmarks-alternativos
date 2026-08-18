@@ -1,9 +1,9 @@
 # Kimi K2.5 — translation/detect_language_issues
 
 - model_id: `moonshotai/kimi-k2.5`
-- success: True  | final: 8.47 | quality: 10.0
-- latency_total: 43.304s | tokens_per_second: 64.0
-- input_tokens: 230 | output_tokens: 2772
+- success: True  | final: 6.15 | quality: 6.67
+- latency_total: 41.683s | tokens_per_second: 61.6
+- input_tokens: 230 | output_tokens: 2569
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -30,23 +30,23 @@ Devuelve un JSON con:
   "problemas": [
     {
       "tipo": "chino",
-      "texto": "En特别是在拉丁美洲",
-      "correccion": "Especialmente en América Latina (o En particular en Latinoamérica)"
+      "texto": "特别是在拉丁美洲",
+      "correccion": "particularmente en Latinoamérica"
     },
     {
       "tipo": "gramatical",
       "texto": "estan",
-      "correccion": "están (falta tilde en la 'a')"
+      "correccion": "están"
     },
     {
       "tipo": "spanglish",
       "texto": "leveraging",
-      "correccion": "aprovechando / utilizando / valiéndose de"
+      "correccion": "aprovechando"
     },
     {
       "tipo": "spanglish",
       "texto": "scale their businesses",
-      "correccion": "escalar sus negocios / hacer crecer sus empresas"
+      "correccion": "escalar sus negocios"
     },
     {
       "tipo": "spanglish",
@@ -61,17 +61,17 @@ Devuelve un JSON con:
     {
       "tipo": "spanglish",
       "texto": "unprecedented",
-      "correccion": "sin precedentes / nunca vista"
+      "correccion": "sin precedentes"
     },
     {
       "tipo": "spanglish",
       "texto": "companies",
-      "correccion": "empresas / compañías"
+      "correccion": "empresas"
     },
     {
       "tipo": "spanglish",
       "texto": "AI",
-      "correccion": "IA (Inteligencia Artificial)"
+      "correccion": "IA"
     },
     {
       "tipo": "spanglish",
@@ -81,15 +81,15 @@ Devuelve un JSON con:
     {
       "tipo": "spanglish",
       "texto": "deep dive",
-      "correccion": "análisis profundo / estudio exhaustivo"
+      "correccion": "análisis profundo"
     },
     {
       "tipo": "spanglish",
       "texto": "best fit",
-      "correccion": "mejor opción / mejor ajuste / más adecuada"
+      "correccion": "mejor opción / ajuste ideal"
     }
   ],
   "score_idioma": 2,
-  "veredicto": "inaceptable"
+  "veredicto": "necesita_edicion"
 }
 ```

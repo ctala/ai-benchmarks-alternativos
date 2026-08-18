@@ -1,9 +1,9 @@
 # Gemini 3.7 Flash — structured_output/json_array_classification
 
 - model_id: `google/gemini-3.7-flash`
-- success: True  | final: 8.97 | quality: 10.0
-- latency_total: 7.439s | tokens_per_second: 137.4
-- input_tokens: 162 | output_tokens: 1022
+- success: True  | final: 8.99 | quality: 10.0
+- latency_total: 7.256s | tokens_per_second: 124.3
+- input_tokens: 162 | output_tokens: 902
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -25,4 +25,4 @@ Formato: [{"id": 1, "category": "", "priority": "", "sentiment": ""}, ...]
 
 ## Respuesta completa
 
-[{"id": 1, "category": "shipping", "priority": "high", "sentiment": "negative"}, {"id": 2, "category": "shipping", "priority": "low", "sentiment": "positive"}, {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "sentiment": "negative"}]
+[{"id": 1, "category": "shipping", "priority": "urgent", "sentiment": "negative"}, {"id": 2, "category": "shipping", "priority": "low", "sentiment": "neutral"}, {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "sentiment": "negative"}]

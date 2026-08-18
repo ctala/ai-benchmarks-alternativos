@@ -1,7 +1,7 @@
 {
-  "cuando": "2026-08-17T13:51:41",
+  "cuando": "2026-08-18T06:27:24",
   "modelos": [
-    "or-gemma-4-31b"
+    "gemini-3.7-flash"
   ],
   "suites": [
     "tool_calling",

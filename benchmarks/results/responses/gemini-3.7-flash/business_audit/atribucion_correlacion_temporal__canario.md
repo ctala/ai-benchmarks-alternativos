@@ -1,9 +1,9 @@
 # Gemini 3.7 Flash — business_audit/atribucion_correlacion_temporal
 
 - model_id: `google/gemini-3.7-flash`
-- success: True  | final: 8.7 | quality: 10.0
-- latency_total: 13.591s | tokens_per_second: 93.5
-- input_tokens: 221 | output_tokens: 1271
+- success: True  | final: 8.83 | quality: 10.0
+- latency_total: 13.803s | tokens_per_second: 102.2
+- input_tokens: 221 | output_tokens: 1411
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -28,35 +28,38 @@ Contexto adicional: también el 3 de marzo empecé a pagar publicidad ($400 en e
 
 ## Respuesta completa
 
-**Conclusión:** 
+**Conclusión directa:** 
 
-**No se puede saber.** Asignarle el mérito del crecimiento a la secuencia de emails con estos datos sería engañarnos. 
-
-El aumento en el negocio es real (+29% MRR, +5 altas), pero es imposible aislar el impacto de los emails debido a tres problemas graves de atribución y datos:
-
-1. **Contaminación por múltiples variables simultáneas:** En un periodo de 12 días activaste emails, prendiste pauta publicitaria ($400) y recibiste tráfico orgánico de un creador grande. El pico de conversiones pudo haber venido 100% del influencer, 100% de los anuncios, 100% de los emails o de una mezcla aleatoria.
-2. **Tamaño de muestra diminuto:** La diferencia entre febrero y marzo son **5 conversiones**. Con números tan bajos, la simple varianza aleatoria (suerte o estacionalidad) puede explicar el cambio sin que ninguna de las acciones haya tenido un efecto real.
-3. **Efecto calendario:** Marzo tiene 31 días y febrero 28 (un 10.7% más de tiempo para convertir).
+**No se puede saber.** Con los datos que tenemos, atribuir el crecimiento de marzo a la secuencia de emails sería una suposición sin fundamento técnico. 
 
 ---
 
-### ¿Qué haría falta para estar seguros?
+### ¿Por qué no podemos concluir que funcionó?
 
-Para poder afirmar que la secuencia funciona (y no tomar decisiones a ciegas), necesitaríamos:
+1. **Variables de confusión masivas (Efecto cóctel):**
+   En el mismo mes activaste tres palancas simultáneamente: la secuencia de emails, $400 en publicidad de pago y la mención de un creador grande (tráfico orgánico de alta confianza). Es perfectamente posible que todo el crecimiento haya venido del creador o de los anuncios, y que la secuencia de emails haya tenido impacto cero (o incluso negativo).
 
-1. **Tracking y Atribución directa (lo mínimo indispensable):**
-   * Parámetros UTM específicos en cada enlace dentro de los 5 emails.
-   * Registro de cuántas de las 14 conversiones hicieron clic en esos enlaces antes de pagar (para saber si el email fue el punto de contacto decisivo o si la gente convirtió directo desde la web tras ver el video del creador).
+2. **Volumen muy bajo y varianza natural:**
+   Pasar de 9 a 14 altas son exactamente **5 ventas más**. En números tan pequeños, la diferencia entre 9 y 14 puede ser simple ruido estadístico o estacionalidad, no necesariamente la efectividad de una campaña.
 
-2. **Un Grupo de Control (Test A/B):**
-   * Dividir a los usuarios gratuitos que entran: 50% recibe la secuencia y el otro 50% no recibe nada (o recibe la comunicación anterior).
-   * Si la tasa de conversión (%) del grupo con secuencia es significativamente mayor a la del grupo de control, recién ahí podemos atribuir causalidad.
+3. **Falta de trazabilidad del usuario:**
+   No sabemos si esas 14 personas eran usuarios gratuitos antiguos que leyeron la secuencia, o usuarios nuevos que llegaron por el video del creador/anuncios y compraron directamente sin esperar los emails.
+
+---
+
+### ¿Qué hace falta para saberlo con certeza?
+
+Para no tomar decisiones a ciegas, necesitamos aislar el impacto de los emails:
+
+1. **Atribución directa (Enlaces y UTMs):**
+   * ¿Cuántos clics hubo en los enlaces dentro de los emails?
+   * ¿Cuántas de las 14 compras vinieron directamente a través de una sesión iniciada por un enlace del email (con UTMs de campaña)?
+
+2. **Análisis de cohortes / Antigüedad del usuario:**
+   * ¿Cuándo se registraron como gratuitos esos 14 compradores? Si se registraron en marzo tras ver el video del influencer, la secuencia no fue el motor principal. Si eran usuarios estancados desde diciembre/enero, el email cobra fuerza como causa.
 
 3. **Métricas intermedias del embudo:**
-   * Tasa de apertura y clics (CTR) de cada uno de los 5 correos.
-   * Saber en qué email específico se generan las bajas o las conversiones.
+   * Tasa de apertura y tasa de clics (CTR) de cada uno de los 5 emails. Si el email 4 y 5 casi no se abren, no podemos atribuirles ventas.
 
-4. **Análisis de Cohortes:**
-   * Separar a los usuarios: ¿cuántos de los que pagaron en marzo eran usuarios gratuitos viejos (impactados por los emails) vs. usuarios nuevos que llegaron en marzo por la pauta o el influencer?
-
-**Recomendación analítica:** Revisa en tu pasarela de pagos o CRM el ID de los 14 usuarios que convirtieron en marzo y cruza la fecha de su registro inicial con la fecha de compra. Si la mayoría se registró después del 12 de marzo, el mérito fue del creador, no de tu secuencia.
+4. **Grupo de control (Para el futuro):**
+   * La forma rigurosa de medirlo es un Test A/B: enviar la secuencia al 50% de los usuarios gratuitos nuevos y dejar al otro 50% sin emails (o con el flujo anterior). La diferencia en la tasa de conversión entre ambos grupos te dará el impacto real y aislado de la secuencia.
