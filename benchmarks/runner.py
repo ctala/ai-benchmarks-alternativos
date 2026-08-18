@@ -962,6 +962,40 @@ def run_benchmark(args):
     # "No hay modelos seleccionados" es el mismo fallo callado que nos costó dos vueltas
     # hoy con las keys. Un pedido explícito se respeta o se rechaza fuerte; no se ignora.
     pedidos = set(args.models or [])
+
+    # ── `no_medir` / `effort_variant`: se RECHAZA, incluso pedido explícito ──────
+    #
+    # 18-ago-2026. Cristian, después de encontrar por segunda vez en un día que se
+    # estaba midiendo algo ya excluido: *"pero ¿por qué estás violando reglas?"*.
+    #
+    # La respuesta era estructural, no un descuido: estos dos flags los miraban
+    # `export_for_pages`, `completar_examen` y `check_cobertura` — la capa que
+    # PUBLICA — y no el runner, que es la que GASTA. Así, la decisión «este modelo
+    # no se mide» se hacía cumplir DESPUÉS de haber pagado por medirlo. En una
+    # mañana entraron los dos GPT-5.6 Pro (variantes de esfuerzo, decisión del
+    # 15-ago) y Qwen 2.5 72B, que llevaba el flag puesto y aun así corrió 76 tests.
+    #
+    # A diferencia de `provider_variant`, acá el pedido explícito NO alcanza: el
+    # sentido del flag es que ese examen no se paga nunca. Quien de verdad quiera
+    # forzarlo tiene `--incluir-no-medir`, que deja rastro en el comando.
+    if not getattr(args, "incluir_no_medir", False):
+        vetados = {k: v for k, v in models.items()
+                   if v.get("no_medir") or v.get("effort_variant")}
+        for k in vetados:
+            models.pop(k)
+        if vetados:
+            forzados = [k for k in vetados if k in pedidos]
+            console.print(f"[yellow]🚫 Omito {len(vetados)} modelo(s) marcados "
+                          f"`no_medir`/`effort_variant` — decisión de catálogo, "
+                          f"no se miden (DECISIONES.md)[/yellow]")
+            if forzados:
+                # Pedirlos por nombre y descartarlos en silencio sería el fallo callado
+                # que este archivo ya penaliza más abajo: se dice cuáles y por qué.
+                console.print(f"[yellow]   pedidos explícitamente y RECHAZADOS: "
+                              f"{', '.join(sorted(forzados))}[/yellow]")
+                console.print("[dim]   si de verdad hay que medirlos: "
+                              "--incluir-no-medir[/dim]")
+
     variantes = [k for k in list(models)
                  if models[k].get("provider_variant") and k not in pedidos]
     for k in variantes:
@@ -1678,6 +1712,9 @@ def display_results(results: list[dict]):
 def main():
     parser = argparse.ArgumentParser(description="Benchmark de modelos AI via OpenRouter")
     parser.add_argument("--models", nargs="+", help="Modelos especificos a evaluar (keys del config)")
+    parser.add_argument("--incluir-no-medir", action="store_true",
+                        dest="incluir_no_medir",
+                        help="forzar modelos marcados no_medir/effort_variant (deja rastro en el comando)")
     parser.add_argument(
         "--allow-anthropic-api", action="store_true",
         help=("Permite correr modelos Anthropic por OpenRouter (SE COBRA POR TOKEN) aunque "

@@ -15,6 +15,17 @@
   perder el relato no es hipotético. El nivel de versión deja de ser criterio y pasa a
   decidirlo **qué archivo se tocó**: `scoring_reference.json` es MAJOR, las suites y los
   criterios de ranking son MINOR, datos y arreglos son PATCH.
+- Decisión al índice: se mide el **modo por defecto** de cada modelo, nunca un esfuerzo
+  forzado — y cuál es ese default (medium o high) se determina **midiendo**, no leyendo la
+  documentación del proveedor. Hoy 178 modelos declaran «default del proveedor» sin que
+  sepamos qué significa: **cero runs registran `reasoning_tokens`**, así que el dato que
+  lo decidiría no se está capturando. Queda como pendiente con método, no como duda.
+- El runner **rechaza** los modelos marcados `no_medir` / `effort_variant`, incluso
+  pedidos explícitamente por `--models`. Esos flags los miraba la capa que PUBLICA
+  (`export_for_pages`, `completar_examen`) y no la que GASTA, así que una decisión de
+  catálogo se hacía cumplir *después* de haber pagado el examen. En una mañana entraron
+  los dos GPT-5.6 Pro y Qwen 2.5 72B, que llevaba el flag puesto y aun así corrió 76
+  tests. Escape declarado: `--incluir-no-medir`, que deja rastro en el comando.
 - `check_presupuesto.py`: verifica que haya con qué pagar ANTES de lanzar un lote. Nace
   de la noche del 17-ago, cuando la API key llegó a su tope a las 20:57 y se llevó el
   juez —que puntúa todo—: Opus 5 murió a mitad del examen y dos chunks ni arrancaron. El

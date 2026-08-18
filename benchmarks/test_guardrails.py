@@ -373,6 +373,19 @@ def _t_changelog():
             tmp.unlink(missing_ok=True)
 
 
+@prueba("runner · veto de catálogo", "medir un modelo marcado `no_medir`, pedido explícito")
+def _t_veto():
+    # El caso exacto del 18-ago: se pidió por nombre un modelo excluido por decisión y el
+    # runner lo midió igual, porque el flag solo lo miraba la capa que publica. Se exige
+    # que RECHACE — y que lo diga, no que lo descarte en silencio.
+    r = subprocess.run([PY, str(ROOT / "benchmarks" / "runner.py"),
+                        "--models", "gpt-5.6-luna-pro", "--tests", "reasoning",
+                        "--sin-canario"],
+                       capture_output=True, text=True, cwd=ROOT)
+    salida = (r.stdout or "") + (r.stderr or "")
+    return "RECHAZADOS" in salida and "gpt-5.6-luna-pro" in salida
+
+
 def main() -> int:
     print("Probando que cada guardrail CACE su propio fallo:\n")
     for nombre, ok, detalle in resultados:
