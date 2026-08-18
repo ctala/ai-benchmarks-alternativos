@@ -1,9 +1,9 @@
 # Claude Opus 5 — task_management/project_breakdown
 
 - model_id: `anthropic/claude-opus-5`
-- success: True  | final: 7.69 | quality: 9.7
-- latency_total: 80.148s | tokens_per_second: 71.6
-- input_tokens: 117 | output_tokens: 5737
+- success: True  | final: 7.68 | quality: 9.7
+- latency_total: 81.746s | tokens_per_second: 74.5
+- input_tokens: 117 | output_tokens: 6088
 - judge_score: 5 | justificación: La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un desglose detallado y estructurado del proyecto.
 
 ## Entrada exacta (lo que recibió el modelo)
@@ -15,174 +15,181 @@ Necesito lanzar una landing page para un nuevo producto SaaS de gestion de inven
 
 ## Respuesta completa
 
-# Plan de lanzamiento — Landing Page SaaS de Inventario (4 semanas)
+# Plan de lanzamiento — Landing page SaaS de inventario (4 semanas)
 
-## Supuestos (valídalos el Día 1; cambian el plan si son falsos)
+## Supuestos (confírmalos antes del kickoff — cambian el plan)
 
-1. **Alcance:** landing de 1 página (+ 2 legales: privacidad y términos). No hay app, login ni dashboard en este scope.
-2. **Objetivo del CTA:** captar leads (demo o trial). Si el trial requiere self-serve signup + billing, **el plan no cabe en 4 semanas** con este equipo.
-3. **Marca:** existe logo y paleta básica. Si hay que crear identidad desde cero, suma 1 semana.
-4. **Stack:** Next.js + Tailwind + Vercel, formularios a CRM (HubSpot/Pipedrive), analítica GA4 + Hotjar. Sin CMS o con CMS ligero.
-5. **Pricing definido antes del Día 3.** Es el bloqueador silencioso #1 de este tipo de proyectos.
-6. **Un único decisor** aprueba diseño y copy en <24h.
+| Supuesto | Si cambia… |
+|---|---|
+| Es **una landing page** (1 página larga + legales + gracias), no un sitio de 6 páginas | +1 semana o recortar secciones |
+| El CTA principal es **captura de lead / lista de espera o demo**, no self-serve signup con onboarding | Signup + billing = otro proyecto, no cabe en 4 semanas |
+| Ya existe producto con UI presentable para screenshots/GIFs | Sin visuales reales, el diseñador tiene que inventar mockups (+3 días) |
+| Ya hay dominio, cuenta de hosting y herramienta de email/CRM decididas | Compras y aprobaciones legales suelen comer 3-5 días |
+| Stack simple: Next.js/Astro + Tailwind + deploy en Vercel/Netlify + CMS ligero o contenido en repo | Un CMS pesado o WordPress custom cambia el reparto de devs |
+
+**Nomenclatura:** DIS = diseñador · DEV1 = frontend · DEV2 = infra/integraciones · CW = copywriter · PM = tú
 
 ---
 
-## Equipo y foco
+## Fase 0 — Definición (Días 1-2)
 
-| Rol | Alias | Responsabilidad principal |
-|---|---|---|
-| Diseñador | **DIS** | UX, wireframes, UI hi-fi, assets, design system mínimo |
-| Developer 1 | **DEV1** | Frontend / maquetado / componentes / responsive |
-| Developer 2 | **DEV2** | Infra, CI/CD, integraciones (CRM, analytics), SEO técnico, performance |
-| Copywriter | **COP** | Research, mensaje, copy, microcopy, SEO on-page |
-| Product Owner | **PO** | Decisiones de scope, pricing, aprobaciones (tú) |
+Nada de diseño ni código hasta cerrar esto. Es el 80% del riesgo del proyecto.
 
-**Cuello de botella del proyecto: DIS.** Todo el build depende de su output. Por eso el diseño se entrega **por secciones**, no en un único paquete final.
+| # | Tarea | Resp. | Depende de | Días |
+|---|---|---|---|---|
+| 0.1 | Kickoff: objetivo, métrica de éxito, alcance congelado | PM + todos | — | 0.5 |
+| 0.2 | ICP, propuesta de valor, 3 diferenciadores vs. competencia | CW + PM | 0.1 | 1 |
+| 0.3 | Definir CTA único y flujo post-conversión (email, CRM, calendario) | PM | 0.1 | 0.5 |
+| 0.4 | Estructura de secciones acordada (wireframe en texto/bloques) | PM + DIS + CW | 0.2, 0.3 | 0.5 |
+| 0.5 | Decisiones técnicas: stack, hosting, CMS, herramientas de analítica | DEV1 + DEV2 | 0.3 | 0.5 |
+
+**Hito 1 (fin día 2): alcance y mensaje congelados.** Cambios posteriores entran a backlog post-lanzamiento, no al scope.
+
+Estructura recomendada de secciones (base para estimar): Hero · Problema · Cómo funciona (3 pasos) · Features clave (4-6) · Prueba social · Comparativa o integraciones · Pricing · FAQ · CTA final · Footer.
+
+---
+
+## Fase 1 — Contenido y diseño en paralelo (Días 3-9)
+
+El error clásico es diseñar primero y meter texto después. Aquí el copy va **medio paso adelante**.
+
+| # | Tarea | Resp. | Depende de | Días |
+|---|---|---|---|---|
+| 1.1 | Copy v1: hero, problema, cómo funciona | CW | 0.4 | 2 (D3-D4) |
+| 1.2 | Copy v1: features, pricing, FAQ, CTAs, microcopy de formulario | CW | 1.1 | 2 (D5-D6) |
+| 1.3 | Revisión de copy + ajustes | PM → CW | 1.2 | 1 (D7) |
+| 1.4 | Wireframes de alta fidelidad (desktop + mobile) | DIS | 0.4 | 2 (D3-D4) |
+| 1.5 | Design system mínimo: tipografía, color, botones, espaciado | DIS | 0.5 | 1 (D5) |
+| 1.6 | Diseño visual mitad superior (hero → cómo funciona) | DIS | 1.1, 1.5 | 2 (D6-D7) |
+| 1.7 | Diseño visual mitad inferior (features → footer) | DIS | 1.2, 1.6 | 2 (D8-D9) |
+| 1.8 | Assets: screenshots del producto, iconos, ilustración/gráfico de dashboard | DIS | 1.6 | 1 (paralelo D8) |
+| 1.9 | Setup repo, CI/CD, entornos staging/prod, dominio y DNS | DEV2 | 0.5 | 2 (D3-D4) |
+| 1.10 | Maquetar sistema de componentes base (botones, grid, tipografía, layout) | DEV1 | 1.5 | 3 (D5-D7) |
+| 1.11 | Backend de formulario: validación, anti-spam, envío a CRM/email, página de gracias | DEV2 | 0.3, 1.9 | 3 (D5-D7) |
+| 1.12 | Analítica y tracking: GA4/Plausible + eventos de conversión + banner de consentimiento | DEV2 | 1.9 | 2 (D8-D9) |
+| 1.13 | Maquetar secciones con copy y diseño ya aprobados (hero → cómo funciona) | DEV1 | 1.6, 1.10 | 2 (D8-D9) |
+
+**Hito 2 (fin día 9): diseño completo aprobado + mitad de la página maquetada + formulario funcionando en staging.**
+
+---
+
+## Fase 2 — Construcción y contenido de soporte (Días 10-14)
+
+| # | Tarea | Resp. | Depende de | Días |
+|---|---|---|---|---|
+| 2.1 | Maquetar secciones restantes (features → footer) | DEV1 | 1.7, 1.13 | 3 (D10-D12) |
+| 2.2 | Responsive y ajuste fino en mobile/tablet | DEV1 + DIS | 2.1 | 1.5 (D13-D14) |
+| 2.3 | Micro-interacciones y animaciones on-scroll (solo donde aporten) | DEV1 | 2.1 | 0.5 (D14) |
+| 2.4 | SEO técnico: metas, OG/Twitter cards, sitemap, robots, schema, canonical | DEV2 | 2.1 | 1.5 (D10-D11) |
+| 2.5 | Optimización: imágenes en WebP/AVIF, lazy load, fuentes, presupuesto de peso | DEV2 | 2.1 | 1.5 (D12-D13) |
+| 2.6 | Legales: privacidad, cookies, términos (plantilla + revisión) | PM + CW | 0.3 | 1 (D10) |
+| 2.7 | Secuencia de email de bienvenida (2-3 correos) y autorespuesta | CW | 1.11 | 2 (D11-D12) |
+| 2.8 | Copy de soporte al lanzamiento: posts sociales, email a lista, Product Hunt si aplica | CW | 1.3 | 2 (D13-D14) |
+| 2.9 | Recolectar prueba social real (testimonios, logos, beta users, cifras) | PM | 0.2 | continuo D3-D12 |
+| 2.10 | QA de accesibilidad: contraste, foco, alt text, navegación por teclado | DIS + DEV1 | 2.2 | 1 (D14) |
+
+**Hito 3 (fin día 14): página completa en staging, responsive, con legales y analítica.**
+
+---
+
+## Fase 3 — QA, freeze y lanzamiento (Días 15-18)
+
+| # | Tarea | Resp. | Depende de | Días |
+|---|---|---|---|---|
+| 3.1 | Revisión cruzada completa del equipo + stakeholders (sesión de 90 min) | Todos | Hito 3 | 0.5 (D15) |
+| 3.2 | QA cross-browser y dispositivos reales (Chrome, Safari, Firefox, iOS, Android) | DEV1 + DEV2 | 3.1 | 1 (D15) |
+| 3.3 | Test end-to-end de conversión: form → CRM → email → gracias → evento en analítica | DEV2 + PM | 3.2 | 0.5 (D15) |
+| 3.4 | Corrección de bugs P1/P2 | DEV1 + DEV2 | 3.2 | 1.5 (D16-D17) |
+| 3.5 | Lighthouse ≥90 en performance y accesibilidad, Core Web Vitals | DEV2 | 3.4 | 0.5 (D16) |
+| 3.6 | **Content freeze** — cero cambios de copy o diseño | PM | 3.1 | fin D16 |
+| 3.7 | Checklist pre-lanzamiento (abajo) | PM | 3.4, 3.5 | 0.5 (D17) |
+| 3.8 | **Deploy a producción** | DEV2 | 3.7 | 0.5 (D18 mañana) |
+| 3.9 | Smoke test en prod + activar campañas y publicaciones | Todos | 3.8 | 0.5 (D18 tarde) |
+
+**Hito 4 (día 18): en vivo.** Lanza **miércoles**, no viernes: te quedan 2 días hábiles para reaccionar con el equipo completo.
+
+---
+
+## Fase 4 — Días 19-20: colchón y post-lanzamiento
+
+Estos dos días **no son buffer de desarrollo**, son la reserva contra imprevistos. Si todo va bien:
+
+- Monitoreo de errores, conversión y comportamiento (heatmap/grabaciones)
+- Fixes rápidos de fricción detectada en datos reales
+- Definir primer experimento A/B (headline o CTA) para la semana 5
+- Retrospectiva de 45 min
 
 ---
 
 ## Ruta crítica
 
 ```
-Oferta + pricing → Mensaje/value prop → Wireframe → UI hi-fi → Maquetado → QA → Deploy
+0.2 mensaje → 1.1/1.2 copy → 1.6/1.7 diseño → 1.13/2.1 maquetación → 2.2 responsive → 3.2 QA → 3.4 fixes → 3.8 deploy
 ```
 
-Cualquier retraso aquí se traslada 1:1 a la fecha de lanzamiento. Todo lo demás (infra, analytics, assets, legales) es paralelizable y **no debe bloquear**.
+Todo lo que hace DEV2 (infra, formulario, SEO, performance) está **fuera** de la ruta crítica por diseño: puede avanzar sin esperar al diseño. Si algo se atrasa, el retraso viene del copy o del diseño, no del código.
+
+**El diseñador es el cuello de botella real:** 1 persona con 7 días de trabajo de diseño en 7 días de calendario, sin margen. Mitigación:
+
+- Design system mínimo (1.5), no un sistema completo
+- Aprobación por bloques (1.6 y 1.7 separados), no un big-bang al final
+- Máximo **2 rondas** de feedback por bloque, cerradas en 24h
+- DEV1 empieza a maquetar el día 8 con la mitad superior ya aprobada
 
 ---
 
-## SEMANA 1 — Estrategia y estructura
-**Meta:** salir del viernes con mensaje y estructura congelados.
+## Riesgos y mitigaciones
 
-| Día | Tarea | Resp. | Depende de |
+| Riesgo | Prob. | Impacto | Mitigación |
 |---|---|---|---|
-| D1 | Kickoff: objetivo, ICP, KPI, CTA primario, competidores de referencia | Todos | — |
-| D1 | Definir oferta y **pricing** (o decisión explícita de "pricing = contactar ventas") | PO | — |
-| D1–D2 | Research: 3–5 competidores, entrevistas con ventas/soporte, extracción de dolores reales | COP | D1 |
-| D1–D2 | Setup técnico: repo, CI/CD, staging, dominio, tokens de diseño base | DEV2 | — |
-| D2–D3 | Message house: promesa principal, 3 beneficios, objeciones, prueba social | COP | Research |
-| D3 | **Aprobación de mensaje** (30 min, PO) | PO | Message house |
-| D3–D5 | Wireframes lo-fi de todas las secciones + jerarquía de página | DIS | Mensaje aprobado |
-| D3–D5 | Copy v1 de secciones críticas: hero, beneficios, cómo funciona, pricing, FAQ | COP | Mensaje aprobado |
-| D3–D5 | Elegir librería de componentes, definir arquitectura, formulario dummy funcional en staging | DEV1 | Setup |
-| D5 | **Review conjunta + freeze de estructura y copy v1** | Todos | — |
-
-> **Riesgo D1–D3:** si no hay screenshots reales del producto, DIS y DEV quedan sin assets clave en Semana 3. Pide capturas o mockups del producto **el Día 1**.
+| Stakeholders cambian el mensaje en semana 3 | Alta | Alto | Hito 1 firmado + content freeze en D16 documentado |
+| No hay prueba social real (producto nuevo) | Alta | Medio | Empezar a pedir testimonios de beta el día 3; plan B: métricas de producto, logos de integraciones, garantía |
+| Screenshots del producto no listos o con UI vieja | Media | Alto | Confirmar el día 1 quién los provee y para qué fecha |
+| Ciclos de feedback interminables | Alta | Alto | Máx. 2 rondas, 24h de plazo; silencio = aprobado |
+| Diseñador enfermo o ausente | Media | Crítico | Plantilla/UI kit comprado como respaldo; diseño en herramienta compartida, nunca local |
+| Problemas de DNS/SSL el día del lanzamiento | Media | Alto | Resolver DNS en semana 1 (tarea 1.9), no el día 18 |
+| Aprobación legal de textos se atrasa | Media | Medio | Enviar borradores el día 10, no el 16 |
 
 ---
 
-## SEMANA 2 — Diseño hi-fi y arranque del build
-**Meta:** hero y beneficios ya maquetados el viernes.
+## Checklist pre-lanzamiento (tarea 3.7)
 
-| Día | Tarea | Resp. | Depende de |
-|---|---|---|---|
-| D6–D7 | UI hi-fi: hero + navegación + beneficios (desktop y mobile) | DIS | Wireframes |
-| D8–D9 | UI hi-fi: cómo funciona, pricing, testimonios, FAQ, footer | DIS | — |
-| D6–D8 | Copy v2 final + microcopy (botones, labels, estados de error, thank-you page) | COP | Freeze D5 |
-| D6–D8 | Integraciones: CRM, GA4 + eventos, consentimiento de cookies, email de confirmación | DEV2 | Setup |
-| D8–D10 | Maquetado de hero + beneficios (secciones ya aprobadas) | DEV1 | Hi-fi parcial |
-| D9 | Meta títulos, descripciones, keywords, estructura de H1–H3 | COP | Copy v2 |
-| D10 | **Design freeze.** Cambios posteriores entran a un backlog post-lanzamiento | PO / DIS | — |
-
-**Regla de oro:** DIS entrega secciones aprobadas de forma incremental (D7 y D9), no un archivo completo el D10. Sin esto, DEV1 arranca tarde y la Semana 4 se rompe.
-
----
-
-## SEMANA 3 — Build completo
-**Meta:** code complete el viernes, sitio navegable en staging.
-
-| Día | Tarea | Resp. | Depende de |
-|---|---|---|---|
-| D11–D14 | Maquetado del resto de secciones + responsive + estados hover/focus | DEV1 | Design freeze |
-| D11–D13 | Assets finales: screenshots del producto, iconografía, ilustraciones, OG image, favicon | DIS | Hi-fi |
-| D11–D13 | SEO técnico: sitemap, robots, schema (Organization, Product, FAQ), redirects | DEV2 | — |
-| D12–D14 | Formulario en producción: validaciones, anti-spam, thank-you page, tracking de conversión | DEV2 | Integraciones |
-| D13–D14 | Optimización: imágenes WebP, lazy load, fuentes, Core Web Vitals | DEV2 | Maquetado parcial |
-| D13–D15 | Revisión de copy implementado (typos, saltos de línea, viudas, coherencia) | COP | Maquetado |
-| D14 | Textos legales: privacidad, términos, aviso de cookies | PO / COP | — |
-| D15 | **Code complete → staging estable.** Feature freeze | DEV1 / DEV2 | — |
-| D11–D15 | *Trabajo paralelo COP:* secuencia de emails de bienvenida, copy de ads, post de anuncio, guion de video corto | COP | Copy v2 |
+- [ ] Formulario probado desde 3 dispositivos distintos; leads llegan al CRM
+- [ ] Email de autorespuesta llega y no cae en spam (test con Gmail, Outlook)
+- [ ] Eventos de conversión disparando correctamente en analítica
+- [ ] Meta title/description y OG image verificados con validador de LinkedIn/Twitter
+- [ ] 404 y página de gracias existen y tienen diseño
+- [ ] SSL activo, redirección www ↔ raíz, http → https
+- [ ] Sin enlaces roto, sin texto placeholder, sin "Lorem"
+- [ ] Legales enlazadas desde el footer y accesibles
+- [ ] Lighthouse ≥90 mobile en performance y accesibilidad
+- [ ] Backup/rollback probado: se puede revertir el deploy en <5 min
+- [ ] Alguien de guardia el día 18 hasta el cierre
 
 ---
 
-## SEMANA 4 — QA, pulido y lanzamiento
-**Meta:** lanzar el D20 por la mañana, con 2 días de colchón ya integrados.
+## Carga por persona (días hábiles de 20)
 
-| Día | Tarea | Resp. | Depende de |
-|---|---|---|---|
-| D16 | QA funcional: formularios, links, CTAs, tracking end-to-end, email recibido | DEV2 + PO | Staging |
-| D16 | QA visual: Chrome/Safari/Firefox/Edge, iOS, Android, 320px–1920px | DIS + DEV1 | Staging |
-| D16 | QA accesibilidad: contraste, foco, alt text, navegación por teclado, jerarquía semántica | DIS + DEV1 | Staging |
-| D17 | Triage de bugs (P0/P1/P2) + fixes P0 y P1 | DEV1 / DEV2 | QA |
-| D17 | Lighthouse: objetivo ≥90 performance, ≥95 SEO y a11y en mobile | DEV2 | Fixes |
-| D18 | **Aprobación final de stakeholders** (sesión única, 1h, lista cerrada de cambios) | PO | — |
-| D18 | Últimos ajustes de copy y pulido visual | COP / DIS | Aprobación |
-| D19 | **Buffer / ensayo de deploy:** DNS, SSL, deploy a producción con noindex, smoke test completo | DEV2 | — |
-| D19 | Pre-launch checklist firmada | Todos | — |
-| **D20 AM** | **LANZAMIENTO:** quitar noindex, Search Console, verificación de analítica, smoke test en producción | DEV2 | Checklist |
-| D20 PM | Monitoreo activo, hotfixes, activación de ads/email/redes | Todos | Launch |
-| D21 | Retro + backlog v1.1 + primer reporte de métricas | Todos | Launch |
-
-> Lanza **martes o miércoles por la mañana**. Nunca un viernes: si algo se rompe, nadie estará disponible.
-
----
-
-## Riesgos principales y mitigación
-
-| Riesgo | Impacto | Mitigación |
+| Persona | Carga | Comentario |
 |---|---|---|
-| Pricing no definido a tiempo | Alto — bloquea copy y diseño | Deadline D3. Plan B: sección "Solicitar cotización" |
-| Sin screenshots del producto | Alto — hero sin visual | Pedir D1. Plan B: mockups ilustrados por DIS |
-| Aprobaciones lentas / stakeholders tardíos | Alto | Ventanas fijas de review (D3, D10, D18). Silencio = aprobado |
-| DIS saturado (único diseñador) | Alto | Entrega incremental + design system mínimo, no pixel-perfect |
-| Scope creep (blog, chat, calculadora ROI, multi-idioma) | Alto | Freeze D10. Todo lo nuevo va a backlog v1.1 |
-| Sin testimonios ni logos reales | Medio | Usar métricas del producto o beta-testers; nunca inventar |
-| Integración CRM más compleja de lo previsto | Medio | Prototipo funcional en D8, no en D14 |
+| Diseñador | ~9 días | **Ruta crítica, sin holgura.** Protégelo de reuniones |
+| DEV1 (frontend) | ~11 días | Concentrada D5-D17 |
+| DEV2 (infra) | ~11 días | Distribuida, mucha holgura al inicio |
+| Copywriter | ~10 días | Libre desde D15 — úsalo para contenido post-lanzamiento |
+| PM | continuo | Tu trabajo real es desbloquear y proteger el freeze |
 
 ---
 
-## Si vas tarde, recorta en este orden
+## Recortes si te atrasas (en este orden)
 
-1. Animaciones y microinteracciones → CSS estático
-2. Ilustraciones custom → librería de ilustraciones licenciadas
-3. Video demo → GIF o screenshots anotados
-4. Sección de comparativa con competidores → post-lanzamiento
-5. CMS → contenido hardcodeado
-6. Blog / recursos → v1.1
+1. Animaciones y micro-interacciones (2.3)
+2. Sección comparativa / integraciones
+3. FAQ reducida de 8 a 4 preguntas
+4. Ilustraciones custom → screenshots directos del producto
+5. Secuencia de emails a 1 solo correo de bienvenida
 
-**No recortes nunca:** QA mobile, tracking de conversión, velocidad de carga, textos legales.
-
----
-
-## Definition of Done (por tarea)
-
-- **Diseño:** desktop + mobile, todos los estados, tokens documentados, aprobado por PO
-- **Copy:** revisado, sin typos, con meta tags, aprobado por PO
-- **Dev:** responsive, cross-browser, Lighthouse ≥90 mobile, sin errores en consola, PR revisado por el otro dev
+**Nunca recortes:** QA del formulario, tracking de conversión, legales, performance mobile.
 
 ---
 
-## Métricas a medir desde el D20
-
-| Métrica | Referencia inicial |
-|---|---|
-| Conversión visitante → lead | 2–5% (landing SaaS B2B) |
-| Bounce rate | <60% |
-| Scroll depth al pricing | >40% |
-| LCP mobile | <2.5s |
-| Lead → demo agendada | >30% |
-
-Instrumenta eventos de: click en CTA (hero, medio, footer), envío de formulario, scroll 50%/90%, click en pricing.
-
----
-
-## Los 3 puntos de control que determinan si llegas
-
-- **D3** — mensaje y pricing aprobados
-- **D10** — design freeze
-- **D15** — code complete
-
-Si fallas cualquiera de los tres, mueve la fecha de lanzamiento el mismo número de días. No comprimas la Semana 4: es donde se detecta lo que rompería el lanzamiento.
-
-¿Quieres que profundice en alguna fase, o que ajuste el plan asumiendo self-serve signup con billing en lugar de captación de leads?
+¿Quieres que profundice en alguno de estos puntos? Puedo detallar la estructura de secciones con el ángulo de mensaje para inventario B2B, el desglose técnico del stack, o convertir esto a un formato importable a Jira/Linear/Notion.

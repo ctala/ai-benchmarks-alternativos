@@ -1,7 +1,7 @@
 {
   "metadata": {
     "timestamp": "20260817_184148_925",
-    "total_runs": 552,
+    "total_runs": 555,
     "errors": 0,
     "judge": {
       "judge_model": "microsoft/phi-4",
@@ -18612,6 +18612,36 @@
       "timestamp": "20260817_184148_925",
       "prompt_sha": "6882d7786b98",
       "response_file": "results/responses/or-kimi-k2.5/agent_long_horizon/skill_orchestration_correct_choice__20260817_184148_925.md",
+      "runs_averaged": 3
+    },
+    {
+      "quality": 6.333,
+      "cost_score": 3.217,
+      "cost_usd": 0.039,
+      "speed": 2.667,
+      "latency": 1.0,
+      "tool_calling": 7.0,
+      "final": 5.19,
+      "test_name": "interruption_recovery_topic_switch",
+      "model": "Kimi K2.5",
+      "model_id": "moonshotai/kimi-k2.5",
+      "success": true,
+      "error": "",
+      "tokens_per_second": 12.667,
+      "latency_first_token": 167.534,
+      "latency_total": 667.285,
+      "input_tokens": 20734,
+      "output_tokens": 10147,
+      "response_preview": " Aquí tienes el plan completo consolidado. Estructuré primero la **vista de hitos de las 4 semanas** para que tengas el mapa general, y luego el **desglose operativo día por día** de las semanas 3 y 4 (las críticas de ejecución).\n\n---\n\n## 🎯 Vista General: Hitos de las 4 Semanas Previas\n\n| Semana | F",
+      "auto_quality": 1.0,
+      "turns_executed": 7,
+      "turns_total": 7,
+      "scoring": "verificable",
+      "suite": "agent_long_horizon",
+      "run": 1,
+      "timestamp": "20260817_184148_925",
+      "prompt_sha": "dcb61e466bee",
+      "response_file": "results/responses/or-kimi-k2.5/agent_long_horizon/interruption_recovery_topic_switch__20260817_184148_925.md",
       "runs_averaged": 3
     }
   ]

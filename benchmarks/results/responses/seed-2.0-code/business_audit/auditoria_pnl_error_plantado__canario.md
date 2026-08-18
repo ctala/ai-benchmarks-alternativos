@@ -2,7 +2,7 @@
 
 - model_id: `bytedance-seed/seed-2.0-code`
 - success: True  | final: 8.52 | quality: 10.0
-- latency_total: 35.423s | tokens_per_second: 57.8
+- latency_total: 37.49s | tokens_per_second: 54.6
 - input_tokens: 255 | output_tokens: 2048
 
 ## Entrada exacta (lo que recibió el modelo)
@@ -36,71 +36,71 @@ MARGEN: 40%
 ## Respuesta completa
 
 
-El usuario quiere que como controller financiero verifique los números primero, luego analicemos si contratar.
+El usuario me pide como controller financiero que verifique los números primero, luego opine sobre contratar a alguien por 2500 usd/mes con el resumen que dio.
 
-Primero, VALIDAR LOS NÚMEROS BASE:
-- Ingresos totales: 9.800 + 2.600 = 12.400 ✅ CIERRA
-- Costos totales: 1.250 + 3.900 + 780 + 620 + 2.600 = sumemos: 1.250+3.900=5.150; 5.150+780=5.930; 5.930+620=6.550; 6.550+2.600=9.150 ❌ AQUÍ HAY UN ERROR: el usuario dice total costos $7.400 pero la suma de los componentes es $9.150. Eso es crítico primero.
+Primero, PASO 1: VERIFICAR QUE LOS NÚMEROS CIERREN, porque es lo primero que pide el rol.
 
-Luego, el margen que dice es 40%: si ingresos son 12.400, un margen del 40% sería $4.960, PERO depende de si es margen bruto o neto? Wait, el usuario agrupa todos los costos ahí, pero primero la inconsistencia en los costos.
+Vamos a chequear cada ítem:
+1. Total Ingresos: Suscripciones 9800 + Cursos 2600 = 12400 → ESO CIERRA.
+2. Total Costos: Infraestructura 1250 + Publicidad 3900 + Herramientas 780 + Procesador 620 + Freelance Contenido 2600. Vamos a sumar: 1250+3900=5150; 5150+780=5930; 5930+620=6550; 6550+2600=9150 → ¡AQUÍ HAY UN ERROR! El usuario dice Total Costos = 7400, pero la suma real es 9150. Eso es crítico, lo primero que hay que marcar.
 
-Wait, vamos a desglosar PASO A PASO, como controller:
+Luego, el Margen que dice es 40%: Vamos a calcular ambos márgenes (el que EL USUARIO CALCULÓ MAL, y el MARGEN REAL CORREGIDO):
 
-1. PRIMERA VERIFICACIÓN OBLIGATORIA: INCONSISTENCIA EN COSTOS
-El usuario lista costos individuales que suman $9.150, pero dice "Total costos: $7.400". Eso es un error matemático clave. Vamos a confirmar la suma:
-- Infraestructura: 1.250
-- Publicidad: 3.900 → SUBTOTAL 5.150
-- SaaS: 780 → 5.930
-- Pagos: 620 → 6.550
-- Freelance: 2.600 → TOTAL COSTOS REALES (según sus datos): $9.150
+- MARGEN SEGÚN EL USUARIO (con su Total Costos ERRÓNEO de 7400): Ingresos 12400 - Costos 7400 = 5000. 5000 / 12400 ≈ 40,32% → por eso dice 40%, pero es porque sumó MAL los costos.
 
-2. SEGUNDA VERIFICACIÓN: MARGEN DECLARADO VS REAL
-El usuario dice margen 40%. El margen (si es margen operativo, al incluir todos esos costos) se calcula como (Ingresos - Costos)/Ingresos * 100.
+- MARGEN REAL (corrigiendo Total Costos a 9150): Ingresos 12400 - 9150 = 3250. 3250 / 12400 ≈ 26,21% → MARGEN REAL ES CASI 26%, NO 40%.
 
-- Si usamos SUS COSTOS DECLARADOS (7.400, que son falsos): (12.400 - 7.400)/12.400 = 5.000/12.400 ≈ 40,3% → casi 40%, por eso lo dice. PERO LOS COSTOS NO CIERRAN.
-- Si usamos SUS COSTOS REALES (9.150): (12.400 - 9.150)/12.400 = 3.250/12.400 ≈ 26,2% → margen real mucho más bajo.
+Ahora, PASO 2: ANÁLISIS DE LA CONTRATACIÓN (2500 USD/MES):
 
-3. TERCERA VERIFICACIÓN: ¿CUÁNTO DINERO TENGO DISPONIBLE PARA CONTRATAR?
-Primero, debemos clarificar si los costos que lista son TODOS los costos (es decir, el resultado operativo antes de cualquier gasto adicional como el nuevo salario).
+Primero, basado en NÚMEROS REALES, NO en los equivocados del usuario:
 
-- Con costos DECLARADOS (falsos, 7.400): Resultado operativo = 12.400 - 7.400 = $5.000. Eso es lo que queda "libre" si esos costos son todos. Entonces un salario de $2.500 es la mitad de ese remanente.
-- Con costos REALES (9.150): Resultado operativo = 12.400 - 9.150 = $3.250. Entonces un salario de $2.500 te dejaría solo $750 de remanente operativo, lo que es muy ajustado.
+1. UTILIDAD OPERATIVA ACTUAL (sin la contratación): Ingresos 12400 - Costos Reales 9150 = 3250 USD/MES. Esa es la ganancia que te queda HOY después de pagar todos tus costos.
 
-Pero primero, EL ERROR PRINCIPIAL ES QUE LOS COSTOS NO CIERRAN. Como controller, mi primer paso es SEÑALAR ESA INCONSISTENCIA, porque todo análisis depende de datos correctos.
+2. SI CONTRATAS A 2500 USD/MES: Esa es un COSTO FIJO NUEVO (suponiendo que es salario mensual, no variable). Entonces:
+   - Nuevos Costos Totales = 9150 + 2500 = 11650
+   - UTILIDAD NUEVA = 12400 - 11650 = 750 USD/MES.
+   - Pero OJO: Esto es SI LOS INGRESOS Y COSTOS ACTUALES SON ESTABLES. Pero hay que agregar advertencias:
+     a. ¿La contratación es variable o fija? El usuario dice 2500/mes, así que fija.
+     b. ¿Los costos actuales son todos fijos o variables? Vamos a clasificarlo para ser más preciso:
+       - COSTOS VARIABLES (dependen de ventas): Procesador de pagos (620, que es % de ingresos), Contenido freelance (¿es variable? Si es por contenido para ventas, tal vez, pero el usuario lo pone como fijo mensual? Mejor marcarlo).
+       - COSTOS FIJOS: Infraestructura (1250), Herramientas SaaS (780), Publicidad (ojo, publicidad a veces es variable por presupuesto, pero el usuario lo pone como 3900 fijo mensual).
 
-Luego, podemos hacer dos escenarios:
-ESCENARIO 1: USANDO LOS DATOS QUE EL USUARIO "INTENTÓ" PONER (porque el margen 40% coincide con 12.400 - 7.400 = 5.000 → 5.000/12.400 ≈40%). Probablemente se equivocó en sumar los costos individuales. ¿Cuál sería el error? Tal vez el freelance es $1.050 en vez de $2.600? O se olvidó de que algunos costos son variables? Wait, no, el usuario puso freelance $2.600. Pero es mejor:
+Pero primero, LO MÁS IMPORTANTE ES MARCAR EL ERROR DE SUMA DE COSTOS, porque el usuario se basó en un margen FALSO del 40% que no existe.
 
-1. SEÑALAR INCONSISTENCIA OBLIGATORIA:
-> Primero, verificación de números: LOS COSTOS NO CIERRAN. Tus costos individuales suman $9.150, pero declaraste un total de $7.400. Esto es un error crítico para la decisión.
+Luego, el análisis:
 
-2. EXPLICAR DE DÓNDE SALE SU "MARGEN 40%":
-> Tu margen declarado del ~40% coincide si usamos el total de costos que escribiste a mano ($7.400):
->   Resultado operativo (con costos declarados): $12.400 - $7.400 = $5.000
->   Margen = ($5.000 / $12.400) ≈ 40,3% → esa es la cifra que usas, pero la suma de tus costos individuales no llega a eso.
+- Con sus números ERRÓNEOS (costos 7400, utilidad 5000/mes), contratar 2500 le dejaría 2500 de utilidad, pero ESO NO ES REAL.
+- Con números REALES, utilidad actual es 3250, contratar le deja 750, PERO:
+  - Hay que ver si esa 750 es suficiente para contingencias (impuestos, fluctuaciones de ingresos, costos no previstos).
+  - También: ¿la contratación va a generar ingresos adicionales? Porque si es solo para aliviar carga pero no genera más ingresos, la utilidad se reduce en 75% (de 3250 a 750).
+  - Otra cosa: El margen REAL es 26%, no 40%: 26% es margen bruto? O margen operativo? En este caso, como los costos son todos operativos, es margen operativo.
 
-3. ANÁLISIS POR DOS ESCENARIOS (PORQUE EL ERROR ES EN LOS COSTOS):
-> ESCENARIO 1: TUS COSTOS DECLARADOS SON CORRECTOS (y te equivocaste al listar los costos individuales):
->   - Dinero disponible ANTES de contratar: $5.000/mes (resultado operativo)
->   - Contratar a $2.500/mes te deja un remanente de: $5.000 - $2.500 = $2.500/mes
->   - Esto es viable SI:
->     a. Esos $7.400 de costos INCLUYEN TODOS los gastos variables y fijos (no hay costos ocultos como impuestos, seguros, etc.)
->     b. Los ingresos no son volátiles (este mes no es un pico excepcional)
->     c. El $2.500 es TODO el costo del empleado (no hay cargas sociales, herramientas adicionales para él, etc.)
+También, hay que confirmar el error de suma paso a paso para que el usuario vea:
 
-> ESCENARIO 2: TUS COSTOS INDIVIDUALES SON CORRECTOS (y te equivocaste al escribir el total de costos):
->   - Suma real de costos: $1.250 + $3.900 + $780 + $620 + $2.600 = $9.150
->   - Resultado operativo REAL: $12.400 - $9.150 = $3.250
->   - Margen REAL: ($3.250 / $12.400) ≈ 26,2% (muy lejos del 40% que declaras)
->   - Contratar a $2.500/mes te deja un remanente de: $3.250 - $2.500 = $750/mes
->   - Esto es MUY RIESGOSO porque:
->     a. No tienes colchón para variaciones de ingresos o costos
->     b. Si hay costos ocultos (impuestos, cargas sociales), te quedarías en números rojos
->     c. El margen real es mucho más bajo de lo que crees
+Suma de costos que el usuario declaró como 7400:
+1. Infraestructura: 1.250
+2. Publicidad: 3.900 → Hasta aquí 5.150
+3. Herramientas SaaS: 780 → 5.150 + 780 = 5.930
+4. Procesador de pagos: 620 → 5.930 + 620 = 6.550
+5. Contenido freelance: 2.600 → 6.550 + 2.600 = 9.150
 
-4. ACCIÓN RECOMENDADA PRIMERO:
-> Corregir el error en los costos: ¿por qué la suma de los individuales no coincide con el total? ¿olvidaste quitar un costo? ¿escribiste mal el monto de freelance o publicidad? Sin corregir eso, la decisión es ciega.
+Diferencia entre lo que dice (7.400) y lo real (9.150): 1.750 USD de error. Ese error es lo que le hace creer que tiene un margen de 40% cuando es de 26%.
 
-5. SI EL ESCENARIO 1 ES EL CORRECTO (costos declarados $7.400):
-> Si además:
-> - Los ingresos son recurrentes (ej: suscripciones son el 79% de
+Luego, preguntas que el usuario debería responder antes de decidir, pero como controller, primero corregir números, luego dar análisis.
+
+También, ¿impuestos? El usuario no menciona impuestos, pero en casi todos los países, los ingresos tienen impuestos (IVA, ISR, etc.). Por ejemplo, si hay un 15% de ISR sobre la utilidad, la utilidad actual después de impuestos sería 3250 * 0.85 = 2762,5, y si contrata: 750 * 0.85 = 637,5.
+
+Otra cosa: ¿La contratación incluye cargas sociales? Porque 2500/mes de salario bruto suele tener cargas sociales (entre 20% y 50% dependiendo del país), así que el costo real podría ser 3000-3750, lo que haría que la utilidad sea NEGATIVA (12400 - (9150 + 3500) = 12400 - 12650 = -250). Eso es un punto MUY importante que el usuario olvida: el costo de un empleado no es solo el salario neto, sino bruto + cargas + prestaciones.
+
+Resumiendo el orden que debe tener la respuesta (según el rol de controller financiero: PRIMERO VERIFICAR NÚMEROS, SI NO CIERRAN DECIRLO PRIMERO, LUEGO ANÁLISIS):
+
+1. PRIMER PUNTO: LOS NÚMEROS NO CIERRAN. Detallar el error de suma de costos, con cálculos paso a paso.
+2. SEGUNDO PUNTO: MARGEN REAL vs MARGEN FALSO. Calcular ambos, mostrar que el 40% es inexistente por el error.
+3. TERCER PUNTO: ANÁLISIS DE LA CONTRATACIÓN (basado en NÚMEROS REALES, sin y con el costo de empleado, incluyendo advertencias de cargas sociales, impuestos, fluctuaciones).
+4. CUARTO PUNTO: PREGUNTAS CLAVE PARA DECIDIR (porque no se puede dar un sí/no sin datos adicionales, pero como controller, dar el escenario numérico).
+
+Vamos a estructurar todo claro, con números precisos, sin jerga innecesaria pero precisa.
+
+Primero, el error de costos:
+
+> 🚨 PRIMERO: LOS NÚMEROS

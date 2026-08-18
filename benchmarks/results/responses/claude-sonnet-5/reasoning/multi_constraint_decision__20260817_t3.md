@@ -1,10 +1,10 @@
 # Claude Sonnet 5 — reasoning/multi_constraint_decision
 
 - model_id: `anthropic/claude-sonnet-5`
-- success: True  | final: 8.23 | quality: 10.0
-- latency_total: 31.482s | tokens_per_second: 82.9
-- input_tokens: 280 | output_tokens: 2611
-- judge_score: 5.0 | justificación: 
+- success: True  | final: 8.04 | quality: 10.0
+- latency_total: 81.669s | tokens_per_second: 87.1
+- input_tokens: 280 | output_tokens: 7110
+- judge_score: 5 | justificación: La respuesta es precisa, relevante, profunda, clara y extremadamente útil, ofreciendo un análisis detallado de múltiples opciones de stack tecnológico con pros y contras específicos para el contexto del MVP.
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -25,122 +25,141 @@ Compara al menos 3 opciones de stack, analiza pros/contras de cada uno, y recomi
 
 ## Respuesta completa
 
-# Análisis de Stack para Marketplace Freelance MVP
+# Stack tecnológico para MVP de marketplace freelance
 
-## Contexto clave para la decisión
-Con 1 dev, 6 semanas y $5K, la prioridad #1 es **velocidad de desarrollo** y **mantenibilidad**, no performance óptima. Go queda descartado para el core del MVP (curva de aprendizaje + tiempo) — quizás útil después para un microservicio puntual, pero no ahora.
+## Análisis previo de requisitos
 
----
+Antes de comparar, identifico qué es "commodity" (no reinventar) y qué es core del negocio:
 
-## Opción 1: Next.js + Supabase (Full JS/TS)
+| Requisito | Nivel de riesgo si lo construyes desde cero |
+|---|---|
+| Auth | Bajo riesgo si usas librería madura, alto si lo haces a mano (tokens, refresh, OAuth) |
+| Pagos (marketplace = split payments) | **Alto**. Necesitas Stripe Connect sí o sí, no lo construyas tú |
+| Chat en tiempo real | Medio-alto. WebSockets + presencia + persistencia consume tiempo |
+| Búsqueda | Bajo a esta escala (5k usuarios). Postgres full-text alcanza de sobra |
+| Admin panel | Puede ser gratis (Django Admin) o costarte 1-2 semanas si lo haces custom |
 
-**Stack:** Next.js (frontend+API routes) + Supabase (Postgres, Auth, Realtime, Storage) + Stripe + Vercel
-
-**Pros:**
-- Un solo lenguaje (TS) en todo el proyecto → menos context switching
-- Supabase da auth, DB, realtime (chat) y storage "gratis" en un solo servicio
-- Row Level Security de Postgres simplifica permisos sin backend custom
-- Vercel + Supabase = deploy casi sin DevOps
-- Admin panel: se puede usar Supabase Studio inicialmente o algo como Refine.dev
-
-**Contras:**
-- Realtime de Supabase es bueno pero no tan maduro como Socket.io para chat con muchos usuarios concurrentes
-- Vendor lock-in moderado (migrar de Supabase no es trivial)
-- Next.js API routes se vuelven difíciles de mantener si la lógica de negocio crece mucho
-
-**Costo mensual estimado:**
-- Vercel Pro: $20 (o Hobby $0 al inicio)
-- Supabase Pro: $25 (necesario pasado el free tier por auth/storage)
-- Stripe: variable, ~2.9% + $0.30 por transacción
-- **Total infra: ~$45-50/mes**
+Con 6 semanas y 1 dev, la regla de oro es: **cada componente que puedas comprar/reusar en lugar de construir, cómpralo/reúsalo.**
 
 ---
 
-## Opción 2: Django + React (Python/JS)
+## Opción A — Next.js + Supabase (BaaS-first)
 
-**Stack:** Django + DRF (backend) + React (frontend) + Django Channels (chat) + PostgreSQL + Railway/Render
+**Stack:** Next.js (React) · Supabase (Postgres + Auth + Realtime + Storage) · Stripe Connect · Vercel
 
-**Pros:**
-- Dev ya sabe Python → Django tiene admin panel **gratis y automático** (ahorra 1-2 semanas)
-- Django Channels resuelve WebSockets para chat sin servicio externo
-- Ecosistema maduro: `django-allauth` (auth), `dj-stripe` (pagos), `django-elasticsearch-dsl` o simplemente Postgres full-text search
-- Muy mantenible por 1 persona — Django es "boring tech" por diseño, eso es una ventaja
+| Pros | Contras |
+|---|---|
+| Auth, DB, realtime y storage vienen "gratis" — velocidad de desarrollo altísima | No usa Python ni Go (tu skill principal queda sin aprovechar salvo en Edge Functions) |
+| Realtime de Supabase sirve directo para el chat (menos código propio) | Vendor lock-in moderado (migrar fuera de Supabase cuesta) |
+| Escala sin pensar en servers hasta varios miles de usuarios | Admin panel hay que construirlo igual (Supabase Studio no es para el negocio, es para ti) |
+| Deploy trivial (Vercel + Supabase Cloud) | Lógica de negocio compleja (matching, comisiones) se hace incómoda en RLS/Edge Functions |
 
-**Contras:**
-- Dos lenguajes en el repo (Python backend + React frontend) = más overhead que opción 1
-- Django Channels requiere Redis, un componente más para operar
-- Setup inicial un poco más lento que Next.js/Supabase
-
-**Costo mensual estimado:**
-- Render/Railway (backend + Postgres + Redis): $25-35
-- Vercel (frontend React): $0-20
-- Stripe: variable
-- **Total infra: ~$40-55/mes**
+**Costo infra mensual:** Vercel Free/Pro ($0–20) + Supabase Free hasta ~50k filas activas, luego Pro $25/mes → **~$25–45/mes**
 
 ---
 
-## Opción 3: Node.js (Express/Nest) + React + Firebase
+## Opción B — Django monolito (Python-first)
 
-**Stack:** Firebase Auth + Firestore/Postgres (via Cloud SQL) + Node backend + React + Firebase Realtime Database (chat)
+**Stack:** Django + DRF · Next.js o Django+HTMX · Postgres · Django Channels + Redis (chat) · Stripe Connect · Django Admin
 
-**Pros:**
-- Firebase Auth es rapidísimo de implementar
-- Firestore realtime nativo, muy bueno para chat
-- Escala automáticamente sin pensar en infra
+| Pros | Contras |
+|---|---|
+| Aprovecha tu fortaleza real (Python) | Configurar Channels + Redis para WebSockets agrega una pieza más de infra |
+| **Django Admin gratis** = panel de administración funcional en horas, no semanas | Si separas Next.js del backend, mantienes dos bases de código |
+| Ecosistema maduro: django-allauth (auth), djstripe (pagos), Postgres FTS (búsqueda) — todo integrado | Menos "moderno" si usas templates/HTMX en vez de SPA (pero es una ventaja de velocidad, no defecto) |
+| Un solo framework, un solo mental model, ideal para mantenimiento por 1 persona | — |
 
-**Contras:**
-- Firestore NO es relacional — para un marketplace con búsquedas complejas (filtros por categoría, precio, rating) esto es un dolor de cabeza real. Necesitarías Algolia o similar para búsqueda decente ($$$)
-- Sin admin panel out-of-the-box, hay que construirlo
-- Costos pueden dispararse con reads/writes si no se diseña bien el modelo de datos
-- Mezclar Node backend + Firebase + posible Postgres = más piezas que mantener
-
-**Costo mensual estimado:**
-- Firebase (Auth+Firestore+Realtime): $0-25 al inicio, puede subir rápido con uso
-- Algolia (si se necesita búsqueda seria): $50+
-- Hosting backend: $10-20
-- **Total infra: ~$60-95/mes** (con tendencia a subir)
+**Costo infra mensual:** Railway/Render (web + worker Channels + Postgres + Redis) → **~$25–50/mes** al inicio, **~$60–100/mes** a los 5k usuarios
 
 ---
 
-## Comparación rápida
+## Opción C — Go (chat) + FastAPI (Python) + React
 
-| Criterio | Next.js+Supabase | Django+React | Node+Firebase |
+**Stack:** React (Vite) · FastAPI · microservicio en Go para WebSockets · Postgres · Redis · Stripe Connect
+
+| Pros | Contras |
+|---|---|
+| Go es genuinamente bueno para WebSockets concurrentes | Tienes solo **nivel básico** de Go — alto riesgo de perder tiempo debuggeando concurrencia en un MVP con fecha fija |
+| Separación de responsabilidades limpia | Dos backends que deployar, monitorear y mantener con 1 persona |
+| FastAPI es rápido de escribir | No hay admin panel gratis, hay que construirlo (React Admin o similar) |
+| — | Mayor superficie técnica = más puntos de falla en 6 semanas |
+
+**Costo infra mensual:** Fly.io/Railway multi-servicio → **~$40–70/mes**, similar en escala pero con más piezas que administrar
+
+---
+
+## Comparación resumida
+
+| Criterio | A: Supabase | B: Django | C: Go+FastAPI |
 |---|---|---|---|
-| Velocidad desarrollo | ★★★★★ | ★★★★ | ★★★ |
-| Admin panel gratis | ★★★ (parcial) | ★★★★★ | ★★ |
-| Búsqueda robusta | ★★★★ (Postgres FTS) | ★★★★★ | ★★ (necesita Algolia) |
-| Chat realtime | ★★★★ | ★★★★ | ★★★★★ |
-| Mantenible x1 persona | ★★★★★ | ★★★★ | ★★★ |
-| Costo a 5K usuarios | Bajo | Bajo | Medio-Alto |
+| Velocidad de desarrollo en 6 semanas | Muy alta | Alta | Media-baja |
+| Aprovecha tus skills reales | Baja | **Alta** | Media (riesgo en Go) |
+| Admin panel | Hay que construirlo | **Gratis (Django Admin)** | Hay que construirlo |
+| Mantenimiento por 1 persona | Fácil | **Muy fácil** | Difícil (2 servicios) |
+| Riesgo técnico | Bajo | **Bajo** | Alto |
+| Costo infra/mes | $25–45 | $25–100 | $40–70 |
 
 ---
 
-## Recomendación: **Django + React**
+## Recomendación: **Opción B — Django**
 
-**Por qué, dado tus restricciones específicas:**
+Con estas restricciones específicas (6 semanas, 1 dev, mantenimiento solo, presupuesto ajustado), la prioridad no es la arquitectura "más elegante" sino **minimizar riesgo y maximizar lo que ya sabes hacer bien**. Django gana porque:
 
-1. **Tu dev ya sabe Python** — esto no es trivial. Django tiene la curva de aprendizaje más baja para él comparado con dominar Supabase RLS o el modelo de datos de Firestore.
+1. **Django Admin te regala el admin panel.** Es literalmente uno de los 5 requisitos resuelto en un par de días en lugar de 1-2 semanas.
+2. **Python es tu fortaleza real**, no "básico" como Go. En un MVP con deadline duro, no es momento de aprender concurrencia en un lenguaje que apenas conoces.
+3. **Todo el ecosistema de pagos/auth/búsqueda ya existe para Django** (dj-stripe, django-allauth, Postgres FTS nativo), reduciendo código propio a lo estrictamente diferencial de tu negocio (matching freelancer-cliente, reviews, comisiones).
+4. **Un solo repo, un solo framework** = mantenible por una persona sin fatiga cognitiva de saltar entre stacks.
 
-2. **El admin panel gratis es oro puro.** Es uno de tus 5 requisitos y Django lo resuelve en horas, no días. Con las otras opciones tendrías que construirlo o pagar herramientas extra (Retool, Refine).
+### Arquitectura concreta sugerida
 
-3. **Búsqueda:** para un marketplace, filtrar por categoría/precio/ubicación/rating necesita SQL relacional bien indexado. Postgres + `django-elasticsearch-dsl` (opcional después) es más sólido que Firestore + Algolia, y más barato.
+```
+Frontend:  Next.js (React) — consume API de Django vía DRF
+Backend:   Django + DRF
+Auth:      django-allauth + JWT (djangorestframework-simplejwt)
+Pagos:     Stripe Connect (Standard o Express accounts para freelancers)
+Chat:      Django Channels + Redis (WebSocket)
+           → alternativa si el tiempo aprieta: Ably/Pusher (free tier) y te ahorras Channels
+Búsqueda:  Postgres full-text (SearchVector/SearchRank) + trigram para typos
+Admin:     Django Admin (personalizado con list_filter, actions para moderar disputas)
+DB:        Postgres (managed)
+Hosting:   Railway (todo-en-uno: web, worker, Postgres, Redis)
+```
 
-4. **Presupuesto:** te deja ~$4,600 de los $5K para otras cosas (dominio, algún asset, buffer de imprevistos, quizás 1 semana de ayuda freelance si algo se atora).
+**Decisión pragmática de riesgo:** si en la semana 3 ves que Channels+Redis te está comiendo tiempo, cambia el chat a **Pusher/Ably (free tier)** — sacrificas un poco de control por velocidad garantizada. Es la variable con más incertidumbre del proyecto, así que ten ese plan B listo desde el día 1.
 
-5. **Mantenibilidad a largo plazo:** Django es aburrido en el buen sentido — documentación excelente, no rompe cosas cada 2 meses (a diferencia del ecosistema JS), y hay 15 años de Stack Overflow resolviendo cualquier problema que tengas.
+### Plan de 6 semanas (orientativo)
 
-### Plan de 6 semanas sugerido:
-- **Semana 1:** Setup Django+DRF+Postgres, modelos base, auth (`django-allauth`)
-- **Semana 2:** CRUD servicios/perfiles, admin panel config, React scaffold
-- **Semana 3:** Búsqueda + filtros, integración Stripe (`dj-stripe`)
-- **Semana 4:** Chat con Django Channels + Redis
-- **Semana 5:** Frontend polish, conexión completa API-React
-- **Semana 6:** Testing, deploy, buffer para bugs
+| Semana | Foco |
+|---|---|
+| 1 | Modelos de datos, auth, deploy inicial en Railway |
+| 2 | CRUD de servicios/listings + búsqueda (Postgres FTS) |
+| 3 | Stripe Connect (onboarding freelancers + checkout) |
+| 4 | Chat en tiempo real (Channels o Pusher) |
+| 5 | Admin panel (personalizar Django Admin) + frontend pulido |
+| 6 | Testing, hardening, deploy final, monitoreo (Sentry) |
 
-### Presupuesto sugerido de los $5K:
-- Infra (6 meses adelantados): ~$300
-- Dominio + SSL: ~$50
-- Herramientas (Sentry error tracking, algún ícono/asset pack): ~$150
-- **Buffer de contingencia: ~$4,500** (guárdalo — probablemente lo necesites para marketing o un freelancer puntual si algo se atrasa)
+### Costos estimados
 
-¿Quieres que profundice en algún punto, como el modelo de datos inicial o cómo estructurar el chat con Django Channels?
+| Ítem | Costo mensual |
+|---|---|
+| Railway (web + worker + Postgres + Redis) | $20–35 (mes 1) → $60–90 (mes 6, 5k usuarios) |
+| Vercel (frontend Next.js) | $0 (free tier suficiente) |
+| Stripe | Sin fee fijo, ~2.9% + 30¢ por transacción (+ fee de Connect) |
+| Sentry (errores) | $0 (free tier) |
+| Resend/Postmark (emails transaccionales) | $0 (free tier hasta ~3k emails) |
+| Dominio | ~$12/año (~$1/mes) |
+| Pusher/Ably (si reemplazas Channels) | $0 (free tier hasta 100 conexiones concurrentes) |
+| **Total infra** | **~$25–40/mes inicio → ~$65–100/mes mes 6** |
+
+### Desglose del presupuesto de $5,000 (6 semanas)
+
+| Concepto | Monto |
+|---|---|
+| Infra (6 semanas ≈ 1.5 meses) | ~$60–100 |
+| Herramientas dev (Copilot/Cursor, Linear/Notion) | ~$60 |
+| UI kit / componentes (shadcn+Tailwind es gratis; considera un theme pago) | ~$100–200 |
+| Dominio + email transaccional setup | ~$30 |
+| **Subtotal gastado** | **~$300–400** |
+| **Buffer/contingencia** | **~$4,600** |
+
+Ese buffer grande es intencional: te da margen para contratar ayuda puntual (diseño UI, QA de pagos) o cubrir picks de infra si el crecimiento a 5,000 usuarios llega antes de lo esperado, sin comprometer el timeline de 6 semanas.

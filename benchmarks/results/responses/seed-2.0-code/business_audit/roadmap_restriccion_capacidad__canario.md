@@ -1,8 +1,8 @@
 # Seed 2.0 Code — business_audit/roadmap_restriccion_capacidad
 
 - model_id: `bytedance-seed/seed-2.0-code`
-- success: True  | final: 8.52 | quality: 10.0
-- latency_total: 33.782s | tokens_per_second: 60.6
+- success: True  | final: 6.97 | quality: 8.0
+- latency_total: 42.038s | tokens_per_second: 48.7
 - input_tokens: 302 | output_tokens: 2048
 
 ## Entrada exacta (lo que recibió el modelo)
@@ -28,47 +28,53 @@ Ordename el trimestre.
 ## Respuesta completa
 
 
-El usuario es un fundador solo, 6h/día totales, 2h en soporte/operaciones indelegables → 4h/día de construcción, 8 semanas de trimestre (ojo: 8 semanas = 40 días hábiles si es 5d/semana, pero mejor calcular por esfuerzo en semanas DE SU TIEMPO CONSTRUIDO: su "semana de construcción" es 4h/día *5d = 20h/semana. Ahora, hay que cruzar priorización por:
+El usuario es fundador solo, con recursos MUY limitados: 4h/día de construcción, 8 semanas de trimestre (ojo, 8 semanas = ~40 días hábiles, PERO con 4h/día = 160 horas de construcción TOTALES, no más). Primero tengo que alinear cada iniciativa con su CAPACIDAD REAL, no con el esfuerzo "a tiempo completo" (porque el esfuerzo de A es 3 meses A TIEMPO COMPLETO, pero él tiene 4h/día, así que 3 meses TC = ~60 días TC = ~240h, que es MÁS que sus 160h totales del trimestre. Eso es clave: no usar esfuerzo TC, convertirlo a su capacidad.
 
-1. Capacidad real: Tiene 8 semanas DE CONSTRUCCIÓN? No: 8 semanas calendario, cada una le da 4h/día *5 = 20h semanales de construcción. Ahora, los esfuerzos de las iniciativas están en "tiempo completo"? O en su tiempo? Ojo, el usuario dice los esfuerzos como:
-- A: ~3 meses TIEMPO COMPLETO → ¿cuánto es eso en su tiempo? Un mes tiempo completo es ~160h (40h/sem*4), 3 meses = 480h. Su capacidad de construcción por trimestre: 8 sem * 20h = 160h TOTALES. Así que A ES IMPOSIBLE AHORA, no entra ni de lejos.
-- B: ~1 semana → ¿es semana de su tiempo? O tiempo completo? El usuario es fundador solo, así que probablemente cuando dice B es ~1 semana de SU TRABAJO (porque es arreglar flujo de alta, pequeño). Pero hay que confirmar por capacidad.
-- C: ~3 semanas, DEPENDE DE A → como A no se hace, C se va por el momento.
-- D: ~2 semanas, de su tiempo.
+Primero, calcular su capacidad total del trimestre:
+- 8 semanas = asumo 5 días hábiles/semana = 40 días
+- 4h/día de construcción = 40*4 = 160 HORAS TOTALES de trabajo de construcción en el trimestre.
 
-Pero además, priorización por VALOR vs ESFUERZO, y RIESGO, y DEPENDENCIAS, y CAPACIDAD REAL (no ideal).
+Ahora, convertir cada iniciativa de "esfuerzo a tiempo completo" a HORAS DE SU TRABAJO (porque tiempo completo = 8h/día, así que su esfuerzo es el DOBLE del esfuerzo TC? Wait no: si algo tarda 1 semana TC (8h/día, 5 días = 40h TC), para él que trabaja 4h/día, tarda 2 semanas (porque 40h / 4h/día = 10 días = 2 semanas). OJO, el usuario probablemente dio los esfuerzos en "tiempo completo", pero él tiene mitad de horas diarias, así que hay que ajustar.
 
-Primero, calcular CAPACIDAD TOTAL DE CONSTRUCCIÓN DEL TRIMESTRE:
-- 8 semanas calendario = 40 días hábiles (asumiendo 5d/semana, si es 6d ajustar, pero estándar 5)
-- 4h/día de construcción → 40*4=160 HORAS TOTALES DE CONSTRUCCIÓN EN EL TRIMESTRE.
+Wait, el usuario dijo:
+- A: ~3 meses a tiempo completo. Tiempo completo = 4 semanas/mes = 12 semanas = 60 días = 480h TC. Para él, 480h / 4h/día = 120 días = 24 semanas, que es MÁS que las 8 semanas del trimestre. IMPOSIBLE hacer A en el trimestre.
 
-Ahora, traducir CADA INICIATIVA A HORAS (asumiendo que los esfuerzos que dice el usuario son en TIEMPO COMPLETO, salvo que diga lo contrario; o si son en su tiempo, pero mejor clarificar):
-- A: 3 meses TIEMPO COMPLETO → 3*4 semanas =12 semanas *40h/sem=480 HORAS. ES MÁS DEL TRIPLE DE SU CAPACIDAD TOTAL DEL TRIMESTRE. NO SE PUEDE HACER AHORA, ni siquiera empezar de forma significativa.
-- B: ~1 semana. Si es TIEMPO COMPLETO, 40h. Si es SU TIEMPO (4h/día*5=20h), 20h. En cualquier caso, PEQUEÑO ESFUERZO.
-- C: ~3 semanas TIEMPO COMPLETO =120h, PERO DEPENDE DE A. Como A no se hace, C no se puede hacer AHORA (salvo que se pueda desacoplar? Pero el usuario dice que depende de A, así que asumimos que sí).
-- D: ~2 semanas. Si tiempo completo:80h. Si su tiempo:40h.
+- B: ~1 semana TC = 5 días *8h =40h TC. Para él: 40h /4h/día=10 días=2 semanas (pero wait, el usuario dijo "esfuerzo ~1 semana"—tal vez él lo medía en su propio tiempo? Wait no, mejor aclarar, pero primero confirmar: el usuario es solo, así que cuando dice "esfuerzo X", ¿es su esfuerzo o TC? El caso A dice "3 meses a tiempo completo", así que los demás son probablemente TC? Wait A especifica TC, los demás no. Oh, el usuario: A dice "~3 meses a tiempo completo", B: "~1 semana", C: "~3 semanas", D: "~2 semanas". Probablemente, A es TC, los demás son esfuerzo EN SU TIEMPO? No, mejor suponer que A es TC, y los demás son esfuerzo medido en "tiempo de trabajo de construcción" de él? Wait no, vamos a leer de nuevo el contexto del usuario:
 
-AHORA, PRIORIZACIÓN POR MARCO RICE o VALOR/ESFUERZO, PERO AJUSTADO A FUNDADOR SOLO (lo más importante es: CERRAR CICLOS RÁPIDOS, GENERAR INGRESOS/RETENCIÓN PRONTO, NO EMPEZAR PROYECTOS LARGOS QUE NO ENTREGUEN VALOR EN EL TRIMESTRE).
+Usuario:
+- Tiene 6h/día enfocado, 2h en soporte/operación NO delegables → 4h/día CONSTRUCCIÓN.
+- 8 semanas hasta cierre trimestre.
+- Iniciativas:
+  A) Reescribir framework: IMPACTO ALTO, ESFUERZO ~3 MESES A TIEMPO COMPLETO (especifica TC)
+  B) Arreglar flujo alta: PIERDE 60% EN PASO 2 → IMPACTO ALTO, ESFUERZO ~1 SEMANA (no especifica TC, así que es SU esfuerzo? O TC? Wait, A es TC, los demás son probablemente esfuerzo en su propio tiempo, pero vamos a calcular capacidad REAL:
 
-Puntos clave del usuario:
-- No puede delegar soporte/operaciones (2h/día) → capacidad de construcción FIJA: 4h/día = 20h/sem = 160h/trimestre.
-- Objetivo del trimestre: ¿qué es lo que le va a dar más valor RÁPIDO, SIN DEPENDER DE PROYECTOS LARGOS?
-- B es arreglar flujo de alta que pierde 60% en paso 2: eso es DIRECTAMENTE AUMENTAR ADQUISICIÓN/CONVERSIÓN A USUARIOS PAGOS (o al menos a usuarios activos), lo que genera ingresos más rápido, lo que le permite tal vez delegar soporte después. Es un "quick win" de ALTO IMPACTO, BAJO ESFUERZO.
-- D es contenido: impacto medio, esfuerzo medio. Pero el contenido genera tráfico a largo plazo, pero no es tan inmediato como B. Pero ¿tiene capacidad después de B?
-- A: NO SE PUEDE HACER AHORA. Es un proyecto de "deuda técnica" o "mejora de plataforma" que requiere 3x su capacidad total del trimestre. Además, los proyectos de reescritura SON RIESGOSÍSIMOS para fundadores solo: te quedas sin entregar valor al cliente durante meses, pierdes tracción, te olvidan los usuarios. NUNCA reescribas como fundador solo a menos que la plataforma esté MUERTA, y aquí dice que hay soporte diario, así que está funcionando.
-- C: DEPENDE DE A, así que si A no se hace, C no se hace AHORA. Pero ¿podría desacoplar C? El usuario dice que depende de A, así que asumimos que no (por ejemplo, el panel de métricas necesita el nuevo framework para acceder a datos de forma escalable, etc.)
+Capacidad de CONSTRUCCIÓN en el trimestre:
+8 semanas = 5 días/semana = 40 días. 4h/día = 160 HORAS TOTALES de construcción. No más. No hay margen para imprevistos (soporte puede crecer, así que debemos dejar un colchón del 15-20% = ~32h, así que capacidad UTIL = ~128h).
 
-AHORA, CALCULAR EL ORDEN Y LA EJECUCIÓN EN EL TRIMESTRE (8 semanas = 40 días hábiles = 160h de construcción):
+Ahora, convertir ESFUERZOS a HORAS, usando la referencia de A:
+A) 3 meses TC = 12 semanas TC = 60 días TC *8h/día = 480h TC. Para él, 480h TC = 960h de su trabajo? No, wait: Tiempo Completo es 8h/día. Él trabaja 4h/día de construcción, así que su "velocidad" es la MITAD de un trabajador TC. Así que:
+- Esfuerzo TC → esfuerzo SUYO = esfuerzo TC * 2 (porque le toma el doble de días, o el doble de horas, para hacer lo que un TC hace en X)
+Pero A es 3 meses TC → suyo = 6 meses. MÁS QUE 8 SEMANAS. IMPOSIBLE HACER A EN EL TRIMESTRE. Incluso empezar A no tiene sentido, porque no lo termina, y el impacto de A es FUTURO, no inmediato. Además, C depende de A → si no hacemos A, no hacemos C (porque C depende de A terminado, y A no se termina en el trimestre).
 
-Paso 1: PRIMERO HACER B (ARREGLAR FLUJO DE ALTA)
-- Esfuerzo: el usuario dice ~1 semana. Si es su tiempo (20h = 5 días *4h/día), lo hace en la PRIMERA SEMANA DEL TRIMESTRE.
-- Por qué? Porque cada día que pasa sin arreglarlo, pierde 60% de los usuarios que llegan al paso 2. Si arreglaslo, por ejemplo, reduces la pérdida a 20%, eso es un aumento del 100% en usuarios que completan el alta (de 40% a 80%). Eso genera más usuarios, más soporte? Wait, no: el usuario ya tiene 2h/día de soporte indelegable, pero más usuarios pueden generar más soporte, pero SI ES USUARIOS PAGOS, eso le permite en el futuro delegar. Pero además, el flujo de alta es un cuello de botella DIRECTO en el embudo de adquisición: es el primer paso para que alguien use tu producto, así que sin eso, todo lo demás (contenido, panel de métricas) es inútil, porque la gente no entra.
+Ahora, las otras iniciativas: B, D (C se descarta por depender de A, que no se hace).
 
-Paso 2: LUEGO HACER D (GRABAR 10 VIDEOS DE CONTENIDO)
-- Esfuerzo: ~2 semanas. Si es su tiempo (40h = 10 días *4h/día), lo hace en las SEMANAS 2 Y 3 DEL TRIMESTRE.
-- Por qué? Porque después de arreglar el flujo de alta, necesitas TRAER MÁS GENTE A ESE FLUJO (ya que ahora convertirá más). El contenido es una forma de generar tráfico orgánico, que es sostenible. Además, el esfuerzo es medio, impacto medio, y no depende de nada más.
-- Pero ojo: ¿los videos son de contenido de valor para atraer leads, o tutoriales de producto? El usuario dice "contenido", así que asumimos que es para atraer tráfico. Pero si fueran tutoriales de producto, también ayudarían a reducir el soporte (lo que le daría más horas de construcción), pero el usuario dice impacto medio, así que es para atraer.
+Primero, VALORACIÓN de cada iniciativa por:
+1. IMPACTO INMEDIATO (porque es fundador solo, necesita cash/crecimiento RÁPIDO, no futuro):
+   - B: Arreglar flujo de alta que pierde 60% en paso 2. Eso es CONVERSIÓN DIRECTA. Si hoy entra 100 personas, pasan 40. Si arreglas el paso 2, digamos que pasan 80 (doble), o al menos 60. Eso es CRECIMIENTO INMEDIATO, ingresos inmediatos si el alta es de pago o de usuario activo que monetiza. IMPACTO ALTO, INMEDIATO.
+   - D: Grabar 10 videos. Impacto MEDIO, ya que el contenido de video tiene retardo en resultados (SEO, tráfico orgánico, confianza, pero no inmediato).
+   - A: Impacto ALTO PERO FUTURO, no inmediato, y no se termina en el trimestre.
+   - C: Depende de A, no se hace.
 
-Paso 3: ¿QUÉ HACER CON EL RESTO DEL TIEMPO?
-El trimestre tiene 8 semanas. Hemos usado 1 (B) + 2 (D) = 3 semanas. Quedan 5 SEMANAS (100h de construcción). ¿Qué podemos hacer?
-- Primero: NO EMPEZAR A (reescribir framework). Porque requiere 3 meses TIEMPO COMPLETO = 12 semanas, y le quedan 5. Además, los proyectos de reescritura
+2. ESFUERZO AJUSTADO A SU CAPACIDAD:
+   El usuario dijo B: ~1 semana. Si es su propio tiempo (4h/día), 1 semana = 5 días *4h =20h. D: ~2 semanas = 40h. Total de B + D =60h, lo que entra en su capacidad UTIL de 128h, y deja mucho colchón para imprevistos (soporte puede crecer, errores en B, etc.).
+
+Pero wait, ¿el usuario dijo que C depende de A? Sí, explícitamente: "Depende de que A esté terminado". Así que si A no se hace (no se puede), C se descarta completamente.
+
+Ahora, ORDEN: ¿por qué B PRIMERO, luego D, y A Y C FUERA DEL TRIMESTRE?
+
+Razones clave que el usuario (fundador solo) necesita entender:
+- CAPACIDAD REAL: A es 3 meses TC = 6 meses de su trabajo (porque 4h/día vs 8h/día TC). No lo puede empezar y terminar en 8 semanas, y empezarlo no tiene sentido porque no va a ver retorno en el trimestre, y le quita recursos a iniciativas de retorno inmediato.
+- RETORNO INMEDIATO: B es el único que impacta directamente la conversión de alta, que es el embudo PRINCIPAL. Perder 60% en paso 2 es una filtración masiva: si gastas tiempo o dinero en traer tráfico, se va por ahí. Arreglarlo es "dinero en la mesa" que no estás cogiendo.
+- COLCHÓN DE IMPREVISTOS: El usuario ya gasta 2h/día en soporte NO delegable. Ese tiempo puede crecer (si hay más usuarios por el arreglo de B, por ejemplo). Así que no podemos llenar toda su capacidad, debemos dejar margen.
+- C DEPENDE DE A: No se hace, punto.
+- D: Impacto medio, pero a largo plazo, y su esfuerzo es bajo. Después de arreglar B

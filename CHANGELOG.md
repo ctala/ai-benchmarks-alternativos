@@ -3,6 +3,106 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [v4.6.0] - 2026-08-17 — El día que el benchmark se equivocó, y qué se cambió para que se note
+
+Esta versión no agrega un eje: **arregla tres formas distintas de publicar un número que
+no se sostiene**, y las tres las destapó Cristian preguntando, no un guardrail. Eso es lo
+que se corrigió además del número.
+
+### Opus 5 estaba #79 de 83 por un `max_tokens` nuestro
+
+*"Me llama mucho la atención lo de Opus 5."* Razona por default vía API y no estaba
+declarado en `THINKING_MODELS`, así que corría con el techo de 2.048 y **el 31% de su
+examen terminaba en `finish_reason="length"`** — cortado a mitad de frase, puntuado igual.
+Su p90 de salida era exactamente 2.048; por la ruta de suscripción, que no pasa por el
+adapter, es 10.231.
+
+| modelo | examen cortado | brecha de calidad |
+|---|---|---|
+| Claude Opus 5 Fast | 33% de 167 runs | — |
+| Claude Opus 5 | 31% de 173 | 7,68 → 8,49 por la otra ruta |
+| Gemini 3.6 Flash | 30% de 174 | — |
+| Claude Sonnet 5 | 15% de 222 | 8,04 → 8,86 |
+
+Sobre una población que entera abarca 1,4 puntos. Los cuatro entran a `THINKING_MODELS` y
+se re-midieron.
+
+**Por qué ningún detector lo vio** — la pregunta que hizo Cristian: *"eso lo debió detectar
+el QA, ¿no?"*. Porque los seis detectores cazan **ausencia** (vacíos, sin procedencia, rutas
+muertas, precio $0) y un run truncado no carece de nada: tiene contenido, forma válida,
+`success=True` y pasa `validate.py`. Lo que hay es un techo de más. Nuevo
+`check_truncamiento.py`, umbral 12% — donde se parte la población, no un número redondo.
+
+### El ranking ya no se decide por cantidad de runs, sino por el examen entero
+
+*"No seguiría poniendo el filtro de 50 runs. Todos deben de tener todos y punto, si no no
+son comparables."* El umbral era un proxy y fallaba en las dos direcciones: dos modelos con
+50 runs pueden haber rendido tests **distintos**. Hoy manda rendir las 29 suites que puntúan
+con todos sus tests — 143 en total, así que quien lo complete tiene ≥143 runs y el viejo
+umbral queda subsumido.
+
+Y el examen incompleto ahora saca también del **catálogo**, no solo del ranking: *"solo los
+medidos completos aparecen en el benchmark / calculadora"*. «En evaluación» sonaba prudente
+y publicaba lo mismo con una etiqueta.
+
+Simulado antes de aplicarlo, como manda PLAN-ESTABILIDAD R1: **83 → 79 rankeados**. La
+simulación cazó dos bugs propios antes de publicar — leer «no tiene suites incompletas»
+metía 29 modelos con **cero runs** al ranking, y comparar por cantidad sacaba a GPT-5.6 Luna
+y MiniMax M3, que habían rendido las **dos** versiones de una suite editada.
+
+Las variantes `-sub` (Claude por suscripción) salen del catálogo público: mismo modelo con
+dos filas y números distintos, y el que le aplica al lector es siempre el de la API.
+
+### Cuánto `max_tokens` necesita cada modelo, por tarea
+
+El repo tenía `output_tokens` en cada run desde siempre y no lo publicaba. Ahora está en
+cada ficha, **por tarea**, porque quedarse corto **no falla ruidoso: entrega de menos** y
+quien consume lo lee como «nada que reportar».
+
+El caso que lo motivó es el gate de noticias de Eco, que este benchmark recomendó cambiar y
+falló en producción en dos horas. Nueva suite **`verificar_claims_lote`** (1, 3, 5, 8, 12 y
+15 claims sobre el mismo material, con el prompt real de 4.218 caracteres) y scorer
+`list_completeness`: la nota es *ítems correctos / ítems **enviados***, así que devolver 2
+de 11 perfectos da 1,8 y no 10. Medido:
+
+| | calidad 1→15 claims | tokens con 12 claims | costo /1.000 llamadas |
+|---|---|---|---|
+| Gemini 2.5 Flash | 10 · 10 · 10 · 8,8 · 9,2 · 9,3 | 869 | $2,637 |
+| DeepSeek V4 Flash | 10 · 10 · 10 · 8,8 · 9,2 · 9,3 | **2.492** | **$0,492** |
+
+Curvas idénticas: **el modelo no era el problema**. El nodo tenía `max_tokens: 2000` y la
+tarea pide 3.115 con ese modelo. Y el ahorro sobrevive al mayor consumo — 5,37× más barato
+aun gastando 2-3× más tokens.
+
+### QA: nueve guardrails no los corría nadie
+
+Cristian: *"revisa bien que no nos falte revisar algo más para los QA, siempre aparece algo
+nuevo"*. Cruzados los 24 chequeos contra quién los ejecuta, aparecieron nueve huérfanos.
+Cuatro son análisis exploratorios y está bien que se corran a mano; los otros cinco ya
+corren en el pipeline y en CI — entre ellos **`test_unitarios`, las 123 pruebas del núcleo,
+que existían y el CI no ejecutaba**, y `check_blog_consistency`, nacido de ocho posts con
+claims muertos en producción y sin correr desde julio.
+
+Nuevo **`check_secretos.py`**, después de que la Secret Key real de R2 resultara ser el
+**fixture** de `string_precision` y se replicara sola a PROMPTS.md, TESTS.md y ~600 archivos
+de `results/` — porque cada run guarda su prompt, y el repo es público. Dice también qué no
+cubre: 6 de las 8 API keys del `.env` están vacías (viven en Infisical), así que la capa sin
+falsos positivos **tampoco habría cazado el caso que la motivó**. Contra eso el único control
+real es que los fixtures se **generen**, nunca se copien de un `.env`.
+
+Los dos guardrails nuevos van con su prueba en `test_guardrails` (18/18) y hay un W12 nuevo
+en el QA de la calculadora para las tareas que se juzgan por suites y no por pilar.
+
+### Estado de los datos
+
+**El código y los criterios de esta versión están completos; los números todavía no.** Hay
+un lote midiendo la re-medición de los cuatro truncados, doce modelos nuevos del catálogo
+(Gemini 3.7 Flash, Grok 4.6, DeepSeek V4 Pro 0813, Qwen 3.8 Max y 2.4T, KAT Coder Air/Pro,
+LongCat 2.0, Gemini 3.5 Flash Lite, Sakana Namazu, Seed 2.1 Turbo y 2.0 Code) y el backfill
+de seguridad e idioma. Los artefactos publicados se regeneran al cerrar ese lote: `validate.py`
+bloquea hasta entonces, y con razón — hay `dominio_entidad` parcial en tres modelos y 12 runs
+sin sello de fórmula que hay que resolver antes de publicar.
+
 ## [v4.5.0] - 2026-08-17 — Verificar un dato entra al índice, y las páginas dejan de adivinarse
 
 ### El eje nuevo: verificar un claim contra su fuente
