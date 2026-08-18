@@ -36,6 +36,7 @@
 | 14-ago-2026 | **Vigente** | Corridas con `task_checksum` distinto **no se promedian** | Es `prompt_sha` para tareas Harbor: si cambió un test, no es el mismo examen. Medido: 2 de 231 corridas venían de una versión vieja y habrían entrado calladas | `export_harbor.py:_checksum_vigente` |
 | 17-jul-2026 | Vigente | Referencia z-score **congelada por versión** para el compuesto | Antes, medir un modelo nuevo movía el score de todos | [README](README.md) |
 | — | Vigente | **Nunca $0** como precio de un modelo del ranking | Un "gratis" gana el eje costo artificialmente y engaña la decisión que la calculadora existe para ayudar | [CLAUDE.md](CLAUDE.md) |
+| 17-ago-2026 | **Vigente** | La entrada de CHANGELOG se escribe **con el commit**, en `## [No publicado]`, y el nivel de versión lo decide **qué archivo se tocó** | Once commits en una sesión con el CHANGELOG escrito al final y de memoria; el `git reset --hard` del mismo día probó que perder el relato no es hipotético | [VERSIONADO.md](VERSIONADO.md) · `check_changelog.py` |
 
 ## Qué se mide y con qué
 

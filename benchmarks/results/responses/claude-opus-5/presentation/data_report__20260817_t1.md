@@ -1,10 +1,10 @@
 # Claude Opus 5 — presentation/data_report
 
 - model_id: `anthropic/claude-opus-5`
-- success: True  | final: 7.74 | quality: 9.76
-- latency_total: 63.386s | tokens_per_second: 86.2
-- input_tokens: 234 | output_tokens: 5464
-- judge_score: 5 | justificación: La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un análisis detallado y estructurado que un emprendedor podría aplicar directamente.
+- success: True  | final: 7.75 | quality: 9.76
+- latency_total: 62.272s | tokens_per_second: 85.7
+- input_tokens: 234 | output_tokens: 5338
+- judge_score: 5.0 | justificación: 
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -26,148 +26,133 @@ Incluye:
 
 ## Respuesta completa
 
-# Reporte de Ventas — Enero a Abril
+# 📊 Reporte de Ventas — Enero a Abril
 
-**Moneda:** miles de USD (K) · **Período:** 4 meses · **Productos analizados:** 3
+**Periodo analizado:** Ene – Abr (4 meses)
+**Unidad:** miles de USD (K)
 
 ---
 
 ## 1. Datos mensuales
 
-| Producto | Ene | Feb | Mar | Abr | **Total** | **Promedio** | **% del total** |
+| Producto | Ene | Feb | Mar | Abr | **Total** | Promedio | % del Total |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Producto A | $45K | $52K | $48K | $61K | **$206K** | $51.5K | 54.1% |
-| Producto B | $23K | $25K | $31K | $29K | **$108K** | $27.0K | 28.3% |
-| Producto C | $12K | $15K | $18K | $22K | **$67K** | $16.8K | 17.6% |
-| **Total mes** | **$80K** | **$92K** | **$97K** | **$112K** | **$381K** | **$95.3K** | 100% |
+| Producto A | 45 | 52 | 48 | 61 | **206** | 51.5 | 54.1% |
+| Producto B | 23 | 25 | 31 | 29 | **108** | 27.0 | 28.3% |
+| Producto C | 12 | 15 | 18 | 22 | **67** | 16.8 | 17.6% |
+| **Total mes** | **80** | **92** | **97** | **112** | **381** | 95.3 | 100% |
 
-### Participación por producto (evolución)
+### Participación por mes
 
-| Producto | Ene | Feb | Mar | Abr | Δ share |
+| Producto | Ene | Feb | Mar | Abr | Δ Share (Ene→Abr) |
 |---|---:|---:|---:|---:|---:|
-| Producto A | 56.3% | 56.5% | 49.5% | 54.5% | −1.8 pts |
-| Producto B | 28.8% | 27.2% | 32.0% | 25.9% | −2.9 pts |
-| Producto C | 15.0% | 16.3% | 18.6% | 19.6% | **+4.6 pts** |
+| Producto A | 56.3% | 56.5% | 49.5% | 54.5% | −1.8 pp |
+| Producto B | 28.8% | 27.2% | 32.0% | 25.9% | −2.9 pp |
+| Producto C | 15.0% | 16.3% | 18.6% | 19.6% | **+4.6 pp** |
 
 ---
 
 ## 2. Crecimiento mes a mes (%)
 
-| Producto | Feb vs Ene | Mar vs Feb | Abr vs Mar | **Ene → Abr** |
-|---|---:|---:|---:|---:|
-| Producto A | +15.6% | −7.7% | +27.1% | **+35.6%** |
-| Producto B | +8.7% | +24.0% | −6.5% | **+26.1%** |
-| Producto C | +25.0% | +20.0% | +22.2% | **+83.3%** |
-| **Total** | **+15.0%** | **+5.4%** | **+15.5%** | **+40.0%** |
+| Producto | Feb vs Ene | Mar vs Feb | Abr vs Mar | **Ene→Abr total** | Tasa mensual compuesta |
+|---|---:|---:|---:|---:|---:|
+| Producto A | +15.6% | −7.7% | +27.1% | **+35.6%** | +10.7% |
+| Producto B | +8.7% | +24.0% | −6.5% | **+26.1%** | +8.0% |
+| Producto C | +25.0% | +20.0% | +22.2% | **+83.3%** | +22.4% |
+| **Total** | **+15.0%** | **+5.4%** | **+15.5%** | **+40.0%** | **+11.9%** |
 
-### Métricas de estabilidad
+**Leyenda de consistencia:**
 
-| Producto | Desv. estándar | Coef. variación | Meses en alza | R² tendencia lineal |
-|---|---:|---:|---:|---:|
-| Producto A | $6.9K | 13.5% | 2 de 3 | 0.67 (moderado) |
-| Producto B | $3.7K | 13.5% | 2 de 3 | 0.72 (moderado) |
-| Producto C | $4.3K | 25.5% | **3 de 3** | **0.99 (excelente)** |
-
-> Nota: el CV alto de Producto C se explica por crecimiento sostenido, no por inestabilidad — su R² de 0.99 confirma una trayectoria casi perfectamente lineal.
+| Producto | Meses en crecimiento | Volatilidad | Patrón |
+|---|:---:|---|---|
+| Producto A | 2 de 3 | Alta (±27 pp de rango) | Dientes de sierra ↗↘↗ |
+| Producto B | 2 de 3 | Media-alta | Pico en Mar, retroceso ↗↗↘ |
+| Producto C | 3 de 3 | Muy baja (20–25%) | Lineal ascendente ↗↗↗ |
 
 ---
 
 ## 3. Análisis de tendencias
 
-**Panorama general.** El negocio crece de forma consistente: **+40% de Enero a Abril**, sin un solo mes de contracción a nivel agregado. La tasa mensual promedio ronda el **+12%**, con una desaceleración puntual en marzo (+5.4%) que se recuperó de inmediato en abril (+15.5%).
+### 3.1 Panorama general
+- El negocio creció **+40% en 4 meses** (80K → 112K), con una tasa mensual compuesta de **+11.9%**.
+- **Ningún mes fue negativo a nivel agregado**, aunque marzo mostró desaceleración (+5.4%) porque la caída de A neutralizó el buen desempeño de B y C.
+- Abril es el mejor mes del periodo en los tres productos combinados y marca récord absoluto para A y C.
 
-**Producto A — Motor del negocio, con volatilidad.**
-Concentra más de la mitad de la facturación y es quien define el resultado consolidado. Su patrón es de dientes de sierra: subió en febrero, cayó 7.7% en marzo y rebotó con fuerza en abril (+27.1%, el mayor salto absoluto del período: +$13K). Abril fue su mejor mes histórico. La caída de marzo fue la causa principal de la desaceleración agregada de ese mes.
+### 3.2 Producto A — Motor del negocio, pero errático
+- Aporta **54% de los ingresos**; cualquier variación suya define el resultado global.
+- Comportamiento en zigzag: la caída de marzo (−7.7%) es la única contracción relevante del periodo, seguida del mayor salto individual (+27.1% en abril).
+- Tendencia lineal ajustada: **+4.4K por mes** (R² = 0.67 → tendencia real pero con ruido considerable).
+- **Hipótesis a validar:** estacionalidad, cierres de trimestre, ventas por lotes grandes o dependencia de pocos clientes.
 
-**Producto B — Estancamiento tras un pico aislado.**
-Creció de forma modesta en febrero (+8.7%), tuvo un mes excepcional en marzo (+31K, +24%) y retrocedió en abril (−6.5%). Es el único producto que cerró el período con caída en el último mes. Su crecimiento acumulado (+26.1%) es el más bajo de los tres y está por debajo del promedio del negocio (+40%), lo que se traduce en pérdida de participación de mercado interna.
+### 3.3 Producto B — Crecimiento que se apaga
+- Aceleró fuerte hasta marzo (+24%) y luego **retrocedió −6.5%**, el único producto que cierra el periodo por debajo de su máximo.
+- Es el único que **pierde participación de mercado interno** de forma sostenida desde marzo (32.0% → 25.9%).
+- Tendencia lineal: +2.4K/mes (R² = 0.72), pero el signo del último mes rompe el patrón.
 
-**Producto C — Crecimiento estructural.**
-El único con crecimiento en los tres intervalos, y en un rango notablemente estrecho (+20% a +25% mensual). Incrementos absolutos crecientes: +$3K, +$3K, +$4K. Casi duplicó su facturación en 4 meses y ganó 4.6 puntos de participación. Es el producto con el comportamiento más predecible del portafolio.
-
-**Correlación observada.** Los picos de A y B parecen alternarse (A cae en marzo cuando B sube; A sube en abril cuando B cae). Vale investigar si existe **canibalización** entre ambos o si comparten un mismo equipo comercial / presupuesto que se reasigna mes a mes.
+### 3.4 Producto C — Crecimiento limpio y predecible
+- Único producto con **crecimiento en los 3 intervalos**, y en un rango muy estrecho (+20% a +25%).
+- Tendencia lineal casi perfecta: **+3.3K por mes, R² = 0.99**.
+- Ya casi duplicó su facturación inicial (12K → 22K) y ganó **+4.6 puntos de participación**.
+- A este ritmo, superaría a Producto B alrededor de **julio–agosto**.
 
 ---
 
 ## 4. Producto estrella y producto preocupante
 
-### 🌟 Producto estrella: **Producto C**
+### ⭐ Producto estrella: **Producto C**
 
 | Criterio | Evidencia |
 |---|---|
-| Crecimiento acumulado | **+83.3%**, más del doble que el promedio del negocio |
-| Consistencia | Único con 3/3 meses en alza |
-| Predictibilidad | R² = 0.99 |
-| Ganancia de share | +4.6 pts (de 15.0% a 19.6%) |
+| Crecimiento total | **+83.3%** (2.3× el de A, 3.2× el de B) |
+| Consistencia | 3/3 meses positivos, mínima volatilidad |
+| Predictibilidad | R² = 0.99 en tendencia lineal |
+| Ganancia de share | +4.6 pp |
 
-**Mención especial a Producto A** por desempeño absoluto: aporta $206K (54% del total) y logró el mayor incremento en dólares del período (+$16K). Es la estrella en volumen; C es la estrella en trayectoria.
-
-**Acción recomendada:** priorizar inversión en C (inventario, marketing, capacidad). A este ritmo superaría a B en 2–3 meses y se convertiría en el segundo producto del portafolio.
+> **Nota:** en términos de **volumen absoluto**, el líder indiscutible sigue siendo el **Producto A** (206K, 54% del total). C es la estrella *de crecimiento*; A es la estrella *de facturación*. Si el criterio del negocio es contribución neta, A sigue siendo el activo más valioso.
 
 ### ⚠️ Producto preocupante: **Producto B**
 
 | Señal de alerta | Detalle |
 |---|---|
-| Reversión en el último mes | −6.5% (de $31K a $29K) |
-| Crecimiento por debajo del negocio | +26.1% vs +40.0% del total |
-| Pérdida de share | −2.9 pts, la mayor caída del portafolio |
-| Marzo como outlier | El pico de $31K no se sostuvo → posible efecto puntual (promoción, pedido único, estacionalidad) |
+| Único con caída en el último mes | −6.5% (31K → 29K) |
+| Pérdida de participación | 32.0% → 25.9% en un mes |
+| Momentum roto | Pasó de +24% a terreno negativo |
+| Riesgo estratégico | Amenaza de ser superado por C en ~3-4 meses |
 
-**Acción recomendada:** auditar el origen del pico de marzo. Si fue una promoción, medir su rentabilidad real y su efecto de adelanto de demanda. Si fue un cliente grande, evaluar riesgo de concentración. Revisar también posible canibalización desde A o C.
-
-**Riesgo de concentración adicional:** Producto A representa el 54% de la facturación. Una caída del 20% en A (magnitud plausible dada su volatilidad) restaría ~$12K al total mensual, más de lo que aporta C completo.
+**Vigilancia secundaria:** la **volatilidad de A**. No es un problema de tendencia (crece), sino de previsibilidad: un mes malo de A (−8%) borra el crecimiento combinado de B y C.
 
 ---
 
-## 5. Proyección para Mayo
+## 5. Proyección para mayo
 
-**Metodología:** regresión lineal por mínimos cuadrados sobre las 4 observaciones de cada producto, extrapolando a t=5.
+Método: **regresión lineal de mínimos cuadrados** sobre los 4 meses, con escenarios de sensibilidad.
 
-| Producto | Abr real | Tendencia mensual | **Proyección Mayo** | Δ vs Abril | Rango estimado |
+| Producto | Tendencia (K/mes) | R² | Conservador | **Base (proyección)** | Optimista |
 |---|---:|---:|---:|---:|---:|
-| Producto A | $61K | +$4.4K/mes | **$62.5K** | +2.5% | $57K – $68K |
-| Producto B | $29K | +$2.4K/mes | **$33.0K** | +13.8% | $29K – $35K |
-| Producto C | $22K | +$3.3K/mes | **$25.0K** | +13.6% | $24K – $26K |
-| **Total** | **$112K** | **+$10.1K/mes** | **$120.5K** | **+7.6%** | **$110K – $129K** |
+| Producto A | +4.4 | 0.67 | 56 | **$62.5K** | 68 |
+| Producto B | +2.4 | 0.72 | 28 | **$33.0K** | 35 |
+| Producto C | +3.3 | 0.99 | 24 | **$25.0K** | 26 |
+| **Total** | **+10.1** | **0.97** | **$108K** | **$120.5K** | **$129K** |
 
-### Escenarios del total
+### Lectura de la proyección
+- **Total mayo ≈ $120.5K** (+7.6% vs abril). El crecimiento porcentual se moderaría porque abril ya fue un mes excepcionalmente alto.
+- **Producto C es la proyección más confiable** ($25K, margen ±1K): el modelo explica el 99% de su variación.
+- **Producto A es la proyección más incierta.** Su patrón de zigzag sugiere que, tras el salto de +27% en abril, un mes de corrección es plausible; el rango realista es amplio (**$56K–$68K**). El escenario conservador de 56K sigue estando por encima de la línea de tendencia histórica.
+- **Producto B tiene el mayor riesgo a la baja.** La regresión proyecta $33K, pero ignora la señal de reversión de abril. Si el retroceso continúa, mayo podría cerrar en **$27–29K**, lo que llevaría el total a ~$115K.
 
-| Escenario | Supuesto | Total Mayo |
-|---|---:|---:|
-| Conservador | A corrige tras el pico de abril; B no recupera | ~$110K |
-| **Base** | Tendencias lineales se mantienen | **~$120K** |
-| Optimista | A sostiene el nivel de abril; B rebota | ~$129K |
-
-### Nivel de confianza por producto
-
-- **Producto C — Alta.** Tendencia lineal con R² = 0.99. La proyección de $25K tiene bajo margen de error.
-- **Producto B — Media.** El modelo proyecta +13.8% pero abril mostró caída. La proyección de $33K asume que el nivel de marzo era el real y abril el desvío; si se invierte la lectura, el resultado estaría más cerca de $29–30K.
-- **Producto A — Baja-media.** R² = 0.67 y alta volatilidad. La proyección de $62.5K queda por debajo de su tendencia teórica de crecimiento porque abril ($61K) ya superó la línea de ajuste. Es el producto con mayor incertidumbre en términos absolutos.
-
-### ⚠️ Limitaciones metodológicas
-
-1. **Sólo 4 puntos de datos.** Insuficiente para detectar estacionalidad o separar señal de ruido con rigor.
-2. **Sin contexto de negocio.** No se incorporan promociones, lanzamientos, cambios de precio, acciones de la competencia ni factores estacionales.
-3. **Extrapolación lineal.** Producto C no puede crecer +22% mensual indefinidamente; en algún punto encontrará un techo de mercado o capacidad.
-4. **Producto B con patrón ambiguo.** Con 4 datos no se puede distinguir estadísticamente si marzo fue un pico o abril una corrección.
-
-**Recomendación:** validar esta proyección con el pipeline comercial y el calendario de promociones antes de usarla para decisiones de inventario o metas.
+### Caveats metodológicos
+1. **Solo 4 observaciones** por producto: cualquier proyección tiene intervalos de confianza amplios. Tratar como orden de magnitud, no como pronóstico fino.
+2. **No se puede detectar estacionalidad** con menos de un ciclo anual de datos.
+3. No hay información de **precio vs. volumen**, márgenes, ni causas comerciales (campañas, altas/bajas de clientes), que son necesarias para explicar el zigzag de A y el freno de B.
 
 ---
 
-## Resumen ejecutivo
+## 6. Acciones recomendadas
 
-| Indicador | Valor |
-|---|---:|
-| Facturación acumulada (Ene–Abr) | **$381K** |
-| Crecimiento del período | **+40.0%** |
-| Mejor mes | Abril ($112K) |
-| Producto líder en volumen | Producto A ($206K, 54%) |
-| Producto líder en crecimiento | Producto C (+83.3%) |
-| Producto en alerta | Producto B (−6.5% en abril) |
-| Proyección Mayo (base) | **$120.5K** (+7.6%) |
-
-**Tres prioridades:**
-1. **Escalar C** — mejor relación crecimiento/predictibilidad del portafolio.
-2. **Diagnosticar B** — determinar si abril es corrección o inicio de declive.
-3. **Reducir dependencia de A** — 54% de concentración con alta volatilidad es un riesgo estructural.
+| Prioridad | Acción | Producto |
+|---|---|---|
+| 🔴 Alta | Diagnóstico de causa raíz de la caída de abril (¿churn, competencia, stock, precio?) antes del cierre de mayo | B |
+| 🔴 Alta | Investigar el patrón de zigzag: si depende de pocos clientes o cierres de mes, suavizar el pipeline | A |
+| 🟡 Media | Reforzar inversión donde el retorno es más predecible: C es el candidato natural para escalar presupuesto | C |
+| 🟡 Media | Reducir la concentración: 54% de los ingresos en un producto volátil es un riesgo estructural | Portafolio |
+| 🟢 Baja | Instrumentar seguimiento semanal para tener granularidad y poder proyectar con menos incertidumbre | Todos |

@@ -346,6 +346,33 @@ def _t_blog():
         tmp.unlink(missing_ok=True)
 
 
+@prueba("check_changelog", "cambios sin su entrada, y un bump que no alcanza")
+def _t_changelog():
+    # Dos fallos en uno, porque son las dos mitades del estándar (VERSIONADO.md):
+    # que lo hecho esté ESCRITO, y que el número declarado alcance para lo que se tocó.
+    ch = ROOT / "CHANGELOG.md"
+    with Sabotaje(ch):
+        txt = ch.read_text(encoding="utf-8")
+        # Se vacía `## [No publicado]`: si hay cambios desde el último tag —y en un repo
+        # vivo siempre los hay— tiene que protestar.
+        import re as _re
+        roto = _re.sub(r"(^##\s*\[No publicado\]\s*$).*?(?=^##\s*\[)",
+                       r"\1\n\n", txt, count=1, flags=_re.S | _re.M)
+        if roto == txt:
+            return False  # sin la sección no se puede probar; mejor fallar que fingir
+        ch.write_text(roto, encoding="utf-8")
+        # Puede no haber cambios desde el tag (repo recién taggeado): se fabrica uno.
+        tmp = ROOT / "benchmarks" / "_prueba_changelog.py"
+        try:
+            tmp.write_text("# archivo de prueba\n")
+            subprocess.run(["git", "add", "-N", str(tmp)], capture_output=True, cwd=ROOT)
+            return _correr("check_changelog.py") != 0
+        finally:
+            subprocess.run(["git", "rm", "-q", "--cached", "--force", str(tmp)],
+                           capture_output=True, cwd=ROOT)
+            tmp.unlink(missing_ok=True)
+
+
 def main() -> int:
     print("Probando que cada guardrail CACE su propio fallo:\n")
     for nombre, ok, detalle in resultados:

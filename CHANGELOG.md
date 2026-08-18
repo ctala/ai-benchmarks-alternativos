@@ -3,6 +3,22 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [No publicado]
+
+> Cada commit que toca código o datos agrega su línea acá, **en el momento**, no al
+> cerrar la versión. El release convierte esta sección en `[vX.Y.Z] - fecha`.
+> Estándar y por qué: [VERSIONADO.md](VERSIONADO.md). Lo verifica `check_changelog.py`.
+
+- `VERSIONADO.md` + `check_changelog.py`: el estándar de versionado y CHANGELOG, con el
+  instrumento que lo hace cumplir. Nace de una sesión con once commits cuyo CHANGELOG se
+  escribió al final y de memoria — y del `git reset --hard` del mismo día, que probó que
+  perder el relato no es hipotético. El nivel de versión deja de ser criterio y pasa a
+  decidirlo **qué archivo se tocó**: `scoring_reference.json` es MAJOR, las suites y los
+  criterios de ranking son MINOR, datos y arreglos son PATCH.
+- `qa.py` gana tres chequeos que estaban enganchados al pipeline pero **no al comando de
+  QA**, que es donde alguien los busca: credenciales, truncamiento y CHANGELOG. Era el
+  mismo patrón que persigue `check_cobertura` — la regla aplicada donde uno se acordó.
+
 ## [v4.6.0] - 2026-08-17 — El día que el benchmark se equivocó, y qué se cambió para que se note
 
 Esta versión no agrega un eje: **arregla tres formas distintas de publicar un número que

@@ -133,6 +133,11 @@ jobs:
       - name: Verificar que no hay credenciales en archivos versionados
         run: python benchmarks/check_secretos.py
 
+      # Lo que se cambio tiene que estar ESCRITO antes de publicarlo, y el bump tiene que
+      # alcanzar para lo que se toco. Ver VERSIONADO.md.
+      - name: Verificar el CHANGELOG y el nivel de version
+        run: python benchmarks/check_changelog.py --nivel
+
       - name: Commit si hay cambios
         run: |
           git config user.name "github-actions[bot]"

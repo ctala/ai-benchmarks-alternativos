@@ -231,7 +231,10 @@ auditar ni revertir.**
    su docstring decía "seis" y el código leía cuatro. El problema no era el olvido —
    **era que la lista no existía en ningún lugar verificable.**
 
-5. **Todo cambio va al `CHANGELOG.md`, con su versión, antes de mergear a `main`.**
+5. **Todo cambio va al `CHANGELOG.md` con su versión — y se escribe CON el commit,
+   no al final.** El estándar completo (qué nivel según qué tocaste, formato del
+   commit, el flujo de `## [No publicado]`) está en **[`VERSIONADO.md`](VERSIONADO.md)**
+   y lo hace cumplir `check_changelog.py`.
    Publicar sin entrada es publicar sin traza: pasó con v4.1 hasta que se marcó.
 
 6. **NO se mide por fuera del runner.** Un script propio que llame a los modelos pierde
