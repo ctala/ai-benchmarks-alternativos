@@ -50,6 +50,7 @@ from benchmarks.tests import integridad_idioma  # suite nueva 12-ago-2026
 # está— así que no dependen del juez para puntuar lo esencial.
 from benchmarks.tests import verificar_claim, extraer_claims, dominio_entidad
 from benchmarks.tests import verificar_claims_lote
+from benchmarks.suites import presupuesto_de
 # Suites duras (13-ago-2026). Se AGREGAN, no reemplazan: ningún run previo se
 # invalida. Miden donde el examen todavía discrimina — tool calling (0% de notas
 # perfectas) — y cubren el hueco que dejó el recorte de niah_es a 128K+.
@@ -221,6 +222,7 @@ def run_single_test(
     test: dict,
     timeout: int = 120,
     model_config: dict | None = None,
+    suite: str = "",
 ) -> BenchmarkResult:
     """Ejecuta un solo test contra un modelo.
 
@@ -264,7 +266,7 @@ def run_single_test(
             _msgs.insert(0, {"role": "system", "content": _prompt_tools_system(tools).lstrip()})
         result = provider.chat(
             model=model_id, messages=_msgs, tools=None, temperature=0.7,
-            max_tokens=2048, timeout=timeout, force_reasoning=force_reasoning,
+            max_tokens=presupuesto_de(suite), timeout=timeout, force_reasoning=force_reasoning,
         )
     else:
         result = provider.chat(
@@ -272,7 +274,7 @@ def run_single_test(
             messages=test["messages"],
             tools=tools,
             temperature=0.7,
-            max_tokens=2048,
+            max_tokens=presupuesto_de(suite),
             timeout=timeout,
             force_reasoning=force_reasoning,
         )
@@ -310,7 +312,7 @@ def run_single_test(
             return result
         retry = provider.chat(
             model=model_id, messages=test["messages"], tools=tools,
-            temperature=0.7, max_tokens=2048, timeout=timeout,
+            temperature=0.7, max_tokens=presupuesto_de(suite), timeout=timeout,
             force_reasoning=force_reasoning,
         )
         retry.test_name = test["name"]
@@ -352,6 +354,7 @@ def run_multi_turn_script(
     test: dict,
     timeout: int = 120,
     model_config: dict | None = None,
+    suite: str = "agent_long_horizon",   # su única suite; el presupuesto sale de ahí
 ) -> BenchmarkResult:
     """Ejecuta un test multi-turn con script de usuario pre-escrito.
 
@@ -374,7 +377,7 @@ def run_multi_turn_script(
             messages=messages,
             tools=None,
             temperature=0.7,
-            max_tokens=2048,
+            max_tokens=presupuesto_de(suite),
             timeout=timeout,
             force_reasoning=force_reasoning,
         )
@@ -387,7 +390,7 @@ def run_multi_turn_script(
         if (not last_result.success) or not (last_result.response or "").strip():
             retry = provider.chat(
                 model=model_id, messages=messages, tools=None, temperature=0.7,
-                max_tokens=2048, timeout=timeout, force_reasoning=force_reasoning,
+                max_tokens=presupuesto_de(suite), timeout=timeout, force_reasoning=force_reasoning,
             )
             if retry.success and (retry.response or "").strip():
                 last_result = retry            # transitorio: el reintento lo trae
@@ -1535,9 +1538,11 @@ def run_benchmark(args):
                     print(f"{label}...", end=" ", flush=True)
 
                     if test.get("type") == "multi_turn_script":
-                        result = run_multi_turn_script(provider, model_id, test, REQUEST_TIMEOUT, model_config=model_config)
+                        result = run_multi_turn_script(provider, model_id, test, REQUEST_TIMEOUT,
+                                                       model_config=model_config, suite=suite_name)
                     else:
-                        result = run_single_test(provider, model_id, test, REQUEST_TIMEOUT, model_config=model_config)
+                        result = run_single_test(provider, model_id, test, REQUEST_TIMEOUT,
+                                                 model_config=model_config, suite=suite_name)
                     scores = evaluate_result(result, test, model_config, judge=judge, suite_name=suite_name)
                     scores["suite"] = suite_name
                     scores["run"] = run_num + 1

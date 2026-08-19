@@ -121,6 +121,12 @@ THINKING_MODELS = (
     # La lección de fondo: en 2026 razonar por default es lo NORMAL, no la excepción.
     # Esta lista nació como catálogo de rarezas y hoy describe a la mayoría; un modelo
     # nuevo que no esté acá es la anomalía, no al revés.
+    # Y los dos que se me pasaron en la primera pasada del 18-ago, detectados porque
+    # su p90 seguía clavado en 2.048 mientras el resto ya llegaba a 8.192. Que el fix
+    # de un modo de falla deje fuera a dos de la misma cosecha es el argumento más
+    # fuerte para lo de abajo: la lista no se completa a mano, se verifica midiendo.
+    "minimax-m2.7", "MiniMax-M2.7",         # 77% cortado
+    "step-3.5", "stepfun",                  # Step 3.5 Flash — 88% cortado
     "qwen3.8",                              # toda la familia 3.8 (max, 2.4t, 27b)
     "seed-2",                               # ByteDance Seed 2.x
     "longcat",                              # Meituan LongCat
@@ -149,7 +155,52 @@ THINKING_TOKEN_MULTIPLIER = 4
 # metodología de single-shot. Documentado como limitación del benchmark.
 # Para los demás thinking models (GPT-5/o1/o3/Kimi K2.6/Nemotron/Gemma 4),
 # 8192 funciona bien en casi todos los casos.
-THINKING_MIN_TOKENS = 8192
+THINKING_MIN_TOKENS = 16384  # subido de 8192 el 18-ago-2026 — ver abajo
+#
+# POR QUÉ 16.384 Y NO 8.192
+# ─────────────────────────
+# Cristian: *"nos sale más caro estar midiéndolos tantas veces sin resultado.
+# Subamos el techo, no tiene sentido terminar ahora."*
+#
+# Con 8.192, la re-medición de los tests largos seguía cortándose:
+#
+#     Claude Opus 5      100% de sus 6 tests    p90 = 8192 (agotado)
+#     Claude Opus 5 Fast  82%                   p90 = 8192
+#     Qwen 3.8 Max        43%                   p90 = 8194
+#
+# El p90 pegado EXACTAMENTE al techo es la firma de que el límite lo pone el techo y
+# no el modelo. Y el contraste que lo confirma: Opus 5 por la ruta de suscripción —que
+# no pasa por este adapter— tiene p90 de 10.231 y máximo de 61.741.
+#
+# El costo de NO subirlo no es ahorro: es volver a medir. Cada pasada con el techo
+# corto produce runs que hay que archivar y rehacer, así que el examen se paga dos y
+# tres veces para terminar igual sin dato. Subir el techo NO encarece por sí mismo —
+# se factura lo que el modelo genera, no el límite— y sólo se paga de más en los tests
+# donde antes se cortaba, que son justamente los que no servían.
+
+
+def presupuesto_efectivo(max_tokens: int, es_thinking: bool) -> int:
+    """El techo real que se le pide al proveedor.
+
+    18-ago-2026 — POR QUÉ HAY UN `if` Y NO UNA MULTIPLICACIÓN A SECAS.
+    El ×4 y el piso nacieron para compensar un `max_tokens` base de 2.048 elegido a
+    ojo: si el modelo razonaba, ese techo se le iba en pensar y devolvía vacío. Eran
+    parches sobre un número arbitrario.
+
+    Desde hoy el runner manda el presupuesto **de la tarea**, calibrado contra la
+    demanda real medida (`benchmarks/suites.py:PRESUPUESTO_SALIDA`). Multiplicar ESO
+    por cuatro daba 131.072 tokens para `agent_long_horizon` — un techo que varios
+    proveedores rechazan de plano y que, si alguno lo aceptara, sale carísimo.
+
+    Así que el multiplicador sólo se aplica cuando el techo que llega es el viejo y
+    bajo (< 8.192, típico de un call site que todavía no pasa la suite). Cuando ya
+    viene calibrado, se respeta tal cual: es la medida, no una estimación que corregir.
+    """
+    if not es_thinking:
+        return max_tokens
+    if max_tokens >= 8192:
+        return max_tokens          # ya viene del presupuesto por tarea
+    return max(max_tokens * THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS)
 
 # Tiempo de espera del cliente HTTP. Subido a 360s tras detectar timeouts
 # residuales en DeepSeek V4 Pro (abril 27, 2026). Original 60s → 240s →
@@ -224,7 +275,7 @@ class UnifiedProvider:
             reasoning_on_llama = self.provider_name == "llama_server_think"
             if is_llama_server:
                 token_param = "max_tokens"
-                effective_max = (max(max_tokens * THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS)
+                effective_max = (presupuesto_efectivo(max_tokens, True)
                                  if reasoning_on_llama else max_tokens)
             else:
                 is_thinking = force_reasoning or any(
@@ -245,7 +296,7 @@ class UnifiedProvider:
                     # soporte de verdad las tools que le mandamos.
                     token_param = ("max_tokens" if self.provider_name == "openrouter"
                                    else "max_completion_tokens")
-                    effective_max = max(max_tokens * THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS)
+                    effective_max = presupuesto_efectivo(max_tokens, True)
                 else:
                     token_param = "max_tokens"
                     effective_max = max_tokens
@@ -636,7 +687,7 @@ class OpenAIResponsesProvider:
             # Pro models son thinking heavy: aplicar multiplicador del estándar
             is_thinking = any(model.startswith(p) or p in model for p in THINKING_MODELS)
             effective_max = (
-                max(max_tokens * THINKING_TOKEN_MULTIPLIER, THINKING_MIN_TOKENS)
+                presupuesto_efectivo(max_tokens, True)
                 if is_thinking
                 else max_tokens
             )

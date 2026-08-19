@@ -1,10 +1,10 @@
 # Grok 4.6 — code_generation/n8n_workflow_json
 
 - model_id: `x-ai/grok-4.6`
-- success: True  | final: 5.88 | quality: 6.6
-- latency_total: 57.625s | tokens_per_second: 65.0
-- input_tokens: 319 | output_tokens: 3746
-- judge_score: 3.0 | justificación: 
+- success: True  | final: 5.89 | quality: 6.72
+- latency_total: 87.764s | tokens_per_second: 63.3
+- input_tokens: 319 | output_tokens: 5556
+- judge_score: 2.8 | justificación: 
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -26,13 +26,13 @@ Dame el JSON completo del workflow.
 
 ```json
 {
-  "name": "Clasificar mensaje y enviar a Slack",
+  "name": "Clasificador de Mensajes Webhook → Slack",
   "nodes": [
     {
       "parameters": {
         "httpMethod": "POST",
         "path": "clasificar-mensaje",
-        "responseMode": "lastNode",
+        "responseMode": "onReceived",
         "options": {}
       },
       "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
@@ -49,13 +49,13 @@ Dame el JSON completo del workflow.
             {
               "id": "email-field",
               "name": "email",
-              "value": "={{ $json.body?.email ?? $json.email }}",
+              "value": "={{ $json.body.email }}",
               "type": "string"
             },
             {
               "id": "message-field",
               "name": "message",
-              "value": "={{ $json.body?.message ?? $json.message }}",
+              "value": "={{ $json.body.message }}",
               "type": "string"
             }
           ]
@@ -63,214 +63,226 @@ Dame el JSON completo del workflow.
         "options": {}
       },
       "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
-      "name": "Extraer campos",
+      "name": "Extraer Campos",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [460, 400]
     },
     {
       "parameters": {
-        "resource": "text",
-        "operation": "message",
-        "modelId": {
+        "inputText": "={{ $json.message }}",
+        "categories": {
+          "categories": [
+            {
+              "category": "soporte",
+              "description": "Problemas técnicos, incidencias, errores, tickets, ayuda o soporte al cliente"
+            },
+            {
+              "category": "ventas",
+              "description": "Precios, compras, cotizaciones, productos, contrataciones o consultas comerciales"
+            },
+            {
+              "category": "otro",
+              "description": "Cualquier mensaje que no sea de soporte ni de ventas"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+      "name": "Clasificar Mensaje",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1,
+      "position": [680, 400]
+    },
+    {
+      "parameters": {
+        "model": {
           "__rl": true,
           "value": "gpt-4o-mini",
           "mode": "list",
           "cachedResultName": "gpt-4o-mini"
         },
-        "messages": {
-          "values": [
-            {
-              "role": "system",
-              "content": "Eres un clasificador. Debes clasificar el mensaje del usuario en EXACTAMENTE una de estas categorías: soporte, ventas, otro.\n\nReglas:\n- soporte: incidencias, errores, ayuda técnica, tickets, problemas de producto.\n- ventas: precios, presupuestos, contrataciones, demos, compras.\n- otro: cualquier cosa que no encaje en las anteriores.\n\nResponde ÚNICAMENTE con una palabra: soporte, ventas u otro. Sin comillas, sin puntuación y sin explicación."
-            },
-            {
-              "content": "=Email del remitente: {{ $json.email }}\nMensaje:\n{{ $json.message }}"
-            }
-          ]
-        },
         "options": {
           "temperature": 0
         }
       },
-      "id": "c3d4e5f6-a7b8-9012-cdef-123456789012",
-      "name": "Clasificar con OpenAI",
-      "type": "n8n-nodes-base.openAi",
-      "typeVersion": 1.8,
-      "position": [680, 400],
+      "id": "d4e5f6a7-b8c9-0123-def0-234567890123",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [680, 620],
       "credentials": {
         "openAiApi": {
-          "id": "REEMPLAZAR_OPENAI_CREDENTIAL_ID",
+          "id": "OPENAI_CREDENTIAL_ID",
           "name": "OpenAI account"
         }
       }
     },
     {
       "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "cat-field",
-              "name": "categoria",
-              "value": "={{ ($json.message?.content ?? $json.text ?? $json.choices?.[0]?.message?.content ?? '').toString().toLowerCase().trim() }}",
-              "type": "string"
-            },
-            {
-              "id": "email-keep",
-              "name": "email",
-              "value": "={{ $('Extraer campos').item.json.email }}",
-              "type": "string"
-            },
-            {
-              "id": "msg-keep",
-              "name": "message",
-              "value": "={{ $('Extraer campos').item.json.message }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "d4e5f6a7-b8c9-0123-def0-234567890123",
-      "name": "Normalizar clasificacion",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [900, 400]
-    },
-    {
-      "parameters": {
-        "rules": {
-          "values": [
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": false,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "leftValue": "={{ $json.categoria }}",
-                    "rightValue": "soporte",
-                    "operator": {
-                      "type": "string",
-                      "operation": "contains"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "soporte"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": false,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "leftValue": "={{ $json.categoria }}",
-                    "rightValue": "ventas",
-                    "operator": {
-                      "type": "string",
-                      "operation": "contains"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "ventas"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": false,
-                  "leftValue": "",
-                  "typeValidation": "loose",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "leftValue": "={{ $json.categoria }}",
-                    "rightValue": "otro",
-                    "operator": {
-                      "type": "string",
-                      "operation": "contains"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "otro"
-            }
-          ]
-        },
-        "options": {
-          "fallbackOutput": "extra"
-        }
-      },
-      "id": "e5f6a7b8-c9d0-1234-ef01-345678901234",
-      "name": "Enrutar por categoria",
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 3.2,
-      "position": [1120, 400]
-    },
-    {
-      "parameters": {
+        "authentication": "accessToken",
         "select": "channel",
         "channelId": {
           "__rl": true,
-          "mode": "name",
-          "value": "#support"
+          "value": "#support",
+          "mode": "name"
         },
-        "text": "=*Nuevo ticket de soporte*\n• Email: {{ $json.email }}\n• Clasificación: soporte\n\n*Mensaje:*\n{{ $json.message }}",
+        "text": "=*Nuevo mensaje de SOPORTE*\n*Email:* {{ $('Extraer Campos').item.json.email }}\n*Mensaje:* {{ $('Extraer Campos').item.json.message }}",
+        "otherOptions": {}
+      },
+      "id": "e5f6a7b8-c9d0-1234-ef01-345678901234",
+      "name": "Slack Soporte",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [960, 200],
+      "credentials": {
+        "slackApi": {
+          "id": "SLACK_CREDENTIAL_ID",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "accessToken",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "#sales",
+          "mode": "name"
+        },
+        "text": "=*Nuevo mensaje de VENTAS*\n*Email:* {{ $('Extraer Campos').item.json.email }}\n*Mensaje:* {{ $('Extraer Campos').item.json.message }}",
         "otherOptions": {}
       },
       "id": "f6a7b8c9-d0e1-2345-f012-456789012345",
-      "name": "Slack #support",
+      "name": "Slack Ventas",
       "type": "n8n-nodes-base.slack",
-      "typeVersion": 2.3,
-      "position": [1400, 160],
-      "webhookId": "slack-support",
+      "typeVersion": 2.2,
+      "position": [960, 400],
       "credentials": {
         "slackApi": {
-          "id": "REEMPLAZAR_SLACK_CREDENTIAL_ID",
+          "id": "SLACK_CREDENTIAL_ID",
           "name": "Slack account"
         }
       }
     },
     {
       "parameters": {
+        "authentication": "accessToken",
         "select": "channel",
         "channelId": {
           "__rl": true,
-          "mode": "name",
-          "value": "#sales"
+          "value": "#general",
+          "mode": "name"
         },
-        "text": "=*Nuevo lead / consulta de ventas*\n• Email: {{ $json.email }}\n• Clasificación: ventas\n\n*Mensaje:*\n{{ $json.message }}",
+        "text": "=*Nuevo mensaje (OTRO)*\n*Email:* {{ $('Extraer Campos').item.json.email }}\n*Mensaje:* {{ $('Extraer Campos').item.json.message }}",
         "otherOptions": {}
       },
       "id": "a7b8c9d0-e1f2-3456-0123-567890123456",
-      "name": "Slack #sales",
+      "name": "Slack General",
       "type": "n8n-nodes-base.slack",
-      "typeVersion": 2.3,
-      "position": [1400, 360],
-      "webhookId": "slack-sales",
+      "typeVersion": 2.2,
+      "position": [960, 600],
       "credentials": {
         "slackApi": {
-          "id": "REEMPLAZAR_SLACK_CREDENTIAL_ID",
+          "id": "SLACK_CREDENTIAL_ID",
           "name": "Slack account"
         }
       }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Extraer Campos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
-    {
-      "parameters": {
-        "select": "channel",
-        "channelId
+    "Extraer Campos": {
+      "main": [
+        [
+          {
+            "node": "Clasificar Mensaje",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Clasificar Mensaje",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clasificar Mensaje": {
+      "main": [
+        [
+          {
+            "node": "Slack Soporte",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Slack Ventas",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Slack General",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1a2b3c4d-5e6f-7890-abcd-ef1234567890",
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "instanceId": "n8n-instance"
+  },
+  "id": "wf-clasificador-mensajes",
+  "tags": []
+}
+```
+
+**Cómo usarlo**
+
+1. En n8n: **Workflows → Import from File / URL / JSON** y pega este JSON.
+2. Configura credenciales:
+   - **OpenAI** en el nodo `OpenAI Chat Model`.
+   - **Slack** (Bot Token) en los 3 nodos Slack. El bot necesita `chat:write` y estar invitado a `#support`, `#sales` y `#general`.
+3. Activa el workflow. El webhook queda en:  
+   `POST https://<tu-n8n>/webhook/clasificar-mensaje`
+
+**Body de ejemplo**
+
+```json
+{
+  "email": "cliente@ejemplo.com",
+  "message": "No puedo iniciar sesión en la plataforma"
+}
+```
+
+Flujo: Webhook → extrae `email`/`message

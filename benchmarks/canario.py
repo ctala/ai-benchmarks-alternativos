@@ -200,21 +200,38 @@ def main() -> int:
         print("=" * 70)
         print(f"  {len(todos)} INVARIANTE(S) ROTO(S) — NO lanzar el lote")
         print("=" * 70)
+        # SE ESCRIBE RECIBO TAMBIÉN AL FALLAR (18-ago-2026).
+        #
+        # Antes, un canario rojo simplemente no tocaba el archivo — y quedaba en su
+        # lugar el recibo VERDE de la corrida anterior. Esa tarde eso hizo exactamente
+        # lo que tenía que evitar: el canario dijo «no lanzar» a las 18:27 y el lote
+        # arrancó igual, porque el script leyó un recibo de las 06:27, de otro modelo,
+        # que decía ok.
+        #
+        # Un recibo viejo diciendo verde es PEOR que no tener recibo: el que no existe
+        # se nota, el que miente no. Ahora el fallo deja constancia con su motivo.
+        _escribir_recibo(args.models, ok=False, motivos=todos)
         return 1
     # Recibo. El canario estaba documentado en SEIS lugares y exigido en cero: se
     # corría cuando alguien se acordaba. Con el recibo, el runner puede negarse a
     # lanzar un lote grande sin uno fresco — que es la diferencia entre una regla
     # escrita y una regla que se cumple.
+    _escribir_recibo(args.models, ok=True)
+    print("  ✓ invariantes OK — el lote puede lanzarse")
+    return 0
+
+
+def _escribir_recibo(modelos, ok: bool, motivos=None) -> None:
+    """El recibo, verde o rojo. Que exista SIEMPRE es lo que evita leer uno viejo."""
     import datetime as _dt
     recibo = ROOT / "benchmarks" / "results" / "_canario_ultimo.json"
     recibo.write_text(json.dumps({
         "cuando": _dt.datetime.now().isoformat(timespec="seconds"),
-        "modelos": list(args.models),
+        "modelos": list(modelos),
         "suites": list(SUITES_CANARIO),
-        "ok": True,
+        "ok": ok,
+        "motivos": motivos or [],
     }, ensure_ascii=False, indent=2))
-    print("  ✓ invariantes OK — el lote puede lanzarse")
-    return 0
 
 
 if __name__ == "__main__":

@@ -1,9 +1,9 @@
 # Seed 2.1 Turbo — structured_output/json_simple_extraction
 
 - model_id: `bytedance-seed/seed-2-1-turbo`
-- success: True  | final: 8.75 | quality: 10.0
-- latency_total: 7.57s | tokens_per_second: 28.4
-- input_tokens: 140 | output_tokens: 215
+- success: True  | final: 8.89 | quality: 10.0
+- latency_total: 5.396s | tokens_per_second: 42.3
+- input_tokens: 140 | output_tokens: 228
 
 ## Entrada exacta (lo que recibió el modelo)
 

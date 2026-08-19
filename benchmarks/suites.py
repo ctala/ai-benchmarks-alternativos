@@ -62,6 +62,50 @@ contra los runs en disco, que cuesta $0 (`PLAN-ESTABILIDAD.md` R1).
 # produce los números que ya están publicados. Alinear el menú al export no mueve ningún
 # score: solo cambia en qué sección del desplegable aparece el ítem — que hasta hoy le
 # mentía al usuario sobre cómo se computa el pilar que está viendo.
+# ── Presupuesto de salida por tarea (18-ago-2026) ────────────────────────────
+#
+# Cristian, antes de relanzar: *"¿estás seguro que con 16k es suficiente?"*. No lo
+# estaba, y medirlo dio la respuesta: sobre 2.748 runs de la ruta SIN nuestro techo
+# (Claude por suscripción, que no pasa por el adapter), la demanda real es
+#
+#     p50 = 1.106 · p90 = 5.172 · p95 = 8.313 · p99 = 18.735 · máx = 61.741
+#
+# y lo que supera 16k se concentra en UNA suite:
+#
+#     agent_long_horizon   19% de sus runs > 16k   (p95 = 29.927)
+#     strategy              8%                     (p95 = 18.735)
+#     las otras 26 suites   0%
+#
+# Por eso el techo es por TAREA y no global: subirlo a 32k en todas sería pagar de más
+# en veintiséis para arreglar una. Y no rompe el `max_tokens` uniforme que adoptamos de
+# LiveBench — ese principio pide el mismo límite para todos los MODELOS, no para todas
+# las tareas. Doce turnos de conversación necesitan más aire que clasificar una frase, y
+# darles lo mismo era justamente lo que sesgaba la medición.
+# Cristian, al decidirlo: *"mejor tener el valor alto y no usarlo, que tenerlo bajo y
+# rehacer"*. Es correcto y conviene dejarlo escrito porque es contraintuitivo: el
+# `max_tokens` es un TECHO, no una reserva — se factura lo que el modelo genera, así que
+# subirlo no cuesta nada por sí mismo. Lo único que sube el gasto son los casos donde el
+# modelo de verdad necesitaba más aire; y ésos, con el techo corto, se pagaban igual y
+# encima había que rehacerlos. El techo generoso ABARATA.
+#
+# El límite no es el dinero: es que varios proveedores rechazan con error 400 un
+# `max_tokens` desproporcionado. Por eso los valores siguen anclados a la demanda medida
+# (máx observado 61.741) y no a un número arbitrariamente enorme.
+PRESUPUESTO_SALIDA = {
+    "agent_long_horizon": 65536,   # 8 y 12 turnos. Cubre el máximo observado (61.741)
+    "strategy": 32768,
+    "deep_reasoning": 32768,
+    "code_generation": 32768,
+    "business_strategy": 32768,
+}
+PRESUPUESTO_DEFECTO = 24576        # 26 suites no llegan ni a 16k; esto es aire de sobra
+
+
+def presupuesto_de(suite: str) -> int:
+    """Cuántos tokens de salida se le dan a esta tarea. Igual para TODOS los modelos."""
+    return PRESUPUESTO_SALIDA.get(suite, PRESUPUESTO_DEFECTO)
+
+
 SUITES = {
     # ── Razonamiento ──────────────────────────────────────────────────────────
     "reasoning": {
