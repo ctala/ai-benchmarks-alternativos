@@ -1702,3 +1702,30 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 .wiz-restart:hover { background: rgba(0,212,255,.22); }
 .wiz-restart.arriba { display: block; margin: 4px 0 18px; }
 .wiz-restart.abajo  { margin-top: 20px; }
+
+
+/* ── La fila desplegable tiene que ANUNCIARSE (19-ago-2026) ──────────────────
+   Cristian: *"me gustó lo de tener la row desplegable, pero no se entiende que
+   hay una hasta que le haces click"*. Un affordance que sólo se descubre por
+   accidente no existe para la mayoría — es el mismo problema que el wizard.
+   El chevron va junto al número, gira al abrir, y la fila se levanta al pasar
+   por encima para que se lea como algo accionable. */
+.fila-modelo { cursor: pointer; transition: background .12s ease; }
+.fila-modelo .chev {
+  display: inline-block; color: var(--gray-dark); font-size: .8em;
+  transition: transform .15s ease, color .15s ease; margin-left: .15rem;
+}
+.fila-modelo:hover .chev { color: var(--green); }
+.fila-modelo.abierta .chev { transform: rotate(90deg); color: var(--green); }
+.fila-modelo:hover { background: rgba(57, 255, 20, 0.06); }
+
+/* Enlace a la ficha del modelo. `stopPropagation` en el onclick evita que
+   además despliegue la fila: son dos acciones distintas y el usuario elige. */
+.ir-ficha {
+  font-family: 'JetBrains Mono', monospace; font-size: .68rem; margin-left: .5rem;
+  color: var(--cyan); text-decoration: none; opacity: 0; transition: opacity .12s ease;
+  white-space: nowrap;
+}
+.fila-modelo:hover .ir-ficha, .ir-ficha:focus { opacity: 1; }
+.ir-ficha:hover { text-decoration: underline; }
+@media (hover: none) { .ir-ficha { opacity: .75; } }  /* en táctil no hay hover */

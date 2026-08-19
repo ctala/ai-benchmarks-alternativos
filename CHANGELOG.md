@@ -8,6 +8,16 @@
 > Cada commit que toca código o datos agrega su línea acá, **en el momento**, no al
 > cerrar la versión. Estándar: [VERSIONADO.md](VERSIONADO.md).
 
+- **La fila desplegable ahora se anuncia.** Cristian: *"me gustó lo de tener la row
+  desplegable, pero no se entiende que hay una hasta que le haces click"*. Un affordance
+  que sólo se descubre por accidente no existe para la mayoría — el mismo problema que el
+  wizard invisible. Va un chevron junto al número que gira al abrir, y la fila reacciona
+  al pasar por encima.
+- **Desde la tabla se llega a la ficha del modelo** (`ficha ↗`), con `stopPropagation`
+  para que no despliegue la fila a la vez: son dos acciones y las elige el usuario. Sólo
+  aparece en los RANKEADOS, que son los únicos con ficha generada — enlazar sin
+  condicionar mandaría a un 404 desde la pantalla más visitada. Lo vigila W14.
+
 - **El wizard recomendaba para «producción» un modelo que falla la tarea entera.** `piso`
   es el peor de los k intentos (el `pass^k` de τ-bench): 0,00 significa que al menos una
   vez el modelo no hizo el trabajo. `scoreAgentico` ya lo ponderaba, pero ese camino sólo

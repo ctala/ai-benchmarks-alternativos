@@ -1082,7 +1082,16 @@ function fichaModelo(m) {
 
 function toggleFicha(i) {
   const f = document.getElementById(`ficha-${i}`);
-  if (f) f.classList.toggle("abierta");
+  if (!f) return;
+  const abierta = f.classList.toggle("abierta");
+  // La FILA también se marca: es la que muestra el chevron, y sin esto el indicador
+  // no gira aunque el detalle se abra. Un affordance que no responde al click enseña
+  // que no es clickeable — justo lo contrario de lo que queremos.
+  const fila = f.previousElementSibling;
+  if (fila && fila.classList.contains("fila-modelo")) {
+    fila.classList.toggle("abierta", abierta);
+    fila.setAttribute("aria-expanded", abierta ? "true" : "false");
+  }
 }
 
 function render() {
@@ -1246,9 +1255,11 @@ function render() {
       <tbody>
         ${sorted.map((m, i) => `
           <tr class="fila-modelo" onclick="toggleFicha(${i})" title="Click para ver velocidad, latencia, seguridad y por qué quedó acá">
-            <td class="num">${i + 1}</td>
+            <td class="num">${i + 1} <span class="chev" aria-hidden="true">▸</span></td>
             <td>
               <span class="model-name">${m.name}</span>${notRankedBadge(m)}
+              ${m.ranked ? `<a class="ir-ficha" href="/modelo/${m.key}/" onclick="event.stopPropagation()"
+                 title="Ver la ficha completa de ${m.name}">ficha ↗</a>` : ""}
               <div class="model-meta">${modelTags(m)} · ${m.id}</div>
             </td>
             <td class="num">${scorePill(m._task_score)}</td>

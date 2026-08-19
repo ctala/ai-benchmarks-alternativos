@@ -742,6 +742,22 @@ chequeo("W11 · las tareas finas recomiendan por su eje medido, no por el pilar"
   return malas;
 });
 
+// ── W14 · el enlace a la ficha no puede ser un 404 ──────────────────────────
+// La tabla enlaza a `/modelo/<key>/`, que sólo existe para los RANKEADOS —
+// `generate_model_cards` no genera los demás—. Y la tabla muestra también no
+// rankeados (con su badge). Enlazar sin condicionar mandaría a un 404 desde la
+// pantalla más visitada del sitio, que es la clase de error que nadie reporta:
+// el visitante simplemente se va.
+chequeo("W14 · cada enlace a ficha apunta a una ficha que existe", () => {
+  const malas = [];
+  const dir = join(ROOT, "docs", "modelo");
+  for (const m of MODELOS) {
+    if (!m.ranked) continue;               // los no rankeados no llevan enlace
+    if (!existsSync(join(dir, m.key))) malas.push(`${m.name} (${m.key}): rankeado y sin ficha`);
+  }
+  return malas;
+});
+
 // ── W13 · nunca recomendar para un agente algo que falla la tarea ENTERA ────
 // `piso` es el peor de los k intentos (el `pass^k` de τ-bench): 0,00 significa que al
 // menos una vez el modelo no hizo el trabajo. Para algo desatendido eso no es «peor»,
